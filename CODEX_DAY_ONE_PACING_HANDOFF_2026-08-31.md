@@ -110,6 +110,10 @@ suppressed `_say` calls as you rewire each site.
 | `roshan_dustboss_closer` | Closer! Get under him and tap! |
 | `roshan_dustboss_again` | So close! Wait for the flash and tap fast! |
 | `roshan_dustboss_hit` | BONK! Great tapping! |
+| `roshan_dustboss_win` | We did it! The Great Dust Bunny is our friend now! |
+| `roshan_dustboss_dizzy` | He's dizzy! Tap tap tap! |
+| `roshan_dustboss_angry` | Uh oh, he's puffing up! Watch for the star! |
+| `roshan_dustboss_leap` | He's jumping! Get ready! |
 | `roshan_day1_close1` | We cleaned the whole castle! It's all sparkly! |
 | `roshan_day1_close2` | What a big day! More adventures tomorrow! |
 
@@ -257,7 +261,7 @@ present the play path still works for the bathroom seams; suite green.
 today's silent fail-open.
 
 ### WP-P7 — Gates for the wing (`MA-CI-004` + the wing's candidate checker)
-**Do:** promote the remaining day-one probes (pool cleanup, director,
+**Do:** (if the refinement round's WP-A1 has already promoted them, verify at Stage 0 and report no change needed) promote the remaining day-one probes (pool cleanup, director,
 integration, art attack state, castle dressing, start-menu routing;
 shot probes stay advisory) into `scripts/ci.sh`'s trusted loop after
 three consecutive local greens each; NEW `tools/audit_beat_spacing.py`
@@ -272,7 +276,7 @@ packages name; no arming the lint as blocking (Stage R proposes arming).
 day-one bursts after WP-P3; suite wall time inside the workflow ceiling.
 **Inverse:** roster lines and the tool are additive removals.
 
-### WP-PR — Independent re-audit (the round's Stage R)
+### WP-PR — Independent re-audit (this round's counterpart of the refinement round's Stage R; distinct package IDs, distinct round)
 An agent that implemented nothing re-executes every package gate,
 verifies each beat against this handoff and `DL-PACE-01..06`, runs the
 deliberate-break demo for WP-P7's promotions, confirms the growth-law

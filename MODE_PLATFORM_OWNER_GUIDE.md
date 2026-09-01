@@ -53,7 +53,7 @@ growth:
 
 ## 2. Accept branches differently — the five questions
 
-Before you merge (or tell the integration lane to merge) any branch, ask
+Before you merge any branch (or before the next run's kickoff prompt tells the orchestrator to merge it), ask
 these in order. A "no" on any of them is a bounce-back, not a discussion:
 
 1. **Does the diff touch `main.gd`?**
@@ -62,9 +62,7 @@ these in order. A "no" on any of them is a bounce-back, not a discussion:
    only when every touched hunk is a delegating shim or a recorded
    migration step — and the report says which.
 2. **Is the ratchet green and did no budget go up?**
-   `python3 tools/audit_structure.py` — read the `STRUCTURE|` lines. A
-   budget increase without a waiver you personally approved is an
-   automatic reject, whatever the feature does.
+   `python3 tools/audit_structure.py` — read the `STRUCTURE|` lines (once M0 has landed; until then the tool does not exist and the interim line in §1 applies). A budget increase without a waiver you personally approved is an automatic reject, whatever the feature does.
 3. **Is the probe real and gated?** The new mode's probe exists, appears
    in BOTH trusted rosters (`scripts/ci.sh` and
    `.github/workflows/probes.yml`), and the branch's CI run is green at
@@ -83,7 +81,7 @@ one (which has enforcement).
 ## 3. Grant waivers rarely, and only in writing
 
 Sometimes growth on main is genuinely right for a moment. The mechanism is
-the waiver entry in `tools/structure_budget.json` (design/08 §7), and it is
+the waiver entry in `tools/structure_budget.json` (design/08 §7, once M0 has landed), and it is
 **yours alone to grant** — an agent may request one, never write one.
 
 A waiver names: the field, the finding or reason, your acknowledgement,
@@ -122,7 +120,7 @@ result**:
 
 ## 5. Keep the calendar — three recurring rituals
 
-1. **After every dev→master promotion:** ask the integration lane to close
+1. **After every dev→master promotion:** put in the next run's kickoff prompt the closure of
    any shim windows whose promotion cycle has completed (each closure is
    its own small commit with probe-callsite updates). Shims that never
    close become the next flavor of debt.
@@ -132,7 +130,7 @@ result**:
    missing wings FIRST. A chapter built before its wings exist is the
    hand-tweaking you are trying to retire.
 3. **After every wing lands, or monthly:** commission a master-audit round
-   (the canonical protocol, `audit/MASTER_AUDIT_2026-08-09.md` §6/§13) and
+   (the canonical protocol, `audit/MASTER_AUDIT_2026-08-09.md` §9, §12, and §13) and
    include the **growth-law spot check** — you can paste this to any agent
    any time you're suspicious:
 
@@ -171,7 +169,7 @@ with the replacement habit:
 |---|---|
 | The Day One wing (+~2,000 lines, ~30 functions) was accepted onto main because the feature worked | Run §2's question 1 on every branch; "works" and "done" are different claims |
 | The opera god object was dismantled into… a new 6,185-line god object | Accept **decomposition plans** (`DL-CODE-02` headers with named modules), never relocations; a file that got smaller by making another file huge is a reject |
-| A whole wing shipped with eight probes and none gated | Question 3 — and put the probe-first line in every prompt (§1), because agents deliver what the prompt demands |
+| A whole wing shipped with eight probes and none gated at the time (thirteen now, three gated) | Question 3 — and put the probe-first line in every prompt (§1), because agents deliver what the prompt demands |
 | The passive no-fail test went blind to every new reward surface | Question 4; when WP-A2 lands, this becomes automatic — until then, ask explicitly |
 | Docs and audits drifted 44 documents behind reality | The doc gate now fails CI on drift; your part is refusing "I'll update the ledger later" the same way you refuse "probe to follow" |
 | Shrink targets existed for six weeks with no enforcement and lost ground | Never accept a structural promise that isn't a ratchet budget, a probe, or a CI gate; prose targets are wishes |

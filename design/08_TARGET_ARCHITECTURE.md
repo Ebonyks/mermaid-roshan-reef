@@ -37,10 +37,10 @@ new wing must edit main to exist**:
 | Seam | Where it lives today | Cost of mode N+1 |
 |---|---|---|
 | Mode start/stop | a hand-copied `_start_X_now` / `_end_X` pair per mode — the same music-save / `game = id` / HUD-off / hide-player / instantiate / `finish_cb` sequence seven-plus times | ~30 lines on main |
-| Tick dispatch | the ~300-line `_process` and the `_enter_arena` switch route by string id | edits to both |
+| Tick dispatch | the ~390-line `_process` and the `_enter_arena` switch route by string id | edits to both |
 | Interaction/touch registration | `_populate_touch_interactables` and friends on main | edits on main |
-| Cross-cutting services | `_say`, `_set_objective`, `_sparkle_burst`, `_reward`, `_write_save`, and six builder helpers are **private methods of main**, called ~6,400 times from satellites as `m._…` | main can never shrink below the sum of its services |
-| Ephemeral state | the `g` scratch dictionary (409 distinct string keys) plus main-side fields | new keys, new fields |
+| Cross-cutting services | `_say`, `_set_objective`, `_sparkle_burst`, `_reward`, `_write_save`, and six builder helpers are **private methods of main**, called 846 times from satellites as `m._…()` (about 6,100 `m.` member accesses of every kind; both measured 2026-09-01) — `m._…` | main can never shrink below the sum of its services |
+| Ephemeral state | the `g` scratch dictionary (409 distinct string keys at `9a1754c1`; 413 at the 2026-09-01 re-audit) plus main-side fields | new keys, new fields |
 
 Six weeks of a standing shrink target still lost ground
 (8,239 → 10,499 lines) because every shrink was a one-off extraction while
@@ -184,7 +184,7 @@ func restore(data: Dictionary) -> void:
 ```gdscript
 ## scripts/platform/mode_context.gd
 ## The typed handle a mode receives. Modes reach shared behavior through
-## `services` and never call m._private_method() — that habit welded 6,400
+## `services` and never call m._private_method() — that habit welded ~850 private-call sites (and ~6,100 member accesses)
 ## call sites to main's internals.
 class_name ModeContext
 extends RefCounted
@@ -339,7 +339,7 @@ does behavior change.
 | `fx` | `_sparkle_burst`, celebration bursts, contact shadows | per-call node/mesh/material allocation (`MA-PERF-002`): cached mesh + per-color materials, bounded pooled node ring, Speedy-tier count reduction |
 | `reward` | `_reward`, medal awards, save-write triggers | scattered reward writes; the funnel becomes an object with one door |
 | `input` | the composite touch/stick/pad/key read | the re-implemented input reads (`MA-CODE-002`) |
-| `stage` | `_l2_box`, `_castle_mat`, `_up_mat`, `_soft_mat`, `_wall_solid`, `_cyl_solid` | the inverted dependency: ~280 cross-module calls into main-side private builders |
+| `stage` | `_l2_box`, `_castle_mat`, `_up_mat`, `_soft_mat`, `_wall_solid`, `_cyl_solid` | the inverted dependency: 422 cross-module calls into the six main-side private builders (measured 2026-09-01) |
 
 ### 4.6 The adapters (M3)
 
@@ -379,9 +379,9 @@ Probes drive modes through today's entry points (`_start_dungeon_now`,
 | Today | Target home | Step | What dissolves |
 |---|---|---|---|
 | `_start_X_now` / `_end_X` × 7+ | ModeDirector + registry rows; originals become shims | M1–M2 | the scaffold clone family (after shim windows close) |
-| `_enter_arena` switch, `_tick_game` dispatch, `_process` mode branches | `director.tick()` → adapters | M3 | ~400 lines of dispatch on main |
+| `_enter_arena` switch, `_tick_game` dispatch, `_process` mode branches | `director.tick()` → adapters | M3 | ~530 lines of dispatch on main (`_process` 386, `_enter_arena` 117, `_tick_game` 30 at the 2026-09-01 re-audit) |
 | pause-menu per-mode Leave branches | `director.leave_neutral()` | M1–M3 | one branch list |
-| six builder helpers + ~280 `m._` calls | `services.stage` (StageKit) | M4 | the inverted dependency |
+| six builder helpers + 422 `m._` builder calls | `services.stage` (StageKit) | M4 | the inverted dependency |
 | `_sparkle_burst` + celebration copies | `services.fx`, pooled + tiered | M4 | `MA-PERF-002` |
 | `_set_objective` / HUD strings / pointer | `services.objective` | M4 | text-without-voice gaps |
 | `day_one_*` glue (~30 funcs), venue + start-menu routing | Day One modes + registry rows | M6 | the newest accretion |
@@ -397,7 +397,7 @@ Probes drive modes through today's entry points (`_start_dungeon_now`,
 - **Ephemeral** (timers, positions, phase counters): typed `var`s on the
   mode instance — created at `enter`, dead at teardown. Already how every
   standalone node behaves; becomes the rule for migrated modes at M5.
-- The `g` dictionary is **frozen at 409 keys** (`MA-CODE-004`) from M0 and
+- The `g` dictionary is **frozen at its M0-measured count** (`MA-CODE-004`: 409 at `9a1754c1`, 413 at the 2026-09-01 re-audit) from M0 and
   shrinks per migrated mode; the ratchet watches the count. `mg` follows
   when the K2 kit migrates.
 
@@ -462,11 +462,12 @@ armed) reading **`tools/structure_budget.json`**:
 }
 ```
 
-Checks (each printed as a `STRUCTURE|` line; exit 1 on any FAIL once
-armed):
+Budgets are MEASURED at the M0 commit — the values above are `9a1754c1`-era illustrations, not the seed. At the 2026-09-01 re-audit the seed would be `main_gd_lines` 10,927, `distinct_g_keys` 413, and check 4's report-only baseline 846; and `ceiling_exempt` must be seeded from measurement too, because four non-probe files already exceed 3,000 lines — `opera_gesture_surface.gd` 6,185 (WP-B2), `arena/castle_rooms_25d.gd` 4,881, `opera_career_world_2d.gd` 3,433, `kart.gd` 3,324 — each entering with a plan reference and expiry or a `# DECOMPOSITION_PLAN:` header, or check 2 fails the moment it arms.
+
+Checks (each printed as a `STRUCTURE|` line; exit 1 on any FAIL once armed):
 
 1. `scripts/main.gd` line count ≤ `main_gd_lines`.
-2. Every `scripts/**.gd` ≤ `file_line_ceiling` unless listed in
+2. Every non-probe `scripts/**.gd` ≤ `file_line_ceiling` (probes are `MA-CI-007`'s domain) unless listed in
    `ceiling_exempt` with a plan reference and an expiry, or carrying a
    `# DECOMPOSITION_PLAN:` header naming its intended modules
    (`DL-CODE-02`).
@@ -510,7 +511,7 @@ perform.
 |---|---|---|
 | Implementation | **Luna agents** the orchestrator spawns, one package per agent, one `codex/`- or `luna/`-prefixed branch per package off fresh `origin/dev` | The package's code and probes, its package report, its `CHG` inverse notes — nothing else |
 | Integration | the orchestrator's single closing phase (serial, after its implementation agents finish) or the owner's next run | Merging green packages, resolving cross-package drift, appending `CHG` entries and ledger rows — governance files edited once per run, serially |
-| Re-audit (Stage R) | a distinct agent inside the run that implemented **none** of the packages it reviews, or a dedicated follow-up run | Spec-conformance verification (§9) and all lifecycle transitions |
+| Re-audit (Stage R) | a distinct agent inside the run that implemented **none** of the packages it reviews, or a dedicated follow-up run | Spec-conformance verification (§9) and all lifecycle transitions, applied on the governance branch `claude/master-audit-game-analysis-qiko9l` (master audit §3.2, owner instruction 2026-08-30) |
 | Owner | the human | One kickoff prompt per stage; the §11 review points, waivers, promotions; judging what a run hands back |
 
 **The single-writer rule (binding):** implementation agents do **not**

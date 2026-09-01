@@ -853,9 +853,9 @@ target-device, child, owner, or accepted-visual result is claimed.
 | fix | Continue small behavior-preserving extractions into typed satellites until the target is met, with no opportunistic rewrite. |
 | surrounding_tests | Parser and inference lint; exact before/after focused probes; passive; save/load/recovery/re-entry; UI/touch; sibling systems; full trusted probes and exact CI for each extraction. |
 | acceptance | `main.gd` is below 2,500 lines through reviewed mechanical extractions, behavior/save contracts are unchanged, and all required gates remain green. |
-| closure | Open as of 2026-08-26; current line count is 10,499 and no complete extraction sequence, final gate result, closure commit, or date exists. |
+| closure | Open as of 2026-08-26; 10,927 lines at the 2026-09-01 re-audit (10,499 at `9a1754c1`) and no complete extraction sequence, final gate result, closure commit, or date exists. |
 | relationships | Coupled structural risks are `MA-CODE-002`; broad medium migration is `MA-2D-002`; release risk aggregates under `MA-RELEASE-001`; the 2026-08-26 round decomposes bounded sub-risks into `MA-CODE-003`, `MA-CODE-004`, `MA-PERF-002`, and `MA-SAVE-001`. |
-| history | 2026-07-18: extraction-only target documented. 2026-08-13: `09e5e356` measured 8,647 lines; `51d0abc0` measured 8,734; lifecycle `CONFIRMED_OPEN`. 2026-08-26: integration head `9a1754c1` measures 10,499 lines (+1,765 in thirteen days) with 480 functions — the Day One glue (about thirty `day_one_*` functions), start-menu routing, and venue delegation landed on main while `scripts/day_one_director.gd` exists as a 673-line satellite; the shrink trajectory is reversed and `DL-CODE-01` now names the criterion; lifecycle remains `CONFIRMED_OPEN`. |
+| history | 2026-07-18: extraction-only target documented. 2026-08-13: `09e5e356` measured 8,647 lines; `51d0abc0` measured 8,734; lifecycle `CONFIRMED_OPEN`. 2026-08-26: integration head `9a1754c1` measures 10,499 lines (+1,765 in thirteen days) with 480 functions — the Day One glue (about thirty `day_one_*` functions), start-menu routing, and venue delegation landed on main while `scripts/day_one_director.gd` exists as a 673-line satellite; the shrink trajectory is reversed and `DL-CODE-01` now names the criterion; lifecycle remains `CONFIRMED_OPEN`. 2026-09-01: independent re-audit (`audit/MASTER_AUDIT_REAUDIT_2026-09-01.md`): 10,927 lines (+428 since `9a1754c1`), 503 functions (+23), 49 `day_one`-named functions on main (26 then), `scripts/day_one_director.gd` 748 lines (673 then); +20 of the 428 are the animation wing's exemplar edits — recorded against `DL-CODE-01` with its netting plan in the re-audit record; the trend is still rising. |
 
 ## MA-CODE-002
 
@@ -878,7 +878,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | Each confirmed sub-risk has a bounded repair and regression evidence, no speculative caller change is smuggled in, and state/input/save/render contracts remain green. |
 | closure | Open as of 2026-08-13; sub-risk decomposition and repairs are incomplete, with no aggregate acceptance result, closure commit, or date. |
 | relationships | Companion to size finding `MA-CODE-001`; save/release risk affects `MA-RELEASE-001`; remaining 3D glue contributes to `MA-2D-002`; Chef caller exclusion relates to `MA-OPERA-001`. |
-| history | 2026-08-09: grouped structural risks confirmed. 2026-08-12: speculative Chef caller hardening explicitly excluded. 2026-08-13: lifecycle remains `CONFIRMED_OPEN`. 2026-08-26: the code-refinement round re-measures the group at `9a1754c1` — 409 distinct string state keys, eight verbatim pointer-glyph copies, three `_action_pressed` copies, roughly 280 cross-module calls into main-side private builder helpers, and 38 probe-private `_frames` helpers — and carves bounded sub-findings `MA-CODE-003`, `MA-CODE-004`, `MA-PERF-002`, `MA-SAVE-001`, and `MA-CI-007` out of this group per its own fix plan; the residual group stays `CONFIRMED_OPEN` for what remains. |
+| history | 2026-08-09: grouped structural risks confirmed. 2026-08-12: speculative Chef caller hardening explicitly excluded. 2026-08-13: lifecycle remains `CONFIRMED_OPEN`. 2026-08-26: the code-refinement round re-measures the group at `9a1754c1` — 409 distinct string state keys, eight verbatim pointer-glyph copies, three `_action_pressed` copies, roughly 280 cross-module calls into main-side private builder helpers, and 38 probe-private `_frames` helpers — and carves bounded sub-findings `MA-CODE-003`, `MA-CODE-004`, `MA-PERF-002`, `MA-SAVE-001`, and `MA-CI-007` out of this group per its own fix plan; the residual group stays `CONFIRMED_OPEN` for what remains. 2026-09-01: independent re-audit (`audit/MASTER_AUDIT_REAUDIT_2026-09-01.md`): pointer-glyph (8) and `_action_pressed` (3) copies CONFIRMED; the "roughly 280" builder-call figure is ADJUSTED — the six named builders total 422 calls from non-main scripts (`_l2_box` 172, `_castle_mat` 76, `_up_mat` 58, `_soft_mat` 51, `_wall_solid` 34, `_cyl_solid` 31), and all `m._private(` calls from non-main scripts total 846 across 127 helpers; distinct `g` keys 413; `_frames` copies 39. |
 
 ## MA-CI-004
 
@@ -901,7 +901,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | Both rosters carry the promoted probes, a deliberately injected Day One routing break turns the gate red, and suite wall time stays inside the workflow ceiling. |
 | closure | Open as of 2026-08-26; partial roster growth observed 2026-08-31. |
 | relationships | Decomposes release risk from `MA-RELEASE-001`; complements `MA-CI-003` classification and `MA-CI-005` passive coverage; the ungated surface is the subject of the `MA-PACE-*` chapter review. |
-| history | 2026-08-26: confirmed by roster cross-check; opened `CONFIRMED_OPEN`. 2026-08-31: pacing-wing re-count — the day-one probe family has grown to 13 files (`probe_day_one_*` plus `probe_start_menu_routing`), of which 3 now run in both trusted rosters (`probe_day_one_bathroom_cleanup`, `probe_day_one_bathroom_integration`, `probe_day_one_bathroom_movie_handoff`); the remaining 10 — pool cleanup, director, integration, art studio/attack state, castle dressing, pool/bathroom/art shot probes, and start-menu routing — still gate nothing. Remains `CONFIRMED_OPEN`. |
+| history | 2026-08-26: confirmed by roster cross-check; opened `CONFIRMED_OPEN`. 2026-08-31: pacing-wing re-count — the day-one probe family has grown to 13 files (`probe_day_one_*` plus `probe_start_menu_routing`), of which 3 now run in both trusted rosters (`probe_day_one_bathroom_cleanup`, `probe_day_one_bathroom_integration`, `probe_day_one_bathroom_movie_handoff`); the remaining 10 — pool cleanup, director, integration, art studio/attack state, castle dressing, pool/bathroom/art shot probes, and start-menu routing — still gate nothing. Remains `CONFIRMED_OPEN`. 2026-09-01: independent re-audit (`audit/MASTER_AUDIT_REAUDIT_2026-09-01.md`): CONFIRMED in substance; the ten ungated files also include `probe_day_one_bathroom_bunny` (omitted from the 2026-08-31 enumeration); the promotion is claimed by both WP-A1 (refinement round) and WP-P7 (pacing round) — whichever round runs first executes it and the other verifies at Stage 0 and reports no change needed. |
 
 ## MA-CI-005
 
@@ -938,7 +938,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | severity | P2 |
 | lifecycle | `CONFIRMED_OPEN` |
 | verification | V1: copies located and counted by exact text search; behavioral equivalence of each family is asserted from reading, not runtime diffing. |
-| reproduction | At `9a1754c1`: the `pointer.text = "▼"` Label3D block appears eight times; `func _action_pressed()` is verbatim in `scripts/dungeon_puzzle_room.gd:312`, `scripts/combat_arena.gd:354`, `scripts/stuffie_battle.gd:285`; the keyed cached-material factory `_mat(col, glow)` with primitive trio recurs across `dungeon_puzzle_room.gd` and `opera_house.gd`; `_gather_aabbs`-style kits recur in `ember_fortress.gd`, `kart.gd`, `galaxy.gd`, and main; a thirty-line Roshan avatar spawn is cloned between `ember_fortress.gd` and `galaxy.gd`; the eight-branch keyboard-to-stage input map is cloned between `games/side_scroll.gd` and `games/octagon_stage.gd`; main's `_start_X_now`/`_end_X` scaffolds repeat per standalone mode. |
+| reproduction | At `9a1754c1`: the `pointer.text = "▼"` Label3D block appears eight times; `func _action_pressed()` is verbatim in `scripts/dungeon_puzzle_room.gd:312`, `scripts/combat_arena.gd:354`, `scripts/stuffie_battle.gd:285`; the keyed cached-material factory `_mat(col, glow)` with primitive trio recurs across `dungeon_puzzle_room.gd:83`, `combat_arena.gd:131`, `hit_engine.gd:814`, and `stuffie_battle.gd:133` (plus a static variant in `landmark_art.gd:10`; `opera_house.gd` was cited in error — it is a Canvas career-lifecycle table with no such factory); `_gather_aabbs`-style kits recur in `ember_fortress.gd`, `kart.gd`, `galaxy.gd`, and main; a thirty-line Roshan avatar spawn is cloned between `ember_fortress.gd` and `galaxy.gd`; the eight-branch keyboard-to-stage input map is cloned between `games/side_scroll.gd` and `games/octagon_stage.gd`; main's `_start_X_now`/`_end_X` scaffolds repeat per standalone mode. |
 | child_impact | Clone drift is how one mode's fix misses its siblings — the child meets the stale copy. |
 | evidence | Paths and line anchors above; count check `grep -rn 'pointer.text = "▼"' scripts` returns eight. |
 | owner_decision | Not required: consolidation under exact-behavior extraction is the standing refactor contract. |
@@ -947,7 +947,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | Each named family has one implementation with all call sites migrated, suite green at each step, and no behavior delta reported by the owning probes. |
 | closure | Open as of 2026-08-26; no consolidation commit exists. |
 | relationships | Decomposed from `MA-CODE-002`; probe-side boilerplate is `MA-CI-007`; size pressure feeds `MA-CODE-001`. |
-| history | 2026-08-26: copies re-verified at `9a1754c1` after the Opera dismantle relocated several; opened `CONFIRMED_OPEN`. |
+| history | 2026-08-26: copies re-verified at `9a1754c1` after the Opera dismantle relocated several; opened `CONFIRMED_OPEN`. 2026-09-01: independent re-audit (`audit/MASTER_AUDIT_REAUDIT_2026-09-01.md`): eight `"▼"` copies and three verbatim `_action_pressed` bodies CONFIRMED (now at `combat_arena.gd:355`, `stuffie_battle.gd:274`); the `_mat` factory citation of `opera_house.gd` was REFUTED and corrected in place; the AABB kit is literally `_gather_aabbs` in `ember_fortress.gd`/`kart.gd`/`galaxy.gd` while main carries the same shape as `_accumulate_aabb`/`_local_aabbs`; avatar spawn and stage-input clones CONFIRMED. |
 
 ## MA-CODE-004
 
@@ -961,16 +961,16 @@ target-device, child, owner, or accepted-visual result is claimed.
 | severity | P2 |
 | lifecycle | `CONFIRMED_OPEN` |
 | verification | V1: distinct-key count is exact; no specific live typo defect is currently reproduced. |
-| reproduction | At `9a1754c1`, `grep -rhoE 'g\["[a-z0-9_]+"\]' scripts --include='*.gd' \| sort -u \| wc -l` reports 409 distinct keys (380 at `e924d9ba` thirteen days earlier); main itself holds 82 accesses while satellites hold the rest as `m.g["…"]`. |
+| reproduction | At `9a1754c1`, `grep -rhoE 'g\["[a-z0-9_]+"\]' scripts --include='*.gd' \| sort -u \| wc -l` reports 409 distinct keys (380 at `e924d9ba` thirteen days earlier); main itself holds 92 `g["…"]` occurrences on 78 lines (94 on 80 at the 2026-09-01 head) while satellites hold the rest as `m.g["…"]`. |
 | child_impact | A misspelled state key reads as a default instead of erroring, producing wrong-but-quiet behavior in whatever mode the child is in. |
 | evidence | Count command above; the historical shrink of `g` on main relocated rather than reduced the surface. |
 | owner_decision | Not required: `DL-CODE-04` states the direction; no schema or save change is involved. |
 | fix | Freeze the surface (no new keys — reviewed against the baseline count), introduce typed accessor helpers or per-mode typed state objects for the top-traffic key families (phase/timer/position groups), and migrate one mode per commit mechanically. |
 | surrounding_tests | Full suite per migration; a lint count of distinct keys recorded in the round metrics so growth is visible at the next audit. |
 | acceptance | Distinct-key count is at or below 409 at the next audit round and at least two high-traffic modes read state through typed accessors with suite green. |
-| closure | Open as of 2026-08-26; count is 409 and growing. |
+| closure | Open as of 2026-08-26; 413 at the 2026-09-01 re-audit and growing. |
 | relationships | Decomposed from `MA-CODE-002`; interacts with `MA-CODE-001` extraction boundaries. |
-| history | 2026-08-26: counted 409 distinct keys (up from 380 on 2026-08-13's parent head); opened `CONFIRMED_OPEN`. |
+| history | 2026-08-26: counted 409 distinct keys (up from 371 at `e924d9ba`, 2026-08-13's parent head — the 380 first recorded did not reproduce); opened `CONFIRMED_OPEN`. 2026-09-01: independent re-audit (`audit/MASTER_AUDIT_REAUDIT_2026-09-01.md`): the record's own grep reproduces 409 at `9a1754c1` exactly and yields 413 at head; the `e924d9ba` figure and the main-side access count were corrected in place. |
 
 ## MA-CODE-005
 
@@ -1000,12 +1000,12 @@ target-device, child, owner, or accepted-visual result is claimed.
 | Field | Value |
 |---|---|
 | id | `MA-PERF-002` |
-| title | `_sparkle_burst` allocates a particle node, a mesh, and a material on every call from 141 sites with no quality-tier gate, including a permanent wayfinder cadence. |
+| title | `_sparkle_burst` allocated a particle node, a mesh, and a material on every call from ~140 sites with no quality-tier gate, including a permanent wayfinder cadence; the mesh/material half was fixed 2026-08-31, the per-call node and the missing tier gate remain. |
 | rule_ids | `DL-CODE-07`, `DL-CODE-08`, `DL-PERF-03` |
 | domain / zone | Runtime performance / `scripts/main.gd` effect helper, game-wide callers |
 | source | 2026-08-26 code-refinement round allocation sweep at integration head `9a1754c1`, decomposed from `MA-CODE-002`. |
 | severity | P2 |
-| lifecycle | `CONFIRMED_OPEN` |
+| lifecycle | `IN_PROGRESS` |
 | verification | V1: allocation pattern and call count are exact; no target-device frame-time measurement isolates its cost yet. |
 | reproduction | At `9a1754c1`, `scripts/main.gd:8001` constructs `CPUParticles3D.new()` + `BoxMesh.new()` + `StandardMaterial3D.new()` per call and frees via a tween 1.6 seconds later; 141 call references exist across scripts; the wayfinder emits bursts on a repeating cadence during free roam; no `speedy`/quality check appears in the function. |
 | child_impact | Steady allocation and node churn on a weak phone GPU/CPU is a plausible hitch source exactly while the child follows the sparkle trail. |
@@ -1014,16 +1014,16 @@ target-device, child, owner, or accepted-visual result is claimed.
 | fix | Cache one shared `BoxMesh` and per-color materials, pool a small ring of particle nodes, and add the Speedy-tier reduction (fewer simultaneous bursts) per `DL-CODE-08`; keep visual output otherwise identical. |
 | surrounding_tests | Full suite; visual spot-check of a celebration and the wayfinder trail; later target-device frame capture under `MA-PERF-001`'s protocol. |
 | acceptance | No per-call allocation of mesh/material remains, pooled nodes are bounded, tier reduction exists, and the suite is green with unchanged probe output. |
-| closure | Open as of 2026-08-26; helper unchanged. |
+| closure | Allocation half fixed 2026-08-31 in `ceb12271`/`f265ecc7` (animation wing, `MA-ANIM-002`): the mesh and per-color materials are cached and only the particles node is per-call; the quality-tier half — burst amount/cadence under Speedy, the wayfinder's two bursts per 2.2 s — remains open. |
 | relationships | Decomposed from `MA-CODE-002`; device evidence rolls up to `MA-PERF-001`; tier-coverage context is `MA-PERF-003`. |
-| history | 2026-08-26: re-verified at `9a1754c1` (141 sites; body allocates all three resources); opened `CONFIRMED_OPEN`. |
+| history | 2026-08-26: re-verified at `9a1754c1` (141 sites; body allocates all three resources); opened `CONFIRMED_OPEN`. 2026-09-01: independent re-audit (`audit/MASTER_AUDIT_REAUDIT_2026-09-01.md`): the allocation claim is FALSE at head because this session's own animation wing fixed it without updating this record — corrected now; lifecycle `CONFIRMED_OPEN` → `IN_PROGRESS`; call-site count is ~140 by call grep (141 counted the definition); the tier-gate half stays with WP-C4/WP-B5 and the tablet wing's measurement. |
 
 ## MA-PERF-003
 
 | Field | Value |
 |---|---|
 | id | `MA-PERF-003` |
-| title | The newest child-facing surfaces — the Canvas Melody theater, the Day One director, the side-scroll stage, and the remaining spatial Galaxy/companion layers — contain no quality-tier awareness at all. |
+| title | The newest child-facing surfaces — the Canvas Melody theater, the Day One director, the side-scroll stage, and the remaining spatial companion layer — contain no quality-tier awareness at all (the Galaxy layer's 2026-08-05 Speedy light-cull is the exception). |
 | rule_ids | `DL-CODE-08`, `DL-PERF-02`, `DL-PERF-03` |
 | domain / zone | Runtime performance / newest gameplay surfaces game-wide |
 | source | 2026-08-26 code-refinement round tier-coverage sweep at integration head `9a1754c1`. |
@@ -1037,9 +1037,9 @@ target-device, child, owner, or accepted-visual result is claimed.
 | fix | Per surface, identify the dominant cost (redraw cadence, canvas particle counts, ambient loop counts, decoded texture residency, remaining 3D lights/cards) and either implement a Speedy reduction or record a measured budget note stating why none is needed, per `DL-CODE-08`. |
 | surrounding_tests | Full suite; before/after screenshots at both tiers for one touched surface; later device capture under `MA-PERF-001`. |
 | acceptance | Every named surface has either a tier path or a recorded budget note, and the suite is green. |
-| closure | Open as of 2026-08-26; no tier work exists in the named files. |
+| closure | Open as of 2026-08-26; no tier work exists in melody, the Day One director, side-scroll, the opera gesture surface, or companion; `galaxy.gd` was cited in error. |
 | relationships | Effect churn is `MA-PERF-002`; device evidence is `MA-PERF-001`; spatial remainder overlaps `MA-2D-002`. |
-| history | 2026-08-26: swept at `9a1754c1`; opened `CONFIRMED_OPEN`. |
+| history | 2026-08-26: swept at `9a1754c1`; opened `CONFIRMED_OPEN`. 2026-09-01: independent re-audit (`audit/MASTER_AUDIT_REAUDIT_2026-09-01.md`): REFUTED for `scripts/galaxy.gd` — `_gate_light()` at `galaxy.gd:83-86` culls OmniLights by `_main.quality != "speedy"` (alpha audit 2026-08-05) and was present at `9a1754c1`, so the claim was false at authoring; melody (1,295 lines / 0 hits), side-scroll (930 / 0), opera gesture surface (6,185 / only the unrelated `quality` signal), and companion (flavor string only) CONFIRMED; `day_one_director.gd` is now 748 lines, still 0 hits. |
 
 ## MA-SAVE-001
 
@@ -1069,7 +1069,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | Field | Value |
 |---|---|
 | id | `MA-AUDIO-002` |
-| title | The microphone capture player routes to a "Mic" bus that does not exist in the bus layout and depends on a runtime bus rename to avoid audible self-capture. |
+| title | The microphone capture player routes to a "Mic" bus that does not exist in the bus layout and depends on a runtime bus creation to avoid audible self-capture. |
 | rule_ids | `DL-SND-04`, `DL-SND-14`, `DL-AGE-08` |
 | domain / zone | Audio routing / `scripts/mic_input.gd`, `default_bus_layout.tres` |
 | source | 2026-08-26 code-refinement round audio-routing sweep at integration head `9a1754c1`. |
@@ -1085,7 +1085,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | The layout declares the muted Mic bus, `probe_audio` asserts it, and the rename fallback becomes unreachable in normal boot. |
 | closure | Open as of 2026-08-26; layout unchanged. |
 | relationships | Mix-review context is `MA-AUDIO-001`. |
-| history | 2026-08-26: verified layout and assignment at `9a1754c1`; opened `CONFIRMED_OPEN`. |
+| history | 2026-08-26: verified layout and assignment at `9a1754c1`; opened `CONFIRMED_OPEN`. 2026-09-01: independent re-audit (`audit/MASTER_AUDIT_REAUDIT_2026-09-01.md`): layout (six buses, no Mic) and `mic_input.gd:244` CONFIRMED; mechanism corrected — `_ensure_bus()` (`:216-229`) does not rename a spare bus, it appends a new one (`add_bus` + `set_bus_name("Mic")`, sent to Master at −80 dB, deliberately NOT muted so the analyzer bus effect still sees signal); any declared-layout fix must preserve the −80 dB/analyzer arrangement rather than mute the bus. |
 
 ## MA-TOUCH-002
 
@@ -1131,7 +1131,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | Promotion refuses a SHA whose newest run is red and refuses a roster-count mismatch; a normal green promotion still passes. |
 | closure | Open as of 2026-08-26; workflow unchanged. |
 | relationships | Release aggregation is `MA-RELEASE-001`; roster hygiene is `MA-CI-004`. |
-| history | 2026-08-26: confirmed by workflow read; opened `CONFIRMED_OPEN`. |
+| history | 2026-08-26: confirmed by workflow read; opened `CONFIRMED_OPEN`. 2026-09-01: independent re-audit (`audit/MASTER_AUDIT_REAUDIT_2026-09-01.md`): CONFIRMED; wording refined — the query does filter `head_branch == 'dev'`, so "regardless of event type or recency" stands while a same-branch `workflow_dispatch` re-run still satisfies the gate. |
 
 ## MA-CI-007
 
@@ -1168,30 +1168,30 @@ target-device, child, owner, or accepted-visual result is claimed.
 | severity | P2 |
 | lifecycle | `CONFIRMED_OPEN` |
 | verification | V1: the stale pin, its locking test fixtures, and its absence from the baseline tool's required pins are read exactly; no fresh 4.7.2 capture has yet been run against it to demonstrate the rejection live. |
-| reproduction | `tools/audit_opera_capture.py:518-530` hard-codes `"patch": 1` and requires the version string `4.7.1-stable (official)`, erroring "exact official Godot 4.7.1 required"; `tools/tests/test_audit_opera_capture.py:148,473` assert the same string; `tools/audit_godot_baseline.py` enforces `4.7.2-stable` across 13 required files that do not include this tool; `tools/plan_audit_rollback.py` carries 7 live narratives instructing exact-4.7.1 gate reruns. Any capture manifest produced by the pinned 4.7.2 binary fails the gate; current CI stays green only because the gate is exercised against historical 4.7.1-era manifests. |
+| reproduction | `tools/audit_opera_capture.py:518-530` hard-codes `"patch": 1` and requires the version string `4.7.1-stable (official)`, erroring "exact official Godot 4.7.1 required"; `tools/tests/test_audit_opera_capture.py:148` asserts the same string (its `:471-475` sibling is a negative test proving a differently formatted `4.7.1.stable.official.fixture` string is rejected); `tools/audit_godot_baseline.py` enforces `4.7.2-stable` across 12 pinned files that do not include this tool; `tools/plan_audit_rollback.py` carries 7 lines naming exact-4.7.1 gates, 3 of them forward-looking instructions (`:789`, `:899`, `:1191`). Any capture manifest produced by the pinned 4.7.2 binary fails the gate; the tool is not invoked by `scripts/ci.sh` or any workflow — it runs in opera capture rounds — so CI does not exercise it and the rejection lands on the next capture round. |
 | child_impact | Indirect: the next opera capture round under the real baseline fails or, worse, is worked around ad hoc, weakening the visual-evidence chain that protects what she sees. |
-| evidence | File/line anchors above; `tools/godot_baseline.json` (4.7.2-stable, release 2026-08-18); 151 repo-wide `4.7.1` mentions of which most are legitimately historical. |
+| evidence | File/line anchors above; `tools/godot_baseline.json` (4.7.2-stable, release 2026-08-18); 172 lines (175 occurrences) mentioning `4.7.1` repo-wide by literal grep, most of them legitimately historical. |
 | owner_decision | Not required: reading the baseline record is the already-decided governance (`DL-ENGINE-01`). |
 | fix | `audit_opera_capture.py` derives its required version from `tools/godot_baseline.json`; its test fixtures follow; the tool joins `audit_godot_baseline.py` required pins so the drift class is structurally closed; the integration lane adds a then-current-baseline qualifier to the 7 rollback narratives. |
 | surrounding_tests | Baseline contract tests; opera capture tool tests updated with a drift-fixture negative; full suite green; one fresh capture manifest demonstrated accepted under 4.7.2. |
 | acceptance | No literal engine-version assertion remains outside the baseline record or its required-pins list, and a 4.7.2-produced capture manifest passes the gate. |
 | closure | Open as of 2026-08-30; the stale pin is live. |
 | relationships | Sibling of `MA-ENGINE-002`; evidence-chain kin to `MA-VIS-006`. |
-| history | 2026-08-30: confirmed by the engine-adoption inventory; opened `CONFIRMED_OPEN`. |
+| history | 2026-08-30: confirmed by the engine-adoption inventory; opened `CONFIRMED_OPEN`. 2026-09-01: independent re-audit (`audit/MASTER_AUDIT_REAUDIT_2026-09-01.md`): stale pin and its `:148` fixture CONFIRMED; `:473` corrected (negative test); pinned-file count 13 → 12; rollback narratives 7 mentions / 3 instructions; the earlier 151 mention count came from an unescaped-dot pattern and never reproduced — 172 lines by literal grep; the gate is outside the CI path, which sharpens rather than weakens the finding. |
 
 ## MA-ENGINE-002
 
 | Field | Value |
 |---|---|
 | id | `MA-ENGINE-002` |
-| title | Two 4.4-attributed engine-bug protocols run unrevalidated on 4.7.2: the exit-124 amnesty that can convert a genuine hang into a pass, and the NPOT importer-deadlock rule. |
+| title | Two engine-bug protocols run unrevalidated on 4.7.2 — the explicitly 4.4-attributed exit-124 amnesty that can convert a genuine hang into a pass, and the undated NPOT importer-deadlock rule of 4.4-era origin. |
 | rule_ids | `DL-ENGINE-03`, `DL-QA-02`, `DL-QA-07` |
 | domain / zone | CI gate honesty / `scripts/ci.sh`, `.github/workflows/probes.yml`, importer protocol |
 | source | 2026-08-30 engine-adoption evaluation repo inventory. |
 | severity | P2 |
 | lifecycle | `CONFIRMED_OPEN` |
 | verification | V1: both protocols and their 4.4 attributions are read exactly; whether either bug reproduces on 4.7.2 is precisely the unverified question. |
-| reproduction | `scripts/ci.sh:179-186` and `.github/workflows/probes.yml:196-205` accept a timeout-kill (exit 124) as a pass when the transcript tail matches `ALL OK\|RESULT`, with comments attributing the hang to "Godot 4.4 … deadlocks at EXIT" (dated 2026-07-18, never re-observed on the 4.7 line); the NPOT + `compress/mode=2` headless importer-deadlock warning in `CLAUDE.md:94-96`/`AGENTS.md:225-227` with enforcement at `scripts/probe_melody.gd:519-523` and `tools/audit_visual_design.py:1844-1872` likewise dates to the 4.4 era. |
+| reproduction | `scripts/ci.sh:184-195` and `.github/workflows/probes.yml:196-205` accept a timeout-kill (exit 124) as a pass when the transcript tail matches `ALL OK\|RESULT`, with comments attributing the hang to "Godot 4.4 … deadlocks at EXIT" (dated 2026-07-18, never re-observed on the 4.7 line); the NPOT + `compress/mode=2` headless importer-deadlock warning in `CLAUDE.md:94-96`/`AGENTS.md:225-227` with a hard assertion at `scripts/probe_melody.gd:519-523` and advisory WARN/INFO checks at `tools/audit_visual_design.py:1839-1873` (the hard POT/size gate is separate at `:1812-1830`) carries no version or date in any of those files — its 4.4-era origin is a chronology inference, not a stated attribution. |
 | child_impact | Indirect but real: the amnesty can green-light a build whose engine genuinely hangs at exit on 4.7.2 — a wedge class on her phone that CI is structured to forgive. |
 | evidence | File/line anchors above; the amnesty fires on the 124 path in both gate copies. |
 | owner_decision | Doc-side wording changes to `CLAUDE.md`/`AGENTS.md` are explicit-task-only: WP-E1 reports results and proposed wording; the owner applies or approves the edits. |
@@ -1200,7 +1200,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | Neither protocol attributes its reason to an engine version the project does not run; each is either retired on demonstrated evidence or re-dated with a 4.7.2 observation and a re-test trigger for the next bump. |
 | closure | Open as of 2026-08-30; both protocols unrevalidated. |
 | relationships | Sibling of `MA-ENGINE-001`; gate-honesty kin to `MA-CI-007`. |
-| history | 2026-08-30: confirmed by the engine-adoption inventory; opened `CONFIRMED_OPEN`. |
+| history | 2026-08-30: confirmed by the engine-adoption inventory; opened `CONFIRMED_OPEN`. 2026-09-01: independent re-audit (`audit/MASTER_AUDIT_REAUDIT_2026-09-01.md`): both amnesty copies CONFIRMED (the `ci.sh` anchor drifted +6 lines from this session's own checker insertion); the title's symmetric "4.4-attributed" claim was REFUTED for the NPOT rule and corrected; the remediation (`DL-ENGINE-03` empirical revalidation, WP-E1) is unchanged. |
 
 ## MA-ANIM-001
 
@@ -1245,7 +1245,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | surrounding_tests | Checker keeps `_sparkle_cache` wired; probes must stay green across any gating change; capture evidence per the tablet wing's protocol. |
 | acceptance | No per-call `Resource` allocation on effect hot paths; each decorative tick either measured-and-kept (visible composition) or gated with the owner's composition answer recorded; measured frame-time delta documented. |
 | closure | Open as of 2026-08-31; allocation half fixed, gating half awaiting measurement and the composition decision. |
-| relationships | Sibling of `MA-ANIM-001`; measurement dependency on `MA-PERF-001` (tablet wing); overlaps the retiring 3D surface of `MA-2D-002` — gating work must not grow that surface. |
+| relationships | Sibling of `MA-ANIM-001`; its allocation half is the fix for `MA-PERF-002`'s allocation claim (cross-reference added 2026-09-01); measurement dependency on `MA-PERF-001` (tablet wing); overlaps the retiring 3D surface of `MA-2D-002` — gating work must not grow that surface. |
 | history | 2026-08-31: confirmed by the wing inventory; `_sparkle_burst` cache landed at opening; ungated-tick half remains open for the tablet wing's measurement. |
 
 ## MA-PACE-001
@@ -1253,23 +1253,23 @@ target-device, child, owner, or accepted-visual result is claimed.
 | Field | Value |
 |---|---|
 | id | `MA-PACE-001` |
-| title | Day One's required-objective voice layer is generic or absent: no chapter-specific recordings exist, several speakers have no playable clip at all, and one instruction is structurally caption-only. |
+| title | Day One's required-objective voice layer is generic or absent: no chapter-specific recordings exist, several speakers have no playable clip at all, and one instruction is caption-only on every fresh playthrough. |
 | rule_ids | `DL-SND-01`, `DL-SND-13`, `DL-AGE-01`, `DL-PACE-01` |
 | domain / zone | Non-reader communication / Day One chapter (bathroom, pool, art, hall wayfinding, dust-bunny boss) |
 | source | 2026-08-31 pacing-wing code-traced playthrough (`DAY_ONE_PACING_REVIEW_2026-08-31.md`) with measured OGG durations for all 213 voice clips. |
 | severity | P1 |
 | lifecycle | `CONFIRMED_OPEN` |
 | verification | V1 static, strong: clip inventory measured from the files; the sink-line cooldown collision is deterministic from constants (0.38 s tool travel vs the 0.5 s `show_msg` gap); no device run needed to prove absence. |
-| reproduction | Every Day One instruction voices generic `roshan_talk` (measured 1.05 s) or `roshan_win` (0.84 s); `assets/audio/voices/` contains no `rumi_*` clip (the Rumi reveal at `day_one_pool_cleanup.gd:593-595` falls to the pitched yay), no bare `roshan.ogg` (castle-entry `"home"` vo falls back to yay), no `daddy.ogg` (`daddy1..3.ogg` are sacred but unmatched by the fallback path, so every Daddy Mermaid hint is a yay), and no `dustboss_*` keys (the boss telegraph at `dust_boss.gd:243-244` is caption + yay). "Scrub the sink in little circles!" (`day_one_bathroom_cleaning.gd:811`) always lands 0.38 s after the previous roshan_talk (`:599` tool travel) inside `show_msg`'s 0.5 s gap (`audio_director.gd:16-19,173`) — caption-only on every playthrough. |
+| reproduction | Every Day One instruction voices generic `roshan_talk` (measured 1.05 s) or `roshan_win` (0.84 s); `assets/audio/voices/` contains no `rumi_*` clip (the Rumi reveal at `day_one_pool_cleanup.gd:593-595` falls to the pitched yay), no bare `roshan.ogg` (castle-entry `"home"` vo falls back to yay), no `daddy.ogg` (`daddy1..3.ogg` are sacred but unmatched by the fallback path, so every Daddy Mermaid hint is a yay), and no `dustboss_*` keys (the boss telegraph at `dust_boss.gd:243-244` is caption + yay). "Scrub the sink in little circles!" (`day_one_bathroom_cleaning.gd:811`) always lands 0.38 s after the previous roshan_talk (`:599` tool travel) inside `show_msg`'s 0.5 s gap (`audio_director.gd:16-19,173`) — caption-only on every fresh playthrough (only a resumed-supplies re-entry, which reaches the travel with just a `roshan_win` in frame, voices it). |
 | child_impact | Direct: the chapter's story beat, wayfinding redirects, climax introduction, and the only skill-teaching telegraph are text-locked for a non-reader; play survives on pointers and demos alone. |
 | evidence | Review sections 1 and 3A; measured clip table (213 clips); `tools/make_voices.py` LINES has 122 roshan entries and zero rumi/day-one entries; `VOICE_MANIFEST.md` confirms the Kokoro pipeline and the sacred set. |
 | owner_decision | Not required for TTS lines (the manifest's documented pipeline); required only if any line should instead be a family recording. |
-| fix | One `tools/make_voices.py` batch: ~35 semantic day-one lines plus a Rumi voice row, generated per-line per the manifest; delete the dead trailing `_say` calls the `show_msg` gap suppresses; re-announce the sink line after travel plus remaining cooldown or via its own semantic key. |
+| fix | One `tools/make_voices.py` batch: 41 semantic day-one lines (the handoff's script table, including all nine `dustboss_*` keys) plus a Rumi voice row, generated per-line per the manifest; delete the dead trailing `_say` calls the `show_msg` gap suppresses; re-announce the sink line after travel plus remaining cooldown or via its own semantic key. |
 | surrounding_tests | `tools/audit_audio_quality.py` ledger rows for each new clip (`DL-SND-10`/`DL-SND-12`); probe_voice; suite green; device listen per `DL-SND-09`. |
 | acceptance | Every required Day One objective resolves an exact semantic clip (no yay fallback on the core path), the sink instruction is audible on a fresh run, and the new clips carry ledger rows. |
 | closure | Open as of 2026-08-31. |
 | relationships | Chapter sibling of `MA-PACE-002/003/004`; rule kin to `MA-CI-004` (the ungated surface); voice-ledger kin to `DL-SND-10` rows. |
-| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. Same day: implementation handed to Codex as WP-P1 of `CODEX_DAY_ONE_PACING_HANDOFF_2026-08-31.md` (the full line script is written into the handoff). |
+| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. Same day: implementation handed to Codex as WP-P1 of `CODEX_DAY_ONE_PACING_HANDOFF_2026-08-31.md` (the full line script is written into the handoff). 2026-09-01: independent re-audit (`audit/MASTER_AUDIT_REAUDIT_2026-09-01.md`): all anchors and the clip inventory CONFIRMED; "every playthrough" narrowed to every fresh playthrough; the boss uses nine `dustboss_*` keys (show, tell, closer, again, win, dizzy, hit, angry, leap), so the handoff script grew from 37 to 41 lines. |
 
 ## MA-PACE-002
 
@@ -1299,14 +1299,14 @@ target-device, child, owner, or accepted-visual result is claimed.
 | Field | Value |
 |---|---|
 | id | `MA-PACE-003` |
-| title | The chapter has no close and every session pays a retraversal tax: winning the boss tears down to reef free-roam with the castle locked behind her, `day_one_active` never clears, and Continue always respawns at the promenade for the full walk. |
+| title | The chapter has no close and every session pays a retraversal tax: winning the boss tears down to reef free-roam, `day_one_active` never clears (jobs, opera, the royal hall, and the castle's eight non-Act-One rooms stay locked while the four cleaned rooms merely reopen), and Continue always respawns at the promenade for the full walk. |
 | rule_ids | `DL-PACE-02`, `DL-PACE-04`, `DL-AGE-06` |
 | domain / zone | Chapter structure / boss teardown, door-language gating, start-menu resume |
 | source | 2026-08-31 pacing-wing code-traced playthrough; teardown chain re-verified (`main.gd:8583-8584`, `:10827-10834`). |
 | severity | P1 |
 | lifecycle | `CONFIRMED_OPEN` |
-| reproduction | `_start_game(dust_boss_fr)` overwrites `g` (`main.gd:8975`), destroying the `phase=="hall"` castle context; `_clear_game` then sets `game=""`, `g={}` (`:8583-8584`) and `_leave_arena_now` teleports to `return_pos` in reef free-roam (`:10827-10834`) — the castle never re-opens itself. `day_one_active` is assigned only at launch (`main.gd:3784`) and by the director setter; completing the boss sets only `day_one_giant_dust_bunny_boss_triggered` (`day_one_director.gd:430`), after which `resolve_act_one` returns `BLOCKED` for all four rooms and `__royal_hall` (`castle_door_language.gd:47-55`; `main.gd:6864-6867`) while jobs and opera stay locked (`main.gd:6858-6862`). Resume: Continue → `_launch_from_start_menu(true)` → `_enter_level2_now` at promenade master x 610 (`start_menu.gd:243-244`; `main.gd:3776-3777`; `sky_lagoon_promenade.gd:261-262`) — 4,702 master px (≈6 s held travel) plus castle re-entry and hall walk, every session; the reef-plane guidance line re-fires each arrival, pointing away from the chapter. |
-| child_impact | Direct: the climax exits to an unrelated space with no celebration arc; the castle she just saved becomes four blocked doors; each short session (the design pillar) opens with the same empty walk. |
+| reproduction | `_start_game(dust_boss_fr)` → `_start_game_now` overwrites `g` (`main.gd:8976`, after the fade cut), destroying the `phase=="hall"` castle context; `_clear_game` then sets `game=""`, `g={}` (`:8583-8584`) and `_leave_arena_now` teleports to `return_pos` in reef free-roam (`:10827-10834`) — the castle never re-opens itself. `day_one_active` is written only by its declaration default (`main.gd:309`), the launch (`main.gd:3784`), the director setter, and `restore_state` (`day_one_director.gd:485`); completing the boss sets only `day_one_giant_dust_bunny_boss_triggered` (`day_one_director.gd:430`), after which `resolve_act_one` returns `BLOCKED` for `__royal_hall` and the eight non-Act-One destinations (`castle_door_language.gd:47-50`; `main.gd:6864-6867`) while the four completed rooms resolve `OPEN` to a "sparkly clean" line (`castle_door_language.gd:51-52`; `main.gd:6903-6906`) and jobs and opera stay locked (`main.gd:6858-6862`) — nothing new opens. Resume: Continue → `_launch_from_start_menu(true)` → `_enter_level2_now` at promenade master x 610 (`start_menu.gd:243-244`; `main.gd:3776-3777`; `sky_lagoon_promenade.gd:261-262`) — 4,702 master px (≈6 s held travel) plus castle re-entry and hall walk, every session; the reef-plane guidance line re-fires each arrival, pointing away from the chapter. |
+| child_impact | Direct: the climax exits to an unrelated space with no celebration arc; the castle she just saved offers nothing new — four already-clean rooms and eight blocked doors; each short session (the design pillar) opens with the same empty walk. |
 | verification | V1 static on exact teardown/gating code; the experienced-severity half (how it feels) is a device/owner observation by nature. |
 | evidence | Review sections 1 (final rows) and 3C; surveyor trace section 7a/7b anchors. |
 | owner_decision | REQUIRED: what day-one completion unlocks is a story call — clear `day_one_active` into free-play/day-two, or an authored bedtime close with the next chapter gated. The finding binds only that SOME close exists and the boss returns into the castle. |
@@ -1315,7 +1315,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | Post-boss the child stands in the castle with a spoken close and a defined next state; Continue reaches the current objective in ≤ ~15 s of travel; no door is left permanently `BLOCKED` without an owner-recorded story reason. |
 | closure | Open as of 2026-08-31. |
 | relationships | Chapter sibling of `MA-PACE-001/002/004`; resume kin to `DL-AGE-06`; gating kin to the door-language wing (`design/07_CASTLE_DOOR_LANGUAGE.md`). |
-| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. Same day: implementation handed to Codex as WP-P4 under owner decision D1 (close-state; default A). |
+| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. Same day: implementation handed to Codex as WP-P4 under owner decision D1 (close-state; default A). 2026-09-01: independent re-audit (`audit/MASTER_AUDIT_REAUDIT_2026-09-01.md`): teardown chain and resume tax CONFIRMED; the door-state mechanism was REFUTED and corrected — the four completed rooms resolve OPEN, the royal hall and eight non-Act-One rooms stay BLOCKED; the conclusion (no close, nothing new opens, jobs/opera locked) is unchanged; anchors refined (`main.gd:8976`, `restore_state` write site). |
 
 ## MA-PACE-004
 
@@ -1328,7 +1328,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | source | 2026-08-31 pacing-wing code-traced playthrough. |
 | severity | P2 |
 | lifecycle | `CONFIRMED_OPEN` |
-| reproduction | Idle voice is disabled whenever `game != ""` (`main.gd:1162-1172` early return), and `_tick_hints` is dead on the Day One route (`first_session` cleared at `main.gd:3780`), so no time-based re-prompt exists anywhere in the castle; pointers are permanent instead of idle-gated (`day_one_art_studio.gd:352-373`; `day_one_bathroom_cleanup.gd:650-658`). `SINK_MAX_GESTURE_SECONDS`/`TUB_MAX_GESTURE_SECONDS` (`day_one_bathroom_cleaning.gd:26-28`) are declared, exported in the audit snapshot, and read by no logic. The boss opens at `VULNERABILITY_WINDOW 0.75` s, `FINAL_ROUND_VULNERABILITY_WINDOW 0.65` s at `1.25×` speed (`dust_bunny_boss_sprite.gd:18-22`), with mercy only from `MERCY_TRIGGER_STREAK 5` (`dust_boss.gd:75-83`) — against `DL-INT-09`'s no-required-reaction precedent and the `DL-INT-08` five/ten-second assistance lineage. |
+| reproduction | Idle voice is disabled whenever `game != ""` (`main.gd:1162-1172` early return), and `_tick_hints` is dead on the Day One route (`first_session` cleared at `main.gd:3780`), so no time-based re-prompt exists anywhere in the castle; the pointer tier is present as `DL-AGE-01` requires (`day_one_art_studio.gd:352-373`; `day_one_bathroom_cleanup.gd:650-658`) but no timed voice or demonstration tier sits above it. `SINK_MAX_GESTURE_SECONDS`/`TUB_MAX_GESTURE_SECONDS` (`day_one_bathroom_cleaning.gd:26-28`) are declared, exported in the audit snapshot, and read by no logic. The boss opens at `VULNERABILITY_WINDOW 0.75` s, `FINAL_ROUND_VULNERABILITY_WINDOW 0.65` s at `1.25×` speed (`dust_bunny_boss_sprite.gd:20-22`), with mercy only from `MERCY_TRIGGER_STREAK 5` (`dust_boss.gd:75-83`) — against `DL-INT-09`'s no-required-reaction precedent and the `DL-INT-08` five/ten-second assistance lineage. |
 | child_impact | Direct: a stuck child gets no spoken help anywhere in the chapter, and the finale's likely first-contact experience is five misses before the game softens. |
 | verification | V1 static from constants; the reaction-time claim about the audience is developmental-norm reasoning, and the exact tuned values are a device/child observation to confirm. |
 | evidence | Review sections 3D and 4 items 7–8; constants anchored above. |
@@ -1338,7 +1338,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | Every required Day One objective escalates on idle per `DL-PACE-03`; no declared assist constant is dead; the boss's first-encounter window is ≥1.2 s with the ramp recorded in constants. |
 | closure | Open as of 2026-08-31. |
 | relationships | Chapter sibling of `MA-PACE-001/002/003`; mercy kin to the boss's existing ladder; precedent kin to `DL-INT-08`/`DL-INT-09`. |
-| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. Same day: implementation handed to Codex as WP-P5 under owner decision D5 (window numbers advisory). |
+| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. Same day: implementation handed to Codex as WP-P5 under owner decision D5 (window numbers advisory). 2026-09-01: independent re-audit (`audit/MASTER_AUDIT_REAUDIT_2026-09-01.md`): wording corrected — a persistent pointer on the current objective is the `DL-AGE-01` baseline, not a defect; the finding is the absence of the timed voice/demo tiers, the dead constants, and the first-contact boss window. |
 
 ## MA-PACE-005
 
@@ -1352,7 +1352,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | severity | P2 |
 | lifecycle | `CONFIRMED_OPEN` |
 | verification | V1 static: every claim below is read directly from the media seams; no device run is needed to prove absence. |
-| reproduction | `g["day_one_media_request"]` keys `grok_opening_flight` (`day_one_director.gd:394-399`; hook `main.gd:7532-7536`) and `grok_dirty_castle_video_2` (`:402-414`; `main.gd:7537-7542`) set state and render nothing; `day_one_bathroom_movie_handoff.gd:145-152` fails open with no beat when the `.ogv` is absent; no slot exists for the boss-door arming or the chapter close. |
+| reproduction | `g["day_one_media_request"]` keys `grok_opening_flight` (`day_one_director.gd:394-399`; hook `main.gd:7532-7536`) and `grok_dirty_castle_video_2` (`:402-414`; `main.gd:7539-7542`, whose arm also posts the "Dust bunnies!" caption) set state and render no media; `day_one_bathroom_movie_handoff.gd:145-152` fails open with no beat when the `.ogv` is absent; no slot exists for the boss-door arming or the chapter close. |
 | child_impact | Direct: the story's establishing, inciting, act-turn, and resolution moments currently play as caption lines or nothing, so the chapter's plot is carried almost entirely by room transformations. |
 | evidence | `DAY_ONE_PACING_REVIEW_2026-08-31.md` timeline rows; the handoff's slot inventory (seven slots with per-slot state). |
 | owner_decision | Media production and acceptance remain the owner's cinematic pipeline under the full-frame rule; this finding binds only the runtime side — named slots with in-engine fallback beats so pacing never waits on media. |
@@ -1361,4 +1361,4 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | With zero movies present every story moment still plays a paced fallback beat; with delivered media present the slot plays it; the inventory table reaches the owner. |
 | closure | Open as of 2026-08-31. |
 | relationships | Chapter sibling of `MA-PACE-001`–`004`; production kin to the cinematic wing (`DL-CIN-*`) without entering its domain; the close-slot depends on `MA-PACE-003`'s return seam. |
-| history | 2026-08-31: opened `CONFIRMED_OPEN` on the owner's report + trace; implementation handed to Codex as WP-P6. |
+| history | 2026-08-31: opened `CONFIRMED_OPEN` on the owner's report + trace; implementation handed to Codex as WP-P6. 2026-09-01: independent re-audit (`audit/MASTER_AUDIT_REAUDIT_2026-09-01.md`): all seams CONFIRMED; the discovery-hook anchor refined to `main.gd:7539-7542` (it posts a caption but renders no media). |

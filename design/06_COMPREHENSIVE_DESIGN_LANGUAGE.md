@@ -1461,9 +1461,7 @@ session is a defect, not atmosphere.
 required objective escalates on idle: after roughly 8 seconds the current
 instruction is re-spoken; after roughly 16 seconds the pointer or
 demonstration refreshes (the `DL-INT-08` five/ten-second lineage, scaled
-for world play). Pointers point at the CURRENT objective only; permanent
-un-earned pointers and dead assistance constants both fail. Escalation
-never completes the action (`DL-AGE-04`).
+for world play). The visible pointer on the CURRENT required objective is `DL-AGE-01`'s baseline and may persist; what fails is a pointer left on a non-current objective, the absence of the timed voice and demonstration tiers, and dead assistance constants. Escalation never completes the action (`DL-AGE-04`).
 
 `DL-PACE-04` — Macro transitions are announced on the path the child
 actually plays. Room complete, door armed, chapter climax reached: each

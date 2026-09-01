@@ -123,11 +123,10 @@ behavior for a package:
 ### WP-A1 — Gate the Day One wing (G1, `MA-CI-004`, P1)
 
 - **Scope:** `scripts/ci.sh`, `.github/workflows/probes.yml` trusted-roster
-  lines; the eight `scripts/probe_day_one_*.gd` /
-  `scripts/probe_start_menu_routing.gd` files (classification only —
+  lines; the thirteen `scripts/probe_day_one_*.gd` / `scripts/probe_start_menu_routing.gd` files, three of which (bathroom cleanup, integration, movie handoff) already gate (classification only —
   repairs to a probe's own determinism are in scope; gameplay changes are
   not).
-- **Do:** classify the eight per canonical section 11.2; promote the
+- **Do:** classify the thirteen per canonical section 11.2 (if the Day One pacing round's WP-P7 has already promoted them, verify at Stage 0 and report no change needed); promote the
   deterministic non-capture ones (at minimum `probe_day_one_director`,
   `probe_day_one_integration`, `probe_day_one_pool_cleanup`,
   `probe_start_menu_routing`) into BOTH rosters; capture-style ones become
@@ -275,7 +274,7 @@ Two obligations follow for every package in this round:
 
 ## Stage C packages — the Mode Platform (the remodel; start after A1–A2 merge)
 
-Stage C is `design/08_TARGET_ARCHITECTURE.md` §7 turned into packages —
+Stage C is `design/08_TARGET_ARCHITECTURE.md` §10 turned into packages —
 WP-C0 through WP-C6 are migration steps M0 through M6, and that document's
 step table carries the full detail; the entries below add only the
 handoff-level boundaries. Each package is one branch, behavior-identical,
@@ -336,8 +335,7 @@ cheapest real mode before anything load-bearing moves.
   the composite-read duplication), `services.reward` formalized.
   Delegate-first, call sites next, delegate deleted last.
 - **Gate:** suite green per commit; the `m._`-private-call budget ratchets
-  down; no per-call mesh/material allocation remains in the FX path
-  (allocation grep + visual spot-check at both tiers).
+  down; the FX path stays free of per-call mesh/material allocation (already true for `_sparkle_burst` since 2026-08-31 — the gate is a regression assertion) and the burst node itself pools (allocation grep + visual spot-check at both tiers).
 - **Coordination:** pooling is visual/behavior-identical; report the
   allocation delta to the tablet performance wing (Fable) and change no
   tier thresholds — those are the wing's.
@@ -346,7 +344,7 @@ cheapest real mode before anything load-bearing moves.
 ### WP-C5 — Typed mode state pilots (M5; executes G10/WP-B4)
 
 - **Scope:** two high-traffic migrated modes swap `g["…"]` ephemeral keys
-  for typed state per design 08 §4.5; the g-key budget ratchets down; the
+  for typed state per design 08 §5.6; the g-key budget ratchets down; the
   rule applies to every subsequently migrated mode. Typed state uses
   typed dictionaries (`Dictionary[K, V]`) and typed members — the
   engine-adoption evaluation measured 0 typed of 1,789 dictionary
@@ -374,8 +372,7 @@ cheapest real mode before anything load-bearing moves.
 
 Three original Stage B packages are executed by Stage C and MUST NOT be run
 standalone (moving the same code twice is churn): **WP-B1 → WP-C6**,
-**WP-B4 → WP-C5**, and the pooling half of **WP-B5 → WP-C4**. The packages
-below remain independent.
+**WP-B4 → WP-C5**, and the pooling half of **WP-B5 → WP-C4**. WP-B1 (G7: the `main.gd` extraction finale) and WP-B4 (G10: typed mode state) deliberately have no standalone Do/Gate entries — WP-C6 and WP-C5 carry them in full, and the two IDs exist only as cross-references. The packages below remain independent.
 
 ### WP-B2 — Decompose the opera gesture surface (G8, `MA-CODE-001`/`MA-CODE-002`)
 

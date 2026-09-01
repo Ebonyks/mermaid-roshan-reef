@@ -20,14 +20,14 @@ empirical verification rather than asserted.
 
 - The **pin is governed**: `tools/godot_baseline.json` holds
   4.7.2-stable + hashes, `tools/audit_godot_baseline.py` enforces it
-  across 13 files in CI, and the workflows verify SHA512 on download.
+  across 12 pinned files in CI (plus the baseline record itself), and the workflows verify SHA512 on download.
   "Updated on paper" is therefore literally true and well-built paper.
-- The **features are not**: `Dictionary[K,V]` 0 uses against 1,789
+- The **features are not**: `Dictionary[K,V]` 0 uses against 1,789 `: Dictionary` declaration lines (`grep -rF ": Dictionary" scripts/`; 1,790 at the 2026-09-01 re-audit)
   untyped dictionary declarations; `uid://` 0 against 1,167 `res://`
   strings; `@export`/`@tool` 0 in `scripts/` (code-built world); AgX unset
   (runtime uses ACES); no physics interpolation; no 2D AA settings.
 - **Two 4.4-era engine-bug protocols run unrevalidated** on 4.7.2: the
-  exit-124 amnesty in `scripts/ci.sh:179-186` and
+  exit-124 amnesty in `scripts/ci.sh:184-195` and
   `.github/workflows/probes.yml:196-205` (comment still blames "Godot 4.4
   … deadlocks at EXIT", dated 2026-07-18) — which today converts a genuine
   4.7.2 exit hang into a pass whenever the transcript tail matches
@@ -39,9 +39,7 @@ empirical verification rather than asserted.
   with `tools/tests/test_audit_opera_capture.py:148,473` locking it in —
   any fresh capture manifest produced by the actual 4.7.2 baseline binary
   is rejected. It is outside `audit_godot_baseline.py`'s required-pins
-  coverage; 151 further `4.7.1` mentions exist repo-wide (most are
-  legitimately historical evidence; 7 are live rollback-narrative
-  instructions in `tools/plan_audit_rollback.py`).
+  coverage; 172 lines (175 occurrences) mention `4.7.1` repo-wide by literal grep — the 151 first reported came from an unescaped-dot pattern and never reproduced — most of them legitimately historical evidence; `tools/plan_audit_rollback.py` holds 7 of those lines, 3 of them forward-looking rollback instructions.
 
 ## 2. Banked benefits — inherited by the bump, verify-don't-implement
 
@@ -53,7 +51,7 @@ performance wing (Fable) owns the device half:
 | Vulkan Mobile crash fixes for Mali and Adreno | 4.6 | The Lenovo Tab M11 is Mali-G52 — the exact class the fixes target | Tablet wing (device soak) |
 | 16 KB page-size compatibility (Android 15+) | 4.5 | New-generation tablets require it; the repo has zero mentions and `target_sdk` is template-default | Tablet wing (install + run on an Android 15+ device); WP-E2 records the result |
 | Half-precision F16 Mobile-renderer path | 4.5 | Speed/power on Mali where the driver allows | Tablet wing (frame captures) |
-| SDL3 gamepad driver | 4.5 | Pad is the fallback input; better default mappings for free | Existing `probe_touch_*`/pad probes already green — no action |
+| SDL3 gamepad driver | 4.5 | Pad is the fallback input; better default mappings for free | Joypad handling is exercised inside `probe_audit`/`probe_living_world`/`probe_melody`/`probe_passive` (no pad-named probe exists); confirm on the next suite run — no further action |
 | Jolt as engine default | 4.6 | Project opted in early (`project.godot` Jolt) — now mainline-supported | None; alignment noted |
 
 ## 3. Adoption candidates — triaged
