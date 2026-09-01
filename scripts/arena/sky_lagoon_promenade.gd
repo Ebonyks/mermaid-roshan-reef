@@ -574,6 +574,12 @@ func _build_castle_screen() -> void:
 		contract.get("anchor_pixel", [])))
 	castle.set_meta("composition_anchor_master", _contract_vector2(
 		contract.get("anchor_master", [])))
+	castle.set_meta("composition_support_edge_id", String(
+		contract.get("support_edge_id", "")))
+	castle.set_meta("composition_support_edge_pixels",
+		contract.get("support_edge_pixels", []))
+	castle.set_meta("composition_support_min_span_master", float(
+		contract.get("minimum_support_span_master", 0.0)))
 	m.g["lagoon_castle_card"] = castle
 	var door_anchor := Node2D.new()
 	door_anchor.name = "SkyLagoonCastleDoorFocus"

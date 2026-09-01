@@ -15,6 +15,17 @@
       "anchor_id": "bridge_landing_tip",
       "anchor_pixel": [358.0, 1019.0],
       "anchor_master": [5091.196814333333, 1559.644965],
+      "support_edge_id": "bridge_deck_foreground_bearing",
+      "support_edge_pixels": [
+        [264.0, 1003.0],
+        [280.0, 1006.0],
+        [300.0, 1009.0],
+        [320.0, 1013.0],
+        [340.0, 1016.0],
+        [360.0, 1018.0]
+      ],
+      "minimum_support_samples": 6,
+      "minimum_support_span_master": 100.0,
       "terrain_class": "foreground_stone_landing",
       "holder": "landmarks",
       "parallax_factor": 1.0
