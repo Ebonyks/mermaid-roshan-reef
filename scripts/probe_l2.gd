@@ -84,6 +84,14 @@ func _contract_vector2(value: Variant) -> Vector2:
 	return Vector2(float(values[0]), float(values[1])) if values.size() == 2 else Vector2.ZERO
 
 
+func _contract_polygon(value: Variant) -> PackedVector2Array:
+	var result := PackedVector2Array()
+	var values: Array = value as Array if value is Array else []
+	for point_value: Variant in values:
+		result.append(_contract_vector2(point_value))
+	return result
+
+
 func _load_layout() -> Dictionary:
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(LAYOUT_PATH))
 	return parsed as Dictionary if parsed is Dictionary else {}
@@ -605,6 +613,34 @@ func _validate_assets_and_mural() -> void:
 	_check("castle_bridge_tip_anchors_to_foreground_stone_landing",
 		bridge_anchor_ok, "actual=%s expected=%s" % [
 			bridge_anchor_actual, bridge_anchor_expected])
+	var regions: Dictionary = layout.get("protected_regions", {}) as Dictionary
+	var landing_polygon: PackedVector2Array = _contract_polygon(
+		regions.get("foreground_stone_landing", []))
+	var support_pixels: PackedVector2Array = _contract_polygon(
+		castle_contract.get("support_edge_pixels", []))
+	var support_master := PackedVector2Array()
+	var support_inside: bool = landing_polygon.size() >= 3
+	for support_pixel: Vector2 in support_pixels:
+		var support_point: Vector2 = _audit_sprite_anchor_master(castle, support_pixel) \
+			if castle != null else Vector2.INF
+		support_master.append(support_point)
+		support_inside = support_inside and Geometry2D.is_point_in_polygon(
+			support_point, landing_polygon)
+	var support_span: float = support_master[0].distance_to(support_master[-1]) \
+		if support_master.size() >= 2 else 0.0
+	var required_samples: int = int(castle_contract.get("minimum_support_samples", 0))
+	var required_span: float = float(
+		castle_contract.get("minimum_support_span_master", 0.0))
+	var bridge_support_ok: bool = castle != null \
+		and String(castle_contract.get("support_edge_id", "")) \
+			== "bridge_deck_foreground_bearing" \
+		and String(castle.get_meta("composition_support_edge_id", "")) \
+			== "bridge_deck_foreground_bearing" \
+		and support_pixels.size() >= required_samples and required_samples >= 4 \
+		and support_inside and support_span >= required_span and required_span >= 80.0
+	_check("castle_bridge_support_edge_bears_on_foreground_stone_landing",
+		bridge_support_ok, "samples=%d span=%.3f inside=%s" % [
+			support_pixels.size(), support_span, support_inside])
 	var landmark_layer: Node2D = main.g.get("lagoon_landmark_layer") as Node2D
 	var primitive_count: int = _forbidden_facade_primitive_count(landmark_layer) \
 		if landmark_layer != null else -1
