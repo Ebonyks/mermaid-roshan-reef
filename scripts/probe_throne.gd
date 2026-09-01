@@ -168,6 +168,16 @@ func _latest_voice_player() -> AudioStreamPlayer:
 	var index: int = posmod(main.voice_i - 1, main.voice_pool.size())
 	return main.voice_pool[index] as AudioStreamPlayer
 
+func _is_locked_royal_hall_voice(stream: AudioStream) -> bool:
+	if stream == null:
+		return false
+	var path: String = stream.resource_path
+	# The provisional filler has a truthful contextual take for this caption.
+	# Keep the legacy Roshan talk clip as the valid fallback on builds where the
+	# optional filler layer is not present; both paths preserve one serial cue.
+	return path.ends_with("voices/filler_v1/roshan_castle_mist_resting.ogg") \
+		or path.ends_with("voices/roshan_talk.ogg")
+
 func _event_matches(rooms: CastleRooms25D, event_id: String,
 		token: int) -> bool:
 	return main.castle_royal_hall_event_id == event_id \
@@ -267,9 +277,7 @@ func _run() -> void:
 			_visible_royal_hall_mist()])
 	_ck("locked_gate_has_spoken_feedback",
 		main.voice_i == voice_i_before + 1
-		and locked_voice_stream != null
-		and locked_voice_stream.resource_path.ends_with(
-			"voices/roshan_talk.ogg")
+		and _is_locked_royal_hall_voice(locked_voice_stream)
 		and main.hud_msg != null
 		and "royal mist" in main.hud_msg.text.to_lower(),
 		"voice_i=%d->%d stream=%s caption=%s" % [
