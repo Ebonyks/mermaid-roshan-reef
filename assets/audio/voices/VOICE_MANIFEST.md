@@ -45,7 +45,7 @@ Provenance limitation: attempts 1 and 2 predate captured run records. Their
 candidate rows preserve text, preset, description, seed, model/tokenizer
 revisions and raw hashes, but their run entries are explicitly marked
 `RECONSTRUCTED_FROM_CANDIDATE_MANIFEST` with
-`generator_sha256: NOT_CAPTURED_AT_GENERATION`. The 120 selected cues from
+`generator_sha256: NOT_CAPTURED_AT_GENERATION`. The 34 selected live cues from
 those attempts are suitable only for provisional device audition; they do not
 close DL-SND-17's complete-provenance requirement without an owner-approved
 exception or regeneration under captured provenance.
