@@ -27,7 +27,7 @@ dusty!” The current shipped Laura `roshan_talk.ogg` measured 204.8 Hz median F
 
 | Candidate | Median F0 | 75th-percentile F0 | Mean spectral centroid | Result |
 |---|---:|---:|---:|---|
-| Joy child spark | 257.2 Hz | 290.0 Hz | 2779.7 Hz | **Best natural child register; advance** |
+| Joy child spark | 257.2 Hz | 290.0 Hz | 2779.7 Hz | **Best machine-screened register match; advance to human listening** |
 | Lea child light | 237.2 Hz | 271.0 Hz | 3174.8 Hz | Bright backup |
 | Jenna child bright | 231.8 Hz | 252.8 Hz | 2533.7 Hz | Backup only |
 | Laura high baseline | 219.4 Hz | 267.8 Hz | 2881.1 Hz | Reject: still close to shipped adult register |
