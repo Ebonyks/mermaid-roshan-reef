@@ -51,7 +51,7 @@ const ROSHAN_SHA256 := \
 	"2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523"
 const VOICE_PATH := "res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg"
 const VOICE_SHA256 := \
-	"6f6839b043dc58647324f1d04df6429ccf3bb197b175bfd89317ff1b9e2ead4d"
+	"e2d819527d370aff926302dbfecd6beb9e6c2165024d7abad131a28d90cac4ed"
 const OBJECTIVE := "Tap each rainbow note in the green!"
 const EXPECTED_COLORS: Array[Color] = [
 	Color(1.0, 0.24, 0.28),
