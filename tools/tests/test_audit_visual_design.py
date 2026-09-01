@@ -176,8 +176,8 @@ class RegistryContractTests(unittest.TestCase):
 		self.assertEqual(len(rows), 1)
 		self.assertEqual(rows[0].disposition, ava.PASS)
 		self.assertLess(float(rows[0].evidence["vram_mb"]), 24.0)
-		self.assertEqual(rows[0].evidence["files"], 41)
-		self.assertEqual(rows[0].evidence["peak_files"], 33)
+		self.assertEqual(rows[0].evidence["files"], 40)
+		self.assertEqual(rows[0].evidence["peak_files"], 32)
 
 	def test_waivers_satisfy_full_contract(self) -> None:
 		spec = ava.load_spec()

@@ -4,6 +4,7 @@ extends SceneTree
 # review-only camera, or metadata-only substitute may satisfy this probe.
 
 const Affordance := preload("res://scripts/interaction_affordance.gd")
+const LAYOUT_PATH := "res://scripts/arena/sky_lagoon_layout.json"
 const MASTER_SIZE := Vector2(6144.0, 2048.0)
 const TILE_SIZE := Vector2(1024.0, 1024.0)
 const TARGET_IDS: Array[String] = [
@@ -60,6 +61,7 @@ const REQUIRED_ASSETS: Array[String] = [
 var failed := false
 var main: ReefMain
 var promenade: SkyLagoonPromenade
+var layout: Dictionary = {}
 
 
 func _check(label: String, condition: bool, detail: String = "") -> void:
@@ -75,6 +77,24 @@ func _check(label: String, condition: bool, detail: String = "") -> void:
 func _frames(count: int) -> void:
 	for _index: int in range(count):
 		await process_frame
+
+
+func _contract_vector2(value: Variant) -> Vector2:
+	var values: Array = value as Array if value is Array else []
+	return Vector2(float(values[0]), float(values[1])) if values.size() == 2 else Vector2.ZERO
+
+
+func _contract_polygon(value: Variant) -> PackedVector2Array:
+	var result := PackedVector2Array()
+	var values: Array = value as Array if value is Array else []
+	for point_value: Variant in values:
+		result.append(_contract_vector2(point_value))
+	return result
+
+
+func _load_layout() -> Dictionary:
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(LAYOUT_PATH))
+	return parsed as Dictionary if parsed is Dictionary else {}
 
 
 func _spatial_count(node: Node) -> int:
@@ -96,6 +116,16 @@ func _audit_sprite_anchor_master(sprite: Sprite2D, anchor_pixels: Vector2) -> Ve
 	var master_space: Node2D = main.g.get("lagoon_master_space") as Node2D
 	var source_size: Vector2 = sprite.texture.get_size()
 	var local_anchor: Vector2 = anchor_pixels - source_size * 0.5 + sprite.offset
+	return master_space.to_local(sprite.to_global(local_anchor))
+
+
+func _audit_region_anchor_master(sprite: Sprite2D, anchor_pixels: Vector2) -> Vector2:
+	var master_space: Node2D = main.g.get("lagoon_master_space") as Node2D
+	var source_size: Vector2 = sprite.region_rect.size if sprite.region_enabled \
+		else sprite.texture.get_size()
+	var local_anchor: Vector2 = anchor_pixels - source_size * 0.5 + sprite.offset
+	if sprite.flip_h:
+		local_anchor.x = -local_anchor.x
 	return master_space.to_local(sprite.to_global(local_anchor))
 
 
@@ -516,6 +546,13 @@ func _validate_assets_and_mural() -> void:
 	_check("native_master_is_6144x2048",
 		master != null and not master.is_empty()
 		and master.get_size() == Vector2i(6144, 2048))
+	var plate_contract: Dictionary = layout.get("plate", {}) as Dictionary
+	var plate_path: String = String(plate_contract.get("path", ""))
+	_check("layout_manifest_binds_exact_v5_plate",
+		int(layout.get("schema_version", 0)) == 1
+		and _contract_vector2(layout.get("master_size", [])).is_equal_approx(MASTER_SIZE)
+		and plate_path == master_path
+		and FileAccess.get_sha256(plate_path) == String(plate_contract.get("sha256", "")))
 
 	var root_node: CanvasLayer = promenade.root()
 	var positions: Dictionary = {}
@@ -553,6 +590,57 @@ func _validate_assets_and_mural() -> void:
 		and castle_bounds.position.y >= 48.0 and castle_bounds.end.y <= 2048.0
 	_check("castle_authored_pixels_stay_inside_master_frame", castle_frame_ok,
 		"bounds=%s" % castle_bounds)
+	var cards: Dictionary = layout.get("cards", {}) as Dictionary
+	var castle_contract: Dictionary = cards.get("castle", {}) as Dictionary
+	var bridge_anchor_pixel: Vector2 = _contract_vector2(
+		castle_contract.get("anchor_pixel", []))
+	var bridge_anchor_expected: Vector2 = _contract_vector2(
+		castle_contract.get("anchor_master", []))
+	var bridge_anchor_actual: Vector2 = _audit_sprite_anchor_master(
+		castle, bridge_anchor_pixel) if castle != null else Vector2.INF
+	var castle_path: String = String(castle_contract.get("path", ""))
+	var bridge_anchor_ok: bool = castle != null \
+		and bool(castle_contract.get("enabled", false)) \
+		and String(castle_contract.get("anchor_id", "")) == "bridge_landing_tip" \
+		and String(castle_contract.get("terrain_class", "")) \
+			== "foreground_stone_landing" \
+		and FileAccess.get_sha256(castle_path) \
+			== String(castle_contract.get("sha256", "")) \
+		and String(castle.get_meta("composition_anchor_id", "")) \
+			== "bridge_landing_tip" \
+		and bridge_anchor_actual.distance_to(bridge_anchor_expected) <= 0.05 \
+		and bridge_anchor_expected.y >= 1500.0 and bridge_anchor_expected.y <= 1640.0
+	_check("castle_bridge_tip_anchors_to_foreground_stone_landing",
+		bridge_anchor_ok, "actual=%s expected=%s" % [
+			bridge_anchor_actual, bridge_anchor_expected])
+	var regions: Dictionary = layout.get("protected_regions", {}) as Dictionary
+	var landing_polygon: PackedVector2Array = _contract_polygon(
+		regions.get("foreground_stone_landing", []))
+	var support_pixels: PackedVector2Array = _contract_polygon(
+		castle_contract.get("support_edge_pixels", []))
+	var support_master := PackedVector2Array()
+	var support_inside: bool = landing_polygon.size() >= 3
+	for support_pixel: Vector2 in support_pixels:
+		var support_point: Vector2 = _audit_sprite_anchor_master(castle, support_pixel) \
+			if castle != null else Vector2.INF
+		support_master.append(support_point)
+		support_inside = support_inside and Geometry2D.is_point_in_polygon(
+			support_point, landing_polygon)
+	var support_span: float = support_master[0].distance_to(support_master[-1]) \
+		if support_master.size() >= 2 else 0.0
+	var required_samples: int = int(castle_contract.get("minimum_support_samples", 0))
+	var required_span: float = float(
+		castle_contract.get("minimum_support_span_master", 0.0))
+	var bridge_support_ok: bool = castle != null \
+		and String(castle_contract.get("support_edge_id", "")) \
+			== "bridge_deck_foreground_bearing" \
+		and String(castle.get_meta("composition_support_edge_id", "")) \
+			== "bridge_deck_foreground_bearing" \
+		and support_pixels.size() >= required_samples and required_samples >= 4 \
+		and support_inside and support_span >= required_span and required_span >= 80.0
+	_check("castle_bridge_support_edge_bears_on_foreground_stone_landing",
+		bridge_support_ok, "samples=%d span=%.3f inside=%s" % [
+			support_pixels.size(), support_span, support_inside])
 	var landmark_layer: Node2D = main.g.get("lagoon_landmark_layer") as Node2D
 	var primitive_count: int = _forbidden_facade_primitive_count(landmark_layer) \
 		if landmark_layer != null else -1
@@ -654,18 +742,9 @@ func _validate_parallax_and_coordinates() -> void:
 	_check("playground_actor_castle_share_locked_mural_socket",
 		factors_ok and locked_before == locked_after and locked_zero,
 		"before=%s after=%s" % [locked_before, locked_after])
-	var rear_tree: Node = rear_mural.get_child(0) if rear_mural != null \
-		and rear_mural.get_child_count() == 1 else null
 	var foreground_tree: Node = foreground_mural.get_child(0) \
 		if foreground_mural != null \
 		and foreground_mural.get_child_count() == 1 else null
-	var rear_tree_texture := ""
-	var rear_tree_base := Vector2.ZERO
-	if rear_tree is Sprite2D:
-		rear_tree_texture = (rear_tree as Sprite2D).texture.resource_path \
-			if (rear_tree as Sprite2D).texture != null else ""
-		rear_tree_base = (rear_tree as Sprite2D).get_meta(
-			"ambient_base", Vector2.ZERO) as Vector2
 	var foreground_tree_texture := ""
 	var foreground_tree_base := Vector2.ZERO
 	if foreground_tree is Sprite2D:
@@ -673,28 +752,28 @@ func _validate_parallax_and_coordinates() -> void:
 			if (foreground_tree as Sprite2D).texture != null else ""
 		foreground_tree_base = (foreground_tree as Sprite2D).get_meta(
 			"ambient_base", Vector2.ZERO) as Vector2
+	var cards: Dictionary = layout.get("cards", {}) as Dictionary
+	var rejected_tree: Dictionary = cards.get("tall_tree", {}) as Dictionary
 	var geographic_ownership_ok: bool = \
-		int(rear_mural_content.get("count", 0)) == 1 \
+		int(rear_mural_content.get("count", 0)) == 0 \
 		and int(foreground_mural_content.get("count", 0)) == 1 \
-		and rear_tree is Sprite2D and rear_tree.name == "SkyLagoonRearTree" \
+		and not bool(rejected_tree.get("enabled", true)) \
+		and String(rejected_tree.get("role", "")) == "unsupported_new_dressing" \
+		and _sprite_resource_count(root_node,
+			String(rejected_tree.get("path", ""))) == 0 \
 		and foreground_tree is Sprite2D \
 		and foreground_tree.name == "SkyLagoonForegroundTree" \
-		and bool(rear_tree.get_meta("background_socket_healed", false)) \
-		and bool(rear_tree.get_meta("geography_locked", false)) \
-		and bool(foreground_tree.get_meta("background_socket_healed", false)) \
+		and not foreground_tree.has_meta("background_socket_healed") \
+		and String(foreground_tree.get_meta("placement_role", "")) == "new_dressing" \
 		and bool(foreground_tree.get_meta("geography_locked", false)) \
-		and rear_tree_texture \
-			== "res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png" \
 		and foreground_tree_texture \
 			== "res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png" \
-		and rear_tree_base.is_equal_approx(Vector2(4180.0, 1185.0 - 465.0 * 0.5)) \
 		and foreground_tree_base.is_equal_approx(
 			Vector2(5750.0, 1510.0 - 350.0 * 0.5))
-	_check("healed_tree_cards_have_one_locked_geographic_owner",
+	_check("unsupported_path_tree_is_absent_and_dressing_is_truthful",
 		geographic_ownership_ok,
-		"rear=%s/%s/%s foreground=%s/%s/%s" % [rear_mural_content,
-			rear_tree_texture, rear_tree_base,
-			foreground_mural_content,
+		"rear=%s rejected=%s foreground=%s/%s/%s" % [rear_mural_content,
+			rejected_tree, foreground_mural_content,
 			foreground_tree_texture, foreground_tree_base])
 	var rear_membership_ok: bool = _direct_child_names(rear) \
 		== ["SkyLagoonRearCloud"]
@@ -860,6 +939,48 @@ func _validate_targets_and_touch() -> void:
 		promenade._tick_playground_animation(1.0)
 
 
+func _validate_route_contact() -> void:
+	var actor: Sprite2D = main.g.get("lagoon_roshan_card") as Sprite2D
+	var contract: Dictionary = layout.get("roshan_route", {}) as Dictionary
+	var anchor: Vector2 = _contract_vector2(contract.get("contact_anchor_pixel", []))
+	var expected_texture: String = String(contract.get("path", ""))
+	var shadow: Sprite2D = actor.get_meta("contact_shadow") as Sprite2D \
+		if actor != null and actor.has_meta("contact_shadow") else null
+	var max_anchor_error := 0.0
+	var max_shadow_error := 0.0
+	var medium_ok := actor != null and shadow != null \
+		and String(contract.get("medium", "")) == "land"
+	for direction: int in [-1, 1]:
+		var start_x: float = 2500.0 if direction < 0 else 2300.0
+		var goal_x: float = 2300.0 if direction < 0 else 2500.0
+		promenade.set_master_route_x(start_x)
+		main.g["lagoon_walk_goal_master"] = promenade._route_point_for_x(goal_x)
+		for _sample: int in range(30):
+			promenade.tick(1.0 / 60.0)
+			var expected_contact := Vector2(float(main.g.get("lagoon_master_x", 0.0)),
+				float(main.g.get("lagoon_master_y", 0.0)))
+			var actual_contact: Vector2 = _audit_region_anchor_master(actor, anchor)
+			max_anchor_error = maxf(max_anchor_error,
+				actual_contact.distance_to(expected_contact))
+			max_shadow_error = maxf(max_shadow_error,
+				shadow.position.distance_to(expected_contact))
+			medium_ok = medium_ok \
+				and actor.texture != null \
+				and actor.texture.resource_path == expected_texture \
+				and String(actor.get_meta("locomotion_medium", "")) == "land" \
+				and actor.region_enabled \
+				and int(main.g.get("lagoon_roshan_frame", -1)) \
+					== int(contract.get("frame", -2)) \
+				and shadow.visible
+		medium_ok = medium_ok and actor.flip_h == (direction < 0)
+	main.g["lagoon_walk_goal_master"] = null
+	_check("route_motion_uses_land_frames_in_both_directions", medium_ok)
+	_check("route_contact_anchor_stays_on_painted_ground",
+		max_anchor_error <= 0.05, "max_error=%.4f" % max_anchor_error)
+	_check("route_shadow_tracks_semantic_contact_anchor",
+		max_shadow_error <= 0.05, "max_error=%.4f" % max_shadow_error)
+
+
 func _validate_play_contacts() -> void:
 	var actor: Sprite2D = main.g.get("lagoon_roshan_card") as Sprite2D
 	var contacts_ok: bool = actor != null and is_instance_valid(actor)
@@ -869,6 +990,8 @@ func _validate_play_contacts() -> void:
 	var slide_axis_ok := true
 	var slide_continuity_ok := true
 	var action_facing_ok := true
+	var immediate_shadow_start_ok := true
+	var shadow_semantics_ok := true
 	var performance_samples: Array[float] = []
 	var detail: Array[String] = []
 	for kind: String in ["slide", "swing", "seesaw"]:
@@ -878,6 +1001,10 @@ func _validate_play_contacts() -> void:
 		action_facing_ok = action_facing_ok and not actor.flip_h
 		promenade._clear_focus()
 		var play: Dictionary = main.g.get("lagoon_play_anim", {}) as Dictionary
+		var contact_shadow: Sprite2D = actor.get_meta("contact_shadow") as Sprite2D \
+			if actor.has_meta("contact_shadow") else null
+		immediate_shadow_start_ok = immediate_shadow_start_ok \
+			and contact_shadow != null and not contact_shadow.visible
 		var equipment: Sprite2D = play.get("equipment") as Sprite2D
 		var rest_rotation: float = equipment.rotation if equipment != null else 0.0
 		var frames_seen: Dictionary = {}
@@ -893,6 +1020,8 @@ func _validate_play_contacts() -> void:
 		while String((main.g.get("lagoon_play_anim", {}) as Dictionary).get(
 				"phase", "")) == "action" and action_steps < 220:
 			promenade._tick_playground_animation(1.0 / 30.0)
+			shadow_semantics_ok = shadow_semantics_ok \
+				and contact_shadow != null and not contact_shadow.visible
 			play = main.g.get("lagoon_play_anim", {}) as Dictionary
 			frames_seen[int(play.get("frame_index", -1))] = true
 			equipment = play.get("equipment") as Sprite2D
@@ -956,6 +1085,10 @@ func _validate_play_contacts() -> void:
 		promenade._tick_playground_animation(0.20)
 		var cleaned: bool = (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty() \
 			and actor.visible and actor.region_enabled and is_zero_approx(actor.rotation)
+		shadow_semantics_ok = shadow_semantics_ok \
+			and contact_shadow != null and contact_shadow.visible \
+			and contact_shadow.position.distance_to(
+				actor.get_meta("route_contact_master") as Vector2) <= 0.05
 		natural_cleanup_ok = natural_cleanup_ok and settle_moved and cleaned
 		detail.append("%s=steps%d frames%d contact%s rot%.3f anchor%.3f step%.3f cleanup%s" % [
 			kind, action_steps, frames_seen.size(), str(representative_contact),
@@ -971,6 +1104,10 @@ func _validate_play_contacts() -> void:
 	_check("slide_phases_preserve_position_continuity", slide_continuity_ok,
 		",".join(detail))
 	_check("play_actions_reset_inherited_route_facing", action_facing_ok)
+	_check("play_actions_hide_ground_shadow_immediately_on_start",
+		immediate_shadow_start_ok)
+	_check("play_actions_hide_false_ground_shadow_and_restore_contact",
+		shadow_semantics_ok)
 	_check("play_actions_run_full_temporal_cycle", temporal_ok, ",".join(detail))
 	_check("play_actions_naturally_settle_and_restore", natural_cleanup_ok)
 	_check("speedy_play_tick_median_under_1ms", median_usec < 1000.0,
@@ -1073,6 +1210,8 @@ func _validate_door_and_reef_routes() -> void:
 
 func _init() -> void:
 	get_root().size = Vector2i(1280, 720)
+	layout = _load_layout()
+	_check("canonical_layout_manifest_loads", not layout.is_empty())
 	var packed: PackedScene = load("res://scenes/main.tscn") as PackedScene
 	main = packed.instantiate() as ReefMain
 	get_root().add_child(main)
@@ -1097,6 +1236,7 @@ func _init() -> void:
 	_validate_assets_and_mural()
 	_validate_parallax_and_coordinates()
 	_validate_targets_and_touch()
+	_validate_route_contact()
 	_validate_play_contacts()
 	await _frames(2)
 	_check("canvas_clip_cannot_crop_phone_frame", _canvas_clip_contract())

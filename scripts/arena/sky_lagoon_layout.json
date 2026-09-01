@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "master_size": [6144.0, 2048.0],
+  "plate": {
+    "path": "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+    "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41"
+  },
+  "cards": {
+    "castle": {
+      "enabled": true,
+      "path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+      "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+      "texture_size": [1022.0, 1024.0],
+      "height_master": 1213.037568,
+      "anchor_id": "bridge_landing_tip",
+      "anchor_pixel": [358.0, 1019.0],
+      "anchor_master": [5091.196814333333, 1559.644965],
+      "support_edge_id": "bridge_deck_foreground_bearing",
+      "support_edge_pixels": [
+        [264.0, 1003.0],
+        [280.0, 1006.0],
+        [300.0, 1009.0],
+        [320.0, 1013.0],
+        [340.0, 1016.0],
+        [360.0, 1018.0]
+      ],
+      "minimum_support_samples": 6,
+      "minimum_support_span_master": 100.0,
+      "terrain_class": "foreground_stone_landing",
+      "holder": "landmarks",
+      "parallax_factor": 1.0
+    },
+    "tall_tree": {
+      "enabled": false,
+      "path": "res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
+      "sha256": "6c5ea2b3a6ba843e191d88b7a96b81f9cb203813d09f456e1adfa86e5664a98a",
+      "role": "unsupported_new_dressing",
+      "rejection_reason": "No source-object socket exists in the v5 plate; both legacy transforms occlude the scenic mountain path."
+    }
+  },
+  "protected_regions": {
+    "mountain_path_keep_clear": [
+      [4210.0, 300.0],
+      [4435.0, 350.0],
+      [4290.0, 640.0],
+      [4170.0, 930.0],
+      [4070.0, 1280.0],
+      [3820.0, 1320.0],
+      [3940.0, 950.0],
+      [4070.0, 620.0]
+    ],
+    "foreground_stone_landing": [
+      [4980.0, 1500.0],
+      [5210.0, 1500.0],
+      [5235.0, 1640.0],
+      [4970.0, 1640.0]
+    ]
+  },
+  "roshan_route": {
+    "medium": "land",
+    "path": "res://assets/characters/roshan_25d/roshan_directional.png",
+    "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+    "frame": 2,
+    "columns": 4,
+    "frame_size": [256.0, 256.0],
+    "scale_master_per_pixel": 1.4921875,
+    "contact_anchor_pixel": [60.5, 230.5],
+    "shadow_contract": "contact_anchor"
+  }
+}
