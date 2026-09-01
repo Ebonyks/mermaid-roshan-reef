@@ -388,9 +388,8 @@ func _announce_current_target() -> void:
 		_speak_cue("The magic paint desk is glowing! Tap it!", "win")
 
 
-func _speak_cue(message: String, mood: String) -> void:
-	m.show_msg("Roshan", message, mood)
-	m._say("roshan", "art_studio_hint")
+func _speak_cue(message: String, _mood: String) -> void:
+	m.show_msg("Roshan", message, "art_studio_hint")
 
 
 func _all_materials_collected() -> bool:

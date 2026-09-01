@@ -311,8 +311,7 @@ func _give_next_hint() -> void:
 		if _is_found(String(friend["id"])):
 			continue
 		m.show_msg("Roshan", "I hear a friend near the %s!" \
-			% String(friend["room_name"]), "hint")
-		m._say("roshan", "hide_seek_hint", 0.8)
+			% String(friend["room_name"]), "hide_seek_hint")
 		return
 
 
