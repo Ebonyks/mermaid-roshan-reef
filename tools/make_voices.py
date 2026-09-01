@@ -79,6 +79,8 @@ LINES = {
     "roshan_hide_seek_hint": ("roshan", "Shh! I hear a friend hiding nearby!"),
     "roshan_craft_need_pearls": ("roshan", "I need more pearls. Let's go find some!"),
     "roshan_art_studio_hint": ("roshan", "The paint table is glowing! Let's make something!"),
+    "roshan_art_studio_material_hint": ("roshan", "Tap the loose art supply!"),
+    "roshan_art_studio_scrub_hint": ("roshan", "Scrub the dusty spot!"),
     "roshan_grotto_discovered": ("roshan", "A secret grotto! The stones want to play!"),
     "roshan_bathroom_supplies_found": ("roshan", "We found the sponge and brush!"),
     "roshan_bathroom_cleanup_start": ("roshan", "Sponge, brush, and bubbles! Let's help!"),
@@ -160,9 +162,14 @@ LINES = {
     "wacky_splash": ("wacky", "OH NO! Chuck is all WET! Shake shake shake, big fella!"),
     "shop":       ("shop", "Welcome, welcome! Have a look around!"),
     "sparkle":    ("sparkle", "Cheep cheep! Cheep!"),
+    "sparkle_hide_seek_found": ("sparkle", "Chirp chirp! You found my hiding place!"),
+    "sparkle_hide_seek_visit": ("sparkle", "Let's play together in the castle!"),
     "daddy_dance_talk": ("daddy", "Tap the floating arrows to make rainbow dance magic!"),
     "daddy_dance_win": ("daddy", "You made rainbow dance magic!"),
     "daddy_assist_ready": ("daddy", "Daddy is ready to help!"),
+    "daddy_hide_seek_start": ("daddy", "Rumi, Baby Eagle, and Daddy are hiding around the castle! Let's find everyone!"),
+    "daddy_hide_seek_found": ("daddy", "You found Daddy behind the storybooks! Great seeking!"),
+    "daddy_hide_seek_visit": ("daddy", "Let's play together in the castle!"),
     # ---- Mermaid Rosalina (Butterfly World) ----
     "rosalina":        ("rosalina", "Welcome to the Butterfly World, little star."),
     "rosalina_greet":  ("rosalina", "My baby butterflies all escaped! Bring all seven home, and I will open my castle for you!"),
@@ -172,6 +179,8 @@ LINES = {
 
     # ---- exact filler coverage for live cues that previously collapsed ----
     "rumi_intro": ("rumi", "Thank you, Roshan! You saved the pool and our seahorse. I'm Rumi!"),
+    "rumi_hide_seek_found": ("rumi", "You found me by the sparkly pool! Hee-hee!"),
+    "rumi_hide_seek_visit": ("rumi", "Let's play together in the castle!"),
     "mewsha_win": ("mewsha", "I'm coming along beside you now! Swish swish!"),
     "roshan_dustboss_show": ("roshan", "The giant dust bunny woke up! It is too fluffy. Sparkle taps will work!"),
     "roshan_dustboss_tell_opening": ("roshan", "When he JUMPS and his star FLASHES — TAP him!"),

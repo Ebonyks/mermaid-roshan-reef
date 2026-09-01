@@ -25,6 +25,10 @@ PROTECTED_PATTERNS = (
     "faron*.ogg", "daddy*.ogg", "chuck.ogg", "chuck_bark.ogg",
     "chuck_whimper.ogg",
 )
+ALLOWED_DADDY_FILLERS = {
+    "daddy_dance_talk", "daddy_dance_win", "daddy_assist_ready",
+    "daddy_hide_seek_start", "daddy_hide_seek_found", "daddy_hide_seek_visit",
+}
 LIMITER_LINEAR = 0.668344  # -3.5 dBFS; leaves margin for Vorbis reconstruction.
 PROMPT_WORD_EQUIVALENTS = {
     "aw": "aww", "ah": "aww", "oh": "aww",
@@ -49,6 +53,13 @@ GROUP_F0_RANGES = {
 
 def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def normalized_text_sha256(path: Path) -> str:
+    """Hash UTF-8 source with platform-independent LF line endings."""
+    text = path.read_text(encoding="utf-8")
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 
 
 def root_relative(path: Path) -> str:
@@ -649,11 +660,8 @@ def main() -> int:
                 raise RuntimeError(f"selection evidence mismatch for {row['key']}")
             character = str(row["character"])
             key = str(row["key"])
-            allowed_daddy_fillers = {
-                "daddy_dance_talk", "daddy_dance_win", "daddy_assist_ready",
-            }
             if character in {"faron", "chuck"} \
-                    or (character == "daddy" and key not in allowed_daddy_fillers):
+                    or (character == "daddy" and key not in ALLOWED_DADDY_FILLERS):
                 raise RuntimeError(f"protected speaker entered filler cohort: {row['key']}")
             destination = stage / f"{row['key']}.ogg"
             metrics, ffmpeg_command_provenance = master_source(source, destination)
@@ -899,9 +907,9 @@ def main() -> int:
         if actual_files != expected_files:
             raise RuntimeError("staged OGG set does not match manifest cohort")
         manifest = {
-            "manifest_schema": 2,
+            "manifest_schema": 3,
             "provenance_schema": {
-                "generation_runs": 2,
+                "generation_runs": 3,
                 "candidate_selection_evidence": 1,
                 "deterministic_ogg_evidence": 1,
             },
@@ -918,8 +926,9 @@ def main() -> int:
                 "sha256": sha256_file(args.report),
             },
             "candidate_selection_evidence": candidate_selection_evidence,
+            "pipeline_hash_mode": "utf8_lf",
             "pipeline_script_sha256": {
-                path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+                path.relative_to(ROOT).as_posix(): normalized_text_sha256(path)
                 for path in (
                     ROOT / "tools" / "make_parler_voice_trials.py",
                     ROOT / "tools" / "select_filler_voices.py",

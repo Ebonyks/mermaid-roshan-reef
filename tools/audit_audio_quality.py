@@ -30,6 +30,10 @@ PROTECTED = {
     "assets/audio/voices/daddy2.ogg",
     "assets/audio/voices/daddy3.ogg",
 }
+ALLOWED_DADDY_FILLERS = {
+    "daddy_dance_talk", "daddy_dance_win", "daddy_assist_ready",
+    "daddy_hide_seek_start", "daddy_hide_seek_found", "daddy_hide_seek_visit",
+}
 NEW_EXACT_VOICES = {
     "assets/audio/voices/roshan_op_racer_tune_up.ogg",
     "assets/audio/voices/roshan_op_racer_to_the_line.ogg",
@@ -248,6 +252,45 @@ def validate_hash_map(root: Path, issues: list[str], label: str,
     return valid
 
 
+def normalized_text_sha256(path: Path) -> str:
+    """Hash UTF-8 source with platform-independent LF line endings."""
+    text = path.read_text(encoding="utf-8")
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+
+
+def validate_text_hash_map(root: Path, issues: list[str], label: str,
+                           values: object) -> dict[str, str]:
+    """Validate source hashes without depending on Git checkout EOL policy."""
+    if values is None:
+        return {}
+    if not isinstance(values, dict):
+        issues.append(f"{label} must be an object")
+        return {}
+    valid: dict[str, str] = {}
+    for relative, expected in values.items():
+        path = _safe_relative(root, relative)
+        if path is None or not isinstance(expected, str) \
+                or not re.fullmatch(r"[0-9a-fA-F]{64}", expected):
+            issues.append(f"{label} contains invalid hash record: {relative!r}")
+            continue
+        if not path.is_file():
+            issues.append(f"{label} path missing: {relative}")
+            continue
+        actual = normalized_text_sha256(path)
+        if actual.lower() != expected.lower():
+            issues.append(f"{label} mismatch: {relative}")
+            continue
+        valid[str(relative).replace("\\", "/")] = actual
+    return valid
+
+
+def canonical_json_sha256(value: object) -> str:
+    payload = json.dumps(value, sort_keys=True, separators=(",", ":"),
+                         ensure_ascii=False).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
 def authoritative_filler_lines(root: Path) -> dict[str, tuple[str, str]]:
     """Read the literal generator catalog without importing generation code."""
     source = root / "tools" / "make_voices.py"
@@ -332,15 +375,20 @@ def validate_generation_evidence(root: Path, manifest: dict[str, object],
     """Cross-check captured hashes, selected source metadata, and Ogg proof."""
     pipeline_hashes = manifest.get("pipeline_script_sha256")
     if pipeline_hashes is not None:
-        validate_hash_map(root, issues, "pipeline_script_sha256", pipeline_hashes)
+        if manifest.get("pipeline_hash_mode") == "utf8_lf":
+            validate_text_hash_map(
+                root, issues, "pipeline_script_sha256", pipeline_hashes)
+        else:
+            validate_hash_map(root, issues, "pipeline_script_sha256", pipeline_hashes)
     selection_provenance = manifest.get("selection_provenance")
     if isinstance(selection_provenance, dict):
         selector_hash = selection_provenance.get("selector_sha256")
         if selector_hash is not None:
-            validate_hash_map(
-                root, issues, "selection_provenance.selector_sha256",
-                {"tools/select_filler_voices.py": selector_hash},
-            )
+            validator = validate_text_hash_map \
+                if selection_provenance.get("selector_hash_mode") == "utf8_lf" \
+                else validate_hash_map
+            validator(root, issues, "selection_provenance.selector_sha256",
+                      {"tools/select_filler_voices.py": selector_hash})
         report_hash = selection_provenance.get("report_sha256")
         if report_hash is not None and not isinstance(report_hash, str):
             issues.append("selection_provenance.report_sha256 is invalid")
@@ -355,6 +403,26 @@ def validate_generation_evidence(root: Path, manifest: dict[str, object],
         attempt = int(match.group(1))
         if record.get("attempt") is not None and record.get("attempt") != attempt:
             issues.append(f"generation run attempt mismatch: {run_name}")
+        candidate_rows = record.get("candidate_rows")
+        candidate_rows_hash = record.get("candidate_rows_sha256")
+        if isinstance(candidate_rows, list):
+            if record.get("candidate_count") != len(candidate_rows):
+                issues.append(f"{run_name} embedded candidate count mismatch")
+            if not isinstance(candidate_rows_hash, str) \
+                    or not re.fullmatch(r"[0-9a-fA-F]{64}", candidate_rows_hash):
+                issues.append(f"{run_name}.candidate_rows_sha256 is invalid")
+            elif canonical_json_sha256(candidate_rows).lower() != candidate_rows_hash.lower():
+                issues.append(f"{run_name} embedded candidate rows hash mismatch")
+            embedded_candidates: dict[str, dict[str, object]] = {}
+            for row in candidate_rows:
+                if not isinstance(row, dict) or row.get("attempt") != attempt \
+                        or not isinstance(row.get("key"), str):
+                    issues.append(f"{run_name} has invalid embedded candidate row")
+                    continue
+                embedded_candidates[str(row["key"])] = row
+            candidate_cache[attempt] = embedded_candidates
+        elif record.get("capture_state") == "CAPTURED_AT_GENERATION":
+            issues.append(f"{run_name} lacks embedded candidate rows")
         generator_hash = record.get("generator_sha256")
         if generator_hash not in (None, "NOT_CAPTURED_AT_GENERATION"):
             if not isinstance(generator_hash, str) \
@@ -364,9 +432,11 @@ def validate_generation_evidence(root: Path, manifest: dict[str, object],
             if isinstance(run_path_value, str):
                 run_path = root / run_path_value
                 captured_run_hash = record.get("run_provenance_sha256")
-                if not run_path.is_file():
-                    issues.append(f"{run_name} run provenance is unavailable")
-                else:
+                if captured_run_hash is not None and (
+                        not isinstance(captured_run_hash, str)
+                        or not re.fullmatch(r"[0-9a-fA-F]{64}", captured_run_hash)):
+                    issues.append(f"{run_name}.run_provenance_sha256 is invalid")
+                if run_path.is_file():
                     if isinstance(captured_run_hash, str) \
                             and sha256(run_path).lower() != captured_run_hash.lower():
                         issues.append(f"{run_name} run provenance hash mismatch")
@@ -389,9 +459,11 @@ def validate_generation_evidence(root: Path, manifest: dict[str, object],
             elif candidate_path.is_file() and sha256(candidate_path).lower() != captured_manifest_hash.lower():
                 issues.append(f"{run_name} candidate manifest hash mismatch")
         if candidate_path.is_file():
-            candidate_cache[attempt] = _candidate_evidence(
-                root, attempt, candidate_manifest_value,
-            )
+            external_candidates = _candidate_evidence(
+                root, attempt, candidate_manifest_value)
+            if attempt in candidate_cache and external_candidates != candidate_cache[attempt]:
+                issues.append(f"{run_name} embedded candidate rows disagree with local manifest")
+            candidate_cache[attempt] = external_candidates
     for entry in entries:
         key = str(entry.get("key", ""))
         name = f"{key}.ogg"
@@ -537,12 +609,9 @@ def validate_filler_manifest(root: Path,
                 issues.append(f"{name} authored text mismatch")
         if entry.get("status") != "PROVISIONAL_SYNTHETIC_FILLER":
             issues.append(f"{name} has invalid provisional status")
-        allowed_daddy_fillers = {
-            "daddy_dance_talk", "daddy_dance_win", "daddy_assist_ready",
-        }
         character = entry.get("character")
         if character in {"faron", "chuck"} \
-                or (character == "daddy" and key not in allowed_daddy_fillers):
+                or (character == "daddy" and key not in ALLOWED_DADDY_FILLERS):
             issues.append(f"{name} contains protected speaker identity")
         if key == "everyone":
             components = entry.get("components")

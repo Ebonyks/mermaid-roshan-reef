@@ -3,13 +3,13 @@
 ## Provisional synthetic filler v1 (2026-08-30)
 
 Runtime now prefers `filler_v1/<speaker>_<event>.ogg`, then the corresponding
-legacy path. The 351 live cues comprise all 350 authoritative non-Faron filler
-keys plus the three-preset `everyone.ogg` mix. The three group source layers
+legacy path. The 360 live cues comprise 359 individually addressable non-Faron
+filler keys plus the three-preset `everyone.ogg` mix. The three group source layers
 remain provenance-only WAVs and are not separately addressable runtime cues.
 This is a reversible machine-screened
 layer—not confirmed talent, not human-auditioned, and not
 a claimed match to any real person. Faron and the sacred family recordings are
-excluded and remain byte-identical. Three newly authored Daddy event fillers
+excluded and remain byte-identical. Six newly authored Daddy event fillers
 use distinct keys; they do not replace or modify `daddy1..3.ogg`.
 
 Filler candidates use Parler-TTS Mini v1.1 with named synthetic presets and
@@ -29,7 +29,7 @@ Rebuild in isolated Python 3.11 environments with:
 These files are temporary placeholders to replace when consented talent is
 confirmed. Do not train or condition them on family recordings.
 
-`FILLER_MANIFEST.json` schema 2 embeds the candidate evidence even though the
+`FILLER_MANIFEST.json` schema 3 embeds the candidate evidence even though the
 working candidate tree is ignored: `generation_run_provenance` embeds every
 attempt's available run record, candidate manifest hash, and candidate
 generation rows;

@@ -33,6 +33,26 @@ DEFAULT_CANDIDATES = ROOT / "tmp" / "filler_candidates" / "parler"
 DEFAULT_SELECTED = ROOT / "tmp" / "filler_selected_raw"
 MIN_SELECTION_SCORE = 2.65
 MIN_SHORT_SELECTION_SCORE = 1.85
+
+
+def normalized_text_sha256(path: Path) -> str:
+    """Hash UTF-8 source with platform-independent LF line endings."""
+    text = path.read_text(encoding="utf-8")
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+
+
+def portable_artifact_path(path: Path) -> str:
+    """Serialize sibling-worktree candidate paths as repository-relative tmp paths."""
+    resolved = path.resolve()
+    try:
+        return resolved.relative_to(ROOT.resolve()).as_posix()
+    except ValueError:
+        parts = resolved.parts
+        if "tmp" in parts:
+            tmp_index = len(parts) - 1 - list(reversed(parts)).index("tmp")
+            return Path(*parts[tmp_index:]).as_posix()
+        return resolved.name
 CACHE_SCHEMA = 3
 
 # ASR systems routinely spell these authored names, sound words, and
@@ -437,9 +457,10 @@ def main() -> int:
         "ffmpeg": subprocess.run(
             ["ffmpeg", "-version"], capture_output=True, text=True, check=True,
         ).stdout.splitlines()[0],
-        "selector_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        "selector_hash_mode": "utf8_lf",
+        "selector_sha256": normalized_text_sha256(Path(__file__)),
         "candidate_manifest_sha256": {
-            path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+            portable_artifact_path(path): hashlib.sha256(path.read_bytes()).hexdigest()
             for path in sorted(args.candidates.glob("attempt_*/*manifest.json"))
         },
         "report_sha256": hashlib.sha256(args.report.read_bytes()).hexdigest(),

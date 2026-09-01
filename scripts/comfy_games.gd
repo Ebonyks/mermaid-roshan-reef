@@ -208,8 +208,7 @@ func _build_completed_badge() -> void:
 	StorybookUI.style_icon_button(button, "♡★", "gold", Vector2(158.0, 96.0),
 		"Super Seeker hide-and-seek complete")
 	button.pressed.connect(func() -> void:
-		m.show_msg("Everyone", "Super Seeker Roshan found every friend!", "win")
-		m._say("everyone", "", 0.8))
+		m.show_msg("Everyone", "Super Seeker Roshan found every friend!", "win"))
 	castle_root.add_child(button)
 
 
@@ -262,8 +261,7 @@ func _accept_hide_and_seek() -> void:
 	m._write_save()
 	m.show_msg("Daddy Mermaid",
 		"Rumi, Baby Eagle, and Daddy are hiding around the castle! Explore anywhere, and tap us when you find us!",
-		"talk")
-	m._say("daddy", "talk", 0.8)
+		"hide_seek_start")
 	refresh_castle_room()
 
 
@@ -288,12 +286,10 @@ func _find_friend(friend_id: String) -> void:
 		m.show_msg("Everyone",
 			"You found Rumi, Baby Eagle, and Daddy! Super Seeker Roshan wins!",
 			"win")
-		m._say("everyone", "", 0.8)
 	else:
 		m._write_save()
 		m.show_msg(String(friend.get("name", "Friend")),
-			String(friend.get("line", "You found me!")), "win")
-		m._say(_voice_id(friend_id), "talk", 0.8)
+			String(friend.get("line", "You found me!")), "hide_seek_found")
 	refresh_castle_room()
 
 
@@ -302,8 +298,7 @@ func _visit_friend(friend_id: String) -> void:
 	if friend.is_empty():
 		return
 	m.show_msg(String(friend["name"]),
-		"Let's play together in the castle!", "talk")
-	m._say(_voice_id(friend_id), "talk", 0.8)
+		"Let's play together in the castle!", "hide_seek_visit")
 
 
 func _give_next_hint() -> void:
