@@ -176,6 +176,20 @@ func _check_storybook_coverage() -> void:
 	_check(not opera_venue_source.contains("BubbleLift")
 		and not opera_venue_source.contains("OperaVenueBack"),
 		"Opera venue keeps direct painted doors and no local lift or Back controls")
+	var castle_source := FileAccess.get_file_as_string(
+		"res://scripts/arena/castle_rooms_25d.gd")
+	var dust_source := FileAccess.get_file_as_string(
+		"res://scripts/games/dust_boss.gd")
+	_check(not castle_source.contains("func _toggle_elevator_menu")
+		and not castle_source.contains("ElevatorPointer")
+		and not castle_source.contains("CastleElevatorBook")
+		and not castle_source.contains("castle_room_action_button.visible"),
+		"castle rooms use physical doors without elevator or room-action overlays")
+	_check(not dust_source.contains("DustBossDodgeButton")
+		and not dust_source.contains("DustBossDodgePointer")
+		and not dust_source.contains("db_dodge_pointer")
+		and not dust_source.contains("db_tap_pips"),
+		"Dust Boss uses open-floor dodge without an overlay control")
 	var partner_source := FileAccess.get_file_as_string(
 		"res://scripts/partner_assist.gd")
 	var tutorial_source := FileAccess.get_file_as_string(

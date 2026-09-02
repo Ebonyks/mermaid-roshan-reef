@@ -465,11 +465,18 @@ func complete_day_one_after_boss() -> bool:
 			or bool(day_one_event_seen.get(EVENT_DAY_TWO_BEGINS, false)):
 		return false
 	day_one_active = false
+	clear_day_one_routing()
 	_emit_once(EVENT_DAY_TWO_BEGINS, {
 		"jobs_unlocked": true,
 		"opera_enabled": true,
 	})
 	return true
+
+
+func clear_day_one_routing() -> void:
+	# Once Day Two begins, no stale Day One room may steer a later Continue.
+	current_room_id = ""
+	dirty_castle_discovered = false
 
 
 func event_history() -> Array[Dictionary]:
@@ -575,14 +582,21 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 			break
 		completed.append(room_id)
 	var cleaned: Array[String] = completed.duplicate()
-	var current: String = ""
-	if completed.size() < ROOM_ORDER.size():
+	var current: String = _normalise_room_id_static(String(
+		source.get("day_one_current_room", "")))
+	if current == "" and completed.size() < ROOM_ORDER.size():
 		current = ROOM_ORDER[completed.size()]
 	var grok_seen: bool = _as_bool_static(source.get(
 		"day_one_grok_video_2_seen", false), false)
 	var all_done: bool = completed.size() == ROOM_ORDER.size()
-	var boss_triggered: bool = all_done and _as_bool_static(source.get(
-		"day_one_giant_dust_bunny_boss_triggered", false), false)
+	var saved_day_active: bool = _as_bool_static(source.get(
+		"day_one_active", true), true)
+	# The trigger is a runtime latch, not a saved completion. A save captured
+	# while the child is inside Grand Puff must reopen the Royal Hall door on the
+	# next process. Only the terminal Day Two state may retain the latch.
+	var boss_triggered: bool = all_done and not saved_day_active \
+		and _as_bool_static(source.get(
+			"day_one_giant_dust_bunny_boss_triggered", false), false)
 	# Origin/dev briefly shipped Day Two before the additive boss-defeated key.
 	# Backfill only that exact causal terminal: all four rooms completed, the
 	# boss explicitly triggered, and Day One explicitly inactive. Jobs-unlocked
@@ -595,8 +609,9 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		_as_bool_static(source.get(
 			"day_one_giant_dust_bunny_boss_defeated", false), false) \
 		or legacy_terminal_day_two)
-	var day_active: bool = _as_bool_static(source.get(
-		"day_one_active", true), true) and not boss_defeated
+	var day_active: bool = saved_day_active and not boss_defeated
+	if not day_active:
+		current = ""
 	var bathroom_done: bool = completed.has("bathroom")
 	var pool_done: bool = completed.has("pool")
 	var saved_bathroom_step: int = clampi(int(source.get(

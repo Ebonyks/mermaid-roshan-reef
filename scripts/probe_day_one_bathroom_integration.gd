@@ -167,12 +167,12 @@ func _probe_wiring() -> void:
 		completion_source.contains("if not day_one_is_active():")
 		and completion_source.contains("director.is_room_completed(\"bathroom\")")
 		and main_source.contains("_day_one_bathroom_movie_handoff != null"))
-	_check("generic controls stay owned by the rescue and movie handoff",
+	_check("the rescue owns world input without retired overlay controls",
 		main_source.contains("_suspend_day_one_bathroom_controls()")
 		and main_source.contains("_day_one_bathroom_movie_handoff_pending")
 		and main_source.contains(
 			"_set_world_controls_enabled(false, \"day_one_bathroom_lifecycle\")")
-		and main_source.contains("\"ElevatorButton\""))
+		and not main_source.contains("\"ElevatorButton\""))
 	_check("Roshan stages clear of the bath gestures",
 		main_source.contains("_position_player_at_foot(Vector2(790.0, 630.0), false)"))
 	_check("bathroom route owns the basket-to-sink handoff",

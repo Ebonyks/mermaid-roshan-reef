@@ -36,8 +36,11 @@ var _card: Panel = null
 var _color_row: HBoxContainer = null
 var _effect_row: HBoxContainer = null
 var _brush: TextureRect = null
+var _pointer: Label = null
 var _color_buttons: Array[AttackChoice] = []
 var _effect_buttons: Array[AttackChoice] = []
+var _choice_made := false
+var _pulse_time := 0.0
 
 class AttackChoice extends Button:
 	var choice_color := DEFAULT_COLOR
@@ -87,6 +90,7 @@ func _ready() -> void:
 	visible = false
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	set_process(true)
 
 func attach(owner: ReefMain) -> void:
 	m = owner
@@ -103,8 +107,15 @@ func open(on_confirm: Callable = Callable()) -> void:
 	_sync_from_main()
 	_refresh_choices()
 	_on_confirm = on_confirm
+	_choice_made = false
 	visible = true
 	is_open = true
+	_pulse_time = 0.0
+	if m != null and m.has_method("_say"):
+		# Reuse the authored, manifest-backed paint invitation. The hand and
+		# familiar star carry the non-reader instruction without moving this
+		# picker from its established craft-room location.
+		m.call("_say", "roshan", "castle_logo_open", 0.0)
 	if _card != null:
 		_card.scale = Vector2(0.92, 0.92)
 		var tw: Tween = _card.create_tween()
@@ -152,8 +163,19 @@ func audit_snapshot() -> Dictionary:
 		"confirm_button": get_node_or_null("AttackCustomizerCard/AttackCustomizerConfirm") != null,
 		"painted_brush": _brush != null and _brush.texture == MAGIC_BRUSH_ART,
 		"painted_effect_previews": _effect_buttons.size() == EFFECTS.size(),
+		"visual_pointer": _pointer != null and bool(_pointer.get_meta(
+			"visual_pointer", false)),
+		"choice_made": _choice_made,
+		"dim_confirm_after_choice": _dim != null,
 		"canvas_only": true,
 	}
+
+func _process(delta: float) -> void:
+	if not is_open or _pointer == null or not is_instance_valid(_pointer):
+		return
+	_pulse_time += maxf(delta, 0.0)
+	_pointer.scale = Vector2.ONE * (1.0 + sin(_pulse_time * 4.2) * 0.10)
+	_pointer.rotation = sin(_pulse_time * 2.7) * 0.055
 
 func _build() -> void:
 	if _card != null and is_instance_valid(_card):
@@ -193,6 +215,19 @@ func _build() -> void:
 		StorybookUI.PURPLE, 34, StorybookUI.ROLE_CHILD_CONTROL)
 	confirm.pressed.connect(close)
 	_card.add_child(confirm)
+	_pointer = Label.new()
+	_pointer.name = "AttackCustomizerPointer"
+	_pointer.text = "👇"
+	_pointer.size = Vector2(96.0, 96.0)
+	_pointer.pivot_offset = _pointer.size * 0.5
+	_pointer.position = confirm.position + Vector2(10.0, -56.0)
+	_pointer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_pointer.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_pointer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_pointer.z_index = 3
+	_pointer.set_meta("visual_pointer", true)
+	StorybookUI.style_label(_pointer, 58, StorybookUI.GOLD, 5)
+	_card.add_child(_pointer)
 	var color_panel := StorybookUI.add_hud_panel(_card, Rect2(34.0, 176.0, 692.0, 142.0), StorybookUI.PEARL_BLUE, StorybookUI.PAPER_COOL, 28)
 	color_panel.name = "AttackColorChoices"
 	_color_row = HBoxContainer.new()
@@ -251,16 +286,27 @@ func _write_to_main() -> void:
 		m.set("attack_effect", attack_effect)
 
 func _on_color_pressed(color: Color) -> void:
+	_choice_made = true
 	set_color(color)
 
 func _on_effect_pressed(effect: String) -> void:
+	_choice_made = true
 	set_effect(effect)
 
 func _on_dim_input(event: InputEvent) -> void:
-	# The dimmer consumes stray taps so the required picture choice cannot be
-	# skipped accidentally. The large glowing star on the brush card confirms.
-	if event is InputEventScreenTouch or event is InputEventMouseButton:
-		accept_event()
+	# Before any picture choice the dimmer is only a quiet boundary. Once the
+	# child has chosen either a colour or an effect, a tap anywhere outside the
+	# card is the same forgiving confirm as the familiar glowing star.
+	var pressed := false
+	if event is InputEventScreenTouch:
+		pressed = (event as InputEventScreenTouch).pressed
+	elif event is InputEventMouseButton:
+		pressed = (event as InputEventMouseButton).pressed
+	if not pressed:
+		return
+	accept_event()
+	if _choice_made:
+		close()
 
 func _refresh_choices() -> void:
 	for button: AttackChoice in _color_buttons:

@@ -66,6 +66,8 @@ if command -v adb >/dev/null 2>&1 && adb get-state >/dev/null 2>&1; then
 		echo "   saved $(wc -c < "${SAVE_OUT}") bytes to ${SAVE_OUT}"
 		adb exec-out run-as "${PKG}" cat files/reef_save.json.bak \
 			> "${DEST}/reef_save-${STAMP}.json.bak" 2>/dev/null || true
+		adb exec-out run-as "${PKG}" cat files/reef_save.json.before_new_game \
+			> "${DEST}/reef_save-${STAMP}.json.before_new_game" 2>/dev/null || true
 	else
 		rm -f "${SAVE_OUT}"
 		echo "   could not read the save (game not installed, or not a debug build) — skipped."

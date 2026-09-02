@@ -1219,6 +1219,11 @@ func _init() -> void:
 	if main.intro_active:
 		main._skip_intro()
 	await _frames(2)
+	# The Canvas promenade and its castle/reef exits are later-content behavior;
+	# do not let a fresh-save Day One route gate turn this structural probe into
+	# an onboarding test.
+	main.day_one_active = false
+	main._day_one_ref().clear_day_one_routing()
 	main.pearl_count = main.PEARL_TOTAL
 	for friend_value: Variant in main.friends:
 		var friend: Dictionary = friend_value as Dictionary

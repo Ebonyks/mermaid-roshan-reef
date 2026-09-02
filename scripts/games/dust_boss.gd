@@ -58,12 +58,14 @@ const BossSplash2DLogic = preload("res://scripts/boss_splash_2d.gd")
 # missed windows, so the opening challenge stays intact but cannot become a
 # motor-speed wall.
 const SHOW_T := 6.4            # the showing: he is revealed before he fights
+const SHOW_SKIP_T := 5.2       # the demo flash must have played before skipping
 const WINDUP_T := 0.7          # squash-and-glimmer telegraph before the leap
-const STRUCK_T := 1.8          # the hit reaction (spin, burst, hearts)
-const DIZZY_T := 3.2           # extra stagger after hit 1 — a free breather
-const ANGRY_T := 2.1           # the puff-up after hit 2
-const PHASE_BEAT_T := 2.8      # authored pause before the next lively phase
-const CELEBRATION_BEAT_T := 1.8 # sparkle/voice beat after each landed round
+const STRUCK_T := 1.4          # the hit reaction (spin, burst, hearts)
+const DIZZY_T := 1.4           # extra stagger after hit 1 — a free breather
+const ANGRY_T := 1.4           # the puff-up after hit 2
+const PHASE_BEAT_T := 1.4      # authored pause before the next lively phase
+const CELEBRATION_BEAT_T := 1.2 # sparkle/voice beat after each landed round
+const LANDED_ROUND_HOLD_T := 5.4 # one bounded, child-readable landed-round hold
 const WIN_T := 3.4             # befriending beat before the win banner
 const POSITIVE_PACING_FLOOR := 38.0 # quick completions still get a warm ending
 
@@ -98,6 +100,7 @@ const PREASSIST_WINDOW_MAX := 4.0
 const PREASSIST_LANDING_RADIUS := 2.0 # bias the leap toward rooted/wandering play
 const PREASSIST_LANDING_MIN := 0.85
 const PREASSIST_REACH := 1.25       # extra reach only after two misses
+const FIRST_HIT_ASSIST_BONUS := 4.0 # one bounded bridge after the first miss
 const FEEDBACK_COOLDOWN := 2.6       # one clear cue, then a quiet learning pause
 const CLOSER_FEEDBACK_COOLDOWN := 2.8
 const BUMP_COOLDOWN_BASE := 4.0      # first boing stays immediate; repeats space out
@@ -148,6 +151,7 @@ const PHASES: Array[Dictionary] = [
 
 var m: ReefMain
 var stage: OctagonStage
+var attack_feedback: HitEngine = null
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -155,10 +159,12 @@ func _init(main: ReefMain) -> void:
 
 # ---- lifecycle -------------------------------------------------------------
 func build(fr: Dictionary, _origin: Vector3) -> void:
+	_ensure_attack_feedback()
 	m.g["db_hits"] = 0
 	m.g["db_miss"] = 0
 	m.g["db_miss_streak"] = 0
 	m.g["db_mercy_tier"] = 0
+	m.g["db_preassist_tier"] = 0
 	m.g["db_bumps"] = 0
 	m.g["db_dodges"] = 0
 	m.g["db_dodge_attempts"] = 0
@@ -179,6 +185,7 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	m.g["db_bump_cd"] = 0.0
 	m.g["db_window_hit"] = 0
 	m.g["db_win_len"] = 0.0
+	m.g["db_taps_this_round"] = 0
 	m.g["db_x"] = 0.0
 	m.g["db_z"] = -12.0
 	m.g["db_y"] = 0.0
@@ -211,6 +218,29 @@ func stage_close() -> void:
 			mastery_layer.get_parent().remove_child(mastery_layer)
 		mastery_layer.queue_free()
 	stage.close()
+	if attack_feedback != null:
+		attack_feedback.teardown()
+	attack_feedback = null
+	m.g.erase("db_attack_feedback")
+
+func _ensure_attack_feedback() -> HitEngine:
+	if attack_feedback == null:
+		attack_feedback = HitEngine.new(m)
+		m.g["db_attack_feedback"] = attack_feedback
+	return attack_feedback
+
+func _show_attack_feedback() -> void:
+	var feedback: HitEngine = _ensure_attack_feedback()
+	var viewport: Viewport = m.get_viewport()
+	var screen_pos := Vector2(640.0, 360.0)
+	if viewport != null:
+		screen_pos = viewport.get_visible_rect().get_center()
+	var boss: Variant = m.g.get("db_boss")
+	var cam: Variant = m.player.cam if m.player != null else null
+	if boss != null and is_instance_valid(boss) and cam != null \
+			and cam.is_inside_tree() and not cam.is_position_behind(boss.global_position):
+		screen_pos = cam.unproject_position(boss.global_position)
+	feedback.show_attack_feedback_2d(screen_pos)
 
 static func mastery_tier_for_bumps(bumps: int) -> int:
 	# Bumps are harmless and never gate completion. They only leave an inviting
@@ -353,7 +383,8 @@ func miss_streak() -> int:
 
 func mercy_tier() -> int:
 	# Tier one begins on miss five, tier two on miss ten. Using a discrete tier
-	# makes the change legible and keeps attempts one through four identical.
+	# makes the strong mercy change legible while the first-hit bridge remains
+	# separately bounded.
 	# Once earned it stays for this encounter, avoiding fast/slow oscillation
 	# after an assisted success.
 	return maxi(int(m.g.get("db_mercy_tier", 0)),
@@ -364,7 +395,16 @@ func preassist_tier() -> int:
 	# third attempt is the first gentle assist, while miss five still owns the
 	# exact strong assist (long window, wide reach and free tap). The gentle
 	# tiers only trim dead travel and make the landing easier to read.
-	return clampi(miss_streak() - PREASSIST_TRIGGER_STREAK + 1, 0, 2)
+	var earned: int = maxi(0, int(m.g.get("db_preassist_tier", 0)))
+	var current: int = clampi(miss_streak() - PREASSIST_TRIGGER_STREAK + 1, 0, 2)
+	return maxi(earned, current)
+
+func first_hit_assist() -> int:
+	# The first miss is a read, not a wall. A single bounded bridge keeps the
+	# first landed hit possible by window two for a slow first reaction; it ends
+	# as soon as the child lands that first round and never changes the three-tap
+	# requirement or the kit's base 0.75/0.65 s windows.
+	return 1 if int(m.g.get("db_hits", 0)) == 0 and miss_streak() > 0 else 0
 
 func window_len() -> float:
 	# the vulnerability window: the kit's own number (0.75s, 0.65s in the final
@@ -375,10 +415,12 @@ func window_len() -> float:
 		base = kit.current_vulnerability_window()
 	var gentle: float = minf(
 		PREASSIST_WINDOW_PER_TIER * float(preassist_tier()), PREASSIST_WINDOW_MAX)
-	return base + gentle + minf(MERCY_WINDOW_PER_TIER * float(mercy_tier()), MERCY_WINDOW_MAX)
+	var first_help: float = FIRST_HIT_ASSIST_BONUS if first_hit_assist() > 0 else 0.0
+	return base + maxf(gentle, first_help) \
+		+ minf(MERCY_WINDOW_PER_TIER * float(mercy_tier()), MERCY_WINDOW_MAX)
 
 func reach() -> float:
-	var gentle: float = PREASSIST_REACH * float(preassist_tier())
+	var gentle: float = PREASSIST_REACH * float(maxi(preassist_tier(), first_hit_assist()))
 	return REACH + gentle + minf(MERCY_REACH_PER_TIER * float(mercy_tier()), MERCY_REACH_MAX)
 
 func hop_speed() -> float:
@@ -391,12 +433,12 @@ func windup_len() -> float:
 
 func prowl_len() -> float:
 	var base: float = float(phase_cfg()["prowl_t"])
-	var cut: float = minf(PREASSIST_PROWL_CUT * float(preassist_tier()),
+	var cut: float = minf(PREASSIST_PROWL_CUT * float(maxi(preassist_tier(), first_hit_assist())),
 		PREASSIST_PROWL_MAX)
 	return maxf(PREASSIST_PROWL_MIN, base - cut)
 
 func landing_radius() -> float:
-	var tier: int = preassist_tier()
+	var tier: int = maxi(preassist_tier(), first_hit_assist())
 	if tier <= 0:
 		return 4.0
 	return maxf(PREASSIST_LANDING_MIN,
@@ -418,12 +460,18 @@ func celebration_beat_len(rounds: int) -> float:
 # here on purpose; the child is being taught, not tested.
 func _tick_showing(st: float, fr: Dictionary, tapped: bool) -> void:
 	if tapped:
+		if st >= SHOW_SKIP_T:
+			# A demo flash has already been shown. Let the child's tap move on,
+			# while early taps remain a harmless teaching response.
+			_enter_state("prowl")
+			_pick_hop(true)
+			return
 		_answer_only()
 	var grow: float = clampf(st / 1.6, 0.0, 1.0)
 	m.g["db_show_grow"] = grow
 	m.g["db_y"] = sin(clampf((st - 1.8) / 1.4, 0.0, 1.0) * PI) * 5.4
 	# the demo flash: exactly what she has to wait for in the real fight
-	var demo: bool = st > 3.2 and st < 5.2
+	var demo: bool = st > 3.2 and st < SHOW_SKIP_T
 	m.g["db_flash"] = 1.0 if demo else 0.0
 	if demo and not bool(m.g.get("db_show_told", false)):
 		m.g["db_show_told"] = true
@@ -491,13 +539,16 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 	var open_now: bool = k.vulnerable
 	m.g["db_flash"] = 1.0 if open_now else 0.0
 	# THE ASSIST PACE, applied to the kit's own clock exactly once per window.
-	# Gentle time starts on attempt three (after two misses); strong mercy still
-	# switches on after five consecutive misses. The shared guard prevents either
-	# bonus from being applied twice when the kit's open signal spans frames.
+	# The first-hit bridge starts after one miss, gentle time starts on attempt
+	# three (after two misses), and strong mercy still switches on after five
+	# consecutive misses. The shared guard prevents bonuses from being applied
+	# twice when the kit's open signal spans frames.
 	if open_now and not bool(m.g.get("db_mercy_topped", false)):
 		m.g["db_mercy_topped"] = true
 		var gentle_bonus: float = minf(
 			PREASSIST_WINDOW_PER_TIER * float(preassist_tier()), PREASSIST_WINDOW_MAX)
+		gentle_bonus = maxf(gentle_bonus,
+			FIRST_HIT_ASSIST_BONUS if first_hit_assist() > 0 else 0.0)
 		var mercy_bonus: float = minf(
 			MERCY_WINDOW_PER_TIER * float(mercy_tier()), MERCY_WINDOW_MAX)
 		var bonus: float = gentle_bonus + mercy_bonus
@@ -539,6 +590,7 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 		m.g["db_miss"] = int(m.g.get("db_miss", 0)) + 1
 		m.g["db_miss_streak"] = miss_streak() + 1
 		m.g["db_mercy_tier"] = mercy_tier()
+		m.g["db_preassist_tier"] = preassist_tier()
 		m.g["db_flash"] = 0.0
 		m.g["db_y"] = 0.0
 		_enter_state("prowl")
@@ -577,8 +629,7 @@ func _tick_struck(delta: float, st: float, fr: Dictionary, tapped: bool) -> void
 	m.g["db_flash"] = 0.0
 	# the kit is playing flinch_3 -> angry; this hold is the breather the child
 	# gets to see what she did before he is moving again
-	var hold: float = STRUCK_T + (DIZZY_T if rounds == 1 else (ANGRY_T if rounds == 2 else 0.0)) \
-		+ phase_beat_len(rounds) + celebration_beat_len(rounds)
+	var hold: float = LANDED_ROUND_HOLD_T
 	if rounds >= HP:
 		return                     # the friends beat owns the ending
 	if st >= hold:
@@ -1014,8 +1065,10 @@ func _update_mastery_ui() -> void:
 		return
 	var state: String = String(m.g.get("db_state", ""))
 	layer.visible = state != "splash"
-	var bumps: int = int(m.g.get("db_bumps", 0))
-	var tier: int = mastery_tier_for_bumps(bumps)
+	# The mastery strip is a calm, static promise during the fight. Showing a
+	# star disappear on contact reads as losing; the generic medal card reveals
+	# the bump tier only after the encounter is complete.
+	var tier: int = MASTERY_GOLD
 	var stars: Label = m.g.get("db_mastery_stars") as Label
 	if stars != null and is_instance_valid(stars):
 		stars.text = _mastery_stars(tier)
@@ -1023,9 +1076,8 @@ func _update_mastery_ui() -> void:
 			MASTERY_COLORS[tier] as Color)
 	var perfect: Label = m.g.get("db_perfect_gem") as Label
 	if perfect != null and is_instance_valid(perfect):
-		perfect.text = "💎" if bumps == 0 else "◇"
-		perfect.modulate = Color.WHITE if bumps == 0 \
-			else Color(0.58, 0.58, 0.68, 0.78)
+		perfect.text = "💎"
+		perfect.modulate = Color.WHITE
 
 # ---- the attic in the round ------------------------------------------------
 func _stage_open() -> void:
@@ -1153,6 +1205,7 @@ func _on_round_done() -> void:
 	m.g["db_hits"] = rounds
 	m.g["db_miss_streak"] = 0
 	m.g["db_shield_taps"] = 0
+	m.g["db_taps_this_round"] = 0
 	var boss: Node3D = m.g.get("db_boss") as Node3D
 	if boss != null and is_instance_valid(boss):
 		m._sparkle_burst(boss.global_position + Vector3(0, BOSS_H * 0.5, 0),
@@ -1184,6 +1237,7 @@ func _on_imploded() -> void:
 
 func _on_tap_progress(accepted: int, _required: int) -> void:
 	m.g["db_taps_this_round"] = accepted
+	_show_attack_feedback()
 
 # ---- the reef doorway ------------------------------------------------------
 func build_portal() -> Vector3:

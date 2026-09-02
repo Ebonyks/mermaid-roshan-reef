@@ -6,21 +6,21 @@ extends Control
 
 const MATERIALS: Array[Dictionary] = [
 	{"id": "brushes", "label": "loose brushes", "center": Vector2(344.0, 390.0),
-		"hit_size": Vector2(124.0, 104.0), "color": Color(1.0, 0.72, 0.38)},
+		"hit_size": Vector2(150.0, 128.0), "color": Color(1.0, 0.72, 0.38)},
 	{"id": "pink_paint", "label": "pink paint", "center": Vector2(416.0, 390.0),
-		"hit_size": Vector2(92.0, 104.0), "color": Color(1.0, 0.48, 0.70)},
+		"hit_size": Vector2(128.0, 128.0), "color": Color(1.0, 0.48, 0.70)},
 	{"id": "blue_paint", "label": "blue paint", "center": Vector2(608.0, 390.0),
-		"hit_size": Vector2(92.0, 104.0), "color": Color(0.44, 0.84, 1.0)},
+		"hit_size": Vector2(128.0, 128.0), "color": Color(0.44, 0.84, 1.0)},
 	{"id": "paint_cups", "label": "paint cups", "center": Vector2(681.0, 390.0),
-		"hit_size": Vector2(124.0, 104.0), "color": Color(0.73, 0.60, 1.0)},
+		"hit_size": Vector2(150.0, 128.0), "color": Color(0.73, 0.60, 1.0)},
 ]
 const GRIME: Array[Dictionary] = [
 	{"id": "left_counter", "label": "left counter grime", "center": Vector2(180.0, 385.0),
-		"hit_size": Vector2(132.0, 76.0), "radius": Vector2(48.0, 12.0)},
+		"hit_size": Vector2(150.0, 110.0), "radius": Vector2(48.0, 12.0)},
 	{"id": "desk_counter", "label": "desk counter grime", "center": Vector2(512.0, 290.0),
-		"hit_size": Vector2(144.0, 72.0), "radius": Vector2(54.0, 11.0)},
+		"hit_size": Vector2(150.0, 110.0), "radius": Vector2(54.0, 11.0)},
 	{"id": "right_counter", "label": "right counter grime", "center": Vector2(854.0, 385.0),
-		"hit_size": Vector2(132.0, 76.0), "radius": Vector2(48.0, 12.0)},
+		"hit_size": Vector2(150.0, 110.0), "radius": Vector2(48.0, 12.0)},
 ]
 const DESK_CENTER := Vector2(512.0, 325.0)
 const DESK_HIT_SIZE := Vector2(310.0, 158.0)
@@ -132,6 +132,8 @@ func audit_snapshot() -> Dictionary:
 		"grime_art_count": _grime_art.size(),
 		"desk_button": _desk_button != null,
 		"pointer": _pointer != null,
+		"expected_tap_count": MATERIALS.size() + GRIME.size(),
+		"child_sized_hit_targets": _child_sized_hit_targets(),
 		"canvas_only": true,
 	}
 
@@ -293,11 +295,15 @@ func _on_material_pressed(material_id: String) -> void:
 
 func _animate_storage_station(material_id: String) -> void:
 	var rooms: Variant = m.call("_castle_rooms_ref")
-	if not (rooms is Object) or not (rooms as Object).has_method("_activate_room_item"):
+	if not (rooms is Object) or not (rooms as Object).has_method(
+			"play_day_one_art_station"):
 		return
 	var station_id := "paint_table" if material_id in ["brushes", "blue_paint"] \
 		else "palette"
-	(rooms as Object).call("_activate_room_item", station_id)
+	# The craft-room cards are shared with the post-Day-One logo studio. This
+	# narrow route plays their authored fixture animation without inheriting the
+	# room card's launch_activity, so a supply tap can never hijack into the logo.
+	(rooms as Object).call("play_day_one_art_station", station_id)
 
 
 func _on_grime_pressed(grime_id: String) -> void:
@@ -381,7 +387,7 @@ func _announce_current_target() -> void:
 		return
 	for material: Dictionary in MATERIALS:
 		if not bool(m.day_one_art_collected_materials.get(String(material["id"]), false)):
-			_speak_cue("Tap the loose %s!" % String(material["label"]),
+			_speak_cue("Tap the %s!" % String(material["label"]),
 				"art_studio_material_hint")
 			return
 	for grime: Dictionary in GRIME:
@@ -417,6 +423,18 @@ func _grime_center(grime_id: String) -> Vector2:
 		if String(grime["id"]) == grime_id:
 			return grime["center"] as Vector2
 	return DESK_CENTER
+
+
+func _child_sized_hit_targets() -> bool:
+	for material: Dictionary in MATERIALS:
+		var hit_size: Vector2 = material["hit_size"] as Vector2
+		if hit_size.x < 128.0 or hit_size.y < 128.0:
+			return false
+	for grime: Dictionary in GRIME:
+		var grime_size: Vector2 = grime["hit_size"] as Vector2
+		if grime_size.x < 150.0 or grime_size.y < 110.0:
+			return false
+	return true
 
 
 func _spawn_clean_sparkles(center: Vector2) -> void:

@@ -77,9 +77,10 @@ class CountingAudioDirector:
 	var requests: Array[Dictionary] = []
 	var messages: Array[Dictionary] = []
 
-	func show_msg(who: String, txt: String, vo: String = "talk") -> void:
+	func show_msg(who: String, txt: String, vo: String = "talk",
+			voice_min_gap: float = 0.5) -> void:
 		messages.append({"who": who, "text": txt, "voice": vo})
-		super.show_msg(who, txt, vo)
+		super.show_msg(who, txt, vo, voice_min_gap)
 
 	func _say(speaker: String, event: String = "",
 			min_gap: float = 0.0) -> void:

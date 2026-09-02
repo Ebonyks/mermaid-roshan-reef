@@ -545,13 +545,22 @@ func open_picker(say_prompt: bool = true, preselect: String = "", mode: String =
 	m._navigation_push("stuffie_picker", self,
 		Callable(self, "close_picker"))
 	m.companion_pick_mode = mode if mode in ["adopt", "swap", "studio"] else "adopt"
-	if m.companion_pick_mode == "studio" and m.companion_id != "":
+	var resume_rescue_draft: bool = bool(m.g.get("stuffie_rescue_tutorial", false)) \
+			and m.companion_pick_mode == "adopt" \
+			and m.companion_pick_id != ""
+	if resume_rescue_draft:
+		# The child-facing Back/dim/B paths are reversible. Keep the current
+		# friend/coat draft so a return to the picker feels like a resume.
+		_reset_pick_colors()
+	elif m.companion_pick_mode == "studio" and m.companion_id != "":
 		m.companion_pick_id = m.companion_id
+		_reset_pick_colors()
 	elif not def_by_id(preselect).is_empty():
 		m.companion_pick_id = preselect
+		_reset_pick_colors()
 	else:
 		m.companion_pick_id = String(ROSTER[0]["id"]) if m.companion_id == "" else m.companion_id
-	_reset_pick_colors()
+		_reset_pick_colors()
 	m.companion_layer = CanvasLayer.new()
 	m.companion_layer.layer = 25
 	m.add_child(m.companion_layer)
@@ -595,6 +604,9 @@ func _reset_pick_colors() -> void:
 	m.companion_pick_colors = []
 	if m.companion_pick_id == m.companion_id and m.companion_colors.size() == 3:
 		m.companion_pick_colors = m.companion_colors.duplicate()
+		return
+	if bool(m.g.get("stuffie_rescue_tutorial", false)) \
+			and m.companion_pick_colors.size() == 3:
 		return
 	var d := def_by_id(m.companion_pick_id)
 	for slot in COLOR_SLOTS:
@@ -659,6 +671,11 @@ func _confirm_pick() -> void:
 		m.companion_resting = false
 		m.companion_greeted = false
 	m._write_save()
+	# Adoption is durable before the picker is removed. The castle owns one
+	# reusable Canvas card; confirmation refreshes/repositions that card rather
+	# than creating a follower or a tween callback instance.
+	if m.castle_room_layer != null and is_instance_valid(m.castle_room_layer):
+		m._castle_rooms_ref().sync_castle_companion_card()
 	m._reward(false)
 	if m.player != null:
 		m._sparkle_burst(m.player.position + Vector3(0, 2.0, 0), Color(1.0, 0.8, 0.5))

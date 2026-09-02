@@ -34,9 +34,10 @@ func _init() -> void:
 		and cleaning_source.contains("_spawn_whole_room_sparkles()")
 		and cleaning_source.contains("fixture_associated_role")
 		and not finale_source.contains("_burst(\"✦\"")
-		and main_source.contains("ApprovedPoolRoomPreview")
-		and main_source.contains("actual_pool_room")
-		and main_source.contains("day_one_complete_pool_scene"))
+		and main_source.contains("ApprovedRoomPreview")
+		and main_source.contains("approved_reused_room_imagery")
+		and main_source.contains("actual_destination_room")
+		and main_source.contains("_show_day_one_room_handoff"))
 	_check("pool route preview is the approved actual room, not a droplet",
 		main_source.contains("DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE")
 		and main_source.contains(

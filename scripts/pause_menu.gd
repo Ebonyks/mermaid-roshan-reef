@@ -144,7 +144,7 @@ func leave_label() -> String:
 		or m.castle_logo_layer != null or m.stickers_layer != null \
 		or m.collection_layer != null or m.companion_layer != null \
 		or m.companion_care_layer != null or m.combat_tutorial_game != null
-	if m.game == "level2" and not local_level2_activity:
+	if m.game == "level2" and not local_level2_activity and not m.day_one_is_active():
 		return "🌊   REEF"
 	return "↩   BACK"
 
