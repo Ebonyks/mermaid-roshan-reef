@@ -111,14 +111,17 @@ func _init() -> void:
 		director.art_cleanup_complete() and director.art_desk_unlocked
 		and main.castle_logo_layer == null)
 	var customizer := AttackCustomizer.new()
-	# Mount the picker the same way the live main scene does. A Control directly
-	# under the SceneTree root has no CanvasLayer GUI routing in this state-only
-	# probe, so Input.parse_input_event() cannot reach its dimmer. Viewport input
-	# below is the real modal path and still tests the outside-card gesture.
+	# Mount the picker under the SceneTree root, as the live CanvasLayer path does.
+	# `main` is intentionally state-only and is not in the tree, so a CanvasLayer
+	# parented to it has no viewport and cannot receive modal GUI input.
 	var customizer_layer := CanvasLayer.new()
 	customizer_layer.layer = 18
-	main.add_child(customizer_layer)
+	root.add_child(customizer_layer)
 	customizer_layer.add_child(customizer)
+	# SceneTree._init() runs before the new layer receives its viewport-enter
+	# notification. Wait for that real tree boundary before pushing the outside
+	# tap; otherwise get_viewport() is null even though the layer is parented.
+	await process_frame
 	customizer.attach(main)
 	var confirmations := 0
 	customizer.open(func() -> void: confirmations += 1)

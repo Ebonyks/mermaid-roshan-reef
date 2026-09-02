@@ -269,6 +269,21 @@ func _open_case() -> void:
 		main._castle_rooms_ref().close()
 		main._clear_game()
 		await _frames(2)
+	# `_clear_game()` owns minigame teardown, while the Day One castle return is
+	# a Canvas world. Re-establish the neutral Reef presentation that the legacy
+	# attic portal actually observes: the player is visible, the Reef environment
+	# and camera are current, and no level2 phase can short-circuit `_process`.
+	main.game = ""
+	main.g = {}
+	main.player.visible = true
+	main.we_node.environment = main.world_env
+	if main.sun_light != null:
+		main.sun_light.visible = true
+	if main.player.cam != null and main.player.cam.is_inside_tree():
+		main.player.cam.make_current()
+	_ck("the attic fixture reaches neutral Reef before proximity",
+		main.game == "" and main.player.visible
+		and main.we_node.environment == main.world_env)
 	# CI runs this probe in Classic touch mode. Preserve that mode so the attic
 	# assertion exercises the real physical proximity transition; when a caller
 	# explicitly starts the probe in Hybrid, use the child action contract below.
