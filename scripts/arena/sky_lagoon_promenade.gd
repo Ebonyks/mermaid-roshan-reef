@@ -275,10 +275,18 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	_build_castle_screen()
 	_build_roshan_card()
 	_build_animals()
-	var spawn_x: float = 4520.0 if from_castle or from_north else 610.0
+	var day_one_entry: bool = m.day_one_is_active()
+	var spawn_x: float = 4520.0 if day_one_entry or from_castle or from_north else 610.0
 	set_master_route_x(spawn_x)
 	_apply_view_transform(true)
-	if from_castle:
+	if day_one_entry:
+		# A fresh Day One save is already at the castle approach. Keep the plane as
+		# scenery, but make the castle the one visible, actionable promise.
+		var castle_target: Dictionary = _target_by_id("castle_gate")
+		if not castle_target.is_empty():
+			_focus(castle_target)
+		m.show_msg("Roshan", "Let's go to the castle!", "roshan_day1_castle")
+	elif from_castle:
 		m.show_msg("Roshan", "Back outside! Tap a playground toy or the castle door once to light it up, then tap it again to play.")
 	elif m.first_session and at_ocean_gate_hub:
 		m.g["lagoon_reef_guidance_pending"] = true
@@ -829,7 +837,13 @@ func _tick_target_affordances(focus_id: String, focus_t: float) -> void:
 		if selected:
 			tint.a = lerpf(0.82, 1.0, wave * 0.5 + 0.5)
 		else:
-			tint.a = minf(tint.a, 0.055)
+			# Day One's castle gate is the route anchor. It must remain a readable
+			# idle cue after focus is cleared; the generic promenade cap would make
+			# the only safe destination effectively disappear.
+			if m.day_one_is_active() and String(target.get("id", "")) == "castle_gate":
+				tint.a = maxf(tint.a, 0.45)
+			else:
+				tint.a = minf(tint.a, 0.055)
 		glow.modulate = tint
 		var pulse: float = 1.0 + wave * Affordance.pulse_amount(kind, selected)
 		var base_scale: float = float(target.get("highlight_scale", 1.0))
@@ -844,7 +858,10 @@ func _tick_target_affordances(focus_id: String, focus_t: float) -> void:
 func _activate(target: Dictionary) -> void:
 	match String(target.get("kind", "")):
 		"reef":
-			m._exit_level2()
+			if m.day_one_is_active():
+				m._day_one_refuse_reef_exit()
+			else:
+				m._exit_level2()
 		"playground":
 			_start_playground_animation(String(target.get("payload", "")), target.get("node") as Node2D)
 		"castle":
@@ -1147,6 +1164,13 @@ func _show_reef_route_guidance() -> void:
 			_focus(target)
 			break
 	m.show_msg("Roshan", "Tap the pearl plane to visit the Reef!", "intro4")
+
+func _target_by_id(target_id: String) -> Dictionary:
+	for value: Variant in m.g.get("lagoon_promenade_targets", []) as Array:
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id", "")) == target_id:
+			return target
+	return {}
 
 func _tick_ambient_life(delta: float) -> void:
 	var timer: float = fmod(float(m.g.get("lagoon_ambient_t", 0.0)) + delta, 3600.0)

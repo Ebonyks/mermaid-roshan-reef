@@ -34,6 +34,11 @@ func _run() -> void:
 	root.add_child(main)
 	await process_frame
 	await process_frame
+	# This probe owns the post-Day-One ocean-kingdom contract.  The production
+	# gate correctly keeps ordinary reef exits pointed at the castle during Day
+	# One, so make the later-content fixture explicit before entering the Lagoon.
+	main.day_one_active = false
+	main._day_one_ref().clear_day_one_routing()
 
 	_check(main.START_AT_CASTLE_GATE, "display_build_starts_at_castle_gate")
 	main._enter_level2_now(false, false, true)

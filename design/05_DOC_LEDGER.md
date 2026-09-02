@@ -395,6 +395,35 @@ design 00 and by later owner decisions.
 | `TOUCH_AUDIT_2026-08-03.md` | 🟠 | `HISTORICAL_EVIDENCE` for the reported wrong-direction Sky Lagoon symptom and touch-method review. Current touch rating/evidence lives in the master audit; reproduce before assigning a present defect. |
 | `WATER_PHYSICS_EVALUATION_2026-08-02.md` | 🟡 | `HISTORICAL_EVIDENCE`; Jolt water-transition census and spatial rollout plan are `SUPERSEDED` by true Canvas and removal of 3D physics debt. |
 
+## Day One player-experience round (2026-09-02)
+
+Code-traced playthrough evidence and its Codex handoff. No run was executed
+on a device or with a Godot binary; every timing is modelled from the code
+and the protocol's child model, so none of these rows grants device, child,
+owner or release acceptance.
+
+| Doc | | Note |
+|---|---|---|
+| `CODEX_DAY_ONE_PLAYER_EXPERIENCE_HANDOFF_2026-09-02.md` | 🔵 | `SUPPORTING_CURRENT`; Codex work packages WP-D1–WP-D9 for the Day One entry arc (arrival routing, spoken objectives, room hand-offs, bathroom gesture forgiveness, Grand Puff pacing and resumability, save/start-menu safety, stuffie and art payoffs, revisit polish, probe rosters), a 23-item findings register `DO-01`–`DO-23`, the attention-budget contract, owner escalation triggers and the voice-key list. Subordinate to the canonical audit, design 06 and owner decisions; closes nothing until probes and device evidence exist. |
+| `audit/day_one_playthroughs_2026-09-02/README.md` | 🔵 | `SUPPORTING_CURRENT` index of the sixteen-persona bundle at head `ff68f955` with the per-finding convergence table. Evidence only. |
+| `audit/day_one_playthroughs_2026-09-02/PROTOCOL.md` | 🔵 | `SUPPORTING_CURRENT` shared playthrough protocol: child model, Day One flow map with code pointers, and the fixed report shape every run used. A method record, not a design rule. |
+| `audit/day_one_playthroughs_2026-09-02/run_01_golden_path.md` | 🔵 | `SUPPORTING_CURRENT` baseline run (attentive golden path): 34-beat log with measured clip lengths, time budget 2.6/5.7/15.7 min, hazards and six proposals. Modelled, not executed. |
+| `audit/day_one_playthroughs_2026-09-02/run_02_tap_everything.md` | 🔵 | `SUPPORTING_CURRENT` tap-everything toddler run: input-routing trace, reef and attic sequence break, bathroom tap stall. Modelled, not executed. |
+| `audit/day_one_playthroughs_2026-09-02/run_03_passive_watcher.md` | 🔵 | `SUPPORTING_CURRENT` passive watcher run: idle-nudge table and silence durations per beat. Modelled, not executed. |
+| `audit/day_one_playthroughs_2026-09-02/run_04_impatient_skipper.md` | 🔵 | `SUPPORTING_CURRENT` impatient skipper run: forced-wait versus agency accounting (79 s / 120 s typical; boss 96 % forced). Modelled, not executed. |
+| `audit/day_one_playthroughs_2026-09-02/run_05_door_explorer.md` | 🔵 | `SUPPORTING_CURRENT` door explorer run: blocked-door feedback chain, elevator, mid-room exits, courtyard hops. Modelled, not executed. |
+| `audit/day_one_playthroughs_2026-09-02/run_06_quit_and_resume.md` | 🔵 | `SUPPORTING_CURRENT` quit-and-resume run: nineteen kill points with a last-write / restore / lost ledger. Modelled, not executed. |
+| `audit/day_one_playthroughs_2026-09-02/run_07_sloppy_gestures.md` | 🔵 | `SUPPORTING_CURRENT` weak-fine-motor run: every recognizer's thresholds, the per-touch motion-clock reset, button release-mode misses. Modelled, not executed. |
+| `audit/day_one_playthroughs_2026-09-02/run_08_speedrunner.md` | 🔵 | `SUPPORTING_CURRENT` speedrunner run: 80 s hard floor, ceremony verdicts, fast-input breakage. Modelled, not executed. |
+| `audit/day_one_playthroughs_2026-09-02/run_09_repeat_visitor.md` | 🔵 | `SUPPORTING_CURRENT` repeat-visitor run: revisit answers, replayability, post-boss reef placement. Modelled, not executed. |
+| `audit/day_one_playthroughs_2026-09-02/run_10_audio_first.md` | 🔵 | `SUPPORTING_CURRENT` ears-first run: per-beat audio contract table, clip resolution, eight collisions. Modelled, not executed. |
+| `audit/day_one_playthroughs_2026-09-02/run_11_non_reader.md` | 🔵 | `SUPPORTING_CURRENT` non-reader run: 51-string text-carrier inventory with non-text backups. Modelled, not executed. |
+| `audit/day_one_playthroughs_2026-09-02/run_12_save_routing.md` | 🔵 | `SUPPORTING_CURRENT` family-phone run: legacy, mid-Day-One, finished and corrupt save openings; New Game confirm path. Modelled, not executed. |
+| `audit/day_one_playthroughs_2026-09-02/run_13_boss_struggler.md` | 🔵 | `SUPPORTING_CURRENT` boss-struggler run: Grand Puff second by second for a 1.5–3 s reaction, assist and mercy arithmetic. Modelled, not executed. |
+| `audit/day_one_playthroughs_2026-09-02/run_14_stuffie_room.md` | 🔵 | `SUPPORTING_CURRENT` stuffie-lover run: playroom rescue geometry, picker tutorial, companion visibility, remaining 3D magnitudes. Modelled, not executed. |
+| `audit/day_one_playthroughs_2026-09-02/run_15_art_room.md` | 🔵 | `SUPPORTING_CURRENT` little-artist run: art studio hit boxes, logo-studio launch chain, customizer modal, attack-profile consumers. Modelled, not executed. |
+| `audit/day_one_playthroughs_2026-09-02/run_16_session_budget.md` | 🔵 | `SUPPORTING_CURRENT` three-sessions run: attention-reservoir model, safe versus unsafe stops, Continue re-orientation, session fit. Modelled, not executed. |
+
 ## Asset policy, protected-audio notes, and source provenance
 
 Source-package records establish lineage at most. They do not prove that an

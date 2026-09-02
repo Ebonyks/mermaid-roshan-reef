@@ -4,8 +4,29 @@ extends SceneTree
 # 60 sim-seconds and asserts the game is NOT won. It also checks the special
 # Fairy, Penguin Slide and Shop agency gates. Forgiveness is right; zero-agency
 # wins or purchases are not. Prints PASSIVE| lines; any FAIL fails CI.
+# Every save-backed reward/progression surface must either be represented in
+# _progress_snapshot() or own a dedicated idle no-award leg. Keep this probe
+# fail-closed: when a serialized Day One field is added, this required-key list
+# must be extended in the same change so idle mutation cannot hide in a new
+# namespace.
 var main: Node3D
 var player: Node3D
+
+const REQUIRED_DAY_ONE_SNAPSHOT_KEYS: Array[String] = [
+	"day_one_active", "day_one_current_room", "day_one_completed_rooms",
+	"day_one_cleaned_rooms", "day_one_jobs_locked", "day_one_opera_enabled",
+	"day_one_arrival_plane_media_seen", "day_one_dirty_castle_discovered",
+	"day_one_grok_video_2_seen", "day_one_boss_door_glow",
+	"day_one_giant_dust_bunny_boss_triggered",
+	"day_one_giant_dust_bunny_boss_defeated",
+	"day_one_bathroom_cleanup_step", "day_one_bathroom_supply_hunt_step",
+	"day_one_bathroom_tools_authorized", "day_one_bathroom_tub_drained",
+	"day_one_pool_cleanup_step", "day_one_pool_rumi_met",
+	"day_one_pool_skimmer_mask", "day_one_pool_waterfall_mask",
+	"day_one_pool_seahorse_tugs", "day_one_art_collected_materials",
+	"day_one_art_cleaned_grime", "day_one_art_desk_unlocked",
+	"day_one_art_customization_completed",
+]
 
 func _init() -> void:
 	seed(20260709)
@@ -21,6 +42,12 @@ func _init() -> void:
 	player = main.player
 	print("PASSIVE|boot OK")
 	var bad := 0
+	var day_one_missing: Array[String] = _missing_day_one_snapshot_keys()
+	if not day_one_missing.is_empty():
+		print("PASSIVE|Day One snapshot contract: FAIL missing=", day_one_missing)
+		bad += 1
+	else:
+		print("PASSIVE|Day One snapshot contract: OK serialized fields covered")
 	# Ambient critters may sparkle and move, but zero input can never add them.
 	main.critter_collection = {}
 	main.touch_ui.action_down = false
@@ -70,10 +97,7 @@ func _init() -> void:
 			main.touch_ui.stick_vec = Vector2.ZERO
 			main.touch_ui.action_down = false
 		var won_before := bool(f["won"])
-		var pearls_before: int = main.pearl_count
-		var trophies_before: int = main.trophies
-		var stickers_before: Dictionary = main.stickers.duplicate(true)
-		var medals_before: Dictionary = main.medals.duplicate(true)
+		var progress_before: Dictionary = _progress_snapshot()
 		var save_generation_before: int = main.save_generation
 		var save_fingerprint_before: String = _save_fingerprint()
 		while main.game != "" and float(main.g.get("t", 0.0)) < 60.0:
@@ -107,7 +131,7 @@ func _init() -> void:
 			main._clear_game()
 			await _frames(5)
 		var won_passively: bool = bool(f["won"]) and not won_before
-		var progression_changed: bool = main.pearl_count != pearls_before or main.trophies != trophies_before or main.stickers != stickers_before or main.medals != medals_before
+		var progression_changed: bool = not _progress_unchanged(progress_before)
 		if won_passively or progression_changed or activity_progressed \
 				or not still_running or not melody_passive_contract \
 				or not slide_passive_contract or not save_unchanged:
@@ -162,7 +186,24 @@ func _progress_snapshot() -> Dictionary:
 		"shop": shop_now.duplicate(true),
 		"animals": animals_now.duplicate(true),
 		"medals": medals_now.duplicate(true),
+		"day_one": _day_one_snapshot(),
 	}
+
+func _day_one_snapshot() -> Dictionary:
+	# Use the director's canonical serialized representation rather than a
+	# second hand-maintained list of fields. This makes every Day One reward,
+	# room boundary, boss boundary, and child-visible milestone participate in
+	# the same idle comparison as pearls and medals.
+	var serialized: Dictionary = main._day_one_ref().serialize_state()
+	return serialized.duplicate(true)
+
+func _missing_day_one_snapshot_keys() -> Array[String]:
+	var serialized: Dictionary = _day_one_snapshot()
+	var missing: Array[String] = []
+	for key: String in REQUIRED_DAY_ONE_SNAPSHOT_KEYS:
+		if not serialized.has(key):
+			missing.append(key)
+	return missing
 
 func _progress_unchanged(before: Dictionary) -> bool:
 	return int(main.pearl_count) == int(before["pearls"]) \
@@ -170,7 +211,8 @@ func _progress_unchanged(before: Dictionary) -> bool:
 		and main.stickers == before["stickers"] \
 		and main.shop_owned == before["shop"] \
 		and main.animals_owned == before["animals"] \
-		and main.medals == before["medals"]
+		and main.medals == before["medals"] \
+		and _day_one_snapshot() == before["day_one"]
 
 func _probe_companion_patient_care() -> int:
 	# The retired 120-second send-home path was a zero-input failure. Cross that
