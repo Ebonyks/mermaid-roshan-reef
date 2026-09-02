@@ -1,9 +1,9 @@
 {
   "schema": "day-one-grok-visual-handoff-index-v1",
   "date": "2026-09-02",
-  "archive_commit": null,
+  "archive_commit": "b8594d8aa04b6f2e0d3776b2e1805e2cc120b518",
   "claims": {
-    "archive_complete": false,
+    "archive_complete": true,
     "generation_ready": false,
     "delivery_accepted": false
   },
@@ -93,5 +93,11 @@
       "readme": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/README.md",
       "status": "provisional_unpublished"
     }
-  ]
+  ],
+  "remote_verification": {
+    "verified_at": "2026-09-02T00:00:00-07:00",
+    "verified_via": "GitHub recursive commit-tree API",
+    "packet_count": 14,
+    "all_manifest_references_resolved": true
+  }
 }
