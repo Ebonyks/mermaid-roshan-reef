@@ -1670,6 +1670,7 @@ func active_door_highlight_id() -> String:
 func refresh_door_states() -> void:
 	_update_elevator_selected()
 	_update_hall_portals()
+	_sync_elevator_pointer()
 
 
 func _act_one_current_destination_id() -> String:
@@ -1690,6 +1691,49 @@ func _act_one_completed_destination_ids() -> Array[String]:
 		if bool(m.day_one_completed_rooms.get(logical_id, false)):
 			completed.append(destination_id)
 	return completed
+
+
+func _day_one_hall_spawn_foot() -> Vector2:
+	var active_id: String = active_door_highlight_id()
+	for portal_data: Dictionary in HALL_PORTALS:
+		if String(portal_data.get("id", "")) != active_id:
+			continue
+		var door_foot: Vector2 = portal_data.get("foot", Vector2(380.0, 620.0)) as Vector2
+		return Vector2(
+			clampf(door_foot.x - 600.0, HALL_WALK.position.x, HALL_WALK.end.x),
+			HALL_WALK.end.y - 80.0)
+	return Vector2(380.0, HALL_WALK.end.y - 80.0)
+
+
+func _sync_elevator_pointer() -> void:
+	if m.castle_room_stage == null:
+		return
+	var pointer: Label = m.castle_room_stage.get_node_or_null(
+		"ElevatorPointer") as Label
+	if pointer == null:
+		return
+	# Keep the pointer alive as a visible, non-blocking target. When a Day One
+	# plot door is already framed, shift its x over that door; otherwise it
+	# remains the shell-elevator hint. The elevator itself stays actionable.
+	var plot_on_screen: bool = false
+	var active_id: String = active_door_highlight_id()
+	for record: Dictionary in m.castle_room_door_hotspots:
+		var data: Dictionary = record.get("data", {}) as Dictionary
+		if String(data.get("id", "")) != active_id:
+			continue
+		var button: Button = record.get("button") as Button
+		plot_on_screen = button != null and button.visible
+		if plot_on_screen:
+			pointer.position.x = clampf(
+				button.position.x + button.size.x * 0.5 - pointer.size.x * 0.5,
+				24.0, StorybookUI.CANVAS_SIZE.x - pointer.size.x - 24.0)
+			pointer.set_meta("pointer_target", "active_plot_door")
+			break
+	if not plot_on_screen:
+		pointer.position.x = 1155.0
+		pointer.set_meta("pointer_target", "elevator")
+	pointer.visible = is_open() and not m.castle_room_menu_open
+	pointer.modulate.a = 1.0
 
 
 func _blocked_door_feedback(destination_id: String,
@@ -1727,6 +1771,7 @@ func _set_elevator_menu_open(open_menu: bool, play_sound: bool = true) -> void:
 		_invalidate_royal_hall_arrival()
 	m.castle_room_menu_panel.visible = open_menu
 	if not open_menu:
+		_sync_elevator_pointer()
 		return
 	_update_elevator_selected()
 	var pointer: Label = m.castle_room_stage.get_node_or_null(
@@ -2339,7 +2384,15 @@ func _center_player() -> void:
 		return
 	if _is_wide_hall():
 		m.castle_room_player_sprite.flip_h = false
-		_position_hall_player_at_foot(Vector2(380.0, 835.0), false)
+		var foot: Vector2 = _day_one_hall_spawn_foot() \
+			if m.day_one_is_active() else Vector2(380.0, 835.0)
+		_position_hall_player_at_foot(foot, false)
+		if m.day_one_is_active():
+			_hall_view_left_art = clampf(
+				foot.x - HALL_VIEW_SIZE.x * 0.5,
+				0.0, HALL_LOGICAL_SIZE.x - HALL_VIEW_SIZE.x)
+			m.castle_room_world_root.position = Vector2(
+				-_hall_view_left_art * HALL_STAGE_SCALE, 0.0)
 		return
 	var layout: Dictionary = ROOM_LAYOUTS.get(m.castle_room_id, {})
 	var walk: Rect2 = layout.get("walk", Rect2(170.0, 450.0, 940.0, 215.0))

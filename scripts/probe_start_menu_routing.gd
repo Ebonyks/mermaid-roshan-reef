@@ -19,6 +19,7 @@ func _init() -> void:
 		START_MENU.continue_day_one_mode({"day_one_active": true}))
 	_check("legacy Continue remains outside Day One",
 		not START_MENU.continue_day_one_mode({"legacy": true}))
+	_probe_day_one_resume_contract(main)
 	_probe_wiring()
 	main.free()
 	print("START_MENU_ROUTING|RESULT: ",
@@ -30,6 +31,12 @@ func _init() -> void:
 func _probe_wiring() -> void:
 	var main_source: String = FileAccess.get_file_as_string("res://scripts/main.gd")
 	var menu_source: String = FileAccess.get_file_as_string("res://scripts/start_menu.gd")
+	var lagoon_source: String = FileAccess.get_file_as_string(
+		"res://scripts/arena/sky_lagoon_promenade.gd")
+	var pause_source: String = FileAccess.get_file_as_string(
+		"res://scripts/pause_menu.gd")
+	var director_source: String = FileAccess.get_file_as_string(
+		"res://scripts/day_one_director.gd")
 	_check("startup waits for the menu or probe driver",
 		not main_source.contains(
 			"START_AT_CASTLE_GATE and DisplayServer.get_name()"))
@@ -42,6 +49,71 @@ func _probe_wiring() -> void:
 		and menu_source.contains("reload_current_scene"))
 	_check("menu cannot invoke the retired legacy intro",
 		not menu_source.contains("_build_intro"))
+	_check("fresh Day One focuses the castle approach",
+		lagoon_source.contains("var day_one_entry: bool = m.day_one_is_active()")
+		and lagoon_source.contains("_focus(castle_target)")
+		and lagoon_source.contains("roshan_day1_castle"))
+	_check("Day One Reef target is fail-closed",
+		lagoon_source.contains("m._day_one_refuse_reef_exit()")
+		and lagoon_source.contains("m.day_one_is_active()"))
+	_check("Day One castle affordance survives idle cap",
+		lagoon_source.contains('String(target.get("id", "")) == "castle_gate"')
+		and lagoon_source.contains("maxf(tint.a, 0.45)"))
+	_check("castle pointer stays visible and actionable",
+		lagoon_source.contains('_activate(target)')
+		and director_source_for_castle_pointer().contains("button.visible")
+		and director_source_for_castle_pointer().contains("clampf(")
+		and director_source_for_castle_pointer().contains('pointer_target", "elevator"')
+		and director_source_for_castle_pointer().contains("pointer.visible = is_open()")
+		and director_source_for_castle_pointer().contains("pointer.modulate.a = 1.0"))
+	_check("attic and level exits route through Day One gate",
+		main_source.contains("func _day_one_refuse_reef_exit()")
+		and main_source.contains("_day_one_reorient_after_exit_now")
+		and main_source.contains("if day_one_is_active():"))
+	_check("pause hides the Reef tile during Day One",
+		pause_source.contains("and not m.day_one_is_active()"))
+	_check("Day Two clears stale Day One routing",
+		director_source.contains("func clear_day_one_routing()")
+		and main_source.contains("clear_day_one_routing()"))
+
+
+func _probe_day_one_resume_contract(main: ReefMain) -> void:
+	var expected: Dictionary = {
+		"bathroom": "bubble_bath",
+		"pool": "mermaid_pool",
+		"stuffie": "playroom",
+		"art": "craft_room",
+	}
+	for logical_room: String in expected:
+		main.day_one_current_room_id = logical_room
+		_check("Continue maps valid room %s" % logical_room,
+			main.day_one_castle_room_for_current() == String(expected[logical_room]))
+	main.day_one_current_room_id = "not_a_day_one_room"
+	_check("Continue invalid room fails closed to hall",
+		main.day_one_castle_room_for_current() == "main_hall")
+	var normalised_valid: Dictionary = DayOneDirector.normalise_save_patch({
+		"day_one_current_room": "pool",
+		"day_one_completed_rooms": ["bathroom"],
+	})
+	_check("save normalization preserves authoritative valid room",
+		String(normalised_valid.get("day_one_current_room", "")) == "pool")
+	var normalised_invalid: Dictionary = DayOneDirector.normalise_save_patch({
+		"day_one_current_room": "reef",
+		"day_one_completed_rooms": ["bathroom"],
+	})
+	_check("save normalization falls back invalid room safely",
+		String(normalised_invalid.get("day_one_current_room", "")) == "pool")
+	var director: DayOneDirector = main._day_one_ref()
+	director.current_room_id = "pool"
+	director.dirty_castle_discovered = true
+	director.clear_day_one_routing()
+	_check("Day Two routing clear removes room and discovery latch",
+		director.current_room_id == "" and not director.dirty_castle_discovered)
+
+
+func director_source_for_castle_pointer() -> String:
+	return FileAccess.get_file_as_string(
+		"res://scripts/arena/castle_rooms_25d.gd")
 
 
 func _check(label: String, ok: bool) -> void:

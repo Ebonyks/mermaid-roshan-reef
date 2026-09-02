@@ -4066,7 +4066,14 @@ func _launch_from_start_menu(start_day_one: bool) -> void:
 	# New Game keeps the fresh-save defaults and fires the authored arrival.
 	_prepare_start_menu_launch(start_day_one)
 	if START_AT_CASTLE_GATE:
-		_enter_level2_now(false, false, true)
+		var director: DayOneDirector = _day_one_ref()
+		if start_day_one and director.dirty_castle_discovered:
+			_enter_castle_interior_now()
+			var resume_room: String = day_one_castle_room_for_current()
+			if _castle_rooms_ref().is_open():
+				_castle_rooms_ref().show_room(resume_room, false)
+		else:
+			_enter_level2_now(false, false, true)
 
 func _prepare_start_menu_launch(start_day_one: bool) -> void:
 	first_session = false
@@ -4076,6 +4083,22 @@ func _prepare_start_menu_launch(start_day_one: bool) -> void:
 	director.day_one_active = start_day_one
 	if not start_day_one:
 		_day_one_clear_castle_dressing()
+
+func day_one_castle_room_for_current() -> String:
+	if not day_one_is_active():
+		return "main_hall"
+	var logical_room: String = _day_one_ref().current_room_id
+	for castle_room_value: Variant in DAY_ONE_CASTLE_ROOM_IDS.keys():
+		var castle_room: String = String(castle_room_value)
+		if String(DAY_ONE_CASTLE_ROOM_IDS[castle_room]) == logical_room:
+			return castle_room
+	return "main_hall"
+
+func _day_one_refuse_reef_exit() -> void:
+	if not day_one_is_active():
+		return
+	_ui_tap()
+	show_msg("Roshan", "Let's go to the castle!", "roshan_day1_castle")
 
 func _queue_save() -> void:
 	# debounce for the per-frame hot sites (pearl pickup, friend discovery):
@@ -8086,6 +8109,7 @@ func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
 			_day_one_clear_castle_dressing()
 			_chapter_two_ref().start_after_boss()
 		DayOneDirector.EVENT_DAY_TWO_BEGINS:
+			_day_one_ref().clear_day_one_routing()
 			g["day_two_started"] = true
 	if event_name != DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS:
 		_queue_save()
@@ -8875,7 +8899,10 @@ func _close_stickers() -> void:
 	_wardrobe_ref()._close_stickers()
 
 func _exit_level2() -> void:
-	_fade_cut(_exit_level2_now)
+	if day_one_is_active():
+		_fade_cut(_day_one_reorient_after_exit_now)
+	else:
+		_fade_cut(_exit_level2_now)
 
 func _enter_ocean_kingdom(kingdom: String) -> void:
 	if kingdom != ReefDistricts.KINGDOM_CARIBBEAN and kingdom != ReefDistricts.KINGDOM_NORWEGIAN:
@@ -8883,6 +8910,9 @@ func _enter_ocean_kingdom(kingdom: String) -> void:
 	_fade_cut(_exit_level2_now.bind(kingdom))
 
 func _exit_level2_now(target_kingdom: String = "") -> void:
+	if day_one_is_active():
+		_day_one_reorient_after_exit_now()
+		return
 	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
 		_castle_rooms_25d.close()
 	player.visible = true
@@ -8955,6 +8985,17 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 		show_msg("Roshan", "The sunny Caribbean! Follow the warm shells and rainbow coral!", "pearl")
 	else:
 		show_msg("Roshan", "Back in the Reef! I love swimming!", "idle2")
+
+func _day_one_reorient_after_exit_now() -> void:
+	if not day_one_is_active():
+		return
+	var resume_room: String = day_one_castle_room_for_current()
+	if _castle_rooms_ref().is_open():
+		_castle_rooms_ref().resume(resume_room)
+	else:
+		_enter_castle_interior_now()
+		if _castle_rooms_ref().is_open():
+			_castle_rooms_ref().show_room(resume_room, false)
 
 func _finish_level2() -> void:
 	_do_finish_level2()
@@ -10456,8 +10497,12 @@ func _process(delta: float) -> void:
 			_start_game(brawl_fr)
 		if dust_boss_cool <= 0.0 and dust_boss_portal_pos != Vector3.ZERO \
 				and dust_boss_portal_pos.distance_to(ppos) < 13.0:
-			dust_boss_cool = 14.0
-			_start_game(dust_boss_fr)
+			if day_one_is_active():
+				_day_one_refuse_reef_exit()
+				dust_boss_cool = 1.2
+			else:
+				dust_boss_cool = 14.0
+				_start_game(dust_boss_fr)
 		if kart_portal_pos != Vector3.ZERO:
 			var kd: float = Vector2(kart_portal_pos.x - ppos.x, kart_portal_pos.z - ppos.z).length()
 			var ky: float = absf(kart_portal_pos.y - ppos.y)

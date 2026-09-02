@@ -417,6 +417,28 @@ with `day_one_current_room_id = "mermaid_pool"` opens the pool; a hall
 probe asserts the PLOT door rect intersects the view rect on entry for each
 of the four rooms and the Royal Hall. Suite green.
 
+### WP-D1 implementation evidence at `a3cf5579`
+
+Fresh and resumed Day One launches now keep the castle approach as the route
+anchor, preserve `day_one_current_room_id` as the sole resume state, normalize
+invalid rooms to the hall, and clear the routing latch at the Day Two boundary.
+Promenade reef taps, Dusty Attic proximity, level exits, and the Pause Leave
+route are fail-closed or reoriented toward the castle while Day One is active.
+The castle hall spawn and elevator pointer keep the active door actionable and
+on-screen; the promenade castle cue has a Day-One-specific idle-alpha floor.
+`probe_start_menu_routing` covers fresh start, both entry paths, every valid
+room plus an invalid key, exit/pause routing, and pointer visibility,
+actionability, and bounds. Parser, inference lint, diff check, and the Python
+unittest suite pass (`40` tests, `1` skipped). The installed runtime is
+Godot `4.7.1.stable.official`, not the required exact `4.7.2-stable`, and the
+focused runtime probe produced no observable result, so exact-version CI,
+target-device, and child acceptance remain pending; no 4.7.1 acceptance is
+claimed.
+
+Lifecycle: DO-01, DO-02, DO-06, DO-13, and DO-20 advance only to
+`FIXED_PENDING_VERIFICATION` on source/probe evidence. This package does not
+close those findings or claim device/child acceptance.
+
 ### WP-D2 — Say the instruction (DO-03, DO-04, DO-17)
 
 Scope: existing `assets/audio/voices/filler_v1/` Parler assets and
