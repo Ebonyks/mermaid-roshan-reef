@@ -2448,6 +2448,33 @@ func _center_player() -> void:
 	m.castle_room_player_sprite.flip_h = false
 	_position_player_at_foot(foot, false)
 
+
+## Restore a deterministic Canvas view before a Day One route card is shown.
+## The card itself lives on the stage, but the player/camera must also be
+## re-centered so the next physical destination cannot be left off-screen by a
+## stale room transition or wide-hall parallax position.
+func restore_day_one_handoff_view() -> void:
+	if m.castle_room_stage == null or not is_open():
+		return
+	_cancel_room_transition()
+	_cancel_player_motion()
+	_center_player()
+	if m.castle_room_world_root == null \
+			or m.castle_room_player_sprite == null:
+		return
+	var foot: Vector2 = m.castle_room_player_sprite.get_meta(
+		"stage_foot", StorybookUI.CANVAS_SIZE * 0.5) as Vector2
+	if _is_wide_hall():
+		_hall_view_left_art = clampf(
+			foot.x - HALL_VIEW_SIZE.x * 0.5,
+			0.0, HALL_LOGICAL_SIZE.x - HALL_VIEW_SIZE.x)
+		m.castle_room_world_root.position = Vector2(
+			-_hall_view_left_art * HALL_STAGE_SCALE, 0.0)
+	else:
+		m.castle_room_world_root.position = Vector2(
+			(foot.x / StorybookUI.CANVAS_SIZE.x - 0.5) * 10.24,
+			(0.5 - foot.y / StorybookUI.CANVAS_SIZE.y) * 4.48)
+
 func _rebuild_depth_layers(room_id: String) -> void:
 	m.castle_royal_hall_mist_cards.clear()
 	for container: Node2D in [m.castle_room_mid_layer, m.castle_room_front_layer]:
@@ -4352,6 +4379,10 @@ func _check_playroom_rescue_complete() -> void:
 	m.castle_room_item_sprites.erase("baby_eagle_rescue")
 	m.show_msg("Roshan", "You saved Baby Eagle!", "day_one_room_clean")
 	m._play_companion_chirp("sparkle")
+	# The completion answer is followed by one explicit, actionable next-door
+	# handoff. Keep it after the rescue line so the final caption and required
+	# voice key are the route instruction the child can act on.
+	m.call("_show_day_one_room_handoff", "craft_room", "day_one_new_door")
 	if eagle == null or not is_instance_valid(eagle):
 		_open_playroom_stuffie_tutorial()
 		return
@@ -4952,6 +4983,22 @@ func activate_current_room() -> void:
 				else "canopy_bed")
 		"movie":
 			_activate_room_item("movie_screen")
+
+
+## Dedicated Day One action path. Royal Hall is intentionally not a normal
+## ROOMS/elevator destination: it is the physical, event-gated portal in the
+## Main Hall, and callers must enter through this method or the hotspot.
+func activate_royal_hall_portal() -> bool:
+	if not m.day_one_boss_door_ready() or not is_open() \
+			or m.castle_room_menu_open:
+		return false
+	for portal_data: Dictionary in HALL_PORTALS:
+		if String(portal_data.get("id", "")) != ROYAL_HALL_PORTAL_ID:
+			continue
+		_enter_hall_portal(ROYAL_HALL_PORTAL_ID,
+			portal_data["foot"] as Vector2)
+		return true
+	return false
 
 func _offer_companion_at_royal_hall() -> void:
 	# Princess Huluu's established welcome and stuffie offer now belong to the

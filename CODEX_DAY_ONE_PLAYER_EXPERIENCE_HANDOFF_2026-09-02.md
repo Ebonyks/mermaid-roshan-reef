@@ -544,6 +544,28 @@ route button intersects the view rect; `probe_passive` gains the Day One
 snapshot legs so the new rewards cannot be awarded idle (`MA-CI-005`).
 Suite green.
 
+### WP-D3 implementation evidence (this branch)
+
+The contextual handoff is now implemented as one transient Canvas route card.
+Bathroom completion keeps its existing pool preview; pool and playroom
+completion cards target the next plot room; art completion presents a larger
+Royal Hall preview. Each card reuses an approved room image, carries a
+`visual_pointer` ghost hand, marks its target visible/on-screen,
+unobscured/actionable, and emits its manifest-backed semantic voice key in the
+same frame. The card's normal-room action calls `show_room()` only for the
+three ordinary destinations. Royal Hall uses the dedicated
+`activate_royal_hall_portal()` path for `__royal_hall` and is not added to the
+12-card elevator grid. `restore_day_one_handoff_view()` cancels stale motion,
+re-centers the player, and restores the Canvas/parallax view before presenting
+the card.
+
+`probe_day_one_handoffs.gd` is registered in both trusted probe rosters and
+passes the four route legs, including same-frame caption/semantic-key,
+visible nonzero-alpha pointer, view intersection, and actionable/unobscured
+checks. Parser, inference lint, and diff-check pass. The local binary remains
+Godot `4.7.1.stable.official`; exact `4.7.2-stable` CI/runtime and device/child
+acceptance remain pending, so this package does not claim those gates.
+
 ### WP-D4 — Bathroom gesture forgiveness (DO-08, DO-17)
 
 Scope: `scripts/games/day_one_bathroom_cleaning.gd` only (plus its probe).
