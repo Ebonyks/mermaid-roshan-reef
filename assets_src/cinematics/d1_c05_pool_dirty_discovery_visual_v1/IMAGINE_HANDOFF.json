@@ -1,0 +1,103 @@
+{
+  "schema": "imagine-handoff-v2",
+  "handoff_id": "d1_c05_pool_dirty_discovery_visual_v1",
+  "archive_status": "incomplete",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "blocking_findings": [
+    "No shot has an owner-approved clean HUD-free complete opening frame.",
+    "No continuity-dependent shot binds the accepted complete end frame of its predecessor.",
+    "Generated perspective and storyboard sheets are narrative-only and cannot be bound as generation pixels."
+  ],
+  "story_contract": {
+    "one_sentence_promise": "Roshan enters from the pool-room doorway becomes The trash, algae, stopped waterfall, and sick seahorse are understood.",
+    "ordered_beats": [
+      {
+        "beat_id": "D1-C05-S01",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Wide doorway orientation into the exact dirty Mermaid Pool."
+      },
+      {
+        "beat_id": "D1-C05-S02",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Low waterline view across the same giant pool."
+      },
+      {
+        "beat_id": "D1-C05-S03",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Medium close shot of Roshan's skimmer and the established pool surface."
+      },
+      {
+        "beat_id": "D1-C05-S04",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Close view of the exact rainbow waterfall fixture and top source."
+      },
+      {
+        "beat_id": "D1-C05-S05",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Close view of the exact long-snouted seahorse fountain in its established position."
+      },
+      {
+        "beat_id": "D1-C05-S06",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Final wide problem map of the same giant pool room."
+      }
+    ],
+    "forbidden_events": [
+      "No premature payoff or scene-state transition.",
+      "No identity, anatomy, cast-count, fixture-count, or room-topology drift."
+    ],
+    "final_state": "The trash, algae, stopped waterfall, and sick seahorse are understood"
+  },
+  "character_authorities": [
+    {
+      "character_id": "roshan",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "immutable_traits": [
+        "child face and age",
+        "brown hair with rainbow section",
+        "pink top and tiara"
+      ],
+      "anatomy_traits": [
+        "exactly two arms and one continuous mer-tail"
+      ],
+      "forbidden_drift": [
+        "legs or shoes",
+        "adult redesign"
+      ]
+    },
+    {
+      "character_id": "swimming_bunny",
+      "status": "approved",
+      "path": "handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+      "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+      "immutable_traits": [
+        "round lavender aquatic fluff",
+        "spiral ear curls",
+        "pearl paws and large warm eyes"
+      ],
+      "anatomy_traits": [
+        "one coherent swimming creature without legs"
+      ],
+      "forbidden_drift": [
+        "land-bunny legs",
+        "duplicate or smoke form"
+      ]
+    }
+  ],
+  "location_authority": {
+    "path": "handoff_art/location/room_mermaid_pool_background.png",
+    "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+    "immutable_features": [
+      "fixed entrance and exit geography",
+      "fixed landmark and fixture order",
+      "consistent scale and navigable volume"
+    ],
+    "forbidden_geometry": [
+      "no invented room, basin, doorway, platform, or fixture relocation"
+    ]
+  }
+}

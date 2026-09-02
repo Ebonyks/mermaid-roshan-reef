@@ -1,0 +1,28 @@
+{
+  "schema": "grok-visual-generation-results-v1",
+  "scene_id": "D1-C10",
+  "generator": "OpenAI built-in image_gen",
+  "method": "fresh_complete_flattened_generation",
+  "storyboard_disposition": "narrative_only_not_pixel_reference",
+  "agent_prescreen": "accepted",
+  "environment": {
+    "accepted_path": "storyboards/ENVIRONMENT_PERSPECTIVES.png",
+    "sha256": "f32ee15a77d02471257437ff0059a13c3b78e82edcceb141677f59fb6f6e3417",
+    "prompt_path": "prompts/ENVIRONMENT_PERSPECTIVES.txt",
+    "prompt_sha256": "2bbaceb49c0019709fb918993ce34610a4a91bb622f9b1a41e6db4b017a4b2e6",
+    "accepted_result_id": "exec-4c7459f4-977f-42ee-8eb9-909700eab82c.png",
+    "attempts": [{"attempt": 1, "result_id": "exec-4c7459f4-977f-42ee-8eb9-909700eab82c.png", "path": "storyboards/ENVIRONMENT_PERSPECTIVES.png", "decision": "accepted_by_sol_visual_review"}]
+  },
+  "storyboard": {
+    "accepted_path": "storyboards/SCENE_SHOT_BOARD.png",
+    "sha256": "b21cf7b76f0bfa82ce1c403f3020b28b73db92654ca1ad26859078f3e76962a7",
+    "prompt_path": "prompts/SCENE_SHOT_BOARD.txt",
+    "prompt_sha256": "b240e763d47d57fef4107ed847a83564c680541b074c15f4760bbbb5354a3eaf",
+    "accepted_result_id": "exec-6a8dbb9e-7781-41f0-ae3d-78590111b3f3.png",
+    "shot_count": 5,
+    "attempts": [
+      {"attempt": 1, "result_id": "exec-08cb263b-165b-4fa9-bd53-a2f2aefec30f.png", "path": "storyboards/rejected/SCENE_SHOT_BOARD_attempt01_brush_redesign.png", "sha256": "90f190a5fbbee1c2f598352aef427c81e5be7e637b7ee1a798d4c5f8274028fa", "decision": "rejected", "finding": "S01 cleaning tool did not preserve the approved magic brush identity"},
+      {"attempt": 2, "result_id": "exec-6a8dbb9e-7781-41f0-ae3d-78590111b3f3.png", "path": "storyboards/SCENE_SHOT_BOARD.png", "decision": "accepted_by_sol_visual_review"}
+    ]
+  }
+}

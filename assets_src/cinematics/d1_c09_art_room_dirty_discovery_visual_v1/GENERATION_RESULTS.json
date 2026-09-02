@@ -1,0 +1,32 @@
+{
+  "schema": "grok-visual-generation-results-v1",
+  "scene_id": "D1-C09",
+  "generator": "OpenAI built-in image_gen",
+  "method": "fresh_complete_flattened_generation",
+  "storyboard_disposition": "narrative_only_not_pixel_reference",
+  "agent_prescreen": "accepted",
+  "environment": {
+    "accepted_path": "storyboards/ENVIRONMENT_PERSPECTIVES.png",
+    "sha256": "214e3c9bb6df87ea5ca0a8620f9a6747ba8176590043d0306b82c642c7fd2ff7",
+    "prompt_path": "prompts/ENVIRONMENT_PERSPECTIVES.txt",
+    "prompt_sha256": "4ca4385237d0cb09f4373bb71edece0d603ba652343027eb6825fc98737a6ba2",
+    "accepted_result_id": "exec-5d2463d8-8f76-458f-8e90-51b8b96495e6.png",
+    "attempts": [
+      {"attempt": 1, "result_id": "exec-e95c30df-98e1-48bd-80d8-b37e2d9388f9.png", "path": "storyboards/rejected/ENVIRONMENT_PERSPECTIVES_attempt01_clean_state_fail.png", "sha256": "8ee0a9477cf67b545cf543e432a04fd2a6a546c4037bae60f8307bd096d65e25", "decision": "rejected", "finding": "clean organized read; four loose supply zones and three grime zones were not visible"},
+      {"attempt": 2, "result_id": "exec-5d2463d8-8f76-458f-8e90-51b8b96495e6.png", "path": "storyboards/ENVIRONMENT_PERSPECTIVES.png", "decision": "accepted_by_sol_visual_review"}
+    ],
+    "review_concern": "The three intended grime zones are visible, but the generated dirty grade also scatters smaller paint marks across the floor; treat only desk/left-counter/right-counter zones as story authority."
+  },
+  "storyboard": {
+    "accepted_path": "storyboards/SCENE_SHOT_BOARD.png",
+    "sha256": "c32114bc7b25b16e540fece1c9b4fd3de253af660dd15b656bb5cf8262844553",
+    "prompt_path": "prompts/SCENE_SHOT_BOARD.txt",
+    "prompt_sha256": "2916b9629b80c976d77a2085c46b297a223a143097fec39b57092f366682ee72",
+    "accepted_result_id": "exec-3afdf2ef-d338-4d99-94ef-4f67c396294a.png",
+    "shot_count": 5,
+    "attempts": [
+      {"attempt": 1, "result_id": "exec-297e7429-7255-487a-937a-0334fb1b76f6.png", "path": "storyboards/rejected/SCENE_SHOT_BOARD_attempt01_wrong_tool_target.png", "sha256": "32b52fbefb14b2ea6f0a21bb2a9750d48030e6cd143c7bd3b5d65ca5fbe49a84", "decision": "rejected", "finding": "S05 reached toward ordinary supplies instead of the approved magic cleaning brush"},
+      {"attempt": 2, "result_id": "exec-3afdf2ef-d338-4d99-94ef-4f67c396294a.png", "path": "storyboards/SCENE_SHOT_BOARD.png", "decision": "accepted_by_sol_visual_review"}
+    ]
+  }
+}

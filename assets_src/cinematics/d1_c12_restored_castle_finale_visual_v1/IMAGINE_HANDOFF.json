@@ -1,0 +1,193 @@
+{
+  "schema": "imagine-handoff-v2",
+  "handoff_id": "d1_c12_restored_castle_finale_visual_v1",
+  "archive_status": "incomplete",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "blocking_findings": [
+    "No shot has an owner-approved clean HUD-free complete opening frame.",
+    "No continuity-dependent shot binds the accepted complete end frame of its predecessor.",
+    "Generated perspective and storyboard sheets are narrative-only and cannot be bound as generation pixels."
+  ],
+  "story_contract": {
+    "one_sentence_promise": "Grand Puff has become a friend and Day One work is complete becomes Clean-room montage resolves in the Main Hall with Roshan and Daddy together.",
+    "ordered_beats": [
+      {
+        "beat_id": "D1-C12-S01",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Clean Bubble Bathroom vignette inheriting D1-C04's accepted endpoint."
+      },
+      {
+        "beat_id": "D1-C12-S02",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Clean giant Mermaid Pool vignette inheriting D1-C06's accepted endpoint."
+      },
+      {
+        "beat_id": "D1-C12-S03",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Clean Stuffie Room vignette inheriting D1-C08's endpoint."
+      },
+      {
+        "beat_id": "D1-C12-S04",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Clean Art Room vignette inheriting D1-C10's endpoint."
+      },
+      {
+        "beat_id": "D1-C12-S05",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Clean boss-arena friendship vignette."
+      },
+      {
+        "beat_id": "D1-C12-S06",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Clean Main Hall reunion."
+      }
+    ],
+    "forbidden_events": [
+      "No premature payoff or scene-state transition.",
+      "No identity, anatomy, cast-count, fixture-count, or room-topology drift."
+    ],
+    "final_state": "Clean-room montage resolves in the Main Hall with Roshan and Daddy together"
+  },
+  "character_authorities": [
+    {
+      "character_id": "roshan",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "immutable_traits": [
+        "child face and age",
+        "brown hair with rainbow section",
+        "pink top and tiara"
+      ],
+      "anatomy_traits": [
+        "exactly two arms and one continuous mer-tail"
+      ],
+      "forbidden_drift": [
+        "legs or shoes",
+        "adult redesign"
+      ]
+    },
+    {
+      "character_id": "daddy",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/daddy_daddy_master.png",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "immutable_traits": [
+        "adult crowned father",
+        "dark rectangular glasses",
+        "navy and gold clothing with teal cape"
+      ],
+      "anatomy_traits": [
+        "taller than Roshan with one continuous mer-tail"
+      ],
+      "forbidden_drift": [
+        "generic king",
+        "missing glasses or tail"
+      ]
+    },
+    {
+      "character_id": "rumi",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "immutable_traits": [
+        "enormous violet braided ponytail",
+        "pointed ears and star-shell earrings",
+        "navy lavender gold-trim jacket"
+      ],
+      "anatomy_traits": [
+        "two arms and one aqua-to-violet mer-tail with coral split fin"
+      ],
+      "forbidden_drift": [
+        "rejected generic pool mermaid",
+        "legs or altered braid"
+      ]
+    },
+    {
+      "character_id": "baby_eagle_standing",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+      "immutable_traits": [
+        "turquoise yellow and pink child bird",
+        "approved beak and face",
+        "upright friendly posture"
+      ],
+      "anatomy_traits": [
+        "exactly one bird with two wings and two feet"
+      ],
+      "forbidden_drift": [
+        "backpack",
+        "cropped or duplicated body"
+      ]
+    },
+    {
+      "character_id": "playroom_bunny",
+      "status": "approved",
+      "path": "handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "immutable_traits": [
+        "round lavender fluff",
+        "friendly eyes and blush",
+        "consistent curl silhouette"
+      ],
+      "anatomy_traits": [
+        "one intact round creature per bunny"
+      ],
+      "forbidden_drift": [
+        "smoke cloud",
+        "color-coded redesign"
+      ]
+    },
+    {
+      "character_id": "grand_puff",
+      "status": "approved",
+      "path": "handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "immutable_traits": [
+        "three-tier grey lavender body",
+        "huge spiral ears with pearl joints",
+        "plum eyes coral blush and compact grin"
+      ],
+      "anatomy_traits": [
+        "symmetrical ears, pearl paws and exactly two visible teeth"
+      ],
+      "forbidden_drift": [
+        "sharp monster teeth",
+        "missing tiers or asymmetrical ear redesign"
+      ]
+    },
+    {
+      "character_id": "swimming_bunny",
+      "status": "approved",
+      "path": "handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+      "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+      "immutable_traits": [
+        "round lavender aquatic fluff",
+        "spiral ear curls",
+        "pearl paws and large warm eyes"
+      ],
+      "anatomy_traits": [
+        "one coherent swimming creature without legs"
+      ],
+      "forbidden_drift": [
+        "land-bunny legs",
+        "duplicate or smoke form"
+      ]
+    }
+  ],
+  "location_authority": {
+    "path": "handoff_art/location/main_hall_screen_a_room_led_master.png",
+    "sha256": "ae84f4f79a8183312b5ba26b6999f26b69c8a538424b5383a7d6623cc2f275e9",
+    "immutable_features": [
+      "fixed entrance and exit geography",
+      "fixed landmark and fixture order",
+      "consistent scale and navigable volume"
+    ],
+    "forbidden_geometry": [
+      "no invented room, basin, doorway, platform, or fixture relocation"
+    ]
+  }
+}

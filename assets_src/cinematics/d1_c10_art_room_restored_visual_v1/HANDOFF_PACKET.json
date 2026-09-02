@@ -1,0 +1,339 @@
+{
+  "schema": "external-animation-visual-packet-v1",
+  "packet_id": "d1_c10_art_room_restored_visual_v1",
+  "movie_id": "D1-C10",
+  "role": "self_contained_uploadable_reference_packet",
+  "runtime_asset": false,
+  "used_as_delivery_pixels": false,
+  "payload_sha256": "63cd4fba85252e5ea5be9ab167d1e3ddc1d28ffa65bb1fcbde847bfaf6fed582",
+  "payload_hash_formula": "SHA256 of UTF-8 sorted <relative_path>|<lowercase_sha256>\\n records",
+  "authority_order": [
+    "approved location geography",
+    "approved character identities",
+    "approved objects/topology",
+    "generated perspective and storyboard sheets for narrative understanding only"
+  ],
+  "warnings": [
+    "Generated sheets are narrative references only and may never be bound as Grok IMAGE_1 or delivery pixels.",
+    "Every motion shot still requires an approved clean first frame and accepted endpoint continuity."
+  ],
+  "assets": [
+    {
+      "path": "handoff_art/location/room_craft_room_background.png",
+      "role": "approved_location_geography_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "sha256": "006b736e59e261c2670717f268c76b39640b903373b1a75781cd464e135ddd0d",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/flats/castle/rooms/room_craft_room_background.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "role": "approved_roshan_identity_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/objects/loose_brush_bundle.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        768,
+        512
+      ],
+      "sha256": "7de7cf80939fe62e16d6931d1eb6b377ec2454107b855703b76f445aa8aad99a",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/castle/day_one_art_studio/loose_brush_bundle.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/objects/paint_bottle_pink.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        384,
+        512
+      ],
+      "sha256": "089bcaf7b7e27a4760ca70f05cfeb6954e72eb59ac4ecd125fd6b5cfe0ebba4a",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/castle/day_one_art_studio/paint_bottle_pink.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/objects/paint_bottle_blue.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        384,
+        512
+      ],
+      "sha256": "ce6adb14e4d877108ae2748138417ef436f6e154b8c4321f69196795114319ff",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/castle/day_one_art_studio/paint_bottle_blue.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/objects/paint_cups.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        768,
+        512
+      ],
+      "sha256": "fca25541d66e07bf28ee31a36ff049130af64c495a077759750f291e526780a0",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/castle/day_one_art_studio/paint_cups.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/objects/magic_cleaning_brush.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        936,
+        1024
+      ],
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "storyboards/ENVIRONMENT_PERSPECTIVES.png",
+      "role": "multi_angle_environment_narrative_reference_only",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "f32ee15a77d02471257437ff0059a13c3b78e82edcceb141677f59fb6f6e3417",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "exec-4c7459f4-977f-42ee-8eb9-909700eab82c.png",
+        "prompt_path": "storyboards/PERSPECTIVE_PROMPT.txt",
+        "attempt": 1
+      }
+    },
+    {
+      "path": "storyboards/SCENE_SHOT_BOARD.png",
+      "role": "shot_order_narrative_reference_only",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "b21cf7b76f0bfa82ce1c403f3020b28b73db92654ca1ad26859078f3e76962a7",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "exec-6a8dbb9e-7781-41f0-ae3d-78590111b3f3.png",
+        "prompt_path": "storyboards/STORYBOARD_PROMPT.txt",
+        "attempt": 2
+      }
+    },
+    {
+      "path": "written_guide/SHARED_STYLE_AND_CHARACTER_GUIDE.txt",
+      "role": "exact_written_handoff_guide",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "b65d7ebe7331e26fce29861620bb2b224af608a0b2e46290a6a77de5446c6c43",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/00_SHARED_STYLE_AND_CHARACTER_REFERENCE.txt",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "written_guide/SCENE_GUIDE.txt",
+      "role": "exact_written_handoff_guide",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "164eb57601ba0f97560f7b90194e9997660ae1303792921d9f472ad15be5c44a",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C10_ART_ROOM_RESTORED.txt",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "written_guide/SOURCE_DOCUMENTS.json",
+      "role": "written_source_provenance_and_hashes",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "b8fe5c0d173a84479ede59ce4e303060c7ea65a4464b31e6c33e3b3322ee14f7",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/PERSPECTIVE_PROMPT.txt",
+      "role": "exact_environment_generation_prompt",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "2bbaceb49c0019709fb918993ce34610a4a91bb622f9b1a41e6db4b017a4b2e6",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/STORYBOARD_PROMPT.txt",
+      "role": "exact_storyboard_generation_prompt",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "b240e763d47d57fef4107ed847a83564c680541b074c15f4760bbbb5354a3eaf",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/GENERATION_RESULTS.json",
+      "role": "generation_result_ids_and_attempts",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "ec36c1be9369e2f0609dd9842c291bc9bc720e9d248997c67114bc82557c4e38",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/VISUAL_REVIEW.json",
+      "role": "sol_and_human_visual_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "37f8bf3716ebdf0e92ef7b452bdb5bfb3b90c71dd7786be100da0e952d037b60",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "GENERATION_RESULTS.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "ec36c1be9369e2f0609dd9842c291bc9bc720e9d248997c67114bc82557c4e38",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "GENERATION_REVIEW.md",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "322ca7f079127536a206d30c46f60aacf751745d9df52c3309eec569ebb8aa67",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "prompts/ENVIRONMENT_PERSPECTIVES.txt",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "2bbaceb49c0019709fb918993ce34610a4a91bb622f9b1a41e6db4b017a4b2e6",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "prompts/SCENE_SHOT_BOARD.txt",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "b240e763d47d57fef4107ed847a83564c680541b074c15f4760bbbb5354a3eaf",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/rejected/SCENE_SHOT_BOARD_attempt01_brush_redesign.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "90f190a5fbbee1c2f598352aef427c81e5be7e637b7ee1a798d4c5f8274028fa",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    }
+  ]
+}
