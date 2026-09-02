@@ -103,7 +103,7 @@ protected-asset, true-2D, save-compatibility, or probe-gate decisions.
 | DO-04 | REPRODUCED | `scripts/arena/castle_rooms_25d.gd:960-968,980-993,1033-1116` hides the shared HUD while the castle is open; captions therefore still need a castle-layer mirror. |
 | DO-05 | REPRODUCED | `scripts/main.gd:7421-7472,7555-7602` still completes real rooms without a follow-up voice/pointer; `scripts/arena/castle_rooms_25d.gd:299-305` still has only twelve elevator cards and no permanent Royal Hall card. |
 | DO-06 | REPRODUCED | `scripts/arena/castle_rooms_25d.gd:152-190,1719-1735` retains the off-screen physical Royal Hall route and hides `ElevatorPointer` when the menu opens; the permanent-card remedy is unsuitable. |
-| DO-07 | REPRODUCED | `scripts/main.gd:8043-8080` saves the boss-trigger event before the fight; `scripts/day_one_director.gd:434-440` is the all-room trigger guard, but interruption/re-arm behavior remains a package concern. |
+| DO-07 | FIXED_PENDING_VERIFICATION | `scripts/main.gd` now treats the DustBoss trigger as runtime-only until the real win, aborts the active encounter on app lifecycle loss, and re-arms the Day-One castle after teardown; `scripts/day_one_director.gd` normalizes an active-Day-One restored latch to untriggered. Exact 4.7.2 and device verification remain pending. |
 | DO-08 | NARROWED | `scripts/games/day_one_bathroom_cleaning.gd:25-27,299,494-513` still resets the motion clock and gates on a continuous gesture, while `:822-862` now contains a progress presentation; the old “no progress bar” wording is stale. |
 | DO-09 | INFERRED_PENDING_RUNTIME | `scripts/main.gd:9410-9455,11358-11487` still has no dedicated post-boss castle return branch, but the visual result and fresh-save recoverability need a runtime/device observation before treating the original 3D-anchor description as fully proven. |
 | DO-10 | NARROWED | `scripts/save_state.gd:431-471,557-566`; `scripts/day_one_director.gd:568-599`; `scripts/start_menu.gd:19-21,242-249` still normalize and route saves, but the intended legacy policy is owner-blocked and must not be silently implemented by D6. |
@@ -550,6 +550,23 @@ Gate: `probe_day_one_director` asserts a save with all rooms complete,
 `probe_dust_boss` and the pause probe assert Leave returns safely to the
 castle context with `day_one_active` intact. The post-boss visual landing is
 not accepted without runtime evidence. Suite green.
+
+### WP-D5a implementation evidence at `codex/day-one-experience-20260902`
+
+The runtime latch is no longer written by the boss-trigger hook. Active-Day-One
+save normalization clears a stale `day_one_giant_dust_bunny_boss_triggered`
+value; only the terminal inactive/defeated state retains it. `_clear_game`
+re-arms the latch after DustBoss teardown and schedules a castle return, while
+focus-out, application-pause, and close boundaries use the same neutral abort
+path. `pause_menu.gd` generic Leave ordering is unchanged.
+
+Focused probe coverage now exercises splash, showing, prowl, vulnerable,
+struck, and friends interruption states, same-session Pause → Leave, focus loss,
+and terminal-versus-active save normalization. Parser, inference lint, diff
+check, and the available Python unittest suite pass. The exact Godot
+4.7.2-stable binary is unavailable locally (only 4.7.1 is installed), so exact
+4.7.2 CI probes and target-device confirmation remain pending; no post-win
+landing or child acceptance is claimed.
 
 ### WP-D5b — Grand Puff pacing and tell presentation (DO-12)
 

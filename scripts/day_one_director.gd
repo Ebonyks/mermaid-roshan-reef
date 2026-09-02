@@ -581,8 +581,14 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 	var grok_seen: bool = _as_bool_static(source.get(
 		"day_one_grok_video_2_seen", false), false)
 	var all_done: bool = completed.size() == ROOM_ORDER.size()
-	var boss_triggered: bool = all_done and _as_bool_static(source.get(
-		"day_one_giant_dust_bunny_boss_triggered", false), false)
+	var saved_day_active: bool = _as_bool_static(source.get(
+		"day_one_active", true), true)
+	# The trigger is a runtime latch, not a saved completion. A save captured
+	# while the child is inside Grand Puff must reopen the Royal Hall door on the
+	# next process. Only the terminal Day Two state may retain the latch.
+	var boss_triggered: bool = all_done and not saved_day_active \
+		and _as_bool_static(source.get(
+			"day_one_giant_dust_bunny_boss_triggered", false), false)
 	# Origin/dev briefly shipped Day Two before the additive boss-defeated key.
 	# Backfill only that exact causal terminal: all four rooms completed, the
 	# boss explicitly triggered, and Day One explicitly inactive. Jobs-unlocked
@@ -595,8 +601,7 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		_as_bool_static(source.get(
 			"day_one_giant_dust_bunny_boss_defeated", false), false) \
 		or legacy_terminal_day_two)
-	var day_active: bool = _as_bool_static(source.get(
-		"day_one_active", true), true) and not boss_defeated
+	var day_active: bool = saved_day_active and not boss_defeated
 	var bathroom_done: bool = completed.has("bathroom")
 	var pool_done: bool = completed.has("pool")
 	var saved_bathroom_step: int = clampi(int(source.get(

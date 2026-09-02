@@ -4435,9 +4435,11 @@ func _notification(what: int) -> void:
 		NOTIFICATION_APPLICATION_FOCUS_OUT:
 			_lose_melody_input_context(MELODY_CONTEXT_FOCUS)
 			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_FOCUS)
+			_day_one_abort_boss_for_lifecycle()
 		NOTIFICATION_APPLICATION_PAUSED:
 			_lose_melody_input_context(MELODY_CONTEXT_APPLICATION)
 			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_APPLICATION)
+			_day_one_abort_boss_for_lifecycle()
 		NOTIFICATION_APPLICATION_RESUMED:
 			_restore_melody_input_context(MELODY_CONTEXT_APPLICATION)
 			_restore_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_APPLICATION)
@@ -4447,6 +4449,7 @@ func _notification(what: int) -> void:
 		NOTIFICATION_WM_CLOSE_REQUEST:
 			_lose_melody_input_context(MELODY_CONTEXT_CLOSE)
 			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_CLOSE)
+			_day_one_abort_boss_for_lifecycle()
 	if what == NOTIFICATION_APPLICATION_PAUSED or what == NOTIFICATION_WM_CLOSE_REQUEST:
 		# flush BOTH a failed write awaiting retry and a debounced pending
 		# write — going to the background must never drop queued progress
@@ -8074,7 +8077,8 @@ func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
 		DayOneDirector.EVENT_BOSS_DOOR_GLOW:
 			_day_one_arm_boss_door()
 		DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS:
-			_write_save()
+			# The director's trigger is a runtime latch. Do not persist it until
+			# complete_day_one_after_boss() has crossed the real win boundary.
 			if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
 				_castle_rooms_25d.close()
 			_start_game(dust_boss_fr)
@@ -8083,7 +8087,33 @@ func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
 			_chapter_two_ref().start_after_boss()
 		DayOneDirector.EVENT_DAY_TWO_BEGINS:
 			g["day_two_started"] = true
-	_queue_save()
+	if event_name != DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS:
+		_queue_save()
+
+
+func _day_one_abort_boss_for_lifecycle() -> void:
+	# Focus loss, application pause and close are all interruption boundaries for
+	# the active fight. End it through the same neutral teardown as Pause Leave;
+	# the post-clear seam re-arms the door and writes the safe state.
+	if game != "dustboss" or not day_one_is_active() \
+			or _day_one_ref().giant_dust_bunny_boss_defeated:
+		return
+	_leave_arena_now()
+	_clear_game()
+	_write_save()
+
+
+func _return_day_one_boss_to_castle() -> void:
+	if not day_one_is_active() \
+			or _day_one_ref().giant_dust_bunny_boss_defeated:
+		return
+	# _enter_level2 establishes the Canvas world before the hall seam opens it.
+	# Keep this post-clear: rebuilding while the arena still owns g leaves stale
+	# DustBoss nodes and can make the first returned tap hit the old encounter.
+	_enter_level2(true)
+	_enter_castle_interior(true)
+	_day_one_arm_boss_door()
+	_write_save()
 
 
 func _on_chapter_two_hook_event(event_name: String,
@@ -9157,6 +9187,9 @@ func _tick_hints(delta: float) -> void:
 
 # ===================== MINIGAMES =====================
 func _clear_game() -> void:
+	var interrupted_day_one_boss: bool = game == "dustboss" \
+		and day_one_is_active() \
+		and not _day_one_ref().giant_dust_bunny_boss_defeated
 	var closing_melody: bool = game == "melody"
 	var closing_slide_canvas: bool = _slide_canvas_fish_route_active()
 	var slide_canvas_player_was_visible: bool = bool(
@@ -9224,6 +9257,12 @@ func _clear_game() -> void:
 	game = ""
 	g = {}
 	hud_game.text = ""
+	if interrupted_day_one_boss:
+		# This is deliberately after every DustBoss node/tween has been torn down.
+		# PauseMenu owns the generic Leave order; this seam only restores the
+		# Day-One castle surface once _clear_game is at its neutral boundary.
+		_day_one_ref().giant_dust_bunny_boss_triggered = false
+		call_deferred("_return_day_one_boss_to_castle")
 	if closing_melody:
 		_set_world_controls_enabled(true, "melody")
 	if closing_slide_canvas:

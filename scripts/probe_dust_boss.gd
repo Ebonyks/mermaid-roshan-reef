@@ -23,6 +23,7 @@ func _init() -> void:
 	main._skip_intro()
 	await process_frame
 	_prepare_day_one_terminal_boundary()
+	await _interruption_cases()
 	await _open_case()
 	if main.game == "dustboss":
 		await _splash_case()
@@ -81,6 +82,77 @@ func _prepare_day_one_terminal_boundary() -> void:
 		director.day_one_active and director.boss_door_glow
 		and director.giant_dust_bunny_boss_triggered
 		and not director.giant_dust_bunny_boss_defeated)
+
+
+func _prime_boss_latch() -> void:
+	var director: DayOneDirector = main._day_one_ref()
+	director.day_one_active = true
+	director.boss_door_glow = true
+	director.giant_dust_bunny_boss_defeated = false
+	director.giant_dust_bunny_boss_triggered = true
+
+
+func _assert_rearmed(label: String) -> void:
+	var director: DayOneDirector = main._day_one_ref()
+	_ck(label, main.game == "level2"
+		and String(main.g.get("phase", "")) == "hall"
+		and main._castle_rooms_ref().is_open()
+		and director.day_one_active
+		and director.boss_door_glow
+		and not director.giant_dust_bunny_boss_triggered
+		and main.day_one_boss_door_ready())
+
+
+func _interrupt_live_boss() -> void:
+	main._leave_arena()
+	main._clear_game()
+	main._write_save()
+	await process_frame
+	await process_frame
+
+
+func _interruption_cases() -> void:
+	# Each state is interrupted through the same post-clear boundary used by
+	# PauseMenu Leave. The assertions are deliberately fail-closed: a state that
+	# leaves the castle closed or the latch consumed is a hard failure.
+	for wanted: String in ["splash", "showing", "prowl", "vuln", "struck", "friends"]:
+		_prime_boss_latch()
+		if main._castle_rooms_ref().is_open():
+			main._castle_rooms_ref().close()
+		main._start_game_now(main.dust_boss_fr)
+		var reached: bool = true
+		if wanted == "struck":
+			reached = await _await_state("showing", 2400)
+		elif wanted == "friends":
+			reached = main.game == "dustboss"
+		elif wanted != "splash":
+			reached = await _await_state(wanted, 2400)
+		if wanted == "struck" and main.game == "dustboss":
+			(main._game_obj("dustboss", DustBossGame) as DustBossGame)._enter_state("struck")
+		if wanted == "friends" and main.game == "dustboss":
+			main.g["db_state"] = "friends"
+		_ck("reaches interrupt state %s" % wanted, reached and main.game == "dustboss")
+		await _interrupt_live_boss()
+		_assert_rearmed("%s interruption re-arms Day One" % wanted)
+	# Exercise the actual pause-owned Leave button path in the same session.
+	_prime_boss_latch()
+	main._castle_rooms_ref().close()
+	main._start_game_now(main.dust_boss_fr)
+	await _await_state("showing", 2400)
+	main._pause_ref()._leave_current_activity()
+	await process_frame
+	await process_frame
+	_assert_rearmed("pause Leave returns to the armed castle")
+	# Focus loss is an application lifecycle boundary, not a gameplay win.
+	_prime_boss_latch()
+	main._castle_rooms_ref().close()
+	main._start_game_now(main.dust_boss_fr)
+	await _await_state("prowl", 2400)
+	main._notification(NOTIFICATION_APPLICATION_FOCUS_OUT)
+	await process_frame
+	await process_frame
+	_assert_rearmed("focus loss returns to the armed castle")
+	_prime_boss_latch()
 
 func _boss() -> DustBossGame:
 	return main._game_obj("dustboss", DustBossGame) as DustBossGame
