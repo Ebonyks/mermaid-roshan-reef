@@ -390,6 +390,11 @@ func _showing_case() -> void:
 	_ck("the button reads WAIT while he is shut", boss0.action_label() == "WAIT")
 	var reached: bool = await _await_state("prowl", 3000)
 	_ck("the showing hands over to the prowl", reached)
+	# The reveal is skippable only after the demo flash has completed. This is
+	# intentionally a direct timing assertion: a tap before 5.2 remains a
+	# harmless answer, while a tap at/after 5.2 hands control to the prowl.
+	_ck("the showing skip threshold waits for the demo flash",
+		DustBossGame.SHOW_SKIP_T >= 5.2 and DustBossGame.SHOW_SKIP_T < DustBossGame.SHOW_T)
 
 # ---- shielded: he is a ball of dust ---------------------------------------
 func _shield_case() -> void:
@@ -412,11 +417,15 @@ func _mastery_ui_case() -> void:
 	var layer: CanvasLayer = main.g.get("db_mastery_layer") as CanvasLayer
 	var stars: Label = main.g.get("db_mastery_stars") as Label
 	var gem: Label = main.g.get("db_perfect_gem") as Label
+	var pips: Label = main.g.get("db_tap_pips") as Label
 	var dodge: Button = main.g.get("db_dodge_button") as Button
 	_ck("the fight shows three earned-or-empty mastery stars without reading",
 		layer != null and stars != null and stars.text == "★★★")
 	_ck("the clean-run bonus has its own visible diamond target",
 		gem != null and gem.text == "💎")
+	_ck("three tap pips live on the visible boss layer",
+		layer != null and layer.layer > 0 and pips != null and pips.text == "○○○"
+		and pips.get_parent() != null and pips.get_parent().name == "DustBossTapPipsPanel")
 	_ck("dodge is a separate picture-first child-sized control",
 		dodge != null and bool(dodge.get_meta("picture_first", false))
 		and dodge.size.x >= 140.0 and dodge.size.y >= 140.0)
@@ -434,17 +443,18 @@ func _mastery_ui_case() -> void:
 		and DustBossGame.mastery_tier_for_bumps(2) == 2
 		and DustBossGame.mastery_tier_for_bumps(3) == 1
 		and DustBossGame.mastery_tier_for_bumps(9) == 1)
+	var static_stars: String = stars.text if stars != null else ""
 	main.g["db_bumps"] = 2
 	_boss()._update_mastery_ui()
-	var silver_read: bool = stars != null and stars.text == "★★☆" \
-		and gem != null and gem.text == "◇"
+	var static_during_fight: bool = stars != null and stars.text == static_stars \
+		and gem != null and gem.text == "💎"
 	main.g["db_bumps"] = 3
 	_boss()._update_mastery_ui()
-	var bronze_read: bool = stars != null and stars.text == "★☆☆"
+	var still_static: bool = stars != null and stars.text == static_stars
 	main.g["db_bumps"] = 0
 	_boss()._update_mastery_ui()
-	_ck("missing stars stay outlined so the higher mastery remains visible",
-		silver_read and bronze_read)
+	_ck("mastery stars stay static until the medal card",
+		static_during_fight and still_static and stars != null and stars.text == "★★★")
 
 # ---- optional dodge: contact becomes a twirl, never a hidden fail state ----
 func _dodge_case() -> void:
@@ -531,6 +541,9 @@ func _first_hit_case() -> void:
 		await process_frame
 		_ck("tapping the boss himself is a bonk, not a walk order",
 			kit0 != null and kit0.accepted_taps == taps_before + 1)
+		var pips_after_first: Label = main.g.get("db_tap_pips") as Label
+		_ck("the first landed tap fills exactly one boss pip",
+			pips_after_first != null and pips_after_first.text == "●○○")
 	var hit1: bool = _hits() >= 1
 	if not hit1:
 		hit1 = await _strike(4)
@@ -548,6 +561,14 @@ func _second_hit_case() -> void:
 		boss.hop_speed() < float(DustBossGame.PHASES[0]["hop_speed"]))
 	_ck("a damage round is three taps, not one",
 		DustBossGame.TAPS_PER_ROUND == 3 and DustBossGame.HP == 3)
+	_ck("landed-round holds target 5.4 seconds and stay under six",
+		is_equal_approx(DustBossGame.STRUCK_T + DustBossGame.DIZZY_T
+			+ DustBossGame.PHASE_BEAT_T + DustBossGame.CELEBRATION_BEAT_T,
+			DustBossGame.LANDED_ROUND_HOLD_T)
+		and is_equal_approx(DustBossGame.STRUCK_T + DustBossGame.ANGRY_T
+			+ DustBossGame.PHASE_BEAT_T + DustBossGame.CELEBRATION_BEAT_T,
+			DustBossGame.LANDED_ROUND_HOLD_T)
+		and DustBossGame.LANDED_ROUND_HOLD_T <= 6.0)
 	_ck("landed phases include a brief celebration beat",
 		DustBossGame.PHASE_BEAT_T > 0.0
 		and boss.phase_beat_len(1) == DustBossGame.PHASE_BEAT_T
@@ -578,8 +599,8 @@ func _second_hit_case() -> void:
 # ---- a window let go: mercy, never failure --------------------------------
 func _mercy_case() -> void:
 	var boss := _boss()
-	# Start from a known streak so the check proves attempts 1-2 are unchanged,
-	# attempt 3 is the first gentle assist, and miss five owns strong mercy.
+	# Start from a known streak so the check proves the bounded first-hit bridge,
+	# attempt 3 is the persistent gentle assist, and miss five owns strong mercy.
 	main.g["db_miss"] = 0
 	main.g["db_miss_streak"] = 0
 	var window_before: float = boss.window_len()
@@ -600,10 +621,14 @@ func _mercy_case() -> void:
 				and boss.window_len() > window_before \
 				and boss.prowl_len() < prowl_before
 		if expected_streak < DustBossGame.PREASSIST_TRIGGER_STREAK:
-			var early_same: bool = is_equal_approx(boss.window_len(), window_before) \
-				and is_equal_approx(boss.reach(), reach_before) \
-				and is_equal_approx(boss.hop_speed(), speed_before) \
-				and is_equal_approx(boss.prowl_len(), prowl_before)
+			var early_same: bool = is_equal_approx(boss.hop_speed(), speed_before)
+			if expected_streak == 1:
+				early_same = early_same and boss.window_len() > window_before \
+					and boss.reach() > reach_before and boss.prowl_len() < prowl_before
+			else:
+				early_same = early_same and is_equal_approx(boss.window_len(), window_before \
+					+ DustBossGame.FIRST_HIT_ASSIST_BONUS) \
+					and boss.reach() > reach_before
 			all_missed = all_missed and early_same
 			early_lively = early_lively and early_same
 	_ck("five windows can pass harmlessly with no loss", all_missed and main.game == "dustboss")
@@ -611,8 +636,9 @@ func _mercy_case() -> void:
 		preassist_started and boss.mercy_tier() == 1 and boss.preassist_tier() == 2
 		and boss.prowl_len() < prowl_before and boss.reach() > reach_before
 		and boss.landing_radius() < 4.0)
-	_ck("attempts one and two keep the lively opening pace",
-		early_lively and boss.mercy_tier() == 1 and boss.preassist_tier() == 2)
+	_ck("the first miss opens a bounded first-hit bridge",
+		early_lively and boss.first_hit_assist() == 1
+		and boss.mercy_tier() == 1 and boss.preassist_tier() == 2)
 	_ck("miss five switches on a longer next window", boss.window_len() > window_before)
 	_ck("miss five owns the strong tier exactly",
 		boss.mercy_tier() == 1 and boss.preassist_tier() == 2
@@ -645,7 +671,8 @@ func _win_case() -> void:
 	_ck("the fight keeps offering windows until she lands them", hit3)
 	_ck("the third round finishes the fight", _hits() == 3)
 	_ck("a landed round resets the streak but keeps the earned assist pace",
-		int(main.g.get("db_miss_streak", -1)) == 0 and _boss().mercy_tier() == 1)
+		int(main.g.get("db_miss_streak", -1)) == 0 and _boss().mercy_tier() == 1
+		and _boss().preassist_tier() >= 1)
 	_ck("the ending is a befriending beat, not a defeat", _state() == "friends")
 	var wait := 0
 	while main.game == "dustboss" and wait < 4000:

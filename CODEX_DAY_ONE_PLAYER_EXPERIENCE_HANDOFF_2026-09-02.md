@@ -108,7 +108,7 @@ protected-asset, true-2D, save-compatibility, or probe-gate decisions.
 | DO-09 | INFERRED_PENDING_RUNTIME | `scripts/main.gd:9410-9455,11358-11487` still has no dedicated post-boss castle return branch, but the visual result and fresh-save recoverability need a runtime/device observation before treating the original 3D-anchor description as fully proven. |
 | DO-10 | NARROWED | `scripts/save_state.gd:431-471,557-566`; `scripts/day_one_director.gd:568-599`; `scripts/start_menu.gd:19-21,242-249` still normalize and route saves, but the intended legacy policy is owner-blocked and must not be silently implemented by D6. |
 | DO-11 | NARROWED | `scripts/start_menu.gd:201-240,261-280` has a current KEEP GAME primary and START NEW secondary presentation; the old “gold-then-gold” wording is stale, while one-press NEW GAME and no restore path remain. |
-| DO-12 | NARROWED | `scripts/games/dust_boss.gd:60-68,83-101,419-435,570-587,711-730,956-960`; `scripts/main.gd:10156-10159` still force-hides `hud_game`, so boss pips are not implemented/delivered; named shielded feedback remains, but the old generic “yay” claim is stale. |
+| DO-12 | FIXED_PENDING_VERIFICATION | `scripts/games/dust_boss.gd` now gates showing skip at 5.2 s, persists pre-assist, targets a 5.4 s landed-round hold, keeps mastery static in-fight, adds a visible boss-layer tap-pip row, and retains bounded named shielded feedback; `scripts/dust_bunny_boss_sprite.gd` uses a playful jump on expiry. Exact 4.7.2 and device verification remain pending. |
 | DO-13 | REPRODUCED | `scripts/main.gd:4063-4070`; `scripts/start_menu.gd:242-249`; `scripts/arena/sky_lagoon_promenade.gd:278-286` still route Continue through the lagoon rather than `day_one_current_room_id`. |
 | DO-14 | REPRODUCED | `scripts/main.gd:7421-7449` answers a completed stuffie room before reopening the picker; `scripts/arena/castle_rooms_25d.gd:4187-4201,4811-4820` retains the re-entry/picker seam. |
 | DO-15 | REPRODUCED | `scripts/main.gd:7421-7455`; `scripts/arena/castle_rooms_25d.gd:291-297,498-501`; `scripts/day_one_art_studio.gd:291-297` still permit the art tutorial path to invoke the Castle Logo Studio launch activity. |
@@ -701,6 +701,25 @@ without the owner decision flagged below; touch the boss art.
 Gate: `probe_dust_boss_balance` shows typical ≤ 90 s and mercy ≤ 120 s, a
 5.4 s landed-round hold target, and first hit by window 2; `probe_dust_boss`
 keeps zero-input unwinnable and verifies the pips layer. Suite green.
+
+### WP-D5b implementation evidence at `codex/day-one-experience-20260902`
+
+`dust_boss.gd` now lets a tap skip the showing only after the 5.2 s demo
+flash, keeps the owner's 0.75/0.65 s kit windows and three-tap rule, persists
+the earned pre-assist tier for the encounter, and holds each non-final landed
+round to the explicit 5.4 s target. Expiry uses the playful jump tell;
+in-fight mastery stars remain static while the generic medal card owns the
+bump-tier reveal. Three filled/empty tap pips are mounted on the boss-owned
+canvas layer rather than `hud_game`, and shielded taps retain only the bounded
+named tell feedback path.
+
+`probe_dust_boss.gd` covers the boss-layer pips, static mastery presentation,
+showing threshold, three-tap contract, 5.4 s hold arithmetic, and persistent
+assist. `probe_dust_boss_balance.gd` now emits deterministic assertions with a
+non-zero exit on failure for the ≤90 s typical target, ≤120 s mercy ceiling,
+first-hit window, landed-round hold, pip progression, and zero-input controls.
+Parser, inference lint, and diff checks pass. Exact Godot 4.7.2-stable runtime
+probes and target-device evidence remain pending; local Godot is 4.7.1 only.
 
 ### WP-D6 — Save and start-menu safety (DO-10, DO-11, DO-18, DO-22)
 
