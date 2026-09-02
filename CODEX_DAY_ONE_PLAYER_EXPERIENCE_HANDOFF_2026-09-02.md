@@ -84,6 +84,43 @@ The runs are evidence, not gospel; the code is the truth.
   looks like at the post-boss anchor, GUI hit-test ordering), confirm it
   with a headless probe or a device capture before relying on it.
 
+### Stage 0 reconciliation at `db4bcf76`
+
+The run bundle is historical evidence from `ff68f955`; the register below is
+the current branch-head reconciliation. `REPRODUCED` means the cited behavior
+still exists. `NARROWED` means the finding remains actionable but its original
+wording is too broad or stale. `SUPERSEDED` means the original claim no longer
+describes current code. `INFERRED_PENDING_RUNTIME` is reserved for claims that
+still need a device or headless runtime observation before they can be treated
+as proven. These statuses govern package scope; they do not waive owner,
+protected-asset, true-2D, save-compatibility, or probe-gate decisions.
+
+| ID | Status | Current file:line evidence and consequence |
+|---|---|---|
+| DO-01 | REPRODUCED | `scripts/main.gd:4063-4078`; `scripts/arena/sky_lagoon_promenade.gd:278-286,1143-1149`; fresh Day One still takes reef guidance, with no guarded exit at `scripts/main.gd:8855-8927`. |
+| DO-02 | NARROWED | `scripts/day_one_director.gd:434-454` now blocks boss trigger/completion until all rooms are complete, so the zero-room win claim is stale; `scripts/main.gd:5470-5471,10418-10419` still exposes an ungated Dusty Attic reef route and needs a route gate. |
+| DO-03 | NARROWED | Existing Parler `filler_v1` is current (`assets/audio/voices/VOICE_MANIFEST.md:3-21,53-63`; `scripts/audio_director.gd:10-35,90-94`); exact Day One semantic coverage is incomplete, but wholesale Appendix-B generation and a generic `voice_yay` fallback are not current truth. |
+| DO-04 | REPRODUCED | `scripts/arena/castle_rooms_25d.gd:960-968,980-993,1033-1116` hides the shared HUD while the castle is open; captions therefore still need a castle-layer mirror. |
+| DO-05 | REPRODUCED | `scripts/main.gd:7421-7472,7555-7602` still completes real rooms without a follow-up voice/pointer; `scripts/arena/castle_rooms_25d.gd:299-305` still has only twelve elevator cards and no permanent Royal Hall card. |
+| DO-06 | REPRODUCED | `scripts/arena/castle_rooms_25d.gd:152-190,1719-1735` retains the off-screen physical Royal Hall route and hides `ElevatorPointer` when the menu opens; the permanent-card remedy is unsuitable. |
+| DO-07 | REPRODUCED | `scripts/main.gd:8043-8080` saves the boss-trigger event before the fight; `scripts/day_one_director.gd:434-440` is the all-room trigger guard, but interruption/re-arm behavior remains a package concern. |
+| DO-08 | NARROWED | `scripts/games/day_one_bathroom_cleaning.gd:25-27,299,494-513` still resets the motion clock and gates on a continuous gesture, while `:822-862` now contains a progress presentation; the old “no progress bar” wording is stale. |
+| DO-09 | INFERRED_PENDING_RUNTIME | `scripts/main.gd:9410-9455,11358-11487` still has no dedicated post-boss castle return branch, but the visual result and fresh-save recoverability need a runtime/device observation before treating the original 3D-anchor description as fully proven. |
+| DO-10 | NARROWED | `scripts/save_state.gd:431-471,557-566`; `scripts/day_one_director.gd:568-599`; `scripts/start_menu.gd:19-21,242-249` still normalize and route saves, but the intended legacy policy is owner-blocked and must not be silently implemented by D6. |
+| DO-11 | NARROWED | `scripts/start_menu.gd:201-240,261-280` has a current KEEP GAME primary and START NEW secondary presentation; the old “gold-then-gold” wording is stale, while one-press NEW GAME and no restore path remain. |
+| DO-12 | NARROWED | `scripts/games/dust_boss.gd:60-68,83-101,419-435,570-587,711-730,956-960`; `scripts/main.gd:10156-10159` still force-hides `hud_game`, so boss pips are not implemented/delivered; named shielded feedback remains, but the old generic “yay” claim is stale. |
+| DO-13 | REPRODUCED | `scripts/main.gd:4063-4070`; `scripts/start_menu.gd:242-249`; `scripts/arena/sky_lagoon_promenade.gd:278-286` still route Continue through the lagoon rather than `day_one_current_room_id`. |
+| DO-14 | REPRODUCED | `scripts/main.gd:7421-7449` answers a completed stuffie room before reopening the picker; `scripts/arena/castle_rooms_25d.gd:4187-4201,4811-4820` retains the re-entry/picker seam. |
+| DO-15 | REPRODUCED | `scripts/main.gd:7421-7455`; `scripts/arena/castle_rooms_25d.gd:291-297,498-501`; `scripts/day_one_art_studio.gd:291-297` still permit the art tutorial path to invoke the Castle Logo Studio launch activity. |
+| DO-16 | REPRODUCED | `scripts/main.gd:7271-7315`; `scripts/attack_customizer.gd:99-121,182-193,257-261` still provide the modal without a child-facing voice/pointer, and the selected profile is not consumed by `scripts/games/dust_boss.gd`. |
+| DO-17 | NARROWED | `scripts/games/day_one_bathroom_cleaning.gd:186,583,599,669-670,811-816`; `scripts/audio_director.gd:17-35,90-94` retain the bathroom timing/semantic issues, but current filler resolution supersedes the old generic-yay description. |
+| DO-18 | REPRODUCED | `scripts/games/pool_skimmer_activity.gd:92-100`; `scripts/games/pool_seahorse_rescue_activity.gd:100-106` still restore completed activities without the waterfall-style completion emission. |
+| DO-19 | NARROWED | `scripts/main.gd:7421-7435` now uses the single `day_one_room_clean` answer rather than the historical two-clip claim; `scripts/main.gd:7555-7602` and `scripts/games/day_one_pool_cleanup.gd:83-100` retain revisit/Rumi seams. |
+| DO-20 | REPRODUCED | `scripts/pause_menu.gd:211-262` still routes Leave from `level2` to `_exit_level2()`, so Pause → REEF remains in the Day One safety scope. |
+| DO-21 | NARROWED | `scripts/arena/castle_rooms_25d.gd:1695-1717` still has uneven blocked-door feedback; `scripts/arena/day_one_art_studio.gd:376-390` no longer supports the old duplicated-label wording, so only the remaining banner/cooldown work carries forward. |
+| DO-22 | REPRODUCED | `scripts/main.gd:4080-4088,10141-10148` still resets the 1.5-second debounce on each queued save and writes only on expiry. |
+| DO-23 | NARROWED | `scripts/arena/castle_rooms_25d.gd:4203-4228,4255-4274` reproduces the small pointer/eagle tween magnitudes; `scripts/companion.gd:128-187` remains broader 3D migration debt and is not part of the Day One D7 payoff package. |
+
 ## Day One as she experiences it (typical path, golden run)
 
 | # | Beat | What carries the objective today | Typical s | Attention |
@@ -165,22 +202,17 @@ agency-to-passive ratio is 3–12 : 1; in the boss it is 1.2 : 1, and about
    The castle is off-screen at spawn x 610 and its gate glow idles at alpha
    0.10. Every return through the reef portal, and every Continue, replays
    the same prompt. From the reef, the Dusty Attic portal is not gated on
-   Day One either, and a win there calls `day_one_complete_boss_and_begin_day_two()`
-   with zero rooms cleaned (`main.gd:5373-5374`, `10004-10007`;
-   `scripts/day_one_director.gd:439-447`).
-2. **No Day One instruction is ever spoken** (16 of 16). `_say` resolves
-   `<speaker>_<event>.ogg` → `<speaker>.ogg` → pitched `voice_yay.mp3`
-   (`scripts/audio_director.gd:13-47`). Every objective passes `"talk"`, which
-   is `roshan_talk.ogg` = "This is so much fun!" (`tools/make_voices.py:47`,
-   1.05 s); `"win"` = "Yay! I did it!". No `roshan.ogg`, `daddy.ogg`,
-   `rumi.ogg`, `roshan_home/hint/intro`, `roshan_dustboss_*` or
-   `roshan_day_two_begins` exists, so every Pearl Castle, Daddy Mermaid,
-   Rumi, boss and Day Two line is a wordless "yay". The blocked-door answer
-   is "yay" followed by "This is so much fun!". The tub-drain success plays
-   `wacky_fail` "Ho ho! Chuck got all wet! Try again!" (2.85 s). The sink
-   instruction's voice is eaten by the 0.5/0.8 s `min_gap` because the
-   sponge travel is 0.38 s (`scripts/games/day_one_bathroom_cleaning.gd:583,
-   599, 811-816`).
+   Day One either. The current director refuses to trigger or complete the
+   boss until all four rooms are complete (`scripts/day_one_director.gd:434-454`),
+   so the historical zero-room win claim is stale; the reef route itself
+   remains exposed (`main.gd:5470-5471,10418-10419`).
+2. **Day One semantic coverage is incomplete** (16 of 16 historical runs).
+   The current runtime resolves exact Parler `filler_v1` keys first
+   (`assets/audio/voices/VOICE_MANIFEST.md:3-21,53-63`; `scripts/audio_director.gd:10-35`),
+   and existing `roshan_day_one_*` / `roshan_dustboss_*` clips are authoritative.
+   The remaining work is site-by-site mapping and only owner-approved missing
+   lines, not wholesale generation of Appendix B. The sink/tub timing claims
+   remain in scope (`scripts/games/day_one_bathroom_cleaning.gd:583,599,811-816`).
 3. **Captions are invisible for the whole castle** (7 of 16). `hud_msg` is a
    child of `hud_layer` (`main.gd:3590, 3617`); the castle hides that layer
    on open and resume and restores it only on close
@@ -213,11 +245,9 @@ agency-to-passive ratio is 3–12 : 1; in the boss it is 1.2 : 1, and about
    ignored until she lifts (`:285-287, 305-307, 449-450`).
 6. **Grand Puff is paced above her and cannot be interrupted safely**
    (11 of 16 for the strand, 9 for the pacing). The trigger writes
-   `giant_dust_bunny_boss_triggered = true`
-   *before* the fight (`main.gd:7794-7798`); restore keeps it
-   (`day_one_director.gd:612-613`); `day_one_boss_door_ready()` and
-   `_day_one_arm_boss_door()` then refuse forever (`main.gd:7069-7072,
-   7761-7766`); the Royal Hall resolves BLOCKED. A phone call, a low-memory
+   `giant_dust_bunny_boss_triggered = true` before the fight
+   (`main.gd:8043-8080`); interruption/re-arm behavior remains a package
+   seam. A phone call, a low-memory
    kill or pause → Leave during the 45–125 s fight strands Day One with
    jobs and Opera locked; the only exit is the unpointed reef attic. Inside
    the fight: 0.75 s / 0.65 s three-tap windows against a 0.9–1.6 s reaction
@@ -230,18 +260,15 @@ agency-to-passive ratio is 3–12 : 1; in the boss it is 1.2 : 1, and about
    splash + showing is 9.64 s of blocked input; every expired window plays
    the kit's ANGRY puff (`scripts/dust_bunny_boss_sprite.gd:239-243`); the
    mastery card removes stars live on bumps she cannot avoid while rooted
-   (`dust_boss.gd:1017-1034`); the 💜 round pips never render because
-   `hud_game` is forced hidden every frame (`main.gd:9741-9744`); shielded
-   taps get a cheerful "yay" every 2.6 s (`:718-722`).
-7. **Day One ends in the wrong world** (9 of 16). `_end_game` has no Dusty
-   Attic branch, so `_leave_arena_now` puts her at `return_pos`
-   (`main.gd:9003-9046, 11066-11073`), captured by `_enter_arena`
-   (`:10944`) as the castle-interior anchor `CASTLE_POS + (0, 6, 24)`
-   (`:6840`) in reef mode with `game == ""`, the castle closed and the
-   promenade torn down; a fresh save has no portal back
-   (`:5632-5637`). Only an app restart → Continue (now the legacy route)
-   recovers. The Day Two banner is overwritten in-frame and the medal card
-   sits under the 4.18 s transition.
+   (`dust_boss.gd:1017-1034`); the 💜 round pips are not implemented/delivered
+   because `hud_game` is forced hidden every frame (`main.gd:10156-10159`);
+   shielded taps use the named feedback path and cooldown (`:711-730`).
+7. **The post-boss landing needs runtime confirmation** (9 of 16 historical
+   runs). `_end_game` still has no dedicated Dusty Attic castle-return branch
+   and `_leave_arena_now` still uses `return_pos` (`main.gd:9410-9455,
+   11358-11487`). The exact visual anchor and fresh-save recoverability are
+   `INFERRED_PENDING_RUNTIME`; D5 must add a capture/probe before claiming the
+   original 3D-world description as proven.
 8. **Save and start-menu routing** (runs 06, 12, 16). Any real on-disk
    save is normalised at load with `day_one_active` defaulting to true and
    the primary file is rewritten before the first tap
@@ -250,10 +277,9 @@ agency-to-passive ratio is 3–12 : 1; in the boss it is 1.2 : 1, and about
    with jobs and Opera locked, contrary to the comments at
    `scripts/start_menu.gd:241-242` and `main.gd:3967-3969`;
    `probe_start_menu_routing.gd` cannot see it because it feeds a raw dict.
-   NEW GAME is a gold button, its confirm is a same-style gold button 168 px
-   above it with focus pre-placed on it and no voice or pointer
-   (`start_menu.gd:201-235, 256-264`); the `.before_new_game` archive has
-   no restore path in-game, in `backup.sh` or `BACKUP.md`. Every Continue
+   NEW GAME is a one-press action; the current confirm presents KEEP GAME as
+   primary and START NEW as secondary, but still has no hold/delay or in-game
+   restore (`start_menu.gd:201-240,261-280`; `backup.sh`). Every Continue
    lands at the lagoon plane, never the room she left. Two 0.58 s windows
    in the pool can save the skimmer/seahorse mask complete with the old
    step; both activities then restore as `_completed` without emitting
@@ -276,9 +302,11 @@ agency-to-passive ratio is 3–12 : 1; in the boss it is 1.2 : 1, and about
    references in `dust_boss.gd`, `dust_bunny_boss_sprite.gd`,
    `boss_splash_2d.gd`, `octagon_stage.gd`; only `combat_arena.gd:478-500`
    consumes it).
-10. **Revisit friction** (runs 05, 09). The completed-room action button
-    fires "This room is sparkly clean!" plus two overlapping Roshan clips on
-    every tap (`main.gd:7145-7148`); the completed bathroom hides back and
+10. **Revisit friction** (runs 05, 09). The completed-room action now uses a
+    single `day_one_room_clean` answer (`main.gd:7421-7435`), but completed
+    bathroom controls and Rumi persistence still need review; blocked room
+    doors have uneven cooldown coverage and the pause sheet's "🌊 REEF" tile
+    still drops her into the ocean. The completed bathroom hides back and
     elevator on every re-entry and re-fires the pool picture line
     (`main.gd:7385-7396, 7640-7675, 7704-7726`); Rumi is freed on room
     change and `day_one_pool_rumi_met` is read by nothing; blocked room
@@ -286,7 +314,7 @@ agency-to-passive ratio is 3–12 : 1; in the boss it is 1.2 : 1, and about
     sheet's "🌊 REEF" tile drops her into the ocean from anywhere in the
     castle.
 
-## Findings register
+## Findings register (historical baseline; see Stage 0 for current status)
 
 Severity follows the canonical scale (P1 = strands, misroutes or silences
 a required objective for the child; P2 = confuses or costs attention; P3 =
@@ -324,10 +352,10 @@ polish). "Runs" is the number of independent runs that reported it.
 |---|---|---|
 | Objective → voice that *says it* → pointer | within 1.0 s of the objective appearing, every time, including after room completion | `DL-AGE-01`; today the pointer exists in rooms but the voice never does |
 | Longest span with input blocked or ignored | ≤ 6 s (boss ceremonies included) | passive >8–10 s = she taps away; today 9.64, 9.6, 8.5 s |
-| Silence after a prompt while input is expected | ≤ 5 s, then a re-prompt (voice + pointer pulse), repeated at 12 s, cap 3 | the passive watcher sits 10–20 s before acting |
+| Silence after a prompt while input is expected | first re-prompt at 5 s, second at 12 s (voice + pointer pulse), cap 3 | the passive watcher sits 10–20 s before acting |
 | Re-orientation on Continue | the current room's own prompt within 10 s of tapping CONTINUE | today 25–45 s and the wrong prompt |
 | Any stop, anywhere | loses at most the current gesture; never a story gate | `DL-AGE-06`; today the boss is a one-way door |
-| Boss fight, typical child | 45–90 s from splash to friends, no forced hold > 6 s, first landed hit by the second window | run 13 measured 78 s with two certain misses per round |
+| Boss fight, typical child | typical ≤ 90 s from splash to friends; mercy ceiling ≤ 120 s; each landed-round hold targets 5.4 s; first landed hit by the second window | run 13 measured 78 s with two certain misses per round |
 | Per-room content | 30–120 s of agency; ≥ 3 : 1 agency-to-passive | the rooms already meet this; keep it |
 | Whole arc, realistic | fits two sittings of ≤ 8 min with a safe stop after every room | run 16 |
 
@@ -364,10 +392,12 @@ Do:
    the pause "🌊 REEF" tile on `not day_one_is_active()`. Make
    `complete_day_one_after_boss()` require `boss_door_glow` as well as
    `day_one_active` so no side entrance can end Day One early.
-3. Continue re-enters where she was: add additive key
-   `day_one_resume_castle_room` (default `""`), written by `show_room()` while
-   Day One is active and cleared on Day Two. `_launch_from_start_menu(true)`
-   routes to `_enter_castle_interior_now()` + `show_room(resume_room)` when
+3. Continue re-enters where she was: reuse the existing additive
+   `day_one_current_room_id` (owned by `DayOneDirector.current_room_id`,
+   `scripts/day_one_director.gd:97-101`) rather than inventing a parallel
+   resume key. Write it through the existing room-save path while Day One is
+   active. `_launch_from_start_menu(true)` routes to
+   `_enter_castle_interior_now()` + `show_room(day_one_current_room_id)` when
    `dirty_castle_discovered` is true; otherwise to the WP-D1 lagoon spawn.
 4. Hall entry during Day One places the hall view so the active PLOT door is
    on-screen: set the spawn foot to `active_door_foot.x − 600` (clamped) and
@@ -383,22 +413,23 @@ Gate: `probe_start_menu_routing` gains a leg that boots the promenade with a
 fresh Day One save and asserts the focused target is `castle_gate`, a
 simulated tap on the plane does not change `m.game`, and the reef attic item
 refuses while Day One is active; `probe_day_one_integration` asserts Continue
-with `day_one_resume_castle_room = "mermaid_pool"` opens the pool; a hall
+with `day_one_current_room_id = "mermaid_pool"` opens the pool; a hall
 probe asserts the PLOT door rect intersects the view rect on entry for each
 of the four rooms and the Royal Hall. Suite green.
 
 ### WP-D2 — Say the instruction (DO-03, DO-04, DO-17)
 
-Scope: `tools/make_voices.py` LINES table and its bounded `--line`
-regeneration; new `assets/audio/voices/roshan_day1_*.ogg` (Kokoro, the
-existing Roshan voice, same loudness pipeline); the Day One call sites;
-`scripts/audio_director.gd` voice arbitration; a castle caption mirror.
+Scope: existing `assets/audio/voices/filler_v1/` Parler assets and
+`VOICE_MANIFEST.md`; the Day One call sites; `scripts/audio_director.gd`
+voice arbitration; a castle caption mirror. `tools/make_voices.py` is legacy
+source material, not authority for a wholesale regeneration.
 
 Do:
-1. Add the clips in Appendix B with exact keys, generate them with
-   `tools/make_voices.py --line <key>` only, add each to
-   `ASSET_LICENSES.md` and rebuild `audit/audio_quality_ledger_2026-08-24.csv`
-   with `tools/audit_audio_quality.py`. Never regenerate an existing clip.
+1. Inventory and resolve existing `filler_v1` clips first. Appendix B is a
+   semantic coverage list, not a generation order: do not regenerate the
+   current Parler cohort wholesale. Only a genuinely missing line may become
+   an owner-approved Parler job, with its asset-license and audio-ledger rows;
+   never regenerate an existing clip.
 2. Replace every Day One `show_msg(..., "talk")` / `_say("roshan","talk")`
    objective call with its bespoke key (Appendix B lists every site). Drop the
    trailing generic `_say("roshan","talk", 0.8)` calls that today only add
@@ -419,9 +450,10 @@ Do:
    player is audible, and `talk`/`win` share one Roshan cooldown ≥ 1.2 s
    (`audio_director.gd:37-47, 169-173`), so the one line she gets is heard.
 6. Mirror the caption inside the castle: give `castle_room_stage` a
-   `HudVoiceCaption`-styled label on the castle layer that shows the current
-   `show_msg` text while `hud_layer` is hidden (an adult fallback, never the
-   child's only channel).
+   `HudVoiceCaption`-styled label on a CanvasLayer above the companion picker
+   (caption must sit above the picker) that shows the current `show_msg` text
+   while `hud_layer` is hidden (an adult fallback, never the child's only
+   channel).
 
 Gate: a new `probe_day_one_voice.gd` walks every Day One objective site,
 resolves the key the way `_say` does, and fails if any objective resolves to
@@ -446,9 +478,10 @@ Do:
    bathroom's `_show_day_one_pool_route` pattern with the target room and
    preview texture parameterised (pool → playroom, playroom → craft room,
    craft room → Royal Hall). The picture is the pointer; keep the ghost hand.
-2. Add a Royal Hall card to the elevator book that appears only while
-   `day_one_boss_door_ready()` and wears the PLOT cue; keep the ▼ pointer
-   alive (WP-D1 item 4).
+2. Do not add a permanent thirteenth elevator card. Keep the stable
+   twelve-card grid and expose Royal Hall through the contextual in-hall
+   physical portal/active boss-door cue only while
+   `day_one_boss_door_ready()`; keep the ▼ pointer alive (WP-D1 item 4).
 3. Keep `castle_room_action_button` visible after art completion with a
    single "next door" answer instead of the hidden button.
 
@@ -490,14 +523,14 @@ press during a busy window starts the gesture on release of busy, (d) a
 zero-input wait still never completes (existing negative leg unchanged).
 Suite green.
 
-### WP-D5 — Grand Puff pacing and resumability (DO-07, DO-09, DO-12)
+### WP-D5a — Grand Puff safety and resumability (DO-07, DO-09, DO-20)
 
 Scope: `scripts/main.gd` `_on_day_one_hook_event`, `day_one_boss_door_ready`,
 `_day_one_arm_boss_door`, `_end_game`/`_leave_arena_now` Dusty Attic branch,
 `_show_day_two_transition`; `scripts/day_one_director.gd`
-`normalise_save_patch`; `scripts/games/dust_boss.gd` constants and assist
-bookkeeping; `scripts/dust_bunny_boss_sprite.gd` expiry animation;
-`scripts/medal_system.gd` presentation only.
+`normalise_save_patch`; `scripts/pause_menu.gd` Leave routing;
+`scripts/medal_system.gd` presentation only. Boss pacing and tell
+presentation are isolated in WP-D5b.
 
 Do:
 1. Never strand the door: do not persist `giant_dust_bunny_boss_triggered`
@@ -511,34 +544,45 @@ Do:
    play the Day Two transition over the hall, and speak
    `roshan_day1_day_two` after the transition, not under it. Show the medal
    card after the transition.
-3. Pace the opening and the holds within the owner's contract: keep the
-   three-tap 0.75/0.65 s windows, but set `PREASSIST_TRIGGER_STREAK 2 → 1`,
-   persist the pre-assist tier for the rest of the encounter (store
-   `db_preassist_tier = max(...)` instead of deriving it from a streak that
-   `_on_round_done` zeroes), and give the first window of round 1 the tier-1
-   window (+2.0 s) so a first landed hit is possible by window two.
-   `DIZZY_T 3.2 → 1.6`, `ANGRY_T 2.1 → 1.4`, `PHASE_BEAT_T 2.8 → 1.2`,
-   `CELEBRATION_BEAT_T 1.8 → 1.0` (holds 9.6/8.5 s → 5.6/4.4 s). Let a tap
-   end the showing once the demo flash has played (`st ≥ 5.2`). Set
-   `POSITIVE_PACING_FLOOR 38 → 26` or anchor it at the first accepted input.
-4. Stop it reading as losing: play `play_jump()` instead of `play_angry()` on
-   an expired window; keep the mastery stars static during the fight and
-   reveal the bump tier only on the medal card; render three tap pips for
-   the current window on a castle/boss layer that `main.gd` does not hide;
-   silence the "yay" on shielded taps (banner only, cooldown 2.6 → 6.0 s,
-   soft poof SFX).
-5. Record the boss and Day Two lines (Appendix B) so the tell is spoken.
+
+Gate: `probe_day_one_director` asserts a save with all rooms complete,
+`day_one_active` true and `triggered` true restores with the door armed;
+`probe_dust_boss` and the pause probe assert Leave returns safely to the
+castle context with `day_one_active` intact. The post-boss visual landing is
+not accepted without runtime evidence. Suite green.
+
+### WP-D5b — Grand Puff pacing and tell presentation (DO-12)
+
+Scope: `scripts/games/dust_boss.gd` constants and assist bookkeeping;
+`scripts/dust_bunny_boss_sprite.gd` expiry animation; boss-layer HUD and
+`scripts/medal_system.gd` presentation only. This package does not change the
+Day One route or save policy.
+
+Do:
+1. Pace the opening and holds within the owner's contract: keep the three-tap
+   0.75/0.65 s windows, persist pre-assist for the encounter, and make the
+   first landed hit possible by window two. Let a tap end the showing once
+   the demo flash has played (`st ≥ 5.2`).
+2. Re-baseline each landed-round hold to a 5.4 s target (the current 9.6/8.5
+   s aggregate is not acceptable). The fight must be typical ≤ 90 s, with a
+   mercy ceiling ≤ 120 s. Preserve the three-tap rule and the positive pacing
+   floor in the balance probe.
+3. Stop it reading as losing: play `play_jump()` instead of `play_angry()` on
+   an expired window; keep mastery stars static during the fight and reveal
+   bump tier only on the medal card; silence generic shielded-tap celebration
+   while retaining bounded named feedback.
+4. Add three tap pips on a boss/castle layer that remains visible. The current
+   `hud_game` text is not an implementation because `main.gd` hides it every
+   frame; do not count it as delivered pips.
+5. Record only missing boss and Day Two semantic lines through the existing
+   Parler `filler_v1` process (Appendix B is not a wholesale generation job).
 
 Don't: change `VULNERABILITY_WINDOW` / `FINAL_WINDOW` or the three-taps rule
 without the owner decision flagged below; touch the boss art.
 
-Gate: `probe_day_one_director` asserts a save with all rooms complete,
-`day_one_active` true and `triggered` true restores with the door armed;
-`probe_dust_boss_balance` re-run shows the fight band 45–120 s for its
-slow-bot with no forced hold > 6 s and a first hit no later than window 2 in
-≥ 90 % of runs; `probe_dust_boss` asserts the post-win state is the castle
-hall with `day_one_active` false; `probe_passive` boss leg unchanged (zero
-input never wins). Suite green.
+Gate: `probe_dust_boss_balance` shows typical ≤ 90 s and mercy ≤ 120 s, a
+5.4 s landed-round hold target, and first hit by window 2; `probe_dust_boss`
+keeps zero-input unwinnable and verifies the pips layer. Suite green.
 
 ### WP-D6 — Save and start-menu safety (DO-10, DO-11, DO-18, DO-22)
 
@@ -554,8 +598,9 @@ Do:
    `continue_day_one_mode` use the declared value; a save that carries
    progress (`plays ≥ 1` or `level2` true) without the namespace defaults
    `day_one_active` to false. Add a probe fixture that round-trips a legacy
-   dict through `SaveState`, not the static helper. **Confirm the intended
-   policy with the owner first (Escalation).**
+   dict through `SaveState`, not the static helper. **OWNER-BLOCKED:** the
+   legacy policy is unresolved; do not implement or ship this item until the
+   owner confirms whether progress-bearing legacy saves enter Day One.
 2. Child-proof NEW GAME: when a save exists style CONTINUE gold and NEW GAME
    secondary; in the confirm sheet focus and gold-style KEEP GAME, style
    START NEW secondary, disable START NEW for 1.5 s after the sheet opens and
@@ -568,18 +613,19 @@ Do:
 4. Cap debounce starvation: keep the 1.5 s idle write but force a write once
    `save_pending` has been true for > 4.0 s.
 
-Gate: `probe_start_menu_routing` legacy leg goes through `SaveState` and
-asserts the direct route; `probe_save_recovery` asserts the `.before_new_game`
-restore; `probe_day_one_pool_cleanup` asserts a restored complete mask emits
+Gate: `probe_start_menu_routing` must cover the owner-approved legacy policy
+through `SaveState` (this leg is blocked until that decision);
+`probe_save_recovery` asserts the `.before_new_game` restore;
+`probe_day_one_pool_cleanup` asserts a restored complete mask emits
 `completed` and the pool can finish; `probe_load` asserts the > 4.0 s forced
 write. Suite green.
 
-### WP-D7 — Stuffie room and art room payoffs (DO-14, DO-15, DO-16, DO-23)
+### WP-D7a — Stuffie room and art room payoffs (DO-14, DO-15, DO-16)
 
 Scope: `scripts/main.gd` `day_one_activate_castle_room` stuffie/art
 branches; `scripts/arena/castle_rooms_25d.gd` `_restore_playroom_rescue_clears`,
-`_activate_room_item` launch gate, playroom tweens; `scripts/companion.gd`
-castle presence (2D only); `scripts/day_one_art_studio.gd` station
+`_activate_room_item` launch gate; `scripts/companion.gd` castle presence
+(2D only); `scripts/day_one_art_studio.gd` station
 animation and hit boxes; `scripts/attack_customizer.gd` cue and pointer;
 `scripts/games/dust_boss.gd` hit feedback.
 
@@ -604,9 +650,6 @@ Do:
    Show the choice in the fight: tint the boss hit burst with `attack_color`
    and pick the bubble/splash frames by `attack_effect` on each landed tap
    (the helper `HitEngine.show_attack_feedback_2d` already exists).
-5. Convert the leftover 3D magnitudes: pointer bob `+0.28 → +12.0` px; eagle
-   farewell `position.y + 1.25 → position.y − 80.0` over 0.72 s.
-
 Don't: relocate the customizer or change the art room's fantasy (owner
 decision below); touch `attic/gabby/`.
 
@@ -616,6 +659,20 @@ One and that a 2D companion card exists on the castle stage after confirm;
 by the seven tutorial taps and that the customizer opens with a
 `visual_pointer` node; `probe_dust_boss` asserts the hit burst colour equals
 `attack_color`. Suite green.
+
+### WP-D7b — Residual 2D magnitudes (DO-23, partial)
+
+Scope: the pointer and eagle tweens in `scripts/arena/castle_rooms_25d.gd`
+only. The companion's `Node3D`/`Sprite3D` implementation is broader measured
+3D migration debt and is deliberately not bundled into this Day One package.
+
+Do:
+
+1. Increase pointer bob `+0.28 → +12.0` px.
+2. Change eagle farewell `position.y + 1.25 → position.y − 80.0` over 0.72 s.
+
+Gate: the Day One castle probe asserts the two magnitudes and no companion
+3D-to-2D conversion is claimed by this partial package.
 
 ### WP-D8 — Revisit and small-friction polish (DO-19, DO-20, DO-21)
 
@@ -641,7 +698,7 @@ Gate: `probe_day_one_castle_dressing` / `probe_castle_door_language` legs
 assert the cooldown, the pan, and that the completed bathroom exposes the
 back button; suite green.
 
-### WP-D9 — Probe coverage is the gate
+### WP-D9 — Probe coverage is the gate (FIRST / PREREQUISITE)
 
 Every package above names its probe legs. All of them are worthless while
 the Day One probes stay outside the trusted rosters (`MA-CI-004`). Execute
@@ -656,13 +713,15 @@ earned idle.
 
 ## Order and parallelism
 
-1. WP-D9 (roster) → then everything else is gated.
-2. WP-D1, WP-D2, WP-D5 item 1 (the three P1 seams: exit, voice, boss
+1. WP-D9 (roster) is first; no other package may start or merge until its
+   roster/static gate is green.
+2. WP-D1, WP-D2, WP-D5a item 1 (the three P1 seams: exit, voice, boss
    strand) — parallel-safe, independent files.
 3. WP-D3, WP-D4, WP-D6 — parallel-safe after WP-D2's keys exist (WP-D3 and
    WP-D6 reference Appendix B keys; land the keys first or stub them with a
    TODO that WP-D2 removes).
-4. WP-D5 items 2–5, WP-D7, WP-D8 — after the above; WP-D5 item 3 needs the
+4. WP-D5a item 2, WP-D5b, WP-D7a, WP-D7b, WP-D8 — after the above; WP-D5b
+   needs the
    balance probe re-baselined.
 
 ## Escalation triggers — stop and surface to the owner
@@ -682,15 +741,16 @@ earned idle.
   (2026-07-29). WP-D5 stays inside the assist/mercy system; widening the
   window itself (`VULNERABILITY_WINDOW 0.75 → 1.6 s`, proposed by runs 08 and
   11) needs the owner.
-- **Where Day Two starts.** WP-D5 item 2 returns her to the castle hall;
+- **Where Day Two starts.** WP-D5a item 2 returns her to the castle hall;
   the owner may prefer the courtyard.
 - **The art room's fantasy and the customizer's place.** Run 15 proposes
   making the Castle Logo Studio the art-room reward and moving the attack
   customizer to the Royal Hall door beat, where "attack" first means
   something. That is a design change, not a repair; not in scope unless
   approved.
-- Anything touching `assets/book/`, `assets/audio/voices/` beyond adding
-  new Kokoro Roshan clips, `assets/characters/friends/`, or `attic/gabby/`.
+- Anything touching `assets/book/`, `assets/audio/voices/` beyond an
+  owner-approved Parler `filler_v1` addition, `assets/characters/friends/`,
+  or `attic/gabby/`.
 - Any workflow edit beyond the WP-D9 roster lines; any save-schema change
   beyond additive keys with defaults; any package that seems to need a
   probe rewritten to pass.
@@ -740,7 +800,15 @@ child evidence.
 The per-finding convergence table and each run's full beat log, hazard
 table and proposals are in `audit/day_one_playthroughs_2026-09-02/`.
 
-## Appendix B — voice keys to add (Kokoro Roshan voice, `tools/make_voices.py`)
+## Appendix B — semantic voice coverage (current `filler_v1` first)
+
+This table is a semantic target list, not a batch-generation order. The
+current Parler Mini v1.1 `filler_v1` cohort and its manifest are authoritative
+(`assets/audio/voices/VOICE_MANIFEST.md:3-21,53-63`). Inventory and reuse those
+clips first; do not generate every row or regenerate an existing clip. A
+genuinely missing line requires an owner-approved Parler job, exact manifest
+entry, and the normal asset-license/audio-quality evidence. Current keys use
+the manifest's `roshan_day_one_*` and `roshan_dustboss_*` naming where present.
 
 | Key | Text | Fired from |
 |---|---|---|
@@ -780,9 +848,10 @@ table and proposals are in `audit/day_one_playthroughs_2026-09-02/`.
 | `roshan_day1_keep_game` | "Keep our game!" | `start_menu.gd` confirm sheet (WP-D6) |
 | `roshan_day1_rumi_hi` | "Hi Roshan!" (Roshan voice until a Rumi voice is decided) | WP-D8 persistent Rumi |
 
-Keep each clip under 2.5 s, one sentence, present tense, no reading words
-("button", "menu"). Add every file to `ASSET_LICENSES.md` in the same
-commit.
+For any newly approved clip, keep it under 2.5 s, one sentence, present tense,
+with no reading words ("button", "menu"). Add every new file to
+`ASSET_LICENSES.md` in the same commit. Existing `filler_v1` files require no
+regeneration or replacement merely to match this historical target list.
 
 ## Appendix C — constants and values (current → proposed)
 
@@ -795,19 +864,16 @@ commit.
 | `day_one_bathroom_cleaning.gd:299` | motion clock reset per touch | yes | no (decay after 3 s idle) | D4 |
 | `day_one_bathroom_cleaning.gd:583, 617` | tool travel | 0.38 s | 0.22 s | D4 |
 | `day_one_bathroom_cleaning.gd:690` | post-drain timer | 0.36 s | 0.20 s | D4 |
-| `dust_boss.gd:92` | `PREASSIST_TRIGGER_STREAK` | 2 | 1, tier persisted | D5 |
-| `dust_boss.gd:63` | `DIZZY_T` | 3.2 | 1.6 | D5 |
-| `dust_boss.gd:64` | `ANGRY_T` | 2.1 | 1.4 | D5 |
-| `dust_boss.gd:65` | `PHASE_BEAT_T` | 2.8 | 1.2 | D5 |
-| `dust_boss.gd:66` | `CELEBRATION_BEAT_T` | 1.8 | 1.0 | D5 |
-| `dust_boss.gd:60` | `SHOW_T` | 6.4 fixed | tap-skippable after 5.2 | D5 |
-| `dust_boss.gd:68` | `POSITIVE_PACING_FLOOR` | 38.0 | 26.0 | D5 |
-| `dust_boss.gd:101` | `FEEDBACK_COOLDOWN` (shielded taps) | 2.6 s + "yay" | 6.0 s, no voice | D5 |
-| `main.gd:7794-7798` | boss flag persisted | before fight | on win; re-arm while active | D5 |
+| `dust_boss.gd:92` | `PREASSIST_TRIGGER_STREAK` | 2 | persistent tier, owner-approved tuning | D5b |
+| `dust_boss.gd:63-66` | landed-round hold components | 9.6/8.5 s aggregate | 5.4 s target aggregate | D5b |
+| `dust_boss.gd:60` | `SHOW_T` | 6.4 fixed | tap-skippable after 5.2 | D5b |
+| `dust_boss.gd:68` | `POSITIVE_PACING_FLOOR` | 38.0 | balance-probe target, no silent rewrite | D5b |
+| `dust_boss.gd:101` | `FEEDBACK_COOLDOWN` (shielded taps) | 2.6 s + legacy claim | bounded named feedback, no generic voice | D5b |
+| `main.gd:8043-8080` | boss flag persisted | before fight | re-arm safety after interruption | D5a |
 | `main.gd:3983-3988` | debounce | reset to 1.5 s per queue | forced write after 4.0 s pending | D6 |
 | `start_menu.gd:230-235, 262-264` | confirm sheet | START NEW gold + focused | KEEP GAME gold + focused; START NEW hold 0.8 s, 1.5 s delay | D6 |
 | `day_one_art_studio.gd:8-24` | art hit boxes (art px) | 92×104 / 124×104 / 132×76 | 128×128 / 150×128 / 150×110 | D7 |
-| `castle_rooms_25d.gd:4187, 4228` | pointer bob / eagle lift | +0.28 px / +1.25 px | +12 px / −80 px | D7 |
+| `castle_rooms_25d.gd:4187, 4228` | pointer bob / eagle lift | +0.28 px / +1.25 px | +12 px / −80 px | D7b |
 | `main.gd:7145-7148` | completed-room answer | 0.5/0.6 s gap, two clips | ≥ 6 s, one clip | D8 |
 | `castle_rooms_25d.gd:1710-1718` | blocked-door SFX cooldown | none | 1.2 s | D8 |
 | `audio_director.gd:169-173` | Roshan `talk`/`win` cooldown | separate keys | shared ≥ 1.2 s | D2 |
