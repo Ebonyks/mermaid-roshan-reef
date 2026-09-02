@@ -136,21 +136,38 @@ func _init() -> void:
 		and not bool(customizer_audit.get("choice_made", false))
 		and bool(customizer_audit.get("canvas_only", false)))
 	var dim_tap := InputEventScreenTouch.new()
+	dim_tap.index = 0
 	dim_tap.pressed = true
 	dim_tap.position = Vector2(40.0, 40.0)
-	customizer.get_viewport().push_input(dim_tap, false)
+	var picker_viewport: Viewport = customizer.get_viewport()
+	picker_viewport.push_input(dim_tap, false)
 	await process_frame
 	_check("dim tap before a choice does not confirm", customizer.is_open)
+	# Complete the physical touch before sending the next one. Two pressed
+	# events with the same finger index are one held contact to the viewport,
+	# not two child-sized taps, so the second dim tap would be ignored.
+	var dim_release := InputEventScreenTouch.new()
+	dim_release.index = 0
+	dim_release.pressed = false
+	dim_release.position = dim_tap.position
+	picker_viewport.push_input(dim_release, false)
+	await process_frame
 	customizer._on_color_pressed(AttackCustomizer.COLORS[3] as Color)
 	var chosen: Dictionary = customizer.audit_snapshot()
 	_check("color choice is visible before confirmation",
 		bool(chosen.get("choice_made", false))
 		and customizer.attack_color.is_equal_approx(AttackCustomizer.COLORS[3] as Color))
 	var confirm_tap := InputEventScreenTouch.new()
+	confirm_tap.index = 0
 	confirm_tap.pressed = true
 	confirm_tap.position = Vector2(40.0, 40.0)
-	customizer.get_viewport().push_input(confirm_tap, false)
+	picker_viewport.push_input(confirm_tap, false)
 	await process_frame
+	var confirm_release := InputEventScreenTouch.new()
+	confirm_release.index = 0
+	confirm_release.pressed = false
+	confirm_release.position = confirm_tap.position
+	picker_viewport.push_input(confirm_release, false)
 	_check("dim tap after one choice confirms", not customizer.is_open
 		and confirmations == 1)
 	# Grand Puff owns one HitEngine feedback instance for the whole encounter.
