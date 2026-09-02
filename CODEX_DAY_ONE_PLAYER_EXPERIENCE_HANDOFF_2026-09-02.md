@@ -785,13 +785,31 @@ by the seven tutorial taps and that the customizer opens with a
 `visual_pointer` node; `probe_dust_boss` asserts the hit burst colour equals
 `attack_color`. Suite green.
 
-Reconciled package slice (2026-09-02): this implementation is intentionally
-limited to the revised Stuffie re-entry and reward-visibility leg. It restores
-the completed-playroom adoption route after picker close or process reload,
-preserves the familiar Back/dim/B close path and draft, and stages one reusable
-true-2D Canvas companion card using the selected approved asset. The art-room
-and attack-customizer items above remain deferred, and the broader
-`companion.gd` Node3D follower migration remains DO-23 PARTIAL.
+Reconciled package slice (2026-09-02): the stuffie re-entry and reward-
+visibility leg remains landed from the prior commit. The residual art-room,
+customizer, and Grand Puff profile-feedback items below are now implemented in
+the focused D7 change; the broader `companion.gd` Node3D follower migration
+remains DO-23 PARTIAL and is not claimed here.
+
+### WP-D7 residual slice implementation evidence (2026-09-02)
+
+The seven Day One art targets now use child-sized 128–150 px touch rectangles.
+Their two shared craft fixtures use an explicit Day One animation route that
+duplicates the authored fixture data and removes `launch_activity`, so none of
+the seven expected taps can create or hijack into `castle_logo_layer`. The
+customizer retains its established position and art, speaks the existing
+manifest-backed `roshan_castle_logo_open` cue, parks a pulsing `visual_pointer`
+hand over the star, and leaves the dimmer passive until at least one colour or
+effect choice has been made; then a dim tap confirms exactly like the star.
+
+Grand Puff now owns one `HitEngine` profile-feedback instance for the encounter.
+It creates one Canvas `AttackProfileFx` layer on build, uses the saved
+`attack_color` and `attack_effect` on every accepted tap, and tears the layer
+down during `stage_close`. The new fail-closed legs in
+`probe_day_one_art_attack_state.gd` cover all seven no-logo taps, customizer
+before/after choice confirmation, selected splash colour/effect, and encounter
+teardown. Parser, inference lint, and diff-check pass locally; exact Godot
+4.7.2-stable, full CI, target-device, and child acceptance remain pending.
 
 ### WP-D7b — Residual 2D magnitudes (DO-23, partial)
 

@@ -3106,6 +3106,27 @@ func _activate_room_item(item_id: String) -> void:
 		m.castle_room_id == "kitchen" and item_id == "fridge")
 
 
+func play_day_one_art_station(item_id: String) -> bool:
+	# Day One's seven cleanup taps may animate the accepted craft-room fixtures,
+	# but they must not inherit the post-Day-One logo-studio launch hook from the
+	# shared paint-table card. Keep this as a separate, explicit route so the
+	# launch behavior remains available to the normal room interaction later.
+	if m.castle_room_id != "craft_room":
+		return false
+	var record: Dictionary = m.castle_room_item_sprites.get(item_id, {})
+	var sprite: Sprite2D = record.get("sprite") as Sprite2D
+	var source_data: Dictionary = record.get("data", {}) as Dictionary
+	if sprite == null or source_data.is_empty() \
+			or bool(sprite.get_meta("busy", false)):
+		return false
+	var item_data: Dictionary = source_data.duplicate(true)
+	item_data.erase("launch_activity")
+	var interaction_key := String(sprite.get_meta("source_object_id", ""))
+	fixture_rigs.activate(interaction_key)
+	_play_sprite_atlas_sequence(sprite, item_data, true, false)
+	return true
+
+
 func activate_chapter2_plot_prop(room_id: String, item_id: String) -> bool:
 	# This narrow bridge lets the Chapter 2 director play an existing authored
 	# prop response without turning ordinary room-item taps into skill uses.
@@ -3846,6 +3867,7 @@ func _finish_sprite_atlas_sequence(sprite: Sprite2D, item_data: Dictionary,
 		_open_kitchen_menu()
 	if launch_activity == "castle_logo" \
 			and m.castle_room_id == "craft_room" \
+			and not m.day_one_jobs_locked() \
 			and String(sprite.get_meta("source_object_id", "")) \
 			== "craft_room:paint_table" \
 			and m.castle_logo_layer == null:

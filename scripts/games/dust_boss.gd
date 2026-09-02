@@ -148,6 +148,7 @@ const PHASES: Array[Dictionary] = [
 
 var m: ReefMain
 var stage: OctagonStage
+var attack_feedback: HitEngine = null
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -155,6 +156,7 @@ func _init(main: ReefMain) -> void:
 
 # ---- lifecycle -------------------------------------------------------------
 func build(fr: Dictionary, _origin: Vector3) -> void:
+	_ensure_attack_feedback()
 	m.g["db_hits"] = 0
 	m.g["db_miss"] = 0
 	m.g["db_miss_streak"] = 0
@@ -211,6 +213,29 @@ func stage_close() -> void:
 			mastery_layer.get_parent().remove_child(mastery_layer)
 		mastery_layer.queue_free()
 	stage.close()
+	if attack_feedback != null:
+		attack_feedback.teardown()
+	attack_feedback = null
+	m.g.erase("db_attack_feedback")
+
+func _ensure_attack_feedback() -> HitEngine:
+	if attack_feedback == null:
+		attack_feedback = HitEngine.new(m)
+		m.g["db_attack_feedback"] = attack_feedback
+	return attack_feedback
+
+func _show_attack_feedback() -> void:
+	var feedback: HitEngine = _ensure_attack_feedback()
+	var viewport: Viewport = m.get_viewport()
+	var screen_pos := Vector2(640.0, 360.0)
+	if viewport != null:
+		screen_pos = viewport.get_visible_rect().get_center()
+	var boss: Variant = m.g.get("db_boss")
+	var cam: Variant = m.player.cam if m.player != null else null
+	if boss != null and is_instance_valid(boss) and cam != null \
+			and cam.is_inside_tree() and not cam.is_position_behind(boss.global_position):
+		screen_pos = cam.unproject_position(boss.global_position)
+	feedback.show_attack_feedback_2d(screen_pos)
 
 static func mastery_tier_for_bumps(bumps: int) -> int:
 	# Bumps are harmless and never gate completion. They only leave an inviting
@@ -1215,6 +1240,7 @@ func _on_imploded() -> void:
 
 func _on_tap_progress(accepted: int, _required: int) -> void:
 	m.g["db_taps_this_round"] = accepted
+	_show_attack_feedback()
 
 # ---- the reef doorway ------------------------------------------------------
 func build_portal() -> Vector3:

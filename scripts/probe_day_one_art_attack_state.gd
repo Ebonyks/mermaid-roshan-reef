@@ -86,18 +86,80 @@ func _init() -> void:
 		and int(studio_audit.get("grime_art_count", 0)) == 3
 		and bool(studio_audit.get("canvas_only", false))
 		and studio.scale.is_equal_approx(Vector2.ONE * 1.25))
+	# Exercise the actual seven touch handlers in their Day One room context.
+	# The craft-room paint-table card is shared with the later logo studio, so
+	# this is deliberately fail-closed: every cleanup tap must leave that layer
+	# absent, including the two taps that animate the shared station.
+	director.day_one_active = true
+	director.current_room_id = "art"
+	main.day_one_art_collected_materials = {}
+	main.day_one_art_cleaned_grime = {}
+	main.day_one_art_desk_unlocked = false
+	main.day_one_art_customization_completed = false
+	studio.refresh_from_state()
+	for material: Dictionary in DayOneArtStudio.MATERIALS:
+		var material_id: String = String(material["id"])
+		studio.call("_on_material_pressed", material_id)
+		_check("art tap %s never opens logo" % material_id,
+			main.castle_logo_layer == null)
+	for grime: Dictionary in DayOneArtStudio.GRIME:
+		var grime_id: String = String(grime["id"])
+		studio.call("_on_grime_pressed", grime_id)
+		_check("art tap %s never opens logo" % grime_id,
+			main.castle_logo_layer == null)
+	_check("seven art taps finish cleanup without logo hijack",
+		director.art_cleanup_complete() and director.art_desk_unlocked
+		and main.castle_logo_layer == null)
 	var customizer := AttackCustomizer.new()
 	root.add_child(customizer)
 	customizer.attach(main)
-	customizer.open()
+	var confirmations := 0
+	customizer.open(func() -> void: confirmations += 1)
 	var customizer_audit: Dictionary = customizer.audit_snapshot()
-	_check("customizer builds five colors, two effects and picture confirmation",
+	_check("customizer opens with child guidance and picture confirmation",
 		int(customizer_audit.get("color_choices", 0)) == 5
 		and int(customizer_audit.get("effect_choices", 0)) == 2
 		and bool(customizer_audit.get("confirm_button", false))
 		and bool(customizer_audit.get("painted_brush", false))
 		and bool(customizer_audit.get("painted_effect_previews", false))
+		and bool(customizer_audit.get("visual_pointer", false))
+		and not bool(customizer_audit.get("choice_made", false))
 		and bool(customizer_audit.get("canvas_only", false)))
+	var dim_tap := InputEventScreenTouch.new()
+	dim_tap.pressed = true
+	customizer._on_dim_input(dim_tap)
+	_check("dim tap before a choice does not confirm", customizer.is_open)
+	customizer._on_color_pressed(AttackCustomizer.COLORS[3] as Color)
+	var chosen: Dictionary = customizer.audit_snapshot()
+	_check("color choice is visible before confirmation",
+		bool(chosen.get("choice_made", false))
+		and customizer.attack_color.is_equal_approx(AttackCustomizer.COLORS[3] as Color))
+	customizer._on_dim_input(dim_tap)
+	_check("dim tap after one choice confirms", not customizer.is_open
+		and confirmations == 1)
+	# Grand Puff owns one HitEngine feedback instance for the whole encounter.
+	# Its Canvas layer must consume the saved profile on every accepted tap and
+	# be torn down with the encounter, without leaving a global overlay behind.
+	main.attack_color = Color(1.0, 0.48, 0.55, 1.0)
+	main.attack_effect = "splashes"
+	var boss_game := DustBossGame.new(main)
+	main.g = {}
+	boss_game._ensure_attack_feedback()
+	boss_game._on_tap_progress(1, 3)
+	var feedback: HitEngine = boss_game.attack_feedback
+	var fx_layer: CanvasLayer = feedback.attack_fx_layer
+	var fx: Node = fx_layer.get_child(0) as Node \
+		if fx_layer != null and fx_layer.get_child_count() > 0 else null
+	var fx_sprite: Sprite2D = fx.get("sprite") as Sprite2D if fx != null else null
+	_check("Grand Puff feedback uses saved color and splash effect",
+		feedback != null and fx_layer != null and fx != null and fx_sprite != null
+		and String(fx.get("effect")) == "splashes"
+		and (fx.get("tint") as Color).is_equal_approx(main.attack_color)
+		and fx_sprite.texture.resource_path.ends_with(
+			"fx_water_splash_medium_atlas.png"))
+	boss_game.stage_close()
+	_check("Grand Puff feedback tears down with encounter",
+		boss_game.attack_feedback == null)
 	# SceneTree teardown owns the two root children. Queueing them during
 	# SceneTree._init() trips Godot's root lock even though gameplay teardown is
 	# safe after the first frame.
