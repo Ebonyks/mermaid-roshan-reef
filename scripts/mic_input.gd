@@ -532,7 +532,12 @@ func _load_templates() -> void:
 		return
 	var text: String = f.get_as_text()
 	f.close()
-	var parsed: Variant = JSON.parse_string(text)
+	var json: JSON = JSON.new()
+	var parse_error: Error = json.parse(text)
+	if parse_error != OK:
+		push_warning("MicInput: %s is unreadable; spells must be taught again" % TEMPLATE_PATH)
+		return
+	var parsed: Variant = json.data
 	if typeof(parsed) != TYPE_DICTIONARY:
 		push_warning("MicInput: %s is unreadable; spells must be taught again" % TEMPLATE_PATH)
 		return
