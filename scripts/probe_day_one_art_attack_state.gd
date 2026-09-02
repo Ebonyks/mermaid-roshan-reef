@@ -34,6 +34,12 @@ func _init() -> void:
 		director.complete_art_customization()
 		and director.art_customization_completed)
 	# Move the route to the art room without touching the physical castle.
+	# Mirror the persisted bathroom boundary required by the live director. The
+	# art probe is state-only, so seed the already-completed rescue rather than
+	# pretending a fresh bathroom can complete without its two gestures.
+	director.bathroom_supply_hunt_step = 2
+	director.bathroom_tools_authorized = true
+	director.bathroom_cleanup_step = 2
 	director.complete_tutorial("bathroom")
 	director.complete_activity("pool", "pool_activity")
 	director.complete_activity("stuffie", "stuffie_activity")

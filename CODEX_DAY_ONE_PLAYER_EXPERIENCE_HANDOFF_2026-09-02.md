@@ -711,6 +711,39 @@ explicit task for those roster lines and nothing else). Extend
 the new route buttons (`MA-CI-005`) so no reward added by WP-D3/D5/D7 can be
 earned idle.
 
+### WP-D9 / WP-A1+A2 evidence at the reconciled branch
+
+The current Day One probe inventory is now classified as follows. The six
+deterministic probes from the canonical eight-probe finding are promoted to
+`TRUSTED_BLOCKING` in both `scripts/ci.sh` and `.github/workflows/probes.yml`:
+`probe_day_one_art_attack_state`, `probe_day_one_castle_dressing`,
+`probe_day_one_director`, `probe_day_one_integration`,
+`probe_day_one_pool_cleanup`, and `probe_start_menu_routing`. The later
+deterministic `probe_day_one_bathroom_bunny` is promoted alongside the three
+already-trusted bathroom probes (`probe_day_one_bathroom_cleanup`,
+`probe_day_one_bathroom_integration`, and
+`probe_day_one_bathroom_movie_handoff`). The capture-style probes
+`probe_day_one_art_studio_shots`, `probe_day_one_bathroom_shots`, and
+`probe_day_one_pool_shots` remain `ADVISORY_CAPTURE` and are not trusted
+roster entries. `probe_dust_boss_balance` remains advisory because its output
+does not provide a blocking assert/exit-failure contract.
+
+The art/attack probe received one fixture-only determinism repair: it now
+seeds the persisted bathroom completion boundary before advancing the
+state-only route. Under the installed Godot `4.7.1.stable.official` (the exact
+4.7.2-stable binary was unavailable locally), every promoted candidate passed
+three consecutive isolated runs (21/21 including the bathroom-bunny probe).
+The updated passive probe passed with `Day One snapshot contract: OK` and
+`result: ALL OK`; `_progress_snapshot()` now compares the complete
+`DayOneDirector.serialize_state()` payload and fail-closes if any required
+serialized Day One key is absent. Parser, inference lint, and roster
+parity/stress checks passed. Exact 4.7.2-stable and full `scripts/ci.sh` remain
+pending CI verification; no target-device or child evidence is claimed.
+
+Lifecycle: `MA-CI-004` and `MA-CI-005` advance from `CONFIRMED_OPEN` to
+`FIXED_PENDING_VERIFICATION` pending exact-head CI. This evidence does not
+close either finding or grant device/child acceptance.
+
 ## Order and parallelism
 
 1. WP-D9 (roster) is first; no other package may start or merge until its
