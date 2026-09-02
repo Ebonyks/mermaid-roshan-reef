@@ -62,11 +62,12 @@ CHARACTERS: dict[str, dict[str, Any]] = {
 
 
 def sha256(path: Path) -> str:
-	h = hashlib.sha256()
-	with path.open("rb") as handle:
-		for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-			h.update(chunk)
-	return h.hexdigest()
+	data = path.read_bytes()
+	if path.suffix.lower() in {".json", ".md", ".txt"}:
+		# Hash the canonical repository/archive form. Windows may expose these
+		# tracked text files with CRLF even though Git and GitHub store LF.
+		data = data.replace(b"\r\n", b"\n")
+	return hashlib.sha256(data).hexdigest()
 
 
 def image_dimensions(path: Path) -> list[int] | None:
