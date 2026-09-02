@@ -1,6 +1,6 @@
 # D1-C08 — Stuffie Room — Basket and Wing-Blast Restoration
 
-> `ARCHIVE_COMPLETE`: false  
+> `ARCHIVE_COMPLETE`: true
 > `GENERATION_READY`: false  
 > `DELIVERY_ACCEPTED`: false  
 > Grok output remains motion/editorial reference until the independent full-frame delivery audit passes.

@@ -1,7 +1,7 @@
 {
   "schema": "imagine-handoff-v2",
   "handoff_id": "d1_c00_opening_flight_visual_v1",
-  "archive_status": "incomplete",
+  "archive_status": "complete",
   "generation_status": "blocked",
   "delivery_status": "not_accepted",
   "shot_packets": [],
@@ -99,5 +99,13 @@
     "forbidden_geometry": [
       "no invented room, basin, doorway, platform, or fixture relocation"
     ]
+  },
+  "archive_remote": {
+    "commit": "6e24e0dea55cfece9c9c03bb589c56ba63a48b26",
+    "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/6e24e0dea55cfece9c9c03bb589c56ba63a48b26/assets_src/cinematics/d1_c00_opening_flight_visual_v1",
+    "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/6e24e0dea55cfece9c9c03bb589c56ba63a48b26/assets_src/cinematics/d1_c00_opening_flight_visual_v1/HANDOFF_PACKET.json",
+    "readme": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/6e24e0dea55cfece9c9c03bb589c56ba63a48b26/assets_src/cinematics/d1_c00_opening_flight_visual_v1/README.md",
+    "verified_via": "GitHub recursive commit-tree API; every HANDOFF_PACKET asset path resolved",
+    "verified_at": "2026-09-02T00:00:00-07:00"
   }
 }

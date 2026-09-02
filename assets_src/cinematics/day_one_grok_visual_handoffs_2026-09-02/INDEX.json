@@ -1,9 +1,9 @@
 {
   "schema": "day-one-grok-visual-handoff-index-v1",
   "date": "2026-09-02",
-  "archive_commit": null,
+  "archive_commit": "6e24e0dea55cfece9c9c03bb589c56ba63a48b26",
   "claims": {
-    "archive_complete": false,
+    "archive_complete": true,
     "generation_ready": false,
     "delivery_accepted": false
   },
@@ -86,5 +86,11 @@
       "packet": "assets_src/cinematics/d1_c12_restored_castle_finale_visual_v1",
       "readme": "assets_src/cinematics/d1_c12_restored_castle_finale_visual_v1/README.md"
     }
-  ]
+  ],
+  "remote_verification": {
+    "verified_at": "2026-09-02T00:00:00-07:00",
+    "verified_via": "GitHub recursive commit-tree API",
+    "packet_count": 13,
+    "all_manifest_references_resolved": true
+  }
 }

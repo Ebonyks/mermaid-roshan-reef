@@ -1,6 +1,6 @@
 # D1-C09 — Art Room — Spilled Supplies Discovery
 
-> `ARCHIVE_COMPLETE`: false  
+> `ARCHIVE_COMPLETE`: true
 > `GENERATION_READY`: false  
 > `DELIVERY_ACCEPTED`: false  
 > Grok output remains motion/editorial reference until the independent full-frame delivery audit passes.
