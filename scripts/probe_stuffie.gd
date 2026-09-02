@@ -58,6 +58,32 @@ func _picker_case() -> void:
 	await _settle(8)
 	main._enter_castle_interior_now(false)
 	await _settle(8)
+	# Playroom is the third Day One room, so enter it through the same
+	# state-owner checkpoint as the real pool handoff. The old fixture jumped
+	# directly from a fresh bathroom checkpoint; the castle correctly rejected
+	# that locked door and left the rescue-card records empty before the first
+	# assertion. Seed only the already-completed prior rooms, never the stuffie
+	# rescue itself, so Baby Eagle and both pinning bunnies remain the live gate.
+	var director: DayOneDirector = main._day_one_ref()
+	director.restore_state({
+		"day_one_active": true,
+		"day_one_current_room": "stuffie",
+		"day_one_completed_rooms": ["bathroom", "pool"],
+		"day_one_cleaned_rooms": ["bathroom", "pool"],
+		"day_one_dirty_castle_discovered": true,
+		"day_one_bathroom_supply_hunt_step": 2,
+		"day_one_bathroom_tools_authorized": true,
+		"day_one_bathroom_cleanup_step": 3,
+		"day_one_pool_cleanup_step": 4,
+		"day_one_pool_rumi_met": true,
+		"day_one_pool_skimmer_mask": 0x3F,
+		"day_one_pool_waterfall_mask": 0x07,
+		"day_one_pool_seahorse_tugs": 8,
+	})
+	main._day_one_sync_castle_dressing()
+	main.stuffie_wins.erase("rescued_eagle")
+	main.stuffie_wins.erase("rescued_eagle_pin_left")
+	main.stuffie_wins.erase("rescued_eagle_pin_right")
 	var rooms: CastleRooms25D = main._castle_rooms_ref()
 	rooms.show_room("playroom", false)
 	await _settle(2)

@@ -495,6 +495,11 @@ func sfx(name: String, pitch: float = 1.0, volume_db: float = -6.0) -> void:
 
 
 func _ui_tap() -> void:
+	# State-only probes may exercise a controller before its ReefMain owner is
+	# mounted. AudioStreamPlayer.play() emits a noisy tree-membership error in
+	# that case; a real mounted game still gets the same tap cue.
+	if m == null or not m.is_inside_tree():
+		return
 	if m._tap_player == null:
 		m._tap_player = AudioStreamPlayer.new()
 		m._tap_player.bus = "UI"

@@ -264,12 +264,18 @@ func _open_case() -> void:
 	_ck("attic portal exists in the reef", main.dust_boss_portal_pos != Vector3.ZERO)
 	main.dust_boss_cool = 0.0
 	var wait := 0
+	var explicit_activation_sent := false
 	while main.game == "" and wait < 900:
 		wait += 1
 		main.player.position = main.dust_boss_portal_pos + Vector3(0, 2, 3)
 		main.player.vel = Vector3.ZERO
-		if main.touch_uses_explicit_interactions():
+		# The explicit route starts a fade-backed transition. Sending the same
+		# activation every frame would restart that fade before its callback can
+		# enter DustBoss, leaving game empty forever. A child sends one tap edge;
+		# then the probe waits for the transition to finish just like the live UI.
+		if main.touch_uses_explicit_interactions() and not explicit_activation_sent:
 			main._activate_touch_interactable("reef:dustboss")
+			explicit_activation_sent = true
 		await process_frame
 	_ck("swimming to the attic door opens the boss fight", main.game == "dustboss")
 

@@ -127,14 +127,18 @@ func _init() -> void:
 		and bool(customizer_audit.get("canvas_only", false)))
 	var dim_tap := InputEventScreenTouch.new()
 	dim_tap.pressed = true
-	customizer._on_dim_input(dim_tap)
+	dim_tap.position = Vector2(40.0, 40.0)
+	customizer._dim.gui_input.emit(dim_tap)
 	_check("dim tap before a choice does not confirm", customizer.is_open)
 	customizer._on_color_pressed(AttackCustomizer.COLORS[3] as Color)
 	var chosen: Dictionary = customizer.audit_snapshot()
 	_check("color choice is visible before confirmation",
 		bool(chosen.get("choice_made", false))
 		and customizer.attack_color.is_equal_approx(AttackCustomizer.COLORS[3] as Color))
-	customizer._on_dim_input(dim_tap)
+	var confirm_tap := InputEventScreenTouch.new()
+	confirm_tap.pressed = true
+	confirm_tap.position = Vector2(40.0, 40.0)
+	customizer._dim.gui_input.emit(confirm_tap)
 	_check("dim tap after one choice confirms", not customizer.is_open
 		and confirmations == 1)
 	# Grand Puff owns one HitEngine feedback instance for the whole encounter.
