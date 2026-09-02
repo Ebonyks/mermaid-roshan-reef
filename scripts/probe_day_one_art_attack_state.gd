@@ -123,8 +123,8 @@ func _init() -> void:
 	# tap; otherwise get_viewport() is null even though the layer is parented.
 	await process_frame
 	customizer.attach(main)
-	var confirmations := 0
-	customizer.open(func() -> void: confirmations += 1)
+	var confirmations := [0]
+	customizer.open(func() -> void: confirmations[0] += 1)
 	var customizer_audit: Dictionary = customizer.audit_snapshot()
 	_check("customizer opens with child guidance and picture confirmation",
 		int(customizer_audit.get("color_choices", 0)) == 5
@@ -140,6 +140,7 @@ func _init() -> void:
 	dim_tap.pressed = true
 	dim_tap.position = Vector2(40.0, 40.0)
 	var picker_viewport: Viewport = customizer.get_viewport()
+	picker_viewport.size = Vector2i(1280, 720)
 	picker_viewport.push_input(dim_tap, false)
 	await process_frame
 	_check("dim tap before a choice does not confirm", customizer.is_open)
@@ -169,7 +170,7 @@ func _init() -> void:
 	confirm_release.position = confirm_tap.position
 	picker_viewport.push_input(confirm_release, false)
 	_check("dim tap after one choice confirms", not customizer.is_open
-		and confirmations == 1)
+		and confirmations[0] == 1)
 	# Grand Puff owns one HitEngine feedback instance for the whole encounter.
 	# Its Canvas layer must consume the saved profile on every accepted tap and
 	# be torn down with the encounter, without leaving a global overlay behind.
