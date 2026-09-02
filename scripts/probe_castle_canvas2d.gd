@@ -417,6 +417,12 @@ func _init() -> void:
 	await process_frame
 	await process_frame
 	_check("castle runtime opened", main.get("castle_room_stage") != null)
+	# This probe measures every authored room's independent Canvas composition.
+	# Day One correctly fail-closes direct visits to locked rooms, so switch the
+	# probe fixture to post-Day-One freeplay before traversing the full elevator
+	# roster; otherwise a blocked show_room() would leave the prior room's item
+	# records visible and make this bound check inspect the wrong room.
+	main.set("day_one_active", false)
 	_check_stage_contract(main)
 	_check_navigation_contract(main)
 	# Bubble Bath is deliberately fixture-rich in the authored V2 contract: it
