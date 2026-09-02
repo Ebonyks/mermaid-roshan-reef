@@ -10650,7 +10650,13 @@ func _process(delta: float) -> void:
 			_start_game(brawl_fr)
 		if dust_boss_cool <= 0.0 and dust_boss_portal_pos != Vector3.ZERO \
 				and dust_boss_portal_pos.distance_to(ppos) < 13.0:
-			if day_one_is_active():
+			# During Day One the attic is the one intentional reef exit after all
+			# four rooms are complete.  Other reef exits remain castle-directed,
+			# but the terminal boss portal must be reachable or the child can never
+			# cross the documented Day One boundary.
+			var day_one_boss_authorized: bool = day_one_boss_door_ready() \
+				or _day_one_ref().giant_dust_bunny_boss_triggered
+			if day_one_is_active() and not day_one_boss_authorized:
 				_day_one_refuse_reef_exit()
 				dust_boss_cool = 1.2
 			else:

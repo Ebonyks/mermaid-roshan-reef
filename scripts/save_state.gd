@@ -345,6 +345,12 @@ func start_new_game() -> bool:
 	if not _commit_save(fresh_data):
 		push_error("SaveState: New Game could not install a fresh save; existing progress was preserved")
 		return false
+	# New Game has a dedicated before-New-Game archive for the old document.
+	# Once the fresh primary is installed, keep the ordinary recovery backup at
+	# that same fresh generation so candidate selection cannot resurrect the
+	# archived pre-reset document after a primary interruption.
+	if not _install_backup(fresh_data):
+		push_warning("SaveState: fresh New Game installed, but its recovery backup could not be refreshed")
 	m.save_data = fresh_data
 	m.save_generation = next_generation
 	m.has_saved_game = true

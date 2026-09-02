@@ -142,6 +142,15 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	# Spoken guidance is serial: a new semantic line replaces the prior voice
 	# instead of producing two intelligible-but-cluttered speakers at once.
 	_stop_active_speech()
+	# Headless/state-only callers can construct ReefMain without its scene-owned
+	# voice pool.  Voice is optional feedback; an empty pool must never turn a
+	# valid gameplay action into a modulo-by-zero runtime error.
+	if m.voice_pool.is_empty():
+		if m.voice != null:
+			m.voice.pitch_scale = float(m.VOICE_PITCH.get(speaker, 1.0))
+			m.voice.play()
+			_active_speaker = speaker
+		return
 	var ap: AudioStreamPlayer = m.voice_pool[m.voice_i % m.voice_pool.size()]
 	m.voice_i += 1
 	if stream != null:

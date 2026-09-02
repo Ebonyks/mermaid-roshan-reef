@@ -18,7 +18,6 @@ func _init() -> void:
 	await process_frame
 	main._skip_intro()
 	await process_frame
-	main.day_one_active = false
 	await _locked_case()
 	await _picker_case()
 	await _studio_room_case()
@@ -222,6 +221,11 @@ func _picker_case() -> void:
 	_ck("confirmed friend identity persists safely",
 		String(main.save_data.get("companion", "")) == "eagle"
 		and (main.save_data.get("companion_colors", []) as Array).size() == 3)
+	# The rescue/picker itself is a Day One story seam.  Everything after the
+	# confirmed adoption below is the reusable later-content companion wing, so
+	# cross the real progression boundary before returning to the reef.
+	main.day_one_active = false
+	main._day_one_ref().clear_day_one_routing()
 	rooms._exit_to_courtyard()
 	await _settle(6)
 	main._exit_level2_now()
