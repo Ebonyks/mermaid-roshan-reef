@@ -338,9 +338,9 @@ def build_scene(scene: dict[str, Any], slate: dict[str, Any], archive_commit: st
 	shot_rows = "\n".join(f"| {shot['shot_id']} | {shot['visible_result']} |" for shot in shots)
 	readme = f"""# {scene['id']} — {scene['title']}
 
-> `ARCHIVE_COMPLETE`: {str(archive_status == 'complete').lower()}  
-> `GENERATION_READY`: false  
-> `DELIVERY_ACCEPTED`: false  
+> `ARCHIVE_COMPLETE`: {str(archive_status == 'complete').lower()}<br>
+> `GENERATION_READY`: false<br>
+> `DELIVERY_ACCEPTED`: false<br>
 > Grok output remains motion/editorial reference until the independent full-frame delivery audit passes.
 
 ## Use this one-link handoff
