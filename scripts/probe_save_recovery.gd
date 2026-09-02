@@ -10,6 +10,8 @@ const TEST_FILES: Array[String] = [
 	TEST_PATH + ".tmp0",
 	TEST_PATH + ".tmp1",
 	TEST_PATH + ".old",
+	TEST_PATH + ".before_new_game",
+	TEST_PATH + ".before_new_game.tmp",
 	TEST_PATH + ".bak.tmp",
 	TEST_PATH + ".bak.old",
 ]
@@ -178,6 +180,42 @@ func _init() -> void:
 	_expect(core_data.get("critters") is Dictionary, "pre-Critter-Book save defaults critters without demotion")
 	_expect(String(core_data.get("touch_mode", "")) == "hybrid", "pre-touch-mode save defaults to Hybrid")
 	_expect(int(core_data.get("pearls", -1)) == 12, "no demotion: newest progress kept")
+
+	# New Game archives the complete current document through a checked temp
+	# rename. Restoring it must preserve unknown fields and outrank the fresh
+	# post-reset .bak by generation, even if the process is killed mid-restore.
+	_cleanup()
+	main.save_data = {"archive_unknown": {"kept": true}}
+	main.pearl_count = 23
+	main.plays = 2
+	var archive_state: SaveState = SaveState.new(main, TEST_PATH)
+	_expect(archive_state.write_save(), "archive fixture baseline write succeeds")
+	var archived_generation: int = int(
+		_read_json(TEST_PATH).get("save_generation", 0))
+	_expect(archive_state.start_new_game(), "New Game installs a fresh save")
+	var archive_path: String = TEST_PATH + ".before_new_game"
+	var archived: Dictionary = _read_json(archive_path)
+	_expect(archived.get("archive_unknown", {}) == {"kept": true},
+		"before-New-Game archive preserves unknown fields")
+	_expect(int(archived.get("pearls", -1)) == 23
+		and int(archived.get("save_generation", 0)) == archived_generation,
+		"before-New-Game archive keeps the prior generation")
+	var fresh_generation: int = int(_read_json(TEST_PATH + ".bak").get(
+		"save_generation", 0))
+	_expect(fresh_generation > archived_generation,
+		"fresh New Game backup is newer than the archive")
+	_write_text(archive_path, "{broken archive")
+	_expect(not archive_state.restore_new_game_archive(),
+		"corrupt before-New-Game archive is refused")
+	_write_text(archive_path, JSON.stringify(archived))
+	_expect(archive_state.restore_new_game_archive(),
+		"clean before-New-Game archive restores transactionally")
+	var restored: Dictionary = _read_json(TEST_PATH)
+	_expect(restored.get("archive_unknown", {}) == {"kept": true}
+		and int(restored.get("pearls", -1)) == 23,
+		"archive restore keeps progress and unknown fields")
+	_expect(int(restored.get("save_generation", 0)) > fresh_generation,
+		"archive restore generation outranks the fresh backup")
 
 	_cleanup()
 	main.free()

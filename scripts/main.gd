@@ -665,6 +665,7 @@ var save_dirty := false    # main retains failed-write responsibility after a mi
 var save_retry_t := 0.0
 var save_pending := false  # debounced write queued by the hot sites (pearl pickup, friend discovery)
 var save_pending_t := 0.0
+var save_pending_age := 0.0
 var plays := 0           # launch counter — alternates day/night across playthroughs
 var is_night := false    # subtle day/night variation for both worlds
 var lagoon_floor := false  # when true, the player's floor follows the Sky Lagoon heightfield
@@ -4077,6 +4078,7 @@ func _write_save() -> bool:
 	# sites (_end_game etc.) are natural flush points, never double writes
 	save_pending = false
 	save_pending_t = 0.0
+	save_pending_age = 0.0
 	save_dirty = not saved
 	save_retry_t = 1.5 if save_dirty else 0.0
 	return saved
@@ -4085,6 +4087,11 @@ func _start_new_game() -> bool:
 	if _save_state == null:
 		_save_state = SaveState.new(self)
 	return _save_state.start_new_game()
+
+func _restore_new_game_archive() -> bool:
+	if _save_state == null:
+		_save_state = SaveState.new(self)
+	return _save_state.restore_new_game_archive()
 
 func _launch_from_start_menu(start_day_one: bool) -> void:
 	# The launch choice owns the Day 1 boundary. Continue is deliberately a
@@ -4130,8 +4137,10 @@ func _queue_save() -> void:
 	# debounce for the per-frame hot sites (pearl pickup, friend discovery):
 	# one write ~1.5s after the last event instead of a synchronous multi-file
 	# write per pearl. Milestones keep calling _write_save() directly.
-	save_pending = true
-	save_pending_t = 1.5
+	if not save_pending:
+		save_pending = true
+		save_pending_t = 1.5
+		save_pending_age = 0.0
 
 
 func _melody_input_context_lost() -> bool:
@@ -10344,8 +10353,9 @@ func _process(delta: float) -> void:
 		if save_retry_t <= 0.0:
 			_write_save()
 	elif save_pending:
+		save_pending_age += maxf(delta, 0.0)
 		save_pending_t -= delta
-		if save_pending_t <= 0.0:
+		if save_pending_t <= 0.0 or save_pending_age > 4.0:
 			_write_save()
 	_audio_ref().tick_dialogue(delta)
 	_audio_ref().tick_voice()

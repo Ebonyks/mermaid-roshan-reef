@@ -10,6 +10,7 @@ const OPERA_ACTIVE_STAR_MASK := 0x1BDEF
 const OPERA_ACTIVE_ACT_COUNT := 14
 const BACKUP_SUFFIX := ".bak"
 const NEW_GAME_ARCHIVE_SUFFIX := ".before_new_game"
+const NEW_GAME_ARCHIVE_TEMP_SUFFIX := ".tmp"
 const TEMP_SUFFIX := ".tmp"
 const OLD_SUFFIX := ".old"
 const BOOL_KEYS: Array[String] = [
@@ -326,7 +327,10 @@ func start_new_game() -> bool:
 	if bool(selected.get("valid", false)):
 		var previous_data: Dictionary = selected.get("data", {})
 		next_generation = maxi(next_generation, int(previous_data.get("save_generation", 0)) + 1)
-		if not _write_checked_file(save_path + NEW_GAME_ARCHIVE_SUFFIX, previous_data):
+		var archive_path: String = save_path + NEW_GAME_ARCHIVE_SUFFIX
+		var archive_temp: String = archive_path + NEW_GAME_ARCHIVE_TEMP_SUFFIX
+		if not _write_checked_file(archive_temp, previous_data) \
+				or not _replace_file(archive_temp, archive_path):
 			push_error("SaveState: New Game stopped because the recoverable archive could not be written")
 			return false
 	var fresh_seed := {
@@ -343,6 +347,42 @@ func start_new_game() -> bool:
 		return false
 	m.save_data = fresh_data
 	m.save_generation = next_generation
+	m.has_saved_game = true
+	return true
+
+func restore_new_game_archive() -> bool:
+	# The grown-up recovery path treats the archive as another trusted save
+	# candidate, then installs it with the same temp/rename/verify transaction as
+	# ordinary saves. The fresh post-New-Game primary remains available in .bak
+	# if the install is interrupted, and unknown fields in the archive remain
+	# part of the normalized document.
+	if future_schema_read_only or not _find_future_candidate().is_empty():
+		future_schema_read_only = true
+		push_warning("SaveState: a newer save schema cannot be replaced by archive restore in this build")
+		return false
+	var archive: Dictionary = _read_save_candidate(
+		save_path + NEW_GAME_ARCHIVE_SUFFIX)
+	if not bool(archive.get("clean", false)) or bool(archive.get("future", false)):
+		push_warning("SaveState: no clean before-New-Game archive is available to restore")
+		return false
+	var restored: Dictionary = (archive.get("data", {}) as Dictionary).duplicate(true)
+	# The post-New-Game primary/.bak may be newer than the archived document.
+	# Give the restored document a strictly newer generation so a killed restore
+	# cannot be undone by candidate selection preferring the fresh .bak.
+	var current: Dictionary = _select_load_candidate()
+	var current_generation: int = int(
+		(current.get("data", {}) as Dictionary).get("save_generation", 0))
+	var backup: Dictionary = _read_save_candidate(_backup_path())
+	var backup_generation: int = int(
+		(backup.get("data", {}) as Dictionary).get("save_generation", 0))
+	var restored_generation: int = maxi(int(restored.get("save_generation", 0)),
+		maxi(current_generation, backup_generation) + 1)
+	restored["save_generation"] = restored_generation
+	if not _commit_save(restored):
+		push_error("SaveState: archive restore could not be installed safely")
+		return false
+	m.save_data = restored.duplicate(true)
+	m.save_generation = restored_generation
 	m.has_saved_game = true
 	return true
 

@@ -19,6 +19,21 @@ func _init() -> void:
 		START_MENU.continue_day_one_mode({"day_one_active": true}))
 	_check("legacy Continue remains outside Day One",
 		not START_MENU.continue_day_one_mode({"legacy": true}))
+	_check("New Game confirmation is delayed and hold-gated",
+		menu_source_for_hold().contains("NEW_GAME_ARM_DELAY_SECONDS := 1.5")
+		and menu_source_for_hold().contains("NEW_GAME_HOLD_SECONDS := 0.8")
+		and menu_source_for_hold().contains("button_down.connect(_begin_new_game_hold")
+		and menu_source_for_hold().contains("button_up.connect(_cancel_new_game_hold"))
+	_check("confirm sheet focuses the safe KEEP GAME action",
+		menu_source_for_hold().contains('get_node_or_null("StartMenuKeepGameButton")')
+		and menu_source_for_hold().contains("keep.grab_focus()"))
+	_check("saved menu makes Continue gold and New Game secondary",
+		menu_source_for_hold().contains('"gold" if m.has_saved_game else "primary"')
+		and menu_source_for_hold().contains(
+			'"secondary" if m.has_saved_game else "gold"'))
+	_check("grown-up restore uses the three-second Options hold",
+		menu_source_for_hold().contains("ARCHIVE_RESTORE_HOLD_SECONDS := 3.0")
+		and menu_source_for_hold().contains("_restore_new_game_archive()"))
 	_probe_day_one_resume_contract(main)
 	_probe_wiring()
 	main.free()
@@ -109,6 +124,10 @@ func _probe_day_one_resume_contract(main: ReefMain) -> void:
 	director.clear_day_one_routing()
 	_check("Day Two routing clear removes room and discovery latch",
 		director.current_room_id == "" and not director.dirty_castle_discovered)
+
+
+func menu_source_for_hold() -> String:
+	return FileAccess.get_file_as_string("res://scripts/start_menu.gd")
 
 
 func director_source_for_castle_pointer() -> String:

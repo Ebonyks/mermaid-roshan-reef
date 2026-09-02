@@ -2,6 +2,9 @@ extends SceneTree
 ## Focused exact-Godot contract probe for the three Day One pool activities.
 
 const POOL_CLEANUP := preload("res://scripts/games/day_one_pool_cleanup.gd")
+const POOL_SKIMMER := preload("res://scripts/games/pool_skimmer_activity.gd")
+const POOL_WATERFALL := preload("res://scripts/games/pool_waterfall_activity.gd")
+const POOL_SEAHORSE := preload("res://scripts/games/pool_seahorse_rescue_activity.gd")
 const RUNTIME_ASSETS: Array[String] = [
 	"res://assets/castle/day_one_pool/activities/pool_skimmer.png",
 	"res://assets/castle/day_one_pool/activities/floating_trash_atlas.png",
@@ -16,6 +19,7 @@ const RUNTIME_ASSETS: Array[String] = [
 ]
 
 var checks_failed: int = 0
+var restored_completion_events: Dictionary = {}
 
 
 func _init() -> void:
@@ -94,6 +98,40 @@ func _run_probe() -> void:
 		_check("runtime asset %s" % asset_path.get_file(),
 			texture != null
 			and maxf(texture.get_size().x, texture.get_size().y) <= 1024.0)
+
+	# A complete mask/tug count restored from disk must still advance the owner
+	# once, but repeated starts/re-entry may never duplicate the completion.
+	var restored_skimmer: PoolSkimmerActivity = POOL_SKIMMER.new()
+	var restored_waterfall: PoolWaterfallActivity = POOL_WATERFALL.new()
+	var restored_seahorse: PoolSeahorseRescueActivity = POOL_SEAHORSE.new()
+	host.add_child(restored_skimmer)
+	host.add_child(restored_waterfall)
+	host.add_child(restored_seahorse)
+	restored_completion_events = {"skimmer": 0, "waterfall": 0, "seahorse": 0}
+	restored_skimmer.completed.connect(_record_restored_completion.bind("skimmer"))
+	restored_waterfall.completed.connect(_record_restored_completion.bind("waterfall"))
+	restored_seahorse.completed.connect(_record_restored_completion.bind("seahorse"))
+	restored_skimmer.setup(0x3F)
+	restored_waterfall.setup(Vector2(460.0, 216.0), Vector2(150.0, 207.0), 0x07)
+	restored_seahorse.setup(Vector2(922.0, 246.0), Vector2(209.0, 241.0), 8)
+	restored_skimmer.start()
+	restored_waterfall.start()
+	restored_seahorse.start()
+	restored_skimmer.start()
+	restored_waterfall.start()
+	restored_seahorse.start()
+	await process_frame
+	_check("restored complete pool activities emit once",
+		restored_completion_events == {"skimmer": 1, "waterfall": 1, "seahorse": 1})
+	restored_skimmer.stop()
+	restored_waterfall.stop()
+	restored_seahorse.stop()
+	restored_skimmer.start()
+	restored_waterfall.start()
+	restored_seahorse.start()
+	await process_frame
+	_check("re-entered complete pool activities stay one-shot",
+		restored_completion_events == {"skimmer": 1, "waterfall": 1, "seahorse": 1})
 
 	await create_timer(0.12).timeout
 	var passive: Dictionary = cleanup.audit_snapshot()
@@ -190,3 +228,8 @@ func _check(label: String, ok: bool) -> void:
 	if not ok:
 		checks_failed += 1
 	print("DAY_ONE_POOL|", label, ": ", "OK" if ok else "FAIL")
+
+
+func _record_restored_completion(activity_id: String) -> void:
+	restored_completion_events[activity_id] = int(
+		restored_completion_events.get(activity_id, 0)) + 1

@@ -739,6 +739,12 @@ through `SaveState` (this leg is blocked until that decision);
 `completed` and the pool can finish; `probe_load` asserts the > 4.0 s forced
 write. Suite green.
 
+Lifecycle: DO-11, DO-18, and DO-22 advance to
+`FIXED_PENDING_VERIFICATION` on source/probe evidence from this package.
+DO-10 remains `OWNER-BLOCKED` because the legacy-save Day One policy is
+unresolved; this package intentionally does not change that policy. Exact
+Godot 4.7.2, CI, target-device, and child acceptance remain pending.
+
 ### WP-D7a — Stuffie room and art room payoffs (DO-14, DO-15, DO-16)
 
 Scope: `scripts/main.gd` `day_one_activate_castle_room` stuffie/art
