@@ -25,7 +25,7 @@ This is a newly generated, complete flattened narrative/topology reference. It d
 | Shot | Authored visible beat |
 |---|---|
 | D1-C02-S01 | Exterior-to-threshold shot inheriting the accepted D1-C01 endpoint. |
-| D1-C02-S02 | Reverse interior view from the dirty Main Hall toward the open doors. |
+| D1-C02-S02 | Geometry-locked first interior orientation from the left entrance facing approved Main Hall screen A. |
 | D1-C02-S03 | Close environmental inspection within the same hall: a readable grime patch, a small friendly dust-bunny trace, and one misplaced harmless scrap sit naturally against the pearl floor and molding. |
 | D1-C02-S04 | Wide coherent Main Hall orientation. |
 
@@ -41,8 +41,27 @@ This is a newly generated, complete flattened narrative/topology reference. It d
 ![Approved location authority](handoff_art/location/main_hall_screen_a_room_led_master.png)
 
 - Fixed entrance/exit geography, landmark order, fixture count, and scale.
-- Generated angles must describe one connected volume.
-- Reject invented doors, basins, platforms, duplicated fixtures, or room rotation.
+- Generated angles must remain inside one named screen authority; screen A and
+  screen B may never be merged into an invented third perspective.
+- Screen A has no stair, balcony, or throne. Screen B has one short right stair
+  and no balcony.
+- Reject invented doors, basins, platforms, duplicated fixtures, unsupported
+  reverse walls, or room rotation.
+- [Machine-readable geometry lock and rejection history](LOCATION_GEOMETRY_LOCK.json)
+
+## Geometry-locked first-frame candidates
+
+These complete frames passed Sol topology review. Human topology, identity, and
+style approval remains pending, so none is yet eligible as Grok `IMAGE_1`.
+
+| Shot | Candidate | Current disposition |
+|---|---|---|
+| D1-C02-S01 | ![](first_frames/S01_FIRST_FRAME.png) | Blocked until the accepted D1-C01-S04 endpoint is available for inheritance/comparison. |
+| D1-C02-S02 | ![](first_frames/S02_FIRST_FRAME.png) | Screen-A landmark order passes; human review pending. |
+| D1-C02-S03 | ![](first_frames/S03_FIRST_FRAME.png) | Central portal → column → book portal crop passes; human review pending. |
+| D1-C02-S04 | ![](first_frames/S04_FIRST_FRAME.png) | Screen-A wide orientation passes; human review pending. |
+
+[First-frame review record](first_frames/FIRST_FRAME_REVIEW.json)
 
 ## Written guides
 
@@ -63,7 +82,7 @@ SHOT D1-C02-S01 COPY BLOCK
 Exterior-to-threshold shot inheriting the accepted D1-C01 endpoint. Roshan pushes the exact Pearl Castle door and it opens inward on its established hinges; Daddy remains beside and slightly behind her. One slow forward camera move follows the opening but does not cross the threshold. End with a narrow first view of the dim dirty Main Hall. Preserve both exact mermaid identities and continuous tails. Sound: temporary pearl-door creak and quiet room tone; no voices.
 
 SHOT D1-C02-S02 COPY BLOCK
-Reverse interior view from the dirty Main Hall toward the open doors. Roshan and Daddy pause at the threshold and react with concern, not fear. Dusty pearl surfaces, dull lavender shadows, and safe scattered grime belong to the room perspective. Locked camera. End with Roshan leaning forward to inspect while Daddy stays reassuringly close. No extra characters, dramatic horror light, or generic ruined castle. Sound: temporary muted hall ambience and a soft concerned music note; no voices.
+Geometry-locked first interior view from just inside the left entrance, facing the approved Main Hall screen-A wall in its established side-elevation camera family. Roshan and Daddy pause together near the entrance and react with concern, not fear. Preserve the exact left-to-right screen-A sequence: partial exterior arch, vertical entrance carpet, tall aqua window, pearl fountain, large purple-curtained central portal, book-emblem portal, then aqua bubble-emblem portal. All three portals remain open to the floor. Screen A has no stair, balcony, or throne. Dusty pearl surfaces, dull lavender shadows, and safe scattered grime belong to this exact room view. Locked camera. End with Roshan leaning forward to inspect while Daddy stays reassuringly close. No unsupported reverse wall, merged screen B, extra characters, dramatic horror light, or generic ruined castle. Sound: temporary muted hall ambience and a soft concerned music note; no voices.
 
 SHOT D1-C02-S03 COPY BLOCK
 Close environmental inspection within the same hall: a readable grime patch, a small friendly dust-bunny trace, and one misplaced harmless scrap sit naturally against the pearl floor and molding. Roshan's hand enters only to point without touching or cleaning. One short lateral camera move. End with the evidence clearly understood. No UI markers, clip-art trash, insects, danger, or cleanup completion. Sound: temporary tiny dust rustle and room ambience; no voices.

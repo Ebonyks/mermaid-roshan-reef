@@ -5,7 +5,12 @@
   "role": "self_contained_uploadable_reference_packet",
   "runtime_asset": false,
   "used_as_delivery_pixels": false,
-  "payload_sha256": "21dbbc60460f5240d5fc6226342aa869574f5c9e74d900cbe034a9ac5b5d567f",
+  "continuity_supplement": {
+    "path": "CONTINUITY_SUPPLEMENT.json",
+    "sha256": "d9dcf41c56a486a75e7fddb244f1dda108472ed9be331449348d6c66a0431a28",
+    "payload_sha256": "35d9d61fbec58b01d24a8cc23545c3b0c4ccbd65779ac1b0fb445be23a4adc26"
+  },
+  "payload_sha256": "719646c46c8a4940b59110f0a8343fe1167ec300707685100ca18d5560e124e7",
   "payload_hash_formula": "SHA256 of UTF-8 sorted <relative_path>|<lowercase_sha256>\\n records",
   "authority_order": [
     "approved location geography",
@@ -164,7 +169,7 @@
       "role": "exact_written_handoff_guide",
       "media_type": "text/plain",
       "dimensions": null,
-      "sha256": "10f429eaa733460b66d08aa8776a76fa20ec67837605ec4da8ed4159c077ec2c",
+      "sha256": "2ca49c5ca1ecf37e3447ed8fcd83001a398a8d71ac057df63568e0448e053903",
       "license_provenance": "project-owned approved authority copied losslessly",
       "modifications": "lossless byte-for-byte copy",
       "appearance_authority": true,

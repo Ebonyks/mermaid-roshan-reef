@@ -5,10 +5,20 @@
   "generation_status": "blocked",
   "delivery_status": "not_accepted",
   "shot_packets": [],
+  "planned_shots": [
+    "D1-C02-S01",
+    "D1-C02-S02",
+    "D1-C02-S03",
+    "D1-C02-S04"
+  ],
+  "location_geometry_lock": "LOCATION_GEOMETRY_LOCK.json",
+  "first_frame_review": "first_frames/FIRST_FRAME_REVIEW.json",
   "blocking_findings": [
-    "No shot has an owner-approved clean HUD-free complete opening frame.",
-    "No continuity-dependent shot binds the accepted complete end frame of its predecessor.",
-    "Generated perspective and storyboard sheets are narrative-only and cannot be bound as generation pixels."
+    "D1-C02-S01 cannot inherit the exact accepted D1-C01-S04 endpoint because that endpoint is not present in the repository.",
+    "The new dirty Main Hall A/B location candidates and S02-S04 first-frame candidates pass Sol topology review but still require human approval.",
+    "No continuity-dependent shot yet binds the accepted complete end frame of its predecessor.",
+    "Generated perspective and storyboard sheets remain narrative-only and cannot be bound as generation pixels.",
+    "Immutable GitHub content URLs cannot be bound until the reviewed packet is committed and pushed."
   ],
   "story_contract": {
     "one_sentence_promise": "Roshan and Daddy open the Pearl Castle doors becomes The dirty Main Hall and the first glowing bathroom route are understood.",
@@ -21,7 +31,7 @@
       {
         "beat_id": "D1-C02-S02",
         "trigger": "The shot begins from the authored inherited state.",
-        "visible_result": "Reverse interior view from the dirty Main Hall toward the open doors."
+        "visible_result": "Geometry-locked first interior orientation from the left entrance facing approved Main Hall screen A."
       },
       {
         "beat_id": "D1-C02-S03",
@@ -87,7 +97,11 @@
       "consistent scale and navigable volume"
     ],
     "forbidden_geometry": [
-      "no invented room, basin, doorway, platform, or fixture relocation"
-    ]
+      "no invented room, basin, doorway, platform, or fixture relocation",
+      "no merger of Main Hall screen A and screen B into an invented third perspective",
+      "no unsupported reverse view toward an unseen opposite wall",
+      "screen A has no stair, balcony, or throne; screen B has one short right stair and no balcony"
+    ],
+    "geometry_lock_path": "LOCATION_GEOMETRY_LOCK.json"
   }
 }
