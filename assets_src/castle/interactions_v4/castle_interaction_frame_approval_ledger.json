@@ -1,6 +1,6 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "4990b9c8342058c3183265761d772f6504a3d1cca258bc9a68b5f8a6a9339916",
+  "candidate_payload_sha256": "8284c7d44ee489afb03a9d86083ae8328b94e8433788a5335d3d79c174d7fda4",
   "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
   "metadata_revalidation": {
     "date": "2026-08-29",
@@ -27,6 +27,17 @@
     "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
     "frame_hash_evidence": "All 96 candidate frame_review_sha256 values exactly equal the existing reviewed ledger values; zero frame mismatches.",
     "candidate_binding_refresh": "Whole-file runtime-layout semantic hash changed only because of the non-visual success-audio routing call; pixel-identical prior frame review remains applicable.",
+    "owner_acceptance": "pending"
+  },
+  "day_one_binding_revalidation": {
+    "date": "2026-09-02",
+    "reason": "Day One updated castle_rooms_25d.gd for child-readable room handoffs, captions, revisit responses, companion placement, persistent Rumi, and blocked-door feedback. The frame-review builder binds the complete runtime-layout text, so those gameplay-only changes legitimately changed the candidate input binding without changing ROOM_LAYOUTS card records, V4 manifest data, fixture z routing, room tiles, or reviewed frame pixels.",
+    "prior_candidate_payload_sha256": "4990b9c8342058c3183265761d772f6504a3d1cca258bc9a68b5f8a6a9339916",
+    "prior_runtime_layout_semantic_sha256": "0f6833ccd9f671a96898d4a97d6e97186944887177b8fa92c4efedaa3e5fdadf",
+    "runtime_layout_semantic_sha256": "45320ee53517c19dfc16a982886b7c44b6529aa155cfb504787029e14bb6bff7",
+    "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
+    "frame_hash_evidence": "All 96 candidate frame_review_sha256 values exactly equal the existing reviewed ledger values; zero frame mismatches.",
+    "candidate_binding_refresh": "Replacing only the current runtime-layout semantic hash with the prior hash reproduces the prior candidate payload hash exactly; existing deterministic frame approval remains applicable.",
     "owner_acceptance": "pending"
   },
   "reviewer": "Luna visual re-review 2026-09-01",
