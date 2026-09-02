@@ -1,6 +1,6 @@
 # Day One Grok visual handoffs — 2026-09-02
 
-Each scene link is self-contained: newly generated multi-angle environment art, a newly generated shot-aligned storyboard, approved character/location/object references, exact written Grok blocks, hashes, provenance, and truthful readiness status.
+Each scene link is self-contained: newly generated multi-angle environment art, a newly generated shot-aligned storyboard, approved character/location/object references, exact written Grok blocks, hashes, provenance, and truthful readiness status. C13 is provisional and unpublished; the collection remains unverified until its complete packet is committed and remotely verified.
 
 | Scene | Title | Single-link handoff |
 |---|---|---|
@@ -17,5 +17,6 @@ Each scene link is self-contained: newly generated multi-angle environment art, 
 | D1-C10 | Art Room — Clean Desk Awakening | [Open complete visual handoff](../d1_c10_art_room_restored_visual_v1/README.md) |
 | D1-C11 | Boss Door and Grand Puff Reveal | [Open complete visual handoff](../d1_c11_grand_puff_reveal_visual_v1/README.md) |
 | D1-C12 | Day One Restored-Castle Celebration | [Open complete visual handoff](../d1_c12_restored_castle_finale_visual_v1/README.md) |
+| D1-C13 | Grand Puff Friendship Completion | [Open provisional visual handoff](../d1_c13_grand_puff_friendship_completion_visual_v1/README.md) |
 
 Generated sheets are narrative references only. They are never Grok opening-frame authorities or delivery pixels.

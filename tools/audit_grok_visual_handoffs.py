@@ -24,7 +24,8 @@ PACKETS = [
 	"d1_c09_art_room_dirty_discovery_visual_v1",
 	"d1_c10_art_room_restored_visual_v1",
 	"d1_c11_grand_puff_reveal_visual_v1",
-	"d1_c12_restored_castle_finale_visual_v1",
+"d1_c12_restored_castle_finale_visual_v1",
+"d1_c13_grand_puff_friendship_completion_visual_v1",
 ]
 REQUIRED = [
 	"README.md",

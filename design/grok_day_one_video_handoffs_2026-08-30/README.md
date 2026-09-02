@@ -1,7 +1,7 @@
 # Day One Grok video handoffs — 2026-08-30
 
-This directory separates Day One into **13 Grok direction handoffs** containing
-**70 individually pasteable shot jobs**. It translates the local production
+This directory separates Day One into **14 Grok direction handoffs** containing
+**75 individually pasteable shot jobs**. It translates the local production
 slate into an operator-facing format without pretending that missing visual
 packets or unreviewed generations are complete.
 
@@ -36,6 +36,7 @@ packets or unreviewed generations are complete.
 | D1-C10 | `D1-C10_ART_ROOM_RESTORED.txt` | 5 |
 | D1-C11 | `D1-C11_GRAND_PUFF_REVEAL.txt` | 4 |
 | D1-C12 | `D1-C12_RESTORED_CASTLE_FINALE.txt` | 6 |
+| D1-C13 | `D1-C13_GRAND_PUFF_FRIENDSHIP_COMPLETION.txt` | 5 |
 
 The source slate remains
 `design/day_one_cinematic_slate_2026-08-30.json`. Each handoff repeats its
@@ -49,5 +50,5 @@ out of the repository.
 - `GENERATION_READY`: **false**. These are separated direction blocks; a shot
   becomes ready only after its named two-to-four-image packet passes the V2
   handoff validator.
-- `DELIVERY_ACCEPTED`: **false; 0/13 movies**. Grok clips are not accepted
+- `DELIVERY_ACCEPTED`: **false; 0/14 movies**. Grok clips are not accepted
   delivery frames.
