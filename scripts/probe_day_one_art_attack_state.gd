@@ -111,7 +111,14 @@ func _init() -> void:
 		director.art_cleanup_complete() and director.art_desk_unlocked
 		and main.castle_logo_layer == null)
 	var customizer := AttackCustomizer.new()
-	root.add_child(customizer)
+	# Mount the picker the same way the live main scene does. A Control directly
+	# under the SceneTree root has no CanvasLayer GUI routing in this state-only
+	# probe, so Input.parse_input_event() cannot reach its dimmer. Viewport input
+	# below is the real modal path and still tests the outside-card gesture.
+	var customizer_layer := CanvasLayer.new()
+	customizer_layer.layer = 18
+	root.add_child(customizer_layer)
+	customizer_layer.add_child(customizer)
 	customizer.attach(main)
 	var confirmations := 0
 	customizer.open(func() -> void: confirmations += 1)
@@ -128,7 +135,7 @@ func _init() -> void:
 	var dim_tap := InputEventScreenTouch.new()
 	dim_tap.pressed = true
 	dim_tap.position = Vector2(40.0, 40.0)
-	Input.parse_input_event(dim_tap)
+	customizer.get_viewport().push_input(dim_tap, false)
 	await process_frame
 	_check("dim tap before a choice does not confirm", customizer.is_open)
 	customizer._on_color_pressed(AttackCustomizer.COLORS[3] as Color)
@@ -139,7 +146,7 @@ func _init() -> void:
 	var confirm_tap := InputEventScreenTouch.new()
 	confirm_tap.pressed = true
 	confirm_tap.position = Vector2(40.0, 40.0)
-	Input.parse_input_event(confirm_tap)
+	customizer.get_viewport().push_input(confirm_tap, false)
 	await process_frame
 	_check("dim tap after one choice confirms", not customizer.is_open
 		and confirmations == 1)

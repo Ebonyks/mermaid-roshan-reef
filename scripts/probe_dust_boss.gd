@@ -262,11 +262,9 @@ func _strike(max_windows: int) -> bool:
 func _open_case() -> void:
 	await _frames(10)
 	_ck("attic portal exists in the reef", main.dust_boss_portal_pos != Vector3.ZERO)
-	# Trusted probes share the saved user directory, so an earlier Classic-touch
-	# probe may leave this session in the legacy mode. The attic assertion is
-	# the Hybrid child path: make that input contract explicit before sending the
-	# one real activation edge and let _fade_cut finish its reveal normally.
-	main._set_touch_mode(main.TOUCH_MODE_HYBRID, false)
+	# CI runs this probe in Classic touch mode. Preserve that mode so the attic
+	# assertion exercises the real physical proximity transition; when a caller
+	# explicitly starts the probe in Hybrid, use the child action contract below.
 	main.dust_boss_cool = 0.0
 	var wait := 0
 	var explicit_activation_sent := false
