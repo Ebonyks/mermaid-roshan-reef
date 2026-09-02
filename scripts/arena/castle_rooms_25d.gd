@@ -4647,7 +4647,7 @@ func reopen_playroom_stuffie_offer() -> bool:
 
 func sync_castle_companion_card() -> void:
 	# This is deliberately a single true-2D reward card in the castle's existing
-	# Canvas staging layer. It is not the broader Node3D follower and never owns
+	# Canvas staging layer. It is not the broader spatial follower and never owns
 	# a tween callback or a second per-frame instance.
 	if m.castle_room_item_visual_layer == null \
 			or not is_instance_valid(m.castle_room_item_visual_layer) \
