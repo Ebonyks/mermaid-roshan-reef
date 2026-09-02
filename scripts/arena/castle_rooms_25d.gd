@@ -2018,7 +2018,13 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	var day_one_pool_needs_cleanup: bool = day_one_activity \
 		and room_id == "mermaid_pool" \
 		and not m.day_one_castle_room_is_clean(room_id)
-	m.castle_room_action_button.visible = day_one_activity or (not hall_mode \
+	var playroom_rescue_live: bool = room_id == "playroom" \
+		and not _playroom_rescue_done()
+	# The two pinning bunnies are proximity-only cards. Keep the generic room
+	# launcher hidden while that rescue is live so there is no competing flat
+	# hotspot; it becomes available again once Baby Eagle is freed.
+	m.castle_room_action_button.visible = (day_one_activity \
+		and not playroom_rescue_live) or (not hall_mode \
 		and room_id != "family_gallery" \
 		and room_id != "opera_hall" \
 		and (room_id != "playroom" or _playroom_rescue_done()))
@@ -4680,7 +4686,13 @@ func sync_castle_companion_card() -> void:
 			child.free()
 		var asset_paths: Array[String] = []
 		var tints: Array[Color] = []
-		if definition.has("sprite"):
+		# Baby Eagle's castle reward is the approved book cutout. The follower
+		# may still use the paintable layered bird, but this reusable castle card
+		# must preserve the authored identity asset and remain a Canvas item.
+		if m.companion_id == "eagle":
+			asset_paths.append("res://assets/book/baby_eagle.png")
+			tints.append(Color.WHITE)
+		elif definition.has("sprite"):
 			asset_paths.append(String(definition["sprite"]))
 			tints.append(Color.WHITE)
 		else:
