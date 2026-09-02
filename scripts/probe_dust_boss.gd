@@ -33,9 +33,18 @@ func _init() -> void:
 		await _shield_case()
 		await _dodge_case()
 		await _bump_case()
+		# The first-hit bridge is intentionally only available before any landed
+		# round. Exercise mercy from that real fresh-fight state, then start a
+		# clean combat replay for the hit/pose/reward checks below.
+		await _mercy_case()
+		await _interrupt_live_boss()
+		_prime_boss_latch()
+		if main._castle_rooms_ref().is_open():
+			main._castle_rooms_ref().close()
+		main._start_game_now(main.dust_boss_fr)
+		await _await_state("showing", 2400)
 		await _first_hit_case()
 		await _second_hit_case()
-		await _mercy_case()
 		await _win_case()
 	await _pose_replay_case()
 	print("DUSTBOSS|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
