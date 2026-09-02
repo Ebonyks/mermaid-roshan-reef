@@ -3925,8 +3925,9 @@ func _play_success_yay(pitch_scale: float = 1.0) -> void:
 func _speaker_key(who: String) -> String:
 	return _audio_ref()._speaker_key(who)
 
-func show_msg(who: String, txt: String, vo: String = "talk") -> void:
-	_audio_ref().show_msg(who, txt, vo)
+func show_msg(who: String, txt: String, vo: String = "talk",
+		voice_min_gap: float = 0.5) -> void:
+	_audio_ref().show_msg(who, txt, vo, voice_min_gap)
 
 
 func _sync_castle_voice_caption() -> void:
@@ -7505,7 +7506,8 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 			_castle_rooms_ref().reopen_playroom_stuffie_offer()
 			return true
 		show_msg("Roshan", "This room is sparkly clean!",
-			"day_one_room_clean")
+			"day_one_room_clean", 6.0)
+		_castle_rooms_ref().play_day_one_completed_room_response(logical_room)
 		return true
 	if logical_room == "bathroom":
 		_sync_day_one_bathroom_cleanup()
@@ -7749,7 +7751,10 @@ func _sync_day_one_bathroom_cleanup() -> void:
 		if castle_room_id != "bubble_bath":
 			_clear_day_one_pool_route()
 		if bathroom_route_owned:
-			_suspend_day_one_bathroom_controls()
+			# The cleanup/movie owns navigation only while the rescue is live. Once
+			# the bathroom is complete, a revisit is a real room: keep Back and the
+			# elevator actionable so the pool picture cannot become a one-way exit.
+			_restore_day_one_bathroom_controls()
 		else:
 			_restore_day_one_bathroom_controls()
 		return
@@ -8070,7 +8075,9 @@ func _sync_day_one_pool_route() -> void:
 	var voice_key := "day_one_new_door"
 	if castle_room_id == "bubble_bath" \
 			and director.is_room_completed("bathroom") \
-			and director.current_room_id == "pool":
+			and director.current_room_id == "pool" \
+			and _day_one_pool_route_button != null \
+			and is_instance_valid(_day_one_pool_route_button):
 		target_room = "mermaid_pool"
 		voice_key = "day_one_pool_ready"
 	elif castle_room_id == "mermaid_pool" \

@@ -76,6 +76,11 @@ const DUST_BUNNY_BURST_SCALE_MAX := 0.022
 const DUST_BUNNY_BURST_LIFETIME := 0.48
 const BATHTUB_SWIMMER_BOUNDS := Rect2(220.0, 225.0, 150.0, 112.0)
 const BATHTUB_SWIMMER_START := Vector2(277.0, 255.0)
+const BLOCKED_DOOR_SFX_COOLDOWN_SECONDS := 1.2
+const BLOCKED_DOOR_SECOND_TAP_WINDOW_SECONDS := 6.0
+const RUMI_IDLE_POSITION := Vector2(650.0, 350.0)
+const RUMI_IDLE_SCALE := 0.96
+const RUMI_TAP_HIT_RECT := Rect2(530.0, 230.0, 240.0, 240.0)
 const HALL_SIGN_Z := 0.68
 const HALL_LIGHT_Z := 7.0
 const PLAYER_STAGE_HEIGHT := 270.0
@@ -856,6 +861,11 @@ var _composition_transition_generation := 0
 var _hall_view_left_art := 0.0
 var day_one_pool_cleanup: DayOnePoolCleanup = null
 var day_one_bathtub_swimmer: DayOneDustBunnySwimmer = null
+var _day_one_persistent_rumi: AnimatedSprite2D = null
+var _day_one_persistent_rumi_hotspot: Button = null
+var _blocked_door_feedback_cool := 0.0
+var _blocked_door_last_tap: Dictionary = {}
+var _blocked_door_pan_count := 0
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -919,6 +929,9 @@ func open(start_room: String = "main_hall") -> void:
 	m.castle_royal_hall_mist_time = 0.0
 	m.castle_royal_hall_mist_flutter_time = 0.0
 	m.castle_royal_hall_feedback_cool = 0.0
+	_blocked_door_feedback_cool = 0.0
+	_blocked_door_last_tap.clear()
+	_blocked_door_pan_count = 0
 	_invalidate_royal_hall_arrival()
 	m.g["castle_dust_bunnies_cleared"] = {}
 	m.g["castle_dust_bunny_runner_time"] = 0.0
@@ -1077,6 +1090,7 @@ func cancel_kitchen_recipe() -> void:
 func close() -> void:
 	m._day_one_clear_castle_dressing()
 	_clear_day_one_pool_cleanup()
+	_clear_day_one_persistent_rumi()
 	_clear_day_one_bathtub_swimmer()
 	_room_build_generation += 1
 	_cancel_composition_transition()
@@ -1146,6 +1160,9 @@ func close() -> void:
 	m.castle_room_menu_panel = null
 	m.castle_room_menu_buttons.clear()
 	m.castle_room_menu_open = false
+	_blocked_door_feedback_cool = 0.0
+	_blocked_door_last_tap.clear()
+	_blocked_door_pan_count = 0
 	m.g.erase("castle_room_affordance")
 	m.g.erase("castle_dust_bunnies_cleared")
 	m.g.erase("castle_dust_bunny_runner_time")
@@ -1173,8 +1190,21 @@ func tick(delta: float) -> void:
 		m.player.vel *= 0.0
 	m.castle_royal_hall_feedback_cool = maxf(
 		0.0, m.castle_royal_hall_feedback_cool - delta)
+	_blocked_door_feedback_cool = maxf(
+		0.0, _blocked_door_feedback_cool - delta)
+	for destination_value: Variant in _blocked_door_last_tap.keys():
+		var destination_id: String = String(destination_value)
+		var elapsed: float = float(_blocked_door_last_tap[destination_id]) + delta
+		if elapsed > BLOCKED_DOOR_SECOND_TAP_WINDOW_SECONDS:
+			_blocked_door_last_tap.erase(destination_id)
+		else:
+			_blocked_door_last_tap[destination_id] = elapsed
 	fixture_rigs.tick(delta)
 	_sync_day_one_bathtub_swimmer()
+	# Pool completion flips the persistent-meeting latch while the child is
+	# still in the pool; sync on the next frame so Rumi arrives without requiring
+	# a room transition, and keep the same guard for every later revisit.
+	_sync_day_one_persistent_rumi()
 	_tick_item_affordances(delta)
 	if m.castle_dust_he != null:
 		m.castle_dust_he.tick(delta)   # pop-chain window decay
@@ -1791,8 +1821,23 @@ func _sync_elevator_pointer() -> void:
 
 func _blocked_door_feedback(destination_id: String,
 		cue: CastleDoorCue = null) -> void:
+	var second_tap: bool = _blocked_door_last_tap.has(destination_id) \
+		and float(_blocked_door_last_tap.get(destination_id, INF)) \
+			<= BLOCKED_DOOR_SECOND_TAP_WINDOW_SECONDS
+	if second_tap:
+		_blocked_door_last_tap.erase(destination_id)
+	else:
+		_blocked_door_last_tap[destination_id] = 0.0
 	if cue != null:
-		cue.pulse_blocked_feedback()
+		if second_tap:
+			cue.pulse_plot_feedback()
+		else:
+			cue.pulse_blocked_feedback()
+	if second_tap:
+		_pan_to_blocked_door(destination_id)
+	if _blocked_door_feedback_cool <= 0.0:
+		_blocked_door_feedback_cool = BLOCKED_DOOR_SFX_COOLDOWN_SECONDS
+		_play_item_sfx("castle/curtain_swish.ogg", 0.78)
 	# The Royal Hall already owns five authored mist cards. Preserve their
 	# tactile flutter and established spoken line underneath the shared state
 	# resolver instead of replacing that child-tested feedback contract.
@@ -1801,17 +1846,38 @@ func _blocked_door_feedback(destination_id: String,
 			ROYAL_HALL_MIST_FLUTTER_SECONDS
 		if m.castle_royal_hall_feedback_cool <= 0.0:
 			m.castle_royal_hall_feedback_cool = 2.8
-			_play_item_sfx("castle/curtain_swish.ogg", 0.84)
 			m.show_msg("Roshan",
 				"The royal mist is resting. It will float away for a special royal adventure!",
-				"castle_mist_resting")
+				"castle_mist_resting", BLOCKED_DOOR_SFX_COOLDOWN_SECONDS)
 		return
-	_play_item_sfx("castle/curtain_swish.ogg", 0.78)
 	var room: Dictionary = _room(destination_id)
 	var room_name: String = String(room.get("name", "That room"))
 	m.show_msg("Roshan",
 		"%s is resting. Follow the one golden rainbow door together!" \
-			% room_name, "castle_door_resting")
+			% room_name, "castle_door_resting",
+			BLOCKED_DOOR_SFX_COOLDOWN_SECONDS)
+
+
+func _pan_to_blocked_door(destination_id: String) -> void:
+	if not _is_wide_hall() or m.castle_room_world_root == null:
+		return
+	for portal_data: Dictionary in HALL_PORTALS:
+		if String(portal_data.get("id", "")) != destination_id:
+			continue
+		var foot: Vector2 = portal_data.get("foot", Vector2.ZERO) as Vector2
+		_hall_view_left_art = clampf(
+			foot.x - HALL_VIEW_SIZE.x * 0.5,
+			0.0, HALL_LOGICAL_SIZE.x - HALL_VIEW_SIZE.x)
+		m.castle_room_world_root.position = Vector2(
+			-_hall_view_left_art * HALL_STAGE_SCALE, 0.0)
+		if m.castle_room_player_sprite != null:
+			_position_hall_player_at_foot(foot, false)
+		_blocked_door_pan_count += 1
+		m.g["castle_blocked_door_pan_target"] = destination_id
+		m.g["castle_blocked_door_pan_count"] = _blocked_door_pan_count
+		_sync_hall_horizontal_culling()
+		_update_hall_portals()
+		return
 
 func _set_elevator_menu_open(open_menu: bool, play_sound: bool = true) -> void:
 	if m.castle_room_menu_panel == null:
@@ -1900,6 +1966,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	if room.is_empty() or m.castle_room_background == null:
 		return
 	_clear_day_one_pool_cleanup()
+	_clear_day_one_persistent_rumi()
 	_clear_day_one_bathtub_swimmer()
 	_cancel_room_transition()
 	_cancel_player_motion()
@@ -1969,6 +2036,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	_sync_hall_lighting()
 	m._day_one_sync_castle_dressing()
 	_sync_day_one_pool_cleanup(room_id)
+	_sync_day_one_persistent_rumi()
 	if announce:
 		m._ui_tap()
 		if room_id == "playroom" and not _playroom_rescue_done():
@@ -2040,6 +2108,122 @@ func _clear_day_one_pool_cleanup() -> void:
 			and is_instance_valid(day_one_pool_cleanup):
 		day_one_pool_cleanup.teardown()
 	day_one_pool_cleanup = null
+
+
+func play_day_one_completed_room_response(logical_room: String) -> bool:
+	# A completed-room tap is a tiny diegetic replay, never a second objective,
+	# reward, or activity launch. Choose a safe fixture in each room and strip
+	# the shared launch hook before handing it to the authored atlas player.
+	if not m.day_one_is_active() or not m.day_one_castle_room_is_clean(
+			m.castle_room_id):
+		return false
+	var expected_room: String = String(m.DAY_ONE_CASTLE_ROOM_IDS.get(
+		m.castle_room_id, ""))
+	if expected_room != logical_room:
+		return false
+	var fixture_by_room: Dictionary = {
+		"bathroom": "rubber_duck",
+		"pool": "flower_float",
+		"stuffie": "stacking_toy",
+		"art": "idea_board",
+	}
+	var item_id: String = String(fixture_by_room.get(logical_room, ""))
+	var record: Dictionary = m.castle_room_item_sprites.get(item_id, {})
+	var sprite: Sprite2D = record.get("sprite") as Sprite2D
+	var source_data: Dictionary = record.get("data", {}) as Dictionary
+	if sprite == null or source_data.is_empty() \
+			or bool(sprite.get_meta("busy", false)):
+		return false
+	var playback_data: Dictionary = source_data.duplicate(true)
+	playback_data.erase("launch_activity")
+	playback_data.erase("room_destination")
+	# Clear any stale completion hook left by an interrupted normal interaction;
+	# the revisit response must remain animation-only even after a prior tap.
+	if sprite.has_meta("launch_activity_after_sequence"):
+		sprite.remove_meta("launch_activity_after_sequence")
+	fixture_rigs.activate(String(sprite.get_meta("source_object_id", "")))
+	sprite.set_meta("day_one_completed_room_response", true)
+	_play_sprite_atlas_sequence(sprite, playback_data, false, false)
+	m.g["day_one_last_completed_room_fixture"] = item_id
+	m.g["day_one_completed_room_response_reward"] = false
+	return true
+
+
+func _sync_day_one_persistent_rumi() -> void:
+	var should_show: bool = m.day_one_is_active() \
+		and m.castle_room_id == "mermaid_pool" \
+		and m.day_one_castle_room_is_clean("mermaid_pool") \
+		and m.day_one_pool_rumi_met \
+		and m.castle_room_world_root != null
+	if not should_show:
+		_clear_day_one_persistent_rumi()
+		return
+	if _day_one_persistent_rumi != null \
+			and is_instance_valid(_day_one_persistent_rumi):
+		return
+	var pose_atlas: Texture2D = load(
+		DAY_ONE_POOL_CLEANUP.RUMI_POSE_ATLAS) as Texture2D
+	if pose_atlas == null:
+		return
+	var frames := SpriteFrames.new()
+	frames.remove_animation(&"default")
+	frames.add_animation(&"idle")
+	frames.set_animation_speed(&"idle", 1.5)
+	frames.set_animation_loop(&"idle", true)
+	for column: int in range(2):
+		var frame := AtlasTexture.new()
+		frame.atlas = pose_atlas
+		frame.region = Rect2(Vector2(float(column) * 256.0, 0.0),
+			Vector2(256.0, 384.0))
+		frames.add_frame(&"idle", frame)
+	_day_one_persistent_rumi = AnimatedSprite2D.new()
+	_day_one_persistent_rumi.name = "DayOnePersistentRumi"
+	_day_one_persistent_rumi.sprite_frames = frames
+	_day_one_persistent_rumi.animation = &"idle"
+	_day_one_persistent_rumi.position = RUMI_IDLE_POSITION
+	_day_one_persistent_rumi.scale = Vector2.ONE * RUMI_IDLE_SCALE
+	_day_one_persistent_rumi.z_index = 18
+	_day_one_persistent_rumi.set_meta("approved_private_canon", true)
+	_day_one_persistent_rumi.set_meta("persistent_day_one_friend", true)
+	_day_one_persistent_rumi.set_meta("identity_audio_synthesized", false)
+	m.castle_room_world_root.add_child(_day_one_persistent_rumi)
+	_day_one_persistent_rumi.play(&"idle")
+	_day_one_persistent_rumi_hotspot = Button.new()
+	_day_one_persistent_rumi_hotspot.name = "PersistentRumiHotspot"
+	_day_one_persistent_rumi_hotspot.position = RUMI_TAP_HIT_RECT.position
+	_day_one_persistent_rumi_hotspot.size = RUMI_TAP_HIT_RECT.size
+	_day_one_persistent_rumi_hotspot.flat = true
+	_day_one_persistent_rumi_hotspot.focus_mode = Control.FOCUS_NONE
+	_day_one_persistent_rumi_hotspot.modulate.a = 0.0
+	_day_one_persistent_rumi_hotspot.tooltip_text = "Say hi to Rumi"
+	_day_one_persistent_rumi_hotspot.set_meta("persistent_rumi", true)
+	_day_one_persistent_rumi_hotspot.set_meta("actionable_target", true)
+	_day_one_persistent_rumi_hotspot.pressed.connect(
+		_on_day_one_persistent_rumi_pressed)
+	if m.castle_room_item_hotspot_layer != null:
+		m.castle_room_item_hotspot_layer.add_child(
+			_day_one_persistent_rumi_hotspot)
+
+
+func _clear_day_one_persistent_rumi() -> void:
+	if _day_one_persistent_rumi_hotspot != null \
+			and is_instance_valid(_day_one_persistent_rumi_hotspot):
+		_day_one_persistent_rumi_hotspot.queue_free()
+	_day_one_persistent_rumi_hotspot = null
+	if _day_one_persistent_rumi != null \
+			and is_instance_valid(_day_one_persistent_rumi):
+		_day_one_persistent_rumi.queue_free()
+	_day_one_persistent_rumi = null
+
+
+func _on_day_one_persistent_rumi_pressed() -> void:
+	if _day_one_persistent_rumi == null \
+			or not is_instance_valid(_day_one_persistent_rumi):
+		return
+	m.g["day_one_persistent_rumi_greeting_count"] = int(
+		m.g.get("day_one_persistent_rumi_greeting_count", 0)) + 1
+	m.show_msg("Roshan", "Hi Roshan!", "day_one_rumi_hi", 4.0)
+	_item_burst(_day_one_persistent_rumi.position, Color(0.68, 0.82, 1.0), 6)
 
 
 func _sync_day_one_bathtub_swimmer() -> void:

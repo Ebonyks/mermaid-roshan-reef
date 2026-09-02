@@ -115,9 +115,9 @@ protected-asset, true-2D, save-compatibility, or probe-gate decisions.
 | DO-16 | REPRODUCED | `scripts/main.gd:7271-7315`; `scripts/attack_customizer.gd:99-121,182-193,257-261` still provide the modal without a child-facing voice/pointer, and the selected profile is not consumed by `scripts/games/dust_boss.gd`. |
 | DO-17 | NARROWED | `scripts/games/day_one_bathroom_cleaning.gd:186,583,599,669-670,811-816`; `scripts/audio_director.gd:17-35,90-94` retain the bathroom timing/semantic issues, but current filler resolution supersedes the old generic-yay description. |
 | DO-18 | REPRODUCED | `scripts/games/pool_skimmer_activity.gd:92-100`; `scripts/games/pool_seahorse_rescue_activity.gd:100-106` still restore completed activities without the waterfall-style completion emission. |
-| DO-19 | NARROWED | `scripts/main.gd:7421-7435` now uses the single `day_one_room_clean` answer rather than the historical two-clip claim; `scripts/main.gd:7555-7602` and `scripts/games/day_one_pool_cleanup.gd:83-100` retain revisit/Rumi seams. |
+| DO-19 | FIXED_PENDING_VERIFICATION | `scripts/main.gd` now rate-limits the single `day_one_room_clean` answer to 6.0 s and replays only a harmless completed-fixture response; completed bathroom revisits restore Back/elevator controls. `scripts/arena/castle_rooms_25d.gd` keeps the approved two-frame Rumi idle mounted in the completed pool while Day One is active, with a Roshan-voice greeting alias until an owner-approved Rumi recording exists. Exact 4.7.2/runtime verification remains pending. |
 | DO-20 | REPRODUCED | `scripts/pause_menu.gd:211-262` still routes Leave from `level2` to `_exit_level2()`, so Pause → REEF remains in the Day One safety scope. |
-| DO-21 | NARROWED | `scripts/arena/castle_rooms_25d.gd:1695-1717` still has uneven blocked-door feedback; `scripts/arena/day_one_art_studio.gd:376-390` no longer supports the old duplicated-label wording, so only the remaining banner/cooldown work carries forward. |
+| DO-21 | FIXED_PENDING_VERIFICATION | `scripts/arena/castle_rooms_25d.gd` now applies a bounded 1.2 s blocked-door SFX cooldown, detects a second tap within 6 s, pulses the PLOT cue and pans/reorients the hall; `scripts/day_one_art_studio.gd` fixes the documented loose-brushes typo. The focused revisit probe is registered in both trusted rosters. Exact 4.7.2/runtime verification remains pending. |
 | DO-22 | REPRODUCED | `scripts/main.gd:4080-4088,10141-10148` still resets the 1.5-second debounce on each queued save and writes only on expiry. |
 | DO-23 | NARROWED | `scripts/arena/castle_rooms_25d.gd:4203-4228,4255-4274` reproduces the small pointer/eagle tween magnitudes; `scripts/companion.gd:128-187` remains broader 3D migration debt and is not part of the Day One D7 payoff package. |
 
@@ -303,16 +303,15 @@ agency-to-passive ratio is 3–12 : 1; in the boss it is 1.2 : 1, and about
    `boss_splash_2d.gd`, `octagon_stage.gd`; only `combat_arena.gd:478-500`
    consumes it).
 10. **Revisit friction** (runs 05, 09). The completed-room action now uses a
-    single `day_one_room_clean` answer (`main.gd:7421-7435`), but completed
-    bathroom controls and Rumi persistence still need review; blocked room
-    doors have uneven cooldown coverage and the pause sheet's "🌊 REEF" tile
-    still drops her into the ocean. The completed bathroom hides back and
-    elevator on every re-entry and re-fires the pool picture line
-    (`main.gd:7385-7396, 7640-7675, 7704-7726`); Rumi is freed on room
-    change and `day_one_pool_rumi_met` is read by nothing; blocked room
-    doors have no SFX cooldown (only the Royal Hall has 2.8 s); the pause
-    sheet's "🌊 REEF" tile drops her into the ocean from anywhere in the
-    castle.
+    single `day_one_room_clean` answer with a 6.0 s voice gap and a harmless,
+    no-reward fixture response. Completed bathroom revisits restore the Back
+    and elevator route; the first-completion route card remains actionable,
+    while revisits do not recreate it. When `day_one_pool_rumi_met` is set,
+    the approved two-frame Rumi idle persists in the completed pool and its
+    tap greeting uses Roshan's approved filler until an owner-approved Rumi
+    identity recording exists. Blocked room doors use a 1.2 s SFX cooldown;
+    a second tap within 6 s pulses the PLOT cue and pans the hall to the door.
+    The pause sheet's "🌊 REEF" tile remains an owner-blocked DO-20 scope item.
 
 ## Findings register (historical baseline; see Stage 0 for current status)
 
@@ -847,7 +846,13 @@ Do:
 
 Gate: `probe_day_one_castle_dressing` / `probe_castle_door_language` legs
 assert the cooldown, the pan, and that the completed bathroom exposes the
-back button; suite green.
+back button; `scripts/probe_day_one_d8_revisits.gd` adds fail-closed source
+checks for the cooldown/two-tap pan, bathroom route visibility, one-voice
+ordering/rate limit, persistent Rumi, and typo/no-reward feedback, and is
+registered in both trusted rosters. Parser and inference lint pass on all
+changed GDScript plus `git diff --check`. Exact Godot 4.7.2 runtime and
+target-device acceptance are pending because this worktree has no 4.7.2
+binary; no 4.7.1 runtime claim is made.
 
 ### WP-D9 — Probe coverage is the gate (FIRST / PREREQUISITE)
 

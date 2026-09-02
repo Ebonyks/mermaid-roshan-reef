@@ -64,6 +64,11 @@ func _voice_path(speaker: String, event: String = "", allow_generic: bool = true
 	if event_suffix.begins_with(speaker_prefix):
 		event_suffix = event_suffix.trim_prefix(speaker_prefix)
 	var key := speaker + ("_" + event_suffix if event_suffix != "" else "")
+	# Day One's persistent Rumi greeting deliberately stays in Roshan's voice
+	# until an owner-approved Rumi identity recording exists. Reuse the approved
+	# Roshan acknowledgement; never synthesize or pitch a new Rumi identity.
+	if key == "roshan_day_one_rumi_hi":
+		key = "roshan_talk"
 	var protected_speaker := speaker in ["faron", "daddy", "chuck"]
 	# Daddy's numbered family recordings remain protected and win through their
 	# exact legacy keys. Synthetic filler is allowed only for a named Daddy event
@@ -305,7 +310,8 @@ func _speaker_key(who: String) -> String:
 	return "roshan"
 
 
-func show_msg(who: String, txt: String, vo: String = "talk") -> void:
+func show_msg(who: String, txt: String, vo: String = "talk",
+		voice_min_gap: float = 0.5) -> void:
 	# owner 2026-08-04: opera career worlds are full-screen art with no text.
 	# The spoken line IS the message there; the caption strip stays empty.
 	# ALPHA MERCY (2026-08-05): that rule assumed every line had a recording.
@@ -338,13 +344,13 @@ func show_msg(who: String, txt: String, vo: String = "talk") -> void:
 		# nonreader. In Opera, play only the exact semantic recording; otherwise
 		# leave the visual pointer and reading-aid caption present.
 		if who != "" and has_exact:
-			_say(speaker, vo, 0.5)
+			_say(speaker, vo, voice_min_gap)
 		return
 	m.hud_msg.text = txt
 	m.hud_msg.visible = txt != ""
 	m.msg_timer = 5.0
 	if who != "":
-		_say(_speaker_key(who), vo, 0.5)
+		_say(_speaker_key(who), vo, voice_min_gap)
 	# (speaker name + portrait intentionally omitted — just the message text)
 
 # ===================== 3.0 PLATFORM & FLOW =====================

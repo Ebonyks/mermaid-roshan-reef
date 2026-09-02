@@ -384,7 +384,7 @@ func _announce_current_target() -> void:
 		return
 	for material: Dictionary in MATERIALS:
 		if not bool(m.day_one_art_collected_materials.get(String(material["id"]), false)):
-			_speak_cue("Tap the loose %s!" % String(material["label"]),
+			_speak_cue("Tap the %s!" % String(material["label"]),
 				"art_studio_material_hint")
 			return
 	for grime: Dictionary in GRIME:
