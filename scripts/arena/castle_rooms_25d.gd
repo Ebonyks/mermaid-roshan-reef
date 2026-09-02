@@ -98,6 +98,7 @@ const HALL_TILE_NATIVE_WIDTHS: Array[int] = [
 const HALL_NATIVE_TO_LOGICAL := HALL_LOGICAL_SIZE / HALL_SOURCE_NATIVE_SIZE
 const HALL_HORIZONTAL_CULL_MARGIN := 96.0
 const HALL_WALK := Rect2(60.0, 615.0, 3224.0, 300.0)
+const CASTLE_COMPANION_CARD_SIZE := Vector2(156.0, 156.0)
 # A short story beat separates the Royal Hall welcome from Princess Huluu's
 # stuffie offer, so neither voiced moment talks over the other.
 const ROYAL_HALL_OFFER_BEAT := 1.6
@@ -1126,6 +1127,10 @@ func close() -> void:
 	m.castle_room_mid_layer = null
 	m.castle_room_front_layer = null
 	m.castle_room_item_visual_layer = null
+	if m.castle_companion_card != null \
+			and is_instance_valid(m.castle_companion_card):
+		m.castle_companion_card.queue_free()
+	m.castle_companion_card = null
 	m.castle_room_item_effect_layer = null
 	m.castle_room_item_hotspot_layer = null
 	m.castle_room_door_hotspot_layer = null
@@ -2336,6 +2341,7 @@ func _position_player_at_foot(foot: Vector2, tweened: bool) -> void:
 	var duration: float = clampf(distance / 520.0, 0.12, 0.85)
 	m.castle_room_player_sprite.set_meta("stage_foot", foot)
 	m.castle_room_player_sprite.set_meta("depth_ratio", depth)
+	m.castle_room_player_sprite.set_meta("depth_z", player_z)
 	m.castle_room_player_sprite.set_meta("walking", tweened)
 	if not tweened:
 		m.castle_room_player_sprite.position = target_position
@@ -2347,6 +2353,7 @@ func _position_player_at_foot(foot: Vector2, tweened: bool) -> void:
 			shadow.z_index = _depth_to_z_index(shadow_z)
 		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
 		m.castle_room_player_sprite.set_meta("walking", false)
+		sync_castle_companion_card()
 		return
 	var movement_tween: Tween = m.create_tween().set_parallel(true)
 	_movement_tween = movement_tween
@@ -2393,6 +2400,7 @@ func _position_hall_player_at_foot(foot: Vector2, tweened: bool,
 	var duration: float = clampf(distance_stage / 520.0, 0.12, 1.05)
 	m.castle_room_player_sprite.set_meta("stage_foot", foot)
 	m.castle_room_player_sprite.set_meta("depth_ratio", depth)
+	m.castle_room_player_sprite.set_meta("depth_z", player_z)
 	m.castle_room_player_sprite.set_meta("walking", tweened)
 	m.castle_room_player_sprite.set_meta("coordinate_space", "hall_art")
 	if not tweened:
@@ -2405,6 +2413,7 @@ func _position_hall_player_at_foot(foot: Vector2, tweened: bool,
 			shadow.z_index = _depth_to_z_index(shadow_z)
 		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
 		m.castle_room_player_sprite.set_meta("walking", false)
+		sync_castle_companion_card()
 		return
 	var movement_tween: Tween = m.create_tween().set_parallel(true)
 	_movement_tween = movement_tween
@@ -2682,6 +2691,8 @@ func _rebuild_touch_items(room_id: String) -> void:
 	fixture_rigs.rebuild_begin()
 	if m.castle_room_item_visual_layer != null:
 		for child: Node in m.castle_room_item_visual_layer.get_children():
+			if child == m.castle_companion_card:
+				continue
 			child.free()
 	if m.castle_room_item_hotspot_layer != null:
 		for child: Node in m.castle_room_item_hotspot_layer.get_children():
@@ -4128,6 +4139,7 @@ func _set_player_current_foot(foot: Vector2) -> void:
 	if m.castle_room_player_sprite != null \
 			and is_instance_valid(m.castle_room_player_sprite):
 		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
+		sync_castle_companion_card()
 
 
 func _finish_player_walk(generation: int = -1) -> void:
@@ -4315,6 +4327,7 @@ func _playroom_rescue_done() -> bool:
 func _restore_playroom_rescue_clears() -> void:
 	if _playroom_rescue_done():
 		m.day_one_complete_stuffie_rescue()
+		reopen_playroom_stuffie_offer()
 		return
 	var cleared: Dictionary = m.g.get(
 		"castle_dust_bunnies_cleared", {}) as Dictionary
@@ -4406,11 +4419,111 @@ func _finish_playroom_eagle_departure(eagle: Sprite2D) -> void:
 
 func _open_playroom_stuffie_tutorial() -> void:
 	if not is_open() or m.castle_room_id != "playroom" \
-			or m.companion_id != "":
+			or m.companion_id != "" or not m.day_one_is_active():
 		return
 	m.g["stuffie_rescue_tutorial"] = true
-	m.g["stuffie_rescue_tutorial_step"] = 0
+	if not m.g.has("stuffie_rescue_tutorial_step"):
+		m.g["stuffie_rescue_tutorial_step"] = 0
 	m._companion_ref().open_picker(true, "eagle", "adopt")
+
+
+func reopen_playroom_stuffie_offer() -> bool:
+	# Completed rescue is the durable prerequisite. The offer remains a
+	# resumable, child-safe room action until adoption is confirmed.
+	if not is_open() or m.castle_room_id != "playroom" \
+			or not m.day_one_is_active() \
+			or m.companion_id != "" \
+			or not _playroom_rescue_done():
+		return false
+	_open_playroom_stuffie_tutorial()
+	return m.companion_layer != null and is_instance_valid(m.companion_layer)
+
+
+func sync_castle_companion_card() -> void:
+	# This is deliberately a single true-2D reward card in the castle's existing
+	# Canvas staging layer. It is not the broader Node3D follower and never owns
+	# a tween callback or a second per-frame instance.
+	if m.castle_room_item_visual_layer == null \
+			or not is_instance_valid(m.castle_room_item_visual_layer) \
+			or m.companion_id == "":
+		if m.castle_companion_card != null \
+				and is_instance_valid(m.castle_companion_card):
+			m.castle_companion_card.visible = false
+		return
+	var definition: Dictionary = m._companion_ref().active_def()
+	if definition.is_empty():
+		return
+	var card: Control = m.castle_companion_card
+	if card == null or not is_instance_valid(card):
+		card = Control.new()
+		card.name = "CastleCompanionCard"
+		card.size = CASTLE_COMPANION_CARD_SIZE
+		card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		card.set_meta("source_asset_role", "companion_card")
+		card.set_meta("castle_canvas_only", true)
+		m.castle_companion_card = card
+		m.castle_room_item_visual_layer.add_child(card)
+	var identity: String = String(card.get_meta("companion_id", ""))
+	var saved_colors: Array = card.get_meta("companion_colors", []) as Array
+	var current_colors: Array[Color] = m._companion_ref().colors()
+	var color_tokens: Array[String] = []
+	for color: Color in current_colors:
+		color_tokens.append(color.to_html(false))
+	if identity != m.companion_id or saved_colors != color_tokens:
+		for child: Node in card.get_children():
+			child.free()
+		var asset_paths: Array[String] = []
+		var tints: Array[Color] = []
+		if definition.has("sprite"):
+			asset_paths.append(String(definition["sprite"]))
+			tints.append(Color.WHITE)
+		else:
+			var layer_names: Array = m.CREATURE_LAYERS.get(
+				String(definition.get("kind", "")), []) as Array
+			var draw_order: Array[int] = [1, 0, 2]
+			var ordered_tints: Array[Color] = [current_colors[0],
+				current_colors[1], Color.WHITE]
+			for draw_index: int in draw_order:
+				if draw_index >= 0 and draw_index < layer_names.size():
+					asset_paths.append("res://assets/mg/" \
+						+ String(layer_names[draw_index]) + ".png")
+					tints.append(ordered_tints[asset_paths.size() - 1])
+		for index: int in range(asset_paths.size()):
+			var texture: Texture2D = load(asset_paths[index]) as Texture2D
+			if texture == null:
+				continue
+			var visual := TextureRect.new()
+			visual.name = "CompanionArt_%d" % index
+			visual.position = Vector2.ZERO
+			visual.size = CASTLE_COMPANION_CARD_SIZE
+			visual.texture = texture
+			visual.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			visual.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			visual.modulate = tints[index]
+			visual.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			card.add_child(visual)
+		card.set_meta("companion_id", m.companion_id)
+		card.set_meta("companion_colors", color_tokens)
+		card.set_meta("source_object_id", "castle:companion:" + m.companion_id)
+		card.set_meta("source_asset_paths", asset_paths)
+		card.set_meta("source_asset_path", asset_paths[0] \
+			if not asset_paths.is_empty() else "")
+	var player: Sprite2D = m.castle_room_player_sprite
+	if player == null or not is_instance_valid(player):
+		return
+	var foot: Vector2 = player.get_meta("current_stage_foot",
+		player.get_meta("stage_foot", Vector2.ZERO)) as Vector2
+	var depth_z: float = float(player.get_meta("depth_z", PLAYER_FRONT_Z))
+	var canvas_scale: float = HALL_STAGE_SCALE if _is_wide_hall() else ART_TO_STAGE
+	var card_center: Vector2 = _hall_art_to_world(
+			foot + Vector2(108.0, -100.0), depth_z) \
+			if _is_wide_hall() else _stage_to_world(
+			foot + Vector2(108.0, -100.0), depth_z)
+	card.scale = Vector2.ONE * canvas_scale
+	card.position = card_center - CASTLE_COMPANION_CARD_SIZE \
+			* canvas_scale * 0.5
+	card.z_index = player.z_index + 1
+	card.visible = is_open()
 
 
 func _update_camera_parallax(delta: float) -> void:

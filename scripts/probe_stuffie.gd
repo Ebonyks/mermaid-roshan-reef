@@ -164,6 +164,19 @@ func _picker_case() -> void:
 			"StuffieRescueTutorialPointer") != null
 		and main.companion_stage.find_children(
 			"StuffieCard_*", "Button", true, false).size() == 1)
+	var picker_back: Button = main.companion_stage.find_child(
+		"StuffiePickerBackButton", true, false) as Button
+	_ck("rescue picker keeps the familiar escapable back path",
+		picker_back != null and picker_back.visible and picker_back.disabled == false)
+	comp.close_picker()
+	_ck("closing before confirmation leaves a safe castle state",
+		main.companion_layer == null and main.companion_id == ""
+		and bool(main.g.get("stuffie_rescue_tutorial", false)))
+	rooms.show_room("playroom", false)
+	await _settle(3)
+	_ck("playroom re-entry reopens the unconfirmed adoption",
+		main.companion_layer != null and main.companion_pick_id == "eagle"
+		and main.companion_id == "")
 	comp._pick_color_slot(1)
 	await process_frame
 	_ck("Tutorial state advances from part to color",
@@ -183,6 +196,32 @@ func _picker_case() -> void:
 		main.companion_id == "eagle"
 		and main.companion_layer == null
 		and not main.g.has("stuffie_rescue_tutorial"))
+	var reward_card: Control = main.castle_companion_card
+	var reward_cards: Array[Node] = main.castle_room_item_visual_layer.find_children(
+		"CastleCompanionCard", "Control", true, false)
+	var reward_instance: int = reward_card.get_instance_id() \
+		if reward_card != null and is_instance_valid(reward_card) else -1
+	rooms._position_player_at_foot(Vector2(500.0, 560.0), false)
+	rooms._position_player_at_foot(Vector2(540.0, 570.0), false)
+	var card_is_reused: bool = reward_card != null \
+		and is_instance_valid(reward_card) \
+		and reward_card.get_instance_id() == reward_instance
+	var card_canvas_only: bool = reward_card != null \
+		and is_instance_valid(reward_card) \
+		and _all_canvas_children(reward_card)
+	_ck("confirmed friend has exactly one visible Canvas companion card",
+		reward_cards.size() == 1 and reward_card != null
+		and is_instance_valid(reward_card) and reward_card.visible
+		and String(reward_card.get_meta("companion_id", "")) == "eagle"
+		and String(reward_card.get_meta("source_asset_path", ""))
+			== "res://assets/book/baby_eagle.png"
+		and card_canvas_only)
+	_ck("castle companion card repositions without duplication",
+		card_is_reused and main.castle_room_item_visual_layer.find_children(
+			"CastleCompanionCard", "Control", true, false).size() == 1)
+	_ck("confirmed friend identity persists safely",
+		String(main.save_data.get("companion", "")) == "eagle"
+		and (main.save_data.get("companion_colors", []) as Array).size() == 3)
 	rooms._exit_to_courtyard()
 	await _settle(6)
 	main._exit_level2_now()
@@ -675,3 +714,12 @@ func _touch_tap(index: int, pos: Vector2) -> void:
 	up.position = pos
 	up.pressed = false
 	main.touch_ui._unhandled_input(up)
+
+
+func _all_canvas_children(node: Node) -> bool:
+	if not node is CanvasItem:
+		return false
+	for child: Node in node.get_children():
+		if not _all_canvas_children(child):
+			return false
+	return true

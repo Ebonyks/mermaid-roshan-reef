@@ -785,6 +785,14 @@ by the seven tutorial taps and that the customizer opens with a
 `visual_pointer` node; `probe_dust_boss` asserts the hit burst colour equals
 `attack_color`. Suite green.
 
+Reconciled package slice (2026-09-02): this implementation is intentionally
+limited to the revised Stuffie re-entry and reward-visibility leg. It restores
+the completed-playroom adoption route after picker close or process reload,
+preserves the familiar Back/dim/B close path and draft, and stages one reusable
+true-2D Canvas companion card using the selected approved asset. The art-room
+and attack-customizer items above remain deferred, and the broader
+`companion.gd` Node3D follower migration remains DO-23 PARTIAL.
+
 ### WP-D7b — Residual 2D magnitudes (DO-23, partial)
 
 Scope: the pointer and eagle tweens in `scripts/arena/castle_rooms_25d.gd`

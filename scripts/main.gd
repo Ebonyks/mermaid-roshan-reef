@@ -305,6 +305,7 @@ var castle_room_detail_tiles: Array[Sprite2D] = []
 var castle_room_mid_layer: Node2D = null
 var castle_room_front_layer: Node2D = null
 var castle_room_item_visual_layer: Node2D = null
+var castle_companion_card: Control = null # one reusable true-2D castle reward card
 var castle_room_item_effect_layer: Node2D = null
 var castle_room_item_hotspot_layer: Control = null
 var castle_room_door_hotspot_layer: Control = null
@@ -4121,6 +4122,12 @@ func day_one_castle_room_for_current() -> String:
 	if not day_one_is_active():
 		return "main_hall"
 	var logical_room: String = _day_one_ref().current_room_id
+	# A killed/reloaded adoption picker must return to its owning picture room,
+	# not strand the child in the next (art) room with no confirmed companion.
+	if logical_room == "art" and companion_id == "" \
+			and bool(stuffie_wins.get("rescued_eagle", false)) \
+			and _day_one_ref().is_room_completed("stuffie"):
+		return "playroom"
 	for castle_room_value: Variant in DAY_ONE_CASTLE_ROOM_IDS.keys():
 		var castle_room: String = String(castle_room_value)
 		if String(DAY_ONE_CASTLE_ROOM_IDS[castle_room]) == logical_room:
@@ -7491,6 +7498,12 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 		return true
 	var director: DayOneDirector = _day_one_ref()
 	if director.is_room_completed(logical_room):
+		# Rescue completion advances the Day One checkpoint before the adoption
+		# picker is confirmed. Keep the completed room's action as a safe,
+		# repeatable re-entry point until the child actually chooses a friend.
+		if logical_room == "stuffie" and companion_id == "":
+			_castle_rooms_ref().reopen_playroom_stuffie_offer()
+			return true
 		show_msg("Roshan", "This room is sparkly clean!",
 			"day_one_room_clean")
 		return true
