@@ -262,6 +262,13 @@ func _strike(max_windows: int) -> bool:
 func _open_case() -> void:
 	await _frames(10)
 	_ck("attic portal exists in the reef", main.dust_boss_portal_pos != Vector3.ZERO)
+	# The interruption matrix above deliberately returns to the armed castle.
+	# The attic is a Reef portal, so leave that castle surface through the same
+	# activity-clear seam before testing the physical proximity transition.
+	if main.game != "":
+		main._castle_rooms_ref().close()
+		main._clear_game()
+		await _frames(2)
 	# CI runs this probe in Classic touch mode. Preserve that mode so the attic
 	# assertion exercises the real physical proximity transition; when a caller
 	# explicitly starts the probe in Hybrid, use the child action contract below.

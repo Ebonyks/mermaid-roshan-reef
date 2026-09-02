@@ -117,7 +117,7 @@ func _init() -> void:
 	# below is the real modal path and still tests the outside-card gesture.
 	var customizer_layer := CanvasLayer.new()
 	customizer_layer.layer = 18
-	root.add_child(customizer_layer)
+	main.add_child(customizer_layer)
 	customizer_layer.add_child(customizer)
 	customizer.attach(main)
 	var confirmations := 0
