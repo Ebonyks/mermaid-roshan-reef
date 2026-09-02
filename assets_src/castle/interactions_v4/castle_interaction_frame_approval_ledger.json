@@ -1,6 +1,6 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "718c1a2d18eaa5f10b360491022e0ecc0d17be00c67e3292c5ca19ee8b0eb918",
+  "candidate_payload_sha256": "5a061203300efebc1ac13f49d4f40dd3463a20818040c0ff71db388372394514",
   "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
   "metadata_revalidation": {
     "date": "2026-08-29",
@@ -46,6 +46,17 @@
     "prior_candidate_payload_sha256": "8284c7d44ee489afb03a9d86083ae8328b94e8433788a5335d3d79c174d7fda4",
     "prior_runtime_layout_semantic_sha256": "45320ee53517c19dfc16a982886b7c44b6529aa155cfb504787029e14bb6bff7",
     "runtime_layout_semantic_sha256": "dbd127d0a6576bd1767ebc2d47d33396b5505949e66bc3f5e7dd0801b56ace52",
+    "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
+    "frame_hash_evidence": "All 96 candidate frame_review_sha256 values exactly equal the existing reviewed ledger values; zero frame mismatches.",
+    "candidate_binding_refresh": "Replacing only the current runtime-layout semantic hash with the prior hash reproduces the prior candidate payload hash exactly; existing deterministic frame approval remains applicable.",
+    "owner_acceptance": "pending"
+  },
+  "trusted_probe_runtime_binding_revalidation": {
+    "date": "2026-09-02",
+    "reason": "The final Day One trusted-probe repairs changed castle_rooms_25d.gd only in gameplay routing/feedback and the reusable Baby Eagle reward card path. The frame-review builder hashes the complete runtime-layout text, so the candidate input binding changed while ROOM_LAYOUTS card records, V4 manifest data, fixture z routing, room tiles, and delivered frame pixels remained unchanged.",
+    "prior_candidate_payload_sha256": "718c1a2d18eaa5f10b360491022e0ecc0d17be00c67e3292c5ca19ee8b0eb918",
+    "prior_runtime_layout_semantic_sha256": "dbd127d0a6576bd1767ebc2d47d33396b5505949e66bc3f5e7dd0801b56ace52",
+    "runtime_layout_semantic_sha256": "e8adf90798a92886f2a530a78c24a908db207b45bcede23d1bf13473704d182f",
     "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
     "frame_hash_evidence": "All 96 candidate frame_review_sha256 values exactly equal the existing reviewed ledger values; zero frame mismatches.",
     "candidate_binding_refresh": "Replacing only the current runtime-layout semantic hash with the prior hash reproduces the prior candidate payload hash exactly; existing deterministic frame approval remains applicable.",
