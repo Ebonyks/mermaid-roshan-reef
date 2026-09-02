@@ -61,9 +61,9 @@ func _run_probe() -> void:
 		and not art.contains('"Tap the loose %s!" % String(material["label"])'))
 	if failures == 0:
 		print("DAY_ONE_D8_REVISITS|RESULT: ALL OK")
-		quit(0)
-	print("DAY_ONE_D8_REVISITS|RESULT: ", failures, " failure(s)")
-	quit(1)
+	else:
+		print("DAY_ONE_D8_REVISITS|RESULT: ", failures, " failure(s)")
+	quit(failures)
 
 
 func _read(path: String) -> String:
