@@ -597,6 +597,34 @@ press during a busy window starts the gesture on release of busy, (d) a
 zero-input wait still never completes (existing negative leg unchanged).
 Suite green.
 
+### WP-D4 implementation evidence (this branch)
+
+`day_one_bathroom_cleaning.gd` now banks valid motion across short lifts,
+credits probe time only when a point actually moved, and decays the bank only
+after a three-second no-touch grace. Sink and tub gates use 1.5 seconds of
+live motion; tub movement accepts any displacement over one pixel. Grime
+visuals use monotonic `max_so_far(min(arc, distance))` progress, retain a
+visible unfinished overlay until the corresponding gate completes, and no
+longer use the motion clock in the visual.
+
+Screen touch and mouse input now have explicit down/drag/up ownership. A down
+received during tool travel or drain busy is buffered only while that finger
+remains held; release and application focus/pause/close boundaries clear the
+buffer and active gesture. Held presses begin when the busy window clears.
+Tool travel is 0.22 seconds and the post-drain timer is 0.20 seconds. Each
+stage gives its first idle voice/pointer re-prompt at five seconds, repeats at
+12 seconds, and caps at three reminders.
+
+`probe_day_one_bathroom_cleanup.gd` now fail-closes lifted three-touch sink
+gestures, still-finger/zero-input waits, monotonic unfinished grime, busy
+buffer start/release/focus lifecycle, one-pixel tub movement policy, and
+5-second/12-second reminder timing. Parser, inference lint, diff-check, and
+the focused bathroom probe pass under the installed Godot
+`4.7.1.stable.official`; exact Godot `4.7.2-stable`, device listening, and
+child acceptance remain pending. The adjacent bathroom integration probe has
+two pre-existing branch failures in save-normalization/pool-route source
+expectations; bathroom bunny and movie-handoff probes pass.
+
 ### WP-D5a — Grand Puff safety and resumability (DO-07, DO-09, DO-20)
 
 Scope: `scripts/main.gd` `_on_day_one_hook_event`, `day_one_boss_door_ready`,
