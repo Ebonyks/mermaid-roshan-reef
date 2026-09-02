@@ -484,6 +484,36 @@ no two Roshan clips start in the same frame at the basket, desk and win
 sites; `probe_day_one_bathroom_cleanup` asserts the sink announce is not
 suppressed. Suite green; the audio ledger regenerates clean.
 
+### WP-D2 implementation evidence (current branch)
+
+The implementation reuses the existing Parler `filler_v1` cohort only; no
+voice file was generated, replaced, recompressed, or added. Day One call sites
+now use manifest-backed suffixes (`bathroom_*`, `pool_*`, `day_one_*`,
+`castle_*`, `art_studio_*`, and `dustboss_*`). `AudioDirector` owns the
+speaker-prefix normalization, rejects a missing exact required cue instead of
+falling through to generic `talk`/`win`/`yay`, blocks generic cheer while an
+objective is audible, and queues at most two same-frame required objectives for
+the single Roshan channel. The harmless tub splash no longer plays Wacky’s
+failure line, and the bathroom completion line is no longer immediately
+truncated by a generic win cheer. Baby Eagle retains its existing Sparkle
+chirp while Roshan carries the completion sentence.
+
+`CastleVoiceCaptionLayer` is a non-interactive CanvasLayer at layer 27: it is
+above the castle (14), customizer (18), and companion picker (25), and below
+the fade cover (30). It mirrors the shared caption while the castle hides the
+ordinary HUD. `scripts/probe_day_one_voice.gd` covers exact path resolution,
+prefix normalization, generic-collision arbitration, and queue ownership.
+
+The following historical Appendix-B lines remain explicitly pending because
+there is no matching current exact filler clip: the newly worded bunny
+`NO!/Splash` reaction, the dedicated Rumi-through-Roshan line, the dedicated
+Baby Eagle completion sentence, friend/customizer prompts, and the separate
+next-door/back-door/boss/day-two wording where an existing clip is only a
+near-semantic reuse. No Daddy synthetic voice was created, and protected
+Daddy/Chuck recordings remain untouched. Exact Godot 4.7.2 runtime, device
+listening, and child acceptance remain open; the source/probe evidence is not
+a device acceptance claim.
+
 ### WP-D3 — Hand-offs between rooms and to the boss door (DO-05, DO-06)
 
 Scope: `scripts/main.gd` `day_one_complete_pool_scene`,

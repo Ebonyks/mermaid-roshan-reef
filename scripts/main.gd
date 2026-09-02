@@ -288,6 +288,8 @@ var companion_room_rows: Array = []       # shelf rows {id, node, marker, heart}
 var companion_room_action_prev := false
 var castle_room_layer: CanvasLayer = null
 var castle_room_stage: Control = null
+var castle_voice_caption_layer: CanvasLayer = null
+var castle_voice_caption: Label = null
 var castle_room_world_root: Node2D = null
 var castle_room_background: Sprite2D = null
 var castle_room_background_tiles: Array[Sprite2D] = []
@@ -3902,6 +3904,9 @@ func _audio_ref() -> AudioDirector:
 func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	_audio_ref()._say(speaker, event, min_gap)
 
+func _play_companion_chirp(speaker: String = "sparkle") -> void:
+	_audio_ref().play_companion_chirp(speaker)
+
 func _play_success_yay(pitch_scale: float = 1.0) -> void:
 	_audio_ref().play_success_yay(pitch_scale)
 
@@ -3910,6 +3915,17 @@ func _speaker_key(who: String) -> String:
 
 func show_msg(who: String, txt: String, vo: String = "talk") -> void:
 	_audio_ref().show_msg(who, txt, vo)
+
+
+func _sync_castle_voice_caption() -> void:
+	if castle_voice_caption == null or not is_instance_valid(castle_voice_caption):
+		return
+	var castle_visible := castle_room_layer != null \
+		and is_instance_valid(castle_room_layer) and castle_room_layer.visible
+	var has_message := hud_msg != null and hud_msg.text != "" \
+		and msg_timer > 0.0
+	castle_voice_caption.text = hud_msg.text if hud_msg != null else ""
+	castle_voice_caption.visible = castle_visible and has_message
 
 func say_sequence(lines: Array, opening_hold: float = 0.0) -> void:
 	_audio_ref().say_sequence(lines, opening_hold)
@@ -8090,7 +8106,8 @@ func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
 		DayOneDirector.EVENT_GROK_VIDEO_2:
 			g["day_one_media_request"] = "grok_dirty_castle_video_2"
 			show_msg("Roshan",
-				"Dust bunnies! This castle needs our help!", "talk")
+				"Dust bunnies! This castle needs our help!",
+				"day_one_rescue_bunnies")
 		DayOneDirector.EVENT_DUST_BUNNY_CLEANUP:
 			g["day_one_cleaned_room"] = String(payload.get("room_id", ""))
 		DayOneDirector.EVENT_ART_DESK_UNLOCKED:
@@ -9528,7 +9545,11 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 		# idempotent fallback here for suspend/re-entry or any future terminal
 		# caller that reaches _end_game directly; the second call is a no-op.
 		day_one_complete_boss_and_begin_day_two()
-	show_msg(fr["fname"], txt, "win" if win else vo)
+	# DustBoss already emitted the exact dustboss_win line before entering the
+	# friends state. A generic result win here would stop that required sentence
+	# in the same frame; the Day Two bridge supplies the next exact cue.
+	if not completed_day_one_boss:
+		show_msg(fr["fname"], txt, "win" if win else vo)
 	_respawn_pearls()   # after the banner: its freshness guard yields to the win message
 	_update_hud()
 	_clear_game()
@@ -10227,12 +10248,14 @@ func _process(delta: float) -> void:
 		if save_pending_t <= 0.0:
 			_write_save()
 	_audio_ref().tick_dialogue(delta)
+	_audio_ref().tick_voice()
 	if msg_timer > 0.0:
 		msg_timer -= delta
 		if msg_timer <= 0.0:
 			hud_msg.text = ""
 	if hud_msg != null:
 		hud_msg.visible = hud_msg.text != ""
+	_sync_castle_voice_caption()
 	if hud_game != null:
 		# Activity-specific picture HUDs own their own surfaces; this legacy
 		# free-roam sentence card is intentionally never persistent.

@@ -7,15 +7,63 @@ extends RefCounted
 
 var m: ReefMain
 var _active_speaker := ""
+var _active_required_key := ""
+var _required_voice_queue: Array[Dictionary] = []
 const FILLER_VOICE_DIR := "res://assets/audio/voices/filler_v1/"
 const LEGACY_VOICE_DIR := "res://assets/audio/voices/"
+
+# These are the existing, manifest-backed semantic suffixes used by the Day
+# One route.  Keep this list explicit: a required objective may never silently
+# fall through to roshan_talk, roshan_win, or the retired yay fallback.
+const DAY_ONE_REQUIRED_EVENTS: Dictionary = {
+	"castle_home_day_one": true,
+	"castle_door_resting": true,
+	"day_one_jobs_resting": true,
+	"day_one_rescue_bunnies": true,
+	"day_one_finish_current": true,
+	"day_one_room_clean": true,
+	"day_one_new_door": true,
+	"day_one_all_rooms_clean": true,
+	"day_one_pool_ready": true,
+	"bathroom_supplies_found": true,
+	"bathroom_cleanup_start": true,
+	"bathroom_basket_hint": true,
+	"bathroom_sink_scrub": true,
+	"bathroom_tub_drain": true,
+	"bathroom_tub_brush": true,
+	"bathroom_cleanup_done": true,
+	"pool_surface_clean": true,
+	"pool_waterfall_clean": true,
+	"pool_seahorse_clean": true,
+	"castle_playroom_rescue_start": true,
+	"art_studio_hint": true,
+	"art_studio_material_hint": true,
+	"art_studio_scrub_hint": true,
+	"dustboss_show": true,
+	"dustboss_tell_opening": true,
+	"dustboss_tell_shielded": true,
+	"dustboss_again_miss": true,
+	"dustboss_again_closer": true,
+	"dustboss_again_mercy": true,
+	"dustboss_dizzy_first": true,
+	"dustboss_dizzy_round": true,
+	"dustboss_angry": true,
+	"dustboss_win": true,
+	"day_two_begins": true,
+}
 
 func _init(main: ReefMain) -> void:
 	m = main
 
 
 func _voice_path(speaker: String, event: String = "", allow_generic: bool = true) -> String:
-	var key := speaker + ("_" + event if event != "" else "")
+	# Callers pass an event suffix. Accepting a mistakenly prefixed suffix here
+	# keeps the resolver fail-safe while making the prefix ownership explicit.
+	var event_suffix := event
+	var speaker_prefix := speaker + "_"
+	if event_suffix.begins_with(speaker_prefix):
+		event_suffix = event_suffix.trim_prefix(speaker_prefix)
+	var key := speaker + ("_" + event_suffix if event_suffix != "" else "")
 	var protected_speaker := speaker in ["faron", "daddy", "chuck"]
 	# Daddy's numbered family recordings remain protected and win through their
 	# exact legacy keys. Synthetic filler is allowed only for a named Daddy event
@@ -25,7 +73,7 @@ func _voice_path(speaker: String, event: String = "", allow_generic: bool = true
 	if allow_exact_filler:
 		candidates.append(FILLER_VOICE_DIR + key + ".ogg")
 	candidates.append(LEGACY_VOICE_DIR + key + ".ogg")
-	if allow_generic and event != "":
+	if allow_generic and event_suffix != "":
 		if not protected_speaker:
 			candidates.append(FILLER_VOICE_DIR + speaker + ".ogg")
 		candidates.append(LEGACY_VOICE_DIR + speaker + ".ogg")
@@ -34,17 +82,39 @@ func _voice_path(speaker: String, event: String = "", allow_generic: bool = true
 			return path
 	return ""
 
+
+func _is_required_day_one_event(event: String) -> bool:
+	return bool(DAY_ONE_REQUIRED_EVENTS.get(event, false))
+
 func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
-	var key := speaker + "_" + event
+	var event_suffix := event.trim_prefix(speaker + "_")
+	var key := speaker + "_" + event_suffix
 	if min_gap > 0.0:
 		var now := Time.get_ticks_msec() / 1000.0
 		if now - float(m.said_cool.get(key, -99.0)) < min_gap:
 			return
 		m.said_cool[key] = now
+	# A required line owns the single objective voice channel. If another exact
+	# objective arrives in the same frame, retain it in FIFO order; generic talk
+	# and win are ignored until the required line has finished.
+	var required := _is_required_day_one_event(event_suffix)
+	if _flush_required_queue():
+		return
+	var exact_path := _voice_path(speaker, event_suffix, false)
+	if required and exact_path == "":
+		# Missing exact audio is an explicit pending gap, never a generic fallback.
+		return
+	if not required and _active_required_key != "" and _has_active_speech():
+		return
+	if required and _active_required_key != "" and _has_active_speech():
+		if key != _active_required_key and _required_voice_queue.size() < 2:
+			_required_voice_queue.append({"speaker": speaker, "event": event,
+				"min_gap": min_gap})
+		return
 	# Prefer the machine-screened provisional filler for this exact line. Protected
 	# recordings and legacy synthetic clips remain intact as fallback assets.
 	var stream: AudioStream = null
-	var path := _voice_path(speaker, event)
+	var path := exact_path if required else _voice_path(speaker, event_suffix)
 	if path != "":
 		stream = load(path)
 	if stream != null:
@@ -74,6 +144,7 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 		ap.pitch_scale = 1.0
 		ap.play()
 		_active_speaker = speaker
+		_active_required_key = key if required else ""
 	elif m.voice != null:
 		# graceful fallback until real clips are dropped in: the recorded "yay",
 		# pitched to give each character a recognisably different timbre
@@ -82,10 +153,47 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 		_active_speaker = speaker
 
 
+func play_companion_chirp(speaker: String = "sparkle") -> void:
+	# Companion reactions are short, non-objective chirps. Keep them on an idle
+	# pool player so the Roshan objective sentence remains intact.
+	var path := _voice_path(speaker, "", false)
+	if path == "":
+		return
+	var stream := load(path) as AudioStream
+	if stream == null:
+		return
+	for voice_player_value: Variant in m.voice_pool:
+		var voice_player := voice_player_value as AudioStreamPlayer
+		if voice_player != null and not voice_player.playing:
+			voice_player.stream = stream
+			voice_player.pitch_scale = 1.0
+			voice_player.play()
+			return
+
+
+func _flush_required_queue() -> bool:
+	if _active_required_key == "" or _has_active_speech():
+		return false
+	_active_required_key = ""
+	if _required_voice_queue.is_empty():
+		return false
+	var pending: Dictionary = _required_voice_queue.pop_front()
+	_say(String(pending.get("speaker", "roshan")),
+		String(pending.get("event", "")),
+		float(pending.get("min_gap", 0.0)))
+	return true
+
+
+func tick_voice() -> void:
+	_flush_required_queue()
+
+
 func play_success_yay(pitch_scale: float = 1.0) -> void:
 	# Success chirps share the same serialization contract as spoken guidance.
 	# The stream is the new synthetic filler cue configured by ReefMain, never
 	# the retired voice_yay.mp3 fallback.
+	if _active_required_key != "" and _has_active_speech():
+		return
 	_stop_active_speech()
 	if m.voice == null:
 		return
@@ -125,6 +233,8 @@ func _stop_active_speech() -> void:
 	if m.voice != null:
 		m.voice.stop()
 	_active_speaker = ""
+	_active_required_key = ""
+	_required_voice_queue.clear()
 
 
 func _has_active_speech() -> bool:

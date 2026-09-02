@@ -951,6 +951,7 @@ func open(start_room: String = "main_hall") -> void:
 	viewport_backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var viewport_size: Vector2 = m.get_viewport().get_visible_rect().size
 	m.castle_room_stage = StorybookUI.add_stage(root, viewport_size)
+	_build_castle_voice_caption()
 	# StorybookUI stages default to MOUSE_FILTER_STOP, which is right for the
 	# menus and pickers that own the whole screen. Here the stage sits ON TOP
 	# of the Control that carries `_on_room_input`, so a STOP stage eats every
@@ -966,6 +967,8 @@ func open(start_room: String = "main_hall") -> void:
 		m.player.visible = false
 	if m.hud_layer != null:
 		m.hud_layer.visible = false
+	if m.castle_voice_caption != null:
+		m._sync_castle_voice_caption()
 	show_room(start_room, false)
 	m._day_one_attach_castle_dressing()
 	_sync_hall_lighting()
@@ -976,6 +979,46 @@ func open(start_room: String = "main_hall") -> void:
 	# Castle picking is direct Canvas coordinate hit-testing; the shared chain
 	# engine remains active for its timing/audio state but has no 3D camera.
 	m.castle_dust_he.camera = null
+
+
+func _build_castle_voice_caption() -> void:
+	# The shared HUD is intentionally hidden while the castle owns the screen.
+	# Keep an adult-readable mirror above the companion/customizer overlays, but
+	# below the global fade cover. It is non-interactive and never replaces the
+	# picture pointer or the spoken line for the child.
+	if m.castle_voice_caption_layer != null \
+			and is_instance_valid(m.castle_voice_caption_layer):
+		return
+	m.castle_voice_caption_layer = CanvasLayer.new()
+	m.castle_voice_caption_layer.name = "CastleVoiceCaptionLayer"
+	m.castle_voice_caption_layer.layer = 27
+	m.castle_voice_caption_layer.set_meta("above_castle_picker_customizer", true)
+	m.castle_voice_caption_layer.set_meta("below_fade_cover", true)
+	m.add_child(m.castle_voice_caption_layer)
+	var caption_root := Control.new()
+	caption_root.name = "CastleVoiceCaptionRoot"
+	caption_root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	caption_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	m.castle_voice_caption_layer.add_child(caption_root)
+	var caption := Label.new()
+	caption.name = "CastleVoiceCaption"
+	caption.position = Vector2(230.0, 590.0)
+	caption.size = Vector2(820.0, 112.0)
+	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	caption.add_theme_font_size_override("font_size", 24)
+	caption.add_theme_color_override("font_color", Color(0.10, 0.06, 0.28, 1.0))
+	caption.add_theme_stylebox_override("normal", StorybookUI.panel_style(
+		StorybookUI.LAVENDER, Color(0.91, 0.94, 1.0, 0.94), 30, 4))
+	caption.text = ""
+	caption.visible = false
+	caption.set_meta("hud_voice_caption", true)
+	caption.set_meta("caption_layer", 27)
+	caption_root.add_child(caption)
+	m.castle_voice_caption = caption
+	m._sync_castle_voice_caption()
 
 func resume(room_id: String = "") -> void:
 	if not is_open():
@@ -1062,11 +1105,16 @@ func close() -> void:
 		m._set_world_controls_enabled(true, "castle_roleplay_sleep")
 	if is_open():
 		m.castle_room_layer.queue_free()
+	if m.castle_voice_caption_layer != null \
+			and is_instance_valid(m.castle_voice_caption_layer):
+		m.castle_voice_caption_layer.queue_free()
 	if m.castle_room_world_root != null \
 			and is_instance_valid(m.castle_room_world_root):
 		m.castle_room_world_root.queue_free()
 	m.castle_room_layer = null
 	m.castle_room_stage = null
+	m.castle_voice_caption_layer = null
+	m.castle_voice_caption = null
 	m.castle_room_world_root = null
 	m.castle_room_background = null
 	m.castle_room_background_tiles.clear()
@@ -4302,9 +4350,8 @@ func _check_playroom_rescue_complete() -> void:
 		"baby_eagle_rescue", {}) as Dictionary
 	var eagle: Sprite2D = eagle_record.get("sprite") as Sprite2D
 	m.castle_room_item_sprites.erase("baby_eagle_rescue")
-	m.show_msg("Baby Eagle",
-		"Chirp! You saved me! Let us learn how stuffie friends come along!",
-		"win")
+	m.show_msg("Roshan", "You saved Baby Eagle!", "day_one_room_clean")
+	m._play_companion_chirp("sparkle")
 	if eagle == null or not is_instance_valid(eagle):
 		_open_playroom_stuffie_tutorial()
 		return

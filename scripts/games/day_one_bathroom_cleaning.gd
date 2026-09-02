@@ -666,8 +666,10 @@ func _begin_tub_drain_reaction() -> bool:
 		_sponge.set_meta("parked_on_tub_rim", false)
 		_sponge.visible = false
 	if _announcements_enabled and m != null:
+		# The bunny's authored comic reaction is the sound here. A generic Wacky
+		# failure line mislabels a harmless splash as a failed objective and can
+		# truncate the next exact Roshan instruction.
 		m.show_msg("", "NO!", "")
-		m._say("wacky", "fail", 0.2)
 		_drain_voice_sent = true
 	if _bunny_swimmer != null and is_instance_valid(_bunny_swimmer) \
 			and _bunny_swimmer.play_comic_no():
@@ -744,7 +746,6 @@ func _finish_tub() -> void:
 	if m != null and _announcements_enabled:
 		m.show_msg("Roshan", "The bathroom is sparkling!",
 			"bathroom_cleanup_done")
-		m._say("roshan", "win", 0.6)
 	if _pointer != null:
 		_pointer.visible = false
 	if _target != null:
