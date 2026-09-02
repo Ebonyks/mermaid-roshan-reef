@@ -25,6 +25,8 @@ func _init() -> void:
 	_prepare_day_one_terminal_boundary()
 	await _interruption_cases()
 	await _open_case()
+	var earned_mercy_tier: int = 0
+	var earned_preassist_tier: int = 0
 	if main.game == "dustboss":
 		await _splash_case()
 		await _framing_case()
@@ -37,6 +39,8 @@ func _init() -> void:
 		# round. Exercise mercy from that real fresh-fight state, then start a
 		# clean combat replay for the hit/pose/reward checks below.
 		await _mercy_case()
+		earned_mercy_tier = _boss().mercy_tier()
+		earned_preassist_tier = _boss().preassist_tier()
 		await _interrupt_live_boss()
 		_prime_boss_latch()
 		if main._castle_rooms_ref().is_open():
@@ -45,6 +49,11 @@ func _init() -> void:
 		await _await_state("showing", 2400)
 		await _first_hit_case()
 		await _second_hit_case()
+		# The replay resets per-fight counters by design. Carry only the assist
+		# tiers earned by the real mercy run so the final landed round can prove
+		# that progress resets its miss streak without erasing earned help.
+		main.g["db_mercy_tier"] = earned_mercy_tier
+		main.g["db_preassist_tier"] = earned_preassist_tier
 		await _win_case()
 	await _pose_replay_case()
 	print("DUSTBOSS|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
@@ -654,7 +663,7 @@ func _mercy_case() -> void:
 	for expected_streak in range(1, DustBossGame.MERCY_TRIGGER_STREAK + 1):
 		var open_now: bool = await _await_state("vuln", 4000)
 		var back: bool = open_now and await _await_state("prowl", 4000)
-		all_missed = all_missed and back and _hits() == 2 \
+		all_missed = all_missed and back and _hits() == 0 \
 			and int(main.g.get("db_miss_streak", 0)) == expected_streak
 		if expected_streak == DustBossGame.PREASSIST_TRIGGER_STREAK:
 			preassist_started = boss.preassist_tier() == 1 \
