@@ -5,7 +5,7 @@
   "role": "self_contained_uploadable_reference_packet",
   "runtime_asset": false,
   "used_as_delivery_pixels": false,
-  "payload_sha256": "af4f22e2fc54fc5965300515c536abf8d8eba0964eaab9e4d872d75bca84c636",
+  "payload_sha256": "788873d33ad0ed363bb79b22479672c2f20089f396194cee11a42951b79d4fd5",
   "payload_hash_formula": "SHA256 of UTF-8 sorted <relative_path>|<lowercase_sha256>\\n records",
   "authority_order": [
     "approved location geography",
@@ -33,7 +33,7 @@
       "bound_reference_eligible": true,
       "used_as_delivery_pixels": false,
       "source_path": "assets/flats/castle/rooms/room_craft_room_background.png",
-      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
     },
     {
       "path": "handoff_art/characters/roshan_roshan_base.png",
@@ -50,7 +50,109 @@
       "bound_reference_eligible": true,
       "used_as_delivery_pixels": false,
       "source_path": "assets/characters/roshan_25d/roshan_base.png",
-      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
+    },
+    {
+      "path": "handoff_art/objects/room_craft_room_front_left.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        304,
+        260
+      ],
+      "sha256": "466d88d72a245fabe0ef6810796aca8eb7aba6c66cbac031eb2e5ddf5aa68d9a",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/flats/castle/rooms/room_craft_room_front_left.png",
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
+    },
+    {
+      "path": "handoff_art/objects/room_craft_room_front_right.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        304,
+        260
+      ],
+      "sha256": "41167d28ce5a519e0aee05239f782accf8f4137cf0c002189e8d1456a6c17871",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/flats/castle/rooms/room_craft_room_front_right.png",
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
+    },
+    {
+      "path": "handoff_art/objects/room_craft_room_item_idea_board.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        270,
+        171
+      ],
+      "sha256": "a31bd127b197d30637c34c4b92e64e38cc2d3c64529da1185a907e07c6aaa3c3",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/flats/castle/rooms/room_craft_room_item_idea_board.png",
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
+    },
+    {
+      "path": "handoff_art/objects/room_craft_room_item_paint_table.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        224,
+        95
+      ],
+      "sha256": "b2eb0fc3a5d7c777540af1447827f6b2f98d47a658d2184d9774e407d46627aa",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/flats/castle/rooms/room_craft_room_item_paint_table.png",
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
+    },
+    {
+      "path": "handoff_art/objects/room_craft_room_item_palette.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        304,
+        256
+      ],
+      "sha256": "48a516e2da0cbef6dadc6ee68676c735148bba9cce73fc26888c49c967266374",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/flats/castle/rooms/room_craft_room_item_palette.png",
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
+    },
+    {
+      "path": "handoff_art/objects/room_craft_room_item_ribbon_rack.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        126,
+        121
+      ],
+      "sha256": "4002123cfe400e35f8fe74a3f9b17607a7dce70410086afe5fa6be63970e8999",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/flats/castle/rooms/room_craft_room_item_ribbon_rack.png",
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
     },
     {
       "path": "handoff_art/objects/loose_brush_bundle.png",
@@ -67,7 +169,7 @@
       "bound_reference_eligible": true,
       "used_as_delivery_pixels": false,
       "source_path": "assets/castle/day_one_art_studio/loose_brush_bundle.png",
-      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
     },
     {
       "path": "handoff_art/objects/paint_bottle_pink.png",
@@ -84,7 +186,7 @@
       "bound_reference_eligible": true,
       "used_as_delivery_pixels": false,
       "source_path": "assets/castle/day_one_art_studio/paint_bottle_pink.png",
-      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
     },
     {
       "path": "handoff_art/objects/paint_bottle_blue.png",
@@ -101,7 +203,7 @@
       "bound_reference_eligible": true,
       "used_as_delivery_pixels": false,
       "source_path": "assets/castle/day_one_art_studio/paint_bottle_blue.png",
-      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
     },
     {
       "path": "handoff_art/objects/paint_cups.png",
@@ -118,7 +220,7 @@
       "bound_reference_eligible": true,
       "used_as_delivery_pixels": false,
       "source_path": "assets/castle/day_one_art_studio/paint_cups.png",
-      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
     },
     {
       "path": "handoff_art/objects/grime_desk.png",
@@ -135,7 +237,7 @@
       "bound_reference_eligible": true,
       "used_as_delivery_pixels": false,
       "source_path": "assets/castle/day_one_art_studio/grime_desk.png",
-      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
     },
     {
       "path": "handoff_art/objects/grime_left.png",
@@ -152,7 +254,7 @@
       "bound_reference_eligible": true,
       "used_as_delivery_pixels": false,
       "source_path": "assets/castle/day_one_art_studio/grime_left.png",
-      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
     },
     {
       "path": "handoff_art/objects/grime_right.png",
@@ -169,27 +271,27 @@
       "bound_reference_eligible": true,
       "used_as_delivery_pixels": false,
       "source_path": "assets/castle/day_one_art_studio/grime_right.png",
-      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
     },
     {
       "path": "storyboards/ENVIRONMENT_PERSPECTIVES.png",
       "role": "multi_angle_environment_narrative_reference_only",
       "media_type": "image/png",
       "dimensions": [
-        1672,
-        941
+        1920,
+        1080
       ],
-      "sha256": "214e3c9bb6df87ea5ca0a8620f9a6747ba8176590043d0306b82c642c7fd2ff7",
-      "license_provenance": "project-original generated reference art",
-      "modifications": "none after generation",
+      "sha256": "b989a1f478f451f8b6897351864a873b5f136fd1d4b921edb770db1c4b869aa4",
+      "license_provenance": "project-owned runtime capture evidence",
+      "modifications": "whole-frame contact-sheet assembly and labels only",
       "appearance_authority": false,
       "bound_reference_eligible": false,
       "used_as_delivery_pixels": false,
       "generation": {
-        "tool": "OpenAI built-in image generation",
-        "result_id": "exec-5d2463d8-8f76-458f-8e90-51b8b96495e6.png",
+        "tool": "FFmpeg deterministic contact-sheet assembly",
+        "result_id": "runtime-capture-contact-sheet-2026-09-02",
         "prompt_path": "storyboards/PERSPECTIVE_PROMPT.txt",
-        "attempt": 2
+        "attempt": 5
       }
     },
     {
@@ -197,20 +299,20 @@
       "role": "shot_order_narrative_reference_only",
       "media_type": "image/png",
       "dimensions": [
-        1672,
-        941
+        1280,
+        1080
       ],
-      "sha256": "c32114bc7b25b16e540fece1c9b4fd3de253af660dd15b656bb5cf8262844553",
-      "license_provenance": "project-original generated reference art",
-      "modifications": "none after generation",
+      "sha256": "26bcf758c06908d1e79403cf0628d84f847577e27feceedbfc072d6e577689b2",
+      "license_provenance": "project-owned runtime capture evidence",
+      "modifications": "whole-frame contact-sheet assembly and labels only",
       "appearance_authority": false,
       "bound_reference_eligible": false,
       "used_as_delivery_pixels": false,
       "generation": {
-        "tool": "OpenAI built-in image generation",
-        "result_id": "exec-3afdf2ef-d338-4d99-94ef-4f67c396294a.png",
+        "tool": "FFmpeg deterministic contact-sheet assembly",
+        "result_id": "runtime-anchored-board-c09-2026-09-02",
         "prompt_path": "storyboards/STORYBOARD_PROMPT.txt",
-        "attempt": 2
+        "attempt": 5
       }
     },
     {
@@ -225,28 +327,28 @@
       "bound_reference_eligible": true,
       "used_as_delivery_pixels": false,
       "source_path": "design/grok_day_one_video_handoffs_2026-08-30/00_SHARED_STYLE_AND_CHARACTER_REFERENCE.txt",
-      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
     },
     {
       "path": "written_guide/SCENE_GUIDE.txt",
       "role": "exact_written_handoff_guide",
       "media_type": "text/plain",
       "dimensions": null,
-      "sha256": "38e3cf4cc8eabf285e417f66a4cb9ffad68fa892da503147ecc75377808fbe0b",
+      "sha256": "127808710049aefb208f7356f98bf2086888c8f66ddca9a01fe5ef67396e7321",
       "license_provenance": "project-owned approved authority copied losslessly",
       "modifications": "lossless byte-for-byte copy",
       "appearance_authority": true,
       "bound_reference_eligible": true,
       "used_as_delivery_pixels": false,
       "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C09_ART_ROOM_DIRTY_DISCOVERY.txt",
-      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+      "source_commit": "612ef730409040206cf2d44caf55e49dc98f0a76"
     },
     {
       "path": "written_guide/SOURCE_DOCUMENTS.json",
       "role": "written_source_provenance_and_hashes",
       "media_type": "text/plain",
       "dimensions": null,
-      "sha256": "ab0fcf2ada405313d2c4009f044d7bf84375299a1bb348536d8da8d436c83d22",
+      "sha256": "c1c46d0eeaa96ff76e0f1965a1510af37e71dc0a2f239606cbb5194f3b3dfecb",
       "license_provenance": "project-owned approved authority copied losslessly",
       "modifications": "lossless byte-for-byte copy",
       "appearance_authority": true,
@@ -258,7 +360,7 @@
       "role": "exact_environment_generation_prompt",
       "media_type": "text/plain",
       "dimensions": null,
-      "sha256": "4ca4385237d0cb09f4373bb71edece0d603ba652343027eb6825fc98737a6ba2",
+      "sha256": "6743a695d87ee2f1e6e555635d99195cb4864cac5382862e91f712677ead1968",
       "license_provenance": "project-owned approved authority copied losslessly",
       "modifications": "lossless byte-for-byte copy",
       "appearance_authority": false,
@@ -270,7 +372,7 @@
       "role": "exact_storyboard_generation_prompt",
       "media_type": "text/plain",
       "dimensions": null,
-      "sha256": "2916b9629b80c976d77a2085c46b297a223a143097fec39b57092f366682ee72",
+      "sha256": "1f53a4de532128cf2b32b2311b02509968253f3a86195e64427ad5a04ae9f455",
       "license_provenance": "project-owned approved authority copied losslessly",
       "modifications": "lossless byte-for-byte copy",
       "appearance_authority": false,
@@ -282,7 +384,7 @@
       "role": "generation_result_ids_and_attempts",
       "media_type": "text/plain",
       "dimensions": null,
-      "sha256": "7b1e7af124cd667732c4dc709d8a24ae1936226ae3f0ed2f9f013b91bc816faa",
+      "sha256": "0ed9a49a2d2e286651f786984844774c109569a6069ea81dc9a1a29813d7b205",
       "license_provenance": "project-owned approved authority copied losslessly",
       "modifications": "lossless byte-for-byte copy",
       "appearance_authority": false,
@@ -294,7 +396,7 @@
       "role": "sol_and_human_visual_review_record",
       "media_type": "text/plain",
       "dimensions": null,
-      "sha256": "e8fb495c3b416d3a5b301380cffdb8cc4d255fef3c4683f9e86148f41e89eb1e",
+      "sha256": "37da5208cea1a9146eacdd623741ec0e77698edac1a9eaa8f603b31658b611f1",
       "license_provenance": "project-owned approved authority copied losslessly",
       "modifications": "lossless byte-for-byte copy",
       "appearance_authority": false,
@@ -306,7 +408,7 @@
       "role": "supporting_prompt_generation_or_review_record",
       "media_type": "text/plain",
       "dimensions": null,
-      "sha256": "7b1e7af124cd667732c4dc709d8a24ae1936226ae3f0ed2f9f013b91bc816faa",
+      "sha256": "0ed9a49a2d2e286651f786984844774c109569a6069ea81dc9a1a29813d7b205",
       "license_provenance": "project-authored packet provenance record",
       "modifications": "none; exact retained record",
       "appearance_authority": false,
@@ -318,7 +420,93 @@
       "role": "supporting_prompt_generation_or_review_record",
       "media_type": "text/plain",
       "dimensions": null,
-      "sha256": "5d2addf63ddb185018bc8da7d26a37f3cb81ddafecdc01191a7cd7df861e96ab",
+      "sha256": "97fd07315ce4fd243dc58a56bff69ad96057e7be6f3b1bedeafc074a5549826f",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "LOCATION_GEOMETRY_LOCK.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "c311501e632d4bd194b64deab56c129cd5e179f7e0d218147aef3618f08d78f8",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+      "role": "approved_derived_identity_sheet",
+      "media_type": "image/png",
+      "dimensions": [
+        1080,
+        520
+      ],
+      "sha256": "ccf85cf97fea81b4d3a496b8e48c57ff574b43aa4978953d8a78b9b4ea7a70f3",
+      "license_provenance": "project-owned approved source assets assembled losslessly in one identity sheet",
+      "modifications": "uniform scale, neutral padding, labels, and contact-sheet assembly only",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "handoff_art/objects/FOUR_LOOSE_SUPPLY_IDENTITY_SHEET.png",
+      "role": "approved_derived_identity_sheet",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        720
+      ],
+      "sha256": "73ee8445e861da1c12753c1f8c941aea1fc083af5c09e864f72eb1cac8b1ccf8",
+      "license_provenance": "project-owned approved source assets assembled losslessly in one identity sheet",
+      "modifications": "uniform scale, neutral padding, labels, and contact-sheet assembly only",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "handoff_art/runtime_boundary/00_loose_supplies.png",
+      "role": "runtime_boundary_reference_only",
+      "media_type": "image/png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "2c0f11eda244a3913cc23a777d6be21f043b448e706d855af0c6989b1bfe1626",
+      "license_provenance": "project-owned Godot 4.7.2 runtime capture evidence",
+      "modifications": "whole-frame crop and normalization only; see CAPTURE_PROVENANCE.json",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "hud_present": true
+    },
+    {
+      "path": "handoff_art/runtime_boundary/01_grime_revealed.png",
+      "role": "runtime_boundary_reference_only",
+      "media_type": "image/png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "ad7931b71bf879fa09fba1f65401cf8855b8693b3a90b4bd2ac62087fa4b30d8",
+      "license_provenance": "project-owned Godot 4.7.2 runtime capture evidence",
+      "modifications": "whole-frame crop and normalization only; see CAPTURE_PROVENANCE.json",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "hud_present": true
+    },
+    {
+      "path": "handoff_art/runtime_boundary/CAPTURE_PROVENANCE.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "fceabac262957e8f1a51d487cb269b169ef8b730a3c71dbb6e673c2ca073c0c2",
       "license_provenance": "project-authored packet provenance record",
       "modifications": "none; exact retained record",
       "appearance_authority": false,
@@ -330,7 +518,7 @@
       "role": "supporting_prompt_generation_or_review_record",
       "media_type": "text/plain",
       "dimensions": null,
-      "sha256": "4ca4385237d0cb09f4373bb71edece0d603ba652343027eb6825fc98737a6ba2",
+      "sha256": "6743a695d87ee2f1e6e555635d99195cb4864cac5382862e91f712677ead1968",
       "license_provenance": "project-authored packet provenance record",
       "modifications": "none; exact retained record",
       "appearance_authority": false,
@@ -342,12 +530,64 @@
       "role": "supporting_prompt_generation_or_review_record",
       "media_type": "text/plain",
       "dimensions": null,
-      "sha256": "2916b9629b80c976d77a2085c46b297a223a143097fec39b57092f366682ee72",
+      "sha256": "1f53a4de532128cf2b32b2311b02509968253f3a86195e64427ad5a04ae9f455",
       "license_provenance": "project-authored packet provenance record",
       "modifications": "none; exact retained record",
       "appearance_authority": false,
       "bound_reference_eligible": false,
       "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/generated_keyframes/D1-C09-S02_IMAGEGEN_PROMPT.txt",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "a107190821e44c5fe1b8e12ff4b3211b3d4e4eb02799850ea278d94fb2cf0c83",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/generated_keyframes/D1-C09-S02_runtime_informed_candidate.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "d4cadbd623e106600df342677a75e0a429664568f4988eea6ac67092989e5c31",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "storyboards/rejected/D1-C09-S02_attempt01_forbidden_runtime_capture_binding.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "d330c66e9d18c84a74492b76e0d98cb621ba89df914fc9967745105d7eacb7fc",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
     },
     {
       "path": "storyboards/rejected/ENVIRONMENT_PERSPECTIVES_attempt01_clean_state_fail.png",
@@ -370,6 +610,66 @@
       }
     },
     {
+      "path": "storyboards/rejected/ENVIRONMENT_PERSPECTIVES_attempt02_fixture_drift.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "5f4c0eda1e7b162ba7ebb54c9e98989852b52627a26ce343c29d9d167818c43f",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "storyboards/rejected/ENVIRONMENT_PERSPECTIVES_attempt03_fixture_drift.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "99a6d6b60e748ba863962342af7efd3e9c8d6b24d24515398c1bebc3410e6c5f",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "storyboards/rejected/ENVIRONMENT_PERSPECTIVES_superseded_runtime_mismatch_2026-09-02.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "214e3c9bb6df87ea5ca0a8620f9a6747ba8176590043d0306b82c642c7fd2ff7",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
       "path": "storyboards/rejected/SCENE_SHOT_BOARD_attempt01_wrong_tool_target.png",
       "role": "rejected_or_supporting_generated_narrative_reference",
       "media_type": "image/png",
@@ -378,6 +678,26 @@
         941
       ],
       "sha256": "32b52fbefb14b2ea6f0a21bb2a9750d48030e6cd143c7bd3b5d65ca5fbe49a84",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "storyboards/rejected/SCENE_SHOT_BOARD_superseded_runtime_mismatch_2026-09-02.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "c32114bc7b25b16e540fece1c9b4fd3de253af660dd15b656bb5cf8262844553",
       "license_provenance": "project-original generated reference art",
       "modifications": "none after generation",
       "appearance_authority": false,
