@@ -229,7 +229,10 @@ def build_scene(scene: dict[str, Any], slate: dict[str, Any], archive_commit: st
 			record["license_provenance"] = "project-owned runtime capture evidence"
 			record["modifications"] = "whole-frame contact-sheet assembly and labels only"
 		assets.append(record)
-		license_lines.append(f"- `{path.relative_to(ROOT).as_posix()}` — project-original complete flattened image generated with OpenAI built-in image generation (`{generation['result_id']}`); modifications: none after generation; narrative-reference-only, never bound generation or delivery pixels; provenance in sibling prompt/result records.")
+		if str(result.get("result_id", "")).startswith("runtime-"):
+			license_lines.append(f"- `{path.relative_to(ROOT).as_posix()}` — deterministic contact sheet assembled from project-owned Godot 4.7.2 runtime capture evidence (`{generation['result_id']}`); whole-frame assembly and labels only; narrative/runtime-boundary reference only, never bound generation or delivery pixels; provenance in sibling capture/result records.")
+		else:
+			license_lines.append(f"- `{path.relative_to(ROOT).as_posix()}` — project-original complete flattened image generated with OpenAI built-in image generation (`{generation['result_id']}`); modifications: none after generation; narrative-reference-only, never bound generation or delivery pixels; provenance in sibling prompt/result records.")
 
 	for target, source_path in ((shared_target, SHARED_SOURCE), (scene_target, guide_source)):
 		assets.append(asset_record(target, packet, "exact_written_handoff_guide", {"source_path": source_path.relative_to(ROOT).as_posix(), "source_commit": SOURCE_COMMIT}))
