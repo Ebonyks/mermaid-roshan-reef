@@ -1,9 +1,6 @@
-Use case: illustration-story
-Asset type: corrected narrative-only multi-angle environment perspective sheet for D1-C09 dirty Art Room
-Input images: Image 1 is the rejected layout authority—preserve its exact six-panel camera addresses, room architecture and gutters, but do not preserve its clean/organized state. Image 2 owns the exact lavender paint-grime appearance. Image 3 owns the loose brush bundle. Image 4 owns the separate pink and blue paint bottles.
-Primary request: Generate a fresh complete flattened 16:9 six-panel perspective sheet, not a localized edit. Keep the same coherent Art Room and same six views as Image 1, but make the dirty discovery state unmistakable in every applicable view.
-Exactly four loose supply groups must be visibly out of place and countable across the room: one loose brush bundle, one pink bottle, one blue bottle, and one group of paint cups. Exactly three large integrated lavender paint-grime zones must be visibly readable on the center desk, left counter, and right counter. Show natural contact shadows, small associated spills, and child-safe disorder. The magic desk remains dormant. No stored duplicates of those four groups.
-Style/medium: polished flattened 2D storybook illustration with navy/plum contours, broad painted bands, aqua/lavender shadows.
-Composition: exactly six equal wide panels in a 3-by-2 grid, clean pearl-white gutters, left-to-right/top-to-bottom. Character-free.
-Constraints: retain fixed windows, columns, ribbons, shelves, counters, center table, floor and entrance registration from Image 1; dirty state must read at phone size; supplies visibly loose, counters visibly grimy.
-Avoid: clean/organized read, hidden grime, extra or duplicated supplies, cleaning, characters, text, labels, numbers, arrows, UI, watermark, toxic sludge, photorealism, 3D, PBR.
+Use case: runtime continuity evidence
+Asset type: deterministic four-panel Art Room state sheet for D1-C09 and D1-C10
+Inputs: exact Godot 4.7.2 Forward Mobile captures 00_loose_supplies, 01_grime_revealed, 02_last_grime, and 03_glowing_desk.
+Primary request: Assemble the four complete 1280x720 runtime frames into a labeled two-by-two contact sheet without changing any room or character pixels. Labels identify the state and declare RUNTIME HUD REF.
+Authority: the sheet locks screen-space topology, fixture order, object count, and state transitions only. HUD remains visible and makes every panel ineligible as IMAGE_1 or delivery pixels.
+Avoid: generative extrapolation, doorway/reverse views, fixture changes, crop presented as new perspective, or any claim of production-frame approval.

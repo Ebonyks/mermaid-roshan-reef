@@ -1,11 +1,10 @@
 # Generation review — D1-C09
 
-Status: `ACCEPTED_BY_SOL_VISUAL_REVIEW`
+Status: `RUNTIME_ANCHORED_NARRATIVE_ONLY`
 
-- Candidate environment has six character-free angles and visibly dirty counters, four loose supply groups, and the intended desk/left/right grime zones.
-- Candidate storyboard has exactly five panels. S05 now targets the approved magic cleaning brush with a visible pre-contact gap.
-- Rejected attempts retained: 2.
-  - Environment attempt 1 read clean and organized.
-  - Storyboard attempt 1 targeted ordinary supplies rather than the magic cleaning brush.
-- Review concern: smaller incidental floor paint marks extend beyond the three authored counter grime zones. They are atmosphere only and must not become additional gameplay targets.
-- These images are narrative reference only, never Grok opening-frame or delivery-pixel authority.
+- The selected environment sheet is built from exact Godot 4.7.2 runtime states, not invented views. It locks the single front projection and intentionally retains HUD as a warning that it is boundary evidence only.
+- The five-beat board uses runtime frames for the loose-supply and grime states plus one newly generated full-frame front-scan illustration.
+- The earlier six-view environment and doorway/reverse storyboard are rejected and retained with hashes. Two later environment refinements are also rejected for fixture drift.
+- The first runtime-informed S02 attempt is separately rejected because it bound a HUD-bearing gameplay capture; the replacement uses only the approved room, fixture, character, and object authorities.
+- The generated scan keeps the front projection but still has minor fixture-detail drift, so it is narrative-only and cannot become `IMAGE_1`.
+- `ARCHIVE_COMPLETE`, `GENERATION_READY`, and `DELIVERY_ACCEPTED` remain separate; the latter two are false.
