@@ -2,31 +2,37 @@
   "schema": "grok-visual-generation-results-v1",
   "scene_id": "D1-C09",
   "generator": "OpenAI built-in image_gen",
-  "method": "fresh_complete_flattened_generation",
+  "method": "runtime_capture_authority_plus_full_frame_generation_and_deterministic_contact_sheet",
   "storyboard_disposition": "narrative_only_not_pixel_reference",
   "agent_prescreen": "accepted",
   "environment": {
     "accepted_path": "storyboards/ENVIRONMENT_PERSPECTIVES.png",
-    "sha256": "214e3c9bb6df87ea5ca0a8620f9a6747ba8176590043d0306b82c642c7fd2ff7",
+    "sha256": "b989a1f478f451f8b6897351864a873b5f136fd1d4b921edb770db1c4b869aa4",
     "prompt_path": "prompts/ENVIRONMENT_PERSPECTIVES.txt",
-    "prompt_sha256": "4ca4385237d0cb09f4373bb71edece0d603ba652343027eb6825fc98737a6ba2",
-    "accepted_result_id": "exec-5d2463d8-8f76-458f-8e90-51b8b96495e6.png",
+    "prompt_sha256": "6743a695d87ee2f1e6e555635d99195cb4864cac5382862e91f712677ead1968",
+    "accepted_result_id": "runtime-capture-contact-sheet-2026-09-02",
     "attempts": [
       {"attempt": 1, "result_id": "exec-e95c30df-98e1-48bd-80d8-b37e2d9388f9.png", "path": "storyboards/rejected/ENVIRONMENT_PERSPECTIVES_attempt01_clean_state_fail.png", "sha256": "8ee0a9477cf67b545cf543e432a04fd2a6a546c4037bae60f8307bd096d65e25", "decision": "rejected", "finding": "clean organized read; four loose supply zones and three grime zones were not visible"},
-      {"attempt": 2, "result_id": "exec-5d2463d8-8f76-458f-8e90-51b8b96495e6.png", "path": "storyboards/ENVIRONMENT_PERSPECTIVES.png", "decision": "accepted_by_sol_visual_review"}
+      {"attempt": 2, "result_id": "exec-5d2463d8-8f76-458f-8e90-51b8b96495e6.png", "path": "storyboards/rejected/ENVIRONMENT_PERSPECTIVES_superseded_runtime_mismatch_2026-09-02.png", "sha256": "214e3c9bb6df87ea5ca0a8620f9a6747ba8176590043d0306b82c642c7fd2ff7", "decision": "rejected_after_runtime_comparison", "finding": "invented doors, reverse walls, round work areas, extra shelving, and oversized grime"},
+      {"attempt": 3, "result_id": "exec-1867b736-4489-4e0d-81df-bf3f55afd4e2.png", "path": "storyboards/rejected/ENVIRONMENT_PERSPECTIVES_attempt02_fixture_drift.png", "decision": "rejected", "finding": "front view still rearranged idea board, ribbons, storage, and foreground fixtures"},
+      {"attempt": 4, "result_id": "exec-386fc76b-2428-4c8e-a489-a0b12ae4405d.png", "path": "storyboards/rejected/ENVIRONMENT_PERSPECTIVES_attempt03_fixture_drift.png", "decision": "rejected", "finding": "refinement still replaced runtime fixture identities"},
+      {"attempt": 5, "result_id": "runtime-capture-contact-sheet-2026-09-02", "path": "storyboards/ENVIRONMENT_PERSPECTIVES.png", "decision": "accepted_as_runtime_boundary_contact_sheet_only"}
     ],
-    "review_concern": "The three intended grime zones are visible, but the generated dirty grade also scatters smaller paint marks across the floor; treat only desk/left-counter/right-counter zones as story authority."
+    "review_concern": "The selected sheet intentionally retains runtime HUD and is boundary/topology evidence only; it is never IMAGE_1 or delivery pixels."
   },
   "storyboard": {
     "accepted_path": "storyboards/SCENE_SHOT_BOARD.png",
-    "sha256": "c32114bc7b25b16e540fece1c9b4fd3de253af660dd15b656bb5cf8262844553",
+    "sha256": "26bcf758c06908d1e79403cf0628d84f847577e27feceedbfc072d6e577689b2",
     "prompt_path": "prompts/SCENE_SHOT_BOARD.txt",
-    "prompt_sha256": "2916b9629b80c976d77a2085c46b297a223a143097fec39b57092f366682ee72",
-    "accepted_result_id": "exec-3afdf2ef-d338-4d99-94ef-4f67c396294a.png",
+    "prompt_sha256": "1f53a4de532128cf2b32b2311b02509968253f3a86195e64427ad5a04ae9f455",
+    "accepted_result_id": "runtime-anchored-board-c09-2026-09-02",
     "shot_count": 5,
     "attempts": [
       {"attempt": 1, "result_id": "exec-297e7429-7255-487a-937a-0334fb1b76f6.png", "path": "storyboards/rejected/SCENE_SHOT_BOARD_attempt01_wrong_tool_target.png", "sha256": "32b52fbefb14b2ea6f0a21bb2a9750d48030e6cd143c7bd3b5d65ca5fbe49a84", "decision": "rejected", "finding": "S05 reached toward ordinary supplies instead of the approved magic cleaning brush"},
-      {"attempt": 2, "result_id": "exec-3afdf2ef-d338-4d99-94ef-4f67c396294a.png", "path": "storyboards/SCENE_SHOT_BOARD.png", "decision": "accepted_by_sol_visual_review"}
+      {"attempt": 2, "result_id": "exec-3afdf2ef-d338-4d99-94ef-4f67c396294a.png", "path": "storyboards/rejected/SCENE_SHOT_BOARD_superseded_runtime_mismatch_2026-09-02.png", "sha256": "c32114bc7b25b16e540fece1c9b4fd3de253af660dd15b656bb5cf8262844553", "decision": "rejected_after_runtime_comparison", "finding": "invented doorway and non-runtime room arrangement"},
+      {"attempt": 3, "result_id": "exec-6b3ed8ec-9a86-4f77-a27e-b0e021c426f3.png", "path": "storyboards/rejected/D1-C09-S02_attempt01_forbidden_runtime_capture_binding.png", "sha256": "d330c66e9d18c84a74492b76e0d98cb621ba89df914fc9967745105d7eacb7fc", "decision": "rejected_protocol_violation", "finding": "HUD-bearing gameplay capture was incorrectly bound as a generation image"},
+      {"attempt": 4, "result_id": "exec-591336e6-8fca-46d2-b867-3ab6ab0f78e2.png", "path": "storyboards/generated_keyframes/D1-C09-S02_runtime_informed_candidate.png", "sha256": "d4cadbd623e106600df342677a75e0a429664568f4988eea6ac67092989e5c31", "decision": "accepted_for_narrative_board_only", "finding": "approved non-HUD authorities used; minor fixture-detail drift still blocks IMAGE_1"},
+      {"attempt": 5, "result_id": "runtime-anchored-board-c09-2026-09-02", "path": "storyboards/SCENE_SHOT_BOARD.png", "decision": "accepted_as_narrative_board_only"}
     ]
   }
 }

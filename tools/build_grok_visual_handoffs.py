@@ -41,8 +41,8 @@ SCENES: list[dict[str, Any]] = [
 	{"id":"D1-C06","slug":"d1_c06_pool_purification_rumi_hug_visual_v1","title":"Sparkle Pool — Purification, Rumi and Hug","guide":"D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt","location":"assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png","characters":["roshan","rumi"],"objects":["assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_waterfall_rest.png","assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_seahorse_fountain_rest.png","assets/castle/day_one_pool/activities/seahorse_mouth_trash.png"]},
 	{"id":"D1-C07","slug":"d1_c07_stuffie_dirty_discovery_visual_v1","title":"Stuffie Room — Dirty Discovery","guide":"D1-C07_STUFFIE_DIRTY_DISCOVERY.txt","location":"assets/flats/castle/rooms/room_playroom_background.png","characters":["roshan","baby_eagle_pinned","playroom_bunny"],"objects":["assets/flats/castle/rooms/room_playroom_item_play_tent.png","assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png"]},
 	{"id":"D1-C08","slug":"d1_c08_stuffie_restoration_visual_v1","title":"Stuffie Room — Basket and Wing-Blast Restoration","guide":"D1-C08_STUFFIE_RESTORATION.txt","location":"assets/flats/castle/rooms/room_playroom_background.png","characters":["roshan","baby_eagle_standing","playroom_bunny"],"objects":["assets/flats/castle/rooms/room_playroom_item_play_tent.png","assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png"]},
-	{"id":"D1-C09","slug":"d1_c09_art_room_dirty_discovery_visual_v1","title":"Art Room — Spilled Supplies Discovery","guide":"D1-C09_ART_ROOM_DIRTY_DISCOVERY.txt","location":"assets/flats/castle/rooms/room_craft_room_background.png","characters":["roshan"],"objects":["assets/castle/day_one_art_studio/loose_brush_bundle.png","assets/castle/day_one_art_studio/paint_bottle_pink.png","assets/castle/day_one_art_studio/paint_bottle_blue.png","assets/castle/day_one_art_studio/paint_cups.png","assets/castle/day_one_art_studio/grime_desk.png","assets/castle/day_one_art_studio/grime_left.png","assets/castle/day_one_art_studio/grime_right.png"]},
-	{"id":"D1-C10","slug":"d1_c10_art_room_restored_visual_v1","title":"Art Room — Clean Desk Awakening","guide":"D1-C10_ART_ROOM_RESTORED.txt","location":"assets/flats/castle/rooms/room_craft_room_background.png","characters":["roshan"],"objects":["assets/castle/day_one_art_studio/loose_brush_bundle.png","assets/castle/day_one_art_studio/paint_bottle_pink.png","assets/castle/day_one_art_studio/paint_bottle_blue.png","assets/castle/day_one_art_studio/paint_cups.png","assets/castle/day_one_art_studio/magic_cleaning_brush.png"]},
+	{"id":"D1-C09","slug":"d1_c09_art_room_dirty_discovery_visual_v1","title":"Art Room — Spilled Supplies Discovery","guide":"D1-C09_ART_ROOM_DIRTY_DISCOVERY.txt","location":"assets/flats/castle/rooms/room_craft_room_background.png","characters":["roshan"],"objects":["assets/flats/castle/rooms/room_craft_room_front_left.png","assets/flats/castle/rooms/room_craft_room_front_right.png","assets/flats/castle/rooms/room_craft_room_item_idea_board.png","assets/flats/castle/rooms/room_craft_room_item_paint_table.png","assets/flats/castle/rooms/room_craft_room_item_palette.png","assets/flats/castle/rooms/room_craft_room_item_ribbon_rack.png","assets/castle/day_one_art_studio/loose_brush_bundle.png","assets/castle/day_one_art_studio/paint_bottle_pink.png","assets/castle/day_one_art_studio/paint_bottle_blue.png","assets/castle/day_one_art_studio/paint_cups.png","assets/castle/day_one_art_studio/grime_desk.png","assets/castle/day_one_art_studio/grime_left.png","assets/castle/day_one_art_studio/grime_right.png"]},
+	{"id":"D1-C10","slug":"d1_c10_art_room_restored_visual_v1","title":"Art Room — Clean Desk Awakening","guide":"D1-C10_ART_ROOM_RESTORED.txt","location":"assets/flats/castle/rooms/room_craft_room_background.png","characters":["roshan"],"objects":["assets/flats/castle/rooms/room_craft_room_front_left.png","assets/flats/castle/rooms/room_craft_room_front_right.png","assets/flats/castle/rooms/room_craft_room_item_idea_board.png","assets/flats/castle/rooms/room_craft_room_item_paint_table.png","assets/flats/castle/rooms/room_craft_room_item_palette.png","assets/flats/castle/rooms/room_craft_room_item_ribbon_rack.png","assets/castle/day_one_art_studio/loose_brush_bundle.png","assets/castle/day_one_art_studio/paint_bottle_pink.png","assets/castle/day_one_art_studio/paint_bottle_blue.png","assets/castle/day_one_art_studio/paint_cups.png","assets/castle/day_one_art_studio/magic_cleaning_brush.png"]},
 	{"id":"D1-C11","slug":"d1_c11_grand_puff_reveal_visual_v1","title":"Boss Door and Grand Puff Reveal","guide":"D1-C11_GRAND_PUFF_REVEAL.txt","location":"assets/flats/castle/main_hall_2screen/main_hall_screen_b_room_led_master.png","characters":["roshan","grand_puff"],"objects":["assets/flats/castle/main_hall_2screen/main_hall_screen_a_room_led_master.png","assets/sprites/dust_bunnies/boss/dust_bunny_boss_jump.png","assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png"]},
 	{"id":"D1-C12","slug":"d1_c12_restored_castle_finale_visual_v1","title":"Day One Restored-Castle Celebration","guide":"D1-C12_RESTORED_CASTLE_FINALE.txt","location":"assets/flats/castle/main_hall_2screen/main_hall_screen_a_room_led_master.png","characters":["roshan","daddy","rumi","baby_eagle_standing","playroom_bunny","grand_puff","swimming_bunny"],"objects":["assets/flats/castle/main_hall_2screen/main_hall_screen_b_room_led_master.png"]},
 	{"id":"D1-C13","slug":"d1_c13_grand_puff_friendship_completion_visual_v1","title":"Grand Puff Friendship Completion","guide":"D1-C13_GRAND_PUFF_FRIENDSHIP_COMPLETION.txt","location":"assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/location_authorities/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png","characters":["roshan","daddy","baby_eagle_standing","rumi","grand_puff"],"objects":["assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png","assets/sprites/dust_bunnies/boss/dust_bunny_boss_implode.png"]},
@@ -218,12 +218,16 @@ def build_scene(scene: dict[str, Any], slate: dict[str, Any], archive_commit: st
 			continue
 		result = selected_result(results, f"storyboards/{filename}") if isinstance(results, dict) else {}
 		generation = {
-			"tool": "OpenAI built-in image generation",
+			"tool": "FFmpeg deterministic contact-sheet assembly" if str(result.get("result_id", "")).startswith("runtime-") else "OpenAI built-in image generation",
 			"result_id": result.get("result_id", "unrecorded"),
 			"prompt_path": f"storyboards/{'PERSPECTIVE_PROMPT.txt' if filename.startswith('ENVIRONMENT') else 'STORYBOARD_PROMPT.txt'}",
 			"attempt": result.get("attempt", 1),
 		}
-		assets.append(asset_record(path, packet, role, generation=generation))
+		record = asset_record(path, packet, role, generation=generation)
+		if str(result.get("result_id", "")).startswith("runtime-"):
+			record["license_provenance"] = "project-owned runtime capture evidence"
+			record["modifications"] = "whole-frame contact-sheet assembly and labels only"
+		assets.append(record)
 		license_lines.append(f"- `{path.relative_to(ROOT).as_posix()}` — project-original complete flattened image generated with OpenAI built-in image generation (`{generation['result_id']}`); modifications: none after generation; narrative-reference-only, never bound generation or delivery pixels; provenance in sibling prompt/result records.")
 
 	for target, source_path in ((shared_target, SHARED_SOURCE), (scene_target, guide_source)):
@@ -276,9 +280,18 @@ def build_scene(scene: dict[str, Any], slate: dict[str, Any], archive_commit: st
 		if rel in recorded_paths or rel in self_files:
 			continue
 		if path.suffix.lower() in {".png", ".jpg", ".jpeg"}:
-			result_id = path.stem if path.stem.startswith("exec-") else "recorded_in_GENERATION_RESULTS.json"
-			record = asset_record(path, packet, "rejected_or_supporting_generated_narrative_reference", generation={"tool":"OpenAI built-in image generation","result_id":result_id,"attempt":"see generation result record"})
-			license_lines.append(f"- `{path.relative_to(ROOT).as_posix()}` — project-original complete flattened image generated with OpenAI built-in image generation; modifications: none after generation; rejected/supporting narrative-reference-only record, never bound generation or delivery pixels; provenance in packet generation records.")
+			if rel.startswith("handoff_art/runtime_boundary/"):
+				record = asset_record(path, packet, "runtime_boundary_reference_only")
+				record.update({"appearance_authority":False,"bound_reference_eligible":False,"used_as_delivery_pixels":False,"hud_present":True,"license_provenance":"project-owned Godot 4.7.2 runtime capture evidence","modifications":"whole-frame crop and normalization only; see CAPTURE_PROVENANCE.json"})
+				license_lines.append(f"- `{path.relative_to(ROOT).as_posix()}` — project-owned Godot 4.7.2 runtime capture; whole-frame crop/normalization only; HUD-bearing boundary reference, never bound or delivery pixels.")
+			elif path.name in {"ART_ROOM_FIXTURE_IDENTITY_SHEET.png", "FOUR_LOOSE_SUPPLY_IDENTITY_SHEET.png"}:
+				record = asset_record(path, packet, "approved_derived_identity_sheet")
+				record.update({"appearance_authority":True,"bound_reference_eligible":True,"used_as_delivery_pixels":False,"license_provenance":"project-owned approved source assets assembled losslessly in one identity sheet","modifications":"uniform scale, neutral padding, labels, and contact-sheet assembly only"})
+				license_lines.append(f"- `{path.relative_to(ROOT).as_posix()}` — deterministic identity sheet from project-owned approved source assets; non-runtime generator reference only.")
+			else:
+				result_id = path.stem if path.stem.startswith("exec-") else "recorded_in_GENERATION_RESULTS.json"
+				record = asset_record(path, packet, "rejected_or_supporting_generated_narrative_reference", generation={"tool":"OpenAI built-in image generation","result_id":result_id,"attempt":"see generation result record"})
+				license_lines.append(f"- `{path.relative_to(ROOT).as_posix()}` — project-original complete flattened image generated with OpenAI built-in image generation; modifications: none after generation; rejected/supporting narrative-reference-only record, never bound generation or delivery pixels; provenance in packet generation records.")
 		else:
 			record = asset_record(path, packet, "supporting_prompt_generation_or_review_record")
 			record["appearance_authority"] = False
@@ -349,11 +362,11 @@ def build_scene(scene: dict[str, Any], slate: dict[str, Any], archive_commit: st
 3. Generate one shot job at a time with two to four separately approved pixel authorities.
 4. Never upload either generated sheet below as `IMAGE_1` or as delivery pixels.
 
-## Multi-angle environment depth
+## Environment continuity and runtime state
 
-![Multi-angle environment perspective sheet]({perspective_image})
+![Environment continuity and runtime-state sheet]({perspective_image})
 
-This is a newly generated, complete flattened narrative/topology reference. It demonstrates spatial depth and camera possibilities, but it is not an approved shot opening frame.
+This sheet records the permitted location projection and state continuity. It is narrative/runtime evidence only and is not an approved shot opening frame.
 
 ## Shot-aligned storyboard
 

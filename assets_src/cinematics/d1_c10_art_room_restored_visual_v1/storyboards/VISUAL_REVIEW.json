@@ -3,13 +3,13 @@
   "movie_id": "D1-C10",
   "review_authority": "sol_visual_review",
   "review_date": "2026-09-02",
-  "agent_prescreen": "accepted",
+  "agent_prescreen": "accepted_runtime_anchored_narrative_only",
   "human_decision": "pending",
   "perspective_gates": {
-    "expected_panel_count": 6,
-    "exactly_six_angles": "accepted",
-    "character_free": "accepted",
-    "environment_continuity": "accepted",
+    "expected_panel_count": 4,
+    "exact_runtime_states": "accepted",
+    "single_front_projection": "accepted",
+    "environment_continuity": "accepted_against_Godot_4_7_2_captures",
     "state_continuity": "accepted",
     "technical_integrity": "accepted"
   },
@@ -28,6 +28,11 @@
     "not_delivery_pixels": true,
     "used_as_delivery_pixels": false
   },
+  "blocking_notes": [
+    "Runtime panels intentionally retain HUD and are never IMAGE_1 or delivery pixels.",
+    "The generated S01 brush-contact keyframe is authored narrative reference, not runtime footage or an accepted first frame.",
+    "Five owner-approved HUD-free complete opening frames are still required."
+  ],
   "claims": {
     "archive_complete": false,
     "generation_ready": false,
