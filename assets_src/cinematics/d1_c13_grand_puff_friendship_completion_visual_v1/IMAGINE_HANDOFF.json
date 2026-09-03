@@ -1,0 +1,160 @@
+{
+  "schema": "imagine-handoff-v2",
+  "handoff_id": "d1_c13_grand_puff_friendship_completion_visual_v1",
+  "archive_status": "complete",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "blocking_findings": [
+    "No shot has an owner-approved clean HUD-free complete opening frame.",
+    "No continuity-dependent shot binds the accepted complete end frame of its predecessor.",
+    "Generated perspective and storyboard sheets are narrative-only and cannot be bound as generation pixels."
+  ],
+  "story_contract": {
+    "one_sentence_promise": "Grand Puff has become a friend after the third-hit FRIENDS transition becomes Grand Puff is clean and friendly with one rainbow dust bunny settled beside him before the C12 celebration.",
+    "ordered_beats": [
+      {
+        "beat_id": "D1-C13-S01",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Roshan and Grand Puff only."
+      },
+      {
+        "beat_id": "D1-C13-S02",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Daddy Mermaid and Grand Puff only."
+      },
+      {
+        "beat_id": "D1-C13-S03",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Exactly one Baby Eagle and Grand Puff only."
+      },
+      {
+        "beat_id": "D1-C13-S04",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Rumi and Grand Puff only."
+      },
+      {
+        "beat_id": "D1-C13-S05",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Grand Puff and exactly one small rainbow dust bunny only."
+      }
+    ],
+    "forbidden_events": [
+      "No premature payoff or scene-state transition.",
+      "No identity, anatomy, cast-count, fixture-count, or room-topology drift."
+    ],
+    "final_state": "Grand Puff is clean and friendly with one rainbow dust bunny settled beside him before the C12 celebration"
+  },
+  "character_authorities": [
+    {
+      "character_id": "roshan",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "immutable_traits": [
+        "child face and age",
+        "brown hair with rainbow section",
+        "pink top and tiara"
+      ],
+      "anatomy_traits": [
+        "exactly two arms and one continuous mer-tail"
+      ],
+      "forbidden_drift": [
+        "legs or shoes",
+        "adult redesign"
+      ]
+    },
+    {
+      "character_id": "daddy",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/daddy_daddy_master.png",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "immutable_traits": [
+        "adult crowned father",
+        "dark rectangular glasses",
+        "navy and gold clothing with teal cape"
+      ],
+      "anatomy_traits": [
+        "taller than Roshan with one continuous mer-tail"
+      ],
+      "forbidden_drift": [
+        "generic king",
+        "missing glasses or tail"
+      ]
+    },
+    {
+      "character_id": "baby_eagle_standing",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+      "immutable_traits": [
+        "turquoise yellow and pink child bird",
+        "approved beak and face",
+        "upright friendly posture"
+      ],
+      "anatomy_traits": [
+        "exactly one bird with two wings and two feet"
+      ],
+      "forbidden_drift": [
+        "backpack",
+        "cropped or duplicated body"
+      ]
+    },
+    {
+      "character_id": "rumi",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "immutable_traits": [
+        "enormous violet braided ponytail",
+        "pointed ears and star-shell earrings",
+        "navy lavender gold-trim jacket"
+      ],
+      "anatomy_traits": [
+        "two arms and one aqua-to-violet mer-tail with coral split fin"
+      ],
+      "forbidden_drift": [
+        "rejected generic pool mermaid",
+        "legs or altered braid"
+      ]
+    },
+    {
+      "character_id": "grand_puff",
+      "status": "approved",
+      "path": "handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "immutable_traits": [
+        "three-tier grey lavender body",
+        "huge spiral ears with pearl joints",
+        "plum eyes coral blush and compact grin"
+      ],
+      "anatomy_traits": [
+        "symmetrical ears, pearl paws and exactly two visible teeth"
+      ],
+      "forbidden_drift": [
+        "sharp monster teeth",
+        "missing tiers or asymmetrical ear redesign"
+      ]
+    }
+  ],
+  "location_authority": {
+    "path": "handoff_art/location/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+    "sha256": "ba0048fc93bc8cf752d0424200a1d1a0c03676ed78916a0c3bf335a60ec6a74e",
+    "immutable_features": [
+      "fixed entrance and exit geography",
+      "fixed landmark and fixture order",
+      "consistent scale and navigable volume"
+    ],
+    "forbidden_geometry": [
+      "no invented room, basin, doorway, platform, or fixture relocation"
+    ]
+  },
+  "archive_remote": {
+    "commit": "b8594d8aa04b6f2e0d3776b2e1805e2cc120b518",
+    "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/b8594d8aa04b6f2e0d3776b2e1805e2cc120b518/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1",
+    "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/b8594d8aa04b6f2e0d3776b2e1805e2cc120b518/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/HANDOFF_PACKET.json",
+    "readme": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/b8594d8aa04b6f2e0d3776b2e1805e2cc120b518/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/README.md",
+    "verified_via": "GitHub recursive commit-tree API; every HANDOFF_PACKET asset path resolved",
+    "verified_at": "2026-09-02T00:00:00-07:00"
+  }
+}

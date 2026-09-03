@@ -1,0 +1,55 @@
+{
+  "schema": "grok-first-frame-review-v1",
+  "scene_id": "D1-C02",
+  "reviewer": "Codex Sol orchestration",
+  "reviewed_at": "2026-09-02T00:00:00-07:00",
+  "geometry_lock": "LOCATION_GEOMETRY_LOCK.json",
+  "human_approval_required": true,
+  "shots": [
+    {
+      "shot_id": "D1-C02-S01",
+      "path": "S01_FIRST_FRAME.png",
+      "sha256": "53e34ddee834ab8fd9dc39c473c380ce24ec236cf92fb759d6a43b6b3c2616e6",
+      "sol_decision": "blocked",
+      "blockers": ["The exact accepted D1-C01-S04 endpoint is not available for comparison or inheritance."],
+      "human_decision": "pending",
+      "eligible_as_image_1": false
+    },
+    {
+      "shot_id": "D1-C02-S02",
+      "path": "S02_FIRST_FRAME.png",
+      "sha256": "3d3aef9fcaf2133380af45c7b0e0374275e0537c88aa94462d433a1a11be9750",
+      "generation_result_id": "exec-15277854-4c83-4776-bd8d-b14689f158d4",
+      "prompt_path": "../generation_prompts/D1-C02-S02_attempt03.txt",
+      "prompt_sha256": "4f21605fcc548b53e50608a98277c4763332c109a9e42949e38a6a11a418e66e",
+      "sol_decision": "pass_topology_candidate",
+      "blockers": ["Human topology, identity, and style approval is pending."],
+      "human_decision": "pending",
+      "eligible_as_image_1": false
+    },
+    {
+      "shot_id": "D1-C02-S03",
+      "path": "S03_FIRST_FRAME.png",
+      "sha256": "5b8b6a90d99ba787573e605349949ed71993e9df916cebead417ce6b6f3375b2",
+      "generation_result_id": "exec-822c56ad-a913-4b12-b35e-1a3ccf899fb4",
+      "prompt_path": "../generation_prompts/D1-C02-S03_attempt03.txt",
+      "prompt_sha256": "64bd9b276f9ca604ea91fe2291e8531bb4981f035e998462ac8c70a080bb0b48",
+      "sol_decision": "pass_topology_candidate",
+      "blockers": ["Human topology, identity, and style approval is pending."],
+      "human_decision": "pending",
+      "eligible_as_image_1": false
+    },
+    {
+      "shot_id": "D1-C02-S04",
+      "path": "S04_FIRST_FRAME.png",
+      "sha256": "87159ad6bfe8410b7927522410495e8e4c686d67a347602b71f5f217ecc76bcc",
+      "generation_result_id": "exec-900902a4-53aa-4e3c-917b-66f35c4d603e",
+      "prompt_path": "../generation_prompts/D1-C02-S04_attempt03.txt",
+      "prompt_sha256": "0069386eb3b2c6a485d13702c00265b5446b4e45e2f319605469eb25108917b1",
+      "sol_decision": "pass_topology_candidate",
+      "blockers": ["Human topology, identity, and style approval is pending."],
+      "human_decision": "pending",
+      "eligible_as_image_1": false
+    }
+  ]
+}

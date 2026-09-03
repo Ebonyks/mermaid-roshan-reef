@@ -1,0 +1,42 @@
+{
+  "schema": "location-geometry-lock-v1",
+  "purpose": "Fail closed when a cinematic first frame invents, removes, merges, or reorders location geometry.",
+  "location_id": "<stable location id>",
+  "camera_family": "<orthographic side elevation, approved reverse, approved three-quarter, etc.>",
+  "source_authorities": [
+    {
+      "path": "<packet-relative approved source image>",
+      "sha256": "<64 lowercase hex>",
+      "dimensions": [1280, 720],
+      "appearance_role": "location_topology_authority"
+    }
+  ],
+  "ordered_landmarks_left_to_right": [
+    {
+      "landmark_id": "<stable id>",
+      "kind": "<portal, column, window, fixture, stair, etc.>",
+      "required": true,
+      "normalized_x_range": [0.0, 1.0],
+      "notes": "<identity and adjacency constraints>"
+    }
+  ],
+  "global_invariants": [
+    "Do not combine two location masters into an invented third space.",
+    "A portal opening must remain open to the floor unless the authority shows a sill.",
+    "Absent stairs, balconies, doors, windows, and fixtures are forbidden additions."
+  ],
+  "candidate_reviews": [
+    {
+      "shot_id": "<shot id>",
+      "path": "<packet-relative first-frame candidate>",
+      "sha256": "<64 lowercase hex>",
+      "authority_source_ids": ["<source id>"],
+      "landmark_order_decision": "pending",
+      "portal_floor_openings_decision": "pending",
+      "fixture_count_decision": "pending",
+      "forbidden_additions_decision": "pending",
+      "human_decision": "pending",
+      "eligible_as_image_1": false
+    }
+  ]
+}

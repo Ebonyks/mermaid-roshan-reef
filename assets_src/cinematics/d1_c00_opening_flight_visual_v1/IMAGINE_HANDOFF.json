@@ -1,0 +1,111 @@
+{
+  "schema": "imagine-handoff-v2",
+  "handoff_id": "d1_c00_opening_flight_visual_v1",
+  "archive_status": "complete",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "blocking_findings": [
+    "No shot has an owner-approved clean HUD-free complete opening frame.",
+    "No continuity-dependent shot binds the accepted complete end frame of its predecessor.",
+    "Generated perspective and storyboard sheets are narrative-only and cannot be bound as generation pixels."
+  ],
+  "story_contract": {
+    "one_sentence_promise": "Pearl plane in flight before Sky Lagoon is revealed becomes Roshan and Daddy see Sky Lagoon and prepare to land.",
+    "ordered_beats": [
+      {
+        "beat_id": "D1-C00-S01",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Wide exterior."
+      },
+      {
+        "beat_id": "D1-C00-S02",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Interior cabin two-shot."
+      },
+      {
+        "beat_id": "D1-C00-S03",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Roshan discovery close shot from inside the plane."
+      },
+      {
+        "beat_id": "D1-C00-S04",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Medium two-shot in the same cabin."
+      },
+      {
+        "beat_id": "D1-C00-S05",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Exterior reveal from behind and slightly above the exact pearl plane."
+      },
+      {
+        "beat_id": "D1-C00-S06",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Interior forward-facing two-shot using the accepted cabin layout and both exact identities."
+      }
+    ],
+    "forbidden_events": [
+      "No premature payoff or scene-state transition.",
+      "No identity, anatomy, cast-count, fixture-count, or room-topology drift."
+    ],
+    "final_state": "Roshan and Daddy see Sky Lagoon and prepare to land"
+  },
+  "character_authorities": [
+    {
+      "character_id": "roshan",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "immutable_traits": [
+        "child face and age",
+        "brown hair with rainbow section",
+        "pink top and tiara"
+      ],
+      "anatomy_traits": [
+        "exactly two arms and one continuous mer-tail"
+      ],
+      "forbidden_drift": [
+        "legs or shoes",
+        "adult redesign"
+      ]
+    },
+    {
+      "character_id": "daddy",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/daddy_daddy_master.png",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "immutable_traits": [
+        "adult crowned father",
+        "dark rectangular glasses",
+        "navy and gold clothing with teal cape"
+      ],
+      "anatomy_traits": [
+        "taller than Roshan with one continuous mer-tail"
+      ],
+      "forbidden_drift": [
+        "generic king",
+        "missing glasses or tail"
+      ]
+    }
+  ],
+  "location_authority": {
+    "path": "handoff_art/location/sky_lagoon_panorama_master_v5_hd_3x1.png",
+    "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+    "immutable_features": [
+      "fixed entrance and exit geography",
+      "fixed landmark and fixture order",
+      "consistent scale and navigable volume"
+    ],
+    "forbidden_geometry": [
+      "no invented room, basin, doorway, platform, or fixture relocation"
+    ]
+  },
+  "archive_remote": {
+    "commit": "b8594d8aa04b6f2e0d3776b2e1805e2cc120b518",
+    "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/b8594d8aa04b6f2e0d3776b2e1805e2cc120b518/assets_src/cinematics/d1_c00_opening_flight_visual_v1",
+    "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/b8594d8aa04b6f2e0d3776b2e1805e2cc120b518/assets_src/cinematics/d1_c00_opening_flight_visual_v1/HANDOFF_PACKET.json",
+    "readme": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/b8594d8aa04b6f2e0d3776b2e1805e2cc120b518/assets_src/cinematics/d1_c00_opening_flight_visual_v1/README.md",
+    "verified_via": "GitHub recursive commit-tree API; every HANDOFF_PACKET asset path resolved",
+    "verified_at": "2026-09-02T00:00:00-07:00"
+  }
+}

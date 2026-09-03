@@ -1,0 +1,126 @@
+{
+  "schema": "imagine-handoff-v2",
+  "handoff_id": "d1_c06_pool_purification_rumi_hug_visual_v1",
+  "archive_status": "complete",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "blocking_findings": [
+    "No shot has an owner-approved clean HUD-free complete opening frame.",
+    "No continuity-dependent shot binds the accepted complete end frame of its predecessor.",
+    "Generated perspective and storyboard sheets are narrative-only and cannot be bound as generation pixels."
+  ],
+  "story_contract": {
+    "one_sentence_promise": "Roshan pulls the pink trash from the seahorse mouth becomes Waterfall and seahorse purify the giant pool; Rumi rises, thanks Roshan, and hugs her.",
+    "ordered_beats": [
+      {
+        "beat_id": "D1-C06-S01",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Tight catalyst shot at the exact seahorse mouth."
+      },
+      {
+        "beat_id": "D1-C06-S02",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Close shot continuing from the open seahorse nozzle."
+      },
+      {
+        "beat_id": "D1-C06-S03",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Close view of the exact rainbow waterfall from the blocked TOP source."
+      },
+      {
+        "beat_id": "D1-C06-S04",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Begin close on the now-flowing rainbow waterfall, then make one smooth pullback to re-establish the exact GIANT pool."
+      },
+      {
+        "beat_id": "D1-C06-S05",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "High wide view of the same giant pool."
+      },
+      {
+        "beat_id": "D1-C06-S06",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Wide underwater-readable pool view continuing from the joined fronts."
+      },
+      {
+        "beat_id": "D1-C06-S07",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Medium-wide pool-center shot."
+      },
+      {
+        "beat_id": "D1-C06-S08",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Medium relationship two-shot using approved Roshan/Rumi identities and scale."
+      },
+      {
+        "beat_id": "D1-C06-S09",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Medium-wide full-body relationship shot."
+      }
+    ],
+    "forbidden_events": [
+      "No premature payoff or scene-state transition.",
+      "No identity, anatomy, cast-count, fixture-count, or room-topology drift."
+    ],
+    "final_state": "Waterfall and seahorse purify the giant pool; Rumi rises, thanks Roshan, and hugs her"
+  },
+  "character_authorities": [
+    {
+      "character_id": "roshan",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "immutable_traits": [
+        "child face and age",
+        "brown hair with rainbow section",
+        "pink top and tiara"
+      ],
+      "anatomy_traits": [
+        "exactly two arms and one continuous mer-tail"
+      ],
+      "forbidden_drift": [
+        "legs or shoes",
+        "adult redesign"
+      ]
+    },
+    {
+      "character_id": "rumi",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "immutable_traits": [
+        "enormous violet braided ponytail",
+        "pointed ears and star-shell earrings",
+        "navy lavender gold-trim jacket"
+      ],
+      "anatomy_traits": [
+        "two arms and one aqua-to-violet mer-tail with coral split fin"
+      ],
+      "forbidden_drift": [
+        "rejected generic pool mermaid",
+        "legs or altered braid"
+      ]
+    }
+  ],
+  "location_authority": {
+    "path": "handoff_art/location/room_mermaid_pool_background.png",
+    "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+    "immutable_features": [
+      "fixed entrance and exit geography",
+      "fixed landmark and fixture order",
+      "consistent scale and navigable volume"
+    ],
+    "forbidden_geometry": [
+      "no invented room, basin, doorway, platform, or fixture relocation"
+    ]
+  },
+  "archive_remote": {
+    "commit": "b8594d8aa04b6f2e0d3776b2e1805e2cc120b518",
+    "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/b8594d8aa04b6f2e0d3776b2e1805e2cc120b518/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1",
+    "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/b8594d8aa04b6f2e0d3776b2e1805e2cc120b518/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/HANDOFF_PACKET.json",
+    "readme": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/b8594d8aa04b6f2e0d3776b2e1805e2cc120b518/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/README.md",
+    "verified_via": "GitHub recursive commit-tree API; every HANDOFF_PACKET asset path resolved",
+    "verified_at": "2026-09-02T00:00:00-07:00"
+  }
+}

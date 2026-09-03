@@ -1,0 +1,88 @@
+{
+  "schema": "imagine-handoff-v2",
+  "handoff_id": "d1_c09_art_room_dirty_discovery_visual_v1",
+  "archive_status": "complete",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "blocking_findings": [
+    "No shot has an owner-approved clean HUD-free complete opening frame.",
+    "No continuity-dependent shot binds the accepted complete end frame of its predecessor.",
+    "Generated perspective and storyboard sheets are narrative-only and cannot be bound as generation pixels."
+  ],
+  "story_contract": {
+    "one_sentence_promise": "Roshan enters the craft-room doorway becomes Four loose supply groups and three counter grime zones are readable.",
+    "ordered_beats": [
+      {
+        "beat_id": "D1-C09-S01",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Wide approved dirty Art Room topology view."
+      },
+      {
+        "beat_id": "D1-C09-S02",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Inherit the approved dirty room and doorway perspective."
+      },
+      {
+        "beat_id": "D1-C09-S03",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Low-to-medium inspection move across exactly four loose supply groups: approved loose brushes, pink paint bottle, blue paint bottle, and paint cups."
+      },
+      {
+        "beat_id": "D1-C09-S04",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Counter-height environmental shot revealing exactly three established lavender paint-grime zones: desk, left counter, and right counter."
+      },
+      {
+        "beat_id": "D1-C09-S05",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Medium reverse on Roshan with the dirty Art Room extending coherently behind her."
+      }
+    ],
+    "forbidden_events": [
+      "No premature payoff or scene-state transition.",
+      "No identity, anatomy, cast-count, fixture-count, or room-topology drift."
+    ],
+    "final_state": "Four loose supply groups and three counter grime zones are readable"
+  },
+  "character_authorities": [
+    {
+      "character_id": "roshan",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "immutable_traits": [
+        "child face and age",
+        "brown hair with rainbow section",
+        "pink top and tiara"
+      ],
+      "anatomy_traits": [
+        "exactly two arms and one continuous mer-tail"
+      ],
+      "forbidden_drift": [
+        "legs or shoes",
+        "adult redesign"
+      ]
+    }
+  ],
+  "location_authority": {
+    "path": "handoff_art/location/room_craft_room_background.png",
+    "sha256": "006b736e59e261c2670717f268c76b39640b903373b1a75781cd464e135ddd0d",
+    "immutable_features": [
+      "fixed entrance and exit geography",
+      "fixed landmark and fixture order",
+      "consistent scale and navigable volume"
+    ],
+    "forbidden_geometry": [
+      "no invented room, basin, doorway, platform, or fixture relocation"
+    ]
+  },
+  "archive_remote": {
+    "commit": "b8594d8aa04b6f2e0d3776b2e1805e2cc120b518",
+    "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/b8594d8aa04b6f2e0d3776b2e1805e2cc120b518/assets_src/cinematics/d1_c09_art_room_dirty_discovery_visual_v1",
+    "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/b8594d8aa04b6f2e0d3776b2e1805e2cc120b518/assets_src/cinematics/d1_c09_art_room_dirty_discovery_visual_v1/HANDOFF_PACKET.json",
+    "readme": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/b8594d8aa04b6f2e0d3776b2e1805e2cc120b518/assets_src/cinematics/d1_c09_art_room_dirty_discovery_visual_v1/README.md",
+    "verified_via": "GitHub recursive commit-tree API; every HANDOFF_PACKET asset path resolved",
+    "verified_at": "2026-09-02T00:00:00-07:00"
+  }
+}
