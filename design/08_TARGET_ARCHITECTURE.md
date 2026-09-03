@@ -339,7 +339,7 @@ does behavior change.
 | `fx` | `_sparkle_burst`, celebration bursts, contact shadows | per-call node/mesh/material allocation (`MA-PERF-002`): cached mesh + per-color materials, bounded pooled node ring, Speedy-tier count reduction |
 | `reward` | `_reward`, medal awards, save-write triggers | scattered reward writes; the funnel becomes an object with one door |
 | `input` | the composite touch/stick/pad/key read | the re-implemented input reads (`MA-CODE-002`) |
-| `stage` | `_l2_box`, `_castle_mat`, `_up_mat`, `_soft_mat`, `_wall_solid`, `_cyl_solid` | the inverted dependency: 422 cross-module calls into the six main-side private builders (measured 2026-09-01) |
+| `stage` | `_l2_box`, `_castle_mat`, `_up_mat`, `_soft_mat`, `_wall_solid`, `_cyl_solid` | the inverted dependency: 289 cross-module calls into the six main-side private builders (the six `m._…(` builder calls counted over `scripts/**/*.gd` minus `main.gd`, re-measured 2026-09-03; the 2026-09-01 figure of 422 also counted the frozen `backups/` copies) |
 
 ### 4.6 The adapters (M3)
 
@@ -381,7 +381,7 @@ Probes drive modes through today's entry points (`_start_dungeon_now`,
 | `_start_X_now` / `_end_X` × 7+ | ModeDirector + registry rows; originals become shims | M1–M2 | the scaffold clone family (after shim windows close) |
 | `_enter_arena` switch, `_tick_game` dispatch, `_process` mode branches | `director.tick()` → adapters | M3 | ~530 lines of dispatch on main (`_process` 386, `_enter_arena` 117, `_tick_game` 30 at the 2026-09-01 re-audit) |
 | pause-menu per-mode Leave branches | `director.leave_neutral()` | M1–M3 | one branch list |
-| six builder helpers + 422 `m._` builder calls | `services.stage` (StageKit) | M4 | the inverted dependency |
+| six builder helpers + 289 `m._` builder calls | `services.stage` (StageKit) | M4 | the inverted dependency |
 | `_sparkle_burst` + celebration copies | `services.fx`, pooled + tiered | M4 | `MA-PERF-002` |
 | `_set_objective` / HUD strings / pointer | `services.objective` | M4 | text-without-voice gaps |
 | `day_one_*` glue (~30 funcs), venue + start-menu routing | Day One modes + registry rows | M6 | the newest accretion |

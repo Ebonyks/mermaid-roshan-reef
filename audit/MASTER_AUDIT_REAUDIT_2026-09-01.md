@@ -87,7 +87,10 @@ is unchanged.
 - **design/08's quantitative premises**: the "~6,400 `m._` calls" figure
   counted every `m.` member access; the spec's own ratchet grep
   (`m\._[a-z_]+\(`) counts **846** private calls across 127 helpers. The
-  six named builders total **422** calls (not ~280). `_process` is 386
+  six named builders total **289** calls over production `scripts/`
+  (this record first wrote **422**, which also counted the frozen
+  `backups/` copies — corrected 2026-09-03 by the claim-freshness gate;
+  the spec's ~280 stood). `_process` is 386
   lines (not ~300); dispatch is ~530 lines (not ~400). Corrected in the
   spec with methods stated.
 - **The ratchet as specified would have failed at M0**: four non-probe
@@ -161,8 +164,9 @@ Nothing in the re-audit changes the four rounds' *direction*:
 - The **code-refinement round and Mode Platform** are still the right
   answer to a `main.gd` that has grown another 428 lines since the round
   was measured; the ratchet needs the M0 seeding fixes above to be
-  armable, and the six-builder inversion is larger (422 calls) than the
-  spec assumed — which strengthens, not weakens, M4's case.
+  armable, and the six-builder inversion is as large as the spec assumed
+  (289 production calls; the 422 first written here included `backups/`
+  copies) — M4's case stands.
 - The **engine adoption wing**'s findings stand with sharper mechanisms;
   the capture gate's stale pin is a capture-round failure waiting to
   happen rather than a CI defect.
@@ -196,3 +200,15 @@ design/06 (`DL-PACE-03` wording — a persistent pointer on the current
 objective is the `DL-AGE-01` baseline, not a defect), the owner guide (six
 stale instructions), the engine and animation evaluations (counts and
 methods), and the Day One review (five wording corrections).
+
+## 9. Corrections after publication
+
+- 2026-09-03 — the six-builder figure this record "adjusted" to 422 (§4
+  design-08 premises, §6 conclusions) was itself wrong: it counted
+  `m._builder(` across every tracked `.gd`, so the frozen
+  `backups/art_pre_sky_lagoon_5of5_2026-07-19/scripts/arena/` copies added
+  133 calls. Over production `scripts/**/*.gd` minus `main.gd` the six
+  builders total 289, and the spec's original "roughly 280" stood. Found by
+  the first strict run of `tools/audit_claim_freshness.py`, the gate this
+  record's own method lesson ("state the method for every count") asked for;
+  corrected in place above, in `MA-CODE-002`'s history, and in design 08.

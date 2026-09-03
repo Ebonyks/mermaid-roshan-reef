@@ -62,6 +62,24 @@ python3 tools/audit_document_authority.py --stress \
 	|| { echo "DOCUMENT AUTHORITY SELF-TEST FAIL"; exit 1; }
 python3 tools/audit_document_authority.py \
 	|| { echo "DOCUMENT AUTHORITY / CANONICAL FINDING FAIL"; exit 1; }
+# Claim freshness (2026-09-01): every registered governance number and
+# anchor is re-measured against the tree. Strict on the governance branch
+# (its documents must never state a stale figure); report-only elsewhere,
+# because an implementation branch may not edit governance prose and must
+# not be blocked by it — but a manifest that cannot be evaluated fails
+# everywhere.
+python3 -m unittest tools.tests.test_audit_claim_freshness \
+	|| { echo "CLAIM FRESHNESS CONTRACT TEST FAIL"; exit 1; }
+python3 tools/audit_claim_freshness.py --stress \
+	|| { echo "CLAIM FRESHNESS SELF-TEST FAIL"; exit 1; }
+CLAIMS_BRANCH="${GITHUB_REF_NAME:-$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)}"
+if [ "$CLAIMS_BRANCH" = "claude/master-audit-game-analysis-qiko9l" ]; then
+	python3 tools/audit_claim_freshness.py --strict \
+		|| { echo "CLAIM FRESHNESS FAIL (governance branch is strict)"; exit 1; }
+else
+	python3 tools/audit_claim_freshness.py \
+		|| { echo "CLAIM FRESHNESS FAIL (manifest not evaluable)"; exit 1; }
+fi
 # Animation-improvement wing: the shared feedback vocabulary keeps its
 # child-safe bounds and the wing's accepted exemplars stay wired.
 python3 -m unittest tools.tests.test_audit_animation_polish \

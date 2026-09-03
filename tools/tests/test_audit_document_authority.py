@@ -320,9 +320,14 @@ class DocumentAuthorityTests(unittest.TestCase):
 			issues = authority._markdown_integrity_issues(root, {Path("indented.md")})
 		self.assertFalse(any(issue.check_id == "DOC070" for issue in issues))
 
-	def test_terminal_record_may_remain_as_stable_history(self) -> None:
+	def test_terminal_record_in_active_register_is_an_archive_tier_violation(self) -> None:
+		# Superseded policy: terminal records used to be allowed to stay in the
+		# active register as stable history. The archive tier now owns them
+		# (see ArchiveTierTests); a terminal record left in the active register
+		# is DOC082, and the same record moved into the archive is accepted.
 		master, findings, design = _canonical_fixture(lifecycle="VERIFIED_FIXED")
-		self.assertFalse(authority._canonical_issues(master, findings, design))
+		issues = authority._canonical_issues(master, findings, design)
+		self.assertEqual(["DOC082"], [issue.check_id for issue in issues])
 
 	def test_forbidden_claim_is_not_excused_by_another_historical_line(self) -> None:
 		with tempfile.TemporaryDirectory() as directory:
@@ -431,6 +436,47 @@ class DocumentAuthorityTests(unittest.TestCase):
 			issues, counts = authority.audit(Path(directory))
 		self.assertEqual(4, len(issues))
 		self.assertEqual(0, counts["inventory"])
+
+
+class ArchiveTierTests(unittest.TestCase):
+	def test_terminal_record_left_in_active_register_is_rejected(self) -> None:
+		master, findings, design = _canonical_fixture(lifecycle="VERIFIED_FIXED")
+		issues = authority._canonical_issues(master, findings, design)
+		self.assertTrue(any(issue.check_id == "DOC082" for issue in issues))
+
+	def test_archived_terminal_record_is_accepted(self) -> None:
+		master, findings, design = _canonical_fixture(lifecycle="VERIFIED_FIXED")
+		master = master.replace("ACTIVE_FINDINGS_2026-08-13", "ARCHIVED_FINDINGS")
+		issues = authority._canonical_issues(master, "", design, archive_text=findings)
+		self.assertEqual([], issues)
+
+	def test_open_record_in_archive_is_rejected(self) -> None:
+		master, findings, design = _canonical_fixture(lifecycle="CONFIRMED_OPEN")
+		master = master.replace("ACTIVE_FINDINGS_2026-08-13", "ARCHIVED_FINDINGS")
+		issues = authority._canonical_issues(master, "", design, archive_text=findings)
+		self.assertTrue(any(issue.check_id == "DOC081" for issue in issues))
+		self.assertFalse(any(issue.check_id == "DOC042" for issue in issues))
+
+	def test_record_in_both_registers_is_rejected(self) -> None:
+		master, findings, design = _canonical_fixture(lifecycle="VERIFIED_FIXED")
+		master = master.replace("ACTIVE_FINDINGS_2026-08-13", "ARCHIVED_FINDINGS")
+		issues = authority._canonical_issues(master, findings, design, archive_text=findings)
+		self.assertTrue(any(issue.check_id == "DOC080" for issue in issues))
+
+	def test_link_to_wrong_register_is_rejected(self) -> None:
+		master, findings, design = _canonical_fixture(lifecycle="VERIFIED_FIXED")
+		issues = authority._canonical_issues(master, "", design, archive_text=findings)
+		self.assertTrue(any(issue.check_id == "DOC083" for issue in issues))
+
+	def test_archive_issue_paths_name_the_archive(self) -> None:
+		master, findings, design = _canonical_fixture(lifecycle="VERIFIED_FIXED")
+		master = master.replace("ACTIVE_FINDINGS_2026-08-13", "ARCHIVED_FINDINGS")
+		broken = findings.replace("| title | A complete title. |", "| title |  |")
+		issues = authority._canonical_issues(master, "", design, archive_text=broken)
+		self.assertTrue(any(
+			issue.check_id == "DOC044" and issue.path == str(authority.ARCHIVE_PATH)
+			for issue in issues
+		))
 
 
 if __name__ == "__main__":

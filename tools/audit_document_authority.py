@@ -17,6 +17,14 @@ LEDGER_PATH = Path("design/05_DOC_LEDGER.md")
 MASTER_PATH = Path("audit/MASTER_AUDIT_2026-08-09.md")
 DESIGN_LANGUAGE_PATH = Path("design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md")
 FINDINGS_PATH = Path("audit/findings/ACTIVE_FINDINGS_2026-08-13.md")
+# Archive tier (2026-09-01): a record whose lifecycle turns terminal moves
+# here verbatim in the closing commit. The active register then holds only
+# open work, and the gate refuses a terminal record left behind or an open
+# record hidden in the archive.
+ARCHIVE_PATH = Path("audit/findings/ARCHIVED_FINDINGS.md")
+CANONICAL_LINK_PATTERN = re.compile(
+	r"\[`(MA-[A-Z0-9-]+)`\]\(findings/(ACTIVE_FINDINGS_2026-08-13|ARCHIVED_FINDINGS)\.md#(ma-[a-z0-9-]+)\)",
+)
 AUDIT_ITEM_PATTERN = re.compile(
 	r"(?<![A-Z0-9-])(MA-(?:2D|[A-Z]+)-\d{3})(?![A-Z0-9-])",
 )
@@ -84,6 +92,7 @@ CURRENT_AUTHORITY_PATHS = {
 	Path("CLAUDE.md"),
 	MASTER_PATH,
 	FINDINGS_PATH,
+	ARCHIVE_PATH,
 	*(Path("design") / f"0{index}_{name}.md" for index, name in (
 		(0, "MASTER_INDEX"),
 		(1, "GAME_DESIGN"),
@@ -335,7 +344,10 @@ def _dl_definitions(design_text: str) -> tuple[set[str], list[Issue]]:
 	return definitions, issues
 
 
-def _finding_records(text: str) -> tuple[dict[str, dict[str, str]], list[Issue]]:
+def _finding_records(
+	text: str,
+	path: Path = FINDINGS_PATH,
+) -> tuple[dict[str, dict[str, str]], list[Issue]]:
 	records: dict[str, dict[str, str]] = {}
 	issues: list[Issue] = []
 	lines = text.splitlines()
@@ -348,12 +360,12 @@ def _finding_records(text: str) -> tuple[dict[str, dict[str, str]], list[Issue]]
 		end = headings[position + 1][0] if position + 1 < len(headings) else len(lines)
 		if item_id in records:
 			issues.append(Issue(
-				"DOC040", str(FINDINGS_PATH), f"duplicate finding heading {item_id}",
+				"DOC040", str(path), f"duplicate finding heading {item_id}",
 			))
 			continue
 		if lines[start] != f"## {item_id}":
 			issues.append(Issue(
-				"DOC055", str(FINDINGS_PATH),
+				"DOC055", str(path),
 				f"line {start + 1}: canonical finding heading must be exactly ## {item_id}",
 			))
 		fields: dict[str, str] = {}
@@ -366,14 +378,14 @@ def _finding_records(text: str) -> tuple[dict[str, dict[str, str]], list[Issue]]
 				continue
 			if len(cells) != 2:
 				issues.append(Issue(
-					"DOC054", str(FINDINGS_PATH),
+					"DOC054", str(path),
 					f"line {line_number + 1}: {item_id} field {key} must have exactly two cells",
 				))
 				continue
 			value = cells[1].strip()
 			if key in fields:
 				issues.append(Issue(
-					"DOC041", str(FINDINGS_PATH),
+					"DOC041", str(path),
 					f"line {line_number + 1}: duplicate {key} field in {item_id}",
 				))
 			fields[key] = value
@@ -390,70 +402,100 @@ def _canonical_issues(
 	master_text: str,
 	findings_text: str,
 	design_text: str,
+	archive_text: str = "",
 ) -> list[Issue]:
 	items, issues = _index_items(master_text)
 	rules, rule_issues = _dl_definitions(design_text)
 	records, record_issues = _finding_records(findings_text)
+	archive_records, archive_issues = (
+		_finding_records(archive_text, ARCHIVE_PATH) if archive_text else ({}, [])
+	)
 	issues.extend(rule_issues)
 	issues.extend(record_issues)
+	issues.extend(archive_issues)
+	for item_id in sorted(set(records) & set(archive_records)):
+		issues.append(Issue(
+			"DOC080", str(ARCHIVE_PATH),
+			f"record {item_id} appears in both the active register and the archive",
+		))
+	all_records: dict[str, dict[str, str]] = {**archive_records, **records}
+	record_path = {
+		item_id: (FINDINGS_PATH if item_id in records else ARCHIVE_PATH)
+		for item_id in all_records
+	}
 	active = {
 		item_id: item
 		for item_id, item in items.items()
 		if item.lifecycle not in TERMINAL_LIFECYCLES
 	}
-	missing = sorted(set(active) - set(records))
-	extra = sorted(set(records) - set(items))
+	missing = sorted(set(active) - set(all_records))
+	extra = sorted(set(all_records) - set(items))
 	for item_id in missing:
 		issues.append(Issue(
 			"DOC042", str(FINDINGS_PATH), f"active indexed item {item_id} has no canonical record",
 		))
 	for item_id in extra:
 		issues.append(Issue(
-			"DOC043", str(FINDINGS_PATH), f"record {item_id} is not an indexed item",
+			"DOC043", str(record_path[item_id]), f"record {item_id} is not an indexed item",
 		))
-	for item_id in sorted(set(items) & set(records)):
+	# The archive tier is fail-closed in both directions: an open record cannot
+	# hide in the archive, and a closed record cannot linger in the active file.
+	for item_id in sorted(set(archive_records) & set(items)):
+		if items[item_id].lifecycle not in TERMINAL_LIFECYCLES:
+			issues.append(Issue(
+				"DOC081", str(ARCHIVE_PATH),
+				f"archived record {item_id} has non-terminal lifecycle {items[item_id].lifecycle}",
+			))
+	for item_id in sorted(set(records) & set(items)):
+		if items[item_id].lifecycle in TERMINAL_LIFECYCLES:
+			issues.append(Issue(
+				"DOC082", str(FINDINGS_PATH),
+				f"terminal record {item_id} ({items[item_id].lifecycle}) belongs in {ARCHIVE_PATH.name}",
+			))
+	for item_id in sorted(set(items) & set(all_records)):
 		item = items[item_id]
-		fields = records[item_id]
+		fields = all_records[item_id]
+		report_path = str(record_path[item_id])
 		for field in FINDING_FIELDS:
 			if not fields.get(field, "").strip():
 				issues.append(Issue(
-					"DOC044", str(FINDINGS_PATH), f"{item_id} is missing non-empty field {field}",
+					"DOC044", report_path, f"{item_id} is missing non-empty field {field}",
 				))
 		for field in sorted(set(fields) - set(FINDING_FIELDS)):
 			issues.append(Issue(
-				"DOC050", str(FINDINGS_PATH), f"{item_id} has unexpected field {field}",
+				"DOC050", report_path, f"{item_id} has unexpected field {field}",
 			))
 		if fields.get("id", "").strip() != f"`{item_id}`":
 			issues.append(Issue(
-				"DOC045", str(FINDINGS_PATH), f"{item_id} id field is not the exact backticked ID",
+				"DOC045", report_path, f"{item_id} id field is not the exact backticked ID",
 			))
 		severity = fields.get("severity", "").strip()
 		if severity != item.severity:
 			issues.append(Issue(
-				"DOC046", str(FINDINGS_PATH),
+				"DOC046", report_path,
 				f"{item_id} severity {severity!r} does not match index {item.severity}",
 			))
 		lifecycle_value = fields.get("lifecycle", "").strip()
 		lifecycle = lifecycle_value[1:-1] if re.fullmatch(r"`[A-Z][A-Z_]+`", lifecycle_value) else lifecycle_value
 		if lifecycle_value != f"`{item.lifecycle}`":
 			issues.append(Issue(
-				"DOC047", str(FINDINGS_PATH),
+				"DOC047", report_path,
 				f"{item_id} lifecycle {lifecycle!r} does not match index {item.lifecycle}",
 			))
 		rule_ids = sorted(set(re.findall(r"DL-[A-Z0-9-]+", fields.get("rule_ids", ""))))
 		if not rule_ids:
 			issues.append(Issue(
-				"DOC051", str(FINDINGS_PATH), f"{item_id} does not cite a design-language rule",
+				"DOC051", report_path, f"{item_id} does not cite a design-language rule",
 			))
 		for rule_id in rule_ids:
 			if rule_id not in rules:
 				issues.append(Issue(
-					"DOC048", str(FINDINGS_PATH), f"{item_id} cites undefined rule {rule_id}",
+					"DOC048", report_path, f"{item_id} cites undefined rule {rule_id}",
 				))
 		for reference in sorted(set(AUDIT_ITEM_PATTERN.findall(" ".join(fields.values())))):
 			if reference not in items:
 				issues.append(Issue(
-					"DOC053", str(FINDINGS_PATH),
+					"DOC053", report_path,
 					f"{item_id} cites undefined audit item {reference}",
 				))
 	section_five = master_text
@@ -461,16 +503,24 @@ def _canonical_issues(
 	section_end = master_text.find("## 6.", section_start + 1)
 	if section_start >= 0 and section_end > section_start:
 		section_five = master_text[section_start:section_end]
-	linked_pairs = re.findall(
-		r"\[`(MA-[A-Z0-9-]+)`\]\(findings/ACTIVE_FINDINGS_2026-08-13\.md#(ma-[a-z0-9-]+)\)",
-		section_five,
-	)
-	linked_ids = {item_id for item_id, _ in linked_pairs}
-	for item_id, anchor in linked_pairs:
+	linked_pairs = CANONICAL_LINK_PATTERN.findall(section_five)
+	linked_ids = {item_id for item_id, _, _ in linked_pairs}
+	for item_id, register, anchor in linked_pairs:
 		if anchor != item_id.lower():
 			issues.append(Issue(
 				"DOC052", str(MASTER_PATH),
 				f"{item_id} canonical link has mismatched anchor {anchor}",
+			))
+		linked_archive = register == "ARCHIVED_FINDINGS"
+		if item_id in records and linked_archive:
+			issues.append(Issue(
+				"DOC083", str(MASTER_PATH),
+				f"{item_id} canonical link points at the archive but the record is in the active register",
+			))
+		elif item_id in archive_records and not linked_archive:
+			issues.append(Issue(
+				"DOC083", str(MASTER_PATH),
+				f"{item_id} canonical link points at the active register but the record is archived",
 			))
 	for item_id in sorted(active):
 		if item_id not in linked_ids:
@@ -702,7 +752,7 @@ def audit(root: Path) -> tuple[list[Issue], dict[str, int]]:
 		if not required.is_file():
 			issues.append(Issue("DOC001", str(required.relative_to(root)), "required authority file is missing"))
 	if issues:
-		return sorted(issues), {"inventory": 0, "ledger": 0, "active": 0, "records": 0}
+		return sorted(issues), {"inventory": 0, "ledger": 0, "active": 0, "records": 0, "archived": 0}
 
 	inventory = _markdown_inventory(root)
 	ledger_rows, ledger_issues = _ledger_rows(_read(ledger))
@@ -718,7 +768,9 @@ def audit(root: Path) -> tuple[list[Issue], dict[str, int]]:
 	master_text = _read(master)
 	findings_text = _read(findings)
 	design_text = _read(design)
-	issues.extend(_canonical_issues(master_text, findings_text, design_text))
+	archive = root / ARCHIVE_PATH
+	archive_text = _read(archive) if archive.is_file() else ""
+	issues.extend(_canonical_issues(master_text, findings_text, design_text, archive_text))
 	items, _ = _index_items(master_text)
 	rules, _ = _dl_definitions(design_text)
 	issues.extend(_reference_issues(root, items, rules, ledger_rows))
@@ -727,12 +779,14 @@ def audit(root: Path) -> tuple[list[Issue], dict[str, int]]:
 	issues.extend(_markdown_integrity_issues(root, {Path(path) for path in inventory}))
 	issues.extend(_authority_claim_issues(root))
 	records, _ = _finding_records(findings_text)
+	archived, _ = _finding_records(archive_text, ARCHIVE_PATH) if archive_text else ({}, [])
 	active_count = sum(item.lifecycle not in TERMINAL_LIFECYCLES for item in items.values())
 	counts = {
 		"inventory": len(inventory),
 		"ledger": len(ledger_rows),
 		"active": active_count,
 		"records": len(records),
+		"archived": len(archived),
 	}
 	return sorted(set(issues)), counts
 
@@ -782,7 +836,7 @@ def main(argv: Sequence[str] | None = None) -> int:
 		return _stress()
 	issues, counts = audit(args.root.resolve())
 	print(
-		"DOCAUTH|INVENTORY={inventory}|LEDGER={ledger}|ACTIVE={active}|RECORDS={records}".format(
+		"DOCAUTH|INVENTORY={inventory}|LEDGER={ledger}|ACTIVE={active}|RECORDS={records}|ARCHIVED={archived}".format(
 			**counts,
 		)
 	)

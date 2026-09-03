@@ -1330,7 +1330,7 @@ the compact navigation view; these links open the complete section-10 records:
 
 | Domain | Canonical records |
 |---|---|
-| Medium and document control | [`MA-2D-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-2d-002), [`MA-DOC-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-002), [`MA-DOC-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-003), [`MA-DOC-005`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-005) |
+| Medium and document control | [`MA-2D-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-2d-002), [`MA-DOC-002`](findings/ARCHIVED_FINDINGS.md#ma-doc-002), [`MA-DOC-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-003), [`MA-DOC-005`](findings/ARCHIVED_FINDINGS.md#ma-doc-005) |
 | Visual and assets | [`MA-VIS-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-002), [`MA-VIS-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-003), [`MA-VIS-004`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-004), [`MA-VIS-006`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-006), [`MA-VIS-007`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-007), [`MA-ASSET-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-asset-001), [`MA-ASSET-004`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-asset-004) |
 | Play, access, touch, and combat | [`MA-PLAY-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-play-001), [`MA-PLAY-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-play-002), [`MA-ACCESS-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-access-001), [`MA-ACCESS-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-access-002), [`MA-ACCESS-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-access-003), [`MA-TOUCH-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-touch-001), [`MA-COMBAT-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-combat-001) |
 | Opera | [`MA-OPERA-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-001), [`MA-OPERA-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-002), [`MA-OPERA-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-003), [`MA-OPERA-004`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-004), [`MA-OPERA-005`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-005), [`MA-OPERA-006`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-006), [`MA-OPERA-007`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-007), [`MA-OPERA-009`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-009), [`MA-OPERA-010`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-010), [`MA-OPERA-011`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-011), [`MA-OPERA-012`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-012) |
@@ -1867,6 +1867,14 @@ lifecycle such as `VERIFIED_FIXED`, but the abbreviated row is not itself the
 closure record and cannot authorize a new repair. Unknown evidence is written
 explicitly as missing or blocked; a field is never omitted.
 
+Archive tier (2026-09-01): a record whose lifecycle turns terminal moves
+verbatim from `findings/ACTIVE_FINDINGS_2026-08-13.md` to
+`findings/ARCHIVED_FINDINGS.md` in the same commit, and its section-5 link
+follows. The document gate fails a terminal record left in the active
+register, an open record placed in the archive, a record present in both, or
+a link pointing at the wrong register, so the active file holds open work
+only and the archive is append-only history.
+
 | Field | Requirement |
 |---|---|
 | Stable ID | `MA-<DOMAIN>-NNN`; never reused |
@@ -1968,10 +1976,58 @@ and exact-head Probe Suite run `31710377034`; the remote static phase reports
 active/records, all green. This moves `MA-DOC-002` and `MA-DOC-005` to
 `VERIFIED_FIXED`; the current validator consequently reports 34 active items
 while retaining all 36 records, and promotes this audit plus design 06 to
-`CANONICAL_CURRENT`. Terminal records and
-history remain in the canonical register. The CHG-029 source chain, exact
+`CANONICAL_CURRENT`. Terminal records now move to the
+archive tier (section 11.4) with their history intact. The CHG-029 source chain, exact
 22-path boundary, and rollback start remain `5ed0c754`/`7eb94595`; `51887315`
 and this prose synchronization are CHG-023 maintenance.
+
+### 11.4 Claim freshness and the archive tier
+
+Added 2026-09-03 on the owner's instruction after the weakness assessment of
+the audit documentation and approach. Two of its gaps were structural:
+nothing re-checked the concrete numbers and `file:line` anchors the
+governance prose states (the 2026-09-01 re-audit found about a fifth
+drifted and six false), and terminal records shared the active register
+with open ones, so "active" counts and the section-5 index needed prose to
+tell them apart.
+
+- **Claim freshness** — `tools/audit_claim_freshness.py` re-measures every
+  claim registered in `tools/claims_manifest.json` against the tree using a
+  closed measurement vocabulary (line counts, regex and literal counts, file
+  globs, roster tokens, anchor tokens — never arbitrary shell) and checks
+  that the governing document still contains the statement the manifest
+  binds it to. Statuses: `OK`; `STALE_TREE` (the tree moved — update the
+  document and the manifest together); `STALE_DOC` (the document no longer
+  states the bound claim); `DRIFT` (an anchor's token moved within ±12
+  lines; `--refresh-anchors` rewrites the manifest line, never an expected
+  count); `FAIL` (anchor token gone or file unresolvable); `BROKEN` (the
+  manifest cannot be evaluated). Every bare `path:line` anchor in the nine
+  listed governance documents is also swept for a resolvable file and an
+  in-range line; an anchor whose neighbourhood on its line carries a commit
+  hash or historical wording is pinned history and skipped. `scripts/ci.sh`
+  runs the unit tests, the `--stress` self-falsification, and the check
+  itself: `--strict` (any non-`OK` fails) on the governance branch,
+  report-only (only `BROKEN` fails) on implementation branches, so code that
+  legitimately moves is not blocked by governance prose it may not edit.
+  Never adjust an expected value to silence the gate: correct the document
+  and record why. Mirroring the same three steps in
+  `.github/workflows/probes.yml` is proposed to the owner (workflow edits
+  are explicit-task-only). Its first strict run refuted one re-audit
+  adjustment (`MA-CODE-002`'s six-builder count, 422 → 289: the higher
+  figure had counted frozen `backups/` copies) and caught the exit-amnesty
+  anchor moved by its own `ci.sh` insertion, which is the point.
+- **Archive tier** — `audit/findings/ARCHIVED_FINDINGS.md` holds every
+  terminal record (`VERIFIED_FIXED`, `DISMISSED_NOT_A_DEFECT`,
+  `DISMISSED_NOT_IN_PROJECT`, `SUPERSEDED`, `DUPLICATE`) verbatim, with its
+  full history and section-10 fields; the active register holds only open
+  records. `tools/audit_document_authority.py` enforces the split fail
+  closed — `DOC080` a record in both registers, `DOC081` an open record in
+  the archive, `DOC082` a terminal record left in the active register,
+  `DOC083` a section-5 link pointing at the wrong register — resolves
+  section-5 links against both registers, and reports `ACTIVE`, `RECORDS`,
+  and `ARCHIVED` separately. Moving a record is a cut-and-paste of the whole
+  record plus its section-5 link; nothing else changes. `MA-DOC-002` and
+  `MA-DOC-005` moved first.
 
 ---
 
@@ -2003,6 +2059,12 @@ exact commit. This is the operational checklist for `DL-QA-09` and
       true 2D and exact Godot 4.7.1-stable.
 - [x] Every material indexed audit item has a linked complete canonical record
       containing all section-10 fields.
+- [x] Every claim registered in `tools/claims_manifest.json` re-measures on the
+      tree and its governing document still states it: `tools/audit_claim_freshness.py --strict`
+      is ALL OK on the governance branch (report-only elsewhere) and the bare-anchor
+      sweep has no failure.
+- [x] Terminal records live only in `audit/findings/ARCHIVED_FINDINGS.md` and open
+      records only in the active register (`DOC080`–`DOC083` clean).
 - [ ] The off-repository Alpha journal is imported or replaced by a fresh,
       equally scoped audit; unnamed reports are not assumed fixed or open.
 - [ ] Visual stress is green and every applicable failure, review, manual item,
@@ -2251,5 +2313,6 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 | 2026-08-31 | `TRIAGING` | Owner direction, same day: the missing movie layer is confirmed as a pacing/plot gap, "more small victories" is named the round's key, and the improvement guide becomes an executable Codex handoff for review — `CODEX_DAY_ONE_PACING_HANDOFF_2026-08-31.md` (section 3.2 row): owner decisions D1–D6 with proposed defaults (close-state, Rumi voice `af_sky`, Daddy's sacred-voice line reassignment, supply-hunt honesty, boss window numbers, `probes.yml` authorization), the complete 37-line voice script with its wiring contract, work packages WP-P1 (voice the chapter) → WP-P2 (micro-victory kit, the owner's named priority) → WP-P3 (un-stack macro beats) → WP-P4 (chapter close/resume) → WP-P5 (assistance ladder + boss first contact) → WP-P6 (movie slots with runtime fallback beats; production stays in the cinematic pipeline under the full-frame rule) → WP-P7 (probe promotion + report-only beat lint) → WP-PR (independent re-audit applying lifecycles on the governance branch), sequencing, escalation triggers, and an embedded verbatim kickoff prompt. New finding `MA-PACE-005` (absent movie beats with silent fail-open seams) opened on the owner's report; `MA-PACE-001`–`004` histories record their package assignments. Documentation-only; CHG-023 maintenance; audit remains `IN_PROGRESS` / `UNSATISFIED`. |
 
 | 2026-09-01 | `VERIFYING` | Independent re-audit of the whole 2026-08-26 → 2026-08-31 governance line on owner instruction (`MASTER_AUDIT_REAUDIT_2026-09-01.md`, this directory): four verification passes re-checked every load-bearing claim in the refinement-round findings, the engine and pacing wings, design 08's quantitative premises, and cross-document consistency against head `f5a2648b`. Structure held — zero dangling `DL-*`/`MA-*` references, every mechanism reproduces, gates and CI green — while about a fifth of concrete claims were ADJUSTED and six REFUTED and corrected in place: `MA-PERF-002`'s allocation half was fixed by this session's own animation wing without the record being updated (now `IN_PROGRESS`); `MA-PERF-003` wrongly named `galaxy.gd`; `MA-CODE-003` wrongly named `opera_house.gd`; two `MA-CODE-004` figures and `MA-CODE-002`'s builder count did not reproduce (422, not ~280; 846 private calls, not ~6,400 — design 08 corrected with methods); the `4.7.1` mention count used an unescaped regex dot (172, not 151); `MA-PACE-003`'s door-state mechanism was wrong (completed rooms reopen; the royal hall and eight further rooms stay blocked). Twenty cross-document contradictions corrected (section pointers, dangling `WP-B1`/`WP-B4`, dual claim on `MA-CI-004`, stale rosters/counts, four missing section 3.2 authority rows, owner-guide instructions to run the not-yet-built ratchet). Self-findings recorded: the animation wing grew `main.gd` +20 lines against `DL-CODE-01` (netting plan named), and the ratchet as specified would fail at M0 without measured seeding (design 08 §7 amended). Severities unchanged; `main.gd` re-measured at 10,927. Documentation-only; CHG-023 maintenance; audit remains `IN_PROGRESS` / `UNSATISFIED`. |
+| 2026-09-03 | `VERIFYING` | Owner instruction: implement the two remedies from the weakness assessment of the audit documentation and approach — the claim-freshness check and the archive tier (section 11.4; section 12 gains both conditions). (1) `tools/audit_claim_freshness.py` with `tools/claims_manifest.json`: every registered claim (closed-vocabulary counts and live `file:line` anchors) is re-measured on each run and bound to a statement its governing document must still contain, and every bare anchor in nine governance documents is swept for a resolvable file and an in-range line; `scripts/ci.sh` runs its unit tests, `--stress` self-test, and the check — strict on this branch, report-only elsewhere. Its first strict run REFUTED the 2026-09-01 re-audit's own builder adjustment — the 422 six-builder figure (`MA-CODE-002` history, design 08, re-audit sections 4 and 6) had counted `m._builder(` across every tracked `.gd` including the frozen `backups/` copies; the production figure is 289, so the spec's original "roughly 280" stood — and caught this commit's own `ci.sh` insertion moving `MA-ENGINE-002`'s exit-amnesty block from lines 184-195 to 202-213 (anchor refreshed). Three manifest seeds were themselves wrong and corrected against stated methods (day-one functions counted by name, `set_loops(` call sites 28 versus the bare-grep 29, `"res://` occurrences); the ENGINE and ANIMATION evaluations and the re-audit record are corrected in place with the method stated, and the re-audit record gains a corrections section. (2) The archive tier: `audit/findings/ARCHIVED_FINDINGS.md` (`CANONICAL_CURRENT`; section 10 paragraph; ledger row) receives every terminal record verbatim — `MA-DOC-002` and `MA-DOC-005` move now — and `tools/audit_document_authority.py` enforces `DOC080` (record in both registers), `DOC081` (open record in the archive), `DOC082` (terminal record in the active register) and `DOC083` (section-5 link to the wrong register), resolving section-5 links against both registers; the superseded "terminal records may remain" test is rewritten to assert `DOC082`. Wiring the claim check into `.github/workflows/probes.yml` is proposed to the owner, not self-applied. |
 
 No later state is added without its required evidence.
