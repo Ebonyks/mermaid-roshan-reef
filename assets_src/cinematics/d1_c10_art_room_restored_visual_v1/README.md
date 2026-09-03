@@ -1,22 +1,22 @@
 # D1-C10 — Art Room — Clean Desk Awakening
 
-> `ARCHIVE_COMPLETE`: true
+> `ARCHIVE_COMPLETE`: true<br>
 > `GENERATION_READY`: false<br>
 > `DELIVERY_ACCEPTED`: false<br>
 > Grok output remains motion/editorial reference until the independent full-frame delivery audit passes.
 
 ## Use this one-link handoff
 
-1. Review the location-depth sheet, storyboard, and character locks below.
+1. Review the environment continuity sheet, storyboard, and character locks below.
 2. Paste the shared guide once, then the scene guide.
 3. Generate one shot job at a time with two to four separately approved pixel authorities.
-4. Never upload either generated sheet below as `IMAGE_1` or as delivery pixels.
+4. Never upload either sheet below as `IMAGE_1` or as delivery pixels.
 
-## Multi-angle environment depth
+## Environment continuity and runtime state
 
-![Multi-angle environment perspective sheet](storyboards/ENVIRONMENT_PERSPECTIVES.png)
+![Environment continuity and runtime-state sheet](storyboards/ENVIRONMENT_PERSPECTIVES.png)
 
-This is a newly generated, complete flattened narrative/topology reference. It demonstrates spatial depth and camera possibilities, but it is not an approved shot opening frame.
+This sheet records the permitted location projection and state continuity. It is narrative/runtime evidence only and is not an approved shot opening frame.
 
 ## Shot-aligned storyboard
 
@@ -24,11 +24,11 @@ This is a newly generated, complete flattened narrative/topology reference. It d
 
 | Shot | Authored visible beat |
 |---|---|
-| D1-C10-S01 | Close physical-contact shot at the final lavender grime zone. |
-| D1-C10-S02 | Medium room shot. |
-| D1-C10-S03 | Wide clean Art Room reveal matching the approved topology. |
-| D1-C10-S04 | Desk closeup in the same clean room. |
-| D1-C10-S05 | Medium relationship-to-activity endpoint. |
+| D1-C10-S01 | Begin from the exact runtime last-grime state with only the small right-counter lavender grime card remaining. |
+| D1-C10-S02 | Return to the locked full-front room. |
+| D1-C10-S03 | Reveal the exact clean front room: all three grime cards gone, four supplies stored once, fixed counters and floor clean, rectangular center desk blank, and Roshan at runtime scale. |
+| D1-C10-S04 | Use the same clean front room and center on the existing rectangular paint desk. |
+| D1-C10-S05 | Remain on the clean front projection. |
 
 ## Character reference guide
 
@@ -57,22 +57,22 @@ This is a newly generated, complete flattened narrative/topology reference. It d
 D1-C10 — ART ROOM: CLEAN DESK AWAKENING
 
 VIDEO SETUP BLOCK — PASTE ONCE
-Create five separate clips totaling 9–12 seconds. Start from gameplay's exact final dirty Art Room state with Roshan's approved brush contacting the last established grime patch. Preserve the human-approved six-view room topology, exact Roshan identity, four supply identities, their established storage homes, three grime zones, and magic paint desk. The last physical cleaning causes completion; supplies then settle into their known homes, the room brightens, and the desk wakes. End before Roshan performs the unlocked customization activity. No off-screen unexplained cleanup, duplicated supplies, room redesign, pre-made custom design, or UI overlay.
+Create five separate clips totaling 9–12 seconds. Match the current in-game Art Room exactly and remain on its single straight-on front projection. Runtime captures lock the rectangular center desk, rear shelves, shell idea board, ribbon rack, two windows, two columns, chandelier, two foreground counters, supply homes, and three small grime positions. Captures contain HUD and are boundary references only, never delivery pixels. The final brush contact is an authored cinematic action, not recorded gameplay. Never invent doors, reverse walls, round furniture, supply-flight paths, new storage, or a generic craft shop. End before customization UI appears.
 
 SHOT D1-C10-S01 COPY BLOCK
-Close physical-contact shot at the final lavender grime zone. Roshan's approved magic cleaning brush completes one last scrub across the surface; her child hand and arm remain anatomically correct and the room stays fixed. Locked camera. End as the final grime lifts from actual brush contact. No floating tool, whole-room flash before contact, extra hand, or remaining smear. Sound: temporary soft brush scrub and release chime; no voices.
+Begin from the exact runtime last-grime state with only the small right-counter lavender grime card remaining. Roshan uses the approved magic cleaning brush for one physically readable contact pass; grime clears only beneath the bristles. Locked front camera with a modest right crop. End with the final grime lifted and brush stable. No floating brush, whole-room flash before contact, extra hand, new smear, room drift, or HUD. Sound: soft brush scrub and release chime; no voices.
 
 SHOT D1-C10-S02 COPY BLOCK
-Medium room shot. The four approved loose supply groups move through short physically readable paths into their established storage homes: brushes, pink paint, blue paint, and paint cups. Roshan guides the last item rather than watching unexplained teleportation. Locked camera; counters and desk remain fixed. End with each supply stored once and no duplicates. Sound: temporary gentle bottle/cup placements and light magic shimmer; no voices.
+Return to the locked full-front room. The four loose target cards are already absent and each supply is represented once in its established storage station. Show only a restrained sparkle settling at the existing paint-table and palette stations. Locked camera. End with no loose duplicates. No flying supplies, transport arcs, carrying montage, new cupboard, or relocated fixture. Sound: gentle placement ticks and light magic shimmer; no voices.
 
 SHOT D1-C10-S03 COPY BLOCK
-Wide clean Art Room reveal matching the approved topology. The three grime zones are gone, counters and floor are clean, supplies sit in their established homes, and pearl/aqua/lavender/coral light returns. One slow pullback reveals the full inhabitable room. Roshan remains at correct scale. End on a stable clean layout. No redesigned walls, extra supplies, completed painting, or generic craft shop. Sound: temporary clean-room sparkle and warm reveal chord; no voices.
+Reveal the exact clean front room: all three grime cards gone, four supplies stored once, fixed counters and floor clean, rectangular center desk blank, and Roshan at runtime scale. One small pullback within the same projection. End on a stable complete clean layout. No doorway, reverse view, extra supplies, completed painting, dust bunny, or room redesign. Sound: clean-room sparkle and warm reveal chord; no voices.
 
 SHOT D1-C10-S04 COPY BLOCK
-Desk closeup in the same clean room. The established magic paint desk wakes through a localized gentle glow traveling through its approved motifs and tools; the physical desk does not transform or spawn a screen. Roshan watches at frame edge. One subtle push-in. End with the activity surface ready but blank. No HUD, text, new furniture, completed custom design, or neon sci-fi interface. Sound: temporary soft magical desk arpeggio; no voices.
+Use the same clean front room and center on the existing rectangular paint desk. A localized gentle glow and restrained rings wake around its blank activity surface; the physical desk does not transform or spawn a screen. Roshan watches at frame edge. One subtle front-axis push-in. End with the desk awake but blank. No HUD, pointer, text, customizer panel, completed design, neon interface, or new furniture. Sound: soft magical desk arpeggio; no voices.
 
 SHOT D1-C10-S05 COPY BLOCK
-Medium relationship-to-activity endpoint. Exact Roshan smiles and reaches one hand toward the awakened blank customization surface, stopping just before the first gameplay touch. The clean room, stored supplies, and desk remain unchanged. Locked camera. End stable at the exact playable seam. No design appearing, tap icon, pointer hand, extra limb, or fade. Sound: temporary expectant sparkle and gentle cadence; no voices.
+Remain on the clean front projection. Roshan smiles and raises one hand toward the awakened blank desk, stopping just before the first gameplay touch. Locked camera. End on a stable UI-free hand-gap seam. No customizer UI, bubbles, attack splash, pointer hand, completed design, extra limb, fade, or geometry change. Sound: expectant sparkle and gentle cadence; no voices.
 ```
 </details>
 

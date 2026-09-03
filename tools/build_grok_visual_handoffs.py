@@ -358,10 +358,10 @@ def build_scene(scene: dict[str, Any], slate: dict[str, Any], archive_commit: st
 
 ## Use this one-link handoff
 
-1. Review the location-depth sheet, storyboard, and character locks below.
+1. Review the environment continuity sheet, storyboard, and character locks below.
 2. Paste the shared guide once, then the scene guide.
 3. Generate one shot job at a time with two to four separately approved pixel authorities.
-4. Never upload either generated sheet below as `IMAGE_1` or as delivery pixels.
+4. Never upload either sheet below as `IMAGE_1` or as delivery pixels.
 
 ## Environment continuity and runtime state
 
