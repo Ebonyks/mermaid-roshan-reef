@@ -1,0 +1,101 @@
+{
+  "schema": "imagine-handoff-v2",
+  "handoff_id": "d1_c03_bathroom_dirty_entry_visual_v1",
+  "archive_status": "complete",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "blocking_findings": [
+    "No shot has an owner-approved clean HUD-free complete opening frame.",
+    "No continuity-dependent shot binds the accepted complete end frame of its predecessor.",
+    "Generated perspective and storyboard sheets are narrative-only and cannot be bound as generation pixels."
+  ],
+  "story_contract": {
+    "one_sentence_promise": "Roshan crosses from the Main Hall into the dirty bathroom becomes The dirty tub, dirty sink, trapped swimmer, and cleanup tools are readable.",
+    "ordered_beats": [
+      {
+        "beat_id": "D1-C03-S01",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Wide empty dirty Bathroom layout lock before Roshan enters."
+      },
+      {
+        "beat_id": "D1-C03-S02",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Inherit the approved dirty layout."
+      },
+      {
+        "beat_id": "D1-C03-S03",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Close shot of the established dirty bathtub."
+      },
+      {
+        "beat_id": "D1-C03-S04",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Medium reverse toward Roshan, dirty sink, and established cleaning tools."
+      }
+    ],
+    "forbidden_events": [
+      "No premature payoff or scene-state transition.",
+      "No identity, anatomy, cast-count, fixture-count, or room-topology drift."
+    ],
+    "final_state": "The dirty tub, dirty sink, trapped swimmer, and cleanup tools are readable"
+  },
+  "character_authorities": [
+    {
+      "character_id": "roshan",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "immutable_traits": [
+        "child face and age",
+        "brown hair with rainbow section",
+        "pink top and tiara"
+      ],
+      "anatomy_traits": [
+        "exactly two arms and one continuous mer-tail"
+      ],
+      "forbidden_drift": [
+        "legs or shoes",
+        "adult redesign"
+      ]
+    },
+    {
+      "character_id": "swimming_bunny",
+      "status": "approved",
+      "path": "handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+      "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+      "immutable_traits": [
+        "round lavender aquatic fluff",
+        "spiral ear curls",
+        "pearl paws and large warm eyes"
+      ],
+      "anatomy_traits": [
+        "one coherent swimming creature without legs"
+      ],
+      "forbidden_drift": [
+        "land-bunny legs",
+        "duplicate or smoke form"
+      ]
+    }
+  ],
+  "location_authority": {
+    "path": "handoff_art/location/room_bubble_bath_dirty_day_one.png",
+    "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+    "immutable_features": [
+      "fixed entrance and exit geography",
+      "fixed landmark and fixture order",
+      "consistent scale and navigable volume"
+    ],
+    "forbidden_geometry": [
+      "no invented room, basin, doorway, platform, or fixture relocation"
+    ]
+  },
+  "archive_remote": {
+    "commit": "7ae52a25b0d3699239da0bfe0b1b1b47e2272be4",
+    "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/7ae52a25b0d3699239da0bfe0b1b1b47e2272be4/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1",
+    "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/7ae52a25b0d3699239da0bfe0b1b1b47e2272be4/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/HANDOFF_PACKET.json",
+    "readme": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/7ae52a25b0d3699239da0bfe0b1b1b47e2272be4/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/README.md",
+    "verified_via": "GitHub recursive commit-tree API; every HANDOFF_PACKET asset path resolved",
+    "verified_at": "2026-09-02T00:00:00-07:00"
+  }
+}

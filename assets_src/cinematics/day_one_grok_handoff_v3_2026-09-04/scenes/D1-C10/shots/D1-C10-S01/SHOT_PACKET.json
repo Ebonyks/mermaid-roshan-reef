@@ -1,0 +1,125 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C10",
+  "shot_id": "D1-C10-S01",
+  "title": "Art Room — Clean Desk Awakening — D1-C10-S01",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "Art Room geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C10",
+      "source_packet": "d1_c10_art_room_restored_visual_v1",
+      "path": "handoff_art/location/room_craft_room_background.png",
+      "sha256": "006b736e59e261c2670717f268c76b39640b903373b1a75781cd464e135ddd0d",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c10_art_room_restored_visual_v1/handoff_art/location/room_craft_room_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "human-approved, clean, HUD-free shot-opening frame in the exact inherited state",
+      "source_authority_is_not_automatic_first_frame_approval": true,
+      "binding_alias": "location",
+      "local_path": "scenes/D1-C10/visuals/handoff_art/location/room_craft_room_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C10",
+      "source_packet": "d1_c10_art_room_restored_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c10_art_room_restored_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "roshan",
+      "local_path": "scenes/D1-C10/visuals/handoff_art/characters/roshan_roshan_base.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "Art Room fixture identity sheet",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C10",
+      "source_packet": "d1_c10_art_room_restored_visual_v1",
+      "path": "handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+      "sha256": "ccf85cf97fea81b4d3a496b8e48c57ff574b43aa4978953d8a78b9b4ea7a70f3",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c10_art_room_restored_visual_v1/handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "fixture_sheet",
+      "local_path": "scenes/D1-C10/visuals/handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png"
+    },
+    {
+      "id": "IMAGE_4",
+      "job": "magic cleaning brush",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C10",
+      "source_packet": "d1_c10_art_room_restored_visual_v1",
+      "path": "handoff_art/objects/magic_cleaning_brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c10_art_room_restored_visual_v1/handoff_art/objects/magic_cleaning_brush.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "cleaning_brush",
+      "local_path": "scenes/D1-C10/visuals/handoff_art/objects/magic_cleaning_brush.png"
+    }
+  ],
+  "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+  "camera": {
+    "verb": "locked, restrained action framing",
+    "move_count": 1
+  },
+  "must_move": "2.00–4.50 finish the last localized clean action; all three grime cards disappear causally.",
+  "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+  "end_state": "4.50–6.00 hold the complete clean front endpoint for supplies-home.",
+  "negative_constraints": "no invented event, topology drift, identity drift, anatomy errors, text, HUD, morph, interpolation, or camera drift",
+  "sound_intent": "quiet room tone and one soft causal action cue; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "a84fb1cbe2717a14d0669502f497d1671f11ef97a6547db513c3ab2a697cc8ef",
+  "strict_audit_reason": "Both originals are polished close-ups but not the exact clean front projection required at the S01/S02 seam.",
+  "weak_frames": [
+    {
+      "filename": "C10_S01_final_scrub.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f000–f144 (0.000–6.000s)",
+      "finding": "Close-up purple-room brush contact omits the complete exact clean Art Room front projection required for the outgoing S01/S02 seam."
+    },
+    {
+      "filename": "C10_S01_v1_final_scrub_OFFICIAL.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f000–f144 (0.000–6.000s)",
+      "finding": "Official close-up is visually polished but remains a partial alternate-room scrub; no complete current front topology or clean-contact seam."
+    }
+  ],
+  "source_packet": "d1_c10_art_room_restored_visual_v1",
+  "audited_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+  },
+  "blocking_findings": [],
+  "implemented_event_contract": {
+    "authority_path": "scripts/day_one_art_studio.gd",
+    "rule": "all seven cleanup actions unlock the blank desk; customization UI opens only after the desk touch"
+  },
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "strict_third_pass": true,
+    "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+    "reviewed_at": "2026-09-04"
+  }
+}

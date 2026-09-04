@@ -1,0 +1,113 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C13",
+  "shot_id": "D1-C13-S05",
+  "title": "Separate rainbow dust bunny emerges",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "approved arena geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C13",
+      "source_packet": "d1_c13_grand_puff_friendship_completion_visual_v1",
+      "path": "handoff_art/location/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+      "sha256": "ba0048fc93bc8cf752d0424200a1d1a0c03676ed78916a0c3bf335a60ec6a74e",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/location/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C13-S04 clean-Grand-Puff/prismatic-cradle endpoint; generation remains blocked until the rainbow bunny identity is human approved",
+      "source_authority_is_not_automatic_first_frame_approval": true,
+      "binding_alias": "arena_location",
+      "local_path": "scenes/D1-C13/visuals/handoff_art/location/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Grand Puff identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C13",
+      "source_packet": "d1_c13_grand_puff_friendship_completion_visual_v1",
+      "path": "handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "grand_puff",
+      "local_path": "scenes/D1-C13/visuals/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "dedicated human-approved rainbow bunny identity",
+      "status": "missing_human_approved_authority",
+      "required": "dedicated approved rainbow dust bunny identity; the generated concept and MP4 are not pixel authorities",
+      "binding_alias": "rainbow_bunny_missing"
+    }
+  ],
+  "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+  "camera": {
+    "verb": "locked",
+    "move_count": 1
+  },
+  "must_move": "Let exactly one rainbow dust bunny rise once from the cradle, with a small contained glow and no full-cast reveal.",
+  "must_not_move": "arena, platform, lamps, clean Grand Puff topology, prismatic cradle, exact two-character count, and floor contacts",
+  "end_state": "End on Puff beside the single bunny and cradle, both intact and calm, with no reconstituted boss or extra effects.",
+  "negative_constraints": "no Roshan, Daddy, Rumi, Baby Eagle, tall canopy, chair, cart, arch, smoke cloud, occluded reveal, Grand Puff morph, second bunny, unapproved identity, merged body, arena change, attack, text, or HUD",
+  "sound_intent": "soft poof, warm rainbow chime, and a friendly two-note cadence; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "0c0a77c1f8fe721a3a5f486b4b63fd6e152a613a591ea586c58a18f659fb8c29",
+  "strict_audit_reason": "All current variants add full cast and an oversized rainbow creature/effect; the required post-FRIENDS coda is exactly one bunny emerging from a tiny cradle.",
+  "weak_frames": [
+    {
+      "filename": "C13_S05_v1_rainbow_friend.mp4",
+      "lane": "original_branch",
+      "file_verdict": "OMIT_WRONG_EVENT",
+      "weak_frames": "f000-f144 (0.000-6.000s)",
+      "finding": "Full cast (Roshan, Daddy, Rumi and Baby Eagle) surrounds Puff while a huge rainbow creature/effect emerges. C13-S05 requires exactly one bunny emerging from a tiny floor cradle after the FRIENDS boundary; extra cast, oversized effect and no cradle violate count, topology and causality."
+    },
+    {
+      "filename": "C13_S05_v2_rainbow_friend.mp4",
+      "lane": "original_branch",
+      "file_verdict": "OMIT_WRONG_EVENT",
+      "weak_frames": "f000-f144 (0.000-6.000s)",
+      "finding": "Same wrong full-cast rainbow reveal as v1; oversized glow dominates the arena and the bunny is not a single small cradle emergence. The apparent extra identities cannot be retained in the post-gameplay coda."
+    },
+    {
+      "filename": "C13_S05_v1_rainbow_bunny_emerges_REGEN.mp4",
+      "lane": "committed_regen_audit",
+      "file_verdict": "REGENERATE",
+      "weak_frames": "000–047 cradle; 048–071 occlusion; identity 000–144",
+      "finding": "The floor cradle becomes a tall canopy/chair, multicolor smoke obscures emergence, and the bunny remains an unapproved identity stand-in."
+    }
+  ],
+  "source_packet": "d1_c13_grand_puff_friendship_completion_visual_v1",
+  "audited_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+  },
+  "blocking_findings": [
+    "Dedicated approved rainbow dust-bunny identity is missing; the unapproved concept and MP4 are not pixel authorities."
+  ],
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/dust_boss.gd plus owner-directed C13 extension",
+    "rule": "insert the cooperative coda immediately after the third successful round and before the FRIENDS implosion completes; never reconstitute Grand Puff after he has vanished"
+  },
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "strict_third_pass": true,
+    "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+    "reviewed_at": "2026-09-04"
+  }
+}

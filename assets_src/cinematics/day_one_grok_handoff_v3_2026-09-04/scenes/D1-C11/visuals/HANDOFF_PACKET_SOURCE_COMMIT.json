@@ -1,0 +1,362 @@
+{
+  "schema": "external-animation-visual-packet-v1",
+  "packet_id": "d1_c11_grand_puff_reveal_visual_v1",
+  "movie_id": "D1-C11",
+  "role": "self_contained_uploadable_reference_packet",
+  "runtime_asset": false,
+  "used_as_delivery_pixels": false,
+  "payload_sha256": "c2bb1541e1fb5e0f9bb71c0b6cf0326fed71e2553afb46f8dc874910e3fa1cc1",
+  "payload_hash_formula": "SHA256 of UTF-8 sorted <relative_path>|<lowercase_sha256>\\n records",
+  "authority_order": [
+    "approved location geography",
+    "approved character identities",
+    "approved objects/topology",
+    "generated perspective and storyboard sheets for narrative understanding only"
+  ],
+  "warnings": [
+    "Generated sheets are narrative references only and may never be bound as Grok IMAGE_1 or delivery pixels.",
+    "Every motion shot still requires an approved clean first frame and accepted endpoint continuity."
+  ],
+  "assets": [
+    {
+      "path": "handoff_art/location/main_hall_screen_b_room_led_master.png",
+      "role": "approved_location_geography_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        2048,
+        1153
+      ],
+      "sha256": "c333bdbd3243b2cfcd61e9475e7e5449d7165d03ff8413f860535d5ccb811454",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/flats/castle/main_hall_2screen/main_hall_screen_b_room_led_master.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "role": "approved_roshan_identity_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "role": "approved_grand_puff_identity_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "docs/grok_animation_series_project/characters/boss_dust_bunny/BOSS_DUST_BUNNY_IDENTITY.png",
+      "source_commit": "3af5a8eb7110dab2381c7d0a73b27b880d35e84a"
+    },
+    {
+      "path": "handoff_art/objects/main_hall_screen_a_room_led_master.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        2048,
+        1153
+      ],
+      "sha256": "ae84f4f79a8183312b5ba26b6999f26b69c8a538424b5383a7d6623cc2f275e9",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/flats/castle/main_hall_2screen/main_hall_screen_a_room_led_master.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/objects/dust_bunny_boss_jump.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "7f117638631841c31eb58b9c81224158d29d64f325980c75c475e0376e36788c",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_jump.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/objects/dust_bunny_boss_laugh_vulnerable.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "bdcf03aab906fa9c8f7293733e780ffaac883c14ba72bdc43069a4ace4f9afca",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "storyboards/ENVIRONMENT_PERSPECTIVES.png",
+      "role": "multi_angle_environment_narrative_reference_only",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "ef2dd6c423c8ffcfa0c5033891ea5349171970608af53ba0cf4432cdceda2f0c",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "exec-5ee5b594-8780-45d0-85a8-c0018ebb19ce.png",
+        "prompt_path": "storyboards/PERSPECTIVE_PROMPT.txt",
+        "attempt": 1
+      }
+    },
+    {
+      "path": "storyboards/SCENE_SHOT_BOARD.png",
+      "role": "shot_order_narrative_reference_only",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "f9d6e554ad1e2cbc3eeccd187ab334886a19056d8e8f96bb28ea576f1f952125",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "exec-81d7a51d-9cb5-42d1-86c4-52f74aab7ef7.png",
+        "prompt_path": "storyboards/STORYBOARD_PROMPT.txt",
+        "attempt": 4
+      }
+    },
+    {
+      "path": "written_guide/SHARED_STYLE_AND_CHARACTER_GUIDE.txt",
+      "role": "exact_written_handoff_guide",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "b65d7ebe7331e26fce29861620bb2b224af608a0b2e46290a6a77de5446c6c43",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/00_SHARED_STYLE_AND_CHARACTER_REFERENCE.txt",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "written_guide/SCENE_GUIDE.txt",
+      "role": "exact_written_handoff_guide",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "c149850ff2e27b880052173d47f1ec1fdde8ea2c9821892080d4a7d25b554fef",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C11_GRAND_PUFF_REVEAL.txt",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "written_guide/SOURCE_DOCUMENTS.json",
+      "role": "written_source_provenance_and_hashes",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "098f28d244620f586f5ca8c32c778cdcdbdffb08e782dedc70d837d6e75b9d48",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/PERSPECTIVE_PROMPT.txt",
+      "role": "exact_environment_generation_prompt",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "9b5a73e4a81be7962410d913459fadb07d19b15f0560cb17d4eb361dc6618e15",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/STORYBOARD_PROMPT.txt",
+      "role": "exact_storyboard_generation_prompt",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "4e0f1567d8b4d8a0cd63be2901fbbcf31fe010cfcfa328284354afcb4c507791",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/GENERATION_RESULTS.json",
+      "role": "generation_result_ids_and_attempts",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "b4a86d61d39f65693f07ac7f6a4c6e2f9f12f48ee9eb36ebc2ced29322566806",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/VISUAL_REVIEW.json",
+      "role": "sol_and_human_visual_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "5dafba93528e4de75b92e5d64a74401e44e776a0e0137cfaf0177849f185910d",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "GENERATION_RESULTS.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "b4a86d61d39f65693f07ac7f6a4c6e2f9f12f48ee9eb36ebc2ced29322566806",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "GENERATION_REVIEW.md",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "7fb6cfd383cc1b6ac065a8da522f607d6319887dd297a14c0d348a7c9fbb12ff",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "prompts/ENVIRONMENT_PERSPECTIVES.txt",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "9b5a73e4a81be7962410d913459fadb07d19b15f0560cb17d4eb361dc6618e15",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "prompts/SCENE_SHOT_BOARD.txt",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "4e0f1567d8b4d8a0cd63be2901fbbcf31fe010cfcfa328284354afcb4c507791",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/rejected/SCENE_SHOT_BOARD_attempt01_three_trails_contact_fail.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "732b374d5b3178dcb1a34efd9729617e02c4c94052461de9ee2c4acfd81f629f",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "storyboards/rejected/SCENE_SHOT_BOARD_attempt02_hand_contact_angry_identity.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "b2d753cf241c0896b1bdef2f35f32ac9388ce5baf51c5964385a3432b4134e7f",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "storyboards/rejected/SCENE_SHOT_BOARD_attempt03_one_mound_fail.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "226edc40d5eff7e0cfefa15c340d57c6c62cb5815291cf8f996de34f594c2161",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C08",
+  "shot_id": "D1-C08-S04",
+  "title": "Roshan clears the right pin and completes the room",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "Stuffie Room dirty-to-clean geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C08",
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "path": "handoff_art/location/room_playroom_background.png",
+      "sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/location/room_playroom_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C08-S03 right-pin pre-contact endpoint",
+      "source_authority_is_not_automatic_first_frame_approval": true,
+      "binding_alias": "location",
+      "local_path": "scenes/D1-C08/visuals/handoff_art/location/room_playroom_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C08",
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "roshan",
+      "local_path": "scenes/D1-C08/visuals/handoff_art/characters/roshan_roshan_base.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "Baby Eagle identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C07",
+      "source_packet": "d1_c07_stuffie_dirty_discovery_visual_v1",
+      "path": "handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+      "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c07_stuffie_dirty_discovery_visual_v1/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "baby_eagle_pinned",
+      "local_path": "scenes/D1-C08/visuals/imported_authorities/D1-C07/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png"
+    },
+    {
+      "id": "IMAGE_4",
+      "job": "right rescue-pin identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C08",
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "path": "handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "playroom_bunny",
+      "local_path": "scenes/D1-C08/visuals/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+    }
+  ],
+  "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+  "camera": {
+    "verb": "locked",
+    "move_count": 1
+  },
+  "must_move": "2.00–4.50 Roshan clears only eagle_pin_right; preserve one Eagle and exactly two pin bunnies.",
+  "must_not_move": "Roshan, Baby Eagle identity, fixture positions, floor geography, absent left pin, and camera",
+  "end_state": "4.50–6.00 hold the clean post-rescue room with no wing blast or new cast.",
+  "negative_constraints": "no basket, four-bunny emergence, wing blast, tornado, magic before contact, duplicate eagle, relocation, text, HUD, or picker UI",
+  "sound_intent": "one soft boing, clean-room chime, and relieved chirp; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "2324008c6f0549d925908572e468a6950b4477e6a541c09195e7424df2249638",
+  "strict_audit_reason": "Four-bunny and wing-blast originals replace the second pin clear; current completion is the right pin.",
+  "weak_frames": [
+    {
+      "filename": "C08_S04_four_bunnies.mp4",
+      "lane": "original_branch",
+      "file_verdict": "OMIT_WRONG_EVENT",
+      "weak_frames": "f000–f144 (0.000–6.000s)",
+      "finding": "Four-bunny emergence violates the exact two rescue-pin count; current completion is clearing the right pin, not spawning four bunnies."
+    },
+    {
+      "filename": "C08_S04_v2_four_bunnies.mp4",
+      "lane": "original_branch",
+      "file_verdict": "OMIT_WRONG_EVENT",
+      "weak_frames": "f000–f144 (0.000–6.000s)",
+      "finding": "Multiple bunny cast grows beyond the two authored pin identities; wrong event and endpoint."
+    },
+    {
+      "filename": "C08_S04_v1_four_bunnies_emerge_REGEN.mp4",
+      "lane": "committed_regen_audit",
+      "file_verdict": "REPLACE_WITH_GAME_EVENT",
+      "weak_frames": "000–144; count failure 048–144",
+      "finding": "The game has two rescue pins, not four emerging basket bunnies; the rendered count also grows ambiguous beyond four."
+    }
+  ],
+  "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+  "audited_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+  },
+  "blocking_findings": [],
+  "implemented_event_contract": {
+    "authority_path": "scripts/arena/castle_rooms_25d.gd",
+    "rule": "Roshan clears eagle_pin_left and eagle_pin_right; the room cleans, Baby Eagle thanks/rises/departs, then the companion picker opens"
+  },
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "strict_third_pass": true,
+    "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+    "reviewed_at": "2026-09-04"
+  }
+}
