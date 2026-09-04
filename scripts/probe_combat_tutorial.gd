@@ -130,16 +130,11 @@ func _class_case() -> void:
 	var pos: Vector2 = tut.cam.unproject_position(tut.he.aim_point(second))
 	main._on_world_press(pos)   # press-fire tap, then HOLD — no release
 	await _frames(16)           # past 1.45 s: stage 3 fires itself
-	_ck("a full charge fells the imp and readies partner power",
-		tut.lesson == "partner" and String(second["state"]) != "active")
+	_ck("a full charge fells the imp and opens the graduation wave",
+		tut.lesson == "wave" and String(second["state"]) != "active")
 	await _frames(2)
-	_ck("the companion lesson shows its picture bubble",
-		tut.pa != null and tut.pa.bubble != null)
-	if tut.pa != null and tut.pa.bubble != null:
-		tut.pa.bubble.pressed.emit()
-	await _frames(2)
-	_ck("partner power opens the graduation wave",
-		tut.lesson == "wave" and tut.enemies.size() >= 4)
+	_ck("the class has no partner-bubble overlay lesson",
+		not CombatTutorial.LESSONS.has("partner") and tut.enemies.size() >= 4)
 	for _round in range(8):
 		var target: Dictionary = tut._lesson_target()
 		if target.is_empty():

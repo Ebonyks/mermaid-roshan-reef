@@ -2,7 +2,7 @@ class_name InteractionDirector
 extends RefCounted
 # Shared touch interaction language:
 # ambient -> categorized discovery glow -> focused acknowledgement -> approach
-# -> ready -> explicit second tap/action -> activation. Gold/twinkle means a
+# -> ready -> explicit second tap -> activation. Gold/twinkle means a
 # local animation; deep blue/breath means an activity or state change; the
 # brightest red beacon means this object advances the plot.
 # Proximity advertises; it never launches an activity in Hybrid mode.
@@ -65,7 +65,7 @@ func on_world_touch(screen_pos: Vector2) -> void:
 		_activate(picked)
 		return
 	if m.touch_focus_ready:
-		m.show_msg(String(picked.get("label", "Roshan")), "Tap again or press the pink button!", "hint")
+		m.show_msg(String(picked.get("label", "Roshan")), "Tap it again!", "hint")
 		return
 	m._tap_move_ref().start(
 		_position(picked),
@@ -80,13 +80,13 @@ func mark_ready(interactable_id: String) -> void:
 	if focused.is_empty():
 		return
 	# Arrival and readiness share one metric, but the target may have drifted
-	# while she swam. Never announce a pink button that tick() will disable on
+	# while she swam. Never announce an action that tick() will disable on
 	# the very next frame — that reads as a broken toy to a four-year-old.
 	if m.player != null and _distance_to(m.player.position, _position(focused)) > float(focused.get("activation_radius", 5.0)):
-		m.show_msg(String(focused.get("label", "Roshan")), "Almost! Use the left circle to get closer!", "hint")
+		m.show_msg(String(focused.get("label", "Roshan")), "Almost! Tap nearby to swim closer!", "hint")
 		return
 	m.touch_focus_ready = true
-	m.show_msg(String(focused.get("label", "Roshan")), "Tap again or press the pink button!", "hint")
+	m.show_msg(String(focused.get("label", "Roshan")), "Tap it again!", "hint")
 
 func clear_focus() -> void:
 	m.touch_focus_id = ""

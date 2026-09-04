@@ -38,6 +38,7 @@ func start(main: ReefMain, checkpoint: int, done_cb: Callable, rooms_override: A
 		progress_override := "", done_override := "", flavor_override := {}) -> void:
 	m = main
 	finish_cb = done_cb
+	m._navigation_push("dungeon", self, Callable(self, "_leave_early"))
 	if not rooms_override.is_empty():
 		rooms = rooms_override
 	if progress_override != "":
@@ -77,13 +78,6 @@ func _build_hud() -> void:
 	room_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	room_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	room_card.add_child(room_label)
-	var home := Button.new()
-	home.name = "DungeonBackButton"
-	StorybookUI.style_back_button(home, "Save checkpoint and leave")
-	home.position = Vector2(1138, 24)
-	home.pressed.connect(_leave_early)
-	hud.add_child(home)
-
 func _update_hud() -> void:
 	if progress_label == null:
 		return
@@ -186,6 +180,7 @@ func _leave_early() -> void:
 func _finish(completed: bool) -> void:
 	if state == "done":
 		return
+	m._navigation_remove("dungeon")
 	state = "done"
 	if finish_cb.is_valid():
 		finish_cb.call(completed)

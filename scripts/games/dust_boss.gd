@@ -29,8 +29,8 @@ extends RefCounted
 #
 # No fail state: he bumps, but never hurts. Contact gives Roshan a readable
 # shove and boing before she recovers immediately; it never removes progress.
-# A separate picture button adds an OPTIONAL twirl dodge. Incoming hops pulse
-# that button; a timed press turns contact into a sideways swish. Bumps only
+# An open-floor tap adds an OPTIONAL twirl dodge. Incoming hops pulse Roshan;
+# a timed tap turns contact into a sideways swish. Bumps only
 # tune the replay mastery stars (gold through one, silver at two, bronze at
 # three-plus), while a clean run adds a small pearl bonus.
 # Five windows missed IN A ROW switch the fight to its slower assist pace:
@@ -255,7 +255,7 @@ func mastery_tier() -> int:
 	return mastery_tier_for_bumps(int(m.g.get("db_bumps", 0)))
 
 func request_dodge() -> void:
-	# Buttons, keyboard/controller parity and probes all enter through one edge.
+	# Direct world touch, keyboard/controller parity and probes enter one edge.
 	# The request is consumed in tick so it cannot mutate gameplay while paused.
 	if m.game == "dustboss" and m.g.has("db_state"):
 		m.g["db_dodge_requested"] = true
@@ -720,8 +720,15 @@ func on_world_tap(screen_pos: Vector2) -> void:
 		return
 	var k: DustBunnyBossSprite = kit()
 	var on_him: bool = _screen_hit(screen_pos)
+	var state: String = String(m.g.get("db_state", ""))
+	# Keep the canvas clear: when a hop is aimed at Roshan, a tap on the open
+	# painted floor twirls away. Tapping Grand Puff keeps its existing bonk rule.
+	if not on_him and state == "prowl" \
+			and bool(m.g.get("db_dodge_hint", false)):
+		request_dodge()
+		return
 	if k != null and is_instance_valid(k) and k.vulnerable \
-			and String(m.g.get("db_state", "")) == "vuln":
+			and state == "vuln":
 		var here := Vector2(float(m.g["db_x"]), float(m.g["db_z"]))
 		var d: float = (here - stage.player_local()).length()
 		if on_him or d <= reach():
@@ -729,8 +736,7 @@ func on_world_tap(screen_pos: Vector2) -> void:
 			return
 		_closer_feedback()
 		return
-	var st_now: String = String(m.g.get("db_state", ""))
-	if st_now == "showing" or st_now == "struck" or st_now == "friends":
+	if state == "showing" or state == "struck" or state == "friends":
 		_answer_only()   # same answer as the button — see D4
 		return
 	_bounce_off()
@@ -816,7 +822,7 @@ func _pick_hop(reset: bool) -> void:
 	if incoming and not bool(m.g.get("db_dodge_taught", false)):
 		m.g["db_dodge_taught"] = true
 		m.show_msg("Roshan",
-			"The dust boss is coming close! Press the TWIRL button!",
+			"Grand Puff is hopping at me — tap the open floor to TWIRL!",
 			"dustboss_dodge")
 	if reset:
 		m.g["db_hop_t"] = 0.0
@@ -1046,40 +1052,6 @@ func _build_mastery_ui() -> void:
 	StorybookUI.style_hud_label(stars, 58, StorybookUI.GOLD, 6)
 	panel.add_child(stars)
 	m.g["db_mastery_stars"] = stars
-	var dodge := Button.new()
-	dodge.name = "DustBossDodgeButton"
-	dodge.position = Vector2(1090.0, 314.0)
-	dodge.focus_mode = Control.FOCUS_NONE
-	StorybookUI.style_icon_button(dodge, "↻", "secondary",
-		Vector2(154.0, 154.0), "Twirl away from Grand Puff")
-	dodge.pivot_offset = dodge.size * 0.5
-	dodge.pressed.connect(request_dodge)
-	root.add_child(dodge)
-	m.g["db_dodge_button"] = dodge
-	var pointer := Label.new()
-	pointer.name = "DustBossDodgePointer"
-	pointer.text = "▼"
-	pointer.position = Vector2(1116.0, 242.0)
-	pointer.size = Vector2(102.0, 76.0)
-	pointer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	pointer.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	StorybookUI.style_hud_label(pointer, 58, StorybookUI.GOLD, 7)
-	root.add_child(pointer)
-	m.g["db_dodge_pointer"] = pointer
-	var pip_panel := StorybookUI.add_hud_panel(root,
-		Rect2(510.0, 116.0, 260.0, 64.0), StorybookUI.PEARL_BLUE,
-		Color(0.98, 0.96, 1.0, 0.94), 24)
-	pip_panel.name = "DustBossTapPipsPanel"
-	var pips := Label.new()
-	pips.name = "DustBossTapPips"
-	pips.position = Vector2(8.0, 0.0)
-	pips.size = Vector2(244.0, 64.0)
-	pips.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	pips.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	StorybookUI.style_hud_label(pips, 38, StorybookUI.INK, 5)
-	pip_panel.add_child(pips)
-	m.g["db_tap_pips"] = pips
-	_set_tap_pips(0)
 
 func _mastery_stars(tier: int) -> String:
 	var out := ""
@@ -1106,23 +1078,6 @@ func _update_mastery_ui() -> void:
 	if perfect != null and is_instance_valid(perfect):
 		perfect.text = "💎"
 		perfect.modulate = Color.WHITE
-	var dodge: Button = m.g.get("db_dodge_button") as Button
-	var pointer: Label = m.g.get("db_dodge_pointer") as Label
-	var dodge_visible: bool = state in ["prowl", "windup", "vuln"]
-	var danger: bool = bool(m.g.get("db_dodge_hint", false)) and state == "prowl"
-	var ready: bool = state == "prowl" \
-		and float(m.g.get("db_dodge_cd", 0.0)) <= 0.0
-	if dodge != null and is_instance_valid(dodge):
-		dodge.visible = dodge_visible
-		dodge.disabled = not ready
-		dodge.text = "⚡\n↻" if danger else "↻"
-		dodge.modulate = Color.WHITE if ready else Color(0.72, 0.72, 0.82, 0.78)
-		var pulse: float = 1.0 + sin(float(m.g.get("db_active_t", 0.0)) \
-			* (10.0 if danger else 2.6)) * (0.10 if danger else 0.025)
-		dodge.scale = Vector2.ONE * pulse
-	if pointer != null and is_instance_valid(pointer):
-		pointer.visible = dodge_visible and danger
-		pointer.position.y = 242.0 + sin(float(m.g.get("db_active_t", 0.0)) * 10.0) * 8.0
 
 # ---- the attic in the round ------------------------------------------------
 func _stage_open() -> void:
@@ -1250,7 +1205,7 @@ func _on_round_done() -> void:
 	m.g["db_hits"] = rounds
 	m.g["db_miss_streak"] = 0
 	m.g["db_shield_taps"] = 0
-	_set_tap_pips(0)
+	m.g["db_taps_this_round"] = 0
 	var boss: Node3D = m.g.get("db_boss") as Node3D
 	if boss != null and is_instance_valid(boss):
 		m._sparkle_burst(boss.global_position + Vector3(0, BOSS_H * 0.5, 0),
@@ -1282,18 +1237,7 @@ func _on_imploded() -> void:
 
 func _on_tap_progress(accepted: int, _required: int) -> void:
 	m.g["db_taps_this_round"] = accepted
-	_set_tap_pips(accepted)
 	_show_attack_feedback()
-
-func _set_tap_pips(accepted: int) -> void:
-	var pips: Label = m.g.get("db_tap_pips") as Label
-	if pips == null or not is_instance_valid(pips):
-		return
-	var filled: int = clampi(accepted, 0, TAPS_PER_ROUND)
-	var text := ""
-	for i in range(TAPS_PER_ROUND):
-		text += "●" if i < filled else "○"
-	pips.text = text
 
 # ---- the reef doorway ------------------------------------------------------
 func build_portal() -> Vector3:

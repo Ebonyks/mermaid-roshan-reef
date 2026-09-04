@@ -103,6 +103,7 @@ func configure(owner: ReefMain) -> void:
 func open(on_confirm: Callable = Callable()) -> void:
 	if _card == null:
 		_build()
+	m._navigation_push("attack_customizer", self, Callable(self, "close"))
 	_sync_from_main()
 	_refresh_choices()
 	_on_confirm = on_confirm
@@ -121,6 +122,7 @@ func open(on_confirm: Callable = Callable()) -> void:
 		tw.tween_property(_card, "scale", Vector2.ONE, 0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func close() -> void:
+	m._navigation_remove("attack_customizer")
 	if not is_open:
 		return
 	is_open = false

@@ -466,23 +466,17 @@ func _mastery_ui_case() -> void:
 	var layer: CanvasLayer = main.g.get("db_mastery_layer") as CanvasLayer
 	var stars: Label = main.g.get("db_mastery_stars") as Label
 	var gem: Label = main.g.get("db_perfect_gem") as Label
-	var pips: Label = main.g.get("db_tap_pips") as Label
-	var dodge: Button = main.g.get("db_dodge_button") as Button
 	_ck("the fight shows three earned-or-empty mastery stars without reading",
 		layer != null and stars != null and stars.text == "★★★")
 	_ck("the clean-run bonus has its own visible diamond target",
 		gem != null and gem.text == "💎")
-	_ck("three tap pips live on the visible boss layer",
-		layer != null and layer.layer > 0 and pips != null and pips.text == "○○○"
-		and pips.get_parent() != null and pips.get_parent().name == "DustBossTapPipsPanel")
-	_ck("dodge is a separate picture-first child-sized control",
-		dodge != null and bool(dodge.get_meta("picture_first", false))
-		and dodge.size.x >= 140.0 and dodge.size.y >= 140.0)
+	_ck("the fight does not add a dodge overlay button or pointer",
+		main.g.get("db_dodge_button") == null
+		and main.g.get("db_dodge_pointer") == null)
 	var attempts_before: int = int(main.g.get("db_dodge_attempts", 0))
-	if dodge != null:
-		dodge.pressed.emit()
-		_boss()._tick_dodge(0.0)
-	_ck("the separate picture button routes one fresh dodge edge",
+	_boss().request_dodge()
+	_boss()._tick_dodge(0.0)
+	_ck("the direct dodge request routes one fresh edge",
 		int(main.g.get("db_dodge_attempts", 0)) == attempts_before + 1)
 	main.g["db_dodge_t"] = 0.0
 	main.g["db_dodge_cd"] = 0.0
@@ -590,9 +584,9 @@ func _first_hit_case() -> void:
 		await process_frame
 		_ck("tapping the boss himself is a bonk, not a walk order",
 			kit0 != null and kit0.accepted_taps == taps_before + 1)
-		var pips_after_first: Label = main.g.get("db_tap_pips") as Label
-		_ck("the first landed tap fills exactly one boss pip",
-			pips_after_first != null and pips_after_first.text == "●○○")
+		_ck("the first landed tap advances hidden progress without an overlay",
+			int(main.g.get("db_taps_this_round", 0)) == 1
+			and main.g.get("db_tap_pips") == null)
 	var hit1: bool = _hits() >= 1
 	if not hit1:
 		hit1 = await _strike(4)

@@ -496,7 +496,7 @@ func _layer_contract() -> bool:
 		and main.pause_layer != null and main.pause_layer.layer == 12 \
 		and fade_layer != null and fade_layer.layer == 30
 	main.toggle_pause()
-	var open_ok: bool = paused and main.pause_layer.layer == 29
+	var open_ok: bool = paused and main.pause_layer.layer == 28
 	main.toggle_pause()
 	return base_ok and open_ok and not paused \
 		and main.pause_layer.layer == 12

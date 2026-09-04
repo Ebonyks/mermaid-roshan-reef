@@ -119,26 +119,9 @@ func _run() -> void:
 		"ElevatorButton") as Control
 	var elevator_pointer: Control = main.castle_room_stage.get_node_or_null(
 		"ElevatorPointer") as Control
-	_check("rescue hides competing lower-corner controls",
-		main.castle_room_action_button != null
-		and not main.castle_room_action_button.visible
-		and main.castle_room_action_button.disabled
-		and main.castle_room_action_button.mouse_filter \
-			== Control.MOUSE_FILTER_IGNORE
-		and elevator != null and not elevator.visible
-		and elevator is BaseButton and (elevator as BaseButton).disabled
-		and elevator.mouse_filter == Control.MOUSE_FILTER_IGNORE
-		and elevator_pointer != null and not elevator_pointer.visible
-		and elevator_pointer.mouse_filter == Control.MOUSE_FILTER_IGNORE,
-		"action=%s/%s elevator=%s/%s pointer=%s" % [
-			main.castle_room_action_button.visible
-			if main.castle_room_action_button != null else null,
-			main.castle_room_action_button.disabled
-			if main.castle_room_action_button != null else null,
-			elevator.visible if elevator != null else null,
-			(elevator as BaseButton).disabled
-			if elevator is BaseButton else null,
-			elevator_pointer.visible if elevator_pointer != null else null])
+	_check("rescue has no retired lower-corner overlay controls",
+		main.castle_room_action_button == null
+		and elevator == null and elevator_pointer == null)
 	await _capture("00_dirty_basket_prompt")
 
 	_check("basket tap starts real handoff", cleanup.probe_tap_basket())
@@ -243,17 +226,9 @@ func _run() -> void:
 		and pool_pointer != null
 		and pool_pointer.position.y
 			< pool_preview.position.y - pool_preview_size.y * 0.5)
-	_check("pool route keeps competing controls owned by Day One",
-		main.castle_room_action_button != null
-		and not main.castle_room_action_button.visible
-		and main.castle_room_action_button.disabled
-		and main.castle_room_action_button.mouse_filter \
-			== Control.MOUSE_FILTER_IGNORE
-		and elevator != null and not elevator.visible
-		and elevator is BaseButton and (elevator as BaseButton).disabled
-		and elevator.mouse_filter == Control.MOUSE_FILTER_IGNORE
-		and elevator_pointer != null and not elevator_pointer.visible
-		and elevator_pointer.mouse_filter == Control.MOUSE_FILTER_IGNORE)
+	_check("pool route does not revive retired overlay controls",
+		main.castle_room_action_button == null
+		and elevator == null and elevator_pointer == null)
 	await _capture("09_clean_pool_route")
 
 	main.queue_free()

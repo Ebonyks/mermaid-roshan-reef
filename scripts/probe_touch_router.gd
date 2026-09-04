@@ -27,8 +27,8 @@ func _init() -> void:
 
 	var move_zone: Rect2 = touch.movement_zone()
 	var action_zone: Rect2 = touch.action_zone()
-	if move_zone.intersects(action_zone):
-		_bad("movement and action ownership zones overlap")
+	if action_zone.size != Vector2.ZERO:
+		_bad("removed action overlay still reserves a screen rectangle: %s" % action_zone)
 	if move_zone.size.x < 390.0 or move_zone.size.y < 300.0:
 		_bad("movement thumb bay is too small: %s" % move_zone)
 	var move_start: Vector2 = move_zone.get_center()
@@ -60,9 +60,11 @@ func _init() -> void:
 	if taps.size() != bay_taps + 1:
 		_bad("a tap in the thumb bay was swallowed instead of reaching the world")
 	# Hold-to-travel clients read the emulated pointer, which knows nothing about
-	# ownership. They ask this instead, so a held button never means "walk here".
-	if not touch.reserved_zone_hit(touch.action_zone().get_center()):
-		_bad("holding the action medallion is not reserved from hold-to-travel")
+	# ownership. Only the thumb bay and global navigation reserve fixed screen
+	# space; the removed action medallion must leave the artwork touchable.
+	var former_action_point := Vector2(1160.0, 620.0)
+	if touch.reserved_zone_hit(former_action_point):
+		_bad("removed action medallion left a bottom-right dead zone")
 	if not touch.reserved_zone_hit(move_start):
 		_bad("holding inside the thumb bay is not reserved from hold-to-travel")
 	main._tap_move_ref().cancel("probe reset")
@@ -97,23 +99,24 @@ func _init() -> void:
 	if (touch.stick_vec as Vector2).length() < 0.45 or not touch.touch_owners.has(0):
 		_bad("non-transition activation stole held movement")
 
-	# Fix regression: the pink action target must hear a SECOND finger while
-	# the stick is held. A Control Button only receives the first finger
-	# (mouse-from-touch emulation), so the router claims raw ScreenTouch
-	# presses inside the action zone itself.
+	# A slow press on open art must remain inert until release; Hybrid has no
+	# invisible hold-anywhere action.
 	touch.consume_action()
-	var action_center: Vector2 = touch.action_zone().get_center()
+	var action_center: Vector2 = world_pos + Vector2(150.0, 90.0)
 	_down(6, action_center)
-	await process_frame
-	if not bool(touch.action_down) or not bool(touch.action_just):
-		_bad("second-finger action press was dropped while the stick was held")
+	await _frames(30)
+	if bool(touch.action_down) or bool(touch.action_just):
+		_bad("slow world press triggered an invisible action")
 	if (touch.stick_vec as Vector2).length() < 0.45 or not touch.touch_owners.has(0):
-		_bad("second-finger action press stole the held stick")
+		_bad("second-finger world press stole the held stick")
 	_up(6, action_center)
 	await process_frame
 	if bool(touch.action_down):
-		_bad("action button stayed held after second-finger release")
+		_bad("world press left action held after release")
 	touch.consume_action()
+	touch.pulse_context_action(action_center)
+	if not bool(touch.consume_action_just()):
+		_bad("direct scene-tap context action did not produce one edge")
 
 	# A swipe over the world is neither a tap command nor leaked finger state.
 	var tap_count_before_drag: int = taps.size()
@@ -131,20 +134,10 @@ func _init() -> void:
 	if not (touch.stick_vec as Vector2).is_zero_approx():
 		_bad("stick remained active after release")
 
-	# The visible action bubble is a real press/hold target.
-	touch.consume_action()
-	touch._on_action_button_down()
-	if not bool(touch.action_down) or not bool(touch.action_just):
-		_bad("hybrid action button did not press")
-	touch._on_action_button_up()
-	if bool(touch.action_down):
-		_bad("hybrid action button remained held")
-	await _frames(4)
-	if bool(touch.action_just):
-		_bad("released action edge remained armed for a future interaction")
+	# Compatibility labels cannot resurrect a visible target.
 	touch.set_action_label("PLAY")
-	if touch._act_lbl == null or String(touch._act_lbl.text) == "PLAY" or not "\n" in String(touch._act_lbl.text):
-		_bad("action target is word-only instead of pictogram plus word")
+	if touch.find_child("ActionShellMedallion", true, false) != null:
+		_bad("set_action_label resurrected the action overlay")
 
 	# A full-screen overlay can swallow the original finger-up. Opening and
 	# closing it must still clear the stick owner and restore neutral controls.
@@ -154,8 +147,8 @@ func _init() -> void:
 	await process_frame
 	if touch.world_controls_enabled or not touch.touch_owners.is_empty() or not (touch.stick_vec as Vector2).is_zero_approx():
 		_bad("opening overlay stranded held movement state")
-	if touch._act_button != null and touch._act_button.visible:
-		_bad("world action button occludes a full-screen overlay")
+	if touch.find_child("ActionShellMedallion", true, false) != null:
+		_bad("world action overlay occludes a full-screen activity")
 	# The release is intentionally omitted: this simulates a Control consuming
 	# it before the gameplay router sees it.
 	main._close_craft()
@@ -200,22 +193,27 @@ func _init() -> void:
 	main._tap_move_ref().cancel("probe complete")
 	main.player.verb = ""
 
-	# Priority dispatch: fixed controls are claimed in _input before ordinary
+	# Priority dispatch: the sole global control is claimed in _input before ordinary
 	# GUI routing. Headless display drivers do not forward synthetic mouse
 	# events through a viewport, so exercise that priority handler directly.
+	main.game = "level2"
+	main.g["phase"] = "promenade"
+	main._navigation_set_root("sky_lagoon")
+	main._pause_ref().sync_global_navigation()
 	var pause_center: Vector2 = touch.pause_zone().get_center()
 	_dispatch_mouse(pause_center, true)
 	await process_frame
 	if not main.get_tree().paused or main.pause_panel == null or not main.pause_panel.visible:
-		_bad("screen-dispatched Pause press did not open the pause sheet")
+		_bad("screen-dispatched Menu press did not open the Menu sheet")
 	_dispatch_mouse(pause_center, false)
 	await process_frame
 	_dispatch_mouse(pause_center, true)
 	await process_frame
 	if main.get_tree().paused:
-		_bad("screen-dispatched Pause press did not resume")
+		_bad("screen-dispatched Back press did not close the Menu sheet")
 	_dispatch_mouse(pause_center, false)
 	await process_frame
+	main.game = ""
 
 	# Runtime rollback: Classic produces no world taps and restores tap-action.
 	main._set_touch_mode("classic", false)

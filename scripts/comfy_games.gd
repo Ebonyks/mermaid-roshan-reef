@@ -146,15 +146,6 @@ func refresh_castle_room() -> void:
 	castle_root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 	var hunt := _hunt_state()
-	if not bool(hunt.get("accepted", false)):
-		if m.castle_room_id == "main_hall":
-			_build_invitation()
-		return
-	if bool(hunt.get("completed", false)):
-		if m.castle_room_id == "main_hall":
-			_build_completed_badge()
-	else:
-		_build_progress_badge()
 	for friend: Dictionary in FRIENDS:
 		if String(friend["room"]) != m.castle_room_id:
 			continue
@@ -173,45 +164,6 @@ func clear_castle_room() -> void:
 	castle_root = null
 
 
-func _build_invitation() -> void:
-	var button := Button.new()
-	button.name = "DayTwoComfyInvitation"
-	button.position = Vector2(1040.0, 72.0)
-	StorybookUI.style_icon_button(button, "♡", "gold", Vector2(150.0, 150.0),
-		"Play hide-and-seek with Rumi, Baby Eagle, and Daddy Mermaid")
-	button.set_meta("visual_pointer", true)
-	button.set_meta("optional_quest_accept", DAY_TWO_HIDE_AND_SEEK)
-	button.pressed.connect(_accept_hide_and_seek)
-	castle_root.add_child(button)
-	_pulse(button)
-
-
-func _build_progress_badge() -> void:
-	var button := Button.new()
-	button.name = "ComfyHideAndSeekProgress"
-	button.position = Vector2(1050.0, 64.0)
-	var found_count := _found_count()
-	var pips := "●".repeat(found_count) + "○".repeat(FRIENDS.size() - found_count)
-	StorybookUI.style_icon_button(button, pips, "gold", Vector2(158.0, 96.0),
-		"Hide-and-seek: %d of %d friends found" % [found_count, FRIENDS.size()])
-	button.set_meta("visual_pointer", true)
-	button.set_meta("comfy_progress", found_count)
-	button.pressed.connect(_give_next_hint)
-	castle_root.add_child(button)
-	_pulse(button, 1.025)
-
-
-func _build_completed_badge() -> void:
-	var button := Button.new()
-	button.name = "ComfyHideAndSeekComplete"
-	button.position = Vector2(1050.0, 64.0)
-	StorybookUI.style_icon_button(button, "♡★", "gold", Vector2(158.0, 96.0),
-		"Super Seeker hide-and-seek complete")
-	button.pressed.connect(func() -> void:
-		m.show_msg("Everyone", "Super Seeker Roshan found every friend!", "win"))
-	castle_root.add_child(button)
-
-
 func _build_hidden_friend(friend: Dictionary) -> void:
 	var button := TextureButton.new()
 	button.name = "ComfyHidden_%s" % String(friend["id"])
@@ -223,6 +175,7 @@ func _build_hidden_friend(friend: Dictionary) -> void:
 	button.tooltip_text = "Found %s" % String(friend["name"])
 	button.set_meta("visual_pointer", true)
 	button.set_meta("comfy_hidden_friend", String(friend["id"]))
+	button.set_meta("direct_world_character", true)
 	button.pressed.connect(_find_friend.bind(String(friend["id"])))
 	castle_root.add_child(button)
 	_pulse(button, 1.045)
@@ -252,24 +205,12 @@ func _friend_texture(friend: Dictionary) -> Texture2D:
 	return atlas
 
 
-func _accept_hide_and_seek() -> void:
-	var hunt := _hunt_state()
-	if bool(hunt.get("accepted", false)):
-		return
-	hunt["accepted"] = true
-	_set_hunt_state(hunt)
-	m._write_save()
-	m.show_msg("Daddy Mermaid",
-		"Rumi, Baby Eagle, and Daddy are hiding around the castle! Explore anywhere, and tap us when you find us!",
-		"hide_seek_start")
-	refresh_castle_room()
-
-
 func _find_friend(friend_id: String) -> void:
 	if _is_found(friend_id):
 		return
 	var hunt := _hunt_state()
 	var found: Dictionary = hunt.get("found", {}) as Dictionary
+	hunt["accepted"] = true
 	found[friend_id] = true
 	hunt["found"] = found
 	var friend := _friend_def(friend_id)
@@ -301,15 +242,6 @@ func _visit_friend(friend_id: String) -> void:
 		"Let's play together in the castle!", "hide_seek_visit")
 
 
-func _give_next_hint() -> void:
-	for friend: Dictionary in FRIENDS:
-		if _is_found(String(friend["id"])):
-			continue
-		m.show_msg("Roshan", "I hear a friend near the %s!" \
-			% String(friend["room_name"]), "hide_seek_hint")
-		return
-
-
 func _hunt_state() -> Dictionary:
 	var state := normalise_save_patch({"comfy_games": m.comfy_games_state})
 	m.comfy_games_state = state
@@ -325,15 +257,6 @@ func _set_hunt_state(hunt: Dictionary) -> void:
 func _is_found(friend_id: String) -> bool:
 	var found: Dictionary = _hunt_state().get("found", {}) as Dictionary
 	return bool(found.get(friend_id, false))
-
-
-func _found_count() -> int:
-	var count := 0
-	var found: Dictionary = _hunt_state().get("found", {}) as Dictionary
-	for friend: Dictionary in FRIENDS:
-		if bool(found.get(String(friend["id"]), false)):
-			count += 1
-	return count
 
 
 func _all_found(found: Dictionary) -> bool:

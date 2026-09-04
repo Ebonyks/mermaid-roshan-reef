@@ -130,8 +130,7 @@ func _picker_case() -> void:
 			== "playroom_pin_left"
 		and String(right_sprite.get_meta("dust_bunny_role", ""))
 			== "playroom_pin_right"
-		and main.castle_room_action_button != null
-		and not main.castle_room_action_button.visible)
+		and main.castle_room_action_button == null)
 	rooms.activate_current_room()
 	await process_frame
 	_ck("Stuffie picker stays locked until Baby Eagle is rescued",
@@ -327,14 +326,11 @@ func _follower_case() -> void:
 	var pd: float = main.companion_node.position.distance_to(main.player.position) if main.companion_node != null else INF
 	_ck("follower stays near Roshan", pd < 40.0)
 	_ck("den built near the shipwreck", main.companion_den != null and is_instance_valid(main.companion_den))
-	# The stuffie owns an inset upper-hand launcher, leaving the far corner to
-	# Pause, and a complete storybook Tamagotchi sheet behind that one tap.
+	# The stuffie remains in-world; no persistent launcher competes with the
+	# single global Back/Menu control.
 	var launcher: Button = main.companion_menu_button
-	_ck("care launcher appears in the inset upper-right hand area",
-		launcher != null and launcher.visible and launcher.position.x >= 820.0
-		and launcher.position.x + launcher.size.x <= 1000.0
-		and launcher.position.y <= 40.0 and launcher.size.x >= 120.0 and launcher.size.y >= 120.0
-		and String(launcher.get_meta("hud_zone", "")) == "upper_right_inset")
+	_ck("care has no persistent HUD launcher", launcher == null
+		and main.find_child("StuffieCareMenuButton", true, false) == null)
 	var comp: CompanionSystem = main._companion_ref()
 	comp._begin_want("play")
 	comp.open_care_menu()
@@ -345,9 +341,9 @@ func _follower_case() -> void:
 	for action: Node in care_actions:
 		var control := action as Control
 		actions_big = actions_big and control != null and control.size.x >= 110.0 and control.size.y >= 110.0
-	_ck("Tamagotchi sheet has a neutral back and five large care actions",
-		main.companion_care_layer != null and care_back != null
-		and care_back.size.x >= 110.0 and care_back.size.y >= 110.0 and actions_big)
+	_ck("Tamagotchi sheet uses global Back and five large care actions",
+		main.companion_care_layer != null and actions_big
+		and care_back == null)
 	_ck("Tamagotchi sheet shows need, growth, and table repainting",
 		main.companion_care_stage.find_child("StuffieCurrentNeed", true, false) != null
 		and main.companion_care_stage.find_child("StuffieGrowthPips", true, false) != null
@@ -397,14 +393,14 @@ func _follower_case() -> void:
 		and comp.stage() == 2 and comp.tier() == 1)
 
 func _menu_case() -> void:
-	# One inset Storybook launcher owns both asked care and always-welcome affection.
+	# Root Menu owns access; the gameplay HUD has no care launcher.
 	var comp: CompanionSystem = main._companion_ref()
 	var buttons: Array[Node] = main.find_children("StuffieCareMenuButton", "Button", true, false)
-	_ck("exactly one Stuffie HUD launcher exists after adoption", buttons.size() == 1
-		and main.companion_menu_button != null and is_instance_valid(main.companion_menu_button))
+	_ck("no Stuffie HUD launcher exists after adoption", buttons.is_empty()
+		and main.companion_menu_button == null)
 	var pts: int = main.care_points
 	comp.open_care_menu()
-	_ck("the Storybook care menu opens from that launcher", main.companion_care_layer != null
+	_ck("the Storybook care menu remains available", main.companion_care_layer != null
 		and main.companion_care_stage != null)
 	comp._choose_menu_care("bath")
 	await _settle(2)
@@ -441,13 +437,16 @@ func _battle_case() -> void:
 	var miss0: int = battle.miss_count
 	var dodge0: int = battle.dodge_success_count
 	battle._qte_begin(battle.enemies[0])
-	_ck("telegraph opens the DODGE window", battle.qte_t > 0.0 and battle.dodge_btn.visible)
+	_ck("telegraph opens a button-free DODGE window", battle.qte_t > 0.0
+		and main.find_child("StuffieDodgeButton", true, false) == null)
 	battle.qte_t = 0.0001
 	await process_frame
 	_ck("missed dodge is a bump, never a fail", battle.state == "play" and battle.miss_count == miss0 + 1)
 	battle._qte_begin(battle.enemies[0])
-	battle.press_dodge()
-	_ck("tapping DODGE in the window succeeds", battle.dodge_success_count == dodge0 + 1 and battle.qte_t <= 0.0)
+	main.touch_ui._arm_action_edge()
+	await process_frame
+	_ck("the shared hold action dodges in the window",
+		battle.dodge_success_count == dodge0 + 1 and battle.qte_t <= 0.0)
 	# bop both imps dizzy → they get befriended → the round is won
 	for enemy: Dictionary in battle.enemies:
 		while int(enemy["hp"]) > 0:
@@ -651,11 +650,9 @@ func _patient_care_case() -> void:
 		and not reminder_copy.contains("hurt too much")
 	var reminder_pointer_ok: bool = main.companion_want_bubble != null \
 		and is_instance_valid(main.companion_want_bubble)
-	var reminder_hud_ok: bool = main.companion_menu_button != null \
-		and main.companion_menu_button.visible \
-		and main.companion_menu_button.text == "🩹" \
-		and String(main.companion_menu_button.get_meta(
-			"storybook_kind", "")) == "action"
+	var reminder_hud_ok: bool = main.companion_menu_button == null \
+		and main.global_navigation_button != null \
+		and main.global_navigation_button.visible
 	var reminder_voice_ok: bool = main.voice_i == voice_before + 1
 	if not (reminder_voice_ok and reminder_is_kind \
 			and reminder_pointer_ok and reminder_hud_ok):
