@@ -1,0 +1,115 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C03",
+  "shot_id": "D1-C03-S04",
+  "title": "Pre-contact tool resolve",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "dirty bathroom layout",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C03",
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "path": "handoff_art/location/room_bubble_bath_dirty_day_one.png",
+      "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/handoff_art/location/room_bubble_bath_dirty_day_one.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C03-S03 endpoint",
+      "source_authority_is_not_automatic_first_frame_approval": true
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C03",
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "approved tool group",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C03",
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "path": "handoff_art/objects/cleanup_basket.png",
+      "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/handoff_art/objects/cleanup_basket.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "start_frame": "IMAGE_1 after the blocking shot-opening approval",
+  "camera": {
+    "verb": "subtle push-in",
+    "move_count": 1
+  },
+  "must_move": "Roshan makes one gaze-and-reach action",
+  "must_not_move": "dirty room, murky tub, swimmer, sink, tools, grime, and character anatomy",
+  "end_state": "Roshan holds a determined pre-contact hand gap while all dirt remains",
+  "negative_constraints": "no scrub, tool teleport, UI pointer, extra supplies, room redesign, cleanup, text, or HUD",
+  "sound_intent": "resolve chime over quiet drips; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "ea1fce8b32a44a5d8fe23fed5a79e59a0273a322f20259f32c3992edf114ba53",
+  "source_clip_audit": [
+    {
+      "source_clip": "C03_S04_v1_tool_reach.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C03_S04_v1_tool_reach.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "frames 48–144 do not preserve a clear pre-contact endpoint"
+    },
+    {
+      "source_clip": "C03_S04_v1_tools_resolve.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C03_S04_v1_tools_resolve.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "frames 0–47 begin from an unstable dirty-room composition and frames 108–144 leave the tool gap ambiguous"
+    },
+    {
+      "source_clip": "C03_S04_v2_tools_resolve.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C03_S04_v2_tools_resolve.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "frames 48–144 drift tool/room relationships during the resolve"
+    }
+  ],
+  "blocking_findings": [
+    "IMAGE_1 is not yet bound to the required accepted D1-C03-S03 endpoint",
+    "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"
+  ],
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "luna_parallel_audit": true,
+    "sol_master_review": true,
+    "reviewed_at": "2026-09-03",
+    "criteria": "loose rough-cut retention with strict geometry, identity, count, causality, and endpoint repair"
+  }
+}

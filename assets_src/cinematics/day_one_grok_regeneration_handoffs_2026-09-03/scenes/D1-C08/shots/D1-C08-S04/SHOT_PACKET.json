@@ -1,0 +1,117 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C08",
+  "shot_id": "D1-C08-S04",
+  "title": "Exactly four bunnies emerge",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "dirty Stuffie Room geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C08",
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "path": "handoff_art/location/room_playroom_background.png",
+      "sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/location/room_playroom_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C08-S03 endpoint showing both baskets",
+      "source_authority_is_not_automatic_first_frame_approval": true
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "bunny identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C08",
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "path": "handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "standing Baby Eagle identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C08",
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "path": "handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "IMAGE_4",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C08",
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "start_frame": "IMAGE_1 after the blocking shot-opening approval",
+  "camera": {
+    "verb": "gentle pullback",
+    "move_count": 1
+  },
+  "must_move": "four and only four bunnies emerge and settle",
+  "must_not_move": "both baskets, room fixtures, Roshan, one Baby Eagle, floor contacts, and each bunny identity",
+  "end_state": "exactly four bunnies are individually countable and safely settled",
+  "negative_constraints": "no fifth bunny, merged bodies, clone row, duplicate eagle, smoke, attack, cleanup, room change, text, or HUD",
+  "sound_intent": "four soft hops and cheerful fabric rustle; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "826ec0b00a3f0906d2ced50207ca89ba84f8a488f7a9bd116aa2449368256edf",
+  "source_clip_audit": [
+    {
+      "source_clip": "C08_S04_four_bunnies.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C08_S04_four_bunnies.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "frames 48–144 leave the basket/foreground count ambiguous"
+    },
+    {
+      "source_clip": "C08_S04_v2_four_bunnies.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C08_S04_v2_four_bunnies.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "frames 48–144 change the readable individual count and spacing"
+    }
+  ],
+  "blocking_findings": [
+    "IMAGE_1 is not yet bound to the required accepted D1-C08-S03 endpoint showing both baskets",
+    "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"
+  ],
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "luna_parallel_audit": true,
+    "sol_master_review": true,
+    "reviewed_at": "2026-09-03",
+    "criteria": "loose rough-cut retention with strict geometry, identity, count, causality, and endpoint repair"
+  }
+}

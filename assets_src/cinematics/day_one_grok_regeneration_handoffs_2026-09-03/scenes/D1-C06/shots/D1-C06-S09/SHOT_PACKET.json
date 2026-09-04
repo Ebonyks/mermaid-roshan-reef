@@ -1,0 +1,95 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C06",
+  "shot_id": "D1-C06-S09",
+  "title": "Roshan completes the hug",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "clean pool geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/location/room_mermaid_pool_background.png",
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/location/room_mermaid_pool_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C06-S08 open-arm endpoint",
+      "source_authority_is_not_automatic_first_frame_approval": true
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Rumi identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "start_frame": "IMAGE_1 after the blocking shot-opening approval",
+  "camera": {
+    "verb": "subtle pullback",
+    "move_count": 1
+  },
+  "must_move": "Roshan approaches and completes one hug",
+  "must_not_move": "faces, torsos, hands, two tails, scale, pool geometry, and both fixed streams",
+  "end_state": "Roshan and Rumi hold one stable joyful embrace with distinct bodies",
+  "negative_constraints": "no fused torsos, merged tails, extra arms, substitute Rumi, kiss, tiny pool, text, or HUD",
+  "sound_intent": "water sparkle and warm resolution; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "c94b0c0fc4c14e7b29a16f043627ed58978a3f25d45a06fc14a9fbb947dbe8b7",
+  "source_clip_audit": [
+    {
+      "source_clip": "C06_rumi_roshan_hug.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C06_rumi_roshan_hug.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "frames 0–47 begin in an ambiguous pre-fused embrace and frames 48–144 never establish a clean approach/contact"
+    }
+  ],
+  "blocking_findings": [
+    "IMAGE_1 is not yet bound to the required accepted D1-C06-S08 open-arm endpoint",
+    "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"
+  ],
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "luna_parallel_audit": true,
+    "sol_master_review": true,
+    "reviewed_at": "2026-09-03",
+    "criteria": "loose rough-cut retention with strict geometry, identity, count, causality, and endpoint repair"
+  }
+}

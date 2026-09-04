@@ -1,0 +1,91 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C03",
+  "shot_id": "D1-C03-S02",
+  "title": "Roshan crosses the dirty-bathroom threshold",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "dirty bathroom layout",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C03",
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "path": "handoff_art/location/room_bubble_bath_dirty_day_one.png",
+      "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/handoff_art/location/room_bubble_bath_dirty_day_one.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C03-S01 dirty-room endpoint",
+      "source_authority_is_not_automatic_first_frame_approval": true
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C03",
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "dirty tub material",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C03",
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "path": "handoff_art/objects/target_tub_grime_v1.png",
+      "sha256": "52e8c42b0c044c1b5dba42681d7dfb5e34dc44b345e6535e9432df5f186ecb67",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/handoff_art/objects/target_tub_grime_v1.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "start_frame": "IMAGE_1 after the blocking shot-opening approval",
+  "camera": {
+    "verb": "short follow",
+    "move_count": 1
+  },
+  "must_move": "Roshan crosses and makes one tub-to-sink look",
+  "must_not_move": "single tub, sink, tools, grime cards, entrance, child identity, clothes, and continuous tail",
+  "end_state": "Roshan is fully inside and the entrance remains spatially clear",
+  "negative_constraints": "no legs, shoes, room rotation, second tub, cleaning, extra cast, text, or HUD",
+  "sound_intent": "soft tail movement and a quiet drip; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "9f8003ac999911db989f7aac2f5fee6a7aed7e8b16ba2aa2a59b6e82f8cf01eb",
+  "source_clip_audit": [
+    {
+      "source_clip": null,
+      "source_clip_url": null,
+      "weak_frames": null,
+      "observation": "shot is absent from the delivered clip set"
+    }
+  ],
+  "blocking_findings": [
+    "IMAGE_1 is not yet bound to the required accepted D1-C03-S01 dirty-room endpoint",
+    "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"
+  ],
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "luna_parallel_audit": true,
+    "sol_master_review": true,
+    "reviewed_at": "2026-09-03",
+    "criteria": "loose rough-cut retention with strict geometry, identity, count, causality, and endpoint repair"
+  }
+}

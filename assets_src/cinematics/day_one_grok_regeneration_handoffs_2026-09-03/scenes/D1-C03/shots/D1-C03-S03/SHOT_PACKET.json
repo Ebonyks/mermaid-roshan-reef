@@ -1,0 +1,95 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C03",
+  "shot_id": "D1-C03-S03",
+  "title": "Swimming bunny in the dirty tub",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "dirty bathroom layout",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C03",
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "path": "handoff_art/location/room_bubble_bath_dirty_day_one.png",
+      "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/handoff_art/location/room_bubble_bath_dirty_day_one.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C03-S02 endpoint",
+      "source_authority_is_not_automatic_first_frame_approval": true
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "swimming bunny identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C03",
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "path": "handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+      "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "murky tub material",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C03",
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "path": "handoff_art/objects/target_tub_grime_v1.png",
+      "sha256": "52e8c42b0c044c1b5dba42681d7dfb5e34dc44b345e6535e9432df5f186ecb67",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/handoff_art/objects/target_tub_grime_v1.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "start_frame": "IMAGE_1 after the blocking shot-opening approval",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "one bunny paddles and Roshan reacts",
+  "must_not_move": "tub geometry, sink, dirty water state, bunny anatomy, and Roshan edge position",
+  "end_state": "the single swimmer is clearly visible and needs gentle rescue",
+  "negative_constraints": "no duplicate bunny, land bunny, clean water, drowning terror, invented anatomy, room redesign, text, or HUD",
+  "sound_intent": "small paddles and a gentle worried pulse; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "e922c29648850a873bb4b29062bb531676e0c12481061efc11706d7055b45b97",
+  "source_clip_audit": [
+    {
+      "source_clip": "C03_bunny_discover.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C03_bunny_discover.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "frames 0–144 use a clean, bright tub state and oversized creature, so the entire shot contradicts the dirty-entry setup"
+    }
+  ],
+  "blocking_findings": [
+    "IMAGE_1 is not yet bound to the required accepted D1-C03-S02 endpoint",
+    "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"
+  ],
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "luna_parallel_audit": true,
+    "sol_master_review": true,
+    "reviewed_at": "2026-09-03",
+    "criteria": "loose rough-cut retention with strict geometry, identity, count, causality, and endpoint repair"
+  }
+}

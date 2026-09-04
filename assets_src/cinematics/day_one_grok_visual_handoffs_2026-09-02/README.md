@@ -1,6 +1,8 @@
 # Day One Grok visual handoffs — 2026-09-02
 
-Each scene link is self-contained: newly generated multi-angle environment art, a newly generated shot-aligned storyboard, approved character/location/object references, exact written Grok blocks, hashes, provenance, and truthful readiness status. C13 is provisional and unpublished; the collection remains unverified until its complete packet is committed and remotely verified.
+Each scene link is self-contained: newly generated multi-angle environment art, a newly generated shot-aligned storyboard, approved character/location/object references, exact written Grok blocks, hashes, provenance, and truthful readiness status. All fourteen archive packets are committed and remotely verified; generation remains blocked until each shot has its approved clean opening frame and continuity bindings.
+
+> **2026-09-03 selective repair overlay:** [open the updated Grok regeneration handoffs](../day_one_grok_regeneration_handoffs_2026-09-03/README.md). It retains usable rough clips and supplies frame-specific reconstruction guides plus DRAFT shot cards for the materially weak scenes.
 
 | Scene | Title | Single-link handoff |
 |---|---|---|
@@ -17,6 +19,6 @@ Each scene link is self-contained: newly generated multi-angle environment art, 
 | D1-C10 | Art Room — Clean Desk Awakening | [Open complete visual handoff](../d1_c10_art_room_restored_visual_v1/README.md) |
 | D1-C11 | Boss Door and Grand Puff Reveal | [Open complete visual handoff](../d1_c11_grand_puff_reveal_visual_v1/README.md) |
 | D1-C12 | Day One Restored-Castle Celebration | [Open complete visual handoff](../d1_c12_restored_castle_finale_visual_v1/README.md) |
-| D1-C13 | Grand Puff Friendship Completion | [Open provisional visual handoff](../d1_c13_grand_puff_friendship_completion_visual_v1/README.md) |
+| D1-C13 | Grand Puff Friendship Completion | [Open complete visual archive](../d1_c13_grand_puff_friendship_completion_visual_v1/README.md) |
 
 Generated sheets are narrative references only. They are never Grok opening-frame authorities or delivery pixels.
