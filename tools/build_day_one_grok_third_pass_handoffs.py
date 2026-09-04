@@ -454,7 +454,7 @@ def _copy_source_packets() -> dict:
 			# manifest internally self-consistent with the exact Git blobs.
 			(destination / "HANDOFF_PACKET_SOURCE_COMMIT.json").write_bytes(original_manifest_bytes)
 			manifest["third_pass_verification"] = {"source_commit": SOURCE_COMMIT, "original_manifest": "HANDOFF_PACKET_SOURCE_COMMIT.json", "original_manifest_sha256": hashlib.sha256(original_manifest_bytes).hexdigest(), "asset_hashes_recomputed_from_exact_git_blobs": True}
-			(destination / "HANDOFF_PACKET.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+			(destination / "HANDOFF_PACKET.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
 			packets.append({"movie_id": movie, "packet": packet_name, "source_commit": SOURCE_COMMIT, "source_root": f"{SOURCE_COMMIT}:{packet_git_path}", "copied_root": (Path("scenes") / movie / "visuals").as_posix(), "file_count": len(source_files), "copied_file_count": len(source_files) + 1, "preserved_source_manifest_copy": "HANDOFF_PACKET_SOURCE_COMMIT.json", "manifest_hash_mismatch_assets": 0, "assets": assets})
 	return packets
 
@@ -509,7 +509,7 @@ def _packet_manifest(matrix: list[dict]) -> dict:
 
 def _write_json(path: Path, value: object) -> None:
 	path.parent.mkdir(parents=True, exist_ok=True)
-	path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+	path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
 
 
 def _write_cards(matrix: list[dict]) -> int:
@@ -537,7 +537,7 @@ def _write_cards(matrix: list[dict]) -> int:
 		prompt = _prompt(item)
 		base = THIRD / "scenes" / row["movie_id"] / "shots" / row["shot_id"]
 		base.mkdir(parents=True, exist_ok=True)
-		(base / "PROMPT.txt").write_text(prompt, encoding="utf-8")
+		(base / "PROMPT.txt").write_text(prompt, encoding="utf-8", newline="\n")
 		card = {
 			"schema": "imagine-shot-card-draft-v1", "movie_id": row["movie_id"], "shot_id": row["shot_id"], "title": item["title"],
 			"status": "DRAFT", "conditional_regeneration": False, "duration_seconds": item["duration"], "aspect_ratio": "16:9", "delivery_size": [1280, 720],
@@ -555,7 +555,7 @@ def _write_cards(matrix: list[dict]) -> int:
 		reconstruction = [f"# {row['shot_id']} — {item['title']}", "", "STATUS: DRAFT", "GENERATION_READY: false", "DELIVERY_ACCEPTED: false", "", "## Strict finding", "", row["reason"], "", "## Full-frame action timeline", ""]
 		reconstruction.extend(f"- {timeline}" for timeline in row["recommended_timeline"])
 		reconstruction.extend(["", "Every changed action frame must be a separately generated complete image. No tweening, interpolation, compositing, or pixel reuse.", "", "## Archive/generator boundary", "", "The approved source packet and contact-sheet manifest are continuity references only. This draft is motion-reference output; it is not delivery art."])
-		(base / "RECONSTRUCTION.md").write_text("\n".join(reconstruction) + "\n", encoding="utf-8")
+		(base / "RECONSTRUCTION.md").write_text("\n".join(reconstruction) + "\n", encoding="utf-8", newline="\n")
 		count += 1
 	return count
 
@@ -579,7 +579,7 @@ def _write_scene_readmes(matrix: list[dict], manifest: dict) -> None:
 				links.append(f"[active card](shots/{row['shot_id']}/SHOT_PACKET.json)")
 			lines.append(f"| `{row['shot_id']}` | `{row['current_preferred_file'] or 'NONE — OMIT/REMAKE'}` | **{row['strict_disposition']}** | {row['reason']} Weak: {weak} | {' · '.join(links) or 'no copied evidence required for this non-REMAKE row'} |")
 		lines.extend(["", "Archive evidence is copied byte-for-byte for every candidate in REMAKE rows. It is review evidence only and never appears in generator bindings.", "", "Generator cards remain DRAFT motion references; they do not establish generation readiness or delivery acceptance."])
-		(THIRD / "scenes" / movie / "README.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+		(THIRD / "scenes" / movie / "README.md").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
 
 
 def _payload_manifest() -> dict:
@@ -598,7 +598,7 @@ def _write_root_readme(matrix: list[dict]) -> None:
 		counts = [sum(1 for row in rows if row["strict_disposition"] == name) for name in ("KEEP_HIGH_QUALITY", "KEEP_WITH_TRIM", "REMAKE", "OMIT_WRONG_EVENT")]
 		lines.append(f"| {movie} | [scene README](scenes/{movie}/README.md) | {counts[0]} | {counts[1]} | {counts[2]} | {counts[3]} |")
 	lines.extend(["", "## Archive and generator boundary", "", "`scenes/*/visuals/` contains lossless copies of the complete approved visual packets. `scenes/*/audit_evidence/` contains audit-only candidate contact sheets and scene boards. They are continuity and review evidence, never delivery pixels and never generator bindings. Only strict `REMAKE` rows have DRAFT cards under `scenes/*/shots/*/`; every card ends with a `Sound:` line and explicitly keeps `generation_ready` and `delivery_accepted` false.", "", "## Audit indexes", "", "- [Exhaustive 159-file ledger](EXHAUSTIVE_159_FILE_LEDGER.json)", "- [All-shot decision matrix](ALL_SHOT_DECISION_MATRIX.json)", "- [Remake CSV](SHOT_REGENERATION_INDEX.csv)", "- [SOL_MASTER_AUDIT.md](SOL_MASTER_AUDIT.md)", "- [Visual packet/contact manifest](archive/SOURCE_VISUAL_PACKET_MANIFEST.json)", "- [Deterministic payload hashes](archive/PACKET_PAYLOAD_SHA256.json)", "- [Packet metadata](REGENERATION_PACKET.json)"])
-	(THIRD / "README.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+	(THIRD / "README.md").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
 
 
 def _write_sol_audit() -> None:
@@ -622,7 +622,7 @@ Every candidate is checked for visual quality, identity/anatomy, room and prop t
 
 The five trim decisions (C10-S03, C11-S02, C12-S05, C13-S01, C13-S02) identify bounded useful motion-reference spans. Trimming does not repair the missing seam or make any frame accepted delivery art. All generator cards are one shot each, action-first, DRAFT, and explicitly `generation_ready: false` / `delivery_accepted: false`; full-frame delivery still requires independent frame-by-frame acceptance and provenance.
 """
-	(THIRD / "SOL_MASTER_AUDIT.md").write_text(text, encoding="utf-8")
+	(THIRD / "SOL_MASTER_AUDIT.md").write_text(text, encoding="utf-8", newline="\n")
 
 
 def build() -> dict:
@@ -654,7 +654,11 @@ def build() -> dict:
 	# The copied source-commit READMEs intentionally retain their historical
 	# Markdown hard-break whitespace. Keep those immutable bytes out of diff
 	# whitespace diagnostics without changing how GitHub renders the files.
-	(THIRD / ".gitattributes").write_text("scenes/*/visuals/README.md -diff\n", encoding="utf-8")
+	(THIRD / ".gitattributes").write_text(
+		"scenes/*/visuals/README.md -diff\n",
+		encoding="utf-8",
+		newline="\n",
+	)
 	_write_json(THIRD / "archive" / "PACKET_PAYLOAD_SHA256.json", _payload_manifest())
 	return index
 
