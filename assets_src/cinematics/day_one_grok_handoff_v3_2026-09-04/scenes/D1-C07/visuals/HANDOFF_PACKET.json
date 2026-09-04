@@ -1,0 +1,436 @@
+{
+  "schema": "external-animation-visual-packet-v1",
+  "packet_id": "d1_c07_stuffie_dirty_discovery_visual_v1",
+  "movie_id": "D1-C07",
+  "role": "self_contained_uploadable_reference_packet",
+  "runtime_asset": false,
+  "used_as_delivery_pixels": false,
+  "payload_sha256": "c570ba5eb0f438921ca0bc6251d7c7980a8435a99ba9971bfad0ec0c98b15495",
+  "payload_hash_formula": "SHA256 of UTF-8 sorted <relative_path>|<lowercase_sha256>\\n records",
+  "authority_order": [
+    "approved location geography",
+    "approved character identities",
+    "approved objects/topology",
+    "generated perspective and storyboard sheets for narrative understanding only"
+  ],
+  "warnings": [
+    "Generated sheets are narrative references only and may never be bound as Grok IMAGE_1 or delivery pixels.",
+    "Every motion shot still requires an approved clean first frame and accepted endpoint continuity."
+  ],
+  "assets": [
+    {
+      "path": "handoff_art/location/room_playroom_background.png",
+      "role": "approved_location_geography_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/flats/castle/rooms/room_playroom_background.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "role": "approved_roshan_identity_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+      "role": "approved_baby_eagle_pinned_identity_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        768
+      ],
+      "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "docs/grok_animation_series_project/characters/baby_eagle/BABY_EAGLE_PINNED_STATE.png",
+      "source_commit": "3af5a8eb7110dab2381c7d0a73b27b880d35e84a"
+    },
+    {
+      "path": "handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "role": "approved_playroom_bunny_identity_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "docs/grok_animation_series_project/characters/playroom_dust_bunny/PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "source_commit": "3af5a8eb7110dab2381c7d0a73b27b880d35e84a"
+    },
+    {
+      "path": "handoff_art/objects/room_playroom_item_play_tent.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        165,
+        131
+      ],
+      "sha256": "a92bf0366b55154457ce34f9e53599ba23f9d42d5178f0e5457de5a166e655bd",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/flats/castle/rooms/room_playroom_item_play_tent.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/objects/room_playroom_item_stuffie_nook.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        266,
+        190
+      ],
+      "sha256": "7ed4dafff1e3dac12264d4a1c617095bf43d2f36fd8066476aa78725fe3ded67",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "storyboards/ENVIRONMENT_PERSPECTIVES.png",
+      "role": "multi_angle_environment_narrative_reference_only",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "c0a9dbf9c7198c82c13bfdde996d3de2104606b5e5a386a1bbdaafa8dc8bb198",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "exec-709b280e-2f78-4b90-b9ca-de3a7a1bc99f",
+        "prompt_path": "storyboards/PERSPECTIVE_PROMPT.txt",
+        "attempt": 1
+      }
+    },
+    {
+      "path": "storyboards/SCENE_SHOT_BOARD.png",
+      "role": "shot_order_narrative_reference_only",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "421da8bcb61425e98f5c447f09a7b22236ae3f5b21068b58b16345c930f2a38f",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "exec-cd35edfe-c6bc-43a1-9649-cd6736462af9",
+        "prompt_path": "storyboards/STORYBOARD_PROMPT.txt",
+        "attempt": 1
+      }
+    },
+    {
+      "path": "written_guide/SHARED_STYLE_AND_CHARACTER_GUIDE.txt",
+      "role": "exact_written_handoff_guide",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "39c92eaae1073319c300fdf57275fa2a6c52df68b7bc124688ab526617d34e8d",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/00_SHARED_STYLE_AND_CHARACTER_REFERENCE.txt",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "written_guide/SCENE_GUIDE.txt",
+      "role": "exact_written_handoff_guide",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "9c91a0b9b5aee36f133e7ef88c8d96bf5d8a4b6402b7cc13b08ce63489f2bf3d",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C07_STUFFIE_DIRTY_DISCOVERY.txt",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "written_guide/SOURCE_DOCUMENTS.json",
+      "role": "written_source_provenance_and_hashes",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "8807e7cf05d688f36afba35bdc2c180e9ab8c5827f3f42ff8874a16eec1f0cd9",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/PERSPECTIVE_PROMPT.txt",
+      "role": "exact_environment_generation_prompt",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "b45cb540b148f69280d3a0fd9da3f6e0240a4aca5dcd8abab755f51b8a216b89",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/STORYBOARD_PROMPT.txt",
+      "role": "exact_storyboard_generation_prompt",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "1b6fa23f441306f997cffc681ed8b130c3c40c0c16b971ca3b3f7df710540a2b",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/ENVIRONMENT_PERSPECTIVES_PROMPT.txt",
+      "role": "exact_environment_generation_prompt_source_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "b45cb540b148f69280d3a0fd9da3f6e0240a4aca5dcd8abab755f51b8a216b89",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/SCENE_SHOT_BOARD_PROMPT.txt",
+      "role": "exact_storyboard_generation_prompt_source_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "1b6fa23f441306f997cffc681ed8b130c3c40c0c16b971ca3b3f7df710540a2b",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/GENERATION_RESULTS.json",
+      "role": "generation_result_ids_and_attempts",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "eaa375338d9ef588a6beac8c34e58a7bafa2cb0cf840d56dbe5e6c8a64d90d26",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/GENERATION_REVIEW.json",
+      "role": "luna_generation_self_review",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "444f24c3fe364651e935f916a73eac8d71d9737b91d969dec7e5ca88c33e6ed5",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/VISUAL_REVIEW.json",
+      "role": "sol_and_human_visual_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "d16144c2a49c0e8c60479c0c46f8a4faee493260b2cb0686b0a735f082ad907d",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "handoff_art/baby_eagle_pinned_identity.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        768
+      ],
+      "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "handoff_art/dust_bunny_identity.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "handoff_art/roshan_identity.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "handoff_art/stuffie_room_clean_geography.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "sha256": "5c7797c3be3586daca648f4fa4ab1161368f1c99fee719b42ba5efd27f5eaf6f",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "handoff_art/stuffie_room_dirty_geography.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "sha256": "f50ae511d59f4f328d017041bef7469aadb3320ab7bd403c0c82f43a1692578b",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "storyboards/rejected/exec-8f59df2d-82d2-4ec1-9b0e-a3684bfa2010.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "cfd308e8d1579fb924540b2637fc10f2b2ce4a3701ba1337687c5ffd939a63af",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "exec-8f59df2d-82d2-4ec1-9b0e-a3684bfa2010",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "storyboards/rejected/exec-e1c87c43-f4f3-40f1-b365-84317f7b20a8.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "2cf76d4594a8bd667fca3c34563df64fdcaff163f107f6b945f0ea8ba45c91f5",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "exec-e1c87c43-f4f3-40f1-b365-84317f7b20a8",
+        "attempt": "see generation result record"
+      }
+    }
+  ],
+  "third_pass_verification": {
+    "source_commit": "076661afb9e092627eb5dfae7c39fecb27463892",
+    "original_manifest": "HANDOFF_PACKET_SOURCE_COMMIT.json",
+    "original_manifest_sha256": "abfa4e84003e2ad49107e1af65a9384089097c6baf59c871b092091401566862",
+    "asset_hashes_recomputed_from_exact_git_blobs": true
+  }
+}

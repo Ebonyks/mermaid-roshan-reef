@@ -1,0 +1,25 @@
+{
+  "schema": "visual-handoff-generation-review-v1",
+  "movie_id": "D1-C08",
+  "reviewer_role": "luna_generation_self_check",
+  "sol_review": "pending",
+  "human_review": "pending",
+  "environment_result_id": "exec-8ebf953d-5e00-4bc6-9606-9049c1f9e8b7",
+  "storyboard_result_id": "exec-68b6f98d-f323-4e04-98b1-d9b9c2cbf3cf",
+  "checks": {
+    "environment_exactly_six_panels": true,
+    "environment_character_free": true,
+    "storyboard_exact_shot_count": true,
+    "storyboard_panel_count": 7,
+    "warning_panels_show_one_ear_pair_only": true,
+    "panels_4_through_7_show_exactly_four_bunnies": true,
+    "single_baby_eagle": true,
+    "baskets_remain_opposite": true
+  },
+  "remaining_observations": [],
+  "claims": {
+    "archive_complete": false,
+    "generation_ready": false,
+    "delivery_accepted": false
+  }
+}

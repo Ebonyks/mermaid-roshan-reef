@@ -1,0 +1,42 @@
+{
+  "schema": "visual-handoff-generation-results-v1",
+  "movie_id": "D1-C05",
+  "tool": "OpenAI built-in image generation",
+  "use_case": "illustration-story",
+  "output_disposition": "narrative_reference_only",
+  "human_decision": "pending",
+  "selected": [
+    {
+      "path": "storyboards/ENVIRONMENT_PERSPECTIVES.png",
+      "result_id": "exec-2dc134a3-186c-40f2-8932-c403edccf764",
+      "prompt_path": "storyboards/ENVIRONMENT_PERSPECTIVES_PROMPT.txt",
+      "prompt_sha256": "f1176cb551149f48eeae0f6001984ca07c163b29f17be2c61a2079d222c47758",
+      "sha256": "9b6f6d1807b5396a124fd9435cbacaa76d41f94bca02e61cbaccff199d18e89b",
+      "dimensions": [1672, 941],
+      "panel_count": 6,
+      "character_free": true,
+      "agent_prescreen": "pending_sol_review"
+    },
+    {
+      "path": "storyboards/SCENE_SHOT_BOARD.png",
+      "result_id": "exec-1d20829f-9e58-437b-b63f-874f8a91b2c3",
+      "prompt_path": "storyboards/SCENE_SHOT_BOARD_PROMPT.txt",
+      "prompt_sha256": "24882218d44754bb5b9014e69786c5c1f48effe217d317657221383af27b8c8d",
+      "sha256": "bb9ad830ab96428d34ffbe13fd26fa22e4ff249ca74013b8fce77782ca65dc4e",
+      "dimensions": [1672, 941],
+      "panel_count": 6,
+      "agent_prescreen": "pending_sol_review"
+    }
+  ],
+  "rejected_result_ids": [
+    {"result_id": "exec-116048b9-8d37-44f7-9f81-bfe5eeb9da36", "reason": "obsolete four-angle scope; seahorse streamed before cleaning"},
+    {"result_id": "exec-d9d7bb70-2c58-461f-a079-25fc6e099a26", "reason": "obsolete four-angle scope; wide views omitted seahorse"},
+    {"result_id": "exec-5618f60b-8f6d-4f6e-a99b-4ebdb4c3bf9d", "reason": "six-angle attempt omitted signature fixtures from wide views"},
+    {"result_id": "exec-0d79a9df-9644-444e-b72f-2865a06599f6", "reason": "storyboard used a realistic cream rabbit instead of approved dust-bunny species"},
+    {"result_id": "exec-a690064d-05fa-4b63-93ad-f6420fdcdcb0", "reason": "storyboard replaced final wide problem map with thought-bubble graphics"}
+  ],
+  "warnings": [
+    "Narrative reference only; never bind as generation pixels or use as delivery pixels.",
+    "Human identity, topology, style, and shot-order acceptance remains pending."
+  ]
+}

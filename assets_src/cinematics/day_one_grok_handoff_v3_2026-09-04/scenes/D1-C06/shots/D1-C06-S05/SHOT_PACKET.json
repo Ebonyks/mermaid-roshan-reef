@@ -1,0 +1,104 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C06",
+  "shot_id": "D1-C06-S05",
+  "title": "Two purification fronts meet",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "pool geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/location/room_mermaid_pool_background.png",
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/location/room_mermaid_pool_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C06-S04 two-source endpoint",
+      "source_authority_is_not_automatic_first_frame_approval": true,
+      "binding_alias": "location",
+      "local_path": "scenes/D1-C06/visuals/handoff_art/location/room_mermaid_pool_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "left source identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/objects/mermaid_pool_waterfall_rest.png",
+      "sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/objects/mermaid_pool_waterfall_rest.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "waterfall_rest",
+      "local_path": "scenes/D1-C06/visuals/handoff_art/objects/mermaid_pool_waterfall_rest.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "right source identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
+      "sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "seahorse_rest",
+      "local_path": "scenes/D1-C06/visuals/handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png"
+    }
+  ],
+  "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+  "camera": {
+    "verb": "locked",
+    "move_count": 1
+  },
+  "must_move": "each front displaces algae through the same water volume",
+  "must_not_move": "pool boundary, sources, fixtures, room geometry, and dry surfaces",
+  "end_state": "the fronts meet once near center in one bright ripple",
+  "negative_constraints": "no instant flash, dry floor, third source, overlay-only effect, characters, text, or HUD",
+  "sound_intent": "converging shimmer and soft impact chime; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "e8e1440fff6617aa48dd1fcbb288797b9c9cae537fb95caef433776ad1362b84",
+  "strict_audit_reason": "No original or SET3 take makes two source fronts meet through murky water.",
+  "weak_frames": [
+    {
+      "filename": "C06_S05_v1_purification_fronts_REGEN.mp4",
+      "lane": "committed_regen_audit",
+      "file_verdict": "REGENERATE",
+      "weak_frames": "000–144",
+      "finding": "The branch replacement begins with fully clean water and a decorative rainbow band; it never shows two clear-water fronts displacing murk from the fixed sources."
+    }
+  ],
+  "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+  "audited_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+  },
+  "blocking_findings": [],
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/day_one_pool_cleanup.gd",
+    "rule": "pool_surface → waterfall → seahorse is the fixed order; Rumi rises only after all three complete"
+  },
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "strict_third_pass": true,
+    "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+    "reviewed_at": "2026-09-04"
+  }
+}

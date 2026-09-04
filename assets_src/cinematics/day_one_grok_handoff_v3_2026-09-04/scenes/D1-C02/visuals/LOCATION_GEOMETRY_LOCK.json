@@ -1,0 +1,169 @@
+{
+  "schema": "location-geometry-lock-v1",
+  "location_id": "pearl_castle_main_hall_dirty",
+  "camera_family": "approved screen-by-screen side elevation; close crops may not imply unsupported reverse-wall geometry",
+  "source_authorities": [
+    {
+      "source_id": "MAIN_HALL_SCREEN_A",
+      "path": "generation_inputs/main_hall_screen_a.normalized.png",
+      "sha256": "4975849002ff741e6647336f17b2de45e2590d55be7ab03a1485ac66e3b37b1f",
+      "source_original_path": "handoff_art/location/main_hall_screen_a_room_led_master.png",
+      "source_original_sha256": "ae84f4f79a8183312b5ba26b6999f26b69c8a538424b5383a7d6623cc2f275e9",
+      "dimensions": [1024, 576],
+      "appearance_role": "clean_location_topology_authority",
+      "ordered_landmarks_left_to_right": [
+        "partial exterior arch at the left boundary",
+        "vertical red-carpet entrance segment",
+        "tall aqua window",
+        "small pearl fountain",
+        "large purple-curtained central portal open to the floor",
+        "small book-emblem portal open to the floor",
+        "small aqua bubble-emblem portal open to the floor"
+      ],
+      "counts": {
+        "large_central_portals": 1,
+        "small_route_portals": 2,
+        "fountains": 1,
+        "stairs": 0,
+        "balconies": 0,
+        "thrones": 0
+      }
+    },
+    {
+      "source_id": "MAIN_HALL_SCREEN_B",
+      "path": "generation_inputs/main_hall_screen_b.normalized.png",
+      "sha256": "6f57d03f7fb3de5f193942b7d351e1ced5d95695d5bfcdf78662998fbda55638",
+      "source_original_path": "handoff_art/objects/main_hall_screen_b_room_led_master.png",
+      "source_original_sha256": "c333bdbd3243b2cfcd61e9475e7e5449d7165d03ff8413f860535d5ccb811454",
+      "dimensions": [1024, 576],
+      "appearance_role": "clean_location_topology_authority",
+      "ordered_landmarks_left_to_right": [
+        "bear-emblem route portal",
+        "palette-or-flower-emblem route portal",
+        "blue shell-or-drop-emblem route portal",
+        "white pearl-or-flower-emblem route portal",
+        "short red stair",
+        "right throne alcove"
+      ],
+      "counts": {
+        "small_route_portals": 4,
+        "stairs": 1,
+        "balconies": 0,
+        "throne_alcoves": 1
+      }
+    }
+  ],
+  "dirty_location_candidates": [
+    {
+      "source_id": "DIRTY_MAIN_HALL_SCREEN_A",
+      "path": "location_authorities/DIRTY_MAIN_HALL_SCREEN_A.png",
+      "sha256": "992217b7cf517119a849de982255383726687b65c274278c63878033f4a79d90",
+      "derived_from": "MAIN_HALL_SCREEN_A",
+      "dimensions": [1672, 941],
+      "sol_topology_decision": "pass",
+      "human_decision": "pending",
+      "eligible_as_location_authority": false
+    },
+    {
+      "source_id": "DIRTY_MAIN_HALL_SCREEN_B",
+      "path": "location_authorities/DIRTY_MAIN_HALL_SCREEN_B.png",
+      "sha256": "2bce4a41513a220a821fac5790880fe6adf03ff17f6421d4042af06ea6320fac",
+      "derived_from": "MAIN_HALL_SCREEN_B",
+      "dimensions": [1672, 941],
+      "sol_topology_decision": "pass",
+      "human_decision": "pending",
+      "eligible_as_location_authority": false
+    }
+  ],
+  "global_invariants": [
+    "Never combine screen A and screen B into an invented single perspective.",
+    "Screen A has no staircase, balcony, or throne.",
+    "Screen B has one short stair at the right and no balcony.",
+    "Every portal shown in the authority remains open to the floor.",
+    "Columns, portals, windows, fountain, carpet bands, stair, and throne alcove retain their source order and screen ownership.",
+    "An unsupported reverse view toward an unseen opposite wall is forbidden until an approved opposite-wall master exists."
+  ],
+  "candidate_reviews": [
+    {
+      "shot_id": "D1-C02-S01",
+      "path": "first_frames/S01_FIRST_FRAME.png",
+      "sha256": "53e34ddee834ab8fd9dc39c473c380ce24ec236cf92fb759d6a43b6b3c2616e6",
+      "authority_source_ids": ["pearl_castle_exterior_turnaround_v2", "sky_lagoon_castle_door_focus_v1"],
+      "sol_topology_decision": "pending accepted D1-C01 endpoint comparison",
+      "human_decision": "pending",
+      "eligible_as_image_1": false
+    },
+    {
+      "shot_id": "D1-C02-S02",
+      "path": "first_frames/S02_FIRST_FRAME.png",
+      "sha256": "3d3aef9fcaf2133380af45c7b0e0374275e0537c88aa94462d433a1a11be9750",
+      "authority_source_ids": ["MAIN_HALL_SCREEN_A"],
+      "landmark_order_decision": "pass",
+      "portal_floor_openings_decision": "pass",
+      "fixture_count_decision": "pass",
+      "forbidden_additions_decision": "pass",
+      "sol_topology_decision": "pass",
+      "human_decision": "pending",
+      "eligible_as_image_1": false
+    },
+    {
+      "shot_id": "D1-C02-S03",
+      "path": "first_frames/S03_FIRST_FRAME.png",
+      "sha256": "5b8b6a90d99ba787573e605349949ed71993e9df916cebead417ce6b6f3375b2",
+      "authority_source_ids": ["MAIN_HALL_SCREEN_A"],
+      "landmark_order_decision": "pass: central portal, column, book portal",
+      "portal_floor_openings_decision": "pass",
+      "fixture_count_decision": "pass",
+      "forbidden_additions_decision": "pass",
+      "sol_topology_decision": "pass",
+      "human_decision": "pending",
+      "eligible_as_image_1": false
+    },
+    {
+      "shot_id": "D1-C02-S04",
+      "path": "first_frames/S04_FIRST_FRAME.png",
+      "sha256": "87159ad6bfe8410b7927522410495e8e4c686d67a347602b71f5f217ecc76bcc",
+      "authority_source_ids": ["MAIN_HALL_SCREEN_A"],
+      "landmark_order_decision": "pass",
+      "portal_floor_openings_decision": "pass",
+      "fixture_count_decision": "pass",
+      "forbidden_additions_decision": "pass",
+      "sol_topology_decision": "pass",
+      "human_decision": "pending",
+      "eligible_as_image_1": false
+    }
+  ],
+  "rejections": [
+    {
+      "shot_id": "D1-C02-S02",
+      "path": "first_frames/rejected/S02_attempt01_invented_hall.png",
+      "reason": "Invented perspective hall, balcony, stair, and door arrangement."
+    },
+    {
+      "shot_id": "D1-C02-S03",
+      "path": "first_frames/rejected/S03_attempt01_invented_molding.png",
+      "reason": "Invented molding and unsupported room geometry."
+    },
+    {
+      "shot_id": "D1-C02-S03",
+      "path": "first_frames/rejected/S03_attempt02_continuous_wall.png",
+      "sha256": "89edbb8639ebc6a6c9891a54f61c28e3275e59a453c87f68610350c0f4e7761c",
+      "reason": "Implied a continuous wall behind the central curtains although the source portal opens to the floor."
+    },
+    {
+      "shot_id": "D1-C02-S04",
+      "path": "first_frames/rejected/S04_attempt01_invented_hall.png",
+      "reason": "Invented combined hall perspective."
+    },
+    {
+      "shot_id": "D1-C02-S02",
+      "path": "first_frames/rejected/S02_attempt02_missing_prompt_provenance.png",
+      "reason": "Topology passed, but exact generation prompt was not captured; retained as non-promotable review evidence."
+    },
+    {
+      "shot_id": "D1-C02-S04",
+      "path": "first_frames/rejected/S04_attempt02_missing_prompt_provenance.png",
+      "reason": "Topology passed, but exact generation prompt was not captured; retained as non-promotable review evidence."
+    }
+  ]
+}
