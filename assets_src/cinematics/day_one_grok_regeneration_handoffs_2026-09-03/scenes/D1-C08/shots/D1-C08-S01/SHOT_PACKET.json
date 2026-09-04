@@ -1,8 +1,8 @@
 {
   "schema": "imagine-shot-card-draft-v1",
   "movie_id": "D1-C08",
-  "shot_id": "D1-C08-S07",
-  "title": "Clean Stuffie Room endpoint with Roshan",
+  "shot_id": "D1-C08-S01",
+  "title": "Roshan approaches the two-pin rescue",
   "status": "DRAFT",
   "conditional_regeneration": false,
   "duration_seconds": 6,
@@ -16,7 +16,7 @@
   "binding_plan": [
     {
       "id": "IMAGE_1",
-      "job": "Stuffie Room geography",
+      "job": "dirty Stuffie Room geography",
       "status": "missing_approved_shot_opening_frame",
       "source_movie_id": "D1-C08",
       "source_packet": "d1_c08_stuffie_restoration_visual_v1",
@@ -25,7 +25,7 @@
       "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/location/room_playroom_background.png",
       "hud_present": false,
       "used_as_delivery_pixels": false,
-      "shot_opening_gate": "accepted D1-C08-S06 clean reveal endpoint",
+      "shot_opening_gate": "accepted D1-C07-S06 exact two-pin endpoint",
       "source_authority_is_not_automatic_first_frame_approval": true
     },
     {
@@ -42,19 +42,19 @@
     },
     {
       "id": "IMAGE_3",
-      "job": "standing Baby Eagle identity",
+      "job": "pinned Baby Eagle identity",
       "status": "approved_source_authority_available",
-      "source_movie_id": "D1-C08",
-      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
-      "path": "handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
-      "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
-      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "source_movie_id": "D1-C07",
+      "source_packet": "d1_c07_stuffie_dirty_discovery_visual_v1",
+      "path": "handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+      "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c07_stuffie_dirty_discovery_visual_v1/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
       "hud_present": false,
       "used_as_delivery_pixels": false
     },
     {
       "id": "IMAGE_4",
-      "job": "bunny identity",
+      "job": "two rescue-pin identities",
       "status": "approved_source_authority_available",
       "source_movie_id": "D1-C08",
       "source_packet": "d1_c08_stuffie_restoration_visual_v1",
@@ -67,40 +67,38 @@
   ],
   "start_frame": "IMAGE_1 after the blocking shot-opening approval",
   "camera": {
-    "verb": "slow pullback",
+    "verb": "subtle push-in",
     "move_count": 1
   },
-  "must_move": "one wing fold and four small grateful bounces",
-  "must_not_move": "Roshan, one eagle, four bunnies, baskets, furniture, fixture count, and clean state",
-  "end_state": "Roshan, one eagle, and four bunnies are safe in the clean established room",
-  "negative_constraints": "no human boy, adult cast, extra eagle, fifth bunny, dirty residue, new exit, room redesign, text, or HUD",
-  "sound_intent": "cheerful chirp, four small hops, and a warm cadence; no voices",
+  "must_move": "Roshan makes one careful approach toward the left pin",
+  "must_not_move": "one Baby Eagle, both pin bunnies, pin contacts, clutter, room topology, and dirty state",
+  "end_state": "Roshan is poised before the left pin; both pins still hold the Eagle",
+  "negative_constraints": "no basket, swing, four-bunny group, touch, pop, release, cleanup, wing blast, text, HUD, or extra cast",
+  "sound_intent": "soft tail movement, tiny bunny rustle, and a hopeful chirp; no voices",
   "prompt_path": "PROMPT.txt",
-  "prompt_sha256": "5e82e7a97eb185b06bb50c0d66f8864c300b5e22fdb1dafd98373506824cc979",
+  "prompt_sha256": "835249265fe2c8373fba26d2086d62fc273423ff89f896913276e004eadb7d43",
   "source_clip_audit": [
     {
-      "source_clip": "C08_S07_v1_clean_endpoint.mp4",
-      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C08_S07_v1_clean_endpoint.mp4",
+      "source_clip": "C08_S02_v1_left_basket_ears_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C08_S02_v1_left_basket_ears_REGEN.mp4",
       "frame_rate": 24,
       "reviewed_frame_domain": [
         0,
         144
       ],
-      "observation": "frames 0–144 use a human boy instead of Roshan"
-    },
-    {
-      "source_clip": "C08_S07_v2_clean_endpoint.mp4",
-      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C08_S07_v2_clean_endpoint.mp4",
-      "frame_rate": 24,
-      "reviewed_frame_domain": [
-        0,
-        144
-      ],
-      "observation": "frames 0–144 use a human boy instead of Roshan and do not preserve the required cast count"
+      "observation": "release frames 000–144: Basket warnings do not occur in gameplay; the bunny body is already outside the basket."
     }
   ],
+  "audited_release": {
+    "tag": "day1-regen-motion-ref-2026-09-03",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03"
+  },
+  "implemented_event_contract": {
+    "authority_path": "scripts/arena/castle_rooms_25d.gd",
+    "rule": "Roshan clears eagle_pin_left and eagle_pin_right; the room cleans, Baby Eagle thanks/rises/departs, then the companion picker opens"
+  },
   "blocking_findings": [
-    "IMAGE_1 is not yet bound to the required accepted D1-C08-S06 clean reveal endpoint",
+    "IMAGE_1 is not yet bound to the required accepted D1-C07-S06 exact two-pin endpoint",
     "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"
   ],
   "audit_claims": {

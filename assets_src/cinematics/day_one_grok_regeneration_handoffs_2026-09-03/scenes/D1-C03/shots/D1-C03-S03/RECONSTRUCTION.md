@@ -6,17 +6,28 @@
 
 ## Why this shot is being rebuilt
 
-- [C03_bunny_discover.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C03_bunny_discover.mp4): frames 0–144 use a clean, bright tub state and oversized creature, so the entire shot contradicts the dirty-entry setup.
+- [C03_S03_v1_swimming_bunny_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C03_S03_v1_swimming_bunny_REGEN.mp4): release frames 000–144: The swimmer is coherent, but Roshan is a black silhouette/substitute and the bunny mostly holds instead of paddling visibly.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
+
+## Implemented-event contract
+
+- Runtime authority: `scripts/games/day_one_bathroom_cleanup.gd`.
+- Event rule: one dirty tub, one separate swimming bunny, an authorized tool basket, and two later live cleaning gestures.
+- Entry state: accepted D1-C03-S02 endpoint.
+- Single causal action: one bunny paddles and Roshan reacts.
+- Required outgoing seam: the single swimmer is clearly visible and needs gentle rescue.
 
 ## Full-frame reconstruction map
 
 | Output frames | Required full-frame content |
 |---|---|
-| 000–047 | One approved swimming dust bunny paddles weakly but safely in the murky tub. Every changed frame is a new complete flattened image. |
-| 048–107 | The water stays dirty and the bunny remains a coherent single creature. Every changed frame is a new complete flattened image. |
-| 108–144 | Roshan reacts with concern at frame edge. Every changed frame is a new complete flattened image. |
+| 000–023 | Hold the exact approved IMAGE_1 state long enough to verify geography, cast count, contacts, and inherited dirt/clean state. Every changed frame is a new complete flattened image. |
+| 024–047 | one approved swimming dust bunny paddles weakly but safely in the murky tub. Every changed frame is a new complete flattened image. |
+| 048–083 | the water stays dirty and the bunny remains a coherent single creature. Every changed frame is a new complete flattened image. |
+| 084–107 | Complete the same dominant action without adding a second event or changing topology. Every changed frame is a new complete flattened image. |
+| 108–131 | roshan reacts with concern at frame edge. Every changed frame is a new complete flattened image. |
+| 132–144 | Hold the exact endpoint: the single swimmer is clearly visible and needs gentle rescue. Every changed frame is a new complete flattened image. |
 
 ## Binding plan
 

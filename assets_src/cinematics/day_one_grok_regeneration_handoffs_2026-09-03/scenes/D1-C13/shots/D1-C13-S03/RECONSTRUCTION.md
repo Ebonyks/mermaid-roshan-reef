@@ -6,18 +6,29 @@
 
 ## Why this shot is being rebuilt
 
-- [C13_S03_v1_eagle_lift.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C13_S03_v1_eagle_lift.mp4): frames 48–144 collapse Grand Puff into a ring/bowl-like form and are 1264×720.
-- [C13_S03_v2_eagle_lift.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C13_S03_v2_eagle_lift.mp4): useful motion reference, but frames 0–144 need exact eagle count, boss topology, and native 1280×720.
+- [C13_S03_v1_baby_eagle_wing_blast_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C13_S03_v1_baby_eagle_wing_blast_REGEN.mp4): release frames v1 048–144; v2 000–144: V1's cloud hides/collapses Grand Puff into a bowl; v2 preserves identity but supplies almost no visible dust lift.
+- [C13_S03_v2_baby_eagle_wing_blast_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C13_S03_v2_baby_eagle_wing_blast_REGEN.mp4): release frames v1 048–144; v2 000–144: V1's cloud hides/collapses Grand Puff into a bowl; v2 preserves identity but supplies almost no visible dust lift.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
+
+## Implemented-event contract
+
+- Runtime authority: `scripts/games/dust_boss.gd plus owner-directed C13 extension`.
+- Event rule: insert the cooperative coda immediately after the third successful round and before the FRIENDS implosion completes; never reconstitute Grand Puff after he has vanished.
+- Entry state: accepted D1-C13-S02 endpoint.
+- Single causal action: one safe symmetrical wingbeat lifts a thin dust veil without moving Grand Puff.
+- Required outgoing seam: one Baby Eagle rests with folded wings and the final dusty shell remains isolated.
 
 ## Full-frame reconstruction map
 
 | Output frames | Required full-frame content |
 |---|---|
-| 000–031 | Exactly one baby eagle plants both feet and opens both wings. Every changed frame is a new complete flattened image. |
-| 032–071 | One symmetrical soft wing blast lifts only residual dust toward the arena perimeter. Every changed frame is a new complete flattened image. |
-| 072–095 | The eagle folds its wings and settles without moving grand puff. Every changed frame is a new complete flattened image. |
+| 000–011 | Hold the exact approved IMAGE_1 state long enough to verify geography, cast count, contacts, and inherited dirt/clean state. Every changed frame is a new complete flattened image. |
+| 012–031 | exactly one Baby Eagle plants both feet and opens both wings while Grand Puff remains fully visible. Every changed frame is a new complete flattened image. |
+| 032–059 | one symmetrical controlled wingbeat lifts only a thin twenty-to-thirty-percent dust veil toward the arena perimeter. Every changed frame is a new complete flattened image. |
+| 060–071 | Complete the same dominant action without adding a second event or changing topology. Every changed frame is a new complete flattened image. |
+| 072–083 | the eagle folds both wings; Grand Puff stays upright, unobscured, and three-tiered with the final dirty shell readable. Every changed frame is a new complete flattened image. |
+| 084–095 | Hold the exact endpoint: one Baby Eagle rests with folded wings and the final dusty shell remains isolated. Every changed frame is a new complete flattened image. |
 
 ## Binding plan
 
@@ -32,10 +43,10 @@ IMAGE_1 must be replaced or explicitly approved as the exact clean shot-opening 
 ## Locked result
 
 - Camera: locked.
-- Must move: one safe symmetrical wing blast lifts dust.
+- Must move: one safe symmetrical wingbeat lifts a thin dust veil without moving Grand Puff.
 - Must not move: arena ring, central platform, Grand Puff, one eagle, floor contacts, and the final dusty shell.
 - End state: one Baby Eagle rests with folded wings and the final dusty shell remains isolated.
-- Reject: no Roshan, Daddy, Rumi, rainbow bunny, duplicate eagle, displaced character, tornado, morphing, clone, extra limb, arena change, attack, defeat, text, or HUD.
+- Reject: no Roshan, Daddy, Rumi, rainbow bunny, duplicate eagle, wingbeat-free hold, opaque dust cloud, tornado, bowl or ring collapse, displaced Grand Puff, morph, extra limb, arena change, attack, defeat, text, or HUD.
 - Generate the shot as complete full-frame images; no morphing, optical flow, compositing, cutout motion, or duplicated-frame concealment.
 
 ## Files

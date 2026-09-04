@@ -6,18 +6,28 @@
 
 ## Why this shot is being rebuilt
 
-- [C10_S03_clean_reveal.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C10_S03_clean_reveal.mp4): frames 48–144 obscure Roshan behind or beneath the center desk.
-- [C10_S03_v1_clean_reveal_OFFICIAL.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C10_S03_v1_clean_reveal_OFFICIAL.mp4): frames 48–144 leave Roshan insufficiently readable at child scale.
+- [C10_S03_v1_clean_art_room_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C10_S03_v1_clean_art_room_REGEN.mp4): release frames 000–144: The opening crop omits the complete layout, the pullback is far greater than ten percent, and Roshan becomes too small for a child-readable endpoint.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
+
+## Implemented-event contract
+
+- Runtime authority: `scripts/day_one_art_studio.gd`.
+- Event rule: all seven cleanup actions unlock the blank desk; customization UI opens only after the desk touch.
+- Entry state: accepted D1-C10-S02 supplied-and-clean endpoint.
+- Single causal action: one restrained clean-room pullback.
+- Required outgoing seam: the complete clean room and fully readable Roshan are stable in one front projection.
 
 ## Full-frame reconstruction map
 
 | Output frames | Required full-frame content |
 |---|---|
-| 000–047 | Begin with three grime cards gone, four supplies stored once, and roshan fully readable at runtime scale. Every changed frame is a new complete flattened image. |
-| 048–107 | Pull back once to reveal the complete clean front layout. Every changed frame is a new complete flattened image. |
-| 108–144 | Hold before desk activation. Every changed frame is a new complete flattened image. |
+| 000–023 | Hold the exact approved IMAGE_1 state long enough to verify geography, cast count, contacts, and inherited dirt/clean state. Every changed frame is a new complete flattened image. |
+| 024–047 | begin on the complete exact straight-on Art Room projection with Roshan readable at runtime child scale. Every changed frame is a new complete flattened image. |
+| 048–083 | pull back no more than ten percent while every required landmark stays inside frame. Every changed frame is a new complete flattened image. |
+| 084–107 | Complete the same dominant action without adding a second event or changing topology. Every changed frame is a new complete flattened image. |
+| 108–131 | hold the clean room, four supplies stored once, all grime absent, and blank rectangular desk before activation. Every changed frame is a new complete flattened image. |
+| 132–144 | Hold the exact endpoint: the complete clean room and fully readable Roshan are stable in one front projection. Every changed frame is a new complete flattened image. |
 
 ## Binding plan
 
@@ -31,11 +41,11 @@ IMAGE_1 must be replaced or explicitly approved as the exact clean shot-opening 
 
 ## Locked result
 
-- Camera: small pullback.
+- Camera: front-axis pullback no greater than ten percent.
 - Must move: one restrained clean-room pullback.
 - Must not move: rectangular desk, two counters, shelves, two windows, two columns, chandelier, Roshan identity, and blank desk state.
 - End state: the complete clean room and fully readable Roshan are stable in one front projection.
-- Reject: no Roshan hidden under furniture, doorway, reverse view, extra supplies, completed painting, dust bunny, desk transformation, text, or HUD.
+- Reject: no Roshan hidden under furniture, doorway, reverse view, extra supplies, completed painting, dust bunny, desk transformation, text, or HUD, no tight opening crop, pullback beyond ten percent, lost landmark, tiny Roshan, or side perspective.
 - Generate the shot as complete full-frame images; no morphing, optical flow, compositing, cutout motion, or duplicated-frame concealment.
 
 ## Files

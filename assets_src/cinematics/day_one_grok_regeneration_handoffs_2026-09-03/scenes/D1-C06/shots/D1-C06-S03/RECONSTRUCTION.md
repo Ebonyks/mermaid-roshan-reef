@@ -6,19 +6,28 @@
 
 ## Why this shot is being rebuilt
 
-- [C06_S03_rainbow_waterfall.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C06_S03_rainbow_waterfall.mp4): frames 0–47 begin too clean or from the wrong source composition.
-- [C06_S03_v1_rainbow_restart.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C06_S03_v1_rainbow_restart.mp4): frames 48–144 reverse or blur the top-down causal read.
-- [C06_S03_v2_rainbow.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C06_S03_v2_rainbow.mp4): frames 0–144 use an inconsistent composition.
+- [C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4): release frames 000–047 missing blocked start; 048–144 wrong clearing: The waterfall starts clean; later debris becomes a central raised dark mass and the flow retracts instead of clearing from the top source downward.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
+
+## Implemented-event contract
+
+- Runtime authority: `scripts/games/day_one_pool_cleanup.gd`.
+- Event rule: pool_surface → waterfall → seahorse is the fixed order; Rumi rises only after all three complete.
+- Entry state: accepted blocked-source endpoint inherited from D1-C05-S04.
+- Single causal action: one top-down clearing front.
+- Required outgoing seam: clean rainbow reaches the lower lip without changing the rest of the room.
 
 ## Full-frame reconstruction map
 
 | Output frames | Required full-frame content |
 |---|---|
-| 000–047 | Clean rainbow ignites at the exact blocked top source. Every changed frame is a new complete flattened image. |
-| 048–107 | The clean band travels downward and pushes sludge and debris away. Every changed frame is a new complete flattened image. |
-| 108–144 | The flow reaches the lower lip and settles. Every changed frame is a new complete flattened image. |
+| 000–023 | Hold the exact approved IMAGE_1 state long enough to verify geography, cast count, contacts, and inherited dirt/clean state. Every changed frame is a new complete flattened image. |
+| 024–047 | clean rainbow ignites at the exact blocked top source. Every changed frame is a new complete flattened image. |
+| 048–083 | the clean band travels downward and pushes sludge and debris away. Every changed frame is a new complete flattened image. |
+| 084–107 | Complete the same dominant action without adding a second event or changing topology. Every changed frame is a new complete flattened image. |
+| 108–131 | the flow reaches the lower lip and settles. Every changed frame is a new complete flattened image. |
+| 132–144 | Hold the exact endpoint: clean rainbow reaches the lower lip without changing the rest of the room. Every changed frame is a new complete flattened image. |
 
 ## Binding plan
 

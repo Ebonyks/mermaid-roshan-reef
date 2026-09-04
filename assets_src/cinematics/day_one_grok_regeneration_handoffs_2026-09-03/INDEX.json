@@ -3,6 +3,8 @@
   "date": "2026-09-03",
   "source_visual_archive_commit": "076661afb9e092627eb5dfae7c39fecb27463892",
   "audited_clip_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+  "audited_release_tag": "day1-regen-motion-ref-2026-09-03",
+  "audited_release_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03",
   "claims": {
     "archive_complete": true,
     "regeneration_guide_complete": true,
@@ -10,7 +12,7 @@
     "delivery_accepted": false
   },
   "review_protocol": "parallel Luna clip/scene audits followed by Sol master consistency review",
-  "shot_card_count": 36,
+  "shot_card_count": 22,
   "scenes": [
     {
       "movie_id": "D1-C00",
@@ -26,6 +28,9 @@
         "C00_S06_v1_landing_prep.mp4"
       ],
       "reject_as_authority": [],
+      "release_motion_references_accepted": [],
+      "release_events_omitted": [],
+      "release_events_replaced": [],
       "regenerate_shots": []
     },
     {
@@ -38,9 +43,13 @@
         "C01_S04_v1_castle_doors.mp4"
       ],
       "reject_as_authority": [],
+      "release_motion_references_accepted": [
+        "C01_S03_v1_handinhand_castle_REGEN.mp4"
+      ],
+      "release_events_omitted": [],
+      "release_events_replaced": [],
       "regenerate_shots": [
-        "D1-C01-S02",
-        "D1-C01-S03"
+        "D1-C01-S02"
       ]
     },
     {
@@ -54,6 +63,9 @@
         "C02_S04_v1_bathroom_glow.mp4"
       ],
       "reject_as_authority": [],
+      "release_motion_references_accepted": [],
+      "release_events_omitted": [],
+      "release_events_replaced": [],
       "regenerate_shots": [
         "D1-C02-S03"
       ]
@@ -69,6 +81,9 @@
       "reject_as_authority": [
         "C03_bunny_discover.mp4"
       ],
+      "release_motion_references_accepted": [],
+      "release_events_omitted": [],
+      "release_events_replaced": [],
       "regenerate_shots": [
         "D1-C03-S02",
         "D1-C03-S03",
@@ -87,6 +102,9 @@
         "C04_S04_v2_clean_endpoint.mp4"
       ],
       "reject_as_authority": [],
+      "release_motion_references_accepted": [],
+      "release_events_omitted": [],
+      "release_events_replaced": [],
       "regenerate_shots": []
     },
     {
@@ -101,6 +119,9 @@
         "C05_S06_problem_map.mp4"
       ],
       "reject_as_authority": [],
+      "release_motion_references_accepted": [],
+      "release_events_omitted": [],
+      "release_events_replaced": [],
       "regenerate_shots": [
         "D1-C05-S04",
         "D1-C05-S05"
@@ -117,50 +138,78 @@
         "C06_S07_v1_rumi_rise.mp4"
       ],
       "reject_as_authority": [],
+      "release_motion_references_accepted": [
+        "C06_S04_v1_both_sources_pool_REGEN.mp4",
+        "C06_S06_v1_violet_prelude_REGEN.mp4",
+        "C06_S09_v1_hug_complete_REGEN.mp4"
+      ],
+      "release_events_omitted": [],
+      "release_events_replaced": [],
       "regenerate_shots": [
         "D1-C06-S03",
-        "D1-C06-S04",
         "D1-C06-S05",
-        "D1-C06-S06",
-        "D1-C06-S08",
-        "D1-C06-S09"
+        "D1-C06-S08"
       ]
     },
     {
       "movie_id": "D1-C07",
-      "title": "Stuffie Room — Dirty Discovery",
+      "title": "Stuffie Room — Dirty Discovery and Two-Pin Reveal",
       "source_packet": "assets_src/cinematics/d1_c07_stuffie_dirty_discovery_visual_v1",
       "regeneration_guide": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C07/README.md",
       "retain_rough": [
         "C07_S01_v2_empty_dirty_stuffie.mp4",
-        "C07_S02_v2_roshan_enters.mp4",
-        "C07_S06_v1_eagle_pinned.mp4"
+        "C07_S02_v2_roshan_enters.mp4"
       ],
       "reject_as_authority": [
         "C07_S06_v2_eagle_pinned.mp4"
       ],
-      "regenerate_shots": [
+      "release_motion_references_accepted": [],
+      "release_events_omitted": [
         "D1-C07-S04",
-        "D1-C07-S05",
+        "D1-C07-S05"
+      ],
+      "release_events_replaced": [],
+      "regenerate_shots": [
         "D1-C07-S06"
       ]
     },
     {
       "movie_id": "D1-C08",
-      "title": "Stuffie Room — Basket and Wing-Blast Restoration",
+      "title": "Stuffie Room — Two-Pin Rescue and Baby Eagle Departure",
       "source_packet": "assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1",
       "regeneration_guide": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C08/README.md",
-      "retain_rough": [
-        "C08_S01_basket_wobble.mp4",
-        "C08_S05_eagle_wing_prep.mp4"
-      ],
+      "retain_rough": [],
       "reject_as_authority": [],
+      "release_motion_references_accepted": [],
+      "release_events_omitted": [],
+      "release_events_replaced": [
+        {
+          "released_shot": "D1-C08-S02",
+          "replacement_shot": "D1-C08-S01"
+        },
+        {
+          "released_shot": "D1-C08-S03",
+          "replacement_shot": "D1-C08-S02"
+        },
+        {
+          "released_shot": "D1-C08-S04",
+          "replacement_shot": "D1-C08-S03"
+        },
+        {
+          "released_shot": "D1-C08-S06",
+          "replacement_shot": "D1-C08-S04"
+        },
+        {
+          "released_shot": "D1-C08-S07",
+          "replacement_shot": "D1-C08-S05"
+        }
+      ],
       "regenerate_shots": [
+        "D1-C08-S01",
         "D1-C08-S02",
         "D1-C08-S03",
         "D1-C08-S04",
-        "D1-C08-S06",
-        "D1-C08-S07"
+        "D1-C08-S05"
       ]
     },
     {
@@ -179,9 +228,13 @@
         "C09_S02_v1_roshan_enters_art.mp4",
         "C09_S02_v2_roshan_enters_art.mp4"
       ],
+      "release_motion_references_accepted": [
+        "C09_S05_v1_precontact_brush_REGEN.mp4"
+      ],
+      "release_events_omitted": [],
+      "release_events_replaced": [],
       "regenerate_shots": [
-        "D1-C09-S04",
-        "D1-C09-S05"
+        "D1-C09-S04"
       ]
     },
     {
@@ -197,10 +250,14 @@
         "C10_S04_v1_desk_wake.mp4",
         "C10_S04_v2_desk_wake.mp4"
       ],
+      "release_motion_references_accepted": [
+        "C10_S05_v1_blank_desk_handgap_REGEN.mp4"
+      ],
+      "release_events_omitted": [],
+      "release_events_replaced": [],
       "regenerate_shots": [
         "D1-C10-S02",
-        "D1-C10-S03",
-        "D1-C10-S05"
+        "D1-C10-S03"
       ]
     },
     {
@@ -214,9 +271,13 @@
       "reject_as_authority": [
         "C11_S01_v1_routes_converge.mp4"
       ],
+      "release_motion_references_accepted": [
+        "C11_S02_v1_boss_door_approach_REGEN.mp4",
+        "C11_S03_v1_door_open_arena_REGEN.mp4"
+      ],
+      "release_events_omitted": [],
+      "release_events_replaced": [],
       "regenerate_shots": [
-        "D1-C11-S02",
-        "D1-C11-S03",
         "D1-C11-S04"
       ]
     },
@@ -235,9 +296,12 @@
       "reject_as_authority": [
         "C12_S04_v1_art_desk.mp4"
       ],
-      "regenerate_shots": [
-        "D1-C12-S05"
-      ]
+      "release_motion_references_accepted": [
+        "C12_S05_v1_post_friendship_vignette_REGEN.mp4"
+      ],
+      "release_events_omitted": [],
+      "release_events_replaced": [],
+      "regenerate_shots": []
     },
     {
       "movie_id": "D1-C13",
@@ -246,11 +310,15 @@
       "regeneration_guide": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/scenes/D1-C13/README.md",
       "retain_rough": [],
       "reject_as_authority": [],
+      "release_motion_references_accepted": [
+        "C13_S01_v1_roshan_cleaning_pass_REGEN.mp4",
+        "C13_S02_v2_daddy_broad_sweep_REGEN.mp4",
+        "C13_S04_v1_rumi_contained_rinse_REGEN.mp4"
+      ],
+      "release_events_omitted": [],
+      "release_events_replaced": [],
       "regenerate_shots": [
-        "D1-C13-S01",
-        "D1-C13-S02",
         "D1-C13-S03",
-        "D1-C13-S04",
         "D1-C13-S05"
       ]
     }

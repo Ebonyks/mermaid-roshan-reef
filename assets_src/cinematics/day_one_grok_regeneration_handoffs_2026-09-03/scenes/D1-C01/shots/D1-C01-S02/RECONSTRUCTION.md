@@ -6,17 +6,28 @@
 
 ## Why this shot is being rebuilt
 
-- Shot is absent from the delivered clip set.
+- [C01_S02_v1_dock_handoffer_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C01_S02_v1_dock_handoffer_REGEN.mp4): release frames 000–144: Daddy is already outside and offering at frame 0; the required plane exit, turn, and Roshan-from-doorway handoff never occur.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
+
+## Implemented-event contract
+
+- Runtime authority: `scripts/day_one_director.gd`.
+- Event rule: arrival media precedes the dirty-castle discovery; the lagoon handoff must preserve Roshan, Daddy, the stationary plane, and the closed castle.
+- Entry state: accepted clean endpoint extracted from D1-C01-S01.
+- Single causal action: Daddy exits and offers; Roshan completes one hand contact.
+- Required outgoing seam: Roshan and Daddy hold hands beside the unchanged stationary plane.
 
 ## Full-frame reconstruction map
 
 | Output frames | Required full-frame content |
 |---|---|
-| 000–047 | Daddy exits the stationary pearl plane, turns, and offers one open hand. Every changed frame is a new complete flattened image. |
-| 048–107 | Roshan places her hand in his while both tails and costumes remain coherent. Every changed frame is a new complete flattened image. |
-| 108–144 | They settle at child-safe distance with correct hand contact. Every changed frame is a new complete flattened image. |
+| 000–023 | Hold the exact approved IMAGE_1 state long enough to verify geography, cast count, contacts, and inherited dirt/clean state. Every changed frame is a new complete flattened image. |
+| 024–047 | daddy exits the stationary pearl plane, turns, and offers one open hand. Every changed frame is a new complete flattened image. |
+| 048–083 | roshan places her hand in his while both tails and costumes remain coherent. Every changed frame is a new complete flattened image. |
+| 084–107 | Complete the same dominant action without adding a second event or changing topology. Every changed frame is a new complete flattened image. |
+| 108–131 | they settle at child-safe distance with correct hand contact. Every changed frame is a new complete flattened image. |
+| 132–144 | Hold the exact endpoint: Roshan and Daddy hold hands beside the unchanged stationary plane. Every changed frame is a new complete flattened image. |
 
 ## Binding plan
 

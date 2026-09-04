@@ -6,17 +6,28 @@
 
 ## Why this shot is being rebuilt
 
-- [C06_rumi_swim.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C06_rumi_swim.mp4): frames 0–144 depict swimming rather than the required thanks and invitation beat.
+- [C06_S08_v1_rumi_invitation_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S08_v1_rumi_invitation_REGEN.mp4): release frames 104–144: Rumi's thanks and open-arm invitation work through frame 103, but Roshan then approaches and starts the hug before the dedicated hug shot.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
+
+## Implemented-event contract
+
+- Runtime authority: `scripts/games/day_one_pool_cleanup.gd`.
+- Event rule: pool_surface → waterfall → seahorse is the fixed order; Rumi rises only after all three complete.
+- Entry state: accepted D1-C06-S07 Rumi reveal endpoint.
+- Single causal action: Rumi makes one thanks-to-invitation gesture.
+- Required outgoing seam: Rumi's arms are open and Roshan remains separate before the hug.
 
 ## Full-frame reconstruction map
 
 | Output frames | Required full-frame content |
 |---|---|
-| 000–047 | Rumi places one hand over her heart and gives one warm speaking gesture. Every changed frame is a new complete flattened image. |
-| 048–107 | She opens both arms toward roshan while both bodies stay separate. Every changed frame is a new complete flattened image. |
-| 108–144 | She holds the clear invitation. Every changed frame is a new complete flattened image. |
+| 000–023 | Hold the exact approved IMAGE_1 state long enough to verify geography, cast count, contacts, and inherited dirt/clean state. Every changed frame is a new complete flattened image. |
+| 024–047 | rumi places one hand over her heart and gives one warm speaking gesture. Every changed frame is a new complete flattened image. |
+| 048–083 | she opens both arms toward Roshan while both bodies stay separate. Every changed frame is a new complete flattened image. |
+| 084–107 | Complete the same dominant action without adding a second event or changing topology. Every changed frame is a new complete flattened image. |
+| 108–131 | she holds the clear invitation. Every changed frame is a new complete flattened image. |
+| 132–144 | Hold the exact endpoint: Rumi's arms are open and Roshan remains separate before the hug. Every changed frame is a new complete flattened image. |
 
 ## Binding plan
 

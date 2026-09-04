@@ -79,12 +79,24 @@
   "prompt_sha256": "8fb3a141af172550c83aa55ac6c38bf350c87c5b3d766628665682cd329f2e87",
   "source_clip_audit": [
     {
-      "source_clip": null,
-      "source_clip_url": null,
-      "weak_frames": null,
-      "observation": "shot is absent from the delivered clip set"
+      "source_clip": "C01_S02_v1_dock_handoffer_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C01_S02_v1_dock_handoffer_REGEN.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "release frames 000–144: Daddy is already outside and offering at frame 0; the required plane exit, turn, and Roshan-from-doorway handoff never occur."
     }
   ],
+  "audited_release": {
+    "tag": "day1-regen-motion-ref-2026-09-03",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03"
+  },
+  "implemented_event_contract": {
+    "authority_path": "scripts/day_one_director.gd",
+    "rule": "arrival media precedes the dirty-castle discovery; the lagoon handoff must preserve Roshan, Daddy, the stationary plane, and the closed castle"
+  },
   "blocking_findings": [
     "IMAGE_1 is not yet bound to the required accepted clean endpoint extracted from D1-C01-S01",
     "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"

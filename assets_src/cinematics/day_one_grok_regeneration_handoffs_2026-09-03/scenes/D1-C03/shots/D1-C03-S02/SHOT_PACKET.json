@@ -67,12 +67,34 @@
   "prompt_sha256": "9f8003ac999911db989f7aac2f5fee6a7aed7e8b16ba2aa2a59b6e82f8cf01eb",
   "source_clip_audit": [
     {
-      "source_clip": null,
-      "source_clip_url": null,
-      "weak_frames": null,
-      "observation": "shot is absent from the delivered clip set"
+      "source_clip": "C03_S02_v1_dirty_bathroom_threshold_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C03_S02_v1_dirty_bathroom_threshold_REGEN.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "release frames 000–144 both variants: Neither variant establishes the doorway. One starts mid-room and ends seated by the sink; the other begins inside the bathtub and crosses the tub instead of the threshold."
+    },
+    {
+      "source_clip": "C03_S02_v1_threshold_cross_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C03_S02_v1_threshold_cross_REGEN.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "release frames 000–144 both variants: Neither variant establishes the doorway. One starts mid-room and ends seated by the sink; the other begins inside the bathtub and crosses the tub instead of the threshold."
     }
   ],
+  "audited_release": {
+    "tag": "day1-regen-motion-ref-2026-09-03",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03"
+  },
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/day_one_bathroom_cleanup.gd",
+    "rule": "one dirty tub, one separate swimming bunny, an authorized tool basket, and two later live cleaning gestures"
+  },
   "blocking_findings": [
     "IMAGE_1 is not yet bound to the required accepted D1-C03-S01 dirty-room endpoint",
     "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"

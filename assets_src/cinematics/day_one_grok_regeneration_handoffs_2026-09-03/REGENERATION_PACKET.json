@@ -4,7 +4,7 @@
   "date": "2026-09-03",
   "runtime_asset": false,
   "used_as_delivery_pixels": false,
-  "payload_sha256": "946b320be44a25bd0b2b7e03d71217e434c51c0f574bfc49f5c30fe9fe3bb7f6",
+  "payload_sha256": "d8a65d6ea2444daa5a424b22afe1854f80b8b58996e46c57202ff712b8ee3509",
   "payload_hash_formula": "SHA256 of UTF-8 sorted <relative_path>|<lowercase_sha256>\\n records; excludes this manifest and the separate remote verification record",
   "claims": {
     "source_archive_complete": true,
@@ -20,36 +20,52 @@
     "commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
     "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips"
   },
+  "audited_release_source": {
+    "tag": "day1-regen-motion-ref-2026-09-03",
+    "release": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03",
+    "clip_count": 40,
+    "unique_shot_count": 36
+  },
   "assets": [
+    {
+      "path": "AUDITED_RELEASE_ASSETS.json",
+      "role": "machine_readable_release_audit",
+      "sha256": "ddb410a9cd8ba310d7d0664029df75c6fa24058c8792e81ba17e09c2233497a8"
+    },
     {
       "path": "INDEX.json",
       "role": "machine_readable_index",
-      "sha256": "536bfb5e51cbb2d8841ecfc2e0a5d04a07404f73e133df84ced3e26ba4f8e495"
+      "sha256": "a7c5b6f9c030795dd8975b3ecf58631dd10b42c0b2ae7decc7f79cfa170b313b"
+    },
+    {
+      "path": "NEW_DRAFT_AUDIT.md",
+      "role": "frame_level_release_audit",
+      "sha256": "c88d52531b8e0fd09bb21dbf2951cab7e357910f776bc81f30f7f5391d0d1c94"
     },
     {
       "path": "README.md",
       "role": "operator_index_or_scene_handoff",
-      "sha256": "24e693a868fe66d31a7192c1c54533024556b12b5f3e91c28c35fdb340a8d3c7"
+      "sha256": "0a8cd59514f511619bfb42c5ee2b1fa39aef16d5e976900c5547adcbf71cb5ca"
     },
     {
       "path": "SHOT_REGENERATION_INDEX.csv",
       "role": "machine_readable_index",
-      "sha256": "74f8587f85be0d56d469a10d526af9d2816a2235b545e937432454c261dea04b"
+      "sha256": "70eaa7422cb75f3205bc83c4f4451ca2f5aca4b515a21e46813311c18d517114"
     },
     {
       "path": "SOL_MASTER_AUDIT.md",
       "role": "sol_master_review",
-      "sha256": "a41121ff2f5738dce4dea96d5956c6de5e8d155b9d886d3fe6a78de265707907"
+      "sha256": "84ecf8d79229256a5cd8ff22ddca4d502190144302c5761e01b790b2ef765d10"
     },
     {
       "path": "scenes/D1-C00/README.md",
       "role": "operator_index_or_scene_handoff",
-      "sha256": "60af382d5eeae6c6f4245360eb10dbffaee9c6d348ce4db0d49ec337f129a6a5"
+      "sha256": "8925050726987994a97d805b9156711d19700d327ec607716641152db1055747"
     },
     {
       "path": "scenes/D1-C01/README.md",
       "role": "operator_index_or_scene_handoff",
-      "sha256": "70f0fb0892dfb77ab9e80edb1fd1a602f6cb28a2b664cb7b426ad954dfe8ae08"
+      "sha256": "c073d81fd8a48e33a35166fd6132ba60f005557d98392d7613843a17e542a21a"
     },
     {
       "path": "scenes/D1-C01/shots/D1-C01-S02/PROMPT.txt",
@@ -59,32 +75,17 @@
     {
       "path": "scenes/D1-C01/shots/D1-C01-S02/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "b23b7a644f1fdf3b0275c3a5c46b974c17f1a16feba89b3812f9171c107b8d51"
+      "sha256": "e2ca380b97a61a142b331addc14c38bd1f8216ed922a7f7c65b628d19e5256fb"
     },
     {
       "path": "scenes/D1-C01/shots/D1-C01-S02/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "46a47e65c48f0591fcab8a12f449b0e88315031baa4d09027638bc2de98d0d1e"
-    },
-    {
-      "path": "scenes/D1-C01/shots/D1-C01-S03/PROMPT.txt",
-      "role": "paste_ready_imagine_prompt",
-      "sha256": "f62b9bdefd1ae3e2133456a5336031bb907d7150068e743f0c531cd91934391d"
-    },
-    {
-      "path": "scenes/D1-C01/shots/D1-C01-S03/RECONSTRUCTION.md",
-      "role": "weak_frame_reconstruction_guide",
-      "sha256": "333b605524fe8e90d8e548198c656f63e56938c0b557a2811a88bfcba1de495a"
-    },
-    {
-      "path": "scenes/D1-C01/shots/D1-C01-S03/SHOT_PACKET.json",
-      "role": "draft_imagine_shot_card",
-      "sha256": "5b0c5470efa2de32fc639275ac57035ed68cea1927b152a42d9cf810c62641e7"
+      "sha256": "ae8cfa0d332699fb7045209d8e671b66e52076e23a974fbc431e7c9928442083"
     },
     {
       "path": "scenes/D1-C02/README.md",
       "role": "operator_index_or_scene_handoff",
-      "sha256": "24361239d4bc8a1f839676c6f25ff97e788e47bf17d61e87022fe9f51eb40572"
+      "sha256": "084dcbe13cd69533e1b3221ac641d59d7092d71f1dbe99a69d605c82063cf206"
     },
     {
       "path": "scenes/D1-C02/shots/D1-C02-S03/PROMPT.txt",
@@ -94,17 +95,17 @@
     {
       "path": "scenes/D1-C02/shots/D1-C02-S03/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "927fd64d7b0c2cc415740f21ae9690f64b3f47baeb22abd5aa4c99063922ef05"
+      "sha256": "93d479986c1480159f8fa6df141e962cedc30c69f2f9e962f0cbf575e0de72c0"
     },
     {
       "path": "scenes/D1-C02/shots/D1-C02-S03/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "2b8aad45e655d4762f56eb67b0e66b17954bc69fde19673bea5b31443deef508"
+      "sha256": "05d2cd50bec4a27962f2292ae622c9b7e3cb1e3408848a62f90d0f031b4defd2"
     },
     {
       "path": "scenes/D1-C03/README.md",
       "role": "operator_index_or_scene_handoff",
-      "sha256": "5df6ff4afe570481b77778e0e38fdbcf2ccdc6ea62bf0ca759b46febaf7d5ee5"
+      "sha256": "1c8bbfe52ef898d6d618101137d9dcb58deb04132d7db1d9e2e3bd0ab2374724"
     },
     {
       "path": "scenes/D1-C03/shots/D1-C03-S02/PROMPT.txt",
@@ -114,12 +115,12 @@
     {
       "path": "scenes/D1-C03/shots/D1-C03-S02/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "b712f2a08d38fde2a9ac8be12d27575d65aeabad462da9ad1488495177a7cb72"
+      "sha256": "08c2f95d2478091310a7b4da1098e7ed77af9e469b6973be722dc51897ae7991"
     },
     {
       "path": "scenes/D1-C03/shots/D1-C03-S02/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "5978c968f6acceb0834e9607a1bfdcb7fb0fa45624a797b09b00355a89a8f38d"
+      "sha256": "5eb9b2ff878fcca5234660e2b7baedbaeabf88ccb73279b30c08752155a4079e"
     },
     {
       "path": "scenes/D1-C03/shots/D1-C03-S03/PROMPT.txt",
@@ -129,12 +130,12 @@
     {
       "path": "scenes/D1-C03/shots/D1-C03-S03/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "24734f545739f1d985b25e7bac67e360fba84d29d18d6d112af5ca859c5f7b00"
+      "sha256": "3885759b79b9d5d4ad23fce185dff04e894d4e45307261fe7ba3f14b35a74f20"
     },
     {
       "path": "scenes/D1-C03/shots/D1-C03-S03/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "79bc34eab1b97797af452b552df64c8241ee74dcbb8f4a82b475bda34944b68c"
+      "sha256": "2d010dab53c43f874e66fc64c7289240f1a592041c317342c0940fe21d45d7de"
     },
     {
       "path": "scenes/D1-C03/shots/D1-C03-S04/PROMPT.txt",
@@ -144,22 +145,22 @@
     {
       "path": "scenes/D1-C03/shots/D1-C03-S04/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "72f1037b2ee3ae674fd45c42da7fa6c830a21beda208cb9aa13e0aff16128d39"
+      "sha256": "4733d8c122151294d704b3089bd90af4277f6b72f838aa9bd3fdbe946d702dfd"
     },
     {
       "path": "scenes/D1-C03/shots/D1-C03-S04/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "5e85794f6ddfb82693a0cf516b61b92f269eb6c5b17d9d25d5c06c4d5d93f0a2"
+      "sha256": "af008a6ae0ac166b5f6fe2bd081f66aca59482e1be4cb0c7e7f3b1df08afd391"
     },
     {
       "path": "scenes/D1-C04/README.md",
       "role": "operator_index_or_scene_handoff",
-      "sha256": "dc29a2bc2e9e861f90579e684721398806c309700dc7143bf862a493e92dec5f"
+      "sha256": "06d782e56cb69e92079f61d70ea47c321b15846af7c40db4891db1aef65d6947"
     },
     {
       "path": "scenes/D1-C05/README.md",
       "role": "operator_index_or_scene_handoff",
-      "sha256": "81753c38e915da59baf50f2d5eb9a778f6e4a8307e3fc7aa1809ceda450cb96a"
+      "sha256": "f8a08807a68614eedbed01ff4d693fea34e170c706e4eec727942c8b922daf56"
     },
     {
       "path": "scenes/D1-C05/shots/D1-C05-S04/PROMPT.txt",
@@ -169,12 +170,12 @@
     {
       "path": "scenes/D1-C05/shots/D1-C05-S04/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "9a963076bed374498c76f1a5585425d4792b65fa1f7b631156050a0ace747b64"
+      "sha256": "d42412c9c3c2f63decd4d84f5f59c1d75260cb6601f34ec222a525774b353a53"
     },
     {
       "path": "scenes/D1-C05/shots/D1-C05-S04/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "b8ff5cfbfd573544f6a75868416c0b3dbe109411168d30f0c0e853219e42b9a1"
+      "sha256": "0f1d0da01fcafae6698a51a9d09f47d3cbcd0d8a19d81b5a5f7ca1064a9858e4"
     },
     {
       "path": "scenes/D1-C05/shots/D1-C05-S05/PROMPT.txt",
@@ -184,17 +185,17 @@
     {
       "path": "scenes/D1-C05/shots/D1-C05-S05/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "63350582fb757dfb16b322d81f8b1f3fa3a74656cdf42c2ce97a0f8b3309d219"
+      "sha256": "fea342c554619c601848572301092bb1782b574df1ba0288bc5a50f434029f6d"
     },
     {
       "path": "scenes/D1-C05/shots/D1-C05-S05/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "f336eea7bb30e6a7c52af67f1c9fe1629ea6353192415a3ba05b355b9655ffc9"
+      "sha256": "b8b3d7708893ebb2a814f9f3db78086aa478eb3c41170f68b9687adb94701c4b"
     },
     {
       "path": "scenes/D1-C06/README.md",
       "role": "operator_index_or_scene_handoff",
-      "sha256": "0c1dc0b17632c25ebc65187273542c02605bfc64e029c5613e486854b04b555d"
+      "sha256": "83a064ae7773c68933a439cebfc8c384339fac92f8afe1cb7e7ed510e6e586ce"
     },
     {
       "path": "scenes/D1-C06/shots/D1-C06-S03/PROMPT.txt",
@@ -204,27 +205,12 @@
     {
       "path": "scenes/D1-C06/shots/D1-C06-S03/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "62686240bc7c6fa487c0c249c101b1c52dbad369ed1e436dfe744442816cd356"
+      "sha256": "d0b2c73114d31c7c770d2af4c04108b5e5198a762e8f65c6b85b22f568143b63"
     },
     {
       "path": "scenes/D1-C06/shots/D1-C06-S03/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "5b57183eeabfa2811d6cc3a86cf8f1ae0abd4b4c7100229ca7c7ee22c84f072f"
-    },
-    {
-      "path": "scenes/D1-C06/shots/D1-C06-S04/PROMPT.txt",
-      "role": "paste_ready_imagine_prompt",
-      "sha256": "d4aeac94bd81f7a806444d5bbb8133e38fd2eafb4ffb058e24c7fbf0eb3468e6"
-    },
-    {
-      "path": "scenes/D1-C06/shots/D1-C06-S04/RECONSTRUCTION.md",
-      "role": "weak_frame_reconstruction_guide",
-      "sha256": "c28634ad3f65450d8a1d31c7692fe63464500b54f103979d9d995460bd2ad184"
-    },
-    {
-      "path": "scenes/D1-C06/shots/D1-C06-S04/SHOT_PACKET.json",
-      "role": "draft_imagine_shot_card",
-      "sha256": "a399ac4ac224cbc0499853ec021674a989f25ff266186099f252d813a32c82bc"
+      "sha256": "5177bbd5066f7325ab090369eff732994d6407d9ba3264b9ff8a3b1cc62c18e7"
     },
     {
       "path": "scenes/D1-C06/shots/D1-C06-S05/PROMPT.txt",
@@ -234,27 +220,12 @@
     {
       "path": "scenes/D1-C06/shots/D1-C06-S05/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "1a5a059bea696fce49098e9bcbc6d905a1cf321fe48f79c13f45ddea7beb6b49"
+      "sha256": "477c7ad433c8f9ee474405e20a5d050bd8b21d866604b54220271325587e7f25"
     },
     {
       "path": "scenes/D1-C06/shots/D1-C06-S05/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "5e764f6dd0deb3e6bc999932ceb9dae47d7067f0c6a63adac9ee91f4b37c1c48"
-    },
-    {
-      "path": "scenes/D1-C06/shots/D1-C06-S06/PROMPT.txt",
-      "role": "paste_ready_imagine_prompt",
-      "sha256": "71e5676ba24f9051f6c4aebe4c0596c5da5228ab57f77b5a21a6aef46075cdc4"
-    },
-    {
-      "path": "scenes/D1-C06/shots/D1-C06-S06/RECONSTRUCTION.md",
-      "role": "weak_frame_reconstruction_guide",
-      "sha256": "4f613eb1d6d2f942417dab7eba18a12dcad302d23b6a6c6cfbef574bb4d70516"
-    },
-    {
-      "path": "scenes/D1-C06/shots/D1-C06-S06/SHOT_PACKET.json",
-      "role": "draft_imagine_shot_card",
-      "sha256": "7b26c364aeee0ff4fb98b62c92cd557ed151e9ac99cfa10a61ee3185052962f1"
+      "sha256": "67fee34a3f60d949c9d6e3089ce07c12c220a491a84f7d6f422c7238a04ccc85"
     },
     {
       "path": "scenes/D1-C06/shots/D1-C06-S08/PROMPT.txt",
@@ -264,162 +235,117 @@
     {
       "path": "scenes/D1-C06/shots/D1-C06-S08/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "c045e6e1d3378297ab51de237dc21517bf507ac5e386b8cffd902dd4606c1a00"
+      "sha256": "045027ec7af1769b4c9fd988ce769bd003ab9320745c40347871557a5b19a1ac"
     },
     {
       "path": "scenes/D1-C06/shots/D1-C06-S08/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "451715231d0e8b6f078b5002e712867e995fc3b36f0a657ebd276963b782a947"
-    },
-    {
-      "path": "scenes/D1-C06/shots/D1-C06-S09/PROMPT.txt",
-      "role": "paste_ready_imagine_prompt",
-      "sha256": "c94b0c0fc4c14e7b29a16f043627ed58978a3f25d45a06fc14a9fbb947dbe8b7"
-    },
-    {
-      "path": "scenes/D1-C06/shots/D1-C06-S09/RECONSTRUCTION.md",
-      "role": "weak_frame_reconstruction_guide",
-      "sha256": "b4d4bef619730dd977c419cf7a0ae396f483a12f2d04c8f8e3c29e15548520ba"
-    },
-    {
-      "path": "scenes/D1-C06/shots/D1-C06-S09/SHOT_PACKET.json",
-      "role": "draft_imagine_shot_card",
-      "sha256": "995a9c54db53df0f2099a39a0252049008fe9013b9f9b28fe906d36ea9afd0e1"
+      "sha256": "6139bf85e29562ed3c3b9645982d230c58fbe508f15112535fc1d8c3e7550b1c"
     },
     {
       "path": "scenes/D1-C07/README.md",
       "role": "operator_index_or_scene_handoff",
-      "sha256": "4dcf88bfd83605078f82502d4dc902d76efc404e56c6c4bd5b2026af646b0d74"
-    },
-    {
-      "path": "scenes/D1-C07/shots/D1-C07-S04/PROMPT.txt",
-      "role": "paste_ready_imagine_prompt",
-      "sha256": "92c7dc27d2e381efee88e67e0fcc0f9afb8987b63e6438e58adbed14356f7af0"
-    },
-    {
-      "path": "scenes/D1-C07/shots/D1-C07-S04/RECONSTRUCTION.md",
-      "role": "weak_frame_reconstruction_guide",
-      "sha256": "ff315986ff7494afb5a9a6c3881e58a61989092df5fc10b2f86afe8fb15fbf78"
-    },
-    {
-      "path": "scenes/D1-C07/shots/D1-C07-S04/SHOT_PACKET.json",
-      "role": "draft_imagine_shot_card",
-      "sha256": "33b18cc315efbddd61e6c5e46f2fd977e6ebd3ffc60781b531c736cb3f3fe6f5"
-    },
-    {
-      "path": "scenes/D1-C07/shots/D1-C07-S05/PROMPT.txt",
-      "role": "paste_ready_imagine_prompt",
-      "sha256": "5f6418c3b7e3dfedadc226d6928d2b90db9e3f1af1591bacac8800f02a50b9c7"
-    },
-    {
-      "path": "scenes/D1-C07/shots/D1-C07-S05/RECONSTRUCTION.md",
-      "role": "weak_frame_reconstruction_guide",
-      "sha256": "4b8203111a5ab0bc128e8761e7b4be1af7e6f3e19f74db3b9117611a9b4c2a06"
-    },
-    {
-      "path": "scenes/D1-C07/shots/D1-C07-S05/SHOT_PACKET.json",
-      "role": "draft_imagine_shot_card",
-      "sha256": "ab8da0b5e3f82cb47556596e7aadec82ccfc6963abbc14bcb8be16bd9fe3779e"
+      "sha256": "5aa217001c00fa74a93133a64734158b88f19090fa9fc4aaa6f7da2a1b5ca434"
     },
     {
       "path": "scenes/D1-C07/shots/D1-C07-S06/PROMPT.txt",
       "role": "paste_ready_imagine_prompt",
-      "sha256": "18fa09a6d21e13a7fa89f2f30ec872bfa1818f8bf2fc13a23f87b12176740076"
+      "sha256": "711e1bace35d3ba483f13cfc7fefa1507be43c19554445693891fa179658f324"
     },
     {
       "path": "scenes/D1-C07/shots/D1-C07-S06/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "d0091073fa0359b22b5aec0431157fbcf64420bc8e0906432318b946c5283b64"
+      "sha256": "9715e26e35a64cce59ceadce55a9887d54021a186d135982e1c5265e1c8bac15"
     },
     {
       "path": "scenes/D1-C07/shots/D1-C07-S06/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "a1c72a4b86504fb4ad8f062a8ab21460d2b6658554659342056fc3ad3496d25b"
+      "sha256": "e7b4742b24e66eb45258ee86722495435256b62116a357a709e3bd97222c3fd3"
     },
     {
       "path": "scenes/D1-C08/README.md",
       "role": "operator_index_or_scene_handoff",
-      "sha256": "7a41891504ed24c1772bbcf5ac7d8fabdab3b177fddda758a4bfeaf4e82d5d73"
+      "sha256": "fa92d611874f185b78abac0cb4c7852bb524e76201d3e107707f30c5befa7fa9"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S01/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "835249265fe2c8373fba26d2086d62fc273423ff89f896913276e004eadb7d43"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S01/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "0535e83b45c7fe9cddce23e14759a263fb00bcc8c3b860d1bb2cec37ce878c66"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S01/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "71240c38534fe91147cced8d1ca4036680428318750ed7f63858982f75ebc32d"
     },
     {
       "path": "scenes/D1-C08/shots/D1-C08-S02/PROMPT.txt",
       "role": "paste_ready_imagine_prompt",
-      "sha256": "204f5f8317c25e3635cc9d43401e072e45c226109b94ccaa97b455be0e35f8f4"
+      "sha256": "ece34b57dd7e9651f347f1b11c5cf14cf7af32f50bcd6ff38f35d9ce4ef1da67"
     },
     {
       "path": "scenes/D1-C08/shots/D1-C08-S02/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "6a214e580db441fa709a73789af88f0dde2f2cb80e35785e733a8e55ef3e54dc"
+      "sha256": "2ace8be38c8ebec9fdbd8389ec2ca7998ed136b994cd4404706bacb980ef7c10"
     },
     {
       "path": "scenes/D1-C08/shots/D1-C08-S02/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "92a7bed580dec410b880f476d383a0cdf2505555d57fd2cd3c438d2d0d3051b0"
+      "sha256": "40d3a183d099300ccb6b0f253dbd5cfd4df70b82f71c1bcf7c199518e382b56d"
     },
     {
       "path": "scenes/D1-C08/shots/D1-C08-S03/PROMPT.txt",
       "role": "paste_ready_imagine_prompt",
-      "sha256": "c333cbf8f589aa6d74c7c8f761fd72f484536d1a7d56b87823af18904aa926c2"
+      "sha256": "90716342aa924016841f7cae00f7356a9dc5a87a2219465a27f988e677b7e232"
     },
     {
       "path": "scenes/D1-C08/shots/D1-C08-S03/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "b54c4dccb116e952724c065f424fb77625789bfd3b43f59483b90dd8a71c19df"
+      "sha256": "aacb766a1773da7e900733aee2e2bc904540b6207f4292ce0f49b2d65065e0f9"
     },
     {
       "path": "scenes/D1-C08/shots/D1-C08-S03/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "c394c38d9dad586f82ea46f0feb3b0279cdec4052b30d3b3ffc70169f2c0bfd4"
+      "sha256": "78ce670d79afba98098350e825e7455d42f6b43247ba05bc028015a6eb44047c"
     },
     {
       "path": "scenes/D1-C08/shots/D1-C08-S04/PROMPT.txt",
       "role": "paste_ready_imagine_prompt",
-      "sha256": "826ec0b00a3f0906d2ced50207ca89ba84f8a488f7a9bd116aa2449368256edf"
+      "sha256": "5876557652596b7d09e51ea3f7af883ecfbfd22a29c74b5bc372e6f97de0c515"
     },
     {
       "path": "scenes/D1-C08/shots/D1-C08-S04/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "3d8d58205fb61e4c80b3b62345b747f2d26a772ea124fce896570b4835d65c3d"
+      "sha256": "59337fa2ae998f49072e483aaf150393325dfdf42ee2108bb9b5a0ad193d99da"
     },
     {
       "path": "scenes/D1-C08/shots/D1-C08-S04/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "224496adac65616fd270e5065d3b4d06d310de8692dad7d51f942ef45f96b5f8"
+      "sha256": "4f3f8b387990e56abb7b4c78ee53943ee0bcc9ea74cbc0ac778ab65093a6da33"
     },
     {
-      "path": "scenes/D1-C08/shots/D1-C08-S06/PROMPT.txt",
+      "path": "scenes/D1-C08/shots/D1-C08-S05/PROMPT.txt",
       "role": "paste_ready_imagine_prompt",
-      "sha256": "2d239e2ba8ee1135cb2ca6b654751228133ddba32bde25b1726e78943a0479fe"
+      "sha256": "fcfe33d65856a856393e233155f605e9b617729eef705cba53b67389a7fe9e9c"
     },
     {
-      "path": "scenes/D1-C08/shots/D1-C08-S06/RECONSTRUCTION.md",
+      "path": "scenes/D1-C08/shots/D1-C08-S05/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "e4adf657f151450ce273cd69b7da3d600b7b1f7fc81baed5c5591261915e99d2"
+      "sha256": "d6cc69fad2987bc579c6c112b0ae21fe14e51d2a9fce954474ee48395faa43ab"
     },
     {
-      "path": "scenes/D1-C08/shots/D1-C08-S06/SHOT_PACKET.json",
+      "path": "scenes/D1-C08/shots/D1-C08-S05/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "ba5b863c14b54d116b1b8a44126064ac6dbe48cbe749dccb74a313dde6cd5c66"
-    },
-    {
-      "path": "scenes/D1-C08/shots/D1-C08-S07/PROMPT.txt",
-      "role": "paste_ready_imagine_prompt",
-      "sha256": "5e82e7a97eb185b06bb50c0d66f8864c300b5e22fdb1dafd98373506824cc979"
-    },
-    {
-      "path": "scenes/D1-C08/shots/D1-C08-S07/RECONSTRUCTION.md",
-      "role": "weak_frame_reconstruction_guide",
-      "sha256": "235d0ed6cf37245ab2cbb3eaff66e13b6371494f151e14ec8134c8d66437ad38"
-    },
-    {
-      "path": "scenes/D1-C08/shots/D1-C08-S07/SHOT_PACKET.json",
-      "role": "draft_imagine_shot_card",
-      "sha256": "34c4904396f43457fc634d83454d04cf19070d6f44b747e43d74fcab3b865e7d"
+      "sha256": "d39339d7e494a25ddffb88749b85527dc90b28ab57cd9a51dabd7ae7add203ff"
     },
     {
       "path": "scenes/D1-C09/README.md",
       "role": "operator_index_or_scene_handoff",
-      "sha256": "8571bb0f705e848cdef459917bffdaa9a5e7b1673784e0d0f2fbb24c40868bac"
+      "sha256": "bcbbcbb737f08b2de7e65e1113371f8828c301f41f23e97ff9070b513ee73e7f"
     },
     {
       "path": "scenes/D1-C09/shots/D1-C09-S04/PROMPT.txt",
@@ -429,32 +355,17 @@
     {
       "path": "scenes/D1-C09/shots/D1-C09-S04/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "9b8aca5b8fd4c36dd82ce4a96765ac0ef4940ccf3f909c5c5fc4554e832021a2"
+      "sha256": "4420b4506f60620db4140ee05a3851f27caa8e1fddd515591a71402ec365a614"
     },
     {
       "path": "scenes/D1-C09/shots/D1-C09-S04/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "ddcc4191f4f91f0a54172f7a380d895ee665135c28fdb58cf3912bad4a78b0d3"
-    },
-    {
-      "path": "scenes/D1-C09/shots/D1-C09-S05/PROMPT.txt",
-      "role": "paste_ready_imagine_prompt",
-      "sha256": "256863b5372b45b1272e55336f0cbc366eefc3082e96cb8b4b0a650e7c924853"
-    },
-    {
-      "path": "scenes/D1-C09/shots/D1-C09-S05/RECONSTRUCTION.md",
-      "role": "weak_frame_reconstruction_guide",
-      "sha256": "e0e69e0c8945d711fcce99aed97d438ab9b0896946128144d43873e97de76536"
-    },
-    {
-      "path": "scenes/D1-C09/shots/D1-C09-S05/SHOT_PACKET.json",
-      "role": "draft_imagine_shot_card",
-      "sha256": "aeb02857ef01b57de287a2d08dfd6cb87e7843656b1436579f15d185de23aee7"
+      "sha256": "23eeabeb11ea271b055dc0a282891944a5fbb0cb198ffa13126b5d3fa197621f"
     },
     {
       "path": "scenes/D1-C10/README.md",
       "role": "operator_index_or_scene_handoff",
-      "sha256": "6b3ec4c1ab98794878121ef62e6e6fba9491d3dda2ff2a122f9737e380d5e580"
+      "sha256": "3084f258a03c52659d247f76f186c30b2f4bacee7dae524cfa6c28ba66f24bee"
     },
     {
       "path": "scenes/D1-C10/shots/D1-C10-S02/PROMPT.txt",
@@ -464,192 +375,87 @@
     {
       "path": "scenes/D1-C10/shots/D1-C10-S02/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "2cb3c2745c513d3e713ddad6b8be6d251b11b0899b8caf5816da547a49e9d414"
+      "sha256": "f3463f88281f3afdf7f3d8e9327dfe5bb2272135c6194915519ac294a6a6cabd"
     },
     {
       "path": "scenes/D1-C10/shots/D1-C10-S02/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "071e40c376b84e132d0a550489eb2bb186f37a09c830d3a098359d10c311648d"
+      "sha256": "7b51d117386e9d8d3b80fd6c8b1cb51fb47c33eef4459cfca5a42e49028887c2"
     },
     {
       "path": "scenes/D1-C10/shots/D1-C10-S03/PROMPT.txt",
       "role": "paste_ready_imagine_prompt",
-      "sha256": "79b551a0c831c16c19b4b5d64278570456abeaef1a4d006729cf248b223078e0"
+      "sha256": "367a347552250ed8d47f2044daec9a6e7e192295a9420a5c310c16258592a88c"
     },
     {
       "path": "scenes/D1-C10/shots/D1-C10-S03/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "a921eaa2bd9d3b42351b9ac2263cf4c7a6cd522da2c4c37395ef331f70861d3c"
+      "sha256": "6da487c822b48e4927c5e32ed14e165de5d4a28f1585d68db3e158f8bfa42d4a"
     },
     {
       "path": "scenes/D1-C10/shots/D1-C10-S03/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "3924c8ee9fd89f041d8687704cb59add33a0e1dc76f55974c67cdccf1400690d"
-    },
-    {
-      "path": "scenes/D1-C10/shots/D1-C10-S05/PROMPT.txt",
-      "role": "paste_ready_imagine_prompt",
-      "sha256": "c60681d20485936048ec3ba352711eb12fe26a620647beb11d974277b49c5188"
-    },
-    {
-      "path": "scenes/D1-C10/shots/D1-C10-S05/RECONSTRUCTION.md",
-      "role": "weak_frame_reconstruction_guide",
-      "sha256": "2c03d68e1e997c43287681ab661db8d5770a48fbb11786932484922b8932be3c"
-    },
-    {
-      "path": "scenes/D1-C10/shots/D1-C10-S05/SHOT_PACKET.json",
-      "role": "draft_imagine_shot_card",
-      "sha256": "9b8b3d261d322cd905b96624c45f59d8c095d0579f429dc6cf7159d6833ae215"
+      "sha256": "602985f884ef87b8f2c3bd12b4a7ded0ce9101074e447a5d8d58dd1e1347a50a"
     },
     {
       "path": "scenes/D1-C11/README.md",
       "role": "operator_index_or_scene_handoff",
-      "sha256": "277aa19b9002ae418cb372d18f598b4fee57e04de5568d795638f812869bb62e"
-    },
-    {
-      "path": "scenes/D1-C11/shots/D1-C11-S02/PROMPT.txt",
-      "role": "paste_ready_imagine_prompt",
-      "sha256": "360c31b7205e5d268362d0b2d1d0cdfb2e2777d4b62c7af1ca5fb633e3777965"
-    },
-    {
-      "path": "scenes/D1-C11/shots/D1-C11-S02/RECONSTRUCTION.md",
-      "role": "weak_frame_reconstruction_guide",
-      "sha256": "1e75dc82db8b201ef8ed0e7ed027cf9ec409db62ba482c297b7afdef5315fb0e"
-    },
-    {
-      "path": "scenes/D1-C11/shots/D1-C11-S02/SHOT_PACKET.json",
-      "role": "draft_imagine_shot_card",
-      "sha256": "fab289b3c8463dc81742b4ac8e7eb9d87a702532ad609fd801537d2c3ac14645"
-    },
-    {
-      "path": "scenes/D1-C11/shots/D1-C11-S03/PROMPT.txt",
-      "role": "paste_ready_imagine_prompt",
-      "sha256": "7c92957d711bff1c7d07949afde15e5c0fcc0877b9a00992687d626f34e1b44f"
-    },
-    {
-      "path": "scenes/D1-C11/shots/D1-C11-S03/RECONSTRUCTION.md",
-      "role": "weak_frame_reconstruction_guide",
-      "sha256": "269b2d67bc3834d4b0f666a43d134aa2979ba28db8ffbcfa364cf8006718bca0"
-    },
-    {
-      "path": "scenes/D1-C11/shots/D1-C11-S03/SHOT_PACKET.json",
-      "role": "draft_imagine_shot_card",
-      "sha256": "57814f5771a820759a883bd5061c453304cef5650ea11581e2c3971c5ac79dce"
+      "sha256": "82f6b5cc36627477f44c367ad0bb92ede6c2cdb0c5e5a8e617d87386d2e63fcd"
     },
     {
       "path": "scenes/D1-C11/shots/D1-C11-S04/PROMPT.txt",
       "role": "paste_ready_imagine_prompt",
-      "sha256": "4bc1712cee80cf704b111eef534a73c5cabe84683c71229d2dc999f12fe67900"
+      "sha256": "3f6254c8291395a60f34594e26272d57bed3d080b11a7edaca7ddd41efa5113d"
     },
     {
       "path": "scenes/D1-C11/shots/D1-C11-S04/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "cb4a8d1f8b35ba956dc0031955a89fd6769fa616502c740b53d4c40747fd628c"
+      "sha256": "14876be20b4cf658c79b45c3dcde87de75bfb098d0a3840448cd29ceb1cb137f"
     },
     {
       "path": "scenes/D1-C11/shots/D1-C11-S04/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "9628d0e1ccccce7b7fdca16a1834315935aa06701cfa95fa84a3be62deae87ce"
+      "sha256": "a055545d74d4401416318d20d9d0bd51d91bdcf36510fa8b361997475bb1b0a8"
     },
     {
       "path": "scenes/D1-C12/README.md",
       "role": "operator_index_or_scene_handoff",
-      "sha256": "8d0660a66b25d54f4c440709cf1c6ce125885d7e9c6cccad6f4582f7a37a8450"
-    },
-    {
-      "path": "scenes/D1-C12/shots/D1-C12-S05/PROMPT.txt",
-      "role": "paste_ready_imagine_prompt",
-      "sha256": "6edb70bde6591c69c788ed863a21daabfa93da5a8dfc213d55422c034394fa5e"
-    },
-    {
-      "path": "scenes/D1-C12/shots/D1-C12-S05/RECONSTRUCTION.md",
-      "role": "weak_frame_reconstruction_guide",
-      "sha256": "36f7029560a9d229e145136c0ae12efa35541d1802e4d4cb3d6ac736f46168f3"
-    },
-    {
-      "path": "scenes/D1-C12/shots/D1-C12-S05/SHOT_PACKET.json",
-      "role": "draft_imagine_shot_card",
-      "sha256": "9e67e73e7076c797bb147f5a821ecba0074589f42bb2c8651c63cef16409c61c"
+      "sha256": "24f68dccc2dea853c44827b58f699444910fdcae90e9df7bb2ebabed1bbe54f2"
     },
     {
       "path": "scenes/D1-C13/README.md",
       "role": "operator_index_or_scene_handoff",
-      "sha256": "88252e2279083951020b25f138712d5fd97a040c483f5cde35398195fa51e4a2"
-    },
-    {
-      "path": "scenes/D1-C13/shots/D1-C13-S01/PROMPT.txt",
-      "role": "paste_ready_imagine_prompt",
-      "sha256": "8a386f57cb8d0f6ddbdce0d383ee6165037427482db1f0ae25d7d53320003ecb"
-    },
-    {
-      "path": "scenes/D1-C13/shots/D1-C13-S01/RECONSTRUCTION.md",
-      "role": "weak_frame_reconstruction_guide",
-      "sha256": "a8250f5eece6a87a46955fdd9f9b891d0e584e4f528b06a684072bf190a78221"
-    },
-    {
-      "path": "scenes/D1-C13/shots/D1-C13-S01/SHOT_PACKET.json",
-      "role": "draft_imagine_shot_card",
-      "sha256": "c3360422a46c9adfce79920ea6fd7ab49e2cd59c61b643c4628a444edb5be6d3"
-    },
-    {
-      "path": "scenes/D1-C13/shots/D1-C13-S02/PROMPT.txt",
-      "role": "paste_ready_imagine_prompt",
-      "sha256": "5caaa9d5af80468679bec5afd742afe355bc3a90511c02b09ae7dfa7421a846b"
-    },
-    {
-      "path": "scenes/D1-C13/shots/D1-C13-S02/RECONSTRUCTION.md",
-      "role": "weak_frame_reconstruction_guide",
-      "sha256": "0f3580ffad960f20e588fb520bbbccea378608d2c72c0dc0e5625a129ef29ca7"
-    },
-    {
-      "path": "scenes/D1-C13/shots/D1-C13-S02/SHOT_PACKET.json",
-      "role": "draft_imagine_shot_card",
-      "sha256": "ec0e14281bdad156a9bb1c0b7cf5e25c89824253740ccc736e9b3a9f474bdd38"
+      "sha256": "2fddd50bb459c3c0b8c48f413b91650aa9df9d3df3363c014cafd29e9f1ff083"
     },
     {
       "path": "scenes/D1-C13/shots/D1-C13-S03/PROMPT.txt",
       "role": "paste_ready_imagine_prompt",
-      "sha256": "4ba4a46fa773190618d9650b4aeaf57bfb1359e1024fab2d495f4fef5b490746"
+      "sha256": "8f0ec0db17c5a21c86d9c78f95240a2a9e3960c56dd0db3e472bd1ba0ce72fe3"
     },
     {
       "path": "scenes/D1-C13/shots/D1-C13-S03/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "f5f7963621d3bc287833b4c5110a7c54df48eb978bea174cd0ee63714859d803"
+      "sha256": "631c3d6fb1aec0adb2b9c2d7b8db89c97ca5ceed792b11c505915e9346d198d6"
     },
     {
       "path": "scenes/D1-C13/shots/D1-C13-S03/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "b86b20bfefc8c0777480d38064ea47c02a1b01faead44cb0b517260e41ff8912"
-    },
-    {
-      "path": "scenes/D1-C13/shots/D1-C13-S04/PROMPT.txt",
-      "role": "paste_ready_imagine_prompt",
-      "sha256": "d5754a8f7b6128ef0edbbae0b697dd2a7185cc645f9357faee3f586fba9770cc"
-    },
-    {
-      "path": "scenes/D1-C13/shots/D1-C13-S04/RECONSTRUCTION.md",
-      "role": "weak_frame_reconstruction_guide",
-      "sha256": "a3fb51f53485d59a46d1cf0f53e9fb1cf1949b061c4d12179a2bb31cfa4c2798"
-    },
-    {
-      "path": "scenes/D1-C13/shots/D1-C13-S04/SHOT_PACKET.json",
-      "role": "draft_imagine_shot_card",
-      "sha256": "ffd15707e29eec1a58adedfc8ac6c86393b32753471036b0b6cbe5ec14cb8e38"
+      "sha256": "e32f5863fb984065059457f3ac41610765337751c87b9229e8ef789c2d86c1e2"
     },
     {
       "path": "scenes/D1-C13/shots/D1-C13-S05/PROMPT.txt",
       "role": "paste_ready_imagine_prompt",
-      "sha256": "97157b7334e0f172f5dc5422c72ee122c36059d02f580da61333cf7758cb1c28"
+      "sha256": "349670274bcffb8448d507642798d11a74e8a28739fdf846db0c0edae4cb7643"
     },
     {
       "path": "scenes/D1-C13/shots/D1-C13-S05/RECONSTRUCTION.md",
       "role": "weak_frame_reconstruction_guide",
-      "sha256": "127a6df765917e036df06839b9d3f14c7849e267eb5b4d332e183b4e8d4cde0a"
+      "sha256": "3d7c580bd85a9a06e822b54de497d0021d089470b93383dc250ec46de46ec27f"
     },
     {
       "path": "scenes/D1-C13/shots/D1-C13-S05/SHOT_PACKET.json",
       "role": "draft_imagine_shot_card",
-      "sha256": "bb5ecc40415cc513c926c950137c445b9f767caef41610a5ef4e667bb5096d8d"
+      "sha256": "efac4a080018df1c0e9dea3157c0fbce39f5a0fd9e57b70df13eaab7a75e5fc7"
     }
   ],
   "remote_verification": "separate REMOTE_VERIFICATION.json is written only after the content commit is pushed and resolved from GitHub"

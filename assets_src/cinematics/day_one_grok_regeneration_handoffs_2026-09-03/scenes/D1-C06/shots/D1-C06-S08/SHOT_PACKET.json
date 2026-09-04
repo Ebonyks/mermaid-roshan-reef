@@ -67,16 +67,24 @@
   "prompt_sha256": "6ee217dd0ef6651abd72d1c22b182d5fc568caab819bf211dbb441021d460004",
   "source_clip_audit": [
     {
-      "source_clip": "C06_rumi_swim.mp4",
-      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C06_rumi_swim.mp4",
+      "source_clip": "C06_S08_v1_rumi_invitation_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S08_v1_rumi_invitation_REGEN.mp4",
       "frame_rate": 24,
       "reviewed_frame_domain": [
         0,
         144
       ],
-      "observation": "frames 0–144 depict swimming rather than the required thanks and invitation beat"
+      "observation": "release frames 104–144: Rumi's thanks and open-arm invitation work through frame 103, but Roshan then approaches and starts the hug before the dedicated hug shot."
     }
   ],
+  "audited_release": {
+    "tag": "day1-regen-motion-ref-2026-09-03",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03"
+  },
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/day_one_pool_cleanup.gd",
+    "rule": "pool_surface → waterfall → seahorse is the fixed order; Rumi rises only after all three complete"
+  },
   "blocking_findings": [
     "IMAGE_1 is not yet bound to the required accepted D1-C06-S07 Rumi reveal endpoint",
     "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"

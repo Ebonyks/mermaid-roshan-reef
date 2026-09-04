@@ -6,17 +6,28 @@
 
 ## Why this shot is being rebuilt
 
-- Shot is absent from the delivered clip set.
+- [C02_S03_v1_dirty_hall_evidence_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C02_S03_v1_dirty_hall_evidence_REGEN.mp4): release frames 000–144: The broad hall tableau replaces the required low evidence close-up, invents multiple bunny bodies and readable EVIDENCE labels, and lets full-body Daddy/Roshan movement compete with the evidence.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
+
+## Implemented-event contract
+
+- Runtime authority: `scripts/day_one_director.gd`.
+- Event rule: dirty_castle_discovery is observation only; no cleanup or labeled evidence is created.
+- Entry state: accepted D1-C02-S02 endpoint after Screen-A topology approval.
+- Single causal action: evidence becomes readable and Roshan points.
+- Required outgoing seam: the three evidence types remain visible and untouched.
 
 ## Full-frame reconstruction map
 
 | Output frames | Required full-frame content |
 |---|---|
-| 000–047 | The camera begins on the accepted screen-a dirty-hall composition. Every changed frame is a new complete flattened image. |
-| 048–107 | One integrated grime patch, one friendly dust-bunny trace, and one harmless scrap become readable. Every changed frame is a new complete flattened image. |
-| 108–144 | Roshan points once without touching or cleaning. Every changed frame is a new complete flattened image. |
+| 000–023 | Hold the exact approved IMAGE_1 state long enough to verify geography, cast count, contacts, and inherited dirt/clean state. Every changed frame is a new complete flattened image. |
+| 024–047 | the camera begins on the accepted Screen-A dirty-hall composition. Every changed frame is a new complete flattened image. |
+| 048–083 | one integrated grime patch, one friendly dust-bunny trace, and one harmless scrap become readable. Every changed frame is a new complete flattened image. |
+| 084–107 | Complete the same dominant action without adding a second event or changing topology. Every changed frame is a new complete flattened image. |
+| 108–131 | roshan points once without touching or cleaning. Every changed frame is a new complete flattened image. |
+| 132–144 | Hold the exact endpoint: the three evidence types remain visible and untouched. Every changed frame is a new complete flattened image. |
 
 ## Binding plan
 

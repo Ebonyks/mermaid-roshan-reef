@@ -79,26 +79,24 @@
   "prompt_sha256": "d94498456be780996c30a8792651c366074cf42455a7edc3ee577675e08188f2",
   "source_clip_audit": [
     {
-      "source_clip": "C09_S04_three_grime_zones.mp4",
-      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C09_S04_three_grime_zones.mp4",
+      "source_clip": "C09_S04_v1_three_grime_cards_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C09_S04_v1_three_grime_cards_REGEN.mp4",
       "frame_rate": 24,
       "reviewed_frame_domain": [
         0,
         144
       ],
-      "observation": "frames 0–144 introduce the wrong child cast and weaken the fixed three-zone layout"
-    },
-    {
-      "source_clip": "C09_S04_v1_three_grime_OFFICIAL.mp4",
-      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C09_S04_v1_three_grime_OFFICIAL.mp4",
-      "frame_rate": 24,
-      "reviewed_frame_domain": [
-        0,
-        144
-      ],
-      "observation": "frames 48–144 do not keep all three grime locations simultaneously readable"
+      "observation": "release frames 048–144: The Art Room front concept is close, but the left/right zones multiply into upright card groups instead of exactly one small lavender grime card at each of three fixed targets."
     }
   ],
+  "audited_release": {
+    "tag": "day1-regen-motion-ref-2026-09-03",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03"
+  },
+  "implemented_event_contract": {
+    "authority_path": "scripts/day_one_art_studio.gd",
+    "rule": "four loose material groups are collected before exactly three fixed grime cards become the active targets"
+  },
   "blocking_findings": [
     "IMAGE_1 is not yet bound to the required new human-approved HUD-free complete front projection of the exact post-collection runtime state",
     "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"

@@ -52,35 +52,33 @@
     "verb": "locked",
     "move_count": 0
   },
-  "must_move": "one separate rainbow bunny emerges and settles",
+  "must_move": "one approved rainbow bunny emerges visibly from one tiny floor cradle and settles",
   "must_not_move": "arena, platform, lamps, clean Grand Puff topology, prismatic cradle, exact two-character count, and floor contacts",
   "end_state": "a clean unchanged Grand Puff and exactly one calm separate rainbow dust bunny rest together",
-  "negative_constraints": "no Roshan, Daddy, Rumi, Baby Eagle, Grand Puff morph, unapproved rainbow identity, second bunny, smoke monster, clone, merged body, extra limb, arena change, attack, defeat, text, or HUD",
+  "negative_constraints": "no Roshan, Daddy, Rumi, Baby Eagle, tall canopy, chair, cart, arch, smoke cloud, occluded reveal, Grand Puff morph, second bunny, unapproved identity, merged body, arena change, attack, text, or HUD",
   "sound_intent": "soft poof, warm rainbow chime, and a friendly two-note cadence; no voices",
   "prompt_path": "PROMPT.txt",
-  "prompt_sha256": "97157b7334e0f172f5dc5422c72ee122c36059d02f580da61333cf7758cb1c28",
+  "prompt_sha256": "349670274bcffb8448d507642798d11a74e8a28739fdf846db0c0edae4cb7643",
   "source_clip_audit": [
     {
-      "source_clip": "C13_S05_v1_rainbow_friend.mp4",
-      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C13_S05_v1_rainbow_friend.mp4",
+      "source_clip": "C13_S05_v1_rainbow_bunny_emerges_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C13_S05_v1_rainbow_bunny_emerges_REGEN.mp4",
       "frame_rate": 24,
       "reviewed_frame_domain": [
         0,
         144
       ],
-      "observation": "frames 0–144 are 1264×720 and do not preserve a reliable separate emergence identity"
-    },
-    {
-      "source_clip": "C13_S05_v2_rainbow_friend.mp4",
-      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C13_S05_v2_rainbow_friend.mp4",
-      "frame_rate": 24,
-      "reviewed_frame_domain": [
-        0,
-        144
-      ],
-      "observation": "useful action reference only; frames 48–144 still mix emergence, identity, and Grand Puff state at 1264×720"
+      "observation": "release frames 000–047 cradle; 048–071 occlusion; identity 000–144: The floor cradle becomes a tall canopy/chair, multicolor smoke obscures emergence, and the bunny remains an unapproved identity stand-in."
     }
   ],
+  "audited_release": {
+    "tag": "day1-regen-motion-ref-2026-09-03",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03"
+  },
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/dust_boss.gd plus owner-directed C13 extension",
+    "rule": "insert the cooperative coda immediately after the third successful round and before the FRIENDS implosion completes; never reconstitute Grand Puff after he has vanished"
+  },
   "blocking_findings": [
     "IMAGE_1 is not yet bound to the required accepted D1-C13-S04 clean-Grand-Puff/prismatic-cradle endpoint; generation remains blocked until the rainbow bunny identity is human approved",
     "Sol/human approval of the clean full-frame opening and predecessor continuity is still required",

@@ -6,18 +6,28 @@
 
 ## Why this shot is being rebuilt
 
-- [C05_S04_clogged_waterfall.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C05_S04_clogged_waterfall.mp4): frames 0–144 fail to hold a clean top-source obstruction view.
-- [C05_S04_v2_waterfall.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C05_S04_v2_waterfall.mp4): frames 48–144 weaken source location and obstruction readability.
+- [C05_S04_v1_blocked_rainbow_source_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C05_S04_v1_blocked_rainbow_source_REGEN.mp4): release frames 000–144: A clean empty pool becomes a bright rainbow doorway. The exact top waterfall source, dull blockage, olive-brown sludge, leaf, and wrapper are absent.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
+
+## Implemented-event contract
+
+- Runtime authority: `scripts/games/day_one_pool_cleanup.gd`.
+- Event rule: the dirty pool begins with six surface targets, three waterfall lanes, and an eight-tug seahorse obstruction.
+- Entry state: approved clean close composition of the blocked top source.
+- Single causal action: camera reveals one fixed obstruction.
+- Required outgoing seam: the top source remains blocked, dull, and still.
 
 ## Full-frame reconstruction map
 
 | Output frames | Required full-frame content |
 |---|---|
-| 000–047 | Begin on the exact top source with dull rainbow flow fully blocked. Every changed frame is a new complete flattened image. |
-| 048–107 | Opaque olive-brown sludge with one leaf and one wrapper remains lodged at the source. Every changed frame is a new complete flattened image. |
-| 108–144 | The tilt stops on the unchanged readable obstruction. Every changed frame is a new complete flattened image. |
+| 000–023 | Hold the exact approved IMAGE_1 state long enough to verify geography, cast count, contacts, and inherited dirt/clean state. Every changed frame is a new complete flattened image. |
+| 024–047 | begin on the exact top source with dull rainbow flow fully blocked. Every changed frame is a new complete flattened image. |
+| 048–083 | opaque olive-brown sludge with one leaf and one wrapper remains lodged at the source. Every changed frame is a new complete flattened image. |
+| 084–107 | Complete the same dominant action without adding a second event or changing topology. Every changed frame is a new complete flattened image. |
+| 108–131 | the tilt stops on the unchanged readable obstruction. Every changed frame is a new complete flattened image. |
+| 132–144 | Hold the exact endpoint: the top source remains blocked, dull, and still. Every changed frame is a new complete flattened image. |
 
 ## Binding plan
 

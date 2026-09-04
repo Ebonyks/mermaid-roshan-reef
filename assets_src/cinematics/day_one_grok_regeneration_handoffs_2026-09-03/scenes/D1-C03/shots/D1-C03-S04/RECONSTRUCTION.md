@@ -6,19 +6,28 @@
 
 ## Why this shot is being rebuilt
 
-- [C03_S04_v1_tool_reach.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C03_S04_v1_tool_reach.mp4): frames 48–144 do not preserve a clear pre-contact endpoint.
-- [C03_S04_v1_tools_resolve.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C03_S04_v1_tools_resolve.mp4): frames 0–47 begin from an unstable dirty-room composition and frames 108–144 leave the tool gap ambiguous.
-- [C03_S04_v2_tools_resolve.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C03_S04_v2_tools_resolve.mp4): frames 48–144 drift tool/room relationships during the resolve.
+- [C03_S04_v1_precontact_tools_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C03_S04_v1_precontact_tools_REGEN.mp4): release frames 000–144 swimmer absent; 060–144 premature contact: The required swimmer disappears and Roshan advances into scrub-brush contact rather than stopping at the pre-contact seam.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
+
+## Implemented-event contract
+
+- Runtime authority: `scripts/games/day_one_bathroom_cleanup.gd`.
+- Event rule: one dirty tub, one separate swimming bunny, an authorized tool basket, and two later live cleaning gestures.
+- Entry state: accepted D1-C03-S03 endpoint.
+- Single causal action: Roshan makes one gaze-and-reach action.
+- Required outgoing seam: Roshan holds a determined pre-contact hand gap while all dirt remains.
 
 ## Full-frame reconstruction map
 
 | Output frames | Required full-frame content |
 |---|---|
-| 000–047 | Roshan follows her gaze from the swimmer toward the dirty sink and approved tools. Every changed frame is a new complete flattened image. |
-| 048–107 | She reaches toward the nearest approved tool without changing the room state. Every changed frame is a new complete flattened image. |
-| 108–144 | Her hand stops in a clean visible gap before contact. Every changed frame is a new complete flattened image. |
+| 000–023 | Hold the exact approved IMAGE_1 state long enough to verify geography, cast count, contacts, and inherited dirt/clean state. Every changed frame is a new complete flattened image. |
+| 024–047 | roshan follows her gaze from the swimmer toward the dirty sink and approved tools. Every changed frame is a new complete flattened image. |
+| 048–083 | she reaches toward the nearest approved tool without changing the room state. Every changed frame is a new complete flattened image. |
+| 084–107 | Complete the same dominant action without adding a second event or changing topology. Every changed frame is a new complete flattened image. |
+| 108–131 | her hand stops in a clean visible gap before contact. Every changed frame is a new complete flattened image. |
+| 132–144 | Hold the exact endpoint: Roshan holds a determined pre-contact hand gap while all dirt remains. Every changed frame is a new complete flattened image. |
 
 ## Binding plan
 

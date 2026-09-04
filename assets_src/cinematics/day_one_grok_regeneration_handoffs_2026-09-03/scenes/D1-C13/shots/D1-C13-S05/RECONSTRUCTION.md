@@ -6,18 +6,28 @@
 
 ## Why this shot is being rebuilt
 
-- [C13_S05_v1_rainbow_friend.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C13_S05_v1_rainbow_friend.mp4): frames 0–144 are 1264×720 and do not preserve a reliable separate emergence identity.
-- [C13_S05_v2_rainbow_friend.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C13_S05_v2_rainbow_friend.mp4): useful action reference only; frames 48–144 still mix emergence, identity, and Grand Puff state at 1264×720.
+- [C13_S05_v1_rainbow_bunny_emerges_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C13_S05_v1_rainbow_bunny_emerges_REGEN.mp4): release frames 000–047 cradle; 048–071 occlusion; identity 000–144: The floor cradle becomes a tall canopy/chair, multicolor smoke obscures emergence, and the bunny remains an unapproved identity stand-in.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
+
+## Implemented-event contract
+
+- Runtime authority: `scripts/games/dust_boss.gd plus owner-directed C13 extension`.
+- Event rule: insert the cooperative coda immediately after the third successful round and before the FRIENDS implosion completes; never reconstitute Grand Puff after he has vanished.
+- Entry state: accepted D1-C13-S04 clean-Grand-Puff/prismatic-cradle endpoint; generation remains blocked until the rainbow bunny identity is human approved.
+- Single causal action: one approved rainbow bunny emerges visibly from one tiny floor cradle and settles.
+- Required outgoing seam: a clean unchanged Grand Puff and exactly one calm separate rainbow dust bunny rest together.
 
 ## Full-frame reconstruction map
 
 | Output frames | Required full-frame content |
 |---|---|
-| 000–031 | One small contained lavender-prismatic puff opens from the established cradle. Every changed frame is a new complete flattened image. |
-| 032–071 | Exactly one separate rainbow dust bunny emerges while grand puff remains unchanged. Every changed frame is a new complete flattened image. |
-| 072–095 | The bunny settles beside grand puff with a cloud body, spiral ears, readable face, and curl-to-curl pastel colors. Every changed frame is a new complete flattened image. |
+| 000–011 | Hold the exact approved IMAGE_1 state long enough to verify geography, cast count, contacts, and inherited dirt/clean state. Every changed frame is a new complete flattened image. |
+| 012–031 | one tiny floor-level prismatic cradle below ten percent of Grand Puff's height opens without growing into furniture. Every changed frame is a new complete flattened image. |
+| 032–059 | exactly one approved rainbow dust bunny rises visibly from the cradle with no smoke, occlusion, morph, or teleport. Every changed frame is a new complete flattened image. |
+| 060–071 | Complete the same dominant action without adding a second event or changing topology. Every changed frame is a new complete flattened image. |
+| 072–083 | the bunny settles beside the unchanged clean three-tier Grand Puff and both hold as separate friendly bodies. Every changed frame is a new complete flattened image. |
+| 084–095 | Hold the exact endpoint: a clean unchanged Grand Puff and exactly one calm separate rainbow dust bunny rest together. Every changed frame is a new complete flattened image. |
 
 ## Binding plan
 
@@ -32,10 +42,10 @@ IMAGE_1 must be replaced or explicitly approved as the exact clean shot-opening 
 ## Locked result
 
 - Camera: locked.
-- Must move: one separate rainbow bunny emerges and settles.
+- Must move: one approved rainbow bunny emerges visibly from one tiny floor cradle and settles.
 - Must not move: arena, platform, lamps, clean Grand Puff topology, prismatic cradle, exact two-character count, and floor contacts.
 - End state: a clean unchanged Grand Puff and exactly one calm separate rainbow dust bunny rest together.
-- Reject: no Roshan, Daddy, Rumi, Baby Eagle, Grand Puff morph, unapproved rainbow identity, second bunny, smoke monster, clone, merged body, extra limb, arena change, attack, defeat, text, or HUD.
+- Reject: no Roshan, Daddy, Rumi, Baby Eagle, tall canopy, chair, cart, arch, smoke cloud, occluded reveal, Grand Puff morph, second bunny, unapproved identity, merged body, arena change, attack, text, or HUD.
 - Generate the shot as complete full-frame images; no morphing, optical flow, compositing, cutout motion, or duplicated-frame concealment.
 
 ## Files

@@ -6,18 +6,28 @@
 
 ## Why this shot is being rebuilt
 
-- [C06_S05_v1_rumi_rises.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C06_S05_v1_rumi_rises.mp4): frames 0–144 are mislabeled Rumi-rise imagery and omit the required two-front purification.
-- [C06_S05_v2_rumi_rises.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C06_S05_v2_rumi_rises.mp4): frames 0–144 are mislabeled Rumi-rise imagery and omit the required two-front purification.
+- [C06_S05_v1_purification_fronts_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S05_v1_purification_fronts_REGEN.mp4): release frames 000–144: The pool begins clean; white V-shaped streaks replace two fronts displacing algae through murky water.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
+
+## Implemented-event contract
+
+- Runtime authority: `scripts/games/day_one_pool_cleanup.gd`.
+- Event rule: pool_surface → waterfall → seahorse is the fixed order; Rumi rises only after all three complete.
+- Entry state: accepted D1-C06-S04 two-source endpoint.
+- Single causal action: two water fronts spread and meet once.
+- Required outgoing seam: one joined bright ripple rests at pool center.
 
 ## Full-frame reconstruction map
 
 | Output frames | Required full-frame content |
 |---|---|
-| 000–047 | Two distinct clear fronts spread from the fixed left and right sources. Every changed frame is a new complete flattened image. |
-| 048–107 | Each front displaces algae through the same water volume. Every changed frame is a new complete flattened image. |
-| 108–144 | The fronts meet once near center in one bright ripple. Every changed frame is a new complete flattened image. |
+| 000–023 | Hold the exact approved IMAGE_1 state long enough to verify geography, cast count, contacts, and inherited dirt/clean state. Every changed frame is a new complete flattened image. |
+| 024–047 | two distinct clear fronts spread from the fixed left and right sources. Every changed frame is a new complete flattened image. |
+| 048–083 | each front displaces algae through the same water volume. Every changed frame is a new complete flattened image. |
+| 084–107 | Complete the same dominant action without adding a second event or changing topology. Every changed frame is a new complete flattened image. |
+| 108–131 | the fronts meet once near center in one bright ripple. Every changed frame is a new complete flattened image. |
+| 132–144 | Hold the exact endpoint: one joined bright ripple rests at pool center. Every changed frame is a new complete flattened image. |
 
 ## Binding plan
 

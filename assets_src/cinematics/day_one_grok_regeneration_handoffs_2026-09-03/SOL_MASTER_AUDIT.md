@@ -1,22 +1,32 @@
 # Sol master audit — selective Day One regeneration
 
-The earlier all-reject result was too strict for rough-cut editorial use. This overlay applies a looser but still coherent production threshold: retain a clip when its core action, identity, and room read are usable; regenerate when a defect changes geography, character identity, cast count, action causality, or the stable endpoint needed by the next shot.
+Three Luna audits reviewed all 40 release files at frame level; Sol reconciled them against the runtime state machine, source archives, and the owner's cooperative C13 extension. The threshold is deliberately loose for rough-cut motion and strict for event truth: polish cannot rescue the wrong game event.
+
+## Outcome
+
+- `12` unique shots are retained as motion/editorial references.
+- `17` released shots require direct reconstruction.
+- `5` released Stuffie beats are replaced by the actual two-pin rescue.
+- `2` discovery beats are removed because the events do not happen.
+- `22` DRAFT cards remain. Accepted and omitted shots have no card in this queue.
 
 ## Priority order
 
-1. **P0 continuity chain:** C11-S02/S03/S04 → C13-S01–S05 → C12-S05. This is one inherited Main Hall-to-arena-to-friendship chain. Do not generate downstream cards until the previous endpoint is accepted.
-2. **P0 identity/count:** C07-S04–S06 and C08-S02/S03/S04/S06/S07. These repair missing rope contact, premature eagle reveal, wrong animal/child identity, and changing bunny/eagle counts.
-3. **P0 room topology:** C09-S04/S05 and C10-S02/S03/S05. Use only the exact straight-on runtime Art Room: two shell windows, two pearl columns, one chandelier, shell idea board, rectangular center desk, rear shelves, and two curved counters; zero interior doors.
-4. **P1 causal action:** C03-S02–S04 and C06-S03–S06/S08/S09. These create missing discovery/purification/relationship bridges with stable contact and endpoints.
-5. **P2 coverage/detail:** C01-S02/S03, C02-S03, and C05-S04/S05. C05-S05 is conditional: skip it only if Sol confirms exact seahorse topology and a plug physically lodged in the mouth.
+1. **P0 event correction:** C07-S06 → corrected C08-S01–S05. One Baby Eagle, two rescue pins, two Roshan contacts, clean-room resolve, Baby Eagle thanks/rises/departs. Never generate baskets, four emerging bunnies, or a wing-blast cleanup.
+2. **P0 topology and state:** C02-S03, C03-S02–S04, C05-S04/S05, C09-S04, C10-S02/S03. Start from the exact room projection and exact dirty/clean state; never use labeled evidence, substituted silhouettes, flying supplies, or incomplete Art Room framing.
+3. **P0 boss continuity:** C11-S04, C13-S03, C13-S05. C13 begins after the third successful round but before FRIENDS implosion completes, preventing an intact giant from reappearing after vanishing.
+4. **P1 causal action:** C01-S02 and C06-S03/S05/S08. Each shot must show its physical cause and stop on the intended seam; the dedicated hug remains C06-S09.
+
+## Exact topology locks
+
+- Art Room: straight-on front only; two shell windows, two pearl columns, one chandelier, one shell idea board, one rectangular center desk, rear shelves, two curved counters, zero interior doors.
+- Stuffie rescue: exactly one Baby Eagle and exactly two rescue pin bunnies. Ordinary room bunnies are not substitute pins and Daddy's splash cannot clear rescue pins.
+- Boss arena: fixed octagonal floor and wall ring; no crater, dark hole, alternate pearl hall, platform morph, or menacing Grand Puff redesign.
 
 ## Retention policy
 
-- C00 and C04 need no immediate regeneration under the loose rough-cut threshold.
-- Retained clips remain editorial/motion references only; this does not set `DELIVERY_ACCEPTED`.
-- C02's 1264×720 clips may receive a uniform whole-frame pad to 1280×720 in the edit. Padding cannot repair content or subject motion.
-- C13 action variants may inform motion, but all five are rebuilt at native 1280×720 because the arena/identity chain is a new story-critical bridge and every source is 1264×720.
+Accepted clips remain motion/editorial references only and do not set `DELIVERY_ACCEPTED`. The per-file ledger records which C13 variant won: Daddy S02 v2 and Rumi S04 v1. Rejected duplicates are not continuity authorities.
 
 ## Blocking truth
 
-All replacement cards are `DRAFT`. The source location and identity authorities are available at immutable GitHub URLs, but the exact clean shot-opening frame is not yet human approved. C13-S05 and inherited C12-S05 also require a dedicated approved rainbow dust bunny identity. Therefore `GENERATION_READY` remains false even though every prompt is paste-ready.
+All remaining cards are `DRAFT`. Exact clean shot-opening frames still require human approval, and C13-S05 still requires a dedicated approved rainbow dust bunny identity. `GENERATION_READY` and `DELIVERY_ACCEPTED` therefore remain false even though the prompts are paste-ready.

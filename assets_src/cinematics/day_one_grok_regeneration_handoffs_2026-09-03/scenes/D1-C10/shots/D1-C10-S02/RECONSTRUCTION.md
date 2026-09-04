@@ -6,17 +6,28 @@
 
 ## Why this shot is being rebuilt
 
-- [C10_S02_supplies_home.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C10_S02_supplies_home.mp4): frames 0–144 do not provide a reliable runtime-locked storage-station layout.
+- [C10_S02_v1_four_supplies_home_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C10_S02_v1_four_supplies_home_REGEN.mp4): release frames 000–144: Supplies begin on/near the center desk and materialize at the right during the clip; ribbon and fixture topology also change.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
+
+## Implemented-event contract
+
+- Runtime authority: `scripts/day_one_art_studio.gd`.
+- Event rule: all seven cleanup actions unlock the blank desk; customization UI opens only after the desk touch.
+- Entry state: accepted D1-C10-S01 clean-contact endpoint in the exact front projection.
+- Single causal action: one restrained station sparkle settles.
+- Required outgoing seam: four supplies are home once each in the locked front room.
 
 ## Full-frame reconstruction map
 
 | Output frames | Required full-frame content |
 |---|---|
-| 000–047 | Show all four target cards absent and each supply represented exactly once at its established station. Every changed frame is a new complete flattened image. |
-| 048–107 | One restrained sparkle settles at the existing paint-table and palette stations. Every changed frame is a new complete flattened image. |
-| 108–144 | Hold with no loose duplicates and no travel path. Every changed frame is a new complete flattened image. |
+| 000–023 | Hold the exact approved IMAGE_1 state long enough to verify geography, cast count, contacts, and inherited dirt/clean state. Every changed frame is a new complete flattened image. |
+| 024–047 | show all four target cards absent and each supply represented exactly once at its established station. Every changed frame is a new complete flattened image. |
+| 048–083 | one restrained sparkle settles at the existing paint-table and palette stations. Every changed frame is a new complete flattened image. |
+| 084–107 | Complete the same dominant action without adding a second event or changing topology. Every changed frame is a new complete flattened image. |
+| 108–131 | hold with no loose duplicates and no travel path. Every changed frame is a new complete flattened image. |
+| 132–144 | Hold the exact endpoint: four supplies are home once each in the locked front room. Every changed frame is a new complete flattened image. |
 
 ## Binding plan
 
