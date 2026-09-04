@@ -6,7 +6,7 @@
 
 ## Why this shot is being rebuilt
 
-- [C08_S04_v1_four_bunnies_emerge_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C08_S04_v1_four_bunnies_emerge_REGEN.mp4): release frames 000–144; count failure 048–144: The game has two rescue pins, not four emerging basket bunnies; the rendered count also grows ambiguous beyond four.
+- [C08_S04_v1_four_bunnies_emerge_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C08_S04_v1_four_bunnies_emerge_REGEN.mp4): branch frames 000–144; count failure 048–144: The game has two rescue pins, not four emerging basket bunnies; the rendered count also grows ambiguous beyond four.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
 

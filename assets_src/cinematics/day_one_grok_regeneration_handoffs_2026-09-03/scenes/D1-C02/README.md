@@ -11,15 +11,15 @@
 
 - `scripts/day_one_director.gd`
 - dirty_castle_discovery is observation only; no cleanup or labeled evidence is created.
-- Release MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
+- Audited branch MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
 
-## New release decision
+## September 4 branch decision
 
-| Released shot | Verdict | Exact finding | Action |
+| Branch shot | Verdict | Exact finding | Action |
 |---|---|---|---|
-| D1-C02-S03 ([C02_S03_v1_dirty_hall_evidence_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C02_S03_v1_dirty_hall_evidence_REGEN.mp4)) | `REGENERATE` | Frames 000–144: The broad hall tableau replaces the required low evidence close-up, invents multiple bunny bodies and readable EVIDENCE labels, and lets full-body Daddy/Roshan movement compete with the evidence. | Lock Screen A low; show one integrated grime patch, one dust trace, one harmless scrap, then one pointing hand with no text. |
+| D1-C02-S03 ([C02_S03_v1_dirty_hall_evidence_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C02_S03_v1_dirty_hall_evidence_REGEN.mp4)) | `REGENERATE` | Frames 000–144: The broad hall tableau replaces the required low evidence close-up, invents multiple bunny bodies and readable EVIDENCE labels, and lets full-body Daddy/Roshan movement compete with the evidence. | Lock Screen A low; show one integrated grime patch, one dust trace, one harmless scrap, then one pointing hand with no text. |
 
-## Accepted from the new release for rough motion
+## Accepted from the September 4 branch for rough motion
 
 - None.
 

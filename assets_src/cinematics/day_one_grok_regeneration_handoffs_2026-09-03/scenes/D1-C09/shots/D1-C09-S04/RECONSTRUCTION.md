@@ -6,7 +6,7 @@
 
 ## Why this shot is being rebuilt
 
-- [C09_S04_v1_three_grime_cards_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C09_S04_v1_three_grime_cards_REGEN.mp4): release frames 048–144: The Art Room front concept is close, but the left/right zones multiply into upright card groups instead of exactly one small lavender grime card at each of three fixed targets.
+- [C09_S04_v1_three_grime_cards_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C09_S04_v1_three_grime_cards_REGEN.mp4): branch frames 048–144: The Art Room front concept is close, but the left/right zones multiply into upright card groups instead of exactly one small lavender grime card at each of three fixed targets.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
 

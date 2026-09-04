@@ -11,20 +11,20 @@
 
 - `scripts/day_one_director.gd and scripts/games/dust_boss.gd`
 - all four rooms arm the boss door; the empty octagonal arena precedes Grand Puff's soft showing.
-- Release MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
+- Audited branch MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
 
-## New release decision
+## September 4 branch decision
 
-| Released shot | Verdict | Exact finding | Action |
+| Branch shot | Verdict | Exact finding | Action |
 |---|---|---|---|
-| D1-C11-S02 ([C11_S02_v1_boss_door_approach_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C11_S02_v1_boss_door_approach_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames minor 132–144: Main Hall geometry, Roshan, closed door, and approach are coherent; only the final hand reaches the handle instead of stopping just before it. | Retain for rough assembly; require a clean pre-contact endpoint for final delivery. |
-| D1-C11-S03 ([C11_S03_v1_door_open_arena_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C11_S03_v1_door_open_arena_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames none blocking: The door opens into the octagonal arena, Roshan stays at threshold, and the landing zone remains empty; exact predecessor-frame inheritance is unproven. | Retain for rough assembly; audit the final seam independently. |
-| D1-C11-S04 ([C11_S04_v1_grand_puff_lands_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C11_S04_v1_grand_puff_lands_REGEN.mp4)) | `REGENERATE` | Frames 006–071 impact/topology; 066–144 expression: A dark crater, oversized cloud, and pancake-flat squash destabilize Grand Puff; the recovered face remains menacing and the vulnerability sparkle does not read. | Use a soft vertical landing, at most ten-percent squash, full three-tier recovery by 2.5 seconds, cute two-teeth face, and one four-point sparkle pulse. |
+| D1-C11-S02 ([C11_S02_v1_boss_door_approach_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C11_S02_v1_boss_door_approach_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames 132–144 trim: Main Hall geometry, Roshan, closed door, and approach are coherent through frame 131; frames 132–144 let the hand reach the handle instead of stopping just before it. | Use frames 000–131 only (0–5.458 s) in rough assembly; final delivery still requires a clean pre-contact endpoint. |
+| D1-C11-S03 ([C11_S03_v1_door_open_arena_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C11_S03_v1_door_open_arena_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames none blocking: The door opens into the octagonal arena, Roshan stays at threshold, and the landing zone remains empty; exact predecessor-frame inheritance is unproven. | Retain for rough assembly; audit the final seam independently. |
+| D1-C11-S04 ([C11_S04_v1_grand_puff_lands_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C11_S04_v1_grand_puff_lands_REGEN.mp4)) | `REGENERATE` | Frames 006–071 impact/topology; 066–144 expression: A dark crater, oversized cloud, and pancake-flat squash destabilize Grand Puff; the recovered face remains menacing and the vulnerability sparkle does not read. | Use a soft vertical landing, at most ten-percent squash, full three-tier recovery by 2.5 seconds, cute two-teeth face, and one four-point sparkle pulse. |
 
-## Accepted from the new release for rough motion
+## Accepted from the September 4 branch for rough motion
 
-- [C11_S02_v1_boss_door_approach_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C11_S02_v1_boss_door_approach_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
-- [C11_S03_v1_door_open_arena_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C11_S03_v1_door_open_arena_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
+- [C11_S02_v1_boss_door_approach_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C11_S02_v1_boss_door_approach_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
+- [C11_S03_v1_door_open_arena_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C11_S03_v1_door_open_arena_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
 
 ## Earlier rough references still retained
 

@@ -11,17 +11,17 @@
 
 - `scripts/arena/castle_rooms_25d.gd`
 - one Baby Eagle is visibly held by exactly two rescue pin bunnies; no swing or partial-wing hunt exists.
-- Release MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
+- Audited branch MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
 
-## New release decision
+## September 4 branch decision
 
-| Released shot | Verdict | Exact finding | Action |
+| Branch shot | Verdict | Exact finding | Action |
 |---|---|---|---|
-| D1-C07-S04 ([C07_S04_v1_swinging_bunny_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C07_S04_v1_swinging_bunny_REGEN.mp4)) | `OMIT_SUPERSEDED_EVENT` | Frames 000–144; detachment 108–144: No swinging-bunny event exists in gameplay, and the rendered bunny loses its support before landing on the floor. | Remove this shot from the corrected cut; do not regenerate the invented event. |
-| D1-C07-S05 ([C07_S05_v1_partial_wing_trail_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C07_S05_v1_partial_wing_trail_REGEN.mp4)) | `OMIT_SUPERSEDED_EVENT` | Frames 000–144; full reveal 048–144: Gameplay presents one visible Baby Eagle held by two pin bunnies; it does not hide the bird behind a partial-wing trail. | Remove this shot from the corrected cut; do not regenerate the invented event. |
-| D1-C07-S06 ([C07_S06_v1_pinned_baby_eagle_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C07_S06_v1_pinned_baby_eagle_REGEN.mp4)) | `REGENERATE` | Frames 000–144: One Eagle is present, but neither of the two required rescue-pin bunnies is visible and the bird becomes free/upright before player action. | Reveal exactly one Baby Eagle visibly held by exactly two distinct pin bunnies; no release yet. |
+| D1-C07-S04 ([C07_S04_v1_swinging_bunny_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C07_S04_v1_swinging_bunny_REGEN.mp4)) | `OMIT_SUPERSEDED_EVENT` | Frames 000–144; detachment 108–144: No swinging-bunny event exists in gameplay, and the rendered bunny loses its support before landing on the floor. | Remove this shot from the corrected cut; do not regenerate the invented event. |
+| D1-C07-S05 ([C07_S05_v1_partial_wing_trail_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C07_S05_v1_partial_wing_trail_REGEN.mp4)) | `OMIT_SUPERSEDED_EVENT` | Frames 000–144; full reveal 048–144: Gameplay presents one visible Baby Eagle held by two pin bunnies; it does not hide the bird behind a partial-wing trail. | Remove this shot from the corrected cut; do not regenerate the invented event. |
+| D1-C07-S06 ([C07_S06_v1_pinned_baby_eagle_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C07_S06_v1_pinned_baby_eagle_REGEN.mp4)) | `REGENERATE` | Frames 000–144: One Eagle is present, but neither of the two required rescue-pin bunnies is visible and the bird becomes free/upright before player action. | Reveal exactly one Baby Eagle visibly held by exactly two distinct pin bunnies; no release yet. |
 
-## Accepted from the new release for rough motion
+## Accepted from the September 4 branch for rough motion
 
 - None.
 

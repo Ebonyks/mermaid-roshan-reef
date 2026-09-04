@@ -56,18 +56,19 @@
   "source_clip_audit": [
     {
       "source_clip": "C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4",
-      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4",
       "frame_rate": 24,
       "reviewed_frame_domain": [
         0,
         144
       ],
-      "observation": "release frames 000–047 missing blocked start; 048–144 wrong clearing: The waterfall starts clean; later debris becomes a central raised dark mass and the flow retracts instead of clearing from the top source downward."
+      "observation": "branch frames 000–047 missing blocked start: The branch replacement improves downward debris travel, but begins with the rainbow waterfall already clean and flowing; the blocked cause and ignition beat are absent."
     }
   ],
-  "audited_release": {
-    "tag": "day1-regen-motion-ref-2026-09-03",
-    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03"
+  "audited_clip_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/384abc966b92b27bd61a735319a7639ef68ac15b"
   },
   "implemented_event_contract": {
     "authority_path": "scripts/games/day_one_pool_cleanup.gd",
