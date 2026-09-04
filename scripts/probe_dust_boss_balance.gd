@@ -147,6 +147,10 @@ var prev_flash_open := false
 var prev_shield_flash := false
 var flash_first_tap_recorded := false
 var capped := false
+var first_hit_window := 999
+var landed_round_holds: Array[float] = []
+var state_enter_t := 0.0
+var pip_progress_seen := false
 
 func _init() -> void:
 	Engine.time_scale = 4.0        # only affects tween/particle cleanup
@@ -179,6 +183,9 @@ func _init() -> void:
 	var misses: Array[int] = []
 	var tap_counts: Array[int] = []
 	var lat_all: Array[float] = []
+	var first_hit_windows: Array[int] = []
+	var landed_holds: Array[float] = []
+	var pip_runs := 0
 	var unfinished := 0
 	for run in range(run_count):
 		seed(770000 + run * 31)
@@ -191,10 +198,17 @@ func _init() -> void:
 		misses.append(miss_total)
 		tap_counts.append(taps)
 		lat_all.append_array(latencies)
+		first_hit_windows.append(first_hit_window)
+		landed_holds.append_array(landed_round_holds)
+		if pip_progress_seen:
+			pip_runs += 1
 		_print_run(run)
 		await _settle_between_runs()
-	_print_summary(fights, misses, tap_counts, lat_all, unfinished)
-	quit()
+	var failures: int = _print_summary(fights, misses, tap_counts, lat_all,
+		unfinished, first_hit_windows, landed_holds, pip_runs)
+	if failures > 0:
+		push_error("DUSTBAL|%d deterministic assertion(s) failed" % failures)
+	quit(1 if failures > 0 else 0)
 
 # ---- one encounter ---------------------------------------------------------
 func _play_one(_run: int) -> void:
@@ -292,6 +306,10 @@ func _reset_run() -> void:
 	prev_shield_flash = false
 	flash_first_tap_recorded = false
 	capped = false
+	first_hit_window = 999
+	landed_round_holds = []
+	state_enter_t = 0.0
+	pip_progress_seen = false
 	gawk_t = 0.0
 	react_t = -1.0
 	armed = false
@@ -475,6 +493,10 @@ func _gameplay_assisted_taps() -> int:
 func _sample() -> void:
 	var st: String = String(main.g.get("db_state", ""))
 	var hits: int = int(main.g.get("db_hits", 0))
+	if st != prev_state:
+		if prev_state == "struck":
+			landed_round_holds.append(maxf(0.0, t - state_enter_t))
+		state_enter_t = t
 	var current_miss: int = int(main.g.get("db_miss", windows_missed))
 	var current_streak: int = int(main.g.get("db_miss_streak", 0))
 	miss_total = maxi(miss_total, current_miss)
@@ -525,6 +547,8 @@ func _sample() -> void:
 			in_reach_at_open += 1
 	if hits > prev_hits:
 		windows_hit += 1
+		if prev_hits == 0 and first_hit_window == 999:
+			first_hit_window = windows_open
 		if window_open_t >= 0.0:
 			latencies.append(t - window_open_t)
 		reach_at_hit.append((Vector2(float(main.g["db_x"]), float(main.g["db_z"]))
@@ -571,6 +595,10 @@ func _sample() -> void:
 	closer_feedback_count = maxi(closer_feedback_count,
 		int(main.g.get("db_closer_feedbacks", 0)))
 	var bump_count_now: int = int(main.g.get("db_bumps", -1))
+	var pips: Label = main.g.get("db_tap_pips") as Label
+	if pips != null and is_instance_valid(pips) \
+			and pips.text in ["●○○", "●●○"]:
+		pip_progress_seen = true
 	var current_player_local: Vector2 = _player_local()
 	if bump_count_now >= 0:
 		var bump_delta: int = bump_count_now - prev_bump_count
@@ -591,6 +619,9 @@ func _sample() -> void:
 	prev_hits = hits
 
 func _close_timing_intervals() -> void:
+	if prev_state == "struck":
+		landed_round_holds.append(maxf(0.0, t - state_enter_t))
+		prev_state = ""
 	if prev_flash_open and flash_open_t >= 0.0:
 		flash_durations.append(maxf(0.0, t - flash_open_t))
 		flash_open_t = -1.0
@@ -651,7 +682,8 @@ func _print_run(run: int) -> void:
 		float(state_t.get("struck", 0.0))])
 
 func _print_summary(fights: Array[float], misses: Array[int], tap_counts: Array[int],
-		lat_all: Array[float], unfinished: int) -> void:
+		lat_all: Array[float], unfinished: int, first_hit_windows: Array[int],
+		landed_holds: Array[float], pip_runs: int) -> int:
 	fights.sort()
 	var lo: float = fights[0] if not fights.is_empty() else 0.0
 	var hi: float = fights[fights.size() - 1] if not fights.is_empty() else 0.0
@@ -671,3 +703,33 @@ func _print_summary(fights: Array[float], misses: Array[int], tap_counts: Array[
 		if f >= BAND_LO and f <= BAND_HI:
 			in_band += 1
 	print("DUSTBAL|verdict in_band=%d/%d band=%d-%ds" % [in_band, run_count, int(BAND_LO), int(BAND_HI)])
+	var failures := 0
+	var typical_ok: bool = not fights.is_empty() and _median(fights) <= BAND_HI
+	var mercy_ok: bool = unfinished == 0 and hi <= 120.0
+	var first_hit_ok := true
+	for window_index: int in first_hit_windows:
+		if roster_label == "PERSONAS" and window_index > 2:
+			first_hit_ok = false
+	var holds_ok := not landed_holds.is_empty()
+	for hold: float in landed_holds:
+		if absf(hold - DustBossGame.LANDED_ROUND_HOLD_T) > 0.20 \
+				or hold > 6.0:
+			holds_ok = false
+	var pips_ok: bool = pip_runs == run_count
+	for check: Dictionary in [
+		{"label": "typical_fight_le_90s", "ok": typical_ok},
+		{"label": "mercy_ceiling_le_120s", "ok": mercy_ok},
+		{"label": "first_landed_hit_by_window_2", "ok": first_hit_ok},
+		{"label": "landed_round_hold_5_4s_and_le_6s", "ok": holds_ok},
+		{"label": "boss_pips_progress", "ok": pips_ok},
+	]:
+		var passed: bool = bool(check["ok"])
+		print("DUSTBAL|assert %s: %s" % [String(check["label"]), "OK" if passed else "FAIL"])
+		if not passed:
+			failures += 1
+	if roster_label == "CONTROLS":
+		var zero_input_safe: bool = unfinished >= 2
+		print("DUSTBAL|assert zero_input_controls_cannot_win: %s" % ("OK" if zero_input_safe else "FAIL"))
+		if not zero_input_safe:
+			failures += 1
+	return failures

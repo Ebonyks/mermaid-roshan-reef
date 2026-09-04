@@ -23,7 +23,10 @@ func _init() -> void:
 	main._skip_intro()
 	await process_frame
 	_prepare_day_one_terminal_boundary()
+	await _interruption_cases()
 	await _open_case()
+	var earned_mercy_tier: int = 0
+	var earned_preassist_tier: int = 0
 	if main.game == "dustboss":
 		await _splash_case()
 		await _framing_case()
@@ -32,9 +35,25 @@ func _init() -> void:
 		await _shield_case()
 		await _dodge_case()
 		await _bump_case()
+		# The first-hit bridge is intentionally only available before any landed
+		# round. Exercise mercy from that real fresh-fight state, then start a
+		# clean combat replay for the hit/pose/reward checks below.
+		await _mercy_case()
+		earned_mercy_tier = _boss().mercy_tier()
+		earned_preassist_tier = _boss().preassist_tier()
+		await _interrupt_live_boss()
+		_prime_boss_latch()
+		if main._castle_rooms_ref().is_open():
+			main._castle_rooms_ref().close()
+		main._start_game_now(main.dust_boss_fr)
+		await _await_state("showing", 2400)
 		await _first_hit_case()
 		await _second_hit_case()
-		await _mercy_case()
+		# The replay resets per-fight counters by design. Carry only the assist
+		# tiers earned by the real mercy run so the final landed round can prove
+		# that progress resets its miss streak without erasing earned help.
+		main.g["db_mercy_tier"] = earned_mercy_tier
+		main.g["db_preassist_tier"] = earned_preassist_tier
 		await _win_case()
 	await _pose_replay_case()
 	print("DUSTBOSS|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
@@ -81,6 +100,77 @@ func _prepare_day_one_terminal_boundary() -> void:
 		director.day_one_active and director.boss_door_glow
 		and director.giant_dust_bunny_boss_triggered
 		and not director.giant_dust_bunny_boss_defeated)
+
+
+func _prime_boss_latch() -> void:
+	var director: DayOneDirector = main._day_one_ref()
+	director.day_one_active = true
+	director.boss_door_glow = true
+	director.giant_dust_bunny_boss_defeated = false
+	director.giant_dust_bunny_boss_triggered = true
+
+
+func _assert_rearmed(label: String) -> void:
+	var director: DayOneDirector = main._day_one_ref()
+	_ck(label, main.game == "level2"
+		and String(main.g.get("phase", "")) == "hall"
+		and main._castle_rooms_ref().is_open()
+		and director.day_one_active
+		and director.boss_door_glow
+		and not director.giant_dust_bunny_boss_triggered
+		and main.day_one_boss_door_ready())
+
+
+func _interrupt_live_boss() -> void:
+	main._leave_arena()
+	main._clear_game()
+	main._write_save()
+	await process_frame
+	await process_frame
+
+
+func _interruption_cases() -> void:
+	# Each state is interrupted through the same post-clear boundary used by
+	# PauseMenu Leave. The assertions are deliberately fail-closed: a state that
+	# leaves the castle closed or the latch consumed is a hard failure.
+	for wanted: String in ["splash", "showing", "prowl", "vuln", "struck", "friends"]:
+		_prime_boss_latch()
+		if main._castle_rooms_ref().is_open():
+			main._castle_rooms_ref().close()
+		main._start_game_now(main.dust_boss_fr)
+		var reached: bool = true
+		if wanted == "struck":
+			reached = await _await_state("showing", 2400)
+		elif wanted == "friends":
+			reached = main.game == "dustboss"
+		elif wanted != "splash":
+			reached = await _await_state(wanted, 2400)
+		if wanted == "struck" and main.game == "dustboss":
+			(main._game_obj("dustboss", DustBossGame) as DustBossGame)._enter_state("struck")
+		if wanted == "friends" and main.game == "dustboss":
+			main.g["db_state"] = "friends"
+		_ck("reaches interrupt state %s" % wanted, reached and main.game == "dustboss")
+		await _interrupt_live_boss()
+		_assert_rearmed("%s interruption re-arms Day One" % wanted)
+	# Exercise the actual pause-owned Leave button path in the same session.
+	_prime_boss_latch()
+	main._castle_rooms_ref().close()
+	main._start_game_now(main.dust_boss_fr)
+	await _await_state("showing", 2400)
+	main._pause_ref()._leave_current_activity()
+	await process_frame
+	await process_frame
+	_assert_rearmed("pause Leave returns to the armed castle")
+	# Focus loss is an application lifecycle boundary, not a gameplay win.
+	_prime_boss_latch()
+	main._castle_rooms_ref().close()
+	main._start_game_now(main.dust_boss_fr)
+	await _await_state("prowl", 2400)
+	main._notification(NOTIFICATION_APPLICATION_FOCUS_OUT)
+	await process_frame
+	await process_frame
+	_assert_rearmed("focus loss returns to the armed castle")
+	_prime_boss_latch()
 
 func _boss() -> DustBossGame:
 	return main._game_obj("dustboss", DustBossGame) as DustBossGame
@@ -190,14 +280,45 @@ func _strike(max_windows: int) -> bool:
 func _open_case() -> void:
 	await _frames(10)
 	_ck("attic portal exists in the reef", main.dust_boss_portal_pos != Vector3.ZERO)
+	# The interruption matrix above deliberately returns to the armed castle.
+	# The attic is a Reef portal, so leave that castle surface through the same
+	# activity-clear seam before testing the physical proximity transition.
+	if main.game != "":
+		main._castle_rooms_ref().close()
+		main._clear_game()
+		await _frames(2)
+	# `_clear_game()` owns minigame teardown, while the Day One castle return is
+	# a Canvas world. Re-establish the neutral Reef presentation that the legacy
+	# attic portal actually observes: the player is visible, the Reef environment
+	# and camera are current, and no level2 phase can short-circuit `_process`.
+	main.game = ""
+	main.g = {}
+	main.player.visible = true
+	main.we_node.environment = main.world_env
+	if main.sun_light != null:
+		main.sun_light.visible = true
+	if main.player.cam != null and main.player.cam.is_inside_tree():
+		main.player.cam.make_current()
+	_ck("the attic fixture reaches neutral Reef before proximity",
+		main.game == "" and main.player.visible
+		and main.we_node.environment == main.world_env)
+	# CI runs this probe in Classic touch mode. Preserve that mode so the attic
+	# assertion exercises the real physical proximity transition; when a caller
+	# explicitly starts the probe in Hybrid, use the child action contract below.
 	main.dust_boss_cool = 0.0
 	var wait := 0
+	var explicit_activation_sent := false
 	while main.game == "" and wait < 900:
 		wait += 1
 		main.player.position = main.dust_boss_portal_pos + Vector3(0, 2, 3)
 		main.player.vel = Vector3.ZERO
-		if main.touch_uses_explicit_interactions():
+		# The explicit route starts a fade-backed transition. Sending the same
+		# activation every frame would restart that fade before its callback can
+		# enter DustBoss, leaving game empty forever. A child sends one tap edge;
+		# then the probe waits for the transition to finish just like the live UI.
+		if main.touch_uses_explicit_interactions() and not explicit_activation_sent:
 			main._activate_touch_interactable("reef:dustboss")
+			explicit_activation_sent = true
 		await process_frame
 	_ck("swimming to the attic door opens the boss fight", main.game == "dustboss")
 
@@ -318,6 +439,11 @@ func _showing_case() -> void:
 	_ck("the button reads WAIT while he is shut", boss0.action_label() == "WAIT")
 	var reached: bool = await _await_state("prowl", 3000)
 	_ck("the showing hands over to the prowl", reached)
+	# The reveal is skippable only after the demo flash has completed. This is
+	# intentionally a direct timing assertion: a tap before 5.2 remains a
+	# harmless answer, while a tap at/after 5.2 hands control to the prowl.
+	_ck("the showing skip threshold waits for the demo flash",
+		DustBossGame.SHOW_SKIP_T >= 5.2 and DustBossGame.SHOW_SKIP_T < DustBossGame.SHOW_T)
 
 # ---- shielded: he is a ball of dust ---------------------------------------
 func _shield_case() -> void:
@@ -340,11 +466,15 @@ func _mastery_ui_case() -> void:
 	var layer: CanvasLayer = main.g.get("db_mastery_layer") as CanvasLayer
 	var stars: Label = main.g.get("db_mastery_stars") as Label
 	var gem: Label = main.g.get("db_perfect_gem") as Label
+	var pips: Label = main.g.get("db_tap_pips") as Label
 	var dodge: Button = main.g.get("db_dodge_button") as Button
 	_ck("the fight shows three earned-or-empty mastery stars without reading",
 		layer != null and stars != null and stars.text == "★★★")
 	_ck("the clean-run bonus has its own visible diamond target",
 		gem != null and gem.text == "💎")
+	_ck("three tap pips live on the visible boss layer",
+		layer != null and layer.layer > 0 and pips != null and pips.text == "○○○"
+		and pips.get_parent() != null and pips.get_parent().name == "DustBossTapPipsPanel")
 	_ck("dodge is a separate picture-first child-sized control",
 		dodge != null and bool(dodge.get_meta("picture_first", false))
 		and dodge.size.x >= 140.0 and dodge.size.y >= 140.0)
@@ -362,17 +492,18 @@ func _mastery_ui_case() -> void:
 		and DustBossGame.mastery_tier_for_bumps(2) == 2
 		and DustBossGame.mastery_tier_for_bumps(3) == 1
 		and DustBossGame.mastery_tier_for_bumps(9) == 1)
+	var static_stars: String = stars.text if stars != null else ""
 	main.g["db_bumps"] = 2
 	_boss()._update_mastery_ui()
-	var silver_read: bool = stars != null and stars.text == "★★☆" \
-		and gem != null and gem.text == "◇"
+	var static_during_fight: bool = stars != null and stars.text == static_stars \
+		and gem != null and gem.text == "💎"
 	main.g["db_bumps"] = 3
 	_boss()._update_mastery_ui()
-	var bronze_read: bool = stars != null and stars.text == "★☆☆"
+	var still_static: bool = stars != null and stars.text == static_stars
 	main.g["db_bumps"] = 0
 	_boss()._update_mastery_ui()
-	_ck("missing stars stay outlined so the higher mastery remains visible",
-		silver_read and bronze_read)
+	_ck("mastery stars stay static until the medal card",
+		static_during_fight and still_static and stars != null and stars.text == "★★★")
 
 # ---- optional dodge: contact becomes a twirl, never a hidden fail state ----
 func _dodge_case() -> void:
@@ -459,6 +590,9 @@ func _first_hit_case() -> void:
 		await process_frame
 		_ck("tapping the boss himself is a bonk, not a walk order",
 			kit0 != null and kit0.accepted_taps == taps_before + 1)
+		var pips_after_first: Label = main.g.get("db_tap_pips") as Label
+		_ck("the first landed tap fills exactly one boss pip",
+			pips_after_first != null and pips_after_first.text == "●○○")
 	var hit1: bool = _hits() >= 1
 	if not hit1:
 		hit1 = await _strike(4)
@@ -476,6 +610,14 @@ func _second_hit_case() -> void:
 		boss.hop_speed() < float(DustBossGame.PHASES[0]["hop_speed"]))
 	_ck("a damage round is three taps, not one",
 		DustBossGame.TAPS_PER_ROUND == 3 and DustBossGame.HP == 3)
+	_ck("landed-round holds target 5.4 seconds and stay under six",
+		is_equal_approx(DustBossGame.STRUCK_T + DustBossGame.DIZZY_T
+			+ DustBossGame.PHASE_BEAT_T + DustBossGame.CELEBRATION_BEAT_T,
+			DustBossGame.LANDED_ROUND_HOLD_T)
+		and is_equal_approx(DustBossGame.STRUCK_T + DustBossGame.ANGRY_T
+			+ DustBossGame.PHASE_BEAT_T + DustBossGame.CELEBRATION_BEAT_T,
+			DustBossGame.LANDED_ROUND_HOLD_T)
+		and DustBossGame.LANDED_ROUND_HOLD_T <= 6.0)
 	_ck("landed phases include a brief celebration beat",
 		DustBossGame.PHASE_BEAT_T > 0.0
 		and boss.phase_beat_len(1) == DustBossGame.PHASE_BEAT_T
@@ -506,8 +648,8 @@ func _second_hit_case() -> void:
 # ---- a window let go: mercy, never failure --------------------------------
 func _mercy_case() -> void:
 	var boss := _boss()
-	# Start from a known streak so the check proves attempts 1-2 are unchanged,
-	# attempt 3 is the first gentle assist, and miss five owns strong mercy.
+	# Start from a known streak so the check proves the bounded first-hit bridge,
+	# attempt 3 is the persistent gentle assist, and miss five owns strong mercy.
 	main.g["db_miss"] = 0
 	main.g["db_miss_streak"] = 0
 	var window_before: float = boss.window_len()
@@ -521,17 +663,21 @@ func _mercy_case() -> void:
 	for expected_streak in range(1, DustBossGame.MERCY_TRIGGER_STREAK + 1):
 		var open_now: bool = await _await_state("vuln", 4000)
 		var back: bool = open_now and await _await_state("prowl", 4000)
-		all_missed = all_missed and back and _hits() == 2 \
+		all_missed = all_missed and back and _hits() == 0 \
 			and int(main.g.get("db_miss_streak", 0)) == expected_streak
 		if expected_streak == DustBossGame.PREASSIST_TRIGGER_STREAK:
 			preassist_started = boss.preassist_tier() == 1 \
 				and boss.window_len() > window_before \
 				and boss.prowl_len() < prowl_before
 		if expected_streak < DustBossGame.PREASSIST_TRIGGER_STREAK:
-			var early_same: bool = is_equal_approx(boss.window_len(), window_before) \
-				and is_equal_approx(boss.reach(), reach_before) \
-				and is_equal_approx(boss.hop_speed(), speed_before) \
-				and is_equal_approx(boss.prowl_len(), prowl_before)
+			var early_same: bool = is_equal_approx(boss.hop_speed(), speed_before)
+			if expected_streak == 1:
+				early_same = early_same and boss.window_len() > window_before \
+					and boss.reach() > reach_before and boss.prowl_len() < prowl_before
+			else:
+				early_same = early_same and is_equal_approx(boss.window_len(), window_before \
+					+ DustBossGame.FIRST_HIT_ASSIST_BONUS) \
+					and boss.reach() > reach_before
 			all_missed = all_missed and early_same
 			early_lively = early_lively and early_same
 	_ck("five windows can pass harmlessly with no loss", all_missed and main.game == "dustboss")
@@ -539,8 +685,9 @@ func _mercy_case() -> void:
 		preassist_started and boss.mercy_tier() == 1 and boss.preassist_tier() == 2
 		and boss.prowl_len() < prowl_before and boss.reach() > reach_before
 		and boss.landing_radius() < 4.0)
-	_ck("attempts one and two keep the lively opening pace",
-		early_lively and boss.mercy_tier() == 1 and boss.preassist_tier() == 2)
+	_ck("the first miss opens a bounded first-hit bridge",
+		early_lively and boss.first_hit_assist() == 1
+		and boss.mercy_tier() == 1 and boss.preassist_tier() == 2)
 	_ck("miss five switches on a longer next window", boss.window_len() > window_before)
 	_ck("miss five owns the strong tier exactly",
 		boss.mercy_tier() == 1 and boss.preassist_tier() == 2
@@ -573,7 +720,8 @@ func _win_case() -> void:
 	_ck("the fight keeps offering windows until she lands them", hit3)
 	_ck("the third round finishes the fight", _hits() == 3)
 	_ck("a landed round resets the streak but keeps the earned assist pace",
-		int(main.g.get("db_miss_streak", -1)) == 0 and _boss().mercy_tier() == 1)
+		int(main.g.get("db_miss_streak", -1)) == 0 and _boss().mercy_tier() == 1
+		and _boss().preassist_tier() >= 1)
 	_ck("the ending is a befriending beat, not a defeat", _state() == "friends")
 	var wait := 0
 	while main.game == "dustboss" and wait < 4000:

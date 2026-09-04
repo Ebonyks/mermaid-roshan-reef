@@ -57,6 +57,7 @@ var _progress_mask: int = 0
 var _running: bool = false
 var _dragging: bool = false
 var _completed: bool = false
+var _completed_emitted: bool = false
 var _demo_time: float = 0.0
 var _last_input_time: float = 0.0
 var _skimmer_position := Vector2(640.0, 380.0)
@@ -77,6 +78,7 @@ func setup(initial_mask: int = 0) -> void:
 	_running = false
 	_dragging = false
 	_completed = _progress_mask == ALL_MASK
+	_completed_emitted = false
 	_demo_time = 0.0
 	_last_input_time = 0.0
 	_skimmer_position = Vector2(640.0, 380.0)
@@ -96,6 +98,8 @@ func start() -> void:
 	_dragging = false
 	if _demo_pointer != null and is_instance_valid(_demo_pointer):
 		_demo_pointer.visible = not _completed
+	if _completed:
+		_emit_completed_once()
 	set_process(true)
 	queue_redraw()
 
@@ -322,8 +326,15 @@ func _collect_item(index: int) -> void:
 		_dragging = false
 		if _demo_pointer != null and is_instance_valid(_demo_pointer):
 			_demo_pointer.visible = false
-		completed.emit()
+		_emit_completed_once()
 	queue_redraw()
+
+
+func _emit_completed_once() -> void:
+	if _completed_emitted:
+		return
+	_completed_emitted = true
+	completed.emit()
 
 
 func _finish_piece_flight(index: int, flight: Tween) -> void:

@@ -95,7 +95,19 @@ func _init() -> void:
 	final_restore.restore_state(all_done)
 	_check("restore all rooms derives glow", final_main.day_one_boss_door_glow
 		and final_main.day_one_current_room_id == ""
-		and final_main.day_one_giant_dust_bunny_boss_triggered)
+		and not final_main.day_one_giant_dust_bunny_boss_triggered
+		and final_main.day_one_active)
+	var terminal_save: Dictionary = all_done.duplicate(true)
+	terminal_save["day_one_active"] = false
+	terminal_save["day_one_giant_dust_bunny_boss_triggered"] = true
+	terminal_save["day_one_giant_dust_bunny_boss_defeated"] = true
+	var terminal_main: ReefMain = ReefMain.new()
+	var terminal_restore: DayOneDirector = DIRECTOR_SCRIPT.new(terminal_main) as DayOneDirector
+	terminal_restore.restore_state(terminal_save)
+	_check("only a terminal save retains the boss latch",
+		terminal_main.day_one_giant_dust_bunny_boss_triggered
+		and terminal_main.day_one_giant_dust_bunny_boss_defeated
+		and not terminal_main.day_one_active)
 	var partial_main: ReefMain = ReefMain.new()
 	var partial_restore: DayOneDirector = DIRECTOR_SCRIPT.new(partial_main) as DayOneDirector
 	partial_restore.restore_state({
@@ -126,6 +138,7 @@ func _init() -> void:
 	final_main.free()
 	partial_main.free()
 	later_main.free()
+	terminal_main.free()
 	_print_result()
 	quit(1 if checks_failed > 0 else 0)
 

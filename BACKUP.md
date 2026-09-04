@@ -11,7 +11,7 @@ Four layers cover all of that:
 
 | # | Layer | Where it lives | Cadence |
 |---|-------|----------------|---------|
-| 1 | In-game transactional save + `.bak` recovery (`scripts/save_state.gd`) | on the phone | every save |
+| 1 | In-game transactional save + `.bak` and `.before_new_game` recovery (`scripts/save_state.gd`) | on the phone | every save / New Game |
 | 2 | Save-file snapshot pulled off the phone (`./backup.sh` with phone on adb) | your backup folder | whenever you run it |
 | 3 | CI full-repo git bundle (`.github/workflows/backup.yml`) | `project-backup` release tag | weekly + on demand |
 | 4 | Offline full-repo git bundle (`./backup.sh`) | your backup folder / external drive | whenever you run it |
@@ -69,6 +69,13 @@ adb shell rm /data/local/tmp/reef_save.json
 
 Do this with the game closed; the next launch loads it (and the in-game
 recovery logic in `save_state.gd` re-validates it before trusting it).
+
+If a child started a New Game by mistake, keep the game closed and use the
+grown-up restore gesture (hold OPTIONS for three seconds). The game validates
+`reef_save.json.before_new_game` and installs it transactionally; the fresh
+save remains in `.bak` if the restore is interrupted. `backup.sh` also copies
+the archive when a phone is connected, so it can be retained with the regular
+save snapshot.
 
 ## Limits worth knowing
 

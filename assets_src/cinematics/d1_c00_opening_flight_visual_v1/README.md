@@ -1,8 +1,8 @@
 # D1-C00 — Opening Flight — Roshan and Daddy
 
 > `ARCHIVE_COMPLETE`: true
-> `GENERATION_READY`: false  
-> `DELIVERY_ACCEPTED`: false  
+> `GENERATION_READY`: false<br>
+> `DELIVERY_ACCEPTED`: false<br>
 > Grok output remains motion/editorial reference until the independent full-frame delivery audit passes.
 
 ## Use this one-link handoff

@@ -1,7 +1,7 @@
 # Grok footage analysis and endpoint handoff — Day One
 
-**Date:** 2026-09-02  
-**Scope:** D1-C00 through D1-C12 (13 movies, 70 shot jobs)  
+**Date:** 2026-09-02<br>
+**Scope:** D1-C00 through D1-C12 (13 movies, 70 shot jobs)<br>
 **Status:** bridge specification; no footage or endpoint is accepted by this document
 
 This document closes the continuity gap between a generated Grok clip and the

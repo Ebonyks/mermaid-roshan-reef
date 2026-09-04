@@ -1,8 +1,8 @@
 # Day One Grok location-geometry authority audit
 
-Date: 2026-09-02  
-Scope: D1-C00 through D1-C12 external-animation handoffs  
-Review method: Luna repository inventory, followed by Sol topology review  
+Date: 2026-09-02<br>
+Scope: D1-C00 through D1-C12 external-animation handoffs<br>
+Review method: Luna repository inventory, followed by Sol topology review<br>
 
 ## Blocking rule
 
@@ -63,4 +63,3 @@ The detailed machine record and candidate decisions live in
   depends on missing geometry. Additional views must be generated as complete
   location candidates, audited against observable seams, and human-approved
   before they can become authority.
-

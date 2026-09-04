@@ -44,11 +44,14 @@ REQUIRED = [
 
 
 def digest(path: Path) -> str:
-	h = hashlib.sha256()
-	with path.open("rb") as handle:
-		for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-			h.update(chunk)
-	return h.hexdigest()
+	data = path.read_bytes()
+	if path.suffix.lower() in {".json", ".md", ".txt"}:
+		# Git stores packet text with LF, while a Windows checkout may expose
+		# the same tracked content with CRLF when core.autocrlf is enabled.
+		# The manifest records the repository/archive payload, so compare the
+		# canonical tracked representation rather than a platform-only rewrite.
+		data = data.replace(b"\r\n", b"\n")
+	return hashlib.sha256(data).hexdigest()
 
 
 def main() -> int:

@@ -62,11 +62,12 @@ CHARACTERS: dict[str, dict[str, Any]] = {
 
 
 def sha256(path: Path) -> str:
-	h = hashlib.sha256()
-	with path.open("rb") as handle:
-		for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-			h.update(chunk)
-	return h.hexdigest()
+	data = path.read_bytes()
+	if path.suffix.lower() in {".json", ".md", ".txt"}:
+		# Hash the canonical repository/archive form. Windows may expose these
+		# tracked text files with CRLF even though Git and GitHub store LF.
+		data = data.replace(b"\r\n", b"\n")
+	return hashlib.sha256(data).hexdigest()
 
 
 def image_dimensions(path: Path) -> list[int] | None:
@@ -228,7 +229,10 @@ def build_scene(scene: dict[str, Any], slate: dict[str, Any], archive_commit: st
 			record["license_provenance"] = "project-owned runtime capture evidence"
 			record["modifications"] = "whole-frame contact-sheet assembly and labels only"
 		assets.append(record)
-		license_lines.append(f"- `{path.relative_to(ROOT).as_posix()}` — project-original complete flattened image generated with OpenAI built-in image generation (`{generation['result_id']}`); modifications: none after generation; narrative-reference-only, never bound generation or delivery pixels; provenance in sibling prompt/result records.")
+		if str(result.get("result_id", "")).startswith("runtime-"):
+			license_lines.append(f"- `{path.relative_to(ROOT).as_posix()}` — deterministic contact sheet assembled from project-owned Godot 4.7.2 runtime capture evidence (`{generation['result_id']}`); whole-frame assembly and labels only; narrative/runtime-boundary reference only, never bound generation or delivery pixels; provenance in sibling capture/result records.")
+		else:
+			license_lines.append(f"- `{path.relative_to(ROOT).as_posix()}` — project-original complete flattened image generated with OpenAI built-in image generation (`{generation['result_id']}`); modifications: none after generation; narrative-reference-only, never bound generation or delivery pixels; provenance in sibling prompt/result records.")
 
 	for target, source_path in ((shared_target, SHARED_SOURCE), (scene_target, guide_source)):
 		assets.append(asset_record(target, packet, "exact_written_handoff_guide", {"source_path": source_path.relative_to(ROOT).as_posix(), "source_commit": SOURCE_COMMIT}))
@@ -350,9 +354,9 @@ def build_scene(scene: dict[str, Any], slate: dict[str, Any], archive_commit: st
 	shot_rows = "\n".join(f"| {shot['shot_id']} | {shot['visible_result']} |" for shot in shots)
 	readme = f"""# {scene['id']} — {scene['title']}
 
-> `ARCHIVE_COMPLETE`: {str(archive_status == 'complete').lower()}  
-> `GENERATION_READY`: false  
-> `DELIVERY_ACCEPTED`: false  
+> `ARCHIVE_COMPLETE`: {str(archive_status == 'complete').lower()}<br>
+> `GENERATION_READY`: false<br>
+> `DELIVERY_ACCEPTED`: false<br>
 > Grok output remains motion/editorial reference until the independent full-frame delivery audit passes.
 
 ## Use this one-link handoff

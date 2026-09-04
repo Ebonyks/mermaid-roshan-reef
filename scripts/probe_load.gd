@@ -3,6 +3,16 @@ extends SceneTree
 # and that a crafted fish survives a relaunch (it used to vanish: the save
 # loads after the reef builds, so build-time spawning missed it)
 func _init() -> void:
+	# The debounce leg is intentionally source-backed here: this probe boots a
+	# full scene later, while the age cap itself is a small state-machine branch
+	# owned by ReefMain. Keep the assertion beside the save/load coverage so a
+	# regression cannot silently restore the old starvation behavior.
+	var main_source: String = FileAccess.get_file_as_string("res://scripts/main.gd")
+	var debounce_contract_ok: bool = main_source.contains("save_pending_age +=") \
+		and main_source.contains("save_pending_age > 4.0") \
+		and main_source.contains("if not save_pending:")
+	print("save debounce cap (>4.0s forced flush): ",
+		"OK" if debounce_contract_ok else "FAIL")
 	# opera_pantry (added 2026-07-25) must survive a save/load round trip
 	var sd: Dictionary = {}
 	if FileAccess.file_exists("user://reef_save.json"):
@@ -129,7 +139,7 @@ func _init() -> void:
 	var second_opera_ok: bool = _opera_mask_ok(relaunched, "second launch")
 	var second_fairy_route_ok: bool = _fairy_route_ok(
 		relaunched, "second launch")
-	quit(0 if first_companion_ok and first_opera_ok and saved_healed \
+	quit(0 if debounce_contract_ok and first_companion_ok and first_opera_ok and saved_healed \
 		and first_fairy_route_ok and second_companion_ok \
 		and second_opera_ok and second_fairy_route_ok else 1)
 

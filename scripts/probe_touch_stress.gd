@@ -57,6 +57,11 @@ func _init() -> void:
 	if main.has_method("_skip_intro"):
 		main._skip_intro()
 	await _frames(5)
+	# Touch stress covers the reusable post-Day-One Lagoon, including its Reef
+	# exit.  Establish that progression boundary explicitly; Day One's castle
+	# return gate is tested by the Day One routing probes instead.
+	main.day_one_active = false
+	main._day_one_ref().clear_day_one_routing()
 	touch = main.touch_ui
 	if touch == null or not touch.wants_touch():
 		_bad("touch router unavailable; run with -- --touch --hybrid-touch-test")
