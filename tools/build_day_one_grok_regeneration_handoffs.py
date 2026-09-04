@@ -702,6 +702,11 @@ def validate() -> None:
 		path = OVERLAY / record["path"]
 		if hashlib.sha256(path.read_bytes()).hexdigest() != record["sha256"]:
 			raise AssertionError(f"overlay file hash mismatch: {path}")
+	remote_verification = OVERLAY / "REMOTE_VERIFICATION.json"
+	if remote_verification.is_file():
+		remote = json.loads(remote_verification.read_text(encoding="utf-8"))
+		if remote.get("missing_manifest_assets") != 0 or remote.get("manifest_assets_resolved") != len(packet["assets"]):
+			raise AssertionError("remote verification does not cover the complete overlay manifest")
 
 
 if __name__ == "__main__":
