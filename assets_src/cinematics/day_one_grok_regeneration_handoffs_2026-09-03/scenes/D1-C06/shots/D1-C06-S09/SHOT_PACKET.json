@@ -1,8 +1,8 @@
 {
   "schema": "imagine-shot-card-draft-v1",
   "movie_id": "D1-C06",
-  "shot_id": "D1-C06-S05",
-  "title": "Two purification fronts meet",
+  "shot_id": "D1-C06-S09",
+  "title": "Roshan completes the hug",
   "status": "DRAFT",
   "conditional_regeneration": false,
   "duration_seconds": 6,
@@ -16,7 +16,7 @@
   "binding_plan": [
     {
       "id": "IMAGE_1",
-      "job": "pool geography",
+      "job": "clean pool geography",
       "status": "missing_approved_shot_opening_frame",
       "source_movie_id": "D1-C06",
       "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
@@ -25,56 +25,56 @@
       "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/location/room_mermaid_pool_background.png",
       "hud_present": false,
       "used_as_delivery_pixels": false,
-      "shot_opening_gate": "accepted D1-C06-S04 two-source endpoint",
+      "shot_opening_gate": "accepted D1-C06-S08 open-arm endpoint",
       "source_authority_is_not_automatic_first_frame_approval": true
     },
     {
       "id": "IMAGE_2",
-      "job": "left source identity",
+      "job": "Rumi identity",
       "status": "approved_source_authority_available",
       "source_movie_id": "D1-C06",
       "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
-      "path": "handoff_art/objects/mermaid_pool_waterfall_rest.png",
-      "sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949",
-      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/objects/mermaid_pool_waterfall_rest.png",
+      "path": "handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/characters/rumi_rumi_full_body_identity.png",
       "hud_present": false,
       "used_as_delivery_pixels": false
     },
     {
       "id": "IMAGE_3",
-      "job": "right source identity",
+      "job": "Roshan identity",
       "status": "approved_source_authority_available",
       "source_movie_id": "D1-C06",
       "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
-      "path": "handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
-      "sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b",
-      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/characters/roshan_roshan_base.png",
       "hud_present": false,
       "used_as_delivery_pixels": false
     }
   ],
   "start_frame": "IMAGE_1 after the blocking shot-opening approval",
   "camera": {
-    "verb": "locked",
-    "move_count": 0
+    "verb": "subtle pullback",
+    "move_count": 1
   },
-  "must_move": "two water fronts spread and meet once",
-  "must_not_move": "pool boundary, sources, fixtures, room geometry, and dry surfaces",
-  "end_state": "one joined bright ripple rests at pool center",
-  "negative_constraints": "no instant flash, dry floor, third source, overlay-only effect, characters, text, or HUD",
-  "sound_intent": "converging shimmer and soft impact chime; no voices",
+  "must_move": "Roshan approaches and completes one hug",
+  "must_not_move": "faces, torsos, hands, two tails, scale, pool geometry, and both fixed streams",
+  "end_state": "Roshan and Rumi hold one stable joyful embrace with distinct bodies",
+  "negative_constraints": "no starting inside the hug, hold-only action, fused torsos, merged tails, extra arms, substitute Rumi, kiss, tiny pool, text, or HUD",
+  "sound_intent": "water sparkle and warm resolution; no voices",
   "prompt_path": "PROMPT.txt",
-  "prompt_sha256": "f39e0a4e597c1dbc0ad62af9e420ca1b5f7ecbeffb31d57761131bb90ec6d8cf",
+  "prompt_sha256": "cff68f95633e3d2a853927e20d2bc4394550e3aa13a14a3234e0b60e71e3e381",
   "source_clip_audit": [
     {
-      "source_clip": "C06_S05_v1_purification_fronts_REGEN.mp4",
-      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S05_v1_purification_fronts_REGEN.mp4",
+      "source_clip": "C06_S09_v1_hug_complete_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S09_v1_hug_complete_REGEN.mp4",
       "frame_rate": 24,
       "reviewed_frame_domain": [
         0,
         144
       ],
-      "observation": "branch frames 000–144: The branch replacement begins with fully clean water and a decorative rainbow band; it never shows two clear-water fronts displacing murk from the fixed sources."
+      "observation": "branch frames 000–144: The branch replacement starts already inside the embrace and holds it throughout, eliminating the required separate-body approach and single readable contact beat."
     }
   ],
   "audited_clip_branch": {
@@ -87,7 +87,7 @@
     "rule": "pool_surface → waterfall → seahorse is the fixed order; Rumi rises only after all three complete"
   },
   "blocking_findings": [
-    "IMAGE_1 is not yet bound to the required accepted D1-C06-S04 two-source endpoint",
+    "IMAGE_1 is not yet bound to the required accepted D1-C06-S08 open-arm endpoint",
     "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"
   ],
   "audit_claims": {

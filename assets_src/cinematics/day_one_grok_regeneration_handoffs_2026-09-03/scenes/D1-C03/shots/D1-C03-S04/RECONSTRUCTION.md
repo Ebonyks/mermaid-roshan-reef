@@ -6,7 +6,7 @@
 
 ## Why this shot is being rebuilt
 
-- [C03_S04_v1_precontact_tools_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C03_S04_v1_precontact_tools_REGEN.mp4): release frames 000–144 swimmer absent; 060–144 premature contact: The required swimmer disappears and Roshan advances into scrub-brush contact rather than stopping at the pre-contact seam.
+- [C03_S04_v1_precontact_tools_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C03_S04_v1_precontact_tools_REGEN.mp4): branch frames 000–144 swimmer absent; 060–144 premature contact: The required swimmer disappears and Roshan advances into scrub-brush contact rather than stopping at the pre-contact seam.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
 

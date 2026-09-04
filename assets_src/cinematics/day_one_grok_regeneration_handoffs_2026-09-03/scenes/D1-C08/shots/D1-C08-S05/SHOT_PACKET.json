@@ -68,18 +68,19 @@
   "source_clip_audit": [
     {
       "source_clip": "C08_S07_v1_clean_endpoint_REGEN.mp4",
-      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C08_S07_v1_clean_endpoint_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C08_S07_v1_clean_endpoint_REGEN.mp4",
       "frame_rate": 24,
       "reviewed_frame_domain": [
         0,
         144
       ],
-      "observation": "release frames 000–144; side-wall drift 048–144: The one-Eagle/four-bunny endpoint is not a game state and the room projection drifts into invented side-wall geometry."
+      "observation": "branch frames 000–144; side-wall drift 048–144: The one-Eagle/four-bunny endpoint is not a game state and the room projection drifts into invented side-wall geometry."
     }
   ],
-  "audited_release": {
-    "tag": "day1-regen-motion-ref-2026-09-03",
-    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03"
+  "audited_clip_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/384abc966b92b27bd61a735319a7639ef68ac15b"
   },
   "implemented_event_contract": {
     "authority_path": "scripts/arena/castle_rooms_25d.gd",

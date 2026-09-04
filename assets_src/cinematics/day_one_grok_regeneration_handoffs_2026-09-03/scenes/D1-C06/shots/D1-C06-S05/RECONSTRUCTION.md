@@ -6,7 +6,7 @@
 
 ## Why this shot is being rebuilt
 
-- [C06_S05_v1_purification_fronts_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S05_v1_purification_fronts_REGEN.mp4): release frames 000–144: The pool begins clean; white V-shaped streaks replace two fronts displacing algae through murky water.
+- [C06_S05_v1_purification_fronts_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S05_v1_purification_fronts_REGEN.mp4): branch frames 000–144: The branch replacement begins with fully clean water and a decorative rainbow band; it never shows two clear-water fronts displacing murk from the fixed sources.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
 

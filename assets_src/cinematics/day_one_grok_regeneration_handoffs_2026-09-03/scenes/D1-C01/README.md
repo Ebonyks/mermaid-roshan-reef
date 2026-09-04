@@ -11,18 +11,18 @@
 
 - `scripts/day_one_director.gd`
 - arrival media precedes the dirty-castle discovery; the lagoon handoff must preserve Roshan, Daddy, the stationary plane, and the closed castle.
-- Release MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
+- Audited branch MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
 
-## New release decision
+## September 4 branch decision
 
-| Released shot | Verdict | Exact finding | Action |
+| Branch shot | Verdict | Exact finding | Action |
 |---|---|---|---|
-| D1-C01-S02 ([C01_S02_v1_dock_handoffer_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C01_S02_v1_dock_handoffer_REGEN.mp4)) | `REGENERATE` | Frames 000–144: Daddy is already outside and offering at frame 0; the required plane exit, turn, and Roshan-from-doorway handoff never occur. | Rebuild Daddy exit → offer → Roshan hand contact → stable two-character endpoint. |
-| D1-C01-S03 ([C01_S03_v1_handinhand_castle_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C01_S03_v1_handinhand_castle_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames none blocking: The paired travel, identities, tails, castle approach, and closed-door endpoint remain coherent; loss of the dock during frames 000–024 is an acceptable cut. | Retain this release clip for rough assembly only. |
+| D1-C01-S02 ([C01_S02_v1_dock_handoffer_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C01_S02_v1_dock_handoffer_REGEN.mp4)) | `REGENERATE` | Frames 000–144: Daddy is already outside and offering at frame 0; the required plane exit, turn, and Roshan-from-doorway handoff never occur. | Rebuild Daddy exit → offer → Roshan hand contact → stable two-character endpoint. |
+| D1-C01-S03 ([C01_S03_v1_handinhand_castle_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C01_S03_v1_handinhand_castle_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames none blocking: The branch replacement now preserves the rope-railed dock/path start, rear-view paired travel, stable scale, four-tower castle approach, and closed-door stop. | Retain this branch clip for rough assembly only. |
 
-## Accepted from the new release for rough motion
+## Accepted from the September 4 branch for rough motion
 
-- [C01_S03_v1_handinhand_castle_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C01_S03_v1_handinhand_castle_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
+- [C01_S03_v1_handinhand_castle_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C01_S03_v1_handinhand_castle_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
 
 ## Earlier rough references still retained
 

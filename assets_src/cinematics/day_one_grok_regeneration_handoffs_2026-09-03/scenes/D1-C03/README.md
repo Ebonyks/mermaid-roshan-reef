@@ -11,17 +11,17 @@
 
 - `scripts/games/day_one_bathroom_cleanup.gd`
 - one dirty tub, one separate swimming bunny, an authorized tool basket, and two later live cleaning gestures.
-- Release MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
+- Audited branch MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
 
-## New release decision
+## September 4 branch decision
 
-| Released shot | Verdict | Exact finding | Action |
+| Branch shot | Verdict | Exact finding | Action |
 |---|---|---|---|
-| D1-C03-S02 ([C03_S02_v1_dirty_bathroom_threshold_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C03_S02_v1_dirty_bathroom_threshold_REGEN.mp4), [C03_S02_v1_threshold_cross_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C03_S02_v1_threshold_cross_REGEN.mp4)) | `REGENERATE` | Frames 000–144 both variants: Neither variant establishes the doorway. One starts mid-room and ends seated by the sink; the other begins inside the bathtub and crosses the tub instead of the threshold. | Start with the entrance readable; cross fully inside, look tub-to-sink, and preserve the single-tub orientation. |
-| D1-C03-S03 ([C03_S03_v1_swimming_bunny_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C03_S03_v1_swimming_bunny_REGEN.mp4)) | `REGENERATE` | Frames 000–144: The swimmer is coherent, but Roshan is a black silhouette/substitute and the bunny mostly holds instead of paddling visibly. | Use approved Roshan at frame edge and one weak-but-safe paddling swimmer in murky water. |
-| D1-C03-S04 ([C03_S04_v1_precontact_tools_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C03_S04_v1_precontact_tools_REGEN.mp4)) | `REGENERATE` | Frames 000–144 swimmer absent; 060–144 premature contact: The required swimmer disappears and Roshan advances into scrub-brush contact rather than stopping at the pre-contact seam. | Keep swimmer, tub, sink, tools, and grime; stop Roshan's hand visibly before the nearest tool. |
+| D1-C03-S02 ([C03_S02_v1_dirty_bathroom_threshold_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C03_S02_v1_dirty_bathroom_threshold_REGEN.mp4), [C03_S02_v1_threshold_cross_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C03_S02_v1_threshold_cross_REGEN.mp4)) | `REGENERATE` | Frames 000–144 both variants: Neither variant establishes the doorway. One starts mid-room and ends seated by the sink; the other begins inside the bathtub and crosses the tub instead of the threshold. | Start with the entrance readable; cross fully inside, look tub-to-sink, and preserve the single-tub orientation. |
+| D1-C03-S03 ([C03_S03_v1_swimming_bunny_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C03_S03_v1_swimming_bunny_REGEN.mp4)) | `REGENERATE` | Frames 000–144: The swimmer is coherent, but Roshan is a black silhouette/substitute and the bunny mostly holds instead of paddling visibly. | Use approved Roshan at frame edge and one weak-but-safe paddling swimmer in murky water. |
+| D1-C03-S04 ([C03_S04_v1_precontact_tools_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C03_S04_v1_precontact_tools_REGEN.mp4)) | `REGENERATE` | Frames 000–144 swimmer absent; 060–144 premature contact: The required swimmer disappears and Roshan advances into scrub-brush contact rather than stopping at the pre-contact seam. | Keep swimmer, tub, sink, tools, and grime; stop Roshan's hand visibly before the nearest tool. |
 
-## Accepted from the new release for rough motion
+## Accepted from the September 4 branch for rough motion
 
 - None.
 

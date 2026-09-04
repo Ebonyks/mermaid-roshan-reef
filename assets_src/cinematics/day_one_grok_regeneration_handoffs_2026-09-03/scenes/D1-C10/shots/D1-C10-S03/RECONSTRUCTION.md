@@ -6,7 +6,7 @@
 
 ## Why this shot is being rebuilt
 
-- [C10_S03_v1_clean_art_room_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C10_S03_v1_clean_art_room_REGEN.mp4): release frames 000–144: The opening crop omits the complete layout, the pullback is far greater than ten percent, and Roshan becomes too small for a child-readable endpoint.
+- [C10_S03_v1_clean_art_room_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C10_S03_v1_clean_art_room_REGEN.mp4): branch frames 000–144: The opening crop omits the complete layout, the pullback is far greater than ten percent, and Roshan becomes too small for a child-readable endpoint.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
 

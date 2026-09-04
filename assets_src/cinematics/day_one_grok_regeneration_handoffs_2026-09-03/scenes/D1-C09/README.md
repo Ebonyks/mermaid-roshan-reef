@@ -11,18 +11,18 @@
 
 - `scripts/day_one_art_studio.gd`
 - four loose material groups are collected before exactly three fixed grime cards become the active targets.
-- Release MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
+- Audited branch MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
 
-## New release decision
+## September 4 branch decision
 
-| Released shot | Verdict | Exact finding | Action |
+| Branch shot | Verdict | Exact finding | Action |
 |---|---|---|---|
-| D1-C09-S04 ([C09_S04_v1_three_grime_cards_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C09_S04_v1_three_grime_cards_REGEN.mp4)) | `REGENERATE` | Frames 048–144: The Art Room front concept is close, but the left/right zones multiply into upright card groups instead of exactly one small lavender grime card at each of three fixed targets. | Lock the exact front plate and show one card each at left counter, center desk, and right counter; Roshan points once. |
-| D1-C09-S05 ([C09_S05_v1_precontact_brush_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C09_S05_v1_precontact_brush_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames none blocking: The three-zone pre-contact beat, brush separation, and straight-on fixture order remain coherent. | Retain this release clip for rough assembly only. |
+| D1-C09-S04 ([C09_S04_v1_three_grime_cards_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C09_S04_v1_three_grime_cards_REGEN.mp4)) | `REGENERATE` | Frames 048–144: The Art Room front concept is close, but the left/right zones multiply into upright card groups instead of exactly one small lavender grime card at each of three fixed targets. | Lock the exact front plate and show one card each at left counter, center desk, and right counter; Roshan points once. |
+| D1-C09-S05 ([C09_S05_v1_precontact_brush_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C09_S05_v1_precontact_brush_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames none blocking: The three-zone pre-contact beat, brush separation, and straight-on fixture order remain coherent. | Retain this branch clip for rough assembly only. |
 
-## Accepted from the new release for rough motion
+## Accepted from the September 4 branch for rough motion
 
-- [C09_S05_v1_precontact_brush_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C09_S05_v1_precontact_brush_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
+- [C09_S05_v1_precontact_brush_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C09_S05_v1_precontact_brush_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
 
 ## Earlier rough references still retained
 

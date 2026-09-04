@@ -6,7 +6,7 @@
 
 ## Why this shot is being rebuilt
 
-- [C05_S05_v1_sick_seahorse_plug_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C05_S05_v1_sick_seahorse_plug_REGEN.mp4): release frames 000–144: The mouth plug is readable, but the pool is already clean and Roshan is full-body from frame 0 instead of entering only at the edge of a dirty-state close-up.
+- [C05_S05_v1_sick_seahorse_plug_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C05_S05_v1_sick_seahorse_plug_REGEN.mp4): branch frames 000–144: The branch replacement clarifies the pink wrapper-and-weed plug, but the pool remains clean, Roshan is full-body from frame 0, and the wide two-shot never becomes the required dirty-state close-up.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
 

@@ -22,6 +22,19 @@ CLIP_COMMIT = "5ca170e11c77ea55c3224f9f275b94b8fd62ca36"
 REPO = "Ebonyks/mermaid-roshan-reef"
 RELEASE_TAG = "day1-regen-motion-ref-2026-09-03"
 RELEASE_URL = f"https://github.com/{REPO}/releases/tag/{RELEASE_TAG}"
+THREE_SETS_BRANCH = "day1-regen-3sets-2026-09-04"
+THREE_SETS_COMMIT = "384abc966b92b27bd61a735319a7639ef68ac15b"
+THREE_SETS_URL = f"https://github.com/{REPO}/tree/{THREE_SETS_COMMIT}"
+THREE_SETS_CHANGED_FROM_RELEASE = {
+	"C01_S03_v1_handinhand_castle_REGEN.mp4",
+	"C05_S05_v1_sick_seahorse_plug_REGEN.mp4",
+	"C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4",
+	"C06_S04_v1_both_sources_pool_REGEN.mp4",
+	"C06_S05_v1_purification_fronts_REGEN.mp4",
+	"C06_S06_v1_violet_prelude_REGEN.mp4",
+	"C06_S08_v1_rumi_invitation_REGEN.mp4",
+	"C06_S09_v1_hug_complete_REGEN.mp4",
+}
 DATE = "2026-09-03"
 OVERLAY = CIN / f"day_one_grok_regeneration_handoffs_{DATE}"
 
@@ -187,9 +200,9 @@ def add_more_shots() -> None:
 		shot("D1-C06", "03", "Rainbow waterfall restarts top-down", "gentle downward tilt", ("clean rainbow ignites at the exact blocked top source", "the clean band travels downward and pushes sludge and debris away", "the flow reaches the lower lip and settles"), "one top-down clearing front", "fixture position, arches, flow direction, pool scale, and dirty room outside the cleared band", "clean rainbow reaches the lower lip without changing the rest of the room", "no bottom-up start, instant clean room, separate basin, seahorse, Rumi, text, or HUD", "rising water rush and crystalline sweep; no voices", [("location", "pool geography"), ("waterfall_rest", "restored waterfall identity")], [("C06_S03_rainbow_waterfall.mp4", "frames 0–47 begin too clean or from the wrong source composition"), ("C06_S03_v1_rainbow_restart.mp4", "frames 48–144 reverse or blur the top-down causal read"), ("C06_S03_v2_rainbow.mp4", "frames 0–144 use an inconsistent composition")], image1_requirement="accepted blocked-source endpoint inherited from D1-C05-S04"),
 		shot("D1-C06", "04", "Both clean sources feed one giant pool", "smooth pullback", ("begin on the restored rainbow-source endpoint", "pull back once to reveal rainbow stream left-center and seahorse stream right-center", "both streams visibly enter the same giant pool"), "one re-establishing pullback", "arches, source positions, seahorse position, pool boundary, and flow directions", "both sources and the complete giant-pool geometry are visible together", "no small basin, moved arches, moved seahorse, reversed flow, new outlet, text, or HUD", "layered clean-water rush; no voices", [("location", "pool geography"), ("waterfall_rest", "rainbow fixture identity"), ("seahorse_rest", "seahorse fountain identity")], [("C06_S04_purification_meet.mp4", "frames 0–144 do not clearly prove both fixed sources enter the same giant pool")], image1_requirement="accepted D1-C06-S03 endpoint"),
 		shot("D1-C06", "05", "Two purification fronts meet", "locked", ("two distinct clear fronts spread from the fixed left and right sources", "each front displaces algae through the same water volume", "the fronts meet once near center in one bright ripple"), "two water fronts spread and meet once", "pool boundary, sources, fixtures, room geometry, and dry surfaces", "one joined bright ripple rests at pool center", "no instant flash, dry floor, third source, overlay-only effect, characters, text, or HUD", "converging shimmer and soft impact chime; no voices", [("location", "pool geography"), ("waterfall_rest", "left source identity"), ("seahorse_rest", "right source identity")], [("C06_S05_v1_rumi_rises.mp4", "frames 0–144 are mislabeled Rumi-rise imagery and omit the required two-front purification"), ("C06_S05_v2_rumi_rises.mp4", "frames 0–144 are mislabeled Rumi-rise imagery and omit the required two-front purification")], image1_requirement="accepted D1-C06-S04 two-source endpoint"),
-		shot("D1-C06", "06", "Violet emergence prelude", "slow push-in", ("begin on the joined purification ripple", "clean clarity fills the giant pool and the grade returns to pearl, aqua, and lavender", "a localized violet light rises from below without revealing a person"), "one localized underwater glow rises", "pool geometry, both sources, fixtures, water surface, and empty character field", "clean water and a contained violet glow rest at pool center", "no neon room wash, silhouette substitute, empty basin, early Rumi, text, or HUD", "deep magical resonance and clear-water ambience; no voices", [("location", "pool geography"), ("waterfall_rest", "restored fixture identity"), ("seahorse_rest", "restored seahorse identity")], [(None, "shot is absent from the delivered clip set")], image1_requirement="accepted D1-C06-S05 joined-front endpoint"),
+		shot("D1-C06", "06", "Violet emergence prelude", "slow push-in", ("begin on the joined purification ripple", "clean clarity fills the giant pool and the grade returns to pearl, aqua, and lavender", "a localized violet light rises from below without revealing a person"), "one localized underwater glow rises", "pool geometry, both sources, fixtures, water surface, and empty character field", "clean water and a contained violet glow rest at pool center", "no neon room wash, portal, hole, ring, dark aperture, silhouette substitute, empty basin, early Rumi, text, or HUD", "deep magical resonance and clear-water ambience; no voices", [("location", "pool geography"), ("waterfall_rest", "restored fixture identity"), ("seahorse_rest", "restored seahorse identity")], [(None, "shot is absent from the delivered clip set")], image1_requirement="accepted D1-C06-S05 joined-front endpoint"),
 		shot("D1-C06", "08", "Rumi thanks Roshan and opens her arms", "locked", ("rumi places one hand over her heart and gives one warm speaking gesture", "she opens both arms toward Roshan while both bodies stay separate", "she holds the clear invitation"), "Rumi makes one thanks-to-invitation gesture", "Rumi and Roshan identities, scale, faces, hands, continuous tails, pool, and both streams", "Rumi's arms are open and Roshan remains separate before the hug", "no subtitles, synthetic dialogue, hand deformation, extra cast, fused bodies, text, or HUD", "quiet water and warm music; final family dialogue added later", [("location", "clean pool geography"), ("rumi", "Rumi identity"), ("roshan", "Roshan identity")], [("C06_rumi_swim.mp4", "frames 0–144 depict swimming rather than the required thanks and invitation beat")], image1_requirement="accepted D1-C06-S07 Rumi reveal endpoint"),
-		shot("D1-C06", "09", "Roshan completes the hug", "subtle pullback", ("roshan moves from the accepted invitation endpoint into Rumi's arms", "their arms make one coherent affectionate contact while faces remain visible", "they settle with distinct torsos and two separate tails"), "Roshan approaches and completes one hug", "faces, torsos, hands, two tails, scale, pool geometry, and both fixed streams", "Roshan and Rumi hold one stable joyful embrace with distinct bodies", "no fused torsos, merged tails, extra arms, substitute Rumi, kiss, tiny pool, text, or HUD", "water sparkle and warm resolution; no voices", [("location", "clean pool geography"), ("rumi", "Rumi identity"), ("roshan", "Roshan identity")], [("C06_rumi_roshan_hug.mp4", "frames 0–47 begin in an ambiguous pre-fused embrace and frames 48–144 never establish a clean approach/contact")], image1_requirement="accepted D1-C06-S08 open-arm endpoint"),
+		shot("D1-C06", "09", "Roshan completes the hug", "subtle pullback", ("roshan moves from the accepted invitation endpoint into Rumi's arms", "their arms make one coherent affectionate contact while faces remain visible", "they settle with distinct torsos and two separate tails"), "Roshan approaches and completes one hug", "faces, torsos, hands, two tails, scale, pool geometry, and both fixed streams", "Roshan and Rumi hold one stable joyful embrace with distinct bodies", "no starting inside the hug, hold-only action, fused torsos, merged tails, extra arms, substitute Rumi, kiss, tiny pool, text, or HUD", "water sparkle and warm resolution; no voices", [("location", "clean pool geography"), ("rumi", "Rumi identity"), ("roshan", "Roshan identity")], [("C06_rumi_roshan_hug.mp4", "frames 0–47 begin in an ambiguous pre-fused embrace and frames 48–144 never establish a clean approach/contact")], image1_requirement="accepted D1-C06-S08 open-arm endpoint"),
 	])
 
 
@@ -248,25 +261,27 @@ def release_audit(
 	}
 
 
-# The 40 release files cover 36 unique cards. These judgments deliberately use
-# a loose rough-cut bar: an accepted clip may remain an editorial/motion
+# The September 4 three-set branch contains 40 files covering 36 unique cards.
+# Eight files differ byte-for-byte from the September 3 release despite reusing
+# the same filenames. These judgments use the branch-exact binaries and a
+# loose rough-cut bar: an accepted clip may remain an editorial/motion
 # reference even though it is not a delivery frame. Event and topology errors
 # are never accepted merely because the render is attractive.
 RELEASE_AUDIT = [
 	release_audit("D1-C01-S02", "REGENERATE", ["C01_S02_v1_dock_handoffer_REGEN.mp4"], "000–144", "Daddy is already outside and offering at frame 0; the required plane exit, turn, and Roshan-from-doorway handoff never occur.", "Rebuild Daddy exit → offer → Roshan hand contact → stable two-character endpoint."),
-	release_audit("D1-C01-S03", "ACCEPT_MOTION_REFERENCE", ["C01_S03_v1_handinhand_castle_REGEN.mp4"], "none blocking", "The paired travel, identities, tails, castle approach, and closed-door endpoint remain coherent; loss of the dock during frames 000–024 is an acceptable cut.", "Retain this release clip for rough assembly only.", preferred="C01_S03_v1_handinhand_castle_REGEN.mp4"),
+	release_audit("D1-C01-S03", "ACCEPT_MOTION_REFERENCE", ["C01_S03_v1_handinhand_castle_REGEN.mp4"], "none blocking", "The branch replacement now preserves the rope-railed dock/path start, rear-view paired travel, stable scale, four-tower castle approach, and closed-door stop.", "Retain this branch clip for rough assembly only.", preferred="C01_S03_v1_handinhand_castle_REGEN.mp4"),
 	release_audit("D1-C02-S03", "REGENERATE", ["C02_S03_v1_dirty_hall_evidence_REGEN.mp4"], "000–144", "The broad hall tableau replaces the required low evidence close-up, invents multiple bunny bodies and readable EVIDENCE labels, and lets full-body Daddy/Roshan movement compete with the evidence.", "Lock Screen A low; show one integrated grime patch, one dust trace, one harmless scrap, then one pointing hand with no text."),
 	release_audit("D1-C03-S02", "REGENERATE", ["C03_S02_v1_dirty_bathroom_threshold_REGEN.mp4", "C03_S02_v1_threshold_cross_REGEN.mp4"], "000–144 both variants", "Neither variant establishes the doorway. One starts mid-room and ends seated by the sink; the other begins inside the bathtub and crosses the tub instead of the threshold.", "Start with the entrance readable; cross fully inside, look tub-to-sink, and preserve the single-tub orientation."),
 	release_audit("D1-C03-S03", "REGENERATE", ["C03_S03_v1_swimming_bunny_REGEN.mp4"], "000–144", "The swimmer is coherent, but Roshan is a black silhouette/substitute and the bunny mostly holds instead of paddling visibly.", "Use approved Roshan at frame edge and one weak-but-safe paddling swimmer in murky water."),
 	release_audit("D1-C03-S04", "REGENERATE", ["C03_S04_v1_precontact_tools_REGEN.mp4"], "000–144 swimmer absent; 060–144 premature contact", "The required swimmer disappears and Roshan advances into scrub-brush contact rather than stopping at the pre-contact seam.", "Keep swimmer, tub, sink, tools, and grime; stop Roshan's hand visibly before the nearest tool."),
 	release_audit("D1-C05-S04", "REGENERATE", ["C05_S04_v1_blocked_rainbow_source_REGEN.mp4"], "000–144", "A clean empty pool becomes a bright rainbow doorway. The exact top waterfall source, dull blockage, olive-brown sludge, leaf, and wrapper are absent.", "Show the fixed top source blocked and unchanged; no glow or flow."),
-	release_audit("D1-C05-S05", "REGENERATE", ["C05_S05_v1_sick_seahorse_plug_REGEN.mp4"], "000–144", "The mouth plug is readable, but the pool is already clean and Roshan is full-body from frame 0 instead of entering only at the edge of a dirty-state close-up.", "Restore dirty algae/trash grade, right-center seahorse scale, lodged plug, and edge-only Roshan reaction."),
-	release_audit("D1-C06-S03", "REGENERATE", ["C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4"], "000–047 missing blocked start; 048–144 wrong clearing", "The waterfall starts clean; later debris becomes a central raised dark mass and the flow retracts instead of clearing from the top source downward.", "Begin blocked, ignite at the top, drive debris down the channel, and stop at the lower lip."),
-	release_audit("D1-C06-S04", "ACCEPT_MOTION_REFERENCE", ["C06_S04_v1_both_sources_pool_REGEN.mp4"], "none blocking", "Both fixed clean sources visibly enter the same giant pool and the pullback resolves the shared geometry.", "Retain this release clip for rough assembly only.", preferred="C06_S04_v1_both_sources_pool_REGEN.mp4"),
-	release_audit("D1-C06-S05", "REGENERATE", ["C06_S05_v1_purification_fronts_REGEN.mp4"], "000–144", "The pool begins clean; white V-shaped streaks replace two fronts displacing algae through murky water.", "Start dirty, advance two distinct fronts from the fixed sources, displace algae, and join once at center."),
-	release_audit("D1-C06-S06", "ACCEPT_MOTION_REFERENCE", ["C06_S06_v1_violet_prelude_REGEN.mp4"], "none blocking", "The clean giant pool, both fixtures, and localized violet center glow are coherent without revealing Rumi early.", "Retain this release clip for rough assembly only.", preferred="C06_S06_v1_violet_prelude_REGEN.mp4"),
-	release_audit("D1-C06-S08", "REGENERATE", ["C06_S08_v1_rumi_invitation_REGEN.mp4"], "104–144", "Rumi's thanks and open-arm invitation work through frame 103, but Roshan then approaches and starts the hug before the dedicated hug shot.", "Regenerate the full shot so Rumi holds open arms and Roshan remains separate through frame 144."),
-	release_audit("D1-C06-S09", "ACCEPT_MOTION_REFERENCE", ["C06_S09_v1_hug_complete_REGEN.mp4"], "none blocking", "Approach, arm contact, faces, distinct torsos, two tails, pool fixtures, and the final embrace remain coherent.", "Retain this release clip for rough assembly only.", preferred="C06_S09_v1_hug_complete_REGEN.mp4"),
+	release_audit("D1-C05-S05", "REGENERATE", ["C05_S05_v1_sick_seahorse_plug_REGEN.mp4"], "000–144", "The branch replacement clarifies the pink wrapper-and-weed plug, but the pool remains clean, Roshan is full-body from frame 0, and the wide two-shot never becomes the required dirty-state close-up.", "Restore dirty algae/trash grade, right-center seahorse scale, lodged plug, and edge-only Roshan reaction."),
+	release_audit("D1-C06-S03", "REGENERATE", ["C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4"], "000–047 missing blocked start", "The branch replacement improves downward debris travel, but begins with the rainbow waterfall already clean and flowing; the blocked cause and ignition beat are absent.", "Begin blocked, ignite at the top, drive debris down the channel, and stop at the lower lip."),
+	release_audit("D1-C06-S04", "ACCEPT_MOTION_REFERENCE", ["C06_S04_v1_both_sources_pool_REGEN.mp4"], "none blocking", "The branch replacement cleanly holds both fixed sources feeding the same giant pool with stable shared geometry.", "Retain this branch clip for rough assembly only.", preferred="C06_S04_v1_both_sources_pool_REGEN.mp4"),
+	release_audit("D1-C06-S05", "REGENERATE", ["C06_S05_v1_purification_fronts_REGEN.mp4"], "000–144", "The branch replacement begins with fully clean water and a decorative rainbow band; it never shows two clear-water fronts displacing murk from the fixed sources.", "Start dirty, advance two distinct fronts from the fixed sources, displace algae, and join once at center."),
+	release_audit("D1-C06-S06", "REGENERATE", ["C06_S06_v1_violet_prelude_REGEN.mp4"], "000–144; portal opens 072–144", "The branch replacement washes the entire pool pink/violet from frame 0, then opens a large circular portal or hole instead of raising one contained underwater glow.", "Begin on a clean aqua joined ripple; raise one soft localized violet glow, then settle it without a portal, hole, or room-wide wash."),
+	release_audit("D1-C06-S08", "ACCEPT_MOTION_REFERENCE", ["C06_S08_v1_rumi_invitation_REGEN.mp4"], "none blocking", "The branch replacement now gives Rumi a clear thanks-to-open-arms gesture while Roshan remains visibly separate through frame 144.", "Retain this branch clip for rough assembly only.", preferred="C06_S08_v1_rumi_invitation_REGEN.mp4"),
+	release_audit("D1-C06-S09", "REGENERATE", ["C06_S09_v1_hug_complete_REGEN.mp4"], "000–144", "The branch replacement starts already inside the embrace and holds it throughout, eliminating the required separate-body approach and single readable contact beat.", "Inherit the open-arm S08 endpoint, show Roshan approach once, make one clear contact, then hold distinct torsos and tails."),
 	release_audit("D1-C07-S04", "OMIT_SUPERSEDED_EVENT", ["C07_S04_v1_swinging_bunny_REGEN.mp4"], "000–144; detachment 108–144", "No swinging-bunny event exists in gameplay, and the rendered bunny loses its support before landing on the floor.", "Remove this shot from the corrected cut; do not regenerate the invented event."),
 	release_audit("D1-C07-S05", "OMIT_SUPERSEDED_EVENT", ["C07_S05_v1_partial_wing_trail_REGEN.mp4"], "000–144; full reveal 048–144", "Gameplay presents one visible Baby Eagle held by two pin bunnies; it does not hide the bird behind a partial-wing trail.", "Remove this shot from the corrected cut; do not regenerate the invented event."),
 	release_audit("D1-C07-S06", "REGENERATE", ["C07_S06_v1_pinned_baby_eagle_REGEN.mp4"], "000–144", "One Eagle is present, but neither of the two required rescue-pin bunnies is visible and the bird becomes free/upright before player action.", "Reveal exactly one Baby Eagle visibly held by exactly two distinct pin bunnies; no release yet."),
@@ -276,14 +291,14 @@ RELEASE_AUDIT = [
 	release_audit("D1-C08-S06", "REPLACE_WITH_GAME_EVENT", ["C08_S06_v1_wing_blast_clean_REGEN.mp4"], "000–144", "Baby Eagle never performs a wing-blast cleanup. Gameplay completes when Roshan clears the second pin.", "Replace with corrected C08-S04: Roshan clears the right pin and the room resolves from that contact.", replacement_shot="D1-C08-S04"),
 	release_audit("D1-C08-S07", "REPLACE_WITH_GAME_EVENT", ["C08_S07_v1_clean_endpoint_REGEN.mp4"], "000–144; side-wall drift 048–144", "The one-Eagle/four-bunny endpoint is not a game state and the room projection drifts into invented side-wall geometry.", "Replace with corrected C08-S05: Baby Eagle thanks Roshan, rises, and departs from the clean room before the picker UI.", replacement_shot="D1-C08-S05"),
 	release_audit("D1-C09-S04", "REGENERATE", ["C09_S04_v1_three_grime_cards_REGEN.mp4"], "048–144", "The Art Room front concept is close, but the left/right zones multiply into upright card groups instead of exactly one small lavender grime card at each of three fixed targets.", "Lock the exact front plate and show one card each at left counter, center desk, and right counter; Roshan points once."),
-	release_audit("D1-C09-S05", "ACCEPT_MOTION_REFERENCE", ["C09_S05_v1_precontact_brush_REGEN.mp4"], "none blocking", "The three-zone pre-contact beat, brush separation, and straight-on fixture order remain coherent.", "Retain this release clip for rough assembly only.", preferred="C09_S05_v1_precontact_brush_REGEN.mp4"),
+	release_audit("D1-C09-S05", "ACCEPT_MOTION_REFERENCE", ["C09_S05_v1_precontact_brush_REGEN.mp4"], "none blocking", "The three-zone pre-contact beat, brush separation, and straight-on fixture order remain coherent.", "Retain this branch clip for rough assembly only.", preferred="C09_S05_v1_precontact_brush_REGEN.mp4"),
 	release_audit("D1-C10-S02", "REGENERATE", ["C10_S02_v1_four_supplies_home_REGEN.mp4"], "000–144", "Supplies begin on/near the center desk and materialize at the right during the clip; ribbon and fixture topology also change.", "Place all four supplies home once at frame 0 and allow only localized station sparkle."),
 	release_audit("D1-C10-S03", "REGENERATE", ["C10_S03_v1_clean_art_room_REGEN.mp4"], "000–144", "The opening crop omits the complete layout, the pullback is far greater than ten percent, and Roshan becomes too small for a child-readable endpoint.", "Start on the complete exact front projection; limit pullback to ten percent and keep Roshan readable."),
-	release_audit("D1-C10-S05", "ACCEPT_MOTION_REFERENCE", ["C10_S05_v1_blank_desk_handgap_REGEN.mp4"], "none blocking", "The blank rectangular desk, front fixture order, raised hand, and visible hand gap remain stable.", "Retain this release clip for rough assembly only.", preferred="C10_S05_v1_blank_desk_handgap_REGEN.mp4"),
-	release_audit("D1-C11-S02", "ACCEPT_MOTION_REFERENCE", ["C11_S02_v1_boss_door_approach_REGEN.mp4"], "minor 132–144", "Main Hall geometry, Roshan, closed door, and approach are coherent; only the final hand reaches the handle instead of stopping just before it.", "Retain for rough assembly; require a clean pre-contact endpoint for final delivery.", preferred="C11_S02_v1_boss_door_approach_REGEN.mp4"),
+	release_audit("D1-C10-S05", "ACCEPT_MOTION_REFERENCE", ["C10_S05_v1_blank_desk_handgap_REGEN.mp4"], "none blocking", "The blank rectangular desk, front fixture order, raised hand, and visible hand gap remain stable.", "Retain this branch clip for rough assembly only.", preferred="C10_S05_v1_blank_desk_handgap_REGEN.mp4"),
+	release_audit("D1-C11-S02", "ACCEPT_MOTION_REFERENCE", ["C11_S02_v1_boss_door_approach_REGEN.mp4"], "132–144 trim", "Main Hall geometry, Roshan, closed door, and approach are coherent through frame 131; frames 132–144 let the hand reach the handle instead of stopping just before it.", "Use frames 000–131 only (0–5.458 s) in rough assembly; final delivery still requires a clean pre-contact endpoint.", preferred="C11_S02_v1_boss_door_approach_REGEN.mp4"),
 	release_audit("D1-C11-S03", "ACCEPT_MOTION_REFERENCE", ["C11_S03_v1_door_open_arena_REGEN.mp4"], "none blocking", "The door opens into the octagonal arena, Roshan stays at threshold, and the landing zone remains empty; exact predecessor-frame inheritance is unproven.", "Retain for rough assembly; audit the final seam independently.", preferred="C11_S03_v1_door_open_arena_REGEN.mp4"),
 	release_audit("D1-C11-S04", "REGENERATE", ["C11_S04_v1_grand_puff_lands_REGEN.mp4"], "006–071 impact/topology; 066–144 expression", "A dark crater, oversized cloud, and pancake-flat squash destabilize Grand Puff; the recovered face remains menacing and the vulnerability sparkle does not read.", "Use a soft vertical landing, at most ten-percent squash, full three-tier recovery by 2.5 seconds, cute two-teeth face, and one four-point sparkle pulse."),
-	release_audit("D1-C12-S05", "ACCEPT_MOTION_REFERENCE", ["C12_S05_v1_post_friendship_vignette_REGEN.mp4"], "minor 108–144", "Arena topology and the one-Puff/one-rainbow-bunny count are coherent; the ending closes Grand Puff's mouth and does not prove exact C13 inheritance.", "Retain for rough assembly; final delivery still needs the approved C13 endpoint and two-teeth smile.", preferred="C12_S05_v1_post_friendship_vignette_REGEN.mp4"),
+	release_audit("D1-C12-S05", "ACCEPT_MOTION_REFERENCE", ["C12_S05_v1_post_friendship_vignette_REGEN.mp4"], "optional 108–144 trim", "Arena topology and the one-Puff/one-rainbow-bunny count are coherent; the ending closes Grand Puff's mouth and does not prove exact C13 inheritance.", "Retain for rough assembly, preferably through frame 107; final delivery still needs the approved C13 endpoint and two-teeth smile.", preferred="C12_S05_v1_post_friendship_vignette_REGEN.mp4"),
 	release_audit("D1-C13-S01", "ACCEPT_MOTION_REFERENCE", ["C13_S01_v1_roshan_cleaning_pass_REGEN.mp4"], "minor causal gap 000–031", "Roshan's brush pass and identities are useful, though the initial residual dust is faint.", "Retain after locking the corrected post-third-hit, pre-implosion boundary.", preferred="C13_S01_v1_roshan_cleaning_pass_REGEN.mp4"),
 	release_audit("D1-C13-S02", "ACCEPT_MOTION_REFERENCE", ["C13_S02_v1_daddy_broad_sweep_REGEN.mp4", "C13_S02_v2_daddy_broad_sweep_REGEN.mp4"], "minor causal gap 000–031 both", "Both lack a strongly dirty opening shell; v2 has the cleaner composition and sustained Daddy sweep.", "Retain v2; reject v1 as the less stable duplicate.", preferred="C13_S02_v2_daddy_broad_sweep_REGEN.mp4"),
 	release_audit("D1-C13-S03", "REGENERATE", ["C13_S03_v1_baby_eagle_wing_blast_REGEN.mp4", "C13_S03_v2_baby_eagle_wing_blast_REGEN.mp4"], "v1 048–144; v2 000–144", "V1's cloud hides/collapses Grand Puff into a bowl; v2 preserves identity but supplies almost no visible dust lift.", "One controlled wingbeat lifts only a thin dust veil while Grand Puff remains fully visible and three-tiered."),
@@ -294,7 +309,7 @@ RELEASE_AUDIT = [
 
 RELEASE_EVIDENCE = {
 	row["replacement_shot"] or row["shot_id"]: [
-		(filename, f"release frames {row['weak_frames']}: {row['finding']}")
+		(filename, f"branch frames {row['weak_frames']}: {row['finding']}")
 		for filename in row["clips"]
 	]
 	for row in RELEASE_AUDIT
@@ -309,7 +324,7 @@ ACTIVE_SHOT_IDS = {
 	"D1-C01-S02", "D1-C02-S03",
 	"D1-C03-S02", "D1-C03-S03", "D1-C03-S04",
 	"D1-C05-S04", "D1-C05-S05",
-	"D1-C06-S03", "D1-C06-S05", "D1-C06-S08",
+	"D1-C06-S03", "D1-C06-S05", "D1-C06-S06", "D1-C06-S09",
 	"D1-C07-S06",
 	"D1-C09-S04",
 	"D1-C10-S02", "D1-C10-S03",
@@ -457,7 +472,7 @@ def _clip_url(filename: str) -> str:
 
 
 def _release_clip_url(filename: str) -> str:
-	return f"https://github.com/{REPO}/releases/download/{RELEASE_TAG}/{filename}"
+	return f"https://github.com/{REPO}/blob/{THREE_SETS_COMMIT}/clips_flat/{filename}"
 
 
 def _audit_rows(movie: str) -> list[dict]:
@@ -590,7 +605,11 @@ def _card(item: dict, prompt_sha: str) -> dict:
 		"prompt_path": "PROMPT.txt",
 		"prompt_sha256": prompt_sha,
 		"source_clip_audit": _weak_windows(item),
-		"audited_release": {"tag": RELEASE_TAG, "url": RELEASE_URL},
+		"audited_clip_branch": {
+			"branch": THREE_SETS_BRANCH,
+			"commit": THREE_SETS_COMMIT,
+			"url": THREE_SETS_URL,
+		},
 		"implemented_event_contract": {
 			"authority_path": authority_path,
 			"rule": authority_rule,
@@ -717,19 +736,19 @@ def _scene_readme(movie: str, items: list[dict]) -> str:
 		"",
 		f"- `{authority_path}`",
 		f"- {authority_rule}.",
-		"- Release MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.",
+		"- Audited branch MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.",
 		"",
-		"## New release decision",
+		"## September 4 branch decision",
 		"",
 	]
 	if audit_rows:
-		lines.extend(["| Released shot | Verdict | Exact finding | Action |", "|---|---|---|---|"])
+		lines.extend(["| Branch shot | Verdict | Exact finding | Action |", "|---|---|---|---|"])
 		for row in audit_rows:
 			links = ", ".join(f"[{name}]({_release_clip_url(name)})" for name in row["clips"])
 			lines.append(f"| {row['shot_id']} ({links}) | `{row['verdict']}` | Frames {row['weak_frames']}: {row['finding']} | {row['next_action']} |")
 	else:
-		lines.append("- This release contains no clip for the scene.")
-	lines.extend(["", "## Accepted from the new release for rough motion", ""])
+		lines.append("- This branch contains no clip for the scene.")
+	lines.extend(["", "## Accepted from the September 4 branch for rough motion", ""])
 	if accepted:
 		for row in accepted:
 			preferred = row["preferred_clip"] or row["clips"][0]
@@ -763,7 +782,7 @@ def _scene_readme(movie: str, items: list[dict]) -> str:
 			shot_id = item["shot_id"]
 			lines.append(f"| {shot_id} | {label} | [{shot_id} card](shots/{shot_id}/SHOT_PACKET.json) | [weak frames and rebuild](shots/{shot_id}/RECONSTRUCTION.md) |")
 	else:
-		lines.append("- None. Every released shot for this scene either passed the loose motion-reference audit or was removed because its event does not belong in the corrected cut.")
+		lines.append("- None. Every branch shot for this scene either passed the loose motion-reference audit or was removed because its event does not belong in the corrected cut.")
 	if reject:
 		lines.extend(["", "## Reject as continuity authority", ""])
 		for filename in reject:
@@ -839,15 +858,15 @@ def build() -> None:
 			"regeneration_guide": f"assets_src/cinematics/day_one_grok_regeneration_handoffs_{DATE}/scenes/{movie}/README.md",
 			"retain_rough": KEEP.get(movie, []),
 			"reject_as_authority": REJECT.get(movie, []),
-			"release_motion_references_accepted": [
+			"branch_motion_references_accepted": [
 				row["preferred_clip"] for row in scene_audit
 				if row["verdict"] == "ACCEPT_MOTION_REFERENCE"
 			],
-			"release_events_omitted": [
+			"branch_events_omitted": [
 				row["shot_id"] for row in scene_audit
 				if row["verdict"] == "OMIT_SUPERSEDED_EVENT"
 			],
-			"release_events_replaced": [
+			"branch_events_replaced": [
 				{"released_shot": row["shot_id"], "replacement_shot": row["replacement_shot"]}
 				for row in scene_audit if row["verdict"] == "REPLACE_WITH_GAME_EVENT"
 			],
@@ -857,9 +876,11 @@ def build() -> None:
 		"schema": "day-one-grok-selective-regeneration-index-v1",
 		"date": DATE,
 		"source_visual_archive_commit": SOURCE_COMMIT,
-		"audited_clip_commit": CLIP_COMMIT,
-		"audited_release_tag": RELEASE_TAG,
-		"audited_release_url": RELEASE_URL,
+		"audited_clip_commit": THREE_SETS_COMMIT,
+		"audited_clip_branch": THREE_SETS_BRANCH,
+		"audited_clip_tree": THREE_SETS_URL,
+		"comparison_release_tag": RELEASE_TAG,
+		"comparison_release_url": RELEASE_URL,
 		"claims": {
 			"archive_complete": True,
 			"regeneration_guide_complete": True,
@@ -896,6 +917,7 @@ def build() -> None:
 				"shot_id": row["shot_id"],
 				"filename": filename,
 				"url": _release_clip_url(filename),
+				"changed_from_comparison_release": filename in THREE_SETS_CHANGED_FROM_RELEASE,
 				"dimensions": [1280, 720],
 				"frame_rate": 24,
 				"frame_count": 145,
@@ -907,10 +929,14 @@ def build() -> None:
 				"replacement_shot": row["replacement_shot"],
 			})
 	release_audit_index = {
-		"schema": "day-one-regen-release-motion-audit-v1",
-		"release_tag": RELEASE_TAG,
-		"release_url": RELEASE_URL,
-		"review_basis": "all 40 files inspected at 24 fps against current runtime event logic, source visual packets, and the prior regeneration cards",
+		"schema": "day-one-regen-three-sets-motion-audit-v1",
+		"branch": THREE_SETS_BRANCH,
+		"commit": THREE_SETS_COMMIT,
+		"branch_tree": THREE_SETS_URL,
+		"comparison_release_tag": RELEASE_TAG,
+		"comparison_release_url": RELEASE_URL,
+		"files_changed_from_release": sorted(THREE_SETS_CHANGED_FROM_RELEASE),
+		"review_basis": "all 40 branch-exact files inspected at 24 fps against current runtime event logic, source visual packets, and the prior regeneration cards",
 		"claims": {
 			"motion_reference_review_complete": True,
 			"generation_ready": False,
@@ -927,21 +953,24 @@ def build() -> None:
 		encoding="utf-8", newline="\n")
 
 	audit_md = [
-		"# New draft release audit — Day One selective regeneration",
+		"# September 4 three-set branch audit — Day One selective regeneration",
 		"",
-		f"Release audited: [{RELEASE_TAG}]({RELEASE_URL})",
+		f"Branch audited: [{THREE_SETS_BRANCH}]({THREE_SETS_URL}) at `{THREE_SETS_COMMIT}`.",
+		"",
+		f"Comparison release: [{RELEASE_TAG}]({RELEASE_URL}). Eight branch files reuse release filenames but contain different bytes: {', '.join(sorted(THREE_SETS_CHANGED_FROM_RELEASE))}.",
 		"",
 		"> `MOTION_REFERENCE_REVIEW_COMPLETE`: true  ",
 		"> `GENERATION_READY`: false  ",
 		"> `DELIVERY_ACCEPTED`: false",
 		"",
-		f"All {len(clip_records)} MP4 files ({len(RELEASE_AUDIT)} unique shots) were inspected at 1280×720, 24 fps, 145 frames, and 6.041667 seconds. The loose audit retains {audit_counts['ACCEPT_MOTION_REFERENCE']} shots for rough motion, sends {audit_counts['REGENERATE']} shots back for direct repair, replaces {audit_counts['REPLACE_WITH_GAME_EVENT']} stale Stuffie beats with implemented events, and removes {audit_counts['OMIT_SUPERSEDED_EVENT']} invented discovery beats from the cut.",
+		f"All {len(clip_records)} branch-exact MP4 files ({len(RELEASE_AUDIT)} unique shots) were inspected at 1280×720, 24 fps, 145 frames, and 6.041667 seconds. The loose audit retains {audit_counts['ACCEPT_MOTION_REFERENCE']} shots for rough motion, sends {audit_counts['REGENERATE']} shots back for direct repair, replaces {audit_counts['REPLACE_WITH_GAME_EVENT']} stale Stuffie beats with implemented events, and removes {audit_counts['OMIT_SUPERSEDED_EVENT']} invented discovery beats from the cut.",
+		"The branch-exact review changes the prior release verdicts where the bytes changed: C06-S06 and C06-S09 re-enter the regeneration queue, while the improved C06-S08 exits it as a usable open-arm motion reference. C01-S03 and C06-S04 also improve enough to remain in rough assembly.",
 		"",
 		"`ACCEPT_MOTION_REFERENCE` is not final acceptance. It only means the action is useful in a rough edit. Full-frame provenance, identity, endpoint, and human review remain blocking.",
 		"",
 		"## Shot-by-shot findings",
 		"",
-		"| Shot | Release files | Verdict | Weak frames | Detailed finding | Corrective disposition |",
+		"| Shot | Branch files | Verdict | Weak frames | Detailed finding | Corrective disposition |",
 		"|---|---|---|---|---|---|",
 	]
 	for row in RELEASE_AUDIT:
@@ -957,7 +986,7 @@ def build() -> None:
 		"",
 		"## Machine record",
 		"",
-		"- [Per-file release audit](AUDITED_RELEASE_ASSETS.json)",
+		"- [Per-file branch audit](AUDITED_RELEASE_ASSETS.json)",
 		"- [Only the remaining regeneration shots](SHOT_REGENERATION_INDEX.csv)",
 	])
 	(OVERLAY / "NEW_DRAFT_AUDIT.md").write_text(
@@ -971,9 +1000,9 @@ def build() -> None:
 		"> `GENERATION_READY`: false  ",
 		"> `DELIVERY_ACCEPTED`: false",
 		"",
-		f"[Open the detailed audit of all 40 release files](NEW_DRAFT_AUDIT.md) from [{RELEASE_TAG}]({RELEASE_URL}).",
+		f"[Open the detailed audit of all 40 branch-exact files](NEW_DRAFT_AUDIT.md) from [{THREE_SETS_BRANCH}]({THREE_SETS_URL}).",
 		"",
-		f"This is the looser, production-practical result: {audit_counts['ACCEPT_MOTION_REFERENCE']} of 36 unique release shots remain useful for rough motion, {audit_counts['REGENERATE']} need direct reconstruction, {audit_counts['REPLACE_WITH_GAME_EVENT']} stale Stuffie beats are replaced by current game events, and {audit_counts['OMIT_SUPERSEDED_EVENT']} invented discovery beats are removed. The queue below contains only the {len(SHOTS)} shots that now need generation.",
+		f"This is the looser, production-practical result: {audit_counts['ACCEPT_MOTION_REFERENCE']} of 36 unique branch shots remain useful for rough motion, {audit_counts['REGENERATE']} need direct reconstruction, {audit_counts['REPLACE_WITH_GAME_EVENT']} stale Stuffie beats are replaced by current game events, and {audit_counts['OMIT_SUPERSEDED_EVENT']} invented discovery beats are removed. The queue below contains only the {len(SHOTS)} shots that now need generation.",
 		"",
 		"Every replacement remains one separate full-frame 1280×720 Grok job and a motion/editorial reference until the independent delivery audit passes.",
 		"",
@@ -987,11 +1016,11 @@ def build() -> None:
 		omitted_count = sum(1 for row in scene_audit if row["verdict"] == "OMIT_SUPERSEDED_EVENT")
 		decision = f"{count} regeneration card{'s' if count != 1 else ''}"
 		if accepted_count:
-			decision += f"; {accepted_count} release shot{'s' if accepted_count != 1 else ''} retained for motion"
+			decision += f"; {accepted_count} branch shot{'s' if accepted_count != 1 else ''} retained for motion"
 		if omitted_count:
 			decision += f"; {omitted_count} stale beat{'s' if omitted_count != 1 else ''} removed"
 		if not count and not accepted_count and not omitted_count:
-			decision = "no release change; retain earlier rough plan"
+			decision = "no branch change; retain earlier rough plan"
 		readme.append(f"| {movie} | {decision} | [Open updated {movie} handoff](scenes/{movie}/README.md) |")
 	readme.extend([
 		"",
@@ -999,7 +1028,7 @@ def build() -> None:
 		"",
 		"Open one scene link, choose a replacement shot, review its exact weak-frame diagnosis, bind the planned two to four images, and paste its prompt. The DRAFT card states the precise missing IMAGE_1. Do not generate downstream continuous shots until the preceding endpoint is accepted.",
 		"",
-		"- [Detailed new-release critique](NEW_DRAFT_AUDIT.md)",
+		"- [Detailed September 4 three-set critique](NEW_DRAFT_AUDIT.md)",
 		"- [Per-file machine audit](AUDITED_RELEASE_ASSETS.json)",
 		"- [Sol master audit and priority order](SOL_MASTER_AUDIT.md)",
 		"- [Machine-readable index](INDEX.json)",
@@ -1013,13 +1042,13 @@ def build() -> None:
 
 	audit = f"""# Sol master audit — selective Day One regeneration
 
-Three Luna audits reviewed all 40 release files at frame level; Sol reconciled them against the runtime state machine, source archives, and the owner's cooperative C13 extension. The threshold is deliberately loose for rough-cut motion and strict for event truth: polish cannot rescue the wrong game event.
+Three Luna audits reviewed all 40 branch-exact files at frame level; Sol reconciled them against the runtime state machine, source archives, and the owner's cooperative C13 extension. Eight September 4 files differ from the September 3 release despite sharing filenames. The threshold is deliberately loose for rough-cut motion and strict for event truth: polish cannot rescue the wrong game event.
 
 ## Outcome
 
 - `{audit_counts['ACCEPT_MOTION_REFERENCE']}` unique shots are retained as motion/editorial references.
-- `{audit_counts['REGENERATE']}` released shots require direct reconstruction.
-- `{audit_counts['REPLACE_WITH_GAME_EVENT']}` released Stuffie beats are replaced by the actual two-pin rescue.
+- `{audit_counts['REGENERATE']}` branch shots require direct reconstruction.
+- `{audit_counts['REPLACE_WITH_GAME_EVENT']}` branch Stuffie beats are replaced by the actual two-pin rescue.
 - `{audit_counts['OMIT_SUPERSEDED_EVENT']}` discovery beats are removed because the events do not happen.
 - `{len(SHOTS)}` DRAFT cards remain. Accepted and omitted shots have no card in this queue.
 
@@ -1028,7 +1057,7 @@ Three Luna audits reviewed all 40 release files at frame level; Sol reconciled t
 1. **P0 event correction:** C07-S06 → corrected C08-S01–S05. One Baby Eagle, two rescue pins, two Roshan contacts, clean-room resolve, Baby Eagle thanks/rises/departs. Never generate baskets, four emerging bunnies, or a wing-blast cleanup.
 2. **P0 topology and state:** C02-S03, C03-S02–S04, C05-S04/S05, C09-S04, C10-S02/S03. Start from the exact room projection and exact dirty/clean state; never use labeled evidence, substituted silhouettes, flying supplies, or incomplete Art Room framing.
 3. **P0 boss continuity:** C11-S04, C13-S03, C13-S05. C13 begins after the third successful round but before FRIENDS implosion completes, preventing an intact giant from reappearing after vanishing.
-4. **P1 causal action:** C01-S02 and C06-S03/S05/S08. Each shot must show its physical cause and stop on the intended seam; the dedicated hug remains C06-S09.
+4. **P1 causal action:** C01-S02 and C06-S03/S05/S06/S09. Each shot must show its physical cause and stop on the intended seam. The branch replacement for C06-S08 now holds a usable open-arm endpoint; C06-S09 must begin there and show the approach/contact rather than starting in the hug.
 
 ## Exact topology locks
 
@@ -1063,9 +1092,9 @@ All remaining cards are `DRAFT`. Exact clean shot-opening frames still require h
 		elif path.name == "SOL_MASTER_AUDIT.md":
 			role = "sol_master_review"
 		elif path.name == "NEW_DRAFT_AUDIT.md":
-			role = "frame_level_release_audit"
+			role = "frame_level_branch_audit"
 		elif path.name == "AUDITED_RELEASE_ASSETS.json":
-			role = "machine_readable_release_audit"
+			role = "machine_readable_branch_audit"
 		else:
 			role = "machine_readable_index"
 		payload_records.append({"path": relative, "role": role, "sha256": sha})
@@ -1089,10 +1118,12 @@ All remaining cards are `DRAFT`. Exact clean shot-opening frames still require h
 			"index": f"https://github.com/{REPO}/tree/{SOURCE_COMMIT}/assets_src/cinematics/day_one_grok_visual_handoffs_2026-09-02",
 		},
 		"audited_clip_source": {
-			"commit": CLIP_COMMIT,
-			"tree": f"https://github.com/{REPO}/tree/{CLIP_COMMIT}/clips",
+			"branch": THREE_SETS_BRANCH,
+			"commit": THREE_SETS_COMMIT,
+			"tree": THREE_SETS_URL,
+			"files_changed_from_comparison_release": sorted(THREE_SETS_CHANGED_FROM_RELEASE),
 		},
-		"audited_release_source": {
+		"comparison_release_source": {
 			"tag": RELEASE_TAG,
 			"release": RELEASE_URL,
 			"clip_count": sum(len(row["clips"]) for row in RELEASE_AUDIT),
@@ -1108,9 +1139,9 @@ def validate() -> None:
 	if len(RELEASE_AUDIT) != 36:
 		raise AssertionError(f"expected 36 audited shots, found {len(RELEASE_AUDIT)}")
 	if sum(len(row["clips"]) for row in RELEASE_AUDIT) != 40:
-		raise AssertionError("expected 40 audited release files")
-	if len(SHOTS) != 22:
-		raise AssertionError(f"expected 22 remaining cards, found {len(SHOTS)}")
+		raise AssertionError("expected 40 audited branch files")
+	if len(SHOTS) != 23:
+		raise AssertionError(f"expected 23 remaining cards, found {len(SHOTS)}")
 	generated_card_paths = list(OVERLAY.glob("scenes/*/shots/*/SHOT_PACKET.json"))
 	if len(generated_card_paths) != len(SHOTS):
 		raise AssertionError(

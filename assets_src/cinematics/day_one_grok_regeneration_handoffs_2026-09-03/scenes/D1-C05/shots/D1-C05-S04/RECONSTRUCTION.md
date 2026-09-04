@@ -6,7 +6,7 @@
 
 ## Why this shot is being rebuilt
 
-- [C05_S04_v1_blocked_rainbow_source_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C05_S04_v1_blocked_rainbow_source_REGEN.mp4): release frames 000–144: A clean empty pool becomes a bright rainbow doorway. The exact top waterfall source, dull blockage, olive-brown sludge, leaf, and wrapper are absent.
+- [C05_S04_v1_blocked_rainbow_source_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C05_S04_v1_blocked_rainbow_source_REGEN.mp4): branch frames 000–144: A clean empty pool becomes a bright rainbow doorway. The exact top waterfall source, dull blockage, olive-brown sludge, leaf, and wrapper are absent.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
 

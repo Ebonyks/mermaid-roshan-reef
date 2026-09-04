@@ -6,7 +6,7 @@
 
 ## Why this shot is being rebuilt
 
-- [C03_S03_v1_swimming_bunny_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C03_S03_v1_swimming_bunny_REGEN.mp4): release frames 000–144: The swimmer is coherent, but Roshan is a black silhouette/substitute and the bunny mostly holds instead of paddling visibly.
+- [C03_S03_v1_swimming_bunny_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C03_S03_v1_swimming_bunny_REGEN.mp4): branch frames 000–144: The swimmer is coherent, but Roshan is a black silhouette/substitute and the bunny mostly holds instead of paddling visibly.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
 

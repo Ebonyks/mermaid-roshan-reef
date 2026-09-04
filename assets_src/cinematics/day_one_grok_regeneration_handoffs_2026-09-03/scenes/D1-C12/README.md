@@ -11,17 +11,17 @@
 
 - `scripts/games/dust_boss.gd`
 - the FRIENDS result is harmless and positive; this recap remains motion reference until its inherited endpoint is accepted.
-- Release MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
+- Audited branch MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
 
-## New release decision
+## September 4 branch decision
 
-| Released shot | Verdict | Exact finding | Action |
+| Branch shot | Verdict | Exact finding | Action |
 |---|---|---|---|
-| D1-C12-S05 ([C12_S05_v1_post_friendship_vignette_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C12_S05_v1_post_friendship_vignette_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames minor 108–144: Arena topology and the one-Puff/one-rainbow-bunny count are coherent; the ending closes Grand Puff's mouth and does not prove exact C13 inheritance. | Retain for rough assembly; final delivery still needs the approved C13 endpoint and two-teeth smile. |
+| D1-C12-S05 ([C12_S05_v1_post_friendship_vignette_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C12_S05_v1_post_friendship_vignette_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames optional 108–144 trim: Arena topology and the one-Puff/one-rainbow-bunny count are coherent; the ending closes Grand Puff's mouth and does not prove exact C13 inheritance. | Retain for rough assembly, preferably through frame 107; final delivery still needs the approved C13 endpoint and two-teeth smile. |
 
-## Accepted from the new release for rough motion
+## Accepted from the September 4 branch for rough motion
 
-- [C12_S05_v1_post_friendship_vignette_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C12_S05_v1_post_friendship_vignette_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
+- [C12_S05_v1_post_friendship_vignette_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C12_S05_v1_post_friendship_vignette_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
 
 ## Earlier rough references still retained
 
@@ -33,7 +33,7 @@
 
 ## Regenerate — complete active queue
 
-- None. Every released shot for this scene either passed the loose motion-reference audit or was removed because its event does not belong in the corrected cut.
+- None. Every branch shot for this scene either passed the loose motion-reference audit or was removed because its event does not belong in the corrected cut.
 
 ## Reject as continuity authority
 

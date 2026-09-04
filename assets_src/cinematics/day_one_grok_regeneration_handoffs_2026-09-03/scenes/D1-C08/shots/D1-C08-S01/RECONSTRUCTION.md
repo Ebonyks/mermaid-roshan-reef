@@ -6,7 +6,7 @@
 
 ## Why this shot is being rebuilt
 
-- [C08_S02_v1_left_basket_ears_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C08_S02_v1_left_basket_ears_REGEN.mp4): release frames 000–144: Basket warnings do not occur in gameplay; the bunny body is already outside the basket.
+- [C08_S02_v1_left_basket_ears_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C08_S02_v1_left_basket_ears_REGEN.mp4): branch frames 000–144: Basket warnings do not occur in gameplay; the bunny body is already outside the basket.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
 
