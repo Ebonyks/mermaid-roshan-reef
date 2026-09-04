@@ -1,0 +1,98 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C13",
+  "shot_id": "D1-C13-S05",
+  "title": "Separate rainbow dust bunny emerges",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "approved arena geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C13",
+      "source_packet": "d1_c13_grand_puff_friendship_completion_visual_v1",
+      "path": "handoff_art/location/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+      "sha256": "ba0048fc93bc8cf752d0424200a1d1a0c03676ed78916a0c3bf335a60ec6a74e",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/location/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C13-S04 clean-Grand-Puff/prismatic-cradle endpoint; generation remains blocked until the rainbow bunny identity is human approved",
+      "source_authority_is_not_automatic_first_frame_approval": true
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Grand Puff identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C13",
+      "source_packet": "d1_c13_grand_puff_friendship_completion_visual_v1",
+      "path": "handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "dedicated human-approved rainbow bunny identity",
+      "status": "missing_human_approved_authority",
+      "required": "dedicated approved rainbow dust bunny identity; the generated concept and MP4 are not pixel authorities"
+    }
+  ],
+  "start_frame": "IMAGE_1 after the blocking shot-opening approval",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "one approved rainbow bunny emerges visibly from one tiny floor cradle and settles",
+  "must_not_move": "arena, platform, lamps, clean Grand Puff topology, prismatic cradle, exact two-character count, and floor contacts",
+  "end_state": "a clean unchanged Grand Puff and exactly one calm separate rainbow dust bunny rest together",
+  "negative_constraints": "no Roshan, Daddy, Rumi, Baby Eagle, tall canopy, chair, cart, arch, smoke cloud, occluded reveal, Grand Puff morph, second bunny, unapproved identity, merged body, arena change, attack, text, or HUD",
+  "sound_intent": "soft poof, warm rainbow chime, and a friendly two-note cadence; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "349670274bcffb8448d507642798d11a74e8a28739fdf846db0c0edae4cb7643",
+  "source_clip_audit": [
+    {
+      "source_clip": "C13_S05_v1_rainbow_bunny_emerges_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C13_S05_v1_rainbow_bunny_emerges_REGEN.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "release frames 000–047 cradle; 048–071 occlusion; identity 000–144: The floor cradle becomes a tall canopy/chair, multicolor smoke obscures emergence, and the bunny remains an unapproved identity stand-in."
+    }
+  ],
+  "audited_release": {
+    "tag": "day1-regen-motion-ref-2026-09-03",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03"
+  },
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/dust_boss.gd plus owner-directed C13 extension",
+    "rule": "insert the cooperative coda immediately after the third successful round and before the FRIENDS implosion completes; never reconstitute Grand Puff after he has vanished"
+  },
+  "blocking_findings": [
+    "IMAGE_1 is not yet bound to the required accepted D1-C13-S04 clean-Grand-Puff/prismatic-cradle endpoint; generation remains blocked until the rainbow bunny identity is human approved",
+    "Sol/human approval of the clean full-frame opening and predecessor continuity is still required",
+    "dedicated rainbow dust bunny identity authority is missing and must be approved before generation"
+  ],
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "luna_parallel_audit": true,
+    "sol_master_review": true,
+    "reviewed_at": "2026-09-03",
+    "criteria": "loose rough-cut retention with strict geometry, identity, count, causality, and endpoint repair"
+  }
+}

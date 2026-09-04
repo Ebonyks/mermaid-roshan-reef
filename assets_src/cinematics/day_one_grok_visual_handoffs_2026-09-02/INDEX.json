@@ -1,11 +1,17 @@
 {
   "schema": "day-one-grok-visual-handoff-index-v1",
   "date": "2026-09-02",
-  "archive_commit": "b8594d8aa04b6f2e0d3776b2e1805e2cc120b518",
+  "archive_commit": "7ae52a25b0d3699239da0bfe0b1b1b47e2272be4",
   "claims": {
     "archive_complete": true,
     "generation_ready": false,
     "delivery_accepted": false
+  },
+  "selective_regeneration_overlay": {
+    "date": "2026-09-03",
+    "path": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/README.md",
+    "status": "draft_shot_cards_pending_approved_opening_frames",
+    "source_clip_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36"
   },
   "scenes": [
     {
@@ -91,7 +97,7 @@
       "title": "Grand Puff Friendship Completion",
       "packet": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1",
       "readme": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/README.md",
-      "status": "provisional_unpublished"
+      "status": "archive_complete_generation_blocked"
     }
   ],
   "remote_verification": {

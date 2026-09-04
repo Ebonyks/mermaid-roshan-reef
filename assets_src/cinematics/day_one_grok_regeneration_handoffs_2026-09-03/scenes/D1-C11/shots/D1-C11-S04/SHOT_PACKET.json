@@ -1,0 +1,103 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C11",
+  "shot_id": "D1-C11-S04",
+  "title": "Grand Puff lands in the fixed arena",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "approved arena geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C13",
+      "source_packet": "d1_c13_grand_puff_friendship_completion_visual_v1",
+      "path": "handoff_art/location/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+      "sha256": "ba0048fc93bc8cf752d0424200a1d1a0c03676ed78916a0c3bf335a60ec6a74e",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/location/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C11-S03 empty-arena landing-zone endpoint",
+      "source_authority_is_not_automatic_first_frame_approval": true
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Grand Puff identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C11",
+      "source_packet": "d1_c11_grand_puff_reveal_visual_v1",
+      "path": "handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c11_grand_puff_reveal_visual_v1/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C11",
+      "source_packet": "d1_c11_grand_puff_reveal_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c11_grand_puff_reveal_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "start_frame": "IMAGE_1 after the blocking shot-opening approval",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "one soft vertical landing, one limited squash-and-recovery, and one vulnerability sparkle pulse",
+  "must_not_move": "arena topology, landing zone, Roshan's safe edge position, Grand Puff tiers, ears, paws, face, and teeth",
+  "end_state": "Grand Puff is fully upright, three-tiered, cute, smiling with two teeth, and centered in the unchanged arena",
+  "negative_constraints": "no crater, dark hole, opaque cloud, pancake flattening, top crop, scale growth, missing tier, menacing brow, angry face, attack, arena morph, text, or HUD",
+  "sound_intent": "soft puffy landing, comic bounce, and a bright tell chime; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "3f6254c8291395a60f34594e26272d57bed3d080b11a7edaca7ddd41efa5113d",
+  "source_clip_audit": [
+    {
+      "source_clip": "C11_S04_v1_grand_puff_lands_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C11_S04_v1_grand_puff_lands_REGEN.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "release frames 006–071 impact/topology; 066–144 expression: A dark crater, oversized cloud, and pancake-flat squash destabilize Grand Puff; the recovered face remains menacing and the vulnerability sparkle does not read."
+    }
+  ],
+  "audited_release": {
+    "tag": "day1-regen-motion-ref-2026-09-03",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03"
+  },
+  "implemented_event_contract": {
+    "authority_path": "scripts/day_one_director.gd and scripts/games/dust_boss.gd",
+    "rule": "all four rooms arm the boss door; the empty octagonal arena precedes Grand Puff's soft showing"
+  },
+  "blocking_findings": [
+    "IMAGE_1 is not yet bound to the required accepted D1-C11-S03 empty-arena landing-zone endpoint",
+    "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"
+  ],
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "luna_parallel_audit": true,
+    "sol_master_review": true,
+    "reviewed_at": "2026-09-03",
+    "criteria": "loose rough-cut retention with strict geometry, identity, count, causality, and endpoint repair"
+  }
+}

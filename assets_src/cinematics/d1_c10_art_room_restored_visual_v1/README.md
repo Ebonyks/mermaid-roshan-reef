@@ -40,9 +40,9 @@ This sheet records the permitted location projection and state continuity. It is
 
 ![Approved location authority](handoff_art/location/room_craft_room_background.png)
 
-- Fixed entrance/exit geography, landmark order, fixture count, and scale.
-- Generated angles must describe one connected volume.
-- Reject invented doors, basins, platforms, duplicated fixtures, or room rotation.
+- The approved camera family is the single straight-on runtime front projection.
+- Preserve the two windows, two columns, chandelier, ribbon rack, shell board, rectangular center desk, rear shelves, and two foreground counters.
+- Reject interior doors, reverse/side walls, round furniture, duplicated fixtures, or room rotation.
 
 ## Written guides
 

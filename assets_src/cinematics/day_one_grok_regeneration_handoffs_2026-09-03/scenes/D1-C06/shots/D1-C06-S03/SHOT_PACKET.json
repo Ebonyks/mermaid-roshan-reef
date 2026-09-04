@@ -1,0 +1,91 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C06",
+  "shot_id": "D1-C06-S03",
+  "title": "Rainbow waterfall restarts top-down",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "pool geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/location/room_mermaid_pool_background.png",
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/location/room_mermaid_pool_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted blocked-source endpoint inherited from D1-C05-S04",
+      "source_authority_is_not_automatic_first_frame_approval": true
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "restored waterfall identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/objects/mermaid_pool_waterfall_rest.png",
+      "sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/objects/mermaid_pool_waterfall_rest.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "start_frame": "IMAGE_1 after the blocking shot-opening approval",
+  "camera": {
+    "verb": "gentle downward tilt",
+    "move_count": 1
+  },
+  "must_move": "one top-down clearing front",
+  "must_not_move": "fixture position, arches, flow direction, pool scale, and dirty room outside the cleared band",
+  "end_state": "clean rainbow reaches the lower lip without changing the rest of the room",
+  "negative_constraints": "no bottom-up start, instant clean room, separate basin, seahorse, Rumi, text, or HUD",
+  "sound_intent": "rising water rush and crystalline sweep; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "1eaf6993026f4e19bf4a1ad13cf757bf80be3f594a474a12de3591437ccec235",
+  "source_clip_audit": [
+    {
+      "source_clip": "C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "release frames 000–047 missing blocked start; 048–144 wrong clearing: The waterfall starts clean; later debris becomes a central raised dark mass and the flow retracts instead of clearing from the top source downward."
+    }
+  ],
+  "audited_release": {
+    "tag": "day1-regen-motion-ref-2026-09-03",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03"
+  },
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/day_one_pool_cleanup.gd",
+    "rule": "pool_surface → waterfall → seahorse is the fixed order; Rumi rises only after all three complete"
+  },
+  "blocking_findings": [
+    "IMAGE_1 is not yet bound to the required accepted blocked-source endpoint inherited from D1-C05-S04",
+    "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"
+  ],
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "luna_parallel_audit": true,
+    "sol_master_review": true,
+    "reviewed_at": "2026-09-03",
+    "criteria": "loose rough-cut retention with strict geometry, identity, count, causality, and endpoint repair"
+  }
+}

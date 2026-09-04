@@ -1,0 +1,103 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C06",
+  "shot_id": "D1-C06-S08",
+  "title": "Rumi thanks Roshan and opens her arms",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "clean pool geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/location/room_mermaid_pool_background.png",
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/location/room_mermaid_pool_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C06-S07 Rumi reveal endpoint",
+      "source_authority_is_not_automatic_first_frame_approval": true
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Rumi identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "start_frame": "IMAGE_1 after the blocking shot-opening approval",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "Rumi makes one thanks-to-invitation gesture",
+  "must_not_move": "Rumi and Roshan identities, scale, faces, hands, continuous tails, pool, and both streams",
+  "end_state": "Rumi's arms are open and Roshan remains separate before the hug",
+  "negative_constraints": "no subtitles, synthetic dialogue, hand deformation, extra cast, fused bodies, text, or HUD",
+  "sound_intent": "quiet water and warm music; final family dialogue added later",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "6ee217dd0ef6651abd72d1c22b182d5fc568caab819bf211dbb441021d460004",
+  "source_clip_audit": [
+    {
+      "source_clip": "C06_S08_v1_rumi_invitation_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S08_v1_rumi_invitation_REGEN.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "release frames 104–144: Rumi's thanks and open-arm invitation work through frame 103, but Roshan then approaches and starts the hug before the dedicated hug shot."
+    }
+  ],
+  "audited_release": {
+    "tag": "day1-regen-motion-ref-2026-09-03",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03"
+  },
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/day_one_pool_cleanup.gd",
+    "rule": "pool_surface → waterfall → seahorse is the fixed order; Rumi rises only after all three complete"
+  },
+  "blocking_findings": [
+    "IMAGE_1 is not yet bound to the required accepted D1-C06-S07 Rumi reveal endpoint",
+    "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"
+  ],
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "luna_parallel_audit": true,
+    "sol_master_review": true,
+    "reviewed_at": "2026-09-03",
+    "criteria": "loose rough-cut retention with strict geometry, identity, count, causality, and endpoint repair"
+  }
+}

@@ -1,0 +1,462 @@
+{
+  "schema": "day-one-grok-selective-regeneration-packet-v1",
+  "packet_id": "day_one_grok_regeneration_handoffs_2026-09-03",
+  "date": "2026-09-03",
+  "runtime_asset": false,
+  "used_as_delivery_pixels": false,
+  "payload_sha256": "d8a65d6ea2444daa5a424b22afe1854f80b8b58996e46c57202ff712b8ee3509",
+  "payload_hash_formula": "SHA256 of UTF-8 sorted <relative_path>|<lowercase_sha256>\\n records; excludes this manifest and the separate remote verification record",
+  "claims": {
+    "source_archive_complete": true,
+    "regeneration_guide_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "source_visual_archive": {
+    "commit": "076661afb9e092627eb5dfae7c39fecb27463892",
+    "index": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/day_one_grok_visual_handoffs_2026-09-02"
+  },
+  "audited_clip_source": {
+    "commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+    "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips"
+  },
+  "audited_release_source": {
+    "tag": "day1-regen-motion-ref-2026-09-03",
+    "release": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03",
+    "clip_count": 40,
+    "unique_shot_count": 36
+  },
+  "assets": [
+    {
+      "path": "AUDITED_RELEASE_ASSETS.json",
+      "role": "machine_readable_release_audit",
+      "sha256": "ddb410a9cd8ba310d7d0664029df75c6fa24058c8792e81ba17e09c2233497a8"
+    },
+    {
+      "path": "INDEX.json",
+      "role": "machine_readable_index",
+      "sha256": "a7c5b6f9c030795dd8975b3ecf58631dd10b42c0b2ae7decc7f79cfa170b313b"
+    },
+    {
+      "path": "NEW_DRAFT_AUDIT.md",
+      "role": "frame_level_release_audit",
+      "sha256": "c88d52531b8e0fd09bb21dbf2951cab7e357910f776bc81f30f7f5391d0d1c94"
+    },
+    {
+      "path": "README.md",
+      "role": "operator_index_or_scene_handoff",
+      "sha256": "0a8cd59514f511619bfb42c5ee2b1fa39aef16d5e976900c5547adcbf71cb5ca"
+    },
+    {
+      "path": "SHOT_REGENERATION_INDEX.csv",
+      "role": "machine_readable_index",
+      "sha256": "70eaa7422cb75f3205bc83c4f4451ca2f5aca4b515a21e46813311c18d517114"
+    },
+    {
+      "path": "SOL_MASTER_AUDIT.md",
+      "role": "sol_master_review",
+      "sha256": "84ecf8d79229256a5cd8ff22ddca4d502190144302c5761e01b790b2ef765d10"
+    },
+    {
+      "path": "scenes/D1-C00/README.md",
+      "role": "operator_index_or_scene_handoff",
+      "sha256": "8925050726987994a97d805b9156711d19700d327ec607716641152db1055747"
+    },
+    {
+      "path": "scenes/D1-C01/README.md",
+      "role": "operator_index_or_scene_handoff",
+      "sha256": "c073d81fd8a48e33a35166fd6132ba60f005557d98392d7613843a17e542a21a"
+    },
+    {
+      "path": "scenes/D1-C01/shots/D1-C01-S02/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "8fb3a141af172550c83aa55ac6c38bf350c87c5b3d766628665682cd329f2e87"
+    },
+    {
+      "path": "scenes/D1-C01/shots/D1-C01-S02/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "e2ca380b97a61a142b331addc14c38bd1f8216ed922a7f7c65b628d19e5256fb"
+    },
+    {
+      "path": "scenes/D1-C01/shots/D1-C01-S02/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "ae8cfa0d332699fb7045209d8e671b66e52076e23a974fbc431e7c9928442083"
+    },
+    {
+      "path": "scenes/D1-C02/README.md",
+      "role": "operator_index_or_scene_handoff",
+      "sha256": "084dcbe13cd69533e1b3221ac641d59d7092d71f1dbe99a69d605c82063cf206"
+    },
+    {
+      "path": "scenes/D1-C02/shots/D1-C02-S03/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "d9d283398f0f6f0e2c3b10b4fbcad79a82a488d3ba25a1cebcee5a8565109311"
+    },
+    {
+      "path": "scenes/D1-C02/shots/D1-C02-S03/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "93d479986c1480159f8fa6df141e962cedc30c69f2f9e962f0cbf575e0de72c0"
+    },
+    {
+      "path": "scenes/D1-C02/shots/D1-C02-S03/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "05d2cd50bec4a27962f2292ae622c9b7e3cb1e3408848a62f90d0f031b4defd2"
+    },
+    {
+      "path": "scenes/D1-C03/README.md",
+      "role": "operator_index_or_scene_handoff",
+      "sha256": "1c8bbfe52ef898d6d618101137d9dcb58deb04132d7db1d9e2e3bd0ab2374724"
+    },
+    {
+      "path": "scenes/D1-C03/shots/D1-C03-S02/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "9f8003ac999911db989f7aac2f5fee6a7aed7e8b16ba2aa2a59b6e82f8cf01eb"
+    },
+    {
+      "path": "scenes/D1-C03/shots/D1-C03-S02/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "08c2f95d2478091310a7b4da1098e7ed77af9e469b6973be722dc51897ae7991"
+    },
+    {
+      "path": "scenes/D1-C03/shots/D1-C03-S02/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "5eb9b2ff878fcca5234660e2b7baedbaeabf88ccb73279b30c08752155a4079e"
+    },
+    {
+      "path": "scenes/D1-C03/shots/D1-C03-S03/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "e922c29648850a873bb4b29062bb531676e0c12481061efc11706d7055b45b97"
+    },
+    {
+      "path": "scenes/D1-C03/shots/D1-C03-S03/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "3885759b79b9d5d4ad23fce185dff04e894d4e45307261fe7ba3f14b35a74f20"
+    },
+    {
+      "path": "scenes/D1-C03/shots/D1-C03-S03/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "2d010dab53c43f874e66fc64c7289240f1a592041c317342c0940fe21d45d7de"
+    },
+    {
+      "path": "scenes/D1-C03/shots/D1-C03-S04/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "ea1fce8b32a44a5d8fe23fed5a79e59a0273a322f20259f32c3992edf114ba53"
+    },
+    {
+      "path": "scenes/D1-C03/shots/D1-C03-S04/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "4733d8c122151294d704b3089bd90af4277f6b72f838aa9bd3fdbe946d702dfd"
+    },
+    {
+      "path": "scenes/D1-C03/shots/D1-C03-S04/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "af008a6ae0ac166b5f6fe2bd081f66aca59482e1be4cb0c7e7f3b1df08afd391"
+    },
+    {
+      "path": "scenes/D1-C04/README.md",
+      "role": "operator_index_or_scene_handoff",
+      "sha256": "06d782e56cb69e92079f61d70ea47c321b15846af7c40db4891db1aef65d6947"
+    },
+    {
+      "path": "scenes/D1-C05/README.md",
+      "role": "operator_index_or_scene_handoff",
+      "sha256": "f8a08807a68614eedbed01ff4d693fea34e170c706e4eec727942c8b922daf56"
+    },
+    {
+      "path": "scenes/D1-C05/shots/D1-C05-S04/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "460753e0a40c2f06b8f412f8744421987a0ec45136492c54003e96e236135c7d"
+    },
+    {
+      "path": "scenes/D1-C05/shots/D1-C05-S04/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "d42412c9c3c2f63decd4d84f5f59c1d75260cb6601f34ec222a525774b353a53"
+    },
+    {
+      "path": "scenes/D1-C05/shots/D1-C05-S04/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "0f1d0da01fcafae6698a51a9d09f47d3cbcd0d8a19d81b5a5f7ca1064a9858e4"
+    },
+    {
+      "path": "scenes/D1-C05/shots/D1-C05-S05/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "ffa97b2a769ad02bce98bd7bb70ae419307f138f07ea40b043263e3e20492dd3"
+    },
+    {
+      "path": "scenes/D1-C05/shots/D1-C05-S05/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "fea342c554619c601848572301092bb1782b574df1ba0288bc5a50f434029f6d"
+    },
+    {
+      "path": "scenes/D1-C05/shots/D1-C05-S05/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "b8b3d7708893ebb2a814f9f3db78086aa478eb3c41170f68b9687adb94701c4b"
+    },
+    {
+      "path": "scenes/D1-C06/README.md",
+      "role": "operator_index_or_scene_handoff",
+      "sha256": "83a064ae7773c68933a439cebfc8c384339fac92f8afe1cb7e7ed510e6e586ce"
+    },
+    {
+      "path": "scenes/D1-C06/shots/D1-C06-S03/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "1eaf6993026f4e19bf4a1ad13cf757bf80be3f594a474a12de3591437ccec235"
+    },
+    {
+      "path": "scenes/D1-C06/shots/D1-C06-S03/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "d0b2c73114d31c7c770d2af4c04108b5e5198a762e8f65c6b85b22f568143b63"
+    },
+    {
+      "path": "scenes/D1-C06/shots/D1-C06-S03/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "5177bbd5066f7325ab090369eff732994d6407d9ba3264b9ff8a3b1cc62c18e7"
+    },
+    {
+      "path": "scenes/D1-C06/shots/D1-C06-S05/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "f39e0a4e597c1dbc0ad62af9e420ca1b5f7ecbeffb31d57761131bb90ec6d8cf"
+    },
+    {
+      "path": "scenes/D1-C06/shots/D1-C06-S05/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "477c7ad433c8f9ee474405e20a5d050bd8b21d866604b54220271325587e7f25"
+    },
+    {
+      "path": "scenes/D1-C06/shots/D1-C06-S05/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "67fee34a3f60d949c9d6e3089ce07c12c220a491a84f7d6f422c7238a04ccc85"
+    },
+    {
+      "path": "scenes/D1-C06/shots/D1-C06-S08/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "6ee217dd0ef6651abd72d1c22b182d5fc568caab819bf211dbb441021d460004"
+    },
+    {
+      "path": "scenes/D1-C06/shots/D1-C06-S08/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "045027ec7af1769b4c9fd988ce769bd003ab9320745c40347871557a5b19a1ac"
+    },
+    {
+      "path": "scenes/D1-C06/shots/D1-C06-S08/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "6139bf85e29562ed3c3b9645982d230c58fbe508f15112535fc1d8c3e7550b1c"
+    },
+    {
+      "path": "scenes/D1-C07/README.md",
+      "role": "operator_index_or_scene_handoff",
+      "sha256": "5aa217001c00fa74a93133a64734158b88f19090fa9fc4aaa6f7da2a1b5ca434"
+    },
+    {
+      "path": "scenes/D1-C07/shots/D1-C07-S06/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "711e1bace35d3ba483f13cfc7fefa1507be43c19554445693891fa179658f324"
+    },
+    {
+      "path": "scenes/D1-C07/shots/D1-C07-S06/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "9715e26e35a64cce59ceadce55a9887d54021a186d135982e1c5265e1c8bac15"
+    },
+    {
+      "path": "scenes/D1-C07/shots/D1-C07-S06/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "e7b4742b24e66eb45258ee86722495435256b62116a357a709e3bd97222c3fd3"
+    },
+    {
+      "path": "scenes/D1-C08/README.md",
+      "role": "operator_index_or_scene_handoff",
+      "sha256": "fa92d611874f185b78abac0cb4c7852bb524e76201d3e107707f30c5befa7fa9"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S01/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "835249265fe2c8373fba26d2086d62fc273423ff89f896913276e004eadb7d43"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S01/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "0535e83b45c7fe9cddce23e14759a263fb00bcc8c3b860d1bb2cec37ce878c66"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S01/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "71240c38534fe91147cced8d1ca4036680428318750ed7f63858982f75ebc32d"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S02/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "ece34b57dd7e9651f347f1b11c5cf14cf7af32f50bcd6ff38f35d9ce4ef1da67"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S02/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "2ace8be38c8ebec9fdbd8389ec2ca7998ed136b994cd4404706bacb980ef7c10"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S02/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "40d3a183d099300ccb6b0f253dbd5cfd4df70b82f71c1bcf7c199518e382b56d"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S03/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "90716342aa924016841f7cae00f7356a9dc5a87a2219465a27f988e677b7e232"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S03/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "aacb766a1773da7e900733aee2e2bc904540b6207f4292ce0f49b2d65065e0f9"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S03/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "78ce670d79afba98098350e825e7455d42f6b43247ba05bc028015a6eb44047c"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S04/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "5876557652596b7d09e51ea3f7af883ecfbfd22a29c74b5bc372e6f97de0c515"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S04/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "59337fa2ae998f49072e483aaf150393325dfdf42ee2108bb9b5a0ad193d99da"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S04/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "4f3f8b387990e56abb7b4c78ee53943ee0bcc9ea74cbc0ac778ab65093a6da33"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S05/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "fcfe33d65856a856393e233155f605e9b617729eef705cba53b67389a7fe9e9c"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S05/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "d6cc69fad2987bc579c6c112b0ae21fe14e51d2a9fce954474ee48395faa43ab"
+    },
+    {
+      "path": "scenes/D1-C08/shots/D1-C08-S05/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "d39339d7e494a25ddffb88749b85527dc90b28ab57cd9a51dabd7ae7add203ff"
+    },
+    {
+      "path": "scenes/D1-C09/README.md",
+      "role": "operator_index_or_scene_handoff",
+      "sha256": "bcbbcbb737f08b2de7e65e1113371f8828c301f41f23e97ff9070b513ee73e7f"
+    },
+    {
+      "path": "scenes/D1-C09/shots/D1-C09-S04/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "d94498456be780996c30a8792651c366074cf42455a7edc3ee577675e08188f2"
+    },
+    {
+      "path": "scenes/D1-C09/shots/D1-C09-S04/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "4420b4506f60620db4140ee05a3851f27caa8e1fddd515591a71402ec365a614"
+    },
+    {
+      "path": "scenes/D1-C09/shots/D1-C09-S04/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "23eeabeb11ea271b055dc0a282891944a5fbb0cb198ffa13126b5d3fa197621f"
+    },
+    {
+      "path": "scenes/D1-C10/README.md",
+      "role": "operator_index_or_scene_handoff",
+      "sha256": "3084f258a03c52659d247f76f186c30b2f4bacee7dae524cfa6c28ba66f24bee"
+    },
+    {
+      "path": "scenes/D1-C10/shots/D1-C10-S02/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "f0aedbe862b51fc57f50586309b0a9c9db787c0aaff706f91dee2aeebb899420"
+    },
+    {
+      "path": "scenes/D1-C10/shots/D1-C10-S02/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "f3463f88281f3afdf7f3d8e9327dfe5bb2272135c6194915519ac294a6a6cabd"
+    },
+    {
+      "path": "scenes/D1-C10/shots/D1-C10-S02/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "7b51d117386e9d8d3b80fd6c8b1cb51fb47c33eef4459cfca5a42e49028887c2"
+    },
+    {
+      "path": "scenes/D1-C10/shots/D1-C10-S03/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "367a347552250ed8d47f2044daec9a6e7e192295a9420a5c310c16258592a88c"
+    },
+    {
+      "path": "scenes/D1-C10/shots/D1-C10-S03/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "6da487c822b48e4927c5e32ed14e165de5d4a28f1585d68db3e158f8bfa42d4a"
+    },
+    {
+      "path": "scenes/D1-C10/shots/D1-C10-S03/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "602985f884ef87b8f2c3bd12b4a7ded0ce9101074e447a5d8d58dd1e1347a50a"
+    },
+    {
+      "path": "scenes/D1-C11/README.md",
+      "role": "operator_index_or_scene_handoff",
+      "sha256": "82f6b5cc36627477f44c367ad0bb92ede6c2cdb0c5e5a8e617d87386d2e63fcd"
+    },
+    {
+      "path": "scenes/D1-C11/shots/D1-C11-S04/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "3f6254c8291395a60f34594e26272d57bed3d080b11a7edaca7ddd41efa5113d"
+    },
+    {
+      "path": "scenes/D1-C11/shots/D1-C11-S04/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "14876be20b4cf658c79b45c3dcde87de75bfb098d0a3840448cd29ceb1cb137f"
+    },
+    {
+      "path": "scenes/D1-C11/shots/D1-C11-S04/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "a055545d74d4401416318d20d9d0bd51d91bdcf36510fa8b361997475bb1b0a8"
+    },
+    {
+      "path": "scenes/D1-C12/README.md",
+      "role": "operator_index_or_scene_handoff",
+      "sha256": "24f68dccc2dea853c44827b58f699444910fdcae90e9df7bb2ebabed1bbe54f2"
+    },
+    {
+      "path": "scenes/D1-C13/README.md",
+      "role": "operator_index_or_scene_handoff",
+      "sha256": "2fddd50bb459c3c0b8c48f413b91650aa9df9d3df3363c014cafd29e9f1ff083"
+    },
+    {
+      "path": "scenes/D1-C13/shots/D1-C13-S03/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "8f0ec0db17c5a21c86d9c78f95240a2a9e3960c56dd0db3e472bd1ba0ce72fe3"
+    },
+    {
+      "path": "scenes/D1-C13/shots/D1-C13-S03/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "631c3d6fb1aec0adb2b9c2d7b8db89c97ca5ceed792b11c505915e9346d198d6"
+    },
+    {
+      "path": "scenes/D1-C13/shots/D1-C13-S03/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "e32f5863fb984065059457f3ac41610765337751c87b9229e8ef789c2d86c1e2"
+    },
+    {
+      "path": "scenes/D1-C13/shots/D1-C13-S05/PROMPT.txt",
+      "role": "paste_ready_imagine_prompt",
+      "sha256": "349670274bcffb8448d507642798d11a74e8a28739fdf846db0c0edae4cb7643"
+    },
+    {
+      "path": "scenes/D1-C13/shots/D1-C13-S05/RECONSTRUCTION.md",
+      "role": "weak_frame_reconstruction_guide",
+      "sha256": "3d7c580bd85a9a06e822b54de497d0021d089470b93383dc250ec46de46ec27f"
+    },
+    {
+      "path": "scenes/D1-C13/shots/D1-C13-S05/SHOT_PACKET.json",
+      "role": "draft_imagine_shot_card",
+      "sha256": "efac4a080018df1c0e9dea3157c0fbce39f5a0fd9e57b70df13eaab7a75e5fc7"
+    }
+  ],
+  "remote_verification": "separate REMOTE_VERIFICATION.json is written only after the content commit is pushed and resolved from GitHub"
+}

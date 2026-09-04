@@ -1,0 +1,115 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C09",
+  "shot_id": "D1-C09-S04",
+  "title": "Exactly three Art Room grime cards",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "runtime-locked Art Room front projection",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C09",
+      "source_packet": "d1_c09_art_room_dirty_discovery_visual_v1",
+      "path": "handoff_art/location/room_craft_room_background.png",
+      "sha256": "006b736e59e261c2670717f268c76b39640b903373b1a75781cd464e135ddd0d",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c09_art_room_dirty_discovery_visual_v1/handoff_art/location/room_craft_room_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "new human-approved HUD-free complete front projection of the exact post-collection runtime state",
+      "source_authority_is_not_automatic_first_frame_approval": true
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C09",
+      "source_packet": "d1_c09_art_room_dirty_discovery_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c09_art_room_dirty_discovery_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "fixture topology",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C09",
+      "source_packet": "d1_c09_art_room_dirty_discovery_visual_v1",
+      "path": "handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+      "sha256": "ccf85cf97fea81b4d3a496b8e48c57ff574b43aa4978953d8a78b9b4ea7a70f3",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c09_art_room_dirty_discovery_visual_v1/handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "IMAGE_4",
+      "job": "grime material",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C09",
+      "source_packet": "d1_c09_art_room_dirty_discovery_visual_v1",
+      "path": "handoff_art/objects/grime_desk.png",
+      "sha256": "586021e28238f3ddba60447a3e7472a51a9af72f5bbc4319f95c79265b0a43bf",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c09_art_room_dirty_discovery_visual_v1/handoff_art/objects/grime_desk.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "start_frame": "IMAGE_1 after the blocking shot-opening approval",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "Roshan points and exactly three fixed grime targets remain readable",
+  "must_not_move": "two shell windows, two pearl columns, chandelier, shell board, rectangular desk, two curved counters, rear shelves, and front projection",
+  "end_state": "exactly three grime cards remain visible at left, center, and right",
+  "negative_constraints": "no fourth target, floor grime, toxic sludge, supply duplicate, cleanup, desk glow, floating objects, side wall, doorway, room rotation, text, or HUD",
+  "sound_intent": "faint sticky paint ambience and a concerned chord; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "d94498456be780996c30a8792651c366074cf42455a7edc3ee577675e08188f2",
+  "source_clip_audit": [
+    {
+      "source_clip": "C09_S04_v1_three_grime_cards_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C09_S04_v1_three_grime_cards_REGEN.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "release frames 048–144: The Art Room front concept is close, but the left/right zones multiply into upright card groups instead of exactly one small lavender grime card at each of three fixed targets."
+    }
+  ],
+  "audited_release": {
+    "tag": "day1-regen-motion-ref-2026-09-03",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03"
+  },
+  "implemented_event_contract": {
+    "authority_path": "scripts/day_one_art_studio.gd",
+    "rule": "four loose material groups are collected before exactly three fixed grime cards become the active targets"
+  },
+  "blocking_findings": [
+    "IMAGE_1 is not yet bound to the required new human-approved HUD-free complete front projection of the exact post-collection runtime state",
+    "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"
+  ],
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "luna_parallel_audit": true,
+    "sol_master_review": true,
+    "reviewed_at": "2026-09-03",
+    "criteria": "loose rough-cut retention with strict geometry, identity, count, causality, and endpoint repair"
+  }
+}

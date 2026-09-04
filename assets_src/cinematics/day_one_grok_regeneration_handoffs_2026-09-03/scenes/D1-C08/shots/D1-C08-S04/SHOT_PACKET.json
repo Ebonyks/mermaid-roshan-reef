@@ -1,0 +1,115 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C08",
+  "shot_id": "D1-C08-S04",
+  "title": "Roshan clears the right pin and completes the room",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "Stuffie Room dirty-to-clean geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C08",
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "path": "handoff_art/location/room_playroom_background.png",
+      "sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/location/room_playroom_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C08-S03 right-pin pre-contact endpoint",
+      "source_authority_is_not_automatic_first_frame_approval": true
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C08",
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "Baby Eagle identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C07",
+      "source_packet": "d1_c07_stuffie_dirty_discovery_visual_v1",
+      "path": "handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+      "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c07_stuffie_dirty_discovery_visual_v1/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "IMAGE_4",
+      "job": "right rescue-pin identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C08",
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "path": "handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "start_frame": "IMAGE_1 after the blocking shot-opening approval",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "one right-pin contact causes one pop, the rescue release, and the game-authored clean resolve",
+  "must_not_move": "Roshan, Baby Eagle identity, fixture positions, floor geography, absent left pin, and camera",
+  "end_state": "both pins are gone, the room is clean, and Baby Eagle is free but has not departed",
+  "negative_constraints": "no basket, four-bunny emergence, wing blast, tornado, magic before contact, duplicate eagle, relocation, text, HUD, or picker UI",
+  "sound_intent": "one soft boing, clean-room chime, and relieved chirp; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "5876557652596b7d09e51ea3f7af883ecfbfd22a29c74b5bc372e6f97de0c515",
+  "source_clip_audit": [
+    {
+      "source_clip": "C08_S06_v1_wing_blast_clean_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C08_S06_v1_wing_blast_clean_REGEN.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "release frames 000–144: Baby Eagle never performs a wing-blast cleanup. Gameplay completes when Roshan clears the second pin."
+    }
+  ],
+  "audited_release": {
+    "tag": "day1-regen-motion-ref-2026-09-03",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03"
+  },
+  "implemented_event_contract": {
+    "authority_path": "scripts/arena/castle_rooms_25d.gd",
+    "rule": "Roshan clears eagle_pin_left and eagle_pin_right; the room cleans, Baby Eagle thanks/rises/departs, then the companion picker opens"
+  },
+  "blocking_findings": [
+    "IMAGE_1 is not yet bound to the required accepted D1-C08-S03 right-pin pre-contact endpoint",
+    "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"
+  ],
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "luna_parallel_audit": true,
+    "sol_master_review": true,
+    "reviewed_at": "2026-09-03",
+    "criteria": "loose rough-cut retention with strict geometry, identity, count, causality, and endpoint repair"
+  }
+}
