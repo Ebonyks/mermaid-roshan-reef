@@ -83,11 +83,14 @@ GAME_AUTHORITY = SECOND_BUILDER.GAME_AUTHORITY
 
 
 def _sha256(path: Path) -> str:
-	hash_obj = hashlib.sha256()
-	with path.open("rb") as handle:
-		for block in iter(lambda: handle.read(1024 * 1024), b""):
-			hash_obj.update(block)
-	return hash_obj.hexdigest()
+	return hashlib.sha256(_canonical_payload_bytes(path)).hexdigest()
+
+
+def _canonical_payload_bytes(path: Path) -> bytes:
+	data = path.read_bytes()
+	if path.suffix.lower() in {".csv", ".json", ".md", ".txt"} or path.name == ".gitattributes":
+		return data.replace(b"\r\n", b"\n")
+	return data
 
 
 def _sha256_text(value: str) -> str:
@@ -584,8 +587,10 @@ def _write_scene_readmes(matrix: list[dict], manifest: dict) -> None:
 
 def _payload_manifest() -> dict:
 	entries = []
-	for path in sorted(file for file in THIRD.rglob("*") if file.is_file() and file.name != "PACKET_PAYLOAD_SHA256.json"):
-		entries.append({"path": path.relative_to(THIRD).as_posix(), "sha256": _sha256(path), "bytes": path.stat().st_size})
+	excluded = {"PACKET_PAYLOAD_SHA256.json", "REMOTE_VERIFICATION.json"}
+	for path in sorted(file for file in THIRD.rglob("*") if file.is_file() and file.name not in excluded):
+		data = _canonical_payload_bytes(path)
+		entries.append({"path": path.relative_to(THIRD).as_posix(), "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)})
 	canonical = "".join(f"{row['path']}\t{row['sha256']}\t{row['bytes']}\n" for row in entries)
 	return {"schema": "day-one-third-pass-payload-sha256-v1", "algorithm": "sha256", "file_count": len(entries), "total_bytes": sum(row["bytes"] for row in entries), "payload_sha256": _sha256_text(canonical), "entries": entries}
 
