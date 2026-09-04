@@ -94,10 +94,17 @@ func _init() -> void:
 	var source_feedback_only: bool = picture_source.find("_sparkle_burst") < 0 \
 		and picture_source.find("Vector" + str(3)) < 0 \
 		and picture_source.find(".g" + "lb") < 0
-	failed = failed or not source_feedback_only
+	var source_has_no_round_overlay_controls: bool = \
+		picture_source.find("_mg_round" + "btn") < 0 \
+		and picture_source.find("\"JUMP\"") < 0 \
+		and picture_source.find("\"GO!\"") < 0
+	failed = failed or not source_feedback_only \
+		or not source_has_no_round_overlay_controls
 	results.append("snow assist: %s" % ("OK" if passive_ok and assist_ok else "FAIL"))
 	results.append("picture feedback has no world sparkle request: %s" % (
 		"OK" if source_feedback_only else "FAIL"))
+	results.append("picture games have no jump/go overlay controls: %s" % (
+		"OK" if source_has_no_round_overlay_controls else "FAIL"))
 	var particle_class: String = "CPU" + "Particles" + str(3) + "D"
 	var snow_settle_checks := 0
 	var snow_settle_ok := true
@@ -115,6 +122,15 @@ func _init() -> void:
 			await process_frame
 		var active_stage: Control = main.mg2d_stage as Control
 		var active_feedback_layer: Control = _feedback_layer(active_stage)
+		var direct_trampoline_target: Control = \
+			main.mg.get("trampoline_target") as Control \
+			if kind == "trampoline" else null
+		if kind == "trampoline":
+			var direct_trampoline_ok: bool = direct_trampoline_target != null \
+				and (main.mg.get("btns", []) as Array).is_empty()
+			failed = failed or not direct_trampoline_ok
+			results.append("trampoline uses direct art tap: %s" % (
+				"OK" if direct_trampoline_ok else "FAIL"))
 		fresh_stage_checks += 1
 		fresh_stage_ok = fresh_stage_ok and active_feedback_layer != null \
 			and active_feedback_layer.get_child_count() == 0 \
@@ -163,9 +179,14 @@ func _init() -> void:
 					main.touch_ui.stick_vec = Vector2.ZERO
 			elif main.touch_ui != null:
 				main.touch_ui.stick_vec = Vector2.ZERO
-			# a 4yo taps roughly twice a second, hitting visible buttons
+			# A 4yo taps roughly twice a second, touching the visible play art.
 			if press_cd <= 0.0:
 				press_cd = 0.5
+				if kind == "trampoline" and direct_trampoline_target != null:
+					var direct_press := InputEventMouseButton.new()
+					direct_press.button_index = MOUSE_BUTTON_LEFT
+					direct_press.pressed = true
+					direct_trampoline_target.gui_input.emit(direct_press)
 				var btns: Array = main.mg.get("btns", [])
 				for b in btns:
 					if is_instance_valid(b) and b.visible and not b.disabled:
