@@ -29,8 +29,8 @@ func _init() -> void:
 		await _framing_case()
 		await _showing_case()
 		await _mastery_ui_case()
-		await _shield_case()
 		await _dodge_case()
+		await _shield_case()
 		await _bump_case()
 		await _first_hit_case()
 		await _second_hit_case()
@@ -313,9 +313,10 @@ func _showing_case() -> void:
 	# teaching line — the showing is where the rule is taught
 	_ck("taps during the showing cost her no medal tier",
 		int(main.g.get("db_wasted", 0)) == 0)
-	# the button must say what it does, in a fight whose only verb is a bonk
+	# The shared action label must say what it does; swipe remains world input.
 	var boss0 := _boss()
-	_ck("the button reads WAIT while he is shut", boss0.action_label() == "WAIT")
+	_ck("the shared action label reads WAIT while he is shut",
+		boss0.action_label() == "WAIT")
 	var reached: bool = await _await_state("prowl", 3000)
 	_ck("the showing hands over to the prowl", reached)
 
@@ -340,22 +341,13 @@ func _mastery_ui_case() -> void:
 	var layer: CanvasLayer = main.g.get("db_mastery_layer") as CanvasLayer
 	var stars: Label = main.g.get("db_mastery_stars") as Label
 	var gem: Label = main.g.get("db_perfect_gem") as Label
-	var dodge: Button = main.g.get("db_dodge_button") as Button
 	_ck("the fight shows three earned-or-empty mastery stars without reading",
 		layer != null and stars != null and stars.text == "★★★")
 	_ck("the clean-run bonus has its own visible diamond target",
 		gem != null and gem.text == "💎")
-	_ck("dodge is a separate picture-first child-sized control",
-		dodge != null and bool(dodge.get_meta("picture_first", false))
-		and dodge.size.x >= 140.0 and dodge.size.y >= 140.0)
-	var attempts_before: int = int(main.g.get("db_dodge_attempts", 0))
-	if dodge != null:
-		dodge.pressed.emit()
-		_boss()._tick_dodge(0.0)
-	_ck("the separate picture button routes one fresh dodge edge",
-		int(main.g.get("db_dodge_attempts", 0)) == attempts_before + 1)
-	main.g["db_dodge_t"] = 0.0
-	main.g["db_dodge_cd"] = 0.0
+	_ck("dodge adds no separate UI button or pointer",
+		main.g.get("db_dodge_button") == null
+		and main.g.get("db_dodge_pointer") == null)
 	_ck("bump mastery maps 0/1 to gold, 2 to silver, and 3+ to bronze",
 		DustBossGame.mastery_tier_for_bumps(0) == 3
 		and DustBossGame.mastery_tier_for_bumps(1) == 3
@@ -377,6 +369,64 @@ func _mastery_ui_case() -> void:
 # ---- optional dodge: contact becomes a twirl, never a hidden fail state ----
 func _dodge_case() -> void:
 	var boss := _boss()
+	_ck("incoming attacks provide at least the established 2.2 second reaction",
+		DustBossGame.dodge_hop_gap(0.46, true) == DustBossGame.DODGE_ATTACK_MIN_T
+		and DustBossGame.dodge_hop_gap(0.46, false) == 0.46
+		and DustBossGame.DODGE_ATTACK_MIN_T
+			* (1.0 - DustBossGame.DODGE_FLASH_START_U) >= 2.2)
+	var gap: float = DustBossGame.DODGE_ATTACK_MIN_T
+	_ck("the flash begins on the authored committed beat and closes at landing",
+		not DustBossGame.dodge_window_for_hop(gap * 0.249, gap, true)
+		and DustBossGame.dodge_window_for_hop(gap * 0.25, gap, true)
+		and DustBossGame.dodge_window_for_hop(gap - 0.001, gap, true)
+		and not DustBossGame.dodge_window_for_hop(gap, gap, true)
+		and not DustBossGame.dodge_window_for_hop(gap * 0.5, gap, false))
+	_ck("contact cannot resolve before the child has seen the cue",
+		DustBossGame.DODGE_CONTACT_START_U > DustBossGame.DODGE_FLASH_START_U
+		and gap * (DustBossGame.DODGE_CONTACT_START_U
+			- DustBossGame.DODGE_FLASH_START_U) >= 1.7)
+	_ck("swipe boundaries accept both directions and reject non-horizontal motion",
+		DustBossGame.dodge_swipe_direction(Vector2.ZERO,
+			Vector2(DustBossGame.DODGE_SWIPE_MIN_PX, 0.0)) == 1.0
+		and DustBossGame.dodge_swipe_direction(Vector2.ZERO,
+			Vector2(-DustBossGame.DODGE_SWIPE_MIN_PX, 0.0)) == -1.0
+		and DustBossGame.dodge_swipe_direction(Vector2.ZERO,
+			Vector2(53.99, 0.0)) == 0.0
+		and DustBossGame.dodge_swipe_direction(Vector2.ZERO,
+			Vector2(90.0, 60.0)) != 0.0
+		and DustBossGame.dodge_swipe_direction(Vector2.ZERO,
+			Vector2(89.99, 60.0)) == 0.0)
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 20260831
+	var classifications_ok := true
+	for _i in range(4096):
+		var dx: float = rng.randf_range(-240.0, 240.0)
+		var dy: float = rng.randf_range(-180.0, 180.0)
+		var expected: float = 0.0
+		if absf(dx) >= DustBossGame.DODGE_SWIPE_MIN_PX \
+				and absf(dx) >= absf(dy) * DustBossGame.DODGE_HORIZONTAL_DOMINANCE:
+			expected = 1.0 if dx > 0.0 else -1.0
+		if DustBossGame.dodge_swipe_direction(Vector2.ZERO,
+				Vector2(dx, dy)) != expected:
+			classifications_ok = false
+			break
+	_ck("4096 seeded gesture classifications match the exact contract",
+		classifications_ok)
+	var easing_ok := true
+	for hz in [20, 30, 60, 120]:
+		var elapsed := 0.0
+		var integrated := 0.0
+		var step: float = 1.0 / float(hz)
+		while elapsed < DustBossGame.DODGE_MOVE_T:
+			var next_t: float = minf(DustBossGame.DODGE_MOVE_T, elapsed + step)
+			integrated += DustBossGame.dodge_ease(
+				next_t / DustBossGame.DODGE_MOVE_T) - DustBossGame.dodge_ease(
+				elapsed / DustBossGame.DODGE_MOVE_T)
+			elapsed = next_t
+		if not is_finite(integrated) or not is_equal_approx(integrated, 1.0):
+			easing_ok = false
+	_ck("dodge easing integrates to full distance at 20/30/60/120 Hz",
+		easing_ok)
 	_park(0.0, 0.0)
 	var before: Vector2 = _player_local()
 	var bumps_before: int = int(main.g.get("db_bumps", 0))
@@ -385,11 +435,68 @@ func _dodge_case() -> void:
 	var misses_before: int = int(main.g.get("db_miss", 0))
 	main.g["db_from"] = before - Vector2(1.0, 0.0)
 	main.g["db_to"] = before + Vector2(1.0, 0.0)
-	boss._start_dodge()
+	main.g["db_hop_gap"] = gap
+	main.g["db_hop_t"] = gap * 0.5
+	main.g["db_bump_cd"] = 0.0
+	boss._hop_move(0.0, {"px": before.x, "pz": before.y})
+	_ck("an overlapping bunny cannot contact before final descent",
+		int(main.g.get("db_bumps", 0)) == bumps_before)
+	main.g["db_dodge_window"] = false
+	var attempts_before: int = int(main.g.get("db_dodge_attempts", 0))
+	_ck("early and vertical swipes stay harmless",
+		not boss.on_world_swipe(Vector2(500.0, 360.0), Vector2(670.0, 364.0))
+		and not boss.on_world_swipe(Vector2(640.0, 300.0), Vector2(644.0, 470.0))
+		and int(main.g.get("db_dodge_attempts", 0)) == attempts_before)
+	main.g["db_dodge_window"] = true
+	main.g["db_dodge_flash"] = 1.0
+	boss._place_boss(0.0)
+	var star: Node = main.g.get("db_star") as Node
+	var star_color: Color = star.get("modulate") if star != null else Color.BLACK
+	var guide: DodgeTutorialGuide = main.g.get("db_dodge_guide") \
+		as DodgeTutorialGuide
+	_ck("the warning flashes coral on Grand Puff himself",
+		star != null and star_color.r > 0.95 and star_color.g < 0.5
+		and not (main.g.get("db_kit") as DustBunnyBossSprite).vulnerable)
+	_ck("the first warning demonstrates a swipe without adding a button",
+		guide != null and guide.visible and guide.demo != null
+		and guide.demo.mouse_filter == Control.MOUSE_FILTER_IGNORE)
+	main._on_world_drag_end(Vector2(500.0, 360.0), Vector2(670.0, 364.0))
+	_ck("a right swipe during the flash starts one dodge",
+		int(main.g.get("db_dodge_attempts", 0)) == attempts_before + 1
+		and bool(main.g.get("db_dodge_committed", false))
+		and not guide.visible)
+	for _frame in range(24):
+		boss._tick_dodge_motion(1.0 / 60.0)
+	var after_right: Vector2 = _player_local()
+	_ck("accepted swipe immediately eases Roshan in its direction",
+		after_right.x > before.x + 5.0 and main.player.verb == "twirl")
+	main.g["db_dodge_window"] = true
+	_ck("one incoming hop accepts only one dodge",
+		not boss.on_world_swipe(Vector2(500.0, 360.0), Vector2(670.0, 364.0))
+		and int(main.g.get("db_dodge_attempts", 0)) == attempts_before + 1)
+	var edge: Vector2 = boss.stage.clamp_point(Vector2(100.0, 0.0),
+		DustBossGame.PLAYER_INSET)
+	_ck("an outward edge swipe chooses one safe mirrored direction",
+		boss._safe_dodge_direction(edge, Vector2.RIGHT).x < 0.0)
+	main.g["db_dodge_t"] = 0.0
+	main.g["db_dodge_cd"] = 0.0
+	main.g["db_dodge_committed"] = false
+	main.g["db_dodge_window"] = true
+	var left_ok: bool = boss.on_world_swipe(
+		Vector2(670.0, 360.0), Vector2(500.0, 356.0))
+	_ck("a left swipe uses the same pre-impact window",
+		left_ok and int(main.g.get("db_dodge_attempts", 0)) == attempts_before + 2
+		and (main.g.get("db_dodge_move_dir", Vector2.ZERO) as Vector2).x < 0.0)
+	var cancel_position: Vector2 = _player_local()
+	boss.cancel_dodge_motion()
+	boss._tick_dodge_motion(0.2)
+	_ck("focus cancellation stops remaining motion without inventing input",
+		_player_local().is_equal_approx(cancel_position)
+		and int(main.g.get("db_dodge_attempts", 0)) == attempts_before + 2)
 	boss._resolve_player_contact(before - Vector2(1.0, 0.0))
 	var after: Vector2 = _player_local()
-	_ck("a timed dodge moves Roshan sideways with a twirl",
-		after.distance_to(before) > 3.0 and main.player.verb == "twirl")
+	_ck("a timed dodge remains displaced when its committed hop contacts",
+		after.distance_to(before) > 5.0 and main.player.verb == "twirl")
 	_ck("a dodged contact counts a dodge and not a bump",
 		int(main.g.get("db_dodges", 0)) == dodges_before + 1
 		and int(main.g.get("db_bumps", 0)) == bumps_before)
@@ -420,7 +527,7 @@ func _first_hit_case() -> void:
 	_ck("the wind-up becomes an airborne flashing window", open_now)
 	var up: bool = await _await_airborne(600)
 	_ck("he really is in the air while the star flashes", up)
-	_ck("the button reads BONK! exactly while he is open",
+	_ck("the shared action label reads BONK! exactly while he is open",
 		_boss().action_label() == "BONK!")
 	# an open window on the far side of the ring is not a free hit: stand
 	# diametrically opposite him, inside the octagon, and tap on the flash

@@ -29,8 +29,9 @@ extends RefCounted
 #
 # No fail state: he bumps, but never hurts. Contact gives Roshan a readable
 # shove and boing before she recovers immediately; it never removes progress.
-# A separate picture button adds an OPTIONAL twirl dodge. Incoming hops pulse
-# that button; a timed press turns contact into a sideways swish. Bumps only
+# An incoming-hop flash adds an OPTIONAL twirl dodge. The coral star on Grand
+# Puff pulses from the authored committed-attack beat through landing; a
+# horizontal swipe turns contact into a sideways swish. Bumps only
 # tune the replay mastery stars (gold through one, silver at two, bronze at
 # three-plus), while a clean run adds a small pearl bonus.
 # Five windows missed IN A ROW switch the fight to its slower assist pace:
@@ -104,9 +105,15 @@ const BUMP_COOLDOWN_BASE := 4.0      # first boing stays immediate; repeats spac
 const BUMP_COOLDOWN_MISSED := 6.0    # soften repeated bumps in a long miss run
 const BUMP_PUSH := 4.0          # visible cause/effect, never damage or lost work
 const PLAYER_INSET := 2.6       # matches the OctagonStage walkable inset
-const DODGE_ACTIVE_T := 0.82    # long enough to cover even the angry hop
-const DODGE_COOLDOWN := 1.15    # prevents a held button becoming permanent safety
-const DODGE_STEP := 3.8         # a readable sideways swish, not a contact shove
+const DODGE_ACTIVE_T := 1.20    # twirl feedback; protection is committed to this hop
+const DODGE_COOLDOWN := 1.15    # prevents repeated input becoming permanent safety
+const DODGE_STEP := 6.0         # a readable sideways swish, not a contact shove
+const DODGE_MOVE_T := 0.34      # quick eased scoop, matching the twirl animation
+const DODGE_ATTACK_MIN_T := 3.0 # committed beat leaves 2.25 s; ordinary hops stay snappy
+const DODGE_FLASH_START_U := 0.25 # frame 2: normal lift-off / angry crouch
+const DODGE_CONTACT_START_U := 0.82 # no pre-cue bump; contact belongs to descent
+const DODGE_SWIPE_MIN_PX := 54.0
+const DODGE_HORIZONTAL_DOMINANCE := 1.5
 const BASE_WIN_PEARLS := 3
 const PERFECT_BONUS_PEARLS := 2
 
@@ -167,7 +174,14 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	m.g["db_dodge_requested"] = false
 	m.g["db_dodge_prev"] = false
 	m.g["db_dodge_hint"] = false
+	m.g["db_dodge_window"] = false
+	m.g["db_dodge_flash"] = 0.0
+	m.g["db_dodge_committed"] = false
 	m.g["db_dodge_taught"] = false
+	m.g["db_dodge_learned"] = false
+	m.g["db_dodge_move_t"] = DODGE_MOVE_T
+	m.g["db_dodge_move_dir"] = Vector2.ZERO
+	m.g["db_hop_gap"] = float(PHASES[0]["hop_gap"])
 	m.g["db_perfect_bonus"] = false
 	m.g["db_shield_taps"] = 0
 	m.g["db_shield_feedbacks"] = 0
@@ -191,13 +205,14 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	_stage_open()
 	_build_mastery_ui()
 	_build_boss()
+	_build_dodge_tutorial()
 	_enter_state("splash")
 	_update_mastery_ui()
 	_show_boss_splash(fr)
 
 func action_label() -> String:
-	# the only verb in this fight is a bonk; the shared reef button otherwise
-	# reads "JUMP" with an up-arrow for the whole encounter
+	# The shared action control is only the bonk verb. The separate encounter-
+	# focus swipe is demonstrated on the Canvas and never becomes a button.
 	return "BONK!" if String(m.g.get("db_state", "")) == "vuln" else "WAIT"
 
 func stage_close() -> void:
@@ -210,6 +225,11 @@ func stage_close() -> void:
 		if mastery_layer.get_parent() != null:
 			mastery_layer.get_parent().remove_child(mastery_layer)
 		mastery_layer.queue_free()
+	var dodge_guide: DodgeTutorialGuide = m.g.get("db_dodge_guide") \
+		as DodgeTutorialGuide
+	if dodge_guide != null and is_instance_valid(dodge_guide):
+		dodge_guide.visible = false
+		dodge_guide.queue_free()
 	stage.close()
 
 static func mastery_tier_for_bumps(bumps: int) -> int:
@@ -225,7 +245,7 @@ func mastery_tier() -> int:
 	return mastery_tier_for_bumps(int(m.g.get("db_bumps", 0)))
 
 func request_dodge() -> void:
-	# Buttons, keyboard/controller parity and probes all enter through one edge.
+	# Swipes, keyboard/controller parity and probes all enter through one edge.
 	# The request is consumed in tick so it cannot mutate gameplay while paused.
 	if m.game == "dustboss" and m.g.has("db_state"):
 		m.g["db_dodge_requested"] = true
@@ -247,15 +267,46 @@ func _tick_dodge(delta: float) -> void:
 		return
 	m.g["db_dodge_requested"] = false
 	if String(m.g.get("db_state", "")) != "prowl" \
+			or not bool(m.g.get("db_dodge_window", false)) \
 			or float(m.g.get("db_dodge_cd", 0.0)) > 0.0:
 		return
 	_start_dodge()
 
-func _start_dodge() -> void:
+func on_world_swipe(from: Vector2, to: Vector2) -> bool:
+	var direction_x: float = dodge_swipe_direction(from, to)
+	if direction_x == 0.0:
+		return false
+	if m.game != "dustboss" or String(m.g.get("db_state", "")) != "prowl" \
+			or not bool(m.g.get("db_dodge_window", false)) \
+			or bool(m.g.get("db_dodge_committed", false)) \
+			or float(m.g.get("db_dodge_cd", 0.0)) > 0.0:
+		return false
+	_start_dodge(direction_x)
+	return true
+
+static func dodge_swipe_direction(from: Vector2, to: Vector2) -> float:
+	var stroke: Vector2 = to - from
+	if absf(stroke.x) < DODGE_SWIPE_MIN_PX \
+			or absf(stroke.x) < absf(stroke.y) * DODGE_HORIZONTAL_DOMINANCE:
+		return 0.0
+	return 1.0 if stroke.x > 0.0 else -1.0
+
+func _start_dodge(direction_x: float = 0.0) -> void:
 	m.g["db_dodge_t"] = DODGE_ACTIVE_T
 	m.g["db_dodge_cd"] = DODGE_COOLDOWN
+	m.g["db_dodge_window"] = false
+	m.g["db_dodge_flash"] = 0.0
+	m.g["db_dodge_committed"] = true
+	m.g["db_dodge_learned"] = true
+	_set_dodge_tutorial_visible(false)
 	m.g["db_dodge_attempts"] = int(m.g.get("db_dodge_attempts", 0)) + 1
 	if m.player != null:
+		var requested := Vector2(direction_x, 0.0)
+		if requested == Vector2.ZERO:
+			requested = _roomiest_dodge_direction(stage.player_local())
+		m.g["db_dodge_move_dir"] = _safe_dodge_direction(
+			stage.player_local(), requested)
+		m.g["db_dodge_move_t"] = 0.0
 		m.player.play_verb("twirl")
 		var sparkle_pos := m.player.global_position
 		sparkle_pos.y += 2.6
@@ -272,6 +323,7 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var s: Dictionary = stage.tick(delta)
 	var tapped: bool = bool(s["tap"])
 	_tick_dodge(delta)
+	_tick_dodge_motion(delta)
 	m.g["db_feedback_cd"] = maxf(0.0,
 		float(m.g.get("db_feedback_cd", 0.0)) - delta)
 	m.g["db_closer_cd"] = maxf(0.0,
@@ -339,6 +391,8 @@ func _enter_state(next_state: String) -> void:
 	m.g["db_st"] = 0.0
 	if next_state != "prowl":
 		m.g["db_dodge_hint"] = false
+		m.g["db_dodge_window"] = false
+		m.g["db_dodge_flash"] = 0.0
 
 func phase() -> int:
 	# 0 puffy → 1 dizzy → 2 angry; clamped so the winning hit reads as angry
@@ -754,13 +808,16 @@ func _pick_hop(reset: bool) -> void:
 	var hop_to: Vector2 = m.g["db_to"] as Vector2
 	var incoming: bool = _point_segment_distance(player_here, here, hop_to) < 4.2
 	m.g["db_dodge_hint"] = incoming
-	if incoming and not bool(m.g.get("db_dodge_taught", false)):
-		m.g["db_dodge_taught"] = true
-		m.show_msg("Roshan",
-			"Grand Puff is hopping at me — tap the glowing TWIRL!",
-			"dustboss_dodge")
+	m.g["db_dodge_committed"] = false
+	m.g["db_hop_gap"] = dodge_hop_gap(float(cfg["hop_gap"]), incoming)
 	if reset:
 		m.g["db_hop_t"] = 0.0
+	var k: DustBunnyBossSprite = kit()
+	if k != null and is_instance_valid(k):
+		var from_v: Vector2 = m.g["db_from"]
+		var to_v: Vector2 = m.g["db_to"]
+		k.play_jump(1.0 if to_v.x >= from_v.x else -1.0,
+			float(m.g["db_hop_gap"]))
 
 func _point_segment_distance(point: Vector2, a: Vector2, b: Vector2) -> float:
 	var ab: Vector2 = b - a
@@ -769,24 +826,44 @@ func _point_segment_distance(point: Vector2, a: Vector2, b: Vector2) -> float:
 	var u: float = clampf((point - a).dot(ab) / ab.length_squared(), 0.0, 1.0)
 	return point.distance_to(a + ab * u)
 
+static func dodge_hop_gap(base_gap: float, incoming: bool) -> float:
+	return maxf(base_gap, DODGE_ATTACK_MIN_T) if incoming else base_gap
+
+static func dodge_window_for_hop(hop_t: float, gap: float, incoming: bool) -> bool:
+	if not incoming or gap <= 0.0:
+		return false
+	var u: float = clampf(hop_t / gap, 0.0, 1.0)
+	return u >= DODGE_FLASH_START_U and u < 1.0
+
 func _hop_move(delta: float, s: Dictionary) -> void:
-	var cfg: Dictionary = phase_cfg()
-	var gap: float = float(cfg["hop_gap"])
+	var gap: float = float(m.g.get("db_hop_gap", phase_cfg()["hop_gap"]))
 	var t: float = float(m.g.get("db_hop_t", 0.0)) + delta
 	if t >= gap:
 		t = 0.0
 		var to_v: Vector2 = m.g["db_to"]
 		m.g["db_x"] = to_v.x
 		m.g["db_z"] = to_v.y
+		# Resolve the exact painted landing before the next route clears this
+		# hop's committed dodge. This also makes a large final delta deterministic.
+		if Vector2(to_v.x - float(s["px"]), to_v.y - float(s["pz"])).length() < 3.2 \
+				and float(m.g.get("db_bump_cd", 0.0)) <= 0.0:
+			m.g["db_bump_cd"] = bump_cooldown()
+			_resolve_player_contact(to_v)
 		_pick_hop(false)
-		# one authored jump per hop — anticipation, lift-off, peak, landing ring
-		var k: DustBunnyBossSprite = kit()
-		if k != null and is_instance_valid(k):
-			var from_v: Vector2 = m.g["db_from"]
-			var to_v2: Vector2 = m.g["db_to"]
-			k.play_jump(1.0 if to_v2.x >= from_v.x else -1.0)
 	m.g["db_hop_t"] = t
 	var u: float = clampf(t / gap, 0.0, 1.0)
+	var dodge_window: bool = not bool(m.g.get("db_dodge_committed", false)) \
+		and dodge_window_for_hop(t, gap, bool(m.g.get("db_dodge_hint", false)))
+	var opened_now: bool = dodge_window \
+		and not bool(m.g.get("db_dodge_window", false))
+	m.g["db_dodge_window"] = dodge_window
+	m.g["db_dodge_flash"] = (0.65 + 0.35 * sin(u * TAU * 4.0)) \
+		if dodge_window else 0.0
+	if opened_now and not bool(m.g.get("db_dodge_taught", false)):
+		m.g["db_dodge_taught"] = true
+		m.show_msg("Roshan",
+			"His CORAL STAR is flashing — swipe LEFT or RIGHT!",
+			"dustboss_dodge")
 	var from: Vector2 = m.g["db_from"]
 	var to: Vector2 = m.g["db_to"]
 	var here: Vector2 = from.lerp(to, u)
@@ -795,44 +872,77 @@ func _hop_move(delta: float, s: Dictionary) -> void:
 	m.g["db_y"] = sin(u * PI) * HOP_H
 	# The giggly bump has an obvious physical answer, but no health/progress
 	# cost and no control lock. Roshan can steer back immediately.
-	if Vector2(here.x - float(s["px"]), here.y - float(s["pz"])).length() < 3.2 \
+	if u >= DODGE_CONTACT_START_U \
+			and Vector2(here.x - float(s["px"]), here.y - float(s["pz"])).length() < 3.2 \
 			and float(m.g.get("db_bump_cd", 0.0)) <= 0.0:
 		m.g["db_bump_cd"] = bump_cooldown()
 		_resolve_player_contact(here)
 	m.g["db_bump_cd"] = maxf(0.0, float(m.g.get("db_bump_cd", 0.0)) - delta)
 
 func _resolve_player_contact(from: Vector2) -> void:
-	if float(m.g.get("db_dodge_t", 0.0)) > 0.0:
+	# Success belongs to the committed incoming hop, not a short wall-clock
+	# buff. An early valid swipe therefore cannot expire before the bunny lands.
+	if bool(m.g.get("db_dodge_committed", false)):
 		_dodge_player(from)
 	else:
 		_bump_player(from)
 
 func _dodge_player(from: Vector2) -> void:
-	var here: Vector2 = stage.player_local()
-	var travel: Vector2 = (m.g.get("db_to", Vector2.ZERO) as Vector2) \
-		- (m.g.get("db_from", Vector2.ZERO) as Vector2)
-	if travel.length() < 0.1:
-		travel = from - here
-	if travel.length() < 0.1:
-		travel = Vector2.RIGHT
-	var side := Vector2(-travel.y, travel.x).normalized()
-	var left: Vector2 = stage.clamp_point(here + side * DODGE_STEP, PLAYER_INSET)
-	var right: Vector2 = stage.clamp_point(here - side * DODGE_STEP, PLAYER_INSET)
-	var dodged: Vector2 = left if left.distance_to(here) >= right.distance_to(here) else right
 	if m.player != null:
-		m.player.global_position.x += dodged.x - here.x
-		m.player.global_position.z += dodged.y - here.y
 		m.player.vel.x = 0.0
 		m.player.vel.z = 0.0
-		m.player.play_verb("twirl")
 		var sparkle_pos := m.player.global_position
 		sparkle_pos.y += 2.6
 		m._sparkle_burst(sparkle_pos,
 			Color(0.55, 0.96, 1.0))
 	m.g["db_dodges"] = int(m.g.get("db_dodges", 0)) + 1
 	m.g["db_dodge_t"] = 0.0
+	m.g["db_dodge_committed"] = false
 	m.g["db_dodge_hint"] = false
 	m._say("roshan", "dustboss_dodge_yes", 2.5)
+
+static func dodge_ease(u: float) -> float:
+	var clamped: float = clampf(u, 0.0, 1.0)
+	return 0.5 - 0.5 * cos(clamped * PI)
+
+func _tick_dodge_motion(delta: float) -> void:
+	if m.player == null:
+		return
+	var move_t: float = float(m.g.get("db_dodge_move_t", DODGE_MOVE_T))
+	var direction: Vector2 = m.g.get("db_dodge_move_dir", Vector2.ZERO) as Vector2
+	if move_t >= DODGE_MOVE_T or direction == Vector2.ZERO:
+		return
+	var prior: float = dodge_ease(move_t / DODGE_MOVE_T)
+	move_t = minf(DODGE_MOVE_T, move_t + maxf(0.0, delta))
+	var current: float = dodge_ease(move_t / DODGE_MOVE_T)
+	var before: Vector2 = stage.player_local()
+	var after: Vector2 = stage.clamp_point(
+		before + direction * DODGE_STEP * (current - prior), PLAYER_INSET)
+	m.player.global_position.x += after.x - before.x
+	m.player.global_position.z += after.y - before.y
+	m.g["db_dodge_move_t"] = move_t
+
+func _roomiest_dodge_direction(before: Vector2) -> Vector2:
+	var left: Vector2 = stage.clamp_point(before + Vector2.LEFT * DODGE_STEP,
+		PLAYER_INSET)
+	var right: Vector2 = stage.clamp_point(before + Vector2.RIGHT * DODGE_STEP,
+		PLAYER_INSET)
+	return Vector2.LEFT if left.distance_to(before) >= right.distance_to(before) \
+		else Vector2.RIGHT
+
+func _safe_dodge_direction(before: Vector2, requested: Vector2) -> Vector2:
+	var direction: Vector2 = requested.normalized()
+	var preferred: Vector2 = stage.clamp_point(before + direction * DODGE_STEP,
+		PLAYER_INSET)
+	var mirrored: Vector2 = stage.clamp_point(before - direction * DODGE_STEP,
+		PLAYER_INSET)
+	if preferred.distance_to(before) < DODGE_STEP * 0.35 \
+			and mirrored.distance_to(before) > preferred.distance_to(before):
+		return -direction
+	return direction
+
+func cancel_dodge_motion() -> void:
+	m.g["db_dodge_move_t"] = DODGE_MOVE_T
 
 func _bump_player(from: Vector2) -> void:
 	var here: Vector2 = stage.player_local()
@@ -909,6 +1019,10 @@ func _place_boss(delta: float) -> void:
 	# THE TELL: the star over his head. Dim and small while he is shielded,
 	# huge and strobing gold the instant he is open.
 	var flash: float = float(m.g.get("db_flash", 0.0))
+	var dodge_flash: float = float(m.g.get("db_dodge_flash", 0.0))
+	var dodge_window: bool = bool(m.g.get("db_dodge_window", false))
+	_set_dodge_tutorial_visible(dodge_window \
+		and not bool(m.g.get("db_dodge_learned", false)))
 	var star: Sprite3D = m.g.get("db_star") as Sprite3D
 	if star != null and is_instance_valid(star):
 		_apply_tell(star, flash >= 0.99)
@@ -920,7 +1034,17 @@ func _place_boss(delta: float) -> void:
 			var orbit: float = float(m.g.get("db_spin", 0.0)) * 3.0
 			star.position.x = cos(orbit) * 2.6
 			star.position.y = BOSS_H * puff + 1.0 + sin(orbit) * 0.6
-		if flash >= 0.99:
+		if dodge_window:
+			# Coral means MOVE; the later gold open-star still means BONK. The
+			# cue rides Grand Puff and sweeps laterally, so it does not rely on
+			# color or resemble the later radial gold tap strobe.
+			star.position.x = sin(float(m.g.get("db_active_t", 0.0)) * 9.0) * 4.2
+			star.position.y = BOSS_H * puff + 1.35
+			star.modulate = Color(1.0, 0.34, 0.50, 0.72 + 0.28 * dodge_flash)
+			star.scale.x = 1.55 + 0.52 * dodge_flash
+			star.scale.y = 1.05 + 0.28 * dodge_flash
+			star.scale.z = 1.0
+		elif flash >= 0.99:
 			star.modulate = Color(1.0, 0.92, 0.45, 0.55 + 0.45 * strobe)
 			star.scale = Vector3.ONE * (1.35 + 0.35 * strobe)
 		else:
@@ -937,7 +1061,7 @@ func _place_boss(delta: float) -> void:
 			sm.albedo_color = Color(0.16, 0.28, 0.45, 0.30 - 0.18 * lift)
 	var glow: MeshInstance3D = m.g.get("db_glow") as MeshInstance3D
 	if glow != null and is_instance_valid(glow):
-		glow.visible = flash >= 0.99
+		glow.visible = flash >= 0.99 or dodge_window
 		glow.position.y = BOSS_H * puff * 0.5
 	var hand: Label3D = m.g.get("db_hand") as Label3D
 	if hand != null and is_instance_valid(hand):
@@ -948,7 +1072,8 @@ func _place_boss(delta: float) -> void:
 func _update_hud() -> void:
 	var hits: int = int(m.g.get("db_hits", 0))
 	var open: bool = String(m.g.get("db_state", "")) == "vuln"
-	var lead: String = "⭐ TAP NOW!" if open else "Watch his star…"
+	var lead: String = "↔  SWIPE!" if bool(m.g.get("db_dodge_window", false)) \
+		else "⭐ TAP NOW!" if open else "Watch his star…"
 	m.hud_game.text = lead + "   " + m._pips(hits, HP, "💜")
 
 func _build_mastery_ui() -> void:
@@ -987,26 +1112,23 @@ func _build_mastery_ui() -> void:
 	StorybookUI.style_hud_label(stars, 58, StorybookUI.GOLD, 6)
 	panel.add_child(stars)
 	m.g["db_mastery_stars"] = stars
-	var dodge := Button.new()
-	dodge.name = "DustBossDodgeButton"
-	dodge.position = Vector2(1090.0, 314.0)
-	dodge.focus_mode = Control.FOCUS_NONE
-	StorybookUI.style_icon_button(dodge, "↻", "secondary",
-		Vector2(154.0, 154.0), "Twirl away from Grand Puff")
-	dodge.pivot_offset = dodge.size * 0.5
-	dodge.pressed.connect(request_dodge)
-	root.add_child(dodge)
-	m.g["db_dodge_button"] = dodge
-	var pointer := Label.new()
-	pointer.name = "DustBossDodgePointer"
-	pointer.text = "▼"
-	pointer.position = Vector2(1116.0, 242.0)
-	pointer.size = Vector2(102.0, 76.0)
-	pointer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	pointer.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	StorybookUI.style_hud_label(pointer, 58, StorybookUI.GOLD, 7)
-	root.add_child(pointer)
-	m.g["db_dodge_pointer"] = pointer
+
+func _build_dodge_tutorial() -> void:
+	var guide := DodgeTutorialGuide.new()
+	guide.name = "DustBossSwipeTutorial"
+	guide.visible = false
+	m.add_child(guide)
+	m.g["db_dodge_guide"] = guide
+
+func _set_dodge_tutorial_visible(want: bool) -> void:
+	var guide: DodgeTutorialGuide = m.g.get("db_dodge_guide") \
+		as DodgeTutorialGuide
+	if guide == null or not is_instance_valid(guide):
+		return
+	if want and not guide.visible:
+		guide.restart_demo()
+	else:
+		guide.visible = want
 
 func _mastery_stars(tier: int) -> String:
 	var out := ""
@@ -1032,23 +1154,6 @@ func _update_mastery_ui() -> void:
 		perfect.text = "💎" if bumps == 0 else "◇"
 		perfect.modulate = Color.WHITE if bumps == 0 \
 			else Color(0.58, 0.58, 0.68, 0.78)
-	var dodge: Button = m.g.get("db_dodge_button") as Button
-	var pointer: Label = m.g.get("db_dodge_pointer") as Label
-	var dodge_visible: bool = state in ["prowl", "windup", "vuln"]
-	var danger: bool = bool(m.g.get("db_dodge_hint", false)) and state == "prowl"
-	var ready: bool = state == "prowl" \
-		and float(m.g.get("db_dodge_cd", 0.0)) <= 0.0
-	if dodge != null and is_instance_valid(dodge):
-		dodge.visible = dodge_visible
-		dodge.disabled = not ready
-		dodge.text = "⚡\n↻" if danger else "↻"
-		dodge.modulate = Color.WHITE if ready else Color(0.72, 0.72, 0.82, 0.78)
-		var pulse: float = 1.0 + sin(float(m.g.get("db_active_t", 0.0)) \
-			* (10.0 if danger else 2.6)) * (0.10 if danger else 0.025)
-		dodge.scale = Vector2.ONE * pulse
-	if pointer != null and is_instance_valid(pointer):
-		pointer.visible = dodge_visible and danger
-		pointer.position.y = 242.0 + sin(float(m.g.get("db_active_t", 0.0)) * 10.0) * 8.0
 
 # ---- the attic in the round ------------------------------------------------
 func _stage_open() -> void:

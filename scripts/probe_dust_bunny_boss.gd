@@ -125,6 +125,11 @@ func _run() -> void:
 	_ck("normal-round dust-plume jump starts", jump_duration > 0.6
 		and boss.sprite.animation == &"jump" and boss.sprite.flip_h)
 	boss._on_animation_finished()
+	var timed_jump: float = boss.play_jump(1.0, 0.95)
+	_ck("authored jump frames can synchronize to committed contact",
+		is_equal_approx(timed_jump, 0.95)
+		and is_equal_approx(boss.sprite.speed_scale, 4.0 / (6.0 * 0.95)))
+	boss._on_animation_finished()
 	_ck(
 		"three tap sounds use one positional SFX player",
 		boss.tap_sfx_player is AudioStreamPlayer3D

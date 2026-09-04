@@ -98,6 +98,34 @@ seen before he is ever an opponent.
 
 ## 3. The AI state machine
 
+### 2026-08-31 addendum — incoming-hop swipe cue
+
+Grand Puff's optional dodge is not a button and does not follow the bonk
+window. On a prowl hop whose committed path comes close to Roshan, the four
+authored jump beats are synchronized to a 3.0 s dramatic attack hop. The coral
+warning begins on frame 2: lift-off in the normal atlas and the final angry
+crouch in the angry composite. This is the committed attack beat in both
+sequences and leaves 2.25 s to react before the painted landing. Ordinary hops retain their
+phase timing, including the angry phase's quick 0.46 s movement.
+
+During that pre-impact span, the closed star attached to Grand Puff flashes
+coral and sweeps laterally. A temporary, non-interactive ghost hand reuses the
+combat tutorial's approved 2.4 s demonstration rhythm and alternates left and
+right until the first real successful swipe. It owns no touch and can never
+score, damage, or complete the encounter. A mostly horizontal swipe in either
+direction commits a twirl dodge to that exact hop; protection cannot expire
+before contact. Roshan moves immediately through a 0.34 s eased six-unit
+scoop in the swiped direction, while contact is gated to the bunny's final
+descent so a close starting position cannot bump her before the cue. Early,
+short, vertical, diagonal, repeated, and zero-input
+attempts remain neutral. Contact without a dodge remains the existing harmless
+boing with no health or progress loss.
+
+The two verbs remain visually and temporally separate: coral lateral motion
+means **SWIPE/MOVE** during an incoming prowl hop; the later radial gold strobe
+and finger pointer mean **TAP/BONK** during vulnerability. Color and caption
+are supplemental, not the only distinction.
+
 | State | What he does | Can he be hit? |
 | --- | --- | --- |
 | `showing` | rises, parades, demonstrates the tell | no |

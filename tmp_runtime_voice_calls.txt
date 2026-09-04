@@ -1,0 +1,375 @@
+scripts\audio_director.gd:13:func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
+scripts\audio_director.gd:86:	show_msg(
+scripts\audio_director.gd:139:func show_msg(who: String, txt: String, vo: String = "talk") -> void:
+scripts\audio_director.gd:173:			_say(speaker, vo, 0.5)
+scripts\audio_director.gd:179:		_say(_speaker_key(who), vo, 0.5)
+scripts\arena\castle_rooms_25d.gd:1708:			m.show_msg("Roshan",
+scripts\arena\castle_rooms_25d.gd:1715:	m.show_msg("Daddy Mermaid",
+scripts\arena\castle_rooms_25d.gd:1718:	m._say("roshan", "talk", 0.8)
+scripts\arena\castle_rooms_25d.gd:1860:			m.show_msg("Baby Eagle",
+scripts\arena\castle_rooms_25d.gd:1864:			m.show_msg("Pearl Castle", String(room["name"]), "home")
+scripts\arena\castle_rooms_25d.gd:3058:	m.show_msg("Roshan",
+scripts\arena\castle_rooms_25d.gd:3134:		m.show_msg("Roshan",
+scripts\arena\castle_rooms_25d.gd:3137:		m.show_msg("Roshan",
+scripts\arena\castle_rooms_25d.gd:3188:	m.show_msg("Roshan",
+scripts\arena\castle_rooms_25d.gd:3248:		m.show_msg("Roshan",
+scripts\arena\castle_rooms_25d.gd:3251:		m.show_msg("Roshan",
+scripts\arena\castle_rooms_25d.gd:3299:	m.show_msg("Roshan",
+scripts\arena\castle_rooms_25d.gd:3339:	m.show_msg("Roshan", relax_copy, "talk")
+scripts\arena\castle_rooms_25d.gd:3365:	m.show_msg("Roshan",
+scripts\arena\castle_rooms_25d.gd:3419:	m.show_msg("Roshan",
+scripts\arena\castle_rooms_25d.gd:4234:	m.show_msg("Baby Eagle",
+scripts\arena\castle_rooms_25d.gd:4560:			m.show_msg("Roshan",
+scripts\arena\castle_rooms_25d.gd:4679:	m._say("roshan", "talk", 0.0)
+scripts\arena\castle_rooms_25d.gd:4763:	m.show_msg("Roshan", "Something delicious is ready!", "win")
+scripts\arena\castle_rooms_25d.gd:4777:		m.show_msg("Roshan", "A royal wave from the Royal Hall!", "win"))
+scripts\arena\castle_rooms_25d.gd:4795:				m.show_msg("Baby Eagle",
+scripts\arena\castle_rooms_25d.gd:4810:			m.show_msg("Roshan", "Something delicious is bubbling!", "talk")
+scripts\arena\castle_rooms_25d.gd:4813:			m.show_msg("Roshan", "A whole room of storybooks!", "talk")
+scripts\arena\castle_rooms_25d.gd:4816:			m.show_msg("Roshan", "Splash in the mermaid pool!", "win")
+scripts\arena\castle_rooms_25d.gd:4819:			m.show_msg("Roshan", "Bubble party in the royal bath!", "win")
+scripts\arena\castle_rooms_25d.gd:4855:	m.show_msg("Princess Huluu",
+scripts\arena\castle_rooms_25d.gd:4869:	m.show_msg("Pearl Castle",
+scripts\carry_system.gd:191:		m._say("roshan", "")   # her delighted generic line, first scoop only
+scripts\carry_system.gd:225:	m._say("roshan", ["pearl", "pearl2", "pearl3"][randi() % 3], 3.0)
+scripts\arena\courtyard_train.gd:619:				m.show_msg("Roshan", "A little castle train! Let's hop on for a ride!")
+scripts\castle_career_routes.gd:419:	m.show_msg("Roshan", "Follow the career picture to the %s!" % String(
+scripts\castle_logo_studio.gd:328:	m._say("roshan", "talk", 0.0)
+scripts\castle_logo_studio.gd:433:	m._say("roshan", "win", 0.0)
+scripts\arena\northern_kingdom.gd:214:		m.show_msg("Roshan", "A misty magic forest! The little lights know the way!", "pearl2")
+scripts\arena\northern_kingdom.gd:219:		m.show_msg("Roshan", "A little river town! The castle is past the houses!", "pearl3")
+scripts\arena\northern_kingdom.gd:224:		m.show_msg("Roshan", "The great ice hall! Look at the swirly stairs!", "pearl")
+scripts\arena\sky_lagoon.gd:2375:		m.show_msg("Roshan", rescue_message + " One rainbow pearl!", "pearl")
+scripts\arena\sky_lagoon.gd:2406:			m.show_msg("Roshan", "Ooh! The snowy mountain sparkles lead to that star!", "pearl")
+scripts\arena\sky_lagoon.gd:2423:			m.show_msg("Roshan", "A magic star! A new world is through there!", "pearl2")
+scripts\arena\sky_lagoon.gd:2443:			m.show_msg("Roshan", "To the Butterfly World! Wheee!")
+scripts\arena\sky_lagoon.gd:2454:			m.show_msg("Roshan", "Ooh... a dark spooky door! The go-kart road can dive DOWN to the volcano planet!", "pearl")
+scripts\arena\sky_lagoon.gd:2462:			m.show_msg("Ember King", "So! You found my dark door... race the rainbow road DOWN to my fortress, if you dare!", "talk")
+scripts\arena\sky_lagoon.gd:2472:			m.show_msg("Rainbow Road", "The rainbow road to ROSHAN GALAXY! Race the rainbow to reach the stars — each side goes a different way around!")
+scripts\arena\sky_lagoon.gd:2602:		m.show_msg("Roshan", "Sunny shell for the Caribbean, or blue ice for Norway. Pick either sparkling gate!", "intro")
+scripts\arena\sky_lagoon_promenade.gd:282:		m.show_msg("Roshan", "Back outside! Tap a playground toy or the castle door once to light it up, then tap it again to play.")
+scripts\arena\sky_lagoon_promenade.gd:1149:	m.show_msg("Roshan", "Tap the pearl plane to visit the Reef!", "intro4")
+scripts\collection_system.gd:105:		m.show_msg("Roshan", "Look! Little critters! Swim close and tap CATCH to add one to our book!", "")
+scripts\collection_system.gd:277:	m.show_msg("Roshan", "I found a %s! It lives in %s. Into our Critter Book!" % [String(d["name"]), habitat], "")
+scripts\collection_system.gd:309:	m._say("roshan", "")
+scripts\combat_tutorial.gd:238:		m.show_msg("Roshan", msg, "talk")
+scripts\combat_tutorial.gd:303:				m.show_msg("Roshan", msg, "talk")
+scripts\combat_tutorial.gd:309:				m.show_msg("Roshan", "Bop! Right on the nose!", "win")
+scripts\combat_tutorial.gd:313:				m.show_msg("Roshan", "One, two, THREE! Popcorn!", "win")
+scripts\combat_tutorial.gd:319:					m.show_msg("Roshan", "A full-power bubble POP!", "win")
+scripts\combat_tutorial.gd:321:					m.show_msg("Roshan", "Popped! Next time, try HOLDING too!", "win")
+scripts\combat_tutorial.gd:329:				m.show_msg("Roshan", "Partner power! Now finish them!", "win")
+scripts\combat_tutorial.gd:375:	m.show_msg("Roshan", "You know ALL the moves! Sparring class complete!", "win")
+scripts\comfy_games.gd:211:		m.show_msg("Everyone", "Super Seeker Roshan found every friend!", "win")
+scripts\comfy_games.gd:212:		m._say("everyone", "", 0.8))
+scripts\comfy_games.gd:263:	m.show_msg("Daddy Mermaid",
+scripts\comfy_games.gd:266:	m._say("daddy", "talk", 0.8)
+scripts\comfy_games.gd:288:		m.show_msg("Everyone",
+scripts\comfy_games.gd:291:		m._say("everyone", "", 0.8)
+scripts\comfy_games.gd:294:		m.show_msg(String(friend.get("name", "Friend")),
+scripts\comfy_games.gd:296:		m._say(_voice_id(friend_id), "talk", 0.8)
+scripts\comfy_games.gd:304:	m.show_msg(String(friend["name"]),
+scripts\comfy_games.gd:306:	m._say(_voice_id(friend_id), "talk", 0.8)
+scripts\comfy_games.gd:313:		m.show_msg("Roshan", "I hear a friend near the %s!" \
+scripts\comfy_games.gd:315:		m._say("roshan", "talk", 0.8)
+scripts\chapter_two_room_plot.gd:236:			m.show_msg("",
+scripts\chapter_two_room_plot.gd:239:			m.show_msg("",
+scripts\chapter_two_room_plot.gd:242:			m.show_msg("",
+scripts\companion.gd:291:		m.show_msg(String(d["name"]), String(w.get("ask", "Tap what I need!")) % String(d["name"]), "talk")
+scripts\companion.gd:294:		m.show_msg(String(d["name"]), String(queued.get("ask", "Tap the glowing care picture!")) % String(d["name"]), "talk")
+scripts\companion.gd:296:		m.show_msg(String(d["name"]), "Care and happy play fill my next upgrade star! What should we do together?", "talk")
+scripts\companion.gd:430:		m.show_msg(String(d["name"]), "I'll come out to play after this game!", "talk")
+scripts\companion.gd:451:		m.show_msg(String(d["name"]), "Thank you! I would also love %s!" % String(want_def(m.companion_want).get("emoji", "")), "talk")
+scripts\companion.gd:453:		m.show_msg(String(d["name"]), "I love that! You're the best!", "talk")
+scripts\companion.gd:487:			m.show_msg("Princess Huluu", "I want you to have a new friend! Pick Mewsha or Baby Eagle to come along!", "talk")
+scripts\companion.gd:562:		m.show_msg("Princess Huluu", "Changed your mind? Your new friend waits in the gift box - tap it any time!", "talk")
+scripts\companion.gd:606:			m.show_msg("Roshan", "Makeover time! Tap a color, then the big heart to save it!", "talk")
+scripts\companion.gd:608:			m.show_msg("Roshan", "Which stuffie comes with me? Tap a friend, then the big heart!", "talk")
+scripts\companion.gd:610:			m.show_msg("Roshan", "Which stuffie friend comes with me? Tap one, then paint its colors!", "talk")
+scripts\companion.gd:638:	m.show_msg("Roshan", String(d["name"]) + "! " + String(d["pro"]), "talk")
+scripts\companion.gd:648:		m.show_msg("Roshan",
+scripts\companion.gd:658:		m.show_msg("Roshan", "Now tap any big color!", "talk")
+scripts\companion.gd:696:		m.show_msg(String(d["name"]), "My new colors are beautiful! Thank you!", "win")
+scripts\companion.gd:698:		m.show_msg(String(d["name"]), String(d["hello"]), "win")
+scripts\companion.gd:963:		m.show_msg("Roshan", "The Stuffie Studio! Friends sit on the shelves. The table cares for and changes them. The toy chest chooses who comes with me!", "talk")
+scripts\companion.gd:1009:					m.show_msg("Roshan", "An empty cubby! A new stuffie friend can live here someday.", "talk")
+scripts\companion.gd:1011:					m.show_msg("Roshan", "A mystery friend belongs here! We can befriend them at the castle toy tournament.", "talk")
+scripts\companion.gd:1017:					m.show_msg(String(shelf_def["name"]), shelf_line, "talk")
+scripts\companion.gd:1020:					m.show_msg("Roshan", "This table changes and upgrades a stuffie. First choose a friend from the toy chest!", "talk")
+scripts\companion.gd:1028:				m.show_msg("Roshan", "Toy chest time! Tap the stuffie who comes on the adventure, then tap the big heart!", "talk")
+scripts\companion.gd:1195:			m.show_msg(String(d["name"]), "Here I am! Let's explore together!", "talk")
+scripts\companion.gd:1259:			m.show_msg(String(d["name"]), "This way! I can feel a friend sparkling over here!", "talk")
+scripts\companion.gd:1317:			m.show_msg(String(d["name"]), "What a big battle! I have boo-boos... I need a hug and a bubble bath!", "talk")
+scripts\companion.gd:1320:		m.show_msg(String(d2["name"]), "What a big battle! Can I have a hug and a bubble bath?", "talk")
+scripts\companion.gd:1346:			m.show_msg(String(d["name"]), "Whenever you're ready, tap me for a hug and bubble bath!", "talk")
+scripts\companion.gd:1385:	m.show_msg(String(d["name"]), String(w["ask"]) % String(d["name"]), "talk")
+scripts\companion.gd:1481:		m.show_msg(String(d["name"]), "All better! My boo-boos are gone! You take such good care of me!", "win")
+scripts\companion.gd:1499:		m.show_msg(String(d["name"]), "I grew SO big and strong! %s" % _star_pips(), "win")
+scripts\companion.gd:1501:		m.show_msg(String(d["name"]), String(w["done"]), "talk")
+scripts\companion.gd:1596:			m.show_msg(String(d.get("name", "Stuffie Friend")),
+scripts\craft_studio.gd:241:			m._say("roshan", "talk")
+scripts\craft_studio.gd:297:	m._say("roshan", "win", 0.5)
+scripts\day_one_art_studio.gd:392:	m.show_msg("Roshan", message, mood)
+scripts\day_one_art_studio.gd:393:	m._say("roshan", "talk")
+scripts\combat_arena.gd:73:		m.show_msg("Roshan", ice_msg, "talk")
+scripts\combat_arena.gd:76:		m.show_msg("Roshan", "Dust bunnies! Tap the big CLEAN button and give each one a sparkling bubble poof!", "talk")
+scripts\combat_arena.gd:83:			m.show_msg("Roshan", dual_msg, "talk")
+scripts\combat_arena.gd:88:			m.show_msg("Roshan", fire_msg, "talk")
+scripts\combat_arena.gd:779:			m.show_msg("Roshan", "Frozen shell! Now use FIRE on the peeking dragon-turtle!", "talk")
+scripts\combat_arena.gd:850:			m.show_msg("Roshan", "The shell keeps spinning. Freeze it with ICE!", "talk")
+scripts\combat_arena.gd:895:		m.show_msg("Roshan", "My bubble shield bounced it away! Keep going!", "talk")
+scripts\combat_arena.gd:946:		m.show_msg("Roshan", "Pop pop pop! The frozen imps melted into popcorn!", "win")
+scripts\combat_arena.gd:948:		m.show_msg("Roshan", "Poof! Every dust bunny is sparkling clean!", "win")
+scripts\combat_arena.gd:950:		m.show_msg("Roshan", "The spicy peppers did it! The turtle-lizard wants to be friends!", "win")
+scripts\dungeon_puzzle_room.gd:61:	m.show_msg("Roshan", String(config.get("voice", "Follow the pictures and golden sparkle!")), "talk")
+scripts\dungeon_puzzle_room.gd:435:			m.show_msg("Roshan", "Those are different. Look at both pictures, then try again!", "oops")
+scripts\dungeon_puzzle_room.gd:444:	m.show_msg("Roshan", "Almost! Look at the big picture and try again.", "oops")
+scripts\dungeon_puzzle_room.gd:474:		m.show_msg("Roshan", "Watch the golden arrow! Swim under it and tap USE!", "talk")
+scripts\dungeon_puzzle_room.gd:485:		m.show_msg("Roshan", String(config.get("voice", "Follow the pictures and golden sparkle!")), "talk")
+scripts\dungeon_puzzle_room.gd:489:		m.show_msg("Roshan", "Watch the golden arrow! Swim under it and tap USE!", "talk")
+scripts\dungeon_puzzle_room.gd:492:		m.show_msg("Roshan", "The golden arrow shows the way — tap USE right under it!", "talk")
+scripts\dungeon_puzzle_room.gd:571:	m.show_msg("Roshan", "The golden door is open! Swim through!", "win")
+scripts\dungeon_level.gd:118:	m.show_msg("Roshan", "%s! Room %d of %d — follow the golden sparkle!" % [String(room["name"]), room_index + 1, rooms.size()], "talk")
+scripts\dungeon_level.gd:159:	m.show_msg("Roshan", _flavor("complete_msg", "All ten rooms! The dungeon is sparkling and safe!"), "win")
+scripts\dungeon_level.gd:181:	m.show_msg("Roshan", _flavor("leave_done_msg", "All ten rooms are safe!") if completed else "Checkpoint saved! We can come back to the next room any time.", "win" if completed else "home")
+scripts\ember_fortress.gd:213:			_main.show_msg("Ember King", "My favourite little hero is back! My fortress is your playground!", "greet")
+scripts\ember_fortress.gd:215:			_main.show_msg("Ember King", "RRRUMBLE! Who dares visit my volcano fortress? Light my five lanterns... if you are brave enough!", "talk")
+scripts\ember_fortress.gd:738:		_main.show_msg("Ember King", "WHAT?! All five lanterns?! Fine, little mermaid... my GATE IS OPEN. Come and try my fortress dungeon!", "talk")
+scripts\ember_fortress.gd:1079:					_main.show_msg("Ember King", "My little hero friend! Play in my fortress as long as you like!", "greet")
+scripts\ember_fortress.gd:1081:					_main.show_msg("Ember King", "Grrr... the gate is open. Show me how brave you are, tiny mermaid!", "talk")
+scripts\ember_fortress.gd:1083:					_main.show_msg("Ember King", "RRRUMBLE! Light all five of my lanterns first, little one!", "talk")
+scripts\ember_fortress.gd:1138:				_main.show_msg("Roshan", "Hot hot hot! Hop hop hop!", "giggle")
+scripts\galaxy.gd:1177:					_main.show_msg("Mermaid Rosalina", "My castle is open! Come dance whenever you like — and help my seven baby butterflies find home!", "greet")
+scripts\galaxy.gd:1179:					_main.show_msg("Mermaid Rosalina", "My butterflies are home! Come into my castle, little star!", "open")
+scripts\galaxy.gd:1339:					_main.show_msg("Mermaid Rosalina", "You found them ALL! Come celebrate together in my castle!", "open")
+scripts\galaxy.gd:1569:		_main.show_msg("Mermaid Rosalina", "Come in! Step onto the glowing arrows and dance with the whole galaxy!", "greet")
+scripts\galaxy.gd:1663:			_main.show_msg("Mermaid Rosalina", "A crown of butterflies for the STAR PRINCESS of the Butterfly World!", "win")
+scripts\galaxy.gd:1705:			_main.show_msg("Mermaid Rosalina", "Your wish sparkles true! +2 pearls!", "win")
+scripts\grotto.gd:72:		m._say("roshan", "")   # her curious line as she discovers the grotto
+scripts\grotto.gd:150:		m._say("roshan", ["pearl", "pearl2", "pearl3"][randi() % 3])
+scripts\games\brawl.gd:55:	m.show_msg("Huluu", "Mischief imps are in Huluu's toy castle! Tap to POP them — Huluu helps!", "greet")
+scripts\games\brawl.gd:163:					m._say("huluu", "hero", 4.0)
+scripts\games\brawl.gd:167:						m._say("huluu", "talk", 4.0)   # cheer: next bop is SUPER
+scripts\games\brawl.gd:197:			m.show_msg("Huluu", "This way! More imps ahead! ➜", "talk")
+scripts\games\brawl.gd:200:			m._say("huluu", "hero", 0.0)
+scripts\games\brawl.gd:399:					m.show_msg("Huluu", "Look out — that imp is winding up! POP it quick!", "talk")
+scripts\games\dance_engine.gd:478:	main._say("daddy", event)
+scripts\games\day_one_bathroom_cleaning.gd:669:		m.show_msg("", "NO!", "")
+scripts\games\day_one_bathroom_cleaning.gd:670:		m._say("wacky", "fail", 0.2)
+scripts\games\day_one_bathroom_cleaning.gd:745:		m.show_msg("Roshan", "The bathroom is sparkling!", "win")
+scripts\games\day_one_bathroom_cleaning.gd:746:		m._say("roshan", "win", 0.6)
+scripts\games\day_one_bathroom_cleaning.gd:811:		m.show_msg("Roshan", "Scrub the sink in little circles!", "talk")
+scripts\games\day_one_bathroom_cleaning.gd:813:		m.show_msg("Roshan", "Tap the tub to drain the dirty water!", "talk")
+scripts\games\day_one_bathroom_cleaning.gd:815:		m.show_msg("Roshan", "Brush the tub back and forth!", "talk")
+scripts\games\day_one_bathroom_cleaning.gd:816:	m._say("roshan", "talk", 0.8)
+scripts\interaction_director.gd:48:			m.show_msg("Roshan", "Swimming there!", "hint")
+scripts\interaction_director.gd:68:		m.show_msg(String(picked.get("label", "Roshan")), "Tap again or press the pink button!", "hint")
+scripts\interaction_director.gd:74:	m.show_msg(String(picked.get("label", "Roshan")), "Coming closer!", "hint")
+scripts\interaction_director.gd:86:		m.show_msg(String(focused.get("label", "Roshan")), "Almost! Use the left circle to get closer!", "hint")
+scripts\interaction_director.gd:89:	m.show_msg(String(focused.get("label", "Roshan")), "Tap again or press the pink button!", "hint")
+scripts\games\day_one_bathroom_cleanup.gd:687:		m.show_msg("Roshan", "We found both cleaning supplies!", "win")
+scripts\games\day_one_bathroom_cleanup.gd:688:		m._say("roshan", "win", 0.6)
+scripts\games\day_one_bathroom_cleanup.gd:700:		m.show_msg("Roshan", "Let’s clean together!", "talk")
+scripts\games\day_one_bathroom_cleanup.gd:701:		m._say("roshan", "talk", 0.4)
+scripts\games\day_one_bathroom_cleanup.gd:715:	m.show_msg("Roshan", "Tap the cleaning basket.", "talk")
+scripts\games\day_one_bathroom_cleanup.gd:716:	m._say("roshan", "talk", 0.8)
+scripts\games\day_one_pool_cleanup.gd:384:			m.show_msg("Roshan",
+scripts\games\day_one_pool_cleanup.gd:387:			m.show_msg("Roshan",
+scripts\games\day_one_pool_cleanup.gd:390:			m.show_msg("Roshan",
+scripts\games\day_one_pool_cleanup.gd:392:	m._say("roshan", "talk", 0.8)
+scripts\games\day_one_pool_cleanup.gd:593:		m.show_msg("Rumi",
+scripts\intro_overlay.gd:149:	m._say("roshan", String(panel.get("vo", "")))
+scripts\intro_overlay.gd:169:	m._say("roshan", String(panel.get("vo", "")))
+scripts\games\dust_boss.gd:382:	# ONE trigger per beat: show_msg already fires _say(speaker, vo) itself
+scripts\games\dust_boss.gd:383:	# (audio_director.gd), so a paired _say() would speak twice the moment real
+scripts\games\dust_boss.gd:385:	m.show_msg(String(fr.get("fname", "Dusty Attic")),
+scripts\games\dust_boss.gd:483:		m.show_msg(String(fr.get("fname", "Dusty Attic")),
+scripts\games\dust_boss.gd:523:		m._say("roshan", "dustboss_leap", 3.0)
+scripts\games\dust_boss.gd:608:			m.show_msg(String(fr.get("fname", "Dusty Attic")),
+scripts\games\dust_boss.gd:698:		m.show_msg(String(fr.get("fname", "Dusty Attic")),
+scripts\games\dust_boss.gd:705:		m.show_msg(String(fr.get("fname", "Dusty Attic")),
+scripts\games\dust_boss.gd:708:		m.show_msg(String(fr.get("fname", "Dusty Attic")), "BONK! Two down!", "dustboss_hit")
+scripts\games\dust_boss.gd:775:		m.show_msg("Roshan", "WAIT — dim star means no bonk. BIG GOLD STAR means TAP!",
+scripts\games\dust_boss.gd:788:	m.show_msg("Roshan", "Come closer! Get under him, then tap the FLASH!",
+scripts\games\dust_boss.gd:864:		m.show_msg("Roshan",
+scripts\games\dust_boss.gd:902:	m._say("roshan", "dustboss_dodge_yes", 2.5)
+scripts\games\dust_boss.gd:968:	m._say("roshan", "bump", 2.5)
+scripts\games\dust_boss.gd:1292:		m.show_msg(String(fr.get("fname", "Dusty Attic")),
+scripts\games\dust_boss.gd:1299:		m.show_msg(String(fr.get("fname", "Dusty Attic")),
+scripts\games\dust_boss.gd:1302:		m.show_msg(String(fr.get("fname", "Dusty Attic")), "BONK! Two down!", "dustboss_hit")
+scripts\games\dust_boss.gd:1306:	m.show_msg(String(fr.get("fname", "Dusty Attic")),
+scripts\games\fairy.gd:312:	m._say("rosalina", "open", 0.0)
+scripts\games\fairy.gd:313:	m.show_msg(fr_name_safe(), "Sparkle the mint flower rings to help the seed grow!")
+scripts\games\fairy.gd:327:	m._say("rosalina", "win", 0.0)
+scripts\games\fairy.gd:333:	m._say("rosalina", "greet", 0.0)
+scripts\games\fairy.gd:334:	m.show_msg(fr["fname"], "Follow the round mint flowers. Fly around every pointed coral shadow. Tap for your sparkle shield!")
+scripts\games\fairy.gd:463:				m.show_msg(fr["fname"], "Sparkle shield! Your fairy light is full again — keep flying!", "encourage")
+scripts\games\fairy.gd:495:				m.show_msg(fr["fname"], "Sparkle shield! Your fairy light is full again — keep flying!", "encourage")
+scripts\games\fairy.gd:598:			m.show_msg(fr_name_safe(), "The seed sprouted! Keep sending gold sparkles to help it bloom!")
+scripts\games\fairy.gd:606:			m.show_msg(fr["fname"], "The fairy light made more time! Keep lining up with the leaves!", "encourage")
+scripts\games\fairy.gd:623:			m.show_msg(fr_name_safe(), "It's blooming! 🌸")
+scripts\games\fairy.gd:631:			m.show_msg(fr["fname"], "The fairy light made more time! Keep growing the flower!", "encourage")
+scripts\games\fairy.gd:647:					m.show_msg(fr["fname"], "Tap the sparkle or steer to cheer the flower awake!", "hint")
+scripts\games\dolls.gd:258:	m.show_msg(fr["fname"], "Catch 3 sleepy dolls in your arms!")
+scripts\games\dolls.gd:314:	m._say("faron", "miss", 3.0)
+scripts\kart.gd:1662:			_main._say("roshan", "bump", 7.0)
+scripts\kart.gd:2083:		_main._say("roshan", "intro4", 10.0)
+scripts\kart.gd:2392:				_main._say("roshan", "talk", 10.0)
+scripts\kart.gd:2954:							_main._say("roshan", "bump", 7.0)
+scripts\kart.gd:3270:		_main._say("roshan", "win", 2.0)
+scripts\games\fetch.gd:190:	m.show_msg(fr["fname"], "Throw the ball for Chuck - but NOT into the lake! Press when the arrow is GREEN!")
+scripts\games\fetch.gd:282:					m.show_msg(fr["fname"], "Chuck shakes off! Now the arrow stays on the safe snow — press when you're ready!", "splash")
+scripts\games\fetch.gd:284:					m.show_msg(fr["fname"], "SPLASH! Chuck can't swim out there! Try again — green arrow means SNOW!", "splash")
+scripts\games\fetch.gd:321:				m._say("chuck", "bark")
+scripts\games\melody.gd:685:	m.show_msg("Roshan", OBJECTIVE, OBJECTIVE_VOICE)
+scripts\games\picture_games.gd:266:	m.show_msg("Roshan", msg, "win")
+scripts\games\seek.gd:602:	m.show_msg(fr["fname"],
+scripts\games\shop.gd:237:	m.show_msg("Pearl Shop", "Welcome aboard! Swim close, then tap to buy Beans or set an ocean friend free!")
+scripts\games\shop.gd:356:				m.show_msg("Pearl Shop", "You already have bean power — enjoy the ride!")
+scripts\games\shop.gd:365:				m.show_msg("Pearl Shop", "That costs %d pearls — the ocean is full of them!" % choice_price)
+scripts\games\shop.gd:371:					m.show_msg("Pearl Shop", "Beans! Hold on to your tail!")
+scripts\games\shop.gd:427:		m.show_msg("Pearl Shop", "The %s is FREE! It lives in YOUR ocean now - go find it!" % String(it["label"]), "win")
+scripts\main.gd:513:	_say("roshan", "win", 0.5)   # cheer with the toast — the fanfare alone felt silent
+scripts\main.gd:555:	_say("everyone", "")
+scripts\main.gd:1218:			_say("roshan", ["idle1", "idle2", "idle3"][randi() % 3])
+scripts\main.gd:1227:		show_msg("Roshan", "Wow! A GIANT whale! Hello, big friend!", "whale")
+scripts\main.gd:1232:		show_msg("Roshan", "A magic ship on the water! I wonder what is inside...", "ship")
+scripts\main.gd:1237:		show_msg("Roshan", "Ooh, a sunken ship! Maybe there is treasure down there!", "wreck")
+scripts\main.gd:2560:			show_msg("Baby Penguin", "Wait for meee! I'm coming too! Toot toot!")
+scripts\main.gd:2649:		show_msg("", "New rainbow pearls are shimmering in the ocean!")
+scripts\main.gd:2876:			show_msg("Rainbow Road", "The rainbow road dives DOWN and DOWN... to the EMBER FORTRESS!")
+scripts\main.gd:2882:		show_msg("Rainbow Road", "The rainbow road soars on and on... to the Butterfly House!")
+scripts\main.gd:2886:	show_msg("Ocean Race", msg)
+scripts\main.gd:3111:			show_msg("Mermaid Rosalina", "You saved the Butterfly World! FAIRY ROSHAN is waiting in the castle wardrobe! 🦋", "win")
+scripts\main.gd:3115:			show_msg("Butterfly World", "Home again! The butterflies will wait for your return...")
+scripts\main.gd:3121:		show_msg("Mermaid Rosalina", "You saved the Butterfly World! FAIRY ROSHAN is waiting in the castle wardrobe! 🦋", "win")
+scripts\main.gd:3123:		show_msg("Butterfly World", "Home again! The butterflies will wait for your return...")
+scripts\main.gd:3254:				show_msg(String(cfg.get("award_name", "Your new friend")),
+scripts\main.gd:3309:	show_msg("Roshan", "Ten-room dungeon complete!" if completed else "Checkpoint safe — come back whenever you want!", "win" if completed else "home")
+scripts\main.gd:3348:		show_msg("Ember King", "Come back and play in my fortress any time, little hero!", "win")
+scripts\main.gd:3350:		show_msg("Ember Fortress", "Home again! The Ember King will keep his lanterns warm for you...")
+scripts\main.gd:3401:		show_msg("Daddy Mermaid",
+scripts\main.gd:3413:			show_msg("Pearl Opera House",
+scripts\main.gd:3416:			_say("roshan", "talk", 0.8)
+scripts\main.gd:3418:			show_msg("Pearl Opera House",
+scripts\main.gd:3428:		show_msg("Daddy Mermaid",
+scripts\main.gd:3538:		show_msg("Roshan",
+scripts\main.gd:3560:		show_msg("Roshan",
+scripts\main.gd:3564:		show_msg("Roshan",
+scripts\main.gd:3567:		show_msg(
+scripts\main.gd:3897:func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
+scripts\main.gd:3898:	_audio_ref()._say(speaker, event, min_gap)
+scripts\main.gd:3903:func show_msg(who: String, txt: String, vo: String = "talk") -> void:
+scripts\main.gd:3904:	_audio_ref().show_msg(who, txt, vo)
+scripts\main.gd:5835:	show_msg("Roshan", "Wow! A RAINBOW PORTAL is opening deep on the ocean floor! Dive down and swim in!")
+scripts\main.gd:5922:		show_msg("Roshan", "Back through the magic cave star!", "pearl2")
+scripts\main.gd:5940:		show_msg("Roshan", "Out in the castle courtyard! Wheee!")
+scripts\main.gd:5945:			show_msg("Roshan", "Two ocean kingdoms! The sunny shell leads to the Caribbean. The blue ice gate leads to Norway!", "intro")
+scripts\main.gd:5947:			show_msg("Princess Huluu", "Follow the sparkle trail! Find 3 Dream Stars!", "intro")
+scripts\main.gd:5984:	show_msg("Roshan", "A magical forest! The glowing lights lead to the fjord castle!", "pearl")
+scripts\main.gd:6876:	show_msg("Princess Huluu", "You found all three stars! Behold... my castle opens!", "greet")
+scripts\main.gd:6909:		show_msg("Roshan", "Wow! Let's go inside!")
+scripts\main.gd:6947:		show_msg("Pearl Castle",
+scripts\main.gd:6951:		show_msg("Pearl Castle",
+scripts\main.gd:6955:	_say("roshan", "talk", 0.5)
+scripts\main.gd:7382:	show_msg("Roshan",
+scripts\main.gd:7412:	show_msg("Daddy Mermaid",
+scripts\main.gd:7415:	_say("roshan", "talk", 0.8)
+scripts\main.gd:7424:		show_msg("Daddy Mermaid",
+scripts\main.gd:7427:		_say("roshan", "talk", 0.8)
+scripts\main.gd:7431:		show_msg("Roshan", "This room is sparkly clean!", "win")
+scripts\main.gd:7432:		_say("roshan", "talk", 0.6)
+scripts\main.gd:7442:			show_msg("Baby Eagle",
+scripts\main.gd:7445:			_say("roshan", "talk", 0.8)
+scripts\main.gd:7456:		show_msg("Daddy Mermaid",
+scripts\main.gd:7459:		_say("roshan", "talk", 0.8)
+scripts\main.gd:7466:		show_msg("Roshan",
+scripts\main.gd:7470:		show_msg("Roshan",
+scripts\main.gd:7473:	_say("roshan", "talk", 0.8)
+scripts\main.gd:7920:	show_msg("Roshan", "The sparkle pool is ready! Tap the pool picture!", "win")
+scripts\main.gd:7921:	_say("roshan", "talk", 0.8)
+scripts\main.gd:8068:			show_msg("Roshan",
+scripts\main.gd:8100:			show_msg("",
+scripts\main.gd:8109:					show_msg("",
+scripts\main.gd:8115:					show_msg("",
+scripts\main.gd:8124:					show_msg("", "Everything is ready! Come to the Main Hall!", "hint")
+scripts\main.gd:8129:					show_msg("",
+scripts\main.gd:8135:			show_msg("",
+scripts\main.gd:8139:			show_msg("",
+scripts\main.gd:8145:				show_msg("", "Farmer Roshan brought the Sky Lagoon strawberries!", "win")
+scripts\main.gd:8147:				show_msg("", "Chef Roshan's gigantic birthday cake is ready!", "win")
+scripts\main.gd:8149:				show_msg("", "Candy Maker Roshan finished the cake with candied strawberries!", "win")
+scripts\main.gd:8151:				show_msg("",
+scripts\main.gd:8161:			show_msg("", "Every party piece is ready! Meet in the Main Hall!", "hint")
+scripts\main.gd:8163:			show_msg("",
+scripts\main.gd:8167:			show_msg("", "A little ember silhouette is watching the party!", "hint")
+scripts\main.gd:8172:			show_msg("",
+scripts\main.gd:8197:	show_msg("", "%sNext party sparkle: %s in the %s!%s" % [
+scripts\main.gd:8204:	show_msg("",
+scripts\main.gd:8348:				show_msg("Music Room", "Your turn! Ring the bells in the same order!")
+scripts\main.gd:8356:	show_msg("Music Room", "The bells want to sing you a song! Listen... then copy it!")
+scripts\main.gd:8394:				show_msg("Music Room", "You played the WHOLE bell song! +2 rainbow pearls!", "win")
+scripts\main.gd:8400:				show_msg("Music Room", "Beautiful! Now a longer one — listen!")
+scripts\main.gd:8406:		show_msg("Music Room", "Almost! Listen to the song one more time...", "oops")
+scripts\main.gd:8431:	show_msg("Roshan", "Time for a cosy little sleep... zZz")
+scripts\main.gd:8494:		show_msg("Roshan", "What a lovely nap! It's NIGHT now - the ocean is full of moonbeams and glowing jellyfish!", "win")
+scripts\main.gd:8496:		show_msg("Roshan", "Good morning! The sun is shining over the ocean again!", "win")
+scripts\main.gd:8923:		show_msg("Roshan", "The icy waters of Norway! Follow the blue currents through the kelp and fjord!", "pearl2")
+scripts\main.gd:8925:		show_msg("Roshan", "The sunny Caribbean! Follow the warm shells and rainbow coral!", "pearl")
+scripts\main.gd:8927:		show_msg("Roshan", "Back in the Reef! I love swimming!", "idle2")
+scripts\main.gd:8970:	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Castle now!", "win")
+scripts\main.gd:8979:	show_msg("Roshan", "Yummy, beans! ...toot!", "beans")
+scripts\main.gd:9021:		show_msg("", "Phew! The beans wore off.")
+scripts\main.gd:9130:	show_msg("Everyone", "Roshan did it! Hooray! Deep below, a RAINBOW PORTAL is beginning to open on the ocean floor!")
+scripts\main.gd:9155:		show_msg("Roshan", HINTS[hint_idx])
+scripts\main.gd:9451:	show_msg(fr["fname"], txt, "win" if win else vo)
+scripts\main.gd:9796:			show_msg(String(fr.get("fname", "Roshan")), "Take your time — keep playing when you're ready!", "hint")
+scripts\main.gd:10304:				_say("roshan", ["pearl", "pearl2", "pearl3"][pearl_note % 3])
+scripts\main.gd:10329:			show_msg(f["fname"], f["msg"])
+scripts\games\treasure.gd:112:	m.show_msg(fr["fname"], "Shhh... secret caverns! Follow the sparkles down to the treasure!")
+scripts\mic_input.gd:621:		m.show_msg("Roshan", "You know the magic words now! Say them in a battle!", "win")
+scripts\mic_input.gd:632:	m.show_msg("Roshan", String(WORD_PROMPT.get(word, "Say the magic word!")), "talk")
+scripts\games\slide_race.gd:334:		m._say("harper", "hint", 0.5)
+scripts\games\slide_race.gd:481:		m._say("harper", "hint", FISH_OBJECTIVE_VOICE_WINDOW)
+scripts\games\slide_race.gd:1476:						m.show_msg(fr["fname"], "WHEEE! He zoomed away! Maybe magic BEANS from the Pearl Shop would help!")
+scripts\games\slide_race.gd:1542:				m.show_msg(fr["fname"], "Lean LEFT or RIGHT to join the race! Take your time.", "hint")
+scripts\games\slide_race.gd:1577:				m.show_msg(fr["fname"], "Lean LEFT or RIGHT to join the slide! Take your time.", "hint")
+scripts\games\slide_race.gd:1584:	m.show_msg(fr["fname"], "Welcome to the play place! Touch the sparkles all the way up to the BIG slide!")
+scripts\games\slide_race.gd:1604:			m.show_msg(fr["fname"], "BEANS POWER! Now catch that speedy penguin! GO GO GO!")
+scripts\games\slide_race.gd:1606:			m.show_msg(fr["fname"], "Race the baby penguin! Careful — he's SO speedy!")
+scripts\games\slide_race.gd:1613:					m.show_msg("Roshan", "I sure am hungry... I bet I'd be faster after a good MEAL!", "hungry"))
+scripts\games\slide_race.gd:1615:		m.show_msg(fr["fname"], "Whooosh down the ice! Lean LEFT and RIGHT to grab all 5 fish!")
+scripts\games\slide_race.gd:1680:				m.show_msg(String(fr.get("fname", "Play Place")), "Swim to the twinkly sparkle to start!", "hint")
+scripts\games\slide_race.gd:1697:			m.show_msg(fr["fname"], "BOING! Up you go!")
+scripts\opera_act.gd:135:	m.show_msg("Roshan", win_line, win_voice)
+scripts\opera_career_world_2d.gd:2330:	m.show_msg(
+scripts\opera_career_world_2d.gd:2583:		m.show_msg("Imp Captain", "Hee hee! You'll have to bop ME twice!", "op_captain")
+scripts\opera_career_world_2d.gd:2823:		m.show_msg("Roshan", "Tap the glowing dance pose!", "op_ballerina_steps")
+scripts\opera_career_world_2d.gd:3114:		m._say("faron", "miss", 3.0)
+scripts\opera_career_world_2d.gd:3177:		m.show_msg("Rival Imp", "The rival detective corners him first — watch, then trap him together!", "op_retry")
+scripts\opera_career_world_2d.gd:3544:					m.show_msg("Roshan", "Watch out! That imp is winding up — bop it before it swipes!", "hint")
+scripts\opera_career_world_2d.gd:3556:					m.show_msg("Imp Captain", "Crew! Back to me! Hee hee!", "op_captain")
+scripts\opera_career_world_2d.gd:3839:				m.show_msg("Roshan", "Hold the magnifier over the glowing clue!",
+scripts\opera_career_world_2d.gd:3871:				m.show_msg("Roshan", "A clue! Right there, hiding where nobody looked!",
+scripts\opera_house_venue_2d.gd:492:		m.show_msg("Pearl Opera House", FLOOR_NAMES[floor_index], "home")
+scripts\partner_assist.gd:148:		m._say("daddy" + str((uses - 1) % 3 + 1), "", 0.0)
+scripts\partner_assist.gd:150:		m._say(_stuffie_speaker(), "talk", 0.0)
+scripts\partner_assist.gd:155:	m._say("daddy" if kind == "daddy" else _stuffie_speaker(), "talk", 3.0)
+scripts\pause_menu.gd:315:		m.show_msg("Roshan", "Back to the castle! Pick anything you want to play.")
+scripts\player.gd:1034:			mh.show_msg("Roshan", "Hopping is hard work with a tail!", "talk")
+scripts\probe_melody.gd:80:	func show_msg(who: String, txt: String, vo: String = "talk") -> void:
+scripts\probe_melody.gd:82:		super.show_msg(who, txt, vo)
+scripts\probe_melody.gd:84:	func _say(speaker: String, event: String = "",
+scripts\probe_melody.gd:91:		super._say(speaker, event, min_gap)
+scripts\probe_voice.gd:24:	func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
+scripts\probe_voice.gd:28:		super._say(speaker, event, min_gap)
+scripts\probe_voice.gd:718:	main._say("roshan", "talk")
+scripts\probe_voice.gd:719:	main._say("missing_speaker", "missing_event")
+scripts\probe_voice.gd:764:	main._say("roshan", "talk", 10.0)
+scripts\probe_voice.gd:765:	main._say("roshan", "talk", 10.0)
+scripts\stuffie_battle.gd:101:	m.show_msg(String(creature_def.get("name", "Stuffie")),
+scripts\stuffie_battle.gd:519:	m.show_msg(String(creature_def.get("name", "Stuffie")), "We're friends now! Hooray!", "talk")
+scripts\stuffie_battle.gd:626:	m.show_msg(String(creature_def.get("name", "Stuffie")), "Ouch, a boo-boo! I'll need a hug after this! Tap the big DODGE bubble!", "talk")
+scripts\stuffie_battle.gd:665:		m.show_msg(String(round_cfg.get("award_name", "Your new friend")),
+scripts\stuffie_battle.gd:668:		m.show_msg(String(creature_def.get("name", "Stuffie")), "We did it! Everyone wants to play with us now!", "win")
+scripts\tap_move_director.gd:96:		m.show_msg("Roshan", "That way is snug. Use the left circle to wiggle around!", "hint")

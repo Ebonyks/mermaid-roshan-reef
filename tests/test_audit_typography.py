@@ -855,59 +855,20 @@ class TypographyAuditTests(unittest.TestCase):
         self.assertIn("U+2603", report["glyphs"]["unclassified"])
         self.assertTrue(any("unclassified live code points" in error for error in report["machine_errors"]))
 
-    def test_optional_dodge_lightning_is_redundant_with_recorded_source_routes(self) -> None:
+    def test_removed_dodge_button_has_no_stale_lightning_evidence(self) -> None:
         root = Path(__file__).resolve().parents[1]
         manifest_path = root / "audit/typography_manifest.json"
         data = json.loads(manifest_path.read_text(encoding="utf-8"))
         report = audit(root, manifest_path)
         source = (root / "scripts/games/dust_boss.gd").read_text(encoding="utf-8")
-        audio_source = (root / "scripts/audio_director.gd").read_text(encoding="utf-8")
-        evidence = data["glyph_evidence"]["U+26A1"]
-        voice_route = evidence["voice_route"]
 
-        self.assertEqual(evidence["classification"], "redundant")
-        self.assertIn("U+26A1", data["glyph_classes"]["redundant"])
+        self.assertNotIn("U+26A1", data["glyph_evidence"])
+        self.assertNotIn("U+26A1", data["glyph_classes"]["redundant"])
         self.assertNotIn("U+26A1", data["glyph_classes"]["critical"])
-        self.assertEqual(report["glyphs"]["classification_counts"]["redundant"], 2)
-        self.assertEqual(report["glyphs"]["unclassified"], [])
-        source_lines = source.splitlines()
-        source_routes = {
-            "scripts/games/dust_boss.gd:31": "# shove and boing before she recovers immediately; it never removes progress.",
-            "scripts/games/dust_boss.gd:32": "# A separate picture button adds an OPTIONAL twirl dodge. Incoming hops pulse",
-            "scripts/games/dust_boss.gd:994": '\tStorybookUI.style_icon_button(dodge, "↻", "secondary",',
-            "scripts/games/dust_boss.gd:1046-1048": [
-                '\t\tvar pulse: float = 1.0 + sin(float(m.g.get("db_active_t", 0.0)) '
-                + "\\",
-                "\t\t\t* (10.0 if danger else 2.6)) * (0.10 if danger else 0.025)",
-                "\t\tdodge.scale = Vector2.ONE * pulse",
-            ],
-            "scripts/games/dust_boss.gd:1050": "\t\tpointer.visible = dodge_visible and danger",
-        }
-        glyph_source_routes = {
-            "scripts/games/dust_boss.gd:1044": '\t\tdodge.text = "⚡\\n↻" if danger else "↻"',
-        }
-        for route in evidence["source_refs"]:
-            expected = glyph_source_routes.get(route)
-            self.assertIsNotNone(expected, route)
-            _path, line = route.rsplit(":", 1)
-            self.assertEqual(source_lines[int(line) - 1], expected, route)
-        self.assertEqual(set(evidence["source_refs"]), set(glyph_source_routes))
-        for route in evidence["redundant_routes"]:
-            expected = source_routes.get(route)
-            self.assertIsNotNone(expected, route)
-            _path, line_spec = route.rsplit(":", 1)
-            if "-" in line_spec:
-                start, end = (int(value) for value in line_spec.split("-", 1))
-                self.assertEqual(source_lines[start - 1:end], expected, route)
-            else:
-                self.assertEqual(source_lines[int(line_spec) - 1], expected, route)
-        self.assertEqual(set(evidence["redundant_routes"]), set(source_routes))
-        self.assertEqual(voice_route["status"], "EXCLUDED")
-        self.assertFalse((root / voice_route["exact_asset"]).exists())
-        self.assertTrue((root / voice_route["fallback_asset"]).exists())
-        self.assertIn("elif m.voice != null:", audio_source)
-        self.assertIn("m.voice.play()", audio_source)
-        self.assertNotIn("voiced", evidence["evidence_note"].lower())
+        self.assertNotIn("⚡", source)
+        self.assertNotIn("DustBossDodgeButton", source)
+        self.assertNotIn("db_dodge_button", source)
+        self.assertNotIn("U+26A1", report["glyphs"]["observed_codepoints"])
 
     def test_label3d_new_file_is_a_machine_failure(self) -> None:
         root, manifest_path = self.write_tree(

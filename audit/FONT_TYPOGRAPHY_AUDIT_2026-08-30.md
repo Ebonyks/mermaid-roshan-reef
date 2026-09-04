@@ -65,19 +65,14 @@ child-facing surface.
 | `add_theme_font_size_override(` | baseline 45 at `0ddbe656`; committed implementation 39 | Some direct size overrides were removed, but size is not yet fully role-owned |
 | `Label3D.outline_size` assignments | 39 | Most, not all, spatial labels carry local outline treatment |
 
-The reconciled source head `5bf3b1a4` adds one live code point, `U+26A1` (⚡),
-at `scripts/games/dust_boss.gd:1044`. It is classified as **redundant**, not
-critical: it is an optional incoming-hop attention flash on the dodge button,
-while the danger-specific scale pulse at `dust_boss.gd:1046-1048` and visible
-pointer at `dust_boss.gd:1050` reinforce the persistent `↻` action affordance
-at `dust_boss.gd:994`. The control is optional (`dust_boss.gd:32`), and contact
-is harmless and never removes progress (`dust_boss.gd:31`). The exact voice asset is absent and
-the generic `yay` fallback is affect-only, so no spoken instruction is claimed.
-The manifest records these exact source routes and the excluded voice route in `glyph_evidence`;
-this is source classification evidence only, not font coverage or device
-acceptance. The live inventory is therefore 148 observed code points: 11
-decorative, 2 redundant, and 135 critical; all 135 critical points remain
-unresolved while font authority is absent.
+The reconciled source head `5bf3b1a4` historically added `U+26A1` (⚡) for a
+dodge button. The 2026-08-31 boss-cue correction removes that button and the
+live lightning glyph. The manifest therefore removes its stale allowlist and
+source-evidence entry: the new bunny-attached coral flash and lateral motion
+are drawn animation, not font semantics. This correction does not claim font
+coverage or device acceptance. The global audit still reports the separately
+introduced `U+1F50E` achievement glyph as unclassified until its owning work
+provides evidence; that unrelated finding is not hidden by this removal.
 
 Representative commands:
 
@@ -160,12 +155,10 @@ cues. Some are redundant decoration; others carry meaning. With no packaged
 glyph manifest or runtime proof, critical coverage is unconfirmed. Emoji shape,
 color, advance, baseline, and availability must not be assumed. Critical
 meaning uses controlled authored assets or a proved bundled monochrome glyph;
-Unicode may remain redundant decoration. The new Dust Bunny `⚡` cue is kept in
-that redundant class because the optional dodge control has a danger-specific
-scale pulse, visible pointer, and persistent `↻` action affordance; contact is
-harmless and never removes progress. Its optional-control source is
-`dust_boss.gd:32`, and its harmless-contact source is `dust_boss.gd:31`. Its absent exact voice asset and generic
-`yay` fallback are explicitly excluded from the classification evidence.
+Unicode may remain redundant decoration. The retired Dust Bunny `⚡` button cue
+is no longer live or allowlisted. Its replacement is a code-drawn coral flash
+with lateral movement attached to the bunny plus the approved ghost-hand
+demonstration; it adds no new semantic glyph requirement.
 
 ### 4.5 Fixed English layout has expansion risk
 

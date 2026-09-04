@@ -185,13 +185,23 @@ func play_idle() -> void:
 		sprite.play(&"idle")
 
 
-func play_jump(direction_x: float = 1.0) -> float:
+func play_jump(direction_x: float = 1.0, travel_time: float = 0.0) -> float:
 	_reset_tap_progress()
 	set_facing_x(direction_x)
 	var jump_animation: StringName = (
 		&"angry_jump_final" if final_round_active else &"jump"
 	)
-	return _play_action(jump_animation)
+	var natural_duration: float = _play_action(jump_animation)
+	# Gameplay owns travel. When it supplies that committed hop duration, fit
+	# all four authored beats to it so anticipation, lift-off, peak, and the
+	# painted landing ring agree with the actual contact frame.
+	if travel_time > 0.0 and sprite != null:
+		var fps: float = sprite.sprite_frames.get_animation_speed(jump_animation)
+		var frame_count: int = sprite.sprite_frames.get_frame_count(jump_animation)
+		if fps > 0.0 and frame_count > 0:
+			sprite.speed_scale = float(frame_count) / (fps * travel_time)
+			return travel_time
+	return natural_duration
 
 
 func play_vulnerable_laugh() -> float:
