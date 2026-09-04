@@ -11,13 +11,13 @@
 
 - `source visual archive`
 - retain the approved source beat order.
-- Release MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
+- Audited branch MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
 
-## New release decision
+## September 4 branch decision
 
-- This release contains no clip for the scene.
+- This branch contains no clip for the scene.
 
-## Accepted from the new release for rough motion
+## Accepted from the September 4 branch for rough motion
 
 - None.
 
@@ -30,7 +30,7 @@
 
 ## Regenerate — complete active queue
 
-- None. Every released shot for this scene either passed the loose motion-reference audit or was removed because its event does not belong in the corrected cut.
+- None. Every branch shot for this scene either passed the loose motion-reference audit or was removed because its event does not belong in the corrected cut.
 
 ## Operator gate
 

@@ -11,16 +11,16 @@
 
 - `scripts/games/day_one_pool_cleanup.gd`
 - the dirty pool begins with six surface targets, three waterfall lanes, and an eight-tug seahorse obstruction.
-- Release MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
+- Audited branch MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
 
-## New release decision
+## September 4 branch decision
 
-| Released shot | Verdict | Exact finding | Action |
+| Branch shot | Verdict | Exact finding | Action |
 |---|---|---|---|
-| D1-C05-S04 ([C05_S04_v1_blocked_rainbow_source_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C05_S04_v1_blocked_rainbow_source_REGEN.mp4)) | `REGENERATE` | Frames 000–144: A clean empty pool becomes a bright rainbow doorway. The exact top waterfall source, dull blockage, olive-brown sludge, leaf, and wrapper are absent. | Show the fixed top source blocked and unchanged; no glow or flow. |
-| D1-C05-S05 ([C05_S05_v1_sick_seahorse_plug_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C05_S05_v1_sick_seahorse_plug_REGEN.mp4)) | `REGENERATE` | Frames 000–144: The mouth plug is readable, but the pool is already clean and Roshan is full-body from frame 0 instead of entering only at the edge of a dirty-state close-up. | Restore dirty algae/trash grade, right-center seahorse scale, lodged plug, and edge-only Roshan reaction. |
+| D1-C05-S04 ([C05_S04_v1_blocked_rainbow_source_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C05_S04_v1_blocked_rainbow_source_REGEN.mp4)) | `REGENERATE` | Frames 000–144: A clean empty pool becomes a bright rainbow doorway. The exact top waterfall source, dull blockage, olive-brown sludge, leaf, and wrapper are absent. | Show the fixed top source blocked and unchanged; no glow or flow. |
+| D1-C05-S05 ([C05_S05_v1_sick_seahorse_plug_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C05_S05_v1_sick_seahorse_plug_REGEN.mp4)) | `REGENERATE` | Frames 000–144: The branch replacement clarifies the pink wrapper-and-weed plug, but the pool remains clean, Roshan is full-body from frame 0, and the wide two-shot never becomes the required dirty-state close-up. | Restore dirty algae/trash grade, right-center seahorse scale, lodged plug, and edge-only Roshan reaction. |
 
-## Accepted from the new release for rough motion
+## Accepted from the September 4 branch for rough motion
 
 - None.
 

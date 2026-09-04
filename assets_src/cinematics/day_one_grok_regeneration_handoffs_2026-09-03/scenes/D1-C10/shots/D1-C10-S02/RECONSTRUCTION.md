@@ -6,7 +6,7 @@
 
 ## Why this shot is being rebuilt
 
-- [C10_S02_v1_four_supplies_home_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C10_S02_v1_four_supplies_home_REGEN.mp4): release frames 000–144: Supplies begin on/near the center desk and materialize at the right during the clip; ribbon and fixture topology also change.
+- [C10_S02_v1_four_supplies_home_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C10_S02_v1_four_supplies_home_REGEN.mp4): branch frames 000–144: Supplies begin on/near the center desk and materialize at the right during the clip; ribbon and fixture topology also change.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
 

@@ -6,7 +6,7 @@
 
 ## Why this shot is being rebuilt
 
-- [C08_S06_v1_wing_blast_clean_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C08_S06_v1_wing_blast_clean_REGEN.mp4): release frames 000–144: Baby Eagle never performs a wing-blast cleanup. Gameplay completes when Roshan clears the second pin.
+- [C08_S06_v1_wing_blast_clean_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C08_S06_v1_wing_blast_clean_REGEN.mp4): branch frames 000–144: Baby Eagle never performs a wing-blast cleanup. Gameplay completes when Roshan clears the second pin.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
 

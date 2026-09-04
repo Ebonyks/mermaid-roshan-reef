@@ -11,24 +11,23 @@
 
 - `scripts/games/day_one_pool_cleanup.gd`
 - pool_surface → waterfall → seahorse is the fixed order; Rumi rises only after all three complete.
-- Release MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
+- Audited branch MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
 
-## New release decision
+## September 4 branch decision
 
-| Released shot | Verdict | Exact finding | Action |
+| Branch shot | Verdict | Exact finding | Action |
 |---|---|---|---|
-| D1-C06-S03 ([C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4)) | `REGENERATE` | Frames 000–047 missing blocked start; 048–144 wrong clearing: The waterfall starts clean; later debris becomes a central raised dark mass and the flow retracts instead of clearing from the top source downward. | Begin blocked, ignite at the top, drive debris down the channel, and stop at the lower lip. |
-| D1-C06-S04 ([C06_S04_v1_both_sources_pool_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S04_v1_both_sources_pool_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames none blocking: Both fixed clean sources visibly enter the same giant pool and the pullback resolves the shared geometry. | Retain this release clip for rough assembly only. |
-| D1-C06-S05 ([C06_S05_v1_purification_fronts_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S05_v1_purification_fronts_REGEN.mp4)) | `REGENERATE` | Frames 000–144: The pool begins clean; white V-shaped streaks replace two fronts displacing algae through murky water. | Start dirty, advance two distinct fronts from the fixed sources, displace algae, and join once at center. |
-| D1-C06-S06 ([C06_S06_v1_violet_prelude_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S06_v1_violet_prelude_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames none blocking: The clean giant pool, both fixtures, and localized violet center glow are coherent without revealing Rumi early. | Retain this release clip for rough assembly only. |
-| D1-C06-S08 ([C06_S08_v1_rumi_invitation_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S08_v1_rumi_invitation_REGEN.mp4)) | `REGENERATE` | Frames 104–144: Rumi's thanks and open-arm invitation work through frame 103, but Roshan then approaches and starts the hug before the dedicated hug shot. | Regenerate the full shot so Rumi holds open arms and Roshan remains separate through frame 144. |
-| D1-C06-S09 ([C06_S09_v1_hug_complete_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S09_v1_hug_complete_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames none blocking: Approach, arm contact, faces, distinct torsos, two tails, pool fixtures, and the final embrace remain coherent. | Retain this release clip for rough assembly only. |
+| D1-C06-S03 ([C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4)) | `REGENERATE` | Frames 000–047 missing blocked start: The branch replacement improves downward debris travel, but begins with the rainbow waterfall already clean and flowing; the blocked cause and ignition beat are absent. | Begin blocked, ignite at the top, drive debris down the channel, and stop at the lower lip. |
+| D1-C06-S04 ([C06_S04_v1_both_sources_pool_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S04_v1_both_sources_pool_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames none blocking: The branch replacement cleanly holds both fixed sources feeding the same giant pool with stable shared geometry. | Retain this branch clip for rough assembly only. |
+| D1-C06-S05 ([C06_S05_v1_purification_fronts_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S05_v1_purification_fronts_REGEN.mp4)) | `REGENERATE` | Frames 000–144: The branch replacement begins with fully clean water and a decorative rainbow band; it never shows two clear-water fronts displacing murk from the fixed sources. | Start dirty, advance two distinct fronts from the fixed sources, displace algae, and join once at center. |
+| D1-C06-S06 ([C06_S06_v1_violet_prelude_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S06_v1_violet_prelude_REGEN.mp4)) | `REGENERATE` | Frames 000–144; portal opens 072–144: The branch replacement washes the entire pool pink/violet from frame 0, then opens a large circular portal or hole instead of raising one contained underwater glow. | Begin on a clean aqua joined ripple; raise one soft localized violet glow, then settle it without a portal, hole, or room-wide wash. |
+| D1-C06-S08 ([C06_S08_v1_rumi_invitation_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S08_v1_rumi_invitation_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames none blocking: The branch replacement now gives Rumi a clear thanks-to-open-arms gesture while Roshan remains visibly separate through frame 144. | Retain this branch clip for rough assembly only. |
+| D1-C06-S09 ([C06_S09_v1_hug_complete_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S09_v1_hug_complete_REGEN.mp4)) | `REGENERATE` | Frames 000–144: The branch replacement starts already inside the embrace and holds it throughout, eliminating the required separate-body approach and single readable contact beat. | Inherit the open-arm S08 endpoint, show Roshan approach once, make one clear contact, then hold distinct torsos and tails. |
 
-## Accepted from the new release for rough motion
+## Accepted from the September 4 branch for rough motion
 
-- [C06_S04_v1_both_sources_pool_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S04_v1_both_sources_pool_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
-- [C06_S06_v1_violet_prelude_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S06_v1_violet_prelude_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
-- [C06_S09_v1_hug_complete_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C06_S09_v1_hug_complete_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
+- [C06_S04_v1_both_sources_pool_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S04_v1_both_sources_pool_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
+- [C06_S08_v1_rumi_invitation_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S08_v1_rumi_invitation_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
 
 ## Earlier rough references still retained
 
@@ -42,7 +41,8 @@
 |---|---|---|---|
 | D1-C06-S03 | Rainbow waterfall restarts top-down | [D1-C06-S03 card](shots/D1-C06-S03/SHOT_PACKET.json) | [weak frames and rebuild](shots/D1-C06-S03/RECONSTRUCTION.md) |
 | D1-C06-S05 | Two purification fronts meet | [D1-C06-S05 card](shots/D1-C06-S05/SHOT_PACKET.json) | [weak frames and rebuild](shots/D1-C06-S05/RECONSTRUCTION.md) |
-| D1-C06-S08 | Rumi thanks Roshan and opens her arms | [D1-C06-S08 card](shots/D1-C06-S08/SHOT_PACKET.json) | [weak frames and rebuild](shots/D1-C06-S08/RECONSTRUCTION.md) |
+| D1-C06-S06 | Violet emergence prelude | [D1-C06-S06 card](shots/D1-C06-S06/SHOT_PACKET.json) | [weak frames and rebuild](shots/D1-C06-S06/RECONSTRUCTION.md) |
+| D1-C06-S09 | Roshan completes the hug | [D1-C06-S09 card](shots/D1-C06-S09/SHOT_PACKET.json) | [weak frames and rebuild](shots/D1-C06-S09/RECONSTRUCTION.md) |
 
 ## Operator gate
 

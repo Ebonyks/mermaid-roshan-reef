@@ -6,7 +6,7 @@
 
 ## Why this shot is being rebuilt
 
-- [C13_S05_v1_rainbow_bunny_emerges_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C13_S05_v1_rainbow_bunny_emerges_REGEN.mp4): release frames 000–047 cradle; 048–071 occlusion; identity 000–144: The floor cradle becomes a tall canopy/chair, multicolor smoke obscures emergence, and the bunny remains an unapproved identity stand-in.
+- [C13_S05_v1_rainbow_bunny_emerges_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C13_S05_v1_rainbow_bunny_emerges_REGEN.mp4): branch frames 000–047 cradle; 048–071 occlusion; identity 000–144: The floor cradle becomes a tall canopy/chair, multicolor smoke obscures emergence, and the bunny remains an unapproved identity stand-in.
 
 Frame ranges above are direct 24 fps review indices for the 145-frame source clips. They identify the repair window, not permission to interpolate or patch pixels.
 

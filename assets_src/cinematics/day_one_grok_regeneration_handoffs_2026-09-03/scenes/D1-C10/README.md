@@ -11,19 +11,19 @@
 
 - `scripts/day_one_art_studio.gd`
 - all seven cleanup actions unlock the blank desk; customization UI opens only after the desk touch.
-- Release MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
+- Audited branch MP4s, old MP4s, boards, and runtime captures are evidence only; none is an IMAGE binding or delivery frame.
 
-## New release decision
+## September 4 branch decision
 
-| Released shot | Verdict | Exact finding | Action |
+| Branch shot | Verdict | Exact finding | Action |
 |---|---|---|---|
-| D1-C10-S02 ([C10_S02_v1_four_supplies_home_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C10_S02_v1_four_supplies_home_REGEN.mp4)) | `REGENERATE` | Frames 000–144: Supplies begin on/near the center desk and materialize at the right during the clip; ribbon and fixture topology also change. | Place all four supplies home once at frame 0 and allow only localized station sparkle. |
-| D1-C10-S03 ([C10_S03_v1_clean_art_room_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C10_S03_v1_clean_art_room_REGEN.mp4)) | `REGENERATE` | Frames 000–144: The opening crop omits the complete layout, the pullback is far greater than ten percent, and Roshan becomes too small for a child-readable endpoint. | Start on the complete exact front projection; limit pullback to ten percent and keep Roshan readable. |
-| D1-C10-S05 ([C10_S05_v1_blank_desk_handgap_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C10_S05_v1_blank_desk_handgap_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames none blocking: The blank rectangular desk, front fixture order, raised hand, and visible hand gap remain stable. | Retain this release clip for rough assembly only. |
+| D1-C10-S02 ([C10_S02_v1_four_supplies_home_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C10_S02_v1_four_supplies_home_REGEN.mp4)) | `REGENERATE` | Frames 000–144: Supplies begin on/near the center desk and materialize at the right during the clip; ribbon and fixture topology also change. | Place all four supplies home once at frame 0 and allow only localized station sparkle. |
+| D1-C10-S03 ([C10_S03_v1_clean_art_room_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C10_S03_v1_clean_art_room_REGEN.mp4)) | `REGENERATE` | Frames 000–144: The opening crop omits the complete layout, the pullback is far greater than ten percent, and Roshan becomes too small for a child-readable endpoint. | Start on the complete exact front projection; limit pullback to ten percent and keep Roshan readable. |
+| D1-C10-S05 ([C10_S05_v1_blank_desk_handgap_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C10_S05_v1_blank_desk_handgap_REGEN.mp4)) | `ACCEPT_MOTION_REFERENCE` | Frames none blocking: The blank rectangular desk, front fixture order, raised hand, and visible hand gap remain stable. | Retain this branch clip for rough assembly only. |
 
-## Accepted from the new release for rough motion
+## Accepted from the September 4 branch for rough motion
 
-- [C10_S05_v1_blank_desk_handgap_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-regen-motion-ref-2026-09-03/C10_S05_v1_blank_desk_handgap_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
+- [C10_S05_v1_blank_desk_handgap_REGEN.mp4](https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C10_S05_v1_blank_desk_handgap_REGEN.mp4) — retained as motion/editorial reference only; `DELIVERY_ACCEPTED` remains false.
 
 ## Earlier rough references still retained
 
