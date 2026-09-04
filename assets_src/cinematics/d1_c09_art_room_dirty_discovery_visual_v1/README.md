@@ -1,22 +1,22 @@
 # D1-C09 — Art Room — Spilled Supplies Discovery
 
-> `ARCHIVE_COMPLETE`: true
+> `ARCHIVE_COMPLETE`: true<br>
 > `GENERATION_READY`: false<br>
 > `DELIVERY_ACCEPTED`: false<br>
 > Grok output remains motion/editorial reference until the independent full-frame delivery audit passes.
 
 ## Use this one-link handoff
 
-1. Review the location-depth sheet, storyboard, and character locks below.
+1. Review the environment continuity sheet, storyboard, and character locks below.
 2. Paste the shared guide once, then the scene guide.
 3. Generate one shot job at a time with two to four separately approved pixel authorities.
-4. Never upload either generated sheet below as `IMAGE_1` or as delivery pixels.
+4. Never upload either sheet below as `IMAGE_1` or as delivery pixels.
 
-## Multi-angle environment depth
+## Environment continuity and runtime state
 
-![Multi-angle environment perspective sheet](storyboards/ENVIRONMENT_PERSPECTIVES.png)
+![Environment continuity and runtime-state sheet](storyboards/ENVIRONMENT_PERSPECTIVES.png)
 
-This is a newly generated, complete flattened narrative/topology reference. It demonstrates spatial depth and camera possibilities, but it is not an approved shot opening frame.
+This sheet records the permitted location projection and state continuity. It is narrative/runtime evidence only and is not an approved shot opening frame.
 
 ## Shot-aligned storyboard
 
@@ -24,11 +24,11 @@ This is a newly generated, complete flattened narrative/topology reference. It d
 
 | Shot | Authored visible beat |
 |---|---|
-| D1-C09-S01 | Wide approved dirty Art Room topology view. |
-| D1-C09-S02 | Inherit the approved dirty room and doorway perspective. |
-| D1-C09-S03 | Low-to-medium inspection move across exactly four loose supply groups: approved loose brushes, pink paint bottle, blue paint bottle, and paint cups. |
-| D1-C09-S04 | Counter-height environmental shot revealing exactly three established lavender paint-grime zones: desk, left counter, and right counter. |
-| D1-C09-S05 | Medium reverse on Roshan with the dirty Art Room extending coherently behind her. |
+| D1-C09-S01 | Hold the exact front-facing runtime Art Room in its loose-supply state. |
+| D1-C09-S02 | Inherit the same front-facing loose-supply state. |
+| D1-C09-S03 | Read exactly the four existing loose groups across the same front plane: brushes, pink bottle, blue bottle, paint cups. |
+| D1-C09-S04 | Cut to the exact post-collection runtime state: loose target cards are absent and exactly three small lavender grime cards are visible at the left counter, rectangular center desk, and right counter. |
+| D1-C09-S05 | Remain in the same front-facing three-grime state. |
 
 ## Character reference guide
 
@@ -57,22 +57,22 @@ This is a newly generated, complete flattened narrative/topology reference. It d
 D1-C09 — ART ROOM: SPILLED-SUPPLIES DISCOVERY
 
 VIDEO SETUP BLOCK — PASTE ONCE
-Create five separate clips totaling 8–10 seconds. Do not generate until a human has approved the Art Room's coherent clean and dirty six-view topology set: front, left doorway, right doorway, low center, reverse toward entrance, and desk closeup. Extrapolate unseen walls as a full inhabitable pearl craft room matching the current front plate; never recycle cropped fragments of one view. Preserve exact Roshan identity and current runtime object identities: loose brush bundle, pink paint bottle, blue paint bottle, paint cups, and three lavender paint-grime zones on established counter surfaces. Start at the craft doorway and end with all four loose supply groups plus all three grime zones understood. Discovery only; no cleaning, stored duplicates, or completed custom art.
+Create five separate clips totaling 8–10 seconds. Match the current in-game Art Room exactly. The only approved room projection is the straight-on runtime front view: two shell windows, two pearl columns, central chandelier, rainbow banners, left ribbon rack, central shell idea board, fixed rear shelves, rectangular center paint desk, and two curved foreground counters. The runtime captures in this packet lock placement and state but contain HUD and are boundary references only. Never invent an interior doorway, side or reverse wall, round table, extra shelving, or alternate room geometry. Preserve exact Roshan identity and exactly four loose supply groups. Discovery only; no cleaning or desk activation.
 
 SHOT D1-C09-S01 COPY BLOCK
-Wide approved dirty Art Room topology view. Show the entrance, full connected walls, counters, central work area, magic paint desk, four loose supply groups, and three integrated lavender grime zones in their established positions. Dirty light is dim but colorful and safe. Locked camera. End holding the doorway clear. No Roshan yet, no flat theater backdrop, no clip-art stickers, no duplicate supplies. Sound: temporary quiet room ambience and faint paint drip; no voices.
+Hold the exact front-facing runtime Art Room in its loose-supply state. Show one loose brush bundle, one pink paint bottle, one blue paint bottle, and one paint-cup group in their established screen positions. Locked camera. End with all four groups countable. No Roshan action, grime targets, extra supplies, doorway, room rotation, or HUD. Sound: quiet room ambience and faint paint settle; no voices.
 
 SHOT D1-C09-S02 COPY BLOCK
-Inherit the approved dirty room and doorway perspective. Roshan crosses the threshold with exact child identity, continuous rainbow mer-tail, and correct scale. One short follow camera stops inside. She scans left-to-right across the counters and desk without touching anything. End with her eye line landing on the loose supplies. No legs, room rotation error, cleanup, or new props. Sound: temporary soft tail movement and curious music pulse; no voices.
+Inherit the same front-facing loose-supply state. Roshan is already inside at runtime scale; she makes one small tail settle and scans left-to-right toward the four loose groups. One subtle center push-in only. End with her gaze on the supplies. No threshold crossing, invented door, collection, cleanup, or new prop. Sound: soft tail movement and curious music pulse; no voices.
 
 SHOT D1-C09-S03 COPY BLOCK
-Low-to-medium inspection move across exactly four loose supply groups: approved loose brushes, pink paint bottle, blue paint bottle, and paint cups. Each object rests naturally on the established surfaces with contact shadow and small believable spill evidence. One slow lateral camera move only. End with all four identities readable. No fifth group, duplicated stored copy, floating stickers, broken glass, or cleanup. Sound: temporary tiny bottle/cup settle and room ambience; no voices.
+Read exactly the four existing loose groups across the same front plane: brushes, pink bottle, blue bottle, paint cups. One slow left-to-right digital crop only; objects remain fixed with contact shadows. End with all four identities readable. No fifth group, duplicate stored copy, floating object, parallax, or new perspective. Sound: tiny bottle and cup settle over room ambience; no voices.
 
 SHOT D1-C09-S04 COPY BLOCK
-Counter-height environmental shot revealing exactly three established lavender paint-grime zones: desk, left counter, and right counter. One gentle pan connects the zones through coherent room geometry while Roshan's pointing hand briefly confirms her gaze without touching. End with all three locations spatially understood. No extra smear, toxic sludge, UI markers, or room redesign. Sound: temporary sticky paint ambience and soft concerned chord; no voices.
+Cut to the exact post-collection runtime state: loose target cards are absent and exactly three small lavender grime cards are visible at the left counter, rectangular center desk, and right counter. Roshan points without touching. Locked front camera. End with all three locations readable. No floor grime, fourth target, toxic sludge, cleanup, desk glow, supply travel, or HUD. Sound: faint sticky paint ambience and a concerned chord; no voices.
 
 SHOT D1-C09-S05 COPY BLOCK
-Medium reverse on Roshan with the dirty Art Room extending coherently behind her. She looks from the four supply groups to the three grime zones, then reaches toward the approved cleaning brush without making contact. One subtle push-in. End on her determined child expression and the room still fully dirty. No cleanup, magic desk activation, completed artwork, extra limb, or text. Sound: temporary resolve chime over quiet room tone; no voices.
+Remain in the same front-facing three-grime state. Roshan looks from the three targets toward the approved cleaning tool and raises one hand, stopping before contact. Optional push-in no greater than ten percent. End with every grime card still present and Roshan ready to clean. No brush contact, removal, desk activation, reverse angle, extra limb, or text. Sound: resolve chime over quiet room tone; no voices.
 ```
 </details>
 

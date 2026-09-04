@@ -6,11 +6,11 @@
   "agent_prescreen": "accepted",
   "human_decision": "pending",
   "perspective_gates": {
-    "expected_panel_count": 6,
-    "exactly_six_angles": "accepted",
-    "character_free": "accepted",
-    "environment_continuity": "accepted",
-    "state_continuity": "accepted",
+    "expected_panel_count": 4,
+    "exact_runtime_states": "accepted",
+    "single_front_projection": "accepted",
+    "environment_continuity": "accepted_against_Godot_4_7_2_captures",
+    "state_continuity": "accepted_with_explicit_00_to_01_state_cut",
     "technical_integrity": "accepted"
   },
   "storyboard_gates": {
@@ -28,6 +28,11 @@
     "not_delivery_pixels": true,
     "used_as_delivery_pixels": false
   },
+  "blocking_notes": [
+    "Runtime panels intentionally retain HUD and are never IMAGE_1 or delivery pixels.",
+    "The generated S02 keyframe is narrative-only because minor fixture-detail drift remains.",
+    "Five owner-approved HUD-free complete opening frames are still required."
+  ],
   "claims": {
     "archive_complete": false,
     "generation_ready": false,
