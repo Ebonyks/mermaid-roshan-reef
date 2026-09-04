@@ -1,7 +1,7 @@
 # D1-C06-S06 — Violet emergence prelude
 
-> `STATUS`: DRAFT  
-> `GENERATION_READY`: false  
+> `STATUS`: DRAFT
+> `GENERATION_READY`: false
 > `DELIVERY_ACCEPTED`: false
 
 ## Why this shot is being rebuilt
