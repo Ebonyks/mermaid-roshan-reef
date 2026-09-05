@@ -1,0 +1,6 @@
+# This editorial packet records literal SHA-256 hashes. Preserve exact bytes
+# on all platforms, including text evidence and the executable edit recipe.
+assets_src/cinematics/day_one_davinci_draft_2026-09-04/** -text
+design/day_one_davinci_draft_edit.json -text
+# Native probe logs retain original CRLF and diagnostic spacing as audit evidence.
+assets_src/cinematics/day_one_davinci_draft_2026-09-04/validation/*.log whitespace=-blank-at-eol,cr-at-eol
