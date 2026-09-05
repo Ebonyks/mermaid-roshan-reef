@@ -1,0 +1,60 @@
+{
+  "schema": "day_one_downloads_inventory_v1",
+  "scan_root": "C:/Users/Peter/Downloads",
+  "read_only": true,
+  "relevant_video_count": 44,
+  "grok_uuid_clip_count": 40,
+  "imagine_uuid_clip_count": 1,
+  "prior_rendered_master_count": 3,
+  "archives_relevant_names": [
+    "DaVinci_Resolve_21.0.4_Windows(1).zip",
+    "18_Roshans_plane_journey_layout_design_assets.zip",
+    "14_Mermaid_Roshans_Lake_Michigan_adventures_assets.zip",
+    "26_Mermaid_Roshans_snowman_adventure_assets.zip"
+  ],
+  "unrelated_video_files": "Not opened or inventoried; only a count would be reported if needed.",
+  "initial_scan": {"relevant_video_count":43,"grok_uuid_clip_count":40,"imagine_uuid_clip_count":0,"prior_rendered_master_count":3,"unknown_uuid_candidates":26},
+  "current_review": {"reviewed_relevant_video_count":44,"reviewed_unique_sha256_count":44,"reviewed_additions":["grok-961c839a-1782-4167-ac58-875c14bf1441-720p.mp4","grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4"],"previously_mapped_pool_source":"grok-b26f9f88-6a08-4641-91bf-123c8ee493be-720p.mp4","remaining_unassigned_initial_unknown_candidates":24,"imagine":{"filename":"imagine-70df1c6e-4988-42d5-a108-741cf3ebe8fd.mp4","bytes":20492077,"sha256":"81922e6b62ae7178521ba2c84c0adb52ea1539d636b6e8593568ccea9ed30053","video":"H.264 1280x720 24fps 360 frames 15s","temporal_review":"frames 176-188 (7.33-7.83s) are an empty violet portal; frame 192 (8.00s) hard-cuts to fully formed Rumi above water; frames 192-239 (8.00-9.96s) are a post-emergence elliptical reveal/hug fragment","event":"pool purification → elliptical Rumi reveal → hug","selection":"not selected: no emergence action; duplicates existing reveal/hug"}},
+  "probe": {"tool":"C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffprobe.exe","video_profile":"H.264, 1280x720, 24fps; AAC may coexist on 6s files; exact stream metadata retained in source scan output"},
+  "profile_groups": [
+    {"duration_s":1.5,"frames":36,"fps":"24/1","count":1},
+    {"duration_s":2.0,"frames":48,"fps":"24/1","count":1},
+    {"duration_s":2.5,"frames":60,"fps":"24/1","count":2},
+    {"duration_s":3.0,"frames":72,"fps":"24/1","count":1},
+    {"duration_s":6.041667,"frames":145,"fps":"24/1","count":23},
+    {"duration_s":10.041667,"frames":241,"fps":"24/1","count":4},
+    {"duration_s":10.333333,"frames":248,"fps":"24/1","count":1},
+    {"duration_s":13.0,"frames":312,"fps":"24/1","count":1},
+    {"duration_s":15.0,"frames":360,"fps":"24/1","count":4},
+    {"duration_s":39.833333,"frames":956,"fps":"24/1","count":1},
+    {"duration_s":46.5,"frames":1116,"fps":"24/1","count":1}
+  ],
+  "known_uuid_mapping_from_prior_scripts": {
+    "assembly_selected": [
+      {"file":"grok-0502fb4c-eef6-4016-b0a9-043bd2b566b5.mp4","event":"opening plane"},
+      {"file":"grok-0e40140f-8759-4188-8e0f-6ba103909db8.mp4","event":"cabin/handhold continuation"},
+      {"file":"grok-62583730-cb70-47e8-ad72-522f22013271.mp4","event":"scenic reveal"},
+      {"file":"grok-5b61f781-05b6-4b0b-9cef-efdb3771cd26-720p.mp4","event":"runway arrival lead-in"},
+      {"file":"grok-446bd597-19c9-4f63-b3c8-b6024a4190fe.mp4","event":"full landing/otter wing run"},
+      {"file":"grok-b313bcb5-6577-46b0-80f6-b383830c786d-720p.mp4","event":"ground greeting/resolution"},
+      {"file":"grok-3b9e6aeb-4328-437e-9bff-d8f3adb8e256.mp4","event":"assembly continuation"}
+    ],
+    "assembly_alternates": [
+      "grok-0348e874-b972-42a1-8192-47bb9d2c887c.mp4",
+      "grok-a8018b14-ef72-4e1d-9ae8-b3f287b32dd4.mp4"
+    ],
+    "pool_refine_sources": {
+      "dirty_pool_source":"grok-22ffc1aa-9df9-40d9-b71e-a589c62741b7.mp4",
+      "clean_pool_sources":["grok-b0257868-2e83-47e5-b3c8-3eaa0127cbb7-720p.mp4","grok-a7959952-a5d3-4c0e-9228-920ddf4103f3-720p.mp4","grok-b26f9f88-6a08-4641-91bf-123c8ee493be-720p.mp4","grok-b9a8c33d-abdc-4c81-a520-0f52f2310e15-720p.mp4"]
+    }
+  },
+  "unknown_uuid_candidates": [
+    "grok-02d0e6fd-0099-4650-b346-7a25b8a26ae0-720p.mp4","grok-0d7c3f2a-78e1-4c92-afb4-250d1a4a7f37-720p.mp4","grok-218500df-7547-4c84-a703-c8a0b8a954b7-720p.mp4","grok-27cd0877-2214-4d0c-ac04-70f609905441-720p.mp4","grok-30c2103b-3ced-4347-ab4f-e6fd6b4fa5a6-720p.mp4","grok-381490ab-5a1a-4ad3-ae4e-0761a6006d0d-720p.mp4","grok-3bc112cd-12a7-4948-a3c6-a619c7f75f5a-720p.mp4","grok-4636c5b8-1f9d-4e1e-841f-b433e5345656.mp4","grok-4aa1f01b-2a16-476e-a26e-91ecc313284d-720p.mp4","grok-56185c7a-9b05-41da-8f4b-bfa49090080e.mp4","grok-575ff1cb-efa6-45ed-b4d2-e379f108bd0b-720p.mp4","grok-5f55a3f0-a888-43b8-b3e3-68fe8e1b2a32-720p.mp4","grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4","grok-68eb7b2c-f0e8-47e2-bb7c-b1f5a4c52240-720p.mp4","grok-961c839a-1782-4167-ac58-875c14bf1441-720p.mp4","grok-a4619f70-3e25-400f-a320-0e8f511708c6-720p.mp4","grok-aef5b7c8-428e-4f51-97f9-72745ca7a978.mp4","grok-bcbfb2e3-7801-4883-af10-8a2d2d34607e-720p.mp4","grok-c18b91ea-953b-466d-8aea-ad59918873ef-720p.mp4","grok-c3cabc27-ddaf-4eac-859e-185b2a440610-720p.mp4","grok-c51a5527-5732-48d2-a157-a1e86d014fc7-720p.mp4","grok-ccf1fe73-01f7-4c26-9414-4008078a4cce-720p.mp4","grok-ef4539b3-2854-43b4-af2e-870f09a6d0d8-720p.mp4","grok-fc065e16-d775-42d0-8621-022c891086b2-720p.mp4","grok-fccc702a-f33b-4489-96df-5e182ed55ecb-720p.mp4","grok-fd95017b-5434-4cad-a867-e80c2b60e0ae-720p.mp4"
+  ],
+  "rendered_masters": [
+    {"file":"GROK_OTTER_PLANE_MASTER_20260823_V02_REVIEW.mp4","duration_s":41.429333,"frames":994,"fps":"24/1","sha256":"67b6c57ab7898a579fed98e7850896cd972c6e21d35ad1171b69adbf992a79b1"},
+    {"file":"MERMAID_ROSHAN_DIRTY_POOL_REFINED_20260827_V01_REVIEW.mp4","duration_s":14.0,"frames":336,"fps":"24/1","sha256":"54bb16e968dde7d880876c76afe44efc1655087807d314e002d5ffaa364c910e"},
+    {"file":"MERMAID_ROSHAN_CLEAN_POOL_REFINED_20260827_V01_REVIEW.mp4","duration_s":15.0,"frames":360,"fps":"24/1","sha256":"6458cc6f4fec4bb35a4226d88214b3e833df01209f20365c7c6b9e2a356677d1"}
+  ],
+  "comparison": {"known_by_filename":14,"unknown_uuid_candidates_initial":26,"unknown_uuid_candidates_remaining_unassigned":24,"reviewed_relevant_paths":44,"hash_match_to_named_tmp_corpora":"none established by filename; UUID files are separate Downloads sources and should not be assumed byte-identical","stronger_candidate_paths":"The 3 rendered masters, the previously mapped b26f9f88 pool source, and the two newly Sol-reviewed UUID additions are recorded as stronger references; 24 initial unknown UUID clips remain unassigned","missing":"The Imagine filename and media metadata are verified, but no event name is inferred."}
+}

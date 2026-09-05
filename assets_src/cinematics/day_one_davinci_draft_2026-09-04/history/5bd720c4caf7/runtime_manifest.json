@@ -1,0 +1,155 @@
+{
+  "schema": "day-one-davinci-draft-runtime-v1",
+  "status": "review_only",
+  "opt_in": "--day-one-draft-movies",
+  "exports_root": "exports",
+  "delivery_claims": {
+    "archive_complete": false,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "movies": {
+    "D1-C00": {
+      "boundary": "arrival_plane_media",
+      "runtime_preview_eligible": true,
+      "editorial_status": "coherent_draft",
+      "path": "exports/D1-C00.ogv",
+      "frames": 576,
+      "fps": 24,
+      "sha256": "139d5d0cfdc9c464b82abc93d835e74bd72f06bbc00d90d5174dad7bdb8c7c22",
+      "delivery_accepted": false
+    },
+    "D1-C01": {
+      "boundary": "arrival_to_castle_approach",
+      "runtime_hook": "queued_after_C00_on_arrival_event",
+      "runtime_preview_eligible": true,
+      "editorial_status": "partial_missing_closed_door_arrival",
+      "path": "exports/D1-C01.ogv",
+      "frames": 276,
+      "fps": 24,
+      "sha256": "5723e0db1edca64d7f263938bec2cecf213c92a78a11201c4910c8082a55ea69",
+      "delivery_accepted": false
+    },
+    "D1-C02": {
+      "boundary": "dirty_castle_discovery",
+      "runtime_preview_eligible": true,
+      "editorial_status": "coherent_draft_with_provisional_evidence_insert",
+      "path": "exports/D1-C02.ogv",
+      "frames": 264,
+      "fps": 24,
+      "sha256": "aeb311138ee220361ff4971006d48307a623d4b2e4ee9a676c6087e9a3d2405f",
+      "delivery_accepted": false
+    },
+    "D1-C03": {
+      "boundary": "bathroom_room_entry",
+      "runtime_preview_eligible": true,
+      "editorial_status": "partial_missing_threshold_crossing",
+      "path": "exports/D1-C03.ogv",
+      "frames": 216,
+      "fps": 24,
+      "sha256": "34f9426dde1dac75626c8022f39349908fdd2954a17f77189611bbedd26f4c1c",
+      "delivery_accepted": false
+    },
+    "D1-C04": {
+      "boundary": "bathroom_completion",
+      "runtime_preview_eligible": true,
+      "editorial_status": "coherent_provisional_draft_flood_omitted",
+      "path": "exports/D1-C04_V02.ogv",
+      "frames": 144,
+      "fps": 24,
+      "sha256": "851197a1906de112f20d2927aaa7f580c23b877a70d5e3ba7523ac0d5fe5f0ba",
+      "delivery_accepted": false
+    },
+    "D1-C05": {
+      "boundary": "pool_room_entry",
+      "runtime_preview_eligible": true,
+      "editorial_status": "partial_problem_map_missing",
+      "path": "exports/D1-C05.ogv",
+      "frames": 276,
+      "fps": 24,
+      "sha256": "a5d5c15bf50a19f71aa346417853583e597967daeae4bdeba3aa703ff6253b77",
+      "delivery_accepted": false
+    },
+    "D1-C06": {
+      "boundary": "pool_completion",
+      "runtime_preview_eligible": true,
+      "editorial_status": "partial_causal_chain",
+      "path": "exports/D1-C06.ogv",
+      "frames": 648,
+      "fps": 24,
+      "sha256": "9180c7f2828ba8e7cb2a11d4e0be247bb1a28fd051f0adc5406731e55c45af77",
+      "delivery_accepted": false
+    },
+    "D1-C07": {
+      "boundary": "stuffie_room_entry",
+      "runtime_preview_eligible": false,
+      "editorial_status": "fragment_wrong_room_material_omitted",
+      "path": "exports/D1-C07.ogv",
+      "frames": 240,
+      "fps": 24,
+      "sha256": "d97fdd79fc0dc11a3a47655650bb27083b191ad4a176d4e88ac2203d30d7cb44",
+      "delivery_accepted": false
+    },
+    "D1-C08": {
+      "boundary": "stuffie_completion",
+      "runtime_preview_eligible": false,
+      "editorial_status": "no_coherent_draft"
+    },
+    "D1-C09": {
+      "boundary": "art_room_entry",
+      "runtime_preview_eligible": true,
+      "editorial_status": "coherent_provisional_draft",
+      "path": "exports/D1-C09.ogv",
+      "frames": 240,
+      "fps": 24,
+      "sha256": "819ae2fc6d6b48a573729a550b8058905ee64d84e6a4dd2986adc0e3d476d6bb",
+      "delivery_accepted": false
+    },
+    "D1-C10": {
+      "boundary": "art_completion",
+      "runtime_preview_eligible": true,
+      "editorial_status": "coherent_provisional_draft",
+      "path": "exports/D1-C10.ogv",
+      "frames": 240,
+      "fps": 24,
+      "sha256": "c591d1e1a0d5cc4b4a4541dc1ae42060f7eaa65dbd082abdeb9a806522a21915",
+      "delivery_accepted": false
+    },
+    "D1-C11": {
+      "boundary": "actual_boss_trigger_before_gameplay",
+      "runtime_preview_eligible": true,
+      "editorial_status": "coherent_provisional_draft",
+      "path": "exports/D1-C11.ogv",
+      "frames": 288,
+      "fps": 24,
+      "sha256": "5bb9063fc77f2215ee239a96552c3c359572f564c54db37140c7789df241c9d3",
+      "delivery_accepted": false
+    },
+    "D1-C12": {
+      "boundary": "day_two_begins",
+      "runtime_preview_eligible": true,
+      "editorial_status": "coherent_montage_wrong_room_omitted",
+      "path": "exports/D1-C12_V02.ogv",
+      "frames": 240,
+      "fps": 24,
+      "sha256": "99de2d5348d1e1b8cc3abeeb373ff6007fdc9cdcb25a0bd4ef6c5c3ac20be084",
+      "delivery_accepted": false
+    },
+    "D1-C13": {
+      "boundary": "boss_defeated",
+      "runtime_preview_eligible": false,
+      "editorial_status": "no_event_playback_missing_eagle_and_rainbow_end_actions",
+      "path": "exports/D1-C13.ogv",
+      "frames": 224,
+      "fps": 24,
+      "sha256": "845263fdbc66326d7269b022ee0ed96c09b719caefc261f3632f396e00069424",
+      "delivery_accepted": false
+    }
+  },
+  "rules": [
+    "Missing or invalid OGV fails open to the existing playable state.",
+    "Draft playback never writes progression or completion save markers.",
+    "A full-frame tap skips a draft preview; no child can be stranded.",
+    "Bathroom C03/C04 use the existing bathroom seam and are never duplicated."
+  ]
+}

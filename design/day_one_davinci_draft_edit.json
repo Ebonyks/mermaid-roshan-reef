@@ -1,0 +1,241 @@
+{
+  "schema": "day_one_davinci_draft_edit_v1",
+  "purpose": "Provisional Resolve rough assemblies from locally available named MP4s; no source mutation.",
+  "media_roots": {
+    "individual": "C:/Users/Peter/Documents/mermaid-roshan-reef/.tmp/day_one_clip_audit/clips",
+    "regenerated_motion_reference": "C:/Users/Peter/Documents/mermaid-roshan-reef/.tmp/day1-regen-3sets-branch"
+  },
+  "inventory": {
+    "individual_mp4_count": 119,
+    "regenerated_mp4_count": 40,
+    "combined_candidate_file_count": 159,
+    "individual_format": "Mostly 1280x720, 24fps, 145 frames, 6.041667s, H.264/AAC; source dimensions are not uniform (including a verified 1264x720 C02 source), so whole-frame fit normalization is required and must not crop or reframe subjects.",
+    "downloads_supplement": "44 unique local paths / 44 unique SHA-256 values: 40 grok-* UUID MP4s, 1 imagine-* UUID MP4, and 3 named review masters. These are outside the 159 named-file count unless an exact hash match is proven; none matched the selected audited-source hashes checked in this review.",
+    "resolve_projects_or_interchange_found": false,
+    "note": "No .drp/.xml/.otio/.edl/.aaf was found in the repository tree. Prior Resolve Python scripts reference Downloads UUID clips and are not directly runnable against this named local pool."
+  },
+  "rules": {
+    "source_frame_end_exclusive": true,
+    "default_range": [0, 145],
+    "regen_label": "provisional_motion_reference_only",
+    "wrong_event": "omit",
+    "missing_replacement": "unplayable_until_new_clip",
+    "no_realtime_visual_review_claim": false,
+    "draft_claim": "EDITORIAL_REFERENCE_ONLY",
+    "edit_language": "hard cuts only; no optical flow, interpolation, morph, dissolve, freeze-frame concealment, subject reframe, warp, or composite",
+    "pacing": "C00 24-30 seconds; room discovery/restoration cuts 8-15 seconds; C13 actions 3-5 seconds each",
+    "remake_policy": "OMIT_WRONG_EVENT material stays out of scene timelines. A v3 REMAKE source may be active only as clearly marked provisional editorial reference when it still depicts the intended event and preserves plausibly useful contact/geography; it cannot support DELIVERY_ACCEPTED. Hard wrong-event, anatomy, count, or topology failures stay inactive."
+  },
+  "timeline_selection": {
+    "authority": "Builder uses only entries with active=true. Ranges are source-frame [in,out) at 24 fps. Provisional references are allowed in rough cuts when they depict the intended event; wrong-event/count/anatomy/topology clips remain inactive.",
+    "movies": [
+      {"movie":"C00_opening_flight","label":"EDITORIAL_REFERENCE_ONLY","runtime_preview_eligible":true,"status":"coherent_draft","shots":[
+        {"shot":"C00-S01","source":"C00_S01_v1_plane_clouds.mp4","range":[0,96],"active":true},
+        {"shot":"C00-S02","source":"C00_S02_v1_cabin.mp4","range":[12,108],"active":true},
+        {"shot":"C00-S03","source":"C00_S03_v1_roshan_wonder.mp4","range":[12,108],"active":true},
+        {"shot":"C00-S04","source":"C00_S04_v1_handhold.mp4","range":[12,108],"active":true},
+        {"shot":"C00-S05","source":"C00_S05_v1_lagoon_reveal.mp4","range":[12,108],"active":true},
+        {"shot":"C00-S06","source":"C00_S06_v1_landing_prep.mp4","range":[12,108],"active":true}
+      ]},
+      {"movie":"C01_lagoon_landing_castle_approach","label":"EDITORIAL_REFERENCE_ONLY_PARTIAL","runtime_preview_eligible":true,"status":"partial_missing_closed_door_arrival","shots":[
+        {"shot":"C01-S01","source":"C01_S01_v1_dock.mp4","range":[0,84],"active":true},
+        {"shot":"C01-S02","source":"C01_S02_v1_dock_handoffer_REGEN.mp4","range":[24,120],"active":true,"provisional":true},
+        {"shot":"C01-S03","source":"C01_S03_v1_handinhand_castle_REGEN.mp4","range":[12,108],"active":true},
+        {"shot":"C01-S04","source":null,"active":false,"reason":"wrong door-open event"}
+      ]},
+      {"movie":"C02_first_dirty_castle_discovery","label":"EDITORIAL_REFERENCE_ONLY","runtime_preview_eligible":true,"status":"coherent_draft_with_provisional_evidence_insert","shots":[
+        {"shot":"C02-S01","source":"C02_S01_v1_door_open.mp4","range":[0,72],"active":true},
+        {"shot":"C02-S02","source":"C02_S02_v1_dirty_hall.mp4","range":[12,84],"active":true},
+        {"shot":"C02-S03","source":"C02_S03_v1_dirty_hall_evidence_REGEN.mp4","range":[48,96],"active":true,"provisional":true},
+        {"shot":"C02-S04","source":"C02_S04_v1_bathroom_glow.mp4","range":[12,84],"active":true}
+      ]},
+      {"movie":"C03_bathroom_dirty_entry","label":"EDITORIAL_REFERENCE_ONLY_PARTIAL","runtime_preview_eligible":true,"status":"partial_missing_threshold_crossing","shots":[
+        {"shot":"C03-S01","source":"C03_S01_v1_empty_dirty_bath.mp4","range":[0,72],"active":true},
+        {"shot":"C03-S02","source":null,"active":false,"reason":"threshold crossing absent"},
+        {"shot":"C03-S03","source":"C03_bunny_discover.mp4","range":[12,84],"active":true,"provisional":true},
+        {"shot":"C03-S04","source":"C03_S04_v1_tool_reach.mp4","range":[24,96],"active":true,"provisional":true}
+      ]},
+      {"movie":"C04_bathroom_restored","edit_version":"V02","label":"EDITORIAL_REFERENCE_ONLY_PARTIAL","runtime_preview_eligible":true,"status":"coherent_provisional_draft_flood_omitted","shots":[
+        {"shot":"C04-S01","source":"C04_S01_v1_final_scrub.mp4","range":[24,96],"active":true},
+        {"shot":"C04-S02","source":"C04_S02_water_clears.mp4","range":[12,84],"active":false,"reason":"wrong runtime state: generated water floods the bathroom floor and breaks room continuity"},
+        {"shot":"C04-S03","source":null,"active":false,"reason":"existing exit adds legs"},
+        {"shot":"C04-S04","source":"C04_S04_v1_clean_endpoint.mp4","range":[12,84],"active":true}
+      ]},
+      {"movie":"C05_pool_dirty_discovery","label":"EDITORIAL_REFERENCE_ONLY_PARTIAL","runtime_preview_eligible":true,"status":"partial_problem_map_missing","shots":[
+        {"shot":"C05-S01","source":"C05_S01_v1_pool_entry.mp4","range":[12,84],"active":true},
+        {"shot":"C05-S02","source":null,"active":false,"reason":"required bunny pair absent"},
+        {"shot":"C05-S03","source":"C05_S03_v1_skimmer.mp4","range":[24,96],"active":true},
+        {"shot":"C05-S04","source":"C05_S04_v2_waterfall.mp4","range":[72,132],"active":true,"provisional":true},
+        {"shot":"C05-S05","source":"C05_S05_v1_seahorse_plug.mp4","range":[24,96],"active":true,"provisional":true},
+        {"shot":"C05-S06","source":null,"active":false,"reason":"valid wide problem map absent"}
+      ]},
+      {"movie":"C06_pool_purification_rumi_hug","label":"EDITORIAL_REFERENCE_ONLY_PARTIAL","runtime_preview_eligible":true,"status":"partial_causal_chain","shots":[
+        {"shot":"C06-S01","source":"C06_S01_v1_pull_plug.mp4","range":[12,84],"active":true},
+        {"shot":"C06-S02","source":"C06_S02_seahorse_flow.mp4","range":[12,84],"active":true},
+        {"shot":"C06-S03","source":"C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4","range":[24,96],"active":true,"provisional":true},
+        {"shot":"C06-S04","source":"C06_S04_v1_both_sources_pool_REGEN.mp4","range":[24,96],"active":true,"provisional":true},
+        {"shot":"C06-S05","source":"C06_S05_v1_purification_fronts_REGEN.mp4","range":[24,96],"active":true,"provisional":true},
+        {"shot":"C06-S06","source":"C:/Users/Peter/Downloads/grok-b26f9f88-6a08-4641-91bf-123c8ee493be-720p.mp4","range":[0,120],"active":true,"provisional":true,"provenance":"local_user_supplied","source_url":null,"sha256":"bfe8698e090cecdb34783362ce13142a8f521d29dc08358b6e54cf2845bd51ff","note":"Strong fixed-pool violet-light rise; no Rumi emergence, so S07 remains missing"},
+        {"shot":"C06-S07","source":null,"active":false,"reason":"Rumi emergence absent"},
+        {"shot":"C06-S08","source":"C06_S08_v1_rumi_invitation_REGEN.mp4","range":[24,96],"active":true,"provisional":true},
+        {"shot":"C06-S09","source":"C:/Users/Peter/Downloads/grok-961c839a-1782-4167-ac58-875c14bf1441-720p.mp4","range":[0,96],"active":true,"provisional":true,"provenance":"local_user_supplied","source_url":null,"sha256":"e0f02d25d20fb110b60741513232f6e32407445e22a17e281a6e4de0bf880e38","note":"Stable full two-character hug and fixed Pool topology; editorial reference pending identity/contact audit"}
+      ]},
+      {"movie":"C07_stuffie_dirty_discovery","label":"EDITORIAL_REFERENCE_ONLY_FRAGMENT","runtime_preview_eligible":false,"status":"fragment_wrong_room_material_omitted","shots":[
+        {"shot":"C07-S01","source":"C07_S01_v2_empty_dirty_stuffie.mp4","range":[0,72],"active":true},
+        {"shot":"C07-S02","source":"C07_S02_v2_roshan_enters.mp4","range":[12,84],"active":true},
+        {"shot":"C07-S04","source":null,"active":false},{"shot":"C07-S05","source":null,"active":false},
+        {"shot":"C07-S06","source":"C:/Users/Peter/Downloads/grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4","range":[0,96],"active":true,"provisional":true,"provenance":"local_user_supplied","source_url":null,"sha256":"aa1a08d59e0a837d1abdd67a8518740f5777e289525ba22b52362becd396d61d","note":"Stronger pinned-Eagle distress/read than audited regen; room remains only a rough geography match"}
+      ]},
+      {"movie":"C08_stuffie_restoration","label":"SELECTS_ONLY","runtime_preview_eligible":false,"status":"no_coherent_draft","shots":[
+        {"shot":"C08-S01","source":"C08_S01_basket_wobble.mp4","active":false},{"shot":"C08-S02","source":"C08_S02_left_basket_ears_REGEN.mp4","active":false},{"shot":"C08-S03","source":"C08_S03_right_basket_ears_REGEN.mp4","active":false},{"shot":"C08-S04","source":"C08_S04_v1_four_bunnies_emerge_REGEN.mp4","active":false},{"shot":"C08-S05","source":"C08_S05_v1_wing_prep.mp4","active":false},{"shot":"C08-S06","source":"C08_S06_v1_wing_blast_clean_REGEN.mp4","active":false},{"shot":"C08-S07","source":"C08_S07_v1_clean_endpoint_REGEN.mp4","active":false}
+      ]},
+      {"movie":"C09_art_room_dirty_discovery","label":"EDITORIAL_REFERENCE_ONLY","runtime_preview_eligible":true,"status":"coherent_provisional_draft","shots":[
+        {"shot":"C09-S01","source":"C09_S01_v1_loose_supplies_OFFICIAL.mp4","range":[12,60],"active":true},
+        {"shot":"C09-S02","source":"C09_S02_v1_roshan_scan_OFFICIAL.mp4","range":[24,72],"active":true},
+        {"shot":"C09-S03","source":"C09_S03_four_supplies.mp4","range":[24,72],"active":true},
+        {"shot":"C09-S04","source":"C09_S04_v1_three_grime_OFFICIAL.mp4","range":[24,72],"active":true,"provisional":true},
+        {"shot":"C09-S05","source":"C09_S05_v1_precontact_brush_REGEN.mp4","range":[24,72],"active":true,"provisional":true}
+      ]},
+      {"movie":"C10_art_room_restored","label":"EDITORIAL_REFERENCE_ONLY","runtime_preview_eligible":true,"status":"coherent_provisional_draft","shots":[
+        {"shot":"C10-S01","source":"C10_S01_v1_final_scrub_OFFICIAL.mp4","range":[24,72],"active":true,"provisional":true},
+        {"shot":"C10-S02","source":"C10_S02_v1_four_supplies_home_REGEN.mp4","range":[24,72],"active":true,"provisional":true},
+        {"shot":"C10-S03","source":"C10_S03_v1_clean_reveal_OFFICIAL.mp4","range":[0,48],"active":true},
+        {"shot":"C10-S04","source":"C10_S04_v1_desk_wake_OFFICIAL.mp4","range":[24,72],"active":true},
+        {"shot":"C10-S05","source":"C10_S05_v1_blank_desk_handgap_REGEN.mp4","range":[24,72],"active":true,"provisional":true}
+      ]},
+      {"movie":"C11_boss_door_grand_puff","label":"EDITORIAL_REFERENCE_ONLY","runtime_preview_eligible":true,"status":"coherent_provisional_draft","shots":[
+        {"shot":"C11-S01","source":"C11_S01_route_lights.mp4","range":[12,84],"active":true},
+        {"shot":"C11-S02","source":"C11_S02_v1_boss_door_approach_REGEN.mp4","range":[24,96],"active":true},
+        {"shot":"C11-S03","source":"C11_S03_v1_door_open_arena_REGEN.mp4","range":[24,96],"active":true},
+        {"shot":"C11-S04","source":"C11_S04_v1_grand_puff_lands_REGEN.mp4","range":[24,96],"active":true,"provisional":true}
+      ]},
+      {"movie":"C12_restored_castle_finale","edit_version":"V03","label":"EDITORIAL_REFERENCE_ONLY","runtime_preview_eligible":true,"runtime_precondition":"Play only after recorded gameplay boss victory and the existing FRIENDS state; this recap makes no rainbow-emergence claim and never advances progress.","status":"coherent_four_shot_recap_false_rooms_and_unverified_friendship_omitted","shots":[
+        {"shot":"C12-S01","source":"C04_S04_v1_clean_endpoint.mp4","range":[24,72],"active":true,"reused_endpoint":true,"reason":"intentional Bathroom recap reuses the stronger existing clean endpoint instead of the false generic clawfoot room"},
+        {"shot":"C12-S02","source":"C12_S02_rumi_pool_recap.mp4","range":[24,72],"active":true},
+        {"shot":"C12-S03","source":"C12_S03_stuffie_recap.mp4","range":[24,72],"active":false,"reason":"wrong location: modern rectangular bedroom does not match the established Stuffie Room"},
+        {"shot":"C12-S04","source":"C10_S04_v1_desk_wake_OFFICIAL.mp4","range":[24,72],"active":true,"reused_endpoint":true,"reason":"intentional Art recap reuses the room-correct approved desk-wake source"},
+        {"shot":"C12-S05","source":"C12_S05_v1_post_friendship_vignette_REGEN.mp4","range":[18,66],"active":false,"reason":"unverified friendship vignette does not match current gameplay evidence closely enough for runtime recap"},
+        {"shot":"C12-S06","source":"C12_family_reunion_hug.mp4","range":[24,72],"active":true}
+      ]},
+      {"movie":"C13_friendship_coda","label":"SELECTS_ONLY_INCOMPLETE","runtime_preview_eligible":false,"status":"no_event_playback_missing_eagle_and_rainbow_end_actions","reason":"Only two 4-second actions plus a 1.33-second Rumi fragment exist; the causal Eagle lift and rainbow-bunny birth/ending are absent, so this cannot play as an event.","shots":[
+        {"shot":"C13-S01","source":"C13_S01_v1_roshan_cleanup.mp4","range":[0,96],"active":true},
+        {"shot":"C13-S02","source":"C13_S02_v2_daddy_sweep.mp4","range":[0,96],"active":true},
+        {"shot":"C13-S03","source":null,"active":false,"reason":"single-Eagle action absent"},
+        {"shot":"C13-S04","source":"C13_S04_v1_rumi_contained_rinse_REGEN.mp4","range":[0,32],"active":true,"provisional":true},
+        {"shot":"C13-S05","source":null,"active":false,"reason":"one-bunny emergence absent"}
+      ]}
+    ]
+  },
+  "historical_audit_movies": [
+    {"movie":"C00_opening_flight","status":"candidate","shots":[
+      {"shot":"C00-S01","source":"C00_S01_v1_plane_clouds.mp4","range":[0,145],"trim":"tightest establishing beat"},
+      {"shot":"C00-S02","source":"C00_S02_v1_cabin.mp4","range":[0,145]},
+      {"shot":"C00-S03","source":"C00_S03_v1_roshan_wonder.mp4","range":[0,145]},
+      {"shot":"C00-S04","source":"C00_S04_v1_handhold.mp4","range":[0,145]},
+      {"shot":"C00-S05","source":"C00_S05_v1_lagoon_reveal.mp4","range":[0,145]},
+      {"shot":"C00-S06","source":"C00_S06_v1_landing_prep.mp4","range":[0,145]}
+    ]},
+    {"movie":"C01_lagoon_landing_castle_approach","status":"candidate_with_gap","shots":[
+      {"shot":"C01-S01","source":"C01_S01_v1_dock.mp4","range":[0,145]},
+      {"shot":"C01-S02","source":"C01_S02_v1_dock_handoffer_REGEN.mp4","range":[0,145],"status":"provisional_motion_reference","note":"audit says regenerate"},
+      {"shot":"C01-S03","source":"C01_S03_v1_handinhand_castle_REGEN.mp4","range":[0,145],"status":"provisional_motion_reference"},
+      {"shot":"C01-S04","source":null,"status":"unplayable_until_new_clip","reason":"v3 REMAKE: current clip is the wrong door-open event"}
+    ]},
+    {"movie":"C02_first_dirty_castle_discovery","status":"candidate_with_gap","shots":[
+      {"shot":"C02-S01","source":"C02_S01_v1_door_open.mp4","range":[0,145]},
+      {"shot":"C02-S02","source":"C02_S02_v1_dirty_hall.mp4","range":[0,145]},
+      {"shot":"C02-S03","source":"C02_S03_v1_dirty_hall_evidence_REGEN.mp4","range":[0,145],"status":"provisional_motion_reference","note":"audit says regenerate"},
+      {"shot":"C02-S04","source":"C02_S04_v1_bathroom_glow.mp4","range":[0,145]}
+    ]},
+    {"movie":"C03_bathroom_dirty_entry","status":"candidate_with_gap","shots":[
+      {"shot":"C03-S01","source":"C03_S01_v1_empty_dirty_bath.mp4","range":[0,145]},
+      {"shot":"C03-S02","source":null,"status":"unplayable_until_new_clip","reason":"v3 REMAKE: neither take crosses the threshold"},
+      {"shot":"C03-S03","source":"C03_bunny_discover.mp4","status":"reference_only_not_in_cut","reason":"v3 REMAKE; strongest motion reference but not accepted"},
+      {"shot":"C03-S04","source":"C03_S04_v1_tool_reach.mp4","status":"reference_only_not_in_cut","reason":"v3 REMAKE; strongest pre-contact reference but not accepted"}
+    ]},
+    {"movie":"C04_bathroom_restored","status":"candidate","shots":[
+      {"shot":"C04-S01","source":"C04_S01_v1_final_scrub.mp4","range":[0,145]},
+      {"shot":"C04-S02","source":"C04_S02_water_clears.mp4","range":[0,145]},
+      {"shot":"C04-S03","source":null,"status":"unplayable_until_new_clip","reason":"v3 REMAKE: exit take adds ambiguous land legs"},
+      {"shot":"C04-S04","source":"C04_S04_v1_clean_endpoint.mp4","range":[0,145]}
+    ]},
+    {"movie":"C05_pool_dirty_discovery","status":"candidate_with_gap","shots":[
+      {"shot":"C05-S01","source":"C05_S01_v1_pool_entry.mp4","range":[0,145]},
+      {"shot":"C05-S02","source":null,"status":"unplayable_until_new_clip","reason":"v3 REMAKE: required swim/land bunny pair absent"},
+      {"shot":"C05-S03","source":"C05_S03_v1_skimmer.mp4","range":[0,145]},
+      {"shot":"C05-S04","source":"C05_S04_v2_waterfall.mp4","range":[72,145],"status":"reference_only_not_in_cut","reason":"v3 REMAKE; usable blocked-source tail only"},
+      {"shot":"C05-S05","source":"C05_S05_v1_seahorse_plug.mp4","status":"reference_only_not_in_cut","reason":"v3 REMAKE; motion reference only"},
+      {"shot":"C05-S06","source":null,"status":"unplayable_until_new_clip","reason":"v3 REMAKE: no valid complete problem-map endpoint"}
+    ]},
+    {"movie":"C06_pool_purification_rumi_hug","status":"candidate_with_gap","shots":[
+      {"shot":"C06-S01","source":"C06_S01_v1_pull_plug.mp4","range":[0,145]},
+      {"shot":"C06-S02","source":"C06_S02_seahorse_flow.mp4","range":[0,145]},
+      {"shot":"C06-S03","source":null,"status":"unplayable_until_new_clip","reason":"v3 REMAKE"},
+      {"shot":"C06-S04","source":"C06_S04_v1_both_sources_pool_REGEN.mp4","range":[0,145],"status":"provisional_motion_reference"},
+      {"shot":"C06-S05","source":null,"status":"unplayable_until_new_clip","reason":"v3 REMAKE"},
+      {"shot":"C06-S06","source":null,"status":"unplayable_until_new_clip","reason":"v3 REMAKE"},
+      {"shot":"C06-S07","source":null,"status":"unplayable_until_new_clip","reason":"v3 REMAKE: Rumi emergence missing"},
+      {"shot":"C06-S08","source":"C06_S08_v1_rumi_invitation_REGEN.mp4","range":[0,145],"status":"provisional_motion_reference"},
+      {"shot":"C06-S09","source":null,"status":"unplayable_until_new_clip","reason":"v3 REMAKE: topology-correct hug absent"}
+    ]},
+    {"movie":"C07_stuffie_dirty_discovery","status":"candidate_with_gap","shots":[
+      {"shot":"C07-S01","source":"C07_S01_v2_empty_dirty_stuffie.mp4","range":[0,145]},
+      {"shot":"C07-S02","source":"C07_S02_v2_roshan_enters.mp4","range":[0,145]},
+      {"shot":"C07-S04","source":"C07_S04_v1_swinging_bunny_REGEN.mp4","status":"omit","reason":"superseded/wrong event"},
+      {"shot":"C07-S05","source":"C07_S05_v1_partial_wing_trail_REGEN.mp4","status":"omit","reason":"superseded/wrong event"},
+      {"shot":"C07-S06","source":"C07_S06_v1_pinned_baby_eagle_REGEN.mp4","range":[0,145],"status":"provisional_motion_reference","note":"two-pin state missing; audit says regenerate"}
+    ]},
+    {"movie":"C08_stuffie_restoration","status":"unplayable_until_new_clip","shots":[
+      {"shot":"C08-S01","source":"C08_S01_basket_wobble.mp4","status":"omit","reason":"wrong invented event"},
+      {"shot":"C08-S02","source":"C08_S02_left_basket_ears_REGEN.mp4","status":"omit","reason":"wrong invented event"},
+      {"shot":"C08-S03","source":"C08_S03_right_basket_ears_REGEN.mp4","status":"omit","reason":"wrong invented event"},
+      {"shot":"C08-S04","source":"C08_S04_v1_four_bunnies_emerge_REGEN.mp4","status":"omit","reason":"wrong count/event"},
+      {"shot":"C08-S05","source":"C08_S05_v1_wing_prep.mp4","status":"unplayable_until_new_clip","reason":"required corrected two-pin clear sequence absent"},
+      {"shot":"C08-S06","source":"C08_S06_v1_wing_blast_clean_REGEN.mp4","status":"omit","reason":"wrong invented event"},
+      {"shot":"C08-S07","source":"C08_S07_v1_clean_endpoint_REGEN.mp4","status":"omit","reason":"wrong endpoint state"}
+    ]},
+    {"movie":"C09_art_room_dirty_discovery","status":"candidate_with_gap","shots":[
+      {"shot":"C09-S01","source":"C09_S01_v1_loose_supplies_OFFICIAL.mp4","range":[0,145]},
+      {"shot":"C09-S02","source":"C09_S02_v1_roshan_scan_OFFICIAL.mp4","range":[0,145]},
+      {"shot":"C09-S03","source":"C09_S03_four_supplies.mp4","range":[0,145]},
+      {"shot":"C09-S04","source":"C09_S04_v1_three_grime_OFFICIAL.mp4","range":[0,145]},
+      {"shot":"C09-S05","source":"C09_S05_v1_precontact_brush_REGEN.mp4","range":[0,145],"status":"provisional_motion_reference"}
+    ]},
+    {"movie":"C10_art_room_restored","status":"candidate_with_gap","shots":[
+      {"shot":"C10-S01","source":"C10_S01_v1_final_scrub_OFFICIAL.mp4","range":[0,145]},
+      {"shot":"C10-S02","source":"C10_S02_v1_four_supplies_home_REGEN.mp4","range":[0,145],"status":"provisional_motion_reference","note":"audit says regenerate"},
+      {"shot":"C10-S03","source":"C10_S03_v1_clean_reveal_OFFICIAL.mp4","range":[0,48],"note":"v3 KEEP_WITH_TRIM; later pullback exposes invented side geometry"},
+      {"shot":"C10-S04","source":"C10_S04_v1_desk_wake_OFFICIAL.mp4","range":[0,145]},
+      {"shot":"C10-S05","source":"C10_S05_v1_blank_desk_handgap_REGEN.mp4","range":[0,145],"status":"provisional_motion_reference"}
+    ]},
+    {"movie":"C11_boss_door_grand_puff","status":"candidate_with_gap","shots":[
+      {"shot":"C11-S01","source":"C11_S01_route_lights.mp4","range":[0,145]},
+      {"shot":"C11-S02","source":"C11_S02_v1_boss_door_approach_REGEN.mp4","range":[0,132],"status":"provisional_motion_reference","note":"trim frames 132-144"},
+      {"shot":"C11-S03","source":"C11_S03_v1_door_open_arena_REGEN.mp4","range":[0,145],"status":"provisional_motion_reference"},
+      {"shot":"C11-S04","source":"C11_S04_v1_grand_puff_lands_REGEN.mp4","range":[0,145],"status":"provisional_motion_reference","note":"audit says regenerate"}
+    ]},
+    {"movie":"C12_restored_castle_finale","status":"candidate_with_gap","shots":[
+      {"shot":"C12-S01","source":"C12_S01_clean_bath_bunny.mp4","range":[0,145]},
+      {"shot":"C12-S02","source":"C12_S02_rumi_pool_recap.mp4","range":[0,145]},
+      {"shot":"C12-S03","source":"C12_S03_stuffie_recap.mp4","range":[0,145]},
+      {"shot":"C12-S04","source":"C12_S04_art_desk_glow.mp4","range":[0,145]},
+      {"shot":"C12-S05","source":"C12_S05_v1_post_friendship_vignette_REGEN.mp4","range":[18,108],"status":"provisional_motion_reference","note":"v3 KEEP_WITH_TRIM; exact f018-f107 window"},
+      {"shot":"C12-S06","source":"C12_family_reunion_hug.mp4","range":[0,145]}
+    ]},
+    {"movie":"C13_friendship_coda","status":"candidate_with_gap","shots":[
+      {"shot":"C13-S01","source":"C13_S01_v1_roshan_cleanup.mp4","range":[0,120],"note":"v3 KEEP_WITH_TRIM; do not exceed f119"},
+      {"shot":"C13-S02","source":"C13_S02_v2_daddy_sweep.mp4","range":[0,120],"note":"v3 KEEP_WITH_TRIM; do not exceed f119"},
+      {"shot":"C13-S03","source":null,"status":"unplayable_until_new_clip","reason":"v3 REMAKE: no causal single-Eagle wing lift"},
+      {"shot":"C13-S04","source":"C13_S04_v1_rumi_contained_rinse_REGEN.mp4","range":[0,32],"status":"provisional_motion_reference","note":"v1 preferred; later broad ribbon is weak"},
+      {"shot":"C13-S05","source":null,"status":"unplayable_until_new_clip","reason":"v3 REMAKE: no valid one-bunny emergence"}
+    ]}
+  ],
+  "authority": {
+    "matrix_note": "Selections are reconciled to the 74-shot v3 decision matrix and its exhaustive 159-file ledger. REMAKE rows are diagnostic references only and are excluded from assembled scene cuts.",
+    "primary_handoff": "design/GROK_FOOTAGE_ANALYSIS_AND_ENDPOINT_HANDOFF_2026-09-02.md",
+    "branch_audit": "assets_src/cinematics/day_one_grok_regeneration_handoffs_2026-09-03/NEW_DRAFT_AUDIT.md",
+    "v3_matrix": "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/ALL_SHOT_DECISION_MATRIX.json",
+    "v3_ledger": "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/EXHAUSTIVE_159_FILE_LEDGER.json",
+    "visual_review_limit": "Representative clips and existing Pool review masters were contact-sheet reviewed; every final timeline still requires full-speed human playback and per-frame delivery audit."
+  }
+}
