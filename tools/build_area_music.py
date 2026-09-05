@@ -50,7 +50,7 @@ VORBIS_MAXIMUM = "128k"
 MINIMUM_MEASURED_BITRATE = 64_000
 MINIMUM_LOOP_SECONDS = 24.0
 MAXIMUM_LOOP_SECONDS = 40.0
-GENERATOR_VERSION = 1
+GENERATOR_VERSION = 2
 SCORES_PATH = Path("assets_src/audio/music/area_music_scores.json")
 OUTPUT_DIR = Path("assets/audio/music")
 MANIFEST_NAME = "area_music_manifest.json"
@@ -96,6 +96,7 @@ EXPECTED_IDS = (
     "combat_fire",
     "combat_tutorial",
     "stuffie_battle",
+    "dustboss",
     "picture_snowman",
     "picture_garden",
     "picture_trampoline",
@@ -374,6 +375,24 @@ def _validate_cue(cue: dict[str, Any]) -> None:
     energy = float(cue.get("energy", -1.0))
     if not 0.0 <= energy <= 1.0:
         raise ValueError(f"{slug}: energy must be in [0, 1]")
+    adaptive = cue.get("adaptive_markers")
+    if adaptive is not None:
+        expected = {"prowl_beat", "anticipation_start_beat", "action_beat"}
+        if not isinstance(adaptive, dict) or set(adaptive) != expected:
+            raise ValueError(
+                f"{slug}: adaptive_markers must contain exactly {sorted(expected)}"
+            )
+        try:
+            prowl_beat = float(adaptive["prowl_beat"])
+            anticipation_beat = float(adaptive["anticipation_start_beat"])
+            action_beat = float(adaptive["action_beat"])
+        except (TypeError, ValueError) as exc:
+            raise ValueError(f"{slug}: adaptive marker beats must be numeric") from exc
+        total_beats = bars * int(meter[0])
+        if not (0.0 <= prowl_beat < anticipation_beat < action_beat < total_beats):
+            raise ValueError(f"{slug}: adaptive marker order is invalid")
+        if action_beat - anticipation_beat < 4.0:
+            raise ValueError(f"{slug}: adaptive anticipation needs at least four beats")
 
 
 def _midi_frequency(midi_note: int) -> float:
@@ -838,6 +857,68 @@ def _arrange_percussion(
             )
 
 
+def _arrange_adaptive_timing(
+    track: np.ndarray,
+    cue: dict[str, Any],
+    samples_per_beat: float,
+) -> None:
+    """Author a quiet wait and one unmistakable action downbeat.
+
+    The boss seeks into this passage when its wind-up starts and corrects to
+    the action marker when the vulnerable animation frame actually opens.
+    This remains one rendered Music stream: no runtime stem, sample player,
+    or live synthesis is needed to make the score teach the interaction.
+    """
+    adaptive = cue.get("adaptive_markers")
+    if not isinstance(adaptive, dict):
+        return
+    anticipation_beat = float(adaptive["anticipation_start_beat"])
+    action_beat = float(adaptive["action_beat"])
+    start_sample = _event_sample(anticipation_beat, samples_per_beat)
+    action_sample = _event_sample(action_beat, samples_per_beat)
+    hush_count = max(0, action_sample - start_sample)
+    if hush_count <= 0:
+        return
+
+    # Pull the full arrangement rapidly out of the way, then leave a long,
+    # almost-silent breath. The final three sparse bell steps are a musical
+    # countdown, not a second instruction track.
+    fade_count = min(hush_count, max(1, _event_sample(1.0, samples_per_beat)))
+    envelope = np.full(hush_count, 0.045, dtype=np.float64)
+    envelope[:fade_count] = np.linspace(1.0, 0.045, fade_count, endpoint=True)
+    track[start_sample:action_sample] *= envelope[:, np.newaxis]
+
+    accent = str(cue["instruments"]["accent"])
+    for index, (lead_beats, degree, gain) in enumerate(
+        ((1.5, 0, 0.060), (1.0, 2, 0.078), (0.5, 4, 0.098))
+    ):
+        _add_note(
+            track, cue, accent, degree, action_beat - lead_beats, 0.20,
+            gain, -0.22 + index * 0.22, f"adaptive_count:{index}", 1,
+            samples_per_beat,
+        )
+
+    # The vulnerable frame opens on this friendly, full-spectrum downbeat.
+    # Bell owns the instant; warm harmony and kick give it enough body to read
+    # from a phone speaker without making Grand Puff sound threatening.
+    harmony = str(cue["instruments"]["harmony"])
+    for voice, degree in enumerate((0, 2, 4)):
+        _add_note(
+            track, cue, harmony, degree, action_beat, 1.10,
+            0.135 if voice == 0 else 0.112,
+            -0.30 + voice * 0.30, f"adaptive_action_chord:{voice}", 0,
+            samples_per_beat,
+        )
+    _add_note(
+        track, cue, accent, 7, action_beat, 0.85, 0.155, 0.12,
+        "adaptive_action_bell", 1, samples_per_beat,
+    )
+    kick = _synth_drum(
+        "kick", 0.24, _seed_for(cue["id"], "adaptive_action_kick")
+    )
+    _add_circular(track, action_sample, kick, 1.0, 0.0)
+
+
 def _seam_metrics(samples: np.ndarray) -> dict[str, float]:
     if samples.shape[0] < 3:
         return {"boundary_jump": 0.0, "adjacent_p999": 0.0, "jump_ratio": 0.0}
@@ -857,6 +938,7 @@ def _render_float(cue: dict[str, Any], catalog: dict[str, Any]) -> tuple[np.ndar
     _arrange_harmony(track, cue, samples_per_beat, beats_per_bar, bars)
     _arrange_melody(track, cue, catalog, samples_per_beat, beats_per_bar, bars)
     _arrange_percussion(track, cue, samples_per_beat, beats_per_bar, bars)
+    _arrange_adaptive_timing(track, cue, samples_per_beat)
     dry = track.copy()
     # Circular delay/reverb keeps the loop mathematically periodic.  np.roll
     # wraps whole-canvas audio; no cut tail is hidden at the seam.
@@ -1179,6 +1261,10 @@ def _render_one(
         "progression": cue["progression"],
         "melody": cue["melody"],
         "energy": cue["energy"],
+        **(
+            {"adaptive_markers": cue["adaptive_markers"]}
+            if "adaptive_markers" in cue else {}
+        ),
         "seed_namespace": slug,
         "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
         "ogg_stream_serial": serial,
@@ -1281,7 +1367,7 @@ def _build(
     )
     # A selective development render may replace the requested OGGs, but it
     # must never overwrite the canonical proof with an intentionally partial
-    # catalog. Only a complete 42-cue build owns the release manifest.
+    # catalog. Only a complete-catalog build owns the release manifest.
     manifest_path = repo_root / OUTPUT_DIR / MANIFEST_NAME
     if selected_ids:
         manifest_path = repo_root / "audit/area_music/area_music_manifest.partial.json"
