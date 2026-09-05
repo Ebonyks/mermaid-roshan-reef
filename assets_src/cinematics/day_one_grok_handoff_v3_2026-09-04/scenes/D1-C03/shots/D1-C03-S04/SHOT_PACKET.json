@@ -1,0 +1,125 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C03",
+  "shot_id": "D1-C03-S04",
+  "title": "Pre-contact tool resolve",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "dirty bathroom layout",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C03",
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "path": "handoff_art/location/room_bubble_bath_dirty_day_one.png",
+      "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/handoff_art/location/room_bubble_bath_dirty_day_one.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C03-S03 endpoint",
+      "source_authority_is_not_automatic_first_frame_approval": true,
+      "binding_alias": "location",
+      "local_path": "scenes/D1-C03/visuals/handoff_art/location/room_bubble_bath_dirty_day_one.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C03",
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "roshan",
+      "local_path": "scenes/D1-C03/visuals/handoff_art/characters/roshan_roshan_base.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "approved tool group",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C03",
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "path": "handoff_art/objects/cleanup_basket.png",
+      "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/handoff_art/objects/cleanup_basket.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "cleanup_basket",
+      "local_path": "scenes/D1-C03/visuals/handoff_art/objects/cleanup_basket.png"
+    }
+  ],
+  "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+  "camera": {
+    "verb": "subtle push-in",
+    "move_count": 1
+  },
+  "must_move": "she reaches toward the nearest approved tool without changing the room state",
+  "must_not_move": "dirty room, murky tub, swimmer, sink, tools, grime, and character anatomy",
+  "end_state": "her hand stops in a clean visible gap before contact",
+  "negative_constraints": "no scrub, tool teleport, UI pointer, extra supplies, room redesign, cleanup, text, or HUD",
+  "sound_intent": "resolve chime over quiet drips; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "8b290216497c441f141923cf55d50d5da8bf81f7571ac86f2c3a5a579460f040",
+  "strict_audit_reason": "Clear pre-contact reach with approved tool.",
+  "weak_frames": [
+    {
+      "filename": "C03_S04_v1_tool_reach.mp4",
+      "lane": "original_branch",
+      "file_verdict": "KEEP_HIGH_QUALITY",
+      "weak_frames": "",
+      "finding": "Best pre-contact take: Roshan looks toward established sink/tools and reaches toward nearest brush without visible scrub/contact."
+    },
+    {
+      "filename": "C03_S04_v1_tools_resolve.mp4",
+      "lane": "original_branch",
+      "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+      "weak_frames": "",
+      "finding": "Valid tool-reach content but wider/traversal-heavy and less cleanly pre-contact than tool_reach."
+    },
+    {
+      "filename": "C03_S04_v2_tools_resolve.mp4",
+      "lane": "original_branch",
+      "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+      "weak_frames": "",
+      "finding": "Duplicate resolve take with weaker framing and less explicit stopped gap than tool_reach."
+    },
+    {
+      "filename": "C03_S04_v1_precontact_tools_REGEN.mp4",
+      "lane": "committed_regen_audit",
+      "file_verdict": "REGENERATE",
+      "weak_frames": "000–144 swimmer absent; 060–144 premature contact",
+      "finding": "The required swimmer disappears and Roshan advances into scrub-brush contact rather than stopping at the pre-contact seam."
+    }
+  ],
+  "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+  "audited_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+  },
+  "blocking_findings": [],
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/day_one_bathroom_cleanup.gd",
+    "rule": "one dirty tub, one separate swimming bunny, an authorized tool basket, and two later live cleaning gestures"
+  },
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "strict_third_pass": true,
+    "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+    "reviewed_at": "2026-09-04"
+  }
+}

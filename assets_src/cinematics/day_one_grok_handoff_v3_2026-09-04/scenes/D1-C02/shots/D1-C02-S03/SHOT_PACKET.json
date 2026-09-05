@@ -1,0 +1,104 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C02",
+  "shot_id": "D1-C02-S03",
+  "title": "Close dirty-hall evidence inspection",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "Main Hall Screen-A layout",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C02",
+      "source_packet": "d1_c02_first_dirty_castle_discovery_visual_v1",
+      "path": "handoff_art/location/main_hall_screen_a_room_led_master.png",
+      "sha256": "ae84f4f79a8183312b5ba26b6999f26b69c8a538424b5383a7d6623cc2f275e9",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c02_first_dirty_castle_discovery_visual_v1/handoff_art/location/main_hall_screen_a_room_led_master.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C02-S02 endpoint after Screen-A topology approval",
+      "source_authority_is_not_automatic_first_frame_approval": true,
+      "binding_alias": "location",
+      "local_path": "scenes/D1-C02/visuals/handoff_art/location/main_hall_screen_a_room_led_master.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C02",
+      "source_packet": "d1_c02_first_dirty_castle_discovery_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c02_first_dirty_castle_discovery_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "roshan",
+      "local_path": "scenes/D1-C02/visuals/handoff_art/characters/roshan_roshan_base.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "Daddy identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C02",
+      "source_packet": "d1_c02_first_dirty_castle_discovery_visual_v1",
+      "path": "handoff_art/characters/daddy_daddy_master.png",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c02_first_dirty_castle_discovery_visual_v1/handoff_art/characters/daddy_daddy_master.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "daddy",
+      "local_path": "scenes/D1-C02/visuals/handoff_art/characters/daddy_daddy_master.png"
+    }
+  ],
+  "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+  "camera": {
+    "verb": "short lateral",
+    "move_count": 1
+  },
+  "must_move": "one integrated grime patch, one friendly dust-bunny trace, and one harmless scrap become readable",
+  "must_not_move": "Screen-A floor, molding, portals, walls, fixtures, Daddy, and all existing character positions",
+  "end_state": "roshan points once without touching or cleaning",
+  "negative_constraints": "no UI marker, clip-art trash, insects, danger, cleanup, invented wall, reverse-room geometry, text, or HUD",
+  "sound_intent": "tiny dust rustle and muted hall room tone; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "553f1689bcf428c036374d73ecfee1299d812bc3d97423d589797479e69d116d",
+  "strict_audit_reason": "SET3 broad hall, duplicate figures and text labels violate close evidence inspection.",
+  "weak_frames": [
+    {
+      "filename": "C02_S03_v1_dirty_hall_evidence_REGEN.mp4",
+      "lane": "committed_regen_audit",
+      "file_verdict": "REGENERATE",
+      "weak_frames": "000–144",
+      "finding": "The broad hall tableau replaces the required low evidence close-up, invents multiple bunny bodies and readable EVIDENCE labels, and lets full-body Daddy/Roshan movement compete with the evidence."
+    }
+  ],
+  "source_packet": "d1_c02_first_dirty_castle_discovery_visual_v1",
+  "audited_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+  },
+  "blocking_findings": [],
+  "implemented_event_contract": {
+    "authority_path": "scripts/day_one_director.gd",
+    "rule": "dirty_castle_discovery is observation only; no cleanup or labeled evidence is created"
+  },
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "strict_third_pass": true,
+    "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+    "reviewed_at": "2026-09-04"
+  }
+}

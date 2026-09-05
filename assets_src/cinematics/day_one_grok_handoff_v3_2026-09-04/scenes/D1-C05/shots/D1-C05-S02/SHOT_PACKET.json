@@ -1,0 +1,125 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C05",
+  "shot_id": "D1-C05-S02",
+  "title": "Sparkle Pool — Dirty Discovery — D1-C05-S02",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "pool geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C05",
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "path": "handoff_art/location/room_mermaid_pool_background.png",
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c05_pool_dirty_discovery_visual_v1/handoff_art/location/room_mermaid_pool_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "human-approved, clean, HUD-free shot-opening frame in the exact inherited state",
+      "source_authority_is_not_automatic_first_frame_approval": true,
+      "binding_alias": "location",
+      "local_path": "scenes/D1-C05/visuals/handoff_art/location/room_mermaid_pool_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C05",
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c05_pool_dirty_discovery_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "roshan",
+      "local_path": "scenes/D1-C05/visuals/handoff_art/characters/roshan_roshan_base.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "swimming bunny identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C05",
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "path": "handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+      "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c05_pool_dirty_discovery_visual_v1/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "swimming_bunny",
+      "local_path": "scenes/D1-C05/visuals/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png"
+    },
+    {
+      "id": "IMAGE_4",
+      "job": "pool debris identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C05",
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "path": "handoff_art/objects/pool_algae_trash.png",
+      "sha256": "e0ed3c7174dcfeff17eb8261ee46d8e1d2a7c69e93a650f5495db4b6505c7ed9",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c05_pool_dirty_discovery_visual_v1/handoff_art/objects/pool_algae_trash.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "pool_trash",
+      "local_path": "scenes/D1-C05/visuals/handoff_art/objects/pool_algae_trash.png"
+    }
+  ],
+  "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+  "camera": {
+    "verb": "locked, restrained action framing",
+    "move_count": 1
+  },
+  "must_move": "1.2-4.8 swimming bunny in water, land bunny dry corner",
+  "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+  "end_state": "4.8-6.04 trash depth/scale hold",
+  "negative_constraints": "no invented event, topology drift, identity drift, anatomy errors, text, HUD, morph, interpolation, or camera drift",
+  "sound_intent": "quiet room tone and one soft causal action cue; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "647a772ea1f3e3561162c191faee6b9952adb3add319a4fd73ffb1a9c7d1c1b4",
+  "strict_audit_reason": "Both originals omit required swimming and land bunnies.",
+  "weak_frames": [
+    {
+      "filename": "C05_S02_v2_waterline.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f000-f144 (0.000-6.042s)",
+      "finding": "Waterline/trash composition omits both required bunnies, so media separation and pool-scale evidence are absent."
+    },
+    {
+      "filename": "C05_S02_waterline_trash.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f000-f144 (0.000-6.042s)",
+      "finding": "Shows trash and murky water but no approved swimming bunny plus separate dry-coping land bunny; required causal geography is missing."
+    }
+  ],
+  "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+  "audited_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+  },
+  "blocking_findings": [],
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/day_one_pool_cleanup.gd",
+    "rule": "the dirty pool begins with six surface targets, three waterfall lanes, and an eight-tug seahorse obstruction"
+  },
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "strict_third_pass": true,
+    "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+    "reviewed_at": "2026-09-04"
+  }
+}

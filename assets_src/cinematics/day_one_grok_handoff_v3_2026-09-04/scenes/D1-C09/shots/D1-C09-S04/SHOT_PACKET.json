@@ -1,0 +1,132 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C09",
+  "shot_id": "D1-C09-S04",
+  "title": "Exactly three Art Room grime cards",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "runtime-locked Art Room front projection",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C09",
+      "source_packet": "d1_c09_art_room_dirty_discovery_visual_v1",
+      "path": "handoff_art/location/room_craft_room_background.png",
+      "sha256": "006b736e59e261c2670717f268c76b39640b903373b1a75781cd464e135ddd0d",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c09_art_room_dirty_discovery_visual_v1/handoff_art/location/room_craft_room_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "new human-approved HUD-free complete front projection of the exact post-collection runtime state",
+      "source_authority_is_not_automatic_first_frame_approval": true,
+      "binding_alias": "location",
+      "local_path": "scenes/D1-C09/visuals/handoff_art/location/room_craft_room_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C09",
+      "source_packet": "d1_c09_art_room_dirty_discovery_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c09_art_room_dirty_discovery_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "roshan",
+      "local_path": "scenes/D1-C09/visuals/handoff_art/characters/roshan_roshan_base.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "fixture topology",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C09",
+      "source_packet": "d1_c09_art_room_dirty_discovery_visual_v1",
+      "path": "handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+      "sha256": "ccf85cf97fea81b4d3a496b8e48c57ff574b43aa4978953d8a78b9b4ea7a70f3",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c09_art_room_dirty_discovery_visual_v1/handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "fixture_sheet",
+      "local_path": "scenes/D1-C09/visuals/handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png"
+    },
+    {
+      "id": "IMAGE_4",
+      "job": "grime material",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C09",
+      "source_packet": "d1_c09_art_room_dirty_discovery_visual_v1",
+      "path": "handoff_art/objects/grime_desk.png",
+      "sha256": "586021e28238f3ddba60447a3e7472a51a9af72f5bbc4319f95c79265b0a43bf",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c09_art_room_dirty_discovery_visual_v1/handoff_art/objects/grime_desk.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "grime_desk",
+      "local_path": "scenes/D1-C09/visuals/handoff_art/objects/grime_desk.png"
+    }
+  ],
+  "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+  "camera": {
+    "verb": "locked",
+    "move_count": 1
+  },
+  "must_move": "2.00–4.50 keep exactly one small lavender grime card at left counter, center desk and right counter.",
+  "must_not_move": "two shell windows, two pearl columns, chandelier, shell board, rectangular desk, two curved counters, rear shelves, and front projection",
+  "end_state": "4.50–6.00 Roshan points once; end with exactly those three cards and no extra targets.",
+  "negative_constraints": "no fourth target, floor grime, toxic sludge, supply duplicate, cleanup, desk glow, floating objects, side wall, doorway, room rotation, text, or HUD",
+  "sound_intent": "faint sticky paint ambience and a concerned chord; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "752c9d83e951c7ec189d413b9a70fc0308c749ad7bacaefa92f121210e9e579a",
+  "strict_audit_reason": "Original official is close in layout but uses large smears rather than exact small lavender grime cards; alternate has wrong boy/room.",
+  "weak_frames": [
+    {
+      "filename": "C09_S04_three_grime_zones.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f000–f144 (0.000–6.000s)",
+      "finding": "Wrong boy identity and alternate dark room; does not show Roshan pointing at the exact three fixed Art Room grime-card targets."
+    },
+    {
+      "filename": "C09_S04_v1_three_grime_OFFICIAL.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f000–f144 (0.000–6.000s)",
+      "finding": "Bright room and one left/center/right stain each are close, but they are large paint smears rather than the required small lavender grime cards; strict card identity fails throughout."
+    },
+    {
+      "filename": "C09_S04_v1_three_grime_cards_REGEN.mp4",
+      "lane": "committed_regen_audit",
+      "file_verdict": "REGENERATE",
+      "weak_frames": "048–144",
+      "finding": "The Art Room front concept is close, but the left/right zones multiply into upright card groups instead of exactly one small lavender grime card at each of three fixed targets."
+    }
+  ],
+  "source_packet": "d1_c09_art_room_dirty_discovery_visual_v1",
+  "audited_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+  },
+  "blocking_findings": [],
+  "implemented_event_contract": {
+    "authority_path": "scripts/day_one_art_studio.gd",
+    "rule": "four loose material groups are collected before exactly three fixed grime cards become the active targets"
+  },
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "strict_third_pass": true,
+    "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+    "reviewed_at": "2026-09-04"
+  }
+}

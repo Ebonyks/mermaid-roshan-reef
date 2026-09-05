@@ -1,0 +1,65 @@
+DAY ONE — SHARED GROK STYLE AND CHARACTER REFERENCE BLOCK
+
+Paste this block once into the Grok project before any individual video setup.
+
+MISSION
+Create short 16:9, 1280x720, polished 2D storybook animation references for Mermaid Roshan: Reef of Light. Each numbered shot is a separate image-to-video generation. Never make a multi-shot movie in one generation. Use one camera move at most. Preserve the complete approved first-frame composition unless the shot explicitly calls for a camera move. Finish on a stable, usable full-frame endpoint for the next shot.
+
+VISUAL LANGUAGE
+Pastel pearl-palace storybook art with rounded toy-like forms, broad painted value bands, navy-violet contours, aqua/lavender shadows, warm pearl highlights, graphic readable water, coral and gold accents, and restrained magical sparkle. The space is a coherent inhabitable room or landscape, not a theater flat. Perspective, doors, walls, pool edges, furniture, and fixtures stay physically connected across angles. New unseen walls must extrapolate the same architecture and material vocabulary. Integrate dirt, props, characters, contact shadows, splashes, and magic into the scene; never paste clip-art overlays over a background.
+
+LIGHT AND GRADE
+Dirty spaces are dim, dingy, olive/aqua, safely readable, and friendly rather than frightening. Clean spaces are bright pearl, aqua, lavender, coral, and gold with clear water and localized sparkle. Never change palette or rendering style between shots. No photorealism, 3D render, anime redesign, plastic CGI, vector-flat UI look, live action, dramatic horror lighting, or muddy low-contrast faces.
+
+ROSHAN — REQUIRED IDENTITY
+Roshan is one specific young mermaid child. Preserve her approved child face, warm brown hair with the exact rainbow section, tiara, pink/lavender bodice, and one continuous rainbow mer-tail. She never has legs, feet, shoes, a skirt hiding legs, adult proportions, a different crown, different hair color, or a second tail. Keep her curious, brave, affectionate, and child-scaled. Bind approved Roshan front identity for front/three-quarter shots and the approved rear pose sheet for rear shots.
+
+DADDY MERMAID — REQUIRED IDENTITY
+Daddy is the same calm adult merman in every appearance: small approved crown, dark rectangular glasses, long brown/deep-green hair, navy coat with gold trim, teal cape, and the exact approved rainbow-tail color order. He has one continuous mer-tail and no legs. He reassures through patient eye line, offered hand, and protective proximity; never turn him into a generic king, warrior, or unrelated father.
+
+RUMI / VIOLET — REQUIRED IDENTITY
+Rumi is Violet, the adult mermaid with an enormous sculpted violet braid, pointed ears, star-shell earrings, navy/lavender sea jacket with gold trim and shell clasp, aqua/teal-to-violet-to-pink tail, and coral-pink split fin. Use the approved Rumi identity and relationship sample. No substitute mermaid, small purple-haired child, loose-haired redesign, different jacket, wrong tail, or incorrect scale. Her rise from the pool is graceful and her hug with Roshan has correct arms, hands, torsos, and separate continuous tails.
+
+BABY EAGLE — REQUIRED IDENTITY
+Exactly one Baby Eagle: the approved turquoise, yellow, and pink young bird. Keep beak, wings, feet, colors, and childlike proportions consistent. Pinned and recovered poses are distinct states of the same bird. Never duplicate Baby Eagle or replace it with a generic eagle.
+
+DUST BUNNIES
+Dust bunnies are friendly round storybook creatures, not realistic rodents, monsters, smoke, or loose dust clouds. The swimming bunny is one coherent aquatic bunny with its approved paddle animation and no newly invented legs. Playroom bunnies use the approved friendly species; a pose sheet shows one character over time and must not be interpreted as simultaneous clones unless a shot explicitly calls for multiple bunnies.
+
+GRAND PUFF — REQUIRED IDENTITY
+Grand Puff is a huge but cute three-tier smoky-grey/lavender dust-bunny boss with deep-plum lower curls, enormous symmetrical spiral ears with pearl joints, pearl paws, a curl crest, lavender four-point forehead sparkle, glossy plum eyes, coral blush, and a compact grin showing exactly two small pearl teeth. His motion sentence is action, identity, playful vulnerability tell. Never make him scary smoke, an injured animal, a defeated corpse, asymmetric, sharp-toothed, or menacing.
+
+PEARL PLANE
+Use the exact approved pearl plane silhouette, windows, wing and tail placement, material, and scale. Do not redesign it, change window count, turn it into a modern jet, or alter its relationship to Roshan and Daddy.
+
+GENERATION INPUT RULE
+Bind only two to four images for one shot: IMAGE_1 is the approved complete first frame or location/layout lock; IMAGE_2 is the principal character identity; IMAGE_3 is a second character or critical object/material identity; IMAGE_4 is an accepted relationship, endpoint, or lighting/grade reference. Storyboards, contact sheets, HUD captures, and gameplay screenshots are text-only seam/topology evidence and must not be bound as appearance pixels.
+
+MOTION AND EDIT RULE
+One clip equals one shot, 2–8 seconds, one dominant physical action, one camera move at most. State what moves, what stays fixed, and the exact end state. Use straight cuts between accepted clips. No tweening, morphing, optical flow, cross-dissolves, sprite/cutout motion, skeletal rigs, procedural warping, duplicated frames, or camera translation used to conceal missing character action in final delivery.
+
+GLOBAL NEGATIVES
+No text, subtitles, logos, HUD, buttons, progress meters, pointer hands, borders, split screens, storyboards, contact sheets, clip-art overlays, extra characters, duplicated body parts, fused characters, anatomy drift, room redesign, prop teleportation, impossible reflections, backward water, invented doors, invented basins, or geography jumps.
+
+AUDIO
+Generate visual motion and editorial timing only. Do not imitate, synthesize, replace, or upload protected family voice recordings. Every shot prompt ends with a Sound line describing only temporary ambience/edit cues. Final voices and approved game audio are added later from project authority.
+
+REFERENCE AUTHORITY MAP — OPERATOR USE, DO NOT PASTE INTO EVERY SHOT
+Existing animation-series identity and geography boards are preserved at immutable guide commit 3af5a8eb7110dab2381c7d0a73b27b880d35e84a. Material from that commit must be copied into a versioned handoff packet and published on the production handoff branch before a job can claim GENERATION_READY.
+
+Roshan: docs/grok_animation_series_project/characters/roshan/ROSHAN_FRONT_IDENTITY.png and ROSHAN_REAR_POSE_SHEET.png. Current runtime corroboration: assets/characters/roshan_25d/roshan_swim_front.png and roshan_swim_back.png.
+Daddy: docs/grok_animation_series_project/characters/daddy_mermaid/DADDY_FRONT_IDENTITY.png. Current source corroboration: assets_src/daddy_master.png.
+Rumi/Violet: docs/grok_animation_series_project/characters/rumi/RUMI_FULL_BODY_IDENTITY.png, RUMI_EIGHT_POSE_ATLAS.png, and RUMI_AND_ROSHAN_RELATIONSHIP_SAMPLE.png. Current source corroboration: assets_src/characters/rumi_2026-08-22/.
+Baby Eagle: docs/grok_animation_series_project/characters/baby_eagle/BABY_EAGLE_PINNED_STATE.png and BABY_EAGLE_STANDING_IDENTITY.png.
+Playroom dust bunnies: docs/grok_animation_series_project/characters/playroom_dust_bunny/PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png and motion boards.
+Grand Puff: docs/grok_animation_series_project/characters/boss_dust_bunny/BOSS_DUST_BUNNY_IDENTITY.png plus MOTION_jump.png and MOTION_laugh_vulnerable.png. Gameplay splash is tell/timing corroboration only, never a bound cinematic appearance image.
+Pearl plane and Sky Lagoon: docs/grok_animation_series_project/modules/opening_flight_to_sky_lagoon/references/06_AIRPLANE_EXACT.png; docs/grok_animation_series_project/locations/sky_lagoon/01_SKY_LAGOON_FINAL_GEOGRAPHY.jpg, 02_CASTLE_EXACT_FOUR_TOWER.png, and 07_SKY_LAGOON_FULL_PANORAMA.png.
+Main Hall: assets/flats/castle/main_hall_2screen/ current room-led masters. A new approved dirty perspective packet is still required before C02 is generation-ready.
+Bathroom: assets/flats/castle/rooms/room_bubble_bath_background.png and room_bubble_bath_dirty_day_one.png; source masters under assets_src/castle/day_one_bathroom_dirty/; swimmer identity at assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png.
+Pool: assets/flats/castle/rooms/room_mermaid_pool_background.png; dirty fixture identities under assets/castle/day_one_pool/ and assets/castle/day_one_pool/activities/. Use accepted cardinal perspectives/closeups from the versioned pool handoff, not the rejected wrong-Rumi asset.
+Stuffie Room: docs/grok_animation_series_project/locations/stuffie_room/STUFFIE_ROOM_CLEAN_GEOGRAPHY.png, STUFFIE_ROOM_DIRTY_GEOGRAPHY.png, and only the relevant approved perspective image from perspectives_dirty/.
+Art Room: current room plate plus assets/castle/day_one_art_studio/. A new human-approved six-view clean/dirty topology packet is still required before C09 or C10 is generation-ready.
+Boss arena: current runtime arena and boss-door layout plus the Grand Puff identity/tell references above. A new approved arena topology card is still required before C11 is generation-ready.
+
+PER-SHOT BINDING ORDER
+For a new cut, IMAGE_1 is the approved location/first-frame master. For a continuous cut, IMAGE_1 is the prior accepted shot's complete end frame. IMAGE_2 is the principal character identity. IMAGE_3 is the second character or critical fixture/prop. IMAGE_4 is used only when a relationship pose, clean endpoint, or grade authority is necessary. Never fill all four slots by habit. Reject the generation if identity, anatomy, topology, object count, action cause, or endpoint differs from the block, even when the motion looks attractive.
