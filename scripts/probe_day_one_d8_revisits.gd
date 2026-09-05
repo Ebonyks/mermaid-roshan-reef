@@ -17,6 +17,8 @@ func _run_probe() -> void:
 	var main := _read("res://scripts/main.gd")
 	var audio := _read("res://scripts/audio_director.gd")
 	var art := _read("res://scripts/day_one_art_studio.gd")
+	var contextual_catalog := _read(
+		"res://scripts/day_one_contextual_voice_catalog.gd")
 	_check("blocked door has bounded constants",
 		castle.contains("BLOCKED_DOOR_SFX_COOLDOWN_SECONDS := 1.2")
 		and castle.contains("BLOCKED_DOOR_SECOND_TAP_WINDOW_SECONDS := 6.0"))
@@ -45,16 +47,25 @@ func _run_probe() -> void:
 		main.contains("if bathroom_route_owned:")
 		and main.contains("_restore_day_one_bathroom_controls()")
 		and main.contains("and _day_one_pool_route_button != null"))
-	_check("Rumi revisit is persistent and non-synthetic",
+	_check("Rumi revisit is persistent and contextual",
 		castle.contains("_sync_day_one_persistent_rumi()")
 		and castle.contains("Pool completion flips the persistent-meeting latch")
 		and castle.contains('name = "DayOnePersistentRumi"')
 		and castle.contains('persistent_day_one_friend", true')
-		and castle.contains('identity_audio_synthesized", false')
-		and castle.contains('m.show_msg("Roshan", "Hi Roshan!", "day_one_rumi_hi", 4.0)'))
-	_check("Rumi greeting resolves through Roshan authority",
-		audio.contains('key == "roshan_day_one_rumi_hi"')
-		and audio.contains('key = "roshan_talk"')
+		and castle.contains('_say_day_one_context("day1_pool_rumi_reply"')
+		and contextual_catalog.contains(
+			'"cue_id":"day1_pool_rumi_reply"')
+		and contextual_catalog.contains(
+			'"audio_path":"assets/audio/voices/filler_v1/roshan_day1_pool_rumi_reply.ogg"')
+		and contextual_catalog.contains('"route":"pool"')
+		and contextual_catalog.contains('"status":"READY"')
+		and not castle.contains(
+			'm.show_msg("Roshan", "Hi Roshan!", "day_one_rumi_hi"'))
+	_check("Rumi contextual route preserves protected speaker exclusions",
+		audio.contains('var protected_speaker := speaker in ["faron", "daddy", "chuck"]')
+		and audio.contains(
+			'var allow_exact_filler := not protected_speaker or speaker == "daddy"')
+		and audio.contains('if not protected_speaker:')
 		and not audio.contains('"rumi_day_one_rumi_hi"'))
 	_check("documented loose-brush typo is gone",
 		art.contains('"Tap the %s!" % String(material["label"])')
