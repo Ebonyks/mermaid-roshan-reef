@@ -59,7 +59,7 @@ const BossSplash2DLogic = preload("res://scripts/boss_splash_2d.gd")
 # motor-speed wall.
 const SHOW_T := 6.4            # the showing: he is revealed before he fights
 const SHOW_SKIP_T := 5.2       # the demo flash must have played before skipping
-const WINDUP_T := 0.7          # squash-and-glimmer telegraph before the leap
+const WINDUP_T := 1.5          # exaggerated musical breath before the leap
 const STRUCK_T := 1.4          # the hit reaction (spin, burst, hearts)
 const DIZZY_T := 1.4           # extra stagger after hit 1 — a free breather
 const ANGRY_T := 1.4           # the puff-up after hit 2
@@ -112,6 +112,19 @@ const DODGE_COOLDOWN := 1.15    # prevents a held button becoming permanent safe
 const DODGE_STEP := 3.8         # a readable sideways swish, not a contact shove
 const BASE_WIN_PEARLS := 3
 const PERFECT_BONUS_PEARLS := 2
+
+# Grand Puff owns a deterministic 120 BPM adaptive cue. The rendered track's
+# beat 16 is the unmistakable action downbeat. Every prowl restarts its lively
+# opening; every wind-up seeks into the authored hush; the actual vulnerable
+# animation signal corrects to beat 16 so audio and the gold flash are the same
+# event even when mercy lengthens the wind-up or the final animation speeds up.
+const MUSIC_SECONDS_PER_BEAT := 0.5
+const MUSIC_PROWL_BEAT := 0.0
+const MUSIC_ACTION_BEAT := 16.0
+const MUSIC_ACTION_T := MUSIC_ACTION_BEAT * MUSIC_SECONDS_PER_BEAT
+const MUSIC_SHOW_FLASH_T := 3.2
+const MUSIC_OPEN_FRAME_T := 0.2
+const MUSIC_SYNC_TOLERANCE := 0.08
 
 const MASTERY_GOLD := 3
 const MASTERY_SILVER := 2
@@ -205,6 +218,9 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	m.g["db_spin"] = 0.0
 	m.g["db_flash"] = 0.0
 	m.g["db_active_t"] = 0.0
+	m.g["db_music_action_cues"] = 0
+	m.g["db_music_seek_t"] = 0.0
+	m.g["db_music_action_drift"] = 0.0
 	_stage_open()
 	_build_mastery_ui()
 	_build_boss()
@@ -376,6 +392,55 @@ func _enter_state(next_state: String) -> void:
 	m.g["db_st"] = 0.0
 	if next_state != "prowl":
 		m.g["db_dodge_hint"] = false
+	_sync_music_for_state(next_state)
+
+
+func _music_ready() -> bool:
+	return m.music != null and m.music.playing and m.cur_track == "dustboss" \
+		and m.music.stream != null \
+		and m.music.stream.resource_path == "res://assets/audio/music/dustboss.ogg"
+
+
+func _music_seek(seconds: float) -> void:
+	var target: float = maxf(0.0, seconds)
+	m.g["db_music_seek_t"] = target
+	if _music_ready():
+		m.music.seek(target)
+
+
+func _music_open_delay() -> float:
+	var k: DustBunnyBossSprite = kit()
+	var speed: float = 1.0
+	if k != null and is_instance_valid(k):
+		speed = maxf(0.01, k.combat_speed_scale)
+	return MUSIC_OPEN_FRAME_T / speed
+
+
+func _sync_music_for_state(next_state: String) -> void:
+	match next_state:
+		"showing":
+			# The rehearsal flash receives the same downbeat as real play.
+			_music_seek(MUSIC_ACTION_T - MUSIC_SHOW_FLASH_T)
+		"prowl":
+			_music_seek(MUSIC_PROWL_BEAT * MUSIC_SECONDS_PER_BEAT)
+		"windup":
+			# Start far enough back in the quiet passage that the animation's
+			# first open frame, not merely the state boundary, reaches beat 16.
+			_music_seek(MUSIC_ACTION_T - windup_len() - _music_open_delay())
+
+
+func _on_vulnerability_changed(is_open: bool) -> void:
+	if not is_open:
+		return
+	m.g["db_music_action_cues"] = int(m.g.get("db_music_action_cues", 0)) + 1
+	if not _music_ready():
+		return
+	var drift: float = absf(m.music.get_playback_position() - MUSIC_ACTION_T)
+	m.g["db_music_action_drift"] = drift
+	# The planned seek normally arrives within a frame. Correct larger decoder
+	# or scheduling drift without double-triggering an already-landed downbeat.
+	if drift > MUSIC_SYNC_TOLERANCE:
+		_music_seek(MUSIC_ACTION_T)
 
 func phase() -> int:
 	# 0 puffy → 1 dizzy → 2 angry; clamped so the winning hit reads as angry
@@ -477,7 +542,7 @@ func _tick_showing(st: float, fr: Dictionary, tapped: bool) -> void:
 	m.g["db_show_grow"] = grow
 	m.g["db_y"] = sin(clampf((st - 1.8) / 1.4, 0.0, 1.0) * PI) * 5.4
 	# the demo flash: exactly what she has to wait for in the real fight
-	var demo: bool = st > 3.2 and st < SHOW_SKIP_T
+	var demo: bool = st > MUSIC_SHOW_FLASH_T and st < SHOW_SKIP_T
 	m.g["db_flash"] = 1.0 if demo else 0.0
 	if demo and not bool(m.g.get("db_show_told", false)):
 		m.g["db_show_told"] = true
@@ -1105,7 +1170,7 @@ func _stage_open() -> void:
 		"post_col": Color(0.94, 0.90, 0.99),
 		"post_glow": Color(1.0, 0.88, 0.70),
 	})
-	m._play_music("race")
+	m._play_music("dustboss")
 	var r := stage.root()
 	if r == null:
 		return
@@ -1165,6 +1230,7 @@ func _build_boss() -> void:
 	kit.implosion_finished.connect(_on_imploded)
 	kit.final_round_started.connect(_on_final_round)
 	kit.tap_progress_changed.connect(_on_tap_progress)
+	kit.vulnerability_changed.connect(_on_vulnerability_changed)
 	# the ground shadow stays on the deck so a leap reads as a leap
 	var shadow := stage.contact_shadow(BOSS_H * 0.62)
 	r.add_child(shadow)

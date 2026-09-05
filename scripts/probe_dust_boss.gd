@@ -424,6 +424,13 @@ func _pose_case() -> void:
 # ---- the showing -----------------------------------------------------------
 func _showing_case() -> void:
 	_ck("the fight opens with the showing, not the fight", _state() == "showing")
+	_ck("Grand Puff owns a dedicated adaptive music cue",
+		main.cur_track == "dustboss" and main.music != null
+		and main.music.stream != null
+		and main.music.stream.resource_path == "res://assets/audio/music/dustboss.ogg")
+	_ck("the teaching flash is aligned to the cue's action downbeat",
+		is_equal_approx(float(main.g.get("db_music_seek_t", -1.0)),
+			DustBossGame.MUSIC_ACTION_T - DustBossGame.MUSIC_SHOW_FLASH_T))
 	_ck("the boss cutout and its head star are built",
 		main.g.get("db_boss") != null and main.g.get("db_star") != null)
 	# taps during the reveal teach nothing bad: they cannot scratch him
@@ -460,6 +467,9 @@ func _shield_case() -> void:
 		and int(main.g.get("db_shield_feedbacks", 0)) - feedback_before <= 2)
 	var windup: bool = await _await_state("windup", 3000)
 	_ck("the prowl telegraphs the leap with a wind-up", windup)
+	_ck("the music gives the wind-up an exaggerated pause",
+		DustBossGame.WINDUP_T >= 1.4
+		and float(main.g.get("db_music_seek_t", 0.0)) < DustBossGame.MUSIC_ACTION_T)
 
 # ---- optional mastery: picture-first, partial, and always replayable -------
 func _mastery_ui_case() -> void:
@@ -545,6 +555,10 @@ func _first_hit_case() -> void:
 	_ck("the wind-up becomes an airborne flashing window", open_now)
 	var up: bool = await _await_airborne(600)
 	_ck("he really is in the air while the star flashes", up)
+	_ck("the musical action downbeat fires with the vulnerable frame",
+		int(main.g.get("db_music_action_cues", 0)) > 0
+		and absf(float(main.g.get("db_music_seek_t", 0.0))
+			- DustBossGame.MUSIC_ACTION_T) <= DustBossGame.MUSIC_SYNC_TOLERANCE)
 	_ck("the button reads BONK! exactly while he is open",
 		_boss().action_label() == "BONK!")
 	# an open window on the far side of the ring is not a free hit: stand

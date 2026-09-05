@@ -4,11 +4,11 @@
   "seed_derivation": "All noise and micro-variation use SHA-256-derived NumPy PCG64 seeds namespaced by cue ID and event; no unseeded random state",
   "license": "Project-owned original composition and synthesis",
   "generator": "tools/build_area_music.py",
-  "generator_version": 1,
-  "generator_sha256": "49578229e57a7f5143013dc83044d5e4418a8e6e39591ba3abb0098c9728509d",
+  "generator_version": 2,
+  "generator_sha256": "610d023a3d3dae985140559626dddc2223e44cd16b7e32fbea87fb9b085bf4b3",
   "score_catalog": "assets_src/audio/music/area_music_scores.json",
   "score_schema": "reef.area-music-scores.v1",
-  "score_catalog_sha256": "a85bb8604e5138358a776663a41a8b151fde15e8cc21b298e0a07709fe8c575a",
+  "score_catalog_sha256": "0d3a9c312fe3fae8eaebd20ca89d91211ed343861c1fbda1afcd86c897afca70",
   "dependencies": {
     "python": "3.13.14",
     "numpy": "2.5.1",
@@ -4794,6 +4794,135 @@
       },
       "pcm_sha256": "76be778394978211fec56683cf33eb6377cf1574d77bd1970bc80a79aac905b4",
       "sha256": "91d4e3c53cc89d51a0926b43e6d2e36a9995a21afd0ecaad34ba8bd172115f52"
+    },
+    {
+      "id": "dustboss",
+      "title": "Grand Puff Holds His Breath",
+      "family": "combat",
+      "area": "Grand Puff Battle",
+      "brief": "Playful marimba footsteps and warm toy brass stop for a long held breath; three rising pearl bells count toward one huge friendly bonk downbeat exactly when Grand Puff opens.",
+      "cue_score_sha256": "68aafa8e426574a6c1629c77bc9b2d1ada6a0005cacccbf9dd932278fbd1e2bb",
+      "path": "assets/audio/music/dustboss.ogg",
+      "import_path": "assets/audio/music/dustboss.ogg.import",
+      "tempo_bpm": 120,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 16,
+      "tonic_midi": 62,
+      "mode": "mixolydian",
+      "texture": "boss",
+      "percussion": "soft_combat",
+      "instruments": {
+        "lead": "marimba",
+        "harmony": "warm_brass",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "puff_pause_and_bonk",
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        1,
+        4
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        null,
+        4,
+        2,
+        1,
+        3,
+        5,
+        6,
+        4
+      ],
+      "energy": 0.72,
+      "adaptive_markers": {
+        "prowl_beat": 0.0,
+        "anticipation_start_beat": 10.0,
+        "action_beat": 16.0
+      },
+      "seed_namespace": "dustboss",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 967374822,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 64,
+        "bar_beats": 4
+      },
+      "sample_count": 1536000,
+      "duration_seconds": 32.0,
+      "samples_per_beat": 24000.0,
+      "raw_seam": {
+        "boundary_jump": 6.129e-05,
+        "adjacent_p999": 0.04218035,
+        "jump_ratio": 0.00145
+      },
+      "development": {
+        "midpoint_bar": 8,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": 2.87,
+      "peak_limited": true,
+      "pcm_peak": 22153,
+      "pcm_peak_dbfs": -3.4001,
+      "pcm_rms_dbfs": -20.8628,
+      "pcm_loudness": {
+        "integrated_lufs": -18.27,
+        "true_peak_dbtp": -3.4,
+        "loudness_range_lu": 1.7,
+        "threshold_lufs": -28.56
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 392266,
+      "average_bitrate_bps": 98066,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Grand Puff Holds His Breath",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "dustboss",
+        "BPM": "120",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1536000",
+        "LOOPLENGTH": "1536000",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1536000,
+      "decoded_seam": {
+        "boundary_jump": 0.00109867,
+        "adjacent_p999": 0.04321427,
+        "jump_ratio": 0.02542
+      },
+      "loudness": {
+        "integrated_lufs": -18.3,
+        "true_peak_dbtp": -3.63,
+        "loudness_range_lu": 1.8,
+        "threshold_lufs": -28.59
+      },
+      "pcm_sha256": "1039a3fbc5fbf34f4daeb2585004aa1fdbeaace12dd24fab2433ba893f5d69dd",
+      "sha256": "df6dfdfad1c4d3ebe66d82ebc04c420d6d3506664fe80d925911e80bafbe6dd8"
     },
     {
       "id": "picture_snowman",

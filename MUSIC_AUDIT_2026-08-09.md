@@ -2,7 +2,15 @@
 
 - **Audit date:** 2026-08-09
 - **Status:** Implemented; automated composition, render, loop, and routing validation complete; human listening and Lenovo Tab M11 mix review remain
-- **Scope:** 15 legacy files already in `assets/audio/music/`, 42 new area cues, their transition ownership, and the musical language that joins them
+- **Scope:** 15 legacy files already in `assets/audio/music/`, the original 42 area cues plus the 2026-09-04 Grand Puff cue, their transition ownership, and the musical language that joins them
+
+> **2026-09-04 current-catalog addendum:** The deterministic catalog now has
+> 43 cues. `dustboss.ogg`, “Grand Puff Holds His Breath,” replaces the retained
+> `race.ogg` reuse in the Grand Puff encounter. Its score contains an authored
+> sparse anticipation passage and action marker; the boss seeks within this
+> single Music stream so the full downbeat and vulnerable gold flash coincide.
+> Historical 42/42 verification statements below remain dated evidence for the
+> original rollout rather than claims about this later cue.
 
 ## 1. Purpose and audience
 
@@ -10,13 +18,13 @@ This is the human-readable source of truth for how music should work in *Mermaid
 
 The central design decision is that every meaningful place or self-contained activity should sound like itself. In this audit, **quiet** means either literal silence or an area that only inherits an unrelated parent cue. A room can therefore be technically audible and still be musically unauthored.
 
-The result is not 42 unrelated genre exercises. It is one child-friendly storybook score in which each room changes the pace, meter, articulation, and a few featured colors. The Royal Kitchen may waltz, the Detective may tiptoe, and the Farmer may play a porch reel, but they remain members of the same Mermaid Roshan musical family.
+The result is not 43 unrelated genre exercises. It is one child-friendly storybook score in which each room changes the pace, meter, articulation, and a few featured colors. The Royal Kitchen may waltz, the Detective may tiptoe, Grand Puff may hold his breath before a bonk, and the Farmer may play a porch reel, but they remain members of the same Mermaid Roshan musical family.
 
 This document does not replace the legal ledger or machine-readable score:
 
 - `ASSET_LICENSES.md` remains authoritative for licensing and attribution.
-- `assets_src/audio/music/area_music_scores.json` is authoritative for the 42 new declarative compositions.
-- `assets/audio/music/area_music_manifest.json` (schema `reef.area-music-manifest.v1`) is authoritative for rendered hashes, durations, codecs, loudness, peaks, and loop measurements; all 42 cue records are complete and validated.
+- `assets_src/audio/music/area_music_scores.json` is authoritative for the 43 new declarative compositions.
+- `assets/audio/music/area_music_manifest.json` (schema `reef.area-music-manifest.v1`) is authoritative for rendered hashes, durations, codecs, loudness, peaks, loop measurements, and adaptive markers; all 43 cue records are complete and validated after the catalog is rebuilt.
 
 ## 2. Status vocabulary and scope decision
 
@@ -27,11 +35,11 @@ This document does not replace the legal ledger or machine-readable score:
 | **INTENTIONAL REUSE** | An existing minigame cue is deliberately reused because the interaction is the same musical activity, not because an area was forgotten. |
 | **SFX, not score** | The file lives in the legacy music directory but is routed and designed as a sound effect. |
 
-The new-cue count is exactly **42**:
+The current new-cue count is exactly **43**:
 
 - 12 Castle side-room cues. The Main Hall keeps the existing `hall` cue.
 - 1 Opera lobby cue, 13 career cues, and 3 friendly boss cues.
-- 9 world, dungeon, combat, tutorial, and Stuffie cues.
+- 10 world, dungeon, combat, tutorial, Stuffie, and Grand Puff cues.
 - 4 picture-game cues.
 
 For coverage, an **area** is a soundtrack scene, not every camera cell or prop. A discrete illustrated Castle room, Opera act, full-screen picture game, world, dungeon, or combat state owns a cue. A continuous ten-room dungeon keeps one developing suite across its chambers so exploration is coherent and the loop is not restarted at every doorway. Likewise, contiguous subregions inside one world keep that world’s cue unless gameplay enters a separately owned state.
