@@ -432,6 +432,73 @@ class DocumentAuthorityTests(unittest.TestCase):
 		self.assertEqual(4, len(issues))
 		self.assertEqual(0, counts["inventory"])
 
+	def _planning_fixture(self, root: Path) -> None:
+		files = {
+			"tools/godot_baseline.json": '{"version": "4.7.2"}',
+			str(authority.MASTER_PATH): (
+				"## 4. Historical evidence\nGodot 4.7.1 passed at an old commit.\n"
+				"## 9. Repair protocol\nImport with exact Godot 4.7.2-stable.\n"
+				"## 12. Satisfaction gate\n- [ ] Exact Godot 4.7.2-stable passes.\n"
+				"## 14. History\nGodot 4.7.1 historical checkpoint.\n"
+			),
+			"design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md": (
+				"Global Opera follows OPERA_ACTIVE_STAR_MASK. Chapter 2 is exactly `0x2C4F`.\n"
+				"Canonical sequence array: `[6, 0, 3, 10, 2, 13, 11, 1]`.\n"
+			),
+			"scripts/save_state.gd": "const OPERA_ACTIVE_STAR_MASK := 0x1BDEF\n",
+			"scripts/chapter_two_party_plan.gd": (
+				"const ALL_PARTY_MASK := 0x2C4F\n"
+				"const GUIDE_ORDER: Array[int] = [6, 0, 3, 10, 2, 13, 11, 1]\n"
+			),
+		}
+		for relative, content in files.items():
+			path = root / relative
+			path.parent.mkdir(parents=True, exist_ok=True)
+			path.write_text(content, encoding="utf-8")
+
+	def test_active_planning_gates_preserve_historical_engine_evidence(self) -> None:
+		with tempfile.TemporaryDirectory() as directory:
+			root = Path(directory)
+			self._planning_fixture(root)
+			self.assertEqual([], authority._planning_fact_issues(root))
+
+	def test_stale_engine_in_each_active_gate_fails(self) -> None:
+		for heading in ("## 9. Repair protocol", "## 12. Satisfaction gate"):
+			with self.subTest(heading=heading), tempfile.TemporaryDirectory() as directory:
+				root = Path(directory)
+				self._planning_fixture(root)
+				path = root / authority.MASTER_PATH
+				path.write_text(path.read_text(encoding="utf-8").replace(
+					heading, heading + "\nRequired Godot 4.7.1-stable."), encoding="utf-8")
+				self.assertTrue(any(i.check_id == "DOC071" for i in authority._planning_fact_issues(root)))
+
+	def test_stale_global_mask_fails_even_with_correct_symbol_present(self) -> None:
+		with tempfile.TemporaryDirectory() as directory:
+			root = Path(directory)
+			self._planning_fixture(root)
+			path = root / "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md"
+			path.write_text(path.read_text(encoding="utf-8") + "Global Opera remains `0xBDEF`.\n", encoding="utf-8")
+			self.assertTrue(any(i.check_id == "DOC072" for i in authority._planning_fact_issues(root)))
+
+	def test_changed_chapter_mask_or_order_requires_doc_update(self) -> None:
+		for before, after in (("0x2C4F", "0x2C4E"), ("[6, 0, 3", "[0, 6, 3")):
+			with self.subTest(change=before), tempfile.TemporaryDirectory() as directory:
+				root = Path(directory)
+				self._planning_fixture(root)
+				path = root / "scripts/chapter_two_party_plan.gd"
+				path.write_text(path.read_text(encoding="utf-8").replace(before, after), encoding="utf-8")
+				self.assertTrue(any(i.check_id == "DOC073" for i in authority._planning_fact_issues(root)))
+
+	def test_planning_fact_gate_fails_closed_on_missing_or_malformed_source(self) -> None:
+		with tempfile.TemporaryDirectory() as directory:
+			root = Path(directory)
+			self._planning_fixture(root)
+			baseline = root / "tools/godot_baseline.json"
+			baseline.write_text('{"version": null}', encoding="utf-8")
+			self.assertTrue(any(i.check_id == "DOC070" for i in authority._planning_fact_issues(root)))
+			baseline.unlink()
+			self.assertTrue(any(i.check_id == "DOC070" for i in authority._planning_fact_issues(root)))
+
 
 if __name__ == "__main__":
 	unittest.main()
