@@ -1,0 +1,1977 @@
+{
+  "schema": "day-one-davinci-assembly-v1",
+  "project": "Mermaid Roshan - Day One Game Cohesion Draft 2026-09-04",
+  "base_commit": "d19b787ba1d82b4d567f56a44469c2ac10aad0d2",
+  "plan_sha256": "8243d88f004c1529c75ad867df542ee32b7a6dba6a7ee36fe633abf8aa49d328",
+  "fps": 24,
+  "resolution": [
+    1280,
+    720
+  ],
+  "audio": "video-only; runtime retains authored score; no generated dialogue",
+  "method": "native-rate source trimming and hard cuts in DaVinci Resolve",
+  "claims": {
+    "editorial_reference_only": true,
+    "delivery_accepted": false
+  },
+  "sources": {
+    "C00_S01_v1_plane_clouds.mp4": {
+      "file": "sources/C00_S01_v1_plane_clouds.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C00_S01_v1_plane_clouds.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C00_S01_v1_plane_clouds.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "2ae8b28d0f1a732e19b0f7a90e53b59b4ec1567e",
+      "sha256": "c16e39471fea0db1bd43ba9de38700928e133de0ba81e6ee4f691f73e5638dc8",
+      "bytes": 2368465,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C00_S02_v1_cabin.mp4": {
+      "file": "sources/C00_S02_v1_cabin.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C00_S02_v1_cabin.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C00_S02_v1_cabin.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "7abc9f1ee62d8733e6fb6ac04c1d0ffbf6f1ccaa",
+      "sha256": "7132151356771918b571568870b62ff06ca456ef3d229fd19434542d055c91a8",
+      "bytes": 3113041,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C00_S03_v1_roshan_wonder.mp4": {
+      "file": "sources/C00_S03_v1_roshan_wonder.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C00_S03_v1_roshan_wonder.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C00_S03_v1_roshan_wonder.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "b6468afeec4bc5487c80a9356e431c51e16bf1ab",
+      "sha256": "0464642637220dc67463e97bd15435dce39d5b27fa6ad68f98c4e56db7144817",
+      "bytes": 2725675,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C00_S04_v1_handhold.mp4": {
+      "file": "sources/C00_S04_v1_handhold.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C00_S04_v1_handhold.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C00_S04_v1_handhold.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "80876fbc7e391cb3d127e3f8bdbed3eb3efef64c",
+      "sha256": "6184319edaec6dbc52bf76e7fe12ff352ddddf2cae427012867f2bbb23a9ed5a",
+      "bytes": 3060179,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C00_S05_v1_lagoon_reveal.mp4": {
+      "file": "sources/C00_S05_v1_lagoon_reveal.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C00_S05_v1_lagoon_reveal.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C00_S05_v1_lagoon_reveal.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "91a57ca44d35005f610eaf2964b86be40360ee18",
+      "sha256": "88f38fe176067a6ac8cdb61f31d13becea1e7eec52fdc2ba628a0c1427f4486f",
+      "bytes": 3205641,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C00_S06_v1_landing_prep.mp4": {
+      "file": "sources/C00_S06_v1_landing_prep.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C00_S06_v1_landing_prep.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C00_S06_v1_landing_prep.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "685e0e3f7eaae867eb3dd0a26b20525a0042b6d6",
+      "sha256": "377c85e000e89277bf75353442f800c26e97528a4432f70867b8a4fad30abb66",
+      "bytes": 3560485,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C01_S01_v1_dock.mp4": {
+      "file": "sources/C01_S01_v1_dock.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C01_S01_v1_dock.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C01_S01_v1_dock.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "c75ea802fad908b91ea98c4df1caaaa076e74e5f",
+      "sha256": "13178e6768e39b6a17b7dcd2908e1a7b7334529fdb557f4e2c99ac16379c197c",
+      "bytes": 2546848,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C01_S02_v1_dock_handoffer_REGEN.mp4": {
+      "file": "sources/C01_S02_v1_dock_handoffer_REGEN.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day1-regen-3sets-branch\\C01_S02_v1_dock_handoffer_REGEN.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C01_S02_v1_dock_handoffer_REGEN.mp4",
+      "source_commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+      "git_blob": "32cab3fb165a72f189364408e63becac13a1a5b5",
+      "sha256": "ebfbc932a6e2c771f035b2e2de1ec988804ecbbb6c59d1ed8759c78df7b8cdc1",
+      "bytes": 3760121,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C01_S03_v1_handinhand_castle_REGEN.mp4": {
+      "file": "sources/C01_S03_v1_handinhand_castle_REGEN.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day1-regen-3sets-branch\\C01_S03_v1_handinhand_castle_REGEN.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C01_S03_v1_handinhand_castle_REGEN.mp4",
+      "source_commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+      "git_blob": "5c55b0d90338ff964466044af5c77bfedcaf17d2",
+      "sha256": "45f43d09151bab6f8c3231cf311506b63393ccc5668a79f82304ed8942050961",
+      "bytes": 8111083,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C02_S01_v1_door_open.mp4": {
+      "file": "sources/C02_S01_v1_door_open.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C02_S01_v1_door_open.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C02_S01_v1_door_open.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "818ce6bf9c357247da20aea35cbe5a12ac849d57",
+      "sha256": "df7559c706e582b0fbeea23342ad7b5f05b6725515c6ee2ca4cd8cb26182e814",
+      "bytes": 5423374,
+      "dimensions": [
+        1264,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C02_S02_v1_dirty_hall.mp4": {
+      "file": "sources/C02_S02_v1_dirty_hall.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C02_S02_v1_dirty_hall.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C02_S02_v1_dirty_hall.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "3a509031692b60cb02eadab75505470b26865d1e",
+      "sha256": "9277fa32bd2d215b982ee8947a91b58d6dca05a4e4611f70817ce9689029ba01",
+      "bytes": 5535352,
+      "dimensions": [
+        1264,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C02_S03_v1_dirty_hall_evidence_REGEN.mp4": {
+      "file": "sources/C02_S03_v1_dirty_hall_evidence_REGEN.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day1-regen-3sets-branch\\C02_S03_v1_dirty_hall_evidence_REGEN.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C02_S03_v1_dirty_hall_evidence_REGEN.mp4",
+      "source_commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+      "git_blob": "9dbf5c21c58d180de9d9490dee8239d2f5c89905",
+      "sha256": "889347f92184d9f1d1300977ad71f166707df64762cfea7ef6fbda6c06272f39",
+      "bytes": 4165078,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C02_S04_v1_bathroom_glow.mp4": {
+      "file": "sources/C02_S04_v1_bathroom_glow.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C02_S04_v1_bathroom_glow.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C02_S04_v1_bathroom_glow.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "231a131da5ced4aff46d6d1fadc9771b2edd2d05",
+      "sha256": "0877ee4a01d2550f5f408813408bbe74e37a880db6f20d90f1aee1d274d62115",
+      "bytes": 9545337,
+      "dimensions": [
+        1264,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C03_S01_v1_empty_dirty_bath.mp4": {
+      "file": "sources/C03_S01_v1_empty_dirty_bath.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C03_S01_v1_empty_dirty_bath.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C03_S01_v1_empty_dirty_bath.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "8720516b97b5b06d5ad2773b46da5b4f7000a7c0",
+      "sha256": "6a95518cad9e753d49da15085bd147c65d9d2db5a19f7c5c7819bd2128c22550",
+      "bytes": 5332853,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C03_bunny_discover.mp4": {
+      "file": "sources/C03_bunny_discover.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C03_bunny_discover.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C03_bunny_discover.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "17cc1a3e77ee879d882567a9139303895a745faa",
+      "sha256": "01bfe380effdb3f3f4387bcb2685e74e145744809780113c320e71e59a91ad46",
+      "bytes": 4214760,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C03_S04_v1_tool_reach.mp4": {
+      "file": "sources/C03_S04_v1_tool_reach.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C03_S04_v1_tool_reach.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C03_S04_v1_tool_reach.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "0af254de3c96912cd7c21980e3362b196e5ad5f0",
+      "sha256": "8bdc1f663ae1656b788d8e06c7066195fae1554fd09e2175a60476c0627df019",
+      "bytes": 5807755,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C04_S01_v1_final_scrub.mp4": {
+      "file": "sources/C04_S01_v1_final_scrub.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C04_S01_v1_final_scrub.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C04_S01_v1_final_scrub.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "d6130f689673716310351e5eec13c7c1f1d90294",
+      "sha256": "452cb98aef1f10e811b69e111909965bcd21f5fb30654642610c4cdc1289501d",
+      "bytes": 4965006,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C04_S02_water_clears.mp4": {
+      "file": "sources/C04_S02_water_clears.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C04_S02_water_clears.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C04_S02_water_clears.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "c4921ef6ed964d7e54ae8eafc1606f798aacd7e2",
+      "sha256": "abc21e3509a99f0bd80d1a637b3b1988d7f8e641bb7abab6ccf4ffa880321654",
+      "bytes": 8453387,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C04_S04_v1_clean_endpoint.mp4": {
+      "file": "sources/C04_S04_v1_clean_endpoint.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C04_S04_v1_clean_endpoint.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C04_S04_v1_clean_endpoint.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "2dcd8aeb72189803d56c3939285b60a2ba52e0e5",
+      "sha256": "7da166456020ac60be448bef302e5defafac02ecb82739bbc541816f2d379a00",
+      "bytes": 4900823,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C05_S01_v1_pool_entry.mp4": {
+      "file": "sources/C05_S01_v1_pool_entry.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C05_S01_v1_pool_entry.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C05_S01_v1_pool_entry.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "480466c7281f2c5c6e28648840f656c5f976652a",
+      "sha256": "26d18c1f483b4fc4b9582abaabeab6074be828cbf5cfcf9fd0b1a6a9558febaa",
+      "bytes": 5862418,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C05_S03_v1_skimmer.mp4": {
+      "file": "sources/C05_S03_v1_skimmer.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C05_S03_v1_skimmer.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C05_S03_v1_skimmer.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "182b739ab38c16888faac9d48ec1a1188abbedd3",
+      "sha256": "e5909540cdeb532749c6ec559bf2e808a35146dc748a0bbe2594bddd433b8ae5",
+      "bytes": 6111147,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C05_S04_v2_waterfall.mp4": {
+      "file": "sources/C05_S04_v2_waterfall.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C05_S04_v2_waterfall.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C05_S04_v2_waterfall.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "bf6373dfe1761f98fce9d4b2c7e7f3e6b7fe1599",
+      "sha256": "b708629ff28b646c170fac42df8b77ddab6a92df6ec99a32c736718df54028d2",
+      "bytes": 8602866,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C05_S05_v1_seahorse_plug.mp4": {
+      "file": "sources/C05_S05_v1_seahorse_plug.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C05_S05_v1_seahorse_plug.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C05_S05_v1_seahorse_plug.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "1e4b47e11f4d8fa2ea8d2ff03bf807bb4a824c0a",
+      "sha256": "43ef70ba8b23c8f8d774ed88be9839ca1355fd2ba5ce0e38a6bfccb4961b43db",
+      "bytes": 8894445,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C06_S01_v1_pull_plug.mp4": {
+      "file": "sources/C06_S01_v1_pull_plug.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C06_S01_v1_pull_plug.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C06_S01_v1_pull_plug.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "a0ae55e8a56669079d991e1e236b6be875b16972",
+      "sha256": "e4eaecb298349a6c6ce6ae47e14346e4e422620a2b1025aa73826ef65dd26f41",
+      "bytes": 9456447,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C06_S02_seahorse_flow.mp4": {
+      "file": "sources/C06_S02_seahorse_flow.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C06_S02_seahorse_flow.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C06_S02_seahorse_flow.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "b282814f56611c5e1cbeb364a0c58d9ba5911029",
+      "sha256": "fd371286ccd057edfca257ba16f734a34751859a3bbe9f3bda6b2158a39145bc",
+      "bytes": 8591131,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4": {
+      "file": "sources/C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day1-regen-3sets-branch\\C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4",
+      "source_commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+      "git_blob": "558fd3946a23a30e8cc39c8a3103fe2762e58947",
+      "sha256": "167e7ebbd899bd6179f64f7f6c7d2d66f57167e0197d58e4f8ed6b2b24e9f337",
+      "bytes": 6821639,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C06_S04_v1_both_sources_pool_REGEN.mp4": {
+      "file": "sources/C06_S04_v1_both_sources_pool_REGEN.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day1-regen-3sets-branch\\C06_S04_v1_both_sources_pool_REGEN.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S04_v1_both_sources_pool_REGEN.mp4",
+      "source_commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+      "git_blob": "6cc1f539929037d108898c53e9bb847f87d43ae8",
+      "sha256": "ed55f673b237539d35e46b32e8d75e41dda7c88f5d847b846ecb8996e4be5b15",
+      "bytes": 6049188,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C06_S05_v1_purification_fronts_REGEN.mp4": {
+      "file": "sources/C06_S05_v1_purification_fronts_REGEN.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day1-regen-3sets-branch\\C06_S05_v1_purification_fronts_REGEN.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S05_v1_purification_fronts_REGEN.mp4",
+      "source_commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+      "git_blob": "a6d66d8821d7c32894b1142c56345b245f605f70",
+      "sha256": "9dbe40b02261dafddd11bfff0aa790c11967e4a83335e860f1d1c7379b47f5c3",
+      "bytes": 5761897,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "grok-b26f9f88-6a08-4641-91bf-123c8ee493be-720p.mp4": {
+      "file": "sources/grok-b26f9f88-6a08-4641-91bf-123c8ee493be-720p.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Downloads\\grok-b26f9f88-6a08-4641-91bf-123c8ee493be-720p.mp4",
+      "kind": "local_user_supplied",
+      "source_url": null,
+      "source_commit": null,
+      "git_blob": null,
+      "sha256": "bfe8698e090cecdb34783362ce13142a8f521d29dc08358b6e54cf2845bd51ff",
+      "bytes": 7859236,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C06_S08_v1_rumi_invitation_REGEN.mp4": {
+      "file": "sources/C06_S08_v1_rumi_invitation_REGEN.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day1-regen-3sets-branch\\C06_S08_v1_rumi_invitation_REGEN.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S08_v1_rumi_invitation_REGEN.mp4",
+      "source_commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+      "git_blob": "058eda8247eca106fbffa7be34f3ebcb39567e87",
+      "sha256": "8a41ce07292344e347e320c297e5ba28147758d161337588964a00d64058e618",
+      "bytes": 6758046,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "grok-961c839a-1782-4167-ac58-875c14bf1441-720p.mp4": {
+      "file": "sources/grok-961c839a-1782-4167-ac58-875c14bf1441-720p.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Downloads\\grok-961c839a-1782-4167-ac58-875c14bf1441-720p.mp4",
+      "kind": "local_user_supplied",
+      "source_url": null,
+      "source_commit": null,
+      "git_blob": null,
+      "sha256": "e0f02d25d20fb110b60741513232f6e32407445e22a17e281a6e4de0bf880e38",
+      "bytes": 9424902,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C07_S01_v2_empty_dirty_stuffie.mp4": {
+      "file": "sources/C07_S01_v2_empty_dirty_stuffie.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C07_S01_v2_empty_dirty_stuffie.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C07_S01_v2_empty_dirty_stuffie.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "913c165319ef1ccf3ce26154e5524d1f6361a58c",
+      "sha256": "18309ff18ee4468da5872b8dbbafe786b013b175657b3f1b9d506f2d99e8fd25",
+      "bytes": 2534646,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C07_S02_v2_roshan_enters.mp4": {
+      "file": "sources/C07_S02_v2_roshan_enters.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C07_S02_v2_roshan_enters.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C07_S02_v2_roshan_enters.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "277c8621e3728e0e64863195c93cf2a238d633bf",
+      "sha256": "96f4a2c7711f27d159bf15732e3ec361c352a66afbe9999527cf1480e652a1a2",
+      "bytes": 5094450,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4": {
+      "file": "sources/grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Downloads\\grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4",
+      "kind": "local_user_supplied",
+      "source_url": null,
+      "source_commit": null,
+      "git_blob": null,
+      "sha256": "aa1a08d59e0a837d1abdd67a8518740f5777e289525ba22b52362becd396d61d",
+      "bytes": 5172186,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C09_S01_v1_loose_supplies_OFFICIAL.mp4": {
+      "file": "sources/C09_S01_v1_loose_supplies_OFFICIAL.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C09_S01_v1_loose_supplies_OFFICIAL.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C09_S01_v1_loose_supplies_OFFICIAL.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "c8de72ad5275769efe7002686a3044a7bd0ce75a",
+      "sha256": "b0d7c7a268b976c4ca1fc81c7e9bb59e13d0e929bacdb5d168cdca58d2eb6242",
+      "bytes": 1920691,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C09_S02_v1_roshan_scan_OFFICIAL.mp4": {
+      "file": "sources/C09_S02_v1_roshan_scan_OFFICIAL.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C09_S02_v1_roshan_scan_OFFICIAL.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C09_S02_v1_roshan_scan_OFFICIAL.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "3e8205a0c82fb48e5ad10d1f83f06f03528ba5d2",
+      "sha256": "0ad44320e8bf9dfa3e53f2ebeed6217bc5d6cdba23cd879a7de6c58c75c356a2",
+      "bytes": 5277504,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C09_S03_four_supplies.mp4": {
+      "file": "sources/C09_S03_four_supplies.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C09_S03_four_supplies.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C09_S03_four_supplies.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "4dc4a795fe36038ee639ada030b59bd7863f73d5",
+      "sha256": "45e481cb0f7bded89dfb654fbf31463517c65ed174b0df0a39bd13e48c726116",
+      "bytes": 5198353,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C09_S04_v1_three_grime_OFFICIAL.mp4": {
+      "file": "sources/C09_S04_v1_three_grime_OFFICIAL.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C09_S04_v1_three_grime_OFFICIAL.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C09_S04_v1_three_grime_OFFICIAL.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "81cc3fb6d950e0e48608fd14e08555ad4e27f15e",
+      "sha256": "1e0f3b6e7bd8d026e643c3f8e4a3994030c78d71ab886201f81005919c39624d",
+      "bytes": 2773828,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C09_S05_v1_precontact_brush_REGEN.mp4": {
+      "file": "sources/C09_S05_v1_precontact_brush_REGEN.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day1-regen-3sets-branch\\C09_S05_v1_precontact_brush_REGEN.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C09_S05_v1_precontact_brush_REGEN.mp4",
+      "source_commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+      "git_blob": "d301f2b093220c2693f3eab2a1cf761b1075eb49",
+      "sha256": "9761afa7995b2c05a02401a812db8b9a941c75afabb939feb50ed30b7e9fca32",
+      "bytes": 2677275,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C10_S01_v1_final_scrub_OFFICIAL.mp4": {
+      "file": "sources/C10_S01_v1_final_scrub_OFFICIAL.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C10_S01_v1_final_scrub_OFFICIAL.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C10_S01_v1_final_scrub_OFFICIAL.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "5385ab40b5d56a5d933ec4e49cb595f50f2522d5",
+      "sha256": "6c5f3f338348c6514ecfd79cb3464b49e26864af6ad9af1076cf8a60d2186a56",
+      "bytes": 3857695,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C10_S02_v1_four_supplies_home_REGEN.mp4": {
+      "file": "sources/C10_S02_v1_four_supplies_home_REGEN.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day1-regen-3sets-branch\\C10_S02_v1_four_supplies_home_REGEN.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C10_S02_v1_four_supplies_home_REGEN.mp4",
+      "source_commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+      "git_blob": "1fc56fb0aaa95e188503bb2255dd20b229ed2a8c",
+      "sha256": "3ea84509eafc2f7e921937455f9b2e0597cd4a86638e74f62ae7d9c5a5928f30",
+      "bytes": 1868804,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C10_S03_v1_clean_reveal_OFFICIAL.mp4": {
+      "file": "sources/C10_S03_v1_clean_reveal_OFFICIAL.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C10_S03_v1_clean_reveal_OFFICIAL.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C10_S03_v1_clean_reveal_OFFICIAL.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "5e9654fba4c4412ee06b4c3fab68a5f991d86a8d",
+      "sha256": "4eb521a7c871efbff8c12e48cddffa6a1523050f51fad9b13e9c5d7cda056bfe",
+      "bytes": 4339845,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C10_S04_v1_desk_wake_OFFICIAL.mp4": {
+      "file": "sources/C10_S04_v1_desk_wake_OFFICIAL.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C10_S04_v1_desk_wake_OFFICIAL.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C10_S04_v1_desk_wake_OFFICIAL.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "6340de44dd6827943c4bb2e44ff9cdd99365fcb2",
+      "sha256": "b3c7bb5c92104c45d0fece8f448d52e419669d094bb69582dffaa9067d3e5f5a",
+      "bytes": 4359094,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C10_S05_v1_blank_desk_handgap_REGEN.mp4": {
+      "file": "sources/C10_S05_v1_blank_desk_handgap_REGEN.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day1-regen-3sets-branch\\C10_S05_v1_blank_desk_handgap_REGEN.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C10_S05_v1_blank_desk_handgap_REGEN.mp4",
+      "source_commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+      "git_blob": "70a2b3368b68da3e1f6055b417f2fc665b6a70c1",
+      "sha256": "943be7af6d481f9b72cd07249139cfc7392b36c81283246aa25cf07168454c13",
+      "bytes": 2353317,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C11_S01_route_lights.mp4": {
+      "file": "sources/C11_S01_route_lights.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C11_S01_route_lights.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C11_S01_route_lights.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "72a17a426e2bd7460841f481f9c2a049987b3eeb",
+      "sha256": "0435be6521d6e28e7bcf51f2c50504146822f452069208ed640faab048a521ce",
+      "bytes": 6533384,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C11_S02_v1_boss_door_approach_REGEN.mp4": {
+      "file": "sources/C11_S02_v1_boss_door_approach_REGEN.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day1-regen-3sets-branch\\C11_S02_v1_boss_door_approach_REGEN.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C11_S02_v1_boss_door_approach_REGEN.mp4",
+      "source_commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+      "git_blob": "ee0d128d9a585b0f310c537c9a305e2d03222703",
+      "sha256": "9f3edde7c41613ac3823bd05c9a962049a2468961a9f45ff162a021a6c4e2a8f",
+      "bytes": 9620032,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C11_S03_v1_door_open_arena_REGEN.mp4": {
+      "file": "sources/C11_S03_v1_door_open_arena_REGEN.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day1-regen-3sets-branch\\C11_S03_v1_door_open_arena_REGEN.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C11_S03_v1_door_open_arena_REGEN.mp4",
+      "source_commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+      "git_blob": "9a6f5b4dc367d19348f742da3576941b387669bb",
+      "sha256": "4eb34395f279ece86deaf9a7e804300bcbdbe032cf3665ae0af253e52f7b4e43",
+      "bytes": 5715541,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C11_S04_v1_grand_puff_lands_REGEN.mp4": {
+      "file": "sources/C11_S04_v1_grand_puff_lands_REGEN.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day1-regen-3sets-branch\\C11_S04_v1_grand_puff_lands_REGEN.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C11_S04_v1_grand_puff_lands_REGEN.mp4",
+      "source_commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+      "git_blob": "e2c63041aa2ae277f2fef323eb1ce34e9b2d8a73",
+      "sha256": "ca10bed474db1b6ebce58b07e15900f215bb636cb433ee89c49ae20c049073c3",
+      "bytes": 3968938,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C12_S01_clean_bath_bunny.mp4": {
+      "file": "sources/C12_S01_clean_bath_bunny.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C12_S01_clean_bath_bunny.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C12_S01_clean_bath_bunny.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "08046a09ae973f152ab995012669c8d7e2666c69",
+      "sha256": "261bed3f2f23832f4cc3d9f2394ab8de6cb4fde365a786c7a19f3ae84b9965b1",
+      "bytes": 5227827,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C12_S02_rumi_pool_recap.mp4": {
+      "file": "sources/C12_S02_rumi_pool_recap.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C12_S02_rumi_pool_recap.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C12_S02_rumi_pool_recap.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "aabc52e78753245bf311e748223c52b9eaa8dc86",
+      "sha256": "11685d7bbdb24abeac83eb75fa6f0f0c4f0a50ee46451b317e3e5d9b1b891cdd",
+      "bytes": 8859809,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C12_S03_stuffie_recap.mp4": {
+      "file": "sources/C12_S03_stuffie_recap.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C12_S03_stuffie_recap.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C12_S03_stuffie_recap.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "cce397de0cbe90cb68f892fe8eb750fb24260923",
+      "sha256": "40802350ef30b39166cb147a1a014cdcc65044ee35131489812ab1e0d26f9d8c",
+      "bytes": 3136067,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C12_S04_art_desk_glow.mp4": {
+      "file": "sources/C12_S04_art_desk_glow.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C12_S04_art_desk_glow.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C12_S04_art_desk_glow.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "4e18798dcd38cd83f015f8c1d487a9563f8e69b4",
+      "sha256": "aae916f7b076bd927e12e6476eb8f7f54ce97b907d4b71c25d098c4970c825ea",
+      "bytes": 3769171,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C12_S05_v1_post_friendship_vignette_REGEN.mp4": {
+      "file": "sources/C12_S05_v1_post_friendship_vignette_REGEN.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day1-regen-3sets-branch\\C12_S05_v1_post_friendship_vignette_REGEN.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C12_S05_v1_post_friendship_vignette_REGEN.mp4",
+      "source_commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+      "git_blob": "bff5fb8108ffe9d2577c25c838079648c7d27fbb",
+      "sha256": "779f86cc9a5c92610fb578de3b71db9d88225a7579b9af1dcb359547d63fb6b0",
+      "bytes": 3626432,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C12_family_reunion_hug.mp4": {
+      "file": "sources/C12_family_reunion_hug.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C12_family_reunion_hug.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C12_family_reunion_hug.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "e287fa612e809e89ff672526ed2b135bae03cd6e",
+      "sha256": "ec9f7150eaa8575592be01984ccb1087b6c6d7347aec690207b7b6068209aedc",
+      "bytes": 6830597,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C13_S01_v1_roshan_cleanup.mp4": {
+      "file": "sources/C13_S01_v1_roshan_cleanup.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C13_S01_v1_roshan_cleanup.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C13_S01_v1_roshan_cleanup.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "33f3f0c17502d15a9f70c9c566ff377ded82f920",
+      "sha256": "f56f5fd8e887b57cdfbe94e2869121b05b19e6b5e0ebbb09477746ead1bc6108",
+      "bytes": 4259800,
+      "dimensions": [
+        1264,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C13_S02_v2_daddy_sweep.mp4": {
+      "file": "sources/C13_S02_v2_daddy_sweep.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C13_S02_v2_daddy_sweep.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C13_S02_v2_daddy_sweep.mp4",
+      "source_commit": "5ca170e11c77ea55c3224f9f275b94b8fd62ca36",
+      "git_blob": "79b805b2e5f0d7b47637ff14f49e027fd36c2cd6",
+      "sha256": "7e28440838a448c62ed0539a64c7f4e47f93342463dac7ee3ffcf06278ac8d5c",
+      "bytes": 5333134,
+      "dimensions": [
+        1264,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    },
+    "C13_S04_v1_rumi_contained_rinse_REGEN.mp4": {
+      "file": "sources/C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+      "original_local_file": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day1-regen-3sets-branch\\C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+      "kind": "audited_git_blob",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+      "source_commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+      "git_blob": "309df59f77eddaf1d1bca7f5fb3957eca9aca690",
+      "sha256": "9ed421b635e9cd3eca646b48515bd8a9a84adf608d3af08e4d4d0ed92b8da5e2",
+      "bytes": 5347493,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "native_frames": 145,
+      "modifications": "none; byte-identical copy",
+      "normalization": "whole-canvas scale-to-fit with black padding; no crop or subject transform",
+      "role": "grok_editorial_motion_reference",
+      "delivery_accepted": false
+    }
+  },
+  "movies": [
+    {
+      "id": "D1-C00",
+      "title": "C00_opening_flight",
+      "status": "coherent_draft",
+      "runtime_preview_eligible": true,
+      "shots": [
+        {
+          "shot": "D1-C00-S01",
+          "source": "C00_S01_v1_plane_clouds.mp4",
+          "source_start": 0,
+          "source_end_exclusive": 96,
+          "record_start": 0,
+          "record_end_exclusive": 96,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C00-S02",
+          "source": "C00_S02_v1_cabin.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 108,
+          "record_start": 96,
+          "record_end_exclusive": 192,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C00-S03",
+          "source": "C00_S03_v1_roshan_wonder.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 108,
+          "record_start": 192,
+          "record_end_exclusive": 288,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C00-S04",
+          "source": "C00_S04_v1_handhold.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 108,
+          "record_start": 288,
+          "record_end_exclusive": 384,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C00-S05",
+          "source": "C00_S05_v1_lagoon_reveal.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 108,
+          "record_start": 384,
+          "record_end_exclusive": 480,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C00-S06",
+          "source": "C00_S06_v1_landing_prep.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 108,
+          "record_start": 480,
+          "record_end_exclusive": 576,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        }
+      ],
+      "excluded_shots": [],
+      "frames": 576,
+      "seconds": 24.0
+    },
+    {
+      "id": "D1-C01",
+      "title": "C01_lagoon_landing_castle_approach",
+      "status": "partial_missing_closed_door_arrival",
+      "runtime_preview_eligible": true,
+      "shots": [
+        {
+          "shot": "D1-C01-S01",
+          "source": "C01_S01_v1_dock.mp4",
+          "source_start": 0,
+          "source_end_exclusive": 84,
+          "record_start": 0,
+          "record_end_exclusive": 84,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C01-S02",
+          "source": "C01_S02_v1_dock_handoffer_REGEN.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 120,
+          "record_start": 84,
+          "record_end_exclusive": 180,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C01-S03",
+          "source": "C01_S03_v1_handinhand_castle_REGEN.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 108,
+          "record_start": 180,
+          "record_end_exclusive": 276,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        }
+      ],
+      "excluded_shots": [
+        {
+          "shot": "D1-C01-S04",
+          "source": null,
+          "reason": "wrong door-open event"
+        }
+      ],
+      "frames": 276,
+      "seconds": 11.5
+    },
+    {
+      "id": "D1-C02",
+      "title": "C02_first_dirty_castle_discovery",
+      "status": "coherent_draft_with_provisional_evidence_insert",
+      "runtime_preview_eligible": true,
+      "shots": [
+        {
+          "shot": "D1-C02-S01",
+          "source": "C02_S01_v1_door_open.mp4",
+          "source_start": 0,
+          "source_end_exclusive": 72,
+          "record_start": 0,
+          "record_end_exclusive": 72,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C02-S02",
+          "source": "C02_S02_v1_dirty_hall.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 84,
+          "record_start": 72,
+          "record_end_exclusive": 144,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C02-S03",
+          "source": "C02_S03_v1_dirty_hall_evidence_REGEN.mp4",
+          "source_start": 48,
+          "source_end_exclusive": 96,
+          "record_start": 144,
+          "record_end_exclusive": 192,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C02-S04",
+          "source": "C02_S04_v1_bathroom_glow.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 84,
+          "record_start": 192,
+          "record_end_exclusive": 264,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        }
+      ],
+      "excluded_shots": [],
+      "frames": 264,
+      "seconds": 11.0
+    },
+    {
+      "id": "D1-C03",
+      "title": "C03_bathroom_dirty_entry",
+      "status": "partial_missing_threshold_crossing",
+      "runtime_preview_eligible": true,
+      "shots": [
+        {
+          "shot": "D1-C03-S01",
+          "source": "C03_S01_v1_empty_dirty_bath.mp4",
+          "source_start": 0,
+          "source_end_exclusive": 72,
+          "record_start": 0,
+          "record_end_exclusive": 72,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C03-S03",
+          "source": "C03_bunny_discover.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 84,
+          "record_start": 72,
+          "record_end_exclusive": 144,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C03-S04",
+          "source": "C03_S04_v1_tool_reach.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 96,
+          "record_start": 144,
+          "record_end_exclusive": 216,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        }
+      ],
+      "excluded_shots": [
+        {
+          "shot": "D1-C03-S02",
+          "source": null,
+          "reason": "threshold crossing absent"
+        }
+      ],
+      "frames": 216,
+      "seconds": 9.0
+    },
+    {
+      "id": "D1-C04",
+      "title": "C04_bathroom_restored",
+      "status": "partial_missing_legless_bunny_exit",
+      "runtime_preview_eligible": true,
+      "shots": [
+        {
+          "shot": "D1-C04-S01",
+          "source": "C04_S01_v1_final_scrub.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 96,
+          "record_start": 0,
+          "record_end_exclusive": 72,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C04-S02",
+          "source": "C04_S02_water_clears.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 84,
+          "record_start": 72,
+          "record_end_exclusive": 144,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C04-S04",
+          "source": "C04_S04_v1_clean_endpoint.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 84,
+          "record_start": 144,
+          "record_end_exclusive": 216,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        }
+      ],
+      "excluded_shots": [
+        {
+          "shot": "D1-C04-S03",
+          "source": null,
+          "reason": "existing exit adds legs"
+        }
+      ],
+      "frames": 216,
+      "seconds": 9.0
+    },
+    {
+      "id": "D1-C05",
+      "title": "C05_pool_dirty_discovery",
+      "status": "partial_problem_map_missing",
+      "runtime_preview_eligible": true,
+      "shots": [
+        {
+          "shot": "D1-C05-S01",
+          "source": "C05_S01_v1_pool_entry.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 84,
+          "record_start": 0,
+          "record_end_exclusive": 72,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C05-S03",
+          "source": "C05_S03_v1_skimmer.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 96,
+          "record_start": 72,
+          "record_end_exclusive": 144,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C05-S04",
+          "source": "C05_S04_v2_waterfall.mp4",
+          "source_start": 72,
+          "source_end_exclusive": 132,
+          "record_start": 144,
+          "record_end_exclusive": 204,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C05-S05",
+          "source": "C05_S05_v1_seahorse_plug.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 96,
+          "record_start": 204,
+          "record_end_exclusive": 276,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        }
+      ],
+      "excluded_shots": [
+        {
+          "shot": "D1-C05-S02",
+          "source": null,
+          "reason": "required bunny pair absent"
+        },
+        {
+          "shot": "D1-C05-S06",
+          "source": null,
+          "reason": "valid wide problem map absent"
+        }
+      ],
+      "frames": 276,
+      "seconds": 11.5
+    },
+    {
+      "id": "D1-C06",
+      "title": "C06_pool_purification_rumi_hug",
+      "status": "partial_causal_chain",
+      "runtime_preview_eligible": true,
+      "shots": [
+        {
+          "shot": "D1-C06-S01",
+          "source": "C06_S01_v1_pull_plug.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 84,
+          "record_start": 0,
+          "record_end_exclusive": 72,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C06-S02",
+          "source": "C06_S02_seahorse_flow.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 84,
+          "record_start": 72,
+          "record_end_exclusive": 144,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C06-S03",
+          "source": "C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 96,
+          "record_start": 144,
+          "record_end_exclusive": 216,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C06-S04",
+          "source": "C06_S04_v1_both_sources_pool_REGEN.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 96,
+          "record_start": 216,
+          "record_end_exclusive": 288,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C06-S05",
+          "source": "C06_S05_v1_purification_fronts_REGEN.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 96,
+          "record_start": 288,
+          "record_end_exclusive": 360,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C06-S06",
+          "source": "grok-b26f9f88-6a08-4641-91bf-123c8ee493be-720p.mp4",
+          "source_start": 0,
+          "source_end_exclusive": 120,
+          "record_start": 360,
+          "record_end_exclusive": 480,
+          "strict_disposition": "REMAKE",
+          "edit_note": "Strong fixed-pool violet-light rise; no Rumi emergence, so S07 remains missing"
+        },
+        {
+          "shot": "D1-C06-S08",
+          "source": "C06_S08_v1_rumi_invitation_REGEN.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 96,
+          "record_start": 480,
+          "record_end_exclusive": 552,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C06-S09",
+          "source": "grok-961c839a-1782-4167-ac58-875c14bf1441-720p.mp4",
+          "source_start": 0,
+          "source_end_exclusive": 96,
+          "record_start": 552,
+          "record_end_exclusive": 648,
+          "strict_disposition": "REMAKE",
+          "edit_note": "Stable full two-character hug and fixed Pool topology; editorial reference pending identity/contact audit"
+        }
+      ],
+      "excluded_shots": [
+        {
+          "shot": "D1-C06-S07",
+          "source": null,
+          "reason": "Rumi emergence absent"
+        }
+      ],
+      "frames": 648,
+      "seconds": 27.0
+    },
+    {
+      "id": "D1-C07",
+      "title": "C07_stuffie_dirty_discovery",
+      "status": "fragment_wrong_room_material_omitted",
+      "runtime_preview_eligible": false,
+      "shots": [
+        {
+          "shot": "D1-C07-S01",
+          "source": "C07_S01_v2_empty_dirty_stuffie.mp4",
+          "source_start": 0,
+          "source_end_exclusive": 72,
+          "record_start": 0,
+          "record_end_exclusive": 72,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C07-S02",
+          "source": "C07_S02_v2_roshan_enters.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 84,
+          "record_start": 72,
+          "record_end_exclusive": 144,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C07-S06",
+          "source": "grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4",
+          "source_start": 0,
+          "source_end_exclusive": 96,
+          "record_start": 144,
+          "record_end_exclusive": 240,
+          "strict_disposition": "REMAKE",
+          "edit_note": "Stronger pinned-Eagle distress/read than audited regen; room remains only a rough geography match"
+        }
+      ],
+      "excluded_shots": [
+        {
+          "shot": "D1-C07-S04",
+          "source": null,
+          "reason": "not selected"
+        },
+        {
+          "shot": "D1-C07-S05",
+          "source": null,
+          "reason": "not selected"
+        }
+      ],
+      "frames": 240,
+      "seconds": 10.0
+    },
+    {
+      "id": "D1-C08",
+      "title": "C08_stuffie_restoration",
+      "status": "no_coherent_draft",
+      "runtime_preview_eligible": false,
+      "shots": [],
+      "excluded_shots": [
+        {
+          "shot": "D1-C08-S01",
+          "source": "C08_S01_basket_wobble.mp4",
+          "reason": "not selected"
+        },
+        {
+          "shot": "D1-C08-S02",
+          "source": "C08_S02_left_basket_ears_REGEN.mp4",
+          "reason": "not selected"
+        },
+        {
+          "shot": "D1-C08-S03",
+          "source": "C08_S03_right_basket_ears_REGEN.mp4",
+          "reason": "not selected"
+        },
+        {
+          "shot": "D1-C08-S04",
+          "source": "C08_S04_v1_four_bunnies_emerge_REGEN.mp4",
+          "reason": "not selected"
+        },
+        {
+          "shot": "D1-C08-S05",
+          "source": "C08_S05_v1_wing_prep.mp4",
+          "reason": "not selected"
+        },
+        {
+          "shot": "D1-C08-S06",
+          "source": "C08_S06_v1_wing_blast_clean_REGEN.mp4",
+          "reason": "not selected"
+        },
+        {
+          "shot": "D1-C08-S07",
+          "source": "C08_S07_v1_clean_endpoint_REGEN.mp4",
+          "reason": "not selected"
+        }
+      ],
+      "frames": 0,
+      "seconds": 0.0
+    },
+    {
+      "id": "D1-C09",
+      "title": "C09_art_room_dirty_discovery",
+      "status": "coherent_provisional_draft",
+      "runtime_preview_eligible": true,
+      "shots": [
+        {
+          "shot": "D1-C09-S01",
+          "source": "C09_S01_v1_loose_supplies_OFFICIAL.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 60,
+          "record_start": 0,
+          "record_end_exclusive": 48,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C09-S02",
+          "source": "C09_S02_v1_roshan_scan_OFFICIAL.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 72,
+          "record_start": 48,
+          "record_end_exclusive": 96,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C09-S03",
+          "source": "C09_S03_four_supplies.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 72,
+          "record_start": 96,
+          "record_end_exclusive": 144,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C09-S04",
+          "source": "C09_S04_v1_three_grime_OFFICIAL.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 72,
+          "record_start": 144,
+          "record_end_exclusive": 192,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C09-S05",
+          "source": "C09_S05_v1_precontact_brush_REGEN.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 72,
+          "record_start": 192,
+          "record_end_exclusive": 240,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        }
+      ],
+      "excluded_shots": [],
+      "frames": 240,
+      "seconds": 10.0
+    },
+    {
+      "id": "D1-C10",
+      "title": "C10_art_room_restored",
+      "status": "coherent_provisional_draft",
+      "runtime_preview_eligible": true,
+      "shots": [
+        {
+          "shot": "D1-C10-S01",
+          "source": "C10_S01_v1_final_scrub_OFFICIAL.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 72,
+          "record_start": 0,
+          "record_end_exclusive": 48,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C10-S02",
+          "source": "C10_S02_v1_four_supplies_home_REGEN.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 72,
+          "record_start": 48,
+          "record_end_exclusive": 96,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C10-S03",
+          "source": "C10_S03_v1_clean_reveal_OFFICIAL.mp4",
+          "source_start": 0,
+          "source_end_exclusive": 48,
+          "record_start": 96,
+          "record_end_exclusive": 144,
+          "strict_disposition": "KEEP_WITH_TRIM",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C10-S04",
+          "source": "C10_S04_v1_desk_wake_OFFICIAL.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 72,
+          "record_start": 144,
+          "record_end_exclusive": 192,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C10-S05",
+          "source": "C10_S05_v1_blank_desk_handgap_REGEN.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 72,
+          "record_start": 192,
+          "record_end_exclusive": 240,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        }
+      ],
+      "excluded_shots": [],
+      "frames": 240,
+      "seconds": 10.0
+    },
+    {
+      "id": "D1-C11",
+      "title": "C11_boss_door_grand_puff",
+      "status": "coherent_provisional_draft",
+      "runtime_preview_eligible": true,
+      "shots": [
+        {
+          "shot": "D1-C11-S01",
+          "source": "C11_S01_route_lights.mp4",
+          "source_start": 12,
+          "source_end_exclusive": 84,
+          "record_start": 0,
+          "record_end_exclusive": 72,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C11-S02",
+          "source": "C11_S02_v1_boss_door_approach_REGEN.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 96,
+          "record_start": 72,
+          "record_end_exclusive": 144,
+          "strict_disposition": "KEEP_WITH_TRIM",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C11-S03",
+          "source": "C11_S03_v1_door_open_arena_REGEN.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 96,
+          "record_start": 144,
+          "record_end_exclusive": 216,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C11-S04",
+          "source": "C11_S04_v1_grand_puff_lands_REGEN.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 96,
+          "record_start": 216,
+          "record_end_exclusive": 288,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        }
+      ],
+      "excluded_shots": [],
+      "frames": 288,
+      "seconds": 12.0
+    },
+    {
+      "id": "D1-C12",
+      "title": "C12_restored_castle_finale",
+      "status": "coherent_montage_draft_after_boss_victory",
+      "runtime_preview_eligible": true,
+      "shots": [
+        {
+          "shot": "D1-C12-S01",
+          "source": "C12_S01_clean_bath_bunny.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 72,
+          "record_start": 0,
+          "record_end_exclusive": 48,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C12-S02",
+          "source": "C12_S02_rumi_pool_recap.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 72,
+          "record_start": 48,
+          "record_end_exclusive": 96,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C12-S03",
+          "source": "C12_S03_stuffie_recap.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 72,
+          "record_start": 96,
+          "record_end_exclusive": 144,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C12-S04",
+          "source": "C12_S04_art_desk_glow.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 72,
+          "record_start": 144,
+          "record_end_exclusive": 192,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C12-S05",
+          "source": "C12_S05_v1_post_friendship_vignette_REGEN.mp4",
+          "source_start": 18,
+          "source_end_exclusive": 66,
+          "record_start": 192,
+          "record_end_exclusive": 240,
+          "strict_disposition": "KEEP_WITH_TRIM",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C12-S06",
+          "source": "C12_family_reunion_hug.mp4",
+          "source_start": 24,
+          "source_end_exclusive": 72,
+          "record_start": 240,
+          "record_end_exclusive": 288,
+          "strict_disposition": "KEEP_HIGH_QUALITY",
+          "edit_note": "straight cut"
+        }
+      ],
+      "excluded_shots": [],
+      "frames": 288,
+      "seconds": 12.0
+    },
+    {
+      "id": "D1-C13",
+      "title": "C13_friendship_coda",
+      "status": "no_event_playback_missing_eagle_and_rainbow_end_actions",
+      "runtime_preview_eligible": false,
+      "shots": [
+        {
+          "shot": "D1-C13-S01",
+          "source": "C13_S01_v1_roshan_cleanup.mp4",
+          "source_start": 0,
+          "source_end_exclusive": 96,
+          "record_start": 0,
+          "record_end_exclusive": 96,
+          "strict_disposition": "KEEP_WITH_TRIM",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C13-S02",
+          "source": "C13_S02_v2_daddy_sweep.mp4",
+          "source_start": 0,
+          "source_end_exclusive": 96,
+          "record_start": 96,
+          "record_end_exclusive": 192,
+          "strict_disposition": "KEEP_WITH_TRIM",
+          "edit_note": "straight cut"
+        },
+        {
+          "shot": "D1-C13-S04",
+          "source": "C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+          "source_start": 0,
+          "source_end_exclusive": 32,
+          "record_start": 192,
+          "record_end_exclusive": 224,
+          "strict_disposition": "REMAKE",
+          "edit_note": "straight cut"
+        }
+      ],
+      "excluded_shots": [
+        {
+          "shot": "D1-C13-S03",
+          "source": null,
+          "reason": "single-Eagle action absent"
+        },
+        {
+          "shot": "D1-C13-S05",
+          "source": null,
+          "reason": "one-bunny emergence absent"
+        }
+      ],
+      "frames": 224,
+      "seconds": 9.333333333333334
+    }
+  ]
+}

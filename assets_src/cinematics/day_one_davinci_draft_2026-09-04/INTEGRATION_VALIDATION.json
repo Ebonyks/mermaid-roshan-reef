@@ -1,0 +1,59 @@
+{
+  "schema": "day-one-draft-integration-validation-v1",
+  "date": "2026-09-04",
+  "base_revision": "d19b787ba1d82b4d567f56a44469c2ac10aad0d2",
+  "working_tree_validation": true,
+  "source_hash_algorithm": "SHA-256 of UTF-8 source text with CRLF normalized to LF; media and log hashes remain literal bytes",
+  "tested_source_sha256": {"scripts/main.gd":"49636131bf47c7e0ebc6f584ebf0d3997e189d4dbeba478c79d3911e1bd5607f","scripts/day_one_draft_movies.gd":"bd7d46cf50c6f414281e12c7278b2f32251773e58bed4b667f8ffb7347fcb5ed","scripts/probe_day_one_draft_movies.gd":"5c102f4de19c86cffb22666ed99311ff04c5401b993c9f017323944146c6623c","scripts/probe_day_one_draft_integration.gd":"6a5cca1f144f108da79b2fc6787aeb14acb6aa567757fd6ef4663c653a139efb"},
+  "engine": {
+    "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot472_handoff_validation\\Godot_v4.7.2-stable_win64_console.exe",
+    "version_line": "Godot Engine v4.7.2.stable.official.ed1daf0bf"
+  },
+  "repository_gate": {
+    "command": "GODOT=<exact 4.7.2-stable Windows executable> bash scripts/ci.sh",
+    "native_bash_exit_code": 0,
+    "exit_observation": "Native bash PID 39400 was independently observed through process completion with ExitCode 0; CI runner session 11416 also completed",
+    "trusted_gameplay_probe_count": 78,
+    "advisory_visual_and_device_acceptance": "Still open; repository gate success is not cinematic delivery acceptance"
+  },
+  "runs": [
+    {
+      "name": "full_repository_ci",
+      "command": "GODOT=<exact 4.7.2-stable Windows executable> bash scripts/ci.sh",
+      "isolated_user_data": "Per-probe temporary APPDATA/LOCALAPPDATA profiles owned by scripts/ci.sh",
+      "exit_code": 0,
+      "final_pass_line": "PROPS|result: ALL OK",
+      "log": "assets_src/cinematics/day_one_davinci_draft_2026-09-04/validation/full_ci.log",
+      "sha256": "cc89e2df206f0fa751696e7ddcc41727fecebc6114de2ae4ffa656020318141a"
+    },
+    {
+      "name": "draft_movies_enabled",
+      "command": "Godot_v4.7.2-stable_win64_console.exe --headless --path . --script scripts/probe_day_one_draft_movies.gd --day-one-draft-movies",
+      "isolated_user_data": ".tmp/draft_probe_user/one/{appdata,localappdata,data,config}",
+      "exit_code": 0,
+      "final_pass_line": "DAY_ONE_DRAFT_MOVIES|RESULT: PASS failures=0",
+      "real_ogv_line": "DAY_ONE_DRAFT_MOVIES|real OGV behavior: PASS",
+      "log": "assets_src/cinematics/day_one_davinci_draft_2026-09-04/validation/probe_day_one_draft_movies.log",
+      "sha256": "fe6115a06bda2337f64525f0c96ca2a1d31db880468fef5485c00089f69c1fa3"
+    },
+    {
+      "name": "draft_integration_enabled",
+      "command": "Godot_v4.7.2-stable_win64_console.exe --headless --path . --script scripts/probe_day_one_draft_integration.gd --day-one-draft-movies",
+      "isolated_user_data": ".tmp/draft_probe_user/two/{appdata,localappdata,data,config}",
+      "exit_code": 0,
+      "final_pass_line": "DAY_ONE_DRAFT_INTEGRATION|RESULT: PASS",
+      "log": "assets_src/cinematics/day_one_davinci_draft_2026-09-04/validation/probe_day_one_draft_integration.log",
+      "sha256": "20c7d92d75e0073cbfdd5e681a42d316b106d8c6eead42bf70ecef6bbbcdc400"
+    },
+    {
+      "name": "draft_movies_disabled",
+      "command": "Godot_v4.7.2-stable_win64_console.exe --headless --path . --script scripts/probe_day_one_draft_movies.gd",
+      "isolated_user_data": ".tmp/draft_probe_user/three/{appdata,localappdata,data,config}",
+      "exit_code": 0,
+      "final_pass_line": "DAY_ONE_DRAFT_MOVIES|RESULT: PASS failures=0",
+      "real_ogv_line": "DAY_ONE_DRAFT_MOVIES|real OGV behavior: SKIP (flag not supplied)",
+      "log": "assets_src/cinematics/day_one_davinci_draft_2026-09-04/validation/probe_day_one_draft_movies_disabled.log",
+      "sha256": "53e7a90e918b0f72e88be33dfefad11b06918971ae974b84d616d35b01df02ab"
+    }
+  ]
+}

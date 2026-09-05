@@ -681,6 +681,17 @@ asset is reachable, current, visually accepted, or safe to promote.
 
 ---
 
+## Day One DaVinci editorial drafts — 2026-09-04
+
+| Document | State | Scope |
+| --- | --- | --- |
+| `design/DAY_ONE_DAVINCI_COHESION_2026-09-04.md` | 🔵 | `SUPPORTING_CURRENT`; draft editing and game-seam recommendations, not cinematic delivery acceptance. |
+| `design/DAY_ONE_DRAFT_BOUNDARY_EVIDENCE_2026-09-04.md` | 🔵 | `SUPPORTING_CURRENT`; scoped runtime capture and diagnostic evidence, including unresolved checks; not device or final-art acceptance. |
+| `assets_src/cinematics/day_one_davinci_draft_2026-09-04/README.md` | 🟣 | `CANDIDATE_HANDOFF_EVIDENCE`; local DaVinci editorial project and opt-in game-preview index, not full-frame delivery acceptance. |
+| `assets_src/cinematics/day_one_davinci_draft_2026-09-04/DOWNLOADS_INVENTORY.md` | 🔵 | `SUPPORTING_CURRENT`; project-relevant local source inventory only, not footage approval. |
+| `assets_src/cinematics/day_one_davinci_draft_2026-09-04/RENDER_REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; sampled rendered-draft visual review and integration risks, not human or device acceptance. |
+| `assets_src/cinematics/day_one_davinci_draft_2026-09-04/review/README.md` | 🔵 | `SUPPORTING_CURRENT`; diagnostic cut-contact image provenance only, never generation or delivery pixels. |
+
 ## Where the same rule is stated more than once
 
 Kept as-is; noted so a future edit updates every copy.

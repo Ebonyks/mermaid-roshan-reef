@@ -1,0 +1,54 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_DRAFT_INTEGRATION|draft movie flag is enabled: OK
+DAY_ONE_DRAFT_INTEGRATION|manifest runtime eligibility D1-C00: OK (expected=true path=res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/exports/D1-C00.ogv)
+DAY_ONE_DRAFT_INTEGRATION|manifest runtime eligibility D1-C01: OK (expected=true path=res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/exports/D1-C01.ogv)
+DAY_ONE_DRAFT_INTEGRATION|manifest runtime eligibility D1-C02: OK (expected=true path=res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/exports/D1-C02.ogv)
+DAY_ONE_DRAFT_INTEGRATION|manifest runtime eligibility D1-C03: OK (expected=true path=res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/exports/D1-C03.ogv)
+DAY_ONE_DRAFT_INTEGRATION|manifest runtime eligibility D1-C04: OK (expected=true path=res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/exports/D1-C04_V02.ogv)
+DAY_ONE_DRAFT_INTEGRATION|manifest runtime eligibility D1-C05: OK (expected=true path=res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/exports/D1-C05.ogv)
+DAY_ONE_DRAFT_INTEGRATION|manifest runtime eligibility D1-C06: OK (expected=true path=res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/exports/D1-C06.ogv)
+DAY_ONE_DRAFT_INTEGRATION|manifest runtime eligibility D1-C07: OK (expected=false path=res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/exports/D1-C07.ogv)
+DAY_ONE_DRAFT_INTEGRATION|manifest runtime eligibility D1-C08: OK (expected=false path=res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/exports/D1-C08.ogv)
+DAY_ONE_DRAFT_INTEGRATION|manifest runtime eligibility D1-C09: OK (expected=true path=res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/exports/D1-C09.ogv)
+DAY_ONE_DRAFT_INTEGRATION|manifest runtime eligibility D1-C10: OK (expected=true path=res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/exports/D1-C10.ogv)
+DAY_ONE_DRAFT_INTEGRATION|manifest runtime eligibility D1-C11: OK (expected=true path=res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/exports/D1-C11.ogv)
+DAY_ONE_DRAFT_INTEGRATION|manifest runtime eligibility D1-C12: OK (expected=true path=res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/exports/D1-C12_V03.ogv)
+DAY_ONE_DRAFT_INTEGRATION|manifest runtime eligibility D1-C13: OK (expected=false path=res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/exports/D1-C13.ogv)
+DAY_ONE_DRAFT_INTEGRATION|arrival starts C00: OK
+DAY_ONE_DRAFT_INTEGRATION|arrival drains queued C01 after C00 skip: OK
+DAY_ONE_DRAFT_INTEGRATION|dirty-castle discovery starts C02: OK
+DAY_ONE_DRAFT_INTEGRATION|dirty-castle discovery is one-shot: OK
+DAY_ONE_DRAFT_INTEGRATION|bathroom entry is allowed: OK
+DAY_ONE_DRAFT_INTEGRATION|movie diagnostic id=D1-C00 queue=["D1-C01", "D1-C02", "D1-C03"] 
+DAY_ONE_DRAFT_INTEGRATION|movie diagnostic id=D1-C01 queue=["D1-C02", "D1-C03"] 
+DAY_ONE_DRAFT_INTEGRATION|movie diagnostic id=D1-C02 queue=["D1-C03"] 
+DAY_ONE_DRAFT_INTEGRATION|movie diagnostic id=D1-C03 queue=[] 
+DAY_ONE_DRAFT_INTEGRATION|bathroom entry starts C03: OK
+DAY_ONE_DRAFT_INTEGRATION|bathroom completion crosses live seam: OK
+DAY_ONE_DRAFT_INTEGRATION|bathroom advances to pool: OK
+DAY_ONE_DRAFT_INTEGRATION|bathroom completion starts C04: OK
+DAY_ONE_DRAFT_INTEGRATION|bathroom completion exposes one pool route: OK
+DAY_ONE_DRAFT_INTEGRATION|bathroom re-entry does not duplicate C03: OK
+DAY_ONE_DRAFT_INTEGRATION|pool room entry starts C05 through room navigation: OK
+DAY_ONE_DRAFT_INTEGRATION|locked pool rejects the real entry guard: OK
+DAY_ONE_DRAFT_INTEGRATION|locked pool does not start C05: OK
+DAY_ONE_DRAFT_INTEGRATION|locked stuffie does not start C07: OK
+DAY_ONE_DRAFT_INTEGRATION|locked art does not start C09: OK
+DAY_ONE_DRAFT_INTEGRATION|pre-defeat does not start C13: OK
+DAY_ONE_DRAFT_INTEGRATION|art room entry starts C09 through room navigation: OK
+DAY_ONE_DRAFT_INTEGRATION|all rooms arm boss door: OK
+DAY_ONE_DRAFT_INTEGRATION|boss trigger enters real event seam: OK
+DAY_ONE_DRAFT_INTEGRATION|boss entry starts C11: OK
+DAY_ONE_DRAFT_INTEGRATION|focus loss cancels boss trigger: OK
+DAY_ONE_DRAFT_INTEGRATION|focus loss re-arms boss door: OK
+DAY_ONE_DRAFT_INTEGRATION|boss can be retriggered after lifecycle cancel: OK
+DAY_ONE_DRAFT_INTEGRATION|skipping C11 starts the real Dust Boss: OK
+DAY_ONE_DRAFT_INTEGRATION|focus loss cancels active Dust Boss: OK
+DAY_ONE_DRAFT_INTEGRATION|boss completion owns terminal transition: OK
+DAY_ONE_DRAFT_INTEGRATION|boss defeat starts Chapter 2 independently: OK
+DAY_ONE_DRAFT_INTEGRATION|ineligible boss-defeat C13 never starts: OK
+DAY_ONE_DRAFT_INTEGRATION|Day Two transition queues C12: OK
+DAY_ONE_DRAFT_INTEGRATION|skipping C12 presents Day Two: OK
+DAY_ONE_DRAFT_INTEGRATION|Day Two event is idempotent: OK
+DAY_ONE_DRAFT_INTEGRATION|RESULT: PASS
