@@ -30,6 +30,48 @@
       "delivery_accepted": false
     },
     {
+      "path": "INTEGRATION_VALIDATION.json",
+      "sha256": "ab9d44587d5719dec9f5e171884e01b7d81dfd8c6cfa09cc008ae3d4da621ed8",
+      "bytes": 3837,
+      "role": "archive_sidecar",
+      "delivery_accepted": false
+    },
+    {
+      "path": "README.md",
+      "sha256": "0e16957efd7b1f3f67362335333ff13ef50930ae57be081d9537ed4870bdf215",
+      "bytes": 5787,
+      "role": "archive_sidecar",
+      "delivery_accepted": false
+    },
+    {
+      "path": "RENDER_JOBS.json",
+      "sha256": "530d275143ac6d4ff842ed4f33459f051a26b91415e990a6b6f24facf9a22dd4",
+      "bytes": 207,
+      "role": "archive_sidecar",
+      "delivery_accepted": false
+    },
+    {
+      "path": "RENDER_REVIEW.md",
+      "sha256": "d37cecc78ac8a06203ba8de4f331146df4316eabf06166d232708638b5a1aa62",
+      "bytes": 10038,
+      "role": "archive_sidecar",
+      "delivery_accepted": false
+    },
+    {
+      "path": "RESOLVE_READBACK.json",
+      "sha256": "79ee64b72602e7779a322f865ea5bd947a2e2e15f412b57dca2f336b52b99b19",
+      "bytes": 14040,
+      "role": "archive_sidecar",
+      "delivery_accepted": false
+    },
+    {
+      "path": "VALIDATION.json",
+      "sha256": "7ff8175a6edc6a292d066c49cd0c812ba73a7997571a80e117f0b791360460e4",
+      "bytes": 5195,
+      "role": "archive_sidecar",
+      "delivery_accepted": false
+    },
+    {
       "path": "exports/D1-C00.mp4",
       "sha256": "ff75cf515efb5e713e193555dc49187b53ab73eac57fbde8067f6a70438fff67",
       "bytes": 27327001,
@@ -338,13 +380,6 @@
       "delivery_accepted": false
     },
     {
-      "path": "INTEGRATION_VALIDATION.json",
-      "sha256": "ab9d44587d5719dec9f5e171884e01b7d81dfd8c6cfa09cc008ae3d4da621ed8",
-      "bytes": 3837,
-      "role": "archive_sidecar",
-      "delivery_accepted": false
-    },
-    {
       "path": "project/D1-C00.drt",
       "sha256": "fbda7ae229bd4b7028bd4f44b288196bbd819da598d7f0411287076c4ce13dd5",
       "bytes": 26612,
@@ -475,34 +510,6 @@
       "sha256": "d91e9b80fac53b3062fe3b8cbf30d10ea9d04e376ddfc3ac2c2b35d2b6738cc6",
       "bytes": 433620,
       "role": "project",
-      "delivery_accepted": false
-    },
-    {
-      "path": "README.md",
-      "sha256": "0e16957efd7b1f3f67362335333ff13ef50930ae57be081d9537ed4870bdf215",
-      "bytes": 5787,
-      "role": "archive_sidecar",
-      "delivery_accepted": false
-    },
-    {
-      "path": "RENDER_JOBS.json",
-      "sha256": "530d275143ac6d4ff842ed4f33459f051a26b91415e990a6b6f24facf9a22dd4",
-      "bytes": 207,
-      "role": "archive_sidecar",
-      "delivery_accepted": false
-    },
-    {
-      "path": "RENDER_REVIEW.md",
-      "sha256": "d37cecc78ac8a06203ba8de4f331146df4316eabf06166d232708638b5a1aa62",
-      "bytes": 10038,
-      "role": "archive_sidecar",
-      "delivery_accepted": false
-    },
-    {
-      "path": "RESOLVE_READBACK.json",
-      "sha256": "79ee64b72602e7779a322f865ea5bd947a2e2e15f412b57dca2f336b52b99b19",
-      "bytes": 14040,
-      "role": "archive_sidecar",
       "delivery_accepted": false
     },
     {
@@ -819,13 +826,6 @@
       "delivery_accepted": false
     },
     {
-      "path": "sources/C03_bunny_discover.mp4",
-      "sha256": "01bfe380effdb3f3f4387bcb2685e74e145744809780113c320e71e59a91ad46",
-      "bytes": 4214760,
-      "role": "sources",
-      "delivery_accepted": false
-    },
-    {
       "path": "sources/C03_S01_v1_empty_dirty_bath.mp4",
       "sha256": "6a95518cad9e753d49da15085bd147c65d9d2db5a19f7c5c7819bd2128c22550",
       "bytes": 5332853,
@@ -836,6 +836,13 @@
       "path": "sources/C03_S04_v1_tool_reach.mp4",
       "sha256": "8bdc1f663ae1656b788d8e06c7066195fae1554fd09e2175a60476c0627df019",
       "bytes": 5807755,
+      "role": "sources",
+      "delivery_accepted": false
+    },
+    {
+      "path": "sources/C03_bunny_discover.mp4",
+      "sha256": "01bfe380effdb3f3f4387bcb2685e74e145744809780113c320e71e59a91ad46",
+      "bytes": 4214760,
       "role": "sources",
       "delivery_accepted": false
     },
@@ -1043,13 +1050,6 @@
       "delivery_accepted": false
     },
     {
-      "path": "sources/C12_family_reunion_hug.mp4",
-      "sha256": "ec9f7150eaa8575592be01984ccb1087b6c6d7347aec690207b7b6068209aedc",
-      "bytes": 6830597,
-      "role": "sources",
-      "delivery_accepted": false
-    },
-    {
       "path": "sources/C12_S01_clean_bath_bunny.mp4",
       "sha256": "261bed3f2f23832f4cc3d9f2394ab8de6cb4fde365a786c7a19f3ae84b9965b1",
       "bytes": 5227827,
@@ -1081,6 +1081,13 @@
       "path": "sources/C12_S05_v1_post_friendship_vignette_REGEN.mp4",
       "sha256": "779f86cc9a5c92610fb578de3b71db9d88225a7579b9af1dcb359547d63fb6b0",
       "bytes": 3626432,
+      "role": "sources",
+      "delivery_accepted": false
+    },
+    {
+      "path": "sources/C12_family_reunion_hug.mp4",
+      "sha256": "ec9f7150eaa8575592be01984ccb1087b6c6d7347aec690207b7b6068209aedc",
+      "bytes": 6830597,
       "role": "sources",
       "delivery_accepted": false
     },
@@ -1153,16 +1160,9 @@
       "bytes": 993,
       "role": "validation",
       "delivery_accepted": false
-    },
-    {
-      "path": "VALIDATION.json",
-      "sha256": "7ff8175a6edc6a292d066c49cd0c812ba73a7997571a80e117f0b791360460e4",
-      "bytes": 5195,
-      "role": "archive_sidecar",
-      "delivery_accepted": false
     }
   ],
-  "payload_sha256": "7dc7173431b5eb802c1021355924ad97af62281496a6c721f7026416966ead3b",
+  "payload_sha256": "c6a5189de471226821a3be5b7454463b61f5d66ae978cc26b17b6f9b4bfb05d4",
   "algorithm": "SHA256 of UTF-8 lines sorted by relative path: path TAB sha256 TAB decimal bytes LF; excludes this manifest and generated Godot import/UID sidecars",
   "provenance": "ASSET_LICENSES.md plus ASSEMBLY_MANIFEST.json for footage; review/README.md for diagnostic boards; V01 history preserved",
   "claims": {

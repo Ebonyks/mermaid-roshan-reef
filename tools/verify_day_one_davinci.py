@@ -84,7 +84,9 @@ def verify() -> dict:
 
 def payload_manifest() -> dict:
     rows = []
-    for path in sorted(PACKET.rglob("*")):
+    # Sort canonical POSIX strings, not platform-specific Path ordering.
+    # WindowsPath compares case-insensitively; Linux Path does not.
+    for path in sorted(PACKET.rglob("*"), key=lambda item: item.relative_to(PACKET).as_posix()):
         if not path.is_file() or path.name == "PAYLOAD_MANIFEST.json" or path.suffix in [".import", ".uid"]:
             continue
         relative = path.relative_to(PACKET).as_posix()
