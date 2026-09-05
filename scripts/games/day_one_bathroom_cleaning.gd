@@ -523,6 +523,8 @@ func _finish_sink() -> void:
 	if m != null:
 		m.day_one_record_bathroom_cleanup_step(1)
 	cleanup_step_completed.emit(1, "sink")
+	_say_context("day1_bathroom_sink_clean", "The sink is shiny!",
+		"day_one")
 	if _target != null:
 		_target.visible = false
 	if _sponge != null:
@@ -666,8 +668,8 @@ func _begin_tub_drain_reaction() -> bool:
 		_sponge.set_meta("parked_on_tub_rim", false)
 		_sponge.visible = false
 	if _announcements_enabled and m != null:
-		m.show_msg("", "NO!", "")
-		m._say("wacky", "fail", 0.2)
+		_say_context("day1_bathroom_tub_safety",
+			"First, drain the dirty tub water!", "bathroom_tub_safety")
 		_drain_voice_sent = true
 	if _bunny_swimmer != null and is_instance_valid(_bunny_swimmer) \
 			and _bunny_swimmer.play_comic_no():
@@ -686,6 +688,8 @@ func _on_bunny_drain_reaction_finished() -> void:
 	_tub_drained = true
 	if m != null:
 		m.day_one_record_bathroom_tub_drained()
+	_say_context("day1_bathroom_tub_drain_complete", "The tub is draining!",
+		"day_one")
 	tub_drain_visual_started.emit()
 	get_tree().create_timer(0.36).timeout.connect(
 		_finish_tub_drain_transition, CONNECT_ONE_SHOT)
@@ -742,9 +746,8 @@ func _finish_tub() -> void:
 	cleanup_step_completed.emit(2, "tub")
 	finale_started.emit()
 	if m != null and _announcements_enabled:
-		m.show_msg("Roshan", "The bathroom is sparkling!",
-			"bathroom_cleanup_done")
-		m._say("roshan", "win", 0.6)
+		_say_context("day1_bathroom_tub_clean", "The bathroom is sparkling!",
+			"day_one")
 	if _pointer != null:
 		_pointer.visible = false
 	if _target != null:
@@ -809,14 +812,27 @@ func _announce_stage() -> void:
 	if _demo_active or not _announcements_enabled or m == null or _step >= 2:
 		return
 	if _step == 0:
-		m.show_msg("Roshan", "Scrub the sink in little circles!",
-			"bathroom_sink_scrub")
+		_say_context("day1_bathroom_sink_start",
+			"Scrub the sink in little circles!", "bathroom_sink_start")
 	elif not _tub_drained:
-		m.show_msg("Roshan", "Tap the tub to drain the dirty water!",
-			"bathroom_tub_drain")
+		_say_context("day1_bathroom_tub_drain_hint",
+			"Tap the tub to drain the dirty water!", "bathroom_tub_drain_hint")
 	else:
-		m.show_msg("Roshan", "Brush the tub back and forth!",
-			"bathroom_tub_brush")
+		_say_context("day1_bathroom_tub_brush",
+			"Brush the tub back and forth!", "bathroom_tub_brush_hint")
+
+
+func _say_context(cue_id: String, caption: String,
+		session_id: String = "day_one", variant: int = 0) -> bool:
+	if not _announcements_enabled or m == null:
+		return false
+	var spoken: bool = m.say_day_one_context(cue_id, caption, "bathroom",
+		session_id, variant)
+	if spoken and m.hud_msg != null:
+		m.hud_msg.text = caption
+		m.hud_msg.visible = caption != ""
+		m.msg_timer = 5.0
+	return spoken
 
 
 func _update_progress() -> void:

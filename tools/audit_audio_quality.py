@@ -292,7 +292,7 @@ def canonical_json_sha256(value: object) -> str:
 
 
 def authoritative_filler_lines(root: Path) -> dict[str, tuple[str, str]]:
-    """Read the literal generator catalog without importing generation code."""
+    """Read the legacy generator and frozen contextual catalogs as authority."""
     source = root / "tools" / "make_voices.py"
     if not source.exists():
         return {"everyone": ("everyone", "Hooray!")}
@@ -310,6 +310,23 @@ def authoritative_filler_lines(root: Path) -> dict[str, tuple[str, str]]:
     expected = {
         key: value for key, value in lines.items() if value[0] != "faron"
     }
+    contextual_path = root / "audit" / "DAY_ONE_CONTEXTUAL_VOICE_COVERAGE_2026-09-01.json"
+    if contextual_path.is_file():
+        contextual = json.loads(contextual_path.read_text(encoding="utf-8"))
+        for row in contextual.get("rows", []):
+            if not isinstance(row, dict):
+                continue
+            audio_path = Path(str(row.get("audio_path", "")))
+            key = audio_path.stem
+            caption = str(row.get("caption", ""))
+            if not key or not caption:
+                continue
+            prior = expected.get(key)
+            value = ("roshan", caption)
+            if prior is not None and prior != value:
+                raise RuntimeError(
+                    f"contextual filler authority conflicts with tools/make_voices.py: {key}")
+            expected[key] = value
     expected["everyone"] = ("everyone", "Hooray!")
     return expected
 
@@ -563,6 +580,35 @@ def validate_filler_manifest(root: Path,
             "issues": ["filler manifest entries must be a list"],
             "expected_names": set(), "entry_count": 0,
         }
+    contextual_proof: dict[str, dict[str, object]] = {}
+    if manifest.get("contextual_append_only") is True:
+        provenance_value = manifest.get("contextual_cohort_provenance_path")
+        provenance_path = _safe_relative(root, provenance_value)
+        if provenance_path is None or not provenance_path.is_file():
+            issues.append("contextual cohort provenance is missing")
+        else:
+            expected_provenance_hash = manifest.get("contextual_cohort_provenance_sha256")
+            if not isinstance(expected_provenance_hash, str) \
+                    or not re.fullmatch(r"[0-9a-fA-F]{64}", expected_provenance_hash):
+                issues.append("contextual cohort provenance hash is invalid")
+            elif sha256(provenance_path).lower() != expected_provenance_hash.lower():
+                issues.append("contextual cohort provenance hash mismatch")
+            try:
+                provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                issues.append("contextual cohort provenance is unreadable")
+            else:
+                if provenance.get("selection_report_sha256") != \
+                        manifest.get("contextual_cohort_selection_report_sha256"):
+                    issues.append("contextual selection report hash mismatch")
+                proof_entries = provenance.get("entries", [])
+                if not isinstance(proof_entries, list):
+                    issues.append("contextual provenance entries must be a list")
+                else:
+                    contextual_proof = {
+                        str(item.get("key")): item for item in proof_entries
+                        if isinstance(item, dict) and isinstance(item.get("key"), str)
+                    }
     expected_names: set[str] = set()
     entry_by_name: dict[str, dict[str, object]] = {}
     for index, entry in enumerate(entries):
@@ -607,8 +653,17 @@ def validate_filler_manifest(root: Path,
                     f"{name} character mismatch: {entry.get('character')!r} != {expected_character!r}")
             if entry.get("text") != expected_text:
                 issues.append(f"{name} authored text mismatch")
-        if entry.get("status") != "PROVISIONAL_SYNTHETIC_FILLER":
+        is_contextual = isinstance(entry.get("contextual_cue_id"), str)
+        expected_status = "PROVISIONAL_SYNTHETIC_CONTEXTUAL" if is_contextual \
+            else "PROVISIONAL_SYNTHETIC_FILLER"
+        if entry.get("status") != expected_status:
             issues.append(f"{name} has invalid provisional status")
+        if is_contextual:
+            proof = contextual_proof.get(key)
+            if proof is None:
+                issues.append(f"{name} missing contextual cohort provenance")
+            elif canonical_json_sha256(proof) != canonical_json_sha256(entry):
+                issues.append(f"{name} disagrees with contextual cohort provenance")
         character = entry.get("character")
         if character in {"faron", "chuck"} \
                 or (character == "daddy" and key not in ALLOWED_DADDY_FILLERS):
@@ -635,7 +690,7 @@ def validate_filler_manifest(root: Path,
             attempt = entry.get("selected_attempt")
             if not isinstance(attempt, int) or attempt < 1:
                 issues.append(f"{name} has invalid selected_attempt")
-            elif f"attempt_{attempt}" not in generation_runs:
+            elif not is_contextual and f"attempt_{attempt}" not in generation_runs:
                 issues.append(f"{name} selected attempt has no generation provenance")
             for field in ("generation_text", "generation_segments", "segment_seeds",
                           "source_wav_sha256", "speaker_preset", "description"):

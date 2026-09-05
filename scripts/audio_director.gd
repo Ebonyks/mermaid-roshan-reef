@@ -7,11 +7,137 @@ extends RefCounted
 
 var m: ReefMain
 var _active_speaker := ""
+var _day_one_context_catalog: Dictionary = {}
+var _day_one_context_seen: Dictionary = {}
+var _day_one_context_active_key := ""
 const FILLER_VOICE_DIR := "res://assets/audio/voices/filler_v1/"
 const LEGACY_VOICE_DIR := "res://assets/audio/voices/"
+const DAY_ONE_CONTEXT_CATALOG_SCRIPT: GDScript = preload(
+	"res://scripts/day_one_contextual_voice_catalog.gd")
 
 func _init(main: ReefMain) -> void:
 	m = main
+
+
+func _load_day_one_context_catalog() -> Dictionary:
+	if not _day_one_context_catalog.is_empty():
+		return _day_one_context_catalog
+	var runtime_catalog: RefCounted = DAY_ONE_CONTEXT_CATALOG_SCRIPT.new() as RefCounted
+	if runtime_catalog == null or not runtime_catalog.has_method("catalog"):
+		return {}
+	var parsed: Variant = runtime_catalog.call("catalog")
+	if parsed is Dictionary:
+		_day_one_context_catalog = parsed as Dictionary
+	return _day_one_context_catalog
+
+
+func day_one_context_catalog() -> Dictionary:
+	return _load_day_one_context_catalog().duplicate(true)
+
+
+func _day_one_context_row(cue_id: String, variant: int) -> Dictionary:
+	var catalog := _load_day_one_context_catalog()
+	var rows: Variant = catalog.get("rows", [])
+	if not rows is Array:
+		return {}
+	for row_value: Variant in rows:
+		if not row_value is Dictionary:
+			continue
+		var row := row_value as Dictionary
+		if String(row.get("cue_id", "")) != cue_id:
+			continue
+		var row_variant := int(row.get("variant", 0))
+		if row_variant == variant:
+			return row
+		if not row.has("variant") and variant == 0:
+			return row
+	return {}
+
+
+func _present_day_one_context_caption(caption: String, cue_id: String,
+		missing: bool) -> void:
+	if m.hud_msg == null:
+		return
+	m.hud_msg.text = caption
+	m.hud_msg.visible = caption != ""
+	m.msg_timer = 5.0
+	m.hud_msg.set_meta("contextual_audio_missing", missing)
+	m.hud_msg.set_meta("requested_contextual_voice_key", cue_id)
+
+
+func _retain_day_one_context_caption(caption: String, cue_id: String) -> void:
+	_present_day_one_context_caption(caption, cue_id, true)
+
+
+## Play one exact, situation-owned Day One Roshan take.
+##
+## This is deliberately separate from _say(): a governed cue may never fall
+## back to speaker/talk/win/yay. If its exact take is absent or still pending,
+## the caption and any caller-owned pointer remain visible and this returns
+## false. session_id and room_id provide replay policy without touching save
+## state; callers can use a fresh session id when a video or room visit starts.
+func say_day_one_context(cue_id: String, caption: String = "",
+		room_id: String = "", session_id: String = "", variant: int = 0,
+		allow_generic: bool = false) -> bool:
+	if allow_generic or cue_id.strip_edges() == "":
+		_retain_day_one_context_caption(caption, cue_id)
+		return false
+	var row := _day_one_context_row(cue_id, variant)
+	if row.is_empty() or String(row.get("route", "")) == "":
+		_retain_day_one_context_caption(caption, cue_id)
+		return false
+	var resolved_caption := caption if caption != "" else String(row.get("caption", ""))
+	var policy := String(row.get("policy", "once_per_session"))
+	var visit := session_id if session_id != "" else "runtime"
+	var dedupe_key := visit + "|" + cue_id
+	if policy == "once_per_room_visit":
+		dedupe_key = visit + "|" + room_id + "|" + cue_id
+	elif policy == "repeat_variant":
+		dedupe_key = visit + "|" + room_id + "|" + cue_id + "|" + str(variant)
+	if bool(_day_one_context_seen.get(dedupe_key, false)):
+		return false
+	var audio_path := String(row.get("audio_path", ""))
+	var resource_path := "res://" + audio_path if not audio_path.begins_with("res://") \
+		else audio_path
+	if String(row.get("status", "")) != "READY" \
+			or not ResourceLoader.exists(resource_path):
+		_retain_day_one_context_caption(resolved_caption, cue_id)
+		return false
+	var stream := load(resource_path) as AudioStream
+	if stream == null:
+		_retain_day_one_context_caption(resolved_caption, cue_id)
+		return false
+	# A repeated signal for the currently audible exact cue is a no-op. A new
+	# contextual cue owns the single voice lane and serially replaces the old
+	# line, matching the existing non-governed dialogue contract.
+	if _day_one_context_active_key == dedupe_key and _has_active_speech():
+		return false
+	_stop_active_speech()
+	if m.voice_pool.is_empty():
+		return false
+	var ap: AudioStreamPlayer = m.voice_pool[m.voice_i % m.voice_pool.size()]
+	m.voice_i += 1
+	ap.stream = stream
+	ap.pitch_scale = 1.0
+	ap.play()
+	_active_speaker = "roshan"
+	_day_one_context_active_key = dedupe_key
+	_day_one_context_seen[dedupe_key] = true
+	_present_day_one_context_caption(resolved_caption, cue_id, false)
+	return true
+
+
+## Clear the in-memory replay guard when a room or paired video tears down.
+## This does not touch save state; a caller can reset one session or all local
+## context history before starting a new audition.
+func reset_day_one_context(session_id: String = "") -> void:
+	if session_id == "":
+		_day_one_context_seen.clear()
+	else:
+		for key: String in _day_one_context_seen.keys():
+			if key.begins_with(session_id + "|"):
+				_day_one_context_seen.erase(key)
+	_day_one_context_active_key = ""
 
 
 func _voice_path(speaker: String, event: String = "", allow_generic: bool = true) -> String:
@@ -125,6 +251,7 @@ func _stop_active_speech() -> void:
 	if m.voice != null:
 		m.voice.stop()
 	_active_speaker = ""
+	_day_one_context_active_key = ""
 
 
 func _has_active_speech() -> bool:

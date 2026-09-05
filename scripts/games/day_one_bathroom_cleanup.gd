@@ -684,8 +684,8 @@ func _complete_supply_hunt() -> void:
 	_refresh_guidance()
 	supply_hunt_completed.emit()
 	if _announcements_enabled and m != null:
-		m.show_msg("Roshan", "We found both cleaning supplies!",
-			"bathroom_supplies_found")
+		_say_context("day1_bathroom_supplies_found",
+			"We found the cleaning supplies!", "day_one")
 	begin_cleaning_handoff()
 
 
@@ -697,8 +697,8 @@ func _on_basket_tapped() -> void:
 	set_meta("basket_tap_voice_sent", _announcements_enabled and m != null)
 	if _announcements_enabled and m != null:
 		m._ui_tap()
-		m.show_msg("Roshan", "Let’s clean together!",
-			"bathroom_cleanup_start")
+		_say_context("day1_bathroom_basket_open", "The cleaning basket is open!",
+			_context_visit_id())
 	for index: int in range(MAX_SUPPLIES):
 		_found[index] = true
 		_place_supply_in_basket(index)
@@ -712,8 +712,8 @@ func _on_basket_tapped() -> void:
 func _announce_current_supply() -> void:
 	if not _announcements_enabled or m == null or _hunt_completed:
 		return
-	m.show_msg("Roshan", "Tap the cleaning basket.",
-		"bathroom_basket_hint")
+	_say_context("day1_bathroom_basket_hint", "Tap the cleaning basket.",
+		_context_visit_id())
 
 
 func _spawn_sparkle(center: Vector2) -> void:
@@ -801,4 +801,24 @@ func _on_cleaning_finale_started() -> void:
 
 
 func _on_cleaning_completed() -> void:
+	if _announcements_enabled and m != null:
+		_say_context("day1_bathroom_to_pool", "The sparkle pool is ready!",
+			"day_one")
 	cleanup_completed.emit()
+
+
+func _context_visit_id() -> String:
+	return "bathroom_visit_%d" % get_instance_id()
+
+
+func _say_context(cue_id: String, caption: String,
+		session_id: String = "day_one", variant: int = 0) -> bool:
+	if not _announcements_enabled or m == null:
+		return false
+	var spoken: bool = m.say_day_one_context(cue_id, caption, "bathroom",
+		session_id, variant)
+	if spoken and m.hud_msg != null:
+		m.hud_msg.text = caption
+		m.hud_msg.visible = caption != ""
+		m.msg_timer = 5.0
+	return spoken

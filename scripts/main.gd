@@ -3902,6 +3902,19 @@ func _audio_ref() -> AudioDirector:
 func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	_audio_ref()._say(speaker, event, min_gap)
 
+
+## Day One's exact contextual voice seam. Missing/pending cues retain the
+## caller's caption and pointer but never degrade to generic talk/win/yay.
+func say_day_one_context(cue_id: String, caption: String = "",
+		room_id: String = "", session_id: String = "", variant: int = 0,
+		allow_generic: bool = false) -> bool:
+	return _audio_ref().say_day_one_context(cue_id, caption, room_id,
+		session_id, variant, allow_generic)
+
+
+func reset_day_one_context(session_id: String = "") -> void:
+	_audio_ref().reset_day_one_context(session_id)
+
 func _play_success_yay(pitch_scale: float = 1.0) -> void:
 	_audio_ref().play_success_yay(pitch_scale)
 

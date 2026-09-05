@@ -73,6 +73,7 @@ func _run_probe() -> void:
 		bool(initial.get("canvas_only", false))
 		and bool(initial.get("no_fail", false))
 		and bool(initial.get("dingy_lighting", false)))
+	_probe_contextual_voice_wiring()
 	var swimmer: Dictionary = initial.get("swimming_bunny", {}) as Dictionary
 	_check("exact pool bunny cast keeps one land and one swimmer",
 		int(initial.get("dust_bunny_count", 0)) == 2
@@ -190,3 +191,28 @@ func _check(label: String, ok: bool) -> void:
 	if not ok:
 		checks_failed += 1
 	print("DAY_ONE_POOL|", label, ": ", "OK" if ok else "FAIL")
+
+
+func _probe_contextual_voice_wiring() -> void:
+	var source := FileAccess.get_file_as_string(
+		"res://scripts/games/day_one_pool_cleanup.gd")
+	_check("pool has exact pickup and lane cue wiring",
+		source.contains("SKIMMER_PICKUP_CAPTIONS")
+		and source.contains("WATERFALL_LANE_CAPTIONS")
+		and source.contains("day1_pool_skimmer_01")
+		and source.contains("day1_pool_skimmer_06")
+		and source.contains("day1_pool_skimmer_complete")
+		and source.contains("day1_pool_waterfall_lane_left")
+		and source.contains("day1_pool_waterfall_lane_center")
+		and source.contains("day1_pool_waterfall_lane_right")
+		and source.contains("day1_pool_waterfall_complete"))
+	_check("pool has monotonic seahorse milestones and finale cues",
+		source.contains("day1_pool_seahorse_early")
+		and source.contains("day1_pool_seahorse_middle")
+		and source.contains("day1_pool_seahorse_final")
+		and source.contains("day1_pool_seahorse_free")
+		and source.contains("day1_pool_complete")
+		and source.contains("day1_pool_rumi_reply"))
+	_check("pool activity has no generic voice fallback",
+		not source.contains("m.show_msg")
+		and not source.contains("m._say"))

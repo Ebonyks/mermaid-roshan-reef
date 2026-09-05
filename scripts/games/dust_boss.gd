@@ -148,13 +148,23 @@ const PHASES: Array[Dictionary] = [
 
 var m: ReefMain
 var stage: OctagonStage
+var _day_one_voice_session: String = "boss_visit_0"
 
 func _init(main: ReefMain) -> void:
 	m = main
 	stage = OctagonStage.new(main)
 
+
+func _say_day_one_context(cue_id: String, caption: String,
+		variant: int = 0) -> void:
+	m.say_day_one_context(cue_id, caption, "boss", _day_one_voice_session,
+		variant, false)
+
 # ---- lifecycle -------------------------------------------------------------
 func build(fr: Dictionary, _origin: Vector3) -> void:
+	var voice_visit: int = int(m.g.get("day_one_boss_voice_visit_count", 0)) + 1
+	m.g["day_one_boss_voice_visit_count"] = voice_visit
+	_day_one_voice_session = "boss_visit_%d" % voice_visit
 	m.g["db_hits"] = 0
 	m.g["db_miss"] = 0
 	m.g["db_miss_streak"] = 0
@@ -327,12 +337,8 @@ func _on_boss_splash_finished(fr: Dictionary) -> void:
 
 func _begin_showing(fr: Dictionary) -> void:
 	_enter_state("showing")
-	# ONE trigger per beat: show_msg already fires _say(speaker, vo) itself
-	# (audio_director.gd), so a paired _say() would speak twice the moment real
-	# clips exist. The event name IS the vo argument.
-	m.show_msg(String(fr.get("fname", "Dusty Attic")),
-		"The giant dust bunny woke up! It is too fluffy. Sparkle taps will work!",
-		"dustboss_show")
+	_say_day_one_context("day1_boss_intro",
+		"The giant dust bunny woke up! It is too fluffy. Sparkle taps will work!")
 
 # ---- the state machine -----------------------------------------------------
 func _enter_state(next_state: String) -> void:
@@ -427,9 +433,8 @@ func _tick_showing(st: float, fr: Dictionary, tapped: bool) -> void:
 	m.g["db_flash"] = 1.0 if demo else 0.0
 	if demo and not bool(m.g.get("db_show_told", false)):
 		m.g["db_show_told"] = true
-		m.show_msg(String(fr.get("fname", "Dusty Attic")),
-			"When he JUMPS and his star FLASHES — TAP him!",
-			"dustboss_tell_opening")
+		_say_day_one_context("day1_boss_tell_opening",
+			"When he jumps and his star flashes, tap him!")
 	if st >= SHOW_T:
 		m.g["db_flash"] = 0.0
 		_enter_state("prowl")
@@ -468,7 +473,8 @@ func _tick_windup(delta: float, st: float, tapped: bool) -> void:
 		if k != null and is_instance_valid(k):
 			k.play_vulnerable_laugh()
 		_enter_state("vuln")
-		m._say("roshan", "dustboss_leap", 3.0)
+		_say_day_one_context("day1_boss_wait_gold",
+			"Wait for the gold star, then tap!")
 
 # THE VULNERABILITY WINDOW — airborne, star flashing, open to exactly
 # HITS_PER_WINDOW damage. Nothing else in the fight can hurt him.
@@ -553,13 +559,12 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 				if streak == PREASSIST_TRIGGER_STREAK
 				else "So close! Wait for the next FLASH and tap FAST — three times!"
 			)
-			var reminder_voice: String = "dustboss_again_mercy" \
+			var reminder_key := "day1_boss_reminder_mercy" \
 				if streak == MERCY_TRIGGER_STREAK \
-				else "dustboss_again_closer" \
+				else "day1_boss_reminder_closer" \
 				if streak == PREASSIST_TRIGGER_STREAK \
-				else "dustboss_again_miss"
-			m.show_msg(String(fr.get("fname", "Dusty Attic")),
-				reminder, reminder_voice)
+				else "day1_boss_reminder_almost"
+			_say_day_one_context(reminder_key, reminder)
 
 func _free_taps() -> int:
 	# Gentle aid changes timing, reach and landing only. Strong mercy begins
@@ -648,18 +653,18 @@ func _land_hit(fr: Dictionary) -> void:
 	m.g["db_z"] = landed.y
 	if hits >= HP:
 		_enter_state("friends")
-		m.show_msg(String(fr.get("fname", "Dusty Attic")),
-			"POOF! The great dust bunny bursts into stars!", "dustboss_win")
+		_say_day_one_context("day1_boss_defeated",
+			"Grand Puff burst into sparkly stars!")
 		if m.player != null:
 			m.player.play_verb("cheer")
 		return
 	_enter_state("struck")
 	if hits == 1:
-		m.show_msg(String(fr.get("fname", "Dusty Attic")),
-			"He is dizzy! His ears are spinning!",
-			"dustboss_dizzy_first")
+		_say_day_one_context("day1_boss_hit_first",
+			"Boop! Grand Puff is dizzy!")
 	else:
-		m.show_msg(String(fr.get("fname", "Dusty Attic")), "BONK! Two down!", "dustboss_hit")
+		_say_day_one_context("day1_boss_hit_second",
+			"Bonk! Two dust puffs down!")
 
 func on_world_tap(screen_pos: Vector2) -> void:
 	# HYBRID TOUCH: the finger lands ON the boss instead of on the action
@@ -726,8 +731,8 @@ func _bounce_off() -> void:
 	if float(m.g.get("db_feedback_cd", 0.0)) <= 0.0:
 		m.g["db_feedback_cd"] = FEEDBACK_COOLDOWN
 		m.g["db_shield_feedbacks"] = int(m.g.get("db_shield_feedbacks", 0)) + 1
-		m.show_msg("Roshan", "Wait! Do not tap the dim star. Tap the big gold star!",
-			"dustboss_tell_dim")
+		_say_day_one_context("day1_boss_reminder_dim",
+			"That star is dim. Wait for the big gold star!")
 
 func _closer_feedback() -> void:
 	# Every far tap still gets a bright positional sparkle, but voice/text is
@@ -739,8 +744,8 @@ func _closer_feedback() -> void:
 	m.g["db_closer_feedbacks"] = int(m.g.get("db_closer_feedbacks", 0)) + 1
 	m._sparkle_burst(m.player.global_position + Vector3(0, 3.0, 0),
 		Color(1.0, 0.92, 0.62))
-	m.show_msg("Roshan", "Come closer! Get under him, then tap the FLASH!",
-		"dustboss_closer")
+	_say_day_one_context("day1_boss_closer",
+		"Come closer, then tap the flashing star!")
 
 # ---- prowl motion ----------------------------------------------------------
 func _pick_hop(reset: bool) -> void:
@@ -764,9 +769,8 @@ func _pick_hop(reset: bool) -> void:
 	m.g["db_dodge_hint"] = incoming
 	if incoming and not bool(m.g.get("db_dodge_taught", false)):
 		m.g["db_dodge_taught"] = true
-		m.show_msg("Roshan",
-			"The dust boss is coming close! Press the TWIRL button!",
-			"dustboss_dodge")
+		_say_day_one_context("day1_boss_dodge_prompt",
+			"The dust bunny is close! Tap the twirl button!")
 	if reset:
 		m.g["db_hop_t"] = 0.0
 
@@ -840,7 +844,8 @@ func _dodge_player(from: Vector2) -> void:
 	m.g["db_dodges"] = int(m.g.get("db_dodges", 0)) + 1
 	m.g["db_dodge_t"] = 0.0
 	m.g["db_dodge_hint"] = false
-	m._say("roshan", "dustboss_dodge_yes", 2.5)
+	_say_day_one_context("day1_boss_dodge_success",
+		"Swish! You dodged the dust cloud!")
 
 func _bump_player(from: Vector2) -> void:
 	var here: Vector2 = stage.player_local()
@@ -863,7 +868,8 @@ func _bump_player(from: Vector2) -> void:
 	m.g["db_bumps"] = int(m.g.get("db_bumps", 0)) + 1
 	m._sparkle_burst(m.player.global_position + Vector3(0, 2.4, 0),
 		Color(1.0, 0.88, 0.62))
-	m._say("roshan", "bump", 2.5)
+	_say_day_one_context("day1_boss_bump",
+		"Grand Puff bounced away!")
 
 # ---- the beat map ----------------------------------------------------------
 func pose_for_state() -> String:
@@ -1192,23 +1198,22 @@ func _on_round_done() -> void:
 	if rounds >= HP:
 		# the kit plays the implosion itself off flinch_3; wait for the signal
 		_enter_state("friends")
-		m.show_msg(String(fr.get("fname", "Dusty Attic")),
-			"POOF! The great dust bunny bursts into stars!", "dustboss_win")
+		_say_day_one_context("day1_boss_defeated",
+			"Grand Puff burst into sparkly stars!")
 		if m.player != null:
 			m.player.play_verb("cheer")
 		return
 	_enter_state("struck")
 	if rounds == 1:
-		m.show_msg(String(fr.get("fname", "Dusty Attic")),
-			"BONK BONK BONK! He is all DIZZY — his ears are spinning!",
-			"dustboss_dizzy_round")
+		_say_day_one_context("day1_boss_hit_first",
+			"Boop! Grand Puff is dizzy!")
 	else:
-		m.show_msg(String(fr.get("fname", "Dusty Attic")), "BONK! Two down!", "dustboss_hit")
+		_say_day_one_context("day1_boss_hit_second",
+			"Bonk! Two dust puffs down!")
 
 func _on_final_round(_speed: float) -> void:
-	var fr: Dictionary = m.g.get("fr", {})
-	m.show_msg(String(fr.get("fname", "Dusty Attic")),
-		"He is CROSS now — he is much faster! Keep watching the star!", "dustboss_angry")
+	_say_day_one_context("day1_boss_enraged",
+		"Grand Puff is speedy now! Keep watching the star!")
 
 func _on_imploded() -> void:
 	m.g["db_imploded"] = true

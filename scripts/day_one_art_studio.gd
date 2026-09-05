@@ -52,11 +52,15 @@ var _desk_glow: Label = null
 var _pulse_time: float = 0.0
 var _announcements_enabled: bool = true
 var _customizer_open: bool = false
+var _voice_session_id: String = "art_visit_0"
 
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	m = main
 	_announcements_enabled = announcements_enabled
+	var visit_count: int = int(m.g.get("day_one_art_voice_visit_count", 0)) + 1
+	m.g["day_one_art_voice_visit_count"] = visit_count
+	_voice_session_id = "art_visit_%d" % visit_count
 	name = "DayOneArtStudio"
 	position = Vector2.ZERO
 	size = SOURCE_CANVAS_SIZE
@@ -66,6 +70,8 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	_build_targets()
 	_build_pointer()
 	refresh_from_state()
+	_say_day_one_context("day1_art_enter",
+		"Paint and sparkles! Let's make castle art!")
 	set_process(true)
 	call_deferred("_announce_current_target")
 
@@ -285,7 +291,13 @@ func _on_material_pressed(material_id: String) -> void:
 	m._ui_tap()
 	_spawn_clean_sparkles(_material_center(material_id))
 	_animate_storage_station(material_id)
-	_record_cleanup("material", material_id)
+	if not _record_cleanup("material", material_id):
+		return
+	_say_day_one_context(_material_context_key(material_id),
+		_material_context_caption(material_id))
+	if _all_materials_collected():
+		_say_day_one_context("day1_art_materials_complete",
+			"All the art supplies are ready!", 0)
 
 
 func _animate_storage_station(material_id: String) -> void:
@@ -302,15 +314,21 @@ func _on_grime_pressed(grime_id: String) -> void:
 		return
 	m._ui_tap()
 	_spawn_clean_sparkles(_grime_center(grime_id))
-	_record_cleanup("grime", grime_id)
+	if not _record_cleanup("grime", grime_id):
+		return
+	_say_day_one_context(_grime_context_key(grime_id),
+		_grime_context_caption(grime_id))
+	if _all_grime_cleaned():
+		_say_day_one_context("day1_art_desk_unlock",
+			"The paint table is glowing! Let's make something!", 0)
 
 
-func _record_cleanup(kind: String, item_id: String) -> void:
+func _record_cleanup(kind: String, item_id: String) -> bool:
 	var result: Variant = m.call("day_one_record_art_cleanup", kind, item_id)
 	if result is bool and not bool(result):
-		return
+		return false
 	refresh_from_state()
-	_announce_current_target()
+	return true
 
 
 func _on_desk_pressed() -> void:
@@ -319,6 +337,8 @@ func _on_desk_pressed() -> void:
 	_customizer_open = true
 	m._ui_tap()
 	refresh_from_state()
+	_say_day_one_context("day1_art_desk_open",
+		"The paint desk is open!", 0)
 	m._open_attack_customizer(Callable(self, "_on_customization_confirmed"))
 
 
@@ -331,6 +351,8 @@ func _on_customization_confirmed(_result: Variant = null) -> void:
 			and not bool(m.day_one_art_customization_completed):
 		refresh_from_state()
 		return
+	_say_day_one_context("day1_art_customization_confirmed",
+		"Our colors are ready!", 0)
 	var result: Variant = m.call("day_one_complete_art_scene")
 	if result is bool and not bool(result):
 		# A repeated confirmation is harmless, but the visual state should still
@@ -344,6 +366,8 @@ func _on_customization_confirmed(_result: Variant = null) -> void:
 	# regular Craft Room interactions.
 	var rooms: Variant = m.call("_castle_rooms_ref")
 	if rooms is Object and (rooms as Object).has_method("_clear_day_one_art_studio"):
+		_say_day_one_context("day1_art_complete",
+			"All clean! The floor is twinkling!", 0)
 		(rooms as Object).call("_clear_day_one_art_studio")
 	else:
 		refresh_from_state()
@@ -378,26 +402,82 @@ func _announce_current_target() -> void:
 		return
 	for material: Dictionary in MATERIALS:
 		if not bool(m.day_one_art_collected_materials.get(String(material["id"]), false)):
-			_speak_cue("Tap the loose %s!" % String(material["label"]),
-				"art_studio_material_hint")
+			var material_id := String(material["id"])
+			_say_day_one_context(_material_context_hint_key(material_id),
+				"Tap the %s!" % String(material["label"]))
 			return
 	for grime: Dictionary in GRIME:
 		if not bool(m.day_one_art_cleaned_grime.get(String(grime["id"]), false)):
-			_speak_cue("Now scrub the %s!" % String(grime["label"]),
-				"art_studio_scrub_hint")
+			var grime_id := String(grime["id"])
+			_say_day_one_context(_grime_context_hint_key(grime_id),
+				"Now scrub the %s!" % String(grime["label"]))
 			return
 	if bool(m.day_one_art_desk_unlocked) and not _customizer_open:
-		_speak_cue("The magic paint desk is glowing! Tap it!", "art_studio_hint")
+		_say_day_one_context("day1_art_desk_hint",
+			"The magic paint desk is glowing! Tap it!")
 
 
-func _speak_cue(message: String, cue: String) -> void:
-	m.show_msg("Roshan", message, cue)
+func _say_day_one_context(cue_id: String, caption: String,
+		variant: int = 0) -> void:
+	if m == null:
+		return
+	m.say_day_one_context(cue_id, caption, "art", _voice_session_id,
+		variant, false)
+
+
+func _material_context_key(material_id: String) -> String:
+	match material_id:
+		"brushes": return "day1_art_material_brushes_found"
+		"pink_paint": return "day1_art_material_pink_paint_found"
+		"blue_paint": return "day1_art_material_blue_paint_found"
+		"paint_cups": return "day1_art_material_cups_found"
+	return "day1_art_material_brushes_found"
+
+
+func _material_context_hint_key(material_id: String) -> String:
+	return _material_context_key(material_id).trim_suffix("_found") + "_hint"
+
+
+func _material_context_caption(material_id: String) -> String:
+	match material_id:
+		"brushes": return "I found the brushes!"
+		"pink_paint": return "Pink paint! My favorite!"
+		"blue_paint": return "Blue paint is ready!"
+		"paint_cups": return "I found the little paint cups!"
+	return "I found an art supply!"
+
+
+func _grime_context_key(grime_id: String) -> String:
+	match grime_id:
+		"left_counter": return "day1_art_scrub_left_clean"
+		"desk_counter": return "day1_art_scrub_desk_clean"
+		"right_counter": return "day1_art_scrub_right_clean"
+	return "day1_art_scrub_left_clean"
+
+
+func _grime_context_hint_key(grime_id: String) -> String:
+	return _grime_context_key(grime_id).trim_suffix("_clean") + "_hint"
+
+
+func _grime_context_caption(grime_id: String) -> String:
+	match grime_id:
+		"left_counter": return "Scrub this painty counter!"
+		"desk_counter": return "The desk needs a good scrub!"
+		"right_counter": return "One more counter to sparkle!"
+	return "Scrub this spot until it sparkles!"
 
 
 func _all_materials_collected() -> bool:
 	for material: Dictionary in MATERIALS:
 		if not bool(m.day_one_art_collected_materials.get(
 				String(material["id"]), false)):
+			return false
+	return true
+
+
+func _all_grime_cleaned() -> bool:
+	for grime: Dictionary in GRIME:
+		if not bool(m.day_one_art_cleaned_grime.get(String(grime["id"]), false)):
 			return false
 	return true
 
