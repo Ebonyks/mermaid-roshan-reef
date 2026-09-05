@@ -419,6 +419,10 @@ func _commit_activity(legacy_step: int, activity_id: String) -> void:
 	_phase += 1
 	m.day_one_record_pool_cleanup_step(legacy_step)
 	cleanup_step_completed.emit(legacy_step, activity_id)
+	# Completion is a save boundary, not another debounce event. The child can
+	# leave or the app can be suspended immediately after the activity resolves;
+	# persist the monotonic mask/step before swapping the next activity in.
+	m._write_save()
 	_busy = false
 	_apply_restored_progress()
 	if _phase >= ACTIVITY_IDS.size():

@@ -84,9 +84,13 @@ class DayOneContextualVoiceAuditTests(unittest.TestCase):
         rows = self.catalog["rows"]
         ids = [row["cue_id"] for row in rows]
         self.assertEqual(len(ids), len(set(ids)))
-        self.assertEqual(len(rows), 121)
+        self.assertEqual(len(rows), 114)
         self.assertEqual(len({row["audio_path"] for row in rows}), len(rows))
-        self.assertTrue({"day1_fridge_open", "day1_fridge_close", "day1_recipe_ready"}.issubset(ids))
+        self.assertTrue({
+            "day1_fridge_open", "day1_fridge_close",
+            "day1_recipe_pearl_select", "day1_recipe_pearl_ready",
+            "day1_recipe_carrot_select", "day1_recipe_carrot_ready",
+        }.issubset(ids))
         pool_captions = {row["cue_id"]: row["caption"] for row in rows if row["cue_id"].startswith("day1_pool_waterfall_lane_")}
         self.assertEqual(pool_captions["day1_pool_waterfall_lane_left"], "The left waterfall lane is clear!")
         self.assertEqual(pool_captions["day1_pool_waterfall_lane_center"], "The middle waterfall lane is clear!")
@@ -103,6 +107,23 @@ class DayOneContextualVoiceAuditTests(unittest.TestCase):
         row["caption"] = "A different boss moment."
         issues = MODULE.validate_governed_callsites(mutated, ROOT)
         self.assertTrue(any("governed callsite caption mismatch: day1_boss_defeated" in issue for issue in issues))
+
+    def test_day_one_live_routes_use_exact_contextual_seams(self) -> None:
+        main = (ROOT / "scripts" / "main.gd").read_text(encoding="utf-8")
+        castle = (ROOT / "scripts" / "arena" / "castle_rooms_25d.gd").read_text(encoding="utf-8")
+        opera = (ROOT / "scripts" / "opera_act.gd").read_text(encoding="utf-8")
+        self.assertIn('say_day_one_context("day1_arrival_castle"', main)
+        self.assertIn('say_day_one_context("day1_finale_day_two"', main)
+        self.assertIn('_say_day_one_context("day1_fridge_menu"', castle)
+        self.assertIn('config["reward_policy"] = "chapter2_story"', castle)
+        self.assertIn('_say_day_one_context("day1_pool_rumi_reply"', castle)
+        self.assertIn('_say_day_one_context("day1_stuffie_rescue_start"', castle)
+        self.assertIn('m.show_msg("", win_line, "")', opera)
+
+    def test_day_one_live_routes_do_not_restore_known_generic_paths(self) -> None:
+        castle = (ROOT / "scripts" / "arena" / "castle_rooms_25d.gd").read_text(encoding="utf-8")
+        self.assertNotIn('m.show_msg("Roshan", "Hi Roshan!", "day_one_rumi_hi"', castle)
+        self.assertNotIn('"Bump both dust bunnies away first! I know you can do it!",\n\t\t\t\t\t"talk")', castle)
 
 
 if __name__ == "__main__":

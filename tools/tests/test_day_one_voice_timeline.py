@@ -2,6 +2,7 @@
 
 import importlib.util
 import json
+import copy
 import tempfile
 import unittest
 from pathlib import Path
@@ -49,6 +50,28 @@ class DayOneVoiceTimelineTests(unittest.TestCase):
         errors = TIMELINE.validate_cues(ledger, sidecar, require_audio=True)
         self.assertEqual(len(errors), 19)
         self.assertTrue(all("audio binding is pending" in error for error in errors))
+
+    def test_require_audio_verifies_mastered_paths_hashes_and_durations(self):
+        ledger = TIMELINE.load_json(LEDGER_PATH)
+        sidecar_path = ROOT / "audit/cinematics/day_one_voice_timelines/d1_c00_c01_roshan_mastered_cues.json"
+        sidecar = TIMELINE.load_json(sidecar_path)
+        self.assertEqual(TIMELINE.validate_cues(ledger, sidecar, require_audio=True), [])
+
+        missing = copy.deepcopy(sidecar)
+        missing["cues"][0]["audio"]["path"] = "assets/audio/voices/filler_v1/missing.ogg"
+        errors = TIMELINE.validate_cues(ledger, missing, require_audio=True)
+        self.assertTrue(any("audio.path does not exist" in error for error in errors))
+
+        wrong_hash = copy.deepcopy(sidecar)
+        wrong_hash["cues"][0]["audio"]["sha256"] = "0" * 64
+        errors = TIMELINE.validate_cues(ledger, wrong_hash, require_audio=True)
+        self.assertTrue(any("audio.sha256 does not match asset" in error for error in errors))
+
+        too_short = copy.deepcopy(sidecar)
+        cue = too_short["cues"][1]
+        cue["timing"]["end_s"] = cue["timing"]["start_s"] + 1.0
+        errors = TIMELINE.validate_cues(ledger, too_short, require_audio=True)
+        self.assertTrue(any("audio duration" in error and "exceeds cue span" in error for error in errors))
 
     def test_time_stretch_and_mux_are_blocked(self):
         ledger = TIMELINE.load_json(LEDGER_PATH)

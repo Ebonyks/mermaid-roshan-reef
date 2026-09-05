@@ -1,0 +1,34 @@
+{
+  "schema": "grok-visual-generation-results-v1",
+  "scene_id": "D1-C10",
+  "generator": "OpenAI built-in image_gen",
+  "method": "runtime_capture_authority_plus_full_frame_generation_and_deterministic_contact_sheet",
+  "storyboard_disposition": "narrative_only_not_pixel_reference",
+  "agent_prescreen": "accepted",
+  "environment": {
+    "accepted_path": "storyboards/ENVIRONMENT_PERSPECTIVES.png",
+    "sha256": "b989a1f478f451f8b6897351864a873b5f136fd1d4b921edb770db1c4b869aa4",
+    "prompt_path": "prompts/ENVIRONMENT_PERSPECTIVES.txt",
+    "prompt_sha256": "6743a695d87ee2f1e6e555635d99195cb4864cac5382862e91f712677ead1968",
+    "accepted_result_id": "runtime-capture-contact-sheet-2026-09-02",
+    "attempts": [
+      {"attempt": 1, "result_id": "exec-4c7459f4-977f-42ee-8eb9-909700eab82c.png", "path": "storyboards/rejected/ENVIRONMENT_PERSPECTIVES_superseded_runtime_mismatch_2026-09-02.png", "sha256": "f32ee15a77d02471257437ff0059a13c3b78e82edcceb141677f59fb6f6e3417", "decision": "rejected_after_runtime_comparison", "finding": "invented doorway, reverse wall, changed storage, and round furniture"},
+      {"attempt": 2, "result_id": "runtime-capture-contact-sheet-2026-09-02", "path": "storyboards/ENVIRONMENT_PERSPECTIVES.png", "decision": "accepted_as_runtime_boundary_contact_sheet_only"}
+    ]
+  },
+  "storyboard": {
+    "accepted_path": "storyboards/SCENE_SHOT_BOARD.png",
+    "sha256": "cef9b8169f318ed35f19f966eae844e0b42ab1691e4f29ccb4ec4c84380dcb15",
+    "prompt_path": "prompts/SCENE_SHOT_BOARD.txt",
+    "prompt_sha256": "6e7b449cf92d8e89032daad9fbde5d86367ff6acde869e483e6aaf52fb1eca89",
+    "accepted_result_id": "runtime-anchored-board-c10-2026-09-02",
+    "shot_count": 5,
+    "attempts": [
+      {"attempt": 1, "result_id": "exec-08cb263b-165b-4fa9-bd53-a2f2aefec30f.png", "path": "storyboards/rejected/SCENE_SHOT_BOARD_attempt01_brush_redesign.png", "sha256": "90f190a5fbbee1c2f598352aef427c81e5be7e637b7ee1a798d4c5f8274028fa", "decision": "rejected", "finding": "S01 cleaning tool did not preserve the approved magic brush identity"},
+      {"attempt": 2, "result_id": "exec-6a8dbb9e-7781-41f0-ae3d-78590111b3f3.png", "path": "storyboards/rejected/SCENE_SHOT_BOARD_superseded_runtime_mismatch_2026-09-02.png", "sha256": "b21cf7b76f0bfa82ce1c403f3020b28b73db92654ca1ad26859078f3e76962a7", "decision": "rejected_after_runtime_comparison", "finding": "round desk, altered storage, and non-runtime supply travel"},
+      {"attempt": 3, "result_id": "exec-4c4c130c-5f1f-4511-ae35-cb5c9b740b24.png", "path": "storyboards/rejected/D1-C10-S01_attempt01_forbidden_runtime_capture_binding.png", "sha256": "2b1ba4aeeaab04d8853378f3d9ac1212fa07b24a5288526753795ca24c14f1bb", "decision": "rejected_protocol_violation", "finding": "HUD-bearing gameplay capture was incorrectly bound as a generation image"},
+      {"attempt": 4, "result_id": "exec-57fe687f-7703-4a11-95ab-ebc9a4532f7c.png", "path": "storyboards/generated_keyframes/D1-C10-S01_runtime_informed_candidate.png", "sha256": "e62e67088502bb4f43f848e7538e8e6a7f9db1fb4c938520f41a6f82c2a3163d", "decision": "accepted_for_narrative_board_only", "finding": "approved non-HUD authorities used; authored action is not runtime footage and frame remains ineligible as IMAGE_1"},
+      {"attempt": 5, "result_id": "runtime-anchored-board-c10-2026-09-02", "path": "storyboards/SCENE_SHOT_BOARD.png", "decision": "accepted_as_narrative_board_only"}
+    ]
+  }
+}

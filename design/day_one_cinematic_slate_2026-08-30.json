@@ -24,11 +24,12 @@
     "D1-C09": "design/grok_day_one_video_handoffs_2026-08-30/D1-C09_ART_ROOM_DIRTY_DISCOVERY.txt",
     "D1-C10": "design/grok_day_one_video_handoffs_2026-08-30/D1-C10_ART_ROOM_RESTORED.txt",
     "D1-C11": "design/grok_day_one_video_handoffs_2026-08-30/D1-C11_GRAND_PUFF_REVEAL.txt",
-    "D1-C12": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_RESTORED_CASTLE_FINALE.txt"
+    "D1-C12": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_RESTORED_CASTLE_FINALE.txt",
+    "D1-C13": "design/grok_day_one_video_handoffs_2026-08-30/D1-C13_GRAND_PUFF_FRIENDSHIP_COMPLETION.txt"
   },
   "summary": {
-    "movies": 13,
-    "planned_shots": 70,
+    "movies": 14,
+    "planned_shots": 75,
     "existing_rough_edits": 2,
     "existing_room_pair_board_sets": 3,
     "delivery_accepted_movies": 0
@@ -218,6 +219,21 @@
       "current_state": "missing_storyboard_packet_and_runtime_seam",
       "handoff_id": "day_one_restored_castle_finale_v2",
       "priority": 3
+    },
+    {
+      "id": "D1-C13",
+      "title": "Grand Puff Friendship Completion",
+      "kind": "post_gameplay_friendship_completion",
+      "duration_seconds": [15, 25],
+      "shot_count": 5,
+      "cast": ["roshan", "daddy_mermaid", "baby_eagle", "rumi", "boss_dust_bunny"],
+      "objects": ["rainbow_dust_bunny", "prismatic_dust_cradle"],
+      "start_state": "Grand Puff has become a friend after the third-hit FRIENDS transition",
+      "end_state": "Grand Puff is clean and friendly with one rainbow dust bunny settled beside him before the C12 celebration",
+      "current_state": "documentation_skeleton_requires_endpoint_and_arena_authority_review",
+      "handoff_id": "day_one_grand_puff_friendship_completion_v2",
+      "runtime_events": ["boss_friends_transition", "post_gameplay_cleanup_bridge"],
+      "priority": 2
     }
   ]
 }

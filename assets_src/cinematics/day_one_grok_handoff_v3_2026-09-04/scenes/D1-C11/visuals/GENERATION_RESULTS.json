@@ -1,0 +1,33 @@
+{
+  "schema": "grok-visual-generation-results-v1",
+  "scene_id": "D1-C11",
+  "generator": "OpenAI built-in image_gen",
+  "method": "fresh_complete_flattened_generation",
+  "storyboard_disposition": "narrative_only_not_pixel_reference",
+  "agent_prescreen": "accepted",
+  "environment": {
+    "accepted_path": "storyboards/ENVIRONMENT_PERSPECTIVES.png",
+    "sha256": "ef2dd6c423c8ffcfa0c5033891ea5349171970608af53ba0cf4432cdceda2f0c",
+    "prompt_path": "prompts/ENVIRONMENT_PERSPECTIVES.txt",
+    "prompt_sha256": "9b5a73e4a81be7962410d913459fadb07d19b15f0560cb17d4eb361dc6618e15",
+    "accepted_result_id": "exec-5ee5b594-8780-45d0-85a8-c0018ebb19ce.png",
+    "attempts": [
+      {"attempt": 1, "result_id": "exec-5ee5b594-8780-45d0-85a8-c0018ebb19ce.png", "path": "storyboards/ENVIRONMENT_PERSPECTIVES.png", "decision": "accepted_by_sol_visual_review"}
+    ],
+    "review_concern": "The circular shell arena is a fresh extrapolation from Main Hall architecture; it is internally coherent but remains new environment authority requiring owner acceptance."
+  },
+  "storyboard": {
+    "accepted_path": "storyboards/SCENE_SHOT_BOARD.png",
+    "sha256": "f9d6e554ad1e2cbc3eeccd187ab334886a19056d8e8f96bb28ea576f1f952125",
+    "prompt_path": "prompts/SCENE_SHOT_BOARD.txt",
+    "prompt_sha256": "4e0f1567d8b4d8a0cd63be2901fbbcf31fe010cfcfa328284354afcb4c507791",
+    "accepted_result_id": "exec-81d7a51d-9cb5-42d1-86c4-52f74aab7ef7.png",
+    "shot_count": 4,
+    "attempts": [
+      {"attempt": 1, "result_id": "exec-5a3107f1-ba5f-4cdd-b0f7-b73beb772232.png", "path": "storyboards/rejected/SCENE_SHOT_BOARD_attempt01_three_trails_contact_fail.png", "sha256": "732b374d5b3178dcb1a34efd9729617e02c4c94052461de9ee2c4acfd81f629f", "decision": "rejected", "finding": "route-light count and pre-contact door staging failed"},
+      {"attempt": 2, "result_id": "exec-88ff9808-1482-4919-bbe7-ebeea3f6cc1c.png", "path": "storyboards/rejected/SCENE_SHOT_BOARD_attempt02_hand_contact_angry_identity.png", "sha256": "b2d753cf241c0896b1bdef2f35f32ac9388ce5baf51c5964385a3432b4134e7f", "decision": "rejected", "finding": "Roshan still contacted the door and Grand Puff read angry/flattened"},
+      {"attempt": 3, "result_id": "exec-50c12209-4985-4e32-b9a7-0fa5f9d9004f.png", "path": "storyboards/rejected/SCENE_SHOT_BOARD_attempt03_one_mound_fail.png", "sha256": "226edc40d5eff7e0cfefa15c340d57c6c62cb5815291cf8f996de34f594c2161", "decision": "rejected", "finding": "Grand Puff body still read as one mound rather than three separable stacked tiers"},
+      {"attempt": 4, "result_id": "exec-81d7a51d-9cb5-42d1-86c4-52f74aab7ef7.png", "path": "storyboards/SCENE_SHOT_BOARD.png", "decision": "accepted_by_sol_visual_review", "finding": "four trails, visible hand gap, empty arena threshold, and friendly Grand Puff with three visibly separable tiers, symmetric pearl-jointed spiral ears, pearl paws, resting four-point sparkle, and exactly two teeth"}
+    ]
+  }
+}

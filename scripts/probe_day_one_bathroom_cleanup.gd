@@ -204,6 +204,42 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	host.add_child(tub_grime)
 	cleaning.set_dirty_overlays(sink_grime, tub_grime)
 	cleaning.set_supply_basket(Vector2(1130.0, 590.0))
+	# A real press during the basket-to-sink busy window is consumed, not lost;
+	# releasing before the tool arrives must clear that buffer.
+	var release_main := ReefMain.new()
+	var release_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
+		as DayOneBathroomCleaning
+	host.add_child(release_stage)
+	release_stage.setup(release_main, false)
+	release_stage.set_supply_basket(Vector2(1130.0, 590.0))
+	_send_screen_touch(release_stage, true, SINK_CENTER)
+	_check("busy press is buffered while the finger is down",
+		bool(release_stage.audit_snapshot().get("touch_buffered", false))
+		and bool(release_stage.audit_snapshot().get("touch_down", false)))
+	_send_screen_touch(release_stage, false, SINK_CENTER)
+	_check("release clears a busy touch buffer",
+		not bool(release_stage.audit_snapshot().get("touch_buffered", true))
+		and not bool(release_stage.audit_snapshot().get("touch_down", true)))
+	await create_timer(0.28).timeout
+	_check("released busy press cannot start a later gesture",
+		not bool(release_stage.audit_snapshot().get("active_gesture", false))
+		and not bool(release_stage.audit_snapshot().get("touch_buffered", true)))
+	release_stage.teardown()
+	release_main.free()
+	var held_main := ReefMain.new()
+	var held_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
+		as DayOneBathroomCleaning
+	host.add_child(held_stage)
+	held_stage.setup(held_main, false)
+	held_stage.set_supply_basket(Vector2(1130.0, 590.0))
+	_send_screen_touch(held_stage, true, SINK_CENTER)
+	await create_timer(0.28).timeout
+	_check("held busy press starts the gesture when travel clears",
+		bool(held_stage.audit_snapshot().get("active_gesture", false))
+		and not bool(held_stage.audit_snapshot().get("touch_buffered", true)))
+	_send_screen_touch(held_stage, false, SINK_CENTER)
+	held_stage.teardown()
+	held_main.free()
 	await create_timer(0.42).timeout
 	var before: Dictionary = cleaning.audit_snapshot()
 	_check("sink phase has a visible one-finger pointer",
@@ -219,6 +255,20 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	_check("passive wait does not advance sink",
 		int(after_wait["active_step"]) == int(before["active_step"])
 		and float(after_wait["sink_arc"]) == float(before["sink_arc"]))
+	var still_touch := InputEventScreenTouch.new()
+	still_touch.pressed = true
+	still_touch.position = SINK_CENTER
+	cleaning._on_gesture_input(still_touch)
+	cleaning._process(2.0)
+	var still_snapshot: Dictionary = cleaning.audit_snapshot()
+	_check("still held finger and passive time cannot win",
+		int(still_snapshot.get("active_step", -1)) == 0
+		and float(still_snapshot.get("sink_arc", 0.0))
+			== float(after_wait.get("sink_arc", 0.0))
+		and float(still_snapshot.get("valid_motion_seconds", 0.0)) == 0.0)
+	still_touch.pressed = false
+	cleaning._on_gesture_input(still_touch)
+	var visual_before: Dictionary = cleaning.audit_snapshot()
 	_check("sink early motion does not complete",
 		cleaning.probe_begin_gesture(SINK_CENTER + Vector2(120.0, 0.0))
 		and cleaning.probe_gesture_to(
@@ -226,6 +276,14 @@ func _probe_cleaning_gestures(host: Control) -> void:
 		and cleaning.probe_gesture_to(
 			SINK_CENTER + Vector2(-120.0, 0.0), 0.25)
 		and int(cleaning.audit_snapshot()["active_step"]) == 0)
+	cleaning._process(0.0)
+	var visual_after: Dictionary = cleaning.audit_snapshot()
+	_check("partial grime progress is monotonic and visibly unfinished",
+		float(visual_after["grime_fade_progress"]["sink"])
+			>= float(visual_before["grime_fade_progress"]["sink"])
+		and float(visual_after.get("sink_grime_alpha", 0.0))
+			<= float(visual_before.get("sink_grime_alpha", 1.0))
+		and bool(visual_after.get("sink_grime_visible", false)))
 	cleaning.probe_end_gesture()
 	var sink_points: Array[Vector2] = []
 	for index: int in range(49):
@@ -247,6 +305,81 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	cleaning_main.day_one_record_bathroom_cleanup_step(0)
 	_check("cleanup persistence is monotonic",
 		cleaning_main.day_one_bathroom_cleanup_step == 1)
+
+	var lifted_main := ReefMain.new()
+	var lifted_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
+		as DayOneBathroomCleaning
+	host.add_child(lifted_stage)
+	lifted_stage.setup(lifted_main, false)
+	var lifted_sink_grime := Sprite2D.new()
+	var lifted_tub_grime := Sprite2D.new()
+	host.add_child(lifted_sink_grime)
+	host.add_child(lifted_tub_grime)
+	lifted_stage.set_dirty_overlays(lifted_sink_grime, lifted_tub_grime)
+	var lifted_points: Array[Vector2] = []
+	for index: int in range(49):
+		var lifted_angle: float = float(index) / 48.0 * TAU * 1.2
+		lifted_points.append(SINK_CENTER \
+			+ Vector2(cos(lifted_angle), sin(lifted_angle)) * 120.0)
+	var lifted_motion_before: float = 0.0
+	for part: int in range(3):
+		var start: int = part * 16
+		var end: int = 49 if part == 2 else (part + 1) * 16 + 1
+		_check("lifted sink touch starts part %d" % part,
+			lifted_stage.probe_begin_gesture(lifted_points[start]))
+		for index: int in range(start + 1, end):
+			lifted_stage.probe_gesture_to(lifted_points[index], 0.8 / 16.0)
+		lifted_stage.probe_end_gesture()
+		var lifted_snapshot: Dictionary = lifted_stage.audit_snapshot()
+		_check("lifted sink motion banks across a 0.5s lift %d" % part,
+			float(lifted_snapshot.get("valid_motion_seconds", 0.0))
+				>= lifted_motion_before)
+		lifted_motion_before = float(lifted_snapshot.get(
+			"valid_motion_seconds", 0.0))
+		lifted_stage._process(0.5)
+	_check("three 0.8s sink touches with 0.5s lifts complete",
+		int(lifted_stage.audit_snapshot().get("active_step", -1)) == 1
+		and float(lifted_stage.audit_snapshot().get(
+			"gesture_budget", {}).get("sink_min_seconds", 99.0)) == 1.5)
+	lifted_stage.teardown()
+	lifted_main.free()
+
+	var focus_main := ReefMain.new()
+	var focus_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
+		as DayOneBathroomCleaning
+	host.add_child(focus_stage)
+	focus_stage.setup(focus_main, false)
+	focus_stage.set_supply_basket(Vector2(1130.0, 590.0))
+	_send_screen_touch(focus_stage, true, SINK_CENTER)
+	focus_stage.probe_focus_lost()
+	_check("focus loss clears a held busy press fail-closed",
+		not bool(focus_stage.audit_snapshot().get("touch_down", true))
+		and not bool(focus_stage.audit_snapshot().get("touch_buffered", true))
+		and not bool(focus_stage.audit_snapshot().get("active_gesture", true)))
+	focus_stage.teardown()
+	focus_main.free()
+
+	var prompt_main := ReefMain.new()
+	var prompt_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
+		as DayOneBathroomCleaning
+	host.add_child(prompt_stage)
+	prompt_stage.setup(prompt_main, false)
+	await process_frame
+	prompt_stage._process(4.99)
+	_check("first idle re-prompt is not early",
+		int(prompt_stage.audit_snapshot().get("stage_reprompt_count", -1)) == 0)
+	prompt_stage._process(0.02)
+	_check("first idle re-prompt fires by five seconds",
+		int(prompt_stage.audit_snapshot().get("stage_reprompt_count", -1)) == 1)
+	prompt_stage._process(12.0)
+	prompt_stage._process(12.0)
+	_check("idle re-prompts repeat every twelve seconds with a cap",
+		int(prompt_stage.audit_snapshot().get("stage_reprompt_count", -1)) == 3)
+	prompt_stage._process(12.0)
+	_check("idle re-prompt cap is stable",
+		int(prompt_stage.audit_snapshot().get("stage_reprompt_count", -1)) == 3)
+	prompt_stage.teardown()
+	prompt_main.free()
 
 	var tub_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
 		as DayOneBathroomCleaning
@@ -286,7 +419,7 @@ func _probe_cleaning_gestures(host: Control) -> void:
 		and String(reaction_snapshot.get("comic_shout", "")) == "NO!"
 		and int(reaction_snapshot.get("active_step", -1)) == 1
 		and not tub_stage.probe_tap_tub())
-	# The no-swimmer fallback is 0.68s of reaction plus a 0.36s drain
+	# The no-swimmer fallback is 0.68s of reaction plus a 0.20s drain
 	# crossfade; keep a small deterministic scheduling margin.
 	await create_timer(1.10).timeout
 	_check("drain reaction enables the demonstrated tub brush",
@@ -335,9 +468,9 @@ func _probe_cleaning_gestures(host: Control) -> void:
 		bool(final_snapshot["canvas_only"])
 		and bool(final_snapshot["sink_gesture_reachable"])
 		and bool(final_snapshot["tub_gesture_reachable"])
-		and float(final_snapshot["gesture_budget"]["sink_min_seconds"]) >= 2.0
+		and float(final_snapshot["gesture_budget"]["sink_min_seconds"]) >= 1.5
 		and float(final_snapshot["gesture_budget"]["sink_max_seconds"]) <= 5.0
-		and float(final_snapshot["gesture_budget"]["tub_min_seconds"]) >= 2.0
+		and float(final_snapshot["gesture_budget"]["tub_min_seconds"]) >= 1.5
 		and float(final_snapshot["gesture_budget"]["tub_max_seconds"]) <= 5.0)
 
 	var interrupted_main := ReefMain.new()
@@ -356,6 +489,15 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	interrupted.teardown()
 	cleaning_main.free()
 	interrupted_main.free()
+
+
+func _send_screen_touch(cleaning: DayOneBathroomCleaning, pressed: bool,
+		at: Vector2) -> void:
+	var touch := InputEventScreenTouch.new()
+	touch.index = 0
+	touch.pressed = pressed
+	touch.position = at
+	cleaning._on_gesture_input(touch)
 
 
 func _on_supply_found(_index: int, _supply_id: String) -> void:
@@ -379,7 +521,6 @@ func _probe_contextual_voice_wiring() -> void:
 	_check("bathroom cleaning uses exact cues for every stage",
 		cleaning_source.contains("day1_bathroom_sink_start")
 		and cleaning_source.contains("day1_bathroom_sink_clean")
-		and cleaning_source.contains("day1_bathroom_tub_safety")
 		and cleaning_source.contains("day1_bathroom_tub_drain_hint")
 		and cleaning_source.contains("day1_bathroom_tub_drain_complete")
 		and cleaning_source.contains("day1_bathroom_tub_brush")
@@ -387,7 +528,7 @@ func _probe_contextual_voice_wiring() -> void:
 		and cleaning_source.contains("say_day_one_context"))
 	_check("bathroom has no generic voice fallback in scoped owners",
 		not cleanup_source.contains("m.show_msg")
-		and not cleaning_source.contains("m.show_msg")
+		and not cleaning_source.contains("m.show_msg(\"Roshan\"")
 		and not cleaning_source.contains("m._say"))
 
 

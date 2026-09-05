@@ -21,7 +21,14 @@ func _init() -> void:
 		and director.day_one_context_catalog().has("rows"))
 	_check("kitchen mandatory cues present", _has_cue(rows, "day1_fridge_open")
 		and _has_cue(rows, "day1_fridge_close")
-		and _has_cue(rows, "day1_recipe_ready"))
+		and _has_cue(rows, "day1_recipe_pearl_select")
+		and _has_cue(rows, "day1_recipe_pearl_ready")
+		and _has_cue(rows, "day1_recipe_carrot_select")
+		and _has_cue(rows, "day1_recipe_carrot_ready"))
+	_check("kitchen is optional Day One context, never ordered progression",
+		main.day_one_can_enter_castle_room("kitchen")
+		and main.DAY_ONE_OPTIONAL_CASTLE_ROOM_IDS.has("kitchen")
+		and not main.DAY_ONE_CASTLE_ROOM_IDS.has("kitchen"))
 	_check("exact cue plays", director.say_day_one_context(
 		"day1_bathroom_tub_drain", "Bye-bye bath water!", "bathroom", "probe"))
 	_check("exact cue retains its contextual caption", main.hud_msg.visible

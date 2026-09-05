@@ -1,0 +1,1086 @@
+{
+  "schema": "external-animation-visual-packet-v1",
+  "packet_id": "d1_c13_grand_puff_friendship_completion_visual_v1",
+  "movie_id": "D1-C13",
+  "role": "self_contained_uploadable_reference_packet",
+  "runtime_asset": false,
+  "used_as_delivery_pixels": false,
+  "payload_sha256": "ccf22cf7ace051dc3c45568054051d305a523d9e912ba5952d4777a6dad41d38",
+  "payload_hash_formula": "SHA256 of UTF-8 sorted <relative_path>|<lowercase_sha256>\\n records",
+  "authority_order": [
+    "approved location geography",
+    "approved character identities",
+    "approved objects/topology",
+    "generated perspective and storyboard sheets for narrative understanding only"
+  ],
+  "warnings": [
+    "Generated sheets are narrative references only and may never be bound as Grok IMAGE_1 or delivery pixels.",
+    "Every motion shot still requires an approved clean first frame and accepted endpoint continuity."
+  ],
+  "assets": [
+    {
+      "path": "handoff_art/location/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+      "role": "approved_location_geography_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "ba0048fc93bc8cf752d0424200a1d1a0c03676ed78916a0c3bf335a60ec6a74e",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/location_authorities/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "role": "approved_roshan_identity_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/characters/daddy_daddy_master.png",
+      "role": "approved_daddy_identity_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        1677,
+        2362
+      ],
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets_src/daddy_master.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "role": "approved_baby_eagle_standing_identity_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        770,
+        1024
+      ],
+      "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "docs/grok_animation_series_project/characters/baby_eagle/BABY_EAGLE_STANDING_IDENTITY.png",
+      "source_commit": "3af5a8eb7110dab2381c7d0a73b27b880d35e84a"
+    },
+    {
+      "path": "handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "role": "approved_rumi_identity_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        576,
+        1024
+      ],
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "role": "approved_grand_puff_identity_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "docs/grok_animation_series_project/characters/boss_dust_bunny/BOSS_DUST_BUNNY_IDENTITY.png",
+      "source_commit": "3af5a8eb7110dab2381c7d0a73b27b880d35e84a"
+    },
+    {
+      "path": "handoff_art/objects/dust_bunny_boss_laugh_vulnerable.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "bdcf03aab906fa9c8f7293733e780ffaac883c14ba72bdc43069a4ace4f9afca",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "handoff_art/objects/dust_bunny_boss_implode.png",
+      "role": "approved_object_or_topology_authority",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "273770fa67763662e2294d80444da727575bb0a10c63938d5fe20689d0f9d256",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_implode.png",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "storyboards/ENVIRONMENT_PERSPECTIVES.png",
+      "role": "multi_angle_environment_narrative_reference_only",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "56b3dfbc0149894f8ec6e756176fd761771b3b9db404980e637da7cc431a43bf",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "unrecorded",
+        "prompt_path": "storyboards/PERSPECTIVE_PROMPT.txt",
+        "attempt": 1
+      }
+    },
+    {
+      "path": "storyboards/SCENE_SHOT_BOARD.png",
+      "role": "shot_order_narrative_reference_only",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "2c5aac3e33554c3794144e06e6ae438e6c2cb121d1487cfac84ef937b76b4479",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "unrecorded",
+        "prompt_path": "storyboards/STORYBOARD_PROMPT.txt",
+        "attempt": 1
+      }
+    },
+    {
+      "path": "written_guide/SHARED_STYLE_AND_CHARACTER_GUIDE.txt",
+      "role": "exact_written_handoff_guide",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "39c92eaae1073319c300fdf57275fa2a6c52df68b7bc124688ab526617d34e8d",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/00_SHARED_STYLE_AND_CHARACTER_REFERENCE.txt",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "written_guide/SCENE_GUIDE.txt",
+      "role": "exact_written_handoff_guide",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "7b1c6e60c5f2c453b59f6dc914c0e00e1a448af6ae3c0055ec4b373b674d4cc5",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false,
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C13_GRAND_PUFF_FRIENDSHIP_COMPLETION.txt",
+      "source_commit": "e2c477f880e0a60ceb91aa32fef133b2566d4d61"
+    },
+    {
+      "path": "written_guide/SOURCE_DOCUMENTS.json",
+      "role": "written_source_provenance_and_hashes",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "d467d6c6426f0ac95948d104a0b54666f32e6869adb0bb17dafb5887702a868d",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": true,
+      "bound_reference_eligible": true,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/PERSPECTIVE_PROMPT.txt",
+      "role": "exact_environment_generation_prompt",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "9239fa4ea8ba97fceaa78e7b39168e0f38c7c46e5b56103c5b1b885df8a95adc",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/STORYBOARD_PROMPT.txt",
+      "role": "exact_storyboard_generation_prompt",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "cc8abeec5fd79c594af559f540aae3cde786baee183db49ff541b35dc6cd8350",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/GENERATION_RESULTS.json",
+      "role": "generation_result_ids_and_attempts",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "f0cfdf1f832f2b6f8e6767b7816e250d656fcbea8e11a0fb7d20230ba9e66cf0",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/VISUAL_REVIEW.json",
+      "role": "sol_and_human_visual_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "2c6f361ca615171b7f0bafceb08d0153af0b49db01916d2c3b83d29308ac54ae",
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "modifications": "lossless byte-for-byte copy",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "GENERATION_RESULTS.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "648874180565ef70d00f66479b10f3078efe724de8bdc7f83e1d778583487741",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "GENERATION_REVIEW.md",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "ec3037a9dfedb863ff04159a4f81632fcf6dd835826e917b0a5eb35c2e480cb3",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "SOURCE_DOCUMENTS.md",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "daca625d0a5cc87cb6eb597d97bace1c93390d3fce374221f29358598f5ad3b1",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "STATUS.md",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "b92401ec6da27495f8fe63071f4826ab76672b81775e94db29b767014f289894",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "first_frames/D1-C13-S01_ROSHAN_CLEANUP_attempt01.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "ac3eda1296f9db46885c4d46382958dede303bdc0a9015988a0d9d525d7fd158",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "first_frames/D1-C13-S02_DADDY_SWEEP_attempt01.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "03bd81f82fbaa54a6d67306ae8257328bc4abc4149ba144ddd29925666f19ed1",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "first_frames/D1-C13-S03_BABY_EAGLE_LIFT_attempt01.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "72b8f70071e3edb1e0552b28ebed8c92182d7c4c9449b70858b983143f5f3f29",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "first_frames/D1-C13-S04_RUMI_RINSE_attempt01.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "79ac024f36532e468a2fca03aa8d9d37b5b6c3ebeb231c87dc636b37891e8e4b",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "first_frames/D1-C13-S05_RAINBOW_FRIEND_attempt01.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "98ab59ab569d20f38129464b6df5bc2524d19cb52bb0533adddf293c11bc571d",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "generation_inputs/arena.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "ec6a6663825b5c39880af4494713d60e10da64f09e213b0a58fa85a30d640df7",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "generation_inputs/arena.png.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "e02bf10e039cb803b8a5b62edeaad31e91c87e8b466786d4c70be5772b748808",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "generation_inputs/baby_eagle.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        770,
+        1024
+      ],
+      "sha256": "97c607b478c7f5fb26e4c6402fc32d64338c5ce65e7de567d01a9a3337e3c6bb",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "generation_inputs/baby_eagle.png.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "44b7d6fd812301ac7b3015e27441d631f07d51b980aed70bbcd397cf21446e5e",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "generation_inputs/baby_eagle_768.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        578,
+        768
+      ],
+      "sha256": "8b301bfcc4559b8e70d15e9a0148b7e7d98e0d48d08d387a5333e9a3497eb1ce",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "generation_inputs/baby_eagle_768.png.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "1fed2deac56e7f3f8b0a42408e9e9ce8696591805ad5a8080254689469e47d62",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "generation_inputs/daddy.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1677,
+        2362
+      ],
+      "sha256": "56d48adda5bc58966218d7a20c2c1fe83b894e6681a98c387b9f8c1f34eda08c",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "generation_inputs/daddy.png.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "70ac3d915177253a3f0da3a2d57ac7ad6d207dc013534ba79f9a419836dabf57",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "generation_inputs/daddy_768.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        545,
+        768
+      ],
+      "sha256": "d06e4d1ca94dfeba83981f55e6c7de9d4cf1db591d5b07c696c5b5d9e0ed0aa8",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "generation_inputs/daddy_768.png.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "1761f4d0ea373846e360f35244dad9570b6295424b7a88f3f64d3abfdf22cb5f",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "generation_inputs/grand_puff.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "8d73bd68ff021d42c017d8689bf9f2ae17d4fbcf8c3c6538431890b38b74bc46",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "generation_inputs/grand_puff.png.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "c2a99e2970d8a47f339ed28debdb1cedc0dd096efe786328e504302e772febbb",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "generation_inputs/rainbow_bunny.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "892385e45f9d73c6922201e4affb81f2693bb78ab9432d0a080ba4aabf6d598c",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "generation_inputs/rainbow_bunny.png.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "7188f6a8137fcd98050e9759e52b323be22dcfa0137656ef8037e64670c19038",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "generation_inputs/roshan.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "sha256": "69892135ddb2249ce24968477311d0d0394c834b003fc0a14e0bab86745e9290",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "generation_inputs/roshan.png.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "ad0e05631ced9f874cf85f10cde807e0a5f5a209bb48d472ce034673f073b0f2",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "generation_inputs/rumi.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        576,
+        1024
+      ],
+      "sha256": "d883949f0d997bfd4f385f5e082c479cfc3a329152ad0a63df5f2d8f5b1ed4e2",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "generation_inputs/rumi.png.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "d1359bef5d1724f9a45620a948db2db362e904cbe0cecdf2b92ed9706a7c5d9d",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "generation_inputs/rumi_768.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        432,
+        768
+      ],
+      "sha256": "8a62a6eb7e027a310359aba920dbe926ca7d91797cf51f562b00859f89ce99a6",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "generation_inputs/rumi_768.png.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "128d073942fc63ed080c649a9ec78deb29b6bfe931727cf77c94a4055ce5545b",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "generation_prompts/ARENA_MASTER_attempt01.txt",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "3569ff3a6b2ac85caa70e87274e2f09837ef6a0c3df55d66e1e2a32ca07d9fec",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "generation_prompts/D1-C13-S01_ROSHAN_CLEANUP.txt",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "ba3ae54e3a5971674f7f52903eec9402611c7877861064f3788df144b7832be3",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "generation_prompts/D1-C13-S02_DADDY_SWEEP.txt",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "f97f51e1b2f60bb62c2000fb8301084942098e749013258949f25302a205f31a",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "generation_prompts/D1-C13-S03_BABY_EAGLE_LIFT.txt",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "ca34ea84a0e76d48515bb54e3c1f899f0473d175a18a89de9a71faaa111a76a1",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "generation_prompts/D1-C13-S04_RUMI_RINSE.txt",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "7ac74af2208d2d4d644613748443df6905eb8b8b6313087a2c07e64e80368056",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "generation_prompts/D1-C13-S05_RAINBOW_BUNNY_BIRTH.txt",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "a197384f763bc674685aa9d2a88f343fd645c284aecd092f5566177bc5f01ae1",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "handoff_art/characters/baby_eagle.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        770,
+        1024
+      ],
+      "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "handoff_art/characters/daddy.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1677,
+        2362
+      ],
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "handoff_art/characters/grand_puff.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "handoff_art/characters/rainbow_dust_bunny_concept.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "handoff_art/characters/roshan.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "handoff_art/characters/rumi.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        576,
+        1024
+      ],
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "handoff_art/location/main_hall_screen_b_style_source.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        2048,
+        1153
+      ],
+      "sha256": "c333bdbd3243b2cfcd61e9475e7e5449d7165d03ff8413f860535d5ccb811454",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "handoff_art/objects/grand_puff_implode.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "273770fa67763662e2294d80444da727575bb0a10c63938d5fe20689d0f9d256",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "handoff_art/objects/grand_puff_laugh_vulnerable.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "bdcf03aab906fa9c8f7293733e780ffaac883c14ba72bdc43069a4ace4f9afca",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "handoff_art/objects/magic_cleaning_brush.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        936,
+        1024
+      ],
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "location_authorities/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "ba0048fc93bc8cf752d0424200a1d1a0c03676ed78916a0c3bf335a60ec6a74e",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    },
+    {
+      "path": "location_authorities/LOCATION_GEOMETRY_LOCK.json",
+      "role": "supporting_prompt_generation_or_review_record",
+      "media_type": "text/plain",
+      "dimensions": null,
+      "sha256": "89ebf22b2a0c9f0f40acb4a4a3ebf8f257e5d4967e5bbfba893d87dd9ac82532",
+      "license_provenance": "project-authored packet provenance record",
+      "modifications": "none; exact retained record",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "storyboards/REJECTED_GROUP_RELATIONSHIP_attempt01.png",
+      "role": "rejected_or_supporting_generated_narrative_reference",
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "0a4b31764754da1d93202d982ac18e5d1352210313a7473b0849c8f7c467d66a",
+      "license_provenance": "project-original generated reference art",
+      "modifications": "none after generation",
+      "appearance_authority": false,
+      "bound_reference_eligible": false,
+      "used_as_delivery_pixels": false,
+      "generation": {
+        "tool": "OpenAI built-in image generation",
+        "result_id": "recorded_in_GENERATION_RESULTS.json",
+        "attempt": "see generation result record"
+      }
+    }
+  ],
+  "third_pass_verification": {
+    "source_commit": "076661afb9e092627eb5dfae7c39fecb27463892",
+    "original_manifest": "HANDOFF_PACKET_SOURCE_COMMIT.json",
+    "original_manifest_sha256": "0ced674c14c9c2e2667aa1e11a541babec78086b76d881c04778df35bfff523d",
+    "asset_hashes_recomputed_from_exact_git_blobs": true
+  }
+}

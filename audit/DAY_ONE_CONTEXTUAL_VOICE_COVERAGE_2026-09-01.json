@@ -236,21 +236,6 @@
       }
     },
     {
-      "cue_id": "day1_art_customization",
-      "route": "art",
-      "moment": "Customize the castle art",
-      "caption": "The paint table is glowing! Let's make something!",
-      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_customization.ogg",
-      "status": "READY",
-      "policy": "once_per_session",
-      "video_reuse": {
-        "eligible": true,
-        "video_ids": [
-          "day1_shared_voice_slate"
-        ]
-      }
-    },
-    {
       "cue_id": "day1_art_customization_confirmed",
       "moment": "day1 art customization confirmed",
       "policy": "once_per_session",
@@ -326,21 +311,6 @@
       }
     },
     {
-      "cue_id": "day1_art_material_blue_paint",
-      "route": "art",
-      "moment": "Collect the blue paint",
-      "caption": "Tap the loose art supply!",
-      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_material_blue_paint.ogg",
-      "status": "READY",
-      "policy": "repeat_variant",
-      "video_reuse": {
-        "eligible": true,
-        "video_ids": [
-          "day1_shared_voice_slate"
-        ]
-      }
-    },
-    {
       "cue_id": "day1_art_material_blue_paint_found",
       "moment": "day1 art material blue paint found",
       "policy": "once_per_session",
@@ -369,21 +339,6 @@
       "caption": "Tap the blue paint!",
       "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_material_blue_paint_hint.ogg",
       "status": "READY"
-    },
-    {
-      "cue_id": "day1_art_material_brushes",
-      "route": "art",
-      "moment": "Collect the loose brushes",
-      "caption": "Tap the loose art supply!",
-      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_material_brushes.ogg",
-      "status": "READY",
-      "policy": "repeat_variant",
-      "video_reuse": {
-        "eligible": true,
-        "video_ids": [
-          "day1_shared_voice_slate"
-        ]
-      }
     },
     {
       "cue_id": "day1_art_material_brushes_found",
@@ -416,21 +371,6 @@
       "status": "READY"
     },
     {
-      "cue_id": "day1_art_material_cups",
-      "route": "art",
-      "moment": "Collect the paint cups",
-      "caption": "Tap the loose art supply!",
-      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_material_cups.ogg",
-      "status": "READY",
-      "policy": "repeat_variant",
-      "video_reuse": {
-        "eligible": true,
-        "video_ids": [
-          "day1_shared_voice_slate"
-        ]
-      }
-    },
-    {
       "cue_id": "day1_art_material_cups_found",
       "moment": "day1 art material cups found",
       "policy": "once_per_session",
@@ -459,21 +399,6 @@
       "caption": "Tap the paint cups!",
       "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_material_cups_hint.ogg",
       "status": "READY"
-    },
-    {
-      "cue_id": "day1_art_material_pink_paint",
-      "route": "art",
-      "moment": "Collect the pink paint",
-      "caption": "Tap the loose art supply!",
-      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_material_pink_paint.ogg",
-      "status": "READY",
-      "policy": "repeat_variant",
-      "video_reuse": {
-        "eligible": true,
-        "video_ids": [
-          "day1_shared_voice_slate"
-        ]
-      }
     },
     {
       "cue_id": "day1_art_material_pink_paint_found",
@@ -566,21 +491,6 @@
       "status": "READY"
     },
     {
-      "cue_id": "day1_art_scrub_left",
-      "route": "art",
-      "moment": "Scrub the left counter",
-      "caption": "Scrub the dusty spot!",
-      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_scrub_left.ogg",
-      "status": "READY",
-      "policy": "repeat_variant",
-      "video_reuse": {
-        "eligible": true,
-        "video_ids": [
-          "day1_shared_voice_slate"
-        ]
-      }
-    },
-    {
       "cue_id": "day1_art_scrub_left_clean",
       "moment": "day1 art scrub left clean",
       "policy": "once_per_session",
@@ -609,21 +519,6 @@
       "caption": "Now scrub the left counter grime!",
       "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_scrub_left_hint.ogg",
       "status": "READY"
-    },
-    {
-      "cue_id": "day1_art_scrub_right",
-      "route": "art",
-      "moment": "Scrub the right counter",
-      "caption": "Scrub the dusty spot!",
-      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_scrub_right.ogg",
-      "status": "READY",
-      "policy": "repeat_variant",
-      "video_reuse": {
-        "eligible": true,
-        "video_ids": [
-          "day1_shared_voice_slate"
-        ]
-      }
     },
     {
       "cue_id": "day1_art_scrub_right_clean",

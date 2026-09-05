@@ -1,0 +1,143 @@
+{
+  "schema": "grok-continuity-analysis-v1",
+  "purpose": "Record motion/editorial analysis of a prior clip and the human-reviewed endpoint decision before a dependent Grok shot is generated.",
+  "authority_rule": "A clip is motion/editorial evidence. Its extracted endpoint is IMAGE_1-eligible only after human approval as a complete, UI-free full frame. Storyboards, perspective sheets, contact sheets, and gameplay captures remain non-pixel references.",
+  "analysis_id": "<stable analysis id>",
+  "scene_id": "D1-Cxx",
+  "target_shot_id": "D1-Cxx-Sxx",
+  "source_clips": [
+    {
+      "clip_id": "<prior clip id>",
+      "role": "primary_continuity",
+      "path": "<native clip path>",
+      "remote_url": "<immutable clip URL or null>",
+      "sha256": "<64 lowercase hex>",
+      "input_kind": "grok_clip",
+      "analysis_only": true,
+      "duration_ms": null,
+      "fps": null,
+      "dimensions": [1280, 720],
+      "audio_present": null,
+      "audio_disposition": "temporary_editorial_reference_only"
+    }
+  ],
+  "timecodes": {
+    "first_frame": {
+      "frame": 0,
+      "tc_ms": 0,
+      "description": "Native first frame; compare against the declared opening authority."
+    },
+    "action_onset": {
+      "frame": null,
+      "tc_ms": null,
+      "description": "First readable physical movement."
+    },
+    "contact_or_trigger": {
+      "frame": null,
+      "tc_ms": null,
+      "description": "First causal contact, grip, landing, or other trigger."
+    },
+    "visible_consequence": {
+      "frame": null,
+      "tc_ms": null,
+      "description": "First frame proving the intended physical consequence."
+    },
+    "reaction_or_settle": {
+      "frame": null,
+      "tc_ms": null,
+      "description": "Readable reaction and/or stable endpoint onset."
+    },
+    "last_stable_frame": {
+      "frame": null,
+      "tc_ms": null,
+      "description": "Last native frame that holds the exact state required by the next shot."
+    }
+  },
+  "measurements": {
+    "coordinate_space": "normalized_canvas_0_to_1",
+    "subject_bboxes_norm": {
+      "<stable subject id>": {
+        "first_frame": [null, null, null, null],
+        "action_onset": [null, null, null, null],
+        "contact_or_trigger": [null, null, null, null],
+        "last_stable_frame": [null, null, null, null]
+      }
+    },
+    "anchor_points_norm": {
+      "<stable landmark id>": [null, null]
+    },
+    "camera_motion": {
+      "declared_verb": "locked",
+      "observed_verb": null,
+      "move_count": null,
+      "delta_norm": [null, null],
+      "scale_ratio_start_to_end": null,
+      "cut_or_discontinuity": null
+    },
+    "screen_side_and_scale": {
+      "<subject id>": {
+        "screen_side": null,
+        "relative_scale": null,
+        "facing": null
+      }
+    },
+    "cast_count": {
+      "expected": {},
+      "observed": {}
+    },
+    "object_count": {
+      "expected": {},
+      "observed": {}
+    },
+    "contact_graph": {
+      "expected_edges": [],
+      "observed_edges": []
+    },
+    "topology_invariants": [],
+    "grade_observations": {
+      "lighting_state": null,
+      "palette_notes": [],
+      "global_tint_or_flicker": false
+    }
+  },
+  "opening_authority": {
+    "kind": "accepted_previous_end",
+    "previous_shot_id": "<immediately preceding shot or null>",
+    "required_state": "<exact target opening state>",
+    "source_frame": {
+      "path": "<extracted endpoint candidate or approved master>",
+      "frame": null,
+      "tc_ms": null,
+      "sha256": "<64 lowercase hex or null>",
+      "hud_present": false,
+      "complete_flattened_frame": false
+    },
+    "human_decision": "pending",
+    "eligible_as_image_1": false,
+    "promotion_path": "shots/<target_shot_id>/FIRST_FRAME.png"
+  },
+  "findings": {
+    "knockouts": [],
+    "continuity": [],
+    "causality": [],
+    "style_and_readability": [],
+    "technical": []
+  },
+  "review": {
+    "reviewer": "<name or role>",
+    "reviewed_at": "<ISO-8601 timestamp>",
+    "human_identity_topology_style_decision": "pending",
+    "endpoint_decision": "pending",
+    "rejection_reason": null,
+    "rejected_candidate_retained": true
+  },
+  "non_pixel_references": [
+    {
+      "path": "<storyboard, perspective sheet, gameplay capture, or contact sheet>",
+      "role": "topology_or_editorial_context_only",
+      "appearance_authority": false,
+      "bound_as_image_1": false,
+      "used_as_delivery_pixels": false
+    }
+  ]
+}

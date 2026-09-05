@@ -1,0 +1,115 @@
+{
+  "schema": "imagine-handoff-v2",
+  "handoff_id": "d1_c02_first_dirty_castle_discovery_visual_v1",
+  "archive_status": "complete",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "planned_shots": [
+    "D1-C02-S01",
+    "D1-C02-S02",
+    "D1-C02-S03",
+    "D1-C02-S04"
+  ],
+  "location_geometry_lock": "LOCATION_GEOMETRY_LOCK.json",
+  "first_frame_review": "first_frames/FIRST_FRAME_REVIEW.json",
+  "blocking_findings": [
+    "D1-C02-S01 cannot inherit the exact accepted D1-C01-S04 endpoint because that endpoint is not present in the repository.",
+    "The new dirty Main Hall A/B location candidates and S02-S04 first-frame candidates pass Sol topology review but still require human approval.",
+    "No continuity-dependent shot yet binds the accepted complete end frame of its predecessor.",
+    "Generated perspective and storyboard sheets remain narrative-only and cannot be bound as generation pixels.",
+    "Immutable GitHub content URLs cannot be bound until the reviewed packet is committed and pushed."
+  ],
+  "story_contract": {
+    "one_sentence_promise": "Roshan and Daddy open the Pearl Castle doors becomes The dirty Main Hall and the first glowing bathroom route are understood.",
+    "ordered_beats": [
+      {
+        "beat_id": "D1-C02-S01",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Exterior-to-threshold shot inheriting the accepted D1-C01 endpoint."
+      },
+      {
+        "beat_id": "D1-C02-S02",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Geometry-locked first interior orientation from the left entrance facing approved Main Hall screen A."
+      },
+      {
+        "beat_id": "D1-C02-S03",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Close environmental inspection within the same hall: a readable grime patch, a small friendly dust-bunny trace, and one misplaced harmless scrap sit naturally against the pearl floor and molding."
+      },
+      {
+        "beat_id": "D1-C02-S04",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Wide coherent Main Hall orientation."
+      }
+    ],
+    "forbidden_events": [
+      "No premature payoff or scene-state transition.",
+      "No identity, anatomy, cast-count, fixture-count, or room-topology drift."
+    ],
+    "final_state": "The dirty Main Hall and the first glowing bathroom route are understood"
+  },
+  "character_authorities": [
+    {
+      "character_id": "roshan",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "immutable_traits": [
+        "child face and age",
+        "brown hair with rainbow section",
+        "pink top and tiara"
+      ],
+      "anatomy_traits": [
+        "exactly two arms and one continuous mer-tail"
+      ],
+      "forbidden_drift": [
+        "legs or shoes",
+        "adult redesign"
+      ]
+    },
+    {
+      "character_id": "daddy",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/daddy_daddy_master.png",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "immutable_traits": [
+        "adult crowned father",
+        "dark rectangular glasses",
+        "navy and gold clothing with teal cape"
+      ],
+      "anatomy_traits": [
+        "taller than Roshan with one continuous mer-tail"
+      ],
+      "forbidden_drift": [
+        "generic king",
+        "missing glasses or tail"
+      ]
+    }
+  ],
+  "location_authority": {
+    "path": "handoff_art/location/main_hall_screen_a_room_led_master.png",
+    "sha256": "ae84f4f79a8183312b5ba26b6999f26b69c8a538424b5383a7d6623cc2f275e9",
+    "immutable_features": [
+      "fixed entrance and exit geography",
+      "fixed landmark and fixture order",
+      "consistent scale and navigable volume"
+    ],
+    "forbidden_geometry": [
+      "no invented room, basin, doorway, platform, or fixture relocation",
+      "no merger of Main Hall screen A and screen B into an invented third perspective",
+      "no unsupported reverse view toward an unseen opposite wall",
+      "screen A has no stair, balcony, or throne; screen B has one short right stair and no balcony"
+    ],
+    "geometry_lock_path": "LOCATION_GEOMETRY_LOCK.json"
+  },
+  "archive_remote": {
+    "commit": "7ae52a25b0d3699239da0bfe0b1b1b47e2272be4",
+    "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/7ae52a25b0d3699239da0bfe0b1b1b47e2272be4/assets_src/cinematics/d1_c02_first_dirty_castle_discovery_visual_v1",
+    "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/7ae52a25b0d3699239da0bfe0b1b1b47e2272be4/assets_src/cinematics/d1_c02_first_dirty_castle_discovery_visual_v1/HANDOFF_PACKET.json",
+    "readme": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/7ae52a25b0d3699239da0bfe0b1b1b47e2272be4/assets_src/cinematics/d1_c02_first_dirty_castle_discovery_visual_v1/README.md",
+    "verified_via": "GitHub recursive commit-tree API; every HANDOFF_PACKET asset path resolved",
+    "verified_at": "2026-09-02T00:00:00-07:00"
+  }
+}

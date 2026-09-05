@@ -1,0 +1,129 @@
+{
+  "schema": "imagine-handoff-v2",
+  "handoff_id": "d1_c07_stuffie_dirty_discovery_visual_v1",
+  "archive_status": "complete",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "blocking_findings": [
+    "No shot has an owner-approved clean HUD-free complete opening frame.",
+    "No continuity-dependent shot binds the accepted complete end frame of its predecessor.",
+    "Generated perspective and storyboard sheets are narrative-only and cannot be bound as generation pixels."
+  ],
+  "story_contract": {
+    "one_sentence_promise": "Roshan enters the dirty Stuffie Room becomes Roshan sees the swinging bunny and Baby Eagle pinned by the mess.",
+    "ordered_beats": [
+      {
+        "beat_id": "D1-C07-S01",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Wide dirty Stuffie Room orientation before entry."
+      },
+      {
+        "beat_id": "D1-C07-S02",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Inherit the approved dirty room layout."
+      },
+      {
+        "beat_id": "D1-C07-S03",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Reverse medium shot toward Roshan in the same dirty room."
+      },
+      {
+        "beat_id": "D1-C07-S04",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Close environmental shot of one approved friendly playroom dust bunny swinging gently from the established support."
+      },
+      {
+        "beat_id": "D1-C07-S05",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Low floor-level shot following Roshan's gaze through established clutter and dust traces toward a partially obscured colorful wing."
+      },
+      {
+        "beat_id": "D1-C07-S06",
+        "trigger": "The shot begins from the authored inherited state.",
+        "visible_result": "Medium reveal of exactly one approved Baby Eagle pinned safely beneath soft room mess in its established floor location."
+      }
+    ],
+    "forbidden_events": [
+      "No premature payoff or scene-state transition.",
+      "No identity, anatomy, cast-count, fixture-count, or room-topology drift."
+    ],
+    "final_state": "Roshan sees the swinging bunny and Baby Eagle pinned by the mess"
+  },
+  "character_authorities": [
+    {
+      "character_id": "roshan",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "immutable_traits": [
+        "child face and age",
+        "brown hair with rainbow section",
+        "pink top and tiara"
+      ],
+      "anatomy_traits": [
+        "exactly two arms and one continuous mer-tail"
+      ],
+      "forbidden_drift": [
+        "legs or shoes",
+        "adult redesign"
+      ]
+    },
+    {
+      "character_id": "baby_eagle_pinned",
+      "status": "approved_private_canon",
+      "path": "handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+      "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac",
+      "immutable_traits": [
+        "turquoise yellow and pink child bird",
+        "approved beak and face",
+        "full spread wings"
+      ],
+      "anatomy_traits": [
+        "exactly one bird with two wings and two feet"
+      ],
+      "forbidden_drift": [
+        "backpack",
+        "cropped or duplicated body"
+      ]
+    },
+    {
+      "character_id": "playroom_bunny",
+      "status": "approved",
+      "path": "handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "immutable_traits": [
+        "round lavender fluff",
+        "friendly eyes and blush",
+        "consistent curl silhouette"
+      ],
+      "anatomy_traits": [
+        "one intact round creature per bunny"
+      ],
+      "forbidden_drift": [
+        "smoke cloud",
+        "color-coded redesign"
+      ]
+    }
+  ],
+  "location_authority": {
+    "path": "handoff_art/location/room_playroom_background.png",
+    "sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
+    "immutable_features": [
+      "fixed entrance and exit geography",
+      "fixed landmark and fixture order",
+      "consistent scale and navigable volume"
+    ],
+    "forbidden_geometry": [
+      "no invented room, basin, doorway, platform, or fixture relocation"
+    ]
+  },
+  "archive_remote": {
+    "commit": "7ae52a25b0d3699239da0bfe0b1b1b47e2272be4",
+    "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/7ae52a25b0d3699239da0bfe0b1b1b47e2272be4/assets_src/cinematics/d1_c07_stuffie_dirty_discovery_visual_v1",
+    "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/7ae52a25b0d3699239da0bfe0b1b1b47e2272be4/assets_src/cinematics/d1_c07_stuffie_dirty_discovery_visual_v1/HANDOFF_PACKET.json",
+    "readme": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/7ae52a25b0d3699239da0bfe0b1b1b47e2272be4/assets_src/cinematics/d1_c07_stuffie_dirty_discovery_visual_v1/README.md",
+    "verified_via": "GitHub recursive commit-tree API; every HANDOFF_PACKET asset path resolved",
+    "verified_at": "2026-09-02T00:00:00-07:00"
+  }
+}

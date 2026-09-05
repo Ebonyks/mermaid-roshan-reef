@@ -26,6 +26,10 @@ DEFAULT_SOURCE_PATH = (
     r"C:\Users\Peter\Downloads\grok-0e40140f-8759-4188-8e0f-6ba103909db8.mp4"
 )
 EXPECTED_CLIPS = [f"D1-C{index:02d}" for index in range(13)]
+# ffprobe reports Ogg durations at the encoded granule boundary. Permit only
+# a small measurement/rounding margin; authored cue spans still must contain
+# the complete clip and no time-stretching is ever implied.
+AUDIO_DURATION_TOLERANCE_S = 0.01
 
 
 def canonical_json(value: Any) -> bytes:
@@ -70,6 +74,21 @@ def _probe(path: Path, ffprobe_bin: str = "ffprobe") -> dict[str, Any]:
     ]
     completed = subprocess.run(command, check=True, capture_output=True, text=True)
     return json.loads(completed.stdout)
+
+
+def inspect_audio_duration(path: Path, ffprobe_bin: str = "ffprobe") -> float:
+    """Return the positive duration of exactly one audio stream."""
+
+    payload = _probe(path, ffprobe_bin)
+    streams = payload.get("streams", [])
+    audios = [stream for stream in streams if stream.get("codec_type") == "audio"]
+    if len(audios) != 1:
+        raise ValueError(f"audio asset must contain exactly one audio stream; found {len(audios)}")
+    audio = audios[0]
+    duration = _number(audio.get("duration") or payload.get("format", {}).get("duration"))
+    if duration <= 0:
+        raise ValueError("audio asset must expose a positive duration")
+    return duration
 
 
 def inspect_source(path: Path, ffprobe_bin: str = "ffprobe") -> dict[str, Any]:
@@ -247,6 +266,31 @@ def validate_cues(ledger: dict[str, Any], sidecar: dict[str, Any], require_audio
                 _sha(audio_hash, f"{label} audio.sha256")
             except ValueError as exc:
                 errors.append(str(exc))
+            if require_audio:
+                raw_audio_path = audio.get("path")
+                if not isinstance(raw_audio_path, str) or not raw_audio_path.strip():
+                    errors.append(f"{label} audio.path is required with --require-audio")
+                else:
+                    audio_path = Path(raw_audio_path)
+                    if not audio_path.is_absolute():
+                        audio_path = Path(__file__).resolve().parents[1] / audio_path
+                    if not audio_path.is_file():
+                        errors.append(f"{label} audio.path does not exist: {raw_audio_path}")
+                    else:
+                        actual_hash = file_sha256(audio_path)
+                        if isinstance(audio_hash, str) and actual_hash != audio_hash.lower():
+                            errors.append(f"{label} audio.sha256 does not match asset")
+                        try:
+                            clip_duration = inspect_audio_duration(audio_path)
+                        except (OSError, ValueError, subprocess.CalledProcessError, json.JSONDecodeError) as exc:
+                            errors.append(f"{label} audio duration could not be verified: {exc}")
+                        else:
+                            span = end - start
+                            if clip_duration > span + AUDIO_DURATION_TOLERANCE_S:
+                                errors.append(
+                                    f"{label} audio duration {clip_duration:g}s exceeds cue span "
+                                    f"{span:g}s (tolerance {AUDIO_DURATION_TOLERANCE_S:g}s)"
+                                )
         elif status == "pending":
             if require_audio:
                 errors.append(f"{label} audio binding is pending")

@@ -18,7 +18,6 @@ func _init() -> void:
 	await process_frame
 	main._skip_intro()
 	await process_frame
-	main.day_one_active = false
 	await _locked_case()
 	await _picker_case()
 	await _studio_room_case()
@@ -59,6 +58,32 @@ func _picker_case() -> void:
 	await _settle(8)
 	main._enter_castle_interior_now(false)
 	await _settle(8)
+	# Playroom is the third Day One room, so enter it through the same
+	# state-owner checkpoint as the real pool handoff. The old fixture jumped
+	# directly from a fresh bathroom checkpoint; the castle correctly rejected
+	# that locked door and left the rescue-card records empty before the first
+	# assertion. Seed only the already-completed prior rooms, never the stuffie
+	# rescue itself, so Baby Eagle and both pinning bunnies remain the live gate.
+	var director: DayOneDirector = main._day_one_ref()
+	director.restore_state({
+		"day_one_active": true,
+		"day_one_current_room": "stuffie",
+		"day_one_completed_rooms": ["bathroom", "pool"],
+		"day_one_cleaned_rooms": ["bathroom", "pool"],
+		"day_one_dirty_castle_discovered": true,
+		"day_one_bathroom_supply_hunt_step": 2,
+		"day_one_bathroom_tools_authorized": true,
+		"day_one_bathroom_cleanup_step": 3,
+		"day_one_pool_cleanup_step": 4,
+		"day_one_pool_rumi_met": true,
+		"day_one_pool_skimmer_mask": 0x3F,
+		"day_one_pool_waterfall_mask": 0x07,
+		"day_one_pool_seahorse_tugs": 8,
+	})
+	main._day_one_sync_castle_dressing()
+	main.stuffie_wins.erase("rescued_eagle")
+	main.stuffie_wins.erase("rescued_eagle_pin_left")
+	main.stuffie_wins.erase("rescued_eagle_pin_right")
 	var rooms: CastleRooms25D = main._castle_rooms_ref()
 	rooms.show_room("playroom", false)
 	await _settle(2)
@@ -164,6 +189,19 @@ func _picker_case() -> void:
 			"StuffieRescueTutorialPointer") != null
 		and main.companion_stage.find_children(
 			"StuffieCard_*", "Button", true, false).size() == 1)
+	var picker_back: Button = main.companion_stage.find_child(
+		"StuffiePickerBackButton", true, false) as Button
+	_ck("rescue picker keeps the familiar escapable back path",
+		picker_back != null and picker_back.visible and picker_back.disabled == false)
+	comp.close_picker()
+	_ck("closing before confirmation leaves a safe castle state",
+		main.companion_layer == null and main.companion_id == ""
+		and bool(main.g.get("stuffie_rescue_tutorial", false)))
+	rooms.show_room("playroom", false)
+	await _settle(3)
+	_ck("playroom re-entry reopens the unconfirmed adoption",
+		main.companion_layer != null and main.companion_pick_id == "eagle"
+		and main.companion_id == "")
 	comp._pick_color_slot(1)
 	await process_frame
 	_ck("Tutorial state advances from part to color",
@@ -183,6 +221,37 @@ func _picker_case() -> void:
 		main.companion_id == "eagle"
 		and main.companion_layer == null
 		and not main.g.has("stuffie_rescue_tutorial"))
+	var reward_card: Control = main.castle_companion_card
+	var reward_cards: Array[Node] = main.castle_room_item_visual_layer.find_children(
+		"CastleCompanionCard", "Control", true, false)
+	var reward_instance: int = reward_card.get_instance_id() \
+		if reward_card != null and is_instance_valid(reward_card) else -1
+	rooms._position_player_at_foot(Vector2(500.0, 560.0), false)
+	rooms._position_player_at_foot(Vector2(540.0, 570.0), false)
+	var card_is_reused: bool = reward_card != null \
+		and is_instance_valid(reward_card) \
+		and reward_card.get_instance_id() == reward_instance
+	var card_canvas_only: bool = reward_card != null \
+		and is_instance_valid(reward_card) \
+		and _all_canvas_children(reward_card)
+	_ck("confirmed friend has exactly one visible Canvas companion card",
+		reward_cards.size() == 1 and reward_card != null
+		and is_instance_valid(reward_card) and reward_card.visible
+		and String(reward_card.get_meta("companion_id", "")) == "eagle"
+		and String(reward_card.get_meta("source_asset_path", ""))
+			== "res://assets/book/baby_eagle.png"
+		and card_canvas_only)
+	_ck("castle companion card repositions without duplication",
+		card_is_reused and main.castle_room_item_visual_layer.find_children(
+			"CastleCompanionCard", "Control", true, false).size() == 1)
+	_ck("confirmed friend identity persists safely",
+		String(main.save_data.get("companion", "")) == "eagle"
+		and (main.save_data.get("companion_colors", []) as Array).size() == 3)
+	# The rescue/picker itself is a Day One story seam.  Everything after the
+	# confirmed adoption below is the reusable later-content companion wing, so
+	# cross the real progression boundary before returning to the reef.
+	main.day_one_active = false
+	main._day_one_ref().clear_day_one_routing()
 	rooms._exit_to_courtyard()
 	await _settle(6)
 	main._exit_level2_now()
@@ -675,3 +744,12 @@ func _touch_tap(index: int, pos: Vector2) -> void:
 	up.position = pos
 	up.pressed = false
 	main.touch_ui._unhandled_input(up)
+
+
+func _all_canvas_children(node: Node) -> bool:
+	if not node is CanvasItem:
+		return false
+	for child: Node in node.get_children():
+		if not _all_canvas_children(child):
+			return false
+	return true

@@ -1,0 +1,795 @@
+{
+  "schema": "day-one-regen-three-sets-motion-audit-v1",
+  "branch": "day1-regen-3sets-2026-09-04",
+  "commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+  "branch_tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/384abc966b92b27bd61a735319a7639ef68ac15b",
+  "comparison_release_tag": "day1-regen-motion-ref-2026-09-03",
+  "comparison_release_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-regen-motion-ref-2026-09-03",
+  "files_changed_from_release": [
+    "C01_S03_v1_handinhand_castle_REGEN.mp4",
+    "C05_S05_v1_sick_seahorse_plug_REGEN.mp4",
+    "C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4",
+    "C06_S04_v1_both_sources_pool_REGEN.mp4",
+    "C06_S05_v1_purification_fronts_REGEN.mp4",
+    "C06_S06_v1_violet_prelude_REGEN.mp4",
+    "C06_S08_v1_rumi_invitation_REGEN.mp4",
+    "C06_S09_v1_hug_complete_REGEN.mp4"
+  ],
+  "review_basis": "all 40 branch-exact files inspected at 24 fps against current runtime event logic, source visual packets, and the prior regeneration cards",
+  "claims": {
+    "motion_reference_review_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "unique_shots": 36,
+  "clip_files": 40,
+  "verdict_counts": {
+    "ACCEPT_MOTION_REFERENCE": 11,
+    "REGENERATE": 18,
+    "REPLACE_WITH_GAME_EVENT": 5,
+    "OMIT_SUPERSEDED_EVENT": 2
+  },
+  "remaining_regeneration_cards": 23,
+  "clips": [
+    {
+      "movie_id": "D1-C01",
+      "shot_id": "D1-C01-S02",
+      "filename": "C01_S02_v1_dock_handoffer_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C01_S02_v1_dock_handoffer_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–144",
+      "finding": "Daddy is already outside and offering at frame 0; the required plane exit, turn, and Roshan-from-doorway handoff never occur.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C01",
+      "shot_id": "D1-C01-S03",
+      "filename": "C01_S03_v1_handinhand_castle_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C01_S03_v1_handinhand_castle_REGEN.mp4",
+      "changed_from_comparison_release": true,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "ACCEPT_MOTION_REFERENCE",
+      "variant_disposition": "selected_motion_reference",
+      "weak_frames": "none blocking",
+      "finding": "The branch replacement now preserves the rope-railed dock/path start, rear-view paired travel, stable scale, four-tower castle approach, and closed-door stop.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C02",
+      "shot_id": "D1-C02-S03",
+      "filename": "C02_S03_v1_dirty_hall_evidence_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C02_S03_v1_dirty_hall_evidence_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–144",
+      "finding": "The broad hall tableau replaces the required low evidence close-up, invents multiple bunny bodies and readable EVIDENCE labels, and lets full-body Daddy/Roshan movement compete with the evidence.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C03",
+      "shot_id": "D1-C03-S02",
+      "filename": "C03_S02_v1_dirty_bathroom_threshold_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C03_S02_v1_dirty_bathroom_threshold_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–144 both variants",
+      "finding": "Neither variant establishes the doorway. One starts mid-room and ends seated by the sink; the other begins inside the bathtub and crosses the tub instead of the threshold.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C03",
+      "shot_id": "D1-C03-S02",
+      "filename": "C03_S02_v1_threshold_cross_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C03_S02_v1_threshold_cross_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–144 both variants",
+      "finding": "Neither variant establishes the doorway. One starts mid-room and ends seated by the sink; the other begins inside the bathtub and crosses the tub instead of the threshold.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C03",
+      "shot_id": "D1-C03-S03",
+      "filename": "C03_S03_v1_swimming_bunny_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C03_S03_v1_swimming_bunny_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–144",
+      "finding": "The swimmer is coherent, but Roshan is a black silhouette/substitute and the bunny mostly holds instead of paddling visibly.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C03",
+      "shot_id": "D1-C03-S04",
+      "filename": "C03_S04_v1_precontact_tools_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C03_S04_v1_precontact_tools_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–144 swimmer absent; 060–144 premature contact",
+      "finding": "The required swimmer disappears and Roshan advances into scrub-brush contact rather than stopping at the pre-contact seam.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C05",
+      "shot_id": "D1-C05-S04",
+      "filename": "C05_S04_v1_blocked_rainbow_source_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C05_S04_v1_blocked_rainbow_source_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–144",
+      "finding": "A clean empty pool becomes a bright rainbow doorway. The exact top waterfall source, dull blockage, olive-brown sludge, leaf, and wrapper are absent.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C05",
+      "shot_id": "D1-C05-S05",
+      "filename": "C05_S05_v1_sick_seahorse_plug_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C05_S05_v1_sick_seahorse_plug_REGEN.mp4",
+      "changed_from_comparison_release": true,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–144",
+      "finding": "The branch replacement clarifies the pink wrapper-and-weed plug, but the pool remains clean, Roshan is full-body from frame 0, and the wide two-shot never becomes the required dirty-state close-up.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C06",
+      "shot_id": "D1-C06-S03",
+      "filename": "C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4",
+      "changed_from_comparison_release": true,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–047 missing blocked start",
+      "finding": "The branch replacement improves downward debris travel, but begins with the rainbow waterfall already clean and flowing; the blocked cause and ignition beat are absent.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C06",
+      "shot_id": "D1-C06-S04",
+      "filename": "C06_S04_v1_both_sources_pool_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S04_v1_both_sources_pool_REGEN.mp4",
+      "changed_from_comparison_release": true,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "ACCEPT_MOTION_REFERENCE",
+      "variant_disposition": "selected_motion_reference",
+      "weak_frames": "none blocking",
+      "finding": "The branch replacement cleanly holds both fixed sources feeding the same giant pool with stable shared geometry.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C06",
+      "shot_id": "D1-C06-S05",
+      "filename": "C06_S05_v1_purification_fronts_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S05_v1_purification_fronts_REGEN.mp4",
+      "changed_from_comparison_release": true,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–144",
+      "finding": "The branch replacement begins with fully clean water and a decorative rainbow band; it never shows two clear-water fronts displacing murk from the fixed sources.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C06",
+      "shot_id": "D1-C06-S06",
+      "filename": "C06_S06_v1_violet_prelude_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S06_v1_violet_prelude_REGEN.mp4",
+      "changed_from_comparison_release": true,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–144; portal opens 072–144",
+      "finding": "The branch replacement washes the entire pool pink/violet from frame 0, then opens a large circular portal or hole instead of raising one contained underwater glow.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C06",
+      "shot_id": "D1-C06-S08",
+      "filename": "C06_S08_v1_rumi_invitation_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S08_v1_rumi_invitation_REGEN.mp4",
+      "changed_from_comparison_release": true,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "ACCEPT_MOTION_REFERENCE",
+      "variant_disposition": "selected_motion_reference",
+      "weak_frames": "none blocking",
+      "finding": "The branch replacement now gives Rumi a clear thanks-to-open-arms gesture while Roshan remains visibly separate through frame 144.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C06",
+      "shot_id": "D1-C06-S09",
+      "filename": "C06_S09_v1_hug_complete_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C06_S09_v1_hug_complete_REGEN.mp4",
+      "changed_from_comparison_release": true,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–144",
+      "finding": "The branch replacement starts already inside the embrace and holds it throughout, eliminating the required separate-body approach and single readable contact beat.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C07",
+      "shot_id": "D1-C07-S04",
+      "filename": "C07_S04_v1_swinging_bunny_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C07_S04_v1_swinging_bunny_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "OMIT_SUPERSEDED_EVENT",
+      "variant_disposition": "rejected_wrong_event_omit_from_cut",
+      "weak_frames": "000–144; detachment 108–144",
+      "finding": "No swinging-bunny event exists in gameplay, and the rendered bunny loses its support before landing on the floor.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C07",
+      "shot_id": "D1-C07-S05",
+      "filename": "C07_S05_v1_partial_wing_trail_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C07_S05_v1_partial_wing_trail_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "OMIT_SUPERSEDED_EVENT",
+      "variant_disposition": "rejected_wrong_event_omit_from_cut",
+      "weak_frames": "000–144; full reveal 048–144",
+      "finding": "Gameplay presents one visible Baby Eagle held by two pin bunnies; it does not hide the bird behind a partial-wing trail.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C07",
+      "shot_id": "D1-C07-S06",
+      "filename": "C07_S06_v1_pinned_baby_eagle_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C07_S06_v1_pinned_baby_eagle_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–144",
+      "finding": "One Eagle is present, but neither of the two required rescue-pin bunnies is visible and the bird becomes free/upright before player action.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C08",
+      "shot_id": "D1-C08-S02",
+      "filename": "C08_S02_v1_left_basket_ears_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C08_S02_v1_left_basket_ears_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REPLACE_WITH_GAME_EVENT",
+      "variant_disposition": "rejected_wrong_event_replace_with_game_event",
+      "weak_frames": "000–144",
+      "finding": "Basket warnings do not occur in gameplay; the bunny body is already outside the basket.",
+      "replacement_shot": "D1-C08-S01"
+    },
+    {
+      "movie_id": "D1-C08",
+      "shot_id": "D1-C08-S03",
+      "filename": "C08_S03_v1_right_basket_ears_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C08_S03_v1_right_basket_ears_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REPLACE_WITH_GAME_EVENT",
+      "variant_disposition": "rejected_wrong_event_replace_with_game_event",
+      "weak_frames": "000–144",
+      "finding": "The opposite-basket warning is also invented and exposes a full bunny rather than an ears-only cue.",
+      "replacement_shot": "D1-C08-S02"
+    },
+    {
+      "movie_id": "D1-C08",
+      "shot_id": "D1-C08-S04",
+      "filename": "C08_S04_v1_four_bunnies_emerge_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C08_S04_v1_four_bunnies_emerge_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REPLACE_WITH_GAME_EVENT",
+      "variant_disposition": "rejected_wrong_event_replace_with_game_event",
+      "weak_frames": "000–144; count failure 048–144",
+      "finding": "The game has two rescue pins, not four emerging basket bunnies; the rendered count also grows ambiguous beyond four.",
+      "replacement_shot": "D1-C08-S03"
+    },
+    {
+      "movie_id": "D1-C08",
+      "shot_id": "D1-C08-S06",
+      "filename": "C08_S06_v1_wing_blast_clean_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C08_S06_v1_wing_blast_clean_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REPLACE_WITH_GAME_EVENT",
+      "variant_disposition": "rejected_wrong_event_replace_with_game_event",
+      "weak_frames": "000–144",
+      "finding": "Baby Eagle never performs a wing-blast cleanup. Gameplay completes when Roshan clears the second pin.",
+      "replacement_shot": "D1-C08-S04"
+    },
+    {
+      "movie_id": "D1-C08",
+      "shot_id": "D1-C08-S07",
+      "filename": "C08_S07_v1_clean_endpoint_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C08_S07_v1_clean_endpoint_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REPLACE_WITH_GAME_EVENT",
+      "variant_disposition": "rejected_wrong_event_replace_with_game_event",
+      "weak_frames": "000–144; side-wall drift 048–144",
+      "finding": "The one-Eagle/four-bunny endpoint is not a game state and the room projection drifts into invented side-wall geometry.",
+      "replacement_shot": "D1-C08-S05"
+    },
+    {
+      "movie_id": "D1-C09",
+      "shot_id": "D1-C09-S04",
+      "filename": "C09_S04_v1_three_grime_cards_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C09_S04_v1_three_grime_cards_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "048–144",
+      "finding": "The Art Room front concept is close, but the left/right zones multiply into upright card groups instead of exactly one small lavender grime card at each of three fixed targets.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C09",
+      "shot_id": "D1-C09-S05",
+      "filename": "C09_S05_v1_precontact_brush_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C09_S05_v1_precontact_brush_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "ACCEPT_MOTION_REFERENCE",
+      "variant_disposition": "selected_motion_reference",
+      "weak_frames": "none blocking",
+      "finding": "The three-zone pre-contact beat, brush separation, and straight-on fixture order remain coherent.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C10",
+      "shot_id": "D1-C10-S02",
+      "filename": "C10_S02_v1_four_supplies_home_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C10_S02_v1_four_supplies_home_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–144",
+      "finding": "Supplies begin on/near the center desk and materialize at the right during the clip; ribbon and fixture topology also change.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C10",
+      "shot_id": "D1-C10-S03",
+      "filename": "C10_S03_v1_clean_art_room_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C10_S03_v1_clean_art_room_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–144",
+      "finding": "The opening crop omits the complete layout, the pullback is far greater than ten percent, and Roshan becomes too small for a child-readable endpoint.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C10",
+      "shot_id": "D1-C10-S05",
+      "filename": "C10_S05_v1_blank_desk_handgap_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C10_S05_v1_blank_desk_handgap_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "ACCEPT_MOTION_REFERENCE",
+      "variant_disposition": "selected_motion_reference",
+      "weak_frames": "none blocking",
+      "finding": "The blank rectangular desk, front fixture order, raised hand, and visible hand gap remain stable.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C11",
+      "shot_id": "D1-C11-S02",
+      "filename": "C11_S02_v1_boss_door_approach_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C11_S02_v1_boss_door_approach_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "ACCEPT_MOTION_REFERENCE",
+      "variant_disposition": "selected_motion_reference",
+      "weak_frames": "132–144 trim",
+      "finding": "Main Hall geometry, Roshan, closed door, and approach are coherent through frame 131; frames 132–144 let the hand reach the handle instead of stopping just before it.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C11",
+      "shot_id": "D1-C11-S03",
+      "filename": "C11_S03_v1_door_open_arena_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C11_S03_v1_door_open_arena_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "ACCEPT_MOTION_REFERENCE",
+      "variant_disposition": "selected_motion_reference",
+      "weak_frames": "none blocking",
+      "finding": "The door opens into the octagonal arena, Roshan stays at threshold, and the landing zone remains empty; exact predecessor-frame inheritance is unproven.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C11",
+      "shot_id": "D1-C11-S04",
+      "filename": "C11_S04_v1_grand_puff_lands_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C11_S04_v1_grand_puff_lands_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "006–071 impact/topology; 066–144 expression",
+      "finding": "A dark crater, oversized cloud, and pancake-flat squash destabilize Grand Puff; the recovered face remains menacing and the vulnerability sparkle does not read.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C12",
+      "shot_id": "D1-C12-S05",
+      "filename": "C12_S05_v1_post_friendship_vignette_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C12_S05_v1_post_friendship_vignette_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "ACCEPT_MOTION_REFERENCE",
+      "variant_disposition": "selected_motion_reference",
+      "weak_frames": "optional 108–144 trim",
+      "finding": "Arena topology and the one-Puff/one-rainbow-bunny count are coherent; the ending closes Grand Puff's mouth and does not prove exact C13 inheritance.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C13",
+      "shot_id": "D1-C13-S01",
+      "filename": "C13_S01_v1_roshan_cleaning_pass_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C13_S01_v1_roshan_cleaning_pass_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "ACCEPT_MOTION_REFERENCE",
+      "variant_disposition": "selected_motion_reference",
+      "weak_frames": "minor causal gap 000–031",
+      "finding": "Roshan's brush pass and identities are useful, though the initial residual dust is faint.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C13",
+      "shot_id": "D1-C13-S02",
+      "filename": "C13_S02_v1_daddy_broad_sweep_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C13_S02_v1_daddy_broad_sweep_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "ACCEPT_MOTION_REFERENCE",
+      "variant_disposition": "rejected_duplicate_variant",
+      "weak_frames": "minor causal gap 000–031 both",
+      "finding": "Both lack a strongly dirty opening shell; v2 has the cleaner composition and sustained Daddy sweep.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C13",
+      "shot_id": "D1-C13-S02",
+      "filename": "C13_S02_v2_daddy_broad_sweep_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C13_S02_v2_daddy_broad_sweep_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "ACCEPT_MOTION_REFERENCE",
+      "variant_disposition": "selected_motion_reference",
+      "weak_frames": "minor causal gap 000–031 both",
+      "finding": "Both lack a strongly dirty opening shell; v2 has the cleaner composition and sustained Daddy sweep.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C13",
+      "shot_id": "D1-C13-S03",
+      "filename": "C13_S03_v1_baby_eagle_wing_blast_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C13_S03_v1_baby_eagle_wing_blast_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "v1 048–144; v2 000–144",
+      "finding": "V1's cloud hides/collapses Grand Puff into a bowl; v2 preserves identity but supplies almost no visible dust lift.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C13",
+      "shot_id": "D1-C13-S03",
+      "filename": "C13_S03_v2_baby_eagle_wing_blast_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C13_S03_v2_baby_eagle_wing_blast_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "v1 048–144; v2 000–144",
+      "finding": "V1's cloud hides/collapses Grand Puff into a bowl; v2 preserves identity but supplies almost no visible dust lift.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C13",
+      "shot_id": "D1-C13-S04",
+      "filename": "C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "ACCEPT_MOTION_REFERENCE",
+      "variant_disposition": "selected_motion_reference",
+      "weak_frames": "v1 minor 032–144; v2 blocking 108–144",
+      "finding": "V1 provides the usable rinse despite a broad ribbon; v2 makes Grand Puff collapse/disappear into pearls.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C13",
+      "shot_id": "D1-C13-S04",
+      "filename": "C13_S04_v2_rumi_contained_rinse_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C13_S04_v2_rumi_contained_rinse_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "ACCEPT_MOTION_REFERENCE",
+      "variant_disposition": "rejected_duplicate_variant",
+      "weak_frames": "v1 minor 032–144; v2 blocking 108–144",
+      "finding": "V1 provides the usable rinse despite a broad ribbon; v2 makes Grand Puff collapse/disappear into pearls.",
+      "replacement_shot": null
+    },
+    {
+      "movie_id": "D1-C13",
+      "shot_id": "D1-C13-S05",
+      "filename": "C13_S05_v1_rainbow_bunny_emerges_REGEN.mp4",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C13_S05_v1_rainbow_bunny_emerges_REGEN.mp4",
+      "changed_from_comparison_release": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frame_rate": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.041667,
+      "shot_verdict": "REGENERATE",
+      "variant_disposition": "rejected_requires_regeneration",
+      "weak_frames": "000–047 cradle; 048–071 occlusion; identity 000–144",
+      "finding": "The floor cradle becomes a tall canopy/chair, multicolor smoke obscures emergence, and the bunny remains an unapproved identity stand-in.",
+      "replacement_shot": null
+    }
+  ]
+}

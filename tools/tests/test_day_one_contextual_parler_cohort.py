@@ -98,6 +98,62 @@ class ContextualCohortTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 cohort.append_license_rows(path, rows, digest)
 
+    def test_enrich_refreshes_catalog_hash_chain_and_license_rows(self):
+        with tempfile.TemporaryDirectory() as name:
+            root = Path(name)
+            runtime = root / "assets" / "audio" / "voices" / "filler_v1"
+            trials = root / "tmp" / "trials"
+            tools = root / "tools"
+            runtime.mkdir(parents=True)
+            trials.mkdir(parents=True)
+            tools.mkdir(parents=True)
+            for filename in ("make_parler_voice_trials.py", "select_filler_voices.py"):
+                (tools / filename).write_text("# test\n", encoding="utf-8")
+            catalog = self.make_catalog(root)
+            catalog_sha = cohort.sha256_file(catalog)
+            audio = runtime / "day1_test_cue.ogg"
+            audio.write_bytes(b"OGG-TEST")
+            audio_sha = cohort.sha256_file(audio)
+            entry = {
+                "key": "day1_test_cue", "contextual_cue_id": "day1_test_cue",
+                "selected_attempt": 1, "source_wav_sha256": "b" * 64,
+                "final_ogg_sha256": audio_sha,
+                "contextual_catalog_sha256": "a" * 64,
+            }
+            manifest = runtime / "FILLER_MANIFEST.json"
+            manifest.write_text(json.dumps({
+                "entries": [entry], "contextual_cohort_catalog_sha256": "a" * 64,
+            }), encoding="utf-8")
+            provenance = runtime / "DAY_ONE_CONTEXTUAL_COHORT_PROVENANCE.json"
+            provenance.write_text(json.dumps({
+                "catalog_sha256": "a" * 64, "cue_ids": ["day1_test_cue"],
+                "entries": [entry],
+            }), encoding="utf-8")
+            (trials / "trial_manifest.json").write_text(json.dumps([{
+                "key": "day1_test_cue", "attempt": 1, "raw_sha256": "b" * 64,
+                "description": "A bright child voice", "roshan_register_profile": "four_year_old",
+            }]), encoding="utf-8")
+            licenses = root / "ASSET_LICENSES.md"
+            licenses.write_text(
+                "# Licenses\n<!-- day-one-contextual-cohort:" + "a" * 64 + " -->\n"
+                "| clip | catalog SHA-256 `" + "a" * 64 + "` |\n",
+                encoding="utf-8")
+            with mock.patch.object(cohort, "ROOT", root), \
+                    mock.patch.object(cohort, "RUNTIME_DIR", runtime), \
+                    mock.patch.object(cohort, "TMP_DIR", root / "tmp"):
+                cohort.enrich_provenance(manifest, provenance, trials, catalog, licenses)
+            refreshed_manifest = json.loads(manifest.read_text(encoding="utf-8"))
+            refreshed_provenance = json.loads(provenance.read_text(encoding="utf-8"))
+            self.assertEqual(refreshed_manifest["contextual_cohort_catalog_sha256"], catalog_sha)
+            self.assertEqual(refreshed_manifest["entries"][0]["contextual_catalog_sha256"], catalog_sha)
+            self.assertEqual(refreshed_manifest["generation_attempt_count"], 1)
+            self.assertEqual(refreshed_manifest["generation_run_provenance_count"], 0)
+            self.assertIn("Highest globally assigned attempt index",
+                          refreshed_manifest["generation_attempt_scope"])
+            self.assertEqual(refreshed_provenance["catalog_sha256"], catalog_sha)
+            self.assertIn(catalog_sha, licenses.read_text(encoding="utf-8"))
+            self.assertNotIn("a" * 64, licenses.read_text(encoding="utf-8"))
+
     def test_append_master_preserves_existing_entries_and_audio_format(self):
         with tempfile.TemporaryDirectory() as name:
             root = Path(name)

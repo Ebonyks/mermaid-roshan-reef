@@ -1,0 +1,111 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C03",
+  "shot_id": "D1-C03-S03",
+  "title": "Swimming bunny in the dirty tub",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "dirty bathroom layout",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C03",
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "path": "handoff_art/location/room_bubble_bath_dirty_day_one.png",
+      "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/handoff_art/location/room_bubble_bath_dirty_day_one.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C03-S02 endpoint",
+      "source_authority_is_not_automatic_first_frame_approval": true,
+      "binding_alias": "location",
+      "local_path": "scenes/D1-C03/visuals/handoff_art/location/room_bubble_bath_dirty_day_one.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "swimming bunny identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C03",
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "path": "handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+      "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "swimming_bunny",
+      "local_path": "scenes/D1-C03/visuals/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "murky tub material",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C03",
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "path": "handoff_art/objects/target_tub_grime_v1.png",
+      "sha256": "52e8c42b0c044c1b5dba42681d7dfb5e34dc44b345e6535e9432df5f186ecb67",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c03_bathroom_dirty_entry_visual_v1/handoff_art/objects/target_tub_grime_v1.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "tub_grime",
+      "local_path": "scenes/D1-C03/visuals/handoff_art/objects/target_tub_grime_v1.png"
+    }
+  ],
+  "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+  "camera": {
+    "verb": "locked",
+    "move_count": 1
+  },
+  "must_move": "1.0-4.5 weak safe paddling",
+  "must_not_move": "tub geometry, sink, dirty water state, bunny anatomy, and Roshan edge position",
+  "end_state": "4.5-6.04 Roshan concern at edge",
+  "negative_constraints": "no duplicate bunny, land bunny, clean water, drowning terror, invented anatomy, room redesign, text, or HUD",
+  "sound_intent": "small paddles and a gentle worried pulse; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "9207ac69c066cdc86975e149c2e0033b2c90028b21ac6018b0a9b38d3e174d45",
+  "strict_audit_reason": "Original bunny discovery is materially better than SET3 silhouette take.",
+  "weak_frames": [
+    {
+      "filename": "C03_bunny_discover.mp4",
+      "lane": "original_branch",
+      "file_verdict": "KEEP_HIGH_QUALITY",
+      "weak_frames": "",
+      "finding": "Single coherent approved swimming bunny paddles safely in murky tub while Roshan reacts at edge; identity and room topology hold."
+    },
+    {
+      "filename": "C03_S03_v1_swimming_bunny_REGEN.mp4",
+      "lane": "committed_regen_audit",
+      "file_verdict": "REGENERATE",
+      "weak_frames": "000–144",
+      "finding": "The swimmer is coherent, but Roshan is a black silhouette/substitute and the bunny mostly holds instead of paddling visibly."
+    }
+  ],
+  "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+  "audited_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+  },
+  "blocking_findings": [],
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/day_one_bathroom_cleanup.gd",
+    "rule": "one dirty tub, one separate swimming bunny, an authorized tool basket, and two later live cleaning gestures"
+  },
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "strict_third_pass": true,
+    "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+    "reviewed_at": "2026-09-04"
+  }
+}

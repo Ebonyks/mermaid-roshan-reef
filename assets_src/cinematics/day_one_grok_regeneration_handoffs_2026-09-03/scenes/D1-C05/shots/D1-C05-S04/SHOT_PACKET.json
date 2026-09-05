@@ -1,0 +1,104 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C05",
+  "shot_id": "D1-C05-S04",
+  "title": "Blocked rainbow-source close-up",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "pool geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C05",
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "path": "handoff_art/location/room_mermaid_pool_background.png",
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c05_pool_dirty_discovery_visual_v1/handoff_art/location/room_mermaid_pool_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "approved clean close composition of the blocked top source",
+      "source_authority_is_not_automatic_first_frame_approval": true
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "clog material and fixture identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C05",
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "path": "handoff_art/objects/waterfall_clogged_turgid.png",
+      "sha256": "df7c3147bc8867612e9d59b4eb50771399341040ecd6305342dffe5ce4166589",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c05_pool_dirty_discovery_visual_v1/handoff_art/objects/waterfall_clogged_turgid.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "debris identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C05",
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "path": "handoff_art/objects/pool_algae_trash.png",
+      "sha256": "e0ed3c7174dcfeff17eb8261ee46d8e1d2a7c69e93a650f5495db4b6505c7ed9",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c05_pool_dirty_discovery_visual_v1/handoff_art/objects/pool_algae_trash.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "start_frame": "IMAGE_1 after the blocking shot-opening approval",
+  "camera": {
+    "verb": "subtle upward tilt",
+    "move_count": 1
+  },
+  "must_move": "camera reveals one fixed obstruction",
+  "must_not_move": "rainbow fixture, arch, source position, debris contact, and dirty grade",
+  "end_state": "the top source remains blocked, dull, and still",
+  "negative_constraints": "no clean water, bright rainbow, bottom-up motion, invented basin, relocated fixture, Roshan, seahorse, text, or HUD",
+  "sound_intent": "thick drip and blocked gurgle; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "460753e0a40c2f06b8f412f8744421987a0ec45136492c54003e96e236135c7d",
+  "source_clip_audit": [
+    {
+      "source_clip": "C05_S04_v1_blocked_rainbow_source_REGEN.mp4",
+      "source_clip_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C05_S04_v1_blocked_rainbow_source_REGEN.mp4",
+      "frame_rate": 24,
+      "reviewed_frame_domain": [
+        0,
+        144
+      ],
+      "observation": "branch frames 000–144: A clean empty pool becomes a bright rainbow doorway. The exact top waterfall source, dull blockage, olive-brown sludge, leaf, and wrapper are absent."
+    }
+  ],
+  "audited_clip_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/384abc966b92b27bd61a735319a7639ef68ac15b"
+  },
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/day_one_pool_cleanup.gd",
+    "rule": "the dirty pool begins with six surface targets, three waterfall lanes, and an eight-tug seahorse obstruction"
+  },
+  "blocking_findings": [
+    "IMAGE_1 is not yet bound to the required approved clean close composition of the blocked top source",
+    "Sol/human approval of the clean full-frame opening and predecessor continuity is still required"
+  ],
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "luna_parallel_audit": true,
+    "sol_master_review": true,
+    "reviewed_at": "2026-09-03",
+    "criteria": "loose rough-cut retention with strict geometry, identity, count, causality, and endpoint repair"
+  }
+}

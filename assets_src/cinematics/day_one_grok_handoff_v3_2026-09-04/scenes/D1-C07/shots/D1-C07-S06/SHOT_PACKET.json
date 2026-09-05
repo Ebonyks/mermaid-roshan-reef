@@ -1,0 +1,139 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C07",
+  "shot_id": "D1-C07-S06",
+  "title": "One Baby Eagle held by exactly two rescue pins",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "dirty Stuffie Room geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C07",
+      "source_packet": "d1_c07_stuffie_dirty_discovery_visual_v1",
+      "path": "handoff_art/location/room_playroom_background.png",
+      "sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c07_stuffie_dirty_discovery_visual_v1/handoff_art/location/room_playroom_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C07-S02 dirty-room entry endpoint, with the stale swinging/partial-wing S04–S05 beats omitted",
+      "source_authority_is_not_automatic_first_frame_approval": true,
+      "binding_alias": "location",
+      "local_path": "scenes/D1-C07/visuals/handoff_art/location/room_playroom_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C07",
+      "source_packet": "d1_c07_stuffie_dirty_discovery_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c07_stuffie_dirty_discovery_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "roshan",
+      "local_path": "scenes/D1-C07/visuals/handoff_art/characters/roshan_roshan_base.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "pinned Baby Eagle identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C07",
+      "source_packet": "d1_c07_stuffie_dirty_discovery_visual_v1",
+      "path": "handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+      "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c07_stuffie_dirty_discovery_visual_v1/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "baby_eagle_pinned",
+      "local_path": "scenes/D1-C07/visuals/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png"
+    },
+    {
+      "id": "IMAGE_4",
+      "job": "two rescue-pin identities",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C07",
+      "source_packet": "d1_c07_stuffie_dirty_discovery_visual_v1",
+      "path": "handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c07_stuffie_dirty_discovery_visual_v1/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "playroom_bunny",
+      "local_path": "scenes/D1-C07/visuals/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+    }
+  ],
+  "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+  "camera": {
+    "verb": "locked",
+    "move_count": 1
+  },
+  "must_move": "2.00–4.50 Roshan leans/raises toward the two pins; both bunnies remain visible and distinct.",
+  "must_not_move": "Baby Eagle position, two pin contacts, dirty room, clutter, floor landmarks, bodies, and cast count",
+  "end_state": "4.50–6.00 stop with one Eagle, two pin bunnies, stable contact, and no release before player action.",
+  "negative_constraints": "no missing pin, third bunny, basket, swing, partial-wing trail, release, cleanup, bird rise, duplicate body, injury, text, HUD, or camera drift",
+  "sound_intent": "small hopeful chirp and quiet resolve music; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "387d62622a00baa7ea60812d60fa7d83ce780365b96be5dbc131a7792664be9a",
+  "strict_audit_reason": "All originals omit the exact two visible rescue-pin bunnies and valid held Eagle state.",
+  "weak_frames": [
+    {
+      "filename": "C07_S06_v1_eagle_discover.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f000–f144 (0.000–6.000s)",
+      "finding": "Roshan discovers/holds a free Baby Eagle amid pillows, with no visible eagle_pin_left and eagle_pin_right; wrong cast/state for the two-pin event."
+    },
+    {
+      "filename": "C07_S06_v1_eagle_pinned.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f000–f144 (0.000–6.000s)",
+      "finding": "One Baby Eagle is visible, but the two distinct rescue-pin bunnies are absent/unclear and the bird is not visibly held by both pins."
+    },
+    {
+      "filename": "C07_S06_v2_eagle_pinned.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f000–f144 (0.000–6.000s)",
+      "finding": "Alternate still omits the exact two pin-bunny identities and readable two-pin contact; not a valid runtime endpoint."
+    },
+    {
+      "filename": "C07_S06_v1_pinned_baby_eagle_REGEN.mp4",
+      "lane": "committed_regen_audit",
+      "file_verdict": "REGENERATE",
+      "weak_frames": "000–144",
+      "finding": "One Eagle is present, but neither of the two required rescue-pin bunnies is visible and the bird becomes free/upright before player action."
+    }
+  ],
+  "source_packet": "d1_c07_stuffie_dirty_discovery_visual_v1",
+  "audited_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+  },
+  "blocking_findings": [],
+  "implemented_event_contract": {
+    "authority_path": "scripts/arena/castle_rooms_25d.gd",
+    "rule": "one Baby Eagle is visibly held by exactly two rescue pin bunnies; no swing or partial-wing hunt exists"
+  },
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "strict_third_pass": true,
+    "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+    "reviewed_at": "2026-09-04"
+  }
+}

@@ -240,7 +240,10 @@ func _expire_tap_window() -> void:
 	if not vulnerable:
 		return
 	_set_vulnerable(false)
-	play_angry()
+	# An expired tell is encouragement to watch the next hop, never an angry
+	# punishment beat. The boss keeps moving playfully and the round remains
+	# available through the normal mercy pacing.
+	play_jump()
 
 
 func play_angry() -> float:

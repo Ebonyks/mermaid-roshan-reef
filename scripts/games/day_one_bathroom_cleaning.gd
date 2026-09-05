@@ -22,11 +22,18 @@ const SINK_ARC_REQUIRED := TAU * 1.05
 const SINK_DISTANCE_REQUIRED := 520.0
 const TUB_DISTANCE_REQUIRED := 520.0
 const TUB_REVERSALS_REQUIRED := 2
-const SINK_MIN_GESTURE_SECONDS := 2.0
+const SINK_MIN_GESTURE_SECONDS := 1.5
 const SINK_MAX_GESTURE_SECONDS := 5.0
-const TUB_MIN_GESTURE_SECONDS := 2.0
+const TUB_MIN_GESTURE_SECONDS := 1.5
 const TUB_MAX_GESTURE_SECONDS := 5.0
 const DIRTY_OVERLAY_ALPHA := 0.72
+const MOTION_DECAY_GRACE_SECONDS := 3.0
+const FIRST_REPROMPT_SECONDS := 5.0
+const REPEAT_REPROMPT_SECONDS := 12.0
+const MAX_STAGE_REPROMPTS := 3
+const TOOL_TRAVEL_SECONDS := 0.22
+const SPONGE_RETURN_SECONDS := 0.32
+const POST_DRAIN_SECONDS := 0.20
 const SINK_TARGET_TEXTURE := "res://assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png"
 const TUB_TARGET_TEXTURE := "res://assets/castle/dirty_cleanup_2d/targets/target_bath_soap_ring.png"
 const SPONGE_TEXTURE := "res://assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png"
@@ -98,6 +105,7 @@ var _tub_direction: int = 0
 var _last_tub_x: float = 0.0
 var _valid_motion_seconds: float = 0.0
 var _motion_since_last_tick: bool = false
+var _motion_idle_seconds: float = 0.0
 var _busy: bool = false
 var _completion_sent: bool = false
 var _announcements_enabled: bool = true
@@ -107,7 +115,6 @@ var _pointer: Sprite2D = null
 var _sponge: Sprite2D = null
 var _target: Sprite2D = null
 var _swoosh: Sprite2D = null
-var _progress: ColorRect = null
 var _sink_grime: Sprite2D = null
 var _tub_grime: Sprite2D = null
 var _guide: GestureGuide = null
@@ -125,6 +132,14 @@ var _tub_drain_ready := false
 var _drain_reaction_active := false
 var _drain_reaction_count := 0
 var _drain_voice_sent := false
+var _input_finger_down: bool = false
+var _input_finger_id: int = -1
+var _buffered_press: bool = false
+var _buffered_position := Vector2.ZERO
+var _stage_idle_seconds: float = 0.0
+var _stage_reprompt_count: int = 0
+var _sink_visual_progress_max: float = 0.0
+var _tub_visual_progress_max: float = 0.0
 
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
@@ -139,6 +154,8 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	if not m.has_meta("day_one_bathroom_cleaning_completion_count"):
 		m.set_meta("day_one_bathroom_cleaning_completion_count", 0)
 	_step = clampi(m.day_one_bathroom_cleanup_step, 0, 3)
+	_stage_idle_seconds = 0.0
+	_stage_reprompt_count = 0
 	_tub_drained = m.day_one_bathroom_tub_drained or _step >= 2
 	_sponge_travel_complete = _step >= 1
 	_brush_travel_complete = _step >= 1
@@ -172,6 +189,7 @@ func audit_snapshot() -> Dictionary:
 		"tub_distance": _tub_distance,
 		"tub_reversals": _tub_reversals,
 		"valid_motion_seconds": _valid_motion_seconds,
+		"motion_idle_seconds": _motion_idle_seconds,
 		"sink_arc_required": SINK_ARC_REQUIRED,
 		"sink_distance_required": SINK_DISTANCE_REQUIRED,
 		"tub_distance_required": TUB_DISTANCE_REQUIRED,
@@ -196,6 +214,15 @@ func audit_snapshot() -> Dictionary:
 		"has_visual_pointer": _pointer != null,
 		"has_gesture_surface": _gesture_surface != null,
 		"tool_traveling": _tool_traveling,
+		"busy": _busy,
+		"active_gesture": _active_gesture,
+		"touch_down": _input_finger_down,
+		"touch_buffered": _buffered_press,
+		"stage_idle_seconds": _stage_idle_seconds,
+		"stage_reprompt_count": _stage_reprompt_count,
+		"first_reprompt_seconds": FIRST_REPROMPT_SECONDS,
+		"repeat_reprompt_seconds": REPEAT_REPROMPT_SECONDS,
+		"max_stage_reprompts": MAX_STAGE_REPROMPTS,
 		"sink_demo_active": _demo_active,
 		"demo_motion_mode": "circle" if _step == 0 else "back_and_forth"
 			if _step < 2 else "finale",
@@ -234,6 +261,10 @@ func audit_snapshot() -> Dictionary:
 		"sink_grime_visible": _sink_grime != null and _sink_grime.visible,
 		"tub_grime_visible": _tub_grime != null and _tub_grime.visible,
 		"grime_fade_progress": _grime_fade_progress(),
+		"sink_grime_alpha": _sink_grime.modulate.a
+			if _sink_grime != null and is_instance_valid(_sink_grime) else 0.0,
+		"tub_grime_alpha": _tub_grime.modulate.a
+			if _tub_grime != null and is_instance_valid(_tub_grime) else 0.0,
 		"sink_gesture_reachable": SINK_CENTER.x > 0.0 and SINK_CENTER.y > 0.0
 			and SINK_CENTER.x < StorybookUI.CANVAS_SIZE.x
 			and SINK_CENTER.y < StorybookUI.CANVAS_SIZE.y,
@@ -296,8 +327,8 @@ func probe_begin_gesture(at: Vector2) -> bool:
 	_last_angle = (at - SINK_CENTER).angle()
 	_last_tub_x = at.x
 	_tub_direction = 0
-	_valid_motion_seconds = 0.0
 	_motion_since_last_tick = false
+	_stage_idle_seconds = 0.0
 	_update_tool_from_gesture(at)
 	return true
 
@@ -305,14 +336,27 @@ func probe_begin_gesture(at: Vector2) -> bool:
 func probe_gesture_to(at: Vector2, motion_seconds: float = 0.0) -> bool:
 	if not _active_gesture or _busy:
 		return false
-	_consume_gesture(at)
-	if motion_seconds > 0.0:
+	var moved: bool = _consume_gesture(at)
+	if moved and motion_seconds > 0.0:
 		_valid_motion_seconds += motion_seconds
 	return true
 
 
 func probe_end_gesture() -> void:
 	_active_gesture = false
+	_motion_since_last_tick = false
+	_stage_idle_seconds = 0.0
+
+
+func probe_focus_lost() -> void:
+	_clear_touch_input()
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT \
+			or what == NOTIFICATION_APPLICATION_PAUSED \
+			or what == NOTIFICATION_WM_CLOSE_REQUEST:
+		_clear_touch_input()
 
 
 func probe_sink_circle(points: Array[Vector2], motion_seconds: float = 0.06) -> bool:
@@ -352,10 +396,32 @@ func probe_tap_tub_at(at: Vector2) -> bool:
 
 
 func _process(delta: float) -> void:
-	_pulse_time += maxf(delta, 0.0)
+	var safe_delta: float = maxf(delta, 0.0)
+	_pulse_time += safe_delta
 	if _active_gesture and _motion_since_last_tick:
-		_valid_motion_seconds += maxf(delta, 0.0)
+		_valid_motion_seconds += safe_delta
+		_motion_idle_seconds = 0.0
+	else:
+		var idle_before: float = _motion_idle_seconds
+		_motion_idle_seconds += safe_delta
+		if idle_before >= MOTION_DECAY_GRACE_SECONDS:
+			_valid_motion_seconds = maxf(0.0,
+				_valid_motion_seconds - safe_delta)
+		elif _motion_idle_seconds > MOTION_DECAY_GRACE_SECONDS:
+			_valid_motion_seconds = maxf(0.0,
+				_valid_motion_seconds - (_motion_idle_seconds
+				- MOTION_DECAY_GRACE_SECONDS))
 	_motion_since_last_tick = false
+	if _step < 2 and not _busy and not _active_gesture:
+		_stage_idle_seconds += safe_delta
+		var reminder_at: float = FIRST_REPROMPT_SECONDS \
+			if _stage_reprompt_count == 0 else REPEAT_REPROMPT_SECONDS
+		if _stage_reprompt_count < MAX_STAGE_REPROMPTS \
+				and _stage_idle_seconds >= reminder_at:
+			_stage_idle_seconds = 0.0
+			_stage_reprompt_count += 1
+			_announce_stage(false)
+			_pulse_pointer()
 	if _pointer != null and is_instance_valid(_pointer) \
 			and not _active_gesture and not _busy:
 		_pointer.rotation = sin(_pulse_time * 2.6) * 0.025
@@ -364,7 +430,6 @@ func _process(delta: float) -> void:
 		_sponge.rotation = sin(_pulse_time * 2.1) * 0.04
 	_update_demonstration_motion(delta)
 	_update_dirty_overlays()
-	_update_progress()
 
 
 func _update_demonstration_motion(delta: float) -> void:
@@ -446,48 +511,113 @@ func _make_sprite(path: String, at: Vector2, scale_factor: float, node_name: Str
 
 
 func _on_gesture_input(event: InputEvent) -> void:
-	if _busy or _step >= 2:
+	if _step >= 2:
 		return
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
 		if touch.pressed:
-			if _step == 1 and not _tub_drained:
-				probe_tap_tub_at(touch.position)
-			else:
-				probe_begin_gesture(touch.position)
+			_on_touch_down(touch.position, touch.index)
 		else:
-			probe_end_gesture()
+			_on_touch_up(touch.index)
 		get_viewport().set_input_as_handled()
 	elif event is InputEventScreenDrag:
-		probe_gesture_to((event as InputEventScreenDrag).position)
+		var drag := event as InputEventScreenDrag
+		_on_touch_move(drag.position, drag.index)
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseButton:
 		var button := event as InputEventMouseButton
 		if button.button_index == MOUSE_BUTTON_LEFT:
 			if button.pressed:
-				if _step == 1 and not _tub_drained:
-					probe_tap_tub_at(button.position)
-				else:
-					probe_begin_gesture(button.position)
+				_on_touch_down(button.position, 0)
 			else:
-				probe_end_gesture()
+				_on_touch_up(0)
 			get_viewport().set_input_as_handled()
-	elif event is InputEventMouseMotion and _active_gesture:
-		probe_gesture_to((event as InputEventMouseMotion).position)
-		get_viewport().set_input_as_handled()
+	elif event is InputEventMouseMotion:
+		var motion := event as InputEventMouseMotion
+		if (motion.button_mask & MOUSE_BUTTON_MASK_LEFT) != 0:
+			_on_touch_move(motion.position, 0)
+			get_viewport().set_input_as_handled()
 
 
-func _consume_gesture(at: Vector2) -> void:
+func _on_touch_down(at: Vector2, touch_id: int) -> void:
+	if _input_finger_down:
+		return
+	_input_finger_down = true
+	_input_finger_id = touch_id
+	_stage_idle_seconds = 0.0
+	if _busy:
+		_buffered_press = true
+		_buffered_position = at
+		return
+	if _step == 1 and not _tub_drained:
+		probe_tap_tub_at(at)
+	else:
+		probe_begin_gesture(at)
+
+
+func _on_touch_move(at: Vector2, touch_id: int) -> void:
+	if not _input_finger_down or touch_id != _input_finger_id:
+		return
+	_stage_idle_seconds = 0.0
+	if _busy:
+		if _buffered_press:
+			_buffered_position = at
+		return
+	probe_gesture_to(at)
+
+
+func _on_touch_up(touch_id: int) -> void:
+	if not _input_finger_down or touch_id != _input_finger_id:
+		return
+	_input_finger_down = false
+	_input_finger_id = -1
+	_buffered_press = false
+	_motion_since_last_tick = false
+	probe_end_gesture()
+
+
+func _clear_touch_input() -> void:
+	_input_finger_down = false
+	_input_finger_id = -1
+	_buffered_press = false
+	_active_gesture = false
+	_motion_since_last_tick = false
+
+
+func _start_buffered_gesture_if_held() -> void:
+	if not _buffered_press:
+		return
+	var at: Vector2 = _buffered_position
+	_buffered_press = false
+	if not _input_finger_down or _step >= 2:
+		return
+	if _step == 1 and not _tub_drained:
+		return
+	probe_begin_gesture(at)
+
+
+func _pulse_pointer() -> void:
+	if _pointer == null or not is_instance_valid(_pointer) or not _pointer.visible:
+		return
+	var pulse: Tween = _pointer.create_tween()
+	pulse.tween_property(_pointer, "modulate:a", 0.42, 0.16)
+	pulse.tween_property(_pointer, "modulate:a", 1.0, 0.22)
+
+
+func _consume_gesture(at: Vector2) -> bool:
+	var moved: bool = false
 	if _step == 0:
 		var previous_angle: float = _last_angle
 		var angle: float = (at - SINK_CENTER).angle()
 		var angle_delta: float = wrapf(angle - previous_angle, -PI, PI)
 		if at.distance_to(SINK_CENTER) <= SINK_RADIUS + GESTURE_BAND:
-			var moved: float = _last_point.distance_to(at)
+			var travel_distance: float = _last_point.distance_to(at)
 			_sink_arc += absf(angle_delta)
-			_sink_distance += moved
-			if moved > 1.0:
+			_sink_distance += travel_distance
+			if travel_distance > 1.0:
 				_motion_since_last_tick = true
+				_motion_idle_seconds = 0.0
+				moved = true
 			_update_tool_from_gesture(at)
 		_last_angle = angle
 		_last_point = at
@@ -498,11 +628,14 @@ func _consume_gesture(at: Vector2) -> void:
 	else:
 		var delta_x: float = at.x - _last_tub_x
 		var direction: int = 1 if delta_x > 0.0 else -1 if delta_x < 0.0 else 0
-		if absf(delta_x) > 2.0:
-			_tub_distance += absf(delta_x)
+		var movement_distance: float = _last_point.distance_to(at)
+		if movement_distance > 1.0:
+			_tub_distance += movement_distance
 			_motion_since_last_tick = true
+			_motion_idle_seconds = 0.0
+			moved = true
 			if direction != 0 and _tub_direction != 0 \
-					and direction != _tub_direction:
+					and direction != _tub_direction and absf(delta_x) > 1.0:
 				_tub_reversals += 1
 			_tub_direction = direction
 			_last_tub_x = at.x
@@ -512,6 +645,7 @@ func _consume_gesture(at: Vector2) -> void:
 				and _tub_reversals >= TUB_REVERSALS_REQUIRED \
 				and _valid_motion_seconds >= TUB_MIN_GESTURE_SECONDS:
 			_finish_tub()
+	return moved
 
 
 func _finish_sink() -> void:
@@ -538,7 +672,8 @@ func _finish_sink() -> void:
 	_sponge_travel_complete = true
 	_brush_travel_complete = false
 	var return_tween: Tween = _sponge.create_tween()
-	return_tween.tween_property(_sponge, "position", _basket_position, 0.32)
+	return_tween.tween_property(_sponge, "position", _basket_position,
+		SPONGE_RETURN_SECONDS)
 	return_tween.tween_callback(_begin_brush_tool_travel)
 
 
@@ -582,7 +717,8 @@ func _begin_sink_tool_travel() -> void:
 		_guide.set_mode("sink")
 		_guide.visible = false
 	var travel: Tween = _sponge.create_tween()
-	travel.tween_property(_sponge, "position", SINK_CENTER, 0.38)
+	travel.tween_property(_sponge, "position", SINK_CENTER,
+		TOOL_TRAVEL_SECONDS)
 	travel.tween_callback(_finish_sink_tool_travel)
 
 
@@ -599,6 +735,7 @@ func _finish_sink_tool_travel() -> void:
 		_pointer.position = SINK_CENTER + Vector2(0.0, -190.0)
 		_pointer.visible = true
 	_announce_stage()
+	_start_buffered_gesture_if_held()
 
 
 func _begin_brush_tool_travel() -> void:
@@ -616,7 +753,8 @@ func _begin_brush_tool_travel() -> void:
 	if _guide != null:
 		_guide.visible = false
 	var travel: Tween = _sponge.create_tween()
-	travel.tween_property(_sponge, "position", TUB_CENTER, 0.38)
+	travel.tween_property(_sponge, "position", TUB_CENTER,
+		TOOL_TRAVEL_SECONDS)
 	travel.tween_callback(_finish_brush_tool_travel)
 
 
@@ -629,6 +767,7 @@ func _finish_brush_tool_travel() -> void:
 	else:
 		_build_tub_drain_prompt()
 	_announce_stage()
+	_start_buffered_gesture_if_held()
 
 
 func _build_tub_drain_prompt() -> void:
@@ -668,8 +807,10 @@ func _begin_tub_drain_reaction() -> bool:
 		_sponge.set_meta("parked_on_tub_rim", false)
 		_sponge.visible = false
 	if _announcements_enabled and m != null:
-		_say_context("day1_bathroom_tub_safety",
-			"First, drain the dirty tub water!", "bathroom_tub_safety")
+		# The bunny's authored comic reaction is the sound here. A generic Wacky
+		# failure line mislabels a harmless splash as a failed objective and can
+		# truncate the next exact Roshan instruction.
+		m.show_msg("", "NO!", "")
 		_drain_voice_sent = true
 	if _bunny_swimmer != null and is_instance_valid(_bunny_swimmer) \
 			and _bunny_swimmer.play_comic_no():
@@ -691,7 +832,7 @@ func _on_bunny_drain_reaction_finished() -> void:
 	_say_context("day1_bathroom_tub_drain_complete", "The tub is draining!",
 		"day_one")
 	tub_drain_visual_started.emit()
-	get_tree().create_timer(0.36).timeout.connect(
+	get_tree().create_timer(POST_DRAIN_SECONDS).timeout.connect(
 		_finish_tub_drain_transition, CONNECT_ONE_SHOT)
 
 
@@ -699,6 +840,7 @@ func _finish_tub_drain_transition() -> void:
 	_busy = false
 	_build_tub_visuals()
 	_announce_stage()
+	_start_buffered_gesture_if_held()
 
 
 func _update_tool_from_gesture(at: Vector2) -> void:
@@ -808,7 +950,10 @@ func _emit_completion_once() -> void:
 	cleanup_completed.emit()
 
 
-func _announce_stage() -> void:
+func _announce_stage(reset_idle: bool = true) -> void:
+	if reset_idle:
+		_stage_idle_seconds = 0.0
+		_stage_reprompt_count = 0
 	if _demo_active or not _announcements_enabled or m == null or _step >= 2:
 		return
 	if _step == 0:
@@ -835,31 +980,22 @@ func _say_context(cue_id: String, caption: String,
 	return spoken
 
 
-func _update_progress() -> void:
-	if _progress == null or not is_instance_valid(_progress):
-		return
-	var ratio: float = 0.0
-	if _step == 0:
-		ratio = minf(1.0, minf(_sink_arc / SINK_ARC_REQUIRED,
-			minf(_sink_distance / SINK_DISTANCE_REQUIRED,
-				_valid_motion_seconds / SINK_MIN_GESTURE_SECONDS)))
-	elif _step == 1:
-		ratio = minf(1.0, minf(_tub_distance / TUB_DISTANCE_REQUIRED,
-			minf(float(_tub_reversals) / float(TUB_REVERSALS_REQUIRED),
-				_valid_motion_seconds / TUB_MIN_GESTURE_SECONDS)))
-	_progress.size.x = 860.0 * ratio
-
-
 func _update_dirty_overlays() -> void:
 	var sink_ratio: float = _gesture_ratio(0)
 	var tub_ratio: float = _gesture_ratio(1)
 	if _sink_grime != null and is_instance_valid(_sink_grime):
-		_sink_grime.visible = _step <= 0 and sink_ratio < 1.0
-		_sink_grime.modulate.a = DIRTY_OVERLAY_ALPHA * (1.0 - sink_ratio) \
+		# Keep unfinished grime visibly present until the actual gate completes;
+		# the visual can soften, but never claim completion early on a phone.
+		_sink_grime.visible = _step == 0
+		_sink_grime.modulate.a = DIRTY_OVERLAY_ALPHA * (1.0 \
+			- minf(sink_ratio, 0.92)) \
 			if _step <= 0 else 0.0
 	if _tub_grime != null and is_instance_valid(_tub_grime):
-		_tub_grime.visible = _step <= 1 and tub_ratio < 1.0
-		_tub_grime.modulate.a = DIRTY_OVERLAY_ALPHA * (1.0 - tub_ratio) \
+		# Tub grime remains visible while the sink is unfinished too; only the
+		# completed tub gate may remove the last unfinished room dressing.
+		_tub_grime.visible = _step <= 1
+		_tub_grime.modulate.a = DIRTY_OVERLAY_ALPHA * (1.0 \
+			- minf(tub_ratio, 0.92)) \
 			if _step <= 1 else 0.0
 
 
@@ -867,12 +1003,14 @@ func _gesture_ratio(stage: int) -> float:
 	if _step != stage:
 		return 1.0 if _step > stage else 0.0
 	if stage == 0:
-		return minf(1.0, minf(_sink_arc / SINK_ARC_REQUIRED,
-			minf(_sink_distance / SINK_DISTANCE_REQUIRED,
-				_valid_motion_seconds / SINK_MIN_GESTURE_SECONDS)))
-	return minf(1.0, minf(_tub_distance / TUB_DISTANCE_REQUIRED,
-		minf(float(_tub_reversals) / float(TUB_REVERSALS_REQUIRED),
-			_valid_motion_seconds / TUB_MIN_GESTURE_SECONDS)))
+		var sink_raw: float = minf(1.0, minf(_sink_arc / SINK_ARC_REQUIRED,
+			_sink_distance / SINK_DISTANCE_REQUIRED))
+		_sink_visual_progress_max = maxf(_sink_visual_progress_max, sink_raw)
+		return _sink_visual_progress_max
+	var tub_raw: float = minf(1.0, minf(_tub_distance / TUB_DISTANCE_REQUIRED,
+		float(_tub_reversals) / float(TUB_REVERSALS_REQUIRED)))
+	_tub_visual_progress_max = maxf(_tub_visual_progress_max, tub_raw)
+	return _tub_visual_progress_max
 
 
 func _grime_fade_progress() -> Dictionary:

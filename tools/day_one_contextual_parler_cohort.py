@@ -331,7 +331,8 @@ def master_append(catalog_path: Path, report_path: Path, trials: Path,
 
 
 def enrich_provenance(manifest_path: Path, provenance_path: Path,
-                      trials: Path) -> dict[str, Any]:
+                      trials: Path, catalog_path: Path = DEFAULT_CATALOG,
+                      license_path: Path = ROOT / "ASSET_LICENSES.md") -> dict[str, Any]:
     """Complete embedded contextual generation evidence without changing audio."""
     resolve_inside(trials, TMP_DIR)
     trial_manifest = trials / "trial_manifest.json"
@@ -348,6 +349,16 @@ def enrich_provenance(manifest_path: Path, provenance_path: Path,
                       str(item.get("raw_sha256", "")).lower())] = item
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
+    catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+    catalog_rows = catalog.get("rows", [])
+    catalog_cues = {str(row.get("cue_id", "")) for row in catalog_rows
+                    if isinstance(row, dict)}
+    provenance_cues = {str(value) for value in provenance.get("cue_ids", [])}
+    if catalog.get("speaker") != "roshan" or catalog.get("allow_generic") is not False:
+        raise ValueError("catalog is not the fail-closed Roshan contextual catalog")
+    if catalog_cues != provenance_cues:
+        raise ValueError("contextual catalog cue set does not match provenance")
+    catalog_sha = sha256_file(catalog_path)
     entries = manifest.get("entries", [])
     enriched: list[dict[str, Any]] = []
     for entry in entries:
@@ -361,6 +372,7 @@ def enrich_provenance(manifest_path: Path, provenance_path: Path,
             raise ValueError(f"contextual generation evidence missing for {cue_id}")
         entry["description"] = source.get("description")
         entry["roshan_register_profile"] = source.get("roshan_register_profile")
+        entry["contextual_catalog_sha256"] = catalog_sha
         if not entry["description"]:
             raise ValueError(f"contextual generation description missing for {cue_id}")
         audio_path = RUNTIME_DIR / f"{entry['key']}.ogg"
@@ -370,6 +382,8 @@ def enrich_provenance(manifest_path: Path, provenance_path: Path,
     if len(enriched) != len(provenance.get("cue_ids", [])):
         raise ValueError("contextual provenance cue count mismatch")
     provenance["entries"] = enriched
+    provenance["catalog"] = portable_path(catalog_path)
+    provenance["catalog_sha256"] = catalog_sha
     provenance["trial_manifest_sha256"] = sha256_file(trial_manifest)
     provenance["generator_sha256"] = normalized_text_sha256(
         ROOT / "tools" / "make_parler_voice_trials.py")
@@ -379,7 +393,18 @@ def enrich_provenance(manifest_path: Path, provenance_path: Path,
     staged_provenance = provenance_path.with_suffix(".json.tmp")
     write_json(staged_provenance, provenance)
     manifest["contextual_cohort_provenance_path"] = portable_path(provenance_path)
+    manifest["contextual_cohort_catalog_sha256"] = catalog_sha
     manifest["contextual_cohort_provenance_sha256"] = sha256_file(staged_provenance)
+    selected_attempts = [int(entry.get("selected_attempt", 0))
+                         for entry in entries if isinstance(entry, dict)]
+    manifest["generation_attempt_count"] = max(selected_attempts, default=0)
+    manifest["generation_run_provenance_count"] = len(
+        manifest.get("generation_run_provenance", {}))
+    manifest["generation_attempt_scope"] = (
+        "Highest globally assigned attempt index. Base generation attempts are "
+        "recorded in generation_run_provenance; the contextual cohort keeps its "
+        "per-entry attempt evidence in DAY_ONE_CONTEXTUAL_COHORT_PROVENANCE.json."
+    )
     pipeline = manifest.get("pipeline_script_sha256")
     if isinstance(pipeline, dict):
         for rel in ("tools/make_parler_voice_trials.py", "tools/select_filler_voices.py"):
@@ -392,6 +417,16 @@ def enrich_provenance(manifest_path: Path, provenance_path: Path,
     write_json(staged_manifest, manifest)
     os.replace(staged_provenance, provenance_path)
     os.replace(staged_manifest, manifest_path)
+    license_text = license_path.read_text(encoding="utf-8")
+    marker_match = re.search(
+        r"<!-- day-one-contextual-cohort:([0-9a-f]{64}) -->", license_text)
+    if marker_match is None:
+        raise ValueError("contextual cohort marker is missing from asset licenses")
+    previous_sha = marker_match.group(1)
+    cohort_start = marker_match.start()
+    license_text = (license_text[:cohort_start]
+                    + license_text[cohort_start:].replace(previous_sha, catalog_sha))
+    license_path.write_text(license_text, encoding="utf-8")
     return {"status": "CONTEXTUAL_PROVENANCE_ENRICHED", "cue_count": len(enriched)}
 
 
@@ -422,6 +457,8 @@ def main() -> int:
     enrich.add_argument("--provenance", type=Path,
                         default=RUNTIME_DIR / "DAY_ONE_CONTEXTUAL_COHORT_PROVENANCE.json")
     enrich.add_argument("--trials", type=Path, default=DEFAULT_TRIALS)
+    enrich.add_argument("--catalog", type=Path, default=DEFAULT_CATALOG)
+    enrich.add_argument("--licenses", type=Path, default=ROOT / "ASSET_LICENSES.md")
     args = parser.parse_args()
     try:
         if args.command == "plan":
@@ -434,7 +471,8 @@ def main() -> int:
             return run_generation(args.catalog, args.trials, args.takes_per_cue,
                                   args.attempt, args.roshan_register_profile)
         if args.command == "enrich":
-            result = enrich_provenance(args.manifest, args.provenance, args.trials)
+            result = enrich_provenance(args.manifest, args.provenance, args.trials,
+                                       args.catalog, args.licenses)
             print(f"DAY_ONE_CONTEXTUAL|{result['status']}|{result['cue_count']} cues")
             return 0
         result = master_append(args.catalog, args.report, args.trials, args.out,

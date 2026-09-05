@@ -47,6 +47,7 @@ var _basket_position := BASKET_ANCHOR
 var _taps: int = 0
 var _active := false
 var _completed := false
+var _completed_emitted := false
 var _completion_started := false
 var _touch_active := false
 var _touch_id := -1
@@ -78,6 +79,7 @@ func setup(new_fixture_center: Vector2, new_fixture_size: Vector2,
 	_taps = clampi(initial_taps, 0, TAP_TOTAL)
 	_active = false
 	_completed = _taps >= TAP_TOTAL
+	_completed_emitted = false
 	_completion_started = false
 	_touch_active = false
 	_touch_id = -1
@@ -101,7 +103,9 @@ func start() -> void:
 	_active = true
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	set_process(true)
-	if _taps >= TAP_TOTAL and not _completed:
+	if _completed:
+		_emit_completed_once()
+	elif _taps >= TAP_TOTAL:
 		_start_completion_flight()
 	queue_redraw()
 
@@ -283,8 +287,15 @@ func _finish_completion() -> void:
 	if _seahorse != null and is_instance_valid(_seahorse):
 		_seahorse.visible = false
 	_spawn_rescue_bubbles()
-	completed.emit()
+	_emit_completed_once()
 	queue_redraw()
+
+
+func _emit_completed_once() -> void:
+	if _completed_emitted:
+		return
+	_completed_emitted = true
+	completed.emit()
 
 
 func _build_activity_art() -> void:

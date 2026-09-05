@@ -6,14 +6,22 @@ extends RefCounted
 const SPLASH_TEXTURE: Texture2D = preload("res://assets/ui/boot_splash_mermaid_roshan.png")
 const LETTERBOX_COLOR := Color("188ed6")
 const DAY_ONE_AFTER_RESET_META: StringName = &"mermaid_start_day_one_after_reset"
+const NEW_GAME_HOLD_SECONDS := 0.8
+const NEW_GAME_ARM_DELAY_SECONDS := 1.5
+const ARCHIVE_RESTORE_HOLD_SECONDS := 3.0
 
 var m: ReefMain
 var _continue_button: Button = null
 var _options_root: Control = null
 var _confirm_root: Control = null
+var _options_button: Button = null
+var _new_game_button: Button = null
 var _music_button: Button = null
 var _quality_button: Button = null
 var _mic_button: Button = null
+var _new_game_hold_serial: int = 0
+var _archive_restore_hold_serial: int = 0
+var _archive_restore_triggered: bool = false
 
 
 static func continue_day_one_mode(save_data: Dictionary) -> bool:
@@ -74,24 +82,28 @@ func build() -> void:
 	StorybookUI.adorn_panel(stage, launch_rect, "StartMenu")
 
 	_continue_button = _menu_button(
-		stage, "StartMenuContinueButton", "▶  CONTINUE", Rect2(290, 548, 340, 118), "primary")
+		stage, "StartMenuContinueButton", "▶  CONTINUE", Rect2(290, 548, 340, 118),
+		"gold" if m.has_saved_game else "primary")
 	_continue_button.disabled = not m.has_saved_game
 	_continue_button.tooltip_text = "Continue the saved adventure"
 	_continue_button.pressed.connect(_continue_game)
-	var new_game := _menu_button(
-		stage, "StartMenuNewGameButton", "★  NEW GAME", Rect2(650, 548, 340, 118), "gold")
-	new_game.tooltip_text = "Start a new adventure"
-	new_game.pressed.connect(_request_new_game)
+	_new_game_button = _menu_button(
+		stage, "StartMenuNewGameButton", "★  NEW GAME", Rect2(650, 548, 340, 118),
+		"secondary" if m.has_saved_game else "gold")
+	_new_game_button.tooltip_text = "Start a new adventure"
+	_new_game_button.pressed.connect(_request_new_game)
 
-	var options := _menu_button(
+	_options_button = _menu_button(
 		stage, "StartMenuOptionsTab", "⚙  OPTIONS", Rect2(1044, 594, 210, 104), "secondary", 25)
-	options.tooltip_text = "Options"
-	options.pressed.connect(_toggle_options)
+	_options_button.tooltip_text = "Options (hold for grown-up restore)"
+	_options_button.pressed.connect(_toggle_options)
+	_options_button.button_down.connect(_begin_archive_restore_hold)
+	_options_button.button_up.connect(_cancel_archive_restore_hold)
 	_build_options(stage)
 	_build_new_game_confirmation(stage)
 	# Focus is deferred one frame so a launch key/button cannot activate the
 	# newly focused choice on the same press that started the game.
-	var initial_focus: Button = new_game if not m.has_saved_game else _continue_button
+	var initial_focus: Button = _new_game_button if not m.has_saved_game else _continue_button
 	m.get_tree().process_frame.connect(initial_focus.grab_focus, CONNECT_ONE_SHOT)
 
 func _menu_button(
@@ -233,11 +245,28 @@ func _build_new_game_confirmation(stage: Control) -> void:
 	note.max_lines_visible = 3
 	_confirm_root.add_child(note)
 	var keep := _menu_button(
-		_confirm_root, "StartMenuKeepGameButton", "↩  KEEP GAME", Rect2(320, 420, 300, 118), "primary", 30)
+		_confirm_root, "StartMenuKeepGameButton", "↩  KEEP GAME", Rect2(320, 420, 300, 118), "gold", 30)
 	keep.pressed.connect(_cancel_new_game)
 	var start := _menu_button(
-		_confirm_root, "StartMenuConfirmNewGameButton", "★  START NEW", Rect2(660, 420, 300, 118), "gold", 30)
-	start.pressed.connect(_perform_new_game)
+		_confirm_root, "StartMenuConfirmNewGameButton", "★  START NEW", Rect2(660, 420, 300, 118), "secondary", 30)
+	start.set_meta("hold_to_confirm_seconds", NEW_GAME_HOLD_SECONDS)
+	start.button_down.connect(_begin_new_game_hold.bind(start))
+	start.button_up.connect(_cancel_new_game_hold)
+	var hand := Sprite2D.new()
+	hand.name = "StartMenuKeepGameGhostHand"
+	hand.texture = load("res://assets/castle/training/ghost_hand.png") as Texture2D
+	hand.position = Vector2(606.0, 400.0)
+	hand.scale = Vector2.ONE * 0.14
+	hand.z_index = 2
+	hand.set_meta("visual_pointer", true)
+	hand.set_meta("target_on_screen", true)
+	hand.set_meta("actionable_target", true)
+	_confirm_root.add_child(hand)
+	var hand_tween: Tween = hand.create_tween().set_loops()
+	hand_tween.tween_property(hand, "position:y", 414.0, 0.42) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	hand_tween.tween_property(hand, "position:y", 400.0, 0.42) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _continue_game() -> void:
 	if not m.has_saved_game:
@@ -264,11 +293,18 @@ func _request_new_game() -> void:
 		return
 	_close_options()
 	_confirm_root.visible = true
-	var confirm := _confirm_root.get_node_or_null("StartMenuConfirmNewGameButton") as Button
-	if confirm != null:
-		confirm.grab_focus()
+	_new_game_hold_serial += 1
+	var keep := _confirm_root.get_node_or_null("StartMenuKeepGameButton") as Button
+	var start := _confirm_root.get_node_or_null("StartMenuConfirmNewGameButton") as Button
+	if start != null:
+		start.disabled = true
+		_arm_new_game_button(start)
+	if keep != null:
+		keep.grab_focus()
+	m._say("roshan", "roshan_day1_keep_game", 0.5)
 
 func _cancel_new_game() -> void:
+	_cancel_new_game_hold()
 	_confirm_root.visible = false
 	if _continue_button != null:
 		_continue_button.grab_focus()
@@ -279,7 +315,53 @@ func _perform_new_game() -> void:
 	m.get_tree().root.set_meta(DAY_ONE_AFTER_RESET_META, true)
 	m.get_tree().call_deferred("reload_current_scene")
 
+func _arm_new_game_button(button: Button) -> void:
+	var serial: int = _new_game_hold_serial
+	await m.get_tree().create_timer(NEW_GAME_ARM_DELAY_SECONDS).timeout
+	if serial != _new_game_hold_serial or not is_instance_valid(button):
+		return
+	button.disabled = false
+
+func _begin_new_game_hold(button: Button) -> void:
+	if button.disabled:
+		return
+	_new_game_hold_serial += 1
+	var serial: int = _new_game_hold_serial
+	_run_new_game_hold(button, serial)
+
+
+func _run_new_game_hold(button: Button, serial: int) -> void:
+	# Awaiting a timer keeps a lifted finger from reaching the destructive
+	# action: button_up increments the serial and invalidates this run.
+	await m.get_tree().create_timer(NEW_GAME_HOLD_SECONDS).timeout
+	if serial == _new_game_hold_serial and _confirm_root.visible \
+			and is_instance_valid(button) and not button.disabled:
+		_perform_new_game()
+
+
+func _cancel_new_game_hold() -> void:
+	_new_game_hold_serial += 1
+
+func _begin_archive_restore_hold() -> void:
+	_archive_restore_hold_serial += 1
+	var serial: int = _archive_restore_hold_serial
+	_wait_archive_restore_hold(serial)
+
+func _wait_archive_restore_hold(serial: int) -> void:
+	await m.get_tree().create_timer(ARCHIVE_RESTORE_HOLD_SECONDS).timeout
+	if serial != _archive_restore_hold_serial or not m.has_saved_game:
+		return
+	if m._restore_new_game_archive():
+		_archive_restore_triggered = true
+		_dismiss_menu()
+		m.get_tree().call_deferred("reload_current_scene")
+
+func _cancel_archive_restore_hold() -> void:
+	_archive_restore_hold_serial += 1
+
 func _toggle_options() -> void:
+	if _archive_restore_triggered or _options_root == null:
+		return
 	if _options_root.visible:
 		_close_options()
 		return

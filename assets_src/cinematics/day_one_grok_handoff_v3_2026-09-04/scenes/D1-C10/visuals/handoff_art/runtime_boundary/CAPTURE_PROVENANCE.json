@@ -1,0 +1,20 @@
+{
+  "schema": "runtime-boundary-capture-provenance-v1",
+  "capture_date": "2026-09-02",
+  "engine": "Godot 4.7.2-stable official ed1daf0bf",
+  "renderer": "Forward Mobile",
+  "capture_profile": "Windows desktop reference capture; target-device and owner visual review pending",
+  "source_script": "scripts/probe_day_one_art_studio_shots.gd",
+  "source_script_sha256": "5fc920e65a93a57a1d22b2486ed22a5b4bc341a7dffbe1a5f2b95b95e73c3c42",
+  "capture_command": "Godot_v4.7.2-stable_win64_console.exe --display-driver windows --rendering-method mobile --windowed --resolution 1280x720 --position 10000,10000 -s scripts/probe_day_one_art_studio_shots.gd",
+  "crop_transform": "whole-frame runtime viewport region crop 1080x608 at x=0,y=620, then whole-canvas Lanczos normalization to 1280x720",
+  "files": [
+    {"path": "01_grime_revealed.png", "sha256": "ad7931b71bf879fa09fba1f65401cf8855b8693b3a90b4bd2ac62087fa4b30d8", "state": "post-collection three-grime reveal"},
+    {"path": "02_last_grime.png", "sha256": "4af29498709b94780b733b04847dd527c759795a1d1f1e84028a80830c89c5b2", "state": "only right-counter grime remains"},
+    {"path": "03_glowing_desk.png", "sha256": "801c09772d8d1e5e55686dc345b38d2851ca38adeed558e866ccbab0b2114a3f", "state": "clean room and glowing desk"},
+    {"path": "04_customizer_bubbles.png", "sha256": "033b45731decd179f04d99f93e768915bb7252d699333ce32aeb3e988688c1e0", "state": "post-seam bubbles UI negative"},
+    {"path": "05_customizer_splashes.png", "sha256": "c6d97aee6b50faefeaec5c0bd843effa4cd792e98624986bd135073f97e05d7", "state": "post-seam splashes UI negative"},
+    {"path": "06_splash_attack_frame.png", "sha256": "254521fefc64cb59be6cff0bfc2dfc5d712d213cfb69f04b55dc5d9fe4f3773", "state": "post-seam attack FX negative"}
+  ],
+  "disposition": {"role": "runtime_boundary_reference_only", "hud_present": true, "appearance_authority": false, "bound_reference_eligible": false, "used_as_delivery_pixels": false}
+}
