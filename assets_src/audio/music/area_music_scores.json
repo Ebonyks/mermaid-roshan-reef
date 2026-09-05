@@ -276,6 +276,14 @@
       "progression": [0, 3, 0, 4, 5, 3, 4, 0], "melody": [0, 2, 4, 2, 5, 4, 3, 1, 0, 3, 5, 4], "motif_treatment": "hug_hoedown", "energy": 0.66
     },
     {
+      "id": "dustboss", "title": "Grand Puff Holds His Breath", "family": "combat", "area": "Grand Puff Battle",
+      "brief": "Playful marimba footsteps and warm toy brass stop for a long held breath; three rising pearl bells count toward one huge friendly bonk downbeat exactly when Grand Puff opens.",
+      "bpm": 120, "meter": [4, 4], "bars": 16, "tonic_midi": 62, "mode": "mixolydian", "texture": "boss", "percussion": "soft_combat",
+      "instruments": {"lead": "marimba", "harmony": "warm_brass", "bass": "warm_bass", "accent": "bell"},
+      "progression": [0, 3, 4, 0, 5, 3, 1, 4], "melody": [0, 2, 4, 5, null, 4, 2, 1, 3, 5, 6, 4], "motif_treatment": "puff_pause_and_bonk", "energy": 0.72,
+      "adaptive_markers": {"prowl_beat": 0.0, "anticipation_start_beat": 10.0, "action_beat": 16.0}
+    },
+    {
       "id": "picture_snowman", "title": "Roll a Round Snow Friend", "family": "picture_game", "area": "Snowman Picture Game",
       "brief": "Cheery rolling 6/8 with bell snowflakes and clarinet circles; phrases grow from small to large like the three safe snowballs.",
       "bpm": 104, "meter": [6, 8], "bars": 8, "tonic_midi": 62, "mode": "major", "texture": "bounce", "percussion": "sleigh",
