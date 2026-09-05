@@ -41,6 +41,27 @@ func _ck(label: String, ok: bool) -> void:
 func _screen_pos_of(arena: CombatArena, enemy: Dictionary) -> Vector2:
 	return arena.cam.unproject_position(arena.he.aim_point(enemy))
 
+func _earn_pepper_opening(arena: CombatArena) -> bool:
+	# Exercise the shared host contract: each tell captures Roshan, movement
+	# reaches its real safe point, and impact is resolved only after strike.
+	for _step in range(12):
+		match arena.boss_encounter.state:
+			BossEncounter2D.State.TELL:
+				var safe: Vector2 = arena.boss_encounter.patterns.readout().get(
+					"safe_point", Vector2.ZERO) as Vector2
+				arena._set_pepper_player_2d(safe)
+				arena.boss_encounter.patterns.tick(20.0)
+				arena._tick_boss(0.01)
+			BossEncounter2D.State.STRIKE:
+				arena._tick_boss(1.0)
+			BossEncounter2D.State.COUNTER_READY:
+				arena._tick_boss(0.01)
+			BossEncounter2D.State.OPENING:
+				return true
+			_:
+				return false
+	return arena.boss_encounter.state == BossEncounter2D.State.OPENING
+
 func _tap_ice_case() -> void:
 	main.game = "galaxy"
 	main._start_combat("ice")
@@ -108,9 +129,12 @@ func _tap_boss_case() -> void:
 	boss["phase"] = "shell"
 	main._on_touch_world(_screen_pos_of(arena, boss))
 	_ck("shell phase still blocks a tap", int(boss["hp"]) == hp_before)
-	boss["phase"] = "peek"
+	_ck("movement through the shared attack earns the peek",
+		_earn_pepper_opening(arena) and String(boss["phase"]) == "peek")
 	main._on_touch_world(_screen_pos_of(arena, boss))
-	_ck("peeking boss takes tap damage", int(boss["hp"]) == hp_before - 1)
+	_ck("peeking boss takes one HitEngine tap phase",
+		int(boss["hp"]) == hp_before - 1
+		and arena.boss_encounter.completed_rounds == 1)
 	arena.cancel(true)
 	await process_frame
 	_ck("engine unregisters after cancel", main.hit_engines.is_empty())

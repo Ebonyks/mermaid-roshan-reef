@@ -67,7 +67,7 @@ func _init() -> void:
 			if expected == 3:
 				await _exercise_dust_bunnies(dungeon.arena)
 			elif expected == 9:
-				_exercise_finale(dungeon.arena)
+				await _exercise_finale(dungeon.arena)
 			else:
 				_clear_combat(dungeon)
 		if expected < DungeonLevel.ROOMS.size() - 1:
@@ -127,6 +127,7 @@ func _exercise_finale(arena: CombatArena) -> void:
 	arena._hit_boss("fire")
 	_ck("fire cannot skip frozen-shell lesson", int(arena.boss["hp"]) == hp and String(arena.boss["phase"]) == "shell")
 	for cycle in range(hp):
+		await _earn_counter(arena)
 		arena._hit_boss("ice")
 		_ck("cycle %d changes action to fire" % (cycle + 1), arena.action_label() == "FIRE")
 		arena._hit_boss("fire")
@@ -135,6 +136,28 @@ func _exercise_finale(arena: CombatArena) -> void:
 	_ck("dual-element finale resolves", arena.state == "won")
 	_ck("combat materials are reused", arena._mat(Color.WHITE) == arena._mat(Color.WHITE))
 	arena.win_t = 0.0
+
+func _earn_counter(arena: CombatArena) -> void:
+	var guard := 0
+	while arena.state == "play" and arena.boss_encounter.state \
+			!= BossEncounter2D.State.COUNTER_READY and guard < 20:
+		guard += 1
+		if arena.boss_encounter.state == BossEncounter2D.State.TELL:
+			var safe: Vector2 = arena.boss_encounter.patterns.readout().get(
+				"safe_point", Vector2.ZERO) as Vector2
+			arena._set_pepper_player_2d(safe)
+			arena.boss_encounter.patterns.tick(20.0)
+			arena._tick_boss(0.01)
+		elif arena.boss_encounter.state == BossEncounter2D.State.STRIKE:
+			arena._tick_boss(1.0)
+		elif arena.boss_encounter.state in [BossEncounter2D.State.RECOVERY,
+				BossEncounter2D.State.CELEBRATE]:
+			arena.boss_recovery_t = 0.0
+			arena._tick_boss(0.01)
+		else:
+			await process_frame
+	_ck("movement earns the flashing-head counter", arena.boss_encounter.state \
+		== BossEncounter2D.State.COUNTER_READY)
 
 
 func _exercise_dust_bunnies(arena: CombatArena) -> void:

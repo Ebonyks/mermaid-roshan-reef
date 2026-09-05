@@ -288,8 +288,11 @@ Every step's rollback is `git revert` of a behavior-identical branch.
 
 ## 9. Owner review points
 
-Reserved for explicit confirmation; the recommended default ships unless
-overruled:
+Reserved for explicit owner confirmation unless a later dated decision is
+linked for the exact item. These recommendations are not permission inferred
+from silence. Check for an existing answer before asking; continue independent
+authorized work while a material answer is pending. The 2026-09-05 chapter
+delegation does not itself settle these architecture choices.
 
 1. **Ephemeral-state law** (§4.5): confirm that mode instances own their
    dying state — the codified version of what standalone nodes already do.

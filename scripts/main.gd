@@ -11839,7 +11839,6 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_color = Color(0.86, 0.80, 0.98)
 		arena_env.ambient_light_energy = 0.60
 		arena_env.glow_bloom = 0.07
-		_arena_floor(Color(0.80, 0.72, 0.66), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	elif kind == "seek":         # sunny meadow
 		grade_profile = "bright_pastel"
 		arena_env.background_color = Color(0.30, 0.58, 0.78)

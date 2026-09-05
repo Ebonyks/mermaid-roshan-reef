@@ -46,6 +46,18 @@ func open(cfg: Dictionary) -> void:
 	m.game_nodes.append(rt)
 	m.g["oc_root"] = rt
 	var radius: float = float(cfg.get("radius", 26.0))
+	if not bool(cfg.get("canvas_backdrop", false)):
+		_build_spatial_dressing(rt, cfg, radius)
+	# park the player just inside the ring, facing the middle, camera fixed
+	var origin: Vector3 = rt.position
+	var start: Vector2 = cfg.get("start", Vector2(0.0, radius * 0.62)) as Vector2
+	m.player.position = origin + Vector3(start.x, float(cfg.get("hover", 1.05)), start.y)
+	m.player.vel = Vector3.ZERO
+	m.player.rotation.y = PI
+	fit_camera()
+
+func _build_spatial_dressing(rt: Node, cfg: Dictionary,
+		radius: float) -> void:
 	var wall_h: float = float(cfg.get("wall_h", 5.2))
 	var floor_col: Color = cfg.get("floor_col", Color(0.84, 0.78, 0.90)) as Color
 	var trim_col: Color = cfg.get("trim_col", Color(0.72, 0.66, 0.86)) as Color
@@ -109,14 +121,6 @@ func open(cfg: Dictionary) -> void:
 		var bead := glow(cfg.get("post_glow", Color(1.0, 0.90, 0.72)) as Color, 6.0)
 		bead.position = post.position + Vector3(0, wall_h * 0.95, 0)
 		rt.add_child(bead)
-	# park the player just inside the ring, facing the middle, camera fixed
-	var origin: Vector3 = rt.position
-	var start: Vector2 = cfg.get("start", Vector2(0.0, radius * 0.62)) as Vector2
-	m.player.position = origin + Vector3(start.x, float(cfg.get("hover", 1.05)), start.y)
-	m.player.vel = Vector3.ZERO
-	m.player.rotation.y = PI
-	fit_camera()
-
 func fit_camera() -> void:
 	# Solve the framing ONCE against the real projection, then let
 	# frame_camera() re-assert the solved pose every tick.
@@ -141,22 +145,24 @@ func fit_camera() -> void:
 	var vp: Vector2 = Vector2(1280.0, 720.0)
 	if cam.get_viewport() != null:
 		vp = cam.get_viewport().get_visible_rect().size
-	var margin: float = vp.y * 0.06
+	var top_margin: float = vp.y * float(cfg.get("screen_top_margin", 0.06))
+	var bottom_margin: float = vp.y * float(cfg.get("screen_bottom_margin", 0.06))
+	var look_ratio: float = float(cfg.get("look_height_ratio", 0.42))
 	var dist: float = radius * 1.55
 	var high: float = radius * 1.15
 	cam.fov = float(cfg.get("cam_fov", 55.0))
 	for _step in range(26):
 		cam.position = r.position + Vector3(0.0, high, dist)
-		cam.look_at(r.position + Vector3(0.0, head * 0.42, 0.0))
+		cam.look_at(r.position + Vector3(0.0, head * look_ratio, 0.0))
 		var near_p: Vector2 = cam.unproject_position(r.position + Vector3(0.0, stand, apo))
 		var far_p: Vector2 = cam.unproject_position(r.position + Vector3(0.0, stand, -apo))
 		var top_p: Vector2 = cam.unproject_position(r.position + Vector3(0.0, head, 0.0))
-		if near_p.y <= vp.y - margin and top_p.y >= margin and far_p.y >= margin:
+		if near_p.y <= vp.y - bottom_margin and top_p.y >= top_margin and far_p.y >= top_margin:
 			break
 		dist *= 1.07
 		high *= 1.05
 	m.g["oc_cam_pos"] = cam.position - r.position
-	m.g["oc_cam_look"] = Vector3(0.0, head * 0.42, 0.0)
+	m.g["oc_cam_look"] = Vector3(0.0, head * look_ratio, 0.0)
 
 func frame_camera() -> void:
 	# THE FRAMING IS DERIVED FROM THE RING, and re-asserted every tick.
@@ -218,8 +224,20 @@ func player_local() -> Vector2:
 		return Vector2.ZERO
 	return Vector2(m.player.position.x - r.position.x, m.player.position.z - r.position.z)
 
+func project_floor_point(point: Vector2) -> Vector2:
+	# Boundary adapter for Canvas warning shapes while this shared arena is
+	# migrated. Combat geometry remains in the same Vector2 floor coordinates.
+	var arena_root := root()
+	if arena_root == null or m.player == null or m.player.cam == null:
+		return Vector2.ZERO
+	var floor_point := arena_root.global_position
+	floor_point.x += point.x
+	floor_point.y += 0.16
+	floor_point.z += point.y
+	return m.player.cam.unproject_position(floor_point)
+
 # ---- the one-finger read ----------------------------------------------------
-func tick(delta: float) -> Dictionary:
+func tick(delta: float, navigation: EncounterNavigation2D = null) -> Dictionary:
 	# returns {mx, mz, px, pz, tap, moved}. Pad reads are DEVICE 0 ONLY, the
 	# same convention as the side-scroll stage's brawl mode.
 	var cfg: Dictionary = m.g.get("oc_cfg", {})
@@ -253,6 +271,13 @@ func tick(delta: float) -> Dictionary:
 	mx = clampf(mx, -1.0, 1.0)
 	mz = clampf(mz, -1.0, 1.0)
 	var spd: float = float(cfg.get("speed", 24.0))
+	if navigation != null:
+		if absf(mx) > 0.05 or absf(mz) > 0.05:
+			navigation.cancel()
+		else:
+			var direction: Vector2 = navigation.direction_for_step(player_local(), spd, delta)
+			mx = direction.x
+			mz = direction.y
 	var here: Vector2 = player_local() + Vector2(mx, mz) * spd * delta
 	here = clamp_point(here, float(cfg.get("inset", 2.6)))
 	m.g["oc_bob"] = float(m.g.get("oc_bob", 0.0)) + delta

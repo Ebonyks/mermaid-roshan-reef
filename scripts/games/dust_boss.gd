@@ -1,78 +1,21 @@
 class_name DustBossGame
 extends RefCounted
-# THE DUST BUNNY BOSS — "Grand Puff", the biggest dust bunny in the Pearl
-# Castle attic. See DUST_BUNNY_BOSS_2026-08-02.md for the character sheet and
-# the AI contract this file implements.
-#
-# ART IS A PLACEHOLDER (owner note 2026-08-02). BOSS_TEX currently points at
-# dust_bunny_curl_ears.png, which is a REGULAR member of the dirty-castle
-# dust-bunny cast, not a boss. An exhaustive search of the art database — all
-# branches, the source cast atlas, both cinematics, art_library/ART_INVENTORY
-# and gen2/generated — found no boss-scale dust bunny anywhere, so the boss
-# art has to be made: CODEX_BOSS_ART_HANDOFF_2026-08-02.md §1 orders it as a
-# six-cell mood atlas. Until it lands the cast card stands in, blown up to
-# boss scale, exactly as the project does for every character whose art has
-# not arrived yet. Swap BOSS_TEX and drop BOSS_H back when the real art is in.
-#
-# The one idea of the fight (owner direction 2026-08-02): Grand Puff is NOT
-# hittable whenever you like. He is a ball of dust — taps bounce off him with
-# a giggle and a poof, always harmlessly. He is open ONLY while he is IN THE
-# AIR and the star over his head is FLASHING. Watch, wait, tap on the flash.
-# Three landed hits end the fight, and each one changes who he is:
-#   hit 1 → DIZZY  (he wobbles, slows down, his next window is longer)
-#   hit 2 → ANGRY  (he puffs up and moves at a much faster pace)
-#   hit 3 → FRIENDS (he deflates into a cuddly little puff — nobody loses)
-#
-# The arena is the shared OctagonStage (scripts/games/octagon_stage.gd): one
-# convex ring, a camera that never pans, so the boss can never leave the
-# screen and a dragged finger always makes progress.
-#
-# No fail state: he bumps, but never hurts. Contact gives Roshan a readable
-# shove and boing before she recovers immediately; it never removes progress.
-# An open-floor tap adds an OPTIONAL twirl dodge. Incoming hops pulse Roshan;
-# a timed tap turns contact into a sideways swish. Bumps only
-# tune the replay mastery stars (gold through one, silver at two, bronze at
-# three-plus), while a clean run adds a small pearl bonus.
-# Five windows missed IN A ROW switch the fight to its slower assist pace:
-# longer tells/windows, wider reach and one helping tap. A completed round
-# resets the streak but keeps the earned pace for the rest of the encounter;
-# a slower child never has to prove the same limitation three times. The
-# opening feel stays lively for a child who is keeping up. Satellite rules per
-# CLAUDE.md: logic only, `main` by reference, all state on m.g ("db_*" keys,
-# reclaimed with the rest of the game scratch).
-
-# THE DAMAGE CORE IS DustBunnyBossSprite (scripts/dust_bunny_boss_sprite.gd),
-# the approved four-frame animation kit that arrived with Grand Puff's art.
-# It owns the owner's 2026-07-29 contract — three rounds of THREE QUICK TAPS,
-# a 0.75s window (0.65s in the final round), 1.25x action speed once two rounds
-# are down — plus the flinch chain and the implosion. This file owns everything
-# around it: the arena, the travel, the showing, the mercy ramp, the medal, the
-# framing and the ending. See BOSS_CONVERGENCE_DECISION_2026-08-02.md.
-const HP := DustBunnyBossSprite.TOTAL_DAMAGE_ROUNDS      # three damage rounds
-const TAPS_PER_ROUND := DustBunnyBossSprite.REQUIRED_TAPS # three taps per window
+# Grand Puff teaches one repeating rule: leave every painted danger shape,
+# then tap the flashing head once. Damage costs time and mastery but never
+# progress or life. Targets lock when their tell begins and never home.
+const HP := DustBunnyBossSprite.TOTAL_DAMAGE_ROUNDS
 const BossSplash2DLogic = preload("res://scripts/boss_splash_2d.gd")
+const DustBossTelegraph2DLogic = preload("res://scripts/dust_boss_telegraph_2d.gd")
+const ATTIC_BACKDROP = preload("res://assets/flats/castle/boss/dusty_attic_arena_2048.png")
 
-# Window pacing: the WINDOW length now comes from the animation kit (0.75s,
-# 0.65s final). What this file still owns is the SPACING — how long he prowls
-# between windows, and the assist pace that starts after five consecutive
-# missed windows, so the opening challenge stays intact but cannot become a
-# motor-speed wall.
 const SHOW_T := 6.4            # the showing: he is revealed before he fights
 const SHOW_SKIP_T := 5.2       # the demo flash must have played before skipping
-const WINDUP_T := 1.5          # exaggerated musical breath before the leap
-const STRUCK_T := 1.4          # the hit reaction (spin, burst, hearts)
-const DIZZY_T := 1.4           # extra stagger after hit 1 — a free breather
-const ANGRY_T := 1.4           # the puff-up after hit 2
-const PHASE_BEAT_T := 1.4      # authored pause before the next lively phase
-const CELEBRATION_BEAT_T := 1.2 # sparkle/voice beat after each landed round
 const LANDED_ROUND_HOLD_T := 5.4 # one bounded, child-readable landed-round hold
 const WIN_T := 3.4             # befriending beat before the win banner
 const POSITIVE_PACING_FLOOR := 38.0 # quick completions still get a warm ending
 
-const LEAP_UP := 0.34          # seconds of rise at the top of a leap
-const LEAP_H := 7.6            # hover height while he laughs, exposed
-const REACH := 12.0            # base tap reach during a window (ring units)
-const HOP_H := 2.4             # prowl hop arc height
+const LEAP_H := 7.6            # existing contact-shadow scale reference
+const HOP_H := 2.4
 const BOSS_H := 17.0           # on-screen height of the animated CARD. The
                                # authored frames carry dust plumes and padding,
                                # so the bunny inside reads at roughly 0.6 of
@@ -82,44 +25,16 @@ const BOSS_H := 17.0           # on-screen height of the animated CARD. The
 const RADIUS := 26.0           # the ring's circumradius (apothem ≈ 24.0)
 const BOSS_INSET := 4.5        # how far inside the wall the boss may land
 
-const MERCY_TRIGGER_STREAK := 5 # keep the lively opening for five real tries
-const MERCY_WINDOW_PER_TIER := 5.5 # final window: 0.65s -> 6.15s at tier one
-const MERCY_WINDOW_MAX := 6.0      # admits a measured four-second reaction
-const MERCY_REACH_PER_TIER := 4.0
-const MERCY_REACH_MAX := 6.0
-const MERCY_SLOW_PER_TIER := 0.30 # angry travel drops near the opening pace
-const MERCY_SLOW_MAX := 0.45
-const MERCY_WINDUP_PER_TIER := 0.55 # more time to read squash -> gold star
-const MERCY_WINDUP_MAX := 0.9
-const PREASSIST_TRIGGER_STREAK := 2 # gentle help on attempt three after two misses
-const PREASSIST_PROWL_CUT := 1.6    # bounded post-miss pacing, never a rush
-const PREASSIST_PROWL_MAX := 3.2
-const PREASSIST_PROWL_MIN := 0.9
-const PREASSIST_WINDOW_PER_TIER := 4.0 # tier-one aid covers a slow first reaction
-const PREASSIST_WINDOW_MAX := 4.0
-const PREASSIST_LANDING_RADIUS := 2.0 # bias the leap toward rooted/wandering play
-const PREASSIST_LANDING_MIN := 0.85
-const PREASSIST_REACH := 1.25       # extra reach only after two misses
-const FIRST_HIT_ASSIST_BONUS := 4.0 # one bounded bridge after the first miss
 const FEEDBACK_COOLDOWN := 2.6       # one clear cue, then a quiet learning pause
 const CLOSER_FEEDBACK_COOLDOWN := 2.8
-const BUMP_COOLDOWN_BASE := 4.0      # first boing stays immediate; repeats space out
-const BUMP_COOLDOWN_MISSED := 6.0    # soften repeated bumps in a long miss run
-const BUMP_PUSH := 4.0          # visible cause/effect, never damage or lost work
-const PLAYER_INSET := 2.6       # matches the OctagonStage walkable inset
-const DODGE_ACTIVE_T := 0.82    # long enough to cover even the angry hop
-const DODGE_COOLDOWN := 1.15    # prevents a held button becoming permanent safety
-const DODGE_STEP := 3.8         # a readable sideways swish, not a contact shove
 const BASE_WIN_PEARLS := 3
 const PERFECT_BONUS_PEARLS := 2
+const DAMAGE_RECOVERY_T: float = 1.05
 
 # Grand Puff owns a deterministic 120 BPM adaptive cue. The rendered track's
-# beat 16 is the unmistakable action downbeat. Every prowl restarts its lively
-# opening; every wind-up seeks into the authored hush; the actual vulnerable
-# animation signal corrects to beat 16 so audio and the gold flash are the same
-# event even when mercy lengthens the wind-up or the final animation speeds up.
+# beat 16 is the unmistakable action downbeat. The actual vulnerable animation
+# signal corrects to beat 16 so audio and the gold flash remain one event.
 const MUSIC_SECONDS_PER_BEAT := 0.5
-const MUSIC_PROWL_BEAT := 0.0
 const MUSIC_ACTION_BEAT := 16.0
 const MUSIC_ACTION_T := MUSIC_ACTION_BEAT * MUSIC_SECONDS_PER_BEAT
 const MUSIC_SHOW_FLASH_T := 3.2
@@ -148,28 +63,32 @@ const TELL_OPEN_TEX := BOSS_ART_DIR + "boss_tell_open.png"
 const TELL_SHUT_TEX := BOSS_ART_DIR + "boss_tell_shielded.png"
 const STAR_TEX := "res://assets/mg/star.png"   # fallback tell (generic reward star)
 
-# Who he is at 0, 1 and 2 landed hits. "hop_speed" is the pace the owner
-# note is about: dizzy is slower than puffy, angry is much faster than both.
-# Who he is after 0, 1 and 2 completed rounds. The animation kit escalates the
-# ACTION (1.25x and a shorter window in the final round); these rows escalate
-# the TRAVEL — dizzy is slower than his opening pace, angry is much faster.
-const PHASES: Array[Dictionary] = [
-	{"name": "puffy", "hop_speed": 10.0, "hop_gap": 0.78, "prowl_t": 3.4,
-		"chase": 0.30, "puff": 1.0},
-	{"name": "dizzy", "hop_speed": 6.4, "hop_gap": 1.15, "prowl_t": 4.0,
-		"chase": 0.15, "puff": 0.96},
-	{"name": "angry", "hop_speed": 16.5, "hop_gap": 0.46, "prowl_t": 2.4,
-		"chase": 0.65, "puff": 1.12},
-]
+const PHASE_ART: Dictionary = {
+	&"puffy": {"name": "puffy", "puff": 1.0},
+	&"dizzy": {"name": "dizzy", "puff": 0.96},
+	&"angry": {"name": "angry", "puff": 1.12},
+}
 
 var m: ReefMain
 var stage: OctagonStage
 var _day_one_voice_session: String = "boss_visit_0"
 var attack_feedback: HitEngine = null
+var encounter := BossEncounter2D.new()
+var patterns: EncounterPatterns2D = null
+var navigation := EncounterNavigation2D.new()
+var _projection_size := Vector2.ZERO
+var _caption_position := Vector2.ZERO
+var _caption_size := Vector2.ZERO
+var _caption_style: StyleBox = null
+var _warning_points := PackedVector2Array()
+var _safe_destination := Vector2.ZERO
+var _telegraph_data: Dictionary = {}
 
 func _init(main: ReefMain) -> void:
 	m = main
 	stage = OctagonStage.new(main)
+	encounter.configure(EncounterProfile2D.grand_puff())
+	patterns = encounter.patterns
 
 
 func _say_day_one_context(cue_id: String, caption: String,
@@ -186,62 +105,100 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	m.g["db_hits"] = 0
 	m.g["db_miss"] = 0
 	m.g["db_miss_streak"] = 0
-	m.g["db_mercy_tier"] = 0
-	m.g["db_preassist_tier"] = 0
 	m.g["db_bumps"] = 0
-	m.g["db_dodges"] = 0
-	m.g["db_dodge_attempts"] = 0
-	m.g["db_dodge_t"] = 0.0
-	m.g["db_dodge_cd"] = 0.0
-	m.g["db_dodge_requested"] = false
-	m.g["db_dodge_prev"] = false
-	m.g["db_dodge_hint"] = false
-	m.g["db_dodge_taught"] = false
 	m.g["db_perfect_bonus"] = false
 	m.g["db_shield_taps"] = 0
 	m.g["db_shield_feedbacks"] = 0
 	m.g["db_closer_taps"] = 0
-	m.g["db_closer_feedbacks"] = 0
-	m.g["db_helper_taps_total"] = 0
 	m.g["db_feedback_cd"] = 0.0
 	m.g["db_closer_cd"] = 0.0
-	m.g["db_bump_cd"] = 0.0
-	m.g["db_window_hit"] = 0
-	m.g["db_win_len"] = 0.0
 	m.g["db_taps_this_round"] = 0
 	m.g["db_x"] = 0.0
 	m.g["db_z"] = -12.0
 	m.g["db_y"] = 0.0
 	m.g["db_from"] = Vector2(0.0, -12.0)
 	m.g["db_to"] = Vector2(0.0, -12.0)
-	m.g["db_hop_t"] = 0.0
 	m.g["db_spin"] = 0.0
 	m.g["db_flash"] = 0.0
 	m.g["db_active_t"] = 0.0
 	m.g["db_music_action_cues"] = 0
 	m.g["db_music_seek_t"] = 0.0
 	m.g["db_music_action_drift"] = 0.0
+	m.g["db_damage_taken"] = 0
+	m.g["db_avoids"] = 0
+	m.g["db_dust_charge"] = 0
+	m.g["db_opening_misses"] = 0
+	m.g["db_attack_hit"] = false
 	_stage_open()
 	_build_mastery_ui()
 	_build_boss()
+	_restore_round_checkpoint()
 	_enter_state("splash")
 	_update_mastery_ui()
 	_show_boss_splash(fr)
 
+
+func _restore_round_checkpoint() -> void:
+	var restored: int = clampi(int(m.save_data.get(
+		"dustboss_pending_rounds", 0)), 0, HP)
+	m.g["db_hits"] = restored
+	m.g["db_damage_taken"] = maxi(0, int(m.save_data.get(
+		"dustboss_pending_damage", 0)))
+	m.g["db_bumps"] = int(m.g["db_damage_taken"])
+	m.g["db_opening_misses"] = maxi(0, int(m.save_data.get(
+		"dustboss_pending_misses", 0)))
+	encounter.configure(EncounterProfile2D.grand_puff(), restored,
+		int(m.g["db_damage_taken"]), int(m.g["db_opening_misses"]))
+	patterns = encounter.patterns
+	var k: DustBunnyBossSprite = kit()
+	if k == null or not is_instance_valid(k):
+		return
+	k.damage_rounds_completed = restored
+	k.boss_health_rounds_remaining = HP - restored
+	k.final_round_active = restored >= HP - 1
+	k.combat_speed_scale = DustBunnyBossSprite.FINAL_ROUND_SPEED_SCALE \
+		if k.final_round_active else 1.0
+
 func action_label() -> String:
 	# the only verb in this fight is a bonk; the shared reef button otherwise
 	# reads "JUMP" with an up-arrow for the whole encounter
-	return "BONK!" if String(m.g.get("db_state", "")) == "vuln" else "WAIT"
+	var k: DustBunnyBossSprite = kit()
+	return "BONK!" if String(m.g.get("db_state", "")) == "vuln" \
+		and k != null and is_instance_valid(k) and k.vulnerable else "WAIT"
+
+
+func danger_geometry() -> Dictionary:
+	if patterns == null:
+		return {"active": false}
+	var result: Dictionary = patterns.readout()
+	result["active"] = String(m.g.get("db_state", "")) == "tell"
+	result["safe_point"] = _safe_destination
+	return result
 
 func stage_close() -> void:
+	navigation.cancel()
+	if m.touch_ui != null:
+		m.touch_ui.set_encounter_controls()
+	if m.hud_msg != null and _caption_style != null:
+		m.hud_msg.position = _caption_position
+		m.hud_msg.size = _caption_size
+		m.hud_msg.add_theme_stylebox_override("normal", _caption_style)
+	var attic_layer: CanvasLayer = m.g.get("db_attic_layer") as CanvasLayer
+	if attic_layer != null and is_instance_valid(attic_layer):
+		attic_layer.visible = false
+		attic_layer.queue_free()
+	if m.player != null and m.player.classic_sprite != null \
+			and m.g.has("db_player_draw_priority"):
+		m.player.classic_sprite.render_priority = int(m.g["db_player_draw_priority"])
+		m.player.classic_sprite.no_depth_test = bool(m.g["db_player_depth_override"])
+		m.g.erase("db_player_draw_priority")
+		m.g.erase("db_player_depth_override")
 	var splash: BossSplash2D = m.g.get("db_splash") as BossSplash2D
 	if splash != null and is_instance_valid(splash):
 		splash.cancel()
 	var mastery_layer: CanvasLayer = m.g.get("db_mastery_layer") as CanvasLayer
 	if mastery_layer != null and is_instance_valid(mastery_layer):
 		mastery_layer.visible = false
-		if mastery_layer.get_parent() != null:
-			mastery_layer.get_parent().remove_child(mastery_layer)
 		mastery_layer.queue_free()
 	stage.close()
 	if attack_feedback != null:
@@ -280,44 +237,6 @@ static func mastery_tier_for_bumps(bumps: int) -> int:
 func mastery_tier() -> int:
 	return mastery_tier_for_bumps(int(m.g.get("db_bumps", 0)))
 
-func request_dodge() -> void:
-	# Direct world touch, keyboard/controller parity and probes enter one edge.
-	# The request is consumed in tick so it cannot mutate gameplay while paused.
-	if m.game == "dustboss" and m.g.has("db_state"):
-		m.g["db_dodge_requested"] = true
-
-func _tick_dodge(delta: float) -> void:
-	m.g["db_dodge_t"] = maxf(0.0,
-		float(m.g.get("db_dodge_t", 0.0)) - delta)
-	m.g["db_dodge_cd"] = maxf(0.0,
-		float(m.g.get("db_dodge_cd", 0.0)) - delta)
-	var dodge_down: bool = Input.is_physical_key_pressed(KEY_SHIFT)
-	var pads := Input.get_connected_joypads()
-	if not pads.is_empty():
-		dodge_down = dodge_down or Input.is_joy_button_pressed(
-			int(pads[0]), JOY_BUTTON_B)
-	if dodge_down and not bool(m.g.get("db_dodge_prev", false)):
-		request_dodge()
-	m.g["db_dodge_prev"] = dodge_down
-	if not bool(m.g.get("db_dodge_requested", false)):
-		return
-	m.g["db_dodge_requested"] = false
-	if String(m.g.get("db_state", "")) != "prowl" \
-			or float(m.g.get("db_dodge_cd", 0.0)) > 0.0:
-		return
-	_start_dodge()
-
-func _start_dodge() -> void:
-	m.g["db_dodge_t"] = DODGE_ACTIVE_T
-	m.g["db_dodge_cd"] = DODGE_COOLDOWN
-	m.g["db_dodge_attempts"] = int(m.g.get("db_dodge_attempts", 0)) + 1
-	if m.player != null:
-		m.player.play_verb("twirl")
-		var sparkle_pos := m.player.global_position
-		sparkle_pos.y += 2.6
-		m._sparkle_burst(sparkle_pos,
-			Color(0.58, 0.96, 1.0))
-
 func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var r := stage.root()
 	if r == null:
@@ -325,9 +244,9 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	# the real one-finger read: walk the ring, tap = THE button. Damage can
 	# only ever come from a fresh tap edge here, so a zero-input run cannot
 	# scratch him (probe_passive).
-	var s: Dictionary = stage.tick(delta)
+	_update_projection()
+	var s: Dictionary = stage.tick(delta, navigation)
 	var tapped: bool = bool(s["tap"])
-	_tick_dodge(delta)
 	m.g["db_feedback_cd"] = maxf(0.0,
 		float(m.g.get("db_feedback_cd", 0.0)) - delta)
 	m.g["db_closer_cd"] = maxf(0.0,
@@ -341,12 +260,14 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			pass
 		"showing":
 			_tick_showing(st, fr, tapped)
-		"prowl":
-			_tick_prowl(delta, st, s, tapped)
-		"windup":
-			_tick_windup(delta, st, tapped)
+		"tell":
+			_tick_attack_tell(delta, tapped)
+		"strike":
+			_tick_attack_strike(st, tapped)
+		"damage_recovery":
+			_tick_damage_recovery(st, tapped)
 		"vuln":
-			_tick_vuln(delta, st, s, tapped, fr)
+			_tick_counter_opening(delta, tapped)
 		"struck":
 			_tick_struck(delta, st, fr, tapped)
 		"friends":
@@ -368,7 +289,7 @@ func _show_boss_splash(fr: Dictionary) -> void:
 		DustBunnyBossSprite.make_sprite_frames(),
 		"GRAND PUFF",
 		"THE GREAT DUST BUNNY",
-		badge)
+		badge, ATTIC_BACKDROP)
 	splash.finished.connect(_on_boss_splash_finished.bind(fr), CONNECT_ONE_SHOT)
 	m.add_child(splash)
 	m.g["db_splash"] = splash
@@ -378,6 +299,15 @@ func _on_boss_splash_finished(fr: Dictionary) -> void:
 	if m.game != "dustboss" or m.g.is_empty():
 		return
 	m.g["db_splash"] = null
+	if int(m.g.get("db_hits", 0)) >= HP:
+		# All counters were earned before the interruption. Resume the ending,
+		# not another attack; its normal save atomically grants and clears once.
+		m.g["db_active_t"] = POSITIVE_PACING_FLOOR
+		_enter_state("friends")
+		var k: DustBunnyBossSprite = kit()
+		if k != null and is_instance_valid(k):
+			k.play_implode()
+		return
 	_begin_showing(fr)
 
 
@@ -388,10 +318,11 @@ func _begin_showing(fr: Dictionary) -> void:
 
 # ---- the state machine -----------------------------------------------------
 func _enter_state(next_state: String) -> void:
+	if m.hud_msg != null:
+		m.hud_msg.text = ""
+		m.msg_timer = 0.0
 	m.g["db_state"] = next_state
 	m.g["db_st"] = 0.0
-	if next_state != "prowl":
-		m.g["db_dodge_hint"] = false
 	_sync_music_for_state(next_state)
 
 
@@ -421,12 +352,11 @@ func _sync_music_for_state(next_state: String) -> void:
 		"showing":
 			# The rehearsal flash receives the same downbeat as real play.
 			_music_seek(MUSIC_ACTION_T - MUSIC_SHOW_FLASH_T)
-		"prowl":
-			_music_seek(MUSIC_PROWL_BEAT * MUSIC_SECONDS_PER_BEAT)
-		"windup":
+		"tell":
 			# Start far enough back in the quiet passage that the animation's
 			# first open frame, not merely the state boundary, reaches beat 16.
-			_music_seek(MUSIC_ACTION_T - windup_len() - _music_open_delay())
+			_music_seek(MUSIC_ACTION_T - patterns.tell_time \
+				- _music_open_delay())
 
 
 func _on_vulnerability_changed(is_open: bool) -> void:
@@ -444,86 +374,139 @@ func _on_vulnerability_changed(is_open: bool) -> void:
 
 func phase() -> int:
 	# 0 puffy → 1 dizzy → 2 angry; clamped so the winning hit reads as angry
-	return clampi(int(m.g.get("db_hits", 0)), 0, PHASES.size() - 1)
+	return clampi(encounter.completed_rounds, 0, encounter.profile.phases.size() - 1)
 
 func phase_cfg() -> Dictionary:
-	return PHASES[phase()]
+	return PHASE_ART.get(encounter.profile.phases[phase()].phase_id, PHASE_ART[&"puffy"])
 
-func miss_streak() -> int:
-	return int(m.g.get("db_miss_streak", 0))
+func _begin_attack_tell() -> void:
+	if patterns == null:
+		return
+	var boss_here := Vector2(float(m.g.get("db_x", 0.0)),
+		float(m.g.get("db_z", 0.0)))
+	encounter.begin_attack(stage.player_local(), boss_here, RADIUS)
+	_prepare_telegraph_geometry()
+	m.g["db_attack_hit"] = false
+	_enter_state("tell")
+	_say_day_one_context("day1_boss_dodge",
+		"The big dust bunny is coming closer!")
 
-func mercy_tier() -> int:
-	# Tier one begins on miss five, tier two on miss ten. Using a discrete tier
-	# makes the strong mercy change legible while the first-hit bridge remains
-	# separately bounded.
-	# Once earned it stays for this encounter, avoiding fast/slow oscillation
-	# after an assisted success.
-	return maxi(int(m.g.get("db_mercy_tier", 0)),
-		miss_streak() / MERCY_TRIGGER_STREAK)
 
-func preassist_tier() -> int:
-	# This is deliberately separate from mercy_tier(): two misses means the
-	# third attempt is the first gentle assist, while miss five still owns the
-	# exact strong assist (long window, wide reach and free tap). The gentle
-	# tiers only trim dead travel and make the landing easier to read.
-	var earned: int = maxi(0, int(m.g.get("db_preassist_tier", 0)))
-	var current: int = clampi(miss_streak() - PREASSIST_TRIGGER_STREAK + 1, 0, 2)
-	return maxi(earned, current)
+func _tick_attack_tell(delta: float, tapped: bool) -> void:
+	if tapped:
+		_bounce_off()
+	if patterns == null:
+		return
+	encounter.tick_tell(delta)
+	m.g["db_flash"] = 0.18 + 0.22 * clampf(patterns.elapsed / maxf(patterns.tell_time, 0.01), 0.0, 1.0)
+	if patterns.tell_finished():
+		encounter.begin_strike()
+		m.g["db_attack_hit"] = false
+		m.g["db_impact_sampled"] = false
+		var shape: String = String(patterns.geometry.get("shape", ""))
+		var attack_from := Vector2(float(m.g.get("db_x", 0.0)),
+			float(m.g.get("db_z", 0.0)))
+		var attack_to: Vector2 = attack_from
+		if shape == "circle":
+			attack_to = patterns.geometry.get("center", Vector2.ZERO) as Vector2
+		else:
+			attack_from = patterns.geometry.get("from", attack_from) as Vector2
+			attack_to = patterns.geometry.get("to", attack_from) as Vector2
+		m.g["db_from"] = attack_from
+		m.g["db_to"] = attack_to
+		m.g["db_x"] = attack_from.x
+		m.g["db_z"] = attack_from.y
+		var k: DustBunnyBossSprite = kit()
+		var strike_duration: float = 0.6
+		if k != null and is_instance_valid(k):
+			strike_duration = k.play_jump(1.0 if attack_to.x >= attack_from.x else -1.0)
+		m.g["db_strike_duration"] = maxf(0.5, strike_duration)
+		_enter_state("strike")
 
-func first_hit_assist() -> int:
-	# The first miss is a read, not a wall. A single bounded bridge keeps the
-	# first landed hit possible by window two for a slow first reaction; it ends
-	# as soon as the child lands that first round and never changes the three-tap
-	# requirement or the kit's base 0.75/0.65 s windows.
-	return 1 if int(m.g.get("db_hits", 0)) == 0 and miss_streak() > 0 else 0
 
-func window_len() -> float:
-	# the vulnerability window: the kit's own number (0.75s, 0.65s in the final
-	# round) plus the assist tier this file owns
-	var base: float = DustBunnyBossSprite.VULNERABILITY_WINDOW
-	var kit: DustBunnyBossSprite = m.g.get("db_kit") as DustBunnyBossSprite
-	if kit != null and is_instance_valid(kit):
-		base = kit.current_vulnerability_window()
-	var gentle: float = minf(
-		PREASSIST_WINDOW_PER_TIER * float(preassist_tier()), PREASSIST_WINDOW_MAX)
-	var first_help: float = FIRST_HIT_ASSIST_BONUS if first_hit_assist() > 0 else 0.0
-	return base + maxf(gentle, first_help) \
-		+ minf(MERCY_WINDOW_PER_TIER * float(mercy_tier()), MERCY_WINDOW_MAX)
+func _tick_attack_strike(st: float, tapped: bool) -> void:
+	if tapped:
+		_answer_only()
+	var duration: float = maxf(0.5, float(m.g.get("db_strike_duration", 0.6)))
+	var progress: float = clampf(st / duration, 0.0, 1.0)
+	var attack_from: Vector2 = m.g.get("db_from", Vector2.ZERO) as Vector2
+	var attack_to: Vector2 = m.g.get("db_to", Vector2.ZERO) as Vector2
+	var boss_here: Vector2 = attack_from.lerp(attack_to, progress)
+	m.g["db_x"] = boss_here.x
+	m.g["db_z"] = boss_here.y
+	m.g["db_y"] = sin(progress * PI) * HOP_H
+	if st < duration:
+		return
+	m.g["db_y"] = 0.0
+	var impact: BossEncounter2D.Impact = encounter.resolve_impact(
+		stage.player_local(), boss_here, RADIUS)
+	m.g["db_impact_sampled"] = true
+	m.g["db_attack_hit"] = impact == BossEncounter2D.Impact.HIT
+	if impact == BossEncounter2D.Impact.HIT:
+		m.g["db_damage_taken"] = encounter.damage_taken
+		m.save_data["dustboss_pending_damage"] = int(m.g["db_damage_taken"])
+		m._write_save()
+		m.g["db_dust_charge"] = 0
+		m.g["db_bumps"] = int(m.g.get("db_bumps", 0)) + 1
+		if m.player != null:
+			m.player.play_verb("boing")
+		_say_day_one_context("day1_boss_bump", "Grand Puff bounced away!")
+		_enter_state("damage_recovery")
+		return
+	if impact == BossEncounter2D.Impact.IGNORED:
+		return
+	m.g["db_avoids"] = encounter.avoids
+	m.g["db_dust_charge"] = int(m.g.get("db_dust_charge", 0)) + 1
+	if impact == BossEncounter2D.Impact.NEXT_TELL:
+		_prepare_telegraph_geometry()
+		_enter_state("tell")
+		_say_day_one_context("day1_boss_dodge",
+			"The big dust bunny is coming closer!")
+		return
+	_begin_counter_opening()
 
-func reach() -> float:
-	var gentle: float = PREASSIST_REACH * float(maxi(preassist_tier(), first_hit_assist()))
-	return REACH + gentle + minf(MERCY_REACH_PER_TIER * float(mercy_tier()), MERCY_REACH_MAX)
 
-func hop_speed() -> float:
-	var base: float = float(phase_cfg()["hop_speed"])
-	return base * (1.0 - minf(MERCY_SLOW_PER_TIER * float(mercy_tier()), MERCY_SLOW_MAX))
+func _tick_damage_recovery(st: float, tapped: bool) -> void:
+	if tapped:
+		_answer_only()
+	m.g["db_flash"] = 0.0
+	if st >= DAMAGE_RECOVERY_T:
+		_begin_attack_tell()
 
-func windup_len() -> float:
-	return WINDUP_T + minf(
-		MERCY_WINDUP_PER_TIER * float(mercy_tier()), MERCY_WINDUP_MAX)
 
-func prowl_len() -> float:
-	var base: float = float(phase_cfg()["prowl_t"])
-	var cut: float = minf(PREASSIST_PROWL_CUT * float(maxi(preassist_tier(), first_hit_assist())),
-		PREASSIST_PROWL_MAX)
-	return maxf(PREASSIST_PROWL_MIN, base - cut)
+func _counter_window() -> float:
+	return encounter.counter_window()
 
-func landing_radius() -> float:
-	var tier: int = maxi(preassist_tier(), first_hit_assist())
-	if tier <= 0:
-		return 4.0
-	return maxf(PREASSIST_LANDING_MIN,
-		PREASSIST_LANDING_RADIUS - 0.55 * float(tier - 1)
-		- 0.35 * float(mercy_tier()))
 
-func bump_cooldown() -> float:
-	return BUMP_COOLDOWN_MISSED if miss_streak() >= PREASSIST_TRIGGER_STREAK else BUMP_COOLDOWN_BASE
+func _begin_counter_opening() -> void:
+	encounter.open_counter()
+	var k: DustBunnyBossSprite = kit()
+	if k != null and is_instance_valid(k):
+		k.configure_counter_mode(_counter_window())
+		k.play_vulnerable_laugh()
+	m.g["db_flash"] = 0.0
+	_enter_state("vuln")
+	_say_day_one_context("day1_boss_wait_gold",
+		"Wait for the gold star, then tap!")
 
-func phase_beat_len(rounds: int) -> float:
-	return PHASE_BEAT_T if rounds > 0 and rounds < HP else 0.0
 
-func celebration_beat_len(rounds: int) -> float:
-	return CELEBRATION_BEAT_T if rounds > 0 and rounds < HP else 0.0
+func _tick_counter_opening(delta: float, tapped: bool) -> void:
+	var k: DustBunnyBossSprite = kit()
+	var open_now: bool = k != null and is_instance_valid(k) and k.vulnerable
+	m.g["db_flash"] = 1.0 if open_now else 0.0
+	if tapped and open_now:
+		_accept_counter()
+		return
+	if not encounter.tick_counter(delta, open_now):
+		return
+	m.g["db_opening_misses"] = encounter.opening_misses
+	m.save_data["dustboss_pending_misses"] = int(m.g["db_opening_misses"])
+	m._write_save()
+	m.g["db_miss"] = int(m.g.get("db_miss", 0)) + 1
+	m.g["db_flash"] = 0.0
+	if k != null and is_instance_valid(k):
+		k.close_vulnerability()
+	_begin_attack_tell()
 
 # THE SHOWING — he is revealed before he is ever fought: he swells up out of
 # his dust nest, takes one big parade hop, and demonstrates the tell (the star
@@ -534,8 +517,7 @@ func _tick_showing(st: float, fr: Dictionary, tapped: bool) -> void:
 		if st >= SHOW_SKIP_T:
 			# A demo flash has already been shown. Let the child's tap move on,
 			# while early taps remain a harmless teaching response.
-			_enter_state("prowl")
-			_pick_hop(true)
+			_begin_attack_tell()
 			return
 		_answer_only()
 	var grow: float = clampf(st / 1.6, 0.0, 1.0)
@@ -546,150 +528,13 @@ func _tick_showing(st: float, fr: Dictionary, tapped: bool) -> void:
 	m.g["db_flash"] = 1.0 if demo else 0.0
 	if demo and not bool(m.g.get("db_show_told", false)):
 		m.g["db_show_told"] = true
-		_say_day_one_context("day1_boss_tell_opening",
-			"When he jumps and his star flashes, tap him!")
-	if st >= SHOW_T:
-		m.g["db_flash"] = 0.0
-		_enter_state("prowl")
-		_pick_hop(true)
-
-# PROWL — bouncing around the ring, shielded. Taps bounce off with a poof;
-# after three bounced taps he giggles the tell back at her.
-func _tick_prowl(delta: float, st: float, s: Dictionary, tapped: bool) -> void:
-	_hop_move(delta, s)
-	if tapped:
-		_bounce_off()
-	if st >= prowl_len():
-		_enter_state("windup")
-
-# WIND-UP — the telegraph: he squashes down and the star starts to glimmer.
-func _tick_windup(delta: float, st: float, tapped: bool) -> void:
-	m.g["db_y"] = maxf(0.0, float(m.g.get("db_y", 0.0)) - delta * 8.0)
-	var tell_len: float = windup_len()
-	m.g["db_flash"] = clampf(st / tell_len, 0.0, 1.0) * 0.45   # a glimmer, not the flash
-	if tapped:
-		_bounce_off()
-	if st >= tell_len:
-		# he leaps toward Roshan so the skill is TIMING, not aim
-		var here: Vector2 = stage.player_local()
-		m.g["db_from"] = Vector2(float(m.g["db_x"]), float(m.g["db_z"]))
-		m.g["db_to"] = stage.clamp_point(
-			here + Vector2(randf_range(-landing_radius(), landing_radius()),
-			randf_range(-landing_radius(), landing_radius())), BOSS_INSET)
-		m.g["db_window_hit"] = 0
-		m.g["db_win_len"] = window_len()
-		m.g["db_taps_this_round"] = 0
-		m.g["db_mercy_topped"] = false
-		# the laugh is the tell: the kit opens vulnerability itself on frame 2
-		# and starts its own 0.75s (0.65s final) clock
-		var k: DustBunnyBossSprite = kit()
-		if k != null and is_instance_valid(k):
-			k.play_vulnerable_laugh()
-		_enter_state("vuln")
 		_say_day_one_context("day1_boss_wait_gold",
 			"Wait for the gold star, then tap!")
-
-# THE VULNERABILITY WINDOW — airborne, star flashing, open to exactly
-# HITS_PER_WINDOW damage. Nothing else in the fight can hurt him.
-func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictionary) -> void:
-	var k: DustBunnyBossSprite = kit()
-	var win: float = float(m.g.get("db_win_len", 0.75))
-	# rise fast, hover while he laughs, settle on the last beat
-	var up: float = clampf(st / LEAP_UP, 0.0, 1.0)
-	var hang: float = maxf(0.6, win + 0.6)
-	var down: float = clampf((st - (hang - 0.3)) / 0.3, 0.0, 1.0)
-	m.g["db_y"] = LEAP_H * up * (1.0 - down) + sin(st * 3.4) * 0.5 * up * (1.0 - down)
-	var glide: float = clampf(st / maxf(0.4, hang * 0.6), 0.0, 1.0)
-	var from: Vector2 = m.g["db_from"]
-	var to: Vector2 = m.g["db_to"]
-	var here: Vector2 = from.lerp(to, glide)
-	m.g["db_x"] = here.x
-	m.g["db_z"] = here.y
-	if k == null or not is_instance_valid(k):
-		return
-	var open_now: bool = k.vulnerable
-	m.g["db_flash"] = 1.0 if open_now else 0.0
-	# THE ASSIST PACE, applied to the kit's own clock exactly once per window.
-	# The first-hit bridge starts after one miss, gentle time starts on attempt
-	# three (after two misses), and strong mercy still switches on after five
-	# consecutive misses. The shared guard prevents bonuses from being applied
-	# twice when the kit's open signal spans frames.
-	if open_now and not bool(m.g.get("db_mercy_topped", false)):
-		m.g["db_mercy_topped"] = true
-		var gentle_bonus: float = minf(
-			PREASSIST_WINDOW_PER_TIER * float(preassist_tier()), PREASSIST_WINDOW_MAX)
-		gentle_bonus = maxf(gentle_bonus,
-			FIRST_HIT_ASSIST_BONUS if first_hit_assist() > 0 else 0.0)
-		var mercy_bonus: float = minf(
-			MERCY_WINDOW_PER_TIER * float(mercy_tier()), MERCY_WINDOW_MAX)
-		var bonus: float = gentle_bonus + mercy_bonus
-		if bonus > 0.0:
-			k.vulnerability_time_left += bonus
-		# A merely doubled short window is not enough for the slowest hand. The
-		# measured slowpoke control reacts at ~4s, so tier one stays open beyond
-		# that measured delay. The assist also GIVES
-		# her taps: tier one lands the first one (tier two lands the second), so
-		# the window she finally reads still needs her real input but not a fast
-		# three-tap burst.
-		for _free in range(_free_taps()):
-			# The telemetry is authoritative: count only a helper insertion the kit
-			# actually accepts. Compare its progress because the kit API may be void
-			# in a compatible implementation even when it accepts the tap.
-			var accepted_before: int = k.accepted_taps
-			k.register_vulnerable_tap()
-			var accepted_after: int = k.accepted_taps
-			if accepted_after > accepted_before:
-				m.g["db_helper_taps_total"] = int(
-					m.g.get("db_helper_taps_total", 0)) + accepted_after - accepted_before
-
-	if tapped:
-		if open_now:
-			var d: float = Vector2(here.x - float(s["px"]), here.y - float(s["pz"])).length()
-			if d <= reach():
-				# THE VERB: one of the three quick taps this window wants
-				k.register_vulnerable_tap()
-			else:
-				_closer_feedback()
-		else:
-			_bounce_off()
-	# the window closed. Either three taps landed (the kit fired
-	# damage_cycle_completed and moved us on) or it expired — which is not a
-	# failure, it is the mercy ramp.
-	if String(m.g.get("db_state", "")) != "vuln":
-		return
-	if not open_now and st > LEAP_UP + 0.35:
-		m.g["db_miss"] = int(m.g.get("db_miss", 0)) + 1
-		m.g["db_miss_streak"] = miss_streak() + 1
-		m.g["db_mercy_tier"] = mercy_tier()
-		m.g["db_preassist_tier"] = preassist_tier()
+	if st >= SHOW_T:
 		m.g["db_flash"] = 0.0
-		m.g["db_y"] = 0.0
-		_enter_state("prowl")
-		_pick_hop(true)
-		var streak: int = miss_streak()
-		if streak == 1 or streak == PREASSIST_TRIGGER_STREAK \
-				or streak == MERCY_TRIGGER_STREAK:
-			var reminder: String = (
-				"Grand Puff slowed down! Take your time — wait for the BIG GOLD STAR!"
-				if streak == MERCY_TRIGGER_STREAK
-				else "He is coming closer now — wait for the BIG GOLD STAR!"
-				if streak == PREASSIST_TRIGGER_STREAK
-				else "So close! Wait for the next FLASH and tap FAST — three times!"
-			)
-			var reminder_key := "day1_boss_reminder_mercy" \
-				if streak == MERCY_TRIGGER_STREAK \
-				else "day1_boss_reminder_closer" \
-				if streak == PREASSIST_TRIGGER_STREAK \
-				else "day1_boss_reminder_almost"
-			_say_day_one_context(reminder_key, reminder)
+		_begin_attack_tell()
 
-func _free_taps() -> int:
-	# Gentle aid changes timing, reach and landing only. Strong mercy begins
-	# exactly after miss five and gives one tap; the result stays below a full
-	# round so zero-input play can never complete the encounter.
-	return mini(mercy_tier(), TAPS_PER_ROUND - 1)
-
-# THE HIT REACTION — one per landed hit, and where he becomes someone new.
+# The landed counter plays the existing flinch sequence before another attack.
 func _tick_struck(delta: float, st: float, fr: Dictionary, tapped: bool) -> void:
 	if tapped:
 		_answer_only()
@@ -704,8 +549,7 @@ func _tick_struck(delta: float, st: float, fr: Dictionary, tapped: bool) -> void
 		return                     # the friends beat owns the ending
 	if st >= hold:
 		m.g["db_spin"] = 0.0
-		_enter_state("prowl")
-		_pick_hop(true)
+		_begin_attack_tell()
 
 # THE ENDING — nobody loses: he deflates into a small cuddly puff, gives back
 # the castle's dust in a burst of stars, and the win banner fires.
@@ -726,6 +570,10 @@ func _tick_friends(st: float, fr: Dictionary, tapped: bool) -> void:
 			or (floor_met and st >= WIN_T + 2.0)) \
 			and not bool(m.g.get("db_done", false)):
 		m.g["db_done"] = true
+		m.save_data["dustboss_pending_rounds"] = 0
+		m.save_data["dustboss_pending_damage"] = 0
+		m.save_data["dustboss_pending_misses"] = 0
+		# The normal victory save commits this reset together with rewards.
 		var bumps: int = int(m.g.get("db_bumps", 0))
 		var tier: int = mastery_tier_for_bumps(bumps)
 		var bonus: int = PERFECT_BONUS_PEARLS if bumps == 0 else 0
@@ -739,77 +587,45 @@ func _tick_friends(st: float, fr: Dictionary, tapped: bool) -> void:
 
 func _victory_message(bumps: int, tier: int) -> String:
 	if bumps == 0:
-		return "PERFECT DODGE! Three gold stars and two bonus pearls — Grand Puff is your friend!"
+		return "PERFECT AVOIDANCE! Three gold stars and two bonus pearls — Grand Puff is your friend!"
 	if tier == MASTERY_GOLD:
-		return "Three gold stars! Grand Puff is your friend. Dodge every hop next time for the shining bonus!"
+		return "Three gold stars! Grand Puff is your friend. Avoid every dust attack next time for the shining bonus!"
 	if tier == MASTERY_SILVER:
 		return "Two silver stars! Grand Puff is your friend. Dodge one more bump next time to light the gold star!"
 	return "A bronze star! Grand Puff is your friend. Play again and dodge his hops to light more stars!"
 
 # ---- the verbs -------------------------------------------------------------
-func _land_hit(fr: Dictionary) -> void:
-	var hits: int = int(m.g.get("db_hits", 0)) + 1
-	m.g["db_hits"] = hits
-	m.g["db_miss_streak"] = 0
-	m.g["db_shield_taps"] = 0
-	var boss: Node3D = m.g.get("db_boss") as Node3D
-	if boss != null and is_instance_valid(boss):
-		m._sparkle_burst(boss.global_position + Vector3(0, BOSS_H * 0.5, 0),
-			Color(0.86, 0.78, 1.0))
-	# (no bare m.voice.play() here — show_msg below already speaks this beat,
-	# and a third trigger on the same frame just restarts the same player)
-	# a real recoil: the bonk shoves him back across the ring
-	var knock: Vector2 = Vector2(float(m.g["db_x"]), float(m.g["db_z"])) \
-		- stage.player_local()
-	if knock.length() < 0.5:
-		knock = Vector2(1.0, 0.0)
-	var landed: Vector2 = stage.clamp_point(
-		Vector2(float(m.g["db_x"]), float(m.g["db_z"])) + knock.normalized() * 6.0, BOSS_INSET)
-	m.g["db_x"] = landed.x
-	m.g["db_z"] = landed.y
-	if hits >= HP:
-		_enter_state("friends")
-		_say_day_one_context("day1_boss_defeated",
-			"Grand Puff burst into sparkly stars!")
-		if m.player != null:
-			m.player.play_verb("cheer")
-		return
-	_enter_state("struck")
-	if hits == 1:
-		_say_day_one_context("day1_boss_hit_first",
-			"Boop! Grand Puff is dizzy!")
-	else:
-		_say_day_one_context("day1_boss_hit_second",
-			"Bonk! Two dust puffs down!")
-
 func on_world_tap(screen_pos: Vector2) -> void:
 	# HYBRID TOUCH: the finger lands ON the boss instead of on the action
 	# button. Same verb, and MORE generous — a tap that visibly lands on his
 	# card counts as in-reach however far away she is standing.
-	if not m.g.has("db_state") or m.game != "dustboss":
+	if not m.g.has("db_state") or m.game != "dustboss" or m.get_tree().paused:
 		return
 	var k: DustBunnyBossSprite = kit()
 	var on_him: bool = _screen_hit(screen_pos)
-	var state: String = String(m.g.get("db_state", ""))
-	# Keep the canvas clear: when a hop is aimed at Roshan, a tap on the open
-	# painted floor twirls away. Tapping Grand Puff keeps its existing bonk rule.
-	if not on_him and state == "prowl" \
-			and bool(m.g.get("db_dodge_hint", false)):
-		request_dodge()
-		return
 	if k != null and is_instance_valid(k) and k.vulnerable \
-			and state == "vuln":
-		var here := Vector2(float(m.g["db_x"]), float(m.g["db_z"]))
-		var d: float = (here - stage.player_local()).length()
-		if on_him or d <= reach():
-			k.register_vulnerable_tap()
+			and String(m.g.get("db_state", "")) == "vuln":
+		if on_him:
+			_accept_counter()
 			return
-		_closer_feedback()
-		return
-	if state == "showing" or state == "struck" or state == "friends":
+	var st_now: String = String(m.g.get("db_state", ""))
+	if st_now == "showing" or st_now == "struck" or st_now == "friends":
 		_answer_only()   # same answer as the button — see D4
 		return
-	_bounce_off()
+	if on_him:
+		_bounce_off()
+		return
+	var target: Vector2 = navigation.screen_to_floor(screen_pos)
+	if String(m.g.get("db_state", "")) == "tell" \
+			and screen_pos.distance_to(stage.project_floor_point(_safe_destination)) <= 58.0:
+		target = _safe_destination
+	navigation.move_to(stage.clamp_point(target, 2.6))
+
+func _accept_counter() -> void:
+	var k: DustBunnyBossSprite = kit()
+	if k != null and encounter.try_counter(true, true, k.vulnerable):
+		navigation.cancel()
+		k.register_counter_tap()
 
 func _screen_hit(screen_pos: Vector2) -> bool:
 	# did the finger land on his card? (generous: the whole cutout plus a ring)
@@ -823,7 +639,7 @@ func _screen_hit(screen_pos: Vector2) -> bool:
 	var centre: Vector2 = cam.unproject_position(mid)
 	var top: Vector2 = cam.unproject_position(boss.global_position + Vector3(0, BOSS_H, 0))
 	var half: float = maxf(64.0, absf(centre.y - top.y) * 1.15)
-	return screen_pos.distance_to(centre) <= half
+	return screen_pos.distance_to(centre) <= half or screen_pos.distance_to(top) <= 56.0
 
 func _answer_only() -> void:
 	# A tap during the showing, the bonk reaction or the befriending must not
@@ -848,7 +664,7 @@ func _bounce_off() -> void:
 	# never incremented during showing/struck/friends — the teaching beat and
 	# the celebration must not cost her a tier.
 	var live: String = String(m.g.get("db_state", ""))
-	if live == "prowl" or live == "windup" or live == "vuln":
+	if live == "tell" or live == "strike" or live == "vuln":
 		m.g["db_wasted"] = int(m.g.get("db_wasted", 0)) + 1
 	if float(m.g.get("db_feedback_cd", 0.0)) <= 0.0:
 		m.g["db_feedback_cd"] = FEEDBACK_COOLDOWN
@@ -866,134 +682,9 @@ func _closer_feedback() -> void:
 	m.g["db_closer_feedbacks"] = int(m.g.get("db_closer_feedbacks", 0)) + 1
 	m._sparkle_burst(m.player.global_position + Vector3(0, 3.0, 0),
 		Color(1.0, 0.92, 0.62))
-	_say_day_one_context("day1_boss_closer",
-		"Come closer, then tap the flashing star!")
+	_say_day_one_context("day1_boss_wait_gold",
+		"Wait for the gold star, then tap!")
 
-# ---- prowl motion ----------------------------------------------------------
-func _pick_hop(reset: bool) -> void:
-	var cfg: Dictionary = phase_cfg()
-	var here := Vector2(float(m.g.get("db_x", 0.0)), float(m.g.get("db_z", 0.0)))
-	var player_here: Vector2 = stage.player_local()
-	var ang: float = randf() * TAU
-	var rad: float = sqrt(randf()) * (RADIUS - BOSS_INSET)
-	var want := Vector2(cos(ang) * rad, sin(ang) * rad)
-	# part of the time he bounces AT her — playful, and the bump is harmless
-	if randf() < float(cfg["chase"]):
-		want = player_here
-	var step: float = hop_speed() * float(cfg["hop_gap"])
-	var dv: Vector2 = want - here
-	if dv.length() > step:
-		dv = dv.normalized() * step
-	m.g["db_from"] = here
-	m.g["db_to"] = stage.clamp_point(here + dv, BOSS_INSET)
-	var hop_to: Vector2 = m.g["db_to"] as Vector2
-	var incoming: bool = _point_segment_distance(player_here, here, hop_to) < 4.2
-	m.g["db_dodge_hint"] = incoming
-	if incoming and not bool(m.g.get("db_dodge_taught", false)):
-		m.g["db_dodge_taught"] = true
-		_say_day_one_context("day1_boss_dodge",
-			"The big dust bunny is close! Tap the open floor to twirl!")
-	if reset:
-		m.g["db_hop_t"] = 0.0
-
-func _point_segment_distance(point: Vector2, a: Vector2, b: Vector2) -> float:
-	var ab: Vector2 = b - a
-	if ab.length_squared() <= 0.0001:
-		return point.distance_to(a)
-	var u: float = clampf((point - a).dot(ab) / ab.length_squared(), 0.0, 1.0)
-	return point.distance_to(a + ab * u)
-
-func _hop_move(delta: float, s: Dictionary) -> void:
-	var cfg: Dictionary = phase_cfg()
-	var gap: float = float(cfg["hop_gap"])
-	var t: float = float(m.g.get("db_hop_t", 0.0)) + delta
-	if t >= gap:
-		t = 0.0
-		var to_v: Vector2 = m.g["db_to"]
-		m.g["db_x"] = to_v.x
-		m.g["db_z"] = to_v.y
-		_pick_hop(false)
-		# one authored jump per hop — anticipation, lift-off, peak, landing ring
-		var k: DustBunnyBossSprite = kit()
-		if k != null and is_instance_valid(k):
-			var from_v: Vector2 = m.g["db_from"]
-			var to_v2: Vector2 = m.g["db_to"]
-			k.play_jump(1.0 if to_v2.x >= from_v.x else -1.0)
-	m.g["db_hop_t"] = t
-	var u: float = clampf(t / gap, 0.0, 1.0)
-	var from: Vector2 = m.g["db_from"]
-	var to: Vector2 = m.g["db_to"]
-	var here: Vector2 = from.lerp(to, u)
-	m.g["db_x"] = here.x
-	m.g["db_z"] = here.y
-	m.g["db_y"] = sin(u * PI) * HOP_H
-	# The giggly bump has an obvious physical answer, but no health/progress
-	# cost and no control lock. Roshan can steer back immediately.
-	if Vector2(here.x - float(s["px"]), here.y - float(s["pz"])).length() < 3.2 \
-			and float(m.g.get("db_bump_cd", 0.0)) <= 0.0:
-		m.g["db_bump_cd"] = bump_cooldown()
-		_resolve_player_contact(here)
-	m.g["db_bump_cd"] = maxf(0.0, float(m.g.get("db_bump_cd", 0.0)) - delta)
-
-func _resolve_player_contact(from: Vector2) -> void:
-	if float(m.g.get("db_dodge_t", 0.0)) > 0.0:
-		_dodge_player(from)
-	else:
-		_bump_player(from)
-
-func _dodge_player(from: Vector2) -> void:
-	var here: Vector2 = stage.player_local()
-	var travel: Vector2 = (m.g.get("db_to", Vector2.ZERO) as Vector2) \
-		- (m.g.get("db_from", Vector2.ZERO) as Vector2)
-	if travel.length() < 0.1:
-		travel = from - here
-	if travel.length() < 0.1:
-		travel = Vector2.RIGHT
-	var side := Vector2(-travel.y, travel.x).normalized()
-	var left: Vector2 = stage.clamp_point(here + side * DODGE_STEP, PLAYER_INSET)
-	var right: Vector2 = stage.clamp_point(here - side * DODGE_STEP, PLAYER_INSET)
-	var dodged: Vector2 = left if left.distance_to(here) >= right.distance_to(here) else right
-	if m.player != null:
-		m.player.global_position.x += dodged.x - here.x
-		m.player.global_position.z += dodged.y - here.y
-		m.player.vel.x = 0.0
-		m.player.vel.z = 0.0
-		m.player.play_verb("twirl")
-		var sparkle_pos := m.player.global_position
-		sparkle_pos.y += 2.6
-		m._sparkle_burst(sparkle_pos,
-			Color(0.55, 0.96, 1.0))
-	m.g["db_dodges"] = int(m.g.get("db_dodges", 0)) + 1
-	m.g["db_dodge_t"] = 0.0
-	m.g["db_dodge_hint"] = false
-	_say_day_one_context("day1_boss_dodge_success",
-		"Swish! You dodged the dust cloud!")
-
-func _bump_player(from: Vector2) -> void:
-	var here: Vector2 = stage.player_local()
-	var away: Vector2 = here - from
-	if away.length() < 0.1:
-		var travel: Vector2 = (m.g.get("db_to", Vector2.ZERO) as Vector2) \
-			- (m.g.get("db_from", Vector2.ZERO) as Vector2)
-		away = -travel if travel.length() >= 0.1 else Vector2.DOWN
-	var pushed: Vector2 = stage.clamp_point(
-		here + away.normalized() * BUMP_PUSH, PLAYER_INSET)
-	if m.player != null:
-		# Apply the already-computed local displacement directly. Keeping this
-		# in component form avoids adding any new 3D API debt while the existing
-		# boss arena is migrated to the project's final 2D medium.
-		m.player.global_position.x += pushed.x - here.x
-		m.player.global_position.z += pushed.y - here.y
-		m.player.vel.x = 0.0
-		m.player.vel.z = 0.0
-		m.player.play_verb("boing")
-	m.g["db_bumps"] = int(m.g.get("db_bumps", 0)) + 1
-	m._sparkle_burst(m.player.global_position + Vector3(0, 2.4, 0),
-		Color(1.0, 0.88, 0.62))
-	_say_day_one_context("day1_boss_bump",
-		"Grand Puff bounced away!")
-
-# ---- the beat map ----------------------------------------------------------
 func pose_for_state() -> String:
 	# which authored ANIMATION belongs to this beat. The kit plays them; this
 	# is the map, kept public so the probe can assert it without reaching into
@@ -1001,7 +692,7 @@ func pose_for_state() -> String:
 	var st: String = String(m.g.get("db_state", ""))
 	var rounds: int = int(m.g.get("db_hits", 0))
 	match st:
-		"prowl", "windup":
+		"tell", "strike", "damage_recovery":
 			return "angry_jump_final" if rounds >= 2 else "jump"
 		"vuln":
 			return "laugh_vulnerable"
@@ -1062,35 +753,31 @@ func _place_boss(delta: float) -> void:
 		else:
 			star.modulate = Color(0.66, 0.62, 0.78, 0.42 + 0.35 * flash)
 			star.scale = Vector3.ONE * (0.85 + 0.3 * flash)
-	var shadow: MeshInstance3D = m.g.get("db_shadow") as MeshInstance3D
+	var shadow: Sprite2D = m.g.get("db_shadow") as Sprite2D
 	if shadow != null and is_instance_valid(shadow):
 		var lift: float = clampf(float(m.g.get("db_y", 0.0)) / LEAP_H, 0.0, 1.0)
-		shadow.position = Vector3(float(m.g.get("db_x", 0.0)), 0.14,
-			float(m.g.get("db_z", 0.0)))
-		shadow.scale = Vector3.ONE * (1.0 - 0.5 * lift) * maxf(0.02, puff)
-		var sm: StandardMaterial3D = shadow.material_override as StandardMaterial3D
-		if sm != null:
-			sm.albedo_color = Color(0.16, 0.28, 0.45, 0.30 - 0.18 * lift)
+		var floor_point := Vector2(float(m.g.get("db_x", 0.0)), float(m.g.get("db_z", 0.0)))
+		shadow.position = stage.project_floor_point(floor_point)
+		var width: float = stage.project_floor_point(floor_point + Vector2(BOSS_H * 0.36, 0.0)).distance_to(shadow.position) * 2.0
+		shadow.scale = Vector2.ONE * width / float(shadow.texture.get_width()) * (1.0 - 0.5 * lift) * maxf(0.02, puff)
+		shadow.modulate.a = 0.65 - 0.35 * lift
 	var glow: MeshInstance3D = m.g.get("db_glow") as MeshInstance3D
 	if glow != null and is_instance_valid(glow):
 		glow.visible = flash >= 0.99
 		glow.position.y = BOSS_H * puff * 0.5
-	var hand: Label3D = m.g.get("db_hand") as Label3D
+	var hand: EncounterGestureGuide2D = m.g.get("db_hand") as EncounterGestureGuide2D
 	if hand != null and is_instance_valid(hand):
 		# the non-reader pointer: a finger over his head only while he is open
 		hand.visible = flash >= 0.99
-		hand.position.y = BOSS_H * puff + 3.6 + sin(float(m.g.get("db_st", 0.0)) * 7.0) * 0.4
+		if star != null and m.player.cam != null:
+			hand.anchor = m.player.cam.unproject_position(star.global_position)
 
 func _update_hud() -> void:
-	var hits: int = int(m.g.get("db_hits", 0))
-	var open: bool = String(m.g.get("db_state", "")) == "vuln"
-	var lead: String = "⭐ TAP NOW!" if open else "Watch his star…"
-	m.hud_game.text = lead + "   " + m._pips(hits, HP, "💜")
+	# The live head and three encounter puffs carry the lesson. Mastery belongs
+	# to the earned result, not a second bright instruction during an attack.
+	m.hud_game.visible = false
 
 func _build_mastery_ui() -> void:
-	# A picture-only mastery strip stays on the Canvas above the legacy arena.
-	# Filled and outline stars make the next replay goal readable without text;
-	# the diamond is the separate zero-bump bonus target.
 	var layer := CanvasLayer.new()
 	layer.name = "DustBossMasteryLayer"
 	layer.layer = 10
@@ -1101,69 +788,130 @@ func _build_mastery_ui() -> void:
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(root)
-	var panel := StorybookUI.add_hud_panel(root,
-		Rect2(430.0, 18.0, 420.0, 94.0), StorybookUI.PURPLE,
-		Color(0.98, 0.96, 1.0, 0.94), 34)
-	panel.name = "DustBossMasteryCard"
-	var perfect := Label.new()
-	perfect.name = "PerfectBonusGem"
-	perfect.position = Vector2(14.0, 6.0)
-	perfect.size = Vector2(88.0, 80.0)
-	perfect.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	perfect.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	StorybookUI.style_hud_label(perfect, 48, StorybookUI.PEARL_BLUE, 5)
-	panel.add_child(perfect)
-	m.g["db_perfect_gem"] = perfect
-	var stars := Label.new()
-	stars.name = "MasteryStars"
-	stars.position = Vector2(96.0, 4.0)
-	stars.size = Vector2(308.0, 84.0)
-	stars.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	stars.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	StorybookUI.style_hud_label(stars, 58, StorybookUI.GOLD, 6)
-	panel.add_child(stars)
-	m.g["db_mastery_stars"] = stars
-
-func _mastery_stars(tier: int) -> String:
-	var out := ""
-	for i in range(MASTERY_GOLD):
-		out += "★" if i < tier else "☆"
-	return out
+	var telegraph := DustBossTelegraph2DLogic.new() as DustBossTelegraph2D
+	telegraph.configure_quality(m.quality)
+	telegraph.draw_floor = false
+	telegraph.name = "DustBossTelegraph"
+	root.add_child(telegraph)
+	m.g["db_telegraph"] = telegraph
+	# The painted warning belongs on the floor behind the retained actors.
+	# Keep the destination hand and progress above them on the HUD canvas.
+	var floor_telegraph := DustBossTelegraph2DLogic.new() as DustBossTelegraph2D
+	floor_telegraph.configure_quality(m.quality)
+	floor_telegraph.draw_overlay = false
+	floor_telegraph.name = "DustBossFloorWarning"
+	(m.g["db_attic_layer"] as CanvasLayer).add_child(floor_telegraph)
+	m.g["db_floor_telegraph"] = floor_telegraph
 
 func _update_mastery_ui() -> void:
 	var layer: CanvasLayer = m.g.get("db_mastery_layer") as CanvasLayer
 	if layer == null or not is_instance_valid(layer):
 		return
+	layer.visible = String(m.g.get("db_state", "")) != "splash"
+	_update_telegraph()
+
+func _update_projection() -> void:
+	var viewport_size: Vector2 = m.get_viewport().get_visible_rect().size
+	if viewport_size == _projection_size:
+		return
+	_projection_size = viewport_size
+	stage.fit_camera()
+	var corners := PackedVector2Array()
+	for point: Vector2 in [Vector2(-RADIUS, -RADIUS), Vector2(RADIUS, -RADIUS),
+			Vector2(RADIUS, RADIUS), Vector2(-RADIUS, RADIUS)]:
+		corners.append(stage.project_floor_point(point))
+	navigation.set_projection(Rect2(-RADIUS, -RADIUS, RADIUS * 2.0, RADIUS * 2.0), corners)
+	if m.hud_msg != null:
+		m.hud_msg.position = Vector2(viewport_size.x * 0.20, viewport_size.y - 62.0)
+		m.hud_msg.size = Vector2(viewport_size.x * 0.60, 50.0)
+	_prepare_telegraph_geometry()
+
+func _prepare_telegraph_geometry() -> void:
+	_warning_points.clear()
+	if patterns == null or patterns.geometry.is_empty():
+		return
+	var danger: Dictionary = patterns.geometry
+	if String(danger.get("shape", "circle")) == "lane":
+		var from: Vector2 = danger["from"]
+		var to: Vector2 = danger["to"]
+		var direction: Vector2 = (to - from).normalized()
+		var side := Vector2(-direction.y, direction.x) * float(danger["half_width"])
+		for point: Vector2 in [from + side, to + side, to - side, from - side]:
+			_warning_points.append(stage.project_floor_point(point))
+	else:
+		var center: Vector2 = danger["center"]
+		for index: int in range(32):
+			var angle: float = TAU * float(index) / 32.0
+			var point: Vector2 = center + Vector2(cos(angle), sin(angle)) * float(danger["radius"])
+			_warning_points.append(stage.project_floor_point(point))
+	# The destination must be a live ground target, outside the boss's head hit
+	# region as well as its hazard. Search once per warning, never each frame.
+	var safe: Vector2 = danger.get("safe_point", Vector2.ZERO) as Vector2
+	if _screen_hit(stage.project_floor_point(safe)):
+		var origin: Vector2 = stage.player_local()
+		var best_distance: float = INF
+		for distance: float in [10.0, 15.0, 20.0]:
+			for index: int in range(16):
+				var angle: float = TAU * float(index) / 16.0
+				var candidate: Vector2 = stage.clamp_point(origin + Vector2(cos(angle), sin(angle)) * distance, 2.6)
+				if not patterns.contains(candidate, 1.2) and not _screen_hit(stage.project_floor_point(candidate)):
+					var travel: float = origin.distance_to(candidate)
+					if travel < best_distance:
+						best_distance = travel
+						safe = candidate
+			if best_distance < INF:
+				break
+	_safe_destination = safe
+
+func _update_telegraph() -> void:
+	var telegraph: DustBossTelegraph2D = m.g.get("db_telegraph") as DustBossTelegraph2D
+	if telegraph == null or not is_instance_valid(telegraph):
+		return
 	var state: String = String(m.g.get("db_state", ""))
-	layer.visible = state != "splash"
-	# The mastery strip is a calm, static promise during the fight. Showing a
-	# star disappear on contact reads as losing; the generic medal card reveals
-	# the bump tier only after the encounter is complete.
-	var tier: int = MASTERY_GOLD
-	var stars: Label = m.g.get("db_mastery_stars") as Label
-	if stars != null and is_instance_valid(stars):
-		stars.text = _mastery_stars(tier)
-		stars.add_theme_color_override("font_color",
-			MASTERY_COLORS[tier] as Color)
-	var perfect: Label = m.g.get("db_perfect_gem") as Label
-	if perfect != null and is_instance_valid(perfect):
-		perfect.text = "💎"
-		perfect.modulate = Color.WHITE
+	var player_here: Vector2 = stage.player_local()
+	var threatened: bool = patterns != null and patterns.contains(player_here)
+	_telegraph_data["visible"] = state == "tell" or state == "strike"
+	_telegraph_data["active"] = state == "strike"
+	_telegraph_data["points"] = _warning_points
+	_telegraph_data["progress"] = clampf(patterns.elapsed / maxf(patterns.tell_time, 0.01), 0.0, 1.0)
+	_telegraph_data["safe_point"] = stage.project_floor_point(_safe_destination) if threatened else Vector2.ZERO
+	_telegraph_data["safe_visible"] = threatened
+	_telegraph_data["player_point"] = stage.project_floor_point(player_here)
+	_telegraph_data["puffs"] = encounter.completed_rounds
+	_telegraph_data["total"] = HP
+	telegraph.set_telegraph(_telegraph_data)
+	var floor_telegraph: DustBossTelegraph2D = m.g.get("db_floor_telegraph") as DustBossTelegraph2D
+	if floor_telegraph != null and is_instance_valid(floor_telegraph):
+		floor_telegraph.set_telegraph(_telegraph_data)
 
 # ---- the attic in the round ------------------------------------------------
 func _stage_open() -> void:
+	if m.touch_ui != null:
+		m.touch_ui.set_encounter_controls(on_world_tap, navigation.cancel)
+	if m.hud_msg != null:
+		_caption_position = m.hud_msg.position
+		_caption_size = m.hud_msg.size
+		_caption_style = m.hud_msg.get_theme_stylebox("normal")
+		m.hud_msg.add_theme_stylebox_override("normal", StorybookUI.panel_style(
+			StorybookUI.LAVENDER, Color(0.94, 0.96, 1.0, 0.88), 18, 2))
+	_projection_size = Vector2.ZERO
+	_build_attic_backdrop()
 	stage.open({
+		"canvas_backdrop": true,
 		"origin": m.ARENA_POS + Vector3(0, 2.5, 0),
 		"radius": RADIUS,
 		"inset": 2.6,
-		"wall_h": 5.4,
+		"wall_h": 1.2,
 		"hover": 3.0,
 		"bob_amp": 0.45,
 		"speed": 24.0,
 		# the frame must hold the whole ring AND the top of a leap plus the
 		# star above his head — it follows BOSS_H, so re-scaling the boss
 		# re-solves the camera instead of cropping him
-		"headroom": LEAP_H + BOSS_H + 3.5,
+		"headroom": HOP_H + BOSS_H + 3.5,
+		"look_height_ratio": 0.35,
+		"screen_top_margin": 0.10,
+		"screen_bottom_margin": 0.10,
 		"start": Vector2(0.0, 14.0),
 		"floor_col": Color(0.82, 0.74, 0.68),      # attic boards
 		"trim_col": Color(0.78, 0.72, 0.88),       # lavender panelling
@@ -1171,44 +919,35 @@ func _stage_open() -> void:
 		"post_glow": Color(1.0, 0.88, 0.70),
 	})
 	m._play_music("dustboss")
-	var r := stage.root()
-	if r == null:
-		return
-	# forgotten pearl crates stacked against the wall panels, and low dust
-	# mounds banked in the corners: the room the dust came from
-	for i in range(8):
-		var ang: float = float(i) * PI / 4.0
-		var apo: float = OctagonStage.apothem(RADIUS)
-		if i % 2 == 0:
-			var crate := MeshInstance3D.new()
-			var cm := BoxMesh.new()
-			cm.size = Vector3(5.2, 4.0, 3.4)
-			crate.mesh = cm
-			crate.position = Vector3(cos(ang) * (apo - 2.0), 2.0, sin(ang) * (apo - 2.0))
-			crate.rotation.y = -ang
-			crate.material_override = m._soft_mat(Color(0.86, 0.78, 0.70), 0.05)
-			crate.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-			r.add_child(crate)
-		else:
-			var mound := MeshInstance3D.new()
-			var mm := SphereMesh.new()
-			mm.radius = 3.6
-			mm.height = 3.0
-			mound.mesh = mm
-			mound.position = Vector3(cos(ang) * (apo - 1.6), 0.5, sin(ang) * (apo - 1.6))
-			mound.material_override = m._soft_mat(Color(0.80, 0.76, 0.92), 0.08)
-			mound.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-			r.add_child(mound)
-	# his nest in the middle of the ring: he rises out of this in the showing
-	var nest := MeshInstance3D.new()
-	var nm := SphereMesh.new()
-	nm.radius = 6.0
-	nm.height = 4.4
-	nest.mesh = nm
-	nest.position = Vector3(0.0, 0.3, -12.0)
-	nest.material_override = m._soft_mat(Color(0.80, 0.76, 0.92), 0.10)
-	nest.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	r.add_child(nest)
+	# Preserve the existing cutout's pixels but keep Roshan readable when the
+	# much larger boss lands directly in front of her. Restore on every exit.
+	if m.player != null and m.player.classic_sprite != null:
+		m.g["db_player_draw_priority"] = m.player.classic_sprite.render_priority
+		m.g["db_player_depth_override"] = m.player.classic_sprite.no_depth_test
+		m.player.classic_sprite.render_priority = 100
+		m.player.classic_sprite.no_depth_test = true
+
+func _build_attic_backdrop() -> void:
+	# Presentation binding belongs to the encounter adapter, not main.
+	m.arena_env.background_mode = 3 # Canvas background in the existing viewport.
+	m.arena_env.background_canvas_max_layer = -20
+	var layer := CanvasLayer.new()
+	layer.name = "DustBossAtticCanvas"
+	layer.layer = -20
+	m.add_child(layer)
+	var backdrop := TextureRect.new()
+	backdrop.name = "DustBossAtticBackdrop"
+	backdrop.texture = ATTIC_BACKDROP
+	backdrop.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	backdrop.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	backdrop.offset_left = -16.0
+	backdrop.offset_top = -16.0
+	backdrop.offset_right = 16.0
+	backdrop.offset_bottom = 16.0
+	layer.add_child(backdrop)
+	m.g["db_attic_layer"] = layer
 
 func _build_boss() -> void:
 	var r := stage.root()
@@ -1219,7 +958,7 @@ func _build_boss() -> void:
 	r.add_child(boss)
 	m.g["db_boss"] = boss
 	# THE ANIMATED BOSS. DustBunnyBossSprite owns the four-frame sheets, the
-	# three-tap window, the flinch chain and the implosion; this file positions
+	# counter window, the flinch chain and the implosion; this file positions
 	# it, tells it when to jump and when to open, and answers its signals.
 	var kit := DustBunnyBossSprite.new()
 	kit.name = "GrandPuff"
@@ -1232,8 +971,9 @@ func _build_boss() -> void:
 	kit.tap_progress_changed.connect(_on_tap_progress)
 	kit.vulnerability_changed.connect(_on_vulnerability_changed)
 	# the ground shadow stays on the deck so a leap reads as a leap
-	var shadow := stage.contact_shadow(BOSS_H * 0.62)
-	r.add_child(shadow)
+	var shadow := Sprite2D.new()
+	shadow.texture = preload("res://assets/flats/castle/rooms/room_actor_shadow.png")
+	(m.g["db_attic_layer"] as CanvasLayer).add_child(shadow)
 	m.g["db_shadow"] = shadow
 	# THE ICON ON HIS HEAD — the art carries a glowing crest on the exposed
 	# frame, and this badge repeats it above the card so the tell is readable
@@ -1255,16 +995,11 @@ func _build_boss() -> void:
 	glow.visible = false
 	boss.add_child(glow)
 	m.g["db_glow"] = glow
-	var hand := Label3D.new()
-	hand.text = "👆"
-	hand.font_size = 128
-	hand.pixel_size = 0.03
-	hand.outline_size = 18
-	hand.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	hand.modulate = Color(1.0, 0.92, 0.5)
-	hand.position = Vector3(0, BOSS_H + 3.6, 0)
+	var hand := EncounterGestureGuide2D.new()
+	hand.show_chip = false
+	hand.configure_quality(m.quality)
 	hand.visible = false
-	boss.add_child(hand)
+	(m.g["db_mastery_layer"] as CanvasLayer).add_child(hand)
 	m.g["db_hand"] = hand
 
 func kit() -> DustBunnyBossSprite:
@@ -1272,12 +1007,14 @@ func kit() -> DustBunnyBossSprite:
 
 # ---- what the animation kit tells us ---------------------------------------
 func _on_round_done() -> void:
-	# one of the three damage rounds is down: three taps landed inside a window
-	var rounds: int = int(m.g.get("db_hits", 0)) + 1
+	# One clean avoidance and one intentional counter tap completed this round.
+	var rounds: int = encounter.completed_rounds
 	m.g["db_hits"] = rounds
+	m.save_data["dustboss_pending_rounds"] = mini(rounds, HP)
+	m.save_data["dustboss_pending_damage"] = int(m.g.get("db_damage_taken", 0))
+	m._write_save()
 	m.g["db_miss_streak"] = 0
 	m.g["db_shield_taps"] = 0
-	m.g["db_taps_this_round"] = 0
 	var boss: Node3D = m.g.get("db_boss") as Node3D
 	if boss != null and is_instance_valid(boss):
 		m._sparkle_burst(boss.global_position + Vector3(0, BOSS_H * 0.5, 0),
@@ -1308,7 +1045,8 @@ func _on_imploded() -> void:
 
 func _on_tap_progress(accepted: int, _required: int) -> void:
 	m.g["db_taps_this_round"] = accepted
-	_show_attack_feedback()
+	if accepted > 0:
+		_show_attack_feedback()
 
 # ---- the reef doorway ------------------------------------------------------
 func build_portal() -> Vector3:

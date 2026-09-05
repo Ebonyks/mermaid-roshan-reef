@@ -281,6 +281,7 @@ func _run() -> void:
 	_ck("boss art adds no physics body",
 		boss.find_children("*", "CollisionObject3D", true, false).is_empty())
 	boss.queue_free()
+	await _check_counter_mode()
 
 	if failures == 0:
 		print("BUNNYBOSS|result: ALL OK")
@@ -288,3 +289,33 @@ func _run() -> void:
 	else:
 		print("BUNNYBOSS|result: %d FAIL" % failures)
 		quit(1)
+
+
+func _check_counter_mode() -> void:
+	var counter: DustBunnyBossSprite = DustBunnyBossSprite.new()
+	root.add_child(counter)
+	await process_frame
+	counter.configure_counter_mode(2.4)
+	_ck("counter cannot hit a shielded head", not counter.register_counter_tap())
+	for round_index in range(3):
+		counter.play_vulnerable_laugh()
+		counter.sprite.frame = 1
+		counter._on_frame_changed()
+		_ck("counter opening remains generous in every phase",
+			is_equal_approx(counter.vulnerability_time_left, 2.4))
+		_ck("one counter removes exactly one round",
+			counter.register_counter_tap()
+			and counter.damage_rounds_completed == round_index + 1)
+		_ck("counter closes immediately against duplicate input",
+			not counter.register_counter_tap() and not counter.register_vulnerable_tap())
+		_ck("counter starts approved first flinch", counter.sprite.animation == &"flinch_1")
+		counter._on_animation_finished()
+		_ck("counter retains approved second flinch", counter.sprite.animation == &"flinch_2")
+		counter._on_animation_finished()
+		_ck("counter retains approved third flinch", counter.sprite.animation == &"flinch_3")
+		counter._on_animation_finished()
+		if round_index < 2:
+			counter._on_animation_finished()
+	_ck("third counter ends in approved implosion",
+		counter.defeated and counter.sprite.animation == &"implode")
+	counter.queue_free()

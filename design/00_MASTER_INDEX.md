@@ -1,5 +1,14 @@
 # Master design documents — index
 
+**Planning entry (2026-09-05):** start with the
+[audit front page](../audit/MASTER_AUDIT_2026-08-09.md#0-planning-entry),
+[chapter guide](09_CHAPTER_DEVELOPMENT_GUIDE.md),
+[brief template](templates/CHAPTER_BRIEF_V1.md), and
+[reference library](10_CHAPTER_REFERENCE_LIBRARY.md).
+[Northern/Ice World](chapters/NORTHERN_ICE_WORLD.md) is the named future
+planning branch, including the restaurant/customer-order mechanic remix.
+The sealed evidence below retains its named commits and is not today's build.
+
 _Initial consolidation: 2026-08-02. Authority reconciliation: 2026-08-09.
 Runtime/audit merge synchronization: 2026-08-13._
 
@@ -90,6 +99,10 @@ emitters/25 planner tests/27 manual groups.
 | 05 | [DOC_LEDGER.md](05_DOC_LEDGER.md) | Exhaustive verified authority/status index: one row for each of 316 Git-declared Markdown paths |
 | 06 | [COMPREHENSIVE_DESIGN_LANGUAGE.md](06_COMPREHENSIVE_DESIGN_LANGUAGE.md) | Stable `DL-*` rules, including the owner's 2026-08-09 true-2D decision and the complete audit contract |
 | 08 | [TARGET_ARCHITECTURE.md](08_TARGET_ARCHITECTURE.md) | The Mode Platform remodel (owner-requested 2026-08-26): the growth law, GameMode/registry/director/services contracts, the structure ratchet, and migration plan M0–M6 |
+| 09 | [CHAPTER_DEVELOPMENT_GUIDE.md](09_CHAPTER_DEVELOPMENT_GUIDE.md) | Delegation, strategic unused-asset selection, mechanic remixing, production workflow, and evidence boundaries |
+| 10 | [CHAPTER_REFERENCE_LIBRARY.md](10_CHAPTER_REFERENCE_LIBRARY.md) | Current continuity sources, seed patterns, asset discovery, and implementation availability |
+| chapter template | [CHAPTER_BRIEF_V1.md](templates/CHAPTER_BRIEF_V1.md) | Commission, causal play, continuity, saves, asset shortlist, dependencies, acceptance, and learning |
+| Northern planning | [NORTHERN_ICE_WORLD.md](chapters/NORTHERN_ICE_WORLD.md) | Future Ice World restaurant/customer-order opportunity and source/implementation dependencies |
 | audit | [MASTER_AUDIT_2026-08-09.md](../audit/MASTER_AUDIT_2026-08-09.md) | Current audit-cycle state, synchronized evidence, lifecycle triage, and satisfaction gate |
 | typography audit | [FONT_TYPOGRAPHY_AUDIT_2026-08-30.md](../audit/FONT_TYPOGRAPHY_AUDIT_2026-08-30.md) | V1 font, glyph, size, layout, and `Label3D` census; critique; and bounded TYPE-A–G implementation program |
 | findings | [ACTIVE_FINDINGS_2026-08-13.md](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md) | Full canonical records for every material `MA-*` item, including retained terminal history |

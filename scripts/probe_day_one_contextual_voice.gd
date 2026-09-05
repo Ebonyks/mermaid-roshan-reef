@@ -42,6 +42,9 @@ func _init() -> void:
 		and bool(main.hud_msg.get_meta("contextual_audio_missing", false)))
 	_check("generic override fails closed", not director.say_day_one_context(
 		"day1_bathroom_tub_drain", "Read this caption", "bathroom", "other", 0, true))
+	_check("retired overlay-control cue fails closed", not director.say_day_one_context(
+		"day1_boss_dodge_prompt", "Tap the painted warning shape.", "boss", "retired")
+		and main.hud_msg.text == "Tap the painted warning shape.")
 	_check("unknown cue fails closed", not director.say_day_one_context(
 		"day1_unknown", "A helpful caption", "bathroom", "unknown"))
 	main.free()

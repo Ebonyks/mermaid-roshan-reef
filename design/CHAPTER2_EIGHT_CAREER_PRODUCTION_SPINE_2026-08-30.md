@@ -21,7 +21,10 @@ preparation remain safe.
 ## Locked roster, bits, and order
 
 Chapter 2 reuses the stable Opera bit identities but owns an independent story
-mask. Global Opera remains `0xBDEF`; Chapter 2 is exactly `0x2C4F`.
+mask. Global Opera follows `OPERA_ACTIVE_STAR_MASK` in
+[`scripts/save_state.gd`](../scripts/save_state.gd); do not copy the historical
+thirteen-career mask into new work. Chapter 2 is exactly `0x2C4F` and keeps its
+eight-job sequence independently of later global career additions.
 
 | Step | Bit | Career | Scene | Persistent result |
 | ---: | ---: | --- | --- | --- |

@@ -1420,3 +1420,60 @@ missing-glyph states, accompanying-adult caption review, a private observed
 child path, and owner visual acceptance. Record device, build, font hashes,
 screens, reviewer/date, truncation/tofu/baseline/outline result, and any exact
 exception; absent evidence remains open.
+
+## 20. Chapter planning, creative delegation, and strategic reuse
+
+Owner direction 2026-09-05: strengthen the master audit for consistent future
+development with increased agent autonomy. The detailed contract lives in
+[the chapter guide](09_CHAPTER_DEVELOPMENT_GUIDE.md), with its
+[brief template](templates/CHAPTER_BRIEF_V1.md) and source-linked
+[reference library](10_CHAPTER_REFERENCE_LIBRARY.md). Existing chapter
+authorities, protected-content, medium, child, save, and release rules remain
+binding. The [Northern/Ice World branch](chapters/NORTHERN_ICE_WORLD.md) retains
+the owner's future restaurant/customer-order example as planning work.
+
+`DL-PLAN-01` — Once the owner approves a chapter's premise and boundaries, the
+agent MAY plan, implement, revise, and expand it through a playable review
+result without another routine approval. Minor characters and optional story
+threads preserving canon are delegated. Major character/plot changes and other
+explicitly reserved decisions require owner direction before dependent work.
+Record authorization, scope, and later changes; silence grants no reserved
+permission and a template does not commission a chapter.
+
+`DL-PLAN-02` — A new chapter MUST have a scoped brief connecting child desire,
+emotional pacing, intentional touch, persistent visible consequences, canon,
+navigation/return, additive save milestones, reuse/novelty, dependencies, and
+acceptance evidence. Use the chapter template; existing chapter documents may
+be cross-referenced rather than rewritten merely to fit its headings.
+
+`DL-PLAN-03` — Existing unused assets MUST be strategically evaluated while
+planning a chapter and before new generation. Shortlist coherent families by
+player/story benefit, thematic fit, lawful authority, readiness, and integration
+cost. Inspect images and consumers before declaring fit or unused status.
+Presence in a library, old runtime label, or a search miss grants no acceptance.
+Record selected source/provenance, role, constraints, decision, and deferred
+opportunities. Suitable reuse may shape the plan within delegated scope; there
+is no asset-use quota or permission to revive prohibited content/archived models.
+
+`DL-PLAN-04` — The agent MAY freely reuse, modify, and combine mechanics for
+new contextual activities within the approved chapter scope and existing child
+rules. A second chef game may combine cooking with pictured customer orders.
+Preserve existing consumers, save/reward identities, and meaningful regression
+coverage. Intentional feature changes are distinct from mechanical refactors;
+the latter remain behavior-preserving. Do not invent a new engine merely for
+novelty or extend an aspirational interface as if it were already implemented.
+
+`DL-PLAN-05` — Development authorization, implementation state, and acceptance
+evidence MUST be recorded separately. Missing external evidence blocks its
+claim or dependent work, not independent authorized development. Existing
+integration gates and game-wide satisfaction criteria retain their scopes;
+chapter readiness does not waive them. AI scores and machine passes cannot
+substitute for actual device, child, or owner observations.
+
+`DL-PLAN-06` — Chapter review MUST record comprehension, agency, purposeful
+variation, pacing, persistent payoff, and continuity observations alongside
+technical checks. Record material questions, owner corrections, reuse successes,
+scope drift, and missing tools to improve the guide. Reference-library entries
+retain source/build binding, what may vary, and each acceptance limit. Preserve
+historical evidence separately from current requirements and refresh affected
+planning links/facts after a scoped owner decision or implementation change.

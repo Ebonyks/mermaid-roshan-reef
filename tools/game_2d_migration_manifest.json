@@ -2,8 +2,8 @@
   "schema_version": 4,
   "policy": "Known entries are migration debt, not waivers. Lists may only shrink.",
   "metadata": {
-    "inventory_head": "a00d7347",
-    "inventory_date": "2026-08-29",
+    "inventory_head": "1ecdf733",
+    "inventory_date": "2026-09-05",
     "owner_contract": "The game is 2D; every tracked or active 3D resource belongs on an out-of-tree deprecated-resources branch.",
     "active_export_scope": "Active/export models and generated sidecars are prioritisation subsets; strict satisfaction requires zero repository or working-tree 3D debt.",
     "fingerprint_contract": "Every retained model binary, tracked model import sidecar, and model-bearing archive is locked by exact size and SHA-256.",
@@ -7580,7 +7580,7 @@
     "active_untracked_model_import_sidecars": 0,
     "model_archive_files": 0,
     "production_3d_files": 56,
-    "probe_3d_files": 66,
+    "probe_3d_files": 64,
     "scene_3d_files": 1,
     "configuration_3d_files": 1,
     "archive_now_model_files": 0
@@ -7711,27 +7711,21 @@
       "Label3D": 2,
       "Mesh": 1,
       "MeshInstance3D": 3,
-      "Node3D": 14,
+      "Node3D": 13,
       "SphereMesh": 1,
       "Sprite3D": 4,
       "SpriteBase3D": 1,
       "StandardMaterial3D": 2,
-      "Vector3": 92
+      "Vector3": 87
     },
     "scripts/combat_tutorial.gd": {
       "<lowercase-3d-marker>": 1,
-      "BaseMaterial3D": 4,
+      "BaseMaterial3D": 1,
       "Camera3D": 2,
-      "DirectionalLight3D": 1,
       "Environment": 4,
-      "GeometryInstance3D": 1,
-      "Label3D": 2,
-      "MeshInstance3D": 1,
-      "Node3D": 4,
-      "QuadMesh": 1,
+      "Node3D": 3,
       "Sprite3D": 2,
-      "StandardMaterial3D": 3,
-      "Vector3": 22
+      "Vector3": 18
     },
     "scripts/companion.gd": {
       "BaseMaterial3D": 16,
@@ -7873,18 +7867,14 @@
       "Vector3": 38
     },
     "scripts/games/dust_boss.gd": {
-      "BaseMaterial3D": 2,
-      "BoxMesh": 3,
+      "BaseMaterial3D": 1,
+      "BoxMesh": 2,
       "Camera3D": 1,
-      "GeometryInstance3D": 3,
-      "Label3D": 3,
-      "MeshInstance3D": 9,
-      "Node3D": 12,
-      "SphereMesh": 2,
+      "MeshInstance3D": 4,
+      "Node3D": 10,
       "Sprite3D": 4,
       "SpriteBase3D": 1,
-      "StandardMaterial3D": 2,
-      "Vector3": 36
+      "Vector3": 27
     },
     "scripts/games/fairy.gd": {
       "BaseMaterial3D": 2,
@@ -8280,16 +8270,8 @@
       "Vector3": 5
     },
     "scripts/probe_dust_boss.gd": {
-      "Camera3D": 2,
-      "Node3D": 8,
-      "Vector3": 11
-    },
-    "scripts/probe_dust_boss_balance.gd": {
-      "Node3D": 2
-    },
-    "scripts/probe_dust_boss_shots.gd": {
       "Node3D": 2,
-      "Vector3": 1
+      "Vector3": 3
     },
     "scripts/probe_dust_bunny.gd": {
       "AnimatedSprite3D": 1,
