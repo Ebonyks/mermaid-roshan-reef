@@ -1,0 +1,183 @@
+{
+  "scope": "Grand Puff and combat tutorial rendered layout review",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "Mobile Vulkan, NVIDIA GeForce RTX 3060 Ti",
+  "capture_method": "probe_dust_boss_shots.gd and probe_combat_tutorial.gd; real viewport after frame_post_draw",
+  "evidence_status": "agent visual review; physical device, child and owner acceptance pending",
+  "cinematic_delivery": false,
+  "source_hash_format": "UTF-8 source normalized CRLF to LF; SHA-256",
+  "source_hashes": {
+    "scripts/boss_encounter_2d.gd": "8c57f603d96142c4e07568eee1e12d49ab107788fac26a90ab1d2dd04f5dfa56",
+    "scripts/encounter_profile_2d.gd": "a6506eed32651fc6a904a500404b114d536f980c83c4696c1298a31568a0d93e",
+    "scripts/encounter_attack_2d.gd": "f427ccd622a7bde0308998976bba7141a7b6b8bdc21e4fa562537af014617bed",
+    "scripts/encounter_phase_2d.gd": "b78240e2844a33dc55d021286ef612b344ee8022701de7324f0732d53c36ddda",
+    "scripts/encounter_patterns_2d.gd": "da25efb19bd9e3f443756e028e0950866346398ca10bbe748fbdb03f569dcb41",
+    "scripts/encounter_navigation_2d.gd": "639671e5efcb4853b8402a974cfa2fde15809ebe3d9af4bb6a0ef39824f90f85",
+    "scripts/encounter_telegraph_2d.gd": "f31b0ba990a8e1d70a8688460b810bb8c43ed91f42f7eaa0241f5cddc87abb29",
+    "scripts/encounter_gesture_guide_2d.gd": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f",
+    "scripts/games/dust_boss.gd": "81158d4246e1e947fec83e39b952d4f57860ef5d86b2481a09a2d60bc91118d6",
+    "scripts/games/octagon_stage.gd": "433592587ba6b87ab4da1d27359208f3ebb31040de5886fe5d6b9ab07958b2db",
+    "scripts/boss_splash_2d.gd": "1c592131c4252508d903e7085ccd8f6a7ed0b67537c5454f38ac70b4daa76636",
+    "scripts/touch_ui.gd": "c0ab228aeb1500675cc7b3ce17f0f070e60706ab5bf030e89b3d1d89c57da470",
+    "scripts/dust_bunny_boss_sprite.gd": "af653730ee98108c7c6897b9c2841d23b41d30defc04365f68712bc9189cca6f",
+    "scripts/probe_dust_boss_shots.gd": "b3345765e089d6d56595e905f16746cff09a3f4c01bfea096b0dd9e3406b3794",
+    "scripts/combat_tutorial.gd": "a88a281b289a7262006a9f1cd06cff5797cf7beece1b9c7a377a0471e93e2c88",
+    "scripts/probe_combat_tutorial.gd": "97d22e466236424e12b1eb6a11673b82bd2492b0c5c1fd2f40725a37c05870b8",
+    "scripts/dust_bunny_sprite.gd": "4880c9090d6e8f70b7ed6fb9e251a4bcb5d86e0ce8d325c4c30c57f4969fa837"
+  },
+  "captures": [
+    {
+      "path": "audit/boss_encounter_2026-09-05/dust_1280_00c_splash_weakness_lesson.png",
+      "capture_source": "tmp/bunny-rebuild/shots-floor-final-1280/00c_splash_weakness_lesson.png",
+      "sha256": "0745bcf36a4001da4dea23736cceed02675deb2d4e826591e60360ca50c3ae0d",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "none; direct viewport PNG copy"
+    },
+    {
+      "path": "audit/boss_encounter_2026-09-05/dust_1280_04_tell_safe_destination.png",
+      "capture_source": "tmp/bunny-rebuild/shots-floor-final-1280/04_tell_safe_destination.png",
+      "sha256": "98bcd66b636bb2dde3378e5dd7cfcb9cb25ae7dd30cf4e9e5ca91f9da56b82df",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "none; direct viewport PNG copy"
+    },
+    {
+      "path": "audit/boss_encounter_2026-09-05/dust_1280_phase_2_step_1_tell.png",
+      "capture_source": "tmp/bunny-rebuild/shots-floor-final-1280/phase_2_step_1_tell.png",
+      "sha256": "9476e362aed6514f2cd05c5074643bbdc1e6a7d08792e18d8ee4ed7feaaefa58",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "none; direct viewport PNG copy"
+    },
+    {
+      "path": "audit/boss_encounter_2026-09-05/dust_1280_phase_2_step_1_vuln.png",
+      "capture_source": "tmp/bunny-rebuild/shots-floor-final-1280/phase_2_step_1_vuln.png",
+      "sha256": "481850a36c4ceba9253643ee5d199acc3379fb86979aea56954c0db12ddc317d",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "none; direct viewport PNG copy"
+    },
+    {
+      "path": "audit/boss_encounter_2026-09-05/dust_1560_00c_splash_weakness_lesson.png",
+      "capture_source": "tmp/bunny-rebuild/shots-floor-final-1560/00c_splash_weakness_lesson.png",
+      "sha256": "89e2d2112434b4308a920b23809b6382f593e644e8ade946762f25b126cd7cb6",
+      "dimensions": [
+        1560,
+        720
+      ],
+      "pixel_modifications": "none; direct viewport PNG copy"
+    },
+    {
+      "path": "audit/boss_encounter_2026-09-05/dust_1560_04_tell_safe_destination.png",
+      "capture_source": "tmp/bunny-rebuild/shots-floor-final-1560/04_tell_safe_destination.png",
+      "sha256": "de7fce19d58a15bd78d47b1341b4dddfd13df5b1985a77514fbaf802d3fd47b0",
+      "dimensions": [
+        1560,
+        720
+      ],
+      "pixel_modifications": "none; direct viewport PNG copy"
+    },
+    {
+      "path": "audit/boss_encounter_2026-09-05/dust_1560_phase_2_step_1_tell.png",
+      "capture_source": "tmp/bunny-rebuild/shots-floor-final-1560/phase_2_step_1_tell.png",
+      "sha256": "196621497acbe1579116582c17b56759839e06a7bc7d04aaf88224991e81d74c",
+      "dimensions": [
+        1560,
+        720
+      ],
+      "pixel_modifications": "none; direct viewport PNG copy"
+    },
+    {
+      "path": "audit/boss_encounter_2026-09-05/dust_1560_phase_2_step_1_vuln.png",
+      "capture_source": "tmp/bunny-rebuild/shots-floor-final-1560/phase_2_step_1_vuln.png",
+      "sha256": "28834a77587a89c92ee8a0b1603fa67f5db099d0196b9b2e1a51d3fd25b9498a",
+      "dimensions": [
+        1560,
+        720
+      ],
+      "pixel_modifications": "none; direct viewport PNG copy"
+    },
+    {
+      "path": "audit/boss_encounter_2026-09-05/tutorial_1280_01_tap.png",
+      "capture_source": "tmp/bunny-rebuild/tutorial-root3-shots/01_tap.png",
+      "sha256": "514b084ff8a97f1eaa8ef6463fe88ec6aae7a2344ebfaa3c2fd76df49ca7836e",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "none; direct viewport PNG copy"
+    },
+    {
+      "path": "audit/boss_encounter_2026-09-05/tutorial_1280_02_combo.png",
+      "capture_source": "tmp/bunny-rebuild/tutorial-root3-shots/02_combo.png",
+      "sha256": "54690d63eb1609afb845ff5ec97bdfbf7b53ee7c10752f6b026dbaa9d8a88f10",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "none; direct viewport PNG copy"
+    },
+    {
+      "path": "audit/boss_encounter_2026-09-05/tutorial_1280_03_hold.png",
+      "capture_source": "tmp/bunny-rebuild/tutorial-root3-shots/03_hold.png",
+      "sha256": "6b35c89ed454aa164e604b9ed1a92737db0b11a84ed716d6e97f58f209a195cc",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "none; direct viewport PNG copy"
+    },
+    {
+      "path": "audit/boss_encounter_2026-09-05/tutorial_1280_04_partner.png",
+      "capture_source": "tmp/bunny-rebuild/tutorial-root3-shots/04_partner.png",
+      "sha256": "20d7f396651ea08035bfb9dcd30800da0b421079e9ac0eddf56529c5bc7f0ee9",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "none; direct viewport PNG copy"
+    },
+    {
+      "path": "audit/boss_encounter_2026-09-05/tutorial_1280_05_wave.png",
+      "capture_source": "tmp/bunny-rebuild/tutorial-root3-shots/05_wave.png",
+      "sha256": "3c5c54b0394aad3c85fb553753139727c1cfc59be660ccbabdc40cc23fd7103b",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "none; direct viewport PNG copy"
+    }
+  ],
+  "review": {
+    "approved_room": "August 30 dusty attic; restored source pixels unchanged",
+    "hierarchy": "floor warning behind actors; cyan destination and downward hand above; completed-round pips at top",
+    "residual_issue": "Roshan remains visible in front of boss at overlapping positions, but overlap weakens silhouette separation",
+    "tutorial": "One animated atlas frame per practice bunny, large targets on painted floor, Roshan separated, no Jump control, hand above partner portrait, new hold guide remains visible after prior combo",
+    "limitations": "Desktop Mobile captures do not establish 30 fps Android performance or child comprehension; residual spatial actors remain migration debt"
+  },
+  "balance_logs": [
+    {
+      "path": "audit/boss_encounter_2026-09-05/balance-normal.log",
+      "sha256": "5ef825bb0ce2402620258717153beb9f093303446abfc10ed66588549a5bb89f",
+      "original_capture_sha256": "3452acf9c0254da5ab696aeed5529c0fbd5f78894bd68294bbbc69846754f27a",
+      "normalization": "CRLF to LF only; original capture hash preserved",
+      "method": "exact Godot 4.7.2, fixed-fps 60, isolated save data"
+    },
+    {
+      "path": "audit/boss_encounter_2026-09-05/balance-controls.log",
+      "sha256": "c4e0183bd0c5cb7009a62a61f0e679d87835b6f5bd42551601769508080131cf",
+      "original_capture_sha256": "b98a62169420121dd927ea38e6f2e65df96b1311e017fbaa66efe0878ea326be",
+      "normalization": "CRLF to LF only; original capture hash preserved",
+      "method": "exact Godot 4.7.2, fixed-fps 60, isolated save data"
+    }
+  ]
+}

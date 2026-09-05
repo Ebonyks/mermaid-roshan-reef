@@ -40,6 +40,12 @@ var room_tag := ""
 var art_theme := ""
 var materials := {}
 var mic_live := false   # microphone armed AND both spells taught
+var boss_encounter: BossEncounter2D = null
+var boss_telegraph: EncounterTelegraph2D = null
+var boss_strike_t := 0.0
+var boss_recovery_t := 0.0
+var pepper_telegraph_key := ""
+var pepper_telegraph_points := PackedVector2Array()
 
 func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dictionary = {}) -> void:
 	m = main
@@ -77,6 +83,7 @@ func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dicti
 			"combat_dust_start")
 	else:
 		_build_pepper_boss()
+		_begin_pepper_encounter()
 		if kind == "dual":
 			var dual_msg := "Freeze the spinning shell with ICE, then use FIRE when the dragon-turtle peeks out!"
 			if mic_live:
@@ -226,6 +233,11 @@ func _build_hud() -> void:
 	pointer.modulate = Color(1.0, 0.94, 0.25)
 	pointer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	add_child(pointer)
+	if kind not in ["ice", "dust"]:
+		boss_telegraph = EncounterTelegraph2D.new()
+		boss_telegraph.name = "PepperEncounterTelegraph"
+		boss_telegraph.configure_quality(m.quality)
+		hud.add_child(boss_telegraph)
 
 func _build_ice_swarm() -> void:
 	var count: int = int(encounter.get("enemy_count", 8))
@@ -315,6 +327,139 @@ func _build_pepper_boss() -> void:
 	if kind == "dual":
 		if head != null:
 			head.visible = false
+
+func _begin_pepper_encounter() -> void:
+	boss_encounter = BossEncounter2D.new()
+	var rounds: int = maxi(1, int(encounter.get("boss_hp", 7)))
+	var saved: Dictionary = _pepper_checkpoint()
+	boss_encounter.configure(EncounterProfile2D.pepper(rounds),
+		_safe_checkpoint_int(saved.get("rounds", 0)),
+		_safe_checkpoint_int(saved.get("damage", 0)),
+		_safe_checkpoint_int(saved.get("misses", 0)))
+	var saved_elapsed: float = _safe_checkpoint_float(saved.get("elapsed", 0.0))
+	elapsed = saved_elapsed if is_finite(saved_elapsed) and saved_elapsed >= 0.0 else 0.0
+	boss["hp"] = rounds - boss_encounter.completed_rounds
+	boss["phase"] = "shell"
+	if boss_encounter.finished():
+		# An app kill after the final accepted counter must resume the normal
+		# victory boundary instead of creating a dead, already-complete arena.
+		_win()
+		return
+	_start_pepper_tell()
+
+func _pepper_checkpoint_key() -> String:
+	return "%s:%s" % [kind, room_tag]
+
+func _safe_checkpoint_int(value: Variant) -> int:
+	return int(value) if value is int or value is float else 0
+
+func _safe_checkpoint_float(value: Variant) -> float:
+	return float(value) if value is int or value is float else 0.0
+
+func _pepper_checkpoint() -> Dictionary:
+	var all_value: Variant = m.save_data.get("boss_encounter_checkpoints", {})
+	if not all_value is Dictionary:
+		return {}
+	var saved_value: Variant = (all_value as Dictionary).get(_pepper_checkpoint_key(), {})
+	return saved_value as Dictionary if saved_value is Dictionary else {}
+
+func _save_pepper_checkpoint() -> void:
+	if (kind != "fire" and kind != "dual") or boss_encounter == null:
+		return
+	var all_value: Variant = m.save_data.get("boss_encounter_checkpoints", {})
+	var all: Dictionary = all_value as Dictionary if all_value is Dictionary else {}
+	all[_pepper_checkpoint_key()] = {"rounds": boss_encounter.completed_rounds,
+		"damage": boss_encounter.damage_taken, "misses": boss_encounter.opening_misses,
+		"elapsed": maxf(0.0, elapsed)}
+	m.save_data["boss_encounter_checkpoints"] = all
+	m._write_save()
+
+func _clear_pepper_checkpoint(persist: bool = true) -> bool:
+	if kind != "fire" and kind != "dual":
+		return false
+	var all_value: Variant = m.save_data.get("boss_encounter_checkpoints", {})
+	var all: Dictionary = all_value as Dictionary if all_value is Dictionary else {}
+	if all.erase(_pepper_checkpoint_key()):
+		m.save_data["boss_encounter_checkpoints"] = all
+		if persist:
+			m._write_save()
+		return true
+	return false
+
+func _pepper_player_2d() -> Vector2:
+	return Vector2(player_pos.x - CENTER.x, player_pos.z - CENTER.z)
+
+func _set_pepper_player_2d(point: Vector2) -> void:
+	player_pos.x = CENTER.x + point.x
+	player_pos.y = 1.1
+	player_pos.z = CENTER.z + point.y
+
+func _pepper_boss_2d() -> Vector2:
+	var at: Vector3 = boss.get("pos", CENTER) as Vector3
+	return Vector2(at.x - CENTER.x, at.z - CENTER.z)
+
+func _start_pepper_tell() -> void:
+	if boss_encounter == null or boss_encounter.finished():
+		return
+	boss["phase"] = "shell"
+	boss_encounter.begin_attack(_pepper_player_2d(), _pepper_boss_2d(), RADIUS)
+	_cache_pepper_telegraph_geometry(boss_encounter.patterns.readout())
+	_update_pepper_telegraph(false)
+
+func _cache_pepper_telegraph_geometry(data: Dictionary) -> void:
+	var key := "%d:%d:%s:%s:%s:%s:%s:%s" % [int(data.get("phase", -1)),
+		int(data.get("step", -1)), String(data.get("shape", "")),
+		str(data.get("center", Vector2.ZERO)), str(data.get("locked_center", Vector2.ZERO)),
+		str(data.get("direction", Vector2.ZERO)), str(data.get("from", Vector2.ZERO)),
+		str(cam.get_viewport().size)]
+	var points: PackedVector2Array = pepper_telegraph_points
+	var shape: String = String(data.get("shape", ""))
+	if key != pepper_telegraph_key:
+		pepper_telegraph_key = key
+		points = PackedVector2Array()
+	if points.is_empty() and shape == "circle":
+		var center: Vector2 = data.get("center", Vector2.ZERO) as Vector2
+		var radius: float = float(data.get("radius", 0.0))
+		for index: int in range(32):
+			var angle: float = TAU * float(index) / 32.0
+			points.append(_pepper_project(center + Vector2(cos(angle), sin(angle)) * radius))
+	elif points.is_empty() and shape == "lane":
+		var center: Vector2 = data.get("center", Vector2.ZERO) as Vector2
+		var direction: Vector2 = data.get("direction", Vector2.RIGHT) as Vector2
+		var side := Vector2(-direction.y, direction.x)
+		var half_length: float = float(data.get("half_length", 0.0))
+		var half_width: float = float(data.get("half_width", 0.0))
+		for corner: Vector2 in [direction * half_length + side * half_width,
+				direction * half_length - side * half_width,
+				-direction * half_length - side * half_width,
+				-direction * half_length + side * half_width]:
+			points.append(_pepper_project(center + corner))
+	pepper_telegraph_points = points
+
+func _update_pepper_telegraph(active: bool) -> void:
+	if boss_telegraph == null or boss_encounter == null \
+			or boss_encounter.patterns == null:
+		return
+	var data: Dictionary = boss_encounter.patterns.readout()
+	if pepper_telegraph_points.is_empty():
+		_cache_pepper_telegraph_geometry(data)
+	var points: PackedVector2Array = pepper_telegraph_points
+	data["points"] = points
+	data["visible"] = boss_encounter.state in [BossEncounter2D.State.TELL,
+		BossEncounter2D.State.STRIKE]
+	data["active"] = active
+	data["safe_visible"] = not active \
+		and boss_encounter.patterns.contains(_pepper_player_2d())
+	data["safe_point"] = _pepper_project(data.get("safe_point", Vector2.ZERO) as Vector2)
+	data["player_point"] = _pepper_project(_pepper_player_2d())
+	data["total"] = boss_encounter.profile.phases.size()
+	data["puffs"] = boss_encounter.completed_rounds
+	boss_telegraph.set_telegraph(data)
+
+func _pepper_project(point: Vector2) -> Vector2:
+	if cam == null:
+		return Vector2.ZERO
+	return cam.unproject_position(CENTER + Vector3(point.x, 0.2, point.y))
 
 func _move_input() -> Vector2:
 	var value := Vector2.ZERO
@@ -758,51 +903,58 @@ func _partner_super(_partner_kind: String) -> void:
 			m._sparkle_burst((enemy["pos"] as Vector3) + Vector3(0, 2.5, 0), Color(0.95, 0.75, 1.0))
 		he.big_taps = PartnerAssist.BIG_TAPS
 	elif not boss.is_empty():
-		boss["timer"] = float(boss["timer"]) + PartnerAssist.STUN_T
-		if String(boss["phase"]) == "peek":
-			boss["hp"] = maxi(0, int(boss["hp"]) - 1)
-			m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.95, 0.75, 1.0))
-			if int(boss["hp"]) <= 0:
-				_win()
+		# The stampede gives the child more time without completing an earned
+		# counter for her. It can never skip the avoid-then-act loop.
+		if boss_encounter != null and boss_encounter.state == BossEncounter2D.State.OPENING:
+			boss_encounter.counter_elapsed = maxf(0.0,
+				boss_encounter.counter_elapsed - PartnerAssist.STUN_T)
+		m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.95, 0.75, 1.0))
 	_update_hud()
 
 func _hit_boss(power: String = "fire") -> void:
-	if state != "play":
+	if state != "play" or boss_encounter == null:
 		return
-	var phase := String(boss["phase"])
-	if kind == "dual" and phase == "shell":
-		if power == "ice":
+	if boss_encounter.state == BossEncounter2D.State.COUNTER_READY:
+		if kind == "dual" and power == "ice":
+			boss_encounter.open_counter()
 			boss["phase"] = "peek"
-			boss["timer"] = float(encounter.get("peek_time", 3.2))
-			boss["attack"] = 0.55
 			m._audio_ref().sfx("combat_freeze")
 			m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.55, 0.92, 1.0))
 			m.show_msg("Roshan", "Frozen shell! Now use FIRE on the peeking dragon-turtle!",
 				"combat_fire_start")
+		elif kind != "dual":
+			boss_encounter.open_counter()
+			boss["phase"] = "peek"
+			# The same fresh FIRE edge may open and land in the fire-only fight.
+			_hit_boss(power)
 		else:
-			m._audio_ref().sfx("combat_fizzle", 0.9, -8.0)
-			m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.65, 0.85, 0.55))
+			_pepper_fizzle()
 		return
-	if phase == "shell" or (kind == "dual" and power != "fire"):
-		m._audio_ref().sfx("combat_fizzle", 0.9, -8.0)
-		m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.65, 0.85, 0.55))
+	if boss_encounter.state != BossEncounter2D.State.OPENING or power != "fire":
+		_pepper_fizzle()
 		return
-	# damaging hits chain; the hit after chain 3 is a SUPER for double damage
+	if not boss_encounter.try_counter(true, true, true):
+		return
+	_save_pepper_checkpoint()
+	# SUPER feedback remains, but one opening always maps to one earned round.
 	var super_bonus: bool = he.consume_super()
-	boss["hp"] = int(boss["hp"]) - (2 if super_bonus else 1)
+	boss["hp"] = boss_encounter.profile.phases.size() - boss_encounter.completed_rounds
 	he.note_hit(boss["pos"] as Vector3)
 	if pa != null:
 		pa.note_child_pop()
 	if super_bonus:
 		m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.5, 0), Color(1.0, 0.95, 0.6))
 	m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 3.0, 3.5), Color(1.0, 0.3, 0.08))
-	if int(boss["hp"]) <= 0:
+	if boss_encounter.finished():
 		_win()
-	elif kind == "dual":
+	else:
 		boss["phase"] = "shell"
-		boss["timer"] = float(encounter.get("shell_time", 5.0))
-		boss["attack"] = 0.8
+		boss_recovery_t = 0.7
 	_update_hud()
+
+func _pepper_fizzle() -> void:
+	m._audio_ref().sfx("combat_fizzle", 0.9, -8.0)
+	m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.65, 0.85, 0.55))
 
 func _tick_boss(delta: float) -> void:
 	if boss.is_empty() or state != "play":
@@ -813,51 +965,44 @@ func _tick_boss(delta: float) -> void:
 	boss["hitstop"] = maxf(0.0, float(boss.get("hitstop", 0.0)) - delta)
 	if float(boss["hitstop"]) > 0.0:
 		return
-	boss["timer"] = float(boss["timer"]) - delta
-	boss["attack"] = float(boss["attack"]) - delta
-	var phase: String = boss["phase"]
-	if phase == "peek":
-		if boss.get("head", null) != null:
-			(boss["head"] as Node3D).visible = true
-		root.rotation.y = sin(elapsed * 1.4) * 0.18
-		if float(boss["attack"]) <= 0.0:
-			boss["attack"] = float(encounter.get("attack_gap", 1.25))
-			if (boss["pos"] as Vector3).distance_to(player_pos) < 9.0:
-				# The bright ivory claws swipe, but Roshan's bubble shield makes
-				# contact playful: a push and sparkles, never damage or failure.
-				_bump_player(boss["pos"])
-			else:
-				_spawn_enemy_shot((boss["pos"] as Vector3) + Vector3(0, 3.2, 4.2), player_pos, Color(1.0, 0.24, 0.04))
-		if float(boss["timer"]) <= 0.0:
+	var opening: bool = boss_encounter.state == BossEncounter2D.State.OPENING
+	if boss.get("head", null) != null:
+		(boss["head"] as Node3D).visible = opening
+	if opening:
+		boss["phase"] = "peek"
+		root.rotation.y = sin(elapsed * 5.2) * 0.18
+		if boss_encounter.tick_counter(delta, true):
+			_save_pepper_checkpoint()
 			boss["phase"] = "shell"
-			boss["timer"] = float(encounter.get("shell_time", 2.8))
-			boss["attack"] = 0.8
-	else:
-		if boss.get("head", null) != null:
-			(boss["head"] as Node3D).visible = false
-		root.rotate_y(delta * 6.0)
-		var pos: Vector3 = boss["pos"]
-		var chase: Vector3 = player_pos - pos
-		chase.y = 0.0
-		if chase.length() > 1.0:
-			pos += chase.normalized() * delta * float(encounter.get("shell_speed", 5.5))
-		boss["pos"] = pos
-		root.position = pos
-		if pos.distance_to(player_pos) < 6.0:
-			_bump_player(pos)
-		if float(boss["timer"]) <= 0.0 and kind == "dual":
-			# No fail state: keep presenting the required ice action and repeat
-			# the picture/voice hint until the child freezes the shell.
-			boss["timer"] = 1.5
-			m.show_msg("Roshan", "The shell keeps spinning. Freeze it with ICE!",
-				"combat_ice_start")
-		elif float(boss["timer"]) <= 0.0:
-			boss["phase"] = "peek"
-			boss["timer"] = float(encounter.get("peek_time", 4.8))
-			boss["attack"] = 0.35
-			var back: Vector3 = CENTER + Vector3(0, 1.0, -10.0)
-			boss["pos"] = back
-			root.position = back
+			boss_recovery_t = 0.6
+	elif boss_encounter.state == BossEncounter2D.State.TELL:
+		root.rotate_y(delta * 4.0)
+		if boss_encounter.tick_tell(delta):
+			boss_encounter.begin_strike()
+			boss_strike_t = 0.28
+	elif boss_encounter.state == BossEncounter2D.State.STRIKE:
+		boss_strike_t -= delta
+		_update_pepper_telegraph(true)
+		if boss_strike_t <= 0.0:
+			var impact: int = boss_encounter.resolve_impact(
+				_pepper_player_2d(), _pepper_boss_2d(), RADIUS)
+			if impact == BossEncounter2D.Impact.HIT:
+				_save_pepper_checkpoint()
+				_bump_player(boss["pos"] as Vector3)
+				boss_recovery_t = 0.65
+			elif impact == BossEncounter2D.Impact.COUNTER_READY:
+				if kind != "dual":
+					boss_encounter.open_counter()
+					boss["phase"] = "peek"
+			elif impact == BossEncounter2D.Impact.NEXT_TELL:
+				_cache_pepper_telegraph_geometry(boss_encounter.patterns.readout())
+				_update_pepper_telegraph(false)
+	elif boss_encounter.state in [BossEncounter2D.State.RECOVERY,
+			BossEncounter2D.State.CELEBRATE]:
+		boss_recovery_t -= delta
+		if boss_recovery_t <= 0.0:
+			_start_pepper_tell()
+	_update_pepper_telegraph(boss_encounter.state == BossEncounter2D.State.STRIKE)
 	_update_hud()
 
 func _spawn_enemy_shot(from: Vector3, to: Vector3, col: Color) -> void:
@@ -901,6 +1046,9 @@ func _bump_player(from: Vector3) -> void:
 func _tick_pointer() -> void:
 	var target := _nearest_target()
 	pointer.visible = state == "play"
+	if boss_encounter != null:
+		pointer.visible = pointer.visible and boss_encounter.state in [
+			BossEncounter2D.State.COUNTER_READY, BossEncounter2D.State.OPENING]
 	pointer.position = target + Vector3(0, 7.2 + sin(elapsed * 4.0) * 0.45, 0)
 
 func _update_hud() -> void:
@@ -926,6 +1074,10 @@ func _update_hud() -> void:
 	else:
 		var shell: bool = not boss.is_empty() and String(boss["phase"]) == "shell"
 		var action_text := "❄  FREEZE THE SPINNING SHELL!" if kind == "dual" and shell else ("🔥  PEEKING — USE FIRE!" if kind == "dual" else ("🌶  SHELL UP — dodge!" if shell else "🌶  PEEKING — tap FIRE!"))
+		if boss_encounter != null and boss_encounter.state in [
+				BossEncounter2D.State.TELL, BossEncounter2D.State.STRIKE]:
+			action_text = "Move to the blue spot!" if boss_encounter.state == BossEncounter2D.State.TELL \
+				and boss_encounter.patterns.contains(_pepper_player_2d()) else "Stay clear!"
 		objective.text = (room_tag + "  •  " if room_tag != "" else "") + ear + action_text
 		counter.text = "🔥  %d" % maxi(0, int(boss.get("hp", 0)))
 
@@ -957,7 +1109,15 @@ func _win() -> void:
 			"combat_fire_done")
 
 func _finish() -> void:
+	if state == "done":
+		return
+	var was_won: bool = state == "won"
 	state = "done"
+	var checkpoint_removed := false
+	if was_won:
+		# Remove in memory first. The host callback grants the reward and writes
+		# both facts together, so an app kill cannot preserve neither one.
+		checkpoint_removed = _clear_pepper_checkpoint(false)
 	_disarm_mic()
 	m.hit_engines.erase(he)
 	he.teardown()
@@ -967,6 +1127,8 @@ func _finish() -> void:
 		m.we_node.environment = prev_env
 	if finish_cb.is_valid():
 		finish_cb.call(kind)
+	elif checkpoint_removed:
+		m._write_save()
 	queue_free()
 
 func cancel(notify_finish: bool = true) -> void:
@@ -975,6 +1137,7 @@ func cancel(notify_finish: bool = true) -> void:
 	if state == "won":
 		_finish()   # the victory was already earned; leaving skips only the delay
 		return
+	_save_pepper_checkpoint()
 	state = "done"
 	_disarm_mic()
 	m.hit_engines.erase(he)

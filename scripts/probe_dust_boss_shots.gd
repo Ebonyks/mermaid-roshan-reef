@@ -19,6 +19,9 @@ func _init() -> void:
 		return
 	Engine.time_scale = 2.0
 	Engine.max_fps = 60
+	var capture_width: int = maxi(1280, OS.get_environment("DUSTBOSS_SHOT_WIDTH").to_int())
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	DisplayServer.window_set_size(Vector2i(capture_width, 720))
 	out_dir = OS.get_environment("DUSTBOSS_SHOT_OUT")
 	if out_dir == "":
 		out_dir = ProjectSettings.globalize_path("res://tmp/dust_boss_shots")
@@ -35,12 +38,18 @@ func _init() -> void:
 	main.dust_boss_cool = 0.0
 	main.game = ""
 	main.save_data["dustboss_pending_rounds"] = 0
+	main.save_data["dustboss_pending_damage"] = 0
+	main.save_data["dustboss_pending_misses"] = 0
 	main._start_game_now(main.dust_boss_fr)
 	await _settle(4)
 	boss = main._game_obj("dustboss", DustBossGame) as DustBossGame
 	await _capture_splash()
 	await _capture_first_hit()
 	await _capture_avoided_counter()
+	if String(main.g.get("db_state", "")) != "friends":
+		print("DUSTSHOT|INCOMPLETE|encounter interrupted before final review state")
+		quit(1)
+		return
 	print("DUSTSHOT|DONE|", out_dir)
 	quit()
 
@@ -57,10 +66,18 @@ func _tick() -> void:
 func _capture_splash() -> void:
 	await _shot("00_splash")
 	var cap := 300
+	var saw_identity := false
+	var saw_weakness := false
 	while cap > 0 and main.g.has("db_state"):
 		var splash: BossSplash2D = main.g.get("db_splash") as BossSplash2D
 		if splash == null or not is_instance_valid(splash):
 			break
+		if splash._elapsed >= 0.95 and not saw_identity:
+			saw_identity = true
+			await _shot("00b_splash_identity")
+		if splash._elapsed >= 1.8 and not saw_weakness:
+			saw_weakness = true
+			await _shot("00c_splash_weakness_lesson")
 		await _tick()
 		cap -= 1
 

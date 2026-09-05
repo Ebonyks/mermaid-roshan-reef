@@ -1,6 +1,7 @@
 extends SceneTree
 
 const FRAME_CAP := 9000
+const CONTRACT_CHECKS = preload("res://scripts/encounter_contract_checks.gd")
 var main: ReefMain
 var bad := 0
 
@@ -138,7 +139,20 @@ func _open_boss() -> void:
 
 func _splash_and_geometry_case() -> void:
 	_ck("fight opens on an input-blocking 2D splash", _state() == "splash" and main.g.get("db_splash") is BossSplash2D)
+	var splash: BossSplash2D = main.g.get("db_splash") as BossSplash2D
+	var splash_elapsed: float = float(splash.get("_elapsed")) if splash != null else -1.0
+	main.get_tree().paused = true
+	await _frames(8)
+	var paused_elapsed: float = float(splash.get("_elapsed")) if splash != null else -2.0
+	_ck("pause freezes splash progression", splash_elapsed == paused_elapsed and _state() == "splash")
+	main.get_tree().paused = false
 	var attic: CanvasLayer = main.g.get("db_attic_layer") as CanvasLayer
+	var floor_warning: DustBossTelegraph2D = main.g.get("db_floor_telegraph") as DustBossTelegraph2D
+	var overlay: DustBossTelegraph2D = main.g.get("db_telegraph") as DustBossTelegraph2D
+	_ck("floor warnings sit behind actors while gesture cues stay above",
+		floor_warning != null and floor_warning.get_parent() == attic
+		and floor_warning.draw_floor and not floor_warning.draw_overlay
+		and overlay != null and not overlay.draw_floor and overlay.draw_overlay)
 	var background: TextureRect = attic.get_node_or_null("DustBossAtticBackdrop") as TextureRect \
 		if attic != null else null
 	_ck("the August 30 dusty room is the input-transparent Canvas background",
@@ -146,14 +160,24 @@ func _splash_and_geometry_case() -> void:
 		and background.texture.resource_path == "res://assets/flats/castle/boss/dusty_attic_arena_2048.png"
 		and background.mouse_filter == Control.MOUSE_FILTER_IGNORE
 		and attic.layer == -20 and main.arena_env.background_canvas_max_layer == -20)
+	var contract_failures: Array[String] = CONTRACT_CHECKS.run()
+	_ck("shared encounter contract checks pass", contract_failures.is_empty())
+	if not contract_failures.is_empty():
+		print("DUSTBOSS|contract_failures|", contract_failures)
 	await _wait_state(["showing"], 1600)
 	_ck("showing follows splash", _state() == "showing")
+	_ck("encounter hides the hybrid action medallion", not main.touch_ui._act_button.visible)
+	main.touch_ui.set_mode("classic")
+	_ck("encounter hides the classic action medallion", not main.touch_ui._act_button.visible)
+	main.touch_ui.set_mode("hybrid")
+	_navigation_roundtrip_case()
 	_pattern_geometry_case()
 
 func _negative_input_case() -> void:
 	await _frames(340)
 	await _tap_edge()
 	await _wait_state(["tell"], 900)
+	_safe_navigation_case()
 	var hits_before: int = _hits()
 	var damage_before: int = _damage()
 	var no_input_recovery := await _wait_state(["damage_recovery"], 900)
@@ -194,6 +218,39 @@ func _negative_input_case() -> void:
 	_ck("held action reaches an opening without auto-countering", held_saw_vuln and _hits() == hits_before)
 	_ck("no-input and held input cannot finish", main.game == "dustboss")
 
+func _safe_navigation_case() -> void:
+	var boss: DustBossGame = _boss()
+	var danger: Dictionary = boss.danger_geometry()
+	var safe: Vector2 = danger.get("safe_point", Vector2.ZERO) as Vector2
+	var screen_point: Vector2 = boss.stage.project_floor_point(safe)
+	var before: Vector2 = boss.stage.player_local()
+	boss.on_world_tap(screen_point)
+	var destination: Vector2 = boss.navigation.destination
+	_ck("safe ground tap arms real encounter navigation", boss.navigation.travelling
+		and destination.distance_to(safe) < 0.2)
+	await _frames(12)
+	var after: Vector2 = boss.stage.player_local()
+	_ck("safe ground navigation moves the player", after.distance_to(before) > 0.05)
+	boss.navigation.move_to(safe)
+	main.touch_ui.cancel_all_touches()
+	_ck("focus or touch cancellation drops encounter destination", not boss.navigation.travelling)
+	main.get_tree().paused = true
+	main.touch_ui.cancel_all_touches()
+	main.get_tree().paused = false
+	_ck("pause cancellation leaves no stale encounter destination", not boss.navigation.travelling)
+
+func _navigation_roundtrip_case() -> void:
+	var boss: DustBossGame = _boss()
+	var all_ok := true
+	for index: int in range(16):
+		var angle: float = TAU * float(index) / 16.0
+		var floor_point: Vector2 = boss.stage.clamp_point(
+			Vector2(cos(angle), sin(angle)) * 22.0, 2.6)
+		var screen_point: Vector2 = boss.stage.project_floor_point(floor_point)
+		var roundtrip: Vector2 = boss.navigation.screen_to_floor(screen_point)
+		all_ok = all_ok and roundtrip.distance_to(floor_point) < 0.05
+	_ck("2D floor and screen navigation round-trips 16 arena points", all_ok)
+
 func _adaptive_completion_case() -> void:
 	var saw_phase := [false, false, false]
 	var saw_phase_one_combo := false
@@ -224,7 +281,7 @@ func _adaptive_completion_case() -> void:
 			var telegraph: DustBossTelegraph2D = main.g.get("db_telegraph") as DustBossTelegraph2D
 			var mastery_layer: CanvasLayer = main.g.get("db_mastery_layer") as CanvasLayer
 			saw_telegraph = saw_telegraph or (telegraph != null and is_instance_valid(telegraph)
-				and telegraph.visible and bool(telegraph._data.get("visible", false))
+				and telegraph.visible and bool(telegraph._visible)
 				and mastery_layer != null and mastery_layer.visible)
 			var tell_key := "%d:%d:%d" % [phase, step, _hits()]
 			var target: Vector2 = danger.get("locked_center", danger.get("center", Vector2.ZERO)) as Vector2
@@ -242,6 +299,7 @@ func _adaptive_completion_case() -> void:
 			tapped_opening = true
 			if _hits() == 2:
 				used_world_touch = true
+				await _tap_corner_rejected()
 				await _tap_boss_world()
 			else:
 				await _tap_edge()
@@ -297,6 +355,13 @@ func _checkpoint_restart_case(pearls_before: int) -> void:
 	await _wait_state(["showing"], 1600)
 	await _frames(340)
 	await _tap_edge()
+
+func _tap_corner_rejected() -> void:
+	var hits_before: int = _hits()
+	var viewport: Rect2 = main.get_viewport().get_visible_rect()
+	var corner := viewport.position + Vector2(viewport.size.x - 24.0, viewport.size.y - 24.0)
+	await _push_screen_tap(corner, 70)
+	_ck("old screen corner tap cannot counter", _hits() == hits_before)
 
 func _final_checkpoint_restart_case(pearls_before: int) -> void:
 	_ck("final counter writes all three earned rounds before celebration",

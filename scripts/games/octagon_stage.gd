@@ -237,7 +237,7 @@ func project_floor_point(point: Vector2) -> Vector2:
 	return m.player.cam.unproject_position(floor_point)
 
 # ---- the one-finger read ----------------------------------------------------
-func tick(delta: float) -> Dictionary:
+func tick(delta: float, navigation: EncounterNavigation2D = null) -> Dictionary:
 	# returns {mx, mz, px, pz, tap, moved}. Pad reads are DEVICE 0 ONLY, the
 	# same convention as the side-scroll stage's brawl mode.
 	var cfg: Dictionary = m.g.get("oc_cfg", {})
@@ -271,6 +271,13 @@ func tick(delta: float) -> Dictionary:
 	mx = clampf(mx, -1.0, 1.0)
 	mz = clampf(mz, -1.0, 1.0)
 	var spd: float = float(cfg.get("speed", 24.0))
+	if navigation != null:
+		if absf(mx) > 0.05 or absf(mz) > 0.05:
+			navigation.cancel()
+		else:
+			var direction: Vector2 = navigation.direction_for_step(player_local(), spd, delta)
+			mx = direction.x
+			mz = direction.y
 	var here: Vector2 = player_local() + Vector2(mx, mz) * spd * delta
 	here = clamp_point(here, float(cfg.get("inset", 2.6)))
 	m.g["oc_bob"] = float(m.g.get("oc_bob", 0.0)) + delta

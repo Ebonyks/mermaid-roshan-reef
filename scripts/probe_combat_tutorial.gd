@@ -10,9 +10,14 @@ const MAX_WALK_TAPS := 8
 
 var main: ReefMain
 var bad := 0
+var capture_dir := ""
 
 func _init() -> void:
 	seed(20260801)
+	capture_dir = OS.get_environment("TUTORIAL_CAPTURE_DIR")
+	if capture_dir != "":
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		DisplayServer.window_set_size(Vector2i(1280, 720))
 	Engine.time_scale = 6.0
 	var scene: PackedScene = load("res://scenes/main.tscn")
 	main = scene.instantiate() as ReefMain
@@ -20,7 +25,10 @@ func _init() -> void:
 	await process_frame
 	await process_frame
 	main.day_one_active = false
-	main._skip_intro()
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+	else:
+		main._skip_intro()
 	await process_frame
 	await _class_case()
 	print("TUTORIAL|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
@@ -59,6 +67,16 @@ func _tap_button(button: Button) -> bool:
 	_touch(button.get_global_transform_with_canvas() * (button.size * 0.5))
 	return true
 
+func _capture(name: String) -> void:
+	if capture_dir == "":
+		return
+	DirAccess.make_dir_recursive_absolute(capture_dir)
+	await process_frame
+	await RenderingServer.frame_post_draw
+	var image: Image = get_root().get_texture().get_image()
+	if image != null:
+		image.save_png(capture_dir.path_join(name + ".png"))
+
 func _tap_stage(at: Vector2) -> void:
 	_touch(main.castle_room_stage.get_global_transform_with_canvas() * at)
 
@@ -87,19 +105,25 @@ func _class_case() -> void:
 	var rooms: CastleRooms25D = main._castle_rooms_ref()
 	_ck("the first class readies the Royal Hall gate",
 		rooms._royal_hall_event_id() == "combat_tutorial")
-	var royal_hall_button: Button = _royal_hall_button()
-	var walk_taps := 0
-	while royal_hall_button != null and not royal_hall_button.visible \
-			and walk_taps < MAX_WALK_TAPS:
-		_tap_stage(FLOOR_TAP)
-		await _frames(WALK_SETTLE)
-		walk_taps += 1
-		royal_hall_button = _royal_hall_button()
-	_ck("the class gate is reached through real floor navigation",
-		royal_hall_button != null and royal_hall_button.visible)
-	var touched_gate := _tap_button(royal_hall_button)
-	_ck("the sparring class starts from the real Royal Hall touch target",
-		touched_gate)
+	if capture_dir != "":
+		# Rendering capture runs use a real window where synthetic castle-floor
+		# navigation is platform-focus dependent. Enter the same activity through
+		# its production room helper; the default probe still gates the real door.
+		rooms._start_combat_tutorial()
+	else:
+		var royal_hall_button: Button = _royal_hall_button()
+		var walk_taps := 0
+		while royal_hall_button != null and not royal_hall_button.visible \
+				and walk_taps < MAX_WALK_TAPS:
+			_tap_stage(FLOOR_TAP)
+			await _frames(WALK_SETTLE)
+			walk_taps += 1
+			royal_hall_button = _royal_hall_button()
+		_ck("the class gate is reached through real floor navigation",
+			royal_hall_button != null and royal_hall_button.visible)
+		var touched_gate := _tap_button(royal_hall_button)
+		_ck("the sparring class starts from the real Royal Hall touch target",
+			touched_gate)
 	var arrival_deadline_msec: int = Time.get_ticks_msec() + 3000
 	while main.combat_tutorial_game == null \
 			and Time.get_ticks_msec() < arrival_deadline_msec:
@@ -110,7 +134,24 @@ func _class_case() -> void:
 	if tut == null:
 		rooms.close()
 		return
+	_ck("the grotto is a true Canvas backdrop", tut.backdrop_layer != null
+		and tut.backdrop_layer.get_child_count() >= 1
+		and tut.backdrop_layer.get_child(0) is TextureRect
+		and main.we_node.environment.background_mode == 3
+		and main.we_node.environment.background_canvas_max_layer == -10)
+	_ck("the reusable guide loads approved TAP and HOLD pictures",
+		tut.demo is EncounterGestureGuide2D and tut.demo.tap_chip != null
+		and tut.demo.hold_chip != null and tut.demo.mouse_filter == Control.MOUSE_FILTER_IGNORE)
 	_ck("class begins at the TAP lesson", tut.lesson == "tap")
+	_ck("Roshan and the live imp remain in front of the Canvas grotto",
+		tut.avatar.visible and bool(tut.enemies[0]["node"].visible))
+	print("TUTORIAL|caption_geometry|", main.hud_msg.position, "|", main.hud_msg.size)
+	_ck("the tutorial uses the compact scoped caption strip",
+		main.hud_msg.position == Vector2(320.0, 626.0)
+		and main.hud_msg.size == Vector2(640.0, 82.0))
+	_ck("tutorial suppresses the unrelated JUMP medallion",
+		main.touch_ui._act_button == null or not main.touch_ui._act_button.visible)
+	await _capture("01_tap")
 	await _frames(30)
 	var first: Dictionary = tut.enemies[0]
 	_ck("nothing advances without her input",
@@ -119,6 +160,7 @@ func _class_case() -> void:
 	await _frames(1)
 	_ck("her first bop advances to COMBO",
 		tut.lesson == "combo" and int(first["hp"]) == 2)
+	await _capture("02_combo")
 	_tap(tut, first)
 	_tap(tut, first)
 	await _frames(2)
@@ -127,19 +169,25 @@ func _class_case() -> void:
 	await _frames(25)   # let the combo window lapse so the hold is a clean read
 	var second: Dictionary = tut._lesson_target()
 	_ck("a fresh sparring imp waits", not second.is_empty() and int(second["hp"]) == 3)
+	_ck("the prior combo does not hide the new hold demonstration", tut.demo.visible)
+	await _capture("03_hold")
 	var pos: Vector2 = tut.cam.unproject_position(tut.he.aim_point(second))
 	main._on_world_press(pos)   # press-fire tap, then HOLD — no release
-	await _frames(16)           # past 1.45 s: stage 3 fires itself
+	await _frames(20)           # past the engine's live 1.75 s full-charge time
 	_ck("a full charge fells the imp and readies partner power",
 		tut.lesson == "partner" and String(second["state"]) != "active")
 	await _frames(2)
 	_ck("the companion lesson shows its picture bubble",
 		tut.pa != null and tut.pa.bubble != null)
+	_ck("the teaching hand stays above the partner portrait",
+		tut.pa != null and tut.pa.layer != null and tut.demo_layer.layer > tut.pa.layer.layer)
+	await _capture("04_partner")
 	if tut.pa != null and tut.pa.bubble != null:
 		tut.pa.bubble.pressed.emit()
 	await _frames(2)
 	_ck("partner power opens the graduation wave",
 		tut.lesson == "wave" and tut.enemies.size() >= 4)
+	await _capture("05_wave")
 	for _round in range(8):
 		var target: Dictionary = tut._lesson_target()
 		if target.is_empty():
@@ -152,6 +200,9 @@ func _class_case() -> void:
 	await _frames(3)
 	_ck("the diploma persists",
 		main.combat_tutorial_done and main.combat_tutorial_game == null)
+	_ck("the global caption layout is restored",
+		main.hud_msg.position == Vector2(230.0, 590.0)
+		and main.hud_msg.size == Vector2(820.0, 112.0))
 	_ck("the castle hall comes back",
 		rooms.is_open() and main.castle_room_layer.visible)
 	rooms._tick_royal_hall_mist(1.0)

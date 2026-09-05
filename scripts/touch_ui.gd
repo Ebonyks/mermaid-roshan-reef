@@ -28,6 +28,9 @@ var action_just := false
 var control_mode := "hybrid"
 var touch_owners: Dictionary = {}
 var world_controls_enabled := true
+var encounter_press: Callable = Callable()
+var encounter_cancel: Callable = Callable()
+var _encounter_finger: int = -1
 
 # ---- drag channel (owner 2026-07-25) ----
 # Some acts are played by DRAGGING a finger across the screen rather than by
@@ -384,12 +387,8 @@ func movement_zone() -> Rect2:
 	var vs: Vector2 = _root.size
 	if vs == Vector2.ZERO:
 		vs = get_viewport().get_visible_rect().size
-	var main: Node = get_parent()
-	if main != null and String(main.get("game")) == "dustboss":
-		# The boss alternates drag-to-avoid with release-to-counter. Every
-		# unclaimed arena pixel can start that one-finger gesture; GUI overlays
-		# still receive first claim through _unhandled_input.
-		return Rect2(Vector2.ZERO, vs)
+	if encounter_press.is_valid():
+		return Rect2() # No hidden movement pad steals world targets.
 	return Rect2(0.0, vs.y * 0.52, maxf(390.0, vs.x * 0.34), vs.y * 0.48)
 
 func action_zone() -> Rect2:
@@ -587,6 +586,9 @@ func reserved_zone_hit(pos: Vector2) -> bool:
 	return action_zone().has_point(pos) or movement_zone().has_point(pos)
 
 func _clear_touch_state() -> void:
+	_encounter_finger = -1
+	if encounter_cancel.is_valid():
+		encounter_cancel.call()
 	if world_press_cancel.is_valid():
 		world_press_cancel.call()   # thrown away, not fired: no surprise damage
 	elif world_press_release.is_valid():
@@ -616,7 +618,7 @@ func set_mode(next_mode: String) -> void:
 	control_mode = "classic" if next_mode == "classic" else "hybrid"
 	_clear_touch_state()
 	if _act_button != null:
-		_act_button.visible = control_mode == "hybrid" and world_controls_enabled
+		_act_button.visible = control_mode == "hybrid" and world_controls_enabled and not encounter_press.is_valid()
 
 func set_world_controls_enabled(enabled: bool) -> void:
 	if world_controls_enabled == enabled:
@@ -626,7 +628,41 @@ func set_world_controls_enabled(enabled: bool) -> void:
 	world_controls_enabled = enabled
 	_clear_touch_state()
 	if _act_button != null:
-		_act_button.visible = enabled and control_mode == "hybrid"
+		_act_button.visible = enabled and control_mode == "hybrid" and not encounter_press.is_valid()
+
+func set_encounter_controls(press: Callable = Callable(), cancel: Callable = Callable()) -> void:
+	_clear_touch_state()
+	encounter_press = press
+	encounter_cancel = cancel
+	if _act_button != null:
+		_act_button.visible = world_controls_enabled and control_mode == "hybrid" and not press.is_valid()
+
+func _encounter_unhandled_input(event: InputEvent) -> void:
+	var finger: int = -1
+	var pressed: bool = false
+	var point := Vector2.ZERO
+	if event is InputEventScreenTouch:
+		var touch := event as InputEventScreenTouch
+		finger = touch.index
+		pressed = touch.pressed
+		point = touch.position
+	elif event is InputEventMouseButton:
+		var mouse := event as InputEventMouseButton
+		if mouse.device == InputEvent.DEVICE_ID_EMULATION or mouse.button_index != MOUSE_BUTTON_LEFT:
+			return
+		finger = 99
+		pressed = mouse.pressed
+		point = mouse.position
+	else:
+		return
+	if pressed and _encounter_finger == -1:
+		_encounter_finger = finger
+		touch_owners[finger] = TouchOwner.WORLD_INTERACT
+		encounter_press.call(point)
+	elif not pressed and finger == _encounter_finger:
+		_encounter_finger = -1
+		touch_owners.erase(finger)
+	get_viewport().set_input_as_handled()
 
 func cancel_all_touches() -> void:
 	_clear_touch_state()
@@ -683,6 +719,9 @@ func _notification(what: int) -> void:
 
 func _unhandled_input(ev: InputEvent) -> void:
 	if not wants_touch() or not world_controls_enabled:
+		return
+	if encounter_press.is_valid():
+		_encounter_unhandled_input(ev)
 		return
 	if control_mode == "hybrid":
 		_hybrid_unhandled_input(ev)

@@ -2,7 +2,7 @@
   "schema_version": 4,
   "policy": "Known entries are migration debt, not waivers. Lists may only shrink.",
   "metadata": {
-    "inventory_head": "775ceee1",
+    "inventory_head": "1ecdf733",
     "inventory_date": "2026-09-05",
     "owner_contract": "The game is 2D; every tracked or active 3D resource belongs on an out-of-tree deprecated-resources branch.",
     "active_export_scope": "Active/export models and generated sidecars are prioritisation subsets; strict satisfaction requires zero repository or working-tree 3D debt.",
@@ -7711,27 +7711,21 @@
       "Label3D": 2,
       "Mesh": 1,
       "MeshInstance3D": 3,
-      "Node3D": 14,
+      "Node3D": 13,
       "SphereMesh": 1,
       "Sprite3D": 4,
       "SpriteBase3D": 1,
       "StandardMaterial3D": 2,
-      "Vector3": 92
+      "Vector3": 87
     },
     "scripts/combat_tutorial.gd": {
       "<lowercase-3d-marker>": 1,
-      "BaseMaterial3D": 4,
+      "BaseMaterial3D": 1,
       "Camera3D": 2,
-      "DirectionalLight3D": 1,
       "Environment": 4,
-      "GeometryInstance3D": 1,
-      "Label3D": 2,
-      "MeshInstance3D": 1,
-      "Node3D": 4,
-      "QuadMesh": 1,
+      "Node3D": 3,
       "Sprite3D": 2,
-      "StandardMaterial3D": 3,
-      "Vector3": 22
+      "Vector3": 18
     },
     "scripts/companion.gd": {
       "BaseMaterial3D": 16,
@@ -7873,16 +7867,14 @@
       "Vector3": 38
     },
     "scripts/games/dust_boss.gd": {
-      "BaseMaterial3D": 2,
+      "BaseMaterial3D": 1,
       "BoxMesh": 2,
       "Camera3D": 1,
-      "Label3D": 3,
-      "MeshInstance3D": 6,
+      "MeshInstance3D": 4,
       "Node3D": 10,
       "Sprite3D": 4,
       "SpriteBase3D": 1,
-      "StandardMaterial3D": 2,
-      "Vector3": 30
+      "Vector3": 27
     },
     "scripts/games/fairy.gd": {
       "BaseMaterial3D": 2,

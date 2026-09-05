@@ -3328,5 +3328,7 @@ Sources, hashes, native dimensions, and exact edits are recorded in `assets_src/
 
 ## Grand Puff Dusty Attic arena (2026-08-30)
 
+- `audit/boss_encounter_2026-09-05/*.png` — direct, unmodified Godot 4.7.2 Mobile viewport captures of project-owned gameplay and tutorial art; source: this repository, URL: none; inherits the source assets' recorded rights and protected family-portrait restrictions. Non-runtime audit evidence only; no source image was edited or recompressed. Per-file source roles, dimensions, and SHA-256 are recorded in `audit/boss_encounter_2026-09-05/manifest.json`.
+
 - `assets_src/imagegen/dust_bunny_boss_arena_2026-08-30/dusty_attic_arena_native_1254.png` — selected project-original OpenAI built-in ImageGen background source; license: project original, all rights reserved; URL: none; modifications: none after generation. Exact prompt, reference roles/hashes, generation gap, and review limits are recorded in the adjacent `PROMPT_AND_PROVENANCE.md`.
 - `assets/flats/castle/boss/dusty_attic_arena_2048.png` — power-of-two runtime master derived from the selected native generation by one uniform whole-canvas Lanczos resize to 2048×2048; license: project original, all rights reserved; URL: none. No crop, mask, compositing, local repair, protected-source pixel insertion, or independently regenerated tile was used.
