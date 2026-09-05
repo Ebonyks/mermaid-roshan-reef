@@ -165,6 +165,15 @@ func _check_storybook_coverage() -> void:
 		and not comfy_source.contains("ComfyHideAndSeekComplete")
 		and comfy_source.contains("direct_world_character"),
 		"comfy demos use tappable world friends without overlay badges")
+	var draft_movie_source := FileAccess.get_file_as_string(
+		"res://scripts/day_one_draft_movies.gd")
+	var main_source := FileAccess.get_file_as_string("res://scripts/main.gd")
+	_check(not draft_movie_source.contains("Button.new()")
+		and not draft_movie_source.contains("skip_button")
+		and main_source.contains(
+			'_navigation_push("day_one_draft_movie", preview, Callable(preview, "skip"))')
+		and main_source.contains("_day_one_draft_movie_layer.layer = 28"),
+		"draft movies use the single global Back control without a local skip overlay")
 	var chapter_two_plot_source := FileAccess.get_file_as_string(
 		"res://scripts/chapter_two_room_plot.gd")
 	_check(not chapter_two_plot_source.contains("ChapterTwoPlotAbility")

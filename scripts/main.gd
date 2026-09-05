@@ -8350,17 +8350,20 @@ func _day_one_play_draft_movie(movie_id: String) -> bool:
 		as DayOneDraftMovies
 	if _day_one_draft_movie_layer == null or not is_instance_valid(_day_one_draft_movie_layer):
 		_day_one_draft_movie_layer = CanvasLayer.new()
-		_day_one_draft_movie_layer.layer = 100
+		# Draft video stays below the game-wide upper-left Back control (29).
+		_day_one_draft_movie_layer.layer = 28
 		add_child(_day_one_draft_movie_layer)
 	_day_one_draft_movie_layer.add_child(preview)
 	if not preview.setup(movie_id):
 		preview.queue_free()
 		return false
+	_navigation_push("day_one_draft_movie", preview, Callable(preview, "skip"))
 	_day_one_draft_movie = preview
 	_day_one_draft_movie_seen[movie_id] = true
 	if movie_id == "D1-C03":
 		_day_one_bathroom_entry_movie_checked = true
 	preview.finished.connect(func(_id: String, _status: String) -> void:
+		_navigation_remove("day_one_draft_movie")
 		if _day_one_draft_movie == preview:
 			_day_one_draft_movie = null
 			# Defer to consume the skip tap before enabling the next game action.
