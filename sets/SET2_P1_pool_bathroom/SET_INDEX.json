@@ -1,0 +1,638 @@
+{
+  "description": "P1 pool state/camera + bathroom causal seams",
+  "clip_count": 14,
+  "shots": [
+    {
+      "shot_id": "D1-C03-S02",
+      "title": "Roshan crosses the dirty-bathroom threshold",
+      "movie_id": "D1-C03",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "short follow",
+        "move_count": 1
+      },
+      "must_move": "she looks from the murky tub to the dirty sink while moving fully inside",
+      "must_not_move": "single tub, sink, tools, grime cards, entrance, child identity, clothes, and continuous tail",
+      "end_state": "she settles with the entrance and room orientation still readable",
+      "strict_reason": "Both SET3 threshold variants start inside the room/tub; neither establishes crossing.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "dirty bathroom layout",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_bubble_bath_dirty_day_one.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_bubble_bath_dirty_day_one.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "dirty tub material",
+          "status": "approved_source_authority_available",
+          "file": "target_tub_grime_v1.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/target_tub_grime_v1.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C03-S03",
+      "title": "Swimming bunny in the dirty tub",
+      "movie_id": "D1-C03",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked",
+        "move_count": 1
+      },
+      "must_move": "1.0-4.5 weak safe paddling",
+      "must_not_move": "tub geometry, sink, dirty water state, bunny anatomy, and Roshan edge position",
+      "end_state": "4.5-6.04 Roshan concern at edge",
+      "strict_reason": "Original bunny discovery is materially better than SET3 silhouette take.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "dirty bathroom layout",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_bubble_bath_dirty_day_one.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_bubble_bath_dirty_day_one.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "swimming bunny identity",
+          "status": "approved_source_authority_available",
+          "file": "swimming_bunny_dust_bunny_swimming.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/swimming_bunny_dust_bunny_swimming.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "murky tub material",
+          "status": "approved_source_authority_available",
+          "file": "target_tub_grime_v1.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/target_tub_grime_v1.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C03-S04",
+      "title": "Pre-contact tool resolve",
+      "movie_id": "D1-C03",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "subtle push-in",
+        "move_count": 1
+      },
+      "must_move": "she reaches toward the nearest approved tool without changing the room state",
+      "must_not_move": "dirty room, murky tub, swimmer, sink, tools, grime, and character anatomy",
+      "end_state": "her hand stops in a clean visible gap before contact",
+      "strict_reason": "Clear pre-contact reach with approved tool.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "dirty bathroom layout",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_bubble_bath_dirty_day_one.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_bubble_bath_dirty_day_one.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "approved tool group",
+          "status": "approved_source_authority_available",
+          "file": "cleanup_basket.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/cleanup_basket.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C04-S03",
+      "title": "Bubble Bathroom \u2014 Restored \u2014 D1-C04-S03",
+      "movie_id": "D1-C04",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked, restrained action framing",
+        "move_count": 1
+      },
+      "must_move": "1.2-4.8 same legless body clears tub",
+      "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+      "end_state": "4.8-6.04 safe dry-surface bounce",
+      "strict_reason": "Existing exit take introduces ambiguous land legs.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "clean bathroom layout",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_bubble_bath_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_bubble_bath_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "swimming bunny identity",
+          "status": "approved_source_authority_available",
+          "file": "swimming_bunny_dust_bunny_swimming.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/swimming_bunny_dust_bunny_swimming.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C05-S02",
+      "title": "Sparkle Pool \u2014 Dirty Discovery \u2014 D1-C05-S02",
+      "movie_id": "D1-C05",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked, restrained action framing",
+        "move_count": 1
+      },
+      "must_move": "1.2-4.8 swimming bunny in water, land bunny dry corner",
+      "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+      "end_state": "4.8-6.04 trash depth/scale hold",
+      "strict_reason": "Both originals omit required swimming and land bunnies.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "pool geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_mermaid_pool_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "swimming bunny identity",
+          "status": "approved_source_authority_available",
+          "file": "swimming_bunny_dust_bunny_swimming.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/swimming_bunny_dust_bunny_swimming.png"
+        },
+        {
+          "id": "IMAGE_4",
+          "job": "pool debris identity",
+          "status": "approved_source_authority_available",
+          "file": "pool_algae_trash.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/pool_algae_trash.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C05-S04",
+      "title": "Blocked rainbow-source close-up",
+      "movie_id": "D1-C05",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "subtle upward tilt",
+        "move_count": 1
+      },
+      "must_move": "Keep f072-f144 / 3.000-6.042s close opaque sludge source",
+      "must_not_move": "rainbow fixture, arch, source position, debris contact, and dirty grade",
+      "end_state": "Future take should start close and hold dull obstruction",
+      "strict_reason": "Close blocked-source tail is usable after wide setup.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "pool geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_mermaid_pool_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "clog material and fixture identity",
+          "status": "approved_source_authority_available",
+          "file": "waterfall_clogged_turgid.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/waterfall_clogged_turgid.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "debris identity",
+          "status": "approved_source_authority_available",
+          "file": "pool_algae_trash.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/pool_algae_trash.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C05-S05",
+      "title": "Sick seahorse with mouth plug",
+      "movie_id": "D1-C05",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked",
+        "move_count": 1
+      },
+      "must_move": "Keep f096-f144 / 4.000-6.042s plug close",
+      "must_not_move": "seahorse topology, right-center position, plug contact, pool geography, and dirty state",
+      "end_state": "Future take starts locked close with Roshan edge concern",
+      "strict_reason": "Plug identity and dirty seahorse are strong in the final close tail.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "pool geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_mermaid_pool_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "sick seahorse identity",
+          "status": "approved_source_authority_available",
+          "file": "seahorse_sick.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/seahorse_sick.png"
+        },
+        {
+          "id": "IMAGE_4",
+          "job": "mouth plug material",
+          "status": "approved_source_authority_available",
+          "file": "seahorse_mouth_trash.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/seahorse_mouth_trash.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C05-S06",
+      "title": "Sparkle Pool \u2014 Dirty Discovery \u2014 D1-C05-S06",
+      "movie_id": "D1-C05",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked, restrained action framing",
+        "move_count": 1
+      },
+      "must_move": "1.5-4.8 waterfall/seahorse/bunnies all readable",
+      "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+      "end_state": "4.8-6.04 resolve hold, no cleanup",
+      "strict_reason": "No full problem map with both bunnies and both causes.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "pool geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_mermaid_pool_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "swimming bunny identity",
+          "status": "approved_source_authority_available",
+          "file": "swimming_bunny_dust_bunny_swimming.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/swimming_bunny_dust_bunny_swimming.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "blocked waterfall identity",
+          "status": "approved_source_authority_available",
+          "file": "waterfall_clogged_turgid.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/waterfall_clogged_turgid.png"
+        },
+        {
+          "id": "IMAGE_4",
+          "job": "sick seahorse identity",
+          "status": "approved_source_authority_available",
+          "file": "seahorse_sick.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/seahorse_sick.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C06-S03",
+      "title": "Rainbow waterfall restarts top-down",
+      "movie_id": "D1-C06",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "gentle downward tilt",
+        "move_count": 1
+      },
+      "must_move": "1.2-4.8 ignition travels downward pushing sludge",
+      "must_not_move": "fixture position, arches, flow direction, pool scale, and dirty room outside the cleared band",
+      "end_state": "4.8-6.04 clear flow reaches lower lip",
+      "strict_reason": "All originals begin with bright flow and lack top-down sludge clearing; SET3 also fails this causal beat.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "pool geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_mermaid_pool_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "restored waterfall identity",
+          "status": "approved_source_authority_available",
+          "file": "mermaid_pool_waterfall_rest.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/mermaid_pool_waterfall_rest.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C06-S04",
+      "title": "Sparkle Pool \u2014 Purification, Rumi and Hug \u2014 D1-C06-S04",
+      "movie_id": "D1-C06",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked, restrained action framing",
+        "move_count": 1
+      },
+      "must_move": "1.2-4.8 pull back to both fixed sources/shared pool",
+      "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+      "end_state": "4.8-6.04 establish giant pool",
+      "strict_reason": "Original purification meet lacks two distinct fronts; strict SET3 C06-S04 also fails the required close-to-wide camera move.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "pool geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_mermaid_pool_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "restored rainbow source identity",
+          "status": "approved_source_authority_available",
+          "file": "mermaid_pool_waterfall_rest.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/mermaid_pool_waterfall_rest.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "restored seahorse source identity",
+          "status": "approved_source_authority_available",
+          "file": "mermaid_pool_seahorse_fountain_rest.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/mermaid_pool_seahorse_fountain_rest.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C06-S05",
+      "title": "Two purification fronts meet",
+      "movie_id": "D1-C06",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked",
+        "move_count": 1
+      },
+      "must_move": "each front displaces algae through the same water volume",
+      "must_not_move": "pool boundary, sources, fixtures, room geometry, and dry surfaces",
+      "end_state": "the fronts meet once near center in one bright ripple",
+      "strict_reason": "No original or SET3 take makes two source fronts meet through murky water.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "pool geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_mermaid_pool_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "left source identity",
+          "status": "approved_source_authority_available",
+          "file": "mermaid_pool_waterfall_rest.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/mermaid_pool_waterfall_rest.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "right source identity",
+          "status": "approved_source_authority_available",
+          "file": "mermaid_pool_seahorse_fountain_rest.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/mermaid_pool_seahorse_fountain_rest.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C06-S06",
+      "title": "Violet emergence prelude",
+      "movie_id": "D1-C06",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "slow push-in",
+        "move_count": 1
+      },
+      "must_move": "1.2-4.5 contained violet glow rises",
+      "must_not_move": "pool geometry, both sources, fixtures, water surface, and empty character field",
+      "end_state": "4.5-6.04 clean water/glow hold, no person",
+      "strict_reason": "SET3 violet prelude is globally neon/portal-like rather than localized glow; no acceptable original exists.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "pool geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_mermaid_pool_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "restored fixture identity",
+          "status": "approved_source_authority_available",
+          "file": "mermaid_pool_waterfall_rest.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/mermaid_pool_waterfall_rest.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "restored seahorse identity",
+          "status": "approved_source_authority_available",
+          "file": "mermaid_pool_seahorse_fountain_rest.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/mermaid_pool_seahorse_fountain_rest.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C06-S07",
+      "title": "Sparkle Pool \u2014 Purification, Rumi and Hug \u2014 D1-C06-S07",
+      "movie_id": "D1-C06",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked, restrained action framing",
+        "move_count": 1
+      },
+      "must_move": "1.2-4.8 Rumi rises gracefully from depth",
+      "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+      "end_state": "4.8-6.04 full adult identity/scale hold",
+      "strict_reason": "Original Rumi files are either already surfaced or swimming laterally; no clear emergence through glow.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "pool geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_mermaid_pool_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Rumi identity",
+          "status": "approved_source_authority_available",
+          "file": "rumi_rumi_full_body_identity.png",
+          "asset_id": "3485f43a-1679-456d-88af-325593bf1296",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/rumi_rumi_full_body_identity.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C06-S09",
+      "title": "Roshan completes the hug",
+      "movie_id": "D1-C06",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "subtle pullback",
+        "move_count": 1
+      },
+      "must_move": "their arms make one coherent affectionate contact while faces remain visible",
+      "must_not_move": "faces, torsos, hands, two tails, scale, pool geometry, and both fixed streams",
+      "end_state": "they settle with distinct torsos and two separate tails",
+      "strict_reason": "Original hug starts already completed and swimming file is wrong event; SET3 hug also begins fused/complete.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "clean pool geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_mermaid_pool_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Rumi identity",
+          "status": "approved_source_authority_available",
+          "file": "rumi_rumi_full_body_identity.png",
+          "asset_id": "3485f43a-1679-456d-88af-325593bf1296",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/rumi_rumi_full_body_identity.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    }
+  ]
+}

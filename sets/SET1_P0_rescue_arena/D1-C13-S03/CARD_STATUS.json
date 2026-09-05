@@ -1,0 +1,44 @@
+{
+  "shot_id": "D1-C13-S03",
+  "title": "Baby Eagle's safe wing lift",
+  "movie_id": "D1-C13",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "mode": "image_to_video",
+  "camera": {
+    "verb": "locked",
+    "move_count": 1
+  },
+  "must_move": "Show exactly one readable wingbeat that lifts/blows the remaining dust upward and away; no ring, bowl or cloud hiding either identity.",
+  "must_not_move": "arena ring, central platform, Grand Puff, one eagle, floor contacts, and the final dusty shell",
+  "end_state": "End with Eagle grounded again and Puff's silhouette/arena fully restored for C13-S04.",
+  "strict_reason": "Both originals and regenerated variants replace the wingbeat with a ring/bowl or a static hold; no acceptable current clip establishes the causal single-Eagle lift.",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "job": "approved arena geography",
+      "status": "missing_approved_shot_opening_frame",
+      "file": "DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+      "asset_id": "12255f3f-1558-4eb7-b396-ad68fd1a9ff8",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "standing Baby Eagle identity",
+      "status": "approved_source_authority_available",
+      "file": "baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "asset_id": "68332c2b-13fb-48bd-aadf-fa16f0583caf",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "Grand Puff identity",
+      "status": "approved_source_authority_available",
+      "file": "grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "asset_id": "6df5bc79-688d-40b2-bed5-36d30017a8d5",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png"
+    }
+  ],
+  "generation_status": "PENDING_MEDIA_CREDITS",
+  "output_clip": null
+}

@@ -1,0 +1,44 @@
+{
+  "shot_id": "D1-C08-S05",
+  "title": "Baby Eagle thanks Roshan and departs",
+  "movie_id": "D1-C08",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "mode": "image_to_video",
+  "camera": {
+    "verb": "subtle upward follow",
+    "move_count": 1
+  },
+  "must_move": "2.00\u20134.50 Eagle gives a small thanks/look toward Roshan; no blast or extra bunnies.",
+  "must_not_move": "clean room, Roshan, fixture positions, bird identity, empty pin locations, and UI-free frame",
+  "end_state": "4.50\u20136.00 Eagle rises/departs cleanly while room topology stays fixed.",
+  "strict_reason": "Wing-prep/wing-blast/extra-bunny endpoints are not the current departure shot.",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "job": "clean Stuffie Room geography",
+      "status": "missing_approved_shot_opening_frame",
+      "file": "room_playroom_background.png",
+      "asset_id": "e74b041d-e215-4f36-ad3c-718bfb356f53",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_playroom_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "file": "roshan_roshan_base.png",
+      "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "freed Baby Eagle identity",
+      "status": "approved_source_authority_available",
+      "file": "baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "asset_id": "68332c2b-13fb-48bd-aadf-fa16f0583caf",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png"
+    }
+  ],
+  "generation_status": "PENDING_MEDIA_CREDITS",
+  "output_clip": null
+}

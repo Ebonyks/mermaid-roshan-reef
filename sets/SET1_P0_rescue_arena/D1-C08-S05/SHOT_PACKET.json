@@ -1,0 +1,118 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C08",
+  "shot_id": "D1-C08-S05",
+  "title": "Baby Eagle thanks Roshan and departs",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "clean Stuffie Room geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C08",
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "path": "handoff_art/location/room_playroom_background.png",
+      "sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/location/room_playroom_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C08-S04 clean post-rescue endpoint",
+      "source_authority_is_not_automatic_first_frame_approval": true,
+      "binding_alias": "location",
+      "local_path": "scenes/D1-C08/visuals/handoff_art/location/room_playroom_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C08",
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "roshan",
+      "local_path": "scenes/D1-C08/visuals/handoff_art/characters/roshan_roshan_base.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "freed Baby Eagle identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C08",
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "path": "handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "baby_eagle_standing",
+      "local_path": "scenes/D1-C08/visuals/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png"
+    }
+  ],
+  "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+  "camera": {
+    "verb": "subtle upward follow",
+    "move_count": 1
+  },
+  "must_move": "2.00–4.50 Eagle gives a small thanks/look toward Roshan; no blast or extra bunnies.",
+  "must_not_move": "clean room, Roshan, fixture positions, bird identity, empty pin locations, and UI-free frame",
+  "end_state": "4.50–6.00 Eagle rises/departs cleanly while room topology stays fixed.",
+  "negative_constraints": "no four bunnies, wing-blast cleanup, new companion choice, visible picker UI, duplicate bird, room drift, basket action, text, or HUD",
+  "sound_intent": "happy chirp, light feather lift, and warm resolution; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "e95de8698e0a74ff8742b2cd90e50955e747230876416d93d4a805924436f3a7",
+  "strict_audit_reason": "Wing-prep/wing-blast/extra-bunny endpoints are not the current departure shot.",
+  "weak_frames": [
+    {
+      "filename": "C08_S05_eagle_wing_prep.mp4",
+      "lane": "original_branch",
+      "file_verdict": "OMIT_WRONG_EVENT",
+      "weak_frames": "f000–f144 (0.000–6.000s)",
+      "finding": "Eagle wing-prep/pose is not a runtime beat; current sequence proceeds from two-pin cleanup to Eagle thanks/departure."
+    },
+    {
+      "filename": "C08_S05_v1_wing_prep.mp4",
+      "lane": "original_branch",
+      "file_verdict": "OMIT_WRONG_EVENT",
+      "weak_frames": "f000–f144 (0.000–6.000s)",
+      "finding": "Wing-prep invention and free-standing Eagle do not represent the two-pin rescue state."
+    },
+    {
+      "filename": "C08_S05_v2_wing_prep.mp4",
+      "lane": "original_branch",
+      "file_verdict": "OMIT_WRONG_EVENT",
+      "weak_frames": "f000–f144 (0.000–6.000s)",
+      "finding": "Wing-prep variant has no causal pin-clearing action and no valid two-pin endpoint."
+    }
+  ],
+  "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+  "audited_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+  },
+  "blocking_findings": [],
+  "implemented_event_contract": {
+    "authority_path": "scripts/arena/castle_rooms_25d.gd",
+    "rule": "Roshan clears eagle_pin_left and eagle_pin_right; the room cleans, Baby Eagle thanks/rises/departs, then the companion picker opens"
+  },
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "strict_third_pass": true,
+    "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+    "reviewed_at": "2026-09-04"
+  }
+}

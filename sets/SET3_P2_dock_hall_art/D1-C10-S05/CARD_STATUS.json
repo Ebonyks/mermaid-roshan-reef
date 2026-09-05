@@ -1,0 +1,44 @@
+{
+  "shot_id": "D1-C10-S05",
+  "title": "Art Room \u2014 Clean Desk Awakening \u2014 D1-C10-S05",
+  "movie_id": "D1-C10",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "mode": "image_to_video",
+  "camera": {
+    "verb": "locked, restrained action framing",
+    "move_count": 1
+  },
+  "must_move": "2.00\u20134.50 Roshan raises one hand toward the desk while maintaining a visibly measurable gap.",
+  "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+  "end_state": "4.50\u20136.00 lock camera and hold the UI-free gap seam; no contact, UI, or geometry change.",
+  "strict_reason": "Official has the right room but no unambiguous pre-touch hand gap; other variants also break topology.",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "job": "Art Room geography",
+      "status": "missing_approved_shot_opening_frame",
+      "file": "room_craft_room_background.png",
+      "asset_id": null,
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_craft_room_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "file": "roshan_roshan_base.png",
+      "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "Art Room fixture identity sheet",
+      "status": "approved_source_authority_available",
+      "file": "ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+      "asset_id": null,
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/ART_ROOM_FIXTURE_IDENTITY_SHEET.png"
+    }
+  ],
+  "generation_status": "PENDING_MEDIA_CREDITS",
+  "output_clip": null
+}

@@ -1,0 +1,44 @@
+{
+  "shot_id": "D1-C02-S03",
+  "title": "Close dirty-hall evidence inspection",
+  "movie_id": "D1-C02",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "mode": "image_to_video",
+  "camera": {
+    "verb": "short lateral",
+    "move_count": 1
+  },
+  "must_move": "one integrated grime patch, one friendly dust-bunny trace, and one harmless scrap become readable",
+  "must_not_move": "Screen-A floor, molding, portals, walls, fixtures, Daddy, and all existing character positions",
+  "end_state": "roshan points once without touching or cleaning",
+  "strict_reason": "SET3 broad hall, duplicate figures and text labels violate close evidence inspection.",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "job": "Main Hall Screen-A layout",
+      "status": "missing_approved_shot_opening_frame",
+      "file": "main_hall_screen_a_room_led_master.png",
+      "asset_id": null,
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/main_hall_screen_a_room_led_master.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "file": "roshan_roshan_base.png",
+      "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "Daddy identity",
+      "status": "approved_source_authority_available",
+      "file": "daddy_daddy_master.png",
+      "asset_id": null,
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/daddy_daddy_master.png"
+    }
+  ],
+  "generation_status": "PENDING_MEDIA_CREDITS",
+  "output_clip": null
+}

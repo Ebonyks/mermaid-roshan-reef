@@ -1,0 +1,118 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C06",
+  "shot_id": "D1-C06-S07",
+  "title": "Sparkle Pool — Purification, Rumi and Hug — D1-C06-S07",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "pool geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/location/room_mermaid_pool_background.png",
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/location/room_mermaid_pool_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "human-approved, clean, HUD-free shot-opening frame in the exact inherited state",
+      "source_authority_is_not_automatic_first_frame_approval": true,
+      "binding_alias": "location",
+      "local_path": "scenes/D1-C06/visuals/handoff_art/location/room_mermaid_pool_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Rumi identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "rumi",
+      "local_path": "scenes/D1-C06/visuals/handoff_art/characters/rumi_rumi_full_body_identity.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "roshan",
+      "local_path": "scenes/D1-C06/visuals/handoff_art/characters/roshan_roshan_base.png"
+    }
+  ],
+  "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+  "camera": {
+    "verb": "locked, restrained action framing",
+    "move_count": 1
+  },
+  "must_move": "1.2-4.8 Rumi rises gracefully from depth",
+  "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+  "end_state": "4.8-6.04 full adult identity/scale hold",
+  "negative_constraints": "no invented event, topology drift, identity drift, anatomy errors, text, HUD, morph, interpolation, or camera drift",
+  "sound_intent": "quiet room tone and one soft causal action cue; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "0c15bc1944a63395021015e2c03bbd7584798178b69ba65181701df97179347a",
+  "strict_audit_reason": "Original Rumi files are either already surfaced or swimming laterally; no clear emergence through glow.",
+  "weak_frames": [
+    {
+      "filename": "C06_S05_v1_rumi_rises.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f000-f144 (0.000-6.042s)",
+      "finding": "Mislabelled as S05 and begins with Rumi already surfaced; lacks a clear graceful emergence through localized violet glow."
+    },
+    {
+      "filename": "C06_S05_v2_rumi_rises.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f000-f144 (0.000-6.042s)",
+      "finding": "Mislabelled S07-content duplicate; Rumi is already above water at the opening and no clean rise from depth is established."
+    },
+    {
+      "filename": "C06_S07_v1_rumi_rise.mp4",
+      "lane": "original_branch",
+      "file_verdict": "OMIT_WRONG_EVENT",
+      "weak_frames": "f000-f144 (0.000-6.042s)",
+      "finding": "Shows Rumi swimming laterally, not emerging from the center glow; wrong event for S07."
+    }
+  ],
+  "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+  "audited_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+  },
+  "blocking_findings": [],
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/day_one_pool_cleanup.gd",
+    "rule": "pool_surface → waterfall → seahorse is the fixed order; Rumi rises only after all three complete"
+  },
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "strict_third_pass": true,
+    "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+    "reviewed_at": "2026-09-04"
+  }
+}

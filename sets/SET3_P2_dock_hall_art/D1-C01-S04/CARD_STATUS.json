@@ -1,0 +1,52 @@
+{
+  "shot_id": "D1-C01-S04",
+  "title": "Lagoon Landing and Castle Approach \u2014 D1-C01-S04",
+  "movie_id": "D1-C01",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "mode": "image_to_video",
+  "camera": {
+    "verb": "locked, restrained action framing",
+    "move_count": 1
+  },
+  "must_move": "1.5-4.8 gentle push-in",
+  "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+  "end_state": "4.8-6.04 Roshan at handle, doors closed",
+  "strict_reason": "Original file is a door-open event; no valid closed-door arrival take.",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "job": "lagoon geography",
+      "status": "missing_approved_shot_opening_frame",
+      "file": "sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "asset_id": null,
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/sky_lagoon_panorama_master_v5_hd_3x1.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "file": "roshan_roshan_base.png",
+      "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "Daddy identity",
+      "status": "approved_source_authority_available",
+      "file": "daddy_daddy_master.png",
+      "asset_id": null,
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/daddy_daddy_master.png"
+    },
+    {
+      "id": "IMAGE_4",
+      "job": "castle exterior and closed door",
+      "status": "approved_source_authority_available",
+      "file": "pearl_castle_exterior_turnaround_v2.png",
+      "asset_id": null,
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/pearl_castle_exterior_turnaround_v2.png"
+    }
+  ],
+  "generation_status": "PENDING_MEDIA_CREDITS",
+  "output_clip": null
+}

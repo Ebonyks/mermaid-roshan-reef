@@ -1,0 +1,52 @@
+{
+  "shot_id": "D1-C08-S01",
+  "title": "Roshan approaches the two-pin rescue",
+  "movie_id": "D1-C08",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "mode": "image_to_video",
+  "camera": {
+    "verb": "subtle push-in",
+    "move_count": 1
+  },
+  "must_move": "2.00\u20134.50 Roshan approaches the left rescue pin; keep one Eagle and exactly two bunnies.",
+  "must_not_move": "one Baby Eagle, both pin bunnies, pin contacts, clutter, room topology, and dirty state",
+  "end_state": "4.50\u20136.00 stop pre-contact with the left pin visible and no basket.",
+  "strict_reason": "Basket wobble originals are wrong; current shot is approach to the two-pin rescue.",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "job": "dirty Stuffie Room geography",
+      "status": "missing_approved_shot_opening_frame",
+      "file": "room_playroom_background.png",
+      "asset_id": "e74b041d-e215-4f36-ad3c-718bfb356f53",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_playroom_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "file": "roshan_roshan_base.png",
+      "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "pinned Baby Eagle identity",
+      "status": "approved_source_authority_available",
+      "file": "baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+      "asset_id": "03fe3f81-9156-4fdb-86b8-7e170d357358",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png"
+    },
+    {
+      "id": "IMAGE_4",
+      "job": "two rescue-pin identities",
+      "status": "approved_source_authority_available",
+      "file": "playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "asset_id": "0641b632-7680-4745-971e-4fa19efad2b8",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+    }
+  ],
+  "generation_status": "PENDING_MEDIA_CREDITS",
+  "output_clip": null
+}

@@ -1,0 +1,44 @@
+{
+  "shot_id": "D1-C13-S05",
+  "title": "Separate rainbow dust bunny emerges",
+  "movie_id": "D1-C13",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "mode": "image_to_video",
+  "camera": {
+    "verb": "locked",
+    "move_count": 1
+  },
+  "must_move": "Let exactly one rainbow dust bunny rise once from the cradle, with a small contained glow and no full-cast reveal.",
+  "must_not_move": "arena, platform, lamps, clean Grand Puff topology, prismatic cradle, exact two-character count, and floor contacts",
+  "end_state": "End on Puff beside the single bunny and cradle, both intact and calm, with no reconstituted boss or extra effects.",
+  "strict_reason": "All current variants add full cast and an oversized rainbow creature/effect; the required post-FRIENDS coda is exactly one bunny emerging from a tiny cradle.",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "job": "approved arena geography",
+      "status": "missing_approved_shot_opening_frame",
+      "file": "DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+      "asset_id": "12255f3f-1558-4eb7-b396-ad68fd1a9ff8",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Grand Puff identity",
+      "status": "approved_source_authority_available",
+      "file": "grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "asset_id": "6df5bc79-688d-40b2-bed5-36d30017a8d5",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "dedicated human-approved rainbow bunny identity",
+      "status": "missing_human_approved_authority",
+      "file": null,
+      "asset_id": null,
+      "local_ref": null
+    }
+  ],
+  "generation_status": "PENDING_MEDIA_CREDITS",
+  "output_clip": null
+}

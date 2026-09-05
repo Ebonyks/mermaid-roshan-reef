@@ -1,0 +1,398 @@
+{
+  "description": "P2 dock/castle approach + dirty hall + art room topology",
+  "clip_count": 8,
+  "shots": [
+    {
+      "shot_id": "D1-C01-S02",
+      "title": "Daddy offers his hand on the dock",
+      "movie_id": "D1-C01",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked",
+        "move_count": 1
+      },
+      "must_move": "roshan places her hand in his while both tails and costumes remain coherent",
+      "must_not_move": "plane, dock, waterline, castle silhouette, costumes, crowns, glasses, and continuous tails",
+      "end_state": "they settle at child-safe distance with correct hand contact",
+      "strict_reason": "SET3 starts after Daddy has already exited; no valid exit/turn/offer sequence.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "layout and lighting",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "sky_lagoon_panorama_master_v5_hd_3x1.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/sky_lagoon_panorama_master_v5_hd_3x1.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "Daddy identity",
+          "status": "approved_source_authority_available",
+          "file": "daddy_daddy_master.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/daddy_daddy_master.png"
+        },
+        {
+          "id": "IMAGE_4",
+          "job": "pearl plane identity",
+          "status": "approved_source_authority_available",
+          "file": "06_AIRPLANE_EXACT.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/06_AIRPLANE_EXACT.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C01-S04",
+      "title": "Lagoon Landing and Castle Approach \u2014 D1-C01-S04",
+      "movie_id": "D1-C01",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked, restrained action framing",
+        "move_count": 1
+      },
+      "must_move": "1.5-4.8 gentle push-in",
+      "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+      "end_state": "4.8-6.04 Roshan at handle, doors closed",
+      "strict_reason": "Original file is a door-open event; no valid closed-door arrival take.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "lagoon geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "sky_lagoon_panorama_master_v5_hd_3x1.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/sky_lagoon_panorama_master_v5_hd_3x1.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "Daddy identity",
+          "status": "approved_source_authority_available",
+          "file": "daddy_daddy_master.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/daddy_daddy_master.png"
+        },
+        {
+          "id": "IMAGE_4",
+          "job": "castle exterior and closed door",
+          "status": "approved_source_authority_available",
+          "file": "pearl_castle_exterior_turnaround_v2.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/pearl_castle_exterior_turnaround_v2.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C02-S03",
+      "title": "Close dirty-hall evidence inspection",
+      "movie_id": "D1-C02",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "short lateral",
+        "move_count": 1
+      },
+      "must_move": "one integrated grime patch, one friendly dust-bunny trace, and one harmless scrap become readable",
+      "must_not_move": "Screen-A floor, molding, portals, walls, fixtures, Daddy, and all existing character positions",
+      "end_state": "roshan points once without touching or cleaning",
+      "strict_reason": "SET3 broad hall, duplicate figures and text labels violate close evidence inspection.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "Main Hall Screen-A layout",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "main_hall_screen_a_room_led_master.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/main_hall_screen_a_room_led_master.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "Daddy identity",
+          "status": "approved_source_authority_available",
+          "file": "daddy_daddy_master.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/daddy_daddy_master.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C09-S04",
+      "title": "Exactly three Art Room grime cards",
+      "movie_id": "D1-C09",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked",
+        "move_count": 1
+      },
+      "must_move": "2.00\u20134.50 keep exactly one small lavender grime card at left counter, center desk and right counter.",
+      "must_not_move": "two shell windows, two pearl columns, chandelier, shell board, rectangular desk, two curved counters, rear shelves, and front projection",
+      "end_state": "4.50\u20136.00 Roshan points once; end with exactly those three cards and no extra targets.",
+      "strict_reason": "Original official is close in layout but uses large smears rather than exact small lavender grime cards; alternate has wrong boy/room.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "runtime-locked Art Room front projection",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_craft_room_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_craft_room_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "fixture topology",
+          "status": "approved_source_authority_available",
+          "file": "ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/ART_ROOM_FIXTURE_IDENTITY_SHEET.png"
+        },
+        {
+          "id": "IMAGE_4",
+          "job": "grime material",
+          "status": "approved_source_authority_available",
+          "file": "grime_desk.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/grime_desk.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C09-S05",
+      "title": "Art Room \u2014 Spilled Supplies Discovery \u2014 D1-C09-S05",
+      "movie_id": "D1-C09",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked, restrained action framing",
+        "move_count": 1
+      },
+      "must_move": "2.00\u20134.50 Roshan raises toward the approved cleaning brush without touching or gripping it.",
+      "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+      "end_state": "4.50\u20136.00 stop on a clear visible hand-to-tool gap; no scrub yet.",
+      "strict_reason": "Original is wrong room/action; Sept 4 regen also failed the required visible hand-to-tool gap.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "Art Room geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_craft_room_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_craft_room_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "Art Room fixture identity sheet",
+          "status": "approved_source_authority_available",
+          "file": "ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/ART_ROOM_FIXTURE_IDENTITY_SHEET.png"
+        },
+        {
+          "id": "IMAGE_4",
+          "job": "magic cleaning brush",
+          "status": "approved_source_authority_available",
+          "file": "magic_cleaning_brush.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/magic_cleaning_brush.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C10-S01",
+      "title": "Art Room \u2014 Clean Desk Awakening \u2014 D1-C10-S01",
+      "movie_id": "D1-C10",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked, restrained action framing",
+        "move_count": 1
+      },
+      "must_move": "2.00\u20134.50 finish the last localized clean action; all three grime cards disappear causally.",
+      "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+      "end_state": "4.50\u20136.00 hold the complete clean front endpoint for supplies-home.",
+      "strict_reason": "Both originals are polished close-ups but not the exact clean front projection required at the S01/S02 seam.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "Art Room geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_craft_room_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_craft_room_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "Art Room fixture identity sheet",
+          "status": "approved_source_authority_available",
+          "file": "ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/ART_ROOM_FIXTURE_IDENTITY_SHEET.png"
+        },
+        {
+          "id": "IMAGE_4",
+          "job": "magic cleaning brush",
+          "status": "approved_source_authority_available",
+          "file": "magic_cleaning_brush.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/magic_cleaning_brush.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C10-S02",
+      "title": "Four supplies already home",
+      "movie_id": "D1-C10",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked",
+        "move_count": 1
+      },
+      "must_move": "2.00\u20134.50 reveal all four supply groups already home exactly once on their stations.",
+      "must_not_move": "front projection, fixture order, storage stations, four single supply identities, counters, desk, windows, columns, and chandelier",
+      "end_state": "4.50\u20136.00 allow only localized sparkle; no materialization or fixture change.",
+      "strict_reason": "Original purple-room supply shot is wrong topology; Sept 4 regen also materialized supplies.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "runtime-locked Art Room front projection",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_craft_room_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_craft_room_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "fixture topology",
+          "status": "approved_source_authority_available",
+          "file": "ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/ART_ROOM_FIXTURE_IDENTITY_SHEET.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "four supply identities",
+          "status": "approved_source_authority_available",
+          "file": "FOUR_LOOSE_SUPPLY_IDENTITY_SHEET.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/FOUR_LOOSE_SUPPLY_IDENTITY_SHEET.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C10-S05",
+      "title": "Art Room \u2014 Clean Desk Awakening \u2014 D1-C10-S05",
+      "movie_id": "D1-C10",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked, restrained action framing",
+        "move_count": 1
+      },
+      "must_move": "2.00\u20134.50 Roshan raises one hand toward the desk while maintaining a visibly measurable gap.",
+      "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+      "end_state": "4.50\u20136.00 lock camera and hold the UI-free gap seam; no contact, UI, or geometry change.",
+      "strict_reason": "Official has the right room but no unambiguous pre-touch hand gap; other variants also break topology.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "Art Room geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_craft_room_background.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_craft_room_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "Art Room fixture identity sheet",
+          "status": "approved_source_authority_available",
+          "file": "ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+          "asset_id": null,
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/ART_ROOM_FIXTURE_IDENTITY_SHEET.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    }
+  ]
+}

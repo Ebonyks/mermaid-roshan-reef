@@ -1,0 +1,486 @@
+{
+  "description": "P0 wrong-event fix + two-pin Stuffie rescue + C11/C13 arena identity",
+  "clip_count": 10,
+  "shots": [
+    {
+      "shot_id": "D1-C07-S06",
+      "title": "One Baby Eagle held by exactly two rescue pins",
+      "movie_id": "D1-C07",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked",
+        "move_count": 1
+      },
+      "must_move": "2.00\u20134.50 Roshan leans/raises toward the two pins; both bunnies remain visible and distinct.",
+      "must_not_move": "Baby Eagle position, two pin contacts, dirty room, clutter, floor landmarks, bodies, and cast count",
+      "end_state": "4.50\u20136.00 stop with one Eagle, two pin bunnies, stable contact, and no release before player action.",
+      "strict_reason": "All originals omit the exact two visible rescue-pin bunnies and valid held Eagle state.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "dirty Stuffie Room geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_playroom_background.png",
+          "asset_id": "e74b041d-e215-4f36-ad3c-718bfb356f53",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_playroom_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "pinned Baby Eagle identity",
+          "status": "approved_source_authority_available",
+          "file": "baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+          "asset_id": "03fe3f81-9156-4fdb-86b8-7e170d357358",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png"
+        },
+        {
+          "id": "IMAGE_4",
+          "job": "two rescue-pin identities",
+          "status": "approved_source_authority_available",
+          "file": "playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+          "asset_id": "0641b632-7680-4745-971e-4fa19efad2b8",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C08-S01",
+      "title": "Roshan approaches the two-pin rescue",
+      "movie_id": "D1-C08",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "subtle push-in",
+        "move_count": 1
+      },
+      "must_move": "2.00\u20134.50 Roshan approaches the left rescue pin; keep one Eagle and exactly two bunnies.",
+      "must_not_move": "one Baby Eagle, both pin bunnies, pin contacts, clutter, room topology, and dirty state",
+      "end_state": "4.50\u20136.00 stop pre-contact with the left pin visible and no basket.",
+      "strict_reason": "Basket wobble originals are wrong; current shot is approach to the two-pin rescue.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "dirty Stuffie Room geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_playroom_background.png",
+          "asset_id": "e74b041d-e215-4f36-ad3c-718bfb356f53",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_playroom_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "pinned Baby Eagle identity",
+          "status": "approved_source_authority_available",
+          "file": "baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+          "asset_id": "03fe3f81-9156-4fdb-86b8-7e170d357358",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png"
+        },
+        {
+          "id": "IMAGE_4",
+          "job": "two rescue-pin identities",
+          "status": "approved_source_authority_available",
+          "file": "playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+          "asset_id": "0641b632-7680-4745-971e-4fa19efad2b8",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C08-S02",
+      "title": "Roshan clears the left rescue pin",
+      "movie_id": "D1-C08",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked",
+        "move_count": 1
+      },
+      "must_move": "2.00\u20134.50 Roshan clears only eagle_pin_left with a readable causal hand action.",
+      "must_not_move": "right pin, Baby Eagle, room, clutter, Roshan anatomy, and dirty state",
+      "end_state": "4.50\u20136.00 hold one cleared left pin, one remaining right pin, one Eagle, and two total pin bunnies.",
+      "strict_reason": "Left basket ears/full bunny are wrong; clear the left pin.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "dirty Stuffie Room geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_playroom_background.png",
+          "asset_id": "e74b041d-e215-4f36-ad3c-718bfb356f53",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_playroom_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "pinned Baby Eagle identity",
+          "status": "approved_source_authority_available",
+          "file": "baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+          "asset_id": "03fe3f81-9156-4fdb-86b8-7e170d357358",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png"
+        },
+        {
+          "id": "IMAGE_4",
+          "job": "rescue-pin identity",
+          "status": "approved_source_authority_available",
+          "file": "playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+          "asset_id": "0641b632-7680-4745-971e-4fa19efad2b8",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C08-S03",
+      "title": "Roshan reframes the remaining right pin",
+      "movie_id": "D1-C08",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "short lateral",
+        "move_count": 1
+      },
+      "must_move": "2.00\u20134.50 reframe minimally and show Roshan reaching toward eagle_pin_right.",
+      "must_not_move": "right-pin contact, Baby Eagle, absent left pin, room, clutter, and dirty state",
+      "end_state": "4.50\u20136.00 stop pre-contact; no basket or additional bunny.",
+      "strict_reason": "Right basket ears/full bunny/four-bunny variants are wrong; reframe to the remaining right pin.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "dirty Stuffie Room geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_playroom_background.png",
+          "asset_id": "e74b041d-e215-4f36-ad3c-718bfb356f53",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_playroom_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "pinned Baby Eagle identity",
+          "status": "approved_source_authority_available",
+          "file": "baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+          "asset_id": "03fe3f81-9156-4fdb-86b8-7e170d357358",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png"
+        },
+        {
+          "id": "IMAGE_4",
+          "job": "remaining right-pin identity",
+          "status": "approved_source_authority_available",
+          "file": "playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+          "asset_id": "0641b632-7680-4745-971e-4fa19efad2b8",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C08-S04",
+      "title": "Roshan clears the right pin and completes the room",
+      "movie_id": "D1-C08",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked",
+        "move_count": 1
+      },
+      "must_move": "2.00\u20134.50 Roshan clears only eagle_pin_right; preserve one Eagle and exactly two pin bunnies.",
+      "must_not_move": "Roshan, Baby Eagle identity, fixture positions, floor geography, absent left pin, and camera",
+      "end_state": "4.50\u20136.00 hold the clean post-rescue room with no wing blast or new cast.",
+      "strict_reason": "Four-bunny and wing-blast originals replace the second pin clear; current completion is the right pin.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "Stuffie Room dirty-to-clean geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_playroom_background.png",
+          "asset_id": "e74b041d-e215-4f36-ad3c-718bfb356f53",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_playroom_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "Baby Eagle identity",
+          "status": "approved_source_authority_available",
+          "file": "baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+          "asset_id": "03fe3f81-9156-4fdb-86b8-7e170d357358",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png"
+        },
+        {
+          "id": "IMAGE_4",
+          "job": "right rescue-pin identity",
+          "status": "approved_source_authority_available",
+          "file": "playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+          "asset_id": "0641b632-7680-4745-971e-4fa19efad2b8",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C08-S05",
+      "title": "Baby Eagle thanks Roshan and departs",
+      "movie_id": "D1-C08",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "subtle upward follow",
+        "move_count": 1
+      },
+      "must_move": "2.00\u20134.50 Eagle gives a small thanks/look toward Roshan; no blast or extra bunnies.",
+      "must_not_move": "clean room, Roshan, fixture positions, bird identity, empty pin locations, and UI-free frame",
+      "end_state": "4.50\u20136.00 Eagle rises/departs cleanly while room topology stays fixed.",
+      "strict_reason": "Wing-prep/wing-blast/extra-bunny endpoints are not the current departure shot.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "clean Stuffie Room geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "room_playroom_background.png",
+          "asset_id": "e74b041d-e215-4f36-ad3c-718bfb356f53",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_playroom_background.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "freed Baby Eagle identity",
+          "status": "approved_source_authority_available",
+          "file": "baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+          "asset_id": "68332c2b-13fb-48bd-aadf-fa16f0583caf",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C11-S04",
+      "title": "Grand Puff lands in the fixed arena",
+      "movie_id": "D1-C11",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked",
+        "move_count": 1
+      },
+      "must_move": "Show one physically legible descent, squash/contact and rebound without flattening or duplicating Puff.",
+      "must_not_move": "arena topology, landing zone, Roshan's safe edge position, Grand Puff tiers, ears, paws, face, and teeth",
+      "end_state": "End on a stable intact boss centered in the arena, before the C12 FRIENDS boundary.",
+      "strict_reason": "Regenerated location is right but landing/contact and final Puff state are not yet readable enough; all original grand-reveal material is the wrong pearl-hall event.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "approved arena geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+          "asset_id": "12255f3f-1558-4eb7-b396-ad68fd1a9ff8",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Grand Puff identity",
+          "status": "approved_source_authority_available",
+          "file": "grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+          "asset_id": "6df5bc79-688d-40b2-bed5-36d30017a8d5",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "Roshan identity",
+          "status": "approved_source_authority_available",
+          "file": "roshan_roshan_base.png",
+          "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C13-S03",
+      "title": "Baby Eagle's safe wing lift",
+      "movie_id": "D1-C13",
+      "duration_seconds": 4,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked",
+        "move_count": 1
+      },
+      "must_move": "Show exactly one readable wingbeat that lifts/blows the remaining dust upward and away; no ring, bowl or cloud hiding either identity.",
+      "must_not_move": "arena ring, central platform, Grand Puff, one eagle, floor contacts, and the final dusty shell",
+      "end_state": "End with Eagle grounded again and Puff's silhouette/arena fully restored for C13-S04.",
+      "strict_reason": "Both originals and regenerated variants replace the wingbeat with a ring/bowl or a static hold; no acceptable current clip establishes the causal single-Eagle lift.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "approved arena geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+          "asset_id": "12255f3f-1558-4eb7-b396-ad68fd1a9ff8",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "standing Baby Eagle identity",
+          "status": "approved_source_authority_available",
+          "file": "baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+          "asset_id": "68332c2b-13fb-48bd-aadf-fa16f0583caf",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "Grand Puff identity",
+          "status": "approved_source_authority_available",
+          "file": "grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+          "asset_id": "6df5bc79-688d-40b2-bed5-36d30017a8d5",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C13-S04",
+      "title": "Grand Puff Friendship Completion \u2014 D1-C13-S04",
+      "movie_id": "D1-C13",
+      "duration_seconds": 6,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked, restrained action framing",
+        "move_count": 1
+      },
+      "must_move": "Rumi directs one localized rinse around Puff's lower edge; keep water inside the arena and off the camera.",
+      "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+      "end_state": "End on a clean smiling Puff beside a small separate prismatic cradle, with water gone and a held seam into S05.",
+      "strict_reason": "Rinse motion is readable but water is too broad and neither original nor regenerated version supplies the required small prismatic cradle endpoint.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "arena geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+          "asset_id": "12255f3f-1558-4eb7-b396-ad68fd1a9ff8",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Rumi identity",
+          "status": "approved_source_authority_available",
+          "file": "rumi_rumi_full_body_identity.png",
+          "asset_id": "3485f43a-1679-456d-88af-325593bf1296",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/rumi_rumi_full_body_identity.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "Grand Puff identity",
+          "status": "approved_source_authority_available",
+          "file": "grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+          "asset_id": "6df5bc79-688d-40b2-bed5-36d30017a8d5",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png"
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    },
+    {
+      "shot_id": "D1-C13-S05",
+      "title": "Separate rainbow dust bunny emerges",
+      "movie_id": "D1-C13",
+      "duration_seconds": 4,
+      "aspect_ratio": "16:9",
+      "mode": "image_to_video",
+      "camera": {
+        "verb": "locked",
+        "move_count": 1
+      },
+      "must_move": "Let exactly one rainbow dust bunny rise once from the cradle, with a small contained glow and no full-cast reveal.",
+      "must_not_move": "arena, platform, lamps, clean Grand Puff topology, prismatic cradle, exact two-character count, and floor contacts",
+      "end_state": "End on Puff beside the single bunny and cradle, both intact and calm, with no reconstituted boss or extra effects.",
+      "strict_reason": "All current variants add full cast and an oversized rainbow creature/effect; the required post-FRIENDS coda is exactly one bunny emerging from a tiny cradle.",
+      "bindings": [
+        {
+          "id": "IMAGE_1",
+          "job": "approved arena geography",
+          "status": "missing_approved_shot_opening_frame",
+          "file": "DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+          "asset_id": "12255f3f-1558-4eb7-b396-ad68fd1a9ff8",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png"
+        },
+        {
+          "id": "IMAGE_2",
+          "job": "Grand Puff identity",
+          "status": "approved_source_authority_available",
+          "file": "grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+          "asset_id": "6df5bc79-688d-40b2-bed5-36d30017a8d5",
+          "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png"
+        },
+        {
+          "id": "IMAGE_3",
+          "job": "dedicated human-approved rainbow bunny identity",
+          "status": "missing_human_approved_authority",
+          "file": null,
+          "asset_id": null,
+          "local_ref": null
+        }
+      ],
+      "generation_status": "PENDING_MEDIA_CREDITS",
+      "output_clip": null
+    }
+  ]
+}

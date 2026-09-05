@@ -1,0 +1,36 @@
+{
+  "shot_id": "D1-C06-S03",
+  "title": "Rainbow waterfall restarts top-down",
+  "movie_id": "D1-C06",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "mode": "image_to_video",
+  "camera": {
+    "verb": "gentle downward tilt",
+    "move_count": 1
+  },
+  "must_move": "1.2-4.8 ignition travels downward pushing sludge",
+  "must_not_move": "fixture position, arches, flow direction, pool scale, and dirty room outside the cleared band",
+  "end_state": "4.8-6.04 clear flow reaches lower lip",
+  "strict_reason": "All originals begin with bright flow and lack top-down sludge clearing; SET3 also fails this causal beat.",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "job": "pool geography",
+      "status": "missing_approved_shot_opening_frame",
+      "file": "room_mermaid_pool_background.png",
+      "asset_id": null,
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "restored waterfall identity",
+      "status": "approved_source_authority_available",
+      "file": "mermaid_pool_waterfall_rest.png",
+      "asset_id": null,
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/mermaid_pool_waterfall_rest.png"
+    }
+  ],
+  "generation_status": "PENDING_MEDIA_CREDITS",
+  "output_clip": null
+}

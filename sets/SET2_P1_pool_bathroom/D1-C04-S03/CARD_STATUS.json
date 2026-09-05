@@ -1,0 +1,44 @@
+{
+  "shot_id": "D1-C04-S03",
+  "title": "Bubble Bathroom \u2014 Restored \u2014 D1-C04-S03",
+  "movie_id": "D1-C04",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "mode": "image_to_video",
+  "camera": {
+    "verb": "locked, restrained action framing",
+    "move_count": 1
+  },
+  "must_move": "1.2-4.8 same legless body clears tub",
+  "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+  "end_state": "4.8-6.04 safe dry-surface bounce",
+  "strict_reason": "Existing exit take introduces ambiguous land legs.",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "job": "clean bathroom layout",
+      "status": "missing_approved_shot_opening_frame",
+      "file": "room_bubble_bath_background.png",
+      "asset_id": null,
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_bubble_bath_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "file": "roshan_roshan_base.png",
+      "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "swimming bunny identity",
+      "status": "approved_source_authority_available",
+      "file": "swimming_bunny_dust_bunny_swimming.png",
+      "asset_id": null,
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/swimming_bunny_dust_bunny_swimming.png"
+    }
+  ],
+  "generation_status": "PENDING_MEDIA_CREDITS",
+  "output_clip": null
+}

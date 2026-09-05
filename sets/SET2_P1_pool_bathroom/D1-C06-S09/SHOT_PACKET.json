@@ -1,0 +1,118 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C06",
+  "shot_id": "D1-C06-S09",
+  "title": "Roshan completes the hug",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "clean pool geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/location/room_mermaid_pool_background.png",
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/location/room_mermaid_pool_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "accepted D1-C06-S08 open-arm endpoint",
+      "source_authority_is_not_automatic_first_frame_approval": true,
+      "binding_alias": "location",
+      "local_path": "scenes/D1-C06/visuals/handoff_art/location/room_mermaid_pool_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Rumi identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "rumi",
+      "local_path": "scenes/D1-C06/visuals/handoff_art/characters/rumi_rumi_full_body_identity.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C06",
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "roshan",
+      "local_path": "scenes/D1-C06/visuals/handoff_art/characters/roshan_roshan_base.png"
+    }
+  ],
+  "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+  "camera": {
+    "verb": "subtle pullback",
+    "move_count": 1
+  },
+  "must_move": "their arms make one coherent affectionate contact while faces remain visible",
+  "must_not_move": "faces, torsos, hands, two tails, scale, pool geometry, and both fixed streams",
+  "end_state": "they settle with distinct torsos and two separate tails",
+  "negative_constraints": "no starting inside the hug, hold-only action, fused torsos, merged tails, extra arms, substitute Rumi, kiss, tiny pool, text, or HUD",
+  "sound_intent": "water sparkle and warm resolution; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "6c84dd57c45285142eaf3e6aace1170682678ea278bf9bece036b531521f5a99",
+  "strict_audit_reason": "Original hug starts already completed and swimming file is wrong event; SET3 hug also begins fused/complete.",
+  "weak_frames": [
+    {
+      "filename": "C06_rumi_roshan_hug.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f000-f144 (0.000-6.042s)",
+      "finding": "Starts in completed hug, eliminating separate-body approach/contact beat; tails/torsos overlap at opening."
+    },
+    {
+      "filename": "C06_rumi_swim.mp4",
+      "lane": "original_branch",
+      "file_verdict": "OMIT_WRONG_EVENT",
+      "weak_frames": "f000-f144 (0.000-6.042s)",
+      "finding": "Rumi swims alone and contains no Roshan approach or hug; wrong event for S09."
+    },
+    {
+      "filename": "C06_S09_v1_hug_complete_REGEN.mp4",
+      "lane": "committed_regen_audit",
+      "file_verdict": "REGENERATE",
+      "weak_frames": "000–144",
+      "finding": "The branch replacement starts already inside the embrace and holds it throughout, eliminating the required separate-body approach and single readable contact beat."
+    }
+  ],
+  "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+  "audited_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+  },
+  "blocking_findings": [],
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/day_one_pool_cleanup.gd",
+    "rule": "pool_surface → waterfall → seahorse is the fixed order; Rumi rises only after all three complete"
+  },
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "strict_third_pass": true,
+    "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+    "reviewed_at": "2026-09-04"
+  }
+}

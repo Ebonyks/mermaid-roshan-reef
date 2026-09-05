@@ -1,0 +1,139 @@
+{
+  "schema": "imagine-shot-card-draft-v1",
+  "movie_id": "D1-C05",
+  "shot_id": "D1-C05-S05",
+  "title": "Sick seahorse with mouth plug",
+  "status": "DRAFT",
+  "conditional_regeneration": false,
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "binding_plan": [
+    {
+      "id": "IMAGE_1",
+      "job": "pool geography",
+      "status": "missing_approved_shot_opening_frame",
+      "source_movie_id": "D1-C05",
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "path": "handoff_art/location/room_mermaid_pool_background.png",
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c05_pool_dirty_discovery_visual_v1/handoff_art/location/room_mermaid_pool_background.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "shot_opening_gate": "approved right-center seahorse close composition; skip regeneration only if Sol confirms the existing mouth plug and topology",
+      "source_authority_is_not_automatic_first_frame_approval": true,
+      "binding_alias": "location",
+      "local_path": "scenes/D1-C05/visuals/handoff_art/location/room_mermaid_pool_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C05",
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "path": "handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c05_pool_dirty_discovery_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "roshan",
+      "local_path": "scenes/D1-C05/visuals/handoff_art/characters/roshan_roshan_base.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "sick seahorse identity",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C05",
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "path": "handoff_art/objects/seahorse_sick.png",
+      "sha256": "3af5ff973576d328dde98282f5ad9a5a04931e35f3a48e366de6ad1499b304a0",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c05_pool_dirty_discovery_visual_v1/handoff_art/objects/seahorse_sick.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "seahorse",
+      "local_path": "scenes/D1-C05/visuals/handoff_art/objects/seahorse_sick.png"
+    },
+    {
+      "id": "IMAGE_4",
+      "job": "mouth plug material",
+      "status": "approved_source_authority_available",
+      "source_movie_id": "D1-C05",
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "path": "handoff_art/objects/seahorse_mouth_trash.png",
+      "sha256": "9c48ac1ca7be923fcb14902b3e2b62263f34d53e031f11002776bfc4322652f9",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c05_pool_dirty_discovery_visual_v1/handoff_art/objects/seahorse_mouth_trash.png",
+      "hud_present": false,
+      "used_as_delivery_pixels": false,
+      "binding_alias": "seahorse_plug",
+      "local_path": "scenes/D1-C05/visuals/handoff_art/objects/seahorse_mouth_trash.png"
+    }
+  ],
+  "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+  "camera": {
+    "verb": "locked",
+    "move_count": 1
+  },
+  "must_move": "Keep f096-f144 / 4.000-6.042s plug close",
+  "must_not_move": "seahorse topology, right-center position, plug contact, pool geography, and dirty state",
+  "end_state": "Future take starts locked close with Roshan edge concern",
+  "negative_constraints": "no different animal, plug beside the mouth, clean flow, frightening injury, extraction, text, or HUD",
+  "sound_intent": "weak watery cough and room tone; no voices",
+  "prompt_path": "PROMPT.txt",
+  "prompt_sha256": "11feeb37978e477b3e80ceb92456e2a6778bfe5e40c41d6e401687a9c95c5218",
+  "strict_audit_reason": "Plug identity and dirty seahorse are strong in the final close tail.",
+  "weak_frames": [
+    {
+      "filename": "C05_S05_sick_seahorse.mp4",
+      "lane": "original_branch",
+      "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+      "weak_frames": "",
+      "finding": "Correct sick seahorse/plug content but weaker opening and less stable close framing than v1."
+    },
+    {
+      "filename": "C05_S05_v1_seahorse_plug.mp4",
+      "lane": "original_branch",
+      "file_verdict": "KEEP_WITH_TRIM",
+      "weak_frames": "f000-f095 (0.000-3.958s)",
+      "finding": "First four seconds are a medium-wide approach; from f096 (4.000s) the pink wrapper/weed plug, sick long-snouted seahorse and Roshan concern are clearly readable."
+    },
+    {
+      "filename": "C05_S05_v2_seahorse.mp4",
+      "lane": "original_branch",
+      "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+      "weak_frames": "",
+      "finding": "Valid plug identity but weaker expression/composition than v1's retained close tail."
+    },
+    {
+      "filename": "C05_S05_v1_sick_seahorse_plug_REGEN.mp4",
+      "lane": "committed_regen_audit",
+      "file_verdict": "REGENERATE",
+      "weak_frames": "000–144",
+      "finding": "The branch replacement clarifies the pink wrapper-and-weed plug, but the pool remains clean, Roshan is full-body from frame 0, and the wide two-shot never becomes the required dirty-state close-up."
+    }
+  ],
+  "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+  "audited_branch": {
+    "branch": "day1-regen-3sets-2026-09-04",
+    "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+  },
+  "blocking_findings": [],
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/day_one_pool_cleanup.gd",
+    "rule": "the dirty pool begins with six surface targets, three waterfall lanes, and an eight-tug seahorse obstruction"
+  },
+  "audit_claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "review": {
+    "strict_third_pass": true,
+    "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+    "reviewed_at": "2026-09-04"
+  }
+}

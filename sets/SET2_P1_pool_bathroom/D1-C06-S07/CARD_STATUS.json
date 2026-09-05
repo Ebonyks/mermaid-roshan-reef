@@ -1,0 +1,44 @@
+{
+  "shot_id": "D1-C06-S07",
+  "title": "Sparkle Pool \u2014 Purification, Rumi and Hug \u2014 D1-C06-S07",
+  "movie_id": "D1-C06",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "mode": "image_to_video",
+  "camera": {
+    "verb": "locked, restrained action framing",
+    "move_count": 1
+  },
+  "must_move": "1.2-4.8 Rumi rises gracefully from depth",
+  "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+  "end_state": "4.8-6.04 full adult identity/scale hold",
+  "strict_reason": "Original Rumi files are either already surfaced or swimming laterally; no clear emergence through glow.",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "job": "pool geography",
+      "status": "missing_approved_shot_opening_frame",
+      "file": "room_mermaid_pool_background.png",
+      "asset_id": null,
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "Rumi identity",
+      "status": "approved_source_authority_available",
+      "file": "rumi_rumi_full_body_identity.png",
+      "asset_id": "3485f43a-1679-456d-88af-325593bf1296",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/rumi_rumi_full_body_identity.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "Roshan identity",
+      "status": "approved_source_authority_available",
+      "file": "roshan_roshan_base.png",
+      "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+    }
+  ],
+  "generation_status": "PENDING_MEDIA_CREDITS",
+  "output_clip": null
+}

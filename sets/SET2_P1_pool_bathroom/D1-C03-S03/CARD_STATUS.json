@@ -1,0 +1,44 @@
+{
+  "shot_id": "D1-C03-S03",
+  "title": "Swimming bunny in the dirty tub",
+  "movie_id": "D1-C03",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "mode": "image_to_video",
+  "camera": {
+    "verb": "locked",
+    "move_count": 1
+  },
+  "must_move": "1.0-4.5 weak safe paddling",
+  "must_not_move": "tub geometry, sink, dirty water state, bunny anatomy, and Roshan edge position",
+  "end_state": "4.5-6.04 Roshan concern at edge",
+  "strict_reason": "Original bunny discovery is materially better than SET3 silhouette take.",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "job": "dirty bathroom layout",
+      "status": "missing_approved_shot_opening_frame",
+      "file": "room_bubble_bath_dirty_day_one.png",
+      "asset_id": null,
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_bubble_bath_dirty_day_one.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "job": "swimming bunny identity",
+      "status": "approved_source_authority_available",
+      "file": "swimming_bunny_dust_bunny_swimming.png",
+      "asset_id": null,
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/swimming_bunny_dust_bunny_swimming.png"
+    },
+    {
+      "id": "IMAGE_3",
+      "job": "murky tub material",
+      "status": "approved_source_authority_available",
+      "file": "target_tub_grime_v1.png",
+      "asset_id": null,
+      "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/target_tub_grime_v1.png"
+    }
+  ],
+  "generation_status": "PENDING_MEDIA_CREDITS",
+  "output_clip": null
+}

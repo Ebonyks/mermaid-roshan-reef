@@ -1,0 +1,1551 @@
+{
+  "schema": "day-one-handoff-v3-3sets-workplan-v1",
+  "source_commit": "5e9316c6dbd52d770a6a116e0195ed2717ae5a4a",
+  "source_path": "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04",
+  "claims": {
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false,
+    "image_1_policy": "override GENERATION_READY=false with source-authority IMAGE_1 stand-ins (human-approved openings missing on all 32 cards)"
+  },
+  "status": "STAGED_AWAITING_MEDIA_CREDITS",
+  "media_credits_exhausted_at": "2026-09-05T00:50:36.708818+00:00",
+  "totals": {
+    "remake_cards": 32,
+    "set_count": 3
+  },
+  "imagine_assets_registered": {
+    "room_playroom_background.png": "e74b041d-e215-4f36-ad3c-718bfb356f53",
+    "roshan_roshan_base.png": "621478cf-13ee-443c-870f-48ddf89a2434",
+    "baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png": "03fe3f81-9156-4fdb-86b8-7e170d357358",
+    "playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png": "0641b632-7680-4745-971e-4fa19efad2b8",
+    "baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png": "68332c2b-13fb-48bd-aadf-fa16f0583caf",
+    "DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png": "12255f3f-1558-4eb7-b396-ad68fd1a9ff8",
+    "grand_puff_BOSS_DUST_BUNNY_IDENTITY.png": "6df5bc79-688d-40b2-bed5-36d30017a8d5",
+    "rumi_rumi_full_body_identity.png": "3485f43a-1679-456d-88af-325593bf1296"
+  },
+  "sets": {
+    "SET1_P0_rescue_arena": {
+      "description": "P0 wrong-event fix + two-pin Stuffie rescue + C11/C13 arena identity",
+      "clip_count": 10,
+      "shots": [
+        {
+          "shot_id": "D1-C07-S06",
+          "title": "One Baby Eagle held by exactly two rescue pins",
+          "movie_id": "D1-C07",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 1
+          },
+          "must_move": "2.00\u20134.50 Roshan leans/raises toward the two pins; both bunnies remain visible and distinct.",
+          "must_not_move": "Baby Eagle position, two pin contacts, dirty room, clutter, floor landmarks, bodies, and cast count",
+          "end_state": "4.50\u20136.00 stop with one Eagle, two pin bunnies, stable contact, and no release before player action.",
+          "strict_reason": "All originals omit the exact two visible rescue-pin bunnies and valid held Eagle state.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "dirty Stuffie Room geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_playroom_background.png",
+              "asset_id": "e74b041d-e215-4f36-ad3c-718bfb356f53",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_playroom_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "pinned Baby Eagle identity",
+              "status": "approved_source_authority_available",
+              "file": "baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+              "asset_id": "03fe3f81-9156-4fdb-86b8-7e170d357358",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png"
+            },
+            {
+              "id": "IMAGE_4",
+              "job": "two rescue-pin identities",
+              "status": "approved_source_authority_available",
+              "file": "playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+              "asset_id": "0641b632-7680-4745-971e-4fa19efad2b8",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C08-S01",
+          "title": "Roshan approaches the two-pin rescue",
+          "movie_id": "D1-C08",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "subtle push-in",
+            "move_count": 1
+          },
+          "must_move": "2.00\u20134.50 Roshan approaches the left rescue pin; keep one Eagle and exactly two bunnies.",
+          "must_not_move": "one Baby Eagle, both pin bunnies, pin contacts, clutter, room topology, and dirty state",
+          "end_state": "4.50\u20136.00 stop pre-contact with the left pin visible and no basket.",
+          "strict_reason": "Basket wobble originals are wrong; current shot is approach to the two-pin rescue.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "dirty Stuffie Room geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_playroom_background.png",
+              "asset_id": "e74b041d-e215-4f36-ad3c-718bfb356f53",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_playroom_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "pinned Baby Eagle identity",
+              "status": "approved_source_authority_available",
+              "file": "baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+              "asset_id": "03fe3f81-9156-4fdb-86b8-7e170d357358",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png"
+            },
+            {
+              "id": "IMAGE_4",
+              "job": "two rescue-pin identities",
+              "status": "approved_source_authority_available",
+              "file": "playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+              "asset_id": "0641b632-7680-4745-971e-4fa19efad2b8",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C08-S02",
+          "title": "Roshan clears the left rescue pin",
+          "movie_id": "D1-C08",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 1
+          },
+          "must_move": "2.00\u20134.50 Roshan clears only eagle_pin_left with a readable causal hand action.",
+          "must_not_move": "right pin, Baby Eagle, room, clutter, Roshan anatomy, and dirty state",
+          "end_state": "4.50\u20136.00 hold one cleared left pin, one remaining right pin, one Eagle, and two total pin bunnies.",
+          "strict_reason": "Left basket ears/full bunny are wrong; clear the left pin.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "dirty Stuffie Room geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_playroom_background.png",
+              "asset_id": "e74b041d-e215-4f36-ad3c-718bfb356f53",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_playroom_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "pinned Baby Eagle identity",
+              "status": "approved_source_authority_available",
+              "file": "baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+              "asset_id": "03fe3f81-9156-4fdb-86b8-7e170d357358",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png"
+            },
+            {
+              "id": "IMAGE_4",
+              "job": "rescue-pin identity",
+              "status": "approved_source_authority_available",
+              "file": "playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+              "asset_id": "0641b632-7680-4745-971e-4fa19efad2b8",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C08-S03",
+          "title": "Roshan reframes the remaining right pin",
+          "movie_id": "D1-C08",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "short lateral",
+            "move_count": 1
+          },
+          "must_move": "2.00\u20134.50 reframe minimally and show Roshan reaching toward eagle_pin_right.",
+          "must_not_move": "right-pin contact, Baby Eagle, absent left pin, room, clutter, and dirty state",
+          "end_state": "4.50\u20136.00 stop pre-contact; no basket or additional bunny.",
+          "strict_reason": "Right basket ears/full bunny/four-bunny variants are wrong; reframe to the remaining right pin.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "dirty Stuffie Room geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_playroom_background.png",
+              "asset_id": "e74b041d-e215-4f36-ad3c-718bfb356f53",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_playroom_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "pinned Baby Eagle identity",
+              "status": "approved_source_authority_available",
+              "file": "baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+              "asset_id": "03fe3f81-9156-4fdb-86b8-7e170d357358",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png"
+            },
+            {
+              "id": "IMAGE_4",
+              "job": "remaining right-pin identity",
+              "status": "approved_source_authority_available",
+              "file": "playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+              "asset_id": "0641b632-7680-4745-971e-4fa19efad2b8",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C08-S04",
+          "title": "Roshan clears the right pin and completes the room",
+          "movie_id": "D1-C08",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 1
+          },
+          "must_move": "2.00\u20134.50 Roshan clears only eagle_pin_right; preserve one Eagle and exactly two pin bunnies.",
+          "must_not_move": "Roshan, Baby Eagle identity, fixture positions, floor geography, absent left pin, and camera",
+          "end_state": "4.50\u20136.00 hold the clean post-rescue room with no wing blast or new cast.",
+          "strict_reason": "Four-bunny and wing-blast originals replace the second pin clear; current completion is the right pin.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "Stuffie Room dirty-to-clean geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_playroom_background.png",
+              "asset_id": "e74b041d-e215-4f36-ad3c-718bfb356f53",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_playroom_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "Baby Eagle identity",
+              "status": "approved_source_authority_available",
+              "file": "baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+              "asset_id": "03fe3f81-9156-4fdb-86b8-7e170d357358",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png"
+            },
+            {
+              "id": "IMAGE_4",
+              "job": "right rescue-pin identity",
+              "status": "approved_source_authority_available",
+              "file": "playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+              "asset_id": "0641b632-7680-4745-971e-4fa19efad2b8",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C08-S05",
+          "title": "Baby Eagle thanks Roshan and departs",
+          "movie_id": "D1-C08",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "subtle upward follow",
+            "move_count": 1
+          },
+          "must_move": "2.00\u20134.50 Eagle gives a small thanks/look toward Roshan; no blast or extra bunnies.",
+          "must_not_move": "clean room, Roshan, fixture positions, bird identity, empty pin locations, and UI-free frame",
+          "end_state": "4.50\u20136.00 Eagle rises/departs cleanly while room topology stays fixed.",
+          "strict_reason": "Wing-prep/wing-blast/extra-bunny endpoints are not the current departure shot.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "clean Stuffie Room geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_playroom_background.png",
+              "asset_id": "e74b041d-e215-4f36-ad3c-718bfb356f53",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_playroom_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "freed Baby Eagle identity",
+              "status": "approved_source_authority_available",
+              "file": "baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+              "asset_id": "68332c2b-13fb-48bd-aadf-fa16f0583caf",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C11-S04",
+          "title": "Grand Puff lands in the fixed arena",
+          "movie_id": "D1-C11",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 1
+          },
+          "must_move": "Show one physically legible descent, squash/contact and rebound without flattening or duplicating Puff.",
+          "must_not_move": "arena topology, landing zone, Roshan's safe edge position, Grand Puff tiers, ears, paws, face, and teeth",
+          "end_state": "End on a stable intact boss centered in the arena, before the C12 FRIENDS boundary.",
+          "strict_reason": "Regenerated location is right but landing/contact and final Puff state are not yet readable enough; all original grand-reveal material is the wrong pearl-hall event.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "approved arena geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+              "asset_id": "12255f3f-1558-4eb7-b396-ad68fd1a9ff8",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Grand Puff identity",
+              "status": "approved_source_authority_available",
+              "file": "grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+              "asset_id": "6df5bc79-688d-40b2-bed5-36d30017a8d5",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C13-S03",
+          "title": "Baby Eagle's safe wing lift",
+          "movie_id": "D1-C13",
+          "duration_seconds": 4,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 1
+          },
+          "must_move": "Show exactly one readable wingbeat that lifts/blows the remaining dust upward and away; no ring, bowl or cloud hiding either identity.",
+          "must_not_move": "arena ring, central platform, Grand Puff, one eagle, floor contacts, and the final dusty shell",
+          "end_state": "End with Eagle grounded again and Puff's silhouette/arena fully restored for C13-S04.",
+          "strict_reason": "Both originals and regenerated variants replace the wingbeat with a ring/bowl or a static hold; no acceptable current clip establishes the causal single-Eagle lift.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "approved arena geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+              "asset_id": "12255f3f-1558-4eb7-b396-ad68fd1a9ff8",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "standing Baby Eagle identity",
+              "status": "approved_source_authority_available",
+              "file": "baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+              "asset_id": "68332c2b-13fb-48bd-aadf-fa16f0583caf",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "Grand Puff identity",
+              "status": "approved_source_authority_available",
+              "file": "grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+              "asset_id": "6df5bc79-688d-40b2-bed5-36d30017a8d5",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C13-S04",
+          "title": "Grand Puff Friendship Completion \u2014 D1-C13-S04",
+          "movie_id": "D1-C13",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked, restrained action framing",
+            "move_count": 1
+          },
+          "must_move": "Rumi directs one localized rinse around Puff's lower edge; keep water inside the arena and off the camera.",
+          "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+          "end_state": "End on a clean smiling Puff beside a small separate prismatic cradle, with water gone and a held seam into S05.",
+          "strict_reason": "Rinse motion is readable but water is too broad and neither original nor regenerated version supplies the required small prismatic cradle endpoint.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "arena geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+              "asset_id": "12255f3f-1558-4eb7-b396-ad68fd1a9ff8",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Rumi identity",
+              "status": "approved_source_authority_available",
+              "file": "rumi_rumi_full_body_identity.png",
+              "asset_id": "3485f43a-1679-456d-88af-325593bf1296",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/rumi_rumi_full_body_identity.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "Grand Puff identity",
+              "status": "approved_source_authority_available",
+              "file": "grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+              "asset_id": "6df5bc79-688d-40b2-bed5-36d30017a8d5",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C13-S05",
+          "title": "Separate rainbow dust bunny emerges",
+          "movie_id": "D1-C13",
+          "duration_seconds": 4,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 1
+          },
+          "must_move": "Let exactly one rainbow dust bunny rise once from the cradle, with a small contained glow and no full-cast reveal.",
+          "must_not_move": "arena, platform, lamps, clean Grand Puff topology, prismatic cradle, exact two-character count, and floor contacts",
+          "end_state": "End on Puff beside the single bunny and cradle, both intact and calm, with no reconstituted boss or extra effects.",
+          "strict_reason": "All current variants add full cast and an oversized rainbow creature/effect; the required post-FRIENDS coda is exactly one bunny emerging from a tiny cradle.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "approved arena geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+              "asset_id": "12255f3f-1558-4eb7-b396-ad68fd1a9ff8",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Grand Puff identity",
+              "status": "approved_source_authority_available",
+              "file": "grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+              "asset_id": "6df5bc79-688d-40b2-bed5-36d30017a8d5",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "dedicated human-approved rainbow bunny identity",
+              "status": "missing_human_approved_authority",
+              "file": null,
+              "asset_id": null,
+              "local_ref": null
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        }
+      ]
+    },
+    "SET2_P1_pool_bathroom": {
+      "description": "P1 pool state/camera + bathroom causal seams",
+      "clip_count": 14,
+      "shots": [
+        {
+          "shot_id": "D1-C03-S02",
+          "title": "Roshan crosses the dirty-bathroom threshold",
+          "movie_id": "D1-C03",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "short follow",
+            "move_count": 1
+          },
+          "must_move": "she looks from the murky tub to the dirty sink while moving fully inside",
+          "must_not_move": "single tub, sink, tools, grime cards, entrance, child identity, clothes, and continuous tail",
+          "end_state": "she settles with the entrance and room orientation still readable",
+          "strict_reason": "Both SET3 threshold variants start inside the room/tub; neither establishes crossing.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "dirty bathroom layout",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_bubble_bath_dirty_day_one.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_bubble_bath_dirty_day_one.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "dirty tub material",
+              "status": "approved_source_authority_available",
+              "file": "target_tub_grime_v1.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/target_tub_grime_v1.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C03-S03",
+          "title": "Swimming bunny in the dirty tub",
+          "movie_id": "D1-C03",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 1
+          },
+          "must_move": "1.0-4.5 weak safe paddling",
+          "must_not_move": "tub geometry, sink, dirty water state, bunny anatomy, and Roshan edge position",
+          "end_state": "4.5-6.04 Roshan concern at edge",
+          "strict_reason": "Original bunny discovery is materially better than SET3 silhouette take.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "dirty bathroom layout",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_bubble_bath_dirty_day_one.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_bubble_bath_dirty_day_one.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "swimming bunny identity",
+              "status": "approved_source_authority_available",
+              "file": "swimming_bunny_dust_bunny_swimming.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/swimming_bunny_dust_bunny_swimming.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "murky tub material",
+              "status": "approved_source_authority_available",
+              "file": "target_tub_grime_v1.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/target_tub_grime_v1.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C03-S04",
+          "title": "Pre-contact tool resolve",
+          "movie_id": "D1-C03",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "subtle push-in",
+            "move_count": 1
+          },
+          "must_move": "she reaches toward the nearest approved tool without changing the room state",
+          "must_not_move": "dirty room, murky tub, swimmer, sink, tools, grime, and character anatomy",
+          "end_state": "her hand stops in a clean visible gap before contact",
+          "strict_reason": "Clear pre-contact reach with approved tool.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "dirty bathroom layout",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_bubble_bath_dirty_day_one.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_bubble_bath_dirty_day_one.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "approved tool group",
+              "status": "approved_source_authority_available",
+              "file": "cleanup_basket.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/cleanup_basket.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C04-S03",
+          "title": "Bubble Bathroom \u2014 Restored \u2014 D1-C04-S03",
+          "movie_id": "D1-C04",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked, restrained action framing",
+            "move_count": 1
+          },
+          "must_move": "1.2-4.8 same legless body clears tub",
+          "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+          "end_state": "4.8-6.04 safe dry-surface bounce",
+          "strict_reason": "Existing exit take introduces ambiguous land legs.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "clean bathroom layout",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_bubble_bath_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_bubble_bath_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "swimming bunny identity",
+              "status": "approved_source_authority_available",
+              "file": "swimming_bunny_dust_bunny_swimming.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/swimming_bunny_dust_bunny_swimming.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C05-S02",
+          "title": "Sparkle Pool \u2014 Dirty Discovery \u2014 D1-C05-S02",
+          "movie_id": "D1-C05",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked, restrained action framing",
+            "move_count": 1
+          },
+          "must_move": "1.2-4.8 swimming bunny in water, land bunny dry corner",
+          "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+          "end_state": "4.8-6.04 trash depth/scale hold",
+          "strict_reason": "Both originals omit required swimming and land bunnies.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "pool geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_mermaid_pool_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "swimming bunny identity",
+              "status": "approved_source_authority_available",
+              "file": "swimming_bunny_dust_bunny_swimming.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/swimming_bunny_dust_bunny_swimming.png"
+            },
+            {
+              "id": "IMAGE_4",
+              "job": "pool debris identity",
+              "status": "approved_source_authority_available",
+              "file": "pool_algae_trash.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/pool_algae_trash.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C05-S04",
+          "title": "Blocked rainbow-source close-up",
+          "movie_id": "D1-C05",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "subtle upward tilt",
+            "move_count": 1
+          },
+          "must_move": "Keep f072-f144 / 3.000-6.042s close opaque sludge source",
+          "must_not_move": "rainbow fixture, arch, source position, debris contact, and dirty grade",
+          "end_state": "Future take should start close and hold dull obstruction",
+          "strict_reason": "Close blocked-source tail is usable after wide setup.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "pool geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_mermaid_pool_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "clog material and fixture identity",
+              "status": "approved_source_authority_available",
+              "file": "waterfall_clogged_turgid.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/waterfall_clogged_turgid.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "debris identity",
+              "status": "approved_source_authority_available",
+              "file": "pool_algae_trash.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/pool_algae_trash.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C05-S05",
+          "title": "Sick seahorse with mouth plug",
+          "movie_id": "D1-C05",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 1
+          },
+          "must_move": "Keep f096-f144 / 4.000-6.042s plug close",
+          "must_not_move": "seahorse topology, right-center position, plug contact, pool geography, and dirty state",
+          "end_state": "Future take starts locked close with Roshan edge concern",
+          "strict_reason": "Plug identity and dirty seahorse are strong in the final close tail.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "pool geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_mermaid_pool_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "sick seahorse identity",
+              "status": "approved_source_authority_available",
+              "file": "seahorse_sick.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/seahorse_sick.png"
+            },
+            {
+              "id": "IMAGE_4",
+              "job": "mouth plug material",
+              "status": "approved_source_authority_available",
+              "file": "seahorse_mouth_trash.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/seahorse_mouth_trash.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C05-S06",
+          "title": "Sparkle Pool \u2014 Dirty Discovery \u2014 D1-C05-S06",
+          "movie_id": "D1-C05",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked, restrained action framing",
+            "move_count": 1
+          },
+          "must_move": "1.5-4.8 waterfall/seahorse/bunnies all readable",
+          "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+          "end_state": "4.8-6.04 resolve hold, no cleanup",
+          "strict_reason": "No full problem map with both bunnies and both causes.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "pool geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_mermaid_pool_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "swimming bunny identity",
+              "status": "approved_source_authority_available",
+              "file": "swimming_bunny_dust_bunny_swimming.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/swimming_bunny_dust_bunny_swimming.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "blocked waterfall identity",
+              "status": "approved_source_authority_available",
+              "file": "waterfall_clogged_turgid.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/waterfall_clogged_turgid.png"
+            },
+            {
+              "id": "IMAGE_4",
+              "job": "sick seahorse identity",
+              "status": "approved_source_authority_available",
+              "file": "seahorse_sick.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/seahorse_sick.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C06-S03",
+          "title": "Rainbow waterfall restarts top-down",
+          "movie_id": "D1-C06",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "gentle downward tilt",
+            "move_count": 1
+          },
+          "must_move": "1.2-4.8 ignition travels downward pushing sludge",
+          "must_not_move": "fixture position, arches, flow direction, pool scale, and dirty room outside the cleared band",
+          "end_state": "4.8-6.04 clear flow reaches lower lip",
+          "strict_reason": "All originals begin with bright flow and lack top-down sludge clearing; SET3 also fails this causal beat.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "pool geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_mermaid_pool_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "restored waterfall identity",
+              "status": "approved_source_authority_available",
+              "file": "mermaid_pool_waterfall_rest.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/mermaid_pool_waterfall_rest.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C06-S04",
+          "title": "Sparkle Pool \u2014 Purification, Rumi and Hug \u2014 D1-C06-S04",
+          "movie_id": "D1-C06",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked, restrained action framing",
+            "move_count": 1
+          },
+          "must_move": "1.2-4.8 pull back to both fixed sources/shared pool",
+          "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+          "end_state": "4.8-6.04 establish giant pool",
+          "strict_reason": "Original purification meet lacks two distinct fronts; strict SET3 C06-S04 also fails the required close-to-wide camera move.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "pool geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_mermaid_pool_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "restored rainbow source identity",
+              "status": "approved_source_authority_available",
+              "file": "mermaid_pool_waterfall_rest.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/mermaid_pool_waterfall_rest.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "restored seahorse source identity",
+              "status": "approved_source_authority_available",
+              "file": "mermaid_pool_seahorse_fountain_rest.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/mermaid_pool_seahorse_fountain_rest.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C06-S05",
+          "title": "Two purification fronts meet",
+          "movie_id": "D1-C06",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 1
+          },
+          "must_move": "each front displaces algae through the same water volume",
+          "must_not_move": "pool boundary, sources, fixtures, room geometry, and dry surfaces",
+          "end_state": "the fronts meet once near center in one bright ripple",
+          "strict_reason": "No original or SET3 take makes two source fronts meet through murky water.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "pool geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_mermaid_pool_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "left source identity",
+              "status": "approved_source_authority_available",
+              "file": "mermaid_pool_waterfall_rest.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/mermaid_pool_waterfall_rest.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "right source identity",
+              "status": "approved_source_authority_available",
+              "file": "mermaid_pool_seahorse_fountain_rest.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/mermaid_pool_seahorse_fountain_rest.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C06-S06",
+          "title": "Violet emergence prelude",
+          "movie_id": "D1-C06",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "slow push-in",
+            "move_count": 1
+          },
+          "must_move": "1.2-4.5 contained violet glow rises",
+          "must_not_move": "pool geometry, both sources, fixtures, water surface, and empty character field",
+          "end_state": "4.5-6.04 clean water/glow hold, no person",
+          "strict_reason": "SET3 violet prelude is globally neon/portal-like rather than localized glow; no acceptable original exists.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "pool geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_mermaid_pool_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "restored fixture identity",
+              "status": "approved_source_authority_available",
+              "file": "mermaid_pool_waterfall_rest.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/mermaid_pool_waterfall_rest.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "restored seahorse identity",
+              "status": "approved_source_authority_available",
+              "file": "mermaid_pool_seahorse_fountain_rest.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/mermaid_pool_seahorse_fountain_rest.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C06-S07",
+          "title": "Sparkle Pool \u2014 Purification, Rumi and Hug \u2014 D1-C06-S07",
+          "movie_id": "D1-C06",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked, restrained action framing",
+            "move_count": 1
+          },
+          "must_move": "1.2-4.8 Rumi rises gracefully from depth",
+          "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+          "end_state": "4.8-6.04 full adult identity/scale hold",
+          "strict_reason": "Original Rumi files are either already surfaced or swimming laterally; no clear emergence through glow.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "pool geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_mermaid_pool_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Rumi identity",
+              "status": "approved_source_authority_available",
+              "file": "rumi_rumi_full_body_identity.png",
+              "asset_id": "3485f43a-1679-456d-88af-325593bf1296",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/rumi_rumi_full_body_identity.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C06-S09",
+          "title": "Roshan completes the hug",
+          "movie_id": "D1-C06",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "subtle pullback",
+            "move_count": 1
+          },
+          "must_move": "their arms make one coherent affectionate contact while faces remain visible",
+          "must_not_move": "faces, torsos, hands, two tails, scale, pool geometry, and both fixed streams",
+          "end_state": "they settle with distinct torsos and two separate tails",
+          "strict_reason": "Original hug starts already completed and swimming file is wrong event; SET3 hug also begins fused/complete.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "clean pool geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_mermaid_pool_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_mermaid_pool_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Rumi identity",
+              "status": "approved_source_authority_available",
+              "file": "rumi_rumi_full_body_identity.png",
+              "asset_id": "3485f43a-1679-456d-88af-325593bf1296",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/rumi_rumi_full_body_identity.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        }
+      ]
+    },
+    "SET3_P2_dock_hall_art": {
+      "description": "P2 dock/castle approach + dirty hall + art room topology",
+      "clip_count": 8,
+      "shots": [
+        {
+          "shot_id": "D1-C01-S02",
+          "title": "Daddy offers his hand on the dock",
+          "movie_id": "D1-C01",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 1
+          },
+          "must_move": "roshan places her hand in his while both tails and costumes remain coherent",
+          "must_not_move": "plane, dock, waterline, castle silhouette, costumes, crowns, glasses, and continuous tails",
+          "end_state": "they settle at child-safe distance with correct hand contact",
+          "strict_reason": "SET3 starts after Daddy has already exited; no valid exit/turn/offer sequence.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "layout and lighting",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "sky_lagoon_panorama_master_v5_hd_3x1.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/sky_lagoon_panorama_master_v5_hd_3x1.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "Daddy identity",
+              "status": "approved_source_authority_available",
+              "file": "daddy_daddy_master.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/daddy_daddy_master.png"
+            },
+            {
+              "id": "IMAGE_4",
+              "job": "pearl plane identity",
+              "status": "approved_source_authority_available",
+              "file": "06_AIRPLANE_EXACT.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/06_AIRPLANE_EXACT.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C01-S04",
+          "title": "Lagoon Landing and Castle Approach \u2014 D1-C01-S04",
+          "movie_id": "D1-C01",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked, restrained action framing",
+            "move_count": 1
+          },
+          "must_move": "1.5-4.8 gentle push-in",
+          "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+          "end_state": "4.8-6.04 Roshan at handle, doors closed",
+          "strict_reason": "Original file is a door-open event; no valid closed-door arrival take.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "lagoon geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "sky_lagoon_panorama_master_v5_hd_3x1.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/sky_lagoon_panorama_master_v5_hd_3x1.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "Daddy identity",
+              "status": "approved_source_authority_available",
+              "file": "daddy_daddy_master.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/daddy_daddy_master.png"
+            },
+            {
+              "id": "IMAGE_4",
+              "job": "castle exterior and closed door",
+              "status": "approved_source_authority_available",
+              "file": "pearl_castle_exterior_turnaround_v2.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/pearl_castle_exterior_turnaround_v2.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C02-S03",
+          "title": "Close dirty-hall evidence inspection",
+          "movie_id": "D1-C02",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "short lateral",
+            "move_count": 1
+          },
+          "must_move": "one integrated grime patch, one friendly dust-bunny trace, and one harmless scrap become readable",
+          "must_not_move": "Screen-A floor, molding, portals, walls, fixtures, Daddy, and all existing character positions",
+          "end_state": "roshan points once without touching or cleaning",
+          "strict_reason": "SET3 broad hall, duplicate figures and text labels violate close evidence inspection.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "Main Hall Screen-A layout",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "main_hall_screen_a_room_led_master.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/main_hall_screen_a_room_led_master.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "Daddy identity",
+              "status": "approved_source_authority_available",
+              "file": "daddy_daddy_master.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/daddy_daddy_master.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C09-S04",
+          "title": "Exactly three Art Room grime cards",
+          "movie_id": "D1-C09",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 1
+          },
+          "must_move": "2.00\u20134.50 keep exactly one small lavender grime card at left counter, center desk and right counter.",
+          "must_not_move": "two shell windows, two pearl columns, chandelier, shell board, rectangular desk, two curved counters, rear shelves, and front projection",
+          "end_state": "4.50\u20136.00 Roshan points once; end with exactly those three cards and no extra targets.",
+          "strict_reason": "Original official is close in layout but uses large smears rather than exact small lavender grime cards; alternate has wrong boy/room.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "runtime-locked Art Room front projection",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_craft_room_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_craft_room_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "fixture topology",
+              "status": "approved_source_authority_available",
+              "file": "ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/ART_ROOM_FIXTURE_IDENTITY_SHEET.png"
+            },
+            {
+              "id": "IMAGE_4",
+              "job": "grime material",
+              "status": "approved_source_authority_available",
+              "file": "grime_desk.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/grime_desk.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C09-S05",
+          "title": "Art Room \u2014 Spilled Supplies Discovery \u2014 D1-C09-S05",
+          "movie_id": "D1-C09",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked, restrained action framing",
+            "move_count": 1
+          },
+          "must_move": "2.00\u20134.50 Roshan raises toward the approved cleaning brush without touching or gripping it.",
+          "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+          "end_state": "4.50\u20136.00 stop on a clear visible hand-to-tool gap; no scrub yet.",
+          "strict_reason": "Original is wrong room/action; Sept 4 regen also failed the required visible hand-to-tool gap.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "Art Room geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_craft_room_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_craft_room_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "Art Room fixture identity sheet",
+              "status": "approved_source_authority_available",
+              "file": "ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/ART_ROOM_FIXTURE_IDENTITY_SHEET.png"
+            },
+            {
+              "id": "IMAGE_4",
+              "job": "magic cleaning brush",
+              "status": "approved_source_authority_available",
+              "file": "magic_cleaning_brush.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/magic_cleaning_brush.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C10-S01",
+          "title": "Art Room \u2014 Clean Desk Awakening \u2014 D1-C10-S01",
+          "movie_id": "D1-C10",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked, restrained action framing",
+            "move_count": 1
+          },
+          "must_move": "2.00\u20134.50 finish the last localized clean action; all three grime cards disappear causally.",
+          "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+          "end_state": "4.50\u20136.00 hold the complete clean front endpoint for supplies-home.",
+          "strict_reason": "Both originals are polished close-ups but not the exact clean front projection required at the S01/S02 seam.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "Art Room geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_craft_room_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_craft_room_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "Art Room fixture identity sheet",
+              "status": "approved_source_authority_available",
+              "file": "ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/ART_ROOM_FIXTURE_IDENTITY_SHEET.png"
+            },
+            {
+              "id": "IMAGE_4",
+              "job": "magic cleaning brush",
+              "status": "approved_source_authority_available",
+              "file": "magic_cleaning_brush.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/magic_cleaning_brush.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C10-S02",
+          "title": "Four supplies already home",
+          "movie_id": "D1-C10",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 1
+          },
+          "must_move": "2.00\u20134.50 reveal all four supply groups already home exactly once on their stations.",
+          "must_not_move": "front projection, fixture order, storage stations, four single supply identities, counters, desk, windows, columns, and chandelier",
+          "end_state": "4.50\u20136.00 allow only localized sparkle; no materialization or fixture change.",
+          "strict_reason": "Original purple-room supply shot is wrong topology; Sept 4 regen also materialized supplies.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "runtime-locked Art Room front projection",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_craft_room_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_craft_room_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "fixture topology",
+              "status": "approved_source_authority_available",
+              "file": "ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/ART_ROOM_FIXTURE_IDENTITY_SHEET.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "four supply identities",
+              "status": "approved_source_authority_available",
+              "file": "FOUR_LOOSE_SUPPLY_IDENTITY_SHEET.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/FOUR_LOOSE_SUPPLY_IDENTITY_SHEET.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C10-S05",
+          "title": "Art Room \u2014 Clean Desk Awakening \u2014 D1-C10-S05",
+          "movie_id": "D1-C10",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked, restrained action framing",
+            "move_count": 1
+          },
+          "must_move": "2.00\u20134.50 Roshan raises one hand toward the desk while maintaining a visibly measurable gap.",
+          "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+          "end_state": "4.50\u20136.00 lock camera and hold the UI-free gap seam; no contact, UI, or geometry change.",
+          "strict_reason": "Official has the right room but no unambiguous pre-touch hand gap; other variants also break topology.",
+          "bindings": [
+            {
+              "id": "IMAGE_1",
+              "job": "Art Room geography",
+              "status": "missing_approved_shot_opening_frame",
+              "file": "room_craft_room_background.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/room_craft_room_background.png"
+            },
+            {
+              "id": "IMAGE_2",
+              "job": "Roshan identity",
+              "status": "approved_source_authority_available",
+              "file": "roshan_roshan_base.png",
+              "asset_id": "621478cf-13ee-443c-870f-48ddf89a2434",
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/roshan_roshan_base.png"
+            },
+            {
+              "id": "IMAGE_3",
+              "job": "Art Room fixture identity sheet",
+              "status": "approved_source_authority_available",
+              "file": "ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+              "asset_id": null,
+              "local_ref": "/workspace/artifacts/handoff_v3/ALL_REFS/ART_ROOM_FIXTURE_IDENTITY_SHEET.png"
+            }
+          ],
+          "generation_status": "PENDING_MEDIA_CREDITS",
+          "output_clip": null
+        }
+      ]
+    }
+  }
+}
