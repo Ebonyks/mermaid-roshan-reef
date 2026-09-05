@@ -34,6 +34,22 @@ const RUMI_UPRIGHT_SCALE := 0.96
 const DINGY_ROOM_TINT := Color(0.78, 0.86, 0.76, 1.0)
 const SWIMMER_WATER_BOUNDS := Rect2(300.0, 285.0, 680.0, 235.0)
 const SWIMMER_START := Vector2(820.0, 455.0)
+const SKIMMER_PICKUP_CAPTIONS: Array[String] = [
+	"One leaf scooped!", "Another leaf is gone!", "The water looks clearer!",
+	"Scoop, scoop!", "Almost sparkling!", "The last leaf is out!",
+]
+const WATERFALL_LANE_CAPTIONS: Array[String] = [
+	"The left waterfall lane is clear!", "The middle waterfall lane is clear!",
+	"The right waterfall lane is clear!",
+]
+const SKIMMER_CUE_IDS: Array[String] = [
+	"day1_pool_skimmer_01", "day1_pool_skimmer_02", "day1_pool_skimmer_03",
+	"day1_pool_skimmer_04", "day1_pool_skimmer_05", "day1_pool_skimmer_06",
+]
+const WATERFALL_CUE_IDS: Array[String] = [
+	"day1_pool_waterfall_lane_left", "day1_pool_waterfall_lane_center",
+	"day1_pool_waterfall_lane_right",
+]
 
 var m: ReefMain
 var skimmer_activity: PoolSkimmerActivity = null
@@ -51,11 +67,15 @@ var _clean_waterfall: Sprite2D = null
 var _healthy_seahorse: Sprite2D = null
 var _hidden_fixture_items: Array[Dictionary] = []
 var _interaction_layer_visibility: Array[Dictionary] = []
+var _announced_skimmer_mask: int = 0
+var _announced_waterfall_mask: int = 0
+var _announced_seahorse_milestone: int = 0
 
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	m = main
 	_announcements_enabled = announcements_enabled
+	_announce_progress_from_save()
 	name = "DayOnePoolCleanup"
 	position = Vector2.ZERO
 	size = StorybookUI.CANVAS_SIZE
@@ -311,6 +331,13 @@ func _stop_activities() -> void:
 func _on_skimmer_progress(mask: int) -> void:
 	if m == null:
 		return
+	var newly_collected: int = mask & ~_announced_skimmer_mask
+	for index: int in range(SKIMMER_PICKUP_CAPTIONS.size()):
+		if (newly_collected & (1 << index)) != 0:
+			_say_context(SKIMMER_CUE_IDS[index],
+				SKIMMER_PICKUP_CAPTIONS[index],
+				"day_one")
+	_announced_skimmer_mask = mask
 	m.day_one_record_pool_activity_progress(
 		mask, m.day_one_pool_waterfall_mask, m.day_one_pool_seahorse_tugs)
 	m._ui_tap()
@@ -322,12 +349,21 @@ func _on_skimmer_completed() -> void:
 		return
 	_busy = true
 	await get_tree().create_timer(0.58).timeout
+	_say_context("day1_pool_skimmer_complete", "The pool surface is clear!",
+		"day_one")
 	_commit_activity(1, "pool_surface")
 
 
 func _on_waterfall_progress(mask: int) -> void:
 	if m == null:
 		return
+	var newly_cleared: int = mask & ~_announced_waterfall_mask
+	for lane: int in range(WATERFALL_LANE_CAPTIONS.size()):
+		if (newly_cleared & (1 << lane)) != 0:
+			_say_context(WATERFALL_CUE_IDS[lane],
+				WATERFALL_LANE_CAPTIONS[lane],
+				"day_one")
+	_announced_waterfall_mask = mask
 	m.day_one_record_pool_activity_progress(
 		m.day_one_pool_skimmer_mask, mask, m.day_one_pool_seahorse_tugs)
 	m._ui_tap()
@@ -339,12 +375,26 @@ func _on_waterfall_completed() -> void:
 		return
 	_busy = true
 	await get_tree().create_timer(0.42).timeout
+	_say_context("day1_pool_waterfall_complete",
+		"All three waterfall lanes are clear!", "day_one")
 	_commit_activity(2, "waterfall")
 
 
 func _on_seahorse_progress(taps: int) -> void:
 	if m == null:
 		return
+	if taps >= 1 and _announced_seahorse_milestone < 1:
+		_announced_seahorse_milestone = 1
+		_say_context("day1_pool_seahorse_early", "A little tug! Keep going!",
+			"day_one")
+	if taps >= 4 and _announced_seahorse_milestone < 2:
+		_announced_seahorse_milestone = 2
+		_say_context("day1_pool_seahorse_middle", "We are halfway there!",
+			"day_one")
+	if taps >= 7 and _announced_seahorse_milestone < 3:
+		_announced_seahorse_milestone = 3
+		_say_context("day1_pool_seahorse_final", "One more tug!",
+			"day_one")
 	m.day_one_record_pool_activity_progress(
 		m.day_one_pool_skimmer_mask, m.day_one_pool_waterfall_mask, taps)
 	m._ui_tap()
@@ -357,6 +407,8 @@ func _on_seahorse_completed() -> void:
 	_busy = true
 	if _healthy_seahorse != null and is_instance_valid(_healthy_seahorse):
 		_healthy_seahorse.visible = true
+	_announced_seahorse_milestone = 4
+	_say_context("day1_pool_seahorse_free", "The seahorse is free!", "day_one")
 	_commit_activity(LEGACY_COMPLETE_STEP, "seahorse")
 
 
@@ -385,17 +437,17 @@ func _announce_current_activity() -> void:
 		return
 	match ACTIVITY_IDS[_phase]:
 		"pool_surface":
-			m.show_msg("Roshan",
+			_say_context("day1_pool_skimmer_hint",
 				"Sweep the skimmer through every piece of trash!",
-				"pool_surface_clean")
+				_context_visit_id())
 		"waterfall":
-			m.show_msg("Roshan",
+			_say_context("day1_pool_waterfall_hint",
 				"Pull the trash down from the clogged rainbow waterfall!",
-				"pool_waterfall_clean")
+				_context_visit_id())
 		"seahorse":
-			m.show_msg("Roshan",
-				"Tap quickly! Let's tug the trash out of the seahorse!",
-				"pool_seahorse_clean")
+			_say_context("day1_pool_seahorse_hint",
+				"Tap fast to pull the trash off the seahorse!",
+				_context_visit_id())
 
 
 func _phase_from_legacy_step(step: int) -> int:
@@ -472,6 +524,7 @@ func _begin_finale() -> void:
 		return
 	_finale_started = true
 	_busy = true
+	_say_context("day1_pool_complete", "The whole pool is shiny!", "day_one")
 	_stop_activities()
 	if _swimming_bunny != null and is_instance_valid(_swimming_bunny):
 		_swimming_bunny.fade_out(0.32)
@@ -596,7 +649,34 @@ func _finish_rumi_reveal() -> void:
 			_rumi, "position:y", _rumi.position.y + 7.0, 1.15
 		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	if m != null:
-		m.show_msg("Rumi",
-			"Thank you, Roshan! You saved the pool and our seahorse. I'm Rumi!",
-			"intro")
+		_say_context("day1_pool_rumi_reply",
+			"We saved the pool and the seahorse! Hi, Rumi!",
+			"day_one")
 	reveal_completed.emit()
+
+
+func _announce_progress_from_save() -> void:
+	_announced_skimmer_mask = m.day_one_pool_skimmer_mask if m != null else 0
+	_announced_waterfall_mask = m.day_one_pool_waterfall_mask if m != null else 0
+	_announced_seahorse_milestone = 4 if m != null \
+		and m.day_one_pool_seahorse_tugs >= 8 else 3 if m != null \
+		and m.day_one_pool_seahorse_tugs >= 7 else 2 if m != null \
+		and m.day_one_pool_seahorse_tugs >= 4 else 1 if m != null \
+		and m.day_one_pool_seahorse_tugs >= 1 else 0
+
+
+func _say_context(cue_id: String, caption: String,
+		session_id: String = "day_one", variant: int = 0) -> bool:
+	if not _announcements_enabled or m == null:
+		return false
+	var spoken: bool = m.say_day_one_context(cue_id, caption, "pool",
+		session_id, variant)
+	if spoken and m.hud_msg != null:
+		m.hud_msg.text = caption
+		m.hud_msg.visible = caption != ""
+		m.msg_timer = 5.0
+	return spoken
+
+
+func _context_visit_id() -> String:
+	return "pool_visit_%d" % get_instance_id()

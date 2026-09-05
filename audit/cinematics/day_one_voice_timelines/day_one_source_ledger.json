@@ -1,0 +1,53 @@
+{
+  "audio_policy": "Every future cue must bind an exact audio SHA-256 before delivery; this source is intentionally silent.",
+  "incoming_uploads": {
+    "expected_clip_ids": [
+      "D1-C00",
+      "D1-C01",
+      "D1-C02",
+      "D1-C03",
+      "D1-C04",
+      "D1-C05",
+      "D1-C06",
+      "D1-C07",
+      "D1-C08",
+      "D1-C09",
+      "D1-C10",
+      "D1-C11",
+      "D1-C12"
+    ],
+    "schema_rule": "each upload is independently hash-bound and silent-video validated",
+    "window_hours": 48
+  },
+  "project": "Mermaid Roshan: Reef of Light",
+  "purpose": "Day One contextual voice editorial intake",
+  "runtime_delivery": false,
+  "schema": "day-one-voice-timeline-v1",
+  "source_copy_policy": "preserve_external_source; never_copy_to_runtime",
+  "sources": [
+    {
+      "accepted_for_delivery": false,
+      "audio_hash_mode": "sha256_empty_audio_stream",
+      "audio_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audio_stream_count": 0,
+      "audio_mux_status": "not_permitted_pending_voice_review",
+      "clip_ids": [
+        "D1-C00",
+        "D1-C01"
+      ],
+      "codec": "h264",
+      "duration_s": 46.5,
+      "fps": 24.0,
+      "frame_count": 1116,
+      "height": 720,
+      "source_id": "D1-C00-C01-rough-v1",
+      "source_kind": "editorial_rough",
+      "source_path": "C:\\Users\\Peter\\Downloads\\grok-0e40140f-8759-4188-8e0f-6ba103909db8.mp4",
+      "source_sha256": "3f84e5dd1402382067ad8fb06c66405acb71468fe096122aab18d9934b874b99",
+      "video_hash_mode": "single_video_stream_container_sha256",
+      "video_sha256": "3f84e5dd1402382067ad8fb06c66405acb71468fe096122aab18d9934b874b99",
+      "visual_acceptance": "unresolved",
+      "width": 1280
+    }
+  ]
+}

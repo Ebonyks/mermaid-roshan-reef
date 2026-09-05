@@ -335,6 +335,11 @@ const DAY_ONE_CASTLE_ROOM_IDS: Dictionary = {
 	"playroom": "stuffie",
 	"craft_room": "art",
 }
+# Optional Day One rooms are visitable and voiced but never enter the ordered
+# cleanup state machine or count toward boss/progression readiness.
+const DAY_ONE_OPTIONAL_CASTLE_ROOM_IDS: Dictionary = {
+	"kitchen": true,
+}
 var day_one_active: bool = true
 var day_one_current_room_id: String = "bathroom"
 var day_one_completed_rooms: Dictionary = {}
@@ -3932,6 +3937,19 @@ func _audio_ref() -> AudioDirector:
 func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	_audio_ref()._say(speaker, event, min_gap)
 
+## Day One's exact contextual voice seam. Missing/pending cues retain the
+## caller's caption and pointer but never degrade to generic talk/win/yay.
+func say_day_one_context(cue_id: String, caption: String = "",
+		room_id: String = "", session_id: String = "", variant: int = 0,
+		allow_generic: bool = false) -> bool:
+	return _audio_ref().say_day_one_context(cue_id, caption, room_id,
+		session_id, variant, allow_generic)
+
+
+func reset_day_one_context(session_id: String = "") -> void:
+	_audio_ref().reset_day_one_context(session_id)
+
+
 func _play_companion_chirp(speaker: String = "sparkle") -> void:
 	_audio_ref().play_companion_chirp(speaker)
 
@@ -7057,13 +7075,16 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 			"The castle found a secret sky door! Touch the shining pearl!",
 			"castle_fairy_open")
 	else:
-		var entry_voice: String = "castle_home_back" if from_back \
-			else "castle_home_day_one" if day_one_is_active() \
-			else "castle_home"
-		show_msg("Pearl Castle",
-			entry_hint if not from_back
-			else "The secret shell door opens into the Main Hall!",
-			entry_voice)
+		if day_one_is_active() and not from_back:
+			say_day_one_context("day1_arrival_castle", entry_hint,
+				"main_hall", "day_one_castle_entry")
+		else:
+			var entry_voice: String = "castle_home_back" if from_back \
+				else "castle_home"
+			show_msg("Pearl Castle",
+				entry_hint if not from_back
+				else "The secret shell door opens into the Main Hall!",
+				entry_voice)
 
 func _panel_glass(pos: Vector3, rot_deg: Vector3, w: float, h: float) -> void:
 	# a stained-glass grid of glowing coloured panels (no mermaid)
@@ -7492,9 +7513,9 @@ func _show_day_two_transition() -> void:
 	day_two_transition_layer = transition
 	transition.finished.connect(_on_day_two_transition_finished, CONNECT_ONE_SHOT)
 	add_child(transition)
-	show_msg("Roshan",
+	say_day_one_context("day1_finale_day_two",
 		"The second day is here! Visit castle jobs and the Opera House!",
-		"day_two_begins")
+		"finale", "day_one_finale")
 
 
 func _on_day_two_transition_finished() -> void:
@@ -7515,6 +7536,8 @@ func day_one_castle_room_is_clean(castle_room: String) -> bool:
 func day_one_can_enter_castle_room(castle_room: String) -> bool:
 	if not day_one_is_active() or castle_room == "main_hall":
 		return true
+	if DAY_ONE_OPTIONAL_CASTLE_ROOM_IDS.has(castle_room):
+		return true
 	var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(
 		castle_room, ""))
 	return logical_room != "" and _day_one_ref().can_enter_room(logical_room)
@@ -7529,6 +7552,8 @@ func day_one_try_enter_castle_room(castle_room: String) -> bool:
 
 func day_one_activate_castle_room(castle_room: String) -> bool:
 	if not day_one_is_active():
+		return false
+	if DAY_ONE_OPTIONAL_CASTLE_ROOM_IDS.has(castle_room):
 		return false
 	var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(
 		castle_room, ""))

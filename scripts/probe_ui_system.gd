@@ -197,8 +197,12 @@ func _check_storybook_coverage() -> void:
 	_check(not dust_source.contains("DustBossDodgeButton")
 		and not dust_source.contains("DustBossDodgePointer")
 		and not dust_source.contains("db_dodge_pointer")
-		and not dust_source.contains("db_tap_pips"),
-		"Dust Boss uses open-floor dodge without an overlay control")
+		and not dust_source.contains("db_tap_pips")
+		and not dust_source.contains("day1_boss_dodge_prompt")
+		and not dust_source.to_lower().contains("twirl button")
+		and dust_source.contains("day1_boss_dodge")
+		and dust_source.to_lower().contains("open floor"),
+		"Dust Boss uses open-floor dodge without an overlay control or button-dependent voice")
 	var partner_source := FileAccess.get_file_as_string(
 		"res://scripts/partner_assist.gd")
 	var tutorial_source := FileAccess.get_file_as_string(

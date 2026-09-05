@@ -132,7 +132,13 @@ func _win() -> void:
 	# so keep the truthful reading-aid caption instead of hiding it behind audio.
 	var win_voice := "" if String(config.get("reward_policy", "")) \
 		== "chapter2_story" else "win"
-	m.show_msg("Roshan", win_line, win_voice)
+	# A reward policy can intentionally keep the completion caption while
+	# suppressing the generic win recording. Kitchen's Day One recipe act uses
+	# this seam so its exact Pearl/Carrot ready cue owns the spoken completion.
+	if win_voice == "":
+		m.show_msg("", win_line, "")
+	else:
+		m.show_msg("Roshan", win_line, win_voice)
 
 
 func _finish() -> void:

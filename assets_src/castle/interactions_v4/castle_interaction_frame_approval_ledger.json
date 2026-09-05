@@ -1,6 +1,6 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "5a061203300efebc1ac13f49d4f40dd3463a20818040c0ff71db388372394514",
+  "candidate_payload_sha256": "991c3db79bc58ff550708f2f8af2d6e9defa2f5461220775a833af4d528d9a38",
   "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
   "metadata_revalidation": {
     "date": "2026-08-29",
@@ -59,6 +59,17 @@
     "runtime_layout_semantic_sha256": "e8adf90798a92886f2a530a78c24a908db207b45bcede23d1bf13473704d182f",
     "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
     "frame_hash_evidence": "All 96 candidate frame_review_sha256 values exactly equal the existing reviewed ledger values; zero frame mismatches.",
+    "candidate_binding_refresh": "Replacing only the current runtime-layout semantic hash with the prior hash reproduces the prior candidate payload hash exactly; existing deterministic frame approval remains applicable.",
+    "owner_acceptance": "pending"
+  },
+  "contextual_voice_runtime_binding_revalidation": {
+    "date": "2026-09-04",
+    "reason": "The Day One contextual voice rollout changed castle_rooms_25d.gd only in gameplay speech routing, optional kitchen access, and exact contextual feedback. It does not alter ROOM_LAYOUTS, card placement, fixture rigs, V4 manifest data, room tiles, atlas pixels, alpha ownership, z order, or reviewed frame pixels. The frame-review builder hashes the complete runtime-layout text, so the candidate input binding legitimately changed.",
+    "prior_candidate_payload_sha256": "5a061203300efebc1ac13f49d4f40dd3463a20818040c0ff71db388372394514",
+    "prior_runtime_layout_semantic_sha256": "e8adf90798a92886f2a530a78c24a908db207b45bcede23d1bf13473704d182f",
+    "runtime_layout_semantic_sha256": "40f2caec9c3aa65dff1f482994440ec829bbce2bd9371aef46b1dd3d8b1be234",
+    "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
+    "frame_hash_evidence": "The checker reports all 96 candidate frame_review_sha256 values exactly equal the existing reviewed ledger values; zero frame mismatches.",
     "candidate_binding_refresh": "Replacing only the current runtime-layout semantic hash with the prior hash reproduces the prior candidate payload hash exactly; existing deterministic frame approval remains applicable.",
     "owner_acceptance": "pending"
   },

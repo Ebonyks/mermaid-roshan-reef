@@ -312,6 +312,10 @@ def main() -> int:
                         choices=sorted(SPEAKERS))
     parser.add_argument("--keys-file", type=Path)
     parser.add_argument("--missing-from", type=Path)
+    parser.add_argument(
+        "--contextual-catalog", type=Path,
+        help="Frozen Day One coverage JSON; generate only its PENDING_GENERATION rows.",
+    )
     parser.add_argument("--attempt", type=int, default=1)
     parser.add_argument(
         "--takes-per-key", type=int, default=1,
@@ -327,6 +331,21 @@ def main() -> int:
     if args.takes_per_key < 1 or args.takes_per_key > 8:
         parser.error("--takes-per-key must be between 1 and 8")
     legacy = load_legacy_module()
+    contextual_rows: list[dict[str, object]] = []
+    if args.contextual_catalog:
+        document = json.loads(args.contextual_catalog.read_text(encoding="utf-8"))
+        if document.get("speaker") != "roshan" or document.get("allow_generic") is not False:
+            parser.error("contextual catalog must be the exact Roshan, fail-closed catalog")
+        contextual_rows = [
+            dict(row) for row in document.get("rows", [])
+            if row.get("status") == "PENDING_GENERATION"
+        ]
+        if not contextual_rows:
+            parser.error("contextual catalog has no PENDING_GENERATION rows")
+        if any(not row.get("cue_id") or not row.get("caption") for row in contextual_rows):
+            parser.error("every pending contextual row needs cue_id and caption")
+        if args.missing_from or args.character:
+            parser.error("--contextual-catalog cannot use legacy character/missing filters")
     requested = set(args.line)
     if args.keys_file:
         requested.update(
@@ -344,6 +363,13 @@ def main() -> int:
         )
     catalog = dict(legacy.LINES)
     catalog.update(GROUP_COMPONENTS)
+    if contextual_rows:
+        catalog = {
+            str(row["cue_id"]): ("roshan", str(row["caption"]))
+            for row in contextual_rows
+        }
+        if not requested:
+            requested = set(catalog)
     unknown = sorted(requested - set(catalog))
     if unknown:
         parser.error("unknown --line key(s): " + ", ".join(unknown))

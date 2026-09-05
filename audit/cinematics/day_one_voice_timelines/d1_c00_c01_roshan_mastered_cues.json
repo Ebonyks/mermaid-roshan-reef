@@ -1,0 +1,105 @@
+{
+  "artifact": "review_only_voice_cue_sidecar",
+  "audio_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "cues": [
+    {
+      "audio": {"path": "assets/audio/voices/filler_v1/roshan_d1_c00_s01_roshan_flight.ogg", "sha256": "9188d72adc4bc3969fc3e80961fb5c28531c5b3bb87748d3c6d4dab21b5f793c", "status": "ready"},
+      "event_key": "D1-C00.S01.flight",
+      "line": "We're flying through the clouds!",
+      "mood": "wonder",
+      "timing": {"end_frame_exclusive": 48, "end_s": 2.0, "mux": false, "start_frame": 0, "start_s": 0.0, "time_stretch": false},
+      "voice_asset_key": "roshan_d1_c00_s01_roshan_flight"
+    },
+    {
+      "audio": {"path": "assets/audio/voices/filler_v1/roshan_d1_c00_s02_roshan_view.ogg", "sha256": "61463e691d1f6f286aaf70ff19796e30be31f39a9e25add9308d7f43cbc5202e", "status": "ready"},
+      "event_key": "D1-C00.S02.view",
+      "line": "Daddy, what can you see?",
+      "mood": "curious",
+      "timing": {"end_frame_exclusive": 108, "end_s": 4.5, "mux": false, "start_frame": 48, "start_s": 2.0, "time_stretch": false},
+      "voice_asset_key": "roshan_d1_c00_s02_roshan_view"
+    },
+    {
+      "audio": {"path": "assets/audio/voices/filler_v1/roshan_d1_c00_s03_roshan_discovery.ogg", "sha256": "b015d20ab2964121fc25387e58bd4cbd133c4d92af32805786a6e28c1c491996", "status": "ready"},
+      "event_key": "D1-C00.S03.discovery",
+      "line": "Look, Daddy! The lagoon is sparkling!",
+      "mood": "wonder",
+      "timing": {"end_frame_exclusive": 180, "end_s": 7.5, "mux": false, "start_frame": 108, "start_s": 4.5, "time_stretch": false},
+      "voice_asset_key": "roshan_d1_c00_s03_roshan_discovery"
+    },
+    {
+      "audio": {"path": "assets/audio/voices/filler_v1/roshan_d1_c00_s04_roshan_handhold.ogg", "sha256": "034665f605f1b9b241db43f7ddc0f2009d3592fb6fa62f7705be8e6530efb2e9", "status": "ready"},
+      "event_key": "D1-C00.S04.handhold",
+      "line": "Daddy, hold my hand!",
+      "mood": "reassured",
+      "timing": {"end_frame_exclusive": 240, "end_s": 10.0, "mux": false, "start_frame": 180, "start_s": 7.5, "time_stretch": false},
+      "voice_asset_key": "roshan_d1_c00_s04_roshan_handhold"
+    },
+    {
+      "audio": {"path": "assets/audio/voices/filler_v1/roshan_d1_c00_s05_roshan_lagoon_reveal.ogg", "sha256": "c2ebf2e66b414068ead01018da80961031920af14949dd70e5bb830a58fe7ab3", "status": "ready"},
+      "event_key": "D1-C00.S05.lagoon_reveal",
+      "line": "Wow! Look at the Sky Lagoon!",
+      "mood": "delight",
+      "timing": {"end_frame_exclusive": 300, "end_s": 12.5, "mux": false, "start_frame": 240, "start_s": 10.0, "time_stretch": false},
+      "voice_asset_key": "roshan_d1_c00_s05_roshan_lagoon_reveal"
+    },
+    {
+      "audio": {"path": "assets/audio/voices/filler_v1/roshan_d1_c00_s06_roshan_prepare_land.ogg", "sha256": "f2a9723690b669797daec96b1e02583310018354db1565478366dc501278c9c8", "status": "ready"},
+      "event_key": "D1-C00.S06.prepare_land",
+      "line": "We're ready to land!",
+      "mood": "anticipation",
+      "timing": {"end_frame_exclusive": 480, "end_s": 20.0, "mux": false, "start_frame": 420, "start_s": 17.5, "time_stretch": false},
+      "voice_asset_key": "roshan_d1_c00_s06_roshan_prepare_land"
+    },
+    {
+      "audio": {"path": "assets/audio/voices/filler_v1/roshan_d1_c01_s01_roshan_landed.ogg", "sha256": "8c0458d9d016e2a0acafca9e3953ed7c121137e712870654ef273afab4dc3729", "status": "ready"},
+      "event_key": "D1-C01.S01.landed",
+      "line": "We landed!",
+      "mood": "happy",
+      "timing": {"end_frame_exclusive": 564, "end_s": 23.5, "mux": false, "start_frame": 528, "start_s": 22.0, "time_stretch": false},
+      "voice_asset_key": "roshan_d1_c01_s01_roshan_landed"
+    },
+    {
+      "audio": {"path": "assets/audio/voices/filler_v1/roshan_d1_c01_s02_roshan_handhold.ogg", "sha256": "4db7baee6583fda77f238d4191596079a23e57fc10b6d487e591fc10e52ee5f9", "status": "ready"},
+      "event_key": "D1-C01.S02.ready",
+      "line": "I'm ready, Daddy!",
+      "mood": "eager",
+      "timing": {"end_frame_exclusive": 614, "end_s": 25.583333333333332, "mux": false, "start_frame": 564, "start_s": 23.5, "time_stretch": false},
+      "voice_asset_key": "roshan_d1_c01_s02_roshan_handhold"
+    },
+    {
+      "audio": {"path": "assets/audio/voices/filler_v1/roshan_d1_c01_s03_roshan_walk_castle.ogg", "sha256": "828730a5a7d15face8dc35c9297da54f2436f5ec30cbbc4afeacefc2fd4855ce", "status": "ready"},
+      "event_key": "D1-C01.S03.walk_castle",
+      "line": "Let's walk to the castle!",
+      "mood": "eager",
+      "timing": {"end_frame_exclusive": 936, "end_s": 39.0, "mux": false, "start_frame": 888, "start_s": 37.0, "time_stretch": false},
+      "voice_asset_key": "roshan_d1_c01_s03_roshan_walk_castle"
+    },
+    {
+      "audio": {"path": "assets/audio/voices/filler_v1/roshan_d1_c01_s04_roshan_castle_doors.ogg", "sha256": "bc44a1dd6bba50f04b29173309fc0d617372e0616d93cf6f3d6268fc81af36aa", "status": "ready"},
+      "event_key": "D1-C01.S04.castle_doors",
+      "line": "The castle doors are so big!",
+      "mood": "wonder",
+      "timing": {"end_frame_exclusive": 1116, "end_s": 46.5, "mux": false, "start_frame": 1044, "start_s": 43.5, "time_stretch": false},
+      "voice_asset_key": "roshan_d1_c01_s04_roshan_castle_doors"
+    }
+  ],
+  "delivery_acceptance": "pending_human_and_device_review",
+  "editorial_notes": {
+    "continuity_policy": "These are the exact mastered gameplay assets; do not synthesize alternate video takes.",
+    "source_visual_acceptance": "unresolved",
+    "source_visual_role": "editorial rough reference only"
+  },
+  "mix_plan": {
+    "duck_music_db": -4.0,
+    "mux": false,
+    "no_time_stretch": true,
+    "review_output_root": "audit/cinematics/day_one_voice_timelines/review",
+    "source_audio_policy": "Use the exact hash-bound gameplay OGGs; source is silent and remains unmodified pending human/device review.",
+    "time_stretch": false,
+    "video_source_id": "D1-C00-C01-rough-v1"
+  },
+  "schema": "day-one-voice-timeline-v1",
+  "source_id": "D1-C00-C01-rough-v1",
+  "source_sha256": "3f84e5dd1402382067ad8fb06c66405acb71468fe096122aab18d9934b874b99",
+  "video_sha256": "3f84e5dd1402382067ad8fb06c66405acb71468fe096122aab18d9934b874b99"
+}

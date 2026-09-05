@@ -83,6 +83,7 @@ func _run_probe() -> void:
 		not bool(snapshot.get("won", false))
 		and not bool(snapshot.get("failed", false))
 		and not bool(snapshot.get("game_over", false)))
+	_probe_contextual_voice_wiring()
 	_check("rescue owns one pulsing front-right basket",
 		bool(snapshot.get("basket_visible", false))
 		and bool(snapshot.get("basket_pulsing", false))
@@ -131,7 +132,9 @@ func _run_probe() -> void:
 		and bool(hunt.audit_snapshot().get("basket_tap_count", 0))
 		and not bool(hunt.audit_snapshot().get(
 			"basket_tap_pointer_visible", true)))
-	await create_timer(0.48).timeout
+	# Leave import-time audio/texture loading headroom around the authored
+	# 0.38-second tween; this still verifies the bounded handoff itself.
+	await create_timer(0.75).timeout
 	var tapped_snapshot: Dictionary = hunt.audit_snapshot()
 	_check("sponge travels from basket toward the sink",
 		bool(tapped_snapshot.get("sponge_travel_complete", false))
@@ -503,6 +506,30 @@ func _on_supply_found(_index: int, _supply_id: String) -> void:
 
 func _on_hunt_completed() -> void:
 	hunt_complete_signals += 1
+
+
+func _probe_contextual_voice_wiring() -> void:
+	var cleanup_source := FileAccess.get_file_as_string(
+		"res://scripts/games/day_one_bathroom_cleanup.gd")
+	var cleaning_source := FileAccess.get_file_as_string(
+		"res://scripts/games/day_one_bathroom_cleaning.gd")
+	_check("bathroom uses exact contextual cues for basket and supplies",
+		cleanup_source.contains("day1_bathroom_basket_hint")
+		and cleanup_source.contains("day1_bathroom_basket_open")
+		and cleanup_source.contains("day1_bathroom_supplies_found")
+		and cleanup_source.contains("say_day_one_context"))
+	_check("bathroom cleaning uses exact cues for every stage",
+		cleaning_source.contains("day1_bathroom_sink_start")
+		and cleaning_source.contains("day1_bathroom_sink_clean")
+		and cleaning_source.contains("day1_bathroom_tub_drain_hint")
+		and cleaning_source.contains("day1_bathroom_tub_drain_complete")
+		and cleaning_source.contains("day1_bathroom_tub_brush")
+		and cleaning_source.contains("day1_bathroom_tub_clean")
+		and cleaning_source.contains("say_day_one_context"))
+	_check("bathroom has no generic voice fallback in scoped owners",
+		not cleanup_source.contains("m.show_msg")
+		and not cleaning_source.contains("m.show_msg(\"Roshan\"")
+		and not cleaning_source.contains("m._say"))
 
 
 func _all_runtime_children_are_canvas_items(node: Node) -> bool:

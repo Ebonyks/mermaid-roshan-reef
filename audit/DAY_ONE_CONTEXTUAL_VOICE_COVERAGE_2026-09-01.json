@@ -1,0 +1,1739 @@
+{
+  "schema": "day_one_contextual_voice_coverage",
+  "schema_version": 1,
+  "scope": "day_one",
+  "speaker": "roshan",
+  "allow_generic": false,
+  "status": "DEV_AUDITION_READY",
+  "runtime_catalog_path": "scripts/day_one_contextual_voice_catalog.gd",
+  "protected_hash_manifest": "assets/audio/voices/filler_v1/FILLER_MANIFEST.json",
+  "video_continuity": {
+    "reuse_policy": "same_take_for_matching_gameplay_and_video_beat",
+    "pending_video_ids": [
+      "day1_shared_voice_slate"
+    ],
+    "note": "When a matching Day One video is added, use the exact gameplay take; do not create a second voice for the same beat."
+  },
+  "rows": [
+    {
+      "cue_id": "d1_c00_s01_roshan_flight",
+      "moment": "d1 c00 s01 roshan flight",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "D1-C00"
+        ],
+        "gameplay_reuse": true
+      },
+      "route": "arrival",
+      "caption": "We're flying through the clouds!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_d1_c00_s01_roshan_flight.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "d1_c00_s02_roshan_view",
+      "moment": "d1 c00 s02 roshan view",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "D1-C00"
+        ],
+        "gameplay_reuse": true
+      },
+      "route": "arrival",
+      "caption": "Daddy, what can you see?",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_d1_c00_s02_roshan_view.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "d1_c00_s03_roshan_discovery",
+      "moment": "d1 c00 s03 roshan discovery",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "D1-C00"
+        ],
+        "gameplay_reuse": true
+      },
+      "route": "arrival",
+      "caption": "Look, Daddy! The lagoon is sparkling!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_d1_c00_s03_roshan_discovery.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "d1_c00_s04_roshan_handhold",
+      "moment": "d1 c00 s04 roshan handhold",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "D1-C00"
+        ],
+        "gameplay_reuse": true
+      },
+      "route": "arrival",
+      "caption": "Daddy, hold my hand!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_d1_c00_s04_roshan_handhold.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "d1_c00_s05_roshan_lagoon_reveal",
+      "moment": "d1 c00 s05 roshan lagoon reveal",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "D1-C00"
+        ],
+        "gameplay_reuse": true
+      },
+      "route": "arrival",
+      "caption": "Wow! Look at the Sky Lagoon!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_d1_c00_s05_roshan_lagoon_reveal.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "d1_c00_s06_roshan_prepare_land",
+      "moment": "d1 c00 s06 roshan prepare land",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "D1-C00"
+        ],
+        "gameplay_reuse": true
+      },
+      "route": "arrival",
+      "caption": "We're ready to land!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_d1_c00_s06_roshan_prepare_land.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "d1_c01_s01_roshan_landed",
+      "moment": "d1 c01 s01 roshan landed",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "D1-C01"
+        ],
+        "gameplay_reuse": true
+      },
+      "route": "arrival",
+      "caption": "We landed!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_d1_c01_s01_roshan_landed.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "d1_c01_s02_roshan_handhold",
+      "moment": "d1 c01 s02 roshan handhold",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "D1-C01"
+        ],
+        "gameplay_reuse": true
+      },
+      "route": "arrival",
+      "caption": "I'm ready, Daddy!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_d1_c01_s02_roshan_handhold.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "d1_c01_s03_roshan_walk_castle",
+      "moment": "d1 c01 s03 roshan walk castle",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "D1-C01"
+        ],
+        "gameplay_reuse": true
+      },
+      "route": "arrival",
+      "caption": "Let's walk to the castle!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_d1_c01_s03_roshan_walk_castle.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "d1_c01_s04_roshan_castle_doors",
+      "moment": "d1 c01 s04 roshan castle doors",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "D1-C01"
+        ],
+        "gameplay_reuse": true
+      },
+      "route": "arrival",
+      "caption": "The castle doors are so big!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_d1_c01_s04_roshan_castle_doors.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_arrival_castle",
+      "route": "arrival",
+      "moment": "Roshan sees the castle courtyard",
+      "caption": "Follow the one golden rainbow door! Foggy doors are resting until it is their turn.",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_arrival_castle.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_arrival_movie",
+      "route": "arrival",
+      "moment": "The arrival video opens",
+      "caption": "Cloud couches! Movie cuddles, please!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_arrival_movie.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_arrival_plane",
+      "route": "arrival",
+      "moment": "Roshan arrives at the castle by plane",
+      "caption": "Wow! A princess in the sky!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_arrival_plane.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_art_complete",
+      "route": "art",
+      "moment": "Complete the Art Room",
+      "caption": "All clean! The floor is twinkling!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_complete.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_art_customization_confirmed",
+      "moment": "day1 art customization confirmed",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "Our colors are ready!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_customization_confirmed.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_desk_hint",
+      "moment": "day1 art desk hint",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "The magic paint desk is glowing! Tap it!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_desk_hint.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_desk_open",
+      "moment": "day1 art desk open",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "The paint desk is open!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_desk_open.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_desk_unlock",
+      "route": "art",
+      "moment": "The paint desk wakes up",
+      "caption": "The paint table is glowing! Let's make something!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_desk_unlock.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_art_enter",
+      "route": "art",
+      "moment": "Enter the Art Room",
+      "caption": "Paint and sparkles! Let's make castle art!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_enter.ogg",
+      "status": "READY",
+      "policy": "once_per_room_visit",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_art_material_blue_paint_found",
+      "moment": "day1 art material blue paint found",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "Blue paint is ready!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_material_blue_paint_found.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_material_blue_paint_hint",
+      "moment": "day1 art material blue paint hint",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "Tap the blue paint!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_material_blue_paint_hint.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_material_brushes_found",
+      "moment": "day1 art material brushes found",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "I found the brushes!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_material_brushes_found.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_material_brushes_hint",
+      "moment": "day1 art material brushes hint",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "Tap the loose brushes!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_material_brushes_hint.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_material_cups_found",
+      "moment": "day1 art material cups found",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "I found the little paint cups!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_material_cups_found.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_material_cups_hint",
+      "moment": "day1 art material cups hint",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "Tap the paint cups!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_material_cups_hint.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_material_pink_paint_found",
+      "moment": "day1 art material pink paint found",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "Pink paint! My favorite!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_material_pink_paint_found.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_material_pink_paint_hint",
+      "moment": "day1 art material pink paint hint",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "Tap the pink paint!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_material_pink_paint_hint.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_materials_complete",
+      "moment": "day1 art materials complete",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "All the art supplies are ready!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_materials_complete.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_scrub_desk",
+      "route": "art",
+      "moment": "Scrub the desk counter",
+      "caption": "This dusty desk needs a scrub!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_scrub_desk.ogg",
+      "status": "READY",
+      "policy": "repeat_variant",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_art_scrub_desk_clean",
+      "moment": "day1 art scrub desk clean",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "The desk needs a good scrub!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_scrub_desk_clean.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_scrub_desk_hint",
+      "moment": "day1 art scrub desk hint",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "Now scrub the desk counter grime!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_scrub_desk_hint.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_scrub_left_clean",
+      "moment": "day1 art scrub left clean",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "Scrub this painty counter!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_scrub_left_clean.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_scrub_left_hint",
+      "moment": "day1 art scrub left hint",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "Now scrub the left counter grime!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_scrub_left_hint.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_scrub_right_clean",
+      "moment": "day1 art scrub right clean",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "One more counter to sparkle!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_scrub_right_clean.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_art_scrub_right_hint",
+      "moment": "day1 art scrub right hint",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "art",
+      "caption": "Now scrub the right counter grime!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_art_scrub_right_hint.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_bathroom_basket_hint",
+      "moment": "day1 bathroom basket hint",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "bathroom",
+      "caption": "Tap the cleaning basket.",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_basket_hint.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_bathroom_basket_open",
+      "moment": "day1 bathroom basket open",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "bathroom",
+      "caption": "The cleaning basket is open!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_basket_open.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_bathroom_cleanup_done",
+      "route": "bathroom",
+      "moment": "Finish the bathroom cleanup",
+      "caption": "Shiny sink! Bubbles did the trick!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_cleanup_done.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_bathroom_cleanup_start",
+      "route": "bathroom",
+      "moment": "Start the bathroom cleanup",
+      "caption": "Sponge, brush, and bubbles! Let's help!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_cleanup_start.ogg",
+      "status": "READY",
+      "policy": "once_per_room_visit",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_bathroom_enter",
+      "route": "bathroom",
+      "moment": "Enter the Bubble Bathroom",
+      "caption": "Bubbles on my nose! Hee hee!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_enter.ogg",
+      "status": "READY",
+      "policy": "once_per_room_visit",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_bathroom_find_basket",
+      "route": "bathroom",
+      "moment": "The cleaning basket is needed",
+      "caption": "Tap the basket. Our cleaning things are inside!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_find_basket.ogg",
+      "status": "READY",
+      "policy": "once_per_room_visit",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_bathroom_sink_clean",
+      "moment": "day1 bathroom sink clean",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "bathroom",
+      "caption": "The sink is shiny!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_sink_clean.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_bathroom_sink_scrub",
+      "route": "bathroom",
+      "moment": "Scrub the sink",
+      "caption": "Little circles, scrubby-scrub!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_sink_scrub.ogg",
+      "status": "READY",
+      "policy": "repeat_variant",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_bathroom_sink_start",
+      "moment": "day1 bathroom sink start",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "bathroom",
+      "caption": "Scrub the sink in little circles!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_sink_start.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_bathroom_supplies_found",
+      "route": "bathroom",
+      "moment": "Both cleaning supplies are found",
+      "caption": "We found the cleaning supplies!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_supplies_found.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_bathroom_to_pool",
+      "route": "bathroom",
+      "moment": "The clean bathroom opens the pool route",
+      "caption": "The sparkle pool is ready!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_to_pool.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_bathroom_tub_brush",
+      "route": "bathroom",
+      "moment": "Brush the bathtub",
+      "caption": "Brush the tub back and forth!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_tub_brush.ogg",
+      "status": "READY",
+      "policy": "repeat_variant",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_bathroom_tub_clean",
+      "moment": "day1 bathroom tub clean",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "bathroom",
+      "caption": "The bathroom is sparkling!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_tub_clean.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_bathroom_tub_drain",
+      "route": "bathroom",
+      "moment": "Drain the bathtub",
+      "caption": "Bye-bye, dirty water! Tap the tub!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_tub_drain.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_bathroom_tub_drain_complete",
+      "moment": "day1 bathroom tub drain complete",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "bathroom",
+      "caption": "The tub is draining!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_tub_drain_complete.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_bathroom_tub_drain_hint",
+      "moment": "day1 bathroom tub drain hint",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "bathroom",
+      "caption": "Tap the tub to drain the dirty water!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_tub_drain_hint.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_bathroom_tub_safety",
+      "moment": "day1 bathroom tub safety",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "bathroom",
+      "caption": "First, drain the dirty tub water!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_bathroom_tub_safety.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_boss_bump",
+      "moment": "day1 boss bump",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "Grand Puff bounced away!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_bump.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_boss_closer",
+      "moment": "day1 boss closer",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "Come closer, then tap the flashing star!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_closer.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_boss_defeated",
+      "route": "boss",
+      "moment": "The giant dust bunny is defeated",
+      "caption": "Grand Puff burst into sparkly stars!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_defeated.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_boss_dodge",
+      "route": "boss",
+      "moment": "Dodge the dust bunny",
+      "caption": "The big dust bunny is coming closer!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_dodge.ogg",
+      "status": "READY",
+      "policy": "repeat_variant",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_boss_dodge_prompt",
+      "moment": "day1 boss dodge prompt",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "The dust bunny is close! Tap the twirl button!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_dodge_prompt.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_boss_dodge_success",
+      "moment": "day1 boss dodge success",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "Swish! You dodged the dust cloud!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_dodge_success.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_boss_door_glow",
+      "route": "boss",
+      "moment": "The boss door begins to glow",
+      "caption": "We cleaned it! A new picture door is glowing!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_door_glow.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_boss_enraged",
+      "moment": "day1 boss enraged",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "Grand Puff is speedy now! Keep watching the star!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_enraged.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_boss_hit",
+      "route": "boss",
+      "moment": "Bonk the dust bunny",
+      "caption": "BONK! Two down!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_hit.ogg",
+      "status": "READY",
+      "policy": "repeat_variant",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_boss_hit_first",
+      "moment": "day1 boss hit first",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "Boop! Grand Puff is dizzy!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_hit_first.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_boss_hit_second",
+      "moment": "day1 boss hit second",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "Bonk! Two dust puffs down!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_hit_second.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_boss_intro",
+      "route": "boss",
+      "moment": "Meet the giant dust bunny",
+      "caption": "The giant dust bunny woke up! It is too fluffy. Sparkle taps will work!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_intro.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_boss_reminder_almost",
+      "moment": "day1 boss reminder almost",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "So close! Wait for the next FLASH and tap FAST — three times!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_reminder_almost.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_boss_reminder_closer",
+      "moment": "day1 boss reminder closer",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "He is coming closer now — wait for the BIG GOLD STAR!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_reminder_closer.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_boss_reminder_dim",
+      "moment": "day1 boss reminder dim",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "That star is dim. Wait for the big gold star!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_reminder_dim.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_boss_reminder_mercy",
+      "moment": "day1 boss reminder mercy",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "Grand Puff slowed down! Take your time — wait for the BIG GOLD STAR!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_reminder_mercy.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_boss_tell_opening",
+      "moment": "day1 boss tell opening",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "When he jumps and his star flashes, tap him!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_tell_opening.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_boss_wait_gold",
+      "moment": "day1 boss wait gold",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "Wait for the gold star, then tap!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_wait_gold.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_dirty_castle_discovery",
+      "route": "arrival",
+      "moment": "Roshan discovers the dirty castle",
+      "caption": "Oh! This castle is so dusty!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_dirty_castle_discovery.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_finale_day_two",
+      "route": "finale",
+      "moment": "Day One ends and Day Two begins",
+      "caption": "The second day is here! Visit castle jobs and the Opera House!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_finale_day_two.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_fridge_close",
+      "route": "kitchen",
+      "moment": "Close the royal refrigerator",
+      "caption": "The fridge is closed. All cozy!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_fridge_close.ogg",
+      "status": "READY",
+      "policy": "once_per_room_visit",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_fridge_menu",
+      "moment": "day1 fridge menu",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "kitchen",
+      "caption": "What shall we cook in the royal kitchen?",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_fridge_menu.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_fridge_open",
+      "route": "kitchen",
+      "moment": "Open the royal refrigerator",
+      "caption": "Peek inside the royal fridge!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_fridge_open.ogg",
+      "status": "READY",
+      "policy": "once_per_room_visit",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_pool_complete",
+      "route": "pool",
+      "moment": "Complete the pool cleanup",
+      "caption": "The whole pool is shiny!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_complete.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_pool_enter",
+      "route": "pool",
+      "moment": "Enter the Mermaid Pool",
+      "caption": "The pool is wiggly-blue! Splash time!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_enter.ogg",
+      "status": "READY",
+      "policy": "once_per_room_visit",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_pool_meet_rumi",
+      "route": "pool",
+      "moment": "Meet Rumi at the pool",
+      "caption": "Hi, Rumi! The pool is dirty!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_meet_rumi.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_pool_rumi_reply",
+      "moment": "day1 pool rumi reply",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "We saved the pool and the seahorse! Hi, Rumi!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_rumi_reply.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_seahorse_clean",
+      "route": "pool",
+      "moment": "Rescue and clean the seahorses",
+      "caption": "Oh no, seahorse! I'll tug the trash out!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_seahorse_clean.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_pool_seahorse_early",
+      "moment": "day1 pool seahorse early",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "A little tug! Keep going!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_seahorse_early.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_seahorse_final",
+      "moment": "day1 pool seahorse final",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "One more tug!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_seahorse_final.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_seahorse_free",
+      "moment": "day1 pool seahorse free",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "The seahorse is free!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_seahorse_free.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_seahorse_hint",
+      "moment": "day1 pool seahorse hint",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "Tap fast to pull the trash off the seahorse!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_seahorse_hint.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_seahorse_middle",
+      "moment": "day1 pool seahorse middle",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "We are halfway there!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_seahorse_middle.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_skimmer_01",
+      "moment": "day1 pool skimmer 01",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "One leaf scooped!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_skimmer_01.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_skimmer_02",
+      "moment": "day1 pool skimmer 02",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "Another leaf is gone!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_skimmer_02.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_skimmer_03",
+      "moment": "day1 pool skimmer 03",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "The water looks clearer!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_skimmer_03.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_skimmer_04",
+      "moment": "day1 pool skimmer 04",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "Scoop, scoop!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_skimmer_04.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_skimmer_05",
+      "moment": "day1 pool skimmer 05",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "Almost sparkling!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_skimmer_05.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_skimmer_06",
+      "moment": "day1 pool skimmer 06",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "The last leaf is out!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_skimmer_06.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_skimmer_clean",
+      "route": "pool",
+      "moment": "Clean the pool surface with the skimmer",
+      "caption": "Scoop every floaty bit with the net!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_skimmer_clean.ogg",
+      "status": "READY",
+      "policy": "repeat_variant",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_pool_skimmer_complete",
+      "moment": "day1 pool skimmer complete",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "The pool surface is clear!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_skimmer_complete.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_skimmer_hint",
+      "moment": "day1 pool skimmer hint",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "Sweep the skimmer through every piece of trash!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_skimmer_hint.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_waterfall_clean",
+      "route": "pool",
+      "moment": "Clean the waterfall",
+      "caption": "The rainbow waterfall is stuck! Pull the trash down!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_waterfall_clean.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_pool_waterfall_complete",
+      "moment": "day1 pool waterfall complete",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "All three waterfall lanes are clear!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_waterfall_complete.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_waterfall_hint",
+      "moment": "day1 pool waterfall hint",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "Pull the trash down from the clogged rainbow waterfall!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_waterfall_hint.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_waterfall_lane_center",
+      "moment": "day1 pool waterfall lane center",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "The middle waterfall lane is clear!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_waterfall_lane_center.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_waterfall_lane_left",
+      "moment": "day1 pool waterfall lane left",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "The left waterfall lane is clear!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_waterfall_lane_left.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_pool_waterfall_lane_right",
+      "moment": "day1 pool waterfall lane right",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "pool",
+      "caption": "The right waterfall lane is clear!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_pool_waterfall_lane_right.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_recipe_carrot_ready",
+      "moment": "day1 recipe carrot ready",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "kitchen",
+      "caption": "Our Carrot Cake is ready!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_recipe_carrot_ready.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_recipe_carrot_select",
+      "moment": "day1 recipe carrot select",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "kitchen",
+      "caption": "Carrot Cake! Let us make it!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_recipe_carrot_select.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_recipe_pearl_ready",
+      "moment": "day1 recipe pearl ready",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "kitchen",
+      "caption": "Our Pearl Cake is ready!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_recipe_pearl_ready.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_recipe_pearl_select",
+      "moment": "day1 recipe pearl select",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "kitchen",
+      "caption": "Pearl Cake! Let us make it!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_recipe_pearl_select.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_recipe_ready",
+      "route": "kitchen",
+      "moment": "The recipe is ready",
+      "caption": "It smells yummy! Our recipe is ready!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_recipe_ready.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_stuffie_clean_bunny",
+      "route": "stuffie",
+      "moment": "Clean a rescued stuffie",
+      "caption": "Poof! No more dusty tickles!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_stuffie_clean_bunny.ogg",
+      "status": "READY",
+      "policy": "repeat_variant",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_stuffie_complete",
+      "route": "stuffie",
+      "moment": "Complete the Stuffie rescue",
+      "caption": "Everybody is safe and cuddly!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_stuffie_complete.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_stuffie_eagle_saved",
+      "moment": "day1 stuffie eagle saved",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "stuffie",
+      "caption": "Baby Eagle is safe!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_stuffie_eagle_saved.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_stuffie_enter",
+      "route": "stuffie",
+      "moment": "Enter the Stuffie Playroom",
+      "caption": "A playroom! I want to see every toy!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_stuffie_enter.ogg",
+      "status": "READY",
+      "policy": "once_per_room_visit",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_stuffie_find_bunny",
+      "route": "stuffie",
+      "moment": "Find a hidden dust bunny",
+      "caption": "I found a dusty little bunny!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_stuffie_find_bunny.ogg",
+      "status": "READY",
+      "policy": "repeat_variant",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_stuffie_pin_left_loose",
+      "moment": "day1 stuffie pin left loose",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "stuffie",
+      "caption": "The left pin is loose!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_stuffie_pin_left_loose.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_stuffie_pin_right_loose",
+      "moment": "day1 stuffie pin right loose",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "stuffie",
+      "caption": "The right pin is loose!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_stuffie_pin_right_loose.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_stuffie_rescue_start",
+      "route": "stuffie",
+      "moment": "Start the dust-bunny rescue",
+      "caption": "Two dusty bunnies! I'll help you, Baby Eagle!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_stuffie_rescue_start.ogg",
+      "status": "READY",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_shared_voice_slate"
+        ]
+      }
+    },
+    {
+      "cue_id": "day1_stuffie_tutorial",
+      "moment": "day1 stuffie tutorial",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "stuffie",
+      "caption": "Pick a cuddly toy to play with!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_stuffie_tutorial.ogg",
+      "status": "READY"
+    }
+  ]
+}

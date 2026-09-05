@@ -840,6 +840,8 @@ var _composition_transition_generation := 0
 var _hall_view_left_art := 0.0
 var day_one_pool_cleanup: DayOnePoolCleanup = null
 var day_one_bathtub_swimmer: DayOneDustBunnySwimmer = null
+var _day_one_voice_visit_counter: int = 0
+var _day_one_voice_session: String = "castle_visit_0"
 var _day_one_persistent_rumi: AnimatedSprite2D = null
 var _day_one_persistent_rumi_hotspot: Button = null
 var _blocked_door_feedback_cool := 0.0
@@ -849,6 +851,14 @@ var _blocked_door_pan_count := 0
 func _init(main: ReefMain) -> void:
 	m = main
 	fixture_rigs = CastleFixtureRigs.new(main)
+
+
+func _say_day_one_context(cue_id: String, caption: String = "",
+		variant: int = 0, day_one_only: bool = true) -> void:
+	if day_one_only and not m.day_one_is_active():
+		return
+	m.say_day_one_context(cue_id, caption, m.castle_room_id,
+		_day_one_voice_session, variant, false)
 
 func is_open() -> bool:
 	return m.castle_room_layer != null and is_instance_valid(m.castle_room_layer)
@@ -965,6 +975,9 @@ func open(start_room: String = "main_hall") -> void:
 		m._sync_castle_voice_caption()
 	show_room(start_room, false)
 	m._day_one_attach_castle_dressing()
+	if start_room == "main_hall" and m.day_one_is_active():
+		_say_day_one_context("day1_dirty_castle_discovery",
+			"Oh! This castle is so dusty!")
 	_sync_hall_lighting()
 	# combat wing 2026-08: the castle's chain engine (pop-chain, pips, pitch
 	# ladder, haptics for bunny pops). Never registered in main.hit_engines —
@@ -1592,6 +1605,8 @@ func _build_hall_portals() -> void:
 
 func door_state(destination_id: String) -> String:
 	if m.day_one_is_active():
+		if m.DAY_ONE_OPTIONAL_CASTLE_ROOM_IDS.has(destination_id):
+			return DoorLanguage.OPEN
 		return DoorLanguage.resolve_act_one(destination_id,
 			_act_one_current_destination_id(),
 			_act_one_completed_destination_ids(),
@@ -1729,6 +1744,26 @@ func _room_entry_voice(room_id: String) -> String:
 		"family_gallery": return "castle_gallery_enter"
 	return "castle_main_hall_enter"
 
+
+func _room_entry_context_key(room_id: String) -> String:
+	match room_id:
+		"bubble_bath": return "day1_bathroom_enter"
+		"kitchen": return "day1_fridge_menu"
+		"playroom": return "day1_stuffie_enter"
+		"craft_room": return "day1_art_enter"
+		"mermaid_pool": return "day1_pool_enter"
+	return "day1_dirty_castle_discovery"
+
+
+func _room_entry_context_caption(room_id: String) -> String:
+	match room_id:
+		"bubble_bath": return "Bubbles on my nose! Hee hee!"
+		"kitchen": return "What shall we cook in the royal kitchen?"
+		"playroom": return "A playroom! I want to see every toy!"
+		"craft_room": return "Paint and sparkles! Let's make castle art!"
+		"mermaid_pool": return "The pool is wiggly-blue! Splash time!"
+	return "Oh! This castle is so dusty!"
+
 func show_room(room_id: String, announce: bool = true) -> void:
 	if _fridge_close_is_blocked():
 		return
@@ -1752,6 +1787,9 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	_begin_composition_transition()
 	_invalidate_royal_hall_arrival()
 	m.castle_room_id = room_id
+	_day_one_voice_visit_counter += 1
+	_day_one_voice_session = "castle_%s_visit_%d" % [
+		room_id, _day_one_voice_visit_counter]
 	# A castle room is one explicit navigation level above its parent. Reusing
 	# one route id lets Back pop a child, rebuild the parent route, then pop that
 	# parent on the next press without ever adding another visible button.
@@ -1808,9 +1846,12 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	if announce:
 		m._ui_tap()
 		if room_id == "playroom" and not _playroom_rescue_done():
-			m.show_msg("Roshan",
-				"Two dusty bunnies! I'll help you, Baby Eagle!",
-				"castle_playroom_rescue_start")
+			_say_day_one_context("day1_stuffie_rescue_start",
+				"Two dusty bunnies! I'll help you, Baby Eagle!")
+		elif m.day_one_is_active() and (m.DAY_ONE_CASTLE_ROOM_IDS.has(room_id)
+				or m.DAY_ONE_OPTIONAL_CASTLE_ROOM_IDS.has(room_id)):
+			_say_day_one_context(_room_entry_context_key(room_id),
+				_room_entry_context_caption(room_id))
 		else:
 			m.show_msg("Roshan", String(room["name"]),
 				_room_entry_voice(room_id))
@@ -1988,7 +2029,8 @@ func _on_day_one_persistent_rumi_pressed() -> void:
 		return
 	m.g["day_one_persistent_rumi_greeting_count"] = int(
 		m.g.get("day_one_persistent_rumi_greeting_count", 0)) + 1
-	m.show_msg("Roshan", "Hi Roshan!", "day_one_rumi_hi", 4.0)
+	_say_day_one_context("day1_pool_rumi_reply",
+		"We saved the pool and the seahorse! Hi, Rumi!", 0, false)
 	_item_burst(_day_one_persistent_rumi.position, Color(0.68, 0.82, 1.0), 6)
 
 
@@ -3033,6 +3075,9 @@ func _activate_room_item(item_id: String,
 	var visual: Dictionary = item_data.get("v2_visual", {}) as Dictionary
 	var is_native_authored_states: bool = \
 		String(visual.get("pack", "")) == "v4_native"
+	if m.castle_room_id == "kitchen" and item_id == "fridge":
+		_say_day_one_context("day1_fridge_open",
+			"Peek inside the royal fridge!", 0, false)
 	# Native V4 props always play their item-specific authored states. This route
 	# deliberately precedes the older roleplay/light helpers, several of which
 	# use whole-card bounce or a hard-coded eight-frame light transform.
@@ -3863,6 +3908,9 @@ func _close_fridge_visual() -> bool:
 		0.01, float(item_data.get("frame_duration", 0.10)))
 	sprite.set_meta("busy", true)
 	sprite.set_meta("enable_world_controls_after_close", true)
+	if m.castle_room_id == "kitchen":
+		_say_day_one_context("day1_fridge_close",
+			"The fridge is closed. All cozy!", 0, false)
 	sprite.set_meta("animation_frames_visited", [sequence[start_step]])
 	sprite.set_meta("animation_timeline_steps_visited", [start_step])
 	_play_item_sfx(String(item_data.get(
@@ -4255,6 +4303,17 @@ func _explode_dust_bunny(item_id: String, partner_pop: bool = false) -> void:
 	if not partner_pop and m.castle_partner == null and m.castle_room_id == "main_hall":
 		m.castle_partner = PartnerAssist.new(m)
 		m.castle_partner.attach("daddy", Callable(self, "_daddy_splash"))
+	if m.day_one_is_active() and m.castle_room_id == "playroom":
+		if bool(item_data.get("rescue_bunny", false)):
+			var pin_key := "day1_stuffie_pin_left_loose" \
+				if item_id == "eagle_pin_left" else "day1_stuffie_pin_right_loose"
+			var pin_caption := "The left pin is loose!" \
+				if item_id == "eagle_pin_left" \
+				else "The right pin is loose!"
+			_say_day_one_context(pin_key, pin_caption)
+		else:
+			_say_day_one_context("day1_stuffie_find_bunny",
+				"I found a dusty little bunny!")
 	_play_item_sfx(String(item_data.get("sound", "hop_boing.ogg")),
 		float(item_data.get("pitch", 1.5)))
 	var burst_color := Color(item_data.get("color", StorybookUI.GOLD))
@@ -4373,7 +4432,8 @@ func _check_playroom_rescue_complete() -> void:
 		"baby_eagle_rescue", {}) as Dictionary
 	var eagle: Sprite2D = eagle_record.get("sprite") as Sprite2D
 	m.castle_room_item_sprites.erase("baby_eagle_rescue")
-	m.show_msg("Roshan", "You saved Baby Eagle!", "day_one_room_clean")
+	_say_day_one_context("day1_stuffie_eagle_saved",
+		"Baby Eagle is safe!", 0)
 	m._play_companion_chirp("sparkle")
 	# The completion answer is followed by one explicit, actionable next-door
 	# handoff. Keep it after the rescue line so the final caption and required
@@ -4407,6 +4467,8 @@ func _open_playroom_stuffie_tutorial() -> void:
 	m.g["stuffie_rescue_tutorial"] = true
 	if not m.g.has("stuffie_rescue_tutorial_step"):
 		m.g["stuffie_rescue_tutorial_step"] = 0
+	_say_day_one_context("day1_stuffie_tutorial",
+		"Pick a cuddly toy to play with!")
 	m._companion_ref().open_picker(true, "eagle", "adopt")
 
 
@@ -4922,7 +4984,8 @@ func _open_kitchen_menu() -> void:
 		Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	point.tween_property(pointer, "position:y", 125.0, 0.55).set_trans(
 		Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	m._say("roshan", "castle_kitchen_menu", 0.0)
+	_say_day_one_context("day1_fridge_menu",
+		"What shall we cook in the royal kitchen?", 0, false)
 
 func _close_kitchen_menu() -> bool:
 	m._navigation_remove("kitchen_fridge")
@@ -4977,9 +5040,15 @@ func _launch_kitchen_recipe(recipe_id: String) -> void:
 	var uses: String = String(recipe["uses"])
 	if uses != "" and int(m.opera_pantry.get(uses, 0)) <= 0:
 		return
+	var recipe_context_key := "day1_recipe_pearl_select" \
+		if recipe_id == "pearl_cake" else "day1_recipe_carrot_select"
+	var recipe_context_caption := "Pearl Cake! Let us make it!" \
+		if recipe_id == "pearl_cake" else "Carrot Cake! Let us make it!"
+	_say_day_one_context(recipe_context_key, recipe_context_caption, 0, false)
 	var closing_fridge: bool = _close_kitchen_menu()
 	if closing_fridge:
 		await _wait_for_fridge_close()
+	m.g["day_one_recipe_id"] = recipe_id
 	suspend()
 	m.game = "kitchen_cooking"
 	var config: Dictionary = (OperaHouse.ACTS[0] as Dictionary).duplicate(true)
@@ -4989,6 +5058,9 @@ func _launch_kitchen_recipe(recipe_id: String) -> void:
 	config["rescue"] = ""
 	config["gift"] = ""
 	config["uses"] = uses
+	# Keep the act's visual reward caption, but let the exact per-recipe ready
+	# cue below own the spoken completion instead of the generic win recording.
+	config["reward_policy"] = "chapter2_story"
 	config["voice"] = (
 		"Chef hat on! Let us make the %s together — every step is a "
 		+ "different kitchen gesture!") % String(recipe["name"])
@@ -5007,7 +5079,12 @@ func _finish_kitchen_recipe() -> void:
 	kitchen_act = null
 	m.game = "level2"
 	resume("kitchen")
-	m.show_msg("Roshan", "Something delicious is ready!", "castle_recipe_ready")
+	var recipe_id := String(m.g.get("day_one_recipe_id", "pearl_cake"))
+	var ready_key := "day1_recipe_pearl_ready" \
+		if recipe_id == "pearl_cake" else "day1_recipe_carrot_ready"
+	var ready_caption := "Our Pearl Cake is ready!" \
+		if recipe_id == "pearl_cake" else "Our Carrot Cake is ready!"
+	_say_day_one_context(ready_key, ready_caption, 0, false)
 
 # Suspend the castle, run the sparring class, and come home to the hall.
 # The same cutaway pattern the kitchen and opera hall already use.
@@ -5039,9 +5116,8 @@ func activate_current_room() -> void:
 			_activate_room_item("paint_table")
 		"stuffies":
 			if not _playroom_rescue_done():
-				m.show_msg("Baby Eagle",
-					"Bump both dust bunnies away first! I know you can do it!",
-					"talk")
+				_say_day_one_context("day1_stuffie_rescue_start",
+					"Two dusty bunnies! I'll help you, Baby Eagle!")
 			elif m.companion_id == "":
 				_open_playroom_stuffie_tutorial()
 			else:
@@ -5054,8 +5130,12 @@ func activate_current_room() -> void:
 						portal_data["foot"] as Vector2)
 					break
 		"kitchen":
-			m.show_msg("Roshan", "Something delicious is bubbling!",
-				"castle_kitchen_enter")
+			if m.day_one_is_active():
+				_say_day_one_context("day1_fridge_menu",
+					"What shall we cook in the royal kitchen?", 0, false)
+			else:
+				m.show_msg("Roshan", "Something delicious is bubbling!",
+					"castle_kitchen_enter")
 			_burst("♡", Color(1.0, 0.50, 0.48))
 		"library":
 			m.show_msg("Roshan", "A whole room of storybooks!",

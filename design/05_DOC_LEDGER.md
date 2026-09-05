@@ -334,6 +334,7 @@ unclassified until this ledger gains one new scoped row for it.
 | `docs/OPENING_CINEMATIC_FULL_FRAME_PROCESS_AUDIT_2026-07-29.md` | 🔵 | The full-frame trial, including what the position-guide modes actually measured. |
 | `docs/OPENING_CINEMATIC_REGENERATION_AUDIT_2026-07-28.md` | 🟡 | Explicitly marked historical: its pose-reuse/compositing methods are now forbidden. |
 | `docs/CARTOON_VIDEO_PIPELINE.md` | 🔵 | The `.ogv` encoder runbook. |
+| `audit/cinematics/day_one_voice_timelines/README.md` | 🔵 | `SUPPORTING_CURRENT`; review-only Day One voice-timeline intake and editorial cue-planning notes. Runtime voice routing and acceptance remain governed by the current audio/runtime authorities and their independent gates. |
 
 ## August system, Castle, combat, and Opera records
 

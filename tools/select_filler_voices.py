@@ -276,10 +276,32 @@ def main() -> int:
         default=ROOT / "tmp" / "filler_candidate_audit_cache.json",
     )
     parser.add_argument("--secondary-whisper-model", default="small.en")
+    parser.add_argument(
+        "--contextual-catalog", type=Path,
+        help="Frozen Day One coverage JSON; select only its PENDING_GENERATION rows.",
+    )
     args = parser.parse_args()
     lines = load_lines()
+    if args.contextual_catalog:
+        document = json.loads(args.contextual_catalog.read_text(encoding="utf-8"))
+        if document.get("speaker") != "roshan" or document.get("allow_generic") is not False:
+            parser.error("contextual catalog must be the exact Roshan, fail-closed catalog")
+        pending = [
+            row for row in document.get("rows", [])
+            if row.get("status") == "PENDING_GENERATION"
+        ]
+        if not pending:
+            parser.error("contextual catalog has no PENDING_GENERATION rows")
+        lines = {
+            str(row["cue_id"]): ("roshan", str(row["caption"]))
+            for row in pending
+        }
+    manifest_paths = sorted(args.candidates.glob("attempt_*/*manifest.json"))
+    contextual_manifest = args.candidates / "trial_manifest.json"
+    if args.contextual_catalog and contextual_manifest.is_file():
+        manifest_paths.append(contextual_manifest)
     manifests: list[dict[str, object]] = []
-    for path in sorted(args.candidates.glob("attempt_*/*manifest.json")):
+    for path in manifest_paths:
         manifests.extend(json.loads(path.read_text(encoding="utf-8")))
     by_key: dict[str, list[dict[str, object]]] = {}
     for entry in manifests:
@@ -461,7 +483,7 @@ def main() -> int:
         "selector_sha256": normalized_text_sha256(Path(__file__)),
         "candidate_manifest_sha256": {
             portable_artifact_path(path): hashlib.sha256(path.read_bytes()).hexdigest()
-            for path in sorted(args.candidates.glob("attempt_*/*manifest.json"))
+            for path in manifest_paths
         },
         "report_sha256": hashlib.sha256(args.report.read_bytes()).hexdigest(),
         "selected_count": selected_count, "retry_count": len(report) - selected_count,
