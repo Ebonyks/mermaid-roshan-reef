@@ -1,9 +1,9 @@
 # Grand Puff Dusty Attic arena — prompt and provenance
 
-Date: 2026-08-30  
-Generation method: OpenAI built-in ImageGen  
-Use case: `stylized-concept`  
-License: project original, all rights reserved  
+Date: 2026-08-30
+Generation method: OpenAI built-in ImageGen
+Use case: `stylized-concept`
+License: project original, all rights reserved
 External URL: none
 
 ## Recorded gap
