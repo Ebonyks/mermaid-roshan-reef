@@ -1,5 +1,42 @@
 # Mermaid Roshan: Reef of Light — game-wide master audit
 
+## 0. Planning entry
+
+Planning guidance updated 2026-09-05 against integration source `775ceee1`.
+This is a document/selected-fact review, not a new whole-game runtime audit.
+The dated evidence below retains its original commit and acceptance limits;
+"current" claims in that sealed snapshot do not describe today's build.
+Game-wide audit satisfaction remains **UNSATISFIED**.
+
+| Planning question | Current answer and authority |
+|---|---|
+| How should an agent develop a chapter? | Use the [chapter guide](../design/09_CHAPTER_DEVELOPMENT_GUIDE.md) and [brief](../design/templates/CHAPTER_BRIEF_V1.md). The owner approves premise/boundaries; the agent develops the playable result within them, without another routine planning/expansion checkpoint. |
+| How much invention is delegated? | Owner decision 2026-09-05 permits minor characters/optional threads preserving canon and free reuse, modification, and combination of mechanics within child/save/medium rules. Major character/plot changes remain reserved. |
+| How should unused assets inform the plan? | Strategically shortlist existing families for story/play benefit, thematic fit, readiness, and integration cost. Suitable discoveries may shape activities within scope. Unused status alone is neither approval nor a reason for inclusion. |
+| Which chapter sources control? | [Chapter 2 spine](../design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md), [cake progression](../design/CHAPTER2_CAKE_VISUAL_PROGRESSION_2026-08-31.md), and scoped [early Chapter 3 route](../design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md). |
+| Where does Northern/Ice World development belong? | [Northern planning branch](../design/chapters/NORTHERN_ICE_WORLD.md): preserve the existing art investment; explore an unused building as a restaurant and remix cooking with customer orders. Planning direction is authorized; runtime implementation and the full chapter ending are not commissioned by this entry. |
+| Where are canon and reusable examples? | [Chapter reference library](../design/10_CHAPTER_REFERENCE_LIBRARY.md), including acceptance limits and asset discovery sources. Seed entries are static references, not newly accepted exemplars. |
+| What facts must be refreshed? | Engine pins in [godot_baseline.json](../tools/godot_baseline.json); global `OPERA_ACTIVE_STAR_MASK` in [SaveState](../scripts/save_state.gd); actual code/probe availability; scoped owner decisions in the ledger. |
+| What blocks what? | A missing cue, device session, or owner decision blocks its dependent work or acceptance claim. Continue independent authorized work. Shared regression/integration gates and strict-zero whole-game 2D satisfaction retain their scopes. |
+
+### Next bounded planning work
+
+| Deliverable | Prerequisite | Next evidence |
+|---|---|---|
+| Northern art shortlist and restaurant brief | Locate the remaining art family from the owner-confirmed July 29 forest concept; retain the restaurant direction | Source/usage/authority checks, visual inspection, thematic/player benefit, and mechanic adaptation plan |
+| Representative playable activity, then expansion | Explicit chapter implementation commission and verified extension path | Intentional/passive/repeat/save/return tests, in-context captures, and applicable full gates |
+| Playable review and reference-library promotion | Implemented candidate | Exact build and required device/child/owner review; preserve missing evidence as open |
+
+Section 13 owns remediation, not the creative-production sequence. Select work
+by child impact and dependencies, use section 9 for defects, and use the chapter
+guide for new content (`DL-PLAN-01` through `DL-PLAN-06`). Run
+`python -B tools/audit_document_authority.py` for the live inventory and selected
+active-fact checks; do not hand-copy its counts into planning rules.
+
+---
+
+## Sealed audit snapshot and subsequent round metadata
+
 - **Audit ID:** `MA-2026-08-09`
 - **Audit date:** 2026-08-09
 - **Current audit-control candidate branch:**
@@ -696,9 +733,9 @@ preserve a useful measurement while its 3D recommendation is `SUPERSEDED`.
 1. Binding `SECURITY.md`, protected-asset/save rules, credential and filesystem
    safeguards, and the release workflow in `AGENTS.md`. A content or design
    decision never weakens these boundaries.
-2. Direct owner product decision, 2026-08-09, within those boundaries: remove
-   3D Mermaid Roshan; the game is true 2D; active 3D resources belong only on
-   the deprecated-resources branch.
+2. Direct dated owner product decisions within those boundaries; the newest
+   controls its exact scope. These include the 2026-08-09 true-2D ruling and
+   2026-09-05 chapter delegation, asset strategy, and mechanic-reuse direction.
 3. Exact Godot 4.7.2-stable requirements and the remaining current operational
    rules in `AGENTS.md`, excluding its stale 3D clauses.
 4. Canonical-current `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md`.
@@ -734,6 +771,9 @@ preserve a useful measurement while its 3D recommendation is `SUPERSEDED`.
 | Owner commits `0277071f`/`9a1754c1`, 2026-08-25 | `OWNER_DECISION` | The true-2D three-floor Opera House venue (`scripts/opera_house_venue_2d.gd`) is the Opera Hall room interior hosting only its three resident careers through invisible painted portal regions; it preserves the no-central-lobby ruling and is the newest owner direction on Opera navigation |
 | `MASTER_AUDIT_2026-08-26.md` (this directory) | `SUPPORTING_CURRENT` | The 2026-08-26 code-refinement round record: comprehensive analysis at integration head `9a1754c1`, scorecard movement, goal set G1–G12, and orchestration rationale; its normative deltas are applied in this document's sections 5, 12, 13, and 14 and in design 06 section 18 |
 | `design/08_TARGET_ARCHITECTURE.md` | `BINDING_DOMAIN` | The Mode Platform remodel, produced on direct owner request 2026-08-26: the growth law (`DL-CODE-11`), the GameMode/ModeRegistry/ModeDirector/Services contracts, the structure ratchet (`DL-CODE-12`), and migration plan M0–M6 that absorbs goals G7/G10/G11's structural halves. Section 9 of that document reserves four design decisions for explicit owner confirmation; the rest binds as each migration step lands suite-green |
+| `design/09_CHAPTER_DEVELOPMENT_GUIDE.md` and `design/templates/CHAPTER_BRIEF_V1.md` | `BINDING_DOMAIN` | Owner-directed chapter delegation, asset/mechanic reuse, planning method, and required brief fields under `DL-PLAN-01` through `DL-PLAN-06`; no new product acceptance |
+| `design/10_CHAPTER_REFERENCE_LIBRARY.md` | `SUPPORTING_CURRENT` | Source-linked continuity, seed patterns, asset discovery, and dated implementation availability |
+| `design/chapters/NORTHERN_ICE_WORLD.md` | `BINDING_DOMAIN` for owner direction; detailed proposals deferred | Northern future-chapter planning and restaurant/customer-order opportunity; exact art binding and runtime implementation remain open |
 | `CODEX_MASTER_AUDIT_CODE_REFINEMENT_HANDOFF_2026-08-26.md` | `SUPPORTING_CURRENT` | Implementation work packages for the 2026-08-26 round, addressed to the implementing agent; subordinate to this audit's protocol and gates |
 
 ### 3.3 Design-language confirmation state
@@ -1250,6 +1290,56 @@ explicitly unimplemented coverage gaps.
 - The 36 unnamed items mentioned by an off-repository Alpha journal are not
   imported as current bugs. The journal must be obtained or replaced by a fresh
   equally scoped audit.
+
+---
+
+### 4.6 Historical validation record moved from the satisfaction checklist
+
+The following dated evidence was preserved from the former section-12 gate
+paragraph on 2026-09-05. It is historical evidence only; the active gate uses
+the current engine baseline and current roster. No new pass is claimed.
+
+Historical `a3d3bce1` remains green for its then-current 61-probe
+      suite; historical merge `f3b0de07` completes the full local gate in 1437.1
+      seconds. Historical `dacef140` completes remote run `31457593351` for its
+      own SHA. Run `31648427712` at `bbc817ef` proves Windows area music 42/42
+      but stops in Ubuntu static checks on the declared-text newline hash; it
+      remains a failed run. Replacement `31649113587` succeeds at exact
+      `af4189a9` with both required jobs, all 63 remote trusted probes, boot,
+      and deterministic music 42/42 green. No full local suite at `af4189a9`
+      itself is claimed. Predecessor Opera commit `e2c25878` separately
+      completes full local `scripts/ci.sh` under exact official Godot with exit
+      0 after 1428.6 seconds; run `31661887863` succeeds at integrated SHA
+      `e0677ae4` with all 63 remote probes and deterministic music 42/42 green.
+      Distribution runtime `09e5e356` completes the full local suite in 1463.4
+      seconds with all 64 trusted probes green. Pre-fix audit-head run
+      `31678156887` is red only because Ubuntu `probe_opera` sampled the
+      0.25-second reveal after four frames; every other executed gate/probe and
+      Windows passed. Probe-only `ff068db` adds a bounded fail-closed semantic
+      wait and completes the newer full local suite in 1379.3 seconds with all
+      64 probes green. Exact authority head `9befc0f8` passes replacement run
+      `31686380560` with exactly 63 remote headings in 33m40s and Windows 42/42
+      in 3m47s. The run is not warning-clean. All five capture/upload pairs
+      completed at the workflow level and uploaded diagnostic artifacts; raw Sky Lagoon output internally fails
+      21 `OK` / 44 `FAIL` / `DONE`. First document-authority source `5ed0c754`
+      then completes official-Godot full local CI in 1,359.8 seconds/all 64.
+      Exact CHG-023 maintenance head `51887315`, parent `7eb94595`, is the latest
+      completed full-local checkpoint at 1,435.2 seconds/all 64 and passes
+      exact-head run `31710377034`: Ubuntu takes 41m12s, the trusted 63-heading
+      loop takes 18m02s, and Windows music is 42/42 ALL OK in 4m08s. The run
+      retains runner warnings, legacy resource diagnostics, and raw Sky Lagoon
+      21 `OK` / 44 `FAIL` / one `DONE`; that is now predecessor history, not the
+      current diagnostic. Historical source `7391c53c`, parent `e6edf559`,
+      completes its local/overall-remote machine history while its Sky
+      subprocess fails required-Mobile renderer identity. Current true-Canvas
+      source `51d0abc0` passes exact local official-Godot CI in 1,404.5
+      seconds/all 64 and run-14 is 20/20 local Mobile/Speedy with manifest/PNG
+      and probe hashes `AEAC7C72…DE34` and `B9EAF5E0…9C6C`; its source revision
+      remains unknown. Integrated head `441adf35` passes exact local/topic/dev
+      machine gates and has a matching APK, while its remote Sky subprocess
+      still lacks requested-Mobile PASS/JSON.
+      This full matrix must repeat at the eventual release candidate, so
+      release satisfaction remains unchecked.
 
 ---
 
@@ -1775,7 +1865,7 @@ finding records; section 10 controls that designation.
    and save/load behavior as applicable.
 7. Test caller, callee, sibling mode, shared helper, and zero-input guard.
 8. For asset or medium changes, verify archive hashes/dependencies, import with
-   exact Godot 4.7.1, refresh the shrink-only manifest, and prove no debt growth.
+   exact Godot 4.7.2-stable, refresh the shrink-only manifest, and prove no debt growth.
 9. Run parser, lint, analyzer, import, static gates, and all trusted probes,
    including ordinary-headless and display lifecycle paths rather than relying
    only on forced-2D test configuration.
@@ -1933,57 +2023,21 @@ exact commit. This is the operational checklist for `DL-QA-09` and
       insufficient.
 - [ ] The archive/preservation record is complete and no archived 3D resource
       is an active fallback or dependency.
-- [x] Authority docs, exhaustive ledger, and documentation gate agree with
-      true 2D and exact Godot 4.7.1-stable.
+- [ ] Authority docs, exhaustive ledger, and documentation gate agree with
+      true 2D and exact Godot 4.7.2-stable at the candidate revision. Historical
+      document-control closure in section 11.3 is not a new baseline or full
+      semantic-consistency pass.
 - [x] Every material indexed audit item has a linked complete canonical record
       containing all section-10 fields.
 - [ ] The off-repository Alpha journal is imported or replaced by a fresh,
       equally scoped audit; unnamed reports are not assumed fixed or open.
 - [ ] Visual stress is green and every applicable failure, review, manual item,
       and coverage gap has an explicit accepted disposition.
-- [ ] Exact Godot 4.7.1-stable parser, lint, analyzer, fresh import, static
-      gates, and all 64 current trusted local probes are green at one integrated
-      commit. Historical `a3d3bce1` remains green for its then-current 61-probe
-      suite; historical merge `f3b0de07` completes the full local gate in 1437.1
-      seconds. Historical `dacef140` completes remote run `31457593351` for its
-      own SHA. Run `31648427712` at `bbc817ef` proves Windows area music 42/42
-      but stops in Ubuntu static checks on the declared-text newline hash; it
-      remains a failed run. Replacement `31649113587` succeeds at exact
-      `af4189a9` with both required jobs, all 63 remote trusted probes, boot,
-      and deterministic music 42/42 green. No full local suite at `af4189a9`
-      itself is claimed. Predecessor Opera commit `e2c25878` separately
-      completes full local `scripts/ci.sh` under exact official Godot with exit
-      0 after 1428.6 seconds; run `31661887863` succeeds at integrated SHA
-      `e0677ae4` with all 63 remote probes and deterministic music 42/42 green.
-      Distribution runtime `09e5e356` completes the full local suite in 1463.4
-      seconds with all 64 trusted probes green. Pre-fix audit-head run
-      `31678156887` is red only because Ubuntu `probe_opera` sampled the
-      0.25-second reveal after four frames; every other executed gate/probe and
-      Windows passed. Probe-only `ff068db` adds a bounded fail-closed semantic
-      wait and completes the newer full local suite in 1379.3 seconds with all
-      64 probes green. Exact authority head `9befc0f8` passes replacement run
-      `31686380560` with exactly 63 remote headings in 33m40s and Windows 42/42
-      in 3m47s. The run is not warning-clean. All five capture/upload pairs
-      completed at the workflow level and uploaded diagnostic artifacts; raw Sky Lagoon output internally fails
-      21 `OK` / 44 `FAIL` / `DONE`. First document-authority source `5ed0c754`
-      then completes official-Godot full local CI in 1,359.8 seconds/all 64.
-      Exact CHG-023 maintenance head `51887315`, parent `7eb94595`, is the latest
-      completed full-local checkpoint at 1,435.2 seconds/all 64 and passes
-      exact-head run `31710377034`: Ubuntu takes 41m12s, the trusted 63-heading
-      loop takes 18m02s, and Windows music is 42/42 ALL OK in 4m08s. The run
-      retains runner warnings, legacy resource diagnostics, and raw Sky Lagoon
-      21 `OK` / 44 `FAIL` / one `DONE`; that is now predecessor history, not the
-      current diagnostic. Historical source `7391c53c`, parent `e6edf559`,
-      completes its local/overall-remote machine history while its Sky
-      subprocess fails required-Mobile renderer identity. Current true-Canvas
-      source `51d0abc0` passes exact local official-Godot CI in 1,404.5
-      seconds/all 64 and run-14 is 20/20 local Mobile/Speedy with manifest/PNG
-      and probe hashes `AEAC7C72…DE34` and `B9EAF5E0…9C6C`; its source revision
-      remains unknown. Integrated head `441adf35` passes exact local/topic/dev
-      machine gates and has a matching APK, while its remote Sky subprocess
-      still lacks requested-Mobile PASS/JSON.
-      This full matrix must repeat at the eventual release candidate, so
-      release satisfaction remains unchecked.
+- [ ] Exact Godot 4.7.2-stable parser, lint, analyzer, fresh import, static
+      gates, and the complete current trusted probe rosters pass at the
+      candidate integration commit. Verify roster parity rather than copying
+      historical probe counts. Prior run evidence is retained in section 4.6
+      and never substitutes for this candidate gate.
 - [ ] Full runtime capture covers every activity at 1280×720 and a representative
       wide-phone aspect ratio.
 - [ ] Target phone and M11 meet P95 ≤33.3 ms, P99 ≤50 ms, no normal-path hitch
@@ -2178,5 +2232,7 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 | 2026-08-26 | `CONFIRMING` | The code-refinement round re-inventories the tree at integration head `9a1754c1` (169 commits past sealed evidence head `441adf35`): the Canvas Melody rebuild, Castle Canvas2D baseline rooms, Day One wing (start-menu New Game routing, dirty pool, art studio), Harper/Fiona slide canvas, game-wide audio remediation, and the 2026-08-25 owner Opera House venue landed after the last audited head, so the round's measurements are pinned to `9a1754c1` while every sealed historical claim above stands unchanged for its own commit. The owner venue commits are recognized in section 3.2 as the newest Opera navigation direction, premise-consistent with `MA-OPERA-012`. |
 | 2026-08-26 | `TRIAGING` | Criteria update: design 06 gains section 18 (`DL-CODE-01`–`DL-CODE-10`), section 12 gains the code-refinement conditions, and the framework clause is recorded. Twelve bounded findings open (`MA-CI-004`–`MA-CI-007`, `MA-CODE-003`–`MA-CODE-005`, `MA-PERF-002`, `MA-PERF-003`, `MA-SAVE-001`, `MA-AUDIO-002`, `MA-TOUCH-002`), decomposing `MA-CODE-002` per its own fix plan; `MA-CODE-001` is re-measured at 10,499 lines and named the round's binding constraint; `MA-CODE-001`, `MA-CODE-002`, and `MA-OPERA-012` histories are appended. The round record is `MASTER_AUDIT_2026-08-26.md`; implementation is handed to Codex via `CODEX_MASTER_AUDIT_CODE_REFINEMENT_HANDOFF_2026-08-26.md` under section 13 item 11. No lifecycle claim beyond V1 static evidence is made by this round; this documentation-only integration is CHG-023 maintenance (rollback: revert its commit), consuming no new CHG ID; the audit remains `IN_PROGRESS` / `UNSATISFIED`. |
 | 2026-08-26 | `TRIAGING` | Owner direction, same day: the round's shrink goals alone are insufficient — a comprehensive remodel must change the architecture so continued expansion no longer grows `main.gd`. `design/08_TARGET_ARCHITECTURE.md` (`BINDING_DOMAIN`, code structure) answers it: the Mode Platform formalizes the MiniGame contract's plumbing into a ModeDirector, declarative ModeRegistry, and owned Services; the growth law becomes rule `DL-CODE-11`, the CI structure ratchet becomes `DL-CODE-12`, section 12 gains the matching gate condition, and the Codex handoff gains Stage C (WP-C0–C6 = migration M0–M6, absorbing the structural halves of G7/G10/G11). Section 9 of design 08 reserves four decisions for explicit owner confirmation. Documentation-only; CHG-023 maintenance; audit remains `IN_PROGRESS` / `UNSATISFIED`. |
+
+| 2026-09-05 | `TRIAGING` | Owner-directed planning integration: add the planning front page, chapter guide/brief/reference library, Northern restaurant planning branch, and `DL-PLAN-01` through `DL-PLAN-06`. Record delegated playable-chapter development, minor canon-preserving additions, strategic unused assets, and free mechanic remixing. Correct active engine and Chapter 2/global progression references, preserve historical evidence, and distinguish reserved architecture choices from recommendations. No runtime, art, device, child, owner-product, release, or finding-closure claim is added. |
 
 No later state is added without its required evidence.

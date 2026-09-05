@@ -5,9 +5,10 @@ _Initial 149-document index: 2026-08-02. Targeted authority reconciliation:
 classification and exact-head closure verification: 2026-08-13._
 
 This ledger is exhaustive for the repository's current Git-declared inventory
-of **383 tracked or intended-tracked Markdown paths**: the 315-path base at
-`18b6150c01e1587100dca97c85ebad03f369825a` plus the newly unignored canonical
-findings register in this audit candidate. Every path reported by the
+of tracked or intended-tracked Markdown paths. Obtain current counts from
+`python -B tools/audit_document_authority.py`; the 315/316-path checkpoints
+below are historical measurements, not a fixed inventory requirement.
+Every path reported by the
 fail-closed cached/unignored inventory appears exactly once in the first column
 of a classification row. Grouped legacy rows were split without changing their
 curated rulings; the additional rows deliberately bound stale, mixed,
@@ -68,7 +69,11 @@ unclassified until this ledger gains one new scoped row for it.
 | `design/02_ART_DIRECTION.md` | 🟢 | `BINDING_DOMAIN`; true-2D visual medium plus the protected-content and absolute cinematic rules. |
 | `design/03_TECHNICAL_ARCHITECTURE.md` | 🟢 | `BINDING_DOMAIN`; exact engine/build/save/security/release rules plus explicitly measured 3D debt. |
 | `design/04_OPEN_WORK.md` | 🔵 | `SUPPORTING_CURRENT`; current lifecycle crosswalk, not canonical finding records. |
-| `design/05_DOC_LEDGER.md` | 🔵 | `SUPPORTING_CURRENT`; this exhaustive 383-path Git-declared authority index. It classifies documents but cannot override the higher-precedence operational/domain authorities it identifies. |
+| `design/05_DOC_LEDGER.md` | 🔵 | `SUPPORTING_CURRENT`; exhaustive Git-declared authority index with live counts supplied by the validator. It classifies documents but cannot override the higher-precedence operational/domain authorities it identifies. |
+| `design/09_CHAPTER_DEVELOPMENT_GUIDE.md` | 🟢 | `BINDING_DOMAIN` for owner-directed 2026-09-05 chapter planning/delegation, strategic unused-asset selection, free mechanic reuse/modification/combination within scope, production method, and evidence boundaries under the canonical planning rules. No new chapter commission or product acceptance is granted. |
+| `design/templates/CHAPTER_BRIEF_V1.md` | 🟢 | `BINDING_DOMAIN` for required chapter-planning fields only. An unfilled template grants no creative commission, runtime authorization, or acceptance. |
+| `design/10_CHAPTER_REFERENCE_LIBRARY.md` | 🔵 | `SUPPORTING_CURRENT` continuity/source navigation, seed experience catalog, unused-asset discovery, and dated implementation availability. Scoped sources and actual evidence control; no new visual/device/child/owner acceptance is claimed. |
+| `design/chapters/NORTHERN_ICE_WORLD.md` | 🟠 | `BINDING_DOMAIN` only for the owner's 2026-09-05 Northern future-chapter planning direction and restaurant/customer-order opportunity. `PROPOSAL_DEFERRED` scope: detailed activity choices, unbound artwork candidates, full chapter plot, and runtime implementation. Old spatial asset work orders remain superseded; this record grants no product acceptance. |
 | `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` | 🟢 | `CANONICAL_CURRENT`; tracked, indexed, and document-authority verified through exact parent `e6edf559`. Stable `DL-*` rule authority remains subordinate to direct owner, operational, security, protected-asset, and save rules. |
 | `design/BOSS_SPLASH_DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN` for short true-2D gameplay boss introductions: the action/identity/tell sentence, integrated display composition, exact live-tell reuse, automatic input-blocking timeline, and five-lane 4.5/5 review floor. Its scoped Grand Puff and Day Two scores do not grant game-wide, device, child, cinematic, or release acceptance and remain subordinate to direct owner, protected-asset, performance, and canonical design-language rules. |
 | `design/07_CASTLE_DOOR_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; Act One castle door states, single-highlight sequencing, arch-following cue treatment, and Baby Eagle plot-priority ownership. |

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import subprocess
 import sys
@@ -692,6 +693,57 @@ def _authority_claim_issues(root: Path) -> list[Issue]:
 	return issues
 
 
+def _planning_fact_issues(root: Path) -> list[Issue]:
+	"""Check selected active planning facts; preserve historical engine evidence."""
+	baseline_path = Path("tools/godot_baseline.json")
+	spine_path = Path("design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md")
+	save_path = Path("scripts/save_state.gd")
+	party_path = Path("scripts/chapter_two_party_plan.gd")
+	paths = (baseline_path, MASTER_PATH, spine_path, save_path, party_path)
+	missing = [path for path in paths if not (root / path).is_file()]
+	if missing:
+		return [Issue("DOC070", str(path), "planning fact source is missing") for path in missing]
+	try:
+		baseline = json.loads(_read(root / baseline_path))
+		version = baseline["version"]
+		if not isinstance(version, str) or re.fullmatch(r"\d+\.\d+\.\d+", version) is None:
+			raise ValueError("invalid version")
+	except (ValueError, KeyError, TypeError) as error:
+		return [Issue("DOC070", str(baseline_path), f"cannot read planning baseline: {error}")]
+	issues: list[Issue] = []
+	master = _read(root / MASTER_PATH)
+	for number in (9, 12):
+		section = re.search(rf"^## {number}\.[^\n]*\n(.*?)(?=^## |\Z)", master, re.M | re.S)
+		if section is None:
+			issues.append(Issue("DOC071", str(MASTER_PATH), f"active section {number} is missing"))
+			continue
+		versions = re.findall(r"\bGodot\s+(\d+\.\d+\.\d+)", section.group(1), re.I)
+		if not versions or any(found != version for found in versions):
+			issues.append(Issue("DOC071", str(MASTER_PATH),
+				f"active section {number} must use Godot {version}; historical evidence belongs outside active gates"))
+	spine = _read(root / spine_path)
+	if "OPERA_ACTIVE_STAR_MASK" not in spine:
+		issues.append(Issue("DOC072", str(spine_path), "global progression must reference OPERA_ACTIVE_STAR_MASK"))
+	global_mask = re.search(r"^const OPERA_ACTIVE_STAR_MASK\s*:?=\s*(0x[0-9a-f]+)",
+		_read(root / save_path), re.M | re.I)
+	party_mask = re.search(r"^const ALL_PARTY_MASK\s*:?=\s*(0x[0-9a-f]+)",
+		_read(root / party_path), re.M | re.I)
+	if global_mask is None or party_mask is None:
+		issues.append(Issue("DOC072", str(spine_path), "cannot resolve authoritative progression constants"))
+		return issues
+	for value in re.findall(r"Global Opera\s+(?:remains|is|uses)\s+`?(0x[0-9a-f]+)", spine, re.I):
+		if int(value, 16) != int(global_mask.group(1), 16):
+			issues.append(Issue("DOC072", str(spine_path), "global mask conflicts with SaveState"))
+	declared = re.search(r"Chapter 2 is exactly `(0x[0-9a-f]+)`", spine, re.I)
+	if declared is None or int(declared.group(1), 16) != int(party_mask.group(1), 16):
+		issues.append(Issue("DOC073", str(spine_path), "chapter mask conflicts with ALL_PARTY_MASK"))
+	sequence = re.search(r"Canonical sequence array: `\[([\d,\s]+)\]`", spine)
+	actual = re.search(r"^const GUIDE_ORDER[^\n]*=\s*\[([\d,\s]+)\]", _read(root / party_path), re.M)
+	if sequence is None or actual is None or re.findall(r"\d+", sequence.group(1)) != re.findall(r"\d+", actual.group(1)):
+		issues.append(Issue("DOC073", str(spine_path), "chapter sequence conflicts with GUIDE_ORDER"))
+	return issues
+
+
 def audit(root: Path) -> tuple[list[Issue], dict[str, int]]:
 	issues: list[Issue] = []
 	ledger = root / LEDGER_PATH
@@ -726,6 +778,7 @@ def audit(root: Path) -> tuple[list[Issue], dict[str, int]]:
 	# when a document is historical: a broken source cannot remain auditable.
 	issues.extend(_markdown_integrity_issues(root, {Path(path) for path in inventory}))
 	issues.extend(_authority_claim_issues(root))
+	issues.extend(_planning_fact_issues(root))
 	records, _ = _finding_records(findings_text)
 	active_count = sum(item.lifecycle not in TERMINAL_LIFECYCLES for item in items.values())
 	counts = {

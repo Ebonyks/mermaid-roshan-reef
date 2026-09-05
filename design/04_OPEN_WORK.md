@@ -1,5 +1,13 @@
 # Master design — current work and historical triage
 
+For new chapters, use the
+[audit planning entry](../audit/MASTER_AUDIT_2026-08-09.md#0-planning-entry)
+and [chapter guide](09_CHAPTER_DEVELOPMENT_GUIDE.md). The
+[Northern/Ice World planning branch](chapters/NORTHERN_ICE_WORLD.md) owns the
+future restaurant/customer-order direction. This repair crosswalk is not the
+chapter-production sequence; select work by child impact and actual dependencies.
+Missing external review blocks its claim, not all independent authorized work.
+
 _Original consolidation: 2026-08-02. Re-triaged against
 `audit/MASTER_AUDIT_2026-08-09.md` on 2026-08-09; synchronized through product/
 runtime commit `09e5e35665fd8d1bd782693e10fc0198f756d2c8`, probe-readiness/full-local

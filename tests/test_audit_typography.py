@@ -874,17 +874,17 @@ class TypographyAuditTests(unittest.TestCase):
         source_routes = {
             "scripts/games/dust_boss.gd:31": "# shove and boing before she recovers immediately; it never removes progress.",
             "scripts/games/dust_boss.gd:32": "# A separate picture button adds an OPTIONAL twirl dodge. Incoming hops pulse",
-            "scripts/games/dust_boss.gd:1053": '\tStorybookUI.style_icon_button(dodge, "↻", "secondary",',
-            "scripts/games/dust_boss.gd:1120-1122": [
+            "scripts/games/dust_boss.gd:1124": '\tStorybookUI.style_icon_button(dodge, "↻", "secondary",',
+            "scripts/games/dust_boss.gd:1191-1193": [
                 '\t\tvar pulse: float = 1.0 + sin(float(m.g.get("db_active_t", 0.0)) '
                 + "\\",
                 "\t\t\t* (10.0 if danger else 2.6)) * (0.10 if danger else 0.025)",
                 "\t\tdodge.scale = Vector2.ONE * pulse",
             ],
-            "scripts/games/dust_boss.gd:1124": "\t\tpointer.visible = dodge_visible and danger",
+            "scripts/games/dust_boss.gd:1195": "\t\tpointer.visible = dodge_visible and danger",
         }
         glyph_source_routes = {
-            "scripts/games/dust_boss.gd:1118": '\t\tdodge.text = "⚡\\n↻" if danger else "↻"',
+            "scripts/games/dust_boss.gd:1189": '\t\tdodge.text = "⚡\\n↻" if danger else "↻"',
         }
         for route in evidence["source_refs"]:
             expected = glyph_source_routes.get(route)

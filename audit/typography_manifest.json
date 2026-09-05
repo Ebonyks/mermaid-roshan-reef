@@ -60,14 +60,14 @@
       "role": "optional_dodge_attention",
       "meaning": "Incoming-hop attention cue on the optional Dust Bunny dodge button; it is not the action, objective, or completion route.",
       "source_refs": [
-        "scripts/games/dust_boss.gd:1118"
+        "scripts/games/dust_boss.gd:1189"
       ],
       "redundant_routes": [
         "scripts/games/dust_boss.gd:31",
         "scripts/games/dust_boss.gd:32",
-        "scripts/games/dust_boss.gd:1053",
-        "scripts/games/dust_boss.gd:1120-1122",
-        "scripts/games/dust_boss.gd:1124"
+        "scripts/games/dust_boss.gd:1124",
+        "scripts/games/dust_boss.gd:1191-1193",
+        "scripts/games/dust_boss.gd:1195"
       ],
       "voice_route": {
         "status": "INCLUDED",
@@ -86,7 +86,7 @@
   },
   "glyph_classes": {
     "decorative": [
-      "U+00B7", "U+00D7", "U+0338", "U+200D", "U+2014", "U+2019", "U+2022", "U+2026", "U+224B", "U+3030", "U+FE0F"
+      "U+00B7", "U+00D7", "U+0338", "U+200D", "U+2014", "U+2022", "U+2026", "U+224B", "U+3030", "U+FE0F"
     ],
     "redundant": ["U+2161", "U+26A1"],
     "critical": [
