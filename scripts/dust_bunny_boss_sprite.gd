@@ -103,6 +103,8 @@ var damage_rounds_completed: int = 0
 var boss_health_rounds_remaining: int = TOTAL_DAMAGE_ROUNDS
 var final_round_active: bool = false
 var combat_speed_scale: float = 1.0
+var counter_window_seconds: float = 0.0
+var counter_reaction: bool = false
 
 
 func _ready() -> void:
@@ -200,6 +202,8 @@ func play_vulnerable_laugh() -> float:
 
 
 func register_vulnerable_tap() -> bool:
+	if counter_window_seconds > 0.0:
+		return register_counter_tap()
 	if sprite == null or defeated or not vulnerable or vulnerability_time_left <= 0.0:
 		return false
 	accepted_taps += 1
@@ -213,6 +217,29 @@ func register_vulnerable_tap() -> bool:
 	if accepted_taps >= REQUIRED_TAPS:
 		_set_vulnerable(false)
 		_complete_damage_round()
+	return true
+
+
+func configure_counter_mode(window_seconds: float) -> void:
+	# The encounter owns difficulty; the approved atlas still owns its acting.
+	# Standalone animation clients retain the original three-tap API by default.
+	counter_window_seconds = maxf(0.0, window_seconds)
+
+
+func register_counter_tap() -> bool:
+	if counter_window_seconds <= 0.0 or sprite == null or defeated \
+			or not vulnerable or vulnerability_time_left <= 0.0 or counter_reaction:
+		return false
+	accepted_taps = 1
+	tap_progress_changed.emit(1, 1)
+	_set_vulnerable(false)
+	counter_reaction = true
+	action_locked = true
+	_play_tap_sfx(1)
+	sprite.speed_scale = combat_speed_scale
+	sprite.stop()
+	sprite.play(&"flinch_1")
+	_complete_damage_round()
 	return true
 
 
@@ -305,6 +332,8 @@ func _set_vulnerable(is_open: bool) -> void:
 
 
 func current_vulnerability_window() -> float:
+	if counter_window_seconds > 0.0:
+		return counter_window_seconds
 	return (
 		FINAL_ROUND_VULNERABILITY_WINDOW
 		if final_round_active
@@ -331,7 +360,7 @@ func _complete_damage_round() -> void:
 
 func _reset_tap_progress() -> void:
 	accepted_taps = 0
-	tap_progress_changed.emit(accepted_taps, REQUIRED_TAPS)
+	tap_progress_changed.emit(accepted_taps, 1 if counter_window_seconds > 0.0 else REQUIRED_TAPS)
 
 
 func _on_frame_changed() -> void:
@@ -348,13 +377,18 @@ func _on_animation_finished() -> void:
 				sprite.frame = FRAME_COUNT - 1
 		&"flinch_1", &"flinch_2":
 			action_finished.emit(finished_animation)
-			if vulnerable and vulnerability_time_left > 0.0:
+			if counter_reaction:
+				var next_reaction: int = 2 if finished_animation == &"flinch_1" else 3
+				_play_tap_sfx(next_reaction)
+				sprite.play(StringName("flinch_%d" % next_reaction))
+			elif vulnerable and vulnerability_time_left > 0.0:
 				sprite.animation = &"laugh_vulnerable"
 				sprite.frame = FRAME_COUNT - 1
 				sprite.pause()
 			else:
 				play_angry()
 		&"flinch_3":
+			counter_reaction = false
 			action_finished.emit(finished_animation)
 			if boss_health_rounds_remaining <= 0:
 				play_implode()

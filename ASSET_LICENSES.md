@@ -3325,3 +3325,8 @@ Sources, hashes, native dimensions, and exact edits are recorded in `assets_src/
 - `assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png` — transparent 1024x1024 runtime atlas packed from the accepted alpha native by the established `tools/prepare_opera_roshan_animation.py`; modifications: complete-figure grouping, one shared uniform scale, centering, and safe cell padding only; exact transforms and hashes are recorded in `teacher_roshan_sheet_pack_report.json`.
 - `assets/opera/worlds/actors/roshan_teacher.png` — transparent 512x512 static fallback derived from accepted Teacher Roshan idle cell zero; modifications: complete-cell crop and uniform premultiplied-alpha resize only; source atlas preserved.
 <!-- TEACHER_ROSHAN_2026-09-03_END -->
+
+## Grand Puff Dusty Attic arena (2026-08-30)
+
+- `assets_src/imagegen/dust_bunny_boss_arena_2026-08-30/dusty_attic_arena_native_1254.png` — selected project-original OpenAI built-in ImageGen background source; license: project original, all rights reserved; URL: none; modifications: none after generation. Exact prompt, reference roles/hashes, generation gap, and review limits are recorded in the adjacent `PROMPT_AND_PROVENANCE.md`.
+- `assets/flats/castle/boss/dusty_attic_arena_2048.png` — power-of-two runtime master derived from the selected native generation by one uniform whole-canvas Lanczos resize to 2048×2048; license: project original, all rights reserved; URL: none. No crop, mask, compositing, local repair, protected-source pixel insertion, or independently regenerated tile was used.

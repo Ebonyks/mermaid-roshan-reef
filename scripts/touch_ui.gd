@@ -384,6 +384,12 @@ func movement_zone() -> Rect2:
 	var vs: Vector2 = _root.size
 	if vs == Vector2.ZERO:
 		vs = get_viewport().get_visible_rect().size
+	var main: Node = get_parent()
+	if main != null and String(main.get("game")) == "dustboss":
+		# The boss alternates drag-to-avoid with release-to-counter. Every
+		# unclaimed arena pixel can start that one-finger gesture; GUI overlays
+		# still receive first claim through _unhandled_input.
+		return Rect2(Vector2.ZERO, vs)
 	return Rect2(0.0, vs.y * 0.52, maxf(390.0, vs.x * 0.34), vs.y * 0.48)
 
 func action_zone() -> Rect2:
