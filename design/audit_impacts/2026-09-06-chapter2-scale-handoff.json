@@ -129,6 +129,11 @@
       "command": "Parser, inference lint, audit_document_authority.py, audit_development.py --base auto, audit_imagine_handoff.py --all",
       "result": "PASS",
       "evidence": "Exact staged task files, 559/559 document coverage; .tmp/chapter2/scale-final-doc.log, scale-final-impact.log, scale-handoff-gate.log. Draft cards remain non-executable."
+    },
+    {
+      "command": "Immutable GitHub archive verification at 732bd2a5",
+      "result": "FAIL",
+      "evidence": "Manifest bytes differed because Git normalized CRLF text. Corrected by explicit LF packet normalization and rehashing before renewed remote verification; images and runtime unchanged."
     }
   ],
   "acceptance_gaps": "Owner visual, target-device and child acceptance pending. Archive publication does not grant generator readiness or cinematic delivery acceptance."

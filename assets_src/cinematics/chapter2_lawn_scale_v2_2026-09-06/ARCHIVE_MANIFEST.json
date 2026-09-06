@@ -1,7 +1,7 @@
 {
   "schema": "chapter2-lawn-archive-v2",
   "payload_algorithm": "sha256 of sorted UTF-8 sha256 + two spaces + relative path + LF rows, excluding this manifest",
-  "packet_payload_sha256": "d6a257df6bcf9a0475a2ac8869db8dc8ec778ac5f442857fd323ba980302a9bb",
+  "packet_payload_sha256": "754136335de065fa76bedf51e861ea2f796587c0522e720556a0bcfd1a7826e7",
   "files": [
     {
       "path": ".gdignore",
@@ -93,7 +93,7 @@
     },
     {
       "path": "GROK_COPY_PASTE.txt",
-      "sha256": "11d4fa27bab91a2827b0b94f668ae217b102d63fc58d83ad395fdca0591ef2db",
+      "sha256": "b5f7849cf715226b7259f850058af790f4e7f1f44f5aa3e74bdeb5a93785029f",
       "source_path": "project-authored:assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/GROK_COPY_PASTE.txt",
       "role": "planning_archive_not_delivery",
       "license_provenance": "project-owned original artwork/code and authorized gameplay review capture; all rights reserved",
@@ -101,7 +101,7 @@
     },
     {
       "path": "IMAGINE_HANDOFF.json",
-      "sha256": "5b2a2981c761eddbc6333846488f247c56bf7fc2b82c52e720d24632ea467280",
+      "sha256": "b9e55958168df2038c6587b3e6da86b778d731e52ca621bd406f790a33509411",
       "source_path": "project-authored:assets_src/cinematics/chapter2_lawn_2026-09-06/IMAGINE_HANDOFF.json",
       "role": "archive_sidecar",
       "license_provenance": "project-authored; all rights reserved",
@@ -117,7 +117,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "4bca74ccc6dfcda57d6f100ce3172f5fe8249c0f2d646d21631a9b96614fd473",
+      "sha256": "fa9e5e05e3998c21eb85db964c9c2b572c73e75b7aafbd1bbb7587c7cee8912c",
       "source_path": "project-authored:assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/README.md",
       "role": "planning_archive_not_delivery",
       "license_provenance": "project-owned original artwork/code and authorized gameplay review capture; all rights reserved",
@@ -521,7 +521,7 @@
     },
     {
       "path": "runtime/README.txt",
-      "sha256": "038ddd0594dbb3e6baa20da8d8291432226808259ea706d72c58132cae566a42",
+      "sha256": "229a5c2191cda8799944de087d7521e6dfac709c2b5205dd57b41473182988ea",
       "source_path": "project-authored:assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/runtime/README.txt",
       "role": "runtime_boundary_reference",
       "license_provenance": "project-owned original artwork/code and authorized gameplay review capture; all rights reserved",
@@ -533,11 +533,11 @@
       "role": "runtime_boundary_evidence",
       "license_provenance": "project-owned original artwork and authorized gameplay capture; all rights reserved",
       "modification_status": "new review artifact, not generation or delivery pixels",
-      "sha256": "42b588b8c353fc69c41d066ad152609258192fba885716eecb541ae47b5869b6"
+      "sha256": "a0d721028055dc492d9392c4e501e1204e64ffbdbd764c95c2684e1823a2cfa9"
     },
     {
       "path": "SCALE_CONTRACT.json",
-      "sha256": "ade9d6520760d0ea773afd226bf59c811caa3ba62920c05c71f4ba6f38208716",
+      "sha256": "2d891d116a2942eb31753b4c2e1e99e18b409de4879d5ad64d5fa67bb592c3a3",
       "source_path": "project-authored:assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/SCALE_CONTRACT.json",
       "role": "planning_archive_not_delivery",
       "license_provenance": "project-owned original artwork/code and authorized gameplay review capture; all rights reserved",
@@ -565,7 +565,7 @@
     },
     {
       "path": "shots/C2-01/SHOT_PACKET.json",
-      "sha256": "69eeba165e74ef438b7643b1b6b089073781b098e2996d1be6796614330bc0ab",
+      "sha256": "c23abca908f4916ae0482c81e26ce3d2522154e7d5af42327973807133018b3a",
       "source_path": "shots/C2-01/SHOT_PACKET.json",
       "role": "archive_sidecar_or_board",
       "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
@@ -581,7 +581,7 @@
     },
     {
       "path": "shots/C2-02/SHOT_PACKET.json",
-      "sha256": "0756442c9773f3101b3552b11712403c25d6f90999ae66be35573929f5f2204e",
+      "sha256": "5dcc2a90e5da4a65de425cd1983161aaef75987b6d31f1f8e453a5a43313b04e",
       "source_path": "shots/C2-02/SHOT_PACKET.json",
       "role": "archive_sidecar_or_board",
       "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
@@ -597,7 +597,7 @@
     },
     {
       "path": "shots/C2-03/SHOT_PACKET.json",
-      "sha256": "b49bbde5db73345f519bb28e33ae024ca0403987112bad1aa8b9627721cd43d3",
+      "sha256": "dd84f01b6a53a1b12a39f80d0056ea2fd5e8e108b9a0be95771cf328834b9ca5",
       "source_path": "shots/C2-03/SHOT_PACKET.json",
       "role": "archive_sidecar_or_board",
       "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
@@ -613,7 +613,7 @@
     },
     {
       "path": "shots/C2-04/SHOT_PACKET.json",
-      "sha256": "a4fadebd5f4630db3b4344562a14b6f6f561668b9fa18fd62008c5bea0dc76af",
+      "sha256": "22888a4e4d2de98b44424666ef6226a917cbef534233ea6c8f428d357eb8c77a",
       "source_path": "shots/C2-04/SHOT_PACKET.json",
       "role": "archive_sidecar_or_board",
       "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
@@ -629,7 +629,7 @@
     },
     {
       "path": "shots/C2-05/SHOT_PACKET.json",
-      "sha256": "7435ec6d3aa3699e343b88621cf075810d7cc82510ca297e1d1374cbbc1f309f",
+      "sha256": "39a9025e7ec58e8413d78e5089602206ac83fe4b65be678ca1aaa2c1533b8b12",
       "source_path": "shots/C2-05/SHOT_PACKET.json",
       "role": "archive_sidecar_or_board",
       "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
@@ -645,7 +645,7 @@
     },
     {
       "path": "shots/C2-06/SHOT_PACKET.json",
-      "sha256": "2bf586015c53b0057444b36ae39bf5dee524ac9b292da2ca7b11f5b1c692815a",
+      "sha256": "4fed986c2cdc4a86c0851f668fbddec4c04d30a038d6931413c2fb369ed90b36",
       "source_path": "shots/C2-06/SHOT_PACKET.json",
       "role": "archive_sidecar_or_board",
       "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
@@ -661,7 +661,7 @@
     },
     {
       "path": "shots/C2-07/SHOT_PACKET.json",
-      "sha256": "a721ef316e09aa7ae3c4e3917e0f19d38d95d8d3446eba6f1cad734a34af2c53",
+      "sha256": "8dd296c2ac3a03b51b883e8d8217755ad398da441eebd99acaa674875bb6485b",
       "source_path": "shots/C2-07/SHOT_PACKET.json",
       "role": "archive_sidecar_or_board",
       "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
@@ -677,7 +677,7 @@
     },
     {
       "path": "shots/C2-08/SHOT_PACKET.json",
-      "sha256": "72485fdcf3c92ac89c85a1a170196e7fc5926623c2c81de8019e0e4c7a02f15e",
+      "sha256": "78789be335867478c34571fad78fb2f9ef58fdf89b7819111c551b897319dc26",
       "source_path": "shots/C2-08/SHOT_PACKET.json",
       "role": "archive_sidecar_or_board",
       "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
@@ -693,7 +693,7 @@
     },
     {
       "path": "shots/C2-09/SHOT_PACKET.json",
-      "sha256": "6b1ebf1348f7f7209ce4e6692a7b665bdeed9750220b5a64b938162f41a115bc",
+      "sha256": "a644c137a4f3f1a647edd92b1d8d416e301ec11d5acc61732f51968bce050c15",
       "source_path": "shots/C2-09/SHOT_PACKET.json",
       "role": "archive_sidecar_or_board",
       "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
