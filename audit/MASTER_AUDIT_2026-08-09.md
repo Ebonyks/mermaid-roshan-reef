@@ -1398,8 +1398,17 @@ the compact navigation view; these links open the complete section-10 records:
 
 ### 5.1 P0/P1 and acceptance-blocking indexed items
 
+Owner-directed action-location finding:
+[`MA-PLAY-004`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-play-004), P1,
+`IN_PROGRESS`: Roshan must travel to each job target, visibly perform the work
+with hand/tool contact, and only then complete that step. Pool skimming is the
+first repair; bathtub cleaning, craft-room cleaning, baby-eagle rescue, the
+remaining pool activities, and equivalent jobs require individual evidence.
+Launching a minigame or animating an unattached tool does not satisfy this gate.
+
 | ID | Severity | Lifecycle | Verification | Indexed issue | Closure requirement |
 |---|---|---|---|---|---|
+| `MA-PLAY-004` | P1 | `IN_PROGRESS` | V2/V3 pool only; other jobs open | Detached tools can complete Roshan-owned work remotely. The pool skimmer is the first repair; bathtub, craft-room, baby-eagle and remaining pool jobs stay open | Each job/substep proves travel, arrival, visible hand/tool work, then completion, with cancellation/save/one-finger checks and Mobile/device/owner evidence |
 | `MA-2D-002` | P1 | `IN_PROGRESS` | V2/V3 partial | Source `51d0abc0` records 509 model/export files, 157 tracked model sidecars, 352 active untracked sidecars, 65 production 3D files, 70 probe 3D files, one 3D scene, and one 3D configuration; regression is exact `NO_REGRESSION`, all 14 stress controls pass, and archive-now is zero. Sky joins Dolls, Seek, and bounded Opera as converted/retired slices, but remaining active surfaces still enforce legacy 3D | All eleven GAME2D categories reach zero; strict gate, import, focused/surrounding/full probes green |
 | `MA-DOC-002` | P1 | `VERIFIED_FIXED` | V2/V3 exact maintenance-head local plus remote | CHG-029 sources `5ed0c754`/`7eb94595` preserve the exact 316-path Git-declared Markdown inventory with 316 unique rows and explicit mixed/supersession scope. Exact CHG-023 maintenance head `51887315` passes official Godot 4.7.1 full local in 1,435.2 seconds/all 64 and Probe Suite run `31710377034`; 36 tests, six mutation controls, and 316/316 parity are green | Preserve one-row-per-path coverage as inventory changes; future drift regresses the terminal finding |
 | `MA-DOC-003` | P1 | `BLOCKED_EXTERNAL` | V1 | An off-repository journal is said to hold 36 unnamed entries described as findings | Import source evidence or replace with fresh equal-scope audit; do not assume the entries are current |
@@ -2033,6 +2042,18 @@ and this prose synchronization are CHG-023 maintenance.
 
 ## 12. Master-audit satisfaction gate
 
+- [ ] `MA-PLAY-004` / `DL-INT-02`: every Roshan-owned job and substep has
+      fresh runtime evidence of **travel → arrival → visible work/contact →
+      completion**. Required named cases include every pool trash item,
+      waterfall and seahorse work, bathtub/fixture cleaning, craft-room cleanup,
+      and saving the baby eagle. Prove far tap/drag cannot award remote progress,
+      a quick tap completes after the visible action, retarget/focus/pause/exit
+      cancels unfinished work, zero input never works, and saves/re-entry retain
+      completed steps exactly once. Record start/target positions, approach and
+      contact distances, action state, completion time, and before/during/after
+      Mobile captures per case. Pool-only machine success cannot close the
+      game-wide finding or grant device/child/owner visual acceptance.
+
 This round may move to `SATISFIED` only when all conditions are true at one
 exact commit. This is the operational checklist for `DL-QA-09` and
 `DL-QA-10`:
@@ -2208,6 +2229,7 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 
 | Date | State | Change |
 |---|---|---|
+| 2026-09-06 | `REPAIRING` | Owner identified the detached skimmer in Rumi's pool. Added `MA-PLAY-004` and the binding per-job travel/contact/action/completion gate, explicitly including bathtub, craft-room, and baby-eagle work. Pool runtime repair is a bounded first slice; other cases and final visual/device acceptance remain open. |
 | 2026-08-09 | `INVENTORYING` | Prior masters, audits, work orders, status sources, code, assets, probes, and owner decisions inventoried |
 | 2026-08-09 | `AUDITING` | Static design/code/art/tool evidence compared; visual and dimensional gates run |
 | 2026-08-09 | `CONFIRMING` | Current reports separated from pre-fix symptoms, optional ideas, and superseded 3D premises |

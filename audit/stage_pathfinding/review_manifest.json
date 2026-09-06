@@ -12,8 +12,9 @@
     "human_geometry_review": "PENDING",
     "target_device_review": "PENDING",
     "game_wide_pathfinding_accepted": false,
-    "full_validation": "PASS: local static gates and fresh complete 78-probe runtime replay; see evidence/validation_summary.json",
-    "castle_existing_frame_binding": "PASS: 96 unchanged reviewed frame hashes; owner acceptance remains pending"
+    "full_validation": "PASS at pathfinding parent 3457af78 (local gates and GitHub run 34021845059); combined pool validation is recorded separately.",
+    "castle_existing_frame_binding": "PASS: 96 unchanged reviewed frame hashes; owner acceptance remains pending",
+    "combined_pool_validation": "PASS: import and five shared runtime probes; merged-head GitHub CI pending at record creation."
   },
   "runtime_source_sha256": {
     "scripts/stage_navigation_2d.gd": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
@@ -29,7 +30,12 @@
     "tools/tests/test_audit_stage_pathfinding.py": "578a33ea9c007f31a3569f7d5970e397aa2b7fd9fc40368a8a6ee53c4d974a23",
     "scripts/probe_crown.gd": "2b1deb2cb1fa71fac67fa9b331408cb68bf4ed2a0a5ebaece439f538d5c47b24",
     "scripts/probe_interaction.gd": "ac7f69a5b42cada43e97ca810c1b2cb716b1382c5668375df38eb927962a4a54",
-    "scripts/probe_castle_canvas2d.gd": "a62ceb2931cb0cf1ff015f9144b99f9a9a41ee5d684f3498059b5b647a8242d7"
+    "scripts/probe_castle_canvas2d.gd": "a62ceb2931cb0cf1ff015f9144b99f9a9a41ee5d684f3498059b5b647a8242d7",
+    "scripts/games/day_one_pool_cleanup.gd": "b38462f71d7d0b215ad8a97df219f296551e40011d721024970c45a41a7da117",
+    "scripts/games/pool_skimmer_activity.gd": "96c8008d0cb8441cfe1ea52c27402d01b6f5b139eef55949cdbc02654030f739",
+    "scripts/probe_audit.gd": "2c97bf7fe31506c2e99f87d82b6e8f6f7384e898153b634d95c086255272dcff",
+    "scripts/probe_day_one_pool_cleanup.gd": "9544c43ee8fcdeec370d1c93edbbe59d492184c4cdafbc9f32ec7ace33c03038",
+    "scripts/probe_day_one_pool_shots.gd": "13a642fd87918b01b36433b1dc382d7f5edbda6b6f9a1ae3fcd7a79be81594f6"
   },
   "files": [
     {
@@ -39,8 +45,8 @@
     },
     {
       "path": "audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md",
-      "sha256": "4e87a25a79cc55817d8603f00b5533002cb06c25e41b3550178e5a991a709fd4",
-      "bytes": 3966
+      "sha256": "6e0fda61fbe759a2ba57aacad65c5fc90ef819e38345c4e9a0a4f7265dd26440",
+      "bytes": 4282
     },
     {
       "path": "audit/stage_pathfinding/castle_geometry.json",
@@ -61,6 +67,16 @@
       "path": "audit/stage_pathfinding/evidence/castle_frame_binding_revalidation.json",
       "sha256": "21fe2f19de986fcec0124c6ca68efef9421a18582bb2e0f6a517a0f75f1f3727",
       "bytes": 8833
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/combined-pool-probes.log",
+      "sha256": "915f60aea70118234a53a2c0a8851536a9e812a87332c9e25e01d6f20c9c3eac",
+      "bytes": 46188
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/combined-pool-validation.json",
+      "sha256": "f27db53cdfe82505ba56a9d8c8facf1d88bf613ed89be1dee60b2e28f8d7963d",
+      "bytes": 1696
     },
     {
       "path": "audit/stage_pathfinding/evidence/crown-recheck.log",
@@ -529,19 +545,21 @@
     },
     {
       "path": "audit/stage_pathfinding/stage_inventory.json",
-      "sha256": "0ec028a16cbbb3ee9e50bf45599faad5a1f960fdeeeca1f00b29e5ea59d1de37",
-      "bytes": 39102
+      "sha256": "6eb230420517013a215d7b7a03e5ff071ca4922c3c5c1ec405203685841b6a32",
+      "bytes": 48368
     }
   ],
-  "packet_payload_sha256": "ffc62749804b4512ca54cb0d5373271cca6c4f7c345828f983405cd403b3bf6b",
+  "packet_payload_sha256": "6d0965baf6eda2abf995d87ade6c381504c6a72863def650f5e1ee07c2796bb2",
   "notes": [
     "Review images reuse exact runtime source textures and current fixture atlas cells. No original artwork changed.",
     "Centerlines own movement; displayed clear bands are diagnostic aids only.",
-    "Focused transcripts cover their named checks. They do not grant full-suite, device, human or game-wide acceptance."
+    "Focused transcripts cover their named checks. They do not grant full-suite, device, human or game-wide acceptance.",
+    "The pool reconciliation inherits source 64094fca; the atlas still contains 34 Opera views and 13 Castle rooms, not a new pool-activity capture packet."
   ],
   "text_hash_normalization": "UTF-8 text stored with LF line endings; binary asset hashes are native bytes.",
   "approval_binding": {
     "path": "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
     "sha256": "630d69371966b0e7dc6dce2ac71e0c756199096f0e48afdc01dd1b138911f615"
-  }
+  },
+  "reconciled_integration_revision": "64094fca00c9e1ef64b26e6568ad35c50d9cfca4"
 }

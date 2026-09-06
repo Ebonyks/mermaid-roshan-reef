@@ -2,7 +2,7 @@
 
 This protocol applies to every `avatar_locomotion` stage and to every source
 stage that launches a `fixed_minigame`. It is a child-readable travel rule:
-Roshan moves to the thing first, then the thing responds.
+Roshan moves to the thing, visibly does the job there, then the world changes.
 
 For each interactive object, the runtime manifest must declare a stable
 `object_id`, `approach_point` in stage coordinates, `arrival_radius`, `action`
@@ -10,8 +10,12 @@ and `return_target`. A tap on the object and a drag ending on the object both
 create the same travel request. The request is idempotent: repeated taps do not
 stack actions or teleport Roshan. While travelling, the pointer and a short
 voice cue identify the destination. On arrival, stop movement, clear velocity,
-confirm the distance test, and invoke the action exactly once. A direct tap may
-only invoke immediately when Roshan is already within `arrival_radius`.
+confirm the distance test, and start the action exactly once. Roshan's relevant
+hand/tool contact and scoop, scrub, pickup or other work must be readable before
+the step changes the world or awards progress (`DL-INT-02`, `MA-PLAY-004`).
+Arrival or an object-only animation is not proof that she performed the job.
+A direct tap may start work immediately only when Roshan is already within
+`arrival_radius`; being near never skips the work itself.
 
 Doors follow the same contract. Tapping or dragging to a door selects its
 visible destination; arrival at the door activates the transition. Releasing a
