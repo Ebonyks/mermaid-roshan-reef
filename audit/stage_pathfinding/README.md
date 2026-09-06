@@ -34,3 +34,8 @@ reproductions of the live stages, not accepted replacement art. Diagnostic
 line widths do not expand the playable centerlines. Human geometry review
 and target-device validation remain open. Generic Castle layouts outside the
 three explicitly authored rooms still require fixture-by-fixture review.
+
+Current coverage includes 65 entries after reconciling the new Chapter 2 lawn.
+Its rocket approach and battle bounds are recorded separately from still-open
+floor/obstacle geometry and King-counter contact. The Castle/Opera atlas does
+not claim to reproduce or visually accept that new lawn stage.

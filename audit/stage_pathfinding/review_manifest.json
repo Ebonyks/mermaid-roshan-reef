@@ -4,7 +4,7 @@
   "scope": {
     "opera_layout_views": 34,
     "castle_rooms": 13,
-    "inventory_entries": 64,
+    "inventory_entries": 65,
     "additional_whole_hall_overviews": 1
   },
   "claims": {
@@ -12,10 +12,11 @@
     "human_geometry_review": "PENDING",
     "target_device_review": "PENDING",
     "game_wide_pathfinding_accepted": false,
-    "full_validation": "PASS at pathfinding parent 3457af78 (local gates and GitHub run 34021845059); combined pool validation is recorded separately.",
+    "full_validation": "PASS: complete current-dev combined local scripts/ci.sh (78 trusted groups) and three additional focused probes; both exact parents have full green GitHub CI. Merged-head remote CI pending at record creation.",
     "castle_existing_frame_binding": "PASS: 96 unchanged reviewed frame hashes; owner acceptance remains pending",
     "combined_pool_validation": "PASS: import and five shared runtime probes; merged-head GitHub CI pending at record creation.",
-    "combined_back_arrow_validation": "PASS: eight focused fresh-save probes including Castle, Opera, handoff, pool and voice; exact merged-head GitHub CI pending at record creation."
+    "combined_back_arrow_validation": "PASS: eight focused fresh-save probes including Castle, Opera, handoff, pool and voice; exact merged-head GitHub CI pending at record creation.",
+    "combined_chapter2_validation": "PASS: complete local suite and dedicated Chapter 2/lawn/navigation probes; see combined-chapter2-validation.json."
   },
   "runtime_source_sha256": {
     "scripts/stage_navigation_2d.gd": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
@@ -37,7 +38,7 @@
     "scripts/probe_audit.gd": "2c97bf7fe31506c2e99f87d82b6e8f6f7384e898153b634d95c086255272dcff",
     "scripts/probe_day_one_pool_cleanup.gd": "9544c43ee8fcdeec370d1c93edbbe59d492184c4cdafbc9f32ec7ace33c03038",
     "scripts/probe_day_one_pool_shots.gd": "13a642fd87918b01b36433b1dc382d7f5edbda6b6f9a1ae3fcd7a79be81594f6",
-    "scripts/main.gd": "074c3c497030beda85fd1b52839a46349948095ff7dc2c8f775a47010634a916",
+    "scripts/main.gd": "9c352a564c805ba02a6bdf978979276030e314bd3dafcb295b63a63643399952",
     "scripts/navigation_controller.gd": "0daacad2a6e49e18faad7ca18af8d55863ef0b9cf6603f0f310629bda29645a8",
     "scripts/pause_menu.gd": "fc3c7067f6e8fb6766e548204fb542442854e2f8215427f1f2b0c5b3c73b7fb9",
     "scripts/probe_castle_pool_life_2d.gd": "f12330462a1d5f615622b0a500f29a5d38c73c0de2d0819a887e69abd53c5365",
@@ -46,7 +47,17 @@
     "scripts/probe_day_one_d8_revisits.gd": "a67a1cb3ae225e710cbf326a0e2e6d6f2891e5607fe16df1ec8eb1fc4a50fb23",
     "scripts/probe_day_one_draft_integration.gd": "80c650688742bf98d582019ca345bc748b3384e1e706f236b9d3151d9790258f",
     "scripts/probe_day_one_handoffs.gd": "f8a514815e0781951e92cebe7984fe0a3274763a5a8743d7f5fb71cf10d6ee54",
-    "scripts/probe_ui_system.gd": "bf520b1bb686f12187ba1bcc3e72329460bb53b771cbef91cc73d503dc17ac90"
+    "scripts/probe_ui_system.gd": "bf520b1bb686f12187ba1bcc3e72329460bb53b771cbef91cc73d503dc17ac90",
+    "scripts/audio_director.gd": "bed0e52674c1fb995097016cfdfc52a0660a3f68b67241924a16497fdab234c1",
+    "scripts/chapter_two_director.gd": "eb3e820217b08b87cab8a8ea8758a8da16736fdbd57db896ab016af2173c69b5",
+    "scripts/chapter_two_ember_encounter.gd": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42",
+    "scripts/chapter_two_lawn_finale_2d.gd": "6ad217cfcee099df32d678a5f1cbac2416382e001392f340568c4a2096f97dc9",
+    "scripts/chapter_two_party_plan.gd": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+    "scripts/chapter_two_party_table_2d.gd": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87",
+    "scripts/chapter_two_room_plot.gd": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+    "scripts/probe_chapter2.gd": "88c397b0acbc3c13e0bc242966ba4d0ab048661679909e784d3592a359899b22",
+    "scripts/probe_chapter2_lawn.gd": "1cfacfe749a627520408286f350bce930538a727da2dfd64e37cca4affd2c8d3",
+    "scripts/save_state.gd": "b0a930ab69b1abd691908e8ffb94883135300bf9c364b0fc2006d1e8d3476aae"
   },
   "files": [
     {
@@ -78,6 +89,21 @@
       "path": "audit/stage_pathfinding/evidence/combined-back-arrow-validation.json",
       "sha256": "f2ab2799a0598c8b3a887d0c30945afd431ae8d05116b51776f7c184c2464db2",
       "bytes": 2386
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/combined-chapter2-focused.log",
+      "sha256": "7f9558b1a639462ad1777d2b3e42b13eb877004ee426eeb80b95821ce1ca5eca",
+      "bytes": 8361
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/combined-chapter2-full-ci.log",
+      "sha256": "d66d722f99c5356afa600e52b2d1e8c9503e1cf7ee16d75b5ed22a3d3f0f0622",
+      "bytes": 584987
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/combined-chapter2-validation.json",
+      "sha256": "545fe7f7464cca4ab8c885c9886fb86ef218cafae2813ef2a6a1357c4acc2a40",
+      "bytes": 4012
     },
     {
       "path": "audit/stage_pathfinding/evidence/combined-pool-probes.log",
@@ -136,8 +162,8 @@
     },
     {
       "path": "audit/stage_pathfinding/README.md",
-      "sha256": "93602b906c3d4751ce65af0635f126414bce27d8421a901faef6e4b2bdcb4b42",
-      "bytes": 2154
+      "sha256": "7401eae64d48064c849ebfe9e474aa4b44c4f41f864770f270ed096cfc8591df",
+      "bytes": 2453
     },
     {
       "path": "audit/stage_pathfinding/reproductions/astronaut_stage.html",
@@ -561,8 +587,8 @@
     },
     {
       "path": "audit/stage_pathfinding/stage_inventory.json",
-      "sha256": "6eb230420517013a215d7b7a03e5ff071ca4922c3c5c1ec405203685841b6a32",
-      "bytes": 48368
+      "sha256": "2d5174d5dc08fd67a40ab975fff72e881ff7f9ac4897f1960e516b2b0a7b8ce7",
+      "bytes": 50661
     },
     {
       "path": "audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md",
@@ -570,18 +596,19 @@
       "bytes": 4282
     }
   ],
-  "packet_payload_sha256": "99da3417645502573e6d3f2dbcdc8286a63c1d91205edbf93335e5e8fa80574f",
+  "packet_payload_sha256": "8211032ee6f982ef30a3468ab0abbc352b3f3be2168e236adf02c34a09ec8f6b",
   "notes": [
     "Review images reuse exact runtime source textures and current fixture atlas cells. No original artwork changed.",
     "Centerlines own movement; displayed clear bands are diagnostic aids only.",
     "Focused transcripts cover their named checks. They do not grant full-suite, device, human or game-wide acceptance.",
     "The pool reconciliation inherits source 64094fca; the atlas still contains 34 Opera views and 13 Castle rooms, not a new pool-activity capture packet.",
-    "Back-arrow reconciliation inherits dev a6ffa14d. The atlas reproduces stage geometry and fixtures; it is not a capture of the persistent global navigation overlay. The first combined-parent voice failure and rechecks are recorded separately."
+    "Back-arrow reconciliation inherits dev a6ffa14d. The atlas reproduces stage geometry and fixtures; it is not a capture of the persistent global navigation overlay. The first combined-parent voice failure and rechecks are recorded separately.",
+    "Current dev 763a0213 introduces the Chapter 2 lawn. It is inventoried as a 65th open entry; no lawn geometry reproduction or acceptance is implied by the Castle/Opera atlas."
   ],
   "text_hash_normalization": "UTF-8 text stored with LF line endings; binary asset hashes are native bytes.",
   "approval_binding": {
     "path": "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
     "sha256": "630d69371966b0e7dc6dce2ac71e0c756199096f0e48afdc01dd1b138911f615"
   },
-  "reconciled_integration_revision": "a6ffa14d0160ad6830464b73df33e1db20641fa1"
+  "reconciled_integration_revision": "763a021392ee784bff692a911eb8a32c1dc2bf02"
 }

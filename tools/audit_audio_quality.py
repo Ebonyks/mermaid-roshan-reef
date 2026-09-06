@@ -1078,6 +1078,7 @@ def loudness(path: Path) -> tuple[float | None, float | None, float | None]:
 def category(rel: str) -> str:
     if rel.startswith("assets/audio/voices/") \
             or rel.startswith("assets/audio/teacher/") \
+            or rel.startswith("assets/audio/chapter2_lawn/") \
             or rel == "assets/audio/voice_yay.mp3":
         return "voice"
     if rel.startswith("assets/audio/music/"):

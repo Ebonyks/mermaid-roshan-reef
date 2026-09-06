@@ -3,7 +3,7 @@
   "source_revision": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
   "classification_notes": {
     "opera_act_entries": "The 15 opera.act.* rows represent avatar travel from the owning Castle room through the arrival seam into the activity and exact board return. Fixed board internals are separately represented by opera.surface.* rows.",
-    "coverage_scope": "64 rows are parsed-catalog coverage plus explicitly recorded supporting variants, not a claim that every future level or legacy grouped mode is exhaustive.",
+    "coverage_scope": "65 rows are parsed-catalog coverage plus explicitly recorded supporting variants, not a claim that every future level or legacy grouped mode is exhaustive.",
     "implementation_snapshot": "Shared StageNavigation2D now supplies automated route, arrival, cancellation and board-return behavior for the current Opera set; Castle generic routing covers all 13 rooms, with explicit bathroom/library/playroom fixture networks. This is implementation evidence only; human geometry/device review remains pending."
   },
   "rules": {
@@ -965,6 +965,29 @@
       "gaps": [
         "legacy spatial mode"
       ]
+    },
+    {
+      "id": "level2.chapter2.sky_lagoon_lawn",
+      "surface_class": "avatar_locomotion",
+      "runtime_state": "game=chapter2_lawn; story/ignition and three-round Ember encounter variants",
+      "route": "Castle Main Hall party hotspot -> Sky Lagoon lawn -> shared Back return",
+      "approved_art": "scripts/chapter_two_lawn_finale_2d.gd; scripts/chapter_two_ember_encounter.gd; scripts/chapter_two_party_table_2d.gd; scripts/chapter_two_room_plot.gd; assets/chapter2/ember_alpha/king_v4_cutout.png; assets/chapter2/ember_alpha/prince_idle.png",
+      "required_reproduction": "Use the real lawn controller and approved tiles: rocket approach/contact, all battle patterns, door/Back seam, drag/tap destinations, cancellation, OOB and checkpoint reload. No lawn geometry overlay is included in the Castle/Opera atlas.",
+      "walkable_policy": "Battle destinations currently clamp to a logical radius of 20.5 around screen origin (770,515), projected by (15,5). This radial bound is not an authored floor network or obstacle-clearance proof. Ignition travels between home (655,438) and reach position (513,482).",
+      "oob_policy": "Battle destination uses Vector2.limit_length(20.5); context loss cancels held input and ignition. Authored floor edges, whole-sprite clearance and recovery cues remain unverified.",
+      "status": "PARTIAL",
+      "implementation": "The incoming Chapter 2 work moves Roshan to the rocket, plays a reach/contact step, then advances ignition. Its three-round battle owns bounded movement and fresh input; during an opening, tapping KING_RECT calls accept_counter directly and does not prove approach/contact.",
+      "tests": [
+        "scripts/probe_chapter2.gd",
+        "scripts/probe_chapter2_lawn.gd"
+      ],
+      "gaps": [
+        "No authored obstacle-aware lawn route or sampled whole-sprite OOB matrix.",
+        "No visible-object drag-arrival contract; battle counters are accepted from the King tap without a demonstrated approach or contact step.",
+        "Full live Main Hall/lawn/Back return matrix and geometry reproduction remain pending.",
+        "Human geometry, target-device touch, child and owner acceptance remain pending."
+      ]
     }
-  ]
+  ],
+  "reconciled_integration_revision": "763a021392ee784bff692a911eb8a32c1dc2bf02"
 }

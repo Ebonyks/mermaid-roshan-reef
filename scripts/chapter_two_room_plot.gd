@@ -64,56 +64,11 @@ func _clear_surface() -> void:
 
 
 func _arm_party_sequence() -> void:
-	if party_table == null or m == null:
-		return
-	var director := m._chapter_two_ref()
-	if not director.party_started or director.ember_king_crashed:
-		return
-	party_sequence_elapsed = 0.0
-	king_entry_started = false
-	set_process(true)
-	set_meta("party_sequence_lifecycle_owned", true)
-	set_meta("party_sequence_phase", director.party_event_phase)
-
-
-func _process(delta: float) -> void:
-	if m == null or party_table == null or not is_instance_valid(party_table) \
-			or not is_visible_in_tree() \
-			or not m._chapter_two_live_castle_room("main_hall"):
-		return
-	var director := m._chapter_two_ref()
-	if not director.party_started or director.ember_king_crashed:
-		set_process(false)
-		return
-	party_sequence_elapsed += delta
-	if director.party_event_phase == ChapterTwoDirector.PARTY_EVENT_IGNITION:
-		if party_sequence_elapsed < IGNITION_HOLD_SECONDS:
-			return
-		party_sequence_elapsed = 0.0
-		if director.record_ember_scout():
-			party_table.refresh()
-			party_table.play_scout_arrival()
-			m._queue_save()
-			set_meta("party_sequence_phase", director.party_event_phase)
-		return
-	if director.party_event_phase != ChapterTwoDirector.PARTY_EVENT_SCOUT_SEEN:
-		return
-	if not king_entry_started:
-		if party_sequence_elapsed < SCOUT_HOLD_SECONDS:
-			return
-		party_sequence_elapsed = 0.0
-		king_entry_started = true
-		party_table.play_king_entrance()
-		set_meta("party_sequence_visual_beat", "king_approach")
-		return
-	if party_sequence_elapsed < KING_APPROACH_SECONDS:
-		return
+	# Main Hall is the departure/resume hotspot. The lawn owns every new beat;
+	# remaining idle here must never steal the candle or award protection.
 	set_process(false)
-	if director.trigger_ember_king_crash("main_hall"):
-		party_table.complete_king_take()
-		m._write_save()
-		set_meta("party_sequence_phase", director.party_event_phase)
-		set_meta("party_sequence_visual_beat", "lit_candle_departure")
+	set_meta("party_sequence_lifecycle_owned", false)
+	set_meta("party_sequence_route", "sky_lagoon_lawn")
 
 
 func _build_candle() -> void:
@@ -169,7 +124,7 @@ func _announce_plot_action() -> void:
 				"Ballerina sparkle! The stuffies are ready to dance!", "hint")
 		ChapterTwoDirector.ACTION_START_BIRTHDAY_PARTY:
 			m.show_msg("",
-				"Everything is ready! Tap the rainbow to start the party!", "hint")
+				"Your friends are waiting outside! Tap the rainbow to visit the party!", "hint")
 
 
 func _activate() -> void:

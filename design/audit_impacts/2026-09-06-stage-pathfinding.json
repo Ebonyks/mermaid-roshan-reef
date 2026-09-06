@@ -1,6 +1,6 @@
 {
   "id": "2026-09-06-stage-pathfinding",
-  "scope": "Make Castle and Opera avatar travel follow floor lanes and reach object or door contacts before actions. Correct the doctor route, preserve fixed-minigame return positions, add owned touch/drag cancellation, and inventory game-wide pathfinding gaps with 34 Opera views and 13 Castle room reproductions plus a whole-hall overview. Refresh the existing Castle frame ledger only after proving all 96 reviewed frame hashes and occlusion relations unchanged. Typography census maintenance matches concurrent integrated work and leaves font/device acceptance open. Reconcile independently green pool source 64094fca, align the protocol with visible local work before progress, and distinguish the bounded skimmer repair from still-open pool substeps. Reconcile current dev a6ffa14d upper-right Back navigation and early-room handoffs; verify the shared input and stage-return behavior with eight focused probes.",
+  "scope": "Make Castle and Opera avatar travel follow floor lanes and reach object or door contacts before actions. Correct the doctor route, preserve fixed-minigame return positions, add owned touch/drag cancellation, and inventory game-wide pathfinding gaps with 34 Opera views and 13 Castle room reproductions plus a whole-hall overview. Refresh the existing Castle frame ledger only after proving all 96 reviewed frame hashes and occlusion relations unchanged. Typography census maintenance matches concurrent integrated work and leaves font/device acceptance open. Reconcile independently green pool source 64094fca, align the protocol with visible local work before progress, and distinguish the bounded skimmer repair from still-open pool substeps. Reconcile current dev a6ffa14d upper-right Back navigation and early-room handoffs; verify the shared input and stage-return behavior with eight focused probes. Reconcile independently green dev 763a0213 Chapter 2 lawn work, preserve append-only licensing and document-ledger sections, and add the new lawn as a 65th open pathfinding entry without claiming its geometry or counter-contact accepted.",
   "baseline": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
   "rules": [
     "DL-AUTH-05",
@@ -39,6 +39,9 @@
     "audit/stage_pathfinding/evidence/castle_frame_binding_revalidation.json",
     "audit/stage_pathfinding/evidence/combined-back-arrow-probes.log",
     "audit/stage_pathfinding/evidence/combined-back-arrow-validation.json",
+    "audit/stage_pathfinding/evidence/combined-chapter2-focused.log",
+    "audit/stage_pathfinding/evidence/combined-chapter2-full-ci.log",
+    "audit/stage_pathfinding/evidence/combined-chapter2-validation.json",
     "audit/stage_pathfinding/evidence/combined-pool-probes.log",
     "audit/stage_pathfinding/evidence/combined-pool-validation.json",
     "audit/stage_pathfinding/evidence/crown-recheck.log",
@@ -194,7 +197,12 @@
       "command": "Combined Back-arrow merge: eight Godot 4.7.2 fresh-save probes, incoming GDScript parser/inference, document authority and development coverage",
       "result": "PASS",
       "evidence": "audit/stage_pathfinding/evidence/combined-back-arrow-validation.json and combined-back-arrow-probes.log. Exact merged-head GitHub CI remains pending at record creation. The earlier candidate voice failure is retained; no assertion or voice code was changed."
+    },
+    {
+      "command": "Complete Godot 4.7.2 scripts/ci.sh on the current-dev merge; three extra Chapter 2/lawn/navigation probes; document authority, development coverage and stage inventory tests",
+      "result": "PASS",
+      "evidence": "audit/stage_pathfinding/evidence/combined-chapter2-validation.json; complete local suite exits 0 with 78 unique trusted groups and zero trusted failure/runtime-error markers, plus three focused passes. Both parents have exact full green GitHub CI (34027248603 and 34028503223). Merged-head remote CI is pending at record creation."
     }
   ],
-  "acceptance_gaps": "MA-PLAY-003 remains CONFIRMED_OPEN. The catalog is not an exhaustive sublevel geometry acceptance claim. Ten generic Castle layouts still need fixture-by-fixture authorship/review; remaining legacy/world and fixed-board seams remain enumerated gaps. Human geometry review, Lenovo M11/older-phone testing, child and owner acceptance remain pending. No whole-game pathfinding or strict-zero 2D acceptance is claimed."
+  "acceptance_gaps": "MA-PLAY-003 remains CONFIRMED_OPEN. The catalog is not an exhaustive sublevel geometry acceptance claim. Ten generic Castle layouts still need fixture-by-fixture authorship/review; remaining legacy/world and fixed-board seams remain enumerated gaps. Human geometry review, Lenovo M11/older-phone testing, child and owner acceptance remain pending. No whole-game pathfinding or strict-zero 2D acceptance is claimed. The new Chapter 2 lawn remains an open supporting entry for obstacle-aware routes, whole-sprite bounds and King-counter contact."
 }

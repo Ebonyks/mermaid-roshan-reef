@@ -199,6 +199,9 @@ func _voice_path(speaker: String, event: String = "", allow_generic: bool = true
 	if event_suffix.begins_with(speaker_prefix):
 		event_suffix = event_suffix.trim_prefix(speaker_prefix)
 	var key := speaker + ("_" + event_suffix if event_suffix != "" else "")
+	if speaker == "roshan" and event_suffix.begins_with("chapter2_lawn_"):
+		var lawn_path := "res://assets/audio/chapter2_lawn/" + key + ".ogg"
+		return lawn_path if ResourceLoader.exists(lawn_path) else ""
 	if speaker == "roshan" and event_suffix.begins_with("teacher_"):
 		var teacher_path := "res://assets/audio/teacher/" + key + ".ogg"
 		if ResourceLoader.exists(teacher_path):
@@ -240,6 +243,12 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 		if now - float(m.said_cool.get(key, -99.0)) < min_gap:
 			return
 		m.said_cool[key] = now
+	if event_suffix.begins_with("chapter2_lawn_"):
+		if m.game != "chapter2_lawn":
+			return
+		# A new lawn beat supersedes its previous cue. Never let obsolete story
+		# speech mask a time-sensitive dodge or counter instruction.
+		_stop_active_speech()
 	# A required line owns the single objective voice channel. If another exact
 	# objective arrives in the same frame, retain it in FIFO order; generic talk
 	# and win are ignored until the required line has finished.
@@ -247,7 +256,7 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	if _flush_required_queue():
 		return
 	var exact_path := _voice_path(speaker, event_suffix, false)
-	if event_suffix.begins_with("teacher_") and exact_path.is_empty():
+	if (event_suffix.begins_with("teacher_") or event_suffix.begins_with("chapter2_lawn_")) and exact_path.is_empty():
 		return
 	if required and exact_path == "":
 		# Missing exact audio is an explicit pending gap, never a generic fallback.

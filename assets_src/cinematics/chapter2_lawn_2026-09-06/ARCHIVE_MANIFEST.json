@@ -1,0 +1,607 @@
+{
+  "schema": "chapter2-lawn-archive-v1",
+  "files": [
+    {
+      "path": "DRAFT_SHOT_AUDIT.json",
+      "source_path": "project-authored:assets_src/cinematics/chapter2_lawn_2026-09-06/DRAFT_SHOT_AUDIT.json",
+      "role": "archive_sidecar",
+      "modification_status": "new authored blocked-handoff metadata",
+      "license_provenance": "project-authored; all rights reserved",
+      "sha256": "9414f4a56a4d8c939f93a48185a1bf0cf8f2b6f4857b975c4df250b123dcbd78"
+    },
+    {
+      "path": "GROK_MOTION_PLANNING_REQUEST.txt",
+      "source_path": "project-authored from STORY_DRAFT.txt, JOB_HANDOFFS.json and original character references",
+      "role": "motion_planning_request_not_a_generation_job",
+      "modification_status": "new authored handoff prose",
+      "license_provenance": "project-authored; all rights reserved",
+      "sha256": "add198b1e17b8dcccba022ff50ad239eda43276c909d2e1822bc3e7a6bb5b9e9"
+    },
+    {
+      "path": "HANDOFF_STATUS.json",
+      "sha256": "7801bca15b697a647245884be12f96016eccdedbe11cb4dbc660eef9e6633b18",
+      "source_path": "HANDOFF_STATUS.json",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "IMAGINE_HANDOFF.json",
+      "source_path": "project-authored:assets_src/cinematics/chapter2_lawn_2026-09-06/IMAGINE_HANDOFF.json",
+      "role": "archive_sidecar",
+      "modification_status": "new authored blocked-handoff metadata",
+      "license_provenance": "project-authored; all rights reserved",
+      "sha256": "105de1ac2004d5c1905b42b3b9cc764f43540ea48432cf717810d67a0943de67"
+    },
+    {
+      "path": "JOB_HANDOFFS.json",
+      "sha256": "e6f4f1bb9fbff08fb31bb8aab2e9c0760bc7bc66d74842069aea2533e5b86150",
+      "source_path": "project-authored:assets_src/cinematics/chapter2_lawn_2026-09-06/JOB_HANDOFFS.json",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "project-authored; constituent source rights inherited; see ASSET_LICENSES.md; no protected originals modified"
+    },
+    {
+      "path": "SHOT_BOARD.png",
+      "sha256": "d1497be5e9d5f318eecb22bf50681d33c94236cf565eb9c853136ae30a3271bc",
+      "source_path": "approved images in adjacent references/ and characters/; shot order in HANDOFF_STATUS.json",
+      "role": "shot_board_never_generator_pixels",
+      "modification_status": "reference thumbnails arranged with beat captions; not a cinematic frame",
+      "license_provenance": "project-authored; constituent source rights inherited; see ASSET_LICENSES.md; no protected originals modified",
+      "dimensions": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "path": "SHOT_BOARD.svg",
+      "sha256": "0b8a9efbac84a31bfd2eb5baa8dd91279c6c57d6c30dcd86e67c6b93a69312b1",
+      "source_path": "approved images in adjacent references/ and characters/; shot order in HANDOFF_STATUS.json",
+      "role": "shot_board_never_generator_pixels",
+      "modification_status": "reference thumbnails arranged with beat captions; not a cinematic frame",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "STORY_DRAFT.txt",
+      "sha256": "4cbb94ea3f92042005aacf009ea1ffb7bfee50ad8528fd37d24db30164d17eda",
+      "source_path": "design/CHAPTER2_LAWN_FINALE_DRAFT_2026-09-06.md",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "unchanged UTF-8 document copy with .txt extension",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "characters/REFERENCE_LOCK.json",
+      "sha256": "b5b4212ae2b85edb7a192db0922115595695692cfe88b27d90c3a27f842e955f",
+      "source_path": "characters/REFERENCE_LOCK.json",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "characters/ember_king_owner_reference.jpg",
+      "sha256": "54d98f314767d331ddc05d3a341a8a30e0081262e7768f1b7a7ab80b467aab89",
+      "source_path": "Owner attachment wybpcIGm.jpg, 2026-09-06",
+      "role": "highest authority; explicitly confirmed King",
+      "modification_status": "none; byte-identical copy",
+      "license_provenance": "project-owned original artwork; all rights reserved",
+      "dimensions": [
+        1535,
+        1024
+      ]
+    },
+    {
+      "path": "characters/ember_king_v4.png",
+      "sha256": "422f7bd45a13f1d3c0304082727d72298e3bc01babd8919dc0c7e3e92777052c",
+      "source_path": "git:663b3e0a:assets_src/concepts/ember_royals_2026-08-22/ember_king_concept_v4.png",
+      "role": "matching historical King identity",
+      "modification_status": "none; byte-identical copy",
+      "license_provenance": "project-owned original artwork; all rights reserved",
+      "dimensions": [
+        1024,
+        683
+      ]
+    },
+    {
+      "path": "characters/ember_king_v4_gameplay_cutout.png",
+      "sha256": "481342c3e7b9cede8dfad805cf2d81bb6d18ad77c69e4a699ec2c95ace8bc8fd",
+      "source_path": "assets/chapter2/ember_alpha/king_v4_cutout.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "project-authored; constituent source rights inherited; see ASSET_LICENSES.md; no protected originals modified",
+      "dimensions": [
+        747,
+        817
+      ]
+    },
+    {
+      "path": "characters/ember_prince_ANIMATION_DELIVERY.txt",
+      "sha256": "5efc76798229223feef6e8c030f3caf29cb65f1297083aeac22a158a0d32b427",
+      "source_path": "git:671b8b4a5315a6ce5e51a6f7b89ad35dda708fe5:docs/grok_animation_series_project/characters/ember_prince/ANIMATION_DELIVERY.md",
+      "role": "historical_identity_and_motion_authority",
+      "modification_status": "unchanged bytes; .md renamed .txt for archive",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "characters/ember_prince_IDENTITY_CARD.txt",
+      "sha256": "c722d45e36023999fb3b062d29c9b0cd0c5d21be7f739d85e0defcb77b7fa682",
+      "source_path": "git:671b8b4a5315a6ce5e51a6f7b89ad35dda708fe5:docs/grok_animation_series_project/characters/ember_prince/IDENTITY_CARD.md",
+      "role": "historical_identity_and_motion_authority",
+      "modification_status": "unchanged bytes; .md renamed .txt for archive",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "characters/ember_prince_SOURCE_GENERATION_RECORD.txt",
+      "sha256": "84979328a6fb3bedc05e53bf1a68ef9ea1cfb30223e4c0e7ae416a2c19d7873b",
+      "source_path": "git:671b8b4a5315a6ce5e51a6f7b89ad35dda708fe5:docs/grok_animation_series_project/characters/ember_prince/SOURCE_GENERATION_RECORD.md",
+      "role": "historical_identity_and_motion_authority",
+      "modification_status": "unchanged bytes; .md renamed .txt for archive",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "characters/ember_prince_identity.png",
+      "sha256": "95d5cf35321c87a1b5fae280a76a52fa7d3c6930e56503c10a4054c4c75169c4",
+      "source_path": "git:671b8b4a5315a6ce5e51a6f7b89ad35dda708fe5:docs/grok_animation_series_project/characters/ember_prince/EMBER_PRINCE_IDENTITY.png",
+      "role": "recovered approved Prince identity",
+      "modification_status": "none; byte-identical copy",
+      "license_provenance": "project-owned original artwork; all rights reserved",
+      "dimensions": [
+        1024,
+        683
+      ]
+    },
+    {
+      "path": "references/banner.png",
+      "sha256": "1cbf785bded294e8e4f5814f5b85fb2a455e07c4fe16f8826b00545d095a6731",
+      "source_path": "assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
+      "dimensions": [
+        256,
+        512
+      ]
+    },
+    {
+      "path": "references/banner_star_stamp.png",
+      "sha256": "940afd1160f2596773b5177326d8ba5c12eca12d88388eb5ddc7124245c69f7c",
+      "source_path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_star.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "project-authored; constituent source rights inherited; see ASSET_LICENSES.md; no protected originals modified",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "references/cake.png",
+      "sha256": "91dbeb1f9c634eebac04cd61f29318a3f4da6c2486fcab1182cdbf93668cad59",
+      "source_path": "assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "references/candle_lit.png",
+      "sha256": "2c00e80e57315283e2612fb301cc9e2ac0c519bab1e0bfa44b4ff3dc4b13ff68",
+      "source_path": "assets/chapter2/birthday/rainbow_candle_large_flame.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "references/candle_unlit.png",
+      "sha256": "bd1d4edd2b3e6d771c8fbdd83ea180db5efbafcaba996258d3f57dd8d1e0bd7f",
+      "source_path": "assets/chapter2/birthday/rainbow_candle_unlit.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "references/friend_daddy.webp",
+      "sha256": "9031736498f05662716988b6c9a8091dc148edf92ae1e8422fb5e4f2fd17c089",
+      "source_path": "assets/characters/friends/daddy.webp",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "project-authored; constituent source rights inherited; see ASSET_LICENSES.md; no protected originals modified",
+      "dimensions": [
+        727,
+        1024
+      ]
+    },
+    {
+      "path": "references/friend_flower_friend.png",
+      "sha256": "c13b27ebb9f214f522a6af5f161b88582c59d13f51e4ea7ad113858404c13951",
+      "source_path": "assets/characters/friends/flower_friend.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
+      "dimensions": [
+        389,
+        460
+      ]
+    },
+    {
+      "path": "references/friend_huluu.png",
+      "sha256": "4b6c0e4d1c4945cc1c3cb1594ad967aa6001e9bf24506e4574345088fd9a2dc9",
+      "source_path": "assets/characters/friends/huluu.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
+      "dimensions": [
+        640,
+        1039
+      ]
+    },
+    {
+      "path": "references/friend_kareem.png",
+      "sha256": "8e9c64bed039bf3e4e85039120f13f543c9e72a6870fb54c893e443536ef678a",
+      "source_path": "assets/characters/friends/kareem.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
+      "dimensions": [
+        443,
+        640
+      ]
+    },
+    {
+      "path": "references/friend_mama_baby.png",
+      "sha256": "57c479d7a709b1bd268cfa1efeaf9340721056c9b9d4765929ed0add581334a2",
+      "source_path": "assets/characters/friends/mama_baby.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
+      "dimensions": [
+        393,
+        479
+      ]
+    },
+    {
+      "path": "references/friend_pearl_friend.png",
+      "sha256": "165f6448ef0b1ea85b638b4cbaaf7da5cccb9f5e781776ec35caa38e133970ef",
+      "source_path": "assets/characters/friends/pearl_friend.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
+      "dimensions": [
+        420,
+        398
+      ]
+    },
+    {
+      "path": "references/friend_two_friends.png",
+      "sha256": "85f2cc1bc7247d0877ff7bb6a97a44b711c757c497d36c215bc70fb74e548f58",
+      "source_path": "assets/characters/friends/two_friends.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
+      "dimensions": [
+        480,
+        460
+      ]
+    },
+    {
+      "path": "references/friend_wacky_chuck.png",
+      "sha256": "191da94a84ee9b967da1b80dac7dfc51a7a962059089b4adbf401e0fecbd3701",
+      "source_path": "assets/characters/friends/wacky_chuck.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
+      "dimensions": [
+        339,
+        500
+      ]
+    },
+    {
+      "path": "references/lawn.png",
+      "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
+      "dimensions": [
+        6144,
+        2048
+      ]
+    },
+    {
+      "path": "references/microphone.png",
+      "sha256": "0a81e7c108234c4770730761704dcf16ca9b5c1d97b3ffee0c306c1c85e8c95a",
+      "source_path": "assets/opera/worlds/props/goal_popstar.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "project-authored; constituent source rights inherited; see ASSET_LICENSES.md; no protected originals modified",
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "references/music_box.png",
+      "sha256": "4891a0863557a0105912afe7497d2b0f976aadf32507ad1c079f03f3162c257e",
+      "source_path": "assets/opera/worlds/props/goal_ballerina.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "project-authored; constituent source rights inherited; see ASSET_LICENSES.md; no protected originals modified",
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "references/rocket.png",
+      "sha256": "910f531303ec813a522f98b8ac2f97adeb5ed24bd0b438ecef9f136e19d77845",
+      "source_path": "assets/opera/worlds/props/goal_astronaut.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "references/roshan.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "references/rumi_atlas.png",
+      "sha256": "d5e0bff392a22c341c313ab94db5cea7a3cb6bb682b9ea8af2bc190a810c3f66",
+      "source_path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "project-authored; constituent source rights inherited; see ASSET_LICENSES.md; no protected originals modified",
+      "dimensions": [
+        1024,
+        768
+      ]
+    },
+    {
+      "path": "references/runtime_battle_seam.png",
+      "sha256": "5e0795d6caf8378de255ef99a48f068c93c392bf056befabd84c61e7480a5a01",
+      "source_path": "Godot 4.7.2 Mobile: scripts/probe_chapter2_lawn.gd -- --lawn-capture",
+      "role": "runtime_boundary_reference_never_generator_pixels",
+      "modification_status": "whole-canvas thumbnail of host gameplay capture; no subject edits",
+      "license_provenance": "project-authored; constituent source rights inherited; see ASSET_LICENSES.md; no protected originals modified",
+      "dimensions": [
+        1024,
+        548
+      ]
+    },
+    {
+      "path": "references/runtime_party_seam.png",
+      "sha256": "146363a03ce301e173662ad515ba569c100e3512c5b47c76f2055f1a4486443f",
+      "source_path": "Godot 4.7.2 Mobile: scripts/probe_chapter2_lawn.gd -- --lawn-capture",
+      "role": "runtime_boundary_reference_never_generator_pixels",
+      "modification_status": "whole-canvas thumbnail of host gameplay capture; no subject edits",
+      "license_provenance": "project-authored; constituent source rights inherited; see ASSET_LICENSES.md; no protected originals modified",
+      "dimensions": [
+        1024,
+        548
+      ]
+    },
+    {
+      "path": "references/runtime_theft_seam.png",
+      "sha256": "5f216dfc9b9786d63373bb08f1a7bc31c500b8ed560233ca2812fe40ddd25eba",
+      "source_path": "Godot 4.7.2 Mobile: scripts/probe_chapter2_lawn.gd -- --lawn-capture",
+      "role": "runtime_boundary_reference_never_generator_pixels",
+      "modification_status": "whole-canvas thumbnail of host gameplay capture; no subject edits",
+      "license_provenance": "project-authored; constituent source rights inherited; see ASSET_LICENSES.md; no protected originals modified",
+      "dimensions": [
+        1024,
+        548
+      ]
+    },
+    {
+      "path": "references/stuffie_bunny.png",
+      "sha256": "445ae6349e552a20ca47d665a619a42453e59c69c15da315619b6d8dc2485b4a",
+      "source_path": "assets/book/doll_bunny.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "project-authored; constituent source rights inherited; see ASSET_LICENSES.md; no protected originals modified",
+      "dimensions": [
+        220,
+        159
+      ]
+    },
+    {
+      "path": "references/stuffie_cat.png",
+      "sha256": "2f1a6732f16dc5847dc5b84ee6642e69487702878b70ecf440ba15e1927bb71c",
+      "source_path": "assets/book/doll_cat.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "project-authored; constituent source rights inherited; see ASSET_LICENSES.md; no protected originals modified",
+      "dimensions": [
+        220,
+        205
+      ]
+    },
+    {
+      "path": "references/table.png",
+      "sha256": "18c2c6a4ad7cb40de2ac85bf73aedbb5111c0aaf22a7e741d21bb7796625c57b",
+      "source_path": "assets/flats/castle/dream_house/dining_table.png",
+      "role": "continuity_reference_only",
+      "modification_status": "unchanged source copy",
+      "license_provenance": "project-authored; constituent source rights inherited; see ASSET_LICENSES.md; no protected originals modified",
+      "dimensions": [
+        292,
+        223
+      ]
+    },
+    {
+      "path": "shots/C2-01/PROMPT.txt",
+      "sha256": "4345ecd975a563475b05dfa8ee3d22fe4d8acb737b7ceb8b57d0eb306c5e5dfb",
+      "source_path": "shots/C2-01/PROMPT.txt",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-01/SHOT_PACKET.json",
+      "sha256": "41142a4347f1e122373ffaf623b593c6a349b5b924b9e2192e1db70f62a0d36c",
+      "source_path": "shots/C2-01/SHOT_PACKET.json",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-02/PROMPT.txt",
+      "sha256": "01239ff5fa7e23dc36f757a884d37370ed4531b75e20475b8e698b1054a2d678",
+      "source_path": "shots/C2-02/PROMPT.txt",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-02/SHOT_PACKET.json",
+      "sha256": "525e48dae5a8baa7f51349ca1641be09140d9d0ed224ff492b77c6242bffd4f6",
+      "source_path": "shots/C2-02/SHOT_PACKET.json",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-03/PROMPT.txt",
+      "sha256": "85003b9c3dbdf1bc0b09079f4269e2e65945486514367db21475c051bac9c495",
+      "source_path": "shots/C2-03/PROMPT.txt",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-03/SHOT_PACKET.json",
+      "sha256": "de49f1ce14953b0433e3cf4f42ce57ce7951c409336d985c0dea64b3a1ec8b7f",
+      "source_path": "shots/C2-03/SHOT_PACKET.json",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-04/PROMPT.txt",
+      "sha256": "45e32d5b2064f4b4c0f2b958cdf70c852566bde41e35272233f20aab2758ce71",
+      "source_path": "shots/C2-04/PROMPT.txt",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-04/SHOT_PACKET.json",
+      "sha256": "59d5583b6be5586c911b010bfc68c39f2bb4bd208a7eda075d1a016d74670e11",
+      "source_path": "shots/C2-04/SHOT_PACKET.json",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-05/PROMPT.txt",
+      "sha256": "54137bb5df7ed02fe2c3e6353c1f96ac1fca344f2f5b0c9a29f3af9ceb0cf2dc",
+      "source_path": "shots/C2-05/PROMPT.txt",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-05/SHOT_PACKET.json",
+      "sha256": "db3a38a0256a5b57bd125ac36d321d5470efb40c77973faf7b3f4e6fec99ae11",
+      "source_path": "shots/C2-05/SHOT_PACKET.json",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-06/PROMPT.txt",
+      "sha256": "2aa7b8991ee19c34533486fe46e5a0bf05f3ffc8f2b821162d4e6b800825f6c9",
+      "source_path": "shots/C2-06/PROMPT.txt",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-06/SHOT_PACKET.json",
+      "sha256": "5f629584fc3a20d42a940be7b6512754684ce3c259bcbf3234f250e137295e07",
+      "source_path": "shots/C2-06/SHOT_PACKET.json",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-07/PROMPT.txt",
+      "sha256": "fb77162d54ab27a5d796a722b19e3bbe7733b45c54ad93c64ee8d42026182611",
+      "source_path": "shots/C2-07/PROMPT.txt",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-07/SHOT_PACKET.json",
+      "sha256": "6bb06a1764a3911de3ce1db3387a2ce9d564e3b3e07f49bfffed1ad356f396d4",
+      "source_path": "shots/C2-07/SHOT_PACKET.json",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-08/PROMPT.txt",
+      "sha256": "ce351f1d2f28d3cc633041645642cc18c3ef3cea0206c7aed0a41d079bde7043",
+      "source_path": "shots/C2-08/PROMPT.txt",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-08/SHOT_PACKET.json",
+      "sha256": "05d9f0cd9473488d02ea2d4285a26e9f325e9e9bb15389aa1c202075bc770402",
+      "source_path": "shots/C2-08/SHOT_PACKET.json",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-09/PROMPT.txt",
+      "sha256": "e2bc19fb531ac6fc1ec7c274d50fed9348d74d75ac7bad37b8e1034883769214",
+      "source_path": "shots/C2-09/PROMPT.txt",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    },
+    {
+      "path": "shots/C2-09/SHOT_PACKET.json",
+      "sha256": "2d043da2e15f6167572ff0c73bc640c2e2aa74a7019d5d89497f684e7b7252f9",
+      "source_path": "shots/C2-09/SHOT_PACKET.json",
+      "role": "archive_sidecar_or_board",
+      "modification_status": "new authored planning artifact",
+      "license_provenance": "inherits project-owned original source; all rights reserved; no protected originals modified"
+    }
+  ],
+  "packet_payload_sha256": "0252c65fb874da4cb0277e1e6b372c2c5ba5172f11f7348a7a435330cae303b2",
+  "hash_convention": "UTF-8 sorted relative path TAB SHA256 LF; manifest excluded",
+  "board": "SHOT_BOARD.png",
+  "status": "local complete payload; remote verification pending; generator first frames still pending",
+  "authority_order": [
+    "owner-confirmed King V4 attachment",
+    "recovered approved Prince August 22 identity",
+    "existing room, prop, Roshan and friend originals"
+  ],
+  "generation_boundary": "Boards and gameplay captures are archive-only. Each Grok shot needs an independently accepted clean full-frame IMAGE_1. Grok output is motion/editorial reference only."
+}
