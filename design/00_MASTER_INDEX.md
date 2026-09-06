@@ -11,6 +11,13 @@
 planning branch, including the restaurant/customer-order mechanic remix.
 The sealed evidence below retains its named commits and is not today's build.
 
+**Stage pathfinding (2026-09-06):** use the
+[approach, door and boundary protocol](../audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md),
+[coverage ledger](../audit/stage_pathfinding/README.md), and
+[live-stage review atlas](../audit/stage_pathfinding/reproductions/index.html).
+[MA-PLAY-003](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-play-003)
+tracks the remaining per-stage geometry and external acceptance gaps.
+
 _Initial consolidation: 2026-08-02. Authority reconciliation: 2026-08-09.
 Runtime/audit merge synchronization: 2026-08-13._
 

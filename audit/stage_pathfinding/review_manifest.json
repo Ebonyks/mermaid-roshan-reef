@@ -1,0 +1,614 @@
+{
+  "schema": "stage-pathfinding-review-packet-v1",
+  "base_integration_revision": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
+  "scope": {
+    "opera_layout_views": 34,
+    "castle_rooms": 13,
+    "inventory_entries": 65,
+    "additional_whole_hall_overviews": 1
+  },
+  "claims": {
+    "catalog_coverage": "PASS",
+    "human_geometry_review": "PENDING",
+    "target_device_review": "PENDING",
+    "game_wide_pathfinding_accepted": false,
+    "full_validation": "PASS: complete current-dev combined local scripts/ci.sh (78 trusted groups) and three additional focused probes; both exact parents have full green GitHub CI. Merged-head remote CI pending at record creation.",
+    "castle_existing_frame_binding": "PASS: 96 unchanged reviewed frame hashes; owner acceptance remains pending",
+    "combined_pool_validation": "PASS: import and five shared runtime probes; merged-head GitHub CI pending at record creation.",
+    "combined_back_arrow_validation": "PASS: eight focused fresh-save probes including Castle, Opera, handoff, pool and voice; exact merged-head GitHub CI pending at record creation.",
+    "combined_chapter2_validation": "PASS: complete local suite and dedicated Chapter 2/lawn/navigation probes; see combined-chapter2-validation.json."
+  },
+  "runtime_source_sha256": {
+    "scripts/stage_navigation_2d.gd": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
+    "scripts/arena/castle_rooms_25d.gd": "a5e663f8215843d020ae8834c8594643632419fb674fb848e400a837d91d13b6",
+    "scripts/opera_stage_paths.gd": "7dbd965be89b2e97b8d9734ec5c00c9a203af295b4d2b143ebef486c0a8cfb47",
+    "scripts/opera_career_world_2d.gd": "09ab160caa6598d793e7ed66a959c277567f2cf073371601a0f7be2ad083b4ed",
+    "scripts/probe_stage_navigation_2d.gd": "4532005e0033392a3f2ee37d7ff3f20ee46083e4230e2a515db1a2467958cbaf",
+    "scripts/probe_bathroom_integration.gd": "9ece4ba9b7c3ab0cea901cc8586e0bc9c492cf42acd24f6c5c4e5358bfaab2e2",
+    "scripts/probe_opera_2d.gd": "5e2a08ad4d7d0dedc774e461f3510ebc5a782d99773143804b8b9714b05762c6",
+    "scripts/probe_opera_diegetic_paths.gd": "6f7c6a451e9669885e514c18b107013b4bd11e4afa503b3dd1587785fe2aa81e",
+    "scripts/debug_export_stage_pathfinding.gd": "771e7d06e7b7ed206bb8ae23d056f55dfbabe39aff28246ad260d716a8203736",
+    "tools/audit_stage_pathfinding.py": "2100b915d4bd0d2682f1b3b6387bee7c93e2f7fed34741e4aa5777d69cec694e",
+    "tools/tests/test_audit_stage_pathfinding.py": "578a33ea9c007f31a3569f7d5970e397aa2b7fd9fc40368a8a6ee53c4d974a23",
+    "scripts/probe_crown.gd": "2b1deb2cb1fa71fac67fa9b331408cb68bf4ed2a0a5ebaece439f538d5c47b24",
+    "scripts/probe_interaction.gd": "ac7f69a5b42cada43e97ca810c1b2cb716b1382c5668375df38eb927962a4a54",
+    "scripts/probe_castle_canvas2d.gd": "a62ceb2931cb0cf1ff015f9144b99f9a9a41ee5d684f3498059b5b647a8242d7",
+    "scripts/games/day_one_pool_cleanup.gd": "b38462f71d7d0b215ad8a97df219f296551e40011d721024970c45a41a7da117",
+    "scripts/games/pool_skimmer_activity.gd": "96c8008d0cb8441cfe1ea52c27402d01b6f5b139eef55949cdbc02654030f739",
+    "scripts/probe_audit.gd": "2c97bf7fe31506c2e99f87d82b6e8f6f7384e898153b634d95c086255272dcff",
+    "scripts/probe_day_one_pool_cleanup.gd": "9544c43ee8fcdeec370d1c93edbbe59d492184c4cdafbc9f32ec7ace33c03038",
+    "scripts/probe_day_one_pool_shots.gd": "13a642fd87918b01b36433b1dc382d7f5edbda6b6f9a1ae3fcd7a79be81594f6",
+    "scripts/main.gd": "9c352a564c805ba02a6bdf978979276030e314bd3dafcb295b63a63643399952",
+    "scripts/navigation_controller.gd": "0daacad2a6e49e18faad7ca18af8d55863ef0b9cf6603f0f310629bda29645a8",
+    "scripts/pause_menu.gd": "fc3c7067f6e8fb6766e548204fb542442854e2f8215427f1f2b0c5b3c73b7fb9",
+    "scripts/probe_castle_pool_life_2d.gd": "f12330462a1d5f615622b0a500f29a5d38c73c0de2d0819a887e69abd53c5365",
+    "scripts/probe_day_one_bathroom_integration.gd": "68c231bb38fe8555e43f15f9edf580720a840c5b228aebd4a298a7a00850617e",
+    "scripts/probe_day_one_bathroom_shots.gd": "3ab051bf7597c2bcdc42dc0ce1d55b525473298143a1d9157d070b6e25034806",
+    "scripts/probe_day_one_d8_revisits.gd": "a67a1cb3ae225e710cbf326a0e2e6d6f2891e5607fe16df1ec8eb1fc4a50fb23",
+    "scripts/probe_day_one_draft_integration.gd": "80c650688742bf98d582019ca345bc748b3384e1e706f236b9d3151d9790258f",
+    "scripts/probe_day_one_handoffs.gd": "f8a514815e0781951e92cebe7984fe0a3274763a5a8743d7f5fb71cf10d6ee54",
+    "scripts/probe_ui_system.gd": "bf520b1bb686f12187ba1bcc3e72329460bb53b771cbef91cc73d503dc17ac90",
+    "scripts/audio_director.gd": "bed0e52674c1fb995097016cfdfc52a0660a3f68b67241924a16497fdab234c1",
+    "scripts/chapter_two_director.gd": "eb3e820217b08b87cab8a8ea8758a8da16736fdbd57db896ab016af2173c69b5",
+    "scripts/chapter_two_ember_encounter.gd": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42",
+    "scripts/chapter_two_lawn_finale_2d.gd": "6ad217cfcee099df32d678a5f1cbac2416382e001392f340568c4a2096f97dc9",
+    "scripts/chapter_two_party_plan.gd": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+    "scripts/chapter_two_party_table_2d.gd": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87",
+    "scripts/chapter_two_room_plot.gd": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+    "scripts/probe_chapter2.gd": "88c397b0acbc3c13e0bc242966ba4d0ab048661679909e784d3592a359899b22",
+    "scripts/probe_chapter2_lawn.gd": "1cfacfe749a627520408286f350bce930538a727da2dfd64e37cca4affd2c8d3",
+    "scripts/save_state.gd": "b0a930ab69b1abd691908e8ffb94883135300bf9c364b0fc2006d1e8d3476aae"
+  },
+  "files": [
+    {
+      "path": "audit/stage_pathfinding/castle_geometry.json",
+      "sha256": "b5da18c5f4f4ffb43e6078c3a5df6f555614460572b542bb58d8e175b4ecd1da",
+      "bytes": 226590
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/audit-recheck.log",
+      "sha256": "969a5d09d5aa9ac1146c5ad126815b3bf4b94fe69828b5efc3f6295db5e4f0a5",
+      "bytes": 28890
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/castle-frame-gate-final.log",
+      "sha256": "67689cde518ee5a555413746c0e34c6cdf3abfc90a1a04d3a9dc1204af90d7eb",
+      "bytes": 307
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/castle_frame_binding_revalidation.json",
+      "sha256": "21fe2f19de986fcec0124c6ca68efef9421a18582bb2e0f6a517a0f75f1f3727",
+      "bytes": 8833
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/combined-back-arrow-probes.log",
+      "sha256": "42f588ae716af7b174bc85cf4182e795aaf7e96811c0005f6fdfa24b2583649e",
+      "bytes": 128726
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/combined-back-arrow-validation.json",
+      "sha256": "f2ab2799a0598c8b3a887d0c30945afd431ae8d05116b51776f7c184c2464db2",
+      "bytes": 2386
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/combined-chapter2-focused.log",
+      "sha256": "7f9558b1a639462ad1777d2b3e42b13eb877004ee426eeb80b95821ce1ca5eca",
+      "bytes": 8361
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/combined-chapter2-full-ci.log",
+      "sha256": "d66d722f99c5356afa600e52b2d1e8c9503e1cf7ee16d75b5ed22a3d3f0f0622",
+      "bytes": 584987
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/combined-chapter2-validation.json",
+      "sha256": "545fe7f7464cca4ab8c885c9886fb86ef218cafae2813ef2a6a1357c4acc2a40",
+      "bytes": 4012
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/combined-pool-probes.log",
+      "sha256": "915f60aea70118234a53a2c0a8851536a9e812a87332c9e25e01d6f20c9c3eac",
+      "bytes": 46188
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/combined-pool-validation.json",
+      "sha256": "f27db53cdfe82505ba56a9d8c8facf1d88bf613ed89be1dee60b2e28f8d7963d",
+      "bytes": 1696
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/crown-recheck.log",
+      "sha256": "80da4cfe7396c1df5bab60f41715a65bc7a8ecacb2afa900f57fb240a8e54e8f",
+      "bytes": 2209
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/doctor-routes.log",
+      "sha256": "780424e44c5a73349beca7ec4ec6b1519ca87ee02f85942947805629416ffa8e",
+      "bytes": 187
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/export-final.log",
+      "sha256": "d0d650e26fffa46bd45f87be8db5c2555552b148d5f5e35de74cab9c952a4a2e",
+      "bytes": 222
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/full-ci-runtime-final.log",
+      "sha256": "41d74bb8e86db8eda1327cb1e433bc35e999553d965ee03a0ad003c8078bfcdf",
+      "bytes": 297667
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/full-ci-static-before-binding-repair.log",
+      "sha256": "b49fccf253fbc19d97152de6041d922fb5ab7363f89eacfa9e5718ff88145e62",
+      "bytes": 43364
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/probe_bathroom_integration-final.log",
+      "sha256": "58108c7c9c73ec70e06851851ff5f0de64d71050f6cadf4b09e2e3fd94fbfe71",
+      "bytes": 3958
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/probe_stage_navigation_2d-final.log",
+      "sha256": "711107b8fe1bb4599830d3027ebdf4ea98c533f9cca6aecf2b79f49116639f42",
+      "bytes": 102
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/validation_summary.json",
+      "sha256": "279c35c5c468eb17f54cf63621db2e8e737d256b9d525229e640012da72a54cd",
+      "bytes": 3604
+    },
+    {
+      "path": "audit/stage_pathfinding/opera_geometry.json",
+      "sha256": "b75bfae4496c8d786806f296a485b32bcff498a3f0c9445b50d3f033d0e7bf1f",
+      "bytes": 281285
+    },
+    {
+      "path": "audit/stage_pathfinding/README.md",
+      "sha256": "7401eae64d48064c849ebfe9e474aa4b44c4f41f864770f270ed096cfc8591df",
+      "bytes": 2453
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/astronaut_stage.html",
+      "sha256": "e93952af43a54b14231f04ccb659d34da5a2e60410650fd7c663da067b60ce9f",
+      "bytes": 956
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/astronaut_stage.svg",
+      "sha256": "e92d103c9e7111c3338eb2c4223bad15469fa4aa5206f83c021aa36d8c8b7da1",
+      "bytes": 5777
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/astronaut_world.html",
+      "sha256": "dbb30ea327ff840e47573b865a1d4eaf1fcb388d2577ee312cb81a699721de9e",
+      "bytes": 956
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/astronaut_world.svg",
+      "sha256": "6c6384034324c590c4f9926a2918ad530bd8490fa7363eaced992f99d5bd2805",
+      "bytes": 5778
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/ballerina_stage.html",
+      "sha256": "edf87f24c274b824915e44dec718ff5ec2db510bfad009427a0d5bb2222c6e1c",
+      "bytes": 956
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/ballerina_stage.svg",
+      "sha256": "bfa989abc363bfbe16076f1a85199301526514de676a56e07215d565f204a066",
+      "bytes": 5838
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/ballerina_stuffie_room_stage.html",
+      "sha256": "4db60e384c5e49c2176ad101bfac432271b064af08f41bd96be7b4d652bcf12e",
+      "bytes": 982
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/ballerina_stuffie_room_stage.svg",
+      "sha256": "16d90e29f1aff5ca7e950b1a8b766d88103fd459ae485774a19b2f738cd0f5e0",
+      "bytes": 4075
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/ballerina_stuffie_room_world.html",
+      "sha256": "18f467323d2b322dfc4328d643f43191936c4c099663fa7e9b4fd9ce23a2c31b",
+      "bytes": 982
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/ballerina_stuffie_room_world.svg",
+      "sha256": "5c10a497e60ac4ea3eeaf897b328f59c49fc578be79401141d6ff954dd10b217",
+      "bytes": 4076
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/ballerina_world.html",
+      "sha256": "eaa5652c61506f5a4ccf340e4d4127d38d469bc850c9ed6d1c0ec61dcbf2bd21",
+      "bytes": 956
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/ballerina_world.svg",
+      "sha256": "0333d64cff3ec051b34f21d874f94f000e8fe897a9af5926a74b735301467b12",
+      "bytes": 5867
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/boxer_stage.html",
+      "sha256": "e9088412b6d87a3f897de2739765be0d864ce4dcfc1a71f8dbee66c9c282c73c",
+      "bytes": 948
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/boxer_stage.svg",
+      "sha256": "269c94935e4c061c562fbab1bebbdb4b658c16d52a9131b5cd6046dacabe5489",
+      "bytes": 6001
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/boxer_world.html",
+      "sha256": "3e4669f66b2f8ca8ac552a86266ca2bd54be9297b92c0780f397d78c97c78b3c",
+      "bytes": 948
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/boxer_world.svg",
+      "sha256": "1af544e939ec6e9ab5c8ad12d4040c4a3363860528c6dd82c003734f5c430ab6",
+      "bytes": 6002
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/candymaker_stage.html",
+      "sha256": "fe0ac0365a2ea252c61203d9f13b400468248bd3ca9a9adbe306c099cdcee571",
+      "bytes": 958
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/candymaker_stage.svg",
+      "sha256": "8677d4b2cbe4a193c486c6ff97b0dfcfd994109b15a25bacaafe0614b045065d",
+      "bytes": 5802
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/candymaker_world.html",
+      "sha256": "4e193150c05ee866b9d9dbe1d12bf43a97c8be62db94158034f31762957b3bcb",
+      "bytes": 958
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/candymaker_world.svg",
+      "sha256": "53b77d7005c18e29e70dfe1b073ca48d1b9ba7a5a839aeac87369eab708c2eec",
+      "bytes": 5803
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/castle/bubble_bath.svg",
+      "sha256": "85b56ab125985e8cb2e84a480bac90cfbb9950deeb15f5b7cd155a0de07f266e",
+      "bytes": 8122
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/castle/craft_room.svg",
+      "sha256": "164cea2cafeeaa2841c001631a9da49f2427d1ec7ce997da65d6c6eb9276bd37",
+      "bytes": 7807
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/castle/dining_room.svg",
+      "sha256": "9f5e17fe7a2d2c6ee6f872ebc03c14a2d32bd1b006ece9fb19a2734e99b6079d",
+      "bytes": 11242
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/castle/family_gallery.svg",
+      "sha256": "edfe4e600d822462182f822b6eb06fd3abd8bf4703899615285eac559c0ab049",
+      "bytes": 5740
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/castle/index.html",
+      "sha256": "cdeebaf4a0c80dd74bf638ec479335817d83f75e4517480ccd316c19ce9e2046",
+      "bytes": 1683
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/castle/kitchen.svg",
+      "sha256": "5c3b1924d2aee54163da46c510c4c96ac68e4632a4d0e0846210d0ff0d7bd0d9",
+      "bytes": 10613
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/castle/library.svg",
+      "sha256": "6708ecb3ff9808ee672135f3b96d64bbc464c902f768659fe04432e95958372a",
+      "bytes": 9199
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/castle/main_hall.svg",
+      "sha256": "38c61d073edb75f23149afd9881317bcff271d0739e9172c73295214bf2c4834",
+      "bytes": 10549
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/castle/main_hall_overview.svg",
+      "sha256": "2ec631e12ced4355988ea8b332de03466fd0e869229b3912b1acdefe102340e8",
+      "bytes": 10547
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/castle/mermaid_pool.svg",
+      "sha256": "d90eee9a2da8dd99ee4ec18dc1000a0ba8704d8df8c07a25b13b18b83638e5e9",
+      "bytes": 6475
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/castle/movie_lounge.svg",
+      "sha256": "a6111a7e31120a0fed15361c4212519afcc74980f0350e2ebc746f7931f964a5",
+      "bytes": 7699
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/castle/opera_hall.svg",
+      "sha256": "57bbca24a4eb1527a1e193f861d9d8d2a3d9a8b33252f7de0e7c35af7c49b866",
+      "bytes": 8826
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/castle/playroom.svg",
+      "sha256": "6de5ce23041095607b710613aed42a3bbde7f0952c5723360785ac71d58ac410",
+      "bytes": 11293
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/castle/royal_bedroom.svg",
+      "sha256": "a1771250ad00e12f6e1ff81f89d6c7fbd30c74626dcb323d165d7c9a54de4b11",
+      "bytes": 5750
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/castle/sleepover_bedroom.svg",
+      "sha256": "ea40150e2c0d7da544344f32c163cf6ce73b8af434e4b3db23ce0bbcb0931f16",
+      "bytes": 5766
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/chef_stage.html",
+      "sha256": "0bd017ad889a54dda7ec10ebaaaab2e6a803572073818d4623b9206d05eb8e84",
+      "bytes": 946
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/chef_stage.svg",
+      "sha256": "65c00027d591a0f435d738d6d8554168662f54232f4897377041448763b95723",
+      "bytes": 5855
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/chef_world.html",
+      "sha256": "35d80caa0d8c96d3db818fc72fcb941c79cd77bfd9a6a65e2f8296c0784aabc8",
+      "bytes": 946
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/chef_world.svg",
+      "sha256": "a02c22f9be9c182899f29f65c530b7537b442d298cec3773b990855e459bcf73",
+      "bytes": 5856
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/detective_stage.html",
+      "sha256": "d79f37a6e617431323a9f325449b18a8ab9508f4bd6b410539327058ef7b1a31",
+      "bytes": 956
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/detective_stage.svg",
+      "sha256": "1ba3cf6dadaaaa8e48ff89ce5cd47002c5aad49f154a84a54f573b2b372bb030",
+      "bytes": 5938
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/detective_world.html",
+      "sha256": "ff295455d01f364c9858c5257ad730a21b526a241c40aa589cae071a4d1de2e7",
+      "bytes": 956
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/detective_world.svg",
+      "sha256": "be7d28905d11d65ac412426648ffe5d2fe75cc2ef68ac432216fef53a0892ddf",
+      "bytes": 5939
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/doctor_stage.html",
+      "sha256": "7243406131e8ee861b2250f1d9a6e405e37242962d3f2dc752be52b960696d48",
+      "bytes": 950
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/doctor_stage.svg",
+      "sha256": "86b077c9039b30702ec602e3b04e18bceaef822a8bf4be7dd23e5823c1f96d23",
+      "bytes": 6525
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/doctor_world.html",
+      "sha256": "1bcb0aea1a0d71470f2ab88f6b01c2aa33f10d78475c903a6089b4655affc7b3",
+      "bytes": 950
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/doctor_world.svg",
+      "sha256": "3a6a5ae92afa309ed0cee90198aeef487543424396f5b6f82e70270300916921",
+      "bytes": 6526
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/farmer_sky_lagoon_farmer_stage.html",
+      "sha256": "64fc3dfd9087d7cddc36a1c6daafc43c0fa77d44fe6c92a0a0a24f8a708977ee",
+      "bytes": 986
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/farmer_sky_lagoon_farmer_stage.svg",
+      "sha256": "77e8a20ad5f85e8cc13af694112646f335efd9c556254cac312b574261da8b8e",
+      "bytes": 7205
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/farmer_sky_lagoon_farmer_world.html",
+      "sha256": "2a1bfd6686a731c77111400f87e2ef5f0a4dedb0779565669e4b59faa846f5e7",
+      "bytes": 986
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/farmer_sky_lagoon_farmer_world.svg",
+      "sha256": "f0208c2a50cd53254b21c3c94a3ef1157ea607ca7bc7b0375bcdce13f65da597",
+      "bytes": 7206
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/farmer_stage.html",
+      "sha256": "18d30671c359f4a272c2628ff4241f97fee7d5118d1384a0a79d54e38e0124ee",
+      "bytes": 950
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/farmer_stage.svg",
+      "sha256": "ee1cd8a40a9710a77e6f84850cfa9c8bb0e14cd5ebc0cc8fe33c4730ec010ef5",
+      "bytes": 6157
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/farmer_world.html",
+      "sha256": "8307e4f2ef9e054009b3f7445463c26e495496a480df5b20368fb5a1ef107513",
+      "bytes": 950
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/farmer_world.svg",
+      "sha256": "c8426a54c9ee11a9449a09b1fbb9c8a6279bcd9dd6ec3f8e1513f02e92448233",
+      "bytes": 6158
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/geologist_stage.html",
+      "sha256": "3eda7391f0a5b868c7edfe7fd5880dcdbdf21523a0762d0eb00d1837ce8547f4",
+      "bytes": 956
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/geologist_stage.svg",
+      "sha256": "f421af13a8944dabe4fdf386882d90bd7a4f3ec085f70a4f9a647c4f541d6564",
+      "bytes": 4396
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/geologist_world.html",
+      "sha256": "11e1f7afe2f73cc4f3def6e660bf031878431d28cd216606bc9a975ded431767",
+      "bytes": 956
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/geologist_world.svg",
+      "sha256": "a5f521598880a6e6ad4e17e82e0e5231eb90d098c4d420a95e760f43b8c58591",
+      "bytes": 4391
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/index.html",
+      "sha256": "5c76da8b67973331614bf8ba56d0e172d7a2643b8473aeb50cf572e48122fe53",
+      "bytes": 4530
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/magician_stage.html",
+      "sha256": "51f43317b3801b81c9a8c016ffe62cf809b8f1e4e0c75c57a0f6c7e37beb03ca",
+      "bytes": 954
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/magician_stage.svg",
+      "sha256": "d2cb77dcfab255bed09d2e013ec1ab8343728e31e3ea744797675506a823f43f",
+      "bytes": 5906
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/magician_world.html",
+      "sha256": "edc3b0d547d0259dea2c6b015732f3e58a7b4651cb5b918589ef4ba491b1ba5e",
+      "bytes": 954
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/magician_world.svg",
+      "sha256": "cc1de1d16b4fc9d21ade9e2c81b0c66e0f4aaf44ec19c4554f2b4c06d623669c",
+      "bytes": 5907
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/nursery_stage.html",
+      "sha256": "1562770c7e9e709afdb108c7840e2af94bf5f8f2120ae2f6ad15e42d92b8b667",
+      "bytes": 952
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/nursery_stage.svg",
+      "sha256": "a9a8f5b73e7730ba2cf5a7419d6abea55f05584889eafef65a7716e643d5d413",
+      "bytes": 4973
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/nursery_world.html",
+      "sha256": "dbad18ac3d5cceec5f00b4dba88a8f4d98e8d935f4665448625e3f56d8d46228",
+      "bytes": 952
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/nursery_world.svg",
+      "sha256": "789b527371a83f3d3decf758cef167ff8b6557b5a584fb90c42f12553b804fc6",
+      "bytes": 4974
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/painter_stage.html",
+      "sha256": "447750a2bb89bbbb48f37bebdc96150e5a52298b083afea4f612bcac55eccbf6",
+      "bytes": 952
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/painter_stage.svg",
+      "sha256": "b6772c94e6129f077630611b993de45c30b0e3280dfe9c4ff92ca20285cb22c7",
+      "bytes": 5923
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/painter_world.html",
+      "sha256": "5fed284eba3764637306cafc59d851c5c2074f8c4c4b0bd0795d03432b154156",
+      "bytes": 952
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/painter_world.svg",
+      "sha256": "ba06d6bb337a5b8c85d48fe4f268d72f328d35010845bf0d55d97340200eb448",
+      "bytes": 5924
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/popstar_stage.html",
+      "sha256": "615487fde7a8d270e5b0522735c69d5472e5561cb7d0865ae7841eb8068fce50",
+      "bytes": 952
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/popstar_stage.svg",
+      "sha256": "26358b6b8a8f74cd93c0b1cfa76468da6e8c4dc4dbe7043da3e3d39c40427ac5",
+      "bytes": 5923
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/popstar_world.html",
+      "sha256": "63489dea194731e93764480ec3c6b0e09bcc1226dfc9ce6d06f4d48b5a04d268",
+      "bytes": 952
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/popstar_world.svg",
+      "sha256": "1964b58829564078e851e1c78938daaf321a37176a5c93fccc259f2ab2c9b440",
+      "bytes": 5924
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/racer_stage.html",
+      "sha256": "0c638611e4688ced382f8eaee8ff06225349e681f3300bf759ec0383ac1e9d0f",
+      "bytes": 948
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/racer_stage.svg",
+      "sha256": "ddce8b24c2a2e2a36ae7b8719f812ee3964c532e1a8a0da13481cf3c0c28bb0d",
+      "bytes": 6016
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/racer_world.html",
+      "sha256": "bb64de061dfe7cf942491a595e2dd38227b43c8bed66491e7f4cb72ce9860b52",
+      "bytes": 948
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/racer_world.svg",
+      "sha256": "26edea9cb6cb78b70338709f2c138893ba39131268a1d59563691262e28ad6e0",
+      "bytes": 6017
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/teacher_stage.html",
+      "sha256": "ed9fb79d57dc1be9eba7ffede4f38719707596c44ba9feca2acf9082fc67484e",
+      "bytes": 952
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/teacher_stage.svg",
+      "sha256": "385ac9b769a47bf803871b3558ddb50ad3f61333ff87ff58282aec484b81e8fc",
+      "bytes": 3211
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/teacher_world.html",
+      "sha256": "f8587e43ac553e00c4dc381201296d4176f12521d92c1e1e355f5620578dbc4a",
+      "bytes": 952
+    },
+    {
+      "path": "audit/stage_pathfinding/reproductions/teacher_world.svg",
+      "sha256": "45061f0f01e32b834353adfcf282bf02e027d645b00d5a4f6ccabc6e74faadfc",
+      "bytes": 3212
+    },
+    {
+      "path": "audit/stage_pathfinding/stage_inventory.json",
+      "sha256": "2d5174d5dc08fd67a40ab975fff72e881ff7f9ac4897f1960e516b2b0a7b8ce7",
+      "bytes": 50661
+    },
+    {
+      "path": "audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md",
+      "sha256": "6e0fda61fbe759a2ba57aacad65c5fc90ef819e38345c4e9a0a4f7265dd26440",
+      "bytes": 4282
+    }
+  ],
+  "packet_payload_sha256": "8211032ee6f982ef30a3468ab0abbc352b3f3be2168e236adf02c34a09ec8f6b",
+  "notes": [
+    "Review images reuse exact runtime source textures and current fixture atlas cells. No original artwork changed.",
+    "Centerlines own movement; displayed clear bands are diagnostic aids only.",
+    "Focused transcripts cover their named checks. They do not grant full-suite, device, human or game-wide acceptance.",
+    "The pool reconciliation inherits source 64094fca; the atlas still contains 34 Opera views and 13 Castle rooms, not a new pool-activity capture packet.",
+    "Back-arrow reconciliation inherits dev a6ffa14d. The atlas reproduces stage geometry and fixtures; it is not a capture of the persistent global navigation overlay. The first combined-parent voice failure and rechecks are recorded separately.",
+    "Current dev 763a0213 introduces the Chapter 2 lawn. It is inventoried as a 65th open entry; no lawn geometry reproduction or acceptance is implied by the Castle/Opera atlas."
+  ],
+  "text_hash_normalization": "UTF-8 text stored with LF line endings; binary asset hashes are native bytes.",
+  "approval_binding": {
+    "path": "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
+    "sha256": "630d69371966b0e7dc6dce2ac71e0c756199096f0e48afdc01dd1b138911f615"
+  },
+  "reconciled_integration_revision": "763a021392ee784bff692a911eb8a32c1dc2bf02"
+}

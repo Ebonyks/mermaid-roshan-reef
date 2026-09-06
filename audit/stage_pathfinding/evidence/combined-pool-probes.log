@@ -1,0 +1,605 @@
+=== probe_day_one_pool_cleanup ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_POOL|three bespoke ordered activities: OK
+DAY_ONE_POOL|dirty arrival starts skimmer only: OK
+DAY_ONE_POOL|dirty arrival hides pristine rainbow and flow: OK
+DAY_ONE_POOL|canvas no-fail contract: OK
+DAY_ONE_POOL|pool has exact pickup and lane cue wiring: OK
+DAY_ONE_POOL|pool has monotonic seahorse milestones and finale cues: OK
+DAY_ONE_POOL|pool activity has no generic voice fallback: OK
+DAY_ONE_POOL|one visible Roshan owns the held skimmer: OK
+DAY_ONE_POOL|far touch cannot collect remotely: OK
+DAY_ONE_POOL|Roshan travels at bounded speed before collection: OK
+DAY_ONE_POOL|second finger cannot steal cleaning target: OK
+DAY_ONE_POOL|canceled touch cannot finish later: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|quick tap travels then visibly scoops exactly one item: OK
+DAY_ONE_POOL|stop restores room actor at the action location: OK
+DAY_ONE_POOL|re-entry and focus cancellation retain only completed work: OK
+DAY_ONE_POOL|drag retarget cancels old work and slow frames never teleport: OK
+DAY_ONE_POOL|cleaner retains selected fairy cutout and hand socket: OK
+DAY_ONE_POOL|cleaner retains selected huluu cutout and hand socket: OK
+DAY_ONE_POOL|restored complete mask never creates a second Roshan: OK
+DAY_ONE_POOL|exact pool bunny cast keeps one land and one swimmer: OK
+DAY_ONE_POOL|swimmer remains inside central water with a simple 2D loop: OK
+DAY_ONE_POOL|runtime asset pool_skimmer.png: OK
+DAY_ONE_POOL|runtime asset floating_trash_atlas.png: OK
+DAY_ONE_POOL|runtime asset cleanup_basket.png: OK
+DAY_ONE_POOL|runtime asset waterfall_clogged_original_match.png: OK
+DAY_ONE_POOL|runtime asset waterfall_scrubber.png: OK
+DAY_ONE_POOL|runtime asset seahorse_sick_clear_mouth.png: OK
+DAY_ONE_POOL|runtime asset seahorse_mouth_trash.png: OK
+DAY_ONE_POOL|runtime asset rumi_pool_idle_swim_atlas.png: OK
+DAY_ONE_POOL|runtime asset rumi_eight_pose_runtime.png: OK
+DAY_ONE_POOL|runtime asset dust_bunny_swimming.png: OK
+DAY_ONE_POOL|restored complete pool activities emit once: OK
+DAY_ONE_POOL|re-entered complete pool activities stay one-shot: OK
+DAY_ONE_POOL|passive demo never advances: OK
+DAY_ONE_POOL|skimmer activity accepts six real collections: OK
+DAY_ONE_POOL|skimmer completion persists and unlocks waterfall: OK
+DAY_ONE_POOL|dirty waterfall is registered to live V4 fixture: OK
+DAY_ONE_POOL|clean stripe feedback sits above dirty waterfall lanes: OK
+DAY_ONE_POOL|static clean card under scrub lanes but flow remains stopped: OK
+DAY_ONE_POOL|waterfall activity clears three independent lanes: OK
+DAY_ONE_POOL|waterfall completion persists and unlocks seahorse: OK
+DAY_ONE_POOL|sick seahorse uses exact live V4 fixture bounds: OK
+DAY_ONE_POOL|rainbow animation still waits for rescue finale: OK
+DAY_ONE_POOL|one seahorse tap advances monotonically: OK
+DAY_ONE_POOL|partial tug saves without premature finale: OK
+DAY_ONE_POOL|remaining rapid taps start causal extraction: OK
+DAY_ONE_POOL|seahorse extraction completes legacy step four: OK
+DAY_ONE_POOL|finale creates approved Rumi reveal: OK
+DAY_ONE_POOL|ambient swimmer yields the finale focal point: OK
+DAY_ONE_POOL|Rumi performs authored wave after rising: OK
+DAY_ONE_POOL|Rumi settles into authored idle: OK
+DAY_ONE_POOL|teardown frees cleanup: OK
+DAY_ONE_POOL|teardown restores clean fixtures: OK
+DAY_ONE_POOL|RESULT: PASS checks_failed=0
+=== probe_audit ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+AUDIT|Day One lock and progressive room contract: OK
+AUDIT|Storybook UI contract: OK
+AUDIT|boot OK, seed=
+AUDIT|Slide Canvas|approved panorama master remains exact 6144x2048 source: OK
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:940)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:477)
+       [2] _init (res://scripts/probe_audit.gd:140)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:940)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:477)
+       [2] _init (res://scripts/probe_audit.gd:140)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:940)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:477)
+       [2] _init (res://scripts/probe_audit.gd:140)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:940)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:477)
+       [2] _init (res://scripts/probe_audit.gd:140)
+AUDIT|Slide Canvas|four lossless center tiles pixel-reconstruct one native screen: OK
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:955)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:477)
+       [2] _init (res://scripts/probe_audit.gd:140)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/characters/friends/two_friends.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:955)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:477)
+       [2] _init (res://scripts/probe_audit.gd:140)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/props/gen2/clownfish_side.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:955)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:477)
+       [2] _init (res://scripts/probe_audit.gd:140)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:955)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:477)
+       [2] _init (res://scripts/probe_audit.gd:140)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:955)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:477)
+       [2] _init (res://scripts/probe_audit.gd:140)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2_v2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:955)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:477)
+       [2] _init (res://scripts/probe_audit.gd:140)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:955)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:477)
+       [2] _init (res://scripts/probe_audit.gd:140)
+AUDIT|Slide Canvas|slide, protected friends, fish, and four Roshan frames are immutable: OK
+AUDIT|Slide Canvas|controller runtime census names only the approved reused art: OK
+AUDIT|Slide Canvas|all reused art families retain repository provenance: OK
+AUDIT|Slide Canvas|one Harper/Fiona fish route is present and initially unawarded: OK
+AUDIT|Slide Canvas|Hybrid proximity discovers Harper and Fiona without launching: OK
+AUDIT|Slide Canvas|Hybrid exposes the visible child-facing PLAY target: OK
+AUDIT|Slide Canvas|first real Hybrid tap focuses PLAY without launching: OK
+AUDIT|Slide Canvas|real nondefault camera peek is live before fish entry: OK
+AUDIT|Slide Canvas|neutral fixture starts from an exact nondefault chime context: OK
+AUDIT|Slide Canvas|living-world layer is genuinely live before fish entry: OK
+AUDIT|Slide Canvas|retired Critter Book corner stays absent before fish entry: OK
+AUDIT|Slide Canvas|unmapped axis and d-pad fallback is genuinely live before Canvas entry: OK
+AUDIT|Slide Canvas|second real Hybrid tap synchronously enters only fish Canvas: OK
+AUDIT|Slide Canvas|fish entry and real terminal pad events retire every raw fallback: OK
+AUDIT|Slide Canvas|entry owns one stable Canvas layer below pause and above HUD: OK
+AUDIT|Slide Canvas|entry snapshots the exact nondefault lens and clears viewport ownership: OK
+AUDIT|Slide Canvas|entry keeps the retired Critter corner absent with no extra persistent click target: OK
+AUDIT|Slide Canvas|entry snapshots and removes the living-world layer from lower drawing: OK
+AUDIT|Slide Canvas|stage tree contains only the exact backdrop, actors, fish, pips, and dual steer cues: OK
+AUDIT|Slide Canvas|controller route and mercy semantics are exact: OK
+AUDIT|Slide Canvas|post-Canvas census maps every touch, mouse, key, pad, and axis terminal exactly: OK
+AUDIT|Slide Canvas|opening objective is exact voice plus persistent non-reader steer cues: OK
+AUDIT|Slide Canvas|runtime binds exact native tiles through one common transform: OK
+AUDIT|Slide Canvas|runtime binds protected friends, slide, Roshan, five fish and five pips: OK
+AUDIT|Slide Canvas|live Canvas owns exactly eleven reused texture resources within 24 MiB: OK
+AUDIT|Slide Canvas|opening black cover owns the exact 1280x720 viewport above fish Canvas: OK
+AUDIT|Slide Canvas|controller exposes the exact completion-reward chime handoff seam: OK
+AUDIT|Slide Canvas|live fish Canvas can hold unclaimed real raw RIGHT_X and A fallback: OK
+AUDIT|Slide Canvas|entry OS-loss fixture begins before the real fade callback: OK
+AUDIT|Slide Canvas|entry focus-out plus app-paused nests both reasons under black: OK
+AUDIT|Slide Canvas|entry partial restore cannot override remaining focus loss: OK
+AUDIT|Slide Canvas|entry full restore retains a guard while fade still owns input: OK
+AUDIT|Slide Canvas|opening black cover swallows a complete touch neutrally: OK
+AUDIT|Slide Canvas|first restored frame retires only context guard under black: OK
+AUDIT|Slide Canvas|fade reveal restores input only at the real callback boundary: OK
+AUDIT|Slide Canvas|opening restore holds ride progress through the fade callback: OK
+AUDIT|Slide Canvas|first active boundary after callback is still source-free at the shell: OK
+AUDIT|Slide Canvas|bounded first active tick retires the startup release guard: OK
+AUDIT|Slide Canvas|startup becomes ready only after the fade callback boundary: OK
+AUDIT|Slide Canvas|revealed cover remains full-viewport and input-transparent at 1280x720: OK
+AUDIT|Slide Canvas|return poll vocabulary owns Enter, keypad Enter, X, and Y: OK
+AUDIT|Slide Canvas|first live fish Canvas frame disables hidden 3D camera rendering: OK
+AUDIT|Slide Canvas|1280x720 visible sprite texture coverage 1.473 screens; estimated painter coverage 3.473 screens includes exactly two ColorRects; native Mobile fill/FPS capture remains authoritative: OK
+AUDIT|Slide Canvas|actual 1280x720 stage is opaque, readable, and fully contained: OK
+AUDIT|Slide Canvas|1280x800 visible sprite texture coverage 1.422 screens; estimated Canvas painter coverage 3.422 screens: OK
+AUDIT|Slide Canvas|same live stage reflows safely to 1280x800: OK
+AUDIT|Slide Canvas|clear fade cover reflows to the exact 1280x800 viewport without rebuilding: OK
+AUDIT|Slide Canvas|restored 1280x720 visible sprite texture coverage 1.469 screens; estimated Canvas painter coverage 3.469 screens: OK
+AUDIT|Slide Canvas|1280x720 restore needs no rebuild and retains all semantics: OK
+AUDIT|Slide Canvas|clear fade cover restores the exact 1280x720 viewport without rebuilding: OK
+AUDIT|Slide Canvas|viewport resize remains gameplay-frozen while nested OS loss owns input: OK
+AUDIT|Slide Canvas|full resize restore starts with the source-free controller guard: OK
+AUDIT|Slide Canvas|first restored resize boundary is fully laid out at 1280x800 without advancing the course: OK
+AUDIT|Slide Canvas|first post-resize neutral poll retains the independent latch: OK
+AUDIT|Slide Canvas|second post-resize neutral poll retires the independent latch: OK
+AUDIT|Slide Canvas|viewport resize remains gameplay-frozen while nested OS loss owns input: OK
+AUDIT|Slide Canvas|full resize restore starts with the source-free controller guard: OK
+AUDIT|Slide Canvas|first restored resize boundary is fully laid out at 1280x720 without advancing the course: OK
+AUDIT|Slide Canvas|first post-resize neutral poll retains the independent latch: OK
+AUDIT|Slide Canvas|second post-resize neutral poll retires the independent latch: OK
+AUDIT|Slide Canvas|one rendered frame produces exactly one fish controller tick: OK
+AUDIT|Slide Canvas|ranking clock and slide motion consume the same delta once: OK
+AUDIT|Slide Canvas|real Viewport presses at each actual outward tip light only that cue: OK
+AUDIT|Slide Canvas|tip steering moves the lane in its matching direction and releases neutrally: OK
+AUDIT|Slide Canvas|device forget and controller cancel clear active cue pixels immediately: OK
+AUDIT|Slide Canvas|real touch, mouse, key, pad, and axis own distinct sources: OK
+AUDIT|Slide Canvas|wrong-device releases cannot retire any concrete owner: OK
+AUDIT|Slide Canvas|pad disconnect retires only that device's concrete owners: OK
+AUDIT|Slide Canvas|matching releases clear every controller and global owner: OK
+AUDIT|Slide Canvas|fresh distinct input deliberately steers after census cleanup: OK
+AUDIT|Slide Canvas|touch source is live before pause: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|pause converts the exact held source to a neutral latch: OK
+AUDIT|Slide Canvas|wrong paused release cannot clear another finger: OK
+AUDIT|Slide Canvas|matching release clears its latch while the sheet remains open: OK
+AUDIT|Slide Canvas|focused real Resume restores the same live stage neutrally: OK
+AUDIT|Slide Canvas|fresh mouse gesture steers after real Resume: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|pause sheet exposes the visible Sticker doorway: OK
+AUDIT|Slide Canvas|higher Sticker sheet opens without closing or steering the slide: OK
+AUDIT|Slide Canvas|held release clears neutrally through the higher overlay: OK
+AUDIT|Slide Canvas|real Sticker Back returns to the untouched live slide: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|context-order fixture reaches the real Sticker doorway: OK
+AUDIT|Slide Canvas|Sticker context fixture is source-free with collection UI suppressed: OK
+AUDIT|Slide Canvas|Sticker plus nested OS loss arms both reasons in either order: OK
+AUDIT|Slide Canvas|nested OS loss leaves the resumed Sticker stage byte-frozen: OK
+AUDIT|Slide Canvas|partial OS restore cannot unlock the Sticker-backed ride: OK
+AUDIT|Slide Canvas|full OS restore initially retains its source-free guard: OK
+AUDIT|Slide Canvas|overlay housekeeping retires the guard without one ride tick: OK
+AUDIT|Slide Canvas|two trustworthy neutral polls reopen Sticker controls source-free: OK
+AUDIT|Slide Canvas|real Sticker Back remains usable after either OS restore order: OK
+AUDIT|Slide Canvas|fresh source works only after the restored overlay closes: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|context-order fixture reaches the real Sticker doorway: OK
+AUDIT|Slide Canvas|Sticker context fixture is source-free with collection UI suppressed: OK
+AUDIT|Slide Canvas|Sticker plus nested OS loss arms both reasons in either order: OK
+AUDIT|Slide Canvas|nested OS loss leaves the resumed Sticker stage byte-frozen: OK
+AUDIT|Slide Canvas|partial OS restore cannot unlock the Sticker-backed ride: OK
+AUDIT|Slide Canvas|full OS restore initially retains its source-free guard: OK
+AUDIT|Slide Canvas|overlay housekeeping retires the guard without one ride tick: OK
+AUDIT|Slide Canvas|two trustworthy neutral polls reopen Sticker controls source-free: OK
+AUDIT|Slide Canvas|real Sticker Back remains usable after either OS restore order: OK
+AUDIT|Slide Canvas|fresh source works only after the restored overlay closes: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|polled restore fixture owns a real focused Sticker Back control: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|claimed terminal axis and D-pad releases neutralize raw overlay state: OK
+AUDIT|Slide Canvas|lost-context neutral polling cannot retire the axis latch or revive the cursor: OK
+AUDIT|Slide Canvas|partial polling restore cannot close or save the Sticker overlay: OK
+AUDIT|Slide Canvas|neutral full restore initially owns both controller and axis guards: OK
+AUDIT|Slide Canvas|Sticker-owned first restore frame lays out opaque 1280x800 without ride motion: OK
+AUDIT|Slide Canvas|first trustworthy post-guard neutral poll retains the axis latch: OK
+AUDIT|Slide Canvas|second trustworthy post-guard neutral poll clears the axis latch: OK
+AUDIT|Slide Canvas|second lost frame observes neutral axes and re-arms the latch: OK
+AUDIT|Slide Canvas|second partial restore still cannot retire the axis latch: OK
+AUDIT|Slide Canvas|held-high polling restore initially keeps both guards: OK
+AUDIT|Slide Canvas|first source-free restore frame emits no held poll edge, cursor motion, or save: OK
+AUDIT|Slide Canvas|delayed real A press is recorded but cannot activate focused Back during poll wait: OK
+AUDIT|Slide Canvas|held restored axis, buttons, and D-pad remain quarantined until explicit neutral: OK
+AUDIT|Slide Canvas|first real neutral drain sample keeps the two-frame latch armed: OK
+AUDIT|Slide Canvas|fresh overlay shortcut waits through its real grace without ride motion: OK
+AUDIT|Slide Canvas|fresh post-neutral D-pad is a real owned steering source: OK
+AUDIT|Slide Canvas|neutral then fresh axis, B, and D-pad affect only their intended owners: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|paused restore fixture focuses the dangerous real Leave control: OK
+AUDIT|Slide Canvas|paused nested OS loss preserves stage and Leave focus in either order: OK
+AUDIT|Slide Canvas|paused full restore retains controller and two-poll guards: OK
+AUDIT|Slide Canvas|stale A, Enter, and Start cannot activate focused Leave before neutral: OK
+AUDIT|Slide Canvas|first trustworthy paused neutral frame keeps the poll latch: OK
+AUDIT|Slide Canvas|second trustworthy paused neutral frame releases only the poll latch: OK
+AUDIT|Slide Canvas|fresh focused Resume works only after both paused neutral frames: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|paused restore fixture focuses the dangerous real Leave control: OK
+AUDIT|Slide Canvas|paused nested OS loss preserves stage and Leave focus in either order: OK
+AUDIT|Slide Canvas|paused full restore retains controller and two-poll guards: OK
+AUDIT|Slide Canvas|stale A, Enter, and Start cannot activate focused Leave before neutral: OK
+AUDIT|Slide Canvas|first trustworthy paused neutral frame keeps the poll latch: OK
+AUDIT|Slide Canvas|second trustworthy paused neutral frame releases only the poll latch: OK
+AUDIT|Slide Canvas|fresh focused Resume works only after both paused neutral frames: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|child Menu omits the parent-only Developer doorway: OK
+AUDIT|Slide Canvas|focus-out then app-paused nests two loss reasons behind one guard: OK
+AUDIT|Slide Canvas|lost-context traffic cannot pause, steer, advance, or enter a census: OK
+AUDIT|Slide Canvas|partial app restore cannot override remaining focus loss: OK
+AUDIT|Slide Canvas|full restore retains a source-free first-tick guard: OK
+AUDIT|Slide Canvas|pre-tick restored traffic is swallowed without a source: OK
+AUDIT|Slide Canvas|first restored frame clears only the controller guard and preserves motion: OK
+AUDIT|Slide Canvas|first no-overlay neutral poll keeps the restored ride frozen: OK
+AUDIT|Slide Canvas|second no-overlay neutral poll releases the ride to normal ticking: OK
+AUDIT|Slide Canvas|fresh different source works after missing old releases: OK
+AUDIT|Slide Canvas|reverse ordering remains lost until the app reason restores: OK
+AUDIT|Slide Canvas|reverse full restore arms the same first-tick guard: OK
+AUDIT|Slide Canvas|reverse first frame clears only the guard without stale input: OK
+AUDIT|Slide Canvas|reverse first neutral poll remains clock- and source-free: OK
+AUDIT|Slide Canvas|reverse second neutral poll clears the independent latch: OK
+AUDIT|Slide Canvas|claimed, unclaimed, Pause, overlay, and OS traffic preserve living-world bytes: OK
+AUDIT|Slide Canvas|neutral-exit fixture holds unclaimed raw RIGHT_X and A until teardown: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|real pause sheet exposes a neutral visible BACK control: OK
+AUDIT|Slide Canvas|focused real BACK synchronously restores the exact Reef context: OK
+AUDIT|Slide Canvas|neutral BACK changes no reward bytes and preserves held raw levels under guard: OK
+AUDIT|Slide Canvas|neutral stage_close exact-restores pre-entry chime volume and pitch: OK
+AUDIT|Slide Canvas|neutral Leave return guard freezes world through fade and nested context loss: OK
+AUDIT|Slide Canvas|neutral Leave guard terminals retire Melody sources before any context loss: OK
+AUDIT|Slide Canvas|neutral Leave neutral frame two remains Player-frozen until deferred retirement: OK
+AUDIT|Slide Canvas|neutral Leave only a fresh next-frame gesture moves after quarantine: OK
+AUDIT|Slide Canvas|fish Canvas teardown is synchronous, idempotent, and fully freed: OK
+AUDIT|Slide Canvas|Hybrid touch and native mouse stick/action releases retire both entry censuses: OK
+AUDIT|Slide Canvas|bounded return guard is clear before Classic first-win reentry: OK
+AUDIT|Slide Canvas|gold-run unmapped pad fallback is live before exact fish entry: OK
+AUDIT|Slide Canvas|Classic proximity enters the same exact fish Canvas route: OK
+AUDIT|Slide Canvas|Classic entry hides the exact captured living-world layer: OK
+AUDIT|Slide Canvas|gold entry terminal pad events stay Canvas-owned and raw-neutral: OK
+AUDIT|Slide Canvas|gold run holds real unclaimed raw fallback until exact teardown: OK
+AUDIT|Slide Canvas|fade reveal restores input only at the real callback boundary: OK
+AUDIT|Slide Canvas|bounded first active tick retires the startup release guard: OK
+AUDIT|Slide Canvas|Sticker freeze fixture begins with deliberate real steering: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|freeze fixture uses the visible Pause Sticker doorway: OK
+AUDIT|Slide Canvas|resumed higher Sticker sheet retains the exact live slide stage: OK
+AUDIT|Slide Canvas|held source releases neutrally through the resumed Sticker sheet: OK
+AUDIT|Slide Canvas|Sticker stays open beyond a full ride with time, catch, reward, save, and stage frozen: OK
+AUDIT|Slide Canvas|real overlapping Sticker Back returns to the same frozen slide: OK
+AUDIT|Slide Canvas|fresh source resumes the same ride after the overlapping Back: OK
+AUDIT|Slide Canvas|fade reveal restores input only at the real callback boundary: OK
+AUDIT|Slide Canvas|bounded first active tick retires the startup release guard: OK
+AUDIT|Slide Canvas|near-finish held RIGHT_X and D-pad cannot outlast the remaining ride: OK
+AUDIT|Slide Canvas|release requires one frozen and one retiring neutral poll before resuming: OK
+AUDIT|Slide Canvas|5-fish completion return guard freezes world through fade and nested context loss: OK
+AUDIT|Slide Canvas|5-fish completion guard terminals retire Melody sources before any context loss: OK
+AUDIT|Slide Canvas|5-fish completion neutral frame two remains Player-frozen until deferred retirement: OK
+AUDIT|Slide Canvas|5-fish completion only a fresh next-frame gesture moves after quarantine: OK
+AUDIT|Slide Canvas|post-overlay deliberate Classic steering collects five and wins gold: OK
+AUDIT|Slide Canvas|first win persists medal and friend exactly once per write owner: OK
+AUDIT|Slide Canvas|first-win teardown hands chime to the 0.90 fanfare instead of restoring entry tuning: OK
+AUDIT|Slide Canvas|first win restores position, pose, environment, and music: OK
+AUDIT|Slide Canvas|bounded return guard is clear before three-fish replay reentry: OK
+AUDIT|Slide Canvas|already-won replay enters from deliberately nondefault chime tuning: OK
+AUDIT|Slide Canvas|fade reveal restores input only at the real callback boundary: OK
+AUDIT|Slide Canvas|bounded first active tick retires the startup release guard: OK
+AUDIT|Slide Canvas|3-fish completion return guard freezes world through fade and nested context loss: OK
+AUDIT|Slide Canvas|3-fish completion guard terminals retire Melody sources before any context loss: OK
+AUDIT|Slide Canvas|3-fish completion neutral frame two remains Player-frozen until deferred retirement: OK
+AUDIT|Slide Canvas|3-fish completion only a fresh next-frame gesture moves after quarantine: OK
+AUDIT|Slide Canvas|deliberate three-fish replay earns silver without downgrading gold: OK
+AUDIT|Slide Canvas|silver replay handoff survives synchronous stage_close and its next frame: OK
+AUDIT|Slide Canvas|replay writes once, preserves exact save bytes, and restores context: OK
+AUDIT|Slide Canvas|silver celebration volume and pitch remain live across following frames: OK
+AUDIT|Slide Canvas|bounded return guard is clear before zero-fish mercy reentry: OK
+AUDIT|Slide Canvas|zero-fish replay also enters from nondefault chime tuning: OK
+AUDIT|Slide Canvas|fade reveal restores input only at the real callback boundary: OK
+AUDIT|Slide Canvas|bounded first active tick retires the startup release guard: OK
+AUDIT|Slide Canvas|0-fish completion return guard freezes world through fade and nested context loss: OK
+AUDIT|Slide Canvas|0-fish completion guard terminals retire Melody sources before any context loss: OK
+AUDIT|Slide Canvas|0-fish completion neutral frame two remains Player-frozen until deferred retirement: OK
+AUDIT|Slide Canvas|0-fish completion only a fresh next-frame gesture moves after quarantine: OK
+AUDIT|Slide Canvas|deliberate zero-fish mercy ride completes successfully for bronze: OK
+AUDIT|Slide Canvas|bronze replay handoff survives synchronous stage_close and its next frame: OK
+AUDIT|Slide Canvas|zero-fish replay has no fail/timer path and preserves save/context: OK
+AUDIT|Slide Canvas|slide medal thresholds remain exact at zero, three, and five fish: OK
+AUDIT|Slide Canvas|bounded return guard is clear before Penguin and race regressions: OK
+AUDIT|Slide Canvas|Penguin chase remains the non-Canvas shared slide course: OK
+AUDIT|Slide Canvas|Penguin chase retains ordinary raw axis and d-pad bookkeeping: OK
+AUDIT|Slide Canvas|Penguin cleanup restores its captured world context: OK
+AUDIT|Slide Canvas|game equals race still builds only the shared play-place course: OK
+AUDIT|Slide Canvas|game=race retains ordinary raw axis and d-pad bookkeeping: OK
+AUDIT|Slide Canvas|shared race cleanup leaves no fish Canvas or context drift: OK
+AUDIT|Harper/Fiona Canvas trusted suite: OK
+AUDIT|Aquatic patrol terrain clearance: OK
+AUDIT|Seek Canvas authored atlas and v5 meadow art: OK
+AUDIT|Penguin floe at water surface: OK
+AUDIT|Critter Book: OK
+AUDIT|Evie and Lamb-a' [seek]: WON cutaway=true wall_s=0.7
+AUDIT|Slide Canvas|fade reveal restores input only at the real callback boundary: OK
+AUDIT|Slide Canvas|bounded first active tick retires the startup release guard: OK
+AUDIT|Slide Canvas|near-finish held RIGHT_X and D-pad cannot outlast the remaining ride: OK
+AUDIT|Slide Canvas|release requires one frozen and one retiring neutral poll before resuming: OK
+AUDIT|Slide Canvas|5-fish completion return guard freezes world through fade and nested context loss: OK
+AUDIT|Slide Canvas|5-fish completion guard terminals retire Melody sources before any context loss: OK
+AUDIT|Slide Canvas|5-fish completion neutral frame two remains Player-frozen until deferred retirement: OK
+AUDIT|Slide Canvas|5-fish completion only a fresh next-frame gesture moves after quarantine: OK
+AUDIT|Harper and Fiona [slide]: WON cutaway=true wall_s=2.3
+AUDIT|Faron [dolls]: WON cutaway=false wall_s=2.1
+AUDIT|Rainbow Canvas theater: OK
+AUDIT|Daddy Mermaid [melody]: WON cutaway=true wall_s=3.1
+AUDIT|Wacky and Chuck [fetch]: WON cutaway=true wall_s=2.3
+AUDIT|Toy Castle [brawl]: WON co-op
+AUDIT|Can of Beans: OK
+AUDIT|Tank idle rig: OK sprite=true swimming=true
+AUDIT|Animal tanks: OK swimming=4 sprites=4
+AUDIT|Pearl respawn: OK
+AUDIT|Level 2 nine-pearl lock: OK
+AUDIT|Level 2 portal: OK
+AUDIT|Level 2 portal stays unlocked after spending: OK
+AUDIT|Level 2 courtyard: OK
+AUDIT|Level 2 three-screen promenade: OK targets=5
+AUDIT|Level 2 castle Sprite2D stage: OK game=level2 phase=hall mg_kind= stars_got=0 l2_open=false
+AUDIT|retired 3D castle absent: OK
+AUDIT|castle physical doors plus single global Back: OK
+AUDIT|Royal Hall Crown finish: OK
+AUDIT|save file: OK
+AUDIT|finale: OK
+AUDIT|persisted wins: 5/5
+AUDIT|total wall time: 20.0s
+=== probe_bathroom_integration ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+BATHROOM_WORLD|empty Day One bathtub has no swimmer or fill water: OK
+BATHROOM_WORLD|sprite stage open: OK
+BATHROOM_WORLD|direct canvas has no camera: OK
+BATHROOM_WORLD|retired modeled bathroom absent: OK
+BATHROOM_WORLD|one child-readable bathtub silhouette: OK false_foreground_left=false false_foreground_right=false real_bathtub=true
+BATHROOM_WORLD|audited V4 bathroom registry: OK
+BATHROOM_WORLD|source-owned bath touch props: OK expected=5 runtime=5 hotspots=5
+BATHROOM_WORLD|zero V3 additions or duplicate props: OK
+BATHROOM_WORLD|native bath props own pixels over complete full-frame clean tiles: OK expected_native=true runtime_native=true
+BATHROOM_WORLD|unshaded Sprite2D fixtures: OK
+BATHROOM_WORLD|fixtures occupy real depth: OK
+BATHROOM_WORLD|semantic atlas sequences follow audited timelines and reset: OK
+BATHROOM_WORLD|Canvas fixtures add 3x temporal samples and sleep at one idle draw: OK
+BATHROOM_WORLD|semantic fixture actions stay bounded and restore roots: OK
+BATHROOM_WORLD|fixture actions play exact castle audio: OK
+BATHROOM_WORLD|fixture animations reject repeat taps while busy: OK
+BATHROOM_WORLD|toilet vortex stays inside the animated bowl cavity: OK spec={ "role": "vortex", "shape": "ellipse", "center": [0.51, 0.615], "radius": [0.12, 0.028], "z_offset": 0.003, "flow_start": 0.08, "render_priority": 1.0, "active_frames": [2.0, 3.0, 4.0], "contact_role": "inside_bowl_cavity", "cavity_bounds_normalized": [0.365, 0.57, 0.29, 0.09], "occlusion_contract": "front_surface_confined_to_inner_bowl_waterline", "deep": [0.3, 0.7, 0.82, 1.0], "shallow": [0.74, 0.95, 0.98, 1.0], "alpha_base": 0.56, "turbulence": 0.52, "edge_foam": 0.18, "flow_speed": 1.25 } bounds=[P: (0.39, 0.587), S: (0.24, 0.056)] cavity=[P: (0.365, 0.57), S: (0.29, 0.09)] water_z=100 sprite_z=100
+BATHROOM_WORLD|bathtub water is a soft contained basin layer: OK roles=["fill"] alpha=0.240
+BATHROOM_WORLD|filled Day One bathtub reuses the true-swimming bunny: OK
+BATHROOM_WORLD|no bathtub-like foreground occluders: OK
+BATHROOM_WORLD|free-roaming controls disabled: OK
+BATHROOM_WORLD|bubble_bath authored lanes stay in stage and clear fixture bodies: OK
+BATHROOM_WORLD|bubble_bath item approaches resolve onto authored lanes: OK
+BATHROOM_WORLD|bubble_bath navigation snapshot carries atlas source geometry: OK
+BATHROOM_WORLD|live bathtub hotspot starts an approach: OK
+BATHROOM_WORLD|bathtub action waits while Roshan approaches: OK
+BATHROOM_WORLD|every bathtub interpolation sample stays on clear authored floor: OK
+BATHROOM_WORLD|bathtub action begins only at its approach socket: OK
+BATHROOM_WORLD|a new real floor tap cancels the queued bathtub action: OK
+BATHROOM_WORLD|touch drag release over bathtub requests its shared approach: OK
+BATHROOM_WORLD|dragged bathtub action waits for clear path arrival: OK
+BATHROOM_WORLD|library authored lanes stay in stage and clear fixture bodies: OK
+BATHROOM_WORLD|library item approaches resolve onto authored lanes: OK
+BATHROOM_WORLD|library navigation snapshot carries atlas source geometry: OK
+BATHROOM_WORLD|playroom authored lanes stay in stage and clear fixture bodies: OK
+BATHROOM_WORLD|playroom item approaches resolve onto authored lanes: OK
+BATHROOM_WORLD|playroom navigation snapshot carries atlas source geometry: OK
+BATHROOM_WORLD|drag release over an in-room physical door waits for arrival: OK
+BATHROOM_WORLD|dragged in-room door follows its lane before changing rooms: OK
+BATHROOM_WORLD|press held over a hall door cannot arm or enter it: OK
+BATHROOM_WORLD|a foreign touch release cannot steal the owned castle drag: OK
+BATHROOM_WORLD|a canceled touch drag clears movement and door intent: OK
+BATHROOM_WORLD|drag release on a physical door waits for arrival: OK
+BATHROOM_WORLD|dragged door route samples stay on the hall network: OK
+BATHROOM_WORLD|drag release enters the door after Roshan arrives: OK
+BATHROOM_WORLD|RESULT: 0 OK
+=== probe_castle_canvas2d ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+CASTLE2D|castle runtime opened: OK
+CASTLE2D|castle stage is a Control: OK
+CASTLE2D|castle safe-frame backdrop replaces default letterbox gray: OK
+CASTLE2D|castle canvas world is Node2D: OK
+CASTLE2D|castle canvas world is visible: OK
+CASTLE2D|castle canvas world owns negative base depth: OK
+CASTLE2D|castle stage contains only canvas runtime nodes: OK
+CASTLE2D|Roshan is a visible Sprite2D card: OK
+CASTLE2D|Roshan is fully visible inside the castle stage: OK (bounds=[P: (581.3403, 466.7576), S: (120.1644, 154.3878)] stage=(1280.0, 720.0))
+CASTLE2D|castle background card exists: OK
+CASTLE2D|castle background composition is visible: OK
+CASTLE2D|castle_room_mid_layer exists: OK
+CASTLE2D|castle_room_mid_layer is visible: OK
+CASTLE2D|castle_room_front_layer exists: OK
+CASTLE2D|castle_room_front_layer is visible: OK
+CASTLE2D|castle_room_item_visual_layer exists: OK
+CASTLE2D|castle_room_item_visual_layer is visible: OK
+CASTLE2D|castle_room_item_effect_layer exists: OK
+CASTLE2D|castle_room_item_effect_layer is visible: OK
+CASTLE2D|every castle Sprite2D has a complete local texture rect: OK
+CASTLE2D|castle composition has authored cards: OK (cards=37)
+CASTLE2D|transition cover spans the complete stage: OK (cover=(1280.0, 720.0) stage=(1280.0, 720.0))
+CASTLE2D|physical castle door dictionary is populated: OK (count=8)
+CASTLE2D|picture elevator routes are retired: OK (count=0)
+CASTLE2D|castle door hotspot list is populated: OK
+CASTLE2D|castle interaction dictionary is populated: OK (count=3)
+CASTLE2D|room composition declares completion: OK
+CASTLE2D|fixture-rich room remains composed: OK
+CASTLE2D|bathroom bathtub exposes an authored route socket: OK (route=(270.0, 570.0))
+CASTLE2D|bathroom route socket is distinct from painted tub origin: OK
+CASTLE2D|castle stage is a Control: OK
+CASTLE2D|castle safe-frame backdrop replaces default letterbox gray: OK
+CASTLE2D|castle canvas world is Node2D: OK
+CASTLE2D|castle canvas world is visible: OK
+CASTLE2D|castle canvas world owns negative base depth: OK
+CASTLE2D|castle stage contains only canvas runtime nodes: OK
+CASTLE2D|Roshan is a visible Sprite2D card: OK
+CASTLE2D|Roshan is fully visible inside the castle stage: OK (bounds=[P: (546.5201, 389.0278), S: (182.5905, 234.2725)] stage=(1280.0, 720.0))
+CASTLE2D|castle background card exists: OK
+CASTLE2D|castle background composition is visible: OK
+CASTLE2D|castle_room_mid_layer exists: OK
+CASTLE2D|castle_room_mid_layer is visible: OK
+CASTLE2D|castle_room_front_layer exists: OK
+CASTLE2D|castle_room_front_layer is visible: OK
+CASTLE2D|castle_room_item_visual_layer exists: OK
+CASTLE2D|castle_room_item_visual_layer is visible: OK
+CASTLE2D|castle_room_item_effect_layer exists: OK
+CASTLE2D|castle_room_item_effect_layer is visible: OK
+CASTLE2D|every castle Sprite2D has a complete local texture rect: OK
+CASTLE2D|castle composition has authored cards: OK (cards=39)
+CASTLE2D|transition cover spans the complete stage: OK (cover=(1280.0, 720.0) stage=(1280.0, 720.0))
+CASTLE2D|fixture rig dictionary is populated: OK (count=5)
+CASTLE2D|fixture bubble_bath:bathtub water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:sink water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:sink water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:toilet water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:rubber_duck water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:rubber_duck has no engine body: OK
+CASTLE2D|fixture bubble_bath:rubber_duck spring is analytic: OK
+CASTLE2D|fixture water/spring nodes are 2D: OK
+CASTLE2D|fixture water contract exposes Sprite2D layers: OK (water=5)
+CASTLE2D|fixture spring contract exposes analytic springs: OK (springs=1)
+CASTLE2D|fixture telemetry exposes bounded caps: OK ({ "rigs": 5, "allocated": 1, "awake": 0, "body_cap": 12, "awake_cap": 8, "spring_cap": 12, "spring_awake_cap": 8, "water_mask_cache_entries": 10, "native_v4_loaded": 12, "native_v4_rejected": 0, "native_v4_background_rooms": 7 })
+CASTLE2D|dust-bunny burst uses the bounded mote count: OK (count=8)
+CASTLE2D|dust-bunny motes rise in a tight readable burst: OK
+CASTLE2D|dust-bunny burst fades within the short feedback window: OK
+CASTLE2D|Main Hall exposes ordinary bunnies for Daddy path: OK (count=3)
+CASTLE2D|Daddy partner pop emits one bounded burst per bunny: OK (count=24 expected=24)
+CASTLE2D|Daddy partner burst keeps its pink theme: OK
+CASTLE2D|Daddy partner path clears each ordinary bunny once: OK
+CASTLE2D|opera_hall displays every visible item in full: OK
+CASTLE2D|kitchen displays every visible item in full: OK
+CASTLE2D|library displays every visible item in full: OK
+CASTLE2D|playroom displays every visible item in full: OK
+CASTLE2D|craft_room displays every visible item in full: OK
+CASTLE2D|mermaid_pool displays every visible item in full: OK
+CASTLE2D|bubble_bath displays every visible item in full: OK
+CASTLE2D|dining_room displays every visible item in full: OK
+CASTLE2D|royal_bedroom displays every visible item in full: OK
+CASTLE2D|sleepover_bedroom displays every visible item in full: OK
+CASTLE2D|movie_lounge displays every visible item in full: OK
+CASTLE2D|family_gallery displays every visible item in full: OK
+CASTLE2D|done failures=0
+=== probe_day_one_integration ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_INTEGRATION|director uses ReefMain state owner: OK
+DAY_ONE_INTEGRATION|Day One starts with jobs and opera locked: OK
+DAY_ONE_INTEGRATION|only physical bathroom route starts unlocked: OK
+DAY_ONE_INTEGRATION|completion advances the physical castle route: OK
+DAY_ONE_INTEGRATION|Day Two cannot bypass the real boss defeat: OK
+DAY_ONE_INTEGRATION|remaining physical rooms arm the real boss boundary: OK
+DAY_ONE_INTEGRATION|the recorded boss defeat starts Chapter 2 before Day Two: OK
+DAY_ONE_INTEGRATION|Day Two policy releases rooms, jobs, and opera: OK
+DAY_ONE_INTEGRATION|save normalization cannot skip the room order: OK
+DAY_ONE_INTEGRATION|exact origin Day-Two terminal backfills the boss defeat: OK
+DAY_ONE_INTEGRATION|Day-Two migration preserves independent Chapter 3 door state: OK
+DAY_ONE_INTEGRATION|inactive or unlocked legacy data alone cannot invent a defeat: OK
+DAY_ONE_INTEGRATION|wiring source is readable: res://scripts/main.gd: OK
+DAY_ONE_INTEGRATION|wired main.gd -> DayOneDirector.new(self): OK
+DAY_ONE_INTEGRATION|wired main.gd -> func day_one_try_enter_castle_room: OK
+DAY_ONE_INTEGRATION|wired main.gd -> func day_one_activate_castle_room: OK
+DAY_ONE_INTEGRATION|wired main.gd -> _day_one_begin_arrival(): OK
+DAY_ONE_INTEGRATION|wired main.gd -> _day_one_discover_dirty_castle(): OK
+DAY_ONE_INTEGRATION|wired main.gd -> _start_game(dust_boss_fr): OK
+DAY_ONE_INTEGRATION|wiring source is readable: res://scripts/save_state.gd: OK
+DAY_ONE_INTEGRATION|wired save_state.gd -> m._day_one_ref().restore_state(m.save_data): OK
+DAY_ONE_INTEGRATION|wired save_state.gd -> m._day_one_ref().serialize_state(): OK
+DAY_ONE_INTEGRATION|wired save_state.gd -> DayOneDirector.normalise_save_patch(raw): OK
+DAY_ONE_INTEGRATION|wiring source is readable: res://scripts/arena/castle_rooms_25d.gd: OK
+DAY_ONE_INTEGRATION|wired castle_rooms_25d.gd -> m.day_one_try_enter_castle_room(start_room): OK
+DAY_ONE_INTEGRATION|wired castle_rooms_25d.gd -> m.day_one_try_enter_castle_room(room_id): OK
+DAY_ONE_INTEGRATION|wired castle_rooms_25d.gd -> m.day_one_activate_castle_room(m.castle_room_id): OK
+DAY_ONE_INTEGRATION|wired castle_rooms_25d.gd -> m._day_one_attach_castle_dressing(): OK
+DAY_ONE_INTEGRATION|wired castle_rooms_25d.gd -> m._day_one_clear_castle_dressing(): OK
+DAY_ONE_INTEGRATION|wiring source is readable: res://scripts/castle_career_routes.gd: OK
+DAY_ONE_INTEGRATION|wired castle_career_routes.gd -> m.day_one_jobs_locked(): OK
+DAY_ONE_INTEGRATION|wiring source is readable: res://scripts/games/dust_boss.gd: OK
+DAY_ONE_INTEGRATION|wired dust_boss.gd -> m.day_one_complete_boss_and_begin_day_two(): OK
+DAY_ONE_INTEGRATION|wired dust_boss.gd -> m._end_game(true, fr: OK
+DAY_ONE_INTEGRATION|RESULT: PASS failures=0

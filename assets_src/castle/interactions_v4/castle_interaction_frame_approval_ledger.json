@@ -1,6 +1,6 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "42fe2f9a29b673ba99f1482e647380460e2f716c8e265ec0964cde0895dfc7de",
+  "candidate_payload_sha256": "8368356cefa1cba280c5c949b102e698045b1f137f7ff8524f4b6dd078adc86c",
   "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
   "metadata_revalidation": {
     "date": "2026-08-29",
@@ -254,5 +254,13 @@
       },
       "occlusion_relation": []
     }
+  },
+  "pathfinding_binding_revalidation": {
+    "date": "2026-09-06",
+    "reason": "Stage routing, arrival-only actions, pointer ownership/cancellation and read-only navigation snapshots changed the whole-file Castle source binding. No fixture atlas pixels, fixture rig, asset depth, static-card occlusion, manifest or per-frame render input changed. Library walk bounds affect avatar routing only. All 96 reviewed frame hashes and every occlusion relation are identical, and replacing only the current runtime source hash with the baseline hash exactly reproduces the prior approved candidate payload.",
+    "prior_candidate_payload_sha256": "42fe2f9a29b673ba99f1482e647380460e2f716c8e265ec0964cde0895dfc7de",
+    "evidence_path": "audit/stage_pathfinding/evidence/castle_frame_binding_revalidation.json",
+    "evidence_sha256": "21fe2f19de986fcec0124c6ca68efef9421a18582bb2e0f6a517a0f75f1f3727",
+    "owner_acceptance": "pending"
   }
 }

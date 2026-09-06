@@ -51,6 +51,7 @@ rules; sealed evidence below remains scoped to its recorded build. Follow the
 | Repair | [triage index](#5-triage-item-index--not-canonical-finding-records); [repair protocol](#9-individual-repair-and-regression-protocol) | [Canonical finding records](findings/ACTIVE_FINDINGS_2026-08-13.md); [repair order](#13-current-repair-order) |
 | Code | [architecture and refinement](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#18-code-architecture-and-refinement) | [interaction truth](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#7-interactions-change-the-world-truthfully); [regression protocol](#9-individual-repair-and-regression-protocol) |
 | Art | [visual promise](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#4-visual-promise); [composition](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#5-composition-and-child-readable-hierarchy); [Canvas construction](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#6-2d-canvas-living-card-world-construction) | [reuse and provenance](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#14-art-sourcing-reuse-and-provenance); [true 2D](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#3-final-medium-decision-a-2d-game) |
+| Stage pathfinding | [Approach, door and boundary protocol](stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md); [MA-PLAY-003](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-play-003) | [Coverage ledger](stage_pathfinding/README.md); [live-stage review atlas](stage_pathfinding/reproductions/index.html) |
 | Touch | [child constraints](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#2-the-child-is-the-primary-design-constraint); [touch and interface](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#8-touch-and-interface-grammar) | [feedback and rewards](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards); [typography](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#19-font-typography-glyph-and-text-layout-contract) |
 | Audio | [voice and sound](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#10-voice-music-and-non-reader-communication) | [acceptance levels](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#16-acceptance-and-audit-contract); [Music audit](../MUSIC_AUDIT_2026-08-09.md) |
 | Cinematic | [full-frame delivery and handoff](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#11-cinematic-exception) | [Binding cinematic rules](../AGENTS.md); [shot card](../design/templates/IMAGINE_SHOT_CARD_V1.md) |
@@ -1397,8 +1398,17 @@ the compact navigation view; these links open the complete section-10 records:
 
 ### 5.1 P0/P1 and acceptance-blocking indexed items
 
+Owner-directed action-location finding:
+[`MA-PLAY-004`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-play-004), P1,
+`IN_PROGRESS`: Roshan must travel to each job target, visibly perform the work
+with hand/tool contact, and only then complete that step. Pool skimming is the
+first repair; bathtub cleaning, craft-room cleaning, baby-eagle rescue, the
+remaining pool activities, and equivalent jobs require individual evidence.
+Launching a minigame or animating an unattached tool does not satisfy this gate.
+
 | ID | Severity | Lifecycle | Verification | Indexed issue | Closure requirement |
 |---|---|---|---|---|---|
+| `MA-PLAY-004` | P1 | `IN_PROGRESS` | V2/V3 pool only; other jobs open | Detached tools can complete Roshan-owned work remotely. The pool skimmer is the first repair; bathtub, craft-room, baby-eagle and remaining pool jobs stay open | Each job/substep proves travel, arrival, visible hand/tool work, then completion, with cancellation/save/one-finger checks and Mobile/device/owner evidence |
 | `MA-2D-002` | P1 | `IN_PROGRESS` | V2/V3 partial | Source `51d0abc0` records 509 model/export files, 157 tracked model sidecars, 352 active untracked sidecars, 65 production 3D files, 70 probe 3D files, one 3D scene, and one 3D configuration; regression is exact `NO_REGRESSION`, all 14 stress controls pass, and archive-now is zero. Sky joins Dolls, Seek, and bounded Opera as converted/retired slices, but remaining active surfaces still enforce legacy 3D | All eleven GAME2D categories reach zero; strict gate, import, focused/surrounding/full probes green |
 | `MA-DOC-002` | P1 | `VERIFIED_FIXED` | V2/V3 exact maintenance-head local plus remote | CHG-029 sources `5ed0c754`/`7eb94595` preserve the exact 316-path Git-declared Markdown inventory with 316 unique rows and explicit mixed/supersession scope. Exact CHG-023 maintenance head `51887315` passes official Godot 4.7.1 full local in 1,435.2 seconds/all 64 and Probe Suite run `31710377034`; 36 tests, six mutation controls, and 316/316 parity are green | Preserve one-row-per-path coverage as inventory changes; future drift regresses the terminal finding |
 | `MA-DOC-003` | P1 | `BLOCKED_EXTERNAL` | V1 | An off-repository journal is said to hold 36 unnamed entries described as findings | Import source evidence or replace with fresh equal-scope audit; do not assume the entries are current |
@@ -1408,6 +1418,7 @@ the compact navigation view; these links open the complete section-10 records:
 | `MA-VIS-006` | P1 | `CONFIRMED_OPEN` | V2/V3 contract plus V4 local Sky candidate and integrated machine/build | Source `51d0abc0` repairs the bounded Sky defects and run-14 supplies 20/20 locally reviewed Mobile/Speedy frames. Integrated `441adf35` adds exact machine/build evidence, but its remote Sky subprocess lacks Mobile PASS/JSON, no device/owner acceptance exists, and the global report remains 16 failures, 17 reviews, two manual items, and 86 coverage gaps | Implement every required live state adapter/capture; every applicable FAIL/REVIEW/MANUAL/COVERAGE_GAP explicitly resolved with device/owner review |
 | `MA-VIS-007` | P1 | `FIXED_PENDING_VERIFICATION` | V3/V4 exact local and multi-review; integration/external open | The repeated Bubble Bath report was a layered pixel-ownership failure compounded by an abandoned branch, stale regeneration/review paths, and node-only probes. The repair regenerates seven Castle and two Opera complete backgrounds, retires both false bath cards and the incomplete tent-flap card, fixes the cupboard rest frame, binds every source/hash/route, reviews all 96 retained V4 frames against the exact runtime underlay, and passes exact Godot 4.7.2 Mobile one-bathtub dirty/clean captures plus the complete local CI suite | Preserve the fail-closed ownership/generator/frame gates; integrate the exact green topic to `dev`; then retain distinct target-device, child, and owner visual acceptance evidence before terminal closure |
 | `MA-PLAY-001` | P1 | `CONFIRMED_OPEN` | V1/V3 partial | No end-to-end fresh-save, child-visible, no-cheat world reachability proof exists | Enter/leave/re-enter every visible destination without direct debug calls; save/seam/touch/voice checks |
+| [`MA-PLAY-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-play-003) | P1 | `CONFIRMED_OPEN` | V1/V2/V3 partial pathfinding | The 2026-09-06 work adds path-only Castle routing, doctor route/contact repairs, Opera tap/drag arrival and exact board returns, dedicated route/input probes, and a source-bound review atlas. The ledger covers 65 catalog/supporting entries and separates avatar locomotion, fixed minigame seams and 3D debt. Complete per-variant geometry and external acceptance remain open | For every applicable variant, pass measurable far-tap, far-drag, near-tap-once, cancellation, door-arrival, exact-return, OOB-recovery, and zero-input rows using minimal reproductions bound to the approved source art and real controller |
 | `MA-ACCESS-001` | P1 | `BLOCKED_EXTERNAL` | V1 | Required exact voice cues remain absent for some objectives; Family Evening's dinner, movie and bedtime prompts currently route the generic `talk` acknowledgement instead of exact semantic instructions | Authorized exact recordings or independently sufficient spoken/diegetic design; playback/device/child evidence |
 | `MA-ACCESS-002` | P1 | `BLOCKED_EXTERNAL` | V1 | Lamba's current semantic role still maps to legacy “bunny-fish” recordings | Owner-approved re-record/re-render and exact-key/device listening evidence |
 | `MA-ACCESS-003` | P1 | `BLOCKED_EXTERNAL` | V1/V3 partial | Seek has an accurate visual wiggle/U-cue/peek and an available Evie hide-and-seek recording, but no exact protected Evie recording says “tap the wiggly tree” | Owner-authorized exact Evie objective recording plus queue, device-listening, and child-comprehension evidence; do not modify protected audio |
@@ -2031,6 +2042,18 @@ and this prose synchronization are CHG-023 maintenance.
 
 ## 12. Master-audit satisfaction gate
 
+- [ ] `MA-PLAY-004` / `DL-INT-02`: every Roshan-owned job and substep has
+      fresh runtime evidence of **travel → arrival → visible work/contact →
+      completion**. Required named cases include every pool trash item,
+      waterfall and seahorse work, bathtub/fixture cleaning, craft-room cleanup,
+      and saving the baby eagle. Prove far tap/drag cannot award remote progress,
+      a quick tap completes after the visible action, retarget/focus/pause/exit
+      cancels unfinished work, zero input never works, and saves/re-entry retain
+      completed steps exactly once. Record start/target positions, approach and
+      contact distances, action state, completion time, and before/during/after
+      Mobile captures per case. Pool-only machine success cannot close the
+      game-wide finding or grant device/child/owner visual acceptance.
+
 This round may move to `SATISFIED` only when all conditions are true at one
 exact commit. This is the operational checklist for `DL-QA-09` and
 `DL-QA-10`:
@@ -2206,6 +2229,7 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 
 | Date | State | Change |
 |---|---|---|
+| 2026-09-06 | `REPAIRING` | Owner identified the detached skimmer in Rumi's pool. Added `MA-PLAY-004` and the binding per-job travel/contact/action/completion gate, explicitly including bathtub, craft-room, and baby-eagle work. Pool runtime repair is a bounded first slice; other cases and final visual/device acceptance remain open. |
 | 2026-08-09 | `INVENTORYING` | Prior masters, audits, work orders, status sources, code, assets, probes, and owner decisions inventoried |
 | 2026-08-09 | `AUDITING` | Static design/code/art/tool evidence compared; visual and dimensional gates run |
 | 2026-08-09 | `CONFIRMING` | Current reports separated from pre-fix symptoms, optional ideas, and superseded 3D premises |
@@ -2267,5 +2291,9 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 | 2026-09-05 | `TRIAGING` | Owner-directed planning integration: add the planning front page, chapter guide/brief/reference library, Northern restaurant planning branch, and `DL-PLAN-01` through `DL-PLAN-06`. Record delegated playable-chapter development, minor canon-preserving additions, strategic unused assets, and free mechanic remixing. Correct active engine and Chapter 2/global progression references, preserve historical evidence, and distinguish reserved architecture choices from recommendations. No runtime, art, device, child, owner-product, release, or finding-closure claim is added. |
 
 | 2026-09-06 | focused Family Evening audit `TRIAGING` | Backfill the mandatory development-impact record for integrated commit `6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d`. Static review confirms additive/versioned save normalization, existing 2D assets, no protected-asset modification, and no new 3D debt. Exact candidate Probe run `34011122816`, dev Probe run `34012752104`, and current integrated Probe run `34016934593` are green. The review also extends `MA-ACCESS-001` because dinner/movie/bedtime use the generic `talk` acknowledgement rather than exact semantic instructions, and extends `MA-CI-005` because the reward-bearing mode has neither central passive-snapshot coverage nor a mode-specific zero-input no-award leg. No voice, passive-coverage, device, child, owner, release, or finding-closure acceptance is claimed. |
+
+## Stage pathfinding inventory (2026-09-06)
+
+The current stage ledger is [stage_inventory.json](stage_pathfinding/stage_inventory.json), with the governing arrival, door, cancellation, and out-of-bounds rules in [STAGE_PATHFINDING_PROTOCOL.md](stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md). It covers the parsed live Castle and Opera catalogs plus the recorded Reef/Lagoon/Day-One/Northern variants and standalone modes; future catalog additions must fail the coverage gate until inventoried. All 15 live Opera act IDs are explicit, including the priority Opera Doctor `opera.act.05.stuffie_surgeon`. Each `opera.act.*` row is the avatar room-to-activity seam and exact board return; separate `opera.surface.*` rows cover fixed board internals. Runtime pointer release/cancel/arrival and exact return are now tested for the Opera set; generic Castle routing covers all 13 rooms, with explicit fixture networks for bathroom, library, and playroom. Human/device review remains pending. `python -B tools/audit_stage_pathfinding.py --check` reports `COVERAGE_OK` only for catalog/provenance coverage; `--strict` is the logical-geometry gate and remains open. No entry is claimed complete from existing probes. Minimal reproductions retain the real minigame controller and approved background, with Castle Sol geometry review tracked separately.
 
 No later state is added without its required evidence.

@@ -266,6 +266,8 @@ func _build_activities() -> void:
 	skimmer_activity.progress_changed.connect(_on_skimmer_progress)
 	skimmer_activity.completed.connect(_on_skimmer_completed)
 	add_child(skimmer_activity)
+	skimmer_activity.bind_room_actor(m.castle_room_player_sprite,
+		m.castle_room_player_shadow as Sprite2D, m.skin_id)
 
 	waterfall_activity = POOL_WATERFALL_ACTIVITY.new() as PoolWaterfallActivity
 	waterfall_activity.name = "ClearTheWaterfall"

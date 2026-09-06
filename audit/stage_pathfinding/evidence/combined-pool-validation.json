@@ -1,0 +1,33 @@
+{
+  "schema": "combined-pool-pathfinding-validation-v1",
+  "parents": [
+    "3457af78f9c69eba898b3f077cfc03d4cc91f7a2",
+    "64094fca00c9e1ef64b26e6568ad35c50d9cfca4"
+  ],
+  "parent_ci_runs": [
+    34021845059,
+    34021544738
+  ],
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "import_exit_code": 0,
+  "raw_import_log_sha256": "4762341e99035ce77e45527a02c1cf34ca160bb72da63e15647ba018ef24d2ec",
+  "probe_exit_code": 0,
+  "probe_groups": [
+    "probe_day_one_pool_cleanup",
+    "probe_audit",
+    "probe_bathroom_integration",
+    "probe_castle_canvas2d",
+    "probe_day_one_integration"
+  ],
+  "failure_markers": 0,
+  "merged_pool_source_sha256": {
+    "scripts/games/day_one_pool_cleanup.gd": "b38462f71d7d0b215ad8a97df219f296551e40011d721024970c45a41a7da117",
+    "scripts/games/pool_skimmer_activity.gd": "96c8008d0cb8441cfe1ea52c27402d01b6f5b139eef55949cdbc02654030f739",
+    "scripts/probe_audit.gd": "2c97bf7fe31506c2e99f87d82b6e8f6f7384e898153b634d95c086255272dcff",
+    "scripts/probe_day_one_pool_cleanup.gd": "9544c43ee8fcdeec370d1c93edbbe59d492184c4cdafbc9f32ec7ace33c03038",
+    "scripts/probe_day_one_pool_shots.gd": "13a642fd87918b01b36433b1dc382d7f5edbda6b6f9a1ae3fcd7a79be81594f6"
+  },
+  "import_metadata": "1073 generated sidecars proved byte-identical to the index after LF normalization and restored; no asset content changed.",
+  "full_validation_scope": "Both parents have green exact-commit CI; combined import, five shared runtime probes, parser/inference, 2D no-regression and audit gates pass. Combined-head GitHub CI is pending at record creation.",
+  "acceptance": "Per-stage geometry and visible local-work gaps, device, child and owner acceptance remain open."
+}

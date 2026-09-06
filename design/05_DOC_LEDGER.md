@@ -741,6 +741,16 @@ Kept as-is; noted so a future edit updates every copy.
 |---|---|---|
 | `design/OPERA_TWO_ACT_PERFORMANCES_2026-09-05.md` | 🟣 | Local candidate for the three Opera Hall games only; mechanic and asset review, medal/token policy, pending integration and child/device gates. |
 
+| `design/CHAPTER2_LAWN_FINALE_DRAFT_2026-09-06.md` | 🟣 | `CANDIDATE` rough story and implemented alpha draft following the owner-selected lawn celebration, protection victory then cheating candle theft, and sincerely conflicted Prince. King identity is owner-confirmed V4; Prince identity is recovered from the approved Git history package. The owner-authorized V4 cutout and recovered thin Prince are implemented in the gameplay draft; final visual/device review and cinematic delivery remain open. It does not accept character pixels, cinematics, runtime integration, device performance, or release. |
+
+## Stage pathfinding audit — 2026-09-06
+
+| Document | State | Scope |
+|---|---|---|
+| `audit/stage_pathfinding/README.md` | 🔵 | `SUPPORTING_CURRENT`; explains the 65-entry catalog/supporting inventory categories and status semantics; grouped legacy modes are not an exhaustive sublevel geometry claim. It grants no runtime, device, child, or owner acceptance. |
+| `audit/stage_pathfinding/stage_inventory.json` | 🔵 | `SUPPORTING_CURRENT`; machine-readable inventory of concrete Reef/Lagoon/Castle/Day-One/Northern/Opera/minigame variants and spatial debt. It records gaps and reproduction sources; it is not a runtime catalog authority. |
+| `audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md` | 🟢 | `BINDING_DOMAIN`; owner-commissioned 2026-09-06 approach, arrival, door, cancellation, OOB, seam and zero-input protocol. Bounded Castle/Opera implementation and focused machine evidence exist; whole-game geometry and external acceptance remain open. |
+
 ## Development audit contract — 2026-09-06
 
 | Document | State | Scope |

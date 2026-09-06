@@ -1,0 +1,31 @@
+{
+  "source_path": "assets_src/cinematics/chapter2_lawn_2026-09-06/characters/ember_king_owner_reference.jpg",
+  "source_sha256": "54d98f314767d331ddc05d3a341a8a30e0081262e7768f1b7a7ab80b467aab89",
+  "source_authority": "owner explicitly confirmed King V4 attachment",
+  "authorization": "owner explicitly approved local image processing extraction on 2026-09-06",
+  "method": "select largest connected dark-outline component within left-figure ROI, fill silhouette interior, expand matte one pixel for painted edge; crop with 10px transparent padding",
+  "source_roi": [
+    0,
+    0,
+    770,
+    875
+  ],
+  "source_crop_bbox": [
+    13,
+    44,
+    760,
+    861
+  ],
+  "subject_pixels": "visible source RGB unchanged; only new alpha, crop/padding and zeroed fully transparent RGB",
+  "dimensions": [
+    747,
+    817
+  ],
+  "path": "assets/chapter2/ember_alpha/king_v4_cutout.png",
+  "sha256": "481342c3e7b9cede8dfad805cf2d81bb6d18ad77c69e4a699ec2c95ace8bc8fd",
+  "mask_path": "assets_src/chapter2_ember_cutouts_2026-09-06/king_v4_extraction_mask.png",
+  "mask_sha256": "de916566a47c987dc1ae4beb3cbb69e1a0c8ab8890872f641296376cc11e48a7",
+  "review": "assistant inspected on a solid green diagnostic field: full crown, hands, feet and cape preserved; no adjacent sheet figures included; final owner/device edge review pending",
+  "license": "inherits owner-provided project artwork, all rights reserved",
+  "cinematic_delivery": false
+}

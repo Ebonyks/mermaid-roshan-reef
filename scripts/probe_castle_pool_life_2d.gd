@@ -28,21 +28,19 @@ func _init() -> void:
 	var finale_source: String = main_source.substr(finale_start,
 		finale_end - finale_start) if finale_start >= 0 and finale_end > finale_start \
 		else ""
-	_check("bathroom finale owns distributed sparkle and pool picture handoff",
+	_check("bathroom finale keeps distributed sparkle and shared-arrow handoff",
 		cleaning_source.contains("SPARKLE_ANCHORS")
 		and cleaning_source.contains("SPARKLE_ANCHOR_ROLES")
 		and cleaning_source.contains("_spawn_whole_room_sparkles()")
 		and cleaning_source.contains("fixture_associated_role")
 		and not finale_source.contains("_burst(\"✦\"")
-		and main_source.contains("ApprovedRoomPreview")
-		and main_source.contains("approved_reused_room_imagery")
-		and main_source.contains("actual_destination_room")
+		and main_source.contains("_day_one_pool_route_button = button")
+		and main_source.contains("_navigation_ref().begin_handoff()")
 		and main_source.contains("_show_day_one_room_handoff"))
-	_check("pool route preview is the approved actual room, not a droplet",
-		main_source.contains("DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE")
-		and main_source.contains(
-			"res://assets/flats/castle/rooms/room_mermaid_pool.png")
-		and not main_source.contains("sign_mermaid_pool.png"))
+	_check("next-room handoff creates no picture preview or extra button",
+		not main_source.contains('card.name = "DayOneRouteCard"')
+		and not main_source.contains('picture.name = "ApprovedRoomPreview"')
+		and main_source.contains("var button: Button = global_navigation_button"))
 
 	var main: ReefMain = ReefMain.new()
 	var director: DayOneDirector = DIRECTOR_SCRIPT.new(main) as DayOneDirector

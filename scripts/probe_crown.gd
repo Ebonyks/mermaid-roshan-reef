@@ -8,7 +8,7 @@ extends SceneTree
 var main: Node
 var checks_failed := 0
 const DEPTH_MANIFEST := "res://FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json"
-const ROYAL_HALL_ARRIVAL_SETTLE_MS := 1250
+const ROOM_ARRIVAL_TIMEOUT_MS := 8000
 const EXPECTED_ROOM_ITEM_IDS := {
 	"main_hall": ["sleepy_bunny", "shell_bunny", "runner_bunny"],
 	"opera_hall": [
@@ -598,11 +598,17 @@ func _init() -> void:
 		var walk_target := Vector2(260.0, 430.0)
 		rooms._walk_cutout_to(_stage_to_screen(
 			main.castle_room_stage, walk_target))
+		# The tap lies above the approved lane; it must project to the floor
+		# and arrive through the route rather than teleport to the raw point.
+		var floor_deadline_ms: int = Time.get_ticks_msec() + ROOM_ARRIVAL_TIMEOUT_MS
+		while bool(main.castle_room_player_sprite.get_meta("walking", false)) \
+				and Time.get_ticks_msec() < floor_deadline_ms:
+			await process_frame
 		var requested_foot: Vector2 = main.castle_room_player_sprite.get_meta(
-			"stage_foot", Vector2.ZERO) as Vector2
+			"current_stage_foot", Vector2.ZERO) as Vector2
 		_ck("touch_navigation_maps_to_walk_lane",
-			requested_foot.distance_to(walk_target) < 0.1)
-		rooms._position_player_at_foot(requested_foot, false)
+			requested_foot.distance_to(Vector2(260.0, 570.0)) < 0.1
+			and not bool(main.castle_room_player_sprite.get_meta("walking", false)))
 		var toilet_texture: Texture2D = toilet_sprite.texture
 		var toilet_data: Dictionary = toilet_record.get("data", {}) as Dictionary
 		var toilet_start_position: Vector2 = toilet_sprite.position
@@ -612,7 +618,16 @@ func _init() -> void:
 		main.castle_room_prop_sfx.stream = null
 		if toilet_button != null:
 			toilet_button.emit_signal("pressed")
-		await process_frame
+		_ck("toilet_waits_for_floor_arrival",
+			not bool(toilet_sprite.get_meta("busy", false))
+			and main.castle_room_prop_sfx.stream == null)
+		var approach_deadline_ms: int = Time.get_ticks_msec() + ROOM_ARRIVAL_TIMEOUT_MS
+		while not bool(toilet_sprite.get_meta("busy", false)) \
+				and Time.get_ticks_msec() < approach_deadline_ms:
+			await process_frame
+		_ck("toilet_action_starts_at_authored_contact",
+			(main.castle_room_player_sprite.get_meta("current_stage_foot",
+				Vector2.ZERO) as Vector2).distance_to(Vector2(1010.0, 550.0)) < 0.1)
 		_ck("toilet_uses_semantic_flush_atlas",
 			toilet_sprite != null
 			and bool(toilet_sprite.get_meta("busy", false))
@@ -714,9 +729,11 @@ func _init() -> void:
 		_ck("royal_hall_route_available", royal_hall_button != null)
 		if royal_hall_button != null:
 			royal_hall_button.pressed.emit()
+			_ck("royal_hall_waits_for_arrival", not bool(main.g.get("crown_won", false)))
 			var arrival_deadline_ms: int = Time.get_ticks_msec() \
-				+ ROYAL_HALL_ARRIVAL_SETTLE_MS
-			while Time.get_ticks_msec() < arrival_deadline_ms:
+				+ ROOM_ARRIVAL_TIMEOUT_MS
+			while not bool(main.g.get("crown_won", false)) \
+					and Time.get_ticks_msec() < arrival_deadline_ms:
 				await process_frame
 	_ck("crown_won_flag", bool(main.g.get("crown_won", false)))
 	_ck("win_recorded", main.level2_done_once)

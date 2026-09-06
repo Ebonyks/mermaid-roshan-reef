@@ -494,15 +494,16 @@ func _init() -> void:
 	main.g["phase"] = "promenade"
 	main._navigation_set_root("sky_lagoon")
 
-	# One upper-left control owns every persistent navigation surface. At the
+	# One upper-right control owns every persistent navigation surface. At the
 	# root it opens Menu; nested screens reuse the same node as Back.
 	var global_navigation := _check_target(main.navigation_layer,
 		"GlobalNavigationButton", "global navigation owns one 112px target",
 		Vector2(112, 112))
-	_check(global_navigation != null and global_navigation.position.x <= 24.0
+	_check(global_navigation != null and global_navigation.anchor_right == 1.0
+		and global_navigation.offset_right == -18.0
 		and global_navigation.position.y <= 24.0
 		and String(global_navigation.get_meta("global_navigation_mode", "")) == "menu",
-		"global navigation is the single upper-left Menu control at the root")
+		"global navigation is the single upper-right Menu control at the root")
 	_check(_visible_button_names(main) == ["GlobalNavigationButton"],
 		"Sky Lagoon root has exactly one visible Button game-wide")
 	_check(_find(main, "PauseCornerButton") == null,
@@ -570,7 +571,7 @@ func _init() -> void:
 	main._pause_ref().sync_global_navigation()
 	_check(String(main.global_navigation_button.get_meta(
 		"global_navigation_mode", "")) == "back",
-		"the same upper-left control becomes Back inside craft")
+		"the same upper-right control becomes Back inside craft")
 	main._pause_ref().global_navigation_pressed()
 	await process_frame
 	_check(main.craft_layer == null,

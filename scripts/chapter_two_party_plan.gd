@@ -6,14 +6,14 @@ extends RefCounted
 ## repurposes retired slots or legacy `opera_stars` state.
 
 const LIVE_CAREERS: Array[Dictionary] = [
-	{"act_index": 6, "career": "farmer", "room": "dining_room", "scene_id": "sky_lagoon_farmer", "location_label": "Sky Lagoon strawberry grove", "route_label": "Dining Room berry doorway", "function": "gather Sky Lagoon strawberries for the cake", "piece": "strawberries", "seed": "chapter3_garden_path"},
-	{"act_index": 0, "career": "chef", "room": "kitchen", "function": "bake the gigantic strawberry birthday cake", "piece": "birthday_cake", "seed": "chapter3_warm_cake"},
-	{"act_index": 3, "career": "candy_maker", "room": "kitchen", "function": "finish the cake with candied strawberries", "piece": "candied_strawberries", "seed": "chapter3_sweet_trail"},
-	{"act_index": 10, "career": "painter", "room": "craft_room", "function": "paint the Main Hall birthday banner", "piece": "party_banner", "seed": "chapter3_sunrise_sign"},
-	{"act_index": 2, "career": "ballerina", "room": "playroom", "function": "teach the stuffies to dance and play together", "piece": "stuffie_dance", "seed": "chapter3_ribbon_step"},
-	{"act_index": 13, "career": "popstar", "room": "opera_hall", "function": "sound-check the birthday song with Rumi", "piece": "party_song", "seed": "chapter3_echo_song"},
-	{"act_index": 11, "career": "astronaut", "room": "mermaid_pool", "function": "build the little rocket that lights the rainbow candle", "piece": "candle_lighting_rocket", "seed": "chapter3_north_star"},
-	{"act_index": 1, "career": "detective", "room": "library", "function": "find the last missing candle", "piece": "rainbow_candle", "seed": "chapter3_storybook_clue"},
+	{"act_index": 6, "career": "farmer", "room": "dining_room", "scene_id": "sky_lagoon_farmer", "location_label": "Sky Lagoon strawberry grove", "route_label": "Dining Room berry doorway", "function": "gather Sky Lagoon strawberries for the cake", "piece": "strawberries", "lawn_nodes": ["Cake"], "seed": "chapter3_garden_path"},
+	{"act_index": 0, "career": "chef", "room": "kitchen", "function": "bake the gigantic strawberry birthday cake", "piece": "birthday_cake", "lawn_nodes": ["Cake"], "seed": "chapter3_warm_cake"},
+	{"act_index": 3, "career": "candy_maker", "room": "kitchen", "function": "finish the cake with candied strawberries", "piece": "candied_strawberries", "lawn_nodes": ["Cake"], "seed": "chapter3_sweet_trail"},
+	{"act_index": 10, "career": "painter", "room": "craft_room", "function": "paint the Main Hall birthday banner", "piece": "party_banner", "lawn_nodes": ["Banner"], "seed": "chapter3_sunrise_sign"},
+	{"act_index": 2, "career": "ballerina", "room": "playroom", "function": "teach the stuffies to dance and play together", "piece": "stuffie_dance", "lawn_nodes": ["StuffieCat", "StuffieBunny", "MusicBox"], "seed": "chapter3_ribbon_step"},
+	{"act_index": 13, "career": "popstar", "room": "opera_hall", "function": "sound-check the birthday song with Rumi", "piece": "party_song", "lawn_nodes": ["Rumi", "PartyMicrophone"], "seed": "chapter3_echo_song"},
+	{"act_index": 11, "career": "astronaut", "room": "mermaid_pool", "function": "build the little rocket that lights the rainbow candle", "piece": "candle_lighting_rocket", "lawn_nodes": ["Rocket"], "seed": "chapter3_north_star"},
+	{"act_index": 1, "career": "detective", "room": "library", "function": "find the last missing candle", "piece": "rainbow_candle", "lawn_nodes": ["Candle"], "seed": "chapter3_storybook_clue"},
 ]
 
 const ALL_PARTY_MASK := 0x2C4F

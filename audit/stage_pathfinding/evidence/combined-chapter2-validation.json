@@ -1,0 +1,67 @@
+{
+  "schema": "combined-chapter2-pathfinding-validation-v1",
+  "parents": [
+    "6af05c8f10327c056abd3bea187c1e2d57bae5c6",
+    "763a021392ee784bff692a911eb8a32c1dc2bf02"
+  ],
+  "parent_ci": [
+    {
+      "run": 34027248603,
+      "head": "6af05c8f10327c056abd3bea187c1e2d57bae5c6",
+      "conclusion": "success"
+    },
+    {
+      "run": 34028503223,
+      "head": "763a021392ee784bff692a911eb8a32c1dc2bf02",
+      "conclusion": "success"
+    }
+  ],
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "full_local_ci": {
+    "command": "GODOT=<official Godot 4.7.2 console> scripts/ci.sh",
+    "exit_code": 0,
+    "unique_trusted_probe_groups": 78,
+    "trusted_failure_or_runtime_error_markers": 0,
+    "scope": "Full static gates, all 810 audio files, 95 visual audit contract tests and stress, Castle art/frame gates, import, 2D no-regression and all trusted probes. Advisory visual/3D audit satisfaction remains UNSATISFIED."
+  },
+  "focused_probes": {
+    "groups": [
+      "probe_chapter2",
+      "probe_chapter2_lawn",
+      "probe_stage_navigation_2d"
+    ],
+    "exit_code": 0,
+    "failure_or_runtime_error_markers": 0
+  },
+  "logs": {
+    "combined-chapter2-full-ci": {
+      "path": "audit/stage_pathfinding/evidence/combined-chapter2-full-ci.log",
+      "raw_sha256": "0f9cae67c6756fb185b8167e248eedaea6746f18f85c5ef119b82d494a859fad",
+      "normalized_sha256": "d66d722f99c5356afa600e52b2d1e8c9503e1cf7ee16d75b5ed22a3d3f0f0622",
+      "normalization": "UTF-8 splitlines, trailing whitespace trimmed per line, final LF; raw transcript retained locally under build/pathfinding."
+    },
+    "combined-chapter2-focused": {
+      "path": "audit/stage_pathfinding/evidence/combined-chapter2-focused.log",
+      "raw_sha256": "6f93e3755694662e667d634673b27c1008ca8a53ad2436527d0b51f55f90937c",
+      "normalized_sha256": "7f9558b1a639462ad1777d2b3e42b13eb877004ee426eeb80b95821ce1ca5eca",
+      "normalization": "UTF-8 splitlines, trailing whitespace trimmed per line, final LF; raw transcript retained locally under build/pathfinding."
+    }
+  },
+  "incoming_source_sha256": {
+    "scripts/audio_director.gd": "bed0e52674c1fb995097016cfdfc52a0660a3f68b67241924a16497fdab234c1",
+    "scripts/chapter_two_director.gd": "eb3e820217b08b87cab8a8ea8758a8da16736fdbd57db896ab016af2173c69b5",
+    "scripts/chapter_two_ember_encounter.gd": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42",
+    "scripts/chapter_two_lawn_finale_2d.gd": "6ad217cfcee099df32d678a5f1cbac2416382e001392f340568c4a2096f97dc9",
+    "scripts/chapter_two_party_plan.gd": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+    "scripts/chapter_two_party_table_2d.gd": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87",
+    "scripts/chapter_two_room_plot.gd": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+    "scripts/main.gd": "9c352a564c805ba02a6bdf978979276030e314bd3dafcb295b63a63643399952",
+    "scripts/probe_chapter2.gd": "88c397b0acbc3c13e0bc242966ba4d0ab048661679909e784d3592a359899b22",
+    "scripts/probe_chapter2_lawn.gd": "1cfacfe749a627520408286f350bce930538a727da2dfd64e37cca4affd2c8d3",
+    "scripts/save_state.gd": "b0a930ab69b1abd691908e8ffb94883135300bf9c364b0fc2006d1e8d3476aae"
+  },
+  "import_metadata": "1073 generated sidecars proved equal to the Git index after line-ending normalization, rechecked after tests, then restored only in the isolated worktree. No asset content changed.",
+  "audit_scope": "65 supporting/catalog entries after adding the incoming lawn. The Castle/Opera atlas remains 34 Opera views plus 13 Castle rooms and one whole-hall overview. Lawn floor geometry, obstacle routes and direct King-counter contact are explicit open gaps.",
+  "remote_merge_status": "Both exact parents have full green CI. The combined merge has complete local validation; merged-head remote CI is pending at record creation.",
+  "acceptance": "MA-PLAY-003 and MA-PLAY-004 remain open; no game-wide, visual, device, child or owner acceptance."
+}

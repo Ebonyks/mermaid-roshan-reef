@@ -1,0 +1,118 @@
+[
+  {
+    "path": "assets_src/imagegen/chapter2_lawn_2026-09-06/king_rgb_rejected_native.png",
+    "result_id": "exec-fe41eb37-3c79-4cd0-853c-139fee773f83",
+    "sha256": "480981b8fca4004446094ad3bdfa82d376214b2f6fb0a42c9a5801b0ff11e0db",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGB",
+    "has_transparency": false,
+    "review": "REJECTED_WRONG_IDENTITY",
+    "source": "OpenAI built-in ImageGen",
+    "license": "project-original, all rights reserved",
+    "url": null,
+    "modifications": "none; native preserved",
+    "previous_review": "REJECTED_OPAQUE_BACKGROUND",
+    "finding": "Wrong character source selected by assistant. Superseded by owner-confirmed King V4 and recovered Prince package. Never use for gameplay or generation reference."
+  },
+  {
+    "path": "assets_src/imagegen/chapter2_lawn_2026-09-06/king_alpha_retry_native.png",
+    "result_id": "exec-09799c62-ac4e-4eb0-b1eb-9fb5934f7eb7",
+    "sha256": "45fc57186438a9d9c777cc7e42ff1b0ffe428c87c9c71fc45c7bf9ce37d35af4",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGB",
+    "has_transparency": false,
+    "review": "REJECTED_WRONG_IDENTITY",
+    "source": "OpenAI built-in ImageGen",
+    "license": "project-original, all rights reserved",
+    "url": null,
+    "modifications": "none; native preserved",
+    "previous_review": "REJECTED_OPAQUE_BACKGROUND",
+    "finding": "Wrong character source selected by assistant. Superseded by owner-confirmed King V4 and recovered Prince package. Never use for gameplay or generation reference."
+  },
+  {
+    "path": "assets_src/imagegen/chapter2_lawn_2026-09-06/prince_candidate_native.png",
+    "result_id": "exec-fd034a45-799d-496c-91b0-f355aedb4428",
+    "sha256": "c4d61781652c7c2cec90ae7e1f4bc984c1d8068c0c835e0938c681dbf4683a58",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "has_transparency": true,
+    "review": "REJECTED_WRONG_IDENTITY",
+    "source": "OpenAI built-in ImageGen",
+    "license": "project-original, all rights reserved",
+    "url": null,
+    "modifications": "none; native preserved",
+    "previous_review": "candidate_pending_owner_identity_review",
+    "finding": "Wrong character source selected by assistant. Superseded by owner-confirmed King V4 and recovered Prince package. Never use for gameplay or generation reference."
+  },
+  {
+    "source": "assets_src/imagegen/chapter2_lawn_2026-09-06/king_transparent_candidate_native.png",
+    "source_sha256": "f4d3dbbcfa539cb849291acf9dc9142df658ddc4a860799c2264468ee46e2aef",
+    "path": "assets_src/imagegen/chapter2_lawn_2026-09-06/rejected/king_neutral_candidate.png",
+    "sha256": "179d4e5f968920115d7c9268772d536e761bfe24ee03c2cea680cde70de51f41",
+    "native_dimensions": [
+      1254,
+      1254
+    ],
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "result_id": "exec-88571aec-a593-4840-9528-b3905b489027",
+    "modifications": "uniform whole-canvas downscale only; original preserved",
+    "review": "REJECTED_WRONG_IDENTITY",
+    "finding": "Wrong character source selected by assistant. Superseded by owner-confirmed King V4 and recovered Prince package. Never use for gameplay or generation reference.",
+    "license": "project-original, all rights reserved",
+    "url": null,
+    "previous_review": "PENDING_OWNER_IDENTITY_REVIEW"
+  },
+  {
+    "source": "assets_src/imagegen/chapter2_lawn_2026-09-06/prince_transparent_candidate_native.png",
+    "source_sha256": "c4d61781652c7c2cec90ae7e1f4bc984c1d8068c0c835e0938c681dbf4683a58",
+    "path": "assets_src/imagegen/chapter2_lawn_2026-09-06/rejected/prince_neutral_candidate.png",
+    "sha256": "277ab16ea0142671a2d752823418117b7acfedf2852095e96ff22e5f9ed9abd8",
+    "native_dimensions": [
+      1254,
+      1254
+    ],
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "result_id": "exec-fd034a45-799d-496c-91b0-f355aedb4428",
+    "modifications": "uniform whole-canvas downscale only; original preserved",
+    "review": "REJECTED_WRONG_IDENTITY",
+    "finding": "Wrong character source selected by assistant. Superseded by owner-confirmed King V4 and recovered Prince package. Never use for gameplay or generation reference.",
+    "license": "project-original, all rights reserved",
+    "url": null,
+    "previous_review": "PENDING_OWNER_IDENTITY_REVIEW"
+  },
+  {
+    "path": "assets_src/imagegen/chapter2_lawn_2026-09-06/king_v4_opaque_candidate.png",
+    "result_id": "exec-7be1605d-54e5-40a3-961c-31dc0dffe497",
+    "sha256": "e5e554f1450c9cc60af780fe96a2469b3786d9d46027bd645dbbd3a75b868811",
+    "review": "REJECTED_OPAQUE_BACKGROUND",
+    "source": "OpenAI built-in ImageGen; owner-confirmed King V4",
+    "modifications": "none; native preserved",
+    "license": "project-original; all rights reserved"
+  },
+  {
+    "path": "assets_src/imagegen/chapter2_lawn_2026-09-06/king_v4_opaque_retry.png",
+    "result_id": "exec-f0c688db-9d2c-4d67-840b-4fb011695031",
+    "sha256": "5a58c3dd63a7e256e761824ee5009a3f40cd685bb971ef95eb7b8d91c89a0598",
+    "review": "REJECTED_OPAQUE_BACKGROUND",
+    "source": "OpenAI built-in ImageGen; owner-confirmed King V4",
+    "modifications": "none; native preserved",
+    "license": "project-original; all rights reserved"
+  }
+]

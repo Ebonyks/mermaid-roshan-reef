@@ -707,6 +707,29 @@ device, child, human, or owner acceptance.
 | relationships | Combat presentation may overlap `MA-COMBAT-001`; release remains gated by `MA-RELEASE-001`. |
 | history | 2026-08-09: ambiguous standalone role indexed. 2026-08-13: no owner disposition; lifecycle remains `OWNER_DECISION_REQUIRED`. |
 
+## MA-PLAY-004
+
+| Field | Value |
+|---|---|
+| id | `MA-PLAY-004` |
+| title | Roshan must travel to and visibly perform every job instead of operating a detached tool remotely. |
+| rule_ids | `DL-INT-02`, `DL-INT-04`, `DL-INT-06`, `DL-AGE-01`, `DL-QA-06` |
+| domain / zone | Embodied job actions / game-wide; first repair in the Rumi pool room |
+| source | Owner report 2026-09-06; `scripts/games/pool_skimmer_activity.gd`; master audit sections 5.1 and 12. |
+| severity | P1 |
+| lifecycle | `IN_PROGRESS` |
+| verification | V2/V3 scoped pool machine evidence: the final focused probe passes on exact Godot 4.7.2; Mobile desktop captures show local hand/skimmer contact. The original remote-collection defect is source-confirmed. Full/remote gates and remaining jobs are tracked separately; device, child and owner acceptance remain open. |
+| reproduction | Enter the dirty pool and select trash far from Roshan. The previous implementation moves only the skimmer and increments progress. Repeat the same actor/action inspection for every bathtub/fixture cleaning step, craft-room mess, baby-eagle rescue beat, waterfall/seahorse step, and equivalent Roshan-owned job. |
+| child_impact | The child sees tools doing the job while Roshan stands elsewhere, making the requested action and its result hard to understand. |
+| evidence | Existing approved directional Roshan atlas and skimmer art are reused intact. Pool controller now selects a target, moves Roshan with a hand-anchored skimmer, shows a timed scoop in contact range, then emits the existing monotonic save signal. `scripts/probe_day_one_pool_cleanup.gd` includes live-event far-touch, arrival/action, hand-anchor, second-finger, cancellation and re-entry checks. Scoped checks and acceptance gaps are recorded in [the impact record](../../design/audit_impacts/2026-09-06-pool-roshan-action.json); local logs and source/capture hashes remain diagnostic evidence. The pool pass cannot close the game-wide finding. |
+| owner_decision | Roshan must move to the location of the act to complete the job, including cleaning pool items, cleaning the bathtub, saving the baby eagle, and cleaning the craft room. |
+| fix | Repair pool skimming first; inventory and repair every other named job independently. Bind each substep to its real target and local action/contact gate, preserving one-finger input, voice/pointer cues, approved 2D identity, and existing save keys. |
+| surrounding_tests | Far tap and drag cannot award before arrival; near input still shows work; one quick tap; new target cancels old action; second finger; pause/focus/exit; passive no-progress; restored partial/full masks; exactly-once completion; one visible Roshan; hand/tool attachment; room return; Mobile capture and target-device comprehension. |
+| acceptance | Every applicable job has before/during/after runtime evidence showing travel, arrival, meaningful hand/tool action, then completion in that order. Record target coordinates, approach/contact radius, action state and completion time. No detached tool or reward-only probe substitutes for Roshan doing the work. All named cases pass and device/child/owner review is accepted. |
+| closure | Open: pool repair candidate is not game-wide closure. Bathtub, craft-room, baby-eagle, remaining pool work and equivalent jobs require their own implementation/evidence; target-phone and owner acceptance are outstanding. |
+| relationships | Complements `MA-PLAY-003` route/arrival geometry; extends `MA-PLAY-001` reachability and `MA-VIS-006` truthful visual interaction; related touch and child gates remain independent. |
+| history | 2026-09-06: owner reported the skimmer oversight and requested a game-wide master-audit requirement; source confirmed, pool repair begun, named follow-on cases explicitly retained. |
+
 ## MA-COMBAT-001
 
 | Field | Value |
@@ -729,6 +752,29 @@ device, child, human, or owner acceptance.
 | closure | Pending as of 2026-08-13; target-phone evidence, accepted result, closure commit, and date are missing. |
 | relationships | Device performance overlaps `MA-PERF-001`; child comprehension overlaps `MA-CHILD-001`; possible fire-arena scope overlaps `MA-PLAY-002`. |
 | history | 2026-08-09: reported repair retained pending device proof. 2026-08-13: lifecycle remains `FIXED_PENDING_VERIFICATION`. |
+
+## MA-PLAY-003
+
+| Field | Value |
+|---|---|
+| id | `MA-PLAY-003` |
+| title | Logical travel geometry and arrival gating are not independently proven across the live stage variants. |
+| rule_ids | `DL-INT-02`, `DL-AGE-01`, `DL-UI-03`, `DL-QA-06` |
+| domain / zone | Stage navigation, object approach, doors, and OOB recovery / game-wide |
+| source | `audit/stage_pathfinding/stage_inventory.json` and `audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md`, reconciled against live runtime catalogs and routes. |
+| severity | P1 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 catalog/source-bound geometry; V2 route and inventory negative controls; scoped V3 exact Godot 4.7.2-stable route, Castle arrival/door/cancellation, and all-career Opera touch/return probes. Whole-game per-object geometry, Mobile/device/child/owner acceptance remain open. |
+| reproduction | Use the real corrected runtime stage and approved background for each ledger entry, retaining its minigame controller. For each object/door, record far tap, far drag released over target, release over floor, near tap exactly once, interrupt/new target cancellation, arrival transition, exact source return, OOB recovery, and zero-input. Opera Doctor (`opera.act.05.stuffie_surgeon`) additionally repeats the approach gate for every patient station and care action. |
+| child_impact | Remote activation, blocked doors, or loss of position can make the child believe the game ignored a touch or changed state unexpectedly; OOB must never lose progress. |
+| evidence | The ledger covers 65 catalog/supporting entries, including all 13 Castle rooms and 15 live Opera careers. `audit/stage_pathfinding/review_manifest.json` binds live geometry, 34 Opera views, 13 Castle rooms and a full-hall overview. Dedicated navigation tests cover lane projection, bends, crossings and disconnected fail-closed routes; Opera diegetic paths pass 2432 checks; bathroom probes require arrival before action and owned drag release before door travel. These bounded checks do not grant every entry a geometry pass. |
+| owner_decision | Every visible door/object requires approach-before-action and one-finger tap/drag equivalence. Fixed minigames retain their real controller; spatial 3D entries remain debt until their 2D migration satisfies the same contract. |
+| fix | Add the shared StageNavigation2D route network to avatar stages, bind each object/door to an approach point and arrival radius, queue tap/drag travel, commit on arrival, and add bounded OOB recovery. Add focused geometry probes and real-art route overlays for every defective stage, with Opera Doctor as a blocking specialist fixture. |
+| surrounding_tests | Inventory coverage; far-tap/far-drag/near-tap/cancel/door-arrival/exact-return/OOB/zero-input matrix; touch cancellation and focus loss; save/re-entry; minigame positive/passive/reward; exact voice/picture pointer; Mobile and target-device checks. |
+| acceptance | Every applicable ledger entry has a passing geometry matrix with source hash, stage bounds, approach points, arrival radii, and retained-controller evidence. No existing probe pass is accepted as a substitute for a geometry row. No fail state or save loss occurs. |
+| closure | Open as of 2026-09-06. Shared Castle/Opera routing and priority doctor/bathroom repairs are implemented with scoped machine evidence. Ten generic Castle layouts still need fixture-by-fixture review; remaining world/legacy and fixed-board seams, complete per-variant geometry matrices, target-device, child and owner acceptance remain outstanding. |
+| relationships | Complements `MA-PLAY-004` visible local work, which arrival alone cannot satisfy; decomposes the reachability blind spot in `MA-PLAY-001`; overlaps `MA-TOUCH-001`, `MA-VIS-006`, `MA-OPERA-012`, `MA-2D-002`, and `MA-CHILD-001`. |
+| history | 2026-09-06: added after catalog reconciliation; the initial 42-entry baseline expanded to 64 catalog/supporting entries. The same work order adds path-only Castle routing, doctor promenade/recovery contacts, Opera touch ownership and exact board-return feet, source-bound reproductions and focused machine checks. Dedicated geometry evidence is distinguished from older lifecycle probes; all 64 entries remain unresolved under the strict acceptance gate. Reconciliation of dev `763a0213` adds the Chapter 2 lawn as a 65th open supporting entry: radial movement bounds, missing obstacle routes and direct King-counter activation remain explicit gaps. |
 
 ## MA-OPERA-003
 

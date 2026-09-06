@@ -142,7 +142,7 @@ func _bathroom_boundary() -> void:
 		int(_seen("D1-C03")) == bathroom_seen_count)
 	if main._day_one_pool_route_button != null \
 			and is_instance_valid(main._day_one_pool_route_button):
-		main.call_deferred("_open_day_one_room_route", "mermaid_pool")
+		main._pause_ref().call_deferred("global_navigation_pressed")
 		await _frames(10)
 		_check("pool room entry starts C05 through room navigation",
 			_seen("D1-C05"))
