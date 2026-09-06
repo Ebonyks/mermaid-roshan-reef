@@ -13,7 +13,7 @@ func _build_pause() -> void:
 	# unmistakably dominant Resume, secondary actions as an icon-tile grid
 	# (>=150x132, 24 px apart), toggles that change silhouette (never color
 	# alone), a neutral doorway exit, and dev/FPS kept out of the child menu.
-	# The only persistent gameplay control: one upper-left button. It is Back
+	# The only persistent gameplay control: one upper-right button. It is Back
 	# whenever another activity/room is stacked over Sky Lagoon, and becomes
 	# Menu only at the Lagoon promenade root. Layer 29 sits over ordinary game
 	# surfaces but below the transition fade at 30.
@@ -26,13 +26,13 @@ func _build_pause() -> void:
 	navigation.name = "GlobalNavigationButton"
 	StorybookUI.style_icon_button(
 		navigation, "↩", "secondary", Vector2(112.0, 112.0), "Back")
-	navigation.position = Vector2(18.0, 18.0)
+	m._navigation_ref().position_button(navigation)
 	navigation.button_down.connect(global_navigation_pressed)
 	navigation.set_meta("global_navigation_owner", true)
 	m.navigation_layer.add_child(navigation)
 	m.global_navigation_button = navigation
 	# Compatibility for systems that only need to locate the shipped corner
-	# control. It no longer means Pause and is never placed in the top-right.
+	# control. It no longer means Pause; the shared control lives in the top-right.
 	m.pause_gear_btn = navigation
 
 	m.pause_layer = CanvasLayer.new()
@@ -190,6 +190,8 @@ func toggle_pause() -> void:
 		(m._game_obj("race", SlideRaceGame) as SlideRaceGame).on_pause_changed(paused)
 	m.get_tree().paused = paused
 	m.pause_panel.visible = paused
+	m.navigation_held_touches.clear()
+	m._navigation_ref().tick_attention(0.0)
 	# Activity overlays normally cover the corner button. Start/Escape raises
 	# the pause sheet above them, while layer 30 still owns transition fades.
 	if paused:
