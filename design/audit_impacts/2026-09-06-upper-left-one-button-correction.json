@@ -39,12 +39,12 @@
     {
       "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
       "result": "PASS",
-      "evidence": "Document authority reported INVENTORY=535 LEDGER=535 ACTIVE=56 RECORDS=58 with all checks OK; development audit passed against 3b1f430f5762a0232d46825da558dc208b86ef5f; 51 audit unit tests passed."
+      "evidence": "Document authority and development audit passed before and after reconciliation. The merged candidate reported INVENTORY=556 LEDGER=556 ACTIVE=56 RECORDS=58 with all checks OK and passed development audit against bad0e91924edcb98029da68fa9c696354dd92163; all 51 audit unit tests passed before and after reconciliation."
     },
     {
       "command": "Godot 4.7.2-stable exact trusted and targeted probes",
       "result": "PASS",
-      "evidence": "Exact Godot 4.7.2-stable full scripts/ci.sh completed with exit 0. Targeted probe_day_one_handoffs, probe_ui_system, probe_castle_pool_life_2d, probe_day_one_draft_integration, and probe_audit runs passed, including upper-left geometry, neutral Back semantics, absence of next-room overlays, and Back-to-hall-to-painted-door reachability."
+      "evidence": "Exact Godot 4.7.2-stable full scripts/ci.sh completed with exit 0 before reconciliation. Targeted probe_day_one_handoffs, probe_ui_system, probe_castle_pool_life_2d, probe_day_one_draft_integration, and probe_audit runs passed, including upper-left geometry, neutral Back semantics, absence of next-room overlays, and Back-to-hall-to-painted-door reachability; targeted exact-engine checks were repeated after reconciliation."
     }
   ],
   "acceptance_gaps": "Machine checks do not close MA-PLAY-001 or MA-PLAY-003 and do not replace target-device, child, or owner acceptance. Existing protected recordings and art remain unchanged."
