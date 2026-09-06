@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "packet_id": "northern_christmas_2026-09-05",
+  "status": "DESIGN_REVIEW_CANDIDATE",
+  "created": "2026-09-05",
+  "planning_base_commit": "ba94e8b22806e33a4c478656fc90f717cbccc77f",
+  "owner_request": "Draft a Northern/Nordic Christmas world using existing artwork and a mixture of old and new Mermaid Roshan careers. Produce a gameplan and detailed visual guide before entire games.",
+  "source_paths_relative_to": "repository root",
+  "generation_scope": "Two non-runtime composition studies only. Named gaps: combined Christmas village overview and customer-order restaurant composition. Remaining late-July family is not fully recovered; generated architecture is provisional.",
+  "assets": [
+    {
+      "path": "assets_src/concepts/northern_christmas_2026-09-05/source_forest_2026-07-29.png",
+      "sha256": "db0cc66cc90551774ffe28809c095658324634ccf8f27c5742b7735da489208d",
+      "bytes": 2513418,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "role": "owner_confirmed_family_reference",
+      "modification_status": "byte_identical_recovery",
+      "runtime_accepted": false
+    },
+    {
+      "path": "assets_src/concepts/northern_christmas_2026-09-05/village_overview.png",
+      "sha256": "260ad7a0349e59ec019bc64b6ae090e51975718f38607ca420a4c3f97c8297b5",
+      "bytes": 3105269,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "role": "new_concept_board",
+      "modification_status": "native_generated_output_preserved",
+      "runtime_accepted": false
+    },
+    {
+      "path": "assets_src/concepts/northern_christmas_2026-09-05/restaurant_interior.png",
+      "sha256": "618391ef5ff09f9b97a2ba862371782d5601d005c772cea57ec51f3be3731fec",
+      "bytes": 2435288,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "role": "new_concept_board",
+      "modification_status": "native_generated_output_preserved",
+      "runtime_accepted": false
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/pastry_chef_outfit_sheet_2026-07-21.png",
+      "sha256": "c047b1cae09845c100cec4642e2d9cfae58e60a1548bec009e21c629175e3d9a",
+      "bytes": 1356992,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "existing_chef_reference",
+      "modification_status": "referenced_in_place_unchanged",
+      "runtime_accepted": false
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/pastry_chef_gameplay_sheet_2026-07-21.png",
+      "sha256": "249f344c78b38a994ec00b9709db78ec10d0ffea77518c93202792d66c509cb5",
+      "bytes": 1391914,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "existing_chef_reference",
+      "modification_status": "referenced_in_place_unchanged",
+      "runtime_accepted": false
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_chef.png",
+      "sha256": "0c1ffb572e618201bf6df091089c43c810184746d70a9a92b3c8ef5e56de0405",
+      "bytes": 263084,
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "existing_career_portrait_display",
+      "modification_status": "referenced_in_place_unchanged",
+      "runtime_accepted": false
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_farmer.png",
+      "sha256": "c7d0fbc58b2f67a4962a86ae10dc68c9e810e43f097db903693e213d750a74f9",
+      "bytes": 272522,
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "existing_career_portrait_display",
+      "modification_status": "referenced_in_place_unchanged",
+      "runtime_accepted": false
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_painter.png",
+      "sha256": "b77783de7d5561a0aec919a87cd1bc75ac6e9853466a389666560fd478062d77",
+      "bytes": 266567,
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "existing_career_portrait_display",
+      "modification_status": "referenced_in_place_unchanged",
+      "runtime_accepted": false
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_popstar.png",
+      "sha256": "2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523",
+      "bytes": 258084,
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "existing_career_portrait_display",
+      "modification_status": "referenced_in_place_unchanged",
+      "runtime_accepted": false
+    }
+  ],
+  "forest_source": {
+    "commit": "f07027af253badd8d37f0b3b6aeedb8cbab7336f",
+    "git_blob": "976adaff5ffba9c57f7ef234c48c0e8309c0128c",
+    "path": "assets_src/concepts/northern_forest_concept_2026-07-29.png",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/f07027af253badd8d37f0b3b6aeedb8cbab7336f/assets_src/concepts/northern_forest_concept_2026-07-29.png",
+    "owner_family_confirmation": "Confirmed by owner after visual inspection, 2026-09-05.",
+    "license": "No exact source-specific row found in the rescue ledger. Preserved for planning review; source-specific provenance/licensing remains unresolved for production. No CC0 grant asserted."
+  },
+  "generations": [
+    {
+      "output": "assets_src/concepts/northern_christmas_2026-09-05/village_overview.png",
+      "tool": "built-in image_gen.imagegen",
+      "source_id": "exec-86d1205a-5390-4a06-b4f4-68e5b174ddbd",
+      "prompt": "Use case: illustration-story. Create ONE polished 2D painted storybook world concept, wide landscape format, for Mermaid Roshan's proposed Northern Christmas chapter. REFERENCE IMAGE 1 is the owner-confirmed Northern forest family and is the principal appearance reference: preserve its blue/lavender mist, deep teal layered firs, turquoise stream, rounded rocks, warm cream paths, navy-purple contours, and selective russet/gold foliage. This is a new NON-RUNTIME DESIGN BOARD exploring a village, not a replacement for the reference or a final game background. Draw a coherent continuous village overview viewed gently from above as a storybook illustration, NOT a 3D render or isometric toy diorama. Layout: bottom left recognizable autumn forest entry and broad stepping-stone stream crossing; left middle a small glowing glass greenhouse; center left a welcoming indigo timber restaurant with bowl-and-ladle hanging sign and amber windows; middle a generous cream snowy village lane and low footbridge over turquoise water; center right a teal wooden toy workshop with a large toy-boat sign; lower right a small cranberry post house with a large envelope sign; a nearby village window with a brush-shaped sign belongs to the painter. Upper right at the end of the lane stands a lovely blue-lavender fairytale castle with simple rounded towers, courtyard, one Christmas tree and a small empty music dais. Nordic-inspired steep timber gables, restrained evergreen garlands, paper-like star lanterns, a few wrapped gifts, snow caps on roofs and firs, warm windows. Retain a few rich autumn trees around the entrance so the confirmed art family remains recognizable; farther village and castle are wintry blue. Clear separate landmark silhouettes; open uncluttered lanes connect all destinations. Christmas community mood cozy and inviting, no crisis. Environmental overview only, NO characters, no mermaids, no Santa, no text, no numbers, no title, no interface, no watermark. A beautiful art director's rough world proposal with enough spatial clarity to annotate externally. Architecture is provisional because exact remembered late-July building collection is still being located. Preserve painterly flat storybook treatment throughout.",
+      "references": [
+        {
+          "path": "assets_src/concepts/northern_christmas_2026-09-05/source_forest_2026-07-29.png",
+          "sha256": "db0cc66cc90551774ffe28809c095658324634ccf8f27c5742b7735da489208d",
+          "role": "principal Northern appearance reference"
+        }
+      ],
+      "modifications": "none",
+      "review": {
+        "reviewer": "agent visual inspection",
+        "result": "Suitable for rough composition review only.",
+        "observations": [
+          "Clear forest-to-village-to-castle relation; six proposed landmarks identifiable.",
+          "Retains autumn edge, turquoise stream, blue wintry distance and warm destinations.",
+          "Extra decorative buildings and dense snow detail must be reduced when planning actual touch screens.",
+          "Painter reads as a separate shop in the generated map; proposed gameplay uses its large village-facing window, no extra interior required.",
+          "Architecture is invented proposal, not recovered late-July building art."
+        ]
+      }
+    },
+    {
+      "output": "assets_src/concepts/northern_christmas_2026-09-05/restaurant_interior.png",
+      "tool": "built-in image_gen.imagegen",
+      "source_id": "exec-d3dd210e-008b-46b6-b6ec-42d34f5d6e4f",
+      "prompt": "Use case: illustration-story. Produce ONE wide landscape polished 2D storybook concept of Mermaid Roshan helping in The Lantern Kitchen, a Northern Nordic-inspired Christmas village restaurant. This is a non-runtime composition study for review, not shipping game art. INPUT REFERENCES: IMAGE 1 village concept establishes the indigo and teal timber architecture, blue snowy forest through windows, warm amber light and Christmas accents; IMAGE 2 existing Chef outfit sheet is the sole Mermaid Roshan identity/clothing/anatomy reference, use its complete front-three-quarter figure as identity; IMAGE 3 existing Chef gameplay prop sheet establishes readable bowl, whisk and warm rounded oven forms, not the birthday cake recipe. Draw a single continuous room at a shallow side-on storybook gameplay view, NOT a collage, not 3D-rendered, no photorealism. Left quarter: Roshan in her existing peach chef jacket, cream apron and chef hat, brown hair with rainbow lock, same face and rainbow mermaid tail with two terminal fins. Preserve mermaid anatomy, no legs or shoes, whole character and tail fully visible in open space, no counter hiding her waist or tail. Center: one large low preparation table, a big bowl of creamy porridge, wooden spoon, small jug and one dish of bright berries. Important uncluttered active workspace. Behind it a modest rounded warm oven and a quiet ingredient shelf borrowing reference prop language, never birthday cake. Right quarter: ONE friendly small storybook fox customer with a simple scarf seated at a small table, a large clear speech bubble containing ONLY a picture of a cream bowl of porridge topped with berries. Fox is a provisional incidental customer, not established cast. Picture order stays visually distinct from active work bowl. Leave clear space at table edge to serve the dish. Background: indigo timber, one snowy blue forest window with star lantern, subtle evergreen garland, cranberry cloth accents, inviting amber glow, floor cream/lavender and plenty of breathing room. No other customers, no queues, no clocks, no score, no money, no text, no labels, no watermark, no Santa. Single understandable cooking composition with child-readable broad forms and navy/purple outlines. Roshan identity and complete tail matter more than ornamental detail; maintain referenced character outfit without Christmas redesign. Art director review illustration only.",
+      "references": [
+        {
+          "path": "assets_src/concepts/northern_christmas_2026-09-05/village_overview.png",
+          "sha256": "260ad7a0349e59ec019bc64b6ae090e51975718f38607ca420a4c3f97c8297b5",
+          "role": "proposed village atmosphere"
+        },
+        {
+          "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/pastry_chef_outfit_sheet_2026-07-21.png",
+          "sha256": "c047b1cae09845c100cec4642e2d9cfae58e60a1548bec009e21c629175e3d9a",
+          "role": "existing Chef identity and costume"
+        },
+        {
+          "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/pastry_chef_gameplay_sheet_2026-07-21.png",
+          "sha256": "249f344c78b38a994ec00b9709db78ec10d0ffea77518c93202792d66c509cb5",
+          "role": "existing Chef tool and bowl appearance"
+        }
+      ],
+      "modifications": "none",
+      "review": {
+        "reviewer": "agent visual inspection",
+        "result": "Suitable for rough restaurant composition review only.",
+        "observations": [
+          "Complete mermaid tail visible beside central workstation; one customer and persistent picture request.",
+          "Existing Chef outfit, bowl and oven language recognizable; no identity or final-art acceptance claimed.",
+          "Roshan holds whisk and piping bag from identity reference; actual recipe action states must free the relevant hand rather than treating this still as gameplay animation.",
+          "Fox is provisional incidental customer; cast selection remains open.",
+          "Dish changes, serving state and touch layout remain to be authored and verified."
+        ]
+      }
+    }
+  ],
+  "inspected_but_not_bound": [
+    {
+      "path": "assets_src/concepts/northern_kingdom_quality_2026-07-19.png",
+      "reason": "Historical isolated building-kit image, not the owner-confirmed flat family. No retired 3D resources recovered."
+    }
+  ],
+  "rights": {
+    "new_boards": "Project-original OpenAI built-in image generation; project rights retained, subject to reference rights and applicable generation terms. No third-party stock license or CC0 claim. Review use only; does not cure the forest source provenance gap.",
+    "existing_refs": "References remain unchanged at existing repository paths and retain their source rights; this manifest grants no new license."
+  },
+  "acceptance": {
+    "owner_design_review": "pending",
+    "final_building_selection": "pending",
+    "source_specific_forest_provenance": "pending",
+    "runtime_resolution": "not_met: 1672x941 draft boards are below required per-screen coverage",
+    "runtime": "not_implemented",
+    "device": "not_tested",
+    "child": "not_tested",
+    "cinematic_delivery": "not_applicable: design boards, not frames"
+  }
+}

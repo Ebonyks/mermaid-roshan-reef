@@ -1477,3 +1477,69 @@ scope drift, and missing tools to improve the guide. Reference-library entries
 retain source/build binding, what may vary, and each acceptance limit. Preserve
 historical evidence separately from current requirements and refresh affected
 planning links/facts after a scoped owner decision or implementation change.
+
+## 21. Pearl Stage UI family: menus, arrows and teaching cues
+
+Owner direction, 2026-09-05: a consistent, slightly maximalist, bright and
+colorful cartoony interface with casually mixed shells, pearls, rainbows and
+related Roshan flourishes, taking rough inspiration from the opera-house worlds.
+The [UI language](11_UI_PEARL_STAGE_LANGUAGE.md) supplies candidate tokens,
+component contracts and the repeatable review packet. These rules expand the
+shared UI family; they do not certify existing screens or alter sealed audits.
+
+`DL-UI-VIS-01` — UI surfaces MUST have crafted storybook form: broad painted
+value bands, clean violet/navy contours, colored contact shadows and selective
+pearl highlights. Bare flat shapes, generic glossy jewel-game buttons and noisy
+photoreal/PBR treatments do not meet the requested visual direction.
+
+`DL-UI-VIS-02` — Slight maximalism MUST use grouped, casually asymmetrical
+shell/pearl/rainbow adornment around frames and crests, retaining quiet picture
+wells and one dominant action. Decoration must not compete with actionable
+pictures, imply extra controls, or obscure targets, contact points or Roshan.
+
+`DL-UI-VIS-03` — Menus, return controls, selection markers, arrows and tutorial
+elements MUST share material, contour, palette-role and feedback contracts
+through the existing StorybookUI/theme family. Activity-specific art may vary;
+one-off skins that diverge from the reviewed family are consistency defects.
+
+`DL-UI-VIS-04` — Every required child choice MUST be identifiable through a
+picture and contextual cue without reading, with applicable voice and a live
+visual pointer. Preserve one-finger interaction, one neutral way back, save
+progress and existing routes. Resume, page navigation and leaving an activity
+must not share ambiguous arrow-only semantics. No punitive exit treatment.
+
+`DL-UI-VIS-05` — Review packets MUST list base-canvas target rectangles,
+separation and safe areas. Child targets meet `DL-UI-03`; ornaments ignore
+input, and hit regions must not overlap or steal world touches. Whole-screen
+phone-size inspection is required for concept review; actual device touch
+evidence remains independently required for runtime acceptance.
+
+`DL-UI-VIS-06` — Shared controls MUST supply visibly distinct rest, press,
+focus and selected states where applicable, without depending only on color,
+text or sparkles. Keep hit geometry stable during feedback and preserve
+`DL-UI-04`, `DL-UI-05` and `DL-AGE-07` cancellation/response behavior.
+
+`DL-UI-VIS-07` — Tutorial arrows MUST identify the current live actionable
+target using an unambiguous tip and uncluttered silhouette. Keep the target
+visible; remove stale pointers after transitions or success. Demonstration and
+idle animation never award progress, and narration replay uses the same UI
+family and child-size touch contract.
+
+`DL-UI-VIS-08` — Inventory and inspect existing UI and opera-art references
+before generation. Record the exact gap, reference roles, prompt, method and
+native candidate hashes. Preserve protected originals. Full-screen menu
+mockups are non-runtime review references; later delivery uses reusable art
+components with live Canvas controls, licensed assets and Mobile-safe textures.
+
+`DL-UI-VIS-09` — A reusable UI review MUST compare the candidate to the
+reviewed family at native and whole-screen phone size, assign per-rule
+PASS/FAIL to available evidence and name missing states and tests. In this
+owner-directed production round Sol/Luna generate and Astra independently
+audits; root also applies the master criteria. An AI concept pass grants no
+owner approval, runtime 5/5 score, device/child evidence or master closure.
+
+`DL-UI-VIS-10` — Rollout acceptance MUST be bound to actual shared consumers,
+Godot 4.7.2-stable Mobile captures at supported aspects, typography expansion,
+input/voice/lifecycle/passive/save gates and target-device touch/performance.
+Retain `DL-QA-01` through `DL-QA-11` evidence boundaries. Historical menu
+upgrade counts and a new visual specification cannot substitute for this proof.
