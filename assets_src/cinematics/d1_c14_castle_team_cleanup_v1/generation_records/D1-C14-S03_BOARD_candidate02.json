@@ -1,0 +1,19 @@
+{
+  "shot_id": "C14-S03",
+  "asset_role": "narrative_storyboard",
+  "attempt": 2,
+  "method": "builtin_image_gen",
+  "human_decision": "pending",
+  "native_output_path": "C:/Users/Peter/.codex/generated_images/01a0716b-8149-7450-b87f-d1b9341d3cf8/exec-905a7a31-a7be-4fee-b414-f8115f8f7b7b.png",
+  "native_output_sha256": "15a4b36e24b185e54d822bcf428a8005c49669fe46523628c0c06f1935120e1c",
+  "output_path": "assets_src/cinematics/d1_c14_castle_team_cleanup_v1/storyboards/D1-C14-S03_BOARD_candidate02.png",
+  "output_sha256": "15a4b36e24b185e54d822bcf428a8005c49669fe46523628c0c06f1935120e1c",
+  "output_dimensions": [1672, 941],
+  "referenced_image_paths": [
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/storyboards/D1-C14-S03_BOARD_candidate01.png", "role": "edit_target", "sha256": "810fbd15fc2c7957fe2c9c1c6d7b4e7695b3c5419d1855725117467c8503e032", "dimensions": [1672, 941]},
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S03_OPENING_candidate01.png", "role": "opening_frame_anchor", "sha256": "bd86816b3970abc3d8388d359e99b4fae445ca7ecde4856bdda9bbefb4ee09d8", "dimensions": [1672, 941]},
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/castle/day_one_art_studio/magic_cleaning_brush.png", "role": "brush_identity", "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3", "dimensions": [936, 1024]},
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/imagegen/castle_main_hall_redraw_2026-08-03/accepted_screen_b_native_1672x941.png", "role": "hall_layout", "sha256": "7e77e4c29bbbdcaf2230031a760137a28371532debefda971ab1b251df3ee2ad", "dimensions": [1672, 941]}
+  ],
+  "prompt": "Use case: precise storyboard edit. Asset type: complete flattened 16:9 2x2 narrative storyboard sheet, no text or labels. IMAGE_1 is the existing S03 board to repair; IMAGE_2 is the approved S03 opening composition; IMAGE_3 is the actual S01 magic cleaning brush identity; IMAGE_4 is the August 3 hall authority. Preserve the same low upward oblique camera, Daddy and grounded Baby Eagle, pearl column base immediately left of the far-right open Royal arch, and all four panel story beats. Correct only continuity: the proper cyan-white bristle brush must remain visibly in Daddy's hands in all four panels, and the loose web/dust caught on the bristles must remain visibly attached in panel 4 after contact. Panel 1 before contact, panel 2 one gentle Eagle wingbeat assisting the web onto the bristles, panel 3 Daddy withdraws with web attached, panel 4 cleaned column base while Daddy still holds the brush with captured web and Eagle settles. Keep the actual pool doorway emblem as one blue droplet and bath doorway emblem as three pearls where visible behind the action; no blank replacement medallions. No floor-wide blast, creature attack, extra cast, Royal arch moved or closed, text, HUD, or camera changes. Complete full-frame redraw."
+}

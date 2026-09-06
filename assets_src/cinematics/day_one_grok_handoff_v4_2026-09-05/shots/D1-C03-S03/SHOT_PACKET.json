@@ -1,0 +1,181 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C03",
+  "shot_id": "D1-C03-S03",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 3,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/luna_a_C03-S03_swimming_bunny_attempt02_DIRTY_MURKY.png",
+      "sha256": "ad731205c722ff37ec749750871e7e30051cb187a36fd43cf05cd3f676347ea6",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/69827625a8_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_3",
+      "path": "references/d788366485_dust_bunny_swimming.png",
+      "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "description": "locked"
+  },
+  "must_move": "The bunny paddles one short gentle arc, staying the same size and clear of the tub rim.",
+  "must_not_move": [
+    "Exactly one bunny, no mound becoming a character or second bunny.",
+    "Dirty tub, shallow murky water, sink and mirror do not clean or change scale.",
+    "No tool, pickup, reaching contact, adult or camera move."
+  ],
+  "end_state": "One small swimming bunny remains in the murky tub while Roshan watches, ready to help.",
+  "negative_constraints": [
+    "Exactly one bunny, no mound becoming a character or second bunny.",
+    "Dirty tub, shallow murky water, sink and mirror do not clean or change scale.",
+    "No tool, pickup, reaching contact, adult or camera move."
+  ],
+  "prompt_path": "shots/D1-C03-S03/PROMPT.txt",
+  "prompt_sha256": "94b0c0e27a8ab8ee239142a67b4d8baa9f2e0f843390b86101d0ba8966f82436",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/luna_a_C03-S03_storyboard_2x2_attempt02_DIRTY_MURKY.png",
+      "used_as_pixel_reference": false,
+      "role": "narrative_storyboard"
+    }
+  ],
+  "storyboard_caveat": null,
+  "game_asset_comparison": [
+    {
+      "source_path": "assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
+      "path": "references/1382a8adcb_room_bubble_bath_dirty_drained_day_one.png"
+    },
+    {
+      "source_path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
+      "path": "references/d788366485_dust_bunny_swimming.png"
+    },
+    {
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "path": "references/69827625a8_roshan_base.png"
+    }
+  ],
+  "source_selection": {
+    "filename": "C03_bunny_discover.mp4",
+    "range_half_open": [
+      12,
+      84
+    ],
+    "sha256": "01bfe380effdb3f3f4387bcb2685e74e145744809780113c320e71e59a91ad46"
+  },
+  "weak_source_frames": [
+    [
+      12,
+      84
+    ]
+  ],
+  "inspected_source_frames": [
+    12,
+    24,
+    36,
+    48,
+    60,
+    72,
+    83
+  ],
+  "source_visual_evidence": {
+    "source_path": "sources/C03_bunny_discover.mp4",
+    "source_sha256": "01bfe380effdb3f3f4387bcb2685e74e145744809780113c320e71e59a91ad46",
+    "source_fps": 24,
+    "selected_range_half_open": [
+      12,
+      84
+    ],
+    "frames": [
+      {
+        "index": 12,
+        "time_seconds": 0.5,
+        "path": "audit/source_frames/D1-C03-S03/f0012.png",
+        "sha256": "c080ec1f8a52e2075af658a902bbe311d20485f03146878199da0185f30965a5"
+      },
+      {
+        "index": 24,
+        "time_seconds": 1.0,
+        "path": "audit/source_frames/D1-C03-S03/f0024.png",
+        "sha256": "0d695431eb08e1d9a8fc33f866a4a011a1e19315345aa7fecd24f92cd602b5d8"
+      },
+      {
+        "index": 30,
+        "time_seconds": 1.25,
+        "path": "audit/source_frames/D1-C03-S03/f0030.png",
+        "sha256": "6282309c8e97b3ca6ded32213e0bcda8b344098de773a81f5880adf348b3d7b4"
+      },
+      {
+        "index": 36,
+        "time_seconds": 1.5,
+        "path": "audit/source_frames/D1-C03-S03/f0036.png",
+        "sha256": "f97252e6d2d8bb3f9b8cd44f3afe24f7c66da63c2533bd1592fca4d842a3b8d4"
+      },
+      {
+        "index": 48,
+        "time_seconds": 2.0,
+        "path": "audit/source_frames/D1-C03-S03/f0048.png",
+        "sha256": "922d6fdf89e2aab65f5de3014fa35c7019c9a720bf5bf8b330af413800cbfa91"
+      },
+      {
+        "index": 60,
+        "time_seconds": 2.5,
+        "path": "audit/source_frames/D1-C03-S03/f0060.png",
+        "sha256": "9073f626343cbac1b62b8b87bd4b2cd152dee54703ceed2eb096f85bbedf9bdc"
+      },
+      {
+        "index": 66,
+        "time_seconds": 2.75,
+        "path": "audit/source_frames/D1-C03-S03/f0066.png",
+        "sha256": "b1f53925f1440862aebcbbaa93f3c2eecd56d26f73b575344dcce3329500891c"
+      },
+      {
+        "index": 72,
+        "time_seconds": 3.0,
+        "path": "audit/source_frames/D1-C03-S03/f0072.png",
+        "sha256": "fbbabc83eff2010f1399b7c2b7872c76b816cf719549b63ac301ca46a58b7d9a"
+      },
+      {
+        "index": 83,
+        "time_seconds": 3.4583333333333335,
+        "path": "audit/source_frames/D1-C03-S03/f0083.png",
+        "sha256": "d969f23a217bb7b4f3cf92b4eeebeb430ceb31b5178623681fca675eff70d76f"
+      }
+    ],
+    "sheet": "audit/source_frames/D1-C03-S03/AUDIT_SAMPLES.jpg",
+    "role": "diagnostic_source_samples_only",
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "method": "Exact zero-based ffmpeg source-frame decode; sheet is whole-frame thumbnail arrangement with frame labels. No synthesized motion or subject repair."
+  },
+  "sol_first_frame_decision": "RECOMMEND_APPROVAL",
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

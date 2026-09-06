@@ -1,0 +1,419 @@
+{
+  "schema": "c14-castle-team-cleanup-design-v1",
+  "status": "development_first_frames_pending_owner_review",
+  "sequence": "Post-C13 friendship coda, before resuming clean Main Hall gameplay",
+  "fps": 24,
+  "duration_s": 31,
+  "frame_count": 744,
+  "aspect": "16:9",
+  "draft_output": "1280x720 24fps editorial target; no final frame acceptance implied",
+  "authoring_date": "2026-09-05",
+  "decision": "New cinematic coda proposed by owner; runtime has no localized Main Hall cleanup state today",
+  "editing": "Six separately generated shots; hard cuts between adjacent known zones; no transitions that morph architecture or teleport characters within a shot",
+  "source_policy": "Downloads are evidence and movement references only. Correct August3 runtime hall and protected identity masters override their incompatible footage layout.",
+  "approval": "Show each first-frame candidate to the owner. Sol recommendations never mean approval. Do not send candidates as approved IMAGE_1.",
+  "shots": [
+    {
+      "shot": "C14-S01",
+      "title": "A new friend, one last shared job",
+      "duration_s": 5,
+      "editorial_start_s": 0,
+      "zone": "B-wide, Royal stair foot; look across remaining mess",
+      "cast": [
+        "Roshan",
+        "Daddy",
+        "Baby Eagle",
+        "Rumi",
+        "rainbow friend"
+      ],
+      "camera": "Fixed child-height oblique wide. No camera movement.",
+      "start": "All five together in B, clearly separate. Daddy holds the correct brush; Roshan holds the star sponge. One paper scrap by the playroom/craft thresholds, a reachable web at the base of the column left of the Royal arch, low wall grime near pool/bath, footprints and inert grit at the Royal runner foot remain. Some distant dirt may be occluded, never invent more between cuts.",
+      "end": "Roshan and rainbow friend have noticed the paper; the others share a calm ready-to-help glance. No mess has disappeared yet.",
+      "binding_ids": [
+        "rainbow_bunny",
+        "brush"
+      ],
+      "negative": "No walking through a closed Royal door, missing companion, new corridor/window, giant Puff, glowing four trails, tool swap, cleanup before contact, text or HUD.",
+      "sound": "Soft castle room tone, one friendly delighted chirrup from the rainbow friend; no dialogue or music baked in.",
+      "phases": [
+        {
+          "range": [
+            0,
+            24
+          ],
+          "instruction": "All five settle after the previous friendship reveal; tools stay safely lowered.",
+          "state": "action"
+        },
+        {
+          "range": [
+            24,
+            66
+          ],
+          "instruction": "Roshan notices the paper and gently indicates it; the tiny rainbow friend looks the same way.",
+          "state": "action"
+        },
+        {
+          "range": [
+            66,
+            96
+          ],
+          "instruction": "Daddy, Eagle and Rumi exchange a warm ready-to-help look. Nothing is cleaned yet.",
+          "state": "action"
+        },
+        {
+          "range": [
+            96,
+            120
+          ],
+          "instruction": "Hold the countable five-companion composition and unchanged mess before the cut.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Fixed screen-B topology: teddy, palette, single blue droplet, three pearls, then open Royal arch with short stairs, left to right; never a coral window on B",
+        "Same warm pearl/lavender storybook grade; architecture, emblems, runner and staircase never move or recolor",
+        "Roshan plain pink top/lavender tail; Daddy continuous rainbow mer-tail and glasses; Rumi long purple braid/mer-tail; Eagle true bird; no new costumes or limbs",
+        "Rainbow friend retains the source cloud-mound, broad spiral ears, red-orange forehead curl, white iridescent glint and pearl feet; total height at same floor depth no more than one quarter of Roshan, pending owner scale approval",
+        "Remove only inert litter, webs, wall smears and footprints; living puff creatures are never swept or blasted; no big boss remains",
+        "Cleaned zones remain clean; preserve dirt until shown physical contact removes it; no whole-room magical cleanup"
+      ],
+      "prompt_keep": [
+        "five companions and the four small emblems plus open Royal arch fixed; Roshan's plain pink tee, Daddy's continuous mer-tail, Rumi's purple braid, grounded Eagle and tiny cloud friend unchanged"
+      ]
+    },
+    {
+      "shot": "C14-S02",
+      "title": "The smallest helper makes the first difference",
+      "duration_s": 4,
+      "editorial_start_s": 5,
+      "zone": "B-left, floor below teddy/playroom and palette/craft doors",
+      "cast": [
+        "Roshan",
+        "rainbow friend"
+      ],
+      "camera": "Fixed floor-level medium two-shot, oblique toward the two left B thresholds. No camera movement.",
+      "start": "One inert folded paper scrap lies between Roshan's waiting hand and the tiny rainbow friend. The sponge was safely set aside offscreen between shots. Relevant teddy and palette doors stay above and behind them, with Royal arch entirely outside this crop.",
+      "end": "The friend has nudged the scrap into Roshan's fingers; she lifts and retains it. The exact small floor patch is clean; no other zone changes.",
+      "binding_ids": [
+        "roshan",
+        "rainbow_bunny"
+      ],
+      "negative": "No bunny arms, humanoid legs, vacuum mouth, body used as a mop, creature-as-trash, magic paper disappearance, full-room clean wipe, new doors or characters.",
+      "sound": "A light paper rustle, one tiny friendly chirp and a soft happy breath; no words or music.",
+      "phases": [
+        {
+          "range": [
+            0,
+            18
+          ],
+          "instruction": "Roshan opens her free hand beside the single paper scrap. The bunny faces the scrap at the same floor depth.",
+          "state": "action"
+        },
+        {
+          "range": [
+            18,
+            54
+          ],
+          "instruction": "The bunny advances a few centimeters using its existing rounded base/pearl feet, physically nudging the paper toward her fingers; its body does not morph.",
+          "state": "action"
+        },
+        {
+          "range": [
+            54,
+            78
+          ],
+          "instruction": "Roshan closes her fingers on the paper and lifts it clear; the bunny stops with a happy small bob.",
+          "state": "action"
+        },
+        {
+          "range": [
+            78,
+            96
+          ],
+          "instruction": "Hold on the paper visibly retained in her hand and the newly clean local floor patch.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Fixed screen-B topology: teddy, palette, single blue droplet, three pearls, then open Royal arch with short stairs, left to right; never a coral window on B",
+        "Same warm pearl/lavender storybook grade; architecture, emblems, runner and staircase never move or recolor",
+        "Roshan plain pink top/lavender tail; Daddy continuous rainbow mer-tail and glasses; Rumi long purple braid/mer-tail; Eagle true bird; no new costumes or limbs",
+        "Rainbow friend retains the source cloud-mound, broad spiral ears, red-orange forehead curl, white iridescent glint and pearl feet; total height at same floor depth no more than one quarter of Roshan, pending owner scale approval",
+        "Remove only inert litter, webs, wall smears and footprints; living puff creatures are never swept or blasted; no big boss remains",
+        "Cleaned zones remain clean; preserve dirt until shown physical contact removes it; no whole-room magical cleanup"
+      ],
+      "prompt_keep": [
+        "Roshan's plain pink tee and lavender tail, tiny cloud friend and two left emblems fixed; only one paper scrap"
+      ]
+    },
+    {
+      "shot": "C14-S03",
+      "title": "Brush and breeze",
+      "duration_s": 5,
+      "editorial_start_s": 9,
+      "zone": "B-right, reachable web at the BASE of pearl column left of Royal arch",
+      "cast": [
+        "Daddy",
+        "Baby Eagle"
+      ],
+      "camera": "Fixed low three-quarter medium-wide, looking upward just enough to include the column web and Daddy's complete mer-tail. No camera movement.",
+      "start": "Daddy has both hands on the purple handle behind the gold ferrule, cyan-white bristles facing the reachable web. Eagle is grounded nearby. Royal stair/column ownership is unchanged.",
+      "end": "Web is held on the brush bristles clear of the column; Eagle's wings are folded and Daddy safely lowers the captured debris. The adjacent runner footprints still exist.",
+      "binding_ids": [
+        "daddy",
+        "eagle",
+        "brush"
+      ],
+      "negative": "No reversed brush, hands on bristles, human shoes or legs, impossible broom length, unreachable high ceiling web, new arch, living bunny attack, large gust or debris storm.",
+      "sound": "Soft bristle swish, a single gentle wing flutter and a small satisfied chirp; no speech or music.",
+      "phases": [
+        {
+          "range": [
+            0,
+            24
+          ],
+          "instruction": "Daddy places cyan-white brush tips against the reachable web; handle stays behind the bristle contact.",
+          "state": "action"
+        },
+        {
+          "range": [
+            24,
+            72
+          ],
+          "instruction": "He makes one deliberate short lifting brush stroke while Eagle gives one restrained wingbeat directing the loosened thread onto the brush.",
+          "state": "action"
+        },
+        {
+          "range": [
+            72,
+            96
+          ],
+          "instruction": "Daddy withdraws the web caught in the bristles. Eagle folds its wings. The original column surface is visible, unchanged beneath the web.",
+          "state": "action"
+        },
+        {
+          "range": [
+            96,
+            120
+          ],
+          "instruction": "Hold on the clean column and visibly captured web. Do not erase the runner dirt.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Fixed screen-B topology: teddy, palette, single blue droplet, three pearls, then open Royal arch with short stairs, left to right; never a coral window on B",
+        "Same warm pearl/lavender storybook grade; architecture, emblems, runner and staircase never move or recolor",
+        "Roshan plain pink top/lavender tail; Daddy continuous rainbow mer-tail and glasses; Rumi long purple braid/mer-tail; Eagle true bird; no new costumes or limbs",
+        "Rainbow friend retains the source cloud-mound, broad spiral ears, red-orange forehead curl, white iridescent glint and pearl feet; total height at same floor depth no more than one quarter of Roshan, pending owner scale approval",
+        "Remove only inert litter, webs, wall smears and footprints; living puff creatures are never swept or blasted; no big boss remains",
+        "Cleaned zones remain clean; preserve dirt until shown physical contact removes it; no whole-room magical cleanup"
+      ],
+      "prompt_keep": [
+        "Daddy's glasses, continuous mer-tail and both hands behind the brush ferrule fixed; Eagle grounded, Royal arch and column fixed"
+      ]
+    },
+    {
+      "shot": "C14-S04",
+      "title": "A little water, a shared wipe",
+      "duration_s": 5,
+      "editorial_start_s": 14,
+      "zone": "B-middle, low wall/molding between pool droplet and bath three-pearl doors",
+      "cast": [
+        "Roshan",
+        "Rumi"
+      ],
+      "camera": "Fixed elevated oblique medium two-shot looking down toward the low wall and sponge contact. No camera movement.",
+      "start": "Roshan holds the star sponge just away from one bounded brown-gray smear. Rumi presents one open hand ready to dampen the sponge. No window is in this part of the hall. Collected paper is secured offscreen between shots, not back on the floor.",
+      "end": "Smear transfers to the sponge during contact; Roshan lifts it away. Rumi's small water stream has stopped, the original wall is clean and dry, no puddle or color change.",
+      "binding_ids": [
+        "roshan",
+        "rumi",
+        "sponge"
+      ],
+      "negative": "No screen-A window, generic arch replacing pool/bath signs, flood, whole-wall repaint, sponge morph, hand/contact gap, vanished sponge, new costume, giant splash or grime returning.",
+      "sound": "A quiet trickle, soft sponge wipe, then dry room tone; no dialogue or music.",
+      "phases": [
+        {
+          "range": [
+            0,
+            24
+          ],
+          "instruction": "Rumi directs a thin short water thread into Roshan's sponge, never across the room.",
+          "state": "action"
+        },
+        {
+          "range": [
+            24,
+            66
+          ],
+          "instruction": "Roshan presses the sponge against the bounded smear and wipes once along its width; only the touched dirt transfers to the sponge.",
+          "state": "action"
+        },
+        {
+          "range": [
+            66,
+            96
+          ],
+          "instruction": "Rumi stops the water before Roshan lifts the visibly dirt-marked sponge; reveal the original intact molding and wall with no puddle.",
+          "state": "action"
+        },
+        {
+          "range": [
+            96,
+            120
+          ],
+          "instruction": "Hold a clean dry wall and both helpers' shared satisfied glance.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Fixed screen-B topology: teddy, palette, single blue droplet, three pearls, then open Royal arch with short stairs, left to right; never a coral window on B",
+        "Same warm pearl/lavender storybook grade; architecture, emblems, runner and staircase never move or recolor",
+        "Roshan plain pink top/lavender tail; Daddy continuous rainbow mer-tail and glasses; Rumi long purple braid/mer-tail; Eagle true bird; no new costumes or limbs",
+        "Rainbow friend retains the source cloud-mound, broad spiral ears, red-orange forehead curl, white iridescent glint and pearl feet; total height at same floor depth no more than one quarter of Roshan, pending owner scale approval",
+        "Remove only inert litter, webs, wall smears and footprints; living puff creatures are never swept or blasted; no big boss remains",
+        "Cleaned zones remain clean; preserve dirt until shown physical contact removes it; no whole-room magical cleanup"
+      ],
+      "prompt_keep": [
+        "Roshan's pink top and star sponge, Rumi's purple braid and mer-tail, droplet/three-pearl door order and molding fixed"
+      ]
+    },
+    {
+      "shot": "C14-S05",
+      "title": "One coordinated final sweep",
+      "duration_s": 6,
+      "editorial_start_s": 19,
+      "zone": "B-right, last footprint-like smudges and loose inert grit at the Royal runner foot",
+      "cast": [
+        "Roshan",
+        "Daddy",
+        "Baby Eagle",
+        "Rumi",
+        "rainbow friend"
+      ],
+      "camera": "Fixed diagonal medium-wide from the floor side of the runner, lower than S04 and closer than S01; keep all five and both tools readable. No camera movement.",
+      "start": "All five form a shallow arc around the final short dirty runner-edge patch. Roshan's sponge is already at the first smudge, Daddy's correctly held brush faces loose grit, Rumi's hand is over the sponge, Eagle and the tiny friend flank the dry grit. Other three cleaned zones remain clean.",
+      "end": "The last local patch is clean after physical contact. Grime remains captured in the sponge/bristles as tools lift. Water and breeze cease; all five are unharmed and separate.",
+      "binding_ids": [
+        "rainbow_bunny",
+        "brush",
+        "sponge"
+      ],
+      "negative": "No solo portrait cuts inside this job, five independent attacks, bunny as mop/vacuum or with hands, disappearing grit before contact, giant Puff, new paper scrap, tools reversing, palette/portal swaps, flood, dissolve or instant castle-wide sparkle wipe.",
+      "sound": "Overlapping gentle brush and sponge swishes with one soft wing flutter, a tiny happy chirp at completion; no words or music.",
+      "phases": [
+        {
+          "range": [
+            0,
+            24
+          ],
+          "instruction": "All five lean toward the same bounded patch. Rumi briefly dampens Roshan's sponge; Daddy aligns his bristles at its dry edge.",
+          "state": "action"
+        },
+        {
+          "range": [
+            24,
+            96
+          ],
+          "instruction": "In one coordinated pass, Roshan wipes the footprint smudge while Daddy brushes loose grit into his bristles beside her. Eagle gives one small directing wingbeat and the tiny friend nudges a single dry inert fleck a few centimeters toward the same brush with its rounded base/pearl feet. Contact visibly captures the dirt; no separate hero poses.",
+          "state": "action"
+        },
+        {
+          "range": [
+            96,
+            120
+          ],
+          "instruction": "Rumi's water and Eagle's flutter stop. Daddy and Roshan lift their dirty tools without releasing debris; all five turn their attention to the clean result.",
+          "state": "action"
+        },
+        {
+          "range": [
+            120,
+            144
+          ],
+          "instruction": "Hold the completed patch with every companion visible, tools still and dirt retained in them.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Fixed screen-B topology: teddy, palette, single blue droplet, three pearls, then open Royal arch with short stairs, left to right; never a coral window on B",
+        "Same warm pearl/lavender storybook grade; architecture, emblems, runner and staircase never move or recolor",
+        "Roshan plain pink top/lavender tail; Daddy continuous rainbow mer-tail and glasses; Rumi long purple braid/mer-tail; Eagle true bird; no new costumes or limbs",
+        "Rainbow friend retains the source cloud-mound, broad spiral ears, red-orange forehead curl, white iridescent glint and pearl feet; total height at same floor depth no more than one quarter of Roshan, pending owner scale approval",
+        "Remove only inert litter, webs, wall smears and footprints; living puff creatures are never swept or blasted; no big boss remains",
+        "Cleaned zones remain clean; preserve dirt until shown physical contact removes it; no whole-room magical cleanup"
+      ],
+      "prompt_keep": [
+        "all five visible together around one patch; tiny cloud friend has no arms; correct brush grip, star sponge and unchanged Royal stairs"
+      ]
+    },
+    {
+      "shot": "C14-S06",
+      "title": "Look what we did together",
+      "duration_s": 6,
+      "editorial_start_s": 25,
+      "zone": "Broad screen-B clean-hall reveal, all four emblem doors and the open Royal stair arch; NOT a claimed full A+B panorama",
+      "cast": [
+        "Roshan",
+        "Daddy",
+        "Baby Eagle",
+        "Rumi",
+        "rainbow friend"
+      ],
+      "camera": "One gentle 4% pullback from a higher diagonal B-wide view during 0–4s, then locked 2s. No pan, orbit or second move.",
+      "start": "The hall is already clean because S02–S05 completed the work. All five rest together beside the runner, tools lowered. The tiny friend is visibly included, with no giant boss. Dirty tool tips may be turned away, never silently turned pristine.",
+      "end": "Warm clean hall, unchanged purple-gold architecture and four correct emblems, open Royal arch. All five share the accomplishment. Sparse highlights sparkle only on clean pearl/gold edges. Hold two full seconds before a hard cut to clean gameplay.",
+      "binding_ids": [
+        "rainbow_bunny",
+        "daddy"
+      ],
+      "negative": "No magically disappearing dirt, new chandelier/window/banners/throne, four-door entire-castle claim, portal closure, fireworks curtain, neon grade, camera flying outside, extra characters, bunny growing, text or HUD.",
+      "sound": "Gentle settled room tone and a few delicate sparkle chimes, joyful but calm; no dialogue or music.",
+      "phases": [
+        {
+          "range": [
+            0,
+            36
+          ],
+          "instruction": "All five settle shoulder-to-shoulder around the tiny friend, looking with quiet pride at the already-clean hall. Start the single shallow pullback.",
+          "state": "action"
+        },
+        {
+          "range": [
+            36,
+            72
+          ],
+          "instruction": "Continue the same gentle pullback; keep all four small emblems and the Royal arch fixed in relation. Two or three small pearl-edge highlights glint, never a cleaning wave.",
+          "state": "action"
+        },
+        {
+          "range": [
+            72,
+            96
+          ],
+          "instruction": "Finish the pullback at only four percent wider. All tools are still; let the shared achievement read.",
+          "state": "action"
+        },
+        {
+          "range": [
+            96,
+            144
+          ],
+          "instruction": "Hold a still, warm, clean final composition for two seconds as a calm gameplay seam.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Fixed screen-B topology: teddy, palette, single blue droplet, three pearls, then open Royal arch with short stairs, left to right; never a coral window on B",
+        "Same warm pearl/lavender storybook grade; architecture, emblems, runner and staircase never move or recolor",
+        "Roshan plain pink top/lavender tail; Daddy continuous rainbow mer-tail and glasses; Rumi long purple braid/mer-tail; Eagle true bird; no new costumes or limbs",
+        "Rainbow friend retains the source cloud-mound, broad spiral ears, red-orange forehead curl, white iridescent glint and pearl feet; total height at same floor depth no more than one quarter of Roshan, pending owner scale approval",
+        "Remove only inert litter, webs, wall smears and footprints; living puff creatures are never swept or blasted; no big boss remains",
+        "Cleaned zones remain clean; preserve dirt until shown physical contact removes it; no whole-room magical cleanup"
+      ],
+      "prompt_keep": [
+        "five distinct companions, tiny cloud friend, four emblem doors, open Royal arch, original clean lavender-gold surfaces and warm grade fixed"
+      ]
+    }
+  ]
+}

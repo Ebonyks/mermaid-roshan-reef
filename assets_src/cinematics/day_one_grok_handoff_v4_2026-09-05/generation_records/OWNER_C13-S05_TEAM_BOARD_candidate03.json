@@ -1,0 +1,51 @@
+{
+  "shot": "C13-S05",
+  "asset": "OWNER_C13-S05_TEAM_BOARD_candidate03.png",
+  "role": "narrative_only_storyboard_reference",
+  "active": false,
+  "human_review": "pending",
+  "accepted": false,
+  "attempt": 1,
+  "generation_method": "builtin_imagegen_edit",
+  "prompt": "Use case: illustration-story. Asset type: narrative-only storyboard reference for owner review, never delivery pixels and never an accepted keyframe. Edit the supplied C13-S05 team reveal storyboard while preserving its exact dusty-attic room, camera, clean Grand Puff, Daddy, Roshan, Rumi, Baby Eagle, Daddy's correct brush grip, and four-panel 2x2 overall 16:9 layout. The rainbow dust-bunny identity reference is authoritative only for the baby's rainbow colors, face, ears, and small plush proportions. Create exactly four equal complete 16:9 panels, no text, labels, numbers, UI, watermark, or angle cuts. Panel 1: Grand Puff's lower curls are closed; no baby visible. Panel 2: ONLY the baby's face and ears peek from beneath two visibly parted lowest Puff curls; its body remains fully hidden. The baby must be tiny: face/ears only and no more than one eighth of Puff's total ears-to-floor height. Panel 3: the same baby steps out, with total ears-to-feet height exactly one eighth of Puff's ears-to-floor height; keep it tiny and fully visible. Panel 4: the same unchanged baby size remains visible while Puff's lower curls relax closed around the reveal area. Preserve all four friends and clean Puff in the same room and camera, and preserve Daddy's correct grip. Roshan's top/hat is plain pink with no glyphs or symbols. Do not enlarge the baby, pop it fully out in panel 2, show a baby body in panel 2, change Puff scale, add extra characters, alter the room, add a shell/nest/arena, or introduce any text.",
+  "references": [
+    {
+      "path_passed": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/storyboards/OWNER_C13-S05_TEAM_BOARD_candidate02.png",
+      "role": "edit_target",
+      "sha256": "9A5599EE26C2A08DAEDD7F74AABEF8B89FB17AD0BEBE6469FD930064F3DB3EE7",
+      "dimensions": "1672x941"
+    },
+    {
+      "path_passed": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/e488d7c300_rainbow_dust_bunny_concept.png",
+      "role": "rainbow_baby_identity_reference",
+      "sha256": "E488D7C300EFF116EEE58A1B0AE4A4685595FC20F0AC67B7382B197B47F62F17",
+      "dimensions": "1024x1024"
+    }
+  ],
+  "native_output": {
+    "path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-d2d74898-0841-430b-be98-ed3b7e1ac3fd.png",
+    "sha256": "669DE440AF80C232A0B1B2EA072DD7CF68C747A9F73ACAFC9864A91DE2EF8AE6",
+    "dimensions": "1672x941"
+  },
+  "packet_output": {
+    "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/storyboards/OWNER_C13-S05_TEAM_BOARD_candidate03.png",
+    "sha256": "669DE440AF80C232A0B1B2EA072DD7CF68C747A9F73ACAFC9864A91DE2EF8AE6",
+    "dimensions": "1672x941"
+  },
+  "rejected_preserved": {
+    "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/.tmp/grok_owner_revisions/rejected/OWNER_C13-S05_TEAM_BOARD_candidate02_REJECTED.png",
+    "sha256": "9A5599EE26C2A08DAEDD7F74AABEF8B89FB17AD0BEBE6469FD930064F3DB3EE7",
+    "dimensions": "1672x941"
+  },
+  "visual_audit": {
+    "panels": 4,
+    "grid": "2x2_equal_panels",
+    "overall_aspect": "16:9",
+    "panel1_no_baby": true,
+    "panel2_face_and_ears_only": true,
+    "panel3_small_baby": true,
+    "panel4_same_small_baby": true,
+    "all_four_friends_preserved": true,
+    "review_note": "Pending human review. Candidate03 corrects candidate02 by hiding the baby's body in panel 2 and retaining a tiny approximately one-eighth-scale baby in panels 3-4. Narrative board only; no delivery acceptance claimed."
+  }
+}

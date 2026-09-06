@@ -1,0 +1,46 @@
+{
+  "source_path": "sources/C05_S01_v1_pool_entry.mp4",
+  "source_sha256": "26d18c1f483b4fc4b9582abaabeab6074be828cbf5cfcf9fd0b1a6a9558febaa",
+  "source_fps": 24,
+  "selected_range_half_open": [
+    12,
+    84
+  ],
+  "frames": [
+    {
+      "index": 12,
+      "time_seconds": 0.5,
+      "path": "audit/source_frames/D1-C05-S01/f0012.png",
+      "sha256": "dc6b4425efaef6172192faa731b600613f088821ce2d29e47f75c8b2f8d1bf39"
+    },
+    {
+      "index": 30,
+      "time_seconds": 1.25,
+      "path": "audit/source_frames/D1-C05-S01/f0030.png",
+      "sha256": "042123267514235439b63ffa6f98d06172f5f77631318f281cd7962574594ec1"
+    },
+    {
+      "index": 48,
+      "time_seconds": 2.0,
+      "path": "audit/source_frames/D1-C05-S01/f0048.png",
+      "sha256": "67258e418a7a805a5da9dd6e0b14b46e007f631552071fe0e2f726260c306f29"
+    },
+    {
+      "index": 66,
+      "time_seconds": 2.75,
+      "path": "audit/source_frames/D1-C05-S01/f0066.png",
+      "sha256": "603cd236e5cf7b4517e6a087ab4970f582c7f4c3c744b7a50d393c0975835425"
+    },
+    {
+      "index": 83,
+      "time_seconds": 3.4583333333333335,
+      "path": "audit/source_frames/D1-C05-S01/f0083.png",
+      "sha256": "2b4e76981618bfb982792cb58e072ae96a225baa362d6d5cdbe51f76122dc5bd"
+    }
+  ],
+  "sheet": "audit/source_frames/D1-C05-S01/AUDIT_SAMPLES.jpg",
+  "role": "diagnostic_source_samples_only",
+  "used_as_generation_pixels": false,
+  "used_as_delivery_pixels": false,
+  "method": "Exact zero-based ffmpeg source-frame decode; sheet is whole-frame thumbnail arrangement with frame labels. No synthesized motion or subject repair."
+}

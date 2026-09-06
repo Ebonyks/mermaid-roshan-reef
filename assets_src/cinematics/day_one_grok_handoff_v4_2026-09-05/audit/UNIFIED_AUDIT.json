@@ -1,0 +1,590 @@
+{
+  "schema": "day-one-unified-active-select-audit-v1",
+  "date": "2026-09-05",
+  "baseline": "assets_src/cinematics/day_one_davinci_draft_2026-09-04/ASSEMBLY_MANIFEST.json",
+  "shot_count": 50,
+  "decision_vocabulary": [
+    "KEEP",
+    "PROVISIONAL",
+    "TRIM",
+    "RESHOOT",
+    "OMIT_WRONG_STATE"
+  ],
+  "decision_counts": {
+    "KEEP": 23,
+    "PROVISIONAL": 7,
+    "TRIM": 7,
+    "RESHOOT": 11,
+    "OMIT_WRONG_STATE": 2
+  },
+  "claims": {
+    "sampled_visual_review": true,
+    "all_frame_acceptance": false,
+    "first_frames_approved": false,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "causal_corrections": [
+    "C06: the seahorse source and waterfall source activate before their clean-water fronts converge; C06-S06 is the waterfall restart, while convergence is a separate missing beat.",
+    "C06: the purple 4636 clip contains the plug intervention/first flow and may be weak, but plug intervention is not absent.",
+    "C09: grime is not visible until all four supplies have been collected; omit current S04 from entry rather than regenerate it there.",
+    "C10: supplies are already collected before grime cleanup; omit current S02 rather than depict storage after the final scrub."
+  ],
+  "shots": [
+    {
+      "shot": "D1-C00-S01",
+      "source": "C00_S01_v1_plane_clouds.mp4",
+      "range": [
+        0,
+        96
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C00-S02",
+      "source": "C00_S02_v1_cabin.mp4",
+      "range": [
+        12,
+        108
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C00-S03",
+      "source": "C00_S03_v1_roshan_wonder.mp4",
+      "range": [
+        12,
+        108
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C00-S04",
+      "source": "C00_S04_v1_handhold.mp4",
+      "range": [
+        12,
+        108
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C00-S05",
+      "source": "C00_S05_v1_lagoon_reveal.mp4",
+      "range": [
+        12,
+        108
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C00-S06",
+      "source": "C00_S06_v1_landing_prep.mp4",
+      "range": [
+        12,
+        108
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C01-S01",
+      "source": "C01_S01_v1_dock.mp4",
+      "range": [
+        0,
+        84
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C01-S02",
+      "source": "C01_S02_v1_dock_handoffer_REGEN.mp4",
+      "range": [
+        24,
+        120
+      ],
+      "decision": "RESHOOT",
+      "reason": "Daddy/Roshan scale and hand-tail blocking remain unstable; Rumi has not been introduced yet."
+    },
+    {
+      "shot": "D1-C01-S03",
+      "source": "C01_S03_v1_handinhand_castle_REGEN.mp4",
+      "range": [
+        12,
+        108
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C02-S01",
+      "source": "C02_S01_v1_door_open.mp4",
+      "range": [
+        0,
+        72
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C02-S02",
+      "source": "C02_S02_v1_dirty_hall.mp4",
+      "range": [
+        12,
+        84
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C02-S03",
+      "source": "grok-a4619f70-3e25-400f-a320-0e8f511708c6-720p.mp4",
+      "range": [
+        84,
+        145
+      ],
+      "decision": "TRIM",
+      "recommended_range": [
+        108,
+        145
+      ]
+    },
+    {
+      "shot": "D1-C02-S04",
+      "source": "C02_S04_v1_bathroom_glow.mp4",
+      "range": [
+        12,
+        84
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C03-S01",
+      "source": "C03_S01_v1_empty_dirty_bath.mp4",
+      "range": [
+        0,
+        72
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C03-S03",
+      "source": "C03_bunny_discover.mp4",
+      "range": [
+        12,
+        84
+      ],
+      "decision": "RESHOOT",
+      "reason": "Correct event, unstable bunny/tub scale and topology."
+    },
+    {
+      "shot": "D1-C03-S04",
+      "source": "C03_S04_v1_tool_reach.mp4",
+      "range": [
+        24,
+        96
+      ],
+      "decision": "RESHOOT",
+      "reason": "Precontact action is right; hand/tool scale and stable gap are not."
+    },
+    {
+      "shot": "D1-C04-S01",
+      "source": "C04_S01_v1_final_scrub.mp4",
+      "range": [
+        24,
+        96
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C04-S04",
+      "source": "C04_S04_v1_clean_endpoint.mp4",
+      "range": [
+        12,
+        84
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C05-S01",
+      "source": "C05_S01_v1_pool_entry.mp4",
+      "range": [
+        12,
+        84
+      ],
+      "decision": "RESHOOT",
+      "reason": "Dirty entry incorrectly shows bright flowing waterfall."
+    },
+    {
+      "shot": "D1-C05-S03",
+      "source": "C05_S03_v1_skimmer.mp4",
+      "range": [
+        24,
+        96
+      ],
+      "decision": "RESHOOT",
+      "reason": "Skimmer lacks weighted debris contact and background is prematurely flowing."
+    },
+    {
+      "shot": "D1-C05-S04",
+      "source": "MERMAID_ROSHAN_DIRTY_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "range": [
+        120,
+        192
+      ],
+      "decision": "TRIM",
+      "recommended_range": [
+        132,
+        192
+      ]
+    },
+    {
+      "shot": "D1-C05-S05",
+      "source": "MERMAID_ROSHAN_DIRTY_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "range": [
+        192,
+        288
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C06-S02",
+      "source": "grok-4636c5b8-1f9d-4e1e-841f-b433e5345656.mp4",
+      "range": [
+        0,
+        54
+      ],
+      "decision": "PROVISIONAL",
+      "reason": "Contains purple plug intervention and first flow; opening semantics are slightly ambiguous, not missing."
+    },
+    {
+      "shot": "D1-C06-S03",
+      "source": "MERMAID_ROSHAN_CLEAN_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "range": [
+        0,
+        48
+      ],
+      "decision": "TRIM",
+      "recommended_range": [
+        0,
+        45
+      ]
+    },
+    {
+      "shot": "D1-C06-S06",
+      "source": "MERMAID_ROSHAN_CLEAN_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "range": [
+        48,
+        120
+      ],
+      "decision": "KEEP",
+      "recommended_range": [
+        48,
+        108
+      ],
+      "reason": "Valid waterfall-restart state, not the later front convergence."
+    },
+    {
+      "shot": "D1-C06-S07-09",
+      "source": "MERMAID_ROSHAN_CLEAN_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "range": [
+        120,
+        336
+      ],
+      "decision": "TRIM",
+      "recommended_ranges": {
+        "emergence": [
+          168,
+          228
+        ],
+        "thanks": [
+          228,
+          264
+        ],
+        "hug": [
+          264,
+          336
+        ]
+      }
+    },
+    {
+      "shot": "D1-C07-S01",
+      "source": "grok-ccf1fe73-01f7-4c26-9414-4008078a4cce-720p.mp4",
+      "range": [
+        0,
+        72
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C07-S06",
+      "source": "grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4",
+      "range": [
+        0,
+        96
+      ],
+      "decision": "KEEP",
+      "reason": "One Eagle pinned by exactly two flanking bunnies matches the implemented invariant."
+    },
+    {
+      "shot": "D1-C08-S06",
+      "source": "grok-218500df-7547-4c84-a703-c8a0b8a954b7-720p.mp4",
+      "range": [
+        24,
+        180
+      ],
+      "decision": "RESHOOT",
+      "reason": "Strong wing action but four-bunny clean-room endpoint conflicts with the implemented two-pin rescue; replacement is post-completion only."
+    },
+    {
+      "shot": "D1-C09-S01",
+      "source": "C09_S01_v1_loose_supplies_OFFICIAL.mp4",
+      "range": [
+        12,
+        60
+      ],
+      "decision": "PROVISIONAL"
+    },
+    {
+      "shot": "D1-C09-S02",
+      "source": "C09_S02_v1_roshan_scan_OFFICIAL.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "PROVISIONAL"
+    },
+    {
+      "shot": "D1-C09-S03",
+      "source": "C09_S03_four_supplies.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "RESHOOT",
+      "reason": "Must show exactly four authored supply objects in the actual Art Room family."
+    },
+    {
+      "shot": "D1-C09-S04",
+      "source": "C09_S04_v1_three_grime_OFFICIAL.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "OMIT_WRONG_STATE",
+      "recommended_range": null,
+      "reason": "Grime is hidden until all four supplies are collected; no entry-film replacement needed."
+    },
+    {
+      "shot": "D1-C09-S05",
+      "source": "C09_S05_v1_precontact_brush_REGEN.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "PROVISIONAL"
+    },
+    {
+      "shot": "D1-C10-S01",
+      "source": "C10_S01_v1_final_scrub_OFFICIAL.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "PROVISIONAL"
+    },
+    {
+      "shot": "D1-C10-S02",
+      "source": "C10_S02_v1_four_supplies_home_REGEN.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "OMIT_WRONG_STATE",
+      "recommended_range": null,
+      "reason": "Storage after final scrub reverses collect-then-grime gameplay order and is redundant."
+    },
+    {
+      "shot": "D1-C10-S03",
+      "source": "C10_S03_v1_clean_reveal_OFFICIAL.mp4",
+      "range": [
+        0,
+        48
+      ],
+      "decision": "TRIM",
+      "recommended_range": [
+        0,
+        45
+      ]
+    },
+    {
+      "shot": "D1-C10-S04",
+      "source": "C10_S04_v1_desk_wake_OFFICIAL.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "PROVISIONAL"
+    },
+    {
+      "shot": "D1-C10-S05",
+      "source": "C10_S05_v1_blank_desk_handgap_REGEN.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "RESHOOT",
+      "reason": "Needs exact clean room seam and stable hand gap at the center desk."
+    },
+    {
+      "shot": "D1-C11-S01",
+      "source": "C11_S01_route_lights.mp4",
+      "range": [
+        12,
+        84
+      ],
+      "decision": "RESHOOT"
+    },
+    {
+      "shot": "D1-C11-S02",
+      "source": "C11_S02_v1_boss_door_approach_REGEN.mp4",
+      "range": [
+        24,
+        96
+      ],
+      "decision": "KEEP",
+      "reason": "Pixel recheck confirms the rainbow arch, shell door, adjacent drop/pearl portal icons and red-carpet stairs match the actual far-right right-half hall master; Roshan approaches without premature contact."
+    },
+    {
+      "shot": "D1-C11-S03",
+      "source": "C11_S03_v1_door_open_arena_REGEN.mp4",
+      "range": [
+        24,
+        96
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C11-S04",
+      "source": "C11_S04_v1_grand_puff_lands_REGEN.mp4",
+      "range": [
+        24,
+        96
+      ],
+      "decision": "RESHOOT"
+    },
+    {
+      "shot": "D1-C12-S01",
+      "source": "C04_S04_v1_clean_endpoint.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "KEEP",
+      "reason": "Byte-identical source and overlapping accepted range with C04-S04; the short clean-bathroom recap is intentionally judged consistently."
+    },
+    {
+      "shot": "D1-C12-S02",
+      "source": "C12_S02_rumi_pool_recap.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C12-S04",
+      "source": "C10_S04_v1_desk_wake_OFFICIAL.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "PROVISIONAL",
+      "reason": "Same rough desk footage as C10-S04; disposition is intentionally consistent."
+    },
+    {
+      "shot": "D1-C12-S06",
+      "source": "C12_family_reunion_hug.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "KEEP"
+    },
+    {
+      "shot": "D1-C13-S01",
+      "source": "C13_S01_v1_roshan_cleanup.mp4",
+      "range": [
+        0,
+        96
+      ],
+      "decision": "TRIM",
+      "recommended_range": [
+        0,
+        72
+      ]
+    },
+    {
+      "shot": "D1-C13-S02",
+      "source": "C13_S02_v2_daddy_sweep.mp4",
+      "range": [
+        0,
+        96
+      ],
+      "decision": "TRIM",
+      "recommended_range": [
+        12,
+        84
+      ]
+    },
+    {
+      "shot": "D1-C13-S04",
+      "source": "C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+      "range": [
+        0,
+        32
+      ],
+      "decision": "RESHOOT"
+    }
+  ],
+  "necessary_missing_events": [
+    {
+      "shot": "D1-C01-S04",
+      "event": "closed-door arrival/opening seam"
+    },
+    {
+      "shot": "D1-C03-S02",
+      "event": "bathroom threshold crossing"
+    },
+    {
+      "shot": "D1-C04-S03",
+      "event": "clean bathroom exit without ambiguous anatomy"
+    },
+    {
+      "shot": "D1-C05-S02",
+      "event": "low-water problem state with swimming bunny and separate land bunny"
+    },
+    {
+      "shot": "D1-C05-S06",
+      "event": "wide dirty-pool problem map showing both blocked causes"
+    },
+    {
+      "shot": "D1-C06-S04",
+      "event": "both activated water sources enter the same giant pool before convergence"
+    },
+    {
+      "shot": "D1-C06-S05",
+      "event": "two clean-water fronts converge after both sources activate"
+    },
+    {
+      "shot": "D1-C07-S02-S05",
+      "event": "Stuffie-room entry, reaction, swinging bunny, and trail to the exactly-two-pin Eagle reveal"
+    },
+    {
+      "shot": "D1-C13-S03",
+      "event": "one Baby Eagle controlled dust lift; one intact Puff"
+    }
+  ],
+  "proposed_extension_pending_user_approval": [
+    {
+      "shot": "D1-C13-S05",
+      "proposal": "one small rainbow bunny emerges from a tiny separate prismatic floor cradle",
+      "canon_status": "not implemented game canon; not a necessary-missing-event claim"
+    }
+  ]
+}

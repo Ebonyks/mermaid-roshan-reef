@@ -1,0 +1,20 @@
+{
+  "shot": "C13-S04",
+  "asset": "OWNER_C13-S04_SUDS_OPENING_candidate01.png",
+  "role": "full_frame_first_frame_candidate",
+  "active": false,
+  "human_review": "pending",
+  "accepted": false,
+  "attempt": 2,
+  "generation_method": "builtin_imagegen_generate",
+  "prompt": "Use case: illustration-story. Generate one complete full-frame 16:9 cinematic opening image, not a cutout, not a character sheet, not a green-screen image, for C13-S04. IMAGE 1 is the approved dusty attic arena background/geography. IMAGE 2 is the corrected five-character team composition and identity reference, but do NOT copy its frontal camera. Render the same five characters fully in the arena from a distinct low front-left three-quarter medium-wide camera at about 30 degrees: Grand Puff large and centered-right, Roshan and Daddy on viewer-left, grounded Baby Eagle foreground-left, Rumi viewer-right. Opening action: Roshan's star sponge and Daddy's brush make gentle contact on Puff's outer body, creating only one small white/lavender suds patch; Puff remains visibly dusty elsewhere. Preserve Puff's face, ears, eyes, pearl joints and silhouette, Daddy's correct two-hand brush grip, the dusty stone room, two shell windows, columns, navy banners, chandelier and chests. Full storybook scene across the entire canvas. No green screen, transparent background, isolated character, cutout, collage, text, UI, watermark, extra characters, bathroom, wood arena, rainbow bunny, or full-body foam coat.",
+  "references": [
+    {"path_passed":"C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/binding_inputs/dusty_attic_arena_native_1254.png","role":"arena","sha256":"9CB4B02DC4A56E1436EA0A6B21DCCF4EF751716D213E3FF7624571F15A9E2CB6","dimensions":"1254x1254"},
+    {"path_passed":"C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/binding_inputs/D1-C13-S04_TEAM_candidate03_BINDING_COPY.png","role":"cast_identity_blocking","sha256":"B12262FE17E7DC376756C7884A62FFC9F991807F385AAEB0A8469C15D89FB738","dimensions":"1672x941"},
+    {"path_passed":"C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/binding_inputs/e585e52562_grand_puff_BOSS_DUST_BUNNY_IDENTITY.png","role":"puff_identity","sha256":"E585E525624F4DA1BC06FB468DD5618FC608B103565A907CE797F29C85E844EF","dimensions":"1024x1024"},
+    {"path_passed":"C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/binding_inputs/17e76b7f75_magic_cleaning_brush.png","role":"brush_material","sha256":"17E76B7F758F31A9B148167FF103A68BDF9543E7AAC5794314A97BBD91066EF3","dimensions":"936x1024"}
+  ],
+  "native_output":{"path":"C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-b1fa86df-d023-43c2-8dfa-bebd5ca0f212.png","sha256":"AE62B81DC9E8EF6CC6173F678833E6F0A0104BDB0550E08893628FA8BC95D95A","dimensions":"1672x941"},
+  "packet_output":{"path":"C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C13-S04_SUDS_OPENING_candidate01.png","sha256":"AE62B81DC9E8EF6CC6173F678833E6F0A0104BDB0550E08893628FA8BC95D95A","dimensions":"1672x941"},
+  "visual_audit":{"full_frame":true,"camera":"low_front_left_three_quarter_approximately_30deg","five_cast_visible":true,"small_initial_lather_patch":true,"face_ears_pearls_clear":true,"review_note":"Visually inspected; distinct low front-left composition, one localized first lather patch, full cast and restored arena. Human review pending."}
+}

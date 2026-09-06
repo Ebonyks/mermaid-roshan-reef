@@ -1,0 +1,30 @@
+{
+  "schema": "c14-builtin-image-record-v1",
+  "output_path": "storyboards/D1-C14-S04_BOARD_candidate01.png",
+  "output_sha256": "1ab82d555510ba48d98f621852962074936155ed66f0d375cf39dd69aea0e056",
+  "dimensions": [1672, 941],
+  "native_output_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-f97c6c62-56e7-42ee-9454-87fc026ff2bd.png",
+  "native_output_sha256": "1ab82d555510ba48d98f621852962074936155ed66f0d375cf39dd69aea0e056",
+  "prompt": "Use case: illustration-story.\nAsset type: narrative-only 2x2 storyboard for C14-S04, not a delivery frame.\nInput images: IMAGE_1 is the exact C14-S04 opening first frame and camera/layout lock; IMAGE_2 current native Screen A hall layout; IMAGE_3 Roshan identity; IMAGE_4 Rumi identity; IMAGE_5 actual pink star sponge prop.\nPrimary request: Create one polished storyboard sheet containing exactly four equal 16:9 panels arranged 2x2, with no text, labels, borders that change panel aspect, or watermark. All four panels show the same elevated side-oblique medium two-shot and the same low reachable lavender wall/molding patch between/below current pool droplet and bath three-pearl portals. This is narrative planning only, not a multi-shot delivery image.\nPanel 1: exact opening state from IMAGE_1, BEFORE cleaning. Roshan holds the pink star sponge just clear of a bounded brown-gray wall smear; Rumi extends an open hand toward the sponge. Only Roshan and Rumi are visible; other team members remain offscreen.\nPanel 2: one coordinated wipe begins. Rumi adds a thin localized stream to the sponge, Roshan makes one broad sponge pass across only the bounded smear. Keep current hall geometry and door landmarks fixed.\nPanel 3: water stops and the sponge lifts. The smear is visibly cleared only along the sponge path; no flood, no new tool, no architecture movement. Roshan and Rumi remain in the same positions and camera.\nPanel 4: clean, dry localized wall and pearl molding; sponge held up, hand relaxed, same hall landmarks and same camera. Other C14 dirt remains offscreen unchanged.\nConstraints: exact Roshan and Rumi identities, plain pink Roshan top with rainbow hair, continuous mermaid tails, no extra limbs, no giant Puff, no dust creatures, no extra cast, no new windows/chandelier/closed royal door/stairs, no text. Preserve current Screen A lavender pearl-brick hall, gold molding, aqua droplet landmark, three-pearl bath emblem, and horizontal red runner. Narrative board only; do not turn it into four unrelated views.",
+  "prompt_sha256": "10996785138c43a13217a1ca60ef0a4e11164f5dabe0aeb63f86d7e48bd1d633",
+  "referenced_image_paths": [
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S04_OPENING_candidate01.png",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/imagegen/castle_main_hall_redraw_2026-08-03/accepted_screen_a_native_1672x941.png",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets/characters/roshan_25d/roshan_base.png",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rumi_rumi_full_body_identity.png",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png"
+  ],
+  "input_images": [
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S04_OPENING_candidate01.png", "sha256": "99e6dcd8fb15d6f2c5ae34e19da58056c37a4db126e581f4c76bd87a4ac52c7c", "dimensions": [1672, 941]},
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/imagegen/castle_main_hall_redraw_2026-08-03/accepted_screen_a_native_1672x941.png", "sha256": "6e840715f1ff580a21e8df3406b5c23733bf584d5046345f7239d72913c04c5d", "dimensions": [1672, 941]},
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets/characters/roshan_25d/roshan_base.png", "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab", "dimensions": [256, 256]},
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rumi_rumi_full_body_identity.png", "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f", "dimensions": [576, 1024]},
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png", "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b", "dimensions": [512, 512]}
+  ],
+  "attempt": 1,
+  "generation_method": "builtin_image_gen",
+  "human_decision": "pending",
+  "used_as_delivery_pixels": false,
+  "delivery_accepted": false,
+  "review_note": "Human review pending; narrative-only board, not a delivery keyframe."
+}

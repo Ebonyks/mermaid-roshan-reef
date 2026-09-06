@@ -1,0 +1,20 @@
+{
+  "shot": "C13-S05",
+  "asset": "OWNER_C13-S05_SUDSY_OPENING_candidate02.png",
+  "role": "full_frame_first_frame_candidate",
+  "active": false,
+  "human_review": "pending",
+  "accepted": false,
+  "attempt": 2,
+  "generation_method": "builtin_imagegen_edit",
+  "prompt": "Use case: precise-object-edit. IMAGE 1 is the S05 sudsy full-frame edit target. IMAGE 2 is the approved S04 full-frame tail identity reference. Change only Daddy's lower body: replace the brown human shoe/boot and any human leg with one continuous rainbow mermaid tail that tapers naturally into a real mermaid fin, matching IMAGE 2. Daddy must have no human legs, trousers, shoes, boots, feet, or split anatomy. Preserve the elevated front-right S05 camera, full dusty attic room, all five cast, brush grip, broad white/lavender foam distribution, Puff face/ears/pearls, lighting, scale, and composition. Return a complete full-frame 16:9 storybook scene, not a cutout or green-screen character. No text, crop, new characters, room redesign, or changes outside Daddy's lower body.",
+  "references": [
+    {"path_passed":"conversation_recent_image_1: OWNER_C13-S05_SUDSY_OPENING_candidate01.png","role":"edit_target","source_path":"C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C13-S05_SUDSY_OPENING_candidate01.png","sha256":"A5B140D6BECF9C6886C47D729DF546D514CD08CA2F5AA55AA78E1A3CCD02B896","dimensions":"1672x941"},
+    {"path_passed":"conversation_recent_image_2: OWNER_C13-S04_SUDS_OPENING_candidate01.png","role":"sol_reviewed_human_pending_tail_reference","source_path":"C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C13-S04_SUDS_OPENING_candidate01.png","sha256":"AE62B81DC9E8EF6CC6173F678833E6F0A0104BDB0550E08893628FA8BC95D95A","dimensions":"1672x941","note":"Sol/root visual-review reference only; the word approved in the generation prompt referred to source identity, not human approval."
+    }
+  ],
+  "native_output":{"path":"C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-7c551019-16c9-4c55-b628-0fc3d84b3726.png","sha256":"F65676310D8985F676363A381D075088B7E5D35BE6F3313E798DBB63F1C16680","dimensions":"1672x941"},
+  "packet_output":{"path":"C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C13-S05_SUDSY_OPENING_candidate02.png","sha256":"F65676310D8985F676363A381D075088B7E5D35BE6F3313E798DBB63F1C16680","dimensions":"1672x941"},
+  "superseded_rejected":{"path":"C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/.tmp/grok_owner_revisions/rejected/OWNER_C13-S05_SUDSY_OPENING_candidate01_BOOT_DEFECT.png","sha256":"A5B140D6BECF9C6886C47D729DF546D514CD08CA2F5AA55AA78E1A3CCD02B896"},
+  "visual_audit":{"full_frame":true,"no_human_boot_or_leg_observed":true,"continuous_rainbow_mermaid_tail_observed":true,"five_cast_visible":true,"foam_preserved":true,"camera":"elevated_front_right","review_note":"Boot defect corrected. Tail is more prominent/foreshortened and may need human composition review; no acceptance claimed."}
+}

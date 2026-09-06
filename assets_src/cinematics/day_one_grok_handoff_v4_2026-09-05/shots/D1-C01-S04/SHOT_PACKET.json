@@ -1,0 +1,103 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C01",
+  "shot_id": "D1-C01-S04",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 3,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/D1-C01-S04_OPENING_candidate04_SKY_LAGOON.png",
+      "sha256": "c6f0e578f84dffb69364e8481be8de99fac02bed8b04a998c36cc8c13525d091",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/2eda6f7676_daddy_daddy_master.png",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_3",
+      "path": "references/69827625a8_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "description": "locked"
+  },
+  "must_move": "Their joined hands remain stable as they ease to a stop before the closed red double door.",
+  "must_not_move": [
+    "Current four-tower castle, central Roshan stained glass, wooden bridge and closed red double door stay fixed.",
+    "Bright Sky Lagoon sky, mountains, meadow vegetation and foreground stone landing remain dry; no moat, stream, seabed or underwater light.",
+    "Exactly Daddy and child Roshan with joined but separately readable hands; no Rumi, door opening, handle contact, legs or extra cast."
+  ],
+  "end_state": "Daddy and child Roshan pause hand-in-hand on the dry landing before the closed four-tower castle doors.",
+  "negative_constraints": [
+    "Current four-tower castle, central Roshan stained glass, wooden bridge and closed red double door stay fixed.",
+    "Bright Sky Lagoon sky, mountains, meadow vegetation and foreground stone landing remain dry; no moat, stream, seabed or underwater light.",
+    "Exactly Daddy and child Roshan with joined but separately readable hands; no Rumi, door opening, handle contact, legs or extra cast."
+  ],
+  "prompt_path": "shots/D1-C01-S04/PROMPT.txt",
+  "prompt_sha256": "4f2c15db811e26785837a538521039eaab6479922d72c04d41872c77dfd42c85",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/OWNER_C01-S04_BOARD_candidate01.png",
+      "used_as_pixel_reference": false,
+      "role": "narrative_storyboard"
+    }
+  ],
+  "storyboard_caveat": null,
+  "game_asset_comparison": [
+    {
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+      "path": "references/08e3b85035_sky_lagoon_castle_four_tower_v4.png"
+    },
+    {
+      "source_path": "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/normalized/sky_lagoon_panorama_1536.png",
+      "path": "references/74bc5a0643_sky_lagoon_panorama_1536.png"
+    },
+    {
+      "source_path": "scripts/arena/sky_lagoon_layout.json",
+      "path": "written_guide/dad9fee760_sky_lagoon_layout.json.txt"
+    },
+    {
+      "source_path": "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/scenes/D1-C01/visuals/handoff_art/characters/daddy_daddy_master.png",
+      "path": "references/2eda6f7676_daddy_daddy_master.png"
+    },
+    {
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "path": "references/69827625a8_roshan_base.png"
+    }
+  ],
+  "source_selection": {
+    "filename": null,
+    "range_half_open": null
+  },
+  "weak_source_frames": [],
+  "inspected_source_frames": [],
+  "source_visual_evidence": null,
+  "sol_first_frame_decision": "RECOMMEND_APPROVAL",
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

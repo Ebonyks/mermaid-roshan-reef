@@ -1,0 +1,162 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C05",
+  "shot_id": "D1-C05-S03",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/LUNA_B_C05_S03_skimmer_OPENING_PENDING_HUMAN.png",
+      "sha256": "939e83a8a06e195f57e748e392b338c8d65d66da67d74b80f73abddde6d98766",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/69827625a8_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_3",
+      "path": "references/308c86843a_pool_skimmer.png",
+      "sha256": "308c86843ace9fb3d4a65a0c514d41b367d87ceabaf5f3d3676f54ce9be4b9b3",
+      "role": "object_or_material_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_4",
+      "path": "references/e554c4f253_floating_trash_atlas.png",
+      "sha256": "e554c4f253bcaa9e5893d9e4fffe03feef96528211f2458dc5d8fc81299f56df",
+      "role": "object_or_material_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "description": "locked"
+  },
+  "must_move": "She steadies and lifts that same loaded mesh slowly; the captured debris keeps its weight and does not multiply.",
+  "must_not_move": [
+    "Approved net mesh and handle retain shape; hands stay on the handle.",
+    "Only wrappers, leaves and algae in the mesh; no live animal, face, eyes or fins.",
+    "Waterfall remains clogged and stopped; no global purification or new stream."
+  ],
+  "end_state": "Roshan holds the weighted debris in the skimmer above the still-dirty water.",
+  "negative_constraints": [
+    "Approved net mesh and handle retain shape; hands stay on the handle.",
+    "Only wrappers, leaves and algae in the mesh; no live animal, face, eyes or fins.",
+    "Waterfall remains clogged and stopped; no global purification or new stream."
+  ],
+  "prompt_path": "shots/D1-C05-S03/PROMPT.txt",
+  "prompt_sha256": "95d09a0f47c194c5e937983f074ac7c5bc1c60339dbbe322a8fd65d7f14b4316",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/LUNA_B_C05_S03_STORYBOARD_2x2_NARRATIVE_ONLY_candidate02.png",
+      "used_as_pixel_reference": false,
+      "role": "narrative_storyboard"
+    }
+  ],
+  "storyboard_caveat": null,
+  "game_asset_comparison": [
+    {
+      "source_path": "assets/castle/day_one_pool/activities/pool_skimmer.png",
+      "path": "references/308c86843a_pool_skimmer.png"
+    },
+    {
+      "source_path": "assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+      "path": "references/e554c4f253_floating_trash_atlas.png"
+    },
+    {
+      "source_path": "assets/castle/day_one_pool/pool_algae_trash.png",
+      "path": "references/e0ed3c7174_pool_algae_trash.png"
+    },
+    {
+      "source_path": "assets/flats/castle/rooms/room_mermaid_pool.png",
+      "path": "references/1a9a2005d4_room_mermaid_pool.png"
+    }
+  ],
+  "source_selection": {
+    "filename": "C05_S03_v1_skimmer.mp4",
+    "range_half_open": [
+      24,
+      96
+    ],
+    "sha256": "e5909540cdeb532749c6ec559bf2e808a35146dc748a0bbe2594bddd433b8ae5"
+  },
+  "weak_source_frames": [
+    [
+      24,
+      96
+    ]
+  ],
+  "inspected_source_frames": [],
+  "source_visual_evidence": {
+    "source_path": "sources/C05_S03_v1_skimmer.mp4",
+    "source_sha256": "e5909540cdeb532749c6ec559bf2e808a35146dc748a0bbe2594bddd433b8ae5",
+    "source_fps": 24,
+    "selected_range_half_open": [
+      24,
+      96
+    ],
+    "frames": [
+      {
+        "index": 24,
+        "time_seconds": 1.0,
+        "path": "audit/source_frames/D1-C05-S03/f0024.png",
+        "sha256": "e92ba9363fe044acd51f29ef924db62e8b602df0fcdbb8e0682bc476d9fe6e91"
+      },
+      {
+        "index": 42,
+        "time_seconds": 1.75,
+        "path": "audit/source_frames/D1-C05-S03/f0042.png",
+        "sha256": "39372a825852e26d84dd9d97e39fa8011068c6575d864f3d2cd78a67e8c035cf"
+      },
+      {
+        "index": 60,
+        "time_seconds": 2.5,
+        "path": "audit/source_frames/D1-C05-S03/f0060.png",
+        "sha256": "40229b5f567d4bcbe788352f497d25359e438763d093aafe3af6f37bbfcdf720"
+      },
+      {
+        "index": 78,
+        "time_seconds": 3.25,
+        "path": "audit/source_frames/D1-C05-S03/f0078.png",
+        "sha256": "777992063968c5d5c22e5745ca1fe50df3f3222febaa24d4ef44a06280642e46"
+      },
+      {
+        "index": 95,
+        "time_seconds": 3.9583333333333335,
+        "path": "audit/source_frames/D1-C05-S03/f0095.png",
+        "sha256": "73091c47ecc16e14ea50d5a4a06c563bd50275c13edb4a883a63d7d0080ce15e"
+      }
+    ],
+    "sheet": "audit/source_frames/D1-C05-S03/AUDIT_SAMPLES.jpg",
+    "role": "diagnostic_source_samples_only",
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "method": "Exact zero-based ffmpeg source-frame decode; sheet is whole-frame thumbnail arrangement with frame labels. No synthesized motion or subject repair."
+  },
+  "sol_first_frame_decision": "RECOMMEND_APPROVAL",
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

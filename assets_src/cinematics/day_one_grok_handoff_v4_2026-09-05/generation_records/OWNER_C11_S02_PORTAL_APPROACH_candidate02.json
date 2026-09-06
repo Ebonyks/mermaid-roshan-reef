@@ -1,0 +1,31 @@
+{
+  "shot": "D1-C11-S02",
+  "asset_type": "first_frame",
+  "attempt": 2,
+  "status": "human_pending",
+  "method": "builtin_image_gen_precise_object_edit",
+  "prompt": "Use case: precise-object-edit. IMAGE_1 is the edit target. IMAGE_2 is the exact blue WATER DROPLET emblem. Regenerate this complete 16:9 storybook frame, changing ONLY the emblem above the FAR LEFT small doorway: replace its incorrectly repeated pearl-bubble emblem with the single blue WATER DROPLET in its same gold petal border, exactly as IMAGE_2. The next small doorway, nearer Roshan in the center-left, MUST keep the three-pearl bubble-bath emblem. Correct order left-to-right is blue droplet, three pearl bubbles, then the large OPEN purple-curtained royal arch on the far right. Do not change any doorway or wall shape, perspective, columns, stairs, red runner, light trails, lighting or Roshan's identity/pose/scale/hair/tail. Retain exactly one child. No additional edits. No rainbow door, no closed door, no handle, no new text. Whole flattened generated frame, no cutout/composite.",
+  "referenced_image_paths": [
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C11_S02_PORTAL_APPROACH_candidate01.png",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_mermaid_pool.png"
+  ],
+  "input_images": [
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C11_S02_PORTAL_APPROACH_candidate01.png",
+      "sha256": "85d75e4211b7ea9ed5724245290904acffda9dbcdf1d5afff82d2031cbf84980"
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_mermaid_pool.png",
+      "sha256": "8ae6239cc8d01eecaa741842b591b2388659ff92929b9dec336e62ffa7ab4033"
+    }
+  ],
+  "native_output_path": "C:/Users/Peter/.codex/generated_images/01a062b0-5cda-7183-b493-4504ebf1b93e/exec-c60dc74e-b901-49bd-bc9d-356f129bbe7d.png",
+  "output_path": "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C11_S02_PORTAL_APPROACH_candidate02.png",
+  "output_sha256": "06560510c2ba6fcd6bc3ae23a5be1a89529693d751d5aef4e0d685539e6760d7",
+  "output_dimensions": [
+    1672,
+    941
+  ],
+  "human_review": "pending",
+  "review_note": "Root: pool/bath emblem order fixed; actual open curtained royal arch and rear-oblique camera; awaiting Sol and human."
+}

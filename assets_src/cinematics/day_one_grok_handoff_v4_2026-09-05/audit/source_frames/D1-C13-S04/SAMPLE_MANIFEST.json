@@ -1,0 +1,46 @@
+{
+  "source_path": "sources/C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+  "source_sha256": "9ed421b635e9cd3eca646b48515bd8a9a84adf608d3af08e4d4d0ed92b8da5e2",
+  "source_fps": 24,
+  "selected_range_half_open": [
+    0,
+    32
+  ],
+  "frames": [
+    {
+      "index": 0,
+      "time_seconds": 0.0,
+      "path": "audit/source_frames/D1-C13-S04/f0000.png",
+      "sha256": "bb9355c330139b626408c69434cfa65049cf7b34415d2328c70247f88b65d438"
+    },
+    {
+      "index": 8,
+      "time_seconds": 0.3333333333333333,
+      "path": "audit/source_frames/D1-C13-S04/f0008.png",
+      "sha256": "36c9665023327df381baabea262b21609819d51422b6c738bdd1ef3d5f3faa69"
+    },
+    {
+      "index": 16,
+      "time_seconds": 0.6666666666666666,
+      "path": "audit/source_frames/D1-C13-S04/f0016.png",
+      "sha256": "672cb8bf4c2c535e18094d03b3f5a939afe65e09533e28da2d6919a0eb844835"
+    },
+    {
+      "index": 24,
+      "time_seconds": 1.0,
+      "path": "audit/source_frames/D1-C13-S04/f0024.png",
+      "sha256": "e0f3e949ef222e746341435087836e651694c7e64bfb23b468422b75dc4cac19"
+    },
+    {
+      "index": 31,
+      "time_seconds": 1.2916666666666667,
+      "path": "audit/source_frames/D1-C13-S04/f0031.png",
+      "sha256": "870638edb8f11006f22616cd62fe5325c9336df19c61ea1d25cb9c8e19bd2bae"
+    }
+  ],
+  "sheet": "audit/source_frames/D1-C13-S04/AUDIT_SAMPLES.jpg",
+  "role": "diagnostic_source_samples_only",
+  "used_as_generation_pixels": false,
+  "used_as_delivery_pixels": false,
+  "method": "Exact zero-based ffmpeg source-frame decode; sheet is whole-frame thumbnail arrangement with frame labels. No synthesized motion or subject repair."
+}

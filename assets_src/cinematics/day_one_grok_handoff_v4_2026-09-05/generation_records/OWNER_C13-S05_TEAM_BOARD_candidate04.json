@@ -1,0 +1,50 @@
+{
+  "shot": "C13-S05",
+  "asset": "OWNER_C13-S05_TEAM_BOARD_candidate04.png",
+  "role": "narrative_only_storyboard_reference",
+  "active": false,
+  "human_review": "pending",
+  "accepted": false,
+  "attempt": 1,
+  "generation_method": "builtin_imagegen_generate",
+  "prompt": "Use case: illustration-story. Asset type: narrative-only storyboard reference for owner review, never delivery pixels and never an accepted keyframe. Generate exactly one four-panel 2x2 storyboard sheet, each panel a complete 16:9 storybook scene and overall sheet 16:9, using IMAGE 1 (D1-C13-S05_TEAM_REVEAL_candidate02.png) as the sole room/camera/company/clean-Puff authority and IMAGE 2 only for rainbow baby identity colors, face, ears, and plush style. Do not use any previous storyboard as layout. Preserve the full company: Daddy with the same correct brush grip, Roshan, Rumi, Baby Eagle, and clean Grand Puff in the same dusty attic room and camera. No text, labels, numbers, UI, watermark, angle cuts, extra characters, or redesigned room. Critical scale ruler: the baby's entire silhouette INCLUDING BOTH EARS must be no taller than ONE existing round pearl ankle bead on Puff in IMAGE 1. The baby is identical in this tiny size in panels 2, 3, and 4. Panel 1: Puff's lowest curls fully closed, no baby visible. Panel 2: only the baby's tiny face and ears peek from beneath two visibly parted lowest Puff curls; no body visible, and the visible head/ears must fit within the height of one existing Puff ankle pearl. Panel 3: the same baby steps fully out, but total ears-to-feet height remains no taller than that single ankle pearl; it must not grow. Panel 4: same tiny unchanged baby remains visible while Puff's lowest curls relax closed around the reveal area. Keep all four friends and Puff stable, preserve Daddy's grip, and make Roshan's top plain pink with no glyphs. Avoid any baby larger than the pearl, any scale growth between panels, any large body, any hidden cast member, shell/nest/arena, or visual text.",
+  "references": [
+    {
+      "path_passed": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C13-S05_TEAM_REVEAL_candidate02.png",
+      "role": "exact_first_frame_room_camera_company_authority",
+      "sha256": "6915765C3A81E69FD5E70A89FD1CB6DBAE629E6A87D76DE731506A0786E4E321",
+      "dimensions": "1672x941"
+    },
+    {
+      "path_passed": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/e488d7c300_rainbow_dust_bunny_concept.png",
+      "role": "rainbow_baby_identity_reference_only",
+      "sha256": "E488D7C300EFF116EEE58A1B0AE4A4685595FC20F0AC67B7382B197B47F62F17",
+      "dimensions": "1024x1024"
+    }
+  ],
+  "native_output": {
+    "path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-ac1555b3-d504-4010-894a-a4c755e8cfe8.png",
+    "sha256": "23781BCD3630B784A79DE25097EAAAA7713CBE28C6B351984EC90C6746F109B1",
+    "dimensions": "1672x941"
+  },
+  "packet_output": {
+    "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/storyboards/OWNER_C13-S05_TEAM_BOARD_candidate04.png",
+    "sha256": "23781BCD3630B784A79DE25097EAAAA7713CBE28C6B351984EC90C6746F109B1",
+    "dimensions": "1672x941"
+  },
+  "superseded_rejected": {
+    "board03_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/.tmp/grok_owner_revisions/rejected/OWNER_C13-S05_TEAM_BOARD_candidate03_REJECTED.png",
+    "board03_sha256": "669DE440AF80C232A0B1B2EA072DD7CF68C747A9F73ACAFC9864A91DE2EF8AE6"
+  },
+  "visual_audit": {
+    "panels": 4,
+    "grid": "2x2_equal_panels",
+    "overall_aspect": "16:9",
+    "panel1_no_baby": true,
+    "panel2_face_and_ears_only": true,
+    "panel3_baby_total_height_no_taller_than_puff_ankle_pearl": true,
+    "panel4_same_baby_size": true,
+    "all_four_friends_preserved": true,
+    "review_note": "Pending human review. Visual inspection shows the baby remains pearl-scale across panels 2-4; panel 2 is a face/ears peek and panel 3 is fully out without the board03 quarter-height growth. Narrative board only; no delivery acceptance claimed."
+  }
+}

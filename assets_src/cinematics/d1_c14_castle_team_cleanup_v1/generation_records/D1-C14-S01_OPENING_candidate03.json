@@ -1,0 +1,41 @@
+{
+  "schema": "c14-builtin-image-record-v1",
+  "output_path": "first_frames/D1-C14-S01_OPENING_candidate03.png",
+  "output_sha256": "d7a93687f83057b78d05ddb9510658aa10eb119af5ad52af4d1e6a995f2bd987",
+  "dimensions": [
+    1671,
+    941
+  ],
+  "native_output_path": "C:/Users/Peter/.codex/generated_images/01a062b0-5cda-7183-b493-4504ebf1b93e/exec-a489ef7b-080f-44ce-942f-559f63622a4c.png",
+  "native_output_sha256": "d7a93687f83057b78d05ddb9510658aa10eb119af5ad52af4d1e6a995f2bd987",
+  "prompt": "Generate a complete new flattened 1672x941 polished 2D storybook cinematic frame, editing IMAGE 1 in precisely ONE localized identity issue: REPLACE the small rainbow creature near the bottom center with the EXACT design of IMAGE 2, much smaller. Keep all other pixels' intended appearance and layout unchanged in the newly redrawn complete frame: all four other people/bird, the correct four small doors and far-right open Royal arch, floor, lighting, clothes, brushes and dirt remain as in IMAGE 1. The rainbow friend is NOT a fuzzy conventional rabbit and NOT an eagle chick. Use IMAGE 2's low broad scalloped rainbow cloud-mound silhouette, its two long broad spiral-curled ear shapes with pearl joints, its very distinct orange-red forehead spiral curl with a SMALL WHITE IRIDESCENT star next to the curl (NOT a yellow star badge), simple dark oval eyes without blue eye makeup/large lashes, tiny happy mouth and two white pearl feet tucked at its base. No arms, legs, torso, finger hands or fluffy fur. Its complete silhouette INCLUDING EARS must fit within x=807..925, y=752..846 on the 1672x941 canvas: about 94 pixels total tall, less than ONE QUARTER of Roshan's complete approximately 390px body. Maintain the same floor depth as Roshan and show the full tiny body not hidden under her tail. It must unmistakably look like a miniature of IMAGE 2, never retain IMAGE 1's erroneous bird-like big eyes or yellow forehead star. This is a full-frame redraw with reference-guided identity correction, not a collage. No text, border, split panel or watermark.",
+  "prompt_sha256": "85bf9bdeb109880ad185ee4b1f7aa6a0b87c8bc0c85d01ed44fac0151be8be1c",
+  "referenced_image_paths": [
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S01_OPENING_candidate02.png",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rainbow_dust_bunny_concept.png"
+  ],
+  "input_images": [
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S01_OPENING_candidate02.png",
+      "sha256": "3f880ce5b8393e9d7ae49c0b42d72900d4a48c43a66eeb9eb0328d2f93432110",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rainbow_dust_bunny_concept.png",
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    }
+  ],
+  "attempt": 3,
+  "generation_method": "builtin_image_gen",
+  "human_decision": "pending",
+  "used_as_delivery_pixels": false,
+  "delivery_accepted": false,
+  "review_note": "REJECT: Baby Eagle removed; bunny still oversized. Never bind this attempt."
+}

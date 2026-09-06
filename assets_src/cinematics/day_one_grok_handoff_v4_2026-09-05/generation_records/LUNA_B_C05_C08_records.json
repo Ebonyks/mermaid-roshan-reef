@@ -1,0 +1,101 @@
+{
+  "agent": "Luna B",
+  "status": "PENDING_HUMAN_REVIEW",
+  "mode": "builtin image_gen; one call per candidate; clean full-frame review images only; non-runtime",
+  "provenance_schema": "luna-b-provenance-v2",
+  "native_dimensions_all_outputs": [1672, 941],
+  "native_dimensions_verified": true,
+  "source_manifest": {
+    "assets/flats/castle/rooms/room_mermaid_pool_background.png": {"sha256":"02213BCECA66FA932DBCB15FDBEFA9A3DA0DB3030F35C26F2E1DFB8C537F28B6","dimensions":[1024,576]},
+    "assets/castle/day_one_pool/waterfall_clogged_turgid.png": {"sha256":"DF7C3147BC8867612E9D59B4EB50771399341040ECD6305342DFFE5CE4166589","dimensions":[1002,1024]},
+    "assets/castle/day_one_pool/seahorse_sick.png": {"sha256":"3AF5FF973576D328DDE98282F5AD9A5A04931E35F3A48E366DE6AD1499B304A0","dimensions":[936,1024]},
+    "assets/castle/day_one_pool/activities/pool_skimmer.png": {"sha256":"308C86843ACE9FB3D4A65A0C514D41B367D87CEABAF5F3D3676F54CE9BE4B9B3","dimensions":[1024,682]},
+    "assets/castle/day_one_pool/waterfall_growth.png": {"sha256":"720A16665107673DD4BC9AD8B5184D90A0D8D8DDDCA18E0E3834739DDA049FAB","dimensions":[840,1024]},
+    "assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png": {"sha256":"88AA2CE07E79144B13D8E699341404E7B15E79BAED861169C9C17E196DDBA941","dimensions":[936,1024]},
+    "assets/flats/castle/rooms/room_playroom_background.png": {"sha256":"BD0BAEF94BAD5C9257C0AB20D239513BD42EF465584FEC6F012D990993CE797B","dimensions":[1024,576]},
+    "assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png": {"sha256":"7ED4DAFFF1E3DAC12264D4A1C617095BF43D2F36FD8066476AA78725FE3DED67","dimensions":[266,190]},
+    "assets/book/baby_eagle.png": {"sha256":"DA8EAD4677192EF404ED7B252FDB281CFB0234BEB8064CFE7ABDAC2F8AADE19B","dimensions":[290,512]},
+    "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png": {"sha256":"90C54412AA59317B45D3D670ADA181EE7EDE20BA5FE91F051E61D81F70F0EF76","dimensions":[770,1024]},
+    "assets/flats/castle/rooms/room_playroom.png": {"sha256":"5C7797C3BE3586DACA648F4FA4AB1161368F1C99FEE719B42BA5EFD27F5EAF6F","dimensions":[1024,576]},
+    "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/roshan_roshan_base.png": {"sha256":"69827625A8A795F1303C90A465454DD8529F10D5401C78911D00B90BE8D1E1AB","dimensions":[256,256]}
+  },
+  "records": [
+    {
+      "shot": "C05-S01",
+      "output": "first_frames/LUNA_B_C05_S01_dirty_wide_OPENING_PENDING_HUMAN.png",
+      "sha256": "4FE31121F25BB42C76F75CFE23857691B87353A312532B39DD680DF4B2D5D0B9",
+      "raw_generated_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-29316374-a162-4d23-a0b3-cb8cfcf2bc9a.png",
+      "native_output_dimensions": [1672,941], "attempt": 1,
+      "exact_tool_prompt": "Dirty giant Mermaid Pool opening: fixed clogged opaque olive waterfall, fixed sick long-snouted seahorse with seaweed/pink plug, murky integrated algae/trash, Roshan at doorway. Full 16:9 clean frame, no UI/text/crop, no bright flow, no extra characters or basin. Sound: temporary rank room ambience, faint drip, no voices.",
+      "source_paths": ["assets/flats/castle/rooms/room_mermaid_pool_background.png", "assets/castle/day_one_pool/waterfall_clogged_turgid.png", "assets/castle/day_one_pool/seahorse_sick.png"],
+      "human_review": "pending; inspect dirty waterfall, fixed fixtures, Roshan identity, no UI"
+    },
+    {
+      "shot": "C05-S03",
+      "output": "first_frames/LUNA_B_C05_S03_skimmer_OPENING_PENDING_HUMAN.png",
+      "sha256": "939E83A8A06E195F57E748E392B338C8D65D66DA67D74B80F73ABDDDE6D98766",
+      "raw_generated_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-0882e02c-83b3-4410-870b-fd453a456435.png",
+      "native_output_dimensions": [1672,941], "attempt": 2,
+      "exact_tool_prompt": "Pre-game dirty Mermaid Pool skimmer inspection: Roshan drags the approved pearl-and-aqua skimmer through murky water; wet leaves/wrappers visibly weighted in the mesh; waterfall remains clogged and still. Full 16:9 clean frame, no completed cleanup, no UI/text/crop. Sound: temporary wet mesh drag and sluggish water, no voices.",
+      "source_paths": ["assets/flats/castle/rooms/room_mermaid_pool_background.png", "assets/castle/day_one_pool/activities/pool_skimmer.png", "assets/castle/day_one_pool/waterfall_clogged_turgid.png"],
+      "human_review": "pending; inspect weighted debris in mesh, pre-game dirty state, no cleanup completion"
+    },
+    {
+      "shot": "C06-S05",
+      "output": "first_frames/LUNA_B_C06_S05_two_fronts_OPENING_PENDING_HUMAN.png",
+      "sha256": "284D6481F04C64D9BF4280DDEAE8EEDC3E2359611C21E7C6000EE792ED57E2F4",
+      "raw_generated_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-84fa0640-e4fd-433c-8a55-34cf3609d5a0.png",
+      "native_output_dimensions": [1672,941], "attempt": 1,
+      "exact_tool_prompt": "After both fixed sources switch on, two distinct surface-water purification fronts enter the same giant pool from the waterfall destination and seahorse mouth and meet near center; Roshan watches, no Rumi yet. Full 16:9 clean frame, no rainbow floating in air, no instant flash, no extra source/UI/text. Sound: temporary converging water shimmer and soft impact chime, no voices.",
+      "source_paths": ["assets/flats/castle/rooms/room_mermaid_pool_background.png", "assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png", "assets/castle/day_one_pool/waterfall_growth.png"],
+      "human_review": "pending; inspect two surface fronts entering same giant pool and meeting, no Rumi"
+    },
+    {
+      "shot": "C08-S06",
+      "output": "first_frames/LUNA_B_C08_S06_post_two_pin_eagle_RECENT_CANDIDATE_REJECTED_WRONG_ROOM.png",
+      "sha256": "1CE394C05F0645F3C055C5DCD38B072C965453A491122AE5298D481D0BC78AE5",
+      "raw_generated_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-e2488c0e-a361-4118-ac03-6a464bcab8f7.png",
+      "native_output_dimensions": [1672,941], "attempt": 1, "exact_tool_prompt": null, "prompt_recovery_status": "not preserved; historical rejected candidate",
+      "source_paths": ["assets/flats/castle/rooms/room_playroom_background.png", "assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png", "assets/book/baby_eagle.png"],
+      "human_review": "REJECTED: generated room drifted to pool/seahorse geography; do not use as approval candidate"
+    },
+    {
+      "shot": "C08-S06",
+      "output": "first_frames/LUNA_B_C08_S06_post_two_pin_eagle_REGEN2_REJECTED_IDENTITY_DRIFT.png",
+      "sha256": "D9405E561E62481E6FF337C23790BF4DF6EA6EE180F76AA8B33BB1E8CEF61CFA",
+      "raw_generated_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-7272fcf9-c605-4414-9262-597618bcb64b.png",
+      "native_output_dimensions": [1672,941], "attempt": 2, "exact_tool_prompt": null, "prompt_recovery_status": "not preserved; historical rejected candidate",
+      "source_paths": ["assets/flats/castle/rooms/room_playroom_background.png", "assets/book/baby_eagle.png"],
+      "human_review": "REJECTED: Stuffie-like room but Baby Eagle colors/body drift from approved turquoise/yellow/pink identity; do not use as approval candidate"
+    },
+    {
+      "shot": "C08-S06",
+      "output": "first_frames/LUNA_B_C08_S06_post_two_pin_eagle_OPENING_PENDING_HUMAN.png",
+      "sha256": "C54CEBB63178909CA6FDEDF34E93FEB3C42C47AA1421CB115B9C42F8924CAE11",
+      "raw_generated_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-93181e3b-9d88-4bbd-9b34-17961b066128.png",
+      "native_output_dimensions": [1672,941], "attempt": 3,
+      "exact_tool_prompt": "Create a polished full-frame 16:9 storybook cinematic opening image. Use only the supplied exact room, Baby Eagle, and Roshan references. Preserve the room. Show exactly one Baby Eagle and Roshan together, Eagle safe after rescue with folded wings beginning one stretch. No extra foreground animals, no Puff, no pins, no water, no pool, no boss, no UI, no text, no collage.",
+      "source_paths": ["assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png", "assets/flats/castle/rooms/room_playroom.png", "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/roshan_roshan_base.png"],
+      "human_review": "pending; exact room master plus isolated Baby Eagle and Roshan only; foreground has exactly Eagle and Roshan, post-rescue wings-relaxed opening, no new rescue"
+    },
+    {
+      "shot": "C05-S03",
+      "output": "first_frames/LUNA_B_C05_S03_skimmer_FAILED_NET_CREATURE_DRIFT_REJECTED.png",
+      "sha256": "FA1081789B0D9B3AD6B8394343205A67C3DB1DF6C87FE3A037980ED3F1F73E74",
+      "raw_generated_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-85142f4f-1154-413c-95e9-56934727bcf8.png",
+      "native_output_dimensions": [1672,941], "attempt": 1, "exact_tool_prompt": null, "prompt_recovery_status": "not preserved; historical rejected raw retained for provenance",
+      "source_paths": ["assets/flats/castle/rooms/room_mermaid_pool_background.png", "assets/castle/day_one_pool/waterfall_clogged_turgid.png", "assets/castle/day_one_pool/seahorse_sick.png"],
+      "human_review": "REJECTED: net creature drift; preserved as prior failed raw candidate only, not an approval candidate"
+    },
+    {
+      "shot": "C08-S06",
+      "output": "first_frames/LUNA_B_C08_S06_post_two_pin_eagle_REJECTED_OLD_E0E4DA.png",
+      "sha256": "E0E4DAD1DC7F069440EDDAEAAD33F17FD8FA2B79C54B010E389FB251137885F5",
+      "raw_generated_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-2093fa63-c9fe-49db-a9c9-3c2a64e59189.png",
+      "native_output_dimensions": [1672,941], "attempt": 2, "exact_tool_prompt": null,
+      "prompt_recovery_status": "not preserved; restored after overwrite for rejected-candidate provenance",
+      "source_paths": ["assets/flats/castle/rooms/room_playroom.png", "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/C13_EAGLE_OPENING_candidate01.png", "assets/characters/roshan_25d/roshan_swim_front.png"],
+      "human_review": "REJECTED: Puff/arena reference contamination, missing Roshan and wrong generic room; retained only as historical rejected evidence"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "shot": "D1-C13-S05",
+  "asset_type": "first_frame",
+  "attempt": 2,
+  "status": "human_pending",
+  "method": "built_in_image_gen_precise_object_edit",
+  "prompt": "Use case: precise-object-edit. Create one complete flattened 16:9 matching frame. IMAGE_1 is the edit target and composition authority. IMAGE_2 is the corrected Roshan garment reference. Change ONLY Roshan’s pink blouse: repaint it as a plain solid pink short-sleeve blouse with the same garment shape, folds, sleeves, color family, and fit as IMAGE_2. Remove every accidental purple text-like glyph, marking, letter, symbol, or pseudo-writing from the blouse. Do not alter anything else. Preserve exact arena/camera, all five cast identities and positions, Daddy’s correct hands-to-handle-to-ferrule-to-bristles grip, Roshan’s sponge near body, Rumi’s lowered dry hand, Eagle’s folded wings, clean Puff with two curled ears/forehead star/two teeth, shadows, lighting, floor, banners, shelves, windows, and background dust. No baby at this first frame, no shell, no new props, no crowd changes, no frontal reset, no crop, no compositing, no transparent cutout. Full-frame redraw with only the blouse corrected.",
+  "referenced_image_paths": ["C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C13-S05_TEAM_REVEAL_candidate01.png", "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C13-S04_TEAM_candidate03.png"],
+  "input_images": [
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C13-S05_TEAM_REVEAL_candidate01.png", "sha256": "FC47DF9FF6BDE11A8589C02BF926D0C5398C0A0A26D9247410A5D8A80DD108DF", "dimensions": [1672, 941], "role": "edit_target"},
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C13-S04_TEAM_candidate03.png", "sha256": "B12262FE17E7DC376756C7884A62FFC9F991807F385AAEB0A8469C15D89FB738", "dimensions": [1672, 941], "role": "corrected_garment_reference"}
+  ],
+  "native_output_path": "C:/Users/Peter/.codex/generated_images/01a0716b-8149-7450-b87f-d1b9341d3cf8/exec-9a46d54a-cd3a-4621-bc42-3b99ffdd1624.png",
+  "output_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C13-S05_TEAM_REVEAL_candidate02.png",
+  "output_sha256": "6915765C3A81E69FD5E70A89FD1CB6DBAE629E6A87D76DE731506A0786E4E321",
+  "output_dimensions": [1672, 941],
+  "human_review": "pending"
+}

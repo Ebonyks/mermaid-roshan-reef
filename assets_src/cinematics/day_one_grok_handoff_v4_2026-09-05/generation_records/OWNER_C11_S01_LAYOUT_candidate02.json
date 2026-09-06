@@ -1,0 +1,21 @@
+{
+  "shot_id": "C11-S01",
+  "asset_type": "complete_flattened_cinematic_first_frame",
+  "attempt": 2,
+  "status": "human_pending",
+  "method": "built_in_image_gen",
+  "edit_target": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C11_S01_LAYOUT_candidate01.png",
+  "prompt": "Use case: precise-object-edit. Asset type: complete flattened cinematic first frame, 16:9. IMAGE_1 is the edit target and must remain the same approved C11-S01 hall composition, low-left oblique camera, fixed geometry, character scale, lighting, four threshold lights, and open far-right Royal Hall arch. Apply only three identity corrections: (1) the third small doorway from left, Mermaid Pool, must have one single blue water-droplet emblem matching IMAGE_2; remove the incorrect pink shell emblem. (2) the fourth small doorway from left, Bubble Bath, must have exactly three pearl circles matching IMAGE_3; remove the incorrect blue circles. (3) Roshan's rear-facing hair must include the broad gold, blue, and pink rainbow streak shown in IMAGE_4; preserve her same pose, size, lower-left placement, tail, clothing, and no extra character. Complete full-frame redraw, not a crop or overlay. Preserve four small corridor doors in order: Stuffie Playroom teddy, Craft Room palette, Mermaid Pool blue droplet, Bubble Bath three pearls; preserve far-right Royal Hall purple-curtain arch already open. No closed door leaf or handle, no new architecture, no extra text or HUD. Return only the corrected full 16:9 image.",
+  "referenced_images": [
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C11_S01_LAYOUT_candidate01.png", "role": "edit_target", "sha256": "807496774A88EBF6BA80378B6B2B2101AC8D717FD06AB196336800FD09CE79EA", "dimensions": [1672, 941]},
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_mermaid_pool.png", "role": "pool_sign_identity", "sha256": "8AE6239CC8D01EECAA741842B591B2388659FF92929B9DEC336E62FFA7AB4033", "dimensions": [256, 256]},
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_bubble_bath.png", "role": "bath_sign_identity", "sha256": "3A43E1FC23F95F9F3A2EC256861D418017D783BBF0D30F7B85FEE677838AA3C4", "dimensions": [256, 256]},
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets/characters/roshan_25d/roshan_swim_back.png", "role": "roshan_rear_identity", "sha256": "325985106004CA6614370B4AA0EB988A911E385DD450612577F31AFC65DA6BA1", "dimensions": [1024, 1024]}
+  ],
+  "native_output_path": "C:/Users/Peter/.codex/generated_images/01a0716b-8149-7450-b87f-d1b9341d3cf8/exec-84f98df4-8f00-4cb7-a4e0-00130127f475.png",
+  "native_output_sha256": "A6EDD7964834CCE678D1E32E5D28814895972CAF1EF349291D5725B2067C266F",
+  "output_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C11_S01_LAYOUT_candidate02.png",
+  "output_sha256": "A6EDD7964834CCE678D1E32E5D28814895972CAF1EF349291D5725B2067C266F",
+  "output_dimensions": [1672, 941],
+  "human_review": "pending; narrow identity correction inspected visually, not accepted"
+}

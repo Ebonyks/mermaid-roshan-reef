@@ -1,0 +1,162 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C11",
+  "shot_id": "D1-C11-S01",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/OWNER_C11_S01_LAYOUT_candidate02.png",
+      "sha256": "a6edd7964834cce678d1e32e5d28814895972caf1ef349291d5725b2067c266f",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/3259851060_roshan_swim_back.png",
+      "sha256": "325985106004ca6614370b4aa0eb988a911e385dd450612577f31afc65da6ba1",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "description": "locked low-left oblique view diagonally along the right-half hall"
+  },
+  "must_move": "Four narrow separate trails extend from those thresholds onto the red runner and turn right; the oblique floor perspective stays fixed.",
+  "must_not_move": [
+    "Use the current 2026-08-03 runtime hall redraw, not the obsolete main_hall_2screen family. Four small arches precede one large royal arch on the same right-half wall: teddy, palette, blue droplet, three pearls, then the large shell-crowned purple-curtained opening.",
+    "The Royal Hall foot is logical (3045,620) on the 3344x941 hall, normalized (0.910586,0.658874); in screen B it is (1373,620). These are layout coordinates, not pixel placement targets for the new oblique camera.",
+    "Lavender masonry, shell wall bands, pearl columns and the red runner turning up actual pale stairs remain fixed. No old hallway windows, hanging chandeliers, navy banners, rainbow door bands, closed leaf, handle, throne or extra corridor.",
+    "Exactly one child Roshan; four trails stay on the floor. They are an owner-requested cinematic visualization of completed-room readiness, not a claim that runtime draws these literal trails."
+  ],
+  "end_state": "Four completed-room traces converge at the actual royal stair foot beneath the already-open purple-curtained shell arch.",
+  "negative_constraints": [
+    "Use the current 2026-08-03 runtime hall redraw, not the obsolete main_hall_2screen family. Four small arches precede one large royal arch on the same right-half wall: teddy, palette, blue droplet, three pearls, then the large shell-crowned purple-curtained opening.",
+    "The Royal Hall foot is logical (3045,620) on the 3344x941 hall, normalized (0.910586,0.658874); in screen B it is (1373,620). These are layout coordinates, not pixel placement targets for the new oblique camera.",
+    "Lavender masonry, shell wall bands, pearl columns and the red runner turning up actual pale stairs remain fixed. No old hallway windows, hanging chandeliers, navy banners, rainbow door bands, closed leaf, handle, throne or extra corridor.",
+    "Exactly one child Roshan; four trails stay on the floor. They are an owner-requested cinematic visualization of completed-room readiness, not a claim that runtime draws these literal trails."
+  ],
+  "prompt_path": "shots/D1-C11-S01/PROMPT.txt",
+  "prompt_sha256": "616c30425de9098bfc97386b8f360a70d2d6424cdc0cfdc4f4522576b08c773e",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/OWNER_C11_S01_LAYOUT_BOARD_candidate03.png",
+      "used_as_pixel_reference": false,
+      "role": "narrative_storyboard"
+    }
+  ],
+  "storyboard_caveat": "Narrative order only: panel four under-depicts the final floor traces. In generated motion, hold all four faint but separately colored trails visibly through the stair-foot readiness beat; do not reduce them to only a white stair glow, and keep Roshan continuously visible. This sheet is not end-frame or motion acceptance.",
+  "game_asset_comparison": [
+    {
+      "source_path": "assets_src/imagegen/castle_main_hall_redraw_2026-08-03/accepted_screen_a_native_1672x941.png",
+      "path": "references/6e840715f1_accepted_screen_a_native_1672x941.png"
+    },
+    {
+      "source_path": "assets_src/imagegen/castle_main_hall_redraw_2026-08-03/accepted_screen_b_native_1672x941.png",
+      "path": "references/7e77e4c29b_accepted_screen_b_native_1672x941.png"
+    },
+    {
+      "source_path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png",
+      "path": "references/22d9a3df8e_sign_playroom.png"
+    },
+    {
+      "source_path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_craft_room.png",
+      "path": "references/17ccf96d93_sign_craft_room.png"
+    },
+    {
+      "source_path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_mermaid_pool.png",
+      "path": "references/8ae6239cc8_sign_mermaid_pool.png"
+    },
+    {
+      "source_path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_bubble_bath.png",
+      "path": "references/3a43e1fc23_sign_bubble_bath.png"
+    },
+    {
+      "source_path": "scripts/arena/castle_rooms_25d.gd",
+      "path": "written_guide/8bbf9ec5a2_castle_rooms_25d.gd.txt"
+    },
+    {
+      "source_path": "scripts/castle_door_language.gd",
+      "path": "written_guide/20e166175a_castle_door_language.gd.txt"
+    }
+  ],
+  "source_selection": {
+    "filename": "C11_S01_route_lights.mp4",
+    "range_half_open": [
+      12,
+      84
+    ],
+    "sha256": "0435be6521d6e28e7bcf51f2c50504146822f452069208ed640faab048a521ce"
+  },
+  "weak_source_frames": [
+    [
+      12,
+      84
+    ]
+  ],
+  "inspected_source_frames": [],
+  "source_visual_evidence": {
+    "source_path": "sources/C11_S01_route_lights.mp4",
+    "source_sha256": "0435be6521d6e28e7bcf51f2c50504146822f452069208ed640faab048a521ce",
+    "source_fps": 24,
+    "selected_range_half_open": [
+      12,
+      84
+    ],
+    "frames": [
+      {
+        "index": 12,
+        "time_seconds": 0.5,
+        "path": "audit/source_frames/D1-C11-S01/f0012.png",
+        "sha256": "66f484ede2dd46e28527cdc36c38e8e6fd1667a48fc9647d8ece532b01a7fcd8"
+      },
+      {
+        "index": 30,
+        "time_seconds": 1.25,
+        "path": "audit/source_frames/D1-C11-S01/f0030.png",
+        "sha256": "6507cc28da6bd62a2a46c7ef11738bf5517ec1f7d92ce3692a3730009222c571"
+      },
+      {
+        "index": 48,
+        "time_seconds": 2.0,
+        "path": "audit/source_frames/D1-C11-S01/f0048.png",
+        "sha256": "79697a4eb68e475934dcbd7dcdfbf2f1cf5d470d565f21be41f3e6f7529e6dd7"
+      },
+      {
+        "index": 66,
+        "time_seconds": 2.75,
+        "path": "audit/source_frames/D1-C11-S01/f0066.png",
+        "sha256": "02c7227544873a1aff9c29b73feca907fadb8768eba637888e98391305190999"
+      },
+      {
+        "index": 83,
+        "time_seconds": 3.4583333333333335,
+        "path": "audit/source_frames/D1-C11-S01/f0083.png",
+        "sha256": "264957b8c8322c36086b0c653f9ef1dea3175be26adc37f2e5f27296f3325d47"
+      }
+    ],
+    "sheet": "audit/source_frames/D1-C11-S01/AUDIT_SAMPLES.jpg",
+    "role": "diagnostic_source_samples_only",
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "method": "Exact zero-based ffmpeg source-frame decode; sheet is whole-frame thumbnail arrangement with frame labels. No synthesized motion or subject repair."
+  },
+  "sol_first_frame_decision": "RECOMMEND_APPROVAL",
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

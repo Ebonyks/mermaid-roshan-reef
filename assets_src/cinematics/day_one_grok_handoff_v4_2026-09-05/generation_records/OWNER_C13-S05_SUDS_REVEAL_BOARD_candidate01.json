@@ -1,0 +1,19 @@
+{
+  "shot":"C13-S05",
+  "asset":"OWNER_C13-S05_SUDS_REVEAL_BOARD_candidate01.png",
+  "role":"narrative_only_storyboard_reference",
+  "active":false,
+  "human_review":"pending",
+  "accepted":false,
+  "attempt":2,
+  "generation_method":"builtin_imagegen_generate",
+  "prompt":"Use case: illustration-story. Asset type: narrative-only storyboard reference for owner review, never delivery pixels and never accepted keyframe. Create exactly four equal complete 16:9 storybook panels in a clean 2x2 grid, overall sheet 16:9, for C13-S05. IMAGE 1 is the ONLY room/camera/cast authority: preserve its restored dusty-stone attic arena, elevated front-right three-quarter camera, five cast members, corrected Daddy continuous rainbow mermaid tail, broad white/lavender suds, two windows, columns, navy banners, chandelier, chests and flat octagonal floor. IMAGE 2 is ONLY the tiny rainbow bunny identity; ignore its checkerboard background. Absolutely do not use an opera hall, red carpet, gold arches, palace, bathroom, or any other room. No text, labels, numbers, UI, watermark, or angle cuts. Panel 1: exact IMAGE 1 opening, all five cast and Puff generously sudsy, no baby. Panel 2: same room/camera/company; all four helpers visibly remove foam together, foam recedes, no baby. Panel 3: foam fully clear and Puff happy; tools withdraw; lowest Puff curls part and only one tiny rainbow bunny face/ears peek out, body hidden. Panel 4: same room/camera/company; one tiny rainbow bunny steps fully out at no more than one sixth of Puff height, full cast remains. Preserve Daddy's mermaid tail and brush grip. No giant bunny, no rainbow Puff, no shell/nest/cradle, no missing cast, no invented room, no opera setting.",
+  "references":[
+    {"path_passed":"C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/binding_inputs/OWNER_C13-S05_SUDSY_OPENING_candidate02_BINDING_COPY.png","role":"camera_room_cast_foam_authority","sha256":"F65676310D8985F676363A381D075088B7E5D35BE6F3313E798DBB63F1C16680","dimensions":"1672x941"},
+    {"path_passed":"C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/binding_inputs/e488d7c300_rainbow_dust_bunny_concept_BINDING_COPY.png","role":"rainbow_bunny_identity_only","sha256":"E488D7C300EFF116EEE58A1B0AE4A4685595FC20F0AC67B7382B197B47F62F17","dimensions":"1024x1024"}
+  ],
+  "native_output":{"path":"C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-9657f786-b3b0-4d81-9efc-d9d63fe12f57.png","sha256":"69ACA69EC472C75310EC621D80AE9C28C8617E237E239F629D39ADAB1FBA42C0","dimensions":"1672x941"},
+  "packet_output":{"path":"C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/storyboards/OWNER_C13-S05_SUDS_REVEAL_BOARD_candidate01.png","sha256":"69ACA69EC472C75310EC621D80AE9C28C8617E237E239F629D39ADAB1FBA42C0","dimensions":"1672x941"},
+  "rejected_prior_board":{"description":"Opera-hall drift and missing team; never saved to packet.","native_path":"C:/Users/Peter/.codex/generated_images/01a0716b-c814-.../exec-9a027004-0be0-4a36-808d-dbffc298ba23.png"},
+  "visual_audit":{"panels":4,"grid":"2x2_equal_panels","elevated_front_right_camera_preserved":true,"foam_removal_readable":true,"baby_after_clear_only":true,"full_company_visible":true,"tiny_bunny":true,"room_correct":true,"review_note":"Visually inspected; correct dusty-stone arena and elevated view, foam recedes before tiny rainbow reveal, full company remains. Human review pending; no delivery acceptance."}
+}

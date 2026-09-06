@@ -1,0 +1,58 @@
+{
+  "schema": "sol-c13-disappearance-review-v1",
+  "reviewed_at": "2026-09-05",
+  "scope": "C13-S05 disappearance endpoint composition review; this is not changed-frame, motion, generation, or delivery acceptance.",
+  "human_approval_required": true,
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "assets": [
+    {
+      "path": "endpoint_frames/OWNER_C13-S05_ONE_FRIEND_ENDPOINT_candidate01.png",
+      "sha256": "2456f253df99e7950efc643656b4aaee8146736ec0a15042f96a068bc9851320",
+      "dimensions": [1670, 942],
+      "sol_decision": "RECOMMEND_AS_ENDPOINT_COMPOSITION_WITH_BOUNDED_IDENTITY_AND_PROP_QUALIFICATIONS",
+      "passes": [
+        "Grand Puff is completely absent: no giant mound, giant face, spare giant ears, transparent body, shell, or second bunny remains.",
+        "The frame contains exactly five beings: Roshan, Daddy, Baby Eagle, Rumi, and one small rainbow cloud bunny.",
+        "The restored arena remains recognizable with exactly two shell-topped side windows, two ivory columns, the centered shell chandelier, lavender masonry, chests, shelves, cobwebs, and octagonal stone floor.",
+        "Dust piles and cobwebs remain around the room edges, so the endpoint does not falsely claim that the arena itself was cleaned.",
+        "The rainbow friend is additional rather than a recolored surviving giant, and its low cloud body, paired curled ears, warm-to-cool rainbow coloring, forehead curl, simple face, and pearl joints broadly preserve the supplied identity.",
+        "All four helpers remain present and look toward the revealed friend, giving the disappearance a readable full-company endpoint."
+      ],
+      "qualifications": [
+        "The friend is small and clearly subordinate to the helpers, but its on-floor scale still requires human confirmation against the owner-approved target; this review does not grant a numeric size acceptance.",
+        "The friend's lower front details read as small green cloud/foot lobes rather than the concept's two unambiguous pale pearl feet.",
+        "Daddy retains the brush and Roshan retains the star sponge at the endpoint; their safe lowered poses are readable, but final motion must establish that active scrubbing has ended rather than implying continued contact.",
+        "Daddy's crown and ornate costume are visually coherent but remain a costume-detail review item against the selected Daddy identity authority.",
+        "The generated raster is 1670 by 942, not the nominal 1672 by 941 prompt size; any permitted whole-canvas normalization must remain production-only and cannot substitute for frame acceptance."
+      ],
+      "human_decision": "pending",
+      "used_as_delivery_pixels": false,
+      "required_caption": "Endpoint composition candidate only: Grand Puff is gone; exactly Roshan, Daddy, Baby Eagle, Rumi, and one small rainbow friend remain in the dusty two-window arena. Human identity, scale, prop-settle, and full-frame approval remain pending."
+    },
+    {
+      "path": "storyboards/OWNER_C13-S05_ONE_FRIEND_REVEAL_BOARD_candidate01.png",
+      "sha256": "990edffe0940b60d60d14bb0805fc505cd660e1f35f7e475666e3799ae1c61f2",
+      "sol_decision": "USE_AS_DRAFT_DISAPPEARANCE_ORDER_WITH_BLOCKING_CONTINUITY_QUALIFICATIONS",
+      "passes": [
+        "The four panels clearly order the intended event: the team removes the remaining giant form, one small rainbow friend appears, and the endpoint contains the four helpers plus that one friend.",
+        "Grand Puff is fully absent in the final panel, with no spare giant face, ears, shell, transparent body, or second bunny.",
+        "The restored arena remains recognizable throughout, including exactly two shell-topped side windows, the paired columns, chandelier, chests, shelves, cobwebs, and octagonal stone floor.",
+        "Room-edge dust and cobwebs remain after the giant disappears, preserving the distinction between cleaning Puff and cleaning the room.",
+        "The final rainbow friend broadly retains the supplied low cloud body, warm-to-cool color order, paired spiral ears, forehead curl, friendly face, and front pearl details.",
+        "The final panel contains exactly five beings: Roshan, Daddy, Baby Eagle, Rumi, and one rainbow friend."
+      ],
+      "fails": [
+        "Baby Eagle relocates abruptly from the front-center/right area in panel one to far viewer-left by panels three and four; generated motion must preserve a continuous, child-readable travel path rather than teleporting between poses.",
+        "Baby Eagle appears to hold or overlap a brush-like cleaning prop in panel one while Daddy already owns the approved brush, creating ambiguous prop ownership.",
+        "The board's rainbow-friend scale and pearl-foot rendering remain approximate narrative depictions and do not establish compliance with the accepted endpoint scale or exact identity.",
+        "Daddy's brush and Roshan's sponge remain visible through the disappearance progression; their withdrawal and settled endpoint poses must be continuous and must not imply scrubbing after the friend is revealed."
+      ],
+      "human_decision": "pending",
+      "generation_ready": false,
+      "delivery_accepted": false,
+      "used_as_delivery_pixels": false,
+      "required_caption": "Draft narrative order only. Preserve exactly five beings at the endpoint and the dusty two-window arena; keep Baby Eagle's movement continuous, maintain unambiguous tool ownership and withdrawal, and match the separately reviewed rainbow-friend scale and pearl-foot identity. Human and full-frame approval remain pending."
+    }
+  ]
+}

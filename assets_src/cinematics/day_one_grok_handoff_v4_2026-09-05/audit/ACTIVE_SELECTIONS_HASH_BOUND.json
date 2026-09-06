@@ -1,0 +1,791 @@
+{
+  "schema": "day-one-unified-active-select-audit-v1",
+  "date": "2026-09-05",
+  "baseline": "assets_src/cinematics/day_one_davinci_draft_2026-09-04/ASSEMBLY_MANIFEST.json",
+  "shot_count": 50,
+  "decision_vocabulary": [
+    "KEEP",
+    "PROVISIONAL",
+    "TRIM",
+    "RESHOOT",
+    "OMIT_WRONG_STATE"
+  ],
+  "decision_counts": {
+    "KEEP": 23,
+    "PROVISIONAL": 7,
+    "TRIM": 7,
+    "RESHOOT": 11,
+    "OMIT_WRONG_STATE": 2
+  },
+  "claims": {
+    "sampled_visual_review": true,
+    "all_frame_acceptance": false,
+    "first_frames_approved": false,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "causal_corrections": [
+    "C06: the seahorse source and waterfall source activate before their clean-water fronts converge; C06-S06 is the waterfall restart, while convergence is a separate missing beat.",
+    "C06: the purple 4636 clip contains the plug intervention/first flow and may be weak, but plug intervention is not absent.",
+    "C09: grime is not visible until all four supplies have been collected; omit current S04 from entry rather than regenerate it there.",
+    "C10: supplies are already collected before grime cleanup; omit current S02 rather than depict storage after the final scrub."
+  ],
+  "shots": [
+    {
+      "shot": "D1-C00-S01",
+      "source": "C00_S01_v1_plane_clouds.mp4",
+      "range": [
+        0,
+        96
+      ],
+      "decision": "KEEP",
+      "source_sha256": "c16e39471fea0db1bd43ba9de38700928e133de0ba81e6ee4f691f73e5638dc8",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C00_S01_v1_plane_clouds.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C00-S02",
+      "source": "C00_S02_v1_cabin.mp4",
+      "range": [
+        12,
+        108
+      ],
+      "decision": "KEEP",
+      "source_sha256": "7132151356771918b571568870b62ff06ca456ef3d229fd19434542d055c91a8",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C00_S02_v1_cabin.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C00-S03",
+      "source": "C00_S03_v1_roshan_wonder.mp4",
+      "range": [
+        12,
+        108
+      ],
+      "decision": "KEEP",
+      "source_sha256": "0464642637220dc67463e97bd15435dce39d5b27fa6ad68f98c4e56db7144817",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C00_S03_v1_roshan_wonder.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C00-S04",
+      "source": "C00_S04_v1_handhold.mp4",
+      "range": [
+        12,
+        108
+      ],
+      "decision": "KEEP",
+      "source_sha256": "6184319edaec6dbc52bf76e7fe12ff352ddddf2cae427012867f2bbb23a9ed5a",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C00_S04_v1_handhold.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C00-S05",
+      "source": "C00_S05_v1_lagoon_reveal.mp4",
+      "range": [
+        12,
+        108
+      ],
+      "decision": "KEEP",
+      "source_sha256": "88f38fe176067a6ac8cdb61f31d13becea1e7eec52fdc2ba628a0c1427f4486f",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C00_S05_v1_lagoon_reveal.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C00-S06",
+      "source": "C00_S06_v1_landing_prep.mp4",
+      "range": [
+        12,
+        108
+      ],
+      "decision": "KEEP",
+      "source_sha256": "377c85e000e89277bf75353442f800c26e97528a4432f70867b8a4fad30abb66",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C00_S06_v1_landing_prep.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C01-S01",
+      "source": "C01_S01_v1_dock.mp4",
+      "range": [
+        0,
+        84
+      ],
+      "decision": "KEEP",
+      "source_sha256": "13178e6768e39b6a17b7dcd2908e1a7b7334529fdb557f4e2c99ac16379c197c",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C01_S01_v1_dock.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C01-S02",
+      "source": "C01_S02_v1_dock_handoffer_REGEN.mp4",
+      "range": [
+        24,
+        120
+      ],
+      "decision": "RESHOOT",
+      "reason": "Daddy/Roshan scale and hand-tail blocking remain unstable; Rumi has not been introduced yet.",
+      "source_sha256": "ebfbc932a6e2c771f035b2e2de1ec988804ecbbb6c59d1ed8759c78df7b8cdc1",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C01_S02_v1_dock_handoffer_REGEN.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C01-S03",
+      "source": "C01_S03_v1_handinhand_castle_REGEN.mp4",
+      "range": [
+        12,
+        108
+      ],
+      "decision": "KEEP",
+      "source_sha256": "45f43d09151bab6f8c3231cf311506b63393ccc5668a79f82304ed8942050961",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C01_S03_v1_handinhand_castle_REGEN.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C02-S01",
+      "source": "C02_S01_v1_door_open.mp4",
+      "range": [
+        0,
+        72
+      ],
+      "decision": "KEEP",
+      "source_sha256": "df7559c706e582b0fbeea23342ad7b5f05b6725515c6ee2ca4cd8cb26182e814",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C02_S01_v1_door_open.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C02-S02",
+      "source": "C02_S02_v1_dirty_hall.mp4",
+      "range": [
+        12,
+        84
+      ],
+      "decision": "KEEP",
+      "source_sha256": "9277fa32bd2d215b982ee8947a91b58d6dca05a4e4611f70817ce9689029ba01",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C02_S02_v1_dirty_hall.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C02-S03",
+      "source": "grok-a4619f70-3e25-400f-a320-0e8f511708c6-720p.mp4",
+      "range": [
+        84,
+        145
+      ],
+      "decision": "TRIM",
+      "recommended_range": [
+        108,
+        145
+      ],
+      "source_sha256": "6af492e7f2c33e8247270d1a5fdbf058bfb01a6bb9057349756af965d645144b",
+      "source_url": null,
+      "source_evidence_kind": "local_user_supplied",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C02-S04",
+      "source": "C02_S04_v1_bathroom_glow.mp4",
+      "range": [
+        12,
+        84
+      ],
+      "decision": "KEEP",
+      "source_sha256": "0877ee4a01d2550f5f408813408bbe74e37a880db6f20d90f1aee1d274d62115",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C02_S04_v1_bathroom_glow.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C03-S01",
+      "source": "C03_S01_v1_empty_dirty_bath.mp4",
+      "range": [
+        0,
+        72
+      ],
+      "decision": "KEEP",
+      "source_sha256": "6a95518cad9e753d49da15085bd147c65d9d2db5a19f7c5c7819bd2128c22550",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C03_S01_v1_empty_dirty_bath.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C03-S03",
+      "source": "C03_bunny_discover.mp4",
+      "range": [
+        12,
+        84
+      ],
+      "decision": "RESHOOT",
+      "reason": "Correct event, unstable bunny/tub scale and topology.",
+      "source_sha256": "01bfe380effdb3f3f4387bcb2685e74e145744809780113c320e71e59a91ad46",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C03_bunny_discover.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C03-S04",
+      "source": "C03_S04_v1_tool_reach.mp4",
+      "range": [
+        24,
+        96
+      ],
+      "decision": "RESHOOT",
+      "reason": "Precontact action is right; hand/tool scale and stable gap are not.",
+      "source_sha256": "8bdc1f663ae1656b788d8e06c7066195fae1554fd09e2175a60476c0627df019",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C03_S04_v1_tool_reach.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C04-S01",
+      "source": "C04_S01_v1_final_scrub.mp4",
+      "range": [
+        24,
+        96
+      ],
+      "decision": "KEEP",
+      "source_sha256": "452cb98aef1f10e811b69e111909965bcd21f5fb30654642610c4cdc1289501d",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C04_S01_v1_final_scrub.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C04-S04",
+      "source": "C04_S04_v1_clean_endpoint.mp4",
+      "range": [
+        12,
+        84
+      ],
+      "decision": "KEEP",
+      "source_sha256": "7da166456020ac60be448bef302e5defafac02ecb82739bbc541816f2d379a00",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C04_S04_v1_clean_endpoint.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C05-S01",
+      "source": "C05_S01_v1_pool_entry.mp4",
+      "range": [
+        12,
+        84
+      ],
+      "decision": "RESHOOT",
+      "reason": "Dirty entry incorrectly shows bright flowing waterfall.",
+      "source_sha256": "26d18c1f483b4fc4b9582abaabeab6074be828cbf5cfcf9fd0b1a6a9558febaa",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C05_S01_v1_pool_entry.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C05-S03",
+      "source": "C05_S03_v1_skimmer.mp4",
+      "range": [
+        24,
+        96
+      ],
+      "decision": "RESHOOT",
+      "reason": "Skimmer lacks weighted debris contact and background is prematurely flowing.",
+      "source_sha256": "e5909540cdeb532749c6ec559bf2e808a35146dc748a0bbe2594bddd433b8ae5",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C05_S03_v1_skimmer.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C05-S04",
+      "source": "MERMAID_ROSHAN_DIRTY_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "range": [
+        120,
+        192
+      ],
+      "decision": "TRIM",
+      "recommended_range": [
+        132,
+        192
+      ],
+      "source_sha256": "54bb16e968dde7d880876c76afe44efc1655087807d314e002d5ffaa364c910e",
+      "source_url": null,
+      "source_evidence_kind": "local_user_supplied",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C05-S05",
+      "source": "MERMAID_ROSHAN_DIRTY_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "range": [
+        192,
+        288
+      ],
+      "decision": "KEEP",
+      "source_sha256": "54bb16e968dde7d880876c76afe44efc1655087807d314e002d5ffaa364c910e",
+      "source_url": null,
+      "source_evidence_kind": "local_user_supplied",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C06-S02",
+      "source": "grok-4636c5b8-1f9d-4e1e-841f-b433e5345656.mp4",
+      "range": [
+        0,
+        54
+      ],
+      "decision": "PROVISIONAL",
+      "reason": "Contains purple plug intervention and first flow; opening semantics are slightly ambiguous, not missing.",
+      "source_sha256": "a17b8d7f2548438a899707005add8cc340f8e1682194c3f8a89f9cccca709f71",
+      "source_url": null,
+      "source_evidence_kind": "local_user_supplied",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C06-S03",
+      "source": "MERMAID_ROSHAN_CLEAN_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "range": [
+        0,
+        48
+      ],
+      "decision": "TRIM",
+      "recommended_range": [
+        0,
+        45
+      ],
+      "source_sha256": "6458cc6f4fec4bb35a4226d88214b3e833df01209f20365c7c6b9e2a356677d1",
+      "source_url": null,
+      "source_evidence_kind": "local_user_supplied",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C06-S06",
+      "source": "MERMAID_ROSHAN_CLEAN_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "range": [
+        48,
+        120
+      ],
+      "decision": "KEEP",
+      "recommended_range": [
+        48,
+        108
+      ],
+      "reason": "Valid waterfall-restart state, not the later front convergence.",
+      "source_sha256": "6458cc6f4fec4bb35a4226d88214b3e833df01209f20365c7c6b9e2a356677d1",
+      "source_url": null,
+      "source_evidence_kind": "local_user_supplied",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C06-S07-09",
+      "source": "MERMAID_ROSHAN_CLEAN_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "range": [
+        120,
+        336
+      ],
+      "decision": "TRIM",
+      "recommended_ranges": {
+        "emergence": [
+          168,
+          228
+        ],
+        "thanks": [
+          228,
+          264
+        ],
+        "hug": [
+          264,
+          336
+        ]
+      },
+      "source_sha256": "6458cc6f4fec4bb35a4226d88214b3e833df01209f20365c7c6b9e2a356677d1",
+      "source_url": null,
+      "source_evidence_kind": "local_user_supplied",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C07-S01",
+      "source": "grok-ccf1fe73-01f7-4c26-9414-4008078a4cce-720p.mp4",
+      "range": [
+        0,
+        72
+      ],
+      "decision": "KEEP",
+      "source_sha256": "eccc7048e6c345f5ec349f7a9d7afda0b850225be5abc9c152f8f930a8fcb5be",
+      "source_url": null,
+      "source_evidence_kind": "local_user_supplied",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C07-S06",
+      "source": "grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4",
+      "range": [
+        0,
+        96
+      ],
+      "decision": "KEEP",
+      "reason": "One Eagle pinned by exactly two flanking bunnies matches the implemented invariant.",
+      "source_sha256": "aa1a08d59e0a837d1abdd67a8518740f5777e289525ba22b52362becd396d61d",
+      "source_url": null,
+      "source_evidence_kind": "local_user_supplied",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C08-S06",
+      "source": "grok-218500df-7547-4c84-a703-c8a0b8a954b7-720p.mp4",
+      "range": [
+        24,
+        180
+      ],
+      "decision": "RESHOOT",
+      "reason": "Strong wing action but four-bunny clean-room endpoint conflicts with the implemented two-pin rescue; replacement is post-completion only.",
+      "source_sha256": "32c8898e6569ae9f6a749c8f2ede634c8a344a51d1b026f6c4106bf899654ce4",
+      "source_url": null,
+      "source_evidence_kind": "local_user_supplied",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C09-S01",
+      "source": "C09_S01_v1_loose_supplies_OFFICIAL.mp4",
+      "range": [
+        12,
+        60
+      ],
+      "decision": "PROVISIONAL",
+      "source_sha256": "b0d7c7a268b976c4ca1fc81c7e9bb59e13d0e929bacdb5d168cdca58d2eb6242",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C09_S01_v1_loose_supplies_OFFICIAL.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C09-S02",
+      "source": "C09_S02_v1_roshan_scan_OFFICIAL.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "PROVISIONAL",
+      "source_sha256": "0ad44320e8bf9dfa3e53f2ebeed6217bc5d6cdba23cd879a7de6c58c75c356a2",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C09_S02_v1_roshan_scan_OFFICIAL.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C09-S03",
+      "source": "C09_S03_four_supplies.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "RESHOOT",
+      "reason": "Must show exactly four authored supply objects in the actual Art Room family.",
+      "source_sha256": "45e481cb0f7bded89dfb654fbf31463517c65ed174b0df0a39bd13e48c726116",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C09_S03_four_supplies.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C09-S04",
+      "source": "C09_S04_v1_three_grime_OFFICIAL.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "OMIT_WRONG_STATE",
+      "recommended_range": null,
+      "reason": "Grime is hidden until all four supplies are collected; no entry-film replacement needed.",
+      "source_sha256": "1e0f3b6e7bd8d026e643c3f8e4a3994030c78d71ab886201f81005919c39624d",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C09_S04_v1_three_grime_OFFICIAL.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C09-S05",
+      "source": "C09_S05_v1_precontact_brush_REGEN.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "PROVISIONAL",
+      "source_sha256": "9761afa7995b2c05a02401a812db8b9a941c75afabb939feb50ed30b7e9fca32",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C09_S05_v1_precontact_brush_REGEN.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C10-S01",
+      "source": "C10_S01_v1_final_scrub_OFFICIAL.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "PROVISIONAL",
+      "source_sha256": "6c5f3f338348c6514ecfd79cb3464b49e26864af6ad9af1076cf8a60d2186a56",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C10_S01_v1_final_scrub_OFFICIAL.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C10-S02",
+      "source": "C10_S02_v1_four_supplies_home_REGEN.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "OMIT_WRONG_STATE",
+      "recommended_range": null,
+      "reason": "Storage after final scrub reverses collect-then-grime gameplay order and is redundant.",
+      "source_sha256": "3ea84509eafc2f7e921937455f9b2e0597cd4a86638e74f62ae7d9c5a5928f30",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C10_S02_v1_four_supplies_home_REGEN.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C10-S03",
+      "source": "C10_S03_v1_clean_reveal_OFFICIAL.mp4",
+      "range": [
+        0,
+        48
+      ],
+      "decision": "TRIM",
+      "recommended_range": [
+        0,
+        45
+      ],
+      "source_sha256": "4eb521a7c871efbff8c12e48cddffa6a1523050f51fad9b13e9c5d7cda056bfe",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C10_S03_v1_clean_reveal_OFFICIAL.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C10-S04",
+      "source": "C10_S04_v1_desk_wake_OFFICIAL.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "PROVISIONAL",
+      "source_sha256": "b3c7bb5c92104c45d0fece8f448d52e419669d094bb69582dffaa9067d3e5f5a",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C10_S04_v1_desk_wake_OFFICIAL.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C10-S05",
+      "source": "C10_S05_v1_blank_desk_handgap_REGEN.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "RESHOOT",
+      "reason": "Needs exact clean room seam and stable hand gap at the center desk.",
+      "source_sha256": "943be7af6d481f9b72cd07249139cfc7392b36c81283246aa25cf07168454c13",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C10_S05_v1_blank_desk_handgap_REGEN.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C11-S01",
+      "source": "C11_S01_route_lights.mp4",
+      "range": [
+        12,
+        84
+      ],
+      "decision": "RESHOOT",
+      "source_sha256": "0435be6521d6e28e7bcf51f2c50504146822f452069208ed640faab048a521ce",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C11_S01_route_lights.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C11-S02",
+      "source": "C11_S02_v1_boss_door_approach_REGEN.mp4",
+      "range": [
+        24,
+        96
+      ],
+      "decision": "KEEP",
+      "reason": "Pixel recheck confirms the rainbow arch, shell door, adjacent drop/pearl portal icons and red-carpet stairs match the actual far-right right-half hall master; Roshan approaches without premature contact.",
+      "source_sha256": "9f3edde7c41613ac3823bd05c9a962049a2468961a9f45ff162a021a6c4e2a8f",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C11_S02_v1_boss_door_approach_REGEN.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C11-S03",
+      "source": "C11_S03_v1_door_open_arena_REGEN.mp4",
+      "range": [
+        24,
+        96
+      ],
+      "decision": "KEEP",
+      "source_sha256": "4eb34395f279ece86deaf9a7e804300bcbdbe032cf3665ae0af253e52f7b4e43",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C11_S03_v1_door_open_arena_REGEN.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C11-S04",
+      "source": "C11_S04_v1_grand_puff_lands_REGEN.mp4",
+      "range": [
+        24,
+        96
+      ],
+      "decision": "RESHOOT",
+      "source_sha256": "ca10bed474db1b6ebce58b07e15900f215bb636cb433ee89c49ae20c049073c3",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C11_S04_v1_grand_puff_lands_REGEN.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C12-S01",
+      "source": "C04_S04_v1_clean_endpoint.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "KEEP",
+      "reason": "Byte-identical source and overlapping accepted range with C04-S04; the short clean-bathroom recap is intentionally judged consistently.",
+      "source_sha256": "7da166456020ac60be448bef302e5defafac02ecb82739bbc541816f2d379a00",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C04_S04_v1_clean_endpoint.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C12-S02",
+      "source": "C12_S02_rumi_pool_recap.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "KEEP",
+      "source_sha256": "11685d7bbdb24abeac83eb75fa6f0f0c4f0a50ee46451b317e3e5d9b1b891cdd",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C12_S02_rumi_pool_recap.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C12-S04",
+      "source": "C10_S04_v1_desk_wake_OFFICIAL.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "PROVISIONAL",
+      "reason": "Same rough desk footage as C10-S04; disposition is intentionally consistent.",
+      "source_sha256": "b3c7bb5c92104c45d0fece8f448d52e419669d094bb69582dffaa9067d3e5f5a",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C10_S04_v1_desk_wake_OFFICIAL.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C12-S06",
+      "source": "C12_family_reunion_hug.mp4",
+      "range": [
+        24,
+        72
+      ],
+      "decision": "KEEP",
+      "source_sha256": "ec9f7150eaa8575592be01984ccb1087b6c6d7347aec690207b7b6068209aedc",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C12_family_reunion_hug.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C13-S01",
+      "source": "C13_S01_v1_roshan_cleanup.mp4",
+      "range": [
+        0,
+        96
+      ],
+      "decision": "TRIM",
+      "recommended_range": [
+        0,
+        72
+      ],
+      "source_sha256": "f56f5fd8e887b57cdfbe94e2869121b05b19e6b5e0ebbb09477746ead1bc6108",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C13_S01_v1_roshan_cleanup.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C13-S02",
+      "source": "C13_S02_v2_daddy_sweep.mp4",
+      "range": [
+        0,
+        96
+      ],
+      "decision": "TRIM",
+      "recommended_range": [
+        12,
+        84
+      ],
+      "source_sha256": "7e28440838a448c62ed0539a64c7f4e47f93342463dac7ee3ffcf06278ac8d5c",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/5ca170e11c77ea55c3224f9f275b94b8fd62ca36/clips/C13_S02_v2_daddy_sweep.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    },
+    {
+      "shot": "D1-C13-S04",
+      "source": "C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+      "range": [
+        0,
+        32
+      ],
+      "decision": "RESHOOT",
+      "source_sha256": "9ed421b635e9cd3eca646b48515bd8a9a84adf608d3af08e4d4d0ed92b8da5e2",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/384abc966b92b27bd61a735319a7639ef68ac15b/clips_flat/C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+      "source_evidence_kind": "audited_git_blob",
+      "all_frame_acceptance": false
+    }
+  ],
+  "necessary_missing_events": [
+    {
+      "shot": "D1-C01-S04",
+      "event": "closed-door arrival/opening seam"
+    },
+    {
+      "shot": "D1-C03-S02",
+      "event": "bathroom threshold crossing"
+    },
+    {
+      "shot": "D1-C04-S03",
+      "event": "clean bathroom exit without ambiguous anatomy"
+    },
+    {
+      "shot": "D1-C05-S02",
+      "event": "low-water problem state with swimming bunny and separate land bunny"
+    },
+    {
+      "shot": "D1-C05-S06",
+      "event": "wide dirty-pool problem map showing both blocked causes"
+    },
+    {
+      "shot": "D1-C06-S04",
+      "event": "both activated water sources enter the same giant pool before convergence"
+    },
+    {
+      "shot": "D1-C06-S05",
+      "event": "two clean-water fronts converge after both sources activate"
+    },
+    {
+      "shot": "D1-C07-S02-S05",
+      "event": "Stuffie-room entry, reaction, swinging bunny, and trail to the exactly-two-pin Eagle reveal"
+    },
+    {
+      "shot": "D1-C13-S03",
+      "event": "one Baby Eagle controlled dust lift; one intact Puff"
+    }
+  ],
+  "proposed_extension_pending_user_approval": [
+    {
+      "shot": "D1-C13-S05",
+      "proposal": "one small rainbow bunny emerges from a tiny separate prismatic floor cradle",
+      "canon_status": "not implemented game canon; not a necessary-missing-event claim"
+    }
+  ],
+  "authority_status": "Baseline assembly snapshot. Current owner revisions in CURRENT_REPLACEMENT_DECISIONS.json override these earlier decisions where a shot is listed; old counts are historical, not the current reshoot queue."
+}

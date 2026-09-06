@@ -1,0 +1,18 @@
+{
+  "shot": "D1-C13-S05",
+  "asset_type": "narrative_storyboard",
+  "attempt": 2,
+  "status": "human_pending",
+  "method": "built_in_image_gen",
+  "prompt": "Use case: illustration-story. Asset type: narrative storyboard reference sheet. Create exactly four equal full-frame 16:9 panels in a clean 2x2 grid, no borders, labels, captions, speech bubbles, or text. IMAGE_1 is the strict clean-room composition and cast authority. IMAGE_2 is the strict identity reference for the tiny baby only. C13-S05 reveal board: preserve the same dusty attic, same three-quarter camera, same tight semicircle, same five-character positions and correct brush handle orientation in all panels. Panel 1 has the full company—Daddy with lowered brush, Roshan holding sponge near her body, Rumi with dry hand lowered, Eagle folded, and clean lavender Puff—looking down; NO baby anywhere. Panel 2: one tiny rainbow-curl baby friend peeks from the lowest Puff curl after about one second. Panel 3: the same baby steps out, no taller than one-sixth of Puff’s height. Panel 4: all five adults/companions remain visible and look down at exactly one tiny baby. The baby must match IMAGE_2: rainbow pastel body, two large spiral ears with pearl-like feet, forehead star, tiny friendly face; it is not a monochrome purple rabbit, not a fluffy pointed-ear bunny, not a checkerboard, not a cradle. Baby remains tiny, <=1/6 Puff height. Keep Puff’s clean body, no body dust change, no crowd disappearance, no boss split, no morphing, no shell prop, no extra objects, no frontal reset. Every panel is a complete polished 2D storybook redraw.",
+  "referenced_image_paths": ["C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C13-S05_TEAM_REVEAL_candidate01.png", "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/e488d7c300_rainbow_dust_bunny_concept.png"],
+  "input_images": [
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C13-S05_TEAM_REVEAL_candidate01.png", "sha256": "FC47DF9FF6BDE11A8589C02BF926D0C5398C0A0A26D9247410A5D8A80DD108DF", "dimensions": [1672, 941], "role": "composition_and_cast_reference"},
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/e488d7c300_rainbow_dust_bunny_concept.png", "sha256": "E488D7C300EFF116EEE58A1B0AE4A4685595FC20F0AC67B7382B197B47F62F17", "dimensions": [1024, 1024], "role": "baby_identity_reference_only"}
+  ],
+  "native_output_path": "C:/Users/Peter/.codex/generated_images/01a0716b-8149-7450-b87f-d1b9341d3cf8/exec-c7037bea-ed71-4caa-8bdc-f07ebc5e3268.png",
+  "output_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/storyboards/OWNER_C13-S05_TEAM_BOARD_candidate02.png",
+  "output_sha256": "9A5599EE26C2A08DAEDD7F74AABEF8B89FB17AD0BEBE6469FD930064F3DB3EE7",
+  "output_dimensions": [1672, 941],
+  "human_review": "pending"
+}

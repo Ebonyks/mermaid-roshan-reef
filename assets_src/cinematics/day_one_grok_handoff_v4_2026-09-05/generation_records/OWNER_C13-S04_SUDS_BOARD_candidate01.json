@@ -1,0 +1,18 @@
+{
+  "shot":"C13-S04",
+  "asset":"OWNER_C13-S04_SUDS_BOARD_candidate01.png",
+  "role":"narrative_only_storyboard_reference",
+  "active":false,
+  "human_review":"pending",
+  "accepted":false,
+  "attempt":1,
+  "generation_method":"builtin_imagegen_generate",
+  "prompt":"Use case: illustration-story. Asset type: narrative-only storyboard reference for owner review, never delivery pixels and never an accepted keyframe. Create exactly four equal complete 16:9 storybook panels in a clean 2x2 grid with overall 16:9 sheet for C13-S04 team lathering. IMAGE 1 is the exact S04 low front-left camera and opening authority. IMAGE 2 is only the foam-density/cleaning-endpoint reference; do not copy its elevated camera or use it as camera lock. No text, labels, numbers, UI, watermark, or angle cuts. Keep the same low front-left ~30 degree camera and full five-cast blocking in every panel: Roshan and Daddy viewer-left, grounded Baby Eagle foreground-left, Rumi viewer-right, Grand Puff centered-right. Panel 1: dusty Puff with only one small white/lavender suds patch at sponge/brush contact, face/eyes/ears/pearl joints clear. Panel 2: all four helpers work simultaneously and foam grows across Puff's outer body; Roshan star-sponge, Daddy correct two-hand brush grip, Eagle grounded wingbeat, Rumi localized rinse; keep face readable. Panel 3: foam continues to a generous white/lavender coat over the outer body while Puff's face, ears, pearls and silhouette remain recognizable; all four helpers visible. Panel 4: exact fully sudsy endpoint matching IMAGE 2's foam distribution and density, all four helpers still visible, tools/actions settled, room dust unchanged. No rainbow baby yet, no bathroom, shell, nest, old wood arena, missing helpers, extra characters, rainbow recolor, harm, or full-body face occlusion.",
+  "references":[
+    {"path_passed":"conversation_recent_image_1: OWNER_C13-S04_SUDS_OPENING_candidate01.png","source_path":"first_frames/OWNER_C13-S04_SUDS_OPENING_candidate01.png","role":"camera_and_opening_authority","sha256":"AE62B81DC9E8EF6CC6173F678833E6F0A0104BDB0550E08893628FA8BC95D95A","dimensions":"1672x941"},
+    {"path_passed":"conversation_recent_image_2: OWNER_C13-S05_SUDSY_OPENING_candidate02.png","source_path":"first_frames/OWNER_C13-S05_SUDSY_OPENING_candidate02.png","role":"foam_density_endpoint_only","sha256":"F65676310D8985F676363A381D075088B7E5D35BE6F3313E798DBB63F1C16680","dimensions":"1672x941"}
+  ],
+  "native_output":{"path":"C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-882dcc0b-3276-40ce-b6c4-551c585f2991.png","sha256":"E88BF980D9A5989AC3D40881C0C46C8FA4E35120A1314500BADB98CCC6A11C90","dimensions":"1672x941"},
+  "packet_output":{"path":"C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/storyboards/OWNER_C13-S04_SUDS_BOARD_candidate01.png","sha256":"E88BF980D9A5989AC3D40881C0C46C8FA4E35120A1314500BADB98CCC6A11C90","dimensions":"1672x941"},
+  "visual_audit":{"panels":4,"grid":"2x2_equal_panels","all_four_helpers_each_panel":true,"foam_growth_readable":true,"panel4_matches_s05_foam_density":true,"review_note":"Visually inspected; low-front-left camera stays consistent, lather grows from small patch to generous readable foam, full cast remains visible, and baby is absent. Human review pending."}
+}

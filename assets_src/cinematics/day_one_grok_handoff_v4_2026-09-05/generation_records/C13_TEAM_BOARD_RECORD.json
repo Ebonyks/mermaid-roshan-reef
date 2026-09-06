@@ -1,0 +1,41 @@
+{
+  "shot": "C13-S04",
+  "asset": "OWNER_C13-S04_TEAM_BOARD_candidate01.png",
+  "role": "narrative_only_storyboard_reference",
+  "active": false,
+  "human_review": "pending",
+  "accepted": false,
+  "attempt": 1,
+  "generation_method": "builtin_imagegen",
+  "prompt": "Use case: illustration-story. Asset type: narrative-only storyboard reference for owner review, never delivery pixels, never an accepted keyframe, never a multi-shot movie. Create exactly four equal complete 16:9 storybook panels in a clean 2x2 grid, with the overall sheet also 16:9, for one locked-camera C13-S04 team-cleaning finish. Use the supplied D1-C13-S04_TEAM_candidate03.png as the exact first-frame authority for room, camera, five cast identities, placement, tool identities and scale in EVERY panel. No text, no labels, no panel numbers, no UI, no watermark. All four helpers must work simultaneously in EVERY action panel: Roshan viewer-left uses one gentle sponge wipe; Daddy uses the one broad brush with the same correct two-hand handle grip and bristles aimed toward Puff; Baby Eagle stays grounded with folded wings; Rumi stays viewer-right with one dry hand aimed toward the final localized dusty curl below Puff's ear. Grand Puff stays centered/right, fully formed, calm, grounded and unharmed; preserve his face, spiral ears, pearl joints, tiers and silhouette. Panel 1: exact opening hold, Roshan sponge at precontact/soft contact as in the supplied first frame, Daddy's bristles short of Puff, Rumi's hand dry, Eagle folded. Panel 2: overlapping team action at once: one gentle Roshan sponge wipe, Daddy one broad brush sweep with correct grip, Eagle one grounded wingbeat, Rumi one thin localized water ribbon touching only the adjacent dirty curl below the ear; all four contributions readable simultaneously, no other water, bubbles or effects. Panel 3: dust clears monotonically from Puff while all four remain visible and tools/actions settle; room dust stays unchanged, no new effects. Panel 4: clean Puff, all four helpers relaxed in the same positions with tools preserved and no one disappearing; no baby bunny yet. Use at most one gentle push-in under five percent across panels 2-3, no angle cut, no room redesign. No old wood/rail arena, no shell cradle, no nest, no reward star, no extra characters, no duplicated helpers, no body deformation, no harm, no attack, no floor target.",
+  "references": [
+    {
+      "path_passed": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/team_board_input/D1-C13-S04_TEAM_candidate03_BINDING_COPY.png",
+      "source_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C13-S04_TEAM_candidate03.png",
+      "role": "exact_first_frame_authority",
+      "sha256": "B12262FE17E7DC376756C7884A62FFC9F991807F385AAEB0A8469C15D89FB738",
+      "dimensions": "1672x941",
+      "copy_is_byte_identical": true
+    }
+  ],
+  "native_output": {
+    "path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-eb5fa15e-2086-4a55-bad2-463772b89854.png",
+    "sha256": "95C418D75003DA14C170975F974CB872F2C94DFF1D1742696138DACD44C054B2",
+    "dimensions": "1672x941"
+  },
+  "packet_output": {
+    "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/storyboards/OWNER_C13-S04_TEAM_BOARD_candidate01.png",
+    "sha256": "95C418D75003DA14C170975F974CB872F2C94DFF1D1742696138DACD44C054B2",
+    "dimensions": "1672x941"
+  },
+  "visual_audit": {
+    "panels": 4,
+    "grid": "2x2_equal_panels",
+    "overall_aspect": "16:9",
+    "five_cast_visible_each_panel": true,
+    "all_four_helpers_visible_action_panels": true,
+    "no_text_or_ui_observed": true,
+    "no_baby_bunny_observed": true,
+    "review_note": "Pending human review. Panel 2 visibly reads as simultaneous brush, sponge, grounded Eagle wingbeat, and localized Rumi water; panel 3/4 preserve the five-cast layout and tools. This remains a narrative board, not delivery evidence."
+  }
+}

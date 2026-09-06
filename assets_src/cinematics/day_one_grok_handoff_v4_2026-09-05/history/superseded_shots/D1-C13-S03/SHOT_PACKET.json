@@ -1,0 +1,93 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C13",
+  "shot_id": "D1-C13-S03",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/D1-C13-S03_OPENING_candidate02.png",
+      "sha256": "1c463ea91e1d471963da19f247271ec471a90b52448e2769b9e930dde8fe3caf",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/90c54412aa_baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_3",
+      "path": "references/e585e52562_grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "Eagle makes one controlled wingbeat, lifting only the tiny residual floor-dust patch beside Puff's lower-left edge.",
+  "must_not_move": [
+    "One Eagle with turquoise body, yellow eye patches, pink crest and wings with black tips; one intact lavender Puff.",
+    "Arena, Puff placement, pearl rails and tiny shell position remain fixed.",
+    "No dust from Puff's body, airborne Eagle, second bird, extra helper, dust ring or whole-room blast."
+  ],
+  "end_state": "Eagle is grounded with folded wings beside intact Puff, leaving only the tiny dirty shell for Rumi.",
+  "negative_constraints": [
+    "One Eagle with turquoise body, yellow eye patches, pink crest and wings with black tips; one intact lavender Puff.",
+    "Arena, Puff placement, pearl rails and tiny shell position remain fixed.",
+    "No dust from Puff's body, airborne Eagle, second bird, extra helper, dust ring or whole-room blast."
+  ],
+  "prompt_path": "shots/D1-C13-S03/PROMPT.txt",
+  "prompt_sha256": "a135a264a64d5ce313965fbd657729c55f7e20d621a10ae9f94e30d4743170c2",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/D1-C13-S03_STORYBOARD_candidate01.png",
+      "used_as_pixel_reference": false,
+      "role": "narrative_storyboard"
+    }
+  ],
+  "game_asset_comparison": [
+    {
+      "source_path": "assets/book/baby_eagle.png",
+      "path": "references/da8ead4677_baby_eagle.png"
+    },
+    {
+      "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png",
+      "path": "references/bdcf03aab9_dust_bunny_boss_laugh_vulnerable.png"
+    },
+    {
+      "source_path": "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/scenes/D1-C13/visuals/location_authorities/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+      "path": "references/ba0048fc93_DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png"
+    }
+  ],
+  "source_selection": {
+    "filename": null,
+    "range_half_open": null
+  },
+  "weak_source_frames": [],
+  "inspected_source_frames": [],
+  "source_visual_evidence": null,
+  "sol_first_frame_decision": "RECOMMEND_APPROVAL",
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

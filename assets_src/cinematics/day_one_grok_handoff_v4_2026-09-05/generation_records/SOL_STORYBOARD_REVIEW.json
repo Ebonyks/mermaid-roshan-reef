@@ -1,0 +1,270 @@
+{
+  "schema":"sol-storyboard-review-v1",
+  "reviewed_at":"2026-09-05",
+  "scope":"Available v4 narrative storyboard sheets; storyboards are sequence guidance only and never delivery pixels or first-frame approval.",
+  "human_approval_required_per_first_frame":true,
+  "generation_ready":false,
+  "delivery_accepted":false,
+  "assets":[
+    {
+      "path":"storyboards/luna_a_C01-S02_storyboard_2x2.png",
+      "sha256":"150894116dec156d0b7aaeb15794688685fe1d81aee5e6bc70ddf4970a14aaaa",
+      "sol_decision":"REVISE",
+      "passes":["four-panel handoffer progression is readable", "dock, plane and gate remain stable", "hands do not visibly fuse"],
+      "fails":["all panels use Rumi instead of Daddy", "wrong cast is repeated through the whole action"],
+      "targeted_revision":"Replace adult with approved Daddy in all four panels while preserving scale, geography and offered-hand progression."
+    },
+    {
+      "path":"storyboards/luna_a_C01-S04_storyboard_2x2.png",
+      "sha256":"c61452326162b56622612aee273fcd133be53a88c51f35e351472d46662a5c89",
+      "sol_decision":"REVISE",
+      "passes":["closed red door remains stable", "arrival and approach progress without premature opening"],
+      "fails":["all panels use Rumi instead of Daddy", "wrong cast continuity precedes Rumi's C06 introduction"],
+      "targeted_revision":"Replace adult with approved Daddy in every panel; retain the closed door through the endpoint."
+    },
+    {
+      "path":"storyboards/luna_a_C03-S02_storyboard_2x2.png",
+      "sha256":"05bbb25b4df6ea5acdff2a55d2a899e26a6d00ec67bb005b1ded65ebbe5e0eb1",
+      "sol_decision":"REVISE",
+      "passes":["threshold crossing direction is coherent", "hall and bathroom sides remain spatially legible"],
+      "fails":["Rumi accompanies Roshan before C06", "final bathroom panel becomes a clean bright room and adds a cabinet, contradicting dirty discovery state"],
+      "targeted_revision":"Use Roshan alone unless Daddy is explicitly required; keep the same dirty/drained bathroom state across all panels and do not introduce new fixtures."
+    },
+    {
+      "path":"storyboards/luna_a_C03-S03_storyboard_2x2.png",
+      "sha256":"537e83d16da574fb7aefa1162f583bbbc96d1634723ab96cbe46f78bd0cdb037",
+      "sol_decision":"REVISE",
+      "passes":["one Roshan and one bunny once present", "bunny remains separate and readable", "camera continuity is stable"],
+      "fails":["panel one omits the bunny and later panels make it appear from nowhere", "water remains clean/pale rather than murky dirty-state shallow water", "sequence plays as cheerful bath reveal rather than discovery of the cleanup problem"],
+      "targeted_revision":"Keep the single bunny present from panel one, animate only its small swim/reaction, and retain visibly murky shallow water and dirty-room state."
+    },
+    {
+      "path":"storyboards/luna_a_C03-S04_storyboard_2x2.png",
+      "sha256":"578fb3afc433008ed87fff047cb631bcef506c8ba3cb6bdf144da8cc201c9799",
+      "sol_decision":"REVISE",
+      "passes":["exact pink star sponge stays in the authorization basket", "dirty bathroom and Roshan identity are broadly retained"],
+      "fails":["Roshan never performs a focused one-hand precontact reach toward the sponge", "both arms remain spread in a swimming pose", "yellow exclamation marks introduce forbidden graphic symbols", "panels do not progress toward the required stable hand gap"],
+      "targeted_revision":"Start from the separately reviewed hash 85935b... first frame. Animate one deliberate right-hand reach that stops before the sponge; other hand stays near chest. Remove exclamation graphics and preserve dirty room/basket/tool."
+    },
+    {
+      "path":"storyboards/luna_a_C01-S02_storyboard_2x2_attempt02_DADDY.png",
+      "sha256":"9d776860f9d8258f6537b2defb35539b1377d897d9e47b638cfd1f8c6a9a1feb",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["approved Daddy identity in all panels", "offered hand to contact progression is coherent", "hands remain separately readable", "dock, plane and gate remain stable"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"storyboards/luna_a_C01-S04_storyboard_2x2_attempt02_DADDY.png",
+      "sha256":"3454b05e3fbed7b12ac3c0010328b1b6194b509f01b04e7e7d91c10e8515e07e",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["approved Daddy and Roshan remain hand-in-hand", "short approach reads coherently", "red double door stays closed throughout", "no premature door action"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"storyboards/luna_a_C03-S02_storyboard_2x2_attempt02_ROSHAN_DIRTY.png",
+      "sha256":"7332c42b6ba22d597e9ca9f9a4d92f469ac81288435a5102dc44c20663249f1e",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["Roshan enters alone", "threshold crossing direction is coherent", "dirty bathroom state and fixtures remain stable", "no cleanup begins"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"storyboards/luna_a_C03-S03_storyboard_2x2_attempt02_DIRTY_MURKY.png",
+      "sha256":"7a8add9fe1035884db85e4fc0871086b5af23fa82edd9f5db5e288371b76db01",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["one bunny is present from panel one", "small swim and Roshan reaction progression is readable", "murky shallow water and dirty room remain", "no second bunny or tool action"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"storyboards/luna_a_C03-S04_storyboard_2x2_attempt03_DIRTY_PRECONTACT.png",
+      "sha256":"06549787c21b6f30b92f19857acec95e6607137d1360702d8de3445d038785a7",
+      "sol_decision":"REVISE",
+      "passes":["dirty bathroom and basket remain stable", "pink star sponge remains inside basket", "one reaching arm and one quiet arm", "no contact or exclamation graphic"],
+      "fails":["all four panels are effectively the same extended-arm pose", "the board does not demonstrate the required forearm advance from a nearer-chest start", "fingertip remains too far from the sponge to communicate the intended end precontact seam"],
+      "human_decision":"not_ready_for_approval",
+      "targeted_revision":"Panel 1 must start with the near hand closer to Roshan's body; panels 2-3 advance only that forearm; panel 4 stops with a small unambiguous fingertip-to-sponge gap. Preserve the current room, basket, sponge and other hand."
+    },
+    {
+      "path":"storyboards/D1-C09-S03_STORYBOARD_candidate01.png",
+      "sha256":"66e3fefb8bc2a31ece232c78f2cf53f8de1e1588213e4116a883e6796455834e",
+      "sol_decision":"RECOMMEND_APPROVAL_WITH_HOLD_QUALIFICATION",
+      "passes":["exactly four loose supply groups remain readable", "Art Room geography and empty center desk remain fixed", "no character, grime, cleanup or extra supplies"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"The near-identical panels support only the authored inspection hold; they are not evidence of object or camera motion."
+    },
+    {
+      "path":"storyboards/D1-C10-S05_STORYBOARD_candidate01.png",
+      "sha256":"8af9e400469081cacdbae1328b1cf7838512d97b2ae1318073fdc49ecf679fcf",
+      "sol_decision":"REVISE",
+      "passes":["clean Art Room and blank center desk remain stable", "Roshan stays beside the desk", "no tool, UI or extra cast"],
+      "fails":["fingertips overlap or touch the center mat in the last two panels", "the required visible precontact gap is lost before the endpoint"],
+      "human_decision":"not_ready_for_approval",
+      "targeted_revision":"Shorten the reach and keep a visible fingertip-to-near-mat-edge gap in panels 3 and 4; do not touch, hover, draw or trigger UI."
+    },
+    {
+      "path":"storyboards/D1-C11-S01_STORYBOARD_candidate01.png",
+      "sha256":"b54a5bfa834941140ac437e0c2a2ef3bd9fabbeaaeba7f6bceab4e32d3cf8278",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["four floor lights become four narrow trails", "trails turn right and converge at the real far-right royal portal stair foot", "door-icon order and red runner remain stable", "no invented central target"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"storyboards/D1-C11-S04_STORYBOARD_candidate01.png",
+      "sha256":"30a20433a6d7460aba8bb274bd869403f58d124a83be2bc6397e0568b506542c",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["one intact Puff descends, contacts and settles upright", "face, spiral ears, curls and tier count remain stable", "Roshan remains inside the single front entrance", "arena and landing shadow remain coherent"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"Puff's alert expression remains consistent and does not need novelty-driven revision."
+    },
+    {
+      "path":"storyboards/D1-C13-S03_STORYBOARD_candidate01.png",
+      "sha256":"afde93af364cba5cb4c94b267d97d472b657dd403d5671631ce3ba1acb7aa1d5",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["Eagle progresses folded-wing to one controlled beat and back to folded", "one Puff remains intact", "only localized floor dust disperses", "tiny shell and arena remain stable"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"storyboards/D1-C13-S04_STORYBOARD_candidate01.png",
+      "sha256":"28d38dd8504e1f5d301c75eb57943c45c47277782dbebaf7eba2d68ba620ac73",
+      "sol_decision":"RECOMMEND_APPROVAL_AS_PROPOSED_EXTENSION",
+      "passes":["Rumi remains viewer-left and Puff viewer-right", "one-hand rinse stays localized to the tiny shell/floor patch", "Puff stays intact", "rinse stops and shell becomes clean"],
+      "fails":[],
+      "human_decision":"pending",
+      "canon_status":"proposed extension only; not implemented game canon"
+    },
+    {
+      "path":"storyboards/D1-C13-S05_STORYBOARD_candidate01.png",
+      "sha256":"29f900708288478ab6e1483936ea9f7e6f25639a059805585ae51c6746b99a1e",
+      "sol_decision":"REVISE",
+      "passes":["one Puff and one emerging rainbow bunny", "arena remains recognizable", "no helper crowd"],
+      "fails":["rainbow bunny grows to roughly 20-30 percent of frame height rather than the maximum 15 percent", "the shell cradle is no longer separately visible in the final two panels", "the required final Puff-bunny-shell three-object tableau is therefore missing"],
+      "human_decision":"not_ready_for_approval",
+      "canon_status":"proposed extension only; not implemented game canon",
+      "targeted_revision":"Keep the bunny at or below 15 percent frame height and no more than one sixth of Puff's height; preserve the same open shell visibly and separately on the floor through panels 2-4."
+    },
+    {
+      "path":"storyboards/LUNA_B_C05_S01_STORYBOARD_2x2_NARRATIVE_ONLY.png",
+      "sha256":"1b63eca99e67be16bc6cd9e46fd8b8b422de4d73cc1ecde2b46bbc5683f94669",
+      "sol_decision":"REVISE",
+      "passes":["dirty pool problem is broadly readable"],
+      "fails":["protagonist is a human boy with legs rather than Mermaid Roshan", "sick seahorse disappears after panel one", "blocked-cause geography does not remain stable"],
+      "human_decision":"not_ready_for_approval",
+      "targeted_revision":"Use exact Mermaid Roshan identity with continuous tail and no legs; keep the same sick seahorse and clogged stopped waterfall visible across all panels; animate only her inspection."
+    },
+    {
+      "path":"storyboards/LUNA_B_C05_S03_STORYBOARD_2x2_NARRATIVE_ONLY.png",
+      "sha256":"a27be349746c1e57d9cb2a29b085a3fbe7cee98868c720f1f9257c76c36f8c62",
+      "sol_decision":"REVISE",
+      "passes":["inanimate debris in the skimmer is readable", "skimmer lift sequence is understandable"],
+      "fails":["protagonist is a human boy with legs rather than Roshan", "waterfall is visibly flowing instead of clogged and stopped", "pool geography drifts from the approved corrected first frame"],
+      "human_decision":"not_ready_for_approval",
+      "targeted_revision":"Start from first-frame hash 939e83a8... and preserve its Roshan, dirty pool and clogged stopped waterfall; animate only the weighted skimmer lift with inanimate debris."
+    },
+    {
+      "path":"storyboards/LUNA_B_C06_S05_STORYBOARD_2x2_NARRATIVE_ONLY.png",
+      "sha256":"afa3f99c948149d78b7cc8439fbd94afda2c4972653aa9d699c12fba9b8b3f5a",
+      "sol_decision":"REVISE",
+      "passes":["two surface fronts move toward one another"],
+      "fails":["room becomes a dark generic symmetrical chamber", "rainbow waterfall and seahorse source are absent", "ending purple vortex invents a new transformation"],
+      "human_decision":"not_ready_for_approval",
+      "targeted_revision":"Start from first-frame hash 284d6481...; preserve active rainbow waterfall viewer-left and active seahorse viewer-right while only two clean surface fronts converge. No vortex, recolor or third source."
+    },
+    {
+      "path":"storyboards/LUNA_B_C08_S06_STORYBOARD_2x2_NARRATIVE_ONLY.png",
+      "sha256":"46c6f7d7550222e291c169567dc995516bb4841193357ba49584f4978a6ff868",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["correct clean Stuffie Room remains stable", "one recovered Eagle and Roshan remain separate", "folded wings open for a brief lift and return to reunion", "no incorrect basket/four-bunny tableau or cleanup transformation"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"Released bunnies may remain offscreen; if shown in generated motion, exactly two are required. This shot is post-rescue relationship coverage, not the rescue or dust-blast event."
+    },
+    {
+      "path":"storyboards/OWNER_C13-S04_TEAM_BOARD_candidate01.png",
+      "sha256":"95c418d75003da14c170975f974cb872f2c94dff1d1742696138dacd44c054b2",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["Roshan, Daddy, grounded Eagle and Rumi remain visible together around one intact Puff in all four panels", "Daddy retains correct handle grip and bristles toward Puff", "Roshan sponge, Daddy brush, Eagle grounded wingbeat and Rumi localized rinse visibly overlap as one coordinated event", "Puff-body dust decreases monotonically and is gone by the settle panels while room dust and cobwebs remain", "arena windows, columns, chandelier, chests, octagon and camera axis remain stable", "no helper disappears, no hall change, no harm, collapse, shell or cradle"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"Narrative storyboard approval only; it is not delivery pixels or all-frame motion acceptance."
+    },
+    {
+      "path":"storyboards/OWNER_C13-S05_TEAM_BOARD_candidate02.png",
+      "sha256":"9a5599ee26c2a08daedd7f74aabef8b89fb17ad0bebe6469fd930064f3db3ee7",
+      "sol_decision":"REVISE_EMERGENCE_AND_SCALE_ONLY",
+      "passes":["Roshan, Daddy, Baby Eagle, Rumi and clean Grand Puff remain visible in all four panels", "rainbow baby uses the correct rounded rainbow body, two spiral ears, pearl joints and small friendly face", "panel one correctly contains no baby", "arena, company positions, Puff identity and fixed camera remain coherent", "no shell, egg, cradle, duplicate baby or helper disappearance"],
+      "fails":["panel two shows the baby already fully outside Puff rather than first peeking beneath two gently parted lowest curls", "the board never clearly depicts the curls parting and relaxing, so the causal emergence reads as a pop-in", "baby grows from roughly one-seventh Puff height in panel two to about one-fifth in panels three and four, exceeding the active maximum of one-sixth and introducing scale drift"],
+      "human_decision":"not_ready_for_approval",
+      "targeted_revision":"Preserve the complete company, room, camera, Puff and corrected rainbow-baby identity. Panel 1: no baby and closed lower curls. Panel 2: only the baby's face/spiral ears peek beneath two gently parted lowest curls. Panel 3: the same baby takes one small step out while staying at or below one-sixth Puff height. Panel 4: preserve that exact size beside Puff as the curls visibly return to their original shape."
+    },
+    {
+      "path":"storyboards/OWNER_C13-S05_TEAM_BOARD_candidate04.png",
+      "sha256":"23781bcd3630b784a79de25097eaaaa7713cbe28c6b351984ec90c6746f109b1",
+      "sol_decision":"USE_AS_DRAFT_NARRATIVE_GUIDANCE_WITH_BLOCKING_SCALE_CAPTION",
+      "passes":["panel one preserves the full original company, clean intact Puff, corrected Daddy brush and no baby", "panel two shows a partial face-and-spiral-ear peek beneath Puff's lowest curls rather than an instantaneous full-body appearance", "panels three and four preserve one consistent rainbow friend identity and size", "Roshan, Daddy, Baby Eagle and Rumi remain present throughout", "arena, camera, Puff identity and company positions remain coherent", "no shell, egg, cradle, duplicate baby or helper disappearance"],
+      "fails":["the emerged baby is approximately 60-68 pixels tall against roughly 290 pixels of Puff height, about one-fifth rather than the active maximum of one-sixth", "the board therefore cannot be treated as scale approval or a literal generation-size reference"],
+      "human_decision":"pending",
+      "required_caption":"Narrative order only. In generated motion the rainbow baby must remain no taller than one Puff ankle pearl / one-sixth of Puff's height; do not copy this board's larger baby scale.",
+      "generation_ready":false,
+      "delivery_accepted":false,
+      "note":"Four storyboard attempts are sufficient for this turn. Preserve this sheet as draft sequence guidance and stop regeneration; first-frame and final size approval remain separate."
+    },
+    {
+      "path":"storyboards/OWNER_C11_S02_APPROACH_BOARD_candidate01.png",
+      "sha256":"e2fbe3ee1a220818f79a4a9c1ac68ea4ff0e91a0e80d7c93aa5f5692e8fdca94",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["fixed rear child-height oblique camera preserves the current hall and open purple-curtained royal arch", "Roshan advances monotonically along the red runner without identity, scale or tail discontinuity", "four colored readiness trails remain separate and converge toward the royal stair", "final panel stops before the first riser with a readable threshold", "no door leaf, handle action, mist barrier, portal crossing or architecture animation"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"Narrative-board recommendation only; generated motion remains subject to full-frame review and must preserve the stair-foot endpoint."
+    },
+    {
+      "path":"storyboards/OWNER_C11_S01_LAYOUT_BOARD_candidate02.png",
+      "sha256":"c645fcae3cc2255a88fd71fa4b2c32a893965296472609679f854f0dec3d0c52",
+      "sol_decision":"REVISE_ROSHAN_CONTINUITY_ONLY",
+      "passes":["current hall, correct four side-door order and emblems, red runner and open curtained royal arch remain stable", "four threshold lights extend into four separately colored trails", "the trails turn and converge monotonically toward the royal stair without inventing a closed door or mist barrier", "camera and architectural topology remain fixed"],
+      "fails":["Roshan is present watching in panels one through three but disappears completely in panel four, breaking the required continuous observer and shot identity"],
+      "human_decision":"pending_revision",
+      "targeted_revision":"Preserve the room, doors, emblems, four-light trail progression, convergence, camera and all other pixels. Keep the same rear-view Roshan in panel four at her established runner-side position and scale; do not move her into the trail, stair or portal."
+    },
+    {
+      "path":"storyboards/OWNER_C11_S01_LAYOUT_BOARD_candidate03.png",
+      "sha256":"f6238d6e431ce83cf628e4deebf1e6b2f66dea05b9572686faadc15b7aa777e6",
+      "sol_decision":"USE_AS_DRAFT_NARRATIVE_GUIDANCE_WITH_HOLD_TRACE_CAPTION",
+      "passes":["Roshan now remains continuously visible at the same runner-side position and scale in all four panels", "current hall geometry, correct four-door order and distinct emblems remain stable", "four threshold lights extend into four separately colored floor trails and converge toward the actual open royal arch", "camera, red runner, stair and portal topology remain fixed with no closed leaf, handle or mist barrier"],
+      "fails":["panel four reduces the four colored floor traces to an almost invisible stair-foot glow, while the active end state requires four completed-room traces to remain readable at the stair foot"],
+      "human_decision":"pending",
+      "required_caption":"Narrative order only. In generated motion, hold all four faint but separately colored traces visibly along the floor through the final stair-foot readiness beat; do not collapse them into only a white glow or remove Roshan.",
+      "generation_ready":false,
+      "delivery_accepted":false,
+      "note":"The primary observer-continuity defect is fixed. No further storyboard retry is needed for this minor depiction limitation; the hold-trace requirement remains binding for generated frames."
+    },
+    {
+      "path":"storyboards/OWNER_C13-S05_SUDS_REVEAL_BOARD_ROOT_candidate01.png",
+      "sha256":"27e3fb85d3dc984c0942d489400f380767b4321daa867e35f5cc60e942247594",
+      "sol_decision":"USE_AS_DRAFT_NARRATIVE_GUIDANCE_WITH_SCALE_AND_BLOCKING_CAPTION",
+      "passes":["the elevated camera and owner-restored arena remain coherent with the approved sudsy S05 opening", "all five established company members remain present while the group removes foam together", "Roshan sponge, Daddy's correctly held brush, Eagle wing action and Rumi's visible localized rinse provide readable collective participation", "foam decreases from heavy coverage to a clean intact lavender Grand Puff before the reveal", "tools withdraw before the lower curls part", "one additional cloud-shaped rainbow spiral-ear friend progresses from a partial peek to a happy full reveal without recoloring or replacing Grand Puff"],
+      "fails":["the final rainbow friend is approximately one-quarter of Grand Puff's height rather than the binding maximum of one-sixth / one Puff ankle pearl", "Roshan and Eagle shift materially left between the peek and final tableau rather than holding their established company positions", "some bright upper-curl highlights remain visually foam-like after the clean beat and require unambiguous clean lavender curl shading in generated frames"],
+      "human_decision":"pending",
+      "required_caption":"Narrative order only: all four helpers wash the foam away together; Grand Puff is fully clean and intact before one additional rainbow friend peeks out. Generated motion must keep the friend at or below one Puff ankle pearl / one-sixth Puff height, hold Roshan and Eagle in place through the reveal, and distinguish clean lavender curl highlights from residual suds.",
+      "generation_ready":false,
+      "delivery_accepted":false,
+      "note":"Useful causal and shot-order guidance, not scale, blocking, motion or delivery acceptance. End storyboard retries; correct these constraints in individually reviewed full-frame generation."
+    },
+    {
+      "path":"storyboards/OWNER_C13-S04_SUDS_BOARD_candidate01.png",
+      "sha256":"e88bf980d9a5989ac3d40881c0c46c8fa4e35120a1314500badb98ccc6a11c90",
+      "sol_decision":"RECOMMEND_APPROVAL_WITH_MOTION_QUALIFICATION",
+      "passes":["one fixed wide camera preserves the owner-restored arena and full company in all four panels", "foam grows monotonically from Roshan's small opening sponge patch to broad lather while Puff remains intact and identifiable", "Daddy's continuous mer-tail and corrected two-hand brush orientation remain stable with no boot regression", "Eagle's grounded wingbeat is readable and returns to a settled grounded pose", "final heavy-foam state is compositionally compatible with the approved elevated C13-S05 opening despite the intentional camera change", "no helper disappears and no shell, baby, giant recolor or room cleanup is introduced"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"Rumi's participation is suggested by her sustained upper-right hand aim and nearby bubbles, which is sufficient for narrative-board readability but not proof of the required rinse action. Generated motion must show a thin localized water stream reaching Puff's upper-right body curls, clear of the face and ears. Storyboard recommendation only."
+    }
+  ]
+}

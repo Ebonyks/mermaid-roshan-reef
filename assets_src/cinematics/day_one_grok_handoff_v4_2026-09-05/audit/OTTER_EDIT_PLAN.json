@@ -1,0 +1,22 @@
+{
+  "owner_selection":"Reuse the existing otter master; include the otter beat.",
+  "source":{"path":"C:\\Users\\Peter\\Downloads\\GROK_OTTER_PLANE_MASTER_20260823_V02_REVIEW.mp4","sha256":"67b6c57ab7898a579fed98e7850896cd972c6e21d35ad1171b69adbf992a79b1","frames":994,"fps":24.0,"duration_s":41.416667,"final_frame":993},
+  "retained_chapters":[
+    {"range":"[0,48)","seconds":"0.000-2.000","event":"plane exterior clouds"},
+    {"range":"[48,144)","seconds":"2.000-6.000","event":"Roshan and Daddy cabin travel"},
+    {"range":"[144,300)","seconds":"6.000-12.500","event":"plane over dry Sky Lagoon/alpine castle and approach"},
+    {"range":"[300,372)","seconds":"12.500-15.500","event":"forest path transition"},
+    {"range":"[372,408)","seconds":"15.500-17.000","event":"lakeside path and otter turn"},
+    {"range":"[408,552)","seconds":"17.000-23.000","event":"otter runs to landed plane, boards and rides"},
+    {"range":"[552,733)","seconds":"23.000-30.542","event":"cabin continuation"},
+    {"range":"[733,889)","seconds":"30.542-37.042","event":"cabin exit and dry exterior return"},
+    {"range":"[889,961)","seconds":"37.042-40.042","event":"dry family arrival with otter and castle park"},
+    {"range":"[961,994)","seconds":"40.042-41.417","event":"dry castle bridge/door endpoint"}
+  ],
+  "scene_scan_boundaries":[48,108,144,204,240,300,372,408,553,613,673,733,889,961],
+  "current_timeline":{"D1-C00":{"frames":576,"disposition":"SUPERSEDED_FOR_NEXT_ASSEMBLY_BY_OWNER_SELECTED_OTTER_MASTER"},"D1-C01":{"frames":276,"disposition":"SUPERSEDED_FOR_NEXT_ASSEMBLY_BY_OWNER_SELECTED_OTTER_MASTER"}},
+  "seam":{"from":"source frame 993 dry castle bridge/door arrival","to":"new dry Sky Lagoon castle-arrival authority","do_not_use":"current water-dock C01 arrival"},
+  "recommendation":"KEEP full source [0,994), including the otter, as selected by the owner. Replace the prior C00/C01 edit during the next assembly; runtime playback is unchanged by this handoff revision. This selection is not production-final acceptance.",
+  "runtime_changed":false,
+  "contact_sheet":"C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\02\\01a062b0-5cda-7183-b493-4504ebf1b93e\\downloads_review_20260905\\sheets\\GROK_OTTER_PLANE_MASTER_20260823_V02_REVIEW\\f0000_0994_step48_640_p1.jpg"
+}

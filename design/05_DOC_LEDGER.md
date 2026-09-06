@@ -740,3 +740,60 @@ Kept as-is; noted so a future edit updates every copy.
 | Document | State | Scope |
 |---|---|---|
 | `design/OPERA_TWO_ACT_PERFORMANCES_2026-09-05.md` | 🟣 | Local candidate for the three Opera Hall games only; mechanic and asset review, medal/token policy, pending integration and child/device gates. |
+
+<!-- DAY_ONE_GROK_V4_DOCS_START -->
+## V4 Day One replacement handoff - scoped candidate records
+
+| Doc | | Note |
+|---|---|---|
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/audit/C13_BOSS_DISAPPEARANCE_CORRECTION.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/CURRENT_CAMERA_AND_EVENT_AUTHORITY.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/FIRST_FRAME_APPROVAL.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/generation_prompts/luna_a_first_frames.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/generation_prompts/LUNA_B_C05_C08_prompts.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/generation_records/luna_a_first_frames.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/history/superseded_shots/D1-C01-S02/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/history/superseded_shots/D1-C13-S03/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/LATEST_REVISIONS_FOR_APPROVAL.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/OWNER_REVISION_SUMMARY.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/ARENA_GEOGRAPHY_CONTRACT.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/PROMPT_AND_PROVENANCE.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C01-S04/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C03-S02/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C03-S03/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C03-S04/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C05-S01/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C05-S03/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C06-S05/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C08-S06/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C09-S03/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C10-S05/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C11-S01/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C11-S02/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C11-S03/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C11-S04/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C13-S04/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/shots/D1-C13-S05/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft reshoot packet, human first-frame approval pending; no runtime or delivery authority. |
+<!-- DAY_ONE_GROK_V4_DOCS_END -->
+
+<!-- C14_CLEANUP_DOCS_START -->
+## C14 castle team cleanup — scoped document records
+
+| Document | | Authority note |
+|---|---|---|
+| `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/APPROVAL_GALLERY.md` | 🟣 | `PROPOSED_CANONICAL`; scoped C14 draft; human approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/CINEMATIC_DIRECTION.md` | 🟣 | `PROPOSED_CANONICAL`; scoped C14 draft; human approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped C14 draft; human approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/RUNTIME_SEAM_PLAN.md` | 🟣 | `PROPOSED_CANONICAL`; scoped C14 draft; human approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/audit/DOWNLOADS_REUSE_REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; current supporting audit; not a design or runtime authority. |
+| `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/audit/HALL_LAYOUT_AND_MESS_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; current supporting audit; not a design or runtime authority. |
+| `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/audit/SOL_VISUAL_REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; current supporting audit; not a design or runtime authority. |
+| `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/shots/C14-S01/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped C14 draft; human approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/shots/C14-S02/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped C14 draft; human approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/shots/C14-S03/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped C14 draft; human approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/shots/C14-S04/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped C14 draft; human approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/shots/C14-S05/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped C14 draft; human approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/shots/C14-S06/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped C14 draft; human approval pending; no runtime or delivery authority. |
+| `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/written_guide/IMAGINE_SHOT_CARD_V1.md` | 🟣 | `PROPOSED_CANONICAL`; scoped C14 draft; human approval pending; no runtime or delivery authority. |
+<!-- C14_CLEANUP_DOCS_END -->

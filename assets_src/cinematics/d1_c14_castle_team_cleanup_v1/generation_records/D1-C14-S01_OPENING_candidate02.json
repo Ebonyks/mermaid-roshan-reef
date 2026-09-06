@@ -1,0 +1,59 @@
+{
+  "schema": "c14-builtin-image-record-v1",
+  "output_path": "first_frames/D1-C14-S01_OPENING_candidate02.png",
+  "output_sha256": "3f880ce5b8393e9d7ae49c0b42d72900d4a48c43a66eeb9eb0328d2f93432110",
+  "dimensions": [
+    1672,
+    941
+  ],
+  "native_output_path": "C:/Users/Peter/.codex/generated_images/01a062b0-5cda-7183-b493-4504ebf1b93e/exec-074043b7-4c9b-483c-ae99-34858a4178d8.png",
+  "native_output_sha256": "3f880ce5b8393e9d7ae49c0b42d72900d4a48c43a66eeb9eb0328d2f93432110",
+  "prompt": "Use case: precise-object-edit. IMAGE_1 is the complete full-frame edit target. Preserve its entire room, five-character composition, camera, body poses, facial expressions, dirt locations, four doorway emblems, open Royal arch, floor, lighting and all unmentioned identities. Make only these identity refinements as a complete flattened 16:9 storybook redraw: Roshan's clothing must match IMAGE_2: a plain simple pink top with no ornate neckline, no gold brooch/necklace, no peplum or lavender skirt/frill at waist. Keep her crown, rainbow-streak curly hair and mermaid tail unchanged. Replace the small rainbow bunny's design with IMAGE_3's exact cloud-shaped silhouette: broad scalloped rainbow body, two large curled spiral ears with pearl joints, actual forehead CURL with small iridescent white star, simple round friendly eyes, two front pearl feet. No large yellow star badge, eyelashes borrowed from Eagle, extra arms/legs or tiny conventional rabbit torso. Reduce the complete bunny's current height by one third, keeping its feet at the same floor position beside Eagle; maximum total height is one quarter of Roshan's total visible height, roughly 90 pixels on this 941-high canvas. Keep Daddy's correct two-hand grip and current brush orientation, but match IMAGE_4's purple sculpted handle, gold ferrule and soft cyan-white bristle head. Preserve continuous mermaid tails/no shoes for all three mermaids. No changes to composition, architecture, messes or other characters. Full newly generated frame, no cutout collage, crop, labels, text or watermark.",
+  "prompt_sha256": "c7d1714c20d29fafd75749543bf041ce9330218c9fd0689163a25f1d3c426a4c",
+  "referenced_image_paths": [
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S01_OPENING_candidate01.png",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets/characters/roshan_25d/roshan_base.png",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rainbow_dust_bunny_concept.png",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets/castle/day_one_art_studio/magic_cleaning_brush.png"
+  ],
+  "input_images": [
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S01_OPENING_candidate01.png",
+      "sha256": "5af05fdc73d560d988d81e5913a49b4c7a38f9917ac179cc64be01e076124d2b",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets/characters/roshan_25d/roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rainbow_dust_bunny_concept.png",
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "dimensions": [
+        936,
+        1024
+      ]
+    }
+  ],
+  "attempt": 2,
+  "generation_method": "builtin_image_gen",
+  "human_decision": "pending",
+  "used_as_delivery_pixels": false,
+  "delivery_accepted": false,
+  "review_note": "Roshan blouse and Daddy brush improved; rainbow-bunny identity/size still requires review."
+}

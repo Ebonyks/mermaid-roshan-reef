@@ -1,0 +1,1068 @@
+{
+  "schema": "day-one-v4-shot-design-v1",
+  "status": "DRAFT_PENDING_HUMAN_REVIEW",
+  "source_audit": "audit/ACTIVE_SELECTIONS_HASH_BOUND.json",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "claims": {
+    "archive_complete": false,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "reuse_dispositions": {
+    "C12-S01": {
+      "label": "KEEP",
+      "fact": "same C04-S04 clean-bath endpoint reused"
+    },
+    "C12-S02": {
+      "label": "KEEP",
+      "fact": "clean pool/Rumi recap is retained"
+    },
+    "C12-S04": {
+      "label": "REUSE_C10-S04_PROVISIONAL",
+      "fact": "same rough Art Room desk-glow footage reused; inherits C10 room weakness"
+    },
+    "C12-S06": {
+      "label": "KEEP",
+      "fact": "family hug retained pending identity review"
+    },
+    "C00-C01": {
+      "label": "OWNER_SELECTED_FULL_MASTER_REUSE",
+      "source": "GROK_OTTER_PLANE_MASTER_20260823_V02_REVIEW.mp4",
+      "sha256": "67b6c57ab7898a579fed98e7850896cd972c6e21d35ad1171b69adbf992a79b1",
+      "range": [
+        0,
+        994
+      ],
+      "fact": "Full otter opening replaces the prior fragmented C00/C01 opening selection; runtime edit is not claimed here."
+    }
+  },
+  "shots": [
+    {
+      "shot": "C01-S04",
+      "title": "closed-door arrival",
+      "reason": "owner-requested dry Sky Lagoon castle arrival after the full otter opening; replaces rejected underwater old-gate staging",
+      "original_source": null,
+      "original_range": null,
+      "duration_s": 3,
+      "camera": "locked",
+      "game_references": [
+        "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+        "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/normalized/sky_lagoon_panorama_1536.png",
+        "scripts/arena/sky_lagoon_layout.json",
+        "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/scenes/D1-C01/visuals/handoff_art/characters/daddy_daddy_master.png",
+        "assets/characters/roshan_25d/roshan_base.png"
+      ],
+      "seam": "follows owner-selected full otter opening; ends on the dry stone landing before the closed four-tower castle door",
+      "phases": [
+        {
+          "range": [
+            0,
+            18
+          ],
+          "instruction": "Daddy and Roshan, already holding hands, make one short approach over the dry bridge and foreground stone landing.",
+          "state": "action"
+        },
+        {
+          "range": [
+            18,
+            36
+          ],
+          "instruction": "Their joined hands remain stable as they ease to a stop before the closed red double door.",
+          "state": "action"
+        },
+        {
+          "range": [
+            36,
+            54
+          ],
+          "instruction": "They look up at the four-tower castle and Roshan stained glass; neither reaches for a handle.",
+          "state": "action"
+        },
+        {
+          "range": [
+            54,
+            72
+          ],
+          "instruction": "Hold the dry closed-door arrival tableau.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Current four-tower castle, central Roshan stained glass, wooden bridge and closed red double door stay fixed.",
+        "Bright Sky Lagoon sky, mountains, meadow vegetation and foreground stone landing remain dry; no moat, stream, seabed or underwater light.",
+        "Exactly Daddy and child Roshan with joined but separately readable hands; no Rumi, door opening, handle contact, legs or extra cast."
+      ],
+      "end_state": "Daddy and child Roshan pause hand-in-hand on the dry landing before the closed four-tower castle doors.",
+      "sound": "open-sky breeze, meadow ambience and two soft tail swishes; no voice",
+      "prompt": "locked camera on the approved first-frame layout. 0.00–0.75s: Daddy and Roshan, already holding hands, make one short approach over the dry bridge and foreground stone landing. 0.75–1.50s: Their joined hands remain stable as they ease to a stop before the closed red double door. 1.50–2.25s: They look up at the four-tower castle and Roshan stained glass; neither reaches for a handle. 2.25–3.00s: Hold the dry closed-door arrival tableau. Keep room geometry and bound identities fixed. Current four-tower castle, central Roshan stained glass, wooden bridge and closed red double door stay fixed. Bright Sky Lagoon sky, mountains, meadow vegetation and foreground stone landing remain dry; no moat, stream, seabed or underwater light. Exactly Daddy and child Roshan with joined but separately readable hands; no Rumi, door opening, handle contact, legs or extra cast. No HUD, text, morphing or camera drift. End: Daddy and child Roshan pause hand-in-hand on the dry landing before the closed four-tower castle doors.\nSound: open-sky breeze, meadow ambience and two soft tail swishes; no voices",
+      "weak_source_frames": [],
+      "inspected_frames": [],
+      "evidence_precision": "Missing/proposed coverage; no existing source frames judged weak."
+    },
+    {
+      "shot": "C03-S02",
+      "title": "bathroom threshold entry",
+      "reason": "missing canonical threshold crossing",
+      "original_source": null,
+      "original_range": null,
+      "duration_s": 3,
+      "camera": "locked",
+      "game_references": [
+        "assets/flats/castle/rooms/room_main_hall.png",
+        "assets/flats/castle/rooms/room_bubble_bath.png",
+        "assets/characters/roshan_25d/roshan_base.png"
+      ],
+      "seam": "follows C02 bathroom-glow motivation; ends before bunny discovery",
+      "phases": [
+        {
+          "range": [
+            0,
+            18
+          ],
+          "instruction": "Roshan alone pauses at the dirty bathroom threshold, looking inward.",
+          "state": "action"
+        },
+        {
+          "range": [
+            18,
+            36
+          ],
+          "instruction": "She makes one short forward glide across the existing threshold, tail following continuously.",
+          "state": "action"
+        },
+        {
+          "range": [
+            36,
+            54
+          ],
+          "instruction": "She stops inside, facing the dirty tub and sink; no cleanup begins.",
+          "state": "action"
+        },
+        {
+          "range": [
+            54,
+            72
+          ],
+          "instruction": "Hold her settled entry position before the bunny discovery cut.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Dirty tub, sink, mirror and exact doorway axis are fixed.",
+        "One child mermaid with continuous tail, no Daddy, Rumi or bunny in this shot.",
+        "No clean water, tool pickup, door movement, new room or HUD."
+      ],
+      "end_state": "Roshan alone is just inside the dirty bathroom, facing the unchanged fixtures.",
+      "sound": "hall room tone transitions to soft bathroom bubbles; no voice",
+      "prompt": "locked camera on the first-frame layout in IMAGE_1. 0.00–0.75s: Roshan alone pauses at the dirty bathroom threshold, looking inward. 0.75–1.50s: She makes one short forward glide across the existing threshold, tail following continuously. 1.50–2.25s: She stops inside, facing the dirty tub and sink; no cleanup begins. 2.25–3.00s: Hold her settled entry position before the bunny discovery cut. keep room geometry and bound identities fixed. Dirty tub, sink, mirror and exact doorway axis are fixed. One child mermaid with continuous tail, no Daddy, Rumi or bunny in this shot. No clean water, tool pickup, door movement, new room or HUD. no HUD, text, morphing or camera drift. end: Roshan alone is just inside the dirty bathroom, facing the unchanged fixtures.\nSound: hall room tone transitions to soft bathroom bubbles; no voices.",
+      "weak_source_frames": [],
+      "inspected_frames": [],
+      "evidence_precision": "Missing/proposed coverage; no existing source frames judged weak."
+    },
+    {
+      "shot": "C03-S03",
+      "title": "swimming bunny reveal",
+      "reason": "replace unstable bunny/tub scale while preserving discovery event",
+      "original_source": "C03_bunny_discover.mp4",
+      "original_range": [
+        12,
+        84
+      ],
+      "duration_s": 3,
+      "camera": "locked",
+      "game_references": [
+        "assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
+        "assets/characters/roshan_25d/roshan_base.png"
+      ],
+      "seam": "follows threshold entry; ends before basket/tool reach",
+      "phases": [
+        {
+          "range": [
+            0,
+            18
+          ],
+          "instruction": "One small purple swimming bunny is separately visible in shallow murky tub water; Roshan watches without reaching in.",
+          "state": "action"
+        },
+        {
+          "range": [
+            18,
+            36
+          ],
+          "instruction": "The bunny paddles one short gentle arc, staying the same size and clear of the tub rim.",
+          "state": "action"
+        },
+        {
+          "range": [
+            36,
+            54
+          ],
+          "instruction": "Roshan tracks it with her eyes and a small head tilt; hands remain outside the water.",
+          "state": "action"
+        },
+        {
+          "range": [
+            54,
+            72
+          ],
+          "instruction": "Hold the discovery with one intact bunny and dirty tub still clearly readable.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Exactly one bunny, no mound becoming a character or second bunny.",
+        "Dirty tub, shallow murky water, sink and mirror do not clean or change scale.",
+        "No tool, pickup, reaching contact, adult or camera move."
+      ],
+      "end_state": "One small swimming bunny remains in the murky tub while Roshan watches, ready to help.",
+      "sound": "small water ripples and bubbles; no voice",
+      "prompt": "locked camera on the first-frame layout in IMAGE_1. 0.00–0.75s: One small purple swimming bunny is separately visible in shallow murky tub water; Roshan watches without reaching in. 0.75–1.50s: The bunny paddles one short gentle arc, staying the same size and clear of the tub rim. 1.50–2.25s: Roshan tracks it with her eyes and a small head tilt; hands remain outside the water. 2.25–3.00s: Hold the discovery with one intact bunny and dirty tub still clearly readable. keep room geometry and bound identities fixed. Exactly one bunny, no mound becoming a character or second bunny. Dirty tub, shallow murky water, sink and mirror do not clean or change scale. No tool, pickup, reaching contact, adult or camera move. no HUD, text, morphing or camera drift. end: One small swimming bunny remains in the murky tub while Roshan watches, ready to help.\nSound: small water ripples and bubbles; no voices.",
+      "weak_source_frames": [
+        [
+          12,
+          84
+        ]
+      ],
+      "inspected_frames": [
+        12,
+        24,
+        36,
+        48,
+        60,
+        72,
+        83
+      ],
+      "evidence_precision": "Failed selected span based on sampled visual audit; individual inspected frames only listed when documented. No assertion every source frame was inspected."
+    },
+    {
+      "shot": "C03-S04",
+      "title": "basket tool precontact",
+      "reason": "replace hand/tool scale instability; this is precontact only",
+      "original_source": "C03_S04_v1_tool_reach.mp4",
+      "original_range": [
+        24,
+        96
+      ],
+      "duration_s": 3,
+      "camera": "locked",
+      "game_references": [
+        "assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
+        "assets/castle/day_one_pool/activities/cleanup_basket.png",
+        "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+        "assets/characters/roshan_25d/roshan_base.png"
+      ],
+      "seam": "follows bunny discovery; ends before game-owned pickup",
+      "phases": [
+        {
+          "range": [
+            0,
+            18
+          ],
+          "instruction": "Roshan faces the fixed cleanup basket; its pink sponge is still inside and her reaching hand has a visible gap.",
+          "state": "action"
+        },
+        {
+          "range": [
+            18,
+            36
+          ],
+          "instruction": "She makes one small forward glide and upper-body lean toward the fixed basket, bringing her reaching hand nearer without stretching the arm; the other hand remains near her chest.",
+          "state": "action"
+        },
+        {
+          "range": [
+            36,
+            54
+          ],
+          "instruction": "Her fingertip stops visibly short of the sponge; no touch, pickup or movement of basket contents.",
+          "state": "action"
+        },
+        {
+          "range": [
+            54,
+            72
+          ],
+          "instruction": "Hold the deliberate precontact gap, ready for the game-owned tool pickup.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Same dirty bathroom and fixed basket location beside the sink.",
+        "Exactly one approved pink tool_star_sponge; one reaching arm and one quiet arm.",
+        "No contact, pickup, clean-room transformation, star cushion, exclamation graphic or extra cast."
+      ],
+      "end_state": "Roshan's fingertip is visibly short of the pink sponge inside the fixed basket.",
+      "sound": "bathroom room tone and light basket rattle; no voice",
+      "prompt": "locked camera on the first-frame layout in IMAGE_1. 0.00–0.75s: Roshan faces the fixed cleanup basket; its pink sponge is still inside and her reaching hand has a visible gap. 0.75–1.50s: She makes one small forward glide and upper-body lean toward the fixed basket, bringing her reaching hand nearer without stretching the arm; the other hand remains near her chest. 1.50–2.25s: Her fingertip stops visibly short of the sponge; no touch, pickup or movement of basket contents. 2.25–3.00s: Hold the deliberate precontact gap, ready for the game-owned tool pickup. keep room geometry and bound identities fixed. Same dirty bathroom and fixed basket location beside the sink. Exactly one approved pink tool_star_sponge; one reaching arm and one quiet arm. No contact, pickup, clean-room transformation, star cushion, exclamation graphic or extra cast. no HUD, text, morphing or camera drift. end: Roshan's fingertip is visibly short of the pink sponge inside the fixed basket.\nSound: bathroom room tone and light basket rattle; no voices.",
+      "weak_source_frames": [
+        [
+          24,
+          96
+        ]
+      ],
+      "inspected_frames": [
+        24,
+        36,
+        48,
+        60,
+        72,
+        84,
+        95
+      ],
+      "evidence_precision": "Failed selected span based on sampled visual audit; individual inspected frames only listed when documented. No assertion every source frame was inspected."
+    },
+    {
+      "shot": "C05-S01",
+      "title": "dirty pool entry",
+      "reason": "selected entry already shows bright flowing waterfall, wrong dirty-state cause",
+      "original_source": "C05_S01_v1_pool_entry.mp4",
+      "original_range": [
+        12,
+        84
+      ],
+      "duration_s": 4,
+      "camera": "locked",
+      "game_references": [
+        "assets/castle/day_one_pool/waterfall_clogged_turgid.png",
+        "assets/castle/day_one_pool/seahorse_sick.png",
+        "assets/flats/castle/rooms/room_mermaid_pool.png"
+      ],
+      "seam": "follows bathroom exit and establishes dirty pool before skimmer",
+      "phases": [
+        {
+          "range": [
+            0,
+            24
+          ],
+          "instruction": "Roshan is paused in the doorway; the whole low dirty pool, sick plugged seahorse and clogged waterfall are already visible.",
+          "state": "action"
+        },
+        {
+          "range": [
+            24,
+            48
+          ],
+          "instruction": "She slowly turns her head from the stopped waterfall toward the sick seahorse.",
+          "state": "action"
+        },
+        {
+          "range": [
+            48,
+            78
+          ],
+          "instruction": "She settles her gaze between the two blocked causes; only faint murky surface ripples move.",
+          "state": "action"
+        },
+        {
+          "range": [
+            78,
+            96
+          ],
+          "instruction": "Hold the wide problem-state map before the skimmer insert.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Waterfall stays clogged and stopped; seahorse nozzle remains plugged.",
+        "Pool, doorway, seahorse and waterfall positions, scale and water level stay fixed.",
+        "No clean stream, premature rainbow flow, progress award or extra cast."
+      ],
+      "end_state": "Both blocked causes remain visible above the same dirty pool, with Roshan watching from the doorway.",
+      "sound": "muffled pool water, drain gurgle, blocked waterfall rumble; no voice",
+      "prompt": "locked camera on the first-frame layout in IMAGE_1. 0.00–1.00s: Roshan is paused in the doorway; the whole low dirty pool, sick plugged seahorse and clogged waterfall are already visible. 1.00–2.00s: She slowly turns her head from the stopped waterfall toward the sick seahorse. 2.00–3.25s: She settles her gaze between the two blocked causes; only faint murky surface ripples move. 3.25–4.00s: Hold the wide problem-state map before the skimmer insert. keep room geometry and bound identities fixed. Waterfall stays clogged and stopped; seahorse nozzle remains plugged. Pool, doorway, seahorse and waterfall positions, scale and water level stay fixed. No clean stream, premature rainbow flow, progress award or extra cast. no HUD, text, morphing or camera drift. end: Both blocked causes remain visible above the same dirty pool, with Roshan watching from the doorway.\nSound: muffled pool water, drain gurgle, blocked waterfall rumble; no voices.",
+      "weak_source_frames": [
+        [
+          12,
+          84
+        ]
+      ],
+      "inspected_frames": [],
+      "evidence_precision": "Failed selected span based on sampled visual audit; individual inspected frames only listed when documented. No assertion every source frame was inspected."
+    },
+    {
+      "shot": "C05-S03",
+      "title": "weighted skimmer contact",
+      "reason": "selected skimmer reads as plant material and waterfall flows prematurely",
+      "original_source": "C05_S03_v1_skimmer.mp4",
+      "original_range": [
+        24,
+        96
+      ],
+      "duration_s": 4,
+      "camera": "locked",
+      "game_references": [
+        "assets/castle/day_one_pool/activities/pool_skimmer.png",
+        "assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+        "assets/castle/day_one_pool/pool_algae_trash.png",
+        "assets/flats/castle/rooms/room_mermaid_pool.png"
+      ],
+      "seam": "follows dirty pool map; ends before later plug intervention",
+      "phases": [
+        {
+          "range": [
+            0,
+            24
+          ],
+          "instruction": "The same clump of wrappers, leaves and algae is already captured and sagging inside Roshan's net at the dirty waterline.",
+          "state": "action"
+        },
+        {
+          "range": [
+            24,
+            48
+          ],
+          "instruction": "She steadies and lifts that same loaded mesh slowly; the captured debris keeps its weight and does not multiply.",
+          "state": "action"
+        },
+        {
+          "range": [
+            48,
+            78
+          ],
+          "instruction": "The same load clears the surface; droplets fall back into still-dirty water, with no second capture.",
+          "state": "action"
+        },
+        {
+          "range": [
+            78,
+            96
+          ],
+          "instruction": "Hold the loaded skimmer with readable weight and contact; cleanup is not complete.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Approved net mesh and handle retain shape; hands stay on the handle.",
+        "Only wrappers, leaves and algae in the mesh; no live animal, face, eyes or fins.",
+        "Waterfall remains clogged and stopped; no global purification or new stream."
+      ],
+      "end_state": "Roshan holds the weighted debris in the skimmer above the still-dirty water.",
+      "sound": "wooden skimmer dip, wet debris drag, clogged-water rumble; no voice",
+      "prompt": "locked camera on the first-frame layout in IMAGE_1. 0.00–1.00s: The same clump of wrappers, leaves and algae is already captured and sagging inside Roshan's net at the dirty waterline. 1.00–2.00s: She steadies and lifts that same loaded mesh slowly; the captured debris keeps its weight and does not multiply. 2.00–3.25s: The same load clears the surface; droplets fall back into still-dirty water, with no second capture. 3.25–4.00s: Hold the loaded skimmer with readable weight and contact; cleanup is not complete. keep room geometry and bound identities fixed. Approved net mesh and handle retain shape; hands stay on the handle. Only wrappers, leaves and algae in the mesh; no live animal, face, eyes or fins. Waterfall remains clogged and stopped; no global purification or new stream. no HUD, text, morphing or camera drift. end: Roshan holds the weighted debris in the skimmer above the still-dirty water.\nSound: wooden skimmer dip, wet debris drag, clogged-water rumble; no voices.",
+      "weak_source_frames": [
+        [
+          24,
+          96
+        ]
+      ],
+      "inspected_frames": [],
+      "evidence_precision": "Failed selected span based on sampled visual audit; individual inspected frames only listed when documented. No assertion every source frame was inspected."
+    },
+    {
+      "shot": "C06-S05",
+      "title": "two clean fronts converge",
+      "reason": "missing beat after both activated sources enter the same pool; shared pool S04 then fronts converge S05",
+      "original_source": null,
+      "original_range": null,
+      "duration_s": 5,
+      "camera": "locked",
+      "game_references": [
+        "assets/flats/castle/rooms/room_mermaid_pool.png",
+        "assets/flats/castle/interactions/mermaid_pool_waterfall_atlas.png",
+        "assets/flats/castle/interactions/mermaid_pool_seahorse_fountain_atlas.png"
+      ],
+      "seam": "follows C06-S02/S04 source activation; ends before Rumi emergence",
+      "phases": [
+        {
+          "range": [
+            0,
+            30
+          ],
+          "instruction": "Both the waterfall and seahorse streams are already active and visibly enter the same giant pool; Roshan watches.",
+          "state": "action"
+        },
+        {
+          "range": [
+            30,
+            60
+          ],
+          "instruction": "Two distinct clean surface fronts advance inward from those two source entry points.",
+          "state": "action"
+        },
+        {
+          "range": [
+            60,
+            102
+          ],
+          "instruction": "The two fronts meet once on the surface; the remaining murky band clears without a third source.",
+          "state": "action"
+        },
+        {
+          "range": [
+            102,
+            120
+          ],
+          "instruction": "Hold the unified clean surface with both streams still active, before Rumi emerges in the following shot.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "One giant pool, exactly two independent source flows, fixed seahorse and waterfall.",
+        "No activation/restart repeated here; the earlier kept inserts already did that.",
+        "No Rumi, extra character, water dome, giant beam, new outlet or camera movement."
+      ],
+      "end_state": "Two active sources feed one restored pool and their surface fronts have joined.",
+      "sound": "two water streams swell, meet with a soft bright splash; no voice",
+      "prompt": "locked camera on the first-frame layout in IMAGE_1. 0.00–1.25s: Both the waterfall and seahorse streams are already active and visibly enter the same giant pool; Roshan watches. 1.25–2.50s: Two distinct clean surface fronts advance inward from those two source entry points. 2.50–4.25s: The two fronts meet once on the surface; the remaining murky band clears without a third source. 4.25–5.00s: Hold the unified clean surface with both streams still active, before Rumi emerges in the following shot. keep room geometry and bound identities fixed. One giant pool, exactly two independent source flows, fixed seahorse and waterfall. No activation/restart repeated here; the earlier kept inserts already did that. No Rumi, extra character, water dome, giant beam, new outlet or camera movement. no HUD, text, morphing or camera drift. end: Two active sources feed one restored pool and their surface fronts have joined.\nSound: two water streams swell, meet with a soft bright splash; no voices.",
+      "weak_source_frames": [],
+      "inspected_frames": [],
+      "evidence_precision": "Missing/proposed coverage; no existing source frames judged weak."
+    },
+    {
+      "shot": "C08-S06",
+      "title": "post-rescue celebratory wingbeat",
+      "reason": "replace only if a clearer post-two-pin recovery is needed; current source is post-completion and cannot claim basket causality",
+      "original_source": "grok-218500df-7547-4c84-a703-c8a0b8a954b7-720p.mp4",
+      "original_range": [
+        24,
+        180
+      ],
+      "duration_s": 5,
+      "camera": "locked",
+      "game_references": [
+        "assets/book/baby_eagle.png",
+        "assets/sprites/dust_bunnies/dust_bunny_idle.png",
+        "assets/flats/castle/rooms/room_playroom.png"
+      ],
+      "seam": "follows completed two-pin rescue; ends as payoff before later recap",
+      "phases": [
+        {
+          "range": [
+            0,
+            30
+          ],
+          "instruction": "One recovered Baby Eagle is grounded with relaxed wings; Roshan watches nearby in the already-clean Stuffie Room.",
+          "state": "action"
+        },
+        {
+          "range": [
+            30,
+            60
+          ],
+          "instruction": "Eagle opens both wings in one safe, broad celebratory wingbeat; feet remain grounded.",
+          "state": "action"
+        },
+        {
+          "range": [
+            60,
+            102
+          ],
+          "instruction": "Wings fold back to the same resting silhouette while Roshan gives a small pleased reaction.",
+          "state": "action"
+        },
+        {
+          "range": [
+            102,
+            120
+          ],
+          "instruction": "Hold the calm post-rescue pose; the game has already freed both pins.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Exactly Eagle and Roshan, zero visible bunnies or Puff in this framing.",
+        "Actual shell bench, toy bins, tents and arcade geography stay fixed.",
+        "No repeat rescue, dust blast, new cleanup, basket, four-bunny event or progress award."
+      ],
+      "end_state": "One recovered Eagle stands with folded wings beside Roshan in the clean Stuffie Room.",
+      "sound": "one wing whoosh, soft dust sparkle, room tone; no voice",
+      "prompt": "locked camera on the first-frame layout in IMAGE_1. 0.00–1.25s: One recovered Baby Eagle is grounded with relaxed wings; Roshan watches nearby in the already-clean Stuffie Room. 1.25–2.50s: Eagle opens both wings in one safe, broad celebratory wingbeat; feet remain grounded. 2.50–4.25s: Wings fold back to the same resting silhouette while Roshan gives a small pleased reaction. 4.25–5.00s: Hold the calm post-rescue pose; the game has already freed both pins. keep room geometry and bound identities fixed. Exactly Eagle and Roshan, zero visible bunnies or Puff in this framing. Actual shell bench, toy bins, tents and arcade geography stay fixed. No repeat rescue, dust blast, new cleanup, basket, four-bunny event or progress award. no HUD, text, morphing or camera drift. end: One recovered Eagle stands with folded wings beside Roshan in the clean Stuffie Room.\nSound: one soft wing whoosh and toy-room ambience; no dust blast or voices.",
+      "weak_source_frames": [
+        [
+          24,
+          180
+        ]
+      ],
+      "inspected_frames": [],
+      "evidence_precision": "Failed selected span based on sampled visual audit; individual inspected frames only listed when documented. No assertion every source frame was inspected."
+    },
+    {
+      "shot": "C09-S03",
+      "title": "four supplies in real Art Room",
+      "reason": "owner-requested depth view of exactly four pre-collection supplies in the implemented Art Room",
+      "original_source": "C09_S03_four_supplies.mp4",
+      "original_range": [
+        24,
+        72
+      ],
+      "duration_s": 4,
+      "camera": "locked elevated front-left three-quarter",
+      "game_references": [
+        "assets/flats/castle/rooms/room_craft_room.png",
+        "assets/castle/day_one_art_studio/paint_bottle_pink.png",
+        "assets/castle/day_one_art_studio/paint_bottle_blue.png",
+        "assets/castle/day_one_art_studio/loose_brush_bundle.png",
+        "assets/castle/day_one_art_studio/paint_cups.png"
+      ],
+      "seam": "follows C09-S02 scan; ends before grime-target discovery",
+      "phases": [
+        {
+          "range": [
+            0,
+            24
+          ],
+          "instruction": "Intentional inspection hold: show all four loose supply groups, separated in their authored floor positions.",
+          "state": "hold"
+        },
+        {
+          "range": [
+            24,
+            48
+          ],
+          "instruction": "Continue the inspection hold with one three-brush bundle, one pink bottle, one blue bottle and one connected three-cup group.",
+          "state": "hold"
+        },
+        {
+          "range": [
+            48,
+            78
+          ],
+          "instruction": "Keep those same four groups still and countable; do not collect, duplicate or relocate them.",
+          "state": "hold"
+        },
+        {
+          "range": [
+            78,
+            96
+          ],
+          "instruction": "Hold the same full room and four supplies for the cut back to Roshan.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Elevated front-left diagonal: left counter near, four floor groups in middle depth, small rectangular center desk behind, centered idea board and storage far.",
+        "Both shell windows, both inboard pearl columns, chandelier, idea board and both separate curved counters remain identifiable without covering a floor target.",
+        "Exactly four loose groups: one three-brush bundle, one pink bottle, one blue bottle and one connected three-cup group; no character, grime, collection, UI or camera motion."
+      ],
+      "end_state": "Exactly four loose supply groups remain in their original locations; no grime is active yet.",
+      "sound": "quiet craft-room ambience and small object taps; no voice",
+      "prompt": "locked camera on the approved first-frame layout. 0.00–1.00s: Intentional inspection hold: show all four loose supply groups, separated in their authored floor positions. 1.00–2.00s: Continue the inspection hold with one three-brush bundle, one pink bottle, one blue bottle and one connected three-cup group. 2.00–3.25s: Keep those same four groups still and countable; do not collect, duplicate or relocate them. 3.25–4.00s: Hold the same full room and four supplies for the cut back to Roshan. Keep room geometry and bound identities fixed. Elevated front-left diagonal: left counter near, four floor groups in middle depth, small rectangular center desk behind, centered idea board and storage far. Both shell windows, both inboard pearl columns, chandelier, idea board and both separate curved counters remain identifiable without covering a floor target. Exactly four loose groups: one three-brush bundle, one pink bottle, one blue bottle and one connected three-cup group; no character, grime, collection, UI or camera motion. No HUD, text, morphing or camera drift. End: Exactly four loose supply groups remain in their original locations; no grime is active yet.\nSound: quiet Art Room ambience only; no taps and no voices",
+      "weak_source_frames": [
+        [
+          24,
+          72
+        ]
+      ],
+      "inspected_frames": [],
+      "evidence_precision": "Failed selected span based on sampled visual audit; individual inspected frames only listed when documented. No assertion every source frame was inspected."
+    },
+    {
+      "shot": "C10-S05",
+      "title": "desk handgap",
+      "reason": "owner-requested opposite low-depth desk approach after collection and cleaning",
+      "original_source": "C10_S05_v1_blank_desk_handgap_REGEN.mp4",
+      "original_range": [
+        24,
+        72
+      ],
+      "duration_s": 3,
+      "camera": "locked child-eye front-right aisle three-quarter",
+      "game_references": [
+        "assets/flats/castle/rooms/room_craft_room.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/flats/castle/interactions_v2/main_hall_tapestry_sheet.png"
+      ],
+      "seam": "follows clean Art Room reveal; ends before desk interaction resolves",
+      "phases": [
+        {
+          "range": [
+            0,
+            18
+          ],
+          "instruction": "Roshan faces the blank desk from viewer-right and gently separates only her near hand from the readable chest-level clasp; the far hand stays quiet at her chest.",
+          "state": "action"
+        },
+        {
+          "range": [
+            18,
+            36
+          ],
+          "instruction": "She makes a small forward body lean while raising only the separated near hand toward the blank mat.",
+          "state": "action"
+        },
+        {
+          "range": [
+            36,
+            54
+          ],
+          "instruction": "Her fingertip stops with a clear band of visible background before the near mat edge; no touch or desk response occurs.",
+          "state": "action"
+        },
+        {
+          "range": [
+            54,
+            72
+          ],
+          "instruction": "Hold the stable no-contact gap for the game-owned desk interaction.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Low front-right aisle view stays distinct from C09: right curved counter near-frame, Roshan between it and the small rectangular center desk, idea board and storage behind.",
+        "Post-collection clean state: blank mat, no loose floor supplies, grime, tool, pointer, rune, drawing or UI.",
+        "Far hand remains at chest after separation; near hand never contacts the far hand, counter, desk or mat; Roshan identity, tail and scale stay fixed."
+      ],
+      "end_state": "Roshan holds one near fingertip visibly short of the blank mat while her far hand remains at her chest.",
+      "sound": "quiet room tone and soft cloth rustle; no voice",
+      "prompt": "locked camera on the approved first-frame layout. 0.00–0.75s: Roshan faces the blank desk from viewer-right and gently separates only her near hand from the readable chest-level clasp; the far hand stays quiet at her chest. 0.75–1.50s: She makes a small forward body lean while raising only the separated near hand toward the blank mat. 1.50–2.25s: Her fingertip stops with a clear band of visible background before the near mat edge; no touch or desk response occurs. 2.25–3.00s: Hold the stable no-contact gap for the game-owned desk interaction. Keep room geometry and bound identities fixed. Low front-right aisle view stays distinct from C09: right curved counter near-frame, Roshan between it and the small rectangular center desk, idea board and storage behind. Post-collection clean state: blank mat, no loose floor supplies, grime, tool, pointer, rune, drawing or UI. Far hand remains at chest after separation; near hand never contacts the far hand, counter, desk or mat; Roshan identity, tail and scale stay fixed. No HUD, text, morphing or camera drift. End: Roshan holds one near fingertip visibly short of the blank mat while her far hand remains at her chest.\nSound: quiet room tone and soft cloth rustle; no voices",
+      "weak_source_frames": [
+        [
+          24,
+          72
+        ]
+      ],
+      "inspected_frames": [],
+      "evidence_precision": "Failed selected span based on sampled visual audit; individual inspected frames only listed when documented. No assertion every source frame was inspected."
+    },
+    {
+      "shot": "C11-S01",
+      "title": "four trails to royal portal",
+      "reason": "selected trails use invented hall/door; must converge on actual far-right royal portal",
+      "original_source": "C11_S01_route_lights.mp4",
+      "original_range": [
+        12,
+        84
+      ],
+      "duration_s": 4,
+      "camera": "locked",
+      "game_references": [
+        "assets/flats/castle/main_hall_2screen/main_hall_screen_b_room_led_master.png",
+        "assets/flats/castle/main_hall_2screen/castle_shell_sconce_assembly.png",
+        "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png"
+      ],
+      "seam": "follows C10 completion; ends at portal approach before KEEP S02",
+      "phases": [
+        {
+          "range": [
+            0,
+            24
+          ],
+          "instruction": "Four small lights are already at the four completed-room floor thresholds; Roshan watches near the pearl doorway.",
+          "state": "action"
+        },
+        {
+          "range": [
+            24,
+            48
+          ],
+          "instruction": "They extend as four distinct narrow floor trails onto the red runner, each turning right.",
+          "state": "action"
+        },
+        {
+          "range": [
+            48,
+            78
+          ],
+          "instruction": "All four trails travel along the runner to the foot of the far-right rainbow shell portal stairs.",
+          "state": "action"
+        },
+        {
+          "range": [
+            78,
+            96
+          ],
+          "instruction": "Hold their small combined glow at that stair foot; the real royal portal remains closed.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Teddy, palette, droplet and pearl doorway order; exact right-half Hall geometry and red runner.",
+        "Royal portal stays at the far right, not a new central purple door.",
+        "Only Roshan; no airborne ribbons, sweeping overhead beams, extra doors or camera move."
+      ],
+      "end_state": "Four completed-room trails end at the foot of the real far-right royal portal stairs.",
+      "sound": "four soft chimes resolving rightward; no voice",
+      "prompt": "locked camera on the first-frame layout in IMAGE_1. 0.00–1.00s: Four small lights are already at the four completed-room floor thresholds; Roshan watches near the pearl doorway. 1.00–2.00s: They extend as four distinct narrow floor trails onto the red runner, each turning right. 2.00–3.25s: All four trails travel along the runner to the foot of the far-right rainbow shell portal stairs. 3.25–4.00s: Hold their small combined glow at that stair foot; the real royal portal remains closed. keep room geometry and bound identities fixed. Teddy, palette, droplet and pearl doorway order; exact right-half Hall geometry and red runner. Royal portal stays at the far right, not a new central purple door. Only Roshan; no airborne ribbons, sweeping overhead beams, extra doors or camera move. no HUD, text, morphing or camera drift. end: Four completed-room trails end at the foot of the real far-right royal portal stairs.\nSound: four soft chimes resolving rightward; no voices.",
+      "weak_source_frames": [
+        [
+          12,
+          84
+        ]
+      ],
+      "inspected_frames": [],
+      "evidence_precision": "Failed selected span based on sampled visual audit; individual inspected frames only listed when documented. No assertion every source frame was inspected."
+    },
+    {
+      "shot": "C11-S03",
+      "title": "empty dusty arena inspection",
+      "reason": "current selected door-opening clip exposes the superseded arena; regenerate an empty first look into the owner-restored dusty room",
+      "original_source": "C11_S03_v1_door_open_arena_REGEN.mp4",
+      "original_range": [
+        24,
+        96
+      ],
+      "duration_s": 3,
+      "camera": "locked",
+      "game_references": [
+        "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/dusty_attic_arena_native_1254.png",
+        "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/dusty_attic_arena_2048.png"
+      ],
+      "seam": "follows the Main Hall royal-portal approach cut and looks from just inside the entrance; precedes Grand Puff landing",
+      "phases": [
+        {
+          "range": [
+            0,
+            18
+          ],
+          "instruction": "Hold an empty view from just inside the entrance into the dusty octagonal room; no door leaf is visible.",
+          "state": "hold"
+        },
+        {
+          "range": [
+            18,
+            36
+          ],
+          "instruction": "Continue the quiet inspection; only faint suspended dust motes move.",
+          "state": "hold"
+        },
+        {
+          "range": [
+            36,
+            54
+          ],
+          "instruction": "Keep the empty octagon, chests, windows, columns and chandelier fixed and readable.",
+          "state": "hold"
+        },
+        {
+          "range": [
+            54,
+            72
+          ],
+          "instruction": "Hold the same empty landing space for the Grand Puff cut.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Owner-restored pastel stone room with octagonal floor inset, two side shell windows, two pearl columns, centered chandelier, rear chests/shelves, cobwebs and lavender dust piles.",
+        "View is already just inside the entrance; no opening door leaf, invented rear entrance, wood floor, pearl rail arena or character.",
+        "Intentional three-second inspection hold; no camera move, cleanup or progress event."
+      ],
+      "end_state": "The owner-restored dusty arena remains empty and stable, ready for Grand Puff to enter.",
+      "sound": "faint dusty room tone and one soft mote shimmer; no voice",
+      "prompt": "locked camera on the approved first-frame layout. 0.00–0.75s: Hold an empty view from just inside the entrance into the dusty octagonal room; no door leaf is visible. 0.75–1.50s: Continue the quiet inspection; only faint suspended dust motes move. 1.50–2.25s: Keep the empty octagon, chests, windows, columns and chandelier fixed and readable. 2.25–3.00s: Hold the same empty landing space for the Grand Puff cut. Keep room geometry and bound identities fixed. Owner-restored pastel stone room with octagonal floor inset, two side shell windows, two pearl columns, centered chandelier, rear chests/shelves, cobwebs and lavender dust piles. View is already just inside the entrance; no opening door leaf, invented rear entrance, wood floor, pearl rail arena or character. Intentional three-second inspection hold; no camera move, cleanup or progress event. No HUD, text, morphing or camera drift. End: The owner-restored dusty arena remains empty and stable, ready for Grand Puff to enter.\nSound: faint dusty room tone and one soft mote shimmer; no voices",
+      "weak_source_frames": [
+        [
+          24,
+          96
+        ]
+      ],
+      "inspected_frames": [],
+      "evidence_precision": "Selected source range is factual current-assembly coverage; replacement remains pending human review."
+    },
+    {
+      "shot": "C11-S04",
+      "title": "intact Puff lands",
+      "reason": "selected Puff morphs and never lands; rebuild one intact runtime Puff landing",
+      "original_source": "C11_S04_v1_grand_puff_lands_REGEN.mp4",
+      "original_range": [
+        24,
+        96
+      ],
+      "duration_s": 4,
+      "camera": "locked",
+      "game_references": [
+        "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/dusty_attic_arena_native_1254.png",
+        "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/dusty_attic_arena_2048.png",
+        "assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png",
+        "assets/characters/roshan_25d/roshan_base.png"
+      ],
+      "seam": "follows the empty owner-restored dusty-arena inspection; ends on grounded boss arrival",
+      "phases": [
+        {
+          "range": [
+            0,
+            24
+          ],
+          "instruction": "One already-intact upright Grand Puff descends over the clear stone octagon; Roshan watches from the near entrance side.",
+          "state": "action"
+        },
+        {
+          "range": [
+            24,
+            48
+          ],
+          "instruction": "Puff's soft shadow tightens on the flat stone as his complete body approaches it.",
+          "state": "action"
+        },
+        {
+          "range": [
+            48,
+            78
+          ],
+          "instruction": "He makes one gentle floor contact with slight compression only; face, ears, curls and pearl joints remain intact.",
+          "state": "action"
+        },
+        {
+          "range": [
+            78,
+            96
+          ],
+          "instruction": "Hold the same grounded upright Puff on the octagon; Roshan stays still.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Pastel stone octagon, two side shell windows, two pearl columns, centered chandelier, rear chests/shelves, cobwebs and lavender dust piles remain fixed.",
+        "No wood floor, pearl rails, rear round window, invented door, raised stage or flattened mound.",
+        "Exactly Puff and Roshan; no battle action, dust cloud, facial morph, extra ears, tools or camera move."
+      ],
+      "end_state": "One intact upright Grand Puff is grounded on the flat stone octagon with Roshan watching.",
+      "sound": "soft landing thump and room reverb; no voice",
+      "prompt": "locked camera on the approved first-frame layout. 0.00–1.00s: One already-intact upright Grand Puff descends over the clear stone octagon; Roshan watches from the near entrance side. 1.00–2.00s: Puff's soft shadow tightens on the flat stone as his complete body approaches it. 2.00–3.25s: He makes one gentle floor contact with slight compression only; face, ears, curls and pearl joints remain intact. 3.25–4.00s: Hold the same grounded upright Puff on the octagon; Roshan stays still. Keep room geometry and bound identities fixed. Pastel stone octagon, two side shell windows, two pearl columns, centered chandelier, rear chests/shelves, cobwebs and lavender dust piles remain fixed. No wood floor, pearl rails, rear round window, invented door, raised stage or flattened mound. Exactly Puff and Roshan; no battle action, dust cloud, facial morph, extra ears, tools or camera move. No HUD, text, morphing or camera drift. End: One intact upright Grand Puff is grounded on the flat stone octagon with Roshan watching.\nSound: soft stone landing thump and dusty room reverb; no voices",
+      "weak_source_frames": [
+        [
+          24,
+          96
+        ]
+      ],
+      "inspected_frames": [],
+      "evidence_precision": "Failed selected span based on sampled visual audit; individual inspected frames only listed when documented. No assertion every source frame was inspected."
+    },
+    {
+      "shot": "C13-S04",
+      "title": "team finish cleans Grand Puff",
+      "reason": "latest owner direction replaces isolated static helper cuts with one coordinated shared cleaning event",
+      "original_source": "C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+      "original_range": [
+        0,
+        32
+      ],
+      "duration_s": 5,
+      "camera": "one gentle push-in under 5 percent from locked front-left three-quarter",
+      "camera_move_count": 1,
+      "game_references": [
+        "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/dusty_attic_arena_native_1254.png",
+        "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/dusty_attic_arena_2048.png",
+        "assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/scenes/D1-C01/visuals/handoff_art/characters/daddy_daddy_master.png",
+        "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+        "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rumi_rumi_full_body_identity.png"
+      ],
+      "seam": "follows the boss encounter in the restored dusty room; ends fully clean with the complete company present before the reveal",
+      "phases": [
+        {
+          "range": [
+            0,
+            24
+          ],
+          "instruction": "Roshan already begins one soft sponge contact on Puff's lower-left curls while Daddy far-left, grounded Eagle front-center and Rumi right begin joining the same coordinated cleaning wave within the first second; Rumi's hand stays adjacent to the upper-right curls with clear space from Puff's ear and face.",
+          "state": "action"
+        },
+        {
+          "range": [
+            24,
+            72
+          ],
+          "instruction": "They make one coordinated gentle cleaning wave: Roshan performs one sponge pass, Daddy one soft brush pass, Eagle one grounded wingbeat, and Rumi one thin localized rinse; their four contributions overlap from 1.00 to 3.00 seconds while remaining visually separate.",
+          "state": "action"
+        },
+        {
+          "range": [
+            72,
+            102
+          ],
+          "instruction": "Dust clears monotonically from the locally touched Puff-body regions; room dust, cobwebs and piles remain. Roshan draws the sponge to her body, Daddy draws the bristles clear while retaining the same grip, Eagle folds his wings, and Rumi lowers her dry hand. Complete the one gentle push-in under five percent.",
+          "state": "action"
+        },
+        {
+          "range": [
+            102,
+            120
+          ],
+          "instruction": "Hold fully clean unharmed Puff with Roshan, Daddy, Eagle and Rumi all still present in their same positions.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Front-left roughly thirty-degree three-quarter view of the owner-restored pastel stone octagon, two shell windows, two pearl columns, chandelier, rear chests/shelves, cobwebs and room dust.",
+        "Exactly Roshan, Daddy, grounded Baby Eagle, Rumi and one fully formed Grand Puff; each friend contributes visibly within the same collective event and nobody disappears.",
+        "Roshan sponge stays lower-left, Daddy brush upper-left, Eagle wingbeat front-center, and Rumi's hand/rinse stays adjacent to the upper-right curls with clear space from Puff's ear and face; effects never cross Puff's face or fuse with one another. Daddy's brush reads handle butt, both hands around the handle, gold ferrule, then cyan-white bristles facing Puff; only bristles touch him, never the handle or hands. Roshan keeps her plain pink top with no lettering.",
+        "One gentle push-in under five percent is the only camera move; no cuts, orbit, strike, knockback, pain, collapse, shell, cradle, floor-only cleanup or room-wide cleaning."
+      ],
+      "end_state": "Grand Puff is fully clean and unharmed with all four friends still gathered around him; the dusty room itself is unchanged.",
+      "sound": "four soft cleaning textures resolving into one warm chime; no voice",
+      "prompt": "one gentle push-in under five percent on IMAGE_1.\n0.0–1.0s: Roshan starts a soft star-sponge pass on Puff's lower-left curls; Daddy, grounded Eagle and Rumi join her.\n1.0–3.0s: all four work together: Roshan's sponge, Daddy's brush on upper-left curls, Eagle's gentle wingbeat and Rumi's thin upper-right rinse overlap. Keep effects separate and away from Puff's face. Daddy grips the handle with both hands behind the gold ferrule; cyan-white bristles face and touch Puff, never the handle.\n3.0–4.25s: Puff-body dust clears. Roshan draws her sponge back, Daddy withdraws the bristles with grip unchanged, Eagle folds his wings and Rumi lowers her dry hand. End the push-in.\n4.25–5.0s: hold clean, unharmed Puff with all four friends still gathered.\nkeep room dust, cobwebs, fixtures, cast positions and identities fixed. Roshan's pink top has no lettering. No cuts, extra characters, shell, collapse, hurt, floor-only cleaning, text, HUD or morphing.\nend: Grand Puff is fully clean and unharmed with all four friends still gathered around him; the dusty room itself is unchanged.\nSound: four soft cleaning textures resolving into one warm chime; no voices.",
+      "weak_source_frames": [
+        [
+          0,
+          32
+        ]
+      ],
+      "inspected_frames": [],
+      "evidence_precision": "The factual current source range contains only a short Rumi action and cannot supply the newly owner-directed team event; it remains provenance, not claimed coverage."
+    },
+    {
+      "shot": "C13-S05",
+      "title": "matching-angle full-company rainbow-bunny reveal",
+      "reason": "latest owner direction retains the team on screen and reveals the baby directly from Grand Puff without an invented prop",
+      "original_source": null,
+      "original_range": null,
+      "duration_s": 4,
+      "camera": "locked matching C13-S04 end angle",
+      "camera_move_count": 0,
+      "game_references": [
+        "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/dusty_attic_arena_native_1254.png",
+        "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/dusty_attic_arena_2048.png",
+        "assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png",
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/scenes/D1-C01/visuals/handoff_art/characters/daddy_daddy_master.png",
+        "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+        "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rumi_rumi_full_body_identity.png"
+      ],
+      "seam": "direct matching-angle cut from the fully clean team endpoint; proposed friendship reveal remains pending owner approval",
+      "phases": [
+        {
+          "range": [
+            0,
+            24
+          ],
+          "instruction": "In the same matching three-quarter composition, clean intact Puff stands with Roshan, Daddy, grounded Eagle and Rumi all visibly present; no baby is visible.",
+          "state": "hold"
+        },
+        {
+          "range": [
+            24,
+            48
+          ],
+          "instruction": "Two of Puff's lowest front curls gently part and one tiny rainbow bunny begins to peek out from beneath them.",
+          "state": "action"
+        },
+        {
+          "range": [
+            48,
+            78
+          ],
+          "instruction": "The same bunny takes one small step beside Puff, no larger than one sixth of Puff's height; the curls relax back to their original shapes.",
+          "state": "action"
+        },
+        {
+          "range": [
+            78,
+            96
+          ],
+          "instruction": "All four friends and Puff look toward the one baby and hold a warm separate-silhouette company tableau.",
+          "state": "hold"
+        }
+      ],
+      "invariants": [
+        "Same owner-restored room, front-left three-quarter axis, company positions and clean Puff endpoint as C13-S04; camera is fully fixed. Preserve Daddy's corrected grip and lowered brush with bristles clear of Puff; Roshan wears the same plain pink top with no lettering.",
+        "Opening cast is exactly Roshan, Daddy, Eagle, Rumi and one clean Puff; no baby before frame 24 / 1.00 second.",
+        "End adds exactly one tiny rainbow bunny beneath Puff's lower curls; no shell, egg, cradle, duplicate baby, helper disappearance or giant rainbow burst.",
+        "Puff's face, tiers, spiral ears, pearl joints, curl topology, scale and floor contact remain stable; no collapse or fused bodies."
+      ],
+      "end_state": "Roshan, Daddy, Eagle, Rumi and clean Puff hold together with one tiny rainbow bunny beside Puff.",
+      "sound": "tiny rustle, soft sparkle and one warm friendship chime; no voice",
+      "prompt": "locked camera on IMAGE_1, matching the team-cleaning endpoint.\n0.0–1.0s: clean intact Puff, Roshan, Daddy, grounded Eagle and Rumi hold together; no baby yet.\n1.0–2.0s: two lowest front curls gently part; exactly one tiny rainbow bunny peeks out.\n2.0–3.25s: the same bunny takes one step forward, no taller than one sixth of Puff. Preserve its rainbow body, spiral ears, forehead star and pearl feet from IMAGE_3. Puff's curls relax without reshaping his body.\n3.25–4.0s: the full company looks toward the new friend and settles.\nkeep the room, camera, five original characters, clean Puff and their positions fixed. Daddy retains his corrected handle grip with bristles clear of Puff. Roshan's pink top has no lettering. No shell, egg, cradle, disappearing helper, duplicate baby, collapse, rainbow burst, text, HUD or morphing.\nend: Roshan, Daddy, Eagle, Rumi and clean Puff hold together with one tiny rainbow bunny beside Puff.\nSound: tiny rustle, soft sparkle and one warm friendship chime; no voices.",
+      "weak_source_frames": [],
+      "inspected_frames": [],
+      "evidence_precision": "Missing/proposed owner-directed coverage; no existing source frames claimed."
+    }
+  ],
+  "superseded_active_jobs": {
+    "C13-S01": "preserved in history/SHOT_DESIGN_before_team_revision.json; replaced by coordinated C13-S04 team finish",
+    "C13-S02": "preserved in history/SHOT_DESIGN_before_team_revision.json; replaced by coordinated C13-S04 team finish",
+    "C13-S03": "preserved in history/SHOT_DESIGN_before_team_revision.json; replaced by coordinated C13-S04 team finish"
+  }
+}

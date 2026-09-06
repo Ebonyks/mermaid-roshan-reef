@@ -1,0 +1,41 @@
+{
+  "schema": "c14-builtin-image-record-v1",
+  "output_path": "first_frames/D1-C14-S01_OPENING_candidate04.png",
+  "output_sha256": "368fa769d410e43a3f7ef84066a5c0c2ab2c2bb53aec87230fca3a19c343293a",
+  "dimensions": [
+    1672,
+    941
+  ],
+  "native_output_path": "C:/Users/Peter/.codex/generated_images/01a062b0-5cda-7183-b493-4504ebf1b93e/exec-b8efed86-f17b-4a1f-b342-1fb93adc86ff.png",
+  "native_output_sha256": "368fa769d410e43a3f7ef84066a5c0c2ab2c2bb53aec87230fca3a19c343293a",
+  "prompt": "Create a new complete 1672x941 storybook frame faithful to IMAGE 1, keeping FIVE companions: Daddy mermaid at far left, Roshan left-center, the LARGE colorful Baby Eagle standing at center foreground, Rumi right-center and the SMALL rainbow cloud bunny right beside Eagle at lower right. All FIVE remain separately visible; DO NOT remove, move, replace or redesign the Eagle. Preserve the hall, four small doorway emblems and open Royal arch, all dirt, clothes, props and lighting. Only the tiny bunny at the right side of Eagle is corrected. Its current bounding box is approximately x875..1015 y776..905; keep its same floor position and bottom edge but make it smaller, about 95px total tall. Draw it as a tiny version of IMAGE 2: broad scalloped rainbow cloud body, two broad inward-spiral ears attached with pearls, a large orange-red forehead curl with a tiny WHITE iridescent glint, big simple dark eyes and two pearl feet. No furry rabbit body, no yellow forehead star, no birdlike lashes. Do not change the Baby Eagle to accomplish this; BOTH Eagle AND smaller rainbow cloud friend must remain side by side. Five separate companions total. Whole-frame rendering, not a collage. No text or panels.",
+  "prompt_sha256": "18df56b77cceb0d28fdfcee708c03b645dae2cb9051cf69907e8bed692310ee6",
+  "referenced_image_paths": [
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S01_OPENING_candidate02.png",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rainbow_dust_bunny_concept.png"
+  ],
+  "input_images": [
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S01_OPENING_candidate02.png",
+      "sha256": "3f880ce5b8393e9d7ae49c0b42d72900d4a48c43a66eeb9eb0328d2f93432110",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rainbow_dust_bunny_concept.png",
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    }
+  ],
+  "attempt": 4,
+  "generation_method": "builtin_image_gen",
+  "human_decision": "pending",
+  "used_as_delivery_pixels": false,
+  "delivery_accepted": false,
+  "review_note": "Five-cast and scale restored; rainbow forehead curl and eye identity still need human/Sol review. Layout proposal, not approved binding."
+}

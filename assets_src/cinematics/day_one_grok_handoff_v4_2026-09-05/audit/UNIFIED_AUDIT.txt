@@ -1,0 +1,35 @@
+# Day One unified replacement audit
+
+This register covers all 50 active selections in the current assembly manifest. It is deliberately conservative: strong rough-draft footage stays `KEEP`; usable but geographically imperfect footage stays `PROVISIONAL`; editorially repairable footage is `TRIM`; only event/state/topology failures become `RESHOOT`; a shot whose very placement contradicts gameplay is `OMIT_WRONG_STATE` and does not consume a replacement job. This is sampled visual review, not all-frame acceptance, first-frame approval, generation readiness, or delivery acceptance.
+
+Normalized row counts: 23 `KEEP`, 7 `PROVISIONAL`, 7 `TRIM`, 11 `RESHOOT`, and 2 `OMIT_WRONG_STATE` = 50 active rows. The two omissions are not included in the 11 reshoots.
+
+## Correct causal order
+
+- C06 has two independently activated sources: the seahorse flow and the waterfall flow. Both activate before their clean-water fronts converge. Current C06-S06 is a valid waterfall-restart insert. The missing work is the shared-pool two-source view and subsequent convergence.
+- The purple `4636...` select already contains the plug intervention/first flow. Its opening is only provisional; plug intervention must not be listed as absent.
+- Art Room gameplay collects all four supplies before grime appears. Omit current C09-S04 from the entry film rather than paying to regenerate a deliberately premature state.
+- The final scrub occurs after collection. Omit C10-S02 rather than showing already-collected supplies being put away after the scrub.
+
+## Replacement priority and briefs
+
+1. **P0 state/cast invariants:** C08-S06 — exact clean post-completion Stuffie Room, one recovered Baby Eagle, Roshan, and only the two released pin bunnies if any bunnies remain visible. One broad safe wingbeat; no baskets, four-bunny tableau, dirty-to-clean transformation, or progress award.
+2. **P0 dirty-pool causality:** C05-S01 — locked dirty pool wide with clogged/still waterfall and sick plugged seahorse simultaneously readable. C05-S03 — weighted approved debris visibly inside skimmer while water remains dirty and waterfall stopped.
+3. **P0 missing C06 bridge:** C06-S04 shows already-activated seahorse and waterfall streams entering the same giant pool; C06-S05 then shows their two clean fronts meet. Do not reverse this order and do not turn S06 into “purification fronts.”
+4. **P1 human/contact seams:** C01-S02 correct Daddy/child Roshan scale, separate bodies/tails, readable offered hand and no fused contact; Rumi is not introduced until C06. C03-S03 needs one stable purple bunny in the grimy tub; C03-S04 needs the approved tool with a clear precontact hand gap.
+5. **P1 Art Room essentials:** C09-S03 exactly four authored supplies, once each, in the actual room family. C10-S05 clean center desk, Roshan at runtime scale, stable non-contact hand gap. Do not commission C09-S04 or C10-S02 in their current chronology.
+6. **P1 boss sequence:** Reshoot only C11-S01: use the implemented long Main Hall and far-right Royal Hall portal, with four completed-room light trails distinct until they end at that portal. Keep C11-S02: its rainbow arch, shell door, adjacent portal icons and red-carpet stairs match the right-half hall master, and Roshan stops before contact. C11-S04 inherits C11-S03's empty octagonal arena and shows one intact Grand Puff descend, contact, squash lightly, and settle without morphing.
+7. **P2 missing continuity:** C01-S04, C03-S02, C04-S03, C05-S02/S06, C07-S02-S05. These fill real story coverage; they do not invalidate adjacent keepers.
+8. **P2 disabled finale:** C13-S03/S04 remain separate, incomplete shots and C13 remains runtime-disabled. C13-S05's small rainbow bunny/prismatic floor cradle is a proposed story extension pending user approval, not implemented game canon or a necessary-missing-event claim.
+
+## C11 implementation authority and first-frame bindings
+
+The implemented Main Hall is a horizontal 3280x910 route (`HALL_WALK`, portals in `HALL_PORTALS`) built from `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_*`. The Royal Hall/boss portal is the far-right `__royal_hall` rect at x=2870..3220, not a new central door. Runtime activation walks Roshan to its foot at x=3045 before dispatching the armed event.
+
+- **C11-S01 first-frame source choice:** bind `IMAGE_1` to the non-HUD approved hall master `scenes/D1-C11/visuals/handoff_art/objects/main_hall_screen_a_room_led_master.png` only for its actual left-half appearance, plus `IMAGE_2` `scenes/D1-C11/visuals/handoff_art/location/main_hall_screen_b_room_led_master.png` for the right-half/Royal Hall portal, and `IMAGE_3` Roshan identity. Compose one full hall first-frame candidate, then require explicit human approval; neither half alone authorizes invented central-door topology.
+- **C11-S02 retained select:** pixel recheck of `[24,96)` confirms the same far-right rainbow arch, shell door, red-carpet staircase, and adjacent drop/pearl portal icons as the approved right-half hall master. Roshan's approach remains clear and ends before contact. No replacement first frame is needed.
+- **C11-S04 first-frame source choice:** `IMAGE_1` must be the explicitly human-approved clean empty-arena endpoint inherited from C11-S03, with `DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png` only as location authority until that endpoint is approved; `IMAGE_2` is `grand_puff_BOSS_DUST_BUNNY_IDENTITY.png`; `IMAGE_3` is Roshan identity. The existing shot packet correctly says location authority is not automatic first-frame approval.
+
+## Approval boundary
+
+Every newly generated first frame must be reviewed one by one for exact event state, cast count, identity/topology, room geography, contact gap, and stable animation start. Storyboard acceptance does not approve any constituent first frame, and no Grok job is ready until the user explicitly approves that shot's actual first-frame file.

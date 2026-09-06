@@ -1,0 +1,354 @@
+{
+  "schema": "sol-first-frame-review-v1",
+  "reviewed_at": "2026-09-05",
+  "scope": "Exact hash-bound still-image review only; no motion, audio, all-frame, Grok, or delivery acceptance claim.",
+  "human_approval_required_per_asset": true,
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "assets": [
+    {
+      "path": "first_frames/C13_EAGLE_OPENING_candidate01.png",
+      "sha256": "cfb3b9b6087b07c66c089fb080d87fcd20053b5f19f466d27cd81cab9ea8a343",
+      "sol_decision": "REVISE",
+      "passes": ["one Baby Eagle", "one Grand Puff", "octagonal arena", "separate silhouettes"],
+      "fails": ["Eagle begins with wings spread instead of folded", "gray dust stains Puff face and spiral ear", "residual dust is not one localized floor patch with isolated shell"],
+      "human_decision": "superseded_by_candidate02"
+    },
+    {
+      "path": "first_frames/D1-C13-S03_OPENING_candidate02.png",
+      "sha256": "1c463ea91e1d471963da19f247271ec471a90b52448e2769b9e930dde8fe3caf",
+      "sol_decision": "RECOMMEND_APPROVAL",
+      "passes": ["one Eagle with both wings folded and both feet planted", "one intact clean Grand Puff with spiral ears, pearl accents and two teeth", "one small localized dust patch and shell below Puff lower-left curls", "no wind, dust ring, extra cast, or body stains", "octagonal arena retained"],
+      "fails": [],
+      "human_decision": "pending"
+    },
+    {
+      "path": "first_frames/D1-C09-S03_OPENING_candidate01.png",
+      "sha256": "b29667c340f573a50c478ab6256d5f781711e35f419fd712863dbbc494e5a985",
+      "sol_decision": "RECOMMEND_APPROVAL",
+      "passes": ["exactly four loose countable groups: three-brush bundle, pink bottle, blue bottle, connected three-cup group", "no character or active grime", "front Art Room windows, columns, chandelier, rear fixtures, center desk and foreground counters remain readable", "no invented interior door"],
+      "fails": [],
+      "human_decision": "pending"
+    },
+    {
+      "path": "first_frames/D1-C10-S05_OPENING_candidate01.png",
+      "sha256": "459f51b9c4424a9a5bac5b88e9aaef8899cb69a6a60bf1b173a07c9a2f247030",
+      "sol_decision": "RECOMMEND_APPROVAL",
+      "passes": ["clean front Art Room and blank center mat", "Roshan is right of desk at compatible depth with full tail visible", "near arm relaxed with clear hand-to-mat gap", "no tool, UI, pointer, extra cast, or cleanup action"],
+      "fails": [],
+      "human_decision": "pending"
+    },
+    {
+      "path": "first_frames/LUNA_B_C05_S01_dirty_wide_OPENING_PENDING_HUMAN.png",
+      "sha256": "4fe31121f25bb42c76f75cfe23857691b87353a312532b39dd680df4b2d5d0b9",
+      "sol_decision": "RECOMMEND_APPROVAL",
+      "passes": ["dirty olive pool", "clogged and still rainbow waterfall", "single sick long-snouted seahorse", "Roshan pauses in open doorway", "both blocked causes and debris remain legible", "no premature clean flow"],
+      "fails": [],
+      "human_decision": "pending",
+      "note": "Seahorse is visually dominant but does not prevent the wide problem read."
+    },
+    {
+      "path": "first_frames/LUNA_B_C05_S03_skimmer_OPENING_PENDING_HUMAN.png",
+      "sha256": "fa1081789b0d9b3ad6b8394343205a67c3db1df6c87fe3a037980ed3f1f73e74",
+      "sol_decision": "REVISE",
+      "passes": ["dirty pool and clogged waterfall retained", "Roshan and skimmer action are readable", "weighted wet contents contact the water"],
+      "fails": ["net contains a live small seahorse/creature instead of only wrappers, leaves and algae", "invented animal rescue changes the event and cast"],
+      "human_decision": "superseded_by_hash_939e83a8a06e195f57e748e392b338c8d65d66da67d74b80f73abddde6d98766",
+      "targeted_revision": "Preserve room, clogged waterfall, Roshan scale and skimmer pose; replace mesh contents only with clearly inanimate weighted wrappers, leaves and algae. No animal, face, eyes, fins, tail, or character inside the net."
+    },
+    {
+      "path": "first_frames/LUNA_B_C06_S05_two_fronts_OPENING_PENDING_HUMAN.png",
+      "sha256": "284d6481f04c64d9bf4280ddeae8eedc3e2359611c21e7c6000ee792ed57e2f4",
+      "sol_decision": "RECOMMEND_APPROVAL",
+      "passes": ["waterfall and seahorse sources are both already active", "two visible surface fronts converge in the same giant pool", "Roshan observes without causing a third source", "causal order is activation then convergence"],
+      "fails": [],
+      "human_decision": "pending"
+    },
+    {
+      "path": "first_frames/luna_a_C03-S04_precontact_reach.png",
+      "sha256": "c822a8a912b844be41b187c67f4071219367427dd0804c08e75ab090e6013039",
+      "sol_decision": "REVISE",
+      "passes": ["Roshan identity and bathroom readability are strong", "reaching hand is anatomically readable"],
+      "fails": ["approved cleaning tool is absent", "Roshan reaches toward a shell basket containing a star-shaped cushion/prop rather than a sink-side cleaning tool", "no measurable precontact hand-to-tool gap can be established for the required pickup seam", "room is already bright/clean rather than the dirty discovery state"],
+      "human_decision": "superseded_by_hash_85935bf017b2693bd1e55f85d4f0b65cb71e1eedbf2a091575842c3d5a0749c9",
+      "targeted_revision": "Keep Roshan identity and readable hand anatomy; restore dirty bathroom state and place the approved cleaning tool beside the sink. End the opening frame before pickup with a clear hand-to-handle gap. No star cushion or shell hamper as target."
+    },
+    {
+      "path": "first_frames/LUNA_B_C08_S06_post_two_pin_eagle_RECENT_CANDIDATE_REJECTED_WRONG_ROOM.png",
+      "sha256": "1ce394c05f0645f3c055c5dcd38b072c965453a491122ae5298d481d0bc78ae5",
+      "sol_decision": "REVISE",
+      "passes": ["one Baby Eagle", "Roshan and Eagle are separate", "wing opening is readable"],
+      "fails": ["background is Mermaid Pool, not the clean Stuffie Room", "no released two-pin bunny continuity", "active seahorse flow creates an unrelated C06 event"],
+      "human_decision": "not_ready_for_approval",
+      "targeted_revision": "Use the clean Stuffie Room shell bench, toy bins, tents and arcade geography. Show one recovered Eagle and Roshan only, or exactly the two released pin bunnies if retained; no pool, seahorse, waterfall, baskets, or four-bunny tableau."
+    },
+    {
+      "path":"first_frames/LUNA_B_C05_S03_skimmer_OPENING_PENDING_HUMAN.png",
+      "sha256":"939e83a8a06e195f57e748e392b338c8d65d66da67d74b80f73abddde6d98766",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["only inanimate weighted wrappers, leaves and algae are in the net", "dirty water and clogged waterfall remain", "Roshan and skimmer contact are readable", "no invented animal rescue or cleanup completion"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"first_frames/luna_a_C01-S02_handoffer.png",
+      "sha256":"6ae06a4e1974abb0f78f1adc73179eae7d38bcca994c0e56e989eb9e6c1c65be",
+      "sol_decision":"REVISE",
+      "passes":["dock, plane and distant gate are readable", "adult-child scale and offered-hand gap are stable"],
+      "fails":["adult is purple-haired Rumi, but C01 requires Daddy and Rumi is not introduced until C06", "prompt/reference encoded the wrong cast identity"],
+      "human_decision":"not_ready_for_approval",
+      "targeted_revision":"Regenerate with approved Daddy identity replacing Rumi; preserve dock, plane, gate, child Roshan and unfused offered-hand staging."
+    },
+    {
+      "path":"first_frames/luna_a_C01-S04_closed_door.png",
+      "sha256":"388903672f7e1272c0556630336cf601f0a3271c470bbd9a017fd711289b2e30",
+      "sol_decision":"REVISE",
+      "passes":["large red double door is closed", "arrival composition and held hands are readable"],
+      "fails":["adult is Rumi instead of Daddy", "wrong cast continuity before Rumi's C06 introduction"],
+      "human_decision":"not_ready_for_approval",
+      "targeted_revision":"Replace Rumi with approved Daddy identity; preserve closed red double door and Daddy/Roshan arrival without opening action."
+    },
+    {
+      "path":"first_frames/luna_a_C03-S02_threshold.png",
+      "sha256":"eaccfdb3400b12105884b6007039eb8d990ba0a194779b9ff27859b548eba057",
+      "sol_decision":"REVISE",
+      "passes":["hall-to-bathroom threshold and forward movement read clearly"],
+      "fails":["adult is Rumi before her C06 introduction", "bathroom beyond reads bright/clean rather than dirty discovery state"],
+      "human_decision":"not_ready_for_approval",
+      "targeted_revision":"Use Roshan alone unless the implemented story explicitly carries Daddy; never Rumi. The bathroom beyond must retain dirty/drained discovery state."
+    },
+    {
+      "path":"first_frames/luna_a_C03-S03_swimming_bunny.png",
+      "sha256":"9cdb7fe58b528ed56414c396d98dd853e449b9d4b66a9e37dd643583e85bf68f",
+      "sol_decision":"REVISE",
+      "passes":["one purple bunny and one Roshan", "tub, sink and mirror are identifiable", "bunny silhouette remains separate"],
+      "fails":["tub water reads clean pale blue despite dirty-room discovery brief", "happy polished bath presentation weakens the dirty/drained problem state"],
+      "human_decision":"not_ready_for_approval",
+      "targeted_revision":"Keep one swimming bunny and Roshan, but bind the dirty/drained bathroom plate and make the remaining shallow water visibly murky without adding another bunny or mound."
+    },
+    {
+      "path":"first_frames/luna_a_C03-S04_precontact_reach.png",
+      "sha256":"85935bf017b2693bd1e55f85d4f0b65cb71e1eedbf2a091575842c3d5a0749c9",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["pink star matches exact runtime tool_star_sponge.png", "sponge rests inside the cleanup basket that runtime names as the tool authorization point", "dirty bathroom and grime remain", "Roshan uses one reaching arm and fingertip stops visibly before sponge", "no pickup, adult, bunny or extra tool"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"This hash supersedes the earlier same-path rejection; the basket is correct runtime semantics, not an invented hamper target."
+    },
+    {
+      "path":"first_frames/LUNA_B_C08_S06_post_two_pin_eagle_REGEN2_REJECTED_IDENTITY_DRIFT.png",
+      "sha256":"d9405e561e62481e6ff337c23790bf4df6ea6ee180f76aa8b33bb1e8cef61cfa",
+      "sol_decision":"REVISE",
+      "passes":["pool geography is removed", "one Roshan and one bird are separate", "wing opening is readable"],
+      "fails":["bird identity drifts from approved Baby Eagle turquoise/yellow/pink body, pink crest, cheek patches and beak proportions", "room is a generic shell lounge lacking the Stuffie Room shell bench, toy bins, tents and arcade", "no specific two-pin rescue continuity"],
+      "human_decision":"not_ready_for_approval",
+      "targeted_revision":"Bind exact Baby Eagle identity plus clean Stuffie Room geography. Keep one Eagle and Roshan; released bunnies are optional, but if shown use exactly the two pin bunnies."
+    },
+    {
+      "path":"first_frames/D1-C11-S01_OPENING_candidate01.png",
+      "sha256":"8f4870da94afaa318201466052cb3d730860d1e095b55fd0b4331772e7d7e6a9",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["front-facing right-half Main Hall matches the approved master", "door icon order is teddy, palette, droplet, pearls", "royal rainbow shell portal remains far right above its red-carpet stair", "four small floor-level starting lights sit at the four lower room thresholds", "Roshan is child scale near the pearl doorway and looks toward the royal portal", "no invented central boss door or airborne trail"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"first_frames/D1-C11-S04_OPENING_candidate01.png",
+      "sha256":"df5a7f32c0398b5c8c290d3db2bebea5735535a726892e00b0d3f3ec74db1182",
+      "sol_decision":"REVISE",
+      "passes":["one intact airborne Puff with visible floor gap and shadow", "central octagon and front shell door remain", "one rear-facing Roshan"],
+      "fails":["invented open upper-right rear door breaks the single-entrance arena", "Roshan is outside/below the front shell door rather than just inside on the wood"],
+      "human_decision":"superseded_by_candidate02"
+    },
+    {
+      "path":"first_frames/D1-C11-S04_OPENING_candidate02.png",
+      "sha256":"d326f66f766d99908b56353f6165a8e645fd3c0452a41636b2dc2787d350cfa2",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["single front-center shell entrance only", "upper-right wall/rail is restored without a door", "Roshan stands just inside the front entrance on the wood", "one intact upright Puff is airborne with clear gap and aligned soft shadow", "octagon, rear round window, pearl rails and landing zone remain stable", "no cloud, flattened mound or extra cast"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"first_frames/D1-C13-S04_OPENING_candidate01.png",
+      "sha256":"2928e8c3938a9eb8790334fda1938e14544abf241e5d7f72b7b109c6b3db3d4e",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["one adult Rumi and one intact clean Puff only", "Rumi purple braid, jacket, tail and separate hands match identity", "tiny dirty shell/smudge remains localized below Puff lower-left edge", "no rinse is active at opening", "arena projection and open action space are stable"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"first_frames/D1-C13-S05_OPENING_candidate01.png",
+      "sha256":"7670817f2ccad68459515445f6c3c2176d394ac5605f639168625846c8fe23b3",
+      "sol_decision":"RECOMMEND_APPROVAL_AS_PROPOSED_EXTENSION",
+      "passes":["one intact clean Puff only", "small open iridescent shell cradle remains under 6 percent frame width", "contained glimmer with no bunny visible yet", "no water, helper cast, giant egg, platform, fog or defeat state", "arena geography is stable"],
+      "fails":[],
+      "human_decision":"pending",
+      "canon_status":"proposed extension only; shell cradle/rainbow-bunny birth is not implemented game canon"
+    },
+    {
+      "path":"first_frames/LUNA_B_C08_S06_post_two_pin_eagle_OPENING_PENDING_HUMAN.png",
+      "sha256":"e0e4dad1dc7f069440eddaeaad33f17fd8fa2b79c54b010e389fb251137885f5",
+      "sol_decision":"REVISE",
+      "passes":["clean toy-room presentation", "one Baby Eagle with improved turquoise/pink/yellow identity", "wing opening is readable"],
+      "fails":["purple spiral-eared Puff-like character is neither zero bunnies nor exactly the two released pin bunnies", "Roshan is absent despite requested post-rescue relationship coverage", "room emphasizes generic counters/plush crowd and omits the approved Stuffie Room shell bench, toy bins, tents and arcade landmark set"],
+      "human_decision":"superseded_by_hash_c54cebb63178909ca6fdedf34e93feb3c42c47aa1421cb115b9c42f8924cae11",
+      "targeted_revision":"Use approved clean Stuffie Room geography and one recovered Eagle with Roshan. Omit bunnies entirely, or show exactly the two small released pin bunnies; never one Puff-like substitute."
+    },
+    {
+      "path":"first_frames/luna_a_C01-S02_handoffer_attempt02_DADDY.png",
+      "sha256":"71dbbdbb4165034298e0bc3a515a408ab19724c921e65e913d8ce81df5e9100f",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["approved Daddy identity replaces Rumi", "Daddy and Roshan remain anatomically separate", "offered hand is open with a visible precontact gap", "dock, plane and distant gate remain stable"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"first_frames/luna_a_C01-S04_closed_door_attempt02_DADDY.png",
+      "sha256":"afc490576ace6b95f1a502490a2c3f1207492fd15aae6c8d56d4fd2fa4badea9",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["approved Daddy identity replaces Rumi", "Daddy and Roshan hold hands without fused anatomy", "large red double door remains closed", "arrival composition preserves the exterior geography"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"first_frames/luna_a_C03-S02_threshold_attempt02_ROSHAN_ALONE_DIRTY.png",
+      "sha256":"a5316be4d62c07cdcc9654e9f02dda5205a1726966c586af4951403e79f780c7",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["Roshan enters alone with no premature Rumi appearance", "threshold direction is clear", "tub, sink, toilet and mirror identify the bathroom", "dirty floor, fixtures and grime preserve the discovery state"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"first_frames/luna_a_C03-S03_swimming_bunny_attempt02_DIRTY_MURKY.png",
+      "sha256":"ad731205c722ff37ec749750871e7e30051cb187a36fd43cf05cd3f676347ea6",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["one purple bunny and one Roshan", "bunny is already present in shallow murky water", "dirty bathroom and grime remain legible", "bunny and Roshan silhouettes are separate"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"first_frames/LUNA_B_C08_S06_post_two_pin_eagle_OPENING_PENDING_HUMAN.png",
+      "sha256":"c54cebb63178909ca6fdedf34e93feb3c42c47aa1421cb115b9c42f8924cae11",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["one recovered Baby Eagle with stable turquoise, yellow and pink identity", "Roshan and Eagle share a readable post-rescue reunion pose", "clean Stuffie Room shell bench, toy bins, tent, rainbow tunnel and shelves remain identifiable", "no pool, waterfall, basket tableau or extra Puff-like substitute", "omitting released bunnies is allowed after the two-pin release"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"If released bunnies are restored in later motion, exactly two are required; their absence in this opening is not a defect."
+    },
+    {
+      "path":"first_frames/D1-C01-S04_OPENING_candidate04_SKY_LAGOON.png",
+      "sha256":"c6f0e578f84dffb69364e8481be8de99fac02bed8b04a998c36cc8c13525d091",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["current four-tower castle and Roshan stained glass", "closed red double door and dry bridge-to-stone landing", "Sky Lagoon sky, mountains, meadow and terrestrial vegetation", "Daddy and child Roshan retain readable identities, scale, tails and joined hands", "no moat, underwater seabed, door opening or handle contact"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"first_frames/D1-C09-S03_OPENING_candidate02_ANGLE.png",
+      "sha256":"4d8c103a0a4ffdd533704757c746f1a3989c9033c5aeb0e8e77100ffc06a45e6",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["elevated left three-quarter depth view", "implemented windows, columns, chandelier, idea board, small center desk and separate curved counters remain identifiable", "exactly three loose brushes, one pink bottle, one blue bottle and exactly three connected floor cups", "four floor groups remain separate and countable", "no character, grime, collection or UI"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"Fixed counter and rear dressing are allowed room fixtures and are not additional loose floor targets."
+    },
+    {
+      "path":"first_frames/D1-C10-S05_OPENING_candidate02_ANGLE.png",
+      "sha256":"2c6b143ce588f9bc39efa1548e4d5d605863cff601e2f5d15de34dd305499a86",
+      "sol_decision":"RECOMMEND_APPROVAL_WITH_DIRECTION_AMENDMENT",
+      "passes":["distinct low right three-quarter depth view", "clean post-collection room with small rectangular desk and blank mat", "Roshan identity and continuous tail", "readable chest-level clasp remains far from desk and mat", "no grime, loose floor supplies, tool, pointer, drawing or UI"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"Motion phase one must gently separate only the near hand while the far hand remains at her chest; the opening clasp itself is not an anatomy or contact failure."
+    },
+    {
+      "path":"first_frames/D1-C11-S03_OPENING_candidate02_DUSTY_ATTIC.png",
+      "sha256":"9480be180aa5810655c0b10be8714c66af4ae44a94a5a628d997905dbfe025b7",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["empty owner-restored pastel stone arena", "octagonal inset, both shell windows, both pearl columns, chandelier, rear chests and shelves, cobwebs and lavender room dust remain readable", "clear central landing space", "no visible door leaf, invented rear entrance, character, wood floor or pearl rails"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"Supports only the intentional empty-room inspection hold before Puff enters."
+    },
+    {
+      "path":"first_frames/D1-C11-S04_OPENING_candidate03_DUSTY_ATTIC.png",
+      "sha256":"60bcf1e9c6fa307629b4625f3442691d74a1e8a59c4bcea6d97550d04b955d01",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["same owner-restored arena as C11-S03", "one fully formed upright Grand Puff airborne over the flat stone octagon with aligned shadow", "Roshan watches from the near entrance side with separate silhouette", "Puff spiral ears, face, curls and pearl joints are readable", "no wood arena, rear round window, extra door, mound transformation or extra cast"],
+      "fails":[],
+      "human_decision":"pending"
+    },
+    {
+      "path":"first_frames/D1-C13-S04_TEAM_candidate03.png",
+      "sha256":"b12262fe17e7dc376756c7884a62ffc9f991807f385aaeb0a8469c15d89fb738",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["Roshan, Daddy, grounded Baby Eagle, Rumi and one intact dusty Grand Puff are all visible with separate silhouettes", "Daddy grips the brush handle with both hands behind its gold ferrule while bristles face and contact Puff's upper-left curl", "Roshan begins soft sponge contact at Puff's lower-left curls", "Rumi's dry hand remains adjacent to the upper-right curls with clear separation from Puff's ear and face", "Eagle is grounded front-center and ready for one wingbeat", "owner-restored arena and localized boss dust remain readable"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"Approve this opening only for the coordinated team-cleaning shot; dust must clear monotonically from touched Puff-body regions while room dust remains."
+    },
+    {
+      "path":"first_frames/D1-C13-S05_TEAM_REVEAL_candidate01.png",
+      "sha256":"fc47df9ff6bde11a8589c02bf926d0c5398c0a0a26d9247410a5d8a80dd108df",
+      "sol_decision":"REVISE_BLOUSE_ARTIFACT_ONLY",
+      "passes":["same owner-restored arena and matching team composition as C13-S04", "clean intact Puff with Roshan, Daddy, grounded Eagle and Rumi all visible", "Daddy's brush grip and bristle direction remain correct", "no baby, shell, egg or cradle is visible before the reveal", "cast identities and separate silhouettes remain readable"],
+      "fails":["purple glyph-like strokes on Roshan's blouse read as accidental text or a letterform"],
+      "human_decision":"superseded_by_hash_6915765c3a81e69fd5e70a89fd1cb6dbae629e6a87d76de731506a0786e4e321",
+      "targeted_revision":"Preserve the complete frame composition, arena, clean Puff, Daddy brush mechanics, all five cast identities and positions, and absence of the baby. Remove only the glyph-like purple strokes from Roshan's blouse and restore the plain approved pink top; add no logo, letters or symbols."
+    },
+    {
+      "path":"first_frames/D1-C13-S05_TEAM_REVEAL_candidate02.png",
+      "sha256":"6915765c3a81e69fd5e70a89fd1cb6dbae629e6a87d76de731506a0786e4e321",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["same owner-restored arena and matching company composition as the team-cleaning endpoint", "clean intact Grand Puff with stable face, curls, tiers, spiral ears, pearl joints and floor contact", "Roshan, Daddy, grounded Baby Eagle and Rumi are all present with separate readable identities and silhouettes", "Roshan's approved pink blouse is plain with no glyph, lettering or accidental logo", "Daddy preserves the corrected two-hand handle grip, gold ferrule and cyan-white bristles clear of Puff", "no baby, shell, egg, cradle, dust return, UI or extra cast appears before the reveal"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"This recommends only the clean pre-emergence opening frame. Reveal motion and storyboard remain separately pending."
+    },
+    {
+      "path":"first_frames/OWNER_C11_S02_PORTAL_APPROACH_candidate02.png",
+      "sha256":"06560510c2ba6fcd6bc3ae23a5be1a89529693d751d5aef4e0d685539e6760d7",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["rear child-height oblique view gives readable depth toward the actual open purple-curtained royal shell arch", "pool and bathroom side portals remain partial secondary landmarks in the correct left-to-right order without duplicating their emblems", "Roshan's rear identity, continuous tail and scale remain readable", "four distinct readiness trails converge along the red runner toward the royal stair", "no obsolete rainbow-shell door, closed leaf, handle, mist barrier or threshold crossing"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"Animate only a restrained glide toward the stair foot and stop before the first riser; keep the open arch, clear corridor, portal topology and four trail paths fixed. This is a first-frame recommendation, not motion or delivery acceptance."
+    },
+    {
+      "path":"first_frames/OWNER_C13-S04_SUDS_OPENING_candidate01.png",
+      "sha256":"ae62b81dc9e8ef6cc6173f678833e6f0a0104bdb0550e08893628fa8bc95d95a",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["full company surrounds one intact dusty Grand Puff in the owner-restored arena", "Roshan begins localized sponge contact while a small readable foam patch establishes the lather action", "Daddy holds the handle behind the gold ferrule with the brush head directed toward Puff", "Eagle is grounded and Rumi remains clear of Puff's face", "wide eye-level composition preserves character scale, arena depth and a clear boss silhouette"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"The small opening foam patch may build monotonically during S04; preserve Puff's face, spiral ears, pearls and body topology. First-frame recommendation only."
+    },
+    {
+      "path":"first_frames/OWNER_C13-S05_SUDSY_OPENING_candidate01.png",
+      "sha256":"a5b140d6becf9c6886c47d729df546d514cd08ca2f5aa55aa78e1a3ccd02b896",
+      "sol_decision":"REVISE_DADDY_FIN_ONLY",
+      "passes":["distinct elevated three-quarter camera provides a useful continuity-safe perspective change from S04", "full company remains readable around one intact heavily sudsy Grand Puff", "arena windows, columns, octagonal floor and rear storage retain coherent topology", "Daddy's hands, handle, ferrule and bristles are otherwise oriented correctly toward Puff", "foam coverage leaves Puff's face and spiral-ear identity readable"],
+      "fails":["a brown human boot and trouser-like lower limb protrude below Daddy's cloak behind Roshan; Daddy must end in his established mer-tail fin with no human foot or footwear"],
+      "human_decision":"pending_revision",
+      "targeted_revision":"Preserve the camera, cast positions, suds, Puff, arena and all upper-body/tool geometry exactly. Replace only the brown boot/lower limb below Daddy's cloak with the continuous established rainbow-scaled mer-tail/fin; introduce no shoe, leg, duplicate tail or cast shift."
+    },
+    {
+      "path":"first_frames/OWNER_C11_S01_LAYOUT_candidate02.png",
+      "sha256":"a6edd7964834cce678d1e32e5d28814895972caf1ef349291d5725b2067c266f",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["current August 3 hall redraw geometry with strong diagonal depth", "four side portals remain in the required playroom, craft-room, pool and bath order with distinct teddy, palette, droplet and pearl emblems", "four small completion lights are separately readable at the thresholds", "actual royal destination is the already-open purple-curtained shell arch at the end of the red runner", "Roshan's rear identity, rainbow hair streak, tail and scale remain readable", "no obsolete central ornate door, closed royal leaf, handle, mist barrier or duplicate emblem"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"Opening-layout recommendation only. Motion must still grow four narrow separate trails from the threshold lights before convergence; this still does not approve that animation."
+    },
+    {
+      "path":"first_frames/OWNER_C13-S05_SUDSY_OPENING_candidate02.png",
+      "sha256":"f65676310d8985f676363a381d075088b7e5d35be6f3313e798dbb63f1c16680",
+      "sol_decision":"RECOMMEND_APPROVAL",
+      "passes":["the distinct elevated three-quarter camera preserves arena depth and provides a useful perspective change from S04", "full company remains readable around one intact heavily sudsy Grand Puff", "Daddy's lower body is now one continuous rainbow-scaled mer-tail ending in a clear fin with no human leg, boot or footwear", "Daddy retains two hands on the handle behind the gold ferrule with bristles directed toward Puff", "Roshan sponge, grounded Eagle and Rumi rinse positions remain readable while foam leaves Puff's face and spiral ears visible"],
+      "fails":[],
+      "human_decision":"pending",
+      "note":"This supersedes the fin-defective candidate01 for first-frame consideration only. Motion, foam-removal causality and rainbow-friend emergence remain separately reviewable."
+    }
+  ]
+}

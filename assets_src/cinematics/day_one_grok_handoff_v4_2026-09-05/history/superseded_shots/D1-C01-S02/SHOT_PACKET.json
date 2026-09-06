@@ -1,0 +1,157 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C01",
+  "shot_id": "D1-C01-S02",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/luna_a_C01-S02_handoffer_attempt02_DADDY.png",
+      "sha256": "71dbbdbb4165034298e0bc3a515a408ab19724c921e65e913d8ce81df5e9100f",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/2eda6f7676_daddy_daddy_master.png",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_3",
+      "path": "references/69827625a8_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "Roshan extends one near hand toward Daddy's palm; both continuous tails and their adult/child scale stay separate.",
+  "must_not_move": [
+    "Only Daddy and child Roshan; no Rumi before C06.",
+    "Plane, dock posts, waterline and distant castle are fixed.",
+    "No legs, fused hands, extra fingers, adult/child scale drift or camera motion."
+  ],
+  "end_state": "Daddy and child Roshan hold hands on the dock, with separate tails and stable scale.",
+  "negative_constraints": [
+    "Only Daddy and child Roshan; no Rumi before C06.",
+    "Plane, dock posts, waterline and distant castle are fixed.",
+    "No legs, fused hands, extra fingers, adult/child scale drift or camera motion."
+  ],
+  "prompt_path": "shots/D1-C01-S02/PROMPT.txt",
+  "prompt_sha256": "63b0a2537ea507658ea6a95543a6ae074c68881b5a309a7de7f0245397e7fd6c",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/luna_a_C01-S02_storyboard_2x2_attempt02_DADDY.png",
+      "used_as_pixel_reference": false,
+      "role": "narrative_storyboard"
+    }
+  ],
+  "game_asset_comparison": [
+    {
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+      "path": "references/850d9614c2_sky_lagoon_plane_v5_hd_grade.png"
+    },
+    {
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+      "path": "references/f1003ba7d1_sky_lagoon_castle_gate_v3.png"
+    },
+    {
+      "source_path": "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/scenes/D1-C01/visuals/handoff_art/characters/daddy_daddy_master.png",
+      "path": "references/2eda6f7676_daddy_daddy_master.png"
+    },
+    {
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "path": "references/69827625a8_roshan_base.png"
+    }
+  ],
+  "source_selection": {
+    "filename": "C01_S02_v1_dock_handoffer_REGEN.mp4",
+    "range_half_open": [
+      24,
+      120
+    ],
+    "sha256": "ebfbc932a6e2c771f035b2e2de1ec988804ecbbb6c59d1ed8759c78df7b8cdc1"
+  },
+  "weak_source_frames": [
+    [
+      24,
+      120
+    ]
+  ],
+  "inspected_source_frames": [
+    24,
+    48,
+    72,
+    96,
+    119
+  ],
+  "source_visual_evidence": {
+    "source_path": "sources/C01_S02_v1_dock_handoffer_REGEN.mp4",
+    "source_sha256": "ebfbc932a6e2c771f035b2e2de1ec988804ecbbb6c59d1ed8759c78df7b8cdc1",
+    "source_fps": 24,
+    "selected_range_half_open": [
+      24,
+      120
+    ],
+    "frames": [
+      {
+        "index": 24,
+        "time_seconds": 1.0,
+        "path": "audit/source_frames/D1-C01-S02/f0024.png",
+        "sha256": "52c45225bb44a16979f7042f58e936c60a52676fae09ca09e8626a6204f363a6"
+      },
+      {
+        "index": 48,
+        "time_seconds": 2.0,
+        "path": "audit/source_frames/D1-C01-S02/f0048.png",
+        "sha256": "031f7cec1cdfd5776eba268330f39fc9b75c63c169e04508f911102d7172add0"
+      },
+      {
+        "index": 72,
+        "time_seconds": 3.0,
+        "path": "audit/source_frames/D1-C01-S02/f0072.png",
+        "sha256": "a2b7243d291661bfd592f875c9c1b5b53091b697ec102563b80e36a9ac5177d0"
+      },
+      {
+        "index": 96,
+        "time_seconds": 4.0,
+        "path": "audit/source_frames/D1-C01-S02/f0096.png",
+        "sha256": "c615f53b7e24d0209853845b16701d531f422a8a95e46420141f6e04ef5f2c71"
+      },
+      {
+        "index": 119,
+        "time_seconds": 4.958333333333333,
+        "path": "audit/source_frames/D1-C01-S02/f0119.png",
+        "sha256": "08c444d8f862e8a5309518f75cf37853d13e6f44812530638fa1b11a0e97991b"
+      }
+    ],
+    "sheet": "audit/source_frames/D1-C01-S02/AUDIT_SAMPLES.jpg",
+    "role": "diagnostic_source_samples_only",
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "method": "Exact zero-based ffmpeg source-frame decode; sheet is whole-frame thumbnail arrangement with frame labels. No synthesized motion or subject repair."
+  },
+  "sol_first_frame_decision": "RECOMMEND_APPROVAL",
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

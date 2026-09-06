@@ -1,0 +1,41 @@
+{
+  "schema": "c14-builtin-image-record-v1",
+  "output_path": "storyboards/D1-C14-S01_BOARD_candidate01.png",
+  "output_sha256": "903c90f85fa1096b52fc3092a8ac063e1b595d5bd36f01dd593a96592f8186cf",
+  "dimensions": [
+    1672,
+    941
+  ],
+  "native_output_path": "C:/Users/Peter/.codex/generated_images/01a062b0-5cda-7183-b493-4504ebf1b93e/exec-bffef407-305a-4dba-8fcb-57857394fce6.png",
+  "native_output_sha256": "903c90f85fa1096b52fc3092a8ac063e1b595d5bd36f01dd593a96592f8186cf",
+  "prompt": "Make one complete illustrated 2x2 cinematic storyboard sheet, four equal 16:9 panels, polished storybook animation quality. This is shot-order/acting reference ONLY, not animation pixels. All four panels use the same fixed child-height oblique hall view of IMAGE1; architecture stays identical, with teddy/palette/droplet/three-pearl doors in order then Royal open stair arch; no windows. Five companions exactly in EVERY panel: Daddy mermaid, young Roshan in plain pink tee, Baby Eagle, Rumi, tiny rainbow cloud friend. Preserve tails and existing tools. Rainbow friend design must use IMAGE2 scalloped cloudbody, broad curled ears, orange-red forehead curl/white glint and pearl feet, total height <=1/4 Roshan. Panel1: all five gather looking at the dusty runner, paper by the left doors, reachable web at the BASE of pearl column left of Royal arch, bounded low-wall smear between pool/bath. Panel2: Roshan gently indicates paper left with free hand, keeps pink starsponge; bunny turns toward paper. Panel3: Daddy and Rumi smile at Eagle, ready to help; five companions remain separate. Panel4: countable calm endpoint with all five ready and all dirt still present. Nobody cleans during this shot, nobody vanishes or grows. Do not add speech balloons, text or arrows. Consistent camera and exact architecture across all four panels; changes are subtle natural gazes/gestures.",
+  "prompt_sha256": "74b3633eec70399a9015ab1762ab1da6c4d9b8fd0f422896a9a25bcffdb2f365",
+  "referenced_image_paths": [
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S01_OPENING_candidate04.png",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rainbow_dust_bunny_concept.png"
+  ],
+  "input_images": [
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S01_OPENING_candidate04.png",
+      "sha256": "368fa769d410e43a3f7ef84066a5c0c2ab2c2bb53aec87230fca3a19c343293a",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rainbow_dust_bunny_concept.png",
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    }
+  ],
+  "attempt": 1,
+  "generation_method": "builtin_image_gen",
+  "human_decision": "pending",
+  "used_as_delivery_pixels": false,
+  "delivery_accepted": false,
+  "review_note": "Narrative-only; panel 2 bunny overlaps Eagle and high web remains. Human pending, not layout or identity pixels."
+}

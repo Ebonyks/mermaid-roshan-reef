@@ -1,0 +1,86 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C03",
+  "shot_id": "D1-C03-S02",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 3,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/luna_a_C03-S02_threshold_attempt02_ROSHAN_ALONE_DIRTY.png",
+      "sha256": "a5316be4d62c07cdcc9654e9f02dda5205a1726966c586af4951403e79f780c7",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/69827625a8_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "description": "locked"
+  },
+  "must_move": "She makes one short forward glide across the existing threshold, tail following continuously.",
+  "must_not_move": [
+    "Dirty tub, sink, mirror and exact doorway axis are fixed.",
+    "One child mermaid with continuous tail, no Daddy, Rumi or bunny in this shot.",
+    "No clean water, tool pickup, door movement, new room or HUD."
+  ],
+  "end_state": "Roshan alone is just inside the dirty bathroom, facing the unchanged fixtures.",
+  "negative_constraints": [
+    "Dirty tub, sink, mirror and exact doorway axis are fixed.",
+    "One child mermaid with continuous tail, no Daddy, Rumi or bunny in this shot.",
+    "No clean water, tool pickup, door movement, new room or HUD."
+  ],
+  "prompt_path": "shots/D1-C03-S02/PROMPT.txt",
+  "prompt_sha256": "5d7db7bc962b633091fd60b9496c645bfb43e9443abf9f4731fb9ffcb80d0713",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/luna_a_C03-S02_storyboard_2x2_attempt02_ROSHAN_DIRTY.png",
+      "used_as_pixel_reference": false,
+      "role": "narrative_storyboard"
+    }
+  ],
+  "storyboard_caveat": null,
+  "game_asset_comparison": [
+    {
+      "source_path": "assets/flats/castle/rooms/room_main_hall.png",
+      "path": "references/7b284cd453_room_main_hall.png"
+    },
+    {
+      "source_path": "assets/flats/castle/rooms/room_bubble_bath.png",
+      "path": "references/3ecd80b1be_room_bubble_bath.png"
+    },
+    {
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "path": "references/69827625a8_roshan_base.png"
+    }
+  ],
+  "source_selection": {
+    "filename": null,
+    "range_half_open": null
+  },
+  "weak_source_frames": [],
+  "inspected_source_frames": [],
+  "source_visual_evidence": null,
+  "sol_first_frame_decision": "RECOMMEND_APPROVAL",
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

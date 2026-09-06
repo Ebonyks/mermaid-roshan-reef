@@ -1,0 +1,1754 @@
+{
+  "schema": "external-animation-visual-packet-v1",
+  "packet_id": "d1_c14_castle_team_cleanup_v1",
+  "archive_complete": false,
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "shot_count": 6,
+  "duration_seconds": 31,
+  "target_frame_count": 744,
+  "assets": [
+    {
+      "path": "APPROVAL_GALLERY.md",
+      "sha256": "ef4de4017afe8c7eb90d59fc3902e945b9f41682a1f54d03b6bf6d176cd44659",
+      "bytes": 7867,
+      "source_path": "APPROVAL_GALLERY.md",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/markdown"
+    },
+    {
+      "path": "CHARACTER_LOCKS.json",
+      "sha256": "a59941cb5e1ab9f4cf366aaa6d3eabbc723ca3c87e003c57ef761a2bc74ce445",
+      "bytes": 4262,
+      "source_path": "CHARACTER_LOCKS.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "CINEMATIC_DIRECTION.md",
+      "sha256": "9a57d135f13f06fd7afe5ec4835352deca761543ff37cc54b35e366092455625",
+      "bytes": 7728,
+      "source_path": "CINEMATIC_DIRECTION.md",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/markdown"
+    },
+    {
+      "path": "DESIGN.json",
+      "sha256": "b2a52203bfa3a3ea0164c22eea8abd6d205a5c5ac8c25ef1f5b4203e1b39ec5b",
+      "bytes": 22505,
+      "source_path": "DESIGN.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "IMAGINE_HANDOFF.json",
+      "sha256": "f4b68162ce25b39d5f3298293125d68c0edcd65f4ab8a29c15b26efedb6ad23d",
+      "bytes": 641,
+      "source_path": "IMAGINE_HANDOFF.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "README.md",
+      "sha256": "1675f1e5ffc72437ba0a1e1b67d42778f9d33267c1184f1fba6bb7ca7ef48fa7",
+      "bytes": 1117,
+      "source_path": "README.md",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/markdown"
+    },
+    {
+      "path": "RUNTIME_SEAM_PLAN.md",
+      "sha256": "68970c7db7e973d59cb17894eaa2b6e4d9c4c707a6bf17c1d5f4a811d968e96c",
+      "bytes": 2609,
+      "source_path": "RUNTIME_SEAM_PLAN.md",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/markdown"
+    },
+    {
+      "path": "SOURCE_ASSETS.json",
+      "sha256": "84d7596b1e0ef8b47ee28c1f4fa126214421435132f9afa66e79681ab142d65d",
+      "bytes": 2780,
+      "source_path": "SOURCE_ASSETS.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "VISUALS.json",
+      "sha256": "56668f717b64f127053553634d6bbe61cc8e022d924133d40d6a5a9f7a0cd468",
+      "bytes": 1812,
+      "source_path": "VISUALS.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "audit/DOWNLOADS_REUSE_REVIEW.json",
+      "sha256": "eae26ba7adeaac24586d87d9242747f8e5ceea743cdddb03854520e09e2237df",
+      "bytes": 10410,
+      "source_path": "audit/DOWNLOADS_REUSE_REVIEW.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "audit/DOWNLOADS_REUSE_REVIEW.md",
+      "sha256": "3acd6c2ada050551e18430f654db6f6d39f9c94f5fc968f22e3f6b474149f90e",
+      "bytes": 5055,
+      "source_path": "audit/DOWNLOADS_REUSE_REVIEW.md",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/markdown"
+    },
+    {
+      "path": "audit/HALL_LAYOUT_AND_MESS_AUDIT.md",
+      "sha256": "848a26a92aa00376ffc4089fe4303ac28d09996b4ff019bfdd2de20f81e3a52f",
+      "bytes": 8571,
+      "source_path": "audit/HALL_LAYOUT_AND_MESS_AUDIT.md",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/markdown"
+    },
+    {
+      "path": "audit/SOL_VISUAL_REVIEW.md",
+      "sha256": "d22d079ace50239bda18a45a0e8fa95e6c8ddd90c75bcb6d24bfe6ee4c71fd23",
+      "bytes": 6397,
+      "source_path": "audit/SOL_VISUAL_REVIEW.md",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/markdown"
+    },
+    {
+      "path": "audit/frames/02d0e6fd_t0_0.jpg",
+      "sha256": "5929410a3c46153e88215491c887ae332814fbdeaf5cc79187b3a2db94e7ced4",
+      "bytes": 214384,
+      "source_path": "C:/Users/Peter/Downloads/grok-02d0e6fd-0099-4650-b346-7a25b8a26ae0-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "21658c6279edab8b6bebfc6fb8c390288f69e072ba8bb7efcd32d66c052b8880",
+      "decode_timestamp_seconds": 0.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/02d0e6fd_t2_0.jpg",
+      "sha256": "a87d0254b6776e38420928b9a6a749a78df4d02a37e497128b6c79a8d2e0e641",
+      "bytes": 233365,
+      "source_path": "C:/Users/Peter/Downloads/grok-02d0e6fd-0099-4650-b346-7a25b8a26ae0-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "21658c6279edab8b6bebfc6fb8c390288f69e072ba8bb7efcd32d66c052b8880",
+      "decode_timestamp_seconds": 2.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/02d0e6fd_t4_0.jpg",
+      "sha256": "71e4c15b6ef967f25fbc04792f92215966758c93647442053cb6330eaec39d5e",
+      "bytes": 233272,
+      "source_path": "C:/Users/Peter/Downloads/grok-02d0e6fd-0099-4650-b346-7a25b8a26ae0-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "21658c6279edab8b6bebfc6fb8c390288f69e072ba8bb7efcd32d66c052b8880",
+      "decode_timestamp_seconds": 4.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/02d0e6fd_t6_0.jpg",
+      "sha256": "cdea74670317c82360c6adf262ceb7c1fbf1c7497ee10d3bc40d56f783021004",
+      "bytes": 237293,
+      "source_path": "C:/Users/Peter/Downloads/grok-02d0e6fd-0099-4650-b346-7a25b8a26ae0-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "21658c6279edab8b6bebfc6fb8c390288f69e072ba8bb7efcd32d66c052b8880",
+      "decode_timestamp_seconds": 6.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/218500df_t0_0.jpg",
+      "sha256": "03cfad21bb6b8ee357d5578546074dfe6569a5cc8cd6cb284d903a22052f855b",
+      "bytes": 213111,
+      "source_path": "C:/Users/Peter/Downloads/grok-218500df-7547-4c84-a703-c8a0b8a954b7-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "32c8898e6569ae9f6a749c8f2ede634c8a344a51d1b026f6c4106bf899654ce4",
+      "decode_timestamp_seconds": 0.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/218500df_t10_0.jpg",
+      "sha256": "a69fc0e4d31de11b8e5faa52928d42508e31e9677ac080c9f02e590274d458df",
+      "bytes": 219168,
+      "source_path": "C:/Users/Peter/Downloads/grok-218500df-7547-4c84-a703-c8a0b8a954b7-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "32c8898e6569ae9f6a749c8f2ede634c8a344a51d1b026f6c4106bf899654ce4",
+      "decode_timestamp_seconds": 10.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/218500df_t2_0.jpg",
+      "sha256": "84702f240188dc03ee97927510afbef51b9b0d875697f0435d5f84f544789c3f",
+      "bytes": 221511,
+      "source_path": "C:/Users/Peter/Downloads/grok-218500df-7547-4c84-a703-c8a0b8a954b7-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "32c8898e6569ae9f6a749c8f2ede634c8a344a51d1b026f6c4106bf899654ce4",
+      "decode_timestamp_seconds": 2.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/218500df_t4_0.jpg",
+      "sha256": "87d649db456b31f92acf7481481147739a23efd4715260fb66340c505a99c0a7",
+      "bytes": 210543,
+      "source_path": "C:/Users/Peter/Downloads/grok-218500df-7547-4c84-a703-c8a0b8a954b7-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "32c8898e6569ae9f6a749c8f2ede634c8a344a51d1b026f6c4106bf899654ce4",
+      "decode_timestamp_seconds": 4.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/218500df_t6_0.jpg",
+      "sha256": "fb453633b699bbfe77f05f1ae91c31b99f886ea205236ed9303236fcd92f5517",
+      "bytes": 209200,
+      "source_path": "C:/Users/Peter/Downloads/grok-218500df-7547-4c84-a703-c8a0b8a954b7-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "32c8898e6569ae9f6a749c8f2ede634c8a344a51d1b026f6c4106bf899654ce4",
+      "decode_timestamp_seconds": 6.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/218500df_t8_0.jpg",
+      "sha256": "4cb7f2d317b6758e2c917083381922b996d7e41f279c7ffb6af419a0a60800be",
+      "bytes": 218584,
+      "source_path": "C:/Users/Peter/Downloads/grok-218500df-7547-4c84-a703-c8a0b8a954b7-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "32c8898e6569ae9f6a749c8f2ede634c8a344a51d1b026f6c4106bf899654ce4",
+      "decode_timestamp_seconds": 8.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/30c2103b_t0_0.jpg",
+      "sha256": "7aef6b6de6a9649161c3c6321bee708b3caf57e1bfa1a14ce0d4764621b25d13",
+      "bytes": 211139,
+      "source_path": "C:/Users/Peter/Downloads/grok-30c2103b-3ced-4347-ab4f-e6fd6b4fa5a6-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "48174d6ab00e790831b0ae95f3af126f567dacadb7902212051308587165454f",
+      "decode_timestamp_seconds": 0.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/30c2103b_t2_0.jpg",
+      "sha256": "150b26a0ef0d9d7ca5f3397cf797a075ec5b294ce81d2eb57baec69588e73943",
+      "bytes": 210367,
+      "source_path": "C:/Users/Peter/Downloads/grok-30c2103b-3ced-4347-ab4f-e6fd6b4fa5a6-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "48174d6ab00e790831b0ae95f3af126f567dacadb7902212051308587165454f",
+      "decode_timestamp_seconds": 2.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/30c2103b_t3_5.jpg",
+      "sha256": "5685a0819cf03ecb5e3437d085d209fc826d830ce5644cb11b90f616a1c267f3",
+      "bytes": 183482,
+      "source_path": "C:/Users/Peter/Downloads/grok-30c2103b-3ced-4347-ab4f-e6fd6b4fa5a6-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "48174d6ab00e790831b0ae95f3af126f567dacadb7902212051308587165454f",
+      "decode_timestamp_seconds": 3.5,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/30c2103b_t5_5.jpg",
+      "sha256": "8e03d42081a03c6b00df006d1b7c15ace30574879936d884dc6ed19556b6f9f0",
+      "bytes": 204293,
+      "source_path": "C:/Users/Peter/Downloads/grok-30c2103b-3ced-4347-ab4f-e6fd6b4fa5a6-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "48174d6ab00e790831b0ae95f3af126f567dacadb7902212051308587165454f",
+      "decode_timestamp_seconds": 5.5,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/4aa1f01b_t0_0.jpg",
+      "sha256": "514643e4b695004b31c563b0ce175981cc5a5ebfc7132c096b198467b515331f",
+      "bytes": 281966,
+      "source_path": "C:/Users/Peter/Downloads/grok-4aa1f01b-2a16-476e-a26e-91ecc313284d-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "c886bc81051f55d5e6a631fe3b2ba1a37d421b62c360d576dac41d86924916e7",
+      "decode_timestamp_seconds": 0.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/4aa1f01b_t2_0.jpg",
+      "sha256": "6fb1009ad5e94fef026b9161197a05349ef9ddd9749141a4d73276d3543ba4ad",
+      "bytes": 280810,
+      "source_path": "C:/Users/Peter/Downloads/grok-4aa1f01b-2a16-476e-a26e-91ecc313284d-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "c886bc81051f55d5e6a631fe3b2ba1a37d421b62c360d576dac41d86924916e7",
+      "decode_timestamp_seconds": 2.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/4aa1f01b_t3_5.jpg",
+      "sha256": "560b6217d14f5445833ed6903cb634c306922c5d0665563eb4d32aab7fd94e70",
+      "bytes": 260487,
+      "source_path": "C:/Users/Peter/Downloads/grok-4aa1f01b-2a16-476e-a26e-91ecc313284d-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "c886bc81051f55d5e6a631fe3b2ba1a37d421b62c360d576dac41d86924916e7",
+      "decode_timestamp_seconds": 3.5,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/4aa1f01b_t5_5.jpg",
+      "sha256": "ac7a0587df2bcc4539cb038247e50cc7382db752df58a54a64ed121460481657",
+      "bytes": 269299,
+      "source_path": "C:/Users/Peter/Downloads/grok-4aa1f01b-2a16-476e-a26e-91ecc313284d-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "c886bc81051f55d5e6a631fe3b2ba1a37d421b62c360d576dac41d86924916e7",
+      "decode_timestamp_seconds": 5.5,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/619367f6_t0_0.jpg",
+      "sha256": "f9503dd9993170f8e59984aa768d1af47cc06bb6e0d19f856b0b5ce387b7a681",
+      "bytes": 170140,
+      "source_path": "C:/Users/Peter/Downloads/grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "aa1a08d59e0a837d1abdd67a8518740f5777e289525ba22b52362becd396d61d",
+      "decode_timestamp_seconds": 0.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/619367f6_t2_0.jpg",
+      "sha256": "d255dc549dc6796e777b7b7d5a3360106d1d64997ad59f5d8d7431d52c5dab79",
+      "bytes": 181926,
+      "source_path": "C:/Users/Peter/Downloads/grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "aa1a08d59e0a837d1abdd67a8518740f5777e289525ba22b52362becd396d61d",
+      "decode_timestamp_seconds": 2.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/619367f6_t4_0.jpg",
+      "sha256": "2bf00ff84363b1053d6e3598b3063fd9690afb603c7a8343ddbea1be8756395d",
+      "bytes": 186953,
+      "source_path": "C:/Users/Peter/Downloads/grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "aa1a08d59e0a837d1abdd67a8518740f5777e289525ba22b52362becd396d61d",
+      "decode_timestamp_seconds": 4.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "audit/frames/619367f6_t6_0.jpg",
+      "sha256": "889b2e3be8224fb029cff1ee3c39b25fca8b5ac067f24addd1209a4104dbc9f5",
+      "bytes": 189969,
+      "source_path": "C:/Users/Peter/Downloads/grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4",
+      "role": "diagnostic_downloads_source_frame",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "FFmpeg exact single-frame diagnostic decode at the filename wall-clock timestamp; representative audit evidence only, never generation or delivery pixels.",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/jpeg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "aa1a08d59e0a837d1abdd67a8518740f5777e289525ba22b52362becd396d61d",
+      "decode_timestamp_seconds": 6.0,
+      "diagnostic_only": true
+    },
+    {
+      "path": "first_frames/D1-C14-S01_OPENING_candidate01.png",
+      "sha256": "5af05fdc73d560d988d81e5913a49b4c7a38f9917ac179cc64be01e076124d2b",
+      "bytes": 2886061,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a062b0-5cda-7183-b493-4504ebf1b93e/exec-c8ad4db9-6876-442c-a708-b8159193beca.png",
+      "role": "first_frame_candidate",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=1",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S01_OPENING_candidate01.json"
+    },
+    {
+      "path": "first_frames/D1-C14-S01_OPENING_candidate02.png",
+      "sha256": "3f880ce5b8393e9d7ae49c0b42d72900d4a48c43a66eeb9eb0328d2f93432110",
+      "bytes": 2769172,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a062b0-5cda-7183-b493-4504ebf1b93e/exec-074043b7-4c9b-483c-ae99-34858a4178d8.png",
+      "role": "first_frame_candidate",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=2",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S01_OPENING_candidate02.json"
+    },
+    {
+      "path": "first_frames/D1-C14-S01_OPENING_candidate03.png",
+      "sha256": "d7a93687f83057b78d05ddb9510658aa10eb119af5ad52af4d1e6a995f2bd987",
+      "bytes": 2890637,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a062b0-5cda-7183-b493-4504ebf1b93e/exec-a489ef7b-080f-44ce-942f-559f63622a4c.png",
+      "role": "first_frame_candidate",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=3",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1671,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S01_OPENING_candidate03.json"
+    },
+    {
+      "path": "first_frames/D1-C14-S01_OPENING_candidate04.png",
+      "sha256": "368fa769d410e43a3f7ef84066a5c0c2ab2c2bb53aec87230fca3a19c343293a",
+      "bytes": 2994094,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a062b0-5cda-7183-b493-4504ebf1b93e/exec-b8efed86-f17b-4a1f-b342-1fb93adc86ff.png",
+      "role": "first_frame_candidate",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=4",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S01_OPENING_candidate04.json"
+    },
+    {
+      "path": "first_frames/D1-C14-S02_OPENING_candidate01.png",
+      "sha256": "227e4261d83459fd418559f580b82721df4fde38c792e91d3d409523098a4540",
+      "bytes": 2633448,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a0716b-8149-7450-b87f-d1b9341d3cf8/exec-bed74962-dd69-42d3-8df2-6cd2e9474bd9.png",
+      "role": "first_frame_candidate",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=2",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S02_OPENING_candidate01.json"
+    },
+    {
+      "path": "first_frames/D1-C14-S02_OPENING_candidate02.png",
+      "sha256": "8ca06ac43ff12d94e459bd615a6ee7cfd94024fb5ffb3cb8048ed4c7f1dc5d1d",
+      "bytes": 2598582,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a0716b-8149-7450-b87f-d1b9341d3cf8/exec-e88a04f8-1452-4aec-80e9-80000ea427ac.png",
+      "role": "first_frame_candidate",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=3",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S02_OPENING_candidate02.json"
+    },
+    {
+      "path": "first_frames/D1-C14-S03_OPENING_candidate01.png",
+      "sha256": "bd86816b3970abc3d8388d359e99b4fae445ca7ecde4856bdda9bbefb4ee09d8",
+      "bytes": 2506279,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a0716b-8149-7450-b87f-d1b9341d3cf8/exec-9533492d-360b-4203-ac68-3cbab08765ae.png",
+      "role": "first_frame_candidate",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=1",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S03_OPENING_candidate01.json"
+    },
+    {
+      "path": "first_frames/D1-C14-S04_OPENING_candidate01.png",
+      "sha256": "99e6dcd8fb15d6f2c5ae34e19da58056c37a4db126e581f4c76bd87a4ac52c7c",
+      "bytes": 2800736,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-5dcc80ed-a542-4c36-a285-17722c62901c.png",
+      "role": "first_frame_candidate",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=1",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S04_OPENING_candidate01.json"
+    },
+    {
+      "path": "first_frames/D1-C14-S04_OPENING_candidate02.png",
+      "sha256": "06b12cb4c9163d8d6d2d893538d2fb7ab80d8c03a9e5699414058252e0cf1946",
+      "bytes": 2798515,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-2a0f000e-fc1e-4309-965d-1087d24d84cb.png",
+      "role": "first_frame_candidate",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=2",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S04_OPENING_candidate02.json"
+    },
+    {
+      "path": "first_frames/D1-C14-S05_OPENING_candidate01.png",
+      "sha256": "af681b80dfd69e1fd482b6a0945c79e635b1b3b5930dc89d633f7d4f4ff3a65c",
+      "bytes": 2900274,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-9e3b1042-78d1-40eb-a9bc-0e8026221a5c.png",
+      "role": "first_frame_candidate",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=1",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S05_OPENING_candidate01.json"
+    },
+    {
+      "path": "first_frames/D1-C14-S06_OPENING_candidate01.png",
+      "sha256": "13285ffdcc688046a7bc58862cd175279fa427517e1cbe8db0dd83ef0d3c067d",
+      "bytes": 2890145,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a062b0-5cda-7183-b493-4504ebf1b93e/exec-f06e5b0a-cf92-4ac0-a8cf-02d82bf8655f.png",
+      "role": "first_frame_candidate",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=1",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S06_OPENING_candidate01.json"
+    },
+    {
+      "path": "generation_prompts/D1-C14-S01_BOARD_candidate01.job.json",
+      "sha256": "c7a340c98a9609ea61e238d1d3082c815df9d54508a4982e698063fab7b9adf8",
+      "bytes": 1795,
+      "source_path": "generation_prompts/D1-C14-S01_BOARD_candidate01.job.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_prompts/D1-C14-S01_OPENING_candidate01.job.json",
+      "sha256": "97c27283d0b5cec403a8717e163c441359ca6d5878b2074b0e3f7576ddd0f324",
+      "bytes": 3842,
+      "source_path": "generation_prompts/D1-C14-S01_OPENING_candidate01.job.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_prompts/D1-C14-S01_OPENING_candidate01.txt",
+      "sha256": "e0d9d2cd10ee4afb61f622e2343371825fe54a59de23b3df5c7faaa5663d9667",
+      "bytes": 2840,
+      "source_path": "generation_prompts/D1-C14-S01_OPENING_candidate01.txt",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/plain"
+    },
+    {
+      "path": "generation_prompts/D1-C14-S01_OPENING_candidate02.job.json",
+      "sha256": "de12173d8ef031635e3cd9a8e3b886b23ab64e9f3c57c08aad22c24acf9b2381",
+      "bytes": 2220,
+      "source_path": "generation_prompts/D1-C14-S01_OPENING_candidate02.job.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_prompts/D1-C14-S01_OPENING_candidate03.job.json",
+      "sha256": "ac52e18d569578e1a4421db72701e42e36d9d01820e57a55fd23ce00c4792d1d",
+      "bytes": 1978,
+      "source_path": "generation_prompts/D1-C14-S01_OPENING_candidate03.job.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_prompts/D1-C14-S01_OPENING_candidate04.job.json",
+      "sha256": "5bc50ff8cf1c0feb5238dcd3df82bb06297cd30e18df55c2833866824708a771",
+      "bytes": 1620,
+      "source_path": "generation_prompts/D1-C14-S01_OPENING_candidate04.job.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_prompts/D1-C14-S06_BOARD_candidate01.job.json",
+      "sha256": "928218dbfbd501ada2dc66ce3d2ecdddbfeaa3b2b8fba450ad9a943b9411e59c",
+      "bytes": 1671,
+      "source_path": "generation_prompts/D1-C14-S06_BOARD_candidate01.job.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_prompts/D1-C14-S06_OPENING_candidate01.job.json",
+      "sha256": "7bce565419b8a2337a9b2a0fe384dbdbdea97e0802fcfe8d301c0d48b3ac0b52",
+      "bytes": 3143,
+      "source_path": "generation_prompts/D1-C14-S06_OPENING_candidate01.job.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S01_BOARD_candidate01.json",
+      "sha256": "735e164081ee4189ebb27abfd1d745ee67572001364842ee99e7be604d73562d",
+      "bytes": 3364,
+      "source_path": "generation_records/D1-C14-S01_BOARD_candidate01.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S01_OPENING_candidate01.json",
+      "sha256": "794ad23846c0a82212aeb3b2bcbaae90d745f878f465074f71d4bbfec9c18ade",
+      "bytes": 6478,
+      "source_path": "generation_records/D1-C14-S01_OPENING_candidate01.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S01_OPENING_candidate02.json",
+      "sha256": "206ba5782f1405f2bece8f19913c145a55eb8bb319f0a258735934404bf90e87",
+      "bytes": 4334,
+      "source_path": "generation_records/D1-C14-S01_OPENING_candidate02.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S01_OPENING_candidate03.json",
+      "sha256": "64886706dd889c1e6765577c37c614ef90fc22008a87726332236db670e025fd",
+      "bytes": 3513,
+      "source_path": "generation_records/D1-C14-S01_OPENING_candidate03.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S01_OPENING_candidate04.json",
+      "sha256": "5f244253817a65a6b6db11ad3abc1bb8c0cdef9e0a00ba21814748bdf6914e4e",
+      "bytes": 3216,
+      "source_path": "generation_records/D1-C14-S01_OPENING_candidate04.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S02_BOARD_candidate01.json",
+      "sha256": "5ec0d6a060bb9f072952f0580bbe89c21a5a84ec31bc894730cf172cbc2e25b2",
+      "bytes": 3470,
+      "source_path": "generation_records/D1-C14-S02_BOARD_candidate01.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S02_BOARD_candidate02.json",
+      "sha256": "dc265c3585cd8319b7d36a231f8429c05060a732ce3fa7c4549454ae6500ed38",
+      "bytes": 2920,
+      "source_path": "generation_records/D1-C14-S02_BOARD_candidate02.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S02_OPENING_candidate01.json",
+      "sha256": "b27fd5b313326da5a43fed3168cb8f2bc5bfb41d06f7346adf8f7feaac88efab",
+      "bytes": 2989,
+      "source_path": "generation_records/D1-C14-S02_OPENING_candidate01.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S02_OPENING_candidate02.json",
+      "sha256": "3d9d428f182c38ac7cce5898cb203cc0403b512d6ecec324dd07d173ecf91b0b",
+      "bytes": 3168,
+      "source_path": "generation_records/D1-C14-S02_OPENING_candidate02.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S03_BOARD_candidate01.json",
+      "sha256": "16753faa8addc39c63941c0213821217e79ae2a37983e4a8f1b79f25f7b102da",
+      "bytes": 3212,
+      "source_path": "generation_records/D1-C14-S03_BOARD_candidate01.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S03_BOARD_candidate02.json",
+      "sha256": "6c2cb9e85638eb56f49f1cd641a61f7f9c5078e7e761f27bcd10da2d96a82330",
+      "bytes": 3075,
+      "source_path": "generation_records/D1-C14-S03_BOARD_candidate02.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S03_OPENING_candidate01.json",
+      "sha256": "7baf68a47b24958ce7816c056a0e4355c78ee8929bc3ce05f9e93976f6943bcb",
+      "bytes": 3183,
+      "source_path": "generation_records/D1-C14-S03_OPENING_candidate01.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S04_BOARD_candidate01.json",
+      "sha256": "d1b0b686ef0c6de790209577ad94478ddf4ac34bb7054268072bb8a1a5573c0e",
+      "bytes": 5024,
+      "source_path": "generation_records/D1-C14-S04_BOARD_candidate01.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S04_BOARD_candidate02.json",
+      "sha256": "a95cba274bb494d7af536681b565fe4fbf6323a0eed40d3bb72e58e461a788c1",
+      "bytes": 4819,
+      "source_path": "generation_records/D1-C14-S04_BOARD_candidate02.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S04_OPENING_candidate01.json",
+      "sha256": "a56df12b505c4c77467786858946565b133e7444852b3904336cf28c6d34cdf2",
+      "bytes": 5213,
+      "source_path": "generation_records/D1-C14-S04_OPENING_candidate01.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S04_OPENING_candidate02.json",
+      "sha256": "4f7b31aeb5bd59bcb7124207cb2e5893bf8e7d651c205f9bb8280aaafc76f5ac",
+      "bytes": 5930,
+      "source_path": "generation_records/D1-C14-S04_OPENING_candidate02.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S05_BOARD_candidate01.json",
+      "sha256": "2879b1052541a65daa633076182c040182092d06c41a503c55fe18a85266e25a",
+      "bytes": 5431,
+      "source_path": "generation_records/D1-C14-S05_BOARD_candidate01.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S05_BOARD_candidate02.json",
+      "sha256": "88ce61575d989addec20efa2d61b634babffd9e260020a8dac7e3beedfb092ec",
+      "bytes": 5725,
+      "source_path": "generation_records/D1-C14-S05_BOARD_candidate02.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S05_OPENING_candidate01.json",
+      "sha256": "f6231babec057e0f834470989fd5a1b5a7f62e9cf1ea4fda972058557bc647cc",
+      "bytes": 6060,
+      "source_path": "generation_records/D1-C14-S05_OPENING_candidate01.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S06_BOARD_candidate01.json",
+      "sha256": "d8c248cb2526a7245da79cb72496df6b3d34c93819f241e3af76122b57feaf57",
+      "bytes": 2873,
+      "source_path": "generation_records/D1-C14-S06_BOARD_candidate01.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/D1-C14-S06_OPENING_candidate01.json",
+      "sha256": "f6628c4119bfbfed549a1c2cf40356ee94d4e7b833fa0972325eb1da3dbdebb8",
+      "bytes": 5301,
+      "source_path": "generation_records/D1-C14-S06_OPENING_candidate01.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "generation_records/SOL_REVIEW.json",
+      "sha256": "d104601cd829a12f01d1ca0e9cba11233f3b7d91c43c95823a3df08124db34b1",
+      "bytes": 13169,
+      "source_path": "generation_records/SOL_REVIEW.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "references/brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "bytes": 535795,
+      "source_path": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+      "role": "object_or_material_identity",
+      "license_provenance": "Inherits project ASSET_LICENSES.md and source restrictions; no new rights granted.",
+      "modifications": "byte-identical non-destructive copy",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        936,
+        1024
+      ]
+    },
+    {
+      "path": "references/daddy.png",
+      "sha256": "9d8c468a5195de6b038963e3b7b0a43fb271085c9b2992c749efaaf62ee9824a",
+      "bytes": 1644558,
+      "source_path": "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/normalized/daddy_master_1536.png",
+      "role": "subject_identity",
+      "license_provenance": "Inherits project ASSET_LICENSES.md and source restrictions; no new rights granted.",
+      "modifications": "byte-identical non-destructive copy",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1091,
+        1536
+      ]
+    },
+    {
+      "path": "references/eagle.png",
+      "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+      "bytes": 671297,
+      "source_path": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "role": "subject_identity",
+      "license_provenance": "Inherits project ASSET_LICENSES.md and source restrictions; no new rights granted.",
+      "modifications": "byte-identical non-destructive copy",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        770,
+        1024
+      ]
+    },
+    {
+      "path": "references/hall_a.png",
+      "sha256": "6e840715f1ff580a21e8df3406b5c23733bf584d5046345f7239d72913c04c5d",
+      "bytes": 2626461,
+      "source_path": "assets_src/imagegen/castle_main_hall_redraw_2026-08-03/accepted_screen_a_native_1672x941.png",
+      "role": "current_native_game_layout",
+      "license_provenance": "Inherits project ASSET_LICENSES.md and source restrictions; no new rights granted.",
+      "modifications": "byte-identical non-destructive copy",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "references/hall_b.png",
+      "sha256": "7e77e4c29bbbdcaf2230031a760137a28371532debefda971ab1b251df3ee2ad",
+      "bytes": 2623714,
+      "source_path": "assets_src/imagegen/castle_main_hall_redraw_2026-08-03/accepted_screen_b_native_1672x941.png",
+      "role": "current_native_game_layout",
+      "license_provenance": "Inherits project ASSET_LICENSES.md and source restrictions; no new rights granted.",
+      "modifications": "byte-identical non-destructive copy",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "references/hall_oblique.png",
+      "sha256": "a6edd7964834cce678d1e32e5d28814895972caf1ef349291d5725b2067c266f",
+      "bytes": 2752239,
+      "source_path": "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C11_S01_LAYOUT_candidate02.png",
+      "role": "sol_reviewed_human_pending_layout_candidate_not_approved",
+      "license_provenance": "Inherits project ASSET_LICENSES.md and source restrictions; no new rights granted.",
+      "modifications": "byte-identical non-destructive copy",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "references/rainbow_bunny.png",
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "bytes": 1608938,
+      "source_path": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rainbow_dust_bunny_concept.png",
+      "role": "subject_identity",
+      "license_provenance": "Inherits project ASSET_LICENSES.md and source restrictions; no new rights granted.",
+      "modifications": "byte-identical non-destructive copy",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "references/roshan.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "bytes": 50051,
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "role": "subject_identity",
+      "license_provenance": "Inherits project ASSET_LICENSES.md and source restrictions; no new rights granted.",
+      "modifications": "byte-identical non-destructive copy",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "references/roshan_rear.png",
+      "sha256": "325985106004ca6614370b4aa0eb988a911e385dd450612577f31afc65da6ba1",
+      "bytes": 656707,
+      "source_path": "assets/characters/roshan_25d/roshan_swim_back.png",
+      "role": "subject_identity",
+      "license_provenance": "Inherits project ASSET_LICENSES.md and source restrictions; no new rights granted.",
+      "modifications": "byte-identical non-destructive copy",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "references/rumi.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "bytes": 470838,
+      "source_path": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "role": "subject_identity",
+      "license_provenance": "Inherits project ASSET_LICENSES.md and source restrictions; no new rights granted.",
+      "modifications": "byte-identical non-destructive copy",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        576,
+        1024
+      ]
+    },
+    {
+      "path": "references/sign_bubble_bath.png",
+      "sha256": "3a43e1fc23f95f9f3a2ec256861d418017d783bbf0d30f7b85fee677838aa3c4",
+      "bytes": 22316,
+      "source_path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_bubble_bath.png",
+      "role": "current_door_emblem_identity",
+      "license_provenance": "Inherits project ASSET_LICENSES.md and source restrictions; no new rights granted.",
+      "modifications": "byte-identical non-destructive copy",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "references/sign_craft_room.png",
+      "sha256": "17ccf96d936d557b28a88960d8793f58ceff73fa5328b42c7c41c4f65c138e2e",
+      "bytes": 23881,
+      "source_path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_craft_room.png",
+      "role": "current_door_emblem_identity",
+      "license_provenance": "Inherits project ASSET_LICENSES.md and source restrictions; no new rights granted.",
+      "modifications": "byte-identical non-destructive copy",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "references/sign_mermaid_pool.png",
+      "sha256": "8ae6239cc8d01eecaa741842b591b2388659ff92929b9dec336e62ffa7ab4033",
+      "bytes": 20315,
+      "source_path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_mermaid_pool.png",
+      "role": "current_door_emblem_identity",
+      "license_provenance": "Inherits project ASSET_LICENSES.md and source restrictions; no new rights granted.",
+      "modifications": "byte-identical non-destructive copy",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "references/sign_playroom.png",
+      "sha256": "22d9a3df8eda3b95ae93250165a64a947b4157a70b4405f90dc4d600edccd7df",
+      "bytes": 21818,
+      "source_path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png",
+      "role": "current_door_emblem_identity",
+      "license_provenance": "Inherits project ASSET_LICENSES.md and source restrictions; no new rights granted.",
+      "modifications": "byte-identical non-destructive copy",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "references/sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "bytes": 219621,
+      "source_path": "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+      "role": "object_or_material_identity",
+      "license_provenance": "Inherits project ASSET_LICENSES.md and source restrictions; no new rights granted.",
+      "modifications": "byte-identical non-destructive copy",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "shots/C14-S01/FRAME_PLAN.json",
+      "sha256": "e5f32d412690ff9e3dde734cfef47671737cd661ab164e76f8385af1e7263528",
+      "bytes": 268383,
+      "source_path": "shots/C14-S01/FRAME_PLAN.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "shots/C14-S01/PROMPT.txt",
+      "sha256": "6dbc2a5b5a73d7603f97ac8429a041aa8086ddfd5a4e8658bc2e3e88aff07977",
+      "bytes": 1071,
+      "source_path": "shots/C14-S01/PROMPT.txt",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/plain"
+    },
+    {
+      "path": "shots/C14-S01/README.md",
+      "sha256": "84e9bfd8c718f6f1535d6057f8c33173cc037474311eb12be769032a4e9d714c",
+      "bytes": 2704,
+      "source_path": "shots/C14-S01/README.md",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/markdown"
+    },
+    {
+      "path": "shots/C14-S01/SHOT_PACKET.json",
+      "sha256": "75e65c44d1b930501a775cf72f44341ac641c417558efbbb0b369a57eafc17d3",
+      "bytes": 4407,
+      "source_path": "shots/C14-S01/SHOT_PACKET.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "shots/C14-S02/FRAME_PLAN.json",
+      "sha256": "f1d52b4e2245b00362fa40f660df10b97f106f5dd3e8f6709fcdf19aa94b16c0",
+      "bytes": 222108,
+      "source_path": "shots/C14-S02/FRAME_PLAN.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "shots/C14-S02/PROMPT.txt",
+      "sha256": "8cb58ae7b0ddceb2186a169abf86732c948bc2fc212afda6bd4bbaf207005e00",
+      "bytes": 1136,
+      "source_path": "shots/C14-S02/PROMPT.txt",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/plain"
+    },
+    {
+      "path": "shots/C14-S02/README.md",
+      "sha256": "f5f6268d8df9a8c8659d8951868abd3b6d5d64f7162b5f88f8e84b13a50fc5f3",
+      "bytes": 1713,
+      "source_path": "shots/C14-S02/README.md",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/markdown"
+    },
+    {
+      "path": "shots/C14-S02/SHOT_PACKET.json",
+      "sha256": "fc78352ca40c1db4c178012a1872613128ea15b6086bf60dadd293d213f6229a",
+      "bytes": 4382,
+      "source_path": "shots/C14-S02/SHOT_PACKET.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "shots/C14-S03/FRAME_PLAN.json",
+      "sha256": "ddcf8ab46e0f1faeea442b543b6830ceaa9e7e674e271d9654c299525aa04ece",
+      "bytes": 283047,
+      "source_path": "shots/C14-S03/FRAME_PLAN.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "shots/C14-S03/PROMPT.txt",
+      "sha256": "a55346c38e858c854472a3c33bbeac8068d3ee71773f0d269c6e7db07a6e4370",
+      "bytes": 1261,
+      "source_path": "shots/C14-S03/PROMPT.txt",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/plain"
+    },
+    {
+      "path": "shots/C14-S03/README.md",
+      "sha256": "55b10c5e2f4c1f8bf32a717b17fbaabc755e18868b723441222325888ef254b2",
+      "bytes": 2153,
+      "source_path": "shots/C14-S03/README.md",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/markdown"
+    },
+    {
+      "path": "shots/C14-S03/SHOT_PACKET.json",
+      "sha256": "cd959b64ae3dc32b2cfcb6eb33dd0f7ff24e48be8f6796f10d6f108c057dcd21",
+      "bytes": 4743,
+      "source_path": "shots/C14-S03/SHOT_PACKET.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "shots/C14-S04/FRAME_PLAN.json",
+      "sha256": "4d57e308e33e943f351fcf9529f31d076e389f4cc45c192112ee47cc406346ea",
+      "bytes": 278235,
+      "source_path": "shots/C14-S04/FRAME_PLAN.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "shots/C14-S04/PROMPT.txt",
+      "sha256": "92362039c68e4780bd1024cecc482d6b960826d9f036fc493a893a1875947058",
+      "bytes": 1163,
+      "source_path": "shots/C14-S04/PROMPT.txt",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/plain"
+    },
+    {
+      "path": "shots/C14-S04/README.md",
+      "sha256": "c5e1514b0167d504508bad5d2183d49c5d2a4f0292b406d702a2bc8d6e68d3d3",
+      "bytes": 2063,
+      "source_path": "shots/C14-S04/README.md",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/markdown"
+    },
+    {
+      "path": "shots/C14-S04/SHOT_PACKET.json",
+      "sha256": "bb6528d23d86aa4a8c4680659b3d8e4cd136977795b98ed0be6a45485f3fff76",
+      "bytes": 4734,
+      "source_path": "shots/C14-S04/SHOT_PACKET.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "shots/C14-S05/FRAME_PLAN.json",
+      "sha256": "f6114a47f36656c9ca761f8285222cee8c2366ad38e34dbf4f7ee26b4b386d2a",
+      "bytes": 358305,
+      "source_path": "shots/C14-S05/FRAME_PLAN.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "shots/C14-S05/PROMPT.txt",
+      "sha256": "d68669ba78c8d1a227e5e02c600fa6ebb34aa8443389a77f73b504aef69b51f4",
+      "bytes": 1659,
+      "source_path": "shots/C14-S05/PROMPT.txt",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/plain"
+    },
+    {
+      "path": "shots/C14-S05/README.md",
+      "sha256": "881076af2fe06a849777a2da2c96d9d0fbfcb345c8ea7d7bbfc4cfce468c070b",
+      "bytes": 2585,
+      "source_path": "shots/C14-S05/README.md",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/markdown"
+    },
+    {
+      "path": "shots/C14-S05/SHOT_PACKET.json",
+      "sha256": "e5ee44e611636564718ed764dccccade025bfa379d54e63af5ebce4563b4c8e7",
+      "bytes": 5310,
+      "source_path": "shots/C14-S05/SHOT_PACKET.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "shots/C14-S06/FRAME_PLAN.json",
+      "sha256": "06a36a8763d14c2c168db544bf69c1e01a31cb497b502f4da0fb36380d00b001",
+      "bytes": 338493,
+      "source_path": "shots/C14-S06/FRAME_PLAN.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "shots/C14-S06/PROMPT.txt",
+      "sha256": "8af276de2f6124e83188453adaf6477a17dada0ec116992bb8389db4e011ad78",
+      "bytes": 1420,
+      "source_path": "shots/C14-S06/PROMPT.txt",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/plain"
+    },
+    {
+      "path": "shots/C14-S06/README.md",
+      "sha256": "042e544052920737b550ed390d0806a2613b4d5d4014b0123aa1eab13f7e5735",
+      "bytes": 2341,
+      "source_path": "shots/C14-S06/README.md",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/markdown"
+    },
+    {
+      "path": "shots/C14-S06/SHOT_PACKET.json",
+      "sha256": "e2d7cf44e6aa491e095be36349951a7e03f94dd7a605e666a3a4f05027366392",
+      "bytes": 4733,
+      "source_path": "shots/C14-S06/SHOT_PACKET.json",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "application/json"
+    },
+    {
+      "path": "storyboards/D1-C14-S01_BOARD_candidate01.png",
+      "sha256": "903c90f85fa1096b52fc3092a8ac063e1b595d5bd36f01dd593a96592f8186cf",
+      "bytes": 3081269,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a062b0-5cda-7183-b493-4504ebf1b93e/exec-bffef407-305a-4dba-8fcb-57857394fce6.png",
+      "role": "narrative_storyboard_not_binding",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=1",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S01_BOARD_candidate01.json"
+    },
+    {
+      "path": "storyboards/D1-C14-S02_BOARD_candidate01.png",
+      "sha256": "bddc01b456957338cbda50fd856c8f4e935d77fa744a9ca0c62217973cd767fd",
+      "bytes": 2897705,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a0716b-8149-7450-b87f-d1b9341d3cf8/exec-c8887f26-ca1d-43d6-885c-7b958ae6d8f5.png",
+      "role": "narrative_storyboard_not_binding",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=1",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S02_BOARD_candidate01.json"
+    },
+    {
+      "path": "storyboards/D1-C14-S02_BOARD_candidate02.png",
+      "sha256": "0d746d3b223cc68586182b632add58c21e4f18cb78822911f7f0370a801b3860",
+      "bytes": 2885072,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a0716b-8149-7450-b87f-d1b9341d3cf8/exec-121cfa64-e46f-46f0-8534-22ec8af1fd8e.png",
+      "role": "narrative_storyboard_not_binding",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=2",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S02_BOARD_candidate02.json"
+    },
+    {
+      "path": "storyboards/D1-C14-S03_BOARD_candidate01.png",
+      "sha256": "810fbd15fc2c7957fe2c9c1c6d7b4e7695b3c5419d1855725117467c8503e032",
+      "bytes": 2725688,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a0716b-8149-7450-b87f-d1b9341d3cf8/exec-58884133-cd3a-4bfd-ae7b-03dfaf4243a5.png",
+      "role": "narrative_storyboard_not_binding",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=1",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S03_BOARD_candidate01.json"
+    },
+    {
+      "path": "storyboards/D1-C14-S03_BOARD_candidate02.png",
+      "sha256": "15a4b36e24b185e54d822bcf428a8005c49669fe46523628c0c06f1935120e1c",
+      "bytes": 2680263,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a0716b-8149-7450-b87f-d1b9341d3cf8/exec-905a7a31-a7be-4fee-b414-f8115f8f7b7b.png",
+      "role": "narrative_storyboard_not_binding",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=2",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S03_BOARD_candidate02.json"
+    },
+    {
+      "path": "storyboards/D1-C14-S04_BOARD_candidate01.png",
+      "sha256": "1ab82d555510ba48d98f621852962074936155ed66f0d375cf39dd69aea0e056",
+      "bytes": 2828608,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-f97c6c62-56e7-42ee-9454-87fc026ff2bd.png",
+      "role": "narrative_storyboard_not_binding",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=1",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S04_BOARD_candidate01.json"
+    },
+    {
+      "path": "storyboards/D1-C14-S04_BOARD_candidate02.png",
+      "sha256": "dcd960b11b4c99d5cd71f682540a3db143ae2b9170ff3e1e427567e3bfdd958b",
+      "bytes": 2962382,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-9fc96034-55b3-4577-962f-8f75e26d0ac2.png",
+      "role": "narrative_storyboard_not_binding",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=2",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S04_BOARD_candidate02.json"
+    },
+    {
+      "path": "storyboards/D1-C14-S05_BOARD_candidate01.png",
+      "sha256": "e3be1502dae095edfb4585020120126b08a9a60acd4a007cd0630ed16b6ae840",
+      "bytes": 3096044,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-fa84ef8e-c1ed-4601-90a3-d6fb9a597394.png",
+      "role": "narrative_storyboard_not_binding",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=1",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S05_BOARD_candidate01.json"
+    },
+    {
+      "path": "storyboards/D1-C14-S05_BOARD_candidate02.png",
+      "sha256": "fe74152ccb16a88e4f4d2d6224d5c05bf266061ba29a4442414281b17cd5f2a2",
+      "bytes": 3031777,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a0716b-c2cf-7182-8c5b-98b9bdc69033/exec-6e4a369d-a2c3-4134-90f0-02878dcc7bc8.png",
+      "role": "narrative_storyboard_not_binding",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=2",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S05_BOARD_candidate02.json"
+    },
+    {
+      "path": "storyboards/D1-C14-S06_BOARD_candidate01.png",
+      "sha256": "dd06fcbae06b28dcba95426368f15a341aa93d2776e3a9aae0dc83c09c7f671d",
+      "bytes": 2793519,
+      "source_path": "C:/Users/Peter/.codex/generated_images/01a062b0-5cda-7183-b493-4504ebf1b93e/exec-8483b168-055b-4a86-ba85-21f3ba8060bb.png",
+      "role": "narrative_storyboard_not_binding",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "native generated output preserved; method=builtin_image_gen; attempt=1",
+      "used_as_delivery_pixels": false,
+      "media_type": "image/png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "generation_record": "generation_records/D1-C14-S06_BOARD_candidate01.json"
+    },
+    {
+      "path": "written_guide/IMAGINE_SHOT_CARD_V1.md",
+      "sha256": "83ee330bc13759b5df39207c484292c44c9f3bc439029291da40606d3e31e497",
+      "bytes": 3657,
+      "source_path": "written_guide/IMAGINE_SHOT_CARD_V1.md",
+      "role": "archive_sidecar",
+      "license_provenance": "Inherits SOURCE_ASSETS.json, generation record, and project ASSET_LICENSES.md restrictions; no new rights granted.",
+      "modifications": "packet-authored sidecar or preserved existing visual; see role and source ledger",
+      "used_as_delivery_pixels": false,
+      "media_type": "text/markdown"
+    }
+  ],
+  "payload_sha256": "a1d31cf204a43ec2f6c8d1d2cdf34ab0f6446fbbcefc01572e7870f75cdc6b17",
+  "payload_hash_formula": "SHA256 of sorted UTF-8 path TAB sha256 TAB bytes LF; excludes HANDOFF_PACKET.json, DRAFT_VALIDATION.json, REMOTE_VERIFICATION.json, .import and .uid",
+  "jobs": [
+    {
+      "shot_id": "C14-S01",
+      "card": "shots/C14-S01/SHOT_PACKET.json",
+      "human_approval_pending": true
+    },
+    {
+      "shot_id": "C14-S02",
+      "card": "shots/C14-S02/SHOT_PACKET.json",
+      "human_approval_pending": true
+    },
+    {
+      "shot_id": "C14-S03",
+      "card": "shots/C14-S03/SHOT_PACKET.json",
+      "human_approval_pending": true
+    },
+    {
+      "shot_id": "C14-S04",
+      "card": "shots/C14-S04/SHOT_PACKET.json",
+      "human_approval_pending": true
+    },
+    {
+      "shot_id": "C14-S05",
+      "card": "shots/C14-S05/SHOT_PACKET.json",
+      "human_approval_pending": true
+    },
+    {
+      "shot_id": "C14-S06",
+      "card": "shots/C14-S06/SHOT_PACKET.json",
+      "human_approval_pending": true
+    }
+  ],
+  "blocking_findings": [
+    "human approval pending for every first frame"
+  ]
+}

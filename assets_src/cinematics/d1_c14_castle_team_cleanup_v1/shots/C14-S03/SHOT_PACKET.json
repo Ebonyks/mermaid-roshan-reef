@@ -1,0 +1,96 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C14",
+  "shot_id": "C14-S03",
+  "status": "DRAFT",
+  "duration_seconds": 5,
+  "fps": 24,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/D1-C14-S03_OPENING_candidate01.png",
+      "sha256": "bd86816b3970abc3d8388d359e99b4fae445ca7ecde4856bdda9bbefb4ee09d8",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/daddy.png",
+      "sha256": "9d8c468a5195de6b038963e3b7b0a43fb271085c9b2992c749efaaf62ee9824a",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_3",
+      "path": "references/eagle.png",
+      "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_4",
+      "path": "references/brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "role": "object_or_material_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "description": "Fixed low three-quarter medium-wide, looking upward just enough to include the column web and Daddy's complete mer-tail. No camera movement."
+  },
+  "start_state": "Daddy has both hands on the purple handle behind the gold ferrule, cyan-white bristles facing the reachable web. Eagle is grounded nearby. Royal stair/column ownership is unchanged.",
+  "end_state": "Web is held on the brush bristles clear of the column; Eagle's wings are folded and Daddy safely lowers the captured debris. The adjacent runner footprints still exist.",
+  "cast": [
+    "Daddy",
+    "Baby Eagle"
+  ],
+  "zone": "B-right, reachable web at the BASE of pearl column left of Royal arch",
+  "must_move": "Daddy places cyan-white brush tips against the reachable web; handle stays behind the bristle contact. He makes one deliberate short lifting brush stroke while Eagle gives one restrained wingbeat directing the loosened thread onto the brush. Daddy withdraws the web caught in the bristles. Eagle folds its wings. The original column surface is visible, unchanged beneath the web.",
+  "must_not_move": [
+    "Fixed screen-B topology: teddy, palette, single blue droplet, three pearls, then open Royal arch with short stairs, left to right; never a coral window on B",
+    "Same warm pearl/lavender storybook grade; architecture, emblems, runner and staircase never move or recolor",
+    "Roshan plain pink top/lavender tail; Daddy continuous rainbow mer-tail and glasses; Rumi long purple braid/mer-tail; Eagle true bird; no new costumes or limbs",
+    "Rainbow friend retains the source cloud-mound, broad spiral ears, red-orange forehead curl, white iridescent glint and pearl feet; total height at same floor depth no more than one quarter of Roshan, pending owner scale approval",
+    "Remove only inert litter, webs, wall smears and footprints; living puff creatures are never swept or blasted; no big boss remains",
+    "Cleaned zones remain clean; preserve dirt until shown physical contact removes it; no whole-room magical cleanup"
+  ],
+  "sound_intent": "Soft bristle swish, a single gentle wing flutter and a small satisfied chirp; no speech or music.",
+  "negative_constraints": [
+    "No reversed brush, hands on bristles, human shoes or legs, impossible broom length, unreachable high ceiling web, new arch, living bunny attack, large gust or debris storm."
+  ],
+  "prompt_path": "shots/C14-S03/PROMPT.txt",
+  "prompt_sha256": "a55346c38e858c854472a3c33bbeac8068d3ee71773f0d269c6e7db07a6e4370",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/D1-C14-S03_BOARD_candidate02.png",
+      "role": "narrative_storyboard",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "review_record": "generation_records/SOL_REVIEW.json",
+  "review_match": true,
+  "generation_provenance": {
+    "first_frame_record": "generation_records/D1-C14-S03_OPENING_candidate01.json",
+    "board_record": "generation_records/D1-C14-S03_BOARD_candidate02.json"
+  },
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

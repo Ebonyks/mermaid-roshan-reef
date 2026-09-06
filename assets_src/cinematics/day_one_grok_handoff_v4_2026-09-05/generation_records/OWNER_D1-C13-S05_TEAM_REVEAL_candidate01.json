@@ -1,0 +1,17 @@
+{
+  "shot": "D1-C13-S05",
+  "asset_type": "first_frame",
+  "attempt": 1,
+  "status": "human_pending",
+  "method": "built_in_image_gen_precise_object_edit",
+  "prompt": "Use case: precise-object-edit. Create one complete flattened 16:9 storybook frame as the post-clean endpoint of the supplied team frame. Preserve the exact dusty attic room, camera, lighting, composition, and all five cast positions: Daddy at left holding the brush, Roshan near center-left with sponge, Rumi at right, Eagle foreground left, and Puff centered. Remove every dust smear from Puff's body only; Puff becomes clean lavender cloud while retaining two curled ears, forehead star, and two teeth. Room dust, cobwebs, floor dust, and background grime remain unchanged. Daddy keeps the same correct brush-handle grip but lowers the brush safely. Roshan withdraws the sponge and holds it near her body. Rumi lowers her dry hand. Eagle folds its wings. All five remain visible in the same tight semicircle and same three-quarter camera; do not reset to a frontal lineup. No baby, no shell prop, no extra characters, no morphing, no split body, no vanished cast, no new objects, no text. Full-frame redraw, not compositing or cutout.",
+  "referenced_image_paths": ["C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C13-S04_TEAM_candidate03.png"],
+  "input_images": [{"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C13-S04_TEAM_candidate03.png", "sha256": "B12262FE17E7DC376756C7884A62FFC9F991807F385AAEB0A8469C15D89FB738", "dimensions": [1672, 941], "role": "team_frame_candidate_reference_human_pending"}],
+  "native_output_path": "C:/Users/Peter/.codex/generated_images/01a0716b-8149-7450-b87f-d1b9341d3cf8/exec-47cff5c6-111d-4ec0-aa16-4a238abb9203.png",
+  "output_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C13-S05_TEAM_REVEAL_candidate01.png",
+  "output_sha256": "FC47DF9FF6BDE11A8589C02BF926D0C5398C0A0A26D9247410A5D8A80DD108DF",
+  "output_dimensions": [1672, 941],
+  "human_review": "pending",
+  "superseded_by": "first_frames/D1-C13-S05_TEAM_REVEAL_candidate02.png",
+  "review_disposition": "unselected: accidental purple blouse glyphs; preserve for generation history only"
+}

@@ -1,0 +1,180 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C13",
+  "shot_id": "D1-C13-S04",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 5,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/OWNER_C13-S04_SUDS_OPENING_candidate01.png",
+      "sha256": "ae62b81dc9e8ef6cc6173f678833e6f0a0104bdb0550e08893628fa8bc95d95a",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/69827625a8_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_3",
+      "path": "references/e585e52562_grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_4",
+      "path": "references/17e76b7f75_magic_cleaning_brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "role": "object_or_material_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "push_in",
+    "move_count": 1,
+    "description": "one gentle push-in under four percent from a low front-left thirty-degree view"
+  },
+  "must_move": "All four helpers overlap in one coordinated cleaning action. Sponge, brush and water create white/lavender soap suds while Eagle gently aerates them across Puff's outer curls.",
+  "must_not_move": [
+    "Low front-left roughly thirty-degree view of the same restored dusty stone arena; actual shell windows, pearl columns, chandelier, chest/shelf locations and floor octagon keep their world relationships.",
+    "All four helpers stay visible together: Roshan and Daddy on Puff's left, Rumi on his right, grounded Eagle in front. Preserve world sides through the following right-front camera cut.",
+    "Rumi contributes visible action: one thin localized water stream reaches Puff's upper-right body curls, clear of face and ears. A static pointing pose with no water contact does not fulfill this cleaning beat.",
+    "Daddy's brush grip stays handle butt, both hands around the handle, gold ferrule, cyan-white bristles facing Puff; only the bristles touch. Roshan wears a plain pink top and uses the same star sponge.",
+    "Foam is a temporary white/lavender surface coating, not a replacement body or smoke monster. Preserve Puff's visible face, spiral ears, pearl joints, scale and floor contact. No baby in this shot.",
+    "Room dust remains; no floor-only or room-wide wash, violent strike, pain, shell/cradle, rainbow recolor, body collapse, extra characters or extra camera move."
+  ],
+  "end_state": "Grand Puff is generously covered in suds, still giant and intact, with all four helpers gathered in the unchanged dusty arena.",
+  "negative_constraints": [
+    "Low front-left roughly thirty-degree view of the same restored dusty stone arena; actual shell windows, pearl columns, chandelier, chest/shelf locations and floor octagon keep their world relationships.",
+    "All four helpers stay visible together: Roshan and Daddy on Puff's left, Rumi on his right, grounded Eagle in front. Preserve world sides through the following right-front camera cut.",
+    "Rumi contributes visible action: one thin localized water stream reaches Puff's upper-right body curls, clear of face and ears. A static pointing pose with no water contact does not fulfill this cleaning beat.",
+    "Daddy's brush grip stays handle butt, both hands around the handle, gold ferrule, cyan-white bristles facing Puff; only the bristles touch. Roshan wears a plain pink top and uses the same star sponge.",
+    "Foam is a temporary white/lavender surface coating, not a replacement body or smoke monster. Preserve Puff's visible face, spiral ears, pearl joints, scale and floor contact. No baby in this shot.",
+    "Room dust remains; no floor-only or room-wide wash, violent strike, pain, shell/cradle, rainbow recolor, body collapse, extra characters or extra camera move."
+  ],
+  "prompt_path": "shots/D1-C13-S04/PROMPT.txt",
+  "prompt_sha256": "56597049a2d72744199bd6707e561821cbfea7e998e7035aad6769ee6a0673d1",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/OWNER_C13-S04_SUDS_BOARD_candidate01.png",
+      "used_as_pixel_reference": false,
+      "role": "narrative_storyboard"
+    }
+  ],
+  "storyboard_caveat": "Narrative board only: Rumi's rinse is implied by her hand aim and bubbles, not visibly established water contact. Generated motion must show a thin local stream actually reaching Puff's upper-right body curls without crossing his face or ears. The board is not proof that this action has been delivered.",
+  "game_asset_comparison": [
+    {
+      "source_path": "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/dusty_attic_arena_native_1254.png",
+      "path": "references/9cb4b02dc4_dusty_attic_arena_native_1254.png"
+    },
+    {
+      "source_path": "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/dusty_attic_arena_2048.png",
+      "path": "references/a6f4bb59df_dusty_attic_arena_2048.png"
+    },
+    {
+      "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png",
+      "path": "references/bdcf03aab9_dust_bunny_boss_laugh_vulnerable.png"
+    },
+    {
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "path": "references/69827625a8_roshan_base.png"
+    },
+    {
+      "source_path": "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/scenes/D1-C01/visuals/handoff_art/characters/daddy_daddy_master.png",
+      "path": "references/2eda6f7676_daddy_daddy_master.png"
+    },
+    {
+      "source_path": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "path": "references/90c54412aa_baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png"
+    },
+    {
+      "source_path": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "path": "references/636ec38fd0_rumi_rumi_full_body_identity.png"
+    }
+  ],
+  "source_selection": {
+    "filename": "C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+    "range_half_open": [
+      0,
+      32
+    ],
+    "sha256": "9ed421b635e9cd3eca646b48515bd8a9a84adf608d3af08e4d4d0ed92b8da5e2"
+  },
+  "weak_source_frames": [
+    [
+      0,
+      32
+    ]
+  ],
+  "inspected_source_frames": [],
+  "source_visual_evidence": {
+    "source_path": "sources/C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+    "source_sha256": "9ed421b635e9cd3eca646b48515bd8a9a84adf608d3af08e4d4d0ed92b8da5e2",
+    "source_fps": 24,
+    "selected_range_half_open": [
+      0,
+      32
+    ],
+    "frames": [
+      {
+        "index": 0,
+        "time_seconds": 0.0,
+        "path": "audit/source_frames/D1-C13-S04/f0000.png",
+        "sha256": "bb9355c330139b626408c69434cfa65049cf7b34415d2328c70247f88b65d438"
+      },
+      {
+        "index": 8,
+        "time_seconds": 0.3333333333333333,
+        "path": "audit/source_frames/D1-C13-S04/f0008.png",
+        "sha256": "36c9665023327df381baabea262b21609819d51422b6c738bdd1ef3d5f3faa69"
+      },
+      {
+        "index": 16,
+        "time_seconds": 0.6666666666666666,
+        "path": "audit/source_frames/D1-C13-S04/f0016.png",
+        "sha256": "672cb8bf4c2c535e18094d03b3f5a939afe65e09533e28da2d6919a0eb844835"
+      },
+      {
+        "index": 24,
+        "time_seconds": 1.0,
+        "path": "audit/source_frames/D1-C13-S04/f0024.png",
+        "sha256": "e0f3e949ef222e746341435087836e651694c7e64bfb23b468422b75dc4cac19"
+      },
+      {
+        "index": 31,
+        "time_seconds": 1.2916666666666667,
+        "path": "audit/source_frames/D1-C13-S04/f0031.png",
+        "sha256": "870638edb8f11006f22616cd62fe5325c9336df19c61ea1d25cb9c8e19bd2bae"
+      }
+    ],
+    "sheet": "audit/source_frames/D1-C13-S04/AUDIT_SAMPLES.jpg",
+    "role": "diagnostic_source_samples_only",
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "method": "Exact zero-based ffmpeg source-frame decode; sheet is whole-frame thumbnail arrangement with frame labels. No synthesized motion or subject repair."
+  },
+  "sol_first_frame_decision": "RECOMMEND_APPROVAL",
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

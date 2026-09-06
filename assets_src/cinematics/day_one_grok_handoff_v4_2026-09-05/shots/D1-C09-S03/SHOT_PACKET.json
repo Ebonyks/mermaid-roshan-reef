@@ -1,0 +1,148 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C09",
+  "shot_id": "D1-C09-S03",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/D1-C09-S03_OPENING_candidate02_ANGLE.png",
+      "sha256": "4d8c103a0a4ffdd533704757c746f1a3989c9033c5aeb0e8e77100ffc06a45e6",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/73ee8445e8_FOUR_LOOSE_SUPPLY_IDENTITY_SHEET.png",
+      "sha256": "73ee8445e861da1c12753c1f8c941aea1fc083af5c09e864f72eb1cac8b1ccf8",
+      "role": "object_or_material_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "description": "locked elevated front-left three-quarter"
+  },
+  "must_move": "Continue the inspection hold with one three-brush bundle, one pink bottle, one blue bottle and one connected three-cup group.",
+  "must_not_move": [
+    "Elevated front-left diagonal: left counter near, four floor groups in middle depth, small rectangular center desk behind, centered idea board and storage far.",
+    "Both shell windows, both inboard pearl columns, chandelier, idea board and both separate curved counters remain identifiable without covering a floor target.",
+    "Exactly four loose groups: one three-brush bundle, one pink bottle, one blue bottle and one connected three-cup group; no character, grime, collection, UI or camera motion."
+  ],
+  "end_state": "Exactly four loose supply groups remain in their original locations; no grime is active yet.",
+  "negative_constraints": [
+    "Elevated front-left diagonal: left counter near, four floor groups in middle depth, small rectangular center desk behind, centered idea board and storage far.",
+    "Both shell windows, both inboard pearl columns, chandelier, idea board and both separate curved counters remain identifiable without covering a floor target.",
+    "Exactly four loose groups: one three-brush bundle, one pink bottle, one blue bottle and one connected three-cup group; no character, grime, collection, UI or camera motion."
+  ],
+  "prompt_path": "shots/D1-C09-S03/PROMPT.txt",
+  "prompt_sha256": "c38ec57de2a82204cd4ce71b85d9d5494a0300f038c14a5c2b2f384ee2134217",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/OWNER_C09-S03_BOARD_candidate01.png",
+      "used_as_pixel_reference": false,
+      "role": "narrative_storyboard"
+    }
+  ],
+  "storyboard_caveat": null,
+  "game_asset_comparison": [
+    {
+      "source_path": "assets/flats/castle/rooms/room_craft_room.png",
+      "path": "references/916522a6fa_room_craft_room.png"
+    },
+    {
+      "source_path": "assets/castle/day_one_art_studio/paint_bottle_pink.png",
+      "path": "references/089bcaf7b7_paint_bottle_pink.png"
+    },
+    {
+      "source_path": "assets/castle/day_one_art_studio/paint_bottle_blue.png",
+      "path": "references/ce6adb14e4_paint_bottle_blue.png"
+    },
+    {
+      "source_path": "assets/castle/day_one_art_studio/loose_brush_bundle.png",
+      "path": "references/7de7cf8093_loose_brush_bundle.png"
+    },
+    {
+      "source_path": "assets/castle/day_one_art_studio/paint_cups.png",
+      "path": "references/fca25541d6_paint_cups.png"
+    }
+  ],
+  "source_selection": {
+    "filename": "C09_S03_four_supplies.mp4",
+    "range_half_open": [
+      24,
+      72
+    ],
+    "sha256": "45e481cb0f7bded89dfb654fbf31463517c65ed174b0df0a39bd13e48c726116"
+  },
+  "weak_source_frames": [
+    [
+      24,
+      72
+    ]
+  ],
+  "inspected_source_frames": [],
+  "source_visual_evidence": {
+    "source_path": "sources/C09_S03_four_supplies.mp4",
+    "source_sha256": "45e481cb0f7bded89dfb654fbf31463517c65ed174b0df0a39bd13e48c726116",
+    "source_fps": 24,
+    "selected_range_half_open": [
+      24,
+      72
+    ],
+    "frames": [
+      {
+        "index": 24,
+        "time_seconds": 1.0,
+        "path": "audit/source_frames/D1-C09-S03/f0024.png",
+        "sha256": "8a557488bd6fb632b04b2b07b59d1ee10cadfd63b43c28c91d37e1649664a19f"
+      },
+      {
+        "index": 36,
+        "time_seconds": 1.5,
+        "path": "audit/source_frames/D1-C09-S03/f0036.png",
+        "sha256": "cb4544da3f16d3b34ee4c18d234d735f525b605e72ef104b1b1b1b58c9092b04"
+      },
+      {
+        "index": 48,
+        "time_seconds": 2.0,
+        "path": "audit/source_frames/D1-C09-S03/f0048.png",
+        "sha256": "c4d756db9cd6d22651b4cbaf4547b62be9708d4de12b76a48fc593f8f7a82f42"
+      },
+      {
+        "index": 60,
+        "time_seconds": 2.5,
+        "path": "audit/source_frames/D1-C09-S03/f0060.png",
+        "sha256": "6e5958a28bc814da66a4bbb376288b8bc7ada70e10dd22f9d883e534958c1bda"
+      },
+      {
+        "index": 71,
+        "time_seconds": 2.9583333333333335,
+        "path": "audit/source_frames/D1-C09-S03/f0071.png",
+        "sha256": "6170d33d2a45488611b516757c6a014f6f537af2ed2cef7f08aff59778049514"
+      }
+    ],
+    "sheet": "audit/source_frames/D1-C09-S03/AUDIT_SAMPLES.jpg",
+    "role": "diagnostic_source_samples_only",
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "method": "Exact zero-based ffmpeg source-frame decode; sheet is whole-frame thumbnail arrangement with frame labels. No synthesized motion or subject repair."
+  },
+  "sol_first_frame_decision": "RECOMMEND_APPROVAL",
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

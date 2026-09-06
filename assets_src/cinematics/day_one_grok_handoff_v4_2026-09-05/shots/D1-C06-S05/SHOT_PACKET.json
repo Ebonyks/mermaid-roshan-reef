@@ -1,0 +1,104 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C06",
+  "shot_id": "D1-C06-S05",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 5,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/LUNA_B_C06_S05_two_fronts_OPENING_PENDING_HUMAN.png",
+      "sha256": "284d6481f04c64d9bf4280ddeae8eedc3e2359611c21e7c6000ee792ed57e2f4",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/69827625a8_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_3",
+      "path": "references/720a166651_waterfall_growth.png",
+      "sha256": "720a16665107673dd4bc9ad8b5184d90a0d8d8dddca18e0e3834739dda049fab",
+      "role": "object_or_material_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_4",
+      "path": "references/88aa2ce07e_seahorse_sick_clear_mouth.png",
+      "sha256": "88aa2ce07e79144b13d8e699341404e7b15e79baed861169c9c17e196ddba941",
+      "role": "object_or_material_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "description": "locked"
+  },
+  "must_move": "Two distinct clean surface fronts advance inward from those two source entry points.",
+  "must_not_move": [
+    "One giant pool, exactly two independent source flows, fixed seahorse and waterfall.",
+    "No activation/restart repeated here; the earlier kept inserts already did that.",
+    "No Rumi, extra character, water dome, giant beam, new outlet or camera movement."
+  ],
+  "end_state": "Two active sources feed one restored pool and their surface fronts have joined.",
+  "negative_constraints": [
+    "One giant pool, exactly two independent source flows, fixed seahorse and waterfall.",
+    "No activation/restart repeated here; the earlier kept inserts already did that.",
+    "No Rumi, extra character, water dome, giant beam, new outlet or camera movement."
+  ],
+  "prompt_path": "shots/D1-C06-S05/PROMPT.txt",
+  "prompt_sha256": "1fbcf15edaacfef81bbf2d2056af899e980633e9198fdb7a4533f1e810290dee",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/LUNA_B_C06_S05_STORYBOARD_2x2_NARRATIVE_ONLY_candidate02.png",
+      "used_as_pixel_reference": false,
+      "role": "narrative_storyboard"
+    }
+  ],
+  "storyboard_caveat": null,
+  "game_asset_comparison": [
+    {
+      "source_path": "assets/flats/castle/rooms/room_mermaid_pool.png",
+      "path": "references/1a9a2005d4_room_mermaid_pool.png"
+    },
+    {
+      "source_path": "assets/flats/castle/interactions/mermaid_pool_waterfall_atlas.png",
+      "path": "references/1db7039ad4_mermaid_pool_waterfall_atlas.png"
+    },
+    {
+      "source_path": "assets/flats/castle/interactions/mermaid_pool_seahorse_fountain_atlas.png",
+      "path": "references/181d5c1ab7_mermaid_pool_seahorse_fountain_atlas.png"
+    }
+  ],
+  "source_selection": {
+    "filename": null,
+    "range_half_open": null
+  },
+  "weak_source_frames": [],
+  "inspected_source_frames": [],
+  "source_visual_evidence": null,
+  "sol_first_frame_decision": "RECOMMEND_APPROVAL",
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

@@ -1,0 +1,16 @@
+{
+  "shot_id": "C11-S01",
+  "asset_type": "narrative_storyboard_reference_sheet",
+  "attempt": 2,
+  "status": "human_pending",
+  "method": "built_in_image_gen",
+  "prompt": "Use case: precise-object-edit. Asset type: narrative storyboard reference sheet. IMAGE_1 is the corrected C11-S01 first-frame authority; IMAGE_2 is the prior four-panel board whose timing and trail progression must be preserved. Create exactly four equal full-frame 16:9 panels in a clean 2x2 grid, no borders, labels, captions, speech bubbles, text, or HUD. Redraw every panel with the corrected runtime emblems: first small doorway teddy, second palette, third Mermaid Pool single blue droplet, fourth Bubble Bath exactly three pearl circles. Roshan remains rear-facing in lower-left with the broad gold-blue-pink rainbow hair streak from the corrected first frame. Preserve the same low-left oblique camera, exact hall geometry, four doors in order, far-right Royal Hall arch already open with purple curtains, and four threshold lights. Preserve the four-trail narrative: panel 1 four tiny threshold lights only; panel 2 four distinct narrow floor trails extend forward; panel 3 trails continue along the red runner toward the Royal Hall stairs; panel 4 trails meet in a small quiet combined glow at the foot of the stairs, not a white explosion. Fixed architecture and character placement across panels, no extra objects or airborne ribbons.",
+  "referenced_images": [
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C11_S01_LAYOUT_candidate02.png", "role": "corrected_first_frame_authority", "sha256": "A6EDD7964834CCE678D1E32E5D28814895972CAF1EF349291D5725B2067C266F", "dimensions": [1672, 941]},
+    {"path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/storyboards/OWNER_C11_S01_LAYOUT_BOARD_candidate01.png", "role": "prior_timing_board", "sha256": "818FF4AB9C6FC13C6C83C9FA3D435ACC67D275E4A4A286A6D8D907A4001AEDFB", "dimensions": [1672, 941]}
+  ],
+  "output_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/storyboards/OWNER_C11_S01_LAYOUT_BOARD_candidate02.png",
+  "output_sha256": "C645FCAE3CC2255A88FD71FA4B2C32A893965296472609679F854F0DEC3D0C52",
+  "output_dimensions": [1672, 941],
+  "human_review": "pending; board is narrative reference only and not a delivery keyframe"
+}

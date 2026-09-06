@@ -1,0 +1,123 @@
+{
+  "audit_id": "D1-C14-castle-team-cleanup-downloads-reuse-v1",
+  "scope": "Owner Downloads footage relevant to dirty/clean castle-hall collaboration",
+  "review_method": {
+    "inventory": "C:/Users/Peter/.codex/visualizations/2026/09/02/01a062b0-5cda-7183-b493-4504ebf1b93e/downloads_review_20260905/inventory.json",
+    "contact_sheets": "Existing diagnostic sheets under downloads_review_20260905/sheets",
+    "dense_evidence": "FFmpeg single-frame extraction at listed wall-clock seconds; representative evidence only, not full-motion acceptance"
+  },
+  "fresh_downloads_delta_scan": {
+    "scan_root": "C:/Users/Peter/Downloads",
+    "filename_scope": "Relevant video extensions whose names begin with grok-/imagine- or contain MERMAID/GROK",
+    "current_relevant_video_count": 44,
+    "inventory_relevant_video_count": 44,
+    "unchanged_count": 44,
+    "added": [],
+    "changed_size": [],
+    "result": "No added or size-changed project-relevant video candidates found since the existing inventory."
+  },
+  "conclusion": "No inspected Downloads clip contains Roshan, Daddy, Baby Eagle, Rumi, and the new rainbow bunny together in the implemented Main Hall. Relevant material is split across dirty-hall Roshan/Daddy motion references, a separate Eagle/bunny wing-blast room, and an Eagle distress room.",
+  "clips": [
+    {
+      "prefix": "30c2103b",
+      "path": "C:/Users/Peter/Downloads/grok-30c2103b-3ced-4347-ab4f-e6fd6b4fa5a6-720p.mp4",
+      "sha256": "48174d6ab00e790831b0ae95f3af126f567dacadb7902212051308587165454f",
+      "fps": 24.0,
+      "frames": 145,
+      "duration_s": 6.041667,
+      "inspected_frames": [0, 48, 84, 132],
+      "representative_seconds": [0.0, 2.0, 3.5, 5.5],
+      "event_range": "[0,145) / 0.000-6.042 s; flight/approach [0,108) / 0.000-4.500 s; near-camera settle [108,145) / 4.500-6.042 s",
+      "visible_event": "Roshan and Daddy fly down a dirty purple-gold corridor toward camera, pass a dirty wall and a floor dust mound, then settle into a standing two-shot.",
+      "cast": ["Roshan", "Daddy"],
+      "strengths": ["Immediate readable forward motion", "dirty wall, cobweb, footprints and floor debris communicate the mess", "stable two-character family staging late in the clip"],
+      "flaws": ["does not show Eagle, Rumi, rainbow bunny, or an actual cleaning action", "corridor/door/window geometry is not the implemented Main Hall authority", "flight-to-standing scale and pose transition is abrupt"],
+      "disposition": "MOTION_REFERENCE_ONLY",
+      "recommended_use": "Reference for dirty-hall approach energy and debris readability; do not bind as C14 delivery pixels."
+    },
+    {
+      "prefix": "02d0e6fd",
+      "path": "C:/Users/Peter/Downloads/grok-02d0e6fd-0099-4650-b346-7a25b8a26ae0-720p.mp4",
+      "sha256": "21658c6279edab8b6bebfc6fb8c390288f69e072ba8bb7efcd32d66c052b8880",
+      "fps": 24.0,
+      "frames": 145,
+      "duration_s": 6.041667,
+      "inspected_frames": [0, 48, 96, 144],
+      "representative_seconds": [0.0, 2.0, 4.0, 6.0],
+      "event_range": "[0,145) / 0.000-6.042 s",
+      "visible_event": "Roshan and Daddy walk from a distant arch down a dirty hall toward camera and end in a close two-shot.",
+      "cast": ["Roshan", "Daddy"],
+      "strengths": ["Calmer readable hallway travel", "continuous dirty footprints and wall debris", "clear parent/child pairing"],
+      "flaws": ["no Eagle, Rumi, rainbow bunny, or cleaning beat", "wrong hall layout and repeated shell-window architecture", "approach is editorially redundant with 30c2103b"],
+      "disposition": "MOTION_REFERENCE_ONLY",
+      "recommended_use": "Alternate motion reference for a slower dirty-hall arrival; not a C14 source replacement."
+    },
+    {
+      "prefix": "4aa1f01b",
+      "path": "C:/Users/Peter/Downloads/grok-4aa1f01b-2a16-476e-a26e-91ecc313284d-720p.mp4",
+      "sha256": "c886bc81051f55d5e6a631fe3b2ba1a37d421b62c360d576dac41d86924916e7",
+      "fps": 24.0,
+      "frames": 145,
+      "duration_s": 6.041667,
+      "inspected_frames": [0, 48, 84, 132],
+      "representative_seconds": [0.0, 2.0, 3.5, 5.5],
+      "event_range": "[0,145) / 0.000-6.042 s",
+      "visible_event": "Roshan and Daddy stand/walk through a dirty hall beside a small rainbow dust-bunny-like object; Roshan swims across the foreground and both finish near the wall debris.",
+      "cast": ["Roshan", "Daddy", "small rainbow dust-bunny-like prop/creature"],
+      "strengths": ["Best of the screened hall clips for showing a dirty wall, footprints, debris pile and a child-readable cleaning target", "clear Roshan/Daddy reaction staging", "continuous hall geography within this clip"],
+      "flaws": ["not the implemented Main Hall layout", "the rainbow cloud-body/spiral-ear/pearl-foot design strongly resembles the canonical rainbow concept, but this source frame is not identity- or scale-approved and places the friend before the canonical C13 reveal", "the brown puff with visible eyes is a living creature and must never be treated as inert waste or swept; only surrounding inert debris, footprints, wall grime and webs may be cleanup targets", "no brush, wing, rinse, or completed cleaning action", "late swim-through causes severe foreground occlusion"],
+      "disposition": "MOTION_REFERENCE_ONLY",
+      "recommended_use": "Reference for dirty-state art direction and target placement only; do not use as a complete team-cleanup shot."
+    },
+    {
+      "prefix": "218500df",
+      "path": "C:/Users/Peter/Downloads/grok-218500df-7547-4c84-a703-c8a0b8a954b7-720p.mp4",
+      "sha256": "32c8898e6569ae9f6a749c8f2ede634c8a344a51d1b026f6c4106bf899654ce4",
+      "fps": 24.0,
+      "frames": 241,
+      "duration_s": 10.041667,
+      "inspected_frames": [48, 96, 144, 192, 240],
+      "representative_seconds": [2.0, 4.0, 6.0, 8.0, 10.0],
+      "event_range": "wing-blast action approximately [24,180) / 1.000-7.500 s; endpoint [180,241) / 7.500-10.042 s",
+      "visible_event": "Roshan stands beside Baby Eagle in a bright pink castle-like room while four purple dust bunnies are dispersed by broad pale wing-blast trails; Eagle settles grounded afterward.",
+      "cast": ["Roshan", "Baby Eagle", "four purple dust bunnies"],
+      "strengths": ["clearest available readable Eagle wing action", "four targets visibly disperse", "strong action-to-settle structure"],
+      "flaws": ["room is not the implemented Main Hall and has no Daddy, Rumi, or rainbow bunny", "wing trails are oversized loops rather than a restrained cleanup action", "not a full C14 team shot"],
+      "disposition": "MOTION_REFERENCE_ONLY",
+      "recommended_use": "Use only as action reference for Eagle's single controlled wingbeat after rebuilding the exact runtime room and cast."
+    },
+    {
+      "prefix": "619367f6",
+      "path": "C:/Users/Peter/Downloads/grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4",
+      "sha256": "aa1a08d59e0a837d1abdd67a8518740f5777e289525ba22b52362becd396d61d",
+      "fps": 24.0,
+      "frames": 145,
+      "duration_s": 6.041667,
+      "inspected_frames": [0, 48, 96, 144],
+      "representative_seconds": [0.0, 2.0, 4.0, 6.0],
+      "event_range": "[0,145) / 0.000-6.042 s",
+      "visible_event": "Baby Eagle lies distressed on a dirty floor while purple dust bunnies flank it; Roshan is only a partial background presence and Eagle shifts from eyes closed to alert.",
+      "cast": ["Baby Eagle", "purple dust bunnies", "partial Roshan"],
+      "strengths": ["strongest emotional distress read for Eagle", "dirty floor and surrounding bunnies are immediately legible"],
+      "flaws": ["no Daddy, Rumi, or rainbow bunny", "room is not the implemented Main Hall", "no cleaning action or recovery"],
+      "disposition": "MOTION_REFERENCE_ONLY",
+      "recommended_use": "Reference only for Eagle's pre-clean emotional state."
+    }
+  ],
+  "screened_wrong_location_or_partial": [
+    {"prefix": "5f55a3f0", "path": "C:/Users/Peter/Downloads/grok-5f55a3f0-a888-43b8-b3e3-68fe8e1b2a32-720p.mp4", "sha256": "5eac7841796ae64d8475aeb500923f1cbf6f147e3872e3ab529f1b1b712b5682", "duration_s": 6.041667, "reason": "Pool rainbow purification only; no hall or requested team."},
+    {"prefix": "56185c7a", "path": "C:/Users/Peter/Downloads/grok-56185c7a-9b05-41da-8f4b-bfa49090080e.mp4", "sha256": "dc381c94d48bb79f14f8495ed7a70403a674250e3acc9e52cf8c17fdc19fe95d", "duration_s": 15.0, "reason": "Pool purification/Rumi arrival; wrong location for castle-hall cleanup."},
+    {"prefix": "3bc112cd", "path": "C:/Users/Peter/Downloads/grok-3bc112cd-12a7-4948-a3c6-a619c7f75f5a-720p.mp4", "sha256": "80dae3cc956fdf26e6717c5cb73ace7c366167b02971846061d5535379aeda50", "duration_s": 6.041667, "reason": "Pool/seahorse interaction; no hall cleanup."},
+    {"prefix": "c51a5527", "path": "C:/Users/Peter/Downloads/grok-c51a5527-5732-48d2-a157-a1e86d014fc7-720p.mp4", "sha256": "dbe72253cde737367273d93c4a2d6d66e21bd940b2e0073c5ee253ddea8d25b3", "duration_s": 6.041667, "reason": "Rumi/Roshan pool interaction; no hall."},
+    {"prefix": "446bd597", "path": "C:/Users/Peter/Downloads/grok-446bd597-19c9-4f63-b3c8-b6024a4190fe.mp4", "sha256": "b31e446c7f30ecbdc45e78d64040e603476d1dd194535aa91bf2ba2db5bb0380", "duration_s": 39.833333, "reason": "Airplane/castle exterior/forest travel; no interior hall cleanup."}
+  ],
+  "frame_samples": [
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/audit/frames/30c2103b_t0_0.jpg",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/audit/frames/30c2103b_t3_5.jpg",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/audit/frames/4aa1f01b_t0_0.jpg",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/audit/frames/4aa1f01b_t5_5.jpg",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/audit/frames/218500df_t4_0.jpg",
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/d1r2/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/audit/frames/619367f6_t2_0.jpg"
+  ],
+  "delivery_boundary": "All clips and extracted frames are evidence or motion references only. None are accepted delivery frames, runtime art, or a complete C14 team-cleanup source."
+}

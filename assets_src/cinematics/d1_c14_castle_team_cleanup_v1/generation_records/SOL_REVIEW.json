@@ -1,0 +1,140 @@
+{
+  "schema": "c14-sol-visual-review-v1",
+  "reviewed_at": "2026-09-05",
+  "scope": "Exact path/hash review of current first frames and narrative boards. Sol recommendation is not human approval, generation readiness, all-frame motion acceptance, or delivery acceptance.",
+  "human_approval_required": true,
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "assets": [
+    {
+      "shot_id": "C14-S01",
+      "path": "first_frames/D1-C14-S01_OPENING_candidate04.png",
+      "sha256": "368fa769d410e43a3f7ef84066a5c0c2ab2c2bb53aec87230fca3a19c343293a",
+      "sol_decision": "REVISE_FRIEND_IDENTITY_AND_WEB_CONTINUITY",
+      "passes": ["exactly five separate cast members", "screen-B four-door order and emblems plus open royal stair topology", "rainbow friend is now within the one-quarter-Roshan scale ceiling", "Daddy brush and all established larger-character identities remain readable", "visible paper, runner footprints and web remain dirty before contact"],
+      "fails": ["rainbow friend has a red oval forehead jewel rather than the canonical red-orange curl with white iridescent central star", "large lashed eyes still read closer to a fuzzy Eagle-like mascot than the simpler bound cloud-bunny face", "the web is high on the wall near the royal arch while S03 stages its cleanup at the column base; the sequence does not yet establish these as the same reachable web"],
+      "human_decision": "pending_revision",
+      "targeted_revision": "Regenerate a complete frame preserving the intended five-cast screen-B composition and visible pre-clean mess. Correct the tiny friend's forehead curl/star and simpler cloud-bunny face from rainbow_dust_bunny_concept.png, and place the web at the reachable S03 column-base location."
+    },
+    {
+      "shot_id": "C14-S02",
+      "path": "first_frames/D1-C14-S02_OPENING_candidate02.png",
+      "sha256": "8ca06ac43ff12d94e459bd615a6ee7cfd94024fb5ffb3cb8048ed4c7f1dc5d1d",
+      "sol_decision": "RECOMMEND_APPROVAL",
+      "passes": ["correct teddy then palette local screen-B thresholds", "one inert paper scrap remains between Roshan and the correctly small cloud-shaped friend", "Roshan's free hand and friend orientation clearly stage the physical nudge", "no royal stair, pool/bath portal, magic cleanup or extra cast"],
+      "fails": [],
+      "human_decision": "pending",
+      "note": "The current design explicitly secures the sponge offscreen between hard cuts, so its absence is not a prop-continuity failure. First-frame recommendation only."
+    },
+    {
+      "shot_id": "C14-S02",
+      "path": "storyboards/D1-C14-S02_BOARD_candidate02.png",
+      "sha256": "0d746d3b223cc68586182b632add58c21e4f18cb78822911f7f0370a801b3860",
+      "sol_decision": "RECOMMEND_APPROVAL",
+      "passes": ["paper nudge, handoff, lift and clean local floor patch read in order", "friend remains small, cloud-shaped and non-humanoid", "Roshan and friend remain present with stable architecture and fixed camera", "paper does not disappear before hand contact"],
+      "fails": [],
+      "human_decision": "pending",
+      "note": "One crumpled paper object remains continuous through nudge and lift. The sponge is intentionally secured offscreen under the revised design. Narrative-board recommendation only."
+    },
+    {
+      "shot_id": "C14-S03",
+      "path": "first_frames/D1-C14-S03_OPENING_candidate01.png",
+      "sha256": "bd86816b3970abc3d8388d359e99b4fae445ca7ecde4856bdda9bbefb4ee09d8",
+      "sol_decision": "REVISE_BRUSH_SCALE",
+      "passes": ["Daddy and grounded Baby Eagle are the only cast", "reachable web is localized at the column base beside the real open royal stair", "Daddy has a continuous mer-tail with no human foot", "both hands stay behind the ferrule and bristles face the web", "screen-B depth and fixed low three-quarter action are readable"],
+      "fails": ["the brush is enlarged into an implausibly long broom, directly conflicting with the negative constraint against impossible broom length"],
+      "human_decision": "pending_revision",
+      "note": "Blank door medallions are not independently blocking in this tight action view because runtime signs are separate fixtures, but no new emblem may be invented in motion.",
+      "targeted_revision": "Preserve action, grip, web, cast and hall. Restore the approved magic-cleaning-brush proportions with a short child-readable handle while retaining reachable contact."
+    },
+    {
+      "shot_id": "C14-S03",
+      "path": "storyboards/D1-C14-S03_BOARD_candidate02.png",
+      "sha256": "15a4b36e24b185e54d822bcf428a8005c49669fe46523628c0c06f1935120e1c",
+      "sol_decision": "USE_AS_DRAFT_NARRATIVE_GUIDANCE_WITH_PROP_AND_SIGN_CORRECTIONS",
+      "passes": ["Daddy brush stroke and one restrained Eagle wingbeat overlap as a cooperative action", "web decreases only after bristle contact", "Eagle returns to grounded folded-wing state", "column, royal stair, camera and cast remain stable"],
+      "fails": ["oversized broom problem persists", "visible door medallions are blank or acquire small invented blue/brush-like icons instead of remaining neutral or preserving actual emblems"],
+      "human_decision": "pending",
+      "required_caption": "Narrative action only. Generated frames must use the correctly scaled brush and preserve actual hall-sign identity; do not copy blank or invented medallion icons.",
+      "note": "The primary tool-vanish defect is fixed: Daddy retains the lowered brush and captured web through panel four."
+    },
+    {
+      "shot_id": "C14-S04",
+      "path": "first_frames/D1-C14-S04_OPENING_candidate02.png",
+      "sha256": "06b12cb4c9163d8d6d2d893538d2fb7ab80d8c03a9e5699414058252e0cf1946",
+      "sol_decision": "REVISE_ROSHAN_TOP_ONLY",
+      "passes": ["correct local screen-B pool droplet then bath three-pearl door topology", "no screen-A window or compressed royal-stair hybrid remains", "one bounded wall smear, star sponge and pre-contact hand gaps are readable", "Roshan and Rumi retain stable tails, hair and separate silhouettes", "elevated oblique paired-action camera provides useful depth"],
+      "fails": ["Roshan wears new lavender frilled sleeves instead of the invariant plain pink top"],
+      "human_decision": "pending_revision",
+      "targeted_revision": "Preserve room, pose, sponge, grime, Rumi, camera and all contact gaps. Restore Roshan's plain approved pink short-sleeve top without frills or new costume trim."
+    },
+    {
+      "shot_id": "C14-S04",
+      "path": "storyboards/D1-C14-S04_BOARD_candidate02.png",
+      "sha256": "dcd960b11b4c99d5cd71f682540a3db143ae2b9170ff3e1e427567e3bfdd958b",
+      "sol_decision": "USE_AS_DRAFT_NARRATIVE_GUIDANCE_WITH_COSTUME_CORRECTION",
+      "passes": ["correct pool/bath local topology and one fixed elevated camera", "Rumi's thin stream visibly reaches the sponge before and during contact", "Roshan completes one wipe and lifts the same dirt-marked sponge", "wall smear clears monotonically with no flood, puddle, whole-wall repaint or vanished tool", "both helpers remain visible through the clean-wall hold"],
+      "fails": ["Roshan's noncanonical frilled sleeves persist through the board"],
+      "human_decision": "pending",
+      "required_caption": "Narrative action order only. Generated frames must use Roshan's plain approved pink top with no frilled sleeves while preserving the stream-to-sponge, wipe, dirty-sponge lift and dry-wall hold.",
+      "generation_ready": false,
+      "delivery_accepted": false
+    },
+    {
+      "shot_id": "C14-S01",
+      "path": "storyboards/D1-C14-S01_BOARD_candidate01.png",
+      "sha256": "903c90f85fa1096b52fc3092a8ac063e1b595d5bd36f01dd593a96592f8186cf",
+      "sol_decision": "USE_AS_DRAFT_NARRATIVE_GUIDANCE_WITH_FRIEND_IDENTITY_CORRECTION",
+      "passes": ["screen-B geometry, correct four emblems, open royal arch, mess and fixed camera remain stable", "Roshan notices the paper while Daddy, Eagle and Rumi share a ready-to-help reaction", "no mess disappears before contact", "all five roles are present in the opening and settle panels"],
+      "fails": ["the rainbow friend intermittently reads as a second small Eagle/round bird in panel two and retains the jeweled/lashed face drift", "the high web and later S03 column-base web are not yet spatially reconciled"],
+      "human_decision": "pending",
+      "required_caption": "Narrative glance timing only. Preserve exactly one Baby Eagle plus one canonical small cloud-mound rainbow friend in every generated frame; the friend never becomes a bird. Reconcile the S01 web position with the reachable S03 column-base web before motion generation.",
+      "generation_ready": false,
+      "delivery_accepted": false
+    },
+    {
+      "shot_id": "C14-S05",
+      "path": "first_frames/D1-C14-S05_OPENING_candidate01.png",
+      "sha256": "af681b80dfd69e1fd482b6a0945c79e635b1b3b5930dc89d633f7d4f4ff3a65c",
+      "sol_decision": "REVISE_RAINBOW_FRIEND_IDENTITY_ONLY",
+      "passes": ["all five cast members form one readable shallow arc around a bounded dirty runner-edge patch", "actual screen-B four-emblem order, open royal stair and red runner remain coherent", "Roshan sponge contact, Daddy brush alignment, grounded Eagle and Rumi hand position stage one coordinated pass", "Daddy has a continuous tail and correct handle-to-ferrule-to-bristle orientation"],
+      "fails": ["tiny friend retains the red jewel and heavily lashed mascot face instead of the canonical red-orange curl, iridescent star and simpler cloud-bunny face"],
+      "human_decision": "pending_revision",
+      "targeted_revision": "Preserve full composition, action contacts, mess, tools, hall and all other cast. Correct only the tiny friend's canonical forehead curl/star and face details without changing its scale or position."
+    },
+    {
+      "shot_id": "C14-S05",
+      "path": "storyboards/D1-C14-S05_BOARD_candidate02.png",
+      "sha256": "fe74152ccb16a88e4f4d2d6224d5c05bf266061ba29a4442414281b17cd5f2a2",
+      "sol_decision": "USE_AS_DRAFT_NARRATIVE_GUIDANCE_WITH_PAIL_AND_IDENTITY_CORRECTIONS",
+      "passes": ["all five remain visible at stable scale and blocking", "sponge and brush physically capture dirt before the patch clears", "Eagle contributes one bounded wing action", "final tools visibly retain debris", "screen-B hall and camera remain stable"],
+      "fails": ["Rumi still invents and pours a metal pail in panel two instead of briefly dampening Roshan's sponge with her hand", "the pour reaches the floor beside the sponge and risks reading as a puddle rather than localized sponge dampening", "rainbow friend retains its incorrect jeweled/lashed face"],
+      "human_decision": "pending",
+      "required_caption": "Narrative team timing only. Generated frames must contain no pail: Rumi sends one thin hand-directed thread into Roshan's sponge before the wipe, with no floor puddle. Preserve Roshan's stable scale and use the canonical tiny-friend face.",
+      "generation_ready": false,
+      "delivery_accepted": false
+    },
+    {
+      "shot_id": "C14-S06",
+      "path": "first_frames/D1-C14-S06_OPENING_candidate01.png",
+      "sha256": "13285ffdcc688046a7bc58862cd175279fa427517e1cbe8db0dd83ef0d3c067d",
+      "sol_decision": "REVISE_FRIEND_IDENTITY_AND_DIRTY_TOOL_SEAM",
+      "passes": ["high diagonal B-wide reveal correctly limits its claim to four completed-room doors plus the open royal arch", "four emblems, red runner, columns and stairs preserve actual screen-B topology", "all five cast members remain small but countable", "sparse pearl-edge glints and clean floor read as a calm payoff rather than a cleanup wave"],
+      "fails": ["tiny friend retains the jeweled/lashed noncanonical face", "Daddy's brush tips appear pristine instead of visibly retaining or turning away the captured dirt carried from S05"],
+      "human_decision": "pending_revision",
+      "targeted_revision": "Preserve camera, hall and company. Correct the tiny friend's face, and keep the brush's dirty bristles visibly retained or deliberately turned away without making the tool silently pristine."
+    },
+    {
+      "shot_id": "C14-S06",
+      "path": "storyboards/D1-C14-S06_BOARD_candidate01.png",
+      "sha256": "dd06fcbae06b28dcba95426368f15a341aa93d2776e3a9aae0dc83c09c7f671d",
+      "sol_decision": "USE_AS_DRAFT_NARRATIVE_GUIDANCE_WITH_IDENTITY_AND_TOOL_SEAM_CORRECTIONS",
+      "passes": ["all five remain visible throughout one shallow pullback and final hold", "screen-B door order, emblems, royal arch, runner and clean state remain fixed", "sparkles stay sparse and do not become a cleaning wave", "the composition is a broad B-side payoff rather than a false full A+B panorama"],
+      "fails": ["rainbow friend face remains noncanonical", "brush-tip dirt continuity from S05 is not legible"],
+      "human_decision": "pending",
+      "required_caption": "Narrative reveal framing only. Final frames must preserve the canonical tiny-friend face and visibly retain or turn away dirty brush tips from S05; structural cleanliness is not permission to erase tool-state continuity.",
+      "generation_ready": false,
+      "delivery_accepted": false
+    }
+  ]
+}
