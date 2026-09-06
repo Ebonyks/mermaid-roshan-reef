@@ -730,6 +730,29 @@ device, child, human, or owner acceptance.
 | relationships | Device performance overlaps `MA-PERF-001`; child comprehension overlaps `MA-CHILD-001`; possible fire-arena scope overlaps `MA-PLAY-002`. |
 | history | 2026-08-09: reported repair retained pending device proof. 2026-08-13: lifecycle remains `FIXED_PENDING_VERIFICATION`. |
 
+## MA-PLAY-003
+
+| Field | Value |
+|---|---|
+| id | `MA-PLAY-003` |
+| title | Logical travel geometry and arrival gating are not independently proven across the live stage variants. |
+| rule_ids | `DL-INT-02`, `DL-AGE-01`, `DL-UI-03`, `DL-QA-06` |
+| domain / zone | Stage navigation, object approach, doors, and OOB recovery / game-wide |
+| source | `audit/stage_pathfinding/stage_inventory.json` and `audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md`, reconciled against live runtime catalogs and routes. |
+| severity | P1 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 catalog/source-bound geometry; V2 route and inventory negative controls; scoped V3 exact Godot 4.7.2-stable route, Castle arrival/door/cancellation, and all-career Opera touch/return probes. Whole-game per-object geometry, Mobile/device/child/owner acceptance remain open. |
+| reproduction | Use the real corrected runtime stage and approved background for each ledger entry, retaining its minigame controller. For each object/door, record far tap, far drag released over target, release over floor, near tap exactly once, interrupt/new target cancellation, arrival transition, exact source return, OOB recovery, and zero-input. Opera Doctor (`opera.act.05.stuffie_surgeon`) additionally repeats the approach gate for every patient station and care action. |
+| child_impact | Remote activation, blocked doors, or loss of position can make the child believe the game ignored a touch or changed state unexpectedly; OOB must never lose progress. |
+| evidence | The ledger covers 64 catalog/supporting entries, including all 13 Castle rooms and 15 live Opera careers. `audit/stage_pathfinding/review_manifest.json` binds live geometry, 34 Opera views, 13 Castle rooms and a full-hall overview. Dedicated navigation tests cover lane projection, bends, crossings and disconnected fail-closed routes; Opera diegetic paths pass 2432 checks; bathroom probes require arrival before action and owned drag release before door travel. These bounded checks do not grant every entry a geometry pass. |
+| owner_decision | Every visible door/object requires approach-before-action and one-finger tap/drag equivalence. Fixed minigames retain their real controller; spatial 3D entries remain debt until their 2D migration satisfies the same contract. |
+| fix | Add the shared StageNavigation2D route network to avatar stages, bind each object/door to an approach point and arrival radius, queue tap/drag travel, commit on arrival, and add bounded OOB recovery. Add focused geometry probes and real-art route overlays for every defective stage, with Opera Doctor as a blocking specialist fixture. |
+| surrounding_tests | Inventory coverage; far-tap/far-drag/near-tap/cancel/door-arrival/exact-return/OOB/zero-input matrix; touch cancellation and focus loss; save/re-entry; minigame positive/passive/reward; exact voice/picture pointer; Mobile and target-device checks. |
+| acceptance | Every applicable ledger entry has a passing geometry matrix with source hash, stage bounds, approach points, arrival radii, and retained-controller evidence. No existing probe pass is accepted as a substitute for a geometry row. No fail state or save loss occurs. |
+| closure | Open as of 2026-09-06. Shared Castle/Opera routing and priority doctor/bathroom repairs are implemented with scoped machine evidence. Ten generic Castle layouts still need fixture-by-fixture review; remaining world/legacy and fixed-board seams, complete per-variant geometry matrices, target-device, child and owner acceptance remain outstanding. |
+| relationships | Decomposes the reachability blind spot in `MA-PLAY-001`; overlaps `MA-TOUCH-001`, `MA-VIS-006`, `MA-OPERA-012`, `MA-2D-002`, and `MA-CHILD-001`. |
+| history | 2026-09-06: added after catalog reconciliation; the initial 42-entry baseline expanded to 64 catalog/supporting entries. The same work order adds path-only Castle routing, doctor promenade/recovery contacts, Opera touch ownership and exact board-return feet, source-bound reproductions and focused machine checks. Dedicated geometry evidence is distinguished from older lifecycle probes; all 64 entries remain unresolved under the strict acceptance gate. |
+
 ## MA-OPERA-003
 
 | Field | Value |

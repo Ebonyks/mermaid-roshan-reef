@@ -474,15 +474,23 @@ func _init() -> void:
 	var table_sprite: Sprite2D = table_record.get("sprite") as Sprite2D
 	var table_transform: Transform2D = table_sprite.transform \
 		if table_sprite != null else Transform2D.IDENTITY
+	var expected_table_foot: Vector2 = table_record.get(
+		"route_contact", Vector2.INF) as Vector2
 	rooms._activate_room_item("dining_table")
 	await _frames(24)
+	var table_foot: Vector2 = main.castle_room_player_sprite.get_meta(
+		"current_stage_foot", Vector2.INF) as Vector2 \
+		if main.castle_room_player_sprite != null else Vector2.INF
 	var eaten_record: Dictionary = main.castle_room_item_sprites.get(
 		"meal_plate_5", {}) as Dictionary
 	var eaten_plate: Sprite2D = eaten_record.get("sprite") as Sprite2D
 	if int(main.g.get("castle_dining_plates", 0)) != 5 \
 			or eaten_plate == null or eaten_plate.visible \
+			or not rooms._room_navigation.contains_point(
+				expected_table_foot, 0.1) \
+			or not table_foot.is_equal_approx(expected_table_foot) \
 			or String(eaten_plate.get_meta("meal_plate_state", "")) != "eaten":
-		_bad("eating at the family table did not consume the real plate")
+		_bad("eating did not reach the family table before consuming its plate")
 	if table_sprite == null \
 			or not table_sprite.transform.is_equal_approx(table_transform) \
 			or int(table_sprite.get_meta(
@@ -609,15 +617,25 @@ func _init() -> void:
 	var bed_record: Dictionary = main.castle_room_item_sprites.get(
 		"canopy_bed", {}) as Dictionary
 	var bed_sprite: Sprite2D = bed_record.get("sprite") as Sprite2D
+	var expected_bed_foot: Vector2 = bed_record.get(
+		"route_contact", Vector2.INF) as Vector2
 	rooms._activate_room_item("canopy_bed")
+	var bed_route_finished := await _wait_for_castle_route()
 	await process_frame
+	var bed_foot: Vector2 = main.castle_room_player_sprite.get_meta(
+		"current_stage_foot", Vector2.INF) as Vector2 \
+		if main.castle_room_player_sprite != null else Vector2.INF
 	var sleep_overlay: ColorRect = main.castle_room_stage.get_node_or_null(
 		"DreamHouseSleepFade") as ColorRect
 	var sleep_marks: Label = main.castle_room_stage.get_node_or_null(
 		"DreamHouseSleepMarks") as Label
-	if not bool(main.g.get("castle_roleplay_sleeping", false)) \
+	if not bed_route_finished \
+			or not rooms._room_navigation.contains_point(
+				expected_bed_foot, 0.1) \
+			or not bed_foot.is_equal_approx(expected_bed_foot) \
+			or not bool(main.g.get("castle_roleplay_sleeping", false)) \
 			or sleep_overlay == null or sleep_marks == null:
-		_bad("touching a royal bed did not start the cosy sleep sequence")
+		_bad("royal bed route did not arrive before the cosy sleep sequence")
 	else:
 		rooms._flip_roleplay_sleep_time()
 		rooms._finish_roleplay_sleep(
@@ -695,19 +713,19 @@ func _init() -> void:
 	var left_settee_record: Dictionary = main.castle_room_item_sprites.get(
 		"cloud_settee_left", {}) as Dictionary
 	var left_settee: Sprite2D = left_settee_record.get("sprite") as Sprite2D
-	var left_settee_data: Dictionary = left_settee_record.get(
-		"data", {}) as Dictionary
 	var left_settee_transform: Transform2D = left_settee.transform \
 		if left_settee != null else Transform2D.IDENTITY
 	rooms._activate_room_item("cloud_settee_left")
 	await _frames(60)
-	var expected_seat_foot: Vector2 = left_settee_data.get(
-		"roleplay_foot", Vector2.INF) as Vector2
+	var expected_seat_foot: Vector2 = left_settee_record.get(
+		"route_contact", Vector2.INF) as Vector2
 	var seated_foot: Vector2 = main.castle_room_player_sprite.get_meta(
 		"current_stage_foot", Vector2.INF) as Vector2 \
 		if main.castle_room_player_sprite != null else Vector2.INF
 	if left_settee == null \
 			or not left_settee.transform.is_equal_approx(left_settee_transform) \
+			or not rooms._room_navigation.contains_point(
+				expected_seat_foot, 0.1) \
 			or not seated_foot.is_equal_approx(expected_seat_foot) \
 			or String(left_settee.get_meta(
 				"normalized_use_animation", "")) != "player_moves_to_seat" \
@@ -896,6 +914,17 @@ func _audit_native_route_fallback(rooms: CastleRooms25D) -> void:
 func _frames(count: int) -> void:
 	for frame_index in range(count):
 		await process_frame
+
+
+func _wait_for_castle_route(timeout_ms: int = 8000) -> bool:
+	var deadline_ms: int = Time.get_ticks_msec() + timeout_ms
+	while main.castle_room_player_sprite != null \
+			and bool(main.castle_room_player_sprite.get_meta(
+				"walking", false)) \
+			and Time.get_ticks_msec() < deadline_ms:
+		await process_frame
+	return main.castle_room_player_sprite != null \
+		and not bool(main.castle_room_player_sprite.get_meta("walking", false))
 
 func _bad(message: String) -> void:
 	failures += 1

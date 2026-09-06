@@ -1,0 +1,670 @@
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.055s
+
+OK
+GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+........s...............................
+----------------------------------------------------------------------
+Ran 40 tests in 34.614s
+
+OK (skipped=1)
+TYPOGRAPHY_AUDIT status=OPEN
+FONT assets=0 bindings=0 coverage=UNRESOLVED device=MISSING
+GLYPHS observed=134 unclassified=0 critical=125 critical_unresolved=125
+LABEL3D current=43 baseline=45 files=11 delta=-2
+LABEL3D_FILE  7 scripts/arena/sky_lagoon.gd
+LABEL3D_FILE  2 scripts/collection_system.gd
+LABEL3D_FILE  1 scripts/combat_arena.gd
+LABEL3D_FILE 13 scripts/companion.gd
+LABEL3D_FILE  1 scripts/dungeon_puzzle_room.gd
+LABEL3D_FILE  2 scripts/galaxy.gd
+LABEL3D_FILE  4 scripts/games/shop.gd
+LABEL3D_FILE  4 scripts/kart.gd
+LABEL3D_FILE  7 scripts/main.gd
+LABEL3D_FILE  1 scripts/reef_districts.gd
+LABEL3D_FILE  1 scripts/stuffie_battle.gd
+OPEN font authority, coverage, and/or device evidence remains unresolved
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.191s
+
+OK
+ROSHAN2D| stress: 8 falsification cases ALL OK
+ROSHAN2D| RESULT: ALL OK - active project is 2D Roshan only
+...........................................................................
+----------------------------------------------------------------------
+Ran 75 tests in 56.766s
+
+OK
+GAME2D| stress: 14 falsification/control assertions ALL OK
+GAME2D| stress: 14 falsification/control assertions ALL OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.187s
+
+OK
+naive 256px grid :  37531 px of Roshan clipped,  37531 px ghost
+shipped windows  :      0 px of Roshan clipped,   1302 px ghost
+                   (1.93% -> 0.00% of her art lost)
+playground poses :     12 whole, single-silhouette 512px frames
+OK: every Roshan frame renders whole
+PROBE_PARITY|stress missing loop: OK
+PROBE_PARITY|stress duplicate probe: OK
+PROBE_PARITY|stress local/remote mismatch: OK
+PROBE_PARITY|stress missing probe file: OK
+PROBE_PARITY|stress missing separate invocation: OK
+PROBE_PARITY|stress missing parity gate: OK
+PROBE_PARITY|stress missing local music verifier: OK
+PROBE_PARITY|stress missing pinned music verifier: OK
+PROBE_PARITY|result: ALL OK
+.........................................
+----------------------------------------------------------------------
+Ran 41 tests in 0.468s
+
+OK
+DOCAUTH|STRESS|6/6
+DOCAUTH|STRESS|6/6
+DOCAUTH|INVENTORY=533|LEDGER=533|ACTIVE=55|RECORDS=57
+DOCAUTH|RESULT|ALL OK
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.188s
+
+OK
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c00_opening_flight_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c01_lagoon_landing_castle_approach_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c02_first_dirty_castle_discovery_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c03_bathroom_dirty_entry_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c04_bathroom_restored_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c05_pool_dirty_discovery_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c06_pool_purification_rumi_hug_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c07_stuffie_dirty_discovery_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c08_stuffie_restoration_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c09_art_room_dirty_discovery_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c10_art_room_restored_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c11_grand_puff_reveal_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c12_restored_castle_finale_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c13_grand_puff_friendship_completion_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_bathroom_cleaned_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_bathroom_entry_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C00\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C01\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C02\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C03\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C04\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C05\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C06\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C07\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C08\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C09\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C10\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C11\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C12\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C13\visuals|PASS
+IMAGINE|RESULT|ALL OK
+OK pond_panorama.png: 4096x1024 RGB
+OK bug_jewel.png: 1024x1024 RGBA coverage=0.262
+OK bug_moth.png: 1024x1024 RGBA coverage=0.237
+OK bug_firefly.png: 1024x1024 RGBA coverage=0.255
+OK boss_leaf.png: 1024x1024 RGBA coverage=0.342
+OK boss_seed.png: 1024x1024 RGBA coverage=0.283
+OK boss_sprout.png: 1024x1024 RGBA coverage=0.258
+OK boss_bud.png: 1024x1024 RGBA coverage=0.411
+OK boss_opening.png: 1024x1024 RGBA coverage=0.563
+OK boss_bloom.png: 1024x1024 RGBA coverage=0.598
+OK helpful_flower_gate.png: 1024x1024 RGBA coverage=0.418
+OK danger_thorn_halo.png: 1024x1024 RGBA coverage=0.239
+OK ornament_lily_cluster.png: 1024x1024 RGBA coverage=0.133
+OK ornament_lavender_reeds.png: 1024x1024 RGBA coverage=0.114
+OK panorama_gradient: overall_shift=115.74 max_local_step=47.01 rgb=[(138.9, 194.9, 190.6), (170.1, 222.4, 211.5), (162.0, 219.3, 210.1), (119.4, 199.8, 206.6), (81.0, 182.3, 208.0), (58.2, 159.6, 204.7), (60.4, 134.2, 196.1), (72.2, 107.9, 190.3), (90.6, 97.1, 186.8), (115.5, 93.9, 198.6), (123.4, 88.4, 200.4), (110.5, 83.0, 182.3)]
+contact sheet: C:\Users\Peter\Documents\mermaid-roshan-reef\tmp\fairy_v2\qa_contact_sheet.png
+FAIRYHANDOFF|OK|moonflower_door_closed.png is 1024-square ((1024, 1024))
+FAIRYHANDOFF|OK|moonflower_door_closed.png is RGBA (RGBA)
+FAIRYHANDOFF|OK|moonflower_door_closed.png corners are transparent ([0, 0, 0, 0])
+FAIRYHANDOFF|OK|moonflower_door_closed.png has a visible subject
+FAIRYHANDOFF|OK|butterfly_gate_available.png is 1024-square ((1024, 1024))
+FAIRYHANDOFF|OK|butterfly_gate_available.png is RGBA (RGBA)
+FAIRYHANDOFF|OK|butterfly_gate_available.png corners are transparent ([0, 0, 0, 0])
+FAIRYHANDOFF|OK|butterfly_gate_available.png has a visible subject
+FAIRYHANDOFF|OK|rainbow_walkway.png is 1024-square ((1024, 1024))
+FAIRYHANDOFF|OK|rainbow_walkway.png is RGBA (RGBA)
+FAIRYHANDOFF|OK|rainbow_walkway.png corners are transparent ([0, 0, 0, 0])
+FAIRYHANDOFF|OK|rainbow_walkway.png has a visible subject
+FAIRYHANDOFF|OK|butterfly_house.png is 1024-square ((1024, 1024))
+FAIRYHANDOFF|OK|butterfly_house.png is RGBA (RGBA)
+FAIRYHANDOFF|OK|butterfly_house.png corners are transparent ([0, 0, 0, 0])
+FAIRYHANDOFF|OK|butterfly_house.png has a visible subject
+FAIRYHANDOFF|OK|door states share the same horizontal pivot (closed=511.5 open=512.0)
+FAIRYHANDOFF|OK|door states share the same castle-floor foot (closed=992 open=992)
+FAIRYHANDOFF|OK|background master meets per-screen runtime coverage ((3640, 2048))
+FAIRYHANDOFF|OK|background master preserves 16:9 stage crop ((3640, 2048))
+FAIRYHANDOFF|OK|background r0c0 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r0c1 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r0c2 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r0c3 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r1c0 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r1c1 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r1c2 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r1c3 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background tiles reconstruct the continuous master exactly
+FAIRYHANDOFF|OK|background builder authors the target master without ImageOps.fit
+FAIRYHANDOFF|OK|generated background panels are never resized
+FAIRYHANDOFF|OK|manifest exists: assets_src/fairy_conservatory_handoff_2026-08-30/asset_manifest.json
+FAIRYHANDOFF|OK|manifest exists: assets_src/castle/fairy_conservatory_gate_available_2026-08-30/asset_manifest.json
+FAIRYHANDOFF|OK|handoff manifest records built-in ImageGen
+FAIRYHANDOFF|OK|handoff background is the generated upright Fairy Pond
+FAIRYHANDOFF|OK|handoff records all six native generated panels
+FAIRYHANDOFF|OK|native panel dimensions match: top_left.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: top_left.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: top_left.png
+FAIRYHANDOFF|OK|native panel dimensions match: top_center.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: top_center.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: top_center.png
+FAIRYHANDOFF|OK|native panel dimensions match: top_right.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: top_right.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: top_right.png
+FAIRYHANDOFF|OK|native panel dimensions match: bottom_left.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: bottom_left.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: bottom_left.png
+FAIRYHANDOFF|OK|native panel dimensions match: bottom_center.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: bottom_center.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: bottom_center.png
+FAIRYHANDOFF|OK|native panel dimensions match: bottom_right.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: bottom_right.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: bottom_right.png
+FAIRYHANDOFF|OK|background master is authored at target native dimensions
+FAIRYHANDOFF|OK|background master forbids source-pixel enlargement
+FAIRYHANDOFF|OK|native panel geometry reconstructs the exact master
+FAIRYHANDOFF|OK|generated panel horizon remains above the 50% line
+FAIRYHANDOFF|OK|approved Fairy Pond panorama is the primary background reference
+FAIRYHANDOFF|OK|handoff background excludes Sky Lagoon reference authority
+FAIRYHANDOFF|OK|handoff manifest records exactly two generated foreground gaps
+FAIRYHANDOFF|OK|runtime hash matches manifest: rainbow_walkway.png
+FAIRYHANDOFF|OK|runtime hash matches manifest: butterfly_house.png
+FAIRYHANDOFF|OK|placement composite is explicitly non-delivery
+FAIRYHANDOFF|OK|dormant state remains the approved minimal relief
+FAIRYHANDOFF|OK|plot reveal transforms into the available Butterfly Gate
+FAIRYHANDOFF|OK|gate portal horizon is at or below the 50% line (fraction=0.3797)
+FAIRYHANDOFF|OK|gate portal uses the Lily-Pad Fairy World authority
+FAIRYHANDOFF|OK|approved lily art begins at the exact gate threshold (lily=944 aperture=944)
+FAIRYHANDOFF|OK|castle gate excludes rainbow-walkway delivery pixels
+FAIRYHANDOFF|OK|castle gate excludes the old greenhouse-interior pixels
+FAIRYHANDOFF|OK|gate manifest combines the approved facade, sunrise pond, and lily threshold
+FAIRYHANDOFF|OK|gate input hash matches: moonflower_door_closed.png
+FAIRYHANDOFF|OK|gate input hash matches: butterfly_house.png
+FAIRYHANDOFF|OK|gate input hash matches: handoff_background_master_3640x2048.png
+FAIRYHANDOFF|OK|gate input hash matches: ornament_lily_cluster.png
+FAIRYHANDOFF|OK|corrected gate builder exists
+FAIRYHANDOFF|OK|corrected gate builder excludes the rainbow walkway
+FAIRYHANDOFF|OK|corrected gate builder preserves facade pixels outside the aperture
+FAIRYHANDOFF|OK|available Butterfly Gate hash matches manifest
+FAIRYHANDOFF|OK|gate dormant Hall review is explicitly non-delivery
+FAIRYHANDOFF|OK|gate dormant Hall review hash matches manifest
+FAIRYHANDOFF|OK|gate available Hall review is explicitly non-delivery
+FAIRYHANDOFF|OK|gate available Hall review hash matches manifest
+FAIRYHANDOFF|OK|runtime source exists: scripts/arena/fairy_conservatory_handoff_2d.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/main.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/save_state.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/arena/castle_rooms_25d.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/arena/fairy_conservatory_door_2d.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/pause_menu.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/probe_fairy_conservatory_route.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/probe_fairy_conservatory_handoff.gd
+FAIRYHANDOFF|OK|new stage excludes Node3D
+FAIRYHANDOFF|OK|new stage excludes Sprite3D
+FAIRYHANDOFF|OK|new stage excludes Camera3D
+FAIRYHANDOFF|OK|new stage excludes MeshInstance3D
+FAIRYHANDOFF|OK|new stage excludes Vector3
+FAIRYHANDOFF|OK|new stage excludes Transform3D
+FAIRYHANDOFF|OK|new stage excludes StandardMaterial3D
+FAIRYHANDOFF|OK|stage contract contains Vector2(910.0, 1024.0)
+FAIRYHANDOFF|OK|stage contract contains Vector2(640.0, 600.0)
+FAIRYHANDOFF|OK|stage contract contains Vector2(640.0, 500.0)
+FAIRYHANDOFF|OK|stage contract contains Vector2(640.0, 375.0)
+FAIRYHANDOFF|OK|stage contract contains "no_fail_state": true
+FAIRYHANDOFF|OK|stage contract contains "has_timer": false
+FAIRYHANDOFF|OK|stage contract contains "butterfly_house"
+FAIRYHANDOFF|OK|save schema includes chapter3_fairy_door_revealed
+FAIRYHANDOFF|OK|main owns chapter3_fairy_door_revealed
+FAIRYHANDOFF|OK|save schema includes chapter3_fairy_door_opened
+FAIRYHANDOFF|OK|main owns chapter3_fairy_door_opened
+FAIRYHANDOFF|OK|save schema includes chapter3_fairy_mission_started
+FAIRYHANDOFF|OK|main owns chapter3_fairy_mission_started
+FAIRYHANDOFF|OK|Main Hall owns one whole door card
+FAIRYHANDOFF|OK|revealed and entered states use the available Butterfly Gate
+FAIRYHANDOFF|OK|castle runtime no longer references the superseded rainbow inset
+FAIRYHANDOFF|OK|Main Hall route bypasses fake room portal list
+FAIRYHANDOFF|OK|approved Castle V4 payload stays independent
+FAIRYHANDOFF|OK|Main ticks the independent doorway overlay
+FAIRYHANDOFF|OK|Galaxy return recognizes the handoff
+FAIRYHANDOFF|OK|active stage receives an explicit tick
+FAIRYHANDOFF|OK|Main leave wrapper does not duplicate Galaxy scheduling
+FAIRYHANDOFF|OK|PauseMenu owns exactly one Fairy Pond Galaxy restart
+FAIRYHANDOFF|OK|Opera completion waits for the in-Hall reveal before persisting
+FAIRYHANDOFF|OK|isolated handoff probe covers the guided reverse walk
+FAIRYHANDOFF|OK|route probe covers fresh door is dormant
+FAIRYHANDOFF|OK|route probe covers plot reveal transforms into the available Butterfly Gate
+FAIRYHANDOFF|OK|route probe covers reveal creates exactly one hotspot
+FAIRYHANDOFF|OK|route probe covers open route removes the reveal pointer
+FAIRYHANDOFF|OK|route probe covers Hall suspend/resume preserves camera offset
+FAIRYHANDOFF|OK|license ledger covers moonflower_door_closed.png
+FAIRYHANDOFF|OK|license ledger covers butterfly_gate_available.png
+FAIRYHANDOFF|OK|license ledger covers fairy_conservatory_{dormant,available}_hall_1280x720.png
+FAIRYHANDOFF|OK|license ledger covers rainbow_walkway.png
+FAIRYHANDOFF|OK|license ledger covers butterfly_house.png
+FAIRYHANDOFF|OK|license ledger covers fairy_pond_horizon_openai_raw.png
+FAIRYHANDOFF|OK|license ledger covers fairy_pond_native_center_openai_raw.png
+FAIRYHANDOFF|OK|license ledger covers background_panels/{top_left,top_center,top_right,bottom_left,bottom_center,bottom_right}.png
+FAIRYHANDOFF|OK|license ledger covers handoff_background_master_3640x2048.png
+FAIRYHANDOFF|OK|license ledger covers handoff_background_r{0..1}_c{0..3}.png
+FAIRYHANDOFF|OK|license ledger covers rainbow_stage_composite_1280x720.png
+FAIRYHANDOFF|RESULT=OK|failures=0
+OK assets\opera\worlds\actors\roshan_nursery.png size=512x512 coverage=0.370 key_residue=0
+OK assets\opera\worlds\actors\faron_nursery.png size=512x512 coverage=0.269 key_residue=0
+OK assets\opera\worlds\nursery\baby_0.png size=320x320 coverage=0.318 key_residue=0
+OK assets\opera\worlds\nursery\baby_1.png size=320x320 coverage=0.318 key_residue=0
+OK assets\opera\worlds\nursery\baby_2.png size=320x320 coverage=0.318 key_residue=0
+CHECK OK: 42 deterministic files match
+HOTSPOT_ART|result: ALL OK (4 hashes, 2 alpha states, 1 connected object)
+OPERA_BORDERLESS_ART|result: ALL OK (2 subjects, exact hashes, connected alpha, no chroma spill)
+OPERA_ROSHAN_ART|result: ALL OK (13 careers, 208 reviewed frames)
+MUSIC|check 01/44|castle_opera_hall
+MUSIC|check 02/44|castle_kitchen
+MUSIC|check 03/44|castle_library
+MUSIC|check 04/44|castle_playroom
+MUSIC|check 05/44|castle_craft_room
+MUSIC|check 06/44|castle_mermaid_pool
+MUSIC|check 07/44|castle_bubble_bath
+MUSIC|check 08/44|castle_dining_room
+MUSIC|check 09/44|castle_royal_bedroom
+MUSIC|check 10/44|castle_sleepover_bedroom
+MUSIC|check 11/44|castle_movie_lounge
+MUSIC|check 12/44|castle_family_gallery
+MUSIC|check 13/44|opera_lobby
+MUSIC|check 14/44|opera_chef
+MUSIC|check 15/44|opera_detective
+MUSIC|check 16/44|opera_ballerina
+MUSIC|check 17/44|opera_candymaker
+MUSIC|check 18/44|opera_doctor
+MUSIC|check 19/44|opera_farmer
+MUSIC|check 20/44|opera_boxer
+MUSIC|check 21/44|opera_magician
+MUSIC|check 22/44|opera_painter
+MUSIC|check 23/44|opera_astronaut
+MUSIC|check 24/44|opera_racer
+MUSIC|check 25/44|opera_popstar
+MUSIC|check 26/44|opera_nursery
+MUSIC|check 27/44|opera_teacher
+MUSIC|check 28/44|opera_boss_dragon
+MUSIC|check 29/44|opera_boss_phantom
+MUSIC|check 30/44|opera_boss_maestro
+MUSIC|check 31/44|northern
+MUSIC|check 32/44|galaxy
+MUSIC|check 33/44|ember
+MUSIC|check 34/44|dungeon_ice
+MUSIC|check 35/44|dungeon_ember
+MUSIC|check 36/44|combat_ice
+MUSIC|check 37/44|combat_fire
+MUSIC|check 38/44|combat_tutorial
+MUSIC|check 39/44|stuffie_battle
+MUSIC|check 40/44|dustboss
+MUSIC|check 41/44|picture_snowman
+MUSIC|check 42/44|picture_garden
+MUSIC|check 43/44|picture_trampoline
+MUSIC|check 44/44|picture_xmas
+MUSIC|result ALL OK|assets/audio/music/area_music_manifest.json
+........................
+----------------------------------------------------------------------
+Ran 24 tests in 0.595s
+
+OK
+AUDIO_REPLACEMENTS|ui_tap|PASS
+AUDIO_QUALITY|check 797/797|PASS
+...............................................................................................
+----------------------------------------------------------------------
+Ran 95 tests in 677.775s
+
+OK
+VISUALAUDIT| stress: 18 cases, 18 stressable checks, 8 fuzz rounds
+VISUALAUDIT| stress: ALL OK
+VISUALAUDIT| stress: 18 cases, 18 stressable checks, 24 fuzz rounds
+VISUALAUDIT| stress: ALL OK
+
+-- castle ------------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  WARN/REVIEW_OPEN       hygiene.orphan_art
+                         12/46 PNGs are referenced by no script or scene (4.6 MB of superseded art still shipping in the APK)
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.manual_squint_test
+                         no flat art
+  SKIP/COVERAGE_GAP      layering.standee_alpha
+                         zone declares no standees
+  SKIP/COVERAGE_GAP      overdraw.alpha_layers
+                         zone declares no murals
+  SKIP/COVERAGE_GAP      palette.background_recessive
+                         needs both murals and foreground art declared
+  SKIP/COVERAGE_GAP      palette.figure_ground_luminance
+                         needs both murals and foreground art declared
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- courtyard ---------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         zone declares no asset roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no asset roots
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- ember -------------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         no PNGs under the zone roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no PNGs
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- fairy_pond --------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  WARN/REVIEW_OPEN       palette.background_recessive
+                         source-average background saturation 0.512 vs foreground 0.457 (ratio 1.12, cap 0.90) is a review risk. These files may represent mutually exclusive states or transparent decorations, so this heuristic cannot establish an in-game failure
+  WARN/REVIEW_OPEN       palette.figure_ground_luminance
+                         source-average figure/ground luminance delta is 0.039 (review threshold 0.040); only a complete current state-local rendered composite can close or confirm this risk
+  MANUAL/MANUAL_OPEN     hygiene.manual_squint_test
+                         14 flats need the human pass this tool cannot do: no words/letters/digits, nothing scary at child eye level, and the M11 squint test (every socket still findable)
+  SKIP/COVERAGE_GAP      palette.rendered_composite_readability
+                         state 'fairy_intro' remains COVERAGE_GAP: probe_visual_audit does not yet enter and freeze the Fairy intro state or bind its live Canvas targets; an adapter-shaped string is not an implemented state transition; state 'fairy_boss' remains COVERAGE_GAP: probe_visual_audit does not yet enter and freeze the Fairy boss state or bind its live Canvas targets; an adapter-shaped string is not an implemented state transition
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+
+-- galaxy ------------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  WARN/REVIEW_OPEN       hygiene.orphan_art
+                         32/32 PNGs are referenced by no script or scene (11.7 MB of superseded art still shipping in the APK)
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- living_world ------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         zone declares no asset roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no asset roots
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- northern ----------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         no PNGs under the zone roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no PNGs
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- opera -------------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  WARN/REVIEW_OPEN       hygiene.orphan_art
+                         423/555 PNGs are referenced by no script or scene (158.0 MB of superseded art still shipping in the APK)
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.manual_squint_test
+                         no flat art
+  SKIP/COVERAGE_GAP      layering.standee_alpha
+                         zone declares no standees
+  SKIP/COVERAGE_GAP      overdraw.alpha_layers
+                         zone declares no murals
+  SKIP/COVERAGE_GAP      palette.background_recessive
+                         needs both murals and foreground art declared
+  SKIP/COVERAGE_GAP      palette.figure_ground_luminance
+                         needs both murals and foreground art declared
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- picture_games -----------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- reef --------------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         no PNGs under the zone roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no PNGs
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- sky_lagoon --------------------------------------------------
+  ERROR/FAIL             layering.depth_spread
+                         builder exposes 3D stage types; 3D depth is rejected rather than credited as Canvas draw-order evidence
+  ERROR/FAIL             layering.engine_layer_api
+                         builder still reaches canonical spatial stage/resource/API debt; it cannot satisfy the Canvas 2D contract
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  ERROR/FAIL             layering.occlusion_band
+                         builder implements occlusion with Node3D/Sprite3D; only Canvas draw-order evidence can satisfy the 2D contract
+  WARN/REVIEW_OPEN       hygiene.orphan_art
+                         48/90 PNGs are referenced by no script or scene (41.9 MB of superseded art still shipping in the APK)
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_activity_frame' ships 2 generations: sky_lagoon_activity_frame_v2.png, sky_lagoon_activity_frame_v3.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_castle_four_tower' ships 2 generations: sky_lagoon_castle_four_tower_v3.png, sky_lagoon_castle_four_tower_v4.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_castle_gate' ships 2 generations: sky_lagoon_castle_gate.png, sky_lagoon_castle_gate_v3.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_plane' ships 2 generations: sky_lagoon_plane.png, sky_lagoon_plane_v4_audited_360.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_pnw_fir_sway' ships 2 generations: sky_lagoon_pnw_fir_sway.png, sky_lagoon_pnw_fir_sway_v2.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_seesaw' ships 3 generations: sky_lagoon_seesaw.png, sky_lagoon_seesaw_v4.png, sky_lagoon_seesaw_v4_compact.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_slide' ships 3 generations: sky_lagoon_slide.png, sky_lagoon_slide_v3.png, sky_lagoon_slide_v3_compact.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_swing' ships 3 generations: sky_lagoon_swing.png, sky_lagoon_swing_v3.png, sky_lagoon_swing_v3_compact.png
+  WARN/REVIEW_OPEN       palette.background_recessive
+                         source-average background saturation 0.555 vs foreground 0.420 (ratio 1.32, cap 0.90) is a review risk. These files may represent mutually exclusive states or transparent decorations, so this heuristic cannot establish an in-game failure
+  WARN/REVIEW_OPEN       palette.figure_ground_luminance
+                         source-average figure/ground luminance delta is 0.015 (review threshold 0.040); only a complete current state-local rendered composite can close or confirm this risk
+  WARN/REVIEW_OPEN       texture.vram_compressible
+                         9/40 textures are non-power-of-two: 11.2 MB that must ship uncompressed on the Mali GPU
+  MANUAL/MANUAL_OPEN     hygiene.manual_squint_test
+                         19 flats need the human pass this tool cannot do: no words/letters/digits, nothing scary at child eye level, and the M11 squint test (every socket still findable)
+  SKIP/COVERAGE_GAP      layering.mural_is_a_stack
+                         declared layers need runtime Canvas evidence; run scripts/probe_visual_audit.gd
+  SKIP/COVERAGE_GAP      palette.rendered_composite_readability
+                         needs state-local viewport-composite evidence from scripts/probe_visual_audit.gd
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+
+-- storybook_ui ------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         zone declares no asset roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no asset roots
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+==============================================================
+VISUALAUDIT| ERROR=15  WARN=17  MANUAL=2  INFO=126  SKIP=87
+VISUALAUDIT| STATE FAIL=15  REVIEW_OPEN=17  MANUAL_OPEN=2  COVERAGE_GAP=87  WAIVED=0  PASS=32  NOT_APPLICABLE=94  RESULT=UNSATISFIED
+cloud_single_drift       OK                   LabDelta=5.1 keyDelta=94deg density=1.82x
+plane                    OK                   LabDelta=13.2 keyDelta=12deg density=1.86x
+swing                    OK                   LabDelta=7.0 keyDelta=122deg density=3.37x
+slide                    OK                   LabDelta=14.5 keyDelta=153deg density=1.83x
+castle_four_tower        OK                   LabDelta=0.7 keyDelta=5deg density=2.00x
+roshan_idle_directional  OK                   LabDelta=1.8 keyDelta=14deg density=1.47x
+roshan_swim_front        OK                   LabDelta=9.1 keyDelta=76deg density=1.47x
+seesaw                   OK                   LabDelta=2.5 keyDelta=12deg density=1.89x
+pnw_tree_sticker_tall    OK                   LabDelta=2.3 keyDelta=79deg density=2.48x
+SCENE_CONGRUENCY 9/9
+SKY_LAGOON_LAYOUT_AUDIT|ALL OK
+{
+  "cards": 51,
+  "invisible_depth_failures": 0,
+  "contact": "audit/castle_sprite3d/castle_card_alpha_contact.png"
+}
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.003s
+
+OK
+zone                n |    clip% in->out |   crush% in->out | budget
+------------------------------------------------------------------------------
+castle_room        80 |   0.89 ->   0.89   |   1.25 ->   1.25   | clip<=6.0 crush<=2.5
+sky_lagoon         31 |   0.21 ->   0.08   |   0.00 ->   2.33   | clip<=1.0 crush<=4.0
+bright_pastel      80 |   9.70 ->  15.57   |   0.49 ->   2.33   | clip<=18.0 crush<=3.0
+
+GRADE HEADROOM OK
+{
+  "rooms": 8,
+  "unique_atlases": 33,
+  "physical_instances": 38,
+  "average_items_per_room": 4.75,
+  "maximum_depth_coverage": 0.8627,
+  "maximum_background_like_fraction": 0.0586,
+  "minimum_chassis_alpha_iou": 0.2014,
+  "minimum_sampled_roshan_visibility": 0.1583,
+  "minimum_material_changed_fraction": 0.0074,
+  "minimum_source_silhouette_retention": 0.9894,
+  "maximum_audio_sync_error_seconds": 0.0
+}
+CASTLE INTERACTION AUDIT: ALL OK
+CASTLEV2|NORMALIZATION_OK|assets=33|padding=6|unique_min=4|transactional=true
+CASTLEV2|RESULT|OK|assets=29|instances=34|average=4.86|water=5|spring=6|max_room_rgba_mib=16.00
+CASTLE_V4_DELIVERY|RESULT=OK|mode=CHECK|assets=12|native_background_rooms=7
+CASTLE_NATIVE|RESULT=OK|painted_source_ownership=true|duplicates=0
+PIXEL_OWNERSHIP|RESULT|OK|castle_rooms=7|opera_worlds=2
+PIXEL_OWNERSHIP|RESULT|OK|castle_rooms=7|opera_worlds=2
+CASTLE_DEPTH_REFINE|RESULT=OK|cards=16|hidden_rgb=0
+{
+  "active_cards": 12,
+  "error_count": 0,
+  "manifest": "assets_src/castle/depth_cards/static_depth_card_refinement.json",
+  "ok": true,
+  "retired_cards": 5,
+  "runtime_layout": "scripts/arena/castle_rooms_25d.gd",
+  "runtime_pool_mid_references": [],
+  "verified_cards": 12
+}
+................................................................
+----------------------------------------------------------------------
+Ran 64 tests in 14.022s
+
+OK
+CASTLE_INTERACTION_FRAME_REVIEW|CANDIDATE|path=audit/castle_interaction_frame_review_v4/castle_interaction_frame_candidate_v4.json|sha256=7921f9b8f1b8a08e8e4a5fb10703bd1fac52a7ca35baf4e0d2d6972d82db739f
+CASTLE_INTERACTION_FRAME_REVIEW|FAIL|approval ledger candidate_payload_sha256 is missing or stale
+CASTLE_INTERACTION_FRAME_REVIEW|RESULT=FAIL|issues=1
+CASTLE INTERACTION PER-FRAME APPROVAL FAIL
