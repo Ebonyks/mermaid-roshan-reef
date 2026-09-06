@@ -1,0 +1,915 @@
+{
+  "status": "IN_PROGRESS_NOT_4_5_GAME_WIDE",
+  "base_revision": "f4a5de339f3a8b7b9e4081924f4d3127d54959d7",
+  "authority_note": "Historical captures remain evidence for their recorded source candidates only. Current full gameplay validation passes, but this packet does not claim current visual, device, child, owner or game-wide acceptance. Narrow .gitattributes rules preserve all packet bytes across platforms. Code-source registry entries explicitly declare their LF hashing normalization.",
+  "files": [
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/generation_manifest.json",
+      "sha256": "3eddf032818a24935ee2af4b4c770283d1b9039e34624c3d51fbd9845c34a88e"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/pan_attempt01.png",
+      "sha256": "f2673f73734bbdf08fb46d5246347adf939d3ab80aab2f31995f23f7a7613e22"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/pan_attempt01_prompt.txt",
+      "sha256": "8f38032212c29591833678d368e17b5fca25429d8bfeae86e61859f6e4acd50b"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/watering-can-attempt02/generation_manifest.json",
+      "sha256": "b1e0d533435419676c8d2537c57359d618422434140686164bcdb38884cd2f55"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/watering-can-attempt02/prompt.txt",
+      "sha256": "4f887753869a1e167ca0ef080a3214f4462db39aa1d488e32b1327bd340a6ebd"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/watering-can-attempt02/review.md",
+      "sha256": "3f7a79c809f5154cfff637bd6f02cc3df14fa69545988950a93c97174ec9c76b"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/watering-can-attempt02/wateringcan_attempt01.png",
+      "sha256": "fda89a55f90f9945cb4fcc4aa20c68e127c3a4291a8c44a876849b7f66ea2c44"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "sha256": "738f9bbc06cbba2fe3a3fe508438d554ff0b6c387d70828e251a1ded1a6290d4"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/art_repair_backlog.md",
+      "sha256": "3c528c85e4a102d095f037f2074b3f8717a5d642ee72231f6ce83901935a4d56"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/current_scope_addendum.md",
+      "sha256": "c791673157f4d0f2563d1544320f03c7d7082b5c798a489b913836e247563c89"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/000_boot.png",
+      "sha256": "e2addc834ec073165eac7e058206b3ad42d13c410d978ba6729d2b2cfab88189"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/001_garden_ready_all_seeds.png",
+      "sha256": "27a4cba2aa3730ce9a4d7ea47166ede03a43a60a288eaf03ed6be139b4d59cd5"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/002_garden_seed_1_before.png",
+      "sha256": "27a4cba2aa3730ce9a4d7ea47166ede03a43a60a288eaf03ed6be139b4d59cd5"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/003_garden_seed_1_sprout_or_flower.png",
+      "sha256": "9f903bd8b9d61ebc67c98e9d8e20bdc3a7da715be5861f92a912dc6a0ed01b22"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/004_garden_seed_1_settled.png",
+      "sha256": "0e00cba72d1a8339aa674a4f9e8fb4b8b09a2f414909cdd127f0ac0287366938"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/005_garden_seed_2_before.png",
+      "sha256": "0e00cba72d1a8339aa674a4f9e8fb4b8b09a2f414909cdd127f0ac0287366938"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/006_garden_seed_2_sprout_or_flower.png",
+      "sha256": "a4ce81ad9a51a3e133f34fe3201bf3f75a46338f6aec195c65a57d915d25c47a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/007_garden_seed_2_settled.png",
+      "sha256": "ac350287dc7f37948d297972bb1dc89b120285c149b61d6d21869d54e436f20c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/008_garden_seed_3_before.png",
+      "sha256": "ac350287dc7f37948d297972bb1dc89b120285c149b61d6d21869d54e436f20c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/009_garden_seed_3_sprout_or_flower.png",
+      "sha256": "edeeb8935690416c61b8c7b0e1f8e3f8f48aff79bba150b27c84d10740125553"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/010_garden_seed_3_settled.png",
+      "sha256": "83963887cbcd2830bbcecceb4998e64944bbd81486a0c530eb9a7664affd9753"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/011_garden_seed_4_before.png",
+      "sha256": "83963887cbcd2830bbcecceb4998e64944bbd81486a0c530eb9a7664affd9753"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/012_garden_seed_4_sprout_or_flower.png",
+      "sha256": "0d32d02ba98c1b8e237b238a06853ae44b7550d85835d788c691262483c8069a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/013_garden_seed_4_settled.png",
+      "sha256": "7ffeb5d9b67f57b283ea49c67babfdff3de0b3c7da982f11eafa4c42ac3f2583"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/014_garden_seed_5_before.png",
+      "sha256": "7ffeb5d9b67f57b283ea49c67babfdff3de0b3c7da982f11eafa4c42ac3f2583"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/015_garden_seed_5_sprout_or_flower.png",
+      "sha256": "1f87406d76a5c26e76e416a428dbc0d0a2c2eec9e8df06df61f82742ca833081"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/016_garden_seed_5_settled.png",
+      "sha256": "022ac20ca3db686239668779333c3949dd2581cd6cee8632584c3e74eb1005a7"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/017_garden_mature_1.png",
+      "sha256": "b3e4cb4e3c4c7dff7693b1be19a347a5c5e78201540357784901f9fddfed9340"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/018_garden_mature_2.png",
+      "sha256": "6025f03c35d7b59cdcbbbab2e90c45ea436e1835c31d0932d0a4b3df60997b74"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/019_garden_mature_3.png",
+      "sha256": "b899bb95ba3aeea477551e481a8af8f5c10e3c13be4982b924a5fab1b875778b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/020_garden_mature_4.png",
+      "sha256": "56f1d33bc0cae211551b06a129ee6e0ed6bcfe32a8988409897ec8befc72aa19"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/021_garden_mature_5.png",
+      "sha256": "3152136e4247ca9f80856e1c4480d26c19af6585af01e3b8ce5c26376567e912"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/022_garden_all_five_mature.png",
+      "sha256": "881a71c10bcc1d5e72690d0e0ce69e4e70b146cc292a53401d387626fc2f2adb"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/garden-capture.log",
+      "sha256": "bd891248ab317480fa55129c0f107d9dc5c89a074b6763e30c459aab4e67e5b0"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/garden_capture.gd",
+      "sha256": "cecc9fde0d35276660cd9a3bbe489c481b43145c2539cf670f242be91b25e3aa"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/manifest.json",
+      "sha256": "0dcfa8f35b990ef1efe42b85997279b62e1c29cc2fc3eee1d58933acfcab70a3"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/animation-gate.log",
+      "sha256": "b64e2ebfc5acd29acf00e99ed7b2e0a6a8cfdd5851a3c47bc58bfc00c9b1a6bf"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/capture.gd",
+      "sha256": "77b5c2a5c9164feec0e57ae991742e1bbe0ee90c906c5d6313b8c0b86e54e9bb"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/capture.gd.gz",
+      "sha256": "5b60928a6943679cdb0e06fe955a89c6b91319d66c08364f12040a309182bd53"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/capture.log",
+      "sha256": "c2c6093671ee505668b10ff0586ec55b75a95ee771b70385051218eb185b3186"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/manifest.json",
+      "sha256": "195601253f6e388ec79e7d3bcbafc3fb5983a9f89d904a06401e1eb78b00e42e"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/manifest.original.json.gz",
+      "sha256": "dfab86cfe93117542131749be1ba83282500175a780526e4f76415099fb044d1"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-0-progress.png",
+      "sha256": "1a0565b5124791e31c0c43affecd8876d8b96c0b8b1096fd5f405e8f6874be8f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-0-ready.png",
+      "sha256": "77dee1ffcdc51c54afb0e2e2583645f40579f2c2e670d3d19c092ae7d70c189f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-0-wide.png",
+      "sha256": "9be52429bc1291d90688e6a3ac288f699ea5754f8201f6621798d34d0abe2d3b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-1-brush-contact.png",
+      "sha256": "1b88ea0564b42c9a24e6f1b9fadedc6b41d49b59fc3aeef2e1f36b0d315a16d3"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-1-progress.png",
+      "sha256": "2e6f3e4de09087daa124c5be7dda5b45124994a794b7f391ba211d28a8ef1926"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-1-ready.png",
+      "sha256": "aa180f6743f184bf327d9711351603aa22f71e972ba608f00ba9ca5310853262"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-1-wide.png",
+      "sha256": "7c3d5370aeb3829ccd692ef9aa404caa6e0b606fe2e49a3767666662c7c0ddd5"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-2-progress.png",
+      "sha256": "c8529cd44dea962dd190e912da85cf6c6323d67d73f8563723536bbe3bad066f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-2-ready.png",
+      "sha256": "542f211ef17e748af628942654f08a5f843da8bbadaecf53d0bbbeaa29d8025a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-2-wide.png",
+      "sha256": "246eda1914ebf9fb1c30e08dcce79347f1b5e4b2046cfc6b9990a79a26e78fa6"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-3-progress.png",
+      "sha256": "e4b9cb54a96025056e07131abb57ecf637add943213ff77c02a05136fbc353a7"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-3-ready.png",
+      "sha256": "8f214c0d8e3453f0ef5601bdf7a1295b4346da9450154d37387629b4ca04702b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-3-wide.png",
+      "sha256": "892a4d4c4c92528af2b438be1b23b2e1e7a6ef2ce0d95144c0882b2fffa00433"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/probe-opera-2d.log",
+      "sha256": "35008bddad52ec874457632406a61f9c8e53766e553ffedca563df3a55c0921c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/astronaut_01_pipe.png",
+      "sha256": "aebca8eada9359674e4a5a82aea341ff23ee15e433e98c08592e12f81ac7aeb0"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/astronaut_02_tap.png",
+      "sha256": "fa66410ff2920b17b2d06b0d0c589fed94df30f68d21f214aca447277c50f531"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/astronaut_03_circle.png",
+      "sha256": "8d984b6ca4e2e674f2fd41d6a5f298f421cde3f1d8c419ebb15ba0be9f0947de"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/astronaut_04_hold.png",
+      "sha256": "080afbf272075e1d15a8e221e66a7dbdd83ba599e5f8563a9dc6f3ba01061a42"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/ballerina_01_ballet_pose.png",
+      "sha256": "d9fa9b42ac30ffdf746fbfb617ab88d6d4990702f4ac10afd238bb78ba1902ce"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/ballerina_02_ballet_ribbon.png",
+      "sha256": "ff3aeadcad591f9e92973a274b62ff0e3457c264514b72fc87a84530f3ba07db"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/ballerina_03_ballet_twirl.png",
+      "sha256": "e840dd15efca88b5495faf8b6e8325e24471966d908fa74ec6e237792cc9e74a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/boxer_01_boxing_guide.png",
+      "sha256": "b204243fae837aeada596099dcce15122fd1518cb8fdd4396bb2de8949201963"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/boxer_02_boxing_jab.png",
+      "sha256": "9af19879ef35b5f4ae2015a4f20172e552f6b5dae72d84dee1c7eca5ec25e020"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/boxer_03_boxing_guard.png",
+      "sha256": "adf6039e21a7711798c814b26393d2588651cf3104df7ad0e390197161932e60"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/boxer_04_boxing_imp.png",
+      "sha256": "e43bab00c9e3d288606f1f7bc43f60e4f1f42bec9b2625acf18cf8bdb268cdbf"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/boxer_05_boxing_belt.png",
+      "sha256": "944732f7fa2aa2318c7db7ee6b201081bd548ae292f1fcd1d72cbc16777656da"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/candymaker_01_pourt.png",
+      "sha256": "7317671b6801a3841319c03fdfd8bc58165722b3b067dc2ba3298b296e355089"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/candymaker_02_candy_sort.png",
+      "sha256": "52d42deb488d61b2c246d7ece4f5f190485fe3005b84901d9c90507cfc414e60"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/candymaker_03_circle.png",
+      "sha256": "df03a4ab079e46f9b0805a013012b670ea6d67f362e58dbd2218456eb9b9cd55"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/candymaker_04_tap.png",
+      "sha256": "d02ac098d80720706d7407eb32812f884cecf7ed9a7a39e5c0943628d4884df5"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/chef_01_pourt.png",
+      "sha256": "37bf334dce7bd8c81c67095301d0d4ff7f7ca53bb16c8f49d3be84dc56a9ff7f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/chef_02_circle.png",
+      "sha256": "902138c1bec00a88ee9f0df1b5698441b688a27962f158e896d02243366a33cf"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/chef_03_oven.png",
+      "sha256": "b159f83cdb5c6fa5605f0f0eabcbe958984ba6f2a2145963271626a12376953a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/chef_04_swipe.png",
+      "sha256": "8dbf788b71dcc27bc854aa36eb3491c171d9cf9b28a3615cde63a6c39bc1aad8"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/chef_05_tap.png",
+      "sha256": "97c0bf6e503ff2ed42ed98a16c2897db79c18769ccc79dcff924f4d3d96a52d9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/detective_01_lens.png",
+      "sha256": "a4b0f2a494327a93030daf21f9eee36d0d634d59dd09597c4c3b8da9134584e1"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/detective_02_clue_board.png",
+      "sha256": "3761e86d00c5d3e9c38ad36dc2c04f2ea1fc1374b5f1c8a82ccbcf2c96267f1a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/detective_03_crown_chest.png",
+      "sha256": "6caebe9dc9da28a6074af3351d34e925fe5bc3ec8e093cf234ff14496a074e52"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/doctor_01_hold.png",
+      "sha256": "0b2bbd14e35ad1fc7bdd39c85daef99737d40acc51b7e61e1711c52c9c4121f2"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/doctor_02_choice.png",
+      "sha256": "4172926a79594116e6511a8eece2e0154af32342c8fd7e4d1e01accaf46b732e"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/doctor_03_xray_scan.png",
+      "sha256": "fe2c3308b54c65612170f7d5b4fd03983620f12c50156841727279cb102905da"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/doctor_04_circle.png",
+      "sha256": "69934428b96f43ae495ce876f664a4022a9ce721600186e4961996cc055cf06e"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/doctor_05_swipe.png",
+      "sha256": "f11dcce1bedc7df058a411aae9d219fca93a4a654a4868a2c411c9ef95346821"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/farmer_01_garden_plant.png",
+      "sha256": "988aaa68e0e06071ef6361f72f1a67dc5759ad3ff2b4190c645fd58178c7beb1"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/farmer_02_farm_lob.png",
+      "sha256": "a54c08b47d38d9c5a264afc3182c06616309b0324b0773811c0352c9399a5187"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/farmer_03_swipe.png",
+      "sha256": "9ebbe1574f43e5252681d6e5e94bc7f40e7440790396b8addfb2179ea5200918"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/farmer_04_tap.png",
+      "sha256": "6104ac18723e545b365e01828359d47403d4b87e00b9e55d28058b850eab2c06"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/geologist_01_choice.png",
+      "sha256": "ad6eda5c40e736b9abb19d39d025d04a848b312fda3937638a933d9174be9169"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/geologist_02_swipe.png",
+      "sha256": "588e2776a9ea20b82a7692361fd967a9c7a479037bf1134219e1888a5f5bb90f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/geologist_03_geology_sort.png",
+      "sha256": "88964b034ac8663df6aa352a0c5413c86b8468b63aef0f0267618ea3c68d5536"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/geologist_04_hold.png",
+      "sha256": "68062fbe492f14be4b0af47740d515cfe91491cbf5c59d0d6cc9b9a58ca2d497"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/magician_01_hold.png",
+      "sha256": "67db8be9211f6e04422faaa75a4ef6f8eb26b520c1d6578f846ab5180c4d0cbf"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/magician_02_choice.png",
+      "sha256": "6e92cab39757754ce8fe12ab9267d3f5d254228eb134c1d90d48b1c4df89c77d"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/magician_03_swipe.png",
+      "sha256": "7d5b3194552fbd45aefd8ba3eab0d1943a36df03518d5ae967500127d4a8ef16"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/magician_04_magic_cabinet.png",
+      "sha256": "530d895b41ad6400390305211774e354ebbee5d9415184fb83d22dd7d26b5c47"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/magician_05_circle.png",
+      "sha256": "dcd438a449b38353d7fca259e3386ebb63f196f078a54047df4e2cc67ccd67af"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/manifest.json",
+      "sha256": "86656093a06be028c89dbf33d9b32700eb26fc87377d62ca8c5c8f3d4d7962d2"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/nursery_01_hold.png",
+      "sha256": "00a02a8f3ef553cc5901963c1ae169b9e98da2cdb931b50984f0c48524006a7a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/nursery_02_catch.png",
+      "sha256": "c059eefbdc71b141156e6a9c640f97a51304cf9606f8a5ff43fc44cbde528967"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/nursery_03_hold.png",
+      "sha256": "02707f1183945f44ca080ba192d197fca7fe4f49909f21cab8b30ee0e0edca22"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/nursery_04_tap.png",
+      "sha256": "3610839ce20cb79b5e44011eff39b97b3e5bb88c528d7411cd3f1c3c193c4f54"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/nursery_05_swipe.png",
+      "sha256": "f0f41dd02e9b2bbfbe7df840ea4a6275410580fd9ad5cf03666b4d3568008b6e"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/painter_01_paint_reveal.png",
+      "sha256": "321b9fa5b5f70b8e716f04773467da15cfa6c77cf5a2cc351e1d5397c0dd1437"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/painter_02_tap.png",
+      "sha256": "9f89edef31c237bc5100159b6bff4f21c3585e40be4dd9f294be138fad08c216"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/painter_03_choice.png",
+      "sha256": "13b21b69e4c683996285fc59e507a00d1647513bf2cd4aaa4a8a692142c455e8"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/popstar_01_hold.png",
+      "sha256": "63de148c5c9e86ef9ce7fbbc606b71e0075590aa8d0f42edabf0ef89e621f24d"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/popstar_02_choice.png",
+      "sha256": "05e45ff526af09fc85ed38fb3bef1da7236ae5c5b92aaba5a3216a1b4b3efef0"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/popstar_03_echo.png",
+      "sha256": "00a36126f691f42119962396442f29c3aa69bd7a1149a55a10b474c7280e9877"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/popstar_04_circle.png",
+      "sha256": "9234df36afef290d188b88ed8b00bdd4c81ba73311c62dd7825364435ce51f97"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/racer_01_circle.png",
+      "sha256": "0696fdf180dee02bc6c51690f294deacf2d1185b245a59a8ece51abe8113e186"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/racer_02_swipe.png",
+      "sha256": "bdc0642a43309f3790791bcb9daa8a078872d1cf9b03a27c87a901de9f56bd6a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/opera-baseline/racer_03_circle.png",
+      "sha256": "8333ad9aa51276ee02ceaea8e1c8c910ed68d1fe3dc610eb6d5789ff1bb70c9a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/000_boot.png",
+      "sha256": "e9bc95b09e515cf2a3365968b3d85b80cdfb6b449c8692a8acef5ee376090b6b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/001_snowman_ready.png",
+      "sha256": "2749c3c6234f648af2ce1de958d39ae580c3e9e6262c1043bae74a6c2c74ba1a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/002_snowman_ball_1_settle.png",
+      "sha256": "b8e7023eae6c8e776d849f1b631186df659089dff15858af216f6b89694cc51d"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/003_snowman_ball_2_settle.png",
+      "sha256": "a35a89ff113f4c7b5b018cfafb33f092e483647eb65e36365a0433fcd3574b4b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/004_snowman_ball_3_settle.png",
+      "sha256": "00a8c44cff328c9c0a418286d36a261d295f7823c36b4b83fbd530c65636b992"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/005_snowman_face_ready.png",
+      "sha256": "5297d66baaecd30dfe7b40bf1b0ce60990dd7be8a933116a64f112e4794d830b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/006_snowman_face_1.png",
+      "sha256": "e9a4dc404ca62886970c0ce6cf1f4a3f59435e7176fe1d97596547d7e160ee11"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/007_snowman_face_2.png",
+      "sha256": "4edb489c6dec355fbeeef48c0931c84a5a4d724ac2a2fda4992ae6f26312174e"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/008_snowman_face_3.png",
+      "sha256": "f94ba131b2dbbd10ef73cc3a4c3cf2138a681cd491607398494759e59c730e55"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/009_snowman_chase_ready.png",
+      "sha256": "94d60e0dec787e80b2536906c89fc689f21845f9d6fe44bc855d558b26d6e674"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/010_snowman_carrot_ready.png",
+      "sha256": "ad5dd92241fd30218ccb007a46c1f3f8952dd121796492d4c6b5777925f30384"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/011_snowman_final.png",
+      "sha256": "a7c94ac3ed54532f243d4dbccf7583c0bc218ca8c9d4a9db20e526c0f007b53e"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/012_garden_ready_all_seeds.png",
+      "sha256": "97db50f6d47642d76d33b132db262462448812d186b4bd7b74c45c39e9883295"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/013_garden_seed_1_before.png",
+      "sha256": "97db50f6d47642d76d33b132db262462448812d186b4bd7b74c45c39e9883295"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/014_garden_seed_1_sprout_or_flower.png",
+      "sha256": "0a9262b469dc17ba4af80654a5ca93dde1f5a7baac7154508f1d2939565ada9f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/015_garden_seed_1_settled.png",
+      "sha256": "9b05b52d51ccdd7754d56eed68d4fda83ceb6ea97ef20d1ff4245471fd1674c6"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/016_garden_seed_2_before.png",
+      "sha256": "6c51c57305a69ff4721ac7715c9b40ada042ef4574eb061803407952eff57376"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/017_garden_seed_2_sprout_or_flower.png",
+      "sha256": "ec2318bada03ad7fbbf132d50f4e2267ddcb4d434b87c1c68bde3acb1d2162e9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/018_garden_seed_2_settled.png",
+      "sha256": "d677b9a2a9ff7ef0b8fad91b05e651fa74f42fbd71f88171f5169e5281afd1bf"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/019_garden_seed_3_before.png",
+      "sha256": "d677b9a2a9ff7ef0b8fad91b05e651fa74f42fbd71f88171f5169e5281afd1bf"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/020_garden_seed_3_sprout_or_flower.png",
+      "sha256": "3f644c1e0e7a55852e626fcde34e0e36834bc2ac01b10c7c037f5e1ab91dffce"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/021_garden_seed_3_settled.png",
+      "sha256": "c68aa9cf7de974d48fcf659e1c2608d85cd1372e8b118214499ebf5d3687c18c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/022_garden_seed_4_before.png",
+      "sha256": "c68aa9cf7de974d48fcf659e1c2608d85cd1372e8b118214499ebf5d3687c18c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/023_garden_seed_4_sprout_or_flower.png",
+      "sha256": "a07e0fe611c1181a036e8b3e2910dd18059b4d1e73e6b6f0089eac68a283c087"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/024_garden_seed_4_settled.png",
+      "sha256": "87bac9182aacc9cda29161794fde9fae1b2c0a57f221bb703ff332bc0f8546f6"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/025_garden_seed_5_before.png",
+      "sha256": "87bac9182aacc9cda29161794fde9fae1b2c0a57f221bb703ff332bc0f8546f6"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/026_garden_seed_5_sprout_or_flower.png",
+      "sha256": "0408e4af09047364626ab502ae812e67f772ee84244f3d7d4e88c0dd46de2c8b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/027_garden_seed_5_settled.png",
+      "sha256": "a0076efa9df788b7e2ef13b735a8d12fa48067d2d576bcbacd891bd34919f940"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/028_garden_mature_1.png",
+      "sha256": "24cbae915ea6beaa6132f0c7a89f43e5d9d8227f32eb60e74435cd6e6deef0a4"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/029_garden_mature_2.png",
+      "sha256": "baf5d72ff26ea4235b9b328a14b618d9a19b2ad55321e87516e25bbb6f00d29e"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/030_garden_mature_3.png",
+      "sha256": "28206147b11be6ab2506824f642b64534f7bb7e750ea48c3e7f1220631e728c7"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/031_garden_mature_4.png",
+      "sha256": "018d403eb7eeb88537b5fb3f2eabd33d14970dbc7bfaf55912ecb690d9573416"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/032_garden_mature_5.png",
+      "sha256": "abd4386ed1eb314fc6f6ae2633a3e11c403ea103a143f7d90268a7a972a15baf"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/033_garden_all_five_mature.png",
+      "sha256": "7f55e9bf37a6d82c02939d6f75d46da8ba983a9fa2f795b9c266d5229fad8012"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/034_trampoline_ready.png",
+      "sha256": "a404481da304429e76ed18fb728be0fdacd79e763d2f868ec0d2ced2e5e8c194"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/035_trampoline_bounce_1.png",
+      "sha256": "3f26ed9fde9ac7729fec87ccfdfc14b37aaf4579e15e48c5f072bec7adc4d9ac"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/036_trampoline_bounce_2.png",
+      "sha256": "089efa02cc469b969f5b635a44ecfd787ba9f1eba0e6dadb968f41ffd219cb4b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/037_trampoline_bounce_3.png",
+      "sha256": "85ff6f81ae2f0ef68c53fc1560415be8d18946589b9ee849ddb7e70e636b1c69"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/038_trampoline_bounce_4.png",
+      "sha256": "81b68fe78491cbb6f4df95dbfccff42a2481f5a003b4cda302e6e369cf861b15"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/039_trampoline_final.png",
+      "sha256": "3bc1fc177578014a58399c8a93e0d0612badaf052f4cead00f424f40492a0f86"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/040_xmas_ready_empty_tree.png",
+      "sha256": "34db4ee02d7fbbc1eb4275f8e09d0c750db9fb7cc7d5a46abea0b8a5044e812c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/041_xmas_ornament_1_placed.png",
+      "sha256": "1a1acf22efa948be3bbe8a254ed8b1462bd107ee5a39d03f9d042e906ca6df58"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/042_xmas_ornament_2_placed.png",
+      "sha256": "8777879caddc69c329cf56bddd210cf4bb5208eccbb0c786f855ec6a589e8fcd"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/043_xmas_ornament_3_placed.png",
+      "sha256": "e572cbdb0636480626cea0b6696071c8dbcbb16711abe9f9b6c879f7fb5acd0c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/044_xmas_ornament_4_placed.png",
+      "sha256": "c1a6ea948e653cb2260b33a4da1cb5991cde61b5709073b3a7f60d4ca12d8824"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/045_xmas_ornament_5_placed.png",
+      "sha256": "aa1439405e4267d4bac54d48cf2351a1c89ab8cefb703a1ebc40f9978b4dd845"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/046_xmas_ornament_6_placed.png",
+      "sha256": "0a6be8f80783d65e65eed652d3d3bf143b7b352e7a064cef89664f5ff655a27d"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/047_xmas_post_button_sequence.png",
+      "sha256": "0e195c42b9b283c358a73aec8d3366bce1bca396a0054b8e22c8dc03218a7df9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/manifest.json",
+      "sha256": "cef6eb9b891033acff9412804e2dd908cff64010c47dbcf3137595087465e8b2"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/picture-capture-payoff.log",
+      "sha256": "e5acb809f1739074c26a438ae356216417aa1f35470fc3a283cf206719b9ff0c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/picture-current/picture_capture.gd",
+      "sha256": "4363ecd6e28d272cba7383e955c16a05e2f36d27b2b5d096c9e48daedfd9d326"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/racer-rejected/01-pit-stop.png",
+      "sha256": "c89c455abb55d242f5051bd0d3c50c1ef4fe23fc0a180de8fc4e0ded9499f9ba"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/racer-rejected/02-race-ready-wide.png",
+      "sha256": "cabe53c0f717943db4bb9f6e82d6846f15644402e9f36e5913e948053ab8164c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/racer-rejected/02-race-ready.png",
+      "sha256": "c1ec138a3c5e32979760e5f2f03180e168eb1c5a1e1063ea9012a9ba9fcf1d61"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/racer-rejected/02-steer-left.png",
+      "sha256": "6cd123a2082269c4dc5ce57ac29cdec5c8fd723014500b22f7d217de1f06c047"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/racer-rejected/02-steer-right.png",
+      "sha256": "56c49dc8f7b4581ff83323e405dcc48e4c80649320b71595a49b5c02782a29ce"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/racer-rejected/03-race-far-bend.png",
+      "sha256": "5f8ed10be62065388ae9e767e4cced37594624d43a4d4b044393522cfd7558ef"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/racer-rejected/04-second-lap.png",
+      "sha256": "b99b3ea2d6b3c43b66030770fc298f180a55c6467c53f691b5f67f2e1ffd0716"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/racer-rejected/05-finish.png",
+      "sha256": "b58d22dc88cdb5d66937d9c13cdf37eaaec217622ec85b546e3ef8fcb759c3e9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/racer-rejected/manifest.json",
+      "sha256": "9527adde352ccaf37be26ef1992d91a944e64f69609ab31e533594456eff3a3b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/racer-rejected/racer-capture.log",
+      "sha256": "a5f218712e697f62f48cb328b6670b724369870ad6983a3a98bf8574c0556e60"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/racer-rejected/racer_capture.gd",
+      "sha256": "292ef549bc6cf35c9635a1c87be34fc784a5ef728428b350776ae7c5677bcb1f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/launch_failed.png",
+      "sha256": "005b38b9193101be5be23ad1c34fde06c8b438fc5832e97339bd0a33349bbfbf"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/library_route.png",
+      "sha256": "0f8c0bbc8e026bf6e80ecbf0fdc7c821e3269a2419a05dc556a1e3be3c2b83b9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/manifest.json",
+      "sha256": "ca1b0f5e0cff45e20b9f48711f656e1c9065379918cb42c0cd0aec5af62e4178"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/teacher_entry.png",
+      "sha256": "20b631b7daafcab628c756627104f5004567e8eb0f9d985a4ee43cda50072a11"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/teacher_finale_wide.png",
+      "sha256": "39dc416260002e9f6561fcb428b4b0e0367d0ec867d19554870ee47570df12b4"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/teacher_t0_add_joined.png",
+      "sha256": "74e866d966796e373de3849170c90234b5d37451a9beeec3dcaa6d503406f967"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/teacher_t0_p0.png",
+      "sha256": "b9cce775e313d005031d37b4409402e9895157ca295bab85cbb3309a59e249d9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/teacher_t0_p1.png",
+      "sha256": "0f8bbb85e7207bae8d2659af96a7f33843edef9da6b05be5818d66cdb252ab27"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/teacher_t0_p2.png",
+      "sha256": "58454c5777b8104862b041e6abd8aecc363cb11335b4287ea070ca54b78108a1"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/teacher_t0_p3.png",
+      "sha256": "d45385dccdfc2a7c9b1e62dd5dd267c89e44e74a3eae04006fa55b63392f496a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/teacher_t2_add_joined.png",
+      "sha256": "cc1c8cc2033eb434916ec1a1c692ee2222d4ed7a9fb44dcd1ef4afdac794179b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/teacher_t2_p0.png",
+      "sha256": "30010073f07d54756ef8edb1445d67e1f851d8fabe8ff5e51a729715d2c3214b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/teacher_t2_p1.png",
+      "sha256": "1dbfc6e523a4a3b15b6c7806223c6bf4229c26d43c977cb4ea820bc662c951c2"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/teacher_t2_p2.png",
+      "sha256": "ab154f4556b5ea88660ff7dacba9117ff7a48ea673f9c23e2b8ef6d35ae818fe"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/teacher_t2_p3.png",
+      "sha256": "ea68000ff02402cb24b39a95d568741498e4117e5e45cfafa0d514d3aa351829"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/teacher-baseline/teacher_wide.png",
+      "sha256": "730f2e3319f48f1e922e0ec31c1306958cb45757aee18d0e16e955a3c1160995"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/missing_coverage.json",
+      "sha256": "0da99e14de81b7091c8f07dc521c60fdfded00d58ef821ae82265802e89d2d01"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/missing_coverage.md",
+      "sha256": "0ba8a03b8257999a517f048ed394a40fdc04a92216ba004fca408e5b529fd43e"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/nonopera_review.md",
+      "sha256": "55e3ffd79b688f8c7f60e799d324d854a39ea2f5fdaa4fe02998ea7944916fb7"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/opera_findings.json",
+      "sha256": "5c1a91f481c981243a16c5d00fa2df9069aae2f4033604383d86e1cdaa129d4a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/opera_native_coverage_followup.md",
+      "sha256": "a2eb74a917119ffbf18c902d246f236cb2cb08ee04fc5f44558ac3e0e4b5b54e"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/opera_review.md",
+      "sha256": "eb326c223cce4773d481fb70300af62ca1eb2d1d62aa6a2512a2e8f45f006268"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/parent_art_crosscheck.md",
+      "sha256": "a9e4537466df0c9658fb913682287739d24fa940f697ad6f50072ec7123306e7"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/protocol.md",
+      "sha256": "142d277045fe5185a9d491f79e1fa5df41fbef083cd9b02827f38c47df892fd6"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/racer_reaudit.md",
+      "sha256": "c097a67e6ffa78b4d0fd185ddb43fc8aff4522159dd03d5d30784a874ee94fa7"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/registry.json",
+      "sha256": "b898f9995118ca548a043995ef38e99bb3c12c963c28e6c97357b42f11ce9909"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/reuse_candidates.json",
+      "sha256": "71bdeb9dc76d111a37bf17779214d96215a05944c7221a18079d0a5bb17f40e3"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/reuse_candidates.md",
+      "sha256": "73ad47af4df6d16f747d0217171287d8b97a4e02b8c3d3f9fc467c4f19728e5f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/animation-gate.log",
+      "sha256": "b64e2ebfc5acd29acf00e99ed7b2e0a6a8cfdd5851a3c47bc58bfc00c9b1a6bf"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/changed-lint.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/changed-parser.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/doc-authority.log",
+      "sha256": "8cd1552c74f04d8b9fe3f6e841d90b9e9e4339c32634346248a20b46428231a3"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/full-ci.log",
+      "sha256": "2137c36d54e875432286e475e950567e206002403a5ac786b1dd4c2cc271952d"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/game2d.log",
+      "sha256": "43a13e6a2dfbe7f40057a07e1c8a5520c5f226d95f0cb9d3c6e512963c89363d"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/probe-opera-final.log",
+      "sha256": "35008bddad52ec874457632406a61f9c8e53766e553ffedca563df3a55c0921c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/probe-picture-payoff.log",
+      "sha256": "ff3392275f5e05d6ced2dd5ab55a3fe07f597a207e15c900941f377f3973d35b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/doc-authority.log",
+      "sha256": "9f4aea78a412daae74440e88e614e1819d68fecd6be9150e879b34e728fe2454"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/full-ci.log",
+      "sha256": "53fc08b1e021becc1563559a063f5ff272151920171fde25d24ee034a051050d"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/full-ci.raw.log.gz",
+      "sha256": "be96999d8e134bde19f0ed3163a16d24cbdf7821a9ac5374bf391810e5405180"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/inference.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/manifest.json",
+      "sha256": "4bd6e7c7da32910121fdcdeda583f93b80911caab7c3a77d061aa3e8035c2faa"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/parser.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/registry-integrity.log",
+      "sha256": "011621e121c3c9cff3e5b917ff408c2f62bea71542e83361cfcee7b3475bf0fa"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/registry-strict.log",
+      "sha256": "011621e121c3c9cff3e5b917ff408c2f62bea71542e83361cfcee7b3475bf0fa"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/stress.log",
+      "sha256": "a0e22c2ccc4e1bcef4ec9365cbef539b3360e7e2b1e51458fc610b2f22734e9a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/unit-tests.log",
+      "sha256": "b0cd05c86773575ea9d489db4883c2a4adbf421551dc4f279bcd09f272afb817"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/registry-stress.log",
+      "sha256": "a0e22c2ccc4e1bcef4ec9365cbef539b3360e7e2b1e51458fc610b2f22734e9a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/registry-tests.log",
+      "sha256": "4e681c06a14b28dde650b2230b887965444b75105e246a351158f1e286f1fca2"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/registry-validation.log",
+      "sha256": "2ada7a1f7d7a086893453c0ab9b122a2811ca90d1f8f2b845bb34862d8599426"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/typography-final.log",
+      "sha256": "b5e3bde5e13c4fcf3088b29ed381de7435c4cf179ed6ec744e77a055ca2c768e"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/watering_can_attempt02_independent_review.md",
+      "sha256": "09cddd00ab41511fe956b62be5d471652c76ebcfd7466467a34b8f3ea58bf7b9"
+    }
+  ]
+}

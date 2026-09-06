@@ -76,7 +76,12 @@ func _mg2d_open(kind: String) -> void:
 	header.name = "PictureGameStorybookHeader"
 	StorybookUI.add_shell_crest(header, Rect2(20, 27, 82, 60),
 		"PictureGameShellCrest")
-	m.mg["hud"] = _mg_label("", 34, Vector2(124, 34))
+	# Word-wrapped labels need an explicit content box; an empty label starts
+	# at zero width and otherwise displays the later objective one letter wide.
+	var objective := _mg_label("", 34, Vector2(138, 30))
+	objective.size = Vector2(734, 88)
+	objective.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	m.mg["hud"] = objective
 	# A neutral doorway/back affordance so leaving never reads as failure.
 	var xb := Button.new()
 	xb.name = "PictureGameBackButton"
@@ -267,15 +272,20 @@ func _mg2d_win(msg: String) -> void:
 	m.pearl_count += 2
 	m._update_hud()
 	m._write_save()
-	# hide the buttons + show a celebratory banner over the FINISHED scene, hold ~1.6s, then close
+	# Keep the completed garden visible: its buttons also own the flower art.
+	# Other completed games hide their spare input controls during the payoff.
 	for b in (m.mg.get("btns", []) as Array):
 		if is_instance_valid(b):
 			b.disabled = true
-			b.visible = false
+			b.visible = m.mg_kind == "garden"
 	if m.mg.get("xbtn") != null and is_instance_valid(m.mg["xbtn"]):
 		(m.mg["xbtn"] as Button).visible = false
 	if m.mg2d_stage != null and is_instance_valid(m.mg2d_stage):
-		var banner := _mg_label("\u2b50  Yay! You did it!  \u2b50", 76, Vector2(330, 26))
+		(m.mg["hud"] as Label).visible = false
+		var banner := _mg_label("\u2b50  Yay! You did it!  \u2b50", 46, Vector2(138, 30))
+		banner.size = Vector2(734, 88)
+		banner.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		banner.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		banner.add_theme_color_override("font_color", Color(1.0, 0.95, 0.4))
 		_mg2d_feedback_burst(Vector2(640, 345), Color(1.0, 0.9, 0.35),
 			"win", 18, 300.0, 0.9)
@@ -341,12 +351,15 @@ func _mg_build_snowman() -> void:
 	_mg_circle(Vector2(640, 980), 700.0, Color(0.95, 0.97, 1.0, 0.5))
 	m.mg["body"] = []   # stacked balls (centre-right)
 	# the big flashing call-to-action
-	var fl := _mg_label("ROLL UP THE SNOWBALLS!", 64, Vector2(255, 92))
+	var fl := _mg_label("ROLL UP THE SNOWBALLS!", 52, Vector2(255, 146))
+	fl.size = Vector2(770, 80)
+	fl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	fl.add_theme_color_override("font_color", Color(1.0, 0.95, 0.4))
 	fl.pivot_offset = Vector2(385, 40)
 	m.mg["flash"] = fl
 	# orbiting hint arrow showing the circular motion
 	var ar := _mg_label("↻", 84, Vector2(0, 0))
+	ar.size = Vector2(110, 110)
 	ar.add_theme_color_override("font_color", Color(0.5, 0.75, 1.0))
 	m.mg["hint_arrow"] = ar
 	_mg_snow_new_ball()
@@ -566,7 +579,7 @@ func _mg_build_garden() -> void:
 	m.mg["stage"] = [0, 0, 0, 0, 0]
 	m.mg["flowers"] = ["k_flower1", "flower", "flower2", "k_flower2", "flower3"]   # each plant ends as a DIFFERENT flower
 	(m.mg["hud"] as Label).text = "Tap each seed to make it grow into a FLOWER!"
-	_mg_sprite("res://assets/mg/sun.png", Vector2(120, 130), Vector2(180, 180))
+	_mg_sprite("res://assets/mg/sun.png", Vector2(112, 235), Vector2(144, 144))
 	# a soft grassy mound across the bottom
 	var mound := _mg_circle(Vector2(640, 1050), 760.0, Color(0.5, 0.78, 0.45))
 	mound.size.y = 500.0
@@ -582,6 +595,11 @@ func _mg_build_garden() -> void:
 		# read SMALLER than the sprout and flower it grows into). Seeds sit 240px
 		# apart, so 140px hit areas can never overlap (100px clear gap).
 		var sp := _mg_artbtn("res://assets/mg/seed.png", Vector2(x, 600), Vector2(140, 140))
+		# The plant is the touch object. Keep its hit area generous without
+		# growing a rectangular button panel between the stem and the soil.
+		sp.flat = true
+		for state_name in ["normal", "hover", "pressed", "disabled"]:
+			sp.add_theme_stylebox_override(state_name, StyleBoxEmpty.new())
 		var seed_tex := sp.get_child(0) as TextureRect
 		seed_tex.set_anchors_preset(Control.PRESET_CENTER)
 		seed_tex.size = Vector2(52, 52)

@@ -1,0 +1,34 @@
+{
+  "schema": "reef.minigame_art_repair_attempt.v1",
+  "date": "2026-09-05",
+  "runtime_accepted": false,
+  "method": "built-in image_gen",
+  "attempt": 1,
+  "subject": "Geologist washing pan",
+  "prompt": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/pan_attempt01_prompt.txt",
+    "sha256": "8f38032212c29591833678d368e17b5fca25429d8bfeae86e61859f6e4acd50b"
+  },
+  "source": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/pan_attempt01.png",
+    "sha256": "f2673f73734bbdf08fb46d5246347adf939d3ab80aab2f31995f23f7a7613e22"
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGB",
+  "references": [
+    {
+      "path": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37"
+    }
+  ],
+  "disposition": "REJECTED_RUNTIME",
+  "reason": "Painted checkerboard background; no alpha channel. Do not import as a cutout. Python cleanup authorization requested, not received. Original preserved.",
+  "human_review": false
+}

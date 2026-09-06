@@ -1,0 +1,656 @@
+{
+  "schema": "minigame-runtime-coverage-gap-v1",
+  "generated_from": {
+    "working_tree_head": null,
+    "registry": ".worktrees/minigame-art-quality-20260905/audit/minigame_art_quality_2026-09-05/registry.json",
+    "warning": "Source-bound candidate inventory; not exhaustive runtime proof and no quality scores."
+  },
+  "registry": {
+    "asset_records": 56,
+    "registered_source_paths": 48
+  },
+  "runtime_scan": {
+    "candidate_source_files": 45,
+    "literal_res_paths": 259,
+    "dynamic_loader_sites": 97
+  },
+  "unregistered_runtime_source_candidates": [
+    "scripts/castle_career_routes.gd",
+    "scripts/chapter_two_career_scene_adapter.gd",
+    "scripts/chapter_two_director.gd",
+    "scripts/chapter_two_giant_cake_2d.gd",
+    "scripts/chapter_two_party_plan.gd",
+    "scripts/chapter_two_party_table_2d.gd",
+    "scripts/chapter_two_rainbow_candle_2d.gd",
+    "scripts/chapter_two_room_plot.gd",
+    "scripts/games/day_one_bathroom_cleaning.gd",
+    "scripts/games/octagon_stage.gd",
+    "scripts/games/pool_seahorse_rescue_activity.gd",
+    "scripts/games/pool_skimmer_activity.gd",
+    "scripts/games/pool_waterfall_activity.gd",
+    "scripts/kart.gd",
+    "scripts/opera_act.gd",
+    "scripts/opera_competition.gd",
+    "scripts/opera_hotspot_catalog.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_house_venue_2d.gd",
+    "scripts/opera_imp_clips.gd",
+    "scripts/opera_roshan_actor.gd",
+    "scripts/opera_stage_paths.gd",
+    "scripts/opera_world_backdrop_2d.gd",
+    "scripts/opera_world_hotspot_2d.gd"
+  ],
+  "dynamic_reference_blind_spots": [
+    {
+      "script": "scripts/castle_career_routes.gd",
+      "line": 262,
+      "text": "var fallback: Texture2D = load(fallback_path) as Texture2D \\"
+    },
+    {
+      "script": "scripts/castle_career_routes.gd",
+      "line": 277,
+      "text": "crest.texture = load(crest_path) as Texture2D"
+    },
+    {
+      "script": "scripts/chapter_two_giant_cake_2d.gd",
+      "line": 729,
+      "text": "stage_art_sprite.texture = load(stage_path) as Texture2D"
+    },
+    {
+      "script": "scripts/chapter_two_giant_cake_2d.gd",
+      "line": 748,
+      "text": "sprite.texture = load(texture_path) as Texture2D"
+    },
+    {
+      "script": "scripts/chapter_two_party_table_2d.gd",
+      "line": 357,
+      "text": "banner.texture = load(BANNER_TEXTURE) as Texture2D"
+    },
+    {
+      "script": "scripts/chapter_two_party_table_2d.gd",
+      "line": 379,
+      "text": "table.texture = load(TABLE_TEXTURE) as Texture2D"
+    },
+    {
+      "script": "scripts/chapter_two_party_table_2d.gd",
+      "line": 406,
+      "text": "prop.texture = load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/chapter_two_party_table_2d.gd",
+      "line": 441,
+      "text": "lighting_rocket.texture = load(rocket_path) as Texture2D"
+    },
+    {
+      "script": "scripts/chapter_two_rainbow_candle_2d.gd",
+      "line": 108,
+      "text": "unlit_sprite.texture = load(UNLIT_TEXTURE) as Texture2D"
+    },
+    {
+      "script": "scripts/chapter_two_rainbow_candle_2d.gd",
+      "line": 118,
+      "text": "lit_sprite.texture = load(LIT_TEXTURE) as Texture2D"
+    },
+    {
+      "script": "scripts/chapter_two_room_plot.gd",
+      "line": 189,
+      "text": "picture.texture = load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/chapter_two_room_plot.gd",
+      "line": 197,
+      "text": "pointer.texture = load(GHOST_HAND_TEXTURE) as Texture2D"
+    },
+    {
+      "script": "scripts/games/day_one_bathroom_cleaning.gd",
+      "line": 488,
+      "text": "_pointer.texture = load(POINTER_TEXTURE) as Texture2D"
+    },
+    {
+      "script": "scripts/games/day_one_bathroom_cleaning.gd",
+      "line": 505,
+      "text": "sprite.texture = load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/games/day_one_bathroom_cleaning.gd",
+      "line": 683,
+      "text": "_target.texture = load(TUB_TARGET_TEXTURE) as Texture2D"
+    },
+    {
+      "script": "scripts/games/day_one_bathroom_cleaning.gd",
+      "line": 709,
+      "text": "_sponge.texture = load(SPONGE_TEXTURE) as Texture2D"
+    },
+    {
+      "script": "scripts/games/day_one_bathroom_cleaning.gd",
+      "line": 747,
+      "text": "_sponge.texture = load(BRUSH_TEXTURE) as Texture2D"
+    },
+    {
+      "script": "scripts/games/day_one_bathroom_cleaning.gd",
+      "line": 913,
+      "text": "var texture: Texture2D = load(SPARKLE_TEXTURE) as Texture2D"
+    },
+    {
+      "script": "scripts/games/day_one_bathroom_cleanup.gd",
+      "line": 10,
+      "text": "const DAY_ONE_BATHROOM_CLEANING := preload("
+    },
+    {
+      "script": "scripts/games/day_one_bathroom_cleanup.gd",
+      "line": 12,
+      "text": "const DAY_ONE_DUST_BUNNY_SWIMMER := preload("
+    },
+    {
+      "script": "scripts/games/day_one_bathroom_cleanup.gd",
+      "line": 14,
+      "text": "const DIRTY_ROOM_TEXTURE: Texture2D = preload("
+    },
+    {
+      "script": "scripts/games/day_one_bathroom_cleanup.gd",
+      "line": 16,
+      "text": "const DIRTY_ROOM_DRAINED_TEXTURE: Texture2D = preload("
+    },
+    {
+      "script": "scripts/games/day_one_bathroom_cleanup.gd",
+      "line": 116,
+      "text": "texture = load(SPONGE_TEXTURE if kind == \"sponge\" else BRUSH_TEXTURE) \\"
+    },
+    {
+      "script": "scripts/games/day_one_bathroom_cleanup.gd",
+      "line": 572,
+      "text": "_basket.texture = load(BASKET_TEXTURE) as Texture2D"
+    },
+    {
+      "script": "scripts/games/day_one_bathroom_cleanup.gd",
+      "line": 594,
+      "text": "overlay.texture = load(texture_path) as Texture2D"
+    },
+    {
+      "script": "scripts/games/day_one_bathroom_cleanup.gd",
+      "line": 623,
+      "text": "_pointer.texture = load(POINTER_TEXTURE) as Texture2D"
+    },
+    {
+      "script": "scripts/games/day_one_bathroom_cleanup.gd",
+      "line": 720,
+      "text": "var texture: Texture2D = load(SPARKLE_TEXTURE) as Texture2D"
+    },
+    {
+      "script": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "line": 32,
+      "text": "var texture: Texture2D = load(SWIMMER_TEXTURE_PATH) as Texture2D"
+    },
+    {
+      "script": "scripts/games/day_one_pool_cleanup.gd",
+      "line": 10,
+      "text": "const POOL_SKIMMER_ACTIVITY := preload("
+    },
+    {
+      "script": "scripts/games/day_one_pool_cleanup.gd",
+      "line": 12,
+      "text": "const POOL_WATERFALL_ACTIVITY := preload("
+    },
+    {
+      "script": "scripts/games/day_one_pool_cleanup.gd",
+      "line": 14,
+      "text": "const POOL_SEAHORSE_ACTIVITY := preload("
+    },
+    {
+      "script": "scripts/games/day_one_pool_cleanup.gd",
+      "line": 16,
+      "text": "const DUST_BUNNY_SWIMMER := preload("
+    },
+    {
+      "script": "scripts/games/day_one_pool_cleanup.gd",
+      "line": 543,
+      "text": "var pool_atlas: Texture2D = load(RUMI_POOL_ATLAS) as Texture2D"
+    },
+    {
+      "script": "scripts/games/day_one_pool_cleanup.gd",
+      "line": 544,
+      "text": "var pose_atlas: Texture2D = load(RUMI_POSE_ATLAS) as Texture2D"
+    },
+    {
+      "script": "scripts/games/dolls.gd",
+      "line": 37,
+      "text": "var texture := load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/games/dolls.gd",
+      "line": 237,
+      "text": "catcher_card.texture = load(skin_path) as Texture2D"
+    },
+    {
+      "script": "scripts/games/dust_boss.gd",
+      "line": 366,
+      "text": "var badge: Texture2D = load(STAR_TEX) as Texture2D"
+    },
+    {
+      "script": "scripts/games/dust_boss.gd",
+      "line": 1016,
+      "text": "var tex: Texture2D = load(want)"
+    },
+    {
+      "script": "scripts/games/fairy.gd",
+      "line": 98,
+      "text": "texture = load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/games/fairy.gd",
+      "line": 124,
+      "text": "texture = load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/games/fairy.gd",
+      "line": 142,
+      "text": "var texture: Texture2D = load(FS_BACKGROUND_ART)"
+    },
+    {
+      "script": "scripts/games/melody.gd",
+      "line": 1025,
+      "text": "tile.texture = load(TILE_PATHS[tile_index]) as Texture2D"
+    },
+    {
+      "script": "scripts/games/melody.gd",
+      "line": 1037,
+      "text": "actor.texture = load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/games/octagon_stage.gd",
+      "line": 299,
+      "text": "mat.albedo_texture = load(tex_path)"
+    },
+    {
+      "script": "scripts/games/picture_games.gd",
+      "line": 133,
+      "text": "t.texture = load(path)"
+    },
+    {
+      "script": "scripts/games/picture_games.gd",
+      "line": 150,
+      "text": "t.texture = load(path)"
+    },
+    {
+      "script": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "line": 92,
+      "text": "_seahorse_texture = load(SEAHORSE_TEXTURE_PATH) as Texture2D"
+    },
+    {
+      "script": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "line": 93,
+      "text": "_mouth_trash_texture = load(MOUTH_TRASH_TEXTURE_PATH) as Texture2D"
+    },
+    {
+      "script": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "line": 94,
+      "text": "_basket_texture = load(BASKET_TEXTURE_PATH) as Texture2D"
+    },
+    {
+      "script": "scripts/games/pool_skimmer_activity.gd",
+      "line": 89,
+      "text": "_atlas = load(TRASH_ATLAS_PATH) as Texture2D"
+    },
+    {
+      "script": "scripts/games/pool_skimmer_activity.gd",
+      "line": 353,
+      "text": "_basket.texture = load(BASKET_PATH) as Texture2D"
+    },
+    {
+      "script": "scripts/games/pool_skimmer_activity.gd",
+      "line": 377,
+      "text": "_skimmer.texture = load(SKIMMER_PATH) as Texture2D"
+    },
+    {
+      "script": "scripts/games/pool_waterfall_activity.gd",
+      "line": 71,
+      "text": "_dirty_texture = load(DIRTY_TEXTURE_PATH) as Texture2D"
+    },
+    {
+      "script": "scripts/games/pool_waterfall_activity.gd",
+      "line": 72,
+      "text": "_scrubber_texture = load(SCRUBBER_TEXTURE_PATH) as Texture2D"
+    },
+    {
+      "script": "scripts/games/seek.gd",
+      "line": 70,
+      "text": "var source_texture: Texture2D = load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/games/seek.gd",
+      "line": 191,
+      "text": "tile.texture = load(String(SeekGame.BACKDROP_ART[index])) as Texture2D"
+    },
+    {
+      "script": "scripts/games/seek.gd",
+      "line": 208,
+      "text": "cover.texture = load(String(SeekGame.COVER_ART[index])) as Texture2D"
+    },
+    {
+      "script": "scripts/games/side_scroll.gd",
+      "line": 71,
+      "text": "bm.albedo_texture = load(bpath)"
+    },
+    {
+      "script": "scripts/games/side_scroll.gd",
+      "line": 89,
+      "text": "var ltex: Texture2D = load(lpath)"
+    },
+    {
+      "script": "scripts/games/side_scroll.gd",
+      "line": 569,
+      "text": "spr.texture = load(tex_path)"
+    },
+    {
+      "script": "scripts/games/side_scroll.gd",
+      "line": 661,
+      "text": "mat.albedo_texture = load(tex_path)"
+    },
+    {
+      "script": "scripts/games/side_scroll.gd",
+      "line": 784,
+      "text": "mat.albedo_texture = load(tex_path)"
+    },
+    {
+      "script": "scripts/games/slide_race.gd",
+      "line": 262,
+      "text": "tile.texture = load(FISH_TILE_PATHS[tile_index]) as Texture2D"
+    },
+    {
+      "script": "scripts/games/slide_race.gd",
+      "line": 295,
+      "text": "_fish_roshan_textures.append(load(roshan_path) as Texture2D)"
+    },
+    {
+      "script": "scripts/games/slide_race.gd",
+      "line": 356,
+      "text": "actor.texture = load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/kart.gd",
+      "line": 1082,
+      "text": "var tex: Texture2D = load(path)"
+    },
+    {
+      "script": "scripts/kart.gd",
+      "line": 1098,
+      "text": "var tex: Texture2D = load(path)"
+    },
+    {
+      "script": "scripts/kart.gd",
+      "line": 1923,
+      "text": "var tex: Texture2D = load(sprite_path)"
+    },
+    {
+      "script": "scripts/opera_ballet_surface.gd",
+      "line": 209,
+      "text": "_ballerina_atlas = load(BALLERINA_ATLAS_PATH) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_ballet_surface.gd",
+      "line": 211,
+      "text": "_music_box = load(MUSIC_BOX_PATH) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_boxing_surface.gd",
+      "line": 250,
+      "text": "return load(path) as Texture2D if ResourceLoader.exists(path) else null"
+    },
+    {
+      "script": "scripts/opera_boxing_surface.gd",
+      "line": 283,
+      "text": "player.stream = load(path) as AudioStream"
+    },
+    {
+      "script": "scripts/opera_career_world_2d.gd",
+      "line": 336,
+      "text": "var stream := load(path) as AudioStream"
+    },
+    {
+      "script": "scripts/opera_career_world_2d.gd",
+      "line": 788,
+      "text": "load(single_berry_path) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_career_world_2d.gd",
+      "line": 831,
+      "text": "chapter2_rumi_scene.texture = load(rumi_path) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_career_world_2d.gd",
+      "line": 849,
+      "text": "chapter2_strawberry_pickup_texture = load(cluster_path) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_career_world_2d.gd",
+      "line": 851,
+      "text": "chapter2_single_strawberry_texture = load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_career_world_2d.gd",
+      "line": 1164,
+      "text": "prop_rect.texture = load(prop_path) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_career_world_2d.gd",
+      "line": 1322,
+      "text": "guest.texture = load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_career_world_2d.gd",
+      "line": 1461,
+      "text": "actor.texture = load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_career_world_2d.gd",
+      "line": 1469,
+      "text": "return load(path) as Texture2D if ResourceLoader.exists(path) else null"
+    },
+    {
+      "script": "scripts/opera_gesture_surface.gd",
+      "line": 461,
+      "text": "var texture := load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_gesture_surface.gd",
+      "line": 734,
+      "text": "return load(path) as Texture2D if ResourceLoader.exists(path) else null"
+    },
+    {
+      "script": "scripts/opera_hotspot_catalog.gd",
+      "line": 323,
+      "text": "var texture: Texture2D = ResourceLoader.load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_house_venue_2d.gd",
+      "line": 279,
+      "text": "tile.texture = load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_house_venue_2d.gd",
+      "line": 314,
+      "text": "actor.texture = load(ROSHAN_TEXTURE) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_house_venue_2d.gd",
+      "line": 359,
+      "text": "guide_pointer.texture = load(GHOST_HAND_TEXTURE) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_nursery_catch.gd",
+      "line": 53,
+      "text": "var texture := load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_nursery_catch.gd",
+      "line": 61,
+      "text": "return load(path) as Texture2D if ResourceLoader.exists(path) else null"
+    },
+    {
+      "script": "scripts/opera_roshan_actor.gd",
+      "line": 55,
+      "text": "var sheet := ResourceLoader.load(sheet_path) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_roshan_actor.gd",
+      "line": 90,
+      "text": "var loaded: Resource = ResourceLoader.load(sheet_path)"
+    },
+    {
+      "script": "scripts/opera_world_backdrop_2d.gd",
+      "line": 68,
+      "text": "painting = load(path) as Texture2D if ResourceLoader.exists(path) else null"
+    },
+    {
+      "script": "scripts/opera_world_backdrop_2d.gd",
+      "line": 87,
+      "text": "var texture := load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_world_backdrop_2d.gd",
+      "line": 102,
+      "text": "var texture := load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_world_backdrop_2d.gd",
+      "line": 154,
+      "text": "var texture := load(path) as Texture2D"
+    },
+    {
+      "script": "scripts/opera_world_hotspot_2d.gd",
+      "line": 65,
+      "text": "object_texture = load(texture_path) as Texture2D \\"
+    },
+    {
+      "script": "scripts/opera_world_hotspot_2d.gd",
+      "line": 108,
+      "text": "object_texture = load(texture_path) as Texture2D \\"
+    }
+  ],
+  "grand_puff_runtime_markers": [
+    {
+      "line": 3,
+      "text": "# THE DUST BUNNY BOSS \u2014 \"Grand Puff\", the biggest dust bunny in the Pearl"
+    },
+    {
+      "line": 17,
+      "text": "# The one idea of the fight (owner direction 2026-08-02): Grand Puff is NOT"
+    },
+    {
+      "line": 45,
+      "text": "# the approved four-frame animation kit that arrived with Grand Puff's art."
+    },
+    {
+      "line": 53,
+      "text": "const BossSplash2DLogic = preload(\"res://scripts/boss_splash_2d.gd\")"
+    },
+    {
+      "line": 116,
+      "text": "# Grand Puff owns a deterministic 120 BPM adaptive cue. The rendered track's"
+    },
+    {
+      "line": 144,
+      "text": "const BOSS_ART_DIR := \"res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/boss/\""
+    },
+    {
+      "line": 147,
+      "text": "const TELL_OPEN_TEX := BOSS_ART_DIR + \"boss_tell_open.png\""
+    },
+    {
+      "line": 148,
+      "text": "const TELL_SHUT_TEX := BOSS_ART_DIR + \"boss_tell_shielded.png\""
+    },
+    {
+      "line": 366,
+      "text": "var badge: Texture2D = load(STAR_TEX) as Texture2D"
+    },
+    {
+      "line": 369,
+      "text": "\"GRAND PUFF\","
+    },
+    {
+      "line": 673,
+      "text": "\"Grand Puff slowed down! Take your time \u2014 wait for the BIG GOLD STAR!\""
+    },
+    {
+      "line": 742,
+      "text": "return \"PERFECT DODGE! Three gold stars and two bonus pearls \u2014 Grand Puff is your friend!\""
+    },
+    {
+      "line": 744,
+      "text": "return \"Three gold stars! Grand Puff is your friend. Dodge every hop next time for the shining bonus!\""
+    },
+    {
+      "line": 746,
+      "text": "return \"Two silver stars! Grand Puff is your friend. Dodge one more bump next time to light the gold star!\""
+    },
+    {
+      "line": 747,
+      "text": "return \"A bronze star! Grand Puff is your friend. Play again and dodge his hops to light more stars!\""
+    },
+    {
+      "line": 773,
+      "text": "\"Grand Puff burst into sparkly stars!\")"
+    },
+    {
+      "line": 780,
+      "text": "\"Boop! Grand Puff is dizzy!\")"
+    },
+    {
+      "line": 988,
+      "text": "\"Grand Puff bounced away!\")"
+    },
+    {
+      "line": 1008,
+      "text": "func _apply_tell(star: Sprite3D, open_now: bool) -> void:"
+    },
+    {
+      "line": 1016,
+      "text": "var tex: Texture2D = load(want)"
+    },
+    {
+      "line": 1042,
+      "text": "var star: Sprite3D = m.g.get(\"db_star\") as Sprite3D"
+    },
+    {
+      "line": 1125,
+      "text": "Vector2(154.0, 154.0), \"Twirl away from Grand Puff\")"
+    },
+    {
+      "line": 1270,
+      "text": "kit.name = \"GrandPuff\""
+    },
+    {
+      "line": 1286,
+      "text": "var star := Sprite3D.new()"
+    },
+    {
+      "line": 1335,
+      "text": "\"Grand Puff burst into sparkly stars!\")"
+    },
+    {
+      "line": 1342,
+      "text": "\"Boop! Grand Puff is dizzy!\")"
+    },
+    {
+      "line": 1349,
+      "text": "\"Grand Puff is speedy now! Keep watching the star!\")"
+    },
+    {
+      "line": 1398,
+      "text": "peek.name = \"GrandPuffPeek\""
+    }
+  ],
+  "representative_unreviewed_assets": {
+    "grand_puff_boss_dir": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/boss/",
+    "picture_games_dynamic_flower_family": "res://assets/mg/(flowers array concatenated at runtime)",
+    "opera_career_dynamic_catalog": "res://assets/opera/ (catalog-driven paths; inspect opera_hotspot/catalog and career world adapters)",
+    "pool_atlas_subframes": "res://assets/castle/day_one_pool/activities/floating_trash_atlas.png (subframe/AtlasTexture references)",
+    "rumi_atlas_subframes": "res://assets/characters/rumi/*atlas*.png (runtime AtlasTexture frame extraction)"
+  },
+  "method_notes": [
+    "Compare every live caller and dynamic loader against registry before scoring.",
+    "Do not infer scores from filenames, historical area scores, or source comments.",
+    "Grand Puff must be re-bound to current origin/dev and parallel bunny-battle candidate before acceptance."
+  ]
+}

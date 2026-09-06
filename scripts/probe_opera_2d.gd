@@ -471,6 +471,26 @@ func _init() -> void:
 					and world.player_animator.current_frame == 3
 					and not world.player_animator.is_processing())
 				world.player_animator.play("work")
+			elif career in ["teacher", "geologist"]:
+				for pose_row in ["idle", "travel", "work"]:
+					world.player_animator.play(pose_row)
+					var held_cell := world.player_animator.current_frame
+					world.player_animator._process(2.7)
+					_check("%s %s does not cycle unrelated gesture keys" % [career, pose_row],
+						world.player_animator.current_frame == held_cell
+						and not world.player_animator.is_processing())
+				world.player_animator.play("idle")
+				if career == "geologist":
+					var menu_pose := OperaRoshanActor.idle_frame(career) as AtlasTexture
+					_check("geologist idle and menu preserve the complete tail-fin pose",
+						world.player_animator.current_frame == 3
+						and menu_pose != null and menu_pose.region.position.x == 768.0)
+				world.player_animator.play("cheer")
+				world.player_animator._process(2.0)
+				world.player_animator._process(5.0)
+				_check("%s celebration settles without repeating" % career,
+					world.player_animator.current_frame == 3
+					and not world.player_animator.is_processing())
 			else:
 				var frame_before := world.player_animator.current_frame
 				# Idle runs at 4 fps. This crosses at least one frame boundary and

@@ -740,3 +740,23 @@ Kept as-is; noted so a future edit updates every copy.
 | Document | State | Scope |
 |---|---|---|
 | `design/OPERA_TWO_ACT_PERFORMANCES_2026-09-05.md` | 🟣 | Local candidate for the three Opera Hall games only; mechanic and asset review, medal/token policy, pending integration and child/device gates. |
+
+## Minigame art review — 2026-09-05
+
+| Document | State | Scope |
+|---|---|---|
+| `design/MINIGAME_ART_AUDIT_2026-09-05.md` | 🔵 | `SUPPORTING_CURRENT`; local incomplete art/animation review and repair process. No release, owner/device/child acceptance or master-audit closure. |
+| `audit/minigame_art_quality_2026-09-05/animation_review.md` | 🔵 | `SUPPORTING_CURRENT`; local incomplete art/animation review and repair process. No release, owner/device/child acceptance or master-audit closure. |
+| `audit/minigame_art_quality_2026-09-05/nonopera_review.md` | 🔵 | `SUPPORTING_CURRENT`; local incomplete art/animation review and repair process. No release, owner/device/child acceptance or master-audit closure. |
+| `audit/minigame_art_quality_2026-09-05/opera_review.md` | 🔵 | `SUPPORTING_CURRENT`; local incomplete art/animation review and repair process. No release, owner/device/child acceptance or master-audit closure. |
+| `audit/minigame_art_quality_2026-09-05/protocol.md` | 🔵 | `SUPPORTING_CURRENT`; local incomplete art/animation review and repair process. No release, owner/device/child acceptance or master-audit closure. |
+| `audit/minigame_art_quality_2026-09-05/racer_reaudit.md` | 🔵 | `SUPPORTING_CURRENT`; local incomplete art/animation review and repair process. No release, owner/device/child acceptance or master-audit closure. |
+| `audit/minigame_art_quality_2026-09-05/current_scope_addendum.md` | 🔵 | `SUPPORTING_CURRENT`; reconciles historical capture authority with the current dev-based source candidate and keeps game-wide 4.5 acceptance open. |
+| `audit/minigame_art_quality_2026-09-05/missing_coverage.md` | 🔵 | `SOURCE_INVENTORY`; unresolved source and dynamic-loader coverage leads only; no reachability or quality claim. |
+| `audit/minigame_art_quality_2026-09-05/reuse_candidates.md` | 🔵 | `SUPPORTING_CURRENT`; bounded visual reuse screen for weak PictureGames assets; no runtime acceptance. |
+| `audit/minigame_art_quality_2026-09-05/art_repair_backlog.md` | 🔵 | `SUPPORTING_CURRENT`; ordered repair and evidence backlog under the eight-dimension gate; no new scores or acceptance. |
+| `audit/minigame_art_quality_2026-09-05/parent_art_crosscheck.md` | 🔵 | `HISTORICAL_VISUAL_EVIDENCE`; independent corroboration of three historical captures; no current-source or acceptance claim. |
+| `audit/minigame_art_quality_2026-09-05/watering_can_attempt02_independent_review.md` | 🔵 | `REJECTED_SOURCE_REVIEW`; records the RGB fake-alpha blocker and bounded proportion/orientation differences; never runtime acceptance. |
+| `audit/minigame_art_quality_2026-09-05/opera_native_coverage_followup.md` | 🔵 | `SOURCE_INVENTORY`; traces current room sources and derivatives, distinguishes fixed-scene review from multi-screen native coverage, and preserves reuse authorities; no current acceptance. |
+| `audit/OPERA_MECHANICS_REAUDIT_2026-09-05.md` | ⚪ | `HISTORICAL_VISUAL_EVIDENCE`; 14-career mechanics and scene review at its recorded pre-reconciliation revisions. Later Racer, Geologist, Teacher and Opera Hall work supersedes affected current-status claims; scores remain historical and grant no current, master, device, child, or owner acceptance. |
+| `assets_src/minigame_art_quality_2026-09-05/watering-can-attempt02/review.md` | 🔵 | `REJECTED_SOURCE_REVIEW`; generated RGB checkerboard candidate preserved outside runtime; no source or scene acceptance. |

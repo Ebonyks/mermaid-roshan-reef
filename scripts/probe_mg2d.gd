@@ -189,6 +189,14 @@ func _init() -> void:
 							if garden_won:
 								garden_win_checked = true
 								var events: Dictionary = main.mg.get("feedback_events", {})
+								var completed_garden_visible := true
+								for plant_value in (main.mg.get("btns", []) as Array):
+									var plant := plant_value as Button
+									completed_garden_visible = completed_garden_visible and plant != null \
+										and plant.visible and plant.disabled
+								failed = failed or not completed_garden_visible
+								results.append("completed garden retains all five flowers: %s" % (
+									"OK" if completed_garden_visible else "FAIL"))
 								garden_win_ok = int(main.mg.get("grown", 0)) == 5 \
 									and _garden_stage_total(main.mg) == 10 \
 									and int(events.get("garden_growth", 0)) == 9 \

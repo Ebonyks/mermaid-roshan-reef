@@ -1,0 +1,2055 @@
+{
+  "schema": "minigame-art-quality-v1",
+  "candidate_revision": "f4a5de339f3a8b7b9e4081924f4d3127d54959d7",
+  "revision_note": "The revision is the current-dev/core base for this reconciliation, not the commit containing the additional art repairs and packet. Source SHA-256 values bind exact accompanying bytes by default; source records declaring utf8_lf bind strict UTF-8 text after CRLF-to-LF canonicalization. Historical screenshots remain bound only to their own manifests and do not review this candidate. No current candidate review or acceptance is claimed.",
+  "scope": {
+    "games": [
+      "opera",
+      "picture_games",
+      "dolls",
+      "seek",
+      "melody",
+      "slide_race",
+      "day_one_pool",
+      "day_one_bathroom",
+      "dust_bunny_swimmer",
+      "dust_bunny_boss",
+      "fairy",
+      "fetch",
+      "treasure",
+      "shop",
+      "brawl",
+      "dance",
+      "side_scroll",
+      "comfy_friends"
+    ],
+    "coverage_complete": false,
+    "coverage_note": "Open source-bound inventory: 56 registry records are not exhaustive. A follow-up scan found 45 candidate minigame/adaptor source files, 259 literal resource paths, and 97 dynamic loader sites; 24 source candidates still lack exact registry records. Grand Puff is integrated on current dev but remains uncaptured/unscored here. See missing_coverage.json and current_scope_addendum.md.",
+    "surfaces": [
+      {
+        "game": "opera",
+        "id": "chef",
+        "live_asset_ids": [
+          "opera-chef",
+          "actor-work-row-chef"
+        ]
+      },
+      {
+        "game": "opera",
+        "id": "detective",
+        "live_asset_ids": [
+          "opera-detective",
+          "actor-work-row-detective"
+        ]
+      },
+      {
+        "game": "opera",
+        "id": "ballerina",
+        "live_asset_ids": [
+          "opera-ballerina",
+          "actor-work-row-ballerina"
+        ]
+      },
+      {
+        "game": "opera",
+        "id": "candymaker",
+        "live_asset_ids": [
+          "opera-candymaker",
+          "actor-work-row-candymaker"
+        ]
+      },
+      {
+        "game": "opera",
+        "id": "doctor",
+        "live_asset_ids": [
+          "opera-doctor",
+          "actor-work-row-doctor"
+        ]
+      },
+      {
+        "game": "opera",
+        "id": "farmer",
+        "live_asset_ids": [
+          "opera-farmer",
+          "actor-work-row-farmer"
+        ]
+      },
+      {
+        "game": "opera",
+        "id": "boxer",
+        "live_asset_ids": [
+          "opera-boxer",
+          "actor-work-row-boxer"
+        ]
+      },
+      {
+        "game": "opera",
+        "id": "magician",
+        "live_asset_ids": [
+          "opera-magician",
+          "actor-work-row-magician"
+        ]
+      },
+      {
+        "game": "opera",
+        "id": "painter",
+        "live_asset_ids": [
+          "opera-painter",
+          "actor-work-row-painter"
+        ]
+      },
+      {
+        "game": "opera",
+        "id": "astronaut",
+        "live_asset_ids": [
+          "opera-astronaut",
+          "actor-work-row-astronaut"
+        ]
+      },
+      {
+        "game": "opera",
+        "id": "racer",
+        "live_asset_ids": [
+          "opera-racer",
+          "actor-work-row-racer"
+        ]
+      },
+      {
+        "game": "opera",
+        "id": "popstar",
+        "live_asset_ids": [
+          "opera-popstar",
+          "actor-work-row-popstar"
+        ]
+      },
+      {
+        "game": "opera",
+        "id": "nursery",
+        "live_asset_ids": [
+          "opera-nursery",
+          "actor-work-row-nursery"
+        ]
+      },
+      {
+        "game": "opera",
+        "id": "geologist",
+        "live_asset_ids": [
+          "opera-geologist",
+          "actor-work-row-geologist"
+        ]
+      },
+      {
+        "game": "opera",
+        "id": "teacher",
+        "live_asset_ids": [
+          "opera-teacher",
+          "actor-work-row-teacher"
+        ]
+      },
+      {
+        "game": "picture_games",
+        "id": "snowman-garden-xmas",
+        "live_asset_ids": [
+          "nonopera-picture-games",
+          "picture-carrot",
+          "picture-wateringcan",
+          "picture-k_sprout",
+          "picture-k_flower1",
+          "picture-flower",
+          "picture-flower2",
+          "picture-k_flower2",
+          "picture-flower3"
+        ]
+      },
+      {
+        "game": "dolls",
+        "id": "catcher",
+        "live_asset_ids": [
+          "nonopera-dolls"
+        ]
+      },
+      {
+        "game": "seek",
+        "id": "meadow",
+        "live_asset_ids": [
+          "nonopera-seek"
+        ]
+      },
+      {
+        "game": "melody",
+        "id": "theater",
+        "live_asset_ids": [
+          "nonopera-melody"
+        ]
+      },
+      {
+        "game": "slide_race",
+        "id": "fish-route",
+        "live_asset_ids": [
+          "nonopera-slide-race"
+        ]
+      },
+      {
+        "game": "day_one_pool",
+        "id": "cleanup",
+        "live_asset_ids": [
+          "nonopera-day-one-pool"
+        ]
+      },
+      {
+        "game": "day_one_pool",
+        "id": "individual-subactivities",
+        "live_asset_ids": [
+          "nonopera-pool-subactivities"
+        ]
+      },
+      {
+        "game": "day_one_bathroom",
+        "id": "cleanup",
+        "live_asset_ids": [
+          "nonopera-bathroom"
+        ]
+      },
+      {
+        "game": "dust_bunny_swimmer",
+        "id": "swimmer",
+        "live_asset_ids": [
+          "nonopera-dust-swimmer"
+        ]
+      },
+      {
+        "game": "dust_bunny_boss",
+        "id": "boss",
+        "live_asset_ids": [
+          "nonopera-dust-boss"
+        ]
+      },
+      {
+        "game": "fairy",
+        "id": "pond",
+        "live_asset_ids": [
+          "nonopera-fairy"
+        ]
+      },
+      {
+        "game": "fetch",
+        "id": "winter-fetch",
+        "live_asset_ids": [
+          "nonopera-fetch"
+        ]
+      },
+      {
+        "game": "treasure",
+        "id": "cavern",
+        "live_asset_ids": [
+          "nonopera-treasure"
+        ]
+      },
+      {
+        "game": "shop",
+        "id": "pearl-shop",
+        "live_asset_ids": [
+          "nonopera-shop"
+        ]
+      },
+      {
+        "game": "brawl",
+        "id": "imp-stage",
+        "live_asset_ids": [
+          "nonopera-brawl"
+        ]
+      },
+      {
+        "game": "dance",
+        "id": "rhythm-lanes",
+        "live_asset_ids": [
+          "nonopera-dance"
+        ]
+      },
+      {
+        "game": "side_scroll",
+        "id": "shared-stage",
+        "live_asset_ids": [
+          "nonopera-side-scroll"
+        ]
+      },
+      {
+        "game": "comfy_friends",
+        "id": "shared-activities",
+        "live_asset_ids": [
+          "nonopera-comfy"
+        ]
+      }
+    ]
+  },
+  "assets": [
+    {
+      "id": "opera-chef",
+      "game": "opera",
+      "surface": "chef",
+      "role": "procedural minigame surface",
+      "states": [
+        "idle",
+        "anticipation",
+        "contact",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/opera_gesture_surface.gd",
+        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-09",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Preliminary family review reported generic shared overlay language; weak functions: OperaGestureSurface._draw_pour_scene and _draw. No eight-dimension state review exists. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "opera-detective",
+      "game": "opera",
+      "surface": "detective",
+      "role": "procedural minigame surface",
+      "states": [
+        "idle",
+        "clue",
+        "contact",
+        "reveal",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/opera_career_world_2d.gd",
+        "sha256": "66d93fe975e502271a179686a66f6a00a515edcd3fca323141228616792092c8",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-INT-02",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Crown truth/causality and lens-layer presentation require state-bound review; weak functions include _draw_lens_layer and _draw_chapter2_detective_activity."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "opera-ballerina",
+      "game": "opera",
+      "surface": "ballerina",
+      "role": "animated recital surface",
+      "states": [
+        "idle",
+        "anticipation",
+        "action",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/opera_ballet_surface.gd",
+        "sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Ribbon, twirl, and ghost-finger acting need complete temporal evidence; preliminary family score was not converted into dimensions."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "opera-candymaker",
+      "game": "opera",
+      "surface": "candymaker",
+      "role": "procedural pour surface",
+      "states": [
+        "idle",
+        "anticipation",
+        "pour",
+        "contact",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/opera_gesture_surface.gd",
+        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-INT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Pour stream and candy activity were reported weak; full authored-state/contact review is absent. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "opera-doctor",
+      "game": "opera",
+      "surface": "doctor",
+      "role": "procedural care surface",
+      "states": [
+        "idle",
+        "anticipation",
+        "care",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/opera_gesture_surface.gd",
+        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-09",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Shared gesture drawing was reported below threshold; no full state evidence. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "opera-farmer",
+      "game": "opera",
+      "surface": "farmer",
+      "role": "procedural herd/care surface",
+      "states": [
+        "idle",
+        "anticipation",
+        "push",
+        "contact",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/opera_gesture_surface.gd",
+        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-01",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Pig group, long push, and generic surface drawing were reported materially inconsistent. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "opera-boxer",
+      "game": "opera",
+      "surface": "boxer",
+      "role": "animated boxing surface",
+      "states": [
+        "idle",
+        "anticipation",
+        "target",
+        "contact",
+        "impact",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/opera_boxing_surface.gd",
+        "sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-MOT-04",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Glove, target, counter, and impact require complete action/contact/effect review."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "opera-magician",
+      "game": "opera",
+      "surface": "magician",
+      "role": "procedural magic surface",
+      "states": [
+        "idle",
+        "anticipation",
+        "trick",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/opera_gesture_surface.gd",
+        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-READ-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Generic gesture and task-card hierarchy need state-bound review. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "opera-painter",
+      "game": "opera",
+      "surface": "painter",
+      "role": "procedural paint surface",
+      "states": [
+        "idle",
+        "anticipation",
+        "trace",
+        "contact",
+        "gallery",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/opera_gesture_surface.gd",
+        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-05",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Trace patches and shared drawing were reported below the painted-material quality bar. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "opera-astronaut",
+      "game": "opera",
+      "surface": "astronaut",
+      "role": "procedural pipe surface",
+      "states": [
+        "idle",
+        "anticipation",
+        "pipe",
+        "contact",
+        "launch",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/opera_gesture_surface.gd",
+        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-05",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Pipe tiles and pipes were the lowest reported non-new Opera drawing family; no full dimensions assigned. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "opera-racer",
+      "game": "opera",
+      "surface": "racer",
+      "role": "racing surface",
+      "states": [
+        "idle",
+        "anticipation",
+        "drive",
+        "contact",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/opera_racer_surface.gd",
+        "sha256": "f16219bb057155a7bd1e68f0a0fbca32872b91fe911be4e3b12f1d5f7f22773d",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Historical base captures and byte-equivalence notes are diagnostic; controls/car still lack current complete state evidence."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "opera-popstar",
+      "game": "opera",
+      "surface": "popstar",
+      "role": "procedural music surface",
+      "states": [
+        "idle",
+        "anticipation",
+        "echo",
+        "contact",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/opera_gesture_surface.gd",
+        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-READ-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Echo-star, echo, and task-card hierarchy were reported below threshold. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "opera-nursery",
+      "game": "opera",
+      "surface": "nursery",
+      "role": "animated catch/care surface",
+      "states": [
+        "idle",
+        "anticipation",
+        "catch",
+        "contact",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/opera_nursery_catch.gd",
+        "sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-MOT-01",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Baby/catch drawing and shared gesture layer need identity, contact, and temporal review."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "opera-geologist",
+      "game": "opera",
+      "surface": "geologist",
+      "role": "procedural geology surface",
+      "states": [
+        "idle",
+        "river",
+        "fossil",
+        "brush",
+        "pan",
+        "geode",
+        "gallery",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/opera_geology_surface.gd",
+        "sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-05",
+          "blocking": true,
+          "resolved": false,
+          "summary": "River, fossil, brush, pan, geode, work surface, mineral, and gallery were reported P0. External worktree captures are excluded until imported and hashed."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "opera-teacher",
+      "game": "opera",
+      "surface": "teacher",
+      "role": "procedural teaching surface",
+      "states": [
+        "idle",
+        "hint",
+        "pattern",
+        "counting",
+        "group",
+        "shape",
+        "demo",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/opera_teacher_surface.gd",
+        "sha256": "a66f89510f7ba6a9ef9c60488a47a406a521054b84361f6052ad7a80c3ed9832",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-01",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Historical base captures do not establish current eight-dimension acceptance; all named procedural teaching states remain open."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-picture-games",
+      "game": "picture_games",
+      "surface": "snowman-garden-xmas",
+      "role": "Canvas picture-game family",
+      "states": [
+        "snowman",
+        "garden",
+        "xmas",
+        "payoff"
+      ],
+      "source": {
+        "path": "scripts/games/picture_games.gd",
+        "sha256": "0359f26d81b16ba474911584aa574f8c9702ad6500883a8887c94f7bb8d55311",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-02",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Inspected carrot is crude; watering can has a hard rectangular crop/background pixels; flower/sprout family is stylistically flat. Exact raster hashes remain in source inventory and must be expanded into asset records."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-dolls",
+      "game": "dolls",
+      "surface": "catcher",
+      "role": "bounded Canvas catcher",
+      "states": [
+        "idle",
+        "catch",
+        "miss",
+        "payoff"
+      ],
+      "source": {
+        "path": "scripts/games/dolls.gd",
+        "sha256": "a3cf7ffd6f6a7bcf1072fa1a753e465f742190f46d9809830589a2242c77c7e0",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Runtime art ownership is indirect and uncaptured."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-seek",
+      "game": "seek",
+      "surface": "meadow",
+      "role": "animated Canvas hide-and-seek",
+      "states": [
+        "idle",
+        "wiggle",
+        "peek",
+        "found",
+        "payoff"
+      ],
+      "source": {
+        "path": "scripts/games/seek.gd",
+        "sha256": "d559447c82c29a33ddb319ef191cf9542d55304f62cae649e39cb2f9d9079741",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Authored actor art exists, but runtime framing, scale, identity, and device evidence are incomplete."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-melody",
+      "game": "melody",
+      "surface": "theater",
+      "role": "Canvas music theater",
+      "states": [
+        "idle",
+        "note",
+        "wrong",
+        "payoff"
+      ],
+      "source": {
+        "path": "scripts/games/melody.gd",
+        "sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-05",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Procedural theater/note/feedback drawing may conflict with painted assets; runtime review absent."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-slide-race",
+      "game": "slide_race",
+      "surface": "fish-route",
+      "role": "Canvas fish-route plus legacy route",
+      "states": [
+        "idle",
+        "slide",
+        "cue",
+        "payoff"
+      ],
+      "source": {
+        "path": "scripts/games/slide_race.gd",
+        "sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-MED-04",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Mixed procedural cues and polished cutouts are unreviewed; legacy Sprite3D branch remains debt."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-day-one-pool",
+      "game": "day_one_pool",
+      "surface": "cleanup",
+      "role": "three Canvas cleanup activities",
+      "states": [
+        "dirty",
+        "tool-contact",
+        "progress",
+        "clean",
+        "payoff"
+      ],
+      "source": {
+        "path": "scripts/games/day_one_pool_cleanup.gd",
+        "sha256": "64ce94893f5ba73bbec92690030af42ebfda2f235d755029a3b1a5f8879893c4",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Inspected asset family appears cohesive, but runtime composites and dirty-to-clean transitions lack authoritative capture."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-pool-subactivities",
+      "game": "day_one_pool",
+      "surface": "individual-subactivities",
+      "role": "skimmer, waterfall, and seahorse Canvas activities",
+      "states": [
+        "idle",
+        "tool-contact",
+        "progress",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/games/day_one_pool_cleanup.gd",
+        "sha256": "64ce94893f5ba73bbec92690030af42ebfda2f235d755029a3b1a5f8879893c4",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-05",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Mostly strong shared art is not a full runtime review; procedural arcs and ripples need state-local comparison with painted assets."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-bathroom",
+      "game": "day_one_bathroom",
+      "surface": "cleanup",
+      "role": "Canvas bathroom cleanup",
+      "states": [
+        "dirty",
+        "tool-contact",
+        "progress",
+        "clean",
+        "payoff"
+      ],
+      "source": {
+        "path": "scripts/games/day_one_bathroom_cleanup.gd",
+        "sha256": "bbf5c1a52ccd466e8609af7956af46537df4aa97655ab136bc113afdb8fdb0fe",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-INT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Plate/overlay scale, tool contact, and reveal continuity need runtime evidence."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-dust-swimmer",
+      "game": "dust_bunny_swimmer",
+      "surface": "swimmer",
+      "role": "Node2D swimmer",
+      "states": [
+        "idle",
+        "bob",
+        "paddle",
+        "payoff"
+      ],
+      "source": {
+        "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+        "sha256": "1f508b69f4e40ad7ccdca9234b5510b889841e1fe6a12f3b217d0c682dca6340",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-MOT-07",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Single-cutout bob/paddle may be feedback motion rather than authored animation; identity/contact need review."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-dust-boss",
+      "game": "dust_bunny_boss",
+      "surface": "boss",
+      "role": "current Grand Puff boss surface",
+      "states": [
+        "idle",
+        "attack",
+        "contact",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/games/dust_boss.gd",
+        "sha256": "81158d4246e1e947fec83e39b952d4f57860ef5d86b2481a09a2d60bc91118d6",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-MED-04",
+          "blocking": true,
+          "resolved": false,
+          "summary": "The Grand Puff rebuild is integrated in the current dev base, but this registry has no current Mobile state packet or eight-dimension review for it. Its live Node3D/Sprite3D carriers remain measured medium debt; refresh exact runtime states before grading."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-fairy",
+      "game": "fairy",
+      "surface": "pond",
+      "role": "legacy spatial scroller",
+      "states": [
+        "intro",
+        "idle",
+        "bug",
+        "boss-growth",
+        "bloom",
+        "payoff"
+      ],
+      "source": {
+        "path": "scripts/games/fairy.gd",
+        "sha256": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-MED-04",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Polished assets are mounted on Sprite3D; true-2D and animation-state coverage fail open."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-fetch",
+      "game": "fetch",
+      "surface": "winter-fetch",
+      "role": "legacy 3D fetch scene",
+      "states": [
+        "idle",
+        "throw",
+        "retrieve",
+        "contact",
+        "payoff"
+      ],
+      "source": {
+        "path": "scripts/games/fetch.gd",
+        "sha256": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-MED-04",
+          "blocking": true,
+          "resolved": false,
+          "summary": "3D terrain/material staging and no accepted animated Canvas Chuck actor."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-treasure",
+      "game": "treasure",
+      "surface": "cavern",
+      "role": "legacy cavern minigame",
+      "states": [
+        "idle",
+        "search",
+        "find",
+        "payoff"
+      ],
+      "source": {
+        "path": "scripts/games/treasure.gd",
+        "sha256": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-MED-04",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Dormant/spatial route has no bounded Canvas art proof."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-shop",
+      "game": "shop",
+      "surface": "pearl-shop",
+      "role": "legacy cabin/shop",
+      "states": [
+        "idle",
+        "choice",
+        "purchase",
+        "payoff"
+      ],
+      "source": {
+        "path": "scripts/games/shop.gd",
+        "sha256": "2c3fe3cd31e79bd7c9f6d077396a05f890fdc29146dd4972ee100891f59554f6",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-09",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Procedural shell conflicts with authored world and surface remains 3D debt."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-brawl",
+      "game": "brawl",
+      "surface": "imp-stage",
+      "role": "side-scroll brawl",
+      "states": [
+        "idle",
+        "attack",
+        "contact",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "scripts/games/brawl.gd",
+        "sha256": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-MOT-07",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Procedural imp stage reports one pose/no animation clips; accepted authored motion absent."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-dance",
+      "game": "dance",
+      "surface": "rhythm-lanes",
+      "role": "Canvas rhythm surface",
+      "states": [
+        "idle",
+        "cue",
+        "contact",
+        "feedback",
+        "payoff"
+      ],
+      "source": {
+        "path": "scripts/games/dance_engine.gd",
+        "sha256": "1eb9f4105242391d85ff90d3ab770b4547789b9da03f4b61ac886ff38d49d9f2",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-05",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Entire visible surface is procedural arrows, lanes, rings, and feedback with no runtime storybook-quality review."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-side-scroll",
+      "game": "side_scroll",
+      "surface": "shared-stage",
+      "role": "shared 2.5D stage",
+      "states": [
+        "idle",
+        "action",
+        "contact",
+        "payoff"
+      ],
+      "source": {
+        "path": "scripts/games/side_scroll.gd",
+        "sha256": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-MED-04",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Sprite3D staging conflicts with final true-2D medium and affects multiple caller modes."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "nonopera-comfy",
+      "game": "comfy_friends",
+      "surface": "shared-activities",
+      "role": "shared Canvas friend activities",
+      "states": [
+        "idle",
+        "action",
+        "payoff"
+      ],
+      "source": {
+        "path": "scripts/comfy_games.gd",
+        "sha256": "a5128f1650ec9722343570b8049ea8cdba9144f1c054f264dcd1847030049341",
+        "hash_normalization": "utf8_lf"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-ASSET-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Shared activity art requires live-route inventory and protected-source treatment review before grading."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "picture-carrot",
+      "game": "picture_games",
+      "surface": "snowman-garden-xmas",
+      "role": "live picture-game prop",
+      "states": [
+        "idle",
+        "contact",
+        "payoff"
+      ],
+      "source": {
+        "path": "assets/mg/carrot.png",
+        "sha256": "b4c35bee6de1a161f6891396a3b903d22893f772919bbbfe5832e5256e834a8f"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "isolated_observation": {
+        "score": 3.0,
+        "kind": "subjective isolated asset; not eight-dimension runtime acceptance",
+        "report": "audit/minigame_art_quality_2026-09-05/nonopera_review.md"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-05",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "picture-wateringcan",
+      "game": "picture_games",
+      "surface": "snowman-garden-xmas",
+      "role": "live picture-game prop",
+      "states": [
+        "idle",
+        "contact",
+        "payoff"
+      ],
+      "source": {
+        "path": "assets/mg/wateringcan.png",
+        "sha256": "dfcd93a98e83b7b0419602db828e6895fd4884bf0df800e9ecf4ed96c436f6e9"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "isolated_observation": {
+        "score": 2.5,
+        "kind": "subjective isolated asset; not eight-dimension runtime acceptance",
+        "report": "audit/minigame_art_quality_2026-09-05/nonopera_review.md"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-05",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "picture-k_sprout",
+      "game": "picture_games",
+      "surface": "snowman-garden-xmas",
+      "role": "live picture-game prop",
+      "states": [
+        "idle",
+        "contact",
+        "payoff"
+      ],
+      "source": {
+        "path": "assets/mg/k_sprout.png",
+        "sha256": "d7542d8d812a28ddce435c8acf3a103df85e5af59178ad05c9bdb5fef1ed0926"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "isolated_observation": {
+        "score": 3.0,
+        "kind": "subjective isolated asset; not eight-dimension runtime acceptance",
+        "report": "audit/minigame_art_quality_2026-09-05/nonopera_review.md"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-05",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "picture-k_flower1",
+      "game": "picture_games",
+      "surface": "snowman-garden-xmas",
+      "role": "live picture-game prop",
+      "states": [
+        "idle",
+        "contact",
+        "payoff"
+      ],
+      "source": {
+        "path": "assets/mg/k_flower1.png",
+        "sha256": "c4edbd641f0cc13e96378b7468f56711b7dd79bb9f90013bfbe66588472fb35e"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "isolated_observation": {
+        "score": 3.0,
+        "kind": "subjective isolated asset; not eight-dimension runtime acceptance",
+        "report": "audit/minigame_art_quality_2026-09-05/nonopera_review.md"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-05",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "picture-flower",
+      "game": "picture_games",
+      "surface": "snowman-garden-xmas",
+      "role": "live picture-game prop",
+      "states": [
+        "idle",
+        "contact",
+        "payoff"
+      ],
+      "source": {
+        "path": "assets/mg/flower.png",
+        "sha256": "2753083d4e30f5f6e8b49949e0eb50497b5b03d37691df7e3b6b6deddb79880d"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "isolated_observation": {
+        "score": 3.0,
+        "kind": "subjective isolated asset; not eight-dimension runtime acceptance",
+        "report": "audit/minigame_art_quality_2026-09-05/nonopera_review.md"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-05",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "picture-flower2",
+      "game": "picture_games",
+      "surface": "snowman-garden-xmas",
+      "role": "live picture-game prop",
+      "states": [
+        "idle",
+        "contact",
+        "payoff"
+      ],
+      "source": {
+        "path": "assets/mg/flower2.png",
+        "sha256": "1ab22c71a550c94c71fcab769c6f1b47f1d73c1ff792775fdc1f9c365ac77a09"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "isolated_observation": {
+        "score": 3.0,
+        "kind": "subjective isolated asset; not eight-dimension runtime acceptance",
+        "report": "audit/minigame_art_quality_2026-09-05/nonopera_review.md"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-05",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "picture-k_flower2",
+      "game": "picture_games",
+      "surface": "snowman-garden-xmas",
+      "role": "live picture-game prop",
+      "states": [
+        "idle",
+        "contact",
+        "payoff"
+      ],
+      "source": {
+        "path": "assets/mg/k_flower2.png",
+        "sha256": "522130ad5c354b1a80aa9734feb025d23c4551af6796cd89f9664d2c0750553d"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "isolated_observation": {
+        "score": 3.0,
+        "kind": "subjective isolated asset; not eight-dimension runtime acceptance",
+        "report": "audit/minigame_art_quality_2026-09-05/nonopera_review.md"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-05",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "picture-flower3",
+      "game": "picture_games",
+      "surface": "snowman-garden-xmas",
+      "role": "live picture-game prop",
+      "states": [
+        "idle",
+        "contact",
+        "payoff"
+      ],
+      "source": {
+        "path": "assets/mg/flower3.png",
+        "sha256": "46e05838998044aa1fb36738719fe769521d4b727d891c6062f5ec4cbbe56352"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "isolated_observation": {
+        "score": 3.0,
+        "kind": "subjective isolated asset; not eight-dimension runtime acceptance",
+        "report": "audit/minigame_art_quality_2026-09-05/nonopera_review.md"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-VIS-05",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "actor-work-row-chef",
+      "game": "opera",
+      "surface": "chef",
+      "role": "career actor atlas and work-row playback",
+      "states": [
+        "idle",
+        "work",
+        "contact",
+        "cheer",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_chef_sheet_a.png",
+        "sha256": "78c666d2e87cc1cdcd2cde311c20e75a83ca86dae1366fe4aa9cacbee3e30566"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "actor-work-row-detective",
+      "game": "opera",
+      "surface": "detective",
+      "role": "career actor atlas and work-row playback",
+      "states": [
+        "idle",
+        "work",
+        "contact",
+        "cheer",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_detective_sheet_a.png",
+        "sha256": "fb0a7d8b718d797484f1d0da22c330a7e01d0e0bb192f9296f3f288a30cf7e7c"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "actor-work-row-ballerina",
+      "game": "opera",
+      "surface": "ballerina",
+      "role": "career actor atlas and work-row playback",
+      "states": [
+        "idle",
+        "work",
+        "contact",
+        "cheer",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png",
+        "sha256": "c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "actor-work-row-candymaker",
+      "game": "opera",
+      "surface": "candymaker",
+      "role": "career actor atlas and work-row playback",
+      "states": [
+        "idle",
+        "work",
+        "contact",
+        "cheer",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+        "sha256": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "actor-work-row-doctor",
+      "game": "opera",
+      "surface": "doctor",
+      "role": "career actor atlas and work-row playback",
+      "states": [
+        "idle",
+        "work",
+        "contact",
+        "cheer",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_doctor_sheet_a.png",
+        "sha256": "bfffbd5389d63f8c9337a132bb20e09abbd4d8fc8471ec406fba2d722106a50e"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "actor-work-row-farmer",
+      "game": "opera",
+      "surface": "farmer",
+      "role": "career actor atlas and work-row playback",
+      "states": [
+        "idle",
+        "work",
+        "contact",
+        "cheer",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_farmer_sheet_a.png",
+        "sha256": "f0c9947b093c489145945467af62e50ce748b56b344c55942b7532742bc64bc5"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "actor-work-row-boxer",
+      "game": "opera",
+      "surface": "boxer",
+      "role": "career actor atlas and work-row playback",
+      "states": [
+        "idle",
+        "work",
+        "contact",
+        "cheer",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_boxer_sheet_a.png",
+        "sha256": "dbda6f6edd01e48b74095915f338fe3f6eb690ccd5f0f314d50e6940bb33c7c9"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "actor-work-row-magician",
+      "game": "opera",
+      "surface": "magician",
+      "role": "career actor atlas and work-row playback",
+      "states": [
+        "idle",
+        "work",
+        "contact",
+        "cheer",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_magician_sheet_a.png",
+        "sha256": "768e6980fa8f4ca9cc3281a2fb1f23f0fcdeac8f2d524e6135b3be03eafc13cb"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "actor-work-row-painter",
+      "game": "opera",
+      "surface": "painter",
+      "role": "career actor atlas and work-row playback",
+      "states": [
+        "idle",
+        "work",
+        "contact",
+        "cheer",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_painter_sheet_a.png",
+        "sha256": "016dbac4a6c2342679410c19aa782d999557b92f4fc34f99f58d23dd714ea638"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "actor-work-row-astronaut",
+      "game": "opera",
+      "surface": "astronaut",
+      "role": "career actor atlas and work-row playback",
+      "states": [
+        "idle",
+        "work",
+        "contact",
+        "cheer",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+        "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "actor-work-row-racer",
+      "game": "opera",
+      "surface": "racer",
+      "role": "career actor atlas and work-row playback",
+      "states": [
+        "idle",
+        "work",
+        "contact",
+        "cheer",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_racer_sheet_a.png",
+        "sha256": "f62f881d42b439bde09a8bc7f6e0000125acd3e27aabf1fd39d90722ce75ca79"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "actor-work-row-popstar",
+      "game": "opera",
+      "surface": "popstar",
+      "role": "career actor atlas and work-row playback",
+      "states": [
+        "idle",
+        "work",
+        "contact",
+        "cheer",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_popstar_sheet_a.png",
+        "sha256": "0084e74b73042832f248c26f6688e484b7376ea6418caee09b2e4beeebfb0ee9"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "actor-work-row-nursery",
+      "game": "opera",
+      "surface": "nursery",
+      "role": "career actor atlas and work-row playback",
+      "states": [
+        "idle",
+        "work",
+        "contact",
+        "cheer",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_nursery_sheet_a.png",
+        "sha256": "9880fc9ac328b0112d8a7162c656b2a2d9471a4995dd11bd606607f12ca13a52"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "actor-work-row-geologist",
+      "game": "opera",
+      "surface": "geologist",
+      "role": "career actor atlas and work-row playback",
+      "states": [
+        "idle",
+        "work",
+        "contact",
+        "cheer",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+        "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "actor-work-row-teacher",
+      "game": "opera",
+      "surface": "teacher",
+      "role": "career actor atlas and work-row playback",
+      "states": [
+        "idle",
+        "work",
+        "contact",
+        "cheer",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png",
+        "sha256": "2bddeebd6ca4fe0647e1f6deb670bfcab4d1183f36417e0a033e59c4788dd28c"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "defects": [
+        {
+          "rule_id": "DL-MOT-03",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    }
+  ],
+  "approvals": {
+    "owner": {
+      "approved": false
+    },
+    "device": {
+      "approved": false
+    },
+    "child": {
+      "approved": false
+    }
+  }
+}

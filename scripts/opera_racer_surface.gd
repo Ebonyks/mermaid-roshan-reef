@@ -417,6 +417,15 @@ func _draw_race_controls() -> void:
 		var done := float(kart["s"]) >= float(lap + 1) * LAP_DISTANCE
 		draw_circle(center, 35, Color("#52406f"))
 		draw_circle(center, 29, Color("#ffe2a0") if done else Color("#e7ddef"))
+		# The dials are lap state, so give each one a tiny finish flag
+		# instead of leaving an unexplained empty center.
+		draw_line(center + Vector2(-10, 12), center + Vector2(-10, -13),
+			Color("#655078"), 4.0, true)
+		var flag_color := Color("#ee91b7") if done else Color("#8ccfd1")
+		draw_colored_polygon(PackedVector2Array([
+			center + Vector2(-8, -12), center + Vector2(13, -7),
+			center + Vector2(-8, 0),
+		]), flag_color)
 		var fraction := clampf(float(kart["s"]) / LAP_DISTANCE - float(lap), 0.0, 1.0)
 		if fraction > 0.001:
 			draw_arc(center, 32, -PI * 0.5, -PI * 0.5 + TAU * fraction, 48,

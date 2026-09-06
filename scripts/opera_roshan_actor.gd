@@ -25,7 +25,14 @@ const BALLERINA_POSE_FRAMES := {
 	"travel": 1,
 	"work": 1,
 }
-const BALLERINA_CHEER_FPS := 2.0
+const POSE_CHEER_FPS := 2.0
+## These sheets contain separate gesture keys, not in-between animation cells.
+## Geologist idle cells 0/1 also omit the full fin; retain the complete pose 3.
+## Keep originals intact while a coherent action-sheet replacement is audited.
+const STORY_POSE_FRAMES := {
+	"geologist": {"idle": 3, "travel": 1, "work": 0},
+	"teacher": {"idle": 0, "travel": 0, "work": 0},
+}
 
 var has_animation: bool = false
 var current_animation: String = "stopped"
@@ -59,7 +66,10 @@ static func idle_frame(career: String, fallback: Texture2D = null) -> Texture2D:
 	var frame := AtlasTexture.new()
 	frame.atlas = sheet
 	frame.filter_clip = true
-	frame.region = Rect2(Vector2.ZERO, CELL_SIZE)
+	var idle_column := 0
+	if STORY_POSE_FRAMES.has(career_key):
+		idle_column = int(STORY_POSE_FRAMES[career_key]["idle"])
+	frame.region = Rect2(Vector2(float(idle_column) * CELL_SIZE.x, 0.0), CELL_SIZE)
 	return frame
 
 
@@ -110,9 +120,15 @@ func play(animation: String) -> void:
 		return
 	if _career_key == "ballerina":
 		if requested == "cheer":
-			_play_ballerina_cheer()
+			_play_pose_cheer()
 		else:
 			show_pose(requested, int(BALLERINA_POSE_FRAMES.get(requested, 0)))
+		return
+	if STORY_POSE_FRAMES.has(_career_key):
+		if requested == "cheer":
+			_play_pose_cheer()
+		else:
+			show_pose(requested, int(STORY_POSE_FRAMES[_career_key].get(requested, 0)))
 		return
 	current_animation = requested
 	current_frame = 0
@@ -167,7 +183,7 @@ func _process(delta: float) -> void:
 		_playing = false
 		set_process(false)
 		return
-	var fps: float = BALLERINA_CHEER_FPS if _one_shot \
+	var fps: float = POSE_CHEER_FPS if _one_shot \
 		else float(ANIMATION_FPS.get(current_animation, 0.0))
 	if fps <= 0.0:
 		stop()
@@ -190,7 +206,7 @@ func _process(delta: float) -> void:
 	_apply_frame()
 
 
-func _play_ballerina_cheer() -> void:
+func _play_pose_cheer() -> void:
 	current_animation = "cheer"
 	current_frame = 0
 	_frame_elapsed = 0.0

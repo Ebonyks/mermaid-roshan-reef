@@ -1,0 +1,39 @@
+extends "res://scripts/probe_opera_art.gd"
+## Disposable audit staging only. No shipping acceptance claims.
+## Reuses guarded route entry; opens each real phase programmatically.
+
+func _run() -> void:
+	var audit_out := ProjectSettings.globalize_path("res://tmp/opera-reaudit-20260905/activities")
+	DirAccess.make_dir_recursive_absolute(audit_out)
+	if not await _set_aspect(Vector2i(1280, 720)) or not await _start_runtime():
+		print("DIAGNOSTIC|BOOT_FAILED")
+		quit(1)
+		return
+	for audit_index: int in OperaHouse.LIVE_ACT_INDICES:
+		var room_id := CastleCareerRoutes.room_for_act(audit_index)
+		if not await _prepare_career_route(room_id, audit_index):
+			print("DIAGNOSTIC|ROUTE_FAILED|", audit_index)
+			continue
+		routes._launch(room_id, audit_index)
+		if not await _wait_career_ready(audit_index, room_id):
+			continue
+		var opera := main.opera_game as OperaHouse
+		var current := opera.act as OperaAct
+		current.set_process(false)
+		var world := current.career_world_2d
+		world.set_process(false)
+		for phase_id in range(world.phases.size()):
+			world.active = true
+			world.phase_index = phase_id
+			world._show_phase()
+			world.phase_gap = 0.0
+			await create_timer(0.65).timeout
+			await RenderingServer.frame_post_draw
+			var pixels: Image = get_root().get_viewport().get_texture().get_image()
+			var phase: Dictionary = world.phases[phase_id]
+			var fname := "%s_%02d_%s.png" % [world.career_id, phase_id + 1, String(phase.get("mode", ""))]
+			pixels.save_png(audit_out.path_join(fname))
+			print("DIAGNOSTIC|STAGED|", fname, "|menu=", main.start_menu_active, "|size=", pixels.get_size())
+	await _teardown_runtime()
+	print("DIAGNOSTIC|COMPLETE|programmatic staging, not child playtest or acceptance")
+	quit(0)
