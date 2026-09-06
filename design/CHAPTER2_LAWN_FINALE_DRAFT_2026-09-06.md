@@ -314,3 +314,5 @@ authorized direct local extraction. That permission applies to the gameplay
 cutout and does not waive full-frame cinematic delivery rules.
 
 The 2026-09-06 pool-action clarification of `DL-INT-02` also applies to lawn ignition. The gameplay draft reuses the approved sixteen-frame swim and four-frame point/reach atlases. The hand reaches the actual rocket button before its spark travels to the candle; one slow frame cannot skip the approach or contact. The earlier immutable cinematic archive remains source reference version 1, not an accepted delivery or a replacement for this interaction requirement.
+
+Navigation reconciliation: the live lawn uses the persistent upper-right global Back control and its registered return-to-Main-Hall route. It draws no second return button. The isolated view probe has a fallback only when the real global control is absent; that fallback is not a second production control. The caption leaves the shared corner control clear.

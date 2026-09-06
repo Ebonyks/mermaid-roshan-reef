@@ -46,7 +46,7 @@ func _run_probe() -> void:
 	_check("completed bathroom restores real navigation",
 		main.contains("if bathroom_route_owned:")
 		and main.contains("_restore_day_one_bathroom_controls()")
-		and main.contains("and _day_one_pool_route_button != null"))
+		and main.contains('and director.current_room_id == "pool":'))
 	_check("Rumi revisit is persistent and contextual",
 		castle.contains("_sync_day_one_persistent_rumi()")
 		and castle.contains("Pool completion flips the persistent-meeting latch")

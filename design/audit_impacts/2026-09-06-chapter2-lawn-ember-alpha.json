@@ -1,6 +1,6 @@
 {
   "id": "2026-09-06-chapter2-lawn-ember-alpha",
-  "scope": "Commissioned Chapter 2 ending: actual eight-job rewards staged on the Sky Lagoon birthday lawn; recovered owner-corrected King V4 and thin August 22 Prince; no-fail three-round protection battle followed by cheating candle theft and reassurance; additive checkpoints, separate synthetic alpha guidance and visual Grok archive. Baseline typography metadata reconciles with existing upstream correction, without a new navigation implementation or a finding-closure claim. Reconciliation with pool-action clarification adds visible Roshan travel and authored hand/button contact before candle ignition; unfinished travel/contact cancels on focus loss or exit.",
+  "scope": "Commissioned Chapter 2 ending: actual eight-job rewards staged on the Sky Lagoon birthday lawn; recovered owner-corrected King V4 and thin August 22 Prince; no-fail three-round protection battle followed by cheating candle theft and reassurance; additive checkpoints, separate synthetic alpha guidance and visual Grok archive. Baseline typography metadata reconciles with existing upstream correction, without a new navigation implementation or a finding-closure claim. Reconciliation with pool-action clarification adds visible Roshan travel and authored hand/button contact before candle ignition; unfinished travel/contact cancels on focus loss or exit. Reconcile the shared upper-right navigation change and remove the lawn's duplicate production return control.",
   "baseline": "aad0d450d8b8f1381badeeb4bcb939181115ab00",
   "rules": [
     "DL-AGE-01",
@@ -51,6 +51,11 @@
     "DL-SAVE-04",
     "DL-SAVE-05",
     "DL-TYPE-07",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-UI-07",
     "DL-VIS-06"
   ],
   "findings": [
@@ -207,9 +212,9 @@
       "evidence": "Full run: static/audit/import gates and later probes passed; probe_audit reported three existing fish-slide failures. Log SHA-256 905c69ed0bcad2ad1f822305c6e5b031f7879653ba384348332e08654545f365. No code/probe changes were made to obtain a pass. Both isolated retry and the complete subsequent trusted-probe stage passed. Original failure retained for transparency."
     },
     {
-      "command": "GitHub work-branch Probe suite, dev integration and Android build",
-      "result": "PENDING",
-      "evidence": "No task commit/push or task APK yet."
+      "command": "GitHub full Probe suite for feature 9e70e724 and incoming dev a6ffa14d",
+      "result": "PASS",
+      "evidence": "Feature 9e70e724937fba6a42066e47d5e741963b48b321: run 34025652357 green. Incoming dev a6ffa14d0160ad6830464b73df33e1db20641fa1: run 34025996735 green. These are parent-commit checks; the combined navigation reconciliation receives complete local gates before integration and an exact dev-head CI/build afterward."
     },
     {
       "command": "Archive local source/hash check",
@@ -250,6 +255,21 @@
       "command": "Post-pool reconciliation document authority, development coverage against incoming 64094fca, and tools/audit_game_2d.py --regression-gate",
       "result": "PASS",
       "evidence": "Document authority 533/533, active findings 55/57 records; exact change coverage ALL OK; 2D gate NO_REGRESSION. Whole-game migration remains UNSATISFIED. GDScript parser/inference lint and final ignition probe pass."
+    },
+    {
+      "command": "Reconcile origin/dev a6ffa14d0160ad6830464b73df33e1db20641fa1 with current Chapter 2; complete local reconciliation gates and actual shared Back dispatch",
+      "result": "PASS",
+      "evidence": "Full 78-group local run completed with no failure assertions but exit 1: passive/audio lacked verdicts (log SHA-256 5f6ca1ab23e19b0f77ad773f682ac8e1c785861eabad9c1ae3924ece0493a039). Both rerun unchanged with identical isolation/touch flags and gate rules, explicit process exit 0 and ALL OK; retry log SHA-256 efe54eca02620e98ffa460d0e97999b490bf06d25e681984af949c5ce923aa15. All required probe groups now have passing verdicts; no production or probe assertions changed for retry. Import and 2D NO_REGRESSION pass. Real Mobile shared Back entry/return/resume plus final Chapter 2 probe pass. Parser, inference, document authority and development coverage against a6 all pass. Parent CI runs 34025652357 and 34025996735 green; exact integrated dev CI/APK remains pending."
+    },
+    {
+      "command": "Godot 4.7.2 live Mobile main.tscn global Back route and standalone chapter2_lawn probe after navigation reconciliation",
+      "result": "PASS",
+      "evidence": "Live route log .tmp/chapter2/navigation-live-render-accepted.log: normal entry, single shared Back, Main Hall return and checkpoint resume all pass; whole-frame native capture 06-live-lawn-navigation.png visually reviewed. Ignored fixture previously left Start Menu open; corrected by invoking its existing dismiss helper, preserving navigation-lock assertions. Final standalone probe .tmp/chapter2/navigation-focused/probe_chapter2_lawn.log exit 0, SHA-256 cda2ef40b68b4584aaaee39426d862be779686bec124e5c37c9ef9af6aab857d. No target-device acceptance claimed."
+    },
+    {
+      "command": "Exact integrated dev-head Probe suite and Android publication",
+      "result": "PENDING",
+      "evidence": "Normal integration follows green feature/incoming parent CI and passing combined local gate evidence. Verify the exact integrated dev workflow and release commit before presenting an APK as this chapter alpha."
     }
   ],
   "acceptance_gaps": "Owner review of gameplay composition and synthetic narration, aspect-ratio/device performance and touch, child comprehension/pacing, green integrated dev APK; all nine clean cinematic first frames and external generation bindings, full-frame delivery provenance and human acceptance. Three arrival first-frame candidates are unaccepted for scale/costume/position drift. No whole-game audit satisfaction or cinematic acceptance claimed. The bounded lawn ignition implementation is covered under the new DL-INT-02 clarification, but target-device/child/owner action review and other MA-PLAY-004 jobs remain open.",

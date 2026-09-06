@@ -151,16 +151,10 @@ func _probe_wiring() -> void:
 	_check("bathroom finale suppresses generic floor burst",
 		finale_source.contains("reveal_clean_room()")
 		and not finale_source.contains("_burst(\"✦\""))
-	_check("pool route uses approved picture and pointer without a UI box",
-		main_source.contains("room_mermaid_pool.png")
-		and main_source.contains("ApprovedPoolRoomPreview")
-		and main_source.contains("route_preview_kind")
-		and main_source.contains("actual_pool_room")
-		and main_source.contains("ApprovedShellPoolFrame")
-		and main_source.contains("PoolRouteGhostHand")
-		and main_source.contains("StyleBoxEmpty.new()")
-		and not main_source.contains(
-			"style_icon_button(_day_one_pool_route_button"))
+	_check("pool handoff reuses global arrow without a picture card",
+		main_source.contains("_day_one_pool_route_button = button")
+		and main_source.contains("_navigation_ref().begin_handoff()")
+		and not main_source.contains('card.name = "DayOneRouteCard"'))
 	_check("completion saves before starting the optional movie handoff",
 		save_order >= 0 and movie_order > save_order)
 	_check("completion and movie handoff are Day One-only and one-shot",

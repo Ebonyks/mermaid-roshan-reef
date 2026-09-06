@@ -186,50 +186,26 @@ func _run() -> void:
 			"clean_fixture_layer_visible", false)))
 	await _capture("08_whole_room_sparkle")
 	await create_timer(0.96).timeout
-	_check("finale exposes direct pool picture",
-		main._day_one_pool_route_button != null
-		and main._day_one_pool_route_button.visible)
-	var pool_preview: Sprite2D = null
-	var pool_frame: Sprite2D = null
-	if main._day_one_pool_route_button != null:
-		pool_preview = main._day_one_pool_route_button.get_node_or_null(
-			"ApprovedPoolRoomPreview") as Sprite2D
-		pool_frame = main._day_one_pool_route_button.get_node_or_null(
-			"ApprovedShellPoolFrame") as Sprite2D
-	var pool_preview_size: Vector2 = Vector2.ZERO
-	if pool_preview != null and pool_preview.texture != null:
-		pool_preview_size = pool_preview.texture.get_size() * pool_preview.scale
-	var pool_pointer: Sprite2D = null
-	if main._day_one_pool_route_button != null:
-		pool_pointer = main._day_one_pool_route_button.get_node_or_null(
-			"PoolRouteGhostHand") as Sprite2D
-	_check("pool route identifies the actual room preview",
-		main._day_one_pool_route_button != null
-		and String(main._day_one_pool_route_button.get_meta(
-			"route_preview_kind", "")) == "actual_pool_room"
-		and String(main._day_one_pool_route_button.get_meta(
-			"route_preview_asset", ""))
-			== "res://assets/flats/castle/rooms/room_mermaid_pool.png"
-		and pool_preview != null
-		and bool(pool_preview.get_meta("approved_pool_room_preview", false))
-		and String(pool_preview.get_meta("actual_destination_room", ""))
-			== "mermaid_pool"
-		and pool_preview.texture != null
-		and pool_preview.centered
-		and not pool_preview.region_enabled
-		and is_equal_approx(pool_preview.scale.x, pool_preview.scale.y)
-		and is_equal_approx(pool_preview.scale.x, 0.15)
-		and pool_preview_size.x <= main._day_one_pool_route_button.size.x
-		and pool_preview_size.y <= main._day_one_pool_route_button.size.y
-		and pool_frame != null
-		and bool(pool_frame.get_meta("approved_reused_shell_frame", false))
-		and pool_pointer != null
-		and pool_pointer.position.y
-			< pool_preview.position.y - pool_preview_size.y * 0.5)
+	_check("finale exposes the shared next-room arrow",
+		main._day_one_pool_route_button == main.global_navigation_button
+		and main.global_navigation_button != null
+		and main.global_navigation_button.visible
+		and String(main.global_navigation_button.get_meta(
+			"day_one_route_target", "")) == "mermaid_pool")
+	_check("no picture card covers the clean room",
+		main.castle_room_stage.get_node_or_null("DayOneRouteCard") == null)
+	_check("arrow pointer is present",
+		main.global_navigation_button.get_node_or_null("DayOneRouteGhostHand") != null)
 	_check("pool route does not revive retired overlay controls",
 		main.castle_room_action_button == null
 		and elevator == null and elevator_pointer == null)
 	await _capture("09_clean_pool_route")
+	_check("idle arrow owns the live handoff", main._navigation_ref().handoff_actionable())
+	main._navigation_ref().tick_attention(16.0)
+	var arrow_glow: CanvasItem = main.global_navigation_button.get_node_or_null("DayOneArrowGlow") as CanvasItem
+	_check("idle arrow visibly glows", arrow_glow != null and arrow_glow.modulate.a > 0.0,
+		"idle=%s held=%s blocks=%s top=%s stage=%s" % [main.navigation_idle_seconds, main.navigation_held_touches, main.navigation_attention_blocks, main._navigation_ref().top_id(), main.castle_room_stage.is_visible_in_tree()])
+	await _capture("10_idle_back_arrow")
 
 	main.queue_free()
 	await _frames(4)

@@ -12,7 +12,7 @@ const KEY := "chapter2_lawn_runtime"
 const ROCKET_RECT := Rect2(455.0, 435.0, 140.0, 145.0)
 const KING_RECT := Rect2(910.0, 230.0, 320.0, 330.0)
 const CONTINUE_RECT := Rect2(1050.0, 592.0, 180.0, 106.0)
-const BACK_RECT := Rect2(18.0, 18.0, 110.0, 100.0)
+const BACK_RECT := Rect2(1150.0, 18.0, 112.0, 112.0)
 const ROSHAN_HOME := Vector2(655.0, 438.0)
 const IGNITION_POINT := Vector2(525.0, 540.0)
 const IGNITION_REACH_POSITION := IGNITION_POINT - Vector2(12.0, 58.0)
@@ -87,6 +87,9 @@ func set_input_context(reason: StringName, lost: bool) -> void:
 
 func _input_context_lost() -> bool:
 	return not (_state()["context_losses"] as Dictionary).is_empty()
+
+func uses_global_navigation() -> bool:
+	return m != null and is_instance_valid(m.global_navigation_button)
 
 func _fit() -> void:
 	var viewport_size := get_viewport_rect().size
@@ -220,7 +223,7 @@ func _build_controls() -> void:
 	StorybookUI._apply_typography(birthday_title, StorybookUI.ROLE_BODY, 42)
 	add_child(birthday_title)
 	caption = Label.new()
-	caption.position = Vector2(150.0, 20.0)
+	caption.position = Vector2(30.0, 20.0)
 	caption.size = Vector2(1080.0, 85.0)
 	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -522,7 +525,7 @@ func _point_event(point: Vector2, pressed: bool, id: int) -> void:
 	if int(_state()["pointer_id"]) != -1 or float(_state()["elapsed"]) < 0.4:
 		return
 	_state()["pointer_id"] = id
-	if BACK_RECT.has_point(point):
+	if not uses_global_navigation() and BACK_RECT.has_point(point):
 		on_exit.call()
 		return
 	if String(_state()["mode"]).begins_with("ignition_"):
@@ -547,10 +550,12 @@ func _point_event(point: Vector2, pressed: bool, id: int) -> void:
 func _draw() -> void:
 	if m == null or not m.g.has(KEY):
 		return
-	# Picture controls: a return arch and a forward arrow, both >= 100px.
-	draw_style_box(StorybookUI.panel_style(Color("503964"), Color("f8e9d4"), 30, 3), BACK_RECT)
-	draw_polyline(PackedVector2Array([Vector2(89, 42), Vector2(54, 67), Vector2(89, 92)]),
-		Color("503964"), 8.0, true)
+	# The live game owns one shared Back. Only isolated view probes need a fallback.
+	if not uses_global_navigation():
+		draw_style_box(StorybookUI.panel_style(Color("503964"), Color("f8e9d4"), 30, 3), BACK_RECT)
+		var origin := BACK_RECT.position
+		draw_polyline(PackedVector2Array([origin + Vector2(71, 24),
+			origin + Vector2(36, 49), origin + Vector2(71, 74)]), Color("503964"), 8.0, true)
 	if m.chapter2_lawn_beat != 4 and m.chapter2_lawn_beat != 0:
 		draw_style_box(StorybookUI.panel_style(Color("503964"), Color("f8e9d4"), 36, 3), CONTINUE_RECT)
 		draw_polyline(PackedVector2Array([Vector2(1120, 620), Vector2(1162, 645), Vector2(1120, 670)]),
