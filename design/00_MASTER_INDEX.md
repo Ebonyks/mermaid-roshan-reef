@@ -1,5 +1,7 @@
 # Master design documents — index
 
+**Development routing:** use the [master task index](../audit/MASTER_AUDIT_2026-08-09.md#development-task-index) and [mandatory development contract](AUDIT_DEVELOPMENT_CONTRACT.md) for every change.
+
 **Planning entry (2026-09-05):** start with the
 [audit front page](../audit/MASTER_AUDIT_2026-08-09.md#0-planning-entry),
 [chapter guide](09_CHAPTER_DEVELOPMENT_GUIDE.md),

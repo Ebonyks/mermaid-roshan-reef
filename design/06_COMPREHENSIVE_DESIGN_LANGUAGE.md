@@ -291,6 +291,30 @@ partially superseded; never average the two into an invented requirement.
 
 ---
 
+`DL-AUTH-05` — Every development task MUST consult the master audit planning
+entry and task index, applicable design rules and canonical findings, and the
+ledger-classified domain authorities before implementation. Recheck at scope
+changes, review, and completion. Cite stable rule and finding IDs; new content
+requires rule coverage even when no existing finding applies.
+
+`DL-AUTH-06` — Every development change MUST carry a new or updated audit-impact
+record under `design/audit_impacts/`, following
+[AUDIT_DEVELOPMENT_CONTRACT.md](AUDIT_DEVELOPMENT_CONTRACT.md). Records name exact
+changed paths, baseline, applicable rules, related findings or a reason none
+apply, validation evidence, and remaining acceptance gaps. Update affected
+canonical facts and history in the same change. Structural validation proves
+traceability only; it cannot prove that the chosen rules are sufficient or
+that a declared check passed.
+
+`DL-AUTH-07` — The mandatory contract in both operational entry points and the
+master audit task index MUST remain synchronized, complete, and navigable.
+Document and change-coverage checks are blocking development gates. Existing
+whole-game debt keeps its existing scope: a green regression or structural
+check never closes missing visual, device, child, or owner evidence. This adds
+no routine permission checkpoint and does not alter authority precedence.
+
+---
+
 ## 2. The child is the primary design constraint
 
 `DL-AGE-01` — The game MUST be understandable to a non-reader. Required

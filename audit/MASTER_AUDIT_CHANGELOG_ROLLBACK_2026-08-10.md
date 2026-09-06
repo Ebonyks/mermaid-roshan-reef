@@ -1613,6 +1613,28 @@ exclusive and must never be applied on the same rollback branch.
   record, cover the exact 22-path union, and pass every focused gate plus exact
   official-Godot full CI.
 
+#### CHG-029 maintenance — mandatory development integration, 2026-09-06
+
+Owner explicitly commissioned the instruction/CI integration and preferred
+better indexing to relocating the audit. Source baseline: the exact `baseline` SHA in the linked impact record.
+Implementation source: the first commit adding `tools/audit_development.py`;
+resolve its exact SHA with `git log --diff-filter=A --format=%H -- tools/audit_development.py`.
+Before that commit exists this entry describes an uncommitted candidate.
+Exact changed paths and verification are in
+`design/audit_impacts/2026-09-06-audit-development-contract.json`.
+This extends CHG-029's document-authority gate to operational entry points,
+navigation and per-change traceability; historical source boundaries above stay
+unchanged. Benefit: make applicable rules visible before development and expose
+missing change coverage. Risks: incorrect routing or comparison-base selection
+can block unrelated work; tests must reject missing references and exercise
+Git additions, deletions, merges and stale records. No runtime/asset change or
+master finding closure is claimed.
+Rollback class: manual, policy-sensitive. Review the exact follow-up commit's
+instruction/workflow/tool diff on a dedicated branch; preserve unrelated work
+and all historical evidence. Do not emit an automatic rollback from the older
+CHG-029 source pair. Re-run document, development and existing full gates after
+any approved reversal. Machine evidence never supplies device/child/owner acceptance.
+
 ### CHG-030 — Fail-closed Sky Lagoon promenade capture audit
 
 - **Source and exact boundary:** source

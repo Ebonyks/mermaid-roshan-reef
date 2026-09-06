@@ -171,9 +171,9 @@
       "evidence": "audit/stage_pathfinding/evidence/validation_summary.json; complete fresh import/regression/78-probe replay exits 0 with no failure markers. Historical failed binding and runtime attempts remain described separately."
     },
     {
-      "command": "Document authority and development coverage after reconciliation with origin/dev",
-      "result": "PENDING",
-      "evidence": "Integration introduced the development-coverage contract during this task; final reconciliation checks pending."
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; authority/development/pathfinding tests; changed-GDScript parser and inference lint",
+      "result": "PASS",
+      "evidence": "Reconciled origin/dev 7055d6769252f3db3f9436c509122e7575d2881a. 534/534 document/ledger parity, 55 active/57 retained findings; complete changed-file coverage; 64 tests and six authority stress controls; parser/inference pass. Runtime and assets match locally validated 6acd9806. AGENTS.md, CLAUDE.md and probes.yml are byte-identical to origin/dev; no new control-file changes."
     },
     {
       "command": "GitHub probes.yml on exact work-branch head",
