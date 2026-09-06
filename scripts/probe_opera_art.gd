@@ -670,7 +670,7 @@ func _prepare_career_route(room_id: String, index: int) -> bool:
 	if target_floor < 0:
 		return false
 	if routes.opera_venue.floor_index != target_floor:
-		if not await _navigate_venue_floor(target_floor):
+		if not await _select_venue_floor_for_capture(target_floor):
 			return false
 	return await _wait_venue_floor(target_floor)
 
