@@ -2238,4 +2238,8 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 
 | 2026-09-05 | `TRIAGING` | Owner-directed planning integration: add the planning front page, chapter guide/brief/reference library, Northern restaurant planning branch, and `DL-PLAN-01` through `DL-PLAN-06`. Record delegated playable-chapter development, minor canon-preserving additions, strategic unused assets, and free mechanic remixing. Correct active engine and Chapter 2/global progression references, preserve historical evidence, and distinguish reserved architecture choices from recommendations. No runtime, art, device, child, owner-product, release, or finding-closure claim is added. |
 
+## Stage pathfinding inventory (2026-09-06)
+
+The exhaustive stage ledger is [audit/stage_pathfinding/stage_inventory.json](audit/stage_pathfinding/stage_inventory.json), with the governing arrival, door, cancellation, and out-of-bounds rules in [audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md](audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md). It enumerates the live Reef/Lagoon/Castle/Day-One room variants, all 15 live Opera act IDs (including the priority Opera Doctor `opera.act.05.doctor`), fixed minigame seams, and standalone spatial modes. Avatar locomotion, fixed minigame surfaces, and 3D migration debt are separate classifications. This is a coverage baseline: no entry is claimed complete; existing route probes prove lifecycle facts but do not prove every object/door arrival or OOB recovery. Minimal reproductions must reuse the approved art paths recorded per entry and retain the real minigame controller.
+
 No later state is added without its required evidence.
