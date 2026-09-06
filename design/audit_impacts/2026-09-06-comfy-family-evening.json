@@ -1,0 +1,51 @@
+{
+  "id": "2026-09-06-comfy-family-evening",
+  "scope": "Backfill the mandatory development-impact record for the already integrated Family Evening extension at commit 6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d and record the audit gaps found during integration review. The feature reuses existing 2D assets, adds only additive/versioned save state, and does not modify protected art or voices or add 3D debt. This record does not retroactively claim product acceptance: dinner, movie and bedtime currently use the generic talk acknowledgement rather than exact semantic instructions, and the reward-bearing mode has no zero-input no-award leg or central passive-snapshot coverage.",
+  "baseline": "aad0d450d8b8f1381badeeb4bcb939181115ab00",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-04",
+    "DL-MED-01",
+    "DL-INT-01",
+    "DL-SND-01",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-PERF-02",
+    "DL-CODE-10",
+    "DL-QA-02",
+    "DL-QA-04",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-ACCESS-001",
+    "MA-CI-005"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "scripts/comfy_games.gd",
+    "scripts/probe_ui_system.gd"
+  ],
+  "validation": [
+    {
+      "command": "python -m gdtoolkit.parser scripts/comfy_games.gd scripts/probe_ui_system.gd; python tools/lint_inference.py scripts/comfy_games.gd scripts/probe_ui_system.gd",
+      "result": "PASS",
+      "evidence": "Both changed GDScript files parse and pass inference lint at integrated head 7055d6769252f3db3f9436c509122e7575d2881a."
+    },
+    {
+      "command": "GitHub Probe Suite on candidate, first dev integration and current integrated dev",
+      "result": "PASS",
+      "evidence": "Exact candidate run 34011122816, exact dev run 34012752104 and exact current-dev run 34016934593 all succeeded under the repository Godot 4.7.2 workflow."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B tools/audit_development.py --base 823a7e57507734e35c62fb43c694d32c09091c6d",
+      "result": "PASS",
+      "evidence": "The pre-repair development audit correctly failed because the two Family Evening GDScript files had no changed impact record. After this fail-closed repair, document authority passes at 532 inventory/ledger entries and 54 active/56 retained findings; audit development passes both auto base 7055d676 and explicit historical base 823a7e57; 45 focused authority/development unit tests pass."
+    }
+  ],
+  "acceptance_gaps": "MA-ACCESS-001 remains BLOCKED_EXTERNAL: exact authorized semantic objective recordings or an owner-approved independently sufficient diegetic substitute, plus device listening and child comprehension, are absent. MA-CI-005 remains CONFIRMED_OPEN: neither a Family Evening zero-input no-award leg nor complete central passive reward snapshot/mutation coverage exists. Target-device performance/touch, child observation, owner visual acceptance, strict-zero 2D debt, promotion and release acceptance remain separate and unclaimed."
+}

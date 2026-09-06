@@ -268,7 +268,7 @@ device, child, human, or owner acceptance.
 | acceptance | Every required objective communicates the exact action without reading, with authorized identity, correct playback, device intelligibility, and observed child comprehension. |
 | closure | Blocked as of 2026-08-13; recordings/approved alternative, device/child evidence, commit, and closure date are missing. |
 | relationships | Includes specific unresolved cases `MA-ACCESS-002` and `MA-ACCESS-003`; audio mix evidence also relates to `MA-AUDIO-001`. |
-| history | 2026-08-09: blocked exact-voice coverage indexed. 2026-08-13: no authorization or substitute evidence supplied; lifecycle unchanged. |
+| history | 2026-08-09: blocked exact-voice coverage indexed. 2026-08-13: no authorization or substitute evidence supplied; lifecycle unchanged. 2026-09-06: the Family Evening dinner, movie and bedtime objectives were added with the generic `talk` acknowledgement rather than exact semantic instructions; no protected recording authorization or independently sufficient diegetic substitute exists, so the blocker now explicitly includes those routes. |
 
 ## MA-ACCESS-002
 
@@ -981,7 +981,7 @@ device, child, human, or owner acceptance.
 | acceptance | The snapshot covers every save-backed reward surface at the audited commit, the mutation test fails closed for each section, and the rule is recorded in the probe header. |
 | closure | Open as of 2026-08-26; snapshot unchanged. |
 | relationships | Enforces the same invariant family as `MA-CI-004`; classification context is `MA-CI-003`. |
-| history | 2026-08-26: confirmed by probe-content read; opened `CONFIRMED_OPEN`. |
+| history | 2026-08-26: confirmed by probe-content read; opened `CONFIRMED_OPEN`. 2026-09-06: Family Evening added save-backed completion and reward state, but `probe_ui_system.gd` checks normalization/source presence only and neither drives a zero-input no-award leg nor extends the central passive snapshot; lifecycle remains `CONFIRMED_OPEN`. |
 
 ## MA-CODE-003
 
