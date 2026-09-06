@@ -8,6 +8,13 @@ Parent: [master audit planning entry](../../audit/MASTER_AUDIT_2026-08-09.md#0-p
 Method: [chapter guide](../09_CHAPTER_DEVELOPMENT_GUIDE.md) and
 [brief template](../templates/CHAPTER_BRIEF_V1.md).
 
+Current design exploration: [Northern Christmas world and career draft](NORTHERN_CHRISTMAS_DRAFT.md)
+and [illustrated review guide](../../assets_src/concepts/northern_christmas_2026-09-05/guide.html).
+The owner subsequently requested a Nordic/Christmas rough draft mixing old and
+new careers, with a detailed visual guide before producing games. That design
+scope is authorized; its proposed community story and six-career plan are not
+yet an implementation commission or accepted canon.
+
 ## 1. Owner direction — 2026-09-05
 
 - The Ice World is a future development chapter. The owner values its existing
@@ -85,8 +92,11 @@ completion gate and no-loss treatment must remain explicit.
 
 Static source review at `775ceee1`, 2026-09-05. These paths exist; visual fit,
 unused status, native production coverage, and current approval have not been
-established by this planning pass. No new asset is commissioned to fill a
-presumed gap before the intended source family is found.
+established by this planning pass. Production replacements must not be
+commissioned to fill a presumed gap before investigating the intended source
+family. The subsequent rough-draft request permits the linked, clearly labeled
+overview/interior composition studies for named planning gaps; they do not
+replace that collection or count as runtime-ready art.
 
 | Lead | Potential planning use | Evidence limit / next action |
 |---|---|---|

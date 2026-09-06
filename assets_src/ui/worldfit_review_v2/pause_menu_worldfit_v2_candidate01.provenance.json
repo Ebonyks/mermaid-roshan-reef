@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "concept_id": "pause_menu_worldfit_v2_candidate01",
+  "status": "PENDING_HUMAN_EVALUATION",
+  "claims": {
+    "human_approved": false,
+    "design_language_approved": false,
+    "runtime_ready": false,
+    "device_verified": false,
+    "child_verified": false,
+    "static_semantics_proven": false
+  },
+  "generation_gap": "The repository has no complete, high-quality painted picture set for the current pause routes. The live pause uses text and Unicode symbols. Revision 2 requires a world-fitting visual study with crafted object illustrations while preserving route truth.",
+  "generation": {
+    "method": "built-in image_gen",
+    "cli_used": false,
+    "successful_generation_attempt": 1,
+    "native_output_path": "C:/Users/Peter/.codex/generated_images/01a074c0-8fd8-7cc0-9c8b-312a1f0567f3/exec-b71cccad-4d19-4582-9557-420578015286.png",
+    "project_copy_path": "assets_src/ui/worldfit_review_v2/pause_menu_worldfit_v2_candidate01.png",
+    "native_dimensions": [1672, 941],
+    "native_sha256": "7ae85c324617b87dfaa0736e8b7904dfffbce278741b1f9144350a703fe30b85",
+    "project_copy_sha256": "7ae85c324617b87dfaa0736e8b7904dfffbce278741b1f9144350a703fe30b85",
+    "native_and_project_copy_byte_identical": true,
+    "modifications_after_generation": "none"
+  },
+  "prompt": {
+    "path": "assets_src/ui/worldfit_review_v2/pause_menu_worldfit_v2_candidate01.prompt.txt",
+    "sha256": "57382862e857a72c0642a1dc5d31d3bd541d1f588f5555ba69170a41f21253f6"
+  },
+  "reference_inventory_path": "assets_src/ui/worldfit_review_v2/reference_inventory.json",
+  "reference_inventory_sha256": "b999bb1fce8f7942802437a6a66c901f68c1534c09426d329843641331de85eb",
+  "base_canvas": [1280, 720],
+  "layout_note": "Rectangles are intended review allocations written [x, y, width, height] on the 1280x720 base canvas. They are not measured runtime hitboxes and do not prove device touch behavior.",
+  "proposed_safe_area": [32, 32, 1216, 656],
+  "proposed_action_rects": {
+    "resume": [390, 100, 500, 170],
+    "stickers": [310, 310, 290, 145],
+    "critters": [630, 310, 290, 145],
+    "stuffie": [310, 490, 290, 145],
+    "contextual_leave": [630, 490, 290, 145]
+  },
+  "minimum_proposed_edge_to_edge_separation_px": 30,
+  "route_mapping": {
+    "resume": "Resume the current activity directly.",
+    "stickers": "Open the existing Sticker route; the picture is a new conceptual scrapbook object, not a character sticker or runtime asset.",
+    "critters": "Open the existing Critter Book route; the three animals are illustrations inside one field-guide object and are not separate targets or accepted identities.",
+    "stuffie": "Open the existing Stuffie picker or care route according to current state. The basket/blanket/brush is a noncharacter contextual care symbol and does not replace any protected friend identity.",
+    "contextual_leave": "Run the existing context-sensitive neutral leave behavior. The open arch is a review symbol, not a fixed Castle destination or universal accepted exit pictogram."
+  },
+  "semantic_review_limits": [
+    "The care basket may be read as laundry, bathing, or grooming without the required contextual voice. Static child comprehension is unproven and must be evaluated by a human before any design-language adoption.",
+    "The open arch suggests leaving but does not encode the exact changing destination. The current route owner and exact contextual voice remain authoritative.",
+    "The play triangle is intentionally simple for recognition, but its painted paper/sail texture and shallow shadow prevent it from being an unshaded flat-color placeholder.",
+    "No v1 Pearl Stage concept was used as a generation reference."
+  ],
+  "proposed_voice_and_context_for_human_review": {
+    "status": "proposal only; no recording, runtime binding, or semantic acceptance is claimed",
+    "pause_opening_semantics": "Name the visible objects and their direct routes in one short family-voice cue: play triangle keeps playing; scrapbook opens Stickers; animal field guide opens Critters; care basket opens Stuffie; doorway goes back from the current activity.",
+    "stuffie_focus_semantics": "A short cue such as 'Let's pick or care for a Stuffie' must accompany the basket when the route needs introduction. The actual line must match whether the current state opens the picker or the care menu.",
+    "contextual_leave_semantics": "The spoken cue must name the actual return destination supplied by the current route owner, for example returning to the Playroom rather than using a generic unexplained 'exit'.",
+    "interaction_limit": "Voice supports the direct one-tap pictures and does not add a confirmation step. Human review must decide whether the basket and arch remain sufficiently clear with that context."
+  },
+  "review_state": {
+    "sol_visual_observation": "Candidate visibly preserves the Playroom context, uses one modest shell accent and one tiny rainbow accent, removes per-control crowns/plinths/rays/curtains, and gives each secondary route a materially rendered object illustration.",
+    "astra_independent_static_audit": "Substantial v2 improvement; materially rendered object art and no immediate regeneration request. Static review flags the care basket and doorway semantics for human/contextual-voice evaluation.",
+    "human_evaluation": "PENDING",
+    "next_action": "Stop for human evaluation. Do not add this candidate to canonical design language or the master audit unless the human review explicitly accepts it."
+  }
+}

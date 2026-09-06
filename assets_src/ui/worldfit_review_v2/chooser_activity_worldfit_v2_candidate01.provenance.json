@@ -1,0 +1,109 @@
+{
+  "artifact": "chooser_activity_worldfit_v2_candidate01",
+  "status": "review_only_pending_human_approval",
+  "purpose": "Adult component study for a non-reader activity chooser; not runtime art and not a canonical design decision.",
+  "generation": {
+    "method": "built-in Codex image_gen",
+    "native_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a074c0-ddea-7a71-a7e0-24747b063df9\\exec-22a034ee-b66a-44fe-a207-d4116e37a893.png",
+    "workspace_path": "assets_src/ui/worldfit_review_v2/chooser_activity_worldfit_v2_candidate01.png",
+    "native_sha256": "86239815AAC82910A187325231D8C3A53759C84FA355F0C44DCFE02FFA7016C9",
+    "workspace_sha256": "86239815AAC82910A187325231D8C3A53759C84FA355F0C44DCFE02FFA7016C9",
+    "native_workspace_byte_identical": true,
+    "dimensions_px": [1672, 941],
+    "prompt_path": "assets_src/ui/worldfit_review_v2/chooser_activity_worldfit_v2_candidate01.prompt.txt",
+    "prompt_sha256": "C175656753AC90823887C63E16EE5E35F3B156468ED5524C4F43570B803C5188"
+  },
+  "bound_imagegen_references": [
+    {
+      "path": "assets_src/ui/worldfit_review_v2/pause_menu_worldfit_v2_candidate01.png",
+      "role": "Sol world-fit pause layout/material candidate; unapproved style anchor",
+      "sha256": "7AE85C324617B87DFAA0736E8B7904DFFFBCE278741B1F9144350A703FE30B85"
+    },
+    {
+      "path": "assets_src/imagegen/opera_codex_2026-08-02/native/stage_painter_native.png",
+      "role": "non-UI Painter world reference",
+      "sha256": "028D2A7E2C6A94B47BA6C35E0E90338ED9598A19D9175335DF18E16C3F4B4C0A"
+    },
+    {
+      "path": "assets_src/imagegen/opera_codex_2026-08-02/native/stage_candymaker_native.png",
+      "role": "non-UI Candymaker world reference",
+      "sha256": "1D7EB675D7846B86F6EF5A1B6DC3BBEAED07EDAF695435DE339F5AD87A6A2CFC"
+    },
+    {
+      "path": "assets_src/imagegen/opera_codex_2026-08-02/native/stage_ballerina_native.png",
+      "role": "non-UI Ballerina world reference",
+      "sha256": "9EED115187B381DE4BEB783BE791E813F518D5CB037B87145760ADAD366F99C3"
+    },
+    {
+      "path": "assets_src/imagegen/opera_minigame_quality_2026-08-09/OPERA_MINIGAME_ART_CONTACT_SHEET_2026-08-09.png",
+      "role": "existing minigame activity-art contact reference",
+      "sha256": "974F3D5E78053BEC6208AE51ACB4781E0209D28555CF667142DA679CD3879182"
+    }
+  ],
+  "named_activity_sources_in_prompt": [
+    {
+      "activity": "Painter",
+      "action": "paint the birthday banner with a brush, palette, and paint cups",
+      "paths": [
+        "assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+        "assets/opera/worlds/props/goal_painter.png",
+        "assets/opera/worlds/widgets/widget_trace_painter.png"
+      ],
+      "note": "These factual source paths were named in the executed prompt; the five-reference imagegen cap meant they were not each direct image inputs."
+    },
+    {
+      "activity": "Candymaker",
+      "action": "tip glossy syrup from a ladle into a scallop candy mold, with jars and cake/strawberry destination",
+      "paths": [
+        "assets/opera/worlds/widgets/widget_pour_candymaker.png",
+        "assets/opera/worlds/props/goal_candymaker.png",
+        "assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+        "assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png"
+      ],
+      "note": "The direct bound contact sheet and stage references supplied continuity; the factual runtime paths remain the action binding evidence."
+    },
+    {
+      "activity": "Ballerina",
+      "action": "guide a pearl ribbon while soft stuffies dance on a music-box/recital stage",
+      "paths": [
+        "assets/opera/worlds/props/goal_ballerina.png",
+        "assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png",
+        "assets/opera/worlds/widgets/widget_trace_ballerina.png"
+      ],
+      "note": "No approved Roshan identity image was directly bound to this generation. The visible bunny/teddy figures are generic illustrative stand-ins and must not be treated as Roshan or protected friend identity art."
+    }
+  ],
+  "visual_review": {
+    "observed_passes": [
+      "Three large cards are separated and broadly equally readable.",
+      "Painter shows easel, rainbow banner, brush contact, palette, and paint cups.",
+      "Candymaker shows a ladle, liquid syrup stream, shell mold, jars, wrapped sweets, strawberries, and cake.",
+      "Ballerina shows a dance pose, ribbon path, music-box/stage setting, and companion relationship as an illustrative scene.",
+      "Return doorway is neutral and visually separate; there are no competing route arrows.",
+      "The host underwater room remains visible around a quiet cream/aqua panel with restrained painted framing."
+    ],
+    "review_followups": [
+      "Three repeated shell crests sit above the card headers; review whether those ornaments should be removed in a bounded repair while retaining the detailed vignettes.",
+      "Ballerina character identity is semantically unbound: generic figures are stand-ins only. A runtime candidate requires a separately bound approved Roshan/stuffie reference or a noncharacter ribbon/music-box vignette.",
+      "Adult labels are review aids; card art must carry recognition for a non-reader.",
+      "Generated board is not proof of runtime hit regions, focus behavior, typography, or phone-scale readability."
+    ]
+  },
+  "proposed_base_canvas_layout": {
+    "canvas": [1280, 720],
+    "safe_area": [32, 28, 1216, 664],
+    "cards": {
+      "painter": [64, 144, 352, 352],
+      "candymaker": [464, 144, 352, 352],
+      "ballerina": [864, 144, 352, 352]
+    },
+    "neutral_return": [544, 532, 192, 132],
+    "notes": "Study allocations are non-overlapping and inside the safe area. A future native reconstruction must preserve at least 110x110 base hit regions; this board cannot prove those regions."
+  },
+  "approval": {
+    "human_review_required": true,
+    "runtime_replacement_authorized": false,
+    "canonical_language_update": false,
+    "license_ledger_update": "Root-owned before any commit carrying the PNG"
+  }
+}
