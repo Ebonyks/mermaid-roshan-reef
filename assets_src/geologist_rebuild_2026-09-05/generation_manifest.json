@@ -1,0 +1,50 @@
+{
+  "task": "Geologist rebuild",
+  "date": "2026-09-05",
+  "method": "built-in image_gen",
+  "runtime_accepted": false,
+  "reference": "assets_src/imagegen/opera_codex_2026-08-02/native/world_racer_native.png",
+  "candidates": [
+    {
+      "name": "geology_props_candidate.png",
+      "source": "exec-ed4dc478-ca77-4134-9637-afba34cefb2d.png",
+      "prompt": "Create one production 2D sprite atlas for Mermaid Roshan's preschool geology activity. Reference image is STYLE ONLY: match its polished painted storybook finish, navy-purple contours, lavender shadows, soft cream and aqua highlights, round toy-like geology shapes. Transparent RGBA background, no checkerboard baked in, no text, labels, grid lines, cast shadows outside objects, scenery or characters. Exact square 2048x2048 atlas, 3 columns by 2 rows, six isolated objects with generous transparent margins each confined to its own equal cell. TOP LEFT: one complete front-facing golden-cream ammonite fossil embedded in a broad roughly oval flat lavender sandstone slab, clearly readable spiral ridges. TOP MIDDLE: one front-facing round geode cut face, roughly circular lavender stone outer rind around a richly faceted pink/aqua crystalline interior; symmetrical enough to split vertically in gameplay. TOP RIGHT: one closed round geode rock, identical outer silhouette to top-middle geode but opaque smooth mottled lavender stone and a subtle vertical seam. BOTTOM LEFT: a single chunky cream-handled soft wide aqua geology brush diagonally oriented. BOTTOM MIDDLE: one empty broad shallow aqua mineral washing pan seen from slightly above, open elliptical bowl, lavender rim, no handle, no loose objects inside. BOTTOM RIGHT: a compact group of three large distinct mineral pebbles (pink crystal, aqua crystal, golden rounded mineral), generous readable forms. Entire objects inside their cells with at least 10 percent cell margin; no overlap between cells. This is one reusable runtime atlas, not a reference board. Retain generous transparent negative space.",
+      "status": "REJECTED_RUNTIME",
+      "reason": "RGB with baked checkerboard; actual alpha required.",
+      "sha256": "d36dbd3af772b95182b4ce1757c74a9db9947830ba390a3989506622875dfdcd",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "name": "geology_grotto_candidate.png",
+      "source": "exec-c13771ed-4ddf-49c0-a120-2aff1f4585ca.png",
+      "prompt": "Create a NEW full-bleed background painting for Mermaid Roshan's geology grotto, using the reference image ONLY for its polished 2D storybook art style, rounded toy forms, painted navy-purple contours, aqua/lavender shadows, cream shell-gold stone and pink corals. This is an underwater preschool exploration playset, no characters and no UI. Native canvas request 4096x2304, wide 16:9, fill every edge with sharp intentional painting, no frame, no blank borders, no blurred enlargement or padding. Composition: friendly sheltered grotto with a scalloped lavender rock canopy high above, glowing turquoise water distance, broad layered cream and lavender sandstone terraces spanning the bottom half as quiet empty working surfaces. Clear flat sandy travel floor from left to right around y=.75. Left fifth remains spacious for the existing mermaid character. Four distant physical landmarks across upper-middle: at x=.20 a short layered sediment wall with a tiny turquoise spring, x=.38 a low empty fossil workbench made from smooth stone, x=.65 a shallow empty washing basin station, x=.91 a small lavender crystal alcove. Keep these landmarks small and separated, no foreground fossil, no brush, no pan, no geode: those are separate interactive sprites added in the game. Very quiet, low-contrast broad central work surface x=.30-.92 y=.30-.85 to keep hands-on geology readable. Sparse painted corals at outer edges only. Cohesive scene depth: background water, grounded sandstone work/play plane, sparse edge plants. Consistent overhead-left soft illumination, contact shadows under architectural masses, no black holes, no photorealism, no extra jewelry, no banners, no writing. Match the reference's gently painted illustration quality, not vector icons or 3D rendering.",
+      "status": "REFERENCE_ONLY",
+      "reason": "Native 1672x941; below required 2048x2048 coverage per playable screen.",
+      "sha256": "e60684278d33e43a51eea3534b99aa8c70e90b2ef3f11004f4d04154273fbd4b",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "name": "geology_props_alpha_retry.png",
+      "source": "exec-0709c0ab-60a4-444e-8e27-126a0290e904.png",
+      "prompt": "Edit this geology sprite atlas to remove the entire checkerboard background. Output a PNG with a REAL alpha channel: every background pixel must have alpha zero. Do not paint a checkerboard, white, cream, black, gray, gradient, or other background into the RGB image. Preserve the six illustrated objects, their designs, painted texture, colors, positions, sizes, spacing and exact outlines. No other change. This is a production transparent game sprite sheet, not a preview of transparency. If alpha output is supported, use it. Keep all six full objects uncropped.",
+      "status": "REJECTED_RUNTIME",
+      "reason": "Second attempt still RGB checkerboard. No budget spent on further identical retries.",
+      "sha256": "b91680888b3eff6acc25bcd6c62a407a60489deed41eabed3b8195699f5bb629",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "gap": "No approved fossil/pan/split geode raster or full Geologist background. Existing approved SVGs and Canvas drawing retained for working mechanics.",
+  "reference_sha256": "d7a7cba283c0f06c7159949d63f1ca345ee4938c63374ec43bebc7c78e13deda"
+}

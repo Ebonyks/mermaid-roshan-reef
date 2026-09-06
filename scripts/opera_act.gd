@@ -6,6 +6,7 @@ extends Node
 ## all play, art and touch input; this node owns validation, competition time,
 ## music restoration, the curtain-call delay and safe cancellation.
 
+const Mastery := preload("res://scripts/opera_mastery.gd")
 const CompetitionDirector := preload("res://scripts/opera_competition.gd")
 const CareerWorld2D := preload("res://scripts/opera_career_world_2d.gd")
 
@@ -120,10 +121,27 @@ func _win() -> void:
 	if competition != null:
 		performance_result = competition.complete()
 	if career_world_2d != null and is_instance_valid(career_world_2d):
+		if career_world_2d.two_act_enabled:
+			var career := String(config.get("costume", ""))
+			var awarded := Mastery.apply_result(m.save_data.get("opera_mastery", {}),
+				career, career_world_2d.performance_result_stats())
+			if int(awarded["tier"]) > 0:
+				m.save_data["opera_mastery"] = awarded["ledger"]
+				m.medals["opera_" + career] = maxi(int(m.medals.get("opera_" + career, 0)), int(awarded["best_tier"]))
+				performance_result["tier"] = int(awarded["tier"])
+				performance_result["token_delta"] = int(awarded["token_delta"])
+				performance_result["token_balance"] = int(awarded["ledger"]["encore_tokens"]["balance"])
+				m._write_save()
+				m._update_hud()
 		career_world_2d.celebrate(performance_result)
+		if career_world_2d.two_act_enabled:
+			m._play_success_yay()
+			return
 	var win_line := String(config.get("win_line", "What a show! Everybody is cheering!"))
 	if not performance_result.is_empty():
-		if competition != null and competition.is_cooperative():
+		if kind == "teacher":
+			win_line += " What a lovely learning day!"
+		elif competition != null and competition.is_cooperative():
 			win_line += " %s for the nursery team!" % String(performance_result.get("cheer", "Big cheers"))
 		else:
 			win_line += " %s for Mermaid Roshan!" % String(performance_result.get("cheer", "Big cheers"))

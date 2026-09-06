@@ -191,6 +191,12 @@ func _voice_path(speaker: String, event: String = "", allow_generic: bool = true
 	if event_suffix.begins_with(speaker_prefix):
 		event_suffix = event_suffix.trim_prefix(speaker_prefix)
 	var key := speaker + ("_" + event_suffix if event_suffix != "" else "")
+	if speaker == "roshan" and event_suffix.begins_with("teacher_"):
+		var teacher_path := "res://assets/audio/teacher/" + key + ".ogg"
+		if ResourceLoader.exists(teacher_path):
+			return teacher_path
+		teacher_path = "res://assets/audio/teacher/" + event_suffix + ".ogg"
+		return teacher_path if ResourceLoader.exists(teacher_path) else ""
 	# Day One's persistent Rumi greeting deliberately stays in Roshan's voice
 	# until an owner-approved Rumi identity recording exists. Reuse the approved
 	# Roshan acknowledgement; never synthesize or pitch a new Rumi identity.
@@ -233,6 +239,8 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	if _flush_required_queue():
 		return
 	var exact_path := _voice_path(speaker, event_suffix, false)
+	if event_suffix.begins_with("teacher_") and exact_path.is_empty():
+		return
 	if required and exact_path == "":
 		# Missing exact audio is an explicit pending gap, never a generic fallback.
 		return

@@ -1526,6 +1526,12 @@ func _init() -> void:
 			"res://assets/opera/worlds/widgets/widget_magic_vanish_wand.png")
 	_ck("magic vanish binds delivered layers or retains fallback before import",
 		vanish_layers_loaded or vanish_sources_waiting_for_import)
+	var lamba_atlas := surface.magic_vanish_lamba_texture as AtlasTexture
+	_ck("magic vanish reuses the approved 256px Seek Lamb-a identity",
+		lamba_atlas != null and lamba_atlas.atlas != null
+		and lamba_atlas.atlas.resource_path \
+			== "res://assets/minigames/seek/lamma_animation.png"
+		and lamba_atlas.region == Rect2(0, 0, 256, 256))
 	_ck("magic vanish retires the reversed pop-back-out success plate",
 		surface.magic_vanish_reveal_texture == null
 		and surface.retired_magic_vanish_reveal_path.ends_with(

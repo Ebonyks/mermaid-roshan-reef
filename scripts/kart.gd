@@ -4,6 +4,7 @@ class_name KartGame
 const StoryArtFactory = preload("res://scripts/story_art.gd")
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const Driving := preload("res://scripts/kart_driving.gd")
 # ============================================================================
 # RACE ENGINE — Rainbow Road racer (N64-inspired) and a reusable arcade-racing
 # base for future minigames.
@@ -35,15 +36,15 @@ const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 
 # ------------------------------------------------------------ tunables (defaults)
 var cfg := {}                      # overrides from configure()
-const LAPS := 2
+const LAPS := Driving.LAPS
 const LAP_TARGET_SEC := 30.0       # vmax is derived from measured track length
 const ROAD_HALF := 11.0
 const COLLIDE_R := 4.5
 const WALL_SLOW := 0.82
 const SAMPLES := 260
 const ORIGIN := Vector3(0.0, 4000.0, 0.0)
-const BOOST_MUL := 0.5             # speed bonus while turbo is burning
-const TURBO_TIME := 1.4            # seconds of turbo per full fire
+const BOOST_MUL := Driving.BOOST_MUL
+const TURBO_TIME := Driving.TURBO_TIME
 const SELECT_TIMEOUT := 5.0        # short unattended path: two choices + countdown in about 14s
 
 const CTRL := [
@@ -173,12 +174,7 @@ const VEHICLES := {
 		"turbo": 1.2, "slip": 0.45, "size": 5.0, "yaw_fix": 0.0,   # model faces -Z: correct as-is (verified render)
 		"lean": 0.5,
 	},
-	"kart": {
-		"label": "Rainbow Kart", "blurb": "PRO: turbo champ - pickups charge extra! / CON: no muscle",
-		"vmax": 1.0, "steer": 22.0, "wall": 0.82, "mass": 1.0, "mcharge": 1.3,
-		"turbo": 1.35, "slip": 0.12, "size": 6.0, "yaw_fix": -PI * 0.5,   # model faces -X: was riding sideways (verified render)
-		"lean": 0.15,
-	},
+	"kart": Driving.KART_HANDLING,
 	"truck": {
 		"label": "Monster Truck", "blurb": "PRO: BUMPER KING - shove everyone, walls can't stop it / CON: slowest",
 		"vmax": 0.985, "steer": 16.0, "wall": 0.97, "mass": 2.2,
@@ -460,9 +456,7 @@ func _advance(k: Dictionary, delta: float) -> void:
 	# what makes the racing line REAL (before this, lat was cosmetic and the
 	# lap time of any line was identical). Invisible, no reading required,
 	# physically truthful. Capped so the sharpest bend gives ~18 %.
-	var kap := _curv_at(float(k["s"]))
-	var line: float = clampf(float(k["lat"]) * kap, -0.18, 0.18)
-	k["s"] = float(k["s"]) + float(k["speed"]) * (1.0 - line) * delta
+	Driving.advance(k, _curv_at(float(k["s"])), delta)
 
 func _kart_frame(s: float, lat: float) -> Array:
 	var es := _eff(s)
@@ -2433,27 +2427,14 @@ func _process(delta: float) -> void:
 
 func _update_player(k: Dictionary, steer: float, braking: bool, fired: bool, delta: float) -> void:
 	var vd := _veh(k)
-	k["boost_t"] = maxf(0.0, float(k["boost_t"]) - delta)
-	# MK-Tour-style assist: a bar that sits FULL for a beat fires itself —
-	# agency for the thumb that taps, a floor for the one that never does
-	var want_fire := fired
-	if float(k["meter"]) >= 0.99 and float(k["boost_t"]) <= 0.0:
-		k["full_t"] = float(k.get("full_t", 0.0)) + delta
-		# TOUCH CO-PILOT (same _touch_t flag as the wall assist): the one thumb
-		# is busy steering, so on touch a full meter fires itself almost at once
-		# (0.2s so the full bar + chime still reads); pad/keyboard players keep
-		# the 2.5s beat to pick their moment
-		if float(k["full_t"]) >= (0.2 if _touch_t > 0.0 else 2.5):
-			want_fire = true
-			_flash_big("TURBO!")
-	else:
-		k["full_t"] = 0.0
-	# fire turbo (the interactive bit: player chooses the moment)
-	if want_fire and float(k["meter"]) >= 0.5 and float(k["boost_t"]) <= 0.0:
-		k["boost_t"] = TURBO_TIME * float(vd["turbo"])
-		k["meter"] = maxf(0.0, float(k["meter"]) - 0.5)
-		k["full_t"] = 0.0
-		k["squash"] = 0.3       # launch squat
+	# Preserve the existing auto-fire announcement; scalar charge/fire state is
+	# shared with the Opera circuit, while this presenter still owns its FX.
+	var auto_flash := float(k["meter"]) >= 0.99 \
+		and maxf(0.0, float(k["boost_t"]) - delta) <= 0.0 \
+		and float(k.get("full_t", 0.0)) + delta >= (0.2 if _touch_t > 0.0 else 2.5)
+	if auto_flash:
+		_flash_big("TURBO!")
+	if Driving.tick_turbo(k, vd, fired, _touch_t > 0.0, delta):
 		_shake = maxf(_shake, 0.2)
 		_chime(0.7)
 		if _main != null and _main.has_method("_sparkle_burst"):
@@ -2472,63 +2453,28 @@ func _update_player(k: Dictionary, steer: float, braking: bool, fired: bool, del
 	# launch punch: strong low-end pull that relaxes near top speed — the
 	# kart-game acceleration curve (a linear ramp reads as a slow car; a fat
 	# bottom end reads as a GO)
-	var acc: float = (60.0 if boosting else 40.0)
-	if float(k["speed"]) < target * 0.6:
-		acc *= 1.8
-	k["speed"] = move_toward(float(k["speed"]), target, acc * delta)
+	Driving.accelerate(k, target, boosting, delta)
 	_advance(k, delta)
 	# ---- SPARKLE DRIFT (the kart-class skill ceiling, one thumb) ----
 	# hold a hard steer INTO a bend for a beat to start carving; hold the carve
 	# to charge SILVER -> GOLD -> RAINBOW; ease off and the charge releases as
 	# turbo. Zero input still finishes the race — this only raises the ceiling.
-	var kap := _curv_at(float(k["s"]))
-	var bend: bool = absf(kap) > 0.006
-	var into_bend: bool = bend and absf(steer) >= 0.6 and steer * kap < 0.0
-	k["drift_arm"] = (float(k.get("drift_arm", 0.0)) + delta) if into_bend else 0.0
-	if not bool(k.get("drift", false)) and float(k["drift_arm"]) >= 0.25:
-		k["drift"] = true
-		k["drift_t"] = 0.0
-		k["drift_dir"] = signf(steer)
-		k["hop"] = 0.22           # the entry hop — the classic drift signature
+	var drift_event := Driving.tick_drift(k, steer, _curv_at(float(k["s"])), delta)
+	if bool(drift_event["entered"]):
 		_chime(1.05)
 	if bool(k.get("drift", false)):
-		var keep: bool = bend and absf(steer) >= 0.25 and signf(steer) == float(k["drift_dir"]) and steer * kap < 0.0
-		if keep:
-			k["drift_t"] = float(k["drift_t"]) + delta
-			var tier := _drift_tier(float(k["drift_t"]))
-			if tier > int(k.get("drift_tier_seen", 0)):
-				k["drift_tier_seen"] = tier
-				_chime(0.95 + 0.12 * float(tier))   # rising tier chime
-			_drift_spray(k, tier)
-		else:
+		if bool(drift_event["release"]):
 			_drift_release(k)
-	# steering with per-vehicle rate + slip (moto drifts, truck plants) — snappy response
+		else:
+			var tier := _drift_tier(float(k["drift_t"]))
+			if bool(drift_event["tier_up"]):
+				_chime(0.95 + 0.12 * float(tier))
+			_drift_spray(k, tier)
 	var slip: float = float(vd["slip"])
-	var want_v: float = steer * float(vd["steer"])
-	if bool(k.get("drift", false)):
-		# the drift holds the carve FOR you: ease onto a clean line ~60 % of
-		# the way to the inside rail (what a held drift does in kart games —
-		# it locks an arc, it doesn't feed raw inward velocity, which would
-		# grind the inside wall within half a second)
-		var room: float = _width_at(_eff(float(k["s"]))) - 1.6
-		var carve_lat: float = float(k["drift_dir"]) * room * 0.6
-		want_v = clampf((carve_lat - float(k["lat"])) * 3.0, -float(vd["steer"]) * 1.4, float(vd["steer"]) * 1.4)
-	# TOUCH CO-PILOT — 225-race platform sim: phone thumbs react ~4x slower
-	# than pads and scraped the rails 2-3x as often (truck-touch: 35/race).
-	# When the touch stick is the live input, a gentle assist eases the kart
-	# off the wall BEFORE the scrape — unless the thumb is deliberately
-	# pressed at the wall (bouncing off rails on purpose is part of the fun).
 	_touch_t = maxf(0.0, _touch_t - delta)
-	if _touch_t > 0.0:
-		var rail: float = _width_at(_eff(float(k["s"]))) - 1.6
-		var room: float = rail - absf(float(k["lat"]))
-		var toward_wall: bool = float(k["lat"]) * steer > 0.3
-		if room < 3.5 and not toward_wall:
-			var aid: float = clampf((3.5 - room) / 3.5, 0.0, 1.0) * 0.7
-			want_v = lerpf(want_v, -signf(float(k["lat"])) * float(vd["steer"]) * 0.6, aid)
-	if float(k.get("air_t", 0.0)) > 0.0:
-		want_v *= 0.5   # floaty mid-air: you can nudge the landing, not carve
-	k["latv"] = lerpf(float(k["latv"]), want_v, minf(1.0, (1.0 - slip * 0.7) * 30.0 * delta + 0.14))
+	var want_v := Driving.steering_target(k, vd, steer,
+		_width_at(_eff(float(k["s"]))) - 1.6, _touch_t > 0.0)
+	Driving.steer_velocity(k, want_v, slip, delta)
 	_apply_lat(k, float(k["lat"]) + float(k["latv"]) * delta)
 
 func _update_ai(k: Dictionary, delta: float) -> void:
@@ -2697,21 +2643,18 @@ func _place_kart(k: Dictionary, delta: float) -> void:
 # ------------------------------------------------------------ track interactions
 func _charge(k: Dictionary, amt: float) -> void:
 	# the Rainbow Kart's "mcharge" makes every pickup worth 30% more meter
-	k["meter"] = minf(1.0, float(k["meter"]) + amt * float(_veh(k).get("mcharge", 1.0)))
+	Driving.charge(k, _veh(k), amt)
 
 # ------------------------------------------------------------ sparkle drift
-const DRIFT_TIERS := [0.0, 0.8, 1.6, 2.4]          # seconds held -> tier
-const DRIFT_BOOST := [0.0, 0.55, 0.95, 1.4]        # released turbo per tier
+const DRIFT_TIERS := Driving.DRIFT_TIERS          # seconds held -> tier
+const DRIFT_BOOST := Driving.DRIFT_BOOST        # released turbo per tier
 const DRIFT_COLS := [Color(1, 1, 1), Color(0.85, 0.9, 1.0), Color(1.0, 0.85, 0.3), Color(1.0, 0.5, 0.9)]
 var _spray: CPUParticles3D = null                  # one persistent emitter, not per-burst nodes
 var _spray_mat: StandardMaterial3D = null
 var _flash_t := 0.0                                # short center-screen celebration text
 
 func _drift_tier(t: float) -> int:
-	for i in range(DRIFT_TIERS.size() - 1, 0, -1):
-		if t >= float(DRIFT_TIERS[i]):
-			return i
-	return 0
+	return Driving.drift_tier(t)
 
 func _drift_spray(k: Dictionary, tier: int) -> void:
 	if _spray == null:
@@ -2744,17 +2687,11 @@ func _drift_spray(k: Dictionary, tier: int) -> void:
 	_spray_mat.emission_energy_multiplier = 0.8
 
 func _drift_release(k: Dictionary) -> void:
-	var tier := _drift_tier(float(k.get("drift_t", 0.0)))
-	k["drift"] = false
-	k["drift_arm"] = 0.0
-	k["drift_t"] = 0.0
-	k["drift_tier_seen"] = 0
+	var tier := Driving.release_drift(k)
 	if _spray != null:
 		_spray.emitting = false
 	if tier <= 0:
 		return
-	k["boost_t"] = maxf(float(k["boost_t"]), float(DRIFT_BOOST[tier]))
-	k["squash"] = 0.3
 	_shake = maxf(_shake, 0.12)
 	_chime(1.0 + 0.15 * float(tier))
 	if _main != null and _main.has_method("_sparkle_burst"):

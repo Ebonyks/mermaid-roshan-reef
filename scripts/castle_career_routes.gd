@@ -20,7 +20,7 @@ const CARD_Y := 18.0
 const ROOM_ACT_INDICES := {
 	"kitchen": [0, 3],
 	"opera_hall": [2, 13, 8],
-	"library": [1, 16],
+	"library": [1, 16, 17],
 	"craft_room": [10],
 	"playroom": [5, 7],
 	"bubble_bath": [15],
@@ -46,6 +46,7 @@ const CAREER_CREST_FILES := {
 	"popstar": "opera_crest_singer.png",
 	"nursery": "goal_nursery.png",
 	"geologist": "opera_crest_geologist.svg",
+	"teacher": "res://assets/opera/worlds/actors/roshan_teacher.png",
 }
 
 var m: ReefMain
@@ -272,7 +273,8 @@ func _rebuild_room() -> void:
 		crest.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		crest.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		var crest_file := String(CAREER_CREST_FILES.get(costume, ""))
-		var crest_path := CREST_ROOT + crest_file
+		var crest_path := crest_file if crest_file.begins_with("res://") \
+			else CREST_ROOT + crest_file
 		if crest_file != "" and ResourceLoader.exists(crest_path):
 			crest.texture = load(crest_path) as Texture2D
 		button.add_child(crest)

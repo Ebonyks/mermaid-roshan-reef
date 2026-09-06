@@ -8,11 +8,11 @@ extends Node
 
 const RETIRED_ACT_INDICES: Array[int] = [4, 9, 14]
 const ChapterTwoAdapter := preload("res://scripts/chapter_two_career_scene_adapter.gd")
-const LIVE_ACT_INDICES: Array[int] = [0, 1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16]
+const LIVE_ACT_INDICES: Array[int] = [0, 1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17]
 const RETIRED_STAR_MASK := 0x4210
-const ACTIVE_STAR_MASK := 0x1BDEF
+const ACTIVE_STAR_MASK := 0x3BDEF
 const ALL_STARS := ACTIVE_STAR_MASK
-const ACTIVE_ACT_COUNT := 14
+const ACTIVE_ACT_COUNT := 15
 
 const ACTS := [
 	{
@@ -141,6 +141,14 @@ const ACTS := [
 		"win_line": "Geologist Roshan's crystal collection sparkles in the Castle gallery!",
 		"floor_col": Color(0.36, 0.45, 0.55), "trim": Color(0.62, 0.92, 0.86), "curtain": Color(0.43, 0.29, 0.56),
 	},
+	{
+		"save_bit": 17, "name": "The Castle Learning Circle", "career": "Teacher",
+		"costume": "teacher", "emoji": "📚", "story": 3, "type": "show",
+		"kind": "teacher", "music": "opera_teacher",
+		"voice": "Teacher Roshan! Find the patterns, count the pictures, join the groups and match every learning card together!",
+		"win_line": "Teacher Roshan and her learning buddy filled the Castle library with bright ideas!",
+		"floor_col": Color(0.43, 0.52, 0.68), "trim": Color(0.88, 0.84, 1.0), "curtain": Color(0.38, 0.34, 0.62),
+	},
 ]
 
 var m: ReefMain
@@ -263,9 +271,18 @@ func _act_won() -> void:
 		m._write_save()
 		_finish(true)
 		return
+	var checkpoint_value: Variant = m.save_data.get("opera_performance_checkpoints", {})
+	if checkpoint_value is Dictionary:
+		var checkpoints := (checkpoint_value as Dictionary).duplicate(true)
+		checkpoints.erase(String((ACTS[finished] as Dictionary).get("costume", "")))
+		m.save_data["opera_performance_checkpoints"] = checkpoints
 	var bit := 1 << finished
 	var first_time := (m.opera_stars & bit) == 0
 	m.opera_stars |= bit
+	if finished == 17:
+		m.save_data["teacher_lesson_checkpoint"] = {}
+	if String((ACTS[finished] as Dictionary).get("costume", "")) == "geologist":
+		m.save_data["opera_geology_checkpoint"] = {}
 	m.pearl_count += 3 if first_time else 1
 	m.opera_progress = live_star_count(m.opera_stars)
 	m.chapter2_on_opera_completed(finished, plot_context)

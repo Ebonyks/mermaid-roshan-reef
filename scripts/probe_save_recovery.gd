@@ -70,6 +70,55 @@ func _init() -> void:
 	_expect(int(reload_data.get("dungeon_progress", -1)) == 10 and bool(reload_data.get("dungeon_done", false)), "fresh reader reloads dungeon completion")
 	_expect(int(reload_data.get("opera_stars", -1)) == 0xFFFF and int(reload_data.get("opera_progress", -1)) == 13, "fresh reader reloads effective Opera completion")
 	_expect(String(reload_data.get("touch_mode", "")) == "hybrid", "fresh reader reloads touch preference")
+	var teacher_default: Dictionary = state._normalise_save({})
+	_expect((teacher_default.get("teacher_learning_progress", {}) as Dictionary).get(
+		"version", 0) == 1, "old save receives additive Teacher learning defaults")
+	_expect(teacher_default.get("teacher_lesson_checkpoint", {"bad": true}) == {},
+		"old save receives empty Teacher lesson checkpoint")
+	var teacher_raw := {
+		"teacher_learning_progress": {"version": 1, "kinds": {
+			"pattern": {"tier": 2, "clean_successes": 1, "rounds": 9}}},
+		"teacher_lesson_checkpoint": {"version": 1, "phase_index": 2,
+			"mechanic": {"kind": "add", "choices": [2, 3, 4]},
+			"future_note": "keep"},
+		"teacher_neighbor": {"kept": true},
+	}
+	var teacher_normalised: Dictionary = state._normalise_save(teacher_raw)
+	var pre_teacher_primary := _read_text(TEST_PATH)
+	var pre_teacher_backup := _read_text(TEST_PATH + ".bak")
+	main.save_data = teacher_normalised
+	state.write_save()
+	var teacher_disk: Dictionary = _read_json(TEST_PATH)
+	var teacher_progress: Dictionary = teacher_disk.get("teacher_learning_progress", {})
+	var teacher_kinds: Dictionary = teacher_progress.get("kinds", {})
+	var teacher_pattern: Dictionary = teacher_kinds.get("pattern", {})
+	var teacher_checkpoint: Dictionary = teacher_disk.get("teacher_lesson_checkpoint", {})
+	var teacher_mechanic: Dictionary = teacher_checkpoint.get("mechanic", {})
+	var teacher_choices: Array = teacher_mechanic.get("choices", [])
+	_expect(int(teacher_pattern.get("tier", -1)) == 2
+		and int(teacher_pattern.get("rounds", -1)) == 9,
+		"Teacher learning progress survives JSON disk round-trip")
+	_expect(int(teacher_checkpoint.get("phase_index", -1)) == 2
+		and String(teacher_mechanic.get("kind", "")) == "add"
+		and teacher_choices.size() == 3 and int(teacher_choices[0]) == 2
+		and int(teacher_choices[2]) == 4,
+		"Teacher lesson checkpoint survives JSON disk round-trip")
+	_expect(String(teacher_checkpoint.get("future_note", "")) == "keep"
+		and teacher_disk.get("teacher_neighbor", {}) == {"kept": true},
+		"Teacher save normalization preserves unrelated keys")
+	for invalid_checkpoint: Variant in ["bad", {"version": 2,
+			"phase_index": 1, "mechanic": {}}, {"version": 1,
+			"phase_index": 1.5, "mechanic": {}}, {"version": 1,
+			"phase_index": 1, "mechanic": []}]:
+		var healed: Dictionary = state._normalise_save({
+			"teacher_lesson_checkpoint": invalid_checkpoint,
+			"teacher_neighbor": {"kept": true}})
+		_expect(healed.get("teacher_lesson_checkpoint", {"bad": true}) == {}
+			and healed.get("teacher_neighbor", {}) == {"kept": true},
+			"invalid Teacher checkpoint heals without losing unrelated keys")
+	_write_text(TEST_PATH, pre_teacher_primary)
+	_write_text(TEST_PATH + ".bak", pre_teacher_backup)
+	main.save_data = reload_data
 
 	_write_text(TEST_PATH, "{truncated")
 	var recovered: Dictionary = state._select_load_candidate()
@@ -180,6 +229,64 @@ func _init() -> void:
 	_expect(core_data.get("critters") is Dictionary, "pre-Critter-Book save defaults critters without demotion")
 	_expect(String(core_data.get("touch_mode", "")) == "hybrid", "pre-touch-mode save defaults to Hybrid")
 	_expect(int(core_data.get("pearls", -1)) == 12, "no demotion: newest progress kept")
+
+	# The optional Geologist checkpoint is additive: old saves get an empty
+	# checkpoint, valid partial work survives a real JSON write/read, and a bad
+	# checkpoint heals locally without discarding unrelated future data.
+	_expect(core_data.get("opera_geology_checkpoint", {"bad": true}) == {},
+		"pre-Geologist save defaults geology checkpoint to empty")
+	_cleanup()
+	var geology_checkpoint := {
+		"version": 1,
+		"phase_index": 1,
+		"mechanic": {
+			"version": 1,
+			"mode": "geology_fossil",
+			"cleared": [0, 3, 11, 24],
+			"snapped": [false, false, false],
+		},
+		"future_checkpoint_note": "keep",
+	}
+	main.save_data = {
+		"opera_geology_checkpoint": geology_checkpoint,
+		"geology_neighbor_key": {"kept": true},
+	}
+	var geology_state := SaveState.new(main, TEST_PATH)
+	_expect(geology_state.write_save(), "Geologist checkpoint fixture written")
+	var geology_disk: Dictionary = _read_json(TEST_PATH)
+	var geology_disk_checkpoint: Dictionary = geology_disk.get(
+		"opera_geology_checkpoint", {})
+	var geology_disk_mechanic: Dictionary = geology_disk_checkpoint.get(
+		"mechanic", {})
+	var geology_disk_cleared: Array = geology_disk_mechanic.get("cleared", [])
+	_expect(int(geology_disk_checkpoint.get("phase_index", -1)) == 1
+		and String(geology_disk_mechanic.get("mode", "")) == "geology_fossil"
+		and geology_disk_cleared.size() == 4
+		and int(geology_disk_cleared[2]) == 11,
+		"valid Geologist checkpoint survives JSON disk round-trip")
+	_expect(String(geology_disk_checkpoint.get("future_checkpoint_note", "")) == "keep"
+		and geology_disk.get("geology_neighbor_key", {}) == {"kept": true},
+		"checkpoint and save preserve unrelated keys")
+	var invalid_checkpoints: Array = [
+		"wrong top type",
+		{"version": 2, "phase_index": 1, "mechanic": {}},
+		{"version": "1", "phase_index": 1, "mechanic": {}},
+		{"version": 1, "phase_index": {}, "mechanic": {}},
+		{"version": 1, "phase_index": NAN, "mechanic": {}},
+		{"version": 1, "phase_index": 1.5, "mechanic": {}},
+		{"version": 1, "phase_index": 5, "mechanic": {}},
+		{"version": 1, "phase_index": 1, "mechanic": []},
+	]
+	for invalid_checkpoint: Variant in invalid_checkpoints:
+		var damaged := {
+			"opera_geology_checkpoint": invalid_checkpoint,
+			"geology_neighbor_key": {"kept": true},
+		}
+		var healed: Dictionary = geology_state._normalise_save(damaged)
+		_expect(healed.get("opera_geology_checkpoint", {"bad": true}) == {},
+			"invalid Geologist checkpoint schema heals to empty")
+		_expect(healed.get("geology_neighbor_key", {}) == {"kept": true},
+			"invalid checkpoint healing retains unrelated key")
 
 	# New Game archives the complete current document through a checked temp
 	# rename. Restoring it must preserve unknown fields and outrank the fresh

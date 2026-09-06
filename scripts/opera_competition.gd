@@ -95,7 +95,8 @@ const CAREERS := {
 		"world": "OPERA GRAND PRIX",
 		"contest": "Two laps against the helmeted imp",
 		"rival_verb": "takes a corner",
-		"par_time": 34.0,
+		# Two 24-second laps plus the pit stop and gentle instruction time.
+		"par_time": 70.0,
 		"rival_cap": 0.94,
 		"accent": Color(1.0, 0.42, 0.40),
 	},
@@ -121,11 +122,21 @@ const CAREERS := {
 		"world": "CRYSTAL CAVE DISCOVERY",
 		"contest": "Discover and display every specimen together",
 		"rival_verb": "labels a specimen",
-		"par_time": 40.0,
+		"par_time": 120.0,
 		"rival_cap": 0.82,
 		"cooperative": true,
 		"partner": "Field Guide Imp",
 		"accent": Color(0.48, 0.88, 0.82),
+	},
+	"teacher": {
+		"world": "CASTLE LEARNING CIRCLE",
+		"contest": "Solve every learning puzzle together",
+		"rival_verb": "helps with a card",
+		"par_time": 40.0,
+		"rival_cap": 0.82,
+		"cooperative": true,
+		"partner": "Learning Buddy Imp",
+		"accent": Color(0.68, 0.62, 0.94),
 	},
 }
 
@@ -178,7 +189,8 @@ func begin() -> void:
 	if not is_valid() or completed:
 		return
 	active = true
-	round_elapsed = 0.0
+	if not bool(spec.get("honest_stage", false)):
+		round_elapsed = 0.0
 
 
 func pause() -> void:
@@ -242,7 +254,13 @@ func complete() -> Dictionary:
 	active = false
 	completed = true
 	player_progress = 1.0
-	if is_cooperative():
+	if bool(spec.get("honest_stage", false)):
+		# Both performers solve the same quantity of work. Finishing second is
+		# still a complete performance, never a fabricated lead or a fail state.
+		spec["player_first"] = rival_progress < 0.999
+		player_score = 720
+		rival_score = int(round(rival_progress * 720.0))
+	elif is_cooperative():
 		# a team finale: Faron finishes WITH Roshan, nobody is beaten
 		rival_progress = 1.0
 		player_score += 180
@@ -276,6 +294,7 @@ func result() -> Dictionary:
 		"elapsed": elapsed,
 		"retries": retries,
 		"cooperative": is_cooperative(),
+		"player_first": bool(spec.get("player_first", true)),
 	}
 
 

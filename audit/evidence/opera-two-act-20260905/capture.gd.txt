@@ -1,0 +1,47 @@
+extends "res://scripts/probe_opera_art.gd"
+
+func snap(name: String) -> void:
+	await create_timer(0.8).timeout
+	await _settle(3)
+	await RenderingServer.frame_post_draw
+	get_root().get_texture().get_image().save_png("res://tmp/opera-two-act/" + name + ".png")
+	print("PERFORMANCESHOT|" + name)
+
+func _run() -> void:
+	if not await _set_aspect(Vector2i(1280, 720)) or not await _start_runtime():
+		quit(1)
+		return
+	for index in [2, 8, 13]:
+		main.save_data["opera_performance_checkpoints"] = {}
+		if not await _prepare_career_route("opera_hall", index):
+			quit(2)
+			return
+		routes._launch("opera_hall", index)
+		await create_timer(2.0).timeout
+		if not await _wait_career_ready(index, "opera_hall"):
+			print(_career_actual_state(index, "opera_hall", "guarded_route"))
+			quit(3)
+			return
+		var act := (main.opera_game as OperaHouse).act as OperaAct
+		var world := act.career_world_2d
+		act.set_process(false)
+		world.set_process(false)
+		await snap(world.career_id + "_entry")
+		world._show_phase()
+		world._process(3.0)
+		await snap(world.career_id + "_practice")
+		world.phase_index = world.performance_stage_start
+		world._show_phase()
+		await snap(world.career_id + "_stage")
+		world.competition.rival_progress = 0.57
+		world._performance_tick(0.0)
+		await snap(world.career_id + "_imp_work")
+		await _set_aspect(Vector2i(1600, 720))
+		await snap(world.career_id + "_wide")
+		world.celebrate({"tier": 2, "token_delta": 2, "token_balance": 3})
+		await snap(world.career_id + "_result_wide")
+		await _set_aspect(Vector2i(1280, 720))
+		await _teardown_runtime()
+		await _start_runtime()
+	await _teardown_runtime()
+	quit(0)

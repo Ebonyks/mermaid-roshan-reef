@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import ast
 import csv
+import gzip
 import hashlib
 import io
 import json
@@ -22,6 +23,27 @@ AUDIO_SUFFIXES = {".ogg", ".wav", ".mp3"}
 VOICE_ROOT_REL = "assets/audio/voices/"
 FILLER_ROOT_REL = "assets/audio/voices/filler_v1/"
 FILLER_MANIFEST_NAME = "FILLER_MANIFEST.json"
+TEACHER_ROOT_REL = "assets/audio/teacher/"
+TEACHER_MANIFEST_REL = "assets_src/teacher_learning_2026-09-05/audio_manifest.json"
+TEACHER_SOURCE_SNAPSHOT_REL = (
+    "assets_src/teacher_learning_2026-09-05/make_voices_generation_source.py.gz")
+TEACHER_KEYS = {
+    "roshan_teacher_start", "teacher_pattern", "teacher_count", "teacher_add",
+    "teacher_match", "teacher_choose", "teacher_help",
+    *(f"teacher_number_{number}" for number in range(1, 11)),
+}
+TEACHER_SOURCE_PROVENANCE = {
+    # Pinned generation-time evidence from the reviewed manifest. These hashes
+    # identify the weights used; the model files are intentionally not runtime
+    # repository dependencies and are not remeasured on the audit host.
+    "model_sha256": "8fbea51ea711f2af382e88c833d9e288c6dc82ce5e98421ea61c058ce21a34cb",
+    "voices_sha256": "b58979d4eb5b1fdbe783c93f9f43c21217cb8f07af9d3860547371a5b2c8b646",
+    "model_reference": "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX",
+    "model_license": "Apache-2.0 (upstream Kokoro-82M ONNX distribution)",
+    "voice_identity": (
+        "Synthetic Kokoro af_heart; no family recording, protected voice, "
+        "or identity cloning used."),
+}
 PROTECTED = {
     "assets/audio/voices/chuck.ogg",
     "assets/audio/voices/chuck_bark.ogg",
@@ -188,11 +210,13 @@ def decoded_signal(path: Path) -> dict[str, float | int | str]:
     if not samples or any(not math.isfinite(value) for value in samples):
         return {"decode_ok": False, "error": "decoded signal is empty or non-finite"}
     peak = max(abs(value) for value in samples)
+    rms = math.sqrt(sum(value * value for value in samples) / len(samples))
     return {
         "decode_ok": True,
         "duration_s": round(len(samples) / 48000.0, 6),
         "decoded_peak_linear": round(peak, 7),
         "decoded_clipped_samples": sum(abs(value) >= 0.999 for value in samples),
+        "decoded_rms_dbfs": round(20.0 * math.log10(max(rms, 1.0e-12)), 2),
         "dc_offset": round(sum(samples) / len(samples), 8),
     }
 
@@ -291,7 +315,8 @@ def canonical_json_sha256(value: object) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
-def authoritative_filler_lines(root: Path) -> dict[str, tuple[str, str]]:
+def authoritative_filler_lines(root: Path,
+                               excluded_keys: set[str] | None = None) -> dict[str, tuple[str, str]]:
     """Read the legacy generator and frozen contextual catalogs as authority."""
     source = root / "tools" / "make_voices.py"
     if not source.exists():
@@ -307,8 +332,10 @@ def authoritative_filler_lines(root: Path) -> dict[str, tuple[str, str]]:
             break
     if lines is None:
         raise RuntimeError("tools/make_voices.py has no literal LINES catalog")
+    excluded = (excluded_keys or set()) & TEACHER_KEYS
     expected = {
-        key: value for key, value in lines.items() if value[0] != "faron"
+        key: value for key, value in lines.items()
+        if value[0] != "faron" and key not in excluded
     }
     contextual_path = root / "audit" / "DAY_ONE_CONTEXTUAL_VOICE_COVERAGE_2026-09-01.json"
     if contextual_path.is_file():
@@ -329,6 +356,184 @@ def authoritative_filler_lines(root: Path) -> dict[str, tuple[str, str]]:
             expected[key] = value
     expected["everyone"] = ("everyone", "Hooray!")
     return expected
+
+
+def validate_teacher_manifest(root: Path) -> dict[str, object]:
+    """Validate the separately delivered Teacher speech cohort."""
+    manifest_path = root / TEACHER_MANIFEST_REL
+    teacher_root = root / TEACHER_ROOT_REL
+    actual_names = ({path.name for path in teacher_root.glob("*.ogg")}
+                    if teacher_root.is_dir() else set())
+    if not manifest_path.is_file():
+        issues = (["Teacher audio manifest is missing"] if actual_names else [])
+        return {"present": False, "blocking": bool(issues), "issues": issues,
+                "declared_keys": set(), "expected_names": set()}
+    issues: list[str] = []
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return {"present": True, "blocking": True,
+                "issues": [f"Teacher audio manifest is invalid: {exc}"],
+                "declared_keys": set(), "expected_names": set()}
+    entries = manifest.get("entries")
+    if manifest.get("schema_version") != 1:
+        issues.append("Teacher audio manifest schema_version must be 1")
+    if not isinstance(entries, list):
+        entries = []
+        issues.append("Teacher audio manifest entries must be an array")
+    authority = authoritative_filler_lines(root)
+    generator = manifest.get("generator")
+    if not isinstance(generator, dict):
+        generator = {}
+        issues.append("Teacher audio manifest generator must be an object")
+    if generator.get("script") != "tools/make_voices.py":
+        issues.append("Teacher generator script path is invalid")
+    source_hash = generator.get("script_sha256")
+    snapshot_path = root / TEACHER_SOURCE_SNAPSHOT_REL
+    try:
+        snapshot = gzip.decompress(snapshot_path.read_bytes())
+    except (OSError, EOFError, gzip.BadGzipFile) as exc:
+        snapshot = b""
+        issues.append(f"Teacher generator source snapshot is unavailable: {exc}")
+    if not isinstance(source_hash, str) or not re.fullmatch(r"[0-9a-fA-F]{64}", source_hash):
+        issues.append("Teacher generator script_sha256 is invalid")
+    elif snapshot and hashlib.sha256(snapshot).hexdigest() != source_hash.lower():
+        issues.append("Teacher generator source snapshot hash mismatch")
+    current_generator = root / "tools/make_voices.py"
+    if snapshot and current_generator.is_file():
+        normalized_snapshot = snapshot.replace(b"\r\n", b"\n")
+        normalized_current = current_generator.read_bytes().replace(b"\r\n", b"\n")
+        if normalized_snapshot != normalized_current:
+            issues.append("Teacher generator snapshot disagrees with current normalized source")
+    speaker_config = generator.get("speaker_config")
+    expected_speaker = {
+        "character": "roshan", "voice": "af_heart",
+        "pitch_factor": 1.24, "speed": 1.02,
+    }
+    if speaker_config != expected_speaker:
+        issues.append("Teacher speaker_config disagrees with generation authority")
+    source_provenance = manifest.get("source_provenance")
+    if not isinstance(source_provenance, dict):
+        issues.append("Teacher source_provenance must be an object")
+    else:
+        for field, expected in TEACHER_SOURCE_PROVENANCE.items():
+            if source_provenance.get(field) != expected:
+                issues.append(
+                    f"Teacher source_provenance {field} disagrees with pinned generation evidence")
+    delivery = manifest.get("delivery")
+    if not isinstance(delivery, dict):
+        delivery = {}
+        issues.append("Teacher delivery must be an object")
+    for field, expected in (("directory", "assets/audio/teacher"),
+                            ("sample_rate_hz", 48000), ("channels", 1),
+                            ("codec", "vorbis"), ("target_lufs", -16.0),
+                            ("true_peak_limit_dbtp", -1.5), ("files_count", 17)):
+        if delivery.get(field) != expected:
+            issues.append(f"Teacher delivery {field} disagrees with policy")
+    declared_keys: set[str] = set()
+    expected_names: set[str] = set()
+    for index, entry in enumerate(entries):
+        if not isinstance(entry, dict):
+            issues.append(f"Teacher entry {index} must be an object")
+            continue
+        key = entry.get("key")
+        if not isinstance(key, str) or not key or Path(key).name != key or Path(key).suffix:
+            issues.append(f"Teacher entry {index} has unsafe key: {key!r}")
+            continue
+        if key in declared_keys:
+            issues.append(f"duplicate Teacher entry: {key}")
+        declared_keys.add(key)
+        if key not in TEACHER_KEYS:
+            issues.append(f"unrecognized Teacher cohort key: {key}")
+        name = f"{key}.ogg"
+        expected_names.add(name)
+        expected_path = f"{TEACHER_ROOT_REL}{name}"
+        if entry.get("output_path") != expected_path:
+            issues.append(f"{name} has invalid Teacher output_path")
+        expected_line = authority.get(key)
+        actual_line = (str(entry.get("speaker", "")), str(entry.get("text", "")))
+        if expected_line is None:
+            issues.append(f"{name} is absent from tools/make_voices.py authority")
+        elif actual_line != expected_line:
+            issues.append(f"{name} speaker/text disagrees with tools/make_voices.py")
+        expected_text_hash = hashlib.sha256(str(entry.get("text", "")).encode()).hexdigest()
+        if entry.get("source_text_sha256") != expected_text_hash:
+            issues.append(f"{name} source_text_sha256 mismatch")
+        for field, expected in (("kokoro_voice", "af_heart"),
+                                ("pitch_factor", 1.24), ("speed", 1.02),
+                                ("source_line_table", "tools/make_voices.py:LINES")):
+            if entry.get(field) != expected:
+                issues.append(f"{name} {field} disagrees with generator")
+        path = root / expected_path
+        if not path.is_file():
+            issues.append(f"Teacher manifest entry missing OGG: {name}")
+            continue
+        expected_hash = entry.get("output_sha256")
+        if not isinstance(expected_hash, str) or not re.fullmatch(r"[0-9a-fA-F]{64}", expected_hash):
+            issues.append(f"{name} has missing/invalid output_sha256")
+        elif sha256(path).lower() != expected_hash.lower():
+            issues.append(f"{name} hash mismatch")
+        if entry.get("output_bytes") != path.stat().st_size:
+            issues.append(f"{name} output_bytes mismatch")
+        meta = probe(path)
+        integrated, lra, peak = loudness(path) if meta.get("decode_ok") else (None, None, None)
+        signal = decoded_signal(path) if meta.get("decode_ok") else {"decode_ok": False}
+        if not meta.get("decode_ok") or not signal.get("decode_ok"):
+            issues.append(f"{name} media decode failed")
+            continue
+        for field, expected in (("codec", meta.get("codec")),
+                                ("sample_rate_hz", meta.get("sample_rate_hz")),
+                                ("channels", meta.get("channels"))):
+            if entry.get(field) != expected:
+                issues.append(f"{name} {field} mismatch")
+        _metric_mismatch(issues, f"{name} bitrate_kbps",
+                         meta.get("bitrate_kbps"), entry.get("bitrate_kbps"), 1.0)
+        _metric_mismatch(issues, f"{name} duration_s",
+                         signal.get("duration_s"), entry.get("duration_s"), 0.02)
+        _metric_mismatch(issues, f"{name} true_peak_dbtp",
+                         peak, entry.get("true_peak_dbtp"), 0.1)
+        _metric_mismatch(issues, f"{name} decoded_peak_linear",
+                         signal.get("decoded_peak_linear"), entry.get("decoded_peak_linear"), 0.0001)
+        _metric_mismatch(issues, f"{name} decoded_rms_dbfs",
+                         signal.get("decoded_rms_dbfs"), entry.get("decoded_rms_dbfs"), 0.1)
+        if entry.get("decoded_clipped_samples") != signal.get("decoded_clipped_samples"):
+            issues.append(f"{name} decoded_clipped_samples mismatch")
+        measured_clips = int(signal.get("decoded_clipped_samples", -1))
+        if measured_clips != 0:
+            issues.append(f"{name} has decoded clipped samples: {measured_clips}")
+        peak_limit = float(delivery.get("true_peak_limit_dbtp", -1.5))
+        if peak is None or peak > peak_limit:
+            issues.append(
+                f"{name} true peak exceeds Teacher delivery limit: {peak!r} > {peak_limit}")
+        if float(signal.get("duration_s", 0.0)) < 0.4:
+            if entry.get("quality_status") != "PASS_WITH_NOTE" or entry.get("integrated_lufs") != -70.0:
+                issues.append(f"{name} short-program quality claim is invalid")
+        else:
+            _metric_mismatch(issues, f"{name} integrated_lufs",
+                             integrated, entry.get("integrated_lufs"), 0.1)
+            _metric_mismatch(issues, f"{name} loudness_range_lu",
+                             lra, entry.get("loudness_range_lu"), 0.1)
+            if entry.get("quality_status") != "PASS":
+                issues.append(f"{name} quality_status must be PASS")
+    for missing in sorted(expected_names - actual_names):
+        # The entry-level message names the same defect; avoid duplicate output.
+        if f"Teacher manifest entry missing OGG: {missing}" not in issues:
+            issues.append(f"Teacher manifest entry missing OGG: {missing}")
+    nested_names = {
+        path.relative_to(teacher_root).as_posix()
+        for path in teacher_root.rglob("*.ogg")
+    } if teacher_root.is_dir() else set()
+    for unexpected in sorted(nested_names - expected_names):
+        issues.append(f"unlisted Teacher OGG: {unexpected}")
+    for missing_key in sorted(TEACHER_KEYS - declared_keys):
+        issues.append(f"required Teacher cohort key missing: {missing_key}")
+    declared_count = manifest.get("delivery", {}).get("files_count") \
+        if isinstance(manifest.get("delivery"), dict) else None
+    if declared_count != len(entries):
+        issues.append("Teacher manifest files_count disagrees with entries")
+    return {"present": True, "blocking": bool(issues), "issues": issues,
+            "declared_keys": declared_keys, "expected_names": expected_names,
+            "entry_count": len(entries)}
 
 
 def _expected_ogg_serial(key: str) -> int:
@@ -871,7 +1076,9 @@ def loudness(path: Path) -> tuple[float | None, float | None, float | None]:
 
 
 def category(rel: str) -> str:
-    if rel.startswith("assets/audio/voices/") or rel == "assets/audio/voice_yay.mp3":
+    if rel.startswith("assets/audio/voices/") \
+            or rel.startswith("assets/audio/teacher/") \
+            or rel == "assets/audio/voice_yay.mp3":
         return "voice"
     if rel.startswith("assets/audio/music/"):
         return "music"
@@ -994,7 +1201,8 @@ def csv_text(rows: list[dict[str, object]]) -> str:
 
 def summary(rows: list[dict[str, object]],
             filler_validation: dict[str, object] | None = None,
-            protected_validation: dict[str, object] | None = None) -> dict[str, object]:
+            protected_validation: dict[str, object] | None = None,
+            teacher_validation: dict[str, object] | None = None) -> dict[str, object]:
     technical = Counter(str(row["technical_grade"]) for row in rows)
     decisions = Counter(str(row["decision"]) for row in rows)
     categories = Counter(str(row["category"]) for row in rows)
@@ -1011,6 +1219,10 @@ def summary(rows: list[dict[str, object]],
         "filler_manifest": {
             key: value for key, value in (filler_validation or {}).items()
             if key != "expected_names"
+        },
+        "teacher_manifest": {
+            key: value for key, value in (teacher_validation or {}).items()
+            if key not in {"declared_keys", "expected_names"}
         },
         "human_review_state": "OPEN_DEVICE_LISTENING",
         "required_external_gates": [
@@ -1030,15 +1242,20 @@ def main() -> int:
     out_dir = args.out_dir if args.out_dir.is_absolute() else root / args.out_dir
     csv_path = out_dir / "audio_quality_ledger_2026-08-24.csv"
     json_path = out_dir / "audio_quality_summary_2026-08-24.json"
-    filler_validation = validate_filler_manifest(root)
+    teacher_validation = validate_teacher_manifest(root)
+    teacher_keys = set(teacher_validation.get("declared_keys", set()))
+    filler_validation = validate_filler_manifest(
+        root, authoritative_filler_lines(root, teacher_keys))
     protected_validation = protected_audit(root)
     rows = build_rows(root, filler_validation)
     rendered_csv = csv_text(rows)
     rendered_json = json.dumps(
-        summary(rows, filler_validation, protected_validation),
+        summary(rows, filler_validation, protected_validation, teacher_validation),
         indent=2, sort_keys=True,
     ) + "\n"
-    blocking = list(filler_validation.get("issues", [])) + list(protected_validation.get("issues", []))
+    blocking = (list(filler_validation.get("issues", []))
+                + list(teacher_validation.get("issues", []))
+                + list(protected_validation.get("issues", [])))
     if blocking:
         print("AUDIO_QUALITY|BLOCKED|" + " | ".join(str(item) for item in blocking))
         return 1

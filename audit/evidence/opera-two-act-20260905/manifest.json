@@ -1,0 +1,254 @@
+{
+  "schema": "opera-hall-local-review-v1",
+  "status": "LOCAL_CANDIDATE_NOT_RELEASED",
+  "base_commit": "775ceee1b9f20118abec25ce933db292bb3c847e",
+  "scope": [
+    "ballerina",
+    "magician",
+    "popstar"
+  ],
+  "capture": {
+    "started_utc": "2026-09-05T21:00:13.933078+00:00",
+    "engine": "4.7.2-stable official.ed1daf0bf",
+    "renderer": "Mobile",
+    "method": "guarded-route desktop viewport; stage/rival/result fixtures for layout review",
+    "source_sha256": {
+      "scripts/opera_career_world_2d.gd": "e3f236afcadc49e84515c9f712b0094be616488fb2caa37cbe055c6668819148",
+      "scripts/opera_gesture_surface.gd": "ef0e7af842077a03bf22f6d2e63f512aa65a0ba64482215e6159ce8d28050d72",
+      "scripts/opera_ballet_surface.gd": "0603f780b841b0c4833ae863d797345f7e20bb731bafb294159d64beab4b4dd9",
+      "scripts/opera_performance_overlay.gd": "1d41aa693d6d2fde851b4c612c2af210c79ae328e517f84c85f639edaf4c1e38",
+      "scripts/opera_performance_plan.gd": "25517580638edcc8f63375ec6b14fd0de89287ed08af00111fec1d467cce6da3",
+      "scripts/opera_mastery.gd": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3",
+      "scripts/opera_competition.gd": "f69b4922f734272e8e0682d0c5e302f34538cc4cf9792dac474454bd96efb1b8",
+      "scripts/opera_act.gd": "ad107c7cd70171969676d2568991ea42035237ce0189389c9eece7aa9809d776",
+      "scripts/probe_opera_art.gd": "5950fd3f7b6d001c4e6743c00755a7436c8601d053a8f79ddb77c3636c75ebc2",
+      "tmp/opera-two-act/capture.gd": "8ccbd6270d733f1f808708da88fdad75e12ea25663415ee88aa088eeaddd634d"
+    }
+  },
+  "capture_exit_code": 0,
+  "captures_are_diagnostic_fixtures": true,
+  "not_claimed": [
+    "child acceptance",
+    "device performance",
+    "owner art acceptance",
+    "master audit closure",
+    "release readiness"
+  ],
+  "files": [
+    {
+      "path": "ballerina_entry.png",
+      "bytes": 1455590,
+      "sha256": "71935e3d776cced4aba0365cde803791f5d791c9860bb2ab025a901d3629167c"
+    },
+    {
+      "path": "ballerina_imp_work.png",
+      "bytes": 1264822,
+      "sha256": "fb096539a6ecc3218263b1735600d6415df799ac0cdf86221fedf4edd1c105cf"
+    },
+    {
+      "path": "ballerina_practice.png",
+      "bytes": 1295740,
+      "sha256": "894c4c61869f985fb4f8370db2f196e2b67a554891a27db70d11efc8f41a21e4"
+    },
+    {
+      "path": "ballerina_result_wide.png",
+      "bytes": 1276839,
+      "sha256": "6b6df6c2f13563b660c6526616e371f081496ea2e632037e0ea4865ac970ea10"
+    },
+    {
+      "path": "ballerina_stage.png",
+      "bytes": 1271264,
+      "sha256": "dc0a84c4873cdc0988688ca1f2abe6e6bf8c118d099f7c9398c5e4f964ee5ed7"
+    },
+    {
+      "path": "ballerina_wide.png",
+      "bytes": 1296190,
+      "sha256": "3b5e30e0738f07c5cbe4ea07468fd7dd8a6a9947052f0f824bb1775e62d19c62"
+    },
+    {
+      "path": "capture-final.log",
+      "bytes": 772,
+      "sha256": "a15b53efb437083654c50f6fba5dac501dc916610a77bef98862a22cfc8505fa"
+    },
+    {
+      "path": "capture-source.json",
+      "bytes": 1311,
+      "sha256": "bd8eec702782b2ae6f9b5e6d4e0cc751c15ac38550e88ba11696fa8eb46a9a65"
+    },
+    {
+      "path": "capture.gd.txt",
+      "bytes": 1673,
+      "sha256": "8ccbd6270d733f1f808708da88fdad75e12ea25663415ee88aa088eeaddd634d"
+    },
+    {
+      "path": "full-ci.log",
+      "bytes": 2217,
+      "sha256": "4629ebb161073e4d12bdb0de461fe03e2a00a3d8a997504dfa5e2b68cfe582c5"
+    },
+    {
+      "path": "import.log",
+      "bytes": 561779,
+      "sha256": "2038678c6d3488241a2020f56b70a66607b1a19c1b211c89383b679f0dee9260"
+    },
+    {
+      "path": "magician_entry.png",
+      "bytes": 1508393,
+      "sha256": "c70140454ea600bf46464578a4c63756a58a26e2de3e414390932c22120b0154"
+    },
+    {
+      "path": "magician_imp_work.png",
+      "bytes": 1348626,
+      "sha256": "1de428e4bbdde1d26d672e903183ef6a1a7cb00bb29cf91924c2f3ae56787a44"
+    },
+    {
+      "path": "magician_practice.png",
+      "bytes": 1489164,
+      "sha256": "c97e1cd5bdf58ee34b5aae5a0d95e0023eb7d8efac4c5588b50023339a38ebb8"
+    },
+    {
+      "path": "magician_result_wide.png",
+      "bytes": 1286140,
+      "sha256": "2bb4f968da20c37c782e8babd1901d4986a692d4cbd89e08987ebfbccadc85d1"
+    },
+    {
+      "path": "magician_stage.png",
+      "bytes": 1353082,
+      "sha256": "d5cf7a4445994e1d8a0905b8c90c09d2fd0d3d1b773d9fadb976440efb469400"
+    },
+    {
+      "path": "magician_wide.png",
+      "bytes": 1376022,
+      "sha256": "40c10ad7d9063c335d02afb8d359cafa78e664daca2da9e78b48dd56aa3f7900"
+    },
+    {
+      "path": "mastery.log",
+      "bytes": 902,
+      "sha256": "c8e46c52959ac8157c5dbfb5c81395cdc832547ce1e89d3cecad341bbb72b12f"
+    },
+    {
+      "path": "popstar_entry.png",
+      "bytes": 1447655,
+      "sha256": "904b64039d807bb3f5cca6b761e91f6ba42f87a8caea5ab1bb17fe17d1a34639"
+    },
+    {
+      "path": "popstar_imp_work.png",
+      "bytes": 1392476,
+      "sha256": "152ed8f76a6f1f06c3243b6dc574f2b9f0002245d9c7b8547c52f25ba3ce3a0c"
+    },
+    {
+      "path": "popstar_practice.png",
+      "bytes": 1424259,
+      "sha256": "4aab52bcd429958d82d37e9c54102f4933fdd38bd0224228efd189e7dc4c6156"
+    },
+    {
+      "path": "popstar_result_wide.png",
+      "bytes": 1337396,
+      "sha256": "db5eac29509c865505e6f56e8f36f61e7fe8f50809bfce1f8d97dee524c31539"
+    },
+    {
+      "path": "popstar_stage.png",
+      "bytes": 1396759,
+      "sha256": "4202dddba60302c0349e74c77a5c4273b6924f8c1be4f4517b74dc3903fe7ecc"
+    },
+    {
+      "path": "popstar_wide.png",
+      "bytes": 1420702,
+      "sha256": "6c6fede10fe05b085a76e3d12787dac0ec36b91edf4e651976c33fb8afc713f9"
+    },
+    {
+      "path": "probe_chapter2.log",
+      "bytes": 3269,
+      "sha256": "21c2c2660f5b4e95fbd53336c2eca8fa5379ede80ce8b77967871572c3632b2a"
+    },
+    {
+      "path": "probe_living_world.log",
+      "bytes": 1440,
+      "sha256": "04fed713d15f2db08da0bfb34891d3553e964adab4fe5637015d4c39decd3ccd"
+    },
+    {
+      "path": "probe_load.log",
+      "bytes": 737,
+      "sha256": "578efab7ee4a966ca069480daad0c330686464270b126355745b7e47c7d59feb"
+    },
+    {
+      "path": "probe_opera.log",
+      "bytes": 10093,
+      "sha256": "97568863c3b5ef27e003a9f29d764597c8c30ef573ad241815d8a478bd2cb144"
+    },
+    {
+      "path": "probe_opera_2d.log",
+      "bytes": 80476,
+      "sha256": "543e767646917648bea13f397595b02a8195f810d76981765649fef44471ce8b"
+    },
+    {
+      "path": "probe_opera_gesture_quality.log",
+      "bytes": 120,
+      "sha256": "a43da324a58611dbc9bf75af931039b7b963e01d25b34da73f4a06aed6f8f7cd"
+    },
+    {
+      "path": "probe_opera_nursery.log",
+      "bytes": 2172,
+      "sha256": "ea99b8b123e699dca13b66bab6a6a0fc607ad7af6509935a9623c08e23a24dac"
+    },
+    {
+      "path": "probe_opera_performance.log",
+      "bytes": 1462,
+      "sha256": "d47f7362ee78c47665682345e50027b48f825c4a7b211a96a95c2e736574d1d3"
+    },
+    {
+      "path": "probe_save_recovery.log",
+      "bytes": 6054,
+      "sha256": "e906e81ad56192b68ad7ce1c1390d0d19138ff450e13e3982b72577ac200cb95"
+    },
+    {
+      "path": "probe_voice.log",
+      "bytes": 4715,
+      "sha256": "0c858976adf89550981b1a2968094bc35ba6f2e3be906cb3e37d161f80d910be"
+    },
+    {
+      "path": "static-document_authority.log",
+      "bytes": 91,
+      "sha256": "1a18934c377cda9ec13a8d88400aa00a61c7b4420164e7d564588e2f806f4364"
+    },
+    {
+      "path": "static-game2d_regression.log",
+      "bytes": 427,
+      "sha256": "ea34191bae8a81e1243c230d16cc94d422e43479e8336c6d09326a82e3d6a379"
+    },
+    {
+      "path": "static-godot_baseline.log",
+      "bytes": 67,
+      "sha256": "2f5f2d855262094c92a621bd92994711d480dc0789c8dee44e5b17861d6d0a29"
+    },
+    {
+      "path": "static-lint_inference.log",
+      "bytes": 13,
+      "sha256": "c1e97067c5f479a44a6f57297a0a8f87a59d181c3c529910f8bf059094bc3abb"
+    },
+    {
+      "path": "static-parser.log",
+      "bytes": 13,
+      "sha256": "c1e97067c5f479a44a6f57297a0a8f87a59d181c3c529910f8bf059094bc3abb"
+    },
+    {
+      "path": "static-typography_audit.log",
+      "bytes": 802,
+      "sha256": "0166d2f4c80987574d02d0f4fc5409ae6afd6f59942c04f17ddf32774e8d9d41"
+    },
+    {
+      "path": "static-typography_check.log",
+      "bytes": 802,
+      "sha256": "9cf1bcab95b37f48219018e91e945d1fd363bcb4767a3302231bce35e1ffa838"
+    },
+    {
+      "path": "static-typography_tests.log",
+      "bytes": 8155,
+      "sha256": "0be15375cbb8c0b333f449f1d17d25eef774bcc8cd9768f2f8d2cde9bfc6368f"
+    },
+    {
+      "path": "static-typography_tests_final.log",
+      "bytes": 8155,
+      "sha256": "f1d980d6ef468ab9c5bab99709fd04afd7b58d55ed2639fdfc6fb050408e303d"
+    }
+  ]
+}

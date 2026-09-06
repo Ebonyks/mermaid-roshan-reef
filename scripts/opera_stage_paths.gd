@@ -28,6 +28,13 @@ const SCREEN := Vector2(1280.0, 720.0)
 ## career -> {path: Array[Vector2-as-arrays], stations: [{id, pos, landmark}],
 ## clue_spots: [[x,y]...]} — populated from the visual derivation pass.
 const PATHS: Dictionary = {
+	"teacher": {
+		"path": [[0.08, 0.72], [0.30, 0.72], [0.49, 0.72], [0.70, 0.72], [0.90, 0.72]],
+		"stations": [
+			{"id": "lesson_desk", "pos": [0.49, 0.72], "landmark": "large cream learning board in the Library"},
+		],
+		"clue_spots": [],
+	},
 	"geologist": {
 		"path": [[0.06, 0.70], [0.17, 0.69], [0.30, 0.66], [0.43, 0.64], [0.56, 0.66], [0.70, 0.64], [0.83, 0.61], [0.93, 0.58]],
 		"stations": [
@@ -196,6 +203,10 @@ const PATHS: Dictionary = {
 ## the first point is on PATHS[path], and intermediate points follow painted
 ## floor, stairs, or apron space.
 const STATION_NAV: Dictionary = {
+	"teacher": {
+		"lesson_desk": {"object": [0.58, 0.46], "visual_size": [190.0, 190.0],
+			"hotspot_size": [220.0, 220.0], "spur": [[0.49, 0.72], [0.49, 0.70]]},
+	},
 	"geologist": {
 		"layer_wall": {
 			"object": [0.20, 0.40], "visual_size": [166.0, 152.0],

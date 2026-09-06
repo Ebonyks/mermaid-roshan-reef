@@ -1,0 +1,71 @@
+test_android_parser_output_requires_identity_values (tests.test_audit_typography.TypographyAuditTests.test_android_parser_output_requires_identity_values) ... ok
+test_bad_dex_resources_and_signature_are_rejected (tests.test_audit_typography.TypographyAuditTests.test_bad_dex_resources_and_signature_are_rejected) ... ok
+test_binding_must_match_an_observed_runtime_asset (tests.test_audit_typography.TypographyAuditTests.test_binding_must_match_an_observed_runtime_asset) ... ok
+test_current_repository_is_open_only_for_external_evidence (tests.test_audit_typography.TypographyAuditTests.test_current_repository_is_open_only_for_external_evidence) ... FAIL
+test_device_and_license_evidence_reject_forged_strings (tests.test_audit_typography.TypographyAuditTests.test_device_and_license_evidence_reject_forged_strings) ... ok
+test_device_evidence_requires_sha_bound_apk_verification_record (tests.test_audit_typography.TypographyAuditTests.test_device_evidence_requires_sha_bound_apk_verification_record) ... ok
+test_device_matrix_rejects_duplicate_content_with_distinct_paths (tests.test_audit_typography.TypographyAuditTests.test_device_matrix_rejects_duplicate_content_with_distinct_paths) ... ok
+test_empty_or_fake_font_is_not_evidence (tests.test_audit_typography.TypographyAuditTests.test_empty_or_fake_font_is_not_evidence) ... ok
+test_end_to_end_verified_fixture_is_os_font_independent (tests.test_audit_typography.TypographyAuditTests.test_end_to_end_verified_fixture_is_os_font_independent) ... skipped 'real APK positive fixture skipped: set TYPOGRAPHY_TEST_REAL_APK to a genuine signed, parser-readable APK'
+test_fabricated_verifier_and_command_cannot_grant_device_authority (tests.test_audit_typography.TypographyAuditTests.test_fabricated_verifier_and_command_cannot_grant_device_authority) ... ok
+test_font_import_sidecars_are_not_binary_assets (tests.test_audit_typography.TypographyAuditTests.test_font_import_sidecars_are_not_binary_assets) ... ok
+test_framed_but_empty_manifest_is_not_android_manifest (tests.test_audit_typography.TypographyAuditTests.test_framed_but_empty_manifest_is_not_android_manifest) ... ok
+test_incomplete_role_or_caption_contract_is_a_machine_failure (tests.test_audit_typography.TypographyAuditTests.test_incomplete_role_or_caption_contract_is_a_machine_failure) ... ok
+test_invalid_index_to_loc_format_is_rejected (tests.test_audit_typography.TypographyAuditTests.test_invalid_index_to_loc_format_is_rejected) ... ok
+test_label3d_new_file_is_a_machine_failure (tests.test_audit_typography.TypographyAuditTests.test_label3d_new_file_is_a_machine_failure) ... ok
+test_license_values_and_source_are_exact_and_provenanced (tests.test_audit_typography.TypographyAuditTests.test_license_values_and_source_are_exact_and_provenanced) ... ok
+test_live_scanner_decodes_godot_unicode_escape (tests.test_audit_typography.TypographyAuditTests.test_live_scanner_decodes_godot_unicode_escape) ... ok
+test_live_scanner_handles_single_triple_and_raw_literals (tests.test_audit_typography.TypographyAuditTests.test_live_scanner_handles_single_triple_and_raw_literals) ... ok
+test_live_scanner_ignores_comments_and_reports_literal_reference (tests.test_audit_typography.TypographyAuditTests.test_live_scanner_ignores_comments_and_reports_literal_reference) ... ok
+test_malformed_cert_rsa_is_not_signature_evidence (tests.test_audit_typography.TypographyAuditTests.test_malformed_cert_rsa_is_not_signature_evidence) ... ok
+test_malformed_sfnt_directory_is_not_evidence (tests.test_audit_typography.TypographyAuditTests.test_malformed_sfnt_directory_is_not_evidence) ... ok
+test_manifest_baseline_inflation_cannot_hide_new_label3d (tests.test_audit_typography.TypographyAuditTests.test_manifest_baseline_inflation_cannot_hide_new_label3d) ... ok
+test_new_codepoint_is_a_machine_failure (tests.test_audit_typography.TypographyAuditTests.test_new_codepoint_is_a_machine_failure) ... ok
+test_optional_dodge_lightning_is_redundant_with_recorded_source_routes (tests.test_audit_typography.TypographyAuditTests.test_optional_dodge_lightning_is_redundant_with_recorded_source_routes) ... FAIL
+test_plain_text_manifest_zip_is_not_an_apk (tests.test_audit_typography.TypographyAuditTests.test_plain_text_manifest_zip_is_not_an_apk) ... ok
+test_png_crc_correct_invalid_zlib_payload_is_rejected (tests.test_audit_typography.TypographyAuditTests.test_png_crc_correct_invalid_zlib_payload_is_rejected) ... ok
+test_png_rejects_crc_correct_trailing_zlib_payload (tests.test_audit_typography.TypographyAuditTests.test_png_rejects_crc_correct_trailing_zlib_payload) ... ok
+test_portable_sfnt_and_woff_fixtures_pass_structural_checks (tests.test_audit_typography.TypographyAuditTests.test_portable_sfnt_and_woff_fixtures_pass_structural_checks) ... ok
+test_sdk_root_discovers_android_parsers_when_not_on_path (tests.test_audit_typography.TypographyAuditTests.test_sdk_root_discovers_android_parsers_when_not_on_path)
+SDK-root discovery covers all parser names independently of PATH. ... ok
+test_sfnt_magic_only_pseudo_font_is_not_evidence (tests.test_audit_typography.TypographyAuditTests.test_sfnt_magic_only_pseudo_font_is_not_evidence) ... ok
+test_sfnt_search_fields_and_table_checksum_are_enforced (tests.test_audit_typography.TypographyAuditTests.test_sfnt_search_fields_and_table_checksum_are_enforced) ... ok
+test_signed_zip_fake_cannot_grant_android_device_authority (tests.test_audit_typography.TypographyAuditTests.test_signed_zip_fake_cannot_grant_android_device_authority)
+Signature-shaped ZIP evidence is still not an Android APK. ... ok
+test_unhashed_artifact_cannot_support_verified_evidence (tests.test_audit_typography.TypographyAuditTests.test_unhashed_artifact_cannot_support_verified_evidence) ... ok
+test_unresolved_status_with_populated_paths_never_becomes_pass (tests.test_audit_typography.TypographyAuditTests.test_unresolved_status_with_populated_paths_never_becomes_pass) ... ok
+test_verified_status_without_binding_hash_license_or_artifacts_fails (tests.test_audit_typography.TypographyAuditTests.test_verified_status_without_binding_hash_license_or_artifacts_fails) ... ok
+
+======================================================================
+FAIL: test_current_repository_is_open_only_for_external_evidence (tests.test_audit_typography.TypographyAuditTests.test_current_repository_is_open_only_for_external_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\Documents\mermaid-roshan-reef\.worktrees\opera-two-act-medals-20260905\tests\test_audit_typography.py", line 946, in test_current_repository_is_open_only_for_external_evidence
+    self.assertEqual(report["machine_errors"], [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['stale glyph allowlist entries: U+2019'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'stale glyph allowlist entries: U+2019'
+
+- ['stale glyph allowlist entries: U+2019']
++ []
+
+======================================================================
+FAIL: test_optional_dodge_lightning_is_redundant_with_recorded_source_routes (tests.test_audit_typography.TypographyAuditTests.test_optional_dodge_lightning_is_redundant_with_recorded_source_routes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\Documents\mermaid-roshan-reef\.worktrees\opera-two-act-medals-20260905\tests\test_audit_typography.py", line 893, in test_optional_dodge_lightning_is_redundant_with_recorded_source_routes
+    self.assertEqual(source_lines[int(line) - 1], expected, route)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '\tpanel.add_child(stars)' != '\t\tdodge.text = "\u26a1\\n\u21bb" if danger else "\u21bb"'
+- 	panel.add_child(stars)
++ 		dodge.text = "\u26a1\n\u21bb" if danger else "\u21bb"
+ : scripts/games/dust_boss.gd:1118
+
+----------------------------------------------------------------------
+Ran 35 tests in 46.868s
+
+FAILED (failures=2, skipped=1)
+EXIT_CODE=1

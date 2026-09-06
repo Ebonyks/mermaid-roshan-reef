@@ -21,6 +21,7 @@ var diegetic_shot_expected := 0
 const StagePaths := preload("res://scripts/opera_stage_paths.gd")
 const WorldHotspot := preload("res://scripts/opera_world_hotspot_2d.gd")
 const HotspotCatalog := preload("res://scripts/opera_hotspot_catalog.gd")
+const PerformancePlan := preload("res://scripts/opera_performance_plan.gd")
 
 const BOXING_MODES: Array[String] = [
 	"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt",
@@ -31,6 +32,13 @@ const BOXING_VOICES: Array[String] = [
 	"op_boxer_bell_chase_stage", "op_boxer_belt_stage",
 ]
 const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
+const TeacherPlan := preload("res://scripts/teacher_lesson_plan.gd")
+const TeacherSurface := preload("res://scripts/opera_teacher_surface.gd")
+const GeologySurface := preload("res://scripts/opera_geology_surface.gd")
+const RACER_TICK_SECONDS := 1.0 / 60.0
+const RACER_MAX_DRIVE_FRAMES := 4000
+const RACER_POLICY_MAX_FRAMES := 4200
+const RACER_FREEZE_FRAMES := 60
 
 const DIRECT_SURFACE_CONTRACTS := {
 	"detective": {
@@ -56,10 +64,19 @@ const DIRECT_SURFACE_CONTRACTS := {
 		"BEDTIME": {"mode": "swipe", "goal": 3.0, "context": "nursery_bedtime"},
 	},
 	"racer": {
-		"RACE": {"mode": "circle", "goal": 0.9, "context": ""},
+		"RACE": {"mode": "kart_race", "goal": 2.0, "context": ""},
 	},
 	"geologist": {
-		"SORT": {"mode": "geology_sort", "goal": 6.0, "context": "geology_specimens"},
+		"RIVER": {"mode": "geology_river", "goal": 1.0, "context": ""},
+		"FOSSIL": {"mode": "geology_fossil", "goal": 1.0, "context": ""},
+		"PAN": {"mode": "geology_pan", "goal": 1.0, "context": ""},
+		"GEODE": {"mode": "geology_geode", "goal": 1.0, "context": ""},
+	},
+	"teacher": {
+		"PATTERN": {"mode": "teacher_pattern", "goal": 1.0, "context": ""},
+		"COUNT": {"mode": "teacher_count", "goal": 1.0, "context": ""},
+		"ADD": {"mode": "teacher_add", "goal": 1.0, "context": ""},
+		"MATCH": {"mode": "teacher_match", "goal": 1.0, "context": ""},
 	},
 }
 
@@ -80,6 +97,23 @@ const BALLERINA_PHASE_CONTRACTS := [
 	{"name": "GRAND TWIRL", "mode": "ballet_twirl", "goal": 1.0,
 		"vo": "op_ballerina_twirl_stage"},
 ]
+const TEACHER_PHASE_CONTRACTS := [
+	{"name": "PATTERN", "mode": "teacher_pattern", "goal": 1.0},
+	{"name": "COUNT", "mode": "teacher_count", "goal": 1.0},
+	{"name": "ADD", "mode": "teacher_add", "goal": 1.0},
+	{"name": "MATCH", "mode": "teacher_match", "goal": 1.0},
+]
+
+var teacher_awards: Array[String] = []
+var teacher_assisted_results: Array[bool] = []
+const GEOLOGY_PHASE_CONTRACTS := [
+	{"name": "RIVER", "mode": "geology_river", "goal": 1.0},
+	{"name": "FOSSIL", "mode": "geology_fossil", "goal": 1.0},
+	{"name": "PAN", "mode": "geology_pan", "goal": 1.0},
+	{"name": "GEODE", "mode": "geology_geode", "goal": 1.0},
+]
+
+var geology_awards: Array[String] = []
 
 
 func _audit_shipping_hotspot_specs() -> void:
@@ -98,8 +132,8 @@ func _audit_shipping_hotspot_specs() -> void:
 				missing_specs.append("%s/%s -> %s" % [
 					career, phase_name, catalog_name,
 				])
-	_check("all 57 shipping phases resolve through aliases to hotspot art specs",
-		shipping_phase_count == 57 and missing_specs.is_empty())
+	_check("all 61 shipping phases resolve through aliases to hotspot art specs",
+		shipping_phase_count == 61 and missing_specs.is_empty())
 	for missing_spec: String in missing_specs:
 		print("OPERA2D|shipping_hotspot: missing %s" % missing_spec)
 
@@ -195,6 +229,11 @@ func _init() -> void:
 			var actor := card.get_node_or_null("RoshanActor") as TextureRect
 			var crest := card.get_node_or_null("CareerCrest") as TextureRect
 			var frame := actor.texture as AtlasTexture if actor != null else null
+			var costume := String(card.get_meta("career_costume", ""))
+			var crest_path := crest.texture.resource_path \
+				if crest != null and crest.texture != null else ""
+			var crest_is_exact := crest_path.ends_with("/actors/roshan_teacher.png") \
+				if costume == "teacher" else crest_path.contains("/ui/crests/")
 			room_art_ok = room_art_ok and card.text.is_empty() \
 				and card.visible and not card.disabled and not card.clip_contents \
 				and card.size.x >= StorybookUI.MIN_TOUCH.x \
@@ -208,8 +247,7 @@ func _init() -> void:
 				and actor.position.y + actor.size.y <= card.size.y \
 				and frame != null and frame.atlas != null \
 				and frame.atlas.resource_path.contains("/actors/animation/roshan_") \
-				and crest != null and crest.texture != null \
-				and crest.texture.resource_path.contains("/ui/crests/")
+				and crest != null and crest.texture != null and crest_is_exact
 		_check("%s route uses its exact diegetic entrances and approved art" % route_room,
 			actual_indices == expected_indices and room_art_ok)
 		all_route_art_ok = all_route_art_ok and room_art_ok
@@ -229,7 +267,7 @@ func _init() -> void:
 			await _capture_viewport(lobby_shot_out.path_join(
 				"castle_career_routes_%s.png" % route_room))
 	all_card_indices.sort()
-	_check("nine room route sets cover all fourteen live sparse slots once",
+	_check("nine room route sets cover all fifteen live sparse slots once",
 		all_card_indices == OperaHouse.LIVE_ACT_INDICES and all_route_art_ok)
 	_check("Opera Hall has only Ballerina, Pop Star and Magician",
 		CastleCareerRoutes.act_indices_for_room("opera_hall") == [2, 13, 8])
@@ -269,6 +307,8 @@ func _init() -> void:
 	var direct_surface_contracts_complete := true
 	var circle_pacing_complete := true
 	var retained_rotations_seen := 0
+	_check("only the three approved Opera Hall careers have a two-act performance",
+		PerformancePlan.ENABLED == ["ballerina", "magician", "popstar"])
 	for source_index: int in range(OperaHouse.ACTS.size()):
 		if not OperaHouse.is_live_act_index(source_index):
 			continue
@@ -281,6 +321,7 @@ func _init() -> void:
 		act.start(main, config, Callable())
 		await process_frame
 		var career := String(config.get("costume", ""))
+		var two_act_expected := career in PerformancePlan.ENABLED
 		_check("%s enters Canvas career world" % career,
 			act.use_career_world_2d and act.career_world_2d != null)
 		if act.career_world_2d == null:
@@ -305,6 +346,26 @@ func _init() -> void:
 					"/animation/roshan_racer_sheet_a.png")
 				and world.rival_actor.texture.resource_path.ends_with("/rival_racer.png")
 				and world.prop_rect.texture.resource_path.ends_with("/goal_racer.png"))
+		if career == "teacher":
+			var teacher_frame := world.player_actor.texture as AtlasTexture
+			var teacher_voice_paths_ok := true
+			for cue: String in ["teacher_start", "teacher_pattern", "teacher_count",
+					"teacher_add", "teacher_match", "teacher_help", "teacher_choose"]:
+				var cue_path: String = main._audio_ref()._voice_path("roshan", cue, false)
+				teacher_voice_paths_ok = teacher_voice_paths_ok \
+					and not cue_path.is_empty() and ResourceLoader.exists(cue_path)
+			for number in range(1, 11):
+				var number_path: String = main._audio_ref()._voice_path(
+					"roshan", "teacher_number_%d" % number, false)
+				teacher_voice_paths_ok = teacher_voice_paths_ok \
+					and not number_path.is_empty() and ResourceLoader.exists(number_path)
+			_check("teacher uses Roshan's current teacher atlas and the existing doctor buddy",
+				teacher_frame != null and teacher_frame.atlas != null
+				and teacher_frame.atlas.resource_path.ends_with(
+					"/animation/roshan_teacher_sheet_a.png")
+				and world.rival_actor.texture.resource_path.ends_with("/rival_doctor.png"))
+			_check("teacher resolves every lesson, help, choice, and number recording",
+				teacher_voice_paths_ok)
 		total_phase_count += world.phases.size()
 		_check("%s uses no 3D children in career play" % career,
 			not _has_spatial_descendants(act))
@@ -315,7 +376,7 @@ func _init() -> void:
 		_check("%s loads its dressed rival or care partner" % career,
 			world.rival_actor != null and world.rival_actor.texture != null)
 		var cooperative := act.competition != null and act.competition.is_cooperative()
-		if cooperative:
+		if cooperative and career != "teacher":
 			_check("%s keeps its care partner beside Roshan from the first beat" % career,
 				world.rival_actor.visible)
 		else:
@@ -324,6 +385,22 @@ func _init() -> void:
 		_check("%s pauses competition scoring before the finale" % career,
 			not act.competition.active)
 		_check("%s has a multi-phase job game" % career, world.phases.size() >= 3)
+		_check("%s applies the performance plan only to the three freeplay acts" % career,
+			world.two_act_enabled == two_act_expected
+			and (not two_act_expected or world.performance_stage_start == 3)
+			and world.phases.size() == (OperaCareerWorld2D.PHASES[career] as Array).size()
+				+ (3 if two_act_expected else 0))
+		if two_act_expected:
+			var performance_parts_ok := true
+			for performance_i in range(world.phases.size()):
+				var performance_phase: Dictionary = world.phases[performance_i]
+				var expected_source := performance_i if performance_i < 3 else performance_i - 3
+				performance_parts_ok = performance_parts_ok \
+					and String(performance_phase.get("performance_part", "")) \
+						== ("practice" if performance_i < 3 else "stage") \
+					and int(performance_phase.get("source_phase", -1)) == expected_source
+			_check("%s prepends three practice lessons then repeats its full show" % career,
+				performance_parts_ok)
 		_check("%s starts without passive progress" % career,
 			is_equal_approx(world.progress(), 0.0))
 		var modes: Array[String] = []
@@ -333,30 +410,24 @@ func _init() -> void:
 			modes.size() > 0 and modes[0] != "bop")
 		if career == "ballerina":
 			var ballet_phase_contract_ok := world.phases.size() \
-				== BALLERINA_PHASE_CONTRACTS.size()
-			for ballet_phase_index in range(BALLERINA_PHASE_CONTRACTS.size()):
-				if ballet_phase_index >= world.phases.size():
-					ballet_phase_contract_ok = false
-					continue
+				== BALLERINA_PHASE_CONTRACTS.size() * 2
+			for ballet_phase_index in range(world.phases.size()):
+				var source_phase := ballet_phase_index % BALLERINA_PHASE_CONTRACTS.size()
 				var actual_ballet_phase: Dictionary = world.phases[ballet_phase_index]
-				var expected_ballet_phase: Dictionary = \
-					BALLERINA_PHASE_CONTRACTS[ballet_phase_index]
+				var expected_ballet_phase: Dictionary = BALLERINA_PHASE_CONTRACTS[source_phase]
 				ballet_phase_contract_ok = ballet_phase_contract_ok \
-					and String(actual_ballet_phase.get("name", "")) \
-						== String(expected_ballet_phase.get("name", "")) \
-					and String(actual_ballet_phase.get("mode", "")) \
-						== String(expected_ballet_phase.get("mode", "")) \
-					and is_equal_approx(float(actual_ballet_phase.get("goal", 0.0)),
-						float(expected_ballet_phase.get("goal", -1.0))) \
-					and String(actual_ballet_phase.get("vo", "")) \
-						== String(expected_ballet_phase.get("vo", "")) \
-					and ResourceLoader.exists(
-						"res://assets/audio/voices/filler_v1/roshan_%s.ogg" \
-						% String(expected_ballet_phase.get("vo", ""))) \
+					and int(actual_ballet_phase.get("source_phase", -1)) == source_phase \
+					and String(actual_ballet_phase.get("performance_part", "")) \
+						== ("practice" if ballet_phase_index < world.performance_stage_start else "stage") \
+					and String(actual_ballet_phase.get("name", "")) == String(expected_ballet_phase.get("name", "")) \
+					and String(actual_ballet_phase.get("mode", "")) == String(expected_ballet_phase.get("mode", "")) \
+					and is_equal_approx(float(actual_ballet_phase.get("goal", 0.0)), float(expected_ballet_phase.get("goal", -1.0))) \
+					and String(actual_ballet_phase.get("vo", "")) == String(expected_ballet_phase.get("vo", "")) \
+					and ResourceLoader.exists("res://assets/audio/voices/filler_v1/roshan_%s.ogg" % String(expected_ballet_phase.get("vo", ""))) \
 					and actual_ballet_phase.has("widget") \
 					and String(actual_ballet_phase.get("widget", "missing")).is_empty() \
 					and world._widget_template(actual_ballet_phase).is_empty()
-			_check("ballerina has exactly PEARL MIRROR, RIBBON TRAIL, and GRAND TWIRL",
+			_check("ballerina repeats all three specialist lessons from practice on stage",
 				ballet_phase_contract_ok)
 		_check("%s waits at the room entrance in its costume idle" % career,
 			world.player_animator != null and world.player_animator.has_animation
@@ -411,13 +482,17 @@ func _init() -> void:
 			"chef": "oven", "detective": "lens", "ballerina": "ballet_pose",
 			"candymaker": "candy_sort", "doctor": "xray_scan", "farmer": "farm_lob",
 			"boxer": "boxing_guide", "magician": "magic_cabinet", "painter": "paint_reveal",
-			"astronaut": "pipe", "racer": "circle", "nursery": "catch", "popstar": "echo",
-			"geologist": "geology_sort",
+			"astronaut": "pipe", "racer": "kart_race", "nursery": "catch", "popstar": "echo",
+			"geologist": "geology_river", "teacher": "teacher_pattern",
 		}
 		_check("%s contains its signature mechanic" % career,
 			modes.has(String(expected_signature.get(career, ""))))
 		if career == "boxer":
 			_exercise_boxing_surface(world, act, modes)
+		if career == "teacher":
+			_exercise_teacher_surface(world, modes)
+		if career == "geologist":
+			_exercise_geology_surface(world, modes)
 		if career == "farmer":
 			var picnic_phase: Dictionary = world.phases[3]
 			var picnic_anchors: Array = OperaGestureSurface.TARGET_ANCHORS.get(
@@ -450,11 +525,21 @@ func _init() -> void:
 			_check("%s %s uses its direct specialist surface" % [career, direct_name],
 				direct_ok)
 			direct_names_seen.append(direct_name)
-		var career_direct_contracts_complete := direct_names_seen.size() \
-			== direct_contracts.size()
+		var expected_direct_total := 0
+		var career_direct_contracts_complete := true
 		for expected_direct_name: String in direct_contracts.keys():
+			var expected_direct_copies := 1
+			if world.two_act_enabled:
+				var source_phases: Array = OperaCareerWorld2D.PHASES[career]
+				for practice_source in range(mini(3, source_phases.size())):
+					if String((source_phases[practice_source] as Dictionary).get(
+							"name", "")) == expected_direct_name:
+						expected_direct_copies += 1
+			expected_direct_total += expected_direct_copies
 			career_direct_contracts_complete = career_direct_contracts_complete \
-				and direct_names_seen.has(expected_direct_name)
+				and direct_names_seen.count(expected_direct_name) == expected_direct_copies
+		career_direct_contracts_complete = career_direct_contracts_complete \
+			and direct_names_seen.size() == expected_direct_total
 		if not direct_contracts.is_empty():
 			_check("%s exposes every declared direct specialist phase" % career,
 				career_direct_contracts_complete)
@@ -463,11 +548,6 @@ func _init() -> void:
 		var retained_rotation_ok := not RETAINED_ROTATIONS.has(career)
 		for pacing_phase: Dictionary in world.phases:
 			if String(pacing_phase.get("mode", "")) != "circle":
-				continue
-			# The Racer finale emits one accepted full loop from its specialist
-			# steering surface. Its goal is a completed turn, not a rotation count.
-			if career == "racer" \
-					and String(pacing_phase.get("vo", "")) == "op_racer_lap_two":
 				continue
 			var rotations := float(pacing_phase.get("goal", 0.0))
 			circle_pacing_complete = circle_pacing_complete \
@@ -556,7 +636,8 @@ func _init() -> void:
 				retired_generic_ballet_mode = retired_generic_ballet_mode \
 					or ballerina_mode in ["dance_sequence", "hold"]
 			_check("ballerina watch cue belongs only to the specialist pearl mirror",
-				pearl_mirror_watch_count == 1 and not retired_generic_ballet_mode)
+				pearl_mirror_watch_count == (2 if world.two_act_enabled else 1)
+				and not retired_generic_ballet_mode)
 			_check("ballerina clears any lobby voice before its watch instruction",
 				ballet_silences_entry_voice)
 			var ballet_watch_stream := load(
@@ -774,7 +855,7 @@ func _init() -> void:
 			_check("ballerina idle replay waits until Mirror hands the turn back",
 				mirror_idle_demo_silent
 				and world.ballet_instruction_repeats == mirror_repeat_before + 1)
-			_check("ballerina hides progress chrome, race bars, and the rival",
+			_check("ballerina hides progress chrome, race bars, and the rival in practice",
 				world.phase_fill != null and not world.phase_fill.visible
 				and world.player_bar != null and not world.player_bar.visible
 				and world.rival_bar != null and not world.rival_bar.visible
@@ -786,6 +867,8 @@ func _init() -> void:
 		if career == "geologist":
 			owns_world_art = backdrop != null and backdrop.world_tiles.is_empty() \
 				and backdrop.painting == null
+		elif career == "teacher":
+			owns_world_art = _teacher_owns_library_tiles(backdrop)
 		_check("%s paints the supplied codex career world" % career, owns_world_art)
 		var owns_stage_art := backdrop != null and backdrop.stage_tiles.size() == 4
 		if career == "geologist":
@@ -793,6 +876,8 @@ func _init() -> void:
 			# scenery; unlike a raster panorama it has no per-screen pixel minimum.
 			owns_stage_art = backdrop != null and backdrop.stage_tiles.is_empty() \
 				and backdrop.painting == null
+		elif career == "teacher":
+			owns_stage_art = _teacher_owns_library_tiles(backdrop)
 		_check("%s owns complete stage art" % career, owns_stage_art)
 		if not rival_shot_out.is_empty() and not cooperative \
 				and career not in ["ballerina", "boxer"]:
@@ -918,7 +1003,8 @@ func _init() -> void:
 		# those contracts are exercised above instead of requiring reskin assets.
 		var career_widget_contract_complete := widgets_complete \
 			and (widget_count > 0 \
-				or career in ["ballerina", "boxer", "detective", "racer", "geologist"])
+				or career in ["ballerina", "boxer", "detective", "racer", "geologist",
+					"teacher"])
 		_check("%s loads every diegetic phase widget" % career,
 			career_widget_contract_complete)
 		widget_contracts_complete = widget_contracts_complete \
@@ -941,14 +1027,31 @@ func _init() -> void:
 				and world.surface is OperaBoxingSurface
 				and world.surface.size.is_equal_approx(StorybookUI.CANVAS_SIZE)
 				and not world.player_actor.visible)
+		elif career == "teacher":
+			_check("teacher object opens its full-canvas learning board",
+				world.task_open and world.action_panel.visible
+				and world.surface.get_script() == TeacherSurface
+				and world.surface.size.is_equal_approx(StorybookUI.CANVAS_SIZE)
+				and TeacherSurface.BOARD.position.x >= 330.0
+				and TeacherSurface.BOARD.end.x <= StorybookUI.CANVAS_SIZE.x)
+		elif career == "geologist":
+			_check("geologist object opens its full-canvas material workspace",
+				world.task_open and world.action_panel.visible
+				and world.surface.get_script() == GeologySurface
+				and world.surface.size.is_equal_approx(StorybookUI.CANVAS_SIZE)
+				and world.surface.position.is_equal_approx(Vector2.ZERO))
 		_check("%s loads the authored magnifier prop" % career,
 			world.magnifier_texture != null)
 		if world.action_panel.visible and world.player_actor.visible:
 			var panel_rect := Rect2(world.action_panel.position, world.action_panel.size)
 			var actor_rect := Rect2(world.player_actor.position,
-				world.player_actor.size * world.player_actor.scale).grow(24.0)
+				world.player_actor.size * world.player_actor.scale)
+			if career not in ["teacher", "geologist"]:
+				actor_rect = actor_rect.grow(24.0)
+			var playable_rect := TeacherSurface.BOARD if career == "teacher" \
+				else (GeologySurface.WORK_RECT if career == "geologist" else panel_rect)
 			_check("%s borderless activity focus never covers animated Roshan" % career,
-				panel_rect.intersection(actor_rect).get_area() <= 0.01)
+				playable_rect.intersection(actor_rect).get_area() <= 0.01)
 		if career == "detective":
 			_check("detective lens is enlarged around its real glass centre",
 				OperaCareerWorld2D.LENS_GRAPHIC_SIZE.x >= 400.0
@@ -1037,8 +1140,19 @@ func _init() -> void:
 
 		var saw_finale_imp := _finale_partner_present(world, career)
 		var rival_hidden_before_finale := true
-		var finale_cast_separated := career in ["ballerina", "boxer"]
+		var finale_cast_separated := career in ["ballerina", "boxer", "teacher"]
 		var racer_finale_exercised := false
+		var teacher_connected_help := career != "teacher"
+		if career == "teacher" and world.task_open \
+				and world.surface.get_script() == TeacherSurface:
+			var live_teacher: Variant = world.surface
+			var wrong_choice: int = (live_teacher.answer_index() + 1) \
+				% live_teacher.lesson.choices.size()
+			_teacher_tap(live_teacher,
+				live_teacher.choice_rect(wrong_choice).get_center())
+			teacher_connected_help = live_teacher.assisted \
+				and live_teacher.wrong_attempts == 1 and not live_teacher.solved \
+				and world.teacher_voice_queue.has("teacher_help")
 		var guard := 0
 		while act.state == "play" and guard < 80:
 			rival_hidden_before_finale = rival_hidden_before_finale \
@@ -1050,6 +1164,10 @@ func _init() -> void:
 					racer_finale_exercised = true
 			elif career == "boxer":
 				_drive_boxer_phase(world)
+			elif career == "teacher":
+				_drive_teacher_phase(world)
+			elif career == "geologist":
+				_drive_geologist_phase(world)
 			else:
 				world._on_gesture("probe", 100.0, 1.0)
 			act._process(0.05)
@@ -1067,17 +1185,28 @@ func _init() -> void:
 					and _rect_inside(rival_rect,
 						Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)) \
 					and not player_rect.intersects(rival_rect) \
-					and (not world.action_panel.visible
+					and (career == "geologist" or not world.action_panel.visible
 						or not rival_rect.intersects(activity_rect))
 		_check("%s keeps the rival hidden before its stage contest" % career,
 			rival_hidden_before_finale)
 		if career == "ballerina":
-			_check("ballerina keeps the recital rival-free through the curtain call",
-				not saw_finale_imp and not world.rival_actor.visible)
+			_check("ballerina stages its actual recital rival for the performance",
+				saw_finale_imp and world.rival_actor.visible)
 		elif career == "boxer":
 			_check("boxer finale uses one specialist padded imp, then a safe curtain call",
 				saw_finale_imp and world.combat_imps.is_empty()
 				and world.rival_actor.visible and not world.action_panel.visible)
+		elif career == "teacher":
+			_check("teacher keeps the borrowed doctor buddy hidden through its lesson finale",
+				not saw_finale_imp and not world.rival_actor.visible)
+			var learning_progress: Dictionary = TeacherPlan.normalise_progress(
+				main.save_data.get("teacher_learning_progress", {}))
+			var pattern_progress: Dictionary = learning_progress["kinds"]["pattern"]
+			_check("connected wrong-then-help records a round without false mastery",
+				teacher_connected_help
+				and int(pattern_progress["rounds"]) == 1
+				and int(pattern_progress["clean_successes"]) == 0
+				and int(pattern_progress["tier"]) == 0)
 		else:
 			_check("%s brings in its dressed finale partner" % career, saw_finale_imp)
 			_check("%s stages the room-finale partner clear of Roshan and the activity" % career,
@@ -1129,6 +1258,7 @@ func _init() -> void:
 				main.touch_ui.visible == touch_before)
 
 	await _exercise_racer_cancel_and_reentry()
+	_exercise_racer_policy_comparison()
 
 	var reentry_config: Dictionary = {}
 	for source: Dictionary in OperaHouse.ACTS:
@@ -1163,9 +1293,9 @@ func _init() -> void:
 	_check("five early exits and re-entries free every Opera world and restore touch",
 		reentry_clean)
 
-	_check("all fourteen career jobs were exercised", show_count == 14)
-	_check("the current fourteen careers expose exactly fifty-seven phases",
-		total_phase_count == 57)
+	_check("all fifteen career jobs were exercised", show_count == 15)
+	_check("the current fifteen careers expose exactly seventy playable phase units",
+		total_phase_count == 70)
 	_check("all shared art-family career widget contracts were exercised",
 		widget_contracts_complete and total_widget_count > 0)
 	_check("every declared direct specialist surface was exercised",
@@ -1284,7 +1414,9 @@ func _audit_diegetic_room_flow(world: OperaCareerWorld2D, career: String) -> voi
 			and not world.wander_walking and not world.hotspot_opening
 			and not world.task_open)
 	else:
-		_check("%s blocks every inactive room object" % career, false)
+		# Teacher intentionally revisits one lesson desk for four lesson kinds.
+		_check("%s blocks every inactive room object" % career,
+			career == "teacher" and hotspots.size() == 1)
 
 	var phase_before := world.phase_index
 	var progress_before := world.phase_progress
@@ -1402,7 +1534,7 @@ func _audit_diegetic_room_flow(world: OperaCareerWorld2D, career: String) -> voi
 		var partner_rect := _actor_visual_rect(world.rival_actor)
 		visible_partner_clear = _rect_inside(partner_rect, canvas_rect) \
 			and not partner_rect.intersects(actor_rect) \
-			and (not world.action_panel.visible
+			and (career == "geologist" or not world.action_panel.visible
 				or not partner_rect.intersects(panel_rect))
 	_check("%s uses a transparent borderless activity focus" % career,
 		world.task_frame_texture == null and world.station_marker_texture == null
@@ -1421,6 +1553,10 @@ func _audit_phase_hotspot_rearming(world: OperaCareerWorld2D, career: String,
 		canvas_rect: Rect2) -> OperaWorldHotspot2D:
 	var declared: Dictionary = OperaCareerWorld2D.PHASE_STATIONS.get(career, {}) \
 		as Dictionary
+	# This audit deliberately jumps forward through every phase, including the
+	# no-walk performance stage. Preserve the real practice-room actor rests so
+	# the synthetic rewind below starts its route from the authored entrance.
+	var practice_actor_rests: Dictionary = world.actor_rests.duplicate(true)
 	var previous_active: OperaWorldHotspot2D = null
 	var every_transition_rearmed := true
 	for phase_number in range(world.phases.size()):
@@ -1432,6 +1568,19 @@ func _audit_phase_hotspot_rearming(world: OperaCareerWorld2D, career: String,
 		world._arm_phase()
 		var phase: Dictionary = world.phases[phase_number]
 		var phase_name := String(phase.get("name", "phase_%d" % phase_number))
+		if world.two_act_enabled and phase_number >= world.performance_stage_start:
+			var stage_backdrop := world.get_node_or_null(
+				"OperaCareerWorld2D/CareerWorldBackdrop") as OperaWorldBackdrop2D
+			var stage_hotspots := _armed_hotspots(world)
+			_check("%s %s auto-opens on the painted Opera stage" % [career, phase_name],
+				world.task_open and world.in_competition_finale()
+				and stage_backdrop != null and stage_backdrop.stage_mode
+				and stage_backdrop.stage_tiles.size() == 4)
+			_check("%s %s removes every rehearsal-room hotspot from the stage" \
+				% [career, phase_name], stage_hotspots.is_empty()
+				and world.wander_layer != null and not world.wander_layer.visible
+				and world.wander_layer.mouse_filter == Control.MOUSE_FILTER_IGNORE)
+			continue
 		var expected_id := String(declared.get(phase_name, ""))
 		var expected_index := int(world.station_for_phase.get(phase_number, -1))
 		var armed := _armed_hotspots(world)
@@ -1484,6 +1633,7 @@ func _audit_phase_hotspot_rearming(world: OperaCareerWorld2D, career: String,
 	world.phase_advance_pending = false
 	world.phase_complete_t = 0.0
 	world.reveal_t = 0.0
+	world.actor_rests = practice_actor_rests.duplicate(true)
 	if world.m != null:
 		world.m.clear_dialogue()
 	world._arm_phase()
@@ -1526,6 +1676,18 @@ func _rect_inside(inner: Rect2, outer: Rect2, slack: float = 0.1) -> bool:
 		and inner.end.y <= outer.end.y + slack
 
 
+func _teacher_owns_library_tiles(backdrop: OperaWorldBackdrop2D) -> bool:
+	if backdrop == null or backdrop.painting != null \
+			or not backdrop.world_tiles.is_empty() or not backdrop.stage_tiles.is_empty() \
+			or backdrop.room_variant_tiles.size() != 8:
+		return false
+	for tile: Texture2D in backdrop.room_variant_tiles:
+		if tile == null or not tile.resource_path.contains(
+				"/castle/interactions_v4/background_tiles/room_library_background_"):
+			return false
+	return true
+
+
 func _actor_visual_rect(actor: Control) -> Rect2:
 	if actor == null:
 		return Rect2()
@@ -1561,34 +1723,30 @@ func _exercise_racer_finale(act: OperaAct, world: OperaCareerWorld2D,
 	_check("racer keeps the current three-beat career arc",
 		world.phases.size() == 3
 		and racer_names == ["TUNE", "TO THE LINE", "RACE"])
-	_check("racer finale uses the exact recorded circle instruction",
-		String(finale.get("vo", "")) == "op_racer_lap_two"
+	_check("racer finale uses the exact recorded steering instruction",
+		String(finale.get("vo", "")) == "op_racer_steer"
 		and String(finale.get("voice", "")) \
-			== "Loop the loop! Draw big racing circles!")
-	_check("racer finale is a code-native one-finger steering turn",
-		String(finale.get("mode", "")) == "circle"
+			== "Swipe to steer through the coral gates!")
+	_check("racer finale is a code-native two-lap one-finger race",
+		String(finale.get("mode", "")) == "kart_race"
+		and is_equal_approx(float(finale.get("goal", 0.0)), 2.0)
 		and finale.has("widget") and String(finale.get("widget", "x")).is_empty())
 
 	# Enter the finale synchronously, then let ten seconds of normal update time
 	# pass with no input. The ghost finger may teach, but it must never play.
 	main.clear_dialogue()
-	main.said_cool.erase("roshan_op_racer_lap_two")
+	main.said_cool.erase("roshan_op_racer_steer")
 	var voice_before: int = main.voice_i
 	world._show_phase()
 	await process_frame
-	var open_player_rect := _actor_visual_rect(world.player_actor)
-	var open_rival_rect := _actor_visual_rect(world.rival_actor)
-	var open_activity_rect := Rect2(world.action_panel.position,
-		world.action_panel.size)
-	var open_finale_cast_separated := world.task_open \
-		and world.player_actor.visible and world.rival_actor.visible \
-		and _rect_inside(open_player_rect,
-			Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)) \
-		and _rect_inside(open_rival_rect,
-			Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)) \
-		and not open_player_rect.intersects(open_rival_rect) \
-		and (not world.action_panel.visible \
-			or not open_rival_rect.intersects(open_activity_rect))
+	var racer_surface := world.surface as OperaRacerSurface
+	var open_finale_race_staged := world.task_open \
+		and racer_surface != null and racer_surface._rival_art != null \
+		and not world.player_actor.visible and not world.rival_actor.visible \
+		and world.action_panel.visible and racer_surface.visible \
+		and racer_surface.size.is_equal_approx(StorybookUI.CANVAS_SIZE)
+	_check("racer race replaces both static actors with its drawn kart cast",
+		open_finale_race_staged)
 	var voice_player: AudioStreamPlayer = null
 	if main.voice_i > 0 and not main.voice_pool.is_empty():
 		var voice_index := posmod(main.voice_i - 1, main.voice_pool.size())
@@ -1599,7 +1757,7 @@ func _exercise_racer_finale(act: OperaAct, world: OperaCareerWorld2D,
 	_check("racer finale makes one exact pooled speech request",
 		main.voice_i == voice_before + 1
 		and voice_path \
-			== "res://assets/audio/voices/filler_v1/roshan_op_racer_lap_two.ogg")
+			== "res://assets/audio/voices/filler_v1/roshan_op_racer_steer.ogg")
 	var racer_caption_hidden := not main.hud_msg.visible \
 		and main.hud_msg.text.is_empty() and main.msg_timer <= 0.0
 	var racer_fallback_quiet := main.voice == null or not main.voice.playing
@@ -1613,19 +1771,23 @@ func _exercise_racer_finale(act: OperaAct, world: OperaCareerWorld2D,
 		racer_caption_hidden and racer_fallback_quiet)
 	await create_timer(0.40).timeout
 	var passive_progress := world.phase_progress
-	for _second in range(10):
-		world._process(1.0)
-		world.surface._process(1.0)
+	var passive_distance := float(racer_surface.kart.get("s", -1.0))
+	for _frame in range(600):
+		world._process(RACER_TICK_SECONDS)
+		racer_surface._process(RACER_TICK_SECONDS)
+		act._process(RACER_TICK_SECONDS)
 	_check("ten quiet racer seconds award no progress or curtain call",
 		is_equal_approx(world.phase_progress, passive_progress)
 		and is_equal_approx(passive_progress, 0.0)
+		and is_equal_approx(float(racer_surface.kart.get("s", -2.0)),
+			passive_distance)
 		and act.state == "play" and act.performance_result.is_empty())
 	_check("racer finale stays visible inside the Opera Canvas world",
 		world.root.visible and main.game == "opera"
-		and main.kart_game == null and world.surface.mode == "circle"
+		and main.kart_game == null and world.surface.mode == "kart_race"
 		and world.action_panel.visible and world.surface.visible)
-	_check("racer steering surface is large and contained by the 1280x720 stage",
-		world.surface.size.x >= 176.0 and world.surface.size.y >= 176.0
+	_check("racer steering surface owns the contained 1280x720 stage",
+		world.surface.size.is_equal_approx(StorybookUI.CANVAS_SIZE)
 		and _control_inside_stage(world.action_panel))
 	_check("racer finale adds no nodes beyond its post-build Canvas bound",
 		_subtree_node_count(world) <= post_build_bound)
@@ -1634,22 +1796,33 @@ func _exercise_racer_finale(act: OperaAct, world: OperaCareerWorld2D,
 	_check("racer finale launches no external main child",
 		_direct_child_instance_ids(main) == direct_main_before)
 
-	_drive_racer_turn(world.surface)
-	_check("one honest steering turn owns the racer completion",
-		world.surface.input_started and not world.surface.demo_active
-		and world.surface.completion_accepted
-		and (world.phase_advance_pending or act.state == "won"))
-	act._process(0.05)
-	world._process(2.21)
+	var drive_result := _drive_racer_turn(act, world, true)
+	_check("cancelled racer touch freezes distance, then a fresh touch resumes",
+		bool(drive_result.get("cancel_tested", false))
+		and bool(drive_result.get("cancel_froze", false))
+		and bool(drive_result.get("resumed", false)))
+	_check("racer keeps steering ownership while a second finger fires turbo",
+		bool(drive_result.get("wrong_drag_ignored", false))
+		and bool(drive_result.get("parallel_turbo_claimed", false))
+		and bool(drive_result.get("turbo_fired", false)))
+	_check("genuine steering touches finish two laps within the frame bound",
+		bool(drive_result.get("completed", false))
+		and int(drive_result.get("frames", RACER_MAX_DRIVE_FRAMES + 1)) \
+			<= RACER_MAX_DRIVE_FRAMES
+		and racer_surface.input_started and not racer_surface.demo_active
+		and racer_surface.completion_accepted
+		and racer_surface.race_finished
+		and is_equal_approx(float(racer_surface.kart.get("s", 0.0)),
+			OperaRacerSurface.LAP_DISTANCE * 2.0))
 	await process_frame
-	_check("racer turn returns the trophy with no placement fail branch",
+	_check("racer race returns the trophy with no placement fail branch",
 		act.state == "won" and world.prop_rect.visible
 		and not act.performance_result.is_empty())
 	_check("racer completion never leaves Opera or adds an external runtime",
 		main.game == "opera" and main.kart_game == null
-		and world.root.visible and world.surface.mode == "circle"
+		and world.root.visible and world.surface.mode == "kart_race"
 		and _direct_child_instance_ids(main) == direct_main_before)
-	return open_finale_cast_separated
+	return open_finale_race_staged
 
 
 func _exercise_racer_cancel_and_reentry() -> void:
@@ -1672,15 +1845,15 @@ func _exercise_racer_cancel_and_reentry() -> void:
 	interrupted_world.phase_index = interrupted_world._finale_start()
 	interrupted_world.phase_progress = 0.0
 	interrupted_world._show_phase()
-	interrupted_world._process(3.0)
-	var center := interrupted_world.surface.size * 0.5
-	var radius := minf(interrupted_world.surface.size.x,
-		interrupted_world.surface.size.y) * 0.32
-	interrupted_world.surface._press(center + Vector2(radius, 0.0))
-	interrupted_world.surface._drag(center + Vector2.from_angle(0.25) * radius)
-	interrupted_world.surface._drag(center + Vector2.from_angle(0.50) * radius)
+	var interrupted_drive := _drive_racer_turn(
+		interrupted_act, interrupted_world, false, 24.0)
+	var interrupted_surface := interrupted_world.surface as OperaRacerSurface
 	_check("racer can be cancelled during a live one-finger turn",
-		interrupted_world.surface.held and interrupted_world.phase_progress > 0.0
+		bool(interrupted_drive.get("touch_used", false))
+		and interrupted_surface != null and interrupted_surface.held
+		and interrupted_surface.race_touch_owner >= 0
+		and float(interrupted_surface.kart.get("s", 0.0)) >= 24.0
+		and interrupted_world.phase_progress > 0.0
 		and not interrupted_world.phase_advance_pending)
 	var interrupted_act_ref: WeakRef = weakref(interrupted_act)
 	var interrupted_world_ref: WeakRef = weakref(interrupted_world)
@@ -1713,24 +1886,27 @@ func _exercise_racer_cancel_and_reentry() -> void:
 	fresh_world.phase_index = fresh_world._finale_start()
 	fresh_world.phase_progress = 0.0
 	fresh_world._show_phase()
-	fresh_world._process(3.0)
+	var fresh_surface := fresh_world.surface as OperaRacerSurface
 	_check("fresh racer re-entry resets steering and progress",
 		is_equal_approx(fresh_world.phase_progress, 0.0)
-		and not fresh_world.surface.held
-		and not fresh_world.surface.completion_accepted
-		and fresh_world.surface.mode == "circle"
+		and fresh_surface != null and not fresh_surface.held
+		and fresh_surface.race_touch_owner == -1
+		and not fresh_surface.race_started and not fresh_surface.race_finished
+		and not fresh_surface.completion_accepted
+		and fresh_surface.mode == "kart_race"
 		and fresh_world.root.visible and main.game == "opera"
 		and main.kart_game == null)
-	_drive_racer_turn(fresh_world.surface)
-	fresh_act._process(0.05)
-	fresh_world._process(2.21)
+	var fresh_drive := _drive_racer_turn(fresh_act, fresh_world)
 	await process_frame
 	_check("fresh racer re-entry can win and recover the approved trophy",
-		fresh_act.state == "won" and fresh_world.prop_rect.visible
+		bool(fresh_drive.get("completed", false))
+		and int(fresh_drive.get("frames", RACER_MAX_DRIVE_FRAMES + 1)) \
+			<= RACER_MAX_DRIVE_FRAMES
+		and fresh_act.state == "won" and fresh_world.prop_rect.visible
 		and fresh_world.prop_rect.texture.resource_path.ends_with("/goal_racer.png")
 		and not fresh_act.performance_result.is_empty())
 	_check("fresh racer award adds no direct main child",
-		main.kart_game == null and fresh_world.surface.mode == "circle"
+		main.kart_game == null and fresh_world.surface.mode == "kart_race"
 		and _direct_child_instance_ids(main) == direct_main_before)
 	var fresh_act_ref: WeakRef = weakref(fresh_act)
 	var fresh_world_ref: WeakRef = weakref(fresh_world)
@@ -1743,15 +1919,169 @@ func _exercise_racer_cancel_and_reentry() -> void:
 		and get_root().find_children("*", "OperaCareerWorld2D", true, false).is_empty())
 
 
-func _drive_racer_turn(surface: OperaGestureSurface) -> void:
-	var center := surface.size * 0.5
-	var radius := minf(surface.size.x, surface.size.y) * 0.32
-	var start := center + Vector2(radius, 0.0)
-	surface._press(start)
-	for sample in range(1, 25):
-		var angle := TAU * float(sample) / 24.0
-		surface._drag(center + Vector2.from_angle(angle) * radius)
-	surface._release(start)
+func _drive_racer_turn(act: OperaAct, world: OperaCareerWorld2D,
+		test_cancel_freeze := false, stop_distance := -1.0) -> Dictionary:
+	var result := {
+		"completed": false,
+		"frames": 0,
+		"touch_used": false,
+		"cancel_tested": false,
+		"cancel_froze": false,
+		"resumed": false,
+		"wrong_drag_ignored": false,
+		"parallel_turbo_claimed": false,
+		"turbo_fired": false,
+	}
+	if not (world.surface is OperaRacerSurface):
+		return result
+	var surface := world.surface as OperaRacerSurface
+	var touch_index := 41
+	var steering_center := OperaRacerSurface.STEERING_RECT.get_center()
+	_racer_touch(surface, touch_index, true, steering_center)
+	_racer_drag(surface, touch_index, steering_center)
+	result["touch_used"] = surface.held and surface.race_touch_owner == touch_index
+	_racer_drag(surface, touch_index, steering_center + Vector2(36.0, 0.0))
+	var owned_steer := surface.race_steer
+	_racer_drag(surface, 99, steering_center - Vector2(240.0, 0.0))
+	result["wrong_drag_ignored"] = is_equal_approx(surface.race_steer, owned_steer) \
+		and surface.race_touch_owner == touch_index
+	var turbo_index := 77
+	var turbo_fires_before := surface.race_turbo_fires
+	_racer_touch(surface, turbo_index, true, OperaRacerSurface.TURBO_CENTER)
+	result["parallel_turbo_claimed"] = surface.held \
+		and surface.race_touch_owner == touch_index \
+		and surface.race_turbo_held and surface.race_turbo_owner == turbo_index
+	var freeze_frames_left := 0
+	var freeze_distance := -1.0
+	for frame in range(RACER_MAX_DRIVE_FRAMES):
+		if test_cancel_freeze and not bool(result["cancel_tested"]) \
+				and float(surface.kart.get("s", 0.0)) >= 24.0:
+			freeze_distance = float(surface.kart.get("s", 0.0))
+			surface.cancel_race_touch()
+			result["cancel_tested"] = true
+			freeze_frames_left = RACER_FREEZE_FRAMES
+		if freeze_frames_left == 0 and frame % 12 == 0:
+			# A small alternating swipe drives the shipped steering path without
+			# deliberately scraping the soft track walls.
+			var sway := 22.0 if (frame / 12) % 2 == 0 else -22.0
+			_racer_drag(surface, touch_index, steering_center + Vector2(sway, 0.0))
+		world._process(RACER_TICK_SECONDS)
+		surface._process(RACER_TICK_SECONDS)
+		act._process(RACER_TICK_SECONDS)
+		result["frames"] = frame + 1
+		if not bool(result["turbo_fired"]) \
+				and surface.race_turbo_fires > turbo_fires_before:
+			result["turbo_fired"] = surface.held \
+				and surface.race_touch_owner == touch_index \
+				and surface.race_turbo_owner == turbo_index
+			_racer_touch(surface, turbo_index, false,
+				OperaRacerSurface.TURBO_CENTER)
+		if freeze_frames_left > 0:
+			freeze_frames_left -= 1
+			if freeze_frames_left == 0:
+				result["cancel_froze"] = is_equal_approx(
+					float(surface.kart.get("s", -2.0)), freeze_distance) \
+					and not surface.held and surface.race_touch_owner == -1
+				touch_index += 1
+				_racer_touch(surface, touch_index, true, steering_center)
+				_racer_drag(surface, touch_index, steering_center)
+				result["resumed"] = surface.held \
+					and surface.race_touch_owner == touch_index
+		if stop_distance >= 0.0 \
+				and float(surface.kart.get("s", 0.0)) >= stop_distance:
+			break
+		if act.state == "won":
+			result["completed"] = true
+			break
+	if bool(result["completed"]):
+		_racer_touch(surface, touch_index, false, steering_center)
+	return result
+
+
+func _racer_touch(surface: OperaRacerSurface, finger: int, pressed: bool,
+		position: Vector2) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = finger
+	event.position = position
+	event.pressed = pressed
+	surface._gui_input(event)
+
+
+func _racer_drag(surface: OperaRacerSurface, finger: int,
+		position: Vector2) -> void:
+	var event := InputEventScreenDrag.new()
+	event.index = finger
+	event.position = position
+	surface._gui_input(event)
+
+
+func _exercise_racer_policy_comparison() -> void:
+	var center_run := _run_standalone_racer_policy(false)
+	var inside_run := _run_standalone_racer_policy(true)
+	var center_seconds := float(center_run.get("seconds", 999.0))
+	var inside_seconds := float(inside_run.get("seconds", 999.0))
+	_check("inside-line steering has causal pace and pearl payoff",
+		bool(center_run.get("finished", false))
+		and bool(inside_run.get("finished", false))
+		and center_seconds <= 70.0 and inside_seconds <= 70.0
+		and center_seconds - inside_seconds >= 1.0
+		and int(center_run.get("pearls", -1)) == 0
+		and int(inside_run.get("pearls", 0)) >= 1)
+
+	var turbo := OperaRacerSurface.new()
+	get_root().add_child(turbo)
+	turbo.size = StorybookUI.CANVAS_SIZE
+	turbo.configure("kart_race", Color.WHITE)
+	_racer_touch(turbo, 83, true, OperaRacerSurface.TURBO_CENTER)
+	var distance_at_three := 0.0
+	for frame in range(210):
+		turbo._process(RACER_TICK_SECONDS)
+		if frame == 179:
+			distance_at_three = float(turbo.kart.get("s", 0.0))
+	var turbo_continued := turbo.race_turbo_held \
+		and turbo.race_turbo_owner == 83 and turbo.race_touch_owner == -1 \
+		and float(turbo.kart.get("s", 0.0)) > distance_at_three
+	paused = true
+	var distance_at_pause := float(turbo.kart.get("s", 0.0))
+	var pause_cleared := not turbo.held and not turbo.race_turbo_held \
+		and turbo.race_touch_owner == -1 and turbo.race_turbo_owner == -1
+	paused = false
+	for _frame in range(60):
+		turbo._process(RACER_TICK_SECONDS)
+	var pause_froze := is_equal_approx(
+		float(turbo.kart.get("s", -1.0)), distance_at_pause)
+	turbo.free()
+	_check("held Turbo drives past three seconds and scene-tree pause cancels it",
+		turbo_continued and pause_cleared and pause_froze)
+
+
+func _run_standalone_racer_policy(follow_inside: bool) -> Dictionary:
+	var surface := OperaRacerSurface.new()
+	get_root().add_child(surface)
+	surface.size = StorybookUI.CANVAS_SIZE
+	surface.configure("kart_race", Color.WHITE)
+	var steering_center := OperaRacerSurface.STEERING_RECT.get_center()
+	_racer_touch(surface, 81, true, steering_center)
+	var frames := 0
+	for frame in range(RACER_POLICY_MAX_FRAMES):
+		if follow_inside:
+			var curvature := surface.road_curvature(
+				float(surface.kart.get("s", 0.0)))
+			var target_lat := -signf(curvature) * 3.0
+			var steer := clampf(
+				(target_lat - float(surface.kart.get("lat", 0.0))) * 0.38
+				- float(surface.kart.get("latv", 0.0)) * 0.08, -0.55, 0.55)
+			_racer_drag(surface, 81,
+				steering_center + Vector2(steer * 290.0, 0.0))
+		surface._process(RACER_TICK_SECONDS)
+		frames = frame + 1
+		if surface.race_finished:
+			break
+	var result := {"finished": surface.race_finished,
+		"seconds": float(frames) * RACER_TICK_SECONDS,
+		"pearls": surface.race_pearls, "turbos": surface.race_turbo_fires}
+	surface.free()
+	return result
 
 
 func _career_config(costume: String) -> Dictionary:
@@ -1786,6 +2116,521 @@ func _control_inside_stage(control: Control) -> bool:
 	var rect := Rect2(control.position, control.size)
 	return rect.position.x >= 0.0 and rect.position.y >= 0.0 \
 		and rect.end.x <= 1280.0 and rect.end.y <= 720.0
+
+
+func _teacher_touch(surface: Variant, finger: int, pressed: bool,
+		position: Vector2, canceled: bool = false) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = finger
+	event.position = position
+	event.pressed = pressed
+	event.canceled = canceled
+	surface._gui_input(event)
+
+
+func _teacher_tap(surface: Variant, position: Vector2, finger: int = 0) -> void:
+	_teacher_touch(surface, finger, true, position)
+	_teacher_touch(surface, finger, false, position)
+
+
+func _record_teacher_award(kind: String, _amount: float, _quality: float) -> void:
+	teacher_awards.append(kind)
+
+
+func _record_teacher_result(_kind: String, assisted: bool) -> void:
+	teacher_assisted_results.append(assisted)
+
+
+func _teacher_progress_for(kind: String, tier: int, rounds: int = 0) -> Dictionary:
+	return TeacherPlan.normalise_progress({"kinds": {kind: {
+		"tier": tier, "clean_successes": 0, "rounds": rounds,
+	}}})
+
+
+func _exercise_teacher_model() -> void:
+	var malformed := TeacherPlan.normalise_progress({"kinds": {
+		"pattern": {"tier": true, "clean_successes": "2", "rounds": NAN},
+		"count": {"tier": 99.5, "clean_successes": -7, "rounds": INF},
+	}})
+	var malformed_safe: bool = malformed["version"] == 1
+	for kind: String in TeacherPlan.KINDS:
+		var state: Dictionary = malformed["kinds"][kind]
+		malformed_safe = malformed_safe and state == {
+			"tier": 0, "clean_successes": 0, "rounds": 0,
+		}
+	_check("teacher rejects malformed JSON progress without phantom mastery",
+		malformed_safe)
+
+	var lessons_bounded := true
+	for tier in range(3):
+		for sequence in range(12):
+			for kind: String in TeacherPlan.KINDS:
+				var saved := _teacher_progress_for(kind, tier, sequence)
+				var lesson: Dictionary = TeacherPlan.make_lesson(kind, saved)
+				var choices: Array = lesson.get("choices", []) as Array
+				var answer := int(lesson.get("answer", -1))
+				var prompt: Array = lesson.get("prompt_tokens", []) as Array
+				var target := int(lesson.get("target", -1))
+				lessons_bounded = lessons_bounded \
+					and lesson == TeacherPlan.make_lesson(kind, saved) \
+					and answer >= 0 and answer < choices.size() \
+					and int(choices[answer]) == target \
+					and choices.size() == choices.duplicate().reduce(
+						func(unique: Array, value: Variant) -> Array:
+							if value not in unique:
+								unique.append(value)
+							return unique, []).size()
+				if kind == "pattern":
+					var unit := 2 if tier == 0 else 3
+					lessons_bounded = lessons_bounded and prompt.size() == unit * 2 \
+						and choices.size() == (2 if tier == 0 else 3) \
+						and prompt.slice(0, unit) == prompt.slice(unit, unit * 2) \
+						and target == int(prompt[0])
+				elif kind == "count":
+					var count_max: int = [3, 5, 10][tier]
+					lessons_bounded = lessons_bounded and prompt.size() >= 1 \
+						and prompt.size() <= count_max and target == prompt.size()
+				elif kind == "add":
+					var operands: Array = lesson.get("operands", []) as Array
+					var sum_max: int = [3, 5, 10][tier]
+					lessons_bounded = lessons_bounded and operands.size() == 2 \
+						and int(operands[0]) + int(operands[1]) == target \
+						and target <= sum_max and prompt.size() == target
+				else:
+					lessons_bounded = lessons_bounded and prompt.size() == 1 \
+						and target == int(prompt[0]) and choices.size() == tier + 2
+	_check("teacher lessons deterministically grow AB, count, sum, and shape difficulty",
+		lessons_bounded)
+
+	var progress := TeacherPlan.normalise_progress({})
+	progress = TeacherPlan.record_result(progress, "pattern", false)
+	progress = TeacherPlan.record_result(progress, "pattern", true)
+	var helped_kept_mastery := int(progress["kinds"]["pattern"]["tier"]) == 0 \
+		and int(progress["kinds"]["pattern"]["clean_successes"]) == 1 \
+		and int(progress["kinds"]["pattern"]["rounds"]) == 2
+	progress = TeacherPlan.record_result(progress, "pattern", false)
+	progress = TeacherPlan.record_result(progress, "pattern", false)
+	var promoted_once := int(progress["kinds"]["pattern"]["tier"]) == 1 \
+		and int(progress["kinds"]["pattern"]["clean_successes"]) == 0 \
+		and int(progress["kinds"]["count"]["tier"]) == 0
+	for _win in range(9):
+		progress = TeacherPlan.record_result(progress, "pattern", false)
+	_check("three clean wins promote only that subject while help never costs mastery",
+		helped_kept_mastery and promoted_once
+		and int(progress["kinds"]["pattern"]["tier"]) == 2)
+
+
+func _exercise_teacher_surface(world: OperaCareerWorld2D,
+		modes: Array[String]) -> void:
+	_exercise_teacher_model()
+	var exact_contract := modes.size() == TEACHER_PHASE_CONTRACTS.size() \
+		and world.phases.size() == TEACHER_PHASE_CONTRACTS.size()
+	for index in range(mini(world.phases.size(), TEACHER_PHASE_CONTRACTS.size())):
+		var actual: Dictionary = world.phases[index] as Dictionary
+		var expected: Dictionary = TEACHER_PHASE_CONTRACTS[index]
+		exact_contract = exact_contract \
+			and String(actual.get("name", "")) == String(expected.get("name", "")) \
+			and String(actual.get("mode", "")) == String(expected.get("mode", "")) \
+			and is_equal_approx(float(actual.get("goal", 0.0)), 1.0) \
+			and actual.has("widget") and String(actual.get("widget", "missing")).is_empty()
+	_check("teacher has exactly PATTERN, COUNT, ADD, and MATCH at one goal each",
+		exact_contract)
+	_check("teacher waits with a dedicated full-canvas learning surface armed",
+		world.surface.get_script() == TeacherSurface and world.surface.armed_only
+		and TeacherSurface.BOARD.position.x >= 330.0
+		and TeacherSurface.BOARD.end.x <= StorybookUI.CANVAS_SIZE.x
+		and TeacherSurface.BOARD.end.y <= StorybookUI.CANVAS_SIZE.y)
+
+	var teacher: Variant = TeacherSurface.new()
+	teacher.size = StorybookUI.CANVAS_SIZE
+	get_root().add_child(teacher)
+	teacher.set_process(false)
+	teacher.gesture.connect(_record_teacher_award)
+	teacher.lesson_completed.connect(_record_teacher_result)
+	teacher_awards.clear()
+	teacher_assisted_results.clear()
+
+	var pattern := TeacherPlan.make_lesson("pattern", _teacher_progress_for("pattern", 0))
+	teacher.configure("teacher_pattern", Color.WHITE)
+	teacher.set_lesson(pattern)
+	teacher.armed_only = false
+	for _tick in range(60):
+		teacher._process(0.5)
+	_check("thirty quiet seconds cannot answer or award a teacher lesson",
+		teacher_awards.is_empty() and not teacher.solved and teacher.chosen == -1)
+	var wrong: int = (teacher.answer_index() + 1) % (pattern["choices"] as Array).size()
+	_teacher_tap(teacher, teacher.choice_rect(wrong).get_center())
+	var assisted_before_win: bool = teacher.assisted and teacher.wrong_attempts == 1 \
+		and not teacher.solved and teacher_awards.is_empty()
+	_teacher_tap(teacher, teacher.choice_rect(teacher.answer_index()).get_center())
+	_teacher_tap(teacher, teacher.choice_rect(teacher.answer_index()).get_center())
+	var helped_progress := TeacherPlan.record_result(
+		TeacherPlan.normalise_progress({}), "pattern", teacher_assisted_results[0])
+	_check("a wrong answer teaches the target, marks help, and grants no mastery",
+		assisted_before_win and teacher_awards == ["teacher_pattern"]
+		and teacher_assisted_results == [true]
+		and int(helped_progress["kinds"]["pattern"]["clean_successes"]) == 0)
+
+	var count_lesson := TeacherPlan.make_lesson("count",
+		_teacher_progress_for("count", 0, 2))
+	teacher.configure("teacher_count", Color.WHITE)
+	teacher.set_lesson(count_lesson)
+	teacher.armed_only = false
+	_teacher_tap(teacher, teacher.choice_rect(teacher.answer_index()).get_center())
+	_teacher_touch(teacher, 7, true, teacher.counter_position(0))
+	_teacher_touch(teacher, 9, true, teacher.counter_position(0))
+	_teacher_touch(teacher, 9, false, teacher.counter_position(0))
+	var wrong_owner_safe: bool = teacher.touch_owner == 7 \
+		and teacher.counted.count(true) == 0
+	_teacher_touch(teacher, 7, false, teacher.counter_position(0), true)
+	var canceled_safe: bool = teacher.touch_owner == -1 and not teacher.held \
+		and teacher.counted.count(true) == 0
+	_teacher_tap(teacher, teacher.counter_position(0))
+	_teacher_tap(teacher, teacher.counter_position(0))
+	var partial_snapshot: Dictionary = teacher.progress_snapshot()
+	var round_trip: Variant = JSON.parse_string(JSON.stringify(partial_snapshot))
+	teacher.configure("teacher_count", Color.WHITE)
+	teacher.set_lesson(count_lesson)
+	teacher.armed_only = false
+	teacher.restore_progress(round_trip as Dictionary)
+	var partial_restored: bool = teacher.counted.count(true) == 1 \
+		and not teacher.solved
+	for counter in range(1, teacher.counted.size()):
+		_teacher_tap(teacher, teacher.counter_position(counter))
+	_teacher_tap(teacher, teacher.choice_rect(teacher.answer_index()).get_center())
+	_check("count requires one touch per object and survives cancel plus JSON restore",
+		wrong_owner_safe and canceled_safe and partial_restored
+		and teacher_awards.count("teacher_count") == 1 and teacher.solved)
+
+	var add_lesson := TeacherPlan.make_lesson("add", _teacher_progress_for("add", 0, 1))
+	teacher.configure("teacher_add", Color.WHITE)
+	teacher.set_lesson(add_lesson)
+	teacher.armed_only = false
+	_teacher_tap(teacher, teacher.counter_position(0))
+	var count_blocked_before_join: bool = teacher.counted.count(true) == 0 \
+		and not teacher.joined
+	_teacher_tap(teacher, TeacherSurface.JOIN_CENTER)
+	_teacher_tap(teacher, teacher.counter_position(0))
+	var count_blocked_during_join: bool = teacher.counted.count(true) == 0
+	teacher._process(0.41)
+	for counter in range(teacher.counted.size()):
+		_teacher_tap(teacher, teacher.counter_position(counter))
+	_teacher_tap(teacher, teacher.choice_rect(teacher.answer_index()).get_center())
+	_check("addition joins both groups, then counts every object before answering",
+		count_blocked_before_join and count_blocked_during_join and teacher.joined
+		and teacher.counted.count(true) == teacher.counted.size()
+		and teacher_awards.count("teacher_add") == 1)
+
+	var match_lesson := TeacherPlan.make_lesson("match", _teacher_progress_for("match", 2))
+	teacher.configure("teacher_match", Color.WHITE)
+	teacher.set_lesson(match_lesson)
+	teacher.armed_only = false
+	var four_choice_layout_ok := (match_lesson["choices"] as Array).size() == 4
+	for choice_index in range(4):
+		var choice_bounds: Rect2 = teacher.choice_rect(choice_index)
+		four_choice_layout_ok = four_choice_layout_ok \
+			and _rect_inside(choice_bounds, TeacherSurface.BOARD) \
+			and choice_bounds.size.x >= StorybookUI.MIN_TOUCH.x \
+			and choice_bounds.size.y >= StorybookUI.MIN_TOUCH.y
+		for earlier_index in range(choice_index):
+			four_choice_layout_ok = four_choice_layout_ok \
+				and not choice_bounds.intersects(teacher.choice_rect(earlier_index))
+	_teacher_tap(teacher, teacher.choice_rect(teacher.answer_index()).get_center())
+	_teacher_tap(teacher, teacher.choice_rect(teacher.answer_index()).get_center())
+	_check("matching lays out four exact shapes and emits no duplicate win",
+		four_choice_layout_ok
+		and int(match_lesson["target"]) == int(match_lesson["prompt_tokens"][0])
+		and teacher_awards.count("teacher_match") == 1)
+
+	teacher_awards.clear()
+	teacher.configure("teacher_pattern", Color.WHITE)
+	teacher.set_lesson(pattern)
+	teacher.armed_only = true
+	teacher.restore_progress({"version": 1, "kind": "pattern", "sequence": 0,
+		"tier": 0, "counted": [], "joined": true, "assisted": false,
+		"wrong_attempts": 0, "chosen": teacher.answer_index()})
+	teacher._process(0.1)
+	var armed_restore_silent: bool = teacher_awards.is_empty() and not teacher.solved
+	teacher.armed_only = false
+	teacher._process(0.1)
+	teacher._process(0.1)
+	_teacher_tap(teacher, teacher.choice_rect(teacher.answer_index()).get_center())
+	_check("completed current lesson restore awards once only after its board opens",
+		armed_restore_silent and teacher.solved
+		and teacher_awards == ["teacher_pattern"])
+	teacher.queue_free()
+
+
+func _drive_teacher_surface(surface: Variant) -> void:
+	if surface.lesson_kind() == "add" and not surface.joined:
+		_teacher_tap(surface, TeacherSurface.JOIN_CENTER)
+		surface._process(0.41)
+	for counter in range(surface.counted.size()):
+		if not surface.counted[counter]:
+			_teacher_tap(surface, surface.counter_position(counter))
+	_teacher_tap(surface, surface.choice_rect(surface.answer_index()).get_center())
+
+
+func _drive_teacher_phase(world: OperaCareerWorld2D) -> void:
+	if world.phase_advance_pending:
+		world._advance_completed_phase()
+		return
+	if world.phase_index >= world.phases.size() \
+			or world.surface.get_script() != TeacherSurface:
+		return
+	if not world.task_open:
+		world._open_task()
+		return
+	var verifies_count_fifo: bool = world.surface.lesson_kind() == "count"
+	if verifies_count_fifo:
+		world.teacher_voice_queue.clear()
+	_drive_teacher_surface(world.surface)
+	if verifies_count_fifo:
+		var expected_voice_order: Array[String] = []
+		for number in range(1, world.surface.counted.size() + 1):
+			expected_voice_order.append("teacher_number_%d" % number)
+		expected_voice_order.append("teacher_choose")
+		_check("quick counting queues every spoken number then choice in FIFO order",
+			world.teacher_voice_queue == expected_voice_order)
+
+
+func _geology_touch(surface: Variant, finger: int, pressed: bool,
+		position: Vector2) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = finger
+	event.position = position
+	event.pressed = pressed
+	surface._gui_input(event)
+
+
+func _geology_drag(surface: Variant, finger: int,
+		position: Vector2) -> void:
+	var event := InputEventScreenDrag.new()
+	event.index = finger
+	event.position = position
+	surface._gui_input(event)
+
+
+func _record_geology_award(kind: String, _amount: float, _quality: float) -> void:
+	geology_awards.append(kind)
+
+
+func _exercise_geology_surface(world: OperaCareerWorld2D,
+		modes: Array[String]) -> void:
+	var exact_contract := modes.size() == GEOLOGY_PHASE_CONTRACTS.size() \
+		and world.phases.size() == GEOLOGY_PHASE_CONTRACTS.size()
+	for index in range(mini(world.phases.size(), GEOLOGY_PHASE_CONTRACTS.size())):
+		var actual: Dictionary = world.phases[index] as Dictionary
+		var expected: Dictionary = GEOLOGY_PHASE_CONTRACTS[index]
+		exact_contract = exact_contract \
+			and String(actual.get("name", "")) == String(expected.get("name", "")) \
+			and String(actual.get("mode", "")) == String(expected.get("mode", "")) \
+			and is_equal_approx(float(actual.get("goal", 0.0)), 1.0) \
+			and actual.has("widget") and String(actual.get("widget", "missing")).is_empty()
+	_check("geologist has exactly RIVER, FOSSIL, PAN, and GEODE at one goal each",
+		exact_contract and modes == GeologySurface.SUPPORTED_MODES)
+	_check("geologist uses its dedicated full-canvas one-finger surface",
+		world.surface.get_script() == GeologySurface
+		and GeologySurface.WORK_RECT.position.x >= 330.0
+		and GeologySurface.WORK_RECT.end.x <= StorybookUI.CANVAS_SIZE.x
+		and GeologySurface.WORK_RECT.end.y <= StorybookUI.CANVAS_SIZE.y)
+
+	var geology: Variant = GeologySurface.new()
+	geology.size = StorybookUI.CANVAS_SIZE
+	get_root().add_child(geology)
+	geology.set_process(false)
+	geology.gesture.connect(_record_geology_award)
+	geology_awards.clear()
+
+	var passive_safe := true
+	for mode_name: String in GeologySurface.SUPPORTED_MODES:
+		geology.configure(mode_name, Color.WHITE)
+		geology.armed_only = false
+		for _tick in range(120):
+			geology._process(0.25)
+		passive_safe = passive_safe and is_zero_approx(geology.progress())
+	_check("thirty idle seconds never excavate, wash, or open geology material",
+		passive_safe and geology_awards.is_empty())
+
+	geology.configure("geology_river", Color.WHITE)
+	geology.armed_only = false
+	_geology_touch(geology, 7, true, geology.river_path_point(0))
+	_geology_drag(geology, 8,
+		geology.river_path_point(GeologySurface.RIVER_PATH.size() - 1))
+	_geology_touch(geology, 8, false,
+		geology.river_path_point(GeologySurface.RIVER_PATH.size() - 1))
+	var wrong_finger_safe: bool = is_zero_approx(geology.progress()) \
+		and geology.touch_owner == 7 and geology.held
+	geology.cancel_input()
+	_check("a second finger and cancellation cannot steal or advance a river stroke",
+		wrong_finger_safe and geology.touch_owner == -1 and not geology.held
+		and is_zero_approx(geology.progress()))
+
+	geology.set_block_signals(true)
+	geology.configure("geology_river", Color.WHITE)
+	geology.armed_only = false
+	var disconnected_cell := Vector2i(4, 0)
+	var disconnected_index := disconnected_cell.y * GeologySurface.RIVER_COLS \
+		+ disconnected_cell.x
+	var disconnected_at: Vector2 = geology.river_path_cell_center(disconnected_cell)
+	_geology_touch(geology, 2, true, disconnected_at)
+	_geology_drag(geology, 2, disconnected_at + Vector2(3.0, 0.0))
+	_geology_touch(geology, 2, false, disconnected_at + Vector2(3.0, 0.0))
+	var disconnected_dry: bool = geology.river_wet[disconnected_index] \
+		and not geology._river_flow_indices().has(disconnected_index) \
+		and geology.progress() < 1.0
+	geology.configure("geology_river", Color.WHITE)
+	geology.armed_only = false
+	var straight_start: Vector2 = geology.river_path_cell_center(Vector2i(0, 2))
+	var straight_finish: Vector2 = geology.river_path_cell_center(Vector2i(8, 2))
+	_geology_touch(geology, 2, true, straight_start)
+	_geology_drag(geology, 2, straight_finish)
+	_geology_touch(geology, 2, false, straight_finish)
+	var guide_has_turn := false
+	for guide_cell: Vector2i in GeologySurface.RIVER_PATH:
+		guide_has_turn = guide_has_turn or guide_cell.y != 2
+	_check("river keeps disconnected digging dry but accepts a new connected channel",
+		disconnected_dry and guide_has_turn and is_equal_approx(geology.progress(), 1.0)
+		and geology._river_flow_indices().size() == GeologySurface.RIVER_COLS)
+	geology.set_block_signals(false)
+
+	geology.configure("geology_river", Color.WHITE)
+	geology.armed_only = false
+	_geology_touch(geology, 3, true, geology.river_path_point(0))
+	for path_index in range(1, 5):
+		_geology_drag(geology, 3, geology.river_path_point(path_index))
+	_geology_touch(geology, 3, false, geology.river_path_point(4))
+	var partial_progress: float = geology.progress()
+	var partial_snapshot: Dictionary = geology.progress_snapshot()
+	var json_round_trip: Variant = JSON.parse_string(JSON.stringify(partial_snapshot))
+	geology.configure("geology_river", Color.WHITE)
+	geology.restore_progress(json_round_trip as Dictionary)
+	_check("river checkpoint is JSON-safe and restores released partial material",
+		partial_progress > 0.0 and partial_progress < 1.0
+		and is_equal_approx(geology.progress(), partial_progress)
+		and geology.touch_owner == -1 and not geology.held)
+
+	var malformed_safe := true
+	geology.configure("geology_river", Color.WHITE)
+	geology.restore_progress({"mode": "geology_river", "wet": "not an array"})
+	malformed_safe = malformed_safe and is_zero_approx(geology.progress())
+	geology.configure("geology_fossil", Color.WHITE)
+	geology.restore_progress({"mode": "geology_fossil", "cleared": [true, "2", -8],
+		"fossil_stage": 1, "snapped": [1, "yes", null]})
+	malformed_safe = malformed_safe and is_zero_approx(geology.progress()) \
+		and geology.stage_name() == "FOSSIL_BRUSH"
+	geology.configure("geology_pan", Color.WHITE)
+	geology.restore_progress({"mode": "geology_pan", "reversals": "many",
+		"wash": 1.0, "minerals": 3})
+	malformed_safe = malformed_safe and is_zero_approx(geology.progress()) \
+		and geology.pan_minerals == 0
+	geology.configure("geology_geode", Color.WHITE)
+	geology.restore_progress({"mode": "geology_geode", "seams": "all", "pull": "far"})
+	malformed_safe = malformed_safe and is_zero_approx(geology.progress())
+	_check("malformed geology checkpoint fields grant no phantom progress",
+		malformed_safe and geology_awards.is_empty())
+
+	geology.configure("geology_fossil", Color.WHITE)
+	var cleared_indices: Array[int] = []
+	for cleared_index in range(GeologySurface.FOSSIL_REQUIRED_CELLS):
+		cleared_indices.append(cleared_index)
+	geology.restore_progress({"mode": "geology_fossil", "cleared": cleared_indices,
+		"fossil_stage": 0, "snapped": [false, false, false]})
+	var derived_fossil: bool = geology.stage_name() == "FOSSIL_ASSEMBLE" \
+		and is_equal_approx(geology.progress(), 0.5)
+	geology.configure("geology_pan", Color.WHITE)
+	geology.restore_progress({"mode": "geology_pan", "reversals": 4,
+		"wash": 1.0, "minerals": 3})
+	_check("geology restore derives stage, wash, and finds from earned primitives",
+		derived_fossil and geology.pan_reversals == 4
+		and is_equal_approx(geology.pan_wash, 4.0 / 9.0)
+		and geology.pan_minerals == 1)
+
+	geology.configure("geology_river", Color.WHITE)
+	geology.armed_only = true
+	var complete_indices: Array[int] = []
+	for complete_index in range(GeologySurface.RIVER_PATH.size()):
+		var cell: Vector2i = GeologySurface.RIVER_PATH[complete_index]
+		complete_indices.append(cell.y * GeologySurface.RIVER_COLS + cell.x)
+	geology.restore_progress({"mode": "geology_river", "wet": complete_indices})
+	var armed_restore_silent := geology_awards.is_empty() \
+		and is_equal_approx(geology.progress(), 1.0)
+	geology.armed_only = false
+	geology._process(0.01)
+	_geology_touch(geology, 4, true, geology.river_path_point(0))
+	_geology_drag(geology, 4, geology.river_path_point(1))
+	_geology_touch(geology, 4, false, geology.river_path_point(1))
+	_geology_touch(geology, 4, true, geology.river_path_point(0))
+	_geology_drag(geology, 4, geology.river_path_point(1))
+	_geology_touch(geology, 4, false, geology.river_path_point(1))
+	_check("fully earned restore awards once after opening and never while armed",
+		armed_restore_silent and geology_awards == ["geology_river"])
+
+	geology_awards.clear()
+	for mode_name: String in GeologySurface.SUPPORTED_MODES:
+		geology.configure(mode_name, Color.WHITE)
+		geology.armed_only = false
+		_drive_geology_surface(geology)
+		_drive_geology_surface(geology)
+	_check("each physical geology task emits exactly one award with no duplicates",
+		geology_awards == GeologySurface.SUPPORTED_MODES)
+	geology.queue_free()
+
+
+func _drive_geology_surface(surface: Variant) -> void:
+	match surface.mode:
+		"geology_river":
+			_geology_touch(surface, 0, true, surface.river_path_point(0))
+			for path_index in range(1, GeologySurface.RIVER_PATH.size()):
+				_geology_drag(surface, 0, surface.river_path_point(path_index))
+			_geology_touch(surface, 0, false,
+				surface.river_path_point(GeologySurface.RIVER_PATH.size() - 1))
+		"geology_fossil":
+			var cell_size := Vector2(
+				GeologySurface.FOSSIL_RECT.size.x / GeologySurface.FOSSIL_GRID_COLS,
+				GeologySurface.FOSSIL_RECT.size.y / GeologySurface.FOSSIL_GRID_ROWS)
+			var first := GeologySurface.FOSSIL_RECT.position + cell_size * 0.5
+			_geology_touch(surface, 0, true, first)
+			for row in range(GeologySurface.FOSSIL_GRID_ROWS):
+				var column := GeologySurface.FOSSIL_GRID_COLS - 1 if row % 2 == 0 else 0
+				var at := GeologySurface.FOSSIL_RECT.position \
+					+ (Vector2(column, row) + Vector2(0.5, 0.5)) * cell_size
+				_geology_drag(surface, 0, at)
+			_geology_touch(surface, 0, false, surface.pointer_pos)
+			for piece in range(3):
+				_geology_touch(surface, 0, true, surface.fossil_piece_home(piece))
+				_geology_drag(surface, 0, surface.fossil_piece_target(piece))
+				_geology_touch(surface, 0, false, surface.fossil_piece_target(piece))
+		"geology_pan":
+			var center := GeologySurface.PAN_RECT.get_center()
+			_geology_touch(surface, 0, true, center)
+			for swing in range(GeologySurface.PAN_REQUIRED_REVERSALS + 1):
+				var direction := 1.0 if swing % 2 == 0 else -1.0
+				_geology_drag(surface, 0, center + Vector2(direction * 150.0, 0.0))
+			_geology_touch(surface, 0, false, surface.pointer_pos)
+		"geology_geode":
+			for seam in range(GeologySurface.GEODE_SEAM_SPOTS.size()):
+				var seam_at: Vector2 = surface.geode_seam_spot(seam)
+				_geology_touch(surface, 0, true, seam_at)
+				_geology_touch(surface, 0, false, seam_at)
+			var half: Vector2 = surface.geode_half_center()
+			_geology_touch(surface, 0, true, half)
+			_geology_drag(surface, 0,
+				half + Vector2(GeologySurface.GEODE_PULL_DISTANCE + 16.0, 0.0))
+			_geology_touch(surface, 0, false, surface.pointer_pos)
+
+
+func _drive_geologist_phase(world: OperaCareerWorld2D) -> void:
+	if world.phase_advance_pending:
+		world._advance_completed_phase()
+		return
+	if world.phase_index >= world.phases.size() \
+			or world.surface.get_script() != GeologySurface:
+		return
+	if not world.task_open:
+		world._open_task()
+		return
+	_drive_geology_surface(world.surface)
 
 
 func _boxing_touch(surface: OperaBoxingSurface, finger: int, pressed: bool,
@@ -1991,6 +2836,12 @@ func _drive_boxer_phase(world: OperaCareerWorld2D) -> void:
 
 
 func _finale_partner_present(world: OperaCareerWorld2D, career: String) -> bool:
+	if career == "racer":
+		if world.phase_index >= world.phases.size() \
+				or not (world.surface is OperaRacerSurface):
+			return false
+		var racer := world.surface as OperaRacerSurface
+		return world.in_competition_finale() and racer._rival_art != null
 	if career != "boxer":
 		return world.rival_actor.visible and world.in_competition_finale()
 	if world.phase_index >= world.phases.size() \

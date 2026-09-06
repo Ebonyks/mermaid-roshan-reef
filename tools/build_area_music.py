@@ -84,6 +84,7 @@ EXPECTED_IDS = (
     "opera_racer",
     "opera_popstar",
     "opera_nursery",
+    "opera_teacher",
     "opera_boss_dragon",
     "opera_boss_phantom",
     "opera_boss_maestro",

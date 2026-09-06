@@ -1,5 +1,6 @@
 import importlib.util
 import hashlib
+import gzip
 import json
 import tempfile
 import unittest
@@ -100,6 +101,147 @@ class AudioQualityPolicyTests(unittest.TestCase):
             MODULE.grade("assets/audio/voices/filler_v1/yay.ogg", meta, -6.0),
             ("A", "", "P1", "REVIEW_PROVISIONAL_FILLER"),
         )
+
+    def test_teacher_lessons_are_voice_assets(self):
+        self.assertEqual(
+            MODULE.category("assets/audio/teacher/teacher_pattern.ogg"),
+            "voice",
+        )
+
+    def _teacher_fixture(self, root):
+        tools = root / "tools"
+        tools.mkdir(parents=True)
+        tools.joinpath("make_voices.py").write_text(
+            "LINES = {'teacher_pattern': ('roshan', 'Find the pattern.'), "
+            "'legacy_key': ('roshan', 'Legacy.')}\n",
+            encoding="utf-8",
+        )
+        audio = root / "assets/audio/teacher/teacher_pattern.ogg"
+        audio.parent.mkdir(parents=True)
+        audio.write_bytes(b"teacher fixture")
+        source = tools.joinpath("make_voices.py").read_bytes()
+        snapshot = root / MODULE.TEACHER_SOURCE_SNAPSHOT_REL
+        snapshot.parent.mkdir(parents=True, exist_ok=True)
+        snapshot.write_bytes(gzip.compress(source, mtime=0))
+        manifest = {
+            "schema_version": 1,
+            "generator": {
+                "script": "tools/make_voices.py",
+                "script_sha256": hashlib.sha256(source).hexdigest(),
+                "speaker_config": {
+                    "character": "roshan", "voice": "af_heart",
+                    "pitch_factor": 1.24, "speed": 1.02,
+                },
+            },
+            "source_provenance": dict(MODULE.TEACHER_SOURCE_PROVENANCE),
+            "delivery": {
+                "directory": "assets/audio/teacher", "sample_rate_hz": 48000,
+                "channels": 1, "codec": "vorbis", "target_lufs": -16.0,
+                "true_peak_limit_dbtp": -1.5, "files_count": 17,
+            },
+            "entries": [{
+                "key": "teacher_pattern", "speaker": "roshan",
+                "text": "Find the pattern.",
+                "kokoro_voice": "af_heart", "pitch_factor": 1.24, "speed": 1.02,
+                "source_line_table": "tools/make_voices.py:LINES",
+                "source_text_sha256": hashlib.sha256(b"Find the pattern.").hexdigest(),
+                "output_path": "assets/audio/teacher/teacher_pattern.ogg",
+                "output_sha256": hashlib.sha256(audio.read_bytes()).hexdigest(),
+                "output_bytes": len(audio.read_bytes()),
+            }],
+        }
+        manifest_path = root / MODULE.TEACHER_MANIFEST_REL
+        manifest_path.parent.mkdir(parents=True, exist_ok=True)
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+        return audio, manifest_path
+
+    def test_teacher_manifest_separates_keys_from_filler_authority(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self._teacher_fixture(root)
+            state = MODULE.validate_teacher_manifest(root)
+            self.assertFalse(any(
+                "teacher_pattern.ogg" in issue and "media decode" not in issue
+                for issue in state["issues"]))
+            authority = MODULE.authoritative_filler_lines(
+                root, set(state["declared_keys"]))
+            self.assertNotIn("teacher_pattern", authority)
+
+    def test_teacher_manifest_blocks_missing_and_mismatched_audio(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            audio, manifest_path = self._teacher_fixture(root)
+            audio.unlink()
+            state = MODULE.validate_teacher_manifest(root)
+            self.assertTrue(any("missing OGG" in issue for issue in state["issues"]))
+            audio.write_bytes(b"changed teacher fixture")
+            state = MODULE.validate_teacher_manifest(root)
+            self.assertTrue(any("hash mismatch" in issue for issue in state["issues"]))
+
+    def test_teacher_manifest_blocks_schema_text_and_speaker_mutations(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            _audio, manifest_path = self._teacher_fixture(root)
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            manifest["schema_version"] = 2
+            manifest["generator"]["speaker_config"]["voice"] = "wrong"
+            manifest["entries"][0]["source_text_sha256"] = "0" * 64
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            issues = MODULE.validate_teacher_manifest(root)["issues"]
+            self.assertTrue(any("schema_version" in issue for issue in issues))
+            self.assertTrue(any("speaker_config" in issue for issue in issues))
+            self.assertTrue(any("source_text_sha256" in issue for issue in issues))
+
+    def test_teacher_manifest_blocks_weight_and_identity_provenance_mutations(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            _audio, manifest_path = self._teacher_fixture(root)
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            manifest["source_provenance"]["model_sha256"] = "0" * 64
+            manifest["source_provenance"]["voices_sha256"] = "1" * 64
+            manifest["source_provenance"]["voice_identity"] = "unverified"
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            issues = MODULE.validate_teacher_manifest(root)["issues"]
+            self.assertTrue(any("model_sha256" in issue for issue in issues))
+            self.assertTrue(any("voices_sha256" in issue for issue in issues))
+            self.assertTrue(any("voice_identity" in issue for issue in issues))
+
+    def test_teacher_manifest_blocks_clipping_and_peak_even_when_claimed_pass(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self._teacher_fixture(root)
+            old_probe, old_loudness = MODULE.probe, MODULE.loudness
+            old_signal = MODULE.decoded_signal
+            MODULE.probe = lambda _path: {
+                "decode_ok": True, "codec": "vorbis", "sample_rate_hz": 48000,
+                "channels": 1, "bitrate_kbps": 96.0, "duration_seconds": 1.0,
+            }
+            MODULE.loudness = lambda _path: (-16.0, 0.0, -0.5)
+            MODULE.decoded_signal = lambda _path: {
+                "decode_ok": True, "duration_s": 1.0,
+                "decoded_peak_linear": 1.0, "decoded_clipped_samples": 3,
+                "decoded_rms_dbfs": -16.0,
+            }
+            try:
+                issues = MODULE.validate_teacher_manifest(root)["issues"]
+            finally:
+                MODULE.probe, MODULE.loudness = old_probe, old_loudness
+                MODULE.decoded_signal = old_signal
+            self.assertTrue(any("has decoded clipped samples: 3" in issue for issue in issues))
+            self.assertTrue(any("true peak exceeds" in issue for issue in issues))
+
+    def test_teacher_manifest_rejects_nested_and_noncohort_ogg(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self._teacher_fixture(root)
+            nested = root / "assets/audio/teacher/nested/legacy.ogg"
+            nested.parent.mkdir(parents=True)
+            nested.write_bytes(b"nested")
+            issues = MODULE.validate_teacher_manifest(root)["issues"]
+            self.assertTrue(any("nested/legacy.ogg" in issue for issue in issues))
+            authority = MODULE.authoritative_filler_lines(root, {"legacy_key"})
+            self.assertIn("teacher_pattern", authority)
+            self.assertIn("legacy_key", authority)
 
     def test_clipping_precedes_other_dispositions(self):
         meta = {"decode_ok": True, "duration_seconds": 1.0}

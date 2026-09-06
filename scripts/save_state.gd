@@ -5,9 +5,11 @@ extends RefCounted
 # are versioned and installed transactionally so a killed write cannot erase a
 # child's progress.
 
+const OperaMasteryModel := preload("res://scripts/opera_mastery.gd")
+
 const SCHEMA_VERSION := 1
-const OPERA_ACTIVE_STAR_MASK := 0x1BDEF
-const OPERA_ACTIVE_ACT_COUNT := 14
+const OPERA_ACTIVE_STAR_MASK := 0x3BDEF
+const OPERA_ACTIVE_ACT_COUNT := 15
 const BACKUP_SUFFIX := ".bak"
 const NEW_GAME_ARCHIVE_SUFFIX := ".before_new_game"
 const NEW_GAME_ARCHIVE_TEMP_SUFFIX := ".tmp"
@@ -32,6 +34,8 @@ const BOOL_KEYS: Array[String] = [
 const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
 	"stuffie_wins", "medals",
+	"teacher_learning_progress", "teacher_lesson_checkpoint",
+	"opera_mastery", "opera_performance_checkpoints",
 ]
 const ARRAY_KEYS: Array[String] = ["custom_fish", "custom_friends", "companion_colors",
 	"chapter2_job_phase_masks"]
@@ -47,6 +51,7 @@ const KNOWN_KEYS: Array[String] = [
 	"pearls", "pearls_ever", "portal_unlocked", "skin", "level2", "plays", "custom_fish", "custom_friends",
 	"crafts", "galaxy", "bwdone", "fairyskin", "combat_ice", "combat_fire",
 	"dungeon_progress", "dungeon_done", "opera_progress", "opera_stars", "opera_done", "opera_pantry",
+	"opera_geology_checkpoint",
 	"chapter3_fairy_door_revealed", "chapter3_fairy_door_opened", "chapter3_fairy_mission_started",
 	"castle_logo_color", "castle_logo_symbol",
 	"stickers", "owned", "animals", "critters",
@@ -76,7 +81,7 @@ var _warned_future_write_skip := false
 
 static func _opera_live_star_count(star_mask: int) -> int:
 	var total := 0
-	for bit_index in range(17):
+	for bit_index in range(18):
 		var bit := 1 << bit_index
 		if (OPERA_ACTIVE_STAR_MASK & bit) != 0 and (star_mask & bit) != 0:
 			total += 1
@@ -185,7 +190,7 @@ func load_save() -> void:
 	m.ember_found = bool(m.save_data.get("ember_found", false))
 	m.ember_progress = clampi(int(m.save_data.get("ember_progress", 0)), 0, 6)
 	m.ember_done = bool(m.save_data.get("ember_done", false))
-	m.opera_stars = clampi(int(m.save_data.get("opera_stars", 0)), 0, 131071)
+	m.opera_stars = clampi(int(m.save_data.get("opera_stars", 0)), 0, 262143)
 	# Progress is an effective count of the live careers. The historical lower
 	# sixteen bits remain authoritative and retain retired bits verbatim;
 	# Geologist appends at bit sixteen so no legacy identity shifts.
@@ -284,7 +289,7 @@ func write_save() -> bool:
 	next_data["ember_found"] = m.ember_found
 	next_data["ember_progress"] = clampi(m.ember_progress, 0, 6)
 	next_data["ember_done"] = m.ember_done
-	m.opera_stars = clampi(m.opera_stars, 0, 131071)
+	m.opera_stars = clampi(m.opera_stars, 0, 262143)
 	m.opera_progress = _opera_live_star_count(m.opera_stars)
 	next_data["opera_progress"] = m.opera_progress
 	next_data["opera_stars"] = m.opera_stars
@@ -608,7 +613,7 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	var comfy_state: Dictionary = ComfyGames.normalise_save_patch(raw)
 	data["comfy_games"] = comfy_state
 	var raw_opera_stars := clampi(
-		_nonnegative_int_or_default(raw, "opera_stars", 0), 0, 131071)
+		_nonnegative_int_or_default(raw, "opera_stars", 0), 0, 262143)
 	var chapter_two_state := ChapterTwoDirector.normalise_save_patch(
 		data, raw_opera_stars)
 	for chapter_two_key: String in chapter_two_state:
@@ -670,13 +675,19 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	var opera_stars: int = clampi(
 		_nonnegative_int_or_default(raw, "opera_stars", (1 << opera_prog) - 1),
 		0,
-		131071
+		262143
 	)
 	data["opera_stars"] = opera_stars
 	data["opera_progress"] = _opera_live_star_count(opera_stars)
 	data["opera_done"] = _bool_or_default(raw, "opera_done", false)
 	var pantry_in: Variant = raw.get("opera_pantry", {})
 	data["opera_pantry"] = (pantry_in as Dictionary) if pantry_in is Dictionary else {}
+	data["opera_mastery"] = OperaMasteryModel.normalise(raw.get("opera_mastery", {}))
+	data["opera_performance_checkpoints"] = _dictionary_or_default(raw, "opera_performance_checkpoints")
+	data["teacher_learning_progress"] = TeacherLessonPlan.normalise_progress(
+		raw.get("teacher_learning_progress", {}))
+	data["teacher_lesson_checkpoint"] = _teacher_lesson_checkpoint_or_default(raw)
+	data["opera_geology_checkpoint"] = _opera_geology_checkpoint_or_default(raw)
 	data["stickers"] = _dictionary_or_default(raw, "stickers")
 	data["owned"] = _dictionary_or_default(raw, "owned")
 	data["animals"] = _dictionary_or_default(raw, "animals")
@@ -695,6 +706,58 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["medals"] = _medals_or_default(raw)
 	data["save_generation"] = _nonnegative_int_or_default(raw, "save_generation", 0)
 	return data
+
+
+func _teacher_lesson_checkpoint_or_default(data: Dictionary) -> Dictionary:
+	var value: Variant = data.get("teacher_lesson_checkpoint", {})
+	if not value is Dictionary:
+		return {}
+	var checkpoint := (value as Dictionary).duplicate(true)
+	if checkpoint.is_empty():
+		return {}
+	var version_value: Variant = checkpoint.get("version", null)
+	var phase_value: Variant = checkpoint.get("phase_index", null)
+	var mechanic_value: Variant = checkpoint.get("mechanic", null)
+	if typeof(version_value) not in [TYPE_INT, TYPE_FLOAT] \
+			or not is_finite(float(version_value)) or float(version_value) != 1.0:
+		return {}
+	if typeof(phase_value) not in [TYPE_INT, TYPE_FLOAT] \
+			or not is_finite(float(phase_value)) \
+			or float(phase_value) != floorf(float(phase_value)) \
+			or float(phase_value) < 0.0 or float(phase_value) > 4.0:
+		return {}
+	if not mechanic_value is Dictionary:
+		return {}
+	checkpoint["version"] = 1
+	checkpoint["phase_index"] = int(phase_value)
+	checkpoint["mechanic"] = (mechanic_value as Dictionary).duplicate(true)
+	return checkpoint
+
+
+func _opera_geology_checkpoint_or_default(data: Dictionary) -> Dictionary:
+	var value: Variant = data.get("opera_geology_checkpoint", {})
+	if typeof(value) != TYPE_DICTIONARY:
+		return {}
+	var checkpoint: Dictionary = (value as Dictionary).duplicate(true)
+	if checkpoint.is_empty():
+		return {}
+	var version_value: Variant = checkpoint.get("version", null)
+	if typeof(version_value) not in [TYPE_INT, TYPE_FLOAT] \
+			or float(version_value) != 1.0:
+		return {}
+	var phase_value: Variant = checkpoint.get("phase_index", null)
+	if typeof(phase_value) not in [TYPE_INT, TYPE_FLOAT] \
+			or not is_finite(float(phase_value)) \
+			or float(phase_value) != floorf(float(phase_value)) \
+			or float(phase_value) < 0.0 or float(phase_value) > 4.0:
+		return {}
+	var mechanic_value: Variant = checkpoint.get("mechanic", null)
+	if typeof(mechanic_value) != TYPE_DICTIONARY:
+		return {}
+	checkpoint["version"] = 1
+	checkpoint["phase_index"] = int(phase_value)
+	checkpoint["mechanic"] = (mechanic_value as Dictionary).duplicate(true)
+	return checkpoint
 
 func _medals_or_default(data: Dictionary) -> Dictionary:
 	# game id -> best tier (1 bronze / 2 silver / 3 gold); JSON round-trips

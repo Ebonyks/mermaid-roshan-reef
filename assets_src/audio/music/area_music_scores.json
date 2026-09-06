@@ -4,312 +4,2209 @@
   "generation_method": "Declarative project score rendered by tools/build_area_music.py",
   "bpm_unit": "notated_denominator",
   "roshan_motif": {
-    "scale_degrees": [0, 2, 4, 5, 4, 2],
-    "rhythm_units": [1, 1, 2, 1, 1, 2],
+    "scale_degrees": [
+      0,
+      2,
+      4,
+      5,
+      4,
+      2
+    ],
+    "rhythm_units": [
+      1,
+      1,
+      2,
+      1,
+      1,
+      2
+    ],
     "description": "A six-note rise, brave crest, and gentle return. Every cue states this contour once and restates it in the room's own articulation."
   },
   "cues": [
     {
-      "id": "castle_opera_hall", "title": "Pearl Curtain Promenade", "family": "castle_room", "area": "Opera Hall",
+      "id": "castle_opera_hall",
+      "title": "Pearl Curtain Promenade",
+      "family": "castle_room",
+      "area": "Opera Hall",
       "brief": "A poised 6/8 theatre promenade: harp footsteps, clarinet curtain calls, and pearl-bell glints create anticipation without rushing the child toward a door.",
-      "bpm": 92, "meter": [6, 8], "bars": 8, "tonic_midi": 62, "mode": "lydian", "texture": "theatre", "percussion": "brush",
-      "instruments": {"lead": "clarinet", "harmony": "harp", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 3, 1, 4, 0, 5, 3, 0], "melody": [0, 2, 3, 5, 4, 2, 1, null, 2, 4, 6, 5], "motif_treatment": "curtain_call", "energy": 0.42
+      "bpm": 92,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 62,
+      "mode": "lydian",
+      "texture": "theatre",
+      "percussion": "brush",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "harp",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        3,
+        1,
+        4,
+        0,
+        5,
+        3,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        3,
+        5,
+        4,
+        2,
+        1,
+        null,
+        2,
+        4,
+        6,
+        5
+      ],
+      "motif_treatment": "curtain_call",
+      "energy": 0.42
     },
     {
-      "id": "castle_kitchen", "title": "Copper Kettle Waltz", "family": "castle_room", "area": "Royal Kitchen",
+      "id": "castle_kitchen",
+      "title": "Copper Kettle Waltz",
+      "family": "castle_room",
+      "area": "Royal Kitchen",
       "brief": "A homey little classical waltz with toy-piano flourishes, pizzicato stirring motions, and a clarinet melody that leaves generous room for cooking voices.",
-      "bpm": 90, "meter": [3, 4], "bars": 12, "tonic_midi": 60, "mode": "major", "texture": "waltz", "percussion": "brush",
-      "instruments": {"lead": "clarinet", "harmony": "toy_piano", "bass": "warm_bass", "accent": "pizzicato"},
-      "progression": [0, 3, 4, 0, 5, 1, 4, 0, 3, 1, 4, 0], "melody": [0, 2, 4, 3, 2, 1, 0, null, 2, 3, 5, 4], "motif_treatment": "homey_waltz", "energy": 0.38
+      "bpm": 90,
+      "meter": [
+        3,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 60,
+      "mode": "major",
+      "texture": "waltz",
+      "percussion": "brush",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "toy_piano",
+        "bass": "warm_bass",
+        "accent": "pizzicato"
+      },
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        1,
+        4,
+        0,
+        3,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        3,
+        2,
+        1,
+        0,
+        null,
+        2,
+        3,
+        5,
+        4
+      ],
+      "motif_treatment": "homey_waltz",
+      "energy": 0.38
     },
     {
-      "id": "castle_library", "title": "Lanterns Between Pages", "family": "castle_room", "area": "Royal Library",
+      "id": "castle_library",
+      "title": "Lanterns Between Pages",
+      "family": "castle_room",
+      "area": "Royal Library",
       "brief": "Flute phrases open like picture-book pages over soft harp arpeggios; long rests and warm sustained harmony keep the library curious rather than sleepy.",
-      "bpm": 76, "meter": [4, 4], "bars": 8, "tonic_midi": 65, "mode": "major", "texture": "lullaby", "percussion": "none",
-      "instruments": {"lead": "flute", "harmony": "harp", "bass": "warm_bass", "accent": "music_box"},
-      "progression": [0, 5, 3, 4, 0, 1, 4, 0], "melody": [0, null, 2, 4, 3, null, 1, 2, 5, 4, 2, null], "motif_treatment": "page_turn", "energy": 0.24
+      "bpm": 76,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 8,
+      "tonic_midi": 65,
+      "mode": "major",
+      "texture": "lullaby",
+      "percussion": "none",
+      "instruments": {
+        "lead": "flute",
+        "harmony": "harp",
+        "bass": "warm_bass",
+        "accent": "music_box"
+      },
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        null,
+        2,
+        4,
+        3,
+        null,
+        1,
+        2,
+        5,
+        4,
+        2,
+        null
+      ],
+      "motif_treatment": "page_turn",
+      "energy": 0.24
     },
     {
-      "id": "castle_playroom", "title": "Stuffie Parade", "family": "castle_room", "area": "Stuffie Playroom",
+      "id": "castle_playroom",
+      "title": "Stuffie Parade",
+      "family": "castle_room",
+      "area": "Stuffie Playroom",
       "brief": "A soft toy march with marimba feet and rounded brass answers; the steady pulse invites make-believe marching but never sounds military or dangerous.",
-      "bpm": 108, "meter": [4, 4], "bars": 12, "tonic_midi": 58, "mode": "major", "texture": "march", "percussion": "soft_march",
-      "instruments": {"lead": "marimba", "harmony": "warm_brass", "bass": "warm_bass", "accent": "toy_piano"},
-      "progression": [0, 4, 3, 0, 5, 3, 4, 0], "melody": [0, 0, 2, 4, 5, 4, 2, null, 3, 3, 1, 0], "motif_treatment": "stuffie_march", "energy": 0.55
+      "bpm": 108,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 58,
+      "mode": "major",
+      "texture": "march",
+      "percussion": "soft_march",
+      "instruments": {
+        "lead": "marimba",
+        "harmony": "warm_brass",
+        "bass": "warm_bass",
+        "accent": "toy_piano"
+      },
+      "progression": [
+        0,
+        4,
+        3,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        0,
+        2,
+        4,
+        5,
+        4,
+        2,
+        null,
+        3,
+        3,
+        1,
+        0
+      ],
+      "motif_treatment": "stuffie_march",
+      "energy": 0.55
     },
     {
-      "id": "castle_craft_room", "title": "Paintbox Polka", "family": "castle_room", "area": "Craft Room",
+      "id": "castle_craft_room",
+      "title": "Paintbox Polka",
+      "family": "castle_room",
+      "area": "Craft Room",
       "brief": "Bright accordion-like chords and plucked dots trade colors in a compact polka, with bell accents placed like stickers rather than constant sparkle noise.",
-      "bpm": 112, "meter": [2, 4], "bars": 24, "tonic_midi": 67, "mode": "mixolydian", "texture": "polka", "percussion": "shaker",
-      "instruments": {"lead": "pizzicato", "harmony": "accordion", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 3, 4, 0, 0, 5, 4, 0, 3, 1, 4, 0], "melody": [0, 2, 4, 2, 5, 4, 3, 1], "motif_treatment": "paint_dabs", "energy": 0.58
+      "bpm": 112,
+      "meter": [
+        2,
+        4
+      ],
+      "bars": 24,
+      "tonic_midi": 67,
+      "mode": "mixolydian",
+      "texture": "polka",
+      "percussion": "shaker",
+      "instruments": {
+        "lead": "pizzicato",
+        "harmony": "accordion",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        0,
+        5,
+        4,
+        0,
+        3,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        2,
+        5,
+        4,
+        3,
+        1
+      ],
+      "motif_treatment": "paint_dabs",
+      "energy": 0.58
     },
     {
-      "id": "castle_mermaid_pool", "title": "Moonpool Ripples", "family": "castle_room", "area": "Mermaid Pool",
+      "id": "castle_mermaid_pool",
+      "title": "Moonpool Ripples",
+      "family": "castle_room",
+      "area": "Mermaid Pool",
       "brief": "A slow aquatic 6/8 made from flute bubbles, harp ripples, and a glassy pad; phrases rise to the surface and settle before repeating.",
-      "bpm": 82, "meter": [6, 8], "bars": 8, "tonic_midi": 57, "mode": "lydian", "texture": "aquatic", "percussion": "none",
-      "instruments": {"lead": "flute", "harmony": "harp", "bass": "warm_pad", "accent": "chime"},
-      "progression": [0, 1, 3, 0, 5, 3, 4, 0], "melody": [0, 2, 4, 6, 4, 2, null, 1, 3, 5, 4, 2], "motif_treatment": "underwater_echo", "energy": 0.25
+      "bpm": 82,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 57,
+      "mode": "lydian",
+      "texture": "aquatic",
+      "percussion": "none",
+      "instruments": {
+        "lead": "flute",
+        "harmony": "harp",
+        "bass": "warm_pad",
+        "accent": "chime"
+      },
+      "progression": [
+        0,
+        1,
+        3,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        6,
+        4,
+        2,
+        null,
+        1,
+        3,
+        5,
+        4,
+        2
+      ],
+      "motif_treatment": "underwater_echo",
+      "energy": 0.25
     },
     {
-      "id": "castle_bubble_bath", "title": "Bubble Duck Bounce", "family": "castle_room", "area": "Bubble Bath",
+      "id": "castle_bubble_bath",
+      "title": "Bubble Duck Bounce",
+      "family": "castle_room",
+      "area": "Bubble Bath",
       "brief": "Rounded marimba bubbles pop over buoyant plucks and a tiny bath-toy bass line; playful syncopation suggests splashing without becoming busy.",
-      "bpm": 104, "meter": [4, 4], "bars": 12, "tonic_midi": 60, "mode": "major", "texture": "bounce", "percussion": "bubble",
-      "instruments": {"lead": "marimba", "harmony": "pizzicato", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 3, 4, 0, 5, 3, 1, 4], "melody": [0, 2, 4, null, 5, 4, 2, 1, 3, 5, 6, 4], "motif_treatment": "bubble_bounce", "energy": 0.54
+      "bpm": 104,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 60,
+      "mode": "major",
+      "texture": "bounce",
+      "percussion": "bubble",
+      "instruments": {
+        "lead": "marimba",
+        "harmony": "pizzicato",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        1,
+        4
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        null,
+        5,
+        4,
+        2,
+        1,
+        3,
+        5,
+        6,
+        4
+      ],
+      "motif_treatment": "bubble_bounce",
+      "energy": 0.54
     },
     {
-      "id": "castle_dining_room", "title": "Supper Table Grace", "family": "castle_room", "area": "Family Dining Room",
+      "id": "castle_dining_room",
+      "title": "Supper Table Grace",
+      "family": "castle_room",
+      "area": "Family Dining Room",
       "brief": "A warm chamber waltz with piano, strings, and clarinet passing one polite melody around the table; stable cadences make arrivals feel like coming home.",
-      "bpm": 84, "meter": [3, 4], "bars": 12, "tonic_midi": 65, "mode": "major", "texture": "waltz", "percussion": "none",
-      "instruments": {"lead": "clarinet", "harmony": "piano", "bass": "warm_bass", "accent": "warm_strings"},
-      "progression": [0, 3, 0, 4, 5, 1, 4, 0, 3, 1, 4, 0], "melody": [0, 2, 4, 3, 1, 2, 0, null, 4, 5, 3, 2], "motif_treatment": "family_round", "energy": 0.31
+      "bpm": 84,
+      "meter": [
+        3,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 65,
+      "mode": "major",
+      "texture": "waltz",
+      "percussion": "none",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "piano",
+        "bass": "warm_bass",
+        "accent": "warm_strings"
+      },
+      "progression": [
+        0,
+        3,
+        0,
+        4,
+        5,
+        1,
+        4,
+        0,
+        3,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        3,
+        1,
+        2,
+        0,
+        null,
+        4,
+        5,
+        3,
+        2
+      ],
+      "motif_treatment": "family_round",
+      "energy": 0.31
     },
     {
-      "id": "castle_royal_bedroom", "title": "Crown of Dreams", "family": "castle_room", "area": "Royal Bedroom",
+      "id": "castle_royal_bedroom",
+      "title": "Crown of Dreams",
+      "family": "castle_room",
+      "area": "Royal Bedroom",
       "brief": "A spacious music-box lullaby where each high note has time to fade into warm harp and pad harmony; the motif becomes a reassuring good-night phrase.",
-      "bpm": 68, "meter": [6, 8], "bars": 6, "tonic_midi": 62, "mode": "major", "texture": "lullaby", "percussion": "none",
-      "instruments": {"lead": "music_box", "harmony": "harp", "bass": "warm_pad", "accent": "flute"},
-      "progression": [0, 3, 5, 4, 0, 1, 4, 0], "melody": [0, null, 4, 3, 2, null, 1, 2, 4, 5, 4, null], "motif_treatment": "royal_lullaby", "energy": 0.18
+      "bpm": 68,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 6,
+      "tonic_midi": 62,
+      "mode": "major",
+      "texture": "lullaby",
+      "percussion": "none",
+      "instruments": {
+        "lead": "music_box",
+        "harmony": "harp",
+        "bass": "warm_pad",
+        "accent": "flute"
+      },
+      "progression": [
+        0,
+        3,
+        5,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        null,
+        4,
+        3,
+        2,
+        null,
+        1,
+        2,
+        4,
+        5,
+        4,
+        null
+      ],
+      "motif_treatment": "royal_lullaby",
+      "energy": 0.18
     },
     {
-      "id": "castle_sleepover_bedroom", "title": "Whispered Pillow Fort", "family": "castle_room", "area": "Sleepover Bedroom",
+      "id": "castle_sleepover_bedroom",
+      "title": "Whispered Pillow Fort",
+      "family": "castle_room",
+      "area": "Sleepover Bedroom",
       "brief": "A hushed but mischievous 6/8: music-box whispers and pizzicato tiptoes suggest friends trying not to giggle after bedtime.",
-      "bpm": 74, "meter": [6, 8], "bars": 8, "tonic_midi": 58, "mode": "major", "texture": "lullaby", "percussion": "tiptoe",
-      "instruments": {"lead": "music_box", "harmony": "pizzicato", "bass": "warm_pad", "accent": "bell"},
-      "progression": [0, 5, 3, 4, 0, 5, 4, 0], "melody": [0, 2, null, 4, 3, 2, 1, null, 3, 5, 4, 2], "motif_treatment": "pillow_whisper", "energy": 0.22
+      "bpm": 74,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 58,
+      "mode": "major",
+      "texture": "lullaby",
+      "percussion": "tiptoe",
+      "instruments": {
+        "lead": "music_box",
+        "harmony": "pizzicato",
+        "bass": "warm_pad",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        5,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        null,
+        4,
+        3,
+        2,
+        1,
+        null,
+        3,
+        5,
+        4,
+        2
+      ],
+      "motif_treatment": "pillow_whisper",
+      "energy": 0.22
     },
     {
-      "id": "castle_movie_lounge", "title": "Cloud-Reel Matinee", "family": "castle_room", "area": "Cloud Movie Lounge",
+      "id": "castle_movie_lounge",
+      "title": "Cloud-Reel Matinee",
+      "family": "castle_room",
+      "area": "Cloud Movie Lounge",
       "brief": "A miniature storybook film score: clarinet introduces the scene, piano turns the reel, and strings widen briefly before returning to a cozy couch-sized theme.",
-      "bpm": 96, "meter": [4, 4], "bars": 12, "tonic_midi": 63, "mode": "major", "texture": "cinematic", "percussion": "brush",
-      "instruments": {"lead": "clarinet", "harmony": "piano", "bass": "warm_strings", "accent": "bell"},
-      "progression": [0, 5, 3, 4, 0, 1, 5, 4], "melody": [0, 2, 4, 5, null, 4, 3, 1, 2, 5, 6, 4], "motif_treatment": "movie_reel", "energy": 0.39
+      "bpm": 96,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 63,
+      "mode": "major",
+      "texture": "cinematic",
+      "percussion": "brush",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "piano",
+        "bass": "warm_strings",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        1,
+        5,
+        4
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        null,
+        4,
+        3,
+        1,
+        2,
+        5,
+        6,
+        4
+      ],
+      "motif_treatment": "movie_reel",
+      "energy": 0.39
     },
     {
-      "id": "castle_family_gallery", "title": "Portraits Come Home", "family": "castle_room", "area": "Dream House Wing",
+      "id": "castle_family_gallery",
+      "title": "Portraits Come Home",
+      "family": "castle_room",
+      "area": "Dream House Wing",
       "brief": "Piano and warm strings unfold a gentle family-album waltz; bell highlights mark remembered adventures while every phrase resolves safely home.",
-      "bpm": 80, "meter": [3, 4], "bars": 12, "tonic_midi": 67, "mode": "major", "texture": "waltz", "percussion": "none",
-      "instruments": {"lead": "piano", "harmony": "warm_strings", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 5, 3, 4, 0, 1, 4, 0, 5, 3, 4, 0], "melody": [0, 2, 4, 5, 4, 2, 0, null, 3, 5, 4, 1], "motif_treatment": "memory_album", "energy": 0.29
+      "bpm": 80,
+      "meter": [
+        3,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 67,
+      "mode": "major",
+      "texture": "waltz",
+      "percussion": "none",
+      "instruments": {
+        "lead": "piano",
+        "harmony": "warm_strings",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        1,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        4,
+        2,
+        0,
+        null,
+        3,
+        5,
+        4,
+        1
+      ],
+      "motif_treatment": "memory_album",
+      "energy": 0.29
     },
     {
-      "id": "opera_lobby", "title": "Marquee of Many Dreams", "family": "opera", "area": "Opera Lobby",
+      "id": "opera_lobby",
+      "title": "Marquee of Many Dreams",
+      "family": "opera",
+      "area": "Opera Lobby",
       "brief": "A welcoming theatrical 6/8 whose harp ostinato links all three floors; clarinet and warm brass preview many careers without favoring one door.",
-      "bpm": 96, "meter": [6, 8], "bars": 8, "tonic_midi": 63, "mode": "lydian", "texture": "theatre", "percussion": "brush",
-      "instruments": {"lead": "clarinet", "harmony": "harp", "bass": "warm_brass", "accent": "bell"},
-      "progression": [0, 3, 1, 4, 0, 5, 3, 0], "melody": [0, 2, 4, 6, 5, 4, 2, null, 1, 3, 5, 4], "motif_treatment": "marquee", "energy": 0.46
+      "bpm": 96,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 63,
+      "mode": "lydian",
+      "texture": "theatre",
+      "percussion": "brush",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "harp",
+        "bass": "warm_brass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        3,
+        1,
+        4,
+        0,
+        5,
+        3,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        6,
+        5,
+        4,
+        2,
+        null,
+        1,
+        3,
+        5,
+        4
+      ],
+      "motif_treatment": "marquee",
+      "energy": 0.46
     },
     {
-      "id": "opera_chef", "title": "Flour-Dusted Overture", "family": "opera_career", "area": "Pastry Chef",
+      "id": "opera_chef",
+      "title": "Flour-Dusted Overture",
+      "family": "opera_career",
+      "area": "Pastry Chef",
       "brief": "A classical kitchen waltz: piano measures ingredients, pizzicato stirs, and clarinet presents a proud cake melody with unhurried space for instructions.",
-      "bpm": 92, "meter": [3, 4], "bars": 16, "tonic_midi": 60, "mode": "major", "texture": "waltz", "percussion": "brush",
-      "instruments": {"lead": "clarinet", "harmony": "piano", "bass": "warm_bass", "accent": "pizzicato"},
-      "progression": [0, 3, 4, 0, 5, 1, 4, 0, 3, 5, 4, 0], "melody": [0, 2, 4, 3, 5, 4, 2, 1, 0, 3, 4, 2], "motif_treatment": "measured_waltz", "energy": 0.48
+      "bpm": 92,
+      "meter": [
+        3,
+        4
+      ],
+      "bars": 16,
+      "tonic_midi": 60,
+      "mode": "major",
+      "texture": "waltz",
+      "percussion": "brush",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "piano",
+        "bass": "warm_bass",
+        "accent": "pizzicato"
+      },
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        1,
+        4,
+        0,
+        3,
+        5,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        3,
+        5,
+        4,
+        2,
+        1,
+        0,
+        3,
+        4,
+        2
+      ],
+      "motif_treatment": "measured_waltz",
+      "energy": 0.48
     },
     {
-      "id": "opera_detective", "title": "The Tiptoe Clue", "family": "opera_career", "area": "Detective",
+      "id": "opera_detective",
+      "title": "The Tiptoe Clue",
+      "family": "opera_career",
+      "area": "Detective",
       "brief": "Sneaky clarinet questions and muted plucked answers move in a soft Dorian tiptoe; pauses act like searching corners, never turning mystery into fear.",
-      "bpm": 88, "meter": [4, 4], "bars": 12, "tonic_midi": 62, "mode": "dorian", "texture": "tiptoe", "percussion": "tiptoe",
-      "instruments": {"lead": "clarinet", "harmony": "pizzicato", "bass": "warm_bass", "accent": "marimba"},
-      "progression": [0, 1, 0, 4, 0, 5, 1, 0], "melody": [0, 2, null, 3, 1, 4, null, 2, 5, 4, 1, 0], "motif_treatment": "magnifying_glass", "energy": 0.43
+      "bpm": 88,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 62,
+      "mode": "dorian",
+      "texture": "tiptoe",
+      "percussion": "tiptoe",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "pizzicato",
+        "bass": "warm_bass",
+        "accent": "marimba"
+      },
+      "progression": [
+        0,
+        1,
+        0,
+        4,
+        0,
+        5,
+        1,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        null,
+        3,
+        1,
+        4,
+        null,
+        2,
+        5,
+        4,
+        1,
+        0
+      ],
+      "motif_treatment": "magnifying_glass",
+      "energy": 0.43
     },
     {
-      "id": "opera_ballerina", "title": "Ribbon Arabesque", "family": "opera_career", "area": "Ballerina",
+      "id": "opera_ballerina",
+      "title": "Ribbon Arabesque",
+      "family": "opera_career",
+      "area": "Ballerina",
       "brief": "A graceful three-step waltz with legato strings, flute turns, and music-box landing points that support watching and repeating dance patterns.",
-      "bpm": 84, "meter": [3, 4], "bars": 12, "tonic_midi": 62, "mode": "major", "texture": "waltz", "percussion": "none",
-      "instruments": {"lead": "flute", "harmony": "warm_strings", "bass": "warm_bass", "accent": "music_box"},
-      "progression": [0, 3, 4, 0, 5, 1, 4, 0, 3, 1, 4, 0], "melody": [0, 2, 4, 5, 6, 4, 3, 2, 1, 3, 5, 4], "motif_treatment": "ribbon_legato", "energy": 0.37
+      "bpm": 84,
+      "meter": [
+        3,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 62,
+      "mode": "major",
+      "texture": "waltz",
+      "percussion": "none",
+      "instruments": {
+        "lead": "flute",
+        "harmony": "warm_strings",
+        "bass": "warm_bass",
+        "accent": "music_box"
+      },
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        1,
+        4,
+        0,
+        3,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        4,
+        3,
+        2,
+        1,
+        3,
+        5,
+        4
+      ],
+      "motif_treatment": "ribbon_legato",
+      "energy": 0.37
     },
     {
-      "id": "opera_candymaker", "title": "Sugar-Spun Clockwork", "family": "opera_career", "area": "Candy Maker",
+      "id": "opera_candymaker",
+      "title": "Sugar-Spun Clockwork",
+      "family": "opera_career",
+      "area": "Candy Maker",
       "brief": "Toy piano and marimba interlock like a friendly candy machine while bell sprinkles brighten the ends of phrases; quick, precise, and never frantic.",
-      "bpm": 116, "meter": [4, 4], "bars": 12, "tonic_midi": 65, "mode": "lydian", "texture": "polka", "percussion": "shaker",
-      "instruments": {"lead": "toy_piano", "harmony": "marimba", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 1, 4, 0, 5, 3, 4, 0], "melody": [0, 2, 4, 6, 5, 3, 2, 4, 1, 3, 5, 4], "motif_treatment": "candy_clock", "energy": 0.62
+      "bpm": 116,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 65,
+      "mode": "lydian",
+      "texture": "polka",
+      "percussion": "shaker",
+      "instruments": {
+        "lead": "toy_piano",
+        "harmony": "marimba",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        1,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        6,
+        5,
+        3,
+        2,
+        4,
+        1,
+        3,
+        5,
+        4
+      ],
+      "motif_treatment": "candy_clock",
+      "energy": 0.62
     },
     {
-      "id": "opera_doctor", "title": "Gentle Hands Relay", "family": "opera_career", "area": "Stuffie Surgeon",
+      "id": "opera_doctor",
+      "title": "Gentle Hands Relay",
+      "family": "opera_career",
+      "area": "Stuffie Surgeon",
       "brief": "A calm practice pulse with piano, clarinet, and tiny bell checkmarks; even phrases and soft cadences communicate care, order, and reassurance.",
-      "bpm": 86, "meter": [4, 4], "bars": 12, "tonic_midi": 60, "mode": "major", "texture": "gentle", "percussion": "brush",
-      "instruments": {"lead": "clarinet", "harmony": "piano", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 3, 1, 4, 0, 5, 4, 0], "melody": [0, 2, 3, 2, null, 4, 5, 3, 1, 2, 4, 0], "motif_treatment": "careful_hands", "energy": 0.34
+      "bpm": 86,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 60,
+      "mode": "major",
+      "texture": "gentle",
+      "percussion": "brush",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "piano",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        3,
+        1,
+        4,
+        0,
+        5,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        3,
+        2,
+        null,
+        4,
+        5,
+        3,
+        1,
+        2,
+        4,
+        0
+      ],
+      "motif_treatment": "careful_hands",
+      "energy": 0.34
     },
     {
-      "id": "opera_farmer", "title": "Piggy Picnic Reel", "family": "opera_career", "area": "Farmer",
+      "id": "opera_farmer",
+      "title": "Piggy Picnic Reel",
+      "family": "opera_career",
+      "area": "Farmer",
       "brief": "Child-friendly bluegrass built from bright banjo plucks, fiddle replies, and root-fifth bass; the reel trots happily while leaving voice-sized gaps.",
-      "bpm": 112, "meter": [4, 4], "bars": 12, "tonic_midi": 67, "mode": "mixolydian", "texture": "bluegrass", "percussion": "bluegrass",
-      "instruments": {"lead": "banjo", "harmony": "fiddle", "bass": "warm_bass", "accent": "pizzicato"},
-      "progression": [0, 3, 0, 4, 0, 5, 4, 0], "melody": [0, 2, 4, 2, 5, 4, 2, 1, 0, 3, 5, 4], "motif_treatment": "porch_reel", "energy": 0.59
+      "bpm": 112,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 67,
+      "mode": "mixolydian",
+      "texture": "bluegrass",
+      "percussion": "bluegrass",
+      "instruments": {
+        "lead": "banjo",
+        "harmony": "fiddle",
+        "bass": "warm_bass",
+        "accent": "pizzicato"
+      },
+      "progression": [
+        0,
+        3,
+        0,
+        4,
+        0,
+        5,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        2,
+        5,
+        4,
+        2,
+        1,
+        0,
+        3,
+        5,
+        4
+      ],
+      "motif_treatment": "porch_reel",
+      "energy": 0.59
     },
     {
-      "id": "opera_boxer", "title": "Pillow-Glove Shuffle", "family": "opera_career", "area": "Boxer",
+      "id": "opera_boxer",
+      "title": "Pillow-Glove Shuffle",
+      "family": "opera_career",
+      "area": "Boxer",
       "brief": "A bouncy swing with warm toy brass calls, marimba mitt replies, and an unmistakable two-and-four practice beat; sporty but soft-edged.",
-      "bpm": 120, "meter": [4, 4], "bars": 12, "tonic_midi": 63, "mode": "mixolydian", "texture": "swing", "percussion": "soft_march",
-      "instruments": {"lead": "warm_brass", "harmony": "marimba", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 3, 4, 0, 5, 3, 4, 0], "melody": [0, 0, 2, 3, 4, null, 3, 2, 5, 4, 2, 0], "motif_treatment": "focus_mitts", "energy": 0.68
+      "bpm": 120,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 63,
+      "mode": "mixolydian",
+      "texture": "swing",
+      "percussion": "soft_march",
+      "instruments": {
+        "lead": "warm_brass",
+        "harmony": "marimba",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        0,
+        2,
+        3,
+        4,
+        null,
+        3,
+        2,
+        5,
+        4,
+        2,
+        0
+      ],
+      "motif_treatment": "focus_mitts",
+      "energy": 0.68
     },
     {
-      "id": "opera_magician", "title": "Silk Hat Starlight", "family": "opera_career", "area": "Magician",
+      "id": "opera_magician",
+      "title": "Silk Hat Starlight",
+      "family": "opera_career",
+      "area": "Magician",
       "brief": "Harp misdirection, low clarinet questions, and chime reveals float through a friendly Dorian 6/8; magical suspense resolves with a smile each bar.",
-      "bpm": 92, "meter": [6, 8], "bars": 8, "tonic_midi": 57, "mode": "dorian", "texture": "tiptoe", "percussion": "tiptoe",
-      "instruments": {"lead": "clarinet", "harmony": "harp", "bass": "warm_bass", "accent": "chime"},
-      "progression": [0, 1, 3, 0, 5, 1, 4, 0], "melody": [0, 2, 3, null, 5, 4, 2, 1, 4, 6, 5, 3], "motif_treatment": "vanish_reveal", "energy": 0.45
+      "bpm": 92,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 57,
+      "mode": "dorian",
+      "texture": "tiptoe",
+      "percussion": "tiptoe",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "harp",
+        "bass": "warm_bass",
+        "accent": "chime"
+      },
+      "progression": [
+        0,
+        1,
+        3,
+        0,
+        5,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        3,
+        null,
+        5,
+        4,
+        2,
+        1,
+        4,
+        6,
+        5,
+        3
+      ],
+      "motif_treatment": "vanish_reveal",
+      "energy": 0.45
     },
     {
-      "id": "opera_painter", "title": "Sunrise in Seven Colors", "family": "opera_career", "area": "Painter",
+      "id": "opera_painter",
+      "title": "Sunrise in Seven Colors",
+      "family": "opera_career",
+      "area": "Painter",
       "brief": "A flowing Lydian melody adds color one note at a time over piano brushstrokes and flute arcs, blooming only at the gallery reveal.",
-      "bpm": 88, "meter": [4, 4], "bars": 12, "tonic_midi": 62, "mode": "lydian", "texture": "flowing", "percussion": "brush",
-      "instruments": {"lead": "flute", "harmony": "piano", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 1, 3, 4, 0, 5, 3, 0], "melody": [0, 2, 4, 6, 5, 3, 1, 2, 4, 5, 6, 4], "motif_treatment": "brush_arc", "energy": 0.41
+      "bpm": 88,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 62,
+      "mode": "lydian",
+      "texture": "flowing",
+      "percussion": "brush",
+      "instruments": {
+        "lead": "flute",
+        "harmony": "piano",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        1,
+        3,
+        4,
+        0,
+        5,
+        3,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        6,
+        5,
+        3,
+        1,
+        2,
+        4,
+        5,
+        6,
+        4
+      ],
+      "motif_treatment": "brush_arc",
+      "energy": 0.41
     },
     {
-      "id": "opera_astronaut", "title": "Bubble-Rocket Workshop", "family": "opera_career", "area": "Astronaut Engineer",
+      "id": "opera_astronaut",
+      "title": "Bubble-Rocket Workshop",
+      "family": "opera_career",
+      "area": "Astronaut Engineer",
       "brief": "A clean electronic pulse and rounded marimba tools orbit a warm pad; upward sequences imply launch while the harmony stays playful and grounded.",
-      "bpm": 110, "meter": [4, 4], "bars": 12, "tonic_midi": 64, "mode": "lydian", "texture": "space", "percussion": "pulse",
-      "instruments": {"lead": "soft_synth", "harmony": "marimba", "bass": "synth_bass", "accent": "bell"},
-      "progression": [0, 1, 4, 0, 5, 3, 1, 4], "melody": [0, 2, 4, 6, 7, 6, 4, 2, 3, 5, 7, 6], "motif_treatment": "countdown", "energy": 0.61
+      "bpm": 110,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 64,
+      "mode": "lydian",
+      "texture": "space",
+      "percussion": "pulse",
+      "instruments": {
+        "lead": "soft_synth",
+        "harmony": "marimba",
+        "bass": "synth_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        1,
+        4,
+        0,
+        5,
+        3,
+        1,
+        4
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        6,
+        7,
+        6,
+        4,
+        2,
+        3,
+        5,
+        7,
+        6
+      ],
+      "motif_treatment": "countdown",
+      "energy": 0.61
     },
     {
-      "id": "opera_racer", "title": "Pearl Grand Prix", "family": "opera_career", "area": "Racecar Driver",
+      "id": "opera_racer",
+      "title": "Pearl Grand Prix",
+      "family": "opera_career",
+      "area": "Racecar Driver",
       "brief": "A bright four-on-the-floor drive with plucked engine rhythm and short synth fanfares; forward motion is clear but the loop avoids sirens or aggressive timbres.",
-      "bpm": 128, "meter": [4, 4], "bars": 16, "tonic_midi": 67, "mode": "mixolydian", "texture": "drive", "percussion": "pulse",
-      "instruments": {"lead": "soft_synth", "harmony": "pizzicato", "bass": "synth_bass", "accent": "bell"},
-      "progression": [0, 3, 4, 0, 5, 3, 4, 0], "melody": [0, 2, 4, 5, 4, 2, 5, 6, 7, 5, 4, 2], "motif_treatment": "starting_lights", "energy": 0.76
+      "bpm": 128,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 16,
+      "tonic_midi": 67,
+      "mode": "mixolydian",
+      "texture": "drive",
+      "percussion": "pulse",
+      "instruments": {
+        "lead": "soft_synth",
+        "harmony": "pizzicato",
+        "bass": "synth_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        4,
+        2,
+        5,
+        6,
+        7,
+        5,
+        4,
+        2
+      ],
+      "motif_treatment": "starting_lights",
+      "energy": 0.76
     },
     {
-      "id": "opera_popstar", "title": "Starlight Singalong", "family": "opera_career", "area": "Pop Star",
+      "id": "opera_popstar",
+      "title": "Starlight Singalong",
+      "family": "opera_career",
+      "area": "Pop Star",
       "brief": "A simple child-pop groove with a singable synth lead, toy-piano chords, and bell stars; repeated call-and-answer shapes support rhythm play.",
-      "bpm": 118, "meter": [4, 4], "bars": 12, "tonic_midi": 69, "mode": "major", "texture": "pop", "percussion": "pop",
-      "instruments": {"lead": "soft_synth", "harmony": "toy_piano", "bass": "synth_bass", "accent": "bell"},
-      "progression": [0, 5, 3, 4, 0, 5, 4, 0], "melody": [0, 2, 4, 2, null, 4, 5, 4, 2, 3, 5, 7], "motif_treatment": "call_and_answer", "energy": 0.72
+      "bpm": 118,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 69,
+      "mode": "major",
+      "texture": "pop",
+      "percussion": "pop",
+      "instruments": {
+        "lead": "soft_synth",
+        "harmony": "toy_piano",
+        "bass": "synth_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        5,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        2,
+        null,
+        4,
+        5,
+        4,
+        2,
+        3,
+        5,
+        7
+      ],
+      "motif_treatment": "call_and_answer",
+      "energy": 0.72
     },
     {
-      "id": "opera_nursery", "title": "Moonbeam Tuck-In", "family": "opera_career", "area": "Nursery Nurse",
+      "id": "opera_nursery",
+      "title": "Moonbeam Tuck-In",
+      "family": "opera_career",
+      "area": "Nursery Nurse",
       "brief": "A rocking 6/8 lullaby with music box, flute breath, and warm pad; its pulse is clear enough for gentle care actions and quiet enough for bedtime voices.",
-      "bpm": 70, "meter": [6, 8], "bars": 7, "tonic_midi": 65, "mode": "major", "texture": "lullaby", "percussion": "none",
-      "instruments": {"lead": "music_box", "harmony": "flute", "bass": "warm_pad", "accent": "harp"},
-      "progression": [0, 3, 5, 4, 0, 1, 4, 0], "melody": [0, null, 2, 4, 3, null, 1, 2, 4, 5, 4, 2], "motif_treatment": "rocking_cradle", "energy": 0.17
+      "bpm": 70,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 7,
+      "tonic_midi": 65,
+      "mode": "major",
+      "texture": "lullaby",
+      "percussion": "none",
+      "instruments": {
+        "lead": "music_box",
+        "harmony": "flute",
+        "bass": "warm_pad",
+        "accent": "harp"
+      },
+      "progression": [
+        0,
+        3,
+        5,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        null,
+        2,
+        4,
+        3,
+        null,
+        1,
+        2,
+        4,
+        5,
+        4,
+        2
+      ],
+      "motif_treatment": "rocking_cradle",
+      "energy": 0.17
     },
     {
-      "id": "opera_boss_dragon", "title": "Curtain Dragon's Stomp", "family": "opera_boss", "area": "Curtain Dragon",
+      "id": "opera_teacher",
+      "title": "Pearls in a Pattern",
+      "family": "opera_career",
+      "area": "Teacher",
+      "brief": "A gentle music-box counting pattern repeats in small groups while soft pizzicato answers and warm pad support leave wide spaces for spoken lessons; clear, curious, and never test-like.",
+      "bpm": 96,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 60,
+      "mode": "major",
+      "texture": "gentle",
+      "percussion": "none",
+      "instruments": {
+        "lead": "music_box",
+        "harmony": "pizzicato",
+        "bass": "warm_pad",
+        "accent": "marimba"
+      },
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        1,
+        4,
+        5,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        null,
+        0,
+        2,
+        4,
+        null,
+        1,
+        3,
+        5,
+        4
+      ],
+      "motif_treatment": "pattern_and_count",
+      "energy": 0.28
+    },
+    {
+      "id": "opera_boss_dragon",
+      "title": "Curtain Dragon's Stomp",
+      "family": "opera_boss",
+      "area": "Curtain Dragon",
       "brief": "Warm brass and low strings make a large but friendly stage-puppet stomp; bell openings mark safe peek moments and every dark chord turns bright.",
-      "bpm": 112, "meter": [4, 4], "bars": 12, "tonic_midi": 62, "mode": "minor", "texture": "boss", "percussion": "soft_combat",
-      "instruments": {"lead": "warm_brass", "harmony": "warm_strings", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 5, 3, 4, 0, 1, 4, 0], "melody": [0, 0, 2, 3, 4, 3, 1, null, 5, 4, 2, 0], "motif_treatment": "dragon_peek", "energy": 0.72
+      "bpm": 112,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 62,
+      "mode": "minor",
+      "texture": "boss",
+      "percussion": "soft_combat",
+      "instruments": {
+        "lead": "warm_brass",
+        "harmony": "warm_strings",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        0,
+        2,
+        3,
+        4,
+        3,
+        1,
+        null,
+        5,
+        4,
+        2,
+        0
+      ],
+      "motif_treatment": "dragon_peek",
+      "energy": 0.72
     },
     {
-      "id": "opera_boss_phantom", "title": "Lanterns in the Wings", "family": "opera_boss", "area": "Shadow Phantom",
+      "id": "opera_boss_phantom",
+      "title": "Lanterns in the Wings",
+      "family": "opera_boss",
+      "area": "Shadow Phantom",
       "brief": "A shy 6/8 shadow dance with low clarinet and harp; chimes appear like lanterns, turning uncertainty into a gentle hide-and-seek rhythm.",
-      "bpm": 96, "meter": [6, 8], "bars": 8, "tonic_midi": 64, "mode": "dorian", "texture": "tiptoe", "percussion": "tiptoe",
-      "instruments": {"lead": "clarinet", "harmony": "harp", "bass": "warm_bass", "accent": "chime"},
-      "progression": [0, 1, 3, 0, 5, 1, 4, 0], "melody": [0, 2, null, 4, 3, 1, 2, null, 5, 4, 2, 0], "motif_treatment": "lantern_search", "energy": 0.54
+      "bpm": 96,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 64,
+      "mode": "dorian",
+      "texture": "tiptoe",
+      "percussion": "tiptoe",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "harp",
+        "bass": "warm_bass",
+        "accent": "chime"
+      },
+      "progression": [
+        0,
+        1,
+        3,
+        0,
+        5,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        null,
+        4,
+        3,
+        1,
+        2,
+        null,
+        5,
+        4,
+        2,
+        0
+      ],
+      "motif_treatment": "lantern_search",
+      "energy": 0.54
     },
     {
-      "id": "opera_boss_maestro", "title": "The Kind Midnight Baton", "family": "opera_boss", "area": "Midnight Maestro",
+      "id": "opera_boss_maestro",
+      "title": "The Kind Midnight Baton",
+      "family": "opera_boss",
+      "area": "Midnight Maestro",
       "brief": "The largest opera cue combines strings, warm brass, bass ostinato, and bell baton taps; grand gestures remain consonant and end in a welcoming ensemble cadence.",
-      "bpm": 124, "meter": [4, 4], "bars": 16, "tonic_midi": 60, "mode": "minor", "texture": "boss", "percussion": "soft_combat",
-      "instruments": {"lead": "warm_brass", "harmony": "warm_strings", "bass": "synth_bass", "accent": "bell"},
-      "progression": [0, 5, 3, 4, 0, 1, 5, 0], "melody": [0, 2, 4, 5, 7, 5, 4, 2, 3, 5, 6, 4], "motif_treatment": "grand_baton", "energy": 0.82
+      "bpm": 124,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 16,
+      "tonic_midi": 60,
+      "mode": "minor",
+      "texture": "boss",
+      "percussion": "soft_combat",
+      "instruments": {
+        "lead": "warm_brass",
+        "harmony": "warm_strings",
+        "bass": "synth_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        1,
+        5,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        5,
+        4,
+        2,
+        3,
+        5,
+        6,
+        4
+      ],
+      "motif_treatment": "grand_baton",
+      "energy": 0.82
     },
     {
-      "id": "northern", "title": "Snowcap Lantern Trail", "family": "world", "area": "Northern Kingdom",
+      "id": "northern",
+      "title": "Snowcap Lantern Trail",
+      "family": "world",
+      "area": "Northern Kingdom",
       "brief": "Open flute calls cross a snowy 6/8 over harp and warm bass; bell points feel like trail lanterns, with broad rests preserving the quiet landscape.",
-      "bpm": 84, "meter": [6, 8], "bars": 8, "tonic_midi": 62, "mode": "major", "texture": "folk", "percussion": "shaker",
-      "instruments": {"lead": "flute", "harmony": "harp", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 3, 5, 4, 0, 1, 4, 0], "melody": [0, 2, 4, null, 5, 4, 2, 1, 3, 5, 4, 2], "motif_treatment": "snow_echo", "energy": 0.34
+      "bpm": 84,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 62,
+      "mode": "major",
+      "texture": "folk",
+      "percussion": "shaker",
+      "instruments": {
+        "lead": "flute",
+        "harmony": "harp",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        3,
+        5,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        null,
+        5,
+        4,
+        2,
+        1,
+        3,
+        5,
+        4,
+        2
+      ],
+      "motif_treatment": "snow_echo",
+      "energy": 0.34
     },
     {
-      "id": "galaxy", "title": "Pocket Constellation Waltz", "family": "world", "area": "Galaxy",
+      "id": "galaxy",
+      "title": "Pocket Constellation Waltz",
+      "family": "world",
+      "area": "Galaxy",
       "brief": "Celesta stars orbit a soft synth pad in a slow three-count; the motif hops between constellations while a grounded bass keeps space cozy.",
-      "bpm": 96, "meter": [3, 4], "bars": 16, "tonic_midi": 69, "mode": "lydian", "texture": "space", "percussion": "pulse",
-      "instruments": {"lead": "celesta", "harmony": "soft_synth", "bass": "warm_pad", "accent": "bell"},
-      "progression": [0, 1, 4, 0, 5, 3, 4, 0, 1, 5, 4, 0], "melody": [0, 2, 4, 6, 5, 3, 1, null, 4, 6, 7, 5], "motif_treatment": "orbit", "energy": 0.43
+      "bpm": 96,
+      "meter": [
+        3,
+        4
+      ],
+      "bars": 16,
+      "tonic_midi": 69,
+      "mode": "lydian",
+      "texture": "space",
+      "percussion": "pulse",
+      "instruments": {
+        "lead": "celesta",
+        "harmony": "soft_synth",
+        "bass": "warm_pad",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        1,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0,
+        1,
+        5,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        6,
+        5,
+        3,
+        1,
+        null,
+        4,
+        6,
+        7,
+        5
+      ],
+      "motif_treatment": "orbit",
+      "energy": 0.43
     },
     {
-      "id": "ember", "title": "Warm-Coal Courage", "family": "world", "area": "Ember Fortress Approach",
+      "id": "ember",
+      "title": "Warm-Coal Courage",
+      "family": "world",
+      "area": "Ember Fortress Approach",
       "brief": "Low marimba and strings step steadily through glowing terrain; upward bell answers frame ember light as warmth and courage rather than danger.",
-      "bpm": 104, "meter": [4, 4], "bars": 12, "tonic_midi": 64, "mode": "minor", "texture": "cinematic", "percussion": "soft_march",
-      "instruments": {"lead": "marimba", "harmony": "warm_strings", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 5, 3, 4, 0, 1, 4, 0], "melody": [0, 2, 3, 5, 4, 2, 1, 3, 5, 6, 4, 2], "motif_treatment": "ember_glow", "energy": 0.57
+      "bpm": 104,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 64,
+      "mode": "minor",
+      "texture": "cinematic",
+      "percussion": "soft_march",
+      "instruments": {
+        "lead": "marimba",
+        "harmony": "warm_strings",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        3,
+        5,
+        4,
+        2,
+        1,
+        3,
+        5,
+        6,
+        4,
+        2
+      ],
+      "motif_treatment": "ember_glow",
+      "energy": 0.57
     },
     {
-      "id": "dungeon_ice", "title": "Crystal Footsteps", "family": "dungeon", "area": "Ice Dungeon",
+      "id": "dungeon_ice",
+      "title": "Crystal Footsteps",
+      "family": "dungeon",
+      "area": "Ice Dungeon",
       "brief": "Music-box crystals answer muted plucked footsteps in Dorian harmony; a patient bass pulse supports exploration without implying a fail timer.",
-      "bpm": 90, "meter": [4, 4], "bars": 12, "tonic_midi": 62, "mode": "dorian", "texture": "tiptoe", "percussion": "tiptoe",
-      "instruments": {"lead": "music_box", "harmony": "pizzicato", "bass": "warm_bass", "accent": "chime"},
-      "progression": [0, 1, 3, 0, 5, 1, 4, 0], "melody": [0, null, 2, 4, 3, 1, null, 2, 5, 4, 2, 0], "motif_treatment": "ice_facets", "energy": 0.39
+      "bpm": 90,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 62,
+      "mode": "dorian",
+      "texture": "tiptoe",
+      "percussion": "tiptoe",
+      "instruments": {
+        "lead": "music_box",
+        "harmony": "pizzicato",
+        "bass": "warm_bass",
+        "accent": "chime"
+      },
+      "progression": [
+        0,
+        1,
+        3,
+        0,
+        5,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        null,
+        2,
+        4,
+        3,
+        1,
+        null,
+        2,
+        5,
+        4,
+        2,
+        0
+      ],
+      "motif_treatment": "ice_facets",
+      "energy": 0.39
     },
     {
-      "id": "dungeon_ember", "title": "Lanterns Under the Mountain", "family": "dungeon", "area": "Ember Dungeon",
+      "id": "dungeon_ember",
+      "title": "Lanterns Under the Mountain",
+      "family": "dungeon",
+      "area": "Ember Dungeon",
       "brief": "Plucked lantern notes and warm strings travel in a measured march; minor color gives depth, while frequent major inflections keep the route reassuring.",
-      "bpm": 100, "meter": [4, 4], "bars": 12, "tonic_midi": 64, "mode": "minor", "texture": "march", "percussion": "soft_march",
-      "instruments": {"lead": "pizzicato", "harmony": "warm_strings", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 3, 5, 4, 0, 1, 4, 0], "melody": [0, 2, 3, 2, 5, 4, 2, 1, 3, 5, 4, 0], "motif_treatment": "lantern_march", "energy": 0.55
+      "bpm": 100,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 64,
+      "mode": "minor",
+      "texture": "march",
+      "percussion": "soft_march",
+      "instruments": {
+        "lead": "pizzicato",
+        "harmony": "warm_strings",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        3,
+        5,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        3,
+        2,
+        5,
+        4,
+        2,
+        1,
+        3,
+        5,
+        4,
+        0
+      ],
+      "motif_treatment": "lantern_march",
+      "energy": 0.55
     },
     {
-      "id": "combat_ice", "title": "Snowball Sparkle Scramble", "family": "combat", "area": "Ice Combat",
+      "id": "combat_ice",
+      "title": "Snowball Sparkle Scramble",
+      "family": "combat",
+      "area": "Ice Combat",
       "brief": "Fast marimba snowballs, warm strings, and chime hit markers create readable action energy without harsh cymbals, alarm tones, or menace.",
-      "bpm": 124, "meter": [4, 4], "bars": 16, "tonic_midi": 62, "mode": "dorian", "texture": "combat", "percussion": "soft_combat",
-      "instruments": {"lead": "marimba", "harmony": "warm_strings", "bass": "synth_bass", "accent": "chime"},
-      "progression": [0, 1, 3, 4, 0, 5, 4, 0], "melody": [0, 2, 4, 5, 4, 2, 1, 3, 5, 6, 4, 2], "motif_treatment": "snowball_dash", "energy": 0.76
+      "bpm": 124,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 16,
+      "tonic_midi": 62,
+      "mode": "dorian",
+      "texture": "combat",
+      "percussion": "soft_combat",
+      "instruments": {
+        "lead": "marimba",
+        "harmony": "warm_strings",
+        "bass": "synth_bass",
+        "accent": "chime"
+      },
+      "progression": [
+        0,
+        1,
+        3,
+        4,
+        0,
+        5,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        4,
+        2,
+        1,
+        3,
+        5,
+        6,
+        4,
+        2
+      ],
+      "motif_treatment": "snowball_dash",
+      "energy": 0.76
     },
     {
-      "id": "combat_fire", "title": "Pepper-Pop Parade", "family": "combat", "area": "Fire Combat",
+      "id": "combat_fire",
+      "title": "Pepper-Pop Parade",
+      "family": "combat",
+      "area": "Fire Combat",
       "brief": "Warm brass pops and bright plucks ride a clear action pulse; the mixolydian tune sounds cheeky and brave, never hot, threatening, or punishing.",
-      "bpm": 128, "meter": [4, 4], "bars": 16, "tonic_midi": 64, "mode": "mixolydian", "texture": "combat", "percussion": "soft_combat",
-      "instruments": {"lead": "warm_brass", "harmony": "pizzicato", "bass": "synth_bass", "accent": "bell"},
-      "progression": [0, 3, 4, 0, 5, 3, 4, 0], "melody": [0, 2, 4, 5, 7, 5, 4, 2, 3, 5, 6, 4], "motif_treatment": "pepper_pop", "energy": 0.79
+      "bpm": 128,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 16,
+      "tonic_midi": 64,
+      "mode": "mixolydian",
+      "texture": "combat",
+      "percussion": "soft_combat",
+      "instruments": {
+        "lead": "warm_brass",
+        "harmony": "pizzicato",
+        "bass": "synth_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        5,
+        4,
+        2,
+        3,
+        5,
+        6,
+        4
+      ],
+      "motif_treatment": "pepper_pop",
+      "energy": 0.79
     },
     {
-      "id": "combat_tutorial", "title": "Royal Hall Practice Pals", "family": "combat", "area": "Royal Hall Friendly Sparring Lesson",
+      "id": "combat_tutorial",
+      "title": "Royal Hall Practice Pals",
+      "family": "combat",
+      "area": "Royal Hall Friendly Sparring Lesson",
       "brief": "A clear 104 BPM practice pulse led by marimba, brushed snare, and warm toy brass; every accent teaches timing while the harmony says play, not danger.",
-      "bpm": 104, "meter": [4, 4], "bars": 12, "tonic_midi": 60, "mode": "major", "texture": "march", "percussion": "tutorial_brush",
-      "instruments": {"lead": "marimba", "harmony": "warm_brass", "bass": "warm_bass", "accent": "toy_piano"},
-      "progression": [0, 3, 4, 0, 5, 3, 4, 0], "melody": [0, 0, 2, 4, null, 4, 2, 1, 3, 3, 2, 0], "motif_treatment": "practice_count", "energy": 0.50
+      "bpm": 104,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 60,
+      "mode": "major",
+      "texture": "march",
+      "percussion": "tutorial_brush",
+      "instruments": {
+        "lead": "marimba",
+        "harmony": "warm_brass",
+        "bass": "warm_bass",
+        "accent": "toy_piano"
+      },
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        0,
+        2,
+        4,
+        null,
+        4,
+        2,
+        1,
+        3,
+        3,
+        2,
+        0
+      ],
+      "motif_treatment": "practice_count",
+      "energy": 0.5
     },
     {
-      "id": "stuffie_battle", "title": "Hug-It-Out Hoedown", "family": "combat", "area": "Stuffie Battle",
+      "id": "stuffie_battle",
+      "title": "Hug-It-Out Hoedown",
+      "family": "combat",
+      "area": "Stuffie Battle",
       "brief": "Banjo and fiddle trade a friendly hoedown over a soft root-fifth bounce; playful marimba taps frame befriending a stuffie, never defeating one.",
-      "bpm": 116, "meter": [4, 4], "bars": 12, "tonic_midi": 67, "mode": "major", "texture": "bluegrass", "percussion": "bluegrass",
-      "instruments": {"lead": "banjo", "harmony": "fiddle", "bass": "warm_bass", "accent": "marimba"},
-      "progression": [0, 3, 0, 4, 5, 3, 4, 0], "melody": [0, 2, 4, 2, 5, 4, 3, 1, 0, 3, 5, 4], "motif_treatment": "hug_hoedown", "energy": 0.66
+      "bpm": 116,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 67,
+      "mode": "major",
+      "texture": "bluegrass",
+      "percussion": "bluegrass",
+      "instruments": {
+        "lead": "banjo",
+        "harmony": "fiddle",
+        "bass": "warm_bass",
+        "accent": "marimba"
+      },
+      "progression": [
+        0,
+        3,
+        0,
+        4,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        2,
+        5,
+        4,
+        3,
+        1,
+        0,
+        3,
+        5,
+        4
+      ],
+      "motif_treatment": "hug_hoedown",
+      "energy": 0.66
     },
     {
-      "id": "dustboss", "title": "Grand Puff Holds His Breath", "family": "combat", "area": "Grand Puff Battle",
+      "id": "dustboss",
+      "title": "Grand Puff Holds His Breath",
+      "family": "combat",
+      "area": "Grand Puff Battle",
       "brief": "Playful marimba footsteps and warm toy brass stop for a long held breath; three rising pearl bells count toward one huge friendly bonk downbeat exactly when Grand Puff opens.",
-      "bpm": 120, "meter": [4, 4], "bars": 16, "tonic_midi": 62, "mode": "mixolydian", "texture": "boss", "percussion": "soft_combat",
-      "instruments": {"lead": "marimba", "harmony": "warm_brass", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 3, 4, 0, 5, 3, 1, 4], "melody": [0, 2, 4, 5, null, 4, 2, 1, 3, 5, 6, 4], "motif_treatment": "puff_pause_and_bonk", "energy": 0.72,
-      "adaptive_markers": {"prowl_beat": 0.0, "anticipation_start_beat": 10.0, "action_beat": 16.0}
+      "bpm": 120,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 16,
+      "tonic_midi": 62,
+      "mode": "mixolydian",
+      "texture": "boss",
+      "percussion": "soft_combat",
+      "instruments": {
+        "lead": "marimba",
+        "harmony": "warm_brass",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        1,
+        4
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        null,
+        4,
+        2,
+        1,
+        3,
+        5,
+        6,
+        4
+      ],
+      "motif_treatment": "puff_pause_and_bonk",
+      "energy": 0.72,
+      "adaptive_markers": {
+        "prowl_beat": 0.0,
+        "anticipation_start_beat": 10.0,
+        "action_beat": 16.0
+      }
     },
     {
-      "id": "picture_snowman", "title": "Roll a Round Snow Friend", "family": "picture_game", "area": "Snowman Picture Game",
+      "id": "picture_snowman",
+      "title": "Roll a Round Snow Friend",
+      "family": "picture_game",
+      "area": "Snowman Picture Game",
       "brief": "Cheery rolling 6/8 with bell snowflakes and clarinet circles; phrases grow from small to large like the three safe snowballs.",
-      "bpm": 104, "meter": [6, 8], "bars": 8, "tonic_midi": 62, "mode": "major", "texture": "bounce", "percussion": "sleigh",
-      "instruments": {"lead": "clarinet", "harmony": "pizzicato", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 3, 4, 0, 5, 3, 4, 0], "melody": [0, 2, 4, 2, 4, 5, 3, 1, 2, 4, 6, 5], "motif_treatment": "rolling_snow", "energy": 0.57
+      "bpm": 104,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 62,
+      "mode": "major",
+      "texture": "bounce",
+      "percussion": "sleigh",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "pizzicato",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        2,
+        4,
+        5,
+        3,
+        1,
+        2,
+        4,
+        6,
+        5
+      ],
+      "motif_treatment": "rolling_snow",
+      "energy": 0.57
     },
     {
-      "id": "picture_garden", "title": "Little Garden, Big Sun", "family": "picture_game", "area": "Garden Picture Game",
+      "id": "picture_garden",
+      "title": "Little Garden, Big Sun",
+      "family": "picture_game",
+      "area": "Garden Picture Game",
       "brief": "Sunny ukulele planting strokes and flute sprouts unfold at an easy walking pace; each four-bar phrase grows upward and settles in warm soil.",
-      "bpm": 92, "meter": [4, 4], "bars": 12, "tonic_midi": 65, "mode": "major", "texture": "folk", "percussion": "shaker",
-      "instruments": {"lead": "flute", "harmony": "ukulele", "bass": "warm_bass", "accent": "pizzicato"},
-      "progression": [0, 3, 4, 0, 5, 1, 4, 0], "melody": [0, 2, 3, 4, 5, 4, 2, 1, 3, 5, 6, 4], "motif_treatment": "seed_to_sun", "energy": 0.45
+      "bpm": 92,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 65,
+      "mode": "major",
+      "texture": "folk",
+      "percussion": "shaker",
+      "instruments": {
+        "lead": "flute",
+        "harmony": "ukulele",
+        "bass": "warm_bass",
+        "accent": "pizzicato"
+      },
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        4,
+        2,
+        1,
+        3,
+        5,
+        6,
+        4
+      ],
+      "motif_treatment": "seed_to_sun",
+      "energy": 0.45
     },
     {
-      "id": "picture_trampoline", "title": "Up, Up, Soft Landing", "family": "picture_game", "area": "Trampoline Picture Game",
+      "id": "picture_trampoline",
+      "title": "Up, Up, Soft Landing",
+      "family": "picture_game",
+      "area": "Trampoline Picture Game",
       "brief": "Buoyant marimba jumps and pizzicato landings trace a predictable up-down arc; the beat stays spacious enough for touch timing and giggles.",
-      "bpm": 116, "meter": [4, 4], "bars": 12, "tonic_midi": 60, "mode": "major", "texture": "bounce", "percussion": "bubble",
-      "instruments": {"lead": "marimba", "harmony": "pizzicato", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 3, 4, 0, 5, 3, 4, 0], "melody": [0, 2, 5, 2, 0, null, 3, 6, 3, 1, 4, 2], "motif_treatment": "bounce_arc", "energy": 0.64
+      "bpm": 116,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 60,
+      "mode": "major",
+      "texture": "bounce",
+      "percussion": "bubble",
+      "instruments": {
+        "lead": "marimba",
+        "harmony": "pizzicato",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        5,
+        2,
+        0,
+        null,
+        3,
+        6,
+        3,
+        1,
+        4,
+        2
+      ],
+      "motif_treatment": "bounce_arc",
+      "energy": 0.64
     },
     {
-      "id": "picture_xmas", "title": "Cozy Winter Decorating", "family": "picture_game", "area": "Winter Decorating Picture Game",
+      "id": "picture_xmas",
+      "title": "Cozy Winter Decorating",
+      "family": "picture_game",
+      "area": "Winter Decorating Picture Game",
       "brief": "A non-religious cozy winter 6/8 with sleigh bells, celesta ornaments, and warm strings; it celebrates decorating, snowlight, and family togetherness.",
-      "bpm": 84, "meter": [6, 8], "bars": 8, "tonic_midi": 67, "mode": "major", "texture": "lullaby", "percussion": "sleigh",
-      "instruments": {"lead": "celesta", "harmony": "warm_strings", "bass": "warm_bass", "accent": "bell"},
-      "progression": [0, 3, 5, 4, 0, 1, 4, 0], "melody": [0, 2, 4, 5, 4, 2, null, 1, 3, 5, 4, 2], "motif_treatment": "winter_lights", "energy": 0.32
+      "bpm": 84,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 67,
+      "mode": "major",
+      "texture": "lullaby",
+      "percussion": "sleigh",
+      "instruments": {
+        "lead": "celesta",
+        "harmony": "warm_strings",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "progression": [
+        0,
+        3,
+        5,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        4,
+        2,
+        null,
+        1,
+        3,
+        5,
+        4,
+        2
+      ],
+      "motif_treatment": "winter_lights",
+      "energy": 0.32
     }
   ]
 }

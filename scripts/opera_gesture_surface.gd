@@ -314,6 +314,7 @@ var nursery_blanket_dragging := false
 var nursery_blanket_drag_start := Vector2.ZERO
 var magic_vanish_hat_texture: Texture2D = null
 var magic_vanish_wand_texture: Texture2D = null
+var magic_vanish_lamba_texture: Texture2D = null
 var magic_vanish_reveal_texture: Texture2D = null
 var retired_magic_vanish_reveal_path := ""
 
@@ -605,6 +606,7 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 			and nursery_bottle_texture.get_size() == Vector2(256.0, 256.0)
 	magic_vanish_hat_texture = null
 	magic_vanish_wand_texture = null
+	magic_vanish_lamba_texture = null
 	magic_vanish_reveal_texture = null
 	retired_magic_vanish_reveal_path = ""
 	if _is_magic_vanish_context():
@@ -612,6 +614,12 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 			"res://assets/opera/worlds/widgets/widget_magic_vanish_hat.png")
 		magic_vanish_wand_texture = _load_widget_texture(
 			"res://assets/opera/worlds/widgets/widget_magic_vanish_wand.png")
+		# Reuse Lamb-a's approved Seek identity, preserving the atlas pixels.
+		var lamba_atlas := AtlasTexture.new()
+		lamba_atlas.atlas = _load_widget_texture(
+			"res://assets/minigames/seek/lamma_animation.png")
+		lamba_atlas.region = Rect2(0, 0, 256, 256)
+		magic_vanish_lamba_texture = lamba_atlas
 		# The old success plate makes Lamba pop back out, contradicting VANISH.
 		# Keep its provenance but never load or draw those reversed-result pixels.
 		retired_magic_vanish_reveal_path = \
@@ -3367,12 +3375,11 @@ func _draw_magic_vanish_scene(center: Vector2) -> void:
 	# the empty hat and a ring of stars, never a reversed pop-back-out tableau.
 	var lamb_center := Vector2(center.x, lerpf(size.y * 0.42, size.y * 0.59, progress))
 	var lamb_alpha := _magic_vanish_lamba_alpha(progress)
-	draw_circle(lamb_center, minf(size.x, size.y) * 0.13,
-		Color(0.95, 0.94, 1.0, lamb_alpha))
-	draw_circle(lamb_center + Vector2(-14.0, -18.0), 11.0,
-		Color(0.95, 0.94, 1.0, lamb_alpha))
-	draw_circle(lamb_center + Vector2(14.0, -18.0), 11.0,
-		Color(0.95, 0.94, 1.0, lamb_alpha))
+	if magic_vanish_lamba_texture != null:
+		var lamb_side := minf(size.x, size.y) * 0.42
+		draw_texture_rect(magic_vanish_lamba_texture,
+			Rect2(lamb_center - Vector2.ONE * lamb_side * 0.5,
+				Vector2.ONE * lamb_side), false, Color(1.0, 1.0, 1.0, lamb_alpha))
 	var hat_side := _magic_vanish_hat_rect(progress).size.x
 	draw_set_transform(hat_center, lerpf(-0.24, -0.04, progress),
 		Vector2.ONE * (0.82 + progress * 0.18))

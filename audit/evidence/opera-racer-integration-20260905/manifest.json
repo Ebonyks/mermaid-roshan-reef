@@ -1,0 +1,259 @@
+{
+  "schema": "reef.opera_racer.integration_review.v1",
+  "status": "LOCAL_CANDIDATE_NOT_MERGED",
+  "utc": "2026-09-05T17:55:05.733211+00:00",
+  "base_commit": "775ceee1b9f20118abec25ce933db292bb3c847e",
+  "branch": "codex/opera-racer-engine-20260905",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "mobile",
+  "gpu": "NVIDIA GeForce RTX 3060 Ti",
+  "capture_entry": "guarded CastleCareerRoutes._launch(room,12); later phase changes are diagnostic fixture selections",
+  "capture_input": "direct surface press and 60Hz simulation; full probe separately covers genuine ScreenTouch/ScreenDrag",
+  "not_claimed": [
+    "device acceptance",
+    "native 2048-per-screen background acceptance",
+    "all 3D debt removed",
+    "green full CI",
+    "merged or released"
+  ],
+  "source_hashes": {
+    "scripts/kart.gd": "b5b8f9ad30079a933ded8d98af1b5bcb2fa6094a44e0b65cc37c35b022911b9e",
+    "scripts/kart_driving.gd": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8",
+    "scripts/opera_racer_surface.gd": "d93e22d283b4202e057b981a41b23b080ad7f9ac0cb335ffff2a53120f4a91a7",
+    "scripts/opera_career_world_2d.gd": "f2895635c430404f57ab8575b218853587affcb433e4d82150c7ff1c381f8832",
+    "scripts/opera_world_backdrop_2d.gd": "3b131e03f0037f7f847ea71aff747de9bc7116a8cdcdbd0edb95ceeea7554774",
+    "scripts/opera_competition.gd": "d7f76155afa66cb0b1be06a3900072f1eb8907a83f1e9ddecd3c33b1dcb105a3",
+    "scripts/chapter_two_career_scene_adapter.gd": "612226cf91fd738905a942635cf25f9a72998824a6f50070cc97a713befc930c",
+    "scripts/probe_opera_2d.gd": "7431edf490a6164b56b68ececfe7b40c5b20fcd401ef61a822c9fd0ea8741332"
+  },
+  "reused_art": [
+    {
+      "path": "assets_src/imagegen/opera_codex_2026-08-02/native/world_racer_native.png",
+      "sha256": "d7a7cba283c0f06c7159949d63f1ca345ee4938c63374ec43bebc7c78e13deda",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "modification": "runtime composition only; source bytes unchanged",
+      "license_authority": "ASSET_LICENSES.md"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_racer_kart.png",
+      "sha256": "59ea76d8be40b604cbf3691e9c9508287334ddf6cf0f81fea08c7f68fd22fe8c",
+      "dimensions": [
+        512,
+        512
+      ],
+      "modification": "runtime composition only; source bytes unchanged",
+      "license_authority": "ASSET_LICENSES.md"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_racer_wheel.png",
+      "sha256": "3203d9bc5297fccfb3ee86fddab6c3a217de577943a063ef37404e5276c7e003",
+      "dimensions": [
+        256,
+        256
+      ],
+      "modification": "runtime composition only; source bytes unchanged",
+      "license_authority": "ASSET_LICENSES.md"
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_racer.png",
+      "sha256": "b3e92a0f3204e2277e1fdd06988c9393288223fcfc98a9f4c8e033c8c517c6bc",
+      "dimensions": [
+        512,
+        512
+      ],
+      "modification": "runtime composition only; source bytes unchanged",
+      "license_authority": "ASSET_LICENSES.md"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer.png",
+      "sha256": "da75600112937ed4f6bb5f9433b4792316419047e8de10f9bfdb7076c65f360f",
+      "dimensions": [
+        512,
+        512
+      ],
+      "modification": "runtime composition only; source bytes unchanged",
+      "license_authority": "ASSET_LICENSES.md"
+    },
+    {
+      "path": "assets/kart/boost_ribbon.png",
+      "sha256": "b2617ce45be09837625bf21e145ef37401a87b9104f576c6093c3e44f912feb5",
+      "dimensions": [
+        1024,
+        256
+      ],
+      "modification": "runtime composition only; source bytes unchanged",
+      "license_authority": "ASSET_LICENSES.md"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_racer_c0r0.png",
+      "sha256": "920b4df91bad73d288ff2cd39fe8cdccc2dfe8743bb64d65a691343b7630bf66",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "modification": "runtime composition only; source bytes unchanged",
+      "license_authority": "ASSET_LICENSES.md"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_racer_c1r0.png",
+      "sha256": "07e7ad658427ed5cac40f1668521b4c59c54fba8bb428edb5acd36db25fbf3b7",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "modification": "runtime composition only; source bytes unchanged",
+      "license_authority": "ASSET_LICENSES.md"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_racer_c0r1.png",
+      "sha256": "95fa81b0f29ebee87ae6d4121334a46cac4c2545eb3b37660f002462e9b29585",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "modification": "runtime composition only; source bytes unchanged",
+      "license_authority": "ASSET_LICENSES.md"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_racer_c1r1.png",
+      "sha256": "359b2bdd82519239ce7de69bb50d4555c6d1e15a50407bfd008210de32ab66d5",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "modification": "runtime composition only; source bytes unchanged",
+      "license_authority": "ASSET_LICENSES.md"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_push_racer_mover.png",
+      "sha256": "9f364cb8b77cc61ed67ef490a19d45d10d8651265fe5e6f8a17c10c73f1c2bde",
+      "dimensions": [
+        256,
+        256
+      ],
+      "modification": "unchanged existing push-stage artwork",
+      "license_authority": "ASSET_LICENSES.md"
+    }
+  ],
+  "files": [
+    {
+      "path": "01-pit-stop.png",
+      "sha256": "f088d235499dea1ca36defacf55b16ceaa3abb6201f81790535f84c9670fe177",
+      "bytes": 1528694,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "02-race-ready.png",
+      "sha256": "8a512c08a21fb546bab5d0da758dfeae57cdf7fdd42d118bb08691fd98490dc4",
+      "bytes": 1554875,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "02-race-ready-wide.png",
+      "sha256": "9965692aee91c10a4564c4af95905f50aa05bae792ada6a3af70517ab84010cc",
+      "bytes": 1590970,
+      "dimensions": [
+        1600,
+        720
+      ]
+    },
+    {
+      "path": "03-race-far-bend.png",
+      "sha256": "af581e24489e871463f7791b75fbc14167567964008ebec9927fbffd967e4cfa",
+      "bytes": 1549281,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "04-second-lap.png",
+      "sha256": "99d37d2592d6edfbbbb5032684e2823e68fefe236d9fb0ac55e29b7d042c4890",
+      "bytes": 1548985,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "05-finish.png",
+      "sha256": "3fc10f848520808029da203048d6927bd5072e6ae4b4b3ec26fc8dcfb78b7dd7",
+      "bytes": 1396335,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "capture-final.log",
+      "sha256": "62fb0befeac168c31cd581b40cd34e88d0b665a5e3981638520625c2c77e4c3b",
+      "bytes": 352
+    },
+    {
+      "path": "opera-2d-final.log",
+      "sha256": "138dde8b057e8bf3fa1c7a19f4a77d5a8abeef75486acd21cf6bdde07d222f80",
+      "bytes": 70591
+    },
+    {
+      "path": "chapter2.log",
+      "sha256": "21c2c2660f5b4e95fbd53336c2eca8fa5379ede80ce8b77967871572c3632b2a",
+      "bytes": 3269
+    },
+    {
+      "path": "baseline-kart.log",
+      "sha256": "d05f6841cc4274d67eb84dff1fec07c5d396d603e9dd2a266e9e351cf666c3ee",
+      "bytes": 1316
+    },
+    {
+      "path": "after-kart.log",
+      "sha256": "aedc72105a8e5efd2036cd1094d7121177ab0b0766a0116c329324b6e3c80df8",
+      "bytes": 1316
+    },
+    {
+      "path": "full-ci.log",
+      "sha256": "c24f6cd926f491761302f14cfeee862e2900458a3cd0474d38de514f34def423",
+      "bytes": 2213
+    },
+    {
+      "path": "2d-gate.log",
+      "sha256": "43a13e6a2dfbe7f40057a07e1c8a5520c5f226d95f0cb9d3c6e512963c89363d",
+      "bytes": 414
+    },
+    {
+      "path": "feel-2d.log",
+      "sha256": "4256a78f70bfbfad0027943e91292e6fc069881c565aa019d41f782964e5f7ca",
+      "bytes": 309
+    },
+    {
+      "path": "capture.gd",
+      "sha256": "2212b1b59ff62d889aa7fe769f5436289adab85264075fca9d3016c5249167c2",
+      "bytes": 1532
+    },
+    {
+      "path": "feel_2d.gd",
+      "sha256": "19a4580c05b018b19fd6142a161fa93f3a30789695c105aa9b9fee1bfa4a6f9b",
+      "bytes": 1185
+    },
+    {
+      "path": "doc-authority.log",
+      "sha256": "eb1e5723c98ad1d29a7e093307a70439b2943aeb360e5ed4f2a62a09d3950764",
+      "bytes": 78
+    }
+  ],
+  "validation": {
+    "opera_2d": "ALL OK; 14 careers,57 phases",
+    "chapter2": "PASS checks_failed=0",
+    "game_2d": "NO_REGRESSION; debt UNSATISFIED",
+    "kart_feel": "unchanged baseline portal re-entry FAIL; remaining metrics pass",
+    "full_ci": "blocked by two existing typography fixture failures"
+  }
+}

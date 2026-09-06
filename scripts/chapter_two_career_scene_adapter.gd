@@ -7,7 +7,8 @@ const VALID_MODES := [
 	"tap", "hold", "swipe", "circle", "pourt", "oven", "choice", "lens",
 	"pipe", "echo", "timing", "bop", "catch", "candy_sort", "farm_lob",
 	"garden_plant", "xray_scan", "paint_reveal", "talk", "clue_board",
-	"crown_chest", "ballet_pose", "ballet_ribbon", "ballet_twirl",
+	"geology_river", "geology_fossil", "geology_pan", "geology_geode",
+	"crown_chest", "ballet_pose", "ballet_ribbon", "ballet_twirl", "kart_race",
 	"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt",
 	]
 

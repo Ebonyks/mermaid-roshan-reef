@@ -722,3 +722,21 @@ Kept as-is; noted so a future edit updates every copy.
 | Thirteen careers belong in Castle rooms; Opera Hall is one three-career venue | owner direction `7426c187`, `CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md` §10, `DL-INT-12`, `MA-OPERA-012`, design 00/01/04/06 |
 | Curtain Dragon/Shadow Phantom/Midnight Maestro are cut; save slots 4/9/14 are tombstones | owner cut `3d1236fe`, section-17 clarification `ef2fd982`, `CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md` §§16–17, `DL-INT-13`, `DL-SAVE-06`, `MA-OPERA-011`, design 00/01/03/04/06 |
 | Music inventory, authorship, routing and open listening gates | `MUSIC_AUDIT_2026-08-09.md`, design 01/03/05, `ASSET_LICENSES.md`, score and manifest machine data |
+
+## Teacher learning engine candidate — 2026-09-05
+
+| Document | State | Scope |
+|---|---|---|
+| `design/TEACHER_LEARNING_ENGINE_2026-09-05.md` | 🟣 | Local implementation and educational progression evidence; device, child, and integration acceptance remain open. |
+## Geologist mechanics rebuild — 2026-09-05
+
+| Document | State | Scope |
+| --- | --- | --- |
+| `design/GEOLOGIST_REBUILD_2026-09-05.md` | 🔵 | `SUPPORTING_CURRENT`; scoped Geologist research, mechanics implementation and diagnostic evidence; not release, final-art, device or child acceptance. |
+| `design/OPERA_RACER_ENGINE_INTEGRATION_2026-09-05.md` | 🔵 | `SUPPORTING_CURRENT`; local Racer engine integration, diagnostic validation and visual evidence; not merged, released, device accepted, or master-audit closure. |
+
+## Opera two-part performances — 2026-09-05
+
+| Document | State | Scope |
+|---|---|---|
+| `design/OPERA_TWO_ACT_PERFORMANCES_2026-09-05.md` | 🟣 | Local candidate for the three Opera Hall games only; mechanic and asset review, medal/token policy, pending integration and child/device gates. |

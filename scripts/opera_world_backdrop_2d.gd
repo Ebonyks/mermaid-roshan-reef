@@ -32,6 +32,9 @@ var redraw_t := 0.0
 ## footlights and a warmer wash — the finale-on-stage look. Follows the
 ## stage/backstage kit grammar from assets_src/concepts/opera_house_flat/.
 var stage_mode := false
+## The racing surface uses the native painting coordinates, without the
+## promotion tool's padded blur. This is framing, not a native-resolution pass.
+var racer_driving := false
 ## The accepted codex career-world painting (owner decision 2026-08-01:
 ## the 1024x576 scene keys ARE the career backdrops — same 16:9 aspect as
 ## the 1280x720 viewport). The vector set below remains the fallback.
@@ -48,6 +51,17 @@ func setup(id: String, variant: String = "") -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	set_meta("chapter2_scene_variant", scene_variant)
 	set_meta("chapter2_scene_specific_2d", not scene_variant.is_empty())
+	if career_id == "teacher":
+		painting = null
+		world_tiles.clear()
+		stage_tiles.clear()
+		room_variant_tiles.clear()
+		for row in range(2):
+			for column in range(4):
+				var tile := "res://assets/flats/castle/interactions_v4/background_tiles/room_library_background_r%d_c%d.png" % [row, column]
+				room_variant_tiles.append(load(tile) as Texture2D)
+		queue_redraw()
+		return
 	if scene_variant == "stuffie_room":
 		painting = null
 		world_tiles.clear()
@@ -170,6 +184,20 @@ func _draw_tile_set(textures: Array[Texture2D]) -> void:
 			draw_texture_rect_region(textures[row * 2 + column], destination, source)
 
 
+func _draw_racer_circuit() -> void:
+	# Reconstruct only the unchanged native painting from the padded POT tiles.
+	# Coordinates come from the promotion manifest's 1672x941 source master.
+	var native_rect := Rect2(188, 553, 1672, 941)
+	for row in range(2):
+		for column in range(2):
+			var tile_origin := Vector2(column * 1024, row * 1024)
+			var overlap := native_rect.intersection(Rect2(tile_origin, Vector2(1024, 1024)))
+			var source := Rect2(overlap.position - tile_origin, overlap.size)
+			var destination := Rect2((overlap.position - native_rect.position) / native_rect.size * size,
+				overlap.size / native_rect.size * size)
+			draw_texture_rect_region(world_tiles[row * 2 + column], destination, source)
+
+
 func set_stage(on_stage: bool) -> void:
 	if stage_mode == on_stage:
 		return
@@ -186,6 +214,12 @@ func _process(delta: float) -> void:
 
 
 func _draw() -> void:
+	if career_id == "teacher" and room_variant_tiles.size() == 8:
+		_draw_stuffie_room_tiles()
+		return
+	if racer_driving and career_id == "racer" and world_tiles.size() == 4:
+		_draw_racer_circuit()
+		return
 	if scene_variant == "stuffie_room" and room_variant_tiles.size() == 8:
 		_draw_stuffie_room_tiles()
 		if stage_mode:
@@ -537,6 +571,8 @@ func _draw_geologist(mid: Color, accent: Color) -> void:
 			Vector2(470, y + 18), Vector2(760, y - 18),
 			Vector2(1040, y + 12), Vector2(1280, y - 10),
 		]), color, 34.0)
+	if bool(get_meta("geology_work_open", false)):
+		return
 	# Fossil inspection slab.
 	draw_rect(Rect2(250, 430, 250, 94), Color("#d8bb8b"), true)
 	draw_arc(Vector2(376, 476), 32, -0.3, TAU * 1.65, 38,

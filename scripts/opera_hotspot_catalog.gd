@@ -35,7 +35,8 @@ const EXPECTED_PHASES: Dictionary = {
 	"racer": ["TUNE", "TO THE LINE", "RACE"],
 	"nursery": ["WASH HANDS", "CATCH BABIES", "FEED", "BURP", "BEDTIME"],
 	"popstar": ["SOUND CHECK", "DANCE", "RHYTHM", "ENCORE"],
-	"geologist": ["LAYERS", "FOSSIL", "SORT", "CRYSTAL"],
+	"teacher": ["PATTERN", "COUNT", "ADD", "MATCH"],
+	"geologist": ["RIVER", "FOSSIL", "PAN", "GEODE"],
 }
 
 ## Runtime consumes path, motion, size, presentation and an optional local
@@ -43,6 +44,12 @@ const EXPECTED_PHASES: Dictionary = {
 ## the independent hit target remains generous even for a wide, shallow object
 ## such as the magician rope.
 const SPECS: Dictionary = {
+	"teacher": {
+		"PATTERN": {"path": "res://assets/opera/worlds/hotspots/teacher_lesson_board.svg", "motion": "pulse", "size": Vector2(190,190), "presentation": "overlay"},
+		"COUNT": {"path": "res://assets/opera/worlds/hotspots/teacher_lesson_board.svg", "motion": "pulse", "size": Vector2(190,190), "presentation": "overlay"},
+		"ADD": {"path": "res://assets/opera/worlds/hotspots/teacher_lesson_board.svg", "motion": "pulse", "size": Vector2(190,190), "presentation": "overlay"},
+		"MATCH": {"path": "res://assets/opera/worlds/hotspots/teacher_lesson_board.svg", "motion": "pulse", "size": Vector2(190,190), "presentation": "overlay"},
+	},
 	"chef": {
 		"MIX": {"path": "res://assets/opera/worlds/widgets/widget_pour_chef_mover.png", "motion": "pour", "size": Vector2(126, 126), "presentation": "painted"},
 		"STIR": {"path": "res://assets/opera/worlds/widgets/widget_crank_chef_mover.png", "motion": "spin", "size": Vector2(124, 124), "presentation": "painted"},
@@ -124,10 +131,10 @@ const SPECS: Dictionary = {
 		"ENCORE": {"path": "res://assets/opera/worlds/props/goal_popstar.png", "motion": "rock", "size": Vector2(142, 142), "presentation": "painted"},
 	},
 	"geologist": {
-		"LAYERS": {"path": "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg", "motion": "pulse", "size": Vector2(128, 128), "presentation": "painted"},
+		"RIVER": {"path": "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg", "motion": "pulse", "size": Vector2(128, 128), "presentation": "painted"},
 		"FOSSIL": {"path": "res://assets/opera/worlds/hotspots/geologist_fossil.svg", "motion": "rock", "size": Vector2(132, 132), "presentation": "painted"},
-		"SORT": {"path": "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg", "motion": "bounce", "size": Vector2(112, 112), "presentation": "overlay"},
-		"CRYSTAL": {"path": "res://assets/opera/worlds/props/goal_geologist.svg", "motion": "pulse", "size": Vector2(150, 150), "presentation": "painted"},
+		"PAN": {"path": "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg", "motion": "bounce", "size": Vector2(112, 112), "presentation": "overlay"},
+		"GEODE": {"path": "res://assets/opera/worlds/props/goal_geologist.svg", "motion": "pulse", "size": Vector2(150, 150), "presentation": "painted"},
 	},
 }
 
@@ -137,6 +144,7 @@ const SPECS: Dictionary = {
 ## isolated objects, small object groups, or transparent local effects; a
 ## card/tableau role is not valid in this catalog.
 const ASSET_META: Dictionary = {
+	"res://assets/opera/worlds/hotspots/teacher_lesson_board.svg": {"dimensions": Vector2i(256,256), "role": "object"},
 	"res://assets/opera/worlds/widgets/widget_pour_chef_mover.png": {"dimensions": Vector2i(256, 256), "role": "object"},
 	"res://assets/opera/worlds/widgets/widget_crank_chef_mover.png": {"dimensions": Vector2i(256, 256), "role": "object"},
 	"res://assets/opera/worlds/props/goal_chef.png": {"dimensions": Vector2i(512, 512), "role": "object"},

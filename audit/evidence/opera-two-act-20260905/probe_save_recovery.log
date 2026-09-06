@@ -1,0 +1,97 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SAVE_RECOVERY|OK: primary created
+SAVE_RECOVERY|OK: backup created on first write
+SAVE_RECOVERY|OK: schema version added
+SAVE_RECOVERY|OK: unknown dictionary preserved
+SAVE_RECOVERY|OK: Classic touch preference serialized
+SAVE_RECOVERY|OK: unknown array preserved
+SAVE_RECOVERY|OK: dungeon checkpoint serialized
+SAVE_RECOVERY|OK: raw sparse Opera mask serialized
+SAVE_RECOVERY|OK: Opera progress counts only live bits
+SAVE_RECOVERY|OK: new primary installed
+SAVE_RECOVERY|OK: backup retains last known-good primary
+SAVE_RECOVERY|OK: Hybrid touch preference serialized
+SAVE_RECOVERY|OK: touch rollback preference survives in backup
+SAVE_RECOVERY|OK: unknown key survives another write
+SAVE_RECOVERY|OK: dungeon completion serialized and clamped
+SAVE_RECOVERY|OK: retired Opera bits survive a rewrite
+SAVE_RECOVERY|OK: complete Opera progress is thirteen live careers
+SAVE_RECOVERY|OK: Opera backup retains prior sparse mask semantics
+SAVE_RECOVERY|OK: fresh reader reloads dungeon completion
+SAVE_RECOVERY|OK: fresh reader reloads effective Opera completion
+SAVE_RECOVERY|OK: fresh reader reloads touch preference
+SAVE_RECOVERY|OK: old save receives additive Teacher learning defaults
+SAVE_RECOVERY|OK: old save receives empty Teacher lesson checkpoint
+SAVE_RECOVERY|OK: Teacher learning progress survives JSON disk round-trip
+SAVE_RECOVERY|OK: Teacher lesson checkpoint survives JSON disk round-trip
+SAVE_RECOVERY|OK: Teacher save normalization preserves unrelated keys
+SAVE_RECOVERY|OK: invalid Teacher checkpoint heals without losing unrelated keys
+SAVE_RECOVERY|OK: invalid Teacher checkpoint heals without losing unrelated keys
+SAVE_RECOVERY|OK: invalid Teacher checkpoint heals without losing unrelated keys
+SAVE_RECOVERY|OK: invalid Teacher checkpoint heals without losing unrelated keys
+SAVE_RECOVERY|OK: truncated primary found a clean recovery copy
+SAVE_RECOVERY|OK: backup selected after truncation
+SAVE_RECOVERY|OK: backup progress recovered
+SAVE_RECOVERY|OK: backup dungeon checkpoint recovered
+SAVE_RECOVERY|OK: primary repaired from backup
+SAVE_RECOVERY|OK: repaired primary is readable
+SAVE_RECOVERY|OK: wrong known type falls back to clean backup
+SAVE_RECOVERY|OK: incomplete primary falls back to complete backup
+SAVE_RECOVERY|OK: noncritical damage keeps newer primary
+SAVE_RECOVERY|OK: noncritical repair preserves newer progress
+SAVE_RECOVERY|OK: invalid touch preference repairs to Hybrid
+SAVE_RECOVERY|OK: future schema recognized
+WARNING: SaveState: writes disabled — the save on disk uses a newer schema than this build; the newer save is preserved and progress stays in memory
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] write_save (res://scripts/save_state.gd:234)
+       [1] _init (res://scripts/probe_save_recovery.gd:176)
+SAVE_RECOVERY|OK: write against a future primary reports failure
+SAVE_RECOVERY|OK: fresh writer leaves future schema byte-for-byte untouched
+SAVE_RECOVERY|OK: future backup outranks older clean temp
+SAVE_RECOVERY|OK: baseline write succeeds
+SAVE_RECOVERY|OK: stale future temp does not disable writes
+SAVE_RECOVERY|OK: write landed despite stale future temp
+SAVE_RECOVERY|OK: stale future temp does not hijack load selection
+SAVE_RECOVERY|OK: core-quartet fixture written
+SAVE_RECOVERY|OK: save missing a newly-added key is still clean
+SAVE_RECOVERY|OK: missing key restored with its default
+SAVE_RECOVERY|OK: pre-Critter-Book save defaults critters without demotion
+SAVE_RECOVERY|OK: pre-touch-mode save defaults to Hybrid
+SAVE_RECOVERY|OK: no demotion: newest progress kept
+SAVE_RECOVERY|OK: pre-Geologist save defaults geology checkpoint to empty
+SAVE_RECOVERY|OK: Geologist checkpoint fixture written
+SAVE_RECOVERY|OK: valid Geologist checkpoint survives JSON disk round-trip
+SAVE_RECOVERY|OK: checkpoint and save preserve unrelated keys
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: archive fixture baseline write succeeds
+SAVE_RECOVERY|OK: New Game installs a fresh save
+SAVE_RECOVERY|OK: before-New-Game archive preserves unknown fields
+SAVE_RECOVERY|OK: before-New-Game archive keeps the prior generation
+SAVE_RECOVERY|OK: fresh New Game backup is newer than the archive
+WARNING: SaveState: no clean before-New-Game archive is available to restore
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] restore_new_game_archive (res://scripts/save_state.gd:377)
+       [1] _init (res://scripts/probe_save_recovery.gd:315)
+SAVE_RECOVERY|OK: corrupt before-New-Game archive is refused
+SAVE_RECOVERY|OK: clean before-New-Game archive restores transactionally
+SAVE_RECOVERY|OK: archive restore keeps progress and unknown fields
+SAVE_RECOVERY|OK: archive restore generation outranks the fresh backup
+SAVE_RECOVERY|RESULT: ALL OK

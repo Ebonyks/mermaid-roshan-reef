@@ -7,9 +7,16 @@ extends CanvasLayer
 ## Roshan and a dressed rival on opposite sides, one-finger job gestures,
 ## parallel score/progress, audience energy and a graded curtain call.
 
+const PerformancePlan := preload("res://scripts/opera_performance_plan.gd")
+const Mastery := preload("res://scripts/opera_mastery.gd")
+const PerformanceOverlay := preload("res://scripts/opera_performance_overlay.gd")
 const GestureSurface := preload("res://scripts/opera_gesture_surface.gd")
 const BoxingSurface := preload("res://scripts/opera_boxing_surface.gd")
+const RacerSurface := preload("res://scripts/opera_racer_surface.gd")
 const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
+const TeacherSurface := preload("res://scripts/opera_teacher_surface.gd")
+const TeacherLessons := preload("res://scripts/teacher_lesson_plan.gd")
+const GeologySurface := preload("res://scripts/opera_geology_surface.gd")
 const WorldBackdrop := preload("res://scripts/opera_world_backdrop_2d.gd")
 const NurseryCatch := preload("res://scripts/opera_nursery_catch.gd")
 const StagePaths := preload("res://scripts/opera_stage_paths.gd")
@@ -235,6 +242,12 @@ const LEGACY_FINALE_START := {
 const BALLET_PHASE_HOLD_SECONDS := 3.10
 const BALLET_VOICE_MARGIN_SECONDS := 0.05
 const PHASES := {
+	"teacher": [
+		{"name": "PATTERN", "mode": "teacher_pattern", "widget": "", "goal": 1.0, "vo": "teacher_pattern", "voice": "What comes next? Tap the shape that finishes the pattern."},
+		{"name": "COUNT", "mode": "teacher_count", "widget": "", "goal": 1.0, "vo": "teacher_count", "voice": "Touch each pearl, one at a time. Then find the group with the same number."},
+		{"name": "ADD", "mode": "teacher_add", "widget": "", "goal": 1.0, "vo": "teacher_add", "voice": "Put the two groups together. Touch each pearl to count them all."},
+		{"name": "MATCH", "mode": "teacher_match", "widget": "", "goal": 1.0, "vo": "teacher_match", "voice": "Find the same shape."},
+	],
 	"chef": [
 		{"name": "MIX", "mode": "pourt", "goal": 5.0, "vo": "op_chef_pour_stage", "voice": "Tip the sparkling batter into the bowl!"},
 		{"name": "STIR", "mode": "circle", "goal": 2.0, "vo": "op_chef_stir_stage", "voice": "Draw big circles to stir the batter!"},
@@ -299,7 +312,7 @@ const PHASES := {
 	"racer": [
 		{"name": "TUNE", "mode": "circle", "goal": 1.8, "vo": "op_racer_tune_up_stage", "voice": "Turn the wrench to finish the pit stop!"},
 		{"name": "TO THE LINE", "mode": "swipe", "goal": 5.0, "vo": "op_racer_to_the_line_stage", "voice": "Push the kart to the pearl starting arch!"},
-		{"name": "RACE", "mode": "circle", "widget": "", "goal": 0.9, "vo": "op_racer_lap_two", "voice": "Loop the loop! Draw big racing circles!"},
+		{"name": "RACE", "mode": "kart_race", "widget": "", "goal": 2.0, "vo": "op_racer_steer", "voice": "Swipe to steer through the coral gates!"},
 	],
 	"nursery": [
 		{"name": "WASH HANDS", "mode": "hold", "widget": "", "visual_context": "nursery_wash", "goal": 3.4, "vo": "op_nursery_wash_stage", "voice": "Hold the bubbly basin to wash your hands first!"},
@@ -315,10 +328,10 @@ const PHASES := {
 		{"name": "ENCORE", "mode": "circle", "goal": 1.8, "vo": "op_popstar_encore_stage", "voice": "Draw one big encore spin for the crowd!"},
 	],
 	"geologist": [
-		{"name": "LAYERS", "mode": "choice", "widget": "", "goal": 3.0, "voice": "Tap the rock layer that matches the glowing sample!"},
-		{"name": "FOSSIL", "mode": "swipe", "widget": "", "goal": 5.0, "voice": "Brush gently across the stone to uncover the spiral fossil!"},
-		{"name": "SORT", "mode": "geology_sort", "widget": "", "goal": 6.0, "voice": "Drag each specimen into the tray with the same shape and color!"},
-		{"name": "CRYSTAL", "mode": "hold", "widget": "", "goal": 4.0, "voice": "Hold the pearl lamp and make the crystal cave sparkle!"},
+		{"name": "RIVER", "mode": "geology_river", "widget": "", "goal": 1.0, "vo": "grotto_discovered", "voice": "A secret grotto! The stones want to play!"},
+		{"name": "FOSSIL", "mode": "geology_fossil", "widget": "", "goal": 1.0, "vo": "bathroom_tub_brush", "voice": "Brush it back and forth. Swish, swish!"},
+		{"name": "PAN", "mode": "geology_pan", "widget": "", "goal": 1.0, "vo": "grotto_discovered", "voice": "A secret grotto! The stones want to play!"},
+		{"name": "GEODE", "mode": "geology_geode", "widget": "", "goal": 1.0, "vo": "grotto_discovered", "voice": "A secret grotto! The stones want to play!"},
 	],
 }
 
@@ -367,12 +380,14 @@ const FINALE_START := {
 	"nursery": 4,
 	"popstar": 2,
 	"geologist": 3,
+	"teacher": 3,
 }
 
 ## Stable landmark IDs keep every task attached to the painted object that
 ## explains it. Even specialist full-stage beats begin from a physical room
 ## object; their stage-wide play only starts after Roshan reaches it.
 const PHASE_STATIONS := {
+	"teacher": {"PATTERN": "lesson_desk", "COUNT": "lesson_desk", "ADD": "lesson_desk", "MATCH": "lesson_desk"},
 	"chef": {"MIX": "mixing_bowl", "STIR": "mixing_bowl", "BAKE": "hearth_oven", "FROST": "grand_cake_stage", "TOP": "grand_cake_stage"},
 	"detective": {"SEARCH": "magnifier_tower", "CASE BOARD": "evidence_shelves", "CROWN": "treasure_dais"},
 	"ballerina": {"PEARL MIRROR": "trifold_mirror", "RIBBON TRAIL": "wave_tuffets", "GRAND TWIRL": "rose_finale_stage"},
@@ -386,7 +401,7 @@ const PHASE_STATIONS := {
 	"racer": {"TUNE": "pearl_dome_pavilion", "TO THE LINE": "pearl_start_arch", "RACE": "ribbon_finish_arch"},
 	"nursery": {"WASH HANDS": "wash_basin", "CATCH BABIES": "cuddle_cushions", "FEED": "bottle_nook", "BURP": "cuddle_cushions", "BEDTIME": "moon_bed"},
 	"popstar": {"SOUND CHECK": "mic_gazebo", "DANCE": "record_dais", "RHYTHM": "shell_stage", "ENCORE": "shell_stage"},
-	"geologist": {"LAYERS": "layer_wall", "FOSSIL": "fossil_table", "SORT": "specimen_trays", "CRYSTAL": "crystal_gallery"},
+	"geologist": {"RIVER": "layer_wall", "FOSSIL": "fossil_table", "PAN": "specimen_trays", "GEODE": "crystal_gallery"},
 }
 
 ## The specialist rebuild renamed its phases but intentionally reuses the
@@ -412,6 +427,7 @@ const HOTSPOT_PHASE_ALIASES := {
 ## codex flat-package cards matted by tools/prepare_opera_2d_props.py; a
 ## missing file simply hides the prop.
 const GOAL_PROPS := {
+	"teacher": "../hotspots/teacher_lesson_board.svg",
 	"chef": "goal_chef",
 	"detective": "goal_detective",
 	"ballerina": "goal_ballerina",
@@ -464,10 +480,8 @@ var ballet_instruction_repeats := 0
 ## dwell), when she taps the lit marker, or on any card gesture (which is
 ## also the probes' pump path, so every existing drive still works).
 var task_open := true
-## The racer finale stays inside this Canvas world. The same large circle
-## grammar used by TUNE UP becomes a steering turn on the supplied painted
-## race stage; every honest turn wins the stolen trophy back, with no timer,
-## placement requirement, or fail branch.
+## Racer uses KartDriving inside this Canvas world. Pit-stop preparation
+## leads into two actual laps; the Opera act alone owns its trophy/reward.
 ## Gentle-pace gate (nursery BURP): taps faster than the phase "pace" pay
 ## nothing — the baby just bounces. Restraint is the skill being taught.
 var pace_cool := 0.0
@@ -555,6 +569,12 @@ var magnifier_texture: Texture2D = null
 
 var root: Control
 var stage_bleed: ColorRect
+var teacher_restoring := false
+var teacher_save_pending := false
+var teacher_save_cool := 0.0
+var teacher_voice_queue: Array[String] = []
+var teacher_caption: Label
+
 var backdrop_node: OperaWorldBackdrop2D
 var action_panel: ColorRect
 var prop_rect: TextureRect
@@ -571,9 +591,25 @@ var surface: OperaGestureSurface
 var phase_fill: ProgressBar
 var confetti: Array[ColorRect] = []
 var run_context: Dictionary = {}
+var geology_restoring := false
+var geology_save_pending := false
+var geology_save_cool := 0.0
 var scene_adapter: Dictionary = {}
 var adapter_callbacks: Dictionary = {}
 var using_chapter_two_phases := false
+var two_act_enabled := false
+var performance_stage_start := 0
+var performance_overlay: OperaPerformanceOverlay
+var performance_stats := {"actions": 0, "misses": 0, "assists": 0, "active_seconds": 0.0}
+var performance_milestones: Dictionary = {}
+var performance_helped: Dictionary = {}
+var performance_started := false
+var performance_save_cool := 0.0
+var performance_pending_current: Dictionary = {}
+var performance_saved_quarter := -1
+var performance_saved_echo_prefix := ""
+var performance_rival_surface: OperaGestureSurface
+var performance_rival_phase := -1
 var chapter2_guest_nodes: Array[TextureRect] = []
 var chapter2_guest_tweens: Dictionary = {}
 var chapter2_ensemble_bow_started := false
@@ -663,7 +699,26 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 		# The complete Ballerina number therefore first occurs later with the
 		# stuffed-animal cast in the Stuffie Room, as the story requests.
 		phases = [(phases[0] as Dictionary).duplicate(true)]
+	two_act_enabled = not using_chapter_two_phases and PerformancePlan.enabled(career_id, config)
+	if two_act_enabled:
+		var plan := PerformancePlan.build(career_id, phases)
+		phases = plan["phases"] as Array
+		performance_stage_start = int(plan["stage_start"])
+		competition.spec["honest_stage"] = true
+		competition.spec["rival_cap"] = 1.0
+		competition.spec["timed_retry"] = false
+		competition.spec["par_time"] = float((Mastery.RULES[career_id] as Dictionary)["silver_seconds"])
 	phase_index = 0
+	if two_act_enabled:
+		_performance_restore()
+	if career_id == "teacher":
+		var saved: Variant = m.save_data.get("teacher_lesson_checkpoint", {})
+		if saved is Dictionary and saved.get("version", 0) == 1:
+			phase_index = clampi(int(saved.get("phase_index", 0)), 0, phases.size())
+	if career_id == "geologist" and not using_chapter_two_phases:
+		var checkpoint: Variant = m.save_data.get("opera_geology_checkpoint", {})
+		if checkpoint is Dictionary and int((checkpoint as Dictionary).get("version", 0)) == 1:
+			phase_index = clampi(int((checkpoint as Dictionary).get("phase_index", 0)), 0, phases.size())
 	if using_chapter_two_phases and not _is_tutorial_run() and not phases.is_empty():
 		# Chapter 2 persists completed physical phases in the director. Re-enter
 		# at the first unfinished phase so a save/resume never replays work the
@@ -684,6 +739,20 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 	# the always-reachable pause surface (13/29), and transition fade (30).
 	layer = 10
 	_build_world()
+	if two_act_enabled:
+		performance_overlay = PerformanceOverlay.new()
+		performance_overlay.size = StagePaths.SCREEN
+		performance_overlay.configure(career_id)
+		root.add_child(performance_overlay)
+		if career_id != "ballerina":
+			performance_rival_surface = GestureSurface.new()
+			performance_rival_surface.position = Vector2(916, 144)
+			performance_rival_surface.size = Vector2(392, 232)
+			performance_rival_surface.scale = Vector2(0.70, 0.70)
+			performance_rival_surface.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			root.add_child(performance_rival_surface)
+			performance_rival_surface.set_process(false)
+			performance_rival_surface.visible = false
 	# The room is part of every activity. Setup arms the first physical object;
 	# it never bypasses discovery by opening a minigame synchronously.
 	_adapter_hook("scene_ready", scene_snapshot())
@@ -1138,6 +1207,8 @@ func _build_world() -> void:
 	var partner_path := "res://assets/opera/worlds/actors/rival_%s.png" % career_id
 	if career_id == "nursery":
 		partner_path = "res://assets/opera/worlds/actors/faron_nursery.png"
+	elif career_id == "teacher":
+		partner_path = "res://assets/opera/worlds/actors/rival_doctor.png"
 	elif career_id == "geologist":
 		# The approved detective field-guide imp already carries the magnifier
 		# and explorer coat this collaborative science activity needs.
@@ -1183,6 +1254,29 @@ func _build_world() -> void:
 		surface = BoxingSurface.new() as OperaGestureSurface
 	elif career_id == "ballerina":
 		surface = BalletSurface.new() as OperaGestureSurface
+	elif career_id == "teacher":
+		teacher_caption = Label.new()
+		teacher_caption.position = Vector2(330, 12)
+		teacher_caption.size = Vector2(780, 82)
+		teacher_caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		teacher_caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		teacher_caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		teacher_caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		StorybookUI._apply_label_typography(teacher_caption, StorybookUI.ROLE_BODY)
+		teacher_caption.add_theme_stylebox_override("normal", StorybookUI.panel_style(
+			Color("#a57ab3"), Color("#f8ead5"), 18, 3))
+		root.add_child(teacher_caption)
+		surface = TeacherSurface.new() as OperaGestureSurface
+		(surface as TeacherSurface).guidance_requested.connect(_queue_teacher_voice)
+		(surface as TeacherSurface).progress_changed.connect(_on_teacher_progress)
+		(surface as TeacherSurface).lesson_completed.connect(_on_teacher_result)
+		(surface as TeacherSurface).counter_touched.connect(_on_teacher_count)
+	elif career_id == "geologist":
+		surface = GeologySurface.new() as OperaGestureSurface
+		(surface as OperaGeologySurface).progress_changed.connect(_on_geology_progress_changed)
+	elif career_id == "racer":
+		surface = RacerSurface.new() as OperaGestureSurface
+		(surface as OperaRacerSurface).race_event.connect(_on_race_event)
 	else:
 		surface = GestureSurface.new() as OperaGestureSurface
 	if career_id == "boxer":
@@ -1653,6 +1747,19 @@ func _anchor_goal_prop(curtain_call := false) -> void:
 
 
 func _stage_room_finale_partner() -> void:
+	if career_id == "teacher" and task_open:
+		player_actor.position = Vector2(16, 315)
+		player_actor.size = Vector2(300, 300)
+		player_actor.scale = Vector2.ONE
+		rival_actor.visible = false
+		return
+	if career_id == "geologist" and task_open:
+		player_actor.position = Vector2(30, 422)
+		player_actor.scale = Vector2.ONE
+		rival_actor.position = Vector2(78, 218)
+		rival_actor.size = Vector2(176, 176)
+		rival_actor.scale = Vector2.ONE
+		return
 	# Room finales keep Roshan beside the object she deliberately reached. Pick
 	# a route rest that clears both Roshan and the already-laid-out activity;
 	# the old simple "opposite side" rule put the rival directly under that UI.
@@ -1861,6 +1968,8 @@ func _on_hotspot_opening_finished(station_index: int) -> void:
 
 
 func _draw_activity_focus() -> void:
+	if career_id in ["teacher", "geologist"] or _racer_is_driving():
+		return
 	# No clipboard, easel, title ribbon, or reading chrome. The existing themed
 	# minigame art floats in a soft theatre-light bloom, with a tiny pearl trail
 	# carrying the only generic progress information.
@@ -2228,8 +2337,17 @@ func _show_phase() -> void:
 
 
 func _arm_phase() -> void:
+	if career_id == "geologist" and backdrop_node != null:
+		backdrop_node.set_meta("geology_work_open", false)
+		backdrop_node.queue_redraw()
+	if backdrop_node != null:
+		backdrop_node.racer_driving = false
+		backdrop_node.queue_redraw()
+	if surface is OperaRacerSurface:
+		(surface as OperaRacerSurface).cancel_race_touch()
 	_restore_stage_actors()
 	competition.pause()
+	performance_started = false
 	phase_complete_t = 0.0
 	phase_advance_pending = false
 	task_open = false
@@ -2272,8 +2390,10 @@ func _arm_phase() -> void:
 	if backdrop_node != null:
 		# The navigable room owns every interaction. Stage masters use different
 		# landmark geometry and cannot share room hotspots without floating art.
-		backdrop_node.set_stage(false)
+		backdrop_node.set_stage(two_act_enabled and phase_index >= performance_stage_start)
 	phase_progress = 0.0
+	performance_saved_quarter = -1
+	performance_saved_echo_prefix = ""
 	idle_t = 0.0
 	var phase := phases[phase_index] as Dictionary
 	if _is_chapter2_strawberry_pick_phase():
@@ -2315,6 +2435,16 @@ func _arm_phase() -> void:
 		wander_layer.visible = false
 		wander_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
+	if two_act_enabled:
+		performance_overlay.set_part(phase_index >= performance_stage_start)
+		if phase_index >= performance_stage_start:
+			phase_gap = 0.0
+			for hotspot_node in station_nodes:
+				(hotspot_node as OperaWorldHotspot2D).set_armed(false)
+			wander_layer.visible = false
+			wander_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			_open_task()
+
 
 func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := false) -> void:
 	var template := _widget_template(phase)
@@ -2355,7 +2485,25 @@ func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := 
 		if ResourceLoader.exists(cake_accessory_path):
 			surface.set_meta("chapter2_cake_accessory_asset",
 				cake_accessory_path)
+	teacher_restoring = career_id == "teacher"
+	geology_restoring = career_id == "geologist"
 	surface.configure(mode_name, accent, choice_target, context)
+	if surface is TeacherSurface:
+		var kind := mode_name.trim_prefix("teacher_")
+		(surface as TeacherSurface).set_lesson(TeacherLessons.make_lesson(kind, m.save_data.get("teacher_learning_progress", {}) as Dictionary))
+		var checkpoint: Variant = m.save_data.get("teacher_lesson_checkpoint", {})
+		if checkpoint is Dictionary and int(checkpoint.get("phase_index", -1)) == phase_index:
+			var mechanic: Variant = checkpoint.get("mechanic", {})
+			if mechanic is Dictionary:
+				(surface as TeacherSurface).restore_progress(mechanic)
+	teacher_restoring = false
+	if career_id == "geologist" and surface is OperaGeologySurface:
+		var saved: Variant = m.save_data.get("opera_geology_checkpoint", {})
+		if saved is Dictionary and int((saved as Dictionary).get("phase_index", -1)) == phase_index:
+			var mechanic: Variant = (saved as Dictionary).get("mechanic", {})
+			if mechanic is Dictionary:
+				(surface as OperaGeologySurface).restore_progress(mechanic as Dictionary)
+	geology_restoring = false
 	# while she is still wandering, the bound widget shows but its clocks
 	# (oven heat, pipe fuel, echo song) hold still until she arrives
 	surface.armed_only = armed
@@ -2443,6 +2591,8 @@ func _open_task() -> void:
 		else:
 			nursery_catch.stop()
 	_bind_widget(phase, mode_name, accent)
+	if career_id == "teacher":
+		_show_phase_prompt(phase)
 	if career_id == "magician" and mode_name == "choice":
 		# the shuffle the fiction always promised: glow glides into its lane
 		surface.start_shuffle((choice_target + 1 + (phase_index % 2)) % 3)
@@ -2466,9 +2616,15 @@ func _open_task() -> void:
 			surface.swipe_dir = Vector2.UP
 			surface.swipe_require_dir = true
 	phase_fill.value = 0.0
+	_performance_apply_current_restore(phase)
 	if _is_chapter2_strawberry_pick_phase():
 		phase_fill.value = phase_progress / maxf(0.1, float(phase.get("goal", 5.0))) * 100.0
 	action_panel.queue_redraw()
+
+	if two_act_enabled and phase_index >= performance_stage_start:
+		competition.pause()
+		performance_started = false
+		_performance_stage_layout()
 
 
 func _activity_reveal_pivot() -> Vector2:
@@ -2491,6 +2647,18 @@ func _repeat_phase_prompt() -> void:
 
 
 func _show_phase_prompt(phase: Dictionary) -> void:
+	if career_id == "teacher":
+		teacher_voice_queue.clear()
+		var event := String(phase.get("vo", "teacher_start")) if task_open else "teacher_start"
+		if task_open and surface is TeacherSurface and (surface as TeacherSurface).can_answer() \
+				and (surface as TeacherSurface).lesson_kind() in ["count", "add"]:
+			event = "teacher_choose"
+		m.clear_dialogue()
+		if teacher_caption != null:
+			teacher_caption.text = String(phase.get("voice", "Let's play with shapes and pearls!")) \
+				if task_open else "Let's play with shapes and pearls!"
+		_queue_teacher_voice(event)
+		return
 	var voice_key := String(phase.get("vo", "hint"))
 	var is_recording_gap := using_chapter_two_phases and voice_key.is_empty()
 	set_meta("chapter2_voice_recording_gap", is_recording_gap)
@@ -2510,6 +2678,34 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 	if action_panel == null:
 		return
 	var mode := String(phase.get("mode", "tap"))
+	if career_id in ["teacher", "geologist"]:
+		if career_id == "geologist":
+			if backdrop_node != null:
+				backdrop_node.set_meta("geology_work_open", true)
+				backdrop_node.queue_redraw()
+		action_panel.visible = true
+		action_panel.position = Vector2.ZERO
+		action_panel.size = StagePaths.SCREEN
+		surface.position = Vector2.ZERO
+		surface.size = StagePaths.SCREEN
+		phase_fill.visible = false
+		player_bar.visible = false
+		rival_bar.visible = false
+		_stage_room_finale_partner()
+		action_panel.queue_redraw()
+		return
+	if mode == "kart_race":
+		action_panel.visible = true
+		action_panel.position = Vector2.ZERO
+		action_panel.size = StagePaths.SCREEN
+		surface.position = Vector2.ZERO
+		surface.size = StagePaths.SCREEN
+		phase_fill.visible = false
+		backdrop_node.racer_driving = true
+		backdrop_node.queue_redraw()
+		_set_finale_visible(true)
+		action_panel.queue_redraw()
+		return
 	if career_id == "boxer":
 		# Both glove fingers share the frozen 1280x720 Opera coordinate space.
 		# The transparent host preserves the approved 2K training/stage painting.
@@ -2901,6 +3097,8 @@ func _register_bop(amount: float, quality: float) -> void:
 
 
 func _finale_start() -> int:
+	if two_act_enabled:
+		return performance_stage_start
 	if _is_tutorial_run():
 		return phases.size()
 	var configured := int(FINALE_START.get(career_id, phases.size() - 1))
@@ -2925,7 +3123,25 @@ func competition_progress() -> float:
 
 
 func _set_finale_visible(show_finale: bool) -> void:
-	if career_id in ["boxer", "ballerina"]:
+	if two_act_enabled:
+		player_bar.visible = false
+		rival_bar.visible = false
+		rival_actor.visible = show_finale
+		return
+	if career_id == "teacher":
+		player_bar.visible = false
+		rival_bar.visible = false
+		player_actor.visible = true
+		if rival_actor != null:
+			rival_actor.visible = false
+		return
+	if career_id == "geologist" and task_open:
+		player_bar.visible = false
+		rival_bar.visible = false
+		player_actor.visible = true
+		rival_actor.visible = true
+		return
+	if career_id in ["boxer", "ballerina"] or _racer_is_driving():
 		# Specialist surfaces own their feedback. The boxer draws exactly one
 		# padded imp; ballet uses held poses and pearls instead of race meters.
 		if player_bar != null:
@@ -3023,6 +3239,7 @@ func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
 		return
 	if not task_open:
 		_open_task()
+	_performance_input(kind, quality)
 	if amount <= 0.0:
 		# A near miss is a cue, never a penalty. The specialist surface keeps the
 		# accepted portrait/checkpoints and replays only the unresolved part.
@@ -3038,8 +3255,10 @@ func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
 	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
 	phase_progress = minf(goal, phase_progress + amount)
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
+	_performance_record_progress(progress, kind, quality)
 	phase_fill.value = progress * 100.0
 	surface.set_fill(progress)
+	_performance_bank_current(progress, quality >= 0.5)
 	if competition != null and competition.active and score_cool <= 0.0:
 		competition.note_success(10)
 		score_cool = 0.5
@@ -3064,9 +3283,31 @@ func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
 		# Let the current instruction/pose settle before the next phase speaks.
 		phase_complete_t = ballet_voice_hold_seconds()
 	phase_advance_pending = true
+	_performance_checkpoint(true)
+
+
+func _racer_is_driving() -> bool:
+	return career_id == "racer" and task_open and phase_index < phases.size() \
+		and String((phases[phase_index] as Dictionary).get("mode", "")) == "kart_race"
+
+
+func _on_race_event(kind: String, value: float) -> void:
+	if not active or not _racer_is_driving():
+		return
+	idle_t = 0.0
+	if kind == "start":
+		phase_gap = 0.0
+	if m != null and m.chime != null and kind in ["lap", "pearl", "turbo", "countdown"]:
+		m.chime.pitch_scale = 1.5 if kind == "lap" else 1.15 + fmod(value, 3.0) * 0.10
+		m.chime.play()
 
 
 func _on_gesture(_kind: String, amount: float, quality: float) -> void:
+	if career_id == "teacher":
+		if _kind.begins_with("teacher_"):
+			phase_gap = 0.0
+		elif _kind != "probe":
+			return
 	if not active or reveal_t > 0.0 or phase_index >= phases.size():
 		return
 	if career_id == "boxer":
@@ -3080,6 +3321,8 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 			var steps: Array = [1.0, 1.1892, 1.4983]
 			m.chime.pitch_scale = float(steps[clampi(surface.echo_last_note, 0, 2)]) * (1.0 if quality >= 0.9 else 0.94)
 			m.chime.play()
+		if quality >= 0.9 and two_act_enabled:
+			call_deferred("_performance_checkpoint_echo_prefix")
 		return
 	if _kind == "pour_ding":
 		if m != null and m.chime != null:
@@ -3098,6 +3341,8 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	if phase_advance_pending:
 		_advance_completed_phase()
 		return
+	if career_id == "geologist" and _kind.begins_with("geology_"):
+		phase_gap = 0.0
 	if phase_gap > 0.0:
 		# any touch skips the between-phase sparkle sting
 		phase_gap = 0.0
@@ -3115,6 +3360,10 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 			return
 	var phase := phases[phase_index] as Dictionary
 	var mode := String(phase.get("mode", ""))
+	if career_id == "geologist" and _kind not in [mode, "probe"]:
+		return
+	if mode == "kart_race" and _kind not in ["kart_race", "probe"]:
+		return
 	_play_roshan_animation("work")
 	if mode == "catch" and amount < 5.0:
 		return
@@ -3128,7 +3377,8 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 			quality = 0.6
 		else:
 			pace_cool = pace
-	var continuous := mode == "hold" or mode == "swipe" or mode == "circle" or mode == "pourt"
+	var continuous := mode in ["hold", "swipe", "circle", "pourt", "kart_race"]
+	_performance_input(_kind, quality)
 	if quality < 0.5:
 		competition.note_miss()
 	elif not continuous or score_cool <= 0.0:
@@ -3140,13 +3390,20 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	var gain := amount if continuous else (maxf(0.04, amount) if amount > 0.0 else 0.0)
 	phase_progress += gain
 	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
+	if mode == "kart_race" and _kind == "kart_race" and surface is OperaRacerSurface:
+		# Absolute completed distance keeps the final lap exact despite float
+		# accumulation; no unrelated gesture can manufacture this distance.
+		phase_progress = minf(goal, float((surface as OperaRacerSurface).kart["s"])
+			/ RacerSurface.LAP_DISTANCE)
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
+	_performance_record_progress(progress, _kind, quality)
 	phase_fill.value = progress * 100.0
 	action_panel.queue_redraw()
 	# the widget's own art fills with the work: the bowl actually pours,
 	# the basin actually fills. Without this the delivered _fill/_bubbles/
 	# _full overlays never move and the child gets no feedback at all.
 	surface.set_fill(progress)
+	_performance_bank_current(progress, quality >= 0.5)
 	surface.note_result(quality >= 0.5)
 	# one bounce per 0.22s: mashing used to restart the tween every frame and
 	# leave her drifting off her rest transform
@@ -3190,9 +3447,17 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 			_bop_burst_at(action_panel.position + surface.position + surface.size * 0.5, false)
 		phase_complete_t = 2.2
 		phase_advance_pending = true
+		_performance_checkpoint(true)
+		if career_id == "teacher":
+			_checkpoint_teacher(true)
+		if career_id == "geologist":
+			_checkpoint_geology(true)
 
 
 func _uses_authored_completion_picture(mode: String) -> bool:
+	if career_id in ["teacher", "geologist"] \
+			or (career_id == "racer" and mode == "kart_race"):
+		return true
 	return career_id == "candymaker" and mode == "pourt" \
 		and surface != null and surface.visual_context == "pour_candymaker"
 
@@ -3207,6 +3472,9 @@ func _advance_completed_phase() -> void:
 	_adapter_hook("phase_completed", scene_snapshot())
 	_refresh_chapter2_story_props()
 	phase_index += 1
+	if two_act_enabled:
+		phase_progress = 0.0
+	_performance_checkpoint(true)
 	if completed_final_cake_phase:
 		# Persist first, refresh the actual story prop, then leave that completed
 		# cake on screen long enough for the child to see what she made. The
@@ -3379,6 +3647,15 @@ func update_competition() -> void:
 
 
 func celebrate(result: Dictionary) -> void:
+	if two_act_enabled:
+		if performance_rival_surface != null:
+			performance_rival_surface.visible = false
+		performance_overlay.show_result(int(result.get("tier", 1)),
+			int(result.get("token_delta", 0)), int(result.get("token_balance", 0)))
+		m.clear_dialogue()
+	if backdrop_node != null:
+		backdrop_node.racer_driving = false
+		backdrop_node.queue_redraw()
 	var completion_payload := scene_snapshot()
 	completion_payload["result"] = result.duplicate(true)
 	_adapter_hook("scene_completed", completion_payload)
@@ -3427,7 +3704,7 @@ func celebrate(result: Dictionary) -> void:
 		# The pearl ballet is a recital, not a rival contest. Keep its accepted
 		# solo curtain composition while every competitive/co-op career restores
 		# its partner for the bow.
-		rival_actor.visible = career_id != "ballerina"
+		rival_actor.visible = two_act_enabled or career_id not in ["ballerina", "teacher"]
 	_position_curtain_call_cast()
 	_play_roshan_animation("cheer")
 	_capture_actor_rest("player", player_actor)
@@ -3441,9 +3718,16 @@ func celebrate(result: Dictionary) -> void:
 	if rival_bar != null:
 		rival_bar.visible = false
 	if rival_actor != null:
-		rival_actor.visible = career_id != "ballerina"
+		rival_actor.visible = two_act_enabled or career_id not in ["ballerina", "teacher"]
 	var tier := int(result.get("tier", 1))
-	if career_id == "ballerina":
+	if career_id == "teacher":
+		last_cheer = "A LOVELY LEARNING DAY!"
+		teacher_voice_queue.clear()
+		if teacher_caption != null:
+			teacher_caption.text = "A lovely learning day!"
+	elif two_act_enabled:
+		last_cheer = "A WONDERFUL PERFORMANCE!"
+	elif career_id == "ballerina":
 		last_cheer = "A BEAUTIFUL PEARL BALLET!"
 	else:
 		last_cheer = (
@@ -4168,6 +4452,14 @@ func _draw_lens_layer() -> void:
 
 
 func _process(delta: float) -> void:
+	_performance_tick(delta)
+	_tick_teacher_voice()
+	teacher_save_cool = maxf(0.0, teacher_save_cool - delta)
+	if teacher_save_pending and teacher_save_cool <= 0.0:
+		_checkpoint_teacher(true)
+	geology_save_cool = maxf(0.0, geology_save_cool - delta)
+	if geology_save_pending and geology_save_cool <= 0.0:
+		_checkpoint_geology(true)
 	elapsed += delta
 	if chapter2_final_result_hold_pending:
 		chapter2_final_result_hold_t = maxf(0.0,
@@ -4225,6 +4517,7 @@ func _process(delta: float) -> void:
 			if idle_mode == "lens":
 				lens_demo = true
 			else:
+				_performance_note_help()
 				surface.restart_demo()
 			if career_id == "ballerina":
 				# Mirror speaks only after its watch demo emits ballet_ready.
@@ -4275,6 +4568,21 @@ func _process(delta: float) -> void:
 
 
 func close() -> void:
+	_performance_checkpoint(true)
+	teacher_voice_queue.clear()
+	if career_id == "teacher":
+		_checkpoint_teacher(true)
+		if surface is TeacherSurface:
+			(surface as TeacherSurface).cancel_input(false)
+	if career_id == "geologist":
+		_checkpoint_geology(true)
+		if surface is OperaGeologySurface:
+			(surface as OperaGeologySurface).cancel_input(false)
+	if backdrop_node != null:
+		backdrop_node.racer_driving = false
+		backdrop_node.queue_redraw()
+	if surface is OperaRacerSurface:
+		(surface as OperaRacerSurface).cancel_race_touch()
 	_adapter_hook("scene_closed", scene_snapshot())
 	active = false
 	wander_walking = false
@@ -4453,3 +4761,370 @@ func _finish_wander_route() -> void:
 		return
 	hotspot_opening = true
 	hotspot.play_opening()
+
+func _on_teacher_progress(_snapshot: Dictionary) -> void:
+	if teacher_restoring or not active or not task_open:
+		return
+	idle_t = 0.0
+	phase_gap = 0.0
+	_checkpoint_teacher(false)
+
+
+func _on_teacher_result(kind: String, assisted: bool) -> void:
+	if teacher_restoring or not active or not task_open or phase_advance_pending:
+		return
+	m.save_data["teacher_learning_progress"] = TeacherLessons.record_result(
+		m.save_data.get("teacher_learning_progress", {}) as Dictionary, kind, assisted)
+
+
+func _on_teacher_count(number: int) -> void:
+	_queue_teacher_voice("teacher_number_%d" % clampi(number, 1, 10))
+	if surface is TeacherSurface and (surface as TeacherSurface).can_answer():
+		_queue_teacher_voice("teacher_choose")
+
+
+func _queue_teacher_voice(event: String) -> void:
+	if career_id != "teacher" or not active or not event.begins_with("teacher_"):
+		return
+	if not teacher_voice_queue.has(event) and teacher_voice_queue.size() < 16:
+		teacher_voice_queue.append(event)
+
+
+func _tick_teacher_voice() -> void:
+	if career_id != "teacher" or not active or m == null or teacher_voice_queue.is_empty():
+		return
+	# Quick taps retain their counting order; the shared voice channel never overlaps.
+	if not m._audio_ref()._has_active_speech():
+		m._say("roshan", teacher_voice_queue.pop_front())
+
+
+func _checkpoint_teacher(flush: bool) -> void:
+	if teacher_restoring or career_id != "teacher" or m == null or not (surface is TeacherSurface):
+		return
+	var next_phase := mini(phases.size(), phase_index + (1 if phase_advance_pending else 0))
+	var snapshot := (surface as TeacherSurface).progress_snapshot() \
+		if next_phase == phase_index and phase_index < phases.size() else {}
+	m.save_data["teacher_lesson_checkpoint"] = {
+		"version": 1, "phase_index": next_phase, "mechanic": snapshot}
+	teacher_save_pending = true
+	if flush:
+		teacher_save_pending = not m._write_save()
+		teacher_save_cool = 1.0
+
+func _on_geology_progress_changed(_snapshot: Dictionary) -> void:
+	if geology_restoring or career_id != "geologist" or not task_open or not active:
+		return
+	phase_gap = 0.0
+	idle_t = 0.0
+	_checkpoint_geology(false)
+
+
+func _checkpoint_geology(flush: bool) -> void:
+	if geology_restoring or career_id != "geologist" or m == null \
+			or not (surface is OperaGeologySurface):
+		return
+	var next_phase := mini(phases.size(), phase_index + (1 if phase_advance_pending else 0))
+	var snapshot := (surface as OperaGeologySurface).progress_snapshot() \
+		if next_phase == phase_index and phase_index < phases.size() else {}
+	m.save_data["opera_geology_checkpoint"] = {"version": 1,
+		"phase_index": next_phase, "mechanic": snapshot}
+	geology_save_pending = true
+	if flush:
+		geology_save_pending = not m._write_save()
+		geology_save_cool = 1.0
+
+
+func _notification(what: int) -> void:
+	if what in [NOTIFICATION_PAUSED, NOTIFICATION_APPLICATION_PAUSED,
+			NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_WM_CLOSE_REQUEST]:
+		_checkpoint_teacher(true)
+		_checkpoint_geology(true)
+		_performance_checkpoint(true)
+		if two_act_enabled:
+			competition.pause()
+			performance_started = false
+
+
+func _performance_on_stage() -> bool:
+	return two_act_enabled and phase_index >= performance_stage_start and phase_index < phases.size()
+
+
+func _performance_stage_layout() -> void:
+	if not _performance_on_stage():
+		return
+	backdrop_node.set_stage(true)
+	for hotspot_node in station_nodes:
+		(hotspot_node as OperaWorldHotspot2D).set_armed(false)
+	if career_id == "ballerina":
+		player_actor.position = Vector2(12, 372)
+		player_actor.size = Vector2(300, 300)
+		rival_actor.position = Vector2(238, 350)
+		rival_actor.size = Vector2(150, 150)
+	else:
+		action_panel.position = Vector2(390, 204)
+		action_panel.size = Vector2(500, 376)
+		surface.position = Vector2(12, 12)
+		surface.size = Vector2(476, 340)
+		player_actor.position = Vector2(48, 264)
+		player_actor.size = Vector2(300, 300)
+		rival_actor.position = Vector2(974, 294)
+		rival_actor.size = Vector2(220, 220)
+	for actor: TextureRect in [player_actor, rival_actor]:
+		actor.scale = Vector2.ONE
+		actor.rotation = 0.0
+		actor.visible = true
+		actor.modulate = Color.WHITE
+	player_actor.flip_h = false
+	rival_actor.flip_h = true
+	_capture_actor_rest("player", player_actor)
+	_capture_actor_rest("rival", rival_actor)
+	if performance_rival_surface != null:
+		performance_rival_surface.visible = true
+	_performance_rival_work()
+
+
+func _performance_input(kind: String, quality: float) -> void:
+	if not _performance_on_stage() or not task_open or phase_advance_pending or kind == "probe":
+		return
+	performance_started = true
+	competition.active = true
+	if quality < 0.5:
+		performance_stats["misses"] = int(performance_stats["misses"]) + 1
+
+
+func _performance_record_progress(value: float, kind: String, quality: float) -> void:
+	if not _performance_on_stage() or kind == "probe" or quality < 0.5:
+		return
+	var key := str(phase_index)
+	performance_milestones[key] = maxi(int(performance_milestones.get(key, 0)),
+		clampi(int(floor(value * 4.0 + 0.0001)), 0, 4))
+	var total := 0
+	for amount: Variant in performance_milestones.values():
+		total += int(amount)
+	performance_stats["actions"] = total
+
+
+func _performance_note_help() -> void:
+	if not _performance_on_stage() or not task_open or phase_advance_pending:
+		return
+	var key := str(phase_index)
+	if not performance_helped.has(key):
+		performance_helped[key] = true
+		performance_stats["assists"] = int(performance_stats["assists"]) + 1
+
+
+func _performance_tick(delta: float) -> void:
+	if not two_act_enabled:
+		return
+	performance_save_cool += delta
+	if _performance_on_stage() and active and task_open and not phase_advance_pending:
+		if performance_started and competition.active:
+			performance_stats["active_seconds"] = float(performance_stats["active_seconds"]) + delta
+		if surface is OperaBalletSurface and (surface as OperaBalletSurface).assist_level() > 0 \
+				and (surface as OperaBalletSurface)._stuck_t >= OperaBalletSurface.FIRST_ASSIST_SECONDS:
+			_performance_note_help()
+		_performance_rival_work()
+	if performance_overlay != null:
+		performance_overlay.set_progress(competition_progress(), competition.rival_progress)
+	if performance_save_cool >= 1.0 and performance_started:
+		_performance_checkpoint(true)
+
+
+func _performance_rival_work() -> void:
+	if not _performance_on_stage():
+		return
+	var count := phases.size() - performance_stage_start
+	var index := mini(count - 1, int(competition.rival_progress * count))
+	var phase: Dictionary = phases[performance_stage_start + index]
+	var local := clampf(competition.rival_progress * count - index, 0.0, 1.0)
+	if performance_rival_surface != null:
+		if index != performance_rival_phase:
+			performance_rival_phase = index
+			var template := _widget_template(phase)
+			var context := template + "_" + career_id if not template.is_empty() else ""
+			context = String(phase.get("widget_context", phase.get("visual_context", context)))
+			performance_rival_surface.configure(String(phase["mode"]), Color("#c5a4ef"), 0, context)
+			performance_rival_surface.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			performance_rival_surface.armed_only = true
+			performance_rival_surface.set_process(false)
+		performance_rival_surface.set_fill(local)
+		performance_rival_surface.queue_redraw()
+	if competition.rival_progress >= 0.999:
+		_set_rival_pose("bow")
+
+
+func performance_result_stats() -> Dictionary:
+	var result := performance_stats.duplicate(true)
+	result["stage_completed"] = two_act_enabled and phase_index >= phases.size()
+	result["practice"] = not two_act_enabled
+	return result
+
+
+func _performance_current_snapshot() -> Dictionary:
+	# A restored practice phase may spend time walking back to its room object.
+	# Lifecycle saves during that gap must retain the validated earned work until
+	# the activity opens and consumes it.
+	if not performance_pending_current.is_empty():
+		return performance_pending_current.duplicate(true)
+	if phase_index < 0 or phase_index >= phases.size():
+		return {}
+	var phase := phases[phase_index] as Dictionary
+	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
+	var current := {
+		"part": String(phase.get("performance_part", "")),
+		"source_phase": int(phase.get("source_phase", -1)),
+		"mode": String(phase.get("mode", "")),
+		"progress": clampf(phase_progress / goal, 0.0, 1.0),
+		"completed": phase_advance_pending,
+		"mechanic": {},
+	}
+	if String(phase.get("mode", "")) == "echo" and surface != null:
+		current["mechanic"] = {
+			"echo_verse": clampi(surface.echo_verse, 0, GestureSurface.ECHO_VERSES.size()),
+			"echo_input_i": maxi(0, surface.echo_input_i) if surface.echo_listening else 0,
+		}
+	return current
+
+
+func _performance_apply_current_restore(phase: Dictionary) -> void:
+	if performance_pending_current.is_empty():
+		return
+	var current := performance_pending_current
+	performance_pending_current = {}
+	var progress := float(current["progress"])
+	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
+	phase_progress = progress * goal
+	phase_fill.value = progress * 100.0
+	surface.set_fill(progress)
+	performance_saved_quarter = clampi(int(floor(progress * 4.0 + 0.0001)), 0, 4)
+	if String(phase.get("mode", "")) == "choice":
+		var accepted := clampi(floori(phase_progress + 0.0001), 0, int(ceilf(goal)))
+		for _step in range(accepted):
+			choice_target = (choice_target + 1 + (phase_index % 2)) % 3
+		surface.target_choice = choice_target
+	if String(phase.get("mode", "")) != "echo":
+		return
+	var mechanic: Dictionary = {}
+	var raw_mechanic: Variant = current.get("mechanic", {})
+	if raw_mechanic is Dictionary:
+		mechanic = (raw_mechanic as Dictionary).duplicate(true)
+	var restored_verse := clampi(floori(phase_progress + 0.0001), 0,
+		GestureSurface.ECHO_VERSES.size())
+	surface.echo_verse = restored_verse
+	surface.echo_show_i = -1
+	surface.echo_show_t = 0.0
+	surface.echo_input_i = 0
+	surface.echo_listening = false
+	var prefix: Variant = mechanic.get("echo_input_i", 0)
+	var saved_verse: Variant = mechanic.get("echo_verse", restored_verse)
+	if restored_verse < GestureSurface.ECHO_VERSES.size() \
+			and typeof(prefix) in [TYPE_INT, TYPE_FLOAT] and is_finite(float(prefix)) \
+			and float(prefix) == floorf(float(prefix)) \
+			and typeof(saved_verse) in [TYPE_INT, TYPE_FLOAT] \
+			and is_finite(float(saved_verse)) and float(saved_verse) == restored_verse:
+		var verse: Array = GestureSurface.ECHO_VERSES[restored_verse]
+		var prefix_count := clampi(int(prefix), 0, maxi(0, verse.size() - 1))
+		if prefix_count > 0:
+			surface.echo_input_i = prefix_count
+			surface.echo_listening = true
+	performance_saved_echo_prefix = "%d:%d" % [surface.echo_verse, surface.echo_input_i]
+	surface.queue_redraw()
+
+
+func _performance_bank_current(progress: float, accepted := true) -> void:
+	if not two_act_enabled or not accepted or progress >= 0.9999:
+		return
+	var quarter := clampi(int(floor(progress * 4.0 + 0.0001)), 0, 3)
+	if quarter == performance_saved_quarter:
+		return
+	performance_saved_quarter = quarter
+	_performance_checkpoint(true)
+
+
+func _performance_checkpoint_echo_prefix() -> void:
+	if not two_act_enabled or phase_index < 0 or phase_index >= phases.size() \
+			or surface == null or surface.mode != "echo" or not surface.echo_listening \
+			or surface.echo_input_i <= 0:
+		return
+	var signature := "%d:%d" % [surface.echo_verse, surface.echo_input_i]
+	if signature == performance_saved_echo_prefix:
+		return
+	performance_saved_echo_prefix = signature
+	_performance_checkpoint(true)
+
+
+func _performance_checkpoint(flush: bool) -> void:
+	if not two_act_enabled or m == null:
+		return
+	var raw: Variant = m.save_data.get("opera_performance_checkpoints", {})
+	var checkpoints: Dictionary = (raw as Dictionary).duplicate(true) if raw is Dictionary else {}
+	checkpoints[career_id] = {"version": PerformancePlan.VERSION, "phase_index": phase_index,
+		"stats": performance_stats.duplicate(true), "milestones": performance_milestones.duplicate(),
+		"helped": performance_helped.duplicate(), "current": _performance_current_snapshot()}
+	m.save_data["opera_performance_checkpoints"] = checkpoints
+	performance_save_cool = 0.0
+	if flush:
+		m._write_save()
+
+
+func _performance_restore() -> void:
+	var raw: Variant = m.save_data.get("opera_performance_checkpoints", {})
+	if not raw is Dictionary:
+		return
+	var value: Variant = (raw as Dictionary).get(career_id, {})
+	if not value is Dictionary:
+		return
+	var saved := value as Dictionary
+	if saved.get("version", 0) != PerformancePlan.VERSION:
+		return
+	var index: Variant = saved.get("phase_index", 0)
+	if typeof(index) not in [TYPE_INT, TYPE_FLOAT] or not is_finite(float(index)) \
+			or float(index) != floorf(float(index)) or float(index) < 0 or float(index) > phases.size():
+		return
+	phase_index = int(index)
+	var raw_current: Variant = saved.get("current", {})
+	if raw_current is Dictionary and phase_index < phases.size():
+		var current := raw_current as Dictionary
+		var phase := phases[phase_index] as Dictionary
+		var progress: Variant = current.get("progress", null)
+		var completed: Variant = current.get("completed", false)
+		var source_phase: Variant = current.get("source_phase", null)
+		var source_ok := typeof(source_phase) in [TYPE_INT, TYPE_FLOAT] \
+			and is_finite(float(source_phase)) \
+			and float(source_phase) == floorf(float(source_phase))
+		var identity_ok := current.get("part", null) is String and source_ok \
+			and current.get("mode", null) is String \
+			and String(current["part"]) == String(phase.get("performance_part", "")) \
+			and int(source_phase) == int(phase.get("source_phase", -1)) \
+			and String(current["mode"]) == String(phase.get("mode", ""))
+		var progress_ok := typeof(progress) in [TYPE_INT, TYPE_FLOAT] \
+			and is_finite(float(progress)) and float(progress) >= 0.0 \
+			and float(progress) <= 1.0
+		if identity_ok and progress_ok and completed is bool \
+				and (float(progress) < 0.999 or bool(completed)):
+			if completed and float(progress) >= 0.999:
+				phase_index += 1
+			else:
+				performance_pending_current = current.duplicate(true)
+	var raw_stats: Variant = saved.get("stats", {})
+	if raw_stats is Dictionary:
+		for key: String in ["misses", "assists", "active_seconds"]:
+			var metric: Variant = raw_stats.get(key, 0)
+			if typeof(metric) in [TYPE_INT, TYPE_FLOAT] and is_finite(float(metric)) and float(metric) >= 0:
+				performance_stats[key] = minf(float(metric), 86400.0) if key == "active_seconds" \
+					else clampi(int(metric), 0, 9999)
+	for key: String in ["milestones", "helped"]:
+		var entries: Variant = saved.get(key, {})
+		if entries is Dictionary:
+			for step in range(performance_stage_start, mini(phase_index + 1, phases.size())):
+				var entry: Variant = entries.get(str(step), null)
+				if key == "milestones" and typeof(entry) in [TYPE_INT, TYPE_FLOAT] \
+						and is_finite(float(entry)) and float(entry) == floorf(float(entry)):
+					performance_milestones[str(step)] = clampi(int(entry), 0, 4)
+				elif key == "helped" and entry is bool and entry:
+					performance_helped[str(step)] = true
+	performance_stats["actions"] = 0
+	for amount: Variant in performance_milestones.values():
+		performance_stats["actions"] = int(performance_stats["actions"]) + int(amount)
+	competition.elapsed = float(performance_stats["active_seconds"])
+	competition.round_elapsed = competition.elapsed

@@ -138,6 +138,27 @@ LINES = {
     "roshan_ocean_nap_night": ("roshan", "I woke up! The jellyfish are glowing like night-lights!"),
     "roshan_ocean_nap_morning": ("roshan", "Good morning, ocean! The sunshine is back!"),
     "roshan_tail_hop": ("roshan", "Hop-hop! My tail makes funny jumps!"),
+    # ---- Teacher Roshan learning engine (2026-09-05) ----
+    # These are deliberately isolated from the legacy voice library. The
+    # Teacher engine owns exact, reading-free prompts for patterns, quantity,
+    # joining, matching, help, and numeral naming.
+    "roshan_teacher_start": ("roshan", "Let's play with shapes and pearls!"),
+    "teacher_pattern": ("roshan", "What comes next? Tap the shape that finishes the pattern."),
+    "teacher_count": ("roshan", "Touch each pearl, one at a time. Then find the group with the same number."),
+    "teacher_add": ("roshan", "Put the two groups together. Touch each pearl to count them all."),
+    "teacher_match": ("roshan", "Find the same shape."),
+    "teacher_choose": ("roshan", "How many altogether? Tap the matching group."),
+    "teacher_help": ("roshan", "Look at the golden sparkle. You can try again."),
+    "teacher_number_1": ("roshan", "One."),
+    "teacher_number_2": ("roshan", "Two."),
+    "teacher_number_3": ("roshan", "Three."),
+    "teacher_number_4": ("roshan", "Four."),
+    "teacher_number_5": ("roshan", "Five."),
+    "teacher_number_6": ("roshan", "Six."),
+    "teacher_number_7": ("roshan", "Seven."),
+    "teacher_number_8": ("roshan", "Eight."),
+    "teacher_number_9": ("roshan", "Nine."),
+    "teacher_number_10": ("roshan", "Ten."),
     # ---- Princess Huluu ----
     "huluu":        ("huluu", "Hello, Mermaid Roshan!"),
     "huluu_greet":  ("huluu", "Welcome to my castle, Mermaid Roshan!"),

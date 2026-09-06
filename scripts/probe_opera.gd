@@ -26,7 +26,7 @@ const ROUTE_ROOMS: Array[String] = [
 const EXPECTED_ROOM_ACTS := {
 	"kitchen": [0, 3],
 	"opera_hall": [2, 13, 8],
-	"library": [1, 16],
+	"library": [1, 16, 17],
 	"craft_room": [10],
 	"playroom": [5, 7],
 	"bubble_bath": [15],
@@ -83,14 +83,14 @@ func _init() -> void:
 
 
 func _audit_stable_roster_and_routes() -> void:
-	var exact_live: Array[int] = [0, 1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16]
+	var exact_live: Array[int] = [0, 1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17]
 	var exact_retired: Array[int] = [4, 9, 14]
-	_check("Opera keeps sixteen historical positions and appends Geologist",
-		OperaHouse.ACTS.size() == 17)
-	_check("the fourteen playable positions keep legacy slots stable",
+	_check("Opera keeps sixteen historical positions and appends Geologist and Teacher",
+		OperaHouse.ACTS.size() == 18)
+	_check("the fifteen playable positions keep legacy slots stable",
 		OperaHouse.LIVE_ACT_INDICES == exact_live
-		and OperaHouse.ACTIVE_ACT_COUNT == 14
-		and OperaHouse.ACTIVE_STAR_MASK == 0x1BDEF
+		and OperaHouse.ACTIVE_ACT_COUNT == 15
+		and OperaHouse.ACTIVE_STAR_MASK == 0x3BDEF
 		and OperaHouse.ALL_STARS == OperaHouse.ACTIVE_STAR_MASK)
 	_check("the three retired boss positions remain inert tombstones",
 		OperaHouse.RETIRED_ACT_INDICES == exact_retired
@@ -106,7 +106,7 @@ func _audit_stable_roster_and_routes() -> void:
 		not ResourceLoader.exists("res://scripts/opera_lobby_2d.gd"))
 
 	var routed: Array[int] = CastleCareerRoutes.routed_act_indices()
-	_check("all and only the fourteen live slots have one room route",
+	_check("all and only the fifteen live slots have one room route",
 		routed == exact_live)
 	var roster_ok := true
 	var career_ids: Dictionary = {}
@@ -124,7 +124,7 @@ func _audit_stable_roster_and_routes() -> void:
 				and config.size() == 2 \
 				and CastleCareerRoutes.room_for_act(slot) == ""
 	_check("every live career and tombstone retains its original bit", roster_ok)
-	_check("all fourteen careers keep unique Canvas identities",
+	_check("all fifteen careers keep unique Canvas identities",
 		career_ids.size() == OperaHouse.ACTIVE_ACT_COUNT)
 
 
@@ -143,11 +143,13 @@ func _audit_save_matrix() -> void:
 			"raw": 0xBDEF, "effective": 13},
 		{"label": "all live careers including Geologist", "input": {"opera_stars": 0x1BDEF},
 			"raw": 0x1BDEF, "effective": 14},
+		{"label": "all live careers including Teacher", "input": {"opera_stars": 0x3BDEF},
+			"raw": 0x3BDEF, "effective": 15},
 		{"label": "old all-bits completion", "input": {"opera_stars": 0xFFFF},
 			"raw": 0xFFFF, "effective": 13},
-		{"label": "overflow clamps to seventeen bits",
-			"input": {"opera_stars": 0x3FFFF},
-			"raw": 0x1FFFF, "effective": 14},
+		{"label": "overflow clamps to eighteen bits",
+			"input": {"opera_stars": 0x7FFFF},
+			"raw": 0x3FFFF, "effective": 15},
 		{"label": "negative mask clamps safely", "input": {"opera_stars": -9},
 			"raw": 0x0000, "effective": 0},
 	]
@@ -411,6 +413,9 @@ func _audit_all_career_lifecycles() -> void:
 		_check("%s cannot award itself while idle" % career_id,
 			act.state == "play" and main.opera_stars == stars_before
 			and main.opera_progress == progress_before)
+		if act_index == 17:
+			main.save_data["teacher_lesson_checkpoint"] = {
+				"version": 1, "phase_index": 4, "mechanic": {"earned": true}}
 		act._win()
 		if act_index == 0:
 			act.notification(NOTIFICATION_APPLICATION_PAUSED)
@@ -428,8 +433,12 @@ func _audit_all_career_lifecycles() -> void:
 			and int(main.save_data.get("opera_stars", -1)) == expected_mask
 			and int(main.save_data.get("opera_progress", -1)) \
 				== OperaHouse.live_star_count(expected_mask))
+		if act_index == 17:
+			_check("Teacher checkpoint clears only after its win is recorded",
+				(main.opera_stars & (1 << 17)) != 0
+				and main.save_data.get("teacher_lesson_checkpoint", {"bad": true}) == {})
 
-	_check("all fourteen sparse careers complete through their nine rooms",
+	_check("all fifteen sparse careers complete through their nine rooms",
 		OperaHouse.has_all_live_stars(main.opera_stars)
 		and main.opera_stars == OperaHouse.ACTIVE_STAR_MASK
 		and main.opera_progress == OperaHouse.ACTIVE_ACT_COUNT)
