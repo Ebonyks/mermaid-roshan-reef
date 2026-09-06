@@ -195,3 +195,32 @@ Owner phrases that resume this pipeline:
 - `densify C13 S02–S04 2×` — prior densify pattern for other packets
 
 **Generator:** Grok Imagine image_to_video · **Stager:** Grok sandbox handoff_v4_stage · **Repo:** Ebonyks/mermaid-roshan-reef
+
+---
+
+## 11. FLAG — D1-C13-S05 (critical, owner-confirmed)
+
+**Issue:** Pass A and Pass B both leave the **giant dust body** visible at the end **alongside** the tiny rainbow friend (two coexisting bunnies). Pass B also risks a **second bird**.
+
+**Hard constraint (still binding):**
+- Giant body / face / ears **fully gone** by final hold
+- Cast end: Roshan + Daddy + Rumi + **one** Baby Eagle + **one** tiny rainbow friend only
+- Two shell-topped side windows preserved
+
+**Root cause:** `image_to_video` from the sudsy-giant OPENING treats the giant as a persistent first-frame subject; stronger prompts alone did not erase it (verified on re-gen take1/take2 last frames).
+
+**Do not use for final hold / SET1 assembly end:**
+- `C13_S05_v4_one_friend_reveal_APPROVED.mp4` (Pass A) — FAIL
+- `C13_S05_v4_one_friend_reveal_BROLL.mp4` (Pass B) — FAIL
+
+**Remediation (two-plate assembly) — USE THESE:**
+
+| File | Role |
+|------|------|
+| `C13_S05_v4_one_friend_reveal_FIX_ASSEMBLED.mp4` | **Preferred** 10s: 5.5s cleaning front (opening take) + hard cut to endpoint hold (no giant) |
+| `C13_S05_v4_one_friend_reveal_FIX_XFADE.mp4` | Same idea with 0.5s crossfade (~9.5s) |
+| `C13_S05_v4_one_friend_ENDPOINT_HOLD.mp4` | Pure 6s end plate from `OWNER_C13-S05_ONE_FRIEND_ENDPOINT_candidate01` (no giant every frame) |
+
+**Assembly gate:** SET1 reel must substitute FIX_ASSEMBLED (or XFADE) for C13-S05; never splice A/B final hold as-is.
+
+Machine flag: `manifests/C13_S05_QC_FLAG.json` / `out_v4/C13_S05_QC_FLAG.json`

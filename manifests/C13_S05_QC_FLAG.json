@@ -1,0 +1,33 @@
+{
+  "schema": "day-one-shot-flag-v1",
+  "shot_id": "D1-C13-S05",
+  "severity": "critical",
+  "flagged_by": "owner",
+  "flagged_at": "2026-09-06T04:36:06.481088+00:00",
+  "issue": "Both Pass A and Pass B leave giant dust body visible at final hold alongside tiny rainbow friend (two bunnies coexisting). Pass B also introduced a second bird. Hard constraint FAIL: giant body/face/ears must be fully gone; cast = 4 helpers + ONE tiny friend only; ONE eagle only.",
+  "qc_last_frame": {
+    "pass_a": "FAIL_giant_plus_friend",
+    "pass_b": "FAIL_giant_plus_friend_and_second_bird_risk",
+    "opening_regen_take1": "FAIL_giant_persists",
+    "opening_regen_take2": "FAIL_giant_persists",
+    "endpoint_hold": "PASS_no_giant_one_friend_four_helpers_one_eagle",
+    "assembled_10s": "PASS_end_from_endpoint_plate"
+  },
+  "root_cause": "image_to_video from sudsy-giant OPENING cannot reliably erase the giant silhouette by end; model treats giant as persistent subject of first frame.",
+  "remediation": {
+    "method": "two_plate_assembly",
+    "front_plate": "C13_S05_FIX_OPENING_take1 first 5.5s (cleaning while giant still authored)",
+    "end_plate": "C13_S05_ENDPOINT_HOLD from OWNER_C13-S05_ONE_FRIEND_ENDPOINT_candidate01 (no giant)",
+    "preferred_outputs": [
+      "C13_S05_v4_one_friend_reveal_FIX_ASSEMBLED.mp4",
+      "C13_S05_v4_one_friend_reveal_FIX_XFADE.mp4",
+      "C13_S05_v4_one_friend_ENDPOINT_HOLD.mp4"
+    ],
+    "do_not_use_for_final_hold": [
+      "C13_S05_v4_one_friend_reveal_APPROVED.mp4",
+      "C13_S05_v4_one_friend_reveal_BROLL.mp4"
+    ]
+  },
+  "assembly_gate": "BLOCKED_from_SET1_reel_until_owner_accepts_FIX_ASSEMBLED_or_ENDPOINT_HOLD",
+  "delivery_accepted": false
+}
