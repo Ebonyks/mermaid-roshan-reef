@@ -1,0 +1,51 @@
+{
+  "id": "upper-left-one-button-correction-20260906",
+  "scope": "Correct the post-audit navigation regression that moved the sole persistent control to the upper-right and repurposed Back as a forward next-room action. Restore one neutral upper-left Back control throughout rooms and activities, Menu only at the true Sky Lagoon root, and preserve Day One reachability through the existing highlighted painted hall doors.",
+  "baseline": "3b1f430f5762a0232d46825da558dc208b86ef5f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-INT-01",
+    "DL-UI-01",
+    "DL-UI-03",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-UI-07"
+  ],
+  "findings": [
+    "MA-PLAY-001",
+    "MA-PLAY-003"
+  ],
+  "files": [
+    "scripts/main.gd",
+    "scripts/navigation_controller.gd",
+    "scripts/pause_menu.gd",
+    "scripts/probe_audit.gd",
+    "scripts/probe_castle_pool_life_2d.gd",
+    "scripts/probe_day_one_bathroom_integration.gd",
+    "scripts/probe_day_one_bathroom_shots.gd",
+    "scripts/probe_day_one_draft_integration.gd",
+    "scripts/probe_day_one_handoffs.gd",
+    "scripts/probe_ui_system.gd"
+  ],
+  "validation": [
+    {
+      "command": "python -m gdtoolkit.parser <changed .gd files>; python tools/lint_inference.py <changed .gd files>",
+      "result": "PASS",
+      "evidence": "All ten changed GDScript files parsed successfully and passed inference lint; the same gates also passed inside scripts/ci.sh."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Document authority reported INVENTORY=535 LEDGER=535 ACTIVE=56 RECORDS=58 with all checks OK; development audit passed against 3b1f430f5762a0232d46825da558dc208b86ef5f; 51 audit unit tests passed."
+    },
+    {
+      "command": "Godot 4.7.2-stable exact trusted and targeted probes",
+      "result": "PASS",
+      "evidence": "Exact Godot 4.7.2-stable full scripts/ci.sh completed with exit 0. Targeted probe_day_one_handoffs, probe_ui_system, probe_castle_pool_life_2d, probe_day_one_draft_integration, and probe_audit runs passed, including upper-left geometry, neutral Back semantics, absence of next-room overlays, and Back-to-hall-to-painted-door reachability."
+    }
+  ],
+  "acceptance_gaps": "Machine checks do not close MA-PLAY-001 or MA-PLAY-003 and do not replace target-device, child, or owner acceptance. Existing protected recordings and art remain unchanged."
+}

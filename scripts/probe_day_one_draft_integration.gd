@@ -132,20 +132,34 @@ func _bathroom_boundary() -> void:
 	if main._day_one_draft_movie != null:
 		main._day_one_draft_movie.skip()
 	await _frames(4)
-	_check("bathroom completion exposes one pool route",
-		main._day_one_pool_route_button != null
-		and is_instance_valid(main._day_one_pool_route_button))
+	_check("bathroom completion cues the pool without a forward overlay",
+		main._day_one_room_handoff_target == "mermaid_pool"
+		and main.global_navigation_button != null
+		and String(main.global_navigation_button.get_meta(
+			"global_navigation_mode", "")) == "back"
+		and main.global_navigation_button.get_node_or_null(
+			"DayOneRouteGhostHand") == null)
 	var bathroom_seen_count: int = int(_seen("D1-C03"))
 	main.day_one_activate_castle_room("bubble_bath")
 	await _frames(2)
 	_check("bathroom re-entry does not duplicate C03",
 		int(_seen("D1-C03")) == bathroom_seen_count)
-	if main._day_one_pool_route_button != null \
-			and is_instance_valid(main._day_one_pool_route_button):
-		main._pause_ref().call_deferred("global_navigation_pressed")
-		await _frames(10)
-		_check("pool room entry starts C05 through room navigation",
-			_seen("D1-C05"))
+	main._navigation_ref().press()
+	await _frames(12)
+	_check("Back returns to the Main Hall before forward travel",
+		main.castle_room_id == "main_hall"
+		and main._castle_rooms_ref().active_door_highlight_id() == "mermaid_pool")
+	var pool_door: Button = main.castle_room_buttons.get("mermaid_pool") as Button
+	_check("the painted pool door owns the forward route",
+		pool_door != null and pool_door.visible and not pool_door.disabled)
+	if pool_door != null:
+		pool_door.pressed.emit()
+		for _frame: int in range(180):
+			if _seen("D1-C05"):
+				break
+			await process_frame
+	_check("pool room entry starts C05 through the painted door",
+		_seen("D1-C05"))
 	main._day_one_cancel_draft_movies()
 
 

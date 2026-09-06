@@ -28,19 +28,20 @@ func _init() -> void:
 	var finale_source: String = main_source.substr(finale_start,
 		finale_end - finale_start) if finale_start >= 0 and finale_end > finale_start \
 		else ""
-	_check("bathroom finale keeps distributed sparkle and shared-arrow handoff",
+	_check("bathroom finale keeps distributed sparkle and direct hall-door handoff",
 		cleaning_source.contains("SPARKLE_ANCHORS")
 		and cleaning_source.contains("SPARKLE_ANCHOR_ROLES")
 		and cleaning_source.contains("_spawn_whole_room_sparkles()")
 		and cleaning_source.contains("fixture_associated_role")
 		and not finale_source.contains("_burst(\"✦\"")
-		and main_source.contains("_day_one_pool_route_button = button")
-		and main_source.contains("_navigation_ref().begin_handoff()")
+		and main_source.contains("Back to the hall, then follow the glowing door!")
 		and main_source.contains("_show_day_one_room_handoff"))
-	_check("next-room handoff creates no picture preview or extra button",
+	_check("next-room cue creates no picture preview or extra button",
 		not main_source.contains('card.name = "DayOneRouteCard"')
 		and not main_source.contains('picture.name = "ApprovedRoomPreview"')
-		and main_source.contains("var button: Button = global_navigation_button"))
+		and not main_source.contains("_day_one_pool_route_button")
+		and not main_source.contains("DayOneRouteGhostHand")
+		and not main_source.contains("DayOneArrowGlow"))
 
 	var main: ReefMain = ReefMain.new()
 	var director: DayOneDirector = DIRECTOR_SCRIPT.new(main) as DayOneDirector

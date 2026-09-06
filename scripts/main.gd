@@ -412,12 +412,8 @@ var _day_one_draft_movie_seen: Dictionary = {}
 var _day_one_draft_movie_layer: CanvasLayer = null
 var _day_one_draft_boss_start_pending: bool = false
 var _day_one_draft_boss_transition_pending: bool = false
-var _day_one_pool_route_button: Button = null
 var _day_one_room_handoff_target := ""
 var _day_one_room_handoff_source := ""
-var navigation_idle_seconds: float = 0.0
-var navigation_attention_blocks: int = 0
-var navigation_held_touches: Dictionary = {}
 var _day_one_bathroom_controls_suspended: bool = false
 var _day_one_bathroom_control_state: Array[Dictionary] = []
 var _day_one_bathroom_menu_was_open: bool = false
@@ -456,7 +452,7 @@ var companion_layer: CanvasLayer = null   # picker overlay
 var companion_stage: Control = null
 var companion_care_layer: CanvasLayer = null # Tamagotchi care overlay
 var companion_care_stage: Control = null
-var companion_menu_button: Button = null  # inset upper-right HUD launcher
+var companion_menu_button: Button = null  # retired launcher reference; always null
 var companion_pick_id := ""               # picker working state
 var companion_pick_colors: Array = []
 var companion_pick_slot := 0               # one large active paint row at a time
@@ -877,7 +873,6 @@ func _refresh_joy_mapped() -> void:
 			joy_has_unmapped = true
 
 func _input(ev: InputEvent) -> void:
-	_navigation_ref().observe_input(ev)
 	# OS focus/background notifications are independently nested. Never let
 	# delayed platform traffic rebuild Melody's entry-source census, and never
 	# route a live Melody stage until every loss reason and its first-active-tick
@@ -4542,17 +4537,6 @@ func _restore_slide_canvas_input_context(reason: StringName) -> void:
 
 
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
-		navigation_attention_blocks |= 1
-	elif what == NOTIFICATION_APPLICATION_PAUSED:
-		navigation_attention_blocks |= 2
-	elif what == NOTIFICATION_APPLICATION_FOCUS_IN:
-		navigation_attention_blocks &= ~1
-	elif what == NOTIFICATION_APPLICATION_RESUMED:
-		navigation_attention_blocks &= ~2
-	if navigation_attention_blocks != 0 and _navigation_controller != null:
-		navigation_held_touches.clear()
-		_navigation_controller.reset_attention()
 	match what:
 		NOTIFICATION_APPLICATION_FOCUS_OUT:
 			if is_instance_valid(chapter2_lawn_view):
@@ -7894,11 +7878,11 @@ func _sync_day_one_bathroom_cleanup() -> void:
 	if not should_show:
 		_clear_day_one_bathroom_cleanup()
 		# _sync_day_one_pool_route owns handoff teardown for every room.
-		# Clearing here each tick would restart the shared arrow idle timer.
+		# _sync_day_one_pool_route owns the next-room cue teardown.
 		if bathroom_route_owned:
 			# The cleanup/movie owns navigation only while the rescue is live. Once
 			# the bathroom is complete, a revisit is a real room: keep global Back and
-			# the shared next-room arrow actionable so it cannot become a one-way exit.
+			# the room Back route and highlighted hall door actionable.
 			_restore_day_one_bathroom_controls()
 		else:
 			_restore_day_one_bathroom_controls()
@@ -8084,11 +8068,10 @@ func _show_day_one_pool_route() -> void:
 	if _day_one_bathroom_movie_handoff_pending \
 			or _day_one_bathroom_movie_is_playing():
 		return
-	# The shared arrow takes the child to the pool after the movie completes.
+	# Back returns to the hall, where the next unlocked painted door glows.
 	_restore_day_one_bathroom_controls()
-	if _day_one_pool_route_button != null \
-			and is_instance_valid(_day_one_pool_route_button):
-		_navigation_ref().sync_button()
+	if _day_one_room_handoff_target == "mermaid_pool" \
+			and _day_one_room_handoff_source == castle_room_id:
 		return
 	_show_day_one_room_handoff("mermaid_pool", "day_one_pool_ready")
 
@@ -8100,26 +8083,17 @@ func _show_day_one_room_handoff(target_room: String,
 		return false
 	if target_room not in ["mermaid_pool", "playroom", "craft_room", "__royal_hall"]:
 		return false
-	var button: Button = global_navigation_button
-	if button == null or not is_instance_valid(button):
-		return false
 	_clear_day_one_pool_route()
 	_castle_rooms_ref().restore_day_one_handoff_view()
 	_restore_day_one_bathroom_controls()
-	# The persistent arrow owns this handoff; no destination picture covers play.
-	_day_one_pool_route_button = button
+	# Progression remains touch-the-world: Back returns to the Main Hall, then
+	# the existing highlighted painted door owns travel to the unlocked room.
 	_day_one_room_handoff_target = target_room
 	_day_one_room_handoff_source = castle_room_id
-	button.set_meta("day_one_route_target", target_room)
-	button.set_meta("day_one_route_handoff", true)
-	button.set_meta("actionable_target", true)
-	button.set_meta("target_unobscured", true)
-	# Preserve existing recordings, but never direct the child to a removed door.
+	# Preserve existing recordings without turning Back into a forward action.
 	var cue: String = "day_one_pool_ready" if voice_key == "day_one_pool_ready" \
 		else "day_one_room_clean"
-	button.set_meta("semantic_voice_key", cue)
-	_navigation_ref().begin_handoff()
-	show_msg("Roshan", "Tap the back arrow to go to the next room!", cue)
+	show_msg("Roshan", "Back to the hall, then follow the glowing door!", cue)
 	return true
 
 
@@ -8188,13 +8162,9 @@ func _sync_day_one_pool_route() -> void:
 		_restore_day_one_bathroom_controls()
 		return
 	_restore_day_one_bathroom_controls()
-	if _day_one_pool_route_button == null \
-			or not is_instance_valid(_day_one_pool_route_button) \
-			or _day_one_room_handoff_target != target_room \
+	if _day_one_room_handoff_target != target_room \
 			or _day_one_room_handoff_source != castle_room_id:
 		_show_day_one_room_handoff(target_room, voice_key)
-	else:
-		_navigation_ref().sync_button()
 
 
 func _day_one_bathroom_movie_is_playing() -> bool:
@@ -8264,39 +8234,8 @@ func _restore_day_one_bathroom_controls() -> void:
 
 
 func _clear_day_one_pool_route() -> void:
-	# This reference aliases the global control: never free the persistent arrow.
-	if _day_one_pool_route_button != null \
-			and is_instance_valid(_day_one_pool_route_button):
-		_day_one_pool_route_button.remove_meta("day_one_route_target")
-		_day_one_pool_route_button.remove_meta("day_one_route_handoff")
-		_day_one_pool_route_button.remove_meta("semantic_voice_key")
-	_day_one_pool_route_button = null
 	_day_one_room_handoff_target = ""
 	_day_one_room_handoff_source = ""
-	if _navigation_controller != null:
-		_navigation_controller.end_handoff()
-
-
-func _open_day_one_pool_route() -> void:
-	_open_day_one_room_route("mermaid_pool")
-
-
-func _open_day_one_room_route(target_room: String) -> void:
-	if not day_one_is_active() or _day_one_pool_route_button == null \
-			or not is_instance_valid(_day_one_pool_route_button) \
-			or _day_one_pool_route_button.get_meta("day_one_route_target", "") \
-			!= target_room:
-		return
-	if target_room == "__royal_hall":
-		if not _castle_rooms_ref().activate_royal_hall_portal():
-			return
-	else:
-		if not _day_one_ref().can_enter_room(
-				String(DAY_ONE_CASTLE_ROOM_IDS.get(target_room, ""))):
-			return
-	_clear_day_one_pool_route()
-	if target_room != "__royal_hall" and _castle_rooms_ref().is_open():
-		_castle_rooms_ref().show_room(target_room, true)
 
 func _day_one_arm_boss_door() -> void:
 	var director: DayOneDirector = _day_one_ref()
@@ -10547,7 +10486,6 @@ func _tick_ocean_return_gate(delta: float, ppos: Vector3) -> bool:
 
 func _process(delta: float) -> void:
 	_sync_pause_surface_layer()
-	_navigation_ref().tick_attention(delta)
 	var slide_canvas_active: bool = _slide_canvas_fish_route_active()
 	var slide_canvas_return_was_active: bool = _slide_canvas_return_guard_active()
 	if slide_canvas_return_was_active:

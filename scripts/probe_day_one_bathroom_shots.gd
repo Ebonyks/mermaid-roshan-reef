@@ -186,26 +186,34 @@ func _run() -> void:
 			"clean_fixture_layer_visible", false)))
 	await _capture("08_whole_room_sparkle")
 	await create_timer(0.96).timeout
-	_check("finale exposes the shared next-room arrow",
-		main._day_one_pool_route_button == main.global_navigation_button
-		and main.global_navigation_button != null
+	_check("finale preserves neutral global Back",
+		main.global_navigation_button != null
 		and main.global_navigation_button.visible
 		and String(main.global_navigation_button.get_meta(
-			"day_one_route_target", "")) == "mermaid_pool")
+			"global_navigation_mode", "")) == "back"
+		and main.global_navigation_button.anchor_left == 0.0
+		and main.global_navigation_button.offset_left == 18.0
+		and main._day_one_room_handoff_target == "mermaid_pool")
 	_check("no picture card covers the clean room",
 		main.castle_room_stage.get_node_or_null("DayOneRouteCard") == null)
-	_check("arrow pointer is present",
-		main.global_navigation_button.get_node_or_null("DayOneRouteGhostHand") != null)
+	_check("no forward cue decorates or repurposes Back",
+		main.global_navigation_button.get_node_or_null("DayOneRouteGhostHand") == null
+		and main.global_navigation_button.get_node_or_null("DayOneArrowGlow") == null
+		and not main.global_navigation_button.has_meta("day_one_route_target"))
 	_check("pool route does not revive retired overlay controls",
 		main.castle_room_action_button == null
 		and elevator == null and elevator_pointer == null)
 	await _capture("09_clean_pool_route")
-	_check("idle arrow owns the live handoff", main._navigation_ref().handoff_actionable())
-	main._navigation_ref().tick_attention(16.0)
-	var arrow_glow: CanvasItem = main.global_navigation_button.get_node_or_null("DayOneArrowGlow") as CanvasItem
-	_check("idle arrow visibly glows", arrow_glow != null and arrow_glow.modulate.a > 0.0,
-		"idle=%s held=%s blocks=%s top=%s stage=%s" % [main.navigation_idle_seconds, main.navigation_held_touches, main.navigation_attention_blocks, main._navigation_ref().top_id(), main.castle_room_stage.is_visible_in_tree()])
-	await _capture("10_idle_back_arrow")
+	main.set_process(true)
+	main._navigation_ref().press()
+	await _frames(18)
+	main.set_process(false)
+	var pool_door: Button = main.castle_room_buttons.get("mermaid_pool") as Button
+	_check("Back returns to hall with the painted pool door available",
+		main.castle_room_id == "main_hall"
+		and main._castle_rooms_ref().active_door_highlight_id() == "mermaid_pool"
+		and pool_door != null and pool_door.visible)
+	await _capture("10_hall_glowing_pool_door")
 
 	main.queue_free()
 	await _frames(4)

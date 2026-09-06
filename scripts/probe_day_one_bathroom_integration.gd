@@ -151,9 +151,11 @@ func _probe_wiring() -> void:
 	_check("bathroom finale suppresses generic floor burst",
 		finale_source.contains("reveal_clean_room()")
 		and not finale_source.contains("_burst(\"✦\""))
-	_check("pool handoff reuses global arrow without a picture card",
-		main_source.contains("_day_one_pool_route_button = button")
-		and main_source.contains("_navigation_ref().begin_handoff()")
+	_check("pool handoff keeps Back neutral without a picture card",
+		main_source.contains("Back to the hall, then follow the glowing door!")
+		and not main_source.contains("_day_one_pool_route_button")
+		and not main_source.contains("DayOneRouteGhostHand")
+		and not main_source.contains("DayOneArrowGlow")
 		and not main_source.contains('card.name = "DayOneRouteCard"'))
 	_check("completion saves before starting the optional movie handoff",
 		save_order >= 0 and movie_order > save_order)

@@ -5318,6 +5318,13 @@ func _audit_storybook_ui() -> bool:
 
 	ok = _ui_target_ok(main.navigation_layer,
 		"GlobalNavigationButton", Vector2(112, 112)) and ok
+	var navigation_control := main.navigation_layer.find_child(
+		"GlobalNavigationButton", true, false) as Button
+	ok = navigation_control != null \
+		and navigation_control.anchor_left == 0.0 \
+		and navigation_control.anchor_right == 0.0 \
+		and navigation_control.offset_left == 18.0 \
+		and navigation_control.offset_right == 130.0 and ok
 	ok = main.find_child("PauseCornerButton", true, false) == null and ok
 	ok = main.touch_ui.find_child("ActionShellMedallion", true, false) == null and ok
 	main.toggle_pause()
