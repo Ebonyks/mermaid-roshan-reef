@@ -209,6 +209,8 @@ static func symbol_icon(symbol_id: String) -> String:
 func open() -> void:
 	if m.castle_logo_layer != null:
 		return
+	m._navigation_push("castle_logo_studio", self,
+		Callable(self, "close").bind(false))
 	m._set_world_controls_enabled(false, "castle_logo")
 	m.castle_logo_color = normalise_color(m.castle_logo_color)
 	m.castle_logo_symbol = normalise_symbol(m.castle_logo_symbol)
@@ -238,13 +240,6 @@ func open() -> void:
 	title.size = Vector2(570.0, 82.0)
 	StorybookUI.style_label(title, 40, Color.WHITE, 6)
 	stage.add_child(title)
-
-	var back := Button.new()
-	back.name = "CastleLogoBackButton"
-	StorybookUI.style_back_button(back, "Back to the craft room")
-	back.position = Vector2(1140.0, 18.0)
-	back.pressed.connect(close.bind(false))
-	stage.add_child(back)
 
 	var preview_rect := Rect2(55.0, 125.0, 400.0, 405.0)
 	var preview_panel := StorybookUI.add_panel(stage, preview_rect,
@@ -442,6 +437,7 @@ func finish() -> void:
 	m.get_tree().create_timer(0.85).timeout.connect(close.bind(true))
 
 func close(committed: bool = false) -> void:
+	m._navigation_remove("castle_logo_studio")
 	var layer: CanvasLayer = m.castle_logo_layer
 	if layer == null:
 		return

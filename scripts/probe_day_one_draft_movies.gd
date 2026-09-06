@@ -19,14 +19,19 @@ func _init() -> void:
 	_check("missing media fails open", source.contains("ResourceLoader.exists"))
 	_check("manifest gates runtime playback", source.contains("runtime_preview_eligible")
 		and source.contains("runtime_manifest.json"))
-	_check("draft has safe tap skip", source.contains("skip_button")
-		and source.contains("func skip()"))
+	_check("draft uses only the game-wide Back route",
+		not source.contains("Button.new()")
+		and not source.contains("skip_button")
+		and source.contains("func skip()")
+		and main_source.contains(
+			'_navigation_push("day_one_draft_movie", preview, Callable(preview, "skip"))'))
 	_check("draft never writes saves", not source.contains("save_data")
 		and not source.contains("_write_save"))
 	_check("bathroom overlay is not duplicated", main_source.contains(
 		"_day_one_bathroom_movie_is_playing() or _day_one_bathroom_movie_handoff_pending"))
 	_check("hooks are opt-in", main_source.contains("DayOneDraftMoviesLogic.enabled()"))
-	_check("preview renders on dedicated top CanvasLayer", main_source.contains("layer = 100"))
+	_check("preview stays below the global navigation CanvasLayer",
+		main_source.contains("_day_one_draft_movie_layer.layer = 28"))
 	_check("delivery claims remain false", manifest.contains('"delivery_accepted": false'))
 	_run_behavioral_checks()
 	call_deferred("_run_behavioral_checks")

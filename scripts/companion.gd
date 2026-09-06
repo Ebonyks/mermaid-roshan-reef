@@ -223,47 +223,18 @@ func tick(delta: float) -> void:
 # ---------- the inset HUD launcher + Tamagotchi care sheet ----------
 
 func _ensure_menu_button() -> void:
-	if m.companion_menu_button != null and is_instance_valid(m.companion_menu_button):
-		return
-	if m.hud_layer == null:
-		return
-	var button := Button.new()
-	button.name = "StuffieCareMenuButton"
-	# Upper-right hand area, intentionally left of both the Critter Book and the
-	# pause-owned far corner; all three targets keep a visible finger-width gap.
-	button.position = Vector2(858, 22)
-	StorybookUI.style_icon_button(button, "🧸", "secondary", Vector2(128, 128), "Care for your stuffie")
-	StorybookUI.add_shell_crest(button, Rect2(34, 72, 60, 45), "StuffieWatchShell")
-	button.set_meta("hud_zone", "upper_right_inset")
-	button.pressed.connect(open_care_menu)
-	m.hud_layer.add_child(button)
-	m.companion_menu_button = button
+	# Stuffie care is reached from the root Menu. No persistent launcher shares
+	# the playfield with the single global Back/Menu control.
+	if m.companion_menu_button != null \
+			and is_instance_valid(m.companion_menu_button):
+		m.companion_menu_button.queue_free()
+	m.companion_menu_button = null
 
 func _sync_menu_button() -> void:
 	var button: Button = m.companion_menu_button
 	if button == null or not is_instance_valid(button):
 		return
-	button.visible = m.companion_id != "" and _follow_ctx() and not m.intro_active \
-		and m.companion_care_layer == null and m.companion_layer == null
-	if not button.visible:
-		return
-	var icon := "🧸"
-	var kind := "secondary"
-	if m.companion_bruises > 0:
-		icon = "🩹"
-		kind = "action"
-	elif m.companion_want != "":
-		var want := want_def(m.companion_want)
-		icon = String(want.get("emoji", "♥"))
-		kind = "gold"
-	if button.text != icon or String(button.get_meta("storybook_kind", "")) != kind:
-		StorybookUI.style_icon_button(button, icon, kind, Vector2(128, 128), "Care for your stuffie")
-	button.pivot_offset = button.size * 0.5
-	if kind != "secondary":
-		var now: float = Time.get_ticks_msec() / 1000.0
-		button.scale = Vector2.ONE * (1.0 + sin(now * 4.0) * 0.08)
-	else:
-		button.scale = Vector2.ONE
+	button.visible = false
 
 
 func open_care_menu() -> void:
@@ -271,6 +242,8 @@ func open_care_menu() -> void:
 		return
 	if not _follow_ctx() or m.intro_active:
 		return
+	m._navigation_push("stuffie_care", self,
+		Callable(self, "close_care_menu"))
 	m.companion_care_layer = CanvasLayer.new()
 	m.companion_care_layer.layer = 25
 	m.add_child(m.companion_care_layer)
@@ -300,6 +273,7 @@ func _on_care_dim_input(ev: InputEvent) -> void:
 		close_care_menu()
 
 func close_care_menu() -> void:
+	m._navigation_remove("stuffie_care")
 	if m.companion_care_layer != null and is_instance_valid(m.companion_care_layer):
 		m.companion_care_layer.queue_free()
 	m.companion_care_layer = null
@@ -322,13 +296,6 @@ func _draw_care_menu() -> void:
 	title.size = Vector2(720, 70)
 	StorybookUI.style_label(title, 44, StorybookUI.INK, 4)
 	stage_control.add_child(title)
-	var close := Button.new()
-	close.name = "StuffieCareBackButton"
-	StorybookUI.style_back_button(close, "Back to swimming")
-	close.position = Vector2(1100, 38)
-	close.pressed.connect(close_care_menu)
-	stage_control.add_child(close)
-
 	var preview := StorybookUI.add_panel(stage_control, Rect2(72, 138, 350, 360), StorybookUI.MINT, Color(0.96, 0.99, 1.0, 0.98), 38)
 	var current_colors: Array[Color] = colors()
 	_add_creature_preview(preview, d, Vector2(16, 16), Vector2(318, 328), current_colors[0], current_colors[1])
@@ -575,6 +542,8 @@ func open_picker(say_prompt: bool = true, preselect: String = "", mode: String =
 	# The toy chest uses swap mode; the worktable uses studio mode.
 	if m.companion_layer != null:
 		return
+	m._navigation_push("stuffie_picker", self,
+		Callable(self, "close_picker"))
 	m.companion_pick_mode = mode if mode in ["adopt", "swap", "studio"] else "adopt"
 	var resume_rescue_draft: bool = bool(m.g.get("stuffie_rescue_tutorial", false)) \
 			and m.companion_pick_mode == "adopt" \
@@ -623,6 +592,7 @@ func _on_picker_dim_input(ev: InputEvent) -> void:
 		close_picker()
 
 func close_picker() -> void:
+	m._navigation_remove("stuffie_picker")
 	if m.companion_layer != null and is_instance_valid(m.companion_layer):
 		m.companion_layer.queue_free()
 	m.companion_layer = null
@@ -733,12 +703,6 @@ func _draw_picker() -> void:
 	StorybookUI.style_label(title, 42, StorybookUI.INK, 4)
 	title.position = Vector2(70, 34)
 	stage.add_child(title)
-	var close := Button.new()
-	close.name = "StuffiePickerBackButton"
-	StorybookUI.style_back_button(close, "Back to the castle")
-	close.position = Vector2(1110, 32)
-	close.pressed.connect(close_picker)
-	stage.add_child(close)
 	# The chest lists every friend who lives at home. The worktable deliberately
 	# locks this column to the active friend so choosing and changing are distinct.
 	var picks: Array[Dictionary] = unlocked_defs()

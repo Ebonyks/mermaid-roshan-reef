@@ -74,13 +74,13 @@ func _probe_wiring() -> void:
 	_check("Day One castle affordance survives idle cap",
 		lagoon_source.contains('String(target.get("id", "")) == "castle_gate"')
 		and lagoon_source.contains("maxf(tint.a, 0.45)"))
-	_check("castle pointer stays visible and actionable",
+	_check("castle art target stays visible and actionable without an elevator overlay",
 		lagoon_source.contains('_activate(target)')
-		and director_source_for_castle_pointer().contains("button.visible")
-		and director_source_for_castle_pointer().contains("clampf(")
-		and director_source_for_castle_pointer().contains('pointer_target", "elevator"')
-		and director_source_for_castle_pointer().contains("pointer.visible = is_open()")
-		and director_source_for_castle_pointer().contains("pointer.modulate.a = 1.0"))
+		and lagoon_source.contains('_register_target("castle_gate"')
+		and lagoon_source.contains('glow.visible = true')
+		and lagoon_source.contains('String(target.get("id", "")) == "castle_gate"')
+		and not director_source_for_castle_pointer().contains(
+			'pointer_target", "elevator"'))
 	_check("attic and level exits route through Day One gate",
 		main_source.contains("func _day_one_refuse_reef_exit()")
 		and main_source.contains("_day_one_reorient_after_exit_now")

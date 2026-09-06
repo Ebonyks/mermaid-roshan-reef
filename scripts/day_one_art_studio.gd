@@ -57,6 +57,8 @@ var _voice_session_id: String = "art_visit_0"
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	m = main
+	m._navigation_push("day_one_art_studio", self,
+		Callable(m, "_close_day_one_art_studio"))
 	_announcements_enabled = announcements_enabled
 	var visit_count: int = int(m.g.get("day_one_art_voice_visit_count", 0)) + 1
 	m.g["day_one_art_voice_visit_count"] = visit_count
@@ -77,6 +79,7 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 
 
 func teardown() -> void:
+	m._navigation_remove("day_one_art_studio")
 	set_process(false)
 	_customizer_open = false
 	if _world_visual_layer != null and is_instance_valid(_world_visual_layer):

@@ -70,16 +70,15 @@ func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dicti
 	# words have actually been taught (MIC_SPELLS.md).
 	mic_live = _arm_mic()
 	if kind == "ice":
-		var ice_msg := "Ice Berry ready! Tap the big ICE button and freeze every mischief imp!"
-		if m.touch_uses_explicit_interactions():
-			ice_msg += " Or tap an imp right on its nose!"
+		var ice_msg := "Ice Berry ready! Tap an imp right on its nose to freeze it!"
 		if mic_live:
 			ice_msg += " Or shout FREEZE!"
 		_build_ice_swarm()
 		m.show_msg("Roshan", ice_msg, "combat_ice_start")
 	elif kind == "dust":
 		_build_dust_bunny_swarm()
-		m.show_msg("Roshan", "Dust bunnies! Tap the big CLEAN button and give each one a sparkling bubble poof!",
+		m.show_msg("Roshan",
+			"Dust bunnies! Tap each one and give it a sparkling bubble poof!",
 			"combat_dust_start")
 	else:
 		_build_pepper_boss()
@@ -878,7 +877,7 @@ func _finish_dust_bunny_clean(enemy: Dictionary) -> void:
 	_update_hud()
 
 
-# The partner SUPER (PartnerAssist fires this only from the child's tap).
+# The dormant partner SUPER can be fired only by a future direct world action.
 # Stuffie — SPARKLE STAMPEDE: pops the nearest fodder outright, dizzies the
 # rest, and grants Big Taps so her own next freezes pop almost instantly.
 # Boss arenas: never defeats — extends the peek window and chips one point.

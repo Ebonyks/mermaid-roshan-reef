@@ -255,7 +255,7 @@ func _purchase_action_just() -> bool:
 	return just
 
 func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
-	m.hud_game.text = "Pearls: %d - swim close, then tap the pink button to buy" % m.pearl_count
+	m.hud_game.text = "Pearls: %d - swim close, then tap the treasure to buy" % m.pearl_count
 	m.shop_msg_cool = maxf(0.0, m.shop_msg_cool - delta)
 	var buy_pressed := _purchase_action_just()
 	var choice_kind := ""
@@ -364,7 +364,7 @@ func _tick_shop(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 				m.shop_msg_cool = 2.5
 				m.show_msg("Pearl Shop", "That costs %d pearls — the ocean is full of them!" % choice_price)
 		else:
-			m.hud_game.text = "Pearls  " + m._pips(10, 10, "⚪") + "  tap the pink button to choose!"
+			m.hud_game.text = "Pearls  " + m._pips(10, 10, "⚪") + "  tap the treasure to choose!"
 			if buy_pressed:
 				if choice_kind == "beans":
 					_shop_buy(choice_id)

@@ -3,9 +3,9 @@ extends Node3D
 # THE INTRODUCTION TO COMBAT (owner 2026-08-01). When Crown and companion
 # welcomes are complete, walking through the event-ready Royal Hall gate
 # teleports Roshan to a little sparring arena where one
-# friendly imp walks her through every attack, one lesson at a time:
-#   TAP → the 1-2-3 COMBO → the three-stage CHARGE → (partner bubble if a
-#   stuffie follows) → a small graduation wave.
+# friendly imp walks her through every direct interaction, one lesson at a
+# time: TAP → the 1-2-3 COMBO → the three-stage CHARGE → a small graduation
+# wave. The retired partner bubble is not part of the lesson path.
 # Each lesson "pauses" the fight — the imp just waits and bobs, it NEVER
 # attacks here — while a golden pointer and a looping ghost-finger
 # demonstration act out the gesture on screen. The child then performs it
@@ -19,16 +19,15 @@ const CENTER := Vector3(0.0, -2600.0, 0.0)
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 const TRAINING_BACKDROP_PATH := "res://assets/castle/training/training_grotto_backdrop.png"
 const IDLE_REDEMO := 9.0            # the opera ghost-finger revival beat
-const LESSONS := ["tap", "combo", "charge", "partner", "wave"]
+const LESSONS := ["tap", "combo", "charge", "wave"]
 const LESSON_MSG := {
-	"tap": "Tap the imp!",
-	"combo": "Tap, tap, tap!",
-	"charge": "Press and hold!",
-	"partner": "Tap your partner!",
-	"wave": "Your turn!",
+	"tap": "Tap the imp — right on its nose!",
+	"combo": "Tap tap tap! Three stars pops it!",
+	"charge": "Press and HOLD — let the ring grow, then let go!",
+	"wave": "Imps everywhere! Show them ALL your moves!",
 }
 const LESSON_DEMO := {
-	"tap": "press", "combo": "drum", "charge": "hold", "partner": "press",
+	"tap": "press", "combo": "drum", "charge": "hold",
 	"wave": "",
 }
 
@@ -41,7 +40,6 @@ var backdrop_layer: CanvasLayer = null
 var demo_layer: CanvasLayer = null
 var demo: EncounterGestureGuide2D = null
 var he: HitEngine = null
-var pa: PartnerAssist = null
 var enemies: Array[Dictionary] = []
 var lesson := ""
 var lesson_t := 0.0
@@ -57,10 +55,10 @@ var caption_position := Vector2.ZERO
 var caption_size := Vector2.ZERO
 var caption_font_size := 0
 var caption_style: StyleBox = null
-var action_button_was_visible := false
 
 func start(main: ReefMain, done_cb: Callable) -> void:
 	m = main
+	m._navigation_push("combat_tutorial", self, Callable(self, "cancel"))
 	finish_cb = done_cb
 	prior_music = m.cur_track
 	m._play_music("combat_tutorial")
@@ -68,17 +66,12 @@ func start(main: ReefMain, done_cb: Callable) -> void:
 	_build_environment()
 	_build_stage()
 	_compact_caption()
-	if m.touch_ui != null and m.touch_ui._act_button != null:
-		action_button_was_visible = m.touch_ui._act_button.visible
-		m.touch_ui._act_button.visible = false
 	he = HitEngine.new(m)
 	he.fx_root = self
 	he.camera = cam
 	he.targets = enemies
 	m.hit_engines.append(he)
 	_spawn_imp(Vector3(0, 1.0, -6.0))
-	if m.companion_id != "":
-		pa = PartnerAssist.new(m)
 	_begin_lesson("tap")
 
 func _build_environment() -> void:
@@ -203,8 +196,6 @@ func _begin_lesson(next: String) -> void:
 	demo.mode = String(LESSON_DEMO.get(next, ""))
 	demo.visible = demo.mode != ""
 	demo.t = 0.0
-	if next == "partner" and pa != null and pa.bubble == null:
-		pa.attach("stuffie", Callable(self, "_partner_super"))
 
 func _lesson_target() -> Dictionary:
 	for enemy in enemies:
@@ -217,8 +208,6 @@ func _process(delta: float) -> void:
 		return
 	elapsed += delta
 	he.tick(delta)
-	if pa != null:
-		pa.tick(delta)
 	# the sparring imps only bob — the "pause" is that nothing ever rushes her
 	for enemy in enemies:
 		var shadow: Sprite2D = enemy.get("shadow") as Sprite2D
@@ -241,9 +230,6 @@ func _process(delta: float) -> void:
 
 func _tick_pointer_and_demo() -> void:
 	var target: Dictionary = _lesson_target()
-	if lesson == "partner" and pa != null and pa.bubble != null:
-		demo.anchor = pa.bubble.position + pa.bubble.size * 0.5
-		return
 	if target.is_empty():
 		demo.anchor = Vector2.ZERO
 		return
@@ -287,24 +273,8 @@ func _tick_lesson(delta: float) -> void:
 				else:
 					m.show_msg("Roshan", "Popped! Next time, try HOLDING too!",
 						"tutorial_power_pop")
-				if pa != null:
-					_begin_lesson("partner")
-				else:
-					_spawn_wave()
-					_begin_lesson("wave")
-		"partner":
-			if pa != null and pa.bubble != null and pa.cool > 0.0:
-				m.show_msg("Roshan", "Partner power! Now finish them!",
-					"tutorial_partner_power")
-				_begin_lesson("wave")
-				# the stampede may have popped the whole practice wave — the
-				# graduation must still be HER pops, so a fresh wave arrives
-				# when nothing is left standing (alpha audit 2026-08-05: the
-				# class could otherwise complete itself off the partner's work)
-				if _lesson_target().is_empty():
-					_spawn_wave()
-			elif _lesson_target().is_empty() and enemies.size() < 6:
 				_spawn_wave()
+				_begin_lesson("wave")
 		"wave":
 			if _lesson_target().is_empty() and enemies.size() >= 4:
 				_win()
@@ -312,22 +282,6 @@ func _tick_lesson(delta: float) -> void:
 func _spawn_wave() -> void:
 	for offset in [Vector3(-4.0, 1.0, -5.0), Vector3(0.0, 1.0, -8.0), Vector3(4.0, 1.0, -5.0)]:
 		_spawn_imp(offset as Vector3)
-
-# The stuffie's classroom stampede: identical rules to the arena — pops
-# nearest fodder by hp, dizzies nothing here (they are already waiting),
-# grants the Big Taps so her graduation swings feel enormous.
-func _partner_super(_partner_kind: String) -> void:
-	if enemies.is_empty() or state != "play":
-		return
-	var felled := 0
-	for enemy in enemies:
-		if String(enemy["state"]) != "active" or felled >= PartnerAssist.STAMPEDE_POPS:
-			continue
-		enemy["hp"] = 0
-		he.play_death(enemy)
-		felled += 1
-	he.big_taps = PartnerAssist.BIG_TAPS
-	m._sparkle_burst(CENTER + Vector3(0, 3.0, -5.0), Color(0.95, 0.75, 1.0))
 
 func _win() -> void:
 	if state != "play":
@@ -346,11 +300,10 @@ func _win() -> void:
 func _finish() -> void:
 	if state == "done":
 		return
+	m._navigation_remove("combat_tutorial")
 	state = "done"
 	m.hit_engines.erase(he)
 	he.teardown()
-	if pa != null:
-		pa.detach()
 	if demo_layer != null and is_instance_valid(demo_layer):
 		demo_layer.queue_free()
 	if backdrop_layer != null and is_instance_valid(backdrop_layer):
@@ -358,8 +311,6 @@ func _finish() -> void:
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	_restore_caption()
-	if m.touch_ui != null and m.touch_ui._act_button != null:
-		m.touch_ui._act_button.visible = action_button_was_visible
 	_restore_music()
 	if finish_cb.is_valid():
 		finish_cb.call()
@@ -368,14 +319,13 @@ func _finish() -> void:
 func cancel() -> void:
 	if state == "done":
 		return
+	m._navigation_remove("combat_tutorial")
 	if state == "won":
 		_finish()
 		return
 	state = "done"
 	m.hit_engines.erase(he)
 	he.teardown()
-	if pa != null:
-		pa.detach()
 	if demo_layer != null and is_instance_valid(demo_layer):
 		demo_layer.queue_free()
 	if backdrop_layer != null and is_instance_valid(backdrop_layer):
@@ -383,8 +333,6 @@ func cancel() -> void:
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	_restore_caption()
-	if m.touch_ui != null and m.touch_ui._act_button != null:
-		m.touch_ui._act_button.visible = action_button_was_visible
 	_restore_music()
 	if finish_cb.is_valid():
 		finish_cb.call()

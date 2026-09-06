@@ -1,6 +1,6 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "991c3db79bc58ff550708f2f8af2d6e9defa2f5461220775a833af4d528d9a38",
+  "candidate_payload_sha256": "42fe2f9a29b673ba99f1482e647380460e2f716c8e265ec0964cde0895dfc7de",
   "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
   "metadata_revalidation": {
     "date": "2026-08-29",
@@ -70,6 +70,28 @@
     "runtime_layout_semantic_sha256": "40f2caec9c3aa65dff1f482994440ec829bbce2bd9371aef46b1dd3d8b1be234",
     "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
     "frame_hash_evidence": "The checker reports all 96 candidate frame_review_sha256 values exactly equal the existing reviewed ledger values; zero frame mismatches.",
+    "candidate_binding_refresh": "Replacing only the current runtime-layout semantic hash with the prior hash reproduces the prior candidate payload hash exactly; existing deterministic frame approval remains applicable.",
+    "owner_acceptance": "pending"
+  },
+  "button_overlay_removal_binding_revalidation": {
+    "date": "2026-09-05",
+    "reason": "The game-wide one-button contract removed Castle-local Back, room-action, elevator, and fridge-close overlays; routed Back through the global upper-left navigation control; and moved Stuffie/Chapter 2 entry to existing painted world props. These gameplay/UI changes do not alter ROOM_LAYOUTS card records, V4 manifest data, fixture z routing, room tiles, atlas pixels, alpha ownership, z order, or reviewed interaction-frame pixels. The frame-review builder hashes the complete runtime-layout text, so the candidate input binding legitimately changed.",
+    "prior_candidate_payload_sha256": "991c3db79bc58ff550708f2f8af2d6e9defa2f5461220775a833af4d528d9a38",
+    "prior_runtime_layout_semantic_sha256": "40f2caec9c3aa65dff1f482994440ec829bbce2bd9371aef46b1dd3d8b1be234",
+    "runtime_layout_semantic_sha256": "ac6167ddbad8f0ab44081aadf3e6419001084df1a0519cb337899777f2d5399b",
+    "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
+    "frame_hash_evidence": "All 96 candidate frame_review_sha256 values exactly equal the existing reviewed ledger values; zero frame mismatches.",
+    "candidate_binding_refresh": "Replacing only the current runtime-layout semantic hash with the prior hash reproduces the prior candidate payload hash exactly; existing deterministic frame approval remains applicable.",
+    "owner_acceptance": "pending"
+  },
+  "global_back_integration_binding_revalidation": {
+    "date": "2026-09-05",
+    "reason": "The one-button integration repair changes the Castle root Back callback from layer-only teardown to the existing courtyard return path. It changes no ROOM_LAYOUTS card record, V4 manifest data, fixture z routing, room tile, atlas pixel, alpha ownership, z order, or reviewed interaction-frame pixel. The frame-review builder hashes the complete runtime-layout text, so the candidate input binding legitimately changed.",
+    "prior_candidate_payload_sha256": "01df20626ea8411f6213d790716840bd36aed27cb3f869e5310761d59a088eb1",
+    "prior_runtime_layout_semantic_sha256": "ac6167ddbad8f0ab44081aadf3e6419001084df1a0519cb337899777f2d5399b",
+    "runtime_layout_semantic_sha256": "55e03356298d3f72e014cec9bc12d5783c3edf68a9683146116a55267919131e",
+    "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
+    "frame_hash_evidence": "All 96 candidate frame_review_sha256 values exactly equal the existing reviewed ledger values; zero frame mismatches.",
     "candidate_binding_refresh": "Replacing only the current runtime-layout semantic hash with the prior hash reproduces the prior candidate payload hash exactly; existing deterministic frame approval remains applicable.",
     "owner_acceptance": "pending"
   },

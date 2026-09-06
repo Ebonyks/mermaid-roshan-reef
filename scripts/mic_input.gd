@@ -596,6 +596,7 @@ func test_clear_templates() -> void:
 func open_teach() -> void:
 	if _is_headless():
 		return
+	m._navigation_push("mic_teach", self, Callable(self, "close_teach"))
 	_load_templates()
 	_teach_queue = WORDS.duplicate()
 	_build_teach_layer()
@@ -605,6 +606,7 @@ func open_teach() -> void:
 
 
 func close_teach(save: bool = true) -> void:
+	m._navigation_remove("mic_teach")
 	if save:
 		save_templates()
 	cancel_enroll()
