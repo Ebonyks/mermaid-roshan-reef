@@ -1,12 +1,8 @@
 {
   "id": "2026-09-06-chapter2-lawn-ember-alpha",
-  "scope": "Commissioned Chapter 2 ending: actual eight-job rewards staged on the Sky Lagoon birthday lawn; recovered owner-corrected King V4 and thin August 22 Prince; no-fail three-round protection battle followed by cheating candle theft and reassurance; additive checkpoints, separate synthetic alpha guidance and visual Grok archive. Baseline typography metadata reconciles with existing upstream correction, without a new navigation implementation or a finding-closure claim.",
+  "scope": "Commissioned Chapter 2 ending: actual eight-job rewards staged on the Sky Lagoon birthday lawn; recovered owner-corrected King V4 and thin August 22 Prince; no-fail three-round protection battle followed by cheating candle theft and reassurance; additive checkpoints, separate synthetic alpha guidance and visual Grok archive. Baseline typography metadata reconciles with existing upstream correction, without a new navigation implementation or a finding-closure claim. Reconciliation with pool-action clarification adds visible Roshan travel and authored hand/button contact before candle ignition; unfinished travel/contact cancels on focus loss or exit.",
   "baseline": "aad0d450d8b8f1381badeeb4bcb939181115ab00",
   "rules": [
-    "DL-AUTH-01",
-    "DL-AUTH-05",
-    "DL-AUTH-06",
-    "DL-AUTH-07",
     "DL-AGE-01",
     "DL-AGE-02",
     "DL-AGE-03",
@@ -14,14 +10,10 @@
     "DL-AGE-05",
     "DL-AGE-06",
     "DL-AGE-08",
-    "DL-MED-01",
-    "DL-MED-02",
-    "DL-MED-04",
-    "DL-MED-05",
-    "DL-VIS-06",
-    "DL-INT-01",
-    "DL-INT-02",
-    "DL-INT-04",
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
     "DL-CIN-01",
     "DL-CIN-02",
     "DL-CIN-11",
@@ -29,14 +21,17 @@
     "DL-CIN-13",
     "DL-CIN-14",
     "DL-CIN-15",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-MED-04",
+    "DL-MED-05",
     "DL-PERF-01",
     "DL-PERF-04",
     "DL-PERF-05",
-    "DL-SAVE-01",
-    "DL-SAVE-03",
-    "DL-SAVE-04",
-    "DL-SAVE-05",
-    "DL-TYPE-07",
     "DL-PLAN-01",
     "DL-PLAN-02",
     "DL-PLAN-03",
@@ -50,9 +45,16 @@
     "DL-QA-05",
     "DL-QA-06",
     "DL-QA-07",
-    "DL-QA-16"
+    "DL-QA-16",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-SAVE-05",
+    "DL-TYPE-07",
+    "DL-VIS-06"
   ],
   "findings": [
+    "MA-PLAY-004",
     "MA-TYPE-004"
   ],
   "finding_scope": "Related baseline glyph classification only; classification follows upstream 7055d676. No current finding is closed. Chapter 2 is new commissioned feature work, not invented defect repair.",
@@ -238,8 +240,18 @@
       "command": "python .tmp/chapter2/verify_remote_archive.py 1005c597e17bfacc93d3d5669356b7a37beaf5a1",
       "result": "PASS",
       "evidence": "Public immutable manifest and all 59 payload files fetched and SHA-256 verified. Separate assets_src/cinematics/chapter2_lawn_2026-09-06_REMOTE_VERIFICATION.json records URLs and payload hash. ARCHIVE_COMPLETE true for that content commit; GENERATION_READY and DELIVERY_ACCEPTED remain false."
+    },
+    {
+      "command": "Reconcile origin/dev 64094fca00c9e1ef64b26e6568ad35c50d9cfca4; ignition travel/contact and interruption checks",
+      "result": "PASS",
+      "evidence": "Merged probe_audit, probe_day_one_pool_cleanup, probe_chapter2 and probe_chapter2_lawn pass. Final ignition probe includes bounded travel, actual reach, fresh source cancellation, unrelated second-finger cancellation, focus/app loss, teardown/reload and no late completion. Final log SHA-256 cda2ef40b68b4584aaaee39426d862be779686bec124e5c37c9ef9af6aab857d. Host Mobile capture reviewed: fingertip meets the visible upper rocket button above the foreground hat. Base chapter 69b54735 full CI 34022825217 and incoming pool 64094fca full CI 34023301469 both green; combined updated candidate remote CI still pending. No MA-PLAY-004 closure claimed."
+    },
+    {
+      "command": "Post-pool reconciliation document authority, development coverage against incoming 64094fca, and tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "Document authority 533/533, active findings 55/57 records; exact change coverage ALL OK; 2D gate NO_REGRESSION. Whole-game migration remains UNSATISFIED. GDScript parser/inference lint and final ignition probe pass."
     }
   ],
-  "acceptance_gaps": "Owner review of gameplay composition and synthetic narration, aspect-ratio/device performance and touch, child comprehension/pacing, green integrated dev APK; all nine clean cinematic first frames and external generation bindings, full-frame delivery provenance and human acceptance. Three arrival first-frame candidates are unaccepted for scale/costume/position drift. No whole-game audit satisfaction or cinematic acceptance claimed.",
+  "acceptance_gaps": "Owner review of gameplay composition and synthetic narration, aspect-ratio/device performance and touch, child comprehension/pacing, green integrated dev APK; all nine clean cinematic first frames and external generation bindings, full-frame delivery provenance and human acceptance. Three arrival first-frame candidates are unaccepted for scale/costume/position drift. No whole-game audit satisfaction or cinematic acceptance claimed. The bounded lawn ignition implementation is covered under the new DL-INT-02 clarification, but target-device/child/owner action review and other MA-PLAY-004 jobs remain open.",
   "source_recheck": "Read master planning entry, chapter guide, applicable age/medium/interaction/cinematic/save/performance/planning rules, active typography finding and document ledger. Upstream audit-development contract discovered during scope review and recorded before reconciliation; task originally began before that upstream contract existed."
 }

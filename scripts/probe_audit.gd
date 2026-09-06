@@ -3620,7 +3620,9 @@ func _slide_exercise_return_guard(friend: Dictionary, label: String,
 	# the return quarantine. Prove a fresh gesture still cannot bypass it, wait
 	# for its normal bounded retirement, then require a second fresh source edge.
 	var move_origin := Vector2(150.0, 520.0)
-	var move_point := Vector2(250.0, 520.0)
+	# Sideways input only turns the Reef player. Request forward travel so a
+	# grounded return cannot depend on falling velocity to pass this assertion.
+	var move_point := Vector2(150.0, 420.0)
 	var fresh_index: int = touch_index + 1
 	var pose_lock_exact := true
 	var pose_lock_exercised := false

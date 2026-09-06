@@ -15,6 +15,8 @@ func _frames(count: int) -> void:
 
 
 func _capture(name: String) -> void:
+	var was_paused: bool = paused
+	paused = true
 	await _frames(3)
 	await RenderingServer.frame_post_draw
 	var image: Image = root.get_viewport().get_texture().get_image()
@@ -23,9 +25,11 @@ func _capture(name: String) -> void:
 	_check("capture %s" % name,
 		not image.is_empty() and save_error == OK,
 		"size=%s path=%s" % [image.get_size(), path])
+	paused = was_paused
 
 
 func _run() -> void:
+	Engine.max_fps = 60
 	capture_root = OS.get_environment("DAY_ONE_POOL_CAPTURE_OUT")
 	if capture_root == "":
 		capture_root = ProjectSettings.globalize_path("user://day_one_pool_shots")
@@ -71,7 +75,32 @@ func _run() -> void:
 		clean_waterfall != null and not clean_waterfall.visible)
 	await _capture("00_dirty_arrival")
 
-	_check("skimmer first catch", cleanup.skimmer_activity.probe_collect_next())
+	var skimmer: PoolSkimmerActivity = cleanup.skimmer_activity
+	var touch := InputEventScreenTouch.new()
+	touch.index = 0
+	touch.pressed = true
+	touch.position = PoolSkimmerActivity.TRASH_POSITIONS[0]
+	skimmer._gui_input(touch)
+	touch.pressed = false
+	skimmer._gui_input(touch)
+	await create_timer(0.22).timeout
+	_check("approach cannot collect remotely", int(skimmer.audit_snapshot()["mask"]) == 0)
+	await _capture("00a_roshan_approaching_trash")
+	var scoop_deadline: int = Time.get_ticks_msec() + 8000
+	while Time.get_ticks_msec() < scoop_deadline:
+		await process_frame
+		if float(skimmer.audit_snapshot()["scoop_time"]) > 0.08:
+			break
+	_check("Roshan reaches the visible scoop", float(skimmer.audit_snapshot()["scoop_time"]) > 0.0)
+	skimmer.set_process(false)
+	await _capture("00b_roshan_scooping_trash")
+	skimmer.set_process(true)
+	var catch_deadline: int = Time.get_ticks_msec() + 4000
+	while Time.get_ticks_msec() < catch_deadline:
+		await process_frame
+		if int(skimmer.audit_snapshot()["mask"]) == 1:
+			break
+	_check("skimmer first catch after travel and scoop", int(skimmer.audit_snapshot()["mask"]) == 1)
 	await _frames(2)
 	await _capture("01_skimmer_catch")
 	for _trash_index: int in range(5):
@@ -104,9 +133,17 @@ func _run() -> void:
 		_check("seahorse release tug", cleanup.seahorse_activity.probe_tap())
 	await _frames(5)
 	await _capture("06_seahorse_trash_release")
-	await _frames(46)
+	var reveal_deadline: int = Time.get_ticks_msec() + 8000
+	while Time.get_ticks_msec() < reveal_deadline:
+		await process_frame
+		if is_instance_valid(cleanup._rumi) and cleanup._rumi.modulate.a >= 0.8:
+			break
+	_check("Rumi is visible during her reveal",
+		is_instance_valid(cleanup._rumi) and cleanup._rumi.modulate.a >= 0.8)
 	await _capture("07_rainbow_reveal_active")
-	await _frames(70)
+	await create_timer(0.3).timeout
+	_check("reveal capture precedes next-room overlay",
+		is_instance_valid(cleanup._rumi) and cleanup._rumi.animation == &"swim")
 	await _capture("08_rumi_reveal")
 	main.queue_free()
 	await _frames(4)

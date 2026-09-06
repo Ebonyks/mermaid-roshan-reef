@@ -13,6 +13,12 @@ const ROCKET_RECT := Rect2(455.0, 435.0, 140.0, 145.0)
 const KING_RECT := Rect2(910.0, 230.0, 320.0, 330.0)
 const CONTINUE_RECT := Rect2(1050.0, 592.0, 180.0, 106.0)
 const BACK_RECT := Rect2(18.0, 18.0, 110.0, 100.0)
+const ROSHAN_HOME := Vector2(655.0, 438.0)
+const IGNITION_POINT := Vector2(525.0, 540.0)
+const IGNITION_REACH_POSITION := IGNITION_POINT - Vector2(12.0, 58.0)
+const ROSHAN_BASE := "res://assets/characters/roshan_25d/roshan_base.png"
+const ROSHAN_REACH := "res://assets/characters/roshan_25d/roshan_gesture_b.png"
+const ROSHAN_SWIM := "res://assets/characters/roshan_25d/roshan_swim_front.png"
 const GUEST_FILES := ["wacky_chuck", "two_friends", "pearl_friend",
 	"mama_baby", "kareem", "huluu", "flower_friend", "daddy"]
 const VOICE_BEATS := ["ready", "lit", "arrive", "challenge", "protect", "safe", "theft", "leave", "hope"]
@@ -35,6 +41,7 @@ var caption: Label
 var foreground: Control
 var pointer: TextureRect
 var on_exit: Callable
+var ignition_pose := AtlasTexture.new()
 
 func setup(main: ReefMain, exit_callback: Callable) -> void:
 	m = main
@@ -48,7 +55,7 @@ func setup(main: ReefMain, exit_callback: Callable) -> void:
 		"mode_elapsed": 0.0, "player": Vector2(0.0, 12.0),
 		"destination": Vector2(0.0, 12.0), "pointer_id": -1,
 		"last_touch": -10.0, "feedback": "", "feedback_time": 0.0,
-		"context_losses": {}}
+		"context_losses": {}, "ignition_source": -1}
 	set_meta("true_2d_lawn", true)
 	set_meta("cinematic_delivery_accepted", false)
 	set_meta("character_identity_review", "king_v4_owner_confirmed_prince_recovered")
@@ -74,6 +81,7 @@ func set_input_context(reason: StringName, lost: bool) -> void:
 		losses[reason] = true
 		_state()["pointer_id"] = -1
 		_state()["destination"] = _state()["player"]
+		_cancel_ignition()
 	else:
 		losses.erase(reason)
 
@@ -178,8 +186,7 @@ func _build_art() -> void:
 	prince.texture = prince_frame
 	_picture("CarriedCandle", ChapterTwoRainbowCandle2D.LIT_TEXTURE,
 		Rect2(938.0, 238.0, 64.0, 148.0))
-	_picture("Roshan", "res://assets/characters/roshan_25d/roshan_base.png",
-		Rect2(655.0, 438.0, 180.0, 190.0))
+	_picture("Roshan", ROSHAN_BASE, Rect2(ROSHAN_HOME, Vector2(180.0, 190.0)))
 
 func _add_hat(parent: Control, point: Vector2, colour_index: int,
 		factor: float = 1.0) -> void:
@@ -277,6 +284,58 @@ func _say_beat() -> void:
 	set_meta("scene_specific_voice_acceptance", false)
 	set_meta("alpha_voice", "existing_synthetic_roshan_owner_listening_pending")
 
+func _begin_ignition() -> void:
+	if String(_state()["mode"]) != "story" or m.chapter2_lawn_beat != 0:
+		return
+	_mode("ignition_walk")
+	_state()["ignition_source"] = int(_state()["pointer_id"])
+	(art["Roshan"] as Control).z_index = 3
+	set_meta("ignition_hand_contact", false)
+
+func _cancel_ignition() -> void:
+	if not String(_state()["mode"]).begins_with("ignition_"):
+		return
+	_mode("story")
+	_state()["ignition_source"] = -1
+	(art["Roshan"] as TextureRect).texture = load(ROSHAN_BASE) as Texture2D
+	(art["Roshan"] as Control).z_index = 0
+	set_meta("ignition_hand_contact", false)
+
+func _ignition_pose(path: String, frame: int) -> void:
+	ignition_pose.atlas = load(path) as Texture2D
+	ignition_pose.region = Rect2(float(frame % 4) * 256.0, float(frame / 4) * 256.0, 256.0, 256.0)
+	(art["Roshan"] as TextureRect).texture = ignition_pose
+
+func _tick_ignition(delta: float) -> void:
+	var actor := art["Roshan"] as TextureRect
+	var state := _state()
+	var step := minf(delta, 1.0 / 30.0)
+	# One bounded gameplay step cannot teleport her or skip the authored reach.
+	state["mode_elapsed"] = float(state["mode_elapsed"]) - delta + step
+	var elapsed := float(state["mode_elapsed"])
+	match String(state["mode"]):
+		"ignition_walk", "ignition_return":
+			var returning := String(state["mode"]) == "ignition_return"
+			var target := ROSHAN_HOME if returning else IGNITION_REACH_POSITION
+			actor.position = actor.position.move_toward(target, step * 140.0)
+			_ignition_pose(ROSHAN_SWIM, int(elapsed * 12.0) % 16)
+			if actor.position.distance_to(target) < 0.1:
+				if returning:
+					actor.texture = load(ROSHAN_BASE) as Texture2D
+					actor.z_index = 0
+					state["ignition_source"] = -1
+					_mode("story")
+				else:
+					_mode("ignition_reach")
+					_ignition_pose(ROSHAN_REACH, 12)
+		"ignition_reach":
+			_ignition_pose(ROSHAN_REACH, 12 + mini(int(elapsed / 0.25), 3))
+			set_meta("ignition_hand_contact", elapsed >= 0.75)
+			if elapsed >= 1.6:
+				_advance_story()
+				set_meta("ignition_hand_contact", false)
+				_mode("ignition_return")
+
 func _advance_story() -> void:
 	if float(_state()["beat_elapsed"]) < (2.4 if m.chapter2_lawn_beat == 1 else 0.5):
 		return
@@ -340,8 +399,11 @@ func tick(delta: float) -> void:
 	state["elapsed"] = float(state["elapsed"]) + delta
 	state["beat_elapsed"] = float(state["beat_elapsed"]) + delta
 	state["mode_elapsed"] = float(state["mode_elapsed"]) + delta
+	if String(state["mode"]).begins_with("ignition_"):
+		_tick_ignition(delta)
 	if m.chapter2_lawn_beat == 4:
 		_tick_battle(delta)
+	pointer.visible = not String(state["mode"]).begins_with("ignition_")
 	var hint := ROCKET_RECT.get_center() if m.chapter2_lawn_beat == 0 else CONTINUE_RECT.get_center()
 	if m.chapter2_lawn_beat == 4:
 		var current := battle.engine()
@@ -426,6 +488,12 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
 		_state()["last_touch"] = float(_state()["elapsed"])
+		if touch.canceled:
+			if touch.index == int(_state()["ignition_source"]):
+				_cancel_ignition()
+			_point_event(touch.position, false, touch.index)
+			accept_event()
+			return
 		_point_event(touch.position, touch.pressed, touch.index)
 		accept_event()
 	elif event is InputEventScreenDrag:
@@ -457,9 +525,14 @@ func _point_event(point: Vector2, pressed: bool, id: int) -> void:
 	if BACK_RECT.has_point(point):
 		on_exit.call()
 		return
+	if String(_state()["mode"]).begins_with("ignition_"):
+		return
 	if m.chapter2_lawn_beat != 4:
 		if (ROCKET_RECT if m.chapter2_lawn_beat == 0 else CONTINUE_RECT).has_point(point):
-			_advance_story()
+			if m.chapter2_lawn_beat == 0:
+				_begin_ignition()
+			else:
+				_advance_story()
 		return
 	var current := battle.engine()
 	if current.state == BossEncounter2D.State.OPENING and KING_RECT.has_point(point):
@@ -512,7 +585,18 @@ func _draw() -> void:
 		draw_circle(_screen(safe), 24.0, Color("d1f6e2"), false, 4.0, true)
 
 func _draw_foreground() -> void:
-	if m == null or not m.g.has(KEY) or m.chapter2_lawn_beat != 4:
+	if m == null or not m.g.has(KEY):
+		return
+	if String(_state()["mode"]) == "ignition_reach":
+		var elapsed := float(_state()["mode_elapsed"])
+		if elapsed >= 0.75:
+			foreground.draw_circle(IGNITION_POINT, 7.0, Color("fff0a5"), false, 3.0, true)
+		if elapsed >= 1.0:
+			var from := Vector2(525.0, 445.0)
+			var to := Vector2(417.0, 232.0)
+			var progress := clampf((elapsed - 1.0) / 0.6, 0.0, 1.0)
+			foreground.draw_circle(from.lerp(to, progress), 7.0, Color("fff0a5"))
+	if m.chapter2_lawn_beat != 4:
 		return
 	var current := battle.engine()
 	if current != null and current.state == BossEncounter2D.State.OPENING:

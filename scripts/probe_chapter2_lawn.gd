@@ -54,7 +54,55 @@ func _run() -> void:
 	_tick(30.0)
 	_check("idle lawn cannot light candle or start battle", not host.chapter2_party_started)
 	_tap(ChapterTwoLawnFinale2D.ROCKET_RECT.get_center())
-	_check("rocket fresh press lights the candle", host.chapter2_candle_lit and host.chapter2_lawn_beat == 1)
+	var initial_position := (scene.art["Roshan"] as Control).position
+	scene.tick(4.0)
+	_check("rocket tap requests bounded travel without remote progress",
+		not host.chapter2_candle_lit and host.chapter2_lawn_beat == 0
+		and (scene.art["Roshan"] as Control).position.distance_to(initial_position) <= 5.0)
+	var canceled_touch := InputEventScreenTouch.new()
+	canceled_touch.canceled = true
+	canceled_touch.index = 1
+	scene._gui_input(canceled_touch)
+	_check("another finger cannot cancel the requested ignition",
+		String(scene._state()["mode"]) == "ignition_walk")
+	canceled_touch.index = 0
+	scene._gui_input(canceled_touch)
+	_tick(4.0)
+	_check("canceled source touch cannot complete ignition later",
+		not host.chapter2_candle_lit and String(scene._state()["mode"]) == "story")
+	_tap(ChapterTwoLawnFinale2D.ROCKET_RECT.get_center())
+	_reload()
+	_tick(4.0)
+	_check("teardown and reload discard unfinished ignition", not host.chapter2_candle_lit)
+	_tap(ChapterTwoLawnFinale2D.ROCKET_RECT.get_center())
+	_tick(0.4)
+	await _capture("04-ignition-approach")
+	scene.set_input_context(&"focus", true)
+	scene.set_input_context(&"focus", false)
+	_tick(4.0)
+	_check("interrupted approach cannot finish after resume",
+		not host.chapter2_candle_lit and String(scene._state()["mode"]) == "story")
+	_tap(ChapterTwoLawnFinale2D.ROCKET_RECT.get_center())
+	var approach_limit := 0
+	while String(scene._state()["mode"]) == "ignition_walk" and approach_limit < 300:
+		scene.tick(1.0 / 60.0)
+		approach_limit += 1
+	_check("Roshan reaches the actual rocket before its action",
+		approach_limit < 300 and not host.chapter2_candle_lit
+		and (scene.art["Roshan"] as Control).position.distance_to(ChapterTwoLawnFinale2D.IGNITION_REACH_POSITION) < 0.1)
+	_tick(0.9)
+	_check("authored hand reach contacts the ignition before progress",
+		bool(scene.get_meta("ignition_hand_contact", false)) and not host.chapter2_candle_lit)
+	await _capture("05-ignition-contact")
+	scene.set_input_context(&"application", true)
+	scene.set_input_context(&"application", false)
+	_tick(4.0)
+	_check("interrupted contact cannot light the candle later", not host.chapter2_candle_lit)
+	_tap(ChapterTwoLawnFinale2D.ROCKET_RECT.get_center())
+	_tick(5.0)
+	_check("fresh complete travel and ignition light the candle once",
+		host.chapter2_candle_lit and host.chapter2_lawn_beat == 1
+		and String(scene._state()["mode"]) == "story")
 	_reload()
 	_check("lighting checkpoint survives disk reload", host.chapter2_candle_lit and host.chapter2_lawn_beat == 1)
 	for beat: int in range(3):

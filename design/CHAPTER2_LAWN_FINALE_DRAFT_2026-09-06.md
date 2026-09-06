@@ -49,7 +49,7 @@ payoff for the minigames, not a checklist overlay.
 **Roshan:** "We made all of this together!"
 
 A friend straightens a crooked hat. The stuffies try their little bow. Roshan
-raises a hand beside the rocket. The child touches the large rocket to begin.
+approaches the rocket when the child touches it. She reaches its ignition button and presses it before the spark travels to the candle. A single touch requests the complete travel and action; leaving or switching apps before ignition cancels unfinished work.
 
 **Roshan:** "Ready? Let's light our rainbow!"
 
@@ -260,7 +260,7 @@ cinematic, device or child acceptance.
 
 | Beat | Intentional action and visible result | Exact voice suffix and picture cue | Save/stop point |
 |---|---|---|---|
-| Gather on lawn | Touch the finished rocket; the one candle lights | `ready`, then `lit`; moving hand on rocket | `chapter2_lawn_started=false` and `chapter2_lawn_beat=0` defaults; ignition writes beat 1 and existing party/candle keys |
+| Gather on lawn | Touch the finished rocket; Roshan swims over, reaches its button, and sends a spark to light the one candle | `ready`, then `lit`; moving hand on rocket | `chapter2_lawn_started=false` and `chapter2_lawn_beat=0` defaults; ignition writes beat 1 and existing party/candle keys |
 | Meet royals | Touch forward to hear the invitation and demand | `arrive`, `challenge`; large forward picture | Each beat 2/3 writes; Back returns to Main Hall |
 | Protect friends | Move out of orange shapes, release, then freshly tap the sparkling King | `dodge`, `counter`, `round`; safe circle, hand and visible opening | Completed rounds default 0, save after each of three successes; wrong/passive/held input awards none |
 | King cheats | Touch forward after three successful rounds; candle moves to King's hand | `safe`, `theft`; forward picture and changed candle location | Beat 6 writes theft; completed jobs and all other rewards remain |
@@ -296,7 +296,7 @@ theft so restarting after the theft cannot skip the kind ending.
 
 The representative implemented path is normal entry, rocket ignition, three
 protection rounds, theft, reassurance, exit and resume. The dedicated lawn probe
-checks intentional/passive/held/off-target input, disk reload at milestones,
+checks intentional/passive/held/off-target input, bounded approach and authored hand contact before ignition, cancellation on interrupted travel/reach, disk reload at milestones,
 exact earned objects and theft boundaries. The normal-route harness checks
 entry, Back and resume through `main.tscn`. Host Mobile captures cover the
 party, battle and theft. These are machine/context evidence, not child or
@@ -312,3 +312,5 @@ also prevented unrelated generic reward props from entering the finale.
 Transparent-background tool outputs were opaque; the owner explicitly
 authorized direct local extraction. That permission applies to the gameplay
 cutout and does not waive full-frame cinematic delivery rules.
+
+The 2026-09-06 pool-action clarification of `DL-INT-02` also applies to lawn ignition. The gameplay draft reuses the approved sixteen-frame swim and four-frame point/reach atlases. The hand reaches the actual rocket button before its spark travels to the candle; one slow frame cannot skip the approach or contact. The earlier immutable cinematic archive remains source reference version 1, not an accepted delivery or a replacement for this interaction requirement.
