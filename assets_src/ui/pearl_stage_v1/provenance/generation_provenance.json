@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "family_id": "pearl_stage_v1",
+  "generation_gap": "The approved repository art did not contain a cohesive, richly painted pause-menu and activity-chooser concept family with the requested Pearl Stage hierarchy. Existing UI and Opera art were used as references instead of redesigning characters or worlds.",
+  "status": "CONCEPT_ONLY",
+  "claims": {
+    "runtime_ready": false,
+    "device_verified": false,
+    "child_verified": false,
+    "owner_accepted": false,
+    "new_activity_or_route_authority": false
+  },
+  "method": {
+    "tool": "built-in image_gen",
+    "cli_used": false,
+    "api_key_used": false,
+    "attempts_per_concept": 1
+  },
+  "base_canvas": [1280, 720],
+  "layout_evidence_note": "All rectangles are proposed design allocations on the 1280x720 base canvas, written as [x, y, width, height]. They are not measured runtime hitboxes and do not prove touch implementation.",
+  "prompt_wording_note": "The activity-chooser prompt calls the pause image an approved visual anchor. In that executed prompt, approved means selected as the generator's same-family reference for this concept pass only. It does not mean owner acceptance, runtime acceptance, device acceptance, or child acceptance.",
+  "concepts": [
+    {
+      "id": "pause_menu_pearl_stage_concept_v1",
+      "native_output_path": "C:/Users/Peter/.codex/generated_images/01a074c0-8fd8-7cc0-9c8b-312a1f0567f3/exec-b89691ab-65f8-41b6-851c-ab94dfe267db.png",
+      "project_copy_path": "assets_src/ui/pearl_stage_v1/concepts/pause_menu_pearl_stage_concept_v1.png",
+      "native_dimensions": [1672, 941],
+      "native_sha256": "cb3dd0824943562ffc4d2eb9729dbbaf42fbd71d508421066950d8ffed427b3f",
+      "project_copy_sha256": "cb3dd0824943562ffc4d2eb9729dbbaf42fbd71d508421066950d8ffed427b3f",
+      "prompt_path": "assets_src/ui/pearl_stage_v1/prompts/pause_menu_pearl_stage_concept_v1.txt",
+      "prompt_sha256": "a04880e7b6f8d8edbadf8536cff30ce1b983117fbe2459bf831c2a7c074639ff",
+      "proposed_action_rects_1280x720": {
+        "resume": [500, 195, 280, 250],
+        "activity_chooser_medallion": [320, 470, 170, 170],
+        "narration_replay": [555, 470, 170, 170],
+        "generic_care_symbol": [790, 470, 170, 170]
+      },
+      "proposed_safe_area_1280x720": [64, 64, 1152, 592],
+      "minimum_edge_to_edge_separation_px": 25,
+      "mapping_notes": [
+        "Resume is the sole dominant and neutral exit from the pause layer.",
+        "The four illustrated cells inside the activity-grid medallion form one pictogram. The entire medallion is one target with one shared pressed state; the cells are not four small targets.",
+        "The speaker means replay the current narration cue, not an unexplained settings route.",
+        "The teddy is a generic conceptual care pictogram and does not claim or replace any protected friend identity.",
+        "This is a simplified material and layout study. It is not a complete pause route plan. The current Stickers, Critters, Stuffie, and contextual Leave inventory remains authoritative and is not removed by omissions or substitutions in this image.",
+        "A spoken introduction and runtime focus/touch feedback remain required before implementation acceptance."
+      ],
+      "references": [
+        {
+          "path": "gen2/ui_prototypes_2026-07-19/pause_overlay_v1_1024x576.png",
+          "role": "historical layout and icon-language reference only",
+          "dimensions": [1024, 576],
+          "sha256": "3efbca58ef42b8ae8170f67661a688f6be04704b74e45804bb51cc99980e42bb"
+        },
+        {
+          "path": "assets/opera/worlds/backdrops/world_candymaker.png",
+          "role": "approved painted finish, shell, pearl, brass, and palette reference",
+          "dimensions": [1024, 576],
+          "sha256": "19ac984638fea33e0f0cb649b7d51b1364f13c36f0e5c5dd4e883dc283ef5d48"
+        },
+        {
+          "path": "assets/opera/worlds/backdrops/world_ballerina.png",
+          "role": "approved painted finish, shell, pearl, garden color, and atmosphere reference",
+          "dimensions": [1024, 576],
+          "sha256": "0011569b86b3c194cbcc8c6a2c7ad2e9278f3092640d0b55a771c02ddb9426a1"
+        }
+      ]
+    },
+    {
+      "id": "activity_chooser_pearl_stage_concept_v1",
+      "native_output_path": "C:/Users/Peter/.codex/generated_images/01a074c0-8fd8-7cc0-9c8b-312a1f0567f3/exec-b1f832a5-1416-46a8-8610-8c545e229e5e.png",
+      "project_copy_path": "assets_src/ui/pearl_stage_v1/concepts/activity_chooser_pearl_stage_concept_v1.png",
+      "native_dimensions": [1672, 941],
+      "native_sha256": "28c8308a561b1088cc559fcb0cb9ae601a2d033f55d9cd7dd685823fd3fd6460",
+      "project_copy_sha256": "28c8308a561b1088cc559fcb0cb9ae601a2d033f55d9cd7dd685823fd3fd6460",
+      "prompt_path": "assets_src/ui/pearl_stage_v1/prompts/activity_chooser_pearl_stage_concept_v1.txt",
+      "prompt_sha256": "37f0b48ea7b3cb9dfe9c39331c690234e91ed11005dd2e1d057a05a4147720a8",
+      "proposed_action_rects_1280x720": {
+        "neutral_close_to_pause": [145, 80, 120, 120],
+        "critter_book_sample": [280, 235, 200, 210],
+        "sticker_book_sample": [515, 190, 250, 260],
+        "stuffie_sample": [800, 235, 210, 210],
+        "art_play_sample": [360, 485, 170, 170],
+        "music_play_sample": [750, 485, 170, 170]
+      },
+      "proposed_safe_area_1280x720": [64, 64, 1152, 592],
+      "minimum_edge_to_edge_separation_px": 35,
+      "mapping_notes": [
+        "Each medallion is one direct one-tap target; there is no separate confirmation action.",
+        "The seahorse is a sample Critter Book pictogram, not a new activity or accepted character identity.",
+        "The teddy is a generic sample Stuffie pictogram, not a protected friend depiction or accepted identity design.",
+        "The central star book is a sample Sticker Book pictogram and receives visual emphasis without requiring a confirm step.",
+        "The palette and music medallions demonstrate how other directly launched activities could share the family. Their depiction grants no new route, activity, narrative, or menu authority.",
+        "The upper-left pearl X is the single neutral return to the pause layer.",
+        "Exact spoken introduction, route inventory, target rectangles, focus feedback, and runtime behavior remain implementation decisions and acceptance gates."
+      ],
+      "references": [
+        {
+          "path": "assets_src/ui/pearl_stage_v1/concepts/pause_menu_pearl_stage_concept_v1.png",
+          "role": "same-family material, composition, hierarchy, and lighting anchor",
+          "dimensions": [1672, 941],
+          "sha256": "cb3dd0824943562ffc4d2eb9729dbbaf42fbd71d508421066950d8ffed427b3f"
+        },
+        {
+          "path": "assets/opera/worlds/backdrops/world_painter.png",
+          "role": "approved painted activity-world color and pictogram reference",
+          "dimensions": [1024, 576],
+          "sha256": "582276aa838559c392dcf64df6440e909e47d9aaafb38031f78b3208d0279d14"
+        },
+        {
+          "path": "assets/opera/worlds/backdrops/world_popstar.png",
+          "role": "approved painted activity-world light, color, and music reference",
+          "dimensions": [1024, 576],
+          "sha256": "d97a8a3dc10e6c3bb9c7f84facbb0fc3ba098e7cff3c786b5f1ba2106787a988"
+        }
+      ]
+    }
+  ]
+}

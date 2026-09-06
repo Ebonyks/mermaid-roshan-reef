@@ -1477,3 +1477,100 @@ scope drift, and missing tools to improve the guide. Reference-library entries
 retain source/build binding, what may vary, and each acceptance limit. Preserve
 historical evidence separately from current requirements and refresh affected
 planning links/facts after a scoped owner decision or implementation change.
+
+## 21. Roshan storybook UI: menus, arrows and teaching cues
+
+Owner direction, 2026-09-05: a consistent, slightly maximalist, bright and
+colorful cartoony interface with casually mixed shells, pearls, rainbows and
+related Roshan flourishes, taking rough inspiration from the opera-house worlds.
+Owner correction and world-congruence review, 2026-09-06: the treatment must fit
+the broader game world; the v1 jewel-like menus are not its reusable baseline.
+The [revised UI language](11_UI_PEARL_STAGE_LANGUAGE.md) supplies candidate
+tokens, component contracts and review packets. World form, material and
+hierarchy under `DL-VIS-01` through `DL-VIS-05` control UI embellishment. These
+rules do not certify existing screens or erase historical audit evidence.
+
+`DL-UI-VIS-01` — UI surfaces MUST have crafted storybook form: broad painted
+value bands, clean violet/navy contours, colored contact shadows and selective
+small highlights. Matte-to-satin painted surfaces are the default. Repeated
+gilded bevels, glass/gem action faces, reflective rims and resting radial glow
+fail world-material consistency even when rendered skillfully. Bare generic
+flat panels and photographic/PBR noise also fail; restraint must preserve
+specific illustrated form and bright, playful color.
+
+`DL-UI-VIS-02` — Slight maximalism MUST be judged across the whole visible
+screen, including background, panel, every control and feedback. Use at most one modest
+panel shell/pearl accent and at most one optional offset flourish for ordinary
+menus; secondary controls do not each receive a crown, pearl plinth, garland
+or rainbow frame. These are revision-2 design guardrails, not measured world
+statistics. Keep picture wells quiet and one dominant action. Decoration must
+not compete with targets, imply extra controls or obscure Roshan/contact points.
+Routine overlays retain recognizable host-world context, without inventing a
+full theatrical surround. Contextual celebrations require their own world-fit
+review and do not automatically inherit the rejected v1 images.
+
+`DL-UI-VIS-03` — Menus, return controls, selection markers, arrows and tutorial
+elements MUST share material, contour, palette-role and feedback contracts
+through the existing StorybookUI/theme family. Share the painted construction
+and behavior, not an identical ornamental crest on every component. Existing
+activity art supplies contextual variation. Matching other UI concepts alone
+does not establish consistency with the game world.
+
+`DL-UI-VIS-04` — Every required child choice MUST be identifiable through a
+picture and contextual cue without reading, with applicable voice and a live
+visual pointer. Preserve one-finger interaction, one neutral way back, save
+progress and existing routes. Resume, page navigation and leaving an activity
+must not share ambiguous arrow-only semantics. No punitive exit treatment.
+
+`DL-UI-VIS-05` — Review packets MUST list base-canvas target rectangles,
+separation and safe areas. Child targets meet `DL-UI-03`; ornaments ignore
+input, and hit regions must not overlap or steal world touches. Whole-screen
+phone-size inspection is required for concept review; actual device touch
+evidence remains independently required for runtime acceptance.
+
+`DL-UI-VIS-06` — Shared controls MUST supply visibly distinct rest, press,
+focus and selected states where applicable, without depending only on color,
+text or sparkles. Use simple inset/contact changes, a focus outline and one
+persistent selection marker; do not add crown/halo/plinth stacks to signal a
+state. Keep hit geometry stable during feedback and preserve
+`DL-UI-04`, `DL-UI-05` and `DL-AGE-07` cancellation/response behavior.
+
+`DL-UI-VIS-07` — Tutorial arrows MUST identify the current live actionable
+target using an unambiguous tip and uncluttered painted silhouette with a simple
+contour and shade band. Pearl chains, ribbon tails, crowns and gilded edging
+must not turn guidance into jewelry. Keep the target visible; remove stale
+pointers after transitions or success. Demonstration and
+idle animation never award progress, and narration replay uses the same UI
+family and child-size touch contract.
+
+`DL-UI-VIS-08` — Inventory existing reusable UI pieces and inspect non-UI
+world references under `DL-UI-VIS-11` before generation. V1 Pearl Stage images
+are historical rejected style comparisons, not revision-2 style anchors.
+Record the exact gap, reference roles, prompt, method and
+native candidate hashes. Preserve protected originals. Full-screen menu
+mockups are non-runtime review references; later delivery uses reusable art
+components with live Canvas controls, licensed assets and Mobile-safe textures.
+
+`DL-UI-VIS-09` — A reusable UI review MUST compare the candidate separately
+to the game world and to the shared UI family, at native and whole-screen
+phone-review size, and assign per-rule
+PASS/FAIL to available evidence and name missing states and tests. In this
+owner-directed production round Sol/Luna generate and Astra independently
+audits; root also applies the master criteria. An AI concept pass grants no
+owner approval, runtime 5/5 score, device/child evidence or master closure.
+
+`DL-UI-VIS-10` — Rollout acceptance MUST be bound to actual shared consumers,
+Godot 4.7.2-stable Mobile captures at supported aspects, typography expansion,
+input/voice/lifecycle/passive/save gates and target-device touch/performance.
+Retain `DL-QA-01` through `DL-QA-11` evidence boundaries. Historical menu
+upgrade counts and a new visual specification cannot substitute for this proof.
+
+`DL-UI-VIS-11` — World-congruence evidence MUST bind exact non-UI references
+from the host location, another indoor/career world and an outdoor world, with
+source/consumer role, hash and selection limits. Inspect complete compositions
+and relevant objects at comparable apparent scale. Compare painted material,
+contour, highlight treatment, ornament repetition, palette roles and quiet
+space. A matching motif, the most elaborate landmark crop, raw pixel-color
+average or inter-menu consistency cannot grant this PASS. Record observable
+mismatches; missing comparisons remain open. A written revision may pass a
+specification review but cannot pass ungenerated art, runtime or device gates.
