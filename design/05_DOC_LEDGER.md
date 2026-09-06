@@ -742,3 +742,9 @@ Kept as-is; noted so a future edit updates every copy.
 | `design/OPERA_TWO_ACT_PERFORMANCES_2026-09-05.md` | 🟣 | Local candidate for the three Opera Hall games only; mechanic and asset review, medal/token policy, pending integration and child/device gates. |
 
 | `design/CHAPTER2_LAWN_FINALE_DRAFT_2026-09-06.md` | 🟣 | `CANDIDATE` rough story and implemented alpha draft following the owner-selected lawn celebration, protection victory then cheating candle theft, and sincerely conflicted Prince. King identity is owner-confirmed V4; Prince identity is recovered from the approved Git history package. The owner-authorized V4 cutout and recovered thin Prince are implemented in the gameplay draft; final visual/device review and cinematic delivery remain open. It does not accept character pixels, cinematics, runtime integration, device performance, or release. |
+
+## Development audit contract — 2026-09-06
+
+| Document | State | Scope |
+|---|---|---|
+| `design/AUDIT_DEVELOPMENT_CONTRACT.md` | 🟢 | `BINDING_OPERATIONAL`; required reading, change traceability and evidence reporting under `DL-AUTH-05` through `DL-AUTH-07`; preserves existing security, owner and release precedence. |

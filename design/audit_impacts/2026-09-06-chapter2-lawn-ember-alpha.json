@@ -227,6 +227,11 @@
       "command": "Exact trusted-probe stage copied unchanged from scripts/ci.sh; GODOT=4.7.2.stable.official.ed1daf0bf",
       "result": "PASS",
       "evidence": "All 78 probe groups, including both configured touch modes, completed with exit 0 and no failure markers. .tmp/chapter2/trusted-probes-recheck.log SHA-256 e6a121e809c0dae0f9fd773d04eccf23c6cc83c13a80ca4184e3232ff06da1fb. Combined with preceding static/audit/import gates and focused Chapter 2 checks, all required local checks have passing evidence."
+    },
+    {
+      "command": "Reconcile origin/dev 7055d6769252f3db3f9436c509122e7575d2881a; document authority + development --base auto + 51 contract tests; merged probe_ui_system, probe_chapter2, probe_chapter2_lawn",
+      "result": "PASS",
+      "evidence": "All gates and three focused probes passed before merge commit. Ledger conflict preserves both chapter draft and upstream audit-contract entries. Upstream AGENTS.md/CLAUDE.md/workflow policy is inherited unchanged; no task-authored policy modification. Logs .tmp/chapter2/merge-checks/."
     }
   ],
   "acceptance_gaps": "Owner review of gameplay composition and synthetic narration, aspect-ratio/device performance and touch, child comprehension/pacing, green integrated dev APK; all nine clean cinematic first frames and external generation bindings, full-frame delivery provenance and human acceptance. Three arrival first-frame candidates are unaccepted for scale/costume/position drift. No whole-game audit satisfaction or cinematic acceptance claimed.",

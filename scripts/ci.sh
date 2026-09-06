@@ -66,6 +66,10 @@ python3 -m unittest tools.tests.test_audit_document_authority \
 	|| { echo "DOCUMENT AUTHORITY CONTRACT TEST FAIL"; exit 1; }
 python3 tools/audit_document_authority.py --stress \
 	|| { echo "DOCUMENT AUTHORITY SELF-TEST FAIL"; exit 1; }
+python3 -m unittest tools.tests.test_audit_development \
+	|| { echo "AUDIT DEVELOPMENT CONTRACT TEST FAIL"; exit 1; }
+python3 tools/audit_development.py --base auto \
+	|| { echo "AUDIT DEVELOPMENT COVERAGE FAIL"; exit 1; }
 python3 tools/audit_document_authority.py \
 	|| { echo "DOCUMENT AUTHORITY / CANONICAL FINDING FAIL"; exit 1; }
 python3 -m unittest tools.tests.test_audit_imagine_handoff \
