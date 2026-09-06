@@ -21,6 +21,7 @@ const DAY_ONE_POOL_CLEANUP := preload(
 const DAY_ONE_DUST_BUNNY_SWIMMER := preload(
 	"res://scripts/games/day_one_dust_bunny_swimmer.gd")
 const Affordance := preload("res://scripts/interaction_affordance.gd")
+const StageNavigation := preload("res://scripts/stage_navigation_2d.gd")
 const DoorLanguage := preload("res://scripts/castle_door_language.gd")
 const DoorCue := preload("res://scripts/castle_door_cue.gd")
 const CASTLE_FIXTURE_BLOOM_SHADER := preload(
@@ -335,7 +336,7 @@ const ROOM_LAYOUTS := {
 		],
 	},
 	"library": {
-		"walk": Rect2(175.0, 440.0, 930.0, 230.0), "mid_foot_y": 548.0,
+		"walk": Rect2(175.0, 390.0, 930.0, 280.0), "mid_foot_y": 548.0,
 		"mid": [],
 		"front": [
 			{"tex": "room_library_front_left.png", "pos": Vector2(0.0, 273.0)},
@@ -401,6 +402,75 @@ const ROOM_LAYOUTS := {
 		"mid": [],
 		"front": [],
 	},
+}
+
+# These lanes are measured in the 1280x720 stage after the approved 1024x576
+# room compositions are scaled by ART_TO_STAGE. They follow visible open floor
+# around the large foreground fixtures instead of treating the whole walk rect
+# as empty. Keep contacts on the network so every animated foot sample remains
+# on an authored floor segment.
+const ROOM_NAVIGATION_LANES := {
+	"bubble_bath": [
+		[Vector2(240.0, 570.0), Vector2(1040.0, 570.0)],
+		[Vector2(640.0, 650.0), Vector2(640.0, 510.0)],
+		[Vector2(390.0, 570.0), Vector2(390.0, 540.0)],
+		[Vector2(1010.0, 570.0), Vector2(1010.0, 550.0)],
+	],
+	"library": [
+		[Vector2(320.0, 640.0), Vector2(920.0, 640.0)],
+		[Vector2(400.0, 640.0), Vector2(400.0, 470.0),
+			Vector2(440.0, 400.0), Vector2(840.0, 400.0),
+			Vector2(880.0, 520.0), Vector2(880.0, 640.0)],
+		[Vector2(640.0, 640.0), Vector2(640.0, 590.0)],
+		[Vector2(400.0, 520.0), Vector2(320.0, 520.0)],
+		[Vector2(320.0, 640.0), Vector2(320.0, 620.0)],
+	],
+	"playroom": [
+		[Vector2(320.0, 650.0), Vector2(960.0, 650.0)],
+		[Vector2(640.0, 650.0), Vector2(640.0, 500.0)],
+		[Vector2(640.0, 590.0), Vector2(450.0, 590.0)],
+		[Vector2(640.0, 590.0), Vector2(850.0, 590.0)],
+	],
+}
+const ROOM_NAVIGATION_CONTACTS := {
+	"bubble_bath": {
+		"bathtub": Vector2(270.0, 570.0),
+		"rubber_duck": Vector2(390.0, 540.0),
+		"sink": Vector2(640.0, 510.0),
+		"toilet": Vector2(1010.0, 550.0),
+	},
+	"library": {
+		"magic_book": Vector2(640.0, 400.0),
+		"pearl_table": Vector2(640.0, 590.0),
+		"pearl_lamp": Vector2(320.0, 520.0),
+		"book_stack": Vector2(280.0, 620.0),
+	},
+	"playroom": {
+		"stuffie_nook": Vector2(640.0, 500.0),
+		"stacking_toy": Vector2(450.0, 590.0),
+		"blocks": Vector2(850.0, 590.0),
+		"play_tent": Vector2(450.0, 590.0),
+	},
+}
+const ROOM_NAVIGATION_BLOCKERS := {
+	"bubble_bath": [
+		{"id": "bathtub", "rect": Rect2(70.0, 170.0, 400.0, 300.0)},
+		{"id": "sink", "rect": Rect2(500.0, 160.0, 290.0, 320.0)},
+		{"id": "toilet", "rect": Rect2(930.0, 160.0, 300.0, 320.0)},
+	],
+	"library": [
+		{"id": "left_seat", "rect": Rect2(0.0, 350.0, 310.0, 320.0)},
+		{"id": "reading_table", "rect": Rect2(500.0, 425.0, 280.0, 155.0)},
+		{"id": "right_seat", "rect": Rect2(930.0, 350.0, 350.0, 320.0)},
+	],
+	"playroom": [
+		{"id": "left_bin", "rect": Rect2(0.0, 420.0, 300.0, 230.0)},
+		{"id": "play_tent", "rect": Rect2(100.0, 330.0, 230.0, 210.0)},
+		{"id": "stacking_toy", "rect": Rect2(270.0, 390.0, 170.0, 190.0)},
+		{"id": "stuffie_nook", "rect": Rect2(480.0, 210.0, 320.0, 240.0)},
+		{"id": "blocks", "rect": Rect2(780.0, 420.0, 200.0, 160.0)},
+		{"id": "right_bin", "rect": Rect2(980.0, 420.0, 300.0, 230.0)},
+	],
 }
 const ROOM_ITEMS := {
 	"opera_hall": [
@@ -833,6 +903,16 @@ var fridge_close_input_blocker: Control = null
 var _room_build_generation := 0
 var _movement_tween: Tween = null
 var _movement_generation := 0
+var _pending_item_action := ""
+var _room_navigation: StageNavigation = null
+var _pending_walk_route := PackedVector2Array()
+var _pending_walk_index := -1
+var _pending_portal_id := ""
+var _pending_portal_foot := Vector2.ZERO
+var _pointer_down := false
+var _pointer_start := Vector2.ZERO
+var _pointer_dragged := false
+var _owned_touch_index := -1
 var _room_transition_tween: Tween = null
 var _room_transition_generation := 0
 var _composition_transition_tween: Tween = null
@@ -1046,6 +1126,7 @@ func resume(room_id: String = "") -> void:
 		show_room(room_id, false)
 
 func suspend() -> void:
+	_reset_pointer_gesture()
 	_invalidate_royal_hall_arrival()
 	_close_kitchen_menu()
 	_set_fridge_close_blocked(false)
@@ -1081,6 +1162,7 @@ func cancel_kitchen_recipe() -> void:
 	resume("kitchen")
 
 func close() -> void:
+	_reset_pointer_gesture()
 	m._navigation_remove("pearl_castle")
 	m._day_one_clear_castle_dressing()
 	_clear_day_one_pool_cleanup()
@@ -1783,6 +1865,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	_clear_day_one_pool_cleanup()
 	_clear_day_one_persistent_rumi()
 	_clear_day_one_bathtub_swimmer()
+	_reset_pointer_gesture()
 	_cancel_room_transition()
 	_cancel_player_motion()
 	_begin_composition_transition()
@@ -1827,6 +1910,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	m.castle_room_stage.set_meta("room_tiles_ready", room_tiles_ready)
 	_rebuild_depth_layers(room_id)
 	_rebuild_touch_items(room_id)
+	_configure_room_navigation(room_id)
 	if m.day_one_castle_room_is_clean(room_id):
 		apply_day_one_cleanup(room_id)
 	_rebuild_room_links(room_id)
@@ -2135,11 +2219,20 @@ func _on_day_one_pool_reveal_completed() -> void:
 
 func _cancel_player_motion() -> void:
 	_movement_generation += 1
+	_pending_item_action = ""
+	_pending_walk_route = PackedVector2Array()
+	_pending_walk_index = -1
+	_pending_portal_id = ""
+	_pending_portal_foot = Vector2.ZERO
 	if _movement_tween != null and is_instance_valid(_movement_tween):
 		_movement_tween.kill()
 	_movement_tween = null
 	if m.castle_room_player_sprite != null \
 			and is_instance_valid(m.castle_room_player_sprite):
+		var current_foot: Vector2 = m.castle_room_player_sprite.get_meta(
+			"current_stage_foot", m.castle_room_player_sprite.get_meta(
+				"stage_foot", Vector2.ZERO)) as Vector2
+		m.castle_room_player_sprite.set_meta("stage_foot", current_foot)
 		m.castle_room_player_sprite.set_meta("walking", false)
 
 
@@ -2223,12 +2316,124 @@ func _finish_composition_transition(generation: int) -> void:
 func _on_room_input(event: InputEvent) -> void:
 	if _fridge_close_is_blocked():
 		return
-	if event is InputEventMouseButton and (event as InputEventMouseButton).pressed:
-		_walk_cutout_to((event as InputEventMouseButton).position)
-	elif event is InputEventScreenTouch and (event as InputEventScreenTouch).pressed:
-		_walk_cutout_to((event as InputEventScreenTouch).position)
+	if event is InputEventMouseButton:
+		if _owned_touch_index >= 0:
+			return
+		var mouse_button := event as InputEventMouseButton
+		if mouse_button.button_index != MOUSE_BUTTON_LEFT:
+			return
+		if mouse_button.pressed:
+			_pointer_down = true
+			_pointer_start = mouse_button.position
+			_pointer_dragged = false
+			_walk_cutout_to(mouse_button.position, false)
+		elif _pointer_down:
+			var was_dragged := _pointer_dragged \
+				or mouse_button.position.distance_to(_pointer_start) >= 18.0
+			_reset_pointer_gesture()
+			if _dispatch_release_target(mouse_button.position):
+				return
+			if was_dragged:
+				_walk_cutout_to(mouse_button.position)
+	elif event is InputEventMouseMotion and _pointer_down \
+			and _owned_touch_index < 0:
+		var mouse_motion := event as InputEventMouseMotion
+		if (mouse_motion.button_mask & MOUSE_BUTTON_MASK_LEFT) != 0:
+			_pointer_dragged = _pointer_dragged \
+				or mouse_motion.position.distance_to(_pointer_start) >= 18.0
+	elif event is InputEventScreenTouch:
+		var screen_touch := event as InputEventScreenTouch
+		if screen_touch.pressed:
+			if _owned_touch_index >= 0 \
+					and screen_touch.index != _owned_touch_index:
+				return
+			_owned_touch_index = screen_touch.index
+			_pointer_down = true
+			_pointer_start = screen_touch.position
+			_pointer_dragged = false
+			_walk_cutout_to(screen_touch.position, false)
+		elif screen_touch.index == _owned_touch_index:
+			if screen_touch.canceled:
+				_reset_pointer_gesture()
+				_cancel_player_motion()
+				return
+			var was_dragged := _pointer_dragged \
+				or screen_touch.position.distance_to(_pointer_start) >= 18.0
+			_reset_pointer_gesture()
+			if _dispatch_release_target(screen_touch.position):
+				return
+			if was_dragged:
+				_walk_cutout_to(screen_touch.position)
+	elif event is InputEventScreenDrag and _pointer_down:
+		var screen_drag := event as InputEventScreenDrag
+		if screen_drag.index == _owned_touch_index:
+			_pointer_dragged = _pointer_dragged \
+				or screen_drag.position.distance_to(_pointer_start) >= 18.0
 
-func _walk_cutout_to(screen_position: Vector2) -> void:
+
+func _reset_pointer_gesture() -> void:
+	_pointer_down = false
+	_pointer_start = Vector2.ZERO
+	_pointer_dragged = false
+	_owned_touch_index = -1
+
+
+func _dispatch_release_target(screen_position: Vector2) -> bool:
+	# A child Button receives ordinary taps directly. This path covers the
+	# equally important gesture that begins on open floor and releases over a
+	# physical prop or door, using the same live hit rectangles and callbacks.
+	var local_position := _screen_to_stage(screen_position)
+	if not Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE).has_point(
+			local_position):
+		return false
+	var item_id := _room_item_at_stage_position(local_position)
+	if item_id != "":
+		_request_room_item(item_id)
+		return true
+	if m.castle_room_link_layer != null \
+			and m.castle_room_link_layer.visible:
+		for child_index: int in range(
+				m.castle_room_link_layer.get_child_count() - 1, -1, -1):
+			var link := m.castle_room_link_layer.get_child(
+				child_index) as Button
+			if link != null and link.visible and not link.disabled \
+					and Rect2(link.position, link.size).has_point(local_position):
+				link.pressed.emit()
+				return true
+	if _is_wide_hall():
+		var portal := _hall_portal_at_screen_position(screen_position)
+		if not portal.is_empty():
+			_enter_hall_portal(String(portal.get("id", "")),
+				portal.get("foot", Vector2.ZERO) as Vector2)
+			return true
+	return false
+
+
+func _room_item_at_stage_position(stage_position: Vector2) -> String:
+	var best_id := ""
+	var best_z := -INF
+	var best_order := -1
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var record: Dictionary = m.castle_room_item_sprites[
+			item_id_value] as Dictionary
+		var hotspot: Button = record.get("hotspot") as Button
+		var sprite: Sprite2D = record.get("sprite") as Sprite2D
+		if hotspot == null or sprite == null or not hotspot.visible \
+				or hotspot.disabled or not sprite.visible \
+				or not Rect2(hotspot.position, hotspot.size).has_point(
+					stage_position):
+			continue
+		var sprite_z := float(sprite.z_index)
+		var sprite_order := sprite.get_index()
+		if sprite_z > best_z or (is_equal_approx(sprite_z, best_z) \
+				and sprite_order > best_order):
+			best_id = String(item_id_value)
+			best_z = sprite_z
+			best_order = sprite_order
+	return best_id
+
+func _walk_cutout_to(screen_position: Vector2,
+		allow_portal_activation: bool = true) -> void:
 	if m.castle_room_player_sprite == null:
 		return
 	_invalidate_royal_hall_arrival()
@@ -2246,12 +2451,19 @@ func _walk_cutout_to(screen_position: Vector2) -> void:
 	if not Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE).has_point(local_position):
 		return
 	if _is_wide_hall():
+		if allow_portal_activation:
+			var portal: Dictionary = _hall_portal_at_screen_position(
+				screen_position)
+			if not portal.is_empty():
+				_enter_hall_portal(String(portal.get("id", "")),
+					portal.get("foot", Vector2.ZERO) as Vector2)
+				return
 		var hall_position: Vector2 = _stage_to_hall_art(local_position)
 		var hall_foot := Vector2(
 			clampf(hall_position.x, HALL_WALK.position.x, HALL_WALK.end.x),
 			clampf(hall_position.y, HALL_WALK.position.y, HALL_WALK.end.y))
 		_cancel_room_transition()
-		_position_player_at_foot(hall_foot, true)
+		_begin_room_route(hall_foot)
 		return
 	var layout: Dictionary = ROOM_LAYOUTS.get(m.castle_room_id, {})
 	var walk: Rect2 = layout.get("walk", Rect2(170.0, 450.0, 940.0, 215.0))
@@ -2259,7 +2471,230 @@ func _walk_cutout_to(screen_position: Vector2) -> void:
 		clampf(local_position.x, walk.position.x, walk.end.x),
 		clampf(local_position.y, walk.position.y, walk.end.y))
 	_cancel_room_transition()
-	_position_player_at_foot(walk_foot, true)
+	_begin_room_route(walk_foot)
+
+
+func _hall_portal_at_screen_position(screen_position: Vector2) -> Dictionary:
+	if not _is_wide_hall():
+		return {}
+	var hall_position: Vector2 = _stage_to_hall_art(
+		_screen_to_stage(screen_position))
+	for portal: Dictionary in HALL_PORTALS:
+		var door_rect: Rect2 = portal.get("rect", Rect2()) as Rect2
+		if door_rect.grow(18.0).has_point(hall_position):
+			return portal
+	return {}
+
+
+func _configure_room_navigation(room_id: String) -> void:
+	_room_navigation = StageNavigation.new()
+	var lanes: Array[PackedVector2Array] = []
+	var walk: Rect2 = HALL_WALK if room_id == "main_hall" \
+		else ROOM_LAYOUTS.get(room_id, {}).get(
+			"walk", Rect2(170.0, 450.0, 940.0, 215.0))
+	var authored_lanes: Array = ROOM_NAVIGATION_LANES.get(room_id, []) as Array
+	if not authored_lanes.is_empty():
+		for authored_lane_value: Variant in authored_lanes:
+			var authored_lane: Array = authored_lane_value as Array
+			lanes.append(PackedVector2Array(authored_lane))
+	else:
+		var spine_y := walk.get_center().y
+		lanes.append(PackedVector2Array([
+			Vector2(walk.position.x, spine_y), Vector2(walk.end.x, spine_y)]))
+		for record_value: Variant in m.castle_room_item_sprites.values():
+			var record: Dictionary = record_value as Dictionary
+			var item_data: Dictionary = record.get("data", {}) as Dictionary
+			var contact: Vector2 = item_data.get("roleplay_foot",
+				record.get("contact_foot", Vector2(
+					walk.get_center().x, walk.end.y))) as Vector2
+			contact.x = clampf(contact.x, walk.position.x, walk.end.x)
+			contact.y = clampf(contact.y, walk.position.y, walk.end.y)
+			if absf(contact.y - spine_y) > 1.0:
+				lanes.append(PackedVector2Array([
+					Vector2(contact.x, spine_y), contact]))
+	if room_id == "main_hall":
+		for portal_value: Dictionary in HALL_PORTALS:
+			var foot: Vector2 = portal_value.get("foot", Vector2.ZERO) as Vector2
+			foot.y = clampf(foot.y, HALL_WALK.position.y, HALL_WALK.end.y)
+			lanes.append(PackedVector2Array([
+				Vector2(foot.x, walk.get_center().y), foot]))
+	_room_navigation.configure(lanes)
+	var authored_contacts: Dictionary = ROOM_NAVIGATION_CONTACTS.get(
+		room_id, {}) as Dictionary
+	for item_id_value: Variant in m.castle_room_item_sprites.keys():
+		var item_id := String(item_id_value)
+		var record: Dictionary = m.castle_room_item_sprites[item_id] as Dictionary
+		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		var contact: Vector2 = authored_contacts.get(item_id,
+			item_data.get("roleplay_foot", record.get("contact_foot",
+				walk.get_center()))) as Vector2
+		contact.x = clampf(contact.x, walk.position.x, walk.end.x)
+		contact.y = clampf(contact.y, walk.position.y, walk.end.y)
+		record["route_contact"] = _room_navigation.nearest_point(contact)
+	m.castle_room_stage.set_meta("navigation_room_id", room_id)
+	m.castle_room_stage.set_meta("navigation_authored_lanes",
+		not authored_lanes.is_empty())
+
+
+func _begin_room_route(target: Vector2, pending_item: String = "") -> void:
+	if _room_navigation == null or m.castle_room_player_sprite == null:
+		return
+	_cancel_player_motion()
+	var current: Vector2 = m.castle_room_player_sprite.get_meta(
+		"current_stage_foot", target) as Vector2
+	var start := _room_navigation.nearest_point(current)
+	var finish := _room_navigation.nearest_point(target)
+	if current.distance_to(start) > StageNavigation.EPSILON:
+		_position_player_at_foot(start, false, false)
+	if start.distance_to(finish) <= 1.0:
+		if pending_item != "":
+			_activate_room_item(pending_item)
+		return
+	var route := _room_navigation.route(start, finish)
+	if route.size() < 2:
+		return
+	var full_route := PackedVector2Array()
+	for point: Vector2 in route:
+		if full_route.is_empty() \
+				or full_route[full_route.size() - 1].distance_to(point) > 0.05:
+			full_route.append(point)
+	if full_route.size() < 2:
+		if pending_item != "":
+			_activate_room_item(pending_item)
+		return
+	_pending_walk_route = full_route
+	_pending_walk_index = 0
+	_pending_item_action = pending_item
+	m.castle_room_player_sprite.set_meta("walk_samples", [start])
+	_start_next_route_segment()
+
+
+func _start_next_route_segment() -> void:
+	if _pending_walk_index < 0 \
+			or _pending_walk_index >= _pending_walk_route.size() - 1:
+		return
+	_pending_walk_index += 1
+	_position_player_at_foot(
+		_pending_walk_route[_pending_walk_index], true, false)
+
+
+## Read-only reproduction seam for audits and review atlases. It deliberately
+## returns values and source references rather than live nodes, so exporters
+## cannot mutate the room while drawing lane and out-of-bounds overlays.
+func navigation_snapshot() -> Dictionary:
+	var lanes: Array[PackedVector2Array] = []
+	if _room_navigation != null:
+		for lane: PackedVector2Array in _room_navigation.branches:
+			lanes.append(lane.duplicate())
+	var items: Array[Dictionary] = []
+	for item_id_value: Variant in m.castle_room_item_sprites.keys():
+		var item_id := String(item_id_value)
+		var record: Dictionary = m.castle_room_item_sprites[item_id] as Dictionary
+		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		var sprite: Sprite2D = record.get("sprite") as Sprite2D
+		var texture_size := sprite.texture.get_size() \
+			if sprite != null and sprite.texture != null else Vector2.ZERO
+		var frame_size := Vector2(
+			texture_size.x / float(maxi(1, sprite.hframes)),
+			texture_size.y / float(maxi(1, sprite.vframes))) \
+			if sprite != null else Vector2.ZERO
+		var frame_coords := sprite.frame_coords \
+			if sprite != null else Vector2i.ZERO
+		items.append({
+			"id": item_id,
+			"source_position": item_data.get("pos", Vector2.ZERO),
+			"source_art_rect": record.get("art_rect", Rect2()),
+			"render_art_rect": record.get("render_art_rect", Rect2()),
+			"full_render_art_rect": record.get(
+				"full_render_art_rect", record.get("render_art_rect", Rect2())),
+			"contact_foot": record.get("contact_foot", Vector2.ZERO),
+			"route_contact": record.get("route_contact", Vector2.ZERO),
+			"texture_path": sprite.texture.resource_path \
+				if sprite != null and sprite.texture != null else "",
+			"native_texture_size": texture_size,
+			"atlas_frame_rect": Rect2(
+				Vector2(frame_coords) * frame_size, frame_size),
+			"hframes": sprite.hframes if sprite != null else 1,
+			"vframes": sprite.vframes if sprite != null else 1,
+			"frame": sprite.frame if sprite != null else 0,
+			"frame_coords": frame_coords,
+			"flip_h": sprite.flip_h if sprite != null else false,
+			"visible": sprite.visible if sprite != null else false,
+			"z_index": sprite.z_index if sprite != null else 0,
+			"draw_order": sprite.get_index() if sprite != null else -1,
+		})
+	items.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		var a_z := int(a.get("z_index", 0))
+		var b_z := int(b.get("z_index", 0))
+		if a_z != b_z:
+			return a_z < b_z
+		var a_order := int(a.get("draw_order", -1))
+		var b_order := int(b.get("draw_order", -1))
+		if a_order != b_order:
+			return a_order < b_order
+		return String(a.get("id", "")) < String(b.get("id", "")))
+	var backgrounds: Array[Dictionary] = []
+	var background_nodes: Array = m.castle_room_background_tiles \
+		if _is_wide_hall() else m.castle_room_detail_tiles
+	for tile_value: Variant in background_nodes:
+		var tile := tile_value as Sprite2D
+		if tile == null:
+			continue
+		backgrounds.append({
+			"texture_path": tile.texture.resource_path \
+				if tile.texture != null else "",
+			"source_art_rect": tile.get_meta("source_art_rect", Rect2()),
+			"render_art_rect": tile.get_meta("render_art_rect",
+				tile.get_meta("source_art_rect", Rect2())),
+			"source_master_grid": tile.get_meta(
+				"source_master_grid", Vector2i.ZERO),
+			"source_master_rect": tile.get_meta(
+				"source_master_rect", Rect2()),
+			"source_screen_rect": tile.get_meta(
+				"source_screen_rect", Rect2()),
+			"source_screen_id": tile.get_meta("source_screen_id", ""),
+			"native_texture_size": tile.get_meta(
+				"native_texture_size", Vector2.ZERO),
+			"runtime_seam_overlap_pixels": tile.get_meta(
+				"runtime_seam_overlap_pixels", Vector2i.ZERO),
+			"runtime_seam_bleed_pixels": tile.get_meta(
+				"runtime_seam_bleed_pixels", Vector2i.ZERO),
+		})
+	if backgrounds.is_empty() and m.castle_room_background != null \
+			and m.castle_room_background.texture != null:
+		backgrounds.append({
+			"texture_path": m.castle_room_background.texture.resource_path,
+			"source_art_rect": Rect2(Vector2.ZERO, ART_SIZE),
+			"render_art_rect": Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE),
+			"source_master_grid": Vector2i.ONE,
+		})
+	backgrounds.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		return String(a.get("texture_path", "")) \
+			< String(b.get("texture_path", "")))
+	var layout: Dictionary = ROOM_LAYOUTS.get(m.castle_room_id, {}) as Dictionary
+	return {
+		"room_id": m.castle_room_id,
+		"stage_bounds": Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE),
+		"navigation_coordinate_space": "hall_art" \
+			if _is_wide_hall() else "stage",
+		"art_coordinate_space": "hall_art" \
+			if _is_wide_hall() else "room_art",
+		"art_to_stage_scale": HALL_STAGE_SCALE \
+			if _is_wide_hall() else ART_TO_STAGE,
+		"art_view_left": _hall_view_left_art if _is_wide_hall() else 0.0,
+		"art_logical_size": HALL_LOGICAL_SIZE \
+			if _is_wide_hall() else ART_SIZE,
+		"walk_bounds": HALL_WALK if _is_wide_hall() \
+			else layout.get("walk", Rect2()),
+		"authored_lanes": bool(m.castle_room_stage.get_meta(
+			"navigation_authored_lanes", false)) \
+			if m.castle_room_stage != null else false,
+		"lanes": lanes,
+		"body_footprints": (ROOM_NAVIGATION_BLOCKERS.get(
+			m.castle_room_id, []) as Array).duplicate(true),
+		"items": items,
+		"backgrounds": backgrounds,
+	}
 
 # The probe-proven card picker, kept verbatim below but returning the picked
 # bunny's id; the foot variant wraps it for the walking route and the probes.
@@ -2298,10 +2733,12 @@ func _dust_bunny_id_from_camera_ray(screen_position: Vector2) -> String:
 			nearest_id = String(item_id_value)
 	return nearest_id
 
-func _position_player_at_foot(foot: Vector2, tweened: bool) -> void:
+func _position_player_at_foot(foot: Vector2, tweened: bool,
+		cancel_existing: bool = true) -> void:
 	if m.castle_room_player_sprite == null:
 		return
-	_cancel_player_motion()
+	if cancel_existing:
+		_cancel_player_motion()
 	var movement_generation := _movement_generation
 	if _is_wide_hall():
 		_position_hall_player_at_foot(foot, tweened, movement_generation)
@@ -2317,18 +2754,16 @@ func _position_player_at_foot(foot: Vector2, tweened: bool) -> void:
 	var target_position: Vector2 = _stage_to_world(player_center, player_z)
 	var texture_scale: float = _player_texture_scale()
 	var target_sprite_scale := Vector2.ONE * texture_scale * target_scale
-	var old_foot: Vector2 = m.castle_room_player_sprite.get_meta(
-		"stage_foot", foot) as Vector2
 	var current_foot: Vector2 = m.castle_room_player_sprite.get_meta(
-		"current_stage_foot", old_foot) as Vector2
-	var going_right: bool = foot.x >= old_foot.x
+		"current_stage_foot", foot) as Vector2
+	var going_right: bool = foot.x >= current_foot.x
 	m.castle_room_player_sprite.flip_h = not going_right
 	var shadow: Sprite2D = _player_shadow()
 	var shadow_z: float = player_z - 0.04
 	var shadow_position: Vector2 = _stage_to_world(
 		Vector2(foot.x, foot.y - 7.0), shadow_z)
 	var shadow_scale := _shadow_scale(target_scale)
-	var distance: float = old_foot.distance_to(foot)
+	var distance: float = current_foot.distance_to(foot)
 	var duration: float = clampf(distance / 520.0, 0.12, 0.85)
 	m.castle_room_player_sprite.set_meta("stage_foot", foot)
 	m.castle_room_player_sprite.set_meta("depth_ratio", depth)
@@ -2377,17 +2812,15 @@ func _position_hall_player_at_foot(foot: Vector2, tweened: bool,
 		player_center, player_z)
 	var texture_scale: float = _player_texture_scale()
 	var target_sprite_scale := Vector2.ONE * texture_scale * target_scale
-	var old_foot: Vector2 = m.castle_room_player_sprite.get_meta(
-		"stage_foot", foot) as Vector2
 	var current_foot: Vector2 = m.castle_room_player_sprite.get_meta(
-		"current_stage_foot", old_foot) as Vector2
-	m.castle_room_player_sprite.flip_h = foot.x < old_foot.x
+		"current_stage_foot", foot) as Vector2
+	m.castle_room_player_sprite.flip_h = foot.x < current_foot.x
 	var shadow: Sprite2D = _player_shadow()
 	var shadow_z: float = player_z - 0.04
 	var shadow_position: Vector2 = _hall_art_to_world(
 		Vector2(foot.x, foot.y - 7.0 / HALL_STAGE_SCALE), shadow_z)
 	var shadow_scale := _shadow_scale(target_scale)
-	var distance_stage: float = old_foot.distance_to(foot) * HALL_STAGE_SCALE
+	var distance_stage: float = current_foot.distance_to(foot) * HALL_STAGE_SCALE
 	var duration: float = clampf(distance_stage / 520.0, 0.12, 1.05)
 	m.castle_room_player_sprite.set_meta("stage_foot", foot)
 	m.castle_room_player_sprite.set_meta("depth_ratio", depth)
@@ -2434,6 +2867,8 @@ func _center_player() -> void:
 		m.castle_room_player_sprite.flip_h = false
 		var foot: Vector2 = _day_one_hall_spawn_foot() \
 			if m.day_one_is_active() else Vector2(380.0, 835.0)
+		if _room_navigation != null:
+			foot = _room_navigation.nearest_point(foot)
 		_position_hall_player_at_foot(foot, false)
 		if m.day_one_is_active():
 			_hall_view_left_art = clampf(
@@ -2445,6 +2880,8 @@ func _center_player() -> void:
 	var layout: Dictionary = ROOM_LAYOUTS.get(m.castle_room_id, {})
 	var walk: Rect2 = layout.get("walk", Rect2(170.0, 450.0, 940.0, 215.0))
 	var foot := Vector2(walk.get_center().x, walk.end.y - 20.0)
+	if _room_navigation != null:
+		foot = _room_navigation.nearest_point(foot)
 	m.castle_room_player_sprite.flip_h = false
 	_position_player_at_foot(foot, false)
 
@@ -2950,7 +3387,7 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		hotspot.size = item_data.get(
 			"hotspot_size", Vector2(112.0, 112.0)) * hotspot_scale
 		hotspot.self_modulate = Color(1.0, 1.0, 1.0, 0.0)
-		hotspot.pressed.connect(_activate_room_item.bind(item_id))
+		hotspot.pressed.connect(_request_room_item.bind(item_id))
 		m.castle_room_item_hotspot_layer.add_child(hotspot)
 	var contact_offset: Vector2 = item_data.get(
 		"contact_offset", Vector2.ZERO) as Vector2
@@ -2991,6 +3428,9 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		placement_center + (visible_frame_rect.position
 			- frame_size * 0.5) * visual_scale,
 		visible_frame_rect.size * visual_scale)
+	var full_rendered_art_rect := Rect2(
+		placement_center - frame_size * visual_scale * 0.5,
+		frame_size * visual_scale)
 	var authored_hotspot_size: Vector2 = item_data.get(
 		"hotspot_size", reference_size) as Vector2
 	var authored_hotspot_offset: Vector2 = item_data.get(
@@ -3035,6 +3475,7 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		"art_rect": Rect2(
 			visual_center - visual_size * 0.5, visual_size),
 		"render_art_rect": rendered_art_rect,
+		"full_render_art_rect": full_rendered_art_rect,
 	}
 	var stored_record: Dictionary = m.castle_room_item_sprites[item_id]
 	var rig_to_world: Callable = Callable(self, "_art_to_world")
@@ -3116,6 +3557,27 @@ func _activate_room_item(item_id: String,
 		m.castle_room_id == "kitchen" and item_id == "fridge")
 
 
+func _request_room_item(item_id: String) -> void:
+	# A prop tap requests an approach. The existing action callback fires only
+	# after Roshan reaches the authored contact socket, so taps and drags share
+	# one reachable path without changing any minigame implementation.
+	if _fridge_close_is_blocked():
+		return
+	var record: Dictionary = m.castle_room_item_sprites.get(item_id, {})
+	if record.is_empty() or m.castle_room_player_sprite == null:
+		return
+	var target: Vector2 = record.get("route_contact",
+		record.get("contact_foot", Vector2.ZERO)) as Vector2
+	_begin_room_route(target, item_id)
+
+
+func _reachable_item_foot(item_id: String, fallback: Vector2) -> Vector2:
+	var record: Dictionary = m.castle_room_item_sprites.get(item_id, {})
+	if record.is_empty():
+		return fallback
+	return record.get("route_contact", fallback) as Vector2
+
+
 func play_day_one_art_station(item_id: String) -> bool:
 	# Day One's seven cleanup taps may animate the accepted craft-room fixtures,
 	# but they must not inherit the post-Day-One logo-studio launch hook from the
@@ -3153,9 +3615,19 @@ func activate_chapter2_plot_prop(room_id: String, item_id: String) -> bool:
 
 func _activate_roleplay_item(roleplay_action: String, item_id: String,
 		sprite: Sprite2D, item_data: Dictionary) -> void:
+	if item_data.has("roleplay_foot") and m.castle_room_player_sprite != null:
+		var authored_roleplay_foot: Vector2 = item_data.get(
+			"roleplay_foot", Vector2.ZERO) as Vector2
+		var roleplay_foot := _reachable_item_foot(
+			item_id, authored_roleplay_foot)
+		var current_foot: Vector2 = m.castle_room_player_sprite.get_meta(
+			"current_stage_foot", Vector2.INF) as Vector2
+		if current_foot.distance_to(roleplay_foot) > 1.0:
+			_begin_room_route(roleplay_foot, item_id)
+			return
 	match roleplay_action:
 		"enter_room":
-			_enter_gallery_room(sprite, item_data)
+			_enter_gallery_room(item_id, sprite, item_data)
 		"serve_meal":
 			_serve_dining_meal(sprite, item_data)
 		"eat_meal":
@@ -3174,13 +3646,22 @@ func _activate_roleplay_item(roleplay_action: String, item_id: String,
 			push_warning("Unknown castle role-play action: %s (%s)" % [
 				roleplay_action, item_id])
 
-func _enter_gallery_room(sprite: Sprite2D,
+func _enter_gallery_room(item_id: String, sprite: Sprite2D,
 		item_data: Dictionary) -> void:
 	if sprite == null or not is_instance_valid(sprite) \
 			or bool(sprite.get_meta("busy", false)):
 		return
 	var destination: String = String(item_data.get("room_destination", ""))
 	if _room(destination).is_empty():
+		return
+	var authored_roleplay_foot: Vector2 = item_data.get(
+		"roleplay_foot", Vector2(640.0, 620.0)) as Vector2
+	var roleplay_foot := _reachable_item_foot(
+		item_id, authored_roleplay_foot)
+	var current_foot: Vector2 = m.castle_room_player_sprite.get_meta(
+		"current_stage_foot", Vector2.INF) as Vector2
+	if current_foot.distance_to(roleplay_foot) > 1.0:
+		_begin_room_route(roleplay_foot, item_id)
 		return
 	sprite.set_meta("busy", true)
 	for hotspot_node: Node in m.castle_room_item_hotspot_layer.get_children():
@@ -3189,19 +3670,11 @@ func _enter_gallery_room(sprite: Sprite2D,
 			door_hotspot.disabled = true
 	_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
 		float(item_data.get("pitch", 1.0)))
-	var roleplay_foot: Vector2 = item_data.get(
-		"roleplay_foot", Vector2(640.0, 620.0)) as Vector2
-	var old_foot: Vector2 = m.castle_room_player_sprite.get_meta(
-		"stage_foot", roleplay_foot) as Vector2
-	var duration: float = clampf(
-		old_foot.distance_to(roleplay_foot) / 520.0,
-		0.12, 0.85)
 	var transition_generation := _begin_room_transition()
-	_position_player_at_foot(roleplay_foot, true)
 	_item_burst(sprite.position,
 		Color(item_data.get("color", StorybookUI.GOLD)), 8)
 	_room_transition_tween = m.create_tween()
-	_room_transition_tween.tween_interval(duration + 0.04)
+	_room_transition_tween.tween_interval(0.04)
 	_room_transition_tween.tween_callback(
 		_finish_gallery_room_transition.bind(
 			destination, transition_generation))
@@ -3289,9 +3762,6 @@ func _eat_dining_meal(sprite: Sprite2D,
 		return
 	plate_count -= 1
 	m.g["castle_dining_plates"] = plate_count
-	var roleplay_foot: Vector2 = item_data.get(
-		"roleplay_foot", Vector2(512.0, 555.0)) as Vector2
-	_position_player_at_foot(roleplay_foot, true)
 	if sprite != null and is_instance_valid(sprite):
 		sprite.set_meta("busy", true)
 		sprite.set_meta("roleplay_state_count", 4)
@@ -3369,9 +3839,6 @@ func _start_roleplay_sleep(sprite: Sprite2D,
 	sprite.set_meta("busy", true)
 	_play_item_sfx(String(item_data.get("sound", "chime.ogg")),
 		float(item_data.get("pitch", 0.84)))
-	var roleplay_foot: Vector2 = item_data.get(
-		"roleplay_foot", Vector2(512.0, 555.0)) as Vector2
-	_position_player_at_foot(roleplay_foot, true)
 	m._set_world_controls_enabled(false, "castle_roleplay_sleep")
 	m.show_msg("Roshan",
 		"Cosy bedtime in the dream house... zzz.", "talk")
@@ -3509,9 +3976,6 @@ func _finish_home_movie_crossfade(picture: Sprite2D) -> void:
 
 func _relax_on_furniture(sprite: Sprite2D,
 		item_data: Dictionary) -> void:
-	var roleplay_foot: Vector2 = item_data.get(
-		"roleplay_foot", Vector2(512.0, 555.0)) as Vector2
-	_position_player_at_foot(roleplay_foot, true)
 	_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
 		float(item_data.get("pitch", 1.0)))
 	if sprite != null and is_instance_valid(sprite):
@@ -4174,6 +4638,10 @@ func _set_player_current_foot(foot: Vector2) -> void:
 	if m.castle_room_player_sprite != null \
 			and is_instance_valid(m.castle_room_player_sprite):
 		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
+		var samples: Array = m.castle_room_player_sprite.get_meta(
+			"walk_samples", []) as Array
+		samples.append(foot)
+		m.castle_room_player_sprite.set_meta("walk_samples", samples)
 		sync_castle_companion_card()
 
 
@@ -4187,6 +4655,23 @@ func _finish_player_walk(generation: int = -1) -> void:
 			"stage_foot", Vector2.ZERO) as Vector2
 		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
 		m.castle_room_player_sprite.set_meta("walking", false)
+	if _pending_walk_index >= 0 \
+			and _pending_walk_index < _pending_walk_route.size() - 1:
+		_start_next_route_segment()
+		return
+	var pending_item := _pending_item_action
+	var pending_portal := _pending_portal_id
+	var pending_portal_foot := _pending_portal_foot
+	_pending_item_action = ""
+	_pending_walk_route = PackedVector2Array()
+	_pending_walk_index = -1
+	_pending_portal_id = ""
+	_pending_portal_foot = Vector2.ZERO
+	if pending_portal != "":
+		_arrive_hall_portal(pending_portal, pending_portal_foot)
+		return
+	if pending_item != "" and generation == _movement_generation:
+		_activate_room_item(pending_item)
 
 func _update_dust_bunny_runner(delta: float) -> void:
 	if not _is_wide_hall() or delta <= 0.0:
@@ -4806,18 +5291,36 @@ func _enter_hall_portal(portal_id: String, foot: Vector2) -> void:
 	if portal_id == ROYAL_HALL_PORTAL_ID \
 			and m.castle_royal_hall_arrival_pending:
 		return
+	var current: Vector2 = m.castle_room_player_sprite.get_meta(
+		"current_stage_foot", foot) as Vector2
+	var route_foot := _room_navigation.nearest_point(foot) \
+		if _room_navigation != null else foot
+	if _room_navigation != null and current.distance_to(route_foot) > 1.0:
+		var route := _room_navigation.route(current, route_foot)
+		if route.size() >= 2:
+			_begin_room_route(route_foot)
+			_pending_portal_id = portal_id
+			_pending_portal_foot = route_foot
+			return
+	_arrive_hall_portal(portal_id, route_foot)
+
+
+func _arrive_hall_portal(portal_id: String, foot: Vector2) -> void:
+	if not _is_wide_hall() or m.castle_room_player_sprite == null:
+		return
+	if not DoorLanguage.allows_travel(door_state(portal_id)):
+		_blocked_door_feedback(portal_id)
+		return
+	var current: Vector2 = m.castle_room_player_sprite.get_meta(
+		"current_stage_foot", Vector2.INF) as Vector2
+	if current.distance_to(foot) > 1.0:
+		return
 	var transition_generation := _begin_room_transition()
 	_invalidate_royal_hall_arrival()
 	m._ui_tap()
-	var old_foot: Vector2 = m.castle_room_player_sprite.get_meta(
-		"stage_foot", foot) as Vector2
-	var duration: float = clampf(
-		old_foot.distance_to(foot) * HALL_STAGE_SCALE / 520.0,
-		0.12, 1.05)
-	_position_player_at_foot(foot, true)
 	var transition: Tween = m.create_tween()
 	_room_transition_tween = transition
-	transition.tween_interval(duration + 0.04)
+	transition.tween_interval(0.04)
 	if portal_id == ROYAL_HALL_PORTAL_ID:
 		m.castle_royal_hall_arrival_pending = true
 		var arrival_generation: int = \

@@ -1,0 +1,34 @@
+{
+  "id": "2026-09-06-hall-visual-comparison",
+  "scope": "Add a reviewer-facing exact-PNG comparison of archived Ballerina, Magician and Pop Star Hall stills, including rejected versus neutral Magician ROPE/PORTAL controls. Documentation only; no runtime, asset or finding changes.",
+  "baseline": "8b7f116870eec8abf0368a25bf47eac404a23b25",
+  "rules": [
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-08",
+    "DL-MOT-08",
+    "DL-QA-11"
+  ],
+  "findings": [],
+  "no_findings_reason": "This is a documentation comparison of existing Hall evidence. It records bounded visual observations and rejected/neutral mapping context without opening or closing a master finding.",
+  "files": [
+    "audit/minigame_art_quality_2026-09-05/hall_visual_comparison.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Exact archived PNG visual inspection",
+      "result": "PASS",
+      "evidence": "Matched practice/stage intro/contact/payoff links and candidate02 versus neutral03 ROPE/PORTAL controls were inspected without image transforms."
+    },
+    {
+      "command": "Document authority and audit-development gates",
+      "result": "PASS",
+      "evidence": "audit/minigame_art_quality_2026-09-05/validation/hall-reconciled/metadata-gates.json; document and development consistency only, not visual acceptance."
+    }
+  ],
+  "acceptance_gaps": "The comparison remains sparse configured still evidence. Animation cadence, natural navigation, target-phone rendering, child response, owner acceptance, later source phases and game-wide 4.5 acceptance remain open."
+}

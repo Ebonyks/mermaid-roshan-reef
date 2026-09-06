@@ -1,0 +1,142 @@
+{
+  "status": "READ_ONLY_OWNER_TRACE_AND_OPTIONS",
+  "review_date": "2026-09-06",
+  "scope": {
+    "careers": ["ballerina", "magician", "popstar"],
+    "states": ["practice task-open", "stage task-open"],
+    "production_changed": false,
+    "godot_run": false
+  },
+  "verdict": "The huge translucent navy ellipse and pale-blue upper arc are procedural ActionPanel decoration drawn by OperaCareerWorld2D._draw_activity_focus. They are not baked into any Hall backdrop and do not own input. The same callback also draws a seven-pearl generic progress trail, so removing the entire callback globally would discard useful behavior and affect careers outside the Hall.",
+  "exact_owner": {
+    "path": "scripts/opera_career_world_2d.gd",
+    "sha256_raw": "2f01fb3d4ea8b517a4de26e1c759f105dcbb19ac7e87613bd99dd0912a145b4d",
+    "construction": [
+      "1253-1259: action_panel is a transparent ColorRect, mouse_filter IGNORE, and its draw signal connects to _draw_activity_focus.",
+      "1978-1993: _draw_activity_focus computes centre = action_panel.size * (0.5, 0.48), radius = max(width,height) * 0.52, scales drawing by (1.0,0.62), draws two filled circles and one upper arc, then resets the draw transform.",
+      "1987-1992: outer fill is Color(0.04,0.08,0.24,0.32), inner fill Color(0.18,0.46,0.92,0.12), and arc Color(0.44,0.78,1.0,0.48) at width 5.",
+      "1994-2014: the same callback draws seven progress pearls from phase_fill.value. Chapter 2 CandyMaker/Detective drawing branches also live here but are outside this Hall scope."
+    ],
+    "declared_purpose": "The source comment calls the shapes a soft theatre-light bloom behind themed minigame art and the pearl trail the only generic progress information.",
+    "input_ownership": "The ActionPanel itself ignores mouse input. Its child OperaGestureSurface or OperaBalletSurface owns the phase gesture and local cues. Removing only decorative draw calls cannot change hit regions or gesture callbacks.",
+    "not_the_owner": [
+      "OperaWorldBackdrop2D._draw_spotlights draws two translucent trapezoid beams from the top of the canvas; those beams are separately visible in the captures but do not form the ellipse/arc.",
+      "The stage_* 2x2 backdrop tiles contain the painted stage, proscenium and floor. Native tile inspection does not contain this procedural ellipse/arc.",
+      "OperaGestureSurface's generic hold ring is a separate mode-local circle and OperaBalletSurface owns its portrait shells and demo pointer."
+    ]
+  },
+  "observed_geometry": {
+    "ballerina_stage": {
+      "layout_source": "_apply_panel_layout at 2741-2745; _performance_stage_layout retains this specialist panel geometry",
+      "action_panel": {"position": [382,20], "size": [874,680]},
+      "computed_local_center": [437,326.4],
+      "computed_screen_center": [819,346.4],
+      "outer_radius_before_y_scale": 454.48,
+      "outer_bounding_size_after_scale": [908.96,563.5552],
+      "generic_pearl_screen_y": 676,
+      "effect": "The bloom covers most of the right activity canvas, including the mirror target and pose choices. Its oversized geometry is a direct result of using the larger dimension for radius before applying a fixed vertical squash."
+    },
+    "magician_and_popstar_stage": {
+      "layout_source": "_performance_stage_layout at 4872-4888",
+      "action_panel": {"position": [390,204], "size": [500,376]},
+      "computed_local_center": [250,180.48],
+      "computed_screen_center": [640,384.48],
+      "outer_radius_before_y_scale": 260,
+      "outer_bounding_size_after_scale": [520,322.4],
+      "generic_pearl_screen_y": 556,
+      "effect": "The bloom masks the central value structure behind the phase props; the cyan arc crosses the upper part of the central action area."
+    },
+    "practice": "The same callback runs when ActionPanel is visible in practice. Ordinary cards use 416x292 with a 392x232 child surface; Ballerina uses its larger 874x680 specialist canvas. The stage-only evidence below does not independently score the practice bloom."
+  },
+  "all_runtime_callers_and_visibility": {
+    "only_draw_signal_binding": "scripts/opera_career_world_2d.gd:1259 action_panel.draw.connect(_draw_activity_focus)",
+    "redraw_sources": [
+      "Phase/widget binding and restore queue ActionPanel redraw at 2642.",
+      "Special full-canvas and specialist layout branches queue redraw at 2715, 2727, 2749 and 2769; ordinary layout queues at 2779.",
+      "Gesture/result updates queue ActionPanel redraw during active play, including 3421 and 3572.",
+      "The callback executes only while ActionPanel is visible; bop, lens and talk phases hide it at 2752-2755."
+    ],
+    "career_filter": "_draw_activity_focus currently returns only for Teacher, Geologist and active Racer driving. Therefore the bloom applies to all other visible ActionPanels, including every visible Ballerina, Magician and Pop Star phase; this report recommends no change outside those three Hall careers.",
+    "phase_specific_layers_preserved": [
+      "OperaBalletSurface._draw owns mirror portraits, shells, pose selection, round progress pearls, demo pointer and completion halo.",
+      "OperaGestureSurface._draw owns Magician and Pop Star phase objects, generic hold/swipe/circle/choice cues, demo finger and completion feedback.",
+      "OperaPerformanceOverlay owns the top practice/stage status and player/rival progress bars for these two-act careers."
+    ]
+  },
+  "capture_evidence": [
+    {
+      "path": "tmp/current-hall-art-capture/run01/captures/ballerina_stage_pearl_mirror_intro.png",
+      "sha256_raw": "5d3e65409070a9f206512a8a4ab3ab7ca1169d2465ae538592901ef2d3330bd1",
+      "observed": "The large navy bloom and cyan arc wash over the right-side pose canvas and mirror target."
+    },
+    {
+      "path": "tmp/current-hall-art-capture/run01/captures/magician_stage_vanish_held_contact.png",
+      "sha256_raw": "531ff5b6455db24416434bc9abeea2877e9eb7e0fc569e7fb5d9254ee03698fc",
+      "observed": "The 520x322 computed ellipse sits behind the lamb, cabinet, hat and wand and masks the painted central floor."
+    },
+    {
+      "path": "tmp/current-hall-art-capture/run01/captures/popstar_stage_sound_check_held_contact.png",
+      "sha256_raw": "0b6e2ac9e8ad2d80765afe17307edec97be976940310374242aa646e49baa5c3",
+      "observed": "The same ellipse/arc is visible behind the microphone and dance pads and reads as a separate system layer."
+    }
+  ],
+  "existing_review_evidence": {
+    "path": "tmp/current-hall-art-runtime-review.json",
+    "claims": [
+      "Ballerina observations call the large translucent navy gesture arc a system overlay that washes over the room and target.",
+      "Magician observations say the navy arc masks the central stage value structure.",
+      "The shared priority is to replace or substantially constrain the oversized navy gesture arc before mounted recapture."
+    ],
+    "limit": "The independent review is based on configured desktop Mobile stills for the first source phase. It does not establish touch behavior, phone readability, later phases or natural navigation."
+  },
+  "scoped_options": [
+    {
+      "priority": 1,
+      "name": "Hall bloom removal with progress retained",
+      "change_boundary": "Inside _draw_activity_focus, skip only the three ellipse/arc draw calls when career_id is ballerina, magician or popstar. Continue into the existing custom branches and seven-pearl progress code.",
+      "preserves": ["ActionPanel and child-surface geometry", "all input and hit regions", "phase-local visual hints and demo pointers", "generic seven-pearl progress", "top performance overlay", "all non-Hall career behavior"],
+      "why_preferred": "It removes the exact independently observed weak layer with the smallest behavior surface. No fallback art or new asset is introduced.",
+      "risk": "The phase art loses the intended dark contrast bloom; recapture must verify props remain legible against all three practice and stage paintings."
+    },
+    {
+      "priority": 2,
+      "name": "Stage-only Hall bloom removal",
+      "change_boundary": "Skip the three ellipse/arc calls only when career_id is in the Hall set and _performance_on_stage() is true; retain current practice bloom and all pearls.",
+      "preserves": ["all input", "all local hints", "practice presentation", "generic progress"],
+      "why_consider": "It exactly matches the three cited stage captures and avoids changing uncaptured practice composition.",
+      "risk": "The same Ballerina large-panel formula applies during practice, and practice captures may show the same defect. This option could leave a known-looking inconsistency across the act transition."
+    },
+    {
+      "priority": 3,
+      "name": "Constrain bloom to a smaller neutral floor pool",
+      "change_boundary": "For the Hall set only, cap bloom radius using the smaller panel dimension and reduce the vertical extent/alpha; keep the progress pearls unchanged.",
+      "preserves": ["input", "local hints", "a theatre-light focus cue", "generic progress"],
+      "risk": "A fixed smaller ellipse still lacks phase-object ownership and may remain a synthetic overlay. Ballerina targets occupy multiple separate portrait bounds, so a single pool cannot follow the true active target without adding cross-surface coupling. This has more tuning risk than removal."
+    },
+    {
+      "priority": 4,
+      "name": "Suppress entire generic focus callback for Hall",
+      "change_boundary": "Return early for the three Hall careers.",
+      "preserves": ["input and local surface hints", "top performance progress", "Ballerina specialist round pearls"],
+      "risk": "Magician and Pop Star lose the seven-pearl generic progress trail. Even though the top performance bar remains, removing redundant progress feedback is broader than the proven visual defect. This should not be the first implementation."
+    }
+  ],
+  "do_not_do": [
+    "Do not remove _draw_activity_focus globally; its callback serves other careers and Chapter 2 custom drawings.",
+    "Do not hide or disable ActionPanel to remove the bloom; its children own the actual gesture surface.",
+    "Do not treat OperaWorldBackdrop2D spotlights as the ellipse owner or remove them as a substitute fix.",
+    "Do not replace the overlay with a generic fallback card. Preserve the phase-specific painted props and local instructional cues.",
+    "Do not alter stage tiles, actor assets, touch geometry, goals, progress accounting or two-act semantics for this repair."
+  ],
+  "required_followup": [
+    "After an implementation is separately authorized, capture the same three stage states and corresponding practice states at Mobile 1280x720 with unchanged input coordinates.",
+    "Verify local target highlights, demo finger, hold/circle/swipe cues and progress remain visible without the bloom.",
+    "Verify Magician pale props and Pop Star microphone/notes retain contrast on their painted backgrounds.",
+    "Run parser/inference and focused Hall interaction probes; still review remains separate from phone, child and owner acceptance."
+  ],
+  "acceptance_limits": [
+    "This identifies source ownership and proposes scope boundaries; it does not visually accept a repaired state.",
+    "Only three named run01 stage captures were directly inspected for this trace.",
+    "No full-Hall, game-wide, motion, touch, target-device, child, owner or release acceptance is claimed."
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "dolls-source-art-review-2026-09-06",
+  "scope": "Read-only continuation of the game-wide minigame art audit: trace and inspect the three live baby rasters and nursery tile family, retain strong existing source art, and name the missing Dolls runtime states without treating missing evidence as defective pixels. No runtime, gameplay, save or raster changes.",
+  "baseline": "8b7f116870eec8abf0368a25bf47eac404a23b25",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-ASSET-01"
+  ],
+  "findings": [],
+  "no_findings_reason": "Source-only evidence does not close a runtime or master finding; all mounted and motion gates remain open.",
+  "files": [
+    "audit/minigame_art_quality_2026-09-05/dolls_source_art_followup.json",
+    "design/MINIGAME_ART_AUDIT_2026-09-05.md"
+  ],
+  "validation": [
+    {
+      "command": "Independent source-pixel review and current caller trace",
+      "result": "PASS",
+      "evidence": "audit/minigame_art_quality_2026-09-05/dolls_source_art_followup.json; source-level dimensions only, no full-surface acceptance"
+    },
+    {
+      "command": "Document authority and audit-development gates",
+      "result": "PASS",
+      "evidence": "audit/minigame_art_quality_2026-09-05/validation/hall-reconciled/metadata-gates.json; document and development consistency only, not visual acceptance."
+    }
+  ],
+  "acceptance_gaps": "Dynamic selected skin, assembled backdrop, sling/mat contact, overlapping fallers, touch feedback, safe misses, completion, animation, target phone, child and owner acceptance remain unassessed. No generation or replacement is warranted from these inspected source pixels alone."
+}

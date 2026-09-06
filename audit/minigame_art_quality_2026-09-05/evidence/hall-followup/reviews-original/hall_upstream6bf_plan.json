@@ -1,0 +1,142 @@
+{
+  "status": "READ_ONLY_RECONCILIATION_PLAN",
+  "review_date": "2026-09-06",
+  "scope": "Reconcile current Hall art/pose work with upstream stage pathfinding and restoration without performing a merge or changing runtime files.",
+  "heads": {
+    "current_head": "8b7f116870eec8abf0368a25bf47eac404a23b25",
+    "upstream": "6bf16bbc16e9724e667b04230d4158cddc68307b",
+    "merge_base": "a6ffa14d0160ad6830464b73df33e1db20641fa1"
+  },
+  "method": [
+    "Compared a6ffa14d..HEAD, a6ffa14d..origin/dev, HEAD..origin/dev and the current working-tree diff.",
+    "Ran git merge-tree --write-tree --name-only as a read-only virtual merge. It produced virtual tree 274d0011b161c23d50777255b7a73c92a237e97a and reported textual conflicts only in ASSET_LICENSES.md and design/05_DOC_LEDGER.md.",
+    "Inspected the virtual merged script blobs to distinguish clean text merging from required semantic preservation.",
+    "No merge, checkout, reset, stash, index change, source edit or Godot run was performed."
+  ],
+  "current_uncommitted_snapshot": [
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256_raw": "4842039fb04689d9eb6d2e35fd717374e9e820e5b4ae7b66aaab2a67b45205",
+      "diff": "+27/-10",
+      "meaning": "Adds five phase-specific Magician held poses gated by two_act_enabled and suppresses only the decorative activity bloom for the three two-act Hall careers while retaining progress pearls."
+    },
+    {
+      "path": "scripts/probe_opera_2d.gd",
+      "sha256_raw": "c398101d48c020386066fb09b9021917ea2834dcd2fc71de4f5e174925d6a67a",
+      "diff": "+61/-0",
+      "meaning": "Adds an independent eight-state Magician practice/stage pose contract and zero-credit held-state assertions."
+    },
+    {
+      "path": "design/MINIGAME_ART_AUDIT_2026-09-05.md",
+      "sha256_raw": "e962fb9ab5d7c7d0b473520d04cfa66db46f771b3d888c0680d5dfc16ca7dc41",
+      "diff": "+1/-1",
+      "meaning": "Corrects the checkpoint Full08 status and remote-CI distinction. This file was introduced on the current branch and is absent from origin/dev, so it is an addition relative to the merge base rather than an upstream deletion conflict."
+    },
+    {
+      "path": "design/audit_impacts/2026-09-06-hall-art-followup.json",
+      "sha256_raw": "62478be74e9cef86495025cc076982ae50774a9ebdd652ab1622e89056e802d4",
+      "state": "untracked",
+      "meaning": "Covers the Hall report and two runtime/probe files. It is absent from origin/dev."
+    }
+  ],
+  "upstream_script_changes": {
+    "scripts/opera_career_world_2d.gd": [
+      "Adds StageNavigation preload and central _configure_stage_paths/navigation_snapshot ownership.",
+      "Adds authoritative wander touch/mouse ownership, release-on-hotspot routing and cancellation settling.",
+      "Stores task_entry_feet/task_entry_actor_size on task open and restores the approached floor socket on phase arm.",
+      "Routes Chapter 2 Stuffie Room through StageNavigation lanes and station spurs instead of the earlier linear helper."
+    ],
+    "scripts/opera_stage_paths.gd": "Replaces Doctor's diagonal path and stale spurs with measured promenade/recovery geometry.",
+    "scripts/stage_navigation_2d.gd": "New shared lane-graph route owner; must be retained unchanged with its dedicated probe.",
+    "scripts/probe_opera_2d.gd": [
+      "Adds _audit_navigation_pointer_release for touch ownership, drag-release hotspot activation, cancellation settling and mouse equivalence.",
+      "Adds post-activity restoration assertion and reopens the task so later broad career driving retains its prior starting contract."
+    ]
+  },
+  "overlap_analysis": {
+    "textual_result": "The committed scripts merge cleanly in Git's virtual merge. Only ASSET_LICENSES.md and design/05_DOC_LEDGER.md conflict textually; those conflicts are outside this Hall source plan and require additive authority-aware resolution, not ours/theirs replacement.",
+    "semantic_overlap_world": [
+      "Upstream starts from a6 and directly requests idle/work in _open_task/_on_gesture. Current commit 9df restored _play_roshan_task_pose at both sites for the existing 11 Doctor/Farmer/Racer holds. The virtual merge correctly retains _play_roshan_task_pose at both call sites while adding upstream task-entry restoration and navigation.",
+      "The uncommitted Hall patch extends _play_roshan_task_pose. It must be reapplied onto the merged helper, not by replacing the upstream file wholesale.",
+      "The Hall bloom guard touches _draw_activity_focus only. Upstream pathfinding does not touch that method; retain the guard and all subsequent custom/progress drawing."
+    ],
+    "semantic_overlap_probe": [
+      "Origin/dev lacks reviewed_pose_coverage, EXPECTED_WORK_POSES, Teacher/Geologist held animation checks and _check_reviewed_task_pose because those belong to current commit 9df. The virtual merge retains them while inserting upstream navigation assertions.",
+      "The uncommitted Hall helper is additive near the same top constants, main drive loop, final coverage block and file tail. Reapply it after the merge and ensure upstream _audit_navigation_pointer_release plus the restoration/reopen assertions remain present.",
+      "The main drive loop must invoke both _check_reviewed_task_pose and _check_hall_task_pose before the phase-driving branch. Removing either silently loses existing 11-pose or new eight-state coverage."
+    ],
+    "report_and_impact": "Both Hall documentation paths are absent from origin/dev and should remain current-side additions. After reconciliation, update the impact baseline/evidence wording to distinguish the historical 8b7 Full08 checkpoint from the new 6bf-based candidate; do not rewrite the sealed Full08 claim as if it validated upstream pathfinding or Hall changes."
+  },
+  "virtual_merge_evidence": {
+    "tree": "274d0011b161c23d50777255b7a73c92a237e97a",
+    "world_blob": "de631dac3f10020409e91c62cb98458b2cf9f974",
+    "probe_blob": "460a78b22414af53c1cee312386292592922f0a3",
+    "world_contains": [
+      "REVIEWED_WORK_POSES for Doctor/Farmer/Racer",
+      "StageNavigation preload and task-entry state",
+      "_play_roshan_task_pose at task open and accepted gesture",
+      "upstream wander release/cancel routing and lane graph"
+    ],
+    "probe_contains": [
+      "existing 11-pose coverage",
+      "Teacher/Geologist held animation contract",
+      "upstream pointer-release navigation audit",
+      "upstream activity-to-floor restoration audit"
+    ],
+    "limit": "The virtual merge excludes all uncommitted Hall changes by definition and is not a validated runtime candidate."
+  },
+  "minimal_merge_plan": [
+    {
+      "step": 1,
+      "action": "Preserve exact copies/diffs and hashes of the four uncommitted Hall paths listed above, then make the worktree clean using the parent's established backup process."
+    },
+    {
+      "step": 2,
+      "action": "Merge origin/dev at exact head 6bf16bbc16e9724e667b04230d4158cddc68307b. Accept the clean script merge as a base, but resolve ASSET_LICENSES.md and design/05_DOC_LEDGER.md additively from both branches according to document authority; do not choose a whole side."
+    },
+    {
+      "step": 3,
+      "action": "Confirm the merged world retains upstream StageNavigation/_configure_stage_paths, touch ownership, release hotspot detection, task_entry floor restoration and Doctor route data, while also retaining REVIEWED_WORK_POSES and both _play_roshan_task_pose call sites."
+    },
+    {
+      "step": 4,
+      "action": "Reapply only the uncommitted world hunks: REVIEWED_HALL_POSES; the two_act_enabled bloom guard around the three ellipse/arc calls while leaving pearls below it; and the Hall lookup ahead of REVIEWED_WORK_POSES within _play_roshan_task_pose. Do not restore the upstream direct idle/work calls."
+    },
+    {
+      "step": 5,
+      "action": "Reapply the uncommitted probe hunks onto the already combined probe. Retain upstream _audit_navigation_pointer_release and floor-restoration/reopen sequence, existing Teacher/Geologist and 11-pose assertions, and add the independent Magician mapping, dual helper call and eight practice/stage coverage keys."
+    },
+    {
+      "step": 6,
+      "action": "Restore the Hall report and impact as current-side additions. Change the impact baseline to the actual reconciled candidate/base representation used by the parent and leave 8b7 Full08 explicitly historical; record new parser/probe/full validation separately when available."
+    }
+  ],
+  "post_merge_source_invariants": [
+    "REVIEWED_WORK_POSES still contains exactly the existing Doctor 5, Farmer 4 and Racer 2 mappings.",
+    "REVIEWED_HALL_POSES contains only Magician VANISH=[work,0], TRACK=[idle,2], ROPE=[work,1], CABINET=[idle,3], PORTAL=[work,3].",
+    "Hall pose selection remains gated by two_act_enabled; Chapter 2/story overrides and non-Hall careers do not inherit it.",
+    "_open_task and _on_gesture both call _play_roshan_task_pose; talk remains idle and fallback remains work.",
+    "The activity bloom guard suppresses only the three two-act Hall careers and retains generic progress pearls and all custom surfaces.",
+    "StageNavigation, _configure_stage_paths, navigation_snapshot, touch/mouse indices, active-hotspot release handling and task-entry restoration are present.",
+    "Probe contains upstream navigation/recovery tests, the existing 11 pose coverage keys, Teacher/Geologist held contracts and all eight Magician practice/stage keys.",
+    "Racer and Teacher surface/runtime repairs already in current HEAD remain byte/semantic intact unless the upstream merge has an explicit overlapping hunk requiring review."
+  ],
+  "verification_after_reconcile": [
+    "git diff --check and inspect the exact combined diffs; no wholesale file checkout from either side.",
+    "python -m gdtoolkit.parser on every changed GDScript and python tools/lint_inference.py on those scripts.",
+    "Run the upstream stage_navigation_2d probe and probe_opera_2d; confirm navigation assertions, 11 existing pose coverage lines and eight Hall semantic coverage lines all execute.",
+    "Run the parent's required full validation against the new frozen source. The historical Full08 at 8b7 does not validate 6bf pathfinding or Hall changes.",
+    "Re-capture bounded Hall states only if source hashes/layout differ from the completed candidate capture; never relabel pre-merge images as post-merge evidence."
+  ],
+  "risks": [
+    "A clean Git script merge can still regress semantics if later conflict cleanup replaces _play_roshan_task_pose calls with upstream direct play calls.",
+    "Applying the Hall world file wholesale would drop upstream touch ownership, lane routing and task-entry restoration.",
+    "Applying the Hall probe file wholesale would drop upstream navigation and restoration assertions; taking upstream wholesale would drop all pose containment coverage.",
+    "The untracked impact currently names baseline 8b7 and pending Hall capture. Those facts become stale after reconciliation and capture review unless updated before publication.",
+    "Upstream contains broad Lawn and audit/document changes outside this bounded Hall review. Their content and authority are not certified here."
+  ],
+  "acceptance_limits": [
+    "This is a source-level three-way merge plan, not a successful merge or validation result.",
+    "No conclusion is made about new Lawn content, visual quality, target-device behavior, child acceptance, integration or release."
+  ]
+}

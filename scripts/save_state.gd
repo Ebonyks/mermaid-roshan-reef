@@ -27,7 +27,7 @@ const BOOL_KEYS: Array[String] = [
 	"chapter2_party_started", "chapter2_ember_scout_seen",
 	"chapter2_ember_king_crashed", "chapter2_ember_son_seen",
 	"chapter2_candle_lit",
-	"chapter2_candle_taken", "chapter2_story_complete",
+	"chapter2_candle_taken", "chapter2_story_complete", "chapter2_lawn_started",
 	"chapter3_fairy_door_revealed",
 	"chapter3_fairy_door_opened", "chapter3_fairy_mission_started",
 ]
@@ -67,10 +67,12 @@ const KNOWN_KEYS: Array[String] = [
 	"chapter2_candy_cake_finished",
 	"chapter2_strawberry_mask", "chapter2_cake_piece_mask",
 	"chapter2_job_phase_masks", "chapter2_party_event_phase",
+	"chapter2_lawn_beat", "chapter2_protection_rounds",
+	"chapter2_protection_bumps", "chapter2_protection_misses",
 	"chapter2_party_started", "chapter2_ember_scout_seen",
 	"chapter2_ember_king_crashed", "chapter2_ember_son_seen",
 	"chapter2_candle_lit",
-	"chapter2_candle_taken", "chapter2_story_complete",
+	"chapter2_candle_taken", "chapter2_story_complete", "chapter2_lawn_started",
 ]
 
 var m: ReefMain

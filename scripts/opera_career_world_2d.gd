@@ -15,6 +15,15 @@ const REVIEWED_WORK_POSES := {
 	"racer": {"TUNE": 0, "TO THE LINE": 1},
 }
 
+# Hall magic sheets show different tricks, not successive frames of one trick.
+# Neutral presenting poses leave tracking and cabinet action to their live props.
+const REVIEWED_HALL_POSES := {
+	"magician": {
+		"VANISH": ["work", 0], "TRACK": ["idle", 2], "ROPE": ["idle", 3],
+		"CABINET": ["idle", 3], "PORTAL": ["idle", 3],
+	},
+}
+
 const PerformancePlan := preload("res://scripts/opera_performance_plan.gd")
 const Mastery := preload("res://scripts/opera_mastery.gd")
 const PerformanceOverlay := preload("res://scripts/opera_performance_overlay.gd")
@@ -28,6 +37,7 @@ const GeologySurface := preload("res://scripts/opera_geology_surface.gd")
 const WorldBackdrop := preload("res://scripts/opera_world_backdrop_2d.gd")
 const NurseryCatch := preload("res://scripts/opera_nursery_catch.gd")
 const StagePaths := preload("res://scripts/opera_stage_paths.gd")
+const StageNavigation := preload("res://scripts/stage_navigation_2d.gd")
 const ImpClips := preload("res://scripts/opera_imp_clips.gd")
 const RoshanAnimator := preload("res://scripts/opera_roshan_actor.gd")
 const WorldHotspot := preload("res://scripts/opera_world_hotspot_2d.gd")
@@ -509,6 +519,10 @@ var wander_lean := 0.0
 var wander_layer: Control
 var wander_route := PackedVector2Array()
 var wander_route_index := 0
+var wander_touch_index: int = -1
+var wander_mouse_down: bool = false
+var task_entry_feet := Vector2.INF
+var task_entry_actor_size := Vector2.ZERO
 var interaction_station := -1
 var interaction_requested := false
 var hotspot_opening := false
@@ -1162,16 +1176,7 @@ func _build_world() -> void:
 	wander_layer.gui_input.connect(_wander_input)
 	root.add_child(wander_layer)
 
-	if String(config.get("chapter2_scene", "")) == "stuffie_room":
-		stage_points = PackedVector2Array([
-			Vector2(86.0, 590.0), Vector2(245.0, 575.0),
-			Vector2(420.0, 560.0), Vector2(610.0, 550.0),
-			Vector2(810.0, 565.0), Vector2(1050.0, 585.0),
-		])
-		station_list = _chapter2_stuffie_ballet_stations()
-	else:
-		stage_points = StagePaths.path_points(career_id)
-		station_list = StagePaths.stations(career_id)
+	_configure_stage_paths()
 	# Specialist ballet and boxing surfaces still begin at authored room objects.
 	# The full-canvas lesson starts only after Roshan follows the painted route
 	# and opens that object's invitation, just like every other career.
@@ -1522,6 +1527,30 @@ func _chapter2_ensemble_bow() -> void:
 		bow.parallel().tween_property(guest, "position", rest_position, 0.32)
 		bow.parallel().tween_property(guest, "scale", Vector2.ONE, 0.32)
 		chapter2_guest_tweens[guest] = bow
+
+
+func _configure_stage_paths() -> void:
+	if _is_chapter2_stuffie_scene():
+		stage_points = PackedVector2Array([
+			Vector2(86.0, 590.0), Vector2(245.0, 575.0),
+			Vector2(420.0, 560.0), Vector2(610.0, 550.0),
+			Vector2(810.0, 565.0), Vector2(1050.0, 585.0),
+		])
+		station_list = _chapter2_stuffie_ballet_stations()
+		for station: Dictionary in station_list:
+			var approach: Vector2 = station["approach_pos"] as Vector2
+			var connection := StagePaths.point_along(stage_points,
+				StagePaths.nearest_t(stage_points, approach))
+			station["spur"] = PackedVector2Array([connection, approach])
+	else:
+		stage_points = StagePaths.path_points(career_id)
+		station_list = StagePaths.stations(career_id)
+
+
+func navigation_snapshot() -> Dictionary:
+	# Runtime and stage reproductions share the exact same geometry owner.
+	return {"career": career_id, "scene_variant": config.get("chapter2_scene", ""),
+		"path": stage_points.duplicate(), "stations": station_list.duplicate(true)}
 
 
 func _chapter2_stuffie_ballet_stations() -> Array[Dictionary]:
@@ -1981,16 +2010,19 @@ func _draw_activity_focus() -> void:
 	# No clipboard, easel, title ribbon, or reading chrome. The existing themed
 	# minigame art floats in a soft theatre-light bloom, with a tiny pearl trail
 	# carrying the only generic progress information.
-	var centre := action_panel.size * Vector2(0.5, 0.48)
-	var radius := maxf(action_panel.size.x, action_panel.size.y) * 0.52
-	action_panel.draw_set_transform(centre, 0.0, Vector2(1.0, 0.62))
-	action_panel.draw_circle(Vector2.ZERO, radius,
-		Color(0.04, 0.08, 0.24, 0.32))
-	action_panel.draw_circle(Vector2.ZERO, radius * 0.88,
-		Color(0.18, 0.46, 0.92, 0.12))
-	action_panel.draw_arc(Vector2.ZERO, radius * 0.94, -PI * 0.84,
-		-PI * 0.16, 42, Color(0.44, 0.78, 1.0, 0.48), 5.0)
-	action_panel.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	# The three Hall performances already have local gesture cues and a status
+	# card. A room-sized dark lens masks the painted stage and performer contact.
+	if not two_act_enabled:
+		var centre := action_panel.size * Vector2(0.5, 0.48)
+		var radius := maxf(action_panel.size.x, action_panel.size.y) * 0.52
+		action_panel.draw_set_transform(centre, 0.0, Vector2(1.0, 0.62))
+		action_panel.draw_circle(Vector2.ZERO, radius,
+			Color(0.04, 0.08, 0.24, 0.32))
+		action_panel.draw_circle(Vector2.ZERO, radius * 0.88,
+			Color(0.18, 0.46, 0.92, 0.12))
+		action_panel.draw_arc(Vector2.ZERO, radius * 0.94, -PI * 0.84,
+			-PI * 0.16, 42, Color(0.44, 0.78, 1.0, 0.48), 5.0)
+		action_panel.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	var custom_progress := clampf(float(phase_fill.value) / 100.0, 0.0, 1.0) \
 		if phase_fill != null else 0.0
 	if _is_chapter2_candymaker_scene():
@@ -2284,6 +2316,11 @@ func _play_roshan_task_pose(phase: Dictionary) -> void:
 		return
 	var reviewed: Dictionary = REVIEWED_WORK_POSES.get(career_id, {})
 	var phase_name := String(phase.get("name", ""))
+	var hall_poses: Dictionary = REVIEWED_HALL_POSES.get(career_id, {})
+	if two_act_enabled and hall_poses.has(phase_name) and is_instance_valid(player_animator):
+		var pose: Array = hall_poses[phase_name]
+		player_animator.show_pose(String(pose[0]), int(pose[1]))
+		return
 	if reviewed.has(phase_name) and is_instance_valid(player_animator):
 		player_animator.show_pose("work", int(reviewed[phase_name]))
 		return
@@ -2367,6 +2404,17 @@ func _arm_phase() -> void:
 		(surface as OperaRacerSurface).cancel_race_touch()
 	_restore_stage_actors()
 	competition.pause()
+	var room_return_feet := task_entry_feet
+	# A full-canvas lesson may stage the sprite beside its board. Re-enter the
+	# walkable room at the exact approached floor socket, never at that UI pose.
+	if task_entry_feet.is_finite() and player_actor != null:
+		player_actor.size = task_entry_actor_size
+		_place_on_stage(player_actor, task_entry_feet)
+		_capture_actor_rest("player", player_actor)
+		wander_feet = task_entry_feet
+		task_entry_feet = Vector2.INF
+	wander_touch_index = -1
+	wander_mouse_down = false
 	performance_started = false
 	phase_complete_t = 0.0
 	phase_advance_pending = false
@@ -2383,7 +2431,8 @@ func _arm_phase() -> void:
 	hotspot_opening = false
 	wander_lean = 0.0
 	wander_stride = 0.0
-	wander_feet = _hero_feet() if player_actor != null else Vector2.ZERO
+	wander_feet = room_return_feet if room_return_feet.is_finite() \
+		else (_hero_feet() if player_actor != null else Vector2.ZERO)
 	if phase_index >= phases.size():
 		active = false
 		if win_callback.is_valid():
@@ -2532,6 +2581,8 @@ func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := 
 func _open_task() -> void:
 	if task_open or not active or phase_index >= phases.size():
 		return
+	task_entry_feet = wander_feet
+	task_entry_actor_size = player_actor.size if player_actor != null else Vector2.ZERO
 	task_open = true
 	wander_walking = false
 	wander_route.clear()
@@ -4632,19 +4683,54 @@ func _wander_input(event: InputEvent) -> void:
 	if task_open or not active or hotspot_opening:
 		return
 	var point := Vector2(-1.0, -1.0)
+	var released := false
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
 		if touch.pressed:
+			if wander_touch_index >= 0 and wander_touch_index != touch.index:
+				return
+			wander_touch_index = touch.index
+			wander_mouse_down = false
 			point = touch.position
+		elif touch.index == wander_touch_index:
+			wander_touch_index = -1
+			if touch.canceled:
+				_clear_hotspot_intent()
+				# Settle the visual bob at the authoritative floor coordinate,
+				# including vertical travel whose lean is already zero.
+				_finish_wander_route()
+				return
+			point = touch.position
+			released = true
 	elif event is InputEventMouseButton:
+		if wander_touch_index >= 0:
+			return
 		var click := event as InputEventMouseButton
-		if click.pressed and click.button_index == MOUSE_BUTTON_LEFT:
+		if click.button_index != MOUSE_BUTTON_LEFT:
+			return
+		if click.pressed:
+			wander_mouse_down = true
 			point = click.position
+		elif wander_mouse_down:
+			wander_mouse_down = false
+			point = click.position
+			released = true
+	elif event is InputEventMouseMotion and wander_mouse_down and wander_touch_index < 0:
+		point = (event as InputEventMouseMotion).position
 	elif event is InputEventScreenDrag:
 		# a held finger leads her — the destination follows it
+		if (event as InputEventScreenDrag).index != wander_touch_index:
+			return
 		point = (event as InputEventScreenDrag).position
 	if point.x < 0.0:
 		return
+	# A drag that begins on the promenade can finish over the lit object without
+	# ever entering its child Button. Treat that release exactly like a direct
+	# tap so both one-finger input paths use the same authored approach spur.
+	if released:
+		if _point_hits_active_hotspot(point):
+			_on_hotspot_pressed(armed_station)
+			return
 	idle_t = 0.0
 	_clear_hotspot_intent()
 	if phase_gap > 0.0:
@@ -4653,9 +4739,8 @@ func _wander_input(event: InputEvent) -> void:
 	if old != null and old.is_valid():
 		old.kill()
 	actor_tweens.erase("player")
-	if not wander_walking:
-		# start from where she actually stands, never from a bobbed frame
-		wander_feet = _hero_feet()
+	# wander_feet is the floor state. Idle/step animation is presentation only
+	# and must never be read back as a new pathfinding origin.
 	# Empty-room input only changes travel. Hotspot buttons sit above this
 	# layer and are the sole source of activity intent.
 	var route: PackedVector2Array = _chapter2_stuffie_route_to(point, false) \
@@ -4664,43 +4749,31 @@ func _wander_input(event: InputEvent) -> void:
 	_begin_wander_route(route)
 
 
+func _point_hits_active_hotspot(point: Vector2) -> bool:
+	if armed_station < 0 or armed_station >= station_nodes.size():
+		return false
+	var hotspot := station_nodes[armed_station] as OperaWorldHotspot2D
+	if hotspot == null or not hotspot.armed or not hotspot.visible:
+		return false
+	var hit_size: Vector2 = hotspot.get_meta("hit_size", Vector2(112.0, 112.0)) as Vector2
+	var centre: Vector2 = hotspot.get_meta("visual_pos", hotspot.position + hotspot.size * 0.5) as Vector2
+	return Rect2(centre - hit_size * 0.5, hit_size).has_point(point)
+
+
 func _is_chapter2_stuffie_scene() -> bool:
 	return String(config.get("chapter2_scene", "")) == "stuffie_room"
 
 
 func _chapter2_stuffie_route_to(target: Vector2,
-		include_target: bool) -> PackedVector2Array:
-	var route := PackedVector2Array()
-	if stage_points.is_empty():
-		return route
-	if stage_points.size() == 1:
-		route = _append_route_point(route, stage_points[0])
-		if include_target:
-			route = _append_route_point(route, target)
-		return route
-	var source_t := StagePaths.nearest_t(stage_points, wander_feet)
-	var destination_t := StagePaths.nearest_t(stage_points, target)
-	route = _append_route_point(
-		route, StagePaths.point_along(stage_points, source_t))
-	if destination_t >= source_t:
-		for point_index in range(stage_points.size()):
-			var point: Vector2 = stage_points[point_index]
-			var point_t := StagePaths.nearest_t(stage_points, point)
-			if point_t > source_t + 0.0001 \
-					and point_t < destination_t - 0.0001:
-				route = _append_route_point(route, point)
-	else:
-		for point_index in range(stage_points.size() - 1, -1, -1):
-			var point: Vector2 = stage_points[point_index]
-			var point_t := StagePaths.nearest_t(stage_points, point)
-			if point_t < source_t - 0.0001 \
-					and point_t > destination_t + 0.0001:
-				route = _append_route_point(route, point)
-	route = _append_route_point(
-		route, StagePaths.point_along(stage_points, destination_t))
-	if include_target:
-		route = _append_route_point(route, target)
-	return route
+		_include_target: bool) -> PackedVector2Array:
+	var navigation := StageNavigation.new()
+	var lanes: Array[PackedVector2Array] = [stage_points]
+	for station: Dictionary in station_list:
+		var spur: PackedVector2Array = station.get("spur", PackedVector2Array()) as PackedVector2Array
+		if spur.size() >= 2:
+			lanes.append(spur)
+	navigation.configure(lanes)
+	return navigation.route(wander_feet, target)
 
 
 func _append_route_point(route: PackedVector2Array,

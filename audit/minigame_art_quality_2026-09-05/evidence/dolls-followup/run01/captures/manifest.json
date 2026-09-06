@@ -1,0 +1,275 @@
+{
+  "captures": [
+    {
+      "catcher_x": 0.5,
+      "caught": 0,
+      "caveat": "empty live surface after shipping _start_game",
+      "fallers": [
+        {
+          "base_x": 0.17,
+          "phase": 0.0,
+          "speed": 0.205,
+          "sway": 0.018,
+          "texture": 0,
+          "x": 0.183099942058031,
+          "y": 0.0694561483333333
+        }
+      ],
+      "input_live_t": 0.0,
+      "label": "00_ready",
+      "main_game": "dolls",
+      "missed": 0,
+      "origin": "natural_game_entry",
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905\\tmp\\dolls-runtime-followup\\run01\\captures/dolls_00_ready.png",
+      "paused": false,
+      "process_frames": 15,
+      "renderer": "mobile",
+      "safe_landings": [],
+      "selected_skin_path": "res://assets/characters/roshan_25d/roshan_base.png",
+      "selected_skin_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "settled": [],
+      "sha256": "9e9d56053e25812575e00fbe6549d20af2db6c770771855dfdb19e872284943f",
+      "skin_id": "classic",
+      "surface_can_process": true,
+      "surface_elapsed": 1.05750966666667,
+      "surface_processing": true,
+      "ticks_msec": 15775,
+      "time_scale": 1.0,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "catcher_x": 0.5,
+      "caught": 2,
+      "caveat": "caught=2 enables the shipping two-faller limit; positions selected for visual coverage",
+      "fallers": [
+        {
+          "base_x": 0.28,
+          "phase": 0.0,
+          "speed": 0.115,
+          "sway": 0.0,
+          "texture": 2,
+          "x": 0.28,
+          "y": 0.321647676666667
+        },
+        {
+          "base_x": 0.71,
+          "phase": 0.0,
+          "speed": 0.115,
+          "sway": 0.0,
+          "texture": 0,
+          "x": 0.71,
+          "y": 0.531647676666667
+        }
+      ],
+      "input_live_t": 0.0,
+      "label": "01_multiple_fallers",
+      "main_game": "dolls",
+      "missed": 0,
+      "origin": "configured_state_shortcut",
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905\\tmp\\dolls-runtime-followup\\run01\\captures/dolls_01_multiple_fallers.png",
+      "paused": false,
+      "process_frames": 19,
+      "renderer": "mobile",
+      "safe_landings": [],
+      "selected_skin_path": "res://assets/characters/roshan_25d/roshan_base.png",
+      "selected_skin_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "settled": [
+        0,
+        1
+      ],
+      "sha256": "72694be0e9f21cf61113f780b652661027b5cbdbcd8cfb53b782ab35acd86259",
+      "skin_id": "classic",
+      "surface_can_process": true,
+      "surface_elapsed": 0.188240666666667,
+      "surface_processing": true,
+      "ticks_msec": 16679,
+      "time_scale": 1.0,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "catcher_x": 0.720000028610229,
+      "caught": 0,
+      "caveat": "five interpolated ScreenDrag callbacks; finger is still held at capture",
+      "fallers": [
+        {
+          "base_x": 0.72,
+          "phase": 0.0,
+          "speed": 0.115,
+          "sway": 0.0,
+          "texture": 1,
+          "x": 0.72,
+          "y": 0.685072045
+        }
+      ],
+      "input_live_t": 1.6,
+      "label": "02_held_drag",
+      "main_game": "dolls",
+      "missed": 0,
+      "origin": "live_viewport_touch_held_plus_configured_faller",
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905\\tmp\\dolls-runtime-followup\\run01\\captures/dolls_02_held_drag.png",
+      "paused": false,
+      "process_frames": 30,
+      "renderer": "mobile",
+      "safe_landings": [],
+      "selected_skin_path": "res://assets/characters/roshan_25d/roshan_base.png",
+      "selected_skin_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "settled": [],
+      "sha256": "0e3a63c93ea198629433dc5357e9a573e17d682860b865101514ed070abcf60a",
+      "skin_id": "classic",
+      "surface_can_process": true,
+      "surface_elapsed": 1.087583,
+      "surface_processing": true,
+      "ticks_msec": 18679,
+      "time_scale": 1.0,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "catcher_x": 0.519999980926514,
+      "caught": 1,
+      "caveat": "configured near-contact faller; catch, settled state and feedback are shipping-owned",
+      "fallers": [],
+      "input_live_t": 1.45,
+      "label": "03_caught",
+      "main_game": "dolls",
+      "missed": 0,
+      "origin": "live_viewport_touch_and_shipping_process",
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905\\tmp\\dolls-runtime-followup\\run01\\captures/dolls_03_caught.png",
+      "paused": false,
+      "process_frames": 38,
+      "renderer": "mobile",
+      "safe_landings": [],
+      "selected_skin_path": "res://assets/characters/roshan_25d/roshan_base.png",
+      "selected_skin_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "settled": [
+        0
+      ],
+      "sha256": "8165352f3bf4fb1890aa130e2f5a69504d9c84ec1cd0104e8cc14b3a30a7f8d1",
+      "skin_id": "classic",
+      "surface_can_process": true,
+      "surface_elapsed": 0.55,
+      "surface_processing": true,
+      "ticks_msec": 20227,
+      "time_scale": 1.0,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "catcher_x": 0.5,
+      "caught": 0,
+      "caveat": "no input; shipping _miss creates the safety-mat landing",
+      "fallers": [],
+      "input_live_t": 0.0,
+      "label": "04_safe_miss",
+      "main_game": "dolls",
+      "missed": 1,
+      "origin": "configured_near_floor_then_shipping_process",
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905\\tmp\\dolls-runtime-followup\\run01\\captures/dolls_04_safe_miss.png",
+      "paused": false,
+      "process_frames": 45,
+      "renderer": "mobile",
+      "safe_landings": [
+        {
+          "texture": 2,
+          "time": 0.890739333333333,
+          "x": 0.22
+        }
+      ],
+      "selected_skin_path": "res://assets/characters/roshan_25d/roshan_base.png",
+      "selected_skin_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "settled": [],
+      "sha256": "9f964986fb1d82c688977c9ac5a5869d2416f179218d1c0b4ec1c99596f12065",
+      "skin_id": "classic",
+      "surface_can_process": true,
+      "surface_elapsed": 0.393680666666666,
+      "surface_processing": true,
+      "ticks_msec": 21382,
+      "time_scale": 1.0,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "catcher_x": 0.5,
+      "caught": 3,
+      "caveat": "shipping completion normally tears down before a stable still; no payoff/teardown claim",
+      "fallers": [],
+      "input_live_t": 0.0,
+      "label": "05_three_settled_completion",
+      "main_game": "dolls_capture_completion_configured",
+      "missed": 0,
+      "origin": "configured_post_catch_visual_shortcut",
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905\\tmp\\dolls-runtime-followup\\run01\\captures/dolls_05_three_settled_completion.png",
+      "paused": false,
+      "process_frames": 49,
+      "renderer": "mobile",
+      "safe_landings": [],
+      "selected_skin_path": "res://assets/characters/roshan_25d/roshan_base.png",
+      "selected_skin_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "settled": [
+        0,
+        1,
+        2
+      ],
+      "sha256": "e385821f7ce8b12546fac0588bfb45d8360b20b45c6e288d7798197407e5c1a9",
+      "skin_id": "classic",
+      "surface_can_process": true,
+      "surface_elapsed": 0.0,
+      "surface_processing": false,
+      "ticks_msec": 22018,
+      "time_scale": 1.0,
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "claim": "configured Dolls mounted-still diagnostic; sparse stills are not animation, natural navigation, target-device, child or owner acceptance",
+  "configured_skin": {
+    "id": "classic",
+    "path": "res://assets/characters/roshan_25d/roshan_base.png",
+    "reason": "fresh isolated profile made deterministic; not evidence for every saved skin"
+  },
+  "godot": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "renderer": "mobile",
+  "schema": 1,
+  "source_hashes_raw_bytes_nonexhaustive": {
+    "res://assets/characters/roshan_25d/roshan_base.png": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+    "res://assets/opera/worlds/backdrops/world_nursery_c0r0.png": "ed0142cf00f970e65cd211ce1816fa411528f7bf31dff38a0d8046d243875133",
+    "res://assets/opera/worlds/backdrops/world_nursery_c0r1.png": "65c04742ca49fb3450125dd98a66e8e69a36fccc31dda88fedaac9a8800cf3a2",
+    "res://assets/opera/worlds/backdrops/world_nursery_c1r0.png": "fc0fed2f81b13694a86e10d91c09e1072716e58697d14c68d9d36ebd9b41eaef",
+    "res://assets/opera/worlds/backdrops/world_nursery_c1r1.png": "8f1e09ffd00795119258fcca0e2b30d69475fdbe33ca33d350a9954bfdb9e2c7",
+    "res://assets/opera/worlds/nursery/baby_0.png": "bcd4f1e12437dab7dbacadb54f0150c4b500d40e589574f03c394109f7780c3b",
+    "res://assets/opera/worlds/nursery/baby_1.png": "73148e42f8e7786aef3baafe573905b3e504d76ab2f754cbe61c47c8b9ddb102",
+    "res://assets/opera/worlds/nursery/baby_2.png": "c21a61b7ebb53c0f164ce29a39656b23b32725708e4f71192babf8b5e8eb74b5",
+    "res://scripts/games/dolls.gd": "5cb9e511e002b9de4bfab5b6e9c41923308fac29690875e90a90c03ecb58162f",
+    "res://scripts/main.gd": "5990262f20ec7da2abd4b9d863c8e57981a6b01dca9cd0d08ec622ee159e0472",
+    "res://scripts/opera_nursery_catch.gd": "bd053fecc162306c05a9c6f806c7c121d92cd220f5f6366cc19180c2a7dcc5e5",
+    "res://scripts/opera_world_backdrop_2d.gd": "1897f388cd04da9bc200b7b9ec03dea6e86d57e5eee7db6cef311a453f33a8ef"
+  },
+  "viewport": [
+    1280,
+    720
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "chapter2_lawn",
+  "shot_id": "C2-03",
+  "title": "The royals arrive",
+  "status": "DRAFT",
+  "duration_seconds": 5,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "human_decision": "pending",
+      "blocking_gap": "An individually generated clean full-frame first image for this shot must be reviewed and accepted. Do not substitute this board or a gameplay capture."
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "characters/ember_king_v4.png",
+      "sha256": "422f7bd45a13f1d3c0304082727d72298e3bc01babd8919dc0c7e3e92777052c",
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "source authority only; binding review pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "characters/ember_prince_identity.png",
+      "sha256": "95d5cf35321c87a1b5fae280a76a52fa7d3c6930e56503c10a4054c4c75169c4",
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "source authority only; binding review pending"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "the King strides into the lawn; his son follows one step behind"
+  ],
+  "must_not_move": [
+    "lawn layout",
+    "mountains",
+    "unaffected characters and props"
+  ],
+  "end_state": "both royals stand at the lawn edge facing the party",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no drift",
+    "no injury",
+    "no changed King hairstyle"
+  ],
+  "prompt_path": "shots/C2-03/PROMPT.txt",
+  "prompt_sha256": "85003b9c3dbdf1bc0b09079f4269e2e65945486514367db21475c051bac9c495",
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "blocking_findings": [
+    "clean first frame missing",
+    "image bindings not yet verified at immutable GitHub URLs",
+    "no generated delivery frames accepted"
+  ]
+}

@@ -1,0 +1,174 @@
+from __future__ import annotations
+
+"""Fail-closed, read-only verification of completed full-ci-attempt09.
+
+Do not run this helper until the attempt result and exit files exist.  It does
+not run Godot or alter Full09 artifacts.  Its sole output is a new JSON record
+under tmp/.
+"""
+
+import hashlib
+import json
+from pathlib import Path
+import re
+import sys
+from typing import Any
+
+
+ATTEMPT = "full-ci-attempt09"
+ENGINE_DESCRIPTION = "Godot 4.7.2-stable native executable"
+ENGINE_BANNER = "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+ENGINE_SHA256 = "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424"
+ENGINE_SIZE = 180858888
+EXPECTED_PROBES = 78
+OUTPUT_NAME = "full09-independent-verification.json"
+
+
+class Failure(RuntimeError):
+	pass
+
+
+def require(condition: bool, message: str) -> None:
+	if not condition:
+		raise Failure(message)
+
+
+def sha256(path: Path) -> str:
+	digest = hashlib.sha256()
+	with path.open("rb") as handle:
+		for block in iter(lambda: handle.read(1024 * 1024), b""):
+			digest.update(block)
+	return digest.hexdigest()
+
+
+def sha256_utf8_lf(path: Path) -> str:
+	raw = path.read_bytes()
+	try:
+		text = raw.decode("utf-8")
+	except UnicodeDecodeError as exc:
+		raise Failure(f"frozen UTF-8 source is not UTF-8: {path}") from exc
+	return hashlib.sha256(text.replace("\r\n", "\n").encode("utf-8")).hexdigest()
+
+
+def load(path: Path) -> Any:
+	require(path.is_file(), f"required completed-attempt artifact missing: {path}")
+	try:
+		return json.loads(path.read_text(encoding="utf-8"))
+	except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+		raise Failure(f"invalid JSON: {path}: {exc}") from exc
+
+
+def roster_from_ci(ci_text: str) -> list[str]:
+	match = re.search(r"(?m)^for p in (.+); do\s*$", ci_text)
+	require(match is not None, "cannot find canonical CI probe roster")
+	return match.group(1).split()
+
+
+def main() -> int:
+	repo = Path(__file__).resolve().parents[2]
+	tmp = repo / "tmp/art-dev-combined-validation"
+	output = repo / "tmp" / OUTPUT_NAME
+	require(not output.exists(), f"refusing to overwrite verification result: {output}")
+	result_path = tmp / f"{ATTEMPT}-result.json"
+	exit_path = tmp / f"{ATTEMPT}.exit.txt"
+	log_path = tmp / f"{ATTEMPT}.log"
+	freeze_path = tmp / f"{ATTEMPT}-source-freeze.json"
+	runner_path = tmp / "run_validation09.py"
+
+	result = load(result_path)
+	freeze = load(freeze_path)
+	require(exit_path.is_file() and exit_path.read_text(encoding="utf-8").strip() == "0", "attempt exit file is absent or nonzero")
+	require(result.get("attempt") == ATTEMPT, "result attempt id mismatch")
+	require(result.get("return_code_signed") == 0 and result.get("return_code_unsigned32") == "0x00000000", "wrapper result is nonzero")
+	require(Path(result.get("log", "")).resolve() == log_path.resolve(), "result log path mismatch")
+	require(Path(result.get("source_freeze", "")).resolve() == freeze_path.resolve(), "result source-freeze path mismatch")
+	require(log_path.is_file(), "raw result log missing")
+	log_hash = sha256(log_path)
+	require(result.get("log_sha256") == log_hash, "raw result log SHA-256 mismatch")
+
+	require(freeze.get("schema") == "reef.full_ci_attempt_source_freeze.v1", "source-freeze schema mismatch")
+	require(freeze.get("attempt") == ATTEMPT, "source-freeze attempt mismatch")
+	require(freeze.get("engine") == ENGINE_DESCRIPTION, "engine is not declared exact Godot 4.7.2-stable")
+	binary = freeze.get("binary", {})
+	engine_path = Path(binary.get("path", ""))
+	require(engine_path.is_file(), "frozen native engine binary missing")
+	require(binary.get("sha256") == ENGINE_SHA256 and sha256(engine_path) == ENGINE_SHA256, "native engine SHA-256 mismatch")
+	require(binary.get("size_bytes") == ENGINE_SIZE and engine_path.stat().st_size == ENGINE_SIZE, "native engine size mismatch")
+	require(Path(result.get("native_binary", "")).resolve() == engine_path.resolve(), "result native engine path mismatch")
+
+	sources = freeze.get("sources")
+	require(isinstance(sources, list) and sources, "source-freeze records missing")
+	paths: set[str] = set()
+	mismatches = []
+	for item in sources:
+		rel = item.get("path")
+		require(isinstance(rel, str) and rel not in paths, f"duplicate or invalid frozen source: {rel}")
+		paths.add(rel)
+		require(item.get("hash_normalization") == "utf8_lf", f"unexpected hash normalization: {rel}")
+		path = repo / rel
+		if not path.is_file() or sha256_utf8_lf(path) != item.get("sha256"):
+			mismatches.append(rel)
+	require(not mismatches, f"frozen source hash drift: {mismatches}")
+	require("scripts/ci.sh" in paths, "CI roster owner is absent from source freeze")
+
+	ci_text = (repo / "scripts/ci.sh").read_text(encoding="utf-8")
+	expected = roster_from_ci(ci_text)
+	require(len(expected) == EXPECTED_PROBES and len(set(expected)) == EXPECTED_PROBES, "canonical CI roster is not 78 unique probes")
+	log_text = log_path.read_text(encoding="utf-8", errors="strict")
+	headings = re.findall(r"(?m)^=== (probe_[A-Za-z0-9_]+) ===\s*$", log_text)
+	exits = [(name, int(code)) for name, code in re.findall(r"(?m)^PROBE (probe_[A-Za-z0-9_]+) process exit: (-?\d+)\s*$", log_text)]
+	require(headings == expected, "probe invocation headings are missing, duplicated, or out of canonical order")
+	require([name for name, _code in exits] == expected, "probe process-exit rows are missing, duplicated, or out of canonical order")
+	require(all(code == 0 for _name, code in exits), "one or more probe process exits are nonzero")
+	nonempty = [line.strip() for line in log_text.splitlines() if line.strip()]
+	require(nonempty and nonempty[-1] == f"PROBE {expected[-1]} process exit: 0", "terminal suite marker is absent")
+	banners = re.findall(r"(?m)^Godot Engine v[^\r\n]+", log_text)
+	require(len(banners) >= EXPECTED_PROBES, "not every probe exposes an engine version banner")
+	require(all(line == ENGINE_BANNER for line in banners), "log contains a non-4.7.2 or unexpected engine banner")
+
+	for pattern, label in (
+		(r"(?m)^IMPORT FAIL", "import failure"),
+		(r"(?m)^PROBE .* (?:MISSING|reported a failure|hit a script compile error|reported a resource|produced no output)", "hard probe dispatch failure"),
+		(r"SCRIPT ERROR|Parse Error|Compile Error", "script/parser/compiler error"),
+	):
+		require(re.search(pattern, log_text) is None, f"raw log contains {label}")
+
+	record = {
+		"schema": "reef.full_ci_independent_verification.v1",
+		"attempt": ATTEMPT,
+		"status": "PASS_CODE_AND_PROBES_ONLY",
+		"execution": {
+			"return_code": 0,
+			"elapsed_seconds": result.get("elapsed_seconds"),
+			"log": log_path.relative_to(repo).as_posix(),
+			"log_bytes": log_path.stat().st_size,
+			"log_sha256": log_hash,
+			"result": result_path.relative_to(repo).as_posix(),
+			"result_sha256": sha256(result_path),
+			"source_freeze": freeze_path.relative_to(repo).as_posix(),
+			"source_freeze_sha256": sha256(freeze_path),
+			"runner": runner_path.relative_to(repo).as_posix(),
+			"runner_sha256": sha256(runner_path),
+		},
+		"engine": {"description": ENGINE_DESCRIPTION, "sha256": ENGINE_SHA256, "size_bytes": ENGINE_SIZE, "banner_count": len(banners)},
+		"source_freeze": {"records": len(sources), "normalization": "utf8_lf", "current_matches": len(sources), "mismatches": []},
+		"probe_roster": {"expected_count": EXPECTED_PROBES, "headings": len(headings), "process_exits": len(exits), "ordered": True, "all_process_exits_zero": True, "terminal_marker": nonempty[-1], "expected_order": expected},
+		"hard_error_scan": {"all_clear": True},
+		"scope": "Exact frozen-source native Godot 4.7.2 scripts/ci.sh code and probe regression execution only.",
+		"limits": [
+			"Does not establish visual, art-threshold, animation, target-device, child, owner, release, or game-wide acceptance.",
+			"Advisory visual and game-wide 2D audit status remains governed by its own records.",
+			"Does not alter or supersede Full08 evidence.",
+		],
+	}
+	output.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+	print(f"FULL09_VERIFIED_CODE_PROBES_ONLY|probes={EXPECTED_PROBES}|sources={len(sources)}|output={output.relative_to(repo).as_posix()}")
+	return 0
+
+
+if __name__ == "__main__":
+	try:
+		raise SystemExit(main())
+	except Failure as exc:
+		print(f"FULL09_VERIFICATION_FAIL|{exc}", file=sys.stderr)
+		raise SystemExit(1)

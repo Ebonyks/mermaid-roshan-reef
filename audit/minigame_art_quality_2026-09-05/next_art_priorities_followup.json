@@ -1,0 +1,80 @@
+{
+  "schema": "reef.minigame_next_art_priorities.v1",
+  "date": "2026-09-06",
+  "scope": "Three highest-impact next families outside Hall, Geologist, Racer, Teacher and Dolls; source/runtime evidence is bounded and non-exhaustive.",
+  "pool_evidence_boundary": "Pool numeric ratings come from the dated pre-a6 desktop run03 still packet. The current a6 travel/scoop and source-window changes are not regraded here; removed room-preview-card findings are excluded. Treat Pool as current recapture pending, not as a fresh current-candidate score.",
+  "candidate_baseline": "8b7f116870eec8abf0368a25bf47eac404a23b25; Pool source/runtime reconciliation includes a6 travel/scoop, but this file does not claim a6 visual recapture.",
+  "authority": ["DL-VIS-01", "DL-VIS-02", "DL-VIS-03", "DL-VIS-05", "DL-VIS-06", "DL-VIS-08", "DL-MOT-02", "DL-MOT-03", "DL-MOT-08", "DL-ASSET-01", "DL-QA-11", "MA-SEEK-001"],
+  "priorities": [
+    {
+      "priority": 1,
+      "id": "day-one-pool-activity-family",
+      "game": "day_one_pool",
+      "status": "HISTORICAL_BELOW_4_5_RECAPTURE_PENDING",
+      "why_now": "Highest evidenced visual inconsistency outside the already-owned lanes: polished pool room beside sticker-like debris, hard waterfall contamination and unclear seahorse-mouth contact.",
+      "owners": [
+        {"path": "scripts/games/day_one_pool_cleanup.gd", "role": "ordered activity owner, progress and room handoff"},
+        {"path": "scripts/games/pool_skimmer_activity.gd", "role": "trash pickup/net/basket activity"},
+        {"path": "scripts/games/pool_waterfall_activity.gd", "role": "three-lane scrubber and clogged waterfall"},
+        {"path": "scripts/games/pool_seahorse_rescue_activity.gd", "role": "mouth obstruction/tug/finale activity"},
+        {"path": "scripts/probe_day_one_pool_cleanup.gd", "role": "existing state contract and source binding probe"}
+      ],
+      "assets": [
+        {"path": "assets/castle/day_one_pool/activities/pool_skimmer.png", "sha256": "308c86843ace9fb3d4a65a0c514d41b367d87ceabaf5f3d3676f54ce9be4b9b3", "dimensions": [1024, 682], "observed_issue": "net sticker edge and weak water contact", "lowest_observed": 3.5},
+        {"path": "assets/castle/day_one_pool/activities/floating_trash_atlas.png", "sha256": "e554c4f253bcaa9e5893d9e4fffe03feef96528211f2458dc5d8fc81299f56df", "dimensions": [1023, 682], "observed_issue": "six debris pieces vary in silhouette, outline and material; not a unified debris family", "lowest_observed": 3.5},
+        {"path": "assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png", "sha256": "d4da588adaece3fa12b5f094b50f5c8b33eeae31fd0761f1eeedce882cf1b7507", "dimensions": [874, 1024], "observed_issue": "rectangular green curtain reads pasted over flowing rainbow", "lowest_observed": 3.2},
+        {"path": "assets/castle/day_one_pool/activities/waterfall_scrubber.png", "sha256": "1b29ff463263be093a7e1ac33eb74e4075d6a795dd515d120107f66953b2dc7a", "dimensions": [962, 1024], "observed_issue": "small/displaced scrubber and weak lane contact", "lowest_observed": 3.2},
+        {"path": "assets/castle/day_one_pool/activities/seahorse_mouth_trash.png", "sha256": "9c48ac1ca7be923fcb14902b3e2b62263f34d53e031f11002776bfc4322652f9", "dimensions": [1024, 576], "observed_issue": "obstruction reads as a floating flower/bundle rather than mouth-attached trash", "lowest_observed": 3.4}
+      ],
+      "repair_proposal": ["layout/contact first: bind obstruction and scrubber to exact visual contact points", "reuse clean rainbow waterfall and seahorse identity", "replace or derive a unified debris/clog family only after approved reuse review", "recapture partial/held/contact/settled states and animation separately"],
+      "required_evidence": ["ready", "skimmer partial held and basket deposit", "waterfall each lane held and cleared", "seahorse early/middle/final tug", "pool completion/settle"],
+      "evidence": "audit/minigame_art_quality_2026-09-05/pool_runtime_followup.md; pre-a6 desktop still packet only. Current a6 travel/scoop and source-window behavior require a fresh Mobile capture; animation/device/child acceptance remain unassessed"
+    },
+    {
+      "priority": 2,
+      "id": "seek-find-four-animation-family",
+      "game": "seek",
+      "status": "UNASSESSED_RUNTIME_COVERAGE_SOURCE_PIXELS_STRONG",
+      "why_now": "The child-facing find-four loop depends on hide/peek/reveal/celebrate and companion pointing states, yet current registry coverage and live cadence/contact evidence are missing.",
+      "owners": [
+        {"path": "scripts/games/seek.gd", "sha256": "05451ce46119fcd02818e98498d8dc80baede04f0068be47eabfa9686050a427", "role": "live bindings, atlas windows and find loop"},
+        {"path": "scripts/roshan_sprite_frames.gd", "role": "protected gesture_a atlas windows"}
+      ],
+      "assets": [
+        {"path": "assets/minigames/seek/lamma_animation.png", "sha256": "4ff1c9748e68853879211c825ffc8c45b7388c8da7b17cf0a44c6cd320dd7f8c", "dimensions": [1024, 512], "grid": "4x2, 256px cells", "source_only_score": 4.8},
+        {"path": "assets/minigames/seek/evie_animation.png", "sha256": "705cb95a4a1d0226f9554327947fd2956e131535f2e89f953a94970052030ce9", "dimensions": [1024, 512], "grid": "4x2, 256px cells", "source_only_score": 4.8},
+        {"path": "assets/characters/roshan_25d/roshan_gesture_a.png", "sha256": "54cac0e3088a96d92aae35d14642491f75f06ffe1878b004a6ebfd1de44438df", "dimensions": [1024, 1024], "grid": "4x4, protected source", "source_only_score": null}
+      ],
+      "repair_proposal": ["do not replace source pixels", "capture and verify exact frame windows for all live states", "audit hide/peek/reveal/celebrate contact and settle timing", "reuse corrected atlas window helper if any runtime clipping is found"],
+      "required_evidence": ["ready", "hidden target", "peek", "reveal/contact", "celebrate/payoff", "fourth-find settle"],
+      "evidence": "audit/minigame_art_quality_2026-09-05/seek_current_atlas_followup.json; source review found clean cells but no current runtime packet"
+    },
+    {
+      "priority": 3,
+      "id": "fairy-growth-and-bug-overlay-family",
+      "game": "fairy",
+      "status": "UNASSESSED_RUNTIME_MOUNTING_SOURCE_PIXELS_AT_OR_ABOVE_SOURCE_BAR",
+      "why_now": "Fairy combines five required growth states, recurring bug targets, six destructible leaves and cue overlays; the current route is spatial/3D migration debt, so source quality alone cannot establish readable mounted gameplay.",
+      "owners": [
+        {"path": "scripts/games/fairy.gd", "role": "FS_BOSS_ART, FS_BUG_ART, leaf and cue bindings"},
+        {"path": "assets/fairy/sprites", "role": "growth, bug and cue raster family"}
+      ],
+      "assets": [
+        {"path": "assets/fairy/sprites/boss_sprout.png", "sha256": "1c7e0b23335b3f4aec4796133db9c882c38b1e7a1dc630fceb50a0f14254e886", "dimensions": [1024, 1024], "source_only_score": 4.5},
+        {"path": "assets/fairy/sprites/boss_bloom.png", "sha256": "36db20eff66d1da63ab8f13878f99313712fe3adb02ca314a2a73c6f86c59cf9", "dimensions": [1024, 1024], "source_only_score": 4.8},
+        {"path": "assets/fairy/sprites/bug_jewel.png", "sha256": "2ead5e9ef1b4c8fca0fbe4196a78c1f45926300cfee6f997adf9ae9eef639", "dimensions": [1024, 1024], "source_only_score": 4.6},
+        {"path": "assets/fairy/sprites/bug_moth.png", "sha256": "c707462c283b254d1380afe18bd899035853620c5215931cd528cb855d1b327f", "dimensions": [1024, 1024], "source_only_score": 4.6},
+        {"path": "assets/fairy/sprites/bug_firefly.png", "sha256": "20348706e59d653027960209d7c7461e7d28eb186d2fb3609e24798816057e5b", "dimensions": [1024, 1024], "source_only_score": 4.6}
+      ],
+      "repair_proposal": ["layout/mounting audit before any regeneration", "verify Sprite2D/Canvas migration seam and cue scale/contrast", "capture growth transitions, target contact, leaf destruction and bloom payoff", "preserve all inspected source art unless runtime evidence proves a specific defect"],
+      "required_evidence": ["ready", "seed-to-sprout", "bud/opening", "bug target contact", "leaf hit", "bloom/payoff", "settle"],
+      "evidence": "audit/minigame_art_quality_2026-09-05/fairy_current_source_followup.json; all inspected source rasters met source-only bar, runtime and Mobile evidence absent"
+    }
+  ],
+  "process": {
+    "sol_lane": "trace live binding and reuse-first layout/contact fixes; reject semantic or alpha mismatches",
+    "luna_lane": "independently inspect current captures against the same dimensions and mark unknowns unassessed",
+    "replacement_gate": "Do not generate or replace any listed Fairy/Seek source from this file alone; Pool replacements require a fresh approved candidate and current Mobile reaudits.",
+    "shared_acceptance": "Every applicable identity, finish, contour/alpha, child readability, animation/contact, ownership, consistency and technical dimension must be >=4.5 in current evidence; no family score is averaged across missing dimensions."
+  }
+}

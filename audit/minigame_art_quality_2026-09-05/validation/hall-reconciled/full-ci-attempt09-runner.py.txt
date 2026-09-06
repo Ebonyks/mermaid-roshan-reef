@@ -1,0 +1,126 @@
+"""Run the complete trusted CI once with the native Godot 4.7.2 binary.
+
+This helper is intentionally attempt-specific and never retries or changes CI assertions.
+"""
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import time
+
+ROOT = Path(__file__).resolve().parents[2]
+TMP = ROOT / "tmp" / "art-dev-combined-validation"
+NAME = "full-ci-attempt09"
+PROFILE = TMP / f"{NAME}-profile"
+LOG = TMP / f"{NAME}.log"
+EXIT = TMP / f"{NAME}.exit.txt"
+PID = TMP / f"{NAME}.pid.json"
+FREEZE = TMP / f"{NAME}-source-freeze.json"
+GODOT = Path(r"C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\Godot\4.7.2\godot.exe")
+BASH = Path(r"C:\Program Files\Git\bin\bash.exe")
+
+
+def sha256_utf8_lf(path: Path) -> str:
+    text = path.read_bytes().decode("utf-8")
+    return hashlib.sha256(text.replace("\r\n", "\n").encode("utf-8")).hexdigest()
+
+
+def sha256_bytes(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def changed_gd() -> list[str]:
+    result = subprocess.run(
+        ["git", "diff", "--name-only", "HEAD", "--", "*.gd"],
+        cwd=ROOT, capture_output=True, text=True, check=True,
+    )
+    return sorted({line.strip().replace("\\", "/") for line in result.stdout.splitlines() if line.strip()})
+
+
+def main() -> int:
+    if not GODOT.is_file() or not BASH.is_file():
+        raise SystemExit("native Godot 4.7.2 or Git bash executable is missing")
+    if PROFILE.exists():
+        raise SystemExit(f"refusing existing profile: {PROFILE}")
+    for path in (LOG, EXIT, PID, FREEZE):
+        if path.exists():
+            raise SystemExit(f"refusing existing attempt09 artifact: {path}")
+
+    profile_dirs = {
+        "APPDATA": PROFILE / "appdata",
+        "LOCALAPPDATA": PROFILE / "localappdata",
+        "XDG_DATA_HOME": PROFILE / "data",
+        "XDG_CONFIG_HOME": PROFILE / "config",
+    }
+    for directory in profile_dirs.values():
+        directory.mkdir(parents=True, exist_ok=False)
+    if not all(directory.is_dir() for directory in profile_dirs.values()):
+        raise SystemExit("isolated profile guard failed before CI launch")
+
+    source_paths = changed_gd()
+    source_paths.append("scripts/ci.sh")
+    source_paths = sorted(set(source_paths))
+    source_records = []
+    for relative in source_paths:
+        path = ROOT / relative
+        if not path.is_file():
+            raise SystemExit(f"source freeze path missing: {relative}")
+        source_records.append({
+            "path": relative,
+            "hash_normalization": "utf8_lf",
+            "sha256": sha256_utf8_lf(path),
+            "raw_bytes": path.stat().st_size,
+        })
+
+    env = os.environ.copy()
+    env.update({key: str(value) for key, value in profile_dirs.items()})
+    env["GODOT"] = GODOT.as_posix()
+    env["PYTHONUTF8"] = "1"
+    env["PYTHONIOENCODING"] = "utf-8"
+    command = [str(BASH), "scripts/ci.sh"]
+    freeze = {
+        "schema": "reef.full_ci_attempt_source_freeze.v1",
+        "attempt": NAME,
+        "engine": "Godot 4.7.2-stable native executable",
+        "binary": {"path": str(GODOT), "sha256": sha256_bytes(GODOT), "size_bytes": GODOT.stat().st_size},
+        "sources": source_records,
+        "command": command,
+        "profile": str(PROFILE),
+    }
+    FREEZE.write_text(json.dumps(freeze, indent=2) + "\n", encoding="utf-8")
+
+    startup = subprocess.STARTUPINFO()
+    startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    startup.wShowWindow = 0
+    started = time.monotonic()
+    with LOG.open("wb") as stream:
+        child = subprocess.Popen(command, cwd=ROOT, env=env, stdout=stream, stderr=subprocess.STDOUT, startupinfo=startup)
+        PID.write_text(json.dumps({"wrapper_pid": os.getpid(), "child_pid": child.pid, "profile": str(PROFILE), "binary": str(GODOT)}, indent=2) + "\n", encoding="utf-8")
+        code = child.wait()
+    elapsed = time.monotonic() - started
+    EXIT.write_text(str(code), encoding="utf-8")
+    result = {
+        "attempt": NAME,
+        "return_code_signed": code,
+        "return_code_unsigned32": f"0x{(code & 0xFFFFFFFF):08X}",
+        "elapsed_seconds": round(elapsed, 3),
+        "log": str(LOG),
+        "log_sha256": sha256_bytes(LOG),
+        "source_freeze": str(FREEZE),
+        "native_binary": str(GODOT),
+        "wrapper_causality": "UNPROVEN",
+    }
+    (TMP / f"{NAME}-result.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(result, indent=2), flush=True)
+    return code
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

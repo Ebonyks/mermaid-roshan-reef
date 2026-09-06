@@ -1,0 +1,69 @@
+{
+  "result": "PASS",
+  "scope": "Code/static/document integrity; strict art quality intentionally remains UNSATISFIED.",
+  "checks": [
+    {
+      "command": "python -m gdtoolkit.parser scripts/arena/castle_rooms_25d.gd scripts/audio_director.gd scripts/chapter_two_director.gd scripts/chapter_two_ember_encounter.gd scripts/chapter_two_lawn_finale_2d.gd scripts/chapter_two_party_plan.gd scripts/chapter_two_party_table_2d.gd scripts/chapter_two_room_plot.gd scripts/debug_export_stage_pathfinding.gd scripts/main.gd scripts/opera_career_world_2d.gd scripts/opera_stage_paths.gd scripts/probe_bathroom_integration.gd scripts/probe_castle_canvas2d.gd scripts/probe_chapter2.gd scripts/probe_chapter2_lawn.gd scripts/probe_crown.gd scripts/probe_interaction.gd scripts/probe_opera_2d.gd scripts/probe_opera_diegetic_paths.gd scripts/probe_stage_navigation_2d.gd scripts/save_state.gd scripts/stage_navigation_2d.gd",
+      "return_code": 0,
+      "expected": 0,
+      "passed_contract": true,
+      "evidence": "audit/minigame_art_quality_2026-09-05/validation/hall-reconciled/parser.log"
+    },
+    {
+      "command": "python tools/lint_inference.py scripts/arena/castle_rooms_25d.gd scripts/audio_director.gd scripts/chapter_two_director.gd scripts/chapter_two_ember_encounter.gd scripts/chapter_two_lawn_finale_2d.gd scripts/chapter_two_party_plan.gd scripts/chapter_two_party_table_2d.gd scripts/chapter_two_room_plot.gd scripts/debug_export_stage_pathfinding.gd scripts/main.gd scripts/opera_career_world_2d.gd scripts/opera_stage_paths.gd scripts/probe_bathroom_integration.gd scripts/probe_castle_canvas2d.gd scripts/probe_chapter2.gd scripts/probe_chapter2_lawn.gd scripts/probe_crown.gd scripts/probe_interaction.gd scripts/probe_opera_2d.gd scripts/probe_opera_diegetic_paths.gd scripts/probe_stage_navigation_2d.gd scripts/save_state.gd scripts/stage_navigation_2d.gd",
+      "return_code": 0,
+      "expected": 0,
+      "passed_contract": true,
+      "evidence": "audit/minigame_art_quality_2026-09-05/validation/hall-reconciled/inference.log"
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "return_code": 0,
+      "expected": 0,
+      "passed_contract": true,
+      "evidence": "audit/minigame_art_quality_2026-09-05/validation/hall-reconciled/doc-authority.log"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "return_code": 0,
+      "expected": 0,
+      "passed_contract": true,
+      "evidence": "audit/minigame_art_quality_2026-09-05/validation/hall-reconciled/development-contract.log"
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "return_code": 0,
+      "expected": 0,
+      "passed_contract": true,
+      "evidence": "audit/minigame_art_quality_2026-09-05/validation/hall-reconciled/contract-tests.log"
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_minigame_art_quality",
+      "return_code": 0,
+      "expected": 0,
+      "passed_contract": true,
+      "evidence": "audit/minigame_art_quality_2026-09-05/validation/hall-reconciled/unit-tests.log"
+    },
+    {
+      "command": "python -B tools/audit_minigame_art_quality.py --validate-only",
+      "return_code": 0,
+      "expected": 0,
+      "passed_contract": true,
+      "evidence": "audit/minigame_art_quality_2026-09-05/validation/hall-reconciled/registry-integrity.log"
+    },
+    {
+      "command": "python -B tools/audit_minigame_art_quality.py --stress",
+      "return_code": 0,
+      "expected": 0,
+      "passed_contract": true,
+      "evidence": "audit/minigame_art_quality_2026-09-05/validation/hall-reconciled/registry-stress.log"
+    },
+    {
+      "command": "python -B tools/audit_minigame_art_quality.py --check",
+      "return_code": 1,
+      "expected": 1,
+      "passed_contract": true,
+      "evidence": "audit/minigame_art_quality_2026-09-05/validation/hall-reconciled/registry-strict.log"
+    }
+  ]
+}

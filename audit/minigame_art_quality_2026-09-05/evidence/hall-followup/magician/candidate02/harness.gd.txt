@@ -1,0 +1,139 @@
+extends SceneTree
+## Diagnostic only: configured-task-open animation baseline for all Magician phases.
+## No contact input, progress injection, save mutation, or acceptance claim.
+
+const SCREEN := Vector2i(1280, 720)
+const EXPECTED_HASH := "ed1daf0bf"
+const MAX_SECONDS := 90.0
+var main: ReefMain
+var act: OperaAct
+var world: OperaCareerWorld2D
+var output_dir := ""
+var profile_root := ""
+var started_msec := 0
+var failures := 0
+var captures: Array[Dictionary] = []
+
+func _init() -> void:
+	call_deferred("_run")
+
+func _run() -> void:
+	started_msec = Time.get_ticks_msec()
+	output_dir = OS.get_environment("HALL_MAGICIAN_POSES_OUT").strip_edges()
+	profile_root = OS.get_environment("HALL_MAGICIAN_POSES_PROFILE_ROOT").strip_edges()
+	if output_dir.is_empty() or profile_root.is_empty():
+		_block("output/profile environment required", 2)
+		return
+	var version := Engine.get_version_info()
+	if int(version.get("major", -1)) != 4 or int(version.get("minor", -1)) != 7 \
+			or int(version.get("patch", -1)) != 2 or String(version.get("status", "")) != "stable" \
+			or not String(version.get("hash", "")).begins_with(EXPECTED_HASH):
+		_block("requires exact official Godot 4.7.2-stable", 3)
+		return
+	var actual := OS.get_user_data_dir().replace("\\", "/").to_lower()
+	var expected := profile_root.replace("\\", "/").trim_suffix("/").to_lower()
+	if actual != expected and not actual.begins_with(expected + "/"):
+		_block("user-data escaped isolated profile", 4)
+		return
+	var packed := load("res://scenes/main.tscn") as PackedScene
+	main = packed.instantiate() as ReefMain if packed != null else null
+	if main == null:
+		_block("main scene unavailable", 5)
+		return
+	get_root().add_child(main)
+	get_root().size = SCREEN
+	await _frames(5)
+	if RenderingServer.get_current_rendering_method() != "mobile":
+		_block("renderer is not Mobile", 6)
+		return
+	if get_root().size != SCREEN or not is_equal_approx(Engine.time_scale, 1.0) or paused:
+		_block("initial runtime guard failed", 7)
+		return
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		main._launch_from_start_menu(false)
+	elif main.intro_active:
+		main._skip_intro()
+	await _frames(6)
+	main.day_one_active = false
+	main.game = "opera"
+	var config: Dictionary = {}
+	for value: Variant in OperaHouse.ACTS:
+		var candidate := value as Dictionary
+		if String(candidate.get("costume", "")) == "magician":
+			config = candidate.duplicate(true)
+			break
+	_check("found magician config", not config.is_empty())
+	if config.is_empty():
+		_finish()
+		return
+	act = OperaAct.new()
+	get_root().add_child(act)
+	_check("OperaAct.start", act.start(main, config, Callable()))
+	await _frames(8)
+	world = act.career_world_2d
+	_check("live magician world", world != null and world.active and world.two_act_enabled)
+	if world == null:
+		_finish()
+		return
+	for phase_index in range(world.phases.size()):
+		if Time.get_ticks_msec() - started_msec > int(MAX_SECONDS * 1000.0):
+			_block("wall-clock timeout", 8)
+			return
+		world.phase_index = phase_index
+		world._show_phase()
+		await _frames(3)
+		var phase_open_msec := Time.get_ticks_msec()
+		var phase := world.phases[phase_index] as Dictionary
+		var label := String(phase.get("name", "phase_%d" % phase_index)).to_lower().replace(" ", "_")
+		_check("task open phase %d" % phase_index, world.task_open and world.surface != null and world.surface.is_processing())
+		await _capture(phase_index, label, "t000", phase_open_msec)
+		await create_timer(0.25).timeout
+		await _capture(phase_index, label, "t250", phase_open_msec)
+		await create_timer(0.25).timeout
+		await _capture(phase_index, label, "t500", phase_open_msec)
+	_write_manifest()
+	_finish()
+
+func _capture(phase_index: int, label: String, sample: String, phase_open_msec: int) -> void:
+	if get_root().size != SCREEN or paused or not is_equal_approx(Engine.time_scale, 1.0):
+		_check("capture guard %d/%s" % [phase_index, sample], false)
+		return
+	await RenderingServer.frame_post_draw
+	var image := get_root().get_texture().get_image()
+	var path := output_dir.path_join("magician_%02d_%s_%s.png" % [phase_index, label, sample])
+	_check("capture %s" % path.get_file(), image.get_size() == SCREEN and image.save_png(path) == OK)
+	if image.get_size() != SCREEN:
+		return
+	var animator: OperaRoshanActor = world.player_animator
+	captures.append({"phase_index":phase_index,"phase_label":label,"performance_part":String((world.phases[phase_index] as Dictionary).get("performance_part", "unknown")),"source_phase":int((world.phases[phase_index] as Dictionary).get("source_phase", -1)),"sample":sample,"state":"configured_task_open","path":path,"sha256":FileAccess.get_sha256(path),"animation_state":animator.current_animation if animator != null else "unavailable","animation_frame":animator.current_frame if animator != null else -1,"task_open":world.task_open,"mode":String(world.surface.mode),"phase_open_msec":phase_open_msec,"captured_msec":Time.get_ticks_msec(),"elapsed_msec_since_phase_open":Time.get_ticks_msec() - phase_open_msec,"process_frames":Engine.get_process_frames(),"renderer":RenderingServer.get_current_rendering_method(),"viewport":[get_root().size.x,get_root().size.y],"time_scale":Engine.time_scale})
+
+func _write_manifest() -> void:
+	var file := FileAccess.open(output_dir.path_join("manifest.json"), FileAccess.WRITE)
+	_check("manifest opened", file != null)
+	if file != null:
+		file.store_string(JSON.stringify({"schema":1,"claim":"configured_task_open animation diagnostic; no contact/progress/acceptance claim","captures":captures,"source_hashes":_source_hashes()}, "  ") + "\n")
+		file.close()
+
+func _source_hashes() -> Dictionary:
+	var result: Dictionary = {}
+	for path: String in ["res://scripts/opera_career_world_2d.gd","res://scripts/opera_performance_plan.gd","res://scripts/opera_act.gd","res://scripts/opera_roshan_actor.gd","res://scripts/opera_gesture_surface.gd"]:
+		result[path] = FileAccess.get_sha256(path)
+	return result
+
+func _frames(count: int) -> void:
+	for _index in range(count):
+		await process_frame
+
+func _check(label: String, ok: bool) -> void:
+	if not ok:
+		failures += 1
+	print("HALL_MAGICIAN_POSES|%s|%s" % ["OK" if ok else "FAIL", label])
+
+func _block(message: String, code: int) -> void:
+	print("HALL_MAGICIAN_POSES|BLOCKED|%s" % message)
+	quit(code)
+
+func _finish() -> void:
+	print("HALL_MAGICIAN_POSES|RESULT|%s|captures=%d" % ["PASS" if failures == 0 else "FAIL", captures.size()])
+	quit(0 if failures == 0 else 1)

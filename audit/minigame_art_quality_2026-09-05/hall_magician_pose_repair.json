@@ -1,0 +1,182 @@
+{
+  "schema": "hall-magician-pose-repair-review/v1",
+  "status": "PARTIAL_KEEP_FIVE_RUNTIME_ENTRIES_REJECT_THREE",
+  "scope": "Read-only pixel comparison of all eight current Magician runtime plan entries, three timed stills each, baseline01 versus candidate02. Only actor pose-to-phase containment is scored; scene art, input feedback and motion quality are not accepted here.",
+  "evidence": {
+    "baseline": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/magician/baseline01/captures/manifest.json",
+    "candidate": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/magician/candidate02/captures/manifest.json",
+    "both_results": "PASS, 24 captures each",
+    "timing_warning": "Filename suffixes t000/t250/t500 are nominal labels. Actual manifest elapsed times are roughly 730-2500 ms and govern interpretation; these are not 0/250/500 ms synchronized samples.",
+    "capture_hashes": {
+      "baseline01": {
+        "magician_00_vanish_t000.png": "befd9404989c7aadcbbfec53aa6d18e3abf850866d2a9c5fc83cc1b4ff52654f",
+        "magician_00_vanish_t250.png": "e28dec26afc03f6661f767fb37153df88e6a61b4a2c3979342bec1e523a20690",
+        "magician_00_vanish_t500.png": "2649bf953e9bc129ac78f3a3f0d31924277d925f7476f594bbc45d5f0ff60e87",
+        "magician_01_track_t000.png": "55e1e674797686835fb8bda6b7d32700b29fa25281cd4b67318ee18ffdb8c92e",
+        "magician_01_track_t250.png": "9d8c2789fc7531a716d5bda4c10460630034b721d3a0231ccf9a731aa8197cd7",
+        "magician_01_track_t500.png": "34abc115bd820e869da76c7be12bb54805d4b16db341893cbdbbb965a6c0f7f9",
+        "magician_02_rope_t000.png": "60c02b2388647089c04e71df03f0232354610d2c863cd105cf74b8dc7c9ea482",
+        "magician_02_rope_t250.png": "b09ec8ba49573372b68b1765e5800000d3a0cd32a72fb2e36661a2997c0d2f01",
+        "magician_02_rope_t500.png": "108e109c9e94580e558f644dd7b97495dd5edd1b81ab78f5364faa99cc8d5f4d",
+        "magician_03_vanish_t000.png": "fb31adeff9effeb7aa72227a32ff71428884ff836d6772b6419e4fec074e8755",
+        "magician_03_vanish_t250.png": "c43bdabe403b62336990f2eb91649740141b7a7f2da2d5425d22b6ae77f7ddba",
+        "magician_03_vanish_t500.png": "bc9a2b39bb807e040af8d45fba7ce770fd7ec1629984dee30a943af9a05e6891",
+        "magician_04_track_t000.png": "299adba081b40d4458f65d2568aa9ce473840c0aeb5968151a8e7b11744c1c02",
+        "magician_04_track_t250.png": "dc20534bc58e0b45d682ef9d1c75df8fe824ec7522beb0dc3fe5c366aff38063",
+        "magician_04_track_t500.png": "c07d289c2441a97faa304ad53f5a71631ca1cd99165dae69e60c938866cc051f",
+        "magician_05_rope_t000.png": "edd0ef2b67ca4110b7be9f3d50674d980d2ee0e5366bafc84ae20149611fb1d2",
+        "magician_05_rope_t250.png": "4d71d6c0f85c3d3b34d17ead3939fc2a30c2a1362a090c303539294455b37265",
+        "magician_05_rope_t500.png": "39db47a74fac8293101a3f6e95674146a885197eefb50fea948ef18ab357a29e",
+        "magician_06_cabinet_t000.png": "a81a76c60a1561cca4897a18c6242450aa00cf37e95610fe2e1ad2ead13c30cd",
+        "magician_06_cabinet_t250.png": "2bf006f9971b8c32b7809e5fea76c90396f1486768ecb503effc7506646044fa",
+        "magician_06_cabinet_t500.png": "899c941cb63780d85a346725a010b3a05678135fb3c421ce14a8e567e3254c52",
+        "magician_07_portal_t000.png": "44700338c28cb09c9cea502db7a42d2fcd45f618dd8d9c8e79b587a60f03a7da",
+        "magician_07_portal_t250.png": "52027a529d392b07b6d640173b977f264e21ffd632f37224a6445b13e162cc99",
+        "magician_07_portal_t500.png": "64616c5f8f1c5d7ea6348d937f11ef7a9b3792cd5b455120555bb3ffae35724e"
+      },
+      "candidate02": {
+        "magician_00_vanish_t000.png": "1edaa78c9b5704974f7a6751d6627030022e15037105b10b3fef531e39c250ff",
+        "magician_00_vanish_t250.png": "c6123fd3a60276371cbb62a3596832a9f1120d001950b04e3739404e8656dd08",
+        "magician_00_vanish_t500.png": "3510049017dd77599e66f4548fa7be2eda75b8dcd39c637f100ed33f94b9747f",
+        "magician_01_track_t000.png": "c1f4ef96903cbef0c5eef21bb504ac5c043f59e5be212d98bbbda1f1fa1cc790",
+        "magician_01_track_t250.png": "29a13461d3d403537c6cefa80eee9c88450943098c2605f347759f76897c5ee2",
+        "magician_01_track_t500.png": "b892eb7ff4d73ef111e8d69edb2215b7096933f8537aa13e753c33ea3a4fe804",
+        "magician_02_rope_t000.png": "ceb24b83d77e3fa0eef717f4180e36d2bc02d3fd9371690fa3523d90743f9377",
+        "magician_02_rope_t250.png": "0dd20d49add7068434dcb23faaa0bbbdcfd5c1a70f00569355b26c1e4769f329",
+        "magician_02_rope_t500.png": "d083db191f6d5e6fa31c9d318d860c51677b7ece42d6425d09e5217dda73e511",
+        "magician_03_vanish_t000.png": "ce30137f3417a7039df8f460a0ef9e1f220ef1e6575562c513f6d014014704bb",
+        "magician_03_vanish_t250.png": "4fdf1f80f406bdfa539494336fc5c0ac883c4f6be9833e52dd339cca2c64459b",
+        "magician_03_vanish_t500.png": "6002a70482ec278aa52df2a2d7562b8964089335b160a7be95b0cbe6ac221ba8",
+        "magician_04_track_t000.png": "aa5a26f491682e29c0c4daaf7f2fe634375c3f7e35c0978bcad0b5d30a59780d",
+        "magician_04_track_t250.png": "2cd223234a6f36a3e4a98ea2c45cfd678096c8c138b90cc3cc5c72bae8dbcbd1",
+        "magician_04_track_t500.png": "e46631e3e0d9e053e6d8433b1fe7407cac786599e0e4e6e7cdaa0092df50c708",
+        "magician_05_rope_t000.png": "4c6af9e35e5d3fd08d281e68a6310c65ab59335ba66785a88280c05935b06a47",
+        "magician_05_rope_t250.png": "a8e12627b880077b6e18d1a8d7d6a8c7a6e4d73e3e148ecfabfb89761138a74f",
+        "magician_05_rope_t500.png": "79655df8a586739cc0759d1f85bd7a99dbd166313f5c2afa1cdfe70feec63e6b",
+        "magician_06_cabinet_t000.png": "3d135baebfb72141c93918b28e90162bdc5a0dd17027a063a7b5dd36e5edb112",
+        "magician_06_cabinet_t250.png": "daecb59348229c9316041303efc8a851796912aa750d4e3aa1380c75eec6663f",
+        "magician_06_cabinet_t500.png": "35f662bd11ed0944529db0f7517a1a98ecfcab4033ffd3c5079ba93dc5b7ccc3",
+        "magician_07_portal_t000.png": "f1682f63f5fd19f4b1437961bd839bab12d015ef9062c4d60744c92d41666d45",
+        "magician_07_portal_t250.png": "8d4beb1b8dd38dd579c7996baf71bca95cfa92b4c34f8b5bca7b0e4ebe5092e1",
+        "magician_07_portal_t500.png": "3ca901ec4658328780a99043197bbb6c04e66be451988e5803712e0bb0c2ee00"
+      }
+    }
+  },
+  "limits": [
+    "configured phase shortcuts are not natural navigation",
+    "three sparse stills cannot establish cadence, transition smoothness, looping behavior between samples, or target-device quality",
+    "scores concern visible semantic containment only and are not whole-phase art scores",
+    "baseline and candidate keep the same protected atlas pixels"
+  ],
+  "phase_reviews": [
+    {
+      "runtime_index": 0,
+      "part": "practice",
+      "source_phase": 0,
+      "phase": "VANISH",
+      "candidate_mapping": "held yellow wand-orbit cell",
+      "baseline_score": 3.7,
+      "candidate_score": 4.5,
+      "disposition": "KEEP",
+      "finding": "Baseline samples switch from portal to circular-wand effects. Candidate holds one wand/orbit action across all three samples and avoids showing the distinct portal trick. The orbit is compatible with an active vanish spell, although the mounted lamb/hat state remains necessary for full meaning."
+    },
+    {
+      "runtime_index": 1,
+      "part": "practice",
+      "source_phase": 1,
+      "phase": "TRACK",
+      "candidate_mapping": "neutral thoughtful wand cell",
+      "baseline_score": 3.6,
+      "candidate_score": 4.3,
+      "disposition": "KEEP_AS_CONTAINMENT_ONLY_BELOW_BAR",
+      "finding": "Baseline visibly cycles portal and orbit tricks while the child tracks hats. Candidate consistently shows a neutral, attentive wand pose and no contradictory prop. It does not depict looking between or pointing to hats, so it remains below 4.5 for phase-specific identity, but is a safer containment choice than baseline."
+    },
+    {
+      "runtime_index": 2,
+      "part": "practice",
+      "source_phase": 2,
+      "phase": "ROPE",
+      "candidate_mapping": "held yellow wand-orbit cell",
+      "baseline_score": 3.5,
+      "candidate_score": 3.6,
+      "disposition": "REJECT_MAPPING",
+      "finding": "Candidate removes temporal cycling but the held yellow orbit has no rope, pulling or swipe relationship and reads as a different magic trick. The visible rope/path interaction is isolated on the opposite side of the room. Stability alone does not make the actor pose semantically correct.",
+      "recommended_containment": "Use a neutral open-hand/wand cell with no orbit or portal effect unless an existing reviewed cell visibly supports rope handling; verify mounted actor-to-rope direction in new stills."
+    },
+    {
+      "runtime_index": 3,
+      "part": "stage",
+      "source_phase": 0,
+      "phase": "VANISH",
+      "candidate_mapping": "held yellow wand-orbit cell",
+      "baseline_score": 3.7,
+      "candidate_score": 4.5,
+      "disposition": "KEEP",
+      "finding": "As in practice, candidate holds a single compatible active spell and removes the unrelated large actor-side portal seen in baseline samples. The central lamb, hat and wand retain the actual vanish ownership."
+    },
+    {
+      "runtime_index": 4,
+      "part": "stage",
+      "source_phase": 1,
+      "phase": "TRACK",
+      "candidate_mapping": "neutral thoughtful wand cell",
+      "baseline_score": 3.6,
+      "candidate_score": 4.3,
+      "disposition": "KEEP_AS_CONTAINMENT_ONLY_BELOW_BAR",
+      "finding": "The neutral pose stops unrelated portal/orbit cycling and leaves three hats as the visual owner of TRACK. It is semantically non-conflicting but lacks an explicit gaze/gesture toward the hats, so the mapping does not reach 4.5."
+    },
+    {
+      "runtime_index": 5,
+      "part": "stage",
+      "source_phase": 2,
+      "phase": "ROPE",
+      "candidate_mapping": "held yellow wand-orbit cell",
+      "baseline_score": 3.5,
+      "candidate_score": 3.6,
+      "disposition": "REJECT_MAPPING",
+      "finding": "The same mismatch persists on stage: the actor performs a glowing orbit while the actual rope mechanic is a separate dark V-shaped path across the cabinets. The pose does not reinforce rope contact, direction or material identity.",
+      "recommended_containment": "Prefer the neutral open-hand/wand cell pending a genuinely rope-supporting source cell; then re-capture all three states."
+    },
+    {
+      "runtime_index": 6,
+      "part": "stage",
+      "source_phase": 3,
+      "phase": "CABINET",
+      "candidate_mapping": "neutral open-hand wand cell",
+      "baseline_score": 3.6,
+      "candidate_score": 4.4,
+      "disposition": "KEEP_AS_CONTAINMENT_ONLY_BELOW_BAR",
+      "finding": "Candidate removes unrelated portal/orbit effects and leaves the large cabinet as the sole trick owner. The open hand is compatible with presenting the cabinet but does not visibly touch or open it, so contact/phase specificity remains below 4.5."
+    },
+    {
+      "runtime_index": 7,
+      "part": "stage",
+      "source_phase": 4,
+      "phase": "PORTAL",
+      "candidate_mapping": "held yellow actor-side portal/orbit cell",
+      "baseline_score": 3.8,
+      "candidate_score": 3.9,
+      "disposition": "REJECT_MAPPING",
+      "finding": "The central shell doorway already owns the interactive portal while the held actor cell adds a second large glowing portal at Roshan's left. Two portals split scene ownership and make it unclear which one the gesture controls. Candidate stability does not resolve that duplication.",
+      "recommended_containment": "Use the neutral open-hand/wand cell so the central shell doorway remains the single portal owner, or prove a layout where the actor-side effect is explicitly connected to the central portal rather than duplicated."
+    }
+  ],
+  "summary": {
+    "keep": [
+      "practice VANISH",
+      "stage VANISH"
+    ],
+    "keep_but_below_4_5": [
+      "practice TRACK",
+      "stage TRACK",
+      "stage CABINET"
+    ],
+    "reject": [
+      "practice ROPE",
+      "stage ROPE",
+      "stage PORTAL"
+    ],
+    "game_wide_acceptance": false,
+    "reason": "ROPE remains semantically mismatched and PORTAL has duplicate ownership; neutral TRACK/CABINET are safer than baseline but still below 4.5. Motion and remaining visual dimensions are unassessed."
+  }
+}

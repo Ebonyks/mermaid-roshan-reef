@@ -1,0 +1,110 @@
+{
+  "schema": "dolls_runtime_still_review_v1",
+  "reviewed_date": "2026-09-06",
+  "reviewer": "Sol independent visual review",
+  "scope": {
+    "run": "tmp/dolls-runtime-followup/run01",
+    "result": "exit 0; PASS; six captures; source freeze passed",
+    "engine": "Godot 4.7.2-stable official ed1daf0bf; native godot.exe ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+    "renderer_viewport": "Mobile 1280x720 on desktop RTX 3060 Ti",
+    "limits": [
+      "Sparse configured-route stills do not assess animation, phone rendering, natural navigation, touch feel, child response or owner acceptance.",
+      "Classic Roshan was explicitly configured; other saved skins are unassessed.",
+      "05 is a configured visual dictionary with shipping teardown bypassed, not natural completion, payoff, persistence or settle evidence."
+    ]
+  },
+  "evidence_integrity": {
+    "manifest": "tmp/dolls-runtime-followup/run01/captures/manifest.json",
+    "source_snapshot": "tmp/dolls-runtime-followup/run01/source-snapshot.json",
+    "harness_sha256": "56cc87fb3c369830cd093bde3778530f2bfebc358bca80a6b195ee2275da58fd",
+    "metadata_correction": "00_ready is a valid natural early-play frame but is not empty: the manifest records one aqua faller at normalized y 0.069456.",
+    "origins": {
+      "00_ready": "natural game entry, first faller already visible",
+      "01_multiple_fallers": "configured caught=2 plus two shipping-form faller dictionaries",
+      "02_held_drag": "configured stable faller plus real held ScreenTouch and five ScreenDrag callbacks",
+      "03_caught": "configured near-contact faller followed by shipping input/process catch",
+      "04_safe_miss": "configured near-floor faller followed by shipping zero-input miss",
+      "05_three_settled_completion": "configured post-catch visual shortcut; processing disabled and main dispatch changed"
+    }
+  },
+  "source_binding": {
+    "scripts/games/dolls.gd": "5cb9e511e002b9de4bfab5b6e9c41923308fac29690875e90a90c03ecb58162f",
+    "scripts/opera_nursery_catch.gd": "bd053fecc162306c05a9c6f806c7c121d92cd220f5f6366cc19180c2a7dcc5e5",
+    "scripts/opera_world_backdrop_2d.gd": "1897f388cd04da9bc200b7b9ec03dea6e86d57e5eee7db6cef311a453f33a8ef",
+    "scripts/main.gd": "5990262f20ec7da2abd4b9d863c8e57981a6b01dca9cd0d08ec622ee159e0472",
+    "assets/characters/roshan_25d/roshan_base.png": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+    "baby_hashes": ["bcd4f1e12437dab7dbacadb54f0150c4b500d40e589574f03c394109f7780c3b", "73148e42f8e7786aef3baafe573905b3e504d76ab2f754cbe61c47c8b9ddb102", "c21a61b7ebb53c0f164ce29a39656b23b32725708e4f71192babf8b5e8eb74b5"],
+    "nursery_tile_hashes": ["ed0142cf00f970e65cd211ce1816fa411528f7bf31dff38a0d8046d243875133", "fc0fed2f81b13694a86e10d91c09e1072716e58697d14c68d9d36ebd9b41eaef", "65c04742ca49fb3450125dd98a66e8e69a36fccc31dda88fedaac9a8800cf3a2", "8f1e09ffd00795119258fcca0e2b30d69475fdbe33ca33d350a9954bfdb9e2c7"]
+  },
+  "live_ownership": [
+    {"owner": "OperaWorldBackdrop2D", "role": "assembles/crops four nursery carrier tiles; mounted result includes the central room, blurred sides and broad aqua upper band"},
+    {"owner": "DollsNurserySurface._draw", "role": "border, pips, purple safety mat, seams/tufts, focus arcs, U sling, landing halo and baby placement"},
+    {"owner": "DollsGame._layout_catcher_card", "role": "moves the configured classic Roshan TextureRect horizontally behind the surface"},
+    {"owner": "OperaNurseryCatch baby family", "role": "three painted baby cutouts used for falling, landing and settled roles"}
+  ],
+  "state_reviews": [
+    {
+      "state": "00_ready", "sha256": "9e9d56053e25812575e00fbe6549d20af2db6c770771855dfdb19e872284943f",
+      "actual": "natural early play with one aqua baby entering top-left",
+      "scores": {"identity": 4.2, "finish": 3.7, "contour_edges": 4.4, "readability": 3.8, "contact": 3.0, "scene_ownership": 3.3, "consistency": 3.5, "technical": 4.2, "animation": null, "device": null},
+      "strengths": "Moon-shell nursery, Roshan and baby are recognizable; three pips communicate count without text.",
+      "weaknesses": "The flat purple mat dominates the lower fifth, the U sling sits far below Roshan's hands, and the broad aqua header/blurred sides dilute the painted room. The entering baby crowds the top seam."
+    },
+    {
+      "state": "01_multiple_fallers", "sha256": "72694be0e9f21cf61113f780b652661027b5cbdbcd8cfb53b782ab35acd86259",
+      "actual": "configured two fallers and two previously settled babies",
+      "scores": {"identity": 4.3, "finish": 3.7, "contour_edges": 4.4, "readability": 3.5, "contact": 2.9, "scene_ownership": 3.2, "consistency": 3.4, "technical": 4.2, "animation": null, "device": null},
+      "strengths": "Large fallers separate by color and lane; filled pips distinguish progress.",
+      "weaknesses": "Settled babies become tiny hanging tokens below the sling and scale sharply down from fallers. Roshan remains in the room while sling/babies occupy the foreground UI strip."
+    },
+    {
+      "state": "02_held_drag", "sha256": "0e3a63c93ea198629433dc5357e9a573e17d682860b865101514ed070abcf60a",
+      "actual": "real held drag at x 0.72 with configured approaching coral baby",
+      "scores": {"identity": 4.3, "finish": 3.8, "contour_edges": 4.4, "readability": 3.9, "contact": 3.1, "scene_ownership": 3.3, "consistency": 3.5, "technical": 4.3, "animation": null, "device": null},
+      "strengths": "Live input relocates Roshan and sling to the lane; the idle halo is absent during input.",
+      "weaknesses": "The baby overlaps Roshan's tail/body rather than clearly entering her arms or sling. Movement correlation is visible, but caregiving contact is not."
+    },
+    {
+      "state": "03_caught", "sha256": "8165352f3bf4fb1890aa130e2f5a69504d9c84ec1cd0104e8cc14b3a30a7f8d1",
+      "actual": "one shipping-processed catch and one settled aqua baby",
+      "scores": {"identity": 4.2, "finish": 3.6, "contour_edges": 4.4, "readability": 3.4, "contact": 2.8, "scene_ownership": 3.1, "consistency": 3.3, "technical": 4.2, "animation": null, "device": null},
+      "strengths": "The first pip fills and baby color remains identifiable.",
+      "weaknesses": "The caught baby is a very small figure dangling below the U with no visible support, embrace or cradle depth; the genuine logic state lacks a convincing visual catch payoff."
+    },
+    {
+      "state": "04_safe_miss", "sha256": "9f964986fb1d82c688977c9ac5a5869d2416f179218d1c0b4ec1c99596f12065",
+      "actual": "shipping safe-miss landing after zero input",
+      "scores": {"identity": 4.1, "finish": 3.6, "contour_edges": 4.3, "readability": 3.4, "contact": 3.2, "scene_ownership": 3.3, "consistency": 3.4, "technical": 4.2, "animation": null, "device": null},
+      "strengths": "A local aqua halo makes safe handling distinguishable from disappearance or failure.",
+      "weaknesses": "Baby/halo are small at the bottom edge of an otherwise vast mat; a diagonal seam crosses the landing area and the mat lacks cushion depth or painted nursery material."
+    },
+    {
+      "state": "05_three_settled_completion", "sha256": "e385821f7ce8b12546fac0588bfb45d8360b20b45c6e288d7798197407e5c1a9",
+      "actual": "configured three-settled dictionary, not natural payoff",
+      "scores": {"identity": 4.2, "finish": 3.6, "contour_edges": 4.4, "readability": 3.5, "contact": 2.7, "scene_ownership": 3.1, "consistency": 3.3, "technical": 4.1, "animation": null, "device": null},
+      "strengths": "Three filled pips and three colors make the count clear.",
+      "weaknesses": "Three tiny babies hang below the sling in a flat row; none appears tucked into arms or cradle. This shortcut contains no natural reward, reaction or settle evidence."
+    }
+  ],
+  "source_vs_mount": {
+    "confirmed_source_strengths": ["Baby faces, swaddles, contours and color variants remain polished/readable at falling scale.", "The central moon-shell nursery painting remains richly finished and clearly themed."],
+    "mounted_failures": ["Settled babies at 42 logical pixels are too small for the outcome role.", "Roshan, sling and babies lack one physical anchor.", "Code-native mat/sling/pips are materially flatter than room and characters.", "The crop exposes a broad flat aqua band and blurred side carrier regions."],
+    "source_replacement_needed": false,
+    "surface_threshold_met": false
+  },
+  "proven_below_4_5": [
+    {"item": "code-native safety mat", "lowest": {"finish": 3.6}, "defect": "oversized flat strip dominates and conflicts with painted nursery materials"},
+    {"item": "U sling and settled-baby layout", "lowest": {"contact": 2.7}, "defect": "sling is detached from Roshan; babies shrink and hang below rather than rest inside"},
+    {"item": "nursery backdrop mounting", "lowest": {"scene_ownership": 3.3}, "defect": "painted room is reduced by blurred sides/aqua band while action splits between room and UI strip"},
+    {"item": "caught/safe/settled scale", "lowest": {"readability": 3.4}, "defect": "strong baby sources become tiny where care and outcome should be clearest"}
+  ],
+  "reuse_first_remedy": [
+    "Keep the three baby PNGs and nursery painting unchanged.",
+    "Repair layout first: align sling with Roshan's hands/body, seat babies inside it, enlarge settled/safe babies, and reduce/reposition the mat.",
+    "Reframe existing nursery tiles to maximize authored room and remove visible padded/blurred carrier areas without inventing pixels.",
+    "Inventory approved painted cradle/cushion components; retired widget cradle/pillows are excluded and cannot be presumed suitable.",
+    "Only if exact-purpose reuse fails, define one bounded painted cradle/safety-cushion raster gap.",
+    "Recapture natural ready, held approach, catch, safe landing, third catch if observable, natural reward/teardown and re-entry; review phone and owner/child separately."
+  ],
+  "disposition": {"keep_baby_sources": true, "keep_nursery_source": true, "layout_repair_required": true, "new_generation_required_now": false, "animation": null, "device": null, "natural_completion": null, "owner_child": null, "overall": "BELOW_4_5_OPEN"}
+}

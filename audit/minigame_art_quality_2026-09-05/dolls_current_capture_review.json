@@ -1,0 +1,160 @@
+{
+  "schema": "reef.dolls_runtime_capture_review.v1",
+  "reviewed_utc": "2026-09-06",
+  "reviewer": "independent_technical_and_capture_audit",
+  "result": "BOUNDED_CAPTURE_EVIDENCE_VALID_WITH_ONE_FALSE_STATE_DESCRIPTION",
+  "scope": "Six mounted Dolls stills from run01 at Mobile 1280x720; technical evidence and visible composition only. This review assigns no Sol visual scores.",
+  "bindings": {
+    "manifest": {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/manifest.json",
+      "sha256": "b1cddece36bdc9481b8fa658faf354da187e3626ea6b8cd607b1147f78b1df9a"
+    },
+    "harness": {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/harness.gd.txt",
+      "sha256": "56cc87fb3c369830cd093bde3778530f2bfebc358bca80a6b195ee2275da58fd"
+    },
+    "capture_log": {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/capture.log",
+      "sha256": "a09b0d89e8088cf7b8ca5268fa37fbed7c7f37f2d5139637c79221ea69816f46",
+      "terminal": "DOLLS_RUNTIME|RESULT|PASS|captures=6|elapsed_ms=12731"
+    },
+    "source_snapshot": {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/source-snapshot.json",
+      "sha256": "72c024234f97ba3db454332ed2e09f9114c990be93faa1e65387595fbd293eec"
+    },
+    "source_freeze_check": {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/source-freeze-check.json",
+      "sha256": "75e03c2a08d1c54cf1ddcc5a98db9eb9ffbb4b94c46f35ae5463a448c8dfd449",
+      "unchanged_during_run": true
+    },
+    "exit_code": 0,
+    "engine": "Godot 4.7.2-stable official ed1daf0bf",
+    "renderer": "mobile",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "selected_classic_skin": {
+    "id": "classic",
+    "path": "assets/characters/roshan_25d/roshan_base.png",
+    "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+    "manifest_match": true,
+    "limit": "The isolated profile and explicit harness assignment prove only the configured classic selection, not saved-skin restoration or other skins."
+  },
+  "source_pixel_review": {
+    "baby_sources": {
+      "assets/opera/worlds/nursery/baby_0.png": "bcd4f1e12437dab7dbacadb54f0150c4b500d40e589574f03c394109f7780c3b",
+      "assets/opera/worlds/nursery/baby_1.png": "73148e42f8e7786aef3baafe573905b3e504d76ab2f754cbe61c47c8b9ddb102",
+      "assets/opera/worlds/nursery/baby_2.png": "c21a61b7ebb53c0f164ce29a39656b23b32725708e4f71192babf8b5e8eb74b5"
+    },
+    "observed": "The classic catcher and all three baby sources have clean transparent cutout silhouettes. Mounted stills show those contours without opaque rectangular source backgrounds or obvious alpha fringes.",
+    "mounted_problem": "Runtime presentation changes scale drastically by state: falling babies are large enough to read, while settled/caught babies shrink to tiny icons at the catcher. This is a mounting/readability issue, not evidence of damaged source pixels."
+  },
+  "captures": [
+    {
+      "label": "00_ready",
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_00_ready.png",
+      "sha256": "9e9d56053e25812575e00fbe6549d20af2db6c770771855dfdb19e872284943f",
+      "configured_state": {
+        "caught": 0,
+        "missed": 0,
+        "fallers": 1,
+        "first_faller_y": 0.0694561483333333
+      },
+      "disposition": "VALID_EARLY_ACTIVE_ENTRY_INVALID_AS_EMPTY_READY",
+      "finding": "The pixels and manifest show the first aqua baby already falling near the upper-left edge. Natural game entry is supported, but the caveat 'empty live surface after shipping _start_game' is false and must not be reused as a blank/ready-state claim."
+    },
+    {
+      "label": "01_multiple_fallers",
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_01_multiple_fallers.png",
+      "sha256": "72694be0e9f21cf61113f780b652661027b5cbdbcd8cfb53b782ab35acd86259",
+      "configured_state": {
+        "caught": 2,
+        "fallers": 2,
+        "settled": 2
+      },
+      "disposition": "VALID_CONFIGURED_DRAW_STATE_NOT_NATURAL_SEQUENCE",
+      "finding": "Two large falling babies and two tiny settled icons are visible. The harness correctly configures shipping-shaped dictionaries after caught=2; it does not prove that this exact spatial arrangement arose from uninterrupted play."
+    },
+    {
+      "label": "02_held_drag",
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_02_held_drag.png",
+      "sha256": "0e3a63c93ea198629433dc5357e9a573e17d682860b865101514ed070abcf60a",
+      "configured_state": {
+        "catcher_x": 0.720000028610229,
+        "input_live_t": 1.6,
+        "fallers": 1
+      },
+      "disposition": "VALID_LIVE_CALLBACK_POSITION_PROOF_CONFIGURED_FALLER",
+      "finding": "Five viewport ScreenDrag callbacks moved the catcher to the asserted x position while touch remained held. The still shows spatial alignment of catcher and peach baby, but contains no visible finger/pointer and cannot independently prove contact or drag motion from pixels alone."
+    },
+    {
+      "label": "03_caught",
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_03_caught.png",
+      "sha256": "8165352f3bf4fb1890aa130e2f5a69504d9c84ec1cd0104e8cc14b3a30a7f8d1",
+      "configured_state": {
+        "caught": 1,
+        "fallers": 0,
+        "settled": 1,
+        "input_live_t": 1.45
+      },
+      "disposition": "VALID_SHIPPING_CATCH_TRANSITION_WITH_CONFIGURED_APPROACH",
+      "finding": "The log proves live input plus shipping processing advanced caught to one. The top counter and one tiny settled baby are visible; the static frame does not preserve the contact instant or demonstrate animation/payoff quality."
+    },
+    {
+      "label": "04_safe_miss",
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_04_safe_miss.png",
+      "sha256": "9f964986fb1d82c688977c9ac5a5869d2416f179218d1c0b4ec1c99596f12065",
+      "configured_state": {
+        "caught": 0,
+        "missed": 1,
+        "safe_landings": 1,
+        "input_live_t": 0.0
+      },
+      "disposition": "VALID_ZERO_INPUT_SHIPPING_MISS_TRANSITION",
+      "finding": "The log proves shipping processing created one safe landing with no input. The purple baby in its blue landing bubble is visible at the lower-left boundary, but it is small and partly intersects the bottom edge, limiting readability and providing only one sampled settling moment."
+    },
+    {
+      "label": "05_three_settled_completion",
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_05_three_settled_completion.png",
+      "sha256": "e385821f7ce8b12546fac0588bfb45d8360b20b45c6e288d7798197407e5c1a9",
+      "configured_state": {
+        "caught": 3,
+        "settled": 3,
+        "surface_processing": false,
+        "main_game": "dolls_capture_completion_configured"
+      },
+      "disposition": "VALID_CONFIGURED_THREE_SETTLED_DRAW_INVALID_AS_COMPLETION_OR_PAYOFF_PROOF",
+      "finding": "Three tiny settled babies and three filled counter dots are visible. The harness deliberately disables processing and changes the game dispatch key to prevent shipping teardown, so the still cannot prove the natural third catch, completion callback, payoff, teardown, or persisted progress."
+    }
+  ],
+  "readability_at_1280x720": {
+    "supported": [
+      "The selected classic catcher is large, centered, and distinct against the nursery backdrop.",
+      "Large falling babies retain face, blanket color, and silhouette readability.",
+      "The three-dot caught counter and large rainbow catcher target are visible without text."
+    ],
+    "open_problems": [
+      "Settled/caught babies are much smaller than falling babies and their identity/color is difficult to read at the mounted scale.",
+      "The safe-landing baby is small and sits against the lower boundary.",
+      "The first naturally spawned baby appears over the pale header band near the top edge, so 00_ready is already an active hazard state.",
+      "No still establishes motion cadence, spawn anticipation, finger visibility, or the temporal clarity of catch versus miss feedback."
+    ]
+  },
+  "pass_claim_audit": {
+    "technical_pass_supported": "Exit zero, six saved PNG hashes, capture guards, exact engine/renderer/viewport metadata, callback assertions, and source-freeze equality are supported.",
+    "misleading_if_unqualified": [
+      "Calling 00_ready empty or blank",
+      "Calling 05_three_settled_completion a natural completion/payoff capture",
+      "Treating PASS as visual quality, animation, natural full-sequence, saved-skin, phone, child, owner, or game-wide acceptance"
+    ]
+  },
+  "limitations": [
+    "Configured faller positions isolate draw states and do not reproduce a complete natural play sequence.",
+    "Six stills cannot evaluate animation, timing, looping, touch latency, or transition continuity.",
+    "Desktop Mobile 1280x720 is not target-phone evidence.",
+    "The source inventory is explicitly nonexhaustive and does not certify every indirect runtime dependency.",
+    "No visual quality score or below/above-4.5 conclusion is assigned here."
+  ]
+}

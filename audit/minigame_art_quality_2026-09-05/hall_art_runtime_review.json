@@ -1,0 +1,284 @@
+{
+  "schema": "current-hall-art-runtime-review/v1",
+  "status": "OPEN_FIRST_PHASE_STILLS_ONLY",
+  "source_revision": "8b7f116870eec8abf0368a25bf47eac404a23b25",
+  "capture_packet": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01",
+  "runtime_result": "PASS capture harness; 16 PNGs, 2 unsupported states",
+  "scope": "Current Mobile 1280x720 configured-route still review of source_phase 0 only: Ballerina PEARL MIRROR, Magician VANISH, and Pop Star SOUND CHECK, each in practice and stage. This does not review later source phases or the whole performance.",
+  "evidence_limits": [
+    "animation_state merely repeats mode and animation_frame is null; no actor animation, cadence, transition or settle claim is supported",
+    "configured phase shortcuts are not natural navigation",
+    "desktop Mobile-renderer stills do not establish target-phone, performance, touch-feel, child or owner acceptance",
+    "Ballerina has intro/demo stills only. The harness pressed during demo_active, when _input_blocked rejects input; filenames saying held_contact do not prove accepted contact. No payoff was captured."
+  ],
+  "dimensions": [
+    "identity",
+    "finish",
+    "edges",
+    "readability",
+    "contact_occlusion",
+    "scene_ownership",
+    "consistency",
+    "technical"
+  ],
+  "reviews": {
+    "Ballerina": {
+      "practice": {
+        "evidence": [
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/ballerina_practice_pearl_mirror_intro.png",
+            "sha256": "b3be3b44ea49228f6424c21947dd437f868a44641b3cf8b855aa0960b74e6fac"
+          },
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/ballerina_practice_pearl_mirror_held_contact.png",
+            "sha256": "e871eb7fb2a4f74a762f410738b7d13c1c839acaa86879747f4f7999dddbbd94",
+            "actual_evidence_role": "demo state after rejected early input; filename is not accepted-contact evidence"
+          }
+        ],
+        "scores": {
+          "identity": 4.5,
+          "finish": 4.1,
+          "edges": 4.5,
+          "readability": 4.2,
+          "contact_occlusion": 3.8,
+          "scene_ownership": 3.9,
+          "consistency": 3.9,
+          "technical": 4.5,
+          "animation": null
+        },
+        "observations": [
+          "Roshan's costume, three pose choices and highlighted target communicate ballet clearly.",
+          "The large translucent navy gesture arc washes over the right half of the room and target, reading as a system overlay rather than painted stage language.",
+          "The live Roshan cutout is parked at the far-left edge with no clear floor shadow/contact; pose portraits repeat the same full actor inside plain cream circles, weakening prop/scene integration.",
+          "The demo/ghost pointer disc obscures a portrait's face and torso, so the demonstrated target competes with the exact pose the child must compare. This is not evidence of live touch contact.",
+          "The upper instruction panel is clean but schematic beside the detailed painted garden."
+        ],
+        "payoff": "UNSUPPORTED_NO_CAPTURE"
+      },
+      "stage": {
+        "evidence": [
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/ballerina_stage_pearl_mirror_intro.png",
+            "sha256": "5d3e65409070a9f206512a8a4ab3ab7ca1169d2465ae538592901ef2d3330bd1"
+          },
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/ballerina_stage_pearl_mirror_held_contact.png",
+            "sha256": "f7a94e6ed5d8518c57b327cb5e21bfb1e45f0ca36601c58d0d0e204cc655f5d3",
+            "actual_evidence_role": "demo state after rejected early input; filename is not accepted-contact evidence"
+          }
+        ],
+        "scores": {
+          "identity": 4.5,
+          "finish": 4.1,
+          "edges": 4.5,
+          "readability": 4.1,
+          "contact_occlusion": 3.5,
+          "scene_ownership": 3.6,
+          "consistency": 3.8,
+          "technical": 4.5,
+          "animation": null
+        },
+        "observations": [
+          "The proscenium painting is polished and visibly distinguishes stage from practice.",
+          "Roshan overlaps the lower-left proscenium/foreground instead of occupying the stage floor; her tail and torso have no readable contact plane.",
+          "The rival is much smaller and sits left of center while the active portrait UI occupies most of the performance area, so performer hierarchy is weak.",
+          "The same broad navy gesture arc crosses the arch and mirror target; the demo/ghost pointer disc again masks the pose portrait. No live-contact inference is supported.",
+          "No Ballerina completion/payoff still exists, so pose resolution and stage payoff remain open."
+        ],
+        "payoff": "UNSUPPORTED_NO_CAPTURE"
+      },
+      "instrumentation_disposition": {
+        "run01_contact_claim": "REJECTED",
+        "reason": "The attempted press occurred about 0.16 seconds after start while demo_active; _input_blocked rejected it. The visible disc is drawn by the demo/ghost pointer path.",
+        "valid_visual_scope": "Static intro/demo composition, mounted scale, occlusion, source finish and readability only.",
+        "required_followup": "Await run03 with an explicit demo-ended assertion and accepted input/progress telemetry before reviewing Ballerina contact or payoff."
+      },
+      "weak_assets_or_mounts": [
+        "large translucent gesture-arc overlay",
+        "plain circular pose-choice mounts",
+        "oversized demo/ghost pointer disc",
+        "stage actor/rival placement and contact"
+      ],
+      "reuse_first_repairs": [
+        "Reuse the existing painted pearl/mirror and shell framing language for smaller pose targets; preserve the approved actor atlas cells.",
+        "Reduce or confine the gesture arc to the actual active target and move pointer feedback outside the face/torso region.",
+        "Place Roshan and rival on the visible stage-floor ellipse with restrained reused contact shadows; verify against a new mounted still before scoring."
+      ]
+    },
+    "Magician": {
+      "practice": {
+        "evidence": [
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/magician_practice_vanish_intro.png",
+            "sha256": "47ae64097d272ecb80d63154c043ded0305c5895d3f7db48455ea8adbf8e924b"
+          },
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/magician_practice_vanish_held_contact.png",
+            "sha256": "a34e54b7df1d9f93d59a193fbe4f7843fe2a055c10ff8c8f28dd743c9082f30e"
+          },
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/magician_practice_vanish_phase_payoff.png",
+            "sha256": "36f61c15a227958005dbf4974a8a79cad740b7eeaf40cfd226d72bfa40f144ba"
+          }
+        ],
+        "scores": {
+          "identity": 4.6,
+          "finish": 4.2,
+          "edges": 4.5,
+          "readability": 4.1,
+          "contact_occlusion": 3.9,
+          "scene_ownership": 3.8,
+          "consistency": 4.0,
+          "technical": 4.5,
+          "animation": null
+        },
+        "observations": [
+          "The hat booths, Roshan costume, lamb, wand and portal strongly identify a magic rehearsal.",
+          "Intro/held/payoff visibly change Roshan's trick pose and remove the lamb, supporting the VANISH state in these stills.",
+          "The lamb, hat and wand cluster is compressed at the far right beneath the gesture arc; the small lamb appears perched above/behind the hat without a clear shared platform.",
+          "The payoff enlarges hat/wand and rings but still relies on thin circles and bottom dot particles that look like UI instrumentation.",
+          "The top progress card and huge right-side arc compete with the three painted booths."
+        ]
+      },
+      "stage": {
+        "evidence": [
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/magician_stage_vanish_intro.png",
+            "sha256": "6ca96965051e71e78abb30ea45c3b4cce804342a3041541be41262b48551e2a4"
+          },
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/magician_stage_vanish_held_contact.png",
+            "sha256": "531ff5b6455db24416434bc9abeea2877e9eb7e0fc569e7fb5d9254ee03698fc"
+          },
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/magician_stage_vanish_phase_payoff.png",
+            "sha256": "87aaa39b940bd0c2bd2a050cc73925dd77edf27d2ad3878f5b793d5dba08ed66"
+          }
+        ],
+        "scores": {
+          "identity": 4.7,
+          "finish": 4.3,
+          "edges": 4.6,
+          "readability": 4.2,
+          "contact_occlusion": 4.0,
+          "scene_ownership": 3.9,
+          "consistency": 4.1,
+          "technical": 4.5,
+          "animation": null
+        },
+        "observations": [
+          "The stage, three cabinets, lamb, hat, wand, Roshan and dressed rival form a clear magic-show tableau.",
+          "Roshan and rival are readable and remain separated, though Roshan hugs the proscenium edge rather than the central floor.",
+          "Intro places the lamb on the central cabinet, but hat and wand overlap that cluster without an unambiguous physical relationship.",
+          "The payoff removes the lamb and centers the hat/wand successfully, but large concentric rings and flat dot particles remain less polished than the painted assets.",
+          "The navy arc masks the central stage value structure and reads as a separate interface layer."
+        ]
+      },
+      "weak_assets_or_mounts": [
+        "large translucent gesture-arc overlay",
+        "thin concentric payoff rings and dot particles",
+        "practice lamb/hat/wand compression",
+        "ambiguous prop contact on central cabinet"
+      ],
+      "reuse_first_repairs": [
+        "Reuse the source atlas's polished portal/orbit effects at restrained scale in place of generic rings where the phase semantics match.",
+        "Keep the existing hat, lamb, wand and cabinets but give each a readable mount/contact order; center the active relationship within the painted booth or cabinet.",
+        "Constrain gesture feedback around the held wand target instead of covering the whole right half."
+      ]
+    },
+    "Pop Star": {
+      "practice": {
+        "evidence": [
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/popstar_practice_sound_check_intro.png",
+            "sha256": "d9edc7c43e9a0960abbea1939fdc94882a6eb258946b4691a35e6c5e40e6c329"
+          },
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/popstar_practice_sound_check_held_contact.png",
+            "sha256": "fa0a161e69f2ece5fd16fb71641198727e1e87fb14a552fb45670450709a809e"
+          },
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/popstar_practice_sound_check_phase_payoff.png",
+            "sha256": "ef9f1e78b69cc9e50aceace591ca7addac60bde33f9ddd28e78d1650b35a93b8"
+          }
+        ],
+        "scores": {
+          "identity": 4.6,
+          "finish": 4.2,
+          "edges": 4.5,
+          "readability": 4.0,
+          "contact_occlusion": 3.8,
+          "scene_ownership": 3.8,
+          "consistency": 4.0,
+          "technical": 4.5,
+          "animation": null
+        },
+        "observations": [
+          "Roshan, speakers, gazebo microphone and musical architecture create a strong Pop Star identity.",
+          "The active standing microphone is tiny at the far-right edge and sits under the dark arc, while the large decorative center microphone looks more important but is inactive.",
+          "Held and payoff states add a note and sound-wave arcs, yet the interaction remains spatially detached from Roshan on the far left.",
+          "The payoff's yellow notes and cyan waves are readable but visibly flatter than the environment and character art.",
+          "Roshan's tail overlaps the left platform edge without a restrained contact shadow."
+        ]
+      },
+      "stage": {
+        "evidence": [
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/popstar_stage_sound_check_intro.png",
+            "sha256": "a01f0aa5d180fa37a01bcbd71fbf39e8809c627f498d0d1edaff3ac6981b34b0"
+          },
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/popstar_stage_sound_check_held_contact.png",
+            "sha256": "0b6e2ac9e8ad2d80765afe17307edec97be976940310374242aa646e49baa5c3"
+          },
+          {
+            "path": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/run01/captures/popstar_stage_sound_check_phase_payoff.png",
+            "sha256": "61af121d5730fd1a06b1b272e989054881dbaa07b30e4fece8d69f7b028d9efe"
+          }
+        ],
+        "scores": {
+          "identity": 4.7,
+          "finish": 4.3,
+          "edges": 4.6,
+          "readability": 4.2,
+          "contact_occlusion": 3.9,
+          "scene_ownership": 4.0,
+          "consistency": 4.2,
+          "technical": 4.5,
+          "animation": null
+        },
+        "observations": [
+          "The singer, rival, center microphone, painted arrows, notes and audience make the stage role immediately clear.",
+          "The four painted direction pads are large and coherent with the stage, but they visually suggest DANCE during a SOUND CHECK phase and compete with the microphone target.",
+          "Roshan and rival are separated and legible; both sit near the proscenium edges rather than sharing the central performance plane.",
+          "The payoff centers sound waves and notes around the microphone, but the waves/notes remain flat overlays and the global dark arc still covers much of the stage.",
+          "The central microphone base reads on the floor, while performer contact is weaker and partly hidden by foreground bulbs."
+        ]
+      },
+      "weak_assets_or_mounts": [
+        "large translucent gesture-arc overlay",
+        "tiny far-right practice microphone",
+        "flat payoff notes/waves",
+        "stage DANCE pads visible during SOUND CHECK",
+        "performer edge placement/contact"
+      ],
+      "reuse_first_repairs": [
+        "Reuse the existing painted center microphone as the dominant SOUND CHECK target and reserve the painted arrow pads for DANCE state visibility.",
+        "Reuse the background's painted musical-note palette and contour treatment for feedback instead of flat glyphs.",
+        "Move interaction feedback toward the center microphone and reduce the global arc while preserving the same hit region and one-finger behavior."
+      ]
+    }
+  },
+  "overall_disposition": {
+    "accepted": false,
+    "reason": "Every reviewed part has one or more visible dimensions below 4.5, and coverage is limited to source_phase 0. Ballerina lacks payoff evidence. Animation and remaining source phases are unassessed.",
+    "shared_priority": "Replace or substantially constrain the oversized navy gesture arc and reconcile flat feedback with existing painted props before re-capturing these same states.",
+    "next_evidence": [
+      "Ballerina first-phase payoff",
+      "mounted recaptures after overlay/contact repair",
+      "current stills for every later source phase",
+      "temporal animation review",
+      "target-phone and owner/child review"
+    ]
+  }
+}

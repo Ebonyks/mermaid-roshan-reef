@@ -1,0 +1,161 @@
+{
+  "schema": "reef.full_ci_attempt_source_freeze.v1",
+  "attempt": "full-ci-attempt09",
+  "engine": "Godot 4.7.2-stable native executable",
+  "binary": {
+    "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe",
+    "sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+    "size_bytes": 180858888
+  },
+  "sources": [
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "a5e663f8215843d020ae8834c8594643632419fb674fb848e400a837d91d13b6",
+      "raw_bytes": 245128
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "bed0e52674c1fb995097016cfdfc52a0660a3f68b67241924a16497fdab234c1",
+      "raw_bytes": 28054
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "eb3e820217b08b87cab8a8ea8758a8da16736fdbd57db896ab016af2173c69b5",
+      "raw_bytes": 39983
+    },
+    {
+      "path": "scripts/chapter_two_ember_encounter.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42",
+      "raw_bytes": 3715
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "6ad217cfcee099df32d678a5f1cbac2416382e001392f340568c4a2096f97dc9",
+      "raw_bytes": 25181
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+      "raw_bytes": 2929
+    },
+    {
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87",
+      "raw_bytes": 23918
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "raw_bytes": 4271
+    },
+    {
+      "path": "scripts/ci.sh",
+      "hash_normalization": "utf8_lf",
+      "sha256": "1794ea62b1a05a5462de7292749e6acc58fee335a0be9f4c6912e393e016558e",
+      "raw_bytes": 14136
+    },
+    {
+      "path": "scripts/debug_export_stage_pathfinding.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "771e7d06e7b7ed206bb8ae23d056f55dfbabe39aff28246ad260d716a8203736",
+      "raw_bytes": 25716
+    },
+    {
+      "path": "scripts/main.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "9c352a564c805ba02a6bdf978979276030e314bd3dafcb295b63a63643399952",
+      "raw_bytes": 512451
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "a3e0dc8d711d6521be9c277c3179b1d263d9a379db9e126f6ae579e4adcb9d14",
+      "raw_bytes": 237678
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "7dbd965be89b2e97b8d9734ec5c00c9a203af295b4d2b143ebef486c0a8cfb47",
+      "raw_bytes": 49391
+    },
+    {
+      "path": "scripts/probe_bathroom_integration.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "9ece4ba9b7c3ab0cea901cc8586e0bc9c492cf42acd24f6c5c4e5358bfaab2e2",
+      "raw_bytes": 38123
+    },
+    {
+      "path": "scripts/probe_castle_canvas2d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "a62ceb2931cb0cf1ff015f9144b99f9a9a41ee5d684f3498059b5b647a8242d7",
+      "raw_bytes": 20566
+    },
+    {
+      "path": "scripts/probe_chapter2.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "88c397b0acbc3c13e0bc242966ba4d0ab048661679909e784d3592a359899b22",
+      "raw_bytes": 25102
+    },
+    {
+      "path": "scripts/probe_chapter2_lawn.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "1cfacfe749a627520408286f350bce930538a727da2dfd64e37cca4affd2c8d3",
+      "raw_bytes": 9654
+    },
+    {
+      "path": "scripts/probe_crown.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "2b1deb2cb1fa71fac67fa9b331408cb68bf4ed2a0a5ebaece439f538d5c47b24",
+      "raw_bytes": 33775
+    },
+    {
+      "path": "scripts/probe_interaction.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "ac7f69a5b42cada43e97ca810c1b2cb716b1382c5668375df38eb927962a4a54",
+      "raw_bytes": 44219
+    },
+    {
+      "path": "scripts/probe_opera_2d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "8801a94fc1f63a456abfb76cbd96379871425f5f143392cfc3eb00c620ab75b8",
+      "raw_bytes": 154414
+    },
+    {
+      "path": "scripts/probe_opera_diegetic_paths.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "6f7c6a451e9669885e514c18b107013b4bd11e4afa503b3dd1587785fe2aa81e",
+      "raw_bytes": 19045
+    },
+    {
+      "path": "scripts/probe_stage_navigation_2d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "4532005e0033392a3f2ee37d7ff3f20ee46083e4230e2a515db1a2467958cbaf",
+      "raw_bytes": 2473
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "b0a930ab69b1abd691908e8ffb94883135300bf9c364b0fc2006d1e8d3476aae",
+      "raw_bytes": 46639
+    },
+    {
+      "path": "scripts/stage_navigation_2d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
+      "raw_bytes": 3335
+    }
+  ],
+  "command": [
+    "C:\\Program Files\\Git\\bin\\bash.exe",
+    "scripts/ci.sh"
+  ],
+  "profile": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905\\tmp\\art-dev-combined-validation\\full-ci-attempt09-profile"
+}

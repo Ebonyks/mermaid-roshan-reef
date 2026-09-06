@@ -765,6 +765,16 @@ Kept as-is; noted so a future edit updates every copy.
 | `audit/minigame_art_quality_2026-09-05/current_mechanics_followup.md` | 🔵 | `SOURCE_REVIEW`; current61-base/70-runtime phase distinction, rebuilt lessons and Hall-only medal calibration; no measured child timing or new visual acceptance. |
 | `audit/minigame_art_quality_2026-09-05/pool_runtime_followup.md` | 🔵 | `SUPPORTING_CURRENT`; real-room desktop diagnostic art review and four-target handoff sizing repair; no animation, device, child, or game-wide acceptance. |
 | `audit/minigame_art_quality_2026-09-05/carrot_runtime_followup.md` | 🔵 | `SUPPORTING_CURRENT`; approved carrot reuse with configured Snowman/kitchen desktop diagnostics; complete motion and scene acceptance remain open. |
+| `audit/minigame_art_quality_2026-09-05/hall_visual_comparison.md` | 🔵 | `SUPPORTING_CURRENT`; exact Hall PNG comparison for Ballerina, Magician and Pop Star plus rejected/neutral Magician ROPE/PORTAL mappings; sparse configured still evidence only, no animation, device, child or game-wide acceptance. |
+| `design/CHAPTER2_LAWN_FINALE_DRAFT_2026-09-06.md` | 🟣 | `CANDIDATE` rough story and implemented alpha draft following the owner-selected lawn celebration, protection victory then cheating candle theft, and sincerely conflicted Prince. King identity is owner-confirmed V4; Prince identity is recovered from the approved Git history package. The owner-authorized V4 cutout and recovered thin Prince are implemented in the gameplay draft; final visual/device review and cinematic delivery remain open. It does not accept character pixels, cinematics, runtime integration, device performance, or release. |
+
+## Stage pathfinding audit — 2026-09-06
+
+| Document | State | Scope |
+|---|---|---|
+| `audit/stage_pathfinding/README.md` | 🔵 | `SUPPORTING_CURRENT`; explains the 65-entry catalog/supporting inventory categories and status semantics; grouped legacy modes are not an exhaustive sublevel geometry claim. It grants no runtime, device, child, or owner acceptance. |
+| `audit/stage_pathfinding/stage_inventory.json` | 🔵 | `SUPPORTING_CURRENT`; machine-readable inventory of concrete Reef/Lagoon/Castle/Day-One/Northern/Opera/minigame variants and spatial debt. It records gaps and reproduction sources; it is not a runtime catalog authority. |
+| `audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md` | 🟢 | `BINDING_DOMAIN`; owner-commissioned 2026-09-06 approach, arrival, door, cancellation, OOB, seam and zero-input protocol. Bounded Castle/Opera implementation and focused machine evidence exist; whole-game geometry and external acceptance remain open. |
 
 ## Development audit contract — 2026-09-06
 

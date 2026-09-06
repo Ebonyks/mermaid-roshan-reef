@@ -1,0 +1,26 @@
+{
+  "schema": "hall_publication_verifier_run/v1",
+  "run": "initial_post_publication",
+  "result": "INSTRUMENTATION_INVALID",
+  "reported_failure": "integrated world semantic missing: _play_roshan_task_pose(task)",
+  "cause": "The verifier invented the local argument name task. The frozen runtime calls _play_roshan_task_pose(phase) from both _open_task and _on_gesture.",
+  "evidence_disposition": "No publication or runtime evidence was invalidated. This result is retained as verifier history and must not be reported as a product or publication failure.",
+  "repair": "Verifier now extracts both owning function bodies and requires the exact current _play_roshan_task_pose(phase) call in each scope.",
+  "runtime_modified": false,
+  "godot_run": false,
+  "subsequent_instrumentation_correction": {
+    "reported_failure": "integrated probe semantic missing: _audit_hall_pose_contract",
+    "cause": "The verifier guessed the helper name. The integrated independent contract is _check_hall_task_pose, invoked from the career audit loop, with final EXPECTED_HALL_POSE_PARTS coverage assertions.",
+    "evidence_disposition": "INSTRUMENTATION_INVALID; no runtime or publication issue"
+  },
+  "cohort_count_correction": {
+    "reported_failure": "hall/run02: expected 18 PNGs, found 16",
+    "cause": "The draft verifier transposed run02 and run04. Published source-preserving cohorts contain run02=16 and run04=18, and the exact total remains 140.",
+    "evidence_disposition": "INSTRUMENTATION_INVALID; exact published cohort inventory and entry hashes remain subject to the corrected checks"
+  },
+  "scope_detector_correction": {
+    "reported_failure": "non-Hall game capture claim in hall_art_review_plan.json: opera",
+    "cause": "Flattening every prose string into one newline-delimited buffer let a cross-string regular expression manufacture an opera_practice token. The corrected check derives the career prefix from every one of the 140 concrete published PNG filenames.",
+    "evidence_disposition": "INSTRUMENTATION_INVALID; the three-game-only assertion is now applied to exact evidence paths"
+  }
+}

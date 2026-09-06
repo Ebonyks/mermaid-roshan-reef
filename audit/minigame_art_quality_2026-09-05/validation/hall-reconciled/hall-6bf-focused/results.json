@@ -1,0 +1,19 @@
+[
+  {
+    "probe": "probe_opera_2d",
+    "exit": 0,
+    "hard_error_lines": [
+      "OPERA2D|OK|racer race returns the trophy with no placement fail"
+    ],
+    "seconds": 22.22,
+    "log_sha256": "bc6fdcc93d395815a5a90c56b83b06f74c40dc00c32d8f2a1917c099cc062fb7",
+    "command": [
+      "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905",
+      "-s",
+      "scripts/probe_opera_2d.gd"
+    ]
+  }
+]

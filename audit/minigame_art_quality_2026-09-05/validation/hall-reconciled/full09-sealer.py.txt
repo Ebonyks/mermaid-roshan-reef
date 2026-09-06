@@ -1,0 +1,43 @@
+"""Seal only the new Hall validation cohort after a complete successful run."""
+from pathlib import Path
+import gzip, hashlib, json, re, shutil
+R=Path(__file__).resolve().parents[2]
+T=R/'tmp/art-dev-combined-validation'
+A=R/'audit/minigame_art_quality_2026-09-05'
+V=A/'validation/hall-reconciled'
+name='full-ci-attempt09'
+assert (T/(name+'.exit.txt')).read_text().strip()=='0'
+result=json.loads((T/(name+'-result.json')).read_text())
+freeze=json.loads((T/(name+'-source-freeze.json')).read_text())
+raw=(T/(name+'.log')).read_bytes()
+sha=lambda b:hashlib.sha256(b).hexdigest()
+assert result['return_code_signed']==0 and result['log_sha256']==sha(raw)
+for s in freeze['sources']:
+ assert sha((R/s['path']).read_bytes().decode('utf-8').replace('\r\n','\n').encode())==s['sha256'],s['path']
+ci=(R/'scripts/ci.sh').read_text()
+expected=re.search(r'for p in (probe_.*?)\; do',ci).group(1).split()
+assert len(expected)==78
+assert [p.decode() for p in re.findall(rb'^=== (probe_[a-z0-9_]+) ===',raw,re.M)]==expected
+assert [(p.decode(),int(c)) for p,c in re.findall(rb'^PROBE (probe_[a-z0-9_]+) process exit: ([0-9]+)',raw,re.M)]==[(p,0) for p in expected]
+assert not re.search(rb'^(?:SCRIPT ERROR|PARSE ERROR)',raw,re.M)
+assert b'GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf' in raw
+assert not (V/'full-ci.raw.log.gz').exists(),'Refuse reseal'
+(V/'full-ci.raw.log.gz').write_bytes(gzip.compress(raw,mtime=0))
+text=raw.decode('utf-8').replace('\r\n','\n').replace('\r','\n')
+(V/'full-ci.log').write_bytes(('\n'.join(line.rstrip() for line in text.splitlines()).rstrip()+'\n').encode())
+for suffix in ('-result.json','-source-freeze.json','.exit.txt'):
+ shutil.copyfile(T/(name+suffix),V/(name+suffix))
+shutil.copyfile(T/'run_validation09.py',V/(name+'-runner.py.txt'))
+manifest={
+ 'schema':'reef.hall_full_validation.v1',
+ 'parents':['8b7f116870eec8abf0368a25bf47eac404a23b25','6bf16bbc16e9724e667b04230d4158cddc68307b'],
+ 'engine':'Godot4.7.2-stable official.ed1daf0bf',
+ 'full_ci':{'exit_code':0,'trusted_probes':len(expected),'raw_sha256':sha(raw),'elapsed_seconds':result['elapsed_seconds'],'ordered_probe_roster':expected,'all_process_exits_zero':True,'source_freeze_unchanged':True},
+ 'readable_log_normalization':'UTF8 LF and trailing whitespace; exact original bytes retained in full-ci.raw.log.gz',
+ 'profile':'Fresh isolated attempt09 APPDATA/LOCALAPPDATA/XDG parent and per-probe children; no profile/save payloads published.',
+ 'quality_status':'UNSATISFIED','game_wide_acceptance':False,
+ 'limitations':['Headless rendered capture is skipped; separate Hall still evidence is source-bound and sparse.','Successful probes do not establish full animation, natural navigation, target-phone performance, child or owner acceptance.'],
+ 'files':[{'path':p.relative_to(R).as_posix(),'sha256':sha(p.read_bytes())} for p in sorted(V.iterdir()) if p.is_file() and p.name.startswith('full-ci')]
+}
+(V/'full-ci-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
+print('FULL09_SEALED',len(expected),'PROBES',len(freeze['sources']),'FROZEN_SOURCES',sha(raw))

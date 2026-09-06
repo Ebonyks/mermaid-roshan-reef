@@ -1,0 +1,233 @@
+from __future__ import annotations
+
+"""Verify the bounded Hall evidence publication after it has been created.
+
+This is intentionally separate from publish_hall_reviewed.py.  It reads the
+published tree and current sources, never repairs either one.
+"""
+
+import hashlib
+import json
+from pathlib import Path
+import re
+import sys
+from typing import Any
+
+
+EXPECTED_PNG_COUNTS = {
+	"hall/run01": 16,
+	"hall/run02": 16,
+	"hall/run03": 0,
+	"hall/run04": 18,
+	"hall/candidate05": 18,
+	"magician/baseline01": 24,
+	"magician/candidate02": 24,
+	"magician/neutral03": 24,
+}
+EXPECTED_WORLD_SHA256 = "fa82d3f06f5b077a3090b2d16a5e3cea0898d23a0175810b577877862ba4c1a9"
+EXPECTED_PROBE_SHA256 = "6d43f5fae774157f9c6ff8147cf2848e425b78f9a28881f02aca962524087e55"
+UNCHANGED_CHEER_OWNER_SHA256 = "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d"
+PRE6BF_REJECTED_OWNER_SHA256 = "4842039fb04689d9eb6d2e35fd717374e9e820e5b4ae7b66aaabab2a67b45205"
+ALLOWED_GAMES = {"ballerina", "magician", "popstar"}
+PROFILE_PARTS = {"isolated-profile", "profile", "profiles", "save", "saves", "cache", "caches", "appdata", "localappdata", "config"}
+
+
+class VerificationError(RuntimeError):
+	pass
+
+
+def sha256(path: Path) -> str:
+	digest = hashlib.sha256()
+	with path.open("rb") as handle:
+		for block in iter(lambda: handle.read(1024 * 1024), b""):
+			digest.update(block)
+	return digest.hexdigest()
+
+
+def load(path: Path) -> Any:
+	try:
+		return json.loads(path.read_text(encoding="utf-8"))
+	except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+		raise VerificationError(f"cannot parse {path}: {exc}") from exc
+
+
+def require(condition: bool, message: str) -> None:
+	if not condition:
+		raise VerificationError(message)
+
+
+def function_body(source: str, function_name: str) -> str:
+	"""Return one top-level GDScript function without guessing local names."""
+	match = re.search(
+		rf"(?ms)^func {re.escape(function_name)}\([^\n]*\).*?(?=^func |\Z)",
+		source,
+	)
+	require(match is not None, f"integrated world function missing: {function_name}")
+	return match.group(0)
+
+
+def strings(value: Any):
+	if isinstance(value, dict):
+		for key, item in value.items():
+			yield str(key)
+			yield from strings(item)
+	elif isinstance(value, list):
+		for item in value:
+			yield from strings(item)
+	elif isinstance(value, str):
+		yield value
+
+
+def normalize_review(value: Any, repo: Path) -> Any:
+	"""Mirror the authoritative publisher's path-only transformation."""
+	if isinstance(value, dict):
+		return {key: normalize_review(item, repo) for key, item in value.items()}
+	if isinstance(value, list):
+		return [normalize_review(item, repo) for item in value]
+	if isinstance(value, str):
+		value = value.replace("\\", "/").replace(repo.as_posix() + "/", "")
+		value = value.replace(
+			"tmp/current-hall-art-capture/",
+			"audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/",
+		)
+		value = value.replace(
+			"tmp/hall-magician-poses/",
+			"audit/minigame_art_quality_2026-09-05/evidence/hall-followup/magician/",
+		)
+	return value
+
+
+def check_source_semantics(repo: Path) -> None:
+	world_path = repo / "scripts/opera_career_world_2d.gd"
+	probe_path = repo / "scripts/probe_opera_2d.gd"
+	actor_path = repo / "scripts/opera_roshan_actor.gd"
+	require(sha256(world_path) == EXPECTED_WORLD_SHA256, "current neutral Hall world hash drifted")
+	require(sha256(probe_path) == EXPECTED_PROBE_SHA256, "integrated Hall/navigation probe hash drifted")
+	require(sha256(actor_path) == UNCHANGED_CHEER_OWNER_SHA256, "cheer animation owner changed")
+	world = world_path.read_text(encoding="utf-8")
+	probe = probe_path.read_text(encoding="utf-8")
+	for token in (
+		"const StageNavigation := preload(\"res://scripts/stage_navigation_2d.gd\")",
+		"const REVIEWED_HALL_POSES :=",
+		"if not two_act_enabled:",
+		"StageNavigation.",
+		"task_entry_feet",
+	):
+		require(token in world, f"integrated world semantic missing: {token}")
+	for owner in ("_open_task", "_on_gesture"):
+		body = function_body(world, owner)
+		require(
+			"_play_roshan_task_pose(phase)" in body,
+			f"{owner} no longer applies the current phase pose",
+		)
+	for phase, atlas, cell in (
+		("VANISH", "work", 0), ("TRACK", "idle", 2), ("ROPE", "idle", 3),
+		("CABINET", "idle", 3), ("PORTAL", "idle", 3),
+	):
+		pattern = rf'"{phase}"\s*:\s*\[\s*"{atlas}"\s*,\s*{cell}\s*\]'
+		require(re.search(pattern, world) is not None, f"neutral Magician mapping missing: {phase} {atlas}[{cell}]")
+	for token in ("EXPECTED_HALL_POSES", "_check_hall_task_pose", "_audit_navigation_pointer_release"):
+		require(token in probe, f"integrated probe semantic missing: {token}")
+	# Guard against losing the earlier eleven Doctor/Farmer/Racer explicit rows.
+	for phase in ("WASH", "FIND", "X-RAY", "CAST", "BANDAGE", "PLANT", "TOSS", "HERD", "PICNIC", "TUNE", "TO THE LINE"):
+		require(f'"{phase}"' in world and f'"{phase}"' in probe, f"existing reviewed pose coverage missing: {phase}")
+
+
+def check_manifest(repo: Path, audit: Path, evidence: Path) -> None:
+	cohort_path = audit / "hall_cohort_manifest.json"
+	cohort = load(cohort_path)
+	require(cohort.get("schema") == "reef.hall_art_followup.v1", "unexpected Hall cohort schema")
+	require(cohort.get("status") == "BOUNDED_REPAIRS_ONLY_GAME_WIDE_UNSATISFIED", "publication overstates disposition")
+	require(cohort.get("png_entries") == 140, "cohort does not declare exactly 140 PNGs")
+	require(cohort.get("neutral6bf_owner_sha256") == EXPECTED_WORLD_SHA256, "cohort is not bound to current neutral world")
+	require(cohort.get("pre6bf_candidate_owner_sha256") == PRE6BF_REJECTED_OWNER_SHA256, "rejected pre-6bf owner binding missing")
+
+	pngs = sorted(evidence.rglob("*.png"))
+	require(len(pngs) == 140, f"expected 140 published PNGs, found {len(pngs)}")
+	for cohort_name, expected in EXPECTED_PNG_COUNTS.items():
+		actual = len(list((evidence / cohort_name).rglob("*.png")))
+		require(actual == expected, f"{cohort_name}: expected {expected} PNGs, found {actual}")
+
+	files = cohort.get("payload_files")
+	require(isinstance(files, list), "payload_files missing")
+	listed: dict[str, dict[str, Any]] = {}
+	for item in files:
+		path = item.get("path")
+		require(isinstance(path, str) and path not in listed, f"bad or duplicate payload path: {path}")
+		listed[path] = item
+		absolute = repo / path
+		require(absolute.is_file(), f"missing payload file: {path}")
+		require(item.get("sha256") == sha256(absolute), f"payload entry hash mismatch: {path}")
+		require(item.get("bytes") == absolute.stat().st_size, f"payload size mismatch: {path}")
+	actual_payload = {
+		path.relative_to(repo).as_posix()
+		for path in evidence.rglob("*") if path.is_file()
+	}
+	# The publisher writes hall_cohort_manifest.json outside evidence and the
+	# payload listing before that manifest, so the sets must be exactly equal.
+	require(set(listed) == actual_payload, "cohort payload list has missing or extra evidence files")
+	for png in pngs:
+		rel = png.relative_to(repo).as_posix()
+		require(rel in listed and listed[rel]["sha256"] == sha256(png), f"PNG is not entry-hash bound: {rel}")
+		prefix = png.name.split("_", 1)[0].lower()
+		require(prefix in ALLOWED_GAMES, f"non-Hall game PNG published: {rel}")
+
+	for path in evidence.rglob("*"):
+		parts = {part.lower() for part in path.relative_to(evidence).parts}
+		require(not parts.intersection(PROFILE_PARTS), f"profile/save/cache material published: {path}")
+
+	payload = load(evidence / "payload-manifest.json")
+	runs = {(item["source"].replace("tmp/current-hall-art-capture/", "hall/").replace("tmp/hall-magician-poses/", "magician/")): item for item in payload.get("runs", [])}
+	require(set(runs) == set(EXPECTED_PNG_COUNTS) - {"magician/neutral03"}, "historical payload cohorts changed")
+	require((evidence / "magician/candidate02/captures/manifest.json").is_file(), "rejected candidate02 manifest was not preserved")
+
+	for item in cohort.get("reviews", []):
+		published = repo / item["path"]
+		raw = repo / item["raw_original"]
+		require(published.is_file() and raw.is_file(), f"review pair missing: {item}")
+		require(sha256(published) == item.get("sha256"), f"derived review hash mismatch: {published}")
+		require(sha256(raw) == item.get("raw_sha256"), f"raw review hash mismatch: {raw}")
+		require(load(published) == normalize_review(load(raw), repo), f"review changed beyond path normalization: {published}")
+
+
+def check_claims(audit: Path) -> None:
+	pose = load(audit / "hall_magician_pose_repair.json")
+	neutral = load(audit / "hall_magician_neutral_review.json")
+	first = load(audit / "hall_first_phase_repair.json")
+	require(set(pose["summary"]["reject"]) == {"practice ROPE", "stage ROPE", "stage PORTAL"}, "candidate02 rejection set changed")
+	require(pose["summary"].get("game_wide_acceptance") is False, "candidate02 review promotes game-wide acceptance")
+	require(neutral["changed_mapping_summary"].get("full_4_5_acceptance") is False, "neutral review promotes 4.5 acceptance")
+	require("REMAINS_OPEN" in neutral.get("overall_disposition", ""), "neutral review no longer keeps performance quality open")
+	require("unchanged" in first["magician_pose_containment"]["finding"].lower(), "unchanged cheer limitation missing")
+	require(first["magician_pose_containment"].get("scores", {}).get("animation") is None, "cheer/motion was assigned an unsupported score")
+
+	for path in audit.glob("hall_*.json"):
+		value = load(path)
+		text = "\n".join(strings(value)).lower()
+		for forbidden in ("game-wide acceptance: true", "game_wide_acceptance\": true", "full_4_5_acceptance\": true"):
+			require(forbidden not in text, f"overbroad acceptance claim in {path.name}")
+		# An average can summarize away a below-bar dimension. No published Hall
+		# review may use one to promote a 4.5 disposition.
+		for key, item in value.items() if isinstance(value, dict) else []:
+			if "average" in str(key).lower() and isinstance(item, (int, float)):
+				require(item < 4.5, f"4.5+ average promotion in {path.name}: {key}={item}")
+
+
+def main() -> int:
+	repo = Path(__file__).resolve().parents[2]
+	audit = repo / "audit/minigame_art_quality_2026-09-05"
+	evidence = audit / "evidence/hall-followup"
+	require(evidence.is_dir(), "Hall publication is absent; run authoritative publisher first")
+	check_source_semantics(repo)
+	check_manifest(repo, audit, evidence)
+	check_claims(audit)
+	print("HALL_PUBLICATION_OK|pngs=140|games=ballerina,magician,popstar|scope=bounded")
+	return 0
+
+
+if __name__ == "__main__":
+	try:
+		raise SystemExit(main())
+	except VerificationError as exc:
+		print(f"HALL_PUBLICATION_FAIL|{exc}", file=sys.stderr)
+		raise SystemExit(1)

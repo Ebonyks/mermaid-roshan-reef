@@ -1,0 +1,135 @@
+{
+  "schema": "bounded_visual_comparison_v1",
+  "reviewed_utc": "2026-09-06",
+  "reviewer": "independent_ai_visual_review",
+  "scope": {
+    "surface": "Opera Hall Magician, first configured sample of eight practice/stage entries",
+    "comparison": "candidate02 rejected held-cell mapping versus neutral03 idle-cell containment mapping",
+    "samples_reviewed_per_run": 24,
+    "frames_per_entry": 3,
+    "render_context": "Mobile 1280x720 configured capture route",
+    "limits": [
+      "The stills show mounted composition and sampled pose containment only.",
+      "A held atlas cell is not evidence of physical acting, contact, cadence, transition quality, natural navigation, target-phone quality, or child acceptance.",
+      "The nominal t000/t250/t500 filenames are sample labels; they are not asserted as exact elapsed milliseconds.",
+      "No whole-performance or game-wide acceptance is claimed."
+    ]
+  },
+  "source_binding": {
+    "committed_checkpoint_before_reconciliation": "8b7f1168",
+    "reconciled_origin_dev": "6bf16bbc16e9724e667b04230d4158cddc68307b",
+    "local_state": "reconciled origin/dev plus uncommitted Hall work/idle mapping repair",
+    "current_world_path": "scripts/opera_career_world_2d.gd",
+    "current_world_sha256_raw": "fa82d3f06f5b077a3090b2d16a5e3cea0898d23a0175810b577877862ba4c1a9",
+    "additional_source_snapshot": {
+      "scripts/opera_performance_plan.gd": "25517580638edcc8f63375ec6b14fd0de89287ed08af00111fec1d467cce6da3",
+      "scripts/opera_act.gd": "ad107c7cd70171969676d2568991ea42035237ce0189389c9eece7aa9809d776",
+      "scripts/opera_roshan_actor.gd": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+      "scripts/opera_gesture_surface.gd": "c28a885f68f2b16c66fcdaa5c4243ce9695a44d4ce015e56832ca392114cbedb"
+    }
+  },
+  "evidence": {
+    "candidate02_capture_dir": "tmp/hall-magician-poses/candidate02/captures",
+    "candidate02_manifest_sha256": "68874f4401d9b342cd42c4236c16dcb27ec5ca2a9ba37731c48b704d3ee84386",
+    "neutral03_capture_dir": "tmp/hall-magician-poses/neutral03/captures",
+    "neutral03_manifest_sha256": "ea14d5d458c0eabaa3f037815385a1e0cbcb9409fef5ab63ac3e7a7332e54cc4",
+    "neutral03_log": "tmp/hall-magician-poses/neutral03/capture.log",
+    "neutral03_result": "PASS|captures=24",
+    "comparison_note": "All 24 PNG byte hashes differ because candidate02 and neutral03 are separate rendered runs across the reconciled/local Hall state. Visual review, rather than byte equality, was used for the five regression controls."
+  },
+  "entry_reviews": [
+    {
+      "index": 0,
+      "part": "practice",
+      "phase": "VANISH",
+      "mapping_change": false,
+      "samples": ["magician_00_vanish_t000.png", "magician_00_vanish_t250.png", "magician_00_vanish_t500.png"],
+      "disposition": "retain_current_mapping_as_regression_control",
+      "scores": {"identity": 4.6, "readability": 4.5, "finish": 4.6, "edges": 4.6, "consistency": 4.5, "contact": 4.5, "ownership": 4.5, "animation": null},
+      "reason": "The existing vanish pose remains phase-specific and readable; neutral03 introduces no visible composition regression in the sampled stills. Motion remains unassessed."
+    },
+    {
+      "index": 1,
+      "part": "practice",
+      "phase": "TRACK",
+      "mapping_change": false,
+      "samples": ["magician_01_track_t000.png", "magician_01_track_t250.png", "magician_01_track_t500.png"],
+      "disposition": "retain_but_open_below_bar",
+      "scores": {"identity": 4.5, "readability": 4.3, "finish": 4.6, "edges": 4.6, "consistency": 4.4, "contact": 4.1, "ownership": 4.4, "animation": null},
+      "reason": "The neutral actor avoids an unrelated prop but does not visibly track or engage the task path. No merge regression is apparent; the pre-existing semantic/contact gap remains."
+    },
+    {
+      "index": 2,
+      "part": "practice",
+      "phase": "ROPE",
+      "mapping_change": true,
+      "candidate02": "Rejected yellow orbit cell wrapped Roshan in an unrelated glowing loop competing with the actual rope path.",
+      "neutral03": "Idle cell removes the orbit; the purple task path is the sole rope-like prop and Roshan remains clearly readable at left.",
+      "samples": ["magician_02_rope_t000.png", "magician_02_rope_t250.png", "magician_02_rope_t500.png"],
+      "disposition": "retain_neutral_as_bounded_containment_improvement_below_4_5",
+      "scores": {"identity": 4.6, "readability": 4.4, "finish": 4.6, "edges": 4.6, "consistency": 4.5, "contact": 3.9, "ownership": 4.5, "animation": null},
+      "reason": "Single-prop ownership is materially clearer and the unrelated orbit is gone. Roshan's open hand and upright wand do not touch, tension, pull, or direct the rope, so this is not physical rope acting and cannot meet 4.5 overall."
+    },
+    {
+      "index": 3,
+      "part": "stage",
+      "phase": "VANISH",
+      "mapping_change": false,
+      "samples": ["magician_03_vanish_t000.png", "magician_03_vanish_t250.png", "magician_03_vanish_t500.png"],
+      "disposition": "retain_current_mapping_as_regression_control",
+      "scores": {"identity": 4.6, "readability": 4.5, "finish": 4.6, "edges": 4.6, "consistency": 4.5, "contact": 4.5, "ownership": 4.5, "animation": null},
+      "reason": "The phase-specific vanish mapping remains contained and readable in the three current stills; no visible regression from reconciliation is present."
+    },
+    {
+      "index": 4,
+      "part": "stage",
+      "phase": "TRACK",
+      "mapping_change": false,
+      "samples": ["magician_04_track_t000.png", "magician_04_track_t250.png", "magician_04_track_t500.png"],
+      "disposition": "retain_but_open_below_bar",
+      "scores": {"identity": 4.5, "readability": 4.3, "finish": 4.6, "edges": 4.6, "consistency": 4.4, "contact": 4.1, "ownership": 4.4, "animation": null},
+      "reason": "No new competing prop or visible merge regression appears, but the held pose still supplies little tracking action or contact evidence."
+    },
+    {
+      "index": 5,
+      "part": "stage",
+      "phase": "ROPE",
+      "mapping_change": true,
+      "candidate02": "Rejected yellow orbit cell added a prominent false rope around Roshan while the real U-shaped task path occupied center stage.",
+      "neutral03": "Idle cell removes the false orbit and leaves the central U path as the only rope owner.",
+      "samples": ["magician_05_rope_t000.png", "magician_05_rope_t250.png", "magician_05_rope_t500.png"],
+      "disposition": "retain_neutral_as_bounded_containment_improvement_below_4_5",
+      "scores": {"identity": 4.6, "readability": 4.4, "finish": 4.6, "edges": 4.6, "consistency": 4.5, "contact": 3.8, "ownership": 4.5, "animation": null},
+      "reason": "The stage is less crowded and task ownership is unambiguous. Roshan is spatially remote from the rope and does not visibly hold or manipulate it, leaving contact and acting below the required bar."
+    },
+    {
+      "index": 6,
+      "part": "stage",
+      "phase": "CABINET",
+      "mapping_change": false,
+      "samples": ["magician_06_cabinet_t000.png", "magician_06_cabinet_t250.png", "magician_06_cabinet_t500.png"],
+      "disposition": "retain_but_open_below_bar",
+      "scores": {"identity": 4.5, "readability": 4.4, "finish": 4.6, "edges": 4.6, "consistency": 4.5, "contact": 4.0, "ownership": 4.5, "animation": null},
+      "reason": "The neutral mapping keeps cabinet ownership clean and shows no current regression, but does not establish physical interaction with the cabinet."
+    },
+    {
+      "index": 7,
+      "part": "stage",
+      "phase": "PORTAL",
+      "mapping_change": true,
+      "candidate02": "Rejected cell displayed a second bright portal beside Roshan while the task already presented the large central shell portal.",
+      "neutral03": "Idle cell removes the actor-side duplicate; the central shell portal is now the sole portal and retains the visual focus.",
+      "samples": ["magician_07_portal_t000.png", "magician_07_portal_t250.png", "magician_07_portal_t500.png"],
+      "disposition": "retain_neutral_as_bounded_containment_improvement_below_4_5",
+      "scores": {"identity": 4.6, "readability": 4.4, "finish": 4.6, "edges": 4.6, "consistency": 4.5, "contact": 3.9, "ownership": 4.6, "animation": null},
+      "reason": "Removing the duplicate fixes the strongest ownership conflict and makes the central portal easier to parse. Roshan's generic ready pose does not visibly cast toward, touch, or react to that portal, so the physical acting/contact criterion remains open."
+    }
+  ],
+  "changed_mapping_summary": {
+    "accepted_as_bounded_repair": ["practice ROPE", "stage ROPE", "stage PORTAL"],
+    "reason": "All three remove a semantically unrelated or duplicate actor-side effect and improve single-prop ownership without harming actor legibility.",
+    "full_4_5_acceptance": false,
+    "remaining_gap": "A source-supported pose or future approved art must show intentional relation to the task prop without introducing a second competing prop. Mounted motion and contact then require fresh runtime evidence."
+  },
+  "overall_disposition": "KEEP_NEUTRAL_CONTAINMENT_REPAIR; PERFORMANCE_ART_QUALITY_REMAINS_OPEN"
+}

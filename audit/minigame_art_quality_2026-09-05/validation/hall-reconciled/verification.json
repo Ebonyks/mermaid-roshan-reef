@@ -1,0 +1,48 @@
+{
+  "schema": "reef.hall_reconciled_validation.v1",
+  "verified_utc": "2026-09-06T13:26:36Z",
+  "result": "PASS",
+  "command": "python tmp/hall-art-publication/verify_hall.py",
+  "exit_code": 0,
+  "stdout": "HALL_PUBLICATION_OK|pngs=140|games=ballerina,magician,popstar|scope=bounded",
+  "verifier": {
+    "path": "tmp/hall-art-publication/verify_hall.py",
+    "sha256": "0a093e5a7ba6b93948b47313102d0dfc10bbb8c27f37ed6ec281df71e893b18c"
+  },
+  "source_owners": {
+    "scripts/opera_career_world_2d.gd": "fa82d3f06f5b077a3090b2d16a5e3cea0898d23a0175810b577877862ba4c1a9",
+    "scripts/probe_opera_2d.gd": "6d43f5fae774157f9c6ff8147cf2848e425b78f9a28881f02aca962524087e55",
+    "scripts/opera_roshan_actor.gd": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d"
+  },
+  "publication_bindings": {
+    "audit/minigame_art_quality_2026-09-05/hall_cohort_manifest.json": "d7c19d0a565e278264bd40f111e0a62284744df1c517c2fc34050568cf58bdb0",
+    "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/payload-manifest.json": "7f5c408c4ea421fcb96955201b40125ce8c905464ac9cacf9ba0f272fafadfb1"
+  },
+  "verified_claims": [
+    "Exactly 140 published PNG entry bytes match the cohort manifest hashes and sizes.",
+    "Historical, rejected candidate02, and current neutral cohorts remain present with exact expected file counts.",
+    "Published reviews equal their preserved raw originals after the declared capture-path substitutions only.",
+    "Profiles, saves, caches, app data, and configuration directories are excluded.",
+    "Capture evidence is limited to Ballerina, Magician, and Pop Star.",
+    "Integrated stage navigation/restoration, prior reviewed poses, Hall pose selection, and independent Hall probe coverage remain present.",
+    "The cheer owner is unchanged and no unsupported animation score or average 4.5 promotion is asserted."
+  ],
+  "scope": {
+    "claim": "Bounded Hall publication consistency and current source ownership only.",
+    "does_not_establish": [
+      "whole-career or game-wide visual acceptance",
+      "full animation, cadence, transition, or natural-navigation acceptance",
+      "target-device, child, or owner acceptance",
+      "Full09 validation outcome"
+    ],
+    "games": ["ballerina", "magician", "popstar"]
+  },
+  "prior_instrumentation_history": {
+    "path": "tmp/hall-art-publication/initial-verifier-failure.json",
+    "sha256": "f0d8a156d6b21a56272e06d263dff6f7bf4c0f8255b2f833372ca4bc7c79c831",
+    "disposition": "Preserved as instrumentation-invalid history; none of its intermediate failures invalidated runtime or publication evidence."
+  },
+  "runtime_modified": false,
+  "godot_run": false,
+  "full09_artifacts_touched": false
+}

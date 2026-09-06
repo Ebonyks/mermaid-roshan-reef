@@ -1,0 +1,137 @@
+{
+  "schema": "reef.dolls_current_capture_archive.v1",
+  "baseline": "8b7f116870eec8abf0368a25bf47eac404a23b25",
+  "runtime_context": "Current6bf-reconciled source plus Hall repairs; exact owners in source-snapshot.json.",
+  "png_entries": 6,
+  "process_exit": 0,
+  "source_freeze_unchanged": true,
+  "pixels_modified": false,
+  "game_wide_acceptance": false,
+  "state_interpretation": [
+    "00_ready is early shipping activity after direct _start_game, with the first falling baby already visible; its original empty-surface caveat is inaccurate and must not be used.",
+    "Configured phase dictionaries and explicit classic skin do not establish natural navigation or other saved skins.",
+    "05_three_settled_completion is configured visual-only; shipping success normally tears down and is not tested by that still.",
+    "Sparse progressing clocks do not establish full animation or target-device performance."
+  ],
+  "captures": [
+    {
+      "label": "00_ready",
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_00_ready.png",
+      "sha256": "9e9d56053e25812575e00fbe6549d20af2db6c770771855dfdb19e872284943f",
+      "origin": "natural_game_entry",
+      "caveat": "empty live surface after shipping _start_game"
+    },
+    {
+      "label": "01_multiple_fallers",
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_01_multiple_fallers.png",
+      "sha256": "72694be0e9f21cf61113f780b652661027b5cbdbcd8cfb53b782ab35acd86259",
+      "origin": "configured_state_shortcut",
+      "caveat": "caught=2 enables the shipping two-faller limit; positions selected for visual coverage"
+    },
+    {
+      "label": "02_held_drag",
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_02_held_drag.png",
+      "sha256": "0e3a63c93ea198629433dc5357e9a573e17d682860b865101514ed070abcf60a",
+      "origin": "live_viewport_touch_held_plus_configured_faller",
+      "caveat": "five interpolated ScreenDrag callbacks; finger is still held at capture"
+    },
+    {
+      "label": "03_caught",
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_03_caught.png",
+      "sha256": "8165352f3bf4fb1890aa130e2f5a69504d9c84ec1cd0104e8cc14b3a30a7f8d1",
+      "origin": "live_viewport_touch_and_shipping_process",
+      "caveat": "configured near-contact faller; catch, settled state and feedback are shipping-owned"
+    },
+    {
+      "label": "04_safe_miss",
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_04_safe_miss.png",
+      "sha256": "9f964986fb1d82c688977c9ac5a5869d2416f179218d1c0b4ec1c99596f12065",
+      "origin": "configured_near_floor_then_shipping_process",
+      "caveat": "no input; shipping _miss creates the safety-mat landing"
+    },
+    {
+      "label": "05_three_settled_completion",
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_05_three_settled_completion.png",
+      "sha256": "e385821f7ce8b12546fac0588bfb45d8360b20b45c6e288d7798197407e5c1a9",
+      "origin": "configured_post_catch_visual_shortcut",
+      "caveat": "shipping completion normally tears down before a stable still; no payoff/teardown claim"
+    }
+  ],
+  "files": [
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/capture.log",
+      "sha256": "a09b0d89e8088cf7b8ca5268fa37fbed7c7f37f2d5139637c79221ea69816f46",
+      "source": "tmp/dolls-runtime-followup/run01/capture.log"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_00_ready.png",
+      "sha256": "9e9d56053e25812575e00fbe6549d20af2db6c770771855dfdb19e872284943f",
+      "source": "tmp/dolls-runtime-followup/run01/captures/dolls_00_ready.png"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_01_multiple_fallers.png",
+      "sha256": "72694be0e9f21cf61113f780b652661027b5cbdbcd8cfb53b782ab35acd86259",
+      "source": "tmp/dolls-runtime-followup/run01/captures/dolls_01_multiple_fallers.png"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_02_held_drag.png",
+      "sha256": "0e3a63c93ea198629433dc5357e9a573e17d682860b865101514ed070abcf60a",
+      "source": "tmp/dolls-runtime-followup/run01/captures/dolls_02_held_drag.png"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_03_caught.png",
+      "sha256": "8165352f3bf4fb1890aa130e2f5a69504d9c84ec1cd0104e8cc14b3a30a7f8d1",
+      "source": "tmp/dolls-runtime-followup/run01/captures/dolls_03_caught.png"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_04_safe_miss.png",
+      "sha256": "9f964986fb1d82c688977c9ac5a5869d2416f179218d1c0b4ec1c99596f12065",
+      "source": "tmp/dolls-runtime-followup/run01/captures/dolls_04_safe_miss.png"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_05_three_settled_completion.png",
+      "sha256": "e385821f7ce8b12546fac0588bfb45d8360b20b45c6e288d7798197407e5c1a9",
+      "source": "tmp/dolls-runtime-followup/run01/captures/dolls_05_three_settled_completion.png"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/manifest.json",
+      "sha256": "b1cddece36bdc9481b8fa658faf354da187e3626ea6b8cd607b1147f78b1df9a",
+      "source": "tmp/dolls-runtime-followup/run01/captures/manifest.json"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/command.json",
+      "sha256": "bb693a5a89c5f1e0b9bdd299dcd69cf22beddbdcd002efbaca97a236ef0caefe",
+      "source": "tmp/dolls-runtime-followup/run01/command.json"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/exit-code.txt",
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "source": "tmp/dolls-runtime-followup/run01/exit-code.txt"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/harness.gd.txt",
+      "sha256": "56cc87fb3c369830cd093bde3778530f2bfebc358bca80a6b195ee2275da58fd",
+      "source": "tmp/dolls-runtime-followup/run01/harness.gd.txt"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/process-id.txt",
+      "sha256": "f383795a63c658eee14e41b25cd6bc480eaa18e39aa481c86191dd0553f497b3",
+      "source": "tmp/dolls-runtime-followup/run01/process-id.txt"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/runner.py.txt",
+      "sha256": "535029ceca28a03e41ee5e7b591485128ceea6d6f5e71e9e0100eb7da68e99d9",
+      "source": "tmp/dolls-runtime-followup/run_capture.py"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/source-freeze-check.json",
+      "sha256": "75e03c2a08d1c54cf1ddcc5a98db9eb9ffbb4b94c46f35ae5463a448c8dfd449",
+      "source": "tmp/dolls-runtime-followup/run01/source-freeze-check.json"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/source-snapshot.json",
+      "sha256": "72c024234f97ba3db454332ed2e09f9114c990be93faa1e65387595fbd293eec",
+      "source": "tmp/dolls-runtime-followup/run01/source-snapshot.json"
+    }
+  ]
+}

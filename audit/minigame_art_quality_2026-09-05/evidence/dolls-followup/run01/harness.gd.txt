@@ -1,0 +1,374 @@
+extends SceneTree
+## Disposable configured Dolls art diagnostic. This mounts the shipping DollsGame
+## surface and uses real viewport-routed touch callbacks. Configured state shortcuts
+## are labeled in every evidence record and are not natural-navigation evidence.
+
+const SCREEN := Vector2i(1280, 720)
+const EXPECTED_HASH := "ed1daf0bf"
+const MAX_SECONDS := 118.0
+const TOUCH_INDEX := 61
+const EXPECTED_BABIES: Array[String] = [
+	"res://assets/opera/worlds/nursery/baby_0.png",
+	"res://assets/opera/worlds/nursery/baby_1.png",
+	"res://assets/opera/worlds/nursery/baby_2.png",
+]
+const EXPECTED_TILES: Array[String] = [
+	"res://assets/opera/worlds/backdrops/world_nursery_c0r0.png",
+	"res://assets/opera/worlds/backdrops/world_nursery_c1r0.png",
+	"res://assets/opera/worlds/backdrops/world_nursery_c0r1.png",
+	"res://assets/opera/worlds/backdrops/world_nursery_c1r1.png",
+]
+
+var main: ReefMain
+var game: DollsGame
+var surface: DollsGame.DollsNurserySurface
+var catcher: TextureRect
+var world: OperaWorldBackdrop2D
+var output_dir := ""
+var profile_root := ""
+var started_msec := 0
+var failures := 0
+var captures: Array[Dictionary] = []
+var finger_local := Vector2.ZERO
+var selected_skin_path := ""
+
+
+func _init() -> void:
+	call_deferred("_run")
+
+
+func _run() -> void:
+	output_dir = OS.get_environment("DOLLS_RUNTIME_CAPTURE_OUT").strip_edges()
+	profile_root = OS.get_environment("DOLLS_RUNTIME_PROFILE_ROOT").strip_edges()
+	if output_dir.is_empty() or profile_root.is_empty():
+		_block("output/profile environment required", 2)
+		return
+	var version := Engine.get_version_info()
+	if int(version.get("major", -1)) != 4 or int(version.get("minor", -1)) != 7 \
+			or int(version.get("patch", -1)) != 2 \
+			or String(version.get("status", "")) != "stable" \
+			or not String(version.get("hash", "")).begins_with(EXPECTED_HASH):
+		_block("requires exact official Godot 4.7.2-stable ed1daf0bf", 3)
+		return
+	var actual_profile := OS.get_user_data_dir().replace("\\", "/").to_lower()
+	var expected_profile := profile_root.replace("\\", "/").trim_suffix("/").to_lower()
+	if actual_profile != expected_profile and not actual_profile.begins_with(expected_profile + "/"):
+		_block("OS user-data directory escaped isolated profile", 4)
+		return
+	if RenderingServer.get_current_rendering_method() != "mobile":
+		_block("renderer is not Mobile", 5)
+		return
+	if not is_equal_approx(Engine.time_scale, 1.0) or paused:
+		_block("normal-processing guard failed", 5)
+		return
+	DirAccess.make_dir_recursive_absolute(output_dir)
+	started_msec = Time.get_ticks_msec()
+	create_timer(MAX_SECONDS).timeout.connect(func():
+		print("DOLLS_RUNTIME|FAIL|wall-clock timeout")
+		quit(9))
+	var packed := load("res://scenes/main.tscn") as PackedScene
+	if packed == null:
+		_block("main scene unavailable", 6)
+		return
+	main = packed.instantiate() as ReefMain
+	if main == null:
+		_block("main did not instantiate ReefMain", 6)
+		return
+	get_root().add_child(main)
+	get_root().size = SCREEN
+	await _frames(4)
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		main._launch_from_start_menu(false)
+	elif main.intro_active:
+		main._skip_intro()
+	await _frames(5)
+	# A fresh isolated save normally resolves classic already. Set the known
+	# approved classic ID explicitly so evidence never depends on host save state.
+	main.skin_id = "classic"
+	selected_skin_path = main.skin_sprite_path()
+	_check("configured approved classic skin resolved",
+		selected_skin_path == "res://assets/characters/roshan_25d/roshan_base.png"
+		and ResourceLoader.exists(selected_skin_path))
+	var friend := _dolls_friend()
+	_check("Dolls friend exists", not friend.is_empty())
+	if friend.is_empty():
+		_finish()
+		return
+	friend["found"] = true
+	main._start_game(friend)
+	await _frames(5)
+	game = main._game_obj("dolls", DollsGame) as DollsGame
+	surface = _surface()
+	catcher = _catcher()
+	world = _world()
+	if not _entry_ready():
+		_check("shipping Dolls entry ready", false)
+		_finish()
+		return
+	await _capture("00_ready", "natural_game_entry", "empty live surface after shipping _start_game")
+
+	# The shipping grammar permits two fallers only after two catches. This
+	# configured visual state uses real dictionaries and shipping draw/process code.
+	_reset_surface()
+	surface.caught = 2
+	surface.settled = [0, 1]
+	surface.fallers = [_entry(0.28, 0.30, 2), _entry(0.71, 0.51, 0)]
+	surface.spawned = 4
+	surface.spawn_t = 0.55
+	surface.queue_redraw()
+	await _frames(2)
+	_check("configured multiple-faller state is shipping-valid",
+		surface.active and surface.caught == 2 and surface.fallers.size() == 2)
+	await _capture("01_multiple_fallers", "configured_state_shortcut",
+		"caught=2 enables the shipping two-faller limit; positions selected for visual coverage")
+
+	# Start left, then route several interpolated drags through the actual viewport
+	# while the finger remains down. The baby is configured only to hold a stable
+	# approach position long enough for the art capture.
+	_reset_surface()
+	surface.fallers = [_entry(0.72, 0.56, 1)]
+	surface.spawned = 1
+	surface.spawn_t = 0.8
+	await _touch_down(Vector2(surface.size.x * 0.24, surface.size.y * 0.72))
+	for step in range(1, 6):
+		var x := lerpf(0.24, 0.72, float(step) / 5.0)
+		await _touch_drag(Vector2(surface.size.x * x, surface.size.y * 0.72))
+	_check("held drag reached target through live callback",
+		surface.input_live_t > 0.0 and absf(surface.catcher_x - 0.72) < 0.01)
+	await _capture("02_held_drag", "live_viewport_touch_held_plus_configured_faller",
+		"five interpolated ScreenDrag callbacks; finger is still held at capture")
+	await _touch_up(finger_local)
+
+	# Catch uses shipping process and live input; only the initial faller position
+	# is configured to make the requested state deterministic.
+	_reset_surface()
+	surface.fallers = [_entry(0.52, 0.735, 0)]
+	surface.spawned = 1
+	surface.spawn_t = 0.9
+	await _touch_down(Vector2(surface.size.x * 0.52, surface.size.y * 0.72))
+	await create_timer(0.12).timeout
+	_check("live input produced one shipping catch",
+		surface.caught == 1 and surface.settled.size() == 1)
+	await _capture("03_caught", "live_viewport_touch_and_shipping_process",
+		"configured near-contact faller; catch, settled state and feedback are shipping-owned")
+	await _touch_up(finger_local)
+
+	# Miss has no input and reaches _miss through normal surface processing.
+	_reset_surface()
+	surface.fallers = [_entry(0.22, 0.905, 2)]
+	surface.spawned = 1
+	surface.spawn_t = 0.9
+	await create_timer(0.12).timeout
+	_check("zero input produced one shipping safe miss",
+		surface.missed == 1 and surface.safe_landings.size() == 1 and surface.caught == 0)
+	await _capture("04_safe_miss", "configured_near_floor_then_shipping_process",
+		"no input; shipping _miss creates the safety-mat landing")
+
+	# A real third catch is normally followed immediately by ReefMain teardown.
+	# This last still therefore configures the post-catch visual dictionary and
+	# changes only the main dispatch key so normal processing cannot close the
+	# disposable layer before it draws. It is not natural payoff/teardown evidence.
+	_reset_surface()
+	surface.caught = 3
+	surface.settled = [0, 1, 2]
+	surface.active = false
+	surface.set_process(false)
+	main.game = "dolls_capture_completion_configured"
+	surface.queue_redraw()
+	await _frames(2)
+	_check("configured three-settled visual state is internally complete",
+		surface.caught == surface.goal and surface.settled.size() == 3 and not surface.active)
+	await _capture("05_three_settled_completion", "configured_post_catch_visual_shortcut",
+		"shipping completion normally tears down before a stable still; no payoff/teardown claim")
+	await _write_manifest()
+	_finish()
+
+
+func _reset_surface() -> void:
+	surface.start(3)
+	surface.fallers.clear()
+	surface.safe_landings.clear()
+	surface.settled.clear()
+	surface.caught = 0
+	surface.missed = 0
+	surface.spawned = 0
+	surface.spawn_t = 0.9
+	surface.input_live_t = 0.0
+	surface.catcher_x = 0.5
+	surface.queue_redraw()
+
+
+func _entry(x: float, y: float, texture_index: int) -> Dictionary:
+	return {"base_x": x, "x": x, "y": y, "speed": 0.115,
+		"sway": 0.0, "phase": 0.0, "texture": texture_index}
+
+
+func _touch_down(local: Vector2) -> void:
+	finger_local = local
+	var event := InputEventScreenTouch.new()
+	event.index = TOUCH_INDEX
+	event.position = surface.get_screen_transform() * local
+	event.pressed = true
+	surface.get_viewport().push_input(event, true)
+	await create_timer(0.05).timeout
+
+
+func _touch_drag(local: Vector2) -> void:
+	var prior_screen := surface.get_screen_transform() * finger_local
+	var next_screen := surface.get_screen_transform() * local
+	var event := InputEventScreenDrag.new()
+	event.index = TOUCH_INDEX
+	event.position = next_screen
+	event.relative = next_screen - prior_screen
+	finger_local = local
+	surface.get_viewport().push_input(event, true)
+	await create_timer(0.05).timeout
+
+
+func _touch_up(local: Vector2) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = TOUCH_INDEX
+	event.position = surface.get_screen_transform() * local
+	event.pressed = false
+	surface.get_viewport().push_input(event, true)
+	await create_timer(0.05).timeout
+
+
+func _capture(label: String, origin: String, caveat: String) -> void:
+	await _frames(2)
+	var guard_ok := get_root().size == SCREEN and not paused \
+		and is_equal_approx(Engine.time_scale, 1.0) \
+		and RenderingServer.get_current_rendering_method() == "mobile" \
+		and surface != null and is_instance_valid(surface) \
+		and surface.is_inside_tree() and surface.can_process()
+	_check("capture guard %s" % label, guard_ok)
+	if not guard_ok:
+		return
+	await RenderingServer.frame_post_draw
+	var image := get_root().get_texture().get_image()
+	var path := output_dir.path_join("dolls_%s.png" % label)
+	var saved := image.get_size() == SCREEN and image.save_png(path) == OK
+	_check("capture %s" % label, saved)
+	if not saved:
+		return
+	var entry := {
+		"label": label, "origin": origin, "caveat": caveat,
+		"path": path, "sha256": FileAccess.get_sha256(path),
+		"ticks_msec": Time.get_ticks_msec(),
+		"process_frames": Engine.get_process_frames(),
+		"surface_elapsed": surface.elapsed,
+		"surface_processing": surface.is_processing(),
+		"surface_can_process": surface.can_process(),
+		"paused": paused, "time_scale": Engine.time_scale,
+		"renderer": RenderingServer.get_current_rendering_method(),
+		"viewport": [get_root().size.x, get_root().size.y],
+		"main_game": main.game, "skin_id": main.skin_id,
+		"selected_skin_path": selected_skin_path,
+		"selected_skin_sha256": FileAccess.get_sha256(selected_skin_path),
+		"caught": surface.caught, "missed": surface.missed,
+		"fallers": surface.fallers.duplicate(true),
+		"safe_landings": surface.safe_landings.duplicate(true),
+		"settled": surface.settled.duplicate(),
+		"input_live_t": surface.input_live_t,
+		"catcher_x": surface.catcher_x,
+	}
+	captures.append(entry)
+	print("DOLLS_RUNTIME|CAPTURE|%s" % JSON.stringify(entry))
+
+
+func _write_manifest() -> void:
+	var manifest := {
+		"schema": 1,
+		"claim": "configured Dolls mounted-still diagnostic; sparse stills are not animation, natural navigation, target-device, child or owner acceptance",
+		"godot": Engine.get_version_info(),
+		"renderer": RenderingServer.get_current_rendering_method(),
+		"viewport": [SCREEN.x, SCREEN.y],
+		"configured_skin": {"id": "classic", "path": selected_skin_path,
+			"reason": "fresh isolated profile made deterministic; not evidence for every saved skin"},
+		"source_hashes_raw_bytes_nonexhaustive": _source_hashes(),
+		"captures": captures,
+	}
+	var file := FileAccess.open(output_dir.path_join("manifest.json"), FileAccess.WRITE)
+	_check("manifest opened", file != null)
+	if file != null:
+		file.store_string(JSON.stringify(manifest, "  ") + "\n")
+		file.close()
+
+
+func _source_hashes() -> Dictionary:
+	var paths: Array[String] = [
+		"res://scripts/games/dolls.gd", "res://scripts/opera_nursery_catch.gd",
+		"res://scripts/opera_world_backdrop_2d.gd", "res://scripts/main.gd",
+		selected_skin_path,
+	]
+	paths.append_array(EXPECTED_BABIES)
+	paths.append_array(EXPECTED_TILES)
+	var result: Dictionary = {}
+	for path in paths:
+		result[path] = FileAccess.get_sha256(path)
+	return result
+
+
+func _entry_ready() -> bool:
+	if game == null or surface == null or catcher == null or world == null:
+		return false
+	return main.game == "dolls" and surface.active and surface.is_processing() \
+		and surface.can_process() and surface.goal == 3 \
+		and catcher.texture != null and catcher.texture.resource_path == selected_skin_path \
+		and _texture_paths(surface.textures) == EXPECTED_BABIES \
+		and _texture_paths(world.world_tiles) == EXPECTED_TILES
+
+
+func _dolls_friend() -> Dictionary:
+	for friend: Dictionary in main.friends:
+		if String(friend.get("game", "")) == "dolls":
+			return friend
+	return {}
+
+
+func _surface() -> DollsGame.DollsNurserySurface:
+	var layer := main.get_node_or_null("DollsCatchLayer") as CanvasLayer
+	return layer.get_node_or_null("DollsCatchSurface") as DollsGame.DollsNurserySurface \
+		if layer != null else null
+
+
+func _catcher() -> TextureRect:
+	return surface.get_node_or_null("DollsSelectedSkinCatcher") as TextureRect \
+		if surface != null else null
+
+
+func _world() -> OperaWorldBackdrop2D:
+	var layer := main.get_node_or_null("DollsCatchLayer") as CanvasLayer
+	return layer.get_node_or_null("DollsApprovedNurseryBackdrop") as OperaWorldBackdrop2D \
+		if layer != null else null
+
+
+func _texture_paths(textures: Array[Texture2D]) -> Array[String]:
+	var result: Array[String] = []
+	for texture in textures:
+		result.append(texture.resource_path if texture != null else "")
+	return result
+
+
+func _frames(count: int) -> void:
+	for _index in range(count):
+		await process_frame
+
+
+func _check(label: String, ok: bool) -> void:
+	if not ok:
+		failures += 1
+	print("DOLLS_RUNTIME|%s|%s" % ["OK" if ok else "FAIL", label])
+
+
+func _block(message: String, code: int) -> void:
+	print("DOLLS_RUNTIME|BLOCKED|%s" % message)
+	quit(code)
+
+
+func _finish() -> void:
+	print("DOLLS_RUNTIME|RESULT|%s|captures=%d|elapsed_ms=%d" % [
+		"PASS" if failures == 0 and captures.size() == 6 else "FAIL",
+		captures.size(), Time.get_ticks_msec() - started_msec])
+	quit(0 if failures == 0 and captures.size() == 6 else 1)

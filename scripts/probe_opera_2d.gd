@@ -9,6 +9,7 @@ extends SceneTree
 var main: ReefMain
 var bad := 0
 var reviewed_pose_coverage: Dictionary = {}
+var hall_pose_coverage: Dictionary = {}
 var widget_shot_out := ""
 var widget_capture_career := ""
 var rival_shot_out := ""
@@ -41,6 +42,21 @@ const EXPECTED_WORK_POSES := {
 	"doctor": {"WASH": 1, "FIND": 1, "X-RAY": 1, "CAST": 2, "BANDAGE": 2},
 	"farmer": {"PLANT": 1, "TOSS": 3, "HERD": 3, "PICNIC": 2},
 	"racer": {"TUNE": 0, "TO THE LINE": 1},
+}
+# Independent Hall semantic contract. Do not read the production mapping here:
+# this probe must fail if a phase silently changes to another attractive cell.
+const EXPECTED_HALL_POSES := {
+	"magician": {
+		"VANISH": {"row": "work", "cell": 0},
+		"TRACK": {"row": "idle", "cell": 2},
+		"ROPE": {"row": "idle", "cell": 3},
+		"CABINET": {"row": "idle", "cell": 3},
+		"PORTAL": {"row": "idle", "cell": 3},
+	},
+}
+const EXPECTED_HALL_POSE_PARTS := {
+	"practice": ["VANISH", "TRACK", "ROPE"],
+	"stage": ["VANISH", "TRACK", "ROPE", "CABINET", "PORTAL"],
 }
 const RACER_TICK_SECONDS := 1.0 / 60.0
 const RACER_MAX_DRIVE_FRAMES := 4000
@@ -1183,6 +1199,7 @@ func _init() -> void:
 		var guard := 0
 		while act.state == "play" and guard < 80:
 			_check_reviewed_task_pose(world, career)
+			_check_hall_task_pose(world, career)
 			rival_hidden_before_finale = rival_hidden_before_finale \
 				and (cooperative or world.in_competition_finale() or not world.rival_actor.visible)
 			if career == "racer" and world.phase_index == world._finale_start():
@@ -1339,6 +1356,11 @@ func _init() -> void:
 			var coverage_key := "%s/%s" % [reviewed_career, reviewed_phase]
 			_check("reviewed pose coverage: %s" % coverage_key,
 				reviewed_pose_coverage.has(coverage_key))
+	for hall_part: String in EXPECTED_HALL_POSE_PARTS:
+		for hall_phase: String in EXPECTED_HALL_POSE_PARTS[hall_part]:
+			var hall_key := "magician/%s/%s" % [hall_part, hall_phase]
+			_check("Hall semantic pose coverage: %s" % hall_key,
+				hall_pose_coverage.has(hall_key))
 	if bad == 0:
 		print("OPERA2D|result: ALL OK")
 		quit()
@@ -1388,6 +1410,74 @@ func _capture_diegetic_phase_rooms(world: OperaCareerWorld2D, career: String,
 		and is_equal_approx(world.phase_progress, 0.0)
 		and not world.competition.active and _armed_hotspots(world).size() == 1)
 	return captured
+
+
+func _audit_navigation_pointer_release(world: OperaCareerWorld2D,
+		career: String, hotspot: OperaWorldHotspot2D) -> void:
+	var floor_point := StagePaths.point_along(world.stage_points, 0.05)
+	var object_point: Vector2 = hotspot.get_meta("visual_pos") as Vector2
+	var down := InputEventScreenTouch.new()
+	down.index = 3
+	down.pressed = true
+	down.position = floor_point
+	world._wander_input(down)
+	var emulated_mouse := InputEventMouseButton.new()
+	emulated_mouse.button_index = MOUSE_BUTTON_LEFT
+	emulated_mouse.pressed = true
+	emulated_mouse.position = object_point
+	world._wander_input(emulated_mouse)
+	_check("%s emulated mouse cannot steal the active touch" % career,
+		world.wander_touch_index == 3 and not world.wander_mouse_down)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 3
+	drag.position = object_point
+	world._wander_input(drag)
+	_check("%s touch drag does not act before release/arrival" % career,
+		not world.interaction_requested and not world.task_open)
+	var up := InputEventScreenTouch.new()
+	up.index = 4
+	up.position = object_point
+	world._wander_input(up)
+	_check("%s foreign finger cannot commit travel intent" % career,
+		not world.interaction_requested)
+	up.index = 3
+	world._wander_input(up)
+	_check("%s touch release queues object approach without opening remotely" % career,
+		world.interaction_requested and world.wander_walking
+		and not world.task_open and not world.hotspot_opening)
+	world._wander_input(down)
+	var clean_cancel_feet := world.wander_feet
+	world._place_on_stage(world.player_actor, clean_cancel_feet + Vector2(0, -7))
+	world.wander_lean = 0.0
+	world.player_actor.rotation = 0.0
+	up.canceled = true
+	world._wander_input(up)
+	_check("%s cancelled touch clears pending action and movement" % career,
+		not world.interaction_requested and not world.wander_walking)
+	_check("%s canceled vertical step settles at its clean floor coordinate" % career,
+		world._hero_feet().distance_to(clean_cancel_feet) <= 0.01
+		and world.wander_feet.distance_to(clean_cancel_feet) <= 0.01)
+	var mouse := InputEventMouseButton.new()
+	mouse.button_index = MOUSE_BUTTON_LEFT
+	mouse.pressed = true
+	mouse.position = floor_point
+	world._wander_input(mouse)
+	var motion := InputEventMouseMotion.new()
+	motion.position = object_point
+	motion.button_mask = MOUSE_BUTTON_MASK_LEFT
+	world._wander_input(motion)
+	mouse.pressed = false
+	mouse.position = object_point
+	world._wander_input(mouse)
+	_check("%s mouse drag release shares touch object approach" % career,
+		world.interaction_requested and world.wander_walking and not world.task_open)
+	mouse.pressed = true
+	mouse.position = floor_point
+	world._wander_input(mouse)
+	mouse.pressed = false
+	world._wander_input(mouse)
+	_check("%s floor retarget cancels previous object intent" % career,
+		not world.interaction_requested and not world.task_open)
 
 
 func _audit_diegetic_room_flow(world: OperaCareerWorld2D, career: String) -> void:
@@ -1480,6 +1570,7 @@ func _audit_diegetic_room_flow(world: OperaCareerWorld2D, career: String) -> voi
 		and not world.task_open)
 
 	var activation_before := active.activation_count
+	_audit_navigation_pointer_release(world, career, active)
 	active.touch_button.pressed.emit()
 	var emitted_route := world.wander_route.duplicate()
 	var expected_approach := StagePaths.station_approach(career, active.station_id)
@@ -1581,6 +1672,11 @@ func _audit_diegetic_room_flow(world: OperaCareerWorld2D, career: String) -> voi
 		and not world.player_actor.clip_contents)
 	_check("%s keeps every visible partner clear of Roshan and the activity" % career,
 		visible_partner_clear)
+	world._arm_phase()
+	_check("%s returns from activity staging to the approached floor socket" % career,
+		world.wander_feet.distance_to(expected_approach) <= 0.1
+		and not world.task_open and not world.interaction_requested)
+	world._open_task()
 
 
 func _audit_phase_hotspot_rearming(world: OperaCareerWorld2D, career: String,
@@ -3113,3 +3209,42 @@ func _check_reviewed_task_pose(world: OperaCareerWorld2D, career: String) -> voi
 		and not world.player_animator.is_processing()
 		and world.phase_index == phase_before
 		and is_equal_approx(world.phase_progress, progress_before))
+
+
+func _check_hall_task_pose(world: OperaCareerWorld2D, career: String) -> void:
+	if career != "magician" or not world.two_act_enabled \
+			or not world.active or world.reveal_t > 0.0 \
+			or world.phase_advance_pending or world.phase_gap > 0.0 \
+			or world.phase_index >= world.phases.size():
+		return
+	var expected: Dictionary = EXPECTED_HALL_POSES.get(career, {})
+	var phase: Dictionary = world.phases[world.phase_index]
+	var phase_name := String(phase.get("name", ""))
+	if not expected.has(phase_name):
+		return
+	# Trusted diagnostic entry may open the task, but earns no phase progress.
+	if not world.task_open:
+		world._on_gesture("probe", 0.0, 1.0)
+	if not world.task_open:
+		return
+	var part := String(phase.get("performance_part", ""))
+	var coverage_key := "%s/%s/%s" % [career, part, phase_name]
+	hall_pose_coverage[coverage_key] = true
+	var expected_pose: Dictionary = expected[phase_name]
+	var progress_before := world.phase_progress
+	var score_before := world.competition.player_score
+	var phase_before := world.phase_index
+	# Repeated zero-credit input and elapsed animator time must not restart a
+	# loop, advance the phase, or award performance score.
+	world._on_gesture("probe", 0.0, 1.0)
+	world.player_animator._process(1.3)
+	world._on_gesture("probe", 0.0, 1.0)
+	world.player_animator._process(2.7)
+	_check("%s %s %s holds its semantic Hall pose without credit" \
+			% [career, part, phase_name],
+		world.player_animator.current_animation == String(expected_pose["row"])
+		and world.player_animator.current_frame == int(expected_pose["cell"])
+		and not world.player_animator.is_processing()
+		and world.phase_index == phase_before
+		and is_equal_approx(world.phase_progress, progress_before)
+		and world.competition.player_score == score_before)

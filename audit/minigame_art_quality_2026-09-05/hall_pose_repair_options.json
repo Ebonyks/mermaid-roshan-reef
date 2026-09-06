@@ -1,0 +1,271 @@
+{
+  "status": "READ_ONLY_REUSE_OPTIONS",
+  "review_date": "2026-09-06",
+  "scope": {
+    "venue": "Opera Hall",
+    "careers": [
+      "ballerina",
+      "magician",
+      "popstar"
+    ],
+    "purpose": "Identify small source-reuse and held-pose repairs for proven phase/pose mismatch without changing gameplay semantics.",
+    "production_changed": false,
+    "godot_run": false
+  },
+  "applicable_rules": [
+    "DL-MOT-04: visual feedback must describe the same event as the interaction.",
+    "DL-MOT-07: static transforms or arbitrary pose changes do not establish authored character animation.",
+    "DL-MOT-08: atlas validation does not establish in-context temporal quality.",
+    "DL-MOT-09: Ballerina cells are held semantic pose keys; only the curtain call plays once and holds."
+  ],
+  "method": [
+    "Viewed the original 1024x1024 Magician, Pop Star and Ballerina atlases at original resolution as 4x4 grids of 256x256 cells.",
+    "Traced shared actor setup, row selection, frame playback and Hall phase ownership in the current source.",
+    "Compared source pixels with the existing source-bound animation review, next-pose containment review and current animation-contract follow-up.",
+    "Frame mappings below describe visible still semantics only. No motion score or runtime acceptance is inferred from source sheets."
+  ],
+  "source_bindings": [
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256_raw": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+      "relevant_lines": [
+        "8-20: 1024x1024 atlas, 256x256 cells, rows idle/travel/work/cheer and 4/8/7/6 fps",
+        "21-25: Ballerina held idle/travel/work mapping",
+        "30-35: STORY_POSE_FRAMES currently covers only Geologist and Teacher",
+        "117-137: Ballerina/Story careers hold poses and use one-shot cheer; all other careers loop four cells",
+        "147-160: show_pose is the existing non-destructive held-cell path"
+      ]
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256_raw": "2f01fb3d4ea8b517a4de26e1c759f105dcbb19ac7e87613bd99dd0912a145b4d",
+      "relevant_lines": [
+        "12-16: REVIEWED_WORK_POSES currently covers Doctor, Farmer and Racer only",
+        "176-183 and 302-307: Magician source and stage phases",
+        "218-224 and 332-336: Pop Star source and stage phases",
+        "1211-1214: one shared OperaRoshanActor is created and bound to the career atlas",
+        "2274-2290: task pose owner uses held row-2 cells only when REVIEWED_WORK_POSES contains the phase; otherwise it calls the ordinary work loop",
+        "2426: phase arm resets the actor to idle",
+        "2552 and 3387: accepted task input selects the task pose",
+        "3461: generic completion requests cheer"
+      ]
+    },
+    {
+      "path": "scripts/opera_performance_plan.gd",
+      "relevant_lines": [
+        "8: two-act expansion is enabled only for Ballerina, Magician and Pop Star",
+        "9-13: practice repeats the first three phases before the complete stage list"
+      ]
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_magician_sheet_a.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256_raw": "768e6980fa8f4ca9cc3281a2fb1f23f0fcdeac8f2d524e6135b3be03eafc13cb"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_popstar_sheet_a.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256_raw": "0084e74b73042832f248c26f6688e484b7376ea6418caee09b2e4beeebfb0ee9"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256_raw": "c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995"
+    }
+  ],
+  "current_runtime_contract": {
+    "grid": {
+      "rows": {
+        "idle": 0,
+        "travel": 1,
+        "work": 2,
+        "cheer": 3
+      },
+      "columns": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indexing": "zero_based"
+    },
+    "phase_flow": "A phase opens at idle. World travel requests the travel row and returns to idle. Accepted non-talk input requests a phase task pose. Completion requests cheer for a 2.2 second result hold.",
+    "two_act_effect": "The same first three phase dictionaries are repeated in practice and stage. A phase-name mapping therefore preserves the interaction, goal and input semantics across both acts.",
+    "magician": "Idle, travel, work and cheer currently use ordinary four-cell loops. Every non-talk phase receives the same row-2 loop unless a mapping is added.",
+    "popstar": "Idle, travel, work and cheer currently use ordinary four-cell loops. The work row is a coherent singing family, but it is still requested during DANCE arrow selection and ENCORE circle input.",
+    "ballerina": "Already held by controller policy for idle/travel/work, with specialist per-pose work-cell selection and a one-shot curtain call. It is the Hall control case and should not be generalized or changed by this repair."
+  },
+  "atlas_semantics": {
+    "magician": {
+      "idle_row": [
+        {
+          "cell": 0,
+          "visible_semantics": "neutral wand presentation, open free hand"
+        },
+        {
+          "cell": 1,
+          "visible_semantics": "smiling wand presentation, free hand at chest"
+        },
+        {
+          "cell": 2,
+          "visible_semantics": "wand upright, finger near lips/chin"
+        },
+        {
+          "cell": 3,
+          "visible_semantics": "neutral wand presentation, open free hand"
+        }
+      ],
+      "travel_row": "Four distinct swimming/reaching silhouettes with the wand retained. Source inspection does not prove an 8 fps gait or stable pivot.",
+      "work_row": [
+        {
+          "cell": 0,
+          "visible_semantics": "yellow energy wraps around Roshan and the wand"
+        },
+        {
+          "cell": 1,
+          "visible_semantics": "long yellow overhead/orbit loop from the wand"
+        },
+        {
+          "cell": 2,
+          "visible_semantics": "rigid violet circular spell plane at the wand"
+        },
+        {
+          "cell": 3,
+          "visible_semantics": "large gold-violet portal beside Roshan"
+        }
+      ],
+      "cheer_row": "sparkle presentation, bow, and two arms-up celebration keys; their continuity at 6 fps is not established"
+    },
+    "popstar": {
+      "idle_row": "All four cells retain the microphone and singer identity, with distinct free-hand presentation gestures.",
+      "travel_row": "Four energetic singer/swim silhouettes retain the microphone; source inspection does not establish an 8 fps transition.",
+      "work_row": [
+        {
+          "cell": 0,
+          "visible_semantics": "microphone at mouth, free hand at chest"
+        },
+        {
+          "cell": 1,
+          "visible_semantics": "eyes closed singing, free arm extended"
+        },
+        {
+          "cell": 2,
+          "visible_semantics": "microphone at mouth, free hand cupped to ear"
+        },
+        {
+          "cell": 3,
+          "visible_semantics": "eyes closed singing, broad free-arm presentation"
+        }
+      ],
+      "cheer_row": "two broad presentations, a bow and an arms-open finish; their continuity at 6 fps is not established"
+    }
+  },
+  "recommended_small_fix": {
+    "shape": "Replace the integer-only phase table with or add a Hall-specific table whose entries name both atlas row and cell, then route through the existing show_pose(row, cell) path. Keep phase dictionaries, goals, inputs, widgets, two-act repetition and atlas pixels unchanged.",
+    "magician_phase_mapping": [
+      {
+        "phase": "VANISH",
+        "row": "work",
+        "cell": 0,
+        "confidence": "source-supported candidate",
+        "reason": "Contained glow/wrap is the closest existing casting state. Mounted evidence must still show Lamba/hat ownership."
+      },
+      {
+        "phase": "TRACK",
+        "row": "idle",
+        "cell": 2,
+        "confidence": "neutral containment candidate",
+        "reason": "No cell depicts a shuffled hat. The quiet/watchful wand pose avoids repeatedly creating unrelated portals while the hat surface owns the answer."
+      },
+      {
+        "phase": "ROPE",
+        "row": "work",
+        "cell": 1,
+        "confidence": "conditional source-supported candidate",
+        "reason": "The long yellow loop is the closest existing rope/ribbon-like effect; mounted review must reject it if it reads only as an orbit."
+      },
+      {
+        "phase": "CABINET",
+        "row": "idle",
+        "cell": 3,
+        "confidence": "neutral containment candidate",
+        "reason": "No work cell depicts cabinet doors or pulling. A neutral presenting pose avoids a false portal while the cabinet surface owns the action."
+      },
+      {
+        "phase": "PORTAL",
+        "row": "work",
+        "cell": 3,
+        "confidence": "direct source-supported candidate",
+        "reason": "This cell visibly contains the large portal used by the named phase."
+      }
+    ],
+    "popstar_phase_mapping": [
+      {
+        "phase": "SOUND CHECK",
+        "behavior": "retain ordinary work-row loop pending mounted cadence review",
+        "reason": "Every cell retains microphone-at-mouth singing intent; holding a single key would remove plausible existing response without evidence of a defect."
+      },
+      {
+        "phase": "DANCE",
+        "row": "idle",
+        "cell": 0,
+        "confidence": "neutral containment candidate",
+        "reason": "No atlas cell depicts arrow selection or a dance step. Neutral singer staging prevents the singing loop from being misreported as dance acting while the choice surface owns the response."
+      },
+      {
+        "phase": "RHYTHM",
+        "behavior": "retain ordinary work-row loop pending audio-synchronized capture",
+        "reason": "The sustained singing family matches listen-and-sing intent; timing and pivot stability remain unverified."
+      },
+      {
+        "phase": "ENCORE",
+        "row": "work",
+        "cell": 3,
+        "confidence": "incidental performance containment only",
+        "reason": "The broad singer presentation fits an encore hold but does not depict the requested full-body circle/spin. Completion may still request the existing cheer path."
+      }
+    ],
+    "ballerina": "No change. Preserve BALLERINA_POSE_FRAMES, specialist show_pose calls and DL-MOT-09 one-shot cheer behavior exactly."
+  },
+  "lower_code_churn_option": {
+    "shape": "If the phase table must remain integer-only and row-2-only, add only Magician VANISH=0, ROPE=1 and PORTAL=3. Do not assign TRACK or CABINET arbitrary work cells. Add Pop Star ENCORE=3 only if mounted review accepts incidental singing during circle input.",
+    "limitation": "This option leaves the proven Magician TRACK/CABINET generic work loop unless _play_roshan_task_pose can select a neutral idle row. It is therefore partial containment, not the preferred repair."
+  },
+  "completion_and_shared_actor_risks": [
+    "Adding Magician or Pop Star to STORY_POSE_FRAMES would also change menu idle selection, travel and cheer globally. That broad controller-level change is not justified by the phase-specific work-row evidence and should be avoided for the first repair.",
+    "The current ordinary cheer loops at 6 fps. A later one-shot/held cheer change should be reviewed separately against the bow and finish cells; copying Ballerina policy without capture could alter Hall celebration timing.",
+    "show_pose stops frame processing. A held phase must still be explicitly replaced by idle at phase arm, travel during world movement and cheer at completion; current call sites provide those transitions, but a mounted trace must verify them.",
+    "Actor bounce tweens continue independently of atlas playback. A held cell can still move as feedback and must be checked for target overlap and stable return.",
+    "Magician work-cell effects are painted into the actor cell. They can overlap or compete with the separate phase-owned hat, rope, cabinet or portal surface at the mounted 250px actor size.",
+    "Pop Star SOUND CHECK and RHYTHM may benefit from the current four-key singing family. Converting the whole career to held poses would discard plausible reuse and exceed the proven defect scope.",
+    "Practice and stage reuse phase names. Any name-based mapping applies to both acts, which is desirable only if the actor/prop composition is readable against both backdrops."
+  ],
+  "evidence_basis": [
+    "audit/minigame_art_quality_2026-09-05/animation_review.md: source review identifies Magician's effect substitution, Pop Star's coherent singing family and Ballerina's held-key authority.",
+    "audit/minigame_art_quality_2026-09-05/next_pose_containment_review.json: recommends Magician work cells 0, 1 and 3 for VANISH, ROPE and PORTAL while leaving TRACK and CABINET unsupported.",
+    "tmp/opera-current-animation-contract-followup.json: records current loop ownership and the unreviewed action/contact/settle states.",
+    "design/OPERA_TWO_ACT_PERFORMANCES_2026-09-05.md: binds the three-career Hall scope and practice-to-stage phase repetition."
+  ],
+  "required_followup_evidence": [
+    "Mobile 1280x720 captures for every affected phase in both practice and stage, with actor and phase-owned prop visible.",
+    "For Magician: verify Lamba/hat ownership, TRACK watch state, ROPE interpretation, cabinet relationship and portal overlap before adopting each candidate.",
+    "For Pop Star: capture a complete SOUND CHECK and RHYTHM loop with audio/gesture timestamps before retaining it as coherent motion; capture DANCE and ENCORE held candidates without calling them authored dance/spin.",
+    "Record the displayed atlas row/cell at phase open, first accepted contact, completion request and post-completion hold.",
+    "Review on the target phone for silhouette, prop competition and touch-area occlusion. Child and owner acceptance remain separate."
+  ],
+  "acceptance_limits": [
+    "Original-sheet inspection cannot establish runtime cadence, interpolation, stable pivots, mounted scale, contact, occlusion, audio synchronization or target-device readability.",
+    "A held cell is damage containment for semantic contradiction. It is not authored anticipation/action/contact/payoff/settle animation and does not satisfy DL-MOT-07 by itself.",
+    "The proposed neutral TRACK, CABINET and DANCE cells are reuse candidates, not evidence that the actor performs those verbs.",
+    "No full-game, full-Hall, animation, visual, child, owner or release acceptance is claimed."
+  ]
+}
