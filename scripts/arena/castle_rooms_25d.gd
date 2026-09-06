@@ -910,7 +910,8 @@ func open(start_room: String = "main_hall") -> void:
 	if is_open():
 		resume(start_room)
 		return
-	m._navigation_push("pearl_castle", self, Callable(self, "close"))
+	m._navigation_push("pearl_castle", self,
+		Callable(self, "_exit_to_courtyard"))
 	m.castle_room_id = start_room
 	m.castle_room_buttons.clear()
 	m.castle_room_menu_buttons.clear()

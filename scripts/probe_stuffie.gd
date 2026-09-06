@@ -188,11 +188,14 @@ func _picker_case() -> void:
 			"StuffieRescueTutorialPointer") != null
 		and main.companion_stage.find_children(
 			"StuffieCard_*", "Button", true, false).size() == 1)
-	var picker_back: Button = main.companion_stage.find_child(
-		"StuffiePickerBackButton", true, false) as Button
-	_ck("rescue picker keeps the familiar escapable back path",
-		picker_back != null and picker_back.visible and picker_back.disabled == false)
-	comp.close_picker()
+	var picker_back: Node = main.companion_stage.find_child(
+		"StuffiePickerBackButton", true, false)
+	var global_back: Button = main.global_navigation_button
+	_ck("rescue picker uses the sole global Back path",
+		picker_back == null and global_back != null and global_back.visible
+		and not global_back.disabled
+		and main._navigation_ref().top_id() == "stuffie_picker")
+	main._pause_ref().global_navigation_pressed()
 	_ck("closing before confirmation leaves a safe castle state",
 		main.companion_layer == null and main.companion_id == ""
 		and bool(main.g.get("stuffie_rescue_tutorial", false)))

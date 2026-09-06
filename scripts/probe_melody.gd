@@ -1576,7 +1576,7 @@ func _exercise_negative_and_neutral_input() -> void:
 		melody.progress_count() == before and main.game == "melody")
 
 	await _wait_for_green(true)
-	var wrong_point := Vector2(72.0, 110.0)
+	var wrong_point := Vector2(180.0, 110.0)
 	_check("wrong-point fixture is outside the active hit and pause zones",
 		not melody.active_note_hit_rect().has_point(wrong_point)
 		and not (main.touch_ui.pause_zone() as Rect2).has_point(wrong_point))
@@ -1810,15 +1810,17 @@ func _exercise_negative_and_neutral_input() -> void:
 	_push_touch(sticker_point, true, TOUCH_INDEX + 14)
 	_push_touch(sticker_point, false, TOUCH_INDEX + 14)
 	await process_frame
-	var sticker_back: Button = null
-	if main.stickers_layer != null:
-		sticker_back = main.stickers_layer.find_child(
-			"StickerBookBackButton", true, false) as Button
+	var sticker_back: Button = main.find_child(
+		"GlobalNavigationButton", true, false) as Button
+	var local_sticker_back: Node = main.find_child(
+		"StickerBookBackButton", true, false)
 	_check("real Sticker button opens the higher-layer book without touching progress",
 		not paused and main.game == "melody"
 		and main.stickers_layer != null and main.stickers_layer.layer > \
 			melody.active_layer().layer
+		and local_sticker_back == null
 		and sticker_back != null and sticker_back.is_visible_in_tree()
+		and main._navigation_ref().top_id() == "sticker_book"
 		and melody.progress_count() == before
 		and not bool(melody.audit_snapshot().get("input_down", true))
 		and bool(melody.audit_snapshot().get("blocked_until_release", false)))
@@ -1847,13 +1849,13 @@ func _exercise_negative_and_neutral_input() -> void:
 			"blocked_until_release", true)))
 	var back_point: Vector2 = sticker_back.get_global_rect().get_center()
 	var pause_zone: Rect2 = main.touch_ui.pause_zone()
-	_check("Sticker Back deliberately exercises its real pause-corner overlap",
+	_check("Sticker Book uses the sole global Back target",
 		sticker_back.get_global_rect().intersects(pause_zone)
 		and pause_zone.has_point(back_point))
 	_push_touch(back_point, true, TOUCH_INDEX + 15)
 	_push_touch(back_point, false, TOUCH_INDEX + 15)
 	await process_frame
-	_check("TouchUI yields the overlapping real Back tap to the higher Sticker GUI",
+	_check("TouchUI routes the sole global Back tap to the Sticker Book",
 		main.stickers_layer == null and main.game == "melody"
 		and not paused
 		and main.touch_control_blocks.has("melody")

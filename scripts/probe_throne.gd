@@ -20,9 +20,8 @@ extends SceneTree
 # 2. Butterfly World Star Hall: sitting on the Moon Throne must award the
 #    STAR PRINCESS sticker.
 
-# Keep the walking target clear of the omnipresent 136px elevator button at
-# x=1116..1252. It remains on the right side of the painted walk lane, so each
-# viewport tap still exercises real floor navigation and advances the camera.
+# Keep the walking target on clear painted floor so each viewport tap exercises
+# real floor navigation and advances the camera without any overlay control.
 const FLOOR_TAP := Vector2(1050.0, 560.0)
 const WALK_SETTLE := 90                     # frames for the step + camera pan
 const MAX_WALK_TAPS := 8
@@ -425,7 +424,7 @@ func _run() -> void:
 	_ck("menu_cancel_owner_clears_event",
 		rooms.clear_royal_hall_event(
 			"probe_menu_cancel", menu_cancel_token))
-	rooms.open("main_hall")
+	main._enter_castle_interior_now(false)
 	await _frames(12)
 
 	# ---- entering a physical room during approach also preserves the event ----
@@ -435,6 +434,12 @@ func _run() -> void:
 			Callable(self, "_on_probe_royal_hall_event")))
 	var navigation_cancel_token: int = rooms.royal_hall_event_token(
 		"probe_navigation_cancel")
+	var navigation_walk_taps := 0
+	while navigation_walk_taps < MAX_WALK_TAPS \
+			and not _royal_hall_button().is_visible_in_tree():
+		_tap_stage(FLOOR_TAP)
+		await _frames(WALK_SETTLE)
+		navigation_walk_taps += 1
 	var navigation_approach_tap: bool = _tap_royal_hall_now()
 	rooms.show_room("library", false)
 	await _frames(4)
@@ -445,8 +450,13 @@ func _run() -> void:
 		and not main.castle_royal_hall_arrival_pending
 		and _event_matches(rooms, "probe_navigation_cancel",
 			navigation_cancel_token),
-		"room=%s calls=%d pending=%s" % [main.castle_room_id,
-			royal_hall_event_calls, main.castle_royal_hall_arrival_pending])
+		"room=%s approach=%s calls=%d pending=%s id=%s token=%d expected=%d callable=%s" % [
+			main.castle_room_id, navigation_approach_tap, royal_hall_event_calls,
+			main.castle_royal_hall_arrival_pending,
+			main.castle_royal_hall_event_id,
+			rooms.royal_hall_event_token("probe_navigation_cancel"),
+			navigation_cancel_token,
+			main.castle_royal_hall_event_entry.is_valid()])
 	_ck("global_room_back_returns_to_hall", _press_global_navigation())
 	await _frames(12)
 	_ck("room_back_returns_to_main_hall", main.castle_room_id == "main_hall",
@@ -467,7 +477,7 @@ func _run() -> void:
 		real_back_closed_hall and not rooms.is_open()
 		and _event_matches(rooms, "probe_reopen", reopen_token),
 		"open=%s token=%d" % [rooms.is_open(), reopen_token])
-	rooms.open("main_hall")
+	main._enter_castle_interior_now(false)
 	await _frames(24)
 	_ck("reopen_preserves_armed_event",
 		rooms.is_open() and main.castle_room_id == "main_hall"
@@ -480,8 +490,11 @@ func _run() -> void:
 	# ---- the same swallowed-tap bug froze every other room too ----
 	rooms.show_room("library", false)
 	await _frames(10)
+	await _wait_ms(450)
 	var library_foot: Vector2 = _foot()
-	_tap_stage(Vector2(300.0, 560.0))
+	# The reading pearl owns the old x=300 test point once its real hotspot is
+	# fully revealed. Use the clear lower-right floor instead.
+	_tap_stage(Vector2(1000.0, 650.0))
 	await _frames(WALK_SETTLE)
 	_ck("floor_tap_walks_her_in_a_room_too",
 		absf(_foot().x - library_foot.x) > 80.0,

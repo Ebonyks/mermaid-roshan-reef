@@ -436,6 +436,8 @@ func _init() -> void:
 		"free roam hides the legacy sentence objective")
 	# This probe audits the Sky Lagoon root contract explicitly; ordinary reef
 	# startup is a different route and correctly keeps the control in Back mode.
+	main.game = "level2"
+	main.g["phase"] = "promenade"
 	main._navigation_set_root("sky_lagoon")
 
 	# One upper-left control owns every persistent navigation surface. At the
@@ -453,6 +455,17 @@ func _init() -> void:
 		"the persistent Pause corner is removed")
 	_check(_find(main.touch_ui, "ActionShellMedallion") == null,
 		"the fixed jump/action bubble is removed")
+	var navigation_source: String = FileAccess.get_file_as_string(
+		"res://scripts/navigation_controller.gd")
+	_check(navigation_source.contains('m.game == "level2"')
+		and navigation_source.contains('== "promenade"')
+		and navigation_source.contains("_leave_current_activity()"),
+		"Menu is Sky Lagoon-root-only and Back has a game-wide activity fallback")
+	var main_source: String = FileAccess.get_file_as_string(
+		"res://scripts/main.gd")
+	_check(main_source.contains('_navigation_push("reef_world", self,')
+		and main_source.contains('Callable(self, "_enter_level2")'),
+		"Reef visits unwind through Back to the Sky Lagoon Menu root")
 	main.toggle_pause()
 	_check(main.pause_layer.layer == 28 and main.get_tree().paused,
 		"Menu sheet stays below the sole navigation control and transition fade")

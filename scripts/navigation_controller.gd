@@ -52,6 +52,8 @@ func top_id() -> String:
 
 func at_sky_lagoon_root() -> bool:
 	return m.navigation_root_id == "sky_lagoon" \
+		and m.game == "level2" \
+		and String(m.g.get("phase", "")) == "promenade" \
 		and top_id() == "" \
 		and (m.pause_panel == null or not m.pause_panel.visible)
 
@@ -70,8 +72,12 @@ func press() -> void:
 			close_action.call()
 		sync_button()
 		return
-	if m.navigation_root_id == "sky_lagoon":
+	if at_sky_lagoon_root():
 		m._pause_ref().toggle_pause()
+	elif m._pause_ref()._has_leave_context():
+		# Older activities predate explicit route registration. Back must still be
+		# functional game-wide while those controllers migrate onto the stack.
+		m._pause_ref()._leave_current_activity()
 	sync_button()
 
 

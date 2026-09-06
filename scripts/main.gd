@@ -9280,7 +9280,10 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 	touch_interactables.clear()
 	lagoon_trip_return_master_x = -1.0
 	game = ""
-	_navigation_set_root("")
+	# Sky Lagoon is the navigation root even while Roshan visits the Reef. One
+	# Back press returns from this world layer; the same control then becomes Menu.
+	_navigation_set_root("sky_lagoon")
+	_navigation_push("reef_world", self, Callable(self, "_enter_level2"))
 	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
 		_sky_lagoon_promenade.teardown()
 	g = {}
