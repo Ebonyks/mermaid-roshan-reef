@@ -1,0 +1,900 @@
+{
+  "review": "Seek live atlas source review",
+  "review_date": "2026-09-06",
+  "scope": "Read-only source and native PNG inspection. No Godot runtime capture was performed; motion, phone rendering, and child/device acceptance remain UNASSESSED.",
+  "master_rules": [
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-MED-05",
+    "DL-MOT-08",
+    "MA-ROSHAN-002",
+    "MA-SEEK-001"
+  ],
+  "runtime_binding": {
+    "owner": "scripts/games/seek.gd",
+    "owner_sha256": "05451ce46119fcd02818e98498d8dc80baede04f0068be47eabfa9686050a427",
+    "bindings": [
+      {
+        "role": "Lamb-a hide/peek/reveal/celebrate",
+        "source": "assets/minigames/seek/lamma_animation.png",
+        "grid": "4x2",
+        "cell_px": [
+          256,
+          256
+        ],
+        "states": "LAMMA_STATES frames 0..7",
+        "lines": "seek.gd:11-12,29-35,201-202,504-509"
+      },
+      {
+        "role": "Evie idle/point/cheer",
+        "source": "assets/minigames/seek/evie_animation.png",
+        "grid": "4x2",
+        "cell_px": [
+          256,
+          256
+        ],
+        "states": "EVIE_STATES frames 0..7",
+        "lines": "seek.gd:11,25-28,224-228"
+      },
+      {
+        "role": "Roshan wave/cheer/clap",
+        "source": "assets/characters/roshan_25d/roshan_gesture_a.png",
+        "grid": "4x4",
+        "cell_px": [
+          256,
+          256
+        ],
+        "states": "ROSHAN_STATES frames 0..11 only",
+        "window_helper": "scripts/roshan_sprite_frames.gd gesture_a regions/shifts",
+        "lines": "seek.gd:14-15,36-44,217-221, scripts/roshan_sprite_frames.gd:43-47,118-126"
+      }
+    ],
+    "atlas_window_logic": "SeekAtlasActor uses plain 4x2 cells for Lamma/Evie and RoshanFrameWindows.region(window_sheet='gesture_a', frame, 4) for Roshan; source seek.gd:48-150.",
+    "protected_art": "Roshan source is under the approved characters/roshan_25d family; do not modify or destructively re-encode it."
+  },
+  "sources": [
+    {
+      "path": "assets/minigames/seek/lamma_animation.png",
+      "sha256": "4ff1c9748e68853879211c825ffc8c45b7388c8da7b17cf0a44c6cd320dd7f8c",
+      "dimensions_px": [
+        1024,
+        512
+      ],
+      "visual_source_score": 4.8,
+      "score_basis": "Native sheet was viewed directly. Clean storybook rendering, consistent contour, alpha padding, and readable pose changes across all eight cells.",
+      "frame_measurements": [
+        {
+          "frame": 0,
+          "alpha_bbox": [
+            49,
+            50,
+            206,
+            246
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "frame": 1,
+          "alpha_bbox": [
+            49,
+            50,
+            205,
+            246
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "frame": 2,
+          "alpha_bbox": [
+            49,
+            50,
+            205,
+            246
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "frame": 3,
+          "alpha_bbox": [
+            49,
+            50,
+            206,
+            246
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "frame": 4,
+          "alpha_bbox": [
+            50,
+            77,
+            211,
+            240
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "frame": 5,
+          "alpha_bbox": [
+            46,
+            19,
+            204,
+            215
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "frame": 6,
+          "alpha_bbox": [
+            44,
+            10,
+            203,
+            207
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "frame": 7,
+          "alpha_bbox": [
+            44,
+            68,
+            211,
+            246
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        }
+      ],
+      "finding": "No measured clipping or neighbor fragments in the live 0..7 windows. Keep; no replacement justified.",
+      "motion_status": "UNASSESSED without current runtime capture"
+    },
+    {
+      "path": "assets/minigames/seek/evie_animation.png",
+      "sha256": "705cb95a4a1d0226f9554327947fd2956e131535f2e89f953a94970052030ce9",
+      "dimensions_px": [
+        1024,
+        512
+      ],
+      "visual_source_score": 4.7,
+      "score_basis": "Native sheet was viewed directly. Polished approved character finish, clear hand/face acting, consistent alpha isolation; frame silhouette changes are intentional poses.",
+      "frame_measurements": [
+        {
+          "frame": 0,
+          "alpha_bbox": [
+            69,
+            10,
+            197,
+            240
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "frame": 1,
+          "alpha_bbox": [
+            64,
+            10,
+            197,
+            239
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "frame": 2,
+          "alpha_bbox": [
+            59,
+            10,
+            197,
+            239
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "frame": 3,
+          "alpha_bbox": [
+            59,
+            10,
+            194,
+            246
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "frame": 4,
+          "alpha_bbox": [
+            68,
+            10,
+            197,
+            246
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "frame": 5,
+          "alpha_bbox": [
+            71,
+            10,
+            197,
+            245
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "frame": 6,
+          "alpha_bbox": [
+            59,
+            10,
+            197,
+            246
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "frame": 7,
+          "alpha_bbox": [
+            59,
+            10,
+            189,
+            246
+          ],
+          "edge_alpha_pixels": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        }
+      ],
+      "finding": "No measured clipping or neighbor fragments in the live 0..7 windows. Keep; no replacement justified.",
+      "motion_status": "UNASSESSED without current runtime capture"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+      "sha256": "54cac0e3088a96d92aae35d14642491f75f06ffe1878b004a6ebfd1de44438df",
+      "dimensions_px": [
+        1024,
+        1024
+      ],
+      "visual_source_score": null,
+      "score_basis": "Current numeric source score withheld. The prior 4.4 was not independently supported and improperly penalized the historical nominal-cell problem even though the live Seek binding uses corrected windows.",
+      "live_frame_range": "0..11",
+      "corrected_window_measurements": [
+        {
+          "frame": 0,
+          "region": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            93,
+            12,
+            246,
+            247
+          ],
+          "edge_measurement_method": "Border pixels of corrected 256x256 window; alpha>0 and alpha>=128 counted separately; coordinates are local x,y followed by RGBA.",
+          "edge_metrics": {
+            "top": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "right": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "bottom": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "left": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            }
+          }
+        },
+        {
+          "frame": 1,
+          "region": [
+            256,
+            0,
+            512,
+            256
+          ],
+          "alpha_bbox": [
+            82,
+            15,
+            228,
+            251
+          ],
+          "edge_measurement_method": "Border pixels of corrected 256x256 window; alpha>0 and alpha>=128 counted separately; coordinates are local x,y followed by RGBA.",
+          "edge_metrics": {
+            "top": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "right": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "bottom": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "left": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "region": [
+            512,
+            0,
+            768,
+            256
+          ],
+          "alpha_bbox": [
+            57,
+            13,
+            209,
+            248
+          ],
+          "edge_measurement_method": "Border pixels of corrected 256x256 window; alpha>0 and alpha>=128 counted separately; coordinates are local x,y followed by RGBA.",
+          "edge_metrics": {
+            "top": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "right": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "bottom": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "left": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "region": [
+            768,
+            0,
+            1024,
+            256
+          ],
+          "alpha_bbox": [
+            43,
+            15,
+            195,
+            251
+          ],
+          "edge_measurement_method": "Border pixels of corrected 256x256 window; alpha>0 and alpha>=128 counted separately; coordinates are local x,y followed by RGBA.",
+          "edge_metrics": {
+            "top": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "right": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "bottom": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "left": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            }
+          }
+        },
+        {
+          "frame": 4,
+          "region": [
+            0,
+            255,
+            256,
+            511
+          ],
+          "alpha_bbox": [
+            100,
+            7,
+            237,
+            255
+          ],
+          "edge_measurement_method": "Border pixels of corrected 256x256 window; alpha>0 and alpha>=128 counted separately; coordinates are local x,y followed by RGBA.",
+          "edge_metrics": {
+            "top": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "right": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "bottom": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "left": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            }
+          }
+        },
+        {
+          "frame": 5,
+          "region": [
+            256,
+            256,
+            512,
+            512
+          ],
+          "alpha_bbox": [
+            67,
+            6,
+            230,
+            256
+          ],
+          "edge_measurement_method": "Border pixels of corrected 256x256 window; alpha>0 and alpha>=128 counted separately; coordinates are local x,y followed by RGBA.",
+          "edge_metrics": {
+            "top": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "right": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "bottom": {
+              "count_alpha_gt_0": 1,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 1,
+              "coordinates_rgba_alpha_gt_0": [
+                [
+                  125,
+                  255,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              ]
+            },
+            "left": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            }
+          }
+        },
+        {
+          "frame": 6,
+          "region": [
+            512,
+            256,
+            768,
+            512
+          ],
+          "alpha_bbox": [
+            61,
+            6,
+            209,
+            234
+          ],
+          "edge_measurement_method": "Border pixels of corrected 256x256 window; alpha>0 and alpha>=128 counted separately; coordinates are local x,y followed by RGBA.",
+          "edge_metrics": {
+            "top": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "right": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "bottom": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "left": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            }
+          }
+        },
+        {
+          "frame": 7,
+          "region": [
+            768,
+            256,
+            1024,
+            512
+          ],
+          "alpha_bbox": [
+            33,
+            9,
+            185,
+            256
+          ],
+          "edge_measurement_method": "Border pixels of corrected 256x256 window; alpha>0 and alpha>=128 counted separately; coordinates are local x,y followed by RGBA.",
+          "edge_metrics": {
+            "top": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "right": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "bottom": {
+              "count_alpha_gt_0": 1,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 1,
+              "coordinates_rgba_alpha_gt_0": [
+                [
+                  85,
+                  255,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              ]
+            },
+            "left": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            }
+          }
+        },
+        {
+          "frame": 8,
+          "region": [
+            0,
+            495,
+            256,
+            751
+          ],
+          "alpha_bbox": [
+            90,
+            14,
+            241,
+            255
+          ],
+          "edge_measurement_method": "Border pixels of corrected 256x256 window; alpha>0 and alpha>=128 counted separately; coordinates are local x,y followed by RGBA.",
+          "edge_metrics": {
+            "top": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "right": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "bottom": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "left": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            }
+          }
+        },
+        {
+          "frame": 9,
+          "region": [
+            256,
+            496,
+            512,
+            752
+          ],
+          "alpha_bbox": [
+            87,
+            14,
+            225,
+            256
+          ],
+          "edge_measurement_method": "Border pixels of corrected 256x256 window; alpha>0 and alpha>=128 counted separately; coordinates are local x,y followed by RGBA.",
+          "edge_metrics": {
+            "top": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "right": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "bottom": {
+              "count_alpha_gt_0": 1,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 1,
+              "coordinates_rgba_alpha_gt_0": [
+                [
+                  110,
+                  255,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              ]
+            },
+            "left": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            }
+          }
+        },
+        {
+          "frame": 10,
+          "region": [
+            512,
+            494,
+            768,
+            750
+          ],
+          "alpha_bbox": [
+            76,
+            18,
+            208,
+            256
+          ],
+          "edge_measurement_method": "Border pixels of corrected 256x256 window; alpha>0 and alpha>=128 counted separately; coordinates are local x,y followed by RGBA.",
+          "edge_metrics": {
+            "top": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "right": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "bottom": {
+              "count_alpha_gt_0": 1,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 1,
+              "coordinates_rgba_alpha_gt_0": [
+                [
+                  101,
+                  255,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              ]
+            },
+            "left": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            }
+          }
+        },
+        {
+          "frame": 11,
+          "region": [
+            768,
+            494,
+            1024,
+            750
+          ],
+          "alpha_bbox": [
+            29,
+            16,
+            184,
+            256
+          ],
+          "edge_measurement_method": "Border pixels of corrected 256x256 window; alpha>0 and alpha>=128 counted separately; coordinates are local x,y followed by RGBA.",
+          "edge_metrics": {
+            "top": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "right": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            },
+            "bottom": {
+              "count_alpha_gt_0": 1,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 1,
+              "coordinates_rgba_alpha_gt_0": [
+                [
+                  87,
+                  255,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              ]
+            },
+            "left": {
+              "count_alpha_gt_0": 0,
+              "count_alpha_gte_128": 0,
+              "max_alpha": 0,
+              "coordinates_rgba_alpha_gt_0": []
+            }
+          }
+        }
+      ],
+      "finding": "The live corrected windows remove the severe top-row clipping/neighbor slivers caused by uniform cells. Border metrics are now thresholded: any alpha>0 may be faint antialiasing, while alpha>=128 is stronger evidence. Review the listed coordinates in a current rendered Seek capture before classifying any pixel as neighbor contamination. This source-only audit does not authorize replacement.",
+      "replacement_priority": "P2 targeted current Seek capture/contact inspection; no current numeric score or replacement failure is assigned from historical packing alone.",
+      "motion_status": "UNASSESSED without current runtime capture",
+      "historical_packing_note": "The nominal 256-grid showed source-boundary contact; scripts/roshan_sprite_frames.gd supplies corrected gesture_a windows. This is provenance/history, not a current replacement failure.",
+      "helper_source": "scripts/roshan_sprite_frames.gd",
+      "helper_sha256": "c6ce37e88f308661f36010fa07fb641a73c32a0e1e1860d0bb3deb66ebcdba09"
+    }
+  ],
+  "acceptance_gaps": [
+    "No fresh Seek Mobile 1280x720 captures were inspected here.",
+    "No frame-separated runtime cadence or phone/device evidence; do not score animation smoothness.",
+    "Roshan corrected-window border pixels require a current rendered contact view to distinguish intentional antialiasing/contour from neighbor fragment.",
+    "Do not regenerate Lamma or Evie based on this review; both source sheets meet the measured static bar."
+  ],
+  "reuse_first_recommendation": "Retain all three current live sources. If a current capture confirms a Roshan edge ghost, first refine the existing measured gesture_a window/offset metadata or use an already approved clean Roshan atlas equivalent; do not edit protected originals or generate replacements before that comparison."
+}

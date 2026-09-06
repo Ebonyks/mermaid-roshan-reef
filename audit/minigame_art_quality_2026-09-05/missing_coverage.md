@@ -1,8 +1,8 @@
 # Minigame art coverage gaps — 2026-09-05
 
-This is a source-bound gap inventory, not an exhaustive runtime audit and contains no quality scores. It compares the 56-record audit registry with current source references.
+This is a source-bound gap inventory, not an exhaustive runtime audit and contains no quality scores. It originally compared the 56-record audit registry with its recorded source references. The subsequent Day One asset expansion brings the registry to 62 records and 54 unique source paths; the earlier code-source scan below has not been promoted to exhaustive current coverage.
 
-The registry has 56 records. The scan found 45 candidate minigame/adaptor source files, 259 literal resource paths, and 97 dynamic loader sites.
+The scan-time registry had 56 records. The scan found 45 candidate minigame/adaptor source files, 259 literal resource paths, and 97 dynamic loader sites.
 
 ## Unregistered source candidates
 
@@ -49,3 +49,7 @@ The registry has 56 records. The scan found 45 candidate minigame/adaptor source
 ## Handling
 
 Treat every listed item as `uncaptured/unscored` until current Mobile runtime evidence binds the exact asset and state. The inventory intentionally avoids declaring any item below or above 4.5.
+
+## Bounded dependency follow-up — 6 September
+
+[Luna's source-bound follow-up](dependency_followup_2026-09-06.json) traces 36 image dependencies across Grand Puff, Day One bathroom, Day One pool and the Garden growth family. The parent verified every listed source hash; code hashes explicitly normalize UTF-8 line endings. This resolves specific catalog bindings and distinguishes present-but-unselected Garden files and missing boss tell paths from the live generic-star fallback. It does not close the 24-source coverage queue or add visual acceptance. Grand Puff's current AnimatedSprite3D owner remains 3D migration debt. Pool still-state findings are recorded separately in the current Pool review.

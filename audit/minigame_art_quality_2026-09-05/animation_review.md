@@ -181,3 +181,7 @@ Across all 15 careers, the atlas gate must never be cited as proof that row play
 ## Parent runtime verification
 
 The retained pose policy subsequently passed `scripts/probe_opera_2d.gd` under exact Godot 4.7.2: all fifteen careers/seventy phases, stable Teacher/Geologist held rows, Geologist menu fin selection and non-repeating celebrations. See `validation/probe-opera-final.log`. These runtime state contracts do not establish visual smoothness or repair the missing authored action sequences.
+
+## Additional semantic-pose review — 6 September
+
+[Sol's source-bound Chef, Detective and Magician review](next_pose_containment_review.json) distinguishes supported held cells from missing action art. Chef's bowl/whisk row cannot depict baking, frosting or topping; Detective's lens row cannot depict placing clues or revealing the crown; Magician's generic loop alternates different tricks regardless of the active phase. These are source-semantic findings, not measured cadence scores. Supported mappings remain recommendations pending mounted review; no additional pose changes were made in the frozen validation candidate. Unsupported phases must retain an explicit action/evidence gap rather than receive an arbitrary attractive cell.

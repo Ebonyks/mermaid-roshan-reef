@@ -1,0 +1,418 @@
+extends SceneTree
+## Disposable configured-world visual diagnostic for current Teacher and Geologist art.
+## It instantiates the shipping main scene and OperaAct/OperaCareerWorld2D, then uses
+## explicit phase shortcuts and each live surface's normal _gui_input callbacks.
+## This is not natural-navigation, device, owner, child, or animation acceptance.
+
+const SCREEN := Vector2i(1280, 720)
+const EXPECTED_GODOT_HASH := "ed1daf0bf"
+const MAX_SECONDS := 118.0
+const TeacherSurface := preload("res://scripts/opera_teacher_surface.gd")
+const GeologySurface := preload("res://scripts/opera_geology_surface.gd")
+
+var main: ReefMain
+var act: OperaAct
+var world: OperaCareerWorld2D
+var output_dir := ""
+var failures := 0
+var started_msec := 0
+var manifest_entries: Array[Dictionary] = []
+
+
+func _init() -> void:
+	call_deferred("_run")
+
+
+func _run() -> void:
+	output_dir = OS.get_environment("CURRENT_OPERA_ART_CAPTURE_OUT").strip_edges()
+	var profile_root := OS.get_environment(
+		"CURRENT_OPERA_ART_CAPTURE_PROFILE_ROOT").strip_edges()
+	if output_dir.is_empty() or profile_root.is_empty():
+		_block("output and isolated profile root are required", 2)
+		return
+	var version := Engine.get_version_info()
+	if int(version.get("major", -1)) != 4 or int(version.get("minor", -1)) != 7 \
+			or int(version.get("patch", -1)) != 2 \
+			or String(version.get("status", "")) != "stable" \
+			or not String(version.get("hash", "")).begins_with(EXPECTED_GODOT_HASH):
+		_block("requires exact official Godot 4.7.2-stable ed1daf0bf", 3)
+		return
+	# This guard remains before loading or instantiating main, so a wrong profile
+	# cannot touch the owner's ordinary save.
+	var actual_profile := OS.get_user_data_dir().replace("\\", "/").to_lower()
+	var expected_root := profile_root.replace("\\", "/").trim_suffix("/").to_lower()
+	if actual_profile != expected_root \
+			and not actual_profile.begins_with(expected_root + "/"):
+		_block("OS user-data directory is outside requested isolated root", 4)
+		return
+	if RenderingServer.get_current_rendering_method() != "mobile":
+		_block("renderer is not Mobile", 5)
+		return
+	if not is_equal_approx(Engine.time_scale, 1.0):
+		_block("Engine.time_scale must begin at 1", 5)
+		return
+	DirAccess.make_dir_recursive_absolute(output_dir)
+	started_msec = Time.get_ticks_msec()
+	create_timer(MAX_SECONDS).timeout.connect(func():
+		print("CURRENT_OPERA_ART|FAIL|wall-clock timeout")
+		quit(9))
+	_print_source_hashes()
+	var packed := load("res://scenes/main.tscn") as PackedScene
+	if packed == null:
+		_block("main scene unavailable", 6)
+		return
+	main = packed.instantiate() as ReefMain
+	if main == null:
+		_block("main scene did not instantiate ReefMain", 6)
+		return
+	get_root().add_child(main)
+	get_root().size = SCREEN
+	await _frames(4)
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		main._launch_from_start_menu(false)
+	elif main.intro_active:
+		main._skip_intro()
+	await _frames(4)
+	main.day_one_active = false
+	main.game = "opera"
+	await _capture_career("teacher")
+	await _capture_career("geologist")
+	await _write_manifest()
+	print("CURRENT_OPERA_ART|RESULT|%s|captures=%d|elapsed_ms=%d" % [
+		"PASS" if failures == 0 else "FAIL", manifest_entries.size(),
+		Time.get_ticks_msec() - started_msec])
+	quit(0 if failures == 0 else 1)
+
+
+func _capture_career(career: String) -> void:
+	var config: Dictionary = {}
+	for source_value: Variant in OperaHouse.ACTS:
+		var source := source_value as Dictionary
+		if String(source.get("costume", "")) == career:
+			config = source.duplicate(true)
+			break
+	_check("found %s shipping config" % career, not config.is_empty())
+	if config.is_empty():
+		return
+	act = OperaAct.new()
+	get_root().add_child(act)
+	act.start(main, config, Callable())
+	await _frames(5)
+	world = act.career_world_2d
+	_check("%s configured Canvas career world" % career,
+		world != null and world.career_id == career and world.active)
+	if world == null:
+		act.queue_free()
+		await _frames(2)
+		return
+	for phase_index in range(4):
+		world.phase_index = phase_index
+		# CONFIGURED_STATE_SHORTCUT: trusted probe compatibility entry. This skips
+		# natural room walking while retaining the real career world and surface.
+		world._show_phase()
+		await _settle(0.12)
+		var phase := world.phases[phase_index] as Dictionary
+		var phase_name := String(phase.get("name", "")).to_lower().replace(" ", "_")
+		_check("%s/%s opened current live surface" % [career, phase_name],
+			world.task_open and not world.surface.armed_only
+			and not paused and world.can_process() and world.is_processing()
+			and world.surface.can_process() and world.surface.is_processing())
+		await _assert_surface_clock(career, phase_name)
+		await _capture(career, phase_name, "intro", "configured_phase_shortcut")
+		if career == "teacher":
+			await _teacher_partial(world.surface as OperaTeacherSurface)
+		else:
+			await _geology_partial(world.surface as OperaGeologySurface)
+		await _capture(career, phase_name, "partial", "live_gui_input")
+		if career == "teacher":
+			await _teacher_complete(world.surface as OperaTeacherSurface)
+		else:
+			await _geology_complete(world.surface as OperaGeologySurface)
+		# Retain the exact live surface reference: completion feedback must be
+		# captured before the world advances or frees the phase surface.
+		var completed_surface := world.surface
+		var completed_phase := world.phase_index
+		await _settle(0.04)
+		_check("%s/%s completion still owns current surface" % [career, phase_name],
+			is_instance_valid(completed_surface) and world.surface == completed_surface
+			and world.phase_index == completed_phase and world.task_open)
+		await _capture(career, phase_name, "completion", "live_gui_input")
+		_check("%s/%s reached complete surface state" % [career, phase_name],
+			_surface_complete())
+	world.active = false
+	act.queue_free()
+	await _frames(3)
+	world = null
+	act = null
+
+
+func _teacher_partial(surface: OperaTeacherSurface) -> void:
+	match surface.lesson_kind():
+		"count":
+			await _tap(surface, surface.counter_position(0))
+		"add":
+			await _tap(surface, TeacherSurface.JOIN_CENTER)
+			await _settle(0.18)
+		_:
+			var wrong := (surface.answer_index() + 1) \
+				% (surface.lesson.get("choices", []) as Array).size()
+			await _tap(surface, surface.choice_rect(wrong).get_center())
+
+
+func _teacher_complete(surface: OperaTeacherSurface) -> void:
+	if surface.lesson_kind() == "add":
+		await _settle(0.35)
+	if surface.lesson_kind() in ["count", "add"]:
+		for index in range(surface.counted.size()):
+			if not surface.counted[index]:
+				await _tap(surface, surface.counter_position(index))
+	await _tap(surface, surface.choice_rect(surface.answer_index()).get_center())
+
+
+func _geology_partial(surface: OperaGeologySurface) -> void:
+	match surface.mode:
+		"geology_river":
+			await _drag_points(surface, _river_points(surface, 0, 5))
+		"geology_fossil":
+			await _brush_fossil(surface, 2)
+		"geology_pan":
+			await _swing_pan(surface, 4)
+		"geology_geode":
+			for seam in range(3):
+				await _tap(surface, surface.geode_seam_spot(seam))
+
+
+func _geology_complete(surface: OperaGeologySurface) -> void:
+	match surface.mode:
+		"geology_river":
+			await _drag_points(surface, _river_points(surface, 4,
+				GeologySurface.RIVER_PATH.size()))
+		"geology_fossil":
+			await _brush_fossil(surface, GeologySurface.FOSSIL_GRID_ROWS)
+			for piece in range(3):
+				await _drag_points(surface, [surface.fossil_piece_home(piece),
+					surface.fossil_piece_target(piece)])
+		"geology_pan":
+			await _swing_pan(surface, GeologySurface.PAN_REQUIRED_REVERSALS + 2)
+		"geology_geode":
+			for seam in range(3, GeologySurface.GEODE_SEAM_SPOTS.size()):
+				await _tap(surface, surface.geode_seam_spot(seam))
+			await _drag_points(surface, [surface.geode_half_center(),
+				surface.geode_half_center() + Vector2(
+					GeologySurface.GEODE_PULL_DISTANCE + 18.0, 0.0)])
+
+
+func _river_points(surface: OperaGeologySurface, first: int, end: int) -> Array[Vector2]:
+	var points: Array[Vector2] = []
+	for index in range(first, end):
+		points.append(surface.river_path_point(index))
+	return points
+
+
+func _brush_fossil(surface: OperaGeologySurface, rows: int) -> void:
+	var cell := Vector2(GeologySurface.FOSSIL_RECT.size.x \
+		/ GeologySurface.FOSSIL_GRID_COLS, GeologySurface.FOSSIL_RECT.size.y \
+		/ GeologySurface.FOSSIL_GRID_ROWS)
+	var points: Array[Vector2] = []
+	for row in range(rows):
+		if row % 2 == 0:
+			for column in range(GeologySurface.FOSSIL_GRID_COLS):
+				points.append(GeologySurface.FOSSIL_RECT.position \
+					+ (Vector2(column, row) + Vector2(0.5, 0.5)) * cell)
+		else:
+			for column in range(GeologySurface.FOSSIL_GRID_COLS - 1, -1, -1):
+				points.append(GeologySurface.FOSSIL_RECT.position \
+					+ (Vector2(column, row) + Vector2(0.5, 0.5)) * cell)
+	await _drag_points(surface, points)
+
+
+func _swing_pan(surface: OperaGeologySurface, swings: int) -> void:
+	var center := GeologySurface.PAN_RECT.get_center()
+	var points: Array[Vector2] = [center]
+	for swing in range(swings):
+		var direction := 1.0 if swing % 2 == 0 else -1.0
+		points.append(center + Vector2(direction * 150.0, 0.0))
+	await _drag_points(surface, points)
+
+
+func _tap(surface: Control, point: Vector2) -> void:
+	var press := InputEventScreenTouch.new()
+	press.index = 0
+	press.pressed = true
+	press.position = point
+	surface._gui_input(press)
+	await create_timer(0.035).timeout
+	var release := InputEventScreenTouch.new()
+	release.index = 0
+	release.pressed = false
+	release.position = point
+	surface._gui_input(release)
+	await create_timer(0.045).timeout
+
+
+func _drag_points(surface: Control, points: Array[Vector2]) -> void:
+	if points.is_empty():
+		return
+	var press := InputEventScreenTouch.new()
+	press.index = 0
+	press.pressed = true
+	press.position = points[0]
+	surface._gui_input(press)
+	await create_timer(0.035).timeout
+	for index in range(1, points.size()):
+		var from := points[index - 1]
+		var to := points[index]
+		for step in range(1, 4):
+			var drag := InputEventScreenDrag.new()
+			drag.index = 0
+			drag.position = from.lerp(to, float(step) / 3.0)
+			surface._gui_input(drag)
+			await create_timer(0.025).timeout
+	var release := InputEventScreenTouch.new()
+	release.index = 0
+	release.pressed = false
+	release.position = points[-1]
+	surface._gui_input(release)
+	await create_timer(0.05).timeout
+
+
+func _surface_complete() -> bool:
+	if world.surface is OperaTeacherSurface:
+		return (world.surface as OperaTeacherSurface).solved
+	if world.surface is OperaGeologySurface:
+		return (world.surface as OperaGeologySurface).progress() >= 0.999
+	return false
+
+
+func _assert_surface_clock(career: String, phase: String) -> void:
+	var before := 0.0
+	if world.surface is OperaTeacherSurface:
+		before = (world.surface as OperaTeacherSurface).idle_demo_t
+	elif world.surface is OperaGeologySurface:
+		before = (world.surface as OperaGeologySurface).demo_t
+	await create_timer(0.10).timeout
+	var after := before
+	if world.surface is OperaTeacherSurface:
+		after = (world.surface as OperaTeacherSurface).idle_demo_t
+	elif world.surface is OperaGeologySurface:
+		after = (world.surface as OperaGeologySurface).demo_t
+	_check("%s/%s normal surface clock advances" % [career, phase],
+		not paused and world.can_process() and world.surface.can_process()
+		and after > before + 0.04)
+	print("CURRENT_OPERA_ART|CLOCK|career=%s|phase=%s|before=%.6f|after=%.6f|paused=%s|world_processing=%s|surface_processing=%s" % [
+		career, phase, before, after, paused, world.is_processing(),
+		world.surface.is_processing()])
+
+
+func _capture(career: String, phase: String, state: String,
+		origin: String) -> void:
+	await _frames(3)
+	if get_root().size != SCREEN or not is_equal_approx(Engine.time_scale, 1.0):
+		_check("capture guard %s/%s/%s" % [career, phase, state], false)
+		return
+	await RenderingServer.frame_post_draw
+	var image := get_root().get_texture().get_image()
+	var filename := "%s_%s_%s.png" % [career, phase, state]
+	var path := output_dir.path_join(filename)
+	var saved := image.get_size() == SCREEN and image.save_png(path) == OK
+	_check("capture %s" % filename, saved)
+	if not saved:
+		return
+	var telemetry := _telemetry(career, phase, state, origin)
+	telemetry["path"] = path
+	telemetry["sha256"] = FileAccess.get_sha256(path)
+	manifest_entries.append(telemetry)
+	print("CURRENT_OPERA_ART|CAPTURE|%s" % JSON.stringify(telemetry))
+
+
+func _telemetry(career: String, phase: String, state: String,
+		origin: String) -> Dictionary:
+	var surface_state: Dictionary = {}
+	if world.surface is OperaTeacherSurface:
+		var teacher := world.surface as OperaTeacherSurface
+		surface_state = teacher.progress_snapshot()
+		surface_state["solved"] = teacher.solved
+		surface_state["can_answer"] = teacher.can_answer()
+	elif world.surface is OperaGeologySurface:
+		var geology := world.surface as OperaGeologySurface
+		surface_state = geology.progress_snapshot()
+		surface_state["progress"] = geology.progress()
+		surface_state["stage_name"] = geology.stage_name()
+	return {
+		"career": career, "phase": phase, "state": state,
+		"capture_origin": origin, "phase_index": world.phase_index,
+		"mode": String(world.surface.mode), "task_open": world.task_open,
+		"surface": surface_state, "ticks_msec": Time.get_ticks_msec(),
+		"elapsed_msec": Time.get_ticks_msec() - started_msec,
+		"process_frames": Engine.get_process_frames(), "time_scale": Engine.time_scale,
+		"renderer": RenderingServer.get_current_rendering_method(),
+		"viewport": [get_root().size.x, get_root().size.y]
+	}
+
+
+func _write_manifest() -> void:
+	var manifest := {
+		"schema": 1,
+		"claim": "configured career-world visual diagnostic; not natural navigation or acceptance",
+		"godot": Engine.get_version_info(),
+		"renderer": RenderingServer.get_current_rendering_method(),
+		"viewport": [SCREEN.x, SCREEN.y],
+		"time_scale": Engine.time_scale,
+		"elapsed_msec": Time.get_ticks_msec() - started_msec,
+		"source_hashes_raw_bytes_nonexhaustive": _source_hashes(),
+		"captures": manifest_entries,
+	}
+	var path := output_dir.path_join("manifest.json")
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	_check("manifest opened", file != null)
+	if file != null:
+		file.store_string(JSON.stringify(manifest, "  ") + "\n")
+		file.close()
+		print("CURRENT_OPERA_ART|MANIFEST|%s|sha256=%s" % [
+			path, FileAccess.get_sha256(path)])
+
+
+func _print_source_hashes() -> void:
+	var hashes := _source_hashes()
+	for path: String in hashes:
+		print("CURRENT_OPERA_ART|SOURCE|%s|%s" % [
+			path, String(hashes[path])])
+
+
+func _source_hashes() -> Dictionary:
+	var result: Dictionary = {}
+	for path in [
+		"res://scripts/opera_teacher_surface.gd",
+		"res://scripts/opera_geology_surface.gd",
+		"res://scripts/opera_career_world_2d.gd",
+		"res://scripts/opera_act.gd",
+		"res://scripts/opera_roshan_actor.gd",
+		"res://assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png",
+		"res://assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+	]:
+		# FileAccess hashes the exact repository bytes. This is deliberately a
+		# bounded primary-owner list, not a complete dependency inventory.
+		result[path] = FileAccess.get_sha256(path)
+	return result
+
+
+func _settle(seconds: float) -> void:
+	await create_timer(seconds).timeout
+	await _frames(2)
+
+
+func _frames(count: int) -> void:
+	for _index in range(count):
+		await process_frame
+
+
+func _check(label: String, ok: bool) -> void:
+	if not ok:
+		failures += 1
+	print("CURRENT_OPERA_ART|%s|%s" % ["OK" if ok else "FAIL", label])
+
+
+func _block(message: String, code: int) -> void:
+	print("CURRENT_OPERA_ART|BLOCKED|%s" % message)
+	quit(code)

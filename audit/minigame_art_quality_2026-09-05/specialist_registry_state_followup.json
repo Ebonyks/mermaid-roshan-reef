@@ -1,0 +1,135 @@
+{
+  "review": "Specialist registry state-list review",
+  "review_date": "2026-09-06",
+  "scope": "Read-only comparison of registry semantic audit states against current specialist modes and career phases. States are audit dimensions and are not required to equal raw PHASES names. No runtime edits or tests.",
+  "registry_revision": "9df000999a94572b64537c98f558841f6f3e3260",
+  "findings": [
+    {
+      "registry_id": "opera-geologist",
+      "source": {
+        "path": "scripts/opera_geology_surface.gd",
+        "registry_sha256_utf8_lf": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+        "current_sha256_utf8_lf": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be"
+      },
+      "code_evidence": [
+        "opera_geology_surface.gd:8-10 declares SUPPORTED_MODES geology_river, geology_fossil, geology_pan, geology_geode.",
+        "opera_geology_surface.gd:112-125 stage_name() yields RIVER, FOSSIL_BRUSH/FOSSIL_ASSEMBLE, PAN, GEODE_SEAM/GEODE_OPEN.",
+        "opera_geology_surface.gd:615-622 draws only the four supported modes.",
+        "opera_geology_surface.gd:927-940 _draw_crystal_gallery() is a payoff helper used by geode drawing, not a standalone gallery mode."
+      ],
+      "registry_states_current": [
+        "idle",
+        "river",
+        "fossil",
+        "brush",
+        "pan",
+        "geode",
+        "gallery",
+        "settle"
+      ],
+      "proposed_authoritative_states": [
+        "idle",
+        "river",
+        "fossil_brush",
+        "fossil_assemble",
+        "pan",
+        "geode_seam",
+        "geode_open",
+        "settle"
+      ],
+      "mapping": {
+        "fossil": "fossil_brush + fossil_assemble semantic family; retain fossil as historical umbrella only",
+        "brush": "historical shorthand for current FOSSIL_BRUSH stage; not a standalone phase",
+        "geode": "geode_seam + geode_open semantic family; retain geode as historical umbrella only",
+        "gallery": "retired as standalone phase/mode; current code's crystal gallery is the geode_open payoff helper, so preserve the word only as historical alias or payoff annotation",
+        "idle": "semantic audit state; current surface can demo before touch",
+        "settle": "semantic audit state after completion; do not delete"
+      },
+      "recommendation": "Do not delete coverage. Replace the active state vocabulary with the eight proposed semantic states in a future registry-only correction, and preserve brush/gallery aliases in a historical_aliases field. Keep current review references and open defects unchanged."
+    },
+    {
+      "registry_id": "opera-teacher",
+      "source": {
+        "path": "scripts/opera_teacher_surface.gd",
+        "registry_sha256_utf8_lf": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+        "current_sha256_utf8_lf": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed"
+      },
+      "code_evidence": [
+        "opera_career_world_2d.gd:252-258 current PHASES teacher route is PATTERN, COUNT, ADD, MATCH with modes teacher_pattern, teacher_count, teacher_add, teacher_match.",
+        "opera_teacher_surface.gd:32-55 configures the lesson surface and maps lesson kind from the mode.",
+        "opera_teacher_surface.gd:37-45 retains demo_active and resets the idle demonstration state; help_visible/assisted fields provide hint semantics."
+      ],
+      "registry_states_current": [
+        "idle",
+        "hint",
+        "pattern",
+        "counting",
+        "group",
+        "shape",
+        "demo",
+        "settle"
+      ],
+      "proposed_authoritative_states": [
+        "idle",
+        "hint",
+        "pattern",
+        "count",
+        "add",
+        "match",
+        "demo",
+        "settle"
+      ],
+      "mapping": {
+        "counting": "semantic label for current COUNT phase; normalize to count for exact phase mapping",
+        "group": "semantic label for current ADD phase; normalize to add",
+        "shape": "historical/general semantic label for current MATCH phase; normalize to match",
+        "hint": "active assistance state represented by help_visible/assisted, not a separate PHASES entry",
+        "demo": "active idle-demonstration state represented by demo_active; retain",
+        "idle": "retain",
+        "settle": "retain"
+      },
+      "recommendation": "The existing list is semantically useful and not retired, but exact phase aliases should be documented. Preserve hint/demo/idle/settle because removing them would erase art-audit coverage dimensions."
+    },
+    {
+      "registry_id": "opera-racer",
+      "source": {
+        "path": "scripts/opera_racer_surface.gd",
+        "registry_sha256_utf8_lf": "e790978da9c9b9646b0b92750c6478e9ea72fbd99d60a8b0346bea278e07ad70",
+        "current_sha256_utf8_lf": "e790978da9c9b9646b0b92750c6478e9ea72fbd99d60a8b0346bea278e07ad70"
+      },
+      "code_evidence": [
+        "opera_career_world_2d.gd:300-304 current Racer specialist phases are TUNE, TO THE LINE, RACE with modes circle, swipe, kart_race.",
+        "opera_racer_surface.gd:68-86 enters kart_race and binds the kart, wheel, driver and rival art.",
+        "opera_racer_surface.gd:209-216 starts the race/countdown; 294-314 advances laps and marks finish; 341-370 draws the active race; 414-467 draws lap flags, steering and turbo controls."
+      ],
+      "registry_states_current": [
+        "idle",
+        "anticipation",
+        "drive",
+        "contact",
+        "payoff",
+        "settle"
+      ],
+      "proposed_authoritative_states": [
+        "idle",
+        "anticipation",
+        "drive",
+        "contact",
+        "payoff",
+        "settle"
+      ],
+      "mapping": {
+        "idle": "ready surface before race input",
+        "anticipation": "TUNE/TO THE LINE setup and countdown entry",
+        "drive": "kart_race active movement and steering",
+        "contact": "steering/road interaction and pearl/wall feedback",
+        "payoff": "lap completion, finish flag, sparks and completed race",
+        "settle": "post-finish retained surface/return boundary"
+      },
+      "recommendation": "Keep the current six semantic states. They are broader art-audit states than the three raw career phases and correctly preserve contact/payoff/settle coverage. Add a phase_aliases note rather than replacing them with only TUNE, TO THE LINE and RACE."
+    }
+  ],
+  "global_conclusion": "The Geologist registry has two misleading active-looking labels: brush is a shorthand for FOSSIL_BRUSH, while gallery is not a standalone mode and should be historical/payoff terminology. Teacher labels are semantic aliases for exact current lessons. Racer labels are intentionally semantic state dimensions and should remain. No state should be deleted solely because it is absent from PHASES.",
+  "publication_action": "Use this as a proposed registry correction; do not alter registry.json in this bounded task. Preserve historical aliases and current open-quality findings.",
+  "parent_adoption": "Geologist and Teacher active state vocabulary normalized, retaining all old labels in historical_state_aliases. Racer semantic states unchanged. No coverage or defects closed."
+}

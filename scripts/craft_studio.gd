@@ -40,6 +40,8 @@ func _craft_build_preview() -> void:
 func _open_craft_studio() -> void:
 	if m.craft_layer != null:
 		return
+	m._navigation_push("craft_studio", self,
+		Callable(self, "_close_craft"))
 	m._set_world_controls_enabled(false, "craft")
 	m.craft_kind = "fish"
 	m.craft_part = "body"
@@ -74,14 +76,6 @@ func _open_craft_studio() -> void:
 	StorybookUI.style_label(m.craft_pearl_lbl, 32, StorybookUI.GOLD, 5)
 	stage.add_child(m.craft_pearl_lbl)
 	m.craft_pearl_lbl.add_to_group("craft_top")
-
-	var back := Button.new()
-	back.name = "CraftBackButton"
-	StorybookUI.style_back_button(back, "Back to the castle")
-	back.position = Vector2(1140, 18)
-	back.pressed.connect(_close_craft)
-	stage.add_child(back)
-	back.add_to_group("craft_top")
 
 	var kinds := [["fish", "◉\nFISH", 0], ["cat", "♧\nKITTY", 5], ["bird", "♢\nBIRDIE", 8]]
 	var kind_buttons: Array[Dictionary] = []
@@ -316,6 +310,7 @@ func _craft_done() -> void:
 	m.get_tree().create_timer(2.6).timeout.connect(_close_craft)
 
 func _close_craft() -> void:
+	m._navigation_remove("craft_studio")
 	m.set_meta("craft_closing", false)
 	if m.craft_layer != null and is_instance_valid(m.craft_layer):
 		m.craft_layer.queue_free()

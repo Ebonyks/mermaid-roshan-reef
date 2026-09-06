@@ -1,0 +1,255 @@
+{
+  "schema": "reef.fairy_current_source_followup.v1",
+  "generated": "2026-09-06",
+  "status": "SOURCE_ONLY_OPEN",
+  "scope": "Read-only pixel review of the eleven live Fairy growth, target, leaf, helpful-cue and danger-cue PNGs named by scripts/games/fairy.gd. Scores cover only source identity, finish, edges and within-family consistency. Animation, contact, current composition, Mobile mounting, device readability, child response and owner acceptance are null.",
+  "method": {
+    "pixel_inspection": "Each 1024x1024 PNG was opened at original detail with view_image.",
+    "hashing": "SHA-256 over exact repository file bytes.",
+    "runtime_trace": "Literal bindings and configured visual_size values were read from scripts/games/fairy.gd.",
+    "prior_evidence_reused": [
+      "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json establishes the bounded registry additions and source bindings; it assigns no quality scores.",
+      "audit/MASTER_AUDIT_2026-08-09.md records Fairy as 3/5 because the runtime remains a spatial scroller and state-local composition evidence is incomplete; it explicitly warns against recoloring approved art from source-average metrics alone."
+    ],
+    "limits": "Source inspection cannot establish the appearance of Sprite3D alpha-cut mounting, depth, cue overlays, rotation, scale, figure-ground contrast, motion, hit response or bloom timing. The current Sprite3D route is measured 3D migration debt and no source score accepts that runtime medium."
+  },
+  "runtime_roles": {
+    "boss_growth": {
+      "ordered_states": [
+        "seed",
+        "sprout",
+        "bud",
+        "opening",
+        "bloom"
+      ],
+      "visual_sizes": [
+        7.0,
+        9.0,
+        12.0,
+        15.5,
+        20.0
+      ],
+      "binding": "FS_BOSS_ART and FS_BOSS_STAGE_SCALE"
+    },
+    "bug_targets": {
+      "visual_size": 7.0,
+      "binding": "FS_BUG_ART cycles jewel, moth and firefly across recurring targets; the same sources are also reused for hazards at 7.2, 7.4 and 10.5."
+    },
+    "boss_leaf": {
+      "visual_size": 6.5,
+      "copies": 6,
+      "binding": "FS_BOSS_LEAF_ART forms the destructible outer ring."
+    },
+    "helpful_cue": {
+      "visual_sizes": [
+        11.0,
+        3.6,
+        8.775
+      ],
+      "binding": "FS_HELPFUL_CUE_ART is used for six gates, the reticle, and overlays on boss leaves."
+    },
+    "danger_cue": {
+      "visual_sizes": [
+        10.15,
+        10.5,
+        10.8,
+        13.0,
+        3.1
+      ],
+      "binding": "FS_DANGER_CUE_ART surrounds bug/hazard sources and is also the projectile/orb source."
+    }
+  },
+  "assets": [
+    {
+      "path": "assets/fairy/sprites/boss_seed.png",
+      "sha256": "c8398c22de8f739ca001b14197aab9007f3dd9f9ac2dc743c252b92b83e8d08b",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "scores": {
+        "identity": 4.7,
+        "finish": 4.5,
+        "edges": 4.5,
+        "consistency": 4.5
+      },
+      "evidence": "The cracked plum seed shell, dark opening and tiny mint-purple sprout make the starting state unmistakable. Layered cracks and navy silhouette are controlled; the sprout already establishes the later family's curl and palette."
+    },
+    {
+      "path": "assets/fairy/sprites/boss_sprout.png",
+      "sha256": "1c7e0b23335b3f4aec4796133db9c882c38b1e7a1dc630fceb50a0f14254e886",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "scores": {
+        "identity": 4.7,
+        "finish": 4.5,
+        "edges": 4.5,
+        "consistency": 4.7
+      },
+      "evidence": "Four broad mint leaves, purple tips, central bud and the retained curled stem clearly advance the seed. Broad value bands and uninterrupted outline support reduction."
+    },
+    {
+      "path": "assets/fairy/sprites/boss_bud.png",
+      "sha256": "8da84bb2023431ab35714daff918203836227552910f0e8e92360b0d0fc31a97",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "scores": {
+        "identity": 4.8,
+        "finish": 4.6,
+        "edges": 4.6,
+        "consistency": 4.8
+      },
+      "evidence": "The enlarged purple bud becomes the dominant focus while leaf placement, vein language, curled stem and mint-lavender palette continue directly from sprout."
+    },
+    {
+      "path": "assets/fairy/sprites/boss_opening.png",
+      "sha256": "e3738c1d574ed8c29525186b493c36d75c0b4b9e8e957f7b683ad0ffb47be579",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "scores": {
+        "identity": 4.8,
+        "finish": 4.7,
+        "edges": 4.6,
+        "consistency": 4.8
+      },
+      "evidence": "Separated inner petals and the first visible clustered center provide a clear intermediate opening state without changing the plant's silhouette family or materials."
+    },
+    {
+      "path": "assets/fairy/sprites/boss_bloom.png",
+      "sha256": "36db20eff66d1da63ab8f13878f99313712fe3adb02ca314a2a73c6f86c59cf9",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "scores": {
+        "identity": 4.9,
+        "finish": 4.8,
+        "edges": 4.6,
+        "consistency": 4.8
+      },
+      "evidence": "Multiple concentric petal rows, bright clustered center and retained leaf/stem structure produce a strong, authored payoff with clear continuity from opening."
+    },
+    {
+      "path": "assets/fairy/sprites/bug_jewel.png",
+      "sha256": "2ead5e9ef1b4c8fca0fbe4196a78c1f45926300cfee6f997597adf9ae9eef639",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "scores": {
+        "identity": 4.8,
+        "finish": 4.7,
+        "edges": 4.6,
+        "consistency": 4.6
+      },
+      "evidence": "Oval beetle shell, segmented legs and antennae are distinct. Coral floral shell marks, navy-purple body and cyan highlights fit the Fairy target palette while retaining a broad silhouette."
+    },
+    {
+      "path": "assets/fairy/sprites/bug_moth.png",
+      "sha256": "c707462c283b254d1380afe18bd899035853620c5215931cd528cb855d1b327f",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "scores": {
+        "identity": 4.9,
+        "finish": 4.8,
+        "edges": 4.6,
+        "consistency": 4.6
+      },
+      "evidence": "Large bilateral wings and furry segmented body read immediately as a moth. Moon, star and teardrop motifs are polished and use the same navy, lavender and mint family."
+    },
+    {
+      "path": "assets/fairy/sprites/bug_firefly.png",
+      "sha256": "20348706e59d653027960209d7c7461e7d28eb186d2fb3609e24798816057e5b",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "scores": {
+        "identity": 4.8,
+        "finish": 4.7,
+        "edges": 4.6,
+        "consistency": 4.6
+      },
+      "evidence": "The pink glowing abdomen, paired lavender wing covers and compact beetle body distinguish the firefly from both other targets. Highlight and outline treatment stays within the same polished family."
+    },
+    {
+      "path": "assets/fairy/sprites/boss_leaf.png",
+      "sha256": "64940fd682c0be201526bbd13b4191e3f1e1029e3c35a221d57fa3f767717d03",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "scores": {
+        "identity": 4.7,
+        "finish": 4.5,
+        "edges": 4.6,
+        "consistency": 4.8
+      },
+      "evidence": "One large mint leaf with purple tip, strong central vein and navy edge directly repeats the boss foliage language. Its simple silhouette is appropriate for six-copy reuse."
+    },
+    {
+      "path": "assets/fairy/sprites/helpful_flower_gate.png",
+      "sha256": "f06308db600940e32db09b64184ad469f59fa99d05c5a4c2d1b377df221ea7dd",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "scores": {
+        "identity": 4.8,
+        "finish": 4.6,
+        "edges": 4.6,
+        "consistency": 4.5
+      },
+      "evidence": "Six rounded mint petals form an unmistakably open passage; gold rounded stamens reinforce a friendly reward cue. The watercolor grain is more tactile than the smoother bug cards but remains inside the storybook material range."
+    },
+    {
+      "path": "assets/fairy/sprites/danger_thorn_halo.png",
+      "sha256": "3bc42f0dd85a5001be64d61aa10c49646aa5d34971a28560dd41191a0fddbdfb",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "scores": {
+        "identity": 4.9,
+        "finish": 4.6,
+        "edges": 4.7,
+        "consistency": 4.5
+      },
+      "evidence": "Alternating long plum thorns and coral points create a strong avoid silhouette that is categorically different from the rounded helpful gate. Navy outline and watercolor grain link it to the paired cue."
+    }
+  ],
+  "family_findings": {
+    "growth_continuity": "Strong at source: curled stem, four-leaf base, purple tips, navy contours and central bud/flower enlarge in an ordered visual progression.",
+    "target_discrimination": "Strong at source: beetle oval, moth wings and firefly glow have distinct dominant silhouettes while sharing palette and outline language.",
+    "cue_pair": "Strong at source: rounded mint/gold open ring versus pointed coral/plum thorn ring provides a clear semantic contrast.",
+    "source_defects_below_4_5": [],
+    "decision": "Retain all eleven existing sources. No visually evidenced source dimension in this bounded review is below 4.5, so source replacement or regeneration is not justified."
+  },
+  "unassessed_runtime_risks": [
+    "The five growth sources are separate cards; still pixels do not prove transition timing, scale continuity, contact response or bloom settle.",
+    "Cue overlays may cover bug or leaf identity at their configured relative scales; source inspection cannot score that composition.",
+    "The helpful cue is reused as gate, reticle and leaf overlay, and the danger cue as halo and projectile; role readability must be checked in each mounted state.",
+    "Bug sources are repurposed as jelly, urchin and eel hazards; source identity scores do not prove those renamed runtime roles read truthfully.",
+    "All reviewed cards currently mount through Sprite3D in a spatial scroller, which remains game-wide 2D migration debt regardless of source quality.",
+    "Actual phone-scale alpha-cut edges, figure-ground contrast, density, touch/contact feedback and child understanding remain unreviewed."
+  ],
+  "required_next_evidence": [
+    "Current Mobile captures of each boss state at its configured scale, including every transition and bloom settle.",
+    "Representative live frames pairing each bug with its danger halo and each boss leaf with its helpful overlay.",
+    "Separate mounted review of helpful gate, reticle, danger halo and orb roles.",
+    "Canvas-port evidence and phone/device review before any game-wide acceptance claim."
+  ],
+  "runtime_source": {
+    "path": "scripts/games/fairy.gd",
+    "hash_normalization": "utf8_lf",
+    "sha256": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679"
+  }
+}

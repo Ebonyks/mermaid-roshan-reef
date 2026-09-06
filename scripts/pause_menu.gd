@@ -13,6 +13,28 @@ func _build_pause() -> void:
 	# unmistakably dominant Resume, secondary actions as an icon-tile grid
 	# (>=150x132, 24 px apart), toggles that change silhouette (never color
 	# alone), a neutral doorway exit, and dev/FPS kept out of the child menu.
+	# The only persistent gameplay control: one upper-right button. It is Back
+	# whenever another activity/room is stacked over Sky Lagoon, and becomes
+	# Menu only at the Lagoon promenade root. Layer 29 sits over ordinary game
+	# surfaces but below the transition fade at 30.
+	m.navigation_layer = CanvasLayer.new()
+	m.navigation_layer.name = "GlobalNavigationLayer"
+	m.navigation_layer.layer = 29
+	m.navigation_layer.process_mode = Node.PROCESS_MODE_ALWAYS
+	m.add_child(m.navigation_layer)
+	var navigation := Button.new()
+	navigation.name = "GlobalNavigationButton"
+	StorybookUI.style_icon_button(
+		navigation, "↩", "secondary", Vector2(112.0, 112.0), "Back")
+	m._navigation_ref().position_button(navigation)
+	navigation.button_down.connect(global_navigation_pressed)
+	navigation.set_meta("global_navigation_owner", true)
+	m.navigation_layer.add_child(navigation)
+	m.global_navigation_button = navigation
+	# Compatibility for systems that only need to locate the shipped corner
+	# control. It no longer means Pause; the shared control lives in the top-right.
+	m.pause_gear_btn = navigation
+
 	m.pause_layer = CanvasLayer.new()
 	m.pause_layer.layer = 12
 	m.pause_layer.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -22,18 +44,7 @@ func _build_pause() -> void:
 	m.pause_dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	m.pause_dim.visible = false
 	m.pause_layer.add_child(m.pause_dim)
-	# 112 px visual pause circle centered in a 128 px hit envelope, inset from
-	# the top-right safe edge (frustrated fingers mash here)
-	var gear := Button.new()
-	gear.name = "PauseCornerButton"
-	StorybookUI.style_icon_button(gear, "Ⅱ", "secondary", Vector2(128, 128), "Pause")
-	gear.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	gear.position = Vector2(-146, 18)
-	# Pause on touch-down: a young child may slide off before lifting.
-	gear.button_down.connect(toggle_pause)
-	m.pause_layer.add_child(gear)
-	StorybookUI.add_shell_crest(gear, Rect2(34, 72, 60, 45), "PauseCornerShell")
-	m.pause_layer.set_meta("corner_button", gear)
+	m.pause_layer.set_meta("corner_button", navigation)
 
 	# Full-screen root lets the dim and shell scale together while main keeps
 	# its historical pause_panel reference and probe surface.
@@ -46,14 +57,14 @@ func _build_pause() -> void:
 	dim.mouse_filter = Control.MOUSE_FILTER_STOP
 	var shell_rect := Rect2(290, 25, 700, 670)
 	var shell := StorybookUI.add_panel(m.pause_panel, shell_rect, StorybookUI.PURPLE, Color(0.90, 0.96, 1.0, 0.99), 62)
-	shell.name = "PauseShell"
-	StorybookUI.adorn_panel(m.pause_panel, shell_rect, "Pause")
+	shell.name = "MenuShell"
+	StorybookUI.adorn_panel(m.pause_panel, shell_rect, "Menu")
 
 	m.fps_lbl = Label.new()
 	StorybookUI.style_label(m.fps_lbl, 18, Color(0.74, 0.82, 0.94), 2)
 	m.fps_lbl.position = Vector2(1030, 686)
 	m.pause_panel.add_child(m.fps_lbl)
-	var resume := _pause_btn("▶   KEEP SWIMMING", Rect2(350, 105, 580, 140), "primary")
+	var resume := _pause_btn("▶   BACK TO PLAY", Rect2(350, 105, 580, 140), "primary")
 	resume.name = "PauseResumeButton"
 	resume.pressed.connect(toggle_pause)
 	m.pause_resume_btn = resume
@@ -63,20 +74,23 @@ func _build_pause() -> void:
 	sticker_btn.pressed.connect(func():
 		toggle_pause()
 		m._open_stickers())
-	m.quality_btn = _pause_btn("✦   SPARKLY", Rect2(650, 265, 280, 132), "secondary")
-	m.quality_btn.name = "PauseQualityButton"
-	m.quality_btn.pressed.connect(func():
-		m._apply_quality("speedy" if m.quality == "sparkly" else "sparkly")
-		_sync_labels()
-		m._write_save())
-	m.music_btn = _pause_btn("♫   MUSIC ON", Rect2(350, 420, 280, 132), "secondary")
-	m.music_btn.name = "PauseMusicButton"
-	m.music_btn.pressed.connect(func():
-		m.music_on = not m.music_on
-		m.music.volume_db = -8.0 if m.music_on else -60.0
-		_sync_labels()
-		m._write_save())
-	m.pause_leave_btn = _pause_btn(leave_label(), Rect2(650, 420, 280, 132), "secondary")
+	var critter_btn := _pause_btn("🐟   CRITTERS",
+		Rect2(650, 265, 280, 132), "secondary")
+	critter_btn.name = "MenuCritterBookButton"
+	critter_btn.pressed.connect(func():
+		toggle_pause()
+		m._collection_ref().open_book())
+	var stuffie_btn := _pause_btn("♥   STUFFIE",
+		Rect2(350, 420, 280, 132), "secondary")
+	stuffie_btn.name = "MenuStuffieButton"
+	stuffie_btn.pressed.connect(func():
+		toggle_pause()
+		if m.companion_id == "":
+			m._companion_ref().open_picker()
+		else:
+			m._companion_ref().open_care_menu())
+	m.pause_leave_btn = _pause_btn(leave_label(),
+		Rect2(650, 420, 280, 132), "secondary")
 	m.pause_leave_btn.name = "PauseLeaveButton"
 	m.pause_leave_btn.set_meta("neutral_exit", true)
 	m.pause_leave_btn.visible = false
@@ -84,36 +98,28 @@ func _build_pause() -> void:
 	# Point-to-interact is the one child-facing touch vocabulary. The former
 	# mode choice advertised an obsolete on-screen movement stick.
 	m.touch_mode_btn = null
-	# Spoken spells (MIC_SPELLS.md). Same silhouette grammar: a microphone when
-	# on, a struck microphone when off — never colour alone. Switching it on
-	# with no spells taught yet drops straight into the teach overlay, the same
-	# way the sticker tile hands off to its own sheet. It takes the third-row
-	# slot the retired touch-mode toggle left empty.
-	m.mic_btn = _pause_btn(mic_label(), Rect2(350, 570, 280, 120), "secondary")
-	m.mic_btn.name = "PauseMicButton"
-	m.mic_btn.pressed.connect(func():
-		m.mic_on = not m.mic_on
-		_sync_labels()
-		m._write_save()
-		if not m.mic_on:
-			m._mic_ref().disarm()
-			return
-		if not m._mic_ref().all_words_taught():
-			toggle_pause()
-			m._mic_ref().open_teach())
-
-	# Parent/debug affordances deliberately sit outside the child icon grid.
-	# Shifted to the right column (same row and height dev placed it at): the
-	# spoken-spells tile now owns the third row's left slot, and at x=500 the
-	# parent button would have overlapped it.
-	if m.dev_mode != null:
-		var dev_btn := _pause_btn("Parent: Developer Mode", Rect2(650, 582, 280, 66), "secondary")
-		dev_btn.name = "PauseDeveloperButton"
-		dev_btn.set_meta("parent_only", true)
-		dev_btn.pressed.connect(func():
-			toggle_pause()
-			m.dev_mode.toggle())
+	m.quality_btn = null
+	m.music_btn = null
+	m.mic_btn = null
 	_sync_labels()
+	sync_global_navigation()
+
+func sync_global_navigation() -> void:
+	m._navigation_ref().sync_button()
+
+func _is_sky_lagoon_root() -> bool:
+	return m._navigation_ref().at_sky_lagoon_root()
+
+func _navigation_locked() -> bool:
+	if m.start_menu_active or m.intro_active or m.sleep_layer != null \
+			or m.hug_layer != null:
+		return true
+	return m.fade_rect != null and m.fade_rect.visible \
+		and (m.fade_rect.color.a * m.fade_rect.modulate.a > 0.01 \
+			or m.fade_rect.mouse_filter == Control.MOUSE_FILTER_STOP)
+
+func global_navigation_pressed() -> void:
+	m._navigation_ref().press()
 
 func music_label() -> String:
 	# State shown by silhouette, not colour: a note when on, a struck note when
@@ -184,10 +190,12 @@ func toggle_pause() -> void:
 		(m._game_obj("race", SlideRaceGame) as SlideRaceGame).on_pause_changed(paused)
 	m.get_tree().paused = paused
 	m.pause_panel.visible = paused
+	m.navigation_held_touches.clear()
+	m._navigation_ref().tick_attention(0.0)
 	# Activity overlays normally cover the corner button. Start/Escape raises
 	# the pause sheet above them, while layer 30 still owns transition fades.
 	if paused:
-		m.pause_layer.layer = 29
+		m.pause_layer.layer = 28
 	else:
 		m._sync_pause_surface_layer()
 	_sync_labels()
@@ -211,13 +219,43 @@ func toggle_pause() -> void:
 func _has_leave_context() -> bool:
 	return m.mg_kind != "" or m.game != "" or m.wardrobe_layer != null \
 		or m.craft_layer != null or m.castle_logo_layer != null \
-		or m.stickers_layer != null or m.collection_layer != null or m.companion_layer != null or m.companion_care_layer != null
+		or m.stickers_layer != null or m.collection_layer != null \
+		or m.companion_layer != null or m.companion_care_layer != null \
+		or m.mic_teach_layer != null \
+		or (m.dance_engine != null and is_instance_valid(m.dance_engine) \
+			and (m.dance_engine as DanceEngine).active)
 
 func _leave_current_activity() -> void:
 	# This is a voluntary, neutral exit -- never a loss and never a free win.
 	m.get_tree().paused = false
 	m.pause_panel.visible = false
 	m._sync_pause_surface_layer()
+	if m.dance_engine != null and is_instance_valid(m.dance_engine) \
+			and (m.dance_engine as DanceEngine).active:
+		(m.dance_engine as DanceEngine).close_demo()
+		return
+	if m._attack_customizer != null \
+			and is_instance_valid(m._attack_customizer) \
+			and m._attack_customizer.is_open:
+		m._attack_customizer.close()
+		return
+	if m._day_one_art_studio != null \
+			and is_instance_valid(m._day_one_art_studio):
+		m._close_day_one_art_studio()
+		return
+	if m._castle_career_routes != null \
+			and m._castle_career_routes.opera_venue != null \
+			and is_instance_valid(m._castle_career_routes.opera_venue) \
+			and m._castle_career_routes.opera_venue.is_open():
+		m._castle_career_routes.close_opera_venue()
+		return
+	if m._castle_rooms_25d != null \
+			and m._castle_rooms_25d.kitchen_menu_layer != null:
+		m._castle_rooms_25d._close_kitchen_menu()
+		return
+	if m.mic_teach_layer != null:
+		m._mic_ref().close_teach()
+		return
 	if m.stickers_layer != null:
 		m._close_stickers()
 		return
@@ -251,11 +289,23 @@ func _leave_current_activity() -> void:
 		# 2026-08-05).
 		m.combat_tutorial_game.cancel()
 		return
+	# Child activities can suspend the castle room layer while leaving its state
+	# alive. They must unwind before the castle itself sees Back.
 	if m.game == "kitchen_cooking":
 		m._castle_rooms_ref().cancel_kitchen_recipe()
 		return
 	if m.game == "opera" and m.opera_game != null:
 		(m.opera_game as OperaHouse)._leave_early()
+		return
+	if m.game == "kart" and m.kart_game != null:
+		m.kart_game.call("_quit_race")
+		return
+	if (m.game == "dungeon" or m.game == "emberdun") and m.dungeon_game != null:
+		m.dungeon_game._leave_early()
+		return
+	if m._castle_rooms_25d != null and m._castle_rooms_25d.is_open() \
+			and m.castle_room_layer != null and m.castle_room_layer.visible:
+		m._castle_rooms_25d._go_back()
 		return
 	if m.game == "level2":
 		m._exit_level2()
@@ -266,17 +316,11 @@ func _leave_current_activity() -> void:
 	if m.game == "ember" and m.ember_game != null:
 		(m.ember_game as EmberFortressLevel)._teardown(false)
 		return
-	if m.game == "kart" and m.kart_game != null:
-		m.kart_game.call("_quit_race")
-		return
 	if m.game == "combat" and m.combat_game != null:
 		m.combat_game.cancel()
 		return
 	if m.game == "stuffie" and m.stuffie_game != null:
 		m.stuffie_game.cancel()
-		return
-	if (m.game == "dungeon" or m.game == "emberdun") and m.dungeon_game != null:
-		m.dungeon_game._leave_early()
 		return
 	if m.game == "":
 		return

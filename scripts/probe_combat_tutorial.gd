@@ -149,8 +149,8 @@ func _class_case() -> void:
 	_ck("the tutorial uses the compact scoped caption strip",
 		main.hud_msg.position == Vector2(320.0, 626.0)
 		and main.hud_msg.size == Vector2(640.0, 82.0))
-	_ck("tutorial suppresses the unrelated JUMP medallion",
-		main.touch_ui._act_button == null or not main.touch_ui._act_button.visible)
+	_ck("tutorial never creates the retired JUMP medallion",
+		main.find_child("JumpButton", true, false) == null)
 	await _capture("01_tap")
 	await _frames(30)
 	var first: Dictionary = tut.enemies[0]
@@ -174,21 +174,14 @@ func _class_case() -> void:
 	var pos: Vector2 = tut.cam.unproject_position(tut.he.aim_point(second))
 	main._on_world_press(pos)   # press-fire tap, then HOLD — no release
 	await _frames(20)           # past the engine's live 1.75 s full-charge time
-	_ck("a full charge fells the imp and readies partner power",
-		tut.lesson == "partner" and String(second["state"]) != "active")
+	_ck("a full charge fells the imp and opens the graduation wave",
+		tut.lesson == "wave" and String(second["state"]) != "active")
 	await _frames(2)
-	_ck("the companion lesson shows its picture bubble",
-		tut.pa != null and tut.pa.bubble != null)
-	_ck("the teaching hand stays above the partner portrait",
-		tut.pa != null and tut.pa.layer != null and tut.demo_layer.layer > tut.pa.layer.layer)
-	await _capture("04_partner")
-	if tut.pa != null and tut.pa.bubble != null:
-		tut.pa.bubble.pressed.emit()
-	await _frames(2)
-	_ck("partner power opens the graduation wave",
-		tut.lesson == "wave" and tut.enemies.size() >= 4)
-	await _capture("05_wave")
-	for _round in range(8):
+	_ck("the class has no partner-bubble overlay lesson",
+		not CombatTutorial.LESSONS.has("partner") and tut.enemies.size() >= 4)
+	# Three graduation imps need up to nine ordinary taps after the partner
+	# overlay lesson is removed; keep a little headroom for frame-edge input.
+	for _round in range(16):
 		var target: Dictionary = tut._lesson_target()
 		if target.is_empty():
 			break

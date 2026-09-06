@@ -16,6 +16,9 @@ const FILLER_VOICE_DIR := "res://assets/audio/voices/filler_v1/"
 const LEGACY_VOICE_DIR := "res://assets/audio/voices/"
 const DAY_ONE_CONTEXT_CATALOG_SCRIPT: GDScript = preload(
 	"res://scripts/day_one_contextual_voice_catalog.gd")
+const RETIRED_OVERLAY_CONTEXT_CUES: Dictionary = {
+	"day1_boss_dodge_prompt": true,
+}
 
 # These are the existing, manifest-backed semantic suffixes used by the Day
 # One route.  Keep this list explicit: a required objective may never silently
@@ -122,6 +125,11 @@ func say_day_one_context(cue_id: String, caption: String = "",
 		room_id: String = "", session_id: String = "", variant: int = 0,
 		allow_generic: bool = false) -> bool:
 	if allow_generic or cue_id.strip_edges() == "":
+		_retain_day_one_context_caption(caption, cue_id)
+		return false
+	# Mastered audio remains preserved for provenance, but retired cues that
+	# name removed overlay controls must never become playable again.
+	if bool(RETIRED_OVERLAY_CONTEXT_CUES.get(cue_id, false)):
 		_retain_day_one_context_caption(caption, cue_id)
 		return false
 	var row := _day_one_context_row(cue_id, variant)

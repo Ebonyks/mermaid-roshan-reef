@@ -1,0 +1,540 @@
+{
+  "run": "run03",
+  "engine": "Godot4.7.2-stable",
+  "time_scale": 6,
+  "max_fps": 30,
+  "isolated_profile": true,
+  "assertions_changed": false,
+  "runtime_mechanics_changed": false,
+  "source_probe_sha256_utf8_lf": "7c26bd80bb88e78722ac76a0d63acb5e356bdd4c50538e5f0675338d17a8a9f6",
+  "harness_sha256": "888eacbd0032223ec7642fddf2fc6477d8885587133681dcd56cd70b44f1301f",
+  "log_sha256": "f640ccc8f70b591b18b967f19dcdf849a6a291f8d0415c4a6dda35b2cf2dc1cb",
+  "process_exit": 0,
+  "failure_markers": [
+    "AUDIT|Slide Canvas|neutral Leave only a fresh next-frame gesture moves after quarantine: FAIL",
+    "AUDIT|Slide Canvas|fish Canvas teardown is synchronous, idempotent, and fully freed: FAIL",
+    "AUDIT|Slide Canvas|first-win teardown hands chime to the 0.90 fanfare instead of restoring entry tuning: FAIL",
+    "AUDIT|Harper/Fiona Canvas trusted suite: FAIL (3 checks)",
+    "AUDIT|Harper and Fiona [slide]: FAILED/TIMEOUT cutaway=true wall_s=1.6"
+  ],
+  "result": "FAIL_MARKERS_PRESENT",
+  "facts": [
+    {
+      "kind": "fresh",
+      "data": {
+        "after": {
+          "delta": 0.2,
+          "pose_t": -1.0,
+          "position": "(-19.0, 21.20506, 88.0)",
+          "stick": "(1.0, 0.0)",
+          "vel": "(0.0, 0.0, 0.0)",
+          "yaw": -0.3599964
+        },
+        "before": {
+          "pose_t": -1.0,
+          "position": "(-19.0, 21.20506, 88.0)",
+          "stick": "(0.0, 0.0)",
+          "vel": "(0.0, 0.0, 0.0)",
+          "yaw": 0.0
+        },
+        "census_exact": true,
+        "input": {
+          "controls": true,
+          "guard": {
+            "active": false,
+            "context_lost": false,
+            "control_blocked": false,
+            "fade_clear": true,
+            "held_sources": 0,
+            "neutral_frames": 0,
+            "physical_neutral": false,
+            "retire_pending": false
+          },
+          "stick": "(1.0, 0.0)"
+        },
+        "label": "neutral Leave",
+        "melody_sources": {},
+        "moved": false,
+        "pose_exact": true,
+        "slide_sources": {}
+      }
+    },
+    {
+      "kind": "fresh",
+      "data": {
+        "after": {
+          "delta": 0.199998,
+          "pose_t": -0.00117599999999979,
+          "position": "(-19.0, 23.34928, 88.0)",
+          "stick": "(1.0, 0.0)",
+          "vel": "(0.0, -3.158092, 0.0)",
+          "yaw": -0.3416904
+        },
+        "before": {
+          "pose_t": -0.00117599999999979,
+          "position": "(-19.0, 23.94877, 88.0)",
+          "stick": "(0.0, 0.0)",
+          "vel": "(0.0, -1.905391, 0.0)",
+          "yaw": 0.0
+        },
+        "census_exact": true,
+        "input": {
+          "controls": true,
+          "guard": {
+            "active": false,
+            "context_lost": false,
+            "control_blocked": false,
+            "fade_clear": true,
+            "held_sources": 0,
+            "neutral_frames": 0,
+            "physical_neutral": false,
+            "retire_pending": false
+          },
+          "stick": "(1.0, 0.0)"
+        },
+        "label": "5-fish completion",
+        "melody_sources": {},
+        "moved": true,
+        "pose_exact": true,
+        "slide_sources": {}
+      }
+    },
+    {
+      "kind": "fresh",
+      "data": {
+        "after": {
+          "delta": 0.2,
+          "pose_t": -0.00117599999999979,
+          "position": "(-19.0, 23.98018, 88.0)",
+          "stick": "(1.0, 0.0)",
+          "vel": "(0.0, -1.845134, 0.0)",
+          "yaw": -0.36
+        },
+        "before": {
+          "pose_t": -0.00117599999999979,
+          "position": "(-19.0, 24.34921, 88.0)",
+          "stick": "(0.0, 0.0)",
+          "vel": "(0.0, 0.0, 0.0)",
+          "yaw": 0.0
+        },
+        "census_exact": true,
+        "input": {
+          "controls": true,
+          "guard": {
+            "active": false,
+            "context_lost": false,
+            "control_blocked": false,
+            "fade_clear": true,
+            "held_sources": 0,
+            "neutral_frames": 0,
+            "physical_neutral": false,
+            "retire_pending": false
+          },
+          "stick": "(1.0, 0.0)"
+        },
+        "label": "3-fish completion",
+        "melody_sources": {},
+        "moved": true,
+        "pose_exact": true,
+        "slide_sources": {}
+      }
+    },
+    {
+      "kind": "fresh",
+      "data": {
+        "after": {
+          "delta": 0.2,
+          "pose_t": -0.00117599999999979,
+          "position": "(-19.0, 23.98019, 88.0)",
+          "stick": "(1.0, 0.0)",
+          "vel": "(0.0, -1.845122, 0.0)",
+          "yaw": -0.3599964
+        },
+        "before": {
+          "pose_t": -0.00117599999999979,
+          "position": "(-19.0, 24.34921, 88.0)",
+          "stick": "(0.0, 0.0)",
+          "vel": "(0.0, 0.0, 0.0)",
+          "yaw": 0.0
+        },
+        "census_exact": true,
+        "input": {
+          "controls": true,
+          "guard": {
+            "active": false,
+            "context_lost": false,
+            "control_blocked": false,
+            "fade_clear": true,
+            "held_sources": 0,
+            "neutral_frames": 0,
+            "physical_neutral": false,
+            "retire_pending": false
+          },
+          "stick": "(1.0, 0.0)"
+        },
+        "label": "0-fish completion",
+        "melody_sources": {},
+        "moved": true,
+        "pose_exact": true,
+        "slide_sources": {}
+      }
+    },
+    {
+      "kind": "zero",
+      "data": {
+        "expected_trophies": 1,
+        "game": "",
+        "medal": 3,
+        "run": {
+          "caught_ids": [],
+          "chime_after_next_frame": {
+            "pitch_scale": 1.14999997615814,
+            "volume_db": -4.0
+          },
+          "chime_on_synchronous_exit": {
+            "pitch_scale": 1.14999997615814,
+            "volume_db": -4.0
+          },
+          "collection_hidden_during_run": true,
+          "collection_restored_on_exit": true,
+          "completed": true,
+          "context_hold_exact": true,
+          "diag_catches": [],
+          "diag_max_delta": 0.2,
+          "diag_samples": [
+            {
+              "axis": -0.0125985236740724,
+              "delta": 0.199998,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 43,
+              "got": 0,
+              "lane": 0.00393703864814762,
+              "progress": 0.730113391304348,
+              "target": 0.0,
+              "velocity": 0.0
+            },
+            {
+              "axis": -0.0125985236740724,
+              "delta": 0.2,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 44,
+              "got": 0,
+              "lane": 0.00393703864814762,
+              "progress": 0.74750452173913,
+              "target": 0.0,
+              "velocity": 0.0
+            },
+            {
+              "axis": -0.0125985236740724,
+              "delta": 0.199996,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 45,
+              "got": 0,
+              "lane": 0.00393703864814762,
+              "progress": 0.764895826086956,
+              "target": 0.0,
+              "velocity": 0.0
+            },
+            {
+              "axis": -0.0125985236740724,
+              "delta": 0.199998,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 46,
+              "got": 0,
+              "lane": 0.00393703864814762,
+              "progress": 0.782286782608696,
+              "target": 0.0,
+              "velocity": 0.0
+            },
+            {
+              "axis": -0.0125985236740724,
+              "delta": 0.199998,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 47,
+              "got": 0,
+              "lane": 0.00393703864814762,
+              "progress": 0.799677913043478,
+              "target": 0.0,
+              "velocity": 0.0
+            },
+            {
+              "axis": -0.0125985236740724,
+              "delta": 0.199998,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 48,
+              "got": 0,
+              "lane": 0.00393703864814762,
+              "progress": 0.817069043478261,
+              "target": 0.0,
+              "velocity": 0.0
+            },
+            {
+              "axis": -0.0125985236740724,
+              "delta": 0.2,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 49,
+              "got": 0,
+              "lane": 0.00393703864814762,
+              "progress": 0.834460173913044,
+              "target": 0.0,
+              "velocity": 0.0
+            },
+            {
+              "axis": -0.0125985236740724,
+              "delta": 0.199996,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 50,
+              "got": 0,
+              "lane": 0.00393703864814762,
+              "progress": 0.85185147826087,
+              "target": 0.0,
+              "velocity": 0.0
+            },
+            {
+              "axis": -0.0125985236740724,
+              "delta": 0.2,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 51,
+              "got": 0,
+              "lane": 0.00393703864814762,
+              "progress": 0.869242434782609,
+              "target": 0.0,
+              "velocity": 0.0
+            },
+            {
+              "axis": -0.0125985236740724,
+              "delta": 0.199996,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 52,
+              "got": 0,
+              "lane": 0.00393703864814762,
+              "progress": 0.886633739130435,
+              "target": 0.0,
+              "velocity": 0.0
+            },
+            {
+              "axis": -0.0125985236740724,
+              "delta": 0.199998,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 53,
+              "got": 0,
+              "lane": 0.00393703864814762,
+              "progress": 0.904024695652174,
+              "target": 0.0,
+              "velocity": 0.0
+            },
+            {
+              "axis": -0.0125985236740724,
+              "delta": 0.2,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 54,
+              "got": 0,
+              "lane": 0.00393703864814762,
+              "progress": 0.921415826086957,
+              "target": 0.0,
+              "velocity": 0.0
+            },
+            {
+              "axis": -0.0125985236740724,
+              "delta": 0.199996,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 55,
+              "got": 0,
+              "lane": 0.00393703864814762,
+              "progress": 0.938807130434783,
+              "target": 0.0,
+              "velocity": 0.0
+            },
+            {
+              "axis": -0.0125985236740724,
+              "delta": 0.199998,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 56,
+              "got": 0,
+              "lane": 0.00393703864814762,
+              "progress": 0.956198086956522,
+              "target": 0.0,
+              "velocity": 0.0
+            },
+            {
+              "axis": -0.0125985236740724,
+              "delta": 0.199998,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 57,
+              "got": 0,
+              "lane": 0.00393703864814762,
+              "progress": 0.973589217391305,
+              "target": 0.0,
+              "velocity": 0.0
+            },
+            {
+              "axis": -0.578672876149086,
+              "delta": 0.199998,
+              "flags": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "frame": 58,
+              "got": 0,
+              "lane": 0.180835273796589,
+              "progress": 0.990980347826087,
+              "target": 0.0,
+              "velocity": 0.884500020742416
+            }
+          ],
+          "frames": 58,
+          "fresh_after_context_hold": true,
+          "got": 0,
+          "living_hidden_during_run": true,
+          "living_restored_on_exit": true,
+          "mercy": true,
+          "raw_neutral_on_exit": true,
+          "return_guard_exact": true,
+          "return_pose_armed_sync": false,
+          "return_pose_lock_exercised": false,
+          "return_pose_lock_tested_if_live": true,
+          "start_layer_id": 265767882771,
+          "start_surface_id": 265784660062,
+          "tier": 1
+        },
+        "star_same": true,
+        "trophies": 1,
+        "won": true
+      }
+    },
+    {
+      "kind": "fresh",
+      "data": {
+        "after": {
+          "delta": 0.199998,
+          "pose_t": -0.0808280000000001,
+          "position": "(-19.0, 23.98019, 88.0)",
+          "stick": "(1.0, 0.0)",
+          "vel": "(0.0, -1.845122, 0.0)",
+          "yaw": 0.147176390670992
+        },
+        "before": {
+          "pose_t": -0.0808280000000001,
+          "position": "(-19.0, 24.34921, 88.0)",
+          "stick": "(0.0, 0.0)",
+          "vel": "(0.0, 0.0, 0.0)",
+          "yaw": 0.507172790670993
+        },
+        "census_exact": true,
+        "input": {
+          "controls": true,
+          "guard": {
+            "active": false,
+            "context_lost": false,
+            "control_blocked": false,
+            "fade_clear": true,
+            "held_sources": 0,
+            "neutral_frames": 0,
+            "physical_neutral": false,
+            "retire_pending": false
+          },
+          "stick": "(1.0, 0.0)"
+        },
+        "label": "5-fish completion",
+        "melody_sources": {},
+        "moved": true,
+        "pose_exact": true,
+        "slide_sources": {}
+      }
+    }
+  ],
+  "acceptance": "Diagnostic-only; artificial accelerated cadence is not device evidence or a full-suite pass. Exit0 never overrides failure markers."
+}

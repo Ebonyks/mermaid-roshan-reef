@@ -1,0 +1,30 @@
+{
+  "method": "built-in image_gen imagegen",
+  "attempt": 1,
+  "date": "2026-09-06",
+  "native_path": "assets_src/minigame_art_quality_2026-09-05/snowfield-attempt01/snowfield.png",
+  "native_sha256": "acf2e916b3c3360b987b3a7704c68fa8032ab06fbf34f025855db3a1dec864be",
+  "dimensions": [
+    1672,
+    941
+  ],
+  "mode": "RGB",
+  "prompt_path": "assets_src/minigame_art_quality_2026-09-05/snowfield-attempt01/prompt.txt",
+  "prompt_sha256": "28d7d3e00b1862ccacdac1369d7e8fa6a53449ee0a52ca5463feb1f20618b757",
+  "references": [
+    {
+      "path": "assets/book/hall/p_snowman.jpg",
+      "sha256": "9e23b21708b64d2a3b11dde1357acd60af649762fadcce895f66572c69d07b61",
+      "role": "style_and_setting_only",
+      "original_modified": false
+    }
+  ],
+  "reuse_inventory": "audit/minigame_art_quality_2026-09-05/snowman_scene_reuse.json",
+  "status": "REJECTED: native coverage, snow identity/readability and gameplay contact",
+  "reason": "Native dimensions below requested2048 vertical; no upscale performed. Candidate remains source study, not accepted production background.",
+  "runtime_bound": false,
+  "pixel_modifications": "none; exact file copy",
+  "quality_accepted": false,
+  "independent_review": "audit/minigame_art_quality_2026-09-05/snowfield_attempt01_review.json",
+  "independent_review_sha256": "e70edf98b4709ccdcf43d2738e1e1a3bb29c6b203eb8046e4e16fcdaa1f300ab"
+}

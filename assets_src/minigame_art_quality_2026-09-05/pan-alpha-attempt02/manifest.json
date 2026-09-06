@@ -1,0 +1,48 @@
+{
+  "schema": "reef.minigame_art_repair_attempt.v1",
+  "date": "2026-09-06",
+  "method": "built-in image_gen",
+  "subject": "Existing geology pan background extraction",
+  "attempt": 2,
+  "runtime_accepted": false,
+  "prompt": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/pan-alpha-attempt02/prompt.txt",
+    "sha256": "d896781af55af89c85fac946d4ab3bd2f735477a30cfc688b5f4fcb2805993de"
+  },
+  "source": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/pan-alpha-attempt02/native.png",
+    "sha256": "df6ec1df1c59a20d427cb50835ae04915b07de0cbe1b470e99d43c55518ff5ab"
+  },
+  "references": [
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/pan_attempt01.png",
+      "sha256": "f2673f73734bbdf08fb46d5246347adf939d3ab80aab2f31995f23f7a7613e22",
+      "role": "edit target: preserve existing pan; remove checkerboard"
+    }
+  ],
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "disposition": "SOURCE_CANDIDATE_RUNTIME_BLOCKED",
+  "reason": "Real RGBA verified;1254NPOT exceeds runtime rule. Independent source/material/edge review and mounted sediment/mineral progression remain open. No sizing or runtime adoption performed.",
+  "original_output": "C:/Users/Peter/.codex/generated_images/01a07232-f269-7e21-8e68-a0deb714ea99/exec-5b76aaff-4ac5-40eb-b731-b8645ced0d83.png",
+  "alpha": {
+    "range": [
+      0,
+      255
+    ],
+    "bbox": [
+      57,
+      49,
+      1188,
+      1198
+    ],
+    "transparent_pixels": 1018737
+  },
+  "independent_source_review": {
+    "path": "audit/minigame_art_quality_2026-09-05/pan_alpha_attempt02_review.json",
+    "sha256": "e3ce6f8562a6e43fdff4b8d37320f1f4bd587a12cfc96aac68afbd286fa918a0"
+  }
+}

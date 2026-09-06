@@ -40,15 +40,15 @@ func _playthrough(run_index: int) -> void:
 	else:
 		var movement: Rect2 = touch.movement_zone()
 		var action: Rect2 = touch.action_zone()
-		if movement.intersects(action):
-			issues.append("thumb zones overlap")
+		if action.size != Vector2.ZERO:
+			issues.append("removed action overlay still reserves screen space")
 		# Validate against the rendered rest ring, not a fixed 1280x720
 		# coordinate: script-mode headless viewports can use desktop dimensions.
 		if not movement.encloses(touch.rest_zone().grow(18.0)):
 			issues.append("normal left-thumb jitter escapes movement bay")
 		touch.set_action_label("PLAY")
-		if touch._act_lbl == null or not "\n" in String(touch._act_lbl.text):
-			issues.append("action bubble lacks pictogram-plus-word cue")
+		if touch.find_child("ActionShellMedallion", true, false) != null:
+			issues.append("set_action_label resurrected the action bubble")
 
 	# Adversarial child behavior: parking on a friend for several frames must
 	# advertise without kidnapping the run into a minigame.
@@ -195,10 +195,9 @@ func _playthrough(run_index: int) -> void:
 					or not main.castle_room_buttons.has("family_gallery") \
 					or not main.castle_room_buttons.has("opera_hall") \
 					or main.castle_room_stage.get_node_or_null(
-						"ElevatorButton") == null \
-					or main.castle_room_menu_buttons.size() != 12 \
-					or not main.castle_room_menu_buttons.has("dining_room") \
-					or not main.castle_room_menu_buttons.has("movie_lounge"):
+						"ElevatorButton") != null \
+					or not main.castle_room_menu_buttons.is_empty() \
+					or main.global_navigation_button == null:
 				issues.append("castle room routes were missing or redundant")
 			if not main.castle_room_world_root is Node2D \
 					or not main.castle_room_stage.find_children(
@@ -206,26 +205,6 @@ func _playthrough(run_index: int) -> void:
 					or not main.castle_room_stage.find_children(
 						"*", "Camera3D", true, false).is_empty():
 				issues.append("castle lacks direct-canvas Sprite2D stage")
-			var elevator_button: Button = main.castle_room_stage.get_node_or_null(
-				"ElevatorButton") as Button
-			if elevator_button != null and main.castle_room_player_sprite != null:
-				var elevator_foot_before: Vector2 = \
-					main.castle_room_player_sprite.get_meta(
-						"stage_foot", Vector2.ZERO) as Vector2
-				elevator_button.pressed.emit()
-				var blocked_tap := InputEventScreenTouch.new()
-				blocked_tap.position = Vector2(640.0, 640.0)
-				blocked_tap.pressed = true
-				rooms._on_room_input(blocked_tap)
-				await _frames(2)
-				var elevator_foot_after: Vector2 = \
-					main.castle_room_player_sprite.get_meta(
-						"stage_foot", Vector2.ZERO) as Vector2
-				if not main.castle_room_menu_open \
-						or not elevator_foot_after.is_equal_approx(
-							elevator_foot_before):
-					issues.append("open castle elevator leaked taps into world travel")
-				rooms._set_elevator_menu_open(false, false)
 			rooms.show_room("main_hall", false)
 			rooms.activate_current_room()
 			var royal_hall_deadline_ms: int = Time.get_ticks_msec() + 3000

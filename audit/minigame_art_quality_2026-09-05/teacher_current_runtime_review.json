@@ -1,0 +1,264 @@
+{
+  "schema": "reef.teacher_current_runtime_still_review.v1",
+  "generated": "2026-09-06",
+  "status": "OPEN_BELOW_4_5",
+  "evidence": {
+    "run": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run01",
+    "capture_count": 12,
+    "all_images_opened_at_native_size": true,
+    "renderer": "mobile",
+    "viewport": [
+      1280,
+      720
+    ],
+    "route": "Real OperaAct and OperaCareerWorld2D with an explicitly configured _show_phase shortcut; not natural navigation.",
+    "validity": "All twelve Teacher captures passed current-surface, state and process-clock checks. The later Pan failure does not invalidate these earlier Teacher stills.",
+    "limitations": "Stills do not establish cadence or full animation quality. This is desktop Mobile-renderer evidence, not target-phone, child, owner, natural-navigation or full game acceptance."
+  },
+  "bound_primary_source_hashes_raw_bytes": {
+    "scripts/opera_teacher_surface.gd": "5d52ec189d6990a7c9108d3724ba6a72e5cac45c05a5e3d2c0710c3bee87d667",
+    "scripts/opera_career_world_2d.gd": "2f01fb3d4ea8b517a4de26e1c759f105dcbb19ac7e87613bd99dd0912a145b4d",
+    "scripts/opera_act.gd": "ad107c7cd70171969676d2568991ea42035237ce0189389c9eece7aa9809d776",
+    "scripts/opera_roshan_actor.gd": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+    "assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png": "2bddeebd6ca4fe0647e1f6deb670bfcab4d1183f36417e0a033e59c4788dd28c"
+  },
+  "dimension_note": "Scores are per rendered still and only for visible dimensions. Animation is null in every record. Identity means visible semantic/character identity; finish covers rendered detail and polish; edges covers visible contour/raster quality; readability covers non-reader figure and target legibility; ownership_contact covers visible relationship between Teacher/input feedback and the task; consistency covers painterly room/actor versus board/UI language; technical covers clipping and 1280x720 mounting visible in the still.",
+  "captures": [
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run01/captures/teacher_pattern_intro.png",
+      "sha256": "ab6f55175c49ed5b6f798cb688f9f695f2dd4cd93b02f747b122a440d98a7c23",
+      "scores": {
+        "identity": 4.7,
+        "finish": 4.2,
+        "edges": 4.7,
+        "readability": 4.8,
+        "animation": null,
+        "ownership_contact": 3.8,
+        "consistency": 4.0,
+        "technical": 4.7
+      },
+      "observations": "ABAB sequence and two large answer cards are exceptionally clear. Teacher is a polished, recognizable cutout, but her upright pointer aims above rather than into the lesson board. The flat cream board and exact vector shapes are much simpler than the painted Library and actor."
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run01/captures/teacher_pattern_partial.png",
+      "sha256": "7aa5ef29abcc4f6a26e734fb576135825dedb9dab470be8bac0fcbfebb7a27fe",
+      "scores": {
+        "identity": 4.7,
+        "finish": 4.3,
+        "edges": 4.7,
+        "readability": 4.8,
+        "animation": null,
+        "ownership_contact": 4.5,
+        "consistency": 4.0,
+        "technical": 4.7
+      },
+      "observations": "Yellow card fill, ring and touch dot make the selected circle unmistakable while the hint ring moves to the correct sequence token. Teacher still does not visually point to either feedback locus."
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run01/captures/teacher_pattern_completion.png",
+      "sha256": "c60e4407cc67b2bbc2d4a24342dc7bf4daff70ac5b5077bb9cbe49deb3d65b9e",
+      "scores": {
+        "identity": 4.8,
+        "finish": 4.4,
+        "edges": 4.7,
+        "readability": 4.8,
+        "animation": null,
+        "ownership_contact": 4.5,
+        "consistency": 4.1,
+        "technical": 4.7
+      },
+      "observations": "The completed fifth circle, mint answer card and surrounding stars provide a clear payoff. Teacher changes to a joyful clasped-hands pose, linking her emotionally to success, though the pose remains spatially detached from the answer card."
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run01/captures/teacher_count_intro.png",
+      "sha256": "c125c3e286fb292fe16975d9b0009ebe936b1707d7b35c7624907aa51a35778f",
+      "scores": {
+        "identity": 4.6,
+        "finish": 4.1,
+        "edges": 4.7,
+        "readability": 4.3,
+        "animation": null,
+        "ownership_contact": 3.8,
+        "consistency": 3.9,
+        "technical": 4.7
+      },
+      "observations": "The single large pearl is clear, but answer pearls are tiny relative to their very large gray cards and have little painted volume. The question/help icon at upper right reads ambiguously as punctuation or a small device. Teacher's pointer does not indicate the pearl or answers."
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run01/captures/teacher_count_partial.png",
+      "sha256": "5a5f6ec76890f56f7fd0a533f3db4de53b10a9bd0d5f3102618fc5560862c08b",
+      "scores": {
+        "identity": 4.6,
+        "finish": 4.1,
+        "edges": 4.7,
+        "readability": 4.4,
+        "animation": null,
+        "ownership_contact": 4.4,
+        "consistency": 3.9,
+        "technical": 4.7
+      },
+      "observations": "A gold check cleanly replaces the touched source pearl and both answer cards remain visible. The feedback is understandable, but the tiny answer groups and detached Teacher keep the full visual sentence below the bar."
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run01/captures/teacher_count_completion.png",
+      "sha256": "20dbe4739c0beedd6a7621b45ef1cef4b70edc990f61097e15152b0a7d2c3941",
+      "scores": {
+        "identity": 4.7,
+        "finish": 4.2,
+        "edges": 4.7,
+        "readability": 4.5,
+        "animation": null,
+        "ownership_contact": 4.5,
+        "consistency": 4.0,
+        "technical": 4.7
+      },
+      "observations": "Mint fill and stars identify the one-pearl card as correct, and Teacher cheers. The payoff repairs state ownership, but the answer pearl itself remains visually undersized and flat inside the card."
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run01/captures/teacher_add_intro.png",
+      "sha256": "fba168f187729d7e674d2e7d5a7b51790919f45a9b281a9acbfb7028bc14e8ab",
+      "scores": {
+        "identity": 4.7,
+        "finish": 4.2,
+        "edges": 4.7,
+        "readability": 4.6,
+        "animation": null,
+        "ownership_contact": 4.0,
+        "consistency": 4.0,
+        "technical": 4.7
+      },
+      "observations": "Blue and pink group fields plus the oversized gold plus button make the join step clear. Each group contains one rather small pearl, leaving much unused panel area, and Teacher points away from the operation."
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run01/captures/teacher_add_partial.png",
+      "sha256": "74f5fd5b37529350aaeec48f6c2bd611274dd586e6f98d8a86e48ce5b59a7327",
+      "scores": {
+        "identity": 4.7,
+        "finish": 4.2,
+        "edges": 4.7,
+        "readability": 4.7,
+        "animation": null,
+        "ownership_contact": 4.5,
+        "consistency": 4.0,
+        "technical": 4.7
+      },
+      "observations": "The joined pair appears centrally with a visible touch ring, forming a clear before/after state. Large empty board space and the non-pointing actor weaken the illustrated lesson composition."
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run01/captures/teacher_add_completion.png",
+      "sha256": "99281498cf88a1993a9a28df2b43b20ba113a62b1860b6c6b1084de609fc94b2",
+      "scores": {
+        "identity": 4.8,
+        "finish": 4.3,
+        "edges": 4.7,
+        "readability": 4.7,
+        "animation": null,
+        "ownership_contact": 4.6,
+        "consistency": 4.0,
+        "technical": 4.7
+      },
+      "observations": "Two checked source pearls, the mint two-pearl answer card, stars and Teacher cheer create the strongest complete visual sentence in the set. The board and pearls still use flat UI rendering beside painterly art."
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run01/captures/teacher_match_intro.png",
+      "sha256": "f3ba04af584eaa14834e8bc6c89ccdc6ed457c8c75b99364e8f6a9517c2e363c",
+      "scores": {
+        "identity": 4.7,
+        "finish": 4.2,
+        "edges": 4.7,
+        "readability": 4.9,
+        "animation": null,
+        "ownership_contact": 3.9,
+        "consistency": 4.0,
+        "technical": 4.7
+      },
+      "observations": "The large target circle and two large, widely spaced shape choices are excellent non-reader content. Teacher remains a separate decorative guide rather than visibly presenting the target."
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run01/captures/teacher_match_partial.png",
+      "sha256": "978edb9d09553c3979bb420ce48438ece22eba3199c81469046a139080341e7d",
+      "scores": {
+        "identity": 4.7,
+        "finish": 4.3,
+        "edges": 4.7,
+        "readability": 4.9,
+        "animation": null,
+        "ownership_contact": 4.5,
+        "consistency": 4.0,
+        "technical": 4.7
+      },
+      "observations": "Yellow selection, ring, touch dot and the still-visible source target make the chosen match easy to compare. Actor-to-target ownership remains spatially absent."
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run01/captures/teacher_match_completion.png",
+      "sha256": "dda53b1665feb7b568e597a7948acef53038de5b01f38c6bef5954c2f6079895",
+      "scores": {
+        "identity": 4.8,
+        "finish": 4.4,
+        "edges": 4.7,
+        "readability": 4.9,
+        "animation": null,
+        "ownership_contact": 4.6,
+        "consistency": 4.1,
+        "technical": 4.7
+      },
+      "observations": "Mint card, stars and happy Teacher provide unambiguous success while preserving the source circle for comparison. It remains a polished UI response inside a comparatively flat board rather than a fully integrated painted lesson scene."
+    }
+  ],
+  "strengths": [
+    "Exact circles and triangles remain geometrically accurate, uncluttered and highly readable; they should not be replaced with decorative shells.",
+    "The painted Library is coherent and the Teacher atlas preserves strong Roshan identity across work and cheer poses.",
+    "Selection rings, yellow active fills, mint success fills, checkmarks and stars form a consistent state language.",
+    "No board, caption, card or actor clipping is visible at 1280x720."
+  ],
+  "genuine_below_4_5_rendered_objects": [
+    {
+      "object": "lesson board material and framing",
+      "dimensions": {
+        "finish": "4.1-4.4",
+        "consistency": "3.9-4.1"
+      },
+      "evidence": "Across all twelve stills, a very large flat cream panel and gray/white UI cards cover most of a richly painted Library. Shapes are strong instructional geometry, but their containing surface has little storybook material or authored classroom detail.",
+      "reuse_first_proposal": "Retain the exact current board bounds, shape geometry, answer spacing and color-state semantics. Inventory existing approved cream/navy StorybookUI frames or painted Library board trim for a non-destructive framing/material layer; do not replace the mathematical shapes."
+    },
+    {
+      "object": "Teacher instructional pose ownership",
+      "dimensions": {
+        "ownership_contact": "3.8-4.0 in intro stills"
+      },
+      "evidence": "The live work pose holds its pointer upright at screen left and does not aim into the board, source item, join control or choices.",
+      "reuse_first_proposal": "Reuse a source-supported Teacher atlas pointer cell only where its direction aligns with the actual target, or retain the actor and use the existing procedural target ring as the object-bound pointer. Do not cycle unrelated pointer-direction cells."
+    },
+    {
+      "object": "COUNT and ADD small pearl groups",
+      "dimensions": {
+        "readability": "4.3-4.4 in COUNT intro/partial",
+        "finish": "4.1-4.2"
+      },
+      "evidence": "Answer pearls are approximately icon-sized inside very large cards and use simple flat circles, creating weak visual weight compared with the cards and painted actor.",
+      "reuse_first_proposal": "Keep exact quantities and one-finger card hit regions. Reuse the existing pearl drawing at a larger visual scale with slightly stronger painted highlight/value bands before commissioning new art."
+    },
+    {
+      "object": "upper-right help/replay icon",
+      "dimensions": {
+        "identity": 3.8,
+        "readability": 3.8
+      },
+      "evidence": "The small purple question/loop symbol with gold accents is visible in every state but its action is not self-evident from the still.",
+      "reuse_first_proposal": "Preserve its large invisible/declared touch target and existing voice behavior; compare approved replay/listen icons already used elsewhere before drawing a new symbol. Mounted child/device evidence is required for any replacement choice."
+    }
+  ],
+  "acceptance": {
+    "art_quality_4_5_game_wide": false,
+    "animation_quality": null,
+    "target_phone": null,
+    "child_or_owner": null,
+    "required_next_evidence": [
+      "Natural-navigation Mobile capture proving the configured shortcut did not hide a launch or return composition defect.",
+      "Normal-time video or sufficiently sampled sequence for work-pose transition, selection feedback, cheer and settle cadence.",
+      "Target-phone review of small pearl groups, help icon and text-free voice/pointer comprehension.",
+      "Reaudit any reuse-first board, actor alignment, pearl-scale or help-icon repair in all four lesson states."
+    ]
+  },
+  "publication_note": "Capture and run paths mapped to exact-byte public archive. Original raw run manifests preserve capture-machine paths. Source hashes retain their original before/after authority; these are bounded still reviews, not game-wide acceptance."
+}

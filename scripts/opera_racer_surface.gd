@@ -378,13 +378,18 @@ func _draw_car(state: Dictionary, driver: Texture2D, is_player: bool) -> void:
 	# Flat side-view artwork stays upright. Mirror the complete kart/driver
 	# group at bends; never turn a painted mermaid upside down.
 	draw_set_transform(at, 0.0, Vector2(depth * 1.7, depth * 0.36))
-	draw_circle(Vector2(0, 5), 27.0, Color(0.12, 0.10, 0.25, 0.24))
+	# Keep the contact ellipse under the full 150 px kart footprint.
+	draw_circle(Vector2(0, 7), 38.0, Color(0.12, 0.10, 0.25, 0.24))
 	var hop := sin(clampf(float(state.get("hop", 0.0)) / 0.22, 0.0, 1.0) * PI) * 10.0
 	draw_set_transform(at - Vector2(0, hop * depth), 0.0, Vector2(direction * depth, depth))
 	if driver != null:
-		# Show the authored upper body inside the cockpit. The kart occludes
-		# the waist; the source cutout and its proportions stay unchanged.
-		draw_texture_rect_region(driver, Rect2(-40, -107, 86, 50.39), Rect2(0, 0, 512, 300))
+		# Crop to the occupied head/shoulder/hand area before scaling. This keeps
+		# the actor readable without mounting a second full body or tail in the
+		# cockpit; the kart continues to occlude the lower edge naturally.
+		var driver_source := Rect2(70, 10, 380, 290)
+		var driver_y := -123.0 if is_player else -134.0
+		var driver_dest := Rect2(-50, driver_y, 100, 76.32)
+		draw_texture_rect_region(driver, driver_dest, driver_source)
 	if _kart_art != null:
 		draw_texture_rect(_kart_art, Rect2(-75, -109, 150, 150), false)
 	if _wheel_art != null:
@@ -413,7 +418,8 @@ func _draw_car(state: Dictionary, driver: Texture2D, is_player: bool) -> void:
 
 func _draw_race_controls() -> void:
 	for lap in range(Driving.LAPS):
-		var center := Vector2(66 + lap * 88, 68)
+		# Keep both lap flags beyond the shared upper-left back button.
+		var center := Vector2(190 + lap * 88, 68)
 		var done := float(kart["s"]) >= float(lap + 1) * LAP_DISTANCE
 		draw_circle(center, 35, Color("#52406f"))
 		draw_circle(center, 29, Color("#ffe2a0") if done else Color("#e7ddef"))

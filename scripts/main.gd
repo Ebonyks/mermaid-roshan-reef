@@ -30,9 +30,10 @@ const DAY_ONE_ROUTE_PREVIEW_TEXTURES: Dictionary = {
 	"playroom": "res://assets/flats/castle/rooms/room_playroom.png",
 	"craft_room": "res://assets/flats/castle/rooms/room_craft_room.png",
 	# Royal Hall is an event-only portal, so its card uses the approved main-hall
-	# image as the doorway preview rather than pretending it is an elevator room.
+	# image as the physical doorway preview.
 	"__royal_hall": "res://assets/flats/castle/rooms/room_main_hall.png",
 }
+const NavigationControllerLogic = preload("res://scripts/navigation_controller.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -407,6 +408,9 @@ var _day_one_draft_boss_transition_pending: bool = false
 var _day_one_pool_route_button: Button = null
 var _day_one_room_handoff_target := ""
 var _day_one_room_handoff_source := ""
+var navigation_idle_seconds: float = 0.0
+var navigation_attention_blocks: int = 0
+var navigation_held_touches: Dictionary = {}
 var _day_one_bathroom_controls_suspended: bool = false
 var _day_one_bathroom_control_state: Array[Dictionary] = []
 var _day_one_bathroom_menu_was_open: bool = false
@@ -637,8 +641,8 @@ var hit_engines: Array = []
 # hit_engines — the castle owns its own touch path; this instance supplies
 # the pop-chain, pips and feel to the dust-bunny pops there.
 var castle_dust_he: HitEngine = null
-# Daddy Mermaid's castle partner bubble (combat wing): staged in by the
-# child's first bunny pop each visit, torn down with the castle.
+# Daddy Mermaid's dormant partner-assist state is staged by the child's first
+# bunny pop each visit and torn down with the castle. It draws no overlay.
 var castle_partner: PartnerAssist = null
 var touch_focus_id := ""
 var touch_focus_ready := false
@@ -702,10 +706,14 @@ var streak_ctx := "none"       # "sea" | "sky" | "off" — restyled when it chan
 var surf_rings: Array = []     # pooled expanding rings on the water underside
 var ring_cool := 0.0
 var flag_sh: Shader = null
+var navigation_layer: CanvasLayer = null
+var global_navigation_button: Button = null
+var navigation_root_id := ""
+var navigation_routes: Array[Dictionary] = []
 var pause_layer: CanvasLayer
 var pause_panel: Control
 var pause_dim: ColorRect = null      # full-screen cool dim under the pause panel
-var pause_gear_btn: Button = null    # top-right pause button (128 hit / 112 visual)
+var pause_gear_btn: Button = null    # compatibility alias for global_navigation_button
 var pause_grid: GridContainer = null # secondary icon tiles (probe-checked sizes)
 var pause_resume_btn: Button = null
 var pause_leave_btn: Button = null
@@ -862,6 +870,7 @@ func _refresh_joy_mapped() -> void:
 			joy_has_unmapped = true
 
 func _input(ev: InputEvent) -> void:
+	_navigation_ref().observe_input(ev)
 	# OS focus/background notifications are independently nested. Never let
 	# delayed platform traffic rebuild Melody's entry-source census, and never
 	# route a live Melody stage until every loss reason and its first-active-tick
@@ -2982,6 +2991,8 @@ func _start_fairy_conservatory_handoff_now(
 		_end_fairy_conservatory_handoff("back")
 		return
 	fairy_conservatory_handoff = (script_value as Script).new() as RefCounted
+	_navigation_push("fairy_conservatory", self,
+		Callable(self, "_end_fairy_conservatory_handoff"))
 	var started: Variant = fairy_conservatory_handoff.call("start", self,
 		Callable(self, "_end_fairy_conservatory_handoff"), returning_from_butterfly)
 	if started is bool and not bool(started):
@@ -3039,6 +3050,7 @@ func _end_fairy_conservatory_handoff(result: Variant = "back") -> void:
 	if fairy_conservatory_closing:
 		return
 	fairy_conservatory_closing = true
+	_navigation_remove("fairy_conservatory")
 	var outcome := String(result)
 	var handoff := fairy_conservatory_handoff
 	fairy_conservatory_handoff = null
@@ -3448,7 +3460,7 @@ func _start_opera() -> void:
 				"opera_chapter_two_open")
 		else:
 			show_msg("Pearl Opera House",
-				"The grand foyer is open! Ride a bubble lift and swim into a glowing show door!",
+				"The grand foyer is open! Tap a glowing show door!",
 				"home")
 
 
@@ -4523,6 +4535,17 @@ func _restore_slide_canvas_input_context(reason: StringName) -> void:
 
 
 func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		navigation_attention_blocks |= 1
+	elif what == NOTIFICATION_APPLICATION_PAUSED:
+		navigation_attention_blocks |= 2
+	elif what == NOTIFICATION_APPLICATION_FOCUS_IN:
+		navigation_attention_blocks &= ~1
+	elif what == NOTIFICATION_APPLICATION_RESUMED:
+		navigation_attention_blocks &= ~2
+	if navigation_attention_blocks != 0 and _navigation_controller != null:
+		navigation_held_touches.clear()
+		_navigation_controller.reset_attention()
 	match what:
 		NOTIFICATION_APPLICATION_FOCUS_OUT:
 			_lose_melody_input_context(MELODY_CONTEXT_FOCUS)
@@ -4564,6 +4587,22 @@ func _add_won_star(fr: Dictionary) -> void:
 # the pause menu overlay lives in scripts/pause_menu.gd
 # (state stays here; PauseMenu receives main by reference)
 var _pause_menu: PauseMenu = null
+var _navigation_controller: NavigationController = null
+
+func _navigation_ref() -> NavigationController:
+	if _navigation_controller == null:
+		_navigation_controller = NavigationControllerLogic.new(self)
+	return _navigation_controller
+
+func _navigation_set_root(route_id: String) -> void:
+	_navigation_ref().set_root(route_id)
+
+func _navigation_push(route_id: String, owner: Object,
+		close_action: Callable) -> void:
+	_navigation_ref().push(route_id, owner, close_action)
+
+func _navigation_remove(route_id: String) -> void:
+	_navigation_ref().remove(route_id)
 
 func _pause_ref() -> PauseMenu:
 	if _pause_menu == null:
@@ -4580,10 +4619,9 @@ func toggle_pause() -> void:
 
 
 func _sync_pause_surface_layer() -> void:
-	# The shipped Castle owns opaque CanvasLayer 14. Keep the phone's pause
-	# affordance above its layer-15 ambient accents. During Opera it sits above
-	# the layer-10 career, layer-11 ambient accents and layer-12 caption HUD.
-	# An opened pause sheet still owns layer 29 beneath the layer-30 fade.
+	# The settings sheet still follows its activity surface. Persistent Back/Menu
+	# navigation lives on its own layer and syncs even while the tree is paused.
+	_pause_ref().sync_global_navigation()
 	if pause_layer == null or get_tree().paused:
 		return
 	var castle_front := castle_room_layer != null \
@@ -5443,6 +5481,12 @@ func _on_touch_world(screen_pos: Vector2) -> void:
 		# (2026-08-02 boss stress test).
 		_game_obj("dustboss", DustBossGame).on_world_tap(screen_pos)
 		return
+	if game != "" and game != "level2" and touch_ui != null:
+		# Button-free activity language: tap the visible play scene to perform
+		# its contextual jump/boost/use action. Direct enemy and authored-object
+		# taps above retain first claim.
+		touch_ui.pulse_context_action(screen_pos)
+		return
 	_interaction_ref().on_world_touch(screen_pos)
 
 # The live hit-engine client, if a battle is running: a standalone arena
@@ -6000,6 +6044,7 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 		touch_interactables.clear()
 		_set_objective("", null, "")
 		_collection_ref().tick(0.0, player.position)
+		_navigation_set_root("sky_lagoon")
 		return
 	_build_pearl_castle(LEVEL2_POS)
 	if is_night:
@@ -7039,7 +7084,7 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 	var entry_hint := \
 		"Follow the one golden rainbow door! Foggy doors are resting until it is their turn." \
 		if day_one_is_active() \
-		else "Touch a picture door or the shell elevator to visit a room!"
+		else "Touch a picture door to visit a room!"
 	if fairy_revealed_now:
 		show_msg("Pearl Castle",
 			"The castle found a secret sky door! Touch the shining pearl!",
@@ -7424,8 +7469,6 @@ func _open_day_one_art_studio() -> bool:
 	_day_one_art_studio = DayOneArtStudioLogic.new() as DayOneArtStudio
 	castle_room_stage.add_child(_day_one_art_studio)
 	_day_one_art_studio.setup(self)
-	if castle_room_action_button != null:
-		castle_room_action_button.visible = false
 	return true
 
 
@@ -7790,12 +7833,12 @@ func _sync_day_one_bathroom_cleanup() -> void:
 			and _day_one_ref().is_room_completed("bathroom")
 	if not should_show:
 		_clear_day_one_bathroom_cleanup()
-		if castle_room_id != "bubble_bath":
-			_clear_day_one_pool_route()
+		# _sync_day_one_pool_route owns handoff teardown for every room.
+		# Clearing here each tick would restart the shared arrow idle timer.
 		if bathroom_route_owned:
 			# The cleanup/movie owns navigation only while the rescue is live. Once
-			# the bathroom is complete, a revisit is a real room: keep Back and the
-			# elevator actionable so the pool picture cannot become a one-way exit.
+			# the bathroom is complete, a revisit is a real room: keep global Back and
+			# the shared next-room arrow actionable so it cannot become a one-way exit.
 			_restore_day_one_bathroom_controls()
 		else:
 			_restore_day_one_bathroom_controls()
@@ -7981,13 +8024,11 @@ func _show_day_one_pool_route() -> void:
 	if _day_one_bathroom_movie_handoff_pending \
 			or _day_one_bathroom_movie_is_playing():
 		return
-	# The pool picture is still a Day One bathroom-owned presentation. Keep the
-	# generic action/elevator controls out of its touch area until the picture is
-	# consumed and show_room() transfers ownership to the next room.
-	_suspend_day_one_bathroom_controls()
+	# The shared arrow takes the child to the pool after the movie completes.
+	_restore_day_one_bathroom_controls()
 	if _day_one_pool_route_button != null \
 			and is_instance_valid(_day_one_pool_route_button):
-		_day_one_pool_route_button.visible = true
+		_navigation_ref().sync_button()
 		return
 	_show_day_one_room_handoff("mermaid_pool", "day_one_pool_ready")
 
@@ -7997,89 +8038,28 @@ func _show_day_one_room_handoff(target_room: String,
 	if not day_one_is_active() or castle_room_stage == null \
 			or not is_instance_valid(castle_room_stage):
 		return false
-	var preview_path: String = String(
-		DAY_ONE_ROUTE_PREVIEW_TEXTURES.get(target_room, ""))
-	if preview_path.is_empty() or not ResourceLoader.exists(preview_path):
-		# A missing approved preview must fail closed rather than expose an
-		# invisible button or a voice-only objective.
+	if target_room not in ["mermaid_pool", "playroom", "craft_room", "__royal_hall"]:
 		return false
-	# Hide the elevator/back/action controls before the card enters the stage so
-	# the route target is the sole actionable handoff in its same-frame window.
-	_suspend_day_one_bathroom_controls()
+	var button: Button = global_navigation_button
+	if button == null or not is_instance_valid(button):
+		return false
 	_clear_day_one_pool_route()
 	_castle_rooms_ref().restore_day_one_handoff_view()
-	var card_size := Vector2(420.0, 278.0)
-	if target_room == "__royal_hall":
-		card_size = Vector2(560.0, 330.0)
-	var card := Button.new()
-	card.name = "DayOneRouteCard"
-	card.text = ""
-	card.tooltip_text = "Tap the glowing picture"
-	card.position = (StorybookUI.CANVAS_SIZE - card_size) * 0.5
-	card.size = card_size
-	card.z_index = 44
-	card.focus_mode = Control.FOCUS_NONE
-	card.mouse_filter = Control.MOUSE_FILTER_STOP
-	card.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	card.set_meta("day_one_route_handoff", true)
-	card.set_meta("day_one_route_source", castle_room_id)
-	card.set_meta("day_one_route_target", target_room)
-	card.set_meta("route_preview_asset", preview_path)
-	card.set_meta("route_preview_kind", "royal_hall_portal" \
-		if target_room == "__royal_hall" else "next_plot_room")
-	card.set_meta("action_path", "royal_hall_portal" \
-		if target_room == "__royal_hall" else "castle_room")
-	card.set_meta("semantic_voice_key", voice_key)
-	card.set_meta("real_navigation_control", true)
-	card.set_meta("target_on_screen", true)
-	card.set_meta("target_unobscured", true)
-	card.set_meta("actionable_target", true)
-	card.pressed.connect(_open_day_one_room_route.bind(target_room))
-	var frame := StyleBoxFlat.new()
-	frame.bg_color = Color(0.98, 0.95, 0.82, 0.98)
-	frame.border_color = StorybookUI.GOLD
-	frame.set_border_width_all(6)
-	frame.set_corner_radius_all(24)
-	card.add_theme_stylebox_override("normal", frame)
-	card.add_theme_stylebox_override("hover", frame)
-	card.add_theme_stylebox_override("pressed", frame)
-	card.add_theme_stylebox_override("focus", frame)
-	var picture := TextureRect.new()
-	picture.name = "ApprovedRoomPreview"
-	picture.texture = load(preview_path) as Texture2D
-	picture.position = Vector2(24.0, 24.0)
-	picture.size = Vector2(card_size.x - 48.0, card_size.y - 70.0)
-	picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	picture.set_meta("approved_reused_room_imagery", true)
-	picture.set_meta("actual_destination_room", target_room)
-	card.add_child(picture)
-	var hand := Sprite2D.new()
-	hand.name = "DayOneRouteGhostHand"
-	hand.texture = load("res://assets/castle/training/ghost_hand.png") as Texture2D
-	hand.position = Vector2(card_size.x - 42.0, 18.0)
-	hand.scale = Vector2.ONE * 0.15
-	hand.z_index = 2
-	hand.modulate = Color(1.0, 1.0, 1.0, 1.0)
-	hand.set_meta("visual_pointer", true)
-	hand.set_meta("pointer_alpha", hand.modulate.a)
-	hand.set_meta("pointer_visible", true)
-	hand.set_meta("target_on_screen", true)
-	hand.set_meta("target_unobscured", true)
-	hand.set_meta("actionable_target", true)
-	card.add_child(hand)
-	var pointer_tween: Tween = hand.create_tween().set_loops()
-	pointer_tween.tween_property(hand, "position:y", 34.0, 0.42) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	pointer_tween.tween_property(hand, "position:y", 18.0, 0.42) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	castle_room_stage.add_child(card)
-	_day_one_pool_route_button = card
+	_restore_day_one_bathroom_controls()
+	# The persistent arrow owns this handoff; no destination picture covers play.
+	_day_one_pool_route_button = button
 	_day_one_room_handoff_target = target_room
 	_day_one_room_handoff_source = castle_room_id
-	show_msg("Roshan", "Tap the glowing picture to go to the next room!",
-		voice_key)
+	button.set_meta("day_one_route_target", target_room)
+	button.set_meta("day_one_route_handoff", true)
+	button.set_meta("actionable_target", true)
+	button.set_meta("target_unobscured", true)
+	# Preserve existing recordings, but never direct the child to a removed door.
+	var cue: String = "day_one_pool_ready" if voice_key == "day_one_pool_ready" \
+		else "day_one_room_clean"
+	button.set_meta("semantic_voice_key", cue)
+	_navigation_ref().begin_handoff()
+	show_msg("Roshan", "Tap the back arrow to go to the next room!", cue)
 	return true
 
 
@@ -8127,9 +8107,7 @@ func _sync_day_one_pool_route() -> void:
 	var voice_key := "day_one_new_door"
 	if castle_room_id == "bubble_bath" \
 			and director.is_room_completed("bathroom") \
-			and director.current_room_id == "pool" \
-			and _day_one_pool_route_button != null \
-			and is_instance_valid(_day_one_pool_route_button):
+			and director.current_room_id == "pool":
 		target_room = "mermaid_pool"
 		voice_key = "day_one_pool_ready"
 	elif castle_room_id == "mermaid_pool" \
@@ -8149,15 +8127,14 @@ func _sync_day_one_pool_route() -> void:
 		_clear_day_one_pool_route()
 		_restore_day_one_bathroom_controls()
 		return
-	_suspend_day_one_bathroom_controls()
+	_restore_day_one_bathroom_controls()
 	if _day_one_pool_route_button == null \
 			or not is_instance_valid(_day_one_pool_route_button) \
 			or _day_one_room_handoff_target != target_room \
 			or _day_one_room_handoff_source != castle_room_id:
 		_show_day_one_room_handoff(target_room, voice_key)
 	else:
-		_day_one_pool_route_button.visible = true
-		_day_one_pool_route_button.modulate.a = 1.0
+		_navigation_ref().sync_button()
 
 
 func _day_one_bathroom_movie_is_playing() -> bool:
@@ -8173,10 +8150,6 @@ func _day_one_bathroom_navigation_controls() -> Array[Control]:
 	var candidates: Array[Node] = [
 		castle_room_action_button,
 		castle_room_back_button,
-		castle_room_stage.get_node_or_null("ElevatorButton") \
-			if castle_room_stage != null else null,
-		castle_room_stage.get_node_or_null("ElevatorPointer") \
-			if castle_room_stage != null else null,
 		castle_room_menu_panel,
 	]
 	for candidate: Node in candidates:
@@ -8231,15 +8204,17 @@ func _restore_day_one_bathroom_controls() -> void:
 
 
 func _clear_day_one_pool_route() -> void:
+	# This reference aliases the global control: never free the persistent arrow.
 	if _day_one_pool_route_button != null \
 			and is_instance_valid(_day_one_pool_route_button):
-		# The handoff is replaced synchronously when a completion advances the
-		# route. Freeing the transient card now prevents a stale same-name card
-		# from remaining actionable or obscuring the new target for one frame.
-		_day_one_pool_route_button.free()
+		_day_one_pool_route_button.remove_meta("day_one_route_target")
+		_day_one_pool_route_button.remove_meta("day_one_route_handoff")
+		_day_one_pool_route_button.remove_meta("semantic_voice_key")
 	_day_one_pool_route_button = null
 	_day_one_room_handoff_target = ""
 	_day_one_room_handoff_source = ""
+	if _navigation_controller != null:
+		_navigation_controller.end_handoff()
 
 
 func _open_day_one_pool_route() -> void:
@@ -8352,17 +8327,20 @@ func _day_one_play_draft_movie(movie_id: String) -> bool:
 		as DayOneDraftMovies
 	if _day_one_draft_movie_layer == null or not is_instance_valid(_day_one_draft_movie_layer):
 		_day_one_draft_movie_layer = CanvasLayer.new()
-		_day_one_draft_movie_layer.layer = 100
+		# Draft video stays below the game-wide upper-left Back control (29).
+		_day_one_draft_movie_layer.layer = 28
 		add_child(_day_one_draft_movie_layer)
 	_day_one_draft_movie_layer.add_child(preview)
 	if not preview.setup(movie_id):
 		preview.queue_free()
 		return false
+	_navigation_push("day_one_draft_movie", preview, Callable(preview, "skip"))
 	_day_one_draft_movie = preview
 	_day_one_draft_movie_seen[movie_id] = true
 	if movie_id == "D1-C03":
 		_day_one_bathroom_entry_movie_checked = true
 	preview.finished.connect(func(_id: String, _status: String) -> void:
+		_navigation_remove("day_one_draft_movie")
 		if _day_one_draft_movie == preview:
 			_day_one_draft_movie = null
 			# Defer to consume the skip tap before enabling the next game action.
@@ -9254,6 +9232,10 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 	touch_interactables.clear()
 	lagoon_trip_return_master_x = -1.0
 	game = ""
+	# Sky Lagoon is the navigation root even while Roshan visits the Reef. One
+	# Back press returns from this world layer; the same control then becomes Menu.
+	_navigation_set_root("sky_lagoon")
+	_navigation_push("reef_world", self, Callable(self, "_enter_level2"))
 	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
 		_sky_lagoon_promenade.teardown()
 	g = {}
@@ -9529,7 +9511,7 @@ func _tick_finale(delta: float) -> void:
 
 const HINTS := [
 	"Move with the stick - or the arrow keys!",
-	"Press the big button to swim up!",
+	"Tap the open water to swim up!",
 	"Swim to the glowing light pillars to find friends!"]
 
 func _tick_hints(delta: float) -> void:
@@ -10503,6 +10485,7 @@ func _tick_ocean_return_gate(delta: float, ppos: Vector3) -> bool:
 
 func _process(delta: float) -> void:
 	_sync_pause_surface_layer()
+	_navigation_ref().tick_attention(delta)
 	var slide_canvas_active: bool = _slide_canvas_fish_route_active()
 	var slide_canvas_return_was_active: bool = _slide_canvas_return_guard_active()
 	if slide_canvas_return_was_active:

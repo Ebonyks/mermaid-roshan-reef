@@ -1,0 +1,514 @@
+{
+  "schema": "reef.minigame_art_navigation_validation.v1",
+  "parents": [
+    "9df000999a94572b64537c98f558841f6f3e3260",
+    "a6ffa14d0160ad6830464b73df33e1db20641fa1"
+  ],
+  "engine": "Godot4.7.2-stable",
+  "full_ci": {
+    "exit_code": 0,
+    "trusted_probes": 78,
+    "raw_sha256": "4608a3428b2874d8e9a6e86bfe5781e204a8707397fd2359cbcd0cca7f3e06f9",
+    "readable_normalization": "UTF-8 LF and trailing-whitespace normalization; exact raw bytes retained as gzip"
+  },
+  "profile": "Fresh isolated APPDATA/LOCALAPPDATA/XDG full-ci-attempt08-profile; per-probe child profiles in scripts/ci.sh",
+  "art_registry_records": 89,
+  "quality_status": "UNSATISFIED",
+  "game_wide_acceptance": false,
+  "limitations": [
+    "Headless visual-capture probe skips actual rendered review; full-suite success does not establish art acceptance.",
+    "Target-device, child and owner reviews remain absent."
+  ],
+  "configured_pose_acceptance": "Eleven phase holds, approved carrot reuse, pool sample windows, Teacher pearl sizing and Racer lap-dial separation; current upstream navigation uses the shared Back arrow. Bounded still reviews only, no complete animation/device acceptance",
+  "code_sources": [
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "55e03356298d3f72e014cec9bc12d5783c3edf68a9683146116a55267919131e"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "e0d08f6ef776016f26a7fe5d2f8e8656e2405f4d0a77674133d3b879fb6ac4f7"
+    },
+    {
+      "path": "scripts/attack_customizer.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "d54e8d11f0e9aa31de5a1b74043a1104bea45a80f30e752b7eb044a8e18645da"
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a"
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "81c19514eb2e3ae188c15fb529391640d87f0b5c7921637a24da31c31f33453c"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a"
+    },
+    {
+      "path": "scripts/combat_arena.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "f34cf66ef211c73628bbe21d767beff7f0b404107b7c57011b857df8a605880e"
+    },
+    {
+      "path": "scripts/combat_tutorial.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "b0a77f8d93a369112acf032c9863a95dd822b8e0954382d2b8f9cbd880522e2b"
+    },
+    {
+      "path": "scripts/comfy_games.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "91d826818b00dc782598efe43941949157d1fb9dda2336c065710227e7f627ee"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "f22b6912178cd7d26a2dd7bf06a2bcc38c3f532f64fd5cd7f57c0d8c9e5c54b7"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "3df7d5a00b9190edca4fefda9a5b404143129677c233b781db4f4c2e1a69adc4"
+    },
+    {
+      "path": "scripts/day_one_art_studio.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "f807223e6499a5415ec73010ede763a8535d9fa6eddd66b864f9d997d6be0c79"
+    },
+    {
+      "path": "scripts/day_one_draft_movies.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "6962707f2f2ae486b5e1f90aa8aaaa5ed7e437d985f38eaeebb40804b62a8158"
+    },
+    {
+      "path": "scripts/dungeon_level.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab"
+    },
+    {
+      "path": "scripts/games/dance_engine.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "b38462f71d7d0b215ad8a97df219f296551e40011d721024970c45a41a7da117"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "b753090c65b6cfc2483cb66c47b99b46310caa2a7e7efec131216f704abd13c8"
+    },
+    {
+      "path": "scripts/games/shop.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "feef16a7fc5a47abc51ff39dd4c07a31a2329d2496d5063467bcb5c1b28bfcb0"
+    },
+    {
+      "path": "scripts/interaction_director.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "22d206cc7e278b9e46557f20d358e0fd80b3dec26fae61bf6d2f51aedd86c5ab"
+    },
+    {
+      "path": "scripts/kart.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "478d98770df28ca82e1a7cfdda75b244efd8cce4ce322184e78b4da2e82f02c5"
+    },
+    {
+      "path": "scripts/main.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "074c3c497030beda85fd1b52839a46349948095ff7dc2c8f775a47010634a916"
+    },
+    {
+      "path": "scripts/mic_input.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "02d0af4179486e1a1b43d197917b1eb015caa7ca355cdea9783b281c22810532"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "0daacad2a6e49e18faad7ca18af8d55863ef0b9cf6603f0f310629bda29645a8"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "d7461bff2cc06ac005a529fcc46f90f53b6e2e7052efe8c12c8432e775ff2b5e"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "8cdcb96bb607c62272772c414efe22eab27090cc20c6c8317e9e1f1944816bd3"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "31a4b26ac5eadbef46910a018371e84f362a327c7954707ee57b29f88ad237e3"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba"
+    },
+    {
+      "path": "scripts/opera_teacher_surface.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed"
+    },
+    {
+      "path": "scripts/partner_assist.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "b2450228b9f22d2c6d652b43c6dc577dad8863293a9b2270a4a8d9da76a9dbad"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "fc3c7067f6e8fb6766e548204fb542442854e2f8215427f1f2b0c5b3c73b7fb9"
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "58206e4bedc0d9dc779d290c3e6372a8569653ac4d73ea872f606c27aad9cf77"
+    },
+    {
+      "path": "scripts/probe_castle_canvas2d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "05f44ee6cad2e1a67ba7d3d0ae8afd383d3a120c37429bc49e761a871df22ca8"
+    },
+    {
+      "path": "scripts/probe_castle_pool_life_2d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "f12330462a1d5f615622b0a500f29a5d38c73c0de2d0819a887e69abd53c5365"
+    },
+    {
+      "path": "scripts/probe_combat_tutorial.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "9fd9b82f2accd761a22c77c69fbbb6aae99153665c1dd1f1729aada7751783e0"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_integration.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "68c231bb38fe8555e43f15f9edf580720a840c5b228aebd4a298a7a00850617e"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_shots.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "3ab051bf7597c2bcdc42dc0ce1d55b525473298143a1d9157d070b6e25034806"
+    },
+    {
+      "path": "scripts/probe_day_one_contextual_voice.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "9167f0095236e9966fc53d9ebdab5949d44082e91e6a03c46dd57e770cef1b18"
+    },
+    {
+      "path": "scripts/probe_day_one_d8_revisits.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "a67a1cb3ae225e710cbf326a0e2e6d6f2891e5607fe16df1ec8eb1fc4a50fb23"
+    },
+    {
+      "path": "scripts/probe_day_one_draft_integration.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "80c650688742bf98d582019ca345bc748b3384e1e706f236b9d3151d9790258f"
+    },
+    {
+      "path": "scripts/probe_day_one_draft_movies.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "6154b1f46ebda0cbf78db4da94e0179a074e209bf17bd7424d9ac09e04ae0686"
+    },
+    {
+      "path": "scripts/probe_day_one_handoffs.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "f8a514815e0781951e92cebe7984fe0a3274763a5a8743d7f5fb71cf10d6ee54"
+    },
+    {
+      "path": "scripts/probe_day_one_pool_cleanup.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "61a347551b3ec0a663aabccea1099b48359160019dfa4d544c50af85d52b1d21"
+    },
+    {
+      "path": "scripts/probe_day_one_pool_shots.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "13a642fd87918b01b36433b1dc382d7f5edbda6b6f9a1ae3fcd7a79be81594f6"
+    },
+    {
+      "path": "scripts/probe_dust_boss.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "10ca2aafcde45d4ff0c50371ad2ed5397a32b9895bf41f2ba7d79dc433086090"
+    },
+    {
+      "path": "scripts/probe_fairy_conservatory_handoff.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "3d57dea550657ff8903937dede613bec619919a0bbd3331f99d461cadb17c7ce"
+    },
+    {
+      "path": "scripts/probe_interaction.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "438770ac26e20fc72cab637749e9c1d37584adc93507ad7804a623fa35d7b76b"
+    },
+    {
+      "path": "scripts/probe_kart_feel.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "dd43a16551eef2eba2e203556d30707df48db7f24a38fb907e513417c1161c3f"
+    },
+    {
+      "path": "scripts/probe_l2.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "dff485e0be66fb5a31aa698583d57d0bad0a201730442ba0579e7c11cd924403"
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "3421a4f8f01dd5a250c0c9bd099ef2722afebc5fdfaee653a4b16f1cad8bc806"
+    },
+    {
+      "path": "scripts/probe_mg2d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "3bbc302731abea0a84501d8c6e617af9d35bf048def6ab4600116e4334fdb06c"
+    },
+    {
+      "path": "scripts/probe_opera.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "57ddf41aaf52261744b856bc1eaab44c46c0e27e3f45340f8de229b0b55eda6d"
+    },
+    {
+      "path": "scripts/probe_opera_2d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "73180e76c37a816f2739dceffec6acd84bf97afe4e051106e95d89257b609326"
+    },
+    {
+      "path": "scripts/probe_opera_art.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "24e8e53e588146c4662f177620ba48cdc7bf59d406e9c5326a02e8cc9f6394b4"
+    },
+    {
+      "path": "scripts/probe_partner.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "1309875b832c3f80b5945515148d562145838913bc65d3f54851af6a40cf47a3"
+    },
+    {
+      "path": "scripts/probe_start_menu_routing.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "ff51581aa0bda995f99046d5419a9afe824e82aa223fcd9f2835a98ee65b6aae"
+    },
+    {
+      "path": "scripts/probe_stuffie.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "48e07bf1d79d063b045f856b84fc46d90e2f2a4f7e08e7b17677e443e0964ee9"
+    },
+    {
+      "path": "scripts/probe_throne.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "e1f37bcc4c328caa013d6d24ded2154ce47a5a5f884e5926a2508a1dc0c64a15"
+    },
+    {
+      "path": "scripts/probe_touch_adversary.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "4e83df7b80a294d11ae0cef0492378682b20dde2d2391f424aa67608d1a7cdb9"
+    },
+    {
+      "path": "scripts/probe_touch_router.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "621e8d521aaa7754454d87df9ca0ef6d676f78b7c62d70a9be7ddea914a45ad1"
+    },
+    {
+      "path": "scripts/probe_touch_stress.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "b649406233b65597dfc1418c03531791b7cbe985403302e4e2e64eb7e1007a7e"
+    },
+    {
+      "path": "scripts/probe_ui_system.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "bf520b1bb686f12187ba1bcc3e72329460bb53b771cbef91cc73d503dc17ac90"
+    },
+    {
+      "path": "scripts/stuffie_battle.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4"
+    },
+    {
+      "path": "scripts/tap_move_director.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "dbe2d50e6b0dfb40b0f24f7cc9a73065c267209cd6a399e3fde601af4ce2a263"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "37bad68a79bcf257b44f574f4454aa77b6ce8794f6e70aa022b390bf4533477a"
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "eab02b46ac3d322f295c09c68847ccbecc776378ac4cc15835f4df4f16b215a6"
+    }
+  ],
+  "files": [
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/contract-tests.log",
+      "sha256": "c52be88645b9114c461d2fbf8c977c167762cf59568beb0b2a6358b4ed11899a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/development-contract.log",
+      "sha256": "eea6a14e36bd5771f03af92b29e3955f71b2d5d9068d9d2435abc3ce202d1be7"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/doc-authority.log",
+      "sha256": "e74f392edde22826db52ecfdae58d612a0c00858c0e7d68a13915e008ca32266"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/focused-opera-exit06.log.gz",
+      "sha256": "403793f05fb3b218866b295bdf3d614235944284b08e1aee870916fc22ff49db"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/focused-opera-pose.log",
+      "sha256": "b0461a6cb5dd6bd9ccbdf37721c54f53f897770914421a6549d68906526d6553"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/focused-opera-visual07.log",
+      "sha256": "b0461a6cb5dd6bd9ccbdf37721c54f53f897770914421a6549d68906526d6553"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/focused-picture-chase.log",
+      "sha256": "d8f8dc0e6e51e0dd963cd8cd92705c8661482b75ff3b4d3e4713eef881455263"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/focused-pool-atlas.log",
+      "sha256": "f579e465c0256aefada337ee6d4e529d041eac0735a4445b21ea3761955481f2"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/focused-slide-audit.log",
+      "sha256": "f861ee3f97f98c25cb261cdd0903f1d048f00111f87cfd267a987389f914fe80"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/focused-slide-repair.log",
+      "sha256": "3203574178b2be99d5037f6673d558a053765f2b1c890d59eb59ef1e33dbae1c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt01-typography-fail.log.gz",
+      "sha256": "9aff6ab7c69d5998affe1b7eecda63de81dbe21926459741c0ec598e91da27db"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt02.log.gz",
+      "sha256": "9b99378c5964348047a3b9660f9ed5d467dbef0fd0ebc0aa7e56d93eb364eedd"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt03.disposition.json",
+      "sha256": "616ed0584f141fefcfd6ee40a907d83f9c8060c5b9f8903604942f072120de7f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt03.log.gz",
+      "sha256": "e53ab22d28cee9e166de8ca6d5e0fbe069275650dd176631d5bc94ec7d8c62eb"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt04.disposition.json",
+      "sha256": "1838bb27c4e8dfc5eadf252bfca7173a1ef7475429154d1c77b1c8c4e7f8bd04"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt04.log.gz",
+      "sha256": "26de2f4577725d603c4e95dfc82f7e1de896a953aa6f366d5b79a5ad9de7b0b3"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt05-disposition.json",
+      "sha256": "71803170bc427b9c36de67d6eb99028d752f3492c4ff373a193bc0cd680cc0d8"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt05.log.gz",
+      "sha256": "df410eb1e184e2875b259ab0afd5bd9b8e1ac1eb1690ddfc4b076d376203bbd2"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt06-disposition.json",
+      "sha256": "207a4a5a75eae50b4578d7bff8057cdc17f3f7d8924d34c2e141fdb3d78df041"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt06.log.gz",
+      "sha256": "115f01809a618ab477f033b03b168b7206863ce06da1aee15233c1487431f9c8"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt07-disposition.json",
+      "sha256": "25f7dcaab9548aa92f1499dbc29dab6595b6089c4dd9f32474a2d1a67eeeb5ec"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt07.log.gz",
+      "sha256": "6e0794da7e6ed03c995324665cd74f65d23bb8d54935d671a8d85d165554e1e1"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt08-independent-verification.json",
+      "sha256": "45d1afa8f0b13e6f33f4bea4c0de75e7e0de54c68bcfab53a8b73e6e5de50c60"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt08-result.json",
+      "sha256": "881032fa3c81d3940defb0d3c9764eac25efa14fdc9d271d11b742eb0ba2807e"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt08-runner.py.txt",
+      "sha256": "645c0174ce50d05fecb8aef8d54d916212574a409049fde63a6909a800873e8c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci-attempt08-source-freeze.json",
+      "sha256": "3d1fd7cbf78c4f023895ca9033185718d8028a1c80ef714481d59f11bad7ed4d"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci.log",
+      "sha256": "fdafe161eea48b7cd7b484e54f4a9449663135a295f39033bc7e866e9a880815"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/full-ci.raw.log.gz",
+      "sha256": "5434ef3d8e8b277d80befe7ccbacf3fdc4ff3ef71c27b8fd46383c446b29bcf0"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/inference.log",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/parser.log",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/preseal-document-link-failure.log",
+      "sha256": "3616b5d0b3de008f262a0f44350e0073e9781cd67ff5034577614a4e234828d6"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/raw-log-whitespace-disposition.json",
+      "sha256": "a757979831b23ff60a8cd2267f65c087083a3578854a2d428781b6741cd00c14"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/registry-integrity.log",
+      "sha256": "b20294dae0dca266af974190c68319a3fd114f280dc778bec7d65cdacf3b37e9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/registry-strict.log",
+      "sha256": "b20294dae0dca266af974190c68319a3fd114f280dc778bec7d65cdacf3b37e9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/stress.log",
+      "sha256": "1ac3259643d3d7a2365868fe292bb829e16fe78b9b33cd803a52bae7b7fbf1c9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/typography-recheck.log.gz",
+      "sha256": "ca05e53f4eb4d000f5c2f9ff97d2f50ed7d343648b5702bf17666017ff9d3081"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/typography-recheck2.log",
+      "sha256": "153d8f49f807c1baa50fa6b9deba699f5fc0bfcb75bada2eca54de0bc3a20ae7"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/navigation-reconciled/unit-tests.log",
+      "sha256": "aa28cbd0cc7e59cda0c8249bb2c250e8bfc861c3ce1831d43d6a8cab16abc8de"
+    }
+  ]
+}

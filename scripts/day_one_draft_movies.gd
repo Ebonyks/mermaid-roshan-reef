@@ -13,7 +13,6 @@ const MOVIE_IDS: Array[String] = [
 
 var movie_id: String = ""
 var player: VideoStreamPlayer = null
-var skip_button: Button = null
 var _finished: bool = false
 var _previous_paused: bool = false
 var _pause_owned: bool = false
@@ -87,16 +86,6 @@ func setup(id: String) -> bool:
 	player.stream = resource as VideoStream
 	player.finished.connect(_finish.bind("finished"), CONNECT_ONE_SHOT)
 	aspect.add_child(player)
-	# Full-frame transparent tap target: review clips must always be escapable.
-	skip_button = Button.new()
-	skip_button.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	skip_button.flat = true
-	skip_button.focus_mode = Control.FOCUS_NONE
-	skip_button.mouse_default_cursor_shape = Control.CURSOR_ARROW
-	skip_button.modulate.a = 0.01
-	skip_button.process_mode = Node.PROCESS_MODE_ALWAYS
-	skip_button.pressed.connect(skip)
-	add_child(skip_button)
 	_timeout = Timer.new()
 	_timeout.one_shot = true
 	_timeout.wait_time = 120.0

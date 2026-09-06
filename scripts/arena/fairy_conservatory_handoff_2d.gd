@@ -50,7 +50,6 @@ var _house: Sprite2D = null
 var _roshan: Sprite2D = null
 var _pointer: Sprite2D = null
 var _house_button: Button = null
-var _back_button: Button = null
 var _tiles: Array[Sprite2D] = []
 var _state := "rainbow_stage"
 var _waypoint_index := 0
@@ -133,7 +132,6 @@ func teardown() -> void:
 	_roshan = null
 	_pointer = null
 	_house_button = null
-	_back_button = null
 	_tiles.clear()
 	_finish_cb = Callable()
 	_main = null
@@ -177,7 +175,7 @@ func audit_snapshot() -> Dictionary:
 		"pointer_is_sprite2d": _pointer != null,
 		"has_house_hotspot": _house_button != null,
 		"house_hotspot_size": _house_button.size if _house_button != null else Vector2.ZERO,
-		"has_back_button": _back_button != null,
+		"uses_global_navigation": true,
 		"no_fail_state": true,
 		"has_timer": false,
 		"uses_spatial_runtime": false,
@@ -210,16 +208,6 @@ func _make_sprite(node_name: String, path: String) -> Sprite2D:
 
 
 func _build_navigation() -> void:
-	_back_button = Button.new()
-	_back_button.name = "HandoffBack"
-	_back_button.position = Vector2(28.0, 24.0)
-	_back_button.size = Vector2(148.0, 112.0)
-	_back_button.text = "←"
-	_back_button.tooltip_text = "Back to the castle"
-	_back_button.focus_mode = Control.FOCUS_NONE
-	_back_button.pressed.connect(_finish.bind("back"))
-	_root.add_child(_back_button)
-
 	_house_button = Button.new()
 	_house_button.name = "ButterflyHouseHotspot"
 	_house_button.position = HOUSE_HOTSPOT.position
@@ -267,9 +255,6 @@ func _layout_world() -> void:
 	if _pointer != null:
 		_pointer.z_index = 8
 		_pointer.scale = Vector2.ONE * 0.12
-	if _back_button != null:
-		_back_button.position = _world.position + Vector2(28.0, 24.0) * fit_scale
-		_back_button.size = Vector2(148.0, 112.0) * fit_scale
 	if _house_button != null:
 		_house_button.position = _world.position + HOUSE_HOTSPOT.position * fit_scale
 		_house_button.size = Vector2(

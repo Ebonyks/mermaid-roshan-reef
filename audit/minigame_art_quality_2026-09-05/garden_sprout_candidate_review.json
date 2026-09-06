@@ -1,0 +1,147 @@
+{
+  "review_id": "garden-sprout-attempt02-03-source-review",
+  "scope": "Independent source-pixel review of Garden sprout attempt02 and the subsequent transparency-only attempt03, compared with the live k_sprout and the bound approved Farmer/coral-flower style references. Scores cover visible illustration qualities only. Both candidates remain strict technical rejects: 1254x1254 RGB files with baked checkerboard, no alpha, no runtime mounting, and no phone or animation evidence.",
+  "reference_evidence": [
+    {
+      "path": "assets/mg/k_sprout.png",
+      "sha256": "d7542d8d812a28ddce435c8acf3a103df85e5af59178ad05c9bdb5fef1ed0926",
+      "role": "live weak target",
+      "finding": "Simple gradient leaves, flat-cut stem and oval soil pad establish the basic two-leaf state but provide little painted material depth or botanical specificity."
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_farmer.png",
+      "sha256": "c7d0fbc58b2f67a4962a86ae10dc68c9e810e43f097db903693e213d750a74f9",
+      "role": "approved Farmer style reference",
+      "finding": "Warm storybook rendering, visible brush/value variation, brown/navy contour, rounded readable shapes and natural produce materials support the intended finish direction."
+    },
+    {
+      "path": "assets/props/story/flower_coral.png",
+      "sha256": "816c23a8a51e20ff9837cbbe7631375178b7bda0f3ed9d0a807cbfd23403d724",
+      "role": "approved possible mature-flower reference",
+      "finding": "Clean rooted coral flower with broad value bands and stronger navy contour. It is useful family context, but its exposed roots, slimmer stem and flatter leaf treatment differ from the candidate's soil mound and soft brown outline."
+    }
+  ],
+  "attempt02": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/garden-sprout-attempt02/native.png",
+    "sha256": "7632396298af15b08121b734d6a0d853a5fd33d69037df5915805054b72a9b97",
+    "dimensions": [1254, 1254],
+    "mode": "RGB",
+    "prompt_sha256": "b4e87c0cc04ed608fa684f3eab8a2ffe65db1a45e6a621a5fbeb9365e7cefea9",
+    "source_scores_1_to_5": {
+      "identity": {
+        "score": 4.7,
+        "reason": "Two cotyledon-like leaves, a short upright stem and a compact soil mound read immediately as one young seedling rather than a mature flower or magical cue."
+      },
+      "finish": {
+        "score": 4.6,
+        "reason": "Leaves, stem and soil have layered painterly color, soft value turns, small earthen stones and controlled highlights that materially exceed the live flat-gradient sprout."
+      },
+      "visible_contour": {
+        "score": 4.5,
+        "reason": "The brown outline is complete and broadly smooth around both leaves, stem and mound at native scale. True cutout edge quality cannot be scored because the surrounding checkerboard is baked RGB rather than alpha."
+      },
+      "source_readability": {
+        "score": 4.8,
+        "reason": "The asymmetric two-leaf silhouette, central growing tip and wide low mound stay clear against the light checker field. Mounted 148x148 and phone readability remain unassessed rather than scored down."
+      },
+      "botanical_sprout_meaning": {
+        "score": 4.6,
+        "reason": "Attempt02 replaces attempt01's blunt cut stump with a short tapered emerging tip continuous with the stem. The tip reads as new growth without becoming an extra leaf or flower bud."
+      },
+      "mound_anchor": {
+        "score": 4.7,
+        "reason": "The stem visibly enters a broad textured soil mound with an uncut, weight-bearing base; this is much more grounded than the live oval pad. Runtime overlap with the existing Garden pot/soil composition is unassessed."
+      },
+      "farmer_style_consistency": {
+        "score": 4.5,
+        "reason": "Warm soil, visible painted strokes, rounded child-readable forms and restrained mint/aqua/lavender shading align well with the Farmer reference's storybook material treatment."
+      },
+      "candidate_mature_family_consistency": {
+        "score": 4.2,
+        "reason": "Palette and broad leaf language can coexist with the coral flower, but the sprout uses a softer brown contour, thicker succulent stem and integral mound while the mature reference has a navy contour, slim stem and exposed roots. A coordinated five-flower family does not yet exist to prove continuity."
+      },
+      "technical": {
+        "score": null,
+        "status": "FAIL",
+        "reason": "The file is RGB with baked checkerboard and has no alpha channel. At 1254x1254 it is NPOT and exceeds the 1024-pixel runtime longest-side rule."
+      },
+      "animation_contact_runtime": {
+        "score": null,
+        "reason": "No runtime or temporal evidence exists."
+      }
+    },
+    "disposition": "BEST_ILLUSTRATION_SOURCE_OF_THREE__REJECT_RUNTIME"
+  },
+  "attempt03": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/garden-sprout-attempt03/native.png",
+    "sha256": "73fa7996a1aa54aa681c847733a01cfcaea3cd4d33b34abda6c4289cc7ce1b5a",
+    "dimensions": [1254, 1254],
+    "mode": "RGB",
+    "prompt_sha256": "4f2499a2008eb44cceef75f9a655a9dd4d29b72ae3efbda674a76f08744a820a",
+    "source_scores_1_to_5": {
+      "identity": {
+        "score": 4.7,
+        "reason": "The same two-leaf seedling and growing tip remain intact and immediately readable."
+      },
+      "finish": {
+        "score": 4.5,
+        "reason": "Painted leaf and soil detail remain strong, but the extraction retry visibly shifts the leaf highlights toward brighter yellow-lime and increases contrast rather than preserving attempt02 exactly."
+      },
+      "visible_contour": {
+        "score": 4.5,
+        "reason": "The visible brown contour remains complete at native scale; actual alpha-edge quality is unavailable because the output is still RGB checkerboard."
+      },
+      "source_readability": {
+        "score": 4.8,
+        "reason": "Broad leaves, tip and mound remain clear at source scale."
+      },
+      "botanical_sprout_meaning": {
+        "score": 4.6,
+        "reason": "The corrected tapered growing tip is retained without adding a flower or third leaf."
+      },
+      "mound_anchor": {
+        "score": 4.7,
+        "reason": "The compact soil base remains visually complete and weight-bearing."
+      },
+      "farmer_style_consistency": {
+        "score": 4.3,
+        "reason": "The warmer soil still fits, but the stronger neon yellow-lime leaf highlights drift farther from the restrained Farmer/coral palette than attempt02."
+      },
+      "candidate_mature_family_consistency": {
+        "score": 4.0,
+        "reason": "Increased lime saturation widens the palette/material gap from the approved coral mature flower; the missing coordinated mature family remains unresolved."
+      },
+      "technical": {
+        "score": null,
+        "status": "FAIL",
+        "reason": "The transparency-only request again returned RGB checkerboard with no alpha; 1254x1254 is NPOT and exceeds the runtime size rule."
+      },
+      "animation_contact_runtime": {
+        "score": null,
+        "reason": "No runtime or temporal evidence exists."
+      }
+    },
+    "disposition": "REJECT_RUNTIME_AND_DO_NOT_PREFER_OVER_ATTEMPT02"
+  },
+  "attempt01_history": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/garden-sprout-attempt01/native.png",
+    "sha256": "c79f975bde3d06ef9f4999bfa3fdaa9f0f8fbde0589e96dcc5c91b5ad985ce14",
+    "dimensions": [1254, 1254],
+    "mode": "RGB",
+    "status": "REJECTED_RUNTIME_RGB_CHECKERBOARD_AND_BLUNT_STEM",
+    "relationship": "Attempt02 is visually preferable because it makes the requested small botanical correction while retaining the two-leaf identity and mound."
+  },
+  "hard_failures_all_attempts": [
+    "Every native is 1254x1254 RGB with baked checkerboard and no alpha.",
+    "Every native is NPOT and exceeds the 1024-pixel runtime longest-side rule.",
+    "No candidate has been mounted in the real Garden 148x148 sprout state or reviewed on the target phone.",
+    "No source still demonstrates seed-to-sprout transition, watering contact, animation cadence, or continuity into five mature flowers."
+  ],
+  "final_disposition": {
+    "runtime_adopted": false,
+    "full_quality_accepted": false,
+    "preferred_source_if_a_valid_pipeline_is_later_authorized": "attempt02",
+    "reason": "Attempt02 is a materially stronger sprout illustration than the live 3.0 asset and is the best of the three trials, but illustration scores cannot override missing alpha, invalid runtime dimensions, incomplete family continuity and absent mounted evidence. Attempt03 does not solve alpha and introduces unwanted saturation drift, so another identical transparency retry is not justified.",
+    "next_gate": "Retain all native files and hashes as rejection provenance. Any later authorized alpha/normalization path must preserve attempt02's exact subdued palette, growing tip, complete contour and mound, create a new derived path rather than overwrite the native, satisfy licensing/provenance, and undergo alpha-perimeter plus mounted Garden review. The remaining five-mature-flower family gap stays open."
+  }
+}

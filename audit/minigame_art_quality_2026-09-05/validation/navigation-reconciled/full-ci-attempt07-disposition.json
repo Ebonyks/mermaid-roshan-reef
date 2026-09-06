@@ -1,0 +1,36 @@
+{
+  "schema": "reef.failed_full_validation_disposition.v1",
+  "attempt": "07",
+  "exit_code": 1,
+  "probe_headings": 78,
+  "probe_process_exit_records": 78,
+  "nonzero_probe_processes": [
+    {
+      "probe": "probe_audit",
+      "code": 127
+    }
+  ],
+  "raw_sha256": "13b1e271e5fdea691e18a86c52b702d7870e95974e32a638b0cbb6f5a19c6f1e",
+  "source_snapshot": {
+    "normalization": "utf8_lf",
+    "sources": {
+      "scripts/games/picture_games.gd": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "scripts/comfy_games.gd": "91d826818b00dc782598efe43941949157d1fb9dda2336c065710227e7f627ee",
+      "scripts/main.gd": "f357d41f686db7781811d39ba1fd2fb5bdc49e477cf93678fcd16ec0f7424317",
+      "scripts/opera_career_world_2d.gd": "d7461bff2cc06ac005a529fcc46f90f53b6e2e7052efe8c12c8432e775ff2b5e",
+      "scripts/probe_mg2d.gd": "3bbc302731abea0a84501d8c6e617af9d35bf048def6ab4600116e4334fdb06c",
+      "scripts/probe_opera_2d.gd": "73180e76c37a816f2739dceffec6acd84bf97afe4e051106e95d89257b609326",
+      "scripts/probe_day_one_handoffs.gd": "d037e6c97970944a8a142178eb0a1f43d9328650cb5909ed94f6b9a81d3ee10e",
+      "scripts/probe_audit.gd": "9bb4850b2ff75d1078b2fda2faad4faeccbfb569a0b3b6b4d102e1a7c9cb212d",
+      "scripts/games/pool_skimmer_activity.gd": "fa78734c92f7c503871bdd9aba4007da4aacb7014e6123ac027b846734fb21a4",
+      "scripts/probe_day_one_pool_cleanup.gd": "73ebaf3359c8131ff42579437efc90106986f3d4f77202f873e01e1610068001",
+      "scripts/opera_teacher_surface.gd": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+      "scripts/opera_racer_surface.gd": "e790978da9c9b9646b0b92750c6478e9ea72fbd99d60a8b0346bea278e07ad70",
+      "scripts/ci.sh": "1794ea62b1a05a5462de7292749e6acc58fee335a0be9f4c6912e393e016558e"
+    },
+    "candidate": "9df00099 plus7055 reconciliation,12runtime/probe owners andCI exit reporting; next full attempt07"
+  },
+  "finding": "probe_audit stopped mid three-fish replay before a final verdict and returned127 through the Windows console-wrapper/MSYS invocation. Other probe exits are recorded separately.",
+  "cause": "UNPROVEN; no matching Windows Application1000/1001 Godot crash event in checked window. Next diagnostic calls the same installed native engine directly and records raw32bit status.",
+  "acceptance": "FAILED; focused passes do not change this full-run result."
+}

@@ -1,0 +1,159 @@
+extends SceneTree
+## Disposable diagnostic capture of live career actor work poses.
+##
+## This harness deliberately uses the shipping OperaHouse route and real
+## frame processing. It configures a requested live phase through _arm_phase()
+## and the existing hotspot callback, then captures normal processing. The
+## resulting frames are explicitly state_configured diagnostics, not natural
+## navigation or gameplay acceptance evidence.
+
+var main: ReefMain
+var output_dir := ""
+var failures := 0
+
+const TARGETS := [
+	{"career": "doctor", "index": 5, "phases": ["WASH", "FIND", "X-RAY", "CAST", "BANDAGE"]},
+	{"career": "farmer", "index": 6, "phases": ["PLANT", "TOSS", "HERD", "PICNIC"]},
+	{"career": "racer", "index": 12, "phases": ["TUNE", "TO THE LINE"]},
+]
+
+
+func _init() -> void:
+	call_deferred("_run")
+
+
+func _run() -> void:
+	output_dir = OS.get_environment("ACTOR_CAPTURE_OUT").strip_edges()
+	var profile := OS.get_environment("ACTOR_CAPTURE_USER_DATA_DIR").strip_edges()
+	if output_dir.is_empty() or profile.is_empty():
+		push_error("ACTOR_CAPTURE|BLOCKED|ACTOR_CAPTURE_OUT and isolated ACTOR_CAPTURE_USER_DATA_DIR are required")
+		quit(2)
+		return
+	var actual_profile := OS.get_user_data_dir().replace("\\", "/").to_lower()
+	var expected_profile := profile.replace("\\", "/").trim_suffix("/").to_lower()
+	if not actual_profile == expected_profile and not actual_profile.begins_with(expected_profile + "/"):
+		push_error("ACTOR_CAPTURE|BLOCKED|OS user-data directory is not the requested isolated profile: %s" % OS.get_user_data_dir())
+		quit(2)
+		return
+	if RenderingServer.get_current_rendering_method() != "mobile":
+		push_error("ACTOR_CAPTURE|BLOCKED|renderer is not Mobile: %s" % RenderingServer.get_current_rendering_method())
+		quit(2)
+		return
+	create_timer(75.0).timeout.connect(func(): quit(9))
+	DirAccess.make_dir_recursive_absolute(output_dir)
+	var scene := load("res://scenes/main.tscn") as PackedScene
+	if scene == null:
+		push_error("ACTOR_CAPTURE|BLOCKED|main scene unavailable")
+		quit(3)
+		return
+	main = scene.instantiate() as ReefMain
+	get_root().add_child(main)
+	await process_frame
+	await process_frame
+	get_root().size = Vector2i(1280, 720)
+	if get_root().size != Vector2i(1280, 720):
+		push_error("ACTOR_CAPTURE|BLOCKED|viewport is not 1280x720")
+		quit(4)
+		return
+	main.day_one_active = false
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		await process_frame
+	if main.intro_active:
+		main._skip_intro()
+		await process_frame
+	main.game = "opera"
+	main.g["phase"] = "hall"
+	main.g["t"] = 0.0
+	for target: Dictionary in TARGETS:
+		await _capture_career(target)
+	quit(1 if failures > 0 else 0)
+
+
+func _capture_career(target: Dictionary) -> void:
+	main.game = "opera"
+	main.g["phase"] = "hall"
+	var house := OperaHouse.new()
+	get_root().add_child(house)
+	var index := int(target["index"])
+	if not house.start(main, index, Callable()):
+		_blocked(String(target["career"]), "shipping career start rejected")
+		house.queue_free()
+		await process_frame
+		return
+	var ready := await _wait_for_world(house, 8.0)
+	if ready == null:
+		_blocked(String(target["career"]), "real career entry did not expose a live world")
+		house.queue_free()
+		await process_frame
+		return
+	var world: OperaCareerWorld2D = ready
+	if world.career_id != String(target["career"]):
+		_blocked(String(target["career"]), "career slot mismatch")
+		house._leave_early()
+		return
+	var names: Array = target["phases"] as Array
+	for wanted: Variant in names:
+		if not await _configure_phase(world, String(wanted), 8.0):
+			_blocked("%s/%s" % [target["career"], String(wanted)],
+				"existing phase-arm/hotspot callback did not open configured phase")
+			break
+		await _capture_pose_series(String(target["career"]), String(wanted), world)
+	house._leave_early()
+	await process_frame
+
+
+func _wait_for_world(house: OperaHouse, seconds: float) -> OperaCareerWorld2D:
+	var started := Time.get_ticks_msec()
+	while float(Time.get_ticks_msec() - started) / 1000.0 < seconds:
+		if house.act != null and house.act.career_world_2d != null:
+			var world: OperaCareerWorld2D = house.act.career_world_2d
+			if world.active:
+				return world
+		await process_frame
+	return null
+
+
+func _capture_pose_series(career: String, phase: String,
+		world: OperaCareerWorld2D) -> void:
+	for label: String in ["0p0", "0p2", "0p4"]:
+		await create_timer(0.2 if label != "0p0" else 0.0).timeout
+		await RenderingServer.frame_post_draw
+		var safe := phase.to_lower().replace(" ", "_")
+		var path := output_dir.path_join("%s_%s_%s.png" % [career, safe, label])
+		var picture := get_root().get_texture().get_image()
+		if picture.get_size() != Vector2i(1280, 720) or picture.save_png(path) != OK:
+			_blocked(career, "capture size or save failed")
+			return
+		print("ACTOR_CAPTURE|POSE|%s|%s|frame=%d|visible=%s" % [career, phase, world.player_animator.current_frame, world.player_actor.visible])
+		print("ACTOR_CAPTURE|CAPTURE|state_configured|%s/%s|%s|phase_index=%d|task_open=%s" % [
+			career, phase, path, world.phase_index, str(world.task_open)])
+
+
+func _configure_phase(world: OperaCareerWorld2D, wanted: String,
+		timeout: float) -> bool:
+	var wanted_index := -1
+	for index in range(world.phases.size()):
+		if String((world.phases[index] as Dictionary).get("name", "")) == wanted:
+			wanted_index = index
+			break
+	if wanted_index < 0:
+		return false
+	world.phase_index = wanted_index
+	world._arm_phase()
+	if world.armed_station < 0:
+		return false
+	# This is the shipping room-object callback; route walking and opening
+	# continue under normal processing.
+	world._on_hotspot_pressed(world.armed_station)
+	var started := Time.get_ticks_msec()
+	while float(Time.get_ticks_msec() - started) / 1000.0 < timeout:
+		if world.phase_index == wanted_index and world.task_open:
+			return true
+		await process_frame
+	return false
+
+
+func _blocked(label: String, reason: String) -> void:
+	failures += 1
+	print("ACTOR_CAPTURE|BLOCKED|%s|%s" % [label, reason])

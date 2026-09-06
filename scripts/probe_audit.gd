@@ -438,13 +438,12 @@ func _init() -> void:
 			and main.castle_room_buttons.has("family_gallery") \
 			and main.castle_room_buttons.has("opera_hall") \
 			and main.castle_room_buttons.has("bubble_bath") \
-			and main.castle_room_back_button != null \
-			and main.castle_room_stage.get_node_or_null("ElevatorButton") != null \
-			and main.castle_room_menu_buttons.size() == 12 \
-			and main.castle_room_menu_buttons.has("dining_room") \
-			and main.castle_room_menu_buttons.has("movie_lounge") \
-			and not main.castle_room_menu_buttons.has("family_gallery")
-		print("AUDIT|castle physical doors plus direct elevator routes: ",
+			and main.castle_room_back_button == null \
+			and main.castle_room_stage.get_node_or_null("ElevatorButton") == null \
+			and main.castle_room_menu_buttons.is_empty() \
+			and main.global_navigation_button != null \
+			and main.global_navigation_button.visible
+		print("AUDIT|castle physical doors plus single global Back: ",
 			("OK" if room_routes_ok else "FAIL"))
 		# The eligible Royal Hall event celebrates in place and records the win
 		# without switching back to the free-roaming world.
@@ -557,11 +556,9 @@ func _audit_slide_canvas() -> void:
 		bool(route_living_live_before.get("layer_visible", false))
 		and main.living_layer != null and main.living_layer.visible)
 	var direct_before: Dictionary = _slide_direct_child_ids()
-	var neutral_collection_visible: bool = main.collection_button_layer != null \
-		and main.collection_button_layer.visible
-	_slide_check("Critter Book corner is genuinely visible before fish entry",
-		neutral_collection_visible and main.collection_button != null
-		and main.collection_button.is_visible_in_tree())
+	var neutral_collection_visible: bool = _collection_button_visible()
+	_slide_check("retired Critter Book corner stays absent before fish entry",
+		not neutral_collection_visible and main.collection_button == null)
 	var neutral_joy_unmapped_before: bool = main.joy_has_unmapped
 	_slide_check("unmapped axis and d-pad fallback is genuinely live before Canvas entry",
 		_slide_seed_unmapped_pad(60, 0.82, JOY_BUTTON_DPAD_LEFT))
@@ -666,11 +663,8 @@ func _audit_slide_canvas() -> void:
 		and main.joy_pressed(JOY_BUTTON_A) \
 		and not main.touch_ui.world_controls_enabled
 	var neutral_collection_return: bool = main.game == "" \
-		and main.collection_button_layer != null \
-		and main.collection_button != null \
-		and main.collection_button_layer.visible == neutral_collection_visible \
-		and main.collection_button.is_visible_in_tree() \
-			== neutral_collection_visible
+		and _collection_state_matches(neutral_collection_visible,
+			neutral_collection_visible)
 	var neutral_camera_return: bool = main.game == "" \
 		and _slide_camera_matches(route_camera, true)
 	var neutral_living_return: bool = main.game == "" \
@@ -696,10 +690,8 @@ func _audit_slide_canvas() -> void:
 		and neutral_camera_return
 		and neutral_living_return
 		and neutral_chime_return
-		and main.collection_button_layer != null
-		and main.collection_button_layer.visible == neutral_collection_visible
-		and main.collection_button != null
-		and main.collection_button.is_visible_in_tree())
+		and _collection_state_matches(neutral_collection_visible,
+			neutral_collection_visible))
 	_slide_check("neutral stage_close exact-restores pre-entry chime volume and pitch",
 		neutral_chime_return)
 	var neutral_return_guard: Dictionary = await _slide_exercise_return_guard(
@@ -734,8 +726,7 @@ func _audit_slide_canvas() -> void:
 	route_camera = _slide_camera_snapshot()
 	var first_generation: int = main.save_generation
 	var first_trophies: int = main.trophies
-	var first_collection_visible: bool = main.collection_button_layer != null \
-		and main.collection_button_layer.visible
+	var first_collection_visible: bool = _collection_button_visible()
 	var first_joy_unmapped_before: bool = main.joy_has_unmapped
 	_slide_check("gold-run unmapped pad fallback is live before exact fish entry",
 		_slide_seed_unmapped_pad(61, -0.84, JOY_BUTTON_DPAD_RIGHT))
@@ -746,7 +737,7 @@ func _audit_slide_canvas() -> void:
 	_slide_check("Classic proximity enters the same exact fish Canvas route",
 		main.game == "slide" and String(main.g.get("mode", "")) == "fish"
 		and slide.active_layer() != null
-		and first_collection_visible and _slide_collection_suppressed())
+		and not first_collection_visible and _slide_collection_suppressed())
 	var first_living_expected: Dictionary = _slide_living_world_snapshot()
 	first_living_expected["layer_visible"] = bool(
 		main.g.get("slide_canvas_living_was_visible", false))
@@ -787,8 +778,8 @@ func _audit_slide_canvas() -> void:
 		and bool(first_run.get("raw_neutral_on_exit", false))
 		and bool(first_run.get("collection_restored_on_exit", false))
 		and bool(first_run.get("living_restored_on_exit", false))
-		and main.collection_button_layer.visible == first_collection_visible
-		and main.collection_button.is_visible_in_tree()
+		and _collection_state_matches(first_collection_visible,
+			first_collection_visible)
 		and _slide_raw_pad_neutral(JOY_BUTTON_DPAD_RIGHT))
 	main.joy_has_unmapped = first_joy_unmapped_before
 	_slide_check("first win persists medal and friend exactly once per write owner",
@@ -1079,10 +1070,8 @@ func _slide_return_world_snapshot(friend: Dictionary) -> Dictionary:
 		"medals": main.medals.duplicate(true),
 		"friend_won": bool(friend.get("won", false)),
 		"friend_star": friend.get("star"),
-		"collection_layer_visible": main.collection_button_layer != null \
-			and main.collection_button_layer.visible,
-		"collection_button_visible": main.collection_button != null \
-			and main.collection_button.is_visible_in_tree(),
+		"collection_layer_visible": _collection_layer_visible(),
+		"collection_button_visible": _collection_button_visible(),
 		"fxw_probe": main.fxw_cool.get(&"slide_return_probe"),
 		"pearl_id": pearl.get_instance_id() if pearl != null else 0,
 		"pearl_transform": pearl.transform if pearl != null else null,
@@ -1112,12 +1101,9 @@ func _slide_return_world_matches(expected: Dictionary,
 		and bool(friend.get("won", false)) \
 			== bool(expected.get("friend_won", false)) \
 		and friend.get("star") == expected.get("friend_star") \
-		and main.collection_button_layer != null \
-		and main.collection_button_layer.visible \
-			== bool(expected.get("collection_layer_visible", false)) \
-		and main.collection_button != null \
-		and main.collection_button.is_visible_in_tree() \
-			== bool(expected.get("collection_button_visible", false)) \
+		and _collection_state_matches(
+			bool(expected.get("collection_layer_visible", false)),
+			bool(expected.get("collection_button_visible", false))) \
 		and main.fxw_cool.get(&"slide_return_probe") \
 			== expected.get("fxw_probe") \
 		and (pearl.get_instance_id() if pearl != null else 0) \
@@ -1274,11 +1260,25 @@ func _slide_active_layer_count() -> int:
 
 
 func _slide_collection_suppressed() -> bool:
-	return main.collection_button_layer != null \
-		and main.collection_button != null \
-		and not main.collection_button_layer.visible \
-		and not main.collection_button.is_visible_in_tree() \
+	return not _collection_layer_visible() \
+		and not _collection_button_visible() \
 		and not _slide_control_pointer_live(main.collection_button)
+
+
+func _collection_layer_visible() -> bool:
+	return main.collection_button_layer != null \
+		and main.collection_button_layer.visible
+
+
+func _collection_button_visible() -> bool:
+	return main.collection_button != null \
+		and main.collection_button.is_visible_in_tree()
+
+
+func _collection_state_matches(layer_visible: bool,
+		button_visible: bool) -> bool:
+	return _collection_layer_visible() == layer_visible \
+		and _collection_button_visible() == button_visible
 
 
 func _slide_control_pointer_live(control: Control) -> bool:
@@ -1292,7 +1292,8 @@ func _slide_canvas_layer_census(slide: SlideRaceGame,
 		allow_sticker: bool = false, allow_dev: bool = false) -> Dictionary:
 	var known_layers: Dictionary = {}
 	for layer_value: Variant in [
-		main.hud_layer, main.touch_ui, main.pause_layer, main.speech_layer,
+		main.hud_layer, main.touch_ui, main.pause_layer, main.navigation_layer,
+		main.speech_layer,
 	]:
 		var known := layer_value as CanvasLayer
 		if known != null:
@@ -1340,6 +1341,8 @@ func _slide_canvas_layer_census(slide: SlideRaceGame,
 					and not main.pause_panel.visible
 				allowed = allowed or (main.get_tree().paused \
 					and main.pause_panel.visible)
+			elif layer == main.navigation_layer:
+				allowed = control == main.global_navigation_button
 			elif control == main.fade_rect:
 				allowed = main.fade_rect.mouse_filter \
 					== Control.MOUSE_FILTER_STOP
@@ -1397,10 +1400,10 @@ func _slide_check_entry_contract(slide: SlideRaceGame,
 			"slide_canvas_player_cam_pitch", 99.0)),
 			float(return_camera.get("pitch", -99.0))))
 	var layer_census: Dictionary = _slide_canvas_layer_census(slide)
-	_slide_check("entry hides the Critter Book and leaves no persistent click target over the stage",
+	_slide_check("entry keeps the retired Critter corner absent with no extra persistent click target",
 		_slide_collection_suppressed()
 		and bool(layer_census.get("exact", false))
-		and bool(main.g.get("slide_canvas_collection_was_visible", false)))
+		and not bool(main.g.get("slide_canvas_collection_was_visible", false)))
 	_slide_check("entry snapshots and removes the living-world layer from lower drawing",
 		bool(main.g.get("slide_canvas_living_was_visible", false))
 			== bool(return_living.get("layer_visible", false))
@@ -3617,7 +3620,9 @@ func _slide_exercise_return_guard(friend: Dictionary, label: String,
 	# the return quarantine. Prove a fresh gesture still cannot bypass it, wait
 	# for its normal bounded retirement, then require a second fresh source edge.
 	var move_origin := Vector2(150.0, 520.0)
-	var move_point := Vector2(250.0, 520.0)
+	# Sideways input only turns the Reef player. Request forward travel so a
+	# grounded return cannot depend on falling velocity to pass this assertion.
+	var move_point := Vector2(150.0, 420.0)
 	var fresh_index: int = touch_index + 1
 	var pose_lock_exact := true
 	var pose_lock_exercised := false
@@ -3638,15 +3643,21 @@ func _slide_exercise_return_guard(friend: Dictionary, label: String,
 			await process_frame
 		pose_lock_exact = pose_lock_exact and main.pose_t < 0.0
 		fresh_index += 1
+	# A forward gesture must create planar motion; gravity during a pure turn
+	# is not evidence that the returned world consumed a fresh movement command.
 	var fresh_before: Variant = player.position
 	_slide_push_touch(move_origin, true, fresh_index, touch_device + 1)
 	_slide_push_drag(move_point, move_point - move_origin,
 		fresh_index, touch_device + 1)
+	var fresh_forward_requested: bool = main.touch_ui.stick_vec.y < -0.1
 	await process_frame
-	var fresh_moved: bool = not bool(main.call(
+	var fresh_planar_delta: Vector2 = Vector2(
+		player.position.x - fresh_before.x, player.position.z - fresh_before.z)
+	var fresh_planar_velocity: Vector2 = Vector2(player.vel.x, player.vel.z)
+	var fresh_moved: bool = fresh_forward_requested and not bool(main.call(
 		"_slide_canvas_return_guard_active")) \
-		and (player.position.distance_to(fresh_before) > 0.0001 \
-			or player.vel.length() > 0.0001)
+		and (fresh_planar_delta.length() > 0.0001 \
+			or fresh_planar_velocity.length() > 0.0001)
 	_slide_push_touch(move_point, false, fresh_index, touch_device + 1)
 	var fresh_terminal_census_exact: bool = \
 		main._slide_canvas_held_sources.is_empty() \
@@ -3694,7 +3705,6 @@ func _slide_consumed_entry_release_contract() -> bool:
 		return false
 	var movement_start: Vector2 = main.touch_ui.movement_zone().get_center()
 	var movement_end: Vector2 = movement_start + Vector2(90.0, 0.0)
-	var action_point: Vector2 = main.touch_ui.action_zone().get_center()
 	var sibling_start := Vector2(520.0, 220.0)
 	var sibling_end := sibling_start + Vector2(0.0, -40.0)
 	var exact: bool = main._slide_canvas_held_sources.is_empty() \
@@ -3727,29 +3737,6 @@ func _slide_consumed_entry_release_contract() -> bool:
 		and main._melody_held_sources.is_empty() \
 		and not main.touch_ui.touch_owners.has(620)
 
-	# Touch ACTION is claimed in TouchUI's early input phase, so it must never
-	# create a ledger token; its terminal must leave the unrelated sibling exact.
-	var touch_action_sibling := &"touch:76:621"
-	var touch_action_sibling_map: Dictionary = {}
-	touch_action_sibling_map[touch_action_sibling] = true
-	_slide_push_touch(sibling_start, true, 621, 76)
-	_slide_push_drag(sibling_end, sibling_end - sibling_start, 621, 76)
-	_slide_push_touch(action_point, true, 611, 72)
-	exact = exact \
-		and main._slide_canvas_held_sources == touch_action_sibling_map \
-		and main._melody_held_sources == touch_action_sibling_map \
-		and main.touch_ui.touch_owners.has(621) \
-		and main.touch_ui.touch_owners.has(611)
-	_slide_push_touch(action_point, false, 611, 72)
-	exact = exact \
-		and main._slide_canvas_held_sources == touch_action_sibling_map \
-		and main._melody_held_sources == touch_action_sibling_map \
-		and main.touch_ui.touch_owners.has(621) \
-		and not main.touch_ui.touch_owners.has(611)
-	_slide_push_touch(sibling_end, false, 621, 76)
-	exact = exact and main._slide_canvas_held_sources.is_empty() \
-		and main._melody_held_sources.is_empty()
-
 	# Native left-mouse STICK follows the same exact-owner relay while a real
 	# sibling world finger remains held in both process-wide ledgers.
 	var mouse_stick_sibling := &"touch:77:622"
@@ -3776,43 +3763,24 @@ func _slide_consumed_entry_release_contract() -> bool:
 	exact = exact and main._slide_canvas_held_sources.is_empty() \
 		and main._melody_held_sources.is_empty()
 
-	# Native left-mouse ACTION likewise stays absent from both ledgers and cannot
-	# erase a sibling world touch when its consumed terminal is relayed.
-	var mouse_action_sibling := &"touch:78:623"
-	var mouse_action_sibling_map: Dictionary = {}
-	mouse_action_sibling_map[mouse_action_sibling] = true
-	_slide_push_touch(sibling_start, true, 623, 78)
-	_slide_push_drag(sibling_end, sibling_end - sibling_start, 623, 78)
-	_slide_push_mouse(action_point, true, 74)
-	exact = exact \
-		and main._slide_canvas_held_sources == mouse_action_sibling_map \
-		and main._melody_held_sources == mouse_action_sibling_map \
-		and main.touch_ui.touch_owners.has(623) \
-		and main.touch_ui.touch_owners.has(99)
-	_slide_push_mouse(action_point, false, 74)
-	exact = exact \
-		and main._slide_canvas_held_sources == mouse_action_sibling_map \
-		and main._melody_held_sources == mouse_action_sibling_map \
-		and main.touch_ui.touch_owners.has(623) \
-		and not main.touch_ui.touch_owners.has(99)
-	_slide_push_touch(sibling_end, false, 623, 78)
 	main.touch_ui.consume_action()
 	main.touch_ui.cancel_all_touches()
 	return exact and main._slide_canvas_held_sources.is_empty() \
 		and main._melody_held_sources.is_empty()
 
 
-func _slide_open_pause(index: int) -> void:
-	var gear: Variant = main.pause_layer.get_meta("corner_button")
-	var pause_rect: Rect2 = main.touch_ui.pause_zone()
-	var point: Vector2 = pause_rect.get_center()
-	_slide_check("pause fixture is the real visible corner control",
-		gear is Button and gear.is_visible_in_tree()
-		and (gear as Button).get_global_rect().has_point(point))
-	_slide_push_touch(point, true, index)
-	_slide_push_touch(point, false, index)
+func _slide_open_pause(_index: int) -> void:
+	_slide_check("no Pause overlay control competes with global Back",
+		main.find_child("PauseCornerButton", true, false) == null
+		and main.global_navigation_button != null
+		and main.global_navigation_button.is_visible_in_tree())
+	# Pause state remains testable for context-loss safety, but has no
+	# child-facing gameplay button. The sole visible control remains Back.
+	main.toggle_pause()
 	await process_frame
-	_slide_check("real pause-corner touch raises the production sheet",
+	if main.pause_resume_btn != null:
+		main.pause_resume_btn.grab_focus()
+	_slide_check("internal pause fixture raises the retained Menu sheet",
 		main.get_tree().paused and main.pause_panel.visible)
 
 
@@ -3876,10 +3844,7 @@ func _slide_exercise_pause_and_overlay(slide: SlideRaceGame,
 		_slide_push_touch(sticker_point, true, SLIDE_TOUCH_INDEX + 24)
 		_slide_push_touch(sticker_point, false, SLIDE_TOUCH_INDEX + 24)
 		await process_frame
-	var sticker_back: Button = null
-	if main.stickers_layer != null:
-		sticker_back = main.stickers_layer.find_child(
-			"StickerBookBackButton", true, false) as Button
+	var sticker_back: Button = main.global_navigation_button
 	_slide_check("higher Sticker sheet opens without closing or steering the slide",
 		not main.get_tree().paused and main.game == "slide"
 		and main.stickers_layer != null
@@ -3961,10 +3926,7 @@ func _slide_exercise_polled_overlay_restore_guard(slide: SlideRaceGame,
 	_slide_push_touch(sticker_point, false, SLIDE_TOUCH_INDEX + 156)
 	await process_frame
 	await _slide_wait_equivalent_sim_seconds(0.8)
-	var sticker_back: Button = null
-	if main.stickers_layer != null:
-		sticker_back = main.stickers_layer.find_child(
-			"StickerBookBackButton", true, false) as Button
+	var sticker_back: Button = main.global_navigation_button
 	if sticker_back != null:
 		sticker_back.grab_focus()
 	_slide_check("polled restore fixture owns a real focused Sticker Back control",
@@ -4006,10 +3968,7 @@ func _slide_exercise_polled_overlay_restore_guard(slide: SlideRaceGame,
 		_slide_push_touch(sticker_point, true, SLIDE_TOUCH_INDEX + 159)
 		_slide_push_touch(sticker_point, false, SLIDE_TOUCH_INDEX + 159)
 	await _frames(3)
-	sticker_back = null
-	if main.stickers_layer != null:
-		sticker_back = main.stickers_layer.find_child(
-			"StickerBookBackButton", true, false) as Button
+	sticker_back = main.global_navigation_button
 	if sticker_back != null:
 		sticker_back.grab_focus()
 	var reopened_neutral_asleep: bool = main.stickers_layer != null \
@@ -4477,9 +4436,8 @@ func _slide_exercise_dev_overlay_freeze(slide: SlideRaceGame,
 	await _slide_open_pause(SLIDE_TOUCH_INDEX + 170)
 	var developer_button := main.find_child(
 		"PauseDeveloperButton", true, false) as Button
-	_slide_check("pause sheet exposes its real parent-only Developer doorway",
-		developer_button != null and developer_button.is_visible_in_tree()
-		and bool(developer_button.get_meta("parent_only", false)))
+	_slide_check("child Menu omits the parent-only Developer doorway",
+		developer_button == null)
 	if developer_button == null:
 		if main.get_tree().paused:
 			main.pause_resume_btn.grab_focus()
@@ -4593,10 +4551,7 @@ func _slide_exercise_overlay_context_restore_orders(slide: SlideRaceGame,
 		_slide_push_touch(sticker_point, false,
 			SLIDE_TOUCH_INDEX + order_index + 1)
 		await process_frame
-		var sticker_back: Button = null
-		if main.stickers_layer != null:
-			sticker_back = main.stickers_layer.find_child(
-				"StickerBookBackButton", true, false) as Button
+		var sticker_back: Button = main.global_navigation_button
 		var layer: CanvasLayer = slide.active_layer()
 		var surface: Node2D = slide.stage_root()
 		var layer_id: int = layer.get_instance_id() if layer != null else 0
@@ -4756,10 +4711,7 @@ func _slide_exercise_sticker_freeze(slide: SlideRaceGame,
 	_slide_push_touch(sticker_point, true, SLIDE_TOUCH_INDEX + 52)
 	_slide_push_touch(sticker_point, false, SLIDE_TOUCH_INDEX + 52)
 	await process_frame
-	var sticker_back: Button = null
-	if main.stickers_layer != null:
-		sticker_back = main.stickers_layer.find_child(
-			"StickerBookBackButton", true, false) as Button
+	var sticker_back: Button = main.global_navigation_button
 	_slide_check("resumed higher Sticker sheet retains the exact live slide stage",
 		not main.get_tree().paused and main.game == "slide"
 		and main.stickers_layer != null and sticker_back != null
@@ -5159,13 +5111,13 @@ func _slide_drive_run(slide: SlideRaceGame,
 		var target_lane := 0.0
 		if desired_catches == 0:
 			# One deliberate, low-amplitude nudge marks agency while the center gap
-			# safely misses fish 0/1. A short +0.32 shelf clears center-lane fish 2,
+			# safely misses fish 0/1. A short +0.40 shelf clears center-lane fish 2,
 			# then center again safely clears fish 3/4. This avoids risky full-lane
 			# crossings through the next fish's catch window.
 			if progress < 0.40:
 				target_lane = 0.06
 			elif progress < 0.58:
-				target_lane = 0.32
+				target_lane = 0.40
 			else:
 				target_lane = 0.0
 		else:
@@ -5181,7 +5133,15 @@ func _slide_drive_run(slide: SlideRaceGame,
 				# Center is outside both remaining outer-fish catch bands.
 				target_lane = 0.0
 		var current_lane: float = float(snapshot.get("lane", 0.0))
-		var axis: float = clampf((target_lane - current_lane) * 3.2, -1.0, 1.0)
+		var steering_gain: float = 3.2
+		if desired_catches == 0:
+			# Six-times accelerated headless frames can be much longer than a real
+			# phone frame. Keep the deliberate-miss controller from crossing its
+			# target in one update and overcorrecting into the center fish.
+			steering_gain = minf(steering_gain, 0.8 / (SlideRaceGame.FISH_LANE_SPEED
+				* maxf(main.get_process_delta_time(), 0.001)))
+		var axis: float = clampf(
+			(target_lane - current_lane) * steering_gain, -1.0, 1.0)
 		var width: float = maxf(
 			float((snapshot.get("viewport_size", Vector2(1280.0, 720.0)) as Vector2).x),
 			1.0)
@@ -5212,11 +5172,8 @@ func _slide_drive_run(slide: SlideRaceGame,
 		and main.joy_pressed(JOY_BUTTON_A) \
 		and not main.touch_ui.world_controls_enabled
 	var collection_restored_on_exit: bool = main.game == "" \
-		and main.collection_button_layer != null \
-		and main.collection_button != null \
-		and main.collection_button_layer.visible == expected_collection_visible \
-		and main.collection_button.is_visible_in_tree() \
-			== expected_collection_visible
+		and _collection_state_matches(expected_collection_visible,
+			expected_collection_visible)
 	var living_restored_on_exit: bool = main.game == "" \
 		and _slide_living_world_snapshot() == expected_living
 	var chime_on_synchronous_exit: Dictionary = _slide_chime_context()
@@ -5240,8 +5197,8 @@ func _slide_drive_run(slide: SlideRaceGame,
 		and bool(return_guard.get("raw_neutral", false)) \
 		and bool(return_guard.get("guard_retired", false))
 	collection_restored_on_exit = collection_restored_on_exit \
-		and main.collection_button_layer != null \
-		and main.collection_button_layer.visible == expected_collection_visible
+		and _collection_state_matches(expected_collection_visible,
+			expected_collection_visible)
 	return {
 		"got": last_got,
 		"caught_ids": caught_ids,
@@ -5373,13 +5330,20 @@ func _audit_storybook_ui() -> bool:
 	main._skip_intro()
 	await process_frame
 
-	ok = _ui_target_ok(main.pause_layer, "PauseCornerButton", Vector2(128, 128)) and ok
+	ok = _ui_target_ok(main.navigation_layer,
+		"GlobalNavigationButton", Vector2(112, 112)) and ok
+	ok = main.find_child("PauseCornerButton", true, false) == null and ok
+	ok = main.touch_ui.find_child("ActionShellMedallion", true, false) == null and ok
 	main.toggle_pause()
-	ok = main.pause_layer.layer == 29 and main.get_tree().paused and ok
+	ok = main.pause_layer.layer == 28 and main.get_tree().paused and ok
 	ok = _ui_target_ok(main.pause_panel, "PauseResumeButton", Vector2(300, 140)) and ok
 	ok = _ui_target_ok(main.pause_panel, "PauseStickerButton") and ok
-	ok = _ui_target_ok(main.pause_panel, "PauseMusicButton") and ok
-	ok = _ui_target_ok(main.pause_panel, "PauseQualityButton") and ok
+	ok = _ui_target_ok(main.pause_panel, "MenuCritterBookButton") and ok
+	ok = _ui_target_ok(main.pause_panel, "MenuStuffieButton") and ok
+	ok = main.pause_panel.find_child("PauseMusicButton", true, false) == null and ok
+	ok = main.pause_panel.find_child("PauseQualityButton", true, false) == null and ok
+	ok = main.pause_panel.find_child("PauseMicButton", true, false) == null and ok
+	ok = main.pause_panel.find_child("PauseDeveloperButton", true, false) == null and ok
 	var leave := main.pause_panel.find_child("PauseLeaveButton", true, false) as Button
 	ok = leave != null and bool(leave.get_meta("neutral_exit", false)) and ok
 	main.toggle_pause()
@@ -5387,7 +5351,7 @@ func _audit_storybook_ui() -> bool:
 
 	main._open_craft_studio()
 	await process_frame
-	ok = _ui_target_ok(main.craft_layer, "CraftBackButton") and ok
+	ok = _ui_legacy_back_retired(main.craft_layer, "CraftBackButton") and ok
 	ok = _ui_target_ok(main.craft_layer, "CraftFinishButton", Vector2(150, 150)) and ok
 	ok = _ui_named_count(main.craft_layer, "CraftPart_*") == 3 and ok
 	ok = _ui_named_count(main.craft_layer, "CraftSwatch_*") == 8 and ok
@@ -5396,7 +5360,7 @@ func _audit_storybook_ui() -> bool:
 
 	main._open_castle_logo()
 	await process_frame
-	ok = _ui_target_ok(main.castle_logo_layer, "CastleLogoBackButton") and ok
+	ok = _ui_legacy_back_retired(main.castle_logo_layer, "CastleLogoBackButton") and ok
 	ok = _ui_target_ok(main.castle_logo_layer, "CastleLogoFinishButton", Vector2(150, 150)) and ok
 	ok = _ui_named_count(main.castle_logo_layer, "CastleLogoColor_*") == 6 and ok
 	ok = _ui_named_count(main.castle_logo_layer, "CastleLogoSymbol_*") == 8 and ok
@@ -5404,31 +5368,29 @@ func _audit_storybook_ui() -> bool:
 
 	main._open_wardrobe()
 	await process_frame
-	ok = _ui_target_ok(main.wardrobe_layer, "WardrobeBackButton") and ok
+	ok = _ui_legacy_back_retired(main.wardrobe_layer, "WardrobeBackButton") and ok
 	ok = _ui_target_ok(main.wardrobe_layer, "WardrobeFinishButton") and ok
 	main._close_wardrobe()
 	main._open_stickers()
 	await process_frame
-	ok = _ui_target_ok(main.stickers_layer, "StickerBookBackButton") and ok
+	ok = _ui_legacy_back_retired(main.stickers_layer, "StickerBookBackButton") and ok
 	main._close_stickers()
 
 	main._collection_ref().open_book()
 	await process_frame
-	ok = _ui_target_ok(main.collection_layer, "CritterBookBackButton") and ok
+	ok = _ui_legacy_back_retired(main.collection_layer, "CritterBookBackButton") and ok
 	main._collection_ref().close_book()
 
 	main._companion_ref().open_picker(false)
 	await process_frame
-	ok = _ui_target_ok(main.companion_layer, "StuffiePickerBackButton") and ok
+	ok = _ui_legacy_back_retired(main.companion_layer, "StuffiePickerBackButton") and ok
 	ok = _ui_named_count(main.companion_layer, "StuffiePart_*") == 3 and ok
 	ok = _ui_named_count(main.companion_layer, "StuffieSwatch_*") == 8 and ok
 	main._companion_ref().close_picker()
 
 	main._mg2d_open("garden")
 	await process_frame
-	var picture_back := main.mg2d_layer.find_child("PictureGameBackButton", true, false) as Button
-	ok = picture_back != null and _ui_target_ok(main.mg2d_layer, "PictureGameBackButton") and ok
-	ok = picture_back != null and bool(picture_back.get_meta("neutral_exit", false)) and ok
+	ok = _ui_legacy_back_retired(main.mg2d_layer, "PictureGameBackButton") and ok
 	main._mg2d_close()
 	main.mg_cool = 0.0
 	return ok
@@ -5449,6 +5411,12 @@ func _ui_target_ok(from: Node, pattern: String, minimum := Vector2(110, 110)) ->
 		maxf(control.size.y, control.custom_minimum_size.y)
 	)
 	return touch_size.x >= minimum.x and touch_size.y >= minimum.y
+
+func _ui_legacy_back_retired(from: Node, pattern: String) -> bool:
+	if from == null:
+		return false
+	var button := from.find_child(pattern, true, false) as Button
+	return button == null
 
 func _stars_got() -> int:
 	var got := 0

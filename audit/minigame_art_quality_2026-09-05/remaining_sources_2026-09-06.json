@@ -1,0 +1,298 @@
+{
+  "schema": "remaining-minigame-source-review-v1",
+  "generated": "2026-09-06",
+  "scope": "Source-owner and image-dependency review for Dolls, Melody, Seek, and Fetch. Raster scores are source-only observations from the eight explicitly viewed non-protected candidates; no runtime, animation-cadence, mobile, or whole-scene acceptance is claimed.",
+  "families": [
+    {
+      "id": "dolls",
+      "status": "active_current_canvas_route",
+      "owners": [
+        {
+          "path": "scripts/games/dolls.gd",
+          "sha256": "a3cf7ffd6f6a7bcf1072fa1a753e465f742190f46d9809830589a2242c77c7e0",
+          "role": "DollsGame owner and approved nursery surface",
+          "hash_normalization": "utf8_lf"
+        },
+        {
+          "path": "scripts/opera_nursery_catch.gd",
+          "sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+          "role": "inherited catch grammar, baby paths, cradle/pillow references",
+          "hash_normalization": "utf8_lf"
+        }
+      ],
+      "image_dependencies": [
+        {
+          "path": "assets/opera/worlds/nursery/baby_0.png",
+          "sha256": "bcd4f1e12437dab7dbacadb54f0150c4b500d40e589574f03c394109f7780c3b",
+          "role": "falling baby variant",
+          "binding": "static BABY_PATHS",
+          "source_score": 4.6,
+          "source_observation": "clean alpha, soft painted wrap, child-readable face; limited authored pose variation is intentional for falling-catch role",
+          "dimensions": [
+            320,
+            320
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "path": "assets/opera/worlds/nursery/baby_1.png",
+          "sha256": "73148e42f8e7786aef3baafe573905b3e504d76ab2f754cbe61c47c8b9ddb102",
+          "role": "falling baby variant",
+          "binding": "static BABY_PATHS",
+          "source_score": 4.6,
+          "source_observation": "consistent line/lighting treatment with baby_0, clean contour and readable face",
+          "dimensions": [
+            320,
+            320
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "path": "assets/opera/worlds/nursery/baby_2.png",
+          "sha256": "c21a61b7ebb53c0f164ce29a39656b23b32725708e4f71192babf8b5e8eb74b5",
+          "role": "falling baby variant",
+          "binding": "static BABY_PATHS",
+          "source_score": 4.6,
+          "source_observation": "consistent lavender variant, clean transparent edge and strong color separation",
+          "dimensions": [
+            320,
+            320
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "paths": [
+            "assets/opera/worlds/nursery/baby_0.png",
+            "assets/opera/worlds/nursery/baby_1.png",
+            "assets/opera/worlds/nursery/baby_2.png"
+          ],
+          "role": "same three files are inherited by DollsNurserySurface",
+          "binding": "dynamic loop over BABY_PATHS",
+          "source_score_note": "scores above are individual source observations, not runtime proof"
+        },
+        {
+          "path": "assets/opera/worlds/nursery/widget_catch_nursery_cradle.png",
+          "role": "optional cradle",
+          "binding": "_load_if_exists",
+          "review_status": "not visually reviewed here"
+        },
+        {
+          "path": "assets/opera/worlds/nursery/widget_catch_nursery_pillows.png",
+          "role": "optional pillows",
+          "binding": "_load_if_exists",
+          "review_status": "not visually reviewed here"
+        },
+        {
+          "path": "m.skin_sprite_path()",
+          "role": "dynamic catcher card",
+          "binding": "runtime path returned by player skin state",
+          "review_status": "unresolved dynamic reference; protect approved character art and inspect exact returned path in a capture"
+        }
+      ],
+      "retired_or_unreachable": [
+        "assets/opera/worlds/widgets/widget_catch_nursery.png is retained only as retired_backdrop_path and is explicitly not painted by the inherited surface"
+      ],
+      "coverage_need": "Capture nursery ready, falling baby, catch/fail-safe landing, and completed settle states; the three viewed baby sources are above 4.5 source-only but runtime composition remains unscored."
+    },
+    {
+      "id": "melody",
+      "status": "active_current_canvas_route",
+      "owner": {
+        "path": "scripts/games/melody.gd",
+        "sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e",
+        "role": "seven-note rainbow theater and tile/actor presentation",
+        "hash_normalization": "utf8_lf"
+      },
+      "image_dependencies": [
+        {
+          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+          "role": "sky lagoon tile",
+          "binding": "TILE_PATHS + source rect",
+          "review_status": "not among eight viewed candidates; inspect current tile assembly"
+        },
+        {
+          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+          "role": "sky lagoon tile",
+          "binding": "TILE_PATHS + source rect",
+          "review_status": "not visually reviewed here"
+        },
+        {
+          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+          "role": "sky lagoon tile",
+          "binding": "TILE_PATHS + source rect",
+          "review_status": "not visually reviewed here"
+        },
+        {
+          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+          "role": "sky lagoon tile",
+          "binding": "TILE_PATHS + source rect",
+          "review_status": "not visually reviewed here"
+        },
+        {
+          "path": "assets/characters/stickers/daddy.png",
+          "role": "Daddy actor",
+          "binding": "literal DADDY_PATH",
+          "protected": true,
+          "review_status": "keep unchanged; no replacement or destructive edit",
+          "keep_basis": "Preserve approved character identity/source art. This may be an approved derived asset rather than a file in the three strictly protected directories."
+        },
+        {
+          "path": "assets/opera/worlds/actors/roshan_popstar.png",
+          "role": "Popstar Roshan actor",
+          "binding": "literal ROSHAN_PATH",
+          "protected": true,
+          "review_status": "keep approved character art unchanged",
+          "keep_basis": "Preserve approved character identity/source art. This may be an approved derived asset rather than a file in the three strictly protected directories."
+        }
+      ],
+      "procedural_visuals": "Curtains, crown, stage apron, notes, pointer, and feedback are Canvas-drawn/procedural in melody.gd; no additional raster score is inferred.",
+      "retired_or_unreachable": [],
+      "coverage_need": "Capture opaque proscenium ready, seven-note partial, note-hit feedback, and finale; verify tile seams and protected actor mounting without altering source art."
+    },
+    {
+      "id": "seek",
+      "status": "active_current_canvas_route",
+      "owner": {
+        "path": "scripts/games/seek.gd",
+        "sha256": "d559447c82c29a33ddb319ef191cf9542d55304f62cae649e39cb2f9d9079741",
+        "role": "Evie/Lamma four-find game, backdrop tiles, cover props, atlas actor states",
+        "hash_normalization": "utf8_lf"
+      },
+      "image_dependencies": [
+        {
+          "path": "assets/minigames/seek/evie_animation.png",
+          "sha256": "705cb95a4a1d0226f9554327947fd2956e131535f2e89f953a94970052030ce9",
+          "role": "Evie eight-cell animation sheet",
+          "binding": "RoshanFrameWindows/animation atlas",
+          "source_score": 4.7,
+          "source_observation": "polished mermaid character, clean alpha, expressive hand/face states, coherent palette; source sheet has generous transparent spacing requiring correct cell extraction",
+          "dimensions": [
+            1024,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "path": "assets/minigames/seek/lamma_animation.png",
+          "sha256": "4ff1c9748e68853879211c825ffc8c45b7388c8da7b17cf0a44c6cd320dd7f8c",
+          "role": "Lamma eight-cell animation sheet",
+          "binding": "RoshanFrameWindows/animation atlas",
+          "source_score": 4.5,
+          "source_observation": "clean child-readable silhouette and consistent linework; several poses are subtle, so runtime frame timing/contact must be captured",
+          "dimensions": [
+            1024,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "path": "assets/minigames/seek/evie_portrait.png",
+          "sha256": "1db5672d3b16bb4b962ee7384a80d5f95984206e019d7e08d6758c37cbac1637",
+          "role": "Evie portrait",
+          "binding": "literal EVIE_PORTRAIT",
+          "source_score": 4.6,
+          "source_observation": "clean isolated character and strong facial readability; source is a static portrait and does not prove animation quality",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
+          "sha256": "6c5ea2b3a6ba843e191d88b7a96b81f9cb203813d09f456e1adfa86e5664a98a",
+          "role": "cover prop",
+          "binding": "COVER_ART index 0",
+          "source_score": 4.7,
+          "source_observation": "rich painted foliage, strong contour, readable tall silhouette; dense ground cluster may need composition review at runtime scale",
+          "dimensions": [
+            229,
+            380
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+          "role": "backdrop tile",
+          "binding": "BACKDROP_ART + tile extraction",
+          "review_status": "not visually reviewed here"
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+          "role": "Roshan gesture animation",
+          "binding": "literal ROSHAN_ANIMATION",
+          "protected": true,
+          "review_status": "keep approved character art unchanged",
+          "keep_basis": "Preserve approved character identity/source art. This may be an approved derived asset rather than a file in the three strictly protected directories."
+        }
+      ],
+      "retired_or_unreachable": [],
+      "coverage_need": "Capture four hidden/covered states, reveal transition, and celebration with each atlas actor state; inspect cell boundaries and backdrop seams."
+    },
+    {
+      "id": "fetch",
+      "status": "active_source_owner_with_2d_migration_debt",
+      "owner": {
+        "path": "scripts/games/fetch.gd",
+        "sha256": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805",
+        "role": "winter fetch builder/tick",
+        "hash_normalization": "utf8_lf"
+      },
+      "image_dependencies": [
+        {
+          "path": "assets/terrain/up_snow_col.jpg",
+          "sha256": "14de5c49afc5b850d353de5a1e28a52e108ee10ab9d6088b6b7ba0c3c2288d81",
+          "role": "snow material albedo",
+          "binding": "dynamic StandardMaterial3D load",
+          "source_score": 4.0,
+          "source_observation": "soft pastel snow texture with low contrast and no alpha; suitable as a material tile but visually generic and not a child-readable authored scene plate",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "mode": "RGB"
+        },
+        {
+          "path": "assets/terrain/up_snow_nrm.jpg",
+          "role": "snow normal",
+          "binding": "dynamic StandardMaterial3D load",
+          "review_status": "not visually scored; technical normal map"
+        },
+        {
+          "path": "assets/terrain/up_cliff_col.jpg",
+          "role": "rock material albedo",
+          "binding": "dynamic StandardMaterial3D load",
+          "review_status": "not visually reviewed here"
+        },
+        {
+          "path": "assets/terrain/up_cliff_nrm.jpg",
+          "role": "rock normal",
+          "binding": "dynamic StandardMaterial3D load",
+          "review_status": "not visually scored; technical normal map"
+        },
+        {
+          "path": "assets/terrain/up_wood_col.jpg",
+          "role": "dock material albedo",
+          "binding": "dynamic StandardMaterial3D load",
+          "review_status": "not visually reviewed here"
+        },
+        {
+          "path": "assets/terrain/up_wood_nrm.jpg",
+          "role": "dock normal",
+          "binding": "dynamic StandardMaterial3D load",
+          "review_status": "not visually scored; technical normal map"
+        }
+      ],
+      "procedural_visuals": "Lake, snowdrifts, foam, ice floes, hills, trees, rocks, dock, snow particles, Chuck silhouette, and aim arrow are constructed from MeshInstance3D/primitive materials in fetch.gd.",
+      "migration_evidence_need": "The source remains a Node3D/3D-material gameplay surface, which is transition debt under the accepted true-2D medium. Do not convert or score this as a finished 2D art surface from raster samples alone; capture current composition for migration planning and preserve protected character/voice assets.",
+      "retired_or_unreachable": [],
+      "coverage_need": "Current runtime capture should document the 3D composition and its raster material inputs, but no 4.5 art acceptance is claimable until the true-2D migration path is resolved."
+    }
+  ],
+  "parent_verification": {
+    "hash_bindings": 13,
+    "source_only_scored_rasters": 8,
+    "images": "Read-only metadata; no pixel changes.",
+    "limit": "No capture, complete atlas-cell review, cadence or whole-scene acceptance is added."
+  }
+}

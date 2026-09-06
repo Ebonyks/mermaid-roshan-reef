@@ -1,0 +1,37 @@
+{
+  "schema": "reef.minigame_art_repair_attempt.v1",
+  "date": "2026-09-06",
+  "method": "built-in image_gen",
+  "subject": "Matched opened Geologist geode",
+  "attempt": 1,
+  "runtime_accepted": false,
+  "prompt": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/geode-open-attempt01/prompt.txt",
+    "sha256": "9f22225d70c64851087b518f4afa76d339eb77f58ae83deaaba40a31ee9918da"
+  },
+  "source": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/geode-open-attempt01/native.png",
+    "sha256": "3093ba26153133dac10df3ba3ad348cc81a19072eab10e88dacff5562ecc5578"
+  },
+  "references": [
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/native.png",
+      "sha256": "efaa5f2be034f61d62a548b1ebeaade825b56b98a757871f7e53244c6ed16181",
+      "role": "closed identity"
+    },
+    {
+      "path": "assets_src/geologist_rebuild_2026-09-05/geology_props_candidate.png",
+      "sha256": "d36dbd3af772b95182b4ce1757c74a9db9947830ba390a3989506622875dfdcd",
+      "role": "top-center cavity material only"
+    }
+  ],
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGB",
+  "disposition": "REJECTED_RUNTIME",
+  "reason": "RGB image contains painted checkerboard rather than alpha. Native preserved; next focused extraction separately recorded.",
+  "original_output": "C:/Users/Peter/.codex/generated_images/01a07232-f269-7e21-8e68-a0deb714ea99/exec-4a871556-f63d-4ddc-adf3-99de9d796822.png",
+  "owner_review": false
+}

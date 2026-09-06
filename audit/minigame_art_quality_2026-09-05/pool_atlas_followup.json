@@ -1,0 +1,286 @@
+{
+  "status": "SOURCE_CELL_REVIEW_ONLY_POOL_ACCEPTANCE_OPEN",
+  "review_date": "2026-09-06",
+  "scope": "Two live pool atlas sheets plus bounded context for the non-atlas waterfall and seahorse sources named by dependency_followup_2026-09-06.json.",
+  "owner_note": "The requested scripts/castle_pool_life_2d.gd path is absent in this checkout. Live bindings were confirmed in scripts/games/pool_skimmer_activity.gd and scripts/games/day_one_pool_cleanup.gd. Waterfall and seahorse are individual cutouts owned by their respective activity scripts, not atlas sheets.",
+  "acceptance_boundary": "Native source pixels and code-declared regions were inspected. Dimension compliance is recorded as a factual source check. Motion, mounted contact, Mobile composition, device performance, child response and owner acceptance are unassessed.",
+  "implementation": {
+    "status": "FOCUSED_MACHINE_PASS_AND_BOUNDED_DESKTOP_STILL_REVIEW",
+    "full_quality_accepted": false,
+    "source_pixels_changed": false,
+    "runtime_change_reviewed": "scripts/games/pool_skimmer_activity.gd samples the first two unchanged 341x341 cells at x=12 and x=352 and enables AtlasTexture.filter_clip. The measured candidate outputs have alpha-zero on all four borders; wrapper alpha>=1 bbox is (4,29)-(339,316) and can bbox is (24,42)-(320,301).",
+    "code_review": "The x=12 region spans source x12..352 and encloses the measured wrapper subject x19..345. The x=352 region spans source x352..692 and encloses the measured can subject x381..666. The windows retain equal cell size and do not alter source pixels. The probe checks both live Sprite2D AtlasTexture regions enclose their measured source subjects, preserve 341x341 size, enable filter_clip, and keep maximum sampled-border alpha <=1/255.",
+    "machine_verification": {
+      "result": "PASS",
+      "command_scope": "focused day-one pool cleanup probe",
+      "evidence": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/atlas-fixed/focused-probe.log",
+      "assertions": "All focused checks passed, including five new assertions covering both live AtlasTexture regions, measured-subject enclosure, 341x341 size, filter_clip, and sampled-border alpha <=1/255."
+    },
+    "mounted_still_review": {
+      "result": "BOUNDED_PASS_FOR_CLIPPING_NEIGHBOR_CONTAMINATION_AND_LAYOUT_REGRESSION_ONLY",
+      "candidate_ready": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/atlas-fixed/00_real_room_dirty_arrival.png",
+      "candidate_partial": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/atlas-fixed/01_real_room_skimmer_partial_held.png",
+      "comparison": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/preview-fixed/00_real_room_dirty_arrival.png",
+      "finding": "At 1280x720 Mobile desktop capture, the corrected wrapper reads as a complete wrapper and the can reads as a complete can. No obvious neighboring wrapper fragment is visible inside the can extraction. Both remain at the established six-item pool positions and sizes; comparison with the preview-fixed ready frame shows no material layout displacement or new overlap caused by the sampling change. The partial-held frame preserves the same item layout after one collection."
+    },
+    "limitations": "This review is limited to visible clipping, neighbor-fragment contamination and layout regression in two desktop stills. It does not score skimmer contact, basket flight, animation cadence, overall pool composition, target device, child or owner acceptance. The focused log and source-bound capture packet are archived under evidence/pool-runtime/atlas-fixed/. The pool and full-quality acceptance remain open."
+  },
+  "atlases": [
+    {
+      "path": "assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+      "sha256": "e554c4f253bcaa9e5893d9e4fffe03feef96528211f2458dc5d8fc81299f56df",
+      "dimensions": [
+        1023,
+        682
+      ],
+      "grid": {
+        "columns": 3,
+        "rows": 2,
+        "cell_size": [
+          341,
+          341
+        ],
+        "live_cells": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "binding": "pool_skimmer_activity.gd creates one AtlasTexture per index. Current first-two x origins are12 and352 with341-square windows and filter_clip; other four nominal regions remain unchanged. Six cells are live at62–88px fitted bounds. Cell scores below describe the earlier nominal-region source review; the implementation section records the bounded correction.",
+      "cells": [
+        {
+          "index": 0,
+          "observed_subject": "torn pink star wrapper with white torn ends and green grime",
+          "scores": {
+            "identity": 4.7,
+            "readability": 4.5,
+            "finish": 4.6,
+            "edges": 3.4,
+            "consistency": 4.6
+          },
+          "finding": "Strong immediate litter identity and broad silhouette, but the wrapper reaches the x=341 cell cut and contributes strong-alpha pixels on its right boundary. Direct extraction clips the wrapper and can contaminate cell 1; dense torn-end detail may also soften at the 68px live size."
+        },
+        {
+          "index": 1,
+          "observed_subject": "crushed open silver can with green grime",
+          "scores": {
+            "identity": 4.6,
+            "readability": 4.2,
+            "finish": 4.6,
+            "edges": 3.6,
+            "consistency": 4.6
+          },
+          "finding": "Convincing hollow topology and material, but its left extraction boundary contains strong-alpha pixels inherited from the adjacent wrapper bleed. The gray interior can also lose separation over dark pool water."
+        },
+        {
+          "index": 2,
+          "observed_subject": "blue bottle cap or ring with green grime",
+          "scores": {
+            "identity": 4.1,
+            "readability": 4.3,
+            "finish": 4.6,
+            "edges": 4.6,
+            "consistency": 4.4
+          },
+          "finding": "Clean circular topology and bright cyan edge. Its pristine jewel-like finish competes with the intended trash read until grime is noticed."
+        },
+        {
+          "index": 3,
+          "observed_subject": "orange leaf with bubbles and green grime",
+          "scores": {
+            "identity": 4.6,
+            "readability": 4.7,
+            "finish": 4.6,
+            "edges": 4.7,
+            "consistency": 4.6
+          },
+          "finding": "Broad, phone-readable silhouette and clear vein structure. It is natural debris rather than manufactured litter, but remains semantically valid pool cleanup."
+        },
+        {
+          "index": 4,
+          "observed_subject": "twisted lavender ribbon or plastic strip with green grime",
+          "scores": {
+            "identity": 3.7,
+            "readability": 3.9,
+            "finish": 4.4,
+            "edges": 4.4,
+            "consistency": 4.5
+          },
+          "finding": "Thin folded topology is coherent at source scale but has the weakest contact footprint and most ambiguous identity at the 88px live bound."
+        },
+        {
+          "index": 5,
+          "observed_subject": "yellow porous sponge with bubbles and green grime",
+          "scores": {
+            "identity": 3.9,
+            "readability": 4.6,
+            "finish": 4.6,
+            "edges": 4.6,
+            "consistency": 4.5
+          },
+          "finding": "Strong silhouette and material readability. It may read as a usable cleaning tool rather than trash unless the mounted basket/dirty-water context disambiguates it."
+        }
+      ],
+      "consistency": "All cells share saturated painted highlights, navy-purple contour treatment, bubble accents and green grime. Lighting and outline weight are internally consistent.",
+      "alpha_boundary_measurement": {
+        "method": "Read-only PIL alpha scan of each 341x341 extraction boundary on the exact e554c4f253bcaa9e5893d9e4fffe03feef96528211f2458dc5d8fc81299f56df sheet",
+        "cell_0_right_boundary": {
+          "max_alpha": 254,
+          "pixels_alpha_gte_128": 21
+        },
+        "cell_1_left_boundary": {
+          "max_alpha": 255,
+          "pixels_alpha_gte_128": 18
+        },
+        "cell_3_left_boundary": {
+          "max_alpha": 1,
+          "pixels_alpha_gte_128": 0
+        },
+        "transparent_gap_samples": {
+          "alpha": 0
+        },
+        "interpretation": "Cell 0 wrapper pixels reach the x=341 cut and bleed into cell 1. Cell 3 has no comparable strong-alpha boundary defect. Transparent gaps prove the sheet background is transparent; the black/dark presentation in image viewing is not a painted rectangle."
+      },
+      "contact_topology": "The subjects have no authored waterline or contact shadow, so water ownership depends on the runtime ripple and skimmer overlap. Cells 2-5 preserve isolated topology at their inspected boundaries. Cells 0 and 1 do not: the wrapper crosses their shared atlas cut, clipping cell 0 and contaminating cell 1. Cell 4's narrow ribbon and cell 1's dark cavity need additional mounted contact scrutiny.",
+      "visual_dimensions": {
+        "identity": 4.3,
+        "readability": 4.3,
+        "finish": 4.6,
+        "edges": 3.9,
+        "consistency": 4.5,
+        "finding": "The family is polished and internally coherent, but the measured cell-0/cell-1 boundary bleed is a concrete extraction defect. Cells 2, 4 and 5 also weaken immediate trash identity and cell 4 weakens small-scale readability."
+      },
+      "source_dimension_check": {
+        "result": "PASS",
+        "finding": "The 1023x682 file exactly fits a 3x2 grid of 341px cells and stays within the <=1024 texture rule. Each source cell has ample pixels for its 62-88px runtime size. NPOT dimensions are legal at this size but should not use a POT-only compression assumption."
+      },
+      "motion": {
+        "score": null,
+        "reason": "One static subject per cell. The sheet cannot establish idle drift, skimmer intersection, flight cadence or basket arrival."
+      },
+      "weak_art": [
+        "cell 0 wrapper is clipped at the right atlas boundary",
+        "cell 1 left boundary contains neighboring wrapper pixels",
+        "cell 4 identity/contact footprint",
+        "cell 5 tool-versus-trash ambiguity",
+        "cell 2 jewel-like cleanliness",
+        "small moss/bubble details likely collapse at phone scale"
+      ],
+      "reuse_options": [
+        "Cells 0 and 1 can preserve the original atlas pixels through the measured runtime region correction: 341px windows at x=12 and x=352 with filter_clip enabled. This is pending focused probe and mounted edge review, not accepted art.",
+        "A derived raster at a new path is necessary only if the corrected sampling still fails enclosure, clean-edge or mounted presentation checks; do not create one automatically.",
+        "Cell 3 has the clearest broad silhouette and no measured strong-alpha left-boundary defect, but still requires mounted evidence.",
+        "Keep cells 2, 4 and 5 only if mounted evidence proves immediate trash identity and skimmer contact."
+      ],
+      "unreviewed_cells": []
+    },
+    {
+      "path": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+      "sha256": "39cd43295adfce51249ac97647520aee9643e397fe417bf0374727297b34528e",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "grid": {
+        "columns": 4,
+        "rows": 2,
+        "cell_size": [
+          256,
+          256
+        ],
+        "live_pool_cells": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "coordinate_note": "Live swim uses row 1, columns 0-3."
+      },
+      "binding": "day_one_pool_cleanup.gd builds a looping swim animation from all four row-1 cells at a declared 5 fps before the Rumi rise/settle sequence.",
+      "live_cell_observations": [
+        {
+          "index": 4,
+          "row": 1,
+          "column": 0,
+          "finding": "Right-facing swim with long braid trailing left and full pink tail; silhouette is complete and readable."
+        },
+        {
+          "index": 5,
+          "row": 1,
+          "column": 1,
+          "finding": "Right-facing reach with forward hand; face, braid, torso and tail topology remain consistent with cell 4."
+        },
+        {
+          "index": 6,
+          "row": 1,
+          "column": 2,
+          "finding": "Right-facing glide with arm extended backward; identity colors and body proportions remain stable."
+        },
+        {
+          "index": 7,
+          "row": 1,
+          "column": 3,
+          "finding": "Right-facing swim key near the right cell edge. Subject remains complete and directionally consistent; the tighter edge clearance needs mounted clipping review."
+        }
+      ],
+      "consistency": "The four live swim cells preserve Rumi's purple braid, navy jacket, aqua scales and pink fin. Face and costume topology are stable at sheet scale; arm and braid changes correspond to distinct swim keys.",
+      "contact_topology": "No waterline, ripple or room contact is baked into the atlas, which is appropriate for reuse over the authored pool. The runtime rise ripple and placement own contact. All four live cells keep consistent facing and complete body topology; cell 7 has the tightest right-edge clearance.",
+      "visual_dimensions": {
+        "identity": 4.8,
+        "readability": 4.6,
+        "finish": 4.6,
+        "edges": 4.5,
+        "consistency": 4.6,
+        "finding": "Purple braid, navy jacket, aqua scales and pink fin remain stable and readable across all four source keys. Fine edge quality and room clearance still require mounted inspection."
+      },
+      "source_dimension_check": {
+        "result": "PASS",
+        "finding": "The 1024x512 POT atlas provides exact 256px cells and complies with the <=1024 texture rule. Source dimensions do not prove runtime scale, clipping or edge quality over the room."
+      },
+      "motion": {
+        "score": null,
+        "reason": "Four consistent-facing gesture keys do not prove a coherent 5fps loop, interpolation, cadence or loop-back quality."
+      },
+      "weak_art": [
+        "cell 7 has tighter right-edge clearance than the other live keys",
+        "braid occupies a wide silhouette that may collide with nearby HUD or room features when scaled"
+      ],
+      "reuse_options": [
+        "All four row-1 cells are source-consistent candidates for their existing swim role, but no subset or loop is accepted without mounted time-based evidence."
+      ],
+      "unreviewed_cells": [
+        "row 0 columns 0-3 are not used by the pool swim binding and were not graded as pool animation cells in this bounded review"
+      ]
+    }
+  ],
+  "non_atlas_context": [
+    {
+      "path": "assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png",
+      "sha256": "d4da588daece3fa12b5f094b50f5c8b33eeae31fd0761f1eeedce882cf1b7507",
+      "dimensions": [
+        874,
+        1024
+      ],
+      "finding": "A single painted clogged-waterfall cutout, not an atlas. Finish and outline are strong, but the dense green vertical strands and embedded debris make lane cleanup ownership dependent on the runtime slice and scrub mask. Motion unassessed."
+    },
+    {
+      "path": "assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png",
+      "sha256": "88aa2ce07e79144b13d8e699341404e7b15e79baed861169c9c17e196ddba941",
+      "dimensions": [
+        936,
+        1024
+      ],
+      "finding": "A single complete painted seahorse cutout, not an atlas. Character topology, navy outline and coral base are polished; the green wrap crosses the body clearly, but extraction/contact with the separate mouth-trash prop and release motion require mounted evidence. Motion unassessed."
+    }
+  ],
+  "next_evidence": [
+    "Capture each trash cell at its actual 62-88px bound over the real pool, including skimmer overlap and the start/end of basket flight.",
+    "Capture waterfall lane slices before, during held scrub and after clearing to assess whether the one source cutout remains spatially coherent.",
+    "Capture seahorse mouth-trash contact during held tug, release and settle; the clean-mouth body alone cannot prove obstruction topology.",
+    "Inspect the Rumi row-1 loop on Mobile for cell-7 edge clearance, braid continuity, pool contact and edge stability.",
+    "Keep current pool acceptance open until those mounted states and full animation/device gates exist."
+  ]
+}

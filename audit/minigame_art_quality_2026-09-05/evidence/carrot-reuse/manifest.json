@@ -1,0 +1,114 @@
+{
+  "schema": "reef.carrot_reuse_diagnostic.v1",
+  "parents": [
+    "9df000999a94572b64537c98f558841f6f3e3260",
+    "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d"
+  ],
+  "candidate_commit": null,
+  "engine": "Godot4.7.2-stable ed1daf0bf",
+  "renderer": "Mobile Vulkan RTX3060Ti",
+  "viewport": [
+    1280,
+    720
+  ],
+  "exit_code": 0,
+  "method": "Historical run03: configured Snowman full body via settle callbacks outside Level2; normal SceneTree timers but NO picture-game clock. Real kitchen lifecycle and dinner TextureButton callback.",
+  "source_art": {
+    "path": "assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+    "sha256": "9ec02fdd3e0ea6888ab3e3dce7f3a6436b752974798fd46fddf545a70f3e93dd",
+    "modified": false
+  },
+  "code_sources": [
+    {
+      "path": "scripts/main.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "f357d41f686db7781811d39ba1fd2fb5bdc49e477cf93678fcd16ec0f7424317"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "f15472e082415daa29b3fa801e6cc60df43d29d94766e8dcf9ab959feb8896b5"
+    },
+    {
+      "path": "scripts/comfy_games.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "7a08f5f8bb5e6b61204b8e8fed31337933c48caede296a50aa189aba74105e47"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "55e03356298d3f72e014cec9bc12d5783c3edf68a9683146116a55267919131e"
+    }
+  ],
+  "support_dispositions": {
+    "run01": "Rejected full run: direct room open did not start normal castle activity tick; only partial Snowman captures existed",
+    "run02": "Rejected full run: capture incorrectly cast TextureButton as Button; corrected type used in run03"
+  },
+  "animation_reviewed": false,
+  "target_device_reviewed": false,
+  "child_reviewed": false,
+  "quality_accepted": false,
+  "files": [
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/carrot-reuse/candidate/comfy_dinner_after_carrot.png",
+      "sha256": "c1158f9ea65f497c52c79afc4d3f43f2383d80a8399ce6aa22718ad7a9a7b382"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/carrot-reuse/candidate/comfy_dinner_carrot_ready.png",
+      "sha256": "cbe1a7b3a021299fe71a1763952afe7f01ab592d08634534c0d11da4097868c2"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/carrot-reuse/candidate/snowman_carrot_nose_one_coal.png",
+      "sha256": "7706088b5cda8f8516f7511ac14387a33a5a51c5771b036075ce9a9e41c69514"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/carrot-reuse/candidate/snowman_carrot_nose_one_coal_pending.png",
+      "sha256": "f50ae5c27ffb5ad79ca6ec4f9a64d73fcb784b4b3adeae80654d57f53684023a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/carrot-reuse/candidate/snowman_chase_active.png",
+      "sha256": "6d15691ad5b795c8b1000c13592d44ae015b4b85abd3cdc819428823f7fed220"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/carrot-reuse/candidate/snowman_face_ready_configured.png",
+      "sha256": "b2d6bb7a03e50c233a016acebe4f71cb1a5ad9edd4eb757e609345ee2d271156"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/carrot-reuse/candidate/capture.log",
+      "sha256": "83302225342598af304115f88bbf5e6ed77cca34b6484d688f256107d0e41374"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/carrot-reuse/candidate/exit.txt",
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/carrot-reuse/candidate/harness.gd.txt",
+      "sha256": "c80b2b3d8995e320911f99f1001b164efc1d485871784f35b80872c515d45b88"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/carrot-reuse/support/run01/capture.log",
+      "sha256": "9762e9f4dc8d291fe3bc208657aa5e82f0e2fe0f2b11eac8c48a41a559f40d0d"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/carrot-reuse/support/run01/exit.txt",
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/carrot-reuse/support/run01/harness.gd.txt",
+      "sha256": "379ce81d10adcdb2649e747b144661aa8cdac5262c8464fa885c1511c24c87fc"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/carrot-reuse/support/run02/capture.log",
+      "sha256": "f1871ff207a51f6c2a4095e68794428f17dde538a0ec77876357552190a24a3d"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/carrot-reuse/support/run02/exit.txt",
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/carrot-reuse/support/run02/harness.gd.txt",
+      "sha256": "8d2e0a047c4703961b238504c0377569a706c7fafe8441f2131e6bb71870d261"
+    }
+  ],
+  "correction": "Snowman run03/run04 are component stills only; no chase ticking. Run05 motion guard failed on promenade; run06 ticks but Castle Hall obscures Snowman. Later visible diagnostic is separately bound."
+}

@@ -1,0 +1,273 @@
+extends SceneTree
+## Disposable real-room Mobile capture for the Day One Mermaid Pool sequence.
+##
+## The route is configured through the real main scene and CastleRooms25D.
+## Touches call each live activity's normal GUI input handler. These captures
+## are configured-route diagnostics, not natural-navigation or device evidence.
+
+const SCREEN := Vector2i(1280, 720)
+const EXPECTED_GODOT_HASH := "ed1daf0bf"
+
+var main: ReefMain = null
+var rooms: CastleRooms25D = null
+var cleanup: DayOnePoolCleanup = null
+var output_dir := ""
+var failures := 0
+
+
+func _init() -> void:
+	call_deferred("_run")
+
+
+func _run() -> void:
+	output_dir = OS.get_environment("POOL_ART_CAPTURE_OUT").strip_edges()
+	var profile := OS.get_environment("POOL_ART_CAPTURE_USER_DATA_DIR").strip_edges()
+	if output_dir.is_empty() or profile.is_empty():
+		_block("isolated output and userdata environment are required", 2)
+		return
+	var version := Engine.get_version_info()
+	if int(version.get("major", -1)) != 4 or int(version.get("minor", -1)) != 7 \
+			or int(version.get("patch", -1)) != 2 \
+			or String(version.get("status", "")) != "stable" \
+			or not String(version.get("hash", "")).begins_with(EXPECTED_GODOT_HASH):
+		_block("requires exact official Godot 4.7.2-stable ed1daf0bf", 3)
+		return
+	# This guard must remain before loading or instantiating the main scene.
+	var actual_profile := OS.get_user_data_dir().replace("\\", "/").to_lower()
+	var expected_profile := profile.replace("\\", "/").trim_suffix("/").to_lower()
+	if actual_profile != expected_profile \
+			and not actual_profile.begins_with(expected_profile + "/"):
+		_block("OS user-data directory is not the requested isolated profile", 4)
+		return
+	if RenderingServer.get_current_rendering_method() != "mobile":
+		_block("renderer is not Mobile", 5)
+		return
+	DirAccess.make_dir_recursive_absolute(output_dir)
+	create_timer(100.0).timeout.connect(func(): quit(9))
+	var packed := load("res://scenes/main.tscn") as PackedScene
+	if packed == null:
+		_block("main scene unavailable", 6)
+		return
+	main = packed.instantiate() as ReefMain
+	if main == null:
+		_block("main scene did not instantiate ReefMain", 6)
+		return
+	get_root().add_child(main)
+	await _frames(3)
+	get_root().size = SCREEN
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		main._launch_from_start_menu(false)
+	elif main.intro_active:
+		main._skip_intro()
+	await _frames(3)
+
+	# Configure the actual route owner at the point immediately after the
+	# bathroom. show_room builds the real tiled room, depth cards, fixtures,
+	# dressing, player, and its live DayOnePoolCleanup child.
+	main._day_one_ref().restore_state({
+		"day_one_active": true,
+		"day_one_completed_rooms": ["bathroom"],
+		"day_one_pool_cleanup_step": 0,
+		"day_one_pool_skimmer_mask": 0,
+		"day_one_pool_waterfall_mask": 0,
+		"day_one_pool_seahorse_tugs": 0,
+	})
+	main.pearl_count = 10
+	main.level2_done_once = true
+	main._enter_level2_now(true, false, false)
+	await _frames(12)
+	main._enter_castle_interior_now(false)
+	await _frames(18)
+	rooms = main._castle_rooms_ref()
+	rooms.show_room("mermaid_pool", false)
+	await _frames(12)
+	cleanup = rooms.day_one_pool_cleanup
+	var composition_ok := main.castle_room_id == "mermaid_pool" \
+		and main.castle_room_stage != null \
+		and bool(main.castle_room_stage.get_meta("room_composition_complete", false)) \
+		and bool(main.castle_room_stage.get_meta("room_tiles_ready", false)) \
+		and main.castle_room_background != null \
+		and main.castle_room_background.texture != null \
+		and cleanup != null and cleanup.get_parent() == main.castle_room_world_root
+	print("POOL_ART_V2|MOUNT|room=%s stage=%s composition=%s tiles=%s background=%s cleanup=%s day_one=%s" % [main.castle_room_id, main.castle_room_stage != null, main.castle_room_stage.get_meta("room_composition_complete", false) if main.castle_room_stage != null else false, main.castle_room_stage.get_meta("room_tiles_ready", false) if main.castle_room_stage != null else false, main.castle_room_background != null, cleanup != null, main.day_one_is_active()])
+	_check("real Mermaid Pool composition mounted",
+		composition_ok)
+	if not composition_ok:
+		await _finish()
+		return
+	var waterfall_record := main.castle_room_item_sprites.get("waterfall", {}) as Dictionary
+	var waterfall_sprite := waterfall_record.get("sprite") as Sprite2D
+	var fixture_ok := waterfall_sprite != null and waterfall_sprite.texture != null \
+		and waterfall_record.has("fixture_rig") \
+		and String(cleanup.audit_snapshot().get("current_activity", "")) == "pool_surface" \
+		and bool((cleanup.audit_snapshot().get("skimmer", {}) as Dictionary).get(
+			"running", false)) \
+		and not waterfall_sprite.visible
+	_check("real dirty arrival and waterfall fixture registered",
+		fixture_ok)
+	if not fixture_ok:
+		await _finish()
+		return
+	await _capture("00_real_room_dirty_arrival")
+
+	var skimmer := cleanup.skimmer_activity
+	for index in range(PoolSkimmerActivity.TRASH_POSITIONS.size()):
+		var target := PoolSkimmerActivity.TRASH_POSITIONS[index]
+		await _touch_drag(skimmer, target + Vector2(150.0, 70.0), target,
+			"01_real_room_skimmer_partial_held" if index == 1 else "")
+	var waterfall_ready := await _wait_for_activity("waterfall", 2.5)
+	var skimmer_complete := waterfall_ready and main.day_one_pool_skimmer_mask == 0x3f \
+		and main.day_one_pool_cleanup_step == 1 \
+		and String(cleanup.audit_snapshot().get("current_activity", "")) == "waterfall"
+	_check("six live skimmer drags complete only the skimmer",
+		skimmer_complete)
+	if not skimmer_complete:
+		await _finish()
+		return
+	await _capture("02_real_room_skimmer_complete_waterfall_ready")
+
+	var waterfall := cleanup.waterfall_activity
+	var waterfall_state := waterfall.audit_snapshot()
+	var center := waterfall_state.get("fixture_center", Vector2.ZERO) as Vector2
+	var size := waterfall_state.get("fixture_size", Vector2.ZERO) as Vector2
+	for lane in range(3):
+		var x := center.x - size.x * 0.5 + size.x * (float(lane) + 0.5) / 3.0
+		await _touch_drag(waterfall, Vector2(x, center.y - size.y * 0.45),
+			Vector2(x, center.y + size.y * 0.45),
+			"03_real_room_waterfall_partial_held" if lane == 0 else "")
+	var seahorse_ready := await _wait_for_activity("seahorse", 2.5)
+	var waterfall_complete := seahorse_ready \
+		and main.day_one_pool_waterfall_mask == 0x07 \
+		and main.day_one_pool_cleanup_step == 2 \
+		and String(cleanup.audit_snapshot().get("current_activity", "")) == "seahorse"
+	_check("three live waterfall strokes unlock the seahorse",
+		waterfall_complete)
+	if not waterfall_complete:
+		await _finish()
+		return
+	await _capture("04_real_room_waterfall_complete_seahorse_ready")
+
+	var seahorse := cleanup.seahorse_activity
+	var seahorse_center := (seahorse.audit_snapshot().get(
+		"fixture_center", Vector2.ZERO) as Vector2)
+	for tug in range(8):
+		_touch_tap(seahorse, seahorse_center)
+		await create_timer(0.06).timeout
+		if tug == 3:
+			await _capture("05_real_room_seahorse_mid_tug")
+	await _capture("06_real_room_seahorse_release")
+	var finale_ready := await _wait_for_finale(3.0)
+	var finale := cleanup.audit_snapshot()
+	var finale_complete := finale_ready and main.day_one_pool_seahorse_tugs == 8 \
+		and main.day_one_pool_cleanup_step == 4 \
+		and String(finale.get("current_activity", "")) == "complete" \
+		and bool(finale.get("finale_started", false)) \
+		and bool(finale.get("rumi_present", false))
+	_check("eight live seahorse taps complete the room once",
+		finale_complete)
+	if not finale_complete:
+		await _finish()
+		return
+	await _capture("07_real_room_rainbow_reveal")
+	await create_timer(1.2).timeout
+	await _capture("08_real_room_rumi_settle")
+	await _finish()
+
+
+func _touch_drag(activity: Control, from: Vector2, to: Vector2,
+		held_capture: String = "") -> void:
+	var press := InputEventScreenTouch.new()
+	press.index = 0
+	press.pressed = true
+	press.position = from
+	activity._gui_input(press)
+	for step in range(1, 7):
+		var drag := InputEventScreenDrag.new()
+		drag.index = 0
+		drag.position = from.lerp(to, float(step) / 6.0)
+		activity._gui_input(drag)
+		await create_timer(0.035).timeout
+		if step == 4 and not held_capture.is_empty():
+			await _capture(held_capture)
+	var release := InputEventScreenTouch.new()
+	release.index = 0
+	release.pressed = false
+	release.position = to
+	activity._gui_input(release)
+	await create_timer(0.05).timeout
+
+
+func _touch_tap(activity: Control, point: Vector2) -> void:
+	var press := InputEventScreenTouch.new()
+	press.index = 0
+	press.pressed = true
+	press.position = point
+	activity._gui_input(press)
+	var release := InputEventScreenTouch.new()
+	release.index = 0
+	release.pressed = false
+	release.position = point
+	activity._gui_input(release)
+
+
+func _wait_for_activity(expected: String, timeout_seconds: float) -> bool:
+	var elapsed := 0.0
+	while elapsed < timeout_seconds:
+		if String(cleanup.audit_snapshot().get("current_activity", "")) == expected:
+			return true
+		await create_timer(0.05).timeout
+		elapsed += 0.05
+	return false
+
+
+func _wait_for_finale(timeout_seconds: float) -> bool:
+	var elapsed := 0.0
+	while elapsed < timeout_seconds:
+		var state := cleanup.audit_snapshot()
+		if String(state.get("current_activity", "")) == "complete" \
+				and bool(state.get("finale_started", false)) \
+				and bool(state.get("rumi_present", false)):
+			return true
+		await create_timer(0.05).timeout
+		elapsed += 0.05
+	return false
+
+
+func _capture(label: String) -> void:
+	await _frames(3)
+	if get_root().size != SCREEN:
+		_check("viewport remains 1280x720 for %s" % label, false)
+		return
+	await RenderingServer.frame_post_draw
+	var image := get_root().get_texture().get_image()
+	var path := output_dir.path_join(label + ".png")
+	var saved := image.get_size() == SCREEN and image.save_png(path) == OK
+	_check("capture %s" % label, saved)
+	if saved:
+		print("POOL_ART_V2|CAPTURE|configured_route_diagnostic|%s|%s" % [label, path])
+
+
+func _frames(count: int) -> void:
+	for _index in range(count):
+		await process_frame
+
+
+func _check(label: String, ok: bool) -> void:
+	if not ok:
+		failures += 1
+	print("POOL_ART_V2|%s|%s" % ["OK" if ok else "FAIL", label])
+
+
+func _block(reason: String, code: int) -> void:
+	push_error("POOL_ART_V2|BLOCKED|%s" % reason)
+	quit(code)
+
+
+func _finish() -> void:
+	if main != null and is_instance_valid(main):
+		main.queue_free()
+	await _frames(4)
+	print("POOL_ART_V2|RESULT|%s|failures=%d" % [
+		"PASS" if failures == 0 else "FAIL", failures])
+	quit(1 if failures > 0 else 0)

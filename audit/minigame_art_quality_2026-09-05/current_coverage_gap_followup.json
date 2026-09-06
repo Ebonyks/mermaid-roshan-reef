@@ -1,0 +1,462 @@
+{
+  "schema": "reef.minigame_art_coverage_gap_review.v1",
+  "generated": "2026-09-06",
+  "purpose": "Bounded discovery of high-impact live gameplay raster sources or animation families absent from audit/minigame_art_quality_2026-09-05/registry.json. This is not an exhaustive inventory, a pixel-quality review, or acceptance evidence.",
+  "audit_contract": {
+    "applicable_rules": [
+      "DL-VIS-01",
+      "DL-COMP-01",
+      "DL-COMP-03",
+      "DL-CANVAS-01",
+      "DL-MOT-02",
+      "DL-MOT-03",
+      "DL-ART-01",
+      "DL-ART-03",
+      "DL-QA-11"
+    ],
+    "related_master_findings": [],
+    "finding_reason": "This artifact discovers registry omissions and does not diagnose a new visual defect, assign a source score, repair a canonical finding, or change runtime facts.",
+    "scope": "Read-only comparison of literal live raster bindings in selected minigame owners against the registry source.path set, prioritized toward actors, targets, progression states, contact objects, and child-readable cues.",
+    "required_next_evidence": "For any source selected for audit or replacement: inspect the actual source pixels, capture the bound runtime ready/action/contact/payoff/settle states, verify atlas windows and cadence where applicable, and keep source-only, runtime, Mobile/device, child, and owner claims separate."
+  },
+  "method": {
+    "registry_baseline": "audit/minigame_art_quality_2026-09-05/registry.json",
+    "registry_observed_shape": "62 entries in assets[] / 54 distinct assets[].source.path values; this review treats the registry as known nonexhaustive.",
+    "correction": "The initial draft mistakenly read records[].source.path, a nonexistent top-level key, and therefore produced a false zero-overlap result. This corrected draft recomputed the known set from assets[].source.path and removed the two overlaps: assets/mg/wateringcan.png and assets/mg/k_sprout.png.",
+    "steps": [
+      "Parsed assets[].source.path as the known-source set.",
+      "Searched literal res://assets raster references in scripts/main.gd, scripts/games, scripts/arena, and scripts/comfy_games.gd.",
+      "Removed paths already present in the registry.",
+      "Read the selected runtime owners to distinguish active gameplay state from static room/background dressing.",
+      "Cross-checked existing source-trace notes where available so prior source-only review is reported as evidence, not repeated or converted into registry acceptance.",
+      "Computed SHA-256 over exact repository file bytes for every listed source."
+    ],
+    "pixel_inspection_performed": false,
+    "quality_scores_assigned": false
+  },
+  "coverage_limits": [
+    "The list is capped below 20 prioritized entries and is not exhaustive.",
+    "Dynamic paths, generated Canvas drawing, resources referenced through scenes/resources, and string formatting were not comprehensively resolved.",
+    "Literal scans included main/game/arena/comfy owners but did not prove route reachability in a running build.",
+    "Static panoramas, ordinary room tiles, terrain/material textures, UI navigation thumbnails, and decorative-only props were intentionally deprioritized.",
+    "No Godot run, runtime capture, animation-cadence review, Mobile/device test, child session, or owner acceptance was performed.",
+    "Protected character sources are listed only to expose coverage; reuse-first action means preserve identity and source bytes."
+  ],
+  "prioritized_gaps": [
+    {
+      "priority": 1,
+      "id": "seek-lamma-animation",
+      "game": "seek",
+      "role": "Primary hide/peek/reveal/celebrate target actor; the child finds this actor four times.",
+      "sources": [
+        {
+          "path": "assets/minigames/seek/lamma_animation.png",
+          "sha256": "4ff1c9748e68853879211c825ffc8c45b7388c8da7b17cf0a44c6cd320dd7f8c"
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/seek.gd",
+          "line": 12,
+          "binding": "LAMMA_ANIMATION; LAMMA_STATES defines hide, peek, reveal, celebrate"
+        }
+      ],
+      "current_evidence_gap": "Absent from registry. An existing source-trace note reports source-only inspection, but registry coverage and current bound four-find state/cadence/contact/payoff evidence are missing.",
+      "reuse_first_next_action": "Register the existing sheet and capture every LAMMA_STATES sequence at the live atlas windows before considering any source change."
+    },
+    {
+      "priority": 2,
+      "id": "seek-evie-animation",
+      "game": "seek",
+      "role": "Companion actor providing idle, pointing, and celebration feedback.",
+      "sources": [
+        {
+          "path": "assets/minigames/seek/evie_animation.png",
+          "sha256": "705cb95a4a1d0226f9554327947fd2956e131535f2e89f953a94970052030ce9"
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/seek.gd",
+          "line": 11,
+          "binding": "EVIE_ANIMATION; EVIE_STATES defines idle, point, cheer"
+        }
+      ],
+      "current_evidence_gap": "Absent from registry. Existing source-only notes do not establish current runtime windowing, cadence, state legibility, or scene acceptance.",
+      "reuse_first_next_action": "Register and capture the three live states with atlas bounds visible in evidence metadata."
+    },
+    {
+      "priority": 3,
+      "id": "seek-roshan-gesture-animation",
+      "game": "seek",
+      "role": "Protected player/guide animation for wave, cheer, and clap states.",
+      "sources": [
+        {
+          "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+          "sha256": "54cac0e3088a96d92aae35d14642491f75f06ffe1878b004a6ebfd1de44438df",
+          "protected_identity": true
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/seek.gd",
+          "line": 15,
+          "binding": "ROSHAN_ANIMATION; ROSHAN_STATES defines wave, cheer, clap"
+        }
+      ],
+      "current_evidence_gap": "Absent from registry; exact protected source must be preserved. No current state-bound atlas-window/cadence capture is recorded in the registry.",
+      "reuse_first_next_action": "Keep the approved source unchanged; add binding and runtime state evidence only."
+    },
+    {
+      "priority": 4,
+      "id": "slide-race-roshan-pose-family",
+      "game": "slide_race_fish",
+      "role": "Four-step player pose progression across the active fish-slide route.",
+      "sources": [
+        {
+          "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png",
+          "sha256": "023a1bfefb4393c6d9f7373f29f337b7fff0a83049e81c71a73aecc233f14bf3"
+        },
+        {
+          "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png",
+          "sha256": "9011deb46e28fdcc533bb6482510902f651ecce723e86c6b985bd255a1cb4e62"
+        },
+        {
+          "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2_v2.png",
+          "sha256": "cb6cd27d5357bb59542bbdf95ef3fbf751759ce07046ea3607ec449c6a5d9613"
+        },
+        {
+          "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png",
+          "sha256": "8ec11afaf899b21548e4fdeeabc945cb90f5b62e6410a6319afaf22834e03271"
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/slide_race.gd",
+          "lines": [
+            43,
+            44,
+            45,
+            46
+          ],
+          "binding": "FISH_ROSHAN_PATHS"
+        }
+      ],
+      "current_evidence_gap": "All four live pose sources are absent from registry. Progress ordering, pose continuity, player identity, steering readability, and payoff settle are not registry-bound.",
+      "reuse_first_next_action": "Treat the four approved poses as one family; register hashes and capture their actual progress transitions before proposing regeneration."
+    },
+    {
+      "priority": 5,
+      "id": "slide-race-fish-target",
+      "game": "slide_race_fish",
+      "role": "Repeated collectible and progress pip for the five-fish objective.",
+      "sources": [
+        {
+          "path": "assets/props/gen2/clownfish_side.png",
+          "sha256": "0b9df739ab132f88178f1ac2052a3b8a4a7c9497ba1456eb151c8849989cba88"
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/slide_race.gd",
+          "line": 41,
+          "binding": "FISH_ART_PATH"
+        }
+      ],
+      "current_evidence_gap": "Absent from registry; target readability at play scale, collection contact, pip use, and repetition across five placements remain unreviewed.",
+      "reuse_first_next_action": "Register one source with both collectible and pip roles, then capture approach/contact/collected states."
+    },
+    {
+      "priority": 6,
+      "id": "slide-race-friends-goal-actor",
+      "game": "slide_race_fish",
+      "role": "Harper and Fiona goal-giver/route identity card in the playable stage.",
+      "sources": [
+        {
+          "path": "assets/characters/friends/two_friends.png",
+          "sha256": "85f2cc1bc7247d0877ff7bb6a97a44b711c757c497d36c215bc70fb74e548f58",
+          "protected_identity": true
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/slide_race.gd",
+          "line": 40,
+          "binding": "FISH_FRIENDS_PATH"
+        },
+        {
+          "path": "scripts/main.gd",
+          "line": 837,
+          "binding": "slide/fish route descriptor"
+        }
+      ],
+      "current_evidence_gap": "Absent from registry; protected friend identity mounting and readable relationship to the objective have no current registry evidence.",
+      "reuse_first_next_action": "Preserve the source unchanged and audit only mounting, scale, composition, and state visibility."
+    },
+    {
+      "priority": 7,
+      "id": "fairy-boss-growth-family",
+      "game": "fairy",
+      "role": "Five authored boss/progression states from seed through successful bloom.",
+      "sources": [
+        {
+          "path": "assets/fairy/sprites/boss_seed.png",
+          "sha256": "c8398c22de8f739ca001b14197aab9007f3dd9f9ac2dc743c252b92b83e8d08b"
+        },
+        {
+          "path": "assets/fairy/sprites/boss_sprout.png",
+          "sha256": "1c7e0b23335b3f4aec4796133db9c882c38b1e7a1dc630fceb50a0f14254e886"
+        },
+        {
+          "path": "assets/fairy/sprites/boss_bud.png",
+          "sha256": "8da84bb2023431ab35714daff918203836227552910f0e8e92360b0d0fc31a97"
+        },
+        {
+          "path": "assets/fairy/sprites/boss_opening.png",
+          "sha256": "e3738c1d574ed8c29525186b493c36d75c0b4b9e8e957f7b683ad0ffb47be579"
+        },
+        {
+          "path": "assets/fairy/sprites/boss_bloom.png",
+          "sha256": "36db20eff66d1da63ab8f13878f99313712fe3adb02ca314a2a73c6f86c59cf9"
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/fairy.gd",
+          "lines": [
+            74,
+            75,
+            76,
+            77,
+            78
+          ],
+          "binding": "FS_BOSS_ART state map"
+        }
+      ],
+      "current_evidence_gap": "Entire semantic progression family is absent from registry. Transition order, visual continuity, contact response, bloom payoff, and settle have no current registry-bound evidence.",
+      "reuse_first_next_action": "Register as one ordered family and capture every transition and final bloom before evaluating individual source replacement."
+    },
+    {
+      "priority": 8,
+      "id": "fairy-bug-target-family",
+      "game": "fairy",
+      "role": "Three recurring active bug targets in the flight activity.",
+      "sources": [
+        {
+          "path": "assets/fairy/sprites/bug_jewel.png",
+          "sha256": "2ead5e9ef1b4c8fca0fbe4196a78c1f45926300cfee6f997597adf9ae9eef639"
+        },
+        {
+          "path": "assets/fairy/sprites/bug_moth.png",
+          "sha256": "c707462c283b254d1380afe18bd899035853620c5215931cd528cb855d1b327f"
+        },
+        {
+          "path": "assets/fairy/sprites/bug_firefly.png",
+          "sha256": "20348706e59d653027960209d7c7461e7d28eb186d2fb3609e24798816057e5b"
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/fairy.gd",
+          "lines": [
+            69,
+            70,
+            71
+          ],
+          "binding": "FS_BUG_ART"
+        }
+      ],
+      "current_evidence_gap": "Absent from registry; variant discrimination, play-scale silhouette, approach/fire/contact response, and density remain unreviewed in current evidence.",
+      "reuse_first_next_action": "Audit all three as a role family in representative live encounters; reuse unless actual capture identifies a specific failed variant."
+    },
+    {
+      "priority": 9,
+      "id": "fairy-boss-leaf",
+      "game": "fairy",
+      "role": "Six-copy destructible outer boss shield and primary contact target.",
+      "sources": [
+        {
+          "path": "assets/fairy/sprites/boss_leaf.png",
+          "sha256": "64940fd682c0be201526bbd13b4191e3f1e1029e3c35a221d57fa3f767717d03"
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/fairy.gd",
+          "line": 87,
+          "binding": "FS_BOSS_LEAF_ART"
+        }
+      ],
+      "current_evidence_gap": "Absent from registry; repeated ring composition, hit readability, removal feedback, and the transition to exposed bud are not evidenced.",
+      "reuse_first_next_action": "Register once with its six-copy role and capture intact, hit, partial ring, and cleared states."
+    },
+    {
+      "priority": 10,
+      "id": "fairy-helpful-cue",
+      "game": "fairy",
+      "role": "Child-readable beneficial cue distinguishing helpful interaction.",
+      "sources": [
+        {
+          "path": "assets/fairy/sprites/helpful_flower_gate.png",
+          "sha256": "f06308db600940e32db09b64184ad469f59fa99d05c5a4c2d1b377df221ea7dd"
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/fairy.gd",
+          "line": 88,
+          "binding": "FS_HELPFUL_CUE_ART"
+        }
+      ],
+      "current_evidence_gap": "Absent from registry; helpful/harmful distinction, scale, motion, and reaction are unverified.",
+      "reuse_first_next_action": "Audit beside the danger cue in the same live frame and retain the existing visual if the distinction is clear."
+    },
+    {
+      "priority": 11,
+      "id": "fairy-danger-cue",
+      "game": "fairy",
+      "role": "Child-readable harmful cue paired with the helpful flower gate.",
+      "sources": [
+        {
+          "path": "assets/fairy/sprites/danger_thorn_halo.png",
+          "sha256": "3bc42f0dd85a5001be64d61aa10c49646aa5d34971a28560dd41191a0fddbdfb"
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/fairy.gd",
+          "line": 89,
+          "binding": "FS_DANGER_CUE_ART"
+        }
+      ],
+      "current_evidence_gap": "Absent from registry; hazard distinction, touch avoidance readability, reaction, and scene contrast are unverified.",
+      "reuse_first_next_action": "Capture paired helpful/danger states before any source-level decision."
+    },
+    {
+      "priority": 12,
+      "id": "picture-garden-seed",
+      "game": "picture_garden",
+      "role": "Five draggable/tappable starting objects for the garden progression.",
+      "sources": [
+        {
+          "path": "assets/mg/seed.png",
+          "sha256": "d300ccc7bfd03d100cfa94221addd99dc95f4866a0dfe6f32becf12fec4179cc"
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/picture_games.gd",
+          "line": 589,
+          "binding": "five _mg_artbtn seed controls"
+        }
+      ],
+      "current_evidence_gap": "Absent from registry; ready affordance, repeated placement/contact, disappearance/transition, and phone-scale hit/readability lack source-bound registry evidence.",
+      "reuse_first_next_action": "Register the shared seed once with its five-instance role and capture ready plus first/fifth contacts."
+    },
+    {
+      "priority": 13,
+      "id": "picture-garden-butterfly-payoff",
+      "game": "picture_garden",
+      "role": "Multi-instance completion/reward motion at garden payoff.",
+      "sources": [
+        {
+          "path": "assets/mg/butterfly.png",
+          "sha256": "310539d933f1027402eea118c61819c052dd76f0bd2bbb752d87e94327eb0a26"
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/picture_games.gd",
+          "line": 611,
+          "binding": "three payoff sprites"
+        }
+      ],
+      "current_evidence_gap": "Absent from registry; reward entrance, motion, scene layering, and settle are not tied to the exact source.",
+      "reuse_first_next_action": "Reuse and bind the current garden reward captures; add motion/settle evidence if the existing sequence does not cover it."
+    },
+    {
+      "priority": 14,
+      "id": "day-one-seahorse-state-family",
+      "game": "day_one_pool_seahorse_rescue",
+      "role": "Rescue subject plus removable mouth-trash contact state.",
+      "sources": [
+        {
+          "path": "assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png",
+          "sha256": "88aa2ce07e79144b13d8e699341404e7b15e79baed861169c9c17e196ddba941"
+        },
+        {
+          "path": "assets/castle/day_one_pool/activities/seahorse_mouth_trash.png",
+          "sha256": "9c48ac1ca7be923fcb14902b3e2b62263f34d53e031f11002776bfc4322652f9"
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+          "lines": [
+            13,
+            15
+          ],
+          "binding": "seahorse subject and mouth-trash textures"
+        }
+      ],
+      "current_evidence_gap": "Both state-defining sources are absent from registry. Existing pool sequence captures do not substitute for explicit source records or prove contact alignment, removal, release, and settle for these hashes.",
+      "reuse_first_next_action": "Register as one rescue-state family and bind the existing pool runtime sequence before commissioning any new art."
+    },
+    {
+      "priority": 15,
+      "id": "day-one-waterfall-clog-target",
+      "game": "day_one_pool_waterfall",
+      "role": "Visible dirty/clogged target whose removal communicates cleaning progress.",
+      "sources": [
+        {
+          "path": "assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png",
+          "sha256": "d4da588daece3fa12b5f094b50f5c8b33eeae31fd0761f1eeedce882cf1b7507"
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/pool_waterfall_activity.gd",
+          "line": 14,
+          "binding": "clogged target texture"
+        }
+      ],
+      "current_evidence_gap": "The scrubber is registered but its acted-on target is not. Target/tool contact, partial cleanup, cleared comparison, and settle lack a registry record for this source.",
+      "reuse_first_next_action": "Add this source beside the registered scrubber and bind the existing partial/complete pool captures to both roles."
+    },
+    {
+      "priority": 16,
+      "id": "day-one-bathroom-grime-target-family",
+      "game": "day_one_bathroom_cleanup",
+      "role": "Sink and tub grime targets that visibly carry and clear cleanup progress.",
+      "sources": [
+        {
+          "path": "assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png",
+          "sha256": "fe53ef3018b9f8164417cde5bf47489dff389179aad8432ea8ef1993cffab3ed"
+        },
+        {
+          "path": "assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png",
+          "sha256": "52e8c42b0c044c1b5dba42681d7dfb5e34dc44b345e6535e9432df5f186ecb67"
+        }
+      ],
+      "callers": [
+        {
+          "path": "scripts/games/day_one_bathroom_cleanup.gd",
+          "lines": [
+            46,
+            47
+          ],
+          "binding": "SINK_GRIME_TEXTURE and TUB_GRIME_TEXTURE"
+        }
+      ],
+      "current_evidence_gap": "The sponge and brush tools are registered, while both gameplay targets are absent. Dirty/readable, tool-contact, progress removal, cleaned comparison, and settle evidence are incomplete.",
+      "reuse_first_next_action": "Register the two targets as a family alongside the existing tools and capture each target before, during, and after cleaning."
+    }
+  ],
+  "next_actions": [
+    "Extend the registry with source records for these existing live assets before choosing any replacement solely from present coverage absence.",
+    "Reuse already captured Seek, picture-garden, and Day One pool evidence where exact hashes and state timing match; record its limits rather than recapturing by default.",
+    "Capture missing live states in priority order: Seek target/actors, slide pose and fish contact, Fairy boss/cues, garden progression/payoff, then Day One contact targets.",
+    "After evidence exists, visually score actual pixels and runtime states under the audit protocol. Only sources with observed below-threshold defects should enter replacement work.",
+    "Preserve protected Roshan/friend identity sources and prefer mounting/window/cadence fixes when those are the observed defect."
+  ]
+}

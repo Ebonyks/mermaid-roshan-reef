@@ -760,3 +760,14 @@ Kept as-is; noted so a future edit updates every copy.
 | `audit/minigame_art_quality_2026-09-05/opera_native_coverage_followup.md` | 🔵 | `SOURCE_INVENTORY`; traces current room sources and derivatives, distinguishes fixed-scene review from multi-screen native coverage, and preserves reuse authorities; no current acceptance. |
 | `audit/OPERA_MECHANICS_REAUDIT_2026-09-05.md` | ⚪ | `HISTORICAL_VISUAL_EVIDENCE`; 14-career mechanics and scene review at its recorded pre-reconciliation revisions. Later Racer, Geologist, Teacher and Opera Hall work supersedes affected current-status claims; scores remain historical and grant no current, master, device, child, or owner acceptance. |
 | `assets_src/minigame_art_quality_2026-09-05/watering-can-attempt02/review.md` | 🔵 | `REJECTED_SOURCE_REVIEW`; generated RGB checkerboard candidate preserved outside runtime; no source or scene acceptance. |
+| `audit/minigame_art_quality_2026-09-05/phase_pose_followup.md` | 🔵 | `SUPPORTING_CURRENT`; eleven phase-specific pose-containment repairs with source-bound desktop diagnostics; no authored-motion, device, child, or game-wide acceptance. |
+| `audit/minigame_art_quality_2026-09-05/garden_realtime_followup.md` | 🔵 | `SUPPORTING_CURRENT`; eight 9df desktop stills verify completed-flower visibility and document remaining finish defects; no animation, device or game-wide acceptance. |
+| `audit/minigame_art_quality_2026-09-05/current_mechanics_followup.md` | 🔵 | `SOURCE_REVIEW`; current61-base/70-runtime phase distinction, rebuilt lessons and Hall-only medal calibration; no measured child timing or new visual acceptance. |
+| `audit/minigame_art_quality_2026-09-05/pool_runtime_followup.md` | 🔵 | `SUPPORTING_CURRENT`; real-room desktop diagnostic art review and four-target handoff sizing repair; no animation, device, child, or game-wide acceptance. |
+| `audit/minigame_art_quality_2026-09-05/carrot_runtime_followup.md` | 🔵 | `SUPPORTING_CURRENT`; approved carrot reuse with configured Snowman/kitchen desktop diagnostics; complete motion and scene acceptance remain open. |
+
+## Development audit contract — 2026-09-06
+
+| Document | State | Scope |
+|---|---|---|
+| `design/AUDIT_DEVELOPMENT_CONTRACT.md` | 🟢 | `BINDING_OPERATIONAL`; required reading, change traceability and evidence reporting under `DL-AUTH-05` through `DL-AUTH-07`; preserves existing security, owner and release precedence. |

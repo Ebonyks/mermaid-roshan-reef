@@ -66,6 +66,10 @@ python3 -m unittest tools.tests.test_audit_document_authority \
 	|| { echo "DOCUMENT AUTHORITY CONTRACT TEST FAIL"; exit 1; }
 python3 tools/audit_document_authority.py --stress \
 	|| { echo "DOCUMENT AUTHORITY SELF-TEST FAIL"; exit 1; }
+python3 -m unittest tools.tests.test_audit_development \
+	|| { echo "AUDIT DEVELOPMENT CONTRACT TEST FAIL"; exit 1; }
+python3 tools/audit_development.py --base auto \
+	|| { echo "AUDIT DEVELOPMENT COVERAGE FAIL"; exit 1; }
 python3 tools/audit_document_authority.py \
 	|| { echo "DOCUMENT AUTHORITY / CANONICAL FINDING FAIL"; exit 1; }
 python3 -m unittest tools.tests.test_audit_imagine_handoff \
@@ -185,6 +189,7 @@ for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive pro
 	APPDATA="$probe_appdata" LOCALAPPDATA="$probe_localappdata" \
 		XDG_DATA_HOME="$probe_home/data" XDG_CONFIG_HOME="$probe_home/config" \
 		timeout 8m "$GODOT" --headless -s "scripts/$p.gd" -- --touch "$touch_test_mode" 2>&1 | tee "$probe_output" || probe_rc=$?
+	echo "PROBE $p process exit: $probe_rc"
 	if [ "$probe_rc" -ne 0 ]; then
 		# Known engine flaw (2026-07-18): Godot 4.4 sometimes deadlocks at EXIT
 		# after a probe printed its complete verdict (seen after kart-heavy

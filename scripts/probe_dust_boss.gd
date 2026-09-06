@@ -166,9 +166,13 @@ func _splash_and_geometry_case() -> void:
 		print("DUSTBOSS|contract_failures|", contract_failures)
 	await _wait_state(["showing"], 1600)
 	_ck("showing follows splash", _state() == "showing")
-	_ck("encounter hides the hybrid action medallion", not main.touch_ui._act_button.visible)
+	_ck("encounter uses direct hybrid world touch without an action medallion",
+		main.touch_ui.encounter_press.is_valid()
+		and main.find_child("JumpButton", true, false) == null)
 	main.touch_ui.set_mode("classic")
-	_ck("encounter hides the classic action medallion", not main.touch_ui._act_button.visible)
+	_ck("encounter keeps direct classic world touch without an action medallion",
+		main.touch_ui.encounter_press.is_valid()
+		and main.find_child("JumpButton", true, false) == null)
 	main.touch_ui.set_mode("hybrid")
 	_navigation_roundtrip_case()
 	_pattern_geometry_case()

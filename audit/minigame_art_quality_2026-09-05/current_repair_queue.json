@@ -1,0 +1,420 @@
+{
+  "schema": "reef.minigame_current_repair_queue.v1",
+  "date": "2026-09-06",
+  "scope": "Bounded queue from registry and dated source/runtime follow-ups; non-exhaustive and no scores inferred for unseen assets.",
+  "authority": {
+    "master_audit": "audit/MASTER_AUDIT_2026-08-09.md",
+    "design_language": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "gate": "Every applicable identity, finish, contour/alpha, child readability, animation/contact, ownership, consistency and technical dimension >=4.5 in current Mobile evidence."
+  },
+  "coverage_accounting": {
+    "registry_records": 89,
+    "registry_distinct_sources": 81,
+    "registry_candidate_numeric_scores": 0,
+    "registry_prior_numeric_scores": 0,
+    "observed_repair_items": 24,
+    "unassessed_family_groups": 10,
+    "note": "Open observed repairs exclude bounded local repairs and rejected trials. Pool numeric scores are retained only as historical run03 evidence pending current a6 recapture. Registry null reviews remain evidence gaps, not observed scores.",
+    "open_observed_repair_items": 22,
+    "bounded_repaired_items": 2,
+    "rejected_trials": 1,
+    "numeric_open_items_below_4_5": 18
+  },
+  "unassessed_or_missing_evidence": [
+    {
+      "game": "dolls",
+      "states": "ready; catch; changed possession; payoff; settle",
+      "reason": "Live family traced; no current source/state packet"
+    },
+    {
+      "game": "melody",
+      "states": "ready; note contact; feedback; payoff; settle",
+      "reason": "Surface registered; action cadence/contact unassessed"
+    },
+    {
+      "game": "slide_race",
+      "states": "ready; fish contact; neutral; completion",
+      "reason": "Delegated/retired card and diagnostics do not establish full current quality"
+    },
+    {
+      "game": "day_one_bathroom",
+      "states": "ready; sink; tub; cleaned; settle",
+      "reason": "Five sources traced; dirty/contact/cleaned/settle review missing"
+    },
+    {
+      "game": "fairy",
+      "states": "ready; growth; bug interaction; payoff; settle",
+      "reason": "Some source-only review exists; full runtime staging/payoff/animation open"
+    },
+    {
+      "game": "fetch",
+      "states": "ready; fetch contact; carried; payoff; settle",
+      "reason": "Live family traced without current rendered packet"
+    },
+    {
+      "game": "treasure",
+      "states": "ready; dig/open; reveal; payoff; settle",
+      "reason": "Live family traced without current rendered packet"
+    },
+    {
+      "game": "shop",
+      "states": "ready; selection; result; payoff; settle",
+      "reason": "Live family traced without current rendered packet"
+    },
+    {
+      "game": "brawl/dance/side_scroll/comfy_friends",
+      "states": "family-specific ready; contact; changed; payoff; settle",
+      "reason": "Procedural/shared families and indirect assets lack complete current packets"
+    },
+    {
+      "game": "catalog-driven Opera adapters",
+      "states": "caller trace; exact mounted source; applicable states",
+      "reason": "Dynamic/resource-indirection coverage remains non-exhaustive"
+    }
+  ],
+  "process": {
+    "steps": [
+      "Freeze caller/source hash/display rect/anchor/failing state",
+      "Sol reviews exact-purpose reuse and rejects semantic or alpha defects",
+      "Luna independently reviews candidate against same master dimensions",
+      "Repair layout/routing before generation",
+      "Capture current Mobile 1280x720 and phone ratio with real processing: ready/contact/changed/payoff/settle/re-entry",
+      "Reaudit every applicable dimension; one failure keeps item open",
+      "Run focused gates then full CI and refresh inventory"
+    ],
+    "hard_rules": [
+      "Do not average away a failed dimension",
+      "Do not score unviewed assets or call DL-QA-11 an observed visual defect",
+      "Teacher pearl 4.8 and Racer lap 4.8 are bounded local repairs only",
+      "Racer run05 mounting remains pending/rejected",
+      "Generate only named gaps after reuse/layout review"
+    ],
+    "accountability": {
+      "open_observed_repairs": "Require named repair and current-state recapture.",
+      "bounded_repaired_items": "Retain as local changes; do not count toward game-wide acceptance.",
+      "rejected_trials": "Preserve provenance and do not treat as current runtime quality.",
+      "unassessed_or_missing_evidence": "Capture before score or generation decision."
+    }
+  },
+  "open_observed_repairs": [
+    {
+      "lowest": "contour/alpha and material",
+      "priority": "P0",
+      "observed_score": null,
+      "states": "ready; watering contact; sprout; all five mature; reward; settle/re-entry",
+      "surface": "garden-watering-can",
+      "game": "picture_games",
+      "evidence": "nonopera_review.md; art_repair_backlog.md",
+      "defect": "wateringcan.png is a 272x286 crop containing plant/background pixels and a hard boundary",
+      "repair": "new generation or exact-purpose reuse",
+      "reuse": "No approved exact-purpose reuse; flat watering icon rejected"
+    },
+    {
+      "lowest": "painted finish/family consistency",
+      "priority": "P0",
+      "observed_score": 3.0,
+      "states": "five seeds; each sprout; each mature; all five; reward; settle",
+      "surface": "garden-growth-family",
+      "game": "picture_games",
+      "evidence": "nonopera_review.md; art_repair_backlog.md",
+      "defect": "k_sprout plus five live mature flowers are flat pastel/vector-like beside painted props",
+      "repair": "coordinated six-asset family; preserve five distinct mature roles",
+      "reuse": "flower_coral, flower_lavender, terrain flower candidates require role fit"
+    },
+    {
+      "lowest": "scene consistency and ownership/contact",
+      "priority": "P1",
+      "observed_score": 3.5,
+      "states": "face-ready; placements; chase; bite/drop; collection; payoff; settle",
+      "surface": "snowman",
+      "game": "picture_games",
+      "evidence": "art_repair_backlog.md; carrot_runtime_followup.md",
+      "defect": "Approved carrot reuse works, but plain snowballs/gray terrain, HUD/reward composition and small Roshan remain weak",
+      "repair": "snowy layout/material reuse first",
+      "reuse": "approved painted Farmer carrot widget_target_farmer_piece_0.png"
+    },
+    {
+      "lowest": "scene ownership/composition",
+      "priority": "P1",
+      "observed_score": 3.2,
+      "states": "ready; bounce contact; mid-bounce; landing; reward",
+      "surface": "trampoline",
+      "game": "picture_games",
+      "evidence": "art_repair_backlog.md",
+      "defect": "Star clips HUD, trampoline is a broad procedural bar, reward obscures action",
+      "repair": "layout first, replace material only if still weak",
+      "reuse": "retain star and Roshan while testing layout"
+    },
+    {
+      "lowest": "reward composition",
+      "priority": "P1",
+      "observed_score": 4.1,
+      "states": "empty; each placement; fifth; flower/reward; clean finale; settle",
+      "surface": "xmas",
+      "game": "picture_games",
+      "evidence": "art_repair_backlog.md",
+      "defect": "Reward card covers tree center and clean post-finale tree-only frame is missing",
+      "repair": "capture/composition first",
+      "reuse": "retain tree, ornaments and friendship flower"
+    },
+    {
+      "lowest": "activity-specific finish/contact",
+      "priority": "P1",
+      "observed_score": null,
+      "states": "workbench; pan contact; excavation; reveal; completion",
+      "surface": "current-scene",
+      "game": "geologist",
+      "evidence": "geologist_current_runtime_review.json; geologist_current_source_followup.json",
+      "defect": "River pipe diagram, fossil masks, sparse pan, weak geode cracks/materials, striped fallback and open workbench context",
+      "repair": "composition and named action kits only",
+      "reuse": "approved magic_cleaning_brush.png"
+    },
+    {
+      "lowest": "contact/depth and composition",
+      "priority": "P1",
+      "observed_score": 3.6,
+      "states": "countdown; steering/release; straight; bend; finish",
+      "surface": "full-scene",
+      "game": "racer",
+      "evidence": "racer_current_runtime_review.json",
+      "defect": "Crowded vehicles, weak grounding and control/UI composition",
+      "repair": "layout/contact refinement",
+      "reuse": "retain painted circuit and approved actor/kart sources"
+    },
+    {
+      "lowest": "consistency/ownership",
+      "priority": "P1",
+      "observed_score": 3.8,
+      "states": "PATTERN; COUNT; ADD; MATCH intro/partial/completion; settle",
+      "surface": "lesson-board-pointer",
+      "game": "teacher",
+      "evidence": "teacher_current_runtime_review.json",
+      "defect": "Flat board/cards beside painted Library; pointer misses active lesson target",
+      "repair": "board framing and target staging",
+      "reuse": "approved StorybookUI/Library trim or target-aligned Teacher cell"
+    },
+    {
+      "lowest": "waterfall finish/edges and finale ownership",
+      "priority": "P1",
+      "observed_score": null,
+      "states": "ready; drag; partial; deposit; seahorse tug; waterfall clear; finale; settle",
+      "surface": "activities",
+      "game": "day_one_pool",
+      "evidence": "pool_runtime_followup.md",
+      "defect": "Historical run03 identified weak debris/net, waterfall clog, seahorse contact and finale ownership. Current a6 travel/scoop behavior changes the runtime context; retain the findings as historical risks and recapture before calling them current observed failures.",
+      "repair": "contact/composition then named debris/clog gaps",
+      "reuse": "retain room/rainbow/net; unify debris first",
+      "score_status": "HISTORICAL_RUN03_7055_REVIEW_NOT_CURRENT_A6_SCORE",
+      "current_status": "CURRENT_A6_RECAPTURE_PENDING"
+    },
+    {
+      "lowest": "unassessed after rebuild",
+      "priority": "P1",
+      "observed_score": null,
+      "states": "idle; chase; tell; bonk; dizzy/angry; payoff; settle",
+      "surface": "grand-puff-rebuild",
+      "game": "dust_bunny_boss",
+      "evidence": "art_repair_backlog.md; registry stale source note",
+      "defect": "Old record is bound to 775ceee1 and cannot score integrated current rebuild",
+      "repair": "fresh current capture/source reconciliation",
+      "reuse": "current boss art only after hash review"
+    },
+    {
+      "priority": "P1",
+      "surface": "chef",
+      "defect": "Bowl/fill/contact diagrammatic",
+      "repair": "painted pour/fill states",
+      "lowest": "finish/ownership",
+      "states": "idle; anticipation; contact; payoff; settle",
+      "game": "opera",
+      "observed_score": 3.6
+    },
+    {
+      "priority": "P1",
+      "surface": "detective",
+      "defect": "Weak clue contrast and vignette/cursor dominance",
+      "repair": "painted clue cards and lens reveal",
+      "lowest": "readability/ownership",
+      "states": "idle; clue; reveal; settle",
+      "game": "opera",
+      "observed_score": 4.1
+    },
+    {
+      "priority": "P1",
+      "surface": "ballerina",
+      "defect": "Ribbon/twirl guides resemble instrumentation",
+      "repair": "fabric progression and checkpoints",
+      "lowest": "animation/contact",
+      "states": "idle; action; checkpoint; payoff; settle",
+      "game": "opera",
+      "observed_score": 4.0
+    },
+    {
+      "priority": "P1",
+      "surface": "candymaker",
+      "defect": "Syrup and activity layers mismatch factory",
+      "repair": "mold/pour/wrapper family",
+      "lowest": "finish/consistency",
+      "states": "idle; pour; contact; payoff; settle",
+      "game": "opera",
+      "observed_score": 3.4
+    },
+    {
+      "priority": "P1",
+      "surface": "doctor",
+      "defect": "Diagnostic widgets compete with patient",
+      "repair": "patient-owned scan/wash/bandage staging",
+      "lowest": "ownership/contact",
+      "states": "idle; scan; wash; bandage; payoff; settle",
+      "game": "opera",
+      "observed_score": 3.8
+    },
+    {
+      "priority": "P1",
+      "surface": "farmer",
+      "defect": "Flat seed treatment and incomplete material relationship",
+      "repair": "seed-sprout-mature kit with distinct roles",
+      "lowest": "finish/contact",
+      "states": "idle; plant; toss/contact; payoff; settle",
+      "game": "opera",
+      "observed_score": 3.1
+    },
+    {
+      "priority": "P1",
+      "surface": "boxer",
+      "defect": "Glove/telegraph finish simpler than room",
+      "repair": "anticipation/contact/recoil",
+      "lowest": "animation/contact",
+      "states": "idle; target; impact; settle",
+      "game": "opera",
+      "observed_score": 4.2
+    },
+    {
+      "priority": "P1",
+      "surface": "magician",
+      "defect": "Small objects and schematic task presentation",
+      "repair": "larger object choices and cabinet/reveal",
+      "lowest": "readability/ownership",
+      "states": "idle; choice; trick; reveal; settle",
+      "game": "opera",
+      "observed_score": 4.1
+    },
+    {
+      "priority": "P1",
+      "surface": "painter",
+      "defect": "Canvas/trace/progress detached",
+      "repair": "anchor canvas and truthful coverage",
+      "lowest": "ownership/consistency",
+      "states": "idle; trace; progress; gallery; settle",
+      "game": "opera",
+      "observed_score": 3.3
+    },
+    {
+      "priority": "P0",
+      "surface": "astronaut",
+      "defect": "Pipes and grid read as diagrams",
+      "repair": "brass/aqua pipe socket flow valve kit",
+      "lowest": "finish/readability",
+      "states": "idle; choice; connection; flow; settle",
+      "game": "opera",
+      "observed_score": 2.8
+    },
+    {
+      "priority": "P1",
+      "surface": "popstar",
+      "defect": "Flat pads and schematic practice card",
+      "repair": "painted shell-note pads tied to notes",
+      "lowest": "finish/consistency",
+      "states": "idle; practice; contact; payoff; settle",
+      "game": "opera",
+      "observed_score": 3.8
+    },
+    {
+      "priority": "P1",
+      "surface": "nursery",
+      "defect": "Catch/feed/wash interaction reads diagrammatically",
+      "repair": "baby/cradle roles and authored contact",
+      "lowest": "readability/ownership",
+      "states": "idle; catch; feed/wash; payoff; settle",
+      "game": "opera",
+      "observed_score": 3.1
+    }
+  ],
+  "bounded_repaired_items": [
+    {
+      "game": "teacher",
+      "surface": "sparse-pearls",
+      "bounded_score": 4.8,
+      "evidence": "audit/minigame_art_quality_2026-09-05/teacher_pearl_repair_review.json",
+      "scope": "COUNT/ADD pearl sizing and separation only; not whole Teacher, animation, device, child, owner, or full-game acceptance",
+      "status": "BOUNDED_REPAIRED_LOCAL_ONLY"
+    },
+    {
+      "game": "racer",
+      "surface": "lap-layout",
+      "bounded_score": 4.8,
+      "evidence": "audit/minigame_art_quality_2026-09-05/racer_lap_layout_repair_review.json",
+      "scope": "Dial/back-button separation only; not whole Racer scene, animation, device, child, owner, or full-game acceptance",
+      "status": "BOUNDED_REPAIRED_LOCAL_ONLY"
+    }
+  ],
+  "rejected_trials": [
+    {
+      "game": "racer",
+      "surface": "driver-to-cockpit-mount",
+      "candidate": "run05 enlarged shared mount",
+      "evidence": "audit/minigame_art_quality_2026-09-05/racer_mounting_repair_review.json",
+      "status": "REJECTED_TRIAL_SUPERSEDED_BY_BOUNDED_RUN06_SEATING_IMPROVEMENT",
+      "finding": "Run05 improved face readability but failed cockpit ownership/contact. Run06 completed with character-specific offsets and retains a bounded seating improvement below target; broader vehicle ownership and depth defects remain open.",
+      "next": "Preserve the run05 rejection and run06 seating offsets while independently repairing shared vehicle ownership and overlap/depth composition, followed by fresh current Mobile captures."
+    }
+  ],
+  "geologist_held_contact_review": {
+    "evidence": "audit/minigame_art_quality_2026-09-05/geologist_held_contact_review.json",
+    "scope": "Eight current Mobile 1280x720 stills: held/release pair for each live Geologist phase; no cadence/device/child/owner acceptance.",
+    "source_hashes": {
+      "scripts/opera_geology_surface.gd": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37"
+    },
+    "pairs": [
+      {
+        "phase": "river",
+        "score": 3.9,
+        "acceptance": "BELOW_4_5_REPAIR_NEEDED",
+        "repair": "Make wet/ground material payoff read as river rather than cyan connector while preserving route."
+      },
+      {
+        "phase": "fossil",
+        "score": 4.4,
+        "acceptance": "BELOW_4_5_MINOR_REPAIR_NEEDED",
+        "repair": "Increase first cleared-cell contrast and review longer continuous brush contact."
+      },
+      {
+        "phase": "pan",
+        "score": 3.5,
+        "acceptance": "BELOW_4_5_REPAIR_NEEDED",
+        "repair": "Add child-readable rim/grip contact and visible reversal causality."
+      },
+      {
+        "phase": "geode",
+        "score": 4.2,
+        "acceptance": "BELOW_4_5_REPAIR_NEEDED",
+        "repair": "Replace flat contact disk with grasp cue and deepen seam/cavity separation."
+      }
+    ],
+    "overall_score_from_source": "4.0 is the evidence file's bounded summary only; it is not merged into or averaged with the earlier Geologist scene score.",
+    "animation_score": null,
+    "current_acceptance": "OPEN_BELOW_4_5"
+  },
+  "status": "OPEN_BELOW_BAR_AND_INCOMPLETE",
+  "latest_racer_seating": {
+    "evidence": "audit/minigame_art_quality_2026-09-05/racer_seating_followup_review.json",
+    "status": "BOUNDED_IMPROVEMENT_RETAINED_BELOW_TARGET",
+    "seat_contact": 4.3,
+    "crop_integrity": 4.6,
+    "readability": 4.5,
+    "vehicle_ownership": 3.5,
+    "overlap_depth": 3.6,
+    "scope": "Run06 stills; no completeanimation/device/child/owner acceptance. Run05rejection remains historical."
+  }
+}

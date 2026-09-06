@@ -35,6 +35,34 @@ active-fact checks; do not hand-copy its counts into planning rules.
 
 ---
 
+
+<!-- AUDIT_TASK_INDEX_START -->
+### Development task index
+
+Read the row for the task and all affected shared systems before editing. Revisit
+it when scope changes and at review/completion. This index routes to current
+rules; sealed evidence below remains scoped to its recorded build. Follow the
+[development contract](../design/AUDIT_DEVELOPMENT_CONTRACT.md) for change records.
+
+| Task | Start with | Then consult |
+|---|---|---|
+| Every task | [Planning entry](#0-planning-entry); [authority and stable rule IDs](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#1-how-to-use-these-rules) | [Document ledger](../design/05_DOC_LEDGER.md); [impact record guide](../design/AUDIT_DEVELOPMENT_CONTRACT.md) |
+| New chapter | [planning and creative scope](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#20-chapter-planning-creative-delegation-and-strategic-reuse) | [Chapter guide](../design/09_CHAPTER_DEVELOPMENT_GUIDE.md); [brief](../design/templates/CHAPTER_BRIEF_V1.md); [reference library](../design/10_CHAPTER_REFERENCE_LIBRARY.md) |
+| Repair | [triage index](#5-triage-item-index--not-canonical-finding-records); [repair protocol](#9-individual-repair-and-regression-protocol) | [Canonical finding records](findings/ACTIVE_FINDINGS_2026-08-13.md); [repair order](#13-current-repair-order) |
+| Code | [architecture and refinement](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#18-code-architecture-and-refinement) | [interaction truth](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#7-interactions-change-the-world-truthfully); [regression protocol](#9-individual-repair-and-regression-protocol) |
+| Art | [visual promise](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#4-visual-promise); [composition](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#5-composition-and-child-readable-hierarchy); [Canvas construction](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#6-2d-canvas-living-card-world-construction) | [reuse and provenance](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#14-art-sourcing-reuse-and-provenance); [true 2D](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#3-final-medium-decision-a-2d-game) |
+| Touch | [child constraints](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#2-the-child-is-the-primary-design-constraint); [touch and interface](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#8-touch-and-interface-grammar) | [feedback and rewards](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards); [typography](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#19-font-typography-glyph-and-text-layout-contract) |
+| Audio | [voice and sound](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#10-voice-music-and-non-reader-communication) | [acceptance levels](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#16-acceptance-and-audit-contract); [Music audit](../MUSIC_AUDIT_2026-08-09.md) |
+| Cinematic | [full-frame delivery and handoff](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#11-cinematic-exception) | [Binding cinematic rules](../AGENTS.md); [shot card](../design/templates/IMAGINE_SHOT_CARD_V1.md) |
+| Save | [save, lifecycle and release](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#13-save-lifecycle-and-release-safety) | [Release workflow rules](../WORKFLOW_BRANCHING_2026-07-18.md); [save/re-entry tests](#9-individual-repair-and-regression-protocol) |
+| Performance | [Mobile and asset budget](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#12-mobile-performance-and-asset-discipline) | [2D migration](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#3-final-medium-decision-a-2d-game); [device evidence](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#16-acceptance-and-audit-contract) |
+| Acceptance | [lifecycle and verification](#2-audit-state-taxonomy); [satisfaction gate](#12-master-audit-satisfaction-gate) | [evidence contract](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#16-acceptance-and-audit-contract); [finding fields](#10-required-finding-fields) |
+
+[Authority reconciliation](#3-authority-and-comprehensive-design-language-confirmation) · [Historical evidence](#4-evidence-at-the-integration-snapshot-and-named-historical-commits) · [Supporting repairs](#6-supporting-repair-evidence--not-canonical-finding-records) · [Superseded ideas](#7-superseded-dismissed-and-deferred-ideas) · [Expanded acceptance](#8-expanded-acceptance-notes-for-highest-priority-indexed-items) · [Audit tools](#11-audit-tool-and-documentation-control-work) · [Change history](#14-change-history)
+
+[Executive verdict](#1-executive-verdict) · [Superseded design choices](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#15-explicitly-superseded-dismissed-and-deferred-ideas) · [Canonical finding schema](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#17-finding-record-fields)
+<!-- AUDIT_TASK_INDEX_END -->
+
 ## Sealed audit snapshot and subsequent round metadata
 
 - **Audit ID:** `MA-2026-08-09`
@@ -1369,8 +1397,17 @@ the compact navigation view; these links open the complete section-10 records:
 
 ### 5.1 P0/P1 and acceptance-blocking indexed items
 
+Owner-directed action-location finding:
+[`MA-PLAY-004`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-play-004), P1,
+`IN_PROGRESS`: Roshan must travel to each job target, visibly perform the work
+with hand/tool contact, and only then complete that step. Pool skimming is the
+first repair; bathtub cleaning, craft-room cleaning, baby-eagle rescue, the
+remaining pool activities, and equivalent jobs require individual evidence.
+Launching a minigame or animating an unattached tool does not satisfy this gate.
+
 | ID | Severity | Lifecycle | Verification | Indexed issue | Closure requirement |
 |---|---|---|---|---|---|
+| `MA-PLAY-004` | P1 | `IN_PROGRESS` | V2/V3 pool only; other jobs open | Detached tools can complete Roshan-owned work remotely. The pool skimmer is the first repair; bathtub, craft-room, baby-eagle and remaining pool jobs stay open | Each job/substep proves travel, arrival, visible hand/tool work, then completion, with cancellation/save/one-finger checks and Mobile/device/owner evidence |
 | `MA-2D-002` | P1 | `IN_PROGRESS` | V2/V3 partial | Source `51d0abc0` records 509 model/export files, 157 tracked model sidecars, 352 active untracked sidecars, 65 production 3D files, 70 probe 3D files, one 3D scene, and one 3D configuration; regression is exact `NO_REGRESSION`, all 14 stress controls pass, and archive-now is zero. Sky joins Dolls, Seek, and bounded Opera as converted/retired slices, but remaining active surfaces still enforce legacy 3D | All eleven GAME2D categories reach zero; strict gate, import, focused/surrounding/full probes green |
 | `MA-DOC-002` | P1 | `VERIFIED_FIXED` | V2/V3 exact maintenance-head local plus remote | CHG-029 sources `5ed0c754`/`7eb94595` preserve the exact 316-path Git-declared Markdown inventory with 316 unique rows and explicit mixed/supersession scope. Exact CHG-023 maintenance head `51887315` passes official Godot 4.7.1 full local in 1,435.2 seconds/all 64 and Probe Suite run `31710377034`; 36 tests, six mutation controls, and 316/316 parity are green | Preserve one-row-per-path coverage as inventory changes; future drift regresses the terminal finding |
 | `MA-DOC-003` | P1 | `BLOCKED_EXTERNAL` | V1 | An off-repository journal is said to hold 36 unnamed entries described as findings | Import source evidence or replace with fresh equal-scope audit; do not assume the entries are current |
@@ -2003,6 +2040,18 @@ and this prose synchronization are CHG-023 maintenance.
 
 ## 12. Master-audit satisfaction gate
 
+- [ ] `MA-PLAY-004` / `DL-INT-02`: every Roshan-owned job and substep has
+      fresh runtime evidence of **travel → arrival → visible work/contact →
+      completion**. Required named cases include every pool trash item,
+      waterfall and seahorse work, bathtub/fixture cleaning, craft-room cleanup,
+      and saving the baby eagle. Prove far tap/drag cannot award remote progress,
+      a quick tap completes after the visible action, retarget/focus/pause/exit
+      cancels unfinished work, zero input never works, and saves/re-entry retain
+      completed steps exactly once. Record start/target positions, approach and
+      contact distances, action state, completion time, and before/during/after
+      Mobile captures per case. Pool-only machine success cannot close the
+      game-wide finding or grant device/child/owner visual acceptance.
+
 This round may move to `SATISFIED` only when all conditions are true at one
 exact commit. This is the operational checklist for `DL-QA-09` and
 `DL-QA-10`:
@@ -2178,6 +2227,7 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 
 | Date | State | Change |
 |---|---|---|
+| 2026-09-06 | `REPAIRING` | Owner identified the detached skimmer in Rumi's pool. Added `MA-PLAY-004` and the binding per-job travel/contact/action/completion gate, explicitly including bathtub, craft-room, and baby-eagle work. Pool runtime repair is a bounded first slice; other cases and final visual/device acceptance remain open. |
 | 2026-08-09 | `INVENTORYING` | Prior masters, audits, work orders, status sources, code, assets, probes, and owner decisions inventoried |
 | 2026-08-09 | `AUDITING` | Static design/code/art/tool evidence compared; visual and dimensional gates run |
 | 2026-08-09 | `CONFIRMING` | Current reports separated from pre-fix symptoms, optional ideas, and superseded 3D premises |

@@ -1,0 +1,121 @@
+{
+  "review_id": "racer-run06-seating-offset-independent-review",
+  "scope": "Independent review of all eleven run06 Mobile 1280x720 stills against run05, limited to the character-specific vertical seating offsets, crop visibility, cockpit contact, bend mirroring, driver overlap and the retained kart shadow. Run05 remains rejected as captured. Scores for broader shared-kart identity, material integration and depth crowding are separated from the bounded seating result. Stills do not prove motion, target-device playback, natural navigation, child response or owner acceptance.",
+  "evidence": {
+    "run06": {
+      "capture_path": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run06/captures",
+      "historical_source_capture_path": "tmp/current-racer-run06/captures",
+      "archive_path": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run06/captures",
+      "status": "COMPLETED; exit 0",
+      "engine": "Godot 4.7.2-stable",
+      "renderer": "mobile",
+      "viewport": "1280x720",
+      "route": "configured OperaAct.start(racer), finale start/show; subsequent touch and frame cadence live",
+      "source_path": "scripts/opera_racer_surface.gd",
+      "source_sha256_raw": "5c95c6e09338f6acf6fc5630a7c2e2f7c29e5f311a1def618de8c9595cc597e2",
+      "source_sha256_utf8_lf": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "captures_sha256": {
+        "ready_state_configured.png": "a70255f7489597bf867552a17169c74399debdb66d804bc146cf472502c5c530",
+        "countdown_pressed.png": "fa9ecd57c2257b40e6f91c1d405c50ad0fffd879ad1559f163866720fa54835b",
+        "countdown_late.png": "0ac5dc5a6027d96ff50c040198ef0736b0bf0d89d90e7c570e57948ab7dad1d7",
+        "left_steer.png": "a4a5e4babc40f23fb4f71c90910120883775b81c9db262b04268fcdba8772f82",
+        "right_steer.png": "1bcbcdacd1f9e8220ecb10a2d71586ac9f026d00c16aa88666a9ae6770593723",
+        "release_neutral.png": "f78a6dfa49addc72ea7b239e8056f18153768e3baaf2a7278ada42d2aabe79c1",
+        "repress_after_release.png": "342052cca157ce31889fd06e981a4c1c5955a716a0689108bcb9800310a12902",
+        "front_straight.png": "9bade221f08b6b1fc87e721b023a9d9b5c3bf54d1521d5a82a93d1d5eb6ee6ed",
+        "far_bend.png": "e261f9494b7b26b93c739c4e0c761406135e769989758df321f1d030db59b833",
+        "finish.png": "f45062383cf9b80d1feca0c571dfd85f5b32f989523565250af65b75b372855c",
+        "finish_settle.png": "f45062383cf9b80d1feca0c571dfd85f5b32f989523565250af65b75b372855c"
+      }
+    },
+    "run05_comparison": {
+      "capture_path": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run05/captures",
+      "historical_source_capture_path": "tmp/current-racer-run05/captures",
+      "review_path": "audit/minigame_art_quality_2026-09-05/racer_mounting_repair_review.json",
+      "status": "REJECT_MOUNTING_PATCH_AS_CAPTURED",
+      "source_sha256_raw": "61af2321f98fd169f72d4cc0cfd7d95f6ae21133b780372daaa790a16c6bface",
+      "change_under_review": "Roshan destination y moved from -140 to -123; rival destination y moved from -140 to -134. Source crop, destination size, kart and shadow are otherwise retained."
+    }
+  },
+  "all_state_review": [
+    {
+      "states": ["ready_state_configured", "countdown_pressed", "countdown_late"],
+      "finding": "The run05 air gap under Roshan's straight lower torso is closed. Her lower edge now overlaps the cockpit/seat region and reads more like a mounted driver. The rival also meets its seat without an obvious horizontal cutoff. Both remain very tall relative to the shared kart."
+    },
+    {
+      "states": ["left_steer", "right_steer", "release_neutral", "repress_after_release"],
+      "finding": "Character-specific offsets remain coherent under mirrored direction and sampled y-order changes. No newly exposed hard crop edge is visible. Roshan's separate painted steering wheel and hands still occupy the kart's cockpit/front contour, and close vehicles still form a dense stack of actors, shells, wheels and rainbow tails."
+    },
+    {
+      "states": ["front_straight"],
+      "finding": "This is the clearest improvement over run05: Roshan now meets the seat rather than floating above it, and the rival torso also contacts its cockpit. Faces remain readable. The two similarly colored shared karts overlap heavily, so which tail and body belongs to which driver is still not immediately clear."
+    },
+    {
+      "states": ["far_bend"],
+      "finding": "At minimum sampled depth the drivers remain identifiable and attached, but the crest compresses two enlarged actors and two karts into a crowded cluster. The depth scale reduces separation more than the seating correction can solve."
+    },
+    {
+      "states": ["finish", "finish_settle"],
+      "finding": "The seat gap remains closed in the finish composition, but actor/kart overlap is still dense. The files are byte-identical, so they provide one still state and no settle-motion evidence."
+    }
+  ],
+  "bounded_seating_scores_1_to_5": {
+    "crop_integrity": {
+      "score": 4.6,
+      "reason": "Across all eleven stills, heads, Roshan's hands and steering wheel, rival shoulders and visible lower contours remain clean; no side crop or newly exposed straight bottom cutoff is apparent."
+    },
+    "seat_occlusion_and_contact": {
+      "score": 4.3,
+      "reason": "The specific run05 floating gap is repaired and both drivers now overlap their cockpit/seat regions. The figures still sit unusually high and Roshan's independent wheel/hand pose conflicts with the kart cockpit, so the composite remains below 4.5."
+    },
+    "driver_identity": {
+      "score": 4.7,
+      "reason": "Roshan and the purple rival are immediately distinguishable by face, silhouette and costume at near and far sampled depths."
+    },
+    "driver_phone_scale_readability_in_desktop_mobile_capture": {
+      "score": 4.5,
+      "reason": "The enlarged faces and upper bodies remain legible across the sampled circuit positions. This is bounded screenshot evidence and is not target-phone acceptance."
+    },
+    "bend_mirroring": {
+      "score": 4.5,
+      "reason": "Both actors remain upright and attached through left/right sampled bends; no mirrored crop or offset regression is visible. Continuous motion remains unassessed."
+    },
+    "kart_shadow_contact": {
+      "score": 4.1,
+      "reason": "The retained ellipse broadly supports the near kart footprint without an obvious halo, but becomes difficult to parse under overlap and does not establish animated hop/contact behavior."
+    },
+    "animation": {
+      "score": null,
+      "reason": "Sampled stills, including byte-identical finish and finish_settle images, cannot establish cadence, continuous seat attachment, hop behavior or temporal draw-order stability."
+    },
+    "target_device": {
+      "score": null,
+      "reason": "No target-phone evidence is included."
+    }
+  },
+  "remaining_broader_defects_1_to_5": {
+    "player_rival_vehicle_ownership": {
+      "score": 3.5,
+      "reason": "Both drivers use the same coral kart and rainbow-tail body. During overlaps, driver identity is clear but vehicle/tail ownership is ambiguous."
+    },
+    "overlap_and_depth_composition": {
+      "score": 3.6,
+      "reason": "Near bends, overtakes, finish and especially the far crest compress two large drivers and two karts into a busy cluster with weak separation."
+    },
+    "material_and_style_integration": {
+      "score": 3.9,
+      "reason": "The detailed upright character portraits behave like large pasted busts over a small side-view vehicle. Their frontal poses and Roshan's separate wheel do not fully share the kart's side-view perspective or cockpit construction."
+    },
+    "full_racer_surface": {
+      "score": null,
+      "reason": "This follow-up does not rescore the complete Racer surface; control meaning, track art, effects, motion and device evidence remain governed by the wider audit."
+    }
+  },
+  "disposition": {
+    "run05_status_preserved": "REJECTED_AS_CAPTURED",
+    "run06_seating_change": "KEEP_AS_BOUNDED_IMPROVEMENT",
+    "full_quality_accepted": false,
+    "rationale": "The character-specific offsets fix the concrete floating-seat regression without introducing a visible crop or mirror defect. Further vertical movement is not supported by these stills and risks burying faces or hands. The bounded repair remains below 4.5 for seat semantics because Roshan's separate wheel and the tall pasted-bust presentation persist; shared-kart ownership, crowding, depth and material integration remain separate blocking defects.",
+    "next_action": "Keep the run06 offsets while addressing the next defect independently. Reuse-first options should focus on separating player/rival vehicle ownership or reducing overlap at close and far-depth positions without shrinking the now-readable faces. Any cockpit change must resolve Roshan's duplicate steering-wheel semantics using source-region selection or an existing opaque foreground mask, followed by fresh Mobile captures. Do not continue lowering both figures without a measured target, and do not claim broad Racer acceptance from this seating fix."
+  }
+}

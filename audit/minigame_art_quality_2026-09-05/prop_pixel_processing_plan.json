@@ -1,0 +1,88 @@
+{
+  "schema": "reef.minigame_pixel_processing_plan.v1",
+  "date": "2026-09-06",
+  "status": "PLAN_ONLY_NOT_EXECUTED",
+  "scope": "Reviewable local-method plan for non-destructive candidate processing. No image-processing code has been written or run; no source or runtime asset has been changed.",
+  "authorization": {
+    "python_processing_permission": "Consolidated permission is understood to cover watering-can, pan, geode and sprout candidate processing when separately executed under this plan.",
+    "execution_status": "No processing execution or output acceptance occurred in this task.",
+    "protected_assets": "Do not modify assets/book, assets/audio/voices, assets/characters/friends, or any original candidate file."
+  },
+  "master_constraints": {
+    "texture_rule": "New runtime textures must be RGBA and <=1024px longest side unless power-of-two; proposed outputs use a whole-canvas proportional 1024px derivative.",
+    "medium": "True 2D Mobile renderer; no Sprite3D or procedural substitute for an authored prop.",
+    "quality_gate": "Every applicable identity, painted finish/material, contour/alpha, child readability, animation/contact, scene ownership, family consistency and technical dimension must be >=4.5/5 in current runtime evidence. No averaging across failed dimensions or distinct states.",
+    "provenance": "Every derivative gets a new path, exact source hash, method record, output hash, reviewer identity and runtime binding decision. Originals remain preserved."
+  },
+  "candidates": [
+    {
+      "id": "wateringcan-latest-rgb",
+      "role": "PictureGames Garden watering prop",
+      "source": {"path":"assets_src/minigame_art_quality_2026-09-05/watering-can-attempt03/wateringcan.png","sha256":"918ef0640a332305e5ae977809f0854c7bf3eda6de5bd53acc3c3135692c913b","dimensions":[1254,1254],"mode":"RGB"},
+      "source_review": "audit/minigame_art_quality_2026-09-05/watering_can_attempt02_independent_review.md",
+      "known_blockers": ["RGB painted checkerboard/background", "1254px NPOT exceeds runtime longest-side rule", "handle opening and exterior must become genuine alpha without contour loss", "spout angle and child-readable mounted contact remain unproved"],
+      "proposed_output": "assets_src/minigame_art_quality_2026-09-05/processed/wateringcan_rgba_1024.png",
+      "method": "Whole-canvas proportional resize to 1024x1024 only after alpha work. Build a connected-exterior background mask from the RGB background; remove only background connected to the outside. Preserve enclosed white highlights and the handle hole as transparent only when connected topology and visual review prove they are holes. Do not recolor, repaint, crop, rotate or infer a new spout.",
+      "fallback": "If background colors merge with the painted can, stop and retain source as rejected reference; do not use automatic flood-fill output in runtime."
+    },
+    {
+      "id": "pan-alpha02",
+      "role": "Geologist pan background/object candidate",
+      "source": {"path":"assets_src/minigame_art_quality_2026-09-05/pan-alpha-attempt02/native.png","sha256":"df6ec1df1c59a20d427cb50835ae04915b07de0cbe1b470e99d43c55518ff5ab","dimensions":[1254,1254],"mode":"RGBA"},
+      "source_review": "audit/minigame_art_quality_2026-09-05/pan_alpha_attempt02_review.json",
+      "known_blockers": ["1254px NPOT exceeds runtime rule", "sediment/mineral/action states are absent", "mounted contact and reversal evidence are absent"],
+      "proposed_output": "assets_src/minigame_art_quality_2026-09-05/processed/pan_rgba_1024.png",
+      "method": "No background cleanup by default. Resize the complete RGBA canvas proportionally to 1024x1024, preserving transparent padding and alpha contour. Re-measure alpha bbox and perimeter after resize; never trim, translate, warp or add a shadow.",
+      "fallback": "Reject derivative if resizing causes visible contour thinning, halo or material change; retain source-only status."
+    },
+    {
+      "id": "geode-closed01",
+      "role": "Geologist closed geode state",
+      "source": {"path":"assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/native.png","sha256":"efaa5f2be034f61d62a548b1ebeaade825b56b98a757871f7e53244c6ed16181","dimensions":[1254,1254],"mode":"RGBA"},
+      "source_review": "audit/minigame_art_quality_2026-09-05/geode_extraction_attempt01_review.json",
+      "known_blockers": ["1254px NPOT exceeds runtime rule", "closed/open geometry pairing and mounted seam/contact remain unproved", "closed state has semantic ambiguity in prior source review"],
+      "proposed_output": "assets_src/minigame_art_quality_2026-09-05/processed/geode_closed_rgba_1024.png",
+      "method": "Whole-canvas proportional resize to 1024x1024 from existing RGBA. Preserve the complete silhouette and transparent padding; do not smooth, recolor, alter the seam or invent cracks.",
+      "fallback": "Keep outside runtime if alpha edge, semantic identity or closed/open registration fails independent review."
+    },
+    {
+      "id": "geode-open-alpha02",
+      "role": "Geologist opened geode state",
+      "source": {"path":"assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/native.png","sha256":"0ca5e2572f5f306f3a46b75d5babf892fffd2cd65b16d0c5c7ee90426ae4bb2c","dimensions":[1254,1254],"mode":"RGBA"},
+      "source_review": "audit/minigame_art_quality_2026-09-05/geode_open_alpha_attempt02_review.json",
+      "known_blockers": ["1254px NPOT exceeds runtime rule", "matched closed/open transition geometry and mounted pull/contact remain unproved", "source-only finish does not certify gameplay"],
+      "proposed_output": "assets_src/minigame_art_quality_2026-09-05/processed/geode_open_rgba_1024.png",
+      "method": "Whole-canvas proportional resize to 1024x1024 from existing RGBA. Preserve both halves, cavity and transparent padding exactly in relative coordinates; do not independently move halves or crystal.",
+      "fallback": "Reject pair if closed/open anchors do not register or if alpha edge inspection reveals halo/contamination."
+    },
+    {
+      "id": "sprout02-rgb",
+      "role": "PictureGames Garden sprout state",
+      "source": {"path":"assets_src/minigame_art_quality_2026-09-05/garden-sprout-attempt02/native.png","sha256":"7632396298af15b08121b734d6a0d853a5fd33d69037df5915805054b72a9b97","dimensions":[1254,1254],"mode":"RGB"},
+      "source_review": "audit/minigame_art_quality_2026-09-05/nonopera_review.md; garden growth-family backlog",
+      "known_blockers": ["RGB candidate requires genuine alpha extraction", "1254px NPOT exceeds runtime rule", "one sprout cannot establish coordinated six-asset family", "ground anchor and garden-slot readability remain unproved"],
+      "proposed_output": "assets_src/minigame_art_quality_2026-09-05/processed/garden_sprout_rgba_1024.png",
+      "method": "Connected-exterior background removal only after visually identifying background/material boundaries; preserve enclosed light pixels and any intended holes. Then proportional whole-canvas resize to 1024x1024. No automatic acceptance from alpha histogram.",
+      "fallback": "If the sprout/background boundary is ambiguous, reject cleanup and keep the candidate as a non-runtime reference; do not force it into one of five distinct mature roles."
+    }
+  ],
+  "processing_failsafes": [
+    "Write only to the proposed new processed paths; never overwrite originals or live assets.",
+    "Verify source SHA before reading and record output SHA after writing.",
+    "Require RGBA mode, exact 1024x1024 dimensions, no unintended crop/translation, and measured alpha bbox before any review.",
+    "For RGB cleanup, use connected-exterior topology rather than global color replacement; enclosed white highlights and handle/holes require explicit preservation review.",
+    "Inspect each candidate over solid black and solid white, then over a representative captured scene/background at intended display size; retain contact sheets and pixel metrics.",
+    "Reject halos, checkerboard remnants, matte fringes, broken contour, clipped subject, erased highlights, or semantic change. Do not repair these by painting or warping.",
+    "Keep each state separate: closed/open geode, five mature flowers, and sprout are not interchangeable evidence."
+  ],
+  "review_packet": {
+    "source_checks": ["exact hash", "mode", "dimensions", "alpha histogram", "alpha bbox", "edge alpha counts", "enclosed-hole/highlight topology"],
+    "before_after_views": ["native source", "processed on black", "processed on white", "processed over intended scene", "intended runtime display-size crop"],
+    "human_review": ["Sol source/material/contour review", "Luna semantic-role/child-readability/consistency review", "independent rejection if any applicable dimension <4.5"],
+    "minimum_source_family_gate": "Watering can and sprout require role-specific source review; garden requires one sprout plus five distinct mature results. Geode requires matched closed/open pair. Pan requires mounted sediment/mineral/action states.",
+    "runtime_gates": ["Godot 4.7.2-stable", "Mobile renderer", "1280x720 current capture plus representative phone aspect", "actual input and normal processing", "ready/contact/changed/payoff/settle/re-entry", "source hash and import validation", "animation/contact/device evidence where applicable"],
+    "acceptance": "A clean derivative remains source-candidate evidence only until mounted runtime review passes every applicable master dimension. No game-wide or family-wide 4.5 claim may be made from these stills alone."
+  },
+  "execution_status": "PENDING_REVIEW_AND_EXPLICIT_RUN_SELECTION",
+  "game_wide_acceptance": false
+}

@@ -1,0 +1,395 @@
+{
+  "schema": "opera-current-animation-contract-followup-v1",
+  "generated": "2026-09-06",
+  "verdict": "OPEN_ACTION_CONTACT_SETTLE_COVERAGE",
+  "scope": "Read-only source and control-path audit of Mermaid Roshan's current 4x4 Opera career atlases for all 15 careers. No new runtime capture, motion score, generation request, or acceptance claim is made.",
+  "rules": [
+    "DL-MOT-02",
+    "DL-MOT-03",
+    "DL-MOT-07",
+    "DL-MOT-09"
+  ],
+  "sources": {
+    "controller": {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d"
+    },
+    "phase_router": {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "2f01fb3d4ea8b517a4de26e1c759f105dcbb19ac7e87613bd99dd0912a145b4d"
+    },
+    "prior_reviews": [
+      "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "audit/minigame_art_quality_2026-09-05/phase_pose_followup.md",
+      "audit/minigame_art_quality_2026-09-05/next_pose_containment_review.json"
+    ]
+  },
+  "code_proven_contract": {
+    "atlas": "1024x1024, four 256x256 cells per row",
+    "rows": {
+      "idle": 0,
+      "travel": 1,
+      "work": 2,
+      "cheer": 3
+    },
+    "ordinary_playback": {
+      "careers": [
+        "chef",
+        "detective",
+        "candymaker",
+        "doctor",
+        "farmer",
+        "boxer",
+        "magician",
+        "painter",
+        "astronaut",
+        "racer",
+        "popstar",
+        "nursery"
+      ],
+      "fps": {
+        "idle": 4.0,
+        "travel": 8.0,
+        "work": 7.0,
+        "cheer": 6.0
+      },
+      "looping": "All four requested-row cells loop indefinitely. At 7 fps, work repeats every 4/7 seconds (about 0.57 seconds).",
+      "phase_routing": "Non-talk phases call work unless REVIEWED_WORK_POSES supplies a held row-2 cell; talk calls idle. Travel is requested while the world tween/path moves the TextureRect, then returns to idle."
+    },
+    "reviewed_phase_holds": {
+      "doctor": {
+        "WASH": 1,
+        "FIND": 1,
+        "X-RAY": 1,
+        "CAST": 2,
+        "BANDAGE": 2
+      },
+      "farmer": {
+        "PLANT": 1,
+        "TOSS": 3,
+        "HERD": 3,
+        "PICNIC": 2
+      },
+      "racer": {
+        "TUNE": 0,
+        "TO THE LINE": 1
+      }
+    },
+    "story_pose_holds": {
+      "geologist": {
+        "idle": 3,
+        "travel": 1,
+        "work": 0
+      },
+      "teacher": {
+        "idle": 0,
+        "travel": 0,
+        "work": 0
+      },
+      "ballerina": {
+        "idle": 2,
+        "travel": 1,
+        "work": 1
+      }
+    },
+    "held_pose_behavior": "show_pose applies one cell, stops processing, and does not loop.",
+    "special_cheer_behavior": "Ballerina, Geologist, and Teacher play all four cheer cells once at 2 fps and hold cell 3. Ordinary careers loop cheer at 6 fps unless the surrounding surface replaces or ends it.",
+    "ballerina_specialist_behavior": "Pearl Mirror selects explicit work-row pose cells; Ribbon Trail changes pose by accepted progress bands. This is controlled pose selection, not row animation.",
+    "evidence_limit": "These statements are code facts. They do not prove visual smoothness, stable pivots, semantic contact, child readability, or a visible settle."
+  },
+  "families": [
+    {
+      "career": "chef",
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_chef_sheet_a.png",
+        "sha256": "78c666d2e87cc1cdcd2cde311c20e75a83ca86dae1366fe4aa9cacbee3e30566"
+      },
+      "actual_control": "Ordinary idle/travel/work/cheer loops; every non-talk task currently receives the full 7 fps work row.",
+      "source_review_fact": "The work row is a coherent bowl-and-whisk stirring family and directly supports MIX/STIR; it does not depict BAKE, FROST, or TOP.",
+      "open_states": [
+        "MIX/STIR anticipation and bowl contact",
+        "BAKE oven action/contact",
+        "FROST surface contact",
+        "TOP placement contact",
+        "phase-specific completion settle",
+        "travel cadence/pivot",
+        "cheer-to-rest settle"
+      ],
+      "next_capture_or_repair": "Capture MIX/STIR as a four-frame sequence at runtime. If cadence/contact passes, retain that loop only for matching phases; use reviewed neutral containment for BAKE/FROST/TOP until specific acting exists."
+    },
+    {
+      "career": "detective",
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_detective_sheet_a.png",
+        "sha256": "fb0a7d8b718d797484f1d0da22c330a7e01d0e0bb192f9296f3f288a30cf7e7c"
+      },
+      "actual_control": "Ordinary 7 fps work loop in all non-talk phases; no reviewed phase hold exists.",
+      "source_review_fact": "All work cells preserve the magnifying glass and searching intent; CASE BOARD placement and CROWN reveal/opening are not depicted.",
+      "open_states": [
+        "SEARCH cadence and lens/target contact",
+        "CASE BOARD clue placement",
+        "CROWN chest/open/reveal",
+        "completion settle",
+        "travel pivot",
+        "cheer settle"
+      ],
+      "next_capture_or_repair": "Capture SEARCH through one full loop for snapping and lens alignment. Route other phases to a reviewed neutral/search hold only as containment; do not claim board or crown acting from the lens loop."
+    },
+    {
+      "career": "ballerina",
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png",
+        "sha256": "c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995"
+      },
+      "actual_control": "Idle/travel/work are held cells. Pearl Mirror and Ribbon Trail choose explicit work-row cells by cue/progress. Cheer plays once at 2 fps and holds the last cell.",
+      "source_review_fact": "The work row is a discrete pose library; controlled holds comply with the existing DL-MOT-09 exception. It contains no continuous body-twirl clip.",
+      "open_states": [
+        "Mirror cue-to-pose response",
+        "Ribbon accepted-progress pose changes",
+        "Grand Twirl body action",
+        "pose-to-pose anchor stability",
+        "2 fps cheer progression",
+        "final held settle",
+        "held travel under DL-MOT-07"
+      ],
+      "next_capture_or_repair": "Capture each selected recital pose at cue/contact and the cheer final hold. Preserve held selection; treat Grand Twirl body motion as a separate missing action rather than looping the pose row."
+    },
+    {
+      "career": "candymaker",
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+        "sha256": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179"
+      },
+      "actual_control": "Ordinary 7 fps work loop for every non-talk task.",
+      "source_review_fact": "Tongs and mitt remain coherent and can support SORT; SYRUP pour, WRAP twist, and SHARE handoff are not depicted.",
+      "open_states": [
+        "SORT tong/candy contact",
+        "SYRUP pour/contact",
+        "WRAP twist/contact",
+        "SHARE handoff/contact",
+        "completion settle",
+        "travel/cheer pivots"
+      ],
+      "next_capture_or_repair": "Capture SORT cadence and live tong contact. Contain other phases with a stable reviewed key until their verbs have evidence; avoid blanket replacement of the coherent source family."
+    },
+    {
+      "career": "doctor",
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_doctor_sheet_a.png",
+        "sha256": "bfffbd5389d63f8c9337a132bb20e09abbd4d8fc8471ec406fba2d722106a50e"
+      },
+      "actual_control": "All five named work phases are held: WASH/FIND/X-RAY cell 1; CAST/BANDAGE cell 2. Idle/travel and ordinary cheer still follow shared playback.",
+      "source_review_fact": "Holding prevents rapid stethoscope/bandage substitution. Cell 1 is generic examination, cell 2 is bandage context; WASH is not depicted and X-RAY contact is not proven.",
+      "open_states": [
+        "WASH action/contact",
+        "FIND target response",
+        "X-RAY scanner contact",
+        "CAST placement",
+        "BANDAGE wrap/contact",
+        "transition into/out of holds",
+        "completion settle",
+        "travel/cheer"
+      ],
+      "next_capture_or_repair": "Capture each held phase with its live target and exit settle. Keep containment if alignment is truthful; commission or reuse action-specific art only for a confirmed unsupported verb."
+    },
+    {
+      "career": "farmer",
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_farmer_sheet_a.png",
+        "sha256": "f0c9947b093c489145945467af62e50ce748b56b344c55942b7532742bc64bc5"
+      },
+      "actual_control": "PLANT cell 1, TOSS cell 3, HERD cell 3, and PICNIC cell 2 are held; work looping is suppressed for these mapped phases.",
+      "source_review_fact": "The source row is a pose library. Cell 1 is planting contact; cell 2 presents a carrot; cell 3 is generic presentation and does not depict herding or picnic placement.",
+      "open_states": [
+        "PLANT contact/alignment",
+        "TOSS release/contact",
+        "HERD motion/response",
+        "PICNIC placement/contact",
+        "hold transitions",
+        "completion settle",
+        "travel/cheer"
+      ],
+      "next_capture_or_repair": "Capture all four held mappings in context. Retain PLANT if contact aligns; reassess TOSS/HERD/PICNIC semantics individually rather than restoring the full loop."
+    },
+    {
+      "career": "boxer",
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_boxer_sheet_a.png",
+        "sha256": "dbda6f6edd01e48b74095915f338fe3f6eb690ccd5f0f314d50e6940bb33c7c9"
+      },
+      "actual_control": "Ordinary work-loop request remains, while specialist boxing surfaces control live interaction events; no REVIEWED_WORK_POSES entry holds guard phases.",
+      "source_review_fact": "The work row reads as a short punch combination suitable for JAB and possibly impact moments. The final cell is the only clear held guard key.",
+      "open_states": [
+        "JAB anticipation/contact/recoil",
+        "TITLE IMP/BELT impact alignment",
+        "GLOVE GUIDE positioning",
+        "SOFT GUARD held response",
+        "specialist-event-to-actor timing",
+        "completion settle"
+      ],
+      "next_capture_or_repair": "Capture specialist event timestamps with the displayed atlas cell. Preserve the punch sequence for proven impact phases; test a final-cell hold for SOFT GUARD before creating anything new."
+    },
+    {
+      "career": "magician",
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_magician_sheet_a.png",
+        "sha256": "768e6980fa8f4ca9cc3281a2fb1f23f0fcdeac8f2d524e6135b3be03eafc13cb"
+      },
+      "actual_control": "All non-talk phases currently inherit the ordinary four-cell 7 fps work loop.",
+      "source_review_fact": "The row changes among spiral flourish, glyph, and portal outcomes. It is a staged pose/effect library, not a safe generic loop; CABINET and hat tracking are not depicted.",
+      "open_states": [
+        "VANISH flourish/contact",
+        "ROPE flourish/contact",
+        "PORTAL formation and settle",
+        "CABINET open/reveal",
+        "hat target tracking",
+        "prop/effect continuity",
+        "completion settle"
+      ],
+      "next_capture_or_repair": "First freeze the current loop in captures for each phase. Evaluate cells 0-1 only for flourish and cells 2-3 only for portal; use neutral containment for unsupported phases instead of blanket generation."
+    },
+    {
+      "career": "painter",
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_painter_sheet_a.png",
+        "sha256": "016dbac4a6c2342679410c19aa782d999557b92f4fc34f99f58d23dd714ea638"
+      },
+      "actual_control": "Ordinary 7 fps work loop for all non-talk phases.",
+      "source_review_fact": "Palette and brush remain coherent across a painting action. STAMPS and GALLERY verbs are not shown, and source pixels cannot establish canvas contact.",
+      "open_states": [
+        "PAINT anticipation/stroke/contact",
+        "STAMPS contact",
+        "GALLERY placement/choice",
+        "brush-to-live-surface alignment",
+        "completion settle",
+        "travel/cheer"
+      ],
+      "next_capture_or_repair": "Capture PAINT for a full loop with the live reveal surface. Preserve it if cadence/contact pass; route STAMPS/GALLERY separately based on their actual verbs."
+    },
+    {
+      "career": "astronaut",
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+        "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa"
+      },
+      "actual_control": "Ordinary 7 fps work loop in every non-talk phase; no two-cell subset is implemented.",
+      "source_review_fact": "Cells 0-1 plausibly form wrench work; cells 2-3 shift toward presentation. PATCH and LAUNCH are not depicted by the full loop.",
+      "open_states": [
+        "PIPES/VALVE two-key tool contact",
+        "full-loop prop/action jump",
+        "PATCH contact",
+        "LAUNCH input/response",
+        "completion settle",
+        "travel/cheer"
+      ],
+      "next_capture_or_repair": "Capture cells 0-1 against pipe/valve contact and test a bounded subset cadence. Hold or neutralize unsupported PATCH/LAUNCH phases rather than treating the four cells as one action."
+    },
+    {
+      "career": "racer",
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_racer_sheet_a.png",
+        "sha256": "f62f881d42b439bde09a8bc7f6e0000125acd3e27aabf1fd39d90722ce75ca79"
+      },
+      "actual_control": "TUNE holds work cell 0 and TO THE LINE holds cell 1. The race route hides this actor; the generic work loop is not used for those mapped preparation phases.",
+      "source_review_fact": "The source row contains separate wrench, wheel, flag, and fist meanings. Phase holds remove rapid prop replacement but do not create action/contact/settle.",
+      "open_states": [
+        "TUNE wrench contact",
+        "TO THE LINE steering/target direction",
+        "actor hide transition into RACE",
+        "finish/flag payoff",
+        "return/settle",
+        "travel/cheer"
+      ],
+      "next_capture_or_repair": "Capture both held preparations, actor hide at race start, and finish payoff. Consider the flag cell only as a separately timed finish key after mounted review."
+    },
+    {
+      "career": "popstar",
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_popstar_sheet_a.png",
+        "sha256": "0084e74b73042832f248c26f6688e484b7376ea6418caee09b2e4beeebfb0ee9"
+      },
+      "actual_control": "Ordinary 7 fps work loop for every non-talk phase.",
+      "source_review_fact": "Microphone and singing intent remain continuous and support SOUND CHECK/RHYTHM; DANCE selection and a full-body ENCORE spin are absent.",
+      "open_states": [
+        "SOUND CHECK microphone/contact response",
+        "RHYTHM timing",
+        "DANCE arrow response",
+        "ENCORE spin/action",
+        "loop pivot stability",
+        "completion settle"
+      ],
+      "next_capture_or_repair": "Capture SOUND CHECK and RHYTHM over complete loops with audio/gesture timing. Keep the singing loop where truthful and leave DANCE/ENCORE as distinct action gaps."
+    },
+    {
+      "career": "nursery",
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_nursery_sheet_a.png",
+        "sha256": "9880fc9ac328b0112d8a7162c656b2a2d9471a4995dd11bd606607f12ca13a52"
+      },
+      "actual_control": "Ordinary work loop remains for non-talk phases; no phase-specific held mapping currently prevents cloth, bottle, cradle gesture, and blanket substitution.",
+      "source_review_fact": "The row is a pose library: cloth for WASH, bottle for FEED, cradling for BURP/soothing, blanket for BEDTIME. It contains no clear CATCH BABIES action.",
+      "open_states": [
+        "WASH cloth contact",
+        "FEED bottle contact",
+        "BURP/soothe contact",
+        "BEDTIME blanket placement",
+        "CATCH BABIES catch/contact",
+        "prop continuity",
+        "completion settle"
+      ],
+      "next_capture_or_repair": "Capture each named phase and confirm current prop substitution. Then phase-hold only the semantically matching cells; keep CATCH BABIES explicitly unsupported until actor/object contact exists."
+    },
+    {
+      "career": "geologist",
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+        "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37"
+      },
+      "actual_control": "Idle cell 3, travel cell 1, and work cell 0 are held for all applicable states. Cheer plays once at 2 fps and holds cell 3; menu idle also selects cell 3.",
+      "source_review_fact": "Containment avoids incomplete-fin idle cells and crystal substitution. Generic held work does not depict river, fossil brush, pan, or geode contact.",
+      "open_states": [
+        "RIVER stone/contact alignment",
+        "FOSSIL brush/contact",
+        "PAN motion/contact",
+        "GEODE seam/pull contact",
+        "held-state pivot changes",
+        "2 fps cheer/final settle",
+        "held travel under DL-MOT-07"
+      ],
+      "next_capture_or_repair": "Capture each specialist phase with the held actor and live contact point plus the cheer sequence. Preserve full-fin holds; repair only confirmed contact/verb gaps."
+    },
+    {
+      "career": "teacher",
+      "source": {
+        "path": "assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png",
+        "sha256": "2bddeebd6ca4fe0647e1f6deb670bfcab4d1183f36417e0a033e59c4788dd28c"
+      },
+      "actual_control": "Idle, travel, and work each hold cell 0. Cheer plays once at 2 fps and holds cell 3.",
+      "source_review_fact": "Holding prevents the pointer from jumping among incompatible directions. One fixed direction cannot prove truthful pointing for PATTERN, COUNT, ADD, and MATCH layouts.",
+      "open_states": [
+        "PATTERN pointer-to-target truth",
+        "COUNT pointer-to-pearl truth",
+        "ADD pointer-to-join/pearl truth",
+        "MATCH pointer-to-shape truth",
+        "transition into pointing",
+        "contact/payoff response",
+        "2 fps cheer/final settle",
+        "held travel under DL-MOT-07"
+      ],
+      "next_capture_or_repair": "Use the current phase captures to measure pointer direction against each live target, then prefer object-bound procedural guidance or a reviewed phase pose where misalignment is observed. Capture cheer progression separately."
+    }
+  ],
+  "cross_family_findings": [
+    "No career has complete captured anticipation, action/contact, payoff, and settle coverage for every named phase.",
+    "Ordinary looping is code-proven for 12 families, but temporal quality is unproven; a coherent source row is only a candidate for its matching verb.",
+    "Doctor, Farmer, and Racer have bounded phase holds. Ballerina, Geologist, and Teacher have controller-level held states. These contain known pose-library problems but do not supply authored motion.",
+    "Magician and Nursery remain the clearest uncontained semantic substitution risks because unrelated effect/prop keys still loop for non-talk phases.",
+    "Reuse-first priority is to capture and route existing semantically correct cells/sequences. Generate or commission only a named missing verb after mounted evidence confirms the gap."
+  ],
+  "acceptance_limits": [
+    "Existing probe evidence establishes state-control behavior, not visual motion acceptance.",
+    "No scores were assigned from unviewed motion and prior source-sheet scores were not promoted into this follow-up.",
+    "No target-device, observed-child, owner, full-game, or master-audit acceptance is claimed.",
+    "Runtime remained frozen; no asset, script, test, or Godot mutation was performed."
+  ]
+}

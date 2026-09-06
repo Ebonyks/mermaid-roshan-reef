@@ -1,0 +1,49 @@
+{
+  "schema": "reef.minigame_art_repair_attempt.v1",
+  "date": "2026-09-06",
+  "method": "built-in image_gen",
+  "subject": "Matched opened Geologist geode",
+  "attempt": 2,
+  "runtime_accepted": false,
+  "prompt": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/prompt.txt",
+    "sha256": "002cb1d0f454438ca8cea5d1434f8db268f03f3a2ad1ac7927bc0ba86aea0234"
+  },
+  "source": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/native.png",
+    "sha256": "0ca5e2572f5f306f3a46b75d5babf892fffd2cd65b16d0c5c7ee90426ae4bb2c"
+  },
+  "references": [
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/geode-open-attempt01/native.png",
+      "sha256": "3093ba26153133dac10df3ba3ad348cc81a19072eab10e88dacff5562ecc5578",
+      "role": "edit target: preserve both opened halves, remove checkerboard"
+    }
+  ],
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "disposition": "SOURCE_CANDIDATE_RUNTIME_BLOCKED",
+  "reason": "Real RGBA alpha and source review recorded.1254x1254 is non-power-of-two and exceeds runtime texture limit. Exact paired-state alignment, intermediate cracks and mounted input/settle evidence remain open. Native bytes untouched; no runtime binding.",
+  "original_output": "C:/Users/Peter/.codex/generated_images/01a07232-f269-7e21-8e68-a0deb714ea99/exec-3418fcde-498f-451f-ac5f-d623575dd4bc.png",
+  "owner_review": false,
+  "alpha": {
+    "range": [
+      0,
+      255
+    ],
+    "nonzero_bbox": [
+      65,
+      184,
+      1180,
+      1200
+    ],
+    "fully_transparent_pixels": 867141
+  },
+  "independent_source_review": {
+    "path": "audit/minigame_art_quality_2026-09-05/geode_open_alpha_attempt02_review.json",
+    "sha256": "7d9a28f37dfa85fba0ae529aae0c742b5b2b6a04606020114310b487dbf73cf3"
+  }
+}

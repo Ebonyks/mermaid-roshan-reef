@@ -1,0 +1,111 @@
+{
+  "review_id": "geode-open-alpha-attempt02-source-only",
+  "review_scope": "Independent native-pixel review of the opened-geode extraction and bounded continuity comparison with the closed candidate. This does not assess runtime mounting, contact, animation, transition cadence, target-phone readability, or owner/child acceptance.",
+  "candidate": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/native.png",
+    "sha256": "0ca5e2572f5f306f3a46b75d5babf892fffd2cd65b16d0c5c7ee90426ae4bb2c",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "role": "opened geode pair source candidate"
+  },
+  "generation_provenance": {
+    "prompt_path": "assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/prompt.txt",
+    "prompt_sha256": "002cb1d0f454438ca8cea5d1434f8db268f03f3a2ad1ac7927bc0ba86aea0234",
+    "prompt_declared_operation": "Remove checkerboard contamination while preserving both opened halves; requested output was 1024x1024.",
+    "provenance_limit": "The resulting native is 1254x1254, so it does not satisfy the requested canvas size or the runtime texture rule."
+  },
+  "paired_closed_source": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/native.png",
+    "sha256": "efaa5f2be034f61d62a548b1ebeaade825b56b98a757871f7e53244c6ed16181",
+    "comparison": "The opened pair retains the closed candidate's lavender-purple shell family, faceted paint language, bright upper-left illumination, plum/navy perimeter, and bilateral split concept. The opened shell is wider and more irregular by design, while saturated magenta and aqua interiors make the geological identity much clearer. Exact closed-to-open geometry and scale continuity remain unproved until normalized, aligned, and mounted as sequential states."
+  },
+  "pixel_inspection": {
+    "method": "Native-resolution visual inspection plus read-only Pillow/NumPy alpha measurement; no pixels were changed.",
+    "alpha_ge_1_count": 705375,
+    "alpha_ge_8_count": 692213,
+    "alpha_ge_128_count": 688078,
+    "bbox_alpha_ge_1_xyxy_exclusive": [
+      65,
+      184,
+      1180,
+      1200
+    ],
+    "bbox_alpha_ge_8_xyxy_exclusive": [
+      71,
+      211,
+      1176,
+      1029
+    ],
+    "bbox_alpha_ge_128_xyxy_exclusive": [
+      73,
+      213,
+      1176,
+      1029
+    ],
+    "perimeter": {
+      "maximum_alpha": 0,
+      "nonzero_pixel_count": 0,
+      "alpha_ge_128_pixel_count": 0
+    },
+    "tiny_alpha_1_through_7_count": 13162,
+    "soft_alpha_8_through_127_count": 4135,
+    "interpretation": "Both visible halves are fully contained. Every canvas-perimeter pixel is transparent, and native visual inspection shows no checkerboard remnant, opaque rectangular plate, clipping, or neighbor fragment. The alpha>=8 footprint has ample padding on every side."
+  },
+  "source_scores_1_to_5": {
+    "identity": {
+      "score": 4.8,
+      "reason": "Two separated lavender stone shells exposing dense faceted crystal cavities read immediately as an opened geode; the aqua and magenta mineral clusters reinforce the geology role."
+    },
+    "finish": {
+      "score": 4.7,
+      "reason": "The shells and crystal interiors have layered painted facets, controlled highlights, strong depth, and dense detail without obvious extraction holes."
+    },
+    "edges": {
+      "score": 4.7,
+      "reason": "Both visible contours are complete, clean, and consistently outlined. The transparent perimeter is entirely alpha zero, with no visually observed checkerboard fringe or clipped strong-alpha pixels."
+    },
+    "readability": {
+      "score": 4.8,
+      "reason": "The separated halves, bright cavity rims, and high-contrast crystal interiors establish the opened state clearly at source scale. Mounted phone readability remains unassessed rather than scored down."
+    },
+    "consistency": {
+      "score": 4.6,
+      "reason": "The opened and closed sources share shell hue, faceting, outline family, light direction, and bilateral state logic. The opened interiors introduce much stronger magenta/aqua saturation and a broader silhouette; these are plausible revealed materials but require sequential mounted comparison before continuity is accepted."
+    },
+    "contact": {
+      "score": null,
+      "reason": "No ground, hand, pan, or interaction context is present in the source extraction."
+    },
+    "animation": {
+      "score": null,
+      "reason": "Two source states cannot demonstrate transition motion, timing, cadence, or topology through intermediate frames."
+    },
+    "technical": {
+      "score": null,
+      "status": "FAIL",
+      "reason": "The 1254 by 1254 candidate is NPOT and exceeds the 1024-pixel longest-side runtime limit, despite having genuine transparent perimeter pixels."
+    }
+  },
+  "hard_failures": [
+    "Runtime texture rule: 1254x1254 is NPOT and its longest side exceeds 1024 pixels.",
+    "The prompt requested 1024x1024, but the preserved native output is 1254x1254.",
+    "Cracked/intermediate state coverage and closed-to-open mounted alignment remain absent.",
+    "No current Mobile-renderer evidence establishes scale, composition, contact, state ownership, or phone readability."
+  ],
+  "disposition": {
+    "status": "RETAIN_NATIVE_AS_SOURCE_PAIR_CANDIDATE__REJECT_RUNTIME",
+    "accepted": false,
+    "full_quality_accepted": false,
+    "rationale": "The opened extraction is visually strong, genuinely transparent, and more semantically explicit than the closed source. Its runtime-size failure and incomplete mounted transition evidence remain blocking.",
+    "next_steps": [
+      "Preserve both 1254x1254 natives and hashes as source provenance; do not overwrite them.",
+      "If selected, derive separately tracked compliant canvases using the same whole-canvas normalization for both states so relative scale and alignment can be audited.",
+      "Provide a compatible cracked/intermediate state or prove that the current interaction intentionally switches directly from closed to opened without requiring one.",
+      "Reaudit the normalized pair in current Mobile-renderer gameplay for phone readability, shell alignment, contact, ownership, and state progression.",
+      "Add complete license and generation provenance before any production adoption."
+    ]
+  }
+}

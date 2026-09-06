@@ -6,8 +6,11 @@
     "warning": "Source-bound candidate inventory; not exhaustive runtime proof and no quality scores."
   },
   "registry": {
-    "asset_records": 56,
-    "registered_source_paths": 48
+    "asset_records": 62,
+    "registered_source_paths": 54,
+    "historical_asset_records": 56,
+    "historical_registered_source_paths": 48,
+    "expansion_note": "Six exact Day One asset records added after parent hash checks; the source-candidate scan remains historical and incomplete."
   },
   "runtime_scan": {
     "candidate_source_files": 45,
@@ -530,7 +533,7 @@
   "grand_puff_runtime_markers": [
     {
       "line": 3,
-      "text": "# THE DUST BUNNY BOSS \u2014 \"Grand Puff\", the biggest dust bunny in the Pearl"
+      "text": "# THE DUST BUNNY BOSS — \"Grand Puff\", the biggest dust bunny in the Pearl"
     },
     {
       "line": 17,
@@ -570,11 +573,11 @@
     },
     {
       "line": 673,
-      "text": "\"Grand Puff slowed down! Take your time \u2014 wait for the BIG GOLD STAR!\""
+      "text": "\"Grand Puff slowed down! Take your time — wait for the BIG GOLD STAR!\""
     },
     {
       "line": 742,
-      "text": "return \"PERFECT DODGE! Three gold stars and two bonus pearls \u2014 Grand Puff is your friend!\""
+      "text": "return \"PERFECT DODGE! Three gold stars and two bonus pearls — Grand Puff is your friend!\""
     },
     {
       "line": 744,
@@ -651,6 +654,6 @@
   "method_notes": [
     "Compare every live caller and dynamic loader against registry before scoring.",
     "Do not infer scores from filenames, historical area scores, or source comments.",
-    "Grand Puff must be re-bound to current origin/dev and parallel bunny-battle candidate before acceptance."
+    "Grand Puff must be re-bound to the current integrated source and actual runtime fallback; do not borrow unreviewed parallel assets before acceptance."
   ]
 }

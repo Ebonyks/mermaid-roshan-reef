@@ -30,6 +30,8 @@ func _run() -> void:
 		not bool(first.get("uses_spatial_runtime", true)))
 	_check("no fail state", bool(first.get("no_fail_state", false)))
 	_check("no gameplay timer", not bool(first.get("has_timer", true)))
+	_check("handoff adds no local Back and relies on the game-wide control",
+		bool(first.get("uses_global_navigation", false)))
 	_check("house is not entered by zero input",
 		String(first.get("state", "")) != "butterfly_house")
 	_check("house remains visible at far end",

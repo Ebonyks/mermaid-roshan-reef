@@ -1,7 +1,7 @@
 {
   "schema": "minigame-art-quality-v1",
-  "candidate_revision": "f4a5de339f3a8b7b9e4081924f4d3127d54959d7",
-  "revision_note": "The revision is the current-dev/core base for this reconciliation, not the commit containing the additional art repairs and packet. Source SHA-256 values bind exact accompanying bytes by default; source records declaring utf8_lf bind strict UTF-8 text after CRLF-to-LF canonicalization. Historical screenshots remain bound only to their own manifests and do not review this candidate. No current candidate review or acceptance is claimed.",
+  "candidate_revision": "9df000999a94572b64537c98f558841f6f3e3260",
+  "revision_note": "Published art base 9df000999a94572b64537c98f558841f6f3e3260, reconciled with dev a6ffa14d0160ad6830464b73df33e1db20641fa1 (including navigation, family-evening expansion and the audit development contract) plus eleven task-pose holds. This is not an exact candidate commit. Source hashes bind accompanying contents using explicitly declared normalization. Historical screenshots retain their original authority; configured-phase diagnostics do not grant complete animation or current-candidate quality acceptance. Current candidate also reuses the approved painted Farmer carrot in Snowman and family dinner; source hashes bind those edits and quality remains open. The earlier room-preview expansion repair is historical: a6 removes the card in favor of the shared Back/next-room arrow. Dinner targets remain grouped on the painted table; independent scene gates remain open. Pool sample windows now preserve the complete wrapper and exclude its pixels from the can; normal focused machine checks and bounded still review pass, complete art acceptance remains open. Current follow-up enlarges sparse Teacher pearl groups within exact card widths and moves Racer lap dials beyond the back button. Independent desktop still review accepts only the changed pearl sizing and lap/back-button separation. Full Teacher/Racer scene quality, animation, higher-tier and device acceptance remain open. Current pool source preserves a6 travel/scoop plus corrected atlas sampling. Racer run05 mounting was rejected; run06 closes the floating gap and is retained as a bounded improvement. Seat/contact4.3 and vehicle ownership3.5 remain below target; no whole-career acceptance.",
   "scope": {
     "games": [
       "opera",
@@ -24,7 +24,7 @@
       "comfy_friends"
     ],
     "coverage_complete": false,
-    "coverage_note": "Open source-bound inventory: 56 registry records are not exhaustive. A follow-up scan found 45 candidate minigame/adaptor source files, 259 literal resource paths, and 97 dynamic loader sites; 24 source candidates still lack exact registry records. Grand Puff is integrated on current dev but remains uncaptured/unscored here. See missing_coverage.json and current_scope_addendum.md.",
+    "coverage_note": "Open source-bound inventory expanded from 62 to 89 records and from 54 to 81 distinct sources by tracing 27 additional live gameplay rasters across Seek, slide race, Fairy, picture games, Day One pool, and Day One bathroom. All appended records are quality-unassessed: prior/candidate reviews remain null and DL-QA-11 records missing source/runtime/state evidence rather than an observed visual defect. This remains non-exhaustive; dynamic paths, procedural visuals, scene/resource indirection, and deprioritized static/decorative sources remain outside this bounded expansion. See audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json for the public follow-up trace after adoption.",
     "surfaces": [
       {
         "game": "opera",
@@ -158,7 +158,9 @@
           "picture-flower",
           "picture-flower2",
           "picture-k_flower2",
-          "picture-flower3"
+          "picture-flower3",
+          "picture-garden-seed",
+          "picture-garden-butterfly-payoff"
         ]
       },
       {
@@ -172,7 +174,10 @@
         "game": "seek",
         "id": "meadow",
         "live_asset_ids": [
-          "nonopera-seek"
+          "nonopera-seek",
+          "seek-lamma-animation",
+          "seek-evie-animation",
+          "seek-roshan-gesture-animation"
         ]
       },
       {
@@ -186,7 +191,13 @@
         "game": "slide_race",
         "id": "fish-route",
         "live_asset_ids": [
-          "nonopera-slide-race"
+          "nonopera-slide-race",
+          "slide-roshan-pose-0",
+          "slide-roshan-pose-1",
+          "slide-roshan-pose-2",
+          "slide-roshan-pose-3",
+          "slide-fish-target",
+          "slide-friends-goal-actor"
         ]
       },
       {
@@ -200,21 +211,32 @@
         "game": "day_one_pool",
         "id": "individual-subactivities",
         "live_asset_ids": [
-          "nonopera-pool-subactivities"
+          "nonopera-pool-subactivities",
+          "pool-floating-trash-atlas",
+          "pool-skimmer-tool",
+          "pool-waterfall-scrubber",
+          "pool-seahorse-subject",
+          "pool-seahorse-mouth-trash",
+          "pool-waterfall-clog-target"
         ]
       },
       {
         "game": "day_one_bathroom",
         "id": "cleanup",
         "live_asset_ids": [
-          "nonopera-bathroom"
+          "nonopera-bathroom",
+          "bathroom-star-sponge",
+          "bathroom-cleaning-brush",
+          "bathroom-sink-grime-target",
+          "bathroom-tub-grime-target"
         ]
       },
       {
         "game": "dust_bunny_swimmer",
         "id": "swimmer",
         "live_asset_ids": [
-          "nonopera-dust-swimmer"
+          "nonopera-dust-swimmer",
+          "day-one-swimmer-cutout"
         ]
       },
       {
@@ -228,7 +250,18 @@
         "game": "fairy",
         "id": "pond",
         "live_asset_ids": [
-          "nonopera-fairy"
+          "nonopera-fairy",
+          "fairy-boss-seed",
+          "fairy-boss-sprout",
+          "fairy-boss-bud",
+          "fairy-boss-opening",
+          "fairy-boss-bloom",
+          "fairy-bug-jewel",
+          "fairy-bug-moth",
+          "fairy-bug-firefly",
+          "fairy-boss-leaf",
+          "fairy-helpful-cue",
+          "fairy-danger-cue"
         ]
       },
       {
@@ -328,7 +361,7 @@
       ],
       "source": {
         "path": "scripts/opera_career_world_2d.gd",
-        "sha256": "66d93fe975e502271a179686a66f6a00a515edcd3fca323141228616792092c8",
+        "sha256": "d7461bff2cc06ac005a529fcc46f90f53b6e2e7052efe8c12c8432e775ff2b5e",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -613,7 +646,7 @@
       ],
       "source": {
         "path": "scripts/opera_racer_surface.gd",
-        "sha256": "f16219bb057155a7bd1e68f0a0fbca32872b91fe911be4e3b12f1d5f7f22773d",
+        "sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -628,7 +661,31 @@
           "summary": "Historical base captures and byte-equivalence notes are diagnostic; controls/car still lack current complete state evidence."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "current_runtime_followups": [
+        "audit/minigame_art_quality_2026-09-05/racer_current_runtime_review.json",
+        "audit/minigame_art_quality_2026-09-05/racer_lap_layout_repair_review.json"
+      ],
+      "historical_state_aliases": {
+        "previous_states": [
+          "idle",
+          "anticipation",
+          "drive",
+          "contact",
+          "payoff",
+          "settle"
+        ],
+        "mapping": {
+          "idle": "ready surface before race input",
+          "anticipation": "TUNE/TO THE LINE setup and countdown entry",
+          "drive": "kart_race active movement and steering",
+          "contact": "steering/road interaction and pearl/wall feedback",
+          "payoff": "lap completion, finish flag, sparks and completed race",
+          "settle": "post-finish retained surface/return boundary"
+        },
+        "source_review": "audit/minigame_art_quality_2026-09-05/specialist_registry_state_followup.json"
+      },
+      "seating_followup": "audit/minigame_art_quality_2026-09-05/racer_seating_followup_review.json"
     },
     {
       "id": "opera-popstar",
@@ -702,11 +759,11 @@
       "states": [
         "idle",
         "river",
-        "fossil",
-        "brush",
+        "fossil_brush",
+        "fossil_assemble",
         "pan",
-        "geode",
-        "gallery",
+        "geode_seam",
+        "geode_open",
         "settle"
       ],
       "source": {
@@ -723,10 +780,41 @@
           "rule_id": "DL-VIS-05",
           "blocking": true,
           "resolved": false,
-          "summary": "River, fossil, brush, pan, geode, work surface, mineral, and gallery were reported P0. External worktree captures are excluded until imported and hashed."
+          "summary": "Current twelve-state rendered review confirms weak river identity/material, rectangular fossil sediment, flat pan/mineral depiction, capsule-like geode and detached workspace/actor composition. Exact public captures are linked in current_runtime_followups. Full animation/contact/settle and full candidate acceptance remain open."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "current_runtime_followups": [
+        "audit/minigame_art_quality_2026-09-05/geologist_current_runtime_review.json"
+      ],
+      "generation_followups": [
+        "assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/manifest.json",
+        "assets_src/minigame_art_quality_2026-09-05/geode-open-attempt01/manifest.json",
+        "assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/manifest.json",
+        "assets_src/minigame_art_quality_2026-09-05/pan-alpha-attempt02/manifest.json"
+      ],
+      "historical_state_aliases": {
+        "previous_states": [
+          "idle",
+          "river",
+          "fossil",
+          "brush",
+          "pan",
+          "geode",
+          "gallery",
+          "settle"
+        ],
+        "mapping": {
+          "fossil": "fossil_brush + fossil_assemble semantic family; retain fossil as historical umbrella only",
+          "brush": "historical shorthand for current FOSSIL_BRUSH stage; not a standalone phase",
+          "geode": "geode_seam + geode_open semantic family; retain geode as historical umbrella only",
+          "gallery": "retired as standalone phase/mode; current code's crystal gallery is the geode_open payoff helper, so preserve the word only as historical alias or payoff annotation",
+          "idle": "semantic audit state; current surface can demo before touch",
+          "settle": "semantic audit state after completion; do not delete"
+        },
+        "source_review": "audit/minigame_art_quality_2026-09-05/specialist_registry_state_followup.json"
+      },
+      "held_contact_followup": "audit/minigame_art_quality_2026-09-05/geologist_held_contact_review.json"
     },
     {
       "id": "opera-teacher",
@@ -737,15 +825,15 @@
         "idle",
         "hint",
         "pattern",
-        "counting",
-        "group",
-        "shape",
+        "count",
+        "add",
+        "match",
         "demo",
         "settle"
       ],
       "source": {
         "path": "scripts/opera_teacher_surface.gd",
-        "sha256": "a66f89510f7ba6a9ef9c60488a47a406a521054b84361f6052ad7a80c3ed9832",
+        "sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -760,7 +848,33 @@
           "summary": "Historical base captures do not establish current eight-dimension acceptance; all named procedural teaching states remain open."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "current_runtime_followups": [
+        "audit/minigame_art_quality_2026-09-05/teacher_current_runtime_review.json",
+        "audit/minigame_art_quality_2026-09-05/teacher_pearl_repair_review.json"
+      ],
+      "historical_state_aliases": {
+        "previous_states": [
+          "idle",
+          "hint",
+          "pattern",
+          "counting",
+          "group",
+          "shape",
+          "demo",
+          "settle"
+        ],
+        "mapping": {
+          "counting": "semantic label for current COUNT phase; normalize to count for exact phase mapping",
+          "group": "semantic label for current ADD phase; normalize to add",
+          "shape": "historical/general semantic label for current MATCH phase; normalize to match",
+          "hint": "active assistance state represented by help_visible/assisted, not a separate PHASES entry",
+          "demo": "active idle-demonstration state represented by demo_active; retain",
+          "idle": "retain",
+          "settle": "retain"
+        },
+        "source_review": "audit/minigame_art_quality_2026-09-05/specialist_registry_state_followup.json"
+      }
     },
     {
       "id": "nonopera-picture-games",
@@ -775,7 +889,7 @@
       ],
       "source": {
         "path": "scripts/games/picture_games.gd",
-        "sha256": "0359f26d81b16ba474911584aa574f8c9702ad6500883a8887c94f7bb8d55311",
+        "sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -927,7 +1041,7 @@
       ],
       "source": {
         "path": "scripts/games/day_one_pool_cleanup.gd",
-        "sha256": "64ce94893f5ba73bbec92690030af42ebfda2f235d755029a3b1a5f8879893c4",
+        "sha256": "b38462f71d7d0b215ad8a97df219f296551e40011d721024970c45a41a7da117",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -958,7 +1072,7 @@
       ],
       "source": {
         "path": "scripts/games/day_one_pool_cleanup.gd",
-        "sha256": "64ce94893f5ba73bbec92690030af42ebfda2f235d755029a3b1a5f8879893c4",
+        "sha256": "b38462f71d7d0b215ad8a97df219f296551e40011d721024970c45a41a7da117",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -1173,7 +1287,7 @@
       ],
       "source": {
         "path": "scripts/games/shop.gd",
-        "sha256": "2c3fe3cd31e79bd7c9f6d077396a05f890fdc29146dd4972ee100891f59554f6",
+        "sha256": "feef16a7fc5a47abc51ff39dd4c07a31a2329d2496d5063467bcb5c1b28bfcb0",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -1235,7 +1349,7 @@
       ],
       "source": {
         "path": "scripts/games/dance_engine.gd",
-        "sha256": "1eb9f4105242391d85ff90d3ab770b4547789b9da03f4b61ac886ff38d49d9f2",
+        "sha256": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -1288,13 +1402,32 @@
       "surface": "shared-activities",
       "role": "shared Canvas friend activities",
       "states": [
-        "idle",
-        "action",
-        "payoff"
+        "hunt-ready",
+        "hunt-found",
+        "dinner-three-ingredients",
+        "dinner-apple-added",
+        "dinner-carrot-added",
+        "dinner-strawberry-added",
+        "dinner-pot-ready",
+        "dinner-pot-contact",
+        "dinner-handoff",
+        "movie-scene-1",
+        "movie-scene-2",
+        "movie-scene-3",
+        "movie-handoff",
+        "bedtime-four-family",
+        "bedtime-one-tucked",
+        "bedtime-two-tucked",
+        "bedtime-three-tucked",
+        "bedtime-all-tucked",
+        "room-pointer",
+        "leave-reenter",
+        "restored-boundary",
+        "reward"
       ],
       "source": {
         "path": "scripts/comfy_games.gd",
-        "sha256": "a5128f1650ec9722343570b8049ea8cdba9144f1c054f264dcd1847030049341",
+        "sha256": "91d826818b00dc782598efe43941949157d1fb9dda2336c065710227e7f627ee",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -1307,6 +1440,12 @@
           "blocking": true,
           "resolved": false,
           "summary": "Shared activity art requires live-route inventory and protected-source treatment review before grading."
+        },
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Dev 6d7c5e adds dinner/movie/bedtime without current rendered evidence. Source review: same movie texture across three narrative scenes, a tap labelled stirring, tucked characters removed, and non-target-room handoffs without a destination picture in this layer. Capture states individually; no score inferred from code."
         }
       ],
       "replacement_history": []
@@ -1322,8 +1461,8 @@
         "payoff"
       ],
       "source": {
-        "path": "assets/mg/carrot.png",
-        "sha256": "b4c35bee6de1a161f6891396a3b903d22893f772919bbbfe5832e5256e834a8f"
+        "path": "assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+        "sha256": "9ec02fdd3e0ea6888ab3e3dce7f3a6436b752974798fd46fddf545a70f3e93dd"
       },
       "reviews": {
         "prior": null,
@@ -1332,17 +1471,36 @@
       "isolated_observation": {
         "score": 3.0,
         "kind": "subjective isolated asset; not eight-dimension runtime acceptance",
-        "report": "audit/minigame_art_quality_2026-09-05/nonopera_review.md"
+        "report": "audit/minigame_art_quality_2026-09-05/nonopera_review.md",
+        "source": {
+          "path": "assets/mg/carrot.png",
+          "sha256": "b4c35bee6de1a161f6891396a3b903d22893f772919bbbfe5832e5256e834a8f"
+        }
       },
       "defects": [
         {
-          "rule_id": "DL-VIS-05",
+          "rule_id": "DL-QA-11",
           "blocking": true,
           "resolved": false,
-          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+          "summary": "Original weak flat carrot replaced by approved painted token in selector and nose; same candidate reused in dinner. Nose rotation/scale and action/payoff require mounted independent review; no4.5acceptance yet."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [
+        {
+          "method": "direct reuse of approved painted Farmer carrot; no pixel edits; centered nose rotation in Canvas code",
+          "source_hashes": [
+            "b4c35bee6de1a161f6891396a3b903d22893f772919bbbfe5832e5256e834a8f",
+            "9ec02fdd3e0ea6888ab3e3dce7f3a6436b752974798fd46fddf545a70f3e93dd"
+          ],
+          "output_sha256": "9ec02fdd3e0ea6888ab3e3dce7f3a6436b752974798fd46fddf545a70f3e93dd",
+          "original_source": {
+            "path": "assets/mg/carrot.png",
+            "sha256": "b4c35bee6de1a161f6891396a3b903d22893f772919bbbfe5832e5256e834a8f"
+          },
+          "candidate_source": "assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+          "status": "Runtime candidate; authored angle preserved through chase. Focused regression passed; mounted composition and full action/payoff acceptance remain open."
+        }
+      ]
     },
     {
       "id": "picture-wateringcan",
@@ -1725,7 +1883,7 @@
           "rule_id": "DL-MOT-03",
           "blocking": true,
           "resolved": false,
-          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+          "summary": "Five ordinary Doctor task poses are now held by phase (WASH/FIND/X-RAY cell 1; CAST/BANDAGE cell 2). See source-bound phase_pose_followup.md for limited containment evidence. Complete action/contact/settle, other routes and current state acceptance remain open; this is not a 4.5 animation pass."
         }
       ],
       "replacement_history": []
@@ -1756,7 +1914,7 @@
           "rule_id": "DL-MOT-03",
           "blocking": true,
           "resolved": false,
-          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+          "summary": "Four ordinary Farmer task poses are now held by phase (PLANT cell 1; TOSS/HERD cell 3; PICNIC cell 2). See source-bound phase_pose_followup.md for limited containment evidence. Complete action/contact/settle, other routes and current state acceptance remain open; this is not a 4.5 animation pass."
         }
       ],
       "replacement_history": []
@@ -1911,7 +2069,7 @@
           "rule_id": "DL-MOT-03",
           "blocking": true,
           "resolved": false,
-          "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+          "summary": "Racer preparation now holds TUNE cell 0 and TO THE LINE cell 1; RACE hides this actor. See source-bound phase_pose_followup.md for limited containment evidence. Complete action/contact/settle, other routes and current state acceptance remain open; this is not a 4.5 animation pass."
         }
       ],
       "replacement_history": []
@@ -2036,6 +2194,1212 @@
           "blocking": true,
           "resolved": false,
           "summary": "Source work-row review is recorded; state-bound runtime action/contact/settle acceptance remains open. Ballerina retains its canonical held-pose exception."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "day-one-swimmer-cutout",
+      "game": "dust_bunny_swimmer",
+      "surface": "swimmer",
+      "role": "swimmer actor cutout",
+      "states": [
+        "bathroom-visible",
+        "pool-entry",
+        "paddle",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
+        "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact source and caller traced, but current runtime contact/state/scene evidence is incomplete. Missing review is not itself an observed weak source-art score; retain approved identity pending capture."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "bathroom-star-sponge",
+      "game": "day_one_bathroom",
+      "surface": "cleanup",
+      "role": "cleaning tool cutout",
+      "states": [
+        "tool-ready",
+        "sink-contact",
+        "tub-contact",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+        "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact source and caller traced, but current runtime contact/state/scene evidence is incomplete. Missing review is not itself an observed weak source-art score; retain approved identity pending capture."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "bathroom-cleaning-brush",
+      "game": "day_one_bathroom",
+      "surface": "cleanup",
+      "role": "cleaning brush cutout",
+      "states": [
+        "tool-ready",
+        "tub-contact",
+        "progress",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+        "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact source and caller traced, but current runtime contact/state/scene evidence is incomplete. Missing review is not itself an observed weak source-art score; retain approved identity pending capture."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "pool-floating-trash-atlas",
+      "game": "day_one_pool",
+      "surface": "individual-subactivities",
+      "role": "six-role trash atlas",
+      "states": [
+        "ready",
+        "wrapper-contact",
+        "can-contact",
+        "cap-contact",
+        "leaf-contact",
+        "ribbon-contact",
+        "sponge-contact",
+        "partial-cleanup",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+        "sha256": "e554c4f253bcaa9e5893d9e4fffe03feef96528211f2458dc5d8fc81299f56df"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact source and caller traced, but current runtime contact/state/scene evidence is incomplete. Missing review is not itself an observed weak source-art score; retain approved identity pending capture."
+        },
+        {
+          "rule_id": "DL-MOT-02",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Original nominal cell0 clips the wrapper at x341 and cell1 samples its edge. Candidate source windows x12/x352 preserve original pixels; source-alpha and live Sprite texture checks pass. Bounded still review and complete scene/motion/device acceptance remain separate; see pool_atlas_followup.json."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "pool-skimmer-tool",
+      "game": "day_one_pool",
+      "surface": "individual-subactivities",
+      "role": "skimmer tool cutout",
+      "states": [
+        "tool-ready",
+        "anticipation",
+        "drag-contact",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/castle/day_one_pool/activities/pool_skimmer.png",
+        "sha256": "308c86843ace9fb3d4a65a0c514d41b367d87ceabaf5f3d3676f54ce9be4b9b3"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact source and caller traced, but current runtime contact/state/scene evidence is incomplete. Missing review is not itself an observed weak source-art score; retain approved identity pending capture."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "pool-waterfall-scrubber",
+      "game": "day_one_pool",
+      "surface": "individual-subactivities",
+      "role": "waterfall cleaning tool cutout",
+      "states": [
+        "clogged",
+        "anticipation",
+        "scrub-contact",
+        "cleared",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/castle/day_one_pool/activities/waterfall_scrubber.png",
+        "sha256": "1b29ff463263be093a7e1ac33eb74e4075d6a795dd515d120107f66953b2dc7a"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact source and caller traced, but current runtime contact/state/scene evidence is incomplete. Missing review is not itself an observed weak source-art score; retain approved identity pending capture."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "seek-lamma-animation",
+      "game": "seek",
+      "surface": "meadow",
+      "role": "Lamma target animation atlas",
+      "states": [
+        "hide",
+        "peek",
+        "reveal",
+        "celebrate"
+      ],
+      "source": {
+        "path": "assets/minigames/seek/lamma_animation.png",
+        "sha256": "4ff1c9748e68853879211c825ffc8c45b7388c8da7b17cf0a44c6cd320dd7f8c"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "seek-lamma-animation",
+        "callers": [
+          "scripts/games/seek.gd:12 LAMMA_ANIMATION; LAMMA_STATES defines hide, peek, reveal, celebrate"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": [],
+      "source_review_followup": "audit/minigame_art_quality_2026-09-05/seek_current_atlas_followup.json",
+      "source_review_limit": "Source-region review only. Corrected Roshan border pixels have alpha<=1/255; no opaque-fragment defect or current Roshan score is established."
+    },
+    {
+      "id": "seek-evie-animation",
+      "game": "seek",
+      "surface": "meadow",
+      "role": "Evie companion animation atlas",
+      "states": [
+        "idle",
+        "point",
+        "cheer"
+      ],
+      "source": {
+        "path": "assets/minigames/seek/evie_animation.png",
+        "sha256": "705cb95a4a1d0226f9554327947fd2956e131535f2e89f953a94970052030ce9"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "seek-evie-animation",
+        "callers": [
+          "scripts/games/seek.gd:11 EVIE_ANIMATION; EVIE_STATES defines idle, point, cheer"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": [],
+      "source_review_followup": "audit/minigame_art_quality_2026-09-05/seek_current_atlas_followup.json",
+      "source_review_limit": "Source-region review only. Corrected Roshan border pixels have alpha<=1/255; no opaque-fragment defect or current Roshan score is established."
+    },
+    {
+      "id": "seek-roshan-gesture-animation",
+      "game": "seek",
+      "surface": "meadow",
+      "role": "Roshan guide animation atlas",
+      "states": [
+        "wave",
+        "cheer",
+        "clap"
+      ],
+      "source": {
+        "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+        "sha256": "54cac0e3088a96d92aae35d14642491f75f06ffe1878b004a6ebfd1de44438df"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "seek-roshan-gesture-animation",
+        "callers": [
+          "scripts/games/seek.gd:15 ROSHAN_ANIMATION; ROSHAN_STATES defines wave, cheer, clap"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": [],
+      "source_review_followup": "audit/minigame_art_quality_2026-09-05/seek_current_atlas_followup.json",
+      "source_review_limit": "Source-region review only. Corrected Roshan border pixels have alpha<=1/255; no opaque-fragment defect or current Roshan score is established."
+    },
+    {
+      "id": "slide-roshan-pose-0",
+      "game": "slide_race",
+      "surface": "fish-route",
+      "role": "Roshan fish-slide pose 0",
+      "states": [
+        "route-ready",
+        "slide-start"
+      ],
+      "source": {
+        "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png",
+        "sha256": "023a1bfefb4393c6d9f7373f29f337b7fff0a83049e81c71a73aecc233f14bf3"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "slide-race-roshan-pose-family",
+        "callers": [
+          "scripts/games/slide_race.gd:43,44,45,46 FISH_ROSHAN_PATHS"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "slide-roshan-pose-1",
+      "game": "slide_race",
+      "surface": "fish-route",
+      "role": "Roshan fish-slide pose 1",
+      "states": [
+        "slide-progress",
+        "steering"
+      ],
+      "source": {
+        "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png",
+        "sha256": "9011deb46e28fdcc533bb6482510902f651ecce723e86c6b985bd255a1cb4e62"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "slide-race-roshan-pose-family",
+        "callers": [
+          "scripts/games/slide_race.gd:43,44,45,46 FISH_ROSHAN_PATHS"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "slide-roshan-pose-2",
+      "game": "slide_race",
+      "surface": "fish-route",
+      "role": "Roshan fish-slide pose 2",
+      "states": [
+        "slide-progress",
+        "steering"
+      ],
+      "source": {
+        "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2_v2.png",
+        "sha256": "cb6cd27d5357bb59542bbdf95ef3fbf751759ce07046ea3607ec449c6a5d9613"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "slide-race-roshan-pose-family",
+        "callers": [
+          "scripts/games/slide_race.gd:43,44,45,46 FISH_ROSHAN_PATHS"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "slide-roshan-pose-3",
+      "game": "slide_race",
+      "surface": "fish-route",
+      "role": "Roshan fish-slide pose 3",
+      "states": [
+        "slide-progress",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png",
+        "sha256": "8ec11afaf899b21548e4fdeeabc945cb90f5b62e6410a6319afaf22834e03271"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "slide-race-roshan-pose-family",
+        "callers": [
+          "scripts/games/slide_race.gd:43,44,45,46 FISH_ROSHAN_PATHS"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "slide-fish-target",
+      "game": "slide_race",
+      "surface": "fish-route",
+      "role": "fish collectible and progress pip",
+      "states": [
+        "ready",
+        "approach",
+        "contact",
+        "collected",
+        "payoff"
+      ],
+      "source": {
+        "path": "assets/props/gen2/clownfish_side.png",
+        "sha256": "0b9df739ab132f88178f1ac2052a3b8a4a7c9497ba1456eb151c8849989cba88"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "slide-race-fish-target",
+        "callers": [
+          "scripts/games/slide_race.gd:41 FISH_ART_PATH"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "slide-friends-goal-actor",
+      "game": "slide_race",
+      "surface": "fish-route",
+      "role": "Harper and Fiona goal actor",
+      "states": [
+        "objective-ready",
+        "active",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/characters/friends/two_friends.png",
+        "sha256": "85f2cc1bc7247d0877ff7bb6a97a44b711c757c497d36c215bc70fb74e548f58"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "slide-race-friends-goal-actor",
+        "callers": [
+          "scripts/games/slide_race.gd:40 FISH_FRIENDS_PATH",
+          "scripts/main.gd:837 slide/fish route descriptor"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "fairy-boss-seed",
+      "game": "fairy",
+      "surface": "pond",
+      "role": "Fairy Flower seed state",
+      "states": [
+        "boss-seed",
+        "transition-to-sprout"
+      ],
+      "source": {
+        "path": "assets/fairy/sprites/boss_seed.png",
+        "sha256": "c8398c22de8f739ca001b14197aab9007f3dd9f9ac2dc743c252b92b83e8d08b"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "fairy-boss-growth-family",
+        "callers": [
+          "scripts/games/fairy.gd:74,75,76,77,78 FS_BOSS_ART state map"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": [],
+      "source_review_followup": "audit/minigame_art_quality_2026-09-05/fairy_current_source_followup.json",
+      "source_review_limit": "Four source-only dimensions reviewed at least4.5; current full-dimension runtime candidate remains unassessed."
+    },
+    {
+      "id": "fairy-boss-sprout",
+      "game": "fairy",
+      "surface": "pond",
+      "role": "Fairy Flower sprout state",
+      "states": [
+        "boss-sprout",
+        "transition-to-bud"
+      ],
+      "source": {
+        "path": "assets/fairy/sprites/boss_sprout.png",
+        "sha256": "1c7e0b23335b3f4aec4796133db9c882c38b1e7a1dc630fceb50a0f14254e886"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "fairy-boss-growth-family",
+        "callers": [
+          "scripts/games/fairy.gd:74,75,76,77,78 FS_BOSS_ART state map"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": [],
+      "source_review_followup": "audit/minigame_art_quality_2026-09-05/fairy_current_source_followup.json",
+      "source_review_limit": "Four source-only dimensions reviewed at least4.5; current full-dimension runtime candidate remains unassessed."
+    },
+    {
+      "id": "fairy-boss-bud",
+      "game": "fairy",
+      "surface": "pond",
+      "role": "Fairy Flower bud state",
+      "states": [
+        "boss-bud",
+        "contact",
+        "transition-to-opening"
+      ],
+      "source": {
+        "path": "assets/fairy/sprites/boss_bud.png",
+        "sha256": "8da84bb2023431ab35714daff918203836227552910f0e8e92360b0d0fc31a97"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "fairy-boss-growth-family",
+        "callers": [
+          "scripts/games/fairy.gd:74,75,76,77,78 FS_BOSS_ART state map"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": [],
+      "source_review_followup": "audit/minigame_art_quality_2026-09-05/fairy_current_source_followup.json",
+      "source_review_limit": "Four source-only dimensions reviewed at least4.5; current full-dimension runtime candidate remains unassessed."
+    },
+    {
+      "id": "fairy-boss-opening",
+      "game": "fairy",
+      "surface": "pond",
+      "role": "Fairy Flower opening state",
+      "states": [
+        "boss-opening",
+        "transition-to-bloom"
+      ],
+      "source": {
+        "path": "assets/fairy/sprites/boss_opening.png",
+        "sha256": "e3738c1d574ed8c29525186b493c36d75c0b4b9e8e957f7b683ad0ffb47be579"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "fairy-boss-growth-family",
+        "callers": [
+          "scripts/games/fairy.gd:74,75,76,77,78 FS_BOSS_ART state map"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": [],
+      "source_review_followup": "audit/minigame_art_quality_2026-09-05/fairy_current_source_followup.json",
+      "source_review_limit": "Four source-only dimensions reviewed at least4.5; current full-dimension runtime candidate remains unassessed."
+    },
+    {
+      "id": "fairy-boss-bloom",
+      "game": "fairy",
+      "surface": "pond",
+      "role": "Fairy Flower bloom payoff state",
+      "states": [
+        "boss-bloom",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/fairy/sprites/boss_bloom.png",
+        "sha256": "36db20eff66d1da63ab8f13878f99313712fe3adb02ca314a2a73c6f86c59cf9"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "fairy-boss-growth-family",
+        "callers": [
+          "scripts/games/fairy.gd:74,75,76,77,78 FS_BOSS_ART state map"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": [],
+      "source_review_followup": "audit/minigame_art_quality_2026-09-05/fairy_current_source_followup.json",
+      "source_review_limit": "Four source-only dimensions reviewed at least4.5; current full-dimension runtime candidate remains unassessed."
+    },
+    {
+      "id": "fairy-bug-jewel",
+      "game": "fairy",
+      "surface": "pond",
+      "role": "jewel bug active target",
+      "states": [
+        "ready",
+        "approach",
+        "hit",
+        "cleared"
+      ],
+      "source": {
+        "path": "assets/fairy/sprites/bug_jewel.png",
+        "sha256": "2ead5e9ef1b4c8fca0fbe4196a78c1f45926300cfee6f997597adf9ae9eef639"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "fairy-bug-target-family",
+        "callers": [
+          "scripts/games/fairy.gd:69,70,71 FS_BUG_ART"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": [],
+      "source_review_followup": "audit/minigame_art_quality_2026-09-05/fairy_current_source_followup.json",
+      "source_review_limit": "Four source-only dimensions reviewed at least4.5; current full-dimension runtime candidate remains unassessed."
+    },
+    {
+      "id": "fairy-bug-moth",
+      "game": "fairy",
+      "surface": "pond",
+      "role": "moth active target",
+      "states": [
+        "ready",
+        "approach",
+        "hit",
+        "cleared"
+      ],
+      "source": {
+        "path": "assets/fairy/sprites/bug_moth.png",
+        "sha256": "c707462c283b254d1380afe18bd899035853620c5215931cd528cb855d1b327f"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "fairy-bug-target-family",
+        "callers": [
+          "scripts/games/fairy.gd:69,70,71 FS_BUG_ART"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": [],
+      "source_review_followup": "audit/minigame_art_quality_2026-09-05/fairy_current_source_followup.json",
+      "source_review_limit": "Four source-only dimensions reviewed at least4.5; current full-dimension runtime candidate remains unassessed."
+    },
+    {
+      "id": "fairy-bug-firefly",
+      "game": "fairy",
+      "surface": "pond",
+      "role": "firefly active target",
+      "states": [
+        "ready",
+        "approach",
+        "hit",
+        "cleared"
+      ],
+      "source": {
+        "path": "assets/fairy/sprites/bug_firefly.png",
+        "sha256": "20348706e59d653027960209d7c7461e7d28eb186d2fb3609e24798816057e5b"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "fairy-bug-target-family",
+        "callers": [
+          "scripts/games/fairy.gd:69,70,71 FS_BUG_ART"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": [],
+      "source_review_followup": "audit/minigame_art_quality_2026-09-05/fairy_current_source_followup.json",
+      "source_review_limit": "Four source-only dimensions reviewed at least4.5; current full-dimension runtime candidate remains unassessed."
+    },
+    {
+      "id": "fairy-boss-leaf",
+      "game": "fairy",
+      "surface": "pond",
+      "role": "destructible Fairy Flower leaf shield",
+      "states": [
+        "shield-ready",
+        "contact",
+        "partial-clear",
+        "cleared"
+      ],
+      "source": {
+        "path": "assets/fairy/sprites/boss_leaf.png",
+        "sha256": "64940fd682c0be201526bbd13b4191e3f1e1029e3c35a221d57fa3f767717d03"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "fairy-boss-leaf",
+        "callers": [
+          "scripts/games/fairy.gd:87 FS_BOSS_LEAF_ART"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": [],
+      "source_review_followup": "audit/minigame_art_quality_2026-09-05/fairy_current_source_followup.json",
+      "source_review_limit": "Four source-only dimensions reviewed at least4.5; current full-dimension runtime candidate remains unassessed."
+    },
+    {
+      "id": "fairy-helpful-cue",
+      "game": "fairy",
+      "surface": "pond",
+      "role": "helpful flower gate cue",
+      "states": [
+        "ready",
+        "approach",
+        "contact",
+        "resolved"
+      ],
+      "source": {
+        "path": "assets/fairy/sprites/helpful_flower_gate.png",
+        "sha256": "f06308db600940e32db09b64184ad469f59fa99d05c5a4c2d1b377df221ea7dd"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "fairy-helpful-cue",
+        "callers": [
+          "scripts/games/fairy.gd:88 FS_HELPFUL_CUE_ART"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": [],
+      "source_review_followup": "audit/minigame_art_quality_2026-09-05/fairy_current_source_followup.json",
+      "source_review_limit": "Four source-only dimensions reviewed at least4.5; current full-dimension runtime candidate remains unassessed."
+    },
+    {
+      "id": "fairy-danger-cue",
+      "game": "fairy",
+      "surface": "pond",
+      "role": "danger thorn halo cue",
+      "states": [
+        "ready",
+        "approach",
+        "avoid",
+        "resolved"
+      ],
+      "source": {
+        "path": "assets/fairy/sprites/danger_thorn_halo.png",
+        "sha256": "3bc42f0dd85a5001be64d61aa10c49646aa5d34971a28560dd41191a0fddbdfb"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "fairy-danger-cue",
+        "callers": [
+          "scripts/games/fairy.gd:89 FS_DANGER_CUE_ART"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": [],
+      "source_review_followup": "audit/minigame_art_quality_2026-09-05/fairy_current_source_followup.json",
+      "source_review_limit": "Four source-only dimensions reviewed at least4.5; current full-dimension runtime candidate remains unassessed."
+    },
+    {
+      "id": "picture-garden-seed",
+      "game": "picture_games",
+      "surface": "snowman-garden-xmas",
+      "role": "garden seed interaction target",
+      "states": [
+        "garden-ready",
+        "seed-contact",
+        "planted"
+      ],
+      "source": {
+        "path": "assets/mg/seed.png",
+        "sha256": "d300ccc7bfd03d100cfa94221addd99dc95f4866a0dfe6f32becf12fec4179cc"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "picture-garden-seed",
+        "callers": [
+          "scripts/games/picture_games.gd:589 five _mg_artbtn seed controls"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "picture-garden-butterfly-payoff",
+      "game": "picture_games",
+      "surface": "snowman-garden-xmas",
+      "role": "garden butterfly reward actor",
+      "states": [
+        "payoff",
+        "reward-active",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/mg/butterfly.png",
+        "sha256": "310539d933f1027402eea118c61819c052dd76f0bd2bbb752d87e94327eb0a26"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "picture-garden-butterfly-payoff",
+        "callers": [
+          "scripts/games/picture_games.gd:611 three payoff sprites"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "pool-seahorse-subject",
+      "game": "day_one_pool",
+      "surface": "individual-subactivities",
+      "role": "seahorse rescue subject",
+      "states": [
+        "rescue-ready",
+        "tug-contact",
+        "release",
+        "payoff",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png",
+        "sha256": "88aa2ce07e79144b13d8e699341404e7b15e79baed861169c9c17e196ddba941"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "day-one-seahorse-state-family",
+        "callers": [
+          "scripts/games/pool_seahorse_rescue_activity.gd:13,15 seahorse subject and mouth-trash textures"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "pool-seahorse-mouth-trash",
+      "game": "day_one_pool",
+      "surface": "individual-subactivities",
+      "role": "seahorse mouth-trash contact target",
+      "states": [
+        "ready",
+        "tug-contact",
+        "removed",
+        "release"
+      ],
+      "source": {
+        "path": "assets/castle/day_one_pool/activities/seahorse_mouth_trash.png",
+        "sha256": "9c48ac1ca7be923fcb14902b3e2b62263f34d53e031f11002776bfc4322652f9"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "day-one-seahorse-state-family",
+        "callers": [
+          "scripts/games/pool_seahorse_rescue_activity.gd:13,15 seahorse subject and mouth-trash textures"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "pool-waterfall-clog-target",
+      "game": "day_one_pool",
+      "surface": "individual-subactivities",
+      "role": "waterfall clog cleanup target",
+      "states": [
+        "clogged",
+        "scrub-contact",
+        "partial-cleanup",
+        "cleared",
+        "payoff"
+      ],
+      "source": {
+        "path": "assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png",
+        "sha256": "d4da588daece3fa12b5f094b50f5c8b33eeae31fd0761f1eeedce882cf1b7507"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "day-one-waterfall-clog-target",
+        "callers": [
+          "scripts/games/pool_waterfall_activity.gd:14 clogged target texture"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "bathroom-sink-grime-target",
+      "game": "day_one_bathroom",
+      "surface": "cleanup",
+      "role": "sink grime cleanup target",
+      "states": [
+        "dirty",
+        "tool-contact",
+        "cleanup-progress",
+        "cleaned",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png",
+        "sha256": "fe53ef3018b9f8164417cde5bf47489dff389179aad8432ea8ef1993cffab3ed"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "day-one-bathroom-grime-target-family",
+        "callers": [
+          "scripts/games/day_one_bathroom_cleanup.gd:46,47 SINK_GRIME_TEXTURE and TUB_GRIME_TEXTURE"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "bathroom-tub-grime-target",
+      "game": "day_one_bathroom",
+      "surface": "cleanup",
+      "role": "tub grime cleanup target",
+      "states": [
+        "dirty",
+        "tool-contact",
+        "cleanup-progress",
+        "cleaned",
+        "settle"
+      ],
+      "source": {
+        "path": "assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png",
+        "sha256": "52e8c42b0c044c1b5dba42681d7dfb5e34dc44b345e6535e9432df5f186ecb67"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "observation_report": "audit/minigame_art_quality_2026-09-05/current_coverage_gap_followup.json",
+      "coverage_trace": {
+        "source_group": "day-one-bathroom-grime-target-family",
+        "callers": [
+          "scripts/games/day_one_bathroom_cleanup.gd:46,47 SINK_GRIME_TEXTURE and TUB_GRIME_TEXTURE"
+        ],
+        "status": "quality_unassessed"
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
         }
       ],
       "replacement_history": []

@@ -1,0 +1,228 @@
+extends SceneTree
+## Disposable diagnostic capture for the current painted-carrot reuse.
+##
+## This harness uses normal SceneTree processing and live component callbacks.
+## Snowman face and Comfy dinner are explicitly configured diagnostic states;
+## they are not natural-navigation or acceptance evidence.
+
+const VIEWPORT := Vector2i(1280, 720)
+const MAX_SECONDS := 90.0
+
+var out_dir := ""
+var elapsed := 0.0
+var main: ReefMain = null
+
+
+func _init() -> void:
+	call_deferred("_run")
+
+
+func _run() -> void:
+	var version := Engine.get_version_info()
+	if int(version.get("major", -1)) != 4 \
+			or int(version.get("minor", -1)) != 7 \
+			or int(version.get("patch", -1)) != 2 \
+			or String(version.get("status", "")) != "stable":
+		_fail("exact Godot 4.7.2-stable is required")
+		return
+	var profile := OS.get_environment("CARROT_REVIEW_PROFILE").replace("\\", "/").trim_suffix("/")
+	var actual := OS.get_user_data_dir().replace("\\", "/")
+	if profile.is_empty() or not actual.begins_with(profile + "/"):
+		_fail("isolated user data was not established before scene instantiation")
+		return
+	if RenderingServer.get_current_rendering_method() != "mobile":
+		_fail("Mobile renderer required")
+		return
+	out_dir = OS.get_environment("CARROT_REVIEW_OUT")
+	if out_dir.is_empty():
+		_fail("CARROT_REVIEW_OUT is required; refusing an implicit output path")
+		return
+	create_timer(MAX_SECONDS).timeout.connect(func(): _fail("wall-clock timeout"))
+	var scene := load("res://scenes/main.tscn") as PackedScene
+	if scene == null:
+		_fail("could not load scenes/main.tscn")
+		return
+	main = scene.instantiate() as ReefMain
+	get_root().add_child(main)
+	await _frames(4)
+	get_root().size = VIEWPORT
+	await _frames(3)
+	if not _check_viewport("startup"):
+		return
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		await _frames(2)
+	if main.intro_active:
+		main._skip_intro()
+		await _frames(2)
+	if not await _capture_snowman():
+		return
+	if not await _capture_comfy_dinner():
+		return
+	print("CARROT_REVIEW|OK|captures written to ", out_dir)
+	quit()
+
+
+func _capture_snowman() -> bool:
+	main._mg2d_open("snowman")
+	await _frames(3)
+	if not _check_viewport("snowman_open"):
+		return false
+	# Component-level setup only: use the live settle method three times, with
+	# normal tween/frame waits, then exercise the live face Button callbacks.
+	# This preserves the authored three-ball body and avoids a floating nose.
+	for _ball_index in range(3):
+		main._mg_snow_ball_size(main.mg["roll_ball"] as Panel,
+			float(main.mg["final_r"]), main.SNOW_ROLL_C)
+		main._mg_snow_ball_done()
+		await _wait_real(0.62)
+	var body: Array = main.mg.get("body", []) as Array
+	if body.size() != 3 or String(main.mg.get("phase", "")) != "face":
+		_fail("Snowman configured settle did not produce a three-ball face state")
+		return false
+	if not main.mg.has("head_pos"):
+		_fail("Snowman three-ball settle did not attach a head position")
+		return false
+	if not await _capture("snowman_face_ready_configured"):
+		return false
+	var buttons: Array = main.mg.get("btns", []) as Array
+	if buttons.size() != 3:
+		_fail("configured Snowman face exposed %d buttons; expected three" % buttons.size())
+		return false
+	var carrot_button := buttons[0] as Button
+	if carrot_button == null or not carrot_button.visible or carrot_button.disabled:
+		_fail("Snowman carrot face button unavailable")
+		return false
+	carrot_button.pressed.emit()
+	await _wait_real(0.18)
+	if not await _capture("snowman_carrot_nose_one_coal_pending"):
+		return false
+	var coal_one := buttons[1] as Button
+	if coal_one == null or not coal_one.visible or coal_one.disabled:
+		_fail("Snowman first coal button unavailable")
+		return false
+	coal_one.pressed.emit()
+	await _wait_real(0.18)
+	if not await _capture("snowman_carrot_nose_one_coal"):
+		return false
+	var coal_two := buttons[2] as Button
+	if coal_two == null or not coal_two.visible or coal_two.disabled:
+		_fail("Snowman second coal button unavailable")
+		return false
+	coal_two.pressed.emit()
+	await _wait_real(0.18)
+	if String(main.mg.get("phase", "")) != "chase":
+		_fail("Snowman face callbacks did not enter live chase phase")
+		return false
+	if not await _capture("snowman_chase_active"):
+		return false
+	main._mg2d_close()
+	await _frames(3)
+	return true
+
+
+func _capture_comfy_dinner() -> bool:
+	# Configure only the quest ledger; the kitchen scene and ingredient buttons
+	# are built by the live castle/Comfy path. This is diagnostic, not gameplay
+	# acceptance or proof of natural room navigation.
+	var state := {
+		"comfy_games": {
+			"day2_castle_hide_and_seek": {
+				"accepted": true,
+				"found": {"rumi": true, "baby_eagle": true, "daddy_mermaid": true},
+				"completed": true,
+			},
+			"day2_family_comfy_evening": {
+				"accepted": true,
+				"dinner": {"ingredients": {}, "pot_stirred": false, "completed": false},
+				"movie": {"scenes_watched": 0, "completed": false},
+				"bedtime": {"tucked_in": {}, "completed": false},
+				"completed": false,
+			},
+		},
+	}
+	main._comfy_games_ref().restore_state(state)
+	# This is the explicit diagnostic chapter gate; room construction remains
+	# the live CastleRooms/Comfy path below.
+	main.day_one_active = false
+	main.pearl_count = 10
+	main.level2_done_once = true
+	main._enter_level2_now(true, false, false)
+	await _frames(12)
+	main._enter_castle_interior_now(false)
+	await _frames(18)
+	var rooms := main._castle_rooms_ref()
+	rooms.show_room("kitchen", false)
+	await _frames(8)
+	if not _check_viewport("comfy_kitchen_ready"):
+		return false
+	if main.castle_room_id != "kitchen" or main.castle_room_stage == null \
+			or not is_instance_valid(main.castle_room_stage):
+		_fail("live CastleRooms open did not establish the kitchen stage")
+		return false
+	var comfy_root := main.castle_room_stage.get_node_or_null(
+		"ComfyGamesCastleLayer") as Control
+	if comfy_root == null or not is_instance_valid(comfy_root):
+		_fail("live Comfy refresh did not build the kitchen activity layer")
+		return false
+	var carrot := main.castle_room_stage.get_node_or_null(
+		"ComfyGamesCastleLayer/ComfyDinnerIngredient_carrot") as Button
+	if carrot == null or not carrot.visible or carrot.disabled:
+		_fail("live Comfy kitchen did not expose the carrot ingredient button")
+		return false
+	if not await _capture("comfy_dinner_carrot_ready"):
+		return false
+	carrot.pressed.emit()
+	await _wait_real(0.22)
+	if not await _capture("comfy_dinner_after_carrot"):
+		return false
+	var carrot_after := main.castle_room_stage.get_node_or_null(
+		"ComfyGamesCastleLayer/ComfyDinnerIngredient_carrot")
+	if carrot_after != null and is_instance_valid(carrot_after):
+		_fail("Comfy carrot callback did not remove the completed ingredient")
+		return false
+	rooms.suspend()
+	await _frames(2)
+	return true
+
+
+func _check_viewport(label: String) -> bool:
+	var viewport_size := get_root().get_viewport().get_visible_rect().size
+	if Vector2i(viewport_size) != VIEWPORT:
+		_fail("%s viewport is %s; expected Mobile 1280x720" % [label, viewport_size])
+		return false
+	return true
+
+
+func _capture(label: String) -> bool:
+	if not _check_viewport(label):
+		return false
+	await RenderingServer.frame_post_draw
+	var image := get_root().get_viewport().get_texture().get_image()
+	if image == null or image.get_size() != VIEWPORT:
+		_fail("capture %s has invalid dimensions" % label)
+		return false
+	var error := image.save_png(out_dir.path_join(label + ".png"))
+	if error != OK:
+		_fail("PNG save failed for %s: %s" % [label, error])
+		return false
+	print("CARROT_REVIEW|CAPTURE|%s|%s|%s" % [label, out_dir.path_join(label + ".png"), image.get_size()])
+	return true
+
+
+func _wait_real(seconds: float) -> void:
+	elapsed += seconds
+	if elapsed > MAX_SECONDS:
+		_fail("capture exceeded %.1fs bound" % MAX_SECONDS)
+		return
+	await create_timer(seconds).timeout
+
+
+func _frames(count: int) -> void:
+	for _index in range(count):
+		await process_frame
+
+
+func _fail(message: String) -> void:
+	push_error("CARROT_REVIEW|FAIL|" + message)
+	quit(1)

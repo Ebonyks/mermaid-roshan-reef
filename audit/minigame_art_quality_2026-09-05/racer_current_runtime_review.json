@@ -1,0 +1,245 @@
+{
+  "review": "Current Racer runtime art review",
+  "review_date": "2026-09-06",
+  "scope": "Run03 current Mobile renderer capture review. Eleven 1280x720 PNGs were viewed directly. This is bounded desktop-render integrity evidence only; no phone, child, human-control-feel, or smooth-cadence acceptance is claimed.",
+  "runtime": {
+    "capture_dir": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run03/captures",
+    "renderer": "mobile",
+    "engine": "4.7.2-stable (official)",
+    "engine_hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "viewport": [
+      1280,
+      720
+    ],
+    "status": "COMPLETED",
+    "settle_status": "SURFACE_RETAINED",
+    "setup": "STATE_CONFIGURED: OperaAct.start(racer), then world._finale_start()/_show_phase(); subsequent touch and frame cadence were live.",
+    "telemetry": {
+      "race_clock_seconds": 49.289,
+      "laps": 2,
+      "finish_s": 1600.0,
+      "wall_bumps": 138,
+      "turbo_fires": 1,
+      "capture_count": 11,
+      "driver_note": "Autonomous test driver generated 138 wall bumps; this is not human control-feel evidence."
+    },
+    "source": "scripts/opera_racer_surface.gd",
+    "source_sha256_raw": "f16219bb057155a7bd1e68f0a0fbca32872b91fe911be4e3b12f1d5f7f22773d",
+    "harness": "tmp/current-racer-art-capture/capture.gd",
+    "harness_sha256_raw": "37d7f618f811699106272fa055f5700a922f6f2fa69f9210bd7de7b77ebd2ab7"
+  },
+  "master_criteria": [
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-MED-05",
+    "DL-INT-10",
+    "DL-QA-09",
+    "MA-VIS-006"
+  ],
+  "dimension_scores": {
+    "painted_scene_finish": {
+      "score": 4.8,
+      "basis": "The lagoon circuit remains highly polished, coherent storybook painting with strong value separation and a consistent pastel coral/aqua/purple palette."
+    },
+    "actor_and_kart_finish": {
+      "score": 4.2,
+      "basis": "The kart, Roshan racer, rival, and wheel are individually polished and recognizable, but their mounted scale and overlap become visually compressed in the race surface."
+    },
+    "alpha_and_contour_integrity": {
+      "score": 4.5,
+      "basis": "Viewed captures show clean cutout contours without obvious rectangular matte; no source clipping was observed in these states."
+    },
+    "child_readability": {
+      "score": 4.0,
+      "basis": "The bright karts read, but side-by-side cars overlap heavily and become small against the detailed backdrop, especially front_straight/far_bend."
+    },
+    "composition_and_hierarchy": {
+      "score": 3.8,
+      "basis": "The scene background dominates. The top-left back/lap controls are tightly clustered, the bottom steering panel is very large, and the race actors sit low or high against changing bend depth."
+    },
+    "contact_and_depth": {
+      "score": 3.6,
+      "basis": "Cars remain upright as intended, but bend states read as sprites sliding over the painted road: front_straight overlap and far_bend elevated placement weaken grounded contact and separation."
+    },
+    "ui_art_consistency": {
+      "score": 3.9,
+      "basis": "Controls share the storybook palette and outline language, but the oversized steering panel and circular top-left controls compete with the race actors and background."
+    },
+    "cross_state_consistency": {
+      "score": 4.0,
+      "basis": "The same approved actors persist across states, though perspective scale, overlap, and depth placement vary enough to make the pair feel inconsistently mounted."
+    },
+    "animation": {
+      "score": null,
+      "status": "UNASSESSED",
+      "reason": "Still captures and autonomous cadence do not prove smooth motion, timing, or child/device acceptance."
+    }
+  },
+  "lowest_observed_dimension": {
+    "dimension": "contact_and_depth",
+    "score": 3.6,
+    "status": "Below 4.5; current evidence supports a layout/mounting repair priority, not immediate source regeneration."
+  },
+  "capture_hashes": {
+    "ready_state_configured.png": "7f6359311a1c8c669e2f18ce385f2f3a2fa08c87804e60aee5bd15272fe89ea8",
+    "countdown_pressed.png": "9a8198f0d11f133f4b55a44bef96309d2bc70a80fd5b01c49ebd091a08108bef",
+    "countdown_late.png": "6ef626b67a6b1cf717172a04c3106ccfeccaaef0477d0d0121a2af6345c7fc02",
+    "left_steer.png": "9694b295aea4640b8b45622e6142d188dc61bcb8d4d197cb8097298c9dc586d2",
+    "right_steer.png": "b8bc7d18720c8a61c2f801df7780f5ccf6f17000f601e231c11f9b5aedf5c922",
+    "release_neutral.png": "8667efc8eda1e5bbbcd1d4e54d8d9ba7c12012fd3d36eb9fb6d3781eb713a0ad",
+    "repress_after_release.png": "c24344f9fdcc0d046d40155c992b93087b1864fa7655d5c6fb9cdb53a2fa8cb8",
+    "front_straight.png": "0887987a0a21102dd7a8c87aec268584c740337136ba8e498ca084785ffb5b1c",
+    "far_bend.png": "4a2e56bd5b1bb339a91e2ab705b5c885acfb71bb3611a5f590d01ca8843c4d93d",
+    "finish.png": "748be7bb0e3579659b81c2d0c3cee83ee06762c9f90eb493e28fa1144c2fc357",
+    "finish_settle.png": "748be7bb0e3579659b81c2d0c3cee83ee06762c9f90eb493e28fa1144c2fc357"
+  },
+  "source_assets": [
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_racer_kart.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "59ea76d8be40b604cbf3691e9c9508287334ddf6cf0f81fea08c7f68fd22fe8c",
+      "source_observation": "Viewed directly; polished outlined coral vehicle with readable cockpit, wheel, and rainbow tail.",
+      "role": "mounted kart",
+      "source_score": 4.7
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_racer_wheel.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "sha256": "3203d9bc5297fccfb3ee86fddab6c3a217de577943a063ef37404e5276c7e003",
+      "source_observation": "Viewed directly; clean shell-wheel icon with strong contrast.",
+      "role": "kart wheel",
+      "source_score": 4.7
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_racer.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "b3e92a0f3204e2277e1fdd06988c9393288223fcfc98a9f4c8e033c8c517c6bc",
+      "source_observation": "Viewed directly; polished Roshan racer costume and contour. Runtime intentionally samples upper-body cockpit region.",
+      "role": "player driver",
+      "source_score": 4.7
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "da75600112937ed4f6bb5f9433b4792316419047e8de10f9bfdb7076c65f360f",
+      "source_observation": "Viewed directly; polished readable rival identity and costume.",
+      "role": "rival driver",
+      "source_score": 4.7
+    },
+    {
+      "path": "assets/kart/boost_ribbon.png",
+      "dimensions": [
+        1024,
+        256
+      ],
+      "sha256": "b2617ce45be09837625bf21e145ef37401a87b9104f576c6093c3e44f912feb5",
+      "source_observation": "Not used as a weakness claim from source pixels here; runtime zoom strips were visible as small road accents.",
+      "role": "boost strip",
+      "source_score": null
+    }
+  ],
+  "state_findings": [
+    {
+      "states": [
+        "ready_state_configured",
+        "countdown_pressed",
+        "countdown_late"
+      ],
+      "observed": "Scene and actors are legible; countdown circles are visible. Back control and lap dial sit close in the upper-left corner.",
+      "risk": "Top-left control cluster has little breathing room at phone scale."
+    },
+    {
+      "states": [
+        "left_steer",
+        "right_steer",
+        "release_neutral",
+        "repress_after_release"
+      ],
+      "observed": "Steering knob responds and karts remain recognizable; vehicles are concentrated at the right side with strong overlap.",
+      "risk": "The rival/player pairing is difficult to parse as two separate cars when side-by-side."
+    },
+    {
+      "states": [
+        "front_straight"
+      ],
+      "observed": "Both cars are near the lower middle and overlap heavily; the scene reads as layered cutouts over the track.",
+      "risk": "Weak contact/depth separation and low actor-to-background scale."
+    },
+    {
+      "states": [
+        "far_bend"
+      ],
+      "observed": "Cars are elevated near the gazebo and become smaller while remaining upright; the background remains visually dominant.",
+      "risk": "Perspective placement feels detached from the road and collision/ground shadow is not strong enough at this depth."
+    },
+    {
+      "states": [
+        "finish",
+        "finish_settle"
+      ],
+      "observed": "Finish flag/lap indicator and sparkles provide clear payoff; final frame is stable and visually coherent.",
+      "risk": "Finish still inherits the small/overlapping car composition; no separate winner emphasis is present."
+    }
+  ],
+  "weak_current_items": [
+    {
+      "item": "Racer vehicle pair mounting",
+      "score": 3.6,
+      "category": "layout/contact/depth",
+      "evidence": [
+        "front_straight.png",
+        "far_bend.png",
+        "finish.png"
+      ],
+      "source_vs_runtime": "Source kart and driver rasters are polished; weakness is runtime scale/depth/overlap in _draw_car, not proven source-art failure.",
+      "repair_priority": "P1"
+    },
+    {
+      "item": "Upper-left back/lap control cluster",
+      "score": 3.9,
+      "category": "composition/touch readability",
+      "evidence": [
+        "ready_state_configured.png",
+        "countdown_late.png"
+      ],
+      "source_vs_runtime": "Procedural UI styling is coherent but tightly packed; requires current phone-scale review before changing dimensions.",
+      "repair_priority": "P1"
+    },
+    {
+      "item": "Oversized bottom steering panel versus actors",
+      "score": 3.9,
+      "category": "composition/hierarchy",
+      "evidence": [
+        "all eleven captures"
+      ],
+      "source_vs_runtime": "The panel is procedurally drawn in _draw_race_controls (surface source lines 414-467); this is layout competition, not a weak raster asset.",
+      "repair_priority": "P1"
+    }
+  ],
+  "reuse_first_repair_process": [
+    "First test layout-only changes: preserve all approved source rasters, adjust _draw_car scale/depth, separation, and grounded shadow; compare front_straight/far_bend/finish at 1280x720.",
+    "Retain side-view orientation unless a current design decision authorizes a new pose; do not regenerate kart or driver art for a mounting problem.",
+    "Re-capture ready, side-by-side steering, front straight, far bend, and finish on Mobile at 1280x720; include a controlled human/manual or clearly bounded driver trace for feel claims.",
+    "Only commission replacement art if a mounted comparison proves the source silhouette/contour itself fails after layout correction."
+  ],
+  "acceptance_gaps": [
+    "No real phone/M11 capture.",
+    "No human-child control evaluation; 138 wall bumps are autonomous-driver behavior.",
+    "No smooth animation/cadence score from stills.",
+    "No separate close-up contact capture for vehicle wheel/road grounding.",
+    "The final state is complete but does not independently prove visual acceptance at 4.5 across all dimensions."
+  ],
+  "publication_note": "Capture and run paths mapped to exact-byte public archive. Original raw run manifests preserve capture-machine paths. Source hashes retain their original before/after authority; these are bounded still reviews, not game-wide acceptance."
+}

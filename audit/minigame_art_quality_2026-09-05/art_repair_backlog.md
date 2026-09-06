@@ -37,14 +37,14 @@ Static props may mark animation inapplicable only with a reason. A clean isolate
 - **4.5 gates:** distinct semantic silhouettes/colors; clear seed→sprout→mature progression; roots/stem bottom anchor remains grounded; consistent painterly finish and lighting; readable at phone size; no overlap/crowding; stable touch bounds; clean alpha/import/provenance; no state may be averaged away by family score.
 - **Acceptance gap:** source replacement and natural animation cadence are both open.
 
-### 3. PictureGames / Snowman — carrot
+### 3. PictureGames / Snowman — carrot and scene integration
 
-- **Observed problem:** live `assets/mg/carrot.png`, used by the snowman button at `picture_games.gd:414` and face bit at `:430`, is a tiny flat orange silhouette. It reads, but clashes with polished coal, snowman, and character art.
-- **Repair type:** new generation or exact approved carrot reuse.
-- **Candidates:** `assets/art35/cards/mg/carrot_carrot.png` is the same weak flat treatment and rejected. The farmer concept card is a pig on a dark framed card and rejected.
-- **Required Mobile states:** snowman ready; first ball; face-ready with carrot placed; complete snowman; chase/active state; payoff and settle. Capture carrot at both button and face-bit scales.
-- **4.5 gates:** carrot identity and orientation clear; painted volume/highlights; clean alpha; readable at 95×60 face-bit size; stable attachment/contact to face; family-consistent outline/light; no instruction/reward layer hides the action; technical provenance/import pass.
-- **Acceptance gap:** natural chase/settle cadence requires a real-time capture after art replacement.
+- **Historical defect:** `assets/mg/carrot.png` was a tiny flat orange silhouette. The current candidate now directly reuses approved `assets/opera/worlds/widgets/widget_target_farmer_piece_0.png` in the selector, Snowman nose and family dinner; no pixels were changed. Do not commission another carrot merely because the surrounding scene remains weak.
+- **Repair made:** nose artwork retains its -135-degree base orientation through chase waddle. The focused picture probe requires both travel and the intended angle. A visible configured cutaway diagnostic records matching runner/nose travel; failed and obscured capture attempts remain archived.
+- **Current weak states:** independent run07 still review puts scene consistency at 3.6 and ownership/contact at 3.9. Plain snowballs and gray diagram-like terrain mismatch painted Roshan/carrot; header, back control and premature sticker banner compete; small Roshan weakens phone-scale contact clarity.
+- **Next repair:** inventory approved snowy ground/background and coherent snowball materials, then repair ground contact and HUD/reward composition while preserving touch and chase behavior. Reuse the accepted carrot source, and review at both selector and nose scales.
+- **Required states:** face-ready, each placed feature, moving chase, bite/drop, carrot collection, payoff, settle and re-entry. Bind natural launch separately from the configured Castle cutaway.
+- **Gate:** every applicable master dimension at least 4.5 in current evidence. Animation cadence, complete action sequence and target-device readability remain unassessed. [Review and rejected-attempt history](carrot_runtime_followup.md).
 
 ### 4. Dust Boss / Grand Puff
 
@@ -117,7 +117,7 @@ Do not commission or score these from filenames, source comments, or historical 
 - DanceEngine procedural surface
 - SideScroll modes
 - inactive `k_*`, cat, and bird assets
-- Day One pool cleanup satellites: seahorse rescue, skimmer, waterfall
+- Day One pool cleanup satellites: initial current diagnostic review now exists; the [Pool follow-up](pool_runtime_followup.md) identifies below-target contact, clipped/rectangular waterfall staging and finale occlusion. Full animation/device evidence remains open.
 - current Grand Puff source after dev reconciliation
 - catalog-driven Opera adapters and indirect asset families
 
@@ -132,3 +132,17 @@ Required first step is a current Mobile capture packet binding exact assets and 
 5. Reaudit all eight dimensions per item; one failed dimension keeps the item open.
 6. Run focused gameplay/provenance/technical gates and then the full repository gate. Keep rejected candidates and provenance outside runtime.
 7. Refresh the dependency inventory after each batch; no game-wide completion claim is valid while P2 families remain uncaptured.
+
+Watering-can attempt03 used built-in ImageGen for the single requested background-extraction correction. It again returned 1254×1254 RGB with a painted checkerboard, despite a genuine RGBA/1024×1024 request. Native candidate, exact prompt and rejection provenance are preserved in assets_src/minigame_art_quality_2026-09-05/watering-can-attempt03/. No runtime asset was replaced. Do not spend another generation on the same ineffective extraction prompt. The requested non-destructive Python cleanup is still awaiting explicit user authorization; acceptance would additionally require clean exterior and handle-hole alpha, preserved contour/material, runtime size compliance and contact-state review.
+
+## Reuse discovery after the family-evening source review
+
+Sol's bounded eight-file reuse search found the approved painted carrot at `assets/opera/worlds/widgets/widget_target_farmer_piece_0.png` (256×256 RGBA; SHA-256 `9ec02fdd3e0ea6888ab3e3dce7f3a6436b752974798fd46fddf545a70f3e93dd`; existing license at ASSET_LICENSES.md). Parent visually confirmed its leafy silhouette and painted orange volume. The current candidate binds these exact unchanged bytes in Comfy dinner and both Snowman carrot roles. The nose keeps its existing center/bounds/collection anchor and rotates -135 degrees to face outward. Runtime captures and independent review remain mandatory; this does not certify the full Snowman scene or its animation. The earlier no-reuse finding is superseded for carrot only.
+
+No inspected asset truthfully supplies an isolated painted open soup pot. The polished single-spout gold kettle, popcorn bowl, full kitchen crop and flat Blender QA pot do not fill that role. Preserve all originals and generate only the missing pot if needed; do not rename a kettle or bowl to pass a semantic gate.
+
+## Snowfield generation follow-up — 6 September
+
+The [six-candidate reuse inventory](snowman_scene_reuse.json) found no complete suitable native playfield. One built-in ImageGen candidate was generated using the protected book scene as a style/setting reference only; no protected original was modified. Its native output is 1672x941 RGB, so it fails the requested native coverage. [Independent source review](snowfield_attempt01_review.json) also rates readability 3.9 and contact 4.0: dense caustics make the snowy ground read as shallow water and may lose the plain white Snowman silhouette. Painted finish 4.5 does not override these failures. The exact candidate and prompt remain under `assets_src/minigame_art_quality_2026-09-05/snowfield-attempt01/`, outside runtime. No enlargement or pixel cleanup was performed.
+
+A next candidate must quiet the caustic network into broad blue/lavender snow bands, strengthen contact contrast for white snowballs, preserve the clear lane/right-distance cottage, and originate at the required native size. Repeating the same limited-resolution request is not an accepted repair.

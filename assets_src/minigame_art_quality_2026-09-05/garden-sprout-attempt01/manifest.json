@@ -1,0 +1,38 @@
+{
+  "schema": "reef.minigame_art_candidate.v1",
+  "method": "built-in ImageGen style-transfer",
+  "status": "REJECTED_RUNTIME_RGB_CHECKERBOARD",
+  "gap": "No reusable ordinary rooted Garden sprout; weak source finish3.0",
+  "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a07232-f269-7e21-8e68-a0deb714ea99\\exec-968694f0-b477-4dd3-9eb4-8127a8ba34a9.png",
+  "native_file": "native.png",
+  "sha256": "c79f975bde3d06ef9f4999bfa3fdaa9f0f8fbde0589e96dcc5c91b5ad985ce14",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGB",
+  "prompt_file": "prompt.txt",
+  "prompt_sha256": "48904f4dfca18f2912bfea235cf84c374ceab49fd8e100a8cbda4929e76f9343",
+  "references": [
+    {
+      "path": "assets/mg/k_sprout.png",
+      "sha256": "d7542d8d812a28ddce435c8acf3a103df85e5af59178ad05c9bdb5fef1ed0926"
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_farmer.png",
+      "sha256": "c7d0fbc58b2f67a4962a86ae10dc68c9e810e43f097db903693e213d750a74f9"
+    },
+    {
+      "path": "assets/props/story/flower_coral.png",
+      "sha256": "816c23a8a51e20ff9837cbbe7631375178b7bda0f3ed9d0a807cbfd23403d724"
+    }
+  ],
+  "runtime_adopted": false,
+  "pixel_postprocessing": "none",
+  "defects": [
+    "RGB with baked checkerboard; no alpha",
+    "Blunt central stem stump inherited from weak target; needs organic growth tip",
+    "1254 square exceeds texture rule unless normalized; no size conversion performed"
+  ],
+  "prompt_bytes": "Exact submitted UTF-8 prompt; no newline normalization or appended newline"
+}

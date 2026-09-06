@@ -1,0 +1,252 @@
+extends SceneTree
+## Disposable current Racer art capture.
+##
+## Requires a fresh isolated OS user-data profile before launch:
+##   RACER_REVIEW_PROFILE=<absolute profile prefix>
+##   RACER_REVIEW_OUT=<absolute output directory>
+## Use exact Godot 4.7.2-stable, Mobile renderer, and --resolution 1280x720.
+## This harness uses OperaAct's normal child processing and real Racer surface
+## GUI touch/drag events. It does not set time_scale, call _process manually,
+## disable processing, or touch the default save profile. Any direct phase setup
+## is labelled STATE_CONFIGURED in the capture manifest.
+
+const VIEWPORT := Vector2i(1280, 720)
+const MAX_SECONDS := 110.0
+const FRAME_DELTA := 0.05
+
+var main: ReefMain = null
+var act: OperaAct = null
+var world: OperaCareerWorld2D = null
+var surface: OperaRacerSurface = null
+var out_dir := ""
+var started_at := 0
+var capture_labels: Array[String] = []
+var settle_status := "UNREACHED"
+
+
+func _init() -> void:
+	call_deferred("_run")
+
+
+func _run() -> void:
+	var profile := OS.get_environment("RACER_REVIEW_PROFILE").replace("\\", "/").trim_suffix("/")
+	var actual := OS.get_user_data_dir().replace("\\", "/")
+	if profile.is_empty() or not actual.begins_with(profile + "/"):
+		_fail("isolated user data was not established before scene creation")
+		return
+	if OS.get_environment("RACER_REVIEW_OUT").strip_edges().is_empty():
+		_fail("RACER_REVIEW_OUT is required; refusing implicit output")
+		return
+	var version := Engine.get_version_info()
+	if String(version.get("string", "")) != "4.7.2.stable.official" \
+			or String(version.get("hash", "")) != "ed1daf0bf":
+		_fail("Godot 4.7.2-stable required")
+		return
+	if RenderingServer.get_current_rendering_method() != "mobile":
+		_fail("Mobile renderer required")
+		return
+	out_dir = OS.get_environment("RACER_REVIEW_OUT").strip_edges()
+	DirAccess.make_dir_recursive_absolute(out_dir)
+	started_at = Time.get_ticks_msec()
+	create_timer(MAX_SECONDS).timeout.connect(func(): _fail("wall-clock timeout"))
+	var scene := load("res://scenes/main.tscn") as PackedScene
+	if scene == null:
+		_fail("could not load scenes/main.tscn")
+		return
+	main = scene.instantiate() as ReefMain
+	get_root().add_child(main)
+	await _frames(4)
+	get_root().size = VIEWPORT
+	await _frames(3)
+	if Vector2i(get_root().get_viewport().get_visible_rect().size) != VIEWPORT:
+		_fail("viewport is not 1280x720")
+		return
+	main.day_one_active = false
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		await _frames(2)
+	if main.intro_active:
+		main._skip_intro()
+		await _frames(2)
+	# The ordinary career route is retained through OperaAct. Selecting the
+	# finale directly is a configured diagnostic setup, recorded as such below;
+	# gameplay input and every subsequent frame remain natural.
+	var config := _career_config("racer")
+	if config.is_empty():
+		_fail("racer career config unavailable")
+		return
+	act = OperaAct.new()
+	get_root().add_child(act)
+	act.start(main, config, Callable())
+	await _frames(4)
+	world = act.career_world_2d
+	if world == null:
+		_fail("racer career world did not start")
+		return
+	world.phase_index = world._finale_start()
+	world.phase_progress = 0.0
+	world.phase_advance_pending = false
+	world.phase_complete_t = 0.0
+	world._show_phase()
+	await _frames(3)
+	surface = world.surface as OperaRacerSurface
+	if surface == null or surface.mode != "kart_race":
+		_fail("configured racer finale surface unavailable")
+		return
+	if Engine.time_scale != 1.0 or paused \
+			or surface.process_mode == Node.PROCESS_MODE_DISABLED \
+			or not surface.is_processing():
+		_fail("normal processing/time-scale contract is not active")
+		return
+	_write_manifest("STATE_CONFIGURED")
+	await _capture("ready_state_configured")
+
+	var center := OperaRacerSurface.STEERING_RECT.get_center()
+	_touch(41, true, center)
+	await _wait_real(0.10)
+	await _capture("countdown_pressed")
+	await _wait_real(0.80)
+	await _capture("countdown_late")
+	var clock_before := surface.race_clock
+	await _wait_real(0.20)
+	if surface.race_clock <= clock_before:
+		_fail("Racer race_clock did not advance under normal processing")
+		return
+	_drag(41, center + Vector2(-220.0, 0.0))
+	await _wait_real(0.25)
+	await _capture("left_steer")
+	_drag(41, center + Vector2(220.0, 0.0))
+	await _wait_real(0.25)
+	await _capture("right_steer")
+	_drag(41, center)
+	_touch(41, false, center)
+	await _frames(2)
+	await _capture("release_neutral")
+	_touch(41, true, center)
+	await _frames(2)
+	await _capture("repress_after_release")
+
+	var front_done := false
+	var far_done := false
+	var finish_done := false
+	var frame := 0
+	while not surface.race_finished and frame < 2200:
+		frame += 1
+		var s := float(surface.kart.get("s", 0.0))
+		var steer := -signf(surface.road_curvature(s)) * 0.42
+		_drag(41, center + Vector2(steer * 290.0, 0.0))
+		if not front_done and s >= 120.0:
+			front_done = true
+			await _capture("front_straight")
+		if not far_done and s >= 560.0:
+			far_done = true
+			await _capture("far_bend")
+		await _wait_real(FRAME_DELTA)
+	if surface.race_finished:
+		finish_done = true
+		await _capture("finish")
+	_touch(41, false, center)
+	await _wait_real(0.45)
+	if is_instance_valid(surface) and world != null and is_instance_valid(world):
+		settle_status = "SURFACE_RETAINED"
+		await _capture("finish_settle")
+	else:
+		settle_status = "SURFACE_FREED_AFTER_COMPLETION"
+	_write_manifest("COMPLETED" if finish_done else "INCOMPLETE")
+	if not front_done or not far_done or not finish_done:
+		_fail("missing front/far/finish state")
+		return
+	print("RACER_REVIEW|OK|captures=", capture_labels)
+	quit()
+
+
+func _career_config(costume: String) -> Dictionary:
+	for source: Dictionary in OperaHouse.ACTS:
+		if String(source.get("costume", "")) == costume:
+			return source.duplicate(true)
+	return {}
+
+
+func _touch(index: int, pressed: bool, point: Vector2) -> void:
+	if not is_instance_valid(surface):
+		return
+	var event := InputEventScreenTouch.new()
+	event.index = index
+	event.position = point
+	event.pressed = pressed
+	surface._gui_input(event)
+
+
+func _drag(index: int, point: Vector2) -> void:
+	if not is_instance_valid(surface):
+		return
+	var event := InputEventScreenDrag.new()
+	event.index = index
+	event.position = point
+	surface._gui_input(event)
+
+
+func _capture(label: String) -> void:
+	if not is_instance_valid(surface) or not is_instance_valid(world):
+		_fail("Racer surface/world was freed before capture " + label)
+		return
+	if get_root().get_viewport().get_visible_rect().size != VIEWPORT:
+		_fail("viewport changed before capture " + label)
+		return
+	if DisplayServer.get_name() != "headless":
+		await RenderingServer.frame_post_draw
+	var image := get_root().get_viewport().get_texture().get_image()
+	if image == null or image.get_size() != VIEWPORT:
+		_fail("invalid capture dimensions for " + label)
+		return
+	var path := out_dir.path_join(label + ".png")
+	if image.save_png(path) != OK:
+		_fail("PNG save failed for " + label)
+		return
+	capture_labels.append(label)
+	print("RACER_REVIEW|CAPTURE|%s|%s|s=%.2f|lat=%.2f|steer=%.3f|countdown=%.3f|race_clock=%.3f|lap=%d|turbo=%d|wall_bumps=%d|phase=%s" % [
+		label, path, float(surface.kart.get("s", 0.0)),
+		float(surface.kart.get("lat", 0.0)), surface.race_steer,
+		surface.race_countdown, surface.race_clock,
+		floori(float(surface.kart.get("s", 0.0)) / OperaRacerSurface.LAP_DISTANCE),
+		surface.race_turbo_fires, surface.race_wall_bumps,
+		String(world.phases[world.phase_index].get("name", "RACE"))])
+
+
+func _write_manifest(status: String) -> void:
+	var surface_valid := is_instance_valid(surface)
+	var world_valid := is_instance_valid(world)
+	var manifest := {
+		"status": status,
+		"setup": "STATE_CONFIGURED: OperaAct.start(racer), then world._finale_start()/_show_phase(); subsequent touch and frame cadence are live",
+		"viewport": VIEWPORT,
+		"renderer": RenderingServer.get_current_rendering_method(),
+		"engine": Engine.get_version_info(),
+		"source": "scripts/opera_racer_surface.gd",
+		"source_sha256_raw": FileAccess.get_file_as_bytes(
+			"res://scripts/opera_racer_surface.gd").sha256_text(),
+		"surface_mode": surface.mode if surface_valid else "",
+		"phase": String(world.phases[world.phase_index].get("name", "")) if world_valid else "",
+		"captures": capture_labels,
+		"settle_status": settle_status,
+		"elapsed_ms": Time.get_ticks_msec() - started_at,
+	}
+	var file := FileAccess.open(out_dir.path_join("manifest.json"), FileAccess.WRITE)
+	if file != null:
+		file.store_string(JSON.stringify(manifest, "  "))
+
+
+func _wait_real(seconds: float) -> void:
+	await create_timer(seconds).timeout
+	if Time.get_ticks_msec() - started_at > int(MAX_SECONDS * 1000.0):
+		_fail("capture exceeded wall-clock bound")
+
+
+func _frames(count: int) -> void:
+	for _index in range(count):
+		await process_frame
+
+
+func _fail(message: String) -> void:
+	push_error("RACER_REVIEW|FAIL|" + message)
+	quit(1)

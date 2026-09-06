@@ -94,3 +94,7 @@ This report does not run Godot. The parent integration pass should use the exist
 - Day One pool/bathroom: `probe_day_one_pool_cleanup.gd`, `probe_day_one_bathroom_cleanup.gd`, and `probe_day_one_bathroom_integration.gd`; capture dirty, interaction, contact, clean/reveal, and teardown states.
 
 For every capture, review identity, alpha edges, scale/anchor, action/contact/settle, visual/audio agreement, and phone-size readability. A source score remains provisional until the exact runtime image is reviewed; `DL-VIS-07` explicitly says a clean isolated render or green technical gate cannot grant 5/5.
+
+## Additional source review — 6 September
+
+[Luna's source-bound Dolls/Melody/Seek/Fetch review](remaining_sources_2026-09-06.json) inspected eight non-protected source rasters. Three nursery babies scored 4.6 each, Evie's sheet 4.7, Lamma's sheet 4.5, Evie's portrait 4.6 and the tall tree 4.7 as isolated illustrations. Keep these as reuse candidates; the scores do not certify atlas extraction, full animation or mounted scenes. Fetch's generic snow albedo scored 4.0 for its material role, but the source still constructs a 3D winter scene. Its true 2D migration takes priority over improving a retired-style PBR texture pipeline. Approved/protected character originals remain unchanged. Dynamic and unviewed dependencies remain explicitly open in the attached inventory.

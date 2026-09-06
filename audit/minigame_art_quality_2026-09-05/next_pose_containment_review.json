@@ -1,0 +1,183 @@
+{
+  "status": "RECOMMENDATIONS_ONLY",
+  "review_date": "2026-09-06",
+  "runtime_finding": {
+    "actor_owner": "scripts/opera_roshan_actor.gd",
+    "phase_owner": "scripts/opera_career_world_2d.gd",
+    "behavior": "OperaRoshanActor maps work to zero-based atlas row 2 and loops columns 0 through 3 at 7 fps. _play_roshan_task_pose uses REVIEWED_WORK_POSES only for Doctor, Farmer and Racer; Chef, Detective and Magician therefore receive the generic four-cell work loop in every work phase.",
+    "semantic_risk": "Each reviewed sheet row is a set of authored gesture keys. Reusing the full row for phases with different owned props can imply an unrelated action even when the phase widget is correct.",
+    "motion_quality_boundary": "Sheet inspection establishes pixel content and semantic mismatch only. It does not establish timing, cadence, transition quality, mounted occlusion or device readability.",
+    "clarification": "The current task uses _play_roshan_task_pose through _open_task/_on_gesture; phase and animation ownership must be checked in the exact future callback before implementation."
+  },
+  "cell_coordinates": {
+    "indexing": "zero_based",
+    "sheet_grid": [
+      4,
+      4
+    ],
+    "cell_size": [
+      256,
+      256
+    ],
+    "work_row": 2
+  },
+  "careers": [
+    {
+      "career": "chef",
+      "atlas_path": "assets/opera/worlds/actors/animation/roshan_chef_sheet_a.png",
+      "sha256": "78c666d2e87cc1cdcd2cde311c20e75a83ca86dae1366fe4aa9cacbee3e30566",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "work_row_pixels": "All four cells show Roshan holding a pink mixing bowl and whisk or utensil. Arm, utensil and bowl contents vary, but the prop remains a mixing bowl.",
+      "phases": [
+        {
+          "name": "MIX",
+          "mode": "pourt",
+          "held_cell": 0,
+          "basis": "The bowl is readable and the least emphatic whisk motion; acceptable only if the mounted pour widget owns the pitcher/batter action."
+        },
+        {
+          "name": "STIR",
+          "mode": "circle",
+          "held_cell": 2,
+          "basis": "The vertical whisk planted in the bowl most directly supports stirring."
+        },
+        {
+          "name": "BAKE",
+          "mode": "oven",
+          "held_cell": null,
+          "basis": "No work-row cell shows oven watching, a mitt, a baked cake or removal from the oven."
+        },
+        {
+          "name": "FROST",
+          "mode": "swipe",
+          "held_cell": null,
+          "basis": "No work-row cell shows piping bag, frosting ribbon or finished cake."
+        },
+        {
+          "name": "TOP",
+          "mode": "tap",
+          "held_cell": null,
+          "basis": "No work-row cell shows placing toppings or presenting a finished cake."
+        }
+      ],
+      "unrelated_prop_cycle": "Confirmed for BAKE, FROST and TOP: the current loop repeatedly displays mixing-bowl work during different tasks. MIX/STIR share the bowl fiction, though a four-cell loop still needs mounted review before it can be called coherent motion.",
+      "evidence_gaps": [
+        "mounted capture for each phase with widget and actor visible",
+        "exact phase-open callback state",
+        "held-cell edge/contact at 250px actor size",
+        "animation cadence",
+        "phone readability"
+      ]
+    },
+    {
+      "career": "detective",
+      "atlas_path": "assets/opera/worlds/actors/animation/roshan_detective_sheet_a.png",
+      "sha256": "fb0a7d8b718d797484f1d0da22c330a7e01d0e0bb192f9296f3f288a30cf7e7c",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "work_row_pixels": "All four cells show magnifier investigation: looking down, holding the lens near the face, raising it, or looking through it. No case board, crown or chest appears.",
+      "phases": [
+        {
+          "name": "SEARCH",
+          "mode": "lens",
+          "held_cell": 3,
+          "basis": "Roshan visibly looks through the magnifier, the clearest match for sweeping a lens across painted clues."
+        },
+        {
+          "name": "CASE BOARD",
+          "mode": "clue_board",
+          "held_cell": null,
+          "basis": "The sheet has no pointing, matching, board or clue-placement state. A magnifier pose may remain as a neutral detective identity only if mounted evidence shows the board fully owns the action; it must not be called a match pose."
+        },
+        {
+          "name": "CROWN",
+          "mode": "crown_chest",
+          "held_cell": null,
+          "basis": "The sheet has no chest, spotlight answer, crown or reveal pose."
+        }
+      ],
+      "unrelated_prop_cycle": "Confirmed for CASE BOARD and CROWN: the current loop cycles lens-search gestures throughout board matching and the crown/chest answer. SEARCH is semantically related, but sheet cells alone do not prove a good loop.",
+      "evidence_gaps": [
+        "mounted SEARCH capture showing lens ownership",
+        "CASE BOARD actor/board relationship",
+        "CROWN reveal state",
+        "phase transitions",
+        "animation cadence and device review"
+      ]
+    },
+    {
+      "career": "magician",
+      "atlas_path": "assets/opera/worlds/actors/animation/roshan_magician_sheet_a.png",
+      "sha256": "768e6980fa8f4ca9cc3281a2fb1f23f0fcdeac8f2d524e6135b3be03eafc13cb",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "work_row_pixels": "The work row changes magical effect meaning across cells: yellow energy wrapping Roshan, a yellow overhead loop, a violet circular spell plane, and a large gold-violet portal. The wand remains present, but these are distinct trick states rather than neutral in-betweens.",
+      "phases": [
+        {
+          "name": "VANISH",
+          "mode": "hold",
+          "held_cell": 0,
+          "basis": "The contained wand glow and wrapping energy is the closest source-supported disappearance/casting state, conditional on Lamba and hat remaining visibly owned by the specialist surface."
+        },
+        {
+          "name": "TRACK",
+          "mode": "choice",
+          "held_cell": null,
+          "basis": "No cell shows watching or selecting a shuffled glowing hat."
+        },
+        {
+          "name": "ROPE",
+          "mode": "swipe",
+          "held_cell": 1,
+          "basis": "The long yellow loop is the nearest visual match to a magic rope/ribbon, but it is only conditional; mounted evidence must prove it does not read as an unrelated spell orbit."
+        },
+        {
+          "name": "CABINET",
+          "mode": "magic_cabinet",
+          "held_cell": null,
+          "basis": "No work-row cell shows cabinet doors, a downward pull or an opening reveal."
+        },
+        {
+          "name": "PORTAL",
+          "mode": "circle",
+          "held_cell": 3,
+          "basis": "The large gold-violet portal is the direct source-supported portal state."
+        }
+      ],
+      "unrelated_prop_cycle": "Confirmed game-wide within this work row: the generic loop rotates energy wrap, rope-like loop, spell plane and portal during every phase. This changes the depicted trick independently of VANISH, TRACK, ROPE, CABINET and PORTAL.",
+      "evidence_gaps": [
+        "mounted Lamba/hat ownership for VANISH",
+        "TRACK hat visibility",
+        "ROPE cell-1 semantic read",
+        "CABINET actor relationship",
+        "PORTAL overlap and scale",
+        "motion quality"
+      ]
+    }
+  ],
+  "next_batch_protocol": [
+    "Add a reviewed phase-to-cell mapping only where the existing source pixels directly support the phase. A null recommendation is a required evidence/art gap, not permission to choose a visually pleasant cell.",
+    "Keep the approved atlas files unchanged. The containment change, if implemented later, should select AtlasTexture cells through the existing show_pose path.",
+    "Capture every affected phase under Mobile 1280x720 with actor and phase-owned prop visible. Verify identity, prop meaning, contact, occlusion and phone readability independently.",
+    "Leave animation quality unassessed until a time-based capture proves transitions and cadence. A held cell can remove semantic contradiction but does not itself satisfy animation quality."
+  ],
+  "parent_verified_sources": [
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "d7461bff2cc06ac005a529fcc46f90f53b6e2e7052efe8c12c8432e775ff2b5e"
+    }
+  ]
+}

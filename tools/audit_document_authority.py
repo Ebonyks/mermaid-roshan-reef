@@ -779,6 +779,11 @@ def audit(root: Path) -> tuple[list[Issue], dict[str, int]]:
 	issues.extend(_markdown_integrity_issues(root, {Path(path) for path in inventory}))
 	issues.extend(_authority_claim_issues(root))
 	issues.extend(_planning_fact_issues(root))
+	try:
+		from tools.audit_development import navigation_issues
+	except ModuleNotFoundError:
+		from audit_development import navigation_issues
+	issues.extend(Issue("DOC080", str(MASTER_PATH), detail) for detail in navigation_issues(root))
 	records, _ = _finding_records(findings_text)
 	active_count = sum(item.lifecycle not in TERMINAL_LIFECYCLES for item in items.values())
 	counts = {

@@ -1,0 +1,231 @@
+{
+  "schema": "reef.geologist_current_runtime_still_review.v1",
+  "generated": "2026-09-06",
+  "status": "OPEN_BELOW_4_5",
+  "scope": "Independent visual review of all twelve valid Geologist PNGs from audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02. Scores apply only to visible Mobile-renderer still composition at 1280x720. Animation, cadence, target-device presentation, child response, owner acceptance and natural-navigation transitions are unassessed.",
+  "evidence": {
+    "route": "Real OperaAct and OperaCareerWorld2D mounted through an explicitly labeled configured _show_phase shortcut; live GUI input and normal processing, not natural navigation.",
+    "run_result": "run02 valid; all twelve Geologist intro/partial/completion states passed surface ownership and state telemetry checks.",
+    "source_context": "audit/minigame_art_quality_2026-09-05/geologist_current_source_followup.json",
+    "prior_finding_context": "Existing review rated the current specialist presentation 2.7/5 for flat sandstone board, sparse states and geometric objects. Run02 now supplies current rendered still evidence for those visual observations but does not prove motion or device quality."
+  },
+  "primary_source_hashes_raw_bytes": {
+    "scripts/opera_geology_surface.gd": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+    "scripts/opera_career_world_2d.gd": "2f01fb3d4ea8b517a4de26e1c759f105dcbb19ac7e87613bd99dd0912a145b4d",
+    "scripts/opera_act.gd": "ad107c7cd70171969676d2568991ea42035237ce0189389c9eece7aa9809d776",
+    "scripts/opera_roshan_actor.gd": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+    "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+    "assets/opera/worlds/hotspots/geologist_fossil.svg": "058d257160448dabf8b6bce78cbb0a7c6b1bdedbacc6e47db908c5d501d4e3bd",
+    "assets/castle/day_one_art_studio/magic_cleaning_brush.png": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+    "assets/opera/worlds/props/goal_geologist.svg": "09ba5403d9d5bfbaefc397f884fec4c725e50b3ba643c6ab66e4dd346d16b150"
+  },
+  "dimension_definition": "identity is the visible geology object/verb; finish is rendered material/detail quality; edges is visible contour quality; readability is the visible non-reader state and target hierarchy; ownership_contact is the visible relationship among Roshan, tool/input trace and changed material; consistency compares the procedural workspace with the painted actor/costume; technical covers visible clipping and 1280x720 mounting. Animation is null for every mode.",
+  "games": [
+    {
+      "mode": "geology_river",
+      "captures": [
+        {
+          "state": "intro",
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/geologist_river_intro.png",
+          "sha256": "b18271e764f0a2e83158a8e4565dc38b9e5bb9f1319c92877a4d34b6724e250d"
+        },
+        {
+          "state": "partial",
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/geologist_river_partial.png",
+          "sha256": "7cc1f5907e3b11da43762c62dcb175d1dcabc10a7b0f430dea416153873fda69"
+        },
+        {
+          "state": "completion",
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/geologist_river_completion.png",
+          "sha256": "2db968548ac88a9d6502ae3d3adb77cafa2aaa46ee0813341f49a25bc00e9cfa"
+        }
+      ],
+      "scores": {
+        "identity": 2.8,
+        "finish": 2.6,
+        "edges": 4.6,
+        "readability": 3.8,
+        "animation": null,
+        "ownership_contact": 3.6,
+        "consistency": 2.7,
+        "technical": 4.6
+      },
+      "strengths": "The start/end circles, dotted grid and cyan traced route show progress clearly. The final connected route is unclipped and Roshan's complete held work/cheer poses are visible.",
+      "defects": "The cyan outlined chain reads as plumbing or a circuit rather than water cutting through soil. Uniform disks and bars have no riverbank, sediment, wet/dry material or erosion detail. Roshan crouches at screen left but does not visibly touch the traced material, and the polished actor is stylistically detached from the flat board."
+    },
+    {
+      "mode": "geology_fossil",
+      "captures": [
+        {
+          "state": "intro",
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/geologist_fossil_intro.png",
+          "sha256": "001d1a9bebe4ff60c045ba13f76a897dd6fcf7bd070b36239e3f9a78c887201c"
+        },
+        {
+          "state": "partial",
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/geologist_fossil_partial.png",
+          "sha256": "f91fcf7399df7e19c995707ea9e3353870f30c33022c97606de6f8f7d82dec17"
+        },
+        {
+          "state": "completion",
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/geologist_fossil_completion.png",
+          "sha256": "e078d0b362d8a513374c911a09357bc7e739c5c515ecebc1c8aee6ed6bf013ea"
+        }
+      ],
+      "scores": {
+        "identity": 3.2,
+        "finish": 2.4,
+        "edges": 4.5,
+        "readability": 3.3,
+        "animation": null,
+        "ownership_contact": 3.2,
+        "consistency": 2.5,
+        "technical": 4.6
+      },
+      "strengths": "The completion silhouette eventually reads as a spiral fossil and the joyful Geologist pose confirms success. Bounds remain stable and unclipped.",
+      "defects": "The intro is almost entirely an untextured brown rectangle, so neither fossil nor brush is visible. Partial clearing exposes only a thin top fragment while another opaque rectangular block covers most of the fossil. The polished brush source is absent from these released stills, contact cannot be judged, and the final fossil is a flat outlined icon with no stone strata, relief, excavation debris or assembled-piece seams."
+    },
+    {
+      "mode": "geology_pan",
+      "captures": [
+        {
+          "state": "intro",
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/geologist_pan_intro.png",
+          "sha256": "47a06dc9f2ce7408d7583065b5f0e3840980f1ec6282b73253e6ea0591c2e75d"
+        },
+        {
+          "state": "partial",
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/geologist_pan_partial.png",
+          "sha256": "59618cc434a0eee65aaa451920bd6508806187d9a51e0c0dbdc274768ca9b404"
+        },
+        {
+          "state": "completion",
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/geologist_pan_completion.png",
+          "sha256": "03385a7cbc9ad2406014de56d21e8074ff191ca01bd8aa963189eddb2d4e9470"
+        }
+      ],
+      "scores": {
+        "identity": 3.6,
+        "finish": 2.8,
+        "edges": 4.6,
+        "readability": 4.0,
+        "animation": null,
+        "ownership_contact": 3.7,
+        "consistency": 2.8,
+        "technical": 4.6
+      },
+      "strengths": "The broad oval, water color, grit dots and incremental appearance of one then three colored mineral shapes communicate a washing/reveal progression. The three final finds are visible and unclipped.",
+      "defects": "The object lacks convincing perspective depth, sediment mass and painted pan material, reading as a flat shallow dish rather than a working mineral pan. Orange dots float sparsely in bright cyan water and the mineral polygons are small generic icons. Roshan does not visibly hold or shake the pan in these stills."
+    },
+    {
+      "mode": "geology_geode",
+      "captures": [
+        {
+          "state": "intro",
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/geologist_geode_intro.png",
+          "sha256": "1e86783889e03cdfcf3fbfea36b2c24318b3274af226d69d9c77445061d1f863"
+        },
+        {
+          "state": "partial",
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/geologist_geode_partial.png",
+          "sha256": "542ea7475432bb870af3b8f9bc6f13e99c74590a1f62857d94d8700571c387ed"
+        },
+        {
+          "state": "completion",
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/geologist_geode_completion.png",
+          "sha256": "52056fe9d8976a9b712306186965fdfdde7eefb32b055e3580d1cecaac9c3542"
+        }
+      ],
+      "scores": {
+        "identity": 3.3,
+        "finish": 2.6,
+        "edges": 4.6,
+        "readability": 3.8,
+        "animation": null,
+        "ownership_contact": 3.5,
+        "consistency": 2.7,
+        "technical": 4.6
+      },
+      "strengths": "Five seam spots create a countable action sequence; touched spots change from gold rings to cyan marks. The completion opens symmetrically and exposes two bright crystal shapes.",
+      "defects": "The closed form is a flat purple oval with a straight center line and can read as a capsule rather than a rock. Touched seam circles do not create cracks or material change. The opened halves resemble sliding doors, while the small crystal insert has little depth, sparkle, irregular geology or relationship to the shell."
+    }
+  ],
+  "shared_composition": {
+    "scores": {
+      "actor_identity": 4.6,
+      "workspace_finish": 2.6,
+      "workspace_consistency": 2.7,
+      "scene_ownership": 3.3
+    },
+    "strengths": "Roshan's Geologist costume, complete tail, crouched attention pose and cheer remain strong existing art. The restrained navy/plum/tan palette is internally stable and the back control is clear.",
+    "defects": "A huge flat tan work board dominates every state over an abstract navy/plum cave made of broad polygons and zigzags. Roshan and the detective-costumed imp occupy a narrow left strip and never visually handle the central materials in the reviewed stills. The difference between polished character cutouts and diagrammatic geology objects is the principal inconsistency within these reviewed Geologist states."
+  },
+  "genuine_below_4_5_objects": [
+    {
+      "object": "river material/path",
+      "dimensions": {
+        "identity": 2.8,
+        "finish": 2.6,
+        "readability": 3.8
+      },
+      "reuse_first_repair": "Preserve the exact 13-cell route, start/end targets and cyan progress contrast. Inventory an approved clean stone/soil texture or layered-rock component for the board bed and banks; add restrained wet/dry material change without obscuring the path."
+    },
+    {
+      "object": "fossil dirt mask and reveal",
+      "dimensions": {
+        "identity": 3.2,
+        "finish": 2.4,
+        "readability": 3.3,
+        "ownership_contact": 3.2
+      },
+      "reuse_first_repair": "Retain the live fossil SVG only as semantic/layout authority and keep the approved 4.7 source-quality magic cleaning brush. Replace the opaque rectangular dirt cover with a shaped, textured sediment layer whose partial removal exposes local fossil detail; capture the brush while held because released stills do not establish contact."
+    },
+    {
+      "object": "procedural pan depth, grit and minerals",
+      "dimensions": {
+        "identity": 3.6,
+        "finish": 2.8,
+        "consistency": 2.8
+      },
+      "reuse_first_repair": "Search for an approved isolated painted pan and mineral sources first. Preserve the current wash/reversal mechanic and three-find state. The previously reviewed 1254x1254 prop candidates remain rejected because their checkerboard is baked into RGB pixels; do not bind or treat them as clean reuse."
+    },
+    {
+      "object": "procedural geode shell and opened state",
+      "dimensions": {
+        "identity": 3.3,
+        "finish": 2.6,
+        "readability": 3.8
+      },
+      "reuse_first_repair": "Preserve five seam targets and the 120-pixel pull mechanic. Inventory a clean approved paired closed/open geode first; retain the current crystal SVG only if mounted review shows it can be enlarged and integrated. Rejected checkerboard candidates are reference only."
+    },
+    {
+      "object": "tan workspace and abstract cave framing",
+      "dimensions": {
+        "finish": 2.6,
+        "consistency": 2.7,
+        "scene_ownership": 3.3
+      },
+      "reuse_first_repair": "Keep current playable bounds and high-contrast interaction layer. No compliant 2K Geologist room master exists; the 1672x941 grotto candidate is reference-only and cannot be promoted. A future bounded room repair must meet native per-screen coverage and be audited with all four surfaces mounted."
+    },
+    {
+      "object": "actor-to-material contact",
+      "dimensions": {
+        "scene_ownership": 3.3
+      },
+      "reuse_first_repair": "Retain the strong Geologist atlas and held work-pose containment. Align a source-supported pose or an object-bound hand/tool cue to the active material; do not resume cycling unrelated pose keys as animation."
+    }
+  ],
+  "acceptance": {
+    "current_still_art_quality_at_least_4_5": false,
+    "animation": null,
+    "target_device": null,
+    "child_or_owner": null,
+    "required_next_evidence": [
+      "Held-contact captures for river trace, fossil brush, pan movement and geode pull; run02 partial stills are post-release states.",
+      "Normal-time motion evidence for material change, completion feedback, Geologist cheer and settle.",
+      "Natural-navigation and target-phone composition after any repair.",
+      "Reaudit all intro, partial, completion and settle states; no single prop replacement can close the shared workspace/background gap."
+    ]
+  },
+  "publication_note": "Capture and run paths mapped to exact-byte public archive. Original raw run manifests preserve capture-machine paths. Source hashes retain their original before/after authority; these are bounded still reviews, not game-wide acceptance."
+}

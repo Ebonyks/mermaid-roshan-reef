@@ -1,0 +1,85 @@
+{
+  "review": "Racer lap-dial layout repair comparison",
+  "review_date": "2026-09-06",
+  "scope": "Only the upper-left lap-dial relocation and back-button separation were evaluated. This does not score the whole Racer UI, vehicle grounding, control panel, source art, animation, or phone usability.",
+  "runtime_context": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "renderer": "Mobile",
+    "engine": "Godot 4.7.2-stable (official)",
+    "run03": {
+      "status": "COMPLETED",
+      "source_sha256_normalized_lf": "f16219bb057155a7bd1e68f0a0fbca32872b91fe911be4e3b12f1d5f7f22773d",
+      "source_snapshot": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run03/source-snapshot.json"
+    },
+    "run04": {
+      "status": "COMPLETED",
+      "source_sha256_raw": "a074732d557edc02b8dffad239dda6e78e60b2a7ea088e42782c168e55e01b38",
+      "source_snapshot": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run04/source-snapshot.json",
+      "race_clock_seconds": 49.35,
+      "laps": 2
+    }
+  },
+  "source_binding": {
+    "path": "scripts/opera_racer_surface.gd",
+    "line": "416-417",
+    "binding": "for lap in range(Driving.LAPS); center = Vector2(190 + lap * 88, 68)",
+    "previous_binding": "center = Vector2(66 + lap * 88, 68)",
+    "meaning": "Two lap-state flag dials are now centered at x=190 and x=278, leaving the back button at approximately x=66 independent and separated."
+  },
+  "comparison_states": [
+    {
+      "state": "ready_state_configured",
+      "run03_path": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run03/captures/ready_state_configured.png",
+      "run03_sha256": "7f6359311a1c8c669e2f18ce385f2f3a2fa08c87804e60aee5bd15272fe89ea8",
+      "run04_path": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run04/captures/ready_state_configured.png",
+      "run04_sha256": "980db6cefdcd5dee13d6f4141efb47d69b4163e678c7e00cab45539e02e98bbb",
+      "observed": "Run03 first lap dial sat directly over the back-button area. Run04 places both dials to the right with clear visible separation; no overlap observed.",
+      "local_score_after": 4.8
+    },
+    {
+      "state": "countdown_late",
+      "run03_path": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run03/captures/countdown_late.png",
+      "run03_sha256": "6ef626b67a6b1cf717172a04c3106ccfeccaaef0477d0d0121a2af6345c7fc02",
+      "run04_path": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run04/captures/countdown_late.png",
+      "run04_sha256": "f3d7efacdb537fac57bc55320e66f33b00c926e4a4c2b06439ce51bdd008ad01",
+      "observed": "Run04 preserves clear back-button/dial separation while countdown dots remain lower and independent.",
+      "local_score_after": 4.8
+    },
+    {
+      "state": "front_straight",
+      "run03_path": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run03/captures/front_straight.png",
+      "run03_sha256": "0887987a0a21102dd7a8c87aec268584c740337136ba8e498ca084785ffb5b1c",
+      "run04_path": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run04/captures/front_straight.png",
+      "run04_sha256": "fbbdfedaa22656c25608f9263625ec7ddbf624352bb986402f5ab9fa8fa80946",
+      "observed": "Run04 retains the repaired upper-left spacing during active play. Vehicle overlap/grounding remains visible but is outside this local review.",
+      "local_score_after": 4.7
+    },
+    {
+      "state": "finish",
+      "run03_path": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run03/captures/finish.png",
+      "run03_sha256": "748be7bb0e3579659b81c2d0c3cee83ee06762c9f90eb493e28fa1144c2fc357",
+      "run04_path": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run04/captures/finish.png",
+      "run04_sha256": "fa38d8cb04f0ecd2fefc128020ead5d567e8edec767725dc3d586ba99f6abdfe",
+      "observed": "Both lap dials turn to completed yellow/flag state without touching the back button; the relocation holds through the payoff state.",
+      "local_score_after": 4.8
+    }
+  ],
+  "local_acceptance": {
+    "dimension": "back-button/lap-dial separation",
+    "before_score": 2.4,
+    "after_score": 4.8,
+    "result": "PASS_LOCAL_LAYOUT_ONLY",
+    "basis": "Across ready, countdown, front-straight, and finish captures, the first dial no longer occupies the back-button region and the second dial remains within the upper-left HUD band.",
+    "geometry_observation": "Back button remains near x=66; repaired dial centers are x=190 and x=278 with radius 35, leaving visible separation from the back-button circle and each other."
+  },
+  "remaining_open_scope": [
+    "Vehicle pair remains small/overlapping and weakly grounded at front straight and bend states.",
+    "The bottom steering panel and broader UI hierarchy were not rescored here.",
+    "Animation smoothness, human control feel, child readability on M11, and device performance remain unassessed.",
+    "This local 4.8 score must not be promoted to a whole-Racer or game-wide 4.5 pass."
+  ],
+  "publication_note": "Exact-byte archive path mapping; local layout score only. Other Racer visual dimensions and animation remain open."
+}

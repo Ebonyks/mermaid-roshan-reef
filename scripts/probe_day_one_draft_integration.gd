@@ -76,8 +76,11 @@ func _arrival_and_dirty_castle() -> void:
 	main._day_one_begin_arrival()
 	await _frames(3)
 	_check("arrival starts C00", _seen("D1-C00"))
-	if main._day_one_draft_movie != null:
-		main._day_one_draft_movie.skip()
+	_check("draft movie is owned by the global Back route",
+		main._navigation_ref().top_id() == "day_one_draft_movie"
+		and main.global_navigation_button != null
+		and main.global_navigation_button.visible)
+	main._navigation_ref().press()
 	await _frames(4)
 	_check("arrival drains queued C01 after C00 skip", _seen("D1-C01"))
 	main._day_one_cancel_draft_movies()
@@ -139,7 +142,7 @@ func _bathroom_boundary() -> void:
 		int(_seen("D1-C03")) == bathroom_seen_count)
 	if main._day_one_pool_route_button != null \
 			and is_instance_valid(main._day_one_pool_route_button):
-		main.call_deferred("_open_day_one_room_route", "mermaid_pool")
+		main._pause_ref().call_deferred("global_navigation_pressed")
 		await _frames(10)
 		_check("pool room entry starts C05 through room navigation",
 			_seen("D1-C05"))

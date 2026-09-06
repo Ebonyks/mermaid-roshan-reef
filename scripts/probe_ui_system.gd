@@ -17,14 +17,14 @@ const GAMEPLAY_HUD_SURFACES := [
 	"res://scripts/medal_system.gd"]
 const CHILD_MENU_SYSTEMS := [
 	{"id": "intro", "path": "res://scripts/intro_overlay.gd", "token": "adorn_panel"},
-	{"id": "pause", "path": "res://scripts/pause_menu.gd", "token": "PauseShell"},
+	{"id": "pause", "path": "res://scripts/pause_menu.gd", "token": "MenuShell"},
 	{"id": "craft", "path": "res://scripts/craft_studio.gd", "token": "adorn_panel"},
 	{"id": "castle_logo", "path": "res://scripts/castle_logo_studio.gd", "token": "adorn_panel"},
 	{"id": "wardrobe", "path": "res://scripts/wardrobe_ui.gd", "token": "style_picture_button"},
 	{"id": "stickers", "path": "res://scripts/wardrobe_ui.gd", "token": "StickerBook"},
 	{"id": "critters", "path": "res://scripts/collection_system.gd", "token": "CritterBook"},
 	{"id": "stuffie_care", "path": "res://scripts/companion.gd", "token": "StuffieCare"},
-	{"id": "stuffie_picker", "path": "res://scripts/companion.gd", "token": "StuffiePicker"},
+	{"id": "stuffie_picker", "path": "res://scripts/companion.gd", "token": "StuffiePart_"},
 	{"id": "castle_rooms", "path": "res://scripts/arena/castle_rooms_25d.gd", "token": "ROOM_ART"},
 	{"id": "kitchen", "path": "res://scripts/arena/castle_rooms_25d.gd", "token": "KitchenFridgeMenu"},
 	{"id": "picture_games", "path": "res://scripts/games/picture_games.gd", "token": "PictureGameStorybookHeader"},
@@ -57,6 +57,15 @@ func _count_named(from: Node, pattern: String) -> int:
 		if node is Control:
 			count += 1
 	return count
+
+func _visible_button_names(from: Node) -> Array[String]:
+	var names: Array[String] = []
+	for node: Node in from.find_children("*", "Button", true, false):
+		var button := node as Button
+		if button != null and button.is_visible_in_tree():
+			names.append(String(button.name))
+	names.sort()
+	return names
 
 func _world_particle_count(node: Node, particle_class: String) -> int:
 	var total := 1 if node.get_class() == particle_class else 0
@@ -149,6 +158,70 @@ func _check_storybook_coverage() -> void:
 	_check(not companion_source.contains("companion_hud_btn")
 		and not companion_source.contains("func open_menu()"),
 		"legacy duplicate Stuffie launcher and care panel stay removed")
+	var comfy_source := FileAccess.get_file_as_string(
+		"res://scripts/comfy_games.gd")
+	_check(not comfy_source.contains("DayTwoComfyInvitation")
+		and not comfy_source.contains("ComfyHideAndSeekProgress")
+		and not comfy_source.contains("ComfyHideAndSeekComplete")
+		and comfy_source.contains("direct_world_character"),
+		"comfy demos use tappable world friends without overlay badges")
+	var draft_movie_source := FileAccess.get_file_as_string(
+		"res://scripts/day_one_draft_movies.gd")
+	var main_source := FileAccess.get_file_as_string("res://scripts/main.gd")
+	_check(not draft_movie_source.contains("Button.new()")
+		and not draft_movie_source.contains("skip_button")
+		and main_source.contains(
+			'_navigation_push("day_one_draft_movie", preview, Callable(preview, "skip"))')
+		and main_source.contains("_day_one_draft_movie_layer.layer = 28"),
+		"draft movies use the single global Back control without a local skip overlay")
+	var chapter_two_plot_source := FileAccess.get_file_as_string(
+		"res://scripts/chapter_two_room_plot.gd")
+	_check(not chapter_two_plot_source.contains("ChapterTwoPlotAbility")
+		and not chapter_two_plot_source.contains("Button.new()")
+		and chapter_two_plot_source.contains("direct_world_art_hotspot"),
+		"Chapter 2 room plots use painted props without an ability overlay")
+	var opera_venue_source := FileAccess.get_file_as_string(
+		"res://scripts/opera_house_venue_2d.gd")
+	_check(not opera_venue_source.contains("BubbleLift")
+		and not opera_venue_source.contains("OperaVenueBack"),
+		"Opera venue keeps direct painted doors and no local lift or Back controls")
+	var castle_source := FileAccess.get_file_as_string(
+		"res://scripts/arena/castle_rooms_25d.gd")
+	var dust_source := FileAccess.get_file_as_string(
+		"res://scripts/games/dust_boss.gd")
+	_check(not castle_source.contains("func _toggle_elevator_menu")
+		and not castle_source.contains("ElevatorPointer")
+		and not castle_source.contains("CastleElevatorBook")
+		and not castle_source.contains("castle_room_action_button.visible"),
+		"castle rooms use physical doors without elevator or room-action overlays")
+	_check(not dust_source.contains("DustBossDodgeButton")
+		and not dust_source.contains("DustBossDodgePointer")
+		and not dust_source.contains("db_dodge_pointer")
+		and not dust_source.contains("db_tap_pips")
+		and not dust_source.contains("day1_boss_dodge_prompt")
+		and not dust_source.to_lower().contains("twirl button")
+		and dust_source.contains("day1_boss_dodge")
+		and dust_source.contains("func on_world_tap")
+		and dust_source.contains("set_encounter_controls(on_world_tap"),
+		"Dust Boss uses direct world touch without an overlay control or button-dependent voice")
+	var partner_source := FileAccess.get_file_as_string(
+		"res://scripts/partner_assist.gd")
+	var tutorial_source := FileAccess.get_file_as_string(
+		"res://scripts/combat_tutorial.gd")
+	var stuffie_battle_source := FileAccess.get_file_as_string(
+		"res://scripts/stuffie_battle.gd")
+	var combat_source := FileAccess.get_file_as_string(
+		"res://scripts/combat_arena.gd")
+	_check(not partner_source.contains("var bubble: Button")
+		and not partner_source.contains("on_bubble_tap")
+		and not tutorial_source.contains("PartnerAssist")
+		and not tutorial_source.contains("Tap the bubble"),
+		"partner combat has no overlay control or unreachable bubble lesson")
+	_check(not stuffie_battle_source.contains("DODGE bubble")
+		and not combat_source.contains("big ICE button")
+		and not combat_source.contains("big CLEAN button")
+		and not player_copy.contains("Press the big button to swim up"),
+		"child prompts describe direct world taps, not removed overlay buttons")
 
 func _check_typography_coverage() -> void:
 	var storybook_source: String = FileAccess.get_file_as_string(
@@ -325,6 +398,59 @@ func _check_type_c_layout_contract() -> void:
 			_check(not source.contains("adult_caption_adult_only_save_safety"),
 				"save warning is not misclassified as adult caption")
 
+
+func _check_comfy_evening_state() -> void:
+	var empty_state := ComfyGames.normalise_save_patch({})
+	var empty_quest: Dictionary = empty_state.get(
+		ComfyGames.DAY_TWO_FAMILY_EVENING, {}) as Dictionary
+	var empty_reward: Dictionary = empty_quest.get("reward", {}) as Dictionary
+	_check(int(empty_state.get("version", 0)) == 2
+		and not bool(empty_quest.get("completed", false))
+		and not bool(empty_reward.get("unlocked", false))
+		and not bool(empty_reward.get("verified", true)),
+		"comfy evening defaults safely with its future reward locked and unverified")
+	var migrated_state := ComfyGames.normalise_save_patch({"comfy_games": {
+		"version": 1,
+		ComfyGames.DAY_TWO_HIDE_AND_SEEK: {
+			"accepted": true,
+			"found": {"rumi": true, "baby_eagle": true,
+				"daddy_mermaid": true},
+			"completed": true,
+		},
+	}})
+	var migrated_quest: Dictionary = migrated_state.get(
+		ComfyGames.DAY_TWO_FAMILY_EVENING, {}) as Dictionary
+	_check(bool(migrated_quest.get("accepted", false))
+		and not bool(migrated_quest.get("completed", false)),
+		"completed hide-and-seek saves migrate into the resumable family evening")
+	var completed_state := ComfyGames.normalise_save_patch({"comfy_games": {
+		ComfyGames.DAY_TWO_FAMILY_EVENING: {
+			"accepted": true,
+			"dinner": {"ingredients": {"apple": true, "carrot": true,
+				"strawberry": true}, "pot_stirred": true},
+			"movie": {"scenes_watched": 3},
+			"bedtime": {"tucked_in": {"rumi": true, "baby_eagle": true,
+				"daddy_mermaid": true, "roshan": true}},
+		},
+	}})
+	var completed_quest: Dictionary = completed_state.get(
+		ComfyGames.DAY_TWO_FAMILY_EVENING, {}) as Dictionary
+	var completed_reward: Dictionary = completed_quest.get("reward", {}) as Dictionary
+	_check(bool(completed_quest.get("completed", false))
+		and bool(completed_reward.get("unlocked", false))
+		and String(completed_reward.get("id", "")) == ComfyGames.FUTURE_REWARD_ID
+		and not bool(completed_reward.get("verified", true))
+		and not bool(completed_reward.get("introduced", true)),
+		"dinner, movie, and tuck-in completion unlock the saved future reward placeholder")
+	var comfy_source := FileAccess.get_file_as_string(
+		"res://scripts/comfy_games.gd")
+	_check(comfy_source.contains('m.castle_room_id == "kitchen"')
+		and comfy_source.contains('m.castle_room_id == "movie_lounge"')
+		and comfy_source.contains('m.castle_room_id == "sleepover_bedroom"')
+		and comfy_source.contains("m._write_save()")
+		and comfy_source.contains("visual_pointer"),
+		"comfy evening uses castle-world targets with voice-backed resumable saves")
+
 func _init() -> void:
 	var packed := load("res://scenes/main.tscn") as PackedScene
 	main = packed.instantiate() as ReefMain
@@ -335,6 +461,7 @@ func _init() -> void:
 	_check_storybook_coverage()
 	_check_typography_coverage()
 	_check_type_c_layout_contract()
+	_check_comfy_evening_state()
 
 	# Intro: four shape pips, repeat voice, explicit next, and deliberate hold-skip.
 	if not main.intro_active:
@@ -361,19 +488,53 @@ func _init() -> void:
 		"free roam hides irrelevant persistent totals")
 	_check(objective_sentence != null and not objective_sentence.visible,
 		"free roam hides the legacy sentence objective")
+	# This probe audits the Sky Lagoon root contract explicitly; ordinary reef
+	# startup is a different route and correctly keeps the control in Back mode.
+	main.game = "level2"
+	main.g["phase"] = "promenade"
+	main._navigation_set_root("sky_lagoon")
 
-	# Pause: raised above overlays only while open; resume dominates the icon grid.
-	_check_target(main.pause_layer, "PauseCornerButton", "pause corner owns a 128px envelope", Vector2(128, 128))
-	_check(_find(main.pause_layer, "PauseCornerShell") != null,
-		"pause control uses the recovered shell crest")
+	# One upper-right control owns every persistent navigation surface. At the
+	# root it opens Menu; nested screens reuse the same node as Back.
+	var global_navigation := _check_target(main.navigation_layer,
+		"GlobalNavigationButton", "global navigation owns one 112px target",
+		Vector2(112, 112))
+	_check(global_navigation != null and global_navigation.anchor_right == 1.0
+		and global_navigation.offset_right == -18.0
+		and global_navigation.position.y <= 24.0
+		and String(global_navigation.get_meta("global_navigation_mode", "")) == "menu",
+		"global navigation is the single upper-right Menu control at the root")
+	_check(_visible_button_names(main) == ["GlobalNavigationButton"],
+		"Sky Lagoon root has exactly one visible Button game-wide")
+	_check(_find(main, "PauseCornerButton") == null,
+		"the persistent Pause corner is removed")
+	_check(_find(main.touch_ui, "ActionShellMedallion") == null,
+		"the fixed jump/action bubble is removed")
+	var navigation_source: String = FileAccess.get_file_as_string(
+		"res://scripts/navigation_controller.gd")
+	_check(navigation_source.contains('m.game == "level2"')
+		and navigation_source.contains('== "promenade"')
+		and navigation_source.contains("_leave_current_activity()"),
+		"Menu is Sky Lagoon-root-only and Back has a game-wide activity fallback")
+	var main_source: String = FileAccess.get_file_as_string(
+		"res://scripts/main.gd")
+	_check(main_source.contains('_navigation_push("reef_world", self,')
+		and main_source.contains('Callable(self, "_enter_level2")'),
+		"Reef visits unwind through Back to the Sky Lagoon Menu root")
 	main.toggle_pause()
-	_check(main.pause_layer.layer == 29 and main.get_tree().paused, "pause sheet rises above active overlays")
+	_check(main.pause_layer.layer == 28 and main.get_tree().paused,
+		"Menu sheet stays below the sole navigation control and transition fade")
 	_check_target(main.pause_panel, "PauseResumeButton", "resume is the dominant 300x140 action", Vector2(300, 140))
 	_check_target(main.pause_panel, "PauseStickerButton", "sticker tile is thumb-sized")
-	_check_target(main.pause_panel, "PauseMusicButton", "music toggle is thumb-sized")
-	_check_target(main.pause_panel, "PauseQualityButton", "quality toggle is thumb-sized")
-	_check(_find(main.pause_panel, "PauseShellCrest") != null,
-		"pause sheet carries shell-and-pearl adornment")
+	_check_target(main.pause_panel, "MenuCritterBookButton", "Critter Book is reachable from Menu")
+	_check_target(main.pause_panel, "MenuStuffieButton", "Stuffie care is reachable from Menu")
+	_check(_find(main.pause_panel, "PauseMusicButton") == null
+		and _find(main.pause_panel, "PauseQualityButton") == null
+		and _find(main.pause_panel, "PauseMicButton") == null
+		and _find(main.pause_panel, "PauseDeveloperButton") == null,
+		"Menu omits secondary settings and developer controls")
+	_check(_find(main.pause_panel, "MenuShell") != null,
+		"Menu sheet carries the storybook panel")
 	_check(_find(main.pause_panel, "PauseTouchModeButton") == null,
 		"pause sheet has no movement-mode decision")
 	var touch_pad := _find(main.touch_ui, "TouchShellPad") as Control
@@ -398,7 +559,8 @@ func _init() -> void:
 	# Craft: large preview, three part selectors, exactly one large palette row.
 	main._open_craft_studio()
 	await process_frame
-	_check_target(main.craft_layer, "CraftBackButton", "craft has a neutral thumb-sized back")
+	_check(_legacy_back_retired(main.craft_layer, "CraftBackButton"),
+		"craft uses only global Back")
 	_check_target(main.craft_layer, "CraftFinishButton", "craft finish is a 150px-class primary action", Vector2(150, 150))
 	_check(_count_named(main.craft_layer, "CraftPart_*") == 3, "craft exposes three picture part selectors")
 	_check(_count_named(main.craft_layer, "CraftSwatch_*") == 8 and _count_named(main.craft_layer, "CraftRainbowSwatch") == 1, "craft shows one nine-choice palette row")
@@ -406,14 +568,20 @@ func _init() -> void:
 		"craft studio carries the shared shell crest")
 	for node: Node in main.craft_layer.find_children("CraftSwatch_*", "", true, false):
 		_check(_touch_size(node as Control).x >= 110.0 and _touch_size(node as Control).y >= 110.0, "craft swatch is at least 110x110")
-	main._close_craft()
+	main._pause_ref().sync_global_navigation()
+	_check(String(main.global_navigation_button.get_meta(
+		"global_navigation_mode", "")) == "back",
+		"the same upper-right control becomes Back inside craft")
+	main._pause_ref().global_navigation_pressed()
 	await process_frame
+	_check(main.craft_layer == null,
+		"global Back closes craft through its existing safe teardown")
 
 	# Castle logo: six direct paints, eight picture marks, and one large preview.
 	main._open_castle_logo()
 	await process_frame
-	_check_target(main.castle_logo_layer, "CastleLogoBackButton",
-		"castle logo has a neutral thumb-sized back")
+	_check(_legacy_back_retired(main.castle_logo_layer, "CastleLogoBackButton"),
+		"castle logo uses only global Back")
 	_check_target(main.castle_logo_layer, "CastleLogoFinishButton",
 		"castle logo finish is a 150px-class primary action", Vector2(150, 150))
 	_check(_count_named(main.castle_logo_layer, "CastleLogoColor_*") == 6,
@@ -434,7 +602,8 @@ func _init() -> void:
 	# Wardrobe and books share the same back/finish grammar.
 	main._open_wardrobe()
 	await process_frame
-	_check_target(main.wardrobe_layer, "WardrobeBackButton", "wardrobe back is thumb-sized")
+	_check(_legacy_back_retired(main.wardrobe_layer, "WardrobeBackButton"),
+		"wardrobe uses only global Back")
 	_check_target(main.wardrobe_layer, "WardrobeFinishButton", "wardrobe finish is thumb-sized")
 	_check(_find(main.wardrobe_layer, "WardrobeShellCrest") != null,
 		"wardrobe carries the shared shell-and-pearl frame")
@@ -503,13 +672,15 @@ func _init() -> void:
 	main._close_wardrobe()
 	main._open_stickers()
 	await process_frame
-	_check_target(main.stickers_layer, "StickerBookBackButton", "sticker book back is thumb-sized")
+	_check(_legacy_back_retired(main.stickers_layer, "StickerBookBackButton"),
+		"sticker book uses only global Back")
 	_check(_find(main.stickers_layer, "StickerBookShellCrest") != null,
 		"sticker book carries the shared shell crest")
 	main._close_stickers()
 	main._collection_ref().open_book()
 	await process_frame
-	_check_target(main.collection_layer, "CritterBookBackButton", "critter book back is thumb-sized")
+	_check(_legacy_back_retired(main.collection_layer, "CritterBookBackButton"),
+		"Critter Book uses only global Back")
 	_check(_find(main.collection_layer, "CritterBookShellCrest") != null,
 		"critter book carries the shared shell crest")
 	main._collection_ref().close_book()
@@ -517,34 +688,26 @@ func _init() -> void:
 	# Stuffie paint uses the same one-active-part grammar and 110px swatches.
 	main._companion_ref().open_picker(false, "mewsha")
 	await process_frame
-	_check_target(main.companion_layer, "StuffiePickerBackButton", "stuffie picker back is thumb-sized")
+	_check(_legacy_back_retired(main.companion_layer, "StuffiePickerBackButton"),
+		"stuffie picker uses only global Back")
 	_check(_count_named(main.companion_layer, "StuffiePart_*") == 3, "stuffie picker has three picture part selectors")
 	_check(_count_named(main.companion_layer, "StuffieSwatch_*") == 8, "stuffie picker shows one palette at a time")
 	for node: Node in main.companion_layer.find_children("StuffieSwatch_*", "", true, false):
 		_check(_touch_size(node as Control).x >= 110.0 and _touch_size(node as Control).y >= 110.0, "stuffie swatch is at least 110x110")
 	main._companion_ref().close_picker()
 
-	# Tamagotchi care owns an inset upper-right launcher, never the Pause corner,
-	# and exposes all five persisted care verbs through the same storybook sheet.
+	# Care remains available as a modal activity, but no persistent launcher or
+	# local back button competes with global navigation.
 	main.companion_id = "mewsha"
 	main._companion_ref().tick(0.0)
-	var launcher := _check_target(main.hud_layer, "StuffieCareMenuButton", "stuffie care launcher is a 128px target", Vector2(128, 128))
-	_check(launcher != null and launcher.position.x >= 820.0
-		and launcher.position.x + launcher.size.x <= 1000.0
-		and String(launcher.get_meta("hud_zone", "")) == "upper_right_inset",
-		"stuffie care launcher is inset from the far-corner Pause control")
-	var critter_button := _find(main, "CritterBookCornerButton") as Control
-	var pause_button := _find(main, "PauseCornerButton") as Control
-	_check(launcher != null and critter_button != null and pause_button != null
-		and launcher.global_position.x + launcher.size.x < critter_button.global_position.x
-		and critter_button.global_position.x + critter_button.size.x < pause_button.global_position.x,
-		"Stuffie, Critter Book, and Pause keep separate upper-hand hit areas")
-	_check(_count_named(main, "StuffieCareMenuButton") == 1, "exactly one Stuffie care launcher exists")
-	_check(_find(main.hud_layer, "StuffieWatchShell") != null,
-		"Stuffie watch keeps its inset shell treatment")
+	_check(_find(main, "StuffieCareMenuButton") == null,
+		"stuffie care has no persistent launcher")
+	_check(_find(main, "CritterBookCornerButton") == null,
+		"Critter Book has no persistent launcher")
 	main._companion_ref().open_care_menu()
 	await process_frame
-	_check_target(main.companion_care_layer, "StuffieCareBackButton", "Tamagotchi sheet has a neutral thumb-sized back")
+	_check(_legacy_back_retired(main.companion_care_layer, "StuffieCareBackButton"),
+		"care sheet uses only global Back")
 	_check_target(main.companion_care_layer, "StuffieSwitchButton", "Tamagotchi sheet has a thumb-sized friend switch")
 	_check(_find(main.companion_care_layer, "StuffieCareShellCrest") != null,
 		"Tamagotchi sheet carries the shared shell-and-pearl treatment")
@@ -554,11 +717,11 @@ func _init() -> void:
 		_check(_touch_size(node as Control).x >= 110.0 and _touch_size(node as Control).y >= 110.0, "Tamagotchi care action is at least 110x110")
 	main._companion_ref().close_care_menu()
 
-	# Picture games inherit the neutral exit rather than an alarming X.
+	# Picture games keep their activity choices but use the global Back owner.
 	main._mg2d_open("garden")
 	await process_frame
-	var picture_back := _check_target(main.mg2d_layer, "PictureGameBackButton", "picture-game back is thumb-sized")
-	_check(picture_back != null and bool(picture_back.get_meta("neutral_exit", false)), "picture-game exit is neutral")
+	_check(_legacy_back_retired(main.mg2d_layer, "PictureGameBackButton"),
+		"picture game uses only global Back")
 	_check(_find(main.mg2d_layer, "PictureGameStorybookHeader") != null
 		and _find(main.mg2d_layer, "PictureGameShellCrest") != null,
 		"picture games carry the shared Storybook shell header")
@@ -566,3 +729,7 @@ func _init() -> void:
 
 	print("UI_SYSTEM|RESULT|", "FAIL" if failed else "ALL OK")
 	quit(1 if failed else 0)
+
+func _legacy_back_retired(from: Node, pattern: String) -> bool:
+	var button := _find(from, pattern) as Button
+	return button == null

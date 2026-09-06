@@ -8,6 +8,7 @@ extends SceneTree
 
 var main: ReefMain
 var bad := 0
+var reviewed_pose_coverage: Dictionary = {}
 var widget_shot_out := ""
 var widget_capture_career := ""
 var rival_shot_out := ""
@@ -35,6 +36,12 @@ const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
 const TeacherPlan := preload("res://scripts/teacher_lesson_plan.gd")
 const TeacherSurface := preload("res://scripts/opera_teacher_surface.gd")
 const GeologySurface := preload("res://scripts/opera_geology_surface.gd")
+# Independent phase contract: the prop meaning stays stable during input.
+const EXPECTED_WORK_POSES := {
+	"doctor": {"WASH": 1, "FIND": 1, "X-RAY": 1, "CAST": 2, "BANDAGE": 2},
+	"farmer": {"PLANT": 1, "TOSS": 3, "HERD": 3, "PICNIC": 2},
+	"racer": {"TUNE": 0, "TO THE LINE": 1},
+}
 const RACER_TICK_SECONDS := 1.0 / 60.0
 const RACER_MAX_DRIVE_FRAMES := 4000
 const RACER_POLICY_MAX_FRAMES := 4200
@@ -1175,6 +1182,7 @@ func _init() -> void:
 				and world.teacher_voice_queue.has("teacher_help")
 		var guard := 0
 		while act.state == "play" and guard < 80:
+			_check_reviewed_task_pose(world, career)
 			rival_hidden_before_finale = rival_hidden_before_finale \
 				and (cooperative or world.in_competition_finale() or not world.rival_actor.visible)
 			if career == "racer" and world.phase_index == world._finale_start():
@@ -1325,6 +1333,12 @@ func _init() -> void:
 	if not diegetic_shot_out.is_empty():
 		_check("diegetic review capture contains every shipping phase room state",
 			diegetic_shot_count == diegetic_shot_expected)
+	for reviewed_career: String in EXPECTED_WORK_POSES:
+		var reviewed_phases: Dictionary = EXPECTED_WORK_POSES[reviewed_career]
+		for reviewed_phase: String in reviewed_phases:
+			var coverage_key := "%s/%s" % [reviewed_career, reviewed_phase]
+			_check("reviewed pose coverage: %s" % coverage_key,
+				reviewed_pose_coverage.has(coverage_key))
 	if bad == 0:
 		print("OPERA2D|result: ALL OK")
 		quit()
@@ -3068,3 +3082,34 @@ func _check(label: String, condition: bool) -> void:
 	else:
 		bad += 1
 		print("OPERA2D|FAIL|", label)
+
+
+func _check_reviewed_task_pose(world: OperaCareerWorld2D, career: String) -> void:
+	if not world.active or world.reveal_t > 0.0 or world.phase_advance_pending \
+			or world.phase_gap > 0.0 or world.phase_index >= world.phases.size():
+		return
+	var expected: Dictionary = EXPECTED_WORK_POSES.get(career, {})
+	var phase: Dictionary = world.phases[world.phase_index]
+	var phase_name := String(phase.get("name", ""))
+	if not expected.has(phase_name):
+		return
+	# Trusted diagnostic entry opens an active task without earning progress.
+	# Completed phases are excluded above: their next gesture advances the phase.
+	if not world.task_open:
+		world._on_gesture("probe", 0.0, 1.0)
+	if not world.task_open:
+		return
+	reviewed_pose_coverage["%s/%s" % [career, phase_name]] = true
+	var progress_before := world.phase_progress
+	var phase_before := world.phase_index
+	# Zero-credit calls through the gesture handler must preserve the prop.
+	world._on_gesture("probe", 0.0, 1.0)
+	world.player_animator._process(1.3)
+	world._on_gesture("probe", 0.0, 1.0)
+	world.player_animator._process(2.7)
+	_check("%s %s retains its reviewed work prop across input and time" % [career, phase_name],
+		world.player_animator.current_animation == "work"
+		and world.player_animator.current_frame == int(expected[phase_name])
+		and not world.player_animator.is_processing()
+		and world.phase_index == phase_before
+		and is_equal_approx(world.phase_progress, progress_before))

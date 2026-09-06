@@ -7,6 +7,14 @@ extends CanvasLayer
 ## Roshan and a dressed rival on opposite sides, one-finger job gestures,
 ## parallel score/progress, audience energy and a graded curtain call.
 
+# These work rows contain different actions/props, not one continuous motion.
+# Hold the reviewed semantic cell for each phase; source atlas pixels stay intact.
+const REVIEWED_WORK_POSES := {
+	"doctor": {"WASH": 1, "FIND": 1, "X-RAY": 1, "CAST": 2, "BANDAGE": 2},
+	"farmer": {"PLANT": 1, "TOSS": 3, "HERD": 3, "PICNIC": 2},
+	"racer": {"TUNE": 0, "TO THE LINE": 1},
+}
+
 const PerformancePlan := preload("res://scripts/opera_performance_plan.gd")
 const Mastery := preload("res://scripts/opera_mastery.gd")
 const PerformanceOverlay := preload("res://scripts/opera_performance_overlay.gd")
@@ -2270,6 +2278,18 @@ func _play_roshan_animation(animation: String) -> void:
 		player_animator.play(animation)
 
 
+func _play_roshan_task_pose(phase: Dictionary) -> void:
+	if String(phase.get("mode", "")) == "talk":
+		_play_roshan_animation("idle")
+		return
+	var reviewed: Dictionary = REVIEWED_WORK_POSES.get(career_id, {})
+	var phase_name := String(phase.get("name", ""))
+	if reviewed.has(phase_name) and is_instance_valid(player_animator):
+		player_animator.show_pose("work", int(reviewed[phase_name]))
+		return
+	_play_roshan_animation("work")
+
+
 func _widget_template(phase: Dictionary) -> String:
 	var mode := String(phase.get("mode", ""))
 	var name := String(phase.get("name", ""))
@@ -2529,7 +2549,7 @@ func _open_task() -> void:
 	if phase_index >= _finale_start():
 		competition.begin()
 		_set_finale_visible(true)
-	_play_roshan_animation("idle" if mode_name == "talk" else "work")
+	_play_roshan_task_pose(phase)
 	var is_bop := mode_name == "bop"
 	var is_lens := mode_name == "lens"
 	var accent := Color(competition.spec.get("accent", Color(1.0, 0.62, 0.8)))
@@ -3364,7 +3384,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		return
 	if mode == "kart_race" and _kind not in ["kart_race", "probe"]:
 		return
-	_play_roshan_animation("work")
+	_play_roshan_task_pose(phase)
 	if mode == "catch" and amount < 5.0:
 		return
 	idle_t = 0.0

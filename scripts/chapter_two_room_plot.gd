@@ -3,17 +3,9 @@ extends Control
 
 ## Plot-only Castle-room affordances for Chapter 2.
 ##
-## This is deliberately separate from CastleRooms25D's ordinary prop action.
-## A button exists only for the exact director-owned objective and room, then
-## is removed as soon as the plot advances or the child leaves the room.
-
-const MAGNIFIER_TEXTURE := "res://assets/opera/worlds/ui/magnifier.png"
-const BALLERINA_TEXTURE := \
-	"res://assets/opera/worlds/props/goal_ballerina.png"
-const PARTY_TEXTURE := \
-	"res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png"
-const GHOST_HAND_TEXTURE := \
-	"res://assets/castle/training/ghost_hand.png"
+## CastleRooms25D's painted book and stuffie-nook hotspots own their plot
+## actions. The party table adds only a transparent touch surface over its
+## visible world art; this layer never creates a floating ability button.
 const IGNITION_HOLD_SECONDS := 2.4
 const SCOUT_HOLD_SECONDS := 1.8
 const KING_APPROACH_SECONDS := 1.35
@@ -21,7 +13,7 @@ const KING_APPROACH_SECONDS := 1.35
 var m: ReefMain
 var room_id := ""
 var plot_action := ""
-var ability_button: Button = null
+var party_touch_surface: Control = null
 var candle: ChapterTwoRainbowCandle2D = null
 var party_table: ChapterTwoPartyTable2D = null
 var party_sequence_elapsed := 0.0
@@ -35,7 +27,7 @@ func setup(main: ReefMain) -> void:
 	size = StorybookUI.CANVAS_SIZE
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	z_index = 46
-	set_meta("plot_only_ability_surface", true)
+	set_meta("direct_world_plot_surface", true)
 	set_process(false)
 
 
@@ -52,7 +44,8 @@ func sync(next_room_id: String, announce: bool = true) -> void:
 	plot_action = m._chapter_two_ref().room_plot_action(room_id)
 	if plot_action == "":
 		return
-	_build_ability_button()
+	if plot_action == ChapterTwoDirector.ACTION_START_BIRTHDAY_PARTY:
+		_build_party_touch_surface()
 	if announce:
 		_announce_plot_action()
 
@@ -64,7 +57,7 @@ func _clear_surface() -> void:
 	for child: Node in get_children():
 		remove_child(child)
 		child.queue_free()
-	ability_button = null
+	party_touch_surface = null
 	candle = null
 	party_table = null
 	plot_action = ""
@@ -141,93 +134,29 @@ func _build_party_table() -> void:
 	add_child(party_table)
 
 
-func _build_ability_button() -> void:
-	ability_button = Button.new()
-	ability_button.name = "ChapterTwoPlotAbility"
-	ability_button.text = ""
-	ability_button.tooltip_text = _action_hint()
-	ability_button.custom_minimum_size = StorybookUI.MIN_TOUCH
-	ability_button.focus_mode = Control.FOCUS_ALL
-	ability_button.z_index = 5
-	ability_button.set_meta("plot_only", true)
-	ability_button.set_meta("plot_action", plot_action)
-	ability_button.set_meta("room_id", room_id)
-	ability_button.set_meta("general_room_activation", false)
-	if plot_action == ChapterTwoDirector.ACTION_DETECTIVE_SEARCH:
-		ability_button.position = Vector2(468.0, 92.0)
-		ability_button.size = Vector2(196.0, 196.0)
-		_add_picture(MAGNIFIER_TEXTURE, Vector2(34.0, 25.0), Vector2(128.0, 128.0))
-	elif plot_action == ChapterTwoDirector.ACTION_STUFFIE_BALLET:
-		ability_button.position = Vector2(394.0, 92.0)
-		ability_button.size = Vector2(214.0, 198.0)
-		_add_picture(BALLERINA_TEXTURE, Vector2(38.0, 20.0), Vector2(138.0, 138.0))
-	elif plot_action == ChapterTwoDirector.ACTION_START_BIRTHDAY_PARTY:
-		ability_button.position = Vector2(1032.0, 424.0)
-		ability_button.size = Vector2(196.0, 172.0)
-		_add_picture(PARTY_TEXTURE, Vector2(22.0, 19.0), Vector2(152.0, 118.0))
-	else:
-		ability_button.queue_free()
-		ability_button = null
+func _build_party_touch_surface() -> void:
+	party_touch_surface = Control.new()
+	party_touch_surface.name = "ChapterTwoPartyTableTouch"
+	party_touch_surface.position = Vector2(285.0, 352.0)
+	party_touch_surface.size = Vector2(710.0, 238.0)
+	party_touch_surface.mouse_filter = Control.MOUSE_FILTER_STOP
+	party_touch_surface.z_index = 5
+	party_touch_surface.set_meta("direct_world_art_hotspot", true)
+	party_touch_surface.set_meta("plot_action", plot_action)
+	party_touch_surface.gui_input.connect(_on_party_table_input)
+	add_child(party_touch_surface)
+
+
+func _on_party_table_input(event: InputEvent) -> void:
+	var pressed := event is InputEventScreenTouch \
+		and (event as InputEventScreenTouch).pressed
+	pressed = pressed or (event is InputEventMouseButton \
+		and (event as InputEventMouseButton).pressed \
+		and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT)
+	if not pressed:
 		return
-	_style_plot_button(ability_button)
-	ability_button.pressed.connect(_activate)
-	add_child(ability_button)
-	_add_pointer()
-	if ability_button.is_inside_tree():
-		ability_button.grab_focus()
-
-
-func _add_picture(path: String, picture_position: Vector2,
-		picture_size: Vector2) -> void:
-	var picture := TextureRect.new()
-	picture.name = "SkillPicture"
-	picture.position = picture_position
-	picture.size = picture_size
-	picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	picture.texture = load(path) as Texture2D
-	picture.set_meta("visual_pointer", true)
-	ability_button.add_child(picture)
-
-
-func _add_pointer() -> void:
-	var pointer := Sprite2D.new()
-	pointer.name = "ChapterTwoPlotPointer"
-	pointer.texture = load(GHOST_HAND_TEXTURE) as Texture2D
-	var pointer_start := Vector2(ability_button.size.x - 24.0, 26.0)
-	pointer.position = pointer_start
-	pointer.scale = Vector2.ONE * 0.13
-	pointer.set_meta("visual_pointer", true)
-	pointer.set_meta("points_to_plot_prop", plot_action)
-	ability_button.add_child(pointer)
-	var tween := pointer.create_tween().set_loops()
-	tween.tween_property(pointer, "position:y", pointer_start.y + 16.0, 0.46) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(pointer, "position:y", pointer_start.y, 0.46) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-
-
-func _style_plot_button(button: Button) -> void:
-	var normal := StorybookUI.panel_style(
-		Color(0.32, 0.20, 0.52, 0.10), StorybookUI.GOLD, 52, 4)
-	var hover := StorybookUI.panel_style(
-		Color(0.46, 0.28, 0.66, 0.18), Color.WHITE, 52, 6)
-	button.add_theme_stylebox_override("normal", normal)
-	button.add_theme_stylebox_override("hover", hover)
-	button.add_theme_stylebox_override("pressed", hover)
-	button.add_theme_stylebox_override("focus", hover)
-
-
-func _action_hint() -> String:
-	match plot_action:
-		ChapterTwoDirector.ACTION_DETECTIVE_SEARCH:
-			return "Use Detective at the magic storybook"
-		ChapterTwoDirector.ACTION_STUFFIE_BALLET:
-			return "Lead the stuffies in their birthday ballet"
-		ChapterTwoDirector.ACTION_START_BIRTHDAY_PARTY:
-			return "Start Mermaid Roshan's birthday party"
-	return "Party surprise"
+	party_touch_surface.accept_event()
+	_activate()
 
 
 func _announce_plot_action() -> void:

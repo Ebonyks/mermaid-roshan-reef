@@ -151,28 +151,22 @@ func _probe_wiring() -> void:
 	_check("bathroom finale suppresses generic floor burst",
 		finale_source.contains("reveal_clean_room()")
 		and not finale_source.contains("_burst(\"✦\""))
-	_check("pool route uses approved picture and pointer without a UI box",
-		main_source.contains("room_mermaid_pool.png")
-		and main_source.contains("ApprovedPoolRoomPreview")
-		and main_source.contains("route_preview_kind")
-		and main_source.contains("actual_pool_room")
-		and main_source.contains("ApprovedShellPoolFrame")
-		and main_source.contains("PoolRouteGhostHand")
-		and main_source.contains("StyleBoxEmpty.new()")
-		and not main_source.contains(
-			"style_icon_button(_day_one_pool_route_button"))
+	_check("pool handoff reuses global arrow without a picture card",
+		main_source.contains("_day_one_pool_route_button = button")
+		and main_source.contains("_navigation_ref().begin_handoff()")
+		and not main_source.contains('card.name = "DayOneRouteCard"'))
 	_check("completion saves before starting the optional movie handoff",
 		save_order >= 0 and movie_order > save_order)
 	_check("completion and movie handoff are Day One-only and one-shot",
 		completion_source.contains("if not day_one_is_active():")
 		and completion_source.contains("director.is_room_completed(\"bathroom\")")
 		and main_source.contains("_day_one_bathroom_movie_handoff != null"))
-	_check("generic controls stay owned by the rescue and movie handoff",
+	_check("the rescue owns world input without retired overlay controls",
 		main_source.contains("_suspend_day_one_bathroom_controls()")
 		and main_source.contains("_day_one_bathroom_movie_handoff_pending")
 		and main_source.contains(
 			"_set_world_controls_enabled(false, \"day_one_bathroom_lifecycle\")")
-		and main_source.contains("\"ElevatorButton\""))
+		and not main_source.contains("\"ElevatorButton\""))
 	_check("Roshan stages clear of the bath gestures",
 		main_source.contains("_position_player_at_foot(Vector2(790.0, 630.0), false)"))
 	_check("bathroom route owns the basket-to-sink handoff",

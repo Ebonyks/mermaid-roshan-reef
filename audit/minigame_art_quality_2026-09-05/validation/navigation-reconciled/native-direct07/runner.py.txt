@@ -1,0 +1,160 @@
+"""Disposable native Godot diagnostic; never retries and never declares wrapper causality."""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import subprocess
+import sys
+import time
+
+ROOT = Path(__file__).resolve().parents[2]
+HERE = ROOT / "tmp" / "art-dev-combined-validation"
+DEFAULT_GODOT = Path(r"C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\Godot\4.7.2\godot.exe")
+NAME_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_-]{2,63}$")
+PROBES = {"probe_audit", "probe_opera_2d"}
+
+
+def sha256_bytes(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def sha256_utf8_lf(path: Path) -> str:
+    data = path.read_bytes()
+    text = data.decode("utf-8")
+    return hashlib.sha256(text.replace("\r\n", "\n").encode("utf-8")).hexdigest()
+
+
+def source_inventory(root: Path) -> list[dict[str, object]]:
+    records: list[dict[str, object]] = []
+    for path in sorted((root / "scripts").rglob("*.gd")):
+        if not path.is_file():
+            continue
+        records.append({
+            "path": path.relative_to(root).as_posix(),
+            "hash_normalization": "utf8_lf",
+            "sha256": sha256_utf8_lf(path),
+            "bytes_raw": path.stat().st_size,
+        })
+    return records
+
+
+def unsigned32(code: int | None) -> str | None:
+    return None if code is None else f"0x{(code & 0xFFFFFFFF):08X}"
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("run_name", help="fresh output directory name")
+    parser.add_argument("--probe", choices=sorted(PROBES), default="probe_audit")
+    parser.add_argument("--godot", type=Path, default=DEFAULT_GODOT)
+    parser.add_argument("--timeout", type=float, default=300.0)
+    args = parser.parse_args()
+
+    if not NAME_RE.fullmatch(args.run_name):
+        raise SystemExit("run_name must be 3-64 characters of letters, numbers, '_' or '-'")
+    if args.timeout <= 0 or args.timeout > 300:
+        raise SystemExit("timeout must be >0 and <=300 seconds")
+    godot = args.godot.expanduser().resolve()
+    if not godot.is_file():
+        raise SystemExit(f"native Godot binary not found: {godot}")
+    out = (HERE / args.run_name).resolve()
+    if out.exists():
+        raise SystemExit(f"refusing existing run directory: {out}")
+    if not out.is_relative_to(HERE.resolve()):
+        raise SystemExit("output escaped diagnostic directory")
+
+    # Establish and validate the isolated profile before starting Godot or any scene.
+    profile = out / "isolated-profile"
+    profile_dirs = {
+        "APPDATA": profile / "appdata",
+        "LOCALAPPDATA": profile / "localappdata",
+        "XDG_DATA_HOME": profile / "data",
+        "XDG_CONFIG_HOME": profile / "config",
+    }
+    for directory in profile_dirs.values():
+        directory.mkdir(parents=True, exist_ok=False)
+    for key, directory in profile_dirs.items():
+        if not directory.is_dir():
+            raise SystemExit(f"isolated profile guard failed for {key}: {directory}")
+    out.mkdir(parents=True, exist_ok=True)
+    if not profile.is_dir():
+        raise SystemExit("isolated profile guard failed before scene launch")
+
+    env = os.environ.copy()
+    env.update({key: str(value) for key, value in profile_dirs.items()})
+    env["PYTHONUTF8"] = "1"
+    env["PYTHONIOENCODING"] = "utf-8"
+    command = [
+        str(godot), "--headless", "--path", str(ROOT), "-s", f"scripts/{args.probe}.gd",
+        "--", "--touch", "--classic-touch-test",
+    ]
+    source_records = source_inventory(ROOT)
+    log_path = out / "native-godot.log"
+    report_path = out / "diagnostic.json"
+    report: dict[str, object] = {
+        "schema": "reef.native_godot_diagnostic.v1",
+        "diagnostic_only": True,
+        "wrapper_causality_proven": False,
+        "run_name": args.run_name,
+        "probe": args.probe,
+        "timeout_seconds": args.timeout,
+        "root": str(ROOT),
+        "profile": {"path": str(profile), "guarded_before_scene_launch": True, "env": {k: str(v) for k, v in profile_dirs.items()}},
+        "binary": {"path": str(godot), "sha256": sha256_bytes(godot), "size_bytes": godot.stat().st_size},
+        "source_inventory": {"normalization": "utf8_lf", "files": source_records},
+        "command": command,
+        "status": "not_started",
+    }
+    startup = None
+    if os.name == "nt":
+        startup = subprocess.STARTUPINFO()
+        startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+        startup.wShowWindow = 0
+    started = time.monotonic()
+    code: int | None = None
+    timed_out = False
+    with log_path.open("wb") as stream:
+        child = subprocess.Popen(
+            command, cwd=ROOT, env=env, stdout=stream, stderr=subprocess.STDOUT,
+            startupinfo=startup,
+        )
+        report["child_pid"] = child.pid
+        try:
+            code = child.wait(timeout=args.timeout)
+        except subprocess.TimeoutExpired:
+            timed_out = True
+            child.kill()
+            code = child.wait()
+    elapsed = time.monotonic() - started
+    report.update({
+        "status": "timeout" if timed_out else ("passed_exit_code" if code == 0 else "failed_exit_code"),
+        "elapsed_seconds": round(elapsed, 3),
+        "return_code_signed": code,
+        "return_code_unsigned32": unsigned32(code),
+        "timed_out": timed_out,
+        "log_path": str(log_path),
+        "log_sha256": sha256_bytes(log_path),
+        "verdict_inventory": {
+            "native_binary_executed": True,
+            "fresh_profile_used": True,
+            "probe_exit_zero": code == 0,
+            "timeout": timed_out,
+            "failure_markers_are_data_only": True,
+            "wrapper_causality": "UNPROVEN",
+        },
+    })
+    report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps({"run_name": args.run_name, "status": report["status"], "return_code_signed": code, "return_code_unsigned32": unsigned32(code), "diagnostic": str(report_path)}, indent=2), flush=True)
+    return 0 if code == 0 and not timed_out else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

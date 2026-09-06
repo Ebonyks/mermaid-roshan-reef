@@ -1,7 +1,7 @@
 class_name PictureGames
 extends RefCounted
 # Phase 7.4b: mechanical extraction of the 2D picture-game suite from
-# main.gd (snowman build/face/chase, garden, trampoline, slide GO screen,
+# main.gd (snowman build/face/chase, garden, trampoline, retired slide screen,
 # xmas, plus the shared mg2d canvas helpers and win/close flow). All
 # state stays on main (m.*); received by reference.
 
@@ -17,6 +17,8 @@ func _mg2d_open(kind: String) -> void:
 	if kind == "slide":
 		m._l2_start_slide()   # the rainbow slide uses the full Lagoon playground, never the retired card screen
 		return
+	m._navigation_push("picture_game", self,
+		Callable(self, "_mg2d_close"))
 	open_generation += 1
 	m._set_world_controls_enabled(false, "picture_game")
 	m.mg_kind = kind
@@ -82,14 +84,7 @@ func _mg2d_open(kind: String) -> void:
 	objective.size = Vector2(734, 88)
 	objective.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	m.mg["hud"] = objective
-	# A neutral doorway/back affordance so leaving never reads as failure.
-	var xb := Button.new()
-	xb.name = "PictureGameBackButton"
-	StorybookUI.style_back_button(xb, "Back to the castle")
-	xb.position = Vector2(1128, 26)
-	xb.pressed.connect(_mg2d_close)
-	m.mg2d_stage.add_child(xb)
-	m.mg["xbtn"] = xb
+	m.mg["xbtn"] = null
 	if kind == "snowman": _mg_build_snowman()
 	elif kind == "garden": _mg_build_garden()
 	elif kind == "trampoline": _mg_build_trampoline()
@@ -158,19 +153,6 @@ func _mg_artbtn(path: String, pos: Vector2, sz: Vector2) -> Button:
 	t.set_anchors_preset(Control.PRESET_FULL_RECT)
 	t.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	b.add_child(t)
-	m.mg2d_stage.add_child(b)
-	(m.mg["btns"] as Array).append(b)
-	return b
-
-
-func _mg_roundbtn(pos: Vector2, r: float, col: Color, txt: String = "") -> Button:
-	var b := Button.new()
-	b.position = pos - Vector2(r, r)
-	b.custom_minimum_size = Vector2(r * 2.0, r * 2.0)
-	b.size = Vector2(r * 2.0, r * 2.0)
-	b.text = txt
-	StorybookUI.style_picture_button(b, col, StorybookUI.PURPLE, int(r),
-		StorybookUI.ROLE_CHILD_CONTROL, 44)
 	m.mg2d_stage.add_child(b)
 	(m.mg["btns"] as Array).append(b)
 	return b
@@ -309,6 +291,7 @@ func _mg2d_finish_win(expected_root: Control, expected_generation: int) -> void:
 
 
 func _mg2d_close(expected_generation: int = -1) -> void:
+	m._navigation_remove("picture_game")
 	# A win schedules this close after its celebration. The child may use Back
 	# (or Pause -> Leave) and open another picture first. A delayed callback may
 	# only close the exact opening that won, never the child's newer activity.
@@ -424,7 +407,7 @@ func _mg_snow_ball_done() -> void:
 func _mg_snow_face_phase() -> void:
 	m.mg["phase"] = "face"
 	(m.mg["hud"] as Label).text = "Now give him a face! Tap the carrot and coal."
-	var carrot := _mg_artbtn("res://assets/mg/carrot.png", Vector2(360, 600), Vector2(150, 110))
+	var carrot := _mg_artbtn("res://assets/opera/worlds/widgets/widget_target_farmer_piece_0.png", Vector2(360, 600), Vector2(150, 110))
 	carrot.pressed.connect(func(): _mg_snow_face("carrot", carrot))
 	for i in range(2):
 		var coal := _mg_artbtn("res://assets/mg/coal.png",
@@ -440,7 +423,12 @@ func _mg_snow_face(_part: String, b: Button) -> void:
 	var head: Vector2 = m.mg.get("head_pos", Vector2(980, 210))
 	var bit: TextureRect
 	if _part == "carrot":
-		bit = _mg_sprite("res://assets/mg/carrot.png", head + Vector2(0, 14), Vector2(95, 60))
+		bit = _mg_sprite("res://assets/opera/worlds/widgets/widget_target_farmer_piece_0.png", head + Vector2(0, 14), Vector2(95, 60))
+		# Reuse the painted whole carrot, pointed outward from the face.
+		# Keep the existing center, bounds and collection anchor unchanged.
+		bit.pivot_offset = bit.size * 0.5
+		bit.rotation_degrees = -135.0
+		bit.set_meta("snowman_authored_rotation", bit.rotation)
 		m.mg["carrot_bit"] = bit
 	elif _part == "coal0":
 		bit = _mg_sprite("res://assets/mg/coal.png", head + Vector2(-24, -18), Vector2(42, 42))
@@ -518,8 +506,12 @@ func _mg_tick_snow_chase(delta: float) -> void:
 		var dx: float = nrx - rx
 		m.mg["run_x"] = nrx
 		for bit in _mg_snow_runner_bits():
-			(bit as Control).position.x += dx
-			(bit as Control).rotation = sin(float(m.mg["t"]) * 10.0) * 0.08   # frantic waddle
+			var runner_bit := bit as Control
+			runner_bit.position.x += dx
+			var authored_rotation: float = float(
+				runner_bit.get_meta("snowman_authored_rotation", 0.0))
+			runner_bit.rotation = authored_rotation \
+				+ sin(float(m.mg["t"]) * 10.0) * 0.08   # frantic waddle
 		# CHOMP: catch him and the biggest snowball disappears
 		if float(m.mg["bite_cool"]) <= 0.0 and absf(nrx - cx) < 95.0:
 			m.mg["bite_cool"] = 0.9
@@ -663,22 +655,42 @@ func _mg_garden_tap(i: int, b: Button) -> void:
 			_mg2d_feedback_burst(Vector2(x, GARDEN_SOIL_Y - 112.0),
 				Color(0.5, 0.76, 1.0), "garden_growth", 10, 88.0, 0.55)
 
-# ---- TRAMPOLINE: tap BOUNCE to jump up to the star ----
+# ---- TRAMPOLINE: tap the trampoline art to jump up to the star ----
 
 
 func _mg_build_trampoline() -> void:
 	m.mg["bounces"] = 0
 	m.mg["star_y"] = 90.0
-	(m.mg["hud"] as Label).text = "Tap JUMP to bounce up and TOUCH the star!"
+	(m.mg["hud"] as Label).text = "Tap the trampoline to bounce up and TOUCH the star!"
 	m.mg["star"] = _mg_sprite("res://assets/mg/star.png", Vector2(640, 90), Vector2(140, 140))
-	# trampoline (kept high enough that the JUMP button fits on the 1280x720 stage in landscape)
+	# trampoline (kept high enough for a clear 1280x720 landscape silhouette)
 	var tramp := _mg_circle(Vector2(640, 520), 200.0, Color(0.25, 0.5, 0.85))
 	tramp.size.y = 56.0
 	tramp.position = Vector2(640 - 200, 492)
+	tramp.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	m.mg["rest_y"] = 430.0
 	m.mg["roshan"] = _mg_sprite(m.skin_sprite_path(), Vector2(640, 430), Vector2(150, 190))
-	var b := _mg_roundbtn(Vector2(640, 648), 66.0, Color(0.3, 0.6, 1.0), "JUMP")
-	b.pressed.connect(_mg_tramp_tap)
+	var tramp_target := Control.new()
+	tramp_target.name = "TrampolineArtTarget"
+	tramp_target.position = Vector2(440.0, 430.0)
+	tramp_target.size = Vector2(400.0, 140.0)
+	tramp_target.mouse_filter = Control.MOUSE_FILTER_STOP
+	tramp_target.gui_input.connect(_mg_trampoline_gui_input)
+	m.mg2d_stage.add_child(tramp_target)
+	m.mg["trampoline_target"] = tramp_target
+
+
+func _mg_trampoline_gui_input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		var touch := event as InputEventScreenTouch
+		if touch.pressed:
+			_mg_tramp_tap()
+	elif event is InputEventMouseButton:
+		var mouse_button := event as InputEventMouseButton
+		if mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
+				and mouse_button.button_index == MOUSE_BUTTON_LEFT \
+				and mouse_button.pressed:
+			_mg_tramp_tap()
 
 
 func _mg_tramp_tap() -> void:
@@ -706,7 +718,7 @@ func _mg_tramp_tap() -> void:
 
 func _mg_build_slide() -> void:
 	m.mg["phase"] = "ready"
-	(m.mg["hud"] as Label).text = "Tap GO for the rainbow slide!"
+	(m.mg["hud"] as Label).text = "Tap the rainbow slide!"
 	# the rainbow slide bands (diagonal)
 	var cols := [Color(0.9, 0.2, 0.3), Color(1.0, 0.6, 0.2), Color(1.0, 0.9, 0.3), Color(0.3, 0.8, 0.4), Color(0.3, 0.6, 1.0), Color(0.6, 0.4, 0.9)]
 	for i in range(cols.size()):
@@ -717,8 +729,27 @@ func _mg_build_slide() -> void:
 		band.rotation = 0.5
 		m.mg2d_stage.add_child(band)
 	m.mg["roshan"] = _mg_sprite(m.skin_sprite_path(), Vector2(160, 150), Vector2(140, 180))
-	var b := _mg_roundbtn(Vector2(640, 650), 80.0, Color(1.0, 0.5, 0.7), "GO!")
-	b.pressed.connect(_mg_slide_go)
+	var slide_target := Control.new()
+	slide_target.name = "RainbowSlideArtTarget"
+	slide_target.position = Vector2(120.0, 140.0)
+	slide_target.size = Vector2(1040.0, 450.0)
+	slide_target.mouse_filter = Control.MOUSE_FILTER_STOP
+	slide_target.gui_input.connect(_mg_slide_gui_input)
+	m.mg2d_stage.add_child(slide_target)
+	m.mg["slide_target"] = slide_target
+
+
+func _mg_slide_gui_input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		var touch := event as InputEventScreenTouch
+		if touch.pressed:
+			_mg_slide_go()
+	elif event is InputEventMouseButton:
+		var mouse_button := event as InputEventMouseButton
+		if mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
+				and mouse_button.button_index == MOUSE_BUTTON_LEFT \
+				and mouse_button.pressed:
+			_mg_slide_go()
 
 
 func _mg_slide_go() -> void:

@@ -2,6 +2,8 @@
 
 > Historical baseline: this report predates the reconciled Racer, Geologist, Teacher and Opera Hall changes. Its captured verdicts remain unchanged as evidence for their recorded source revisions; they do not describe or accept the current dev-based candidate. See `design/OPERA_RACER_ENGINE_INTEGRATION_2026-09-05.md`, `design/GEOLOGIST_REBUILD_2026-09-05.md`, `design/TEACHER_LEARNING_ENGINE_2026-09-05.md`, `design/OPERA_TWO_ACT_PERFORMANCES_2026-09-05.md`, and `audit/minigame_art_quality_2026-09-05/current_scope_addendum.md` for later scope.
 
+[Current source follow-up](minigame_art_quality_2026-09-05/current_mechanics_followup.md) distinguishes current runtime flows and calibration from the historical findings below.
+
 **5 September 2026 · 14 live careers · 57 free-play phases · subjective editorial review**
 
 The rebuild has produced several distinct interactions: Detective's lens and evidence board, Ballerina's guided gestures, Boxer's telegraphed sparring, Astronaut's pipe puzzles, and Nursery's adaptive catching. Those are the strongest foundations for the next iteration. The main remaining weakness is inconsistency between those specialist interactions and the generic hold, circle, swipe, and glowing-answer tasks around them. In several careers, the painted room promises much more physical play than the activity delivers.

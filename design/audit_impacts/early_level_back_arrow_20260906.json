@@ -1,0 +1,103 @@
+{
+  "id": "early-level-back-arrow-20260906",
+  "scope": "Owner-requested replacement of Day One picture-card handoffs with the shared upper-right back arrow and a gentle red attention pulse after 15 seconds without interaction.",
+  "baseline": "7055d6769252f3db3f9436c509122e7575d2881a",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-UI-07",
+    "DL-AGE-01"
+  ],
+  "findings": [],
+  "no_findings_reason": "New owner-directed navigation behavior; this does not claim closure of existing game-wide navigation or voice findings.",
+  "files": [
+    "scripts/main.gd",
+    "scripts/navigation_controller.gd",
+    "scripts/pause_menu.gd",
+    "scripts/probe_day_one_handoffs.gd",
+    "scripts/probe_day_one_bathroom_integration.gd",
+    "scripts/probe_day_one_bathroom_shots.gd",
+    "scripts/probe_ui_system.gd",
+    "scripts/probe_day_one_d8_revisits.gd",
+    "scripts/probe_day_one_draft_integration.gd",
+    "scripts/probe_castle_pool_life_2d.gd"
+  ],
+  "validation": [
+    {
+      "command": "python -m gdtoolkit.parser <changed .gd files>; python tools/lint_inference.py <changed .gd files>",
+      "result": "PASS",
+      "evidence": "tmp/back-arrow-validation/final-static.log: parser and inference checks pass for all ten changed GDScript files."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless -s scripts/probe_day_one_handoffs.gd",
+      "result": "PASS",
+      "evidence": "tmp/back-arrow-validation/handoffs-pause.log: PASS failures=0 across four routes, timing, touch/hold reset, idle progress, focus/overlay ownership, real synchronous pause/resume and teardown."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "DOCAUTH 532/532 ALL OK; AUDITDEV ALL OK against baseline."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "tmp/back-arrow-validation/audit-tests.log: 51 tests OK."
+    },
+    {
+      "command": "GODOT=<official 4.7.2-stable> scripts/ci.sh",
+      "result": "FAIL",
+      "evidence": "tmp/back-arrow-validation/full-ci.log: all required static, asset, audio, import and 2D regression gates passed; all 78 trusted probes ran. First-run probe_audit had two linked Slide timing assertions (unchanged isolated recheck passed); probe_castle_pool_life_2d still required the intentionally removed picture card and is now updated. The clean import, 2D regression and all 78 trusted-probe rerun passes (record below); no original failure is erased."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless -s scripts/probe_day_one_draft_integration.gd -- --touch --classic-touch-test --day-one-draft-movies",
+      "result": "PASS",
+      "evidence": "tmp/back-arrow-validation/draft-enabled.log: real global-navigation press enters the pool; movie cancellation, boss lifecycle and Day Two terminal pass."
+    },
+    {
+      "command": "Godot 4.7.2-stable Mobile renderer -s scripts/probe_day_one_bathroom_shots.gd",
+      "result": "PASS",
+      "evidence": "tmp/back-arrow-validation/visual-glow.log: PASS failures=0; eleven 1280x720 Mobile captures. captures-glow/09_clean_pool_route.png and 10_idle_back_arrow.png inspected; corrected pointer and coral glow confirmed with live idle=16, no held touches/focus blocks. Rapid probe retains an older queued bathroom caption; this is not exact voice or child acceptance."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless -s scripts/probe_day_one_d8_revisits.gd",
+      "result": "PASS",
+      "evidence": "tmp/back-arrow-validation/probe_day_one_d8_revisits.log ALL OK."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless -s scripts/probe_day_one_bathroom_integration.gd",
+      "result": "FAIL",
+      "evidence": "One legacy post-Day-One save-normalization assertion fails; the failing assertion and DayOneDirector normalization are unchanged from baseline. New arrow source contract passes. This script is outside the trusted full-suite list. tmp/back-arrow-validation/baseline-bathroom.log reproduces that exact failure using the original baseline probe and unchanged DayOneDirector."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless -s scripts/probe_ui_system.gd -- --touch --classic-touch-test",
+      "result": "PASS",
+      "evidence": "tmp/back-arrow-validation/ui-system.log: ALL OK, including one global upper-right Menu/Back control across the shared overlays and picture games."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless -s scripts/probe_audit.gd -- --touch --classic-touch-test (isolated recheck)",
+      "result": "PASS",
+      "evidence": "tmp/back-arrow-validation/audit-recheck.log, exit 0, 25.1s. Initial full-ci run reported two linked Slide return/quarantine timing assertions; unchanged source passes the isolated recheck. Original failure remains recorded; exact topic CI is required before integration."
+    },
+    {
+      "command": "GODOT=<official 4.7.2-stable> bash tmp/back-arrow-validation/trusted-gameplay.sh",
+      "result": "PASS",
+      "evidence": "Exact unchanged import, 2D regression, and trusted-probe suffix from scripts/ci.sh SHA256 bbd661e55b6e77b29203963fefafdc276d2fe3204ed091f1770aa9ce1ce885a8; reuses the already-passed static gates. Output: tmp/back-arrow-validation/trusted-gameplay.log. Exit 0: import, game-wide 2D NO_REGRESSION and all 78 trusted probes pass. Combined with the unchanged static gates passed in full-ci.log, the required local validation is green. No assertion was skipped or weakened; picture-specific expectations now test the requested arrow behavior."
+    },
+    {
+      "command": "Reconcile origin/dev 64094fca00c9e1ef64b26e6568ad35c50d9cfca4; rerun parser, inference, authority/development and trusted gameplay gates",
+      "result": "PASS",
+      "evidence": "Clean merge of the separately integrated pool travel/contact repair; no overlapping edited files. tmp/back-arrow-validation/reconciled-static.log passes parser/inference for all changed scripts and document-authority/development gates. reconciled-gameplay.log exits 0: import, 2D NO_REGRESSION and all 78 probes pass, including the updated pool cleanup and arrow handoffs. Unchanged asset/static gates retain full-ci.log evidence. origin/dev re-fetched and remains 64094fca before integration."
+    },
+    {
+      "command": "GitHub Probe suite (graphics fork), feature commit 31e86591514d1658524760b80f739a615ddeba78",
+      "result": "PASS",
+      "evidence": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/34023004377 completed success: static, import, full analyzer, trusted probes, boot and visual captures. Incoming integration parent 64094fca00c9e1ef64b26e6568ad35c50d9cfca4 also passed https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/34023301469. These are parent-commit CI results; the combined reconciliation is locally validated as recorded above."
+    }
+  ],
+  "acceptance_gaps": "Mobile-renderer captures inspected locally; target-device, child and owner acceptance remain pending. Existing completion recordings are reused unchanged; an exact spoken back-arrow instruction is unavailable and remains open."
+}

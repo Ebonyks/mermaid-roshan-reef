@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "review_id": "current-publication-final-readonly-review-2026-09-06",
+  "status": "ACTIONABLE_INCONSISTENCIES_FOUND",
+  "scope": "Read-only bounded review of current minigame repair/visual reports, their exact historical capture/source bindings, and the two public capture archives while Full08 source remained frozen.",
+  "method": [
+    "Parsed both archive manifests and counted PNG file entries rather than run records.",
+    "Verified every archived file exists and matches the manifest SHA-256.",
+    "Cross-checked the Racer run05/run06, Teacher run03, and Geologist held-contact run02 review hashes against their exact archived run IDs.",
+    "Scanned current top-level reports for tmp-only references when an exact archived mapping exists.",
+    "Compared status prose in the publication consistency and repair queue records with later completed/rejected reviews."
+  ],
+  "capture_accounting": {
+    "current_capture_archive": {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/current-capture-archive.json",
+      "run_records": 7,
+      "png_entries": 94,
+      "archived_file_entries": 130,
+      "missing_or_hash_mismatched_files": 0
+    },
+    "continued_capture_archive": {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/continued-capture-archive.json",
+      "run_records": 4,
+      "png_entries": 38,
+      "archived_file_entries": 61,
+      "missing_or_hash_mismatched_files": 0
+    },
+    "combined_png_entries": 132,
+    "arithmetic": "94 + 38 = 132",
+    "main_report_claim_check": "PASS_WITH_EDITORIAL_NOTE",
+    "main_report_evidence": [
+      "design/MINIGAME_ART_AUDIT_2026-09-05.md:78 states 94 unedited PNGs across seven current-archive runs.",
+      "design/MINIGAME_ART_AUDIT_2026-09-05.md:95 states 38 exact PNGs across four continued-archive runs."
+    ],
+    "editorial_note": "The main report gives both correct component counts but does not print their combined total. Add '132 archived PNG file entries total' only if a headline aggregate is useful. The count is file entries, not unique visual states: some files are deliberately byte-identical, such as sampled finish/finish_settle pairs."
+  },
+  "binding_checks": [
+    {
+      "report": "audit/minigame_art_quality_2026-09-05/racer_mounting_repair_review.json",
+      "historical_capture_id": "current-racer/run05",
+      "capture_hashes_checked": 11,
+      "result": "PASS"
+    },
+    {
+      "report": "audit/minigame_art_quality_2026-09-05/racer_seating_followup_review.json",
+      "historical_capture_id": "current-racer/run06",
+      "capture_hashes_checked": 11,
+      "result": "PASS"
+    },
+    {
+      "report": "audit/minigame_art_quality_2026-09-05/teacher_pearl_repair_review.json",
+      "historical_capture_id": "current-opera/run03",
+      "capture_hashes_checked": 6,
+      "result": "PASS"
+    },
+    {
+      "report": "audit/minigame_art_quality_2026-09-05/geologist_held_contact_review.json",
+      "historical_capture_id": "geologist-held-contact/run02",
+      "capture_hashes_checked": 8,
+      "result": "PASS"
+    }
+  ],
+  "actionable_inconsistencies": [
+    {
+      "priority": "P1_PUBLICATION",
+      "file": "audit/minigame_art_quality_2026-09-05/racer_mounting_repair_review.json",
+      "field": "evidence.run05.path",
+      "current_value": "tmp/current-racer-run05/captures",
+      "exact_archived_equivalent": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run05/captures",
+      "evidence": "All eleven named run05 hashes match the continued-capture archive and archived files.",
+      "action": "Replace or supplement the tmp directory with the exact public archive directory; keep tmp as an original-capture provenance field only."
+    },
+    {
+      "priority": "P1_PUBLICATION",
+      "file": "audit/minigame_art_quality_2026-09-05/racer_mounting_repair_review.json",
+      "field": "evidence.comparison_run04.path",
+      "current_value": "tmp/current-racer-run04/captures",
+      "exact_archived_equivalent": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run04/captures",
+      "evidence": "Run04 is present in the current-capture archive with exact per-file hashes.",
+      "action": "Point the review to the archived comparison directory and retain the historical/nonacceptance status."
+    },
+    {
+      "priority": "P1_PUBLICATION",
+      "file": "audit/minigame_art_quality_2026-09-05/racer_seating_followup_review.json",
+      "field": "evidence.run06.capture_path",
+      "current_value": "tmp/current-racer-run06/captures",
+      "exact_archived_equivalent": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run06/captures",
+      "evidence": "The adjacent planned_archive_path omits '/captures', while all eleven run06 hashes match files in that archived captures directory.",
+      "action": "Promote the existing archive directory to the primary public capture path and relabel tmp as source/original provenance."
+    },
+    {
+      "priority": "P1_PUBLICATION",
+      "file": "audit/minigame_art_quality_2026-09-05/racer_seating_followup_review.json",
+      "field": "evidence.run05_comparison.capture_path",
+      "current_value": "tmp/current-racer-run05/captures",
+      "exact_archived_equivalent": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run05/captures",
+      "evidence": "The review already identifies run05 as rejected and its exact public archive exists.",
+      "action": "Use the archived directory for the comparison path while preserving the rejection status."
+    },
+    {
+      "priority": "P1_STATUS",
+      "file": "audit/minigame_art_quality_2026-09-05/publication_consistency_followup.json",
+      "field": "recommended_publication_order and parent_disposition",
+      "current_value": "Racer run05 remains pending / pending until its capture and independent review are complete.",
+      "current_fact": "Run05 is completed and rejected by racer_mounting_repair_review.json; run06 is completed and retained as a bounded seating improvement by racer_seating_followup_review.json.",
+      "action": "Replace the stale pending language with the two exact historical dispositions. Do not imply run06 accepts the full Racer surface."
+    },
+    {
+      "priority": "P1_STATUS",
+      "file": "audit/minigame_art_quality_2026-09-05/current_repair_queue.json",
+      "field": "rejected_trials[0]",
+      "current_value": "REJECTED_TRIAL_UNDER_RUN06_REVIEW; current run06 follow-up remains pending.",
+      "current_fact": "The same file later includes latest_racer_seating with run06 BOUNDED_IMPROVEMENT_RETAINED_BELOW_TARGET.",
+      "action": "Make the rejected-trial row internally consistent: preserve run05 rejection and state that run06 seating is retained below target with broader ownership/depth defects open."
+    },
+    {
+      "priority": "P2_TEXT_INTEGRITY",
+      "file": "audit/minigame_art_quality_2026-09-05/current_repair_queue.json",
+      "field": "geologist_held_contact_review.overall_score_from_source",
+      "current_value": "4.0 is the evidence fileâ€™s bounded summary only...",
+      "action": "Replace the mojibake sequence with a plain ASCII apostrophe or valid UTF-8 right apostrophe. Meaning is otherwise bounded correctly."
+    }
+  ],
+  "non_actionable_historical_tmp_references": [
+    {
+      "file": "audit/minigame_art_quality_2026-09-05/publication_consistency_followup.json",
+      "values": ["tmp/art-quality/garden_capture.gd", "tmp/art-quality/phase-1-brush-contact.png"],
+      "disposition": "Already classified as absent historical/external provenance rather than current acceptance; no exact archive mapping was found in the two current capture archives."
+    },
+    {
+      "files": ["audit/minigame_art_quality_2026-09-05/opera_findings.json", "audit/minigame_art_quality_2026-09-05/opera_review.md"],
+      "disposition": "External/wildcard historical capture pointers remain explicitly non-current and are not mistaken for public current evidence."
+    }
+  ],
+  "verified_consistencies": [
+    "The continued archive labels Racer run05 rejected, Geologist run01 instrumentation-invalid, and Geologist run02 valid; these agree with the main report.",
+    "Geologist held-contact review uses the requested evidence/geologist-held-contact/run02 publication layout, which resolves relative to its audit report directory, and all eight hashes match the durable archive.",
+    "Teacher run03 pearl review binds six exact archived images and keeps the claim limited to pearl sizing.",
+    "Racer run06 review keeps run05 rejected and limits run06 to a bounded seating improvement below the full art bar.",
+    "No reviewed report or archive establishes full motion, device, child, owner, game-wide 4.5, or master-audit closure."
+  ],
+  "acceptance_limit": "This is publication consistency and hash/path verification only. It does not assess art quality anew, validate Full08, accept any complete minigame family, or close the game-wide audit."
+}
