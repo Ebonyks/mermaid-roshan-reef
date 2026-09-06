@@ -1,0 +1,128 @@
+{
+  "method": "OpenAI built-in ImageGen; complete newly generated frames",
+  "disposition": "REVIEW_CANDIDATES_NOT_ACCEPTED",
+  "shot": "C2-03",
+  "timeline_index": 0,
+  "action_state": "pre-arrival initial pose",
+  "accepted_neighboring_references": [],
+  "human_review": "PENDING; assistant found scale/costume issues before owner review",
+  "delivery_accepted": false,
+  "inputs": [
+    {
+      "path": "assets_src/imagegen/chapter2_lawn_arrival_2026-09-06/lawn_reference_thumbnail.png",
+      "role": "whole-canvas normalized background reference; source is canonical lawn panorama",
+      "original_path": "assets_src/cinematics/chapter2_lawn_2026-09-06/references/lawn.png",
+      "sha256": "02dab210b9a65edb839b00773182b3d5e73d199a4821c559931a774d810f82cf"
+    },
+    {
+      "path": "assets_src/cinematics/chapter2_lawn_2026-09-06/characters/ember_king_v4.png",
+      "role": "owner-confirmed King identity",
+      "sha256": "422f7bd45a13f1d3c0304082727d72298e3bc01babd8919dc0c7e3e92777052c"
+    },
+    {
+      "path": "assets_src/cinematics/chapter2_lawn_2026-09-06/characters/ember_prince_identity.png",
+      "role": "recovered approved Prince identity",
+      "sha256": "95d5cf35321c87a1b5fae280a76a52fa7d3c6930e56503c10a4054c4c75169c4"
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "result_id": "exec-ccd66286-a301-4bfa-aa45-a9ee41a97306",
+      "path": "arrival_first_frame_candidate_01.png",
+      "prompt": "Generate ONE complete flattened 16:9 polished 2D storybook cinematic first-frame candidate for shot C2-03, Mermaid Roshan: Reef of Light. IMAGE 1 is the approved Sky Lagoon panorama: use the right edge of its central grassy lawn, lavender path below, rounded shrubs, turquoise sky and snowy mountain backdrop. Keep this established location and flat painted lighting, no playground equipment. IMAGE 2 is the exact approved Ember King V4: preserve the large left figure's stocky red turtle-dragon anatomy, cream muzzle, BOTH amber eyes fully visible, black short spiky mane, multi-pronged glowing obsidian crown, huge aubergine cape, charcoal armor, chain belt and natural spiked basalt shell. IMAGE 3 is the exact approved thin lanky Ember Prince: preserve asymmetrical black fringe, small basalt horns, coral-red scales, cream muzzle, amber eyes, long split dark coat, red scarf, heart clasp, slender trousers and boots; his full standing height is 80 percent of the King's. No redesign or age/proportion change. This is the instant BEFORE they enter the birthday gathering. Locked eye-level medium-wide camera looking across the right lawn edge; the celebration and its guests/table remain entirely OFFSCREEN LEFT. King stands in right half of frame, facing three-quarter LEFT, one foot poised to take his first step left, self-important theatrical expression, closed mouth. Prince is one step behind and slightly to the RIGHT of the King, attentive and sincerely hesitant, both whole figures distinct and unobscured, with generous margins around feet/crown/cape. Give them natural ground contact on grass beside the existing lavender path. Empty lawn fills left third so they can move into it. Prince watches his father, never an absent candle. The candle is NOT present or carried. No other characters, no cake, no invented party objects, no lettering, no panels, no HUD, no arrows, no watermark, no fire, no injury, no shell spin, no 3D or photorealism. Output a new complete full-frame illustration, not a collage or cutout composite. This is an unaccepted review candidate; all appearances must faithfully follow supplied source references.",
+      "review": "REJECTED: burgundy scarf missing and Prince apparent height approximately 88 percent of King instead of 80 percent; not a layout authority",
+      "subject_geometry": {
+        "king_bbox_pixels": [
+          680,
+          126,
+          1228,
+          692
+        ],
+        "prince_bbox_pixels": [
+          1228,
+          237,
+          1515,
+          740
+        ],
+        "measurement": "assistant approximate visual bounds; failed relative scale",
+        "position_guide": null
+      },
+      "sha256": "167e3ceebf604b9ddbf5e22f8eba480fb26a49717d84cf5864022471dc1b8495",
+      "prompt_sha256": "98e3f23dfc5a323a6c1e9bfdc8ed886e52063e5aa503fd10ded914e921a69420",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "native_preserved": true
+    },
+    {
+      "attempt": 2,
+      "result_id": "exec-21abfd34-631e-4b18-b6de-fd6d575acb55",
+      "path": "arrival_first_frame_candidate_02.png",
+      "prompt": "Generate ONE complete flattened 16:9 polished 2D storybook cinematic first-frame candidate for shot C2-03, Mermaid Roshan: Reef of Light. IMAGE 1 is the approved Sky Lagoon panorama: use the right edge of its central grassy lawn, lavender path below, rounded shrubs, turquoise sky and snowy mountain backdrop. Keep this established location and flat painted lighting, no playground equipment. IMAGE 2 is the exact approved Ember King V4: preserve the large left figure's stocky red turtle-dragon anatomy, cream muzzle, BOTH amber eyes fully visible, black short spiky mane, multi-pronged glowing obsidian crown, huge aubergine cape, charcoal armor, chain belt and natural spiked basalt shell. IMAGE 3 is the exact approved thin lanky Ember Prince: preserve asymmetrical black fringe, small basalt horns, coral-red scales, cream muzzle, amber eyes, long split dark coat, red scarf, heart clasp, slender trousers and boots; his full standing height is 80 percent of the King's. No redesign or age/proportion change. This is the instant BEFORE they enter the birthday gathering. Locked eye-level medium-wide camera looking across the right lawn edge; the celebration and its guests/table remain entirely OFFSCREEN LEFT. King stands in right half of frame, facing three-quarter LEFT, one foot poised to take his first step left, self-important theatrical expression, closed mouth. Prince is one step behind and slightly to the RIGHT of the King, attentive and sincerely hesitant, both whole figures distinct and unobscured, with generous margins around feet/crown/cape. Give them natural ground contact on grass beside the existing lavender path. Empty lawn fills left third so they can move into it. Prince watches his father, never an absent candle. The candle is NOT present or carried. No other characters, no cake, no invented party objects, no lettering, no panels, no HUD, no arrows, no watermark, no fire, no injury, no shell spin, no 3D or photorealism. Output a new complete full-frame illustration, not a collage or cutout composite. This is an unaccepted review candidate; all appearances must faithfully follow supplied source references.\nCRITICAL COSTUME AND SCALE CHECK: The Prince wears the exact visible BURGUNDY-RED cloth scarf wrapped around his neck from IMAGE 3, a triangular red fold over his upper chest above the glowing heart clasp. His neck must NOT be bare and the scarf must NOT turn black or merge into the coat. His long split coat is sleeveless as pictured. His natural top-to-sole height is exactly four fifths of King's crown-to-sole height, standing on the same ground plane. Approximate full-image normalized boxes: King x 0.40..0.73, y 0.13..0.75; Prince x 0.75..0.91, y 0.25..0.75. Preserve his slim adolescent/young adult proportions; do not make his head baby-like. These coordinates guide placement only; all visual identity comes from the original sheets. Deliver a complete newly generated frame, never edit or composite a cutout.",
+      "review": "REJECTED_FOR_BINDING: scarf corrected; Prince apparent height still approximately 87 percent of King instead of 80 percent. Further full-frame generation needed; no human approval inferred.",
+      "subject_geometry": {
+        "king_bbox_pixels": [
+          810,
+          88,
+          1330,
+          700
+        ],
+        "prince_bbox_pixels": [
+          1284,
+          207,
+          1535,
+          737
+        ],
+        "measurement": "assistant approximate visual bounds; failed relative scale",
+        "position_guide": null
+      },
+      "sha256": "eddfad6e614c3e0b070f46a0550e641256c8edeb0b3edb84e6d9583fc289c2ff",
+      "prompt_sha256": "1bcb7e72a9ea1648c7b01d24c007bac7bcb7a3054d4683dce9bc1abcc273f47c",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "native_preserved": true
+    },
+    {
+      "attempt": 3,
+      "result_id": "exec-6d14a71d-ef4b-4c55-b5fc-7d577a6de5bd",
+      "path": "arrival_first_frame_candidate_03.png",
+      "sha256": "09d0b51b642749b44a53eb739c1b48e801ebc7ea2f689a64a470c3e08265b132",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "native_preserved": true,
+      "prompt": "Generate ONE complete flattened 16:9 polished 2D storybook cinematic first-frame candidate for shot C2-03, Mermaid Roshan: Reef of Light. IMAGE 1 is the approved Sky Lagoon panorama: use the right edge of its central grassy lawn, lavender path below, rounded shrubs, turquoise sky and snowy mountain backdrop. Keep this established location and flat painted lighting, no playground equipment. IMAGE 2 is the exact approved Ember King V4: preserve the large left figure's stocky red turtle-dragon anatomy, cream muzzle, BOTH amber eyes fully visible, black short spiky mane, multi-pronged glowing obsidian crown, huge aubergine cape, charcoal armor, chain belt and natural spiked basalt shell. IMAGE 3 is the exact approved thin lanky Ember Prince: preserve asymmetrical black fringe, small basalt horns, coral-red scales, cream muzzle, amber eyes, long split dark coat, red scarf, heart clasp, slender trousers and boots; his full standing height is 80 percent of the King's. No redesign or age/proportion change. This is the instant BEFORE they enter the birthday gathering. Locked eye-level medium-wide camera looking across the right lawn edge; the celebration and its guests/table remain entirely OFFSCREEN LEFT. King stands in right half of frame, facing three-quarter LEFT, one foot poised to take his first step left, self-important theatrical expression, closed mouth. Prince is one step behind and slightly to the RIGHT of the King, attentive and sincerely hesitant, both whole figures distinct and unobscured, with generous margins around feet/crown/cape. Give them natural ground contact on grass beside the existing lavender path. Empty lawn fills left third so they can move into it. Prince watches his father, never an absent candle. The candle is NOT present or carried. No other characters, no cake, no invented party objects, no lettering, no panels, no HUD, no arrows, no watermark, no fire, no injury, no shell spin, no 3D or photorealism. Output a new complete full-frame illustration, not a collage or cutout composite. This is an unaccepted review candidate; all appearances must faithfully follow supplied source references.\nCRITICAL COSTUME AND SCALE CHECK: The Prince wears the exact visible BURGUNDY-RED cloth scarf wrapped around his neck from IMAGE 3, a triangular red fold over his upper chest above the glowing heart clasp. His neck must NOT be bare and the scarf must NOT turn black or merge into the coat. His long split coat is sleeveless as pictured. His natural top-to-sole height is exactly four fifths of King's crown-to-sole height, standing on the same ground plane. Approximate full-image normalized boxes: King x 0.40..0.73, y 0.13..0.75; Prince x 0.75..0.91, y 0.25..0.75. Preserve his slim adolescent/young adult proportions; do not make his head baby-like. These coordinates guide placement only; all visual identity comes from the original sheets. Deliver a complete newly generated frame, never edit or composite a cutout.\nIMAGE 4 is POSITION_GUIDE_ONLY. It is a disposable neutral-field bounding-box experiment, with no authority over anatomy, design, style, lighting, texture, shading or scene appearance. ALL appearance must come from the approved panorama and the two original character sheets, IMAGES 1, 2, 3. Do not copy, blend, trace or composite a single pixel of IMAGE 4 into the delivered image. Generate a new complete flattened frame. Follow the guide's bounding boxes and common foot line closely: the King's crown is y=.13, his feet y=.75; the Prince's horn tips are y=.254 and his boot soles are y=.75. Therefore the Prince is 80% of King's total height. Keep him slender and lanky, not a small child. Preserve the visible burgundy red neck scarf and both approved wardrobes exactly. No marks, coordinates, lines or labels may be visible in the generated image.",
+      "prompt_sha256": "c876ac91914c0101ff8b9bae52d537b0f6cd30920552b65aa5506496a2d3a953",
+      "review": "REJECTED_CONTROL_AND_IDENTITY_DRIFT: Prince apparent height approximately 91 percent of King; soles are at different image heights despite common-ground guide; Prince horns also enlarged. Guide experiment did not earn acceptance. No human acceptance inferred.",
+      "subject_geometry": {
+        "king_bbox_pixels": [
+          785,
+          87,
+          1332,
+          695
+        ],
+        "prince_bbox_pixels": [
+          1280,
+          210,
+          1600,
+          766
+        ],
+        "measurement": "assistant approximate visual bounds; failed guide position and relative scale",
+        "position_guide": {
+          "path": ".tmp/chapter2/arrival-position-guide.png",
+          "sha256": "718f3dec12f9554e30ba4c346d1e1d86dc8154a7ecedede7a745549636adcea6",
+          "role": "position_only",
+          "mode": "experimental neutral-field bounding boxes",
+          "used_as_delivery_pixels": false,
+          "appearance_authority": false,
+          "result": "FAILED; do not relax audit gates"
+        }
+      }
+    }
+  ]
+}

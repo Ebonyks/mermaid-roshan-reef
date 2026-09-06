@@ -79,7 +79,7 @@ func setup(main: ReefMain) -> void:
 	_build_table()
 	_build_slots()
 	_build_story_centerpieces()
-	_build_ember_visitor_stage()
+	# Visitors now belong to the Sky Lagoon lawn; no identity placeholders here.
 	refresh()
 
 

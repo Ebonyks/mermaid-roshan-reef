@@ -439,7 +439,7 @@ func next_party_act() -> int:
 
 
 func can_start_main_hall_party(room_id: String = "main_hall") -> bool:
-	return room_id == "main_hall" and party_is_ready() \
+	return room_id in ["main_hall", "sky_lagoon_lawn"] and party_is_ready() \
 		and not party_started and not ember_king_crashed
 
 
@@ -464,7 +464,9 @@ func start_main_hall_party(room_id: String = "main_hall") -> bool:
 
 
 func can_trigger_ember_king_crash(room_id: String = "main_hall") -> bool:
-	return room_id == "main_hall" and party_started and party_is_ready() \
+	return room_id == "sky_lagoon_lawn" and party_started and party_is_ready() \
+		and m.chapter2_lawn_started and m.chapter2_protection_rounds == 3 \
+		and m.chapter2_lawn_beat == 5 \
 		and candle_lit and party_event_phase >= PARTY_EVENT_SCOUT_SEEN \
 		and not ember_king_crashed
 
@@ -476,21 +478,20 @@ func trigger_ember_king_crash(room_id: String = "main_hall") -> bool:
 	# own birthday party. Roshan's cake, rocket, stuffies, and other completed
 	# preparations remain safe.
 	ember_king_crashed = true
-	# The runtime uses a deliberately non-identifying, code-native child-sized
-	# silhouette. Final transparent identity art remains owner-acceptance work.
+	# The Prince is present but objects to the theft; he does not take the candle.
 	ember_son_seen = true
 	party_event_phase = PARTY_EVENT_KING_TAKE_COMPLETE
 	candle_lit = false
 	candle_taken = true
-	story_complete = true
+	story_complete = false
 	var previous_objective := active_objective
 	_sync_objective()
 	_emit_once(EVENT_EMBER_KING_CRASHED, {
 		"room_id": room_id,
 		"actor": "ember_king",
-		"son": "ember_prince_identity_placeholder",
+		"son": "ember_prince",
 		"son_visible": true,
-		"son_identity_art_approved": false,
+		"son_identity_art_approved": true,
 		"next_arc_seed": "north_star_clue",
 		"candle": "rainbow_candle",
 		"candle_lit_before_crash": true,
@@ -519,6 +520,8 @@ func record_ember_scout() -> bool:
 func room_plot_action(room_id: String) -> String:
 	if not active:
 		return ""
+	if room_id == "main_hall" and party_is_ready():
+		return ACTION_START_BIRTHDAY_PARTY
 	match active_objective:
 		OBJECTIVE_FIND_RAINBOW_CANDLE:
 			if room_id == "library" and next_party_act() == ACT_DETECTIVE:
@@ -655,6 +658,11 @@ func _story_run_context() -> Dictionary:
 
 func serialize_state() -> Dictionary:
 	return {
+		"chapter2_lawn_started": m.chapter2_lawn_started,
+		"chapter2_lawn_beat": m.chapter2_lawn_beat,
+		"chapter2_protection_rounds": m.chapter2_protection_rounds,
+		"chapter2_protection_bumps": m.chapter2_protection_bumps,
+		"chapter2_protection_misses": m.chapter2_protection_misses,
 		"chapter2_active": active,
 		"chapter2_unlocked_opera_mask": unlocked_opera_mask,
 		"chapter2_skill_mask": skill_mask,
@@ -687,6 +695,11 @@ func restore_state(raw: Variant) -> void:
 
 func _normalise_state(source: Dictionary) -> void:
 	var normalised := normalise_save_patch(source, m.opera_stars)
+	m.chapter2_lawn_started = bool(normalised.get("chapter2_lawn_started", false))
+	m.chapter2_lawn_beat = int(normalised.get("chapter2_lawn_beat", 0))
+	m.chapter2_protection_rounds = int(normalised.get("chapter2_protection_rounds", 0))
+	m.chapter2_protection_bumps = int(normalised.get("chapter2_protection_bumps", 0))
+	m.chapter2_protection_misses = int(normalised.get("chapter2_protection_misses", 0))
 	active = bool(normalised.get("chapter2_active", false))
 	unlocked_opera_mask = int(normalised.get(
 		"chapter2_unlocked_opera_mask", 0))
@@ -836,11 +849,21 @@ static func normalise_save_patch(raw: Variant, opera_star_mask: int) -> Dictiona
 		and not king_crashed
 	var candle_taken := king_crashed
 	var story_complete := king_crashed
+	var protection := ChapterTwoEmberEncounter.normalise_checkpoint(
+		source, party_ready, party_started, story_complete)
+	if bool(protection["chapter2_lawn_started"]):
+		story_complete = king_crashed and int(protection["chapter2_lawn_beat"]) == 8
+		son_seen = int(protection["chapter2_lawn_beat"]) >= 2
 	var objective := _derived_objective_static(
 		chapter_active, all_tutorials_done, party_mask,
 		party_ready, party_started, king_crashed)
 	return {
 		"chapter2_active": chapter_active,
+		"chapter2_lawn_started": protection["chapter2_lawn_started"],
+		"chapter2_lawn_beat": protection["chapter2_lawn_beat"],
+		"chapter2_protection_rounds": protection["chapter2_protection_rounds"],
+		"chapter2_protection_bumps": protection["chapter2_protection_bumps"],
+		"chapter2_protection_misses": protection["chapter2_protection_misses"],
 		"chapter2_unlocked_opera_mask": unlocked_mask,
 		"chapter2_skill_mask": learned_mask,
 		"chapter2_active_objective": objective,

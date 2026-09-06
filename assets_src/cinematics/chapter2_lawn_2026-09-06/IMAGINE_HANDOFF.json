@@ -1,0 +1,28 @@
+{
+  "schema": "imagine-handoff-v1",
+  "movie_id": "chapter2_lawn",
+  "archive_status": "incomplete",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "draft_shot_packets": [
+    "shots/C2-01/SHOT_PACKET.json",
+    "shots/C2-02/SHOT_PACKET.json",
+    "shots/C2-03/SHOT_PACKET.json",
+    "shots/C2-04/SHOT_PACKET.json",
+    "shots/C2-05/SHOT_PACKET.json",
+    "shots/C2-06/SHOT_PACKET.json",
+    "shots/C2-07/SHOT_PACKET.json",
+    "shots/C2-08/SHOT_PACKET.json",
+    "shots/C2-09/SHOT_PACKET.json"
+  ],
+  "blocking_findings": [
+    "Archive content commit and remote verification pending.",
+    "All nine draft cards require individually generated, human-accepted clean first frames and image-binding review.",
+    "Draft cards are intentionally outside the executable shot_packets list; DRAFT_SHOT_AUDIT.json records every current readiness failure.",
+    "No generated cinematic delivery frames accepted."
+  ],
+  "archive_payload_manifest": "ARCHIVE_MANIFEST.json",
+  "shot_board": "SHOT_BOARD.png",
+  "status_scope": "This manifest registers a blocked preparation archive, not a ready generation job. Draft card failures are explicit and are not waived by the archive structural pass."
+}

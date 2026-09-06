@@ -35,10 +35,66 @@ func _init() -> void:
 	_audit_cake_visual_progression()
 	_audit_eight_career_sequence()
 	_audit_save_healing()
+	_audit_ember_protection_contract()
 
 	_print_result()
 	main.free()
 	quit(1 if checks_failed > 0 else 0)
+
+
+func _audit_ember_protection_contract() -> void:
+	var host := ReefMain.new()
+	host.chapter2_party_started = true
+	host.chapter2_candle_lit = true
+	var battle := ChapterTwoEmberEncounter.new(host)
+	var engine := battle.begin()
+	_check("Ember protection uses valid shared boss rules",
+		engine.profile.is_valid() and engine.profile.phases.size() == 3)
+	for round_index: int in range(3):
+		engine.begin_attack(Vector2.ZERO, Vector2(0.0, -12.0), 26.0)
+		var guard := 0
+		while engine.state == BossEncounter2D.State.TELL and guard < 4:
+			guard += 1
+			engine.tick_tell(10.0)
+			engine.begin_strike()
+			var safe: Vector2 = engine.patterns.readout().get("safe_point", Vector2.ZERO)
+			engine.resolve_impact(safe, Vector2(0.0, -12.0), 26.0)
+		_check("Ember round %d offers a counter after safe dodges" % round_index,
+			engine.state == BossEncounter2D.State.COUNTER_READY)
+		engine.open_counter()
+		_check("held and off-target input cannot protect a round",
+			not battle.accept_counter(false, true, true)
+			and not battle.accept_counter(true, false, true)
+			and not battle.accept_counter(true, true, false)
+			and host.chapter2_protection_rounds == round_index)
+		_check("one visible fresh counter saves exactly one protection round",
+			battle.accept_counter(true, true, true)
+			and host.chapter2_protection_rounds == round_index + 1
+			and not battle.accept_counter(true, true, true))
+		battle.teardown()
+		engine = battle.begin()
+		_check("Ember re-entry preserves completed rounds",
+			engine.completed_rounds == round_index + 1)
+	_check("protecting friends does not itself steal the candle or finish the story",
+		battle.friends_are_safe() and not host.chapter2_candle_taken
+		and not host.chapter2_story_complete)
+	var malformed := ChapterTwoEmberEncounter.normalise_checkpoint({
+		"chapter2_protection_rounds": true, "chapter2_protection_bumps": "8",
+		"chapter2_protection_misses": -1, "chapter2_lawn_started": "true",
+	}, true, true, false)
+	_check("Ember checkpoint rejects malformed types",
+		malformed["chapter2_protection_rounds"] == 0
+		and malformed["chapter2_protection_bumps"] == 0
+		and malformed["chapter2_protection_misses"] == 0
+		and not malformed["chapter2_lawn_started"])
+	var early := ChapterTwoEmberEncounter.normalise_checkpoint({
+		"chapter2_protection_rounds": 3, "chapter2_lawn_started": true,
+	}, false, false, false)
+	_check("Ember cannot pre-win before party preparation",
+		early["chapter2_protection_rounds"] == 0
+		and not early["chapter2_lawn_started"])
+	battle.teardown()
+	host.free()
 
 
 func _audit_boss_boundary() -> void:
@@ -329,7 +385,7 @@ func _audit_eight_career_sequence() -> void:
 	_check("party event phase stays at candle-found until ignition",
 		chapter_two.party_event_phase
 		== ChapterTwoDirector.PARTY_EVENT_CANDLE_FOUND)
-	_check("party cannot start outside the Main Hall",
+	_check("party cannot start in unrelated rooms",
 		not chapter_two.start_main_hall_party("library")
 		and not chapter_two.trigger_ember_king_crash("main_hall"))
 	_check("party ignition starts only after all eight milestones",
@@ -342,9 +398,9 @@ func _audit_eight_career_sequence() -> void:
 	var room_plot := ChapterTwoRoomPlot.new()
 	room_plot.setup(main)
 	room_plot.sync("main_hall", false)
-	_check("party sequence timing is owned by the live room plot",
-		room_plot.is_processing()
-		and bool(room_plot.get_meta("party_sequence_lifecycle_owned", false)))
+	_check("Main Hall offers the lawn route without advancing the story on a timer",
+		not room_plot.is_processing()
+		and room_plot.get_meta("party_sequence_route", "") == "sky_lagoon_lawn")
 	room_plot.sync("library", false)
 	_check("leaving Main Hall cancels party beat timing without progress",
 		not room_plot.is_processing()
@@ -355,7 +411,13 @@ func _audit_eight_career_sequence() -> void:
 		chapter_two.record_ember_scout()
 		and chapter_two.party_event_phase
 		== ChapterTwoDirector.PARTY_EVENT_SCOUT_SEEN)
-	var king_take_ok := chapter_two.trigger_ember_king_crash("main_hall")
+	main.chapter2_lawn_started = true
+	main.chapter2_lawn_beat = 5
+	_check("King theft rejects missing protection and Main Hall callers",
+		not chapter_two.trigger_ember_king_crash("sky_lagoon_lawn")
+		and not chapter_two.trigger_ember_king_crash("main_hall"))
+	main.chapter2_protection_rounds = 3
+	var king_take_ok := chapter_two.trigger_ember_king_crash("sky_lagoon_lawn")
 	_check("Ember King takes the lit candle for his birthday",
 		king_take_ok
 		and chapter_two.ember_king_crashed
@@ -364,16 +426,11 @@ func _audit_eight_career_sequence() -> void:
 		== ChapterTwoDirector.PARTY_EVENT_KING_TAKE_COMPLETE
 		and not chapter_two.candle_lit
 		and chapter_two.candle_taken
-		and chapter_two.story_complete)
+		and not chapter_two.story_complete)
 	var party_table := ChapterTwoPartyTable2D.new()
 	party_table.setup(main)
-	_check("the son beat is a visible code-native identity placeholder",
-		bool(party_table.get_meta("ember_son_visually_depicted", false))
-		and not bool(party_table.get_meta(
-			"ember_son_runtime_art_approved", true))
-		and bool(party_table.get_meta(
-			"ember_son_identity_acceptance_open", false))
-		and bool(party_table.get_meta("next_arc_clue_visible", false)))
+	_check("Main Hall does not reintroduce the departed Prince placeholder",
+		not bool(party_table.get_meta("ember_son_visually_depicted", true)))
 	_check("Ember take removes only the candle and leaves the cake",
 		bool(party_table.get_meta("rainbow_candle_taken", false))
 		and bool(party_table.get_meta("cake_remains_after_candle_taken", false))

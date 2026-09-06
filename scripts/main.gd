@@ -391,6 +391,13 @@ var chapter2_ember_son_seen: bool = false
 var chapter2_candle_lit: bool = false
 var chapter2_candle_taken: bool = false
 var chapter2_story_complete: bool = false
+var chapter2_lawn_started: bool = false
+var chapter2_lawn_beat: int = 0
+var chapter2_lawn_view: ChapterTwoLawnFinale2D = null
+var chapter2_lawn_layer: CanvasLayer = null
+var chapter2_protection_rounds: int = 0
+var chapter2_protection_bumps: int = 0
+var chapter2_protection_misses: int = 0
 var chapter2_event_seen: Dictionary = {}
 var chapter2_event_history: Array[Dictionary] = []
 var _chapter_two_director: ChapterTwoDirector = null
@@ -4533,17 +4540,25 @@ func _restore_slide_canvas_input_context(reason: StringName) -> void:
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_APPLICATION_FOCUS_OUT:
+			if is_instance_valid(chapter2_lawn_view):
+				chapter2_lawn_view.set_input_context(&"focus", true)
 			_lose_melody_input_context(MELODY_CONTEXT_FOCUS)
 			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_FOCUS)
 			_day_one_abort_boss_for_lifecycle()
 		NOTIFICATION_APPLICATION_PAUSED:
+			if is_instance_valid(chapter2_lawn_view):
+				chapter2_lawn_view.set_input_context(&"application", true)
 			_lose_melody_input_context(MELODY_CONTEXT_APPLICATION)
 			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_APPLICATION)
 			_day_one_abort_boss_for_lifecycle()
 		NOTIFICATION_APPLICATION_RESUMED:
+			if is_instance_valid(chapter2_lawn_view):
+				chapter2_lawn_view.set_input_context(&"application", false)
 			_restore_melody_input_context(MELODY_CONTEXT_APPLICATION)
 			_restore_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_APPLICATION)
 		NOTIFICATION_APPLICATION_FOCUS_IN:
+			if is_instance_valid(chapter2_lawn_view):
+				chapter2_lawn_view.set_input_context(&"focus", false)
 			_restore_melody_input_context(MELODY_CONTEXT_FOCUS)
 			_restore_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_FOCUS)
 		NOTIFICATION_WM_CLOSE_REQUEST:
@@ -5765,6 +5780,9 @@ func _touch_open_picture(picture_index: int) -> void:
 		_mg2d_open(String(PIC_GAME[art_key]))
 
 func _leave_current_activity() -> void:
+	if game == "chapter2_lawn":
+		_end_chapter2_lawn()
+		return
 	if game == "fairy_conservatory" and fairy_conservatory_handoff != null:
 		_end_fairy_conservatory_handoff("back")
 		return
@@ -7321,12 +7339,54 @@ func chapter2_activate_room_plot(room_id: String, plot_action: String) -> bool:
 				ChapterTwoDirector.ACT_BALLERINA, "playroom",
 				ChapterTwoDirector.PLOT_CONTEXT_STUFFIE_BALLET)
 		ChapterTwoDirector.ACTION_START_BIRTHDAY_PARTY:
-			if not director.start_main_hall_party(room_id):
-				return false
-			_chapter_two_sync_room_plot()
-			_write_save()
-			return true
+			return _start_chapter2_lawn()
 	return false
+
+
+func _start_chapter2_lawn() -> bool:
+	if not chapter2_party_is_ready() or not _chapter_two_live_castle_room("main_hall") \
+			or is_instance_valid(chapter2_lawn_view):
+		return false
+	chapter2_lawn_started = true
+	if chapter2_story_complete:
+		chapter2_lawn_beat = 8
+	elif chapter2_candle_taken:
+		chapter2_lawn_beat = maxi(chapter2_lawn_beat, 6)
+	elif chapter2_party_started:
+		chapter2_lawn_beat = maxi(chapter2_lawn_beat, 2 if chapter2_ember_scout_seen else 1)
+	_castle_rooms_ref().suspend()
+	game = "chapter2_lawn"
+	_play_music("opera_popstar")
+	_audio_ref()._set_ambience("level2")
+	_set_world_controls_enabled(false, "chapter2_lawn")
+	if hud_layer != null:
+		hud_layer.hide()
+	chapter2_lawn_layer = CanvasLayer.new()
+	chapter2_lawn_layer.name = "ChapterTwoLawnLayer"
+	chapter2_lawn_layer.layer = 18
+	add_child(chapter2_lawn_layer)
+	chapter2_lawn_view = ChapterTwoLawnFinale2D.new()
+	chapter2_lawn_layer.add_child(chapter2_lawn_view)
+	chapter2_lawn_view.setup(self, Callable(self, "_end_chapter2_lawn"))
+	_navigation_push("chapter2_lawn", self, Callable(self, "_end_chapter2_lawn"))
+	_write_save()
+	return true
+
+
+func _end_chapter2_lawn(_result: Variant = "back") -> void:
+	if not is_instance_valid(chapter2_lawn_view):
+		return
+	chapter2_lawn_view.teardown()
+	_audio_ref()._stop_active_speech()
+	chapter2_lawn_view = null
+	chapter2_lawn_layer.queue_free()
+	chapter2_lawn_layer = null
+	_navigation_remove("chapter2_lawn")
+	_set_world_controls_enabled(true, "chapter2_lawn")
+	game = "level2"
+	_castle_rooms_ref().resume("main_hall")
+	_chapter_two_sync_room_plot()
+	_write_save()
 
 
 func chapter2_record_party_contribution(act_index: int) -> bool:
@@ -9572,6 +9632,8 @@ func _tick_hints(delta: float) -> void:
 
 # ===================== MINIGAMES =====================
 func _clear_game() -> void:
+	if is_instance_valid(chapter2_lawn_view):
+		_end_chapter2_lawn()
 	var interrupted_day_one_boss: bool = game == "dustboss" \
 		and day_one_is_active() \
 		and not _day_one_ref().giant_dust_bunny_boss_defeated
@@ -10777,6 +10839,9 @@ func _process(delta: float) -> void:
 		pass   # the KartGame node ticks itself
 	elif game == "galaxy":
 		pass   # the GalaxyLevel node ticks itself
+	elif game == "chapter2_lawn":
+		if is_instance_valid(chapter2_lawn_view):
+			chapter2_lawn_view.tick(delta)
 	elif game == "fairy_conservatory":
 		if fairy_conservatory_handoff != null \
 				and is_instance_valid(fairy_conservatory_handoff) \
