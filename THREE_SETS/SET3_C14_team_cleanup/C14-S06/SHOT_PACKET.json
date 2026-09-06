@@ -1,0 +1,90 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C14",
+  "shot_id": "C14-S06",
+  "status": "DRAFT",
+  "duration_seconds": 6,
+  "fps": 24,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/D1-C14-S06_OPENING_candidate01.png",
+      "sha256": "13285ffdcc688046a7bc58862cd175279fa427517e1cbe8db0dd83ef0d3c067d",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/rainbow_bunny.png",
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_3",
+      "path": "references/daddy.png",
+      "sha256": "9d8c468a5195de6b038963e3b7b0a43fb271085c9b2992c749efaaf62ee9824a",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "pull_back",
+    "move_count": 1,
+    "description": "One gentle 4% pullback from a higher diagonal B-wide view during 0–4s, then locked 2s. No pan, orbit or second move."
+  },
+  "start_state": "The hall is already clean because S02–S05 completed the work. All five rest together beside the runner, tools lowered. The tiny friend is visibly included, with no giant boss. Dirty tool tips may be turned away, never silently turned pristine.",
+  "end_state": "Warm clean hall, unchanged purple-gold architecture and four correct emblems, open Royal arch. All five share the accomplishment. Sparse highlights sparkle only on clean pearl/gold edges. Hold two full seconds before a hard cut to clean gameplay.",
+  "cast": [
+    "Roshan",
+    "Daddy",
+    "Baby Eagle",
+    "Rumi",
+    "rainbow friend"
+  ],
+  "zone": "Broad screen-B clean-hall reveal, all four emblem doors and the open Royal stair arch; NOT a claimed full A+B panorama",
+  "must_move": "All five settle shoulder-to-shoulder around the tiny friend, looking with quiet pride at the already-clean hall. Start the single shallow pullback. Continue the same gentle pullback; keep all four small emblems and the Royal arch fixed in relation. Two or three small pearl-edge highlights glint, never a cleaning wave. Finish the pullback at only four percent wider. All tools are still; let the shared achievement read.",
+  "must_not_move": [
+    "Fixed screen-B topology: teddy, palette, single blue droplet, three pearls, then open Royal arch with short stairs, left to right; never a coral window on B",
+    "Same warm pearl/lavender storybook grade; architecture, emblems, runner and staircase never move or recolor",
+    "Roshan plain pink top/lavender tail; Daddy continuous rainbow mer-tail and glasses; Rumi long purple braid/mer-tail; Eagle true bird; no new costumes or limbs",
+    "Rainbow friend retains the source cloud-mound, broad spiral ears, red-orange forehead curl, white iridescent glint and pearl feet; total height at same floor depth no more than one quarter of Roshan, pending owner scale approval",
+    "Remove only inert litter, webs, wall smears and footprints; living puff creatures are never swept or blasted; no big boss remains",
+    "Cleaned zones remain clean; preserve dirt until shown physical contact removes it; no whole-room magical cleanup"
+  ],
+  "sound_intent": "Gentle settled room tone and a few delicate sparkle chimes, joyful but calm; no dialogue or music.",
+  "negative_constraints": [
+    "No magically disappearing dirt, new chandelier/window/banners/throne, four-door entire-castle claim, portal closure, fireworks curtain, neon grade, camera flying outside, extra characters, bunny growing, text or HUD."
+  ],
+  "prompt_path": "shots/C14-S06/PROMPT.txt",
+  "prompt_sha256": "8af276de2f6124e83188453adaf6477a17dada0ec116992bb8389db4e011ad78",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/D1-C14-S06_BOARD_candidate01.png",
+      "role": "narrative_storyboard",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "review_record": "generation_records/SOL_REVIEW.json",
+  "review_match": true,
+  "generation_provenance": {
+    "first_frame_record": "generation_records/D1-C14-S06_OPENING_candidate01.json",
+    "board_record": "generation_records/D1-C14-S06_BOARD_candidate01.json"
+  },
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

@@ -1,0 +1,117 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C13",
+  "shot_id": "D1-C13-S05",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 8,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/OWNER_C13-S05_SUDSY_OPENING_candidate02.png",
+      "sha256": "f65676310d8985f676363a381d075088b7e5d35be6f3313e798dbb63f1c16680",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/e585e52562_grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_3",
+      "path": "references/e488d7c300_rainbow_dust_bunny_concept.png",
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "description": "locked elevated front-right twenty-five-degree wide three-quarter view"
+  },
+  "must_move": "The four helpers remove foam together: Roshan wipes lower suds, Daddy brushes upper suds, grounded Eagle gives one clearing wingbeat, and Rumi directs one thin rinse away from Puff's face. Foam only recedes where touched.",
+  "must_not_move": [
+    "Use a clearly distinct elevated front-right camera but preserve the same actual arena and cast world positions: Roshan/Daddy on Puff's left, Rumi right, Eagle front. No actor teleports or mirrored room.",
+    "The opening foam coverage must match the preceding lather endpoint. Foam recedes monotonically through contact and rinse; the owner-directed removal of the outer giant dust form visibly continues through the final wipe/rinse and is fully absent by the final hold. This is a causal authored full-frame change, never a cross-dissolve, compositing shortcut, snap, pain beat or body explosion.",
+    "During coordinated removal, Rumi's thin stream visibly reaches upper-right body curls without crossing the face or ears, then stops before her hand lowers. No static pointing-only substitute.",
+    "Daddy retains his corrected two-hand handle grip behind the gold ferrule; bristles face Puff during contact and withdraw clear afterward. Roshan's blouse stays plain pink. All four helpers remain visible.",
+    "One small rainbow friend is revealed from the clearing, preserving actual rainbow body, spiral ears, forehead star and pearl feet. Maximum total friend height one sixth of the former giant body's total height, with no scale growth between reveal and settle. The endpoint contains exactly four helpers plus this one friend; the giant dust body's face and ears are absent.",
+    "No friend before target frame 132 (5.5s). No shell, cradle, egg, duplicate baby, abrupt pop-in, giant walk-off, body explosion, pain, additional spawn, room cleanup, identity drift or camera movement."
+  ],
+  "end_state": "All four helpers and exactly one happy tiny rainbow friend share the same two-window dusty attic arena; the former giant dust body, face and ears are completely absent after the causal final wipe/rinse.",
+  "negative_constraints": [
+    "Use a clearly distinct elevated front-right camera but preserve the same actual arena and cast world positions: Roshan/Daddy on Puff's left, Rumi right, Eagle front. No actor teleports or mirrored room.",
+    "The opening foam coverage must match the preceding lather endpoint. Foam recedes monotonically through contact and rinse; the owner-directed removal of the outer giant dust form visibly continues through the final wipe/rinse and is fully absent by the final hold. This is a causal authored full-frame change, never a cross-dissolve, compositing shortcut, snap, pain beat or body explosion.",
+    "During coordinated removal, Rumi's thin stream visibly reaches upper-right body curls without crossing the face or ears, then stops before her hand lowers. No static pointing-only substitute.",
+    "Daddy retains his corrected two-hand handle grip behind the gold ferrule; bristles face Puff during contact and withdraw clear afterward. Roshan's blouse stays plain pink. All four helpers remain visible.",
+    "One small rainbow friend is revealed from the clearing, preserving actual rainbow body, spiral ears, forehead star and pearl feet. Maximum total friend height one sixth of the former giant body's total height, with no scale growth between reveal and settle. The endpoint contains exactly four helpers plus this one friend; the giant dust body's face and ears are absent.",
+    "No friend before target frame 132 (5.5s). No shell, cradle, egg, duplicate baby, abrupt pop-in, giant walk-off, body explosion, pain, additional spawn, room cleanup, identity drift or camera movement."
+  ],
+  "prompt_path": "shots/D1-C13-S05/PROMPT.txt",
+  "prompt_sha256": "3054fbeb7c2691f3afc84bc13cdde687a46d4fffd6fd4bb9dca85a088affeb94",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/OWNER_C13-S05_ONE_FRIEND_REVEAL_BOARD_candidate01.png",
+      "used_as_pixel_reference": false,
+      "role": "narrative_storyboard"
+    }
+  ],
+  "storyboard_caveat": "Narrative order only, not accepted keyframes or scale/identity approval. The giant dust body, face and ears must clear completely as the single rainbow friend emerges; final count is four helpers plus one tiny friend, never two coexisting bunnies. Preserve both shell-topped arena windows and room-edge dust. Keep the complete friend at or below one sixth of the former giant height at equal depth, with canonical white pearl feet; the draft endpoint needs scale/foot refinement. Eagle must move continuously, never copy the board's abrupt position change. Keep wipe/rinse contact active until the outer form clears, then settle tools. Board and endpoint are review-only, never bound generation pixels.",
+  "game_asset_comparison": [
+    {
+      "source_path": "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/dusty_attic_arena_native_1254.png",
+      "path": "references/9cb4b02dc4_dusty_attic_arena_native_1254.png"
+    },
+    {
+      "source_path": "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/dusty_attic_arena_2048.png",
+      "path": "references/a6f4bb59df_dusty_attic_arena_2048.png"
+    },
+    {
+      "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png",
+      "path": "references/bdcf03aab9_dust_bunny_boss_laugh_vulnerable.png"
+    },
+    {
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "path": "references/69827625a8_roshan_base.png"
+    },
+    {
+      "source_path": "assets_src/cinematics/day_one_grok_handoff_v3_2026-09-04/scenes/D1-C01/visuals/handoff_art/characters/daddy_daddy_master.png",
+      "path": "references/2eda6f7676_daddy_daddy_master.png"
+    },
+    {
+      "source_path": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "path": "references/90c54412aa_baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png"
+    },
+    {
+      "source_path": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "path": "references/636ec38fd0_rumi_rumi_full_body_identity.png"
+    }
+  ],
+  "source_selection": {
+    "filename": null,
+    "range_half_open": null
+  },
+  "weak_source_frames": [],
+  "inspected_source_frames": [],
+  "source_visual_evidence": null,
+  "sol_first_frame_decision": "RECOMMEND_APPROVAL",
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

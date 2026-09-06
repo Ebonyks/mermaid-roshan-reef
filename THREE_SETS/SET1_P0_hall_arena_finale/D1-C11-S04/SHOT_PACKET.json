@@ -1,0 +1,153 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C11",
+  "shot_id": "D1-C11-S04",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/D1-C11-S04_OPENING_candidate03_DUSTY_ATTIC.png",
+      "sha256": "60bcf1e9c6fa307629b4625f3442691d74a1e8a59c4bcea6d97550d04b955d01",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/e585e52562_grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_3",
+      "path": "references/69827625a8_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "description": "locked"
+  },
+  "must_move": "Puff's soft shadow tightens on the flat stone as his complete body approaches it.",
+  "must_not_move": [
+    "Pastel stone octagon, two side shell windows, two pearl columns, centered chandelier, rear chests/shelves, cobwebs and lavender dust piles remain fixed.",
+    "No wood floor, pearl rails, rear round window, invented door, raised stage or flattened mound.",
+    "Exactly Puff and Roshan; no battle action, dust cloud, facial morph, extra ears, tools or camera move."
+  ],
+  "end_state": "One intact upright Grand Puff is grounded on the flat stone octagon with Roshan watching.",
+  "negative_constraints": [
+    "Pastel stone octagon, two side shell windows, two pearl columns, centered chandelier, rear chests/shelves, cobwebs and lavender dust piles remain fixed.",
+    "No wood floor, pearl rails, rear round window, invented door, raised stage or flattened mound.",
+    "Exactly Puff and Roshan; no battle action, dust cloud, facial morph, extra ears, tools or camera move."
+  ],
+  "prompt_path": "shots/D1-C11-S04/PROMPT.txt",
+  "prompt_sha256": "847f4e5444629fe8ad97b0427b66aae2d41a6ef4fa18f5efd15c18ca6e17722d",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/OWNER_C11-S04_BOARD_candidate01.png",
+      "used_as_pixel_reference": false,
+      "role": "narrative_storyboard"
+    }
+  ],
+  "storyboard_caveat": null,
+  "game_asset_comparison": [
+    {
+      "source_path": "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/dusty_attic_arena_native_1254.png",
+      "path": "references/9cb4b02dc4_dusty_attic_arena_native_1254.png"
+    },
+    {
+      "source_path": "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/references/owner_restored_arena/dusty_attic_arena_2048.png",
+      "path": "references/a6f4bb59df_dusty_attic_arena_2048.png"
+    },
+    {
+      "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png",
+      "path": "references/bdcf03aab9_dust_bunny_boss_laugh_vulnerable.png"
+    },
+    {
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "path": "references/69827625a8_roshan_base.png"
+    }
+  ],
+  "source_selection": {
+    "filename": "C11_S04_v1_grand_puff_lands_REGEN.mp4",
+    "range_half_open": [
+      24,
+      96
+    ],
+    "sha256": "ca10bed474db1b6ebce58b07e15900f215bb636cb433ee89c49ae20c049073c3"
+  },
+  "weak_source_frames": [
+    [
+      24,
+      96
+    ]
+  ],
+  "inspected_source_frames": [],
+  "source_visual_evidence": {
+    "source_path": "sources/C11_S04_v1_grand_puff_lands_REGEN.mp4",
+    "source_sha256": "ca10bed474db1b6ebce58b07e15900f215bb636cb433ee89c49ae20c049073c3",
+    "source_fps": 24,
+    "selected_range_half_open": [
+      24,
+      96
+    ],
+    "frames": [
+      {
+        "index": 24,
+        "time_seconds": 1.0,
+        "path": "audit/source_frames/D1-C11-S04/f0024.png",
+        "sha256": "4015c1de942a3d58b19b2f147c9a2345ea04408e17e69ce87a9b79f2222aeea5"
+      },
+      {
+        "index": 42,
+        "time_seconds": 1.75,
+        "path": "audit/source_frames/D1-C11-S04/f0042.png",
+        "sha256": "109a6def58de1d8070c31cb60345814db0ceaa3e8e42cd9b75c3e5154f1c10cb"
+      },
+      {
+        "index": 60,
+        "time_seconds": 2.5,
+        "path": "audit/source_frames/D1-C11-S04/f0060.png",
+        "sha256": "abf91269d9d16b9281bb8604a4bb6032848a75f728bac2baca8b14e69ba1588c"
+      },
+      {
+        "index": 78,
+        "time_seconds": 3.25,
+        "path": "audit/source_frames/D1-C11-S04/f0078.png",
+        "sha256": "988a308209f477329628f583a08ac67d642d028d3a3e4377567fb7531740741e"
+      },
+      {
+        "index": 95,
+        "time_seconds": 3.9583333333333335,
+        "path": "audit/source_frames/D1-C11-S04/f0095.png",
+        "sha256": "05594ae72e0eb972df6550f67208b05b12d2a18c1541a052dd2f0593c54f4cb5"
+      }
+    ],
+    "sheet": "audit/source_frames/D1-C11-S04/AUDIT_SAMPLES.jpg",
+    "role": "diagnostic_source_samples_only",
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "method": "Exact zero-based ffmpeg source-frame decode; sheet is whole-frame thumbnail arrangement with frame labels. No synthesized motion or subject repair."
+  },
+  "sol_first_frame_decision": "RECOMMEND_APPROVAL",
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

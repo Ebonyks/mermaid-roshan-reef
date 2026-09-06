@@ -1,0 +1,166 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C11",
+  "shot_id": "D1-C11-S02",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/OWNER_C11_S02_PORTAL_APPROACH_candidate02.png",
+      "sha256": "06560510c2ba6fcd6bc3ae23a5be1a89529693d751d5aef4e0d685539e6760d7",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/3259851060_roshan_swim_back.png",
+      "sha256": "325985106004ca6614370b4aa0eb988a911e385dd450612577f31afc65da6ba1",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "description": "locked child-height rear three-quarter view toward the actual royal arch"
+  },
+  "must_move": "She glides gently along the red runner toward the actual open purple-curtained arch with one smooth tail bend; the four floor traces remain still.",
+  "must_not_move": [
+    "Preserve the actual August 3 hall, red runner, staircase and open shell-crowned purple-curtained royal arch. No closed rainbow door, handle, mist barrier, added furnishings or architectural motion.",
+    "The visible small doorway order is pool blue droplet then bath three pearls, with the royal arch to their right; other room doors may remain offscreen, never relocated.",
+    "Exactly one child Roshan: brown curly hair with rainbow streak, crown, plain pink blouse, one iridescent lavender tail and rainbow fin. No legs, extra arms, adult scale or hand-to-fixture contact.",
+    "Camera fixed and genuinely rear-oblique; only Roshan approaches. Four floor traces do not drift, split or fly. She stops before the first step."
+  ],
+  "end_state": "Roshan rests at the royal stair foot, looking into the already-open corridor with hands clear and no threshold crossing.",
+  "negative_constraints": [
+    "Preserve the actual August 3 hall, red runner, staircase and open shell-crowned purple-curtained royal arch. No closed rainbow door, handle, mist barrier, added furnishings or architectural motion.",
+    "The visible small doorway order is pool blue droplet then bath three pearls, with the royal arch to their right; other room doors may remain offscreen, never relocated.",
+    "Exactly one child Roshan: brown curly hair with rainbow streak, crown, plain pink blouse, one iridescent lavender tail and rainbow fin. No legs, extra arms, adult scale or hand-to-fixture contact.",
+    "Camera fixed and genuinely rear-oblique; only Roshan approaches. Four floor traces do not drift, split or fly. She stops before the first step."
+  ],
+  "prompt_path": "shots/D1-C11-S02/PROMPT.txt",
+  "prompt_sha256": "c325d306d584f05181318cd9c0206f5c07a13c9019e85178930ab3164e5633e6",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/OWNER_C11_S02_APPROACH_BOARD_candidate01.png",
+      "used_as_pixel_reference": false,
+      "role": "narrative_storyboard"
+    }
+  ],
+  "storyboard_caveat": null,
+  "game_asset_comparison": [
+    {
+      "source_path": "assets_src/imagegen/castle_main_hall_redraw_2026-08-03/accepted_screen_a_native_1672x941.png",
+      "path": "references/6e840715f1_accepted_screen_a_native_1672x941.png"
+    },
+    {
+      "source_path": "assets_src/imagegen/castle_main_hall_redraw_2026-08-03/accepted_screen_b_native_1672x941.png",
+      "path": "references/7e77e4c29b_accepted_screen_b_native_1672x941.png"
+    },
+    {
+      "source_path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png",
+      "path": "references/22d9a3df8e_sign_playroom.png"
+    },
+    {
+      "source_path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_craft_room.png",
+      "path": "references/17ccf96d93_sign_craft_room.png"
+    },
+    {
+      "source_path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_mermaid_pool.png",
+      "path": "references/8ae6239cc8_sign_mermaid_pool.png"
+    },
+    {
+      "source_path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_bubble_bath.png",
+      "path": "references/3a43e1fc23_sign_bubble_bath.png"
+    },
+    {
+      "source_path": "scripts/arena/castle_rooms_25d.gd",
+      "path": "written_guide/8bbf9ec5a2_castle_rooms_25d.gd.txt"
+    },
+    {
+      "source_path": "scripts/castle_door_language.gd",
+      "path": "written_guide/20e166175a_castle_door_language.gd.txt"
+    },
+    {
+      "source_path": "assets/characters/roshan_25d/roshan_swim_back.png",
+      "path": "references/3259851060_roshan_swim_back.png"
+    }
+  ],
+  "source_selection": {
+    "filename": "C11_S02_v1_boss_door_approach_REGEN.mp4",
+    "range_half_open": [
+      24,
+      96
+    ],
+    "sha256": "9f3edde7c41613ac3823bd05c9a962049a2468961a9f45ff162a021a6c4e2a8f"
+  },
+  "weak_source_frames": [
+    [
+      24,
+      96
+    ]
+  ],
+  "inspected_source_frames": [],
+  "source_visual_evidence": {
+    "source_path": "sources/C11_S02_v1_boss_door_approach_REGEN.mp4",
+    "source_sha256": "9f3edde7c41613ac3823bd05c9a962049a2468961a9f45ff162a021a6c4e2a8f",
+    "source_fps": 24,
+    "selected_range_half_open": [
+      24,
+      96
+    ],
+    "frames": [
+      {
+        "index": 24,
+        "time_seconds": 1.0,
+        "path": "audit/source_frames/D1-C11-S02/f0024.png",
+        "sha256": "fd96132bc381f1fd2d3a886a4a096443266854bac0e10bdd9eda3146fad3b844"
+      },
+      {
+        "index": 42,
+        "time_seconds": 1.75,
+        "path": "audit/source_frames/D1-C11-S02/f0042.png",
+        "sha256": "4ef9bc02ec8615abe4d01dc10906496f61217d101847e412d2d459beb0ea38cb"
+      },
+      {
+        "index": 60,
+        "time_seconds": 2.5,
+        "path": "audit/source_frames/D1-C11-S02/f0060.png",
+        "sha256": "8074e778cb0ccf81668fd4eaadccbb119d10b48dd1c5d70469ce6e920810bf90"
+      },
+      {
+        "index": 78,
+        "time_seconds": 3.25,
+        "path": "audit/source_frames/D1-C11-S02/f0078.png",
+        "sha256": "a7aceedc8efbdf7f9540920a78ded7e9cc4451fb65877f156d4a8947b3568b24"
+      },
+      {
+        "index": 95,
+        "time_seconds": 3.9583333333333335,
+        "path": "audit/source_frames/D1-C11-S02/f0095.png",
+        "sha256": "4720988ee1c4e8c644a36167878a546e2b3433cf076b4a18cb935391199e51df"
+      }
+    ],
+    "sheet": "audit/source_frames/D1-C11-S02/AUDIT_SAMPLES.jpg",
+    "role": "diagnostic_source_samples_only",
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "method": "Exact zero-based ffmpeg source-frame decode; sheet is whole-frame thumbnail arrangement with frame labels. No synthesized motion or subject repair."
+  },
+  "sol_first_frame_decision": "RECOMMEND_APPROVAL",
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

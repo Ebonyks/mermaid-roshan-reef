@@ -1,0 +1,99 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C14",
+  "shot_id": "C14-S05",
+  "status": "DRAFT",
+  "duration_seconds": 6,
+  "fps": 24,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/D1-C14-S05_OPENING_candidate01.png",
+      "sha256": "af681b80dfd69e1fd482b6a0945c79e635b1b3b5930dc89d633f7d4f4ff3a65c",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/rainbow_bunny.png",
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_3",
+      "path": "references/brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "role": "object_or_material_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_4",
+      "path": "references/sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "role": "object_or_material_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "description": "Fixed diagonal medium-wide from the floor side of the runner, lower than S04 and closer than S01; keep all five and both tools readable. No camera movement."
+  },
+  "start_state": "All five form a shallow arc around the final short dirty runner-edge patch. Roshan's sponge is already at the first smudge, Daddy's correctly held brush faces loose grit, Rumi's hand is over the sponge, Eagle and the tiny friend flank the dry grit. Other three cleaned zones remain clean.",
+  "end_state": "The last local patch is clean after physical contact. Grime remains captured in the sponge/bristles as tools lift. Water and breeze cease; all five are unharmed and separate.",
+  "cast": [
+    "Roshan",
+    "Daddy",
+    "Baby Eagle",
+    "Rumi",
+    "rainbow friend"
+  ],
+  "zone": "B-right, last footprint-like smudges and loose inert grit at the Royal runner foot",
+  "must_move": "All five lean toward the same bounded patch. Rumi briefly dampens Roshan's sponge; Daddy aligns his bristles at its dry edge. In one coordinated pass, Roshan wipes the footprint smudge while Daddy brushes loose grit into his bristles beside her. Eagle gives one small directing wingbeat and the tiny friend nudges a single dry inert fleck a few centimeters toward the same brush with its rounded base/pearl feet. Contact visibly captures the dirt; no separate hero poses. Rumi's water and Eagle's flutter stop. Daddy and Roshan lift their dirty tools without releasing debris; all five turn their attention to the clean result.",
+  "must_not_move": [
+    "Fixed screen-B topology: teddy, palette, single blue droplet, three pearls, then open Royal arch with short stairs, left to right; never a coral window on B",
+    "Same warm pearl/lavender storybook grade; architecture, emblems, runner and staircase never move or recolor",
+    "Roshan plain pink top/lavender tail; Daddy continuous rainbow mer-tail and glasses; Rumi long purple braid/mer-tail; Eagle true bird; no new costumes or limbs",
+    "Rainbow friend retains the source cloud-mound, broad spiral ears, red-orange forehead curl, white iridescent glint and pearl feet; total height at same floor depth no more than one quarter of Roshan, pending owner scale approval",
+    "Remove only inert litter, webs, wall smears and footprints; living puff creatures are never swept or blasted; no big boss remains",
+    "Cleaned zones remain clean; preserve dirt until shown physical contact removes it; no whole-room magical cleanup"
+  ],
+  "sound_intent": "Overlapping gentle brush and sponge swishes with one soft wing flutter, a tiny happy chirp at completion; no words or music.",
+  "negative_constraints": [
+    "No solo portrait cuts inside this job, five independent attacks, bunny as mop/vacuum or with hands, disappearing grit before contact, giant Puff, new paper scrap, tools reversing, palette/portal swaps, flood, dissolve or instant castle-wide sparkle wipe."
+  ],
+  "prompt_path": "shots/C14-S05/PROMPT.txt",
+  "prompt_sha256": "d68669ba78c8d1a227e5e02c600fa6ebb34aa8443389a77f73b504aef69b51f4",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/D1-C14-S05_BOARD_candidate02.png",
+      "role": "narrative_storyboard",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "review_record": "generation_records/SOL_REVIEW.json",
+  "review_match": true,
+  "generation_provenance": {
+    "first_frame_record": "generation_records/D1-C14-S05_OPENING_candidate01.json",
+    "board_record": "generation_records/D1-C14-S05_BOARD_candidate02.json"
+  },
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

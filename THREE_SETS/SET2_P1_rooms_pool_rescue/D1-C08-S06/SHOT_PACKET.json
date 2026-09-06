@@ -1,0 +1,149 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C08",
+  "shot_id": "D1-C08-S06",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 5,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/LUNA_B_C08_S06_post_two_pin_eagle_OPENING_PENDING_HUMAN.png",
+      "sha256": "c54cebb63178909ca6fdedf34e93feb3c42c47aa1421cb115b9c42f8924cae11",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/90c54412aa_baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_3",
+      "path": "references/69827625a8_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "description": "locked"
+  },
+  "must_move": "Eagle opens both wings in one safe, broad celebratory wingbeat; feet remain grounded.",
+  "must_not_move": [
+    "Exactly Eagle and Roshan, zero visible bunnies or Puff in this framing.",
+    "Actual shell bench, toy bins, tents and arcade geography stay fixed.",
+    "No repeat rescue, dust blast, new cleanup, basket, four-bunny event or progress award."
+  ],
+  "end_state": "One recovered Eagle stands with folded wings beside Roshan in the clean Stuffie Room.",
+  "negative_constraints": [
+    "Exactly Eagle and Roshan, zero visible bunnies or Puff in this framing.",
+    "Actual shell bench, toy bins, tents and arcade geography stay fixed.",
+    "No repeat rescue, dust blast, new cleanup, basket, four-bunny event or progress award."
+  ],
+  "prompt_path": "shots/D1-C08-S06/PROMPT.txt",
+  "prompt_sha256": "60e8ce85ea9a0db0514c45a23a12ca9a415fd058c79d4e18fe951c68178c393a",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/LUNA_B_C08_S06_STORYBOARD_2x2_NARRATIVE_ONLY.png",
+      "used_as_pixel_reference": false,
+      "role": "narrative_storyboard"
+    }
+  ],
+  "storyboard_caveat": null,
+  "game_asset_comparison": [
+    {
+      "source_path": "assets/book/baby_eagle.png",
+      "path": "references/da8ead4677_baby_eagle.png"
+    },
+    {
+      "source_path": "assets/sprites/dust_bunnies/dust_bunny_idle.png",
+      "path": "references/0be27cef5f_dust_bunny_idle.png"
+    },
+    {
+      "source_path": "assets/flats/castle/rooms/room_playroom.png",
+      "path": "references/5c7797c3be_room_playroom.png"
+    }
+  ],
+  "source_selection": {
+    "filename": "grok-218500df-7547-4c84-a703-c8a0b8a954b7-720p.mp4",
+    "range_half_open": [
+      24,
+      180
+    ],
+    "sha256": "32c8898e6569ae9f6a749c8f2ede634c8a344a51d1b026f6c4106bf899654ce4"
+  },
+  "weak_source_frames": [
+    [
+      24,
+      180
+    ]
+  ],
+  "inspected_source_frames": [],
+  "source_visual_evidence": {
+    "source_path": "sources/grok-218500df-7547-4c84-a703-c8a0b8a954b7-720p.mp4",
+    "source_sha256": "32c8898e6569ae9f6a749c8f2ede634c8a344a51d1b026f6c4106bf899654ce4",
+    "source_fps": 24,
+    "selected_range_half_open": [
+      24,
+      180
+    ],
+    "frames": [
+      {
+        "index": 24,
+        "time_seconds": 1.0,
+        "path": "audit/source_frames/D1-C08-S06/f0024.png",
+        "sha256": "0b9f09466b771d441c42812e83e0c807a8f2ef382f960c2d04578f0d486f5f4c"
+      },
+      {
+        "index": 63,
+        "time_seconds": 2.625,
+        "path": "audit/source_frames/D1-C08-S06/f0063.png",
+        "sha256": "818a68fe6d68a9458476a6ef5783b68a65354c1c3e527e30043c84b98d2577f2"
+      },
+      {
+        "index": 102,
+        "time_seconds": 4.25,
+        "path": "audit/source_frames/D1-C08-S06/f0102.png",
+        "sha256": "0bf4af4d4392694331bb2c89f155cf1518d6a9ea069e1252ff0491e00d67ad02"
+      },
+      {
+        "index": 141,
+        "time_seconds": 5.875,
+        "path": "audit/source_frames/D1-C08-S06/f0141.png",
+        "sha256": "75406f69df6f3ac1fb7984c37b2535396d2cf5f871f3e6661cbc5be9c9627f63"
+      },
+      {
+        "index": 179,
+        "time_seconds": 7.458333333333333,
+        "path": "audit/source_frames/D1-C08-S06/f0179.png",
+        "sha256": "1ff6eb2daecd66e09c52418cf105009a1ba3ce7c5e2cd7be11986c315b70290e"
+      }
+    ],
+    "sheet": "audit/source_frames/D1-C08-S06/AUDIT_SAMPLES.jpg",
+    "role": "diagnostic_source_samples_only",
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "method": "Exact zero-based ffmpeg source-frame decode; sheet is whole-frame thumbnail arrangement with frame labels. No synthesized motion or subject repair."
+  },
+  "sol_first_frame_decision": "RECOMMEND_APPROVAL",
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

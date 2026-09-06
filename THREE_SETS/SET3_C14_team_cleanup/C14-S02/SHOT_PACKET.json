@@ -1,0 +1,87 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "D1-C14",
+  "shot_id": "C14-S02",
+  "status": "DRAFT",
+  "duration_seconds": 4,
+  "fps": 24,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "first_frames/D1-C14-S02_OPENING_candidate02.png",
+      "sha256": "8ca06ac43ff12d94e459bd615a6ee7cfd94024fb5ffb3cb8048ed4c7f1dc5d1d",
+      "role": "approved_clean_first_frame",
+      "role_status": "intended_role_pending_human_approval",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/roshan.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    },
+    {
+      "id": "IMAGE_3",
+      "path": "references/rainbow_bunny.png",
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "pending",
+      "source_authority_not_automatic_shot_approval": true
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "description": "Fixed floor-level medium two-shot, oblique toward the two left B thresholds. No camera movement."
+  },
+  "start_state": "One inert folded paper scrap lies between Roshan's waiting hand and the tiny rainbow friend. The sponge was safely set aside offscreen between shots. Relevant teddy and palette doors stay above and behind them, with Royal arch entirely outside this crop.",
+  "end_state": "The friend has nudged the scrap into Roshan's fingers; she lifts and retains it. The exact small floor patch is clean; no other zone changes.",
+  "cast": [
+    "Roshan",
+    "rainbow friend"
+  ],
+  "zone": "B-left, floor below teddy/playroom and palette/craft doors",
+  "must_move": "Roshan opens her free hand beside the single paper scrap. The bunny faces the scrap at the same floor depth. The bunny advances a few centimeters using its existing rounded base/pearl feet, physically nudging the paper toward her fingers; its body does not morph. Roshan closes her fingers on the paper and lifts it clear; the bunny stops with a happy small bob.",
+  "must_not_move": [
+    "Fixed screen-B topology: teddy, palette, single blue droplet, three pearls, then open Royal arch with short stairs, left to right; never a coral window on B",
+    "Same warm pearl/lavender storybook grade; architecture, emblems, runner and staircase never move or recolor",
+    "Roshan plain pink top/lavender tail; Daddy continuous rainbow mer-tail and glasses; Rumi long purple braid/mer-tail; Eagle true bird; no new costumes or limbs",
+    "Rainbow friend retains the source cloud-mound, broad spiral ears, red-orange forehead curl, white iridescent glint and pearl feet; total height at same floor depth no more than one quarter of Roshan, pending owner scale approval",
+    "Remove only inert litter, webs, wall smears and footprints; living puff creatures are never swept or blasted; no big boss remains",
+    "Cleaned zones remain clean; preserve dirt until shown physical contact removes it; no whole-room magical cleanup"
+  ],
+  "sound_intent": "A light paper rustle, one tiny friendly chirp and a soft happy breath; no words or music.",
+  "negative_constraints": [
+    "No bunny arms, humanoid legs, vacuum mouth, body used as a mop, creature-as-trash, magic paper disappearance, full-room clean wipe, new doors or characters."
+  ],
+  "prompt_path": "shots/C14-S02/PROMPT.txt",
+  "prompt_sha256": "8cb58ae7b0ddceb2186a169abf86732c948bc2fc212afda6bd4bbaf207005e00",
+  "non_pixel_references": [
+    {
+      "path": "storyboards/D1-C14-S02_BOARD_candidate02.png",
+      "role": "narrative_storyboard",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "review_record": "generation_records/SOL_REVIEW.json",
+  "review_match": true,
+  "generation_provenance": {
+    "first_frame_record": "generation_records/D1-C14-S02_OPENING_candidate02.json",
+    "board_record": "generation_records/D1-C14-S02_BOARD_candidate02.json"
+  },
+  "human_decision": "pending",
+  "generation_ready": false,
+  "delivery_accepted": false
+}

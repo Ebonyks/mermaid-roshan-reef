@@ -1,0 +1,920 @@
+{
+  "schema": "day-one-v4-c14-3sets-workplan-v1",
+  "publication_doc": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/d9e44a12761f76c910779eb5803721e8aedabae7/design/GROK_HANDOFF_PUBLICATION_2026-09-05.md",
+  "content_commit": "1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0",
+  "publication_commit": "d9e44a12761f76c910779eb5803721e8aedabae7",
+  "source_packets": {
+    "v4": "assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05",
+    "c14": "assets_src/cinematics/d1_c14_castle_team_cleanup_v1"
+  },
+  "claims": {
+    "archive_complete_remote": true,
+    "generation_ready": false,
+    "delivery_accepted": false,
+    "policy": "Generate only after owner approves exact first-frame filename+hash. Sol RECOMMEND_APPROVAL is not authorization."
+  },
+  "status": "STAGED_AWAITING_FIRST_FRAME_APPROVAL",
+  "staged_at": "2026-09-06T03:54:33.307062+00:00",
+  "totals": {
+    "v4_jobs": 16,
+    "c14_jobs": 6,
+    "total_jobs": 22,
+    "first_frames_staged": 22
+  },
+  "sets": {
+    "SET1_P0_hall_arena_finale": {
+      "description": "P0 owner-revised hall route + dusty arena + suds/rainbow-friend finale",
+      "clip_count": 6,
+      "shots": [
+        {
+          "shot_id": "D1-C11-S01",
+          "packet": "v4",
+          "title": "D1-C11-S01",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 4,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "locked low-left oblique view diagonally along the right-half hall"
+          },
+          "opening_candidate": {
+            "filename": "OWNER_C11_S01_LAYOUT_candidate02.png",
+            "sha256": "a6edd7964834cce678d1e32e5d28814895972caf1ef349291d5725b2067c266f",
+            "sha_verified": true,
+            "local_path": "first_frames/OWNER_C11_S01_LAYOUT_candidate02.png",
+            "set_local": "THREE_SETS/SET1_P0_hall_arena_finale/D1-C11-S01/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C11_S01_LAYOUT_candidate02.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C11-S02",
+          "packet": "v4",
+          "title": "D1-C11-S02",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 4,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "locked child-height rear three-quarter view toward the actual royal arch"
+          },
+          "opening_candidate": {
+            "filename": "OWNER_C11_S02_PORTAL_APPROACH_candidate02.png",
+            "sha256": "06560510c2ba6fcd6bc3ae23a5be1a89529693d751d5aef4e0d685539e6760d7",
+            "sha_verified": true,
+            "local_path": "first_frames/OWNER_C11_S02_PORTAL_APPROACH_candidate02.png",
+            "set_local": "THREE_SETS/SET1_P0_hall_arena_finale/D1-C11-S02/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C11_S02_PORTAL_APPROACH_candidate02.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C11-S03",
+          "packet": "v4",
+          "title": "D1-C11-S03",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 3,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "locked"
+          },
+          "opening_candidate": {
+            "filename": "D1-C11-S03_OPENING_candidate02_DUSTY_ATTIC.png",
+            "sha256": "9480be180aa5810655c0b10be8714c66af4ae44a94a5a628d997905dbfe025b7",
+            "sha_verified": true,
+            "local_path": "first_frames/D1-C11-S03_OPENING_candidate02_DUSTY_ATTIC.png",
+            "set_local": "THREE_SETS/SET1_P0_hall_arena_finale/D1-C11-S03/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C11-S03_OPENING_candidate02_DUSTY_ATTIC.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C11-S04",
+          "packet": "v4",
+          "title": "D1-C11-S04",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 4,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "locked"
+          },
+          "opening_candidate": {
+            "filename": "D1-C11-S04_OPENING_candidate03_DUSTY_ATTIC.png",
+            "sha256": "60bcf1e9c6fa307629b4625f3442691d74a1e8a59c4bcea6d97550d04b955d01",
+            "sha_verified": true,
+            "local_path": "first_frames/D1-C11-S04_OPENING_candidate03_DUSTY_ATTIC.png",
+            "set_local": "THREE_SETS/SET1_P0_hall_arena_finale/D1-C11-S04/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C11-S04_OPENING_candidate03_DUSTY_ATTIC.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C13-S04",
+          "packet": "v4",
+          "title": "D1-C13-S04",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 5,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "push_in",
+            "move_count": 1,
+            "description": "one gentle push-in under four percent from a low front-left thirty-degree view"
+          },
+          "opening_candidate": {
+            "filename": "OWNER_C13-S04_SUDS_OPENING_candidate01.png",
+            "sha256": "ae62b81dc9e8ef6cc6173f678833e6f0a0104bdb0550e08893628fa8bc95d95a",
+            "sha_verified": true,
+            "local_path": "first_frames/OWNER_C13-S04_SUDS_OPENING_candidate01.png",
+            "set_local": "THREE_SETS/SET1_P0_hall_arena_finale/D1-C13-S04/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C13-S04_SUDS_OPENING_candidate01.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C13-S05",
+          "packet": "v4",
+          "title": "D1-C13-S05",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 8,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "locked elevated front-right twenty-five-degree wide three-quarter view"
+          },
+          "opening_candidate": {
+            "filename": "OWNER_C13-S05_SUDSY_OPENING_candidate02.png",
+            "sha256": "f65676310d8985f676363a381d075088b7e5d35be6f3313e798dbb63f1c16680",
+            "sha_verified": true,
+            "local_path": "first_frames/OWNER_C13-S05_SUDSY_OPENING_candidate02.png",
+            "set_local": "THREE_SETS/SET1_P0_hall_arena_finale/D1-C13-S05/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/OWNER_C13-S05_SUDSY_OPENING_candidate02.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        }
+      ]
+    },
+    "SET2_P1_rooms_pool_rescue": {
+      "description": "P1 early rooms, pool, post-rescue wingbeat, art desk",
+      "clip_count": 10,
+      "shots": [
+        {
+          "shot_id": "D1-C01-S04",
+          "packet": "v4",
+          "title": "D1-C01-S04",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 3,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "locked"
+          },
+          "opening_candidate": {
+            "filename": "D1-C01-S04_OPENING_candidate04_SKY_LAGOON.png",
+            "sha256": "c6f0e578f84dffb69364e8481be8de99fac02bed8b04a998c36cc8c13525d091",
+            "sha_verified": true,
+            "local_path": "first_frames/D1-C01-S04_OPENING_candidate04_SKY_LAGOON.png",
+            "set_local": "THREE_SETS/SET2_P1_rooms_pool_rescue/D1-C01-S04/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C01-S04_OPENING_candidate04_SKY_LAGOON.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C03-S02",
+          "packet": "v4",
+          "title": "D1-C03-S02",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 3,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "locked"
+          },
+          "opening_candidate": {
+            "filename": "luna_a_C03-S02_threshold_attempt02_ROSHAN_ALONE_DIRTY.png",
+            "sha256": "a5316be4d62c07cdcc9654e9f02dda5205a1726966c586af4951403e79f780c7",
+            "sha_verified": true,
+            "local_path": "first_frames/luna_a_C03-S02_threshold_attempt02_ROSHAN_ALONE_DIRTY.png",
+            "set_local": "THREE_SETS/SET2_P1_rooms_pool_rescue/D1-C03-S02/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/luna_a_C03-S02_threshold_attempt02_ROSHAN_ALONE_DIRTY.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C03-S03",
+          "packet": "v4",
+          "title": "D1-C03-S03",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 3,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "locked"
+          },
+          "opening_candidate": {
+            "filename": "luna_a_C03-S03_swimming_bunny_attempt02_DIRTY_MURKY.png",
+            "sha256": "ad731205c722ff37ec749750871e7e30051cb187a36fd43cf05cd3f676347ea6",
+            "sha_verified": true,
+            "local_path": "first_frames/luna_a_C03-S03_swimming_bunny_attempt02_DIRTY_MURKY.png",
+            "set_local": "THREE_SETS/SET2_P1_rooms_pool_rescue/D1-C03-S03/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/luna_a_C03-S03_swimming_bunny_attempt02_DIRTY_MURKY.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C03-S04",
+          "packet": "v4",
+          "title": "D1-C03-S04",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 3,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "locked"
+          },
+          "opening_candidate": {
+            "filename": "luna_a_C03-S04_precontact_reach.png",
+            "sha256": "85935bf017b2693bd1e55f85d4f0b65cb71e1eedbf2a091575842c3d5a0749c9",
+            "sha_verified": true,
+            "local_path": "first_frames/luna_a_C03-S04_precontact_reach.png",
+            "set_local": "THREE_SETS/SET2_P1_rooms_pool_rescue/D1-C03-S04/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/luna_a_C03-S04_precontact_reach.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C05-S01",
+          "packet": "v4",
+          "title": "D1-C05-S01",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 4,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "locked"
+          },
+          "opening_candidate": {
+            "filename": "LUNA_B_C05_S01_dirty_wide_OPENING_PENDING_HUMAN.png",
+            "sha256": "4fe31121f25bb42c76f75cfe23857691b87353a312532b39dd680df4b2d5d0b9",
+            "sha_verified": true,
+            "local_path": "first_frames/LUNA_B_C05_S01_dirty_wide_OPENING_PENDING_HUMAN.png",
+            "set_local": "THREE_SETS/SET2_P1_rooms_pool_rescue/D1-C05-S01/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/LUNA_B_C05_S01_dirty_wide_OPENING_PENDING_HUMAN.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C05-S03",
+          "packet": "v4",
+          "title": "D1-C05-S03",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 4,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "locked"
+          },
+          "opening_candidate": {
+            "filename": "LUNA_B_C05_S03_skimmer_OPENING_PENDING_HUMAN.png",
+            "sha256": "939e83a8a06e195f57e748e392b338c8d65d66da67d74b80f73abddde6d98766",
+            "sha_verified": true,
+            "local_path": "first_frames/LUNA_B_C05_S03_skimmer_OPENING_PENDING_HUMAN.png",
+            "set_local": "THREE_SETS/SET2_P1_rooms_pool_rescue/D1-C05-S03/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/LUNA_B_C05_S03_skimmer_OPENING_PENDING_HUMAN.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C06-S05",
+          "packet": "v4",
+          "title": "D1-C06-S05",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 5,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "locked"
+          },
+          "opening_candidate": {
+            "filename": "LUNA_B_C06_S05_two_fronts_OPENING_PENDING_HUMAN.png",
+            "sha256": "284d6481f04c64d9bf4280ddeae8eedc3e2359611c21e7c6000ee792ed57e2f4",
+            "sha_verified": true,
+            "local_path": "first_frames/LUNA_B_C06_S05_two_fronts_OPENING_PENDING_HUMAN.png",
+            "set_local": "THREE_SETS/SET2_P1_rooms_pool_rescue/D1-C06-S05/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/LUNA_B_C06_S05_two_fronts_OPENING_PENDING_HUMAN.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C08-S06",
+          "packet": "v4",
+          "title": "D1-C08-S06",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 5,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "locked"
+          },
+          "opening_candidate": {
+            "filename": "LUNA_B_C08_S06_post_two_pin_eagle_OPENING_PENDING_HUMAN.png",
+            "sha256": "c54cebb63178909ca6fdedf34e93feb3c42c47aa1421cb115b9c42f8924cae11",
+            "sha_verified": true,
+            "local_path": "first_frames/LUNA_B_C08_S06_post_two_pin_eagle_OPENING_PENDING_HUMAN.png",
+            "set_local": "THREE_SETS/SET2_P1_rooms_pool_rescue/D1-C08-S06/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/LUNA_B_C08_S06_post_two_pin_eagle_OPENING_PENDING_HUMAN.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C09-S03",
+          "packet": "v4",
+          "title": "D1-C09-S03",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 4,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "locked elevated front-left three-quarter"
+          },
+          "opening_candidate": {
+            "filename": "D1-C09-S03_OPENING_candidate02_ANGLE.png",
+            "sha256": "4d8c103a0a4ffdd533704757c746f1a3989c9033c5aeb0e8e77100ffc06a45e6",
+            "sha_verified": true,
+            "local_path": "first_frames/D1-C09-S03_OPENING_candidate02_ANGLE.png",
+            "set_local": "THREE_SETS/SET2_P1_rooms_pool_rescue/D1-C09-S03/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C09-S03_OPENING_candidate02_ANGLE.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "D1-C10-S05",
+          "packet": "v4",
+          "title": "D1-C10-S05",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "RECOMMEND_APPROVAL",
+          "duration_seconds": 3,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "locked child-eye front-right aisle three-quarter"
+          },
+          "opening_candidate": {
+            "filename": "D1-C10-S05_OPENING_candidate02_ANGLE.png",
+            "sha256": "2c6b143ce588f9bc39efa1548e4d5d605863cff601e2f5d15de34dd305499a86",
+            "sha_verified": true,
+            "local_path": "first_frames/D1-C10-S05_OPENING_candidate02_ANGLE.png",
+            "set_local": "THREE_SETS/SET2_P1_rooms_pool_rescue/D1-C10-S05/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/day_one_grok_handoff_v4_2026-09-05/first_frames/D1-C10-S05_OPENING_candidate02_ANGLE.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "FRAME_PROMPTS.txt",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        }
+      ]
+    },
+    "SET3_C14_team_cleanup": {
+      "description": "C14 castle team cleanup coda (6 shots, 31s) after friendship reveal",
+      "clip_count": 6,
+      "shots": [
+        {
+          "shot_id": "C14-S01",
+          "packet": "c14",
+          "title": "C14-S01",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "PENDING",
+          "duration_seconds": 5,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "Fixed child-height oblique wide. No camera movement."
+          },
+          "opening_candidate": {
+            "filename": "D1-C14-S01_OPENING_candidate04.png",
+            "sha256": "368fa769d410e43a3f7ef84066a5c0c2ab2c2bb53aec87230fca3a19c343293a",
+            "sha_verified": true,
+            "local_path": "first_frames/D1-C14-S01_OPENING_candidate04.png",
+            "set_local": "THREE_SETS/SET3_C14_team_cleanup/C14-S01/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S01_OPENING_candidate04.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "C14-S02",
+          "packet": "c14",
+          "title": "C14-S02",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "PENDING",
+          "duration_seconds": 4,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "Fixed floor-level medium two-shot, oblique toward the two left B thresholds. No camera movement."
+          },
+          "opening_candidate": {
+            "filename": "D1-C14-S02_OPENING_candidate02.png",
+            "sha256": "8ca06ac43ff12d94e459bd615a6ee7cfd94024fb5ffb3cb8048ed4c7f1dc5d1d",
+            "sha_verified": true,
+            "local_path": "first_frames/D1-C14-S02_OPENING_candidate02.png",
+            "set_local": "THREE_SETS/SET3_C14_team_cleanup/C14-S02/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S02_OPENING_candidate02.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "C14-S03",
+          "packet": "c14",
+          "title": "C14-S03",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "PENDING",
+          "duration_seconds": 5,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "Fixed low three-quarter medium-wide, looking upward just enough to include the column web and Daddy's complete mer-tail. No camera movement."
+          },
+          "opening_candidate": {
+            "filename": "D1-C14-S03_OPENING_candidate01.png",
+            "sha256": "bd86816b3970abc3d8388d359e99b4fae445ca7ecde4856bdda9bbefb4ee09d8",
+            "sha_verified": true,
+            "local_path": "first_frames/D1-C14-S03_OPENING_candidate01.png",
+            "set_local": "THREE_SETS/SET3_C14_team_cleanup/C14-S03/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S03_OPENING_candidate01.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "C14-S04",
+          "packet": "c14",
+          "title": "C14-S04",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "PENDING",
+          "duration_seconds": 5,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "Fixed elevated oblique medium two-shot looking down toward the low wall and sponge contact. No camera movement."
+          },
+          "opening_candidate": {
+            "filename": "D1-C14-S04_OPENING_candidate02.png",
+            "sha256": "06b12cb4c9163d8d6d2d893538d2fb7ab80d8c03a9e5699414058252e0cf1946",
+            "sha_verified": true,
+            "local_path": "first_frames/D1-C14-S04_OPENING_candidate02.png",
+            "set_local": "THREE_SETS/SET3_C14_team_cleanup/C14-S04/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S04_OPENING_candidate02.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "C14-S05",
+          "packet": "c14",
+          "title": "C14-S05",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "PENDING",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "locked",
+            "move_count": 0,
+            "description": "Fixed diagonal medium-wide from the floor side of the runner, lower than S04 and closer than S01; keep all five and both tools readable. No camera movement."
+          },
+          "opening_candidate": {
+            "filename": "D1-C14-S05_OPENING_candidate01.png",
+            "sha256": "af681b80dfd69e1fd482b6a0945c79e635b1b3b5930dc89d633f7d4f4ff3a65c",
+            "sha_verified": true,
+            "local_path": "first_frames/D1-C14-S05_OPENING_candidate01.png",
+            "set_local": "THREE_SETS/SET3_C14_team_cleanup/C14-S05/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S05_OPENING_candidate01.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        },
+        {
+          "shot_id": "C14-S06",
+          "packet": "c14",
+          "title": "C14-S06",
+          "human_approval_pending": true,
+          "generation_status": "BLOCKED_PENDING_FIRST_FRAME_APPROVAL",
+          "sol_decision": "PENDING",
+          "duration_seconds": 6,
+          "aspect_ratio": "16:9",
+          "mode": "image_to_video",
+          "camera": {
+            "verb": "pull_back",
+            "move_count": 1,
+            "description": "One gentle 4% pullback from a higher diagonal B-wide view during 0\u20134s, then locked 2s. No pan, orbit or second move."
+          },
+          "opening_candidate": {
+            "filename": "D1-C14-S06_OPENING_candidate01.png",
+            "sha256": "13285ffdcc688046a7bc58862cd175279fa427517e1cbe8db0dd83ef0d3c067d",
+            "sha_verified": true,
+            "local_path": "first_frames/D1-C14-S06_OPENING_candidate01.png",
+            "set_local": "THREE_SETS/SET3_C14_team_cleanup/C14-S06/OPENING_CANDIDATE.png",
+            "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1ec777f76fcdd76cbb4e31cce6a59dfb7d1ddfc0/assets_src/cinematics/d1_c14_castle_team_cleanup_v1/first_frames/D1-C14-S06_OPENING_candidate01.png"
+          },
+          "card_files": [
+            "FRAME_PLAN.json",
+            "OPENING_CANDIDATE.png",
+            "PROMPT.txt",
+            "README.md",
+            "SHOT_PACKET.json"
+          ],
+          "binding_plan_summary": [],
+          "output_clip": null
+        }
+      ]
+    }
+  },
+  "approval_checklist": [
+    {
+      "shot_id": "D1-C11-S01",
+      "set": "SET1_P0_hall_arena_finale",
+      "approve_by": "D1-C11-S01 + OWNER_C11_S01_LAYOUT_candidate02.png + sha256:a6edd7964834cce6\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "D1-C11-S02",
+      "set": "SET1_P0_hall_arena_finale",
+      "approve_by": "D1-C11-S02 + OWNER_C11_S02_PORTAL_APPROACH_candidate02.png + sha256:06560510c2ba6fcd\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "D1-C11-S03",
+      "set": "SET1_P0_hall_arena_finale",
+      "approve_by": "D1-C11-S03 + D1-C11-S03_OPENING_candidate02_DUSTY_ATTIC.png + sha256:9480be180aa58106\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "D1-C11-S04",
+      "set": "SET1_P0_hall_arena_finale",
+      "approve_by": "D1-C11-S04 + D1-C11-S04_OPENING_candidate03_DUSTY_ATTIC.png + sha256:60bcf1e9c6fa3076\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "D1-C13-S04",
+      "set": "SET1_P0_hall_arena_finale",
+      "approve_by": "D1-C13-S04 + OWNER_C13-S04_SUDS_OPENING_candidate01.png + sha256:ae62b81dc9e8ef6c\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "D1-C13-S05",
+      "set": "SET1_P0_hall_arena_finale",
+      "approve_by": "D1-C13-S05 + OWNER_C13-S05_SUDSY_OPENING_candidate02.png + sha256:f65676310d8985f6\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "D1-C01-S04",
+      "set": "SET2_P1_rooms_pool_rescue",
+      "approve_by": "D1-C01-S04 + D1-C01-S04_OPENING_candidate04_SKY_LAGOON.png + sha256:c6f0e578f84dffb6\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "D1-C03-S02",
+      "set": "SET2_P1_rooms_pool_rescue",
+      "approve_by": "D1-C03-S02 + luna_a_C03-S02_threshold_attempt02_ROSHAN_ALONE_DIRTY.png + sha256:a5316be4d62c07cd\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "D1-C03-S03",
+      "set": "SET2_P1_rooms_pool_rescue",
+      "approve_by": "D1-C03-S03 + luna_a_C03-S03_swimming_bunny_attempt02_DIRTY_MURKY.png + sha256:ad731205c722ff37\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "D1-C03-S04",
+      "set": "SET2_P1_rooms_pool_rescue",
+      "approve_by": "D1-C03-S04 + luna_a_C03-S04_precontact_reach.png + sha256:85935bf017b2693b\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "D1-C05-S01",
+      "set": "SET2_P1_rooms_pool_rescue",
+      "approve_by": "D1-C05-S01 + LUNA_B_C05_S01_dirty_wide_OPENING_PENDING_HUMAN.png + sha256:4fe31121f25bb42c\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "D1-C05-S03",
+      "set": "SET2_P1_rooms_pool_rescue",
+      "approve_by": "D1-C05-S03 + LUNA_B_C05_S03_skimmer_OPENING_PENDING_HUMAN.png + sha256:939e83a8a06e195f\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "D1-C06-S05",
+      "set": "SET2_P1_rooms_pool_rescue",
+      "approve_by": "D1-C06-S05 + LUNA_B_C06_S05_two_fronts_OPENING_PENDING_HUMAN.png + sha256:284d6481f04c64d9\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "D1-C08-S06",
+      "set": "SET2_P1_rooms_pool_rescue",
+      "approve_by": "D1-C08-S06 + LUNA_B_C08_S06_post_two_pin_eagle_OPENING_PENDING_HUMAN.png + sha256:c54cebb63178909c\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "D1-C09-S03",
+      "set": "SET2_P1_rooms_pool_rescue",
+      "approve_by": "D1-C09-S03 + D1-C09-S03_OPENING_candidate02_ANGLE.png + sha256:4d8c103a0a4ffdd5\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "D1-C10-S05",
+      "set": "SET2_P1_rooms_pool_rescue",
+      "approve_by": "D1-C10-S05 + D1-C10-S05_OPENING_candidate02_ANGLE.png + sha256:2c6b143ce588f9bc\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "C14-S01",
+      "set": "SET3_C14_team_cleanup",
+      "approve_by": "C14-S01 + D1-C14-S01_OPENING_candidate04.png + sha256:368fa769d410e43a\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "C14-S02",
+      "set": "SET3_C14_team_cleanup",
+      "approve_by": "C14-S02 + D1-C14-S02_OPENING_candidate02.png + sha256:8ca06ac43ff12d94\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "C14-S03",
+      "set": "SET3_C14_team_cleanup",
+      "approve_by": "C14-S03 + D1-C14-S03_OPENING_candidate01.png + sha256:bd86816b3970abc3\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "C14-S04",
+      "set": "SET3_C14_team_cleanup",
+      "approve_by": "C14-S04 + D1-C14-S04_OPENING_candidate02.png + sha256:06b12cb4c9163d8d\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "C14-S05",
+      "set": "SET3_C14_team_cleanup",
+      "approve_by": "C14-S05 + D1-C14-S05_OPENING_candidate01.png + sha256:af681b80dfd69e1f\u2026",
+      "status": "human_pending"
+    },
+    {
+      "shot_id": "C14-S06",
+      "set": "SET3_C14_team_cleanup",
+      "approve_by": "C14-S06 + D1-C14-S06_OPENING_candidate01.png + sha256:13285ffdcc688046\u2026",
+      "status": "human_pending"
+    }
+  ]
+}
