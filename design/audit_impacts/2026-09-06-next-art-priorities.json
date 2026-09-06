@@ -1,0 +1,53 @@
+{
+  "id": "2026-09-06-next-art-priorities",
+  "scope": "Bounded read-only prioritization for the next three minigame art audits outside Hall, Geologist, Racer, Teacher and Dolls: Day One Pool, Seek and Fairy. Pool ratings remain historical pre-a6 evidence pending current recapture; Seek and Fairy remain runtime evidence gaps. No runtime, asset, registry or finding closure is claimed.",
+  "baseline": "8b7f116870eec8abf0368a25bf47eac404a23b25",
+  "rules": [
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-08",
+    "DL-MOT-02",
+    "DL-MOT-03",
+    "DL-MOT-08",
+    "DL-ASSET-01",
+    "DL-QA-11",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-AGE-01"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-SEEK-001"
+  ],
+  "finding_scope": "MA-PLAY-004 remains an open interaction/travel/contact authority for Pool-related work; MA-SEEK-001 is referenced for Seek coverage only. This impact record does not close either finding or assert a new defect for Seek/Fairy.",
+  "files": [
+    "audit/minigame_art_quality_2026-09-05/next_art_priorities_followup.json"
+  ],
+  "validation": [
+    {
+      "command": "JSON parse and exact source/hash review",
+      "result": "PASS",
+      "evidence": "Priority file validated as reef.minigame_next_art_priorities.v1; source paths and hashes are recorded without runtime edits."
+    },
+    {
+      "command": "Current Mobile runtime capture for Pool",
+      "result": "PENDING",
+      "evidence": "Pre-a6 desktop still evidence is retained for diagnosis; current a6 travel/scoop and source-window candidate requires fresh capture."
+    },
+    {
+      "command": "Seek/Fairy runtime mounted state packet",
+      "result": "PENDING",
+      "evidence": "Source reviews inspected pixels but did not establish runtime composition, animation cadence, device or child acceptance."
+    },
+    {
+      "command": "Final document/development authority gates",
+      "result": "PASS",
+      "evidence": "audit/minigame_art_quality_2026-09-05/validation/hall-reconciled/metadata-gates.json; document and development consistency only, not visual acceptance."
+    }
+  ],
+  "acceptance_gaps": "No game-wide 4.5 acceptance, no source replacement authorization, no current Pool score promotion, no Seek/Fairy runtime score, and no target-phone or child acceptance are claimed. Sol/Luna review and current evidence remain required before any repair or generation decision."
+}

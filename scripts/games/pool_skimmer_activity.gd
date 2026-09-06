@@ -553,9 +553,17 @@ func _build_activity_art() -> void:
 func _atlas_frame(index: int) -> AtlasTexture:
 	var frame := AtlasTexture.new()
 	frame.atlas = _atlas
-	frame.region = Rect2(
-		Vector2(float(index % 3) * TRASH_CELL_SIZE.x,
-			float(index / 3) * TRASH_CELL_SIZE.y), TRASH_CELL_SIZE)
+	var origin: Vector2 = Vector2(float(index % 3) * TRASH_CELL_SIZE.x,
+		float(index / 3) * TRASH_CELL_SIZE.y)
+	# The approved wrapper extends through x345 across the nominal x341 grid.
+	# Shift these equal-size source windows to retain its tip and keep it out
+	# of the can. Measured alpha bounds leave transparent edges in both windows.
+	if index == 0:
+		origin.x = 12.0
+	elif index == 1:
+		origin.x = 352.0
+	frame.region = Rect2(origin, TRASH_CELL_SIZE)
+	frame.filter_clip = true
 	return frame
 
 

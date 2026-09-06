@@ -1,0 +1,174 @@
+{
+  "review_id": "garden-six-growth-assets-reuse-followup",
+  "scope": "Read-only, reuse-first source-pixel review for replacing the weak shared Garden sprout and five live mature flower results. Search was limited to relevant existing flora named by prior Garden/Farmer/terrain/backlog evidence plus closely related Fairy and pool-flower runtime assets. No pixels, runtime bindings, protected originals, imports, or source files were modified. Scores are source role-fit judgments, not mounted runtime acceptance.",
+  "required_roles": {
+    "sprout": 1,
+    "mature_flowers": 5,
+    "constraints": [
+      "five mature results must remain visually distinct rather than repeat one or two plants",
+      "seed to sprout to mature progression must be semantically clear",
+      "plant bottoms must anchor convincingly in the existing Garden plots",
+      "direct files must remain readable within current 148x148 sprout and 228x228 mature draw boxes",
+      "reuse must preserve existing licensed files and avoid protected-original edits"
+    ]
+  },
+  "inspected_candidates": [
+    {
+      "path": "assets/props/story/flower_coral.png",
+      "sha256": "816c23a8a51e20ff9837cbbe7631375178b7bda0f3ed9d0a807cbfd23403d724",
+      "dimensions": [683, 1024],
+      "mode": "RGBA",
+      "alpha": "0..255; all four corners alpha 0",
+      "license": "ASSET_LICENSES.md line 140; project-generated approved Batch 04 card",
+      "source_master": "assets_src/style_review_batch_04/final/003_flower_coral_card.png; exact same SHA-256",
+      "current_callers": ["scripts/dungeon_art.gd", "scripts/ember_fortress.gd"],
+      "source_role_fit_1_to_5": 4.0,
+      "finding": "Strong clean single coral flower, painted bands, navy contour, leaves and explicit roots. It is a credible mature plant, but the 2:3 full-plant silhouette would shrink to about 152x228 inside the square slot and look much narrower/taller than the current family. Direct reuse needs mounted scale/contact review and supplies only one mature role."
+    },
+    {
+      "path": "assets/props/story/flower_lavender.png",
+      "sha256": "650ffbfe85cb93d9b42d12f9b291ba25f35285f641b5221a6300fe474554438b",
+      "dimensions": [683, 1024],
+      "mode": "RGBA",
+      "alpha": "0..255; all four corners alpha 0",
+      "license": "ASSET_LICENSES.md line 140; project-generated approved Batch 04 card",
+      "source_master": "assets_src/style_review_batch_04/final/004_flower_lavender_card.png; exact same SHA-256",
+      "current_callers": ["scripts/dungeon_art.gd"],
+      "source_role_fit_1_to_5": 4.0,
+      "finding": "Clean three-blossom lavender plant with matching painted leaves, contour and roots. It is distinct from the coral single bloom, but has the same narrow full-height slot mismatch and supplies only a second mature role."
+    },
+    {
+      "path": "assets/terrain/flower.png",
+      "sha256": "816c23a8a51e20ff9837cbbe7631375178b7bda0f3ed9d0a807cbfd23403d724",
+      "dimensions": [683, 1024],
+      "mode": "RGBA",
+      "alpha": "0..255; all four corners alpha 0",
+      "license": "ASSET_LICENSES.md line 134; approved Batch 04 terrain promotion",
+      "source_role_fit_1_to_5": 1.0,
+      "finding": "This is byte-identical to flower_coral.png, so it is an alias rather than a third distinct mature result."
+    },
+    {
+      "path": "assets/terrain/flower2.png",
+      "sha256": "650ffbfe85cb93d9b42d12f9b291ba25f35285f641b5221a6300fe474554438b",
+      "dimensions": [683, 1024],
+      "mode": "RGBA",
+      "alpha": "0..255; all four corners alpha 0",
+      "license": "ASSET_LICENSES.md line 134; approved Batch 04 terrain promotion",
+      "source_role_fit_1_to_5": 1.0,
+      "finding": "This is byte-identical to flower_lavender.png, so it adds no third silhouette or color role."
+    },
+    {
+      "path": "assets/fairy/sprites/boss_sprout.png",
+      "sha256": "1c7e0b23335b3f4aec4796133db9c882c38b1e7a1dc630fceb50a0f14254e886",
+      "dimensions": [1024, 1024],
+      "mode": "RGBA",
+      "alpha": "0..255; all four corners alpha 0",
+      "license": "ASSET_LICENSES.md line 204; project-generated Fairy V2 runtime card",
+      "current_callers": ["scripts/games/fairy.gd"],
+      "source_role_fit_1_to_5": 3.4,
+      "finding": "Polished mint/lavender leafy bud with clean contour, but it reads as a magical rosette/bud rather than the same ordinary rooted seedling that should grow into five Garden plants. It has no soil/root contact and its square, broad silhouette would dominate the 148x148 sprout box."
+    },
+    {
+      "path": "assets/fairy/sprites/boss_bud.png",
+      "sha256": "8da84bb2023431ab35714daff918203836227552910f0e8e92360b0d0fc31a97",
+      "dimensions": [1024, 1024],
+      "mode": "RGBA",
+      "alpha": "0..255; all four corners alpha 0",
+      "license": "ASSET_LICENSES.md line 204; project-generated Fairy V2 runtime card",
+      "current_callers": ["scripts/games/fairy.gd"],
+      "source_role_fit_1_to_5": 3.0,
+      "finding": "Strong source finish but a large magical bud/leaf rosette with no stem, roots or soil anchor. It is one phase of the same purple Fairy plant, not a distinct mature Garden species."
+    },
+    {
+      "path": "assets/fairy/sprites/boss_opening.png",
+      "sha256": "e3738c1d574ed8c29525186b493c36d75c0b4b9e8e957f7b683ad0ffb47be579",
+      "dimensions": [1024, 1024],
+      "mode": "RGBA",
+      "alpha": "0..255; all four corners alpha 0",
+      "license": "ASSET_LICENSES.md line 204; project-generated Fairy V2 runtime card",
+      "current_callers": ["scripts/games/fairy.gd"],
+      "source_role_fit_1_to_5": 2.8,
+      "finding": "Visually polished opening phase of the same Fairy plant. Using it beside boss_bud/bloom as separate mature results would mislabel growth stages as different flowers and repeat one purple/mint identity."
+    },
+    {
+      "path": "assets/fairy/sprites/boss_bloom.png",
+      "sha256": "36db20eff66d1da63ab8f13878f99313712fe3adb02ca314a2a73c6f86c59cf9",
+      "dimensions": [1024, 1024],
+      "mode": "RGBA",
+      "alpha": "0..255; all four corners alpha 0",
+      "license": "ASSET_LICENSES.md line 204; project-generated Fairy V2 runtime card",
+      "current_callers": ["scripts/games/fairy.gd"],
+      "source_role_fit_1_to_5": 3.2,
+      "finding": "Clear ornate purple bloom with good source finish, but its frontal rosette has no stem/root contact and belongs to the same boss growth sequence as the two preceding candidates. It cannot honestly create three distinct mature Garden species."
+    },
+    {
+      "path": "assets/fairy/sprites/helpful_flower_gate.png",
+      "sha256": "f06308db600940e32db09b64184ad469f59fa99d05c5a4c2d1b377df221ea7dd",
+      "dimensions": [1024, 1024],
+      "mode": "RGBA",
+      "alpha": "0..255; all four corners alpha 0",
+      "license": "ASSET_LICENSES.md line 205; project-generated Fairy V4 nonverbal cue",
+      "current_callers": ["scripts/games/fairy.gd"],
+      "source_role_fit_1_to_5": 1.5,
+      "finding": "This is a hollow mint petal gate/cue, not a rooted flower result. Its central hole and ring semantics make it unsuitable despite polished texture."
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_flower_float_rest.png",
+      "sha256": "4cdb5331f57c54ca77a573f38e899ca34066a2ef306cebe5a7dccdb8c0738ad0",
+      "dimensions": [105, 85],
+      "mode": "RGBA",
+      "alpha": "0..255; all four corners alpha 0",
+      "license": "ASSET_LICENSES.md line 1839; project-owned exact-pixel alpha-isolated derivative",
+      "source_role_fit_1_to_5": 2.2,
+      "finding": "A small horizontal floating blossom without stem or roots. It is designed for pool-surface rest, has limited native detail for enlargement, and cannot ground in a Garden plot."
+    },
+    {
+      "path": "assets_src/sky_lagoon/qa_kit/lagoon_flower_cluster_coral.png",
+      "sha256": "b6ae392750d78e4ae3bad81e4b8b6f8636ddff82597a7224ca2c17af14111203",
+      "dimensions": [760, 760],
+      "mode": "RGB",
+      "alpha": "none",
+      "source_role_fit_1_to_5": 2.0,
+      "finding": "A coarse low-poly coral cluster on an opaque pale plate. It is source/reference material rather than a clean direct runtime cutout and does not match the painted Garden family."
+    },
+    {
+      "path": "assets_src/sky_lagoon/qa_kit/lagoon_flower_cluster_lavender.png",
+      "sha256": "615cc919c63409d50926e4dc0b6971c8821a5842fe1f63b19f818780e43263bd",
+      "dimensions": [760, 760],
+      "mode": "RGB",
+      "alpha": "none",
+      "source_role_fit_1_to_5": 2.0,
+      "finding": "Color variant of the same coarse opaque cluster, not a distinct approved transparent Garden plant."
+    }
+  ],
+  "duplicate_and_non_candidate_findings": [
+    "assets/mg/sprout.png has SHA-256 d7542d8d812a28ddce435c8acf3a103df85e5af59178ad05c9bdb5fef1ed0926, identical to the already rejected live k_sprout pixels; it is not an improvement.",
+    "assets/mg/seed.png is a strong painted seed and remains a useful continuity anchor, but it is the existing seed state rather than one of the six requested replacement roles.",
+    "The coral and lavender terrain paths are exact byte duplicates of the two story paths, leaving only two distinct conventional mature plants.",
+    "The Fairy bud/opening/bloom cards are successive states of one magical purple plant. Counting them as three different mature flowers would violate distinct-role semantics even though each source is polished.",
+    "Protected book/friend images were not proposed because direct reuse would change character/story identity and protected originals may not be altered."
+  ],
+  "coverage_result": {
+    "complete_direct_reuse_family_found": false,
+    "credible_conventional_mature_candidates": 2,
+    "credible_shared_sprout_candidate": 0,
+    "decision": "NO_COMPLETE_DIRECT_REUSE_SET",
+    "rationale": "The inventory provides two polished rooted mature plants but no coordinated sprout and no third through fifth distinct mature plants. Combining unrelated Fairy boss phases, a pool float and opaque low-poly clusters would create a less coherent family and would not satisfy role, grounding, style or phone-readability requirements."
+  },
+  "reuse_first_production_brief": {
+    "retain_as_references_or_individual_candidates": [
+      "assets/props/story/flower_coral.png",
+      "assets/props/story/flower_lavender.png",
+      "assets/mg/seed.png"
+    ],
+    "gap": "One coordinated painted sprout plus at least three additional mature rooted flowers are still missing if coral and lavender can be mounted successfully; otherwise all six replacement roles remain a coordinated-family gap.",
+    "do_not_force": [
+      "Do not use duplicate terrain aliases to pretend there are four mature designs.",
+      "Do not assign Fairy bud/opening/bloom phases as separate mature species.",
+      "Do not use the hollow helpful gate, stemless pool float, or opaque QA clusters as Garden plants.",
+      "Do not crop, recolor, derive, or rewrite pixels under this direct-reuse review."
+    ],
+    "required_next_evidence": "Before accepting even coral or lavender, mount exact files non-destructively in representative 228x228 slots and capture each alone plus all-five composition under Mobile. Verify bottom/root contact, occupied size, no crowding, source hash, and consistency with the seed, sprout, watering action and neighboring plants. Animation and target-device review remain required."
+  },
+  "status": "OPEN_REUSE_GAP"
+}

@@ -1,0 +1,359 @@
+{
+  "schema": "current-hall-art-review-plan/v1",
+  "status": "PREPARATION_ONLY_OPEN",
+  "source_revision": "8b7f116870eec8abf0368a25bf47eac404a23b25",
+  "scope": [
+    "Ballerina",
+    "Magician",
+    "Pop Star"
+  ],
+  "exclusions": [
+    "runtime acceptance",
+    "animation-quality acceptance",
+    "target-device acceptance",
+    "child/owner acceptance",
+    "other careers"
+  ],
+  "evidence_basis": {
+    "code_traced": [
+      "scripts/opera_career_world_2d.gd",
+      "scripts/opera_ballet_surface.gd",
+      "scripts/opera_roshan_actor.gd",
+      "scripts/opera_stage_paths.gd"
+    ],
+    "source_pixels_viewed": "The three 1024x576 practice backgrounds, three 1024x1024 Roshan animation atlases, three 512x512 rival cutouts, three 512x512 goal props, representative c0r0 stage tiles, Ballerina and Magician trace widgets, Pop Star lanes widget, and magician_rope.png were viewed at original resolution.",
+    "historical_authority": [
+      "design/MINIGAME_ART_AUDIT_2026-09-05.md",
+      "audit/minigame_art_quality_2026-09-05/current_mechanics_followup.md",
+      "audit/minigame_art_quality_2026-09-05/animation_review.md",
+      "audit/minigame_art_quality_2026-09-05/art_repair_backlog.md"
+    ],
+    "limitation": "Source inspection identifies checks; it does not establish mounted scale, occlusion, phase correctness, animation cadence, or current runtime quality. Eighteen stills can support only the visible captured states."
+  },
+  "shared_contract": {
+    "two_act_enabled_only_for": [
+      "Ballerina",
+      "Magician",
+      "Pop Star"
+    ],
+    "authoritative_plan_construction": "OperaPerformancePlan.build duplicates PHASES, prepending the first three source phases as performance_part=practice/source_phase=0..2, then appending every source phase unchanged as performance_part=stage/source_phase=0..N-1. stage_start is exactly 3. The stage does not use LEGACY_PHASES, LEGACY_FINALE_START, FINALE_START, or the separate legacy finale dictionary as its phase contract.",
+    "scene_mode": "OperaCareerWorld2D treats phase_index < 3 as practice and phase_index >= 3 as stage. The stage branch calls backdrop_node.set_stage(true), sets the performance overlay to stage, arms the career stage layout, shows both actors, and reuses each selected source phase's name/mode/goal/voice with source_phase preserved.",
+    "expected_capture_set": "six current Mobile 1280x720 stills per career: representative practice intro/active/completion and representative stage intro/active/completion. This is a sampling packet, not evidence for every source phase: Ballerina has 6 runtime plan entries, Magician 8, and Pop Star 7.",
+    "practice_to_stage_checks": [
+      "The background and activity station must visibly change from rehearsal world to the career-specific four-tile stage; a title change alone does not prove the transition.",
+      "Roshan, rival, goal prop, station and HUD must have one unambiguous layer owner each; reject duplicate actor bodies, props painted under live props, stage tiles over actors, or celebration overlays masking the payoff.",
+      "Actor and prop feet/tails/bases must meet a plausible floor, platform, mirror, cabinet, microphone or ribbon contact plane with shadow/occlusion support; reject floating gaps and hard lower crop edges.",
+      "At Mobile 1280x720 the active target and feedback must dominate decorative background detail, remain clear under one finger, and preserve Back/header safe areas.",
+      "A captured practice or stage completion must visibly communicate that source phase's completed verb; generic sparkles alone are insufficient. Do not relabel a sampled stage phase as a separate legacy finale.",
+      "Compare identity colours, contour thickness, painted value bands and lighting among background, actor, rival, goal, station and feedback. Flat geometric overlays or debug-like paths below the surrounding storybook finish remain defects.",
+      "Still pairs may show changed state and attachment, but do not numerically score motion/cadence/settle without temporal evidence."
+    ],
+    "hard_failures_for_any_4_5_claim": [
+      "wrong career actor, rival, prop, background, station or phase",
+      "duplicate or clipped body/prop caused by atlas region or layer ownership",
+      "visible actor/prop floating, impossible contact, or payoff hidden by another scene layer",
+      "critical target unreadable or occluded at Mobile capture scale",
+      "schematic/flat interaction art visibly inconsistent with the painted room and actors",
+      "missing current source/hash binding or a claimed state not represented by current runtime evidence"
+    ]
+  },
+  "careers": {
+    "Ballerina": {
+      "source_assets": [
+        {
+          "path": "assets/opera/worlds/backdrops/world_ballerina.png",
+          "dimensions": "1024x576",
+          "sha256": "0011569b86b3c194cbcc8c6a2c7ad2e9278f3092640d0b55a771c02ddb9426a1",
+          "role": "practice world"
+        },
+        {
+          "path": "assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png",
+          "dimensions": "1024x1024",
+          "sha256": "c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995",
+          "role": "Roshan poses"
+        },
+        {
+          "path": "assets/opera/worlds/actors/rival_ballerina.png",
+          "dimensions": "512x512",
+          "sha256": "e2b8a9d82782b80a5e6f4c768eb0b349a91acaa859b32b820c2d1b6da305c583",
+          "role": "rival"
+        },
+        {
+          "path": "assets/opera/worlds/props/goal_ballerina.png",
+          "dimensions": "512x512",
+          "sha256": "4891a0863557a0105912afe7497d2b0f976aadf32507ad1c079f03f3162c257e",
+          "role": "music-box goal"
+        },
+        {
+          "path": "assets/opera/worlds/backdrops/stage_ballerina_c0r0.png",
+          "dimensions": "1024x1024",
+          "sha256": "405fa2471603227c202b095f9a409cb7bcb70aac836e1f6fe507cfdba862e6e8",
+          "role": "viewed representative of four stage tiles; all four c0r0/c1r0/c0r1/c1r1 must reconstruct one scene"
+        },
+        {
+          "path": "assets/opera/worlds/widgets/widget_trace_ballerina.png",
+          "dimensions": "1024x608",
+          "sha256": "5ce3d068692a18d62d4ffa44e52ef32817f5118a8d2fb7e43c45f3c72383de12",
+          "role": "ribbon trace card"
+        }
+      ],
+      "selected_source_phases": [
+        {
+          "label": "PEARL MIRROR",
+          "mechanic": "ballet_pose",
+          "station": "trifold_mirror"
+        },
+        {
+          "label": "RIBBON TRAIL",
+          "mechanic": "ballet_ribbon",
+          "station": "wave_tuffets"
+        },
+        {
+          "label": "GRAND TWIRL",
+          "mechanic": "ballet_twirl",
+          "station": "rose_finale_stage"
+        }
+      ],
+      "runtime_plan": {
+        "practice_entries": [
+          "source_phase 0 PEARL MIRROR / ballet_pose",
+          "source_phase 1 RIBBON TRAIL / ballet_ribbon",
+          "source_phase 2 GRAND TWIRL / ballet_twirl"
+        ],
+        "stage_entries": [
+          "source_phase 0 PEARL MIRROR / ballet_pose",
+          "source_phase 1 RIBBON TRAIL / ballet_ribbon",
+          "source_phase 2 GRAND TWIRL / ballet_twirl"
+        ],
+        "stage_start": 3,
+        "total_entries": 6
+      },
+      "critical_checks": [
+        "Verify PEARL MIRROR shows the deliberate held low/heart, open/second, and crown/fifth pose cells required by DL-MOT-09; reject generic cycling or a pose unrelated to the prompt.",
+        "Verify Ribbon Trail reads as fabric/ribbon with progressive hand-to-ribbon contact and shell checkpoints; the historical oversized zigzag trace looked like instrumentation.",
+        "Verify Grand Twirl shows Roshan's bodily pose/payoff, not merely pearl motion around an otherwise static or mismatched actor.",
+        "Check the 280x280 Ballerina actor mount for full head, hands, skirt and tail, plausible platform contact, and separation from rival/mirror/ribbon.",
+        "Confirm stage tile seams, padding and tile ownership disappear in the reconstructed 1280x720 scene."
+      ],
+      "historical_risk": "Historical 4.0/5 surface: strong actor, room and music-box identity; large ribbon/twirl guides were schematic. Historical score is not current acceptance."
+    },
+    "Magician": {
+      "source_assets": [
+        {
+          "path": "assets/opera/worlds/backdrops/world_magician.png",
+          "dimensions": "1024x576",
+          "sha256": "9a41c70d5aff09e0fd521bf4eb2a6db9c075519e089f230991301c15a0c668f5",
+          "role": "practice world"
+        },
+        {
+          "path": "assets/opera/worlds/actors/animation/roshan_magician_sheet_a.png",
+          "dimensions": "1024x1024",
+          "sha256": "768e6980fa8f4ca9cc3281a2fb1f23f0fcdeac8f2d524e6135b3be03eafc13cb",
+          "role": "Roshan poses and distinct magic effects"
+        },
+        {
+          "path": "assets/opera/worlds/actors/rival_magician.png",
+          "dimensions": "512x512",
+          "sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e",
+          "role": "rival"
+        },
+        {
+          "path": "assets/opera/worlds/props/goal_magician.png",
+          "dimensions": "512x512",
+          "sha256": "843e7c371c5d08d0f41f0629922778f416e3638c220fe558f5db8407d6495f8a",
+          "role": "hat reveal goal"
+        },
+        {
+          "path": "assets/opera/worlds/backdrops/stage_magician_c0r0.png",
+          "dimensions": "1024x1024",
+          "sha256": "84e4ee759f240675c9d355356b373e7463f12496166308cdcd998fff5dffef9e",
+          "role": "viewed representative of four stage tiles"
+        },
+        {
+          "path": "assets/opera/worlds/hotspots/magician_rope.png",
+          "dimensions": "512x109",
+          "sha256": "f38205f3e00ab8de0b1dd176a52c7535abcfa369eafa1fe1032eacb003fc9843",
+          "role": "rope prop"
+        },
+        {
+          "path": "assets/opera/worlds/widgets/widget_trace_magician.png",
+          "dimensions": "1024x608",
+          "sha256": "7999afc7ea691a47dbd8b7d175e1f902a6d21ed8947f30da548e7f1bea37d1cd",
+          "role": "rope swipe card"
+        }
+      ],
+      "selected_source_phases": [
+        {
+          "label": "VANISH",
+          "mechanic": "hold",
+          "station": "violet_shell_stage"
+        },
+        {
+          "label": "TRACK",
+          "mechanic": "choice",
+          "station": "pearl_tide_pool"
+        },
+        {
+          "label": "ROPE",
+          "mechanic": "swipe",
+          "station": "teal_shell_stage"
+        },
+        {
+          "label": "CABINET",
+          "mechanic": "magic_cabinet",
+          "station": "rose_shell_stage"
+        },
+        {
+          "label": "PORTAL",
+          "mechanic": "circle",
+          "station": "rose_shell_stage"
+        }
+      ],
+      "runtime_plan": {
+        "practice_entries": [
+          "source_phase 0 VANISH / hold",
+          "source_phase 1 TRACK / choice",
+          "source_phase 2 ROPE / swipe"
+        ],
+        "stage_entries": [
+          "source_phase 0 VANISH / hold",
+          "source_phase 1 TRACK / choice",
+          "source_phase 2 ROPE / swipe",
+          "source_phase 3 CABINET / magic_cabinet",
+          "source_phase 4 PORTAL / circle"
+        ],
+        "stage_start": 3,
+        "total_entries": 8
+      },
+      "critical_checks": [
+        "Verify the held Roshan cell matches the current trick; the atlas includes wand, orbit, portal, reveal and bow imagery, so a generic loop can visibly cycle unrelated props.",
+        "VANISH must depict a clear before/after disappearance with the affected object and actor ownership intact; sparkles without object-state change are insufficient.",
+        "TRACK choices must be large and object-specific rather than tiny schematic tokens.",
+        "ROPE must preserve the painted rope identity and show finger/path/contact alignment; reject the historical dark angular guide dominating the rope.",
+        "CABINET must show cabinet/reveal topology and PORTAL must show a coherent opened portal without duplicate atlas effects or actor overlap.",
+        "Check hat/lamb/cabinet/portal scale, visible bases and overlap against the stage floor; the source atlas alone cannot prove mounted contact."
+      ],
+      "historical_risk": "Historical 4.1/5 surface: strong cabinet, rope, hat and character assets; small objects and schematic task presentation were weak. Historical score is not current acceptance."
+    },
+    "Pop Star": {
+      "source_assets": [
+        {
+          "path": "assets/opera/worlds/backdrops/world_popstar.png",
+          "dimensions": "1024x576",
+          "sha256": "d97a8a3dc10e6c3bb9c7f84facbb0fc3ba098e7cff3c786b5f1ba2106787a988",
+          "role": "practice world"
+        },
+        {
+          "path": "assets/opera/worlds/actors/animation/roshan_popstar_sheet_a.png",
+          "dimensions": "1024x1024",
+          "sha256": "0084e74b73042832f248c26f6688e484b7376ea6418caee09b2e4beeebfb0ee9",
+          "role": "Roshan vocal/performance poses"
+        },
+        {
+          "path": "assets/opera/worlds/actors/rival_popstar.png",
+          "dimensions": "512x512",
+          "sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f",
+          "role": "rival"
+        },
+        {
+          "path": "assets/opera/worlds/props/goal_popstar.png",
+          "dimensions": "512x512",
+          "sha256": "0a81e7c108234c4770730761704dcf16ca9b5c1d97b3ffee0c306c1c85e8c95a",
+          "role": "microphone goal"
+        },
+        {
+          "path": "assets/opera/worlds/backdrops/stage_popstar_c0r0.png",
+          "dimensions": "1024x1024",
+          "sha256": "364b5668f4486340de9c55a3e807c1f4213e54dbf4701021aa9e8332e108eba5",
+          "role": "viewed representative of four stage tiles"
+        },
+        {
+          "path": "assets/opera/worlds/widgets/widget_lanes_popstar.png",
+          "dimensions": "1024x608",
+          "sha256": "ca89af5fda2ba201beb70b709ecf0767876aeb9b2934e0c9d7a8b293fb5098fd",
+          "role": "dance direction card"
+        }
+      ],
+      "selected_source_phases": [
+        {
+          "label": "SOUND CHECK",
+          "mechanic": "hold",
+          "station": "mic_gazebo"
+        },
+        {
+          "label": "DANCE",
+          "mechanic": "choice",
+          "station": "record_dais"
+        },
+        {
+          "label": "RHYTHM",
+          "mechanic": "echo",
+          "station": "shell_stage"
+        },
+        {
+          "label": "ENCORE",
+          "mechanic": "circle",
+          "station": "shell_stage"
+        }
+      ],
+      "runtime_plan": {
+        "practice_entries": [
+          "source_phase 0 SOUND CHECK / hold",
+          "source_phase 1 DANCE / choice",
+          "source_phase 2 RHYTHM / echo"
+        ],
+        "stage_entries": [
+          "source_phase 0 SOUND CHECK / hold",
+          "source_phase 1 DANCE / choice",
+          "source_phase 2 RHYTHM / echo",
+          "source_phase 3 ENCORE / circle"
+        ],
+        "stage_start": 3,
+        "total_entries": 7
+      },
+      "critical_checks": [
+        "Verify microphone hand/mouth alignment and stand/base contact; the handheld-mic atlas and standing goal microphone must not appear as duplicate active microphones without clear roles.",
+        "DANCE must show readable action feedback tied to the chosen direction and actor pose, not only oversized flat arrow pads.",
+        "RHYTHM must show painted shell/note targets, current beat/contact feedback and clear sequence ownership; reject schematic practice-card presentation or unrelated actor cycling.",
+        "ENCORE must show a distinct performance payoff/settle and keep Roshan's face, microphone and rival readable against the dense stage lighting.",
+        "Check the active foreground against the already busy speakers, microphones, rainbow bridge and illuminated stage so the target remains dominant at phone scale."
+      ],
+      "historical_risk": "Historical 3.8/5 surface: strong stage, singer and rival; oversized flat pads and schematic practice card were weak. Historical score is not current acceptance."
+    }
+  },
+  "review_output_requirements": {
+    "per_still": [
+      "path",
+      "sha256",
+      "career",
+      "act",
+      "phase/state",
+      "capture route",
+      "source revision",
+      "identity",
+      "finish",
+      "edges",
+      "readability",
+      "contact/occlusion",
+      "consistency",
+      "technical evidence",
+      "specific visible defects"
+    ],
+    "cross_still": [
+      "practice-to-stage scene change",
+      "state progression",
+      "actor/prop ownership",
+      "payoff visibility",
+      "pose semantic continuity"
+    ],
+    "must_remain_unassessed_from_stills": [
+      "animation cadence",
+      "motion smoothness",
+      "touch feel",
+      "30 fps performance",
+      "target-device presentation",
+      "child/owner acceptance"
+    ],
+    "acceptance_rule": "Do not average around a critical dimension below 4.5 or any hard failure. Missing required current state evidence keeps the scoped career OPEN."
+  }
+}

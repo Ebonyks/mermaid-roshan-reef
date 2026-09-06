@@ -1,0 +1,412 @@
+{
+  "schema": "reef.opera_phase_pose_diagnostic.v1",
+  "baseline_revision": "9df000999a94572b64537c98f558841f6f3e3260",
+  "candidate_parents": [
+    "9df000999a94572b64537c98f558841f6f3e3260",
+    "aad0d450d8b8f1381badeeb4bcb939181115ab00"
+  ],
+  "candidate_note": "Pending merge plus phase-hold source repair; no exact candidate commit or acceptance claim. Bound code hashes specify the recorded contents.",
+  "code_sources": [
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "candidate_utf8_lf_sha256": "d7461bff2cc06ac005a529fcc46f90f53b6e2e7052efe8c12c8432e775ff2b5e",
+      "baseline_9df_git_content_sha256": "66d93fe975e502271a179686a66f6a00a515edcd3fca323141228616792092c8"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "candidate_utf8_lf_sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+      "baseline_9df_git_content_sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "candidate_utf8_lf_sha256": "8cdcb96bb607c62272772c414efe22eab27090cc20c6c8317e9e1f1944816bd3",
+      "baseline_9df_git_content_sha256": "d9ce6603e2a9238e615699c2e32ca8a808e80a789702f01fd273ed2f9a8e817f"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "candidate_utf8_lf_sha256": "175a24ea5db23e2fd5952aeb2e02bb4206025d9a803d84b7f58f5add71f0edf8",
+      "baseline_9df_git_content_sha256": "0359f26d81b16ba474911584aa574f8c9702ad6500883a8887c94f7bb8d55311"
+    }
+  ],
+  "state_setup_method": "Explicit live phase_index and _arm_phase, then existing hotspot callback; normal main processing and 0.0/0.2/0.4-second sample labels. Not natural navigation proof.",
+  "rendering": "Exact Godot4.7.2-stable, Vulkan Mobile, desktopRTX3060Ti, PNG1280x720",
+  "profiles": "Separate fresh isolated APPDATA/LOCALAPPDATA/XDG roots for each run; OS user-data guard before scene creation",
+  "phase_pose_mapping": {
+    "doctor": {
+      "WASH": 1,
+      "FIND": 1,
+      "X-RAY": 1,
+      "CAST": 2,
+      "BANDAGE": 2
+    },
+    "farmer": {
+      "PLANT": 1,
+      "TOSS": 3,
+      "HERD": 3,
+      "PICNIC": 2
+    },
+    "racer": {
+      "TUNE": 0,
+      "TO THE LINE": 1
+    }
+  },
+  "acceptance": {
+    "pose_containment": "Independent Luna review supports the eleven configured-phase holds only; see phase_pose_followup.md. No complete animation acceptance.",
+    "animation_completeness": false,
+    "device": false,
+    "child": false,
+    "game_wide_4_5": false
+  },
+  "files": [
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/doctor_bandage_0p0.png",
+      "sha256": "f3626fbe4ff50481c5953d3179472d18ea4d7e153a8d10bd4acaf2f970612aa1"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/doctor_bandage_0p2.png",
+      "sha256": "8a011beb1a0dd9535bf5ea964cd0ada50560b7390f55f4c1373626ea46d23286"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/doctor_bandage_0p4.png",
+      "sha256": "3ccd7b67f2b866f3c4f3f38e1ad1dfdec09d1a703b4b89ede9963519e278c1ec"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/doctor_wash_0p0.png",
+      "sha256": "733754a757254f4aad19d905e42e0034b4af64f64a4cc777f22cac87bc4686c0"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/doctor_wash_0p2.png",
+      "sha256": "0390ab393c29af8d6da943d0305d9e77d8caf57f68df2355d96daec43f97a485"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/doctor_wash_0p4.png",
+      "sha256": "5d68d70675b350a99e37d5470b586177ee567ed7fb85d7ea2d3997b436a20066"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/farmer_plant_0p0.png",
+      "sha256": "9d159a7a5db69a40a6f9f385e4515ee6aecf319a9e69b4a149afe628e2d165fe"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/farmer_plant_0p2.png",
+      "sha256": "17593e58e18747bd40637d05c6b8f9e40cbf7816dcaa2764537cabc616949341"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/farmer_plant_0p4.png",
+      "sha256": "dfe8343e39803e15d6104aea3090516fb6f27dc2a70b9f3b2fd7cee6b0836ab3"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/farmer_toss_0p0.png",
+      "sha256": "b03f656d1f99cbff7a771091588cf114eef286fcc53abc201adf659f3f14deef"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/farmer_toss_0p2.png",
+      "sha256": "b350224448b442c3b89c4753cda48ef5acc7c7a5cee4c083e164754798c4edce"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/farmer_toss_0p4.png",
+      "sha256": "bb365afcb9c28b02b7df2421b9e34f05ad74eb79ea7b017b86b7cc55518f2895"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/racer_to_the_line_0p0.png",
+      "sha256": "57abc3ecd7c8421cc586ed3a6f520b32df2c5d9d691c516c4000d8c5f7ea4c35"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/racer_to_the_line_0p2.png",
+      "sha256": "d96d6c39f31ca24cac028afa0999b9dd81841fb373eef621ee7986168d49845c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/racer_to_the_line_0p4.png",
+      "sha256": "849d71197f73e02492820e233cc856f4b3e19d0e901513b7326969ba2aa01fce"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/racer_tune_0p0.png",
+      "sha256": "cde91adde462e2e714a45d4e42f237b5f1bf30252a4d6c28e570a7816baf35f4"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/racer_tune_0p2.png",
+      "sha256": "6dc4da2cd5c092de87db5634508e60e12781b329f0a3b39e8f31e52da94d9adc"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline/racer_tune_0p4.png",
+      "sha256": "26c217ef19204127b5c9982cd33b758b46b68b0750dd8b99850f957adde75a63"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline-extended/doctor_cast_0p0.png",
+      "sha256": "bdc8822d836410ac4a5f6edd9be8d5149612bda9599fa5f322f9509a497ff852"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline-extended/doctor_cast_0p2.png",
+      "sha256": "cfa6bdfdb78ca24b5060e53f33d358ff5f1697f06d3e4023f719e892475d388e"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline-extended/doctor_cast_0p4.png",
+      "sha256": "dd786592050efc3b4ba416eb4f07be349e0238134e2a40f5ca7ec4a64987f634"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline-extended/doctor_find_0p0.png",
+      "sha256": "04ea9fae018e0b051a4e6528d13bc38e026e5b1a3b3bfdc667141f00614bf1a6"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline-extended/doctor_find_0p2.png",
+      "sha256": "e6e86a454b94e74b8b9e40d1010c6be8a310393213cf9898238e6522e2f24bed"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline-extended/doctor_find_0p4.png",
+      "sha256": "50551101e4f8537cf2ca7d8ecdfe3458164848364a029678001a7c4994818fc6"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline-extended/doctor_x-ray_0p0.png",
+      "sha256": "86292a123b79a81a51a93996ccd185a836a2d30eb9cec8d4ba944715b888af93"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline-extended/doctor_x-ray_0p2.png",
+      "sha256": "77fcea6e49b09870379ef333dfa03c3eba72bf5420fc7d31a8b92f3815c02cf9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline-extended/doctor_x-ray_0p4.png",
+      "sha256": "e761f45aa1c5a59b059783c48d2184a60c5d113737d3bff3d96594070724114d"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline-extended/farmer_herd_0p0.png",
+      "sha256": "4400d48affb7e9ce6b4bdc67d31a702be6717ae15438df0479bd74c65f5b0a01"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline-extended/farmer_herd_0p2.png",
+      "sha256": "e0b51d58379b2d26d6c4cd043ffe7693715f33029eb9770d95891fe0e4790155"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline-extended/farmer_herd_0p4.png",
+      "sha256": "94ad7fc59d1ce23ddcda3d903d65d090da700798a4836d4eb7cf71e5307d7caf"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline-extended/farmer_picnic_0p0.png",
+      "sha256": "f0dca7238323a4452f17315474f00ef3ac2bc681cd53a9a30b6275dc22dc76d8"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline-extended/farmer_picnic_0p2.png",
+      "sha256": "fedee90bd2a207211b22f19219729a04334c9eb62b0df1a4efa1300653249f9d"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline-extended/farmer_picnic_0p4.png",
+      "sha256": "c06d9d09a918cc279c8814cb6a39fd69bec88a473bee56ef0bbdcfdebfb30ea8"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline.log",
+      "sha256": "358c78e202050349fa30b5074864a6389d9982fe4c86442b43792ddaf703e8f4"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline_capture.gd.txt",
+      "sha256": "26fcd197ce2efd1d86f3ce824f99140c882f1ec887d9ab2415f0eb668afbeac3"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline_extended.log",
+      "sha256": "9093355976bd362ff7a4fdeae25b84e25a387aeb7f9c6bb9d1d34bf9d7ab9b66"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline_extended.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/baseline_extended_capture.gd.txt",
+      "sha256": "57b658c1424157bc2ea3fe446c8eed350a6789fff001c4b761d7646f716537e4"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/doctor_bandage_0p0.png",
+      "sha256": "7d0aab22de5af317e12f10f61e530b931c25830ede688697cf278aff89f20cba"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/doctor_bandage_0p2.png",
+      "sha256": "3ffb7a8b74c0a92de8d89fce7ce666b3eaf2e0ac49aaff3a9102405339ca248b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/doctor_bandage_0p4.png",
+      "sha256": "8a8d5d2185ecd5c1ae7c58f0a571820390d364278356416b06d906b2c830e693"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/doctor_cast_0p0.png",
+      "sha256": "a4e1cc62d7f6c8cc73550648f13e9eab8455e13e70597fa5949b6a3e061b7b07"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/doctor_cast_0p2.png",
+      "sha256": "e4c251651291183ff7af8fe00114bb4954266d5af9ef7cce9f267e8a95a7e4a1"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/doctor_cast_0p4.png",
+      "sha256": "52f3098ab8f20101b9adbe6439f2d1a4eba70c0d4123f0cb414f0ac382c179cc"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/doctor_find_0p0.png",
+      "sha256": "64aae45dd103810882e9bef24d1a601b5e3a7887e1ce40d29f7e49cd6cb511da"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/doctor_find_0p2.png",
+      "sha256": "c80566c212765f9ce1d80d6eb851b501a2705e022135325ef99594f919b42b06"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/doctor_find_0p4.png",
+      "sha256": "a19276090fa424e6187f3eab417010e15728b223c8d53c63bbf46a5d58131790"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/doctor_wash_0p0.png",
+      "sha256": "5a71b53b7ad66e61bc5a6744d6835f62fd5197fb68a4b52f3f4e073a3fee8a16"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/doctor_wash_0p2.png",
+      "sha256": "713f1e9000bb9f3cd58b601fa9f8c2c31e940ce049e115ae62c1423274aa41a7"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/doctor_wash_0p4.png",
+      "sha256": "1de02b3bfcc3183416d630dbc7978b991cebc4829563378f1f310b58acdda038"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/doctor_x-ray_0p0.png",
+      "sha256": "9ed527a713facdd59b2b19f9deb70328f828cc523238fd234299c86b29a9e878"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/doctor_x-ray_0p2.png",
+      "sha256": "10fab4164b45e61abd907bbdd0aa0268327d8c60a1b4f2460176f3c209e09c7a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/doctor_x-ray_0p4.png",
+      "sha256": "aaf0327b37ac2d7bf73e412214a4192217d5cdb1c396601ee1c1a7e092a4a625"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/farmer_herd_0p0.png",
+      "sha256": "9d9c6af5ec5836cbbceff0ceba29ec90623bc64cf3da5337bc0eb4084aa01a73"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/farmer_herd_0p2.png",
+      "sha256": "cdc7697d04cbe5b8bd70868b52fc72276cd43e9585abc55dd112a167a7c000aa"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/farmer_herd_0p4.png",
+      "sha256": "4ebc4c93e645445728a439fb1859a795144476702e30ad78680ba1f95b61d5dc"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/farmer_picnic_0p0.png",
+      "sha256": "ec6be0c0e5abb3fb683266e87ad0f94a4b366690738f8b18249b8d33e330cabd"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/farmer_picnic_0p2.png",
+      "sha256": "4435224d9f78986e17cab1088a160ee897ceb14f7e02792f7154c2a10d0c9985"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/farmer_picnic_0p4.png",
+      "sha256": "ed67b500055b8157184c3774d91759fa6b53f9efb562ad6f1f078e7d4006e060"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/farmer_plant_0p0.png",
+      "sha256": "2dce3d406090356a69ffcda62e08b706e52ec2202bba9c8421899e1719bb9fe1"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/farmer_plant_0p2.png",
+      "sha256": "6886c7e8cc7866fe4d84fb0f780a2ecf8f53bb5dd9ec25919c5d849aaaadeb15"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/farmer_plant_0p4.png",
+      "sha256": "fcc529b88343d30b731539d5c3e25a1728255d1f3d9d9b13cace06887c764587"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/farmer_toss_0p0.png",
+      "sha256": "68ee9c6750b3a08138783a67530133d73e6c8b9089dfd33428e33daa7e735a1a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/farmer_toss_0p2.png",
+      "sha256": "fa789619fcfd20c1227098f4db11121c801a6a2c4660d9568f24b2f7e5fb7b6b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/farmer_toss_0p4.png",
+      "sha256": "348d59b5debb6f9a45deae630068725bbad03abd88a5f245301b46e40dde83cc"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/racer_to_the_line_0p0.png",
+      "sha256": "c8c3353e4910c3c084e82730cc90968859484184828a3cd46c07da141e1e4275"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/racer_to_the_line_0p2.png",
+      "sha256": "a0c54a3e0577b702c5f22e540729a3df8254cd2a5fcb553b695f0c4373b4faa0"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/racer_to_the_line_0p4.png",
+      "sha256": "1b24f26231cb0fa6bd6e87393d184afc7383718f12559370326ff2ac1d5b43ba"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/racer_tune_0p0.png",
+      "sha256": "0e62496ef717f64eb53573779ff15806b9e504cd1d5ef944deae49dacef20c6d"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/racer_tune_0p2.png",
+      "sha256": "c951f9ae3dc9f3089826ee1691bedb1aa99cee6d49634cd564104b71019313bb"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate/racer_tune_0p4.png",
+      "sha256": "338c8b967787b678fec36573a8c6d99b2476ac87c48885dc7e7e2b0248d06b67"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate-analyzer.log",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate.log",
+      "sha256": "635276d49dec2f8b61c53f78d5264da938f434d3937d6b0a3381d61143f0b157"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/phase-poses/candidate_capture.gd.txt",
+      "sha256": "71b13221ba2c7778994fad5b660aa9ae65631140cb760409933ad3dd0d375254"
+    }
+  ],
+  "candidate_process_outcome": "All 33 expected PNGs and frame records completed; no matching capture process remained on subsequent process inspection. The windowed launcher timed out before exit, so exit code is unavailable.",
+  "source_hash_procedure": "candidate_utf8_lf_sha256 is SHA-256 of strict UTF-8 source normalized CRLF to LF. baseline_9df_git_content_sha256 is SHA-256 of exact git show 9df:path bytes, not a Git object ID. Atlas and screenshot SHA-256 values hash exact file bytes.",
+  "actor_atlases": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_doctor_sheet_a.png",
+      "sha256": "bfffbd5389d63f8c9337a132bb20e09abbd4d8fc8471ec406fba2d722106a50e",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "grid": [
+        4,
+        4
+      ],
+      "work_row_zero_based": 2,
+      "same_bytes_as_baseline_9df": true
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_farmer_sheet_a.png",
+      "sha256": "f0c9947b093c489145945467af62e50ce748b56b344c55942b7532742bc64bc5",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "grid": [
+        4,
+        4
+      ],
+      "work_row_zero_based": 2,
+      "same_bytes_as_baseline_9df": true
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_racer_sheet_a.png",
+      "sha256": "f62f881d42b439bde09a8bc7f6e0000125acd3e27aabf1fd39d90722ce75ca79",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "grid": [
+        4,
+        4
+      ],
+      "work_row_zero_based": 2,
+      "same_bytes_as_baseline_9df": true
+    }
+  ]
+}

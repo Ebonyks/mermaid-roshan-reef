@@ -1,0 +1,552 @@
+{
+  "schema": 1,
+  "verification_id": "full-ci-attempt08-independent-2026-09-06",
+  "status": "PASS_NATIVE_REGRESSION_BOUND_ONLY",
+  "scope": "Independent read-only verification of one complete native scripts/ci.sh execution over the frozen a6 merge candidate and owned changes.",
+  "candidate": {
+    "head": "9df000999a94572b64537c98f558841f6f3e3260",
+    "merge_head_upstream": "a6ffa14d0160ad6830464b73df33e1db20641fa1",
+    "description": "in-progress merge candidate; HEAD plus MERGE_HEAD plus owned index/worktree changes, bound by the 68-source freeze rather than a commit SHA alone"
+  },
+  "execution": {
+    "attempt": "full-ci-attempt08",
+    "result_return_code": 0,
+    "exit_file_value": 0,
+    "elapsed_seconds": 2399.609,
+    "raw_log_path": "tmp/art-dev-combined-validation/full-ci-attempt08.log",
+    "raw_log_bytes": 349262,
+    "raw_log_sha256_computed": "4608a3428b2874d8e9a6e86bfe5781e204a8707397fd2359cbcd0cca7f3e06f9",
+    "raw_log_sha256_result": "4608a3428b2874d8e9a6e86bfe5781e204a8707397fd2359cbcd0cca7f3e06f9",
+    "result_path": "tmp/art-dev-combined-validation/full-ci-attempt08-result.json",
+    "result_sha256": "881032fa3c81d3940defb0d3c9764eac25efa14fdc9d271d11b742eb0ba2807e",
+    "source_freeze_path": "tmp/art-dev-combined-validation/full-ci-attempt08-source-freeze.json",
+    "source_freeze_sha256": "3d1fd7cbf78c4f023895ca9033185718d8028a1c80ef714481d59f11bad7ed4d",
+    "runner_path": "tmp/art-dev-combined-validation/run_validation08.py",
+    "runner_sha256": "645c0174ce50d05fecb8aef8d54d916212574a409049fde63a6909a800873e8c",
+    "isolated_profile_declared": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905\\tmp\\art-dev-combined-validation\\full-ci-attempt08-profile",
+    "command": [
+      "C:\\Program Files\\Git\\bin\\bash.exe",
+      "scripts/ci.sh"
+    ]
+  },
+  "engine": {
+    "description": "Godot 4.7.2-stable native executable",
+    "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe",
+    "size_bytes_recorded": 180858888,
+    "size_bytes_current": 180858888,
+    "sha256_recorded": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+    "sha256_current": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+    "matches": true
+  },
+  "source_freeze": {
+    "records": 68,
+    "normalization": "utf8_lf",
+    "current_matches": 68,
+    "mismatches": [],
+    "all_match": true
+  },
+  "probe_roster": {
+    "expected_count": 78,
+    "heading_count": 78,
+    "unique_heading_count": 78,
+    "process_exit_count": 78,
+    "unique_process_exit_count": 78,
+    "headings_match_expected_order": true,
+    "exit_rows_match_expected_order": true,
+    "all_process_exits_zero": true,
+    "expected_order": [
+      "probe_reef_districts",
+      "probe_ocean_kingdoms",
+      "probe_audit",
+      "probe_passive",
+      "probe_living_world",
+      "probe_load",
+      "probe_rank",
+      "probe_save_recovery",
+      "probe_galaxy_state",
+      "probe_collection",
+      "probe_mg2d",
+      "probe_fetch",
+      "probe_melody",
+      "probe_dolls",
+      "probe_seek",
+      "probe_audio",
+      "probe_dance",
+      "probe_l2",
+      "probe_l2_living_cards",
+      "probe_sky_lagoon_animals",
+      "probe_l2_reenter",
+      "probe_crown",
+      "probe_throne",
+      "probe_northern",
+      "probe_human_art_audit",
+      "probe_train",
+      "probe_verbs",
+      "probe_carry",
+      "probe_grotto",
+      "probe_flow",
+      "probe_skins",
+      "probe_touch_router",
+      "probe_touch_stress",
+      "probe_interaction",
+      "probe_touch_adversary",
+      "probe_touch_look",
+      "probe_ui_system",
+      "probe_voice",
+      "probe_day_one_voice",
+      "probe_day_one_d8_revisits",
+      "probe_day_one_handoffs",
+      "probe_kart_feel",
+      "probe_combat",
+      "probe_dust_bunny",
+      "probe_dust_bunny_boss",
+      "probe_dust_boss",
+      "probe_hit",
+      "probe_partner",
+      "probe_combat_tutorial",
+      "probe_imp_ai",
+      "probe_mic",
+      "probe_stuffie",
+      "probe_dungeon",
+      "probe_ember",
+      "probe_opera",
+      "probe_opera_2d",
+      "probe_opera_diegetic_paths",
+      "probe_opera_detective",
+      "probe_opera_pipe",
+      "probe_opera_nursery",
+      "probe_opera_gesture_quality",
+      "probe_kitchen_props",
+      "probe_bathroom_props",
+      "probe_castle_door_language",
+      "probe_bathroom_integration",
+      "probe_day_one_bathroom_bunny",
+      "probe_day_one_bathroom_cleanup",
+      "probe_day_one_bathroom_movie_handoff",
+      "probe_day_one_director",
+      "probe_day_one_integration",
+      "probe_day_one_pool_cleanup",
+      "probe_day_one_art_attack_state",
+      "probe_day_one_castle_dressing",
+      "probe_start_menu_routing",
+      "probe_castle_pool_life_2d",
+      "probe_castle_pearl_art",
+      "probe_fairy_art",
+      "probe_props"
+    ],
+    "observed_process_exits": [
+      {
+        "ordinal": 1,
+        "probe": "probe_reef_districts",
+        "exit": 0
+      },
+      {
+        "ordinal": 2,
+        "probe": "probe_ocean_kingdoms",
+        "exit": 0
+      },
+      {
+        "ordinal": 3,
+        "probe": "probe_audit",
+        "exit": 0
+      },
+      {
+        "ordinal": 4,
+        "probe": "probe_passive",
+        "exit": 0
+      },
+      {
+        "ordinal": 5,
+        "probe": "probe_living_world",
+        "exit": 0
+      },
+      {
+        "ordinal": 6,
+        "probe": "probe_load",
+        "exit": 0
+      },
+      {
+        "ordinal": 7,
+        "probe": "probe_rank",
+        "exit": 0
+      },
+      {
+        "ordinal": 8,
+        "probe": "probe_save_recovery",
+        "exit": 0
+      },
+      {
+        "ordinal": 9,
+        "probe": "probe_galaxy_state",
+        "exit": 0
+      },
+      {
+        "ordinal": 10,
+        "probe": "probe_collection",
+        "exit": 0
+      },
+      {
+        "ordinal": 11,
+        "probe": "probe_mg2d",
+        "exit": 0
+      },
+      {
+        "ordinal": 12,
+        "probe": "probe_fetch",
+        "exit": 0
+      },
+      {
+        "ordinal": 13,
+        "probe": "probe_melody",
+        "exit": 0
+      },
+      {
+        "ordinal": 14,
+        "probe": "probe_dolls",
+        "exit": 0
+      },
+      {
+        "ordinal": 15,
+        "probe": "probe_seek",
+        "exit": 0
+      },
+      {
+        "ordinal": 16,
+        "probe": "probe_audio",
+        "exit": 0
+      },
+      {
+        "ordinal": 17,
+        "probe": "probe_dance",
+        "exit": 0
+      },
+      {
+        "ordinal": 18,
+        "probe": "probe_l2",
+        "exit": 0
+      },
+      {
+        "ordinal": 19,
+        "probe": "probe_l2_living_cards",
+        "exit": 0
+      },
+      {
+        "ordinal": 20,
+        "probe": "probe_sky_lagoon_animals",
+        "exit": 0
+      },
+      {
+        "ordinal": 21,
+        "probe": "probe_l2_reenter",
+        "exit": 0
+      },
+      {
+        "ordinal": 22,
+        "probe": "probe_crown",
+        "exit": 0
+      },
+      {
+        "ordinal": 23,
+        "probe": "probe_throne",
+        "exit": 0
+      },
+      {
+        "ordinal": 24,
+        "probe": "probe_northern",
+        "exit": 0
+      },
+      {
+        "ordinal": 25,
+        "probe": "probe_human_art_audit",
+        "exit": 0
+      },
+      {
+        "ordinal": 26,
+        "probe": "probe_train",
+        "exit": 0
+      },
+      {
+        "ordinal": 27,
+        "probe": "probe_verbs",
+        "exit": 0
+      },
+      {
+        "ordinal": 28,
+        "probe": "probe_carry",
+        "exit": 0
+      },
+      {
+        "ordinal": 29,
+        "probe": "probe_grotto",
+        "exit": 0
+      },
+      {
+        "ordinal": 30,
+        "probe": "probe_flow",
+        "exit": 0
+      },
+      {
+        "ordinal": 31,
+        "probe": "probe_skins",
+        "exit": 0
+      },
+      {
+        "ordinal": 32,
+        "probe": "probe_touch_router",
+        "exit": 0
+      },
+      {
+        "ordinal": 33,
+        "probe": "probe_touch_stress",
+        "exit": 0
+      },
+      {
+        "ordinal": 34,
+        "probe": "probe_interaction",
+        "exit": 0
+      },
+      {
+        "ordinal": 35,
+        "probe": "probe_touch_adversary",
+        "exit": 0
+      },
+      {
+        "ordinal": 36,
+        "probe": "probe_touch_look",
+        "exit": 0
+      },
+      {
+        "ordinal": 37,
+        "probe": "probe_ui_system",
+        "exit": 0
+      },
+      {
+        "ordinal": 38,
+        "probe": "probe_voice",
+        "exit": 0
+      },
+      {
+        "ordinal": 39,
+        "probe": "probe_day_one_voice",
+        "exit": 0
+      },
+      {
+        "ordinal": 40,
+        "probe": "probe_day_one_d8_revisits",
+        "exit": 0
+      },
+      {
+        "ordinal": 41,
+        "probe": "probe_day_one_handoffs",
+        "exit": 0
+      },
+      {
+        "ordinal": 42,
+        "probe": "probe_kart_feel",
+        "exit": 0
+      },
+      {
+        "ordinal": 43,
+        "probe": "probe_combat",
+        "exit": 0
+      },
+      {
+        "ordinal": 44,
+        "probe": "probe_dust_bunny",
+        "exit": 0
+      },
+      {
+        "ordinal": 45,
+        "probe": "probe_dust_bunny_boss",
+        "exit": 0
+      },
+      {
+        "ordinal": 46,
+        "probe": "probe_dust_boss",
+        "exit": 0
+      },
+      {
+        "ordinal": 47,
+        "probe": "probe_hit",
+        "exit": 0
+      },
+      {
+        "ordinal": 48,
+        "probe": "probe_partner",
+        "exit": 0
+      },
+      {
+        "ordinal": 49,
+        "probe": "probe_combat_tutorial",
+        "exit": 0
+      },
+      {
+        "ordinal": 50,
+        "probe": "probe_imp_ai",
+        "exit": 0
+      },
+      {
+        "ordinal": 51,
+        "probe": "probe_mic",
+        "exit": 0
+      },
+      {
+        "ordinal": 52,
+        "probe": "probe_stuffie",
+        "exit": 0
+      },
+      {
+        "ordinal": 53,
+        "probe": "probe_dungeon",
+        "exit": 0
+      },
+      {
+        "ordinal": 54,
+        "probe": "probe_ember",
+        "exit": 0
+      },
+      {
+        "ordinal": 55,
+        "probe": "probe_opera",
+        "exit": 0
+      },
+      {
+        "ordinal": 56,
+        "probe": "probe_opera_2d",
+        "exit": 0
+      },
+      {
+        "ordinal": 57,
+        "probe": "probe_opera_diegetic_paths",
+        "exit": 0
+      },
+      {
+        "ordinal": 58,
+        "probe": "probe_opera_detective",
+        "exit": 0
+      },
+      {
+        "ordinal": 59,
+        "probe": "probe_opera_pipe",
+        "exit": 0
+      },
+      {
+        "ordinal": 60,
+        "probe": "probe_opera_nursery",
+        "exit": 0
+      },
+      {
+        "ordinal": 61,
+        "probe": "probe_opera_gesture_quality",
+        "exit": 0
+      },
+      {
+        "ordinal": 62,
+        "probe": "probe_kitchen_props",
+        "exit": 0
+      },
+      {
+        "ordinal": 63,
+        "probe": "probe_bathroom_props",
+        "exit": 0
+      },
+      {
+        "ordinal": 64,
+        "probe": "probe_castle_door_language",
+        "exit": 0
+      },
+      {
+        "ordinal": 65,
+        "probe": "probe_bathroom_integration",
+        "exit": 0
+      },
+      {
+        "ordinal": 66,
+        "probe": "probe_day_one_bathroom_bunny",
+        "exit": 0
+      },
+      {
+        "ordinal": 67,
+        "probe": "probe_day_one_bathroom_cleanup",
+        "exit": 0
+      },
+      {
+        "ordinal": 68,
+        "probe": "probe_day_one_bathroom_movie_handoff",
+        "exit": 0
+      },
+      {
+        "ordinal": 69,
+        "probe": "probe_day_one_director",
+        "exit": 0
+      },
+      {
+        "ordinal": 70,
+        "probe": "probe_day_one_integration",
+        "exit": 0
+      },
+      {
+        "ordinal": 71,
+        "probe": "probe_day_one_pool_cleanup",
+        "exit": 0
+      },
+      {
+        "ordinal": 72,
+        "probe": "probe_day_one_art_attack_state",
+        "exit": 0
+      },
+      {
+        "ordinal": 73,
+        "probe": "probe_day_one_castle_dressing",
+        "exit": 0
+      },
+      {
+        "ordinal": 74,
+        "probe": "probe_start_menu_routing",
+        "exit": 0
+      },
+      {
+        "ordinal": 75,
+        "probe": "probe_castle_pool_life_2d",
+        "exit": 0
+      },
+      {
+        "ordinal": 76,
+        "probe": "probe_castle_pearl_art",
+        "exit": 0
+      },
+      {
+        "ordinal": 77,
+        "probe": "probe_fairy_art",
+        "exit": 0
+      },
+      {
+        "ordinal": 78,
+        "probe": "probe_props",
+        "exit": 0
+      }
+    ]
+  },
+  "hard_error_scan": {
+    "markers": {
+      "SCRIPT ERROR": 0,
+      "Parse Error": 0,
+      "Compile Error": 0,
+      "IMPORT FAIL": 0,
+      "GODOT BASELINE DRIFT": 0,
+      "PARSE FAIL": 0,
+      "LINT FAIL": 0,
+      "hard_probe_failure_dispatches": 0
+    },
+    "all_clear": true,
+    "note": "The log contains expected advisory visual-audit ERROR/FAIL labels and UNSATISFIED state plus stress-test/missing-language assertions that report OK. scripts/ci.sh deliberately runs audit_visual_design.py advisory and requires only game-2D NO_REGRESSION; these are not probe/script execution errors."
+  },
+  "conclusion": "The exact 349262-byte log matches the supplied SHA-256, the runner/result report exit 0 after 2399.609 seconds, all 78 expected probe headings occur once in exact roster order, every paired process exit is 0, no hard probe/script/import/static-gate error marker occurs, the pinned native engine matches, and all 68 frozen UTF-8/LF source hashes and raw byte sizes still match.",
+  "limits": [
+    "Native desktop/headless regression execution only.",
+    "The configured CI run does not establish game-wide visual quality or the 4.5 art threshold.",
+    "Advisory visual audit remains UNSATISFIED and game-wide 2D debt remains UNSATISFIED with NO_REGRESSION only.",
+    "No target-device, child, owner, complete motion, or release acceptance follows.",
+    "This record does not prove Full07 wrapper causality and does not authorize promotion."
+  ]
+}

@@ -47,26 +47,28 @@ const FRIENDS: Array[Dictionary] = [
 	},
 ]
 
+# Keep the supper ingredients together on the painted table and clear of
+# Roshan at room entry. Each target exceeds the 110px minimum through its pulse.
 const DINNER_INGREDIENTS: Array[Dictionary] = [
 	{
 		"id": "apple",
 		"name": "Apple",
 		"texture": "res://assets/props/story/fruit_apple.png",
-		"rect": Rect2(120.0, 350.0, 190.0, 190.0),
+		"rect": Rect2(850.0, 432.0, 116.0, 116.0),
 		"line": "Plop! A crunchy apple goes into our supper!",
 	},
 	{
 		"id": "carrot",
 		"name": "Carrot",
-		"texture": "res://assets/mg/carrot.png",
-		"rect": Rect2(540.0, 360.0, 190.0, 190.0),
+		"texture": "res://assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+		"rect": Rect2(977.0, 432.0, 116.0, 116.0),
 		"line": "Plop! A bright carrot goes into our supper!",
 	},
 	{
 		"id": "strawberry",
 		"name": "Strawberry",
 		"texture": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
-		"rect": Rect2(950.0, 350.0, 190.0, 190.0),
+		"rect": Rect2(1104.0, 432.0, 116.0, 116.0),
 		"line": "Plop! A sweet strawberry makes it extra special!",
 	},
 ]

@@ -3643,15 +3643,21 @@ func _slide_exercise_return_guard(friend: Dictionary, label: String,
 			await process_frame
 		pose_lock_exact = pose_lock_exact and main.pose_t < 0.0
 		fresh_index += 1
+	# A forward gesture must create planar motion; gravity during a pure turn
+	# is not evidence that the returned world consumed a fresh movement command.
 	var fresh_before: Variant = player.position
 	_slide_push_touch(move_origin, true, fresh_index, touch_device + 1)
 	_slide_push_drag(move_point, move_point - move_origin,
 		fresh_index, touch_device + 1)
+	var fresh_forward_requested: bool = main.touch_ui.stick_vec.y < -0.1
 	await process_frame
-	var fresh_moved: bool = not bool(main.call(
+	var fresh_planar_delta: Vector2 = Vector2(
+		player.position.x - fresh_before.x, player.position.z - fresh_before.z)
+	var fresh_planar_velocity: Vector2 = Vector2(player.vel.x, player.vel.z)
+	var fresh_moved: bool = fresh_forward_requested and not bool(main.call(
 		"_slide_canvas_return_guard_active")) \
-		and (player.position.distance_to(fresh_before) > 0.0001 \
-			or player.vel.length() > 0.0001)
+		and (fresh_planar_delta.length() > 0.0001 \
+			or fresh_planar_velocity.length() > 0.0001)
 	_slide_push_touch(move_point, false, fresh_index, touch_device + 1)
 	var fresh_terminal_census_exact: bool = \
 		main._slide_canvas_held_sources.is_empty() \
@@ -5105,13 +5111,13 @@ func _slide_drive_run(slide: SlideRaceGame,
 		var target_lane := 0.0
 		if desired_catches == 0:
 			# One deliberate, low-amplitude nudge marks agency while the center gap
-			# safely misses fish 0/1. A short +0.32 shelf clears center-lane fish 2,
+			# safely misses fish 0/1. A short +0.40 shelf clears center-lane fish 2,
 			# then center again safely clears fish 3/4. This avoids risky full-lane
 			# crossings through the next fish's catch window.
 			if progress < 0.40:
 				target_lane = 0.06
 			elif progress < 0.58:
-				target_lane = 0.32
+				target_lane = 0.40
 			else:
 				target_lane = 0.0
 		else:
@@ -5127,7 +5133,15 @@ func _slide_drive_run(slide: SlideRaceGame,
 				# Center is outside both remaining outer-fish catch bands.
 				target_lane = 0.0
 		var current_lane: float = float(snapshot.get("lane", 0.0))
-		var axis: float = clampf((target_lane - current_lane) * 3.2, -1.0, 1.0)
+		var steering_gain: float = 3.2
+		if desired_catches == 0:
+			# Six-times accelerated headless frames can be much longer than a real
+			# phone frame. Keep the deliberate-miss controller from crossing its
+			# target in one update and overcorrecting into the center fish.
+			steering_gain = minf(steering_gain, 0.8 / (SlideRaceGame.FISH_LANE_SPEED
+				* maxf(main.get_process_delta_time(), 0.001)))
+		var axis: float = clampf(
+			(target_lane - current_lane) * steering_gain, -1.0, 1.0)
 		var width: float = maxf(
 			float((snapshot.get("viewport_size", Vector2(1280.0, 720.0)) as Vector2).x),
 			1.0)

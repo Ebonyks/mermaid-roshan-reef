@@ -1,0 +1,101 @@
+{
+  "schema": "minigame_source_art_followup_v1",
+  "reviewed_date": "2026-09-06",
+  "reviewer": "independent_ai_source_pixel_review",
+  "surface": "DollsGame / DollsNurserySurface",
+  "scope": {
+    "statement": "Read-only audit of raster files proven live by scripts/games/dolls.gd and its inherited OperaNurseryCatch/OperaWorldBackdrop2D path.",
+    "scored_dimensions": ["identity", "finish", "contour_edges", "source_readability", "family_consistency"],
+    "unassessed": ["mounted composition", "runtime scale readability", "character-to-cradle contact", "occlusion", "touch feedback", "animation cadence", "target-phone rendering", "child acceptance"],
+    "protected_assets": "The selected catcher uses m.skin_sprite_path(); its resolved approved character file depends on save state and was neither resolved nor altered here."
+  },
+  "runtime_trace": {
+    "owners": [
+      {"path": "scripts/games/dolls.gd", "sha256_raw": "5cb9e511e002b9de4bfab5b6e9c41923308fac29690875e90a90c03ecb58162f", "role": "builds the bounded 1024x608 Dolls layer, loads inherited baby paths, selects nursery backdrop, mounts dynamic catcher skin, and draws code-native mat/cradle/progress"},
+      {"path": "scripts/opera_nursery_catch.gd", "sha256_raw": "bd053fecc162306c05a9c6f806c7c121d92cd220f5f6366cc19180c2a7dcc5e5", "role": "defines BABY_PATHS and catch-state grammar"},
+      {"path": "scripts/opera_world_backdrop_2d.gd", "sha256_raw": "1897f388cd04da9bc200b7b9ec03dea6e86d57e5eee7db6cef311a453f33a8ef", "role": "loads world_nursery 2x2 tiles and crops the authored 16:9 playfield from padded POT tiles"}
+    ],
+    "live_raster_roles": [
+      "Three BABY_PATHS textures are loaded directly by DollsNurserySurface.",
+      "world_backdrop.setup(\"nursery\") resolves the four world_nursery tiles.",
+      "m.skin_sprite_path() resolves a protected approved Roshan skin only at runtime."
+    ],
+    "not_live_on_dolls_override": [
+      "assets/opera/worlds/widgets/widget_catch_nursery.png is audit-only retired_backdrop_path and is not painted.",
+      "widget_catch_nursery_cradle.png and widget_catch_nursery_pillows.png are nulled by DollsNurserySurface after inherited setup; the live cradle and safety mat are Canvas drawing."
+    ]
+  },
+  "reviewed_assets": [
+    {
+      "path": "assets/opera/worlds/nursery/baby_0.png",
+      "sha256": "bcd4f1e12437dab7dbacadb54f0150c4b500d40e589574f03c394109f7780c3b",
+      "dimensions": [320, 320], "mode": "RGBA", "alpha_bbox": [90, 10, 230, 310],
+      "role": "aqua falling/settled baby variant",
+      "scores": {"identity": 4.6, "finish": 4.6, "contour_edges": 4.6, "source_readability": 4.6, "family_consistency": 4.6},
+      "basis": "Immediately readable swaddled baby, calm face, layered cloth bands, clean isolated silhouette, and restrained aqua palette. The narrow occupied width is intentional subject shape, not demonstrated runtime undersizing."
+    },
+    {
+      "path": "assets/opera/worlds/nursery/baby_1.png",
+      "sha256": "73148e42f8e7786aef3baafe573905b3e504d76ab2f754cbe61c47c8b9ddb102",
+      "dimensions": [320, 320], "mode": "RGBA", "alpha_bbox": [90, 10, 230, 310],
+      "role": "coral falling/settled baby variant",
+      "scores": {"identity": 4.6, "finish": 4.6, "contour_edges": 4.6, "source_readability": 4.6, "family_consistency": 4.6},
+      "basis": "Clear face and swaddle silhouette, softly painted folds, clean alpha contour, and controlled coral differentiation without changing the shared form language."
+    },
+    {
+      "path": "assets/opera/worlds/nursery/baby_2.png",
+      "sha256": "c21a61b7ebb53c0f164ce29a39656b23b32725708e4f71192babf8b5e8eb74b5",
+      "dimensions": [320, 320], "mode": "RGBA", "alpha_bbox": [89, 10, 230, 310],
+      "role": "lavender falling/settled baby variant",
+      "scores": {"identity": 4.6, "finish": 4.6, "contour_edges": 4.6, "source_readability": 4.6, "family_consistency": 4.6},
+      "basis": "Same readable swaddled-baby grammar and finish as the other variants, with coherent lavender material bands and no visible contour break in the inspected source."
+    },
+    {
+      "paths": [
+        "assets/opera/worlds/backdrops/world_nursery_c0r0.png",
+        "assets/opera/worlds/backdrops/world_nursery_c1r0.png",
+        "assets/opera/worlds/backdrops/world_nursery_c0r1.png",
+        "assets/opera/worlds/backdrops/world_nursery_c1r1.png"
+      ],
+      "sha256_by_path_order": [
+        "ed0142cf00f970e65cd211ce1816fa411528f7bf31dff38a0d8046d243875133",
+        "fc0fed2f81b13694a86e10d91c09e1072716e58697d14c68d9d36ebd9b41eaef",
+        "65c04742ca49fb3450125dd98a66e8e69a36fccc31dda88fedaac9a8800cf3a2",
+        "8f1e09ffd00795119258fcca0e2b30d69475fdbe33ca33d350a9954bfdb9e2c7"
+      ],
+      "dimensions_each": [1024, 1024], "mode": "RGB",
+      "role": "four POT carrier tiles for the approved nursery world painting",
+      "scores": {"identity": 4.7, "finish": 4.7, "contour_edges": null, "source_readability": 4.6, "family_consistency": 4.7},
+      "basis": "The authored regions show a distinctive moon-shell nursery, beds, mobiles, pearl lamps, coral, and a broad pale floor with polished storybook material rendering. Large flat/padded carrier regions are expected from the documented crop pipeline and are not themselves visible-scene defects. Opaque tile seams and the final crop cannot be scored from separate carrier views; contour_edges is not applicable to this opaque background group.",
+      "provenance": "ASSET_LICENSES.md identifies these as project-authored runtime derivative/composite tiles from project-owned Opera art; audit/interactive_background_ownership_2026-08-29.json binds their hashes and records owner review pending."
+    }
+  ],
+  "proven_below_4_5_source_assets": [],
+  "source_findings": {
+    "strong_assets_to_reuse_unchanged": [
+      "All three baby cutouts are suitable direct reuse at source level.",
+      "The nursery tile family has strong identity and finish and should remain the backdrop source while mounted seams/crop are checked."
+    ],
+    "unassessed_integration_gaps": [
+      "The exact m.skin_sprite_path() result and its relationship to the code-native sling cannot be audited without a state-bound runtime capture.",
+      "The code-native safety mat, sling, progress pips, focus arcs, and landing halo have no standalone raster pixels to score; their quality depends on mounted composition.",
+      "Three near-identical baby silhouettes improve recognition but may reduce state differentiation when several overlap; only a live multi-faller/settled capture can establish whether color alone is sufficient.",
+      "Separate tile inspection cannot establish seam freedom, correct source-region assembly, or whether the detailed background competes with falling babies at gameplay scale."
+    ],
+    "replacement_decision": "No reviewed live raster is proven below 4.5 from source pixels. Do not regenerate or replace these files from this audit. Resolve integration evidence first."
+  },
+  "required_runtime_capture_packet": [
+    {"state": "ready", "must_show": "full 1280x720 Mobile frame, resolved selected skin, empty sling, mat, pips, pointer/focus, and complete assembled nursery backdrop"},
+    {"state": "multi_faller", "must_show": "at least two babies at different heights/lanes, source variants identifiable against the detailed backdrop"},
+    {"state": "held_drag_contact", "must_show": "finger held during an interpolated drag, live sling position, lowest baby approach, and unobscured selected catcher"},
+    {"state": "caught", "must_show": "baby visibly seated in sling plus progress change, with layer/contact and scale readable"},
+    {"state": "safe_miss", "must_show": "baby on safety mat with landing halo, proving the no-fail state is visually distinct from a catch"},
+    {"state": "three_settled_completion", "must_show": "all three settled baby slots and filled pips before the surface closes or advances"}
+  ],
+  "acceptance": {
+    "source_raster_threshold_met_for_reviewed_files": true,
+    "surface_art_accepted": false,
+    "status": "OPEN_PENDING_CURRENT_MOUNTED_EVIDENCE",
+    "owner_device_child_review": "pending"
+  }
+}

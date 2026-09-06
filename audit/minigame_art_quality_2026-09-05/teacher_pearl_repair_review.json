@@ -1,0 +1,243 @@
+{
+  "schema": "teacher-pearl-repair-bounded-review-v1",
+  "reviewed": "2026-09-06",
+  "verdict": "PASS_BOUNDED",
+  "claim": "The changed COUNT/ADD answer and operand pearl sizing is materially more readable in the six reviewed run03 states, preserves grouping, and shows no clipping. This is a bounded review of pearl sizing only.",
+  "run_status": {
+    "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run03/exit-code.txt",
+    "value": 0
+  },
+  "source_binding": {
+    "path": "scripts/opera_teacher_surface.gd",
+    "sha256": "b4893e222e45096cb539ad8025fdf7ba1a395cf6a921d7dc0205cff57acaa667",
+    "caller_lines": [
+      287,
+      288,
+      330,
+      331,
+      332,
+      333,
+      334,
+      335
+    ],
+    "sizing_helper_lines": [
+      356,
+      366
+    ],
+    "binding_note": "Answer groups derive radius from amount and card.size.x - 24 with max 40. Operand groups derive radius from amount and 241 available pixels with max 40. _draw_group retains five columns per row, exact token colors, centers, outlines and highlights."
+  },
+  "comparison": {
+    "baseline": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02",
+    "candidate": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run03",
+    "renderer": "mobile",
+    "viewport": [
+      1280,
+      720
+    ],
+    "capture_origin_limits": "Intro frames use configured_phase_shortcut; partial and completion frames use live_gui_input. These are desktop Mobile-renderer captures, not target-device or child evidence.",
+    "content_equivalence_limit": "The paired files are state- and lesson-content-equivalent but not pixel-identical because the pearl rendering changed. Read-only connected-component measurement of cyan interiors confirms one/two COUNT answer groups in all six COUNT files. ADD displays the same one-plus-one operands and two-/three-pearl answers in both runs.",
+    "count_measurement": {
+      "method": "Count four-connected cyan interior components larger than 100 pixels within answer-card rectangles x=474..681 and x=828..1036, y=455..623; no pixels were modified.",
+      "run02": {
+        "intro": [
+          1,
+          2
+        ],
+        "partial": [
+          1,
+          2
+        ],
+        "completion": [
+          1,
+          2
+        ]
+      },
+      "run03": {
+        "intro": [
+          1,
+          2
+        ],
+        "partial": [
+          1,
+          2
+        ],
+        "completion": [
+          1,
+          2
+        ]
+      },
+      "candidate_centers": [
+        [
+          577.5,
+          524.0
+        ],
+        [
+          901.5,
+          524.0
+        ],
+        [
+          963.5,
+          524.0
+        ]
+      ]
+    },
+    "pairs": [
+      {
+        "mode": "count",
+        "state": "intro",
+        "baseline": {
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/teacher_count_intro.png",
+          "sha256": "920bb5e2218d455b99e251a346b76f4b7d8fbc7e947bcf5bd1bba2bf89ac8009"
+        },
+        "candidate": {
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run03/captures/teacher_count_intro.png",
+          "sha256": "9bdc703bd622a5e82b0d9f898b2a0989078d60f33f29ecacc68e565ee618f5e5"
+        },
+        "observation": "The one- and two-pearl answers increase from visually tiny marks to clear objects. Both groups remain centered with ample card clearance."
+      },
+      {
+        "mode": "count",
+        "state": "partial",
+        "baseline": {
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/teacher_count_partial.png",
+          "sha256": "5a5f6ec76890f56f7fd0a533f3db4de53b10a9bd0d5f3102618fc5560862c08b"
+        },
+        "candidate": {
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run03/captures/teacher_count_partial.png",
+          "sha256": "73b740974c4b8b8c255deba822edd53142454c7065e1000c27253e86c3ac6647"
+        },
+        "observation": "The enlarged one- and two-pearl answer groups remain unclipped and distinct after the counted pearl changes to its check state."
+      },
+      {
+        "mode": "count",
+        "state": "completion",
+        "baseline": {
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/teacher_count_completion.png",
+          "sha256": "571fadcaaefee931845c7a1272be469e72f30b26022c9816f3a46764841cddc4"
+        },
+        "candidate": {
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run03/captures/teacher_count_completion.png",
+          "sha256": "bd785f7863acbd92b2636dfd8d9eaae02b222399a5d0ffe7bf43c0ebd01aade0"
+        },
+        "observation": "The selected-card fill and star payoff do not obscure or clip the larger one-pearl answer; the two-pearl distractor remains clearly grouped."
+      },
+      {
+        "mode": "add",
+        "state": "intro",
+        "baseline": {
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/teacher_add_intro.png",
+          "sha256": "5e11a8fbc980fc439bac7bd9a5c5cd30a59f627193cbad059a9f00fb4545e9b7"
+        },
+        "candidate": {
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run03/captures/teacher_add_intro.png",
+          "sha256": "d4f4f43042ef4f196408d6febc30aa63700aaad09a52f204e3260c95f3a8cf94"
+        },
+        "observation": "Both single-pearl operand trays and the two-/three-pearl answer groups are substantially easier to see. Tray and card outlines retain generous clearance."
+      },
+      {
+        "mode": "add",
+        "state": "partial",
+        "baseline": {
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/teacher_add_partial.png",
+          "sha256": "9f15eef275c7ceae30f8940fa28f13cbd767f142ed6105533d2f99f14b54e868"
+        },
+        "candidate": {
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run03/captures/teacher_add_partial.png",
+          "sha256": "be2cf3564d11826bb65bd47ff0b086d387bc23e7a9e93cd3424c0ed76326d3c2"
+        },
+        "observation": "The joined two-pearl work group and both answer groups are clearly separated and unclipped. The larger answer pearls improve comparison with the central counted group."
+      },
+      {
+        "mode": "add",
+        "state": "completion",
+        "baseline": {
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run02/captures/teacher_add_completion.png",
+          "sha256": "37adf8c727961b4642d7f95d326a6cff21e25908a0287f8cbdcc1dbe957dc75c"
+        },
+        "candidate": {
+          "path": "audit/minigame_art_quality_2026-09-05/evidence/current-opera/run03/captures/teacher_add_completion.png",
+          "sha256": "622394fe2c6431591c67668ea60d02e5de8b1269853b5b3c804bb4acb9fea6c6"
+        },
+        "observation": "The selected two-pearl group stays readable inside the filled payoff card and the star burst does not cover its pearls. The three-pearl alternative remains unclipped."
+      }
+    ]
+  },
+  "bounded_score": {
+    "score": 4.8,
+    "scale": "1_to_5",
+    "dimensions": {
+      "changed_pearl_size_readability": 4.8,
+      "changed_group_separation": 4.8,
+      "changed_group_clipping": 5.0,
+      "changed_state_consistency": 4.7
+    },
+    "scope": "Score applies only to the changed procedural pearl sizing in the six reviewed COUNT/ADD run03 frames relative to run02. It is not an overall Teacher surface, source-art, animation, device, child, or full-game score."
+  },
+  "geometry_check": {
+    "answer_card": {
+      "actual_card_size": [
+        210,
+        170
+      ],
+      "available_group_width": 186,
+      "supported_amounts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "radii": [
+        40.0,
+        40.0,
+        40.0,
+        30.25,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0
+      ],
+      "maximum_outer_width": 186.0,
+      "two_row_outer_height_at_amount_6_to_10": 76.8,
+      "note": "COUNT/ADD currently construct two or three choices; both use 210px cards. The six visual samples exercise amounts 1, 2 and 3. Amounts 4-10 are arithmetic bounds, not visually accepted states."
+    },
+    "operand_tray": {
+      "actual_tray_size": [
+        265,
+        205
+      ],
+      "available_group_width": 241,
+      "supported_operand_amounts": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "radii": [
+        40.0,
+        40.0,
+        40.0,
+        39.5,
+        31.33
+      ],
+      "maximum_outer_width": 241.0,
+      "note": "Addition plans use operand amounts 1-5 in one row. The reviewed tier-0 intro exercises 1+1; amounts 2-5 are arithmetic bounds, not visually accepted states."
+    }
+  },
+  "open_limits": [
+    "Board composition, prompt text, cards, backgrounds, character mounting, and overall scene art were unchanged and were not rescored.",
+    "Pointer/demo-ring behavior was not assessed beyond confirming that the visible ring does not make the enlarged pearls clip.",
+    "No animated transition cadence, frame-by-frame contact, tier-1/tier-2 runtime capture, target-device, child, or owner acceptance is established.",
+    "The three COUNT and three ADD captures cover tier-0 amounts 1-3; higher supported counts are protected only by source arithmetic and remain visually open.",
+    "A bounded PASS does not establish registry-wide, Teacher-career, master-audit, or full-game acceptance."
+  ],
+  "publication_note": "Exact-byte archived captures. Parent corrected the initial visual counting error using read-only pixel components: COUNT choices are one and two in both runs. No randomized-content inference. Bounded sizing acceptance only."
+}

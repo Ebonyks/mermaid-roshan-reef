@@ -1,0 +1,59 @@
+{
+  "id": "pool-greeting-handoff-source-trace-2026-09-06",
+  "status": "CONFIRMED_SOURCE_ORDER_REPAIR_NOT_IMPLEMENTED",
+  "sources": [
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "64ce94893f5ba73bbec92690030af42ebfda2f235d755029a3b1a5f8879893c4"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "55e03356298d3f72e014cec9bc12d5783c3edf68a9683146116a55267919131e"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "5f3d8a86e00fb380c41b2ef6a7fda638085e6b98f1d00a82fbebd593b34837e2"
+    },
+    {
+      "path": "scripts/main.gd",
+      "hash_normalization": "utf8_lf",
+      "sha256": "f357d41f686db7781811d39ba1fd2fb5bdc49e477cf93678fcd16ec0f7424317"
+    }
+  ],
+  "rendered_evidence": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/atlas-fixed/08_real_room_rumi_settle.png",
+  "rendered_evidence_actual_state": "Playroom handoff, despite inherited Rumi-settle filename; this still alone does not measure wave timing.",
+  "source_chain": [
+    {
+      "owner": "DayOnePoolCleanup._finish_rumi_reveal",
+      "fact": "Starts a two-frame2FPS wave and0.35s scale settle, announces Rumi, then emits reveal_completed in the same callback. It does not await the wave or a greeting hold."
+    },
+    {
+      "owner": "CastleRooms25D._on_day_one_pool_reveal_completed",
+      "fact": "Calls main.day_one_complete_pool_scene and synchronizes dressing."
+    },
+    {
+      "owner": "ReefMain.day_one_complete_pool_scene",
+      "fact": "Completes activity, applies room cleanup/dressing, calls _write_save(), then immediately _show_day_one_room_handoff(playroom). This direct call establishes same-callback handoff ordering; the periodic sync additionally maintains it."
+    },
+    {
+      "owner": "DayOneDirector.complete_room(pool)",
+      "fact": "Marks pool progress complete, sets Rumi met and full activity masks, then advances current room."
+    },
+    {
+      "owner": "ReefMain._sync_day_one_pool_route/_show_day_one_room_handoff",
+      "fact": "Completed pool plus current stuffie room selects Playroom. Card420x278 is centered on1280x720 at z44; Rumi arrival target is650,350, near the card center640,360."
+    }
+  ],
+  "diagnosis": "Source ordering allows the next-room presentation to take over as the greeting starts. The reviewed still confirms central cast occlusion, but an exact measured onset-to-occlusion sequence remains required.",
+  "reuse_first_repair_plan": [
+    "Preserve completed progress/save ordering immediately; do not delay durable progress to obtain an animation hold.",
+    "Separate next-room presentation readiness from completed gameplay state. Test a short unobstructed greeting/wave and settle before the card appears. A1.5–2.0s hold is a review candidate, not accepted timing.",
+    "Use session/room-generation ownership so leaving, pausing or tearing down the room cannot display a stale delayed card. A resumed completed save must retain a usable route without replay-dependent progression.",
+    "Audition a clear side placement or smaller contained preview only against current Rumi/Roshan/seahorse bounds and the caption. Do not choose coordinates from prose alone.",
+    "Capture arrival, fully opaque Rumi, wave, settle, first card frame and actionable handoff at normal processing; prove progression is saved before presentation and no passive reward or duplicate completion occurs."
+  ],
+  "acceptance": "No runtime edit, new source-art replacement, new numeric score, device review or quality closure in this trace."
+}

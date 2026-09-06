@@ -1,0 +1,100 @@
+{
+  "id": "racer-current-source-followup-2026-09-06",
+  "status": "OPEN_SOURCE_ONLY",
+  "surface": {
+    "path": "scripts/opera_racer_surface.gd",
+    "sha256_utf8_lf": "f16219bb057155a7bd1e68f0a0fbca32872b91fe911be4e3b12f1d5f7f22773d"
+  },
+  "sources": [
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_racer_kart.png",
+      "sha256": "59ea76d8be40b604cbf3691e9c9508287334ddf6cf0f81fea08c7f68fd22fe8c",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "review_scope": "Source pixels visually inspected by parent; no new mounted score assigned."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_racer_wheel.png",
+      "sha256": "3203d9bc5297fccfb3ee86fddab6c3a217de577943a063ef37404e5276c7e003",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "review_scope": "Source pixels visually inspected by parent; no new mounted score assigned."
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_racer.png",
+      "sha256": "b3e92a0f3204e2277e1fdd06988c9393288223fcfc98a9f4c8e033c8c517c6bc",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "review_scope": "Source pixels visually inspected by parent; no new mounted score assigned."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer.png",
+      "sha256": "da75600112937ed4f6bb5f9433b4792316419047e8de10f9bfdb7076c65f360f",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "review_scope": "Source pixels visually inspected by parent; no new mounted score assigned."
+    },
+    {
+      "path": "assets/kart/boost_ribbon.png",
+      "sha256": "b2617ce45be09837625bf21e145ef37401a87b9104f576c6093c3e44f912feb5",
+      "dimensions": [
+        1024,
+        256
+      ],
+      "mode": "RGBA",
+      "review_scope": "Source pixels visually inspected by parent; no new mounted score assigned."
+    },
+    {
+      "path": "assets_src/style_review_batch_04/final/021_kart_motif_sheet.png",
+      "sha256": "f1c65058c2d6b9139cdfadae30e8e2586c5540f27d889951d9dc5b0ae6cc7e1e",
+      "dimensions": [
+        1024,
+        683
+      ],
+      "mode": "RGBA",
+      "review_scope": "Source pixels visually inspected by parent; no new mounted score assigned."
+    }
+  ],
+  "engine_integration": "OperaRacerSurface preloads KartDriving and uses it for race state, drift tiers and lap progression. This is the existing shared racing engine, with a Canvas presentation.",
+  "current_control": "The steering rail thumb is currently a drawn hub/spoke symbol. The historical tire-token thumb trial was rejected and reverted. The tire raster remains a kart wheel and pit-install object; its former steering-role identity score is not a current wheel-art defect.",
+  "source_facts": [
+    {
+      "item": "Driver/kart composition",
+      "fact": "512x300 actor region draws into 86x50.39, then kart draws at 150x150 and a wheel at 36x36. Group stays upright and mirrors at horizontal travel-direction changes. Depth varies from0.65 to1.0.",
+      "required_review": "Current near/far turns, overlap, cockpit contact and face readability at phone scale; existing source pixels alone cannot establish these."
+    },
+    {
+      "item": "Boost ribbon",
+      "fact": "1024x256 source is drawn into44x20 road markers.",
+      "required_review": "Inspect the mounted marker silhouette and intentional perspective before calling its changed aspect a defect."
+    },
+    {
+      "item": "Reusable views",
+      "fact": "Inspected kart motif sheet contains scenery/racing motifs and a boost ribbon; it does not supply alternate driver/kart turn views.",
+      "required_review": "Inventory further approved sources only if rendered turns demonstrate a repair need; do not revive superseded3D fallback."
+    }
+  ],
+  "scores": {
+    "current_full_surface": null,
+    "current_animation": null,
+    "reason": "Fresh current rendered sequence pending. Historical3.9 full-surface and4.44 rejected tire-control reviews retain their own source/capture authority; they are not new current measurements."
+  },
+  "reuse_decision": "Keep the coherent approved kart/driver/wheel source family. No source-only case for regenerating these pixels has been demonstrated. Resolve mounted composition and contact evidence before commissioning a replacement.",
+  "acceptance_gaps": [
+    "Current source-bound normal-processing Mobile scene and control captures",
+    "Turn continuity, pose/contact, rival separation, countdown and feedback timing",
+    "Supported phone aspect, device performance, child comprehension and owner review"
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "schema": "minigame-reuse-candidates-v1",
+  "scope": "weak PictureGames props and garden family",
+  "warning": "Visual suitability notes are human observations; no numeric quality score and no runtime edits. Candidate provenance/role approval remains required.",
+  "assets": [
+    {
+      "id": "live_carrot",
+      "path": "assets/mg/carrot.png",
+      "status": "control",
+      "sha256": "b4c35bee6de1a161f6891396a3b903d22893f772919bbbfe5832e5256e834a8f",
+      "dimensions": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "alpha": "transparent_alpha"
+    },
+    {
+      "id": "duplicate_carrot",
+      "path": "assets/art35/cards/mg/carrot_carrot.png",
+      "status": "rejected",
+      "sha256": "b4c35bee6de1a161f6891396a3b903d22893f772919bbbfe5832e5256e834a8f",
+      "dimensions": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "alpha": "transparent_alpha"
+    },
+    {
+      "id": "live_wateringcan",
+      "path": "assets/mg/wateringcan.png",
+      "status": "control",
+      "sha256": "dfcd93a98e83b7b0419602db828e6895fd4884bf0df800e9ecf4ed96c436f6e9",
+      "dimensions": [
+        272,
+        286
+      ],
+      "mode": "RGBA",
+      "alpha": "transparent_alpha"
+    },
+    {
+      "id": "flat_wateringcan",
+      "path": "assets/art35/cards/mg/wateringcan_wateringcan.png",
+      "status": "rejected",
+      "sha256": "296f99bb934776beaef1fa355e92282ef32f0ba7e202a2a0681ebf4660abc5e3",
+      "dimensions": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "alpha": "transparent_alpha"
+    },
+    {
+      "id": "terrain_flower_single",
+      "path": "assets/terrain/flower.png",
+      "status": "candidate",
+      "sha256": "816c23a8a51e20ff9837cbbe7631375178b7bda0f3ed9d0a807cbfd23403d724",
+      "dimensions": [
+        683,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": "transparent_alpha"
+    },
+    {
+      "id": "terrain_flower_cluster",
+      "path": "assets/terrain/flower2.png",
+      "status": "candidate",
+      "sha256": "650ffbfe85cb93d9b42d12f9b291ba25f35285f641b5221a6300fe474554438b",
+      "dimensions": [
+        683,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": "transparent_alpha"
+    },
+    {
+      "id": "story_flower_coral",
+      "path": "assets/props/story/flower_coral.png",
+      "status": "candidate",
+      "sha256": "816c23a8a51e20ff9837cbbe7631375178b7bda0f3ed9d0a807cbfd23403d724",
+      "dimensions": [
+        683,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": "transparent_alpha"
+    },
+    {
+      "id": "story_flower_lavender",
+      "path": "assets/props/story/flower_lavender.png",
+      "status": "candidate",
+      "sha256": "650ffbfe85cb93d9b42d12f9b291ba25f35285f641b5221a6300fe474554438b",
+      "dimensions": [
+        683,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": "transparent_alpha"
+    },
+    {
+      "id": "fairy_boss_sprout",
+      "path": "assets/fairy/sprites/boss_sprout.png",
+      "status": "candidate",
+      "sha256": "1c7e0b23335b3f4aec4796133db9c882c38b1e7a1dc630fceb50a0f14254e886",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": "transparent_alpha"
+    },
+    {
+      "id": "fairy_boss_seed",
+      "path": "assets/fairy/sprites/boss_seed.png",
+      "status": "rejected",
+      "sha256": "c8398c22de8f739ca001b14197aab9007f3dd9f9ac2dc743c252b92b83e8d08b",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": "transparent_alpha"
+    },
+    {
+      "id": "farmer_card",
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_farmer_gameplay_carrot.png",
+      "status": "rejected",
+      "sha256": "dc714833cefe1fcecb9717c7c41286fd3b83c22c892c63f3e93b5e4627e0e271",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha": "none"
+    },
+    {
+      "id": "farmer_flower_card",
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_farmer_stage_states_flower_parallax.png",
+      "status": "rejected",
+      "sha256": "e488b1fbf603546d9c2a7c0b27f7d8c56807ac04652805b2a2eae0a52e7fd192",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha": "none"
+    },
+    {
+      "id": "sky_lagoon_lavender",
+      "path": "assets_src/sky_lagoon/qa_kit/lagoon_flower_cluster_lavender.png",
+      "status": "rejected",
+      "sha256": "615cc919c63409d50926e4dc0b6971c8821a5842fe1f63b19f818780e43263bd",
+      "dimensions": [
+        760,
+        760
+      ],
+      "mode": "RGB",
+      "alpha": "none"
+    },
+    {
+      "id": "sky_lagoon_coral",
+      "path": "assets_src/sky_lagoon/qa_kit/lagoon_flower_cluster_coral.png",
+      "status": "rejected",
+      "sha256": "b6ae392750d78e4ae3bad81e4b8b6f8636ddff82597a7224ca2c17af14111203",
+      "dimensions": [
+        760,
+        760
+      ],
+      "mode": "RGB",
+      "alpha": "none"
+    }
+  ]
+}

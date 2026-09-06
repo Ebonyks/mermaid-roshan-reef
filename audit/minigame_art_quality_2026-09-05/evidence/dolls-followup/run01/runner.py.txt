@@ -1,0 +1,165 @@
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import subprocess
+import sys
+
+
+SCRIPT = "tmp/dolls-runtime-followup/capture_dolls_runtime.gd"
+GODOT = Path(
+    r"C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\Godot\4.7.2\godot.exe"
+)
+EXPECTED_GODOT_SIZE = 180_858_888
+EXPECTED_GODOT_SHA256 = "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424"
+PRIMARY_OWNERS = [
+    "scripts/games/dolls.gd",
+    "scripts/opera_nursery_catch.gd",
+    "scripts/opera_world_backdrop_2d.gd",
+    "scripts/main.gd",
+    "assets/characters/roshan_25d/roshan_base.png",
+    "assets/opera/worlds/nursery/baby_0.png",
+    "assets/opera/worlds/nursery/baby_1.png",
+    "assets/opera/worlds/nursery/baby_2.png",
+    "assets/opera/worlds/backdrops/world_nursery_c0r0.png",
+    "assets/opera/worlds/backdrops/world_nursery_c1r0.png",
+    "assets/opera/worlds/backdrops/world_nursery_c0r1.png",
+    "assets/opera/worlds/backdrops/world_nursery_c1r1.png",
+]
+
+
+def digest(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def main() -> int:
+    run_name = sys.argv[1] if len(sys.argv) == 2 else "run01"
+    if not run_name or any(part in run_name for part in ("/", "\\", "..")):
+        raise SystemExit("RunName must be one new directory name")
+    repo = Path(__file__).resolve().parents[2]
+    base = (repo / "tmp/dolls-runtime-followup").resolve()
+    out = (base / run_name).resolve()
+    if not out.is_relative_to(base) or out.exists():
+        raise SystemExit(f"Use a fresh contained run directory: {out}")
+    if not GODOT.is_file():
+        raise SystemExit(f"Exact native Godot 4.7.2 binary not found: {GODOT}")
+    godot_size = GODOT.stat().st_size
+    godot_sha256 = digest(GODOT)
+    if godot_size != EXPECTED_GODOT_SIZE or godot_sha256 != EXPECTED_GODOT_SHA256:
+        raise SystemExit(
+            "Native Godot binary identity mismatch: "
+            f"size={godot_size} sha256={godot_sha256} path={GODOT}"
+        )
+    out.mkdir(parents=True)
+    captures = out / "captures"
+    captures.mkdir()
+    profile = out / "isolated-profile"
+    env = os.environ.copy()
+    for key, leaf in (
+        ("APPDATA", "appdata"),
+        ("LOCALAPPDATA", "localappdata"),
+        ("XDG_DATA_HOME", "data"),
+        ("XDG_CONFIG_HOME", "config"),
+        ("XDG_CACHE_HOME", "cache"),
+    ):
+        directory = profile / leaf
+        directory.mkdir(parents=True)
+        env[key] = str(directory)
+    env["DOLLS_RUNTIME_PROFILE_ROOT"] = str(profile)
+    env["DOLLS_RUNTIME_CAPTURE_OUT"] = str(captures)
+    harness = (repo / SCRIPT).resolve()
+    (out / "harness.gd.txt").write_bytes(harness.read_bytes())
+    sources = []
+    for relative in PRIMARY_OWNERS:
+        source = repo / relative
+        raw_hash = digest(source)
+        record = {"path": relative, "sha256_raw_bytes": raw_hash}
+        if source.suffix == ".gd":
+            normalized = source.read_text(encoding="utf-8").replace("\r\n", "\n").encode()
+            record["sha256_utf8_lf"] = hashlib.sha256(normalized).hexdigest()
+        sources.append(record)
+    snapshot = {
+        "scope": "Dolls primary owners and direct raster dependencies; indirect dependencies are nonexhaustive.",
+        "harness": {"path": SCRIPT, "sha256_raw_bytes": digest(harness)},
+        "godot_binary": {
+            "path": str(GODOT),
+            "size_bytes": godot_size,
+            "sha256_raw_bytes": godot_sha256,
+            "identity_gate": "exact native Godot 4.7.2 godot.exe",
+        },
+        "sources": sources,
+    }
+    (out / "source-snapshot.json").write_text(
+        json.dumps(snapshot, indent=2) + "\n", encoding="utf-8"
+    )
+    command = [
+        str(GODOT), "--path", str(repo), "--rendering-method", "mobile",
+        "--resolution", "1280x720", "--windowed", "-s", SCRIPT,
+    ]
+    (out / "command.json").write_text(
+        json.dumps(command, indent=2) + "\n", encoding="utf-8"
+    )
+    startup = subprocess.STARTUPINFO()
+    startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    startup.wShowWindow = 0
+    with (out / "capture.log").open("wb") as log:
+        child = subprocess.Popen(
+            command,
+            env=env,
+            stdout=log,
+            stderr=subprocess.STDOUT,
+            startupinfo=startup,
+            creationflags=subprocess.CREATE_NO_WINDOW,
+        )
+        (out / "process-id.txt").write_text(str(child.pid), encoding="ascii")
+        try:
+            code = child.wait(timeout=130)
+        except subprocess.TimeoutExpired:
+            child.kill()
+            code = child.wait()
+            (out / "timeout.txt").write_text(
+                "Exceeded 130 seconds; runner terminated only its owned child.\n",
+                encoding="utf-8",
+            )
+    log_text = (out / "capture.log").read_text(encoding="utf-8", errors="replace")
+    markers = re.findall(
+        r"(?im)^(?:SCRIPT ERROR|Parse Error|ERROR:|DOLLS_RUNTIME\|FAIL|DOLLS_RUNTIME\|BLOCKED)",
+        log_text,
+    )
+    result_ok = "DOLLS_RUNTIME|RESULT|PASS|captures=6" in log_text
+    manifest = captures / "manifest.json"
+    start_by_path = {item["path"]: item["sha256_raw_bytes"] for item in sources}
+    end_sources = [
+        {"path": relative, "sha256_raw_bytes": digest(repo / relative)}
+        for relative in PRIMARY_OWNERS
+    ]
+    freeze_ok = all(
+        item["sha256_raw_bytes"] == start_by_path.get(item["path"])
+        for item in end_sources
+    )
+    (out / "source-freeze-check.json").write_text(
+        json.dumps({"unchanged_during_run": freeze_ok, "end_sources": end_sources}, indent=2)
+        + "\n",
+        encoding="utf-8",
+    )
+    if not result_ok or markers or not manifest.is_file() or not freeze_ok:
+        (out / "runner-guard.txt").write_text(
+            f"Guard failure: result={result_ok} markers={markers} manifest={manifest.is_file()} freeze={freeze_ok}\n",
+            encoding="utf-8",
+        )
+        if code == 0:
+            code = 91
+    (out / "exit-code.txt").write_text(str(code), encoding="ascii")
+    print(
+        f"{run_name} EXIT {code} result={result_ok} markers={len(markers)} "
+        f"manifest={manifest.is_file()} freeze={freeze_ok}",
+        flush=True,
+    )
+    return code
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,163 @@
+{
+  "schema": "reef.minigame_art_source_review.v1",
+  "date": "2026-09-06",
+  "review_scope": "Read-only source comparison; no runtime adoption or mounted-state acceptance",
+  "candidate": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/pan-alpha-attempt02/native.png",
+    "sha256": "df6ec1df1c59a20d427cb50835ae04915b07de0cbe1b470e99d43c55518ff5ab",
+    "mode": "RGBA",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alpha": {
+      "transparent_pixels": 1018737,
+      "alpha_1_pixels": 1929,
+      "alpha_2_to_127_pixels": 5279,
+      "alpha_128_to_254_pixels": 545310,
+      "opaque_pixels": 1261,
+      "bbox_xyxy": [
+        57,
+        49,
+        1188,
+        1198
+      ],
+      "outer_canvas_border": {
+        "top_alpha_gt0": 0,
+        "bottom_alpha_gt0": 0,
+        "left_alpha_gt0": 0,
+        "right_alpha_gt0": 0
+      },
+      "alpha_1_sample_coordinates_xy": [
+        [
+          668,
+          49
+        ],
+        [
+          672,
+          51
+        ],
+        [
+          668,
+          52
+        ],
+        [
+          670,
+          52
+        ],
+        [
+          668,
+          53
+        ],
+        [
+          668,
+          54
+        ],
+        [
+          602,
+          200
+        ],
+        [
+          604,
+          206
+        ],
+        [
+          606,
+          206
+        ],
+        [
+          590,
+          230
+        ],
+        [
+          515,
+          231
+        ],
+        [
+          516,
+          231
+        ],
+        [
+          594,
+          234
+        ],
+        [
+          572,
+          254
+        ],
+        [
+          698,
+          282
+        ],
+        [
+          581,
+          322
+        ],
+        [
+          582,
+          322
+        ],
+        [
+          583,
+          322
+        ],
+        [
+          584,
+          322
+        ],
+        [
+          585,
+          322
+        ]
+      ],
+      "interpretation": "Low-alpha pixels occur along the painted contour and interior antialiasing/speckle regions. They are not automatically a visible edge defect; no outer-canvas border leakage was measured. Final edge acceptance still requires a mounted current screenshot."
+    },
+    "source_only_visual_review": {
+      "reviewed_native_image": true,
+      "score_5_point": 4.7,
+      "score_type": "source-only visual identity/style, not runtime acceptance",
+      "observations": [
+        "Centered shallow pan with fully visible copper-gold elliptical rim and transparent padding on all four sides.",
+        "Aqua water, plum outline, warm painted rim, perspective, material treatment, and lighting are preserved against the original reference.",
+        "No checkerboard, white field, black field, added handle, mineral, brush, text, or ground shadow is present in the candidate.",
+        "Contour appears complete at the visible scale; faint semitransparent contour pixels are consistent with antialiasing and are not scored as a defect from alpha counts alone."
+      ],
+      "weaknesses_or_open_questions": [
+        "Canvas is 1254x1254 and therefore exceeds the runtime longest-side limit and is NPOT.",
+        "The pan alone does not prove the geology action composition: sediment/mineral/brush progression and current mounted interaction evidence remain absent."
+      ]
+    }
+  },
+  "reference": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/pan_attempt01.png",
+    "sha256": "f2673f73734bbdf08fb46d5246347adf939d3ab80aab2f31995f23f7a7613e22",
+    "mode": "RGB",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "visual_note": "Viewed reference is the same painted pan on a checkerboard-like RGB background; it is not an RGBA source and its canvas-edge pixels are opaque background pixels."
+  },
+  "runtime_acceptance": {
+    "status": "BLOCKED",
+    "hard_failures": [
+      "1254x1254 is NPOT.",
+      "1254 exceeds the 1024px longest-side runtime texture limit."
+    ],
+    "required_next_work": [
+      "Create or approve a non-destructive runtime-sized derivative within the project texture rule, preserving the reviewed pan identity and transparent contour.",
+      "Capture and inspect the live mounted pan state at Mobile 1280x720 with the actual geology interaction.",
+      "Capture sediment/mineral/action states; this isolated pan source does not establish those states."
+    ],
+    "mounted_evidence_score": null,
+    "animation_score": null,
+    "reason": "No current mounted screenshot was used, so no runtime, animation, contact, child-readability, or game-wide score is claimed."
+  },
+  "provenance": {
+    "manifest_path": "assets_src/minigame_art_quality_2026-09-05/pan-alpha-attempt02/manifest.json",
+    "manifest_candidate_sha256_matches": true,
+    "prompt_path": "assets_src/minigame_art_quality_2026-09-05/pan-alpha-attempt02/prompt.txt",
+    "prompt_sha256": "d896781af55af89c85fac946d4ab3bd2f735477a30cfc688b5f4fcb2805993de",
+    "disposition": "SOURCE_CANDIDATE_RUNTIME_BLOCKED"
+  }
+}

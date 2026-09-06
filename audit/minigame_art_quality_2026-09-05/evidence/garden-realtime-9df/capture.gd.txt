@@ -1,0 +1,144 @@
+extends SceneTree
+## Disposable diagnostic capture for the current Garden picture game.
+##
+## Run only after setting APPDATA/LOCALAPPDATA and XDG data/config roots to
+## fresh isolated directories. GARDEN_REALTIME_PROFILE names their parent;
+## the harness checks OS.get_user_data_dir() before instantiating the game.
+## GARDEN_REALTIME_OUT names the diagnostic output directory. Use exact
+## Godot 4.7.2 with Mobile renderer and --resolution 1280x720 --windowed.
+##
+## This intentionally does not set Engine.time_scale, call _tick_mg2d(),
+## disable processing, or synthesize frame advancement. It uses the live
+## process cadence and trusted _mg2d_open() entrypoint. Outputs are diagnostic
+## only and are not canonical art-acceptance evidence.
+
+const VIEWPORT := Vector2i(1280, 720)
+const MAX_SECONDS := 45.0
+
+var out_dir := ""
+var elapsed := 0.0
+var main: ReefMain = null
+
+
+func _init() -> void:
+	call_deferred("_run")
+
+
+func _run() -> void:
+	var profile := OS.get_environment("GARDEN_REALTIME_PROFILE").replace("\\", "/").trim_suffix("/")
+	var actual := OS.get_user_data_dir().replace("\\", "/")
+	if profile.is_empty() or not actual.begins_with(profile + "/"):
+		_fail("isolated user data was not established before launch")
+		return
+	if RenderingServer.get_current_rendering_method() != "mobile":
+		_fail("Mobile renderer required")
+		return
+	create_timer(MAX_SECONDS).timeout.connect(func(): _fail("wall-clock timeout"))
+	out_dir = OS.get_environment("GARDEN_REALTIME_OUT")
+	if out_dir.is_empty():
+		_fail("GARDEN_REALTIME_OUT is required; refusing an implicit/default output path")
+		return
+	var scene := load("res://scenes/main.tscn") as PackedScene
+	if scene == null:
+		_fail("could not load scenes/main.tscn")
+		return
+	main = scene.instantiate() as ReefMain
+	get_root().add_child(main)
+	await _frames(4)
+	get_root().size = VIEWPORT
+	await _frames(3)
+	var viewport_size := get_root().get_viewport().get_visible_rect().size
+	if Vector2i(viewport_size) != VIEWPORT:
+		_fail("viewport is %s; launch must provide Mobile 1280x720" % viewport_size)
+		return
+	if not main.has_method("_mg2d_open"):
+		_fail("trusted picture-game entrypoint is unavailable")
+		return
+	main.day_one_active = false
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		await _frames(2)
+	if main.intro_active:
+		main._skip_intro()
+		await _frames(2)
+	main._mg2d_open("garden")
+	await _frames(3)
+	if String(main.mg_kind) != "garden":
+		_fail("Garden did not open through _mg2d_open")
+		return
+	await _capture("garden_ready")
+	await _wait_real(0.45)
+	await _capture("garden_can_visible_static")
+
+	var buttons: Array = main.mg.get("btns", []) as Array
+	if buttons.size() != 5:
+		_fail("Garden exposed %d buttons; expected five live plants" % buttons.size())
+		return
+	# One real UI signal per plant: after each first tap, let the normal frame
+	# loop advance the feedback/growth animation before the next action.
+	for index in range(buttons.size()):
+		_press(buttons[index])
+		await _wait_real(0.18)
+		if index == 0:
+			await _capture("garden_sprout_first")
+	await _capture("garden_sprout_all")
+
+	# The second tap on each live plant reaches the mature state. Capture one
+	# first mature result, then all five with the immediately active reward.
+	for index in range(buttons.size()):
+		_press(buttons[index])
+		await _wait_real(0.22)
+		if index == 0:
+			await _capture("garden_mature_first")
+	await _capture("garden_allfive_reward_active")
+
+	if not bool(main.mg.get("won", false)):
+		_fail("five mature flowers did not reach the live reward state")
+		return
+	await _frames(2)
+	await _capture("garden_reward")
+	await _wait_real(0.72)
+	await _capture("garden_reward_settle")
+	print("GARDEN_REALTIME|OK|captures written to ", out_dir)
+	quit()
+
+
+func _press(value: Variant) -> void:
+	var button := value as Button
+	if button == null or not is_instance_valid(button) or button.disabled \
+			or not button.visible:
+		_fail("attempted to press an unavailable Garden plant button")
+		return
+	button.pressed.emit()
+
+
+func _capture(label: String) -> void:
+	await RenderingServer.frame_post_draw
+	var image := get_root().get_viewport().get_texture().get_image()
+	if image == null or image.get_size() != VIEWPORT:
+		_fail("capture %s has invalid dimensions" % label)
+		return
+	var path := out_dir.path_join(label + ".png")
+	var error := image.save_png(path)
+	if error != OK:
+		_fail("PNG save failed: %s" % error)
+		return
+	print("GARDEN_REALTIME|CAPTURE|%s|%s|%s" % [label, path, image.get_size()])
+
+
+func _wait_real(seconds: float) -> void:
+	var timer := create_timer(seconds)
+	await timer.timeout
+	elapsed += seconds
+	if elapsed > MAX_SECONDS:
+		_fail("capture exceeded %.1fs bound" % MAX_SECONDS)
+
+
+func _frames(count: int) -> void:
+	for _index in range(count):
+		await process_frame
+
+
+func _fail(message: String) -> void:
+	push_error("GARDEN_REALTIME|FAIL|" + message)
+	quit(1)

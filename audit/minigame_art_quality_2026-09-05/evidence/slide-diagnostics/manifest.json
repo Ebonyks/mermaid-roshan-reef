@@ -1,0 +1,143 @@
+{
+  "status": "DIAGNOSTIC_EVIDENCE_ONLY",
+  "baseline_full05": "All78 trusted probes completed;probe_audit alone red. Native raw log is separately retained.",
+  "runs": [
+    {
+      "run": "run01",
+      "max_fps": null,
+      "result": "NO_FAILURE_MARKERS",
+      "log_sha256": "253b2380ca7011d944c30e534ec0c81c246bf0b135ca6a5329227afa9b9a1214"
+    },
+    {
+      "run": "run02",
+      "max_fps": null,
+      "result": "NO_FAILURE_MARKERS",
+      "log_sha256": "343986a0ec7cfe7e424782752452f59c7ec91713730ddaccab5a8779a0deb91c"
+    },
+    {
+      "run": "run03",
+      "max_fps": 30,
+      "result": "FAIL_MARKERS_PRESENT",
+      "log_sha256": "f640ccc8f70b591b18b967f19dcdf849a6a291f8d0415c4a6dda35b2cf2dc1cb"
+    },
+    {
+      "run": "run04",
+      "max_fps": 15,
+      "result": "FAIL_MARKERS_PRESENT",
+      "log_sha256": "226cb8dd89bcfc359626fcafce7bf8b2669b81fa8870b37c0e2c6f4e7a7c5d94"
+    },
+    {
+      "run": "run05",
+      "max_fps": 15,
+      "result": "FAIL_MARKERS_PRESENT",
+      "log_sha256": "24030383cabf3ff8fac41dd83c88fe91eb40a89a9523e7efa3466e5692b9b75c"
+    }
+  ],
+  "findings": [
+    "Horizontal turn test can fail with yaw changed but position and velocity unchanged at the floor; previous successes relied on gravity.",
+    "The accelerated zero-fish driver overcorrected to lane0.258938 into the middle fish at15FPS with6x time scale. Candidate steering retains got0/tier1/mercytrue at the same rate.",
+    "Both15FPS accelerated suites still contain earlier five-fish and timing failures. Prior gold setup leaves best medal silver2, so zero-fish compound remains red despite got0. These diagnostics are not green regression evidence."
+  ],
+  "validation": "Actual repaired trusted probe with normal CI touch flags passes separately; final full suite pending.",
+  "files": [
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/focused-repair.exit.txt",
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/focused-repair.raw.log.gz",
+      "sha256": "44c3dc534af0bb814afe9235a3d9f586c06de16d4c917901c4a804dcdb5c0e5a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run01/exit.txt",
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run01/facts.json",
+      "sha256": "b576594d352f10a5b04e2a23fa6bb8501a1f5a6d652326bd2761c694615508c8"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run01/harness.gd.txt",
+      "sha256": "888eacbd0032223ec7642fddf2fc6477d8885587133681dcd56cd70b44f1301f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run01/probe.raw.log.gz",
+      "sha256": "46eb60ff25f77bd0627a4c92cf1c2aa4e7ee62cdc06bbc338e44e479583540ee"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run02/exit.txt",
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run02/facts.json",
+      "sha256": "c1e72825eee1474b12881e76409522cc5ef97866d49ef4fc21c88371bf321838"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run02/harness.gd.txt",
+      "sha256": "888eacbd0032223ec7642fddf2fc6477d8885587133681dcd56cd70b44f1301f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run02/probe.raw.log.gz",
+      "sha256": "f3190ce3f3e53268c356fe126a1d685e2e0b2538ede7913187f5b164bbd56cb6"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run03/exit.txt",
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run03/facts.json",
+      "sha256": "d609ae169cdd3c22dd2c7a3f185e14eb53f4f6515703e30e69d5b5967c7abbee"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run03/harness.gd.txt",
+      "sha256": "888eacbd0032223ec7642fddf2fc6477d8885587133681dcd56cd70b44f1301f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run03/probe.raw.log.gz",
+      "sha256": "2d8bee1396f6236e800a170cd5bd4881d0903c0ea2e5e29d5c7517fd014664a8"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run04/exit.txt",
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run04/facts.json",
+      "sha256": "f198ebe18f65905695b496df8b6a17f1b9fa58f15b7aa1ac79a612c1f21fa6cc"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run04/harness.gd.txt",
+      "sha256": "888eacbd0032223ec7642fddf2fc6477d8885587133681dcd56cd70b44f1301f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run04/probe.raw.log.gz",
+      "sha256": "ae90f7a23c86c0b188e6c6f1937b997e06146f4074b7ff3d351b0ae1482c4e9f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run05/exit.txt",
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run05/facts.json",
+      "sha256": "523f87545acade296c5dfa3d0662107d3261780d6e4218c171a1ffce98fe985c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run05/harness.gd.txt",
+      "sha256": "f0118ffbc8a7c971cffb6912570d778b6cf29570f6e89e74160eb9b5e5a74b00"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/slide-diagnostics/run05/probe.raw.log.gz",
+      "sha256": "8cabc0e1a3ea3b917581c4f2426c3cbd6cdc5d522e36f0f820ebd1143cbc65ce"
+    }
+  ],
+  "normal_trusted_probe": {
+    "exit": 0,
+    "failure_markers": false,
+    "log": "focused-repair.raw.log.gz",
+    "raw_sha256": "3bfe5e00cc50b114eb9dbc741babc84a624efcb776f868a866c6fe01f6aa9c72",
+    "probe_source_sha256_utf8_lf": "9bb4850b2ff75d1078b2fda2faad4faeccbfb569a0b3b6b4d102e1a7c9cb212d",
+    "touch_flags": [
+      "--touch",
+      "--classic-touch-test"
+    ]
+  }
+}

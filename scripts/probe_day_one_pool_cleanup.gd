@@ -62,6 +62,7 @@ func _run_probe() -> void:
 	await process_frame
 
 	var initial: Dictionary = cleanup.audit_snapshot()
+	_probe_trash_atlas_sampling(cleanup.skimmer_activity)
 	_check("three bespoke ordered activities",
 		int(initial.get("activity_count", 0)) == 3
 		and initial.get("activity_ids", []) == ["pool_surface", "waterfall", "seahorse"]
@@ -366,3 +367,32 @@ func _probe_contextual_voice_wiring() -> void:
 func _record_restored_completion(activity_id: String) -> void:
 	restored_completion_events[activity_id] = int(
 		restored_completion_events.get(activity_id, 0)) + 1
+
+
+func _probe_trash_atlas_sampling(activity: PoolSkimmerActivity) -> void:
+	var sampled: int = 0
+	for index: int in range(2):
+		if activity == null or activity._trash_sprites.size() <= index:
+			continue
+		var piece: Sprite2D = activity._trash_sprites[index]
+		var frame: AtlasTexture = piece.texture as AtlasTexture
+		if frame == null or frame.atlas == null:
+			continue
+		sampled += 1
+		var expected_subject: Rect2 = Rect2(19, 31, 327, 282) if index == 0 \
+			else Rect2(381, 56, 286, 243)
+		_check("trash %d sampled region contains the complete measured subject" % index,
+			frame.region.encloses(expected_subject)
+			and frame.region.size == Vector2(341, 341) and frame.filter_clip)
+		var source_image: Image = frame.atlas.get_image()
+		if source_image.is_compressed():
+			source_image.decompress()
+		var sampled_image: Image = source_image.get_region(Rect2i(frame.region))
+		var edge_alpha: float = 0.0
+		for coordinate: int in range(341):
+			for point: Vector2i in [Vector2i(0, coordinate), Vector2i(340, coordinate),
+					Vector2i(coordinate, 0), Vector2i(coordinate, 340)]:
+				edge_alpha = maxf(edge_alpha, sampled_image.get_pixelv(point).a)
+		_check("trash %d live texture has transparent sampled edges without neighbor pixels" % index,
+			edge_alpha <= 1.0 / 255.0)
+	_check("both wrapper and can live textures were checked", sampled == 2)

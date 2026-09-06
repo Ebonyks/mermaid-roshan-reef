@@ -1,0 +1,86 @@
+{
+  "schema": "reef.minigame_art_reconciliation_validation.v1",
+  "base_revision": "f4a5de339f3a8b7b9e4081924f4d3127d54959d7",
+  "engine": "Godot4.7.2-stable",
+  "full_ci": {
+    "exit_code": 0,
+    "trusted_probes": 78,
+    "raw_sha256": "36ef7518dc6649768158cc1cbb1465c917dee2b97e20b2eb2e2c8403c69aa5f3",
+    "readable_normalization": "UTF-8 LF and trailing-whitespace normalization; exact raw bytes retained in full-ci.raw.log.gz"
+  },
+  "profile": "Fresh isolated APPDATA, LOCALAPPDATA, XDG_DATA_HOME and XDG_CONFIG_HOME; scripts/ci.sh additionally isolates every probe",
+  "code_sources": [
+    {
+      "path": "scripts/games/picture_games.gd",
+      "working_bytes_sha256": "39cb3f31897b006d04b9bd4a5b2a433d3cef3622bbf07c87d271769ced1dc919",
+      "utf8_lf_sha256": "0359f26d81b16ba474911584aa574f8c9702ad6500883a8887c94f7bb8d55311"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "working_bytes_sha256": "9e87576d3b6aef44ad8053ce0e2bad66df83c902bf49b3cd80d2e37d6a1dea5e",
+      "utf8_lf_sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "working_bytes_sha256": "f16219bb057155a7bd1e68f0a0fbca32872b91fe911be4e3b12f1d5f7f22773d",
+      "utf8_lf_sha256": "f16219bb057155a7bd1e68f0a0fbca32872b91fe911be4e3b12f1d5f7f22773d"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "working_bytes_sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66",
+      "utf8_lf_sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d"
+    },
+    {
+      "path": "scripts/probe_mg2d.gd",
+      "working_bytes_sha256": "861b011e69070d1053ffcb3273ba4536dc6ac079c10be5350619ce82c1b4ce6d",
+      "utf8_lf_sha256": "32823aeaffb868185c6948e6988d735ab452f07ff7a6390898ef0fa7e365af05"
+    },
+    {
+      "path": "scripts/probe_opera_2d.gd",
+      "working_bytes_sha256": "f5c3cb23d3010ccae520bcd9e6ab18cf33b06763360ac3e028b4d4f5cb27940e",
+      "utf8_lf_sha256": "11a78a76dae0dbcfc8b2bf7d26710ed6bee7d9f72b5cf67a6a021a2e077656d4"
+    }
+  ],
+  "quality_status": "UNSATISFIED",
+  "current_visual_acceptance": false,
+  "tests": 19,
+  "stress_mutants_rejected": 6,
+  "files": [
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/doc-authority.log",
+      "sha256": "9f4aea78a412daae74440e88e614e1819d68fecd6be9150e879b34e728fe2454"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/full-ci.log",
+      "sha256": "53fc08b1e021becc1563559a063f5ff272151920171fde25d24ee034a051050d"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/full-ci.raw.log.gz",
+      "sha256": "be96999d8e134bde19f0ed3163a16d24cbdf7821a9ac5374bf391810e5405180"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/inference.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/parser.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/registry-integrity.log",
+      "sha256": "011621e121c3c9cff3e5b917ff408c2f62bea71542e83361cfcee7b3475bf0fa"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/registry-strict.log",
+      "sha256": "011621e121c3c9cff3e5b917ff408c2f62bea71542e83361cfcee7b3475bf0fa"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/stress.log",
+      "sha256": "a0e22c2ccc4e1bcef4ec9365cbef539b3360e7e2b1e51458fc610b2f22734e9a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/validation/reconciled/unit-tests.log",
+      "sha256": "b0cd05c86773575ea9d489db4883c2a4adbf421551dc4f279bcd09f272afb817"
+    }
+  ]
+}

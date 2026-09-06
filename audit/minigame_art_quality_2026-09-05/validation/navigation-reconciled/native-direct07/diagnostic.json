@@ -1,0 +1,1706 @@
+{
+  "schema": "reef.native_godot_diagnostic.v1",
+  "diagnostic_only": true,
+  "wrapper_causality_proven": false,
+  "run_name": "native-direct07",
+  "probe": "probe_audit",
+  "timeout_seconds": 300.0,
+  "root": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905",
+  "profile": {
+    "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905\\tmp\\art-dev-combined-validation\\native-direct07\\isolated-profile",
+    "guarded_before_scene_launch": true,
+    "env": {
+      "APPDATA": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905\\tmp\\art-dev-combined-validation\\native-direct07\\isolated-profile\\appdata",
+      "LOCALAPPDATA": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905\\tmp\\art-dev-combined-validation\\native-direct07\\isolated-profile\\localappdata",
+      "XDG_DATA_HOME": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905\\tmp\\art-dev-combined-validation\\native-direct07\\isolated-profile\\data",
+      "XDG_CONFIG_HOME": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905\\tmp\\art-dev-combined-validation\\native-direct07\\isolated-profile\\config"
+    }
+  },
+  "binary": {
+    "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe",
+    "sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+    "size_bytes": 180858888
+  },
+  "source_inventory": {
+    "normalization": "utf8_lf",
+    "files": [
+      {
+        "path": "scripts/arena/castle_fixture_rigs.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af",
+        "bytes_raw": 49999
+      },
+      {
+        "path": "scripts/arena/castle_rooms_25d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "55e03356298d3f72e014cec9bc12d5783c3edf68a9683146116a55267919131e",
+        "bytes_raw": 224613
+      },
+      {
+        "path": "scripts/arena/courtyard_train.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364",
+        "bytes_raw": 30164
+      },
+      {
+        "path": "scripts/arena/day_one_castle_dressing.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "7a28c3a628b44cbb7259cb3b07622d472877d9f03ca7ff76085f9b260b13c25c",
+        "bytes_raw": 10878
+      },
+      {
+        "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089",
+        "bytes_raw": 10343
+      },
+      {
+        "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "e0d08f6ef776016f26a7fe5d2f8e8656e2405f4d0a77674133d3b879fb6ac4f7",
+        "bytes_raw": 15056
+      },
+      {
+        "path": "scripts/arena/northern_kingdom.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a",
+        "bytes_raw": 77774
+      },
+      {
+        "path": "scripts/arena/sky_lagoon.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "c3b81b4d6b2cb500c8d4e1f6ff2e4064a8b9c7ca4c8b0010c20236ccbb2e0395",
+        "bytes_raw": 138436
+      },
+      {
+        "path": "scripts/arena/sky_lagoon_promenade.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "5ed4037005fb3b04d73c748a525159ab2f210412081bf97be1a05b48832ddd1d",
+        "bytes_raw": 71627
+      },
+      {
+        "path": "scripts/attack_customizer.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0",
+        "bytes_raw": 12069
+      },
+      {
+        "path": "scripts/audio_director.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "d54e8d11f0e9aa31de5a1b74043a1104bea45a80f30e752b7eb044a8e18645da",
+        "bytes_raw": 27541
+      },
+      {
+        "path": "scripts/boot_splash_overlay.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "d90b8692f1632eedcd957a6ca46539aa3ad85b87d3abe93c20cd9cfc0dc64b0d",
+        "bytes_raw": 1624
+      },
+      {
+        "path": "scripts/boss_encounter_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "8c57f603d96142c4e07568eee1e12d49ab107788fac26a90ab1d2dd04f5dfa56",
+        "bytes_raw": 3401
+      },
+      {
+        "path": "scripts/boss_splash_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "1c592131c4252508d903e7085ccd8f6a7ed0b67537c5454f38ac70b4daa76636",
+        "bytes_raw": 9263
+      },
+      {
+        "path": "scripts/camera_kit.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "ec980456ed35789e273ea7b28964e63959277ecc61eb8438251bfe012bb0927b",
+        "bytes_raw": 8672
+      },
+      {
+        "path": "scripts/carry_system.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "7db3e3a832b6ef8c64886543c1bdbe411e17cb3f02c57e4c48bf83317a43a95d",
+        "bytes_raw": 8467
+      },
+      {
+        "path": "scripts/castle_career_routes.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "eda85b778c5edda29c8a759c060347e64fd3db34148351f678f805e115f7e7c0",
+        "bytes_raw": 15381
+      },
+      {
+        "path": "scripts/castle_door_cue.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "ea0a0e5c9d3390a48f698e21824a23c4c9ee67cb8111479037cffd5f4248c9ab",
+        "bytes_raw": 6318
+      },
+      {
+        "path": "scripts/castle_door_language.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f",
+        "bytes_raw": 2763
+      },
+      {
+        "path": "scripts/castle_logo_studio.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+        "bytes_raw": 19930
+      },
+      {
+        "path": "scripts/chapter_two_career_scene_adapter.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "c7290acc038269ed574a8bf73a403cc74146d26e4e2dc2042830b348afe5fae8",
+        "bytes_raw": 15146
+      },
+      {
+        "path": "scripts/chapter_two_director.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "925179742638bda779aaeadd800307a3a1a2c5a0cf05cded96f0d9fb654ef9b7",
+        "bytes_raw": 38509
+      },
+      {
+        "path": "scripts/chapter_two_giant_cake_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "f040e01beac2aa65933087bcca75153a8505ea7ce5aacb594a561201c407f757",
+        "bytes_raw": 32337
+      },
+      {
+        "path": "scripts/chapter_two_party_plan.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "eef0c0cf5ba76fbaf0c77b7e8850fa46e6556e028f6599b409f2df0d4bf99f2d",
+        "bytes_raw": 2678
+      },
+      {
+        "path": "scripts/chapter_two_party_table_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "8dc77223b338174acec5b03c093c71b3cd70e11b896ff6dfaa8e98bdc4cf241f",
+        "bytes_raw": 23870
+      },
+      {
+        "path": "scripts/chapter_two_rainbow_candle_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f",
+        "bytes_raw": 6377
+      },
+      {
+        "path": "scripts/chapter_two_room_plot.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "81c19514eb2e3ae188c15fb529391640d87f0b5c7921637a24da31c31f33453c",
+        "bytes_raw": 5762
+      },
+      {
+        "path": "scripts/collection_system.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+        "bytes_raw": 16704
+      },
+      {
+        "path": "scripts/combat_arena.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "f34cf66ef211c73628bbe21d767beff7f0b404107b7c57011b857df8a605880e",
+        "bytes_raw": 45435
+      },
+      {
+        "path": "scripts/combat_tutorial.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "b0a77f8d93a369112acf032c9863a95dd822b8e0954382d2b8f9cbd880522e2b",
+        "bytes_raw": 12193
+      },
+      {
+        "path": "scripts/comfy_games.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "91d826818b00dc782598efe43941949157d1fb9dda2336c065710227e7f627ee",
+        "bytes_raw": 25215
+      },
+      {
+        "path": "scripts/companion.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "f22b6912178cd7d26a2dd7bf06a2bcc38c3f532f64fd5cd7f57c0d8c9e5c54b7",
+        "bytes_raw": 68219
+      },
+      {
+        "path": "scripts/craft_studio.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "3df7d5a00b9190edca4fefda9a5b404143129677c233b781db4f4c2e1a69adc4",
+        "bytes_raw": 13654
+      },
+      {
+        "path": "scripts/day_one_art_studio.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "f807223e6499a5415ec73010ede763a8535d9fa6eddd66b864f9d997d6be0c79",
+        "bytes_raw": 21500
+      },
+      {
+        "path": "scripts/day_one_bathroom_movie_handoff.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9",
+        "bytes_raw": 7757
+      },
+      {
+        "path": "scripts/day_one_contextual_voice_catalog.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "2cfa2acb8c0fe5a886b76438614255ab7bd25156ddd24d4e9e4a2bee70ea32ef",
+        "bytes_raw": 38420
+      },
+      {
+        "path": "scripts/day_one_director.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "5f3d8a86e00fb380c41b2ef6a7fda638085e6b98f1d00a82fbebd593b34837e2",
+        "bytes_raw": 29024
+      },
+      {
+        "path": "scripts/day_one_draft_movies.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "6962707f2f2ae486b5e1f90aa8aaaa5ed7e437d985f38eaeebb40804b62a8158",
+        "bytes_raw": 4784
+      },
+      {
+        "path": "scripts/day_two_transition_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d",
+        "bytes_raw": 17918
+      },
+      {
+        "path": "scripts/dev_mode.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "ff65b0693736fad7123a0ee54c48b4ca2e9c96a7c83c157c7da88ae29e016a5c",
+        "bytes_raw": 49570
+      },
+      {
+        "path": "scripts/dungeon_art.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941",
+        "bytes_raw": 7638
+      },
+      {
+        "path": "scripts/dungeon_level.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab",
+        "bytes_raw": 9370
+      },
+      {
+        "path": "scripts/dungeon_puzzle_room.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "e84bb155523b6b5146c22474244bcdfb813ab0d541fee616244a5476a807b1db",
+        "bytes_raw": 22669
+      },
+      {
+        "path": "scripts/dust_boss_telegraph_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "ce2d44d7ea583c1abd2e1c1f611e2ad8d6bab00f3871b46cb6aa1b75704a61a5",
+        "bytes_raw": 144
+      },
+      {
+        "path": "scripts/dust_bunny_ai.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "129f1fb65b4854b6fbd481932883a5240c9dc289aa985cb2ba258d3e3025c55b",
+        "bytes_raw": 3121
+      },
+      {
+        "path": "scripts/dust_bunny_boss_sprite.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "af653730ee98108c7c6897b9c2841d23b41d30defc04365f68712bc9189cca6f",
+        "bytes_raw": 12692
+      },
+      {
+        "path": "scripts/dust_bunny_sprite.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "4880c9090d6e8f70b7ed6fb9e251a4bcb5d86e0ce8d325c4c30c57f4969fa837",
+        "bytes_raw": 4481
+      },
+      {
+        "path": "scripts/ember_fortress.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "86b2f5e3100e904d5d0b29d88addf424660d10c8f35e3114bb4f5e455f67c3b2",
+        "bytes_raw": 52720
+      },
+      {
+        "path": "scripts/encounter_attack_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "f427ccd622a7bde0308998976bba7141a7b6b8bdc21e4fa562537af014617bed",
+        "bytes_raw": 739
+      },
+      {
+        "path": "scripts/encounter_contract_checks.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "0bcbd30158ccaaedf3a72f57eb0ac909e39b25a302cc4b5f1184275a58ec6ace",
+        "bytes_raw": 8381
+      },
+      {
+        "path": "scripts/encounter_gesture_guide_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f",
+        "bytes_raw": 3130
+      },
+      {
+        "path": "scripts/encounter_navigation_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "639671e5efcb4853b8402a974cfa2fde15809ebe3d9af4bb6a0ef39824f90f85",
+        "bytes_raw": 2235
+      },
+      {
+        "path": "scripts/encounter_patterns_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "da25efb19bd9e3f443756e028e0950866346398ca10bbe748fbdb03f569dcb41",
+        "bytes_raw": 6636
+      },
+      {
+        "path": "scripts/encounter_phase_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "b78240e2844a33dc55d021286ef612b344ee8022701de7324f0732d53c36ddda",
+        "bytes_raw": 337
+      },
+      {
+        "path": "scripts/encounter_profile_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "a6506eed32651fc6a904a500404b114d536f980c83c4696c1298a31568a0d93e",
+        "bytes_raw": 1922
+      },
+      {
+        "path": "scripts/encounter_telegraph_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "f31b0ba990a8e1d70a8688460b810bb8c43ed91f42f7eaa0241f5cddc87abb29",
+        "bytes_raw": 6731
+      },
+      {
+        "path": "scripts/fx_water.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "e33ff31788951f89715cc926cbbfc9a05bb8e6324b76c9e0137ce2b658f5d4c0",
+        "bytes_raw": 12512
+      },
+      {
+        "path": "scripts/galaxy.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "f35783f1c1cdbb1057b0232e94691819d61dbd2024f939e23d173af292785f65",
+        "bytes_raw": 74874
+      },
+      {
+        "path": "scripts/games/brawl.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7",
+        "bytes_raw": 22661
+      },
+      {
+        "path": "scripts/games/dance_engine.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e",
+        "bytes_raw": 17555
+      },
+      {
+        "path": "scripts/games/day_one_bathroom_cleaning.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "75667c75057ec6ba23e004f367a8a73c074dd32f41396d59ab8abf2ab9dc86e3",
+        "bytes_raw": 36223
+      },
+      {
+        "path": "scripts/games/day_one_bathroom_cleanup.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "bbf5c1a52ccd466e8609af7956af46537df4aa97655ab136bc113afdb8fdb0fe",
+        "bytes_raw": 30845
+      },
+      {
+        "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "1f508b69f4e40ad7ccdca9234b5510b889841e1fe6a12f3b217d0c682dca6340",
+        "bytes_raw": 8845
+      },
+      {
+        "path": "scripts/games/day_one_pool_cleanup.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "64ce94893f5ba73bbec92690030af42ebfda2f235d755029a3b1a5f8879893c4",
+        "bytes_raw": 25020
+      },
+      {
+        "path": "scripts/games/dolls.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "a3cf7ffd6f6a7bcf1072fa1a753e465f742190f46d9809830589a2242c77c7e0",
+        "bytes_raw": 13144
+      },
+      {
+        "path": "scripts/games/dust_boss.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "81158d4246e1e947fec83e39b952d4f57860ef5d86b2481a09a2d60bc91118d6",
+        "bytes_raw": 45129
+      },
+      {
+        "path": "scripts/games/dust_boss_patterns.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c",
+        "bytes_raw": 250
+      },
+      {
+        "path": "scripts/games/fairy.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679",
+        "bytes_raw": 30963
+      },
+      {
+        "path": "scripts/games/fetch.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805",
+        "bytes_raw": 14730
+      },
+      {
+        "path": "scripts/games/melody.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e",
+        "bytes_raw": 44275
+      },
+      {
+        "path": "scripts/games/octagon_stage.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "433592587ba6b87ab4da1d27359208f3ebb31040de5886fe5d6b9ab07958b2db",
+        "bytes_raw": 16148
+      },
+      {
+        "path": "scripts/games/picture_games.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+        "bytes_raw": 32556
+      },
+      {
+        "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "4bb6a3ce133ee63859c2bf6aee36b9e04767ae5d36f27e21153ba39d80b4918b",
+        "bytes_raw": 16547
+      },
+      {
+        "path": "scripts/games/pool_skimmer_activity.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "fa78734c92f7c503871bdd9aba4007da4aacb7014e6123ac027b846734fb21a4",
+        "bytes_raw": 16840
+      },
+      {
+        "path": "scripts/games/pool_waterfall_activity.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "31c91228879a36d993123aad46a3bb256cbdd01bbb9c355bb7e85f82322c8fe2",
+        "bytes_raw": 15027
+      },
+      {
+        "path": "scripts/games/seek.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "d559447c82c29a33ddb319ef191cf9542d55304f62cae649e39cb2f9d9079741",
+        "bytes_raw": 23774
+      },
+      {
+        "path": "scripts/games/shop.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "feef16a7fc5a47abc51ff39dd4c07a31a2329d2496d5063467bcb5c1b28bfcb0",
+        "bytes_raw": 18282
+      },
+      {
+        "path": "scripts/games/side_scroll.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7",
+        "bytes_raw": 43103
+      },
+      {
+        "path": "scripts/games/slide_race.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+        "bytes_raw": 69940
+      },
+      {
+        "path": "scripts/games/treasure.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c",
+        "bytes_raw": 5017
+      },
+      {
+        "path": "scripts/grotto.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "0a2a75cecb2c7895f03e9696aae5933416481f86b147609c6b8d972b25db443a",
+        "bytes_raw": 5823
+      },
+      {
+        "path": "scripts/hit_engine.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c",
+        "bytes_raw": 37060
+      },
+      {
+        "path": "scripts/imp_ai.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e",
+        "bytes_raw": 21287
+      },
+      {
+        "path": "scripts/interaction_affordance.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "3c01ea0dc292bbccde681e7eba71efcaeb3c68c7e0a2e84a6ea4c2a66a8b5644",
+        "bytes_raw": 4731
+      },
+      {
+        "path": "scripts/interaction_director.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "22d206cc7e278b9e46557f20d358e0fd80b3dec26fae61bf6d2f51aedd86c5ab",
+        "bytes_raw": 9031
+      },
+      {
+        "path": "scripts/intro_overlay.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "20b40340505414bf0af68c6a991b342f4c117d0d31a03e7a44c0fad0141e8263",
+        "bytes_raw": 7569
+      },
+      {
+        "path": "scripts/juice.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "a356054344800d52edddb531108cd50f6d941582ea44d123b8397d5663de0fb4",
+        "bytes_raw": 4229
+      },
+      {
+        "path": "scripts/kart.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "478d98770df28ca82e1a7cfdda75b244efd8cce4ce322184e78b4da2e82f02c5",
+        "bytes_raw": 131782
+      },
+      {
+        "path": "scripts/kart_driving.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8",
+        "bytes_raw": 5257
+      },
+      {
+        "path": "scripts/landmark_art.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "01e8e9bb7332ab76decfa093a98ed6b1940e8d9b424221fd8b27a9591ea300e0",
+        "bytes_raw": 10306
+      },
+      {
+        "path": "scripts/light_rig.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "09e97441be4aa77a390e813298d1848a5d5f5c291d2efbcbf706cf10e3611551",
+        "bytes_raw": 6239
+      },
+      {
+        "path": "scripts/living_world.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "bcde20925ebb8a2478adb0844df49ee2fd7c5e3f482a5d898d45566ed407e277",
+        "bytes_raw": 14505
+      },
+      {
+        "path": "scripts/living_world_canvas.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+        "bytes_raw": 14510
+      },
+      {
+        "path": "scripts/living_world_catalog.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "2db85ea403333cd6b71fca87195b927a44b282d0233d79051b8bf0314f53ae2e",
+        "bytes_raw": 33997
+      },
+      {
+        "path": "scripts/main.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "f357d41f686db7781811d39ba1fd2fb5bdc49e477cf93678fcd16ec0f7424317",
+        "bytes_raw": 500236
+      },
+      {
+        "path": "scripts/medal_system.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "585959372cbe4bf2e98d0830097b3b98c9519b52645516857a61ce22b489d36d",
+        "bytes_raw": 13191
+      },
+      {
+        "path": "scripts/mic_input.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "02d0af4179486e1a1b43d197917b1eb015caa7ca355cdea9783b281c22810532",
+        "bytes_raw": 24931
+      },
+      {
+        "path": "scripts/navigation_controller.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "e1df2701223e864d2088b2baeb2d81b53d2c42fb358bb3c1ca35cf5393babc8a",
+        "bytes_raw": 3331
+      },
+      {
+        "path": "scripts/opera_act.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "2cb7235aaf7ef92caac65a7da3df722aea1909ebfee61e5f87fc1c96b40924af",
+        "bytes_raw": 7316
+      },
+      {
+        "path": "scripts/opera_ballet_surface.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+        "bytes_raw": 26140
+      },
+      {
+        "path": "scripts/opera_boxing_surface.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+        "bytes_raw": 28341
+      },
+      {
+        "path": "scripts/opera_career_world_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "d7461bff2cc06ac005a529fcc46f90f53b6e2e7052efe8c12c8432e775ff2b5e",
+        "bytes_raw": 234436
+      },
+      {
+        "path": "scripts/opera_competition.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57",
+        "bytes_raw": 9110
+      },
+      {
+        "path": "scripts/opera_geology_surface.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+        "bytes_raw": 33298
+      },
+      {
+        "path": "scripts/opera_gesture_surface.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "bytes_raw": 246339
+      },
+      {
+        "path": "scripts/opera_hotspot_catalog.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "713a43c5e2245f5dd4496a1a1909a5ba7c3bbd6961ebe4a8dd3db34e89b57222",
+        "bytes_raw": 26305
+      },
+      {
+        "path": "scripts/opera_house.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "8cdcb96bb607c62272772c414efe22eab27090cc20c6c8317e9e1f1944816bd3",
+        "bytes_raw": 16974
+      },
+      {
+        "path": "scripts/opera_house_venue_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "31a4b26ac5eadbef46910a018371e84f362a327c7954707ee57b29f88ad237e3",
+        "bytes_raw": 15620
+      },
+      {
+        "path": "scripts/opera_imp_clips.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "e061de84be9831d4e9662c11d3440461078c505b4b1484d499fdf1fa37df0797",
+        "bytes_raw": 3387
+      },
+      {
+        "path": "scripts/opera_mastery.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3",
+        "bytes_raw": 8109
+      },
+      {
+        "path": "scripts/opera_nursery_catch.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+        "bytes_raw": 9898
+      },
+      {
+        "path": "scripts/opera_performance_overlay.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
+        "bytes_raw": 7911
+      },
+      {
+        "path": "scripts/opera_performance_plan.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+        "bytes_raw": 1567
+      },
+      {
+        "path": "scripts/opera_racer_surface.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "e790978da9c9b9646b0b92750c6478e9ea72fbd99d60a8b0346bea278e07ad70",
+        "bytes_raw": 18952
+      },
+      {
+        "path": "scripts/opera_roshan_actor.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+        "bytes_raw": 6876
+      },
+      {
+        "path": "scripts/opera_stage_paths.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "0486fbd919cd6567dfa53ec90351d59473137bd41e30e3a2020f383dd3f73816",
+        "bytes_raw": 48579
+      },
+      {
+        "path": "scripts/opera_teacher_surface.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+        "bytes_raw": 15552
+      },
+      {
+        "path": "scripts/opera_world_backdrop_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "520be663a672513f36926d5dd90d73ebb87b390be04b9463acd6799e5fd09e7c",
+        "bytes_raw": 25408
+      },
+      {
+        "path": "scripts/opera_world_hotspot_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "3cdb80f462c0b59c7d06eed0bd8fc04fe165b01755305aa53b0931d1ccc2d0e4",
+        "bytes_raw": 14854
+      },
+      {
+        "path": "scripts/partner_assist.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "b2450228b9f22d2c6d652b43c6dc577dad8863293a9b2270a4a8d9da76a9dbad",
+        "bytes_raw": 3611
+      },
+      {
+        "path": "scripts/pause_menu.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "6198a881db4e8cd1b3ba6f01e3ca4a64156db3e461c47b120e0b468105edd11f",
+        "bytes_raw": 14484
+      },
+      {
+        "path": "scripts/physics.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "39a8a3ecf72e79ff797d2f6eb067ad3d186626a282d044af6f8ce64a57a78cce",
+        "bytes_raw": 14361
+      },
+      {
+        "path": "scripts/player.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "2530be45d5fee7dbf1f68679c004988dda0c93b1bb3a3ab720f66bfd8ccd4931",
+        "bytes_raw": 48919
+      },
+      {
+        "path": "scripts/probe.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "ea448c210f0f9bd5e72192c98678129037c27c3da6340f130046f9c0c4d3eedb",
+        "bytes_raw": 483
+      },
+      {
+        "path": "scripts/probe_anim_lab.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "d3f4c44ba6ea48d8be715566f5c19cf9397fb304fce7891aaa96d7e88dc9cfde",
+        "bytes_raw": 1449
+      },
+      {
+        "path": "scripts/probe_aq_ref.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "96eb39b2ac7347c045f6c950c8c0dc3e058af9594284e5480156c0905f3b35bd",
+        "bytes_raw": 1734
+      },
+      {
+        "path": "scripts/probe_aquatic2.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "ec5c083cb87192192d34bef61909446f4e2507371fd171fb27761144b816fd1d",
+        "bytes_raw": 3091
+      },
+      {
+        "path": "scripts/probe_art_audit_35.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "bed079ec48075b154715101d6bd61ac700590c32d43c8cb5265476ee9370258c",
+        "bytes_raw": 15831
+      },
+      {
+        "path": "scripts/probe_art_manifest.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "0e12eb251a3ad47bb0d6e67885c32b08995f36effbd1c37c6826b83ef6fa7324",
+        "bytes_raw": 13282
+      },
+      {
+        "path": "scripts/probe_audio.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "14360c356e8f1b3034fed30bd4cb7cde35adc4754ebfee83c882843a39e2ae78",
+        "bytes_raw": 6017
+      },
+      {
+        "path": "scripts/probe_audit.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "9bb4850b2ff75d1078b2fda2faad4faeccbfb569a0b3b6b4d102e1a7c9cb212d",
+        "bytes_raw": 268069
+      },
+      {
+        "path": "scripts/probe_basement.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "93c9559622c211bc2b838343bc415978a78e904cbfe5e5608fd0152eaf1a9358",
+        "bytes_raw": 10543
+      },
+      {
+        "path": "scripts/probe_bathroom_integration.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "a1da097949483ed3f106e21b57ed7a04e8f113634e0bb600a735ae36e1b303ae",
+        "bytes_raw": 24607
+      },
+      {
+        "path": "scripts/probe_bathroom_props.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "e054e3e0dfecfac60092a0d53af9561aeddc25dc875769f6249273fc9b21e73f",
+        "bytes_raw": 3964
+      },
+      {
+        "path": "scripts/probe_boot_display.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "05dcd1198b7fab155db8f2c255f1d7beddb0e3ef5c7faa585fdaed27faf04941",
+        "bytes_raw": 8074
+      },
+      {
+        "path": "scripts/probe_camera.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "6ed68fd06bbd30e0823dfceada40eaa260e1a93e96dc62c673db98e3daabb424",
+        "bytes_raw": 6930
+      },
+      {
+        "path": "scripts/probe_carry.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "72003f44381cc98f371acc4dc56df278c25759610d4d9084e98f58962c5cbc8f",
+        "bytes_raw": 2997
+      },
+      {
+        "path": "scripts/probe_castle_cam.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "5f20a771fe3c628af84ce1647bc52d70df55fa551a745bf6895139fbbe2ba5e5",
+        "bytes_raw": 6293
+      },
+      {
+        "path": "scripts/probe_castle_canvas2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "05f44ee6cad2e1a67ba7d3d0ae8afd383d3a120c37429bc49e761a871df22ca8",
+        "bytes_raw": 19787
+      },
+      {
+        "path": "scripts/probe_castle_door_language.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "8d69beaa4dc436b2bb3d412215fef098ccb29c2b9b0c7af4e49b015f3d4e55e3",
+        "bytes_raw": 5385
+      },
+      {
+        "path": "scripts/probe_castle_mobile_capture.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "6ef116981f77ac4546045d7d354554a48356bd2a1e2e19639838eb6163609126",
+        "bytes_raw": 8879
+      },
+      {
+        "path": "scripts/probe_castle_pearl_art.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "718266c7d3073b88f864b2d3c391afbef9eb2096b80a1e59d459b9b73719386f",
+        "bytes_raw": 261
+      },
+      {
+        "path": "scripts/probe_castle_pool_life_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "dcefbbbc04d24958aa2bd6640e3b8a60b93af9dbaf42f56cad8758cf9844f3fc",
+        "bytes_raw": 3016
+      },
+      {
+        "path": "scripts/probe_castle_shots.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "5d8cfc789564a5a2bfec70e1121d632e159eaaf44d59033fe7b17f55f285999e",
+        "bytes_raw": 3119
+      },
+      {
+        "path": "scripts/probe_chapter2.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "73ae8cd83538ba4665515a38fb7996084c4f8423d59eea1a364bde6a157b3559",
+        "bytes_raw": 22381
+      },
+      {
+        "path": "scripts/probe_chapter2_farmer_resume.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "d1e0477623658cb222512d38da46455749e62e7330515d9b3d522676a1c67d3d",
+        "bytes_raw": 10041
+      },
+      {
+        "path": "scripts/probe_chuck.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "1ced289dca74a3f847ff8968d4925b53becf53a5e90d80a274c7b624138ce759",
+        "bytes_raw": 2008
+      },
+      {
+        "path": "scripts/probe_collection.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "c071175071874f16572bdb3cba940088415c830e4c77b38404b672643197956c",
+        "bytes_raw": 3560
+      },
+      {
+        "path": "scripts/probe_combat.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "48c87ff11aa0749598067207371c06b7963bbf2e3fbde34eb0c1ebf1d3ba4793",
+        "bytes_raw": 9225
+      },
+      {
+        "path": "scripts/probe_combat_tutorial.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "9fd9b82f2accd761a22c77c69fbbb6aae99153665c1dd1f1729aada7751783e0",
+        "bytes_raw": 8410
+      },
+      {
+        "path": "scripts/probe_creatures.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "1c8456acf2f44413c109ffc67714959e7d900c8fdaeaac3b4c461522d94af033",
+        "bytes_raw": 2016
+      },
+      {
+        "path": "scripts/probe_crown.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "63e169e331226eb0b45f3a8522022f1986825937abd8f7491634b6be67f1a618",
+        "bytes_raw": 32704
+      },
+      {
+        "path": "scripts/probe_dance.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "91d6ab9f51863709cb754569ddc1398da70513f5279b927e4d67d0bc77b2b29b",
+        "bytes_raw": 3220
+      },
+      {
+        "path": "scripts/probe_day_one_art_attack_state.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "e20733f363ec05bf06744749b5e918da79abc075350f6ff9f6af8fecaefaa390",
+        "bytes_raw": 10394
+      },
+      {
+        "path": "scripts/probe_day_one_art_studio_shots.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "0a9dc0cd4d4b1502cc7ecf2d4ff819773a7a43bc05f330bd87fb367dd9b5873a",
+        "bytes_raw": 4004
+      },
+      {
+        "path": "scripts/probe_day_one_bathroom_bunny.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "11572f42eaefe255f8682b6960da694a56518c23b8937311548c24a959684895",
+        "bytes_raw": 14409
+      },
+      {
+        "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "81fb1e0881a8588085f4a09b2498f73339e96d0ccbc621a733884dd4bdf488be",
+        "bytes_raw": 25642
+      },
+      {
+        "path": "scripts/probe_day_one_bathroom_integration.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "168009295d1d94ba0eb17c2c1c44097768f3cf355123a445955e7c83421c3fd1",
+        "bytes_raw": 9184
+      },
+      {
+        "path": "scripts/probe_day_one_bathroom_movie_handoff.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "d195d69bb90ccf1149975aa752116b8e0266ad8e45d7173c21947a2586620214",
+        "bytes_raw": 5697
+      },
+      {
+        "path": "scripts/probe_day_one_bathroom_shots.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "6e300dad30d77849685ddb6bc12198a3618d2045ab7dbbf422ea9d517b60483d",
+        "bytes_raw": 9689
+      },
+      {
+        "path": "scripts/probe_day_one_castle_dressing.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "cc2e543b3f4935bfd37aba89d1436eca9447e9fdf20673bc69b44c7d22c54b43",
+        "bytes_raw": 4248
+      },
+      {
+        "path": "scripts/probe_day_one_contextual_voice.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "9167f0095236e9966fc53d9ebdab5949d44082e91e6a03c46dd57e770cef1b18",
+        "bytes_raw": 3242
+      },
+      {
+        "path": "scripts/probe_day_one_d8_revisits.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "f9efd1c0e52ec0dcda071d181ece9ab5a40f439847a832f475e78550ed236e54",
+        "bytes_raw": 4179
+      },
+      {
+        "path": "scripts/probe_day_one_director.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "61676f4e8a9341257e947c8ce22668e3c5c2e9ac82520e006d10b5cc5d52843c",
+        "bytes_raw": 7616
+      },
+      {
+        "path": "scripts/probe_day_one_draft_integration.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "bba4a1d9f3fb38da45f98fc35ce47c8a854cc6c81c6465e1d71efc293420ffba",
+        "bytes_raw": 9320
+      },
+      {
+        "path": "scripts/probe_day_one_draft_movies.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "6154b1f46ebda0cbf78db4da94e0179a074e209bf17bd7424d9ac09e04ae0686",
+        "bytes_raw": 5054
+      },
+      {
+        "path": "scripts/probe_day_one_handoffs.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "d037e6c97970944a8a142178eb0a1f43d9328650cb5909ed94f6b9a81d3ee10e",
+        "bytes_raw": 3243
+      },
+      {
+        "path": "scripts/probe_day_one_integration.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "e345bc16da6e6044eb04d45a14f75a670100a05310d118ac24bae04797a2bc6d",
+        "bytes_raw": 6113
+      },
+      {
+        "path": "scripts/probe_day_one_pool_cleanup.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "73ebaf3359c8131ff42579437efc90106986f3d4f77202f873e01e1610068001",
+        "bytes_raw": 13680
+      },
+      {
+        "path": "scripts/probe_day_one_pool_shots.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "ce64a4164dbf7bcefec5c2a5a8495f74d8014e5f3a459fbb2075a5233bc3f2cb",
+        "bytes_raw": 4433
+      },
+      {
+        "path": "scripts/probe_day_one_voice.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "056e9c9158654bb462410d0a0a299dcdb19cc03532d11201142b72d2bbd334bb",
+        "bytes_raw": 3588
+      },
+      {
+        "path": "scripts/probe_dolls.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "536e12af775c2c4ee320c024622bab54db6596bfaefa089c18d081d34da2cf08",
+        "bytes_raw": 28703
+      },
+      {
+        "path": "scripts/probe_dungeon.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "081d763e8836d8767aa647c80df26402ab67c273ac776202e7c7a89b98157bef",
+        "bytes_raw": 10141
+      },
+      {
+        "path": "scripts/probe_dust_boss.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "10ca2aafcde45d4ff0c50371ad2ed5397a32b9895bf41f2ba7d79dc433086090",
+        "bytes_raw": 20025
+      },
+      {
+        "path": "scripts/probe_dust_boss_balance.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "b46bb8404b67fe569f9fbcfae7a98a96f527e37d799dee22ca914bf31cf13171",
+        "bytes_raw": 4822
+      },
+      {
+        "path": "scripts/probe_dust_boss_shots.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "b3345765e089d6d56595e905f16746cff09a3f4c01bfea096b0dd9e3406b3794",
+        "bytes_raw": 5981
+      },
+      {
+        "path": "scripts/probe_dust_bunny.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "103bd3ff509df3d5a612faa4fd00ce66b3f85885a8c51e622496ec5211d36735",
+        "bytes_raw": 3756
+      },
+      {
+        "path": "scripts/probe_dust_bunny_boss.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "348413471e2d2ae7adf4b7a9554f2180cb26e948897996f8e032b9f27a8a3d6d",
+        "bytes_raw": 11695
+      },
+      {
+        "path": "scripts/probe_ember.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "7242fedd587854ec1de6b6f9913b5c71f7322b469727622403d07535d8964673",
+        "bytes_raw": 11732
+      },
+      {
+        "path": "scripts/probe_ember_art.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "61f7722b735e18cbe771864fbc9e298fdd36788ed98365d4d10dcc1d05c10e3a",
+        "bytes_raw": 4089
+      },
+      {
+        "path": "scripts/probe_fable_audit.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "3ef6191d3c25933d2a72eb07d26b9e41953a1cddb0a467f2eafc08ae5189af51",
+        "bytes_raw": 4184
+      },
+      {
+        "path": "scripts/probe_fable_kit.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "e431067b4f080a62f68c658033a2ec592d96b3fdedc419ad47ae0d7089e2d404",
+        "bytes_raw": 3942
+      },
+      {
+        "path": "scripts/probe_fairy_art.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "b6043069021eb19bb8a94a1d5a98a1109f29f93b8ae2d277bbe970ca25b5e26e",
+        "bytes_raw": 2802
+      },
+      {
+        "path": "scripts/probe_fairy_conservatory_handoff.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "3d57dea550657ff8903937dede613bec619919a0bbd3331f99d461cadb17c7ce",
+        "bytes_raw": 5027
+      },
+      {
+        "path": "scripts/probe_fairy_conservatory_route.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "acd22101ed22eeace09014bffd0ad071a83a2f9587831951775716f2eb2db83a",
+        "bytes_raw": 5498
+      },
+      {
+        "path": "scripts/probe_fetch.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "394df697279ae83894967ca44e5724d61da98dc3e473337fcdeb2eefba5e4b59",
+        "bytes_raw": 1421
+      },
+      {
+        "path": "scripts/probe_flow.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "3d4aa7e0634aae4458143dc0ccb6de96e65b2a4819b67df67141fba64647248e",
+        "bytes_raw": 2226
+      },
+      {
+        "path": "scripts/probe_galaxy_peek.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "a6e33fc764ff9d5f55080b4f8e7986e74ad5768255010dda56c12dff9c7a11c9",
+        "bytes_raw": 2787
+      },
+      {
+        "path": "scripts/probe_galaxy_state.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "37b564bcf73b37a4c38f08213af58a47ebb0c4554d8d539b445f24987afa38ad",
+        "bytes_raw": 9160
+      },
+      {
+        "path": "scripts/probe_garden_shots.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "17894d0dd1070508108956bed19d9ad056f9089a2bf855dae45f4dafecfd0dec",
+        "bytes_raw": 1506
+      },
+      {
+        "path": "scripts/probe_grotto.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "3b830f07a79036bc67661007263b77ff287f723f680245b080a3a24848822df6",
+        "bytes_raw": 3702
+      },
+      {
+        "path": "scripts/probe_heading.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "96e370796521188ddc7f5d22c69398a7412b7f41ef372deea8150bbe50a0ec13",
+        "bytes_raw": 1026
+      },
+      {
+        "path": "scripts/probe_hit.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "a472adaf30aae6d20e07835f73b2a8a74a0cf41eb50ca0dc32db746d0b0df226",
+        "bytes_raw": 13140
+      },
+      {
+        "path": "scripts/probe_human_art_audit.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "810a4cab317b459f8e280a5c959de2ee9b8c46a378b2dc79ab21010ac70cd214",
+        "bytes_raw": 6819
+      },
+      {
+        "path": "scripts/probe_imp_ai.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "69c38ecdd142fdedacb68c7995ec41338e84333aeeb09d7359d648610b4a260d",
+        "bytes_raw": 12016
+      },
+      {
+        "path": "scripts/probe_imp_animation_art.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "3e0a7a8db8fa72df607799a3a8cd5f5e3d70d59f16e66743eac59b15ce0f850a",
+        "bytes_raw": 10151
+      },
+      {
+        "path": "scripts/probe_interaction.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "438770ac26e20fc72cab637749e9c1d37584adc93507ad7804a623fa35d7b76b",
+        "bytes_raw": 42838
+      },
+      {
+        "path": "scripts/probe_kart_feel.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "dd43a16551eef2eba2e203556d30707df48db7f24a38fb907e513417c1161c3f",
+        "bytes_raw": 21014
+      },
+      {
+        "path": "scripts/probe_kitchen_props.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "5b0b5f839439540331160bfc1dde572b20d93d577ee3aad4601423550768cde3",
+        "bytes_raw": 6076
+      },
+      {
+        "path": "scripts/probe_l2.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "dff485e0be66fb5a31aa698583d57d0bad0a201730442ba0579e7c11cd924403",
+        "bytes_raw": 57438
+      },
+      {
+        "path": "scripts/probe_l2_living_cards.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "4626f0a73d15b5e7f6976834de06ee5967849960b48079422cccaef84bc81825",
+        "bytes_raw": 11415
+      },
+      {
+        "path": "scripts/probe_l2_reenter.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "2753995081f6247989d163670b3ff82e67a8a5ca21efe06024ca255cd5e65385",
+        "bytes_raw": 3328
+      },
+      {
+        "path": "scripts/probe_living_world.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "0b55e3382e94ed2f2c4a3836f70b361c859bb2970d3cad3779c74ef8a8926750",
+        "bytes_raw": 14629
+      },
+      {
+        "path": "scripts/probe_load.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "23e30877b14cde8a5687731eed45ab5a61300d6e7c40584768bab7c5acd55a8a",
+        "bytes_raw": 9095
+      },
+      {
+        "path": "scripts/probe_melody.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "3421a4f8f01dd5a250c0c9bd099ef2722afebc5fdfaee653a4b16f1cad8bc806",
+        "bytes_raw": 118621
+      },
+      {
+        "path": "scripts/probe_mg2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "3bbc302731abea0a84501d8c6e617af9d35bf048def6ab4600116e4334fdb06c",
+        "bytes_raw": 15062
+      },
+      {
+        "path": "scripts/probe_mic.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "00ede493070f7ab68d35da9f5297244772aa00095196b76d3ee1b06bd7882b19",
+        "bytes_raw": 10749
+      },
+      {
+        "path": "scripts/probe_mouselook.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "e21289452def93c1cbd88ab3df48a04e043cbcd61a0c8d0df36a9111ec9fa49f",
+        "bytes_raw": 3223
+      },
+      {
+        "path": "scripts/probe_northern.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "5ded882b3ffebd1e9611ff43d1d069680543ffe7aec958094c11b402c1e4801d",
+        "bytes_raw": 8321
+      },
+      {
+        "path": "scripts/probe_northern_art_audit.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "940fbd7bbae151b325c36fe2c86b5e143a48a3cb66a6d816d4933c3c4cc28992",
+        "bytes_raw": 4277
+      },
+      {
+        "path": "scripts/probe_ocean_kingdoms.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "93de68e244948c74f431be57488f1ee523d2e0c37baab68c7f1219d682f19cd2",
+        "bytes_raw": 6266
+      },
+      {
+        "path": "scripts/probe_opera.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "57ddf41aaf52261744b856bc1eaab44c46c0e27e3f45340f8de229b0b55eda6d",
+        "bytes_raw": 28241
+      },
+      {
+        "path": "scripts/probe_opera_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "73180e76c37a816f2739dceffec6acd84bf97afe4e051106e95d89257b609326",
+        "bytes_raw": 145367
+      },
+      {
+        "path": "scripts/probe_opera_2d_balance.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "f5e3addeea4c292152d5998715fecd59dd3881100790aecb04c8cae96b42bcda",
+        "bytes_raw": 7433
+      },
+      {
+        "path": "scripts/probe_opera_art.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "24e8e53e588146c4662f177620ba48cdc7bf59d406e9c5326a02e8cc9f6394b4",
+        "bytes_raw": 31855
+      },
+      {
+        "path": "scripts/probe_opera_balance.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "babc60dc709144eb276888e257f40a0fa179239829fd3285d3f1e7e76d4233a3",
+        "bytes_raw": 358
+      },
+      {
+        "path": "scripts/probe_opera_detective.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "4ea70a97288fd0c0feba2fe4d7382d9319a3345538010916c99a3ed54304f7ea",
+        "bytes_raw": 6906
+      },
+      {
+        "path": "scripts/probe_opera_diegetic_paths.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "8388b64336fb36dde344b058b002c95e6ffbb1f62e6609ce14f5c79274f84435",
+        "bytes_raw": 16256
+      },
+      {
+        "path": "scripts/probe_opera_gesture_quality.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+        "bytes_raw": 94463
+      },
+      {
+        "path": "scripts/probe_opera_mastery.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "7d7a38da9517de21c3f4b5b74c5857410b04fab51dcb4f3449c84c6d94152782",
+        "bytes_raw": 7547
+      },
+      {
+        "path": "scripts/probe_opera_nursery.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "b79612ce95275915902fe7d7a334e4b2d45ce866be977be6b46f6551356bd7f9",
+        "bytes_raw": 11325
+      },
+      {
+        "path": "scripts/probe_opera_performance.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "ab9af4d9e5b90d4e3224de5145412ae7bfd4e8c763285b31938205dee1656152",
+        "bytes_raw": 20318
+      },
+      {
+        "path": "scripts/probe_opera_pipe.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "5ad9f1953ecc666d9b9e21a1d250294a37e9d0159c515fdf250b7dbd6eaae9c2",
+        "bytes_raw": 4417
+      },
+      {
+        "path": "scripts/probe_partner.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "1309875b832c3f80b5945515148d562145838913bc65d3f54851af6a40cf47a3",
+        "bytes_raw": 4562
+      },
+      {
+        "path": "scripts/probe_passive.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "6e3d6ab9dfbad827daef5c3293efba318ff4dad6d7c189f6797300d19cddce0e",
+        "bytes_raw": 18070
+      },
+      {
+        "path": "scripts/probe_peng_pal.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "0084bb4d8ac1f4b97869457554a51708fe2b2ed2e091a4d85fc2377503a61afa",
+        "bytes_raw": 2714
+      },
+      {
+        "path": "scripts/probe_penguin_beak.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "69f32b2482e621501380aa953d52bb0ae230105b78a9f2cb25dd4a8486708286",
+        "bytes_raw": 498
+      },
+      {
+        "path": "scripts/probe_penguin_face.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "2a038330d9bb60d0382a62a6b4ccb2524827c476416ddf8a6f98f9fb4c63ce9d",
+        "bytes_raw": 2525
+      },
+      {
+        "path": "scripts/probe_pg_water.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "dbc065c22259e16fdebc8feee124620cd74a66f6132d77dec6ee426ab277c610",
+        "bytes_raw": 2471
+      },
+      {
+        "path": "scripts/probe_pg_wide.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "14f277647806d166f77740625053f38f2df1970914df64c51c1f237cb01794c4",
+        "bytes_raw": 1681
+      },
+      {
+        "path": "scripts/probe_playground_shots.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "4bb1f21d49a526a02e8c29d8e0d44a8d6ff9b5ad7b86d885ecacdcfdd385c988",
+        "bytes_raw": 7382
+      },
+      {
+        "path": "scripts/probe_props.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "7175e1342e2f54e609ca801c131601305239e6f84499294c2f6c4647937f1240",
+        "bytes_raw": 13304
+      },
+      {
+        "path": "scripts/probe_race_feel.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "5eb883cdca4a6221fd0ccd07d86cf7670c6a95aa9bbdc22ef77066390ab7c372",
+        "bytes_raw": 9947
+      },
+      {
+        "path": "scripts/probe_rank.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "2e5c88fe79205bc85406c15d5577c5dc1cc9f59dfdd91ff37ed12edafd64a9ca",
+        "bytes_raw": 18913
+      },
+      {
+        "path": "scripts/probe_reef_districts.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "17ae88e94945694fe4547216d0fe0262d3be38c987cfa10c946feedeb2eb2f54",
+        "bytes_raw": 5435
+      },
+      {
+        "path": "scripts/probe_reef_shots.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "8ec9908b5ca952e1c9080c1cac075fd541c1abec5cae0f61f0aa6c55eba49b5f",
+        "bytes_raw": 1947
+      },
+      {
+        "path": "scripts/probe_river_profile.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "fd0a40360f704fd537b2abd44ce61668e095a2970fa82259d9f48733dac7b939",
+        "bytes_raw": 1235
+      },
+      {
+        "path": "scripts/probe_save_recovery.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "5210bdca9be34fb530411460073fc06281f7df48754219cfaae20ad306d5f135",
+        "bytes_raw": 19616
+      },
+      {
+        "path": "scripts/probe_seek.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "7cf244cb1ab89e745d564ba9b8da9cfd4a448bb766ce00f57134f5e77bba8601",
+        "bytes_raw": 30744
+      },
+      {
+        "path": "scripts/probe_skins.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "c25092a82d2722579ff1d1d41eddb51fb499438a2c1ff959b5fbfc584b6f0763",
+        "bytes_raw": 2768
+      },
+      {
+        "path": "scripts/probe_sky_lagoon_animals.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "8638836d5acd77d4f6985724ac4a848d65be4b884da0fd64f6fc3019ed519b97",
+        "bytes_raw": 15414
+      },
+      {
+        "path": "scripts/probe_sky_lagoon_art.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "2d006287ca5a5e6abdf503b33fafbd8dde8bfaa4c299894ab3136d8f7ab6ffdc",
+        "bytes_raw": 59347
+      },
+      {
+        "path": "scripts/probe_start_menu_routing.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "ff51581aa0bda995f99046d5419a9afe824e82aa223fcd9f2835a98ee65b6aae",
+        "bytes_raw": 6760
+      },
+      {
+        "path": "scripts/probe_stuffie.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "48e07bf1d79d063b045f856b84fc46d90e2f2a4f7e08e7b17677e443e0964ee9",
+        "bytes_raw": 34608
+      },
+      {
+        "path": "scripts/probe_texture_seams.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "ffe196d19782bba373ff06f7764382b1164e9a3605a4bed176b4e0adbcad400a",
+        "bytes_raw": 2280
+      },
+      {
+        "path": "scripts/probe_throne.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "e1f37bcc4c328caa013d6d24ded2154ce47a5a5f884e5926a2508a1dc0c64a15",
+        "bytes_raw": 21938
+      },
+      {
+        "path": "scripts/probe_throne_shots.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "0917812438b062bee51adf567a8a8265161d263c722eee5d5309b72b82668e37",
+        "bytes_raw": 2397
+      },
+      {
+        "path": "scripts/probe_touch_adversary.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "4e83df7b80a294d11ae0cef0492378682b20dde2d2391f424aa67608d1a7cdb9",
+        "bytes_raw": 14403
+      },
+      {
+        "path": "scripts/probe_touch_look.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "bd29130a50f3936919534d4a183d7c91e38d9059457e86d5ef9ac93f71641adb",
+        "bytes_raw": 5486
+      },
+      {
+        "path": "scripts/probe_touch_router.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "621e8d521aaa7754454d87df9ca0ef6d676f78b7c62d70a9be7ddea914a45ad1",
+        "bytes_raw": 11483
+      },
+      {
+        "path": "scripts/probe_touch_stress.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "b649406233b65597dfc1418c03531791b7cbe985403302e4e2e64eb7e1007a7e",
+        "bytes_raw": 21816
+      },
+      {
+        "path": "scripts/probe_toy_anim.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "6f5d5a06d7841cb035513649cd734cafc8ec1aa09411e96615e949e6c635c5b0",
+        "bytes_raw": 2095
+      },
+      {
+        "path": "scripts/probe_train.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "6ef2405bfa25ca7ff58d8f4a3c7a00f242a49d418c7eb5d2f071f0b438c4c8ed",
+        "bytes_raw": 3199
+      },
+      {
+        "path": "scripts/probe_ui.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "bb5403c37599646886809c92af9ae82dc4c0335d28b60409e9b5331f0c9165a1",
+        "bytes_raw": 194
+      },
+      {
+        "path": "scripts/probe_ui_system.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "3b134100c0ae52ac3320e93f8bd059a296194a4a2b5d1a95f26c4ab53394d8fa",
+        "bytes_raw": 39704
+      },
+      {
+        "path": "scripts/probe_upstairs.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "a7b57f7f8d3602180721acdf5a7dd9af63b8c14f9e207783ac50c319a82ca3f9",
+        "bytes_raw": 4481
+      },
+      {
+        "path": "scripts/probe_verbs.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "7c7f672751178c291a690fe16485711dda81f8143759f3dc6d79785683ed6f86",
+        "bytes_raw": 11570
+      },
+      {
+        "path": "scripts/probe_visual_audit.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "2422faa70bd47b947b51e96543d761364e0fea106c03b6145fe57498b5201a60",
+        "bytes_raw": 69628
+      },
+      {
+        "path": "scripts/probe_voice.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "66e4f3804db966c0fed35b6fb2cbe93f50481b6cf24bfb6819ff388a4ff472c2",
+        "bytes_raw": 39397
+      },
+      {
+        "path": "scripts/reef_districts.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b",
+        "bytes_raw": 17127
+      },
+      {
+        "path": "scripts/reef_flow.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "b1b851acf9898ddd5c617a475144ea111d4cad3a6f86e563eeaff33899cb0165",
+        "bytes_raw": 3312
+      },
+      {
+        "path": "scripts/roshan_sprite_anchors.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "a4d1b54324bb8faa959ec88d82ccf728efeec9cdb4134fac761b119cfac731a5",
+        "bytes_raw": 2426
+      },
+      {
+        "path": "scripts/roshan_sprite_frames.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "5bd254252fa2f3e0aed7814868477f81afb0bbbf449cf49a6734c7c56920b2c6",
+        "bytes_raw": 8276
+      },
+      {
+        "path": "scripts/roshan_sprite_loop.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "710fe044b634c600ffa7b369a61038cee69227d9a7acc2fc2dede3ec5de46b4c",
+        "bytes_raw": 10913
+      },
+      {
+        "path": "scripts/save_state.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "d9f2beb03dfa3ae719b353ad2594163a760be8eca89c455690e5fe745f97f78f",
+        "bytes_raw": 46474
+      },
+      {
+        "path": "scripts/shell_ornament.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08",
+        "bytes_raw": 1963
+      },
+      {
+        "path": "scripts/sprite_transition_2d.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "0a5c87ff8c4eb812bc2b352382f069c82771f1f39860e9adece4b35a04bf4bd5",
+        "bytes_raw": 8157
+      },
+      {
+        "path": "scripts/start_menu.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "91bf71d0a62785ef0efdf9a82b5624dc3851ba1ce7c1207f814c22474885d2d3",
+        "bytes_raw": 16831
+      },
+      {
+        "path": "scripts/story_art.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "3ff0367f3be0801e4a40f233d42cf66baef8a952948b373c2a33ffab6f176f8b",
+        "bytes_raw": 5385
+      },
+      {
+        "path": "scripts/storybook_ui.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+        "bytes_raw": 16453
+      },
+      {
+        "path": "scripts/stuffie_battle.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4",
+        "bytes_raw": 24917
+      },
+      {
+        "path": "scripts/tap_move_director.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "dbe2d50e6b0dfb40b0f24f7cc9a73065c267209cd6a399e3fde601af4ce2a263",
+        "bytes_raw": 6212
+      },
+      {
+        "path": "scripts/teacher_lesson_plan.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e",
+        "bytes_raw": 6863
+      },
+      {
+        "path": "scripts/touch_ui.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "37bad68a79bcf257b44f574f4454aa77b6ce8794f6e70aa022b390bf4533477a",
+        "bytes_raw": 38912
+      },
+      {
+        "path": "scripts/wardrobe_ui.gd",
+        "hash_normalization": "utf8_lf",
+        "sha256": "eab02b46ac3d322f295c09c68847ccbecc776378ac4cc15835f4df4f16b215a6",
+        "bytes_raw": 12587
+      }
+    ]
+  },
+  "command": [
+    "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905",
+    "-s",
+    "scripts/probe_audit.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "status": "passed_exit_code",
+  "child_pid": 97896,
+  "elapsed_seconds": 45.162,
+  "return_code_signed": 0,
+  "return_code_unsigned32": "0x00000000",
+  "timed_out": false,
+  "log_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\minigame-art-dev-reconcile-20260905\\tmp\\art-dev-combined-validation\\native-direct07\\native-godot.log",
+  "log_sha256": "a9321615c836d8c4baaf1089fc780625f0be18e8ced068ac9b7ac94607953139",
+  "verdict_inventory": {
+    "native_binary_executed": true,
+    "fresh_profile_used": true,
+    "probe_exit_zero": true,
+    "timeout": false,
+    "failure_markers_are_data_only": true,
+    "wrapper_causality": "UNPROVEN"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema": "reef.dolls_runtime_reuse_options.v1",
+  "date": "2026-09-06",
+  "scope": "Read-only reuse inventory for the mounted Dolls catch weakness. Existing source candidates were viewed at native resolution; no runtime or source pixels were changed.",
+  "evidence": {
+    "runtime_review": "tmp/dolls-runtime-followup/sol-runtime-review.json",
+    "capture_review": "tmp/dolls-runtime-followup/capture-review.json",
+    "live_owner": "scripts/games/dolls.gd",
+    "surface_owner": "scripts/games/dolls.gd:DollsNurserySurface._draw",
+    "source_owner": "scripts/opera_nursery_catch.gd",
+    "live_geometry": {
+      "panel": "DollsNurserySurface PANEL_SIZE 1024x608; mounted with DollsGame._layout_surface()",
+      "safe_mat": "safe_mat_rect starts at y=0.775*surface height and occupies 0.225*height",
+      "catch_point": "catcher_x*surface width, y=0.80*surface height",
+      "catcher_card": "TextureRect 200x245, centered aspect, show_behind_parent=true",
+      "settled_babies": "drawn after sling with SAFE_BABY_EXTENT 48 and spread around catch point"
+    },
+    "observed_mount_gaps": [
+      "flat purple safety mat dominates the lower strip",
+      "U sling is visually detached from Roshan's hands/body",
+      "caught/settled babies shrink to tiny hanging tokens instead of resting in a socket",
+      "nursery backdrop shows blurred side carriers and a broad aqua band"
+    ]
+  },
+  "candidates": [
+    {
+      "path": "assets/opera/worlds/widgets/widget_catch_nursery_cradle.png",
+      "sha256": "9cacbc76cb577051150379a369add2576f5dc50b617d601f5b83bbbe4ac0f068e",
+      "dimensions": [256, 256],
+      "visual_observation": "Transparent circular peach field with navy ring, cream straps and pink U cradle. Clean alpha and simple contour, but visibly flat geometric/vector-like beside the painted nursery and character.",
+      "decision": "REJECT_DIRECT_RUNTIME_REUSE",
+      "possible_use": "Reference-only geometry for socket proportions; do not mount unchanged as the final cradle without a fresh scene comparison."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_catch_nursery_pillows.png",
+      "sha256": "2a1ad09b777df4545cf84b0c6eff762852ce3e0b8a06fed4675570a0837b9549",
+      "dimensions": [1024, 160],
+      "visual_observation": "Five repeated purple ovals with thick navy outlines and clean alpha. It is a flat strip, exactly the material/shape problem seen in the current mat, and has no cradle socket or nursery-painted shading.",
+      "decision": "REJECT",
+      "reason": "Would preserve the observed flat-strip defect and does not clarify baby contact."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_catch_nursery.png",
+      "sha256": "bf33a3fa22216f2354dc64333682005bdb5e404574156a5838cf263dcab10b17",
+      "dimensions": [1024, 608],
+      "visual_observation": "Complete pale UI board with blurred nursery sides, flat border, hanging ornament and empty center. It is clean but schematic and duplicates the exact blurred-sideband/mat-era composition weakness.",
+      "decision": "REJECT",
+      "reason": "Retired backdrop path; not a purpose-built cradle/cushion replacement and explicitly nulled by DollsNurserySurface."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_basin_nursery.png",
+      "sha256": "e0f78dde69888d1303296464f1e02b325af9acf8d5e5621a61f3cc13a8bb6956",
+      "dimensions": [1024, 608],
+      "visual_observation": "Painted peach wrapped baby in a basin-style UI board; finish is more authored than the flat mat, but the object is a bath/basin activity with a different semantic socket.",
+      "decision": "REJECT_SEMANTIC_MISMATCH",
+      "reason": "Do not repurpose a bathroom/basin scene as a catch cradle; preserve its meaning."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_track_nursery_mover.png",
+      "sha256": "396b26dc6a99235be461ce05a7fc4753e65e7ef9ee634fd0d6d1bc26cb4a5edc",
+      "dimensions": [256, 256],
+      "visual_observation": "Clean painted swaddled baby cutout with strong face, cloth shading and transparent contour.",
+      "decision": "REUSE_APPROVED_FOR_BABY_SCALE_REFERENCE_ONLY",
+      "reason": "It is a baby mover, not a cradle or mat. Preserve the live baby family and use its finish/scale as the target for settled readability; do not substitute it for the socket."
+    }
+  ],
+  "conclusion": {
+    "direct_purpose_built_candidate_meeting_current_bar": null,
+    "reuse_first_decision": "No existing cradle or mat PNG is suitable for direct unchanged reuse. The retired cradle is the closest geometric reference but is visibly too flat; the pillow strip is a direct reject.",
+    "code_only_layout_proposals": [
+      "Align catch_point with the configured Roshan hand/forearm center and keep the sling inside the character's visible lower-body contact plane.",
+      "Increase settled and safe-landed baby draw extent from 48 toward the falling-baby readability range while preserving touch geometry and baby identity.",
+      "Move or reduce the safety mat so it supports the landing state without dominating the lower fifth; remove the visible diagonal seam crossing the landing zone through layout/reframe first.",
+      "Reframe the assembled nursery tiles to reduce padded/blurred side carriers and the broad aqua band before commissioning any new cradle pixels.",
+      "Retain the three approved baby sources and their current family; do not replace them based on this review."
+    ],
+    "new_art_gap_if_layout_fails": "One painted catch cradle/cushion plus a safety landing surface with a clear concave socket, authored nursery material, clean alpha and contact shadow; generate only after the layout/reuse experiment is captured and rejected.",
+    "required_reaudit": ["natural ready", "held approach", "catch contact", "safe landing", "third catch", "natural reward/teardown", "re-entry", "Mobile target and child/owner review separately"]
+  }
+}

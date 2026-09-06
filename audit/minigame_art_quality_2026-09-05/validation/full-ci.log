@@ -1,0 +1,40 @@
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.044s
+
+OK
+GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+...F....s..............F................
+======================================================================
+FAIL: test_current_repository_is_open_only_for_external_evidence (tests.test_audit_typography.TypographyAuditTests.test_current_repository_is_open_only_for_external_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\Documents\mermaid-roshan-reef\.worktrees\minigame-art-quality-20260905\tests\test_audit_typography.py", line 946, in test_current_repository_is_open_only_for_external_evidence
+    self.assertEqual(report["machine_errors"], [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['stale glyph allowlist entries: U+2019'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'stale glyph allowlist entries: U+2019'
+
+- ['stale glyph allowlist entries: U+2019']
++ []
+
+======================================================================
+FAIL: test_optional_dodge_lightning_is_redundant_with_recorded_source_routes (tests.test_audit_typography.TypographyAuditTests.test_optional_dodge_lightning_is_redundant_with_recorded_source_routes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\Documents\mermaid-roshan-reef\.worktrees\minigame-art-quality-20260905\tests\test_audit_typography.py", line 893, in test_optional_dodge_lightning_is_redundant_with_recorded_source_routes
+    self.assertEqual(source_lines[int(line) - 1], expected, route)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '\tpanel.add_child(stars)' != '\t\tdodge.text = "⚡\\n↻" if danger else "↻"'
+- 	panel.add_child(stars)
++ 		dodge.text = "⚡\n↻" if danger else "↻"
+ : scripts/games/dust_boss.gd:1118
+
+----------------------------------------------------------------------
+Ran 40 tests in 27.322s
+
+FAILED (failures=2, skipped=1)
+TYPOGRAPHY AUDIT CONTRACT TEST FAIL

@@ -42,7 +42,7 @@ const GEODE_SEAM_SPOTS: Array[Vector2] = [
 const FOSSIL_PATH := "res://assets/opera/worlds/hotspots/geologist_fossil.svg"
 const GEODE_PATH := ""
 const ROCK_PATH := "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg"
-const BRUSH_PATH := ""
+const BRUSH_PATH := "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
 const PAN_PATH := ""
 const CRYSTALS_PATH := "res://assets/opera/worlds/props/goal_geologist.svg"
 
@@ -725,8 +725,11 @@ func _draw_fossil_piece(index: int, rect: Rect2) -> void:
 
 func _draw_brush(at: Vector2) -> void:
 	if brush_texture != null:
+		# The approved brush is diagonal. Its bristle contact, not the middle of
+		# its canvas, follows the same point as the excavation gesture.
+		var brush_size := Vector2(156.0, 156.0 * brush_texture.get_height() / brush_texture.get_width())
 		draw_texture_rect(brush_texture,
-			Rect2(at - Vector2(36.0, 62.0), Vector2(72.0, 124.0)), false)
+			Rect2(at - brush_size * Vector2(0.25, 0.78), brush_size), false)
 	else:
 		var axis := Vector2(1.0, 1.0).normalized()
 		var normal := Vector2(-axis.y, axis.x)

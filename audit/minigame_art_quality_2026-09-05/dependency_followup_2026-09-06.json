@@ -1,0 +1,390 @@
+{
+  "schema": "minigame-coverage-followup-v1",
+  "generated": "2026-09-06",
+  "scope": "Four high-priority source gaps from the prior 45-code/259-literal/97-dynamic candidate scan. This is a bounded source inventory, not exhaustive runtime coverage and contains no visual quality scores.",
+  "baseline_gap_context": {
+    "prior_report": "audit/minigame_art_quality_2026-09-05/missing_coverage.json",
+    "candidate_source_files": 45,
+    "literal_res_paths": 259,
+    "dynamic_loader_sites": 97,
+    "unregistered_source_candidates_reported": 24,
+    "current_registry_claim": "62 asset records / 54 source paths; code-source scan remains incomplete"
+  },
+  "families": [
+    {
+      "id": "grand_puff",
+      "status": "active_current_route_with_stale_legacy_catalog_reference",
+      "reachable_owner": {
+        "source": "scripts/games/dust_boss.gd",
+        "sha256": "81158d4246e1e947fec83e39b952d4f57860ef5d86b2481a09a2d60bc91118d6",
+        "role": "encounter state, arena placement, tell badge, boss kit lifecycle",
+        "art_entry": "DustBunnyBossSprite kit() is created by the Dust Boss build path",
+        "hash_normalization": "utf8_lf"
+      },
+      "secondary_owner": {
+        "source": "scripts/dust_bunny_boss_sprite.gd",
+        "sha256": "af653730ee98108c7c6897b9c2841d23b41d30defc04365f68712bc9189cca6f",
+        "role": "current AnimatedSprite3D card and frame/animation catalog",
+        "dynamic_resolution": "ANIMATION_SPECS paths are loaded at runtime and sliced into 512x512 AtlasTexture cells",
+        "hash_normalization": "utf8_lf"
+      },
+      "image_dependencies": [
+        {
+          "path": "assets/flats/castle/boss/dusty_attic_arena_2048.png",
+          "sha256": "a6f4bb59df43e63cedbf9a164526475b91985c85c73cac7e061f830d60ef4122",
+          "role": "arena backdrop",
+          "binding": "static preload"
+        },
+        {
+          "path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_jump.png",
+          "sha256": "7f117638631841c31eb58b9c81224158d29d64f325980c75c475e0376e36788c",
+          "role": "idle/jump/angry final frames",
+          "binding": "dynamic ANIMATION_SPECS"
+        },
+        {
+          "path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png",
+          "sha256": "bdcf03aab906fa9c8f7293733e780ffaac883c14ba72bdc43069a4ace4f9afca",
+          "role": "vulnerable laugh",
+          "binding": "dynamic ANIMATION_SPECS"
+        },
+        {
+          "path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_flinch.png",
+          "sha256": "fe885c898dc70d4ac621005a4f7b0c2727ac354322453b434e96dc2b7dabb743",
+          "role": "flinch 1/2/3",
+          "binding": "dynamic ANIMATION_SPECS"
+        },
+        {
+          "path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_angry.png",
+          "sha256": "897ca1fec2e3dbdfddb1b6566fc014b0809e3e276148b46267746466cfdb5915",
+          "role": "angry tell/final transition",
+          "binding": "dynamic ANIMATION_SPECS"
+        },
+        {
+          "path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_implode.png",
+          "sha256": "273770fa67763662e2294d80444da727575bb0a10c63938d5fe20689d0f9d256",
+          "role": "defeat implosion",
+          "binding": "dynamic ANIMATION_SPECS"
+        },
+        {
+          "path": "assets/mg/star.png",
+          "sha256": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98",
+          "role": "tell badge fallback",
+          "binding": "dynamic load in dust_boss.gd"
+        },
+        {
+          "path": "assets/flats/castle/rooms/room_actor_shadow.png",
+          "sha256": "642aa3bdc6ef1be14febfd7855963da80071febd9ea7b69101261d6632ee3604",
+          "role": "boss ground shadow",
+          "binding": "static preload in dust_boss.gd"
+        }
+      ],
+      "stale_or_unreachable": [
+        "dust_boss.gd still declares res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/boss/boss_tell_open.png and boss_tell_shielded.png, but that directory is absent in this worktree; _apply_tell falls back to assets/mg/star.png. Do not treat those missing files as current live boss art."
+      ],
+      "required_capture_states": [
+        "splash/show",
+        "jump/tell shielded",
+        "laugh_vulnerable/open",
+        "flinch round 1-3",
+        "angry final",
+        "implode/friends"
+      ],
+      "coverage_limit": "Current source binding is identified, but no new visual score or current Mobile state capture is claimed here."
+    },
+    {
+      "id": "day_one_bathroom_cleanup",
+      "status": "active_day_one_route",
+      "owners": [
+        {
+          "source": "scripts/games/day_one_bathroom_cleanup.gd",
+          "sha256": "bbf5c1a52ccd466e8609af7956af46537df4aa97655ab136bc113afdb8fdb0fe",
+          "role": "basket handoff, room plate, supply hunt, cleanup integration",
+          "hash_normalization": "utf8_lf"
+        },
+        {
+          "source": "scripts/games/day_one_bathroom_cleaning.gd",
+          "sha256": "75667c75057ec6ba23e004f367a8a73c074dd32f41396d59ab8abf2ab9dc86e3",
+          "role": "sink scrub and tub brush gestures, tool motion and finale",
+          "hash_normalization": "utf8_lf"
+        }
+      ],
+      "image_dependencies": [
+        {
+          "path": "assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png",
+          "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+          "role": "dirty room plate",
+          "binding": "static preload"
+        },
+        {
+          "path": "assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
+          "sha256": "1382a8adcb37f1b0788989676e5412220878395727ac081ce1b8d6fc1335fd47",
+          "role": "drained room plate",
+          "binding": "static preload"
+        },
+        {
+          "path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+          "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+          "role": "sink target effect",
+          "binding": "constant path"
+        },
+        {
+          "path": "assets/castle/dirty_cleanup_2d/targets/target_bath_soap_ring.png",
+          "sha256": "50d4e42028c6d95da5bc400fd8c6a17c30091c4a75b78faa2c0e03c85f253562",
+          "role": "tub target",
+          "binding": "constant path"
+        },
+        {
+          "path": "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+          "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+          "role": "sink tool",
+          "binding": "constant path"
+        },
+        {
+          "path": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+          "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+          "role": "tub tool",
+          "binding": "constant path"
+        },
+        {
+          "path": "assets/castle/dirty_cleanup_2d/effects/fx_wipe_swoosh.png",
+          "sha256": "1e58e1ff959f288834d5aa4926b8beef747ca507ca44f95cd5251edbf6b59821",
+          "role": "wipe feedback",
+          "binding": "constant path"
+        },
+        {
+          "path": "assets/castle/training/ghost_hand.png",
+          "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+          "role": "pointer",
+          "binding": "constant path"
+        },
+        {
+          "path": "assets/opera/worlds/props/fx_stolen_sparkle.png",
+          "sha256": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+          "role": "completion sparkle",
+          "binding": "constant path"
+        },
+        {
+          "path": "assets/castle/day_one_pool/activities/cleanup_basket.png",
+          "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+          "role": "supply basket",
+          "binding": "constant path"
+        },
+        {
+          "path": "assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png",
+          "sha256": "fe53ef3018b9f8164417cde5bf47489dff389179aad8432ea8ef1993cffab3ed",
+          "role": "sink grime",
+          "binding": "constant path"
+        }
+      ],
+      "retired_or_unreachable": [],
+      "required_capture_states": [
+        "dirty ready/basket",
+        "sponge supply handoff",
+        "sink scrub in progress",
+        "tub brush in progress",
+        "drained/clean finale"
+      ],
+      "coverage_limit": "Exact source bindings are traced; current visual quality and animation remain unscored without state captures."
+    },
+    {
+      "id": "day_one_pool_cleanup",
+      "status": "active_day_one_route",
+      "owners": [
+        {
+          "source": "scripts/games/day_one_pool_cleanup.gd",
+          "sha256": "64ce94893f5ba73bbec92690030af42ebfda2f235d755029a3b1a5f8879893c4",
+          "role": "pool room owner and activity routing",
+          "hash_normalization": "utf8_lf"
+        },
+        {
+          "source": "scripts/games/pool_skimmer_activity.gd",
+          "sha256": "5caebf79b158ed1ca86540aee7e8032e347b108a3226e65dbe2de71858b8fa4a",
+          "role": "six-item surface skimmer",
+          "hash_normalization": "utf8_lf"
+        },
+        {
+          "source": "scripts/games/pool_waterfall_activity.gd",
+          "sha256": "31c91228879a36d993123aad46a3bb256cbdd01bbb9c355bb7e85f82322c8fe2",
+          "role": "three-lane waterfall scrub",
+          "hash_normalization": "utf8_lf"
+        },
+        {
+          "source": "scripts/games/pool_seahorse_rescue_activity.gd",
+          "sha256": "4bb6a3ce133ee63859c2bf6aee36b9e04767ae5d36f27e21153ba39d80b4918b",
+          "role": "eight-tap seahorse finale",
+          "hash_normalization": "utf8_lf"
+        },
+        {
+          "source": "scripts/games/day_one_dust_bunny_swimmer.gd",
+          "sha256": "1f508b69f4e40ad7ccdca9234b5510b889841e1fe6a12f3b217d0c682dca6340",
+          "role": "shared swimmer cutout",
+          "hash_normalization": "utf8_lf"
+        }
+      ],
+      "image_dependencies": [
+        {
+          "path": "assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+          "sha256": "e554c4f253bcaa9e5893d9e4fffe03feef96528211f2458dc5d8fc81299f56df",
+          "role": "six trash atlas cells",
+          "binding": "dynamic AtlasTexture subframes"
+        },
+        {
+          "path": "assets/castle/day_one_pool/activities/pool_skimmer.png",
+          "sha256": "308c86843ace9fb3d4a65a0c514d41b367d87ceabaf5f3d3676f54ce9be4b9b3",
+          "role": "skimmer tool",
+          "binding": "constant path"
+        },
+        {
+          "path": "assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png",
+          "sha256": "d4da588daece3fa12b5f094b50f5c8b33eeae31fd0761f1eeedce882cf1b7507",
+          "role": "dirty waterfall strips",
+          "binding": "constant path/sliced lanes"
+        },
+        {
+          "path": "assets/castle/day_one_pool/activities/waterfall_scrubber.png",
+          "sha256": "1b29ff463263be093a7e1ac33eb74e4075d6a795dd515d120107f66953b2dc7a",
+          "role": "waterfall scrubber",
+          "binding": "constant path"
+        },
+        {
+          "path": "assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png",
+          "sha256": "88aa2ce07e79144b13d8e699341404e7b15e79baed861169c9c17e196ddba941",
+          "role": "seahorse body",
+          "binding": "constant path"
+        },
+        {
+          "path": "assets/castle/day_one_pool/activities/seahorse_mouth_trash.png",
+          "sha256": "9c48ac1ca7be923fcb14902b3e2b62263f34d53e031f11002776bfc4322652f9",
+          "role": "mouth obstruction",
+          "binding": "constant path"
+        },
+        {
+          "path": "assets/castle/day_one_pool/activities/cleanup_basket.png",
+          "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+          "role": "pool basket",
+          "binding": "constant path"
+        },
+        {
+          "path": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+          "sha256": "39cd43295adfce51249ac97647520aee9643e397fe417bf0374727297b34528e",
+          "role": "Rumi swimming atlas",
+          "binding": "dynamic AtlasTexture subframes"
+        },
+        {
+          "path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+          "sha256": "d5e0bff392a22c341c313ab94db5cea7a3cb6bb682b9ea8af2bc190a810c3f66",
+          "role": "Rumi upright/pose atlas",
+          "binding": "dynamic AtlasTexture subframes"
+        },
+        {
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
+          "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+          "role": "shared swimmer",
+          "binding": "dynamic load in swimmer owner"
+        }
+      ],
+      "retired_or_unreachable": [],
+      "required_capture_states": [
+        "pool ready",
+        "skimmer contact/partial",
+        "skimmer complete",
+        "waterfall lane partial",
+        "waterfall complete",
+        "seahorse contact/partial",
+        "seahorse complete/settle"
+      ],
+      "coverage_limit": "Atlas cells and Rumi frame extraction are not represented by the parent atlas files alone; no visual score is assigned."
+    },
+    {
+      "id": "picture_games_garden_dynamic_family",
+      "status": "active_picture_game_route_dynamic_assets",
+      "owner": {
+        "source": "scripts/games/picture_games.gd",
+        "sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+        "role": "garden open/growth/finale and dynamic texture selection",
+        "hash_normalization": "utf8_lf"
+      },
+      "image_dependencies": [
+        {
+          "path": "assets/mg/k_sprout.png",
+          "sha256": "d7542d8d812a28ddce435c8acf3a103df85e5af59178ad05c9bdb5fef1ed0926",
+          "role": "shared sprout state",
+          "binding": "literal load"
+        },
+        {
+          "path": "assets/mg/k_flower1.png",
+          "sha256": "c4edbd641f0cc13e96378b7468f56711b7dd79bb9f90013bfbe66588472fb35e",
+          "role": "mature flower slot 1",
+          "binding": "dynamic concatenated path"
+        },
+        {
+          "path": "assets/mg/flower.png",
+          "sha256": "2753083d4e30f5f6e8b49949e0eb50497b5b03d37691df7e3b6b6deddb79880d",
+          "role": "mature flower slot 2",
+          "binding": "dynamic concatenated path"
+        },
+        {
+          "path": "assets/mg/flower2.png",
+          "sha256": "1ab22c71a550c94c71fcab769c6f1b47f1d73c1ff792775fdc1f9c365ac77a09",
+          "role": "mature flower slot 3",
+          "binding": "dynamic concatenated path"
+        },
+        {
+          "path": "assets/mg/k_flower2.png",
+          "sha256": "522130ad5c354b1a80aa9734feb025d23c4551af6796cd89f9664d2c0750553d",
+          "role": "mature flower slot 4",
+          "binding": "dynamic concatenated path"
+        },
+        {
+          "path": "assets/mg/flower3.png",
+          "sha256": "46e05838998044aa1fb36738719fe769521d4b727d891c6062f5ec4cbbe56352",
+          "role": "mature flower slot 5",
+          "binding": "dynamic concatenated path"
+        },
+        {
+          "path": "assets/mg/wateringcan.png",
+          "sha256": "dfcd93a98e83b7b0419602db828e6895fd4884bf0df800e9ecf4ed96c436f6e9",
+          "role": "watering prop",
+          "binding": "literal load"
+        }
+      ],
+      "dynamic_resolution": {
+        "flower_array": [
+          "k_flower1",
+          "flower",
+          "flower2",
+          "k_flower2",
+          "flower3"
+        ],
+        "loader": "res://assets/mg/ + flower_name + .png",
+        "sprout_distinction": "k_sprout is the shared seedling; flower4.png and sprout.png are present but not selected by the current live array"
+      },
+      "retired_or_unreachable": [
+        {
+          "path": "assets/mg/flower4.png",
+          "reason": "present on disk but not selected by current five-entry mature flower array"
+        },
+        {
+          "path": "assets/mg/sprout.png",
+          "reason": "present on disk but current live seedling binding is k_sprout.png"
+        }
+      ],
+      "required_capture_states": [
+        "garden ready",
+        "first sprout",
+        "all sprouts",
+        "first mature",
+        "four mature before reward",
+        "fifth mature/reward",
+        "settle"
+      ],
+      "coverage_limit": "The live names and loader are traced, but this report does not score the unseen flower pixels or watering animation."
+    }
+  ],
+  "parent_verification": {
+    "source_bindings_checked": 46,
+    "code_hashes": "UTF-8 LF normalized",
+    "raster_hashes": "exact bytes",
+    "no_visual_scores": true
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "reef.minigame_art_diagnostic.v1",
+  "status": "LOCAL_UNCOMMITTED_NOT_ACCEPTED",
+  "renderer": "mobile",
+  "engine": "4.7.2-stable",
+  "device": "NVIDIA GeForce RTX 3060 Ti desktop, not target Android",
+  "method": "same-process viewport PNG; phase selection and gesture simulation by recorded harness; frozen simulation between frames",
+  "timing_limitation": "Geologist screenshots are discrete state diagnostics, not motion/cadence acceptance. Captures preceded pose-containment repair; do not claim current actor playback from them.",
+  "source_files": [
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "sha256": "9e87576d3b6aef44ad8053ce0e2bad66df83c902bf49b3cd80d2e37d6a1dea5e"
+    },
+    {
+      "path": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3"
+    }
+  ],
+  "files": [
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/animation-gate.log",
+      "sha256": "b64e2ebfc5acd29acf00e99ed7b2e0a6a8cfdd5851a3c47bc58bfc00c9b1a6bf"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/capture.gd",
+      "sha256": "77b5c2a5c9164feec0e57ae991742e1bbe0ee90c906c5d6313b8c0b86e54e9bb",
+      "role": "readable_whitespace_normalized_harness"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/capture.log",
+      "sha256": "c2c6093671ee505668b10ff0586ec55b75a95ee771b70385051218eb185b3186"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-0-progress.png",
+      "sha256": "1a0565b5124791e31c0c43affecd8876d8b96c0b8b1096fd5f405e8f6874be8f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-0-ready.png",
+      "sha256": "77dee1ffcdc51c54afb0e2e2583645f40579f2c2e670d3d19c092ae7d70c189f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-0-wide.png",
+      "sha256": "9be52429bc1291d90688e6a3ac288f699ea5754f8201f6621798d34d0abe2d3b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-1-brush-contact.png",
+      "sha256": "1b88ea0564b42c9a24e6f1b9fadedc6b41d49b59fc3aeef2e1f36b0d315a16d3"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-1-progress.png",
+      "sha256": "2e6f3e4de09087daa124c5be7dda5b45124994a794b7f391ba211d28a8ef1926"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-1-ready.png",
+      "sha256": "aa180f6743f184bf327d9711351603aa22f71e972ba608f00ba9ca5310853262"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-1-wide.png",
+      "sha256": "7c3d5370aeb3829ccd692ef9aa404caa6e0b606fe2e49a3767666662c7c0ddd5"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-2-progress.png",
+      "sha256": "c8529cd44dea962dd190e912da85cf6c6323d67d73f8563723536bbe3bad066f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-2-ready.png",
+      "sha256": "542f211ef17e748af628942654f08a5f843da8bbadaecf53d0bbbeaa29d8025a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-2-wide.png",
+      "sha256": "246eda1914ebf9fb1c30e08dcce79347f1b5e4b2046cfc6b9990a79a26e78fa6"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-3-progress.png",
+      "sha256": "e4b9cb54a96025056e07131abb57ecf637add943213ff77c02a05136fbc353a7"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-3-ready.png",
+      "sha256": "8f214c0d8e3453f0ef5601bdf7a1295b4346da9450154d37387629b4ca04702b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/phase-3-wide.png",
+      "sha256": "892a4d4c4c92528af2b438be1b23b2e1e7a6ef2ce0d95144c0882b2fffa00433"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/probe-opera-2d.log",
+      "sha256": "35008bddad52ec874457632406a61f9c8e53766e553ffedca563df3a55c0921c"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/capture.gd.gz",
+      "sha256": "5b60928a6943679cdb0e06fe955a89c6b91319d66c08364f12040a309182bd53",
+      "uncompressed_sha256": "6fc3270a5561f4ad67027775f2e8850e0b6fa5784ab2f848dc6883c3a5b5532b",
+      "role": "exact_historical_bytes"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/geologist/manifest.original.json.gz",
+      "sha256": "dfab86cfe93117542131749be1ba83282500175a780526e4f76415099fb044d1",
+      "uncompressed_sha256": "b00465b33c0e54d4213f28a9219396e139f48ad4fe55d7463b1ffa18a41ccc34",
+      "role": "exact_historical_bytes"
+    }
+  ],
+  "publication_normalization": "The readable capture.gd has only trailing horizontal/EOF whitespace normalized. Exact historical harness and manifest bytes are preserved in deterministic gzip companions. Execution and image claims remain historical."
+}

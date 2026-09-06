@@ -1,0 +1,80 @@
+{
+  "schema": "reef.garden_current_diagnostic.v1",
+  "revision": "9df000999a94572b64537c98f558841f6f3e3260",
+  "renderer": "mobile",
+  "viewport": [
+    1280,
+    720
+  ],
+  "execution": "Normal main processing; pressed signals on live plant buttons; no manual ticks or timestep changes",
+  "profile": "Fresh isolated APPDATA/LOCALAPPDATA/XDG roots; OS user-data guard before main instantiation",
+  "captures": [
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-realtime-9df/garden_allfive_reward_active.png",
+      "sha256": "5f32fa6a7a1d4aa22e65b22ac9ff310b555fb7ea5278667b87e8ef06daf72d92"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-realtime-9df/garden_can_visible_static.png",
+      "sha256": "2522c120b3d1cb3c048b691277b0312154477fa1bac1f00f9a7579c315ae9443"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-realtime-9df/garden_mature_first.png",
+      "sha256": "f634298ad9af3b4a75fe67fb92b1ef92f44e85d233c5e552afc18d91d1ca6d27"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-realtime-9df/garden_ready.png",
+      "sha256": "3461a80b871d19c700fc8666082da5de1fd10330d02aa86cf083c940ccf388f2"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-realtime-9df/garden_reward.png",
+      "sha256": "caa760c4c7ebdfe1443952a91bbf44eb04f218c4425729d34090b7cd41d1c543"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-realtime-9df/garden_reward_settle.png",
+      "sha256": "5a60b0430e57c2882ea6b2388b79540ad84815858c29c982fac55fee71d9ec88"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-realtime-9df/garden_sprout_all.png",
+      "sha256": "7fa541e81b615a8614d955cd5b20918e020b1ff87f782bbcfc07962306adab59"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-realtime-9df/garden_sprout_first.png",
+      "sha256": "eb304877e7026cb7d47b6bd6585bb86e84fc03ace0279f482aa1ca1ba8c5368d"
+    }
+  ],
+  "support": [
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-realtime-9df/capture.gd.txt",
+      "sha256": "a1dd0eb550a388df6ab53d2040bdedf9196658441835b4edd46b82282c61de24"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-realtime-9df/capture2.log",
+      "sha256": "e9d95d8c480c89806ce2d303b6360ff1980d727b081de181da771b1cf5b0e9b5"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-realtime-9df/capture2.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-realtime-9df/capture.log",
+      "sha256": "72d75458939284e13291ec224e8be57becb413c38dcb0b3376b1e6f4ee4d7551"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-realtime-9df/capture.stderr.log",
+      "sha256": "8c882b51dd07e71a7a4b4a6b3f15cec74be5894884797452f62f6850fe33f2dc"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-realtime-9df/capture-before-window-fix.gd.txt",
+      "sha256": "a426f43e1268d0fe3c715e3ed7e1bc1aa1ecc473c75aeba80db9395834bc3a0e"
+    }
+  ],
+  "limitations": [
+    "Desktop RTX3060Ti, not target Android",
+    "Stillframes cannot establish smooth motion or child usability",
+    "Trusted minigame entry after menu dismissal; not full story navigation",
+    "First run rejected1346x720viewport; second resizedclientandverified1280x720"
+  ],
+  "art_acceptance": false,
+  "successful_run_exit_code": 0,
+  "review": "audit/minigame_art_quality_2026-09-05/garden_realtime_followup.md"
+}

@@ -1,0 +1,106 @@
+{
+  "schema": "hall-first-phase-repair-review/v1",
+  "status": "BOUNDED_IMPROVEMENT_ACCEPTED_BROADER_SURFACES_OPEN",
+  "scope": "Pixel comparison of source_phase 0 only for Ballerina PEARL MIRROR, Magician VANISH and Pop Star SOUND CHECK, practice and stage, baseline run04 versus candidate05. Scores cover only the changed focus-lens presentation and Magician pose containment.",
+  "candidate_source": {
+    "base_revision": "8b7f116870eec8abf0368a25bf47eac404a23b25",
+    "opera_career_world_2d_sha256_raw": "4842039fb04689d9eb6d2e35fd717374e9e820e5b4ae7b66aaabab2a67b45205",
+    "description": "37-line world repair: suppress activity focus bloom/arc only when two_act_enabled while retaining pearls; add Hall-scoped Magician phase pose holds.",
+    "capture": "audit/minigame_art_quality_2026-09-05/evidence/hall-followup/hall/candidate05",
+    "result": "PASS; 18 PNGs; 0 unsupported"
+  },
+  "baseline_disposition": "run04 imagery is valid comparison evidence. Its overall FAIL came from a bad harness oracle expecting pose_round 0 although accepted input correctly advanced it to 1; this does not invalidate the pixels. Candidate05 uses the corrected round_before+1 oracle.",
+  "limits": [
+    "configured-route desktop Mobile 1280x720 capture, not natural navigation or target-device evidence",
+    "three stills per part do not establish full animation cadence or transition quality",
+    "later source phases and broad scene quality remain open",
+    "no score is averaged into whole-game or whole-career acceptance"
+  ],
+  "changed_focus_lens_review": {
+    "Ballerina": {
+      "practice": {
+        "baseline_readability": 4.2,
+        "candidate_readability": 4.5,
+        "baseline_scene_ownership": 3.9,
+        "candidate_scene_ownership": 4.4,
+        "disposition": "KEEP_BOUNDED_CHANGE"
+      },
+      "stage": {
+        "baseline_readability": 4.1,
+        "candidate_readability": 4.5,
+        "baseline_scene_ownership": 3.6,
+        "candidate_scene_ownership": 4.3,
+        "disposition": "KEEP_BOUNDED_CHANGE"
+      },
+      "finding": "Removing the dark bloom and long cyan arc restores the painted garden/stage values and makes all three pose portraits easier to compare. The retained pearl/progress markers and large cream targets provide enough task framing; no material readability loss is visible. The pointer still covers part of the large target portrait, and actor/stage contact remains below bar, so this is not full 4.5 acceptance."
+    },
+    "Magician": {
+      "practice": {
+        "baseline_readability": 4.1,
+        "candidate_readability": 4.5,
+        "baseline_scene_ownership": 3.8,
+        "candidate_scene_ownership": 4.4,
+        "disposition": "KEEP_BOUNDED_CHANGE"
+      },
+      "stage": {
+        "baseline_readability": 4.2,
+        "candidate_readability": 4.6,
+        "baseline_scene_ownership": 3.9,
+        "candidate_scene_ownership": 4.5,
+        "disposition": "KEEP_BOUNDED_CHANGE"
+      },
+      "finding": "The lamb, hat, wand and cabinets remain visible without the dark right-half mask, and the stage spotlight/value structure becomes legible. The small local wand ring and payoff rings still identify the active prop, so removing the global lens does not erase task focus. Prop contact/order and flat payoff particles remain separate defects."
+    },
+    "Pop Star": {
+      "practice": {
+        "baseline_readability": 4.0,
+        "candidate_readability": 4.4,
+        "baseline_scene_ownership": 3.8,
+        "candidate_scene_ownership": 4.4,
+        "disposition": "KEEP_BOUNDED_CHANGE"
+      },
+      "stage": {
+        "baseline_readability": 4.2,
+        "candidate_readability": 4.6,
+        "baseline_scene_ownership": 4.0,
+        "candidate_scene_ownership": 4.5,
+        "disposition": "KEEP_BOUNDED_CHANGE"
+      },
+      "finding": "Removal restores the right practice booth and the full stage note ribbon/dance-pad colours. The local microphone highlight, active note, sound waves, progress panel and retained pearls still protect the SOUND CHECK objective. Practice microphone scale/location and stage DANCE-pad competition remain below-bar issues outside this repair."
+    },
+    "panel_protection": "KEEP_CURRENT_TOP_PANEL_AND_LOCAL_TARGET_FEEDBACK. The header remains high-contrast and unobstructed in all candidate stills. No replacement global bloom is needed; any further focus treatment should remain local to the active prop and must not dim the painted room."
+  },
+  "magician_pose_containment": {
+    "scores": {
+      "phase_identity_baseline": 4.0,
+      "phase_identity_candidate": 4.5,
+      "state_consistency_baseline": 3.8,
+      "state_consistency_candidate": 4.5,
+      "animation": null
+    },
+    "finding": "Candidate05 keeps VANISH in wand/orbit magic imagery during intro/contact. Baseline contact could show the separate portal trick, so the candidate no longer visibly introduces that unrelated trick during the held VANISH action. Cheer playback was unchanged; baseline/candidate payoff cells differ only because the samples landed at different points in the same existing cheer loop and provide no repair evidence.",
+    "disposition": "KEEP_HALL_SCOPED_POSE_HOLDS",
+    "caveat": "This supports only visible active phase-state semantics for VANISH and cannot prove animation cadence. Payoff/cheer quality remains temporally unassessed. The remaining four Magician source phases need their own current captures before the five-phase mapping can be accepted."
+  },
+  "candidate_capture_hashes": {
+    "ballerina_practice_intro": "86c2e66bfe506f01722820b9c13011352b254ea4a2353643e1ccc1510ed5be54",
+    "ballerina_practice_contact": "13147c4979def44c17afb682dd777535cf90d26fcf6fa230546e97d8b248a4a8",
+    "ballerina_practice_payoff": "eaae55ca8cf297fedd69d4d925af8c4b1b2c96be2646e39f6900c68b0c2f6ccf",
+    "ballerina_stage_intro": "f61b745c715fc50e693c926b796eeaa76ba534fd7ab0dbcbd96e4be18d6e8b00",
+    "ballerina_stage_contact": "fbdf156fd82c135965dbfc072a86d5e1621ffe37cfd8769c05fb682f7acf4394",
+    "ballerina_stage_payoff": "a5099379f71c02b1c3baf6e249735f3114b2fac92ca13cc23d337fe224188ba4",
+    "magician_practice_intro": "ab46d974b761ea5b7a96669e630df6d507f1815de194dd3fdf1e47cdc833156f",
+    "magician_practice_contact": "fb6376a86bf5fa3ea2a6fbd43b9d7c938bccfa24a537f201a635e1033deefaf9",
+    "magician_practice_payoff": "508293438918733af1044f7cdb738244aefb1bd44d7cf89be5b651596e22b3e5",
+    "magician_stage_intro": "5ddd42b8aa88f8dd0946047268facf6fcd3d3aaba8b1b6012ff23e6e88751e3a",
+    "magician_stage_contact": "267abdbcf1cf8276c7709393a1d7663b5bb8155f51f1b1bf2e08f142c98bbc43",
+    "magician_stage_payoff": "038518970d55e49d83e9a2a697cf5a404109cb0016ed13239e12649687aa9ba2",
+    "popstar_practice_intro": "c3b544388f1ddd83f4ca381089fdf1e75e7a5f649054a9413bd7d79df9388bf6",
+    "popstar_practice_contact": "3169b0944e986056fedbe08413bb235c0ab4ad835ddb875f5481baa31058384e",
+    "popstar_practice_payoff": "a0b7162176630e6448da8d53418e480eb5f801b220d64fe8f38e2a963262ebed",
+    "popstar_stage_intro": "f49088f25d28edceb125c9602818c27c5e7809b03366640ae5897d3e707bcad7",
+    "popstar_stage_contact": "1be6596cf2f62863a45b32bea59a011a4d6e446c59fe278c4b2683c8672eaa2e",
+    "popstar_stage_payoff": "e1d3fba46e941fba28cccbacbc2c0a34eb81deddeeac97390e05f5c31ffee8b0"
+  },
+  "final_disposition": "KEEP_BOTH_BOUNDED_REPAIRS. They materially improve first-phase readability, scene ownership and Magician semantic containment without visible loss of objective guidance. Whole scenes remain below or incompletely evidenced in other dimensions and later phases remain OPEN."
+}

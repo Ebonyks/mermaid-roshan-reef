@@ -283,8 +283,10 @@ func _draw() -> void:
 			fill = Color("#fff0a9")
 		draw_style_box(StorybookUI.panel_style(INK, fill, 25, 5), card)
 		if lesson_kind() in ["count", "add"]:
-			_draw_group(int(choices[index]), card.get_center() + Vector2(0, -15),
-				22.0, Color("#75d3df"))
+			var amount := int(choices[index])
+			var pearl_radius := _group_radius(amount, card.size.x - 24.0, 40.0)
+			_draw_group(amount, card.get_center() + Vector2(0, -15),
+				pearl_radius, Color("#75d3df"))
 		else:
 			_draw_shape(int(choices[index]), card.get_center(), 49.0)
 	if not solved:
@@ -325,8 +327,12 @@ func _draw_counting() -> void:
 		var operands: Array = lesson.get("operands", [1, 1]) as Array
 		draw_style_box(StorybookUI.panel_style(INK, Color("#d8eff0"), 30, 4), Rect2(410, 200, 265, 205))
 		draw_style_box(StorybookUI.panel_style(INK, Color("#f5d8e4"), 30, 4), Rect2(835, 200, 265, 205))
-		_draw_group(int(operands[0]), Vector2(542, 295), 27, Color("#74d5df"))
-		_draw_group(int(operands[1]), Vector2(967, 295), 27, Color("#efa3c7"))
+		var left_amount := int(operands[0])
+		var right_amount := int(operands[1])
+		_draw_group(left_amount, Vector2(542, 295),
+			_group_radius(left_amount, 241.0, 40.0), Color("#74d5df"))
+		_draw_group(right_amount, Vector2(967, 295),
+			_group_radius(right_amount, 241.0, 40.0), Color("#efa3c7"))
 		draw_circle(JOIN_CENTER, 49, Color("#f0d48c"))
 		draw_arc(JOIN_CENTER, 49, 0, TAU, 40, INK, 5, true)
 		draw_line(JOIN_CENTER - Vector2(22, 0), JOIN_CENTER + Vector2(22, 0), INK, 8, true)
@@ -346,6 +352,16 @@ func _draw_counting() -> void:
 		if counted[index]:
 			draw_line(at + Vector2(-10, 0), at + Vector2(-2, 8), INK, 4, true)
 			draw_line(at + Vector2(-2, 8), at + Vector2(11, -8), INK, 4, true)
+
+func _group_radius(amount: int, available_width: float,
+		max_radius: float) -> float:
+	var columns := mini(5, maxi(1, amount))
+	# _draw_group spaces centers by 1.55r. Each pearl reaches 0.65r +
+	# the 3px outline beyond its center, so this bounds the complete row.
+	var width_factor := float(columns - 1) * 1.55 + 1.30
+	var width_bound := (available_width - 6.0) / width_factor
+	return minf(max_radius, width_bound)
+
 
 func _draw_group(amount: int, center: Vector2, radius: float, color: Color) -> void:
 	var columns := mini(5, amount)

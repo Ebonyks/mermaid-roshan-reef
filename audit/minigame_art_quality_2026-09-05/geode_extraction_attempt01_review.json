@@ -1,0 +1,117 @@
+{
+  "review_id": "geode-extraction-attempt01-source-only",
+  "review_scope": "Independent source-pixel review of the extracted closed-geode candidate. This does not assess a mounted runtime state, contact, animation, transition continuity, target-phone readability, or owner/child acceptance.",
+  "candidate": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/native.png",
+    "sha256": "efaa5f2be034f61d62a548b1ebeaade825b56b98a757871f7e53244c6ed16181",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "role": "closed geode source candidate"
+  },
+  "generation_provenance": {
+    "prompt_path": "assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/prompt.txt",
+    "prompt_sha256": "efa58bfdb114957bd736a2f2298d081d1f7176039739d035021a0ff849c32bb2",
+    "edit_reference_path": "assets_src/geologist_rebuild_2026-09-05/geology_props_candidate.png",
+    "reference_role": "appearance and identity reference only",
+    "reference_limit": "The six-prop RGB checkerboard sheet remains rejected and is not runtime or accepted delivery art. This extraction preserves the top-right closed object only."
+  },
+  "pixel_inspection": {
+    "method": "Native-resolution visual inspection plus read-only Pillow/NumPy alpha measurement; no pixels were changed.",
+    "alpha_nonzero_count": 965974,
+    "alpha_ge_8_count": 958857,
+    "alpha_ge_128_count": 956007,
+    "bbox_alpha_gt_0_xyxy_exclusive": [
+      0,
+      21,
+      1202,
+      1254
+    ],
+    "bbox_alpha_ge_8_xyxy_exclusive": [
+      81,
+      82,
+      1190,
+      1184
+    ],
+    "bbox_alpha_ge_128_xyxy_exclusive": [
+      81,
+      82,
+      1189,
+      1181
+    ],
+    "strong_visible_padding_px": {
+      "left": 81,
+      "top": 82,
+      "right": 65,
+      "bottom": 73
+    },
+    "perimeter": {
+      "maximum_alpha": 1,
+      "nonzero_pixel_count": 70,
+      "alpha_ge_128_pixel_count": 0
+    },
+    "tiny_alpha_1_through_7_count": 7117,
+    "soft_alpha_8_through_127_count": 2850,
+    "outside_strong_bbox": {
+      "alpha_gt_0_count": 1276,
+      "alpha_ge_8_count": 60,
+      "maximum_alpha": 120
+    },
+    "interpretation": "The materially visible object is complete and has safe strong-alpha padding. Alpha-1 samples reach the left and bottom canvas perimeter, but no visible fringe was observed against the viewer background and no perimeter pixel reaches alpha 2. This measurement is retained as technical evidence, not treated as opaque clipping or a visible contour defect."
+  },
+  "source_scores_1_to_5": {
+    "identity": {
+      "score": 4.3,
+      "reason": "The lavender stone, faceted mineral planes, dark plum outline, and central closure seam support a closed-geode reading. In isolation, its rounded bilateral silhouette can also read as a walnut, brain, or joined stone lobes, so the geology identity is not fully self-evident without the matching opened state."
+    },
+    "finish": {
+      "score": 4.7,
+      "reason": "Layered painted facets, controlled speckle, broad highlight bands, and coherent depth look polished at source scale."
+    },
+    "edges": {
+      "score": 4.7,
+      "reason": "The visible dark contour is clean, complete, and consistently painted. The measured alpha-1 perimeter samples are not visibly apparent against the inspection background and therefore do not reduce this visual edge score."
+    },
+    "readability": {
+      "score": 4.4,
+      "reason": "At source scale the paired lobes and central seam are clear. The score reflects only an actual isolated semantic ambiguity: without its opened counterpart, the rounded bilateral closed form can also resemble a walnut, brain, or joined stone lobes. Mounted phone readability remains separately unassessed."
+    },
+    "consistency": {
+      "score": 4.7,
+      "reason": "Palette, faceted material, lighting direction, rounded contour, and center seam closely retain the top-right closed geode in the supplied reference sheet."
+    },
+    "contact": {
+      "score": null,
+      "reason": "No mounted ground, hand, pan, or interaction context is present."
+    },
+    "animation": {
+      "score": null,
+      "reason": "A single source image cannot demonstrate motion, cadence, or closed-to-open continuity."
+    },
+    "technical": {
+      "score": null,
+      "status": "FAIL",
+      "reason": "The 1254 by 1254 source is NPOT and exceeds the 1024-pixel longest-side runtime limit. Alpha-1 perimeter samples are documented for derivative verification but were not observed as a visible fringe."
+    }
+  },
+  "hard_failures": [
+    "Runtime texture rule: 1254x1254 is NPOT and its longest side exceeds 1024 pixels.",
+    "Only the closed state exists here; cracked/open state identity and state-to-state continuity remain unproved.",
+    "No mounted Mobile-renderer evidence exists for scale, composition, contact, state ownership, or phone readability."
+  ],
+  "disposition": {
+    "status": "RETAIN_NATIVE_AS_SOURCE_CANDIDATE__REJECT_RUNTIME",
+    "accepted": false,
+    "full_quality_accepted": false,
+    "rationale": "This is a strong, genuinely transparent source extraction, but the technical hard failure and incomplete state family prevent runtime use or a 4.5 acceptance claim.",
+    "next_steps": [
+      "Preserve this native file and hash as provenance; do not overwrite or destructively normalize it.",
+      "If selected, create a separately tracked whole-canvas production derivative at no more than 1024 pixels longest side or a permitted power-of-two size, and remeasure its alpha perimeter without presuming the current alpha-1 antialiasing samples are a visible defect.",
+      "Produce or reuse cracked and opened states with the same shell identity, facet language, seam placement, lighting, and scale; this candidate alone does not close the Geologist geode-family gap.",
+      "Audit the derivative mounted in current closed, transition, and opened gameplay states under the Mobile renderer, including phone-scale readability and contact/ownership evidence.",
+      "Add complete license and generation provenance for any production derivative before runtime adoption."
+    ]
+  }
+}

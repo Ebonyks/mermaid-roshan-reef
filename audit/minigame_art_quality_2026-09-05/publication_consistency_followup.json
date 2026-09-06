@@ -1,0 +1,115 @@
+{
+  "review": "Current public minigame art audit package consistency review",
+  "review_date": "2026-09-06",
+  "scope": "Read-only review of the main design report, registry, current Teacher/Geologist/Racer JSON reviews, current capture archive and linked source annexes. No profiles, saves, Godot runs, or publication edits.",
+  "overall_status": "CONDITIONALLY_CONSISTENT_WITH_DOCUMENTATION_WARNINGS",
+  "verified": [
+    {
+      "item": "Registry cardinality",
+      "result": "PASS",
+      "evidence": "registry.json contains 89 records and 81 distinct source paths; its coverage note says expansion from 62 to 89 records and 54 to 81 sources, remains non-exhaustive. Main report now uses the corrected 89/81 wording."
+    },
+    {
+      "item": "Current capture archive cardinality",
+      "result": "PASS",
+      "evidence": "evidence/current-capture-archive.json has 7 records and 94 PNG proposals: Opera runs 01-03 each 24 PNGs; Racer run03 and run04 each 11 PNGs; Racer runs01/02 have no PNGs and are recorded as failed diagnostics. This matches the main report's 94 unedited PNGs across seven runs."
+    },
+    {
+      "item": "Archive mappings",
+      "result": "PASS",
+      "evidence": "Every archive entry in current-capture-archive.json resolves to an existing public evidence path. No broken current archive mapping was found."
+    },
+    {
+      "item": "Main report links",
+      "result": "PASS",
+      "evidence": "All 29 repository-relative Markdown links extracted from design/MINIGAME_ART_AUDIT_2026-09-05.md resolve in the current worktree, including current archive, runtime reviews and Racer lap-layout review."
+    },
+    {
+      "item": "Run failure separation",
+      "result": "PASS",
+      "evidence": "Archive statuses distinguish Opera run01 wrong Pan completion with Teacher stills retained, Racer run01 analyzer failure, Racer run02 version-guard failure, Racer run03 completed baseline, and Racer run04 completed lap-layout repair."
+    },
+    {
+      "item": "Current a6 reconciliation",
+      "result": "PASS",
+      "evidence": "Current candidate scope is upstream a6ffa14d0160ad6830464b73df33e1db20641fa1: pool travel/scoop action and Back navigation are current. The removed early-room preview card/order repair and four preview-geometry assertions remain historical. The retained pool source-window correction is still current."
+    },
+    {
+      "item": "Full07 and native-direct07 separation",
+      "result": "PASS",
+      "evidence": "Full07 completed with 78 process exits but probe_audit returned exit 127 after truncated replay, so it is failed historical evidence. Native-direct07 probe_audit passed exit 0 as a diagnostic; wrapper causality remains unproven and this is not a full-suite pass."
+    },
+    {
+      "item": "Full08 and Racer run05 status",
+      "result": "PENDING",
+      "evidence": "Native-backed Full08 has not started. Racer mounting changes are under run05 capture and have not been accepted."
+    }
+  ],
+  "publication_warnings": [
+    {
+      "severity": "P1",
+      "kind": "stale_or_unresolvable_provenance_link",
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/garden-current/manifest.json",
+      "field": "source_files[2].path",
+      "value": "tmp/art-quality/garden_capture.gd",
+      "finding": "The manifest records this historical harness path and hash, but the path is absent from the current candidate worktree. The captured PNGs and source files resolve; the harness provenance does not.",
+      "correction": "Keep the historical record but label the harness path as external/historical, or add an immutable archived copy and point the manifest to that copy. Do not silently call this path current."
+    },
+    {
+      "severity": "P2",
+      "kind": "historical_unresolved_paths",
+      "path": "audit/minigame_art_quality_2026-09-05/opera_findings.json",
+      "fields": [
+        "integrated_three_act",
+        "runtime_evidence"
+      ],
+      "values": [
+        "audit/evidence/opera-two-act-20260905/*.png",
+        "tmp/art-quality/phase-1-brush-contact.png"
+      ],
+      "finding": "These are historical/wildcard references and do not resolve in the current worktree. The report should not present them as current public evidence paths.",
+      "correction": "Mark both as historical external evidence or replace with the current evidence packet paths. Preserve the old strings for provenance if needed."
+    },
+    {
+      "severity": "P2",
+      "kind": "intentional_unresolved_optional_assets",
+      "path": "audit/minigame_art_quality_2026-09-05/remaining_sources_2026-09-06.json",
+      "fields": [
+        "assets/opera/worlds/nursery/widget_catch_nursery_cradle.png",
+        "assets/opera/worlds/nursery/widget_catch_nursery_pillows.png"
+      ],
+      "finding": "Both optional _load_if_exists nursery candidates are absent and explicitly marked not visually reviewed. This is honest open coverage, not a broken runtime claim, but publication should retain the unresolved label.",
+      "correction": "No forced asset creation. Keep as unresolved optional dependencies and require nursery runtime capture/source verification before scoring."
+    }
+  ],
+  "score_status_notes": [
+    {
+      "item": "Racer summary versus current runtime review",
+      "finding": "The historical table labels Racer 4.1 as a baseline composition score. The linked current runtime review identifies contact/depth 3.6 and the separate lap-layout review gives 4.8 only for the repaired local arrangement.",
+      "status": "CONSISTENT_IF_READ_ASDATED_SCOPES",
+      "correction": "Keep all three scopes explicit in any publication excerpt: historical baseline, current full-scene weakest dimension, and local lap-layout repair. Do not average them or call Racer 4.8 game-wide."
+    },
+    {
+      "item": "Teacher and Geologist current reviews",
+      "finding": "Both JSON reviews remain OPEN_BELOW_4_5 and keep animation/device/child acceptance null or open. This agrees with the main report's warnings.",
+      "status": "PASS"
+    }
+  ],
+  "not_found": [
+    "No broken repository-relative Markdown links in the main design report.",
+    "No missing public paths among current-capture archive entries.",
+    "No claim of game-wide 4.5 acceptance is supported.",
+    "No evidence that native-direct07 proves the Full07 wrapper was causal."
+  ],
+  "recommended_publication_order": [
+    "Preserve historical Full07 and native-direct07 diagnostic records as separate statuses.",
+    "Update finalization to bind any future green Full08 artifacts, not Full07 artifacts.",
+    "Keep a6 current-scope wording: removed preview-card assertions are historical; retained pool source-window correction and travel/scoop are current.",
+    "Preserve Racer run05 as a completed rejected mounting trial and run06 as a completed bounded seating improvement below the full art target.",
+    "Resolve or explicitly classify the garden historical harness path.",
+    "Classify opera_findings wildcard paths as historical external evidence.",
+    "Retain optional nursery paths as unresolved coverage gaps.",
+    "Preserve dated score scope language and keep local Racer lap repair separate from whole-scene acceptance."
+  ],
+  "parent_disposition": "Current archive mappings and main report links pass. Current scope is exact a6; historical preview-card assertions are separated from retained pool source-window/travel-scoop work. Full07 is failed with probe_audit exit127; native-direct07 is an independent diagnostic pass with wrapper causality unproven. Full08 remains pending. Racer run05 completed and was rejected as captured; Racer run06 completed and retains only a bounded seating improvement below the full art target. Historical Garden harness and opera_findings wildcard paths remain explicitly unresolvable pointers, not current acceptance evidence. Optional Nursery assets remain unassessed."
+}

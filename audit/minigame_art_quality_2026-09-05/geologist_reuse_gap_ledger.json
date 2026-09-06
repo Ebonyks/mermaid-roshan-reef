@@ -1,0 +1,268 @@
+{
+  "schema": "reef.geologist_reuse_gap_ledger.v1",
+  "generated": "2026-09-06",
+  "status": "REUSE_INVENTORIED_GAPS_OPEN",
+  "scope": "Bounded reuse-first inventory for the six visible defect groups in tmp/geologist-current-runtime-review.json. Runtime and protected sources were not changed. Rejected RGB-checker candidates and the sub-native 1672x941 Geologist grotto remain excluded from production reuse.",
+  "method": {
+    "search": "Repository filenames and live callers were searched for sediment, soil, sand, stone, rock, fossil, crystal, mineral, geode, pan, grotto and cave candidates.",
+    "inspection": "Plausible raster candidates were opened directly when supported. Dimensions, pixel mode and exact-byte SHA-256 were measured read-only. SVG candidates retain only code/source and run02-rendered evidence; no unrendered SVG visual score is invented.",
+    "license_rule": "Every proposed reusable source has an existing ASSET_LICENSES.md record. A future derived asset must add its own modifications/source line.",
+    "conservative_boundary": "A crystal texture is not a complete geode, kitchen cookware is not a geology pan, and a background below 2048x2048 per playable screen is not runtime authority."
+  },
+  "candidate_inventory": [
+    {
+      "path": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "dimensions": [
+        936,
+        1024
+      ],
+      "pixel_mode": "RGBA",
+      "alpha": "present",
+      "pixels_inspected": true,
+      "visual_basis": "Polished shell-and-pearl brush with clear bristles, navy/plum contour and strong painted value bands; existing source audit scored 4.7 source-only.",
+      "current_callers": [
+        "scripts/opera_geology_surface.gd BRUSH_PATH",
+        "Day One Art Studio and bathroom cleaning owners"
+      ],
+      "license": "Project-original selected ImageGen derivative; ASSET_LICENSES.md lines 2628 and 2657-2665.",
+      "reuse_status": "DIRECT_RETAIN",
+      "bounded_role": "Fossil cleaning tool only; does not supply fossil, sediment or room pixels."
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/geologist_fossil.svg",
+      "sha256": "058d257160448dabf8b6bce78cbb0a7c6b1bdedbacc6e47db908c5d501d4e3bd",
+      "dimensions": [
+        256,
+        256
+      ],
+      "pixel_mode": "SVG",
+      "alpha": "vector transparency",
+      "pixels_inspected": false,
+      "rendered_evidence": "run02 fossil partial/completion shows the live enlarged spiral fossil; finish remains below 4.5.",
+      "current_callers": [
+        "scripts/opera_geology_surface.gd FOSSIL_PATH"
+      ],
+      "license": "Project-original code-authored SVG; ASSET_LICENSES.md line 2798.",
+      "reuse_status": "SEMANTIC_LAYOUT_AUTHORITY_ONLY",
+      "bounded_role": "Preserve fossil silhouette and assembly geometry while replacing below-bar material finish; not sufficient as final art alone."
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_geologist.svg",
+      "sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+      "dimensions": [
+        256,
+        256
+      ],
+      "pixel_mode": "SVG",
+      "alpha": "vector transparency",
+      "pixels_inspected": false,
+      "rendered_evidence": "run02 geode completion shows two small live cyan/pink crystal shapes inside the opened shell.",
+      "current_callers": [
+        "scripts/opera_geology_surface.gd CRYSTALS_PATH",
+        "Opera Geologist goal/crest presentation"
+      ],
+      "license": "Project-original code-authored SVG; ASSET_LICENSES.md line 2798.",
+      "reuse_status": "CONDITIONAL_INSERT_RETAIN",
+      "bounded_role": "Crystal identity insert only. It is not a closed/open geode shell and requires mounted scale/material re-review."
+    },
+    {
+      "path": "assets/art35/cards/style3/crystal_facet_crystal_facet.png",
+      "sha256": "376794caef8458803d3720fcc4707418f695f542bd339cb00e2e8313c9df0100",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "pixel_mode": "RGB",
+      "alpha": "not applicable; full-bleed material card",
+      "pixels_inspected": true,
+      "visual_basis": "Painted lavender, aqua, blue and pink faceted crystal field with navy inter-facet lines and visible brush texture.",
+      "current_callers": [
+        "scripts/dungeon_art.gd CrystalPedestal/Diamond material card",
+        "scripts/ember_fortress.gd crystal material card"
+      ],
+      "license": "Project-generated art35 card family; ASSET_LICENSES.md art35/cards project-generated section beginning line 369.",
+      "reuse_status": "CONDITIONAL_MATERIAL_REUSE",
+      "bounded_role": "May provide clipped/internal crystal facet material after a non-destructive derived variant and license line. It cannot serve as an isolated crystal, shell, sediment or room background."
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "pixel_mode": "RGBA",
+      "alpha": "present",
+      "pixels_inspected": true,
+      "visual_basis": "Existing source review scores 4.6 and identifies held work row cell 0 as a complete-fin crouch/reach pose; run02 confirms strong identity but detached mounting.",
+      "current_callers": [
+        "scripts/opera_roshan_actor.gd Geologist atlas and STORY_POSE_FRAMES",
+        "scripts/opera_career_world_2d.gd player actor"
+      ],
+      "license": "Existing project-original Opera actor atlas license/provenance; unchanged source.",
+      "reuse_status": "DIRECT_RETAIN_POSE_LIBRARY",
+      "bounded_role": "Actor/contact repair only. Reposition or phase-select a source-supported held cell; do not cycle unrelated cells or alter protected identity."
+    },
+    {
+      "path": "assets/castle/training/training_grotto_backdrop.png",
+      "sha256": "0bf0a0218b8733323d5a0fdbf4740c30117081a1976b0e904248186669f25009",
+      "dimensions": [
+        2048,
+        1024
+      ],
+      "pixel_mode": "RGB",
+      "alpha": "not applicable to full-bleed background",
+      "pixels_inspected": false,
+      "inspection_limit": "PIL verified a valid PNG, but view_image could not render it in this pass; no visual suitability claim is made.",
+      "current_callers": [
+        "scripts/combat_tutorial.gd TRAINING_BACKDROP_PATH"
+      ],
+      "license": "Project-original OpenAI generation; ASSET_LICENSES.md Combat tutorial training art section at line 2378.",
+      "reuse_status": "REJECT_FOR_GEOLOGIST_ROOM",
+      "reason": "It belongs to the combat tutorial, was not visually reviewable here, and 2048x1024 fails the 2048x2048 per-playable-screen background rule."
+    },
+    {
+      "paths": [
+        "assets/props/gen2/rock_largea_Image_0_flat.png",
+        "assets/props/gen2/play_sandbox_Image_0_flat.png"
+      ],
+      "sha256": [
+        "f5f6be66707b50afc10c8a07b9157e382f85559c6e76c92aff6a7431f4d02dc1",
+        "fab1d8c243738ff45de342985b7596d76458409a21bacf357a9c2ccc03416a26"
+      ],
+      "dimensions": [
+        [
+          1024,
+          1024
+        ],
+        [
+          1024,
+          1024
+        ]
+      ],
+      "pixel_mode": "RGB",
+      "alpha": "absent",
+      "pixels_inspected": true,
+      "current_callers": [
+        "scripts/dungeon_art.gd/ scripts/ember_fortress.gd material-card roles for rock_largea; no suitable Geologist caller"
+      ],
+      "license": "Project-generated GEN2 pipeline sprite/material family; ASSET_LICENSES.md lines 68 and 192.",
+      "reuse_status": "REJECT_FOR_VISIBLE_GEOLOGY_ART",
+      "reason": "Direct inspection shows false-color packed/material-map-like pixels rather than a child-readable painted stone or sediment cutout. The sandbox card is also not sediment-layer art."
+    },
+    {
+      "path_family": "assets/flats/castle/rooms/room_kitchen_item_pan_*.png and kitchen pan atlases",
+      "pixels_inspected": false,
+      "current_callers": [
+        "Castle kitchen room object presentation"
+      ],
+      "license": "Existing Castle kitchen generated-art records in ASSET_LICENSES.md.",
+      "reuse_status": "REJECT_BY_ROLE",
+      "reason": "Cooking-pan identity and room-scene framing do not establish a shallow geology washing pan. No direct reuse is proposed."
+    }
+  ],
+  "defect_groups": [
+    {
+      "id": "river_material_path",
+      "visible_failure": "Run02 cyan disks/bars read as pipe or circuit and lack banks, sediment and wet/dry material.",
+      "feasible_existing_reuse": [],
+      "retain": [
+        "Exact 13-cell route",
+        "start/end targets",
+        "cyan progress contrast"
+      ],
+      "generation_gap": "One clean-alpha or full-board painted geology workbed containing quiet layered stone/soil plus a matching wet channel material, authored to accept the existing path overlay without reducing route readability.",
+      "production_brief": "Generate only the stone/soil bed and wet-channel material family. Keep interaction geometry and dots in code; require restrained texture, broad value bands, navy/plum edge vocabulary and no baked path that could diverge from gameplay."
+    },
+    {
+      "id": "fossil_sediment_reveal",
+      "visible_failure": "Opaque rectangular dirt hides nearly everything and partial clearing exposes a thin strip; final fossil remains a flat icon.",
+      "feasible_existing_reuse": [
+        "magic_cleaning_brush.png direct retain",
+        "geologist_fossil.svg semantic/layout authority"
+      ],
+      "retain": [
+        "26-cell clearing mechanic",
+        "spiral fossil identity",
+        "three-piece assembly geometry",
+        "approved brush"
+      ],
+      "generation_gap": "A shaped painted sediment cover with local cleared variants and a higher-finish fossil/stone slab that preserves the exact silhouette and three assembly regions.",
+      "production_brief": "Do not regenerate the brush. Produce sediment and fossil slab as separate clean-alpha layers so runtime clearing reveals local pixels instead of moving an opaque rectangle; verify partial states and brush-held contact."
+    },
+    {
+      "id": "pan_sediment_minerals",
+      "visible_failure": "Run02 pan is a flat shallow ellipse with weak material depth, sparse grit and generic small mineral polygons.",
+      "feasible_existing_reuse": [],
+      "retain": [
+        "Nine reversal wash mechanic",
+        "water/progress visibility",
+        "three-find result"
+      ],
+      "generation_gap": "An isolated painted shallow geology pan plus separate sediment/water and three mineral reveal components with clean alpha and phone-readable size.",
+      "production_brief": "Use geology-pan reference semantics, not Castle cookware. Keep pan, sediment and mineral layers separate for wash progression. The existing pan_attempt01 and six-prop attempts are RGB checkerboard and remain rejected; their pixels cannot be derived into runtime art without a separately authorized compliant process."
+    },
+    {
+      "id": "geode_closed_open",
+      "visible_failure": "Closed oval reads as a capsule; seam taps do not create cracks; opened halves resemble doors and crystals are small/detached.",
+      "feasible_existing_reuse": [
+        "goal_geologist.svg conditional crystal identity insert",
+        "crystal_facet_crystal_facet.png conditional internal material only"
+      ],
+      "retain": [
+        "Five seam targets",
+        "120-pixel pull",
+        "cyan/pink crystal palette"
+      ],
+      "generation_gap": "A matched clean-alpha closed/cracked/open geode shell set with one stable irregular stone identity and an integrated crystal cavity.",
+      "production_brief": "Generate the shell state family as one bounded identity-continuity job. Existing crystal art may guide or texture the cavity but cannot substitute for shell topology. Require visible crack accumulation aligned to the five live seam spots."
+    },
+    {
+      "id": "workspace_cave_framing",
+      "visible_failure": "Huge flat tan board and abstract polygon cave remain far below adjacent painted actor finish.",
+      "feasible_existing_reuse": [],
+      "retain": [
+        "Current playable bounds",
+        "high-contrast interaction area",
+        "unobscured back control"
+      ],
+      "generation_gap": "A compliant native 2048x2048-per-screen Geologist room/workbench master and restrained foreground/work-surface framing compatible with all four modes.",
+      "production_brief": "One room composition must serve River, Fossil, Pan and Geode without painting state-specific objects into the background. The 1672x941 grotto and 2048x1024 training grotto are reference-only; neither is production authority."
+    },
+    {
+      "id": "actor_material_contact",
+      "visible_failure": "Strong Geologist cutout remains in a narrow left strip and does not visibly handle central material in run02 stills.",
+      "feasible_existing_reuse": [
+        "roshan_geologist_sheet_a.png held work cell 0 and other source-supported pose keys"
+      ],
+      "retain": [
+        "Geologist identity/costume",
+        "complete tail fin",
+        "held-pose containment",
+        "non-looping cheer"
+      ],
+      "generation_gap": null,
+      "production_brief": "Attempt layout and phase-specific selection of an existing supported pose first, plus an object-bound hand/tool cue where necessary. Capture actual held contact. Commission a new actor pose only if mounted evidence proves every existing cell direction fails; never alter the approved atlas merely for novelty."
+    }
+  ],
+  "summary": {
+    "direct_reuse": [
+      "Magic cleaning brush",
+      "Geologist atlas pose library"
+    ],
+    "conditional_reuse": [
+      "Fossil SVG as semantic geometry",
+      "goal crystal SVG as insert",
+      "crystal-facet card as internal material"
+    ],
+    "demonstrated_generation_gaps": [
+      "river workbed/wet channel",
+      "shaped fossil sediment and finished slab",
+      "geology pan/sediment/minerals",
+      "matched geode shell states",
+      "native-compliant Geologist room/workbench"
+    ],
+    "no_generation_yet": "This ledger defines bounded gaps only. No pixel generation, derived raster, production binding or acceptance occurred."
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "review": {
+    "date": "2026-09-06",
+    "scope": "Bounded source and asset audit of the current Geologist Opera surface. Source-only observations are separated from runtime/device/child/owner acceptance; no Godot capture was run.",
+    "runtime_owner": "scripts/opera_career_world_2d.gd",
+    "surface": "scripts/opera_geology_surface.gd",
+    "modes": [
+      "geology_river",
+      "geology_fossil",
+      "geology_pan",
+      "geology_geode"
+    ],
+    "master_rule_context": [
+      "DL-MED-01",
+      "DL-MED-05",
+      "DL-VIS-01",
+      "DL-VIS-02",
+      "DL-VIS-03",
+      "DL-VIS-05",
+      "DL-VIS-07",
+      "DL-VIS-08",
+      "DL-QA-03",
+      "DL-QA-11",
+      "DL-QA-15",
+      "DL-ASSET-01",
+      "DL-ASSET-02",
+      "DL-ASSET-03"
+    ],
+    "capture_status": "UNASSESSED",
+    "capture_gap": "No exact current Mobile 1280x720 Geologist mode captures were reviewed here; motion cadence, child comprehension, touch reach, device performance, and owner acceptance remain open."
+  },
+  "live_bindings": [
+    {
+      "mode": "geology_river",
+      "binding": "scripts/opera_geology_surface.gd:_draw_river",
+      "art": "Procedural Canvas circles, thick lines, arcs and Color values; no raster texture",
+      "source_score_5": null,
+      "score_type": "UNASSESSED without current rendered capture",
+      "observed_risk": "Source fact: the river is a regular grid of flat outlined disks and strokes, with no painted stone/soil texture or contact variation in this draw path. Whether the rendered state is readable, semantically clear, or below the art bar requires a current capture.",
+      "replacement": "Reuse a vetted geology background/stone texture only if it can be mounted without obscuring path ownership; otherwise refine procedural cells with restrained authored texture and a current runtime capture. Do not score 4.5 until viewed in the live mode."
+    },
+    {
+      "mode": "geology_fossil",
+      "binding": "scripts/opera_geology_surface.gd:FOSSIL_PATH and BRUSH_PATH; _draw_fossil/_draw_brush",
+      "art": "geologist_fossil.svg plus magic_cleaning_brush.png; fossil uses a 256x256 vector expanded into a 560x300 panel and 3 piece regions",
+      "source_score_5": null,
+      "score_type": "unscored live vector; raster brush inspected",
+      "observed_risk": "The vector source was not raster-viewed by the available image viewer. The source is a compact 256px SVG and its runtime enlargement, alpha contour, and piece seams require current capture review. The brush raster is polished and coherent, but its 936x1024 canvas is much larger than the 156px runtime draw box, so contact alignment and downsample readability need runtime evidence.",
+      "replacement": "Keep the approved brush; capture brush contact and fossil clear/assemble states. If the vector fossil reads thin or flat at runtime, prefer an approved clean painted fossil source before generation."
+    },
+    {
+      "mode": "geology_pan",
+      "binding": "scripts/opera_geology_surface.gd:PAN_PATH is empty; _draw_pan fallback is always procedural",
+      "art": "Procedural ellipses, water arcs, grain circles and mineral polygons",
+      "source_score_5": null,
+      "score_type": "UNASSESSED without current rendered capture",
+      "observed_risk": "Source fact: the pan fallback is built from an ellipse, grain dots, arcs, and generated mineral polygons; no pan texture path or handle/soil art is bound. Rendered quality and any 4.5 threshold result require a current capture.",
+      "replacement": "Inventory an approved clean pan/mineral source first. The reviewed six-object candidate is visually suitable but rejected because it is RGB with baked checkerboard and 1254x1254 rather than runtime-ready alpha; do not bind it directly."
+    },
+    {
+      "mode": "geology_geode",
+      "binding": "scripts/opera_geology_surface.gd:GEODE_PATH is empty; CRYSTALS_PATH is goal_geologist.svg; _draw_geode",
+      "art": "Procedural split geode halves plus goal_geologist.svg crystal insert",
+      "source_score_5": null,
+      "score_type": "UNASSESSED without current rendered capture",
+      "observed_risk": "Source fact: the shell is generated from purple polygons with a heavy outline and straight seam, and opening is represented by horizontal pull geometry rather than a bound painted split. The crystal insert is live but was not raster-viewed here. Rendered readability and art quality require a current capture.",
+      "replacement": "Use a clean approved paired closed/open geode source if available, preserving seam hit spots and pull geometry. The reviewed painted candidate has strong visual quality but is rejected RGB checkerboard art and cannot be reused without a separately approved alpha derivation."
+    }
+  ],
+  "live_texture_records": [
+    {
+      "path": "assets/opera/worlds/hotspots/geologist_fossil.svg",
+      "role": "live fossil",
+      "sha256": "058D257160448DABF8B6BCE78CBB0A7C6B1BDEDBACC6E47DB908C5D501D4E3BD",
+      "dimensions": "256x256 SVG",
+      "visual_score": null,
+      "status": "live but unviewed"
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/geologist_layered_rock.svg",
+      "role": "loaded rock texture; no draw call found in current GeologySurface paths",
+      "sha256": "5BCA0522DBADF1FB5658A99F58A9EA88D15ED62D27966DB4E4829EF692D3BCCE",
+      "dimensions": "256x256 SVG",
+      "visual_score": null,
+      "status": "loaded candidate/runtime dependency; actual use requires trace"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_geologist.svg",
+      "role": "live opened-geode crystal insert",
+      "sha256": "09BA5403D9D5BFBAFEC397F884FEC4C725E50B3BA643C6AB66E4DD346D16B150",
+      "dimensions": "256x256 SVG",
+      "visual_score": null,
+      "status": "live but unviewed"
+    },
+    {
+      "path": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+      "role": "live fossil brush",
+      "sha256": "17E76B7F758F31A9B148167FF103A68BDF9543E7AAC5794314A97BBD91066EF3",
+      "dimensions": "936x1024",
+      "alpha": "present; sampled transparent pixels; Format32bppArgb",
+      "visual_score": 4.7,
+      "status": "visually inspected source-only; polished alpha brush, runtime contact unassessed"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "role": "live Geologist actor atlas",
+      "sha256": "1FD7080933FD49B27A9CBB2B20D9470E4FD654DEC58DB72E9AA9E081A6E24C37",
+      "dimensions": "1024x1024",
+      "alpha": "present; sampled transparent pixels; Format32bppArgb",
+      "visual_score": 4.6,
+      "status": "visually inspected source-only; animation cadence and live pose bindings unassessed"
+    }
+  ],
+  "reviewed_unused_candidates": [
+    {
+      "path": "assets_src/geologist_rebuild_2026-09-05/geology_props_candidate.png",
+      "sha256": "D36DBD3AF772B95182B4CE1757C74A9DB9947830BA390A3989506622875DFDCD",
+      "dimensions": "1254x1254",
+      "alpha": "absent; Format24bppRgb; baked checkerboard visible",
+      "source_score_5": 4.6,
+      "status": "REJECTED_RUNTIME",
+      "reason": "Baked checkerboard; no alpha. Visually polished six-object atlas with clear fossil/geode/brush/pan/mineral forms, but not bindable."
+    },
+    {
+      "path": "assets_src/geologist_rebuild_2026-09-05/geology_props_alpha_retry.png",
+      "sha256": "B91680888B3EFF6ACC25BCD6C62A407A60489DEED41EABED3B8195699F5BB629",
+      "dimensions": "1254x1254",
+      "alpha": "absent; Format24bppRgb; baked checkerboard visible",
+      "source_score_5": 4.5,
+      "status": "REJECTED_RUNTIME",
+      "reason": "Second attempt still contains baked checkerboard; do not commission duplicate regeneration without a new approved alpha plan."
+    },
+    {
+      "path": "assets_src/geologist_rebuild_2026-09-05/geology_grotto_candidate.png",
+      "sha256": "E60684278D33E43A51EEA3534B99AA8C70E90B2EF3F11004F4D04154273FBD4B",
+      "dimensions": "1672x941",
+      "alpha": "not applicable to this full-bleed background; Format24bppRgb",
+      "source_score_5": 4.7,
+      "status": "REFERENCE_ONLY",
+      "reason": "Visually polished grotto, but below native per-playable-screen coverage; do not bind or upscale as runtime authority. RGB is not itself a background disqualification."
+    }
+  ],
+  "priorities": [
+    {
+      "priority": "P1",
+      "item": "Pan procedural fallback",
+      "reason": "Highest source/code review risk: PAN_PATH is empty and the fallback is built from simple ellipses, dots and polygons. Rendered quality is unscored until captured.",
+      "required_evidence": "Fresh Mobile 1280x720 ready, wash-progress, mineral-reveal and completion captures; touch-contact review."
+    },
+    {
+      "priority": "P1",
+      "item": "Geode procedural shell",
+      "reason": "Source/code review risk: GEODE_PATH is empty and the fallback uses generated split halves and a seam. Rendered quality is unscored until captured.",
+      "required_evidence": "Fresh closed/seam/open/settle captures plus animation/contact review."
+    },
+    {
+      "priority": "P2",
+      "item": "River procedural cells",
+      "reason": "Source/code review risk: repetitive circles/lines; needs live comparison against background and actor scale before any replacement decision.",
+      "required_evidence": "Fresh dry/partial/connected/complete states."
+    },
+    {
+      "priority": "P2",
+      "item": "Fossil SVG enlargement and brush contact",
+      "reason": "Live source dimensions and enlarged region use need visual proof; brush itself is strong source art.",
+      "required_evidence": "Fresh dirty/clear/assemble/settle states with contact and alpha inspection."
+    }
+  ],
+  "gaps": [
+    "No current Geologist Mobile captures were used, so no motion, runtime composition, device, child, or owner score is claimed.",
+    "The reviewed polished geology props and grotto are not approved runtime assets due baked checkerboard/insufficient native dimensions; reuse requires a separately approved clean-alpha/native-resolution source.",
+    "rock_texture is loaded by _load_textures but no current _draw_* path was found using it; confirm whether this is dead dependency before any replacement work.",
+    "Protected book, friend, voice, and existing approved character art were not modified."
+  ],
+  "parent_verification": {
+    "source_hashes_checked": [
+      "assets/opera/worlds/hotspots/geologist_fossil.svg",
+      "assets/opera/worlds/hotspots/geologist_layered_rock.svg",
+      "assets/opera/worlds/props/goal_geologist.svg",
+      "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+      "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "assets_src/geologist_rebuild_2026-09-05/geology_props_candidate.png",
+      "assets_src/geologist_rebuild_2026-09-05/geology_props_alpha_retry.png",
+      "assets_src/geologist_rebuild_2026-09-05/geology_grotto_candidate.png"
+    ],
+    "source_hash_rule": "Exact file bytes, or explicitly normalized UTF-8 LF for text sources; no rendered/motion acceptance added."
+  }
+}

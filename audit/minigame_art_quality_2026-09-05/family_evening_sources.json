@@ -1,0 +1,200 @@
+{
+  "schema": "reef.family_evening_source_inventory.v1",
+  "dev_parent": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
+  "code": {
+    "path": "scripts/comfy_games.gd",
+    "sha256": "f31b5d4971cede282e78e071446f8425e95d3d56037cd65a76d03e70c6f999aa",
+    "hash_normalization": "utf8_lf"
+  },
+  "role_note": "Literal source dependency inventory only; room backgrounds and indirect assets are not exhaustive. Protected book/friend art is read-only, not commissioned for replacement.",
+  "rumi_region": [
+    512,
+    0,
+    256,
+    384
+  ],
+  "images": [
+    {
+      "path": "assets/book/baby_eagle.png",
+      "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+      "dimensions": [
+        290,
+        512
+      ],
+      "mode": "RGBA",
+      "modified": false,
+      "runtime_quality": "unreviewed on this source candidate",
+      "independent_source_review": {
+        "reviewer": "Luna minigame_inventory",
+        "subjective_score": 4.7,
+        "score_context": "source illustration",
+        "note": "Polished storybook cutout; preserve protected original.",
+        "runtime_review": false,
+        "animation_review": false,
+        "quality_gate_acceptance": false
+      }
+    },
+    {
+      "path": "assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+      "sha256": "3bef406012e9a5ec90e18d3709b361f0ad0f9926f0961e05aac67e3e0c454c5f",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "modified": false,
+      "runtime_quality": "unreviewed on this source candidate",
+      "independent_source_review": {
+        "reviewer": "Luna minigame_inventory",
+        "subjective_score": 4.8,
+        "score_context": "source illustration",
+        "note": "Strong painted volume, navy contour and readable strawberry identity.",
+        "runtime_review": false,
+        "animation_review": false,
+        "quality_gate_acceptance": false
+      }
+    },
+    {
+      "path": "assets/characters/friends/daddy.webp",
+      "sha256": "9031736498f05662716988b6c9a8091dc148edf92ae1e8422fb5e4f2fd17c089",
+      "dimensions": [
+        727,
+        1024
+      ],
+      "mode": "RGBA",
+      "modified": false,
+      "runtime_quality": "unreviewed on this source candidate",
+      "independent_source_review": {
+        "reviewer": "Luna minigame_inventory",
+        "subjective_score": 4.8,
+        "score_context": "source illustration",
+        "note": "Polished character; preserve protected original.",
+        "runtime_review": false,
+        "animation_review": false,
+        "quality_gate_acceptance": false
+      }
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "modified": false,
+      "runtime_quality": "unreviewed on this source candidate",
+      "independent_source_review": {
+        "reviewer": "Luna minigame_inventory",
+        "subjective_score": 4.6,
+        "score_context": "source illustration",
+        "note": "Approved cutout; native256 scale needs runtime review.",
+        "runtime_review": false,
+        "animation_review": false,
+        "quality_gate_acceptance": false
+      }
+    },
+    {
+      "path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+      "sha256": "d5e0bff392a22c341c313ab94db5cea7a3cb6bb682b9ea8af2bc190a810c3f66",
+      "dimensions": [
+        1024,
+        768
+      ],
+      "mode": "RGBA",
+      "modified": false,
+      "runtime_quality": "unreviewed on this source candidate",
+      "independent_source_review": {
+        "reviewer": "Luna minigame_inventory",
+        "subjective_score": 4.7,
+        "score_context": "source atlas",
+        "note": "Polished consistent poses; exact region slicing required.",
+        "runtime_review": false,
+        "animation_review": false,
+        "quality_gate_acceptance": false
+      }
+    },
+    {
+      "path": "assets/flats/castle/dream_house/movie_screen_frame.png",
+      "sha256": "091304e6b1e053b12d5774e76a710852680253e0b597089c05cb11f5c038ec4e",
+      "dimensions": [
+        313,
+        264
+      ],
+      "mode": "RGBA",
+      "modified": false,
+      "runtime_quality": "unreviewed on this source candidate",
+      "independent_source_review": {
+        "reviewer": "Luna minigame_inventory",
+        "subjective_score": 4.4,
+        "score_context": "finished-movie content role, not frame craftsmanship",
+        "note": "Intentional empty screen; retain decorative frame. The scene needs content; this score is not a reason to regenerate the frame.",
+        "runtime_review": false,
+        "animation_review": false,
+        "quality_gate_acceptance": false
+      }
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_item_soup_pot.png",
+      "sha256": "81238fd33252b6d03a400085c9fae3ce5c75d93b0db438a6b0d76f1a8246ce15",
+      "dimensions": [
+        273,
+        218
+      ],
+      "mode": "RGBA",
+      "modified": false,
+      "runtime_quality": "unreviewed on this source candidate",
+      "independent_source_review": {
+        "reviewer": "Luna minigame_inventory",
+        "subjective_score": 3.2,
+        "score_context": "isolated-pot role",
+        "note": "Whole kitchen crop; preserve original scene and find a true isolated pot.",
+        "runtime_review": false,
+        "animation_review": false,
+        "quality_gate_acceptance": false
+      }
+    },
+    {
+      "path": "assets/mg/carrot.png",
+      "sha256": "b4c35bee6de1a161f6891396a3b903d22893f772919bbbfe5832e5256e834a8f",
+      "dimensions": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "modified": false,
+      "runtime_quality": "unreviewed on this source candidate",
+      "independent_source_review": {
+        "reviewer": "Luna minigame_inventory",
+        "subjective_score": 1.5,
+        "score_context": "source illustration",
+        "note": "Flat orange wedge with weak contour/material identity; earlier reviewer3.0 retained as dated history.",
+        "runtime_review": false,
+        "animation_review": false,
+        "quality_gate_acceptance": false
+      }
+    },
+    {
+      "path": "assets/props/story/fruit_apple.png",
+      "sha256": "9d01d9ce8d34b67a9e5ffeb2e2050213760a94fd61c4199e2eec25cbadecff9a",
+      "dimensions": [
+        496,
+        541
+      ],
+      "mode": "RGBA",
+      "modified": false,
+      "runtime_quality": "unreviewed on this source candidate",
+      "independent_source_review": {
+        "reviewer": "Luna minigame_inventory",
+        "subjective_score": 4.6,
+        "score_context": "source illustration",
+        "note": "Painted volume, leaf/stem, navy contour; retain for apple role.",
+        "runtime_review": false,
+        "animation_review": false,
+        "quality_gate_acceptance": false
+      }
+    }
+  ],
+  "runtime_captures": [],
+  "acceptance": false
+}

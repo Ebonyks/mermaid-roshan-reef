@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "review_id": "geologist-held-contact-run02-2026-09-06",
+  "status": "BOUNDED_STILL_REVIEW_COMPLETE_REPAIRS_OPEN",
+  "reviewed_utc": "2026-09-06",
+  "scope": "Eight 1280x720 Mobile stills: one live held-contact moment and the first process frame after release for each current Geologist phase.",
+  "method": {
+    "visual": "Each PNG was inspected at original 1280x720 resolution as a held/release pair.",
+    "instrumentation": "Manifest input events, live surface state, state ownership, callbacks, coordinates, timestamps, actor pose and hashes were checked independently of pixel judgments.",
+    "score_scale": "Candid 1.0-5.0 visual score for this sampled held/release pair only; 4.5 is the current art-review target.",
+    "separation": "Source formulas and manifest coordinates establish intended placement/state. Observed-pixel notes establish only what is visible in these stills."
+  },
+  "capture_contract": {
+    "godot": "4.7.2-stable (official)",
+    "godot_hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "renderer": "mobile",
+    "viewport": [1280, 720],
+    "time_scale": 1.0,
+    "exit_code": 0,
+    "capture_count": 8,
+    "log_error_markers": [],
+    "state_owner": "OperaAct.career_world_2d -> OperaCareerWorld2D.surface (live OperaGeologySurface)",
+    "manifest_sha256": "ac0cb0363876be09f02147566fbec0f22a69f06aa13feea0202c0b8778b077ab",
+    "log_sha256": "412849c4148ed950774ce6e2d0c1cfec56eee26b198835beb2229840116acf00",
+    "source_snapshot_sha256": "ae23fa53d2d3c5e8c7fed3dcda1b26fe06be71a9c5f445ea13cf4cb9157e2a22",
+    "command_sha256": "58f94be6b5c8150ecc334f811b665bf7f936200542a9b3929538098677e969de",
+    "harness_sha256": "b405df91c2ab9c0c5369e5c662a4d1df642c9bb2b84bb8c2c4876f859bdf7551",
+    "exit_code_file_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+  },
+  "public_evidence_root": "evidence/geologist-held-contact/run02",
+  "public_evidence_note": "The paths below are the requested durable publication layout. This review binds the current tmp run by exact hashes; publication is handled separately.",
+  "source_hashes_raw_bytes": {
+    "scripts/opera_geology_surface.gd": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+    "scripts/opera_gesture_surface.gd": "c28a885f68f2b16c66fcdaa5c4243ce9695a44d4ce015e56832ca392114cbedb",
+    "scripts/opera_career_world_2d.gd": "2f01fb3d4ea8b517a4de26e1c759f105dcbb19ac7e87613bd99dd0912a145b4d",
+    "scripts/opera_act.gd": "ad107c7cd70171969676d2568991ea42035237ce0189389c9eece7aa9809d776",
+    "scripts/opera_roshan_actor.gd": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+    "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+    "assets/castle/day_one_art_studio/magic_cleaning_brush.png": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3"
+  },
+  "pairs": [
+    {
+      "phase": "river",
+      "score": 3.9,
+      "captures": [
+        {"state": "held", "public_path": "evidence/geologist-held-contact/run02/captures/01_river_finger_on_route.png", "sha256": "83659089dbdefaf7663e1921b1a6788c4fa683b301fda4969f8bc2f74971e01f", "captured_utc": "2026-09-06 11:06:19"},
+        {"state": "release_settle", "public_path": "evidence/geologist-held-contact/run02/captures/02_geology_river_release_settle.png", "sha256": "7d012537356cc66e1d553a335471fd58c87ef74f5e04d9aaba3c6a7d356f8a95", "captured_utc": "2026-09-06 11:06:19"}
+      ],
+      "instrumented_fact": "Press (404,370) then drag to finger/pointer (492,370) marks wet indices [18,19], progress 0.153846; held/touch_owner change from true/0 to false/-1 at release, whose sampled delay is 7 ms. Callback phase is river.",
+      "observed_pixels": "The cyan route starts at the large left pool and reaches the visible contact ring at the recorded endpoint. The ring center aligns with the recorded finger coordinate. The release still preserves the same two-cell material change without a jump or disappearance.",
+      "strengths": ["Recorded endpoint and visible contact ring agree.", "Changed material remains visible immediately after release.", "Large start and target anchors are readable."],
+      "repair_needs": ["Make the wetted river segment read more like changed ground or flowing water; the current narrow cyan bar resembles a UI connector.", "Add a stronger local material payoff at the advancing edge while keeping the route geometry and no-fail behavior."],
+      "acceptance": "BELOW_4_5_REPAIR_NEEDED"
+    },
+    {
+      "phase": "fossil",
+      "score": 4.4,
+      "captures": [
+        {"state": "held", "public_path": "evidence/geologist-held-contact/run02/captures/03_fossil_brush_held.png", "sha256": "1968f131bb4d698ee39cb0cd1098644160b85355fe1bec892fb503e3d13a328c", "captured_utc": "2026-09-06 11:06:20"},
+        {"state": "release_settle", "public_path": "evidence/geologist-held-contact/run02/captures/04_geology_fossil_release_settle.png", "sha256": "3a93259bf3f55dfedc4e554e33060f396b5ad810a1b47c77a0ede1bb73327aa9", "captured_utc": "2026-09-06 11:06:20"}
+      ],
+      "instrumented_fact": "Press (535,195) then drag to (675,195) clears cells [0,1,2], progress 0.057692. Current raster formula records draw rect origin (636,61.8800048828125), size (156,170.66667175293), with finger/bristle contact (675,195). Release clears ownership after 7 ms; callback phase is fossil.",
+      "observed_pixels": "The authored brush is crisp and its bristle fan visibly overlaps the recorded contact area at the top edge of the dirt. On release the tool disappears and a pale cleared circle remains centered near that contact, so action and result correspond. The small early cleared patch is low contrast against the dirt.",
+      "strengths": ["Best tool-to-material contact in this packet.", "Brush scale and authored detail remain readable.", "Release leaves a spatially corresponding material change."],
+      "repair_needs": ["Increase the value or texture contrast of freshly cleared cells so the first stroke reads immediately without relying on brush presence.", "Review a longer continuous stroke to ensure the bristle edge remains attached throughout; this single held frame cannot establish it."],
+      "acceptance": "BELOW_4_5_MINOR_REPAIR_NEEDED"
+    },
+    {
+      "phase": "pan",
+      "score": 3.5,
+      "captures": [
+        {"state": "held", "public_path": "evidence/geologist-held-contact/run02/captures/05_pan_held_during_reversal.png", "sha256": "f61f2bbe7a4c03b13a8a2b5ae0e4c941cce3b933e86ddad9705de4f3f1508556", "captured_utc": "2026-09-06 11:06:22"},
+        {"state": "release_settle", "public_path": "evidence/geologist-held-contact/run02/captures/06_geology_pan_release_settle.png", "sha256": "410ce5fb78b7b83148e2fd4ee312307073cb43b18c32cdad6fac1a1734d78dbf", "captured_utc": "2026-09-06 11:06:22"}
+      ],
+      "instrumented_fact": "The live reversal state is held/touch_owner true/0 at finger (760,380), pan_last_direction -1, pan_run_distance 170, pan_visual_x -7, reversals 1 and wash 0.111111. Release at the same coordinate resets direction/run/visual offset and clears ownership in 4 ms while retaining one reversal. Callback phase is pan.",
+      "observed_pixels": "The large pan and water/mineral contents are readable, and the held/release pair shows a small horizontal material/shape shift. No distinct hand, grip, pointer, rim contact, directional trail, or splash visibly anchors the recorded finger at (760,380); the pale central water highlight is ambiguous as contact feedback.",
+      "strengths": ["Pan silhouette and contained material are large and unclipped.", "Release resets the small lateral displacement without losing progress."],
+      "repair_needs": ["Add a child-readable finger/grip or rim-contact cue tied to the live pointer coordinate.", "Make reversal causality visible with restrained water/mineral lag, wake, or splash at the change of direction.", "Capture multiple reversal samples after repair; one still pair cannot prove oscillation quality or material follow-through."],
+      "acceptance": "BELOW_4_5_REPAIR_NEEDED"
+    },
+    {
+      "phase": "geode",
+      "score": 4.2,
+      "captures": [
+        {"state": "held", "public_path": "evidence/geologist-held-contact/run02/captures/07_geode_held_during_pull.png", "sha256": "59cccad5b5246ac509cebcbc1ec0c0594a9e77615c22b87d2a2eeb8fff3dacbb", "captured_utc": "2026-09-06 11:06:24"},
+        {"state": "release_settle", "public_path": "evidence/geologist-held-contact/run02/captures/08_geology_geode_release_settle.png", "sha256": "32728553dd990bcc52a879f8ca481981a225e02654dbc66a281887acff60dfb9", "captured_utc": "2026-09-06 11:06:24"}
+      ],
+      "instrumented_fact": "Five real seam taps precede a press at pull origin (880,340) and drag to finger (946,340). Held state has all seams true, geode_dragging true, pull 66 of 120 and progress 0.82; release clears dragging/ownership in 4 ms and retains the 66-pixel opening. Callback phase is geode.",
+      "observed_pixels": "The halves are visibly separated, bright crystals appear in the opening, and the circular contact mark centers on the recorded right-side finger coordinate. The release still preserves the opening. The contact mark reads as a flat disk on the rock rather than a grasp, and the central seam/inner shapes remain rigid and schematic.",
+      "strengths": ["Finger coordinate, right half, and persistent 66-pixel opening agree.", "Crystal reveal gives a clear positive material payoff.", "Large symmetric silhouette is readable and unclipped."],
+      "repair_needs": ["Replace or augment the flat contact disk with a clearer edge/grasp cue on the moving half.", "Refine separation depth at the seam so the halves and crystal cavity read as one opening rock rather than layered blocks.", "Review the full pull and release sequence after repair; these two frames cannot establish drag smoothness or settle acting."],
+      "acceptance": "BELOW_4_5_REPAIR_NEEDED"
+    }
+  ],
+  "cross_capture_findings": {
+    "instrumentation": "All eight entries report the requested live surface owner, task_open true, surface identity match true, Mobile 1280x720, time_scale 1.0 and phase-correct callbacks. Held entries use touch_owner 0; release entries use -1. Duplicate geode checkpoint rows reflect the surface's two checkpoint emits on seam release, not duplicate signal-connection errors.",
+    "actor": "All samples record actor animation work/frame 0. The left-side character still does not establish authored action/contact motion or synchronization with the tool.",
+    "priority_order": ["pan contact/reversal causality", "river material payoff", "geode grasp/depth", "fossil cleared-cell contrast"],
+    "overall_score": 4.0,
+    "overall_acceptance": "BELOW_4_5_REPAIR_NEEDED"
+  },
+  "evidence_limits": [
+    "Configured phase shortcuts bypass natural room navigation and phase transitions.",
+    "Each release sample is only the first process frame, 4-7 ms after release; it does not establish a complete settle.",
+    "Single still moments cannot establish motion smoothness, contact continuity, timing, loops, action anticipation, follow-through or full visual payoff.",
+    "Desktop capture does not establish target-device performance, touch feel, child comprehension, owner acceptance or game-wide acceptance.",
+    "No completion state was sampled for these four interactions.",
+    "Source hashes bind the bounded primary-owner list and are not an exhaustive dependency inventory."
+  ],
+  "run01_preservation": {
+    "status": "INSTRUMENTATION_INVALID_PRESERVED",
+    "manifest_sha256": "5fa25812a6a9abbc3b7cdcdcdd00393d40e19bb016dfe09f2d860e3fc0d0f734cc",
+    "invalid_marker_sha256": "aae25023008bfce907892f7921c61986c7e259af2d5e0a0c39cc2be7f8a4db17",
+    "reason": "Duplicate signal connection errors and stale river callback binding prevent review claims from run01. Run02 supersedes it for this bounded still review."
+  }
+}

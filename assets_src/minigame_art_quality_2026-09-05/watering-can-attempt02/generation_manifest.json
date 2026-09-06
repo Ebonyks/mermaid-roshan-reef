@@ -1,0 +1,44 @@
+{
+  "schema": "reef.minigame_art_repair_attempt.v1",
+  "date": "2026-09-05",
+  "runtime_accepted": false,
+  "method": "built-in image_gen",
+  "attempt": 1,
+  "subject": "Garden watering can",
+  "staging_directory_note": "The retained directory name attempt02 is staging only; this packet contains one watering-can generation attempt.",
+  "prompt_file": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/watering-can-attempt02/prompt.txt",
+    "sha256": "4f887753869a1e167ca0ef080a3214f4462db39aa1d488e32b1327bd340a6ebd"
+  },
+  "submitted_prompt_sha256": "c5115908b6dc92b4c5d25f57b42fe368e25e4502d5e851dfa471ddb7bd05630f",
+  "source": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/watering-can-attempt02/wateringcan_attempt01.png",
+    "sha256": "fda89a55f90f9945cb4fcc4aa20c68e127c3a4291a8c44a876849b7f66ea2c44"
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGB",
+  "requested_alpha": true,
+  "actual_alpha": false,
+  "references": [
+    {
+      "path": "assets/mg/wateringcan.png",
+      "sha256": "dfcd93a98e83b7b0419602db828e6895fd4884bf0df800e9ecf4ed96c436f6e9",
+      "role": "edit_target_identity"
+    },
+    {
+      "path": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "role": "painted_style_only"
+    }
+  ],
+  "disposition": "REJECTED_RUNTIME",
+  "reason": "RGB painted checkerboard including handle opening; no true transparency. Runtime native output also exceeds1024px at non-POT dimensions. Source identity retained with proportion/orientation differences; no acceptance claim.",
+  "independent_review": {
+    "path": "audit/minigame_art_quality_2026-09-05/watering_can_attempt02_independent_review.md",
+    "sha256": "09cddd00ab41511fe956b62be5d471652c76ebcfd7466467a34b8f3ea58bf7b9"
+  },
+  "human_review": false
+}

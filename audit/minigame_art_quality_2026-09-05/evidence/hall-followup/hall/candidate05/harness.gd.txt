@@ -1,0 +1,303 @@
+extends SceneTree
+## Disposable configured Opera Hall visual diagnostic for Ballerina, Magician and Pop Star.
+## It uses shipping OperaAct/OperaCareerWorld2D, _show_phase configured entry, real
+## surface GUI callbacks and normal SceneTree processing. It is not acceptance evidence.
+
+const SCREEN := Vector2i(1280, 720)
+const EXPECTED_HASH := "ed1daf0bf"
+const MAX_SECONDS := 118.0
+const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
+const GestureSurface := preload("res://scripts/opera_gesture_surface.gd")
+
+var main: ReefMain
+var act: OperaAct
+var world: OperaCareerWorld2D
+var output_dir := ""
+var profile_root := ""
+var started_msec := 0
+var failures := 0
+var captures: Array[Dictionary] = []
+var unsupported: Array[Dictionary] = []
+
+func _init() -> void:
+	call_deferred("_run")
+
+func _run() -> void:
+	output_dir = OS.get_environment("CURRENT_HALL_ART_CAPTURE_OUT").strip_edges()
+	profile_root = OS.get_environment("CURRENT_HALL_ART_CAPTURE_PROFILE_ROOT").strip_edges()
+	if output_dir.is_empty() or profile_root.is_empty():
+		_block("output/profile environment required", 2)
+		return
+	var version := Engine.get_version_info()
+	if int(version.get("major", -1)) != 4 or int(version.get("minor", -1)) != 7 \
+			or int(version.get("patch", -1)) != 2 or String(version.get("status", "")) != "stable" \
+			or not String(version.get("hash", "")).begins_with(EXPECTED_HASH):
+		_block("requires exact official Godot 4.7.2-stable ed1daf0bf", 3)
+		return
+	var actual_profile := OS.get_user_data_dir().replace("\\", "/").to_lower()
+	var expected_profile := profile_root.replace("\\", "/").trim_suffix("/").to_lower()
+	if actual_profile != expected_profile and not actual_profile.begins_with(expected_profile + "/"):
+		_block("OS user-data directory escaped isolated profile", 4)
+		return
+	if RenderingServer.get_current_rendering_method() != "mobile":
+		_block("renderer is not Mobile", 5)
+		return
+	if not is_equal_approx(Engine.time_scale, 1.0) or paused:
+		_block("time scale/paused guard failed", 5)
+		return
+	DirAccess.make_dir_recursive_absolute(output_dir)
+	started_msec = Time.get_ticks_msec()
+	create_timer(MAX_SECONDS).timeout.connect(func():
+		print("CURRENT_HALL_ART|FAIL|wall-clock timeout")
+		quit(9))
+	var packed := load("res://scenes/main.tscn") as PackedScene
+	if packed == null:
+		_block("main scene unavailable", 6)
+		return
+	main = packed.instantiate() as ReefMain
+	if main == null:
+		_block("main did not instantiate ReefMain", 6)
+		return
+	get_root().add_child(main)
+	get_root().size = SCREEN
+	await _frames(4)
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		main._launch_from_start_menu(false)
+	elif main.intro_active:
+		main._skip_intro()
+	await _frames(5)
+	main.day_one_active = false
+	main.game = "opera"
+	for career in ["ballerina", "magician", "popstar"]:
+		await _capture_career(career)
+	await _write_manifest()
+	print("CURRENT_HALL_ART|RESULT|%s|captures=%d|unsupported=%d|elapsed_ms=%d" % [
+		"PASS" if failures == 0 else "FAIL", captures.size(), unsupported.size(),
+		Time.get_ticks_msec() - started_msec])
+	quit(0 if failures == 0 else 1)
+
+func _capture_career(career: String) -> void:
+	var config: Dictionary = {}
+	for value: Variant in OperaHouse.ACTS:
+		var candidate := value as Dictionary
+		if String(candidate.get("costume", "")) == career:
+			config = candidate.duplicate(true)
+			break
+	_check("found %s shipping config" % career, not config.is_empty())
+	if config.is_empty():
+		return
+	act = OperaAct.new()
+	get_root().add_child(act)
+	_check("%s OperaAct.start" % career, act.start(main, config, Callable()))
+	await _frames(6)
+	world = act.career_world_2d
+	_check("%s live career world" % career,
+		world != null and world.active and world.two_act_enabled and world.performance_stage_start >= 0)
+	if world == null:
+		act.queue_free()
+		await _frames(2)
+		return
+	var indices: Array[int] = [0, world.performance_stage_start]
+	var labels: Array[String] = ["practice", "stage"]
+	for slot in range(indices.size()):
+		var phase_index := indices[slot]
+		if phase_index < 0 or phase_index >= world.phases.size():
+			unsupported.append({"career":career,"part":labels[slot],"reason":"phase index unavailable","phase_index":phase_index})
+			continue
+		world.phase_index = phase_index
+		world._show_phase()
+		await _settle(0.16)
+		var phase := world.phases[phase_index] as Dictionary
+		var phase_name := String(phase.get("name", "")).to_lower().replace(" ", "_")
+		var mode := String(phase.get("mode", ""))
+		_check("%s/%s task open" % [career, labels[slot]],
+			world.task_open and world.surface != null and world.surface.is_processing() and world.can_process())
+		await _capture(career, labels[slot], phase_name, "intro", "configured_phase_shortcut")
+		var contact_ok := await _drive_contact(career, mode)
+		if contact_ok:
+			await _capture(career, labels[slot], phase_name, "held_contact", "live_gui_input_held")
+			await _finish_contact(career, mode)
+			if career != "ballerina":
+				await _release_current()
+		else:
+			unsupported.append({"career":career,"part":labels[slot],"phase":phase_name,"mode":mode,"state":"held_contact/payoff","reason":"No trusted geometry helper for this live mode"})
+		# Check immediately after the live callback/release. Waiting first can let
+		# the shipping world advance the phase, which would make a valid completion
+		# look like a different-phase payoff.
+		if contact_ok and world.phase_index == phase_index and _surface_complete(career, mode):
+			await _capture(career, labels[slot], phase_name, "phase_payoff", "live_gui_input_completion")
+		else:
+			unsupported.append({"career":career,"part":labels[slot],"phase":phase_name,"mode":mode,"state":"phase_payoff","reason":"Actual callback gesture did not reach completion on the same configured phase; no fabricated payoff frame"})
+		await _settle(0.18)
+	world.active = false
+	act.queue_free()
+	await _frames(3)
+	world = null
+	act = null
+
+func _drive_contact(career: String, mode: String) -> bool:
+	if career == "ballerina":
+		var ballet := world.surface as BalletSurface
+		if ballet == null:
+			return false
+		if mode == "ballet_pose":
+			await _wait_ballet_demo(ballet)
+			var rects := ballet.pose_option_rects()
+			var frames := ballet.pose_option_frames()
+			var target := ballet.pose_target_frame()
+			for index in range(rects.size()):
+				if int(frames[index]) == target:
+					var round_before := ballet.pose_round
+					await _touch_down(ballet, rects[index].get_center())
+					_check("ballet accepted correct option", ballet.held and ballet.pose_round == round_before + 1)
+					return ballet.held
+		return false
+	var gesture := world.surface as GestureSurface
+	if gesture == null:
+		return false
+	var point := gesture.size * 0.5
+	if mode == "magic_cabinet":
+		point = gesture._cabinet_handle_rect().get_center()
+	elif mode == "hold" and career == "magician":
+		point = gesture._magic_vanish_wand_hit_rect().get_center()
+	elif mode == "circle":
+		point = gesture._circle_pivot() + Vector2(100.0, 0.0)
+	await _touch_down(gesture, point)
+	return true
+
+func _finish_contact(career: String, mode: String) -> void:
+	if career == "ballerina":
+		var ballet := world.surface as BalletSurface
+		if mode == "ballet_pose":
+			var guard := 0
+			while ballet.pose_round < BalletSurface.POSE_ROUNDS and guard < 4:
+				# The first option is already held by _drive_contact. Release it,
+				# then press the next correct option before the next round.
+				await _touch_up(ballet, ballet.pointer_pos)
+				await _wait_ballet_demo(ballet)
+				if ballet.pose_round >= BalletSurface.POSE_ROUNDS:
+					break
+				var rects := ballet.pose_option_rects()
+				var frames := ballet.pose_option_frames()
+				var target := ballet.pose_target_frame()
+				for index in range(rects.size()):
+					if int(frames[index]) == target:
+						await _touch_down(ballet, rects[index].get_center())
+						break
+				guard += 1
+			return
+		await _touch_up(ballet, ballet.pointer_pos)
+		return
+
+	var gesture := world.surface as GestureSurface
+	if gesture == null:
+		return
+	if mode == "hold":
+		await _settle(4.4)
+	elif mode == "magic_cabinet":
+		var start := gesture._cabinet_handle_rect().get_center()
+		for step in range(1, 8):
+			await _drag(gesture, start + Vector2(0.0, float(step) * gesture._cabinet_required_travel() / 7.0))
+	elif mode == "circle":
+		var center := gesture._circle_pivot()
+		for step in range(1, 28):
+			var angle := -PI * 0.5 + float(step) * TAU / 27.0
+			await _drag(gesture, center + Vector2.from_angle(angle) * 100.0)
+
+func _wait_ballet_demo(ballet: BalletSurface) -> void:
+	var until_msec := Time.get_ticks_msec() + 12000
+	while ballet.demo_active and Time.get_ticks_msec() < until_msec:
+		await process_frame
+	_check("ballet demo released", not ballet.demo_active)
+
+func _touch_down(surface: Control, point: Vector2) -> void:
+	var press := InputEventScreenTouch.new()
+	press.index = 0
+	press.pressed = true
+	press.position = point
+	surface._gui_input(press)
+	await create_timer(0.05).timeout
+
+func _touch_up(surface: Control, point: Vector2) -> void:
+	var release := InputEventScreenTouch.new()
+	release.index = 0
+	release.pressed = false
+	release.position = point
+	surface._gui_input(release)
+	await create_timer(0.06).timeout
+
+func _drag(surface: Control, point: Vector2) -> void:
+	var drag := InputEventScreenDrag.new()
+	drag.index = 0
+	drag.position = point
+	surface._gui_input(drag)
+	await create_timer(0.045).timeout
+
+func _release_current() -> void:
+	if world.surface is BalletSurface:
+		await _touch_up(world.surface, (world.surface as BalletSurface).pointer_pos)
+	elif world.surface is GestureSurface:
+		await _touch_up(world.surface, (world.surface as GestureSurface).pointer_pos)
+
+func _surface_complete(career: String, mode: String) -> bool:
+	if career == "ballerina":
+		var ballet := world.surface as BalletSurface
+		return ballet != null and ballet.completion_accepted
+	var gesture := world.surface as GestureSurface
+	if gesture == null:
+		return false
+	if mode == "magic_cabinet":
+		return gesture.cabinet_complete or gesture.completion_accepted
+	return gesture.completion_accepted or gesture.widget_fill >= 0.999
+
+func _capture(career: String, part: String, phase: String, state: String, origin: String) -> void:
+	await _frames(3)
+	if get_root().size != SCREEN or not is_equal_approx(Engine.time_scale, 1.0) or paused:
+		_check("capture guard %s/%s/%s" % [career, part, state], false)
+		return
+	await RenderingServer.frame_post_draw
+	var image := get_root().get_texture().get_image()
+	var path := output_dir.path_join("%s_%s_%s_%s.png" % [career, part, phase, state])
+	var saved := image.get_size() == SCREEN and image.save_png(path) == OK
+	_check("capture %s" % path.get_file(), saved)
+	if not saved:
+		return
+	var current_phase := world.phases[world.phase_index] as Dictionary if world.phase_index >= 0 and world.phase_index < world.phases.size() else {}
+	var animator: OperaRoshanActor = world.player_animator
+	var ballet := world.surface as BalletSurface
+	var gesture := world.surface as GestureSurface
+	var entry := {"career":career,"part":part,"phase":phase,"phase_label":String(current_phase.get("name", phase)),"source_phase":int(current_phase.get("source_phase", -1)),"performance_part":String(current_phase.get("performance_part", part)),"state":state,"origin":origin,"path":path,"sha256":FileAccess.get_sha256(path),"phase_index":world.phase_index,"mode":String(world.surface.mode),"animation_state":animator.current_animation if animator != null else "unavailable","animation_frame":animator.current_frame if animator != null else -1,"surface_held":ballet.held if ballet != null else (gesture.held if gesture != null else false),"demo_active":ballet.demo_active if ballet != null else (gesture.demo_active if gesture != null else false),"pose_round":ballet.pose_round if ballet != null else -1,"task_open":world.task_open,"ticks_msec":Time.get_ticks_msec(),"process_frames":Engine.get_process_frames(),"time_scale":Engine.time_scale,"renderer":RenderingServer.get_current_rendering_method(),"viewport":[get_root().size.x,get_root().size.y]}
+	captures.append(entry)
+	print("CURRENT_HALL_ART|CAPTURE|%s" % JSON.stringify(entry))
+
+func _write_manifest() -> void:
+	var manifest := {"schema":1,"claim":"configured Hall visual diagnostic; not natural navigation or acceptance","godot":Engine.get_version_info(),"renderer":RenderingServer.get_current_rendering_method(),"viewport":[SCREEN.x,SCREEN.y],"time_scale":Engine.time_scale,"source_hashes_raw_bytes_nonexhaustive":_source_hashes(),"captures":captures,"unsupported_states":unsupported}
+	var file := FileAccess.open(output_dir.path_join("manifest.json"), FileAccess.WRITE)
+	_check("manifest opened", file != null)
+	if file != null:
+		file.store_string(JSON.stringify(manifest, "  ") + "\n")
+		file.close()
+
+func _source_hashes() -> Dictionary:
+	var result: Dictionary = {}
+	for path: String in ["res://scripts/opera_ballet_surface.gd","res://scripts/opera_gesture_surface.gd","res://scripts/opera_career_world_2d.gd","res://scripts/opera_act.gd","res://scripts/opera_roshan_actor.gd","res://scripts/opera_performance_plan.gd","res://scripts/opera_world_backdrop_2d.gd","res://assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png"]:
+		result[path] = FileAccess.get_sha256(path)
+	return result
+
+func _settle(seconds: float) -> void:
+	await create_timer(seconds).timeout
+	await _frames(2)
+
+func _frames(count: int) -> void:
+	for _index in range(count):
+		await process_frame
+
+func _check(label: String, ok: bool) -> void:
+	if not ok:
+		failures += 1
+	print("CURRENT_HALL_ART|%s|%s" % ["OK" if ok else "FAIL", label])
+
+func _block(message: String, code: int) -> void:
+	print("CURRENT_HALL_ART|BLOCKED|%s" % message)
+	quit(code)

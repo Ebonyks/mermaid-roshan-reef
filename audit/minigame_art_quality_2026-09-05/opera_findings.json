@@ -1,0 +1,126 @@
+{
+  "audit_date": "2026-09-05",
+  "threshold": 4.5,
+  "score_kind": "subjective observed runtime composition; not verified eight-dimension acceptance",
+  "result": "FAIL",
+  "passed": 0,
+  "family_count": 15,
+  "scores": {
+    "chef": 3.6,
+    "detective": 4.1,
+    "ballerina": 4.0,
+    "candymaker": 3.4,
+    "doctor": 3.8,
+    "farmer": 3.1,
+    "boxer": 4.2,
+    "magician": 4.1,
+    "painter": 3.3,
+    "astronaut": 2.8,
+    "racer": 4.1,
+    "popstar": 3.8,
+    "nursery": 3.1,
+    "geologist": 2.7,
+    "teacher": 3.5
+  },
+  "evidence": {
+    "integrated_three_act": "audit/evidence/opera-two-act-20260905/*.png",
+    "shared_historical": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/opera-reaudit-20260905/{activities,phase-rooms,widgets}/*.png",
+    "teacher": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/teacher-learning-engine-20260905/tmp/teacher-engine/*.png; historical 775ceee1, current surface byte-equivalent",
+    "racer": "audit/evidence/opera-racer-integration-20260905/*.png; historical baseline, byte-equivalent BEFORE art-pass lap-flag changes. See racer_reaudit.md for rejected tire candidate.",
+    "geologist_current": "C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/geologist-rebuild-20260905/tmp/geologist-rebuild/phase-{0..3}-{ready,progress}.png",
+    "geologist_stale_excluded": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/opera-reaudit-20260905/activities/geologist_03_geology_sort.png"
+  },
+  "route_correction": {
+    "generic_hold_circle_swipe_fallback_live": false,
+    "action": "retain for unknown/direct diagnostic callers",
+    "live_functions": [
+      "OperaGestureSurface._load_widget_set",
+      "OperaGestureSurface._draw_widget_family_ground",
+      "OperaGestureSurface._draw_widget_layers"
+    ],
+    "mapping": {
+      "hold": [
+        "basin",
+        "pour",
+        "charge",
+        "specialist nursery/magic"
+      ],
+      "circle": [
+        "crank"
+      ],
+      "swipe": [
+        "push",
+        "trace",
+        "specialist nursery"
+      ]
+    }
+  },
+  "live_asset_patterns": {
+    "gauge": [
+      "widget_gauge_shared_needle.png",
+      "widget_gauge_<career>_success.png"
+    ],
+    "track": [
+      "widget_track_<career>_mover.png",
+      "widget_track_shared_hit.png"
+    ],
+    "pour": [
+      "widget_pour_<career>_mover.png",
+      "widget_pour_<career>_fill.png"
+    ],
+    "basin": [
+      "widget_basin_<career>_bubbles.png",
+      "widget_basin_shared_shine.png"
+    ],
+    "charge": [
+      "widget_charge_<career>_glow.png",
+      "widget_charge_<career>_full.png"
+    ],
+    "crank": [
+      "widget_crank_<career>_mover.png",
+      "widget_crank_<career>_progress.png"
+    ],
+    "trace": [
+      "widget_trace_<career>_lit.png"
+    ],
+    "push": [
+      "widget_push_<career>_mover.png",
+      "widget_push_shared_arrow_lr.png",
+      "widget_push_shared_arrow_down.png"
+    ],
+    "target": [
+      "widget_target_<career>_mover.png",
+      "widget_target_<career>_mark.png",
+      "widget_target_<career>_success.png",
+      "widget_target_<career>_piece_*.png"
+    ],
+    "lanes": [
+      "widget_lanes_<career>_lit.png",
+      "widget_lanes_shared_pick.png"
+    ]
+  },
+  "geologist_brush": {
+    "source": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+    "source_score": 4.7,
+    "runtime_evidence": "tmp/art-quality/phase-1-brush-contact.png",
+    "runtime_contact_score": 3.5,
+    "decision": "keep source; repair scale, bristle/fossil contact, dust displacement, grounding and settle"
+  },
+  "priority_order": [
+    "geologist",
+    "astronaut",
+    "farmer",
+    "nursery",
+    "painter",
+    "candymaker",
+    "teacher",
+    "chef",
+    "doctor",
+    "popstar",
+    "ballerina",
+    "detective",
+    "magician",
+    "boxer",
+    "racer"
+  ]
+}

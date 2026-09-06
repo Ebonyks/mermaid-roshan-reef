@@ -1,0 +1,71 @@
+{
+  "id": "dolls-mounted-art-review-2026-09-06",
+  "baseline": "8b7f116870eec8abf0368a25bf47eac404a23b25",
+  "scope": "Six current Mobile Dolls stills, exact byte archive, two independent reviews and source-versus-mounted distinction. Correct inaccurate empty-state description without changing raw evidence. No production source or raster edits.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-08",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-ASSET-01"
+  ],
+  "findings": [],
+  "no_findings_reason": "Bounded current-state audit; no master finding closure or whole-surface acceptance.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "audit/minigame_art_quality_2026-09-05/current_repair_queue.json",
+    "audit/minigame_art_quality_2026-09-05/dolls_capture_archive.json",
+    "audit/minigame_art_quality_2026-09-05/dolls_current_capture_review.json",
+    "audit/minigame_art_quality_2026-09-05/dolls_current_runtime_review.json",
+    "audit/minigame_art_quality_2026-09-05/dolls_reuse_options.json",
+    "audit/minigame_art_quality_2026-09-05/dolls_review_publication.json",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/reviews-original/capture-review.json",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/reviews-original/reuse-options.json",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/reviews-original/sol-runtime-review.json",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/capture.log",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_00_ready.png",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_01_multiple_fallers.png",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_02_held_drag.png",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_03_caught.png",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_04_safe_miss.png",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/dolls_05_three_settled_completion.png",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/captures/manifest.json",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/command.json",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/exit-code.txt",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/harness.gd.txt",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/process-id.txt",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/runner.py.txt",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/source-freeze-check.json",
+    "audit/minigame_art_quality_2026-09-05/evidence/dolls-followup/run01/source-snapshot.json",
+    "design/MINIGAME_ART_AUDIT_2026-09-05.md"
+  ],
+  "validation": [
+    {
+      "command": "Native Godot4.7.2 isolated Mobile capture run01",
+      "result": "PASS",
+      "evidence": "audit/minigame_art_quality_2026-09-05/dolls_capture_archive.json; six PNGs, exit0, owners unchanged, no profile payloads."
+    },
+    {
+      "command": "Independent visual and capture reviews",
+      "result": "PASS",
+      "evidence": "Reviews validate bounded evidence and identify below-bar composition; they do not certify art acceptance."
+    },
+    {
+      "command": "Document and audit-development gates",
+      "result": "PASS",
+      "evidence": "audit/minigame_art_quality_2026-09-05/validation/hall-reconciled/metadata-gates.json; document and development consistency only, not visual acceptance."
+    }
+  ],
+  "acceptance_gaps": "Source bar and mounted bar are separate. Contact/readability/ownership are below4.5; natural completion, cadence, other skins, phone, child and owner remain open."
+}

@@ -1,0 +1,264 @@
+{
+  "audit_id": "teacher-current-art-source-followup-2026-09-06",
+  "status": "OPEN_SOURCE_ONLY",
+  "scope": "Current Teacher career source art and code-native activity drawing. This review does not grant mounted, motion, device, owner, or child acceptance.",
+  "master_dimensions": [
+    "identity",
+    "finish",
+    "edges",
+    "readability",
+    "animation",
+    "ownership_contact",
+    "consistency",
+    "technical"
+  ],
+  "runtime_trace": {
+    "surface": {
+      "path": "scripts/opera_teacher_surface.gd",
+      "sha256": "5d52ec189d6990a7c9108d3724ba6a72e5cac45c05a5e3d2c0710c3bee87d667",
+      "states": [
+        "PATTERN",
+        "COUNT",
+        "ADD",
+        "MATCH"
+      ],
+      "drawing_model": "Board, pearls, mathematical shapes, choice cards, hint icon, pointer and feedback are CanvasItem drawing operations; there are no raster item paths in this surface."
+    },
+    "station": {
+      "id": "lesson_desk",
+      "normalized_position": [
+        0.49,
+        0.72
+      ],
+      "hotspot_visual_size": [
+        190,
+        190
+      ],
+      "hotspot_source": "assets/opera/worlds/hotspots/teacher_lesson_board.svg"
+    },
+    "room": {
+      "role": "Library",
+      "source_family": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_*",
+      "binding_evidence": "probe_opera_2d.gd requires exactly eight Teacher room_variant_tiles from this family.",
+      "pixel_reviewed_here": false
+    }
+  },
+  "reviewed_artifacts": [
+    {
+      "id": "teacher_static_actor",
+      "path": "assets/opera/worlds/actors/roshan_teacher.png",
+      "sha256": "5f63276e14d55969d6103c8cbf94fce6a0154c5e4900a44f9ea485885b7bcb7a",
+      "dimensions": [
+        512,
+        512
+      ],
+      "runtime_role": "Teacher identity/static actor source and fallback reference.",
+      "scores": {
+        "identity": {
+          "score": 4.7,
+          "reason": "Roshan's rainbow hair, face, tail and palette remain immediately recognizable; cardigan, badge shapes and book-and-crayon satchel clearly establish Teacher."
+        },
+        "finish": {
+          "score": 4.6,
+          "reason": "Painted value bands, garment detail and restrained highlights are coherent and presentation-ready at source scale."
+        },
+        "edges": {
+          "score": 4.5,
+          "reason": "The inspected RGBA cutout has a clean, readable silhouette, including hair, hand and tail extremities."
+        },
+        "readability": {
+          "score": 4.6,
+          "reason": "Large color blocks and oversized teaching props survive reduction better than fine decorative detail."
+        },
+        "animation": {
+          "score": null,
+          "reason": "A static source cannot establish motion quality."
+        },
+        "ownership_contact": {
+          "score": null,
+          "reason": "The neutral source cutout does not establish its mounted relationship to an active lesson target."
+        },
+        "consistency": {
+          "score": 4.6,
+          "reason": "Outline, painted shading, palette and proportions fit the approved Opera actor family."
+        },
+        "technical": {
+          "score": null,
+          "factual_result": "PASS_SOURCE",
+          "reason": "512x512 is within the texture-size rule; mounted alpha/import behavior was not exercised."
+        }
+      }
+    },
+    {
+      "id": "teacher_actor_atlas",
+      "path": "assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png",
+      "sha256": "2bddeebd6ca4fe0647e1f6deb670bfcab4d1183f36417e0a033e59c4788dd28c",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "grid": {
+        "columns": 4,
+        "rows": 4,
+        "cell_size": [
+          256,
+          256
+        ]
+      },
+      "observed_roles": {
+        "row_0": "idle/thinking/wave/open-hand pose library",
+        "row_1": "travel pose library",
+        "row_2": "work/pointer pose library",
+        "row_3": "cheer pose library"
+      },
+      "current_containment": "OperaRoshanActor.STORY_POSE_FRAMES holds Teacher idle, travel and work at column 0 rather than cycling unrelated pose meanings.",
+      "scores": {
+        "identity": {
+          "score": 4.7,
+          "reason": "All inspected cells retain Teacher Roshan's costume, hair, face and teaching-prop identity."
+        },
+        "finish": {
+          "score": 4.5,
+          "reason": "Cells are consistently painted and legible; some gesture changes are pose variations rather than a polished action sequence."
+        },
+        "edges": {
+          "score": 4.5,
+          "reason": "Inspected cell silhouettes are clean at sheet scale; per-cell mounted bleed tests remain outstanding."
+        },
+        "readability": {
+          "score": 4.5,
+          "reason": "The held row-2 column-0 pointer gesture has one clear direction and avoids rapid target-direction changes."
+        },
+        "animation": {
+          "score": null,
+          "reason": "A sheet and held-pose source review cannot score cadence, transitions, contact or payoff. Existing review identifies authored animation completeness as below standard."
+        },
+        "ownership_contact": {
+          "score": null,
+          "reason": "Pointer-to-target alignment is a mounted runtime relationship and is unassessed from the atlas alone."
+        },
+        "consistency": {
+          "score": 4.6,
+          "reason": "Costume, rendering and proportions remain stable across the inspected pose library."
+        },
+        "technical": {
+          "score": null,
+          "factual_result": "PASS_SOURCE",
+          "reason": "1024x1024 meets the texture-size limit; runtime AtlasTexture enclosure and import behavior are unverified here."
+        }
+      }
+    },
+    {
+      "id": "teacher_lesson_hotspot",
+      "path": "assets/opera/worlds/hotspots/teacher_lesson_board.svg",
+      "sha256": "74eb7da7e7f5ad516ac157c89388983e7a3c63ca9987dba44157ae5e0c852043",
+      "dimensions": [
+        256,
+        256
+      ],
+      "runtime_role": "Single lesson-desk hotspot reused for PATTERN, COUNT, ADD and MATCH.",
+      "scores": {
+        "identity": {
+          "score": null,
+          "reason": "Markup shows a learning-board symbol, but visual identity requires rendered evidence. A launcher hotspot is not required to identify the active answer state."
+        },
+        "finish": {
+          "score": null,
+          "reason": "Paint and material finish cannot be scored from SVG markup alone."
+        },
+        "edges": {
+          "score": null,
+          "reason": "Declared vector geometry does not prove rasterized Mobile-renderer edge quality."
+        },
+        "readability": {
+          "score": null,
+          "reason": "Markup contains large shapes and count dots, but mounted 190x190 readability was not visually reviewed."
+        },
+        "animation": {
+          "score": null,
+          "reason": "The source is static; configured pulse behavior is not motion-quality evidence."
+        },
+        "ownership_contact": {
+          "score": null,
+          "reason": "The hotspot is a launcher for the lesson station; active-answer ownership is outside its role and mounted station contact was not reviewed."
+        },
+        "consistency": {
+          "score": null,
+          "reason": "Palette values can be read from markup, but visual consistency with the rendered Library and actor requires a mounted or rendered comparison."
+        },
+        "technical": {
+          "score": null,
+          "factual_result": "PASS_SOURCE",
+          "reason": "Native vector dimensions and geometry are valid; Mobile rendering and mounted 190x190 legibility remain unverified."
+        }
+      },
+      "evidence_basis": "The SVG markup and runtime role were inspected, but the SVG was not rendered and visually inspected in this bounded pass."
+    }
+  ],
+  "code_native_items": {
+    "pixel_scores": null,
+    "reason": "PATTERN tokens, COUNT and ADD pearls, MATCH shapes, board, choices, hints and feedback are generated by draw calls. Assigning raster-art scores would invent evidence.",
+    "source_observations": [
+      "The activity preserves exact circles, triangles, squares, stars, hearts and countable pearl groups.",
+      "The cream board and navy ink establish a stable high-contrast field.",
+      "The uncluttered mathematical shapes are essential instructional content and should be retained in any finish repair."
+    ]
+  },
+  "genuine_below_4_5_gaps": [],
+  "approved_reuse_candidates": [
+    {
+      "source": "assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png",
+      "use": "row 2, column 0 held instructional pose",
+      "basis": "Existing pixels support one clear pointer direction and current source containment avoids unrelated prop-direction cycling.",
+      "acceptance_limit": "Source-supported reuse only; target alignment and mounted presentation remain OPEN."
+    },
+    {
+      "source": "assets/opera/worlds/actors/roshan_teacher.png",
+      "use": "stable Teacher identity/idle fallback",
+      "basis": "Strong approved-family identity and finish without changing protected character design.",
+      "acceptance_limit": "Does not solve instructional contact or animation."
+    },
+    {
+      "source": "assets/opera/worlds/hotspots/teacher_lesson_board.svg",
+      "use": "retain exact non-reader board symbol and mathematical vocabulary",
+      "basis": "Markup preserves the current non-reader board, shape and count vocabulary.",
+      "acceptance_limit": "Rendered finish, edges, readability and scene consistency remain unassessed."
+    }
+  ],
+  "rejected_or_unsuitable_reuse": [
+    {
+      "family": "Detective clue-board widgets and Craft Room idea board",
+      "reason": "Their narrative role and icon language are different from a mathematical lesson board; direct substitution would create semantic drift."
+    }
+  ],
+  "evidence_required_before_acceptance": [
+    "Current Mobile-renderer captures for PATTERN, COUNT, ADD and MATCH at instruction, active contact, correct selection and payoff.",
+    "Mounted proof that the held pointer or object-bound pointer aligns with each live target and does not imply a wrong answer.",
+    "Teacher actor and board composition against the actual eight-tile Library background at phone scale.",
+    "Atlas cell enclosure/edge checks and imported alpha behavior for every live cell.",
+    "Normal-processing motion review for transitions, contact, feedback and payoff; stills and source sheets cannot score animation quality.",
+    "Owner/device/child acceptance where required by the master audit."
+  ],
+  "conclusion": "The visually inspected Teacher character rasters have no scored source-pixel dimension below 4.5. The procedural instructional geometry is semantically clear in code but has no raster-art score, and the SVG launcher was not rendered for this pass. Board presentation, pointer-to-target ownership, animation, Mobile mounting and phone readability therefore remain UNASSESSED rather than failed. Full Teacher acceptance remains OPEN.",
+  "unassessed_acceptance_risks": [
+    {
+      "artifact": "teacher_lesson_hotspot",
+      "risk": "Rendered finish, edges, phone readability and consistency with the painted Library have no visual evidence in this bounded pass.",
+      "repair_boundary_if_a_mounted_review_fails": "Retain the exact board/shape/count vocabulary. Improve material framing only through an approved existing painted board component or a separately reviewed bounded replacement; do not decorate or distort the mathematical shapes."
+    },
+    {
+      "artifact": "teacher_actor_atlas work pose",
+      "risk": "Source pixels support a clear held pointer pose, but mounted pointer-to-target alignment and authored motion remain unassessed.",
+      "containment_boundary": "Do not resume cycling row-2 cells as an animation because their pointer directions encode different targets."
+    }
+  ],
+  "parent_verification": {
+    "source_hashes_checked": [
+      "scripts/opera_teacher_surface.gd",
+      "assets/opera/worlds/actors/roshan_teacher.png",
+      "assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png",
+      "assets/opera/worlds/hotspots/teacher_lesson_board.svg"
+    ],
+    "source_hash_rule": "Exact file bytes, or explicitly normalized UTF-8 LF for text sources; no rendered/motion acceptance added."
+  }
+}

@@ -741,6 +741,31 @@ Kept as-is; noted so a future edit updates every copy.
 |---|---|---|
 | `design/OPERA_TWO_ACT_PERFORMANCES_2026-09-05.md` | 🟣 | Local candidate for the three Opera Hall games only; mechanic and asset review, medal/token policy, pending integration and child/device gates. |
 
+## Minigame art review — 2026-09-05
+
+| Document | State | Scope |
+|---|---|---|
+| `design/MINIGAME_ART_AUDIT_2026-09-05.md` | 🔵 | `SUPPORTING_CURRENT`; local incomplete art/animation review and repair process. No release, owner/device/child acceptance or master-audit closure. |
+| `audit/minigame_art_quality_2026-09-05/animation_review.md` | 🔵 | `SUPPORTING_CURRENT`; local incomplete art/animation review and repair process. No release, owner/device/child acceptance or master-audit closure. |
+| `audit/minigame_art_quality_2026-09-05/nonopera_review.md` | 🔵 | `SUPPORTING_CURRENT`; local incomplete art/animation review and repair process. No release, owner/device/child acceptance or master-audit closure. |
+| `audit/minigame_art_quality_2026-09-05/opera_review.md` | 🔵 | `SUPPORTING_CURRENT`; local incomplete art/animation review and repair process. No release, owner/device/child acceptance or master-audit closure. |
+| `audit/minigame_art_quality_2026-09-05/protocol.md` | 🔵 | `SUPPORTING_CURRENT`; local incomplete art/animation review and repair process. No release, owner/device/child acceptance or master-audit closure. |
+| `audit/minigame_art_quality_2026-09-05/racer_reaudit.md` | 🔵 | `SUPPORTING_CURRENT`; local incomplete art/animation review and repair process. No release, owner/device/child acceptance or master-audit closure. |
+| `audit/minigame_art_quality_2026-09-05/current_scope_addendum.md` | 🔵 | `SUPPORTING_CURRENT`; reconciles historical capture authority with the current dev-based source candidate and keeps game-wide 4.5 acceptance open. |
+| `audit/minigame_art_quality_2026-09-05/missing_coverage.md` | 🔵 | `SOURCE_INVENTORY`; unresolved source and dynamic-loader coverage leads only; no reachability or quality claim. |
+| `audit/minigame_art_quality_2026-09-05/reuse_candidates.md` | 🔵 | `SUPPORTING_CURRENT`; bounded visual reuse screen for weak PictureGames assets; no runtime acceptance. |
+| `audit/minigame_art_quality_2026-09-05/art_repair_backlog.md` | 🔵 | `SUPPORTING_CURRENT`; ordered repair and evidence backlog under the eight-dimension gate; no new scores or acceptance. |
+| `audit/minigame_art_quality_2026-09-05/parent_art_crosscheck.md` | 🔵 | `HISTORICAL_VISUAL_EVIDENCE`; independent corroboration of three historical captures; no current-source or acceptance claim. |
+| `audit/minigame_art_quality_2026-09-05/watering_can_attempt02_independent_review.md` | 🔵 | `REJECTED_SOURCE_REVIEW`; records the RGB fake-alpha blocker and bounded proportion/orientation differences; never runtime acceptance. |
+| `audit/minigame_art_quality_2026-09-05/opera_native_coverage_followup.md` | 🔵 | `SOURCE_INVENTORY`; traces current room sources and derivatives, distinguishes fixed-scene review from multi-screen native coverage, and preserves reuse authorities; no current acceptance. |
+| `audit/OPERA_MECHANICS_REAUDIT_2026-09-05.md` | ⚪ | `HISTORICAL_VISUAL_EVIDENCE`; 14-career mechanics and scene review at its recorded pre-reconciliation revisions. Later Racer, Geologist, Teacher and Opera Hall work supersedes affected current-status claims; scores remain historical and grant no current, master, device, child, or owner acceptance. |
+| `assets_src/minigame_art_quality_2026-09-05/watering-can-attempt02/review.md` | 🔵 | `REJECTED_SOURCE_REVIEW`; generated RGB checkerboard candidate preserved outside runtime; no source or scene acceptance. |
+| `audit/minigame_art_quality_2026-09-05/phase_pose_followup.md` | 🔵 | `SUPPORTING_CURRENT`; eleven phase-specific pose-containment repairs with source-bound desktop diagnostics; no authored-motion, device, child, or game-wide acceptance. |
+| `audit/minigame_art_quality_2026-09-05/garden_realtime_followup.md` | 🔵 | `SUPPORTING_CURRENT`; eight 9df desktop stills verify completed-flower visibility and document remaining finish defects; no animation, device or game-wide acceptance. |
+| `audit/minigame_art_quality_2026-09-05/current_mechanics_followup.md` | 🔵 | `SOURCE_REVIEW`; current61-base/70-runtime phase distinction, rebuilt lessons and Hall-only medal calibration; no measured child timing or new visual acceptance. |
+| `audit/minigame_art_quality_2026-09-05/pool_runtime_followup.md` | 🔵 | `SUPPORTING_CURRENT`; real-room desktop diagnostic art review and four-target handoff sizing repair; no animation, device, child, or game-wide acceptance. |
+| `audit/minigame_art_quality_2026-09-05/carrot_runtime_followup.md` | 🔵 | `SUPPORTING_CURRENT`; approved carrot reuse with configured Snowman/kitchen desktop diagnostics; complete motion and scene acceptance remain open. |
+| `audit/minigame_art_quality_2026-09-05/hall_visual_comparison.md` | 🔵 | `SUPPORTING_CURRENT`; exact Hall PNG comparison for Ballerina, Magician and Pop Star plus rejected/neutral Magician ROPE/PORTAL mappings; sparse configured still evidence only, no animation, device, child or game-wide acceptance. |
 | `design/CHAPTER2_LAWN_FINALE_DRAFT_2026-09-06.md` | 🟣 | `CANDIDATE` rough story and implemented alpha draft following the owner-selected lawn celebration, protection victory then cheating candle theft, and sincerely conflicted Prince. King identity is owner-confirmed V4; Prince identity is recovered from the approved Git history package. The owner-authorized V4 cutout and recovered thin Prince are implemented in the gameplay draft; final visual/device review and cinematic delivery remain open. It does not accept character pixels, cinematics, runtime integration, device performance, or release. |
 
 ## Stage pathfinding audit — 2026-09-06

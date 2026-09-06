@@ -1,0 +1,64 @@
+{
+  "status": "REJECTED_SOURCE_CANDIDATE",
+  "review_date": "2026-09-06",
+  "candidate": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/snowfield-attempt01/snowfield.png",
+    "sha256": "acf2e916b3c3360b987b3a7704c68fa8032ab06fbf34f025855db3a1dec864be",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "format": "PNG RGB opaque",
+    "review_context": "Native source inspection only; not mounted with Roshan, Snowman, HUD or touch states."
+  },
+  "hard_failures": [
+    {
+      "criterion": "technical",
+      "reason": "The 1672x941 source is below the mandatory 2048x2048 native coverage for one playable screen. Scaling or cropping it into 1280x720 does not repair the missing native master."
+    }
+  ],
+  "dimensions_1_to_5": {
+    "identity": {
+      "score": 4.1,
+      "finding": "The aqua winter playset, shell-like rocks, coral and bubbles connect the scene to Mermaid Roshan's underwater world. The heavy water-caustic treatment makes the supposed snowfield read partly as shallow water or ice, so the build-a-snowman identity is less immediate than it should be."
+    },
+    "finish": {
+      "score": 4.5,
+      "finding": "Paint handling, distant cottage, trees, banks and atmospheric depth are polished and coherent. Repeated bright caustic filaments across the entire foreground create visual busyness and a synthetic overlay quality in the main action area."
+    },
+    "edges": {
+      "score": 4.6,
+      "finding": "The flattened RGB image has clean authored contours, controlled distant softness and no visible cutout fringe. This does not assess future subject edges or compositing because the candidate has no alpha and was not mounted."
+    },
+    "readability": {
+      "score": 3.9,
+      "finding": "The wide central clearing provides useful action space, but pale snow, white caustics and blue-white highlights share a narrow value range. Plain white Snowman balls would lose their lower contours and ground contact here, especially at phone scale."
+    },
+    "animation": {
+      "score": null,
+      "na_reason": "A single static source cannot establish chase cadence, motion contrast, contact animation or frame stability."
+    },
+    "ownership": {
+      "score": 4.0,
+      "finding": "The cottage and trees are sensibly held in the upper-right distance and the center is open. The upper-left HUD region is relatively sparse, but bright streaks and bubbles remain behind it. Foreground caustics occupy the same visual layer that must own chase travel and Snowman contact shadows."
+    },
+    "consistency": {
+      "score": 4.2,
+      "finding": "Rounded painted forms and the aqua-lavender palette fit the broader storybook world better than run07's procedural diagram. The realistic luminous caustic network is more detailed and glassy than the plain procedural Snowman and current Roshan cutout, so direct mounting would expose a medium mismatch."
+    },
+    "technical": {
+      "score": 2.0,
+      "finding": "The opaque RGB source is usable only as a flattened background role, but its 1672x941 native size fails the binding 2048x2048 playable-screen minimum. It must remain rejected regardless of its visual finish."
+    }
+  },
+  "targeted_changes_if_regenerated": [
+    "Produce a true native master of at least 2048x2048 for the single playable screen while preserving the approved landscape composition and protected references only as style/setting guidance.",
+    "Reduce or remove bright caustic filaments across the central and lower chase lane; use broader painted blue-lavender value bands so white Snowman contours and contact shadows remain visible.",
+    "Clarify that the playable surface is snow rather than shallow water or glassy ice. Keep underwater identity in the distant atmosphere, bubbles, coral and architecture instead of covering the contact plane with water-light patterns.",
+    "Reserve a quieter upper-left area for the large instruction and back controls, with no bright bubble chain or high-contrast streak directly behind their bounds.",
+    "Keep the cottage and trees in the distant upper-right and preserve the broad center lane; do not add foreground props that narrow the runner path or compete with Roshan, carrot and coal.",
+    "Verify the new native source mounted with the actual plain Snowman, Roshan, HUD and contact shadows at Mobile 1280x720 before assigning scene readability, ownership, consistency or final acceptance."
+  ],
+  "decision": "Do not mount or derive runtime art from attempt01 as an accepted candidate. Its polished finish does not override the native-resolution hard failure, and its foreground treatment needs a quieter, more legible Snowman contact lane.",
+  "acceptance_boundary": "Scores are bounded source observations and are not averaged into a pass. Animation is unassessed. No full-scene, device, child or owner acceptance is claimed."
+}

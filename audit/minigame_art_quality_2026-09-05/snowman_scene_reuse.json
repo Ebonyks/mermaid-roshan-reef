@@ -1,0 +1,100 @@
+{
+  "status": "REUSE_INVENTORY_ONLY",
+  "review_date": "2026-09-06",
+  "scope": "Existing 2D snowfield, snowball and snowman art considered for the run07 Picture Snowman scene",
+  "acceptance_boundary": "Pixels were inspected at source resolution. No candidate was mounted in the Snowman game, so this inventory assigns no final score or acceptance. Protected originals remain read-only.",
+  "constraints": {
+    "target_canvas": "1280x720 Mobile renderer",
+    "native_background_rule": "A playable screen requires at least 2048x2048 native background coverage before runtime slicing.",
+    "phone_readability": "The moving Snowman, carrot face, Roshan, touch guidance and contact must remain distinct at phone scale.",
+    "alpha": "Full-scene RGB images cannot be treated as isolated transparent layers. RGBA cutouts require edge review over the mounted background.",
+    "protected_art": "assets/book content cannot be modified, destructively processed or substituted without explicit owner instruction."
+  },
+  "candidates": [
+    {
+      "path": "assets/mg/snowman.png",
+      "sha256": "25abadf1ebd8135265ea75d5d188178b0ea624504b8802b5140f1613402ae743",
+      "dimensions": [
+        291,
+        520
+      ],
+      "format": "PNG RGBA cutout with visible transparent surround",
+      "role": "approved painted Snowman material and action reference; possible direct payoff/action cutout",
+      "suitability": "Strongest reusable subject art. It supplies authored lumpy snow texture, cool contour shadows, coal, carrot, stick arm and Roshan contact in the established book style. The silhouette remains readable at moderate phone scale.",
+      "limits": "It depicts Roshan striking/breaking the head, includes a cropped Roshan at the left edge, and is not a neutral intact runner or separable set of snowballs. At 291x520 it cannot serve as a native full-screen background. Direct reuse is suitable only for the matching action/payoff state unless mounted evidence proves another semantic role.",
+      "license_provenance": "Runtime asset exists, but no filename-specific ASSET_LICENSES.md match was found in this bounded search; provenance must be resolved before a new derived use. Do not edit the source."
+    },
+    {
+      "path": "assets/book/hall/p_snowman.jpg",
+      "sha256": "9e23b21708b64d2a3b11dde1357acd60af649762fadcce895f66572c69d07b61",
+      "dimensions": [
+        514,
+        720
+      ],
+      "format": "JPEG RGB flattened portrait",
+      "role": "authoritative story composition, snow texture, scale and contact reference",
+      "suitability": "Best visual authority for the complete textured Snowman, snowy yard, carrot/coal material, Roshan-and-Daddy scale and grounded contact. It demonstrates the finish missing from run07.",
+      "limits": "Protected, flattened and portrait-oriented. It contains characters, text and a fixed completed Snowman, has no alpha, and is far below the 2048x2048 playable-background rule. ASSET_LICENSES.md explicitly says it remains a protected original displayed directly and unchanged and is not copied into derivative runtime or audit art. Reference only unless the owner expressly authorizes a different use.",
+      "license_provenance": "Protected original; ASSET_LICENSES.md line 1629."
+    },
+    {
+      "path": "assets/book/lake_winter.jpg",
+      "sha256": "ba8e767d1911af6add88026b6b5cd5e76f11d5cb9a1c5e82b6e0abb09c1e90e5",
+      "dimensions": [
+        1072,
+        1600
+      ],
+      "format": "JPEG RGB flattened portrait",
+      "role": "painted winter palette, snowbank and distant-sky composition reference",
+      "suitability": "Provides authored blue-gray winter atmosphere, layered snowy rocks, water horizon and restrained snowflakes compatible with the book identity.",
+      "limits": "Protected book art with Roshan baked into the foreground. Portrait crop cannot cover 1280x720 without losing composition or enlarging beyond native width, has no alpha, and fails the 2048x2048 native playable-screen rule. It is not a clean reusable background plate.",
+      "license_provenance": "Protected assets/book original under AGENTS.md; no filename-specific ASSET_LICENSES.md match found in the bounded search. Reference only."
+    },
+    {
+      "path": "assets_src/style_review_score3/terrain_snow_blank.png",
+      "sha256": "85d2f45ef98d81819420d30c9e49a5661a1915139fc08cd14fee80f7be3a0220",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "format": "PNG RGB opaque",
+      "role": "painted snow surface material candidate",
+      "suitability": "Soft opaque brush texture could replace the flat gray run07 playfield locally and keeps dark gameplay silhouettes readable. It contains no baked character or prop.",
+      "limits": "Source directory is explicitly style_review_score3, so it is not approved final art. It has no horizon or scene depth, no alpha, and its 1024 square is below the 2048x2048 native background requirement. Repetition or stretching would be conspicuous; mounted use would need an approved native master and separate sky/ground ownership.",
+      "license_provenance": "No filename-specific ASSET_LICENSES.md match found; source status and provenance require resolution before runtime reuse."
+    },
+    {
+      "path": "assets_src/style_review_score3/terrain_snowsoft_blank.png",
+      "sha256": "3fc522006a3dddf1d80c1c9a6a8b7bbcffc317227b19925170e74d975bec2769",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "format": "PNG RGB opaque",
+      "role": "low-contrast painted snow surface material candidate",
+      "suitability": "The quiet pastel texture is less likely than the stronger blank to compete with carrot, coal and touch targets and could inform a sparse playfield surface.",
+      "limits": "Very low contrast becomes nearly blank at phone scale and cannot establish contact or depth alone. It is an unapproved score-3 source, opaque, only 1024 square, and below native background coverage. It is a material reference rather than a complete scene replacement.",
+      "license_provenance": "No filename-specific ASSET_LICENSES.md match found; source status and provenance require resolution before runtime reuse."
+    },
+    {
+      "path": "assets_src/sky_lagoon/qa_kit/lagoon_snowbank.png",
+      "sha256": "3b33b38d45d7018f3b95ab6b3a3d77d4fe9f6ad144e3bbcc5e0ae826af80195a",
+      "dimensions": [
+        760,
+        760
+      ],
+      "format": "PNG RGB opaque QA render",
+      "role": "snowbank shape reference",
+      "suitability": "Its broad mound suggests a simple foreground contact platform with a clear silhouette.",
+      "limits": "The inspected image is a pale low-poly render on an opaque near-matching field, not a clean alpha cutout or painted storybook asset. It is only 760 square, has weak value separation, and would preserve the run07 medium mismatch. Reject for direct runtime reuse; retain only as non-authoritative shape reference.",
+      "license_provenance": "QA source; no filename-specific ASSET_LICENSES.md match found."
+    }
+  ],
+  "recommendation": {
+    "reuse_now": "Use assets/mg/snowman.png only for its semantically matching strike/break/payoff moment after provenance is confirmed; preserve it unchanged.",
+    "reference_authority": "Use assets/book/hall/p_snowman.jpg as the strongest protected visual reference for snow texture, intact body finish and character contact, without copying or modifying it.",
+    "demonstrated_gap": "No inspected repository asset is a clean, approved, landscape 2048x2048-or-larger painted Snowman playfield with separable intact snowballs and enough empty phone-readable chase space. The score-3 snow textures and QA renders do not close that gap.",
+    "next_mounted_test": "A repair needs an approved native background master or a documented new-art gap, explicit background/playfield/foreground layers, an intact painted Snowman state separate from the existing strike cutout, and Mobile 1280x720 captures for face setup, advancing chase, bite/drop, collection and payoff."
+  },
+  "parent_hash_verification": "Six source files verified against exact current bytes; no pixel changes."
+}

@@ -1,0 +1,38 @@
+{
+  "captures": [
+    "ready_state_configured",
+    "countdown_pressed",
+    "countdown_late",
+    "left_steer",
+    "right_steer",
+    "release_neutral",
+    "repress_after_release",
+    "front_straight",
+    "far_bend",
+    "finish",
+    "finish_settle"
+  ],
+  "elapsed_ms": 74799,
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "harness": "tmp/current-racer-art-capture/capture.gd",
+  "harness_sha256_raw": "37d7f618f811699106272fa055f5700a922f6f2fa69f9210bd7de7b77ebd2ab7",
+  "phase": "RACE",
+  "renderer": "mobile",
+  "settle_status": "SURFACE_RETAINED",
+  "setup": "STATE_CONFIGURED: OperaAct.start(racer), then world._finale_start()/_show_phase(); subsequent touch and frame cadence are live",
+  "source": "scripts/opera_racer_surface.gd",
+  "source_sha256_raw": "f16219bb057155a7bd1e68f0a0fbca32872b91fe911be4e3b12f1d5f7f22773d",
+  "status": "COMPLETED",
+  "surface_mode": "kart_race",
+  "viewport": "(1280, 720)"
+}

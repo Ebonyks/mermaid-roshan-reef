@@ -1,0 +1,20 @@
+{
+  "attempt": "06",
+  "exit_code": 1,
+  "trusted_probe_headings": 78,
+  "failure_markers_in_probe_output": [],
+  "disposition": "FAILED_INCOMPLETE_OPERA_PROBE",
+  "incomplete_probe": "probe_opera_2d",
+  "incomplete_last_phase": "Ballerina RIBBON TRAIL rehearsal hotspot removal",
+  "cause": "Unknown: the CI wrapper did not print the nonzero per-probe process exit. Native crash/exit failure is possible but not proven; no matching task-time Windows Application event was found.",
+  "focused_rerun": {
+    "probe": "probe_opera_2d",
+    "same_touch_flags": true,
+    "fresh_profile": true,
+    "exit_code": 0,
+    "final_verdict": "ALL OK",
+    "source_changes_between_runs": false
+  },
+  "raw_sha256": "5eb11c926c9f7cd998ed875407c4bb3db3b4b39ca56cfdd81ba040f3612a23d9",
+  "acceptance": "Failed full run preserved; passing focused rerun does not retroactively make it green."
+}

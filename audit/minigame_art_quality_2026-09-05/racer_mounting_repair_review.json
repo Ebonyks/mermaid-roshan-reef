@@ -1,0 +1,140 @@
+{
+  "review_id": "racer-mounting-run05-independent-still-review",
+  "scope": "Independent comparison of all eleven current run05 Mobile 1280x720 stills against corresponding run04 stills, limited to the proposed driver crop/mount, cockpit occlusion, player/rival overlap and mirroring, and kart contact shadow. The independently changed upper-right Back control is excluded from the mounting verdict. Stills do not prove animation cadence, target-device playback, natural navigation, child response, or owner acceptance.",
+  "evidence": {
+    "run05": {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run05/captures",
+      "historical_source_capture_path": "tmp/current-racer-run05/captures",
+      "engine": "Godot 4.7.2-stable",
+      "renderer": "mobile",
+      "viewport": "1280x720",
+      "route": "configured OperaAct.start(racer), finale start/show; subsequent touch and frame cadence live",
+      "status": "COMPLETED; exit 0",
+      "source_path": "scripts/opera_racer_surface.gd",
+      "source_sha256_raw": "61af2321f98fd169f72d4cc0cfd7d95f6ae21133b780372daaa790a16c6bface",
+      "captures_sha256": {
+        "ready_state_configured.png": "b484b8637516c4bda3bacc061162c46516a7a598c95694e5b6a44ed3469641aa",
+        "countdown_pressed.png": "05768f4fc08217e0c618054d752782bd83e9eca5be50a622fddf278f175b99a5",
+        "countdown_late.png": "073b003a019d1ab2c031ab8963f3787dd0853c531093ac2255032d63a27297c7",
+        "left_steer.png": "347675a5328c2c63a4864f83b64fd4a21f658b573516bb69ee8e2f39f52d20af",
+        "right_steer.png": "391ccfd5eef8d7b20f27f0301051f4154790c37f52062ea8779c83054cf04f6e",
+        "release_neutral.png": "264e4eebc95066d64712590cc2c77413752722a7b5704f46a305ff7ab1966abc",
+        "repress_after_release.png": "af4d75733e53eafb07384ab165b6ba275039e3872fd7a2b531d6199a2efde2fd",
+        "front_straight.png": "d18d45db8102f279a014ec4d0cb15d600f80055305ee89125beb718236abced4",
+        "far_bend.png": "1b10e0fbeb2f57a664dcfd118da103d1536b04a468d5a5c4a452dd023f30b102",
+        "finish.png": "7f284dc81173699d18ed6a61d448fe57c4191d1a516114692c02b619082c1397",
+        "finish_settle.png": "7f284dc81173699d18ed6a61d448fe57c4191d1a516114692c02b619082c1397"
+      }
+    },
+    "comparison_run04": {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/current-racer/run04/captures",
+      "historical_source_capture_path": "tmp/current-racer-run04/captures",
+      "status": "historical current-before-mounting comparison; not a current acceptance packet",
+      "source_sha256_raw": "a074732d557edc02b8dffad239dda6e78e60b2a7ea088e42782c168e55e01b38"
+    },
+    "approved_sources_unchanged": [
+      {
+        "path": "assets/opera/worlds/actors/roshan_racer.png",
+        "sha256": "b3e92a0f3204e2277e1fdd06988c9393288223fcfc98a9f4c8e033c8c517c6bc"
+      },
+      {
+        "path": "assets/opera/worlds/actors/rival_racer.png",
+        "sha256": "da75600112937ed4f6bb5f9433b4792316419047e8de10f9bfdb7076c65f360f"
+      },
+      {
+        "path": "assets/opera/worlds/widgets/widget_crank_racer_kart.png",
+        "sha256": "59ea76d8be40b604cbf3691e9c9508287334ddf6cf0f81fea08c7f68fd22fe8c"
+      }
+    ]
+  },
+  "state_findings": [
+    {
+      "states": ["ready_state_configured", "countdown_pressed", "countdown_late"],
+      "finding": "Both faces are materially larger and easier to identify than run04, but each upper body rises well above the kart rather than sitting inside its cockpit. Roshan's hands and wheel float across the front kart's upper edge; the rival shows a broad chest cutoff above the rear kart. The kart does not visually mask the intentionally opaque bottom crop edge."
+    },
+    {
+      "states": ["left_steer", "right_steer", "release_neutral", "repress_after_release"],
+      "finding": "The larger figures remain recognizable through direction changes, but overlapping near the right bend produces stacked torsos, kart tails and shells with unclear ownership. In release/repress frames the rival torso is separated vertically from its seat by a dark gap/steering area, and Roshan appears perched in front of or above the kart instead of seated. Mirroring itself preserves upright figures; it does not repair the cockpit relationship."
+    },
+    {
+      "states": ["front_straight"],
+      "finding": "At the most readable near depth, the change exposes the core failure most clearly: the purple rival torso is centered high above the rear vehicle, while Roshan's torso and steering wheel sit across the front vehicle and overlap the rival kart. Driver identity improves, but vehicle ownership and seat contact become less plausible than run04."
+    },
+    {
+      "states": ["far_bend"],
+      "finding": "Depth scaling keeps faces more readable than run04, yet the two enlarged upper bodies and two karts crowd the narrow crest. The central overlap becomes a compact pile of heads, torsos, tails and wheels; this does not meet clear phone-scale player/rival separation."
+    },
+    {
+      "states": ["finish", "finish_settle"],
+      "finding": "The two captures are byte-identical, so they provide one visual state rather than settle-motion evidence. The enlarged drivers remain legible, but the stacked finish composition retains floating/perched torso contact and ambiguous vehicle ownership."
+    }
+  ],
+  "component_scores_1_to_5": {
+    "enlarged_driver_source_pixels": {
+      "identity": 4.7,
+      "finish": 4.6,
+      "edges": 4.6,
+      "readability": 4.6,
+      "reason": "The unchanged painted Roshan and purple rival faces, costume colors and silhouettes survive the crop cleanly and are easier to recognize than run04."
+    },
+    "driver_to_cockpit_mount": {
+      "identity": 3.6,
+      "finish": 3.4,
+      "edges": 4.3,
+      "readability": 3.7,
+      "ownership_contact": 2.8,
+      "consistency": 3.3,
+      "technical_presentation": 3.8,
+      "reason": "No obvious source-side head/hand clipping appears, but the lower torso cut is not hidden convincingly by the seat. Both figures read as pasted or perched above the shared kart, with Roshan's wheel/hands and the rival chest competing with vehicle contours."
+    },
+    "player_rival_separation_at_bends": {
+      "identity": 4.4,
+      "readability": 3.6,
+      "ownership_contact": 3.0,
+      "consistency": 3.4,
+      "reason": "Color and faces distinguish the characters, while close y-order swaps and the common rainbow-tail kart cause crowded, ambiguous overlap at the right bend, front straight and far crest."
+    },
+    "kart_contact_shadow": {
+      "readability": 4.1,
+      "ownership_contact": 4.0,
+      "consistency": 4.2,
+      "reason": "The broader soft ellipse supports more of the near kart footprint and does not form an obvious halo. It is frequently obscured by the dense overlap and cannot compensate for the floating driver-to-seat relationship. Stills do not prove its behavior through hop motion."
+    },
+    "animation": {
+      "score": null,
+      "reason": "Eleven stills, including byte-identical finish and finish_settle files, do not establish cadence, continuous contact, hop motion, or draw-order stability between samples."
+    },
+    "target_device": {
+      "score": null,
+      "reason": "Desktop Mobile-renderer captures are not target-phone evidence."
+    }
+  },
+  "comparison_verdict": {
+    "improvements_over_run04": [
+      "Roshan and rival faces and costume colors are substantially easier to recognize.",
+      "No visible left/right source-crop clipping appears on heads, Roshan's hands, or the rival helmet silhouette.",
+      "The larger shadow footprint better approximates the kart width at near depth."
+    ],
+    "regressions_or_unresolved_failures": [
+      "The lower driver crop is visibly presented rather than convincingly occluded by the cockpit, producing floating or perched torsos.",
+      "Roshan's authored steering wheel and hands layer over the separate kart steering area and shell, creating duplicate cockpit semantics.",
+      "Enlarged drivers make close bends and overtakes more crowded; the common rainbow-tail kart continues to weaken rival vehicle ownership.",
+      "The far-bend crest remains too dense for clear separation despite improved face size."
+    ],
+    "status": "REJECT_MOUNTING_PATCH_AS_CAPTURED",
+    "accepted": false,
+    "full_quality_accepted": false,
+    "rationale": "The readability gain does not offset the critical below-4.5 cockpit ownership/contact failure. The captured mount is less physically plausible and more compositionally crowded than the historical run04 presentation.",
+    "recommended_action": "Do not accept the shared y=-140 geometry captured in run05. A bounded follow-up may retain the enlarged alpha-safe source crop but use character-specific vertical offsets: Roshan y=-123 and rival y=-134. In front_straight, Roshan's visible cropped torso bottom is approximately screen y=407 while the cockpit begins around y=418; moving Roshan down 17 pixels targets overlap behind the seat instead of an 11-pixel floating gap. The rival bottom around y=423 is already near the seat around y=426, so a smaller 6-pixel move targets slight occlusion without burying its face. These are measured still-based hypotheses and require a fresh capture at near depth, both bends, overlap, far depth and finish. If either straight crop edge or duplicate steering-wheel semantic remains visible, reject the enlarged crop and use a smaller head-and-shoulders region or an existing opaque kart foreground mask. Do not recolor or rewrite approved pixels."
+  },
+  "bounded_followup_geometry": {
+    "status": "PROPOSED_NOT_CAPTURED",
+    "source_rect_both": [70, 10, 380, 290],
+    "destination_size_both": [100, 76.32],
+    "player_destination_origin": [-50, -123],
+    "rival_destination_origin": [-50, -134],
+    "basis": "Run05 near-depth visible torso/seat landmarks supplied by direct parent inspection and independently consistent with the visible front_straight composition. Different source silhouettes require different mounts; a shared origin is not supported.",
+    "blocking_reaudit": "Fresh Mobile stills must show the lower crop hidden by the cockpit at front straight, mirrored bends, close overlap, far bend and finish. Motion and target-device acceptance remain unassessed."
+  },
+  "excluded_change": "The upper-right Back control position/appearance differs from run04 because of independent upstream work and is neither credited nor penalized in this mounting review."
+}

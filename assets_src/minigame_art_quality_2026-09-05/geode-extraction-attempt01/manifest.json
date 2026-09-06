@@ -1,0 +1,51 @@
+{
+  "schema": "reef.minigame_art_repair_attempt.v1",
+  "date": "2026-09-06",
+  "runtime_accepted": false,
+  "method": "built-in image_gen",
+  "attempt": 1,
+  "subject": "Focused extraction of existing closed Geologist geode",
+  "gap_reference": "audit/minigame_art_quality_2026-09-05/geologist_reuse_gap_ledger.json",
+  "prompt": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/prompt.txt",
+    "sha256": "efa58bfdb114957bd736a2f2298d081d1f7176039739d035021a0ff849c32bb2"
+  },
+  "source": {
+    "path": "assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/native.png",
+    "sha256": "efaa5f2be034f61d62a548b1ebeaade825b56b98a757871f7e53244c6ed16181"
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha": {
+    "range": [
+      0,
+      255
+    ],
+    "nonzero_bbox": [
+      0,
+      21,
+      1202,
+      1254
+    ],
+    "fully_transparent_pixels": 606542,
+    "fully_opaque_pixels": 1477
+  },
+  "references": [
+    {
+      "path": "assets_src/geologist_rebuild_2026-09-05/geology_props_candidate.png",
+      "sha256": "d36dbd3af772b95182b4ce1757c74a9db9947830ba390a3989506622875dfdcd",
+      "role": "edit_target: top-right closed geode only; checkerboard and other props excluded"
+    }
+  ],
+  "disposition": "SOURCE_CANDIDATE_RUNTIME_BLOCKED",
+  "reason": "Real RGBA alpha and source review recorded.1254x1254 is non-power-of-two and exceeds runtime texture limit. Exact paired-state alignment, intermediate cracks and mounted input/settle evidence remain open. Native bytes untouched; no runtime binding.",
+  "owner_review": false,
+  "generation_output_original": "C:/Users/Peter/.codex/generated_images/01a07232-f269-7e21-8e68-a0deb714ea99/exec-e59d6118-ee5d-4fb7-85cb-d160ae1acbd9.png",
+  "independent_source_review": {
+    "path": "audit/minigame_art_quality_2026-09-05/geode_extraction_attempt01_review.json",
+    "sha256": "1f5dc26512ec9b4079dd2ce3654081f2d017acf9f1d40e0e9dcf116e2549a176"
+  }
+}

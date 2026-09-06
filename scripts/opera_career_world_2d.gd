@@ -7,6 +7,23 @@ extends CanvasLayer
 ## Roshan and a dressed rival on opposite sides, one-finger job gestures,
 ## parallel score/progress, audience energy and a graded curtain call.
 
+# These work rows contain different actions/props, not one continuous motion.
+# Hold the reviewed semantic cell for each phase; source atlas pixels stay intact.
+const REVIEWED_WORK_POSES := {
+	"doctor": {"WASH": 1, "FIND": 1, "X-RAY": 1, "CAST": 2, "BANDAGE": 2},
+	"farmer": {"PLANT": 1, "TOSS": 3, "HERD": 3, "PICNIC": 2},
+	"racer": {"TUNE": 0, "TO THE LINE": 1},
+}
+
+# Hall magic sheets show different tricks, not successive frames of one trick.
+# Neutral presenting poses leave tracking and cabinet action to their live props.
+const REVIEWED_HALL_POSES := {
+	"magician": {
+		"VANISH": ["work", 0], "TRACK": ["idle", 2], "ROPE": ["idle", 3],
+		"CABINET": ["idle", 3], "PORTAL": ["idle", 3],
+	},
+}
+
 const PerformancePlan := preload("res://scripts/opera_performance_plan.gd")
 const Mastery := preload("res://scripts/opera_mastery.gd")
 const PerformanceOverlay := preload("res://scripts/opera_performance_overlay.gd")
@@ -1993,16 +2010,19 @@ func _draw_activity_focus() -> void:
 	# No clipboard, easel, title ribbon, or reading chrome. The existing themed
 	# minigame art floats in a soft theatre-light bloom, with a tiny pearl trail
 	# carrying the only generic progress information.
-	var centre := action_panel.size * Vector2(0.5, 0.48)
-	var radius := maxf(action_panel.size.x, action_panel.size.y) * 0.52
-	action_panel.draw_set_transform(centre, 0.0, Vector2(1.0, 0.62))
-	action_panel.draw_circle(Vector2.ZERO, radius,
-		Color(0.04, 0.08, 0.24, 0.32))
-	action_panel.draw_circle(Vector2.ZERO, radius * 0.88,
-		Color(0.18, 0.46, 0.92, 0.12))
-	action_panel.draw_arc(Vector2.ZERO, radius * 0.94, -PI * 0.84,
-		-PI * 0.16, 42, Color(0.44, 0.78, 1.0, 0.48), 5.0)
-	action_panel.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	# The three Hall performances already have local gesture cues and a status
+	# card. A room-sized dark lens masks the painted stage and performer contact.
+	if not two_act_enabled:
+		var centre := action_panel.size * Vector2(0.5, 0.48)
+		var radius := maxf(action_panel.size.x, action_panel.size.y) * 0.52
+		action_panel.draw_set_transform(centre, 0.0, Vector2(1.0, 0.62))
+		action_panel.draw_circle(Vector2.ZERO, radius,
+			Color(0.04, 0.08, 0.24, 0.32))
+		action_panel.draw_circle(Vector2.ZERO, radius * 0.88,
+			Color(0.18, 0.46, 0.92, 0.12))
+		action_panel.draw_arc(Vector2.ZERO, radius * 0.94, -PI * 0.84,
+			-PI * 0.16, 42, Color(0.44, 0.78, 1.0, 0.48), 5.0)
+		action_panel.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	var custom_progress := clampf(float(phase_fill.value) / 100.0, 0.0, 1.0) \
 		if phase_fill != null else 0.0
 	if _is_chapter2_candymaker_scene():
@@ -2290,6 +2310,23 @@ func _play_roshan_animation(animation: String) -> void:
 		player_animator.play(animation)
 
 
+func _play_roshan_task_pose(phase: Dictionary) -> void:
+	if String(phase.get("mode", "")) == "talk":
+		_play_roshan_animation("idle")
+		return
+	var reviewed: Dictionary = REVIEWED_WORK_POSES.get(career_id, {})
+	var phase_name := String(phase.get("name", ""))
+	var hall_poses: Dictionary = REVIEWED_HALL_POSES.get(career_id, {})
+	if two_act_enabled and hall_poses.has(phase_name) and is_instance_valid(player_animator):
+		var pose: Array = hall_poses[phase_name]
+		player_animator.show_pose(String(pose[0]), int(pose[1]))
+		return
+	if reviewed.has(phase_name) and is_instance_valid(player_animator):
+		player_animator.show_pose("work", int(reviewed[phase_name]))
+		return
+	_play_roshan_animation("work")
+
+
 func _widget_template(phase: Dictionary) -> String:
 	var mode := String(phase.get("mode", ""))
 	var name := String(phase.get("name", ""))
@@ -2563,7 +2600,7 @@ func _open_task() -> void:
 	if phase_index >= _finale_start():
 		competition.begin()
 		_set_finale_visible(true)
-	_play_roshan_animation("idle" if mode_name == "talk" else "work")
+	_play_roshan_task_pose(phase)
 	var is_bop := mode_name == "bop"
 	var is_lens := mode_name == "lens"
 	var accent := Color(competition.spec.get("accent", Color(1.0, 0.62, 0.8)))
@@ -3398,7 +3435,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		return
 	if mode == "kart_race" and _kind not in ["kart_race", "probe"]:
 		return
-	_play_roshan_animation("work")
+	_play_roshan_task_pose(phase)
 	if mode == "catch" and amount < 5.0:
 		return
 	idle_t = 0.0

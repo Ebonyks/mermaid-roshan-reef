@@ -1,0 +1,29 @@
+{
+  "schema": "reef.minigame_publication_verification.v1",
+  "status": "BOUNDED_PUBLICATION_CHECK_PASS",
+  "repaired_issues": 7,
+  "repaired_reports": [
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/racer_mounting_repair_review.json",
+      "sha256": "f56b0d807c6a49cfc17de51118013fb29c39c09df0faf9853c194d1daaaf8502"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/racer_seating_followup_review.json",
+      "sha256": "036bbdf4b141ade261c196008625ed0db1ccf54115b5e1abbb4c58aac1d6999e"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/publication_consistency_followup.json",
+      "sha256": "bb0b4f2cd0b411cf9b6c7b700180d14896dde80b42bc07297accaee50e9fcc51"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/current_repair_queue.json",
+      "sha256": "e7362e0262a6c54a5b3dd1d9db5947ae98d97c497d6db10564a5525c5f877852"
+    }
+  ],
+  "verified_archived_file_entries": 191,
+  "verified_png_file_entries": 132,
+  "scope": "Paths/status/text fixes and exactbyte archiveintegrity only; not unique-state or artacceptance.",
+  "source_review": "audit/minigame_art_quality_2026-09-05/publication_initial_review.json",
+  "game_wide_acceptance": false,
+  "source_review_sha256": "09ac848bab4b4b22c2611493f9bc652b7ad042459f1b513dad661c3795d31476"
+}

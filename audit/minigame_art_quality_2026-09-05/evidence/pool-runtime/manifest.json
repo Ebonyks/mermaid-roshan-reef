@@ -1,0 +1,216 @@
+{
+  "schema": "reef.pool_art_diagnostic.v1",
+  "parents": [
+    "9df000999a94572b64537c98f558841f6f3e3260",
+    "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d"
+  ],
+  "candidate_commit": null,
+  "engine": "Godot4.7.2-stable ed1daf0bf",
+  "renderer": "Mobile Vulkan RTX3060Ti",
+  "viewport": [
+    1280,
+    720
+  ],
+  "method": "configured actual room route; real GUI touch callbacks; normal processing; screenshots not motion acceptance",
+  "runs": {
+    "baseline": "run03 exit0",
+    "preview_fixed": "run04 exit0",
+    "run01": "rejected before captures: incorrect cleanup parent assertion",
+    "run02": "rejected before captures: diagnostics established real scene; cleanup.setup reparents under castle_room_world_root"
+  },
+  "geometry_regression": {
+    "before_exit": 1,
+    "after_exit": 0,
+    "targets": 4,
+    "assertion": "actual preview rect entirely inside card and card entirely inside canvas"
+  },
+  "label_corrections": {
+    "08_real_room_rumi_settle.png": "Visible state is Playroom handoff; this does NOT provide Rumi settle evidence",
+    "07_real_room_rainbow_reveal.png": "Rainbow/Rumi transition, not settled identity"
+  },
+  "primary_sources": [
+    {
+      "path": "scripts/main.gd",
+      "hash_normalization": "utf8_lf",
+      "baseline_dev_sha256": "950c31b23c2faae7c260c318aaf4b1abdc44f4cd93a9df1050d4d36d448e9f14",
+      "preview_fixed_sha256": "f357d41f686db7781811d39ba1fd2fb5bdc49e477cf93678fcd16ec0f7424317"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "hash_normalization": "utf8_lf",
+      "baseline_dev_sha256": "55e03356298d3f72e014cec9bc12d5783c3edf68a9683146116a55267919131e",
+      "preview_fixed_sha256": "55e03356298d3f72e014cec9bc12d5783c3edf68a9683146116a55267919131e"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "hash_normalization": "utf8_lf",
+      "baseline_dev_sha256": "64ce94893f5ba73bbec92690030af42ebfda2f235d755029a3b1a5f8879893c4",
+      "preview_fixed_sha256": "64ce94893f5ba73bbec92690030af42ebfda2f235d755029a3b1a5f8879893c4"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "hash_normalization": "utf8_lf",
+      "baseline_dev_sha256": "5caebf79b158ed1ca86540aee7e8032e347b108a3226e65dbe2de71858b8fa4a",
+      "preview_fixed_sha256": "5caebf79b158ed1ca86540aee7e8032e347b108a3226e65dbe2de71858b8fa4a"
+    },
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "hash_normalization": "utf8_lf",
+      "baseline_dev_sha256": "31c91228879a36d993123aad46a3bb256cbdd01bbb9c355bb7e85f82322c8fe2",
+      "preview_fixed_sha256": "31c91228879a36d993123aad46a3bb256cbdd01bbb9c355bb7e85f82322c8fe2"
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "hash_normalization": "utf8_lf",
+      "baseline_dev_sha256": "4bb6a3ce133ee63859c2bf6aee36b9e04767ae5d36f27e21153ba39d80b4918b",
+      "preview_fixed_sha256": "4bb6a3ce133ee63859c2bf6aee36b9e04767ae5d36f27e21153ba39d80b4918b"
+    }
+  ],
+  "dependency_scope": "Primary source owners only; indirect runtime dependencies remain incomplete. Not canonical same-process provenance or complete art acceptance.",
+  "target_device_tested": false,
+  "animation_reviewed": false,
+  "child_reviewed": false,
+  "quality_accepted": false,
+  "files": [
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/baseline/00_real_room_dirty_arrival.png",
+      "sha256": "69044268056d44b819ebbf2a0430dadfa7b995db6c6429f8d43c3296c072a058"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/baseline/01_real_room_skimmer_partial_held.png",
+      "sha256": "5356b086e17fe1a54436843efb69d876d74173c77d32c303bda16a349afceb02"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/baseline/02_real_room_skimmer_complete_waterfall_ready.png",
+      "sha256": "b88d0bb8e4725c192a274d9c3309d151a2a9f3c02dc5319b5d21395bb33b74fa"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/baseline/03_real_room_waterfall_partial_held.png",
+      "sha256": "f5552a329a95af3b07d28e5e8940146fbc9d889c3d6d6bc355b365552e31f154"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/baseline/04_real_room_waterfall_complete_seahorse_ready.png",
+      "sha256": "ca8c50383b37959c45ca43c8e6c49a0469fb1b04432abafd8bc6331cfd8f80ec"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/baseline/05_real_room_seahorse_mid_tug.png",
+      "sha256": "9a9ed5628dab9659a0c8d58e0677f88f35d4893f112e243a9fadf5c8a40eff7f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/baseline/06_real_room_seahorse_release.png",
+      "sha256": "bd950304e2331a1834d1ec78c8f4eeeac62bdc0ee5605a446089f654e27226e1"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/baseline/07_real_room_rainbow_reveal.png",
+      "sha256": "b91521ea6f9a57445771924bce40cedfac03888544f2eebc69da40c09a40cd7e"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/baseline/08_real_room_rumi_settle.png",
+      "sha256": "8f399989a2cd63b269c24ecfd8554659e2b6e1034672c4eae804647c99875fd7"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/baseline/capture.log",
+      "sha256": "a0e85911e9b9a118a2b5c1410800671c34b50712ab548876700f00fa1d0ee9eb"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/baseline/exit.txt",
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/baseline/harness.gd.txt",
+      "sha256": "82098653b9871b222a306510d4282f2d3ad45782be3fccb82a7591f89eea36e2"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/preview-fixed/00_real_room_dirty_arrival.png",
+      "sha256": "1572269824cbadc518350be8b7796a26b47e35423db8f5ba15e0bec1fd61bf8e"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/preview-fixed/01_real_room_skimmer_partial_held.png",
+      "sha256": "86015f64f59b47587d96d4f0e81dbd25645834161db664de97f0d928932da3fa"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/preview-fixed/02_real_room_skimmer_complete_waterfall_ready.png",
+      "sha256": "9a0ec5303cb1c0fbbd792a8f91fa9e1c5443a4e4ca9adeac7356da61ac6c47b7"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/preview-fixed/03_real_room_waterfall_partial_held.png",
+      "sha256": "ce61d0bd5c8b3068def9573a4ca6da6bfbb7878ce6eb5229262eb8171ce18808"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/preview-fixed/04_real_room_waterfall_complete_seahorse_ready.png",
+      "sha256": "3f14d77d319932223cac7000d5f08d1161009a7aaad75dbfd3b03c290ef7a348"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/preview-fixed/05_real_room_seahorse_mid_tug.png",
+      "sha256": "14f970b32803f44d8d64697f5290c37c9acaf6e0facf847e34fec5b56b8aac31"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/preview-fixed/06_real_room_seahorse_release.png",
+      "sha256": "b9f463f7b7e6ef0ebf4e1130b335026a4d30400e6882d4c88c7720e073d0e859"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/preview-fixed/07_real_room_rainbow_reveal.png",
+      "sha256": "33d168741c7d5ab2f7c9818fcbe5f43fc70cead9ab3b730fd7ffe18c7ead2a2a"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/preview-fixed/08_real_room_rumi_settle.png",
+      "sha256": "d3e7eed7442ddebc47ac547c75cde6825ff345738b350906e8ef912de4322503"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/preview-fixed/capture.log",
+      "sha256": "c369882a75bf6a27363aa0ec5fa516bafc9fcdae096a97bd6dd9b543cf7543ff"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/preview-fixed/exit.txt",
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/preview-fixed/harness.gd.txt",
+      "sha256": "82098653b9871b222a306510d4282f2d3ad45782be3fccb82a7591f89eea36e2"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/support/run01/capture.log",
+      "sha256": "73ed23b2cd9669ed01d55f2e4c32f10198a9252ec2ab36eaaa6473cb7040950d"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/support/run01/capture.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/support/run01/exit.txt",
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/support/run01/harness.gd.txt",
+      "sha256": "d826aa5a474346c7234f2f1cde81b2e9c43074ce56ad8cedf5f43a724539be7f"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/support/run02/capture.log",
+      "sha256": "673e6b7c1e7d263c52b2bdac8a3410c7ecbbf55302cd588cf7d738ab9693c194"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/support/run02/exit.txt",
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/support/run02/harness.gd.txt",
+      "sha256": "0611460169596ba3a3269aebfe25d581bd5da9ed76600ca2ea440627947caf20"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/support/preview-bounds-before/probe.log",
+      "sha256": "c8cffdac3b39cce66320f7ada1c7f82e77e0a2556c1eaf7c0f5bfe7fbc7f2afe"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/support/preview-bounds-before/exit.txt",
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/support/preview-bounds-after/probe.log",
+      "sha256": "1d43bcc668d75453cdba18e9b13e625b003b4083fc8177f84470e9f49ee2a518"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/evidence/pool-runtime/support/preview-bounds-after/exit.txt",
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    }
+  ]
+}
