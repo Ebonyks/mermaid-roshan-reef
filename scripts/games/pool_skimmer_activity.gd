@@ -23,7 +23,15 @@ const CATCH_RADIUS := 118.0
 const BASKET_POSITION := Vector2(980.0, 560.0)
 const SKIMMER_MAX_SIZE := Vector2(205.0, 150.0)
 const BASKET_MAX_SIZE := Vector2(145.0, 112.0)
-const SKIMMER_CONTACT_OFFSET := Vector2(48.0, -16.0)
+const ROSHAN_ATLAS := preload("res://assets/characters/roshan_25d/roshan_directional.png")
+# Measured on the existing art: right hand in directional cell 1, handle
+# grip and net centre in the complete 1024x682 skimmer. No art is regenerated.
+const HAND_OFFSET := Vector2(46.0, 23.0) * 0.95
+const HANDLE_PIXEL := Vector2(100.0, 580.0)
+const NET_PIXEL := Vector2(780.0, 190.0)
+const SWIM_SPEED := 440.0
+const CONTACT_RADIUS := 24.0
+const SCOOP_SECONDS := 0.42
 const POOL_VISUAL_BOUNDS := Rect2(170.0, 220.0, 940.0, 250.0)
 const TRASH_POSITIONS: Array[Vector2] = [
 	Vector2(310.0, 316.0),
@@ -69,9 +77,21 @@ var _basket: Sprite2D = null
 var _demo_pointer: Label = null
 var _feedback_layer: Control = null
 var _atlas: Texture2D = null
+var _cleaner: Node2D = null
+var _roshan: Sprite2D = null
+var _room_roshan: Sprite2D = null
+var _room_shadow: Sprite2D = null
+var _room_visibility: bool = true
+var _shadow_visibility: bool = true
+var _owns_actor: bool = false
+var _target_index: int = -1
+var _scoop_time: float = 0.0
+var _owned_touch: int = -1
+var _hand_offset: Vector2 = HAND_OFFSET
 
 
 func setup(initial_mask: int = 0) -> void:
+	_release_room_actor()
 	_stop_flights()
 	_clear_owned_children()
 	_progress_mask = initial_mask & ALL_MASK
@@ -96,6 +116,8 @@ func start() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	_demo_time = 0.0
 	_dragging = false
+	if not _completed:
+		_claim_room_actor()
 	if _demo_pointer != null and is_instance_valid(_demo_pointer):
 		_demo_pointer.visible = not _completed
 	if _completed:
@@ -107,6 +129,8 @@ func start() -> void:
 func stop() -> void:
 	_running = false
 	_dragging = false
+	cancel_touch()
+	_release_room_actor()
 	_stop_flights()
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	if _demo_pointer != null and is_instance_valid(_demo_pointer):
@@ -116,6 +140,11 @@ func stop() -> void:
 
 func cancel_touch() -> void:
 	_dragging = false
+	_owned_touch = -1
+	_target_index = -1
+	_scoop_time = 0.0
+	if _cleaner != null:
+		_cleaner.rotation = 0.0
 	_last_input_time = _demo_time
 
 
@@ -126,8 +155,14 @@ func probe_collect_next() -> bool:
 		start()
 	for index: int in range(TRASH_COUNT):
 		if (_progress_mask & (1 << index)) == 0:
-			_set_skimmer_position(TRASH_POSITIONS[index], true)
-			return _collect_at(TRASH_POSITIONS[index])
+			_begin_live_drag(_trash_contact_position(index))
+			_dragging = false
+			# Exercise the same travel/contact/action gate in bounded simulation.
+			for _tick: int in range(240):
+				_advance_cleaning(1.0 / 60.0)
+				if (_progress_mask & (1 << index)) != 0:
+					return true
+			return false
 	return false
 
 
@@ -146,6 +181,13 @@ func audit_snapshot() -> Dictionary:
 		"trash_sprite_count": _trash_sprites.size(),
 		"atlas_cell_size": TRASH_CELL_SIZE,
 		"catch_radius": CATCH_RADIUS,
+		"roshan_present": _roshan != null and _roshan.is_visible_in_tree(),
+		"roshan_position": _cleaner.position if _cleaner != null else Vector2.ZERO,
+		"net_position": _skimmer_position,
+		"target_index": _target_index,
+		"scoop_time": _scoop_time,
+		"contact_radius": CONTACT_RADIUS,
+		"hand_grip_error": _hand_grip_error(),
 		"live_input_required": true,
 		"one_finger": true,
 		"no_fail_state": true,
@@ -172,10 +214,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_demo_time += maxf(delta, 0.0)
+	_advance_cleaning(maxf(delta, 0.0))
 	if _demo_pointer == null or not is_instance_valid(_demo_pointer):
 		queue_redraw()
 		return
-	if not _running or _completed or _dragging:
+	if not _running or _completed or _dragging or _target_index >= 0:
 		_demo_pointer.visible = false
 		queue_redraw()
 		return
@@ -231,30 +274,39 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		var touch: InputEventScreenTouch = event as InputEventScreenTouch
 		if touch.pressed:
+			if _owned_touch >= 0:
+				return
+			_owned_touch = touch.index
 			_begin_live_drag(touch.position)
-		else:
-			cancel_touch()
+		elif touch.index == _owned_touch:
+			if touch.canceled:
+				cancel_touch()
+			else:
+				_dragging = false
+				_owned_touch = -1
 		accept_event()
 		return
 	if event is InputEventScreenDrag:
 		var drag: InputEventScreenDrag = event as InputEventScreenDrag
-		if _dragging:
+		if _dragging and drag.index == _owned_touch:
 			_update_live_drag(drag.position)
 		accept_event()
 		return
 	if event is InputEventMouseButton:
+		if _owned_touch >= 0:
+			return
 		var mouse_button: InputEventMouseButton = event as InputEventMouseButton
 		if mouse_button.button_index != MOUSE_BUTTON_LEFT:
 			return
 		if mouse_button.pressed:
 			_begin_live_drag(mouse_button.position)
 		else:
-			cancel_touch()
+			_dragging = false
 		accept_event()
 		return
 	if event is InputEventMouseMotion:
 		var mouse_motion: InputEventMouseMotion = event as InputEventMouseMotion
-		if _dragging:
+		if _dragging and _owned_touch < 0:
 			_update_live_drag(mouse_motion.position)
 			accept_event()
 
@@ -271,33 +323,107 @@ func _update_live_drag(position: Vector2) -> void:
 	if not _dragging:
 		return
 	_last_input_time = _demo_time
-	_set_skimmer_position(position, true)
-	_collect_at(_skimmer_position)
-
-
-func _set_skimmer_position(position: Vector2, live_input: bool) -> void:
-	_skimmer_position = Vector2(
-		clampf(position.x, POOL_VISUAL_BOUNDS.position.x, POOL_VISUAL_BOUNDS.end.x),
-		clampf(position.y, POOL_VISUAL_BOUNDS.position.y, POOL_VISUAL_BOUNDS.end.y))
-	if _skimmer == null or not is_instance_valid(_skimmer):
-		return
-	_skimmer.position = _skimmer_position - SKIMMER_CONTACT_OFFSET
-	_skimmer.rotation = -0.08 + clampf(
-		(_skimmer_position.x - 640.0) / 1200.0, -0.18, 0.18)
-	if live_input:
-		_skimmer.modulate = Color(1.0, 1.0, 1.0, 1.0)
-
-
-func _collect_at(position: Vector2) -> bool:
-	if not _running and not _completed:
-		return false
+	var nearest: int = -1
+	var distance: float = CATCH_RADIUS
 	for index: int in range(TRASH_COUNT):
 		if (_progress_mask & (1 << index)) != 0:
 			continue
-		if position.distance_to(_trash_contact_position(index)) <= CATCH_RADIUS:
-			_collect_item(index)
-			return true
-	return false
+		var candidate: float = position.distance_to(_trash_contact_position(index))
+		if candidate <= distance:
+			distance = candidate
+			nearest = index
+	if nearest != _target_index:
+		_scoop_time = 0.0
+		_cleaner.rotation = 0.0
+	_target_index = nearest
+
+
+func _advance_cleaning(delta: float) -> void:
+	if not _running or _completed or _target_index < 0 or _cleaner == null:
+		return
+	# A slow frame or resume must not collapse travel and acting into one jump.
+	delta = clampf(delta, 0.0, 1.0 / 15.0)
+	var contact: Vector2 = _trash_contact_position(_target_index)
+	var net_offset: Vector2 = _hand_offset + (NET_PIXEL - HANDLE_PIXEL) * _skimmer.scale
+	var destination: Vector2 = contact - net_offset
+	_cleaner.position = _cleaner.position.move_toward(destination, SWIM_SPEED * delta)
+	if _cleaner.position.distance_to(destination) > 1.0:
+		_scoop_time = 0.0
+		_cleaner.rotation = 0.0
+	else:
+		_scoop_time += delta
+		# The complete approved cutout leans with its held tool, keeping the
+		# measured hand/handle joint fixed through the visible scoop.
+		_cleaner.rotation = sin(minf(_scoop_time / SCOOP_SECONDS, 1.0) * TAU) * 0.055
+	_sync_net_position()
+	if _scoop_time >= SCOOP_SECONDS and _skimmer_position.distance_to(contact) <= CONTACT_RADIUS:
+		var collected: int = _target_index
+		_target_index = -1
+		_scoop_time = 0.0
+		_cleaner.rotation = 0.0
+		_sync_net_position()
+		_collect_item(collected)
+
+
+func _sync_net_position() -> void:
+	_skimmer_position = get_global_transform().affine_inverse() * _skimmer.to_global(
+		NET_PIXEL - _skimmer.texture.get_size() * 0.5)
+
+
+func _hand_grip_error() -> float:
+	if _skimmer == null or _cleaner == null:
+		return INF
+	return _cleaner.to_global(_hand_offset).distance_to(_skimmer.to_global(
+		HANDLE_PIXEL - _skimmer.texture.get_size() * 0.5))
+
+
+func bind_room_actor(actor: Sprite2D, shadow: Sprite2D, skin: String = "classic") -> void:
+	_room_roshan = actor
+	_room_shadow = shadow
+	# Preserve the wardrobe selection using its existing complete cutout.
+	# These normalized hand sockets are measured on the two current skins.
+	if is_instance_valid(actor) and actor.texture != null and skin in ["fairy", "huluu"]:
+		_roshan.texture = actor.texture
+		_fit_sprite(_roshan, Vector2(243.2, 243.2))
+		var hand_uv: Vector2 = Vector2(0.705, 0.552) if skin == "fairy" else Vector2(0.811, 0.353)
+		_hand_offset = (hand_uv - Vector2(0.5, 0.5)) * actor.texture.get_size() * _roshan.scale
+		_skimmer.position = _hand_offset - (HANDLE_PIXEL - _skimmer.texture.get_size() * 0.5) * _skimmer.scale
+
+
+func _claim_room_actor() -> void:
+	if _owns_actor or _cleaner == null:
+		return
+	_owns_actor = true
+	_cleaner.visible = true
+	if is_instance_valid(_room_roshan):
+		_room_visibility = _room_roshan.visible
+		_cleaner.position = get_global_transform().affine_inverse() * _room_roshan.global_position
+		_room_roshan.visible = false
+	if is_instance_valid(_room_shadow):
+		_shadow_visibility = _room_shadow.visible
+		_room_shadow.visible = false
+	_sync_net_position()
+
+
+func _release_room_actor() -> void:
+	if not _owns_actor:
+		return
+	_owns_actor = false
+	if is_instance_valid(_room_roshan):
+		_room_roshan.global_position = _cleaner.global_position
+		var foot: Vector2 = _cleaner.position + Vector2(0.0, 110.0)
+		_room_roshan.set_meta("stage_foot", foot)
+		_room_roshan.set_meta("current_stage_foot", foot)
+		_room_roshan.visible = _room_visibility
+	if is_instance_valid(_room_shadow):
+		_room_shadow.global_position = _cleaner.to_global(Vector2(0.0, 100.0))
+		_room_shadow.visible = _shadow_visibility
+	if _cleaner != null:
+		_cleaner.visible = false
+
+
+func _exit_tree() -> void:
+	_release_room_actor()
 
 
 func _collect_item(index: int) -> void:
@@ -375,11 +501,25 @@ func _build_activity_art() -> void:
 	_skimmer = Sprite2D.new()
 	_skimmer.name = "PoolSkimmer"
 	_skimmer.texture = load(SKIMMER_PATH) as Texture2D
-	_skimmer.position = _skimmer_position - SKIMMER_CONTACT_OFFSET
 	_skimmer.z_index = 35
-	_skimmer.modulate = Color(0.82, 0.88, 0.86, 0.96)
 	_fit_sprite(_skimmer, SKIMMER_MAX_SIZE)
-	add_child(_skimmer)
+	_cleaner = Node2D.new()
+	_cleaner.name = "RoshanHoldingSkimmer"
+	_cleaner.position = Vector2(640.0, 490.0)
+	_cleaner.z_index = 34
+	_cleaner.visible = false
+	add_child(_cleaner)
+	_roshan = Sprite2D.new()
+	_roshan.name = "RoshanApprovedCutout"
+	var pose := AtlasTexture.new()
+	pose.atlas = ROSHAN_ATLAS
+	pose.region = Rect2(256.0, 0.0, 256.0, 256.0)
+	_roshan.texture = pose
+	_roshan.scale = Vector2.ONE * 0.95
+	_cleaner.add_child(_roshan)
+	_skimmer.position = HAND_OFFSET - (HANDLE_PIXEL - _skimmer.texture.get_size() * 0.5) * _skimmer.scale
+	_cleaner.add_child(_skimmer)
+	_sync_net_position()
 
 	_demo_pointer = Label.new()
 	_demo_pointer.name = "SkimmerDemoPointer"
@@ -480,3 +620,8 @@ func _clear_owned_children() -> void:
 	_basket = null
 	_demo_pointer = null
 	_feedback_layer = null
+	_cleaner = null
+	_roshan = null
+	_target_index = -1
+	_scoop_time = 0.0
+	_hand_offset = HAND_OFFSET

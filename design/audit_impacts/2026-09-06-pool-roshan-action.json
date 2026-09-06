@@ -1,0 +1,65 @@
+{
+  "id": "2026-09-06-pool-roshan-action",
+  "scope": "Repair the detached pool skimmer by showing Roshan travel with a hand-held tool and scoop at each selected item before saving progress. Add the owner's game-wide travel, local work and completion requirement to the master audit, explicitly retaining bathtub, craft-room, baby-eagle and remaining pool work as open cases. Reuse approved art unchanged. Full validation exposed an existing slide-probe fixture mismatch: sideways joystick input turns the Reef player while the probe asserts translation. Change only that fixture to a forward drag, preserving every assertion and production behavior; an ignored diagnostic control demonstrated zero forward velocity before and positive forward velocity after.",
+  "baseline": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
+  "rules": [
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-AGE-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07"
+  ],
+  "findings": [
+    "MA-PLAY-004"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "scripts/games/day_one_pool_cleanup.gd",
+    "scripts/games/pool_skimmer_activity.gd",
+    "scripts/probe_day_one_pool_cleanup.gd",
+    "scripts/probe_day_one_pool_shots.gd",
+    "scripts/probe_audit.gd"
+  ],
+  "validation": [
+    {
+      "command": "python -m gdtoolkit.parser <five changed scripts>; python tools/lint_inference.py <five changed scripts>",
+      "result": "PASS",
+      "evidence": "Changed scripts parse and pass inference lint. Final repeated checks accompany the commit."
+    },
+    {
+      "command": "Godot 4.7.2 --headless -s scripts/probe_day_one_pool_cleanup.gd with isolated APPDATA",
+      "result": "PASS",
+      "evidence": "Final DAY_ONE_POOL|RESULT: PASS checks_failed=0, Godot 4.7.2 official.ed1daf0bf. Live-event travel/contact/scoop, far input, second finger, canceled touch, drag retarget, slow-frame no-teleport, selected fairy/huluu cutouts, monotonic saves, re-entry, no duplicate actor on restored-complete mask and three-phase Rumi finale pass. Log: tmp/pool-validation/pool-probe-final.log; SHA-256 fa2bb990efab2c9cabe69404ffe66102c5646c05a8712dac791564b1ca157d1f"
+    },
+    {
+      "command": "Godot 4.7.2 --rendering-method mobile -s scripts/probe_day_one_pool_shots.gd with isolated APPDATA",
+      "result": "PASS",
+      "evidence": "Final source-matched Forward Mobile on RTX 3060 Ti, diagnostic cap 60 fps: DAY_ONE_POOL_SHOTS|RESULT: PASS failures=0. Captures: tmp/pool-reviewed-source-shots. Scene time is paused for PNG capture; travel/scoop/reveal wait on observed state with deadlines so frames do not show the later next-room overlay. Reviewed scoop: one visible Roshan, hand/handle contact, net at trash, idle hint hidden. Reviewed reveal: Roshan and Rumi faces remain readable. All prior phase and finale checks pass. Desktop diagnostic evidence only, not phone/child/owner acceptance. Log SHA-256 85effc33dfaa79e0575e84075be7d9c398bdc1d04e04771ffe611aa661e1706a"
+    },
+    {
+      "command": "GODOT=Godot-4.7.2 bash scripts/ci.sh",
+      "result": "FAIL",
+      "evidence": "Initial run stopped on pre-existing typography fixture, resolved by reconciling origin/dev 7055d676. Reconciled full run completed static/import gates and all 78 probes, exiting 1 for only the existing slide joystick fixture in probe_audit. After the minimal forward-input fixture correction, the ordinary-clock trusted probe_audit rerun passed. All 78 final probe transcripts pass the unchanged CI failure regex; all other 77 came from the complete suite run. Full log: tmp/pool-validation/full-ci-reconciled.log; SHA-256 024c24a43bce620f566a9b59423f82778d3bc53ad3f101b2be785cb4a8ca02b8. Rollup: tmp/pool-validation/validation-rollup.txt. Branch CI remains a separate required integration gate."
+    },
+    {
+      "command": "python tools/audit_document_authority.py; python tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Reconciled baseline 7055d676: document authority 532/532 ledger parity, 55 active / 57 records; changed-file development coverage ALL OK. No generated import-sidecar content diff."
+    },
+    {
+      "command": "Godot 4.7.2 --headless -s scripts/probe_audit.gd -- --touch --classic-touch-test (isolated APPDATA/LOCALAPPDATA)",
+      "result": "PASS",
+      "evidence": "Ordinary-clock trusted full-game probe passes every assertion after correcting the turn-only fixture to forward travel. No production slide behavior or assertions changed. Log: tmp/pool-validation/probe-audit-corrected.log; SHA-256 6ef6dead942cb4ae1974944c2debfce2f893d209b7ff7eda8cb429d52cdb16b6"
+    },
+    {
+      "command": "Complete local validation rollup: full static/import gates plus all 78 final trusted probe transcripts using the unchanged CI failure regex",
+      "result": "PASS",
+      "evidence": "tmp/pool-validation/validation-rollup.txt: POOL_VALIDATION|ALL OK|78/78. The original full-run failure and corrected ordinary-clock probe_audit rerun remain separately recorded above."
+    }
+  ],
+  "acceptance_gaps": "Pool is a bounded runtime repair. Other Roshan-owned jobs (bathtub, craft room, baby eagle, waterfall/seahorse and equivalents) remain individually open under MA-PLAY-004. Target-phone performance, child comprehension and owner visual acceptance remain outstanding. No master-audit satisfaction or release promotion is claimed."
+}

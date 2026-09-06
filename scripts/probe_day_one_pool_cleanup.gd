@@ -78,6 +78,7 @@ func _run_probe() -> void:
 		and bool(initial.get("no_fail", false))
 		and bool(initial.get("dingy_lighting", false)))
 	_probe_contextual_voice_wiring()
+	_probe_roshan_contact(host)
 	var swimmer: Dictionary = initial.get("swimming_bunny", {}) as Dictionary
 	_check("exact pool bunny cast keeps one land and one swimmer",
 		int(initial.get("dust_bunny_count", 0)) == 2
@@ -223,6 +224,112 @@ func _run_probe() -> void:
 		"PASS" if checks_failed == 0 else "FAIL",
 		" checks_failed=", checks_failed)
 	quit(1 if checks_failed > 0 else 0)
+
+
+func _probe_roshan_contact(host: Control) -> void:
+	var actor := Sprite2D.new()
+	actor.position = Vector2(700.0, 490.0)
+	host.add_child(actor)
+	var shadow := Sprite2D.new()
+	host.add_child(shadow)
+	var activity: PoolSkimmerActivity = POOL_SKIMMER.new()
+	host.add_child(activity)
+	activity.setup()
+	activity.bind_room_actor(actor, shadow)
+	activity.start()
+	activity.set_process(false)
+	var before: Dictionary = activity.audit_snapshot()
+	_check("one visible Roshan owns the held skimmer",
+		bool(before.get("roshan_present", false)) and not actor.visible
+		and not shadow.visible and float(before.get("hand_grip_error", INF)) < 0.01)
+	var touch := InputEventScreenTouch.new()
+	touch.index = 0
+	touch.pressed = true
+	touch.position = PoolSkimmerActivity.TRASH_POSITIONS[0]
+	activity._gui_input(touch)
+	_check("far touch cannot collect remotely", int(activity.audit_snapshot()["mask"]) == 0)
+	activity._process(0.1)
+	var moving: Dictionary = activity.audit_snapshot()
+	var travelled: float = (moving["roshan_position"] as Vector2).distance_to(
+		before["roshan_position"] as Vector2)
+	_check("Roshan travels at bounded speed before collection",
+		travelled > 1.0 and travelled <= PoolSkimmerActivity.SWIM_SPEED * 0.1 + 0.01
+		and int(moving["mask"]) == 0)
+	var second := InputEventScreenTouch.new()
+	second.index = 1
+	second.pressed = true
+	second.position = PoolSkimmerActivity.TRASH_POSITIONS[5]
+	activity._gui_input(second)
+	_check("second finger cannot steal cleaning target", int(activity.audit_snapshot()["target_index"]) == 0)
+	touch.pressed = false
+	touch.canceled = true
+	activity._gui_input(touch)
+	for _tick: int in range(180):
+		activity._process(1.0 / 60.0)
+	_check("canceled touch cannot finish later", int(activity.audit_snapshot()["mask"]) == 0)
+	touch.canceled = false
+	touch.pressed = true
+	activity._gui_input(touch)
+	touch.pressed = false
+	activity._gui_input(touch)
+	var saw_scoop: bool = false
+	for _tick: int in range(240):
+		activity._process(1.0 / 60.0)
+		var state: Dictionary = activity.audit_snapshot()
+		if float(state["scoop_time"]) > 0.0:
+			saw_scoop = true
+			_check("scoop keeps hand attached before awarding progress",
+				float(state["hand_grip_error"]) < 0.01 and int(state["mask"]) == 0
+				and not bool(state["demo_pointer_visible"]))
+		if int(state["mask"]) != 0:
+			break
+	_check("quick tap travels then visibly scoops exactly one item",
+		saw_scoop and int(activity.audit_snapshot()["mask"]) == 1)
+	var last_position: Vector2 = activity.audit_snapshot()["roshan_position"] as Vector2
+	activity.stop()
+	_check("stop restores room actor at the action location",
+		actor.visible and shadow.visible and actor.position.distance_to(last_position) < 0.01)
+	activity.start()
+	activity.cancel_touch()
+	for _tick: int in range(180):
+		activity._process(1.0 / 60.0)
+	_check("re-entry and focus cancellation retain only completed work",
+		int(activity.audit_snapshot()["mask"]) == 1)
+	touch.pressed = true
+	touch.position = PoolSkimmerActivity.TRASH_POSITIONS[1]
+	activity._gui_input(touch)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 0
+	drag.position = PoolSkimmerActivity.TRASH_POSITIONS[5]
+	activity._gui_input(drag)
+	var drag_start: Vector2 = activity.audit_snapshot()["roshan_position"] as Vector2
+	activity._process(10.0)
+	var drag_state: Dictionary = activity.audit_snapshot()
+	_check("drag retarget cancels old work and slow frames never teleport",
+		int(drag_state["target_index"]) == 5 and int(drag_state["mask"]) == 1
+		and (drag_state["roshan_position"] as Vector2).distance_to(drag_start)
+			<= PoolSkimmerActivity.SWIM_SPEED / 15.0 + 0.01)
+	activity.cancel_touch()
+	activity.stop()
+	for skin: String in ["fairy", "huluu"]:
+		actor.texture = load("res://assets/characters/skins/fairy_mermaid.png"
+			if skin == "fairy" else "res://assets/characters/friends/huluu.png") as Texture2D
+		activity.bind_room_actor(actor, shadow, skin)
+		activity.start()
+		var cutout: Sprite2D = activity.get_node(
+			"RoshanHoldingSkimmer/RoshanApprovedCutout") as Sprite2D
+		_check("cleaner retains selected %s cutout and hand socket" % skin,
+			cutout.texture == actor.texture
+			and float(activity.audit_snapshot()["hand_grip_error"]) < 0.01)
+		activity.stop()
+	activity.setup(PoolSkimmerActivity.ALL_MASK)
+	activity.start()
+	_check("restored complete mask never creates a second Roshan",
+		actor.visible and not bool(activity.audit_snapshot()["roshan_present"]))
+	activity.stop()
+	activity.free()
+	actor.free()
+	shadow.free()
 
 
 func _check(label: String, ok: bool) -> void:

@@ -557,6 +557,17 @@ object: a door opens, water pours, a cushion compresses, a lamp lights, a toy
 moves as that toy. Generic whole-card bounce, spin, hover, or detached sparkle
 is feedback, not the authored action.
 
+Owner clarification (2026-09-06): when Roshan performs a job, she MUST visibly
+move to its actual location and perform the relevant action there before that
+step changes the world or awards progress. This applies to each pool item,
+waterfall/seahorse cleanup step, bathtub/fixture cleaning step, craft-room mess,
+and baby-eagle rescue beat, and to equivalent jobs game-wide. A remotely moved
+skimmer, sponge, brush, cursor, or effect while Roshan stays elsewhere fails
+this rule. Arrival alone is insufficient: her hand/tool contact and the scoop,
+scrub, pickup, or rescue must be readable. One tap may request travel and action;
+the child must not need a second finger, precise dragging, or reading. Interrupted
+travel/action must not complete later; already saved progress remains intact.
+
 `DL-INT-03` — Authored object animation uses 4–12 coherent states where that
 contract applies, a stable pivot, fixed ownership, and a clear return or resting
 state. Runtime MUST NOT interpolate a broken identity or synthesize missing

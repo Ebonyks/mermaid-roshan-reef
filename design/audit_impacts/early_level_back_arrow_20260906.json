@@ -87,6 +87,16 @@
       "command": "GODOT=<official 4.7.2-stable> bash tmp/back-arrow-validation/trusted-gameplay.sh",
       "result": "PASS",
       "evidence": "Exact unchanged import, 2D regression, and trusted-probe suffix from scripts/ci.sh SHA256 bbd661e55b6e77b29203963fefafdc276d2fe3204ed091f1770aa9ce1ce885a8; reuses the already-passed static gates. Output: tmp/back-arrow-validation/trusted-gameplay.log. Exit 0: import, game-wide 2D NO_REGRESSION and all 78 trusted probes pass. Combined with the unchanged static gates passed in full-ci.log, the required local validation is green. No assertion was skipped or weakened; picture-specific expectations now test the requested arrow behavior."
+    },
+    {
+      "command": "Reconcile origin/dev 64094fca00c9e1ef64b26e6568ad35c50d9cfca4; rerun parser, inference, authority/development and trusted gameplay gates",
+      "result": "PASS",
+      "evidence": "Clean merge of the separately integrated pool travel/contact repair; no overlapping edited files. tmp/back-arrow-validation/reconciled-static.log passes parser/inference for all changed scripts and document-authority/development gates. reconciled-gameplay.log exits 0: import, 2D NO_REGRESSION and all 78 probes pass, including the updated pool cleanup and arrow handoffs. Unchanged asset/static gates retain full-ci.log evidence. origin/dev re-fetched and remains 64094fca before integration."
+    },
+    {
+      "command": "GitHub Probe suite (graphics fork), feature commit 31e86591514d1658524760b80f739a615ddeba78",
+      "result": "PASS",
+      "evidence": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/34023004377 completed success: static, import, full analyzer, trusted probes, boot and visual captures. Incoming integration parent 64094fca00c9e1ef64b26e6568ad35c50d9cfca4 also passed https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/34023301469. These are parent-commit CI results; the combined reconciliation is locally validated as recorded above."
     }
   ],
   "acceptance_gaps": "Mobile-renderer captures inspected locally; target-device, child and owner acceptance remain pending. Existing completion recordings are reused unchanged; an exact spoken back-arrow instruction is unavailable and remains open."
