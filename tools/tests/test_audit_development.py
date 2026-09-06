@@ -4,6 +4,7 @@ import json
 import contextlib
 import io
 import os
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -172,7 +173,12 @@ class DevelopmentAuditTests(unittest.TestCase):
 			impact.write_text(json.dumps(value), encoding="utf-8")
 			development.git(root, "add", ".")
 			development.git(root, "commit", "-qm", "task change")
-			development.git(root, "merge", "--no-ff", "-m", "reconcile", "integration")
+			development.git(root, "update-ref", "refs/remotes/origin/dev", integration)
+			development.git(root, "merge", "--no-ff", "--no-commit", "integration")
+			with mock.patch.dict(os.environ, {"GITHUB_ACTIONS": "false"}):
+				self.assertEqual(integration, development.resolve_base(root, "auto"))
+			self.assertEqual([], development.change_issues(root, integration))
+			development.git(root, "commit", "-qm", "reconcile")
 			self.assertEqual([], development.change_issues(root, integration))
 			self.assertTrue(any("sibling.gd" in e for e in development.change_issues(root, base)))
 			value["baseline"] = "f" * 40
@@ -195,6 +201,19 @@ class DevelopmentAuditTests(unittest.TestCase):
 			value["files"].append("scripts/renamed.gd")
 			impact.write_text(json.dumps(value), encoding="utf-8")
 			self.assertEqual([], development.change_issues(root, base))
+
+	def test_unresolved_merge_conflicts_fail_before_coverage(self):
+		with tempfile.TemporaryDirectory() as directory:
+			root = Path(directory)
+			base = self.init_repo(root)
+			for branch, content in (("side", "side edit\n"), ("task", "task edit\n")):
+				development.git(root, "checkout", "-qb", branch, base)
+				(root / "scripts/test.gd").write_text(content, encoding="utf-8")
+				development.git(root, "commit", "-qam", branch)
+			with self.assertRaises(subprocess.CalledProcessError):
+				development.git(root, "merge", "--no-commit", "side")
+			self.assertTrue(development.pending_merge_head(root))
+			self.assertEqual(["resolve merge conflicts before checking audit coverage"], development.change_issues(root, base))
 
 
 if __name__ == "__main__":

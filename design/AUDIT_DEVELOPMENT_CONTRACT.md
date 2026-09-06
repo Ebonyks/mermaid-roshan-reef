@@ -92,6 +92,10 @@ new-branch/manual runs use the integration merge-base. Locally, a dirty checkout
 at integration HEAD compares with HEAD; a clean checkout at integration HEAD
 compares with its first parent so a committed integration cannot pass an empty diff.
 Topic work compares with its integration merge-base. For a deliberate local
+reconciliation using `git merge --no-commit origin/dev`, coverage compares with
+the incoming integration parent, and ancestry may resolve through `MERGE_HEAD`;
+unresolved conflicts always fail. This permits validation before the merge commit
+without claiming already-integrated changes as new task work. For another local
 range, use `--base <commit-or-ref>` and report that range; do not narrow CI's range.
 Impact records must be added or updated inside the checked range to supply coverage.
 

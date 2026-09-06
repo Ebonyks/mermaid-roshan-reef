@@ -398,6 +398,59 @@ func _check_type_c_layout_contract() -> void:
 			_check(not source.contains("adult_caption_adult_only_save_safety"),
 				"save warning is not misclassified as adult caption")
 
+
+func _check_comfy_evening_state() -> void:
+	var empty_state := ComfyGames.normalise_save_patch({})
+	var empty_quest: Dictionary = empty_state.get(
+		ComfyGames.DAY_TWO_FAMILY_EVENING, {}) as Dictionary
+	var empty_reward: Dictionary = empty_quest.get("reward", {}) as Dictionary
+	_check(int(empty_state.get("version", 0)) == 2
+		and not bool(empty_quest.get("completed", false))
+		and not bool(empty_reward.get("unlocked", false))
+		and not bool(empty_reward.get("verified", true)),
+		"comfy evening defaults safely with its future reward locked and unverified")
+	var migrated_state := ComfyGames.normalise_save_patch({"comfy_games": {
+		"version": 1,
+		ComfyGames.DAY_TWO_HIDE_AND_SEEK: {
+			"accepted": true,
+			"found": {"rumi": true, "baby_eagle": true,
+				"daddy_mermaid": true},
+			"completed": true,
+		},
+	}})
+	var migrated_quest: Dictionary = migrated_state.get(
+		ComfyGames.DAY_TWO_FAMILY_EVENING, {}) as Dictionary
+	_check(bool(migrated_quest.get("accepted", false))
+		and not bool(migrated_quest.get("completed", false)),
+		"completed hide-and-seek saves migrate into the resumable family evening")
+	var completed_state := ComfyGames.normalise_save_patch({"comfy_games": {
+		ComfyGames.DAY_TWO_FAMILY_EVENING: {
+			"accepted": true,
+			"dinner": {"ingredients": {"apple": true, "carrot": true,
+				"strawberry": true}, "pot_stirred": true},
+			"movie": {"scenes_watched": 3},
+			"bedtime": {"tucked_in": {"rumi": true, "baby_eagle": true,
+				"daddy_mermaid": true, "roshan": true}},
+		},
+	}})
+	var completed_quest: Dictionary = completed_state.get(
+		ComfyGames.DAY_TWO_FAMILY_EVENING, {}) as Dictionary
+	var completed_reward: Dictionary = completed_quest.get("reward", {}) as Dictionary
+	_check(bool(completed_quest.get("completed", false))
+		and bool(completed_reward.get("unlocked", false))
+		and String(completed_reward.get("id", "")) == ComfyGames.FUTURE_REWARD_ID
+		and not bool(completed_reward.get("verified", true))
+		and not bool(completed_reward.get("introduced", true)),
+		"dinner, movie, and tuck-in completion unlock the saved future reward placeholder")
+	var comfy_source := FileAccess.get_file_as_string(
+		"res://scripts/comfy_games.gd")
+	_check(comfy_source.contains('m.castle_room_id == "kitchen"')
+		and comfy_source.contains('m.castle_room_id == "movie_lounge"')
+		and comfy_source.contains('m.castle_room_id == "sleepover_bedroom"')
+		and comfy_source.contains("m._write_save()")
+		and comfy_source.contains("visual_pointer"),
+		"comfy evening uses castle-world targets with voice-backed resumable saves")
+
 func _init() -> void:
 	var packed := load("res://scenes/main.tscn") as PackedScene
 	main = packed.instantiate() as ReefMain
@@ -408,6 +461,7 @@ func _init() -> void:
 	_check_storybook_coverage()
 	_check_typography_coverage()
 	_check_type_c_layout_contract()
+	_check_comfy_evening_state()
 
 	# Intro: four shape pips, repeat voice, explicit next, and deliberate hold-skip.
 	if not main.intro_active:

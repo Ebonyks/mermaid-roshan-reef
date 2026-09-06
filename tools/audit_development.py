@@ -44,6 +44,23 @@ def git(root: Path, *args: str) -> str:
 	).strip()
 
 
+def pending_merge_head(root: Path) -> str | None:
+	try:
+		return git(root, "rev-parse", "--verify", "MERGE_HEAD")
+	except subprocess.CalledProcessError:
+		return None
+
+
+def validate_ancestor(root: Path, revision: str) -> None:
+	try:
+		git(root, "merge-base", "--is-ancestor", revision, "HEAD")
+	except subprocess.CalledProcessError:
+		merge_head = pending_merge_head(root)
+		if not merge_head:
+			raise
+		git(root, "merge-base", "--is-ancestor", revision, merge_head)
+
+
 def heading_anchors(text: str) -> set[str]:
 	"""GitHub-style anchors for the plain Markdown headings used by our index."""
 	counts: dict[str, int] = {}
@@ -163,6 +180,11 @@ def resolve_base(root: Path, requested: str) -> str:
 		before = event.get("before", "")
 		if before and before != "0" * 40:
 			return git(root, "rev-parse", "--verify", before + "^{commit}")
+	merge_head = pending_merge_head(root)
+	if merge_head:
+		integration = git(root, "rev-parse", "origin/dev")
+		if git(root, "merge-base", integration, merge_head) == integration:
+			return integration
 	# Topic branch / local work: the integration merge-base covers the full task.
 	base = git(root, "merge-base", "HEAD", "origin/dev")
 	if base == git(root, "rev-parse", "HEAD"):
@@ -174,7 +196,9 @@ def resolve_base(root: Path, requested: str) -> str:
 
 
 def change_issues(root: Path, base: str) -> list[str]:
-	git(root, "merge-base", "--is-ancestor", base, "HEAD")
+	if git(root, "diff", "--name-only", "--diff-filter=U"):
+		return ["resolve merge conflicts before checking audit coverage"]
+	validate_ancestor(root, base)
 	changed = set(filter(None, git(root, "diff", "--name-only", "--no-renames", "-z", base, "--").split("\0")))
 	changed.update(filter(None, git(root, "ls-files", "--others", "--exclude-standard", "-z").split("\0")))
 	if not changed:
@@ -193,7 +217,7 @@ def change_issues(root: Path, base: str) -> list[str]:
 			record = json.loads((root / name).read_text(encoding="utf-8"))
 			errors = record_issues(record, rules, set(findings))
 			if not errors:
-				git(root, "merge-base", "--is-ancestor", record["baseline"], "HEAD")
+				validate_ancestor(root, record["baseline"])
 				covered.update(record["files"])
 			issues.extend(f"{name}: {error}" for error in errors)
 		except (ValueError, OSError, subprocess.CalledProcessError) as exc:

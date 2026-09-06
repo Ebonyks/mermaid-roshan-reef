@@ -45,12 +45,17 @@
     {
       "command": "GODOT=/c/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe bash scripts/ci.sh",
       "result": "PASS",
-      "evidence": "Full local exit 0; official.ed1daf0bf; 80 probe groups and zero probe failure markers. 44 music cues, 797 audio records and 95 visual contract tests pass. Log: tmp/audit-development-check/full-ci.log; SHA-256 ae8e0fa7a37f7b4c3826379e2573dff8d2b6c4ac7fd1be2e38c3f22cdfccb38b. Existing advisory visual UNSATISFIED and external typography OPEN remain unchanged."
+      "evidence": "Full local exit 0; official.ed1daf0bf; 80 probe groups and zero probe failure markers. 44 music cues, 797 audio records and 95 visual contract tests pass. Log: tmp/audit-development-check/full-ci.log; SHA-256 ae8e0fa7a37f7b4c3826379e2573dff8d2b6c4ac7fd1be2e38c3f22cdfccb38b. Existing advisory visual UNSATISFIED and external typography OPEN remain unchanged. This full-local run precedes reconciliation of dev 6d7c5e85; merged runtime verification is scoped separately below."
     },
     {
       "command": "GitHub probes.yml on work branch and integration candidate",
       "result": "PENDING",
-      "evidence": "Will run on the committed candidate before dev integration; no remote result claimed by this local record."
+      "evidence": "Pending at source-record creation. The authoritative subsequent result is the Probe suite attached to the actual candidate commit on GitHub; this local snapshot asserts no remote success."
+    },
+    {
+      "command": "Godot 4.7.2 --headless -s scripts/probe_ui_system.gd -- --touch --classic-touch-test (isolated APPDATA/LOCALAPPDATA); parser and lint for scripts/comfy_games.gd and scripts/probe_ui_system.gd",
+      "result": "PASS",
+      "evidence": "Reconciled dev 6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d; UI_SYSTEM|RESULT|ALL OK, exit 0, zero failure markers. Log SHA-256 a13df290747cf1e3e5dce4aa65f856bc8d1d2c2bef63937b523bca5fff05600c. All audit/document/typography checks pass. Ten development tests include pending-merge ancestry and unresolved-conflict rejection."
     }
   ],
   "acceptance_gaps": "Governance/tooling only; no runtime, art, device, child, or owner product acceptance claimed. Existing master findings and whole-game UNSATISFIED status remain unchanged."
