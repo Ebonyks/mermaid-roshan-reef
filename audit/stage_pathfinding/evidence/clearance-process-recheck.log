@@ -1,0 +1,53 @@
+=== probe_carry ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+carry props: 2 stars, 2 shells
+carry: scoop/throw/sing ok (+1 pearl)
+carry probe complete
+EXIT=0
+=== probe_grotto ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+grotto: swim-push slid block to (0, 0)
+grotto: solved, +5 pearls
+grotto probe complete
+EXIT=0
+=== probe_dust_boss ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DUSTBOSS|attic door opens the live boss fight: OK
+DUSTBOSS|fight opens on an input-blocking 2D splash: OK
+DUSTBOSS|pause freezes splash progression: OK
+DUSTBOSS|floor warnings sit behind actors while gesture cues stay above: OK
+DUSTBOSS|the August 30 dusty room is the input-transparent Canvas background: OK
+DUSTBOSS|shared encounter contract checks pass: OK
+DUSTBOSS|showing follows splash: OK
+DUSTBOSS|encounter uses direct hybrid world touch without an action medallion: OK
+DUSTBOSS|encounter keeps direct classic world touch without an action medallion: OK
+DUSTBOSS|2D floor and screen navigation round-trips 16 arena points: OK
+DUSTBOSS|all 16 edge targets are captured, covered, escapable, and stage-valid in every phase step: OK
+DUSTBOSS|safe ground tap arms real encounter navigation: OK
+DUSTBOSS|safe ground navigation moves the player: OK
+DUSTBOSS|focus or touch cancellation drops encounter destination: OK
+DUSTBOSS|pause cancellation leaves no stale encounter destination: OK
+DUSTBOSS|zero input takes a harmless bump but cannot damage the boss: OK
+EXIT=4294967295
+=== probe_dungeon ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DUNGEON|fresh save can enter before finding elemental encounters: OK
+DUNGEON|dungeon defines ten rooms: OK
+DUNGEON|dungeon mixes four battles with six puzzles: OK
+DUNGEON|progress HUD never blocks touch: OK
+DUNGEON|first room uses bounded combat scene: OK
+DUNGEON|combat arena uses visible dungeon card roles: OK
+DUNGEON|combat room cannot win passively: OK
+DUNGEON|puzzle gives Roshan spatial controls: OK
+DUNGEON|puzzle room stays inside mobile node budget: OK
+DUNGEON|puzzle uses modeled pedestals and shell door: OK
+DUNGEON|puzzle cannot win passively: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 2 reachable by proximity: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|puzzle solution physically opens door: OK
+EXIT=4294967295

@@ -251,6 +251,169 @@ func _check_navigation_contract(main: Node) -> void:
 	_check("room composition declares completion", transition_complete)
 
 
+
+func _segment_enters_rect(start: Vector2, finish: Vector2, bounds: Rect2) -> bool:
+	# Strict interior intersection: travelling along the declared clearance edge
+	# is permitted, travelling through even a narrow fixture is not.
+	var interior := bounds.grow(-0.01)
+	if interior.has_point(start) or interior.has_point(finish):
+		return true
+	var corners: Array[Vector2] = [interior.position,
+		Vector2(interior.end.x, interior.position.y), interior.end,
+		Vector2(interior.position.x, interior.end.y)]
+	for index: int in range(4):
+		if Geometry2D.segment_intersects_segment(start, finish,
+				corners[index], corners[(index + 1) % 4]) != null:
+			return true
+	return false
+
+
+func _check_room_routes(main: Node, rooms: CastleRooms25D, room_id: String) -> void:
+	var snapshot := rooms.navigation_snapshot()
+	_check("%s has an authored floor network" % room_id,
+		bool(snapshot.get("authored_lanes", false)))
+	var nav := StageNavigation2D.new()
+	var lanes: Array[PackedVector2Array] = []
+	for lane_value: Variant in snapshot.get("lanes", []) as Array:
+		lanes.append(lane_value as PackedVector2Array)
+	nav.configure(lanes)
+	_check("%s floor network is nonempty" % room_id, not lanes.is_empty())
+	if lanes.is_empty():
+		return
+	var walk: Rect2 = snapshot.get("walk_bounds", Rect2()) as Rect2
+	var blockers: Array = snapshot.get("body_footprints", []) as Array
+	var clearance := float(snapshot.get("clearance_radius", 0.0))
+	var geometry_errors: Array[String] = []
+	for lane: PackedVector2Array in lanes:
+		for point: Vector2 in lane:
+			if not walk.grow(0.1).has_point(point):
+				geometry_errors.append("lane outside floor bounds: %s" % point)
+		for index: int in range(1, lane.size()):
+			for blocker_value: Variant in blockers:
+				var blocker: Dictionary = blocker_value as Dictionary
+				var bounds: Rect2 = blocker.get("rect", Rect2()) as Rect2
+				if _segment_enters_rect(lane[index - 1], lane[index],
+						bounds.grow(clearance)):
+					geometry_errors.append("segment %s -> %s crosses %s" % [
+						lane[index - 1], lane[index], blocker.get("id", "fixture")])
+	_check("%s routes clear declared fixture footprints" % room_id,
+		geometry_errors.is_empty(), "; ".join(geometry_errors.slice(0, 5)))
+	# Independent painted-foot witnesses are measured from approved composition,
+	# not copied from ROOM_NAVIGATION_BLOCKERS. Self-consistent wrong metadata
+	# must not make a through-sofa or through-bed route pass.
+	var witness_data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
+		"res://audit/stage_pathfinding/castle_clearance_witnesses.json")) as Dictionary
+	var witness_rooms: Dictionary = witness_data.get("rooms", {}) as Dictionary
+	var witness_room: Dictionary = witness_rooms.get(room_id, {}) as Dictionary
+	if room_id not in ["bubble_bath", "library", "playroom"]:
+		_check("%s independent obstacle witness set is present" % room_id,
+			witness_data.get("schema", "") == "castle-clearance-witnesses-v1"
+			and not (witness_room.get("obstacles", []) as Array).is_empty()
+			and witness_room.get("navigation_coordinate_space", "")
+				== snapshot.get("navigation_coordinate_space", ""))
+	var painted_crossings: Array[String] = []
+	for witness: Dictionary in witness_room.get("obstacles", []) as Array:
+		var values: Array = witness.get("rect", []) as Array
+		var solid := Rect2(float(values[0]), float(values[1]),
+			float(values[2]), float(values[3]))
+		for lane: PackedVector2Array in lanes:
+			for index: int in range(1, lane.size()):
+				if _segment_enters_rect(lane[index - 1], lane[index], solid):
+					painted_crossings.append(String(witness.get("id", "solid")))
+	_check("%s avoids independent painted fixture interiors" % room_id,
+		painted_crossings.is_empty(), "; ".join(painted_crossings))
+	var contacts: Array[Vector2] = [lanes[0][0]]
+	var contact_errors: Array[String] = []
+	var authored_contact_errors: Array[String] = []
+	var authored_contacts: Dictionary = CastleRooms25D.ROOM_NAVIGATION_CONTACTS.get(
+		room_id, {}) as Dictionary
+	for item_value: Variant in snapshot.get("items", []) as Array:
+		var item: Dictionary = item_value as Dictionary
+		var item_id := String(item.get("id", "item"))
+		if not authored_contacts.has(item_id):
+			authored_contact_errors.append("missing:" + item_id)
+		else:
+			var authored_foot: Vector2 = authored_contacts.get(
+				item_id, Vector2.INF) as Vector2
+			if not authored_foot.is_finite() \
+					or not nav.contains_point(authored_foot):
+				authored_contact_errors.append(
+					"off_lane:%s=%s" % [item_id, authored_foot])
+		var foot: Vector2 = item.get("route_contact", Vector2.INF) as Vector2
+		if not foot.is_finite() or not nav.contains_point(foot):
+			contact_errors.append(item_id)
+		else:
+			contacts.append(foot)
+	_check("%s every live item has a raw authored contact on its network" % room_id,
+		authored_contact_errors.is_empty(),
+		"; ".join(authored_contact_errors.slice(0, 8)))
+	if room_id == "main_hall":
+		for portal: Dictionary in CastleRooms25D.HALL_PORTALS:
+			var foot: Vector2 = portal.get("foot", Vector2.INF) as Vector2
+			foot.y = clampf(foot.y, walk.position.y, walk.end.y)
+			if not nav.contains_point(foot):
+				contact_errors.append("door:" + String(portal.get("id", "portal")))
+			else:
+				contacts.append(foot)
+	_check("%s every object and door contact lies on floor" % room_id,
+		contact_errors.is_empty(), "; ".join(contact_errors))
+	var disconnected := 0
+	var shortcut := 0
+	for origin: Vector2 in contacts:
+		for target: Vector2 in contacts:
+			var route := nav.route(origin, target)
+			if route.is_empty():
+				disconnected += 1
+				continue
+			for index: int in range(1, route.size()):
+				for fraction: float in [0.25, 0.5, 0.75]:
+					if not nav.contains_point(route[index - 1].lerp(route[index], fraction)):
+						shortcut += 1
+	_check("%s all contact pairs connect without shortcuts" % room_id,
+		disconnected == 0 and shortcut == 0,
+		"contacts=%d disconnected=%d shortcuts=%d" % [contacts.size(), disconnected, shortcut])
+	var player: Sprite2D = main.get("castle_room_player_sprite") as Sprite2D
+	var spawn: Vector2 = player.get_meta("current_stage_foot",
+		player.get_meta("stage_foot", Vector2.INF)) as Vector2
+	_check("%s spawn is on the floor network" % room_id, nav.contains_point(spawn), str(spawn))
+	for outside: Vector2 in [Vector2(-10000, -10000), Vector2(10000, 10000)]:
+		var recovered := nav.nearest_point(outside)
+		_check("%s out-of-bounds projection returns to connected floor %s" % [room_id, outside],
+			nav.contains_point(recovered) and not nav.route(spawn, recovered).is_empty())
+
+
+func _check_avatar_route_containment(main: Node, rooms: CastleRooms25D,
+		room_id: String) -> void:
+	var snapshot := rooms.navigation_snapshot()
+	var stage: Control = main.get("castle_room_stage") as Control
+	var player: Sprite2D = main.get("castle_room_player_sprite") as Sprite2D
+	var world: Node2D = main.get("castle_room_world_root") as Node2D
+	var original_foot: Vector2 = player.get_meta("current_stage_foot", Vector2.ZERO) as Vector2
+	var original_flip := player.flip_h
+	var original_world := world.position
+	var original_view: float = rooms._hall_view_left_art
+	var clips: Array[String] = []
+	var samples := 0
+	for lane_value: Variant in snapshot.get("lanes", []) as Array:
+		for foot: Vector2 in lane_value as PackedVector2Array:
+			rooms._position_player_at_foot(foot, false)
+			# A teleported probe sample must settle the real scrolling camera;
+			# normal play follows it continuously along the route.
+			rooms._update_camera_parallax(1.0)
+			for facing: bool in [false, true]:
+				player.flip_h = facing
+				var bounds := _sprite_stage_rect(stage, player)
+				if not Rect2(Vector2.ZERO, stage.size).grow(0.5).encloses(bounds):
+					clips.append("foot=%s facing=%s bounds=%s" % [foot, facing, bounds])
+				samples += 1
+	rooms._position_player_at_foot(original_foot, false)
+	player.flip_h = original_flip
+	world.position = original_world
+	rooms._hall_view_left_art = original_view
+	_check("%s painted Roshan stays inside canvas at every route vertex" % room_id,
+		clips.is_empty(), "samples=%d %s" % [samples, "; ".join(clips.slice(0, 4))])
+
+
 func _check_fixture_contract(main: Node, rooms: CastleRooms25D) -> void:
 	var rigs: Dictionary = main.get("castle_room_fixture_rigs") as Dictionary
 	var stats: Dictionary = rooms.fixture_rigs.stats()
@@ -402,6 +565,13 @@ func _check_daddy_partner_burst_contract(main: Node,
 
 
 func _init() -> void:
+	var obstacle := Rect2(40.0, 40.0, 20.0, 20.0)
+	_check("clearance checker rejects a through-fixture shortcut",
+		_segment_enters_rect(Vector2(0, 50), Vector2(100, 50), obstacle))
+	_check("clearance checker rejects a route starting inside a fixture",
+		_segment_enters_rect(Vector2(50, 50), Vector2(100, 80), obstacle))
+	_check("clearance checker permits a route outside the fixture",
+		not _segment_enters_rect(Vector2(0, 20), Vector2(100, 20), obstacle))
 	var scene: PackedScene = load("res://scenes/main.tscn")
 	var main: Node = scene.instantiate()
 	get_root().add_child(main)
@@ -454,11 +624,12 @@ func _init() -> void:
 	# wider than one viewport and is instead covered by its portal/culling checks.
 	for room: Dictionary in CastleRooms25D.ROOMS:
 		var room_id: String = String(room.get("id", ""))
-		if room_id == "main_hall":
-			continue
 		rooms.show_room(room_id, false)
 		await process_frame
-		_check_room_item_bounds(main, room_id)
+		_check_room_routes(main, rooms, room_id)
+		_check_avatar_route_containment(main, rooms, room_id)
+		if room_id != "main_hall":
+			_check_room_item_bounds(main, room_id)
 	print("CASTLE2D|done failures=%d" % failures)
 	if failures > 0:
 		print("FAIL castle canvas 2d")

@@ -1,0 +1,268 @@
+{
+  "schema": "castle-painted-clearance-negative-control-v1",
+  "baseline_revision": "bad0e91924edcb98029da68fa9c696354dd92163",
+  "baseline_geometry_sha256": "b5da18c5f4f4ffb43e6078c3a5df6f555614460572b542bb58d8e175b4ecd1da",
+  "candidate_geometry_path": "audit/stage_pathfinding/castle_geometry.json",
+  "candidate_geometry_sha256": "0d20e4157d28f9a309b9f008f1fba3e759e3eadc0ef6f842ff5f62472419d6f0",
+  "witness_path": "audit/stage_pathfinding/castle_clearance_witnesses.json",
+  "witness_sha256": "4bafd3095d49a20cad8da28db7cdd310af39d4a14245789adcac0881d0d35943",
+  "method": "Exact line/axis-aligned-rectangle slab intersection with 0.01px strict-interior inset; iterate each consecutive lane segment against each independently painted solid witness. Does not establish complete silhouette clearance.",
+  "results": {
+    "baseline": [
+      {
+        "room": "opera_hall",
+        "obstacle": "left_balcony_base",
+        "from": [
+          180.0,
+          562.5
+        ],
+        "to": [
+          1100.0,
+          562.5
+        ]
+      },
+      {
+        "room": "opera_hall",
+        "obstacle": "right_balcony_base",
+        "from": [
+          180.0,
+          562.5
+        ],
+        "to": [
+          1100.0,
+          562.5
+        ]
+      },
+      {
+        "room": "kitchen",
+        "obstacle": "left_counter_base",
+        "from": [
+          205.0,
+          557.5
+        ],
+        "to": [
+          205.0,
+          450.0
+        ]
+      },
+      {
+        "room": "craft_room",
+        "obstacle": "palette_cart_feet",
+        "from": [
+          175.0,
+          545.0
+        ],
+        "to": [
+          175.0,
+          420.0
+        ]
+      },
+      {
+        "room": "dining_room",
+        "obstacle": "table_pedestal",
+        "from": [
+          130.0,
+          530.0
+        ],
+        "to": [
+          1150.0,
+          530.0
+        ]
+      },
+      {
+        "room": "dining_room",
+        "obstacle": "table_pedestal",
+        "from": [
+          640.0,
+          530.0
+        ],
+        "to": [
+          640.0,
+          670.0
+        ]
+      },
+      {
+        "room": "dining_room",
+        "obstacle": "table_pedestal",
+        "from": [
+          590.0,
+          530.0
+        ],
+        "to": [
+          590.0,
+          390.0
+        ]
+      },
+      {
+        "room": "dining_room",
+        "obstacle": "hutch_base",
+        "from": [
+          130.0,
+          530.0
+        ],
+        "to": [
+          130.0,
+          390.0
+        ]
+      },
+      {
+        "room": "dining_room",
+        "obstacle": "hutch_base",
+        "from": [
+          218.75,
+          530.0
+        ],
+        "to": [
+          218.75,
+          446.25
+        ]
+      },
+      {
+        "room": "royal_bedroom",
+        "obstacle": "bed_footboard",
+        "from": [
+          125.0,
+          530.0
+        ],
+        "to": [
+          1155.0,
+          530.0
+        ]
+      },
+      {
+        "room": "royal_bedroom",
+        "obstacle": "bed_footboard",
+        "from": [
+          643.75,
+          530.0
+        ],
+        "to": [
+          643.75,
+          662.5
+        ]
+      },
+      {
+        "room": "royal_bedroom",
+        "obstacle": "wardrobe_base",
+        "from": [
+          125.0,
+          530.0
+        ],
+        "to": [
+          125.0,
+          390.0
+        ]
+      },
+      {
+        "room": "royal_bedroom",
+        "obstacle": "cushion_base",
+        "from": [
+          1106.25,
+          530.0
+        ],
+        "to": [
+          1106.25,
+          668.75
+        ]
+      },
+      {
+        "room": "sleepover_bedroom",
+        "obstacle": "left_bed_footboard",
+        "from": [
+          262.5,
+          540.0
+        ],
+        "to": [
+          262.5,
+          670.0
+        ]
+      },
+      {
+        "room": "sleepover_bedroom",
+        "obstacle": "middle_bed_footboard",
+        "from": [
+          640.0,
+          540.0
+        ],
+        "to": [
+          640.0,
+          670.0
+        ]
+      },
+      {
+        "room": "sleepover_bedroom",
+        "obstacle": "right_bed_footboard",
+        "from": [
+          1017.5,
+          540.0
+        ],
+        "to": [
+          1017.5,
+          670.0
+        ]
+      },
+      {
+        "room": "movie_lounge",
+        "obstacle": "left_sofa_feet",
+        "from": [
+          325.0,
+          545.0
+        ],
+        "to": [
+          325.0,
+          670.0
+        ]
+      },
+      {
+        "room": "movie_lounge",
+        "obstacle": "right_sofa_feet",
+        "from": [
+          955.0,
+          545.0
+        ],
+        "to": [
+          955.0,
+          670.0
+        ]
+      },
+      {
+        "room": "movie_lounge",
+        "obstacle": "central_pouf_base",
+        "from": [
+          640.0,
+          545.0
+        ],
+        "to": [
+          640.0,
+          670.0
+        ]
+      },
+      {
+        "room": "movie_lounge",
+        "obstacle": "screen_base",
+        "from": [
+          445.0,
+          545.0
+        ],
+        "to": [
+          445.0,
+          420.0
+        ]
+      },
+      {
+        "room": "movie_lounge",
+        "obstacle": "screen_base",
+        "from": [
+          515.0,
+          545.0
+        ],
+        "to": [
+          515.0,
+          420.0
+        ]
+      }
+    ],
+    "candidate": []
+  },
+  "final_endpoint_note": "Final outer endpoints were moved inward along the same safe segments; no approach contacts or y coordinates changed. Trusted probe checks independent witnesses and camera-aware painted-sprite containment for both facing directions."
+}

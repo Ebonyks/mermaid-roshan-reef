@@ -1,0 +1,140 @@
+=== probe_dust_boss ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DUSTBOSS|attic door opens the live boss fight: OK
+DUSTBOSS|fight opens on an input-blocking 2D splash: OK
+DUSTBOSS|pause freezes splash progression: OK
+DUSTBOSS|floor warnings sit behind actors while gesture cues stay above: OK
+DUSTBOSS|the August 30 dusty room is the input-transparent Canvas background: OK
+DUSTBOSS|shared encounter contract checks pass: OK
+DUSTBOSS|showing follows splash: OK
+DUSTBOSS|encounter uses direct hybrid world touch without an action medallion: OK
+DUSTBOSS|encounter keeps direct classic world touch without an action medallion: OK
+DUSTBOSS|2D floor and screen navigation round-trips 16 arena points: OK
+DUSTBOSS|all 16 edge targets are captured, covered, escapable, and stage-valid in every phase step: OK
+DUSTBOSS|safe ground tap arms real encounter navigation: OK
+DUSTBOSS|safe ground navigation moves the player: OK
+DUSTBOSS|focus or touch cancellation drops encounter destination: OK
+DUSTBOSS|pause cancellation leaves no stale encounter destination: OK
+DUSTBOSS|zero input takes a harmless bump but cannot damage the boss: OK
+DUSTBOSS|stationary tap spam traverses real tell, strike, and recovery: OK
+DUSTBOSS|stationary tap spam cannot damage the boss: OK
+DUSTBOSS|held action reaches an opening without auto-countering: OK
+DUSTBOSS|no-input and held input cannot finish: OK
+DUSTBOSS|live tell 0:0:0 lasts at least 1.4 seconds: OK
+DUSTBOSS|landed round writes its checkpoint: OK
+DUSTBOSS|interrupt removes the dusty room Canvas: OK
+DUSTBOSS|interrupt preserves progress without reward: OK
+DUSTBOSS|re-entry restores the exact completed round: OK
+DUSTBOSS|checkpoint preserves damage mastery and opening assistance: OK
+DUSTBOSS|live tell 1:0:1 lasts at least 1.4 seconds: OK
+DUSTBOSS|live tell 1:1:1 lasts at least 1.4 seconds: OK
+DUSTBOSS|live tell 2:0:2 lasts at least 1.4 seconds: OK
+DUSTBOSS|live tell 2:1:2 lasts at least 1.4 seconds: OK
+DUSTBOSS|old screen corner tap cannot counter: OK
+DUSTBOSS|flashing boss head remains inside the touch viewport: OK
+DUSTBOSS|paused screen touch cannot counter: OK
+DUSTBOSS|final counter writes all three earned rounds before celebration: OK
+DUSTBOSS|final-round interruption grants no early or duplicate reward: OK
+DUSTBOSS|final checkpoint restores three rounds exactly: OK
+DUSTBOSS|final checkpoint resumes friendship without repeated combat: OK
+DUSTBOSS|adaptive movement observes all three phases: OK
+DUSTBOSS|phase one executes both warned circles: OK
+DUSTBOSS|phase two executes its warned lane: OK
+DUSTBOSS|live tells keep their captured target while the player moves: OK
+DUSTBOSS|a visible 2D telegraph accompanies live danger: OK
+DUSTBOSS|hybrid head touch can land a real counter: OK
+DUSTBOSS|one fresh counter edge per opening completes three rounds: OK
+DUSTBOSS|the earned final round survives interruption: OK
+DUSTBOSS|completion grants the base reward exactly once: OK
+DUSTBOSS|completion saves defeat and begins Day Two: OK
+DUSTBOSS|Day Two and reward cannot duplicate: OK
+DUSTBOSS|result: ALL OK
+PROCESS EXIT: 0
+=== probe_dungeon ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DUNGEON|fresh save can enter before finding elemental encounters: OK
+DUNGEON|dungeon defines ten rooms: OK
+DUNGEON|dungeon mixes four battles with six puzzles: OK
+DUNGEON|progress HUD never blocks touch: OK
+DUNGEON|first room uses bounded combat scene: OK
+DUNGEON|combat arena uses visible dungeon card roles: OK
+DUNGEON|combat room cannot win passively: OK
+DUNGEON|puzzle gives Roshan spatial controls: OK
+DUNGEON|puzzle room stays inside mobile node budget: OK
+DUNGEON|puzzle uses modeled pedestals and shell door: OK
+DUNGEON|puzzle cannot win passively: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 2 reachable by proximity: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|puzzle solution physically opens door: OK
+DUNGEON|real puzzle clear saves checkpoint: OK
+DUNGEON|home icon returns safely: OK
+DUNGEON|next visit resumes at room three: OK
+DUNGEON|room 3 uses puzzle engine: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|puzzle solution physically opens door: OK
+DUNGEON|room 4 uses combat engine: OK
+DUNGEON|second enemy room is the dust-bunny cleanup: OK
+DUNGEON|cleanup room has five animated dust bunnies: OK
+DUNGEON|live dust-bunny enemies are 2D sprite cards: OK
+DUNGEON|dust bunnies cannot clean themselves: OK
+DUNGEON|CLEAN button launches the recovered 2D soap bubbles: OK
+DUNGEON|clean hit starts the accepted poof animation: OK
+DUNGEON|clean poof removes only after its final sparkle: OK
+DUNGEON|room 5 uses puzzle engine: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|choice 3 reachable by proximity: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 2 reachable by proximity: OK
+DUNGEON|puzzle solution physically opens door: OK
+DUNGEON|room 6 uses puzzle engine: OK
+DUNGEON|shell targets face the central pearl: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 2 reachable by proximity: OK
+DUNGEON|choice 2 reachable by proximity: OK
+DUNGEON|choice 2 reachable by proximity: OK
+DUNGEON|puzzle solution physically opens door: OK
+DUNGEON|room 7 uses combat engine: OK
+DUNGEON|room 8 uses puzzle engine: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|mismatched runes remain visible: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 2 reachable by proximity: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|choice 3 reachable by proximity: OK
+DUNGEON|puzzle solution physically opens door: OK
+DUNGEON|room 9 uses puzzle engine: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|puzzle solution physically opens door: OK
+DUNGEON|room 10 uses combat engine: OK
+DUNGEON|final boss starts with ice shell phase: OK
+DUNGEON|final boss has a readable shell crown fallback: OK
+DUNGEON|fire cannot skip frozen-shell lesson: OK
+DUNGEON|movement earns the flashing-head counter: OK
+DUNGEON|cycle 1 changes action to fire: OK
+DUNGEON|cycle 1 returns to ice shell: OK
+DUNGEON|movement earns the flashing-head counter: OK
+DUNGEON|cycle 2 changes action to fire: OK
+DUNGEON|cycle 2 returns to ice shell: OK
+DUNGEON|movement earns the flashing-head counter: OK
+DUNGEON|cycle 3 changes action to fire: OK
+DUNGEON|cycle 3 returns to ice shell: OK
+DUNGEON|movement earns the flashing-head counter: OK
+DUNGEON|cycle 4 changes action to fire: OK
+DUNGEON|dual-element finale resolves: OK
+DUNGEON|combat materials are reused: OK
+DUNGEON|all ten checkpoints persist: OK
+DUNGEON|final room completes dungeon: OK
+DUNGEON|completion returns to castle: OK
+DUNGEON|result: ALL OK
+PROCESS EXIT: 0

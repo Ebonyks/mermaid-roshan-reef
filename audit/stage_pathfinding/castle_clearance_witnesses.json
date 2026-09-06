@@ -1,0 +1,375 @@
+{
+  "schema": "castle-clearance-witnesses-v1",
+  "baseline": "bad0e91924edcb98029da68fa9c696354dd92163",
+  "purpose": "Independent interior obstacle witnesses measured from the composed approved art. These small solid regions catch routes through real furniture even if runtime blocker metadata is wrong; they are not a complete floor footprint or human geometry acceptance.",
+  "measurement": "Source-bound live Castle tile render rectangles plus atlas frame/full render rectangles, flip and draw order. Standard room coordinates are 1280x720 stage; Main Hall uses hall_art. No artwork modifications.",
+  "human_geometry_review": "PENDING",
+  "rooms": {
+    "main_hall": {
+      "navigation_coordinate_space": "hall_art",
+      "diagnostic_composite_sha256": "52d5fc510e2a336be3520c51b154cd8f34d22faba64b90dac24bdb322466911a",
+      "obstacles": [
+        {
+          "id": "rear_wall",
+          "rect": [
+            0,
+            0,
+            3344,
+            585
+          ]
+        },
+        {
+          "id": "beyond_front_floor",
+          "rect": [
+            0,
+            931,
+            3344,
+            10
+          ]
+        }
+      ]
+    },
+    "opera_hall": {
+      "navigation_coordinate_space": "stage",
+      "diagnostic_composite_sha256": "e83014325aab27662e49d558db437b2973af66c6f78958c7e6c0748f70737b25",
+      "obstacles": [
+        {
+          "id": "left_balcony_base",
+          "rect": [
+            0,
+            490,
+            280,
+            100
+          ]
+        },
+        {
+          "id": "right_balcony_base",
+          "rect": [
+            990,
+            490,
+            290,
+            100
+          ]
+        },
+        {
+          "id": "stage_platform",
+          "rect": [
+            380,
+            375,
+            510,
+            55
+          ]
+        }
+      ]
+    },
+    "kitchen": {
+      "navigation_coordinate_space": "stage",
+      "diagnostic_composite_sha256": "5b0148f113b2b36864c388d6e0a97a2f674848775c5582cdbfaed3d32bb6c7df",
+      "obstacles": [
+        {
+          "id": "left_counter_base",
+          "rect": [
+            0,
+            400,
+            320,
+            70
+          ]
+        },
+        {
+          "id": "oven_base",
+          "rect": [
+            410,
+            405,
+            170,
+            35
+          ]
+        },
+        {
+          "id": "fridge_base",
+          "rect": [
+            800,
+            385,
+            150,
+            25
+          ]
+        },
+        {
+          "id": "right_counter_base",
+          "rect": [
+            990,
+            395,
+            210,
+            45
+          ]
+        }
+      ]
+    },
+    "craft_room": {
+      "navigation_coordinate_space": "stage",
+      "diagnostic_composite_sha256": "bbd56950aa390dd60f5cc7aafd0160cdd27b3baa9c1e8224c97d434335e12a92",
+      "obstacles": [
+        {
+          "id": "palette_cart_feet",
+          "rect": [
+            65,
+            465,
+            115,
+            40
+          ]
+        },
+        {
+          "id": "paint_table_feet",
+          "rect": [
+            545,
+            405,
+            190,
+            30
+          ]
+        },
+        {
+          "id": "rear_shelves",
+          "rect": [
+            280,
+            330,
+            690,
+            30
+          ]
+        }
+      ]
+    },
+    "mermaid_pool": {
+      "navigation_coordinate_space": "stage",
+      "diagnostic_composite_sha256": "e6e4ef53079718c41a8ec2b6ce48c70f12a709639466933532fda5cadca83849",
+      "obstacles": [
+        {
+          "id": "dry_front_apron",
+          "rect": [
+            390,
+            675,
+            500,
+            35
+          ]
+        },
+        {
+          "id": "rear_wall",
+          "rect": [
+            0,
+            0,
+            1280,
+            250
+          ]
+        }
+      ]
+    },
+    "dining_room": {
+      "navigation_coordinate_space": "stage",
+      "diagnostic_composite_sha256": "91e38ab3795f302ba492b0ba59967b039de19b4ff9a69c8caeedbe06fca6f77a",
+      "obstacles": [
+        {
+          "id": "left_stool_feet",
+          "rect": [
+            260,
+            560,
+            135,
+            65
+          ]
+        },
+        {
+          "id": "table_pedestal",
+          "rect": [
+            530,
+            500,
+            235,
+            70
+          ]
+        },
+        {
+          "id": "right_stool_feet",
+          "rect": [
+            885,
+            560,
+            135,
+            65
+          ]
+        },
+        {
+          "id": "hutch_base",
+          "rect": [
+            100,
+            465,
+            175,
+            40
+          ]
+        }
+      ]
+    },
+    "royal_bedroom": {
+      "navigation_coordinate_space": "stage",
+      "diagnostic_composite_sha256": "54fd790aa4e2d33d3675354858188a09daeefa6476d3954902f063df355de988",
+      "obstacles": [
+        {
+          "id": "bed_footboard",
+          "rect": [
+            450,
+            500,
+            290,
+            70
+          ]
+        },
+        {
+          "id": "wardrobe_base",
+          "rect": [
+            110,
+            470,
+            190,
+            40
+          ]
+        },
+        {
+          "id": "bedside_base",
+          "rect": [
+            920,
+            455,
+            130,
+            40
+          ]
+        },
+        {
+          "id": "cushion_base",
+          "rect": [
+            1060,
+            565,
+            100,
+            55
+          ]
+        }
+      ]
+    },
+    "sleepover_bedroom": {
+      "navigation_coordinate_space": "stage",
+      "diagnostic_composite_sha256": "b5484efd2a9dd550240c71423587918f348a8781f338fbbf693bafa669acda92",
+      "obstacles": [
+        {
+          "id": "left_bed_footboard",
+          "rect": [
+            145,
+            545,
+            165,
+            75
+          ]
+        },
+        {
+          "id": "middle_bed_footboard",
+          "rect": [
+            530,
+            545,
+            160,
+            70
+          ]
+        },
+        {
+          "id": "right_bed_footboard",
+          "rect": [
+            910,
+            545,
+            160,
+            75
+          ]
+        }
+      ]
+    },
+    "movie_lounge": {
+      "navigation_coordinate_space": "stage",
+      "diagnostic_composite_sha256": "3b4b60cf1b217d75b9ee796521dd9074788948e0f56beba8ab3be3dcc297c567",
+      "obstacles": [
+        {
+          "id": "left_sofa_feet",
+          "rect": [
+            235,
+            615,
+            190,
+            55
+          ]
+        },
+        {
+          "id": "right_sofa_feet",
+          "rect": [
+            850,
+            615,
+            190,
+            55
+          ]
+        },
+        {
+          "id": "central_pouf_base",
+          "rect": [
+            580,
+            590,
+            120,
+            55
+          ]
+        },
+        {
+          "id": "screen_base",
+          "rect": [
+            385,
+            455,
+            500,
+            40
+          ]
+        }
+      ]
+    },
+    "family_gallery": {
+      "navigation_coordinate_space": "stage",
+      "diagnostic_composite_sha256": "534a4b22619bea7986a605f85d7de0c57167b45313a7021abbd1ee19d72f34fb",
+      "obstacles": [
+        {
+          "id": "portal_arch_wall",
+          "rect": [
+            60,
+            240,
+            1120,
+            110
+          ]
+        },
+        {
+          "id": "dining_door_pillar",
+          "rect": [
+            65,
+            525,
+            30,
+            55
+          ]
+        },
+        {
+          "id": "bedroom_door_pillar",
+          "rect": [
+            365,
+            525,
+            30,
+            55
+          ]
+        },
+        {
+          "id": "sleepover_door_pillar",
+          "rect": [
+            660,
+            525,
+            30,
+            55
+          ]
+        },
+        {
+          "id": "movie_door_pillar",
+          "rect": [
+            955,
+            525,
+            30,
+            55
+          ]
+        }
+      ]
+    }
+  }
+}

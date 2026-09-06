@@ -40,6 +40,32 @@ Route review checks the whole Roshan silhouette and fixture clearance as well as
 her feet. Diagnostic line widths in the review atlas are not a playable corridor
 or proof that the sprite clears nearby furniture.
 
+Clearance is measured in the navigation coordinate system, against the floor
+footprint of each blocker plus an explicit floor-foot radius. A painted
+image AABB, atlas frame extent, or transparent padding is not a blocker
+footprint. The manifest should record the footprint shape or conservative
+envelope, its radius/standoff, and whether it occupies floor, wall, rail, or
+water. A route must leave that envelope clear for the full silhouette and its
+depth/occlusion band. Pool water is a declared swim network when a stage uses
+swimming; it is never arbitrary walkable space merely because the background
+is visible.
+
+Room review must use the approved runtime tile composition together with the
+live atlas fixture frames at their runtime scale and z/depth order. A generic
+walk rectangle or detached source image cannot establish clearance. Full
+silhouette, depth occlusion, target-device readability and child usability
+review are separate evidence rows and remain open until reviewed. All 13
+Castle rooms require explicit candidate connected networks; these candidates
+are design evidence only and do not claim runtime implementation or
+verification.
+
+Each object keeps two sockets when needed: an approach socket on a reachable
+floor or swim lane, and a roleplay/action socket used only after arrival for
+cooking, cleaning, crafting, sitting, or another authored action. Preserve the
+existing minigame/action controller and its exact return seam; pathfinding
+must deliver Roshan to the approach socket without replacing or bypassing the
+action.
+
 Every walkable stage needs an authored walk lane, obstacle envelopes, a safe
 spawn, and a safe recovery point. Leaving the playable polygon must clamp to
 the nearest lane point or recover to the last safe point, clear velocity, and

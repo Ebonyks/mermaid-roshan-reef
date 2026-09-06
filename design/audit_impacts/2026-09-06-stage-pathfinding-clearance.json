@@ -1,0 +1,120 @@
+{
+  "id": "2026-09-06-stage-pathfinding-clearance",
+  "scope": "Replace the ten remaining generic Castle room travel networks with inspected explicit floor lanes, fixture exclusions and approach contacts. Preserve approved artwork and minigame controllers; independently verify connected routes, clearance and arrival behavior and refresh source-bound reproductions. MA-PLAY-004 remains related open work; route clearance does not establish visible local action acceptance. Final live containment review moved outer endpoints inward in Main Hall, Dining, Royal Bedroom, Sleepover, Movie Lounge and Gallery without moving object contacts; trusted camera-aware checks sample painted Roshan bounds at every route vertex in both facing directions. The final review makes seven previously implicit contacts explicit and corrects Library book_stack to its existing projected contact; all eight preserve current approach positions. Trusted checks now require every live item to have a raw authored contact on its network.",
+  "baseline": "bad0e91924edcb98029da68fa9c696354dd92163",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-06",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-MED-01",
+    "DL-MED-04",
+    "DL-SAVE-04",
+    "DL-QA-01",
+    "DL-QA-04",
+    "DL-QA-06",
+    "DL-UI-03"
+  ],
+  "findings": [
+    "MA-PLAY-003"
+  ],
+  "files": [
+    "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/stage_pathfinding/README.md",
+    "audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md",
+    "audit/stage_pathfinding/castle_clearance_witnesses.json",
+    "audit/stage_pathfinding/castle_geometry.json",
+    "audit/stage_pathfinding/evidence/clearance-baseline.log",
+    "audit/stage_pathfinding/evidence/clearance-engine-isolation.json",
+    "audit/stage_pathfinding/evidence/clearance-export.log",
+    "audit/stage_pathfinding/evidence/clearance-final-static.log",
+    "audit/stage_pathfinding/evidence/clearance-focused.log",
+    "audit/stage_pathfinding/evidence/clearance-frame-binding.json",
+    "audit/stage_pathfinding/evidence/clearance-full-first-attempt.log",
+    "audit/stage_pathfinding/evidence/clearance-isolated-recheck.log",
+    "audit/stage_pathfinding/evidence/clearance-painted-negative-control.json",
+    "audit/stage_pathfinding/evidence/clearance-process-recheck.log",
+    "audit/stage_pathfinding/evidence/clearance-runtime-replay.log",
+    "audit/stage_pathfinding/evidence/clearance-surrounding.log",
+    "audit/stage_pathfinding/evidence/clearance-validation.json",
+    "audit/stage_pathfinding/reproductions/castle/bubble_bath.svg",
+    "audit/stage_pathfinding/reproductions/castle/craft_room.svg",
+    "audit/stage_pathfinding/reproductions/castle/dining_room.svg",
+    "audit/stage_pathfinding/reproductions/castle/family_gallery.svg",
+    "audit/stage_pathfinding/reproductions/castle/kitchen.svg",
+    "audit/stage_pathfinding/reproductions/castle/library.svg",
+    "audit/stage_pathfinding/reproductions/castle/main_hall.svg",
+    "audit/stage_pathfinding/reproductions/castle/main_hall_overview.svg",
+    "audit/stage_pathfinding/reproductions/castle/mermaid_pool.svg",
+    "audit/stage_pathfinding/reproductions/castle/movie_lounge.svg",
+    "audit/stage_pathfinding/reproductions/castle/opera_hall.svg",
+    "audit/stage_pathfinding/reproductions/castle/playroom.svg",
+    "audit/stage_pathfinding/reproductions/castle/royal_bedroom.svg",
+    "audit/stage_pathfinding/reproductions/castle/sleepover_bedroom.svg",
+    "audit/stage_pathfinding/review_manifest.json",
+    "audit/stage_pathfinding/stage_inventory.json",
+    "design/00_MASTER_INDEX.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/2026-09-06-stage-pathfinding-clearance.json",
+    "scripts/arena/castle_rooms_25d.gd",
+    "scripts/debug_export_stage_pathfinding.gd",
+    "scripts/probe_castle_canvas2d.gd"
+  ],
+  "validation": [
+    {
+      "command": "Initial new authored-network assertions against baseline runtime in Godot 4.7.2-stable",
+      "result": "FAIL",
+      "evidence": "Expected failing baseline: audit/stage_pathfinding/evidence/clearance-baseline.log; exactly ten authored-lane failures, no other assertions. Green baseline CI 34040059668."
+    },
+    {
+      "command": "Combined complete local gates: original static phase, final-source sensitive checks, then unchanged CI import/runtime tail using exact Godot 4.7.2-stable",
+      "result": "PASS",
+      "evidence": "audit/stage_pathfinding/evidence/clearance-validation.json and clearance-runtime-replay.log; all 78 trusted probe processes exit 0, replay exits 0. Failed first attempt remains explicitly recorded. Final authority/impact gates pass; exact work-branch remote CI required before dev integration."
+    },
+    {
+      "command": "Godot4.7.2-stable trusted Castle probe; parser/inference; source-only Castle frame candidate comparison",
+      "result": "PASS",
+      "evidence": "audit/stage_pathfinding/evidence/clearance-focused.log and clearance-frame-binding.json. Network checks pass for all 13 rooms; independent painted-foot witness checks pass for the ten newly authored layouts. The prior three remain point-only; 96 reviewed frames are unchanged."
+    },
+    {
+      "command": "Godot 4.7.2-stable fresh-save surrounding probes: Castle canvas, interaction, Crown, bathroom integration and StageNavigation2D; 13 stage audit unit tests and catalog check",
+      "result": "PASS",
+      "evidence": "audit/stage_pathfinding/evidence/clearance-surrounding.log; five processes exit 0 with no failure/error markers. Catalog coverage 65 entries/13 Castle/15 Opera remains OPEN for acceptance."
+    },
+    {
+      "command": "Independent painted obstacle negative control: exact segment/rectangle intersection against baseline and candidate exported lanes",
+      "result": "PASS",
+      "evidence": "audit/stage_pathfinding/evidence/clearance-painted-negative-control.json records real baseline through-fixture crossings and zero candidate crossings; source geometry and witness hashes bound."
+    },
+    {
+      "command": "Final Godot 4.7.2-stable trusted Castle probe with independent painted witnesses and camera-aware avatar vertex containment; runtime export; source-only frame binding and approval-ledger validation",
+      "result": "PASS",
+      "evidence": "audit/stage_pathfinding/evidence/clearance-focused.log, clearance-export.log and clearance-frame-binding.json. All 13 rooms pass network and vertex-containment checks; this does not establish full physical clearance. Every other frame-candidate input and 96 reviewed frame hashes remain unchanged."
+    },
+    {
+      "command": "First complete scripts/ci.sh attempt with official Godot console wrapper",
+      "result": "FAIL",
+      "evidence": "audit/stage_pathfinding/evidence/clearance-full-first-attempt.log: all static gates completed; 78 runtime groups attempted, four processes exited 127. This attempt is not a passing suite."
+    },
+    {
+      "command": "Fresh-data native engine retries, then byte-identical uniquely named official engine retries",
+      "result": "PASS",
+      "evidence": "clearance-process-recheck.log records carry/grotto pass and two native -1 interruptions; clearance-isolated-recheck.log records dust_boss/dungeon exit 0. clearance-engine-isolation.json binds engine hash/version. Full runtime replay still pending."
+    },
+    {
+      "command": "Final-source parser/inference, 13 stage-pathfinding tests, catalog coverage, Castle native ownership and per-frame approval check",
+      "result": "PASS",
+      "evidence": "audit/stage_pathfinding/evidence/clearance-final-static.log records unit/catalog/native/frame checks, all process exits 0. Changed GDScript parser and inference lint separately exit 0 after explicit-contact corrections."
+    }
+  ],
+  "acceptance_gaps": "Full silhouette/depth, transient Main Hall camera tracking during travel, and Mobile/target-device/child/owner acceptance remain open; positive floor-foot margins in the three previously authored rooms remain unverified. Complete per-object tap/drag/cancel/door/return/save matrices and all remaining world/fixed-board seams remain open under MA-PLAY-003. Visible local work remains independently open under MA-PLAY-004; this section does not repair every job action. Complete local regression coverage passes; exact work-branch remote CI pending at record creation and required before integration."
+}

@@ -328,8 +328,19 @@ func _castle_svg(entry: Dictionary) -> String:
 		if blocker_value.size() != 4:
 			continue
 		var blocker_rect := _castle_rect_to_stage(
-			entry, blocker_value, "stage")
+			entry, blocker_value, navigation_space)
 		body += "<rect x='%s' y='%s' width='%s' height='%s' fill='#ff365e' opacity='.30' stroke='#ffb3c1' stroke-width='2'/><text x='%s' y='%s' fill='white' stroke='#17214d' stroke-width='3' paint-order='stroke' font-size='13'>BLOCK %s</text>" % [blocker_rect.position.x, blocker_rect.position.y, blocker_rect.size.x, blocker_rect.size.y, blocker_rect.position.x + 4.0, blocker_rect.position.y + 18.0, blocker.get("id", "fixture")]
+	var clearance := float(entry.get("clearance_radius", 0.0))
+	var clearance_scale := float(entry.get("art_to_stage_scale", 1.0)) \
+		if navigation_space != "stage" else 1.0
+	for blocker: Dictionary in entry["body_footprints"]:
+		var rect_value: Array = blocker.get("rect", []) as Array
+		if rect_value.size() != 4 or clearance <= 0.0:
+			continue
+		var padded := _castle_rect_to_stage(entry, rect_value,
+			navigation_space).grow(clearance * clearance_scale)
+		body += "<rect x='%s' y='%s' width='%s' height='%s' fill='none' stroke='#ffb3c1' stroke-dasharray='5 5' stroke-width='2'/>" % [padded.position.x, padded.position.y, padded.size.x, padded.size.y]
+	body += "<text x='24' y='60' fill='white' stroke='#17214d' stroke-width='3' paint-order='stroke' font-size='16'>Surface: %s; fixture clearance: %s navigation px. Silhouette/depth review pending.</text>" % [entry.get("surface_kind", "floor"), clearance]
 	for item: Dictionary in entry["items"]:
 		var contact: Array = item["route_contact"] as Array
 		var contact_stage := _castle_point_to_stage(
@@ -342,7 +353,7 @@ func _castle_svg(entry: Dictionary) -> String:
 			object_stage = fixture_rect.get_center()
 			body += "<rect x='%s' y='%s' width='%s' height='%s' fill='#8f62ff' opacity='.12' stroke='#d4c4ff' stroke-width='2'/>" % [fixture_rect.position.x, fixture_rect.position.y, fixture_rect.size.x, fixture_rect.size.y]
 		body += "<line x1='%s' y1='%s' x2='%s' y2='%s' stroke='#ffd66e' stroke-width='3' stroke-dasharray='8 6'/><circle cx='%s' cy='%s' r='10' fill='#ff77b7'/><circle cx='%s' cy='%s' r='8' fill='#fff3a6'/><text x='%s' y='%s' fill='white' stroke='#17214d' stroke-width='3' paint-order='stroke' font-size='13'>%s</text>" % [contact_stage.x, contact_stage.y, object_stage.x, object_stage.y, contact_stage.x, contact_stage.y, object_stage.x, object_stage.y, contact_stage.x + 10.0, contact_stage.y - 10.0, item["id"]]
-	body += "<text x='24' y='700' fill='white' stroke='#17214d' stroke-width='4' paint-order='stroke' font-size='15'>CYAN = live route; RED = OOB and body blockers; PURPLE = live fixture bounds; YELLOW = contact socket.</text>"
+	body += "<text x='24' y='700' fill='white' stroke='#17214d' stroke-width='4' paint-order='stroke' font-size='15'>CYAN = route; RED = OOB / fixture feet; DASHED RED = clearance; PURPLE = artwork; YELLOW = approach.</text>"
 	return "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1280 720'>%s</svg>" % body
 
 

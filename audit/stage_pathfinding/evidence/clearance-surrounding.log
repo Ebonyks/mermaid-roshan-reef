@@ -1,0 +1,335 @@
+
+=== probe_castle_canvas2d ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+CASTLE2D|clearance checker rejects a through-fixture shortcut: OK
+CASTLE2D|clearance checker rejects a route starting inside a fixture: OK
+CASTLE2D|clearance checker permits a route outside the fixture: OK
+CASTLE2D|castle runtime opened: OK
+CASTLE2D|castle stage is a Control: OK
+CASTLE2D|castle safe-frame backdrop replaces default letterbox gray: OK
+CASTLE2D|castle canvas world is Node2D: OK
+CASTLE2D|castle canvas world is visible: OK
+CASTLE2D|castle canvas world owns negative base depth: OK
+CASTLE2D|castle stage contains only canvas runtime nodes: OK
+CASTLE2D|Roshan is a visible Sprite2D card: OK
+CASTLE2D|Roshan is fully visible inside the castle stage: OK (bounds=[P: (581.3459, 466.7518), S: (120.1537, 154.3795)] stage=(1280.0, 720.0))
+CASTLE2D|castle background card exists: OK
+CASTLE2D|castle background composition is visible: OK
+CASTLE2D|castle_room_mid_layer exists: OK
+CASTLE2D|castle_room_mid_layer is visible: OK
+CASTLE2D|castle_room_front_layer exists: OK
+CASTLE2D|castle_room_front_layer is visible: OK
+CASTLE2D|castle_room_item_visual_layer exists: OK
+CASTLE2D|castle_room_item_visual_layer is visible: OK
+CASTLE2D|castle_room_item_effect_layer exists: OK
+CASTLE2D|castle_room_item_effect_layer is visible: OK
+CASTLE2D|every castle Sprite2D has a complete local texture rect: OK
+CASTLE2D|castle composition has authored cards: OK (cards=37)
+CASTLE2D|transition cover spans the complete stage: OK (cover=(1280.0, 720.0) stage=(1280.0, 720.0))
+CASTLE2D|physical castle door dictionary is populated: OK (count=8)
+CASTLE2D|picture elevator routes are retired: OK (count=0)
+CASTLE2D|castle door hotspot list is populated: OK
+CASTLE2D|castle interaction dictionary is populated: OK (count=3)
+CASTLE2D|room composition declares completion: OK
+CASTLE2D|fixture-rich room remains composed: OK
+CASTLE2D|bathroom bathtub exposes an authored route socket: OK (route=(270.0, 570.0))
+CASTLE2D|bathroom route socket is distinct from painted tub origin: OK
+CASTLE2D|castle stage is a Control: OK
+CASTLE2D|castle safe-frame backdrop replaces default letterbox gray: OK
+CASTLE2D|castle canvas world is Node2D: OK
+CASTLE2D|castle canvas world is visible: OK
+CASTLE2D|castle canvas world owns negative base depth: OK
+CASTLE2D|castle stage contains only canvas runtime nodes: OK
+CASTLE2D|Roshan is a visible Sprite2D card: OK
+CASTLE2D|Roshan is fully visible inside the castle stage: OK (bounds=[P: (546.5443, 389.0193), S: (182.544, 234.2365)] stage=(1280.0, 720.0))
+CASTLE2D|castle background card exists: OK
+CASTLE2D|castle background composition is visible: OK
+CASTLE2D|castle_room_mid_layer exists: OK
+CASTLE2D|castle_room_mid_layer is visible: OK
+CASTLE2D|castle_room_front_layer exists: OK
+CASTLE2D|castle_room_front_layer is visible: OK
+CASTLE2D|castle_room_item_visual_layer exists: OK
+CASTLE2D|castle_room_item_visual_layer is visible: OK
+CASTLE2D|castle_room_item_effect_layer exists: OK
+CASTLE2D|castle_room_item_effect_layer is visible: OK
+CASTLE2D|every castle Sprite2D has a complete local texture rect: OK
+CASTLE2D|castle composition has authored cards: OK (cards=39)
+CASTLE2D|transition cover spans the complete stage: OK (cover=(1280.0, 720.0) stage=(1280.0, 720.0))
+CASTLE2D|fixture rig dictionary is populated: OK (count=5)
+CASTLE2D|fixture bubble_bath:bathtub water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:sink water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:sink water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:toilet water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:rubber_duck water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:rubber_duck has no engine body: OK
+CASTLE2D|fixture bubble_bath:rubber_duck spring is analytic: OK
+CASTLE2D|fixture water/spring nodes are 2D: OK
+CASTLE2D|fixture water contract exposes Sprite2D layers: OK (water=5)
+CASTLE2D|fixture spring contract exposes analytic springs: OK (springs=1)
+CASTLE2D|fixture telemetry exposes bounded caps: OK ({ "rigs": 5, "allocated": 1, "awake": 0, "body_cap": 12, "awake_cap": 8, "spring_cap": 12, "spring_awake_cap": 8, "water_mask_cache_entries": 10, "native_v4_loaded": 12, "native_v4_rejected": 0, "native_v4_background_rooms": 7 })
+CASTLE2D|dust-bunny burst uses the bounded mote count: OK (count=8)
+CASTLE2D|dust-bunny motes rise in a tight readable burst: OK
+CASTLE2D|dust-bunny burst fades within the short feedback window: OK
+CASTLE2D|Main Hall exposes ordinary bunnies for Daddy path: OK (count=3)
+CASTLE2D|Daddy partner pop emits one bounded burst per bunny: OK (count=24 expected=24)
+CASTLE2D|Daddy partner burst keeps its pink theme: OK
+CASTLE2D|Daddy partner path clears each ordinary bunny once: OK
+CASTLE2D|main_hall has an authored floor network: OK
+CASTLE2D|main_hall floor network is nonempty: OK
+CASTLE2D|main_hall routes clear declared fixture footprints: OK
+CASTLE2D|main_hall independent obstacle witness set is present: OK
+CASTLE2D|main_hall avoids independent painted fixture interiors: OK
+CASTLE2D|main_hall every object and door contact lies on floor: OK
+CASTLE2D|main_hall all contact pairs connect without shortcuts: OK (contacts=10 disconnected=0 shortcuts=0)
+CASTLE2D|main_hall spawn is on the floor network: OK ((380.0, 765.0))
+CASTLE2D|main_hall out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|main_hall out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|opera_hall has an authored floor network: OK
+CASTLE2D|opera_hall floor network is nonempty: OK
+CASTLE2D|opera_hall routes clear declared fixture footprints: OK
+CASTLE2D|opera_hall independent obstacle witness set is present: OK
+CASTLE2D|opera_hall avoids independent painted fixture interiors: OK
+CASTLE2D|opera_hall every object and door contact lies on floor: OK
+CASTLE2D|opera_hall all contact pairs connect without shortcuts: OK (contacts=7 disconnected=0 shortcuts=0)
+CASTLE2D|opera_hall spawn is on the floor network: OK ((640.0, 565.0))
+CASTLE2D|opera_hall out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|opera_hall out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|opera_hall displays every visible item in full: OK
+CASTLE2D|kitchen has an authored floor network: OK
+CASTLE2D|kitchen floor network is nonempty: OK
+CASTLE2D|kitchen routes clear declared fixture footprints: OK
+CASTLE2D|kitchen independent obstacle witness set is present: OK
+CASTLE2D|kitchen avoids independent painted fixture interiors: OK
+CASTLE2D|kitchen every object and door contact lies on floor: OK
+CASTLE2D|kitchen all contact pairs connect without shortcuts: OK (contacts=8 disconnected=0 shortcuts=0)
+CASTLE2D|kitchen spawn is on the floor network: OK ((640.0, 570.0))
+CASTLE2D|kitchen out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|kitchen out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|kitchen displays every visible item in full: OK
+CASTLE2D|library has an authored floor network: OK
+CASTLE2D|library floor network is nonempty: OK
+CASTLE2D|library routes clear declared fixture footprints: OK
+CASTLE2D|library avoids independent painted fixture interiors: OK
+CASTLE2D|library every object and door contact lies on floor: OK
+CASTLE2D|library all contact pairs connect without shortcuts: OK (contacts=7 disconnected=0 shortcuts=0)
+CASTLE2D|library spawn is on the floor network: OK ((640.0, 640.0))
+CASTLE2D|library out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|library out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|library displays every visible item in full: OK
+CASTLE2D|playroom has an authored floor network: OK
+CASTLE2D|playroom floor network is nonempty: OK
+CASTLE2D|playroom routes clear declared fixture footprints: OK
+CASTLE2D|playroom avoids independent painted fixture interiors: OK
+CASTLE2D|playroom every object and door contact lies on floor: OK
+CASTLE2D|playroom all contact pairs connect without shortcuts: OK (contacts=9 disconnected=0 shortcuts=0)
+CASTLE2D|playroom spawn is on the floor network: OK ((640.0, 650.0))
+CASTLE2D|playroom out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|playroom out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|playroom displays every visible item in full: OK
+CASTLE2D|craft_room has an authored floor network: OK
+CASTLE2D|craft_room floor network is nonempty: OK
+CASTLE2D|craft_room routes clear declared fixture footprints: OK
+CASTLE2D|craft_room independent obstacle witness set is present: OK
+CASTLE2D|craft_room avoids independent painted fixture interiors: OK
+CASTLE2D|craft_room every object and door contact lies on floor: OK
+CASTLE2D|craft_room all contact pairs connect without shortcuts: OK (contacts=6 disconnected=0 shortcuts=0)
+CASTLE2D|craft_room spawn is on the floor network: OK ((640.0, 560.0))
+CASTLE2D|craft_room out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|craft_room out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|craft_room displays every visible item in full: OK
+CASTLE2D|mermaid_pool has an authored floor network: OK
+CASTLE2D|mermaid_pool floor network is nonempty: OK
+CASTLE2D|mermaid_pool routes clear declared fixture footprints: OK
+CASTLE2D|mermaid_pool independent obstacle witness set is present: OK
+CASTLE2D|mermaid_pool avoids independent painted fixture interiors: OK
+CASTLE2D|mermaid_pool every object and door contact lies on floor: OK
+CASTLE2D|mermaid_pool all contact pairs connect without shortcuts: OK (contacts=5 disconnected=0 shortcuts=0)
+CASTLE2D|mermaid_pool spawn is on the floor network: OK ((640.0, 520.0))
+CASTLE2D|mermaid_pool out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|mermaid_pool out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|mermaid_pool displays every visible item in full: OK
+CASTLE2D|bubble_bath has an authored floor network: OK
+CASTLE2D|bubble_bath floor network is nonempty: OK
+CASTLE2D|bubble_bath routes clear declared fixture footprints: OK
+CASTLE2D|bubble_bath avoids independent painted fixture interiors: OK
+CASTLE2D|bubble_bath every object and door contact lies on floor: OK
+CASTLE2D|bubble_bath all contact pairs connect without shortcuts: OK (contacts=6 disconnected=0 shortcuts=0)
+CASTLE2D|bubble_bath spawn is on the floor network: OK ((640.0, 650.0))
+CASTLE2D|bubble_bath out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|bubble_bath out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|bubble_bath displays every visible item in full: OK
+CASTLE2D|dining_room has an authored floor network: OK
+CASTLE2D|dining_room floor network is nonempty: OK
+CASTLE2D|dining_room routes clear declared fixture footprints: OK
+CASTLE2D|dining_room independent obstacle witness set is present: OK
+CASTLE2D|dining_room avoids independent painted fixture interiors: OK
+CASTLE2D|dining_room every object and door contact lies on floor: OK
+CASTLE2D|dining_room all contact pairs connect without shortcuts: OK (contacts=12 disconnected=0 shortcuts=0)
+CASTLE2D|dining_room spawn is on the floor network: OK ((640.0, 680.0))
+CASTLE2D|dining_room out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|dining_room out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|dining_room displays every visible item in full: OK
+CASTLE2D|royal_bedroom has an authored floor network: OK
+CASTLE2D|royal_bedroom floor network is nonempty: OK
+CASTLE2D|royal_bedroom routes clear declared fixture footprints: OK
+CASTLE2D|royal_bedroom independent obstacle witness set is present: OK
+CASTLE2D|royal_bedroom avoids independent painted fixture interiors: OK
+CASTLE2D|royal_bedroom every object and door contact lies on floor: OK
+CASTLE2D|royal_bedroom all contact pairs connect without shortcuts: OK (contacts=5 disconnected=0 shortcuts=0)
+CASTLE2D|royal_bedroom spawn is on the floor network: OK ((900.0, 640.0))
+CASTLE2D|royal_bedroom out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|royal_bedroom out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|royal_bedroom displays every visible item in full: OK
+CASTLE2D|sleepover_bedroom has an authored floor network: OK
+CASTLE2D|sleepover_bedroom floor network is nonempty: OK
+CASTLE2D|sleepover_bedroom routes clear declared fixture footprints: OK
+CASTLE2D|sleepover_bedroom independent obstacle witness set is present: OK
+CASTLE2D|sleepover_bedroom avoids independent painted fixture interiors: OK
+CASTLE2D|sleepover_bedroom every object and door contact lies on floor: OK
+CASTLE2D|sleepover_bedroom all contact pairs connect without shortcuts: OK (contacts=5 disconnected=0 shortcuts=0)
+CASTLE2D|sleepover_bedroom spawn is on the floor network: OK ((640.0, 680.0))
+CASTLE2D|sleepover_bedroom out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|sleepover_bedroom out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|sleepover_bedroom displays every visible item in full: OK
+CASTLE2D|movie_lounge has an authored floor network: OK
+CASTLE2D|movie_lounge floor network is nonempty: OK
+CASTLE2D|movie_lounge routes clear declared fixture footprints: OK
+CASTLE2D|movie_lounge independent obstacle witness set is present: OK
+CASTLE2D|movie_lounge avoids independent painted fixture interiors: OK
+CASTLE2D|movie_lounge every object and door contact lies on floor: OK
+CASTLE2D|movie_lounge all contact pairs connect without shortcuts: OK (contacts=7 disconnected=0 shortcuts=0)
+CASTLE2D|movie_lounge spawn is on the floor network: OK ((640.0, 710.0))
+CASTLE2D|movie_lounge out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|movie_lounge out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|movie_lounge displays every visible item in full: OK
+CASTLE2D|family_gallery has an authored floor network: OK
+CASTLE2D|family_gallery floor network is nonempty: OK
+CASTLE2D|family_gallery routes clear declared fixture footprints: OK
+CASTLE2D|family_gallery independent obstacle witness set is present: OK
+CASTLE2D|family_gallery avoids independent painted fixture interiors: OK
+CASTLE2D|family_gallery every object and door contact lies on floor: OK
+CASTLE2D|family_gallery all contact pairs connect without shortcuts: OK (contacts=5 disconnected=0 shortcuts=0)
+CASTLE2D|family_gallery spawn is on the floor network: OK ((640.0, 626.0))
+CASTLE2D|family_gallery out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|family_gallery out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|family_gallery displays every visible item in full: OK
+CASTLE2D|done failures=0
+EXIT=0
+
+=== probe_interaction ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+INTERACTION|ALL OK
+EXIT=0
+
+=== probe_crown ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+CROWN|room_shell_open: OK
+CROWN|movement_does_not_award: OK
+CROWN|legacy_3d_castle_hall_not_built: OK
+CROWN|sprite_castle_is_only_interior_route: OK
+CROWN|opera_lives_behind_physical_door_not_3d_courtyard: OK
+CROWN|canvas2d_world_root: OK
+CROWN|direct_canvas_has_no_room_camera: OK
+CROWN|world_has_no_spatial_art: OK
+CROWN|backdrop_is_unshaded_sprite2d: OK
+CROWN|reference_canvas_scale: OK scale=(1.25, 1.25)
+CROWN|backdrop_aspect_preserved: OK
+CROWN|clean_background_unique_pixel_manifest: OK
+CROWN|manifest_sprite2d_node_contract: OK
+CROWN|main_hall_manifest_points_to_current_strict_runtime: OK
+CROWN|native_2k_environment_gate: OK native >=2K masters reconstruct through exact <=1024 tiles
+CROWN|library_mid_layer: OK
+CROWN|library_front_layers: OK
+CROWN|library_node_inventory: OK
+CROWN|library_depth_bands: OK
+CROWN|room_item_inventory_matches_source_owned_design: OK
+CROWN|room_touch_inventory_matches_design: OK
+CROWN|source_owned_v4_items_match_audited_design: OK
+CROWN|native_healed_background_routes_match_design: OK
+CROWN|all_room_art_uses_sprite2d_contract: OK
+CROWN|objects_have_authored_real_depth: OK
+CROWN|speedy_visible_card_budget: OK
+CROWN|projected_touch_hit_mapping: OK stage=(1036.875, 315.203) hit=[P: (941.25, 191.8219), S: (191.25, 240.0)]
+CROWN|direct_canvas_depth_order: OK back=0 fixture=100
+CROWN|touch_navigation_maps_to_walk_lane: OK
+CROWN|toilet_waits_for_floor_arrival: OK
+CROWN|toilet_action_starts_at_authored_contact: OK
+CROWN|toilet_uses_semantic_flush_atlas: OK
+CROWN|toilet_uses_bounded_fixture_water_not_generic_overlay: OK
+CROWN|toilet_busy_guard: OK
+CROWN|toilet_seat_flap_flush_sequence_completes: OK
+CROWN|toilet_animation_keeps_fixture_pivot_fixed: OK
+CROWN|toilet_flush_sound: OK
+CROWN|decorations_do_not_award: OK
+CROWN|sorts_behind_midground: OK
+CROWN|sorts_in_front_of_midground: OK
+CROWN|royal_hall_route_available: OK
+CROWN|royal_hall_waits_for_arrival: OK
+CROWN|crown_won_flag: OK
+CROWN|win_recorded: OK
+CROWN|still_in_castle: OK game=level2 phase=hall
+CROWN|not_ejected_to_ocean: OK dist=24
+CROWN|no_retrigger_teleport: OK
+CROWN|front_door_exits: OK phase=promenade
+CROWN|done: OK
+EXIT=0
+
+=== probe_bathroom_integration ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+BATHROOM_WORLD|empty Day One bathtub has no swimmer or fill water: OK
+BATHROOM_WORLD|sprite stage open: OK
+BATHROOM_WORLD|direct canvas has no camera: OK
+BATHROOM_WORLD|retired modeled bathroom absent: OK
+BATHROOM_WORLD|one child-readable bathtub silhouette: OK false_foreground_left=false false_foreground_right=false real_bathtub=true
+BATHROOM_WORLD|audited V4 bathroom registry: OK
+BATHROOM_WORLD|source-owned bath touch props: OK expected=5 runtime=5 hotspots=5
+BATHROOM_WORLD|zero V3 additions or duplicate props: OK
+BATHROOM_WORLD|native bath props own pixels over complete full-frame clean tiles: OK expected_native=true runtime_native=true
+BATHROOM_WORLD|unshaded Sprite2D fixtures: OK
+BATHROOM_WORLD|fixtures occupy real depth: OK
+BATHROOM_WORLD|semantic atlas sequences follow audited timelines and reset: OK
+BATHROOM_WORLD|Canvas fixtures add 3x temporal samples and sleep at one idle draw: OK
+BATHROOM_WORLD|semantic fixture actions stay bounded and restore roots: OK
+BATHROOM_WORLD|fixture actions play exact castle audio: OK
+BATHROOM_WORLD|fixture animations reject repeat taps while busy: OK
+BATHROOM_WORLD|toilet vortex stays inside the animated bowl cavity: OK spec={ "role": "vortex", "shape": "ellipse", "center": [0.51, 0.615], "radius": [0.12, 0.028], "z_offset": 0.003, "flow_start": 0.08, "render_priority": 1.0, "active_frames": [2.0, 3.0, 4.0], "contact_role": "inside_bowl_cavity", "cavity_bounds_normalized": [0.365, 0.57, 0.29, 0.09], "occlusion_contract": "front_surface_confined_to_inner_bowl_waterline", "deep": [0.3, 0.7, 0.82, 1.0], "shallow": [0.74, 0.95, 0.98, 1.0], "alpha_base": 0.56, "turbulence": 0.52, "edge_foam": 0.18, "flow_speed": 1.25 } bounds=[P: (0.39, 0.587), S: (0.24, 0.056)] cavity=[P: (0.365, 0.57), S: (0.29, 0.09)] water_z=100 sprite_z=100
+BATHROOM_WORLD|bathtub water is a soft contained basin layer: OK roles=["fill"] alpha=0.240
+BATHROOM_WORLD|filled Day One bathtub reuses the true-swimming bunny: OK
+BATHROOM_WORLD|no bathtub-like foreground occluders: OK
+BATHROOM_WORLD|free-roaming controls disabled: OK
+BATHROOM_WORLD|bubble_bath authored lanes stay in stage and clear fixture bodies: OK
+BATHROOM_WORLD|bubble_bath item approaches resolve onto authored lanes: OK
+BATHROOM_WORLD|bubble_bath navigation snapshot carries atlas source geometry: OK
+BATHROOM_WORLD|live bathtub hotspot starts an approach: OK
+BATHROOM_WORLD|bathtub action waits while Roshan approaches: OK
+BATHROOM_WORLD|every bathtub interpolation sample stays on clear authored floor: OK
+BATHROOM_WORLD|bathtub action begins only at its approach socket: OK
+BATHROOM_WORLD|a new real floor tap cancels the queued bathtub action: OK
+BATHROOM_WORLD|touch drag release over bathtub requests its shared approach: OK
+BATHROOM_WORLD|dragged bathtub action waits for clear path arrival: OK
+BATHROOM_WORLD|library authored lanes stay in stage and clear fixture bodies: OK
+BATHROOM_WORLD|library item approaches resolve onto authored lanes: OK
+BATHROOM_WORLD|library navigation snapshot carries atlas source geometry: OK
+BATHROOM_WORLD|playroom authored lanes stay in stage and clear fixture bodies: OK
+BATHROOM_WORLD|playroom item approaches resolve onto authored lanes: OK
+BATHROOM_WORLD|playroom navigation snapshot carries atlas source geometry: OK
+BATHROOM_WORLD|drag release over an in-room physical door waits for arrival: OK
+BATHROOM_WORLD|dragged in-room door follows its lane before changing rooms: OK
+BATHROOM_WORLD|press held over a hall door cannot arm or enter it: OK
+BATHROOM_WORLD|a foreign touch release cannot steal the owned castle drag: OK
+BATHROOM_WORLD|a canceled touch drag clears movement and door intent: OK
+BATHROOM_WORLD|drag release on a physical door waits for arrival: OK
+BATHROOM_WORLD|dragged door route samples stay on the hall network: OK
+BATHROOM_WORLD|drag release enters the door after Roshan arrives: OK
+BATHROOM_WORLD|RESULT: 0 OK
+EXIT=0
+
+=== probe_stage_navigation_2d ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+STAGE NAVIGATION 2D | ALL OK
+EXIT=0

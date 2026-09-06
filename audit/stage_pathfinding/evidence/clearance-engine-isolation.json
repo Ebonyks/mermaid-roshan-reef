@@ -1,0 +1,9 @@
+{
+  "schema": "godot-process-isolation-v1",
+  "purpose": "Isolate probe process names from concurrent capture cleanup; byte-identical official engine, no changes to executable behavior.",
+  "source": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe",
+  "copy": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\stage-pathfinding-clearance-20260906\\build\\pathfinding-clearance\\engine\\godot_pathfinding.exe",
+  "sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "version": "4.7.2.stable.official.ed1daf0bf",
+  "cause": "Undetermined. Original engine processes ended with native -1 / shell 127 without assertion failure; uniquely named byte-identical engine passes the two repeatedly interrupted probes. No claim of a confirmed external cause."
+}

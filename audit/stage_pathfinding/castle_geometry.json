@@ -8,7 +8,7 @@
       ],
       "art_to_stage_scale": 0.76555023923445,
       "art_view_left": 0.0,
-      "authored_lanes": false,
+      "authored_lanes": true,
       "backgrounds": [
         {
           "native_texture_size": [
@@ -684,6 +684,8 @@
         }
       ],
       "body_footprints": [],
+      "clearance_model": "floor_footprint_radius",
+      "clearance_radius": 48.0,
       "coordinate_space": "live CastleRooms25D navigation_snapshot; canvas scaled by runtime",
       "items": [
         {
@@ -858,12 +860,102 @@
       "lanes": [
         [
           [
-            60.0,
+            144.0,
             765.0
           ],
           [
-            3284.0,
+            3200.0,
             765.0
+          ]
+        ],
+        [
+          [
+            290.0,
+            765.0
+          ],
+          [
+            290.0,
+            620.0
+          ]
+        ],
+        [
+          [
+            455.0,
+            765.0
+          ],
+          [
+            455.0,
+            620.0
+          ]
+        ],
+        [
+          [
+            620.0,
+            765.0
+          ],
+          [
+            620.0,
+            620.0
+          ]
+        ],
+        [
+          [
+            1025.0,
+            765.0
+          ],
+          [
+            1025.0,
+            620.0
+          ]
+        ],
+        [
+          [
+            2015.0,
+            765.0
+          ],
+          [
+            2015.0,
+            620.0
+          ]
+        ],
+        [
+          [
+            2215.0,
+            765.0
+          ],
+          [
+            2215.0,
+            620.0
+          ]
+        ],
+        [
+          [
+            2415.0,
+            765.0
+          ],
+          [
+            2415.0,
+            620.0
+          ]
+        ],
+        [
+          [
+            2615.0,
+            765.0
+          ],
+          [
+            2615.0,
+            620.0
+          ]
+        ],
+        [
+          [
+            3045.0,
+            765.0
+          ],
+          [
+            3045.0,
+            620.0
           ]
         ],
         [
@@ -991,12 +1083,21 @@
       "out_of_bounds": "all points outside declared lane centerlines; clear bands are diagnostic margins only",
       "provenance": "live composed Castle room, approved repository art; see ASSET_LICENSES.md",
       "room_id": "main_hall",
+      "safe_recovery": [
+        380.0,
+        765.0
+      ],
+      "safe_spawn": [
+        380.0,
+        765.0
+      ],
       "stage_bounds": [
         0.0,
         0.0,
         1280.0,
         720.0
       ],
+      "surface_kind": "floor",
       "viewport": [
         1280,
         720
@@ -1016,7 +1117,7 @@
       ],
       "art_to_stage_scale": 1.25,
       "art_view_left": 0.0,
-      "authored_lanes": false,
+      "authored_lanes": true,
       "backgrounds": [
         {
           "native_texture_size": [
@@ -1355,7 +1456,37 @@
           "texture_path": "res://assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c3.png"
         }
       ],
-      "body_footprints": [],
+      "body_footprints": [
+        {
+          "id": "stage_base",
+          "rect": [
+            350.0,
+            365.0,
+            575.0,
+            70.0
+          ]
+        },
+        {
+          "id": "left_balcony",
+          "rect": [
+            0.0,
+            390.0,
+            305.0,
+            235.0
+          ]
+        },
+        {
+          "id": "right_balcony",
+          "rect": [
+            973.0,
+            390.0,
+            307.0,
+            235.0
+          ]
+        }
+      ],
+      "clearance_model": "floor_footprint_radius",
+      "clearance_radius": 36.0,
       "coordinate_space": "live CastleRooms25D navigation_snapshot; canvas scaled by runtime",
       "items": [
         {
@@ -1395,8 +1526,8 @@
             198.225479125977
           ],
           "route_contact": [
-            517.5,
-            455.0
+            518.0,
+            565.0
           ],
           "sha256": "51673baecdf196fd3e301630ae04c035f8d1ce1c6dde8c93ea72492c7cbe07d7",
           "source_art_rect": [
@@ -1451,8 +1582,8 @@
             49.5480766296387
           ],
           "route_contact": [
-            517.5,
-            455.0
+            518.0,
+            565.0
           ],
           "sha256": "532dfb72c881f273da3c670256fc5c27b2e4a39c3c2da4279d7508701fd51336",
           "source_art_rect": [
@@ -1507,8 +1638,8 @@
             38.5013389587402
           ],
           "route_contact": [
-            612.5,
-            455.0
+            613.0,
+            565.0
           ],
           "sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
           "source_art_rect": [
@@ -1563,8 +1694,8 @@
             37.0
           ],
           "route_contact": [
-            353.75,
-            455.0
+            354.0,
+            565.0
           ],
           "sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
           "source_art_rect": [
@@ -1619,8 +1750,8 @@
             37.0
           ],
           "route_contact": [
-            891.25,
-            455.0
+            891.0,
+            565.0
           ],
           "sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
           "source_art_rect": [
@@ -1675,8 +1806,8 @@
             93.0361099243164
           ],
           "route_contact": [
-            522.5,
-            455.0
+            523.0,
+            565.0
           ],
           "sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
           "source_art_rect": [
@@ -1698,72 +1829,12 @@
       "lanes": [
         [
           [
-            180.0,
-            562.5
+            350.0,
+            565.0
           ],
           [
-            1100.0,
-            562.5
-          ]
-        ],
-        [
-          [
-            517.5,
-            562.5
-          ],
-          [
-            517.5,
-            455.0
-          ]
-        ],
-        [
-          [
-            522.5,
-            562.5
-          ],
-          [
-            522.5,
-            455.0
-          ]
-        ],
-        [
-          [
-            612.5,
-            562.5
-          ],
-          [
-            612.5,
-            455.0
-          ]
-        ],
-        [
-          [
-            517.5,
-            562.5
-          ],
-          [
-            517.5,
-            455.0
-          ]
-        ],
-        [
-          [
-            353.75,
-            562.5
-          ],
-          [
-            353.75,
-            455.0
-          ]
-        ],
-        [
-          [
-            891.25,
-            562.5
-          ],
-          [
-            891.25,
-            455.0
+            930.0,
+            565.0
           ]
         ]
       ],
@@ -1771,12 +1842,21 @@
       "out_of_bounds": "all points outside declared lane centerlines; clear bands are diagnostic margins only",
       "provenance": "live composed Castle room, approved repository art; see ASSET_LICENSES.md",
       "room_id": "opera_hall",
+      "safe_recovery": [
+        640.0,
+        565.0
+      ],
+      "safe_spawn": [
+        640.0,
+        565.0
+      ],
       "stage_bounds": [
         0.0,
         0.0,
         1280.0,
         720.0
       ],
+      "surface_kind": "floor",
       "viewport": [
         1280,
         720
@@ -1796,7 +1876,7 @@
       ],
       "art_to_stage_scale": 1.25,
       "art_view_left": 0.0,
-      "authored_lanes": false,
+      "authored_lanes": true,
       "backgrounds": [
         {
           "native_texture_size": [
@@ -2303,7 +2383,37 @@
           "texture_path": "res://assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c3.png"
         }
       ],
-      "body_footprints": [],
+      "body_footprints": [
+        {
+          "id": "sink_base",
+          "rect": [
+            75.0,
+            390.0,
+            170.0,
+            130.0
+          ]
+        },
+        {
+          "id": "oven_base",
+          "rect": [
+            300.0,
+            400.0,
+            210.0,
+            110.0
+          ]
+        },
+        {
+          "id": "fridge_base",
+          "rect": [
+            700.0,
+            350.0,
+            175.0,
+            170.0
+          ]
+        }
+      ],
+      "clearance_model": "floor_footprint_radius",
+      "clearance_radius": 36.0,
       "coordinate_space": "live CastleRooms25D navigation_snapshot; canvas scaled by runtime",
       "items": [
         {
@@ -2343,8 +2453,8 @@
             94.2928924560547
           ],
           "route_contact": [
-            205.0,
-            450.0
+            240.0,
+            570.0
           ],
           "sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
           "source_art_rect": [
@@ -2400,7 +2510,7 @@
           ],
           "route_contact": [
             375.0,
-            450.0
+            570.0
           ],
           "sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
           "source_art_rect": [
@@ -2455,8 +2565,8 @@
             73.1974334716797
           ],
           "route_contact": [
-            421.25,
-            450.0
+            421.0,
+            570.0
           ],
           "sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
           "source_art_rect": [
@@ -2511,8 +2621,8 @@
             57.0436325073242
           ],
           "route_contact": [
-            473.75,
-            450.0
+            474.0,
+            570.0
           ],
           "sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
           "source_art_rect": [
@@ -2568,7 +2678,7 @@
           ],
           "route_contact": [
             795.0,
-            450.0
+            570.0
           ],
           "sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
           "source_art_rect": [
@@ -2623,8 +2733,8 @@
             62.6655311584473
           ],
           "route_contact": [
-            522.5,
-            450.0
+            523.0,
+            570.0
           ],
           "sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
           "source_art_rect": [
@@ -2679,8 +2789,8 @@
             100.336151123047
           ],
           "route_contact": [
-            361.25,
-            450.0
+            480.0,
+            570.0
           ],
           "sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
           "source_art_rect": [
@@ -2703,81 +2813,11 @@
         [
           [
             205.0,
-            557.5
+            570.0
           ],
           [
             1075.0,
-            557.5
-          ]
-        ],
-        [
-          [
-            205.0,
-            557.5
-          ],
-          [
-            205.0,
-            450.0
-          ]
-        ],
-        [
-          [
-            375.0,
-            557.5
-          ],
-          [
-            375.0,
-            450.0
-          ]
-        ],
-        [
-          [
-            421.25,
-            557.5
-          ],
-          [
-            421.25,
-            450.0
-          ]
-        ],
-        [
-          [
-            473.75,
-            557.5
-          ],
-          [
-            473.75,
-            450.0
-          ]
-        ],
-        [
-          [
-            522.5,
-            557.5
-          ],
-          [
-            522.5,
-            450.0
-          ]
-        ],
-        [
-          [
-            361.25,
-            557.5
-          ],
-          [
-            361.25,
-            450.0
-          ]
-        ],
-        [
-          [
-            795.0,
-            557.5
-          ],
-          [
-            795.0,
-            450.0
+            570.0
           ]
         ]
       ],
@@ -2785,12 +2825,21 @@
       "out_of_bounds": "all points outside declared lane centerlines; clear bands are diagnostic margins only",
       "provenance": "live composed Castle room, approved repository art; see ASSET_LICENSES.md",
       "room_id": "kitchen",
+      "safe_recovery": [
+        640.0,
+        570.0
+      ],
+      "safe_spawn": [
+        640.0,
+        570.0
+      ],
       "stage_bounds": [
         0.0,
         0.0,
         1280.0,
         720.0
       ],
+      "surface_kind": "floor",
       "viewport": [
         1280,
         720
@@ -3178,6 +3227,8 @@
           ]
         }
       ],
+      "clearance_model": "floor_footprint_radius",
+      "clearance_radius": 0.0,
       "coordinate_space": "live CastleRooms25D navigation_snapshot; canvas scaled by runtime",
       "items": [
         {
@@ -3589,12 +3640,21 @@
       "out_of_bounds": "all points outside declared lane centerlines; clear bands are diagnostic margins only",
       "provenance": "live composed Castle room, approved repository art; see ASSET_LICENSES.md",
       "room_id": "library",
+      "safe_recovery": [
+        640.0,
+        640.0
+      ],
+      "safe_spawn": [
+        640.0,
+        640.0
+      ],
       "stage_bounds": [
         0.0,
         0.0,
         1280.0,
         720.0
       ],
+      "surface_kind": "floor",
       "viewport": [
         1280,
         720
@@ -4009,6 +4069,8 @@
           ]
         }
       ],
+      "clearance_model": "floor_footprint_radius",
+      "clearance_radius": 0.0,
       "coordinate_space": "live CastleRooms25D navigation_snapshot; canvas scaled by runtime",
       "items": [
         {
@@ -4506,12 +4568,21 @@
       "out_of_bounds": "all points outside declared lane centerlines; clear bands are diagnostic margins only",
       "provenance": "live composed Castle room, approved repository art; see ASSET_LICENSES.md",
       "room_id": "playroom",
+      "safe_recovery": [
+        640.0,
+        650.0
+      ],
+      "safe_spawn": [
+        640.0,
+        650.0
+      ],
       "stage_bounds": [
         0.0,
         0.0,
         1280.0,
         720.0
       ],
+      "surface_kind": "floor",
       "viewport": [
         1280,
         720
@@ -4531,7 +4602,7 @@
       ],
       "art_to_stage_scale": 1.25,
       "art_view_left": 0.0,
-      "authored_lanes": false,
+      "authored_lanes": true,
       "backgrounds": [
         {
           "native_texture_size": [
@@ -4870,7 +4941,28 @@
           "texture_path": "res://assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c3.png"
         }
       ],
-      "body_footprints": [],
+      "body_footprints": [
+        {
+          "id": "palette_base",
+          "rect": [
+            35.0,
+            370.0,
+            125.0,
+            140.0
+          ]
+        },
+        {
+          "id": "paint_table_base",
+          "rect": [
+            425.0,
+            380.0,
+            220.0,
+            130.0
+          ]
+        }
+      ],
+      "clearance_model": "floor_footprint_radius",
+      "clearance_radius": 36.0,
       "coordinate_space": "live CastleRooms25D navigation_snapshot; canvas scaled by runtime",
       "items": [
         {
@@ -4910,8 +5002,8 @@
             157.95930480957
           ],
           "route_contact": [
-            471.25,
-            420.0
+            471.0,
+            560.0
           ],
           "sha256": "5d7df4b87a9bdf53331567751afb192e09d101d152f4ca99715bcfeb6dcbabec",
           "source_art_rect": [
@@ -4966,8 +5058,8 @@
             127.62052154541
           ],
           "route_contact": [
-            337.5,
-            420.0
+            338.0,
+            560.0
           ],
           "sha256": "3867c9ba410fa68d2688f9eae9c789a832b49c1455ff94b801947bf5f43b8e01",
           "source_art_rect": [
@@ -5022,8 +5114,8 @@
             77.0
           ],
           "route_contact": [
-            288.75,
-            420.0
+            289.0,
+            560.0
           ],
           "sha256": "454488a5a9e2fd67a98ef83d4392356441088a9b8a6de18ef8541206fb764e4a",
           "source_art_rect": [
@@ -5078,8 +5170,8 @@
             106.308174133301
           ],
           "route_contact": [
-            500.0,
-            420.0
+            640.0,
+            560.0
           ],
           "sha256": "2beb7dd4e5e731acfe0a402f45aef195ac2a886c6ec982eecdc2b16e9ea7ecba",
           "source_art_rect": [
@@ -5135,7 +5227,7 @@
           ],
           "route_contact": [
             175.0,
-            420.0
+            560.0
           ],
           "sha256": "c36ee3bb19840d9977961f6525f3d543a38bc599335a0ad82bfd11fb60850071",
           "source_art_rect": [
@@ -5158,61 +5250,11 @@
         [
           [
             175.0,
-            545.0
+            560.0
           ],
           [
             1105.0,
-            545.0
-          ]
-        ],
-        [
-          [
-            471.25,
-            545.0
-          ],
-          [
-            471.25,
-            420.0
-          ]
-        ],
-        [
-          [
-            500.0,
-            545.0
-          ],
-          [
-            500.0,
-            420.0
-          ]
-        ],
-        [
-          [
-            175.0,
-            545.0
-          ],
-          [
-            175.0,
-            420.0
-          ]
-        ],
-        [
-          [
-            337.5,
-            545.0
-          ],
-          [
-            337.5,
-            420.0
-          ]
-        ],
-        [
-          [
-            288.75,
-            545.0
-          ],
-          [
-            288.75,
-            420.0
+            560.0
           ]
         ]
       ],
@@ -5220,12 +5262,21 @@
       "out_of_bounds": "all points outside declared lane centerlines; clear bands are diagnostic margins only",
       "provenance": "live composed Castle room, approved repository art; see ASSET_LICENSES.md",
       "room_id": "craft_room",
+      "safe_recovery": [
+        640.0,
+        560.0
+      ],
+      "safe_spawn": [
+        640.0,
+        560.0
+      ],
       "stage_bounds": [
         0.0,
         0.0,
         1280.0,
         720.0
       ],
+      "surface_kind": "floor",
       "viewport": [
         1280,
         720
@@ -5245,7 +5296,7 @@
       ],
       "art_to_stage_scale": 1.25,
       "art_view_left": 0.0,
-      "authored_lanes": false,
+      "authored_lanes": true,
       "backgrounds": [
         {
           "native_texture_size": [
@@ -5585,6 +5636,8 @@
         }
       ],
       "body_footprints": [],
+      "clearance_model": "floor_footprint_radius",
+      "clearance_radius": 36.0,
       "coordinate_space": "live CastleRooms25D navigation_snapshot; canvas scaled by runtime",
       "items": [
         {
@@ -5624,7 +5677,7 @@
             166.0
           ],
           "route_contact": [
-            386.25,
+            386.0,
             400.0
           ],
           "sha256": "d7a4d7d6a01fc454f1cbe6fb7a9c17ff032002bac33bd20b2106b82483565f52",
@@ -5680,7 +5733,7 @@
             174.0
           ],
           "route_contact": [
-            817.5,
+            818.0,
             400.0
           ],
           "sha256": "2c76698701ec4e5d0b1055ba21fe29a86fe78d5bbeaa0cd4cc8de2ed1bfbd156",
@@ -5736,8 +5789,8 @@
             110.0
           ],
           "route_contact": [
-            393.75,
-            400.0
+            394.0,
+            520.0
           ],
           "sha256": "40e14632dfcd4a9f79b89b3232460d5e653731a85ecd9ca060dae62f66bfe8a9",
           "source_art_rect": [
@@ -5815,51 +5868,41 @@
       "lanes": [
         [
           [
-            170.0,
-            535.0
+            210.0,
+            520.0
           ],
           [
-            1110.0,
-            535.0
+            1070.0,
+            520.0
           ]
         ],
         [
           [
-            386.25,
-            535.0
+            386.0,
+            520.0
           ],
           [
-            386.25,
-            400.0
-          ]
-        ],
-        [
-          [
-            393.75,
-            535.0
-          ],
-          [
-            393.75,
-            400.0
-          ]
-        ],
-        [
-          [
-            817.5,
-            535.0
-          ],
-          [
-            817.5,
+            386.0,
             400.0
           ]
         ],
         [
           [
             675.0,
-            535.0
+            520.0
           ],
           [
             675.0,
+            400.0
+          ]
+        ],
+        [
+          [
+            818.0,
+            520.0
+          ],
+          [
+            818.0,
             400.0
           ]
         ]
@@ -5868,12 +5911,21 @@
       "out_of_bounds": "all points outside declared lane centerlines; clear bands are diagnostic margins only",
       "provenance": "live composed Castle room, approved repository art; see ASSET_LICENSES.md",
       "room_id": "mermaid_pool",
+      "safe_recovery": [
+        640.0,
+        520.0
+      ],
+      "safe_spawn": [
+        640.0,
+        520.0
+      ],
       "stage_bounds": [
         0.0,
         0.0,
         1280.0,
         720.0
       ],
+      "surface_kind": "swim",
       "viewport": [
         1280,
         720
@@ -6261,6 +6313,8 @@
           ]
         }
       ],
+      "clearance_model": "floor_footprint_radius",
+      "clearance_radius": 0.0,
       "coordinate_space": "live CastleRooms25D navigation_snapshot; canvas scaled by runtime",
       "items": [
         {
@@ -6590,12 +6644,21 @@
       "out_of_bounds": "all points outside declared lane centerlines; clear bands are diagnostic margins only",
       "provenance": "live composed Castle room, approved repository art; see ASSET_LICENSES.md",
       "room_id": "bubble_bath",
+      "safe_recovery": [
+        640.0,
+        650.0
+      ],
+      "safe_spawn": [
+        640.0,
+        650.0
+      ],
       "stage_bounds": [
         0.0,
         0.0,
         1280.0,
         720.0
       ],
+      "surface_kind": "floor",
       "viewport": [
         1280,
         720
@@ -6615,7 +6678,7 @@
       ],
       "art_to_stage_scale": 1.25,
       "art_view_left": 0.0,
-      "authored_lanes": false,
+      "authored_lanes": true,
       "backgrounds": [
         {
           "native_texture_size": [
@@ -6786,7 +6849,37 @@
           "texture_path": "res://assets/flats/castle/rooms/background_tiles/room_dining_room_background_r1_c1.png"
         }
       ],
-      "body_footprints": [],
+      "body_footprints": [
+        {
+          "id": "dining_table",
+          "rect": [
+            445.0,
+            350.0,
+            397.0,
+            240.0
+          ]
+        },
+        {
+          "id": "dining_seat_left",
+          "rect": [
+            240.0,
+            470.0,
+            182.0,
+            168.0
+          ]
+        },
+        {
+          "id": "dining_seat_right",
+          "rect": [
+            858.0,
+            470.0,
+            182.0,
+            168.0
+          ]
+        }
+      ],
+      "clearance_model": "floor_footprint_radius",
+      "clearance_radius": 36.0,
       "coordinate_space": "live CastleRooms25D navigation_snapshot; canvas scaled by runtime",
       "items": [
         {
@@ -6827,7 +6920,7 @@
           ],
           "route_contact": [
             510.0,
-            390.0
+            680.0
           ],
           "sha256": "b5b8cbb8a2ce99df7a82ad6e5b6f5679656385ffd8a93a01d244a0fcc67e3f18",
           "source_art_rect": [
@@ -6882,8 +6975,8 @@
             226.979995727539
           ],
           "route_contact": [
-            130.0,
-            390.0
+            290.0,
+            680.0
           ],
           "sha256": "28a6f3afa413b467cd05d421e54d2b36e9b6af14364dbedfad2fed64d86aa270",
           "source_art_rect": [
@@ -6939,7 +7032,7 @@
           ],
           "route_contact": [
             640.0,
-            670.0
+            680.0
           ],
           "sha256": "18c2c6a4ad7cb40de2ac85bf73aedbb5111c0aaf22a7e741d21bb7796625c57b",
           "source_art_rect": [
@@ -6994,8 +7087,8 @@
             141.900009155273
           ],
           "route_contact": [
-            218.75,
-            446.25
+            330.0,
+            680.0
           ],
           "sha256": "37277f8779019842c18dd1aed5f070c043676535b6afa963b8423cd1bf7e0d17",
           "source_art_rect": [
@@ -7050,8 +7143,8 @@
             141.900009155273
           ],
           "route_contact": [
-            837.5,
-            446.25
+            950.0,
+            680.0
           ],
           "sha256": "37277f8779019842c18dd1aed5f070c043676535b6afa963b8423cd1bf7e0d17",
           "source_art_rect": [
@@ -7106,8 +7199,8 @@
             34.6000022888184
           ],
           "route_contact": [
-            346.25,
-            390.0
+            346.0,
+            680.0
           ],
           "sha256": "7281e494f39b42523137c62750dbc7f48466c0b0595f4d7f69a3782a43dad502",
           "source_art_rect": [
@@ -7162,8 +7255,8 @@
             34.6000022888184
           ],
           "route_contact": [
-            427.5,
-            390.0
+            428.0,
+            680.0
           ],
           "sha256": "7281e494f39b42523137c62750dbc7f48466c0b0595f4d7f69a3782a43dad502",
           "source_art_rect": [
@@ -7218,8 +7311,8 @@
             34.6000022888184
           ],
           "route_contact": [
-            508.75,
-            390.0
+            509.0,
+            680.0
           ],
           "sha256": "7281e494f39b42523137c62750dbc7f48466c0b0595f4d7f69a3782a43dad502",
           "source_art_rect": [
@@ -7275,7 +7368,7 @@
           ],
           "route_contact": [
             590.0,
-            390.0
+            680.0
           ],
           "sha256": "7281e494f39b42523137c62750dbc7f48466c0b0595f4d7f69a3782a43dad502",
           "source_art_rect": [
@@ -7330,8 +7423,8 @@
             34.6000022888184
           ],
           "route_contact": [
-            408.75,
-            390.0
+            428.0,
+            680.0
           ],
           "sha256": "7281e494f39b42523137c62750dbc7f48466c0b0595f4d7f69a3782a43dad502",
           "source_art_rect": [
@@ -7386,8 +7479,8 @@
             34.6000022888184
           ],
           "route_contact": [
-            521.25,
-            390.0
+            509.0,
+            680.0
           ],
           "sha256": "7281e494f39b42523137c62750dbc7f48466c0b0595f4d7f69a3782a43dad502",
           "source_art_rect": [
@@ -7409,122 +7502,12 @@
       "lanes": [
         [
           [
-            130.0,
-            530.0
+            160.0,
+            680.0
           ],
           [
             1150.0,
-            530.0
-          ]
-        ],
-        [
-          [
-            640.0,
-            530.0
-          ],
-          [
-            640.0,
-            670.0
-          ]
-        ],
-        [
-          [
-            130.0,
-            530.0
-          ],
-          [
-            130.0,
-            390.0
-          ]
-        ],
-        [
-          [
-            218.75,
-            530.0
-          ],
-          [
-            218.75,
-            446.25
-          ]
-        ],
-        [
-          [
-            837.5,
-            530.0
-          ],
-          [
-            837.5,
-            446.25
-          ]
-        ],
-        [
-          [
-            510.0,
-            530.0
-          ],
-          [
-            510.0,
-            390.0
-          ]
-        ],
-        [
-          [
-            346.25,
-            530.0
-          ],
-          [
-            346.25,
-            390.0
-          ]
-        ],
-        [
-          [
-            427.5,
-            530.0
-          ],
-          [
-            427.5,
-            390.0
-          ]
-        ],
-        [
-          [
-            508.75,
-            530.0
-          ],
-          [
-            508.75,
-            390.0
-          ]
-        ],
-        [
-          [
-            590.0,
-            530.0
-          ],
-          [
-            590.0,
-            390.0
-          ]
-        ],
-        [
-          [
-            408.75,
-            530.0
-          ],
-          [
-            408.75,
-            390.0
-          ]
-        ],
-        [
-          [
-            521.25,
-            530.0
-          ],
-          [
-            521.25,
-            390.0
+            680.0
           ]
         ]
       ],
@@ -7532,12 +7515,21 @@
       "out_of_bounds": "all points outside declared lane centerlines; clear bands are diagnostic margins only",
       "provenance": "live composed Castle room, approved repository art; see ASSET_LICENSES.md",
       "room_id": "dining_room",
+      "safe_recovery": [
+        640.0,
+        680.0
+      ],
+      "safe_spawn": [
+        640.0,
+        680.0
+      ],
       "stage_bounds": [
         0.0,
         0.0,
         1280.0,
         720.0
       ],
+      "surface_kind": "floor",
       "viewport": [
         1280,
         720
@@ -7546,7 +7538,7 @@
         130.0,
         390.0,
         1020.0,
-        280.0
+        320.0
       ]
     },
     {
@@ -7557,7 +7549,7 @@
       ],
       "art_to_stage_scale": 1.25,
       "art_view_left": 0.0,
-      "authored_lanes": false,
+      "authored_lanes": true,
       "backgrounds": [
         {
           "native_texture_size": [
@@ -7728,7 +7720,46 @@
           "texture_path": "res://assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r1_c1.png"
         }
       ],
-      "body_footprints": [],
+      "body_footprints": [
+        {
+          "id": "shell_wardrobe",
+          "rect": [
+            55.0,
+            390.0,
+            220.0,
+            165.0
+          ]
+        },
+        {
+          "id": "canopy_bed",
+          "rect": [
+            430.0,
+            190.0,
+            394.0,
+            402.0
+          ]
+        },
+        {
+          "id": "bedside_table",
+          "rect": [
+            895.0,
+            410.0,
+            145.0,
+            180.0
+          ]
+        },
+        {
+          "id": "reading_cushion",
+          "rect": [
+            1040.0,
+            520.0,
+            130.0,
+            110.0
+          ]
+        }
+      ],
+      "clearance_model": "floor_footprint_radius",
+      "clearance_radius": 36.0,
       "coordinate_space": "live CastleRooms25D navigation_snapshot; canvas scaled by runtime",
       "items": [
         {
@@ -7768,8 +7799,8 @@
             226.589996337891
           ],
           "route_contact": [
-            125.0,
-            390.0
+            300.0,
+            640.0
           ],
           "sha256": "0542edb622a6eeea953a1371e66dc6112b104a1da31e2d3c556a1c6250065595",
           "source_art_rect": [
@@ -7824,8 +7855,8 @@
             340.0
           ],
           "route_contact": [
-            643.75,
-            662.5
+            860.0,
+            640.0
           ],
           "sha256": "5750aace0300c65ac27d03e99e0768c9e07911f0ea887f1a548bcee8d261df4a",
           "source_art_rect": [
@@ -7880,8 +7911,8 @@
             146.789993286133
           ],
           "route_contact": [
-            851.25,
-            390.0
+            900.0,
+            640.0
           ],
           "sha256": "7d4fdcb5d13128974a605caaa00b04aca4d11093ab34d9a37b1c5ce9546c6a3b",
           "source_art_rect": [
@@ -7936,8 +7967,8 @@
             98.120002746582
           ],
           "route_contact": [
-            1106.25,
-            668.75
+            1000.0,
+            640.0
           ],
           "sha256": "107e0be63fbd62df28085ea11ff10b1cf37c7233bc6450362db617721e80f0c9",
           "source_art_rect": [
@@ -7959,52 +7990,12 @@
       "lanes": [
         [
           [
-            125.0,
-            530.0
+            160.0,
+            640.0
           ],
           [
-            1155.0,
-            530.0
-          ]
-        ],
-        [
-          [
-            643.75,
-            530.0
-          ],
-          [
-            643.75,
-            662.5
-          ]
-        ],
-        [
-          [
-            125.0,
-            530.0
-          ],
-          [
-            125.0,
-            390.0
-          ]
-        ],
-        [
-          [
-            851.25,
-            530.0
-          ],
-          [
-            851.25,
-            390.0
-          ]
-        ],
-        [
-          [
-            1106.25,
-            530.0
-          ],
-          [
-            1106.25,
-            668.75
+            1000.0,
+            640.0
           ]
         ]
       ],
@@ -8012,12 +8003,21 @@
       "out_of_bounds": "all points outside declared lane centerlines; clear bands are diagnostic margins only",
       "provenance": "live composed Castle room, approved repository art; see ASSET_LICENSES.md",
       "room_id": "royal_bedroom",
+      "safe_recovery": [
+        900.0,
+        640.0
+      ],
+      "safe_spawn": [
+        900.0,
+        640.0
+      ],
       "stage_bounds": [
         0.0,
         0.0,
         1280.0,
         720.0
       ],
+      "surface_kind": "floor",
       "viewport": [
         1280,
         720
@@ -8037,7 +8037,7 @@
       ],
       "art_to_stage_scale": 1.25,
       "art_view_left": 0.0,
-      "authored_lanes": false,
+      "authored_lanes": true,
       "backgrounds": [
         {
           "native_texture_size": [
@@ -8208,7 +8208,37 @@
           "texture_path": "res://assets/flats/castle/rooms/background_tiles/room_sleepover_bedroom_background_r1_c1.png"
         }
       ],
-      "body_footprints": [],
+      "body_footprints": [
+        {
+          "id": "dream_bed_0",
+          "rect": [
+            125.0,
+            385.0,
+            275.0,
+            255.0
+          ]
+        },
+        {
+          "id": "dream_bed_1",
+          "rect": [
+            510.0,
+            385.0,
+            270.0,
+            255.0
+          ]
+        },
+        {
+          "id": "dream_bed_2",
+          "rect": [
+            890.0,
+            385.0,
+            265.0,
+            255.0
+          ]
+        }
+      ],
+      "clearance_model": "floor_footprint_radius",
+      "clearance_radius": 36.0,
       "coordinate_space": "live CastleRooms25D navigation_snapshot; canvas scaled by runtime",
       "items": [
         {
@@ -8249,7 +8279,7 @@
           ],
           "route_contact": [
             510.0,
-            410.0
+            680.0
           ],
           "sha256": "b5b8cbb8a2ce99df7a82ad6e5b6f5679656385ffd8a93a01d244a0fcc67e3f18",
           "source_art_rect": [
@@ -8304,8 +8334,8 @@
             211.199996948242
           ],
           "route_contact": [
-            262.5,
-            670.0
+            262.0,
+            680.0
           ],
           "sha256": "d78893db559b9693da9765022f05cd3432163ff755aadc8cfbda1b94c41b003e",
           "source_art_rect": [
@@ -8361,7 +8391,7 @@
           ],
           "route_contact": [
             640.0,
-            670.0
+            680.0
           ],
           "sha256": "b8e2922fc81e378c01a08e50e8423760f85a3fbd58a0bfed7151d16875ff14b9",
           "source_art_rect": [
@@ -8416,8 +8446,8 @@
             208.559997558594
           ],
           "route_contact": [
-            1017.5,
-            670.0
+            1018.0,
+            680.0
           ],
           "sha256": "ce7ff47b05c4f55bbc5915c3ae13adb39e40dba01c4eac811a2ba24e52ec23e0",
           "source_art_rect": [
@@ -8439,52 +8469,12 @@
       "lanes": [
         [
           [
-            100.0,
-            540.0
+            160.0,
+            680.0
           ],
           [
-            1180.0,
-            540.0
-          ]
-        ],
-        [
-          [
-            262.5,
-            540.0
-          ],
-          [
-            262.5,
-            670.0
-          ]
-        ],
-        [
-          [
-            640.0,
-            540.0
-          ],
-          [
-            640.0,
-            670.0
-          ]
-        ],
-        [
-          [
-            1017.5,
-            540.0
-          ],
-          [
-            1017.5,
-            670.0
-          ]
-        ],
-        [
-          [
-            510.0,
-            540.0
-          ],
-          [
-            510.0,
-            410.0
+            1120.0,
+            680.0
           ]
         ]
       ],
@@ -8492,12 +8482,21 @@
       "out_of_bounds": "all points outside declared lane centerlines; clear bands are diagnostic margins only",
       "provenance": "live composed Castle room, approved repository art; see ASSET_LICENSES.md",
       "room_id": "sleepover_bedroom",
+      "safe_recovery": [
+        640.0,
+        680.0
+      ],
+      "safe_spawn": [
+        640.0,
+        680.0
+      ],
       "stage_bounds": [
         0.0,
         0.0,
         1280.0,
         720.0
       ],
+      "surface_kind": "floor",
       "viewport": [
         1280,
         720
@@ -8506,7 +8505,7 @@
         100.0,
         410.0,
         1080.0,
-        260.0
+        300.0
       ]
     },
     {
@@ -8517,7 +8516,7 @@
       ],
       "art_to_stage_scale": 1.25,
       "art_view_left": 0.0,
-      "authored_lanes": false,
+      "authored_lanes": true,
       "backgrounds": [
         {
           "native_texture_size": [
@@ -8688,7 +8687,46 @@
           "texture_path": "res://assets/flats/castle/rooms/background_tiles/room_movie_lounge_background_r1_c1.png"
         }
       ],
-      "body_footprints": [],
+      "body_footprints": [
+        {
+          "id": "movie_screen",
+          "rect": [
+            245.0,
+            390.0,
+            535.0,
+            90.0
+          ]
+        },
+        {
+          "id": "cloud_settee_left",
+          "rect": [
+            190.0,
+            485.0,
+            275.0,
+            175.0
+          ]
+        },
+        {
+          "id": "cloud_settee_right",
+          "rect": [
+            810.0,
+            485.0,
+            280.0,
+            175.0
+          ]
+        },
+        {
+          "id": "cloud_pouf",
+          "rect": [
+            560.0,
+            535.0,
+            164.0,
+            120.0
+          ]
+        }
+      ],
+      "clearance_model": "floor_footprint_radius",
+      "clearance_radius": 16.0,
       "coordinate_space": "live CastleRooms25D navigation_snapshot; canvas scaled by runtime",
       "items": [
         {
@@ -8728,8 +8766,8 @@
             216.000015258789
           ],
           "route_contact": [
-            318.75,
-            420.0
+            760.0,
+            560.0
           ],
           "sha256": "0bab352952ae47237403e015bdc0d74d69b988ae86b6046a9ac0778803a636f7",
           "source_art_rect": [
@@ -8784,8 +8822,8 @@
             422.399993896484
           ],
           "route_contact": [
-            445.0,
-            420.0
+            760.0,
+            560.0
           ],
           "sha256": "091304e6b1e053b12d5774e76a710852680253e0b597089c05cb11f5c038ec4e",
           "source_art_rect": [
@@ -8841,7 +8879,7 @@
           ],
           "route_contact": [
             325.0,
-            670.0
+            710.0
           ],
           "sha256": "ad6d07702b791123c97f8a70ae2c59ef6fcc0c04aaa8acd4e630496914ac3977",
           "source_art_rect": [
@@ -8897,7 +8935,7 @@
           ],
           "route_contact": [
             955.0,
-            670.0
+            710.0
           ],
           "sha256": "ad6d07702b791123c97f8a70ae2c59ef6fcc0c04aaa8acd4e630496914ac3977",
           "source_art_rect": [
@@ -8953,7 +8991,7 @@
           ],
           "route_contact": [
             640.0,
-            670.0
+            710.0
           ],
           "sha256": "97396cb1d90c5633b65034bce658e005cf1036c68c6c57717808e4526fce386a",
           "source_art_rect": [
@@ -9008,8 +9046,8 @@
             51.0
           ],
           "route_contact": [
-            515.0,
-            420.0
+            760.0,
+            570.0
           ],
           "sha256": "60f84350763fdb2a5bbcbd8768d86c311101363b6317ef0b0088cef3e4653825",
           "source_art_rect": [
@@ -9031,72 +9069,22 @@
       "lanes": [
         [
           [
-            120.0,
-            545.0
+            160.0,
+            710.0
           ],
           [
-            1160.0,
-            545.0
+            1120.0,
+            710.0
           ]
         ],
         [
           [
-            318.75,
-            545.0
+            760.0,
+            710.0
           ],
           [
-            318.75,
-            420.0
-          ]
-        ],
-        [
-          [
-            445.0,
-            545.0
-          ],
-          [
-            445.0,
-            420.0
-          ]
-        ],
-        [
-          [
-            325.0,
-            545.0
-          ],
-          [
-            325.0,
-            670.0
-          ]
-        ],
-        [
-          [
-            955.0,
-            545.0
-          ],
-          [
-            955.0,
-            670.0
-          ]
-        ],
-        [
-          [
-            640.0,
-            545.0
-          ],
-          [
-            640.0,
-            670.0
-          ]
-        ],
-        [
-          [
-            515.0,
-            545.0
-          ],
-          [
-            515.0,
-            420.0
+            760.0,
+            560.0
           ]
         ]
       ],
@@ -9104,12 +9092,21 @@
       "out_of_bounds": "all points outside declared lane centerlines; clear bands are diagnostic margins only",
       "provenance": "live composed Castle room, approved repository art; see ASSET_LICENSES.md",
       "room_id": "movie_lounge",
+      "safe_recovery": [
+        640.0,
+        710.0
+      ],
+      "safe_spawn": [
+        640.0,
+        710.0
+      ],
       "stage_bounds": [
         0.0,
         0.0,
         1280.0,
         720.0
       ],
+      "surface_kind": "floor",
       "viewport": [
         1280,
         720
@@ -9118,7 +9115,7 @@
         120.0,
         420.0,
         1040.0,
-        250.0
+        290.0
       ]
     },
     {
@@ -9129,7 +9126,7 @@
       ],
       "art_to_stage_scale": 1.25,
       "art_view_left": 0.0,
-      "authored_lanes": false,
+      "authored_lanes": true,
       "backgrounds": [
         {
           "native_texture_size": [
@@ -9300,7 +9297,19 @@
           "texture_path": "res://assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r1_c1.png"
         }
       ],
-      "body_footprints": [],
+      "body_footprints": [
+        {
+          "id": "portal_thresholds",
+          "rect": [
+            50.0,
+            550.0,
+            1150.0,
+            40.0
+          ]
+        }
+      ],
+      "clearance_model": "floor_footprint_radius",
+      "clearance_radius": 36.0,
       "coordinate_space": "live CastleRooms25D navigation_snapshot; canvas scaled by runtime",
       "items": [
         {
@@ -9341,7 +9350,7 @@
           ],
           "route_contact": [
             188.0,
-            620.0
+            626.0
           ],
           "sha256": "45ac409e09db698811c7dc9dd16099525f78c61e4924333a586180981055d1cb",
           "source_art_rect": [
@@ -9397,7 +9406,7 @@
           ],
           "route_contact": [
             481.0,
-            620.0
+            626.0
           ],
           "sha256": "a9dd6f48a97cd2429362235b6c975c474ed4a1dce8eacc221cdb05436f62422a",
           "source_art_rect": [
@@ -9453,7 +9462,7 @@
           ],
           "route_contact": [
             775.0,
-            620.0
+            626.0
           ],
           "sha256": "02b25afe4f5eb18619a451d0273ac0fb0c4e1d35b4cda7051deb56cf80a8d7b2",
           "source_art_rect": [
@@ -9509,7 +9518,7 @@
           ],
           "route_contact": [
             1069.0,
-            620.0
+            626.0
           ],
           "sha256": "325ef4a1fbf2f75fbf88e8d8e6b1235c21c113767e36a62545880e5ba1c8d12f",
           "source_art_rect": [
@@ -9531,52 +9540,12 @@
       "lanes": [
         [
           [
-            70.0,
-            582.5
+            160.0,
+            626.0
           ],
           [
-            1210.0,
-            582.5
-          ]
-        ],
-        [
-          [
-            188.0,
-            582.5
-          ],
-          [
-            188.0,
-            620.0
-          ]
-        ],
-        [
-          [
-            481.0,
-            582.5
-          ],
-          [
-            481.0,
-            620.0
-          ]
-        ],
-        [
-          [
-            775.0,
-            582.5
-          ],
-          [
-            775.0,
-            620.0
-          ]
-        ],
-        [
-          [
-            1069.0,
-            582.5
-          ],
-          [
-            1069.0,
-            620.0
+            1120.0,
+            626.0
           ]
         ]
       ],
@@ -9584,12 +9553,21 @@
       "out_of_bounds": "all points outside declared lane centerlines; clear bands are diagnostic margins only",
       "provenance": "live composed Castle room, approved repository art; see ASSET_LICENSES.md",
       "room_id": "family_gallery",
+      "safe_recovery": [
+        640.0,
+        626.0
+      ],
+      "safe_spawn": [
+        640.0,
+        626.0
+      ],
       "stage_bounds": [
         0.0,
         0.0,
         1280.0,
         720.0
       ],
+      "surface_kind": "floor",
       "viewport": [
         1280,
         720

@@ -1,0 +1,241 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+CASTLE2D|clearance checker rejects a through-fixture shortcut: OK
+CASTLE2D|clearance checker rejects a route starting inside a fixture: OK
+CASTLE2D|clearance checker permits a route outside the fixture: OK
+CASTLE2D|castle runtime opened: OK
+CASTLE2D|castle stage is a Control: OK
+CASTLE2D|castle safe-frame backdrop replaces default letterbox gray: OK
+CASTLE2D|castle canvas world is Node2D: OK
+CASTLE2D|castle canvas world is visible: OK
+CASTLE2D|castle canvas world owns negative base depth: OK
+CASTLE2D|castle stage contains only canvas runtime nodes: OK
+CASTLE2D|Roshan is a visible Sprite2D card: OK
+CASTLE2D|Roshan is fully visible inside the castle stage: OK (bounds=[P: (581.3558, 466.7411), S: (120.1348, 154.3649)] stage=(1280.0, 720.0))
+CASTLE2D|castle background card exists: OK
+CASTLE2D|castle background composition is visible: OK
+CASTLE2D|castle_room_mid_layer exists: OK
+CASTLE2D|castle_room_mid_layer is visible: OK
+CASTLE2D|castle_room_front_layer exists: OK
+CASTLE2D|castle_room_front_layer is visible: OK
+CASTLE2D|castle_room_item_visual_layer exists: OK
+CASTLE2D|castle_room_item_visual_layer is visible: OK
+CASTLE2D|castle_room_item_effect_layer exists: OK
+CASTLE2D|castle_room_item_effect_layer is visible: OK
+CASTLE2D|every castle Sprite2D has a complete local texture rect: OK
+CASTLE2D|castle composition has authored cards: OK (cards=37)
+CASTLE2D|transition cover spans the complete stage: OK (cover=(1280.0, 720.0) stage=(1280.0, 720.0))
+CASTLE2D|physical castle door dictionary is populated: OK (count=8)
+CASTLE2D|picture elevator routes are retired: OK (count=0)
+CASTLE2D|castle door hotspot list is populated: OK
+CASTLE2D|castle interaction dictionary is populated: OK (count=3)
+CASTLE2D|room composition declares completion: OK
+CASTLE2D|fixture-rich room remains composed: OK
+CASTLE2D|bathroom bathtub exposes an authored route socket: OK (route=(270.0, 570.0))
+CASTLE2D|bathroom route socket is distinct from painted tub origin: OK
+CASTLE2D|castle stage is a Control: OK
+CASTLE2D|castle safe-frame backdrop replaces default letterbox gray: OK
+CASTLE2D|castle canvas world is Node2D: OK
+CASTLE2D|castle canvas world is visible: OK
+CASTLE2D|castle canvas world owns negative base depth: OK
+CASTLE2D|castle stage contains only canvas runtime nodes: OK
+CASTLE2D|Roshan is a visible Sprite2D card: OK
+CASTLE2D|Roshan is fully visible inside the castle stage: OK (bounds=[P: (546.5573, 389.0145), S: (182.5192, 234.2172)] stage=(1280.0, 720.0))
+CASTLE2D|castle background card exists: OK
+CASTLE2D|castle background composition is visible: OK
+CASTLE2D|castle_room_mid_layer exists: OK
+CASTLE2D|castle_room_mid_layer is visible: OK
+CASTLE2D|castle_room_front_layer exists: OK
+CASTLE2D|castle_room_front_layer is visible: OK
+CASTLE2D|castle_room_item_visual_layer exists: OK
+CASTLE2D|castle_room_item_visual_layer is visible: OK
+CASTLE2D|castle_room_item_effect_layer exists: OK
+CASTLE2D|castle_room_item_effect_layer is visible: OK
+CASTLE2D|every castle Sprite2D has a complete local texture rect: OK
+CASTLE2D|castle composition has authored cards: OK (cards=39)
+CASTLE2D|transition cover spans the complete stage: OK (cover=(1280.0, 720.0) stage=(1280.0, 720.0))
+CASTLE2D|fixture rig dictionary is populated: OK (count=5)
+CASTLE2D|fixture bubble_bath:bathtub water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:sink water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:sink water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:toilet water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:rubber_duck water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:rubber_duck has no engine body: OK
+CASTLE2D|fixture bubble_bath:rubber_duck spring is analytic: OK
+CASTLE2D|fixture water/spring nodes are 2D: OK
+CASTLE2D|fixture water contract exposes Sprite2D layers: OK (water=5)
+CASTLE2D|fixture spring contract exposes analytic springs: OK (springs=1)
+CASTLE2D|fixture telemetry exposes bounded caps: OK ({ "rigs": 5, "allocated": 1, "awake": 0, "body_cap": 12, "awake_cap": 8, "spring_cap": 12, "spring_awake_cap": 8, "water_mask_cache_entries": 10, "native_v4_loaded": 12, "native_v4_rejected": 0, "native_v4_background_rooms": 7 })
+CASTLE2D|dust-bunny burst uses the bounded mote count: OK (count=8)
+CASTLE2D|dust-bunny motes rise in a tight readable burst: OK
+CASTLE2D|dust-bunny burst fades within the short feedback window: OK
+CASTLE2D|Main Hall exposes ordinary bunnies for Daddy path: OK (count=3)
+CASTLE2D|Daddy partner pop emits one bounded burst per bunny: OK (count=24 expected=24)
+CASTLE2D|Daddy partner burst keeps its pink theme: OK
+CASTLE2D|Daddy partner path clears each ordinary bunny once: OK
+CASTLE2D|main_hall has an authored floor network: OK
+CASTLE2D|main_hall floor network is nonempty: OK
+CASTLE2D|main_hall routes clear declared fixture footprints: OK
+CASTLE2D|main_hall independent obstacle witness set is present: OK
+CASTLE2D|main_hall avoids independent painted fixture interiors: OK
+CASTLE2D|main_hall every live item has a raw authored contact on its network: OK
+CASTLE2D|main_hall every object and door contact lies on floor: OK
+CASTLE2D|main_hall all contact pairs connect without shortcuts: OK (contacts=10 disconnected=0 shortcuts=0)
+CASTLE2D|main_hall spawn is on the floor network: OK ((380.0, 765.0))
+CASTLE2D|main_hall out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|main_hall out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|main_hall painted Roshan stays inside canvas at every route vertex: OK (samples=88 )
+CASTLE2D|opera_hall has an authored floor network: OK
+CASTLE2D|opera_hall floor network is nonempty: OK
+CASTLE2D|opera_hall routes clear declared fixture footprints: OK
+CASTLE2D|opera_hall independent obstacle witness set is present: OK
+CASTLE2D|opera_hall avoids independent painted fixture interiors: OK
+CASTLE2D|opera_hall every live item has a raw authored contact on its network: OK
+CASTLE2D|opera_hall every object and door contact lies on floor: OK
+CASTLE2D|opera_hall all contact pairs connect without shortcuts: OK (contacts=7 disconnected=0 shortcuts=0)
+CASTLE2D|opera_hall spawn is on the floor network: OK ((640.0, 565.0))
+CASTLE2D|opera_hall out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|opera_hall out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|opera_hall painted Roshan stays inside canvas at every route vertex: OK (samples=4 )
+CASTLE2D|opera_hall displays every visible item in full: OK
+CASTLE2D|kitchen has an authored floor network: OK
+CASTLE2D|kitchen floor network is nonempty: OK
+CASTLE2D|kitchen routes clear declared fixture footprints: OK
+CASTLE2D|kitchen independent obstacle witness set is present: OK
+CASTLE2D|kitchen avoids independent painted fixture interiors: OK
+CASTLE2D|kitchen every live item has a raw authored contact on its network: OK
+CASTLE2D|kitchen every object and door contact lies on floor: OK
+CASTLE2D|kitchen all contact pairs connect without shortcuts: OK (contacts=8 disconnected=0 shortcuts=0)
+CASTLE2D|kitchen spawn is on the floor network: OK ((640.0, 570.0))
+CASTLE2D|kitchen out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|kitchen out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|kitchen painted Roshan stays inside canvas at every route vertex: OK (samples=4 )
+CASTLE2D|kitchen displays every visible item in full: OK
+CASTLE2D|library has an authored floor network: OK
+CASTLE2D|library floor network is nonempty: OK
+CASTLE2D|library routes clear declared fixture footprints: OK
+CASTLE2D|library avoids independent painted fixture interiors: OK
+CASTLE2D|library every live item has a raw authored contact on its network: OK
+CASTLE2D|library every object and door contact lies on floor: OK
+CASTLE2D|library all contact pairs connect without shortcuts: OK (contacts=7 disconnected=0 shortcuts=0)
+CASTLE2D|library spawn is on the floor network: OK ((640.0, 640.0))
+CASTLE2D|library out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|library out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|library painted Roshan stays inside canvas at every route vertex: OK (samples=28 )
+CASTLE2D|library displays every visible item in full: OK
+CASTLE2D|playroom has an authored floor network: OK
+CASTLE2D|playroom floor network is nonempty: OK
+CASTLE2D|playroom routes clear declared fixture footprints: OK
+CASTLE2D|playroom avoids independent painted fixture interiors: OK
+CASTLE2D|playroom every live item has a raw authored contact on its network: OK
+CASTLE2D|playroom every object and door contact lies on floor: OK
+CASTLE2D|playroom all contact pairs connect without shortcuts: OK (contacts=9 disconnected=0 shortcuts=0)
+CASTLE2D|playroom spawn is on the floor network: OK ((640.0, 650.0))
+CASTLE2D|playroom out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|playroom out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|playroom painted Roshan stays inside canvas at every route vertex: OK (samples=16 )
+CASTLE2D|playroom displays every visible item in full: OK
+CASTLE2D|craft_room has an authored floor network: OK
+CASTLE2D|craft_room floor network is nonempty: OK
+CASTLE2D|craft_room routes clear declared fixture footprints: OK
+CASTLE2D|craft_room independent obstacle witness set is present: OK
+CASTLE2D|craft_room avoids independent painted fixture interiors: OK
+CASTLE2D|craft_room every live item has a raw authored contact on its network: OK
+CASTLE2D|craft_room every object and door contact lies on floor: OK
+CASTLE2D|craft_room all contact pairs connect without shortcuts: OK (contacts=6 disconnected=0 shortcuts=0)
+CASTLE2D|craft_room spawn is on the floor network: OK ((640.0, 560.0))
+CASTLE2D|craft_room out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|craft_room out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|craft_room painted Roshan stays inside canvas at every route vertex: OK (samples=4 )
+CASTLE2D|craft_room displays every visible item in full: OK
+CASTLE2D|mermaid_pool has an authored floor network: OK
+CASTLE2D|mermaid_pool floor network is nonempty: OK
+CASTLE2D|mermaid_pool routes clear declared fixture footprints: OK
+CASTLE2D|mermaid_pool independent obstacle witness set is present: OK
+CASTLE2D|mermaid_pool avoids independent painted fixture interiors: OK
+CASTLE2D|mermaid_pool every live item has a raw authored contact on its network: OK
+CASTLE2D|mermaid_pool every object and door contact lies on floor: OK
+CASTLE2D|mermaid_pool all contact pairs connect without shortcuts: OK (contacts=5 disconnected=0 shortcuts=0)
+CASTLE2D|mermaid_pool spawn is on the floor network: OK ((640.0, 520.0))
+CASTLE2D|mermaid_pool out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|mermaid_pool out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|mermaid_pool painted Roshan stays inside canvas at every route vertex: OK (samples=16 )
+CASTLE2D|mermaid_pool displays every visible item in full: OK
+CASTLE2D|bubble_bath has an authored floor network: OK
+CASTLE2D|bubble_bath floor network is nonempty: OK
+CASTLE2D|bubble_bath routes clear declared fixture footprints: OK
+CASTLE2D|bubble_bath avoids independent painted fixture interiors: OK
+CASTLE2D|bubble_bath every live item has a raw authored contact on its network: OK
+CASTLE2D|bubble_bath every object and door contact lies on floor: OK
+CASTLE2D|bubble_bath all contact pairs connect without shortcuts: OK (contacts=6 disconnected=0 shortcuts=0)
+CASTLE2D|bubble_bath spawn is on the floor network: OK ((640.0, 650.0))
+CASTLE2D|bubble_bath out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|bubble_bath out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|bubble_bath painted Roshan stays inside canvas at every route vertex: OK (samples=16 )
+CASTLE2D|bubble_bath displays every visible item in full: OK
+CASTLE2D|dining_room has an authored floor network: OK
+CASTLE2D|dining_room floor network is nonempty: OK
+CASTLE2D|dining_room routes clear declared fixture footprints: OK
+CASTLE2D|dining_room independent obstacle witness set is present: OK
+CASTLE2D|dining_room avoids independent painted fixture interiors: OK
+CASTLE2D|dining_room every live item has a raw authored contact on its network: OK
+CASTLE2D|dining_room every object and door contact lies on floor: OK
+CASTLE2D|dining_room all contact pairs connect without shortcuts: OK (contacts=12 disconnected=0 shortcuts=0)
+CASTLE2D|dining_room spawn is on the floor network: OK ((640.0, 680.0))
+CASTLE2D|dining_room out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|dining_room out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|dining_room painted Roshan stays inside canvas at every route vertex: OK (samples=4 )
+CASTLE2D|dining_room displays every visible item in full: OK
+CASTLE2D|royal_bedroom has an authored floor network: OK
+CASTLE2D|royal_bedroom floor network is nonempty: OK
+CASTLE2D|royal_bedroom routes clear declared fixture footprints: OK
+CASTLE2D|royal_bedroom independent obstacle witness set is present: OK
+CASTLE2D|royal_bedroom avoids independent painted fixture interiors: OK
+CASTLE2D|royal_bedroom every live item has a raw authored contact on its network: OK
+CASTLE2D|royal_bedroom every object and door contact lies on floor: OK
+CASTLE2D|royal_bedroom all contact pairs connect without shortcuts: OK (contacts=5 disconnected=0 shortcuts=0)
+CASTLE2D|royal_bedroom spawn is on the floor network: OK ((900.0, 640.0))
+CASTLE2D|royal_bedroom out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|royal_bedroom out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|royal_bedroom painted Roshan stays inside canvas at every route vertex: OK (samples=4 )
+CASTLE2D|royal_bedroom displays every visible item in full: OK
+CASTLE2D|sleepover_bedroom has an authored floor network: OK
+CASTLE2D|sleepover_bedroom floor network is nonempty: OK
+CASTLE2D|sleepover_bedroom routes clear declared fixture footprints: OK
+CASTLE2D|sleepover_bedroom independent obstacle witness set is present: OK
+CASTLE2D|sleepover_bedroom avoids independent painted fixture interiors: OK
+CASTLE2D|sleepover_bedroom every live item has a raw authored contact on its network: OK
+CASTLE2D|sleepover_bedroom every object and door contact lies on floor: OK
+CASTLE2D|sleepover_bedroom all contact pairs connect without shortcuts: OK (contacts=5 disconnected=0 shortcuts=0)
+CASTLE2D|sleepover_bedroom spawn is on the floor network: OK ((640.0, 680.0))
+CASTLE2D|sleepover_bedroom out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|sleepover_bedroom out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|sleepover_bedroom painted Roshan stays inside canvas at every route vertex: OK (samples=4 )
+CASTLE2D|sleepover_bedroom displays every visible item in full: OK
+CASTLE2D|movie_lounge has an authored floor network: OK
+CASTLE2D|movie_lounge floor network is nonempty: OK
+CASTLE2D|movie_lounge routes clear declared fixture footprints: OK
+CASTLE2D|movie_lounge independent obstacle witness set is present: OK
+CASTLE2D|movie_lounge avoids independent painted fixture interiors: OK
+CASTLE2D|movie_lounge every live item has a raw authored contact on its network: OK
+CASTLE2D|movie_lounge every object and door contact lies on floor: OK
+CASTLE2D|movie_lounge all contact pairs connect without shortcuts: OK (contacts=7 disconnected=0 shortcuts=0)
+CASTLE2D|movie_lounge spawn is on the floor network: OK ((640.0, 710.0))
+CASTLE2D|movie_lounge out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|movie_lounge out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|movie_lounge painted Roshan stays inside canvas at every route vertex: OK (samples=8 )
+CASTLE2D|movie_lounge displays every visible item in full: OK
+CASTLE2D|family_gallery has an authored floor network: OK
+CASTLE2D|family_gallery floor network is nonempty: OK
+CASTLE2D|family_gallery routes clear declared fixture footprints: OK
+CASTLE2D|family_gallery independent obstacle witness set is present: OK
+CASTLE2D|family_gallery avoids independent painted fixture interiors: OK
+CASTLE2D|family_gallery every live item has a raw authored contact on its network: OK
+CASTLE2D|family_gallery every object and door contact lies on floor: OK
+CASTLE2D|family_gallery all contact pairs connect without shortcuts: OK (contacts=5 disconnected=0 shortcuts=0)
+CASTLE2D|family_gallery spawn is on the floor network: OK ((640.0, 626.0))
+CASTLE2D|family_gallery out-of-bounds projection returns to connected floor (-10000.0, -10000.0): OK
+CASTLE2D|family_gallery out-of-bounds projection returns to connected floor (10000.0, 10000.0): OK
+CASTLE2D|family_gallery painted Roshan stays inside canvas at every route vertex: OK (samples=4 )
+CASTLE2D|family_gallery displays every visible item in full: OK
+CASTLE2D|done failures=0

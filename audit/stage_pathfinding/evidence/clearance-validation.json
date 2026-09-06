@@ -1,0 +1,33 @@
+{
+  "schema": "stage-pathfinding-clearance-validation-v1",
+  "baseline": "bad0e91924edcb98029da68fa9c696354dd92163",
+  "result": "PASS_COMBINED_LOCAL_GATES",
+  "first_complete_ci_attempt": {
+    "result": "FAIL",
+    "exit_code": 1,
+    "log": "audit/stage_pathfinding/evidence/clearance-full-first-attempt.log",
+    "note": "Static gates completed; four native process interruptions made the full attempt fail. This log is not a green suite."
+  },
+  "runtime_replay": {
+    "result": "PASS",
+    "exit_code": 0,
+    "log": "audit/stage_pathfinding/evidence/clearance-runtime-replay.log",
+    "ci_source_sha256": "1794ea62b1a05a5462de7292749e6acc58fee335a0be9f4c6912e393e016558e",
+    "exact_replayed_tail_sha256": "442d9d3add3a48e848ca3fa26125a48f5c8c84f0f4e3ac6b6e207f26e121ca35",
+    "scope": "Unmodified scripts/ci.sh tail from RUNTIME_ERROR_RE through EOF; fresh import, 2D regression gate, same 78 probes, flags, isolated saves, timeouts, failure checks and process-exit checks.",
+    "all_78_process_exits_zero": true
+  },
+  "final_source_checks": {
+    "log": "audit/stage_pathfinding/evidence/clearance-final-static.log",
+    "parser_and_inference": "PASS on all three changed GDScript files",
+    "stage_unit_tests": 13,
+    "authority_and_impact": "PASS; rerun after recording final evidence before commit",
+    "frame_binding": "PASS; only runtime source binding changed, 96 reviewed frame hashes and all other candidate inputs preserved"
+  },
+  "runtime_source_sha256": {
+    "scripts/arena/castle_rooms_25d.gd": "5b9593b3da4f9ba586df24f61216bf4aa3825fc258fd76ee836c56da7ccddf2c",
+    "scripts/probe_castle_canvas2d.gd": "47c20c6d582ea2bc2bf1f19ae720977dcb08145bfd77d7e7cc1c43ba168c5ca9",
+    "scripts/debug_export_stage_pathfinding.gd": "56d843a2c634471174c22f06a01683499c94661f2084482bac08827a09ff0e65"
+  },
+  "external_acceptance": "PENDING: remote exact-head CI, full geometry/silhouette/depth, device, child and owner review; MA-PLAY-003 and MA-PLAY-004 remain open."
+}

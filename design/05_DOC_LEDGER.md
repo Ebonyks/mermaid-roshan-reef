@@ -774,7 +774,7 @@ Kept as-is; noted so a future edit updates every copy.
 |---|---|---|
 | `audit/stage_pathfinding/README.md` | 🔵 | `SUPPORTING_CURRENT`; explains the 65-entry catalog/supporting inventory categories and status semantics; grouped legacy modes are not an exhaustive sublevel geometry claim. It grants no runtime, device, child, or owner acceptance. |
 | `audit/stage_pathfinding/stage_inventory.json` | 🔵 | `SUPPORTING_CURRENT`; machine-readable inventory of concrete Reef/Lagoon/Castle/Day-One/Northern/Opera/minigame variants and spatial debt. It records gaps and reproduction sources; it is not a runtime catalog authority. |
-| `audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md` | 🟢 | `BINDING_DOMAIN`; owner-commissioned 2026-09-06 approach, arrival, door, cancellation, OOB, seam and zero-input protocol. Bounded Castle/Opera implementation and focused machine evidence exist; whole-game geometry and external acceptance remain open. |
+| `audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md` | 🟢 | `BINDING_DOMAIN`; owner-commissioned 2026-09-06 approach, arrival, door, cancellation, OOB, seam and zero-input protocol. All 13 Castle networks are explicit; the clearance section defines navigation-coordinate fixture feet, floor/swim surfaces and separate silhouette/depth acceptance. Bounded Castle/Opera implementation and focused machine evidence exist; whole-game geometry and external acceptance remain open. |
 
 ## Development audit contract — 2026-09-06
 

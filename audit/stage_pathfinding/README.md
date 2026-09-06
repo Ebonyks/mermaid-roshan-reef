@@ -32,10 +32,31 @@ and 13 Castle rooms. Geometry and source hashes are recorded in
 `opera_geometry.json` and `castle_geometry.json`. These are review
 reproductions of the live stages, not accepted replacement art. Diagnostic
 line widths do not expand the playable centerlines. Human geometry review
-and target-device validation remain open. Generic Castle layouts outside the
-three explicitly authored rooms still require fixture-by-fixture review.
+and target-device validation remain open. All 13 Castle rooms now have explicit connected routes. The ten newly authored
+layouts have positive floor-foot clearance margins and independent painted
+fixture witnesses; Bathroom, Library and Playroom retain their earlier
+point-only clearance measurements. Painted Roshan containment at route vertices passes 200 facing/camera samples;
+full inter-fixture silhouette and device review remain open.
+
+Room geometry uses floor-footprint clearance in navigation coordinates. Record
+each blocker as a footprint or conservative envelope with an explicit floor-foot
+radius/standoff; image AABBs, atlas padding and painted extents are inspection
+clues, not collision geometry. A pool's water is traversable only when the
+stage declares a swim network. Review reproductions must compose the approved
+runtime background tiles and live atlas fixture frames at runtime scale and
+depth order. Silhouette clearance, depth occlusion, child readability and
+target-device review remain separate evidence; a generic walk rectangle does
+not pass them.
+
+The implemented Castle networks have focused machine verification, while the
+inventory remains PARTIAL until all geometry and external acceptance gates pass. Keep an approach
+socket for travel separate from any roleplay/action socket used after arrival,
+and retain each existing minigame controller and exact source-stage return
+seam. The approach route is not a substitute for the action itself.
 
 Current coverage includes 65 entries after reconciling the new Chapter 2 lawn.
 Its rocket approach and battle bounds are recorded separately from still-open
 floor/obstacle geometry and King-counter contact. The Castle/Opera atlas does
 not claim to reproduce or visually accept that new lawn stage.
+
+The [clearance impact record](../../design/audit_impacts/2026-09-06-stage-pathfinding-clearance.json) records the exact baseline and verification. `castle_clearance_witnesses.json` contains small independently measured solid regions that prevent incorrect runtime blocker metadata from falsely passing a route through furniture. They do not define the complete obstacle boundary.

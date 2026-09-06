@@ -1,0 +1,18 @@
+COMMAND: python -B -m unittest tools.tests.test_audit_stage_pathfinding
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 0.315s
+
+OK
+PROCESS EXIT: 0
+COMMAND: python -B tools/audit_stage_pathfinding.py --check
+STAGEPATH|ENTRIES=65|CASTLE=13|OPERA=15|OPEN=65
+STAGEPATH|RESULT|COVERAGE_OK
+PROCESS EXIT: 0
+COMMAND: python -B tools/audit_castle_native_interactions.py
+CASTLE_NATIVE|RESULT=OK|painted_source_ownership=true|duplicates=0
+PROCESS EXIT: 0
+COMMAND: python -B tools/review_castle_interaction_frames_v4.py check
+CASTLE_INTERACTION_FRAME_REVIEW|CANDIDATE|path=audit/castle_interaction_frame_review_v4/castle_interaction_frame_candidate_v4.json|sha256=32407dc1a1da7c227606c5c48584450feab7f6d9f5128408ea5922cdc331f29a
+CASTLE_INTERACTION_FRAME_REVIEW|RESULT=OK|assets=12|frames=96|reviewer=Luna visual re-review 2026-09-01
+PROCESS EXIT: 0

@@ -12,31 +12,32 @@
     "human_geometry_review": "PENDING",
     "target_device_review": "PENDING",
     "game_wide_pathfinding_accepted": false,
-    "full_validation": "PASS: complete current-dev combined local scripts/ci.sh (78 trusted groups) and three additional focused probes; both exact parents have full green GitHub CI. Merged-head remote CI pending at record creation.",
-    "castle_existing_frame_binding": "PASS: 96 unchanged reviewed frame hashes; owner acceptance remains pending",
+    "full_validation": "PASS combined local coverage: original static phase plus final-source checks and unchanged full import/runtime replay, all 78 groups exit 0. See clearance-validation.json. Exact work-branch remote CI pending at record creation.",
+    "castle_existing_frame_binding": "PASS: source-only binding proof preserves all 96 reviewed frames and all other candidate data; owner acceptance remains pending.",
     "combined_pool_validation": "PASS: import and five shared runtime probes; merged-head GitHub CI pending at record creation.",
     "combined_back_arrow_validation": "PASS: eight focused fresh-save probes including Castle, Opera, handoff, pool and voice; exact merged-head GitHub CI pending at record creation.",
-    "combined_chapter2_validation": "PASS: complete local suite and dedicated Chapter 2/lawn/navigation probes; see combined-chapter2-validation.json."
+    "combined_chapter2_validation": "PASS: complete local suite and dedicated Chapter 2/lawn/navigation probes; see combined-chapter2-validation.json.",
+    "castle_clearance": "PASS: trusted Castle focused checks for all 13 authored networks, contacts/connectivity/spawn/OOB and independent painted-foot witnesses. Positive margins in ten new layouts; prior three remain point-only. Full silhouette/device/child/owner review PENDING. Raw contact coverage now independently checked for every live item; vertex containment does not establish transient Hall camera tracking."
   },
   "runtime_source_sha256": {
     "scripts/stage_navigation_2d.gd": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
-    "scripts/arena/castle_rooms_25d.gd": "a5e663f8215843d020ae8834c8594643632419fb674fb848e400a837d91d13b6",
+    "scripts/arena/castle_rooms_25d.gd": "5b9593b3da4f9ba586df24f61216bf4aa3825fc258fd76ee836c56da7ccddf2c",
     "scripts/opera_stage_paths.gd": "7dbd965be89b2e97b8d9734ec5c00c9a203af295b4d2b143ebef486c0a8cfb47",
-    "scripts/opera_career_world_2d.gd": "09ab160caa6598d793e7ed66a959c277567f2cf073371601a0f7be2ad083b4ed",
+    "scripts/opera_career_world_2d.gd": "a3e0dc8d711d6521be9c277c3179b1d263d9a379db9e126f6ae579e4adcb9d14",
     "scripts/probe_stage_navigation_2d.gd": "4532005e0033392a3f2ee37d7ff3f20ee46083e4230e2a515db1a2467958cbaf",
     "scripts/probe_bathroom_integration.gd": "9ece4ba9b7c3ab0cea901cc8586e0bc9c492cf42acd24f6c5c4e5358bfaab2e2",
-    "scripts/probe_opera_2d.gd": "5e2a08ad4d7d0dedc774e461f3510ebc5a782d99773143804b8b9714b05762c6",
+    "scripts/probe_opera_2d.gd": "8801a94fc1f63a456abfb76cbd96379871425f5f143392cfc3eb00c620ab75b8",
     "scripts/probe_opera_diegetic_paths.gd": "6f7c6a451e9669885e514c18b107013b4bd11e4afa503b3dd1587785fe2aa81e",
-    "scripts/debug_export_stage_pathfinding.gd": "771e7d06e7b7ed206bb8ae23d056f55dfbabe39aff28246ad260d716a8203736",
+    "scripts/debug_export_stage_pathfinding.gd": "56d843a2c634471174c22f06a01683499c94661f2084482bac08827a09ff0e65",
     "tools/audit_stage_pathfinding.py": "2100b915d4bd0d2682f1b3b6387bee7c93e2f7fed34741e4aa5777d69cec694e",
     "tools/tests/test_audit_stage_pathfinding.py": "578a33ea9c007f31a3569f7d5970e397aa2b7fd9fc40368a8a6ee53c4d974a23",
     "scripts/probe_crown.gd": "2b1deb2cb1fa71fac67fa9b331408cb68bf4ed2a0a5ebaece439f538d5c47b24",
     "scripts/probe_interaction.gd": "ac7f69a5b42cada43e97ca810c1b2cb716b1382c5668375df38eb927962a4a54",
-    "scripts/probe_castle_canvas2d.gd": "a62ceb2931cb0cf1ff015f9144b99f9a9a41ee5d684f3498059b5b647a8242d7",
+    "scripts/probe_castle_canvas2d.gd": "47c20c6d582ea2bc2bf1f19ae720977dcb08145bfd77d7e7cc1c43ba168c5ca9",
     "scripts/games/day_one_pool_cleanup.gd": "b38462f71d7d0b215ad8a97df219f296551e40011d721024970c45a41a7da117",
-    "scripts/games/pool_skimmer_activity.gd": "96c8008d0cb8441cfe1ea52c27402d01b6f5b139eef55949cdbc02654030f739",
-    "scripts/probe_audit.gd": "2c97bf7fe31506c2e99f87d82b6e8f6f7384e898153b634d95c086255272dcff",
-    "scripts/probe_day_one_pool_cleanup.gd": "9544c43ee8fcdeec370d1c93edbbe59d492184c4cdafbc9f32ec7ace33c03038",
+    "scripts/games/pool_skimmer_activity.gd": "b753090c65b6cfc2483cb66c47b99b46310caa2a7e7efec131216f704abd13c8",
+    "scripts/probe_audit.gd": "58206e4bedc0d9dc779d290c3e6372a8569653ac4d73ea872f606c27aad9cf77",
+    "scripts/probe_day_one_pool_cleanup.gd": "61a347551b3ec0a663aabccea1099b48359160019dfa4d544c50af85d52b1d21",
     "scripts/probe_day_one_pool_shots.gd": "13a642fd87918b01b36433b1dc382d7f5edbda6b6f9a1ae3fcd7a79be81594f6",
     "scripts/main.gd": "9c352a564c805ba02a6bdf978979276030e314bd3dafcb295b63a63643399952",
     "scripts/navigation_controller.gd": "0daacad2a6e49e18faad7ca18af8d55863ef0b9cf6603f0f310629bda29645a8",
@@ -61,9 +62,14 @@
   },
   "files": [
     {
+      "path": "audit/stage_pathfinding/castle_clearance_witnesses.json",
+      "sha256": "4bafd3095d49a20cad8da28db7cdd310af39d4a14245789adcac0881d0d35943",
+      "bytes": 7963
+    },
+    {
       "path": "audit/stage_pathfinding/castle_geometry.json",
-      "sha256": "b5da18c5f4f4ffb43e6078c3a5df6f555614460572b542bb58d8e175b4ecd1da",
-      "bytes": 226590
+      "sha256": "0d20e4157d28f9a309b9f008f1fba3e759e3eadc0ef6f842ff5f62472419d6f0",
+      "bytes": 227873
     },
     {
       "path": "audit/stage_pathfinding/evidence/audit-recheck.log",
@@ -79,6 +85,71 @@
       "path": "audit/stage_pathfinding/evidence/castle_frame_binding_revalidation.json",
       "sha256": "21fe2f19de986fcec0124c6ca68efef9421a18582bb2e0f6a517a0f75f1f3727",
       "bytes": 8833
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/clearance-baseline.log",
+      "sha256": "a314ee1e165be78237928c92e22004eee106c8ca46a575aac11ed480e54d2719",
+      "bytes": 13359
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/clearance-engine-isolation.json",
+      "sha256": "68655a8351a57c1937f9bcbfb7a720d56f7d3aae22f7df5f3599cdd594eebf60",
+      "bytes": 828
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/clearance-export.log",
+      "sha256": "d0d650e26fffa46bd45f87be8db5c2555552b148d5f5e35de74cab9c952a4a2e",
+      "bytes": 222
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/clearance-final-static.log",
+      "sha256": "e07880f8d567308a538e76c3713f6e477a0aff93965fbd058e75204240843e50",
+      "bytes": 890
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/clearance-focused.log",
+      "sha256": "81609d14795d094c492d6eb7adfcd9a9ae882b803557e827d0e9345972f398c6",
+      "bytes": 17440
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/clearance-frame-binding.json",
+      "sha256": "1e7849b6803b9e536e2223eeec384ca356aed46c02e471c5686a947091c7dc1d",
+      "bytes": 819
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/clearance-full-first-attempt.log",
+      "sha256": "3692c6269b95c4f3c4c38bbdce690768cf1dc2399f399153cdb172ee7085be37",
+      "bytes": 363310
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/clearance-isolated-recheck.log",
+      "sha256": "6577e139b4403a7bc8792f4d4721156c53f0924a6f17ed40dd799a24a9e85adc",
+      "bytes": 7036
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/clearance-painted-negative-control.json",
+      "sha256": "7de7cec4806513a11445e6fb3c0fdca595ea202ca30a3484f36b8c7145b03225",
+      "bytes": 5533
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/clearance-process-recheck.log",
+      "sha256": "aa12441c14e9bbb1c67a2b2e1b5af28cf4821ddc25edc829ffdb4ca80ba948ef",
+      "bytes": 2406
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/clearance-runtime-replay.log",
+      "sha256": "1a9f9efca5462f3201cd391a220fe4beeed2be90324f317d938e682091e8fcee",
+      "bytes": 319277
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/clearance-surrounding.log",
+      "sha256": "bcba01dcd53aabf1d0b79ec8e684e59c4d5e1fc1b189d3a2635b390c3b7d723e",
+      "bytes": 21669
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/clearance-validation.json",
+      "sha256": "e2739ccd0a20aafb82596b565e1acae37077624d052f8f3a2b792b93f2e125eb",
+      "bytes": 1988
     },
     {
       "path": "audit/stage_pathfinding/evidence/combined-back-arrow-probes.log",
@@ -162,8 +233,8 @@
     },
     {
       "path": "audit/stage_pathfinding/README.md",
-      "sha256": "7401eae64d48064c849ebfe9e474aa4b44c4f41f864770f270ed096cfc8591df",
-      "bytes": 2453
+      "sha256": "98f6e323f758e2ec0023199b424df9d623b24097c00abf22e790c6ac924625a2",
+      "bytes": 4159
     },
     {
       "path": "audit/stage_pathfinding/reproductions/astronaut_stage.html",
@@ -267,23 +338,23 @@
     },
     {
       "path": "audit/stage_pathfinding/reproductions/castle/bubble_bath.svg",
-      "sha256": "85b56ab125985e8cb2e84a480bac90cfbb9950deeb15f5b7cd155a0de07f266e",
-      "bytes": 8122
+      "sha256": "7acfb71ac1d74520e2c458ad9ca7709c6a0ead89842ffc64c0bc97f6ac5e371f",
+      "bytes": 8316
     },
     {
       "path": "audit/stage_pathfinding/reproductions/castle/craft_room.svg",
-      "sha256": "164cea2cafeeaa2841c001631a9da49f2427d1ec7ce997da65d6c6eb9276bd37",
-      "bytes": 7807
+      "sha256": "36f4725fb0d120a28f3ff1b27e02e11ead7058adf14aebb3ca9e632c98adf129",
+      "bytes": 7540
     },
     {
       "path": "audit/stage_pathfinding/reproductions/castle/dining_room.svg",
-      "sha256": "9f5e17fe7a2d2c6ee6f872ebc03c14a2d32bd1b006ece9fb19a2734e99b6079d",
-      "bytes": 11242
+      "sha256": "676fef9998ecff17e3371b97f78fdb3933b48ae3318dcc03c985fe111a7e9965",
+      "bytes": 9884
     },
     {
       "path": "audit/stage_pathfinding/reproductions/castle/family_gallery.svg",
-      "sha256": "edfe4e600d822462182f822b6eb06fd3abd8bf4703899615285eac559c0ab049",
-      "bytes": 5740
+      "sha256": "47aa290cc6daa7e2639cb811b48aabf8bd84891e03c814e142771bf69f7aaf9c",
+      "bytes": 5350
     },
     {
       "path": "audit/stage_pathfinding/reproductions/castle/index.html",
@@ -292,53 +363,53 @@
     },
     {
       "path": "audit/stage_pathfinding/reproductions/castle/kitchen.svg",
-      "sha256": "5c3b1924d2aee54163da46c510c4c96ac68e4632a4d0e0846210d0ff0d7bd0d9",
-      "bytes": 10613
+      "sha256": "3a7d48fcf236f96ff459b05577776442f4bdf719a445627ca6e09874f6446e26",
+      "bytes": 10224
     },
     {
       "path": "audit/stage_pathfinding/reproductions/castle/library.svg",
-      "sha256": "6708ecb3ff9808ee672135f3b96d64bbc464c902f768659fe04432e95958372a",
-      "bytes": 9199
+      "sha256": "c95bf1a8dc3d76d22cae594fbd3ba6477a4d742f06b11568453dc32340fcbdaf",
+      "bytes": 9393
     },
     {
       "path": "audit/stage_pathfinding/reproductions/castle/main_hall.svg",
-      "sha256": "38c61d073edb75f23149afd9881317bcff271d0739e9172c73295214bf2c4834",
-      "bytes": 10549
+      "sha256": "9ee7a957a04a2fac934ee2e48e5bc9b8fd31418c22eff2f01df79eaa2acd6986",
+      "bytes": 13695
     },
     {
       "path": "audit/stage_pathfinding/reproductions/castle/main_hall_overview.svg",
-      "sha256": "2ec631e12ced4355988ea8b332de03466fd0e869229b3912b1acdefe102340e8",
-      "bytes": 10547
+      "sha256": "3014f017f3cb3271713f9f9132b7ff92ecc067156905b86a909721da69185008",
+      "bytes": 13693
     },
     {
       "path": "audit/stage_pathfinding/reproductions/castle/mermaid_pool.svg",
-      "sha256": "d90eee9a2da8dd99ee4ec18dc1000a0ba8704d8df8c07a25b13b18b83638e5e9",
-      "bytes": 6475
+      "sha256": "4fbdd64f7916bf425af11b22d8e7f628b9d24c4fccee85f807c89f17fca87169",
+      "bytes": 6414
     },
     {
       "path": "audit/stage_pathfinding/reproductions/castle/movie_lounge.svg",
-      "sha256": "a6111a7e31120a0fed15361c4212519afcc74980f0350e2ebc746f7931f964a5",
-      "bytes": 7699
+      "sha256": "f5645ea43616a6977addad151e6bf8908e6a88e4d5ec1755ebee25955a3ffacb",
+      "bytes": 8202
     },
     {
       "path": "audit/stage_pathfinding/reproductions/castle/opera_hall.svg",
-      "sha256": "57bbca24a4eb1527a1e193f861d9d8d2a3d9a8b33252f7de0e7c35af7c49b866",
-      "bytes": 8826
+      "sha256": "8598ea022e35352eaf62aff5f3ccd309c51a40cd935c6bd3c50fd131c8fc6f98",
+      "bytes": 8687
     },
     {
       "path": "audit/stage_pathfinding/reproductions/castle/playroom.svg",
-      "sha256": "6de5ce23041095607b710613aed42a3bbde7f0952c5723360785ac71d58ac410",
-      "bytes": 11293
+      "sha256": "f641a119b0497ec918c8ebe371f5db70d1975a71125dcda8855a4a2c0103575e",
+      "bytes": 11487
     },
     {
       "path": "audit/stage_pathfinding/reproductions/castle/royal_bedroom.svg",
-      "sha256": "a1771250ad00e12f6e1ff81f89d6c7fbd30c74626dcb323d165d7c9a54de4b11",
-      "bytes": 5750
+      "sha256": "384aee5761612e45857e39a395b458d9923bd5acc1068b24a63f4a698d132619",
+      "bytes": 6467
     },
     {
       "path": "audit/stage_pathfinding/reproductions/castle/sleepover_bedroom.svg",
-      "sha256": "ea40150e2c0d7da544344f32c163cf6ce73b8af434e4b3db23ce0bbcb0931f16",
-      "bytes": 5766
+      "sha256": "5daba66a037b220d74d0583f1429700244e89f8d54ed579e9f1da91550c4c75f",
+      "bytes": 6123
     },
     {
       "path": "audit/stage_pathfinding/reproductions/chef_stage.html",
@@ -587,28 +658,30 @@
     },
     {
       "path": "audit/stage_pathfinding/stage_inventory.json",
-      "sha256": "2d5174d5dc08fd67a40ab975fff72e881ff7f9ac4897f1960e516b2b0a7b8ce7",
-      "bytes": 50661
+      "sha256": "ccc050329584210e7aaa008544519b24e32378586e40551a9a172cecd56ea5b2",
+      "bytes": 53841
     },
     {
       "path": "audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md",
-      "sha256": "6e0fda61fbe759a2ba57aacad65c5fc90ef819e38345c4e9a0a4f7265dd26440",
-      "bytes": 4282
+      "sha256": "4c77b1b0ffe3feb7f79ceda199cf83da1e0b6ab3502cddcf1ede27496e576eb6",
+      "bytes": 5831
     }
   ],
-  "packet_payload_sha256": "8211032ee6f982ef30a3468ab0abbc352b3f3be2168e236adf02c34a09ec8f6b",
+  "packet_payload_sha256": "1318d665b47c61962a9b2349c1555f35ee863996d9bc3f3160ab0a11e67d95da",
   "notes": [
     "Review images reuse exact runtime source textures and current fixture atlas cells. No original artwork changed.",
     "Centerlines own movement; displayed clear bands are diagnostic aids only.",
     "Focused transcripts cover their named checks. They do not grant full-suite, device, human or game-wide acceptance.",
     "The pool reconciliation inherits source 64094fca; the atlas still contains 34 Opera views and 13 Castle rooms, not a new pool-activity capture packet.",
     "Back-arrow reconciliation inherits dev a6ffa14d. The atlas reproduces stage geometry and fixtures; it is not a capture of the persistent global navigation overlay. The first combined-parent voice failure and rechecks are recorded separately.",
-    "Current dev 763a0213 introduces the Chapter 2 lawn. It is inventoried as a 65th open entry; no lawn geometry reproduction or acceptance is implied by the Castle/Opera atlas."
+    "Current dev 763a0213 introduces the Chapter 2 lawn. It is inventoried as a 65th open entry; no lawn geometry reproduction or acceptance is implied by the Castle/Opera atlas.",
+    "Clearance section at bad0e919 replaces ten generic Castle networks. Pool is a declared swim network; Movie Lounge has 16px floor-foot clearance. The three previously authored rooms retain zero positive margin evidence. No full silhouette acceptance implied."
   ],
   "text_hash_normalization": "UTF-8 text stored with LF line endings; binary asset hashes are native bytes.",
   "approval_binding": {
     "path": "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
-    "sha256": "630d69371966b0e7dc6dce2ac71e0c756199096f0e48afdc01dd1b138911f615"
+    "sha256": "c3c18d6b7bdd9b0c934fee7c28d35f5ebd7c44bbc0b9b2db7044365454f361cb"
   },
-  "reconciled_integration_revision": "763a021392ee784bff692a911eb8a32c1dc2bf02"
+  "reconciled_integration_revision": "bad0e91924edcb98029da68fa9c696354dd92163",
+  "packet_payload_hash_method": "sha256 of sorted UTF-8 lines: <sha256><two spaces><path><LF>; manifest excluded"
 }

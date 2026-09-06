@@ -383,7 +383,7 @@ const ROOM_LAYOUTS := {
 		"front": [],
 	},
 	"dining_room": {
-		"walk": Rect2(130.0, 390.0, 1020.0, 280.0), "mid_foot_y": 520.0,
+		"walk": Rect2(130.0, 390.0, 1020.0, 320.0), "mid_foot_y": 520.0,
 		"mid": [],
 		"front": [],
 	},
@@ -393,12 +393,12 @@ const ROOM_LAYOUTS := {
 		"front": [],
 	},
 	"sleepover_bedroom": {
-		"walk": Rect2(100.0, 410.0, 1080.0, 260.0), "mid_foot_y": 530.0,
+		"walk": Rect2(100.0, 410.0, 1080.0, 300.0), "mid_foot_y": 530.0,
 		"mid": [],
 		"front": [],
 	},
 	"movie_lounge": {
-		"walk": Rect2(120.0, 420.0, 1040.0, 250.0), "mid_foot_y": 530.0,
+		"walk": Rect2(120.0, 420.0, 1040.0, 290.0), "mid_foot_y": 530.0,
 		"mid": [],
 		"front": [],
 	},
@@ -410,6 +410,36 @@ const ROOM_LAYOUTS := {
 # as empty. Keep contacts on the network so every animated foot sample remains
 # on an authored floor segment.
 const ROOM_NAVIGATION_LANES := {
+	"main_hall": [
+		[Vector2(144.0, 765.0), Vector2(3200.0, 765.0)],
+		[Vector2(290.0, 765.0), Vector2(290.0, 620.0)],
+		[Vector2(455.0, 765.0), Vector2(455.0, 620.0)],
+		[Vector2(620.0, 765.0), Vector2(620.0, 620.0)],
+		[Vector2(1025.0, 765.0), Vector2(1025.0, 620.0)],
+		[Vector2(2015.0, 765.0), Vector2(2015.0, 620.0)],
+		[Vector2(2215.0, 765.0), Vector2(2215.0, 620.0)],
+		[Vector2(2415.0, 765.0), Vector2(2415.0, 620.0)],
+		[Vector2(2615.0, 765.0), Vector2(2615.0, 620.0)],
+		[Vector2(3045.0, 765.0), Vector2(3045.0, 620.0)],
+		[Vector2(900.0, 765.0), Vector2(900.0, 890.0)],
+		[Vector2(1250.0, 765.0), Vector2(1250.0, 890.0)],
+		[Vector2(2050.0, 765.0), Vector2(2050.0, 890.0)],
+	],
+	"opera_hall": [
+		[Vector2(350.0, 565.0), Vector2(930.0, 565.0)],
+	],
+	"kitchen": [
+		[Vector2(205.0, 570.0), Vector2(1075.0, 570.0)],
+	],
+	"craft_room": [
+		[Vector2(175.0, 560.0), Vector2(1105.0, 560.0)],
+	],
+	"mermaid_pool": [
+		[Vector2(210.0, 520.0), Vector2(1070.0, 520.0)],
+		[Vector2(386.0, 520.0), Vector2(386.0, 400.0)],
+		[Vector2(675.0, 520.0), Vector2(675.0, 400.0)],
+		[Vector2(818.0, 520.0), Vector2(818.0, 400.0)],
+	],
 	"bubble_bath": [
 		[Vector2(240.0, 570.0), Vector2(1040.0, 570.0)],
 		[Vector2(640.0, 650.0), Vector2(640.0, 510.0)],
@@ -431,28 +461,141 @@ const ROOM_NAVIGATION_LANES := {
 		[Vector2(640.0, 590.0), Vector2(450.0, 590.0)],
 		[Vector2(640.0, 590.0), Vector2(850.0, 590.0)],
 	],
+	"dining_room": [
+		[Vector2(160.0, 680.0), Vector2(1150.0, 680.0)],
+	],
+	"royal_bedroom": [
+		[Vector2(160.0, 640.0), Vector2(1000.0, 640.0)],
+	],
+	"sleepover_bedroom": [
+		[Vector2(160.0, 680.0), Vector2(1120.0, 680.0)],
+	],
+	"movie_lounge": [
+		[Vector2(160.0, 710.0), Vector2(1120.0, 710.0)],
+		[Vector2(760.0, 710.0), Vector2(760.0, 560.0)],
+	],
+	"family_gallery": [
+		[Vector2(160.0, 626.0), Vector2(1120.0, 626.0)],
+	],
 }
 const ROOM_NAVIGATION_CONTACTS := {
+	"main_hall": {
+		"sleepy_bunny": Vector2(900.0, 890.0),
+		"shell_bunny": Vector2(1250.0, 890.0),
+		"runner_bunny": Vector2(2050.0, 890.0),
+	},
+	"opera_hall": {
+		"curtains": Vector2(518.0, 565.0),
+		"footlights": Vector2(518.0, 565.0),
+		"stage_star": Vector2(613.0, 565.0),
+		"pearl_sconce_left": Vector2(354.0, 565.0),
+		"pearl_sconce_right": Vector2(891.0, 565.0),
+		"chandelier": Vector2(523.0, 565.0),
+	},
+	"kitchen": {
+		"sink": Vector2(240.0, 570.0),
+		"pan_1": Vector2(375.0, 570.0),
+		"pan_2": Vector2(421.0, 570.0),
+		"pan_3": Vector2(474.0, 570.0),
+		"pan_4": Vector2(523.0, 570.0),
+		"oven": Vector2(480.0, 570.0),
+		"fridge": Vector2(795.0, 570.0),
+	},
+	"craft_room": {
+		"idea_board": Vector2(471.0, 560.0),
+		"ribbon_rack": Vector2(338.0, 560.0),
+		"supply_cupboard_left": Vector2(289.0, 560.0),
+		"paint_table": Vector2(640.0, 560.0),
+		"palette": Vector2(175.0, 560.0),
+	},
+	"mermaid_pool": {
+		"waterfall": Vector2(386.0, 400.0),
+		"flower_float": Vector2(394.0, 520.0),
+		"seahorse_fountain": Vector2(818.0, 400.0),
+		"star_float": Vector2(675.0, 400.0),
+	},
 	"bubble_bath": {
 		"bathtub": Vector2(270.0, 570.0),
 		"rubber_duck": Vector2(390.0, 540.0),
 		"sink": Vector2(640.0, 510.0),
+		"vanity_mirror": Vector2(640.0, 510.0),
 		"toilet": Vector2(1010.0, 550.0),
 	},
 	"library": {
 		"magic_book": Vector2(640.0, 400.0),
 		"pearl_table": Vector2(640.0, 590.0),
 		"pearl_lamp": Vector2(320.0, 520.0),
-		"book_stack": Vector2(280.0, 620.0),
+		"pearl_lamp_right": Vector2(863.5, 470.5),
+		"ceiling_chandelier": Vector2(563.75, 400.0),
+		"book_stack": Vector2(320.0, 620.0),
 	},
 	"playroom": {
 		"stuffie_nook": Vector2(640.0, 500.0),
 		"stacking_toy": Vector2(450.0, 590.0),
 		"blocks": Vector2(850.0, 590.0),
 		"play_tent": Vector2(450.0, 590.0),
+		"shelf_sailboat": Vector2(850.0, 590.0),
+		"baby_eagle_rescue": Vector2(477.5, 590.0),
+		"eagle_pin_left": Vector2(556.25, 590.0),
+		"eagle_pin_right": Vector2(723.75, 590.0),
+	},
+	"dining_room": {
+		"provisions_hutch": Vector2(290.0, 680.0),
+		"dining_table": Vector2(640.0, 680.0),
+		"dining_seat_left": Vector2(330.0, 680.0),
+		"dining_seat_right": Vector2(950.0, 680.0),
+		"dining_chandelier": Vector2(510.0, 680.0),
+		"meal_plate_0": Vector2(346.0, 680.0),
+		"meal_plate_1": Vector2(428.0, 680.0),
+		"meal_plate_2": Vector2(509.0, 680.0),
+		"meal_plate_3": Vector2(590.0, 680.0),
+		"meal_plate_4": Vector2(428.0, 680.0),
+		"meal_plate_5": Vector2(509.0, 680.0),
+	},
+	"royal_bedroom": {
+		"shell_wardrobe": Vector2(300.0, 640.0),
+		"canopy_bed": Vector2(860.0, 640.0),
+		"bedside_table": Vector2(900.0, 640.0),
+		"reading_cushion": Vector2(1000.0, 640.0),
+	},
+	"sleepover_bedroom": {
+		"sleepover_chandelier": Vector2(510.0, 680.0),
+		"dream_bed_0": Vector2(262.0, 680.0),
+		"dream_bed_1": Vector2(640.0, 680.0),
+		"dream_bed_2": Vector2(1018.0, 680.0),
+	},
+	"movie_lounge": {
+		"movie_picture": Vector2(760.0, 560.0),
+		"movie_screen": Vector2(760.0, 560.0),
+		"cloud_settee_left": Vector2(325.0, 710.0),
+		"cloud_settee_right": Vector2(955.0, 710.0),
+		"cloud_pouf": Vector2(640.0, 710.0),
+		"movie_popcorn": Vector2(760.0, 570.0),
+	},
+	"family_gallery": {
+		"gallery_dining_door": Vector2(188.0, 626.0),
+		"gallery_royal_bedroom_door": Vector2(481.0, 626.0),
+		"gallery_sleepover_door": Vector2(775.0, 626.0),
+		"gallery_movie_door": Vector2(1069.0, 626.0),
 	},
 }
 const ROOM_NAVIGATION_BLOCKERS := {
+	"main_hall": [],
+	"opera_hall": [
+		{"id": "stage_base", "rect": Rect2(350.0, 365.0, 575.0, 70.0)},
+		{"id": "left_balcony", "rect": Rect2(0.0, 390.0, 305.0, 235.0)},
+		{"id": "right_balcony", "rect": Rect2(973.0, 390.0, 307.0, 235.0)},
+	],
+	"kitchen": [
+		{"id": "sink_base", "rect": Rect2(75.0, 390.0, 170.0, 130.0)},
+		{"id": "oven_base", "rect": Rect2(300.0, 400.0, 210.0, 110.0)},
+		{"id": "fridge_base", "rect": Rect2(700.0, 350.0, 175.0, 170.0)},
+	],
+	"craft_room": [
+		{"id": "palette_base", "rect": Rect2(35.0, 370.0, 125.0, 140.0)},
+		{"id": "paint_table_base", "rect": Rect2(425.0, 380.0, 220.0, 130.0)},
+	],
+	"mermaid_pool": [],
 	"bubble_bath": [
 		{"id": "bathtub", "rect": Rect2(70.0, 170.0, 400.0, 300.0)},
 		{"id": "sink", "rect": Rect2(500.0, 160.0, 290.0, 320.0)},
@@ -471,6 +614,68 @@ const ROOM_NAVIGATION_BLOCKERS := {
 		{"id": "blocks", "rect": Rect2(780.0, 420.0, 200.0, 160.0)},
 		{"id": "right_bin", "rect": Rect2(980.0, 420.0, 300.0, 230.0)},
 	],
+	"dining_room": [
+		{"id": "dining_table", "rect": Rect2(445.0, 350.0, 397.0, 240.0)},
+		{"id": "dining_seat_left", "rect": Rect2(240.0, 470.0, 182.0, 168.0)},
+		{"id": "dining_seat_right", "rect": Rect2(858.0, 470.0, 182.0, 168.0)},
+	],
+	"royal_bedroom": [
+		{"id": "shell_wardrobe", "rect": Rect2(55.0, 390.0, 220.0, 165.0)},
+		{"id": "canopy_bed", "rect": Rect2(430.0, 190.0, 394.0, 402.0)},
+		{"id": "bedside_table", "rect": Rect2(895.0, 410.0, 145.0, 180.0)},
+		{"id": "reading_cushion", "rect": Rect2(1040.0, 520.0, 130.0, 110.0)},
+	],
+	"sleepover_bedroom": [
+		{"id": "dream_bed_0", "rect": Rect2(125.0, 385.0, 275.0, 255.0)},
+		{"id": "dream_bed_1", "rect": Rect2(510.0, 385.0, 270.0, 255.0)},
+		{"id": "dream_bed_2", "rect": Rect2(890.0, 385.0, 265.0, 255.0)},
+	],
+	"movie_lounge": [
+		{"id": "movie_screen", "rect": Rect2(245.0, 390.0, 535.0, 90.0)},
+		{"id": "cloud_settee_left", "rect": Rect2(190.0, 485.0, 275.0, 175.0)},
+		{"id": "cloud_settee_right", "rect": Rect2(810.0, 485.0, 280.0, 175.0)},
+		{"id": "cloud_pouf", "rect": Rect2(560.0, 535.0, 164.0, 120.0)},
+	],
+	"family_gallery": [
+		{"id": "portal_thresholds", "rect": Rect2(50.0, 550.0, 1150.0, 40.0)},
+	],
+}
+
+# Clearance is measured on the floor plane in each room's navigation coordinate
+# space. These are not visible-art bounds: a tall fixture can overlap Roshan on
+# screen while remaining behind her through the existing foot-depth z ordering.
+const ROOM_NAVIGATION_CLEARANCE := {
+	"main_hall": 48.0,
+	"opera_hall": 36.0,
+	"kitchen": 36.0,
+	"library": 0.0,
+	"playroom": 0.0,
+	"craft_room": 36.0,
+	"mermaid_pool": 36.0,
+	"bubble_bath": 0.0,
+	"dining_room": 36.0,
+	"royal_bedroom": 36.0,
+	"sleepover_bedroom": 36.0,
+	"movie_lounge": 16.0,
+	"family_gallery": 36.0,
+}
+const ROOM_NAVIGATION_SAFE_POINTS := {
+	"main_hall": Vector2(380.0, 765.0),
+	"opera_hall": Vector2(640.0, 565.0),
+	"kitchen": Vector2(640.0, 570.0),
+	"library": Vector2(640.0, 640.0),
+	"playroom": Vector2(640.0, 650.0),
+	"craft_room": Vector2(640.0, 560.0),
+	"mermaid_pool": Vector2(640.0, 520.0),
+	"bubble_bath": Vector2(640.0, 650.0),
+	"dining_room": Vector2(640.0, 680.0),
+	"royal_bedroom": Vector2(900.0, 640.0),
+	"sleepover_bedroom": Vector2(640.0, 680.0),
+	"movie_lounge": Vector2(640.0, 710.0),
+	"family_gallery": Vector2(640.0, 626.0),
+}
+const ROOM_NAVIGATION_SURFACES := {
+	"mermaid_pool": "swim",
 }
 const ROOM_ITEMS := {
 	"opera_hall": [
@@ -2690,6 +2895,15 @@ func navigation_snapshot() -> Dictionary:
 			"navigation_authored_lanes", false)) \
 			if m.castle_room_stage != null else false,
 		"lanes": lanes,
+		"surface_kind": String(ROOM_NAVIGATION_SURFACES.get(
+			m.castle_room_id, "floor")),
+		"clearance_model": "floor_footprint_radius",
+		"clearance_radius": float(ROOM_NAVIGATION_CLEARANCE.get(
+			m.castle_room_id, 0.0)),
+		"safe_spawn": ROOM_NAVIGATION_SAFE_POINTS.get(
+			m.castle_room_id, Vector2.ZERO),
+		"safe_recovery": ROOM_NAVIGATION_SAFE_POINTS.get(
+			m.castle_room_id, Vector2.ZERO),
 		"body_footprints": (ROOM_NAVIGATION_BLOCKERS.get(
 			m.castle_room_id, []) as Array).duplicate(true),
 		"items": items,
@@ -2879,7 +3093,9 @@ func _center_player() -> void:
 		return
 	var layout: Dictionary = ROOM_LAYOUTS.get(m.castle_room_id, {})
 	var walk: Rect2 = layout.get("walk", Rect2(170.0, 450.0, 940.0, 215.0))
-	var foot := Vector2(walk.get_center().x, walk.end.y - 20.0)
+	var foot: Vector2 = ROOM_NAVIGATION_SAFE_POINTS.get(
+		m.castle_room_id,
+		Vector2(walk.get_center().x, walk.end.y - 20.0)) as Vector2
 	if _room_navigation != null:
 		foot = _room_navigation.nearest_point(foot)
 	m.castle_room_player_sprite.flip_h = false
