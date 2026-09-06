@@ -39,6 +39,7 @@ func _run() -> void:
 	scene = ChapterTwoLawnFinale2D.new()
 	root.add_child(scene)
 	scene.setup(host, Callable())
+	_check_scale_and_contacts()
 	_check("birthday staging represents all eight earned castle jobs",
 		(scene.get_meta("earned_party_pieces", []) as Array).size() == 8)
 	for id: String in ["Cake", "Banner", "StuffieCat", "StuffieBunny", "MusicBox", "Rumi", "PartyMicrophone", "Rocket", "Candle"]:
@@ -105,9 +106,12 @@ func _run() -> void:
 		and String(scene._state()["mode"]) == "story")
 	_reload()
 	_check("lighting checkpoint survives disk reload", host.chapter2_candle_lit and host.chapter2_lawn_beat == 1)
+	await _capture("09-lit")
 	for beat: int in range(3):
 		_tick(3.0)
 		_tap(ChapterTwoLawnFinale2D.CONTINUE_RECT.get_center())
+		if host.chapter2_lawn_beat in [2, 3]:
+			await _capture("10-arrival" if host.chapter2_lawn_beat == 2 else "11-demand")
 	_check("introduction reaches playable battle", host.chapter2_lawn_beat == 4)
 	await _capture("02-battle")
 	_tick(60.0)
@@ -146,6 +150,7 @@ func _run() -> void:
 		_reload()
 		_check("round checkpoint survives disk reload", host.chapter2_protection_rounds == round_index + 1)
 	_check("three rounds preserve candle until story theft", host.chapter2_lawn_beat == 5 and not host.chapter2_candle_taken)
+	await _capture("12-friends-safe")
 	_tick(2.0)
 	_tap(ChapterTwoLawnFinale2D.CONTINUE_RECT.get_center())
 	_check("King cheats only after protection success", host.chapter2_candle_taken and host.chapter2_lawn_beat == 6 and not host.chapter2_story_complete)
@@ -157,11 +162,13 @@ func _run() -> void:
 	await _capture("03-theft")
 	_tick(2.0)
 	_tap(ChapterTwoLawnFinale2D.CONTINUE_RECT.get_center())
+	await _capture("13-departure")
 	_tick(2.0)
 	_tap(ChapterTwoLawnFinale2D.CONTINUE_RECT.get_center())
 	_reload()
 	_check("reassurance completes story without losing party rewards", host.chapter2_lawn_beat == 8 and host.chapter2_story_complete and host.chapter2_party_piece_mask == ChapterTwoPartyPlan.ALL_PARTY_MASK)
 	_check("royals leave together", not (scene.art["King"] as Control).visible and not (scene.art["Prince"] as Control).visible)
+	await _capture("14-hope")
 	scene.teardown()
 	scene.free()
 	host.free()
@@ -196,3 +203,44 @@ func _capture(label: String) -> void:
 	var target := "res://.tmp/chapter2/" + label + ".png"
 	var result := root.get_texture().get_image().save_png(target)
 	_check("render capture " + label, result == OK)
+
+func _visible_bounds(id: String) -> Rect2:
+	var actor := scene.art[id] as TextureRect
+	var texture_size := actor.texture.get_size()
+	var factor := minf(actor.size.x / texture_size.x, actor.size.y / texture_size.y)
+	var padding := (actor.size - texture_size * factor) * 0.5
+	var pixels := actor.texture.get_image()
+	if pixels.is_compressed():
+		pixels.decompress()
+	# Ignore near-transparent block-compression noise when measuring identity.
+	var low := Vector2(pixels.get_width(), pixels.get_height())
+	var high := Vector2.ZERO
+	for y: int in range(pixels.get_height()):
+		for x: int in range(pixels.get_width()):
+			if pixels.get_pixel(x, y).a > 0.125:
+				low = low.min(Vector2(x, y))
+				high = high.max(Vector2(x + 1, y + 1))
+	var used := Rect2(low, high - low)
+	return Rect2(actor.position + padding + used.position * factor, used.size * factor)
+
+func _check_scale_and_contacts() -> void:
+	var king := _visible_bounds("King")
+	var prince := _visible_bounds("Prince")
+	var roshan := _visible_bounds("Roshan")
+	print("LAWN_SCALE|king=", king, " prince=", prince, " roshan=", roshan)
+	_check("visible Prince height preserves approved four-fifths King ratio",
+		absf(prince.size.y / king.size.y - 0.8) < 0.003)
+	_check("King reads larger without dwarfing Roshan",
+		king.size.y / roshan.size.y > 1.30 and king.size.y / roshan.size.y < 1.36)
+	_check("story cast shares a ground plane despite different texture padding",
+		absf(king.end.y - prince.end.y) < 2.0 and absf(king.end.y - roshan.end.y) < 2.0)
+	var rocket := scene.art["Rocket"] as TextureRect
+	var button := rocket.position + (rocket.size - Vector2.ONE * 140.0) * 0.5 + Vector2(256, 168) * (140.0 / 512.0)
+	_check("ignition targets the source-art brass button above the porthole",
+		button.distance_to(ChapterTwoLawnFinale2D.IGNITION_POINT) < 0.1)
+	_check("authored final fingertip lands on the brass button",
+		(ChapterTwoLawnFinale2D.IGNITION_REACH_POSITION + Vector2(16, 77)).distance_to(button) < 1.0)
+	_check("warning origin agrees with the King's grounded position",
+		scene._screen(ChapterTwoLawnFinale2D.BOSS_POINT).distance_to(Vector2(king.get_center().x, king.end.y)) < 2.0)
+	_check("lit and stolen candle use identical display size",
+		(scene.art["Candle"] as Control).size == (scene.art["CarriedCandle"] as Control).size)

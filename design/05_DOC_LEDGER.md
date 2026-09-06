@@ -781,3 +781,9 @@ Kept as-is; noted so a future edit updates every copy.
 | Document | State | Scope |
 |---|---|---|
 | `design/AUDIT_DEVELOPMENT_CONTRACT.md` | 🟢 | `BINDING_OPERATIONAL`; required reading, change traceability and evidence reporting under `DL-AUTH-05` through `DL-AUTH-07`; preserves existing security, owner and release precedence. |
+
+| `assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/README.md` | 🟣 | `CANDIDATE` owner-run Chapter 2 visual planning archive after scale refinement; approved identities retained, new staging pending owner/device/child review. No generation or cinematic delivery acceptance. |
+
+| `docs/grok_animation_series_project/README_FIRST.md` | 🟣 | `CANDIDATE` Chapter 2 owner-run Grok navigation and planning handoff; links the preserved private-series guide and revised visual archive. No generation, cinematic, owner, device or child acceptance is granted. |
+
+| `docs/grok_animation_series_project/modules/chapter2_birthday_lawn/README.md` | 🟣 | `CANDIDATE` Chapter 2 owner-run Grok navigation and planning handoff; links the preserved private-series guide and revised visual archive. No generation, cinematic, owner, device or child acceptance is granted. |

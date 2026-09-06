@@ -1,0 +1,1 @@
+Actual Godot 4.7.2 Mobile Canvas probe captures of the revised runtime. These show gameplay boundaries and scale only. Fallback Back in isolated host; production uses the same single global Back. Not clean first frames, not generation bindings, not accepted cinematics.

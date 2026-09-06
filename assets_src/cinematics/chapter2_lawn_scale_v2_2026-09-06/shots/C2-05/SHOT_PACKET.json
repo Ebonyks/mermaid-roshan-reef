@@ -1,0 +1,73 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "chapter2_lawn",
+  "shot_id": "C2-05",
+  "title": "Protection challenge",
+  "status": "DRAFT",
+  "duration_seconds": 5,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "human_decision": "pending",
+      "blocking_gap": "An individually generated clean full-frame first image for this shot must be reviewed and accepted. Do not substitute this board or a gameplay capture."
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "characters/ember_king_v4.png",
+      "sha256": "422f7bd45a13f1d3c0304082727d72298e3bc01babd8919dc0c7e3e92777052c",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1005c597e17bfacc93d3d5669356b7a37beaf5a1/assets_src/cinematics/chapter2_lawn_2026-09-06/characters/ember_king_v4.png",
+      "hud_present": false,
+      "human_decision": "source authority only; binding review pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/lawn.png",
+      "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1005c597e17bfacc93d3d5669356b7a37beaf5a1/assets_src/cinematics/chapter2_lawn_2026-09-06/references/lawn.png",
+      "hud_present": false,
+      "human_decision": "source authority only; binding review pending"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "the King raises one foot and completes one slow sulky stomp with a warm ground puff"
+  ],
+  "must_not_move": [
+    "lawn layout",
+    "mountains",
+    "unaffected characters and props"
+  ],
+  "end_state": "his foot is planted and the warm puff has settled",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no drift",
+    "no injury",
+    "no changed King hairstyle"
+  ],
+  "prompt_path": "shots/C2-05/PROMPT.txt",
+  "prompt_sha256": "c1590e1435ef233feae3975836545734a3d3bf8312f46d1c84d9090a4b8238f1",
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "blocking_findings": [
+    "human-approved clean first frame missing",
+    "final per-shot binding review pending",
+    "no accepted full-frame cinematic delivery"
+  ],
+  "scale_contract": "SCALE_CONTRACT.json"
+}

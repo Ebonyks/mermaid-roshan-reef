@@ -5,17 +5,29 @@ extends Control
 ## explicitly not accepted cinematic frames. The Grok/full-frame lane stays
 ## separate. Gameplay state belongs to ReefMain and its save owner.
 const SIZE := Vector2(1280.0, 720.0)
-const ORIGIN := Vector2(770.0, 515.0)
-const PROJECTION := Vector2(15.0, 5.0)
-const BOSS_POINT := Vector2(12.0, -14.0)
+const ORIGIN := Vector2(805.0, 535.0)
+const PROJECTION := Vector2(11.0, 3.5)
 const KEY := "chapter2_lawn_runtime"
-const ROCKET_RECT := Rect2(455.0, 435.0, 140.0, 145.0)
-const KING_RECT := Rect2(910.0, 230.0, 320.0, 330.0)
+const ROCKET_RECT := Rect2(480.0, 422.0, 140.0, 145.0)
+# Heights use visible silhouettes, not transparent texture padding.
+# Prince's approved standing height is exactly 80% of the King's.
+const KING_VISIBLE_HEIGHT := 288.0
+const KING_SCALE := KING_VISIBLE_HEIGHT / 797.0
+const KING_SIZE := Vector2(747.0, 817.0) * KING_SCALE
+const KING_RECT := Rect2(Vector2(960.0, 560.0 - 807.0 * KING_SCALE), KING_SIZE)
+const BOSS_POINT := (Vector2(KING_RECT.position.x + KING_SIZE.x * 0.5, 560.0) - ORIGIN) / PROJECTION
+const PRINCE_SIZE := Vector2(144.0, 301.0) * (KING_VISIBLE_HEIGHT * 0.8 / 301.0)
+const PRINCE_RECT := Rect2(Vector2(848.0, 560.0 - PRINCE_SIZE.y), PRINCE_SIZE)
+const ROSHAN_SIZE := Vector2(256.0, 256.0)
+const ROSHAN_FOOT := Vector2(128.0, 229.0)
+const CANDLE_RECT := Rect2(385.0, 272.0, 64.0, 90.0)
+const CANDLE_WICK := Vector2(417.0, 293.0)
 const CONTINUE_RECT := Rect2(1050.0, 592.0, 180.0, 106.0)
 const BACK_RECT := Rect2(1150.0, 18.0, 112.0, 112.0)
-const ROSHAN_HOME := Vector2(655.0, 438.0)
-const IGNITION_POINT := Vector2(525.0, 540.0)
-const IGNITION_REACH_POSITION := IGNITION_POINT - Vector2(12.0, 58.0)
+const ROSHAN_HOME := Vector2(625.0, 331.0)
+# The upper central brass button, above the blue porthole: source (256,168).
+const IGNITION_POINT := ROCKET_RECT.position + Vector2(70.0, 48.4375)
+const IGNITION_REACH_POSITION := IGNITION_POINT - Vector2(16.0, 77.0)
 const ROSHAN_BASE := "res://assets/characters/roshan_25d/roshan_base.png"
 const ROSHAN_REACH := "res://assets/characters/roshan_25d/roshan_gesture_b.png"
 const ROSHAN_SWIM := "res://assets/characters/roshan_25d/roshan_swim_front.png"
@@ -136,18 +148,14 @@ func _build_art() -> void:
 	_picture("Table", ChapterTwoPartyTable2D.TABLE_TEXTURE,
 		Rect2(240.0, 440.0, 360.0, 165.0))
 	for index: int in range(GUEST_FILES.size()):
-		var x := 65.0 + float(index % 4) * 130.0
-		var y := 270.0 if index < 4 else 460.0
-		if index == 2:
-			x = 300.0
-			y = 210.0
-		if index >= 6:
-			x = 325.0 + float(index - 6) * 130.0
-			y = 550.0
+		var guest_positions := [Vector2(40, 350), Vector2(170, 325),
+			Vector2(40, 505), Vector2(165, 500), Vector2(290, 550),
+			Vector2(405, 560), Vector2(515, 545), Vector2(520, 280)]
+		var guest_position: Vector2 = guest_positions[index]
 		var guest := _picture("Guest_%s" % GUEST_FILES[index],
 			"res://assets/characters/friends/%s.%s" % [GUEST_FILES[index],
 				"webp" if GUEST_FILES[index] == "daddy" else "png"],
-			Rect2(x, y, 118.0, 140.0))
+			Rect2(guest_position, Vector2(118.0, 140.0)))
 		guest.set_meta("protected_source_unchanged", true)
 		guest.z_index = 2 if index >= 4 else 0
 		if GUEST_FILES[index] == "two_friends":
@@ -159,37 +167,37 @@ func _build_art() -> void:
 			_add_hat(guest, Vector2(44.0, 26.0), index)
 			_add_hat(guest, Vector2(81.0, 63.0), index + 1, 0.55)
 		else:
-			_add_hat(guest, Vector2(59.0, 10.0), index)
+			_add_hat(guest, Vector2(59.0, -8.0 if index == 7 else 10.0), index)
 	# Carry forward the actual Ballerina and Pop Star participants and objects,
 	# using the same source art as OperaCareerWorld2D's Chapter 2 scenes.
-	_picture("StuffieCat", "res://assets/book/doll_cat.png", Rect2(178.0, 568.0, 100.0, 105.0))
-	_picture("StuffieBunny", "res://assets/book/doll_bunny.png", Rect2(250.0, 580.0, 95.0, 100.0))
-	_picture("MusicBox", OperaBalletSurface.MUSIC_BOX_PATH, Rect2(180.0, 475.0, 92.0, 90.0))
+	_picture("StuffieCat", "res://assets/book/doll_cat.png", Rect2(85.0, 620.0, 65.0, 68.0))
+	_picture("StuffieBunny", "res://assets/book/doll_bunny.png", Rect2(158.0, 620.0, 60.0, 63.0))
+	_picture("MusicBox", OperaBalletSurface.MUSIC_BOX_PATH, Rect2(205.0, 460.0, 70.0, 68.0))
 	_picture("PartyMicrophone", "res://assets/opera/worlds/props/goal_popstar.png",
-		Rect2(530.0, 395.0, 90.0, 105.0))
+		Rect2(630.0, 440.0, 64.0, 75.0))
 	var rumi := _picture("Rumi", "res://assets/characters/rumi/rumi_eight_pose_runtime.png",
-		Rect2(527.0, 240.0, 140.0, 160.0))
+		Rect2(590.0, 320.0, 100.0, 140.0))
 	var rumi_frame := AtlasTexture.new()
 	rumi_frame.atlas = rumi.texture
 	rumi_frame.region = Rect2(0.0, 0.0, rumi.texture.get_width() / 4.0,
 		rumi.texture.get_height() / 2.0)
 	rumi.texture = rumi_frame
-	_add_hat(rumi, Vector2(70.0, 20.0), 2, 0.8)
+	_add_hat(rumi, Vector2(50.0, 20.0), 2, 0.65)
 	_picture("Cake", ChapterTwoGiantCake2D.FINAL_CAKE_TEXTURE,
 		Rect2(310.0, 320.0, 210.0, 235.0))
 	_picture("Candle", ChapterTwoRainbowCandle2D.UNLIT_TEXTURE,
-		Rect2(385.0, 214.0, 64.0, 148.0))
+		CANDLE_RECT)
 	_picture("Rocket", "res://assets/opera/worlds/props/goal_astronaut.png", ROCKET_RECT)
 	_picture("King", "res://assets/chapter2/ember_alpha/king_v4_cutout.png", KING_RECT)
 	var prince := _picture("Prince", "res://assets/chapter2/ember_alpha/prince_idle.png",
-		Rect2(855.0, 298.0, 124.0, 258.0))
+		PRINCE_RECT)
 	var prince_frame := AtlasTexture.new()
 	prince_frame.atlas = prince.texture
 	prince_frame.region = Rect2(56.0, 75.0, 144.0, 301.0)
 	prince.texture = prince_frame
 	_picture("CarriedCandle", ChapterTwoRainbowCandle2D.LIT_TEXTURE,
-		Rect2(938.0, 238.0, 64.0, 148.0))
-	_picture("Roshan", ROSHAN_BASE, Rect2(ROSHAN_HOME, Vector2(180.0, 190.0)))
+		Rect2(953.0, 300.0, 64.0, 90.0))
+	_picture("Roshan", ROSHAN_BASE, Rect2(ROSHAN_HOME, ROSHAN_SIZE))
 
 func _add_hat(parent: Control, point: Vector2, colour_index: int,
 		factor: float = 1.0) -> void:
@@ -407,7 +415,7 @@ func tick(delta: float) -> void:
 	if m.chapter2_lawn_beat == 4:
 		_tick_battle(delta)
 	pointer.visible = not String(state["mode"]).begins_with("ignition_")
-	var hint := ROCKET_RECT.get_center() if m.chapter2_lawn_beat == 0 else CONTINUE_RECT.get_center()
+	var hint := IGNITION_POINT if m.chapter2_lawn_beat == 0 else CONTINUE_RECT.get_center()
 	if m.chapter2_lawn_beat == 4:
 		var current := battle.engine()
 		if current.state == BossEncounter2D.State.OPENING:
@@ -425,7 +433,8 @@ func _tick_battle(delta: float) -> void:
 	state["player"] = (state["player"] as Vector2).move_toward(
 		state["destination"] as Vector2, delta * 24.0)
 	var roshan := art["Roshan"] as TextureRect
-	roshan.position = _screen(state["player"] as Vector2) - Vector2(80.0, 155.0)
+	roshan.z_index = 3
+	roshan.position = _screen(state["player"] as Vector2) - ROSHAN_FOOT
 	caption.text = String(state["feedback"])
 	var king := art["King"] as TextureRect
 	king.position = KING_RECT.position
@@ -597,8 +606,8 @@ func _draw_foreground() -> void:
 		if elapsed >= 0.75:
 			foreground.draw_circle(IGNITION_POINT, 7.0, Color("fff0a5"), false, 3.0, true)
 		if elapsed >= 1.0:
-			var from := Vector2(525.0, 445.0)
-			var to := Vector2(417.0, 232.0)
+			var from := ROCKET_RECT.position + Vector2(70.0, 8.0)
+			var to := CANDLE_WICK
 			var progress := clampf((elapsed - 1.0) / 0.6, 0.0, 1.0)
 			foreground.draw_circle(from.lerp(to, progress), 7.0, Color("fff0a5"))
 	if m.chapter2_lawn_beat != 4:

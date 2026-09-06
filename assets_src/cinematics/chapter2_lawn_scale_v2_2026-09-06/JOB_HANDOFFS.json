@@ -1,0 +1,135 @@
+{
+  "history_commit": "3c3fa13f7af362ec28cf7f2d6e433322254220b7",
+  "authorities": [
+    "scripts/chapter_two_party_plan.gd",
+    "scripts/chapter_two_career_scene_adapter.gd",
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_ballet_surface.gd"
+  ],
+  "stage": "dedicated Sky Lagoon lawn; no swing, slide or seesaw instantiated",
+  "required_party_mask": "0x2C4F",
+  "handoffs": [
+    {
+      "act_index": 6,
+      "career": "farmer",
+      "milestones": [
+        "gather_strawberries",
+        "fill_basket",
+        "deliver_to_kitchen"
+      ],
+      "earned_output": "exactly five Sky Lagoon strawberries",
+      "finale_nodes": [
+        "Cake"
+      ],
+      "fate": "combined into final cake; no duplicate raw berries"
+    },
+    {
+      "act_index": 0,
+      "career": "chef",
+      "milestones": [
+        "mix",
+        "stir",
+        "bake",
+        "stack",
+        "frost"
+      ],
+      "earned_output": "six-tier rainbow cake",
+      "finale_nodes": [
+        "Cake"
+      ],
+      "fate": "remains on table after theft"
+    },
+    {
+      "act_index": 3,
+      "career": "candymaker",
+      "milestones": [
+        "coat_strawberries",
+        "sort_strawberries",
+        "glaze_strawberries",
+        "place_candied_strawberries"
+      ],
+      "earned_output": "candied strawberries decorating that same cake",
+      "finale_nodes": [
+        "Cake"
+      ],
+      "fate": "remains on cake after theft"
+    },
+    {
+      "act_index": 10,
+      "career": "painter",
+      "milestones": [
+        "paint_banner",
+        "stamp_banner",
+        "hang_banner"
+      ],
+      "earned_output": "rainbow birthday banner with five star stamps",
+      "finale_nodes": [
+        "Banner"
+      ],
+      "fate": "displayed on lawn and remains after theft"
+    },
+    {
+      "act_index": 2,
+      "career": "ballerina",
+      "milestones": [
+        "stuffies_mirror",
+        "stuffies_twirling",
+        "stuffies_bow"
+      ],
+      "earned_output": "doll_cat and doll_bunny learned dance; existing music box",
+      "finale_nodes": [
+        "StuffieCat",
+        "StuffieBunny",
+        "MusicBox"
+      ],
+      "fate": "stay with protected friends"
+    },
+    {
+      "act_index": 13,
+      "career": "popstar",
+      "milestones": [
+        "sound_check",
+        "stage_rumi",
+        "rhythm",
+        "encore"
+      ],
+      "earned_output": "Rumi and Roshan prepared performance with microphone",
+      "finale_nodes": [
+        "Rumi",
+        "PartyMicrophone"
+      ],
+      "music": "assets/audio/music/opera_popstar.ogg",
+      "fate": "Rumi and equipment remain; existing performance score reused, no claim of a new birthday-song recording"
+    },
+    {
+      "act_index": 11,
+      "career": "astronaut",
+      "milestones": [
+        "build_rocket",
+        "patch",
+        "valve",
+        "ready_park"
+      ],
+      "earned_output": "finished parked candle-lighting rocket",
+      "finale_nodes": [
+        "Rocket"
+      ],
+      "fate": "lights candle on fresh touch, stays with party"
+    },
+    {
+      "act_index": 1,
+      "career": "detective",
+      "milestones": [
+        "storybook_lens",
+        "storybook_board",
+        "unlit_rainbow_candle_reveal"
+      ],
+      "earned_output": "unlit rainbow candle",
+      "finale_nodes": [
+        "Candle",
+        "CarriedCandle"
+      ],
+      "fate": "lights at party; King takes only this object after all three protection rounds"
+    }
+  ]
+}
