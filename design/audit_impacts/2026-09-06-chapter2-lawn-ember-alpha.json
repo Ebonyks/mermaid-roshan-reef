@@ -137,6 +137,7 @@
     "assets_src/cinematics/chapter2_lawn_2026-09-06/shots/C2-08/SHOT_PACKET.json",
     "assets_src/cinematics/chapter2_lawn_2026-09-06/shots/C2-09/PROMPT.txt",
     "assets_src/cinematics/chapter2_lawn_2026-09-06/shots/C2-09/SHOT_PACKET.json",
+    "assets_src/cinematics/chapter2_lawn_2026-09-06_REMOTE_VERIFICATION.json",
     "assets_src/imagegen/chapter2_lawn_2026-09-06/PROMPTS.txt",
     "assets_src/imagegen/chapter2_lawn_2026-09-06/PROVENANCE.json",
     "assets_src/imagegen/chapter2_lawn_2026-09-06/WORK_STATUS.json",
@@ -232,6 +233,11 @@
       "command": "Reconcile origin/dev 7055d6769252f3db3f9436c509122e7575d2881a; document authority + development --base auto + 51 contract tests; merged probe_ui_system, probe_chapter2, probe_chapter2_lawn",
       "result": "PASS",
       "evidence": "All gates and three focused probes passed before merge commit. Ledger conflict preserves both chapter draft and upstream audit-contract entries. Upstream AGENTS.md/CLAUDE.md/workflow policy is inherited unchanged; no task-authored policy modification. Logs .tmp/chapter2/merge-checks/."
+    },
+    {
+      "command": "python .tmp/chapter2/verify_remote_archive.py 1005c597e17bfacc93d3d5669356b7a37beaf5a1",
+      "result": "PASS",
+      "evidence": "Public immutable manifest and all 59 payload files fetched and SHA-256 verified. Separate assets_src/cinematics/chapter2_lawn_2026-09-06_REMOTE_VERIFICATION.json records URLs and payload hash. ARCHIVE_COMPLETE true for that content commit; GENERATION_READY and DELIVERY_ACCEPTED remain false."
     }
   ],
   "acceptance_gaps": "Owner review of gameplay composition and synthetic narration, aspect-ratio/device performance and touch, child comprehension/pacing, green integrated dev APK; all nine clean cinematic first frames and external generation bindings, full-frame delivery provenance and human acceptance. Three arrival first-frame candidates are unaccepted for scale/costume/position drift. No whole-game audit satisfaction or cinematic acceptance claimed.",
