@@ -14,7 +14,8 @@
     "game_wide_pathfinding_accepted": false,
     "full_validation": "PASS at pathfinding parent 3457af78 (local gates and GitHub run 34021845059); combined pool validation is recorded separately.",
     "castle_existing_frame_binding": "PASS: 96 unchanged reviewed frame hashes; owner acceptance remains pending",
-    "combined_pool_validation": "PASS: import and five shared runtime probes; merged-head GitHub CI pending at record creation."
+    "combined_pool_validation": "PASS: import and five shared runtime probes; merged-head GitHub CI pending at record creation.",
+    "combined_back_arrow_validation": "PASS: eight focused fresh-save probes including Castle, Opera, handoff, pool and voice; exact merged-head GitHub CI pending at record creation."
   },
   "runtime_source_sha256": {
     "scripts/stage_navigation_2d.gd": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
@@ -35,19 +36,19 @@
     "scripts/games/pool_skimmer_activity.gd": "96c8008d0cb8441cfe1ea52c27402d01b6f5b139eef55949cdbc02654030f739",
     "scripts/probe_audit.gd": "2c97bf7fe31506c2e99f87d82b6e8f6f7384e898153b634d95c086255272dcff",
     "scripts/probe_day_one_pool_cleanup.gd": "9544c43ee8fcdeec370d1c93edbbe59d492184c4cdafbc9f32ec7ace33c03038",
-    "scripts/probe_day_one_pool_shots.gd": "13a642fd87918b01b36433b1dc382d7f5edbda6b6f9a1ae3fcd7a79be81594f6"
+    "scripts/probe_day_one_pool_shots.gd": "13a642fd87918b01b36433b1dc382d7f5edbda6b6f9a1ae3fcd7a79be81594f6",
+    "scripts/main.gd": "074c3c497030beda85fd1b52839a46349948095ff7dc2c8f775a47010634a916",
+    "scripts/navigation_controller.gd": "0daacad2a6e49e18faad7ca18af8d55863ef0b9cf6603f0f310629bda29645a8",
+    "scripts/pause_menu.gd": "fc3c7067f6e8fb6766e548204fb542442854e2f8215427f1f2b0c5b3c73b7fb9",
+    "scripts/probe_castle_pool_life_2d.gd": "f12330462a1d5f615622b0a500f29a5d38c73c0de2d0819a887e69abd53c5365",
+    "scripts/probe_day_one_bathroom_integration.gd": "68c231bb38fe8555e43f15f9edf580720a840c5b228aebd4a298a7a00850617e",
+    "scripts/probe_day_one_bathroom_shots.gd": "3ab051bf7597c2bcdc42dc0ce1d55b525473298143a1d9157d070b6e25034806",
+    "scripts/probe_day_one_d8_revisits.gd": "a67a1cb3ae225e710cbf326a0e2e6d6f2891e5607fe16df1ec8eb1fc4a50fb23",
+    "scripts/probe_day_one_draft_integration.gd": "80c650688742bf98d582019ca345bc748b3384e1e706f236b9d3151d9790258f",
+    "scripts/probe_day_one_handoffs.gd": "f8a514815e0781951e92cebe7984fe0a3274763a5a8743d7f5fb71cf10d6ee54",
+    "scripts/probe_ui_system.gd": "bf520b1bb686f12187ba1bcc3e72329460bb53b771cbef91cc73d503dc17ac90"
   },
   "files": [
-    {
-      "path": "audit/stage_pathfinding/README.md",
-      "sha256": "93602b906c3d4751ce65af0635f126414bce27d8421a901faef6e4b2bdcb4b42",
-      "bytes": 2154
-    },
-    {
-      "path": "audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md",
-      "sha256": "6e0fda61fbe759a2ba57aacad65c5fc90ef819e38345c4e9a0a4f7265dd26440",
-      "bytes": 4282
-    },
     {
       "path": "audit/stage_pathfinding/castle_geometry.json",
       "sha256": "b5da18c5f4f4ffb43e6078c3a5df6f555614460572b542bb58d8e175b4ecd1da",
@@ -67,6 +68,16 @@
       "path": "audit/stage_pathfinding/evidence/castle_frame_binding_revalidation.json",
       "sha256": "21fe2f19de986fcec0124c6ca68efef9421a18582bb2e0f6a517a0f75f1f3727",
       "bytes": 8833
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/combined-back-arrow-probes.log",
+      "sha256": "42f588ae716af7b174bc85cf4182e795aaf7e96811c0005f6fdfa24b2583649e",
+      "bytes": 128726
+    },
+    {
+      "path": "audit/stage_pathfinding/evidence/combined-back-arrow-validation.json",
+      "sha256": "f2ab2799a0598c8b3a887d0c30945afd431ae8d05116b51776f7c184c2464db2",
+      "bytes": 2386
     },
     {
       "path": "audit/stage_pathfinding/evidence/combined-pool-probes.log",
@@ -122,6 +133,11 @@
       "path": "audit/stage_pathfinding/opera_geometry.json",
       "sha256": "b75bfae4496c8d786806f296a485b32bcff498a3f0c9445b50d3f033d0e7bf1f",
       "bytes": 281285
+    },
+    {
+      "path": "audit/stage_pathfinding/README.md",
+      "sha256": "93602b906c3d4751ce65af0635f126414bce27d8421a901faef6e4b2bdcb4b42",
+      "bytes": 2154
     },
     {
       "path": "audit/stage_pathfinding/reproductions/astronaut_stage.html",
@@ -547,19 +563,25 @@
       "path": "audit/stage_pathfinding/stage_inventory.json",
       "sha256": "6eb230420517013a215d7b7a03e5ff071ca4922c3c5c1ec405203685841b6a32",
       "bytes": 48368
+    },
+    {
+      "path": "audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md",
+      "sha256": "6e0fda61fbe759a2ba57aacad65c5fc90ef819e38345c4e9a0a4f7265dd26440",
+      "bytes": 4282
     }
   ],
-  "packet_payload_sha256": "6d0965baf6eda2abf995d87ade6c381504c6a72863def650f5e1ee07c2796bb2",
+  "packet_payload_sha256": "99da3417645502573e6d3f2dbcdc8286a63c1d91205edbf93335e5e8fa80574f",
   "notes": [
     "Review images reuse exact runtime source textures and current fixture atlas cells. No original artwork changed.",
     "Centerlines own movement; displayed clear bands are diagnostic aids only.",
     "Focused transcripts cover their named checks. They do not grant full-suite, device, human or game-wide acceptance.",
-    "The pool reconciliation inherits source 64094fca; the atlas still contains 34 Opera views and 13 Castle rooms, not a new pool-activity capture packet."
+    "The pool reconciliation inherits source 64094fca; the atlas still contains 34 Opera views and 13 Castle rooms, not a new pool-activity capture packet.",
+    "Back-arrow reconciliation inherits dev a6ffa14d. The atlas reproduces stage geometry and fixtures; it is not a capture of the persistent global navigation overlay. The first combined-parent voice failure and rechecks are recorded separately."
   ],
   "text_hash_normalization": "UTF-8 text stored with LF line endings; binary asset hashes are native bytes.",
   "approval_binding": {
     "path": "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
     "sha256": "630d69371966b0e7dc6dce2ac71e0c756199096f0e48afdc01dd1b138911f615"
   },
-  "reconciled_integration_revision": "64094fca00c9e1ef64b26e6568ad35c50d9cfca4"
+  "reconciled_integration_revision": "a6ffa14d0160ad6830464b73df33e1db20641fa1"
 }

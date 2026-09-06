@@ -1,6 +1,6 @@
 {
   "id": "2026-09-06-stage-pathfinding",
-  "scope": "Make Castle and Opera avatar travel follow floor lanes and reach object or door contacts before actions. Correct the doctor route, preserve fixed-minigame return positions, add owned touch/drag cancellation, and inventory game-wide pathfinding gaps with 34 Opera views and 13 Castle room reproductions plus a whole-hall overview. Refresh the existing Castle frame ledger only after proving all 96 reviewed frame hashes and occlusion relations unchanged. Typography census maintenance matches concurrent integrated work and leaves font/device acceptance open. Reconcile independently green pool source 64094fca, align the protocol with visible local work before progress, and distinguish the bounded skimmer repair from still-open pool substeps.",
+  "scope": "Make Castle and Opera avatar travel follow floor lanes and reach object or door contacts before actions. Correct the doctor route, preserve fixed-minigame return positions, add owned touch/drag cancellation, and inventory game-wide pathfinding gaps with 34 Opera views and 13 Castle room reproductions plus a whole-hall overview. Refresh the existing Castle frame ledger only after proving all 96 reviewed frame hashes and occlusion relations unchanged. Typography census maintenance matches concurrent integrated work and leaves font/device acceptance open. Reconcile independently green pool source 64094fca, align the protocol with visible local work before progress, and distinguish the bounded skimmer repair from still-open pool substeps. Reconcile current dev a6ffa14d upper-right Back navigation and early-room handoffs; verify the shared input and stage-return behavior with eight focused probes.",
   "baseline": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
   "rules": [
     "DL-AUTH-05",
@@ -37,6 +37,8 @@
     "audit/stage_pathfinding/evidence/audit-recheck.log",
     "audit/stage_pathfinding/evidence/castle-frame-gate-final.log",
     "audit/stage_pathfinding/evidence/castle_frame_binding_revalidation.json",
+    "audit/stage_pathfinding/evidence/combined-back-arrow-probes.log",
+    "audit/stage_pathfinding/evidence/combined-back-arrow-validation.json",
     "audit/stage_pathfinding/evidence/combined-pool-probes.log",
     "audit/stage_pathfinding/evidence/combined-pool-validation.json",
     "audit/stage_pathfinding/evidence/crown-recheck.log",
@@ -136,6 +138,7 @@
     "audit/stage_pathfinding/stage_inventory.json",
     "design/00_MASTER_INDEX.md",
     "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/2026-09-06-stage-pathfinding.json",
     "scripts/arena/castle_rooms_25d.gd",
     "scripts/debug_export_stage_pathfinding.gd",
     "scripts/opera_career_world_2d.gd",
@@ -186,6 +189,11 @@
       "command": "Combined Godot 4.7.2 import; pool cleanup, probe_audit, bathroom integration, Castle Canvas and Day One integration; parser/inference, game2D and audit gates",
       "result": "PASS",
       "evidence": "audit/stage_pathfinding/evidence/combined-pool-validation.json and combined-pool-probes.log; five probes, exit0, zero failure markers. Both parents have green exact-commit CI. Combined-head CI remains pending at record creation."
+    },
+    {
+      "command": "Combined Back-arrow merge: eight Godot 4.7.2 fresh-save probes, incoming GDScript parser/inference, document authority and development coverage",
+      "result": "PASS",
+      "evidence": "audit/stage_pathfinding/evidence/combined-back-arrow-validation.json and combined-back-arrow-probes.log. Exact merged-head GitHub CI remains pending at record creation. The earlier candidate voice failure is retained; no assertion or voice code was changed."
     }
   ],
   "acceptance_gaps": "MA-PLAY-003 remains CONFIRMED_OPEN. The catalog is not an exhaustive sublevel geometry acceptance claim. Ten generic Castle layouts still need fixture-by-fixture authorship/review; remaining legacy/world and fixed-board seams remain enumerated gaps. Human geometry review, Lenovo M11/older-phone testing, child and owner acceptance remain pending. No whole-game pathfinding or strict-zero 2D acceptance is claimed."

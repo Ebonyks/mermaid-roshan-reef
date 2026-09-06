@@ -1,0 +1,36 @@
+{
+  "schema": "combined-back-arrow-pathfinding-validation-v1",
+  "parents": [
+    "a67fd0e757c7930eacf2e0d11cb768692fce7b0f",
+    "a6ffa14d0160ad6830464b73df33e1db20641fa1"
+  ],
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "probe_groups": [
+    "probe_day_one_handoffs",
+    "probe_ui_system",
+    "probe_bathroom_integration",
+    "probe_castle_canvas2d",
+    "probe_day_one_pool_cleanup",
+    "probe_day_one_integration",
+    "probe_opera_2d",
+    "probe_voice"
+  ],
+  "probe_exit_code": 0,
+  "failure_markers": 0,
+  "raw_probe_log_sha256": "88926b3b9e578d9002c9b428209e2a1b5d2d3863ee2b90ffbbb775071d44a8f6",
+  "incoming_source_sha256": {
+    "scripts/main.gd": "074c3c497030beda85fd1b52839a46349948095ff7dc2c8f775a47010634a916",
+    "scripts/navigation_controller.gd": "0daacad2a6e49e18faad7ca18af8d55863ef0b9cf6603f0f310629bda29645a8",
+    "scripts/pause_menu.gd": "fc3c7067f6e8fb6766e548204fb542442854e2f8215427f1f2b0c5b3c73b7fb9",
+    "scripts/probe_castle_pool_life_2d.gd": "f12330462a1d5f615622b0a500f29a5d38c73c0de2d0819a887e69abd53c5365",
+    "scripts/probe_day_one_bathroom_integration.gd": "68c231bb38fe8555e43f15f9edf580720a840c5b228aebd4a298a7a00850617e",
+    "scripts/probe_day_one_bathroom_shots.gd": "3ab051bf7597c2bcdc42dc0ce1d55b525473298143a1d9157d070b6e25034806",
+    "scripts/probe_day_one_d8_revisits.gd": "a67a1cb3ae225e710cbf326a0e2e6d6f2891e5607fe16df1ec8eb1fc4a50fb23",
+    "scripts/probe_day_one_draft_integration.gd": "80c650688742bf98d582019ca345bc748b3384e1e706f236b9d3151d9790258f",
+    "scripts/probe_day_one_handoffs.gd": "f8a514815e0781951e92cebe7984fe0a3274763a5a8743d7f5fb71cf10d6ee54",
+    "scripts/probe_ui_system.gd": "bf520b1bb686f12187ba1bcc3e72329460bb53b771cbef91cc73d503dc17ac90"
+  },
+  "remote_status_at_record_creation": "Pathfinding parent run 34024591184 attempt 1 had one Harper voice assertion failure, with all pathfinding checks passing. Three fresh local voice rechecks passed. Attempt 2 is pending. Incoming dev a6ffa14d CI runs 34025996700/34025996735 are pending; no combined-head remote success is claimed.",
+  "scope": "Reconcile the current dev upper-right Back control and early-room handoff changes. Stage art, floor lanes, contacts and existing minigame controllers remain unchanged by this reconciliation.",
+  "acceptance": "MA-PLAY-003 and MA-PLAY-004 remain open; no game-wide, device, child or owner acceptance."
+}
