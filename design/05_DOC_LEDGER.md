@@ -797,3 +797,9 @@ Kept as-is; noted so a future edit updates every copy.
 | `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/shots/C14-S06/README.md` | 🟣 | `PROPOSED_CANONICAL`; scoped C14 draft; human approval pending; no runtime or delivery authority. |
 | `assets_src/cinematics/d1_c14_castle_team_cleanup_v1/written_guide/IMAGINE_SHOT_CARD_V1.md` | 🟣 | `PROPOSED_CANONICAL`; scoped C14 draft; human approval pending; no runtime or delivery authority. |
 <!-- C14_CLEANUP_DOCS_END -->
+
+## Grok archive publication record
+
+| Doc | | Note |
+|---|---|---|
+| `design/GROK_HANDOFF_PUBLICATION_2026-09-05.md` | 🟣 | `PROPOSED_CANONICAL`; scoped draft archive navigation and remote transport evidence; no first-frame, generation or delivery approval. |
