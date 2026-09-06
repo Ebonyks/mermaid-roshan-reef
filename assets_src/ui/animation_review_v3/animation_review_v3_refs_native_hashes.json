@@ -1,0 +1,54 @@
+{
+  "review_id": "animation_review_v3",
+  "generation_mode": "built_in_image_gen_edit",
+  "generated_outputs_are_native_full_frames": true,
+  "source_art_untouched": true,
+  "frames": [
+    {
+      "id": "pause_menu_worldfit_v3_candidate01",
+      "source": {
+        "path": "assets_src/ui/worldfit_review_v2/pause_menu_worldfit_v2_candidate01.png",
+        "role": "edit_target",
+        "sha256": "7ae85c324617b87dfaa0736e8b7904dfffbce278741b1f9144350a703fe30b85",
+        "dimensions": "1672x941"
+      },
+      "native_output": {
+        "path": "assets_src/ui/animation_review_v3/pause_menu_worldfit_v3_candidate01.png",
+        "generator_source_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0751a-aa7d-79a3-8626-e10751e84e54\\exec-a61ec7e0-5bcf-4406-8e95-30863d57e0bc.png",
+        "role": "native_generated_output",
+        "sha256": "d608be3392c5692e93b2e96799080deabfb4b331205228e81409accf77a47e70",
+        "dimensions": "1672x941"
+      },
+      "prompt_file": "assets_src/ui/animation_review_v3/pause_menu_worldfit_v3_candidate01_prompt.txt",
+      "prompt_sha256": "de69c0c6592f4efb500038a30dca807b934c8bdb5e11ab52547b9ff69cc2d086",
+      "attempt": 1,
+      "generation_method": "built_in_image_gen_edit",
+      "declared_state": "changed_style_only",
+      "agent_visual_review": "visually inspected; composition, object actions, and readable construction retained",
+      "human_review": "pending"
+    },
+    {
+      "id": "chooser_activity_worldfit_v3_candidate02",
+      "source": {
+        "path": "assets_src/ui/worldfit_review_v2/chooser_activity_worldfit_v2_candidate02.png",
+        "role": "edit_target",
+        "sha256": "233ad6e26f0e979519d0b4e93d02c5dae7c22c41429e6866f770d5819667e1b8",
+        "dimensions": "1671x941"
+      },
+      "native_output": {
+        "path": "assets_src/ui/animation_review_v3/chooser_activity_worldfit_v3_candidate02.png",
+        "generator_source_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0751a-aa7d-79a3-8626-e10751e84e54\\exec-27b3b91a-29f6-4286-be39-1b9dab613793.png",
+        "role": "native_generated_output",
+        "sha256": "9279b0f5ef689d62971bed96f2f11ff574016838aecb92fe3420beffe7cfb7a4",
+        "dimensions": "1671x941"
+      },
+      "prompt_file": "assets_src/ui/animation_review_v3/chooser_activity_worldfit_v3_candidate02_prompt.txt",
+      "prompt_sha256": "63762df0801aa6d0a8422c9ca720a118e10efae601bee113f20703bb6eb4a9d3",
+      "attempt": 1,
+      "generation_method": "built_in_image_gen_edit",
+      "declared_state": "changed_style_only",
+      "agent_visual_review": "visually inspected; labels, character identities, poses, actions, and readable construction retained",
+      "human_review": "pending"
+    }
+  ]
+}

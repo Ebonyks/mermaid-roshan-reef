@@ -1,0 +1,23 @@
+DUNGEON REUSE REVIEW — 2026-09-06
+
+Active consumers are confirmed in scripts/dungeon_level.gd (10 castle rooms),
+scripts/ember_fortress.gd (6 Ember rooms), scripts/dungeon_puzzle_room.gd and
+scripts/combat_arena.gd. Both theme dictionaries in scripts/dungeon_art.gd
+have empty PATHS/EMBER_PATHS, so every listed room currently reaches the
+crossed-card fallback. This is an active shared defect, not speculative room
+redesign.
+
+The three safest existing semantic matches are conditional reuse candidates:
+cleanup_basket.png for Basket, moonflower_door_closed.png for Door, and
+dusty_attic_arena_2048.png for a full Arena background. Each has a full hash
+and dimensions in dungeon_reuse_evidence.json. Their caveats are explicit:
+the basket and door are richly ornamented, and the arena is a full background
+rather than a small crossed-card part. None should be bound blindly.
+
+The QA lantern and river-stone images are opaque low-poly review cards and are
+rejected for direct runtime binding. sky_lagoon_castle_door_focus_v1.png is
+all-white opaque and rejected. Existing gen2 Image_0 files are raw UV maps and
+must not be presented as finished role cards. Pictogram symbols remain valid
+functional child stimuli; simple primitive construction alone is not a defect.
+
+No script, runtime asset, canonical asset, or protected original was edited.

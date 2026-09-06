@@ -730,6 +730,29 @@ device, child, human, or owner acceptance.
 | relationships | Device performance overlaps `MA-PERF-001`; child comprehension overlaps `MA-CHILD-001`; possible fire-arena scope overlaps `MA-PLAY-002`. |
 | history | 2026-08-09: reported repair retained pending device proof. 2026-08-13: lifecycle remains `FIXED_PENDING_VERIFICATION`. |
 
+## MA-PLAY-003
+
+| Field | Value |
+|---|---|
+| id | `MA-PLAY-003` |
+| title | Logical travel geometry and arrival gating are not independently proven across the live stage variants. |
+| rule_ids | `DL-INT-02`, `DL-AGE-01`, `DL-UI-03`, `DL-QA-06` |
+| domain / zone | Stage navigation, object approach, doors, and OOB recovery / game-wide |
+| source | `audit/stage_pathfinding/stage_inventory.json` and `audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md`, reconciled against live runtime catalogs and routes. |
+| severity | P1 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: existing launch, reward, passive, and return probes prove lifecycle behavior only. They do not prove that far taps/drags travel to an authored approach point before an object or door responds, nor that every walk lane recovers safely from OOB. |
+| reproduction | Use the real corrected runtime stage and approved background for each ledger entry, retaining its minigame controller. For each object/door, record far tap, far drag released over target, release over floor, near tap exactly once, interrupt/new target cancellation, arrival transition, exact source return, OOB recovery, and zero-input. Opera Doctor (`opera.act.05.stuffie_surgeon`) additionally repeats the approach gate for every patient station and care action. |
+| child_impact | Remote activation, blocked doors, or loss of position can make the child believe the game ignored a touch or changed state unexpectedly; OOB must never lose progress. |
+| evidence | The 2026-09-06 ledger enumerates 64 current entries derived from the parsed Castle `ROOMS` and live Opera act catalogs, plus Day One/Northern variants, shared specialists, fixed minigame seams, and spatial debt. Current Opera/route probes remain lifecycle evidence and are intentionally not counted as geometry passes. |
+| owner_decision | Every visible door/object requires approach-before-action and one-finger tap/drag equivalence. Fixed minigames retain their real controller; spatial 3D entries remain debt until their 2D migration satisfies the same contract. |
+| fix | Add the shared StageNavigation2D route network to avatar stages, bind each object/door to an approach point and arrival radius, queue tap/drag travel, commit on arrival, and add bounded OOB recovery. Add focused geometry probes and real-art route overlays for every defective stage, with Opera Doctor as a blocking specialist fixture. |
+| surrounding_tests | Inventory coverage; far-tap/far-drag/near-tap/cancel/door-arrival/exact-return/OOB/zero-input matrix; touch cancellation and focus loss; save/re-entry; minigame positive/passive/reward; exact voice/picture pointer; Mobile and target-device checks. |
+| acceptance | Every applicable ledger entry has a passing geometry matrix with source hash, stage bounds, approach points, arrival radii, and retained-controller evidence. No existing probe pass is accepted as a substitute for a geometry row. No fail state or save loss occurs. |
+| closure | Open as of 2026-09-06; runtime implementation, exact per-variant geometry evidence, target-device, child, and owner acceptance are missing. |
+| relationships | Decomposes the reachability blind spot in `MA-PLAY-001`; overlaps `MA-TOUCH-001`, `MA-VIS-006`, `MA-OPERA-012`, `MA-2D-002`, and `MA-CHILD-001`. |
+| history | 2026-09-06: added after reconciling runtime Castle/Northern/Opera catalogs. The initial 42-entry baseline was expanded to 64 current entries and explicitly separated logical geometry from fixed-surface lifecycle probes. |
+
 ## MA-OPERA-003
 
 | Field | Value |

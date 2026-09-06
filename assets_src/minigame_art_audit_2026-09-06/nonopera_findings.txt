@@ -1,0 +1,73 @@
+NON-OPERA MINIGAME ART AUDIT — EARLY COVERAGE NOTE
+Baseline inspected: codex/stage-pathfinding-20260906 snapshot @ 6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d
+(requested UI branch was not the stage checkout used for this audit)
+Final audit artifacts copied and verified in codex/ui-minigame-animation-20260906
+@ 022ce0ba1e2baff2fffa5bd9c748bc48c874ba10; its source delta from the inspected
+snapshot is documented by root as comfy_games/probe_ui_system only.
+
+Coverage census so far: 5 picture-game modes (snowman, garden, trampoline,
+xmas, and the retired card-slide route which redirects to Level 2), 9 main
+friend/course games (fetch, dolls, brawl, dustboss, seek, fish slide, race,
+shop, treasure), 3 dance songs, 2 pool cleanup modes plus seahorse rescue,
+2 bathroom cleanup stages, 4 stuffie ladder rounds, 10 castle dungeon rooms,
+6 Ember Fortress rooms, and the integrated craft/wardrobe/stuffie care actions.
+The same combat/puzzle presenters are reused by both dungeon tables. This is
+34+ distinct entry/mode records before counting individual encounter variants,
+skin choices, picture-game phases, and shop inventory actions.
+
+Highest-impact live repair candidates observed in the source/art pass:
+
+1. On the inspected baseline, assets/mg/wateringcan.png was visibly a
+   protected-book-derived crop with scene pixels around the object and was
+   loaded by PictureGames garden at scripts/games/picture_games.gd::_mg_build_garden.
+   Root has since closed this defect in snapshot 022ce0ba/rootcoverage; the
+   art35 flat silhouette candidate (hash prefix 296f99) was rejected, and root
+   reports a native-alpha candidate at assets/ui/minigames/
+   garden_watering_can_v3.png (hash prefix 98b47563). Verify that exact
+   redirect in the isolated checkout before reopening. Preserve the original
+   and never edit assets/book/ or a protected derivative.
+2. PictureGames garden currently mixes clean flower/sprout cards with that
+   crop; flowers are readable but use soft gradient treatment, while the
+   watering can breaks the transparent-card contract. Repair the can first.
+3. PictureGames snowman/xmas uses oversized highly textured painterly cards
+   (xtree/ornaments) against generated ColorRect/gradient surfaces. At child
+   scale the tree/ornaments read, but their grainy/high-gloss treatment and
+   jewel accents conflict with the new clean ink / opaque plane / 2–3 shadow
+   shape direction. Bounded replacement should target only tree + ornament
+   cards after reuse check; primitive circles are not themselves defects.
+4. Pool cleanup visuals (floating_trash_atlas, pool_skimmer,
+   waterfall_clogged_original_match, waterfall_scrubber, seahorse_sick_clear_mouth)
+   are readable and alpha-backed, but heavily glossy, pearl/jewel-decorated and
+   mottled. They are reused by all three pool activities, so one approved tool
+   pass has high reach. Do not touch protected room/book originals.
+5. Fairy Pond uses the 4096x1024 pond_panorama plus 1024 cards. The panorama has
+   visible watercolor-like mottling and dense decorative sparkle; bug_jewel and
+   helpful_flower_gate add jewel/ornament overload. The boss bloom has strong
+   contour readability but the whole group needs a bounded style harmonization
+   review before any regeneration.
+6. DungeonArt PATHS and EMBER_PATHS are all empty; runtime therefore falls back
+   to generic crossed cards (rock, shell, turtle, sand dollar, pine, carrot,
+   star, etc.). This is the largest art-integrity risk: ten castle rooms plus
+   six ember rooms inherit generic substitutes, while the logical puzzle icons
+   remain readable. Repair needs role-specific 2D cards/backgrounds per shared
+   role, preserving puzzle silhouettes and no-fail interaction geometry.
+7. Fetch, Shop, CombatArena, StuffieBattle, KartGame and EmberFortress are
+   largely procedural/3D presenters with authored sprites only for some actors.
+   Their visual result remains UNVERIFIED until contextual screenshots are
+   captured; source alone does not justify calling simple indicators defects.
+
+No runtime/canonical assets were edited. Visual evidence and full asset hash
+mapping are being added to nonopera_inventory.json.
+
+CORRECTION / CURRENT COORDINATION STATE
+The structured inventory is now published as nonopera_inventory.json. The
+watering-can item is a root-fixed verification item, not an open repair; the
+rejected art35 candidate must not be reused. The
+highest-priority unassigned live source defect remains DustBoss: declared
+BOSS_ART_DIR res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/boss/
+does not exist on this checkout, while approved atlases exist under
+assets/sprites/dust_bunnies/boss/; missing tell textures can therefore fall
+back to mg/star. DungeonArt PATHS and EMBER_PATHS remain the broadest confirmed
+art-integrity failure because 16 active rooms expose generic raw UV fallback
+maps. Garden pot and trampoline remain confirmed underconstructed code-native
+objects with their interaction geometry preserved for bounded repairs.

@@ -19,3 +19,18 @@ from the live `ReefMain` state names, `CastleCareerRoutes.ROOM_ACT_INDICES`,
 arrival/OOB evidence exists yet; `PARTIAL` means the route exists but one or
 more arrival, touch, or OOB requirements are open. No entry is marked complete
 until a focused arrival and boundary check exists.
+
+The coverage command is `python -B tools/audit_stage_pathfinding.py --check`;
+it ends with `COVERAGE_OK` when the parsed catalogs and source paths are
+covered. `python -B tools/audit_stage_pathfinding.py --strict` is a separate
+logical-geometry gate and must fail while entries remain unresolved. Existing
+minigame probes are lifecycle evidence only. The real corrected runtime
+reproductions retain their minigame controllers; the Opera Doctor station
+fixture is `opera.act.05.stuffie_surgeon`. The review atlas is
+[`reproductions/index.html`](reproductions/index.html), with 34 Opera views
+and 13 Castle rooms. Geometry and source hashes are recorded in
+`opera_geometry.json` and `castle_geometry.json`. These are review
+reproductions of the live stages, not accepted replacement art. Diagnostic
+line widths do not expand the playable centerlines. Human geometry review
+and target-device validation remain open. Generic Castle layouts outside the
+three explicitly authored rooms still require fixture-by-fixture review.

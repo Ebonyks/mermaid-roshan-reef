@@ -1,0 +1,57 @@
+{
+  "schema": "dungeon_reuse_evidence_v1",
+  "audit_date": "2026-09-06",
+  "source_checkout": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
+  "active_consumers": {
+    "castle": {"source":"scripts/dungeon_level.gd::ROOMS","rooms":10,"roles":"CombatArena for Frozen Foyer, Dust Bunny Cleanup, Claw Guardian, Dragon-Turtle Throne; DungeonPuzzleRoom for Crystal Chimes, Frozen River, Pepper Lanterns, Turtle Gallery, Moon Rune Vault, Elemental Door"},
+    "ember": {"source":"scripts/ember_fortress.gd::ROOMS","rooms":6,"roles":"CombatArena for Cinder Gate Imps, Ash Imp Ambush, The Molten Throne; DungeonPuzzleRoom for Lava Stepping Stones, Ember Chimes, Door of Fire and Ice"},
+    "shared_dispatch": {"source":"scripts/dungeon_art.gd::spawn/add_pictogram","condition":"PATHS and EMBER_PATHS are empty, so every listed room reaches fallback role cards; fallback is attached as Node3D crossed_card debt."}
+  },
+  "top_reuse_pairs": [
+    {
+      "rank":1,
+      "role":"basket",
+      "existing":"assets/castle/day_one_pool/activities/cleanup_basket.png",
+      "sha256":"30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+      "dimensions":[1024,936],
+      "match":"Exact basket object and transparent cutout; semantically safe for the shared Basket role.",
+      "status":"CONDITIONAL_REUSE",
+      "gap":"Pearl/jewel trim and glossy gradients require contextual style approval; do not regenerate or edit the source.",
+      "binding_guard":"Use only for Basket, never for puzzle pictograms or targets; preserve touch geometry."
+    },
+    {
+      "rank":2,
+      "role":"door",
+      "existing":"assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+      "sha256":"91249bc04439a23a1f9ef0b8bb53d6a89fe51030168713c35bedb37b132e10c6",
+      "dimensions":[1024,1024],
+      "match":"Complete transparent closed-door construction; semantically exact Door role.",
+      "status":"CONDITIONAL_REUSE",
+      "gap":"Highly ornamented fairy-conservatory styling may conflict with dungeon theme; inspect as a source candidate only and preserve the original.",
+      "binding_guard":"Do not use the open variant as a generic door card; it contains a complete scene inside the doorway. Preserve door-open state semantics."
+    },
+    {
+      "rank":3,
+      "role":"arena_background",
+      "existing":"assets/flats/castle/boss/dusty_attic_arena_2048.png",
+      "sha256":"a6f4bb59df43e63cedbf9a164526475b91985c85c73cac7e061f830d60ef4122",
+      "dimensions":[2048,2048],
+      "match":"Complete 2D arena background with a readable central play floor; exact Arena scene function.",
+      "status":"CONDITIONAL_REUSE",
+      "gap":"This is a full-screen background, not a small crossed-card part. It cannot be bound directly to DungeonArt.spawn('arena') without a role-specific 2D adapter and contextual scale check.",
+      "binding_guard":"Reuse only as arena background if source consumer accepts a Canvas/TextureRect; do not mount as Sprite3D or crop arbitrary UV regions."
+    }
+  ],
+  "safe_reuse_rejects": [
+    {"role":"stone","candidate":"assets_src/sky_lagoon/qa_kit/lagoon_river_stones.png","sha256":"f9a1299657f8e6e75a42f662758359fb73ee0adfe118c777233a05d40cb66dbe","status":"REJECT_FOR_DIRECT_RUNTIME_BINDING","reason":"Opaque QA image with low-poly rendered stones on a flat field; not a runtime transparent card and not approved as final true-2D art."},
+    {"role":"lantern","candidate":"assets_src/sky_lagoon/qa_kit/lagoon_story_lantern.png","sha256":"1b07644a8f1a4cbc6a5181c15f488baf2463872915a9ada14bb16238e650d894","status":"REJECT_FOR_DIRECT_RUNTIME_BINDING","reason":"Opaque QA image with low-poly rendered lantern on a flat field; source candidate only, no runtime binding."},
+    {"role":"door","candidate":"assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png","sha256":"fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c","status":"REJECT","reason":"Native inspection is an all-white opaque image; it is not a usable door card."},
+    {"role":"all_gen2_fallbacks","candidate":"assets/props/gen2/*_Image_0_flat.png and turtle_Image_0.jpg","status":"REJECT","reason":"Native inspection shows raw UV/texture maps. Never treat these as finished cards."},
+    {"role":"pictograms","candidate":"PICTOGRAM_NODES generated symbols in scripts/dungeon_art.gd","status":"KEEP_FUNCTIONAL","reason":"Diamond/orb/triangle/ice/flame/moon/star/question/left/right/pepper are deliberate child-readable stimuli; primitive construction alone is not a defect."}
+  ],
+  "bounded_jobs": [
+    {"id":"DUN-REUSE-01","scope":"Review the three conditional candidates in active room captures; select only semantically matching cards and keep source provenance.","forbidden":"No blanket replacement, no UV cropping, no Sprite3D addition, no geometry or touch-region changes."},
+    {"id":"DUN-REUSE-02","scope":"If approved, replace one shared fallback role at a time and capture all castle/Ember consumers before proceeding.","forbidden":"Do not map a flower to a pepper, a pine to a triangle, or a generic star to a role-specific object merely to fill PATHS."}
+  ],
+  "provenance": "Runtime assets are existing repository sources. assets_src QA/concept files are review evidence only until owner approves provenance and a runtime-safe derived card. Protected book/friend sources remain immutable."
+}

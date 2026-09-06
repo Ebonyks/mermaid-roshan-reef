@@ -159,6 +159,302 @@ func _frames(count: int) -> void:
 	for _index in range(count):
 		await process_frame
 
+func _room_click(rooms: CastleRooms25D, position: Vector2) -> void:
+	var press := InputEventMouseButton.new()
+	press.button_index = MOUSE_BUTTON_LEFT
+	press.position = position
+	press.pressed = true
+	rooms._on_room_input(press)
+	await process_frame
+	var release := InputEventMouseButton.new()
+	release.button_index = MOUSE_BUTTON_LEFT
+	release.position = position
+	release.pressed = false
+	rooms._on_room_input(release)
+	await process_frame
+
+func _room_drag(rooms: CastleRooms25D, start: Vector2,
+		finish: Vector2) -> void:
+	var press := InputEventMouseButton.new()
+	press.button_index = MOUSE_BUTTON_LEFT
+	press.position = start
+	press.pressed = true
+	rooms._on_room_input(press)
+	await process_frame
+	var motion := InputEventMouseMotion.new()
+	motion.position = finish
+	motion.relative = finish - start
+	motion.button_mask = MOUSE_BUTTON_MASK_LEFT
+	rooms._on_room_input(motion)
+	await process_frame
+	var release := InputEventMouseButton.new()
+	release.button_index = MOUSE_BUTTON_LEFT
+	release.position = finish
+	release.pressed = false
+	rooms._on_room_input(release)
+	await process_frame
+
+func _touch(rooms: CastleRooms25D, index: int, position: Vector2,
+		pressed: bool, canceled: bool = false) -> void:
+	var touch := InputEventScreenTouch.new()
+	touch.index = index
+	touch.position = position
+	touch.pressed = pressed
+	touch.canceled = canceled
+	rooms._on_room_input(touch)
+
+func _touch_drag(rooms: CastleRooms25D, index: int, start: Vector2,
+		finish: Vector2) -> void:
+	_touch(rooms, index, start, true)
+	await process_frame
+	var drag := InputEventScreenDrag.new()
+	drag.index = index
+	drag.position = finish
+	drag.relative = finish - start
+	rooms._on_room_input(drag)
+	await process_frame
+
+func _stage_screen_position(stage_position: Vector2) -> Vector2:
+	return main.castle_room_stage.get_global_transform_with_canvas() \
+		* stage_position
+
+func _navigation_point_is_clear(snapshot: Dictionary,
+		point: Vector2) -> bool:
+	var stage_bounds: Rect2 = snapshot.get("stage_bounds", Rect2()) as Rect2
+	if not stage_bounds.has_point(point):
+		return false
+	for blocker_value: Variant in snapshot.get("body_footprints", []) as Array:
+		var blocker: Dictionary = blocker_value as Dictionary
+		var body_rect: Rect2 = blocker.get("rect", Rect2()) as Rect2
+		if body_rect.has_point(point):
+			return false
+	return true
+
+func _check_authored_navigation_geometry(rooms: CastleRooms25D,
+		room_id: String) -> void:
+	var snapshot: Dictionary = rooms.navigation_snapshot()
+	var lanes: Array = snapshot.get("lanes", []) as Array
+	var backgrounds: Array = snapshot.get("backgrounds", []) as Array
+	var export_seam_ok := not backgrounds.is_empty()
+	for background_value: Variant in backgrounds:
+		var background: Dictionary = background_value as Dictionary
+		export_seam_ok = export_seam_ok \
+			and String(background.get("texture_path", "")) != "" \
+			and background.get("source_art_rect") is Rect2 \
+			and background.get("render_art_rect") is Rect2
+	var geometry_ok := bool(snapshot.get("authored_lanes", false)) \
+		and String(snapshot.get("room_id", "")) == room_id \
+		and lanes.size() >= 4
+	for lane_value: Variant in lanes:
+		var lane: PackedVector2Array = lane_value as PackedVector2Array
+		for index: int in range(1, lane.size()):
+			for sample_index: int in range(41):
+				var point := lane[index - 1].lerp(
+					lane[index], float(sample_index) / 40.0)
+				geometry_ok = geometry_ok \
+					and _navigation_point_is_clear(snapshot, point)
+	var contacts_ok := true
+	for item_value: Variant in snapshot.get("items", []) as Array:
+		var item: Dictionary = item_value as Dictionary
+		var route_contact: Vector2 = item.get(
+			"route_contact", Vector2.INF) as Vector2
+		contacts_ok = contacts_ok and route_contact.is_finite() \
+			and rooms._room_navigation.contains_point(route_contact, 0.1) \
+			and _navigation_point_is_clear(snapshot, route_contact)
+	_ck("%s authored lanes stay in stage and clear fixture bodies" % room_id,
+		geometry_ok)
+	_ck("%s item approaches resolve onto authored lanes" % room_id,
+		contacts_ok)
+	_ck("%s navigation snapshot carries atlas source geometry" % room_id,
+		export_seam_ok and snapshot.get("stage_bounds") is Rect2 \
+		and snapshot.get("body_footprints") is Array)
+
+func _exercise_bathtub_approach(rooms: CastleRooms25D) -> void:
+	var record: Dictionary = main.castle_room_item_sprites.get(
+		"bathtub", {}) as Dictionary
+	var sprite: Sprite2D = record.get("sprite") as Sprite2D
+	var hotspot: Button = record.get("hotspot") as Button
+	var target: Vector2 = record.get("route_contact", Vector2.INF) as Vector2
+	rooms._position_player_at_foot(Vector2(640.0, 650.0), false)
+	main.castle_room_prop_sfx.stop()
+	main.castle_room_prop_sfx.stream = null
+	hotspot.pressed.emit()
+	await _frames(2)
+	_ck("live bathtub hotspot starts an approach",
+		bool(main.castle_room_player_sprite.get_meta("walking", false)))
+	_ck("bathtub action waits while Roshan approaches",
+		not bool(sprite.get_meta("busy", false))
+		and main.castle_room_prop_sfx.stream == null)
+	var samples_clear := true
+	var no_early_action := true
+	var deadline_ms := Time.get_ticks_msec() + 5000
+	while bool(main.castle_room_player_sprite.get_meta("walking", false)) \
+			and Time.get_ticks_msec() < deadline_ms:
+		await process_frame
+		var foot: Vector2 = main.castle_room_player_sprite.get_meta(
+			"current_stage_foot", Vector2.INF) as Vector2
+		samples_clear = samples_clear \
+			and rooms._room_navigation.contains_point(foot, 0.1) \
+			and _navigation_point_is_clear(rooms.navigation_snapshot(), foot)
+		if bool(main.castle_room_player_sprite.get_meta("walking", false)):
+			no_early_action = no_early_action \
+				and not bool(sprite.get_meta("busy", false))
+	_ck("every bathtub interpolation sample stays on clear authored floor",
+		samples_clear and Time.get_ticks_msec() < deadline_ms)
+	var arrived_foot: Vector2 = main.castle_room_player_sprite.get_meta(
+		"current_stage_foot", Vector2.INF) as Vector2
+	_ck("bathtub action begins only at its approach socket",
+		no_early_action and arrived_foot.distance_to(target) <= 1.0 \
+		and bool(sprite.get_meta("busy", false)))
+	deadline_ms = Time.get_ticks_msec() + 4000
+	while bool(sprite.get_meta("busy", false)) \
+			and Time.get_ticks_msec() < deadline_ms:
+		await process_frame
+
+	# A second real floor tap must cancel both the route and its queued action.
+	rooms._position_player_at_foot(Vector2(640.0, 650.0), false)
+	main.castle_room_prop_sfx.stop()
+	main.castle_room_prop_sfx.stream = null
+	hotspot.pressed.emit()
+	await _frames(2)
+	await _room_click(rooms, _stage_screen_position(Vector2(1000.0, 650.0)))
+	deadline_ms = Time.get_ticks_msec() + 5000
+	while bool(main.castle_room_player_sprite.get_meta("walking", false)) \
+			and Time.get_ticks_msec() < deadline_ms:
+		await process_frame
+	await _frames(2)
+	_ck("a new real floor tap cancels the queued bathtub action",
+		Time.get_ticks_msec() < deadline_ms \
+		and not bool(sprite.get_meta("busy", false)) \
+		and main.castle_room_prop_sfx.stream == null)
+
+
+func _exercise_drag_release_to_bathtub(rooms: CastleRooms25D) -> void:
+	var record: Dictionary = main.castle_room_item_sprites.get(
+		"bathtub", {}) as Dictionary
+	var sprite: Sprite2D = record.get("sprite") as Sprite2D
+	var hotspot: Button = record.get("hotspot") as Button
+	var target: Vector2 = record.get("route_contact", Vector2.INF) as Vector2
+	rooms._position_player_at_foot(Vector2(1000.0, 650.0), false)
+	main.castle_room_prop_sfx.stop()
+	main.castle_room_prop_sfx.stream = null
+	var start := _stage_screen_position(Vector2(1000.0, 650.0))
+	var finish := _stage_screen_position(
+		hotspot.position + hotspot.size * 0.5)
+	await _touch_drag(rooms, 11, start, finish)
+	_touch(rooms, 11, finish, false)
+	await _frames(2)
+	_ck("touch drag release over bathtub requests its shared approach",
+		rooms._owned_touch_index == -1 \
+		and rooms._pending_item_action == "bathtub" \
+		and bool(main.castle_room_player_sprite.get_meta("walking", false)))
+	var samples_clear := true
+	var no_early_action := true
+	var deadline_ms := Time.get_ticks_msec() + 5000
+	while bool(main.castle_room_player_sprite.get_meta("walking", false)) \
+			and Time.get_ticks_msec() < deadline_ms:
+		await process_frame
+		var foot: Vector2 = main.castle_room_player_sprite.get_meta(
+			"current_stage_foot", Vector2.INF) as Vector2
+		samples_clear = samples_clear \
+			and rooms._room_navigation.contains_point(foot, 0.1) \
+			and _navigation_point_is_clear(rooms.navigation_snapshot(), foot)
+		if bool(main.castle_room_player_sprite.get_meta("walking", false)):
+			no_early_action = no_early_action \
+				and not bool(sprite.get_meta("busy", false))
+	var arrived: Vector2 = main.castle_room_player_sprite.get_meta(
+		"current_stage_foot", Vector2.INF) as Vector2
+	_ck("dragged bathtub action waits for clear path arrival",
+		Time.get_ticks_msec() < deadline_ms and samples_clear \
+		and no_early_action and arrived.distance_to(target) <= 1.0 \
+		and bool(sprite.get_meta("busy", false)))
+	deadline_ms = Time.get_ticks_msec() + 4000
+	while bool(sprite.get_meta("busy", false)) \
+			and Time.get_ticks_msec() < deadline_ms:
+		await process_frame
+
+
+func _exercise_drag_to_room_door(rooms: CastleRooms25D) -> void:
+	rooms.show_room("family_gallery", false)
+	await _frames(2)
+	var door_record: Dictionary = main.castle_room_item_sprites.get(
+		"gallery_dining_door", {}) as Dictionary
+	var hotspot: Button = door_record.get("hotspot") as Button
+	var start := _stage_screen_position(Vector2(1080.0, 680.0))
+	var finish := _stage_screen_position(
+		hotspot.position + hotspot.size * 0.5)
+	await _room_drag(rooms, start, finish)
+	_ck("drag release over an in-room physical door waits for arrival",
+		main.castle_room_id == "family_gallery" \
+		and rooms._pending_item_action == "gallery_dining_door" \
+		and bool(main.castle_room_player_sprite.get_meta("walking", false)))
+	var samples_on_lane := true
+	var no_early_transition := true
+	var deadline_ms := Time.get_ticks_msec() + 7000
+	while main.castle_room_id == "family_gallery" \
+			and Time.get_ticks_msec() < deadline_ms:
+		await process_frame
+		if main.castle_room_id == "family_gallery":
+			var foot: Vector2 = main.castle_room_player_sprite.get_meta(
+				"current_stage_foot", Vector2.INF) as Vector2
+			samples_on_lane = samples_on_lane \
+				and rooms._room_navigation.contains_point(foot, 0.1)
+			if bool(main.castle_room_player_sprite.get_meta("walking", false)):
+				no_early_transition = no_early_transition \
+					and main.castle_room_id == "family_gallery"
+	_ck("dragged in-room door follows its lane before changing rooms",
+		Time.get_ticks_msec() < deadline_ms and samples_on_lane \
+		and no_early_transition and main.castle_room_id == "dining_room")
+
+func _exercise_drag_to_hall_door(rooms: CastleRooms25D) -> void:
+	main.set("day_one_active", false)
+	rooms.show_room("main_hall", false)
+	await _frames(2)
+	var door: Button = main.castle_room_buttons.get("library") as Button
+	var start := _stage_screen_position(Vector2(1100.0, 680.0))
+	var finish := door.get_global_rect().get_center()
+	_touch(rooms, 6, finish, true)
+	await _frames(3)
+	_ck("press held over a hall door cannot arm or enter it",
+		rooms._owned_touch_index == 6 \
+		and rooms._pending_portal_id == "" \
+		and rooms._room_transition_tween == null \
+		and main.castle_room_id == "main_hall")
+	_touch(rooms, 6, finish, false, true)
+	await process_frame
+	await _touch_drag(rooms, 7, start, finish)
+	_touch(rooms, 8, finish, false)
+	await process_frame
+	_ck("a foreign touch release cannot steal the owned castle drag",
+		rooms._owned_touch_index == 7
+		and main.castle_room_id == "main_hall")
+	_touch(rooms, 7, finish, false, true)
+	await _frames(4)
+	_ck("a canceled touch drag clears movement and door intent",
+		rooms._owned_touch_index == -1
+		and not bool(main.castle_room_player_sprite.get_meta("walking", false))
+		and rooms._pending_portal_id == ""
+		and main.castle_room_id == "main_hall")
+	await _room_drag(rooms, start, finish)
+	_ck("drag release on a physical door waits for arrival",
+		main.castle_room_id == "main_hall"
+		and bool(main.castle_room_player_sprite.get_meta("walking", false)))
+	var samples_on_lane := true
+	var deadline_ms := Time.get_ticks_msec() + 8000
+	while main.castle_room_id == "main_hall" \
+			and Time.get_ticks_msec() < deadline_ms:
+		await process_frame
+		if main.castle_room_id == "main_hall":
+			var foot: Vector2 = main.castle_room_player_sprite.get_meta(
+				"current_stage_foot", Vector2.INF) as Vector2
+			samples_on_lane = samples_on_lane \
+				and rooms._room_navigation.contains_point(foot, 0.1)
+	_ck("dragged door route samples stay on the hall network",
+		samples_on_lane)
+	_ck("drag release enters the door after Roshan arrives",
+		Time.get_ticks_msec() < deadline_ms \
+		and main.castle_room_id == "library")
+
 func _shot(capture_name: String) -> void:
 	if DisplayServer.get_name() == "headless":
 		return
@@ -542,8 +838,20 @@ func _run() -> void:
 		not main.touch_ui.world_controls_enabled
 		and not main.player.visible
 		and main.touch_interactables.is_empty())
+	_check_authored_navigation_geometry(rooms, "bubble_bath")
+	await _exercise_bathtub_approach(rooms)
+	await _exercise_drag_release_to_bathtub(rooms)
 
 	await _shot("01_bubble_bath_filled_swimmer")
+	main.set("day_one_active", false)
+	rooms.show_room("library", false)
+	await _frames(2)
+	_check_authored_navigation_geometry(rooms, "library")
+	rooms.show_room("playroom", false)
+	await _frames(2)
+	_check_authored_navigation_geometry(rooms, "playroom")
+	await _exercise_drag_to_room_door(rooms)
+	await _exercise_drag_to_hall_door(rooms)
 	# Let Canvas shader instances and fixture nodes leave the rendering server
 	# before SceneTree shutdown. Immediate quit can otherwise produce a dummy-
 	# renderer null-material diagnostic after every assertion has passed.

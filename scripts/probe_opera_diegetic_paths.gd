@@ -398,12 +398,64 @@ func _audit_career(career: String) -> void:
 			StagePaths.SCREEN.y + 180.0), "offscreen below")
 
 
+func _audit_doctor_semantic_floor() -> void:
+	# These are semantic assertions independent of the station table's internal
+	# consistency. The clinic, triage alcove, and exam booths must resolve on the
+	# upper doctor promenade; a lower bridge target is a logically wrong job
+	# handoff even if its spur happens to be mathematically approved.
+	var clinic := StagePaths.station_approach("doctor", "stethoscope_clinic")
+	var triage := StagePaths.station_approach("doctor", "starfish_triage")
+	var booth := StagePaths.station_approach("doctor", "exam_booth")
+	_ck("doctor clinic approach stays by left promenade",
+		clinic.x < 520.0 and clinic.y < 500.0)
+	_ck("doctor triage approach stays beside alcove",
+		triage.x < 340.0 and triage.y < 500.0)
+	_ck("doctor booth approach stays on upper promenade",
+		booth.x < 960.0 and booth.y < 500.0)
+	var recovery := StagePaths.station_approach("doctor", "recovery_bed")
+	_ck("doctor recovery contact reaches the plaza entrance",
+		recovery.x > 860.0 and recovery.y > 600.0)
+	# This painted canal lies below the first exam booth and above the bridge.
+	# A mathematically self-consistent spur must still never cross that water.
+	var canal_min := StagePaths.to_screen("doctor", Vector2(0.585, 0.60))
+	var canal_max := StagePaths.to_screen("doctor", Vector2(0.635, 0.65))
+	var canal := Rect2(canal_min, canal_max - canal_min)
+	var route := StagePaths.player_route_to_station("doctor", clinic, "recovery_bed")
+	var avoids_canal := not route.is_empty()
+	for index in range(1, route.size()):
+		for sample in range(101):
+			avoids_canal = avoids_canal and not canal.has_point(
+				route[index - 1].lerp(route[index], float(sample) / 100.0))
+	_ck("doctor recovery route avoids the painted canal below the exam booth",
+		avoids_canal)
+
+
+func _audit_retarget_continuity() -> void:
+	# Retargeting from an in-flight point must re-project onto the same network;
+	# no direct chord or off-route jump may be introduced between two requests.
+	for career: String in EXPECTED_STATIONS:
+		var spine := StagePaths.path_points(career)
+		var mid := StagePaths.point_along(spine, 0.43)
+		var first := StagePaths.player_route_to_station(
+			career, mid, String(EXPECTED_STATIONS[career][0]))
+		_ck("%s retarget source is approved" % career,
+			not first.is_empty() and StagePaths.point_is_on_approved_route(
+				career, first[0], ROUTE_TOLERANCE))
+		var pivot := first[mini(1, first.size() - 1)] if not first.is_empty() else mid
+		var second := StagePaths.player_route_to_station(
+			career, pivot, String(EXPECTED_STATIONS[career].back()))
+		_ck("%s retarget route remains approved" % career,
+			StagePaths.route_is_approved(career, second, ROUTE_TOLERANCE))
+
+
 func _init() -> void:
 	_ck("exactly 14 careers covered", EXPECTED_STATIONS.size() == 14)
 	_ck("playable bindings cover same 14 careers",
 		PLAYABLE_PHASE_STATIONS.size() == 14)
 	for career: String in EXPECTED_STATIONS:
 		_audit_career(career)
+	_audit_doctor_semantic_floor()
+	_audit_retarget_continuity()
 	_ck("all 68 authored stations covered", station_count == 68,
 		"actual=%d" % station_count)
 	_ck("all raised-landmark exceptions exercised",

@@ -431,6 +431,20 @@ func _init() -> void:
 	await process_frame
 	await process_frame
 	_check("fixture-rich room remains composed", main.get("castle_room_id") == "bubble_bath")
+	var bath_record: Dictionary = (main.get("castle_room_item_sprites") as Dictionary).get(
+		"bathtub", {}) as Dictionary
+	var bath_route_contact: Vector2 = bath_record.get(
+		"route_contact", Vector2.INF) as Vector2
+	var bath_data: Dictionary = bath_record.get("data", {}) as Dictionary
+	var bath_art_position: Vector2 = (bath_data.get(
+		"pos", Vector2.INF) as Vector2) * CastleRooms25D.ART_TO_STAGE
+	_check("bathroom bathtub exposes an authored route socket",
+		bath_route_contact.is_finite()
+		and bath_route_contact.y >= 405.0 and bath_route_contact.y <= 670.0,
+		"route=%s" % bath_route_contact)
+	_check("bathroom route socket is distinct from painted tub origin",
+		bath_art_position.is_finite()
+		and bath_art_position.distance_to(bath_route_contact) > 20.0)
 	_check_stage_contract(main)
 	_check_fixture_contract(main, rooms)
 	_check_dust_bunny_burst_contract(main, rooms)

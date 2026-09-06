@@ -14,9 +14,10 @@ confirm the distance test, and invoke the action exactly once. A direct tap may
 only invoke immediately when Roshan is already within `arrival_radius`.
 
 Doors follow the same contract. Tapping or dragging to a door selects its
-visible destination; arrival at the door activates the transition. If the
-child releases the drag, presses back, or chooses another destination, cancel
-the request without moving the player or changing progress. On return, restore
+visible destination; arrival at the door activates the transition. Releasing a
+drag over the door/object commits the same queued action; releasing over an
+allowed floor commits movement only. An interrupt, back action, or new target
+cancels the prior request without changing progress. On return, restore
 the exact source stage, room variant, camera coordinate and save state.
 
 Every walkable stage needs an authored walk lane, obstacle envelopes, a safe
@@ -30,7 +31,10 @@ the approach point before action; (2) drag from far away does the same; (3) tap
 while already near performs once; (4) cancellation does not perform; (5) OOB
 recovers without progress loss; (6) door arrival reaches the declared target;
 (7) back/finish returns to the exact source variant and coordinate; (8) zero
-input does not advance or win. Fixed minigames run the seam rows only; their
+input does not advance or win. Opera act entries are avatar-locomotion seam
+entries even when they enter a fixed activity: they prove room travel, pointer
+release/arrival, and exact board return. Separate `opera.surface.*` entries
+cover fixed board internals. Other fixed minigames run the seam rows only; their
 internal board does not need avatar pathfinding. Spatial 3D debt is reported as
 debt until its 2D migration passes the same matrix.
 

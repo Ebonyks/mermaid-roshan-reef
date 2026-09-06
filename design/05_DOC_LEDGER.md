@@ -740,3 +740,11 @@ Kept as-is; noted so a future edit updates every copy.
 | Document | State | Scope |
 |---|---|---|
 | `design/OPERA_TWO_ACT_PERFORMANCES_2026-09-05.md` | 🟣 | Local candidate for the three Opera Hall games only; mechanic and asset review, medal/token policy, pending integration and child/device gates. |
+
+## Stage pathfinding audit — 2026-09-06
+
+| Document | State | Scope |
+|---|---|---|
+| `audit/stage_pathfinding/README.md` | 🔵 | `SUPPORTING_CURRENT`; explains the exhaustive stage-pathfinding ledger categories and status semantics. It grants no runtime, device, child, or owner acceptance. |
+| `audit/stage_pathfinding/stage_inventory.json` | 🔵 | `SUPPORTING_CURRENT`; machine-readable inventory of concrete Reef/Lagoon/Castle/Day-One/Northern/Opera/minigame variants and spatial debt. It records gaps and reproduction sources; it is not a runtime catalog authority. |
+| `audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md` | 🟣 | `PROPOSED_CURRENT`; measurable approach, arrival, door, cancellation, OOB, seam, and zero-input gates for the pathfinding work order. Pending runtime implementation and focused evidence. |

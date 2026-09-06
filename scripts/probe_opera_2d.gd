@@ -1356,6 +1356,67 @@ func _capture_diegetic_phase_rooms(world: OperaCareerWorld2D, career: String,
 	return captured
 
 
+func _audit_navigation_pointer_release(world: OperaCareerWorld2D,
+		career: String, hotspot: OperaWorldHotspot2D) -> void:
+	var floor_point := StagePaths.point_along(world.stage_points, 0.05)
+	var object_point: Vector2 = hotspot.get_meta("visual_pos") as Vector2
+	var down := InputEventScreenTouch.new()
+	down.index = 3
+	down.pressed = true
+	down.position = floor_point
+	world._wander_input(down)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 3
+	drag.position = object_point
+	world._wander_input(drag)
+	_check("%s touch drag does not act before release/arrival" % career,
+		not world.interaction_requested and not world.task_open)
+	var up := InputEventScreenTouch.new()
+	up.index = 4
+	up.position = object_point
+	world._wander_input(up)
+	_check("%s foreign finger cannot commit travel intent" % career,
+		not world.interaction_requested)
+	up.index = 3
+	world._wander_input(up)
+	_check("%s touch release queues object approach without opening remotely" % career,
+		world.interaction_requested and world.wander_walking
+		and not world.task_open and not world.hotspot_opening)
+	world._wander_input(down)
+	var clean_cancel_feet := world.wander_feet
+	world._place_on_stage(world.player_actor, clean_cancel_feet + Vector2(0, -7))
+	world.wander_lean = 0.0
+	world.player_actor.rotation = 0.0
+	up.canceled = true
+	world._wander_input(up)
+	_check("%s cancelled touch clears pending action and movement" % career,
+		not world.interaction_requested and not world.wander_walking)
+	_check("%s canceled vertical step settles at its clean floor coordinate" % career,
+		world._hero_feet().distance_to(clean_cancel_feet) <= 0.01
+		and world.wander_feet.distance_to(clean_cancel_feet) <= 0.01)
+	var mouse := InputEventMouseButton.new()
+	mouse.button_index = MOUSE_BUTTON_LEFT
+	mouse.pressed = true
+	mouse.position = floor_point
+	world._wander_input(mouse)
+	var motion := InputEventMouseMotion.new()
+	motion.position = object_point
+	motion.button_mask = MOUSE_BUTTON_MASK_LEFT
+	world._wander_input(motion)
+	mouse.pressed = false
+	mouse.position = object_point
+	world._wander_input(mouse)
+	_check("%s mouse drag release shares touch object approach" % career,
+		world.interaction_requested and world.wander_walking and not world.task_open)
+	mouse.pressed = true
+	mouse.position = floor_point
+	world._wander_input(mouse)
+	mouse.pressed = false
+	world._wander_input(mouse)
+	_check("%s floor retarget cancels previous object intent" % career,
+		not world.interaction_requested and not world.task_open)
+
+
 func _audit_diegetic_room_flow(world: OperaCareerWorld2D, career: String) -> void:
 	# Earlier mechanic-specific assertions deliberately configure arbitrary
 	# phases. Restore the actual entry state before auditing room discovery.
@@ -1446,6 +1507,7 @@ func _audit_diegetic_room_flow(world: OperaCareerWorld2D, career: String) -> voi
 		and not world.task_open)
 
 	var activation_before := active.activation_count
+	_audit_navigation_pointer_release(world, career, active)
 	active.touch_button.pressed.emit()
 	var emitted_route := world.wander_route.duplicate()
 	var expected_approach := StagePaths.station_approach(career, active.station_id)
@@ -1547,6 +1609,11 @@ func _audit_diegetic_room_flow(world: OperaCareerWorld2D, career: String) -> voi
 		and not world.player_actor.clip_contents)
 	_check("%s keeps every visible partner clear of Roshan and the activity" % career,
 		visible_partner_clear)
+	world._arm_phase()
+	_check("%s returns from activity staging to the approached floor socket" % career,
+		world.wander_feet.distance_to(expected_approach) <= 0.1
+		and not world.task_open and not world.interaction_requested)
+	world._open_task()
 
 
 func _audit_phase_hotspot_rearming(world: OperaCareerWorld2D, career: String,

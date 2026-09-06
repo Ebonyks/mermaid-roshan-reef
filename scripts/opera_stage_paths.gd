@@ -90,7 +90,11 @@ const PATHS: Dictionary = {
 		"clue_spots": [[0.2, 0.15], [0.03, 0.28], [0.39, 0.3], [0.55, 0.33], [0.86, 0.13], [0.76, 0.55], [0.17, 0.9], [0.93, 0.93]],
 	},
 	"doctor": {
-		"path": [[0.025, 0.6], [0.1, 0.58], [0.21, 0.595], [0.35, 0.585], [0.46, 0.55], [0.578, 0.535], [0.655, 0.665], [0.745, 0.73], [0.855, 0.815]],
+		# Follow the upper apron, then the paved garden walk around the right
+		# bank to the recovery plaza. The former diagonal crossed the canal
+		# and the bandage bridge side rail. Coordinates are measured against
+		# world_doctor.png; final source-overlay/device review remains open.
+		"path": [[0.025, 0.6], [0.10, 0.60], [0.21, 0.61], [0.28, 0.615], [0.31, 0.59], [0.41, 0.59], [0.46, 0.575], [0.578, 0.56], [0.69, 0.565], [0.78, 0.545], [0.817, 0.557], [0.824, 0.589], [0.776, 0.623], [0.743, 0.675], [0.716, 0.740], [0.700, 0.795], [0.720, 0.835], [0.720, 0.855]],
 		"stations": [
 			{"id": "starfish_triage", "pos": [0.075, 0.565], "landmark": "smiling starfish patient waiting on a purple cushion under the golden shell archway at the left entry"},
 			{"id": "stethoscope_clinic", "pos": [0.21, 0.585], "landmark": "teal-domed clinic pavilion topped with a giant stethoscope, purple exam daybed inside"},
@@ -292,19 +296,25 @@ const STATION_NAV: Dictionary = {
 	"doctor": {
 		"stethoscope_clinic": {
 			"object": [0.21, 0.30], "visual_size": [220.0, 131.0],
-			"spur": [[0.35, 0.585], [0.39, 0.61]],
+			# The clinic sits on the left upper promenade. Approach from the
+			# open sand immediately below its shell canopy; the old spur sent
+			# Roshan halfway across the room before opening this job.
+			"spur": [[0.21, 0.61], [0.20, 0.64]],
 		},
 		"starfish_triage": {
 			"object": [0.075, 0.52], "visual_size": [136.0, 136.0],
-			"spur": [[0.21, 0.595], [0.22, 0.62]],
+			"spur": [[0.10, 0.60], [0.19, 0.64]],
 		},
 		"exam_booth": {
 			"object": [0.578, 0.46], "visual_size": [136.0, 136.0],
-			"spur": [[0.745, 0.73], [0.72, 0.75]],
+			# The five heart booths all open onto the upper promenade. Keep the
+			# feet target below the selected booth instead of routing down the
+			# bridge toward the recovery plaza.
+			"spur": [[0.69, 0.565], [0.72, 0.56]],
 		},
 		"recovery_bed": {
 			"object": [0.86, 0.79], "visual_size": [112.0, 112.0],
-			"spur": [[0.745, 0.73], [0.73, 0.75]],
+			"spur": [[0.720, 0.835], [0.720, 0.855]],
 		},
 	},
 	"farmer": {

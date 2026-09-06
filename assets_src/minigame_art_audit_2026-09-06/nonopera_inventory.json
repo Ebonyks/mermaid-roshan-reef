@@ -1,0 +1,257 @@
+{
+  "schema": "nonopera_minigame_art_audit_v1",
+  "audit_date": "2026-09-06",
+  "baseline": {
+    "branch": "codex/stage-pathfinding-20260906",
+    "requested_branch": "codex/ui-opera-design-language-20260905",
+    "head": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
+    "fixed_isolated_checkout": {"branch":"codex/ui-minigame-animation-20260906","head":"022ce0ba1e2baff2fffa5bd9c748bc48c874ba10","artifact_copy_verified":true},
+    "note": "The parent is separately populating .worktrees/ui-minigame-animation-20260906. This inventory records the checkout actually inspected.",
+    "engine": "Godot 4.7.2-stable"
+  },
+  "scope": {
+    "included": "Non-Opera playable entries, route modes, shared presenters, picture games, cleanup, craft, wardrobe, kart, dungeon, combat, and day-two hide-and-seek.",
+    "excluded": "Opera career worlds and their assets; audited by the sibling Opera inventory.",
+    "rules": ["true 2D target", "clean inked contours", "opaque color planes", "2-3 deliberate shadow shapes", "specific construction/material", "primitive progress indicators are not defects", "raw UV atlases are not finished cards", "protected book/friend originals stay unchanged"]
+  },
+  "coverage": {
+    "concrete_records_mapped": 62,
+    "source_groups": 13,
+    "record_scope_note": "62 is the mapped entry/mode count, not a claim that 62 records received complete contextual visual audit; each entry carries PASS, FAIL, or UNVERIFIED.",
+    "counts": {
+      "picture_live": 4,
+      "picture_retired_redirect": 1,
+      "friend_or_course_games": 11,
+      "pool_activities": 3,
+      "bathroom_stages": 2,
+      "dance_songs": 3,
+      "stuffie_rounds": 4,
+      "castle_dungeon_rooms": 10,
+      "ember_fortress_rooms": 6,
+      "craft_shapes": 3,
+      "wardrobe_skins": 3,
+      "shop_item_actions": 8,
+      "kart_racers": 8,
+      "combat_kinds": 4
+    },
+    "known_omissions": [
+      "Native contextual-scale capture was not available for fetch, dolls, shop, treasure, dance, kart, standalone combat, comfy hide-and-seek, and Ember/Dungeon presenters; those groups are UNVERIFIED rather than inferred failures.",
+      "SVG and some dynamic sprite atlases were source/hash mapped but not raster-viewed in this pass.",
+      "The inspected source directly loaded assets/mg/wateringcan.png. Root reports the art35 flat silhouette candidate was rejected and a separate native-alpha candidate is being integrated; verify that current redirect in the isolated checkout before any repair assignment."
+    ]
+  },
+  "entries": [
+    {
+      "id": "picture_games",
+      "source": ["scripts/games/picture_games.gd::_mg2d_open", "scripts/main.gd:5764,7148"],
+      "activation": "PIC_GAME wall-picture tap; kind is snowman, garden, trampoline, slide, or xmas.",
+      "active": true,
+      "modes": [
+        {"id":"snowman","active":true,"phases":"roll three balls; carrot/two-coal face; chase carrot"},
+        {"id":"garden","active":true,"phases":"five seeds; sprouts; five flowers; watering"},
+        {"id":"trampoline","active":true,"phases":"tap trampoline; Roshan reaches star"},
+        {"id":"xmas","active":true,"phases":"tree plus five ornaments; friendship flower"},
+        {"id":"slide_card","active":false,"condition":"_mg2d_open('slide') immediately calls _l2_start_slide()","verdict":"RETIRED_DEBT"}
+      ],
+      "static_refs": ["assets/mg/sun.png","assets/mg/seed.png","assets/mg/k_sprout.png","assets/mg/flower.png","assets/mg/flower2.png","assets/mg/flower3.png","assets/mg/k_flower1.png","assets/mg/k_flower2.png","assets/mg/butterfly.png","assets/mg/wateringcan.png","assets/mg/carrot.png","assets/mg/coal.png","assets/mg/xtree.png","assets/mg/orn1.png","assets/mg/orn2.png","assets/mg/orn3.png","assets/mg/orn4.png","assets/mg/orn5.png","assets/book/friendship_flower.png"],
+      "dynamic_refs": ["_mg_circle generated balls, pots, soil, trampoline, and progress indicators"],
+      "verdict": "FAIL_WITH_TWO_CONFIRMED_CODE_NATIVE_GAPS",
+      "confirmed_failures": ["garden pot is an _mg_circle resized to 150x100 without rim/soil construction", "trampoline is an _mg_circle squashed to 400x56 without mat/rim/legs"],
+      "bounded_repair_jobs": ["P-01: replace only the garden pot presentation at existing x-75,600 and preserve hit region/soil y=615", "P-02: replace only trampoline presentation at x=440,y=492,w=400,h=56 with authored mat/rim/legs and preserve target x=440,y=430,w=400,h=140", "P-03: watering-can crop repair is CLOSED by root for the current integration; art35 silhouette hash 296f99... was explicitly rejected, while root reports native-alpha assets/ui/minigames/garden_watering_can_v3.png (hash prefix 98b47563...) as the current candidate. Verify source redirect and provenance in the isolated checkout."],
+      "protected_provenance": "assets/book/friendship_flower.png and any book-derived source are immutable; existing mg cards are runtime references and should be replaced only by a new attributed asset after review."
+    },
+    {
+      "id": "picture_asset_visuals",
+      "source": ["scripts/games/picture_games.gd"],
+      "activation": "Consumed by the active picture modes above.",
+      "active": true,
+      "inspection": [
+        {"path":"assets/mg/flower.png","sha256":"2753083d4e30f5f6e8b49949e0eb50497b5b03d37691df7e3b6b6deddb79880d","status":"PASS","observation":"Clean outlined flower card; simple construction is appropriate."},
+        {"path":"assets/mg/k_sprout.png","sha256":"d7542d8d812a28ddce435c8acf3a103df85e5af59178ad05c9bdb5fef1ed0926","status":"PASS","observation":"Readable sprout and soil card."},
+        {"path":"assets/mg/seed.png","sha256":"d300ccc7bfd03d100cfa94221addd99dc95f4866a0dfe6f32becf12fec4179cc","status":"PASS","observation":"Readable seed card with restrained shading."},
+        {"path":"assets/mg/wateringcan.png","sha256":"dfcd93a98e83b7b0419602db828e6895fd4884bf0df800e9ecf4ed96c436f6e9","status":"UNVERIFIED","observation":"Native view showed surrounding scene pixels; active consumer/remap differs between inspected branch and parent isolated revision."},
+        {"path":"assets/mg/carrot.png","sha256":"b4c35bee6de1a161f6891396a3b903d22893f772919bbbfe5832e5256e834a8f","status":"UNVERIFIED","observation":"Small face prop in a 128px canvas; contextual child-scale check required."},
+        {"path":"assets/mg/xtree.png","sha256":"37fc6240aa004c19c83b44659035bfda4c9d5bf5e378e03a86c55301d4c82401","status":"UNVERIFIED","observation":"Readable tree; texture treatment needs contextual comparison to the approved world anchor."},
+        {"path":"assets/mg/orn1.png","sha256":"0d93a06f011d741184138ecb9a4f52681b669df9175b054fe9820ae7293324ca","status":"UNVERIFIED","observation":"Readable ornament; glossy/jewel detail may exceed the restrained treatment but is not a standalone failure."},
+        {"path":"assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png","sha256":"3b917608d9e3067d9fe68bbd260eba045acc0a15074795f4649f40ee0c69a3e4","status":"PASS","observation":"Reusable polished slide card for fish route/context review."}
+      ]
+    },
+    {
+      "id": "friend_course_games",
+      "source": ["scripts/main.gd:835-841,10047", "scripts/games/{fetch,dolls,seek,slide_race,melody,treasure,shop,fairy}.gd"],
+      "activation": "FRIEND_DEFS and wall portals dispatch these games; route-specific friend or theme conditions select variants.",
+      "active": true,
+      "modes": ["fetch/winter-lake", "dolls/Faron", "seek/Evie and Lamb-a'", "slide-fish/Harper and Fiona", "slide-chase/portal", "race/Level2 Rainbow Slide", "melody/Daddy Mermaid seven notes", "treasure/Secret Cave", "shop/Pearl Shop", "fairyshoot/Fairy Pond", "brawl/Toy Castle", "dustboss/Dusty Attic"],
+      "static_refs": ["assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png", "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png", "assets/props/gen2/clownfish_side.png", "assets/minigames/seek/evie_animation.png", "assets/minigames/seek/lamma_animation.png", "assets/minigames/seek/evie_portrait.png", "assets/characters/friends/two_friends.png", "assets/characters/friends/kareem.png", "assets/characters/stickers/daddy.png"],
+      "dynamic_refs": ["generated lane/track/puzzle geometry", "actor sprite atlases", "procedural fetch dog and winter props", "shop cylinders and item previews"],
+      "inspection": [
+        {"path":"assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png","sha256":"3b917608d9e3067d9fe68bbd260eba045acc0a15074795f4649f40ee0c69a3e4","status":"PASS","observation":"Native inspection: finished illustrated slide card; reusable for fish route after contextual seam check."},
+        {"path":"assets/props/gen2/clownfish_side.png","sha256":"0b9df739ab132f88178f1ac2052a3b8a4a7c9497ba1456eb151c8849989cba88","status":"PASS","observation":"Native inspection: simple clean fish card with readable contour."},
+        {"path":"assets/minigames/seek/evie_animation.png","sha256":"705cb95a4a1d0226f9554327947fd2956e131535f2e89f953a94970052030ce9","status":"UNVERIFIED","observation":"Native inspection: dynamic actor atlas; frame crop and child-scale route capture remain pending."},
+        {"path":"assets/minigames/seek/lamma_animation.png","sha256":"4ff1c9748e68853879211c825ffc8c45b7388c8da7b17cf0a44c6cd320dd7f8c","status":"UNVERIFIED","observation":"Native inspection: dynamic actor atlas; frame crop and child-scale route capture remain pending."},
+        {"path":"assets/characters/friends/two_friends.png","sha256":"85f2cc1bc7247d0877ff7bb6a97a44b711c757c497d36c215bc70fb74e548f58","status":"UNVERIFIED","observation":"Native inspection: protected friend art; preserve original and contextual-review presentation only."},
+        {"path":"assets/characters/friends/kareem.png","sha256":"8e9c64bed039bf3e4e85039120f13f543c9e72a6870fb54c893e443536ef678a","status":"UNVERIFIED","observation":"Native inspection: protected friend cutout; preserve original and contextual-review presentation only."}
+      ],
+      "verdict": "UNVERIFIED",
+      "confirmed_failures": ["fetch _winter_prop currently returns without creating props", "procedural/Node3D presenter debt is visible in source but requires contextual runtime capture before art-specific judgment"],
+      "bounded_repair_jobs": ["C-01: capture each active route at native and child contextual scale; assign individual replacement only for observed defect", "C-02: if fetch props are visibly absent, add a bounded 2D prop card set while preserving touch regions"],
+      "protected_provenance": "Friend and book character sources are protected; reuse without alteration."
+    },
+    {
+      "id": "pool_cleanup",
+      "source": ["scripts/games/day_one_pool_cleanup.gd", "scripts/games/pool_skimmer_activity.gd", "scripts/games/pool_waterfall_activity.gd", "scripts/games/pool_seahorse_rescue_activity.gd"],
+      "activation": "Day One room route; ACTIVITY_IDS selects pool_surface, waterfall, or seahorse.",
+      "active": true,
+      "modes": ["pool_surface/skimmer six trash items", "waterfall/three clogged lanes", "seahorse/rescue eight tap targets"],
+      "static_refs": ["assets/castle/day_one_pool/activities/floating_trash_atlas.png", "assets/castle/day_one_pool/activities/pool_skimmer.png", "assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png", "assets/castle/day_one_pool/activities/waterfall_scrubber.png", "assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png", "assets/castle/day_one_pool/activities/seahorse_mouth_trash.png"],
+      "dynamic_refs": ["source-rect trash atlas entries", "scrub progress and tap targets"],
+      "inspection": [
+        {"path":"assets/castle/day_one_pool/activities/floating_trash_atlas.png","sha256":"e554c4f253bcaa9e5893d9e4fffe03feef96528211f2458dc5d8fc81299f56df","status":"UNVERIFIED","observation":"Atlas with source-rect items; must not be judged as a single finished card."},
+        {"path":"assets/castle/day_one_pool/activities/pool_skimmer.png","sha256":"308c86843ace9fb3d4a65a0c514d41b367d87ceabaf5f3d3676f54ce9be4b9b3","status":"UNVERIFIED","observation":"Readable tool; material treatment needs live contextual check."},
+        {"path":"assets/castle/day_one_pool/activities/waterfall_scrubber.png","sha256":"1b29ff463263be093a7e1ac33eb74e4075d6a795dd515d120107f66953b2dc7a","status":"UNVERIFIED","observation":"Readable scrubber with polished highlights; no isolated defect asserted."},
+        {"path":"assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png","sha256":"88aa2ce07e79144b13d8e699341404e7b15e79baed861169c9c17e196ddba941","status":"UNVERIFIED","observation":"Readable seahorse target; dense detail requires contextual check."}
+      ],
+      "verdict": "UNVERIFIED",
+      "bounded_repair_jobs": ["POOL-01: one shared tool/target pass only after native+context capture identifies an exact material or construction defect; preserve room originals and touch geometry"]
+    },
+    {
+      "id": "bathroom_cleanup",
+      "source": ["scripts/games/day_one_bathroom_cleanup.gd", "scripts/games/day_one_bathroom_cleaning.gd"],
+      "activation": "Day One bathroom route; sink and tub stages.",
+      "active": true,
+      "modes": ["sink", "tub"],
+      "static_refs": ["assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png", "assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png", "assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png", "assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png", "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png", "assets/castle/dirty_cleanup_2d/tools/magic_cleaning_brush.png", "assets/castle/dirty_cleanup_2d/tools/cleanup_basket.png"],
+      "dynamic_refs": ["grime hit targets", "sponge/brush scrub state", "sparkle and basket effects"],
+      "verdict": "UNVERIFIED",
+      "inspection": [{"path":"assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png","sha256":"52e8c42b0c044c1b5dba42681d7dfb5e34dc44b345e6535e9432df5f186ecb67","status":"UNVERIFIED","observation":"Clear grime target; contextual material review pending."}],
+      "bounded_repair_jobs": ["BATH-01: capture both stages; replace only exact observed target/tool defects and preserve dirty room originals/provenance"]
+    },
+    {
+      "id": "fairy_pond",
+      "source": ["scripts/games/fairy.gd"],
+      "activation": "Fairy Pond portal dispatches fairyshoot; pond flight and boss bloom phases are active.",
+      "active": true,
+      "modes": ["pond flight", "bug taps", "boss seed-sprout-bud-bloom"],
+      "static_refs": ["assets/fairy/pond_panorama.png", "assets/fairy/sprites/bug_jewel.png", "assets/fairy/sprites/bug_moth.png", "assets/fairy/sprites/bug_firefly.png", "assets/fairy/sprites/boss_bloom.png", "assets/fairy/sprites/helpful_flower_gate.png"],
+      "dynamic_refs": ["bug projectile/tap sprites", "boss phase cards", "star feedback"],
+      "inspection": [
+        {"path":"assets/fairy/pond_panorama.png","sha256":"26b6ced234d71797e0013a7d161a33d09695d40aa5c43390126a369d63468a14","status":"UNVERIFIED","observation":"World anchor is polished; no blanket failure assigned."},
+        {"path":"assets/fairy/sprites/bug_jewel.png","sha256":"2ead5e9ef1b4c8fca0fbe4196a78c1f45926300cfee6f997597adf9ae9eef639","status":"UNVERIFIED","observation":"Readable bug; exact ornament/material review pending."},
+        {"path":"assets/fairy/sprites/bug_moth.png","sha256":"c707462c283b254d1380afe18bd899035853620c5215931cd528cb855d1b327","status":"UNVERIFIED","observation":"Readable moth; exact contextual review pending."},
+        {"path":"assets/fairy/sprites/bug_firefly.png","sha256":"20348706e59d653027960209d7c7461e7d28eb186d2fb3609e24798816057e5b","status":"PASS","observation":"Clean readable bug card."},
+        {"path":"assets/fairy/sprites/boss_bloom.png","sha256":"36db20eff66d1da63ab8f13878f99313712fe3adb02ca314a2a73c6f86c59cf9","status":"PASS","observation":"Strong contour and layered petal construction."},
+        {"path":"assets/fairy/sprites/helpful_flower_gate.png","sha256":"f06308db600940e32db09b64184ad469f59fa99d05c5a4c2d1b377df221ea7dd","status":"UNVERIFIED","observation":"Readable gate; decorative density requires contextual review."}
+      ],
+      "verdict": "UNVERIFIED",
+      "bounded_repair_jobs": ["FAIRY-01: inspect live pond/boss at native and child scale; preserve world anchor and replace only an exact failed prop/card"]
+    },
+    {
+      "id": "dungeon_and_ember",
+      "source": ["scripts/dungeon_level.gd", "scripts/ember_fortress.gd", "scripts/dungeon_art.gd", "scripts/dungeon_puzzle_room.gd", "scripts/combat_arena.gd", "scripts/combat_tutorial.gd"],
+      "activation": "Toy Castle brawl/dungeon and Ember Fortress routes; ROOM tables enumerate ten castle and six Ember rooms.",
+      "active": true,
+      "modes": ["10 castle rooms: Frozen Foyer, Crystal Chimes, Frozen River, Dust Bunny Cleanup, Pepper Lanterns, Turtle Gallery, Claw Guardian, Moon Rune Vault, Elemental Door, Dragon-Turtle Throne", "6 Ember rooms: Cinder Gate Imps, Lava Stepping Stones, Ember Chimes, Ash Imp Ambush, Door of Fire and Ice, Molten Throne", "combat tutorial lessons tap/combo/charge/wave", "combat kinds ice/dust/fire/dual"],
+      "static_refs": ["assets/props/gen2/rock_largea_Image_0_flat.png", "assets/props/gen2/fanshell_Image_0_flat.png", "assets/props/gen2/turtle_Image_0.jpg", "assets/props/gen2/spiralshell_Image_0_flat.png", "assets/art35/cards/style3/crystal_facet_crystal_facet.png", "assets/props/story/flower_coral.png"],
+      "dynamic_refs": ["DungeonArt.PATHS", "DungeonArt.EMBER_PATHS", "room puzzle shapes", "CombatArena actors and fallback cards"],
+      "inspection": [
+        {"path":"assets/props/gen2/rock_largea_Image_0_flat.png","sha256":"f5f6be66707b50afc10c8a07b9157e382f85559c6e76c92aff6a7431f4d02dc1","status":"FAIL","observation":"Raw colorful UV/texture map, not an isolated finished card."},
+        {"path":"assets/props/gen2/fanshell_Image_0_flat.png","sha256":"00abf8ad4c3de61374849b50e1589af4f9d95ccd8d45e55dc36f4d88e303dc72","status":"FAIL","observation":"Raw UV/texture map used as fallback visual."},
+        {"path":"assets/props/gen2/turtle_Image_0.jpg","sha256":"160a892a6e4bd422d6988b49f70ad311c7667c5590797d73673308fb4db66f70","status":"FAIL","observation":"Raw UV/texture map, not a finished card."},
+        {"path":"assets/props/gen2/spiralshell_Image_0_flat.png","sha256":"5fd51a8402c55fdeda553c765693fabc93e46f7e45c9643905d0a8b4c8a63f28","status":"FAIL","observation":"Raw UV/texture map, not a finished card."},
+        {"path":"assets/art35/cards/style3/crystal_facet_crystal_facet.png","sha256":"376794caef8458803d3720fcc4707418f695f542bd339cb00e2e8313c9df0100","status":"FAIL","observation":"Painted texture tile rather than an isolated crystal card."},
+        {"path":"assets/props/story/flower_coral.png","sha256":"816c23a8a51e20ff9837cbbe7631375178b7bda0f3ed9d0a807cbfd23403d724","status":"PASS","observation":"Clean outlined flower card suitable for role-specific reuse."}
+      ],
+      "confirmed_failures": ["DungeonArt.PATHS and EMBER_PATHS are empty, so all 16 rooms inherit generic fallback cards; raw UV maps are therefore exposed as runtime visuals."],
+      "verdict": "FAIL",
+      "bounded_repair_jobs": ["DUN-01: replace the shared fallback map with role-specific 2D cards, starting with rock/shell/turtle/crystal, preserving puzzle silhouettes, room geometry, and no-fail interactions", "DUN-02: capture all 16 rooms after fallback fix; do not perform speculative room-wide redesign"]
+    },
+    {
+      "id": "dust_boss_path",
+      "source": ["scripts/games/dust_boss.gd:59-64,706-713", "scripts/dust_bunny_boss_sprite.gd"],
+      "activation": "Dusty Attic portal; dustboss route and combat boss tell phases.",
+      "active": true,
+      "static_refs": ["assets/sprites/dust_bunnies/boss/dust_bunny_boss_angry.png", "assets/sprites/dust_bunnies/boss/dust_bunny_boss_jump.png", "assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png", "assets/sprites/dust_bunnies/boss/dust_bunny_boss_implode.png"],
+      "dynamic_refs": ["BOSS_ART_DIR tell-open/tell-shielded loads", "boss frame animation"],
+      "inspection": [{"path":"assets/sprites/dust_bunnies/boss/dust_bunny_boss_angry.png","sha256":"897ca1fec2e3dbdfddb1b6566fc014b0809e3e276148b46267746466cfdb5915","status":"PASS","observation":"Readable dynamic boss atlas."}],
+      "path_check": {"declared_dir":"res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/boss/","declared_dir_exists":false,"actual_dir":"assets/sprites/dust_bunnies/boss/","actual_dir_exists":true,"actual_files":["dust_bunny_boss_angry.png","dust_bunny_boss_flinch.png","dust_bunny_boss_implode.png","dust_bunny_boss_jump.png","dust_bunny_boss_laugh_vulnerable.png"]},
+      "confirmed_failures": ["BOSS_ART_DIR is res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/boss/, which is absent on inspected checkout; actual boss art is under assets/sprites/dust_bunnies/boss. At dust_boss.gd:706-713, load(want) therefore cannot resolve tell-open/tell-shielded and the encounter falls back to STAR_TEX res://assets/mg/star.png."],
+      "verdict": "FAIL",
+      "bounded_repair_jobs": ["DUST-01: repair only the source path/reference to existing approved boss tell art, or record exact missing asset; preserve animation, timing, and fallback behavior until verified"]
+    },
+    {
+      "id": "dance_engine",
+      "source": ["scripts/games/dance_engine.gd", "scripts/main.gd:_open_dance_demo"],
+      "activation": "Dance demo route.",
+      "active": true,
+      "modes": ["melody/Rainbow Stage bpm108", "race/Rainbow Race bpm126", "finale/Castle Celebration bpm116"],
+      "static_refs": ["audio/music routes"],
+      "dynamic_refs": ["ColorRect lane bands, Panels, Buttons, Labels, generated note prompts"],
+      "verdict": "UNVERIFIED",
+      "bounded_repair_jobs": ["DANCE-01: contextual capture only; simple live lane/progress shapes are intentional until a concrete readability or material defect is observed"]
+    },
+    {
+      "id": "stuffie_craft_wardrobe",
+      "source": ["scripts/stuffie_battle.gd", "scripts/craft_studio.gd", "scripts/wardrobe_ui.gd", "scripts/companion.gd"],
+      "activation": "Stuffie battle, Day One craft studio, and wardrobe overlays.",
+      "active": true,
+      "modes": ["stuffie ladder rounds 1-4", "craft fish/cat/bird with palette and rainbow variants", "wardrobe classic/fairy/huluu"],
+      "static_refs": ["assets/mg/fish_fins.png","assets/mg/fish_body.png","assets/mg/fish_line.png","assets/mg/cat_accent.png","assets/mg/cat_body.png","assets/mg/cat_line.png","assets/mg/bird_accent.png","assets/mg/bird_body.png","assets/mg/bird_line.png","assets/characters/skins/fairy_mermaid.png","assets/characters/roshan_25d/roshan_base.png","assets/characters/friends/huluu.png"],
+      "dynamic_refs": ["CREATURE_LAYERS compositing", "palette tint/swatch controls", "battle ladder actor and generated HUD"],
+      "verdict": "UNVERIFIED",
+      "protected_provenance": "friend and character sources remain protected; layered craft cards are approved reusable runtime inputs pending contextual inspection.",
+      "inspection": [
+        {"path":"assets/mg/fish_body.png","sha256":"219DA6079DAA8FDFC0BF854C3C37D9584D18C2B1F65EF60DC0E2FA24A8996A41","status":"UNVERIFIED","observation":"Native inspection: opaque fish cutout with clean contour and multiple deliberate planes; craft preview composition still needs contextual capture."},
+        {"path":"assets/mg/bird_body.png","sha256":"54FBB11C50C5D859B32AACA6FA1ECF8455253460691EABFD3EEACF4A91C12629","status":"UNVERIFIED","observation":"Native inspection: readable outlined bird cutout; grayscale body is intentional layer input; final craft preview needs contextual capture."},
+        {"path":"assets/sprites/stuffie_studio/lamma.png","sha256":"FA05513ECF6530691D712230ACB4DA9C0B3DD11FA694C788F3DF8556EFC33268","status":"PASS","observation":"Native inspection: clean simple alpaca card with broad planes and readable contour."},
+        {"path":"assets/characters/friends/huluu.png","sha256":"4B6C0E4D1C4945CC1C3CB1594AD967AA6001E9BF24506E4574345088FD9A2DC9","status":"UNVERIFIED","observation":"Native inspection: protected detailed character cutout; preserve source and require contextual scale review."},
+        {"path":"assets/characters/skins/fairy_mermaid.png","sha256":"DE6E97375D6CAE78DBCBA02CE25A7C7F81DE50C43BBE66B255E2B5130142C13D","status":"UNVERIFIED","observation":"Native inspection: protected colorful mermaid cutout; preserve source and review only presentation."}
+      ],
+      "bounded_repair_jobs": ["CRAFT-01: inspect layered previews in context; do not treat swatches, progress bars, or battle indicators as art defects", "WARD-01: no replacement until a specific protected-source presentation defect is observed"]
+    },
+    {
+      "id": "kart_and_kart_driving",
+      "source": ["scripts/kart_driving.gd", "scripts/kart.gd", "scripts/main.gd:_start_kart_game_now"],
+      "activation": "Kart portal/race; ground=float selects rainbow route and terrain selects ocean route.",
+      "active": true,
+      "modes": ["float/rainbow", "terrain/ocean"],
+      "static_refs": ["assets/characters/roshan_25d/roshan_base.png", "assets/characters/friends/huluu.png", "assets/props/gen2/clownfish_side.png", "assets/props/gen2/kart.png", "assets/props/gen2/finish_banner.png"],
+      "dynamic_refs": ["eight racer choices", "procedural track/boost/props", "KartDriving scalar controller"],
+      "inspection": [
+        {"path":"assets/characters/roshan_25d/roshan_base.png","sha256":"69827625A8A795F1303C90A465454DD8529F10D5401C78911D00B90BE8D1E1AB","status":"UNVERIFIED","observation":"Native inspection: approved Roshan cutout; runtime kart scale and crop need contextual capture."},
+        {"path":"assets/characters/friends/huluu.png","sha256":"4B6C0E4D1C4945CC1C3CB1594AD967AA6001E9BF24506E4574345088FD9A2DC9","status":"UNVERIFIED","observation":"Native inspection: protected detailed racer cutout; preserve source and check child-scale legibility."},
+        {"path":"assets/props/gen2/clownfish_side.png","sha256":"0b9df739ab132f88178f1ac2052a3b8a4a7c9497ba1456eb151c8849989cba88","status":"PASS","observation":"Native inspection: clean outlined fish prop; reuse candidate."}
+      ],
+      "verdict": "UNVERIFIED",
+      "bounded_repair_jobs": ["KART-01: capture both ground modes and inspect child-scale racer/track readability; kart_driving.gd itself is control logic and out-of-scope for art changes"]
+    },
+    {
+      "id": "comfy_day_two",
+      "source": ["scripts/comfy_games.gd", "scripts/main.gd"],
+      "activation": "Chapter/day-two state key day2_castle_hide_and_seek.",
+      "active": true,
+      "modes": ["castle hide-and-seek"],
+      "static_refs": ["friend/runtime character references"],
+      "dynamic_refs": ["hide targets, reveal feedback, generated room surfaces"],
+      "verdict": "UNVERIFIED",
+      "bounded_repair_jobs": ["COMFY-01: capture active route and map each target/source before any art repair"]
+    },
+    {
+      "id": "presenter_and_shared_scope",
+      "source": ["scripts/side_scroll.gd", "scripts/octagon_stage.gd", "scripts/kart_driving.gd"],
+      "activation": "Shared presenters consumed by brawl/dustboss/kart routes.",
+      "active": true,
+      "modes": ["side-scroll stage", "octagon combat stage", "kart driving controller"],
+      "static_refs": [],
+      "dynamic_refs": ["procedural geometry and loaded texture path arguments"],
+      "verdict": "UNVERIFIED",
+      "scope_note": "Presenter/control files have no independent authored art entry; simple geometry is not proof of a defect. Review only through active consumers."
+    }
+  ],
+  "global_findings": [
+    {"id":"F-01","severity":"P0","finding":"DungeonArt fallback map is empty for both themes and exposes raw UV maps across 16 active rooms.","repair":"DUN-01"},
+    {"id":"F-02","severity":"P1","finding":"Dust boss tell directory is stale/missing while approved boss atlases live in assets/sprites/dust_bunnies/boss.","repair":"DUST-01"},
+    {"id":"F-03","severity":"P1","finding":"Garden pot and trampoline are confirmed underconstructed code-native objects despite valid interaction geometry.","repair":"P-01/P-02"},
+    {"id":"F-04","severity":"CLOSED_IN_ROOT_SNAPSHOT","finding":"Watering-can crop was fixed by root in snapshot 022ce0ba/rootcoverage; this audit retains the original hash and asks only for isolated-checkout verification of the new art35 silhouette.","repair":"P-03 verification only"}
+  ],
+  "repair_policy": "No runtime, canonical, protected, or git asset was edited during this audit. Root assigns one bounded job at a time after contextual review; every new asset needs provenance and ASSET_LICENSES.md entry."
+}
