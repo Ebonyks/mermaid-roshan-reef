@@ -8,6 +8,13 @@ Use [the chapter guide](../09_CHAPTER_DEVELOPMENT_GUIDE.md) and
 Write concise decisions; link existing evidence instead of repeating it.
 Use `unknown`, `pending`, or `not applicable` with a reason where appropriate.
 
+## Audit impact
+
+Link this chapter's current `design/audit_impacts/*.json` record, following the
+[audit-impact guide](../AUDIT_DEVELOPMENT_CONTRACT.md). Name applicable rules,
+related findings or the reason none apply, exact changed paths, validation,
+and remaining acceptance gaps. Refresh at scope changes and playable review.
+
 ## 1. Commission and boundaries
 
 | Field | Chapter value |

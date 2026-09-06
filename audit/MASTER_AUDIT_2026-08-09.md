@@ -35,6 +35,34 @@ active-fact checks; do not hand-copy its counts into planning rules.
 
 ---
 
+
+<!-- AUDIT_TASK_INDEX_START -->
+### Development task index
+
+Read the row for the task and all affected shared systems before editing. Revisit
+it when scope changes and at review/completion. This index routes to current
+rules; sealed evidence below remains scoped to its recorded build. Follow the
+[development contract](../design/AUDIT_DEVELOPMENT_CONTRACT.md) for change records.
+
+| Task | Start with | Then consult |
+|---|---|---|
+| Every task | [Planning entry](#0-planning-entry); [authority and stable rule IDs](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#1-how-to-use-these-rules) | [Document ledger](../design/05_DOC_LEDGER.md); [impact record guide](../design/AUDIT_DEVELOPMENT_CONTRACT.md) |
+| New chapter | [planning and creative scope](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#20-chapter-planning-creative-delegation-and-strategic-reuse) | [Chapter guide](../design/09_CHAPTER_DEVELOPMENT_GUIDE.md); [brief](../design/templates/CHAPTER_BRIEF_V1.md); [reference library](../design/10_CHAPTER_REFERENCE_LIBRARY.md) |
+| Repair | [triage index](#5-triage-item-index--not-canonical-finding-records); [repair protocol](#9-individual-repair-and-regression-protocol) | [Canonical finding records](findings/ACTIVE_FINDINGS_2026-08-13.md); [repair order](#13-current-repair-order) |
+| Code | [architecture and refinement](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#18-code-architecture-and-refinement) | [interaction truth](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#7-interactions-change-the-world-truthfully); [regression protocol](#9-individual-repair-and-regression-protocol) |
+| Art | [visual promise](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#4-visual-promise); [composition](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#5-composition-and-child-readable-hierarchy); [Canvas construction](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#6-2d-canvas-living-card-world-construction) | [reuse and provenance](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#14-art-sourcing-reuse-and-provenance); [true 2D](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#3-final-medium-decision-a-2d-game) |
+| Touch | [child constraints](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#2-the-child-is-the-primary-design-constraint); [touch and interface](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#8-touch-and-interface-grammar) | [feedback and rewards](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards); [typography](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#19-font-typography-glyph-and-text-layout-contract) |
+| Audio | [voice and sound](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#10-voice-music-and-non-reader-communication) | [acceptance levels](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#16-acceptance-and-audit-contract); [Music audit](../MUSIC_AUDIT_2026-08-09.md) |
+| Cinematic | [full-frame delivery and handoff](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#11-cinematic-exception) | [Binding cinematic rules](../AGENTS.md); [shot card](../design/templates/IMAGINE_SHOT_CARD_V1.md) |
+| Save | [save, lifecycle and release](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#13-save-lifecycle-and-release-safety) | [Release workflow rules](../WORKFLOW_BRANCHING_2026-07-18.md); [save/re-entry tests](#9-individual-repair-and-regression-protocol) |
+| Performance | [Mobile and asset budget](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#12-mobile-performance-and-asset-discipline) | [2D migration](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#3-final-medium-decision-a-2d-game); [device evidence](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#16-acceptance-and-audit-contract) |
+| Acceptance | [lifecycle and verification](#2-audit-state-taxonomy); [satisfaction gate](#12-master-audit-satisfaction-gate) | [evidence contract](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#16-acceptance-and-audit-contract); [finding fields](#10-required-finding-fields) |
+
+[Authority reconciliation](#3-authority-and-comprehensive-design-language-confirmation) · [Historical evidence](#4-evidence-at-the-integration-snapshot-and-named-historical-commits) · [Supporting repairs](#6-supporting-repair-evidence--not-canonical-finding-records) · [Superseded ideas](#7-superseded-dismissed-and-deferred-ideas) · [Expanded acceptance](#8-expanded-acceptance-notes-for-highest-priority-indexed-items) · [Audit tools](#11-audit-tool-and-documentation-control-work) · [Change history](#14-change-history)
+
+[Executive verdict](#1-executive-verdict) · [Superseded design choices](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#15-explicitly-superseded-dismissed-and-deferred-ideas) · [Canonical finding schema](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#17-finding-record-fields)
+<!-- AUDIT_TASK_INDEX_END -->
+
 ## Sealed audit snapshot and subsequent round metadata
 
 - **Audit ID:** `MA-2026-08-09`

@@ -1,5 +1,16 @@
 # AGENTS.md — Mermaid Roshan: Reef of Light
 
+## Mandatory master-audit development contract
+
+Before every game development task, read the [master audit planning entry](audit/MASTER_AUDIT_2026-08-09.md#0-planning-entry) and its [task index](audit/MASTER_AUDIT_2026-08-09.md#development-task-index).
+Read the applicable [design rules](design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md), [active findings](audit/findings/ACTIVE_FINDINGS_2026-08-13.md), and [document ledger](design/05_DOC_LEDGER.md) before choosing an implementation. The ledger determines which domain documents are current.
+
+- At task start, record applicable `DL-*` rules, related `MA-*` findings (or an explicit reason none apply), scope, and required evidence using the [audit-impact guide](design/AUDIT_DEVELOPMENT_CONTRACT.md). New features need rule coverage even when they repair no finding.
+- Recheck those sources when scope changes, during review, and before completion. Repairs follow master audit section 9; commissioned chapters follow the [chapter guide](design/09_CHAPTER_DEVELOPMENT_GUIDE.md). Apply `DL-AUTH-05` through `DL-AUTH-07` throughout.
+- Commit a new or updated `design/audit_impacts/*.json` record covering every changed project file. Update affected finding lifecycle/history, the master index, and document-ledger entries in the same change when their facts or authority change. Do not fabricate a defect or rewrite unchanged findings to satisfy paperwork.
+- Before commit/push, run `python -B tools/audit_document_authority.py` and `python -B tools/audit_development.py --base auto`, plus all existing applicable gates. Missing coverage or broken authority/navigation blocks the change. Preserve exact baseline and evidence references in the impact record.
+- Report implementation, machine verification, and outstanding visual/device/child/owner acceptance separately. Green regression checks do not establish master-audit satisfaction. Existing security, protected-content, save, owner-decision, and release precedence remains unchanged; this contract grants no new approval checkpoint or release authority.
+
 ## What this is
 A Godot 4.7.2 game for one specific 4-year-old, playable on a 3–4-year-old
 Android phone by touch. Every decision is weighed against: non-reader,

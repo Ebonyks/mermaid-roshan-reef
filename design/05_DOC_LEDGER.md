@@ -740,3 +740,9 @@ Kept as-is; noted so a future edit updates every copy.
 | Document | State | Scope |
 |---|---|---|
 | `design/OPERA_TWO_ACT_PERFORMANCES_2026-09-05.md` | 🟣 | Local candidate for the three Opera Hall games only; mechanic and asset review, medal/token policy, pending integration and child/device gates. |
+
+## Development audit contract — 2026-09-06
+
+| Document | State | Scope |
+|---|---|---|
+| `design/AUDIT_DEVELOPMENT_CONTRACT.md` | 🟢 | `BINDING_OPERATIONAL`; required reading, change traceability and evidence reporting under `DL-AUTH-05` through `DL-AUTH-07`; preserves existing security, owner and release precedence. |
