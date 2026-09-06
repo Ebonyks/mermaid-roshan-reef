@@ -1,0 +1,55 @@
+HUMAN REVIEW — WORLD-FIT MENU REDESIGN
+Status: PENDING_HUMAN_EVALUATION
+
+This packet contains local, non-runtime concept images only. The next step is
+human evaluation of the menus and the minigame picture quality. An internal
+AI review may identify defects but does not approve this design for adoption.
+No new design-language rules or findings are being added to the master audit
+in this round. No runtime, protected artwork, save schema, commit or publication
+change is part of this packet. Earlier-turn document drafts remain as they
+were at this round's start; review_scope.json records their frozen hashes.
+
+Review focus
+- Does the simpler painted frame feel part of the existing game world?
+- Are the activity objects carefully drawn: clear form, colored shadow,
+  meaningful material details and clean edges, instead of flat-color blobs?
+- Does each minigame picture communicate its actual activity without text?
+- Is the amount of shell/pearl/rainbow detail comfortable, without becoming
+  either ornate jewelry or a plain generic app panel?
+- Are the choices easy to distinguish at whole-screen phone size?
+
+Interpretation limits
+The pause care basket is a proposed care-route picture, not an approved friend
+portrait or evidence that a child recognizes the Stuffie route. The exit arch
+needs the actual destination context in a live implementation. Activity cards
+are illustrative review pictures, not screenshots or evidence of live input.
+Artwork quality does not prove touch, voice, save, device or child behavior.
+
+Current minigame-art inspection
+The source of the picture-game rainbow slide uses six flat rotated ColorRect
+bands (scripts/games/picture_games.gd, _mg_build_slide). This is a specific
+source-level candidate for art repair, not a new runtime capture. A reusable
+painted slide card already exists at
+assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png, used by Sky Lagoon
+and slide_race; a future adaptation must preserve the different game's path
+and interaction. Do not substitute a legacy texture atlas for a usable card.
+Luna's separate artwork review records other inspected candidates and limits.
+
+Requested stopping point
+Show the images and await the owner's evaluation. Only after that evaluation
+may the accepted appearance become a proposed future master-audit addition.
+
+IMAGES PRESENTED FOR HUMAN EVALUATION
+- pause_menu_worldfit_v2_candidate01.png: revised pause-menu picture routes.
+- chooser_activity_worldfit_v2_candidate02.png: revised Painter, Candymaker,
+  Ballerina activity selector; replaces candidate01 for current review.
+Candidate01 is retained only to show the corrected issues. Its repeated card
+crests, empty-mold candy action and invented animal lead are not the proposed
+final direction. Candidate02 uses actual Roshan and strawberry references.
+
+Actual checks and remaining limits
+The generated images retain their native bytes and exact prompts. Root and
+Astra review images against the world/material brief and actual activity source
+references. Their opinion is internal quality review, not human acceptance.
+The labels on the chooser are supplemental/adult review aids, not a requirement
+for a child to read. These images do not establish a production font or live UI.

@@ -125,8 +125,21 @@ constants instead of copying their values into every chapter brief.
    cues, music, and routes. Cite approved source/provenance and acceptance
    limits. Name any gap before generation; follow the separate cinematic
    regime for every authored delivery frame.
+   Absence from the current checkout is not evidence that art does not exist.
+   When the owner identifies an existing family, trace relevant Git history,
+   staged/untracked files in related worktrees, and original generation records
+   before proposing replacement landmarks. Read other tasks' sources without
+   changing their worktrees. Distinguish not-yet-located, recovered, rejected,
+   and genuinely missing assets; preserve exact source bytes and hashes when
+   building the review packet. Continue independent interaction planning while
+   source-dependent visual decisions remain unresolved.
 3. **Plan the whole chapter.** Complete the causal, navigation, save, pacing,
    and acceptance tables. Record proposed minor additions and novelty costs.
+   Trace navigation against the actual painted surfaces: bridge decks, both
+   banks, door thresholds, stairs and occluding rails. Specify Roshan's ground
+   anchor and whole silhouette through each transition, in both directions and
+   at supported camera/aspect states. A horizontal lane or a route diagram
+   alone does not prove that she follows the artwork's walkable geometry.
 4. **Build a representative activity.** Exercise enter → understand → act →
    visible result → save → leave → return. Include assistance, wrong/passive
    input, focus loss, and re-entry. Use the actual production implementation.

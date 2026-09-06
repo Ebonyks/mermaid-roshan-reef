@@ -1,0 +1,216 @@
+ASTRA INDEPENDENT VISUAL REVIEW — WORLDFIT V2
+Reviewer: Astra AI agent. human_review=PENDING.
+Status: review-only; NOT accepted, NOT a canonical rule or master-audit update.
+Scope: assess candidate menus against the existing revision-2 criteria and the
+user's clarified rejection of simple flat-color object filler. A simple readable
+silhouette may pass; insufficiently illustrated objects do not pass merely
+because the frame is attractive. Stop for human evaluation after this packet.
+
+PAUSE — candidate01
+Path: assets_src/ui/worldfit_review_v2/pause_menu_worldfit_v2_candidate01.png
+Native: 1672x941
+SHA256: 7ae85c324617b87dfaa0736e8b7904dfffbce278741b1f9144350a703fe30b85
+Executed prompt SHA256:
+57382862e857a72c0642a1dc5d31d3bd541d1f588f5555ba69170a41f21253f6
+Exact generation/reference records: sibling .provenance.json, .prompt.txt,
+and reference_inventory.json. Independent native/project byte equality, image
+and prompt hashes, reference-inventory hash, and all five bound-reference
+hashes/dimensions PASS. This verifies records, not the generator's aesthetic merit.
+
+Inspected native with view_image and whole-image phone proxy:
+build/ui_worldfit_v2_review/pause_candidate01_review_only_640.png (640x360)
+SHA256: 871a33545708e51679b8f5f0fabbb045c851b7a4aff52a2050a3da57f7ae0fcb
+Proxy is whole-canvas Lanczos inspection only; no original pixels modified,
+no new generation, no device or runtime evidence implied.
+
+World/material fit: PASS for this static candidate. The Playroom remains
+recognizable, with cream/lilac/aqua painted surfaces and one small shell crest.
+Per-control crown/pearl plinths and the invented dark theater are removed.
+Shallow edges and colored contact shadows preserve crafted form. Gold on the
+book clasp or basket handle is object-specific rather than a universal rim.
+
+Object-illustration quality: PASS. The closed Sticker book has layered page
+edges, a thick curved spine, clasp, stitching and materially rendered cover.
+The Critter guide has page curvature, aged paper, binding, and distinct fish,
+butterfly and bird illustrations. The care basket has woven volume, handle
+twist, towel folds/stitches, heart patch and differentiated brush bristles.
+The return arch has separate shaded masonry blocks and grounded stepping stones.
+The play triangle is simple but has painted surface variation, thickness and
+contact shadow. These are not unshaded generic object blobs.
+
+Phone-proxy recognition: PASS for large object categories. At 640x360 the books,
+basket, arch and play symbol remain distinct. Fine stitching/bristles support
+native craft but do not carry required meaning. Children recognizing the intended
+routes is NOT TESTED.
+
+Route truth: PASS for proposed inventory; semantic proof NOT TESTED. Source
+scripts/pause_menu.gd:67-96 retains resume, Stickers, Critters, Stuffie picker/care
+and contextual Leave. No new activity is implied. Care basket may mean laundry,
+bathing or grooming without a Stuffie cue; bare doorway can imply entry rather
+than leaving. These are explicit HUMAN REVIEW questions, not automatically solved
+by a hypothetical voice line. Provenance records context/voice proposals only.
+Do not modify protected friend identities to resolve this without authorization.
+
+Proposed layout: PASS static allocation only. Five rectangles in the sidecar
+are each >=110x110, fit within [32,32,1216,656] and do not overlap; independent
+pairwise nearest-edge calculation gives 30px minimum. Artwork is not a measured
+runtime hit region. Focus, pressed, selected, cancellation and live geometry are
+NOT TESTED. No rest/selection geometry equivalence is claimed from one picture.
+
+Pause AI disposition: VISUAL_PASS_FOR_HUMAN_REVIEW.
+human_review=PENDING. No immediate regeneration requested by this reviewer.
+
+REPRESENTATIVE EXISTING OBJECT EVIDENCE (bounded, not a whole-game count)
+The following source assets were independently opened with view_image. These
+examples do not imply that every game object is defective or authorize repairs.
+
+1. assets/mg/flower.png, 512x512
+SHA256: 2753083d4e30f5f6e8b49949e0eb50497b5b03d37691df7e3b6b6deddb79880d
+Source-quality FAIL against the clarified illustrated-object bar: broad generic
+petal disks, stem and leaf shapes have mostly uniform fills and faint soft
+gradients, with little specific petal/leaf construction or painted material.
+Readability does not itself fix that lack of craft. The garden flower list at
+scripts/games/picture_games.gd:550 includes this asset; source comments allocate
+228px art rect / approximately170px visible flower height. No fresh runtime
+capture or actual phone-size presentation of this plant was tested here.
+
+2. assets/mg/wateringcan.png, 272x286
+SHA256: dfcd93a98e83b7b0419602db828e6895fd4884bf0df800e9ecf4ed96c436f6e9
+Source-quality FAIL: a visibly low-resolution crop, uneven cutout contour and
+surrounding background fragments remain beside the can. Pink body shading is
+limited, but the strongest observed defect is source/cutout quality rather than
+an invented claim that every region is literally one color. Live source consumer:
+scripts/games/picture_games.gd:579, 130x137 sprite allocation. The comment calls
+this book art; protected original must remain untouched. No repair commissioned.
+
+3. assets/mg/k_bush2.png, 1024x478
+SHA256: 884023b2de46f0883458049dad9d031e1d33dcf9ecda567a0ed151d4292952f8
+Not used as evidence of a current runtime defect. It has layered leaves and
+painted value bands; the current Seek probe explicitly rejects this older active
+path. Presence in assets is not proof of current reachability, and a simple broad
+leaf silhouette is not by itself a flat-object failure.
+
+CHOOSER — candidate01
+Path: assets_src/ui/worldfit_review_v2/chooser_activity_worldfit_v2_candidate01.png
+Native: 1672x941
+SHA256: 86239815aac82910a187325231d8c3a53759c84fa355f0c44dcfe02ffa7016c9
+Inspected native and whole-image phone proxy:
+build/ui_worldfit_v2_review/chooser_candidate01_review_only_640.png (640x360)
+SHA256: 3b43c9c583c7fd281571f7ddbfb480229ea0d04562a06bb6bd90a3599f1f9e6c
+
+Object illustration: PASS. The easel has wood construction, hardware and paint;
+banner cloth has folds and edge thickness; paints have liquid menisci and jars;
+ladle has metal volume and convincing liquid contact/pour; toys have fabric,
+seams and distinct materials. These are substantial specific illustrations.
+At phone proxy size the easel/brush, syrup pour and dancing-toy groups survive.
+A simpler shape with these material cues is acceptable; detail count alone is
+not the test, and a good frame does not compensate for the failures below.
+
+World/material fit: PASS for the general painted room/surface treatment;
+ornament distribution FAIL. Three separate card-top shell crests repeat the
+panel crest. This reintroduces per-secondary-control ornament that the existing
+revision-2 specification explicitly excludes. Remove the three card crests;
+preserve the painted interiors and simple shared edge.
+
+Activity truth: FAIL in two card interiors, despite good execution.
+- Candymaker's large syrup pour lands in an empty scallop mold. Current
+  scripts/chapter_two_career_scene_adapter.gd:39-43 defines coating, sorting and
+  glazing strawberries before placing five candied strawberries on the cake.
+  A cake at the rear does not turn the central empty-mold action into strawberry
+  coating. Show the pour contacting a recognizable strawberry. The old
+  widget/mold reference has limited authority for current task truth.
+- Ballerina's lead is a generic lamb dancer on a music-box platform, accompanied
+  by two sitting toys. Current adapter:33-36 names stuffies mirroring Roshan,
+  ribbon guidance and a shared twirl/bow; the executed prompt requested Roshan
+  and stuffies. The lamb is not approved Roshan or a protected friend and cannot
+  silently substitute for her. Use accurate approved mermaid identity and the
+  companion relationship, or an explicitly character-free, activity-specific
+  ribbon/pose illustration for human review; do not invent an accepted lead.
+
+Painter action: PASS provisional illustration mapping. Easel/banner/brush and
+star decoration are consistent with birthday-banner painting as a broad task.
+Exact banner identity and runtime output matching are NOT TESTED.
+
+Chooser01 AI disposition: VISUAL_FAIL_TARGETED_REPAIR.
+Requested at most ONE whole-candidate repair for the three concrete defects
+above, preserving the successful illustration craft. human_review=PENDING.
+No new rules, alternate route or image acceptance is authorized by this finding.
+
+CHOOSER — candidate02, FINAL REVIEW CANDIDATE
+Path: assets_src/ui/worldfit_review_v2/chooser_activity_worldfit_v2_candidate02.png
+Native: 1671x941 (the generated width differs by 1px from the requested 1672;
+the native bytes are preserved, not silently resized into a delivery asset).
+SHA256: 233ad6e26f0e979519d0b4e93d02c5dae7c22c41429e6866f770d5819667e1b8
+Prompt SHA256:
+e74d8c5c86848467691f7ee636512ed10fc37fce5178ccbd5871c7c6b34a1da8
+Exact provenance and references: sibling candidate02.provenance.json and
+candidate02.prompt.txt. Independent verification PASS for native/project byte
+equality, native dimensions, prompt hash and all five directly bound ref hashes.
+
+Native and whole-image 640x360 proxy independently inspected:
+build/ui_worldfit_v2_review/chooser_candidate02_review_only_640.png
+SHA256: 8d1bdffb5849adcd67b6e68c57ff2724224d22083f96577930f62e9bfcf4d860
+This is a Lanczos inspection reduction only, not device evidence.
+
+Targeted repair results:
+- Repeated card-top ornament: PASS. All three card header crests are removed.
+  The one modest panel crest stays; card outlines are simple. Ballerina's ornate
+  music-box object is contextual pictured art, not a repeated control frame.
+- Candymaker action truth: PASS as depicted. The liquid stream visibly coats
+  a red fruit with a green leafy crown in the scallop dish; it now reads as a
+  strawberry, supported by strawberries on the cake. Material detail remains.
+- Roshan lead identity: PASS provisional AI visual resemblance. The direct
+  source assets/opera/worlds/actors/roshan_ballerina.png (512x512;
+  SHA256 3e1ff9afca613e7a009135a3b7878c4131daae7d12d4e7b3bdba1ca1a91b5b27)
+  was separately opened with view_image. Candidate02 matches its brown hair,
+  rainbow forelock, pearl tiara, coral/lilac costume and scaled mermaid tail.
+  Human identity approval remains PENDING; an approved source does not make a
+  new generation approved. The contextual bunny is not an accepted protected
+  friend identity and the source originals remain unchanged.
+- Object craft: PASS. Specific painted wood, cloth, glass jars, liquid syrup,
+  metal ladle, fruit, costume and scales remain; no flat generic filler replaces
+  the removed ornament. Readable simple shape and material shading coexist.
+- Phone proxy: PASS for broad activity recognition. Painter/brush, syrup/fruit
+  and mermaid-dance groups remain distinct without reading the adult headings.
+
+Remaining limits for HUMAN evaluation: the seated bunny and pearl trail do not
+demonstrate actual stuffie pose mirroring or the live ribbon mechanic. This is
+a chooser illustration, not complete gameplay evidence. The doorway still needs
+context to mean return. Exact output/banner identity, protected-friend casting,
+child comprehension, fonts, focused/selected/pressed states and actual runtime
+hit geometry remain NOT TESTED. No geometry equivalence is inferred between
+candidate01 and candidate02; the generated canvas widths are actually different.
+
+Chooser02 AI disposition: VISUAL_PASS_FOR_HUMAN_REVIEW.
+Chooser01 is SUPERSEDED AS THE REVIEW CANDIDATE and remains rejected evidence;
+its initial fail is retained above. No further art repair is requested this turn.
+human_review=PENDING. Neither image is accepted or a canonical style authority.
+
+ACTIVITY SOURCE REFERENCES DIRECTLY INSPECTED
+- assets/opera/worlds/props/goal_painter.png, 512x512
+  SHA256 254183ce5471ac43439e88e2db44a103a74868136f05932bc9be9718df973318
+  Specific painted sunset picture/frame; useful craft evidence, not current
+  birthday-banner task authority.
+- assets/opera/worlds/props/goal_candymaker.png, 512x512
+  SHA256 91bb2f1d37fdfbba62ab5a77898a517980a5b652ed89f655fe8492dd75b3666a
+  Wrapped candy with differentiated paper/bow/liquid-like color bands; material
+  reference only, not the current strawberry-object requirement.
+- assets/opera/worlds/props/goal_ballerina.png, 512x512
+  SHA256 4891a0863557a0105912afe7497d2b0f976aadf32507ad1c079f03f3162c257e
+  Shell music box with broad shaded lid/body and central musical form; it does
+  not authorize a new animal lead or substitute for Roshan's identity.
+
+The pause's other world references and object sources are exactly bound in
+reference_inventory.json (hash b999bb1fce8f7942802437a6a66c901f68c1534c09426d329843641331de85eb).
+This reviewer directly inspected all five bound images during this review:
+historical Sky whole-frame plate, magic-book object, Playroom background,
+Painter world and the Stuffie-nook object. The inventory
+correctly distinguishes the historical outdoor plate from the actual Sky v5
+runtime. Source images are comparison evidence, not captured gameplay acceptance.
+
+STOP / ACCEPTANCE BOUNDARY
+human_review=PENDING for every image and proposed semantic choice.
+Final human-review pair: pause candidate01 and chooser candidate02.
+No design language, master audit, canonical ledger, runtime, save, protected
+original, branch or commit is modified by this review. No candidate is installed
+or accepted. The next authority is the requested HUMAN evaluation.

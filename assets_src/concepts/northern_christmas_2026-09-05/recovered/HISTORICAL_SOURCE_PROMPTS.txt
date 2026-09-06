@@ -1,0 +1,158 @@
+HISTORICAL EVIDENCE ONLY. Old 2.5D/3D and resolution instructions are superseded by current project authority. Not an executable work order.
+
+# Northern Promenade 2.5D environment sources
+
+## Status
+
+The eight 1024x576 files beside this document are preserved concept/layout
+references. They passed the composition and style review, but they are not
+accepted final runtime environment sources under the 2026-07-27 native-2K
+amendment. They must never be enlarged, interpolated, AI-upscaled, or padded
+to satisfy that amendment.
+
+The current layered scene is an inspectable implementation concept built from
+those files. Final wiring remains blocked until all eight exact-ratio,
+native-long-edge >=2048 fidelity regenerations pass
+`tools/validate_northern_2k_sources.py`.
+
+## Original concept generation record
+
+Generation mode: OpenAI built-in image generation, new image. The only image
+references supplied to the generator were project-owned Northern Kingdom
+concept and QA renders:
+
+- `assets_src/concepts/northern_kingdom_quality_2026-07-19.png`
+- selected renders from `assets_src/blender/qa_northern_kingdom_kit/`
+
+The selected QA inputs were pre-existing flat PNG files only. No GLB, `.blend`
+file, Blender process, or 3D authoring tool was opened or invoked.
+
+No Disney, Frozen, Skyrim, Riverwood, video-frame, or other third-party image
+was supplied. The named references in the design brief were researched only
+to extract general composition principles: an enchanted autumn forest, a
+single road organically dividing a riverside settlement, and a luminous
+palace finale.
+
+## Shared final prompt
+
+Use case: game-environment background. Asset type: one opaque 16:9,
+side-view 2.5D storybook game background for a preschool touch game. Match the
+attached project-owned Northern Kingdom references: polished stylized
+toy-diorama painting, rounded hand-crafted forms, navy/plum edge language,
+pastel aqua and lavender shadows, berry and warm autumn foliage, cream paths,
+teal water, and warm gold lights. Build a clear, uninterrupted walkable band
+across the lower-middle of the picture, with layered foreground foliage,
+midground play path, and atmospheric depth. Keep hazards decorative and the
+route unmistakable for a non-reader. High authored detail in broad,
+mobile-readable shapes; no characters, words, UI, logos, watermarks,
+photorealism, copied franchise designs, franchise symbols, or text. Create an
+original Mermaid Roshan location rather than reproducing any named reference.
+
+## Panel-specific final prompt additions
+
+1. `flat_north_forest_01_trail.png`
+   - Mystical forest trailhead; towering blue-green conifers and berry-red
+     autumn trees; dense fern and mushroom understory; a narrow luminous stream
+     entering beside pale stepping stones; the cream path leads clearly right.
+   - Generation ID: `call_FAHVG2VfSs4XTOK1huxNd52m`
+2. `flat_north_forest_02_stream.png`
+   - Continue the same forest and path; bring the shallow turquoise stream
+     forward with large rounded stepping stones, mossy banks, dense brush,
+     mushrooms, and small blue guide lights; route remains safe and obvious.
+   - Generation ID: `call_NpDs1oecIIBqVpl0KcXpka6b`
+3. `flat_north_forest_03_spirit_grove.png`
+   - Open into a quiet circular spirit grove suitable for a future friendly
+     encounter; ancient trees and standing stones frame a broad empty play
+     space; luminous blue motes and a soft aurora glow imply magic without
+     depicting a boss.
+   - Generation ID: `call_mIRYUGPeNAQKf3bgXcmo5MDu`
+4. `flat_north_forest_04_bridge.png`
+   - Forest-to-village transition; a small original rope-and-plank bridge
+     crosses the bright stream; lantern-like blue wisps guide the cream path
+     right; first warm rooftops are only a distant promise.
+   - Generation ID: `call_iJ3hXEsBimkIIvOg8aTfswOK`
+5. `flat_north_village_01_mill.png`
+   - First half of a compact riverside village organized by one continuous
+     road; original rounded timber cottages, a working watermill, bridge,
+     stacked logs, warm windows, and the same teal river behind the road.
+   - Generation ID: `call_T8CSCmhD0KVSE745b1lQ2ORf`
+6. `flat_north_village_02_main_street.png`
+   - Continue the exact road through the village center; varied small
+     storybook cottages, a child-readable forge and market frontage, warm
+     lantern rhythm, water behind the buildings, and a distant ice palace
+     silhouette pulling the eye right.
+   - Generation ID: `call_51kOHTscaR5XJ7aWQfQ8R08F`
+7. `flat_north_castle_forecourt.png`
+   - The village road arrives at a grand original moonlit crystal-palace
+     forecourt; broad welcoming gate, rounded towers, luminous fountains,
+     aurora sky, and a safe central path; elegant and celebratory, never
+     forbidding.
+   - Generation ID: `call_NwLu7S0bBbtMpHgNXaBvVZjY`
+8. `flat_north_castle_grand_hall.png`
+   - Interior finale: a vast original ice-and-crystal grand hall with one
+     central play floor, two symmetrical rounded sweeping staircases, an upper
+     gallery, three clearly implied bedroom bays, warm gold lamps, a luminous
+     fountain, and lavender/aqua crystal structure.
+   - Generation ID: `call_eW7sVdIXJCBNmjRwOx1VOQ6v`
+
+The original generator returned 1680x940 images. Those were resampled with
+FFmpeg to the preserved 1024x576 concept references. That historical resample
+is precisely why these files cannot satisfy the later native-2K contract.
+
+## Native >=2K exact-aspect fidelity regeneration contract
+
+Each pass must use the matching approved 1024x576 concept as its sole
+composition reference and append its panel-specific description above to this
+exact final instruction:
+
+> Resolution/detail-fidelity regeneration only. Create a new raster natively
+> with a long edge of at least 2048 pixels while preserving the attached
+> approved concept's exact aspect ratio within one-pixel rounding tolerance.
+> For this 1024x576 source, use 2048x1152 or a larger exact 16:9 size. The
+> attached approved concept is immutable for
+> composition: preserve its viewpoint, camera height, palette, lighting,
+> object identities and shapes, object placement, silhouettes, negative
+> space, navigation lane, interaction sockets, and foreground/midground/
+> background depth boundaries. Add, remove, replace, crop, stretch, pad, or
+> redesign nothing. Repaint the same scene with finer native detail and clean
+> storybook edges. Do not enlarge, resample, interpolate, AI-upscale, or pad
+> the supplied raster. Output one opaque RGB/RGBA landscape PNG with the exact
+> approved aspect ratio, no text, UI, logo, watermark, characters, or
+> franchise symbols.
+
+Acceptance requires all of the following:
+
+- the returned master has a native long edge of at least 2048 pixels;
+- its aspect ratio matches the approved source within one-pixel rounding
+  tolerance, with no crop, stretch, padding, canvas extension, or letterbox;
+- the generator path/ID, final prompt, references, dimensions, and SHA-256 are
+  recorded in `audit/northern_promenade_2k_manifest_2026-07-27.json`;
+- every no-transform field is false for resize, interpolation, AI upscale, and
+  padding;
+- the recorded programmatic invariance metrics match a fresh validator run;
+- the seven visual invariance checks are explicitly approved;
+- the strict validator returns `NORTH2K|RESULT|OK`.
+
+The built-in generator was tested once for the forest trail under the earlier
+fixed 2048x1024 request. It returned 1774x887
+(`call_SrDuCKzTy7NP8NGPzJDWI4DR.png`,
+SHA-256 `be38aa733b9f374f4dffb78dc19c46f7cc9172a43f8220bbb16d4713964a5e`)
+and was rejected. It was not copied into or wired to this repository.
+
+A second fixed-size test used the preserved forest concept as an edit target.
+It again returned 1774x887
+(`call_YpBbmEj65qx0BDfWAbX3pjGW.png`,
+SHA-256 `9f3b3d4820f1ee389f79855ee8ba49d239d89a8fba69f0ce763c85914e2e94b6`)
+and also moved the path, stream, stepping stones, foliage masses, and depth
+boundaries. It was rejected and remains outside the repository.
+
+After the exact-aspect correction, a third edit requested 2048x1152 and
+preserved the approved 16:9 composition closely, but returned only 1672x941
+(`call_tzfmJgUoo9nr6dJSCMjBc3PU.png`,
+SHA-256 `db0cc66cc90551774ffe28809c095658324634ccf8f27c5742b7735da489208d`).
+Its long edge is below 2048, so it was also rejected and remains outside the
+repository. It must not be upscaled.
+
+Accepted non-runtime-safe masters are preserved intact and sliced losslessly,
+without scaling, into non-overlapping tiles whose longest edge is <=1024.
+Adjacent unshaded Sprite3D cards reconstruct those tiles at one coherent depth.

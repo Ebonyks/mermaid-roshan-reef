@@ -1,0 +1,71 @@
+{
+  "artifact": "chooser_activity_worldfit_v2_candidate02",
+  "status": "review_only_pending_human_approval",
+  "purpose": "One bounded repair of candidate01 for adult review; not runtime art and not a canonical design decision.",
+  "repair_scope": [
+    "Removed the three repeated shell crests above the activity card headers; retained the single main-panel crest.",
+    "Changed Candymaker action from empty-mold emphasis to glossy syrup visibly coating a recognizable strawberry.",
+    "Replaced the invented lamb lead in Ballerina with approved Mermaid Roshan Ballerina and contextual stuffie relationship."
+  ],
+  "generation": {
+    "method": "built-in Codex image_gen edit",
+    "source_candidate": "assets_src/ui/worldfit_review_v2/chooser_activity_worldfit_v2_candidate01.png",
+    "source_candidate_sha256": "86239815AAC82910A187325231D8C3A53759C84FA355F0C44DCFE02FFA7016C9",
+    "native_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a074c0-ddea-7a71-a7e0-24747b063df9\\exec-50194793-1751-488f-a4c7-d5a1d0ea8968.png",
+    "workspace_path": "assets_src/ui/worldfit_review_v2/chooser_activity_worldfit_v2_candidate02.png",
+    "native_sha256": "233AD6E26F0E979519D0B4E93D02C5DAE7C22C41429E6866F770D5819667E1B8",
+    "workspace_sha256": "233AD6E26F0E979519D0B4E93D02C5DAE7C22C41429E6866F770D5819667E1B8",
+    "native_workspace_byte_identical": true,
+    "dimensions_px": [1671, 941],
+    "requested_source_canvas_px": [1672, 941],
+    "prompt_path": "assets_src/ui/worldfit_review_v2/chooser_activity_worldfit_v2_candidate02.prompt.txt",
+    "prompt_sha256": "E74D8C5C86848467691F7EE636512ED10FC37FCE5178CCBD5871C7C6B34A1DA8"
+  },
+  "directly_bound_edit_references": [
+    {
+      "path": "assets_src/ui/worldfit_review_v2/chooser_activity_worldfit_v2_candidate01.png",
+      "role": "complete source board; preserve layout/material/Painter/return",
+      "sha256": "86239815AAC82910A187325231D8C3A53759C84FA355F0C44DCFE02FFA7016C9"
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_ballerina.png",
+      "role": "approved Mermaid Roshan Ballerina identity",
+      "sha256": "3E1FF9AFCA613E7A009135A3B7878C4131DAAE7D12D4E7B3BDBA1CA1A91B5B27"
+    },
+    {
+      "path": "assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+      "role": "actual Candymaker ingredient/action subject",
+      "sha256": "3BEF406012E9A5EC90E18D3709B361F0AD0F9926F0961E05AAC67E3E0C454C5F"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png",
+      "role": "actual Ballerina stuffie context",
+      "sha256": "7ED4DAFFF1E3DAC12264D4A1C617095BF43D2F36FD8066476AA78725FE3DED67"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pour_candymaker.png",
+      "role": "actual Candymaker syrup/mold material and action reference",
+      "sha256": "61EDCAFC22DAF96EF520BFF323AF96E4201A6495EC2616CD8205D07DA605F4BF"
+    }
+  ],
+  "visual_review": {
+    "observed_passes": [
+      "Card-top crests are removed while the single main-panel crest remains.",
+      "Candymaker visibly pours a liquid syrup stream onto a recognizable strawberry in the scallop mold; cake, jars, sweets, and rich painted material remain.",
+      "Ballerina visibly uses approved Roshan Mermaid identity with rainbow forelock, coral/lilac costume, rainbow tail, pearl ribbon, and a contextual bunny stuffie.",
+      "Painter card, quiet panel, visible host room, neutral return doorway, and overall card arrangement are preserved.",
+      "Three cards remain large, separated, picture-first, and free of competing arrows or tiny controls."
+    ],
+    "remaining_review_constraints": [
+      "Generated board is an adult study, not runtime proof of 110x110 hit envelopes, focus, typography, or phone-scale readability.",
+      "The bunny companion is a contextual illustrative stand-in from the stuffie-nook relationship; protected friend identity should be bound separately for runtime use.",
+      "Actual generated output is 1671x941 despite the requested 1672x941 source canvas; preserve native bytes and resolve any production normalization only in a future approved reconstruction."
+    ]
+  },
+  "approval": {
+    "human_review_required": true,
+    "runtime_replacement_authorized": false,
+    "canonical_language_update": false,
+    "license_ledger_update": "Root-owned before any commit carrying the PNG"
+  }
+}

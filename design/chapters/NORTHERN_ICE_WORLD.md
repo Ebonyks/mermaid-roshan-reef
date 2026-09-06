@@ -8,6 +8,28 @@ Parent: [master audit planning entry](../../audit/MASTER_AUDIT_2026-08-09.md#0-p
 Method: [chapter guide](../09_CHAPTER_DEVELOPMENT_GUIDE.md) and
 [brief template](../templates/CHAPTER_BRIEF_V1.md).
 
+Current design exploration: [Northern Christmas world and career draft](NORTHERN_CHRISTMAS_DRAFT.md)
+and [illustrated review guide](../../assets_src/concepts/northern_christmas_2026-09-05/guide.html).
+The owner subsequently requested a Nordic/Christmas rough draft mixing old and
+new careers, with a detailed visual guide before producing games. That design
+scope is authorized; its proposed community story and six-career plan are not
+yet an implementation commission or accepted canon.
+
+
+### Source recovery and owner correction — revision 2
+
+The owner rejected V1's truncated art coverage, recreated castle and unverified
+bridge route while favoring its interaction ideas. The original eight-panel
+Northern family has now been recovered from staged/uncommitted files in
+`.worktrees/codex-northern-long-stage`: four forest views, two village views,
+castle forecourt and grand hall, plus 71 separated layer candidates. Eight
+native generations and ten concept/door variants are preserved alongside those
+layers (89 PNGs total). See the linked revision-2 guide and recovery manifest.
+The old “family still missing” discovery notes below are historical and are
+superseded by this recovery. The invented V1 overview is withdrawn as art and
+navigation authority. Use the established castle and original long route;
+retain the restaurant interaction plan. No runtime navigation fix is claimed.
+
 ## 1. Owner direction — 2026-09-05
 
 - The Ice World is a future development chapter. The owner values its existing
@@ -40,7 +62,7 @@ excuse to repurpose the Chapter 2 party cake, its saved progress, or its ending.
 | Decision | Current state | Next action |
 |---|---|---|
 | Region and restaurant/ordering opportunity | Owner-directed planning scope | Develop a bounded activity and asset shortlist here. |
-| Exact artwork and building | July 29 forest concept confirmed as part of the intended family; the larger collection/building selection remains incomplete | Trace related backgrounds, castle, and buildings from that source; inspect usage, approval, and 2D readiness before selecting the restaurant. |
+| Exact artwork and building | Eight original panels, native generations and 71 separated layers recovered; established castle/hall restored to the guide | Review existing-cottage restaurant candidates and required interior states; verify usage, approval and production coverage before runtime adoption. |
 | Full chapter entry/ending and main story role | Unspecified | Resolve with the owner when commissioning the chapter; do not invent a mandatory continuation of the Ember story. |
 | Menu, customers, recipes, service-session length, local payoff | Delegable detailed choices once the chapter brief is approved; current examples are proposals | Evaluate against reuse, comprehension, short sessions, and available cues. |
 | Runtime work | Future, not started by this planning request | Verify extension path, finish the brief, and establish implementation scope. |
@@ -48,8 +70,8 @@ excuse to repurpose the Chapter 2 party cake, its saved progress, or its ending.
 The owner clarified the intended art on 2026-09-05: a large family of flat,
 blue-centric Northern forest backgrounds including a castle, likely made in
 late July. The July 29 concept below is now an owner-confirmed family member.
-The related backgrounds, castle, and unused-building collection are still to be
-located; the earlier July model-kit previews are not substitutes for them.
+The related eight-panel backgrounds, castle and building collection have since
+been recovered in revision 2; earlier July model-kit previews are not substitutes.
 Continue source discovery from this confirmed image rather than requiring the
 owner to remember filenames or treating the single image as the entire library.
 
@@ -81,12 +103,19 @@ it cannot cook, deliver, or earn an order by itself. The game remains safe to
 leave at any point. If cooking heat advances over time, the final intentional
 completion gate and no-loss treatment must remain explicit.
 
-## 4. Initial discovery leads — not an accepted asset shortlist
+## 4. Historical discovery leads — superseded by revision-2 recovery
+
+The table below preserves the initial search record, not current missing-art
+instructions. Revision 2 above and the linked draft own current source status;
+the V1 invented overview is withdrawn as appearance/navigation authority.
 
 Static source review at `775ceee1`, 2026-09-05. These paths exist; visual fit,
 unused status, native production coverage, and current approval have not been
-established by this planning pass. No new asset is commissioned to fill a
-presumed gap before the intended source family is found.
+established by this planning pass. Production replacements must not be
+commissioned to fill a presumed gap before investigating the intended source
+family. The subsequent rough-draft request permits the linked, clearly labeled
+overview/interior composition studies for named planning gaps; they do not
+replace that collection or count as runtime-ready art.
 
 | Lead | Potential planning use | Evidence limit / next action |
 |---|---|---|
