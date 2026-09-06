@@ -1,32 +1,16 @@
-# Day One V4 + C14 — 3-set complete (owner approve-all)
+# Day One V4 + C14 — Dual pass COMPLETE (A primary + B b-roll)
 
-**Status:** COMPLETE_ALL_THREE_SETS  
-**Owner approval:** `approve all` (first frames + generation)  
-**Tag:** day1-v4-c14-3sets-2026-09-06  
-**Motion reference only** — `DELIVERY_ACCEPTED=false`
+**Status:** `COMPLETE_DUAL_PASS_A_PLUS_B`  
+**DELIVERY_ACCEPTED:** false
 
 ## Totals
+- Pass A (PRIMARY `*_APPROVED.mp4`): **22**
+- Pass B (BROLL `*_BROLL.mp4`): **22**
+- **44 clips**
 
-| Set | Scope | Clips |
-|-----|--------|------:|
-| SET1 | P0 hall route + arena + suds/rainbow-friend finale | 6 |
-| SET2 | P1 rooms, pool, rescue wingbeat, art desk | 10 |
-| SET3 | C14 team cleanup coda | 6 |
-| **ALL** | | **22** |
+## GitHub
+- Release: https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-v4-c14-3sets-2026-09-06
+- Branch: https://github.com/Ebonyks/mermaid-roshan-reef/tree/day1-v4-c14-3sets-complete-2026-09-06
+- **Codex handoff:** `CODEX_HANDOFF_DUAL_PASS_V4_C14.md`
 
-## Layout
-
-- `clips/SET1|SET2|SET3|ALL/` — named `*_APPROVED.mp4` (16:9 storybook image-to-video)
-- `first_frames/` — owner-approved opening stills (SHA-verified)
-- `manifests/` — SET*_COMPLETION.json, V4_C14_FULL_COMPLETION.json, workplan
-
-## Policy notes
-
-- Generated from exact approved first-frame filename+hash after owner `approve all`
-- Durations rounded up to tool limits (6s / 10s)
-- Single-shot per clip; ≤1 camera move; first-frame composition preserved
-- Status remains `MOTION_REFERENCE_OWNER_APPROVED_OPENING` until delivery acceptance
-
-## Download
-
-Prefer the **GitHub Release** assets (individual MP4s) over cloning this orphan branch if you only need videos.
+Local: `out_v4/ALL/` (44), `out_v4/BROLL/`, manifests dual + per-set.
