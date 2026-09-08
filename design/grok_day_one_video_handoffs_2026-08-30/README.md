@@ -52,3 +52,7 @@ out of the repository.
   handoff validator.
 - `DELIVERY_ACCEPTED`: **false; 0/14 movies**. Grok clips are not accepted
   delivery frames.
+
+## Chapter 2 handoff
+
+The separate [Sky Lagoon birthday and candle theft module](../../assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/README.md) contains the corrected character/prop scale, recovered approved royals, all eight job outputs, nine-shot board and individual draft prompts. It does not change the Day One readiness claims above.

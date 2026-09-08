@@ -1,0 +1,73 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "chapter2_lawn",
+  "shot_id": "C2-04",
+  "title": "Invitation and demand",
+  "status": "DRAFT",
+  "duration_seconds": 5,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "human_decision": "pending",
+      "blocking_gap": "An individually generated clean full-frame first image for this shot must be reviewed and accepted. Do not substitute this board or a gameplay capture."
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "characters/ember_king_v4.png",
+      "sha256": "422f7bd45a13f1d3c0304082727d72298e3bc01babd8919dc0c7e3e92777052c",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1005c597e17bfacc93d3d5669356b7a37beaf5a1/assets_src/cinematics/chapter2_lawn_2026-09-06/characters/ember_king_v4.png",
+      "hud_present": false,
+      "human_decision": "source authority only; binding review pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "references/roshan.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1005c597e17bfacc93d3d5669356b7a37beaf5a1/assets_src/cinematics/chapter2_lawn_2026-09-06/references/roshan.png",
+      "hud_present": false,
+      "human_decision": "source authority only; binding review pending"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "Roshan offers a welcoming hand; the King plants himself between her and the Prince"
+  ],
+  "must_not_move": [
+    "lawn layout",
+    "mountains",
+    "unaffected characters and props"
+  ],
+  "end_state": "the King faces Roshan while the Prince watches his father",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no drift",
+    "no injury",
+    "no changed King hairstyle"
+  ],
+  "prompt_path": "shots/C2-04/PROMPT.txt",
+  "prompt_sha256": "db3f6b3fab276c83384b9c862ed88de79ab752d6379e332c2b9f728b16131d2b",
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "blocking_findings": [
+    "human-approved clean first frame missing",
+    "final per-shot binding review pending",
+    "no accepted full-frame cinematic delivery"
+  ],
+  "scale_contract": "SCALE_CONTRACT.json"
+}

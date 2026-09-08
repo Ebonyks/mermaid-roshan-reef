@@ -1,0 +1,21 @@
+{
+  "source_baseline": "bad0e91924edcb98029da68fa9c696354dd92163",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "Mobile (NVIDIA RTX 3060 Ti), desktop only",
+  "files": {
+    "scripts/chapter_two_lawn_finale_2d.gd": "8fd77250e26add871b56b3e9e3c0234ba9aee257ea857455c9c33ed062e9c812",
+    "scripts/probe_chapter2_lawn.gd": "bfea2edd0fd528cee6bf381f4b3dd168b99733ac07446149a40ca15282737e5e",
+    ".tmp/chapter2/scale-accepted-focused.log": "9d02aeb3f631fb05a87cb0af3d13f1fe199994727280939309562225daec4344",
+    ".tmp/chapter2/scale-live-route.log": "c5e1cb39045d03d69f4c32318729c311beb8e041bdd796e9e0d4e930a799e00f"
+  },
+  "checks": {
+    "focused": "PASS; scale, grounding, contact, passive, all three rounds, saves and theft",
+    "live_route": "PASS; normal Main Hall entry, one global Back, return and resume"
+  },
+  "not_established": [
+    "target-device",
+    "child playtest",
+    "owner visual acceptance",
+    "cinematic first-frame acceptance"
+  ]
+}
