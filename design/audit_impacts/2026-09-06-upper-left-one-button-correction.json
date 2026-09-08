@@ -39,12 +39,12 @@
     {
       "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
       "result": "PASS",
-      "evidence": "Document authority and development audit passed before and after reconciliation. The merged candidate reported INVENTORY=556 LEDGER=556 ACTIVE=56 RECORDS=58 with all checks OK and passed development audit against bad0e91924edcb98029da68fa9c696354dd92163; all 51 audit unit tests passed before and after reconciliation."
+      "evidence": "Document authority and development audit passed across each reconciliation. The latest merged candidate reported INVENTORY=559 LEDGER=559 ACTIVE=56 RECORDS=58 with all checks OK and passed development audit against 1a1f7721f9ad1a216c6defd0bc997513b5c6e88f; all 51 audit unit tests and six stress controls passed."
     },
     {
       "command": "Godot 4.7.2-stable exact trusted and targeted probes",
       "result": "PASS",
-      "evidence": "Exact Godot 4.7.2-stable full scripts/ci.sh completed with exit 0 before reconciliation. Targeted probe_day_one_handoffs, probe_ui_system, probe_castle_pool_life_2d, probe_day_one_draft_integration, and probe_audit runs passed, including upper-left geometry, neutral Back semantics, absence of next-room overlays, and Back-to-hall-to-painted-door reachability; targeted exact-engine checks were repeated after reconciliation."
+      "evidence": "Exact Godot 4.7.2-stable full scripts/ci.sh completed with exit 0 before reconciliation. After the latest non-overlapping dev reconciliation, the full script analyzer and isolated probe_day_one_handoffs, probe_ui_system, probe_castle_pool_life_2d, probe_day_one_draft_integration, and probe_audit runs passed, including upper-left geometry, neutral Back semantics, absence of next-room overlays, and Back-to-hall-to-painted-door reachability."
     }
   ],
   "acceptance_gaps": "Machine checks do not close MA-PLAY-001 or MA-PLAY-003 and do not replace target-device, child, or owner acceptance. Existing protected recordings and art remain unchanged."
