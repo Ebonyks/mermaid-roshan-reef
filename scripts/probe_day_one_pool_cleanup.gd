@@ -32,6 +32,7 @@ func _run_probe() -> void:
 	host.name = "DayOnePoolProbeHost"
 	host.size = StorybookUI.CANVAS_SIZE
 	get_root().add_child(host)
+	await _probe_seahorse_mouth_contact(host)
 	var tap_player := AudioStreamPlayer.new()
 	host.add_child(tap_player)
 	main._tap_player = tap_player
@@ -367,6 +368,40 @@ func _probe_contextual_voice_wiring() -> void:
 func _record_restored_completion(activity_id: String) -> void:
 	restored_completion_events[activity_id] = int(
 		restored_completion_events.get(activity_id, 0)) + 1
+
+
+func _probe_seahorse_mouth_contact(host: Control) -> void:
+	var activity: PoolSeahorseRescueActivity = POOL_SEAHORSE.new()
+	host.add_child(activity)
+	# Different aspect ratios expose mapping against the fixture rectangle
+	# instead of the fitted artwork. These pixels are measured in the source PNGs.
+	for bounds: Vector2 in [Vector2(208.75, 241.25), Vector2(400, 160), Vector2(120, 360)]:
+		activity.setup(Vector2(921.875, 245.625), bounds, 3)
+		activity.start()
+		var seahorse: Sprite2D = activity.get_node("SickSeahorseBase") as Sprite2D
+		var prop: Sprite2D = activity.get_node("MouthTrashPullProp") as Sprite2D
+		var mouth_pixel := Vector2(394, 322) - seahorse.texture.get_size() * 0.5
+		var stem_pixel := Vector2(1011.712, 393.984) - prop.texture.get_size() * 0.5
+		var maximum_gap: float = prop.to_global(stem_pixel).distance_to(
+			seahorse.to_global(mouth_pixel))
+		# Slow, then overlapping rapid tugs; sample every rendered frame.
+		activity.probe_tap()
+		for frame: int in range(30):
+			if frame == 15 or frame == 16:
+				activity.probe_tap()
+			await process_frame
+			maximum_gap = maxf(maximum_gap, prop.to_global(stem_pixel).distance_to(
+				seahorse.to_global(mouth_pixel)))
+		activity.stop()
+		await create_timer(0.40).timeout
+		maximum_gap = maxf(maximum_gap, prop.to_global(stem_pixel).distance_to(
+			seahorse.to_global(mouth_pixel)))
+		_check("seahorse stem stays in mouth through restored/slow/rapid/stopped tugs %s" % bounds,
+			maximum_gap < 0.5 and is_zero_approx(prop.rotation))
+		_check("socket animation preserves partial progress without completing",
+			int(activity.audit_snapshot().get("taps", 0)) == 6
+			and not bool(activity.audit_snapshot().get("completed", true)))
+	activity.free()
 
 
 func _probe_trash_atlas_sampling(activity: PoolSkimmerActivity) -> void:

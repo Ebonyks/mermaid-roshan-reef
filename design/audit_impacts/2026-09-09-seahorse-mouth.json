@@ -1,0 +1,60 @@
+{
+  "id": "2026-09-09-seahorse-mouth",
+  "scope": "Correct the Day One seahorse mouth socket mapping and retain stem contact through all pre-release tugs using existing artwork.",
+  "baseline": "9ad30ed60db656fa147a73398cc8e8371cf6062b",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-CODE-03",
+    "DL-QA-07"
+  ],
+  "findings": [],
+  "no_findings_reason": "The reported mouth/prop mapping defect has no dedicated canonical finding. MA-PLAY-004 concerns Roshan travelling to and performing jobs; this bounded socket correction does not resolve or change that finding's facts or lifecycle.",
+  "files": [
+    "scripts/games/pool_seahorse_rescue_activity.gd",
+    "scripts/probe_day_one_pool_cleanup.gd"
+  ],
+  "validation": [
+    {
+      "command": "Owner screenshot and source/art socket inspection",
+      "result": "PASS",
+      "evidence": "User attachment codex-clipboard-f7d9b5f0-8924-4ebe-bc38-88b3c7b0925c.png shows the first tug detached; baseline maps against fixture bounds and leaves translated/rotated trash displaced. Existing 936x1024 seahorse socket measured at (394,322); existing 1024x576 prop uses the far right stem tip."
+    },
+    {
+      "command": "python -m gdtoolkit.parser scripts/games/pool_seahorse_rescue_activity.gd scripts/probe_day_one_pool_cleanup.gd; python tools/lint_inference.py scripts/games/pool_seahorse_rescue_activity.gd scripts/probe_day_one_pool_cleanup.gd",
+      "result": "PASS",
+      "evidence": "Both commands exited zero on the candidate source; source SHA-256: 4a36524b9044d5e0c8033cdb04ad32d735934102072f2822c7133051d935d52a"
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "DOCAUTH inventory/ledger 559/559, 56 active/58 retained records; AUDITDEV ALL OK against exact baseline 9ad30ed60db656fa147a73398cc8e8371cf6062b."
+    },
+    {
+      "command": "Godot 4.7.2 --headless --path tmp/seahorse-mouth/{baseline,candidate} -s probe.gd",
+      "result": "PASS",
+      "evidence": "Differential diagnostic executes the added contact probe helper against original versus repaired controller and identical runtime textures. Baseline fails all three contact cases; candidate passes all six checks. Logs tmp/seahorse-mouth/baseline-probe.log SHA256 a547429a441ad9b3266839d391af0bf88080075927353eb2704ad2aba46d9bd6; candidate-probe.log SHA256 385623017a56996100eb5c7c2f16e2af2b28c8a5dc2d4826c1f2d00b952716b9. Official engine 4.7.2.stable.official.ed1daf0bf."
+    },
+    {
+      "command": "GODOT=C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe bash scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "Full local gate exit 0; 78 trusted probe processes exited 0, including added socket regression. Log tmp/seahorse-mouth/full-ci.log SHA256 dd293a46775be5a2b8ba82f623372f4791d810d2b434aa0fb9c3f0f9f6e4f841. Godot 4.7.2.stable.official.ed1daf0bf. Import sidecars normalize to unchanged Git content."
+    },
+    {
+      "command": "Godot 4.7.2 --headless --path . -s scripts/probe_day_one_pool_cleanup.gd",
+      "result": "PASS",
+      "evidence": "Integrated pool regression PASS checks_failed=0; socket geometry, monotonic progress, final extraction, Rumi reveal and teardown. Log tmp/seahorse-mouth/pool-probe.log SHA256 c38328ccdb0bcba7a85148a21ee991e8935bbaebe365cb4b976a5dd9390232e3"
+    },
+    {
+      "command": "Godot 4.7.2 --path . --rendering-method mobile -s scripts/probe_day_one_pool_shots.gd",
+      "result": "PASS",
+      "evidence": "Capture probe PASS failures=0; Vulkan Forward Mobile on NVIDIA RTX 3060 Ti, 2560x1369 desktop viewport. Visually inspected captures 05 and 06: stem remains in the mouth during the fourth tug and releases on the eighth. Log tmp/seahorse-mouth/capture.log SHA256 b3c64e56fd51450fc83d14f3ba6a4721c766580f49ccac8fa67383a19c71ab27; 05_seahorse_tug_midway.png SHA256 33363a900e537ed5e4f659b81e7660eef36b08dccbbf156f29e54285eadabe55; 06_seahorse_trash_release.png SHA256 5bcfa01a17946f0d65fc3b88602ae9d33edaf826e543a9230375194a092e525d"
+    }
+  ],
+  "acceptance_gaps": "Full local gate and scoped desktop Mobile visual review pass. Exact-head remote CI remains pending; Lenovo Tab M11, child and owner acceptance remain outstanding. MA-PLAY-004 remains open independently. No artwork, voice, save keys or unrelated working-tree files were changed."
+}
