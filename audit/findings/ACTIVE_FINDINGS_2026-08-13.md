@@ -61,7 +61,7 @@ device, child, human, or owner acceptance.
 | acceptance | All eleven GAME2D categories are zero and strict, import, focused, surrounding, and full probes pass at the same candidate. |
 | closure | Open as of 2026-08-13; no zero-category result, strict pass, closure commit, device result, or acceptance date exists. |
 | relationships | Parent game-wide debt for resolved `MA-DOLLS-001` and `MA-SEEK-001`; overlaps active `MA-VIS-002`, `MA-VIS-006`, and `MA-CODE-002`; documentation premise fixed by `MA-DOC-001`. |
-| history | 2026-08-09: indexed from the full game-wide audit. 2026-08-12: Dolls, Seek, and bounded Opera sources reduced the baseline. 2026-08-13: true-Canvas Sky source `51d0abc0` reduces current production/probe 3D-file counts to 65/70 while the model count stays 509; lifecycle remains `IN_PROGRESS` because strict is unsatisfied. |
+| history | 2026-08-09: indexed from the full game-wide audit. 2026-08-12: Dolls, Seek, and bounded Opera sources reduced the baseline. 2026-08-13: true-Canvas Sky source `51d0abc0` reduces current production/probe 3D-file counts to 65/70 while the model count stays 509; lifecycle remains `IN_PROGRESS` because strict is unsatisfied. 2026-09-09: owner screenshot prompted bounded retirement of the advertised Reef route and legacy ocean exits; candidate/evidence in `design/audit_impacts/retired-reef-20260909.json`. Shared 3D inventory and full device/child traversal remain open; no lifecycle closure is claimed. |
 
 ## MA-DOC-002
 
@@ -245,7 +245,7 @@ device, child, human, or owner acceptance.
 | acceptance | A fresh-save exact-candidate device session reaches and re-enters every visible destination without cheats, reading, traps, or progress loss. |
 | closure | Open as of 2026-08-13; full route matrix, target-device recording, child observation, closure commit, and date are missing. |
 | relationships | External comprehension closure overlaps `MA-CHILD-001`; exact voice gaps overlap `MA-ACCESS-001` and `MA-ACCESS-003`; release gate under `MA-RELEASE-001`. |
-| history | 2026-08-09: confirmed missing game-wide proof. 2026-08-13: bounded route evidence improved, but lifecycle remains `CONFIRMED_OPEN`. |
+| history | 2026-08-09: confirmed missing game-wide proof. 2026-08-13: bounded route evidence improved, but lifecycle remains `CONFIRMED_OPEN`. 2026-09-09: owner screenshot prompted bounded retirement of the advertised Reef route and legacy ocean exits; candidate/evidence in `design/audit_impacts/retired-reef-20260909.json`. Shared 3D inventory and full device/child traversal remain open; no lifecycle closure is claimed. |
 
 ## MA-ACCESS-001
 

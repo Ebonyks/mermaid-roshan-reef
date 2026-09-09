@@ -818,6 +818,7 @@ var animals_owned := {}    # tank friends released into the reef (persisted)
 var animals_spawned := {}  # runtime: released species already swimming this session
 var flora_nodes: Array = []
 var first_session := true
+var _authored_world_session := false
 var start_menu_active := false
 var start_menu_layer: CanvasLayer = null
 var chime: AudioStreamPlayer
@@ -4151,6 +4152,7 @@ func _launch_from_start_menu(start_day_one: bool) -> void:
 			_enter_level2_now(false, false, true)
 
 func _prepare_start_menu_launch(start_day_one: bool) -> void:
+	_authored_world_session = true
 	first_session = false
 	# Initialize the director before selecting the mode: its constructor
 	# normalizes default Day 1 state and must not overwrite a Continue choice.
@@ -6293,6 +6295,7 @@ func _build_fairy_pond(o: Vector3) -> void:
 
 func _tick_level2(delta: float, ppos: Vector3) -> void:
 	if String(g.get("phase", "")) == "promenade":
+		_companion_ref().tick_canvas_care(delta)
 		_lagoon_promenade_ref().tick(delta)
 		return
 	_lagoon_ref()._tick_level2(delta, ppos)
@@ -9195,20 +9198,16 @@ func _exit_level2() -> void:
 	else:
 		_fade_cut(_exit_level2_now)
 
-func _enter_ocean_kingdom(kingdom: String) -> void:
-	if kingdom != ReefDistricts.KINGDOM_CARIBBEAN and kingdom != ReefDistricts.KINGDOM_NORWEGIAN:
-		kingdom = ReefDistricts.KINGDOM_CARIBBEAN
-	_fade_cut(_exit_level2_now.bind(kingdom))
+func _enter_ocean_kingdom(_kingdom: String) -> void:
+	# Compatibility entry names cannot revive the retired world.
+	_fade_cut(_exit_level2_now)
 
-func _exit_level2_now(target_kingdom: String = "") -> void:
+func _exit_level2_now(_target_kingdom: String = "") -> void:
 	if day_one_is_active():
 		_day_one_reorient_after_exit_now()
 		return
 	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
 		_castle_rooms_25d.close()
-	player.visible = true
-	if player.cam != null and player.cam.is_inside_tree():
-		player.cam.make_current()
 	if sleep_t >= 0.0:
 		# Leaving mid-tuck-in (pause -> Leave): _tick_sleep only runs in the
 		# hall, so nothing would ever release the "sleep" input block or the
@@ -9224,62 +9223,9 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 		if player != null:
 			player.rotation_degrees = Vector3.ZERO
 		_set_world_controls_enabled(true, "sleep")
-	player.cam_back = 25.0   # diorama lens default
-	player.cam_high = 6.5
-	_tap_move_ref().cancel("sky_canvas_exit")
-	_interaction_ref().clear_focus()
-	touch_interactables.clear()
-	lagoon_trip_return_master_x = -1.0
-	game = ""
-	# Sky Lagoon is the navigation root even while Roshan visits the Reef. One
-	# Back press returns from this world layer; the same control then becomes Menu.
-	_navigation_set_root("sky_lagoon")
-	_navigation_push("reef_world", self, Callable(self, "_enter_level2"))
-	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
-		_sky_lagoon_promenade.teardown()
-	g = {}
-	hud_game.text = ""
-	for n in game_nodes:
-		if is_instance_valid(n):
-			n.queue_free()
-	game_nodes.clear()
-	arena_solids.clear()
-	arena_zones.clear()
-	fade_walls.clear()
-	we_node.environment = world_env
-	if sun_light != null:
-		sun_light.visible = true
-	arena_center = ARENA_POS
-	arena_dome = 48.0
-	arena_ceil = 42.0
-	portal_cool = 8.0
-	portal_armed = false
-	if target_kingdom != "":
-		ocean_kingdom = target_kingdom
-		ocean_routes_enabled = true
-		var entry_xz: Vector2 = ReefDistricts.kingdom_entry_point(ocean_kingdom)
-		var destination_xz: Vector2 = ReefDistricts.kingdom_destination_center(ocean_kingdom)
-		player.position = Vector3(entry_xz.x,
-			seabed_y(entry_xz.x, entry_xz.y) + 6.0, entry_xz.y)
-		var into_kingdom: Vector2 = destination_xz - entry_xz
-		player.yaw = atan2(into_kingdom.x, into_kingdom.y)
-		ocean_return_gate_armed = false
-		ocean_return_gate_cool = 2.5
-	elif portal_node != null and is_instance_valid(portal_node):
-		# beside the seabed portal, resting on the ocean floor (never below it)
-		player.position = portal_node.position + Vector3(22, 0, 22)
-		player.position.y = seabed_y(player.position.x, player.position.z) + 6.0
-	else:
-		player.position = return_pos
-	player.vel = Vector3.ZERO
-	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
-	_play_music("world")
-	if target_kingdom == ReefDistricts.KINGDOM_NORWEGIAN:
-		show_msg("Roshan", "The icy waters of Norway! Follow the blue currents through the kelp and fjord!", "pearl2")
-	elif target_kingdom == ReefDistricts.KINGDOM_CARIBBEAN:
-		show_msg("Roshan", "The sunny Caribbean! Follow the warm shells and rainbow coral!", "pearl")
-	else:
-		show_msg("Roshan", "Back in the Reef! I love swimming!", "idle2")
+	ocean_routes_enabled = false
+	ocean_return_gate_armed = false
+	_enter_level2_now(true)
 
 func _day_one_reorient_after_exit_now() -> void:
 	if not day_one_is_active():
@@ -9297,42 +9243,12 @@ func _finish_level2() -> void:
 
 func _do_finish_level2() -> void:
 	level2_finishing = false
-	player.cam_back = 25.0   # restore the outdoor diorama lens (tightened for the hall)
-	player.cam_high = 6.5
-	for i in range(10):
-		_sparkle_burst(player.position + Vector3(randf() * 12 - 6, randf() * 8, randf() * 12 - 6), Color.from_hsv(randf(), 0.6, 1.0))
 	level2_done_once = true
 	_write_save()
 	if voice != null:
 		voice.pitch_scale = 1.15
 		_play_success_yay(voice.pitch_scale)
-	game = ""
-	g = {}
-	hud_game.text = ""
-	for n in game_nodes:
-		if is_instance_valid(n):
-			n.queue_free()
-	game_nodes.clear()
-	arena_solids.clear()
-	arena_zones.clear()
-	fade_walls.clear()
-	we_node.environment = world_env
-	if sun_light != null:
-		sun_light.visible = true
-	arena_center = ARENA_POS
-	arena_dome = 48.0
-	arena_ceil = 42.0
-	portal_cool = 6.0
-	portal_armed = false
-	# beside the portal but clearly off it, resting on the ocean floor
-	if portal_node != null and is_instance_valid(portal_node):
-		player.position = portal_node.position + Vector3(22, 0, 22)
-		player.position.y = seabed_y(player.position.x, player.position.z) + 6.0
-	else:
-		player.position = return_pos
-	player.vel = Vector3.ZERO
-	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
-	_play_music("world")
+	_exit_level2_now()
 	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Castle now!", "win")
 
 func _beans_go() -> void:
@@ -10485,6 +10401,11 @@ func _tick_ocean_return_gate(delta: float, ppos: Vector3) -> bool:
 	return false
 
 func _process(delta: float) -> void:
+	# Legacy activity callbacks can restore an empty world ID. Once the authored
+	# session starts, that ID must recover to Canvas before processing reef input.
+	if _authored_world_session and game == "" and mg_kind == "" \
+			and not start_menu_active and not intro_active:
+		_exit_level2_now()
 	_sync_pause_surface_layer()
 	var slide_canvas_active: bool = _slide_canvas_fish_route_active()
 	var slide_canvas_return_was_active: bool = _slide_canvas_return_guard_active()
@@ -10625,6 +10546,7 @@ func _process(delta: float) -> void:
 		if caustics_plane != null and caustics_plane.visible:
 			caustics_plane.visible = false
 		g["t"] = float(g.get("t", 0.0)) + delta
+		_companion_ref().tick_canvas_care(delta)
 		_lagoon_promenade_ref().tick(delta)
 		if touch_ui != null:
 			touch_ui.set_action_label(_lagoon_promenade_ref().action_label())

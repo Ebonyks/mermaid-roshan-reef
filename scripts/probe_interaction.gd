@@ -157,7 +157,6 @@ func _init() -> void:
 		promenade_ids[promenade_id] = true
 		var expected_affordance: String = Affordance.PLOT \
 			if promenade_id == "castle_gate" \
-			else Affordance.INTERACTION if promenade_id == "reef_route" \
 			else Affordance.ANIMATION
 		var target_node: CanvasItem = promenade_target.get("node") as CanvasItem
 		var highlight: CanvasItem = promenade_target.get("highlight") as CanvasItem
@@ -172,14 +171,14 @@ func _init() -> void:
 				or float(target_node.get_meta("touch_footprint_px", 0.0)) < 220.0 \
 				or float(promenade_target.get("radius_px", 0.0)) < 110.0:
 			_bad("promenade Canvas target contract wrong for %s" % promenade_id)
-	for expected: String in ["reef_route", "slide", "swing", "seesaw", "castle_gate"]:
+	for expected: String in ["slide", "swing", "seesaw", "castle_gate"]:
 		if not promenade_ids.has(expected):
 			_bad("promenade interaction missing %s" % expected)
 	for removed_frame: String in ["runway_frame", "playground_frame", "castle_frame"]:
 		if promenade_ids.has(removed_frame):
 			_bad("removed lawn picture still interactive: %s" % removed_frame)
-	if promenade_targets.size() != 5:
-		_bad("promenade roster must contain the permanent Reef route and four toys/landmarks")
+	if promenade_targets.size() != 4 or promenade_ids.has("reef_route"):
+		_bad("promenade must expose only the four live toys/landmarks")
 
 	# Exercise the first-visit Crown Star target, not the already-won keepsake.
 	# The castle is one picture-first Sprite2D stage, not a second free-roaming
@@ -802,29 +801,14 @@ func _init() -> void:
 	if rooms.is_open() or main.castle_room_world_root != null:
 		_bad("leaving Level 2 retained the castle Sprite2D stage")
 
-	# Fix regression (Hybrid contract): the sparring den may advertise by
-	# proximity but must start ONLY from its explicit tap target.
+	# Retiring the world also retires its proximity-only den advertisement.
 	main.companion_id = "eagle"
 	main.companion_resting = false
 	main.stuffie_cool = 0.0
 	await _frames(30)
-	if main.companion_den == null or not is_instance_valid(main.companion_den):
-		_bad("companion den never built for the contract check")
-	else:
-		main.player.position = main.companion_den.position + Vector3(1.0, 1.0, 0.0)
-		main.player.vel = Vector3.ZERO
-		await _frames(20)
-		if main.game != "":
-			_bad("Hybrid proximity auto-started the sparring battle")
-		main._populate_touch_interactables()
-		if not _ids().has("reef:den"):
-			_bad("sparring den is not an explicit touch target in Hybrid")
-		main._activate_touch_interactable("reef:den")
-		await _frames(4)
-		if main.game != "stuffie":
-			_bad("explicit den target did not start the battle")
-		if bool(main.touch_auto_active) or not main.touch_focus_id.is_empty():
-			_bad("battle start kept stale focus/assisted travel")
+	main._populate_touch_interactables()
+	if main.game != "level2" or _has_id_prefix("reef:"):
+		_bad("retired reef interaction leaked into the live Canvas return")
 
 	main._set_touch_mode("classic", false)
 	if main.touch_uses_explicit_interactions() or main.touch_auto_active:

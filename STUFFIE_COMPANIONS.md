@@ -180,6 +180,8 @@ pointer + voice line). Swimming in starts `StuffieBattle`:
 
 ## Growth — Tamagotchi care (owner 2026-07-20; REPLACES the collectible model)
 
+Current Canvas behavior (2026-09-09): Menu care runs in the live 2D promenade without opening the retired reef or constructing its follower/den. Requests wait patiently. Choosing the requested care saves one growth point immediately, then shows a heart pulse and plays the care chime. Repeated or unasked care remains affection without extra points. The historical swimming/follower presentation below does not authorize a route back to the retired world.
+
 The stuffie grows because she TAKES CARE of it. Every so often (45–75s of
 free-roam) it shows a want bubble: 🍎 hungry · 💤 sleepy · 🫧 bath ·
 ❤ cuddle · 🎾 play — with a voice line. Swim close, tap THE button, and a

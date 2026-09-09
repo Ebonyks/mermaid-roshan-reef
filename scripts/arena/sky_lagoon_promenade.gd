@@ -355,8 +355,7 @@ func handle_touch(screen_pos: Vector2) -> bool:
 		return true
 	m.g["lagoon_walk_goal_master"] = null
 	var target_id: String = String(target.get("id", ""))
-	if String(target.get("kind", "")) == "reef" \
-			or String(m.g.get("lagoon_promenade_focus", "")) == target_id:
+	if String(m.g.get("lagoon_promenade_focus", "")) == target_id:
 		_activate(target)
 		_clear_focus()
 	else:
@@ -387,7 +386,6 @@ func action_label() -> String:
 			continue
 		match String(target.get("kind", "")):
 			"castle": return "ENTER"
-			"reef": return "FLY"
 			_: return "PLAY"
 	return "JUMP"
 
@@ -519,7 +517,7 @@ func _build_runway_screen() -> void:
 	plane.name = "SkyLagoonArrivalPlane"
 	m.g["lagoon_plane_card"] = plane
 	m.g["lagoon_plane_t"] = 0.0
-	_register_target("reef_route", plane, "reef", "reef", 132.0, 1.10)
+	# Arrival plane is scenery; the retired reef is not a destination.
 
 func _build_reef_route_marker() -> void:
 	var plane := _make_sprite(
@@ -527,7 +525,7 @@ func _build_reef_route_marker() -> void:
 		Vector2(310, 1040), 270.0, true, m.g.get("lagoon_landmark_layer") as Node2D)
 	plane.name = "SkyLagoonReefPlane"
 	m.g["lagoon_reef_route_card"] = plane
-	_register_target("reef_route", plane, "reef", "reef", 132.0, 1.12)
+	# Preserve the approved plane art without advertising a retired route.
 
 func _build_playground_screen() -> void:
 	var holder: Node2D = m.g.get("lagoon_interactive_layer") as Node2D
@@ -712,10 +710,10 @@ func _register_target(id: String, node: Node2D, kind: String, payload: String,
 		radius_px: float, highlight_scale: float, highlight_path: String = "",
 		highlight_height: float = 0.0) -> void:
 	var affordance_kind: String = Affordance.PLOT if kind == "castle" \
-		else Affordance.INTERACTION if kind == "reef" else Affordance.ANIMATION
+		else Affordance.ANIMATION
 	var glow := Sprite2D.new()
 	glow.name = "SkyLagoonFocus_%s" % id
-	if kind == "playground" or kind == "reef":
+	if kind == "playground":
 		# A neutral procedural ring plus arrow names the object without cloning
 		# any of its pixels. At the full-height phone scale the selected composite
 		# remains over 64 px and its tip lands on the source card's top edge.
@@ -738,13 +736,13 @@ func _register_target(id: String, node: Node2D, kind: String, payload: String,
 		var source := node as Sprite2D
 		glow.texture = source.texture
 		glow.scale = source.scale
-	if kind != "playground" and kind != "reef":
+	if kind != "playground":
 		glow.position = node.position
 	var idle_tint: Color = Affordance.color(affordance_kind, false)
 	# A complete duplicate object is never the affordance. Idle animation targets
 	# use a nearly invisible shimmer; selection raises the same pixels briefly.
 	idle_tint.a = minf(idle_tint.a,
-		0.055 if kind == "playground" or kind == "reef" else 0.10)
+		0.055 if kind == "playground" else 0.10)
 	glow.modulate = idle_tint
 	glow.visible = true
 	glow.z_index = node.z_index + 4
@@ -857,11 +855,6 @@ func _tick_target_affordances(focus_id: String, focus_t: float) -> void:
 
 func _activate(target: Dictionary) -> void:
 	match String(target.get("kind", "")):
-		"reef":
-			if m.day_one_is_active():
-				m._day_one_refuse_reef_exit()
-			else:
-				m._exit_level2()
 		"playground":
 			_start_playground_animation(String(target.get("payload", "")), target.get("node") as Node2D)
 		"castle":
@@ -1132,16 +1125,6 @@ func _tick_plane_arrival(delta: float) -> void:
 func _finish_plane_arrival() -> void:
 	var plane: Sprite2D = m.g.get("lagoon_plane_card") as Sprite2D
 	if plane != null and is_instance_valid(plane):
-		var target_index: int = _target_index("reef_route")
-		if target_index >= 0:
-			var targets: Array = m.g.get("lagoon_promenade_targets", []) as Array
-			var old_target: Dictionary = targets[target_index] as Dictionary
-			var highlight: Sprite2D = old_target.get("highlight") as Sprite2D
-			if highlight != null and is_instance_valid(highlight):
-				if highlight.get_parent() != null:
-					highlight.get_parent().remove_child(highlight)
-				highlight.free()
-			targets.remove_at(target_index)
 		if plane.get_parent() != null:
 			plane.get_parent().remove_child(plane)
 		plane.free()
@@ -1158,12 +1141,11 @@ func _target_index(target_id: String) -> int:
 	return -1
 
 func _show_reef_route_guidance() -> void:
-	for value: Variant in m.g.get("lagoon_promenade_targets", []) as Array:
-		var target: Dictionary = value as Dictionary
-		if String(target.get("id", "")) == "reef_route":
-			_focus(target)
-			break
-	m.show_msg("Roshan", "Tap the pearl plane to visit the Reef!", "intro4")
+	# Retained callback name for pending arrival cues; guide to the live castle.
+	var target: Dictionary = _target_by_id("castle_gate")
+	if not target.is_empty():
+		_focus(target)
+	m.show_msg("Roshan", "Let's go to the castle!", "roshan_day1_castle")
 
 func _target_by_id(target_id: String) -> Dictionary:
 	for value: Variant in m.g.get("lagoon_promenade_targets", []) as Array:

@@ -1,0 +1,98 @@
+{
+  "id": "retired-reef-20260909",
+  "scope": "Owner screenshot: retire reachable legacy 3D reef exits, preserve save progress, and replace ocean reachability expectations with non-reachability coverage. Archive authority remains origin/codex/deprecated-resources-roshan-20260809 at 9329d9a64b230908f6c77f1b17d8d231a29c5d38. Shared legacy bootstrap dependencies require separate measured retirement; no global zero-debt claim. Review found a stale Pause fallback Reef label and UI probe expectation; remove that destination promise as part of retirement. Preserve Menu care requests/growth on the live Canvas without follower/den construction; preserve isolated legacy companion-unit coverage using a fresh headless fixture, not retired navigation.",
+  "baseline": "9ad30ed60db656fa147a73398cc8e8371cf6062b",
+  "rules": [
+    "DL-AGE-04",
+    "DL-AGE-06",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-04",
+    "DL-MED-08",
+    "DL-MED-09",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-UI-07"
+  ],
+  "findings": [
+    "MA-2D-002",
+    "MA-PLAY-001"
+  ],
+  "files": [
+    "STUFFIE_COMPANIONS.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "scripts/arena/sky_lagoon_promenade.gd",
+    "scripts/companion.gd",
+    "scripts/main.gd",
+    "scripts/pause_menu.gd",
+    "scripts/probe_audit.gd",
+    "scripts/probe_boot_display.gd",
+    "scripts/probe_interaction.gd",
+    "scripts/probe_l2.gd",
+    "scripts/probe_l2_living_cards.gd",
+    "scripts/probe_l2_reenter.gd",
+    "scripts/probe_ocean_kingdoms.gd",
+    "scripts/probe_sky_lagoon_art.gd",
+    "scripts/probe_start_menu_routing.gd",
+    "scripts/probe_stuffie.gd",
+    "scripts/probe_touch_stress.gd",
+    "scripts/probe_train.gd",
+    "scripts/probe_ui_system.gd",
+    "tools/game_2d_migration_manifest.json"
+  ],
+  "validation": [
+    {
+      "command": "Source baseline: _exit_level2_now and promenade reef_route",
+      "result": "FAIL",
+      "evidence": "Baseline has unconditional post-Day-One ocean restoration and probe_ocean_kingdoms asserts caribbean_enters_open_ocean and norway_enters_open_ocean; owner screenshot supplies visual symptom."
+    },
+    {
+      "command": "git ls-remote --heads origin *deprecated*; git ls-tree archive scripts/main.gd scripts/reef_districts.gd",
+      "result": "PASS",
+      "evidence": "Remote archive 9329d9a64b230908f6c77f1b17d8d231a29c5d38; main blob b823c8f94d2092418c55e7129ac312e06216910f, district blob 1ca27c0f44665fcda1fc566b20c4dfbb68103e09."
+    },
+    {
+      "command": "Godot 4.7.2 focused headless probes",
+      "result": "PASS",
+      "evidence": "tmp/retired-reef/probe_ocean_kingdoms.log, probe_l2.log, probe_l2_living_cards.log, probe_interaction.log, probe_touch_stress.log and probe_l2_reenter.log; exact 4.7.2.stable.official.ed1daf0bf. Later-day fixtures explicitly dismiss intro/clear Day One; saves isolated."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "tmp/retired-reef/authority.log and coverage.log ALL OK; document-tests.log 51 tests OK."
+    },
+    {
+      "command": "GODOT=C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot.exe scripts/ci.sh; exact unchanged trusted-probe loop resumed separately",
+      "result": "PASS",
+      "evidence": "tmp/retired-reef/final-ci.log passes every static gate and exact Godot 4.7.2 import, then stops because API names quoted in this impact prose were scanned as production debt. Reworded prose only; unchanged gate and ceiling pass in 2d-regression.log. final-runtime-suite.log runs the verbatim scripts/ci.sh trusted loop with identical isolation, touch modes and failure patterns: 78 probes, every exit 0, no reported failure. Complete staged verification; no uninterrupted scripts/ci.sh success claimed."
+    },
+    {
+      "command": "Real-display probe_boot_display and temporary capture probe; visual review",
+      "result": "PASS",
+      "evidence": "Exact Godot 4.7.2 Mobile; tmp/retired-reef/capture.log RESULT|PASS. Inspected 1280-wide review copies: live castle exterior return and intentional care menu with saved growth, no retired ocean. Desktop evidence only. canvas-return.png SHA256 d33a61baaacf57c18e0dbc5048c7dcc3f9d179b6525b93ad82fa41191c5bac71; canvas-care.png SHA256 90e76c10b12f18d5fbbc20d74a230cc53faec2952835c6e23ea3da8713edcc3d. Runtime binding: scripts/main.gd LF-SHA256 52e12974123d32b67f914b6ca9629df08d404b68647f5e5b9a055320f3fadac8; scripts/companion.gd LF-SHA256 f59015c657550b51a5adb8c68e357ec7922e7ca4fbb47eb989d06ebea73a815f; scripts/arena/sky_lagoon_promenade.gd LF-SHA256 fa95448dcf78d8aa21d0397eddd28dee827cc956d76a56f478a74ce96248a212; scripts/pause_menu.gd LF-SHA256 2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --refresh-manifest; python -B tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "tmp/retired-reef/2d-refresh.log and 2d-regression.log: exact debt inventory shrank, initial ceiling preserved, NO_REGRESSION; strict remains UNSATISFIED. Spatial-vector references: main 467->461, interaction probe 11->9, ocean probe 2->0; ocean probe spatial-node references 3->1."
+    },
+    {
+      "command": "Godot 4.7.2 -s scripts/probe_ui_system.gd -- --touch --classic-touch-test",
+      "result": "PASS",
+      "evidence": "tmp/retired-reef/probe_ui_system.log UI_SYSTEM|RESULT|ALL OK. Replaces the first loop failure from the obsolete reef_world and REEF-label expectations; no runtime reachability gate was weakened."
+    },
+    {
+      "command": "python -m gdtoolkit.parser <all changed GDScript>; python tools/lint_inference.py <all changed GDScript>",
+      "result": "PASS",
+      "evidence": "Final changed-source parser and inference checks exited 0 on 2026-09-09."
+    }
+  ],
+  "acceptance_gaps": "Target-device, child and owner review pending. Shared legacy 3D bootstrap and global strict-zero debt remain open; this route repair does not establish full archival retirement."
+}

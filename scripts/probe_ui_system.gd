@@ -130,8 +130,9 @@ func _check_storybook_coverage() -> void:
 		"kart garage exposes direct ride and paint choices")
 	_check(not pause_source.contains("PauseTouchModeButton")
 		and pause_source.contains("func leave_label")
-		and pause_source.contains("REEF"),
-		"Pause removes the obsolete touch choice and derives its real destination")
+		and not pause_source.contains("REEF")
+		and pause_source.contains("BACK"),
+		"Pause removes obsolete touch choices and retired-world copy")
 	_check(touch_source.contains("_stick_hint.visible = false")
 		and not touch_source.contains("_stick_hint.visible = wants_touch()"),
 		"point-to-interact keeps the movement pad renderer hidden")
@@ -520,9 +521,8 @@ func _init() -> void:
 		"Menu is Sky Lagoon-root-only and Back has a game-wide activity fallback")
 	var main_source: String = FileAccess.get_file_as_string(
 		"res://scripts/main.gd")
-	_check(main_source.contains('_navigation_push("reef_world", self,')
-		and main_source.contains('Callable(self, "_enter_level2")'),
-		"Reef visits unwind through Back to the Sky Lagoon Menu root")
+	_check(not main_source.contains('_navigation_push("reef_world", self,'),
+		"retired Reef is absent from the navigation stack")
 	main.toggle_pause()
 	_check(main.pause_layer.layer == 28 and main.get_tree().paused,
 		"Menu sheet stays below the sole navigation control and transition fade")
@@ -546,8 +546,8 @@ func _init() -> void:
 	_check(leave != null and bool(leave.get_meta("neutral_exit", false)), "activity exit uses neutral-back semantics")
 	main.game = "level2"
 	main._pause_ref()._sync_labels()
-	_check(leave != null and leave.text.contains("REEF"),
-		"bare Sky Lagoon Pause fallback names its Reef destination")
+	_check(leave != null and leave.text.contains("BACK") and not leave.text.contains("REEF"),
+		"bare Sky Lagoon Pause fallback never advertises the retired Reef")
 	main.mg_kind = "snowman"
 	main._pause_ref()._sync_labels()
 	_check(leave != null and leave.text.contains("BACK"),

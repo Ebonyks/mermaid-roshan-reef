@@ -140,45 +140,20 @@ func _run() -> void:
 		and is_equal_approx(spawn_x, float(main.g.get("lagoon_master_x", -1.0)))
 		and not main.player.visible, "canvas_actor_spawns_on_screen_one")
 
-	# The route already exists while the story is open, but its prompt must wait
-	# until the story is gone instead of expiring behind four full-screen pages.
-	var route_target: Dictionary = {}
-	for target_value in (main.g.get("lagoon_promenade_targets", []) as Array):
-		var target: Dictionary = target_value as Dictionary
-		if String(target.get("id", "")) == "reef_route":
-			route_target = target
-			break
-	_check(not route_target.is_empty(), "reef_route_is_visible_on_first_phone_frame")
-	_check(float(route_target.get("radius_px", 0.0)) >= 128.0,
-		"reef_route_has_child_touch_radius")
-	_check(String(route_target.get("affordance_kind", "")) == "interaction",
-		"reef_route_uses_blue_interaction_language")
-	if main.first_session and main.intro_active:
-		_check(bool(main.g.get("lagoon_reef_guidance_pending", false)),
-			"reef_guidance_waits_behind_story")
+	var retired_route_present := false
+	for value: Variant in main.g.get("lagoon_promenade_targets", []) as Array:
+		retired_route_present = retired_route_present or String(
+			(value as Dictionary).get("id", "")) == "reef_route"
+	_check(not retired_route_present, "retired_reef_has_no_phone_target")
 	if main.intro_active:
 		main._skip_intro()
 	for _i in range(4):
 		await process_frame
-	_check(not bool(main.g.get("lagoon_reef_guidance_pending", true)),
-		"reef_guidance_releases_after_story")
-	_check(String(main.g.get("lagoon_promenade_focus", "")) == "reef_route",
-		"reef_route_pulses_after_story")
-	_check(main.msg_timer > 0.0 and main.hud_msg.text.contains("visit the Reef"),
-		"reef_route_prompt_is_post_story_and_semantic")
-
-	# One tap on the focused plane is enough: this is the normal visible return
-	# route, not a hidden Pause-menu escape hatch.
-	var route_node: CanvasItem = route_target.get("node") as CanvasItem
-	var route_ready: bool = route_node != null and is_instance_valid(route_node)
-	if route_ready:
-		var route_screen: Vector2 = route_node.get_global_transform_with_canvas().origin
-		promenade.handle_touch(route_screen)
-		for _i in range(3):
-			await process_frame
-	_check(route_ready and main.game == "" and main.player.visible
-		and main.we_node.environment == main.world_env,
-		"one_tap_reef_route_restores_free_swim")
+	_check(not main.hud_msg.text.contains("visit the Reef"),
+		"phone_guidance_never_advertises_retired_world")
+	main._exit_level2_now()
+	_check(main.game == "level2" and not main.player.visible,
+		"phone_legacy_exit_stays_on_canvas")
 
 	_finish()
 

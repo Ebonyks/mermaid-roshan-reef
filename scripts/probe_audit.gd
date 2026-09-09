@@ -389,7 +389,7 @@ func _init() -> void:
 			core_roster_ok = core_roster_ok and target_ids.has(required_id)
 		var promenade_ok: bool = (
 			String(main.g.get("phase", "")) == "promenade"
-			and targets.size() == 5
+			and targets.size() == 4 and not target_ids.has("reef_route")
 			and core_roster_ok
 			and main._lagoon_promenade_ref().root() is CanvasLayer
 			and main._lagoon_promenade_ref().camera_2d() is Camera2D

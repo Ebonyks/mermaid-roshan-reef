@@ -136,7 +136,7 @@ unclassified until this ledger gains one new scoped row for it.
 | `WORLD_MAP_2026-07-27.md` | ⚪ | `PROPOSAL_DEFERRED`; geography is unapproved. Its old reachability report is historical; current `MA-PLAY-001` requires fresh enumeration. |
 | `MINIGAME_ENGINES.md` | 🟠 | `SUPPORTING_CURRENT` for lifecycle/input/reward/mercy/voice/probe contracts. E1 expansion is deferred; E2/E4 spatial, Jolt-standee and Spline3 prescriptions are `SUPERSEDED`. |
 | `MEDALS.md` | 🟠 | `BINDING_DOMAIN` for bronze/silver/gold, upgrade-only and passive-no-award rules. Its “3D play place” venue label is `HISTORICAL_EVIDENCE`, not medium authority. |
-| `STUFFIE_COMPANIONS.md` | 🟠 | `BINDING_DOMAIN` for roster, unlock, care, control and no-fail behavior. GLB bodies, Meshy creation and 3D arena prescriptions are `SUPERSEDED`. |
+| `STUFFIE_COMPANIONS.md` | 🟠 | `BINDING_DOMAIN` for roster, unlock, care, control and no-fail behavior, including the 2026-09-09 Canvas Menu care clarification. GLB bodies, Meshy creation and 3D arena prescriptions are `SUPERSEDED`. |
 | `STUFFIE_PLAYROOM_RESCUE_GUIDE_2026-07-29.md` | 🟠 | `BINDING_DOMAIN` for wordless tutorial intent/no-fail flow. Sprite3D/depth/effect implementation is `SUPERSEDED`. |
 | `DUNGEON_DIFFICULTY_AUDIT_2026-07-18.md` | ⚪ | `PROPOSAL_DEFERRED`; age-4 analysis is historical evidence, lock/key expansion is not current work. |
 | `ZELDA_GAMEPLAY_WORKORDER_2026-07-18.md` | ⚪ | `PROPOSAL_DEFERRED`; verb/structure expansion is not current work or 3D authorization. |

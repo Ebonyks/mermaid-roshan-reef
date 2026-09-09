@@ -8,7 +8,7 @@ const LAYOUT_PATH := "res://scripts/arena/sky_lagoon_layout.json"
 const MASTER_SIZE := Vector2(6144.0, 2048.0)
 const TILE_SIZE := Vector2(1024.0, 1024.0)
 const TARGET_IDS: Array[String] = [
-	"castle_gate", "reef_route", "seesaw", "slide", "swing",
+	"castle_gate", "seesaw", "slide", "swing",
 ]
 const AUDIT_SWING_SEAT_ANCHORS := [
 	Vector2(264.5, 204.5),
@@ -836,8 +836,7 @@ func _validate_targets_and_touch() -> void:
 		var node: CanvasItem = target.get("node") as CanvasItem
 		var highlight: CanvasItem = target.get("highlight") as CanvasItem
 		var expected_affordance: String = Affordance.PLOT \
-			if target_id == "castle_gate" else Affordance.INTERACTION \
-			if target_id == "reef_route" else Affordance.ANIMATION
+			if target_id == "castle_gate" else Affordance.ANIMATION
 		category_ok = category_ok and String(target.get(
 			"affordance_kind", "")) == expected_affordance
 		metadata_ok = metadata_ok and node != null and highlight != null \
@@ -1158,7 +1157,7 @@ func _validate_plane_save_and_teardown() -> void:
 		and bool(main.save_data.get("lagoon_plane_departed", false)) \
 		and shuttle != null and is_instance_valid(shuttle) \
 		and _target_ids() == TARGET_IDS
-	_check("arrival_plane_save_becomes_permanent_reef_route",
+	_check("arrival_plane_save_preserves_noninteractive_scenery",
 		arrival_ok and departure_ok)
 
 	var old_root: CanvasLayer = promenade.root()
@@ -1196,16 +1195,12 @@ func _validate_door_and_reef_routes() -> void:
 
 	main._enter_level2_now(true, false, false)
 	promenade = main._lagoon_promenade_ref()
-	var route: Dictionary = _target("reef_route")
-	var route_node: CanvasItem = route.get("node") as CanvasItem
-	var route_ready: bool = route_node != null
-	if route_ready:
-		promenade.set_master_route_x(1024.0)
-		promenade.handle_touch(_screen_center(route_node))
-		await _frames(4)
-	_check("one_touch_canvas_plane_returns_to_reef",
-		route_ready and main.game == "" and main.player.visible \
-		and main.we_node.environment == main.world_env)
+	_check("retired_reef_has_no_canvas_target", _target("reef_route").is_empty())
+	main._exit_level2_now()
+	_check("legacy_exit_returns_to_live_canvas",
+		main.game == "level2" and not main.player.visible
+		and main._lagoon_promenade_ref().root() != null)
+
 
 
 func _init() -> void:

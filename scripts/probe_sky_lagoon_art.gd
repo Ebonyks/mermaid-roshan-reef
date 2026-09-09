@@ -11,7 +11,7 @@ const SCHEMA := "reef.sky_lagoon.visual_review.v1"
 const PROBE_PATH := "res://scripts/probe_sky_lagoon_art.gd"
 const VIEWPORT_SIZE := Vector2i(1280, 720)
 const EXPECTED_TARGET_IDS: Array[String] = [
-	"castle_gate", "reef_route", "seesaw", "slide", "swing",
+	"castle_gate", "seesaw", "slide", "swing",
 ]
 const EXPECTED_CAPTURE_IDS: Array[String] = [
 	"lagoon_01_arrival_plane_day",
@@ -1040,7 +1040,7 @@ func _run_capture_sequence() -> void:
 	promenade._clear_focus()
 	var expected := _base_expected("arrival_plane")
 	expected["camera_page"] = 0
-	expected["onscreen_targets"] = ["reef_route"]
+	expected["onscreen_targets"] = []
 	if not await _capture_base(EXPECTED_CAPTURE_IDS[0], expected,
 			["arrival", "plane", "production_camera", "day"]):
 		return
@@ -1054,21 +1054,17 @@ func _run_capture_sequence() -> void:
 	promenade._clear_focus()
 	expected = _base_expected("reef_return")
 	expected["camera_page"] = 0
-	expected["onscreen_targets"] = ["reef_route"]
+	expected["onscreen_targets"] = []
 	if not await _capture_base(EXPECTED_CAPTURE_IDS[1], expected,
 			["reef_route", "return", "production_camera", "day"]):
 		return
 
-	if not _focus_target("reef_route"):
-		_record_root_failure(EXPECTED_CAPTURE_IDS[2], "missing_target", "reef_route")
-		return
+	# Keep historical capture slot IDs stable; the retired route has no focus.
 	expected = _base_expected("reef_return")
 	expected["camera_page"] = 0
-	expected["focus"] = "reef_route"
-	expected["action_label"] = "FLY"
-	expected["onscreen_targets"] = ["reef_route"]
+	expected["onscreen_targets"] = []
 	if not await _capture_base(EXPECTED_CAPTURE_IDS[2], expected,
-			["reef_route", "focus", "FLY", "day"]):
+			["retired_route_absent", "scenery", "day"]):
 		return
 	promenade._clear_focus()
 

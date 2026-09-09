@@ -258,6 +258,37 @@ func _picker_case() -> void:
 	await _settle(6)
 	main._exit_level2_now()
 	await _settle(4)
+	var care_before_canvas: int = main.care_points
+	main.companion_want = ""
+	main.companion_want_cool = 0.0
+	comp.tick_canvas_care(0.1)
+	var canvas_want: String = main.companion_want
+	comp.tick_canvas_care(200.0)
+	_ck("Canvas wants wait without passive growth", canvas_want != ""
+		and main.companion_want == canvas_want and main.care_points == care_before_canvas)
+	comp.open_care_menu()
+	comp._choose_menu_care(canvas_want)
+	_ck("Canvas Menu care grows once without a world follower", main.game == "level2"
+		and main.care_points == care_before_canvas + 1 and main.companion_node == null)
+	comp._choose_menu_care(canvas_want)
+	_ck("repeated Canvas care is affection only", main.care_points == care_before_canvas + 1)
+	comp.close_care_menu()
+	main._write_save()
+	# The remaining cases are legacy companion-unit coverage, not proof of a
+	# playable Reef. Start their ordinary isolated headless bootstrap afresh;
+	# no production navigation callback may return to that fixture.
+	main.queue_free()
+	await process_frame
+	var unit_scene: PackedScene = load("res://scenes/main.tscn") as PackedScene
+	main = unit_scene.instantiate() as ReefMain
+	get_root().add_child(main)
+	# The unit fixture must not auto-enter an unlocked world portal.
+	main.portal_cool = 99999.0
+	main.portal_armed = false
+	await _settle(3)
+	if main.intro_active:
+		main._skip_intro()
+	comp = main._companion_ref()
 	comp.open_picker()
 	await process_frame
 	_ck("picker overlay builds", main.companion_layer != null and main.companion_stage != null)
@@ -383,6 +414,7 @@ func _follower_case() -> void:
 	await _settle(4)
 	_ck("tending a want grows the stuffie", main.care_points == care_before + 1
 		and main.companion_want == "")
+	print("STUFFIE|unit care context=", main.game, " phase=", main.g.get("phase", ""))
 	# level-up celebration fires exactly on the stage boundary
 	main.care_points = CompanionSystem.LEVEL_EVERY - 1
 	comp._begin_want("cuddle")

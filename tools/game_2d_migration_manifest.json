@@ -2,8 +2,8 @@
   "schema_version": 4,
   "policy": "Known entries are migration debt, not waivers. Lists may only shrink.",
   "metadata": {
-    "inventory_head": "1ecdf733",
-    "inventory_date": "2026-09-05",
+    "inventory_head": "9ad30ed6",
+    "inventory_date": "2026-09-09",
     "owner_contract": "The game is 2D; every tracked or active 3D resource belongs on an out-of-tree deprecated-resources branch.",
     "active_export_scope": "Active/export models and generated sidecars are prioritisation subsets; strict satisfaction requires zero repository or working-tree 3D debt.",
     "fingerprint_contract": "Every retained model binary, tracked model import sidecar, and model-bearing archive is locked by exact size and SHA-256.",
@@ -8102,7 +8102,7 @@
       "TRANSFORM_3D": 2,
       "TorusMesh": 4,
       "Transform3D": 6,
-      "Vector3": 467,
+      "Vector3": 461,
       "VisualInstance3D": 5,
       "WorldEnvironment": 2
     },
@@ -8349,7 +8349,7 @@
       "<lowercase-3d-marker>": 1,
       "Camera3D": 2,
       "Node3D": 2,
-      "Vector3": 11
+      "Vector3": 9
     },
     "scripts/probe_kart_feel.gd": {
       "Node3D": 3,
@@ -8374,8 +8374,7 @@
       "Vector3": 53
     },
     "scripts/probe_ocean_kingdoms.gd": {
-      "Node3D": 3,
-      "Vector3": 2
+      "Node3D": 1
     },
     "scripts/probe_opera_2d.gd": {
       "Node3D": 1

@@ -15,10 +15,6 @@ func _check(condition: bool, label: String) -> void:
 		print("OCEANKINGDOM|%s|FAIL" % label)
 
 
-func _xz_distance(a: Vector3, b: Vector2) -> float:
-	return Vector2(a.x, a.z).distance_to(b)
-
-
 func _run() -> void:
 	var packed: PackedScene = load("res://scenes/main.tscn") as PackedScene
 	_check(packed != null, "main_scene_loads")
@@ -34,7 +30,9 @@ func _run() -> void:
 	root.add_child(main)
 	await process_frame
 	await process_frame
-	# This probe owns the post-Day-One ocean-kingdom contract.  The production
+	if main.intro_active:
+		main._skip_intro()
+	# This probe owns the post-Day-One retired-world contract.  The production
 	# gate correctly keeps ordinary reef exits pointed at the castle during Day
 	# One, so make the later-content fixture explicit before entering the Lagoon.
 	main.day_one_active = false
@@ -70,66 +68,43 @@ func _run() -> void:
 	for target_value in promenade_targets:
 		var target: Dictionary = target_value as Dictionary
 		promenade_ids[String(target.get("id", ""))] = true
-	var promenade_roster_ok: bool = promenade_targets.size() == 5
-	for required_id: String in ["reef_route", "slide", "swing", "seesaw", "castle_gate"]:
+	var promenade_roster_ok: bool = promenade_targets.size() == 4 and not promenade_ids.has("reef_route")
+	for required_id: String in ["slide", "swing", "seesaw", "castle_gate"]:
 		promenade_roster_ok = promenade_roster_ok and promenade_ids.has(required_id)
 	_check(promenade_roster_ok, "promenade_interactions_present")
 	_check(not state.has("ocean_kingdom_gates"),
 		"blocked_water_has_no_active_ocean_gate")
 
-	main._exit_level2_now(ReefDistricts.KINGDOM_CARIBBEAN)
-	await process_frame
-	state = main.g
-	player = main.player
-	var caribbean_entry: Vector2 = ReefDistricts.kingdom_entry_point(ReefDistricts.KINGDOM_CARIBBEAN)
-	_check(main.game == "", "caribbean_enters_open_ocean")
-	_check(main.ocean_kingdom == ReefDistricts.KINGDOM_CARIBBEAN, "caribbean_runtime_state")
-	_check(main.ocean_routes_enabled, "caribbean_enables_kingdom_routes")
-	_check(_xz_distance(player.position, caribbean_entry) < 0.5, "caribbean_entry_position")
-	_check(ReefDistricts.kingdom_at(caribbean_entry) == ReefDistricts.KINGDOM_CARIBBEAN, "caribbean_entry_ecology")
-	var caribbean_before_game: String = main.game
-	var caribbean_cool: float = main.ocean_return_gate_cool
-	var caribbean_bounced: bool = main._tick_ocean_return_gate(0.0, player.position)
-	_check(caribbean_cool > 0.0 and not caribbean_bounced \
-		and main.game == caribbean_before_game,
-		"caribbean_return_gate_debounced")
-
-	main._enter_level2_now(false, false, true)
-	await process_frame
-	main._exit_level2_now(ReefDistricts.KINGDOM_NORWEGIAN)
-	await process_frame
-	state = main.g
-	player = main.player
-	var norwegian_entry: Vector2 = ReefDistricts.kingdom_entry_point(ReefDistricts.KINGDOM_NORWEGIAN)
-	_check(main.game == "", "norway_enters_open_ocean")
-	_check(main.ocean_kingdom == ReefDistricts.KINGDOM_NORWEGIAN, "norway_runtime_state")
-	_check(main.ocean_routes_enabled, "norway_enables_kingdom_routes")
-	_check(_xz_distance(player.position, norwegian_entry) < 0.5, "norway_entry_position")
-	_check(ReefDistricts.kingdom_at(norwegian_entry) == ReefDistricts.KINGDOM_NORWEGIAN, "norway_entry_ecology")
-	var norwegian_before_game: String = main.game
-	var norwegian_cool: float = main.ocean_return_gate_cool
-	var norwegian_bounced: bool = main._tick_ocean_return_gate(0.0, player.position)
-	_check(norwegian_cool > 0.0 and not norwegian_bounced \
-		and main.game == norwegian_before_game,
-		"norway_return_gate_debounced")
-
-	# The SceneTree coroutine can resume before ReefMain's next _process tick.
-	# Drive the patrol once explicitly so the assertion cannot mistake each
-	# newly-built mover's Vector3.ZERO staging transform for a habitat result.
-	main._tick_aquatic(0.0)
-	var movers: Array = main.aquatic_movers
-	for mover_variant: Variant in movers:
-		var mover: Dictionary = mover_variant as Dictionary
-		if not mover.has("kingdom"):
-			continue
-		var mover_node: Node3D = mover.get("node") as Node3D
-		if mover_node == null:
-			continue
-		var mover_point := Vector2(mover_node.position.x, mover_node.position.z)
-		var mover_center := Vector2(float(mover.get("cx", 0.0)), float(mover.get("cz", 0.0)))
-		_check(absf(mover_point.distance_to(mover_center) - float(mover["rad"])) < 0.1,
-			"hero_fauna_patrol_initialized_%s" % String(mover.get("kingdom", "")))
-		_check(ReefDistricts.kingdom_at(mover_point) == String(mover.get("kingdom", "")), "hero_fauna_stays_%s" % String(mover.get("kingdom", "")))
+	var saved_pearls: int = main.pearl_count
+	var saved_stickers: Dictionary = main.stickers.duplicate(true)
+	for kingdom: String in [ReefDistricts.KINGDOM_CARIBBEAN,
+			ReefDistricts.KINGDOM_NORWEGIAN, "", "unknown"]:
+		main._exit_level2_now(kingdom)
+		await process_frame
+		_check(main.game == "level2" and String(main.g.get("phase", "")) == "promenade"
+			and not main.player.visible and not main.ocean_routes_enabled,
+			"retired_entry_stays_on_canvas_%s" % kingdom)
+	_check(main.pearl_count == saved_pearls and main.stickers == saved_stickers,
+		"retired_entries_preserve_progress")
+	main._prepare_start_menu_launch(false)
+	main.game = "" # A stale activity return must not restore free swimming.
+	main._process(0.0)
+	_check(main.game == "level2" and not main.player.visible,
+		"authored_session_recovers_stale_empty_world")
+	main._navigation_ref().press()
+	_check(main.pause_panel.visible and main.game == "level2",
+		"root_back_opens_menu_without_ocean")
+	main._pause_ref().toggle_pause()
+	for kingdom: String in [ReefDistricts.KINGDOM_CARIBBEAN, ReefDistricts.KINGDOM_NORWEGIAN]:
+		main._enter_ocean_kingdom(kingdom)
+		_check(main.game == "level2" and not main.player.visible,
+			"public_ocean_callback_stays_on_canvas_%s" % kingdom)
+	main._exit_level2()
+	_check(main.game == "level2" and not main.player.visible,
+		"legacy_back_callback_stays_on_canvas")
+	main._do_finish_level2()
+	_check(main.level2_done_once and main.game == "level2" and not main.player.visible,
+		"castle_completion_preserves_canvas_and_reward")
 
 	_finish()
 

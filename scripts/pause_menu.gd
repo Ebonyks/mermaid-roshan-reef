@@ -136,16 +136,7 @@ func mic_label() -> String:
 	return "🎤   SAY SPELLS" if m.mic_on else "🎤̸   SPELLS OFF"
 
 func leave_label() -> String:
-	# Name the branch the button will actually execute. Local overlays and the
-	# castle class close first; only a bare Sky Lagoon/castle state returns to
-	# the Reef.
-	var local_level2_activity: bool = m.mg_kind != "" \
-		or m.wardrobe_layer != null or m.craft_layer != null \
-		or m.castle_logo_layer != null or m.stickers_layer != null \
-		or m.collection_layer != null or m.companion_layer != null \
-		or m.companion_care_layer != null or m.combat_tutorial_game != null
-	if m.game == "level2" and not local_level2_activity and not m.day_one_is_active():
-		return "🌊   REEF"
+	# Every exit unwinds locally or returns to Canvas; the Reef is retired.
 	return "↩   BACK"
 
 func _pause_btn(txt: String, rect: Rect2, kind: String) -> Button:

@@ -68,9 +68,8 @@ func _probe_wiring() -> void:
 		lagoon_source.contains("var day_one_entry: bool = m.day_one_is_active()")
 		and lagoon_source.contains("_focus(castle_target)")
 		and lagoon_source.contains("roshan_day1_castle"))
-	_check("Day One Reef target is fail-closed",
-		lagoon_source.contains("m._day_one_refuse_reef_exit()")
-		and lagoon_source.contains("m.day_one_is_active()"))
+	_check("retired Reef target is absent for every day",
+		not lagoon_source.contains('_register_target("reef_route"'))
 	_check("Day One castle affordance survives idle cap",
 		lagoon_source.contains('String(target.get("id", "")) == "castle_gate"')
 		and lagoon_source.contains("maxf(tint.a, 0.45)"))
@@ -85,8 +84,8 @@ func _probe_wiring() -> void:
 		main_source.contains("func _day_one_refuse_reef_exit()")
 		and main_source.contains("_day_one_reorient_after_exit_now")
 		and main_source.contains("if day_one_is_active():"))
-	_check("pause hides the Reef tile during Day One",
-		pause_source.contains("and not m.day_one_is_active()"))
+	_check("pause never advertises a Reef tile",
+		not pause_source.contains("REEF"))
 	_check("Day Two clears stale Day One routing",
 		director_source.contains("func clear_day_one_routing()")
 		and main_source.contains("clear_day_one_routing()"))

@@ -388,8 +388,53 @@ func _draw_care_menu() -> void:
 	stage_control.add_child(safety)
 	m._hook_button_taps(stage_control)
 
+func tick_canvas_care(delta: float) -> void:
+	# The live Canvas owns no follower or den. Its menu keeps the same patient
+	# requests and saved growth without ticking the retired world simulation.
+	if m.companion_id == "" or m.intro_active or m.companion_care_layer != null \
+			or m.companion_layer != null:
+		return
+	if m.companion_care_t > 0.0:
+		m.companion_care_t = maxf(0.0, m.companion_care_t - delta)
+		if m.companion_care_t == 0.0:
+			_finish_care(true)
+		return
+	if m.companion_want != "":
+		return
+	m.companion_want_cool -= delta
+	if m.companion_want_cool > 0.0:
+		return
+	m.companion_want = String(m.companion_want_queue.pop_front()) \
+		if not m.companion_want_queue.is_empty() \
+		else String(WANTS[randi() % WANTS.size()]["id"])
+	m._queue_save()
+
+func _choose_canvas_menu_care(id: String) -> void:
+	if m.companion_care_layer == null or m.companion_care_stage == null:
+		return
+	if m.companion_want == "" and m.companion_want_queue.has(id):
+		m.companion_want_queue.erase(id)
+		m.companion_want = id
+	if m.companion_want == id:
+		# Commit the intentional care before feedback, so leaving/restarting
+		# cannot lose it. Repeated or unasked care never earns another point.
+		_finish_care(true)
+	else:
+		m.show_msg(String(active_def()["name"]), "I love that! You're the best!", "talk")
+	_draw_care_menu()
+	var feedback := m.companion_care_stage.get_node_or_null("StuffieCurrentNeed") as Control
+	if feedback != null:
+		(feedback as Label).text = String(want_def(id)["emoji"]) + "  ♥"
+		feedback.pivot_offset = feedback.size * 0.5
+		var pulse: Tween = feedback.create_tween()
+		pulse.tween_property(feedback, "scale", Vector2.ONE * 1.08, 0.18)
+		pulse.tween_property(feedback, "scale", Vector2.ONE, 0.24)
+
 func _choose_menu_care(id: String) -> void:
 	if m.companion_care_t > 0.0 or want_def(id).is_empty():
+		return
+	if m.game == "level2" and String(m.g.get("phase", "")) == "promenade":
+		_choose_canvas_menu_care(id)
 		return
 	close_care_menu()
 	var d := active_def()
@@ -1443,7 +1488,7 @@ func _pal_bounce(peak: float) -> void:
 	tw.tween_property(pal, "scale", base * peak, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tw.tween_property(pal, "scale", base, 0.45).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 
-func _finish_care() -> void:
+func _finish_care(canvas_feedback: bool = false) -> void:
 	var w := want_def(m.companion_want)
 	var d := active_def()
 	m.companion_want = ""
@@ -1455,7 +1500,7 @@ func _finish_care() -> void:
 	if m.companion_bruises > 0 and m.companion_want_queue.is_empty():
 		m.companion_bruises = 0
 		m.companion_rest_timer = -1.0
-		if m.companion_node != null and is_instance_valid(m.companion_node):
+		if not canvas_feedback and m.companion_node != null and is_instance_valid(m.companion_node):
 			for i in range(6):
 				var a: float = TAU * float(i) / 6.0
 				m._sparkle_burst(m.companion_node.position + Vector3(cos(a) * 1.8, 1.5, sin(a) * 1.8), Color(0.6, 1.0, 0.75))
@@ -1468,12 +1513,13 @@ func _finish_care() -> void:
 	if m.chime != null:
 		m.chime.pitch_scale = 1.3
 		m.chime.play()
-	if m.companion_node != null and is_instance_valid(m.companion_node):
+	if not canvas_feedback and m.companion_node != null and is_instance_valid(m.companion_node):
 		m._greet_heart(m.companion_node.position + Vector3(0, 2.8, 0))
 	if m.care_points % LEVEL_EVERY == 0:
 		# LEVEL UP — a proper celebration: fanfare, sparkle ring, star pips
-		m._reward(false)
-		if m.companion_node != null and is_instance_valid(m.companion_node):
+		if not canvas_feedback:
+			m._reward(false)
+		if not canvas_feedback and m.companion_node != null and is_instance_valid(m.companion_node):
 			for i in range(8):
 				var a: float = TAU * float(i) / 8.0
 				m._sparkle_burst(m.companion_node.position + Vector3(cos(a) * 2.2, 1.2, sin(a) * 2.2), Color.from_hsv(float(i) / 8.0, 0.5, 1.0))

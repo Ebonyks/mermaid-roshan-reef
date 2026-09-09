@@ -257,6 +257,9 @@ func _run() -> void:
 		await _frames(3)
 		await _capture("canvas_screen_%d_day" % (page + 1))
 
+	# Exercise the later-day retired exit; Day One owns a separate castle return.
+	main.day_one_active = false
+	main._day_one_ref().clear_day_one_routing()
 	var old_root: CanvasLayer = promenade.root()
 	var old_cards: Array = (main.g.get("lagoon_ambient_cards", []) as Array).duplicate()
 	main._exit_level2_now()
@@ -265,9 +268,8 @@ func _run() -> void:
 		old_cards_freed = old_cards_freed and not is_instance_valid(value)
 	_check("lifecycle_teardown_is_synchronous",
 		not is_instance_valid(old_root) and old_cards_freed \
-		and not main.g.has("lagoon_ambient_cards") \
-		and not main.g.has("lagoon_ambient_t") \
-		and not main.g.has("lagoon_night_fireflies"))
+		and main.game == "level2" and not main.player.visible \
+		and promenade.root() != old_root)
 
 	main.is_night = true
 	main._enter_level2_now(true, false, false)
