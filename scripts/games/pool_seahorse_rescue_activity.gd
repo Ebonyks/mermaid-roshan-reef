@@ -20,11 +20,11 @@ const CANVAS_SIZE := Vector2(1280.0, 720.0)
 const BASKET_ANCHOR := Vector2(980.0, 560.0)
 const TAP_REGION_GROWTH := 0.55
 const BUBBLE_LIFETIME := 1.35
-# Normalized authored cutout anchors: the seahorse nozzle center in the fitted
-# fixture and the far weed tip in the obstruction texture. Keeping these as
+# Normalized centered-texture anchors: nozzle center (394, 322) in the
+# 936x1024 seahorse and the far weed tip in the obstruction. Keeping these as
 # explicit visual anchors makes the growth enter the mouth instead of hovering
 # beside it; the broad toddler tap envelope remains independent below.
-const SEAHORSE_MOUTH_ANCHOR := Vector2(-0.085, -0.19)
+const SEAHORSE_MOUTH_ANCHOR := Vector2(394.0 / 936.0 - 0.5, 322.0 / 1024.0 - 0.5)
 const PROP_NOZZLE_ANCHOR := Vector2(0.488, 0.184)
 
 var fixture_center := Vector2.ZERO
@@ -40,7 +40,8 @@ var _seahorse_texture: Texture2D = null
 var _mouth_trash_texture: Texture2D = null
 var _basket_texture: Texture2D = null
 var _prop_rest_position := Vector2.ZERO
-var _prop_outward := Vector2(-1.0, -0.06)
+var _mouth_anchor := Vector2.ZERO
+var _prop_nozzle_offset := Vector2.ZERO
 var _base_scale := Vector2.ONE
 var _prop_scale := Vector2.ONE
 var _basket_position := BASKET_ANCHOR
@@ -57,6 +58,7 @@ var _tug_strength := 0.0
 var _tap_pulse := Vector2.ZERO
 var _tap_pulse_time := 0.0
 var _completion_tween: Tween = null
+var _tug_tween: Tween = null
 var _bubbles: Array[Dictionary] = []
 
 
@@ -70,6 +72,7 @@ func _ready() -> void:
 
 func setup(new_fixture_center: Vector2, new_fixture_size: Vector2,
 		initial_taps: int = 0) -> void:
+	_stop_tug_tween()
 	_stop_completion_tween()
 	_clear_owned_children()
 	fixture_center = new_fixture_center
@@ -113,6 +116,9 @@ func start() -> void:
 func stop() -> void:
 	_active = false
 	cancel_touch()
+	_stop_tug_tween()
+	if not _completion_started:
+		_set_tug_rotation(0.0)
 	_stop_completion_tween()
 	_completion_started = false
 	set_process(false)
@@ -232,24 +238,38 @@ func _register_tap(point: Vector2) -> void:
 func _update_tug_visual() -> void:
 	if _mouth_trash == null or not is_instance_valid(_mouth_trash):
 		return
+	_stop_tug_tween()
 	var progress := float(_taps) / float(TAP_TOTAL)
-	var tug_distance := lerpf(7.0, maxf(fixture_size.x, fixture_size.y) * 0.20, progress)
-	var tug_offset := _prop_outward * tug_distance * (0.82 + _tug_strength * 0.18)
-	var target_position := _prop_rest_position + tug_offset
-	var tug_tween := _mouth_trash.create_tween().set_trans(Tween.TRANS_BACK) \
+	var tug_angle := -lerpf(0.06, 0.18, progress) * (0.82 + _tug_strength * 0.18)
+	_tug_tween = _mouth_trash.create_tween().set_trans(Tween.TRANS_BACK) \
 		.set_ease(Tween.EASE_OUT)
-	tug_tween.tween_property(_mouth_trash, "position", target_position, 0.16)
-	tug_tween.parallel().tween_property(_mouth_trash, "rotation",
-		_prop_outward.angle() * 0.12 * (progress + _tug_strength * 0.18), 0.16)
+	# Rotate around the embedded stem tip, not the texture center. The blockage
+	# stays in the mouth until the final extraction, including during rapid taps.
+	_tug_tween.tween_method(_set_tug_rotation, _mouth_trash.rotation, tug_angle, 0.16)
+	_tug_tween.tween_method(_set_tug_rotation, tug_angle, 0.0, 0.20)
 	# A quick cadence gives a stronger, springier tug, but this duration is
 	# still short enough that slow taps visibly settle before the next one.
 	if _tug_strength > 0.72:
-		tug_tween.set_speed_scale(1.18)
+		_tug_tween.set_speed_scale(1.18)
+
+
+func _set_tug_rotation(angle: float) -> void:
+	if _mouth_trash == null or not is_instance_valid(_mouth_trash):
+		return
+	_mouth_trash.rotation = angle
+	_mouth_trash.position = _mouth_anchor - _prop_nozzle_offset.rotated(angle)
+
+
+func _stop_tug_tween() -> void:
+	if _tug_tween != null:
+		_tug_tween.kill()
+	_tug_tween = null
 
 
 func _start_completion_flight() -> void:
 	if _completion_started or _completed:
 		return
+	_stop_tug_tween()
 	_completion_started = true
 	if _mouth_trash == null or not is_instance_valid(_mouth_trash):
 		_finish_completion()
@@ -320,10 +340,13 @@ func _build_activity_art() -> void:
 		_mouth_trash.scale = _prop_scale
 		# Register the prop's right-hand weed tip to the seahorse's authored
 		# mouth anchor. These visual anchors are independent of the broad hit box.
-		var mouth_anchor: Vector2 = fixture_center \
-			+ fixture_size * SEAHORSE_MOUTH_ANCHOR
+		_mouth_anchor = fixture_center
+		if _seahorse != null:
+			_mouth_anchor = _seahorse.position + _seahorse.texture.get_size() \
+				* _seahorse.scale * SEAHORSE_MOUTH_ANCHOR
 		var prop_display_size: Vector2 = _mouth_trash_texture.get_size() * _prop_scale
-		_prop_rest_position = mouth_anchor - prop_display_size * PROP_NOZZLE_ANCHOR
+		_prop_nozzle_offset = prop_display_size * PROP_NOZZLE_ANCHOR
+		_prop_rest_position = _mouth_anchor - _prop_nozzle_offset
 		_mouth_trash.position = _prop_rest_position
 		_mouth_trash.z_index = 6
 		_mouth_trash.modulate = Color(0.78, 0.82, 0.68, 0.96)
