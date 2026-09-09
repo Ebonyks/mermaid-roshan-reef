@@ -182,6 +182,7 @@ func _run_probe() -> void:
 		restored_main.day_one_bathroom_cleanup_step == 1)
 	restored.teardown()
 	await process_frame
+	await _probe_sink_room_graphics(host)
 	await _probe_cleaning_gestures(host)
 	host.queue_free()
 	main.free()
@@ -190,6 +191,50 @@ func _run_probe() -> void:
 		"PASS" if checks_failed == 0 else "FAIL",
 		" checks_failed=", checks_failed)
 	quit(1 if checks_failed > 0 else 0)
+
+
+func _probe_sink_room_graphics(host: Control) -> void:
+	var state := ReefMain.new()
+	state._day_one_ref()
+	state.day_one_bathroom_supply_hunt_step = 2
+	var room := BATHROOM_CLEANUP.new() as DayOneBathroomCleanup
+	host.add_child(room)
+	room.setup(state, false)
+	await create_timer(0.35).timeout
+	_check("sink artwork stays dirty before intentional scrubbing",
+		not bool(room.day_one_bathroom_plate_snapshot().get("sink_clean_pixels", false)))
+	var points: Array[Vector2] = []
+	for index: int in range(49):
+		var angle: float = float(index) / 48.0 * TAU * 1.2
+		points.append(SINK_CENTER + Vector2(cos(angle), sin(angle)) * 120.0)
+	_check("room sink scrub records completion", room.probe_cleaning_sink_circle(points))
+	_check("completed sink replaces baked dirty pixels immediately",
+		bool(room.day_one_bathroom_plate_snapshot().get("sink_clean_pixels", false))
+		and not room._sink_grime.visible
+		and room._tub_grime.visible)
+	var sink := room._dirty_room_plate.get_node("CleanSinkCutout") as Polygon2D
+	_check("clean sink cutout follows the fixture and excludes rectangular scenery",
+		Geometry2D.is_point_in_polygon(Vector2(555, 195), sink.polygon)
+		and Geometry2D.is_point_in_polygon(Vector2(555, 250), sink.polygon)
+		and not Geometry2D.is_point_in_polygon(Vector2(458, 180), sink.polygon)
+		and not Geometry2D.is_point_in_polygon(Vector2(667, 290), sink.polygon))
+	room.teardown()
+	await process_frame
+	var resumed := BATHROOM_CLEANUP.new() as DayOneBathroomCleanup
+	host.add_child(resumed)
+	resumed.setup(state, false)
+	_check("saved sink resumes clean while the tub stays dirty",
+		bool(resumed.day_one_bathroom_plate_snapshot().get("sink_clean_pixels", false))
+		and bool(resumed.day_one_bathroom_plate_snapshot().get("dirty_plate_visible", false))
+		and state.day_one_bathroom_cleanup_step == 1)
+	resumed._reveal_drained_room_plate()
+	await create_timer(0.45).timeout
+	_check("drained replacement preserves clean sink pixels",
+		bool(resumed.day_one_bathroom_plate_snapshot().get("sink_clean_pixels", false))
+		and bool(resumed.day_one_bathroom_plate_snapshot().get("tub_drained", false)))
+	resumed.teardown()
+	await process_frame
+	state.free()
 
 
 func _probe_cleaning_gestures(host: Control) -> void:

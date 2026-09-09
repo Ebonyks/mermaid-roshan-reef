@@ -140,6 +140,8 @@ func _run() -> void:
 			+ Vector2(cos(angle), sin(angle)) * 120.0)
 	_check("live sink gesture completes",
 		cleanup.probe_cleaning_sink_circle(sink_points))
+	_check("sink completion replaces the painted dirty basin",
+		bool(cleanup.day_one_bathroom_plate_snapshot().get("sink_clean_pixels", false)))
 	await _capture("03_sink_clean_sponge_returns")
 	await create_timer(0.48).timeout
 	await _capture("04_brush_travels_to_tub")

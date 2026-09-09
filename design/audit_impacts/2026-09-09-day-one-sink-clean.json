@@ -1,0 +1,38 @@
+{
+  "id": "2026-09-09-day-one-sink-clean",
+  "scope": "Replace the dirty sink pixels immediately after the Day One sink scrub, preserving the dirty tub and the saved clean sink across drain and re-entry. Reuse approved clean room artwork. Owner refinement: clip the replacement to the sink silhouette, excluding rectangular wall/floor edges.",
+  "baseline": "016589c6494d082b01b84c2a974fc2acb87bbf44",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-02",
+    "DL-INT-06",
+    "DL-AGE-04",
+    "DL-SAVE-01",
+    "DL-SAVE-04",
+    "DL-ASSET-01"
+  ],
+  "findings": [],
+  "no_findings_reason": "Owner-reported sink state replacement defect is not a separately recorded MA finding. This bounded repair does not close MA-VIS-006 visual coverage, MA-VIS-007 object ownership, or MA-PLAY-004 Roshan action/contact debt.",
+  "files": [
+    "scripts/games/day_one_bathroom_cleanup.gd",
+    "scripts/games/day_one_bathroom_cleaning.gd",
+    "scripts/probe_day_one_bathroom_cleanup.gd",
+    "scripts/probe_day_one_bathroom_shots.gd",
+    "ASSET_LICENSES.md"
+  ],
+  "validation": [
+    {
+      "command": "Exact Godot 4.7.2 baseline room-state regression and Mobile capture",
+      "result": "PENDING",
+      "evidence": ".godot/sink-repair; baseline full dirty plate survives sink completion in source; old probe only checks overlay visibility."
+    },
+    {
+      "command": "parser, inference lint, focused bathroom probes, scripts/ci.sh, audit_document_authority.py, audit_development.py --base auto",
+      "result": "PENDING",
+      "evidence": "Not run yet."
+    }
+  ],
+  "acceptance_gaps": "Mobile visual comparison pending; target-device, child and owner acceptance outstanding. Existing game-wide 2D and Roshan job contact debt remain open."
+}
