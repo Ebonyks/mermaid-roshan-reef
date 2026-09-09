@@ -1,0 +1,62 @@
+{
+  "survey_id": "stage-pathfinding-clearance-20260906-room-survey-a",
+  "scope": ["main_hall", "opera_hall", "kitchen", "craft_room", "mermaid_pool"],
+  "coordinate_note": "main_hall uses hall_art coordinates; the other four use 1280x720 stage coordinates. Values are floor-foot coordinates, not image extents.",
+  "silhouette_clearance": {
+    "standard_rooms": {"runtime_height_px": 270, "recommended_lane_radius_px": 54, "recommended_fixture_standoff_px": 62, "touch_approach_margin_px": 18},
+    "main_hall": {"runtime_height_px": 190, "recommended_lane_radius_px": 38, "recommended_fixture_standoff_px": 46, "touch_approach_margin_px": 18},
+    "interpretation": "Keep route centerlines at least lane_radius from painted/fixture floor footprints. Keep approach contacts on the lane network; do not use Sprite2D/image rectangles as blockers by themselves."
+  },
+  "rooms": {
+    "main_hall": {
+      "coordinate_space": "hall_art",
+      "walk_bounds": [60, 615, 3224, 300],
+      "lanes": [
+        [[60,765],[3284,765]],
+        [[290,765],[290,620]], [[455,765],[455,620]], [[620,765],[620,620]],
+        [[1025,765],[1025,620]], [[2015,765],[2015,620]], [[2215,765],[2215,620]],
+        [[2415,765],[2415,620]], [[2615,765],[2615,620]], [[3045,765],[3045,620]],
+        [[900,765],[900,890]], [[1250,765],[1250,890]], [[2050,765],[2050,890]]
+      ],
+      "approach_contacts": {
+        "sleepy_bunny": [900,890], "shell_bunny": [1250,890], "runner_bunny": [2050,890],
+        "doors": {"opera_hall":[290,620],"kitchen":[455,620],"craft_room":[620,620],"library":[1025,620],"playroom":[2015,620],"bubble_bath":[2215,620],"dining_room":[2415,620],"royal_bedroom":[2615,620],"family_gallery":[3045,620]}
+      },
+      "fixture_floor_footprints": "No separate fixture blockers in the snapshot; painted architecture above y~615 is outside the floor band. Treat the red-carpet band and all door thresholds as floor, with the lane centerline as the only traversable surface.",
+      "clearance_notes": "Do not convert this to 1280 stage coordinates. Main-hall camera movement follows hall_art x. Preserve the long horizontal spine; all upper door and lower bunny contacts must join it."
+    },
+    "opera_hall": {
+      "coordinate_space": "stage",
+      "walk_bounds": [180,455,920,215],
+      "lanes": [[[180,562.5],[1100,562.5]],[[517.5,562.5],[517.5,455]],[[612.5,562.5],[612.5,455]],[[353.75,562.5],[353.75,455]],[[891.25,562.5],[891.25,455]]],
+      "approach_contacts": {"curtains":[517.5,455],"footlights":[517.5,455],"stage_star":[612.5,455],"pearl_sconce_left":[353.75,455],"pearl_sconce_right":[891.25,455],"chandelier":[522.5,455]},
+      "fixture_floor_footprints": {"stage_front": [270,455,540,72], "curtain_base": [425,445,175,35], "footlights": [443,455,136,50], "sconce_left": [283,180,28,37], "sconce_right": [713,180,28,37], "chandelier": [447,5,130,93]},
+      "clearance_notes": "The upper objects are image extents; only the stage-front/footlight base occupies floor. Merge the near-parallel curtain/chandelier contacts through the x~520 junction, and never route a chord through the curved stage rail. Keep 54 px standard silhouette clearance from stage-front edges; use the existing vertical contacts as approach lanes."
+    },
+    "kitchen": {
+      "coordinate_space": "stage",
+      "walk_bounds": [205,450,870,215],
+      "lanes": [[[205,557.5],[1075,557.5]],[[205,557.5],[205,450]],[[375,557.5],[375,450]],[[421.25,557.5],[421.25,450]],[[473.75,557.5],[473.75,450]],[[522.5,557.5],[522.5,450]],[[795,557.5],[795,450]]],
+      "approach_contacts": {"sink":[205,450],"pan_1":[375,450],"pan_2":[421.25,450],"pan_3":[473.75,450],"pan_4":[522.5,450],"oven":[361.25,450],"fridge":[795,450]},
+      "fixture_floor_footprints": {"sink": [77,183,167,94], "oven": [312,270,176,100], "fridge": [636,84,204,258], "back_counter_pan_cluster": [300,135,145,75]},
+      "clearance_notes": "Back-wall art and pans are image extents; approach all cooking fixtures from the y=557.5 floor spine via their x branch. Sink is at the left boundary and fridge is the rightmost tall obstacle. Keep 54 px radius around oven/fridge footprints; do not add a direct upper horizontal lane across the counter."
+    },
+    "craft_room": {
+      "coordinate_space": "stage",
+      "walk_bounds": [175,420,930,250],
+      "lanes": [[[175,545],[1105,545]],[[471.25,545],[471.25,420]],[[500,545],[500,420]],[[175,545],[175,420]],[[337.5,545],[337.5,420]],[[288.75,545],[288.75,420]]],
+      "approach_contacts": {"idea_board":[471.25,420],"ribbon_rack":[337.5,420],"supply_cupboard_left":[288.75,420],"paint_table":[500,420],"palette":[175,420]},
+      "fixture_floor_footprints": {"idea_board": [386,111,250,158], "ribbon_rack": [291,86,78,128], "supply_cupboard_left": [229,216,82,77], "paint_table": [428,249,169,106], "palette": [42,292,118,138]},
+      "clearance_notes": "The paint table is the only broad low foreground fixture; keep its rendered floor footprint separate from the approach contact. Palette and cupboard are left-edge contacts. The two x~470/500 branches are intentionally close and should share a junction region without creating a false upper cross-lane."
+    },
+    "mermaid_pool": {
+      "coordinate_space": "stage",
+      "walk_bounds": [170,400,940,270],
+      "lanes": [[[170,535],[1110,535]],[[386.25,535],[386.25,400]],[[817.5,535],[817.5,400]],[[675,535],[675,400]]],
+      "approach_contacts": {"waterfall":[386.25,400],"flower_float":[393.75,400],"seahorse_fountain":[817.5,400],"star_float":[675,400]},
+      "fixture_floor_footprints": {"pool_rim_water_boundary": [170,400,940,135], "waterfall": [309,90,121,166], "seahorse_fountain": [658,100,160,174], "flower_float": [276,270,153,110], "star_float": [529,290,83,58]},
+      "clearance_notes": "The upper blue pool is non-walkable scenery/water; the lower pink tile strip below y=535 is the floor. Keep one lower spine and vertical approaches only. Merge waterfall/flower contacts around x~390, and maintain 54 px silhouette clearance from the pool rim; never bridge across the water with an upper horizontal lane."
+    }
+  },
+  "acceptance_boundary": "Machine survey only. No human, device, child, visual, or owner approval is claimed."
+}

@@ -1,0 +1,14 @@
+# Animation Review v3 generation notes
+
+Date: 2026-09-05
+
+This review batch contains two native full-frame built-in image generation edits:
+
+- `pause_menu_worldfit_v3_candidate01.png` revises the pause menu.
+- `chooser_activity_worldfit_v3_candidate02.png` revises the activity chooser.
+
+The requested correction was applied as a single style pass per frame: preserve composition, actions, identities, labels, controls, and tangible object construction while removing watercolor bloom, paper grain, mottled washes, chalk, and scratchy brush texture. The intended finish is clean hand-inked plum/navy contours, smooth opaque cel-paint fills, 2-3 deliberate shadow shapes, restrained highlights, and rounded cartoon specificity in a late-1980s/early-1990s 2D animation language.
+
+Both native outputs were visually inspected by the agent after generation. Human review remains pending. The source v2 images remain untouched. The JSON sidecar records source/output SHA-256 hashes, dimensions, generator source paths, roles, prompts and prompt SHA-256 values, attempt numbers, method, and review notes.
+
+These are review candidates only. No owner acceptance, runtime integration, canonical documentation, minigame audit, or release claim is made here.
