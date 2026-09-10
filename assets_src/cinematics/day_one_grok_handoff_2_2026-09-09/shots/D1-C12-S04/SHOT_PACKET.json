@@ -1,0 +1,83 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C12-S04",
+  "movie_id": "D1-C12",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "gentle push-in",
+    "move_count": 1
+  },
+  "location_id": "art",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "references/D1-C09/handoff_art/objects/room_craft_room_item_paint_table.png",
+      "sha256": "b2eb0fc3a5d7c777540af1447827f6b2f98d47a658d2184d9774e407d46627aa",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending",
+      "authority_domain": "Named object/material design only; placement and action state from approved IMAGE_1 and timeline."
+    }
+  ],
+  "depends_on": [
+    "D1-C10-S05"
+  ],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "Open on the clean desk, paint pots and fixed room background; Build one soft glow on the tabletop only; keep brushes and camera fixed; End on a quiet glowing desk with no character or prop drift",
+  "must_not_move": "same bright lavender-brick front projection, flanking columns, shelves and desk positions; no purple underwater-room insert or new side wall",
+  "end_state": "End on a quiet glowing desk with no character or prop drift",
+  "state_contract": "post-completion only; no unverified friendship payoff",
+  "prompt_sha256": "4670e1e38b7d4029277a2a7c7a8506506d3395c1cb101e5a20050e29123e7b19",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending",
+    "accepted predecessor endpoint missing"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-09"
+  ],
+  "exact_cast": [],
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_RESTORED_CASTLE_FINALE.txt",
+    "sha256": "850b1f0322dfa4d6bdeba7d8b3977754c1bb4625cc7bd725b6e3775010829082",
+    "text": "Clean Art Room vignette inheriting D1-C10's endpoint. The blank awakened magic paint desk gives one restrained localized glow; organized brushes, pink paint, blue paint, and cups remain in their established homes. One gentle push toward the desk. End with the room ready for future play, no design completed. No Roshan required, no HUD, text, new art, loose supplies, or topology change. Sound: temporary magical desk arpeggio and clean room ambience; no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "Open on the clean desk, paint pots and fixed room background",
+    "Build one soft glow on the tabletop only; keep brushes and camera fixed",
+    "End on a quiet glowing desk with no character or prop drift"
+  ],
+  "continuity_overlay": "same bright lavender-brick front projection, flanking columns, shelves and desk positions; no purple underwater-room insert or new side wall",
+  "revision": 2,
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": true,
+    "unresolved_conflicts": []
+  }
+}

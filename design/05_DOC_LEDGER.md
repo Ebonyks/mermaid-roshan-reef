@@ -787,3 +787,11 @@ Kept as-is; noted so a future edit updates every copy.
 | `docs/grok_animation_series_project/README_FIRST.md` | 🟣 | `CANDIDATE` Chapter 2 owner-run Grok navigation and planning handoff; links the preserved private-series guide and revised visual archive. No generation, cinematic, owner, device or child acceptance is granted. |
 
 | `docs/grok_animation_series_project/modules/chapter2_birthday_lawn/README.md` | 🟣 | `CANDIDATE` Chapter 2 owner-run Grok navigation and planning handoff; links the preserved private-series guide and revised visual archive. No generation, cinematic, owner, device or child acceptance is granted. |
+
+## Grok Handoff 2 continuity repair commission
+
+| Doc | | Note |
+|---|---|---|
+| `design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md` | 🔵 | `SUPPORTING_CURRENT`; sequence continuity controls implementing existing cinematic rules; grants no opening, motion or delivery acceptance. |
+| `audit/GROK_HANDOFF_2_FOOTAGE_AUDIT_2026-09-09.md` | 🔵 | `SUPPORTING_CURRENT`; scoped 73-file inventory, selected-cut/native-sample review and 74-shot reconciliation; historical evidence is distinguished from fresh observations. |
+| `assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/README.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; versioned repair archive operator index; 47 draft jobs remain generation-blocked and delivery-unaccepted. |

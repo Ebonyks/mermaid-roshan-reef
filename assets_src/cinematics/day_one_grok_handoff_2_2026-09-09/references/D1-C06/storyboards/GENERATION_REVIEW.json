@@ -1,0 +1,25 @@
+{
+  "schema": "visual-handoff-generation-review-v1",
+  "movie_id": "D1-C06",
+  "reviewer_role": "luna_generation_self_check",
+  "sol_review": "pending",
+  "human_review": "pending",
+  "environment_result_id": "exec-67784058-6e4b-48de-9f69-ba9a9a071867",
+  "storyboard_result_id": "exec-e024a69c-698a-40a2-8ed6-47dae1be783c",
+  "checks": {
+    "environment_exactly_six_panels": true,
+    "environment_character_free": true,
+    "storyboard_exact_shot_count": true,
+    "storyboard_panel_count": 9,
+    "top_down_rainbow_flow": true,
+    "seahorse_then_waterfall_causality": true,
+    "rumi_first_appears_panel_7": true,
+    "separate_tails_in_hug": true
+  },
+  "remaining_observations": [],
+  "claims": {
+    "archive_complete": false,
+    "generation_ready": false,
+    "delivery_accepted": false
+  }
+}

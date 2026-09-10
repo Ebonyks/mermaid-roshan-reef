@@ -1,0 +1,74 @@
+{
+  "schema": "cinematic-location-geometry-lock-v1",
+  "handoff_id": "d1_c13_grand_puff_friendship_completion_visual_v1",
+  "status": "blocked_pending_owner_approval",
+  "eligible_as_image_1": false,
+  "location_id": "dusty_attic_octagon_boss_arena",
+  "owner_authorized_scene_cast_exception": "Rumi may appear in the C13 arena scene; this explicit C13 decision supersedes the older C12 pool-only placement for this scene.",
+  "source_candidates": [
+    {
+      "path": "location_authorities/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+      "role": "candidate_topology_reference",
+      "appearance_authority": false,
+      "pixel_binding_eligible": false,
+      "reason": "Generated candidate is a topology/story reference pending human approval."
+    },
+    {
+      "path": "handoff_art/location/main_hall_screen_b_style_source.png",
+      "role": "style_material_corroboration_only",
+      "appearance_authority": false,
+      "pixel_binding_eligible": false,
+      "reason": "Main Hall source cannot stand in for the arena layout."
+    }
+  ],
+  "required_geometry": {
+    "camera": "fixed high three-quarter view showing the full playable ring",
+    "deck": "true eight-sided wooden arena deck",
+    "dueling_ring": "one smaller concentric octagonal ring centered on the deck",
+    "perimeter": "eight low perimeter walls and eight pearl corner posts at the vertices",
+    "rear_wall": "one centered round attic window casting child-safe lavender dusk",
+    "entrance": "one closed purple-and-pearl entrance door centered on the near/rear-facing wall opposite the window and aligned to arena center",
+    "open_lanes": "center and safe perimeter lanes remain open",
+    "materials": "pearl shell caps, aqua-lavender accents, warm wood floor, broad painted value bands, navy-purple contours, soft storybook cel shading"
+  },
+  "shot_placements_to_approve": {
+    "D1-C13-S01_ROSHAN_CLEANUP": "Roshan safe at ring edge; Grand Puff centered; residual dust-star/core visible.",
+    "D1-C13-S02_DADDY_SWEEP": "Daddy at non-contact-risk side distance; Grand Puff lower-curl dust core remains centered.",
+    "D1-C13-S03_BABY_EAGLE_LIFT": "Exactly one approved safe perch/foreground landing position for Baby Eagle; no second bird or obstacle.",
+    "D1-C13-S04_RUMI_RINSE": "Rumi’s authorized arena staging position and a physically coherent localized water/sparkle path; no invented basin or portal.",
+    "D1-C13-S05_RAINBOW_BUNNY_BIRTH": "Grand Puff centered with one small floor-level prismatic cradle and a stable landing position for exactly one new bunny."
+  },
+  "ordered_landmarks_required": [
+    "rear attic window",
+    "centered entrance door",
+    "eight perimeter wall segments",
+    "eight pearl corner posts",
+    "outer deck boundary",
+    "inner octagonal ring",
+    "open center and safe perimeter lanes"
+  ],
+  "forbidden_additions": [
+    "circular arena",
+    "staircase",
+    "balcony",
+    "throne",
+    "interior columns",
+    "extra window or door",
+    "basin or unexplained portal",
+    "furniture or obstacles in the center/perimeter lanes",
+    "Main Hall geometry substituted for the boss arena",
+    "HUD, text, logo, or title card"
+  ],
+  "approval_requirements": [
+    "Owner-approved complete flattened arena topology/first-frame authority",
+    "Human review of all five helper placements and Grand Puff scale",
+    "Human approval of the Rumi arena water/sparkle path",
+    "Human acceptance of the stable post-gameplay FRIENDS endpoint as the C13 entry frame",
+    "Immutable published path and SHA-256 for the approved authority"
+  ],
+  "review_notes": [
+    "The current candidate arena master is not an IMAGE_1 authority.",
+    "Generated perspectives and storyboards are narrative/topology evidence only.",
+    "A location lock becomes eligible_as_image_1 only after geometry, source hash, ordered landmarks, forbidden additions, owner decision, and immutable resolution are all recorded."
+  ]
+}

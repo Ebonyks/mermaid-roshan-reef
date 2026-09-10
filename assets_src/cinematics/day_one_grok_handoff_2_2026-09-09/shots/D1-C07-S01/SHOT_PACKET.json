@@ -1,0 +1,80 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C07-S01",
+  "movie_id": "D1-C07",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "stuffie",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "references/D1-C07/handoff_art/objects/room_playroom_item_stuffie_nook.png",
+      "sha256": "7ed4dafff1e3dac12264d4a1c617095bf43d2f36fd8066476aa78725fe3ded67",
+      "human_review": "inherited authority; exact binding review pending",
+      "authority_domain": "Named object/material design only; placement and action state from approved IMAGE_1 and timeline."
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.0–2.0s: hold the approved complete dirty Stuffie Room with no cast; 2.0–4.5s: maintain the same clutter, room and empty entrance; 4.5–6.0s: continue the unchanged dirty-room hold for Roshan entry",
+  "must_not_move": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+  "end_state": "continue the unchanged dirty-room hold for Roshan entry",
+  "state_contract": "dirty before rescue; left pin then right pin clear only through gameplay; clean/departure after both; no swing or wing hunt",
+  "prompt_sha256": "4cade279bad0a9758eef133dc4ca8eedf20cca72a553408c66528dbbe8bbd661",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-01"
+  ],
+  "exact_cast": [],
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C07_STUFFIE_DIRTY_DISCOVERY.txt",
+    "sha256": "1c67fe0e1a62bcfd0dad2ac60daf66ef1fc7f86f01017c75b747c2aaff72441c",
+    "text": "Wide dirty Stuffie Room orientation before entry. Show the established door, both basket zones, furniture, floor mess, and connected full-room architecture in dim safe light. One friendly dust bunny is part of the environment but not yet emphasized. Locked camera. End holding the doorway clear. No Roshan yet, no clean state, no duplicated props, or theater-flat wall. Sound: temporary soft dusty room tone and fabric rustle; no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "0.0–2.0s: hold the approved complete dirty Stuffie Room with no cast",
+    "2.0–4.5s: maintain the same clutter, room and empty entrance",
+    "4.5–6.0s: continue the unchanged dirty-room hold for Roshan entry"
+  ],
+  "continuity_overlay": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+  "revision": 2,
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": false,
+    "unresolved_conflicts": []
+  }
+}

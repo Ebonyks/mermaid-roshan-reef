@@ -1,0 +1,95 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C12-S03",
+  "movie_id": "D1-C12",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "stuffie",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "role": "subject_identity",
+      "path": "references/D1-C08/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+      "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+      "human_review": "inherited source authority; shot-specific human binding approval pending",
+      "id": "IMAGE_2",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
+    },
+    {
+      "role": "subject_identity",
+      "path": "references/D1-C07/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "human_review": "inherited source authority; shot-specific human binding approval pending",
+      "id": "IMAGE_3",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
+    }
+  ],
+  "depends_on": [
+    "D1-C08-S05"
+  ],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.0–2.0s: show the original proposed clean Stuffie friendship tableau; 2.0–4.5s: one Baby Eagle wing flutter and one friendly bunny play beat; 4.5–6.0s: settle the same group calmly; no cleanup",
+  "must_not_move": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+  "end_state": "settle the same group calmly; no cleanup",
+  "state_contract": "Unresolved original recap versus later departure. No automatic cast deletion or reunion authorization.",
+  "prompt_sha256": "bf35499d8adc4f986fd71a90ec5ad3b5d26a9f24424cf1a3ee146ab6e1a1435d",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending",
+    "accepted predecessor endpoint missing",
+    "Original friendship recap conflicts with later Eagle departure and cleared pin bunnies; select supported recap time/cast before execution. Do not replace it with an empty room by inference."
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-09"
+  ],
+  "exact_cast": null,
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_RESTORED_CASTLE_FINALE.txt",
+    "sha256": "850b1f0322dfa4d6bdeba7d8b3977754c1bb4625cc7bd725b6e3775010829082",
+    "text": "Clean Stuffie Room vignette inheriting D1-C08's endpoint. Exactly one recovered turquoise/yellow/pink Baby Eagle gives a small proud wing flutter while friendly playroom dust bunnies bounce once near their established baskets. Locked camera; all furniture stays fixed. End with everyone calm and safe. No duplicate eagle, wing blast cleanup, extra bunny beyond the accepted group, or room redesign. Sound: temporary happy chirp and soft hops; no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "0.0–2.0s: show the original proposed clean Stuffie friendship tableau",
+    "2.0–4.5s: one Baby Eagle wing flutter and one friendly bunny play beat",
+    "4.5–6.0s: settle the same group calmly; no cleanup"
+  ],
+  "continuity_overlay": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+  "revision": 2,
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": false,
+    "unresolved_conflicts": [
+      "recap departure/cast"
+    ]
+  },
+  "binding_plan_status": "provisional original cast, not execution approval"
+}

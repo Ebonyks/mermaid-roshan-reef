@@ -1,0 +1,2849 @@
+{
+  "revision": 2,
+  "compared_handoff_2_commit": "859adc8ba240315d321b6da560c72ef840bf706d",
+  "sources": [
+    "August 30 original scene directions (15 source text files covering the Day One handoff)",
+    "September 4 third-pass 74 decisions and 32 detailed repair cards"
+  ],
+  "shots": [
+    {
+      "shot_id": "D1-C00-S01",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C00_OPENING_FLIGHT.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C00-S02",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C00_OPENING_FLIGHT.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C00-S03",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C00_OPENING_FLIGHT.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C00-S04",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C00_OPENING_FLIGHT.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C00-S05",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C00_OPENING_FLIGHT.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C00-S06",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C00_OPENING_FLIGHT.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C01-S01",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C01_LAGOON_LANDING_AND_CASTLE_APPROACH.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C01-S02",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C01_LAGOON_LANDING_AND_CASTLE_APPROACH.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: Daddy is still at the stationary plane exit. 1.0-4.5: Daddy completes one careful disembark onto the dock beside waiting Roshan. 4.5-6.0: he turns toward her with one open hand offered; no handshake yet.",
+        "must_not_move": "same plane, dock, castle and closed-door approach; preserve time-of-day and shoreline",
+        "end_state": "Daddy safely on dock, one hand offered toward Roshan; plane still",
+        "exact_cast": null,
+        "state_contract": "arrival precedes door opening; no missing disembark action concealed by cut"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "b911ea3d7d77d0b81db7cc07d9febbf3efd45c80920b558eb3d72214dd698e5c",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "b670cf79a2b674cab3162e112f990ca819e323b6e0be843d60084845efa07ea7",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C01/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C01/handoff_art/characters/daddy_daddy_master.png",
+          "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C01-S03",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C01_LAGOON_LANDING_AND_CASTLE_APPROACH.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C01-S04",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C01_LAGOON_LANDING_AND_CASTLE_APPROACH.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: Roshan is beside the closed approved castle doors. 1.0-4.5: she approaches the handle. 4.5-6.0: her hand stops before contact; doors stay closed.",
+        "must_not_move": "same plane, dock, castle and closed-door approach; preserve time-of-day and shoreline",
+        "end_state": "Roshan at the handle with a visible gap; doors closed",
+        "exact_cast": null,
+        "state_contract": "arrival precedes door opening; no missing disembark action concealed by cut"
+      },
+      "restored_camera": {
+        "verb": "gentle push-in",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": "41acf43d6f4678bf885124d052cc326e25eb6ccb1eeec9db26e734976944f087",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "8ee965122253e9c4fc88e1a68266c76234b1b8d46201f496d442c5a5bad85c7c",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C01/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C01/handoff_art/characters/daddy_daddy_master.png",
+          "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C02-S01",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C02_FIRST_DIRTY_CASTLE_DISCOVERY.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C02-S02",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C02_FIRST_DIRTY_CASTLE_DISCOVERY.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C02-S03",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C02_FIRST_DIRTY_CASTLE_DISCOVERY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "the camera begins on the accepted Screen-A dirty-hall composition one integrated grime patch, one friendly dust-bunny trace, and one harmless scrap become readable roshan points once without touching or cleaning",
+        "must_not_move": "approved screen A or B only, never merged; exact portal order and floor-open doorways; no evidence placards",
+        "end_state": "roshan points once without touching or cleaning",
+        "exact_cast": null,
+        "state_contract": "dirty discovery only; only bathroom route glows"
+      },
+      "restored_camera": {
+        "verb": "short lateral",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": "fd969ddb7bb06cf0f88786b0a1b773813d2e313aada31c3d19256899d5b63c81",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "6e120516d0b8855cda812518bdf04d9495099111673541757dfb8d188549f5e0",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C02/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C02/handoff_art/characters/daddy_daddy_master.png",
+          "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C02-S04",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C02_FIRST_DIRTY_CASTLE_DISCOVERY.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C03-S01",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C03_BATHROOM_DIRTY_ENTRY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-2.0 one tub/sink/tools establish 2.0-4.8 hold murky water/grime 4.8-6.00 entrance clear for Roshan",
+        "must_not_move": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
+        "end_state": "4.8-6.00 entrance clear for Roshan",
+        "exact_cast": [],
+        "state_contract": "discovery does not clean; restored endpoint follows actual cleaning completion"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": null,
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "735d1ab0173e3843b87bd1194def215cf83ac2ca2c6de243d87d470ed84b9491",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C03/handoff_art/objects/cleanup_basket.png",
+          "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C03/handoff_art/objects/target_tub_grime_v1.png",
+          "sha256": "52e8c42b0c044c1b5dba42681d7dfb5e34dc44b345e6535e9432df5f186ecb67"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C03-S02",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C03_BATHROOM_DIRTY_ENTRY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "roshan crosses into the single-tub dirty bathroom she looks from the murky tub to the dirty sink while moving fully inside she settles with the entrance and room orientation still readable",
+        "must_not_move": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
+        "end_state": "she settles with the entrance and room orientation still readable",
+        "exact_cast": null,
+        "state_contract": "discovery does not clean; restored endpoint follows actual cleaning completion"
+      },
+      "restored_camera": {
+        "verb": "short follow",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": "6d442930982ebde169e89918f0e4f3476b7aa5ac00e9f5efaf6d73f61fe058ac",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "d49cb8b2e66144e05eb1234d6c17a417267396e24fcda22272638340e54405d2",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C03/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C03/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+          "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C03-S03",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C03_BATHROOM_DIRTY_ENTRY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0 reveal swimmer 1.0-4.5 weak safe paddling 4.5-6.00 Roshan concern at edge",
+        "must_not_move": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
+        "end_state": "4.5-6.00 Roshan concern at edge",
+        "exact_cast": null,
+        "state_contract": "discovery does not clean; restored endpoint follows actual cleaning completion"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "4c30cc401c08d2d407fde7d0f4953a0748918b7b728794ba481ae8d34cbef22f",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "8d157bef0979bff3f08c6a0c29b3095382b5c980b2af1b0938962f9a9cb2f742",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C03/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C03/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+          "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C03-S04",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C03_BATHROOM_DIRTY_ENTRY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "roshan follows her gaze from the swimmer toward the dirty sink and approved tools she reaches toward the nearest approved tool without changing the room state her hand stops in a clean visible gap before contact",
+        "must_not_move": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
+        "end_state": "her hand stops in a clean visible gap before contact",
+        "exact_cast": null,
+        "state_contract": "discovery does not clean; restored endpoint follows actual cleaning completion"
+      },
+      "restored_camera": {
+        "verb": "subtle push-in",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": "dcd5327836fd17906c6e6d827c9f421ad98a87e5a28f5affbf7e418ba8d59738",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "38e04955904f9714435176e84601177ba329f8e2ac53a93a9b7e5aab83fa87fe",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C03/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C03/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+          "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C04-S01",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C04_BATHROOM_RESTORED.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-2.0 brush contacts last grime 2.0-4.8 grime releases 4.8-6.00 hold dirty room, not yet clean",
+        "must_not_move": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
+        "end_state": "4.8-6.00 hold dirty room, not yet clean",
+        "exact_cast": null,
+        "state_contract": "discovery does not clean; restored endpoint follows actual cleaning completion"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": null,
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "18973c7e1cdda7c926497b652d0efdeb8045cace6c9f7fc8d44213943a014a61",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C04/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C04/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+          "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C04-S02",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C04_BATHROOM_RESTORED.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.5 dirty tub after scrub 1.5-4.8 clarity spreads 4.8-6.00 bunny upright/relieved",
+        "must_not_move": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
+        "end_state": "4.8-6.00 bunny upright/relieved",
+        "exact_cast": null,
+        "state_contract": "discovery does not clean; restored endpoint follows actual cleaning completion"
+      },
+      "restored_camera": {
+        "verb": "gentle push-in",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": null,
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "cabecd2cedf06627f4cc636543dc888f2e1c80962a2ff58ebe8004367ea43d30",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C04/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C04/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+          "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C04-S03",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C04_BATHROOM_RESTORED.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.2 swimmer reaches edge 1.2-4.8 same legless body clears tub 4.8-6.00 safe dry-surface bounce",
+        "must_not_move": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
+        "end_state": "4.8-6.00 safe dry-surface bounce",
+        "exact_cast": null,
+        "state_contract": "discovery does not clean; restored endpoint follows actual cleaning completion"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "58423892ff382c4e66fc1598f645efd89214668d4dedb31e74268f2dff554adc",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "9ae5d4e6fc59a8834aa2ccf58b449edcaa390d8e6ede2b539f3580017e6d739b",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C04/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C04/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+          "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C04-S04",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C04_BATHROOM_RESTORED.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: show the same bathroom after actual cleaning completion. 1.0-4.5: Roshan looks toward the approved Pool route. 4.5-6.0: settle with the same tub, sink, mirror and one swimmer.",
+        "must_not_move": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
+        "end_state": "same clean bathroom and cast; no geometry change",
+        "exact_cast": null,
+        "state_contract": "discovery does not clean; restored endpoint follows actual cleaning completion"
+      },
+      "restored_camera": {
+        "verb": "slow pullback",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": null,
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "b806163c70a64893a44697be9d66ca052f912f0b14bb572732d8cc1696243946",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C04/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C04/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+          "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C05-S01",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_POOL_DIRTY_DISCOVERY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: establish the approved wide dirty-pool setup. 1.0-4.5: Roshan pauses and looks toward the blocked sources. 4.5-6.0: settle; no cleaning occurs.",
+        "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+        "end_state": "same giant pool with both blocked fixtures still in place",
+        "exact_cast": null,
+        "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete"
+      },
+      "restored_camera": {
+        "verb": "slow push-in",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": null,
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "9eeec1ece1f5805c92395f404c9f24db20e25b20f85f1a61fe3de539890aa1bc",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C05/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C05/handoff_art/objects/seahorse_sick.png",
+          "sha256": "3af5ff973576d328dde98282f5ad9a5a04931e35f3a48e366de6ad1499b304a0"
+        },
+        {
+          "id": "IMAGE_4",
+          "path": "references/D1-C05/handoff_art/objects/waterfall_clogged_turgid.png",
+          "sha256": "df7c3147bc8867612e9d59b4eb50771399341040ecd6305342dffe5ce4166589"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C05-S02",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_POOL_DIRTY_DISCOVERY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.2 low waterline 1.2-4.8 swimming bunny in water, land bunny dry corner 4.8-6.00 trash depth/scale hold",
+        "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+        "end_state": "4.8-6.00 trash depth/scale hold",
+        "exact_cast": [
+          "swimming bunny",
+          "one curl-ear land bunny on dry shore"
+        ],
+        "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete"
+      },
+      "restored_camera": {
+        "verb": "short lateral",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": "c0acf0f5a9781f3a18d61058b2147533b735abc1b0ca5db0b7c1512eedf9a642",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "ef18f8aa21fd6444635c5f6b0addc068390bf46de2e60658d1a57dce3a9b8cf7",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C05/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+          "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C05/handoff_art/objects/pool_algae_trash.png",
+          "sha256": "e0ed3c7174dcfeff17eb8261ee46d8e1d2a7c69e93a650f5495db4b6505c7ed9"
+        },
+        {
+          "id": "IMAGE_4",
+          "path": "references/D1-C05/handoff_art/characters/pool_land_bunny_curl_ears.png",
+          "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C05-S03",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_POOL_DIRTY_DISCOVERY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.5 skimmer enters water 1.5-4.8 algae/trash weight into mesh 4.8-6.00 debris-filled skimmer hold",
+        "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+        "end_state": "4.8-6.00 debris-filled skimmer hold",
+        "exact_cast": [
+          "Roshan"
+        ],
+        "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": null,
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "8eb0fb0409e437d27c5f21a0a370922b2d006a0f14fba7ea463412499e6dbebf",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C05/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C05-S04",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_POOL_DIRTY_DISCOVERY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: show the approved waterfall source clogged with opaque sludge. 1.0-4.5: one weak dull drip falls from its lower lip. 4.5-6.0: settle with the same obstruction; no rainbow flow.",
+        "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+        "end_state": "waterfall source remains blocked; no new fountain or pool change",
+        "exact_cast": [],
+        "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete"
+      },
+      "restored_camera": {
+        "verb": "subtle upward tilt",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": "b65049c8f01e0da19baaa7dc99fd226867a612e6c9b5490b111564984778f638",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "8a88a70c397720b33ee62b57e5288fbdead4f621de2c1303a9c0d9b76b42d26a",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C05/handoff_art/objects/waterfall_clogged_turgid.png",
+          "sha256": "df7c3147bc8867612e9d59b4eb50771399341040ecd6305342dffe5ce4166589"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C05-S05",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_POOL_DIRTY_DISCOVERY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: show the blue-lavender seahorse on its coral pedestal with the pink mouth obstruction. 1.0-4.0: one weak drip falls from the blocked mouth. 4.0-6.0: settle with the obstruction still in place.",
+        "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+        "end_state": "same seahorse remains blocked; pool state unchanged",
+        "exact_cast": [],
+        "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "a8f220f12bb94e87009c7afbcbc2dff8b8302e3cb03b194026ea39f8dd3895f0",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "cfeab843fea90bcd6f05ee9a544973ea08bb3d3c51e827e5aacd2188f805843d",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C05/handoff_art/objects/seahorse_sick.png",
+          "sha256": "3af5ff973576d328dde98282f5ad9a5a04931e35f3a48e366de6ad1499b304a0"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C05/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C05-S06",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_POOL_DIRTY_DISCOVERY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.5 Roshan between sources 1.5-4.8 waterfall/seahorse/bunnies all readable 4.8-6.00 resolve hold, no cleanup",
+        "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+        "end_state": "4.8-6.00 resolve hold, no cleanup",
+        "exact_cast": null,
+        "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete"
+      },
+      "restored_camera": {
+        "verb": "slow pullback",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": "cdbb9f963a0c7bc390fa25d903cce9f36c1353df6d45a95612d244ff73826c55",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "5eda306807cece274422130fb36da07112a0a894a01898d4ca22cb3bf6cd3628",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C05/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C05/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+          "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143"
+        },
+        {
+          "id": "IMAGE_4",
+          "path": "references/D1-C05/handoff_art/characters/pool_land_bunny_curl_ears.png",
+          "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "Opening must already prove both blocked source identities plus all three characters; IMAGE_2–4 cannot add extra source-state alternatives."
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S01",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: Roshan holds the pink mouth obstruction at the approved seahorse nozzle. 1.0-4.0: she pulls it outward until the nozzle is visibly clear. 4.0-6.0: settle with the detached obstruction in her hand and only the first small drip at the same nozzle.",
+        "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+        "end_state": "same nozzle clear with first small drip; obstruction held by Roshan",
+        "exact_cast": [
+          "Roshan"
+        ],
+        "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": null,
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "c6379d090cc2a08f9209870cded433392a0cbba4cf18786a12b8143cffb83b4a",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C06/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C05/handoff_art/objects/seahorse_sick.png",
+          "sha256": "3af5ff973576d328dde98282f5ad9a5a04931e35f3a48e366de6ad1499b304a0"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "accepted predecessor endpoint missing"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S02",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: inherit the same clear nozzle and first small drip. 1.0-4.5: that drip develops into a clear stream reaching the pool. 4.5-6.0: the stream settles without moving the fixture.",
+        "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+        "end_state": "clear stream from the same nozzle into the same pool",
+        "exact_cast": [],
+        "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": null,
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "cff5f08b9627767deb5f44d01fc511516c2b3ac4a28e70d0efeb61ee80000009",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C06/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C05/handoff_art/seahorse_sick.png",
+          "sha256": "88aa2ce07e79144b13d8e699341404e7b15e79baed861169c9c17e196ddba941"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "accepted predecessor endpoint missing"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S03",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.2 close blocked top source 1.2-4.8 ignition travels downward pushing sludge 4.8-6.00 clear flow reaches lower lip",
+        "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+        "end_state": "4.8-6.00 clear flow reaches lower lip",
+        "exact_cast": [],
+        "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete"
+      },
+      "restored_camera": {
+        "verb": "gentle downward tilt",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": "4880e45fbbdb1b28c6c4d651e23271f72aad813aa2cd019f87412fa5bf9f721a",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "cd01009c7ae8826b2d3f8b633081c626a0ee9bfe9f450d6d74c647986ec672f8",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C06/handoff_art/objects/mermaid_pool_waterfall_rest.png",
+          "sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S04",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: start on an approved wide setup with both fixed sources already flowing. 1.0-4.5: the two flows continue into the same pool. 4.5-6.0: settle with all fixture footprints unchanged.",
+        "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+        "end_state": "both sources visibly feed the same pool from their unchanged locations",
+        "exact_cast": [],
+        "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete"
+      },
+      "restored_camera": {
+        "verb": "smooth pullback",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": "a30ebb3d300e1a28b0ab16bdebdcd87cc3eda84d8813095c15149162fb843222",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "8d1f5f19f6b467532b10db366b45e6a7a2879798d2052ccbe02c991bcfbd3c7a",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C06/handoff_art/objects/mermaid_pool_waterfall_rest.png",
+          "sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C06/handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
+          "sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S05",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "two distinct clear fronts spread from the fixed left and right sources each front displaces algae through the same water volume the fronts meet once near center in one bright ripple",
+        "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+        "end_state": "the fronts meet once near center in one bright ripple",
+        "exact_cast": [],
+        "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "fb4194f630d3cd2f13150fa14b5921512abf076779851b7d28cb3ed51fb424b6",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "177a76ab80c4a82b17d4f57e255f60f8d8e50a68e200ada1dae4657b19c5fe98",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C06/handoff_art/objects/mermaid_pool_waterfall_rest.png",
+          "sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C06/handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
+          "sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S06",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.2 clean aqua post-meet pool 1.2-4.5 contained violet glow rises 4.5-6.00 clean water/glow hold, no person",
+        "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+        "end_state": "4.5-6.00 clean water/glow hold, no person",
+        "exact_cast": [],
+        "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete"
+      },
+      "restored_camera": {
+        "verb": "slow push-in",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": "b4450e213f0725ddcbcd0e588d16544190b9930447ac2ead7a25c852dac8dd5a",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "757dc9b7362ff450e825b5c189ceb44bc36a739f7c2477a79bf2b760c5486d3e",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C06/handoff_art/objects/mermaid_pool_waterfall_rest.png",
+          "sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C06/handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
+          "sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S07",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.2 center violet glow 1.2-4.8 Rumi rises gracefully from depth 4.8-6.00 full adult identity/scale hold",
+        "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+        "end_state": "4.8-6.00 full adult identity/scale hold",
+        "exact_cast": [
+          "Rumi"
+        ],
+        "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete"
+      },
+      "restored_camera": {
+        "verb": "gentle upward follow",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": "b2ba7c46f21487709c68a08589e9f59ffbb4fef00262c12cb4c2a6cc4e7aefa4",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "e6d9feb1bc4c2a5b278db3005153951bfd7ff210b300e2749334c8c0cee705ed",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C06/handoff_art/characters/rumi_rumi_full_body_identity.png",
+          "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C06/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S08",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C06-S09",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "roshan moves from the accepted invitation endpoint into Rumi's arms their arms make one coherent affectionate contact while faces remain visible they settle with distinct torsos and two separate tails",
+        "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+        "end_state": "they settle with distinct torsos and two separate tails",
+        "exact_cast": [
+          "Roshan",
+          "Rumi"
+        ],
+        "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete"
+      },
+      "restored_camera": {
+        "verb": "subtle pullback",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": "bc0f056d1683e9f366312fa360aa769019d30dd6956ca6bb5e556d562cb2bcd7",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "46b18dbb98d319286bedd83e3779948d917075a5e887241d1438fb4d4ed352c9",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C06/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C06/handoff_art/characters/rumi_rumi_full_body_identity.png",
+          "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C07-S01",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C07_STUFFIE_DIRTY_DISCOVERY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: establish the approved dirty castle playroom. 1.0-4.0: a small dust wisp drifts across the floor. 4.0-6.0: settle on the unchanged room.",
+        "must_not_move": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+        "end_state": "same dirty castle playroom, no character entry and no cleanup",
+        "exact_cast": [],
+        "state_contract": "dirty before rescue; left pin then right pin clear only through gameplay; clean/departure after both; no swing or wing hunt"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": null,
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "9ff9770afcac64f6ece8d1c7a57a597fb992fa78d4bfc31a822ba3f91159ed95",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C07/handoff_art/objects/room_playroom_item_stuffie_nook.png",
+          "sha256": "7ed4dafff1e3dac12264d4a1c617095bf43d2f36fd8066476aa78725fe3ded67"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C07-S02",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C07_STUFFIE_DIRTY_DISCOVERY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: Roshan is at the approved frame edge. 1.0-4.5: Roshan glides into the same room and looks toward the rescue area. 4.5-6.0: she stops without touching either pin.",
+        "must_not_move": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+        "end_state": "Roshan stopped before rescue; room and both pins unchanged",
+        "exact_cast": [
+          "Roshan"
+        ],
+        "state_contract": "dirty before rescue; left pin then right pin clear only through gameplay; clean/departure after both; no swing or wing hunt"
+      },
+      "restored_camera": {
+        "verb": "short follow",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": null,
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "1eca2a1b296e97450832f7933c3cc91d4dd1a5d74cddeeb28e596efa8e8a1252",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C07/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "accepted predecessor endpoint missing"
+      ]
+    },
+    {
+      "shot_id": "D1-C07-S04",
+      "historical_disposition": "OMIT_WRONG_EVENT",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C07_STUFFIE_DIRTY_DISCOVERY.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C07-S05",
+      "historical_disposition": "OMIT_WRONG_EVENT",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C07_STUFFIE_DIRTY_DISCOVERY.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C07-S06",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C07_STUFFIE_DIRTY_DISCOVERY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: show Baby Eagle held by exactly two visible lavender rescue-pin bunnies. 1.0-4.5: Baby Eagle makes one small worried blink. 4.5-6.0: settle with both pins still holding.",
+        "must_not_move": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+        "end_state": "one Baby Eagle, exactly two visible pin bunnies, no release",
+        "exact_cast": [
+          "Baby Eagle",
+          "left rescue-pin bunny",
+          "right rescue-pin bunny"
+        ],
+        "state_contract": "dirty before rescue; left pin then right pin clear only through gameplay; clean/departure after both; no swing or wing hunt"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "003ff6dc8e45cc7db8b4157a133936716e31868138eb4b635b0869f745932f9b",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "0516788a10ec8d1b28244f3f63582de163022c198193e5ced1905550b4bee87f",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C07/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C07/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+          "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac"
+        },
+        {
+          "id": "IMAGE_4",
+          "path": "references/D1-C07/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+          "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "accepted predecessor endpoint missing"
+      ]
+    },
+    {
+      "shot_id": "D1-C08-S01",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_STUFFIE_RESTORATION.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.00–2.00 enter on the accepted C07 two-pin endpoint in the same Stuffie Room. 2.00–4.50 Roshan approaches the left rescue pin; keep one Eagle and exactly two bunnies. 4.50–6.00 stop pre-contact with the left pin visible and no basket.",
+        "must_not_move": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+        "end_state": "4.50–6.00 stop pre-contact with the left pin visible and no basket.",
+        "exact_cast": [
+          "Roshan",
+          "Baby Eagle",
+          "left pin bunny",
+          "right pin bunny"
+        ],
+        "state_contract": "dirty before rescue; left pin then right pin clear only through gameplay; clean/departure after both; no swing or wing hunt"
+      },
+      "restored_camera": {
+        "verb": "subtle push-in",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": "2f9fe7ccb4dd579a07f292616acc894da0df917ccde126c3b2c2492b6c4f12a3",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "9a1ed94008cff13dab69883e210f2e476b5a90db6c47ed439efb9d19a13172c4",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C07/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C07/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+          "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac"
+        },
+        {
+          "id": "IMAGE_4",
+          "path": "references/D1-C07/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+          "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "accepted predecessor endpoint missing"
+      ]
+    },
+    {
+      "shot_id": "D1-C08-S02",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_STUFFIE_RESTORATION.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.00–2.00 inherit the C08-S01 left-pin pre-contact frame. 2.00–4.50 Roshan clears only eagle_pin_left with a readable causal hand action. 4.50–6.00 hold one cleared left pin, one remaining right pin, one Eagle, and two total pin bunnies.",
+        "must_not_move": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+        "end_state": "4.50–6.00 hold one cleared left pin, one remaining right pin, one Eagle, and two total pin bunnies.",
+        "exact_cast": [
+          "Roshan",
+          "Baby Eagle",
+          "left pin bunny",
+          "right pin bunny"
+        ],
+        "state_contract": "dirty before rescue; left pin then right pin clear only through gameplay; clean/departure after both; no swing or wing hunt"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "1cc208bfaaf44d0bd4647ccbf34fc4a00ca501d07b721d34d0ba88ed4205876c",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "1b4fb2b635104d141126d5a7950f875ea4472fc50a205a7226f0e356e337c528",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C07/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C07/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+          "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac"
+        },
+        {
+          "id": "IMAGE_4",
+          "path": "references/D1-C07/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+          "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "accepted predecessor endpoint missing"
+      ]
+    },
+    {
+      "shot_id": "D1-C08-S03",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_STUFFIE_RESTORATION.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: retain the accepted left-pin-cleared state in a separately approved locked right-pin setup. 1.0-4.5: Roshan reaches toward the remaining right pin. 4.5-6.0: stop before contact; Baby Eagle remains held.",
+        "must_not_move": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+        "end_state": "right pin still holds, left pin cleared; no contact yet",
+        "exact_cast": [
+          "Roshan",
+          "Baby Eagle",
+          "left pin bunny",
+          "right pin bunny"
+        ],
+        "state_contract": "dirty before rescue; left pin then right pin clear only through gameplay; clean/departure after both; no swing or wing hunt"
+      },
+      "restored_camera": {
+        "verb": "short lateral",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": "4db44b2f9b7e6959272aff285d6206e50fb7a71bd39162219e9e995f84c1ea2b",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "ecaeda3e85b91d4ed6352f9566afd358140548bdf654f7b9cf9ac43cc9f4a3b7",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C07/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C07/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+          "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac"
+        },
+        {
+          "id": "IMAGE_4",
+          "path": "references/D1-C07/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+          "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "accepted predecessor endpoint missing"
+      ]
+    },
+    {
+      "shot_id": "D1-C08-S04",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_STUFFIE_RESTORATION.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.00–2.00 inherit the right-pin pre-contact endpoint. 2.00–4.50 Roshan clears only eagle_pin_right; preserve one Eagle and exactly two pin bunnies. 4.50–6.00 hold the clean post-rescue room with no wing blast or new cast.",
+        "must_not_move": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+        "end_state": "4.50–6.00 hold the clean post-rescue room with no wing blast or new cast.",
+        "exact_cast": [
+          "Roshan",
+          "Baby Eagle",
+          "left pin bunny",
+          "right pin bunny"
+        ],
+        "state_contract": "dirty before rescue; left pin then right pin clear only through gameplay; clean/departure after both; no swing or wing hunt"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "66f0c29f780e816ff13c831a476e05367948edd777154d6577e4eace7eba8642",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "9d0191cb32bfd46fa558d74ec3e579014204728337e45eea243d255740245da8",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C07/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C07/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+          "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac"
+        },
+        {
+          "id": "IMAGE_4",
+          "path": "references/D1-C07/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+          "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "accepted predecessor endpoint missing"
+      ]
+    },
+    {
+      "shot_id": "D1-C08-S05",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_STUFFIE_RESTORATION.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.00–2.00 inherit the clean post-rescue endpoint with one Baby Eagle. 2.00–4.50 Eagle gives a small thanks/look toward Roshan; no blast or extra bunnies. 4.50–6.00 Eagle rises/departs cleanly while room topology stays fixed.",
+        "must_not_move": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+        "end_state": "4.50–6.00 Eagle rises/departs cleanly while room topology stays fixed.",
+        "exact_cast": [
+          "Roshan",
+          "Baby Eagle"
+        ],
+        "state_contract": "dirty before rescue; left pin then right pin clear only through gameplay; clean/departure after both; no swing or wing hunt"
+      },
+      "restored_camera": {
+        "verb": "subtle upward follow",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": "118b7077ee47e4fd0021722706966170b5f0ef00547da8fef670318b3d4bfa2c",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "c601de0451595773fa3886cbd557a200767f804ba914784b5d98cf8991b811df",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C08/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C08/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+          "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "accepted predecessor endpoint missing"
+      ]
+    },
+    {
+      "shot_id": "D1-C08-S06",
+      "historical_disposition": "OMIT_WRONG_EVENT",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_STUFFIE_RESTORATION.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C08-S07",
+      "historical_disposition": "OMIT_WRONG_EVENT",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_STUFFIE_RESTORATION.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C09-S01",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C09_ART_ROOM_DIRTY_DISCOVERY.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C09-S02",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C09_ART_ROOM_DIRTY_DISCOVERY.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C09-S03",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C09_ART_ROOM_DIRTY_DISCOVERY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: show the four approved material groups at the approved craft-room desk. 1.0-4.5: a small glint passes over the supplies. 4.5-6.0: settle with every group still in place.",
+        "must_not_move": "same bright lavender-brick front projection, flanking columns, shelves and desk positions; no purple underwater-room insert or new side wall",
+        "end_state": "four unchanged material groups on the same desk; no collection yet",
+        "exact_cast": null,
+        "state_contract": "collect then clean then blank desk wake; no teleporting supplies or pre-earned finished artwork"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": null,
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "eae4ca116429510e97c63b4b7836a998a20d7f34091a1f674a06784fde2e16e0",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C09/handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+          "sha256": "ccf85cf97fea81b4d3a496b8e48c57ff574b43aa4978953d8a78b9b4ea7a70f3"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C09/handoff_art/objects/FOUR_LOOSE_SUPPLY_IDENTITY_SHEET.png",
+          "sha256": "73ee8445e861da1c12753c1f8c941aea1fc083af5c09e864f72eb1cac8b1ccf8"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C09-S04",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C09_ART_ROOM_DIRTY_DISCOVERY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.00–2.00 hold exact dirty Art Room front after all four supplies are collected. 2.00–4.50 keep exactly one small lavender grime card at left counter, center desk and right counter. 4.50–6.00 Roshan points once; end with exactly those three cards and no extra targets.",
+        "must_not_move": "same bright lavender-brick front projection, flanking columns, shelves and desk positions; no purple underwater-room insert or new side wall",
+        "end_state": "4.50–6.00 Roshan points once; end with exactly those three cards and no extra targets.",
+        "exact_cast": null,
+        "state_contract": "collect then clean then blank desk wake; no teleporting supplies or pre-earned finished artwork"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "0bed527779bb37d50c7240d1f7e887fb30c2357c1609877fe69d7def6b5abcb8",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "5aae97fc0da95eb0ba360a552080556a9dff5f065da4cf936c72768e850849f5",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C09/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C09/handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+          "sha256": "ccf85cf97fea81b4d3a496b8e48c57ff574b43aa4978953d8a78b9b4ea7a70f3"
+        },
+        {
+          "id": "IMAGE_4",
+          "path": "references/D1-C09/handoff_art/objects/FOUR_LOOSE_SUPPLY_IDENTITY_SHEET.png",
+          "sha256": "73ee8445e861da1c12753c1f8c941aea1fc083af5c09e864f72eb1cac8b1ccf8"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C09-S05",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C09_ART_ROOM_DIRTY_DISCOVERY.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.00–2.00 hold exact Art Room front with one brush clearly separate from Roshan’s hand. 2.00–4.50 Roshan raises toward the approved cleaning brush without touching or gripping it. 4.50–6.00 stop on a clear visible hand-to-tool gap; no scrub yet.",
+        "must_not_move": "same bright lavender-brick front projection, flanking columns, shelves and desk positions; no purple underwater-room insert or new side wall",
+        "end_state": "4.50–6.00 stop on a clear visible hand-to-tool gap; no scrub yet.",
+        "exact_cast": null,
+        "state_contract": "collect then clean then blank desk wake; no teleporting supplies or pre-earned finished artwork"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "7f5d978ad92440aed62c5eb118a481998ce0ea0ee2856f904dc2514fbcb3f0a2",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "a8516b81a74f613d14ddcd6c19c5f4dc56b0be0a7203d2b64d40e6b7cfcfb5d4",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C09/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C09/handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+          "sha256": "ccf85cf97fea81b4d3a496b8e48c57ff574b43aa4978953d8a78b9b4ea7a70f3"
+        },
+        {
+          "id": "IMAGE_4",
+          "path": "references/D1-C09/handoff_art/objects/FOUR_LOOSE_SUPPLY_IDENTITY_SHEET.png",
+          "sha256": "73ee8445e861da1c12753c1f8c941aea1fc083af5c09e864f72eb1cac8b1ccf8"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C10-S01",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C10_ART_ROOM_RESTORED.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.00–2.00 show Roshan’s final grime contact in the exact Art Room front. 2.00–4.50 finish the last localized clean action; all three grime cards disappear causally. 4.50–6.00 hold the complete clean front endpoint for supplies-home.",
+        "must_not_move": "same bright lavender-brick front projection, flanking columns, shelves and desk positions; no purple underwater-room insert or new side wall",
+        "end_state": "4.50–6.00 hold the complete clean front endpoint for supplies-home.",
+        "exact_cast": null,
+        "state_contract": "collect then clean then blank desk wake; no teleporting supplies or pre-earned finished artwork"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "ca85d054c4e4ea0cdb0bf6d5798b7d300207173751a72cea16ee930a4a43114b",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "8998ac56706a9259c053b32d87a253a7bd25e856a8d9b100c157a3d19ef46181",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C10/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C10/handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+          "sha256": "ccf85cf97fea81b4d3a496b8e48c57ff574b43aa4978953d8a78b9b4ea7a70f3"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C10-S02",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C10_ART_ROOM_RESTORED.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.00–2.00 start on accepted clean-contact front with blank rectangular desk. 2.00–4.50 reveal all four supply groups already home exactly once on their stations. 4.50–6.00 allow only localized sparkle; no materialization or fixture change.",
+        "must_not_move": "same bright lavender-brick front projection, flanking columns, shelves and desk positions; no purple underwater-room insert or new side wall",
+        "end_state": "4.50–6.00 allow only localized sparkle; no materialization or fixture change.",
+        "exact_cast": [],
+        "state_contract": "collect then clean then blank desk wake; no teleporting supplies or pre-earned finished artwork"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "37c44c23ce6e2d69a08624fe406fe3ec39a0b863d117f9bdf81b40db505b4ccc",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "03347953064b3660dfd42fb3214f32d15fac19bb38c33be56a3c45d4b23d9f50",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C09/handoff_art/objects/room_craft_room_item_paint_table.png",
+          "sha256": "b2eb0fc3a5d7c777540af1447827f6b2f98d47a658d2184d9774e407d46627aa"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C10-S03",
+      "historical_disposition": "KEEP_WITH_TRIM",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C10_ART_ROOM_RESTORED.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C10-S04",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C10_ART_ROOM_RESTORED.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C10-S05",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C10_ART_ROOM_RESTORED.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.00–2.00 hold exact clean front with blank desk and Roshan at runtime scale. 2.00–4.50 Roshan raises one hand toward the desk while maintaining a visibly measurable gap. 4.50–6.00 lock camera and hold the UI-free gap seam; no contact, UI, or geometry change.",
+        "must_not_move": "same bright lavender-brick front projection, flanking columns, shelves and desk positions; no purple underwater-room insert or new side wall",
+        "end_state": "4.50–6.00 lock camera and hold the UI-free gap seam; no contact, UI, or geometry change.",
+        "exact_cast": null,
+        "state_contract": "collect then clean then blank desk wake; no teleporting supplies or pre-earned finished artwork"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "0ecf175926452075b4fc7932be7c813d2cb6d4f4678041d3eabd701be1fd1fb3",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "4b1d9cb71fa293c988fe45082efe6ecf6e09f2567253ed79090c5b091a834d2e",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C10/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C10/handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+          "sha256": "ccf85cf97fea81b4d3a496b8e48c57ff574b43aa4978953d8a78b9b4ea7a70f3"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C11-S01",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C11_GRAND_PUFF_REVEAL.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C11-S02",
+      "historical_disposition": "KEEP_WITH_TRIM",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C11_GRAND_PUFF_REVEAL.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C11-S03",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C11_GRAND_PUFF_REVEAL.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C11-S04",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C11_GRAND_PUFF_REVEAL.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "Start on the empty octagonal arena inherited from S03 with a single Puff entering from above. Show one physically legible descent, squash/contact and rebound without flattening or duplicating Puff. End on a stable intact boss centered in the arena, before the C12 FRIENDS boundary.",
+        "must_not_move": "screen B approach and approved octagonal attic arena are different locations joined by an explicit doorway; preserve door design across both sides",
+        "end_state": "End on a stable intact boss centered in the arena, before the C12 FRIENDS boundary.",
+        "exact_cast": null,
+        "state_contract": "empty arena then visible descent/contact; gameplay remains ahead"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "85f0b9a807521c13f7d9d4df84c897f1e10abd97eac4f6612459badb84de934d",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "0c309af738b96c8009b9f342da4bfd137ed56b3ee797260595ce1b1edb019d90",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C11/handoff_art/characters/roshan_roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C11/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+          "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending"
+      ]
+    },
+    {
+      "shot_id": "D1-C12-S01",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_RESTORED_CASTLE_FINALE.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: inherit the accepted clean Bathroom and one bunny at its inherited resting position. 1.0-4.5: the bunny makes one small happy bob without relocating. 4.5-6.0: settle at that same spot; do not put the bunny back into the tub if it already exited.",
+        "must_not_move": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
+        "end_state": "same clean Bathroom and one bunny at its inherited position",
+        "exact_cast": [
+          "swimming bunny"
+        ],
+        "state_contract": "post-completion only; no unverified friendship payoff"
+      },
+      "restored_camera": {
+        "verb": "subtle push-in",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": null,
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "3a5336b457401a874269bba5c244e4051ae870ce9b89d0c2c453ecad531530ab",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C04/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+          "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "accepted predecessor endpoint missing"
+      ]
+    },
+    {
+      "shot_id": "D1-C12-S02",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_RESTORED_CASTLE_FINALE.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "Open on Rumi alone in the restored rainbow pool. Swim one smooth arc while fixed waterfall and seahorse fountain stay fixed. Settle Rumi at the clean pool endpoint for the next recap cut.",
+        "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+        "end_state": "Settle Rumi at the clean pool endpoint for the next recap cut.",
+        "exact_cast": [
+          "Rumi"
+        ],
+        "state_contract": "post-completion only; no unverified friendship payoff"
+      },
+      "restored_camera": {
+        "verb": "gentle side-follow",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": null,
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "aace1f126390b869ac13b4138df386d618318d68e9f68eaa172814a8e908d186",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C06/handoff_art/characters/rumi_rumi_full_body_identity.png",
+          "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C06/handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
+          "sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "accepted predecessor endpoint missing"
+      ]
+    },
+    {
+      "shot_id": "D1-C12-S03",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_RESTORED_CASTLE_FINALE.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "0.0-1.0: inherit the accepted clean playroom endpoint after Baby Eagle departure. 1.0-4.5: one small sparkle fades at the restored nook. 4.5-6.0: settle on the unchanged room; no characters return.",
+        "must_not_move": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+        "end_state": "same clean playroom after departure; no invented Eagle or bunny reunion",
+        "exact_cast": [],
+        "state_contract": "post-completion only; no unverified friendship payoff"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": null,
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": [
+          "recap departure/cast"
+        ]
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "47f67ed1d466b93777cae53885e670736acdd244119243793f4d8fe841236866",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C08/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+          "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C07/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+          "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "accepted predecessor endpoint missing",
+        "Original friendship recap conflicts with later Eagle departure and cleared pin bunnies; select supported recap time/cast before execution. Do not replace it with an empty room by inference."
+      ]
+    },
+    {
+      "shot_id": "D1-C12-S04",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_RESTORED_CASTLE_FINALE.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "Open on the clean desk, paint pots and fixed room background. Build one soft glow on the tabletop only; keep brushes and camera fixed. End on a quiet glowing desk with no character or prop drift.",
+        "must_not_move": "same bright lavender-brick front projection, flanking columns, shelves and desk positions; no purple underwater-room insert or new side wall",
+        "end_state": "End on a quiet glowing desk with no character or prop drift.",
+        "exact_cast": [],
+        "state_contract": "post-completion only; no unverified friendship payoff"
+      },
+      "restored_camera": {
+        "verb": "gentle push-in",
+        "move_count": 1
+      },
+      "original_detailed_card_sha256": null,
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": true,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "b8f1b46f3ed65800823235e29d2f9889167fad19cdfb21c5ea5424cf2581ba75",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C09/handoff_art/objects/room_craft_room_item_paint_table.png",
+          "sha256": "b2eb0fc3a5d7c777540af1447827f6b2f98d47a658d2184d9774e407d46627aa"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "accepted predecessor endpoint missing"
+      ]
+    },
+    {
+      "shot_id": "D1-C12-S05",
+      "historical_disposition": "KEEP_WITH_TRIM",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_RESTORED_CASTLE_FINALE.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C12-S06",
+      "historical_disposition": "KEEP_HIGH_QUALITY",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_RESTORED_CASTLE_FINALE.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C13-S01",
+      "historical_disposition": "KEEP_WITH_TRIM",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C13_GRAND_PUFF_FRIENDSHIP_COMPLETION.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C13-S02",
+      "historical_disposition": "KEEP_WITH_TRIM",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C13_GRAND_PUFF_FRIENDSHIP_COMPLETION.txt",
+      "has_repair_card": false,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "decision": "Preserve existing disposition; no new rewrite."
+    },
+    {
+      "shot_id": "D1-C13-S03",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C13_GRAND_PUFF_FRIENDSHIP_COMPLETION.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "Start with one Baby Eagle at the arena left and the same single Puff centered, dust localized below Puff. Show exactly one readable wingbeat that lifts/blows the remaining dust upward and away; no ring, bowl or cloud hiding either identity. End with Eagle grounded again and Puff's silhouette/arena fully restored for C13-S04.",
+        "must_not_move": "same octagonal arena, rail posts, front door and rear circular purple window; no new shell hall",
+        "end_state": "End with Eagle grounded again and Puff's silhouette/arena fully restored for C13-S04.",
+        "exact_cast": [
+          "Baby Eagle",
+          "Grand Puff"
+        ],
+        "state_contract": "cooperative coda remains dependent on its current event authority and owner decisions; no post-vanish resurrection"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "b181a58165a858d51a615a7d48cd0dd13b82724246037d33289172bbdedeb2f7",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "f280e9bc2ccf279c304facbac0ec1745aedb93f8c222b5124f2d51f833d5f197",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C13/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+          "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C13/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+          "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "existing C13 owner/event decisions remain unresolved"
+      ]
+    },
+    {
+      "shot_id": "D1-C13-S04",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C13_GRAND_PUFF_FRIENDSHIP_COMPLETION.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "Start with Rumi right, one Puff centered and only a small dirty patch remaining. Rumi directs one localized rinse around Puff's lower edge; keep water inside the arena and off the camera. End on a clean smiling Puff beside a small separate prismatic cradle, with water gone and a held seam into S05.",
+        "must_not_move": "same octagonal arena, rail posts, front door and rear circular purple window; no new shell hall",
+        "end_state": "End on a clean smiling Puff beside a small separate prismatic cradle, with water gone and a held seam into S05.",
+        "exact_cast": [
+          "Rumi",
+          "Grand Puff"
+        ],
+        "state_contract": "cooperative coda remains dependent on its current event authority and owner decisions; no post-vanish resurrection"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "49a2afc92195317bcfe55208ef46518cede933c6d77f1b01d67c40edb2d9c70a",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "e0d77fa11f55ee19d3abae8e3aad977177c40924698fd65589baf0321b9fa07e",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C13/handoff_art/characters/rumi_rumi_full_body_identity.png",
+          "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f"
+        },
+        {
+          "id": "IMAGE_3",
+          "path": "references/D1-C13/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+          "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "existing C13 owner/event decisions remain unresolved"
+      ]
+    },
+    {
+      "shot_id": "D1-C13-S05",
+      "historical_disposition": "REMAKE",
+      "original_direction_source": "design/grok_day_one_video_handoffs_2026-08-30/D1-C13_GRAND_PUFF_FRIENDSHIP_COMPLETION.txt",
+      "has_repair_card": true,
+      "comparison_scope": "written direction and existing audit evidence, not a new full-motion acceptance",
+      "before_handoff_2": {
+        "camera": {
+          "verb": "locked",
+          "move_count": 0
+        },
+        "must_move": "Start after the clean-Puff/Rumi endpoint with only Puff and the tiny prismatic floor cradle visible; keep Roshan, Daddy, Rumi and Eagle off-screen. Let exactly one rainbow dust bunny rise once from the cradle, with a small contained glow and no full-cast reveal. End on Puff beside the single bunny and cradle, both intact and calm, with no reconstituted boss or extra effects.",
+        "must_not_move": "same octagonal arena, rail posts, front door and rear circular purple window; no new shell hall",
+        "end_state": "End on Puff beside the single bunny and cradle, both intact and calm, with no reconstituted boss or extra effects.",
+        "exact_cast": [
+          "Grand Puff",
+          "one rainbow bunny pending identity authority"
+        ],
+        "state_contract": "cooperative coda remains dependent on its current event authority and owner decisions; no post-vanish resurrection"
+      },
+      "restored_camera": {
+        "verb": "locked",
+        "move_count": 0
+      },
+      "original_detailed_card_sha256": "9d7e8cc770a0d9f454e85af70bbed5b6fa3982d2efff09018abf382548f2724f",
+      "decision": {
+        "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+        "original_camera_restored": false,
+        "unresolved_conflicts": []
+      },
+      "corrections": [
+        "Preserve detailed original direction, specific negatives and sound; remove nested timestamps/editorial trim instructions; add shared-room continuity without replacing acting."
+      ],
+      "revised_card_sha256": "05fc7d6bc79a86fc19890b7295bff0182d5e51f1c60889c81e63cce2156089ca",
+      "final_bindings": [
+        {
+          "id": "IMAGE_1",
+          "path": null,
+          "sha256": null
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/D1-C13/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+          "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef"
+        }
+      ],
+      "remaining_blockers": [
+        "missing complete human-approved opening",
+        "missing measured setup and incoming/outgoing cut review",
+        "exact binding/cast budget and single-action execution review pending",
+        "existing C13 owner/event decisions remain unresolved",
+        "canonical rainbow-bunny identity and cradle input still required; do not substitute Grand Puff or swimming bunny",
+        "Exact rainbow bunny identity authority is not bound; do not invent its design or promote this reveal before an approved identity/opening exists."
+      ]
+    }
+  ],
+  "claims": {
+    "generation_ready": false,
+    "delivery_accepted": false
+  }
+}

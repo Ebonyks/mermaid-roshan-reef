@@ -1,0 +1,223 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C06-S04",
+  "movie_id": "D1-C06",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "smooth pullback",
+    "move_count": 1
+  },
+  "location_id": "pool",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "references/D1-C06/handoff_art/objects/mermaid_pool_waterfall_rest.png",
+      "sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending",
+      "authority_domain": "Named object/material design only; placement and action state from approved IMAGE_1 and timeline."
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/D1-C06/handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
+      "sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending",
+      "authority_domain": "Named object/material design only; placement and action state from approved IMAGE_1 and timeline."
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.0-1.2 close rainbow source; 1.2-4.8 pull back to both fixed sources/shared pool; 4.8-6.00 establish giant pool",
+  "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+  "end_state": "establish giant pool",
+  "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete",
+  "prompt_sha256": "5c0e36e0b062fdf1a701ce6de16466e2f565638a85c5e739b66c21d696d81e8b",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-02",
+    "GH2-03"
+  ],
+  "exact_cast": [],
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt",
+    "sha256": "c93b5363e4d6091b5ace8ac667bd6f6e2e903efd1084dc525c90ea87335da23c",
+    "text": "Begin close on the now-flowing rainbow waterfall, then make one smooth pullback to re-establish the exact GIANT pool. Rainbow water visibly descends from the top fixture and enters the enormous shared pool, while the seahorse's clean stream enters from its fixed right-center position. End with both sources and the full pool geometry visible. No small fountain pool, changed arches, relocated seahorse, or reversed flow. Sound: temporary layered clean-water rush; no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "previous_detailed_card": {
+    "schema": "imagine-shot-card-draft-v1",
+    "movie_id": "D1-C06",
+    "shot_id": "D1-C06-S04",
+    "title": "Sparkle Pool — Purification, Rumi and Hug — D1-C06-S04",
+    "status": "DRAFT",
+    "conditional_regeneration": false,
+    "duration_seconds": 6,
+    "aspect_ratio": "16:9",
+    "delivery_size": [
+      1280,
+      720
+    ],
+    "mode": "image_to_video",
+    "output_disposition": "motion_reference_only",
+    "binding_plan": [
+      {
+        "id": "IMAGE_1",
+        "job": "pool geography",
+        "status": "missing_approved_shot_opening_frame",
+        "source_movie_id": "D1-C06",
+        "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+        "path": "handoff_art/location/room_mermaid_pool_background.png",
+        "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/location/room_mermaid_pool_background.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "shot_opening_gate": "human-approved, clean, HUD-free shot-opening frame in the exact inherited state",
+        "source_authority_is_not_automatic_first_frame_approval": true,
+        "binding_alias": "location",
+        "local_path": "scenes/D1-C06/visuals/handoff_art/location/room_mermaid_pool_background.png"
+      },
+      {
+        "id": "IMAGE_2",
+        "job": "restored rainbow source identity",
+        "status": "approved_source_authority_available",
+        "source_movie_id": "D1-C06",
+        "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+        "path": "handoff_art/objects/mermaid_pool_waterfall_rest.png",
+        "sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/objects/mermaid_pool_waterfall_rest.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "binding_alias": "waterfall_rest",
+        "local_path": "scenes/D1-C06/visuals/handoff_art/objects/mermaid_pool_waterfall_rest.png"
+      },
+      {
+        "id": "IMAGE_3",
+        "job": "restored seahorse source identity",
+        "status": "approved_source_authority_available",
+        "source_movie_id": "D1-C06",
+        "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+        "path": "handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
+        "sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "binding_alias": "seahorse_rest",
+        "local_path": "scenes/D1-C06/visuals/handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png"
+      }
+    ],
+    "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+    "camera": {
+      "verb": "locked, restrained action framing",
+      "move_count": 1
+    },
+    "must_move": "1.2-4.8 pull back to both fixed sources/shared pool",
+    "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+    "end_state": "4.8-6.04 establish giant pool",
+    "negative_constraints": "no invented event, topology drift, identity drift, anatomy errors, text, HUD, morph, interpolation, or camera drift",
+    "sound_intent": "quiet room tone and one soft causal action cue; no voices",
+    "prompt_path": "PROMPT.txt",
+    "prompt_sha256": "3f885acff05cd02019a64a52f77e68b8a27d12835ed12a0199064b0d76dd2907",
+    "strict_audit_reason": "Original purification meet lacks two distinct fronts; strict SET3 C06-S04 also fails the required close-to-wide camera move.",
+    "weak_frames": [
+      {
+        "filename": "C06_S04_purification_meet.mp4",
+        "lane": "original_branch",
+        "file_verdict": "REMAKE",
+        "weak_frames": "f000-f144 (0.000-6.042s)",
+        "finding": "Water is already bright and the central rainbow dominates; two distinct fronts traveling from fixed left/right sources and meeting once are not causally readable."
+      },
+      {
+        "filename": "C06_S04_v1_both_sources_pool_REGEN.mp4",
+        "lane": "committed_regen_audit",
+        "file_verdict": "ACCEPT_MOTION_REFERENCE",
+        "weak_frames": "none blocking",
+        "finding": "The branch replacement cleanly holds both fixed sources feeding the same giant pool with stable shared geometry."
+      }
+    ],
+    "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+    "audited_branch": {
+      "branch": "day1-regen-3sets-2026-09-04",
+      "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+    },
+    "blocking_findings": [],
+    "implemented_event_contract": {
+      "authority_path": "scripts/games/day_one_pool_cleanup.gd",
+      "rule": "pool_surface → waterfall → seahorse is the fixed order; Rumi rises only after all three complete"
+    },
+    "audit_claims": {
+      "archive_complete": true,
+      "generation_ready": false,
+      "delivery_accepted": false
+    },
+    "review": {
+      "strict_third_pass": true,
+      "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+      "reviewed_at": "2026-09-04"
+    }
+  },
+  "negative_constraints": "no invented event, topology drift, identity drift, anatomy errors, text, HUD, morph, interpolation, or camera drift",
+  "sound_intent": "quiet room tone and one soft causal action cue; no voices",
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/day_one_pool_cleanup.gd",
+    "rule": "pool_surface → waterfall → seahorse is the fixed order; Rumi rises only after all three complete"
+  },
+  "weak_frames": [
+    {
+      "filename": "C06_S04_purification_meet.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f000-f144 (0.000-6.042s)",
+      "finding": "Water is already bright and the central rainbow dominates; two distinct fronts traveling from fixed left/right sources and meeting once are not causally readable."
+    },
+    {
+      "filename": "C06_S04_v1_both_sources_pool_REGEN.mp4",
+      "lane": "committed_regen_audit",
+      "file_verdict": "ACCEPT_MOTION_REFERENCE",
+      "weak_frames": "none blocking",
+      "finding": "The branch replacement cleanly holds both fixed sources feeding the same giant pool with stable shared geometry."
+    }
+  ],
+  "strict_audit_reason": "Original purification meet lacks two distinct fronts; strict SET3 C06-S04 also fails the required close-to-wide camera move.",
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "0.0-1.2 close rainbow source",
+    "1.2-4.8 pull back to both fixed sources/shared pool",
+    "4.8-6.00 establish giant pool"
+  ],
+  "continuity_overlay": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+  "revision": 2,
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": true,
+    "unresolved_conflicts": []
+  }
+}

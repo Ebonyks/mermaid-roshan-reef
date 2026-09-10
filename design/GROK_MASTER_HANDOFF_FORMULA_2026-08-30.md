@@ -245,3 +245,11 @@ Do not generate when any of these is true:
 - a dependent previous endpoint has not been accepted;
 - a board or HUD capture is being used as pixel authority;
 - the packet is called ready only because its archive is complete.
+
+## Handoff 2 continuity addendum
+
+For the Day One repair commission and subsequent Grok work, apply the
+[sequence continuity protocol](GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md).
+The mandatory V1 shot card remains the base; V2 supplies additional sidecar
+fields. Missing openings must not carry fallback IMAGE_1 paths. Individual KEEP
+verdicts never override a failed room, identity or incoming/outgoing cut.

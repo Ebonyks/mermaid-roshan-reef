@@ -1,0 +1,209 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C06-S05",
+  "movie_id": "D1-C06",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "pool",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "references/D1-C06/handoff_art/objects/mermaid_pool_waterfall_rest.png",
+      "sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending",
+      "authority_domain": "Named object/material design only; placement and action state from approved IMAGE_1 and timeline."
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/D1-C06/handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
+      "sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending",
+      "authority_domain": "Named object/material design only; placement and action state from approved IMAGE_1 and timeline."
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "two distinct clear fronts spread from the fixed left and right sources; each front displaces algae through the same water volume; the fronts meet once near center in one bright ripple",
+  "must_not_move": "pool boundary, sources, fixtures, room geometry, and dry surfaces",
+  "end_state": "the fronts meet once near center in one bright ripple",
+  "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete",
+  "prompt_sha256": "22d2f89819a6434860ca0dd359556929fb5bd29aa446cd0e7a8ad40fca03978d",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-02",
+    "GH2-03"
+  ],
+  "exact_cast": [],
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt",
+    "sha256": "c93b5363e4d6091b5ace8ac667bd6f6e2e903efd1084dc525c90ea87335da23c",
+    "text": "High wide view of the same giant pool. Two distinct clear-water fronts spread from the waterfall and seahorse through murky water, displacing algae and suspended grime until they meet near the center. Architecture and characters stay fixed. Locked camera. End exactly as the two fronts join in one bright ripple. No instant flash, dry floor, extra source, or floating overlay effect. Sound: temporary converging water shimmer and soft impact chime; no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "previous_detailed_card": {
+    "schema": "imagine-shot-card-draft-v1",
+    "movie_id": "D1-C06",
+    "shot_id": "D1-C06-S05",
+    "title": "Two purification fronts meet",
+    "status": "DRAFT",
+    "conditional_regeneration": false,
+    "duration_seconds": 6,
+    "aspect_ratio": "16:9",
+    "delivery_size": [
+      1280,
+      720
+    ],
+    "mode": "image_to_video",
+    "output_disposition": "motion_reference_only",
+    "binding_plan": [
+      {
+        "id": "IMAGE_1",
+        "job": "pool geography",
+        "status": "missing_approved_shot_opening_frame",
+        "source_movie_id": "D1-C06",
+        "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+        "path": "handoff_art/location/room_mermaid_pool_background.png",
+        "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/location/room_mermaid_pool_background.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "shot_opening_gate": "accepted D1-C06-S04 two-source endpoint",
+        "source_authority_is_not_automatic_first_frame_approval": true,
+        "binding_alias": "location",
+        "local_path": "scenes/D1-C06/visuals/handoff_art/location/room_mermaid_pool_background.png"
+      },
+      {
+        "id": "IMAGE_2",
+        "job": "left source identity",
+        "status": "approved_source_authority_available",
+        "source_movie_id": "D1-C06",
+        "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+        "path": "handoff_art/objects/mermaid_pool_waterfall_rest.png",
+        "sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/objects/mermaid_pool_waterfall_rest.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "binding_alias": "waterfall_rest",
+        "local_path": "scenes/D1-C06/visuals/handoff_art/objects/mermaid_pool_waterfall_rest.png"
+      },
+      {
+        "id": "IMAGE_3",
+        "job": "right source identity",
+        "status": "approved_source_authority_available",
+        "source_movie_id": "D1-C06",
+        "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+        "path": "handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
+        "sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "binding_alias": "seahorse_rest",
+        "local_path": "scenes/D1-C06/visuals/handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png"
+      }
+    ],
+    "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+    "camera": {
+      "verb": "locked",
+      "move_count": 1
+    },
+    "must_move": "each front displaces algae through the same water volume",
+    "must_not_move": "pool boundary, sources, fixtures, room geometry, and dry surfaces",
+    "end_state": "the fronts meet once near center in one bright ripple",
+    "negative_constraints": "no instant flash, dry floor, third source, overlay-only effect, characters, text, or HUD",
+    "sound_intent": "converging shimmer and soft impact chime; no voices",
+    "prompt_path": "PROMPT.txt",
+    "prompt_sha256": "e8e1440fff6617aa48dd1fcbb288797b9c9cae537fb95caef433776ad1362b84",
+    "strict_audit_reason": "No original or SET3 take makes two source fronts meet through murky water.",
+    "weak_frames": [
+      {
+        "filename": "C06_S05_v1_purification_fronts_REGEN.mp4",
+        "lane": "committed_regen_audit",
+        "file_verdict": "REGENERATE",
+        "weak_frames": "000–144",
+        "finding": "The branch replacement begins with fully clean water and a decorative rainbow band; it never shows two clear-water fronts displacing murk from the fixed sources."
+      }
+    ],
+    "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+    "audited_branch": {
+      "branch": "day1-regen-3sets-2026-09-04",
+      "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+    },
+    "blocking_findings": [],
+    "implemented_event_contract": {
+      "authority_path": "scripts/games/day_one_pool_cleanup.gd",
+      "rule": "pool_surface → waterfall → seahorse is the fixed order; Rumi rises only after all three complete"
+    },
+    "audit_claims": {
+      "archive_complete": true,
+      "generation_ready": false,
+      "delivery_accepted": false
+    },
+    "review": {
+      "strict_third_pass": true,
+      "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+      "reviewed_at": "2026-09-04"
+    }
+  },
+  "negative_constraints": "no instant flash, dry floor, third source, overlay-only effect, characters, text, or HUD",
+  "sound_intent": "converging shimmer and soft impact chime; no voices",
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/day_one_pool_cleanup.gd",
+    "rule": "pool_surface → waterfall → seahorse is the fixed order; Rumi rises only after all three complete"
+  },
+  "weak_frames": [
+    {
+      "filename": "C06_S05_v1_purification_fronts_REGEN.mp4",
+      "lane": "committed_regen_audit",
+      "file_verdict": "REGENERATE",
+      "weak_frames": "000–144",
+      "finding": "The branch replacement begins with fully clean water and a decorative rainbow band; it never shows two clear-water fronts displacing murk from the fixed sources."
+    }
+  ],
+  "strict_audit_reason": "No original or SET3 take makes two source fronts meet through murky water.",
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "two distinct clear fronts spread from the fixed left and right sources",
+    "each front displaces algae through the same water volume",
+    "the fronts meet once near center in one bright ripple"
+  ],
+  "continuity_overlay": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+  "revision": 2,
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": false,
+    "unresolved_conflicts": []
+  }
+}

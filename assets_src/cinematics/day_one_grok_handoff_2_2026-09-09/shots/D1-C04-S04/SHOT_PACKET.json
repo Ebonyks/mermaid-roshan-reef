@@ -1,0 +1,87 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C04-S04",
+  "movie_id": "D1-C04",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "slow pullback",
+    "move_count": 1
+  },
+  "location_id": "bathroom",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/D1-C04/handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "inherited source authority; exact shot binding review pending",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "references/D1-C04/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+      "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+      "human_review": "inherited source authority; exact shot binding review pending",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.0-2.0 clean tub/characters establish; 2.0-4.8 gentle pullback; 4.8-6.00 gaze toward Pool route",
+  "must_not_move": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
+  "end_state": "gaze toward Pool route",
+  "state_contract": "discovery does not clean; restored endpoint follows actual cleaning completion",
+  "prompt_sha256": "df625b71a2e79718d0c85a5f19a1ad0081507e736009a33179b5058d32b3adbe",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-04"
+  ],
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C04_BATHROOM_RESTORED.txt",
+    "sha256": "bc9797ed57201bdfcbc81db7c93061a7c9cd687493f96b26e98aac3743684e6d",
+    "text": "Wide clean Bathroom endpoint matching the approved runtime clean plate: one sparkling bathtub, clean sink and fixtures, bright pearl/aqua/lavender light, and every object in its established place. Roshan and the recovered swimmer are both present at correct scale. One slow pullback; Roshan turns her gaze toward the Pool route without leaving. End stable for gameplay transition. No dirty residue, second bathtub, new door, text, HUD, or completed pool cleanup. Sound: temporary clean-room sparkle and gentle route chime; no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "0.0-2.0 clean tub/characters establish",
+    "2.0-4.8 gentle pullback",
+    "4.8-6.00 gaze toward Pool route"
+  ],
+  "continuity_overlay": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
+  "revision": 2,
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": true,
+    "unresolved_conflicts": []
+  }
+}

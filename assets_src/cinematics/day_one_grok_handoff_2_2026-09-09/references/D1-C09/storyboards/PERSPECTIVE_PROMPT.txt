@@ -1,0 +1,6 @@
+Use case: runtime continuity evidence
+Asset type: deterministic four-panel Art Room state sheet for D1-C09 and D1-C10
+Inputs: exact Godot 4.7.2 Forward Mobile captures 00_loose_supplies, 01_grime_revealed, 02_last_grime, and 03_glowing_desk.
+Primary request: Assemble the four complete 1280x720 runtime frames into a labeled two-by-two contact sheet without changing any room or character pixels. Labels identify the state and declare RUNTIME HUD REF.
+Authority: the sheet locks screen-space topology, fixture order, object count, and state transitions only. HUD remains visible and makes every panel ineligible as IMAGE_1 or delivery pixels.
+Avoid: generative extrapolation, doorway/reverse views, fixture changes, crop presented as new perspective, or any claim of production-frame approval.

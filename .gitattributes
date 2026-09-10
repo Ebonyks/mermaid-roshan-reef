@@ -9,3 +9,9 @@ assets_src/cinematics/day_one_davinci_draft_2026-09-04/validation/*.log whitespa
 audit/minigame_art_quality_2026-09-05/** -text whitespace=cr-at-eol
 audit/opera_mechanics_2026-09-05/** -text whitespace=cr-at-eol
 assets_src/minigame_art_quality_2026-09-05/** -text whitespace=cr-at-eol
+
+# Handoff 2 provenance binds literal packet bytes across Windows/Linux.
+assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/** -text whitespace=-blank-at-eol,cr-at-eol
+
+# Preserve native Handoff 2 machine evidence bytes.
+audit/grok_handoff_2_validation_20260909/** -text whitespace=-blank-at-eol,cr-at-eol

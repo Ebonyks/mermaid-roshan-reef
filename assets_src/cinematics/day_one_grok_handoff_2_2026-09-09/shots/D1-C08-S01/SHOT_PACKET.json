@@ -1,0 +1,257 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C08-S01",
+  "movie_id": "D1-C08",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "subtle push-in",
+    "move_count": 1
+  },
+  "location_id": "stuffie",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/D1-C07/handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "references/D1-C07/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+      "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "subject_identity",
+      "path": "references/D1-C07/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
+    }
+  ],
+  "depends_on": [
+    "D1-C07-S06"
+  ],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.00–2.00 enter on the accepted C07 two-pin endpoint in the same Stuffie Room; 2.00–4.50 Roshan approaches the left rescue pin; keep one Eagle and exactly two bunnies; 4.50–6.00 stop pre-contact with the left pin visible and no basket",
+  "must_not_move": "one Baby Eagle, both pin bunnies, pin contacts, clutter, room topology, and dirty state",
+  "end_state": "stop pre-contact with the left pin visible and no basket",
+  "state_contract": "dirty before rescue; left pin then right pin clear only through gameplay; clean/departure after both; no swing or wing hunt",
+  "prompt_sha256": "2f84011e8634b31cfa33c4f9131fb466be97f093577344d291085405dd46933d",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending",
+    "accepted predecessor endpoint missing"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-13"
+  ],
+  "exact_cast": [
+    "Roshan",
+    "Baby Eagle",
+    "left pin bunny",
+    "right pin bunny"
+  ],
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_STUFFIE_RESTORATION.txt",
+    "sha256": "e52b9b047b8bcec8c72e99e8db0f9417091d825a17506e890dc839ac25efb677",
+    "text": "Wide dirty calm inheriting gameplay's final Stuffie Room state. Roshan, exactly one recovered Baby Eagle, both basket zones, and remaining soft clutter occupy their established positions. Locked camera with restrained breathing and dust settling. End when the left basket begins one small warning wobble. No cleaning yet, no extra eagle, no bunnies already outside. Sound: temporary dusty room tone and first basket rattle; no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "previous_detailed_card": {
+    "schema": "imagine-shot-card-draft-v1",
+    "movie_id": "D1-C08",
+    "shot_id": "D1-C08-S01",
+    "title": "Roshan approaches the two-pin rescue",
+    "status": "DRAFT",
+    "conditional_regeneration": false,
+    "duration_seconds": 6,
+    "aspect_ratio": "16:9",
+    "delivery_size": [
+      1280,
+      720
+    ],
+    "mode": "image_to_video",
+    "output_disposition": "motion_reference_only",
+    "binding_plan": [
+      {
+        "id": "IMAGE_1",
+        "job": "dirty Stuffie Room geography",
+        "status": "missing_approved_shot_opening_frame",
+        "source_movie_id": "D1-C08",
+        "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+        "path": "handoff_art/location/room_playroom_background.png",
+        "sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/location/room_playroom_background.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "shot_opening_gate": "accepted D1-C07-S06 exact two-pin endpoint",
+        "source_authority_is_not_automatic_first_frame_approval": true,
+        "binding_alias": "location",
+        "local_path": "scenes/D1-C08/visuals/handoff_art/location/room_playroom_background.png"
+      },
+      {
+        "id": "IMAGE_2",
+        "job": "Roshan identity",
+        "status": "approved_source_authority_available",
+        "source_movie_id": "D1-C08",
+        "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+        "path": "handoff_art/characters/roshan_roshan_base.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "binding_alias": "roshan",
+        "local_path": "scenes/D1-C08/visuals/handoff_art/characters/roshan_roshan_base.png"
+      },
+      {
+        "id": "IMAGE_3",
+        "job": "pinned Baby Eagle identity",
+        "status": "approved_source_authority_available",
+        "source_movie_id": "D1-C07",
+        "source_packet": "d1_c07_stuffie_dirty_discovery_visual_v1",
+        "path": "handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+        "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c07_stuffie_dirty_discovery_visual_v1/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "binding_alias": "baby_eagle_pinned",
+        "local_path": "scenes/D1-C08/visuals/imported_authorities/D1-C07/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png"
+      },
+      {
+        "id": "IMAGE_4",
+        "job": "two rescue-pin identities",
+        "status": "approved_source_authority_available",
+        "source_movie_id": "D1-C08",
+        "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+        "path": "handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+        "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c08_stuffie_restoration_visual_v1/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "binding_alias": "playroom_bunny",
+        "local_path": "scenes/D1-C08/visuals/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+      }
+    ],
+    "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+    "camera": {
+      "verb": "subtle push-in",
+      "move_count": 1
+    },
+    "must_move": "2.00–4.50 Roshan approaches the left rescue pin; keep one Eagle and exactly two bunnies.",
+    "must_not_move": "one Baby Eagle, both pin bunnies, pin contacts, clutter, room topology, and dirty state",
+    "end_state": "4.50–6.00 stop pre-contact with the left pin visible and no basket.",
+    "negative_constraints": "no basket, swing, four-bunny group, touch, pop, release, cleanup, wing blast, text, HUD, or extra cast",
+    "sound_intent": "soft tail movement, tiny bunny rustle, and a hopeful chirp; no voices",
+    "prompt_path": "PROMPT.txt",
+    "prompt_sha256": "c356c76827432a74d3c0279deca512c7c3124b4714a445e759d1f94d8459444b",
+    "strict_audit_reason": "Basket wobble originals are wrong; current shot is approach to the two-pin rescue.",
+    "weak_frames": [
+      {
+        "filename": "C08_S01_basket_wobble.mp4",
+        "lane": "original_branch",
+        "file_verdict": "OMIT_WRONG_EVENT",
+        "weak_frames": "f000–f144 (0.000–6.000s)",
+        "finding": "Basket wobble is not implemented; C08 begins with Roshan approaching the two-pin rescue, not a basket."
+      },
+      {
+        "filename": "C08_S01_v2_basket_wobble.mp4",
+        "lane": "original_branch",
+        "file_verdict": "OMIT_WRONG_EVENT",
+        "weak_frames": "f000–f144 (0.000–6.000s)",
+        "finding": "Basket wobble/extra basket continuity is invented; current runtime has no basket prop or wobble beat."
+      }
+    ],
+    "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+    "audited_branch": {
+      "branch": "day1-regen-3sets-2026-09-04",
+      "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+    },
+    "blocking_findings": [],
+    "implemented_event_contract": {
+      "authority_path": "scripts/arena/castle_rooms_25d.gd",
+      "rule": "Roshan clears eagle_pin_left and eagle_pin_right; the room cleans, Baby Eagle thanks/rises/departs, then the companion picker opens"
+    },
+    "audit_claims": {
+      "archive_complete": true,
+      "generation_ready": false,
+      "delivery_accepted": false
+    },
+    "review": {
+      "strict_third_pass": true,
+      "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+      "reviewed_at": "2026-09-04"
+    }
+  },
+  "negative_constraints": "no basket, swing, four-bunny group, touch, pop, release, cleanup, wing blast, text, HUD, or extra cast",
+  "sound_intent": "soft tail movement, tiny bunny rustle, and a hopeful chirp; no voices",
+  "implemented_event_contract": {
+    "authority_path": "scripts/arena/castle_rooms_25d.gd",
+    "rule": "Roshan clears eagle_pin_left and eagle_pin_right; the room cleans, Baby Eagle thanks/rises/departs, then the companion picker opens"
+  },
+  "weak_frames": [
+    {
+      "filename": "C08_S01_basket_wobble.mp4",
+      "lane": "original_branch",
+      "file_verdict": "OMIT_WRONG_EVENT",
+      "weak_frames": "f000–f144 (0.000–6.000s)",
+      "finding": "Basket wobble is not implemented; C08 begins with Roshan approaching the two-pin rescue, not a basket."
+    },
+    {
+      "filename": "C08_S01_v2_basket_wobble.mp4",
+      "lane": "original_branch",
+      "file_verdict": "OMIT_WRONG_EVENT",
+      "weak_frames": "f000–f144 (0.000–6.000s)",
+      "finding": "Basket wobble/extra basket continuity is invented; current runtime has no basket prop or wobble beat."
+    }
+  ],
+  "strict_audit_reason": "Basket wobble originals are wrong; current shot is approach to the two-pin rescue.",
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "0.00–2.00 enter on the accepted C07 two-pin endpoint in the same Stuffie Room",
+    "2.00–4.50 Roshan approaches the left rescue pin; keep one Eagle and exactly two bunnies",
+    "4.50–6.00 stop pre-contact with the left pin visible and no basket"
+  ],
+  "continuity_overlay": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+  "revision": 2,
+  "cast_by_boundary": {
+    "start_pin_bunnies": 2,
+    "end_pin_bunnies": 2
+  },
+  "cast_count_authority": "scripts/arena/castle_rooms_25d.gd: pin pop fades and queue_free; _check_playroom_rescue_complete follows both clears",
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": true,
+    "unresolved_conflicts": []
+  }
+}

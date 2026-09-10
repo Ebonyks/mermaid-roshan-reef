@@ -1,0 +1,82 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C05-S03",
+  "movie_id": "D1-C05",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "pool",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/D1-C05/handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.0-1.5 skimmer enters water; 1.5-4.8 algae/trash weight into mesh; 4.8-6.00 debris-filled skimmer hold",
+  "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+  "end_state": "debris-filled skimmer hold",
+  "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete",
+  "prompt_sha256": "0033b01bd78bbff289172cc4ceb6e12f422319564856924bc7bf563c818e9470",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-03"
+  ],
+  "exact_cast": [
+    "Roshan"
+  ],
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_POOL_DIRTY_DISCOVERY.txt",
+    "sha256": "30dccb8c7f71f8f9ed71d37b507214bce6b2a23335f64d1239a92d39062a3f7f",
+    "text": "Medium close shot of Roshan's skimmer and the established pool surface. Several wet trash pieces and algae catch naturally in the mesh as Roshan inspects them; this demonstrates the mess but does not remove the room's required trash before gameplay. Locked camera with small water response. End with debris visibly weighted inside the skimmer. No floating UI tool, dry stickers, extra hands, or completed cleaning. Sound: temporary mesh drag and wet debris movement; no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "0.0-1.5 skimmer enters water",
+    "1.5-4.8 algae/trash weight into mesh",
+    "4.8-6.00 debris-filled skimmer hold"
+  ],
+  "continuity_overlay": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+  "revision": 2,
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": false,
+    "unresolved_conflicts": []
+  }
+}

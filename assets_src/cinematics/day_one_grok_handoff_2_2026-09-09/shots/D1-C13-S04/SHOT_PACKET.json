@@ -1,0 +1,254 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C13-S04",
+  "movie_id": "D1-C13",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "arena",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/D1-C13/handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "human_review": "inherited authority; exact binding review pending",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "references/D1-C13/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "human_review": "inherited authority; exact binding review pending",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "Start with Rumi right, one Puff centered and only a small dirty patch remaining; Rumi directs one localized rinse around Puff's lower edge; keep water inside the arena and off the camera; End on a clean smiling Puff beside a small separate prismatic cradle, with water gone and a held seam into S05",
+  "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+  "end_state": "End on a clean smiling Puff beside a small separate prismatic cradle, with water gone and a held seam into S05",
+  "state_contract": "cooperative coda remains dependent on its current event authority and owner decisions; no post-vanish resurrection",
+  "prompt_sha256": "513bf907038c0c4448831aed06b80918250158c8188c0b14703e234ab1369bd0",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending",
+    "existing C13 owner/event decisions remain unresolved"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-10"
+  ],
+  "exact_cast": [
+    "Rumi",
+    "Grand Puff"
+  ],
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C13_GRAND_PUFF_FRIENDSHIP_COMPLETION.txt",
+    "sha256": "0c35d6eec6e286aa6d1969cab87b887697f05a5d657e94b866b2a91b439ef713",
+    "text": "Rumi and Grand Puff only. Rumi sends one localized violet/rainbow water-ribbon or sparkle rinse across Grand Puff's exposed shell, clearing the final grime; do not invent a basin or geography. Use a locked frontal/three-quarter camera or one gentle lateral reveal. End with Grand Puff fully clean and friendly and a small prismatic dust cradle on the floor; the rainbow bunny is not visible yet. Sound: gentle water shimmer and violet hum; no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "previous_detailed_card": {
+    "schema": "imagine-shot-card-draft-v1",
+    "movie_id": "D1-C13",
+    "shot_id": "D1-C13-S04",
+    "title": "Grand Puff Friendship Completion — D1-C13-S04",
+    "status": "DRAFT",
+    "conditional_regeneration": false,
+    "duration_seconds": 6,
+    "aspect_ratio": "16:9",
+    "delivery_size": [
+      1280,
+      720
+    ],
+    "mode": "image_to_video",
+    "output_disposition": "motion_reference_only",
+    "binding_plan": [
+      {
+        "id": "IMAGE_1",
+        "job": "arena geography",
+        "status": "missing_approved_shot_opening_frame",
+        "source_movie_id": "D1-C13",
+        "source_packet": "d1_c13_grand_puff_friendship_completion_visual_v1",
+        "path": "handoff_art/location/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+        "sha256": "ba0048fc93bc8cf752d0424200a1d1a0c03676ed78916a0c3bf335a60ec6a74e",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/location/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "shot_opening_gate": "human-approved, clean, HUD-free shot-opening frame in the exact inherited state",
+        "source_authority_is_not_automatic_first_frame_approval": true,
+        "binding_alias": "arena_location",
+        "local_path": "scenes/D1-C13/visuals/handoff_art/location/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png"
+      },
+      {
+        "id": "IMAGE_2",
+        "job": "Rumi identity",
+        "status": "approved_source_authority_available",
+        "source_movie_id": "D1-C13",
+        "source_packet": "d1_c13_grand_puff_friendship_completion_visual_v1",
+        "path": "handoff_art/characters/rumi_rumi_full_body_identity.png",
+        "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rumi_rumi_full_body_identity.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "binding_alias": "rumi",
+        "local_path": "scenes/D1-C13/visuals/handoff_art/characters/rumi_rumi_full_body_identity.png"
+      },
+      {
+        "id": "IMAGE_3",
+        "job": "Grand Puff identity",
+        "status": "approved_source_authority_available",
+        "source_movie_id": "D1-C13",
+        "source_packet": "d1_c13_grand_puff_friendship_completion_visual_v1",
+        "path": "handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+        "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "binding_alias": "grand_puff",
+        "local_path": "scenes/D1-C13/visuals/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png"
+      }
+    ],
+    "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+    "camera": {
+      "verb": "locked, restrained action framing",
+      "move_count": 1
+    },
+    "must_move": "Rumi directs one localized rinse around Puff's lower edge; keep water inside the arena and off the camera.",
+    "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+    "end_state": "End on a clean smiling Puff beside a small separate prismatic cradle, with water gone and a held seam into S05.",
+    "negative_constraints": "no invented event, topology drift, identity drift, anatomy errors, text, HUD, morph, interpolation, or camera drift",
+    "sound_intent": "quiet room tone and one soft causal action cue; no voices",
+    "prompt_path": "PROMPT.txt",
+    "prompt_sha256": "8719378ab5da159f67cf558ecdd7bb97a5a5ce11e120cb299b311e468e89bf9d",
+    "strict_audit_reason": "Rinse motion is readable but water is too broad and neither original nor regenerated version supplies the required small prismatic cradle endpoint.",
+    "weak_frames": [
+      {
+        "filename": "C13_S04_v1_rumi_rinse.mp4",
+        "lane": "original_branch",
+        "file_verdict": "REMAKE",
+        "weak_frames": "f024-f095 (1.000-3.958s) broad water; f096-f144 (4.000-6.000s) missing cradle endpoint",
+        "finding": "Rumi identity and one Puff/arena topology are correct, and the rinse has a readable start-to-clean action, but water ribbons are too broad and the required small prismatic cradle never appears at the clean end. Regenerate as a localized rinse with cradle held separately."
+      },
+      {
+        "filename": "C13_S04_v2_rumi_rinse.mp4",
+        "lane": "original_branch",
+        "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+        "weak_frames": "f024-f095 (1.000-3.958s) broad water; f108-f144 (4.500-6.000s) weak endpoint",
+        "finding": "Rumi/Puff count is correct, but v2's larger water band and late washed-out hold make the contained rinse and clean-cradle handoff less legible than v1."
+      },
+      {
+        "filename": "C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+        "lane": "committed_regen_audit",
+        "file_verdict": "ACCEPT_MOTION_REFERENCE",
+        "weak_frames": "v1 minor 032–144; v2 blocking 108–144",
+        "finding": "V1 provides the usable rinse despite a broad ribbon; v2 makes Grand Puff collapse/disappear into pearls."
+      },
+      {
+        "filename": "C13_S04_v2_rumi_contained_rinse_REGEN.mp4",
+        "lane": "committed_regen_audit",
+        "file_verdict": "ACCEPT_MOTION_REFERENCE",
+        "weak_frames": "v1 minor 032–144; v2 blocking 108–144",
+        "finding": "V1 provides the usable rinse despite a broad ribbon; v2 makes Grand Puff collapse/disappear into pearls."
+      }
+    ],
+    "source_packet": "d1_c13_grand_puff_friendship_completion_visual_v1",
+    "audited_branch": {
+      "branch": "day1-regen-3sets-2026-09-04",
+      "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+    },
+    "blocking_findings": [],
+    "implemented_event_contract": {
+      "authority_path": "scripts/games/dust_boss.gd plus owner-directed C13 extension",
+      "rule": "insert the cooperative coda immediately after the third successful round and before the FRIENDS implosion completes; never reconstitute Grand Puff after he has vanished"
+    },
+    "audit_claims": {
+      "archive_complete": true,
+      "generation_ready": false,
+      "delivery_accepted": false
+    },
+    "review": {
+      "strict_third_pass": true,
+      "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+      "reviewed_at": "2026-09-04"
+    }
+  },
+  "negative_constraints": "no invented event, topology drift, identity drift, anatomy errors, text, HUD, morph, interpolation, or camera drift",
+  "sound_intent": "quiet room tone and one soft causal action cue; no voices",
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/dust_boss.gd plus owner-directed C13 extension",
+    "rule": "insert the cooperative coda immediately after the third successful round and before the FRIENDS implosion completes; never reconstitute Grand Puff after he has vanished"
+  },
+  "weak_frames": [
+    {
+      "filename": "C13_S04_v1_rumi_rinse.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f024-f095 (1.000-3.958s) broad water; f096-f144 (4.000-6.000s) missing cradle endpoint",
+      "finding": "Rumi identity and one Puff/arena topology are correct, and the rinse has a readable start-to-clean action, but water ribbons are too broad and the required small prismatic cradle never appears at the clean end. Regenerate as a localized rinse with cradle held separately."
+    },
+    {
+      "filename": "C13_S04_v2_rumi_rinse.mp4",
+      "lane": "original_branch",
+      "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+      "weak_frames": "f024-f095 (1.000-3.958s) broad water; f108-f144 (4.500-6.000s) weak endpoint",
+      "finding": "Rumi/Puff count is correct, but v2's larger water band and late washed-out hold make the contained rinse and clean-cradle handoff less legible than v1."
+    },
+    {
+      "filename": "C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+      "lane": "committed_regen_audit",
+      "file_verdict": "ACCEPT_MOTION_REFERENCE",
+      "weak_frames": "v1 minor 032–144; v2 blocking 108–144",
+      "finding": "V1 provides the usable rinse despite a broad ribbon; v2 makes Grand Puff collapse/disappear into pearls."
+    },
+    {
+      "filename": "C13_S04_v2_rumi_contained_rinse_REGEN.mp4",
+      "lane": "committed_regen_audit",
+      "file_verdict": "ACCEPT_MOTION_REFERENCE",
+      "weak_frames": "v1 minor 032–144; v2 blocking 108–144",
+      "finding": "V1 provides the usable rinse despite a broad ribbon; v2 makes Grand Puff collapse/disappear into pearls."
+    }
+  ],
+  "strict_audit_reason": "Rinse motion is readable but water is too broad and neither original nor regenerated version supplies the required small prismatic cradle endpoint.",
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "Start with Rumi right, one Puff centered and only a small dirty patch remaining",
+    "Rumi directs one localized rinse around Puff's lower edge; keep water inside the arena and off the camera",
+    "End on a clean smiling Puff beside a small separate prismatic cradle, with water gone and a held seam into S05"
+  ],
+  "continuity_overlay": "same octagonal arena, rail posts, front door and rear circular purple window; no new shell hall",
+  "revision": 2,
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": false,
+    "unresolved_conflicts": []
+  }
+}

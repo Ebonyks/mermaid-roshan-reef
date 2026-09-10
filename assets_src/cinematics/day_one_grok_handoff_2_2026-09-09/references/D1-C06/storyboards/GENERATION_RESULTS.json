@@ -1,0 +1,39 @@
+{
+  "schema": "visual-handoff-generation-results-v1",
+  "movie_id": "D1-C06",
+  "tool": "OpenAI built-in image generation",
+  "use_case": "illustration-story",
+  "output_disposition": "narrative_reference_only",
+  "human_decision": "pending",
+  "selected": [
+    {
+      "path": "storyboards/ENVIRONMENT_PERSPECTIVES.png",
+      "result_id": "exec-67784058-6e4b-48de-9f69-ba9a9a071867",
+      "prompt_path": "storyboards/ENVIRONMENT_PERSPECTIVES_PROMPT.txt",
+      "prompt_sha256": "ea9dfcdbecf988b6f407c80044b50c10585b8d6be98d7726dd68d167f651c0bf",
+      "sha256": "dd34ccde0da65581027fb01f78359d1b3e48144eecbb0ef8c3d8e4070663e03f",
+      "dimensions": [1672, 941],
+      "panel_count": 6,
+      "character_free": true,
+      "agent_prescreen": "pending_sol_review"
+    },
+    {
+      "path": "storyboards/SCENE_SHOT_BOARD.png",
+      "result_id": "exec-e024a69c-698a-40a2-8ed6-47dae1be783c",
+      "prompt_path": "storyboards/SCENE_SHOT_BOARD_PROMPT.txt",
+      "prompt_sha256": "d24f67d4a5bff96a31cff54b8700c05c1688e852d79aafcfbdc2e2c0d55f78c0",
+      "sha256": "1e3e6233830044d85c0a01401c808a20417780c87e114ed72d9ec176b2a5ebdc",
+      "dimensions": [1672, 941],
+      "panel_count": 9,
+      "agent_prescreen": "pending_sol_review"
+    }
+  ],
+  "rejected_result_ids": [
+    {"result_id": "exec-e8c8145d-59ca-4027-b646-13870bc7b7c5", "reason": "obsolete four-angle scope; restored seahorse retained algae"},
+    {"result_id": "exec-8b6eef32-9cfb-4caa-848d-4f0249523d62", "reason": "six-angle attempt used plain blue waterfall and retained seahorse growth"}
+  ],
+  "warnings": [
+    "Narrative reference only; never bind as generation pixels or use as delivery pixels.",
+    "Human identity, topology, style, and shot-order acceptance remains pending."
+  ]
+}

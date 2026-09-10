@@ -1,0 +1,93 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C06-S02",
+  "movie_id": "D1-C06",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "pool",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "role": "subject_identity",
+      "path": "references/D1-C06/handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "inherited source authority; shot-specific human binding approval pending",
+      "id": "IMAGE_2",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
+    },
+    {
+      "role": "object_or_material_identity",
+      "path": "references/D1-C05/handoff_art/seahorse_sick.png",
+      "sha256": "88aa2ce07e79144b13d8e699341404e7b15e79baed861169c9c17e196ddba941",
+      "human_review": "inherited source authority; shot-specific human binding approval pending",
+      "id": "IMAGE_3",
+      "authority_domain": "Named object/material design only; placement and action state from approved IMAGE_1 and timeline."
+    }
+  ],
+  "depends_on": [
+    "D1-C06-S01"
+  ],
+  "dependency_endpoints": {},
+  "opening_source_kind": "accepted_previous_end",
+  "must_move": "0.0–1.5s: inherit the open dry nozzle and Roshan holding the removed plug nearby; 1.5–4.8s: the first narrow clean stream starts and strengthens; 4.8–6.0s: hold the stream into the giant pool; room remains dirty",
+  "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+  "end_state": "hold the stream into the giant pool; room remains dirty",
+  "state_contract": "Continue the dry open-nozzle endpoint; Roshan retains the removed pink plug. First clean stream only; no waterfall or whole-room clean yet.",
+  "prompt_sha256": "c649a163e4920ad2114ee56b3f1eae6358a7d908b2cf421593da2379da54ba3a",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending",
+    "accepted predecessor endpoint missing"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-02"
+  ],
+  "exact_cast": [
+    "Roshan"
+  ],
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt",
+    "sha256": "c93b5363e4d6091b5ace8ac667bd6f6e2e903efd1084dc525c90ea87335da23c",
+    "text": "Close shot continuing from the open seahorse nozzle. The sick seahorse relaxes as its first narrow stream of clean aqua water begins and strengthens; seaweed growth loosens locally. Roshan remains nearby holding the removed pink trash away from the water. Locked camera. End with a stable clean stream entering the giant pool outside frame. No rainbow waterfall yet, backward suction, extra nozzle, or instant whole-room cleaning. Sound: temporary clean water start and relieved magical chime; no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "0.0–1.5s: inherit the open dry nozzle and Roshan holding the removed plug nearby",
+    "1.5–4.8s: the first narrow clean stream starts and strengthens",
+    "4.8–6.0s: hold the stream into the giant pool; room remains dirty"
+  ],
+  "continuity_overlay": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+  "revision": 2,
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": false,
+    "unresolved_conflicts": []
+  }
+}

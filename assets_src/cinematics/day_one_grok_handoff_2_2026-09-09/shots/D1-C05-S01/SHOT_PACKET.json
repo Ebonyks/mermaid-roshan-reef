@@ -1,0 +1,95 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C05-S01",
+  "movie_id": "D1-C05",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "slow push-in",
+    "move_count": 1
+  },
+  "location_id": "pool",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "role": "subject_identity",
+      "path": "references/D1-C05/handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "inherited source authority; shot-specific human binding approval pending",
+      "id": "IMAGE_2",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
+    },
+    {
+      "role": "object_or_material_identity",
+      "path": "references/D1-C05/handoff_art/objects/seahorse_sick.png",
+      "sha256": "3af5ff973576d328dde98282f5ad9a5a04931e35f3a48e366de6ad1499b304a0",
+      "human_review": "inherited source authority; shot-specific human binding approval pending",
+      "id": "IMAGE_3",
+      "authority_domain": "Named object/material design only; placement and action state from approved IMAGE_1 and timeline."
+    },
+    {
+      "role": "object_or_material_identity",
+      "path": "references/D1-C05/handoff_art/objects/waterfall_clogged_turgid.png",
+      "sha256": "df7c3147bc8867612e9d59b4eb50771399341040ecd6305342dffe5ce4166589",
+      "human_review": "inherited source authority; shot-specific human binding approval pending",
+      "id": "IMAGE_4",
+      "authority_domain": "Named object/material design only; placement and action state from approved IMAGE_1 and timeline."
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.0-1.5 doorway pause; 1.5-4.8 push into giant pool; 4.8-6.00 both dirty sources readable",
+  "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+  "end_state": "both dirty sources readable",
+  "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete",
+  "prompt_sha256": "eadeffdf964fee418f149487c38f5e5ec7ae10aad3bbf6a0744e7a5d05b3eed9",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-03"
+  ],
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_POOL_DIRTY_DISCOVERY.txt",
+    "sha256": "30dccb8c7f71f8f9ed71d37b507214bce6b2a23335f64d1239a92d39062a3f7f",
+    "text": "Wide doorway orientation into the exact dirty Mermaid Pool. Roshan pauses at the threshold while the giant pool dominates the full room; fixed pearl coping, shell arches, stopped rainbow fixture left-center, and sick seahorse right-center remain in their approved positions. One slow push through the doorway. End with the whole problem geography readable. No small pool, extra basin, bright rainbow flow, or substitute mermaid. Sound: temporary rank room ambience, faint drip, no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "0.0-1.5 doorway pause",
+    "1.5-4.8 push into giant pool",
+    "4.8-6.00 both dirty sources readable"
+  ],
+  "continuity_overlay": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+  "revision": 2,
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": true,
+    "unresolved_conflicts": []
+  }
+}

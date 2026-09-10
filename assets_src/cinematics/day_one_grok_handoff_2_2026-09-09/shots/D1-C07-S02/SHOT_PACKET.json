@@ -1,0 +1,85 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C07-S02",
+  "movie_id": "D1-C07",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "short follow",
+    "move_count": 1
+  },
+  "location_id": "stuffie",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/D1-C07/handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "inherited authority; exact binding review pending",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
+    }
+  ],
+  "depends_on": [
+    "D1-C07-S01"
+  ],
+  "dependency_endpoints": {},
+  "opening_source_kind": "accepted_previous_end",
+  "must_move": "0.00–2.00 Roshan enters the dirty Stuffie Room from the approved entry side; 2.00–4.50 glide only enough to reveal Roshan’s look toward the covered Eagle; 4.50–6.00 stop on the dirty-room endpoint; omit swing/wing inventions",
+  "must_not_move": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+  "end_state": "stop on the dirty-room endpoint; omit swing/wing inventions",
+  "state_contract": "dirty before rescue; left pin then right pin clear only through gameplay; clean/departure after both; no swing or wing hunt",
+  "prompt_sha256": "3819b68e23194b27779e39ca4128e7ff9a7d16136626214e757a08fb7aa76ede",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending",
+    "accepted predecessor endpoint missing"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-01"
+  ],
+  "exact_cast": [
+    "Roshan"
+  ],
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C07_STUFFIE_DIRTY_DISCOVERY.txt",
+    "sha256": "1c67fe0e1a62bcfd0dad2ac60daf66ef1fc7f86f01017c75b747c2aaff72441c",
+    "text": "Inherit the approved dirty room layout. Roshan crosses the threshold with exact child identity and one continuous rainbow mer-tail. One short follow camera stops inside. Her gaze moves across the clutter without touching it. End with Roshan fully inside and the entrance still spatially correct. No legs, room rotation error, cleanup, or extra character. Sound: temporary soft tail movement and room ambience; no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "0.00–2.00 Roshan enters the dirty Stuffie Room from the approved entry side",
+    "2.00–4.50 glide only enough to reveal Roshan’s look toward the covered Eagle",
+    "4.50–6.00 stop on the dirty-room endpoint; omit swing/wing inventions"
+  ],
+  "continuity_overlay": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+  "revision": 2,
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": true,
+    "unresolved_conflicts": []
+  }
+}

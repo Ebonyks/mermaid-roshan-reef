@@ -1,0 +1,28 @@
+{
+  "schema": "location-geometry-lock-v1",
+  "location_id": "castle_art_room_runtime_front",
+  "camera_family": "single straight-on runtime front projection; locked view, modest digital crop, or <=10 percent front-axis push/pull only",
+  "source_authorities": [
+    {"source_id": "ART_ROOM_CLEAN_FRONT_PLATE", "path": "handoff_art/location/room_craft_room_background.png", "sha256": "006b736e59e261c2670717f268c76b39640b903373b1a75781cd464e135ddd0d", "dimensions": [1024, 576], "appearance_role": "clean_location_geography_authority", "ordered_landmarks_left_to_right": ["left shell window", "left rainbow banner", "left pearl column", "ribbon rack", "shell idea board and rectangular center paint desk", "right pearl column", "right rainbow banner", "right shell window"], "counts": {"shell_windows": 2, "pearl_columns": 2, "chandeliers": 1, "idea_boards": 1, "rectangular_center_desks": 1, "curved_foreground_counters": 2, "interior_doors": 0}}
+  ],
+  "runtime_boundary_references": [
+    {"path": "handoff_art/runtime_boundary/01_grime_revealed.png", "sha256": "ad7931b71bf879fa09fba1f65401cf8855b8693b3a90b4bd2ac62087fa4b30d8", "state": "three grime targets", "hud_present": true, "appearance_authority": false, "bound_reference_eligible": false, "used_as_delivery_pixels": false},
+    {"path": "handoff_art/runtime_boundary/02_last_grime.png", "sha256": "4af29498709b94780b733b04847dd527c759795a1d1f1e84028a80830c89c5b2", "state": "only right-counter grime remains", "hud_present": true, "appearance_authority": false, "bound_reference_eligible": false, "used_as_delivery_pixels": false},
+    {"path": "handoff_art/runtime_boundary/03_glowing_desk.png", "sha256": "801c09772d8d1e5e55686dc345b38d2851ca38adeed558e866ccbab0b2114a3f", "state": "clean room and localized desk wake", "hud_present": true, "appearance_authority": false, "bound_reference_eligible": false, "used_as_delivery_pixels": false},
+    {"path": "handoff_art/runtime_boundary/04_customizer_bubbles.png", "sha256": "033b45731decd179f04d99f93e768915bb7252d699333ce32aeb3e988688c1e0", "state": "post-seam UI negative reference", "hud_present": true, "appearance_authority": false, "bound_reference_eligible": false, "used_as_delivery_pixels": false},
+    {"path": "handoff_art/runtime_boundary/05_customizer_splashes.png", "sha256": "c6d97aee6b50faefeaec5c0bd843effa4cd792e98624986bd135073f97e05d7", "state": "post-seam UI negative reference", "hud_present": true, "appearance_authority": false, "bound_reference_eligible": false, "used_as_delivery_pixels": false},
+    {"path": "handoff_art/runtime_boundary/06_splash_attack_frame.png", "sha256": "254521fefc64cb59be6cff0bfc2dfc5d712d213cfb69f04b55dc5d9fe4f3773", "state": "post-seam attack FX negative reference", "hud_present": true, "appearance_authority": false, "bound_reference_eligible": false, "used_as_delivery_pixels": false}
+  ],
+  "global_invariants": [
+    "All shots retain the source landmark order and front projection.",
+    "The center paint desk is rectangular and never transforms or becomes a screen.",
+    "Supply targets disappear into established stations without visible cross-room travel or duplicates.",
+    "The final grime target is the small right-counter card.",
+    "Customizer UI and attack FX begin after the cinematic endpoint and are forbidden in authored masters."
+  ],
+  "candidate_reviews": [
+    {"shot_id": "D1-C10-S01", "path": "storyboards/generated_keyframes/D1-C10-S01_runtime_informed_candidate.png", "sha256": "e62e67088502bb4f43f848e7538e8e6a7f9db1fb4c938520f41a6f82c2a3163d", "sol_topology_decision": "pass for narrative board only; approved non-HUD bindings used, authored brush action is not runtime footage, and frame is not exact enough for IMAGE_1", "human_decision": "pending", "eligible_as_image_1": false}
+  ],
+  "forbidden_additions": ["interior doorway", "reverse or side wall", "round center table", "flying supplies", "new storage", "relocated fixture", "customizer UI", "HUD in authored cinematic master"],
+  "status": "runtime_geometry_locked_generation_blocked_pending_hud_free_first_frames"
+}
