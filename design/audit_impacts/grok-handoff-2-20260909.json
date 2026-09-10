@@ -1,6 +1,6 @@
 {
   "id": "grok-handoff-2-20260909",
-  "scope": "Audit committed Day One Grok footage against cross-shot location, character, state and gameplay authority; publish a versioned Handoff 2 repair archive and enforce dependency-aware readiness. No runtime media replacement.",
+  "scope": "Audit committed Day One Grok footage against cross-shot location, character, state and gameplay authority; publish a versioned Handoff 2 repair archive and enforce dependency-aware readiness. No runtime media replacement. Includes owner-requested self-audit against the stronger original Grok direction and correction of Handoff 2 regressions.",
   "baseline": "016589c6494d082b01b84c2a974fc2acb87bbf44",
   "rules": [
     "DL-AUTH-05",
@@ -21,6 +21,7 @@
     ".gitattributes",
     "ASSET_LICENSES.md",
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/BUILD_PROVENANCE.json",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/COMPARATIVE_AUDIT.json",
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/CONTINUITY_LOCKS.json",
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/FINDINGS.json",
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/FOOTAGE_INVENTORY.json",
@@ -82,6 +83,21 @@
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/evidence/D1-C13_HISTORICAL_OVERVIEW.jpg",
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/HISTORICAL_159_FILE_LEDGER.json",
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/THIRD_PASS_DECISIONS.json",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/original_direction/00_SHARED_STYLE_AND_CHARACTER_REFERENCE.txt",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/original_direction/D1-C00_OPENING_FLIGHT.txt",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/original_direction/D1-C01_LAGOON_LANDING_AND_CASTLE_APPROACH.txt",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/original_direction/D1-C02_FIRST_DIRTY_CASTLE_DISCOVERY.txt",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/original_direction/D1-C03_BATHROOM_DIRTY_ENTRY.txt",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/original_direction/D1-C04_BATHROOM_RESTORED.txt",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/original_direction/D1-C05_POOL_DIRTY_DISCOVERY.txt",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/original_direction/D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/original_direction/D1-C07_STUFFIE_DIRTY_DISCOVERY.txt",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/original_direction/D1-C08_STUFFIE_RESTORATION.txt",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/original_direction/D1-C09_ART_ROOM_DIRTY_DISCOVERY.txt",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/original_direction/D1-C10_ART_ROOM_RESTORED.txt",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/original_direction/D1-C11_GRAND_PUFF_REVEAL.txt",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/original_direction/D1-C12_RESTORED_CASTLE_FINALE.txt",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/history/original_direction/D1-C13_GRAND_PUFF_FRIENDSHIP_COMPLETION.txt",
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/references/D1-C00/GENERATION_RESULTS.json",
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/references/D1-C00/PERSPECTIVE_PROMPT.txt",
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/references/D1-C00/SOURCE_MANIFEST.json",
@@ -634,6 +650,11 @@
       "command": "GitHub recursive subtree/blob comparison, HTTP HEAD for every immutable raw URL, and manifest GET SHA256 comparison",
       "result": "PASS",
       "evidence": "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/REMOTE_VERIFICATION.json; 582/582 files resolve at 00e317f0f072b10f10683a4f95d1071cdd550b72; archive complete, generation blocked, delivery not accepted"
+    },
+    {
+      "command": "python -X utf8 -B -m unittest tools.tests.test_audit_grok_handoff_2",
+      "result": "PASS",
+      "evidence": "Revision 2: 17 tests, including original pullback/cast, dry nozzle, reference-state exclusion, recap conflict and pin-count boundary regressions."
     }
   ],
   "acceptance_gaps": "Opening-frame human approval, returned-shot motion review, full-frame delivery provenance, runtime/device/child/owner acceptance remain separate and unclaimed."

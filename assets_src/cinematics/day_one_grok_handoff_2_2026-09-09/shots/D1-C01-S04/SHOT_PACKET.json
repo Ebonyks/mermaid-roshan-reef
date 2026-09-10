@@ -12,8 +12,8 @@
   ],
   "aspect": "16:9",
   "camera": {
-    "verb": "locked",
-    "move_count": 0
+    "verb": "gentle push-in",
+    "move_count": 1
   },
   "location_id": "lagoon",
   "bindings": [
@@ -29,24 +29,26 @@
       "role": "subject_identity",
       "path": "references/D1-C01/handoff_art/characters/roshan_roshan_base.png",
       "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
-      "human_review": "inherited source authority; exact shot binding review pending"
+      "human_review": "inherited source authority; exact shot binding review pending",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
     },
     {
       "id": "IMAGE_3",
       "role": "subject_identity",
       "path": "references/D1-C01/handoff_art/characters/daddy_daddy_master.png",
       "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
-      "human_review": "inherited source authority; exact shot binding review pending"
+      "human_review": "inherited source authority; exact shot binding review pending",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
     }
   ],
   "depends_on": [],
   "dependency_endpoints": {},
   "opening_source_kind": "approved_master",
-  "must_move": "0.0-1.0: Roshan is beside the closed approved castle doors. 1.0-4.5: she approaches the handle. 4.5-6.0: her hand stops before contact; doors stay closed.",
-  "must_not_move": "same plane, dock, castle and closed-door approach; preserve time-of-day and shoreline",
-  "end_state": "Roshan at the handle with a visible gap; doors closed",
+  "must_move": "0.0-1.5 approach closed doors; 1.5-4.8 gentle push-in; 4.8-6.00 Roshan at handle, doors closed",
+  "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+  "end_state": "Roshan at handle, doors closed",
   "state_contract": "arrival precedes door opening; no missing disembark action concealed by cut",
-  "prompt_sha256": "e7dc4419899ff34e50bf8536c504fb3cb6b0442c60ca1b666bea384d164109c6",
+  "prompt_sha256": "3400e6429e14cd2b8f23721e58e0d8dcd99cde2b27321f98a827b944d1c54ec2",
   "blocking_findings": [
     "missing complete human-approved opening",
     "missing measured setup and incoming/outgoing cut review",
@@ -61,5 +63,159 @@
   "delivery_accepted": false,
   "finding_ids": [
     "GH2-11"
-  ]
+  ],
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C01_LAGOON_LANDING_AND_CASTLE_APPROACH.txt",
+    "sha256": "4a9b7b53511f2e5e3c054ec9c2b4d3563f784c96e2766e25a52021ad6680ae5e",
+    "text": "Low wide-to-medium view facing the exact closed Pearl Castle doors as Roshan and Daddy arrive together. One gentle push-in makes the doors fill the frame while preserving door seam, hinges, handles, surrounding pearl architecture, and the established inward-opening direction. End with Roshan nearest the handle, Daddy beside and slightly behind her, both identities exact. Doors remain closed for the cut. Sound: temporary lagoon ambience falling quiet and a soft anticipatory chord; no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "previous_detailed_card": {
+    "schema": "imagine-shot-card-draft-v1",
+    "movie_id": "D1-C01",
+    "shot_id": "D1-C01-S04",
+    "title": "Lagoon Landing and Castle Approach — D1-C01-S04",
+    "status": "DRAFT",
+    "conditional_regeneration": false,
+    "duration_seconds": 6,
+    "aspect_ratio": "16:9",
+    "delivery_size": [
+      1280,
+      720
+    ],
+    "mode": "image_to_video",
+    "output_disposition": "motion_reference_only",
+    "binding_plan": [
+      {
+        "id": "IMAGE_1",
+        "job": "lagoon geography",
+        "status": "missing_approved_shot_opening_frame",
+        "source_movie_id": "D1-C01",
+        "source_packet": "d1_c01_lagoon_landing_castle_approach_visual_v1",
+        "path": "handoff_art/location/sky_lagoon_panorama_master_v5_hd_3x1.png",
+        "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c01_lagoon_landing_castle_approach_visual_v1/handoff_art/location/sky_lagoon_panorama_master_v5_hd_3x1.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "shot_opening_gate": "human-approved, clean, HUD-free shot-opening frame in the exact inherited state",
+        "source_authority_is_not_automatic_first_frame_approval": true,
+        "binding_alias": "location",
+        "local_path": "scenes/D1-C01/visuals/handoff_art/location/sky_lagoon_panorama_master_v5_hd_3x1.png"
+      },
+      {
+        "id": "IMAGE_2",
+        "job": "Roshan identity",
+        "status": "approved_source_authority_available",
+        "source_movie_id": "D1-C01",
+        "source_packet": "d1_c01_lagoon_landing_castle_approach_visual_v1",
+        "path": "handoff_art/characters/roshan_roshan_base.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c01_lagoon_landing_castle_approach_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "binding_alias": "roshan",
+        "local_path": "scenes/D1-C01/visuals/handoff_art/characters/roshan_roshan_base.png"
+      },
+      {
+        "id": "IMAGE_3",
+        "job": "Daddy identity",
+        "status": "approved_source_authority_available",
+        "source_movie_id": "D1-C01",
+        "source_packet": "d1_c01_lagoon_landing_castle_approach_visual_v1",
+        "path": "handoff_art/characters/daddy_daddy_master.png",
+        "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c01_lagoon_landing_castle_approach_visual_v1/handoff_art/characters/daddy_daddy_master.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "binding_alias": "daddy",
+        "local_path": "scenes/D1-C01/visuals/handoff_art/characters/daddy_daddy_master.png"
+      },
+      {
+        "id": "IMAGE_4",
+        "job": "castle exterior and closed door",
+        "status": "approved_source_authority_available",
+        "source_movie_id": "D1-C01",
+        "source_packet": "d1_c01_lagoon_landing_castle_approach_visual_v1",
+        "path": "handoff_art/objects/pearl_castle_exterior_turnaround_v2.png",
+        "sha256": "00eed099cae3acd94725e8f80e6c48853b5fe5976db03d3ec0ce5cb2633a6dc4",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c01_lagoon_landing_castle_approach_visual_v1/handoff_art/objects/pearl_castle_exterior_turnaround_v2.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "binding_alias": "castle",
+        "local_path": "scenes/D1-C01/visuals/handoff_art/objects/pearl_castle_exterior_turnaround_v2.png"
+      }
+    ],
+    "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+    "camera": {
+      "verb": "locked, restrained action framing",
+      "move_count": 1
+    },
+    "must_move": "1.5-4.8 gentle push-in",
+    "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+    "end_state": "4.8-6.04 Roshan at handle, doors closed",
+    "negative_constraints": "no invented event, topology drift, identity drift, anatomy errors, text, HUD, morph, interpolation, or camera drift",
+    "sound_intent": "quiet room tone and one soft causal action cue; no voices",
+    "prompt_path": "PROMPT.txt",
+    "prompt_sha256": "4c635023ee05ad9a9fa6b80ad375b78f8b983aaca8c4cd2d90c1cf1d1d2c3613",
+    "strict_audit_reason": "Original file is a door-open event; no valid closed-door arrival take.",
+    "weak_frames": [
+      {
+        "filename": "C01_S04_v1_castle_doors.mp4",
+        "lane": "original_branch",
+        "file_verdict": "OMIT_WRONG_EVENT",
+        "weak_frames": "f036-f144 (1.500-6.042s)",
+        "finding": "This file opens the castle doors and moves Roshan through the threshold; C01-S04 must remain a closed-door arrival. It is usable only as a C02-S01 door-open candidate."
+      }
+    ],
+    "source_packet": "d1_c01_lagoon_landing_castle_approach_visual_v1",
+    "audited_branch": {
+      "branch": "day1-regen-3sets-2026-09-04",
+      "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+    },
+    "blocking_findings": [],
+    "implemented_event_contract": {
+      "authority_path": "scripts/day_one_director.gd",
+      "rule": "arrival media precedes the dirty-castle discovery; the lagoon handoff must preserve Roshan, Daddy, the stationary plane, and the closed castle"
+    },
+    "audit_claims": {
+      "archive_complete": true,
+      "generation_ready": false,
+      "delivery_accepted": false
+    },
+    "review": {
+      "strict_third_pass": true,
+      "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+      "reviewed_at": "2026-09-04"
+    }
+  },
+  "negative_constraints": "no invented event, topology drift, identity drift, anatomy errors, text, HUD, morph, interpolation, or camera drift",
+  "sound_intent": "quiet room tone and one soft causal action cue; no voices",
+  "implemented_event_contract": {
+    "authority_path": "scripts/day_one_director.gd",
+    "rule": "arrival media precedes the dirty-castle discovery; the lagoon handoff must preserve Roshan, Daddy, the stationary plane, and the closed castle"
+  },
+  "weak_frames": [
+    {
+      "filename": "C01_S04_v1_castle_doors.mp4",
+      "lane": "original_branch",
+      "file_verdict": "OMIT_WRONG_EVENT",
+      "weak_frames": "f036-f144 (1.500-6.042s)",
+      "finding": "This file opens the castle doors and moves Roshan through the threshold; C01-S04 must remain a closed-door arrival. It is usable only as a C02-S01 door-open candidate."
+    }
+  ],
+  "strict_audit_reason": "Original file is a door-open event; no valid closed-door arrival take.",
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "0.0-1.5 approach closed doors",
+    "1.5-4.8 gentle push-in",
+    "4.8-6.00 Roshan at handle, doors closed"
+  ],
+  "continuity_overlay": "same plane, dock, castle and closed-door approach; preserve time-of-day and shoreline",
+  "revision": 2,
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": true,
+    "unresolved_conflicts": []
+  }
 }

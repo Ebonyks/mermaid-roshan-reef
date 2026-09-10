@@ -1,9 +1,9 @@
 {
   "schema": "grok-handoff-2-archive-v1",
   "baseline": "016589c6494d082b01b84c2a974fc2acb87bbf44",
-  "payload_sha256": "0666497986f9727f45b92bc3570196a80a412307f5f97911a6db3ac26cb43646",
+  "payload_sha256": "b785b17edf5e626a03582131d9f108341f4733326d39e162d3f8ed9813bbd0d0",
   "payload_hash_formula": "SHA256 UTF-8 sorted relative_path|sha256 LF records; excludes manifest itself and subsequent REMOTE_VERIFICATION.json",
-  "archive_complete": "pending_remote_verification",
+  "archive_complete": false,
   "generation_ready": false,
   "delivery_accepted": false,
   "files": [
@@ -14,9 +14,20 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "BUILD_PROVENANCE.json",
-      "sha256": "607cb956ce0e919d1eb64d43866087a8bab1660ab25d91e447fdde714b620ef7",
-      "bytes": 207004,
+      "sha256": "ca9cd2f54aa1a73d59127a921f4a93190a3195bb27c2798dc66fa599dd80f520",
+      "bytes": 207331,
       "dimensions": null
+    },
+    {
+      "path": "COMPARATIVE_AUDIT.json",
+      "source_path": "project-authored comparative audit of prior handoffs",
+      "role": "comparative_protocol_audit",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "new comparative audit",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "7a73269c62e780c63f7d0cc9cdf43da90b54159351daf26f275be3af9ac367e5",
+      "bytes": 142135
     },
     {
       "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
@@ -36,8 +47,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "FINDINGS.json",
-      "sha256": "0335e934df7d70141ac87fc1628fe90f88e9f0a06a8e3648691047002acbb416",
-      "bytes": 10548,
+      "sha256": "44c42b2455865f8b646df74a080a4b181970499033788e4da2b3879abae910b8",
+      "bytes": 10924,
       "dimensions": null
     },
     {
@@ -69,8 +80,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "README.md",
-      "sha256": "52f5e83e588907034c3ff6b54c91fb52aaa5c8436fc0b65fb62e1d38875c88b5",
-      "bytes": 2915,
+      "sha256": "31ac61cfb27816ddd8bef91822540cb8988540c25b0c747a6870599b0bd0500d",
+      "bytes": 3432,
       "dimensions": null
     },
     {
@@ -91,8 +102,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "SHOT_REPAIR_QUEUE.json",
-      "sha256": "442fe830f45835c0c8a64f93c4585b4d43cf6506959cd15b809673290f4378b6",
-      "bytes": 56840,
+      "sha256": "e398eb56ec8a68daf2b6edb42ab44587bcbc80c355b514e510707a48d3c4e15c",
+      "bytes": 57074,
       "dimensions": null
     },
     {
@@ -816,6 +827,171 @@
       "sha256": "6229d14777a5f15ca50125d25ac03797b2ca59548635f5b3ffe994999dae31bd",
       "bytes": 124214,
       "dimensions": null
+    },
+    {
+      "path": "history/original_direction/00_SHARED_STYLE_AND_CHARACTER_REFERENCE.txt",
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/00_SHARED_STYLE_AND_CHARACTER_REFERENCE.txt",
+      "role": "historical_direction_reference",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "unmodified copy",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "b65d7ebe7331e26fce29861620bb2b224af608a0b2e46290a6a77de5446c6c43",
+      "bytes": 9991
+    },
+    {
+      "path": "history/original_direction/D1-C00_OPENING_FLIGHT.txt",
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C00_OPENING_FLIGHT.txt",
+      "role": "historical_direction_reference",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "unmodified copy",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "107be94b4b733c1018e0cd71dc86d4c30260252a273bd372081fb52805484722",
+      "bytes": 3825
+    },
+    {
+      "path": "history/original_direction/D1-C01_LAGOON_LANDING_AND_CASTLE_APPROACH.txt",
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C01_LAGOON_LANDING_AND_CASTLE_APPROACH.txt",
+      "role": "historical_direction_reference",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "unmodified copy",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "4a9b7b53511f2e5e3c054ec9c2b4d3563f784c96e2766e25a52021ad6680ae5e",
+      "bytes": 2741
+    },
+    {
+      "path": "history/original_direction/D1-C02_FIRST_DIRTY_CASTLE_DISCOVERY.txt",
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C02_FIRST_DIRTY_CASTLE_DISCOVERY.txt",
+      "role": "historical_direction_reference",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "unmodified copy",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "10f429eaa733460b66d08aa8776a76fa20ec67837605ec4da8ed4159c077ec2c",
+      "bytes": 2821
+    },
+    {
+      "path": "history/original_direction/D1-C03_BATHROOM_DIRTY_ENTRY.txt",
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C03_BATHROOM_DIRTY_ENTRY.txt",
+      "role": "historical_direction_reference",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "unmodified copy",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "a104daf8797c3ea7660b69f48fbbec7b04fa1d1a00f62784092d5437329fbc64",
+      "bytes": 2651
+    },
+    {
+      "path": "history/original_direction/D1-C04_BATHROOM_RESTORED.txt",
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C04_BATHROOM_RESTORED.txt",
+      "role": "historical_direction_reference",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "unmodified copy",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "bc9797ed57201bdfcbc81db7c93061a7c9cd687493f96b26e98aac3743684e6d",
+      "bytes": 2812
+    },
+    {
+      "path": "history/original_direction/D1-C05_POOL_DIRTY_DISCOVERY.txt",
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_POOL_DIRTY_DISCOVERY.txt",
+      "role": "historical_direction_reference",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "unmodified copy",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "30dccb8c7f71f8f9ed71d37b507214bce6b2a23335f64d1239a92d39062a3f7f",
+      "bytes": 3992
+    },
+    {
+      "path": "history/original_direction/D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt",
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt",
+      "role": "historical_direction_reference",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "unmodified copy",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "c93b5363e4d6091b5ace8ac667bd6f6e2e903efd1084dc525c90ea87335da23c",
+      "bytes": 5822
+    },
+    {
+      "path": "history/original_direction/D1-C07_STUFFIE_DIRTY_DISCOVERY.txt",
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C07_STUFFIE_DIRTY_DISCOVERY.txt",
+      "role": "historical_direction_reference",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "unmodified copy",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "1c67fe0e1a62bcfd0dad2ac60daf66ef1fc7f86f01017c75b747c2aaff72441c",
+      "bytes": 3571
+    },
+    {
+      "path": "history/original_direction/D1-C08_STUFFIE_RESTORATION.txt",
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_STUFFIE_RESTORATION.txt",
+      "role": "historical_direction_reference",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "unmodified copy",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "e52b9b047b8bcec8c72e99e8db0f9417091d825a17506e890dc839ac25efb677",
+      "bytes": 4048
+    },
+    {
+      "path": "history/original_direction/D1-C09_ART_ROOM_DIRTY_DISCOVERY.txt",
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C09_ART_ROOM_DIRTY_DISCOVERY.txt",
+      "role": "historical_direction_reference",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "unmodified copy",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "49ce3546ea8a3d88b182969335684355c9dd9cc87e328a945c5917f51f5db637",
+      "bytes": 2999
+    },
+    {
+      "path": "history/original_direction/D1-C10_ART_ROOM_RESTORED.txt",
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C10_ART_ROOM_RESTORED.txt",
+      "role": "historical_direction_reference",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "unmodified copy",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "fd1dca381153162ddeeab2c88a93fd3aef7dffc4958ca8f6e6c9b33e47bd48da",
+      "bytes": 3079
+    },
+    {
+      "path": "history/original_direction/D1-C11_GRAND_PUFF_REVEAL.txt",
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C11_GRAND_PUFF_REVEAL.txt",
+      "role": "historical_direction_reference",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "unmodified copy",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "c149850ff2e27b880052173d47f1ec1fdde8ea2c9821892080d4a7d25b554fef",
+      "bytes": 3032
+    },
+    {
+      "path": "history/original_direction/D1-C12_RESTORED_CASTLE_FINALE.txt",
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_RESTORED_CASTLE_FINALE.txt",
+      "role": "historical_direction_reference",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "unmodified copy",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "850b1f0322dfa4d6bdeba7d8b3977754c1bb4625cc7bd725b6e3775010829082",
+      "bytes": 3998
+    },
+    {
+      "path": "history/original_direction/D1-C13_GRAND_PUFF_FRIENDSHIP_COMPLETION.txt",
+      "source_path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C13_GRAND_PUFF_FRIENDSHIP_COMPLETION.txt",
+      "role": "historical_direction_reference",
+      "license_provenance": "Project-authored production directions and analysis",
+      "modifications": "unmodified copy",
+      "used_as_delivery_pixels": false,
+      "dimensions": null,
+      "sha256": "0c35d6eec6e286aa6d1969cab87b887697f05a5d657e94b866b2a91b439ef713",
+      "bytes": 3433
     },
     {
       "source_path": "assets_src/cinematics/d1_c00_opening_flight_visual_v1/GENERATION_RESULTS.json",
@@ -6229,8 +6405,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C01-S02/PROMPT.txt",
-      "sha256": "ea4ecc346be36b35df8b233eaa0ee587b32916028f060f7600ff391de3b28f32",
-      "bytes": 624,
+      "sha256": "69d071f0585d9344eebdd5e1c4e612df1d2fa7e8fa8f7d13e97d4b16506d407b",
+      "bytes": 1069,
       "dimensions": null
     },
     {
@@ -6240,8 +6416,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C01-S02/SHOT_PACKET.json",
-      "sha256": "0eb94fbbc1764c7da1e7e05d8d2d53fe1457d1c519bd3e9f2d8943153f710ad9",
-      "bytes": 2373,
+      "sha256": "b670cf79a2b674cab3162e112f990ca819e323b6e0be843d60084845efa07ea7",
+      "bytes": 11294,
       "dimensions": null
     },
     {
@@ -6251,8 +6427,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C01-S04/PROMPT.txt",
-      "sha256": "e7dc4419899ff34e50bf8536c504fb3cb6b0442c60ca1b666bea384d164109c6",
-      "bytes": 554,
+      "sha256": "3400e6429e14cd2b8f23721e58e0d8dcd99cde2b27321f98a827b944d1c54ec2",
+      "bytes": 975,
       "dimensions": null
     },
     {
@@ -6262,8 +6438,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C01-S04/SHOT_PACKET.json",
-      "sha256": "7a67db15307a7cab797168d54e200405744c59b77ee447e020abf363b568c874",
-      "bytes": 2303,
+      "sha256": "8ee965122253e9c4fc88e1a68266c76234b1b8d46201f496d442c5a5bad85c7c",
+      "bytes": 11267,
       "dimensions": null
     },
     {
@@ -6273,8 +6449,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C02-S03/PROMPT.txt",
-      "sha256": "04a86cbdf8a2cffd387007108135d2ea8c8c1e3552d9cacdae4707dc4bf7171a",
-      "bytes": 625,
+      "sha256": "805d49eece5437ca917f073280523443e208109f0058635ae61f7c054dd2363c",
+      "bytes": 1092,
       "dimensions": null
     },
     {
@@ -6284,8 +6460,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C02-S03/SHOT_PACKET.json",
-      "sha256": "6cc9616bb15b066fc929f5b6d3f410e97399c80f33ff3f3c8711cd8dbbcda28f",
-      "bytes": 2346,
+      "sha256": "6e120516d0b8855cda812518bdf04d9495099111673541757dfb8d188549f5e0",
+      "bytes": 10521,
       "dimensions": null
     },
     {
@@ -6295,8 +6471,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C03-S01/PROMPT.txt",
-      "sha256": "0ef6446274a933772e473a0c4473fce9669e5ca0448c1fe28342355bdc9936eb",
-      "bytes": 671,
+      "sha256": "da3798598eba852b78565466a74cec2eace697093b0aeede3936e47aaa0f5fd7",
+      "bytes": 920,
       "dimensions": null
     },
     {
@@ -6306,8 +6482,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C03-S01/SHOT_PACKET.json",
-      "sha256": "4a71e279733f9819f04ed9c68e7469356fe65c1d2c1d1c950d7e1f12621e93ca",
-      "bytes": 2356,
+      "sha256": "735d1ab0173e3843b87bd1194def215cf83ac2ca2c6de243d87d470ed84b9491",
+      "bytes": 4068,
       "dimensions": null
     },
     {
@@ -6317,8 +6493,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C03-S02/PROMPT.txt",
-      "sha256": "7b97a3184490e92330d18b80086219e50fac647dbf22aceb7d301f433775a21d",
-      "bytes": 718,
+      "sha256": "76d664cd35835e3c51d4c910f18da2e255fa03eab7b86c10742eacd2d4b4311e",
+      "bytes": 1074,
       "dimensions": null
     },
     {
@@ -6328,8 +6504,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C03-S02/SHOT_PACKET.json",
-      "sha256": "27ae012ae3e45436514534405201796fae0e8062192e68b207f9337fcc5cb052",
-      "bytes": 2421,
+      "sha256": "d49cb8b2e66144e05eb1234d6c17a417267396e24fcda22272638340e54405d2",
+      "bytes": 11229,
       "dimensions": null
     },
     {
@@ -6339,8 +6515,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C03-S03/PROMPT.txt",
-      "sha256": "4c42914a6afe3d74c48c62ac1b9156ec45b97456539ad3a9b6899785db4bfe76",
-      "bytes": 577,
+      "sha256": "aa943a1aa83000abf8472aeb07c3d9a97e3a47a5f88bc3d9ee225d8d548069e9",
+      "bytes": 986,
       "dimensions": null
     },
     {
@@ -6350,8 +6526,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C03-S03/SHOT_PACKET.json",
-      "sha256": "0294da4233b2436784d3dccf001ae95afd096cd15a4916ef027d8d32d6e6417a",
-      "bytes": 2298,
+      "sha256": "8d157bef0979bff3f08c6a0c29b3095382b5c980b2af1b0938962f9a9cb2f742",
+      "bytes": 10710,
       "dimensions": null
     },
     {
@@ -6361,8 +6537,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C03-S04/PROMPT.txt",
-      "sha256": "5aed6961f6832dfe958ace2c10147fbb801e2284e4d34d501e806505c3742761",
-      "bytes": 728,
+      "sha256": "f824d5cc68638130303af03dc987ddeac679a3f28e4a70eb0fb05424ab803a0c",
+      "bytes": 1101,
       "dimensions": null
     },
     {
@@ -6372,8 +6548,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C03-S04/SHOT_PACKET.json",
-      "sha256": "2453bf558353b88cac6bf8b96ee8c449cd7c8a073be43ae493662f2f89c3ad4f",
-      "bytes": 2449,
+      "sha256": "38e04955904f9714435176e84601177ba329f8e2ac53a93a9b7e5aab83fa87fe",
+      "bytes": 12152,
       "dimensions": null
     },
     {
@@ -6383,8 +6559,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C04-S01/PROMPT.txt",
-      "sha256": "60c62ec51d0e22dfa7b81d286e254beb6ac912652af1fbc749a0e40232866eec",
-      "bytes": 600,
+      "sha256": "653c12e8b83671ccaae53e52924c8802c1702578cfdc2b9614a41f05dc373f32",
+      "bytes": 956,
       "dimensions": null
     },
     {
@@ -6394,8 +6570,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C04-S01/SHOT_PACKET.json",
-      "sha256": "788ee646ec174e233ff0cecfeae21889626ec5405af47d823a2ab61bcc500c26",
-      "bytes": 2321,
+      "sha256": "18973c7e1cdda7c926497b652d0efdeb8045cace6c9f7fc8d44213943a014a61",
+      "bytes": 4025,
       "dimensions": null
     },
     {
@@ -6405,8 +6581,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C04-S02/PROMPT.txt",
-      "sha256": "de8d60ab029efeb9c8ae79547730f0a38bc22456501d420bc3f91523090fc462",
-      "bytes": 581,
+      "sha256": "31ff2aebfd4769b006bd2feafe9dfce48e88666c18a1f446a07158aa8fb09726",
+      "bytes": 982,
       "dimensions": null
     },
     {
@@ -6416,8 +6592,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C04-S02/SHOT_PACKET.json",
-      "sha256": "aa9e0be42fec4f7f80e04f16f9393439d2502a75c105abb9cbcdaacaca7ab883",
-      "bytes": 2284,
+      "sha256": "cabecd2cedf06627f4cc636543dc888f2e1c80962a2ff58ebe8004367ea43d30",
+      "bytes": 4021,
       "dimensions": null
     },
     {
@@ -6427,8 +6603,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C04-S03/PROMPT.txt",
-      "sha256": "45806826d47c6b2db0571c95aa54b34a995547b20f557b16ab6b9d136701512f",
-      "bytes": 595,
+      "sha256": "e52a645bbd7b7984a32673442a69de5fc9ae6c85d6fecc7e7783bf60904ab7cc",
+      "bytes": 1004,
       "dimensions": null
     },
     {
@@ -6438,8 +6614,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C04-S03/SHOT_PACKET.json",
-      "sha256": "238ba06eaa5b22a37e05e04583a49559363768d1d6420dbe10f6934a28d5f6de",
-      "bytes": 2298,
+      "sha256": "9ae5d4e6fc59a8834aa2ccf58b449edcaa390d8e6ede2b539f3580017e6d739b",
+      "bytes": 10001,
       "dimensions": null
     },
     {
@@ -6449,8 +6625,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C04-S04/PROMPT.txt",
-      "sha256": "3bf62dccacd5c6ba3f7990577444df8bbb9a1308809d4b8275e5938f745a8212",
-      "bytes": 697,
+      "sha256": "df625b71a2e79718d0c85a5f19a1ad0081507e736009a33179b5058d32b3adbe",
+      "bytes": 1013,
       "dimensions": null
     },
     {
@@ -6460,8 +6636,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C04-S04/SHOT_PACKET.json",
-      "sha256": "8c1b12c37bb9f0e6509fd9f73c7adaae368a02fcd4f41100da49220828682631",
-      "bytes": 2418,
+      "sha256": "b806163c70a64893a44697be9d66ca052f912f0b14bb572732d8cc1696243946",
+      "bytes": 4079,
       "dimensions": null
     },
     {
@@ -6471,403 +6647,7 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C05-S01/PROMPT.txt",
-      "sha256": "1a29f922a2d5387ca1c5cb525cc02937d2651bbecee841f2f63171f991da60a3",
-      "bytes": 737,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C05-S01/SHOT_PACKET.json",
-      "sha256": "2e917c47e6df461bb9bed1f974362d9d4206983b0b9f5f67e8a67dcb964ce1fd",
-      "bytes": 2736,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C05-S02/PROMPT.txt",
-      "sha256": "39492caeec42b4a9f59c8ebe21af13ac9cf9eefadf3071409d159a3b0e2f3083",
-      "bytes": 776,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C05-S02/SHOT_PACKET.json",
-      "sha256": "5de1448e6dd6a275000167ce1cb45fc037af180ac0601ad7e9efef0dd54f5ff3",
-      "bytes": 2808,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C05-S03/PROMPT.txt",
-      "sha256": "2a109637b8bdd273eae5f152a9f77c35f46d68173986bf81282a7a3ea20c92b5",
-      "bytes": 727,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C05-S03/SHOT_PACKET.json",
-      "sha256": "c142cec60c6a7de5e6c877e85db68447f606d12eee50785fa6a634c15ba90cb5",
-      "bytes": 2056,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C05-S04/PROMPT.txt",
-      "sha256": "0f6b46af6621426e3f1fb26b8667ee45fba06025ada62ea551e367206d0c4c9a",
-      "bytes": 847,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C05-S04/SHOT_PACKET.json",
-      "sha256": "ce58a71b633456423630018f135fa3872f114904ba2ed775fefcbf4ad9ea0a38",
-      "bytes": 2180,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C05-S05/PROMPT.txt",
-      "sha256": "42437ae7a07a23e361fc8bf3f72e9a506caf0854977b928f6750f9c4ade4fd58",
-      "bytes": 780,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C05-S05/SHOT_PACKET.json",
-      "sha256": "c726bd14ec31955ced7310a59c654b97abe3273a5216d3db4ab92ef341d0fc71",
-      "bytes": 2463,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C05-S06/PROMPT.txt",
-      "sha256": "433f69eeceefb6f8de30b4b06859f10750a9be5898b1a0cd7995893d8990fcbd",
-      "bytes": 673,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C05-S06/SHOT_PACKET.json",
-      "sha256": "dbaa4c7c03bfdee34d064ea83cfb5f9dfcae746a948fc9876c035e97deedfe62",
-      "bytes": 2654,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S01/PROMPT.txt",
-      "sha256": "cd48b11b8a8fe6bbb08fb27e3f9b33c88f77580904c2fd6a57be4e80aa386d28",
-      "bytes": 771,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S01/SHOT_PACKET.json",
-      "sha256": "2a0761ca8b05b63897d22fa01d4842b0fa06189e89c43f2d4d2aa993cfff5aa7",
-      "bytes": 2934,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S02/PROMPT.txt",
-      "sha256": "4afc2c096677c92da3234aa1077d440c2ed1d47cc16bc5ba579ccf0005099a08",
-      "bytes": 685,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S02/SHOT_PACKET.json",
-      "sha256": "94ee76ec5564df4cca5c0352204e3b75ee173337e39a1ec18b67e61d6f3400a7",
-      "bytes": 2216,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S03/PROMPT.txt",
-      "sha256": "4b6e680c22868cd19284bceea3c8900ee6387987252c99f91a48564beaaaf49d",
-      "bytes": 754,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S03/SHOT_PACKET.json",
-      "sha256": "60c0b757e1e3880319b359f406bf024b421a365b9b7fa83c6091eb88a86bb701",
-      "bytes": 2075,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S04/PROMPT.txt",
-      "sha256": "b8b47c8d1bdf36b56d7234056063d1183ac2b39ea4e413ae5e3eb16dc766cdb5",
-      "bytes": 856,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S04/SHOT_PACKET.json",
-      "sha256": "9e1c6a705467ff18196944cf404c5062556ad02d926917118a65d9470753d6aa",
-      "bytes": 2553,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S05/PROMPT.txt",
-      "sha256": "d9e7fc05b06a68c2a577ee9a2c74df1989199eeefee7ab3208439ce21d8aa984",
-      "bytes": 832,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S05/SHOT_PACKET.json",
-      "sha256": "b53fd53cf58754eaf0cca03ef475deac227bea73b7434e0112c1cf6d516cadd3",
-      "bytes": 2529,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S06/PROMPT.txt",
-      "sha256": "b9eba6282a749981014fd6e2eeb4310709e71536972c750438d5eb6a3e7bce43",
-      "bytes": 750,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S06/SHOT_PACKET.json",
-      "sha256": "54543188070ddd80cf697b9cfa66294051faa12f28167b50b6eef9eebe2d58ac",
-      "bytes": 2432,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S07/PROMPT.txt",
-      "sha256": "68d33dafe609aafcca096e1f46ebb301b179180dbc76c3b98092d8250163ff4d",
-      "bytes": 735,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S07/SHOT_PACKET.json",
-      "sha256": "17eb62e17646001da11c2997c2cb7c56ee8fc7a63c2cf99b5e77b672a4c5ac8d",
-      "bytes": 2074,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S09/PROMPT.txt",
-      "sha256": "595a44abaec4d52cf03b9abdcec5534cea1b1e4ac90073d43abd71b71f9399d3",
-      "bytes": 852,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C06-S09/SHOT_PACKET.json",
-      "sha256": "f1d3452f6230e6f882a1464205efea9a27c7a666b3c4a1c744f3277e06f150f5",
-      "bytes": 2534,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C07-S01/PROMPT.txt",
-      "sha256": "66104e139e69fd163f2712da17092a45203c0a16ddffe013a24b0aff1f542f82",
-      "bytes": 733,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C07-S01/SHOT_PACKET.json",
-      "sha256": "dc4b43dc3d01d1aab1ad257d714d53867ef3e23da1fe283f4961734799ed60a7",
-      "bytes": 2143,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C07-S02/PROMPT.txt",
-      "sha256": "c092758ac2d5a18ad9781a75e89ca6378c74a0aa36a277aa407284647f189807",
-      "bytes": 755,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C07-S02/SHOT_PACKET.json",
-      "sha256": "cbd14bc8ea649464d42adfbcddcea74b0a0d64f50735a6fc76d7f0f141a3f46c",
-      "bytes": 2236,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C07-S06/PROMPT.txt",
-      "sha256": "a4829c2cfd7aa121b6ccc13542d29e56d3ad003b488b752e2d24314f7c8ea098",
-      "bytes": 764,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C07-S06/SHOT_PACKET.json",
-      "sha256": "ba079491eda8a334cc009d2b0a7456d513d8e575b516e7598796092f82edfacc",
-      "bytes": 2672,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C08-S01/PROMPT.txt",
-      "sha256": "c74fbb85d05c9a95a07bd95629181d31c5258f0330db6943bdfdb00c765bf6fa",
-      "bytes": 945,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C08-S01/SHOT_PACKET.json",
-      "sha256": "df2cdff7045052d3afb5d0c9fd4e07b6e1c4e69520086d49929f2d848bc42b7e",
-      "bytes": 3122,
-      "dimensions": null
-    },
-    {
-      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
-      "role": "repair_specification_or_analysis",
-      "license_provenance": "Project-authored analysis and production instructions",
-      "modifications": "new authored text/JSON",
-      "used_as_delivery_pixels": false,
-      "path": "shots/D1-C08-S02/PROMPT.txt",
-      "sha256": "5b9fcda5956add98509a6965f301fa1250ac5180e4668709f72358399c2b0bcf",
+      "sha256": "eadeffdf964fee418f149487c38f5e5ec7ae10aad3bbf6a0744e7a5d05b3eed9",
       "bytes": 979,
       "dimensions": null
     },
@@ -6877,9 +6657,405 @@
       "license_provenance": "Project-authored analysis and production instructions",
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
+      "path": "shots/D1-C05-S01/SHOT_PACKET.json",
+      "sha256": "9eeec1ece1f5805c92395f404c9f24db20e25b20f85f1a61fe3de539890aa1bc",
+      "bytes": 4573,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C05-S02/PROMPT.txt",
+      "sha256": "32de5d24c96d2fa32ab1af00a07261ef51da6dd7cfe1cc481d26825641a3dfdb",
+      "bytes": 1055,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C05-S02/SHOT_PACKET.json",
+      "sha256": "ef18f8aa21fd6444635c5f6b0addc068390bf46de2e60658d1a57dce3a9b8cf7",
+      "bytes": 12354,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C05-S03/PROMPT.txt",
+      "sha256": "0033b01bd78bbff289172cc4ceb6e12f422319564856924bc7bf563c818e9470",
+      "bytes": 975,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C05-S03/SHOT_PACKET.json",
+      "sha256": "8eb0fb0409e437d27c5f21a0a370922b2d006a0f14fba7ea463412499e6dbebf",
+      "bytes": 3669,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C05-S04/PROMPT.txt",
+      "sha256": "1b91e7ee97a0c4bbb8ac0bc3644630acc331e780066bad630186d6584bb7064c",
+      "bytes": 1093,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C05-S04/SHOT_PACKET.json",
+      "sha256": "8a88a70c397720b33ee62b57e5288fbdead4f621de2c1303a9c0d9b76b42d26a",
+      "bytes": 11349,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C05-S05/PROMPT.txt",
+      "sha256": "f76fdd40c114849859bc81fd62b4f39844ebafe1b902dd879b4b438e17c45593",
+      "bytes": 1155,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C05-S05/SHOT_PACKET.json",
+      "sha256": "cfeab843fea90bcd6f05ee9a544973ea08bb3d3c51e827e5aacd2188f805843d",
+      "bytes": 13397,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C05-S06/PROMPT.txt",
+      "sha256": "cf80be56159b96846c377e89f5d77e37bb5cd6af8573020a81f4591110ac2e3d",
+      "bytes": 1056,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C05-S06/SHOT_PACKET.json",
+      "sha256": "5eda306807cece274422130fb36da07112a0a894a01898d4ca22cb3bf6cd3628",
+      "bytes": 11855,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S01/PROMPT.txt",
+      "sha256": "6523b8fbddfc10e0481f1df370be05a5c20074de1d3e23f1f001ae45e75bbcb8",
+      "bytes": 1109,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S01/SHOT_PACKET.json",
+      "sha256": "c6379d090cc2a08f9209870cded433392a0cbba4cf18786a12b8143cffb83b4a",
+      "bytes": 4510,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S02/PROMPT.txt",
+      "sha256": "c649a163e4920ad2114ee56b3f1eae6358a7d908b2cf421593da2379da54ba3a",
+      "bytes": 1312,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S02/SHOT_PACKET.json",
+      "sha256": "cff5f08b9627767deb5f44d01fc511516c2b3ac4a28e70d0efeb61ee80000009",
+      "bytes": 4536,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S03/PROMPT.txt",
+      "sha256": "c2807b3244f0838aba3af77c328a3e928647e14e7fb3010f3f10c291505cc3d6",
+      "bytes": 1064,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S03/SHOT_PACKET.json",
+      "sha256": "cd01009c7ae8826b2d3f8b633081c626a0ee9bfe9f450d6d74c647986ec672f8",
+      "bytes": 11211,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S04/PROMPT.txt",
+      "sha256": "5c0e36e0b062fdf1a701ce6de16466e2f565638a85c5e739b66c21d696d81e8b",
+      "bytes": 1040,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S04/SHOT_PACKET.json",
+      "sha256": "8d1f5f19f6b467532b10db366b45e6a7a2879798d2052ccbe02c991bcfbd3c7a",
+      "bytes": 11388,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S05/PROMPT.txt",
+      "sha256": "22d2f89819a6434860ca0dd359556929fb5bd29aa446cd0e7a8ad40fca03978d",
+      "bytes": 1059,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S05/SHOT_PACKET.json",
+      "sha256": "177a76ab80c4a82b17d4f57e255f60f8d8e50a68e200ada1dae4657b19c5fe98",
+      "bytes": 10535,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S06/PROMPT.txt",
+      "sha256": "e96a347adc47e5dc6391a8b4b42cf3214d603b0bb93680adcc21cb14c3bdeac7",
+      "bytes": 1070,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S06/SHOT_PACKET.json",
+      "sha256": "757dc9b7362ff450e825b5c189ceb44bc36a739f7c2477a79bf2b760c5486d3e",
+      "bytes": 10605,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S07/PROMPT.txt",
+      "sha256": "966af62711e173b78d011c8d78597f0ef485e49f8fcb821e317207a5fd621ef0",
+      "bytes": 1306,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S07/SHOT_PACKET.json",
+      "sha256": "e6d9feb1bc4c2a5b278db3005153951bfd7ff210b300e2749334c8c0cee705ed",
+      "bytes": 12065,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S09/PROMPT.txt",
+      "sha256": "afe9325b96f33ff35a38a6048a22bf6a046df645b098b6b76f717db60e51b0ec",
+      "bytes": 1227,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C06-S09/SHOT_PACKET.json",
+      "sha256": "46b18dbb98d319286bedd83e3779948d917075a5e887241d1438fb4d4ed352c9",
+      "bytes": 11938,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C07-S01/PROMPT.txt",
+      "sha256": "4cade279bad0a9758eef133dc4ca8eedf20cca72a553408c66528dbbe8bbd661",
+      "bytes": 892,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C07-S01/SHOT_PACKET.json",
+      "sha256": "9ff9770afcac64f6ece8d1c7a57a597fb992fa78d4bfc31a822ba3f91159ed95",
+      "bytes": 3910,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C07-S02/PROMPT.txt",
+      "sha256": "3819b68e23194b27779e39ca4128e7ff9a7d16136626214e757a08fb7aa76ede",
+      "bytes": 953,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C07-S02/SHOT_PACKET.json",
+      "sha256": "1eca2a1b296e97450832f7933c3cc91d4dd1a5d74cddeeb28e596efa8e8a1252",
+      "bytes": 4013,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C07-S06/PROMPT.txt",
+      "sha256": "441ed061697a29c2881f67d833af37dedb254c8841cb46f72133998200be219e",
+      "bytes": 1015,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C07-S06/SHOT_PACKET.json",
+      "sha256": "0516788a10ec8d1b28244f3f63582de163022c198193e5ced1905550b4bee87f",
+      "bytes": 14772,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C08-S01/PROMPT.txt",
+      "sha256": "2f84011e8634b31cfa33c4f9131fb466be97f093577344d291085405dd46933d",
+      "bytes": 881,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C08-S01/SHOT_PACKET.json",
+      "sha256": "9a1ed94008cff13dab69883e210f2e476b5a90db6c47ed439efb9d19a13172c4",
+      "bytes": 13166,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
+      "path": "shots/D1-C08-S02/PROMPT.txt",
+      "sha256": "699a03051523d51007c3559bb880e65cfc18557e7c5bbb9438162a54a9e78942",
+      "bytes": 877,
+      "dimensions": null
+    },
+    {
+      "source_path": "project-authored Handoff 2 analysis at 016589c6494d082b01b84c2a974fc2acb87bbf44",
+      "role": "repair_specification_or_analysis",
+      "license_provenance": "Project-authored analysis and production instructions",
+      "modifications": "new authored text/JSON",
+      "used_as_delivery_pixels": false,
       "path": "shots/D1-C08-S02/SHOT_PACKET.json",
-      "sha256": "5a11d73db775f1c87a4ed7c1481afa739e9c1ac32447144a36d3cb2072a8e5ef",
-      "bytes": 3156,
+      "sha256": "1b4fb2b635104d141126d5a7950f875ea4472fc50a205a7226f0e356e337c528",
+      "bytes": 13096,
       "dimensions": null
     },
     {
@@ -6889,8 +7065,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C08-S03/PROMPT.txt",
-      "sha256": "ba166f61f487a747f8126e5d089eebf7b60e0595b0536f47b0c3dae6e9ca4b90",
-      "bytes": 901,
+      "sha256": "0c4215bb31412fac0d0de9a43441a098e6520db04c26bf0628defc6000103bf7",
+      "bytes": 823,
       "dimensions": null
     },
     {
@@ -6900,8 +7076,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C08-S03/SHOT_PACKET.json",
-      "sha256": "197106d5ec195fb3ffbf09b72a436424698a0bb12e6e9eb5507249ccbbd83b8b",
-      "bytes": 3078,
+      "sha256": "ecaeda3e85b91d4ed6352f9566afd358140548bdf654f7b9cf9ac43cc9f4a3b7",
+      "bytes": 13008,
       "dimensions": null
     },
     {
@@ -6911,8 +7087,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C08-S04/PROMPT.txt",
-      "sha256": "8824794175888c103220e2850cba816240dd72246dc3a9467dd6c31b625f39fd",
-      "bytes": 937,
+      "sha256": "94bfffc9ee49c95246de9053aecdae501213f4e20a7e1a9520d5a938fc4cb0b2",
+      "bytes": 925,
       "dimensions": null
     },
     {
@@ -6922,8 +7098,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C08-S04/SHOT_PACKET.json",
-      "sha256": "0523b5ff3b87e6c238b96616bf49ff7af3ae0b7bcf3523a08311ae244ef7e723",
-      "bytes": 3114,
+      "sha256": "9d0191cb32bfd46fa558d74ec3e579014204728337e45eea243d255740245da8",
+      "bytes": 14068,
       "dimensions": null
     },
     {
@@ -6933,8 +7109,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C08-S05/PROMPT.txt",
-      "sha256": "6e6dcb7d266e615bd1d2d18908e99187088ab87bb26b752b6d480efa4e6158e4",
-      "bytes": 904,
+      "sha256": "06ee39d87dc5242d3e451937758f44ee4ac8d5d63dcbaaac9558f56a8ab44cfd",
+      "bytes": 914,
       "dimensions": null
     },
     {
@@ -6944,8 +7120,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C08-S05/SHOT_PACKET.json",
-      "sha256": "154ef1f2e8a2f31928a239437f38080137aa2b1f63f925be9f6e099cce553af1",
-      "bytes": 2709,
+      "sha256": "c601de0451595773fa3886cbd557a200767f804ba914784b5d98cf8991b811df",
+      "bytes": 12366,
       "dimensions": null
     },
     {
@@ -6955,8 +7131,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C09-S03/PROMPT.txt",
-      "sha256": "b2f27db2148a05afbac3375fb4a0731c3f12e00ab31e57b51b63bf44ca702602",
-      "bytes": 696,
+      "sha256": "16835cdf35d5846711561e4f412c6eb3229f6c31dea37ae0c1a1bf57dd2fb642",
+      "bytes": 939,
       "dimensions": null
     },
     {
@@ -6966,8 +7142,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C09-S03/SHOT_PACKET.json",
-      "sha256": "e2db5e93b2d67ef4e9dab89f2f8ca3900f040fd30f8ea1ff57b0eb604afff2c2",
-      "bytes": 2762,
+      "sha256": "eae4ca116429510e97c63b4b7836a998a20d7f34091a1f674a06784fde2e16e0",
+      "bytes": 4243,
       "dimensions": null
     },
     {
@@ -6977,8 +7153,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C09-S04/PROMPT.txt",
-      "sha256": "627834c5e0e5e36d6bcce92ac6cf6ae962588cd2a6c653d285fb767e4da5c9b0",
-      "bytes": 814,
+      "sha256": "8b49f4ba327f9fdeaa12d432efc4cb93bf88b69cf5a614144949add30740cd3d",
+      "bytes": 1025,
       "dimensions": null
     },
     {
@@ -6988,8 +7164,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C09-S04/SHOT_PACKET.json",
-      "sha256": "388f3ef90b573b0c401dd1481f729f12b8af236dae4e8b009a2d249346344b5f",
-      "bytes": 2880,
+      "sha256": "5aae97fc0da95eb0ba360a552080556a9dff5f065da4cf936c72768e850849f5",
+      "bytes": 13849,
       "dimensions": null
     },
     {
@@ -6999,8 +7175,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C09-S05/PROMPT.txt",
-      "sha256": "897f7974a17af287868ebb579ca1711b3ed830912f9a6c5a84aa176c3c51d7a1",
-      "bytes": 772,
+      "sha256": "2455198324e59a915c39fd904b8121d68271e7a1af382ef3ce250061b1f3f944",
+      "bytes": 871,
       "dimensions": null
     },
     {
@@ -7010,8 +7186,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C09-S05/SHOT_PACKET.json",
-      "sha256": "0d9c916ce2ea18a3bc690a66f45ebd3ba303101f26d6fc7af4f26f67216834d0",
-      "bytes": 2838,
+      "sha256": "a8516b81a74f613d14ddcd6c19c5f4dc56b0be0a7203d2b64d40e6b7cfcfb5d4",
+      "bytes": 12750,
       "dimensions": null
     },
     {
@@ -7021,8 +7197,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C10-S01/PROMPT.txt",
-      "sha256": "0c8d02be6c513840ff8a0ce6b3d26581af3b9828db9ec6fecd288d179a0cfd49",
-      "bytes": 761,
+      "sha256": "aa00271360dcefb99c6f575112b3a590ca3666d64aaec3e5421155d7a0af7ff9",
+      "bytes": 860,
       "dimensions": null
     },
     {
@@ -7032,8 +7208,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C10-S01/SHOT_PACKET.json",
-      "sha256": "375d2dadbd029c7c87634ea7825c483c14cbbe378357d0a238a582983947d996",
-      "bytes": 2470,
+      "sha256": "8998ac56706a9259c053b32d87a253a7bd25e856a8d9b100c157a3d19ef46181",
+      "bytes": 12199,
       "dimensions": null
     },
     {
@@ -7043,8 +7219,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C10-S02/PROMPT.txt",
-      "sha256": "300967f18a34b64d92caa2d3c1a5020506726eec2e8e9416b3601263c23a2789",
-      "bytes": 846,
+      "sha256": "23e9c16cd12055b0c24f5d3ecd22d49be46432e68cd85d6b25f84f46eb05fe45",
+      "bytes": 961,
       "dimensions": null
     },
     {
@@ -7054,8 +7230,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C10-S02/SHOT_PACKET.json",
-      "sha256": "70f91acb2359737562b510947e9fc423fd9c86f15653f8660ce604d620b3c39e",
-      "bytes": 2215,
+      "sha256": "03347953064b3660dfd42fb3214f32d15fac19bb38c33be56a3c45d4b23d9f50",
+      "bytes": 11181,
       "dimensions": null
     },
     {
@@ -7065,8 +7241,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C10-S05/PROMPT.txt",
-      "sha256": "63c9218a4cd05ce79530c298e8d5d295c49c29726ede54af30579b22e41e8b01",
-      "bytes": 807,
+      "sha256": "030ec59f146694c969c682cb55d4da3f2610d6874663fa3b9176fa4b020934f6",
+      "bytes": 1188,
       "dimensions": null
     },
     {
@@ -7076,8 +7252,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C10-S05/SHOT_PACKET.json",
-      "sha256": "b0d8807032dad6ffd05c93e803fe64617b91a50d654a25859d73a787b2f42182",
-      "bytes": 2534,
+      "sha256": "4b1d9cb71fa293c988fe45082efe6ecf6e09f2567253ed79090c5b091a834d2e",
+      "bytes": 12665,
       "dimensions": null
     },
     {
@@ -7087,8 +7263,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C11-S04/PROMPT.txt",
-      "sha256": "67a8f0b5f625283e9a15b6452e2b7c7c47164792b01dab1d40574affb630e95d",
-      "bytes": 792,
+      "sha256": "61923b498f33eb7c7c63bac59044e23c5091c4fde716b0148e44c03eb96e3763",
+      "bytes": 1511,
       "dimensions": null
     },
     {
@@ -7098,8 +7274,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C11-S04/SHOT_PACKET.json",
-      "sha256": "3cf315e286a9c6b410690ba67e531bb08590cb70c6bd2bf6bea036abbbda2c42",
-      "bytes": 2534,
+      "sha256": "0c309af738b96c8009b9f342da4bfd137ed56b3ee797260595ce1b1edb019d90",
+      "bytes": 12311,
       "dimensions": null
     },
     {
@@ -7109,8 +7285,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C12-S01/PROMPT.txt",
-      "sha256": "d2c97cff2414e326d7c47ba216e618b372f67390d58f0835f3e9ff734c7ead20",
-      "bytes": 756,
+      "sha256": "6476aaad808ac48c0d7718ad3fcf1473d7d8dea6afac8dcee5f2b709a08138e3",
+      "bytes": 1082,
       "dimensions": null
     },
     {
@@ -7120,8 +7296,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C12-S01/SHOT_PACKET.json",
-      "sha256": "7a8b93d8d80e238be745275f93c587c1c792896681443afbe5500106bdbda6a5",
-      "bytes": 2284,
+      "sha256": "3a5336b457401a874269bba5c244e4051ae870ce9b89d0c2c453ecad531530ab",
+      "bytes": 4009,
       "dimensions": null
     },
     {
@@ -7131,8 +7307,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C12-S02/PROMPT.txt",
-      "sha256": "664a6552c1b1eedaf4e7618eb88b2ef857432b59d4f9ee0bc38ccc6419f5c026",
-      "bytes": 685,
+      "sha256": "25dceff87dfc70e0a56a9ed9f977fef897beb2e2512562cf44c4bea743fe1953",
+      "bytes": 1125,
       "dimensions": null
     },
     {
@@ -7142,8 +7318,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C12-S02/SHOT_PACKET.json",
-      "sha256": "a27521a309c1f909d17d95a75cb7ffc77044ff8fc5cfe2e08829b0b93e1f7656",
-      "bytes": 2568,
+      "sha256": "aace1f126390b869ac13b4138df386d618318d68e9f68eaa172814a8e908d186",
+      "bytes": 4430,
       "dimensions": null
     },
     {
@@ -7153,8 +7329,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C12-S03/PROMPT.txt",
-      "sha256": "0e92b9346189b4f797d5e1e5aacbefcb2268cbf1e3856b7ebd0d543158fb177b",
-      "bytes": 713,
+      "sha256": "bf35499d8adc4f986fd71a90ec5ad3b5d26a9f24424cf1a3ee146ab6e1a1435d",
+      "bytes": 894,
       "dimensions": null
     },
     {
@@ -7164,8 +7340,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C12-S03/SHOT_PACKET.json",
-      "sha256": "0122bbb9351d6a16a0014fa7fd23b80d0ff411309583efcb0b2d3d7c30a644b3",
-      "bytes": 2223,
+      "sha256": "47f67ed1d466b93777cae53885e670736acdd244119243793f4d8fe841236866",
+      "bytes": 4756,
       "dimensions": null
     },
     {
@@ -7175,8 +7351,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C12-S04/PROMPT.txt",
-      "sha256": "476d1e1d971da87d008679ab50a3eb0766b5d8cb74e2bb616c18d5c7f173aca3",
-      "bytes": 700,
+      "sha256": "4670e1e38b7d4029277a2a7c7a8506506d3395c1cb101e5a20050e29123e7b19",
+      "bytes": 1050,
       "dimensions": null
     },
     {
@@ -7186,8 +7362,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C12-S04/SHOT_PACKET.json",
-      "sha256": "5fd900939e31b6c5dab3d14637436c2f4fbcd15c9ecb0fd0d5098f5968be5d00",
-      "bytes": 2172,
+      "sha256": "b8f1b46f3ed65800823235e29d2f9889167fad19cdfb21c5ea5424cf2581ba75",
+      "bytes": 3872,
       "dimensions": null
     },
     {
@@ -7197,8 +7373,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C13-S03/PROMPT.txt",
-      "sha256": "791be907bcec8e25482eb83fd51d0c39d16826085dcdee50e84a62cb05c18171",
-      "bytes": 843,
+      "sha256": "a180a0f1e55539d4bd478a2ee31d05559f63027708a1994af41dd3ecb23429a2",
+      "bytes": 1245,
       "dimensions": null
     },
     {
@@ -7208,8 +7384,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C13-S03/SHOT_PACKET.json",
-      "sha256": "2f8d0b811bad307ef22daa33314fc847c7ad93f6cc621c320d2f36896483d69d",
-      "bytes": 2701,
+      "sha256": "f280e9bc2ccf279c304facbac0ec1745aedb93f8c222b5124f2d51f833d5f197",
+      "bytes": 14230,
       "dimensions": null
     },
     {
@@ -7219,8 +7395,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C13-S04/PROMPT.txt",
-      "sha256": "078e1a386393264b4063882375b4286269171481bc93d9874a1580f3d25af6cb",
-      "bytes": 842,
+      "sha256": "513bf907038c0c4448831aed06b80918250158c8188c0b14703e234ab1369bd0",
+      "bytes": 1159,
       "dimensions": null
     },
     {
@@ -7230,8 +7406,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C13-S04/SHOT_PACKET.json",
-      "sha256": "419b98473b7aae486a68352aec8f338aea5305a6fa03eaff3e1a545dfb254553",
-      "bytes": 2674,
+      "sha256": "e0d77fa11f55ee19d3abae8e3aad977177c40924698fd65589baf0321b9fa07e",
+      "bytes": 14123,
       "dimensions": null
     },
     {
@@ -7241,8 +7417,8 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C13-S05/PROMPT.txt",
-      "sha256": "822d06274fb817885869c1b6106cf1c3f834c23f619798cd0b5d38f8b7859709",
-      "bytes": 923,
+      "sha256": "0a8d85b9705028566ab930e857d6a055bf4be49927932811e472594609986d3d",
+      "bytes": 1371,
       "dimensions": null
     },
     {
@@ -7252,9 +7428,11 @@
       "modifications": "new authored text/JSON",
       "used_as_delivery_pixels": false,
       "path": "shots/D1-C13-S05/SHOT_PACKET.json",
-      "sha256": "bc3bf9fb77264c8ec0dc3ea0770dfbffd4abde442307d5ce9ee1b1656f51e4a1",
-      "bytes": 2590,
+      "sha256": "05fc7d6bc79a86fc19890b7295bff0182d5e51f1c60889c81e63cce2156089ca",
+      "bytes": 13477,
       "dimensions": null
     }
-  ]
+  ],
+  "revision": 2,
+  "archive_status_note": "Revision 2 local payload complete; awaiting exact remote verification."
 }

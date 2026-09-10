@@ -53,8 +53,14 @@ def check_card(root: Path, card: dict, shot_ids: set[str], ready: bool = False) 
     deps = card.get("depends_on", [])
     if sid in deps or any(d not in shot_ids for d in deps):
         errors.append("invalid shot dependency")
-    if card.get("camera") != {"verb": "locked", "move_count": 0}:
-        errors.append("repair pilot requires locked camera")
+    camera = card.get("camera", {})
+    if camera.get("move_count") not in (0, 1) or not camera.get("verb"):
+        errors.append("requires one named camera setup and at most one move")
+    if (camera.get("verb") == "locked") != (camera.get("move_count") == 0):
+        errors.append("camera verb/count disagree")
+    states = {b.get("path") for b in bindings}
+    if any(p and p.endswith("/objects/seahorse_sick.png") for p in states) and any(p and p.endswith("/handoff_art/seahorse_sick.png") for p in states):
+        errors.append("conflicting plugged/unplugged seahorse state bindings")
     prompt = root / "shots" / sid / "PROMPT.txt"
     if not prompt.is_file() or digest(prompt) != card.get("prompt_sha256"):
         errors.append("prompt missing or changed")

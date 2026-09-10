@@ -12,8 +12,8 @@
   ],
   "aspect": "16:9",
   "camera": {
-    "verb": "locked",
-    "move_count": 0
+    "verb": "short lateral",
+    "move_count": 1
   },
   "location_id": "pool",
   "bindings": [
@@ -29,31 +29,34 @@
       "role": "subject_identity",
       "path": "references/D1-C05/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
       "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
-      "human_review": "inherited exact source authority; shot-opening/binding review pending"
+      "human_review": "inherited exact source authority; shot-opening/binding review pending",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
     },
     {
       "id": "IMAGE_3",
       "role": "object_or_material_identity",
       "path": "references/D1-C05/handoff_art/objects/pool_algae_trash.png",
       "sha256": "e0ed3c7174dcfeff17eb8261ee46d8e1d2a7c69e93a650f5495db4b6505c7ed9",
-      "human_review": "inherited exact source authority; shot-opening/binding review pending"
+      "human_review": "inherited exact source authority; shot-opening/binding review pending",
+      "authority_domain": "Named object/material design only; placement and action state from approved IMAGE_1 and timeline."
     },
     {
       "id": "IMAGE_4",
       "role": "subject_identity",
       "path": "references/D1-C05/handoff_art/characters/pool_land_bunny_curl_ears.png",
       "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
-      "human_review": "exact runtime source and ASSET_LICENSES hash verified; shot-opening review pending"
+      "human_review": "exact runtime source and ASSET_LICENSES hash verified; shot-opening review pending",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
     }
   ],
   "depends_on": [],
   "dependency_endpoints": {},
   "opening_source_kind": "approved_master",
-  "must_move": "0.0-1.2 low waterline 1.2-4.8 swimming bunny in water, land bunny dry corner 4.8-6.00 trash depth/scale hold",
-  "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
-  "end_state": "4.8-6.00 trash depth/scale hold",
+  "must_move": "0.0-1.2 low waterline; 1.2-4.8 swimming bunny in water, land bunny dry corner; 4.8-6.00 trash depth/scale hold",
+  "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+  "end_state": "trash depth/scale hold",
   "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete",
-  "prompt_sha256": "39492caeec42b4a9f59c8ebe21af13ac9cf9eefadf3071409d159a3b0e2f3083",
+  "prompt_sha256": "32de5d24c96d2fa32ab1af00a07261ef51da6dd7cfe1cc481d26825641a3dfdb",
   "blocking_findings": [
     "missing complete human-approved opening",
     "missing measured setup and incoming/outgoing cut review",
@@ -70,5 +73,173 @@
   "exact_cast": [
     "swimming bunny",
     "one curl-ear land bunny on dry shore"
-  ]
+  ],
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_POOL_DIRTY_DISCOVERY.txt",
+    "sha256": "30dccb8c7f71f8f9ed71d37b507214bce6b2a23335f64d1239a92d39062a3f7f",
+    "text": "Low waterline view across the same giant pool. Floating leaves, wrappers, and algae sit physically in murky water with correct reflections and contact; the approved swimming bunny paddles through an open water lane while a separate land bunny stays on dry coping in a lower corner. One short lateral camera drift. End with trash depth and pool scale clear. No clip-art decals, duplicated bunnies, land bunny swimming, or clean sparkle. Sound: temporary sluggish water, tiny paddle, no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "previous_detailed_card": {
+    "schema": "imagine-shot-card-draft-v1",
+    "movie_id": "D1-C05",
+    "shot_id": "D1-C05-S02",
+    "title": "Sparkle Pool — Dirty Discovery — D1-C05-S02",
+    "status": "DRAFT",
+    "conditional_regeneration": false,
+    "duration_seconds": 6,
+    "aspect_ratio": "16:9",
+    "delivery_size": [
+      1280,
+      720
+    ],
+    "mode": "image_to_video",
+    "output_disposition": "motion_reference_only",
+    "binding_plan": [
+      {
+        "id": "IMAGE_1",
+        "job": "pool geography",
+        "status": "missing_approved_shot_opening_frame",
+        "source_movie_id": "D1-C05",
+        "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+        "path": "handoff_art/location/room_mermaid_pool_background.png",
+        "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c05_pool_dirty_discovery_visual_v1/handoff_art/location/room_mermaid_pool_background.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "shot_opening_gate": "human-approved, clean, HUD-free shot-opening frame in the exact inherited state",
+        "source_authority_is_not_automatic_first_frame_approval": true,
+        "binding_alias": "location",
+        "local_path": "scenes/D1-C05/visuals/handoff_art/location/room_mermaid_pool_background.png"
+      },
+      {
+        "id": "IMAGE_2",
+        "job": "Roshan identity",
+        "status": "approved_source_authority_available",
+        "source_movie_id": "D1-C05",
+        "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+        "path": "handoff_art/characters/roshan_roshan_base.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c05_pool_dirty_discovery_visual_v1/handoff_art/characters/roshan_roshan_base.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "binding_alias": "roshan",
+        "local_path": "scenes/D1-C05/visuals/handoff_art/characters/roshan_roshan_base.png"
+      },
+      {
+        "id": "IMAGE_3",
+        "job": "swimming bunny identity",
+        "status": "approved_source_authority_available",
+        "source_movie_id": "D1-C05",
+        "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+        "path": "handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+        "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c05_pool_dirty_discovery_visual_v1/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "binding_alias": "swimming_bunny",
+        "local_path": "scenes/D1-C05/visuals/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png"
+      },
+      {
+        "id": "IMAGE_4",
+        "job": "pool debris identity",
+        "status": "approved_source_authority_available",
+        "source_movie_id": "D1-C05",
+        "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+        "path": "handoff_art/objects/pool_algae_trash.png",
+        "sha256": "e0ed3c7174dcfeff17eb8261ee46d8e1d2a7c69e93a650f5495db4b6505c7ed9",
+        "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/076661afb9e092627eb5dfae7c39fecb27463892/assets_src/cinematics/d1_c05_pool_dirty_discovery_visual_v1/handoff_art/objects/pool_algae_trash.png",
+        "hud_present": false,
+        "used_as_delivery_pixels": false,
+        "binding_alias": "pool_trash",
+        "local_path": "scenes/D1-C05/visuals/handoff_art/objects/pool_algae_trash.png"
+      }
+    ],
+    "start_frame": "IMAGE_1 after human approval of the exact clean inherited opening",
+    "camera": {
+      "verb": "locked, restrained action framing",
+      "move_count": 1
+    },
+    "must_move": "1.2-4.8 swimming bunny in water, land bunny dry corner",
+    "must_not_move": "approved room topology, character identity/anatomy, material state, cast count, and inherited seam",
+    "end_state": "4.8-6.04 trash depth/scale hold",
+    "negative_constraints": "no invented event, topology drift, identity drift, anatomy errors, text, HUD, morph, interpolation, or camera drift",
+    "sound_intent": "quiet room tone and one soft causal action cue; no voices",
+    "prompt_path": "PROMPT.txt",
+    "prompt_sha256": "647a772ea1f3e3561162c191faee6b9952adb3add319a4fd73ffb1a9c7d1c1b4",
+    "strict_audit_reason": "Both originals omit required swimming and land bunnies.",
+    "weak_frames": [
+      {
+        "filename": "C05_S02_v2_waterline.mp4",
+        "lane": "original_branch",
+        "file_verdict": "REMAKE",
+        "weak_frames": "f000-f144 (0.000-6.042s)",
+        "finding": "Waterline/trash composition omits both required bunnies, so media separation and pool-scale evidence are absent."
+      },
+      {
+        "filename": "C05_S02_waterline_trash.mp4",
+        "lane": "original_branch",
+        "file_verdict": "REMAKE",
+        "weak_frames": "f000-f144 (0.000-6.042s)",
+        "finding": "Shows trash and murky water but no approved swimming bunny plus separate dry-coping land bunny; required causal geography is missing."
+      }
+    ],
+    "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+    "audited_branch": {
+      "branch": "day1-regen-3sets-2026-09-04",
+      "commit": "384abc966b92b27bd61a735319a7639ef68ac15b"
+    },
+    "blocking_findings": [],
+    "implemented_event_contract": {
+      "authority_path": "scripts/games/day_one_pool_cleanup.gd",
+      "rule": "the dirty pool begins with six surface targets, three waterfall lanes, and an eight-tug seahorse obstruction"
+    },
+    "audit_claims": {
+      "archive_complete": true,
+      "generation_ready": false,
+      "delivery_accepted": false
+    },
+    "review": {
+      "strict_third_pass": true,
+      "criteria": "visual quality, identity/anatomy, topology, causal action, lighting/style, camera restraint, and start/end seam",
+      "reviewed_at": "2026-09-04"
+    }
+  },
+  "negative_constraints": "no invented event, topology drift, identity drift, anatomy errors, text, HUD, morph, interpolation, or camera drift",
+  "sound_intent": "quiet room tone and one soft causal action cue; no voices",
+  "implemented_event_contract": {
+    "authority_path": "scripts/games/day_one_pool_cleanup.gd",
+    "rule": "the dirty pool begins with six surface targets, three waterfall lanes, and an eight-tug seahorse obstruction"
+  },
+  "weak_frames": [
+    {
+      "filename": "C05_S02_v2_waterline.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f000-f144 (0.000-6.042s)",
+      "finding": "Waterline/trash composition omits both required bunnies, so media separation and pool-scale evidence are absent."
+    },
+    {
+      "filename": "C05_S02_waterline_trash.mp4",
+      "lane": "original_branch",
+      "file_verdict": "REMAKE",
+      "weak_frames": "f000-f144 (0.000-6.042s)",
+      "finding": "Shows trash and murky water but no approved swimming bunny plus separate dry-coping land bunny; required causal geography is missing."
+    }
+  ],
+  "strict_audit_reason": "Both originals omit required swimming and land bunnies.",
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "0.0-1.2 low waterline",
+    "1.2-4.8 swimming bunny in water, land bunny dry corner",
+    "4.8-6.00 trash depth/scale hold"
+  ],
+  "continuity_overlay": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+  "revision": 2,
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": true,
+    "unresolved_conflicts": []
+  }
 }

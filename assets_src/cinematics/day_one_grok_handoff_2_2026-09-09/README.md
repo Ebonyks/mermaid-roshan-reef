@@ -1,3 +1,11 @@
+> Revision 2 corrects regressions in the initial Handoff 2 draft. See
+> `COMPARATIVE_AUDIT.json` and the source direction preserved in every repair card.
+> Original camera moves, cast, contact and sound are retained; conflicting
+> seahorse state bindings and the premature first drip are corrected.
+> C12-S03 remains blocked by original friendship versus later departure timing.
+> Existing remote verification is historical until this revision is published
+> and its exact payload is independently verified.
+
 # Day One Grok Handoff 2
 
 This is the 2026-09-09 continuity repair commission, separate from the historical third-pass archive. Start with the [footage audit](../../../audit/GROK_HANDOFF_2_FOOTAGE_AUDIT_2026-09-09.md) and [protocol](../../../design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md).

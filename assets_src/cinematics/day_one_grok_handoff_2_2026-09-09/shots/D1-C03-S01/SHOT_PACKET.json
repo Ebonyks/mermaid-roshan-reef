@@ -29,24 +29,26 @@
       "role": "object_or_material_identity",
       "path": "references/D1-C03/handoff_art/objects/cleanup_basket.png",
       "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
-      "human_review": "inherited exact source authority; shot-opening/binding review pending"
+      "human_review": "inherited exact source authority; shot-opening/binding review pending",
+      "authority_domain": "Named object/material design only; placement and action state from approved IMAGE_1 and timeline."
     },
     {
       "id": "IMAGE_3",
       "role": "object_or_material_identity",
       "path": "references/D1-C03/handoff_art/objects/target_tub_grime_v1.png",
       "sha256": "52e8c42b0c044c1b5dba42681d7dfb5e34dc44b345e6535e9432df5f186ecb67",
-      "human_review": "inherited exact source authority; shot-opening/binding review pending"
+      "human_review": "inherited exact source authority; shot-opening/binding review pending",
+      "authority_domain": "Named object/material design only; placement and action state from approved IMAGE_1 and timeline."
     }
   ],
   "depends_on": [],
   "dependency_endpoints": {},
   "opening_source_kind": "approved_master",
-  "must_move": "0.0-2.0 one tub/sink/tools establish 2.0-4.8 hold murky water/grime 4.8-6.00 entrance clear for Roshan",
+  "must_move": "0.0-2.0 one tub/sink/tools establish; 2.0-4.8 hold murky water/grime; 4.8-6.00 entrance clear for Roshan",
   "must_not_move": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
-  "end_state": "4.8-6.00 entrance clear for Roshan",
+  "end_state": "entrance clear for Roshan",
   "state_contract": "discovery does not clean; restored endpoint follows actual cleaning completion",
-  "prompt_sha256": "0ef6446274a933772e473a0c4473fce9669e5ca0448c1fe28342355bdc9936eb",
+  "prompt_sha256": "da3798598eba852b78565466a74cec2eace697093b0aeede3936e47aaa0f5fd7",
   "blocking_findings": [
     "missing complete human-approved opening",
     "missing measured setup and incoming/outgoing cut review",
@@ -62,5 +64,25 @@
   "finding_ids": [
     "GH2-04"
   ],
-  "exact_cast": []
+  "exact_cast": [],
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C03_BATHROOM_DIRTY_ENTRY.txt",
+    "sha256": "a104daf8797c3ea7660b69f48fbbec7b04fa1d1a00f62784092d5437329fbc64",
+    "text": "Wide empty dirty Bathroom layout lock before Roshan enters. Show one bathtub only, the established sink and cleanup tools, coherent walls and floor, dim dingy aqua-lavender light, built-in grime, and murky tub water. Locked camera with restrained dirty-water movement. End holding the entrance clear for Roshan. No character yet, no clean sparkle, no duplicated fixtures. Sound: temporary distant drip and dull room ambience; no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "0.0-2.0 one tub/sink/tools establish",
+    "2.0-4.8 hold murky water/grime",
+    "4.8-6.00 entrance clear for Roshan"
+  ],
+  "continuity_overlay": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
+  "revision": 2,
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": false,
+    "unresolved_conflicts": []
+  }
 }

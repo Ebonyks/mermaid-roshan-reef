@@ -133,3 +133,40 @@ The validator checks payload hashes, complete historical shot coverage, bounded 
 ## Work and acceptance boundary
 
 No approved original is redesigned or overwritten. No Grok clips are generated or installed by this change. The archive and repair framework are implemented; all 47 motion jobs still require approved complete first frames, exact binding/cast and action review, measured setup/cut evidence and applicable predecessor acceptance. This is an explicit production queue, not 47 falsely ready requests. C13 retains its existing owner/event decisions. New human review, full-frame generation provenance, audio, runtime, Lenovo device, child and owner acceptance remain outstanding.
+
+## Comparative audit of Handoff 2 itself — revision 2
+
+The owner's challenge was substantiated. The published first draft at
+`859adc8ba240315d321b6da560c72ef840bf706d` simplified stronger original direction
+and introduced errors. `COMPARATIVE_AUDIT.json` records all 74 decisions; 47 repair
+cards retain the August source text and, where available, the 32 September
+third-pass detailed cards. The original scene briefs are copied into the archive.
+This comparison is a written-direction and reference audit, not a fresh full-speed
+review of every historical candidate.
+
+| Regression in first Handoff 2 | Evidence and correction |
+| --- | --- |
+| Blanket locked camera removed authored reveals and follows | Restore C06-S04 close-to-wide pullback, C06-S03 downward tilt, C06-S07 upward follow, Bathroom/Pool approach and recap moves. Validator permits one authored move. |
+| Early water invented at C06-S01 endpoint | August C06-S01 explicitly says no water yet. Restore dry open nozzle; first stream begins in S02, with Roshan retaining the plug. |
+| Rumi reveal lost Roshan | August C06-S07 explicitly places Roshan at nearby coping. Restore her identity binding, child/adult scale and watching beat. |
+| Empty Stuffie recap replaced friendship acting | Restore original proposed Eagle/flutter/bunny beat as blocked pending departure/time/cast resolution. Do not claim that an empty-room sparkle repairs it. |
+| Contradictory seahorse images bound together | Visual inspection confirms similarly named sources show plugged and open nozzles. Bind only the appropriate state; retain grime through the initial flow. |
+| Missing cast bindings and generic controls | Restore Roshan in C07-S06 and C05-S05; restore detailed original direction, anatomy, contact, sound, negatives and runtime contracts. Keep V2 execution requirements. |
+| Some earlier defects were attributed too broadly | Latest C12 V03 already omits Stuffie/Art inserts. Their cards are conditional reconstructions. C00/C01 view differences remain review questions until camera/geography authority proves a defect. |
+| Summary text replaced source-level review | Preserve original source text/hash and detailed old cards alongside each change; retain unchanged/omitted decisions rather than blanket rewriting all 74 shots. |
+
+The original work also contains contradictions that should not be copied: V3
+puts nested timestamps and edit-trim commands into generation prompts; its C06-S04
+camera field says locked while the required action says pullback; its rescue
+cards retain two total bunnies after one is cleared. The runtime pop handler in
+`castle_rooms_25d.gd` fades and frees each cleared pin bunny. Revised boundaries
+are two-to-one for C08-S02 and one-to-zero for C08-S04. Original C07 swing/wing
+hunt and basket rescue remain superseded by the later two-pin contract. The
+August Bathroom recap says beside the tub, consistent with the earlier safe
+exit; this is stronger than the later summary's unexplained return into the tub.
+
+Remaining limitations: no human-approved openings have been fabricated; exact
+V2 execution measurements and review records remain missing. C12-S03's event
+conflict remains explicit. The audit covers sampled frames/boards as previously
+specified, not every frame or audio sample of all 159 historical candidates.
+Archive publication is not generation readiness or footage delivery acceptance.

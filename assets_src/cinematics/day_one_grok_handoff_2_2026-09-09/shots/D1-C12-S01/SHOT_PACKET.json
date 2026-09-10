@@ -12,8 +12,8 @@
   ],
   "aspect": "16:9",
   "camera": {
-    "verb": "locked",
-    "move_count": 0
+    "verb": "subtle push-in",
+    "move_count": 1
   },
   "location_id": "bathroom",
   "bindings": [
@@ -29,7 +29,8 @@
       "role": "subject_identity",
       "path": "references/D1-C04/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
       "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
-      "human_review": "inherited exact source authority; shot-opening/binding review pending"
+      "human_review": "inherited exact source authority; shot-opening/binding review pending",
+      "authority_domain": "Named character design and anatomy only; background and placement from IMAGE_1."
     }
   ],
   "depends_on": [
@@ -37,11 +38,11 @@
   ],
   "dependency_endpoints": {},
   "opening_source_kind": "approved_master",
-  "must_move": "0.0-1.0: inherit the accepted clean Bathroom and one bunny at its inherited resting position. 1.0-4.5: the bunny makes one small happy bob without relocating. 4.5-6.0: settle at that same spot; do not put the bunny back into the tub if it already exited.",
+  "must_move": "0.0–2.0s: show the same recovered bunny beside the single clean tub; 2.0–4.5s: one small grateful bounce at its established dry resting place; 4.5–6.0s: hold the safe bunny and sparkling clean water",
   "must_not_move": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
-  "end_state": "same clean Bathroom and one bunny at its inherited position",
-  "state_contract": "post-completion only; no unverified friendship payoff",
-  "prompt_sha256": "d2c97cff2414e326d7c47ba216e618b372f67390d58f0835f3e9ff734c7ead20",
+  "end_state": "hold the safe bunny and sparkling clean water",
+  "state_contract": "Use original August beside-tub direction and accepted C04 dry exit; do not force a return into the tub from the later summary.",
+  "prompt_sha256": "6476aaad808ac48c0d7718ad3fcf1473d7d8dea6afac8dcee5f2b709a08138e3",
   "blocking_findings": [
     "missing complete human-approved opening",
     "missing measured setup and incoming/outgoing cut review",
@@ -61,5 +62,25 @@
   ],
   "exact_cast": [
     "swimming bunny"
-  ]
+  ],
+  "source_direction": {
+    "path": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_RESTORED_CASTLE_FINALE.txt",
+    "sha256": "850b1f0322dfa4d6bdeba7d8b3977754c1bb4625cc7bd725b6e3775010829082",
+    "text": "Clean Bubble Bathroom vignette inheriting D1-C04's accepted endpoint. The same recovered swimming dust bunny makes one happy paddle/bounce beside the single clean bathtub while bright pearl/aqua/lavender fixtures remain fixed. One subtle push-in. End on sparkling clean water and the safe bunny. Roshan is not required in this room recap. No second tub, dirty residue, duplicated bunny, or room redesign. Sound: temporary clean water and tiny cheerful splash; no voices.",
+    "authority_note": "Historical direction; later explicit event corrections below take precedence."
+  },
+  "execution_schema": "imagine-shot-packet-v2",
+  "execution_template": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "timeline": [
+    "0.0–2.0s: show the same recovered bunny beside the single clean tub",
+    "2.0–4.5s: one small grateful bounce at its established dry resting place",
+    "4.5–6.0s: hold the safe bunny and sparkling clean water"
+  ],
+  "continuity_overlay": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
+  "revision": 2,
+  "source_preservation": {
+    "decision": "Restore original direction and detailed constraints; apply only documented continuity/event corrections.",
+    "original_camera_restored": true,
+    "unresolved_conflicts": []
+  }
 }

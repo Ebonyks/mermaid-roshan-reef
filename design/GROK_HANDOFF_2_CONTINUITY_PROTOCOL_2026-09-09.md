@@ -57,16 +57,22 @@ establish drift. Record measured values, never prefill fictional observations.
 4. Bind IMAGE_1 only after approval. A missing opening has `path: null` and an
    explicit blocker; a fallback location path is forbidden.
 5. Bind two to four images total, one job each. Keep other references in the
-   archive. If the visible cast cannot fit the identity budget, split the job.
+   archive. If the visible cast cannot fit the identity budget, first use a complete
+   approved opening that already proves the ensemble. Do not delete actors or
+   split an authored beat automatically; record any remaining authority gap.
 
-Use the [V1 card](templates/IMAGINE_SHOT_CARD_V1.md) fields; V2's more detailed
-sidecar can supplement them. A repair queue entry is not an executable card.
+Retain the [V1 card](templates/IMAGINE_SHOT_CARD_V1.md) discipline and the existing
+[V2 controls](templates/IMAGINE_SHOT_CARD_V2.md): character invariants, anatomy,
+required prompt phrases, causal chain, exact cast, location lock and cut state.
+V2 remains the execution framework; this repair overlay must not downgrade it. A repair queue entry is not an executable card.
 Draft PROMPT.txt files must not be sent until the shot readiness gate passes.
 
 ## Generate and review in dependency order
 
 Pilot the Stuffie establish/entry/reveal group and Pool seahorse group before
-batching their descendants. Use a locked camera for these repairs. One clip has
+batching their descendants. Preserve each authored camera move; lock only shots
+whose direction calls for stillness. A moving shot needs approved start/end
+composition and camera-aware landmark review. One clip has
 one dominant action, one camera setup and at most one camera move. The prompt
 states the time-ordered trigger, visible change, fixed objects and settled end,
 and ends with `Sound:`. Keep hash/audit/approval prose in the sidecar.
@@ -120,3 +126,36 @@ and blob identity in a subsequent evidence commit. Report ARCHIVE_COMPLETE,
 GENERATION_READY and DELIVERY_ACCEPTED separately. No new returned footage is
 accepted by this protocol. The full-frame generation rule remains binding for
 final cinematic frames; Grok clips remain motion/editorial reference.
+
+## Revision 2: preserve stronger original direction
+
+The first Handoff 2 draft introduced regressions. Before changing a shot, compare
+its August direction, later detailed repair card, exact selected variant and
+current event contract. Record the source hash, original action/camera/cast,
+proposed delta, defect evidence and reason for each semantic change. A summary
+matrix is an index, not a replacement for detailed direction. Preserve original
+sound, physical contact, identity traits and negatives in the executable prompt.
+
+Use `COMPARATIVE_AUDIT.json` for all 74 shot decisions and each repair card's
+`source_direction` / `previous_detailed_card` for inspectable original text.
+Those archival snapshots are not alternative image bindings. Later two-pin
+rescue and front-facing Art Room contracts supersede obsolete original actions;
+restoring detail does not restore a swing, basket search or invented side wall.
+
+Bind one material state per object per job. The similarly named Pool sources
+are different: `objects/seahorse_sick.png` has the lodged pink obstruction;
+`handoff_art/seahorse_sick.png` has an open nozzle with remaining grime. Never
+bind both to a discovery shot. The first pull ends dry; the next shot begins
+water. Review object-state variants visually rather than trusting filenames.
+
+A recap may deliberately show a later visit, but that time change needs explicit
+support. C12-S03's original Eagle/bunny friendship beat conflicts with the later
+rescue departure; preserve the proposed beat and flag the conflict. Do not
+silently authorize either a reunion or an empty-room replacement. C12-S03/S04
+were omitted from V03, so their cards are conditional reconstruction proposals.
+
+The archive gate checks file integrity, bound-state contradictions and camera
+count, not artistic quality or all V2 fields. It cannot promote this draft queue.
+Complete the retained V2 execution fields and run the existing Imagine readiness
+gate when actual approved openings and reviews exist. No threshold or passing
+unit test substitutes for that work.
