@@ -16,6 +16,26 @@ const DIRTY_ROOM_TEXTURE: Texture2D = preload(
 const DIRTY_ROOM_DRAINED_TEXTURE: Texture2D = preload(
 	"res://assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png")
 
+const CLEAN_ROOM_TEXTURE: Texture2D = preload(
+	"res://assets/flats/castle/rooms/room_bubble_bath.png")
+# Native coordinates in the approved 1024x576 room art. Follow the scalloped
+# basin, cabinet and curved plinth, including the dirty-state outer rim.
+# This narrow contour excludes the rectangular wall/floor corners.
+const CLEAN_SINK_OUTLINE: Array[Vector2] = [
+	Vector2(480, 176), Vector2(492, 170), Vector2(515, 169),
+	Vector2(541, 168), Vector2(570, 168), Vector2(599, 170),
+	Vector2(622, 170), Vector2(639, 175), Vector2(643, 183),
+	Vector2(638, 197), Vector2(625, 208), Vector2(641, 212),
+	Vector2(646, 218), Vector2(644, 226), Vector2(638, 230),
+	Vector2(639, 253), Vector2(658, 257), Vector2(669, 264),
+	Vector2(671, 274), Vector2(658, 283), Vector2(630, 289),
+	Vector2(594, 293), Vector2(556, 295), Vector2(519, 292),
+	Vector2(483, 287), Vector2(461, 280), Vector2(449, 273),
+	Vector2(450, 262), Vector2(464, 255), Vector2(475, 252),
+	Vector2(477, 229), Vector2(472, 224), Vector2(472, 214),
+	Vector2(490, 207), Vector2(483, 197), Vector2(478, 185),
+]
+
 signal supply_found(index: int, supply_id: String)
 signal supply_hunt_completed
 signal cleanup_step_completed(step: int, cleanup_id: String)
@@ -432,6 +452,39 @@ func _build_dirty_room_plate() -> void:
 	else:
 		_dirty_room_plate.z_index = 1
 		add_child(_dirty_room_plate)
+	_add_clean_sink_cutout(_dirty_room_plate)
+
+
+func _add_clean_sink_cutout(plate: Sprite2D) -> void:
+	var sink := Polygon2D.new()
+	sink.name = "CleanSinkCutout"
+	# A narrow transparent edge follows the contour instead of leaving a hard
+	# cut through the painted shadows around the pedestal.
+	var outline := PackedVector2Array(CLEAN_SINK_OUTLINE)
+	var vertices := PackedVector2Array(outline)
+	var colors := PackedColorArray()
+	var parts: Array[PackedInt32Array] = []
+	var interior := PackedInt32Array()
+	var center := Vector2(559.0, 232.0)
+	var count: int = outline.size()
+	for point: Vector2 in outline:
+		colors.append(Color(1.0, 1.0, 1.0, 0.0))
+		vertices.append(center + (point - center) * Vector2(0.94, 0.91))
+	for index: int in range(count):
+		colors.append(Color.WHITE)
+		interior.append(count + index)
+		var next: int = (index + 1) % count
+		parts.append(PackedInt32Array([index, next, count + next, count + index]))
+	parts.append(interior)
+	sink.polygon = vertices
+	sink.polygons = parts
+	sink.vertex_colors = colors
+	sink.uv = vertices
+	sink.texture = CLEAN_ROOM_TEXTURE
+	sink.position = -CLEAN_ROOM_TEXTURE.get_size() * 0.5
+	sink.antialiased = true
+	sink.visible = m.day_one_bathroom_cleanup_step >= 1
+	plate.add_child(sink)
 
 
 func _build_bath_bunny() -> void:
@@ -479,6 +532,7 @@ func _reveal_drained_room_plate() -> void:
 	drained_plate.set_meta("true_2d", true)
 	drained_plate.set_meta("tub_drained", true)
 	filled_plate.get_parent().add_child(drained_plate)
+	_add_clean_sink_cutout(drained_plate)
 	_drained_room_plate = drained_plate
 	var drain: Tween = drained_plate.create_tween()
 	drain.tween_property(drained_plate, "modulate:a", 1.0, 0.34) \
@@ -529,6 +583,11 @@ func day_one_bathroom_plate_snapshot() -> Dictionary:
 			_dirty_room_plate.texture.get_height())
 	return {
 		"dirty_plate_visible": visible,
+		"sink_clean_pixels": visible
+			and _dirty_room_plate.get_node_or_null("CleanSinkCutout") is Polygon2D
+			and (_dirty_room_plate.get_node("CleanSinkCutout") as Polygon2D).visible
+			and (_dirty_room_plate.get_node("CleanSinkCutout") as Polygon2D).texture
+				== CLEAN_ROOM_TEXTURE,
 		"true_2d": visible and _dirty_room_plate is Sprite2D,
 		"contains_tub_swimmer": visible and bool(
 			_dirty_room_plate.get_meta("contains_tub_swimmer", false)),
@@ -793,6 +852,12 @@ func _dirty_overlays_visible() -> bool:
 
 
 func _on_cleaning_step_completed(step: int, cleanup_id: String) -> void:
+	# Removing grime alone leaves the dirty sink baked into the plate. Replace
+	# the fixture itself before notifying callers, without covering the room.
+	if step >= 1 and _dirty_room_plate != null and is_instance_valid(_dirty_room_plate):
+		var sink := _dirty_room_plate.get_node_or_null("CleanSinkCutout") as Polygon2D
+		if sink != null:
+			sink.visible = true
 	cleanup_step_completed.emit(step, cleanup_id)
 
 

@@ -1,0 +1,104 @@
+{
+  "id": "2026-09-09-day-one-sink-clean",
+  "scope": "Replace the dirty sink pixels immediately after the Day One sink scrub, preserving the dirty tub and the saved clean sink across drain and re-entry. Reuse approved clean room artwork. Owner refinement: clip the replacement to the sink silhouette, excluding rectangular wall/floor edges.",
+  "baseline": "016589c6494d082b01b84c2a974fc2acb87bbf44",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-02",
+    "DL-INT-06",
+    "DL-AGE-04",
+    "DL-SAVE-01",
+    "DL-SAVE-04",
+    "DL-ASSET-01",
+    "DL-MED-05"
+  ],
+  "findings": [],
+  "no_findings_reason": "Owner-reported sink state replacement defect is not a separately recorded MA finding. This bounded repair does not close MA-VIS-006 visual coverage, MA-VIS-007 object ownership, or MA-PLAY-004 Roshan action/contact debt.",
+  "files": [
+    "scripts/games/day_one_bathroom_cleanup.gd",
+    "scripts/games/day_one_bathroom_cleaning.gd",
+    "scripts/probe_day_one_bathroom_cleanup.gd",
+    "scripts/probe_day_one_bathroom_shots.gd",
+    "ASSET_LICENSES.md"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 --headless --path . -s scripts/probe_day_one_bathroom_cleanup.gd (new negative assertions before runtime repair)",
+      "result": "PASS",
+      "evidence": "Baseline 016589c6494d082b01b84c2a974fc2acb87bbf44 fails exactly three new dirty-pixel replacement assertions: completion, re-entry, and drained plate. Baseline log: {\"path\": \".godot/sink-repair/baseline-probe.log\", \"sha256\": \"1595687948501d742cc0e55992543361d11947f5e84f5193a344af723a93b66d\"}"
+    },
+    {
+      "command": "Godot 4.7.2 --headless --verbose --path . -s scripts/probe_day_one_bathroom_cleanup.gd",
+      "result": "PASS",
+      "evidence": "Final contour version: RESULT PASS checks_failed=0; isolated save data. One earlier attempt exited before test output; the verbose retry completed. {\"path\": \".godot/sink-repair/final-probe-2.log\", \"sha256\": \"d8f2a6f78df6c15daa75685aa58a2941bc264a3e75e650d871324b606e09c33e\"}"
+    },
+    {
+      "command": "Godot 4.7.2 --rendering-method mobile -s scripts/probe_day_one_bathroom_shots.gd; agent visual inspection of unchanged full captures",
+      "result": "PASS",
+      "evidence": "Windows/NVIDIA Mobile, 1280x720: 11 full scene captures, RESULT PASS failures=0. Final contour removes the rectangular wall/floor edge and masks the dirty rim, with a narrow soft edge. Not device/child/owner acceptance. {\"path\": \".godot/sink-repair/soft-contour-visual.log\", \"sha256\": \"f03ecdadef6f083f1028f1a7ebeb0444b17d3097e5b5e3c8b1c7420214e4d452\"}"
+    },
+    {
+      "command": "python -m gdtoolkit.parser <four changed GDScripts>; python tools/lint_inference.py <four changed GDScripts>",
+      "result": "PASS",
+      "evidence": "[{\"path\": \".godot/sink-repair/final-parser.log\", \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"path\": \".godot/sink-repair/final-lint.log\", \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}]"
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "[{\"path\": \".godot/sink-repair/document-authority.log\", \"sha256\": \"dc66597d3e54da89dfe9e021eab1258310a91c089313c3457962617e0deb2518\"}, {\"path\": \".godot/sink-repair/development-audit.log\", \"sha256\": \"39e4517ddfd1ffc9a352cd86030fdc3d1be5cc1e915209ebd4878bb1f8911e77\"}]"
+    },
+    {
+      "command": "GODOT=<official 4.7.2> scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "Full local suite exited 0; all 78 unique trusted probes exited 0. Log: .godot/sink-repair/full-ci.log SHA-256 d8780cfa23cd9ebd12b698a4143ff32990783b1011e8603a85739a0437ec07f8. The final changed-file parser/lint and focused probe were rerun after contour refinement. Broad visual audit remains advisory/UNSATISFIED, not master-audit closure."
+    },
+    {
+      "command": "Temporary diagnostic copy of probe_day_one_bathroom_shots.gd with viewport/capture dimensions set to 1560x720; Godot 4.7.2 Mobile",
+      "result": "PASS",
+      "evidence": "11/11 captures and RESULT PASS failures=0. Agent inspected sink alignment and contour; not target-device acceptance. [{\"path\": \".godot/sink-repair/wide_probe.gd\", \"sha256\": \"34841d032c6421325149afdb1024f39c0e06f6114788c8cb5670bcb70d489daf\"}, {\"path\": \".godot/sink-repair/wide-visual.log\", \"sha256\": \"697acbf272825a90ec6d21f3490583af450b95a2eb5149a9c829fb9381f10500\"}]"
+    }
+  ],
+  "acceptance_gaps": "Full local suite and final desktop Mobile captures pass. Exact-head work-branch CI and dev integration are subsequent workflow evidence, not available before this commit. Target-device, child and owner acceptance remain outstanding; no game-wide MA closure, zero-3D satisfaction, or Roshan job/contact acceptance is claimed.",
+  "captures": [
+    {
+      "path": ".godot/sink-repair/soft-contour-captures/00_dirty_basket_prompt.png",
+      "sha256": "e983636d0f89cf02439fc6eca7ee9033e10c3021f6a43480d17c3fbc6dacab10"
+    },
+    {
+      "path": ".godot/sink-repair/soft-contour-captures/03_sink_clean_sponge_returns.png",
+      "sha256": "5dad6422fdda8d71e398ea0863c93a62facdc3d902b08a8383aaa654e156792c"
+    },
+    {
+      "path": ".godot/sink-repair/soft-contour-captures/07_tub_arrow_guide.png",
+      "sha256": "708f5a15bcbcefcb7dc3f438931381b17b27c85315e639f6f5738f9b1a80f45b"
+    },
+    {
+      "path": ".godot/sink-repair/soft-contour-captures/09_clean_pool_route.png",
+      "sha256": "e1b7a2b070034b8fc382ac148e190a691f2c55f504a07014dd446f13e03f232a"
+    },
+    {
+      "path": ".godot/sink-repair/wide-captures/03_sink_clean_sponge_returns.png",
+      "sha256": "ade69a76cdb277f7031e1ff1e6521f63dc828fe95a87d217f0be4df81ed85563"
+    }
+  ],
+  "source_hashes": {
+    "scripts/games/day_one_bathroom_cleanup.gd": "b313cf910cea2d2074f8eed10def906204f0a7bc3b4037155ecf8d8900d1a557",
+    "scripts/games/day_one_bathroom_cleaning.gd": "015ae0e6f723a70bc9e58c07b03be899988c63299d2329f3b058541415a49111",
+    "scripts/probe_day_one_bathroom_cleanup.gd": "d5b0005f767e63aef8c605836e938bac3103925f95e7086f05ce330929d88e4a",
+    "scripts/probe_day_one_bathroom_shots.gd": "e390cf58911884f116fb820711bf6937707aa17ea36da9b66010bb29103162ab",
+    "ASSET_LICENSES.md": "4dc0b4458638797f386e3f5a8984bd2df65f52954e566d0fb4e7212906588549"
+  },
+  "reused_art": {
+    "assets/flats/castle/rooms/room_bubble_bath.png": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da",
+    "assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+    "assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png": "1382a8adcb37f1b0788989676e5412220878395727ac081ce1b8d6fc1335fd47"
+  },
+  "baseline_ci": {
+    "commit": "016589c6494d082b01b84c2a974fc2acb87bbf44",
+    "result": "PASS",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/34399284557"
+  },
+  "diagnostics": "Import reports pre-existing empty-resource diagnostics for ignored export cinematic WAV files; the baseline import reports the same condition. These are not sink resources. Blocking import checks, all trusted probes and final Mobile captures pass. Existing global visual/2D and device acceptance gaps remain open."
+}

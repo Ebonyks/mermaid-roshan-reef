@@ -654,6 +654,7 @@ func _finish_sink() -> void:
 	_busy = true
 	_active_gesture = false
 	_step = 1
+	_update_dirty_overlays()
 	if m != null:
 		m.day_one_record_bathroom_cleanup_step(1)
 	cleanup_step_completed.emit(1, "sink")
