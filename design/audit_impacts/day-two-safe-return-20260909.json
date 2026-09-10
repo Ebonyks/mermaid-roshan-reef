@@ -1,0 +1,56 @@
+{
+  "id": "day-two-safe-return-20260909",
+  "scope": "Follow-up owner screenshot: explicit boss completion must establish a live Canvas destination for Day Two even when an audit launcher bypasses the start menu. Preserve atomic story/save progression and prevent the generic trophy finale from replacing the Day Two destination.",
+  "baseline": "016589c6494d082b01b84c2a974fc2acb87bbf44",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-04",
+    "DL-MED-08",
+    "DL-MED-09",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04"
+  ],
+  "findings": [
+    "MA-2D-002",
+    "MA-PLAY-001"
+  ],
+  "files": [
+    "scripts/main.gd",
+    "scripts/probe_dust_boss.gd",
+    "scripts/probe_day_one_draft_integration.gd",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 probe_dust_boss with explicit Canvas destination assertion before runtime repair",
+      "result": "FAIL",
+      "evidence": "tmp/retired-reef/day-two-before.log: exactly one failure, Day Two destination; rewards, progress, checkpoint and idempotence pass. Live audit checkout separately confirmed at older 9ad30ed6."
+    },
+    {
+      "command": "Godot 4.7.2 focused boss and optional Day Two draft-transition probes",
+      "result": "PASS",
+      "evidence": "tmp/retired-reef/probe_dust_boss.log ALL OK including Canvas destination without menu guard; probe_day_one_draft_integration.log PASS including cleared-activity movie/card return and idempotence. Initial startup-only engine exits were not accepted as passes."
+    },
+    {
+      "command": "Godot 4.7.2 real Mobile display, copied audit save, real Continue callback",
+      "result": "PASS",
+      "evidence": "tmp/retired-reef/day-two-review/resume.log: game=level2 phase=promenade chapter2=true boss_defeated=true player_visible=false. Visually inspected resume-review.png; native resume.png SHA256 21e31fdd3522ee8dfa995a8c4b5aed50a639c7b856dd8cf59a50827a4237d39c. Source main LF-SHA256 4bffc7fd2f9bd03b8a78b18745c4d8d19e837a93bfed34eb424db651b8aef4fd. Original audit profile untouched; review uses a copy."
+    },
+    {
+      "command": "Changed-script parser and inference; document authority; audit development; 2D regression gate",
+      "result": "PASS",
+      "evidence": "Changed GDScript parser/inference exit 0; day-two-authority.log and day-two-coverage.log ALL OK; day-two-2d.log NO_REGRESSION, strict remains UNSATISFIED."
+    },
+    {
+      "command": "Verbatim scripts/ci.sh trusted probe loop",
+      "result": "PASS",
+      "evidence": "tmp/retired-reef/day-two-runtime-suite.log executes all 78 trusted probes. The first run had three process exits 127 (audit, load, flow) and two timing assertions in combat tutorial; no pass was claimed for those attempts. All four direct reruns now exit 0 with no failure text: day-two-reruns/focused-results.json and individual logs. All remaining initial probes exit 0 without reported failures. Optional draft-transition probe additionally passes separately."
+    }
+  ],
+  "acceptance_gaps": "Target-device, child and owner acceptance pending; global 3D retirement remains open."
+}

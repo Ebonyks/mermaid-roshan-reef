@@ -325,7 +325,10 @@ func _adaptive_completion_case() -> void:
 	_ck("live tells keep their captured target while the player moves", snapshot_checked)
 	_ck("a visible 2D telegraph accompanies live danger", saw_telegraph)
 	_ck("hybrid head touch can land a real counter", used_world_touch)
-	_ck("one fresh counter edge per opening completes three rounds", main.game == "")
+	_ck("one fresh counter edge per opening returns Day Two to Canvas",
+		main.game == "level2" and String(main.g.get("phase", "")) == "promenade"
+		and not main.player.visible and not main.player.cam.current)
+	_ck("Day Two route does not depend on menu launch", not main._authored_world_session)
 	_ck("the earned final round survives interruption", final_checkpoint_done)
 	_ck("completion grants the base reward exactly once", completion_pearls == checkpoint_pearls + DustBossGame.BASE_WIN_PEARLS)
 	var director: DayOneDirector = main._day_one_ref()
