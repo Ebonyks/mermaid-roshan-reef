@@ -28,6 +28,7 @@
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/NATIVE_SAMPLE_EVIDENCE.json",
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/README.md",
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/REFERENCE_INDEX.json",
+    "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/REMOTE_VERIFICATION.json",
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/SHOT_REPAIR_QUEUE.json",
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/boards/D1-C00_NARRATIVE_ONLY.png",
     "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/boards/D1-C01_NARRATIVE_ONLY.png",
@@ -628,6 +629,11 @@
       "command": "GODOT=official 4.7.2 bash scripts/ci.sh; python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
       "result": "PASS",
       "evidence": "audit/grok_handoff_2_validation_20260909/LOCAL_VALIDATION.json and exact full-ci.log SHA256; 78 trusted probes exit 0; standalone authority and coverage ALL OK"
+    },
+    {
+      "command": "GitHub recursive subtree/blob comparison, HTTP HEAD for every immutable raw URL, and manifest GET SHA256 comparison",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/REMOTE_VERIFICATION.json; 582/582 files resolve at 00e317f0f072b10f10683a4f95d1071cdd550b72; archive complete, generation blocked, delivery not accepted"
     }
   ],
   "acceptance_gaps": "Opening-frame human approval, returned-shot motion review, full-frame delivery provenance, runtime/device/child/owner acceptance remain separate and unclaimed."
