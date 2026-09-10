@@ -1,0 +1,65 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C01-S04",
+  "movie_id": "D1-C01",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "lagoon",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/D1-C01/handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "inherited source authority; exact shot binding review pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "references/D1-C01/handoff_art/characters/daddy_daddy_master.png",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "human_review": "inherited source authority; exact shot binding review pending"
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.0-1.0: Roshan is beside the closed approved castle doors. 1.0-4.5: she approaches the handle. 4.5-6.0: her hand stops before contact; doors stay closed.",
+  "must_not_move": "same plane, dock, castle and closed-door approach; preserve time-of-day and shoreline",
+  "end_state": "Roshan at the handle with a visible gap; doors closed",
+  "state_contract": "arrival precedes door opening; no missing disembark action concealed by cut",
+  "prompt_sha256": "e7dc4419899ff34e50bf8536c504fb3cb6b0442c60ca1b666bea384d164109c6",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-11"
+  ]
+}

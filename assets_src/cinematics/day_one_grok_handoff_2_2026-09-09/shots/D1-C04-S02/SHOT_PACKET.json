@@ -1,0 +1,63 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C04-S02",
+  "movie_id": "D1-C04",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "bathroom",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/D1-C04/handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "inherited source authority; exact shot binding review pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "references/D1-C04/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+      "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+      "human_review": "inherited source authority; exact shot binding review pending"
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.0-1.5 dirty tub after scrub 1.5-4.8 clarity spreads 4.8-6.00 bunny upright/relieved",
+  "must_not_move": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
+  "end_state": "4.8-6.00 bunny upright/relieved",
+  "state_contract": "discovery does not clean; restored endpoint follows actual cleaning completion",
+  "prompt_sha256": "de8d60ab029efeb9c8ae79547730f0a38bc22456501d420bc3f91523090fc462",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": []
+}

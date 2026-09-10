@@ -1,0 +1,41 @@
+{
+  "schema": "visual-handoff-review-v1",
+  "movie_id": "D1-C09",
+  "review_authority": "sol_visual_review",
+  "review_date": "2026-09-02",
+  "agent_prescreen": "accepted",
+  "human_decision": "pending",
+  "perspective_gates": {
+    "expected_panel_count": 4,
+    "exact_runtime_states": "accepted",
+    "single_front_projection": "accepted",
+    "environment_continuity": "accepted_against_Godot_4_7_2_captures",
+    "state_continuity": "accepted_with_explicit_00_to_01_state_cut",
+    "technical_integrity": "accepted"
+  },
+  "storyboard_gates": {
+    "expected_shot_count": 5,
+    "exact_shot_count": "accepted",
+    "narrative_alignment": "accepted",
+    "cast_anatomy": "accepted",
+    "causality": "accepted",
+    "identity_and_topology_continuity": "accepted",
+    "technical_integrity": "accepted"
+  },
+  "disposition": {
+    "role": "narrative_reference_only",
+    "narrative_reference_only": true,
+    "not_delivery_pixels": true,
+    "used_as_delivery_pixels": false
+  },
+  "blocking_notes": [
+    "Runtime panels intentionally retain HUD and are never IMAGE_1 or delivery pixels.",
+    "The generated S02 keyframe is narrative-only because minor fixture-detail drift remains.",
+    "Five owner-approved HUD-free complete opening frames are still required."
+  ],
+  "claims": {
+    "archive_complete": false,
+    "generation_ready": false,
+    "delivery_accepted": false
+  }
+}

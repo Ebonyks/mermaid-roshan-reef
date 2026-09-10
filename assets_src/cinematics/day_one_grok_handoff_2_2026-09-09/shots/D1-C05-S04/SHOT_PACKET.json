@@ -1,0 +1,60 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C05-S04",
+  "movie_id": "D1-C05",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "pool",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "references/D1-C05/handoff_art/objects/waterfall_clogged_turgid.png",
+      "sha256": "df7c3147bc8867612e9d59b4eb50771399341040ecd6305342dffe5ce4166589",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending"
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.0-1.0: show the approved waterfall source clogged with opaque sludge. 1.0-4.5: one weak dull drip falls from its lower lip. 4.5-6.0: settle with the same obstruction; no rainbow flow.",
+  "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+  "end_state": "waterfall source remains blocked; no new fountain or pool change",
+  "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete",
+  "prompt_sha256": "0f6b46af6621426e3f1fb26b8667ee45fba06025ada62ea551e367206d0c4c9a",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-02",
+    "GH2-03"
+  ],
+  "exact_cast": []
+}

@@ -1,0 +1,63 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C10-S01",
+  "movie_id": "D1-C10",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "art",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/D1-C10/handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "inherited source authority; exact shot binding review pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "references/D1-C10/handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+      "sha256": "ccf85cf97fea81b4d3a496b8e48c57ff574b43aa4978953d8a78b9b4ea7a70f3",
+      "human_review": "inherited source authority; exact shot binding review pending"
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.00–2.00 show Roshan’s final grime contact in the exact Art Room front. 2.00–4.50 finish the last localized clean action; all three grime cards disappear causally. 4.50–6.00 hold the complete clean front endpoint for supplies-home.",
+  "must_not_move": "same bright lavender-brick front projection, flanking columns, shelves and desk positions; no purple underwater-room insert or new side wall",
+  "end_state": "4.50–6.00 hold the complete clean front endpoint for supplies-home.",
+  "state_contract": "collect then clean then blank desk wake; no teleporting supplies or pre-earned finished artwork",
+  "prompt_sha256": "0c8d02be6c513840ff8a0ce6b3d26581af3b9828db9ec6fecd288d179a0cfd49",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": []
+}

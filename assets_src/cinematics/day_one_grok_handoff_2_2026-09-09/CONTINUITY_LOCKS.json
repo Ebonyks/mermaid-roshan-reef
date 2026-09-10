@@ -1,0 +1,872 @@
+{
+  "stuffie": {
+    "fixed": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+    "identity": "one Baby Eagle, yellow face, turquoise head, pink wings and dark beak; exactly two approved lavender rescue-pin bunnies at discovery",
+    "state": "dirty before rescue; left pin then right pin clear only through gameplay; clean/departure after both; no swing or wing hunt",
+    "id": "stuffie",
+    "measurement_status": "PENDING_SETUP_APPROVAL",
+    "landmark_measurements": [],
+    "human_review": null,
+    "references": [
+      {
+        "path": "references/D1-C07/handoff_art/location/room_playroom_background.png",
+        "role": "approved_location_geography_authority",
+        "sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_playroom_background.png"
+      },
+      {
+        "path": "references/D1-C07/handoff_art/characters/roshan_roshan_base.png",
+        "role": "approved_roshan_identity_authority",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "appearance_authority": true,
+        "source_path": "assets/characters/roshan_25d/roshan_base.png"
+      },
+      {
+        "path": "references/D1-C07/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+        "role": "approved_baby_eagle_pinned_identity_authority",
+        "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac",
+        "appearance_authority": true,
+        "source_path": "docs/grok_animation_series_project/characters/baby_eagle/BABY_EAGLE_PINNED_STATE.png"
+      },
+      {
+        "path": "references/D1-C07/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+        "role": "approved_playroom_bunny_identity_authority",
+        "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+        "appearance_authority": true,
+        "source_path": "docs/grok_animation_series_project/characters/playroom_dust_bunny/PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+      },
+      {
+        "path": "references/D1-C07/handoff_art/objects/room_playroom_item_play_tent.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "a92bf0366b55154457ce34f9e53599ba23f9d42d5178f0e5457de5a166e655bd",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_playroom_item_play_tent.png"
+      },
+      {
+        "path": "references/D1-C07/handoff_art/objects/room_playroom_item_stuffie_nook.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "7ed4dafff1e3dac12264d4a1c617095bf43d2f36fd8066476aa78725fe3ded67",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png"
+      },
+      {
+        "path": "references/D1-C08/handoff_art/location/room_playroom_background.png",
+        "role": "approved_location_geography_authority",
+        "sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_playroom_background.png"
+      },
+      {
+        "path": "references/D1-C08/handoff_art/characters/roshan_roshan_base.png",
+        "role": "approved_roshan_identity_authority",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "appearance_authority": true,
+        "source_path": "assets/characters/roshan_25d/roshan_base.png"
+      },
+      {
+        "path": "references/D1-C08/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+        "role": "approved_baby_eagle_standing_identity_authority",
+        "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+        "appearance_authority": true,
+        "source_path": "docs/grok_animation_series_project/characters/baby_eagle/BABY_EAGLE_STANDING_IDENTITY.png"
+      },
+      {
+        "path": "references/D1-C08/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+        "role": "approved_playroom_bunny_identity_authority",
+        "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+        "appearance_authority": true,
+        "source_path": "docs/grok_animation_series_project/characters/playroom_dust_bunny/PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+      },
+      {
+        "path": "references/D1-C08/handoff_art/objects/room_playroom_item_play_tent.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "a92bf0366b55154457ce34f9e53599ba23f9d42d5178f0e5457de5a166e655bd",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_playroom_item_play_tent.png"
+      },
+      {
+        "path": "references/D1-C08/handoff_art/objects/room_playroom_item_stuffie_nook.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "7ed4dafff1e3dac12264d4a1c617095bf43d2f36fd8066476aa78725fe3ded67",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png"
+      }
+    ]
+  },
+  "pool": {
+    "fixed": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+    "identity": "same blue-lavender seahorse, violet crest, peach belly, curled tail and coral pedestal; never yellow animal, moss-stone statue or substitute dragon",
+    "state": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete",
+    "id": "pool",
+    "measurement_status": "PENDING_SETUP_APPROVAL",
+    "landmark_measurements": [],
+    "human_review": null,
+    "references": [
+      {
+        "path": "references/D1-C05/handoff_art/location/room_mermaid_pool_background.png",
+        "role": "approved_location_geography_authority",
+        "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png"
+      },
+      {
+        "path": "references/D1-C05/handoff_art/characters/roshan_roshan_base.png",
+        "role": "approved_roshan_identity_authority",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "appearance_authority": true,
+        "source_path": "assets/characters/roshan_25d/roshan_base.png"
+      },
+      {
+        "path": "references/D1-C05/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+        "role": "approved_swimming_bunny_identity_authority",
+        "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+        "appearance_authority": true,
+        "source_path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png"
+      },
+      {
+        "path": "references/D1-C05/handoff_art/objects/pool_algae_trash.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "e0ed3c7174dcfeff17eb8261ee46d8e1d2a7c69e93a650f5495db4b6505c7ed9",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_pool/pool_algae_trash.png"
+      },
+      {
+        "path": "references/D1-C05/handoff_art/objects/waterfall_clogged_turgid.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "df7c3147bc8867612e9d59b4eb50771399341040ecd6305342dffe5ce4166589",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_pool/waterfall_clogged_turgid.png"
+      },
+      {
+        "path": "references/D1-C05/handoff_art/objects/seahorse_sick.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "3af5ff973576d328dde98282f5ad9a5a04931e35f3a48e366de6ad1499b304a0",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_pool/seahorse_sick.png"
+      },
+      {
+        "path": "references/D1-C05/handoff_art/objects/seahorse_mouth_trash.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "9c48ac1ca7be923fcb14902b3e2b62263f34d53e031f11002776bfc4322652f9",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_pool/activities/seahorse_mouth_trash.png"
+      },
+      {
+        "path": "references/D1-C06/handoff_art/location/room_mermaid_pool_background.png",
+        "role": "approved_location_geography_authority",
+        "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png"
+      },
+      {
+        "path": "references/D1-C06/handoff_art/characters/roshan_roshan_base.png",
+        "role": "approved_roshan_identity_authority",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "appearance_authority": true,
+        "source_path": "assets/characters/roshan_25d/roshan_base.png"
+      },
+      {
+        "path": "references/D1-C06/handoff_art/characters/rumi_rumi_full_body_identity.png",
+        "role": "approved_rumi_identity_authority",
+        "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+        "appearance_authority": true,
+        "source_path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png"
+      },
+      {
+        "path": "references/D1-C06/handoff_art/objects/mermaid_pool_waterfall_rest.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_waterfall_rest.png"
+      },
+      {
+        "path": "references/D1-C06/handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_seahorse_fountain_rest.png"
+      },
+      {
+        "path": "references/D1-C06/handoff_art/objects/seahorse_mouth_trash.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "9c48ac1ca7be923fcb14902b3e2b62263f34d53e031f11002776bfc4322652f9",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_pool/activities/seahorse_mouth_trash.png"
+      },
+      {
+        "path": "references/D1-C05/handoff_art/characters/pool_land_bunny_curl_ears.png",
+        "role": "approved_pool_land_bunny_identity_authority",
+        "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+        "appearance_authority": true,
+        "source_path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      }
+    ],
+    "runtime_shore_constraint": {
+      "source": "scripts/arena/day_one_castle_dressing.gd::_pool_land_bunny_snapshot",
+      "canvas_rect": [
+        160,
+        550,
+        140,
+        80
+      ],
+      "count": 1,
+      "use": "runtime seam constraint only, not measured cinematic pixel coordinates"
+    }
+  },
+  "bathroom": {
+    "fixed": "same approved tub, separate sink/mirror and surrounding arches; cleaning changes grime and water, never fixture identity or room layout; floor remains dry",
+    "identity": "one separate approved swimming bunny; no fusion with Roshan, land legs or replacement plush",
+    "state": "discovery does not clean; restored endpoint follows actual cleaning completion",
+    "id": "bathroom",
+    "measurement_status": "PENDING_SETUP_APPROVAL",
+    "landmark_measurements": [],
+    "human_review": null,
+    "references": [
+      {
+        "path": "references/D1-C03/handoff_art/location/room_bubble_bath_dirty_day_one.png",
+        "role": "approved_location_geography_authority",
+        "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png"
+      },
+      {
+        "path": "references/D1-C03/handoff_art/characters/roshan_roshan_base.png",
+        "role": "approved_roshan_identity_authority",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "appearance_authority": true,
+        "source_path": "assets/characters/roshan_25d/roshan_base.png"
+      },
+      {
+        "path": "references/D1-C03/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+        "role": "approved_swimming_bunny_identity_authority",
+        "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+        "appearance_authority": true,
+        "source_path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png"
+      },
+      {
+        "path": "references/D1-C03/handoff_art/objects/cleanup_basket.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_pool/activities/cleanup_basket.png"
+      },
+      {
+        "path": "references/D1-C03/handoff_art/objects/target_sink_grime_v1.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "fe53ef3018b9f8164417cde5bf47489dff389179aad8432ea8ef1993cffab3ed",
+        "appearance_authority": true,
+        "source_path": "assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png"
+      },
+      {
+        "path": "references/D1-C03/handoff_art/objects/target_tub_grime_v1.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "52e8c42b0c044c1b5dba42681d7dfb5e34dc44b345e6535e9432df5f186ecb67",
+        "appearance_authority": true,
+        "source_path": "assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png"
+      },
+      {
+        "path": "references/D1-C04/handoff_art/location/room_bubble_bath_background.png",
+        "role": "approved_location_geography_authority",
+        "sha256": "8a333a0b16643a67fd20c061c11770c7e515df6395eb7790d2617f16e855b70e",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_bubble_bath_background.png"
+      },
+      {
+        "path": "references/D1-C04/handoff_art/characters/roshan_roshan_base.png",
+        "role": "approved_roshan_identity_authority",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "appearance_authority": true,
+        "source_path": "assets/characters/roshan_25d/roshan_base.png"
+      },
+      {
+        "path": "references/D1-C04/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+        "role": "approved_swimming_bunny_identity_authority",
+        "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+        "appearance_authority": true,
+        "source_path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png"
+      },
+      {
+        "path": "references/D1-C04/handoff_art/objects/room_bubble_bath_dirty_day_one.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png"
+      },
+      {
+        "path": "references/D1-C04/handoff_art/objects/tool_star_sponge.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+        "appearance_authority": true,
+        "source_path": "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png"
+      },
+      {
+        "path": "references/D1-C04/handoff_art/objects/magic_cleaning_brush.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_art_studio/magic_cleaning_brush.png"
+      }
+    ]
+  },
+  "art": {
+    "fixed": "same bright lavender-brick front projection, flanking columns, shelves and desk positions; no purple underwater-room insert or new side wall",
+    "identity": "same Roshan; four canonical material groups and three fixed grime targets; no boy substitute",
+    "state": "collect then clean then blank desk wake; no teleporting supplies or pre-earned finished artwork",
+    "id": "art",
+    "measurement_status": "PENDING_SETUP_APPROVAL",
+    "landmark_measurements": [],
+    "human_review": null,
+    "references": [
+      {
+        "path": "references/D1-C09/handoff_art/location/room_craft_room_background.png",
+        "role": "approved_location_geography_authority",
+        "sha256": "006b736e59e261c2670717f268c76b39640b903373b1a75781cd464e135ddd0d",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_craft_room_background.png"
+      },
+      {
+        "path": "references/D1-C09/handoff_art/characters/roshan_roshan_base.png",
+        "role": "approved_roshan_identity_authority",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "appearance_authority": true,
+        "source_path": "assets/characters/roshan_25d/roshan_base.png"
+      },
+      {
+        "path": "references/D1-C09/handoff_art/objects/room_craft_room_front_left.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "466d88d72a245fabe0ef6810796aca8eb7aba6c66cbac031eb2e5ddf5aa68d9a",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_craft_room_front_left.png"
+      },
+      {
+        "path": "references/D1-C09/handoff_art/objects/room_craft_room_front_right.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "41167d28ce5a519e0aee05239f782accf8f4137cf0c002189e8d1456a6c17871",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_craft_room_front_right.png"
+      },
+      {
+        "path": "references/D1-C09/handoff_art/objects/room_craft_room_item_idea_board.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "a31bd127b197d30637c34c4b92e64e38cc2d3c64529da1185a907e07c6aaa3c3",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_craft_room_item_idea_board.png"
+      },
+      {
+        "path": "references/D1-C09/handoff_art/objects/room_craft_room_item_paint_table.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "b2eb0fc3a5d7c777540af1447827f6b2f98d47a658d2184d9774e407d46627aa",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_craft_room_item_paint_table.png"
+      },
+      {
+        "path": "references/D1-C09/handoff_art/objects/room_craft_room_item_palette.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "48a516e2da0cbef6dadc6ee68676c735148bba9cce73fc26888c49c967266374",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_craft_room_item_palette.png"
+      },
+      {
+        "path": "references/D1-C09/handoff_art/objects/room_craft_room_item_ribbon_rack.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "4002123cfe400e35f8fe74a3f9b17607a7dce70410086afe5fa6be63970e8999",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_craft_room_item_ribbon_rack.png"
+      },
+      {
+        "path": "references/D1-C09/handoff_art/objects/loose_brush_bundle.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "7de7cf80939fe62e16d6931d1eb6b377ec2454107b855703b76f445aa8aad99a",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_art_studio/loose_brush_bundle.png"
+      },
+      {
+        "path": "references/D1-C09/handoff_art/objects/paint_bottle_pink.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "089bcaf7b7e27a4760ca70f05cfeb6954e72eb59ac4ecd125fd6b5cfe0ebba4a",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_art_studio/paint_bottle_pink.png"
+      },
+      {
+        "path": "references/D1-C09/handoff_art/objects/paint_bottle_blue.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "ce6adb14e4d877108ae2748138417ef436f6e154b8c4321f69196795114319ff",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_art_studio/paint_bottle_blue.png"
+      },
+      {
+        "path": "references/D1-C09/handoff_art/objects/paint_cups.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "fca25541d66e07bf28ee31a36ff049130af64c495a077759750f291e526780a0",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_art_studio/paint_cups.png"
+      },
+      {
+        "path": "references/D1-C09/handoff_art/objects/grime_desk.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "586021e28238f3ddba60447a3e7472a51a9af72f5bbc4319f95c79265b0a43bf",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_art_studio/grime_desk.png"
+      },
+      {
+        "path": "references/D1-C09/handoff_art/objects/grime_left.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "125978f082934e3b290370c6a7a2c0082b8e5df5044feecbf22f3d5d6dca0ac1",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_art_studio/grime_left.png"
+      },
+      {
+        "path": "references/D1-C09/handoff_art/objects/grime_right.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "339f248e488bf651749746c0819ba0214373684ec59859ed3815ddfa387bfe28",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_art_studio/grime_right.png"
+      },
+      {
+        "path": "references/D1-C09/handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+        "role": "approved_derived_identity_sheet",
+        "sha256": "ccf85cf97fea81b4d3a496b8e48c57ff574b43aa4978953d8a78b9b4ea7a70f3",
+        "appearance_authority": true,
+        "source_path": null
+      },
+      {
+        "path": "references/D1-C09/handoff_art/objects/FOUR_LOOSE_SUPPLY_IDENTITY_SHEET.png",
+        "role": "approved_derived_identity_sheet",
+        "sha256": "73ee8445e861da1c12753c1f8c941aea1fc083af5c09e864f72eb1cac8b1ccf8",
+        "appearance_authority": true,
+        "source_path": null
+      },
+      {
+        "path": "references/D1-C10/handoff_art/location/room_craft_room_background.png",
+        "role": "approved_location_geography_authority",
+        "sha256": "006b736e59e261c2670717f268c76b39640b903373b1a75781cd464e135ddd0d",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_craft_room_background.png"
+      },
+      {
+        "path": "references/D1-C10/handoff_art/characters/roshan_roshan_base.png",
+        "role": "approved_roshan_identity_authority",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "appearance_authority": true,
+        "source_path": "assets/characters/roshan_25d/roshan_base.png"
+      },
+      {
+        "path": "references/D1-C10/handoff_art/objects/room_craft_room_front_left.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "466d88d72a245fabe0ef6810796aca8eb7aba6c66cbac031eb2e5ddf5aa68d9a",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_craft_room_front_left.png"
+      },
+      {
+        "path": "references/D1-C10/handoff_art/objects/room_craft_room_front_right.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "41167d28ce5a519e0aee05239f782accf8f4137cf0c002189e8d1456a6c17871",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_craft_room_front_right.png"
+      },
+      {
+        "path": "references/D1-C10/handoff_art/objects/room_craft_room_item_idea_board.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "a31bd127b197d30637c34c4b92e64e38cc2d3c64529da1185a907e07c6aaa3c3",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_craft_room_item_idea_board.png"
+      },
+      {
+        "path": "references/D1-C10/handoff_art/objects/room_craft_room_item_paint_table.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "b2eb0fc3a5d7c777540af1447827f6b2f98d47a658d2184d9774e407d46627aa",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_craft_room_item_paint_table.png"
+      },
+      {
+        "path": "references/D1-C10/handoff_art/objects/room_craft_room_item_palette.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "48a516e2da0cbef6dadc6ee68676c735148bba9cce73fc26888c49c967266374",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_craft_room_item_palette.png"
+      },
+      {
+        "path": "references/D1-C10/handoff_art/objects/room_craft_room_item_ribbon_rack.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "4002123cfe400e35f8fe74a3f9b17607a7dce70410086afe5fa6be63970e8999",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/rooms/room_craft_room_item_ribbon_rack.png"
+      },
+      {
+        "path": "references/D1-C10/handoff_art/objects/loose_brush_bundle.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "7de7cf80939fe62e16d6931d1eb6b377ec2454107b855703b76f445aa8aad99a",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_art_studio/loose_brush_bundle.png"
+      },
+      {
+        "path": "references/D1-C10/handoff_art/objects/paint_bottle_pink.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "089bcaf7b7e27a4760ca70f05cfeb6954e72eb59ac4ecd125fd6b5cfe0ebba4a",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_art_studio/paint_bottle_pink.png"
+      },
+      {
+        "path": "references/D1-C10/handoff_art/objects/paint_bottle_blue.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "ce6adb14e4d877108ae2748138417ef436f6e154b8c4321f69196795114319ff",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_art_studio/paint_bottle_blue.png"
+      },
+      {
+        "path": "references/D1-C10/handoff_art/objects/paint_cups.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "fca25541d66e07bf28ee31a36ff049130af64c495a077759750f291e526780a0",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_art_studio/paint_cups.png"
+      },
+      {
+        "path": "references/D1-C10/handoff_art/objects/magic_cleaning_brush.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+        "appearance_authority": true,
+        "source_path": "assets/castle/day_one_art_studio/magic_cleaning_brush.png"
+      },
+      {
+        "path": "references/D1-C10/handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+        "role": "approved_derived_identity_sheet",
+        "sha256": "ccf85cf97fea81b4d3a496b8e48c57ff574b43aa4978953d8a78b9b4ea7a70f3",
+        "appearance_authority": true,
+        "source_path": null
+      }
+    ]
+  },
+  "hall": {
+    "fixed": "approved screen A or B only, never merged; exact portal order and floor-open doorways; no evidence placards",
+    "identity": "same Roshan and Daddy; no duplicate cast",
+    "state": "dirty discovery only; only bathroom route glows",
+    "id": "hall",
+    "measurement_status": "PENDING_SETUP_APPROVAL",
+    "landmark_measurements": [],
+    "human_review": null,
+    "references": [
+      {
+        "path": "references/D1-C02/handoff_art/location/main_hall_screen_a_room_led_master.png",
+        "role": "approved_location_geography_authority",
+        "sha256": "ae84f4f79a8183312b5ba26b6999f26b69c8a538424b5383a7d6623cc2f275e9",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/main_hall_2screen/main_hall_screen_a_room_led_master.png"
+      },
+      {
+        "path": "references/D1-C02/handoff_art/characters/roshan_roshan_base.png",
+        "role": "approved_roshan_identity_authority",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "appearance_authority": true,
+        "source_path": "assets/characters/roshan_25d/roshan_base.png"
+      },
+      {
+        "path": "references/D1-C02/handoff_art/characters/daddy_daddy_master.png",
+        "role": "approved_daddy_identity_authority",
+        "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+        "appearance_authority": true,
+        "source_path": "assets_src/daddy_master.png"
+      },
+      {
+        "path": "references/D1-C02/handoff_art/objects/main_hall_screen_b_room_led_master.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "c333bdbd3243b2cfcd61e9475e7e5449d7165d03ff8413f860535d5ccb811454",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/main_hall_2screen/main_hall_screen_b_room_led_master.png"
+      },
+      {
+        "path": "references/D1-C02/handoff_art/objects/sign_bubble_bath.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "3a43e1fc23f95f9f3a2ec256861d418017d783bbf0d30f7b85fee677838aa3c4",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_bubble_bath.png"
+      }
+    ]
+  },
+  "hall_to_arena": {
+    "fixed": "screen B approach and approved octagonal attic arena are different locations joined by an explicit doorway; preserve door design across both sides",
+    "identity": "one approved Grand Puff; same curls, eyes, ear count and scale",
+    "state": "empty arena then visible descent/contact; gameplay remains ahead",
+    "id": "hall_to_arena",
+    "measurement_status": "PENDING_SETUP_APPROVAL",
+    "landmark_measurements": [],
+    "human_review": null,
+    "references": [
+      {
+        "path": "references/D1-C11/handoff_art/location/main_hall_screen_b_room_led_master.png",
+        "role": "approved_location_geography_authority",
+        "sha256": "c333bdbd3243b2cfcd61e9475e7e5449d7165d03ff8413f860535d5ccb811454",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/main_hall_2screen/main_hall_screen_b_room_led_master.png"
+      },
+      {
+        "path": "references/D1-C11/handoff_art/characters/roshan_roshan_base.png",
+        "role": "approved_roshan_identity_authority",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "appearance_authority": true,
+        "source_path": "assets/characters/roshan_25d/roshan_base.png"
+      },
+      {
+        "path": "references/D1-C11/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+        "role": "approved_grand_puff_identity_authority",
+        "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+        "appearance_authority": true,
+        "source_path": "docs/grok_animation_series_project/characters/boss_dust_bunny/BOSS_DUST_BUNNY_IDENTITY.png"
+      },
+      {
+        "path": "references/D1-C11/handoff_art/objects/main_hall_screen_a_room_led_master.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "ae84f4f79a8183312b5ba26b6999f26b69c8a538424b5383a7d6623cc2f275e9",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/main_hall_2screen/main_hall_screen_a_room_led_master.png"
+      },
+      {
+        "path": "references/D1-C11/handoff_art/objects/dust_bunny_boss_jump.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "7f117638631841c31eb58b9c81224158d29d64f325980c75c475e0376e36788c",
+        "appearance_authority": true,
+        "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_jump.png"
+      },
+      {
+        "path": "references/D1-C11/handoff_art/objects/dust_bunny_boss_laugh_vulnerable.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "bdcf03aab906fa9c8f7293733e780ffaac883c14ba72bdc43069a4ace4f9afca",
+        "appearance_authority": true,
+        "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png"
+      }
+    ]
+  },
+  "arena": {
+    "fixed": "same octagonal arena, rail posts, front door and rear circular purple window; no new shell hall",
+    "identity": "one Grand Puff; actor-specific shots preserve Daddy, Rumi and Eagle identities; final bunny is not Grand Puff resized",
+    "state": "cooperative coda remains dependent on its current event authority and owner decisions; no post-vanish resurrection",
+    "id": "arena",
+    "measurement_status": "PENDING_SETUP_APPROVAL",
+    "landmark_measurements": [],
+    "human_review": null,
+    "references": [
+      {
+        "path": "references/D1-C13/handoff_art/location/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png",
+        "role": "approved_location_geography_authority",
+        "sha256": "ba0048fc93bc8cf752d0424200a1d1a0c03676ed78916a0c3bf335a60ec6a74e",
+        "appearance_authority": true,
+        "source_path": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/location_authorities/DUSTY_ATTIC_OCTAGON_ARENA_MASTER.png"
+      },
+      {
+        "path": "references/D1-C13/handoff_art/characters/roshan_roshan_base.png",
+        "role": "approved_roshan_identity_authority",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "appearance_authority": true,
+        "source_path": "assets/characters/roshan_25d/roshan_base.png"
+      },
+      {
+        "path": "references/D1-C13/handoff_art/characters/daddy_daddy_master.png",
+        "role": "approved_daddy_identity_authority",
+        "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+        "appearance_authority": true,
+        "source_path": "assets_src/daddy_master.png"
+      },
+      {
+        "path": "references/D1-C13/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+        "role": "approved_baby_eagle_standing_identity_authority",
+        "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+        "appearance_authority": true,
+        "source_path": "docs/grok_animation_series_project/characters/baby_eagle/BABY_EAGLE_STANDING_IDENTITY.png"
+      },
+      {
+        "path": "references/D1-C13/handoff_art/characters/rumi_rumi_full_body_identity.png",
+        "role": "approved_rumi_identity_authority",
+        "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+        "appearance_authority": true,
+        "source_path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png"
+      },
+      {
+        "path": "references/D1-C13/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+        "role": "approved_grand_puff_identity_authority",
+        "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+        "appearance_authority": true,
+        "source_path": "docs/grok_animation_series_project/characters/boss_dust_bunny/BOSS_DUST_BUNNY_IDENTITY.png"
+      },
+      {
+        "path": "references/D1-C13/handoff_art/objects/dust_bunny_boss_laugh_vulnerable.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "bdcf03aab906fa9c8f7293733e780ffaac883c14ba72bdc43069a4ace4f9afca",
+        "appearance_authority": true,
+        "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png"
+      },
+      {
+        "path": "references/D1-C13/handoff_art/objects/dust_bunny_boss_implode.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "273770fa67763662e2294d80444da727575bb0a10c63938d5fe20689d0f9d256",
+        "appearance_authority": true,
+        "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_implode.png"
+      }
+    ]
+  },
+  "flight": {
+    "fixed": "same pearl plane, cabin window/seat arrangement and known lagoon geography; no invented castle silhouette",
+    "identity": "same Roshan and Daddy, one tail and two arms each",
+    "state": "flight then landing preparation; separate approved cabin/exterior setups",
+    "id": "flight",
+    "measurement_status": "PENDING_SETUP_APPROVAL",
+    "landmark_measurements": [],
+    "human_review": null,
+    "references": [
+      {
+        "path": "references/D1-C00/handoff_art/location/sky_lagoon_panorama_master_v5_hd_3x1.png",
+        "role": "approved_location_geography_authority",
+        "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+        "appearance_authority": true,
+        "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png"
+      },
+      {
+        "path": "references/D1-C00/handoff_art/characters/roshan_roshan_base.png",
+        "role": "approved_roshan_identity_authority",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "appearance_authority": true,
+        "source_path": "assets/characters/roshan_25d/roshan_base.png"
+      },
+      {
+        "path": "references/D1-C00/handoff_art/characters/daddy_daddy_master.png",
+        "role": "approved_daddy_identity_authority",
+        "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+        "appearance_authority": true,
+        "source_path": "assets_src/daddy_master.png"
+      },
+      {
+        "path": "references/D1-C00/handoff_art/objects/06_AIRPLANE_EXACT.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde",
+        "appearance_authority": true,
+        "source_path": "docs/grok_animation_series_project/modules/opening_flight_to_sky_lagoon/references/06_AIRPLANE_EXACT.png"
+      }
+    ]
+  },
+  "lagoon": {
+    "fixed": "same plane, dock, castle and closed-door approach; preserve time-of-day and shoreline",
+    "identity": "same Daddy/Roshan scale and hand ownership",
+    "state": "arrival precedes door opening; no missing disembark action concealed by cut",
+    "id": "lagoon",
+    "measurement_status": "PENDING_SETUP_APPROVAL",
+    "landmark_measurements": [],
+    "human_review": null,
+    "references": [
+      {
+        "path": "references/D1-C01/handoff_art/location/sky_lagoon_panorama_master_v5_hd_3x1.png",
+        "role": "approved_location_geography_authority",
+        "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+        "appearance_authority": true,
+        "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png"
+      },
+      {
+        "path": "references/D1-C01/handoff_art/characters/roshan_roshan_base.png",
+        "role": "approved_roshan_identity_authority",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "appearance_authority": true,
+        "source_path": "assets/characters/roshan_25d/roshan_base.png"
+      },
+      {
+        "path": "references/D1-C01/handoff_art/characters/daddy_daddy_master.png",
+        "role": "approved_daddy_identity_authority",
+        "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+        "appearance_authority": true,
+        "source_path": "assets_src/daddy_master.png"
+      },
+      {
+        "path": "references/D1-C01/handoff_art/objects/06_AIRPLANE_EXACT.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde",
+        "appearance_authority": true,
+        "source_path": "docs/grok_animation_series_project/modules/opening_flight_to_sky_lagoon/references/06_AIRPLANE_EXACT.png"
+      },
+      {
+        "path": "references/D1-C01/handoff_art/objects/sky_lagoon_castle_door_focus_v1.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+        "appearance_authority": true,
+        "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png"
+      },
+      {
+        "path": "references/D1-C01/handoff_art/objects/pearl_castle_exterior_turnaround_v2.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "00eed099cae3acd94725e8f80e6c48853b5fe5976db03d3ec0ce5cb2633a6dc4",
+        "appearance_authority": true,
+        "source_path": "assets_src/sky_lagoon/cohesion_pass_2026-07-19/selected/pearl_castle_exterior_turnaround_v2.png"
+      }
+    ]
+  },
+  "recap": {
+    "fixed": "inherit each accepted room endpoint; no newly generated substitute locations",
+    "identity": "use original room identities and states; no new seahorse or generic plush group",
+    "state": "post-completion only; no unverified friendship payoff",
+    "id": "recap",
+    "measurement_status": "PENDING_SETUP_APPROVAL",
+    "landmark_measurements": [],
+    "human_review": null,
+    "references": [
+      {
+        "path": "references/D1-C12/handoff_art/location/main_hall_screen_a_room_led_master.png",
+        "role": "approved_location_geography_authority",
+        "sha256": "ae84f4f79a8183312b5ba26b6999f26b69c8a538424b5383a7d6623cc2f275e9",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/main_hall_2screen/main_hall_screen_a_room_led_master.png"
+      },
+      {
+        "path": "references/D1-C12/handoff_art/characters/roshan_roshan_base.png",
+        "role": "approved_roshan_identity_authority",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "appearance_authority": true,
+        "source_path": "assets/characters/roshan_25d/roshan_base.png"
+      },
+      {
+        "path": "references/D1-C12/handoff_art/characters/daddy_daddy_master.png",
+        "role": "approved_daddy_identity_authority",
+        "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+        "appearance_authority": true,
+        "source_path": "assets_src/daddy_master.png"
+      },
+      {
+        "path": "references/D1-C12/handoff_art/characters/rumi_rumi_full_body_identity.png",
+        "role": "approved_rumi_identity_authority",
+        "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+        "appearance_authority": true,
+        "source_path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png"
+      },
+      {
+        "path": "references/D1-C12/handoff_art/characters/baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+        "role": "approved_baby_eagle_standing_identity_authority",
+        "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+        "appearance_authority": true,
+        "source_path": "docs/grok_animation_series_project/characters/baby_eagle/BABY_EAGLE_STANDING_IDENTITY.png"
+      },
+      {
+        "path": "references/D1-C12/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+        "role": "approved_playroom_bunny_identity_authority",
+        "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+        "appearance_authority": true,
+        "source_path": "docs/grok_animation_series_project/characters/playroom_dust_bunny/PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+      },
+      {
+        "path": "references/D1-C12/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+        "role": "approved_grand_puff_identity_authority",
+        "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+        "appearance_authority": true,
+        "source_path": "docs/grok_animation_series_project/characters/boss_dust_bunny/BOSS_DUST_BUNNY_IDENTITY.png"
+      },
+      {
+        "path": "references/D1-C12/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+        "role": "approved_swimming_bunny_identity_authority",
+        "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+        "appearance_authority": true,
+        "source_path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png"
+      },
+      {
+        "path": "references/D1-C12/handoff_art/objects/main_hall_screen_b_room_led_master.png",
+        "role": "approved_object_or_topology_authority",
+        "sha256": "c333bdbd3243b2cfcd61e9475e7e5449d7165d03ff8413f860535d5ccb811454",
+        "appearance_authority": true,
+        "source_path": "assets/flats/castle/main_hall_2screen/main_hall_screen_b_room_led_master.png"
+      }
+    ]
+  }
+}

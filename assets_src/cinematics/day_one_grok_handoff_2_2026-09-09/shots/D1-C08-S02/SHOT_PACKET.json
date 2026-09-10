@@ -1,0 +1,81 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C08-S02",
+  "movie_id": "D1-C08",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "stuffie",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/D1-C07/handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "references/D1-C07/handoff_art/characters/baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png",
+      "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "subject_identity",
+      "path": "references/D1-C07/handoff_art/characters/playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending"
+    }
+  ],
+  "depends_on": [
+    "D1-C07-S06"
+  ],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.00–2.00 inherit the C08-S01 left-pin pre-contact frame. 2.00–4.50 Roshan clears only eagle_pin_left with a readable causal hand action. 4.50–6.00 hold one cleared left pin, one remaining right pin, one Eagle, and two total pin bunnies.",
+  "must_not_move": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+  "end_state": "4.50–6.00 hold one cleared left pin, one remaining right pin, one Eagle, and two total pin bunnies.",
+  "state_contract": "dirty before rescue; left pin then right pin clear only through gameplay; clean/departure after both; no swing or wing hunt",
+  "prompt_sha256": "5b9fcda5956add98509a6965f301fa1250ac5180e4668709f72358399c2b0bcf",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending",
+    "accepted predecessor endpoint missing"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-13"
+  ],
+  "exact_cast": [
+    "Roshan",
+    "Baby Eagle",
+    "left pin bunny",
+    "right pin bunny"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C07-S01",
+  "movie_id": "D1-C07",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "stuffie",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "references/D1-C07/handoff_art/objects/room_playroom_item_stuffie_nook.png",
+      "sha256": "7ed4dafff1e3dac12264d4a1c617095bf43d2f36fd8066476aa78725fe3ded67",
+      "human_review": "inherited authority; exact binding review pending"
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.0-1.0: establish the approved dirty castle playroom. 1.0-4.0: a small dust wisp drifts across the floor. 4.0-6.0: settle on the unchanged room.",
+  "must_not_move": "lavender masonry, shell-trimmed upper gallery, aqua arched windows, gold columns, pink stone floor; no modern bedroom, square night window, white house door or carpet mountain",
+  "end_state": "same dirty castle playroom, no character entry and no cleanup",
+  "state_contract": "dirty before rescue; left pin then right pin clear only through gameplay; clean/departure after both; no swing or wing hunt",
+  "prompt_sha256": "66104e139e69fd163f2712da17092a45203c0a16ddffe013a24b0aff1f542f82",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-01"
+  ],
+  "exact_cast": []
+}

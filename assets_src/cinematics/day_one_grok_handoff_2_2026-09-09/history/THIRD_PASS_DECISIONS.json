@@ -1,0 +1,2525 @@
+{
+  "schema": "day-one-all-shot-decision-matrix-v1",
+  "shot_count": 74,
+  "shots": [
+    {
+      "shot_id": "D1-C00-S01",
+      "movie_id": "D1-C00",
+      "title": "Opening Flight — Roshan and Daddy — D1-C00-S01",
+      "current_preferred_file": "C00_S01_v1_plane_clouds.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C00_S01_v1_plane_clouds.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Stable exact pearl plane glides through open pastel clouds; no castle or extra aircraft; restrained drift and clean endpoint."
+        }
+      ],
+      "source_packet": "d1_c00_opening_flight_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C00_*.txt",
+      "reason": "Exact plane/cloud setup and restrained drift.",
+      "recommended_timeline": [
+        "0.0-1.5 establish stable pearl plane",
+        "1.5-5.0 gentle parallel cloud drift",
+        "5.0-6.04 clearer sky, no lagoon yet"
+      ]
+    },
+    {
+      "shot_id": "D1-C00-S02",
+      "movie_id": "D1-C00",
+      "title": "Opening Flight — Roshan and Daddy — D1-C00-S02",
+      "current_preferred_file": "C00_S02_v1_cabin.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C00_S02_v1_cabin.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Fixed cabin two-shot with exact Roshan/Daddy identities, one continuous tail each, curiosity toward window and warm Daddy reaction."
+        }
+      ],
+      "source_packet": "d1_c00_opening_flight_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C00_*.txt",
+      "reason": "Correct locked cabin two-shot and window curiosity.",
+      "recommended_timeline": [
+        "0.0-2.0 fixed cabin with Roshan curious",
+        "2.0-4.8 Daddy watches warmly",
+        "4.8-6.04 Roshan notices outside"
+      ]
+    },
+    {
+      "shot_id": "D1-C00-S03",
+      "movie_id": "D1-C00",
+      "title": "Opening Flight — Roshan and Daddy — D1-C00-S03",
+      "current_preferred_file": "C00_S03_v1_roshan_wonder.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C00_S03_v1_roshan_wonder.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Correct Roshan discovery close; hand lifts to circular window, eye-line and subtle push-in are readable, anatomy remains coherent."
+        }
+      ],
+      "source_packet": "d1_c00_opening_flight_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C00_*.txt",
+      "reason": "Correct discovery close and eye-line.",
+      "recommended_timeline": [
+        "0.0-1.5 gaze through window",
+        "1.5-4.8 lift hand and brighten",
+        "4.8-6.04 subtle push-in on wonder"
+      ]
+    },
+    {
+      "shot_id": "D1-C00-S04",
+      "movie_id": "D1-C00",
+      "title": "Opening Flight — Roshan and Daddy — D1-C00-S04",
+      "current_preferred_file": "C00_S04_v1_handhold.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C00_S04_v1_handhold.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Daddy takes Roshan hand with readable contact; fixed cabin, correct faces/clothes/tails, ends joined and smiling toward window."
+        }
+      ],
+      "source_packet": "d1_c00_opening_flight_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C00_*.txt",
+      "reason": "Physical hand contact reads cleanly.",
+      "recommended_timeline": [
+        "0.0-2.0 Daddy reaches",
+        "2.0-4.8 hands join",
+        "4.8-6.04 smiling joined-hands hold"
+      ]
+    },
+    {
+      "shot_id": "D1-C00-S05",
+      "movie_id": "D1-C00",
+      "title": "Opening Flight — Roshan and Daddy — D1-C00-S05",
+      "current_preferred_file": "C00_S05_v1_lagoon_reveal.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C00_S05_v1_lagoon_reveal.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Behind/above plane reveal establishes lagoon route and four-tower castle without geography jump; restrained pullback."
+        }
+      ],
+      "source_packet": "d1_c00_opening_flight_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C00_*.txt",
+      "reason": "Correct geography reveal and route.",
+      "recommended_timeline": [
+        "0.0-1.5 behind-plane start",
+        "1.5-5.0 slow reveal of lagoon/castle",
+        "5.0-6.04 readable dock route hold"
+      ]
+    },
+    {
+      "shot_id": "D1-C00-S06",
+      "movie_id": "D1-C00",
+      "title": "Opening Flight — Roshan and Daddy — D1-C00-S06",
+      "current_preferred_file": "C00_S06_v1_landing_prep.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C00_S06_v1_landing_prep.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Forward cabin view carries castle through correct window; handhold releases and both brace calmly for descent; clean C01 handoff."
+        }
+      ],
+      "source_packet": "d1_c00_opening_flight_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C00_*.txt",
+      "reason": "Correct forward cabin descent preparation.",
+      "recommended_timeline": [
+        "0.0-2.0 release handhold",
+        "2.0-4.8 orient forward",
+        "4.8-6.04 calm landing brace"
+      ]
+    },
+    {
+      "shot_id": "D1-C01-S01",
+      "movie_id": "D1-C01",
+      "title": "Lagoon Landing and Castle Approach — D1-C01-S01",
+      "current_preferred_file": "C01_S01_v1_dock.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C01_S01_v1_dock.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Plane settles beside dock with small contact ripples; route/castle geography stays fixed and plane ends stationary."
+        }
+      ],
+      "source_packet": "d1_c01_lagoon_landing_castle_approach_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C01_*.txt",
+      "reason": "Plane settles and route remains stable.",
+      "recommended_timeline": [
+        "0.0-2.0 plane settles",
+        "2.0-4.8 contact ripples",
+        "4.8-6.04 stationary plane/route hold"
+      ]
+    },
+    {
+      "shot_id": "D1-C01-S02",
+      "movie_id": "D1-C01",
+      "title": "Daddy offers his hand on the dock",
+      "current_preferred_file": "C01_S02_v1_dock_handoffer_REGEN.mp4",
+      "preferred_lane": "committed_regen_audit",
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C01_S02_v1_dock_handoffer_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–144",
+          "finding": "Daddy is already outside and offering at frame 0; the required plane exit, turn, and Roshan-from-doorway handoff never occur."
+        }
+      ],
+      "source_packet": "d1_c01_lagoon_landing_castle_approach_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C01_*.txt",
+      "reason": "SET3 starts after Daddy has already exited; no valid exit/turn/offer sequence.",
+      "recommended_timeline": [
+        "daddy exits the stationary pearl plane, turns, and offers one open hand",
+        "roshan places her hand in his while both tails and costumes remain coherent",
+        "they settle at child-safe distance with correct hand contact"
+      ]
+    },
+    {
+      "shot_id": "D1-C01-S03",
+      "movie_id": "D1-C01",
+      "title": "Lagoon Landing and Castle Approach — D1-C01-S03",
+      "current_preferred_file": "C01_S03_v1_handinhand_castle_REGEN.mp4",
+      "preferred_lane": "committed_regen_audit",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C01_S03_v1_handinhand_castle_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "ACCEPT_MOTION_REFERENCE",
+          "weak_frames": "none blocking",
+          "finding": "The branch replacement now preserves the rope-railed dock/path start, rear-view paired travel, stable scale, four-tower castle approach, and closed-door stop."
+        }
+      ],
+      "source_packet": "d1_c01_lagoon_landing_castle_approach_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C01_*.txt",
+      "reason": "Correct dock-to-castle hand-in-hand approach.",
+      "recommended_timeline": [
+        "0.0-1.0 dock start",
+        "1.0-4.8 hand-in-hand route",
+        "4.8-6.04 stop before closed doors"
+      ]
+    },
+    {
+      "shot_id": "D1-C01-S04",
+      "movie_id": "D1-C01",
+      "title": "Lagoon Landing and Castle Approach — D1-C01-S04",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C01_S04_v1_castle_doors.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f036-f144 (1.500-6.042s)",
+          "finding": "This file opens the castle doors and moves Roshan through the threshold; C01-S04 must remain a closed-door arrival. It is usable only as a C02-S01 door-open candidate."
+        }
+      ],
+      "source_packet": "d1_c01_lagoon_landing_castle_approach_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C01_*.txt",
+      "reason": "Original file is a door-open event; no valid closed-door arrival take.",
+      "recommended_timeline": [
+        "0.0-1.5 approach closed doors",
+        "1.5-4.8 gentle push-in",
+        "4.8-6.04 Roshan at handle, doors closed"
+      ]
+    },
+    {
+      "shot_id": "D1-C02-S01",
+      "movie_id": "D1-C02",
+      "title": "First Dirty Castle Discovery — D1-C02-S01",
+      "current_preferred_file": "C02_S01_v1_door_open.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C02_S01_v1_door_open.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Correct inheritance of closed-door endpoint: Roshan opens inward while Daddy stays beside/behind and camera remains outside threshold."
+        }
+      ],
+      "source_packet": "d1_c02_first_dirty_castle_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C02_*.txt",
+      "reason": "Correct inward door opening without crossing camera.",
+      "recommended_timeline": [
+        "0.0-1.2 closed endpoint",
+        "1.2-4.8 Roshan opens inward",
+        "4.8-6.04 narrow dirty-hall reveal"
+      ]
+    },
+    {
+      "shot_id": "D1-C02-S02",
+      "movie_id": "D1-C02",
+      "title": "First Dirty Castle Discovery — D1-C02-S02",
+      "current_preferred_file": "C02_S02_v1_dirty_hall.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C02_S02_v1_dirty_hall.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Coherent dirty Main Hall reverse view, safe dingy grade, both characters react with concern and no horror/text/extra characters."
+        }
+      ],
+      "source_packet": "d1_c02_first_dirty_castle_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C02_*.txt",
+      "reason": "Coherent concerned dirty-hall reaction.",
+      "recommended_timeline": [
+        "0.0-2.0 threshold pause",
+        "2.0-4.8 concern/lean",
+        "4.8-6.04 reassuring two-shot hold"
+      ]
+    },
+    {
+      "shot_id": "D1-C02-S03",
+      "movie_id": "D1-C02",
+      "title": "Close dirty-hall evidence inspection",
+      "current_preferred_file": "C02_S03_v1_dirty_hall_evidence_REGEN.mp4",
+      "preferred_lane": "committed_regen_audit",
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C02_S03_v1_dirty_hall_evidence_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–144",
+          "finding": "The broad hall tableau replaces the required low evidence close-up, invents multiple bunny bodies and readable EVIDENCE labels, and lets full-body Daddy/Roshan movement compete with the evidence."
+        }
+      ],
+      "source_packet": "d1_c02_first_dirty_castle_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C02_*.txt",
+      "reason": "SET3 broad hall, duplicate figures and text labels violate close evidence inspection.",
+      "recommended_timeline": [
+        "the camera begins on the accepted Screen-A dirty-hall composition",
+        "one integrated grime patch, one friendly dust-bunny trace, and one harmless scrap become readable",
+        "roshan points once without touching or cleaning"
+      ]
+    },
+    {
+      "shot_id": "D1-C02-S04",
+      "movie_id": "D1-C02",
+      "title": "First Dirty Castle Discovery — D1-C02-S04",
+      "current_preferred_file": "C02_S04_v1_bathroom_glow.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C02_S04_v1_bathroom_glow.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Wide hall orientation preserves fixed doors; only Bubble Bathroom route receives aqua-lavender glow and characters follow it."
+        }
+      ],
+      "source_packet": "d1_c02_first_dirty_castle_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C02_*.txt",
+      "reason": "Only Bubble Bathroom route glows.",
+      "recommended_timeline": [
+        "0.0-2.0 wide hall orientation",
+        "2.0-4.8 route glow comes up",
+        "4.8-6.04 Roshan/Daddy gaze route"
+      ]
+    },
+    {
+      "shot_id": "D1-C03-S01",
+      "movie_id": "D1-C03",
+      "title": "Bubble Bathroom — Dirty Entry — D1-C03-S01",
+      "current_preferred_file": "C03_S01_v1_empty_dirty_bath.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C03_S01_v1_empty_dirty_bath.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Single-bathtub dirty layout lock with established sink/tools, entrance, tub water and integrated grime; no duplicate fixture."
+        },
+        {
+          "filename": "C03_S01_v2_empty_dirty_bath.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "",
+          "finding": "Same valid room layout, but v1 has the stronger dirty-state contrast and is the cleaner continuity choice."
+        }
+      ],
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C03_*.txt",
+      "reason": "Best single-bathtub dirty layout lock.",
+      "recommended_timeline": [
+        "0.0-2.0 one tub/sink/tools establish",
+        "2.0-4.8 hold murky water/grime",
+        "4.8-6.04 entrance clear for Roshan"
+      ]
+    },
+    {
+      "shot_id": "D1-C03-S02",
+      "movie_id": "D1-C03",
+      "title": "Roshan crosses the dirty-bathroom threshold",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C03_S02_v1_dirty_bathroom_threshold_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–144 both variants",
+          "finding": "Neither variant establishes the doorway. One starts mid-room and ends seated by the sink; the other begins inside the bathtub and crosses the tub instead of the threshold."
+        },
+        {
+          "filename": "C03_S02_v1_threshold_cross_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–144 both variants",
+          "finding": "Neither variant establishes the doorway. One starts mid-room and ends seated by the sink; the other begins inside the bathtub and crosses the tub instead of the threshold."
+        }
+      ],
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C03_*.txt",
+      "reason": "Both SET3 threshold variants start inside the room/tub; neither establishes crossing.",
+      "recommended_timeline": [
+        "roshan crosses into the single-tub dirty bathroom",
+        "she looks from the murky tub to the dirty sink while moving fully inside",
+        "she settles with the entrance and room orientation still readable"
+      ]
+    },
+    {
+      "shot_id": "D1-C03-S03",
+      "movie_id": "D1-C03",
+      "title": "Swimming bunny in the dirty tub",
+      "current_preferred_file": "C03_bunny_discover.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C03_bunny_discover.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Single coherent approved swimming bunny paddles safely in murky tub while Roshan reacts at edge; identity and room topology hold."
+        },
+        {
+          "filename": "C03_S03_v1_swimming_bunny_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–144",
+          "finding": "The swimmer is coherent, but Roshan is a black silhouette/substitute and the bunny mostly holds instead of paddling visibly."
+        }
+      ],
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C03_*.txt",
+      "reason": "Original bunny discovery is materially better than SET3 silhouette take.",
+      "recommended_timeline": [
+        "0.0-1.0 reveal swimmer",
+        "1.0-4.5 weak safe paddling",
+        "4.5-6.04 Roshan concern at edge"
+      ]
+    },
+    {
+      "shot_id": "D1-C03-S04",
+      "movie_id": "D1-C03",
+      "title": "Pre-contact tool resolve",
+      "current_preferred_file": "C03_S04_v1_tool_reach.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C03_S04_v1_tool_reach.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Best pre-contact take: Roshan looks toward established sink/tools and reaches toward nearest brush without visible scrub/contact."
+        },
+        {
+          "filename": "C03_S04_v1_tools_resolve.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "",
+          "finding": "Valid tool-reach content but wider/traversal-heavy and less cleanly pre-contact than tool_reach."
+        },
+        {
+          "filename": "C03_S04_v2_tools_resolve.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "",
+          "finding": "Duplicate resolve take with weaker framing and less explicit stopped gap than tool_reach."
+        },
+        {
+          "filename": "C03_S04_v1_precontact_tools_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–144 swimmer absent; 060–144 premature contact",
+          "finding": "The required swimmer disappears and Roshan advances into scrub-brush contact rather than stopping at the pre-contact seam."
+        }
+      ],
+      "source_packet": "d1_c03_bathroom_dirty_entry_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C03_*.txt",
+      "reason": "Clear pre-contact reach with approved tool.",
+      "recommended_timeline": [
+        "roshan follows her gaze from the swimmer toward the dirty sink and approved tools",
+        "she reaches toward the nearest approved tool without changing the room state",
+        "her hand stops in a clean visible gap before contact"
+      ]
+    },
+    {
+      "shot_id": "D1-C04-S01",
+      "movie_id": "D1-C04",
+      "title": "Bubble Bathroom — Restored — D1-C04-S01",
+      "current_preferred_file": "C04_S01_v1_final_scrub.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C04_S01_scrub_contact.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Uses a gold star/wand-like prop instead of the approved cleaning brush; discard from production slot."
+        },
+        {
+          "filename": "C04_S01_v1_final_scrub.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Approved brush physically contacts final grime and releases it; Roshan anatomy and one-tub geometry remain coherent."
+        },
+        {
+          "filename": "C04_S01_v2_scrub.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Star-shaped magic prop repeats the wrong tool/event; use v1 brush take."
+        }
+      ],
+      "source_packet": "d1_c04_bathroom_restored_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C04_*.txt",
+      "reason": "Brush contact causes grime release; star-prop variants omitted.",
+      "recommended_timeline": [
+        "0.0-2.0 brush contacts last grime",
+        "2.0-4.8 grime releases",
+        "4.8-6.04 hold dirty room, not yet clean"
+      ]
+    },
+    {
+      "shot_id": "D1-C04-S02",
+      "movie_id": "D1-C04",
+      "title": "Bubble Bathroom — Restored — D1-C04-S02",
+      "current_preferred_file": "C04_S02_water_clears.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C04_S02_water_clears.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Post-scrub local clarity spreads through tub and bunny paddling becomes stronger; coherent swimmer and fixed room."
+        }
+      ],
+      "source_packet": "d1_c04_bathroom_restored_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C04_*.txt",
+      "reason": "Local water clarity and stronger paddles follow scrub cause.",
+      "recommended_timeline": [
+        "0.0-1.5 dirty tub after scrub",
+        "1.5-4.8 clarity spreads",
+        "4.8-6.04 bunny upright/relieved"
+      ]
+    },
+    {
+      "shot_id": "D1-C04-S03",
+      "movie_id": "D1-C04",
+      "title": "Bubble Bathroom — Restored — D1-C04-S03",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C04_S03_bunny_exits.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Bunny exits toward dry floor but develops ambiguous stubby leg/land anatomy; source requires the same legless swimming creature safely clearing the tub."
+        }
+      ],
+      "source_packet": "d1_c04_bathroom_restored_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C04_*.txt",
+      "reason": "Existing exit take introduces ambiguous land legs.",
+      "recommended_timeline": [
+        "0.0-1.2 swimmer reaches edge",
+        "1.2-4.8 same legless body clears tub",
+        "4.8-6.04 safe dry-surface bounce"
+      ]
+    },
+    {
+      "shot_id": "D1-C04-S04",
+      "movie_id": "D1-C04",
+      "title": "Bubble Bathroom — Restored — D1-C04-S04",
+      "current_preferred_file": "C04_S04_v1_clean_endpoint.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C04_S04_v1_clean_endpoint.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Clean one-tub endpoint with Roshan and recovered bunny present, bright pearl/aqua/lavender grade, stable route handoff."
+        },
+        {
+          "filename": "C04_S04_v2_clean_endpoint.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "",
+          "finding": "Valid duplicate clean endpoint; v1 has the preferable continuity composition."
+        },
+        {
+          "filename": "C04_clean_bathroom.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Clean plate has no Roshan or recovered swimmer, so it cannot satisfy the relationship endpoint."
+        }
+      ],
+      "source_packet": "d1_c04_bathroom_restored_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C04_*.txt",
+      "reason": "Clean bathroom endpoint with both Roshan and swimmer.",
+      "recommended_timeline": [
+        "0.0-2.0 clean tub/characters establish",
+        "2.0-4.8 gentle pullback",
+        "4.8-6.04 gaze toward Pool route"
+      ]
+    },
+    {
+      "shot_id": "D1-C05-S01",
+      "movie_id": "D1-C05",
+      "title": "Sparkle Pool — Dirty Discovery — D1-C05-S01",
+      "current_preferred_file": "C05_S01_v1_pool_entry.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C05_S01_v1_dirty_pool_door.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "",
+          "finding": "Valid dirty pool geography, but Roshan is already deep in the room; pool_entry provides the stronger doorway inheritance."
+        },
+        {
+          "filename": "C05_S01_v1_pool_entry.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Best doorway take: giant dirty pool, fixed left waterfall/right seahorse, Roshan pauses at threshold and enters with readable room scale."
+        },
+        {
+          "filename": "C05_S01_v2_dirty_pool_door.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "",
+          "finding": "Redundant dirty-door orientation; less clear threshold action than pool_entry."
+        }
+      ],
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_*.txt",
+      "reason": "Best giant-pool threshold geography.",
+      "recommended_timeline": [
+        "0.0-1.5 doorway pause",
+        "1.5-4.8 push into giant pool",
+        "4.8-6.04 both dirty sources readable"
+      ]
+    },
+    {
+      "shot_id": "D1-C05-S02",
+      "movie_id": "D1-C05",
+      "title": "Sparkle Pool — Dirty Discovery — D1-C05-S02",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C05_S02_v2_waterline.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Waterline/trash composition omits both required bunnies, so media separation and pool-scale evidence are absent."
+        },
+        {
+          "filename": "C05_S02_waterline_trash.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Shows trash and murky water but no approved swimming bunny plus separate dry-coping land bunny; required causal geography is missing."
+        }
+      ],
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_*.txt",
+      "reason": "Both originals omit required swimming and land bunnies.",
+      "recommended_timeline": [
+        "0.0-1.2 low waterline",
+        "1.2-4.8 swimming bunny in water, land bunny dry corner",
+        "4.8-6.04 trash depth/scale hold"
+      ]
+    },
+    {
+      "shot_id": "D1-C05-S03",
+      "movie_id": "D1-C05",
+      "title": "Sparkle Pool — Dirty Discovery — D1-C05-S03",
+      "current_preferred_file": "C05_S03_v1_skimmer.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C05_S03_v1_skimmer.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Roshan's skimmer physically catches wet debris/algae with correct water contact and no completed room cleanup."
+        },
+        {
+          "filename": "C05_S03_v2_skimmer.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "",
+          "finding": "Valid duplicate skimmer action; v1 has cleaner tool/debris read."
+        }
+      ],
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_*.txt",
+      "reason": "Physical skimmer catches wet debris without cleanup completion.",
+      "recommended_timeline": [
+        "0.0-1.5 skimmer enters water",
+        "1.5-4.8 algae/trash weight into mesh",
+        "4.8-6.04 debris-filled skimmer hold"
+      ]
+    },
+    {
+      "shot_id": "D1-C05-S04",
+      "movie_id": "D1-C05",
+      "title": "Blocked rainbow-source close-up",
+      "current_preferred_file": "C05_S04_v2_waterfall.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C05_S04_clogged_waterfall.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "",
+          "finding": "Same wide-to-close blocked-source move as v2, but v2 has the cleaner close endpoint."
+        },
+        {
+          "filename": "C05_S04_v2_waterfall.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_WITH_TRIM",
+          "weak_frames": "f000-f071 (0.000-2.958s)",
+          "finding": "Opening is too wide and includes Roshan/seahorse before reaching the required close blocked source; from f072 (3.000s) the opaque olive sludge/leaf obstruction is clear and stable."
+        },
+        {
+          "filename": "C05_S04_v1_blocked_rainbow_source_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–144",
+          "finding": "A clean empty pool becomes a bright rainbow doorway. The exact top waterfall source, dull blockage, olive-brown sludge, leaf, and wrapper are absent."
+        }
+      ],
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_*.txt",
+      "reason": "Close blocked-source tail is usable after wide setup.",
+      "recommended_timeline": [
+        "Trim f000-f071 / 0.000-2.958s",
+        "Keep f072-f144 / 3.000-6.042s close opaque sludge source",
+        "Future take should start close and hold dull obstruction"
+      ]
+    },
+    {
+      "shot_id": "D1-C05-S05",
+      "movie_id": "D1-C05",
+      "title": "Sick seahorse with mouth plug",
+      "current_preferred_file": "C05_S05_v1_seahorse_plug.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C05_S05_sick_seahorse.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "",
+          "finding": "Correct sick seahorse/plug content but weaker opening and less stable close framing than v1."
+        },
+        {
+          "filename": "C05_S05_v1_seahorse_plug.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_WITH_TRIM",
+          "weak_frames": "f000-f095 (0.000-3.958s)",
+          "finding": "First four seconds are a medium-wide approach; from f096 (4.000s) the pink wrapper/weed plug, sick long-snouted seahorse and Roshan concern are clearly readable."
+        },
+        {
+          "filename": "C05_S05_v2_seahorse.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "",
+          "finding": "Valid plug identity but weaker expression/composition than v1's retained close tail."
+        },
+        {
+          "filename": "C05_S05_v1_sick_seahorse_plug_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–144",
+          "finding": "The branch replacement clarifies the pink wrapper-and-weed plug, but the pool remains clean, Roshan is full-body from frame 0, and the wide two-shot never becomes the required dirty-state close-up."
+        }
+      ],
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_*.txt",
+      "reason": "Plug identity and dirty seahorse are strong in the final close tail.",
+      "recommended_timeline": [
+        "Trim f000-f095 / 0.000-3.958s approach",
+        "Keep f096-f144 / 4.000-6.042s plug close",
+        "Future take starts locked close with Roshan edge concern"
+      ]
+    },
+    {
+      "shot_id": "D1-C05-S06",
+      "movie_id": "D1-C05",
+      "title": "Sparkle Pool — Dirty Discovery — D1-C05-S06",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C05_S06_problem_map.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Problem map lacks both bunnies and does not clearly preserve both dirty source fixtures; cannot establish the full pool problem geography."
+        }
+      ],
+      "source_packet": "d1_c05_pool_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C05_*.txt",
+      "reason": "No full problem map with both bunnies and both causes.",
+      "recommended_timeline": [
+        "0.0-1.5 Roshan between sources",
+        "1.5-4.8 waterfall/seahorse/bunnies all readable",
+        "4.8-6.04 resolve hold, no cleanup"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S01",
+      "movie_id": "D1-C06",
+      "title": "Sparkle Pool — Purification, Rumi and Hug — D1-C06-S01",
+      "current_preferred_file": "C06_S01_v1_pull_plug.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C06_S01_pull_pink_plug.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "",
+          "finding": "Valid physical plug pull, but v1 has the clearest contact and open-nozzle endpoint."
+        },
+        {
+          "filename": "C06_S01_v1_pull_plug.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Roshan visibly pulls the soggy pink plug free; end holds plug in hand with nozzle open and no premature water."
+        },
+        {
+          "filename": "C06_S01_v2_pull_plug.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "",
+          "finding": "Valid duplicate pull action with weaker final hand/nozzle separation than v1."
+        }
+      ],
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_*.txt",
+      "reason": "Clear physical pull and open-nozzle endpoint.",
+      "recommended_timeline": [
+        "0.0-1.5 grip plug",
+        "1.5-4.8 pull free",
+        "4.8-6.04 plug in hand/nozzle open"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S02",
+      "movie_id": "D1-C06",
+      "title": "Sparkle Pool — Purification, Rumi and Hug — D1-C06-S02",
+      "current_preferred_file": "C06_S02_seahorse_flow.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C06_S02_seahorse_flow.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "",
+          "finding": "Open nozzle produces first narrow clean aqua stream while Roshan holds removed trash; no rainbow or instant whole-room cleanup."
+        }
+      ],
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_*.txt",
+      "reason": "First clean seahorse stream follows plug removal.",
+      "recommended_timeline": [
+        "0.0-1.5 open nozzle",
+        "1.5-4.8 narrow clean stream strengthens",
+        "4.8-6.04 stable stream, room still dirty"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S03",
+      "movie_id": "D1-C06",
+      "title": "Rainbow waterfall restarts top-down",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C06_S03_rainbow_waterfall.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Starts as a wide bright-rainbow pool view rather than a close top-source restart; does not show top-down sludge-clearing action."
+        },
+        {
+          "filename": "C06_S03_v1_rainbow_restart.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Rainbow flow is already established and the shot includes broad pool/characters; causal top-source ignition and downward clearing are absent."
+        },
+        {
+          "filename": "C06_S03_v2_rainbow.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Duplicate bright-flow take; no readable blocked-source-to-lower-lip clearing wave."
+        },
+        {
+          "filename": "C06_S03_v1_rainbow_waterfall_restart_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–047 missing blocked start",
+          "finding": "The branch replacement improves downward debris travel, but begins with the rainbow waterfall already clean and flowing; the blocked cause and ignition beat are absent."
+        }
+      ],
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_*.txt",
+      "reason": "All originals begin with bright flow and lack top-down sludge clearing; SET3 also fails this causal beat.",
+      "recommended_timeline": [
+        "0.0-1.2 close blocked top source",
+        "1.2-4.8 ignition travels downward pushing sludge",
+        "4.8-6.04 clear flow reaches lower lip"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S04",
+      "movie_id": "D1-C06",
+      "title": "Sparkle Pool — Purification, Rumi and Hug — D1-C06-S04",
+      "current_preferred_file": "C06_S04_v1_both_sources_pool_REGEN.mp4",
+      "preferred_lane": "committed_regen_audit",
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C06_S04_purification_meet.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Water is already bright and the central rainbow dominates; two distinct fronts traveling from fixed left/right sources and meeting once are not causally readable."
+        },
+        {
+          "filename": "C06_S04_v1_both_sources_pool_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "ACCEPT_MOTION_REFERENCE",
+          "weak_frames": "none blocking",
+          "finding": "The branch replacement cleanly holds both fixed sources feeding the same giant pool with stable shared geometry."
+        }
+      ],
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_*.txt",
+      "reason": "Original purification meet lacks two distinct fronts; strict SET3 C06-S04 also fails the required close-to-wide camera move.",
+      "recommended_timeline": [
+        "0.0-1.2 close rainbow source",
+        "1.2-4.8 pull back to both fixed sources/shared pool",
+        "4.8-6.04 establish giant pool"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S05",
+      "movie_id": "D1-C06",
+      "title": "Two purification fronts meet",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C06_S05_v1_purification_fronts_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–144",
+          "finding": "The branch replacement begins with fully clean water and a decorative rainbow band; it never shows two clear-water fronts displacing murk from the fixed sources."
+        }
+      ],
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_*.txt",
+      "reason": "No original or SET3 take makes two source fronts meet through murky water.",
+      "recommended_timeline": [
+        "two distinct clear fronts spread from the fixed left and right sources",
+        "each front displaces algae through the same water volume",
+        "the fronts meet once near center in one bright ripple"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S06",
+      "movie_id": "D1-C06",
+      "title": "Violet emergence prelude",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C06_S06_v1_violet_prelude_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–144; portal opens 072–144",
+          "finding": "The branch replacement washes the entire pool pink/violet from frame 0, then opens a large circular portal or hole instead of raising one contained underwater glow."
+        }
+      ],
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_*.txt",
+      "reason": "SET3 violet prelude is globally neon/portal-like rather than localized glow; no acceptable original exists.",
+      "recommended_timeline": [
+        "0.0-1.2 clean aqua post-meet pool",
+        "1.2-4.5 contained violet glow rises",
+        "4.5-6.04 clean water/glow hold, no person"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S07",
+      "movie_id": "D1-C06",
+      "title": "Sparkle Pool — Purification, Rumi and Hug — D1-C06-S07",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C06_S05_v1_rumi_rises.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Mislabelled as S05 and begins with Rumi already surfaced; lacks a clear graceful emergence through localized violet glow."
+        },
+        {
+          "filename": "C06_S05_v2_rumi_rises.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Mislabelled S07-content duplicate; Rumi is already above water at the opening and no clean rise from depth is established."
+        },
+        {
+          "filename": "C06_S07_v1_rumi_rise.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Shows Rumi swimming laterally, not emerging from the center glow; wrong event for S07."
+        }
+      ],
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_*.txt",
+      "reason": "Original Rumi files are either already surfaced or swimming laterally; no clear emergence through glow.",
+      "recommended_timeline": [
+        "0.0-1.2 center violet glow",
+        "1.2-4.8 Rumi rises gracefully from depth",
+        "4.8-6.04 full adult identity/scale hold"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S08",
+      "movie_id": "D1-C06",
+      "title": "Sparkle Pool — Purification, Rumi and Hug — D1-C06-S08",
+      "current_preferred_file": "C06_S08_v1_rumi_invitation_REGEN.mp4",
+      "preferred_lane": "committed_regen_audit",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C06_S08_v1_rumi_invitation_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "ACCEPT_MOTION_REFERENCE",
+          "weak_frames": "none blocking",
+          "finding": "The branch replacement now gives Rumi a clear thanks-to-open-arms gesture while Roshan remains visibly separate through frame 144."
+        }
+      ],
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_*.txt",
+      "reason": "Correct separate relationship two-shot and invitation endpoint.",
+      "recommended_timeline": [
+        "0.0-2.2 Rumi speaks/hand-heart",
+        "2.2-4.8 opens both arms",
+        "4.8-6.04 separate bodies hold"
+      ]
+    },
+    {
+      "shot_id": "D1-C06-S09",
+      "movie_id": "D1-C06",
+      "title": "Roshan completes the hug",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C06_rumi_roshan_hug.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Starts in completed hug, eliminating separate-body approach/contact beat; tails/torsos overlap at opening."
+        },
+        {
+          "filename": "C06_rumi_swim.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000-f144 (0.000-6.042s)",
+          "finding": "Rumi swims alone and contains no Roshan approach or hug; wrong event for S09."
+        },
+        {
+          "filename": "C06_S09_v1_hug_complete_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–144",
+          "finding": "The branch replacement starts already inside the embrace and holds it throughout, eliminating the required separate-body approach and single readable contact beat."
+        }
+      ],
+      "source_packet": "d1_c06_pool_purification_rumi_hug_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C06_*.txt",
+      "reason": "Original hug starts already completed and swimming file is wrong event; SET3 hug also begins fused/complete.",
+      "recommended_timeline": [
+        "roshan moves from the accepted invitation endpoint into Rumi's arms",
+        "their arms make one coherent affectionate contact while faces remain visible",
+        "they settle with distinct torsos and two separate tails"
+      ]
+    },
+    {
+      "shot_id": "D1-C07-S01",
+      "movie_id": "D1-C07",
+      "title": "Stuffie Room — Dirty Discovery and Two-Pin Reveal — D1-C07-S01",
+      "current_preferred_file": "C07_S01_v2_empty_dirty_stuffie.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C07_S01_v1_empty_dirty_stuffie.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Static dirty-room floor crop is readable but omits the complete establishing room; v2 is the stronger locked geography/continuity hold."
+        },
+        {
+          "filename": "C07_S01_v2_empty_dirty_stuffie.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "none",
+          "finding": "Complete dirty Stuffie Room establish, stable composition and no invented cast/action; suitable as the opening hold."
+        }
+      ],
+      "source_packet": "d1_c07_stuffie_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C07_*.txt",
+      "reason": "Complete stable dirty-room establish; v1 is a ground crop.",
+      "recommended_timeline": [
+        "0.00–2.00 hold the complete dirty Stuffie Room with no cast.",
+        "2.00–4.50 maintain the locked room and clutter; no new prop or character.",
+        "4.50–6.00 hold the same clean endpoint for Roshan’s entry seam."
+      ]
+    },
+    {
+      "shot_id": "D1-C07-S02",
+      "movie_id": "D1-C07",
+      "title": "Stuffie Room — Dirty Discovery and Two-Pin Reveal — D1-C07-S02",
+      "current_preferred_file": "C07_S02_v2_roshan_enters.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C07_S02_v1_roshan_enters.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Valid Roshan entry but weaker framing/continuity than v2; use only as alternate motion reference."
+        },
+        {
+          "filename": "C07_S02_v2_roshan_enters.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "none",
+          "finding": "Readable Roshan entry into the dirty Stuffie Room with stable room geography and clean endpoint; no extra event."
+        }
+      ],
+      "source_packet": "d1_c07_stuffie_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C07_*.txt",
+      "reason": "Readable Roshan entry and stable dirty-room endpoint; v1 is weaker.",
+      "recommended_timeline": [
+        "0.00–2.00 Roshan enters the dirty Stuffie Room from the approved entry side.",
+        "2.00–4.50 glide only enough to reveal Roshan’s look toward the covered Eagle.",
+        "4.50–6.00 stop on the dirty-room endpoint; omit swing/wing inventions."
+      ]
+    },
+    {
+      "shot_id": "D1-C07-S04",
+      "movie_id": "D1-C07",
+      "title": "Stuffie Room — Dirty Discovery and Two-Pin Reveal — D1-C07-S04",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "OMIT_WRONG_EVENT",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C07_S04_v1_swing_bunny.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Invented swinging bunny suspended on a rope; current room has Baby Eagle held by exactly two pin bunnies and no swing."
+        },
+        {
+          "filename": "C07_S04_v2_swing_bunny.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Invented swing/bunny beat; no corresponding runtime event and wrong rescue setup."
+        },
+        {
+          "filename": "C07_S04_v1_swinging_bunny_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "OMIT_SUPERSEDED_EVENT",
+          "weak_frames": "000–144; detachment 108–144",
+          "finding": "No swinging-bunny event exists in gameplay, and the rendered bunny loses its support before landing on the floor."
+        }
+      ],
+      "source_packet": "d1_c07_stuffie_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C07_*.txt",
+      "reason": "Swinging bunny is not implemented.",
+      "recommended_timeline": [
+        "0.00–6.00 do not generate this beat.",
+        "Remove the swing entirely from the assembled sequence.",
+        "Cut from the dirty-room entry directly to the two-pin Eagle reveal."
+      ]
+    },
+    {
+      "shot_id": "D1-C07-S05",
+      "movie_id": "D1-C07",
+      "title": "Stuffie Room — Dirty Discovery and Two-Pin Reveal — D1-C07-S05",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "OMIT_WRONG_EVENT",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C07_S05_wing_trail.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Invented giant partial Eagle wing/trail reveal; current event does not use a wing-trail beat and must go directly to two-pin Eagle reveal."
+        },
+        {
+          "filename": "C07_S05_v1_partial_wing_trail_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "OMIT_SUPERSEDED_EVENT",
+          "weak_frames": "000–144; full reveal 048–144",
+          "finding": "Gameplay presents one visible Baby Eagle held by two pin bunnies; it does not hide the bird behind a partial-wing trail."
+        }
+      ],
+      "source_packet": "d1_c07_stuffie_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C07_*.txt",
+      "reason": "Partial wing/trail reveal is not implemented.",
+      "recommended_timeline": [
+        "0.00–6.00 do not generate a wing-trail beat.",
+        "Keep Baby Eagle hidden until the two-pin reveal.",
+        "Hand off directly to C07-S06 with exactly two pin bunnies."
+      ]
+    },
+    {
+      "shot_id": "D1-C07-S06",
+      "movie_id": "D1-C07",
+      "title": "One Baby Eagle held by exactly two rescue pins",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C07_S06_v1_eagle_discover.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Roshan discovers/holds a free Baby Eagle amid pillows, with no visible eagle_pin_left and eagle_pin_right; wrong cast/state for the two-pin event."
+        },
+        {
+          "filename": "C07_S06_v1_eagle_pinned.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "One Baby Eagle is visible, but the two distinct rescue-pin bunnies are absent/unclear and the bird is not visibly held by both pins."
+        },
+        {
+          "filename": "C07_S06_v2_eagle_pinned.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Alternate still omits the exact two pin-bunny identities and readable two-pin contact; not a valid runtime endpoint."
+        },
+        {
+          "filename": "C07_S06_v1_pinned_baby_eagle_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–144",
+          "finding": "One Eagle is present, but neither of the two required rescue-pin bunnies is visible and the bird becomes free/upright before player action."
+        }
+      ],
+      "source_packet": "d1_c07_stuffie_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C07_*.txt",
+      "reason": "All originals omit the exact two visible rescue-pin bunnies and valid held Eagle state.",
+      "recommended_timeline": [
+        "0.00–2.00 hold Roshan discovering one Baby Eagle held by exactly eagle_pin_left and eagle_pin_right.",
+        "2.00–4.50 Roshan leans/raises toward the two pins; both bunnies remain visible and distinct.",
+        "4.50–6.00 stop with one Eagle, two pin bunnies, stable contact, and no release before player action."
+      ]
+    },
+    {
+      "shot_id": "D1-C08-S01",
+      "movie_id": "D1-C08",
+      "title": "Roshan approaches the two-pin rescue",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C08_S01_basket_wobble.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Basket wobble is not implemented; C08 begins with Roshan approaching the two-pin rescue, not a basket."
+        },
+        {
+          "filename": "C08_S01_v2_basket_wobble.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Basket wobble/extra basket continuity is invented; current runtime has no basket prop or wobble beat."
+        }
+      ],
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_*.txt",
+      "reason": "Basket wobble originals are wrong; current shot is approach to the two-pin rescue.",
+      "recommended_timeline": [
+        "0.00–2.00 enter on the accepted C07 two-pin endpoint in the same Stuffie Room.",
+        "2.00–4.50 Roshan approaches the left rescue pin; keep one Eagle and exactly two bunnies.",
+        "4.50–6.00 stop pre-contact with the left pin visible and no basket."
+      ]
+    },
+    {
+      "shot_id": "D1-C08-S02",
+      "movie_id": "D1-C08",
+      "title": "Roshan clears the left rescue pin",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C08_S02_left_basket_ears.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Basket ears become a full bunny; current event is a left rescue-pin action with exactly two pin bunnies, no basket."
+        },
+        {
+          "filename": "C08_S02_v1_left_basket_ears_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REPLACE_WITH_GAME_EVENT",
+          "weak_frames": "000–144",
+          "finding": "Basket warnings do not occur in gameplay; the bunny body is already outside the basket."
+        }
+      ],
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_*.txt",
+      "reason": "Left basket ears/full bunny are wrong; clear the left pin.",
+      "recommended_timeline": [
+        "0.00–2.00 inherit the C08-S01 left-pin pre-contact frame.",
+        "2.00–4.50 Roshan clears only eagle_pin_left with a readable causal hand action.",
+        "4.50–6.00 hold one cleared left pin, one remaining right pin, one Eagle, and two total pin bunnies."
+      ]
+    },
+    {
+      "shot_id": "D1-C08-S03",
+      "movie_id": "D1-C08",
+      "title": "Roshan reframes the remaining right pin",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C08_S03_right_basket_ears.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Opposite basket/ears reveal is invented and exposes a full bunny; no matching runtime object or event."
+        },
+        {
+          "filename": "C08_S03_v1_right_basket_ears_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REPLACE_WITH_GAME_EVENT",
+          "weak_frames": "000–144",
+          "finding": "The opposite-basket warning is also invented and exposes a full bunny rather than an ears-only cue."
+        }
+      ],
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_*.txt",
+      "reason": "Right basket ears/full bunny/four-bunny variants are wrong; reframe to the remaining right pin.",
+      "recommended_timeline": [
+        "0.00–2.00 inherit the one-left-pin endpoint with the right pin still visible.",
+        "2.00–4.50 reframe minimally and show Roshan reaching toward eagle_pin_right.",
+        "4.50–6.00 stop pre-contact; no basket or additional bunny."
+      ]
+    },
+    {
+      "shot_id": "D1-C08-S04",
+      "movie_id": "D1-C08",
+      "title": "Roshan clears the right pin and completes the room",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C08_S04_four_bunnies.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Four-bunny emergence violates the exact two rescue-pin count; current completion is clearing the right pin, not spawning four bunnies."
+        },
+        {
+          "filename": "C08_S04_v2_four_bunnies.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Multiple bunny cast grows beyond the two authored pin identities; wrong event and endpoint."
+        },
+        {
+          "filename": "C08_S04_v1_four_bunnies_emerge_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REPLACE_WITH_GAME_EVENT",
+          "weak_frames": "000–144; count failure 048–144",
+          "finding": "The game has two rescue pins, not four emerging basket bunnies; the rendered count also grows ambiguous beyond four."
+        }
+      ],
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_*.txt",
+      "reason": "Four-bunny and wing-blast originals replace the second pin clear; current completion is the right pin.",
+      "recommended_timeline": [
+        "0.00–2.00 inherit the right-pin pre-contact endpoint.",
+        "2.00–4.50 Roshan clears only eagle_pin_right; preserve one Eagle and exactly two pin bunnies.",
+        "4.50–6.00 hold the clean post-rescue room with no wing blast or new cast."
+      ]
+    },
+    {
+      "shot_id": "D1-C08-S05",
+      "movie_id": "D1-C08",
+      "title": "Baby Eagle thanks Roshan and departs",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C08_S05_eagle_wing_prep.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Eagle wing-prep/pose is not a runtime beat; current sequence proceeds from two-pin cleanup to Eagle thanks/departure."
+        },
+        {
+          "filename": "C08_S05_v1_wing_prep.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Wing-prep invention and free-standing Eagle do not represent the two-pin rescue state."
+        },
+        {
+          "filename": "C08_S05_v2_wing_prep.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Wing-prep variant has no causal pin-clearing action and no valid two-pin endpoint."
+        }
+      ],
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_*.txt",
+      "reason": "Wing-prep/wing-blast/extra-bunny endpoints are not the current departure shot.",
+      "recommended_timeline": [
+        "0.00–2.00 inherit the clean post-rescue endpoint with one Baby Eagle.",
+        "2.00–4.50 Eagle gives a small thanks/look toward Roshan; no blast or extra bunnies.",
+        "4.50–6.00 Eagle rises/departs cleanly while room topology stays fixed."
+      ]
+    },
+    {
+      "shot_id": "D1-C08-S06",
+      "movie_id": "D1-C08",
+      "title": "Stuffie Room — Two-Pin Rescue and Baby Eagle Departure — D1-C08-S06",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "OMIT_WRONG_EVENT",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C08_S06_v1_wing_blast.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Eagle wing-blast cleanup is invented; gameplay completes when Roshan clears the second pin, not by a blast."
+        },
+        {
+          "filename": "C08_S06_v2_wing_blast.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Wing-blast/energy wipe is not in current runtime and changes the causal cleanup event."
+        },
+        {
+          "filename": "C08_S06_v1_wing_blast_clean_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REPLACE_WITH_GAME_EVENT",
+          "weak_frames": "000–144",
+          "finding": "Baby Eagle never performs a wing-blast cleanup. Gameplay completes when Roshan clears the second pin."
+        }
+      ],
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_*.txt",
+      "reason": "Original ID is the obsolete wing-blast beat; it is replaced by revised right-pin clear.",
+      "recommended_timeline": [
+        "0.00–6.00 omit the obsolete wing-blast shot.",
+        "Use revised C08-S04 for the right-pin completion action.",
+        "Do not animate wing-driven cleaning."
+      ]
+    },
+    {
+      "shot_id": "D1-C08-S07",
+      "movie_id": "D1-C08",
+      "title": "Stuffie Room — Two-Pin Rescue and Baby Eagle Departure — D1-C08-S07",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "OMIT_WRONG_EVENT",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C08_S07_v1_clean_endpoint.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Endpoint shows the wrong nursery-style composition/extra bunnies rather than one Baby Eagle departing after the second pin."
+        },
+        {
+          "filename": "C08_S07_v2_clean_endpoint.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "One-Eagle/four-bunny-style endpoint is not a valid current game state; omit and regenerate the departure beat."
+        },
+        {
+          "filename": "C08_S07_v1_clean_endpoint_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REPLACE_WITH_GAME_EVENT",
+          "weak_frames": "000–144; side-wall drift 048–144",
+          "finding": "The one-Eagle/four-bunny endpoint is not a game state and the room projection drifts into invented side-wall geometry."
+        }
+      ],
+      "source_packet": "d1_c08_stuffie_restoration_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C08_*.txt",
+      "reason": "Original clean endpoint is replaced by the revised one-Eagle departure shot.",
+      "recommended_timeline": [
+        "0.00–2.00 inherit the clean post-rescue room.",
+        "2.00–4.50 show Baby Eagle thanking Roshan without extra bunnies.",
+        "4.50–6.00 depart upward/out; end on the cleaned room."
+      ]
+    },
+    {
+      "shot_id": "D1-C09-S01",
+      "movie_id": "D1-C09",
+      "title": "Art Room — Spilled Supplies Discovery — D1-C09-S01",
+      "current_preferred_file": "C09_S01_v1_loose_supplies_OFFICIAL.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C09_S01_v1_empty_dirty_art_PROVISIONAL.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Dark alternate room with no readable four loose-material discovery; official bright Art Room establish is a better current-room reference."
+        },
+        {
+          "filename": "C09_S01_v1_loose_supplies_OFFICIAL.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "none",
+          "finding": "Complete bright Art Room front establish with the loose supplies legible on the side stations; stable and coherent."
+        },
+        {
+          "filename": "C09_S01_v2_empty_dirty_art_PROVISIONAL.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Dark empty-room provisional frame is weaker than the complete official front projection and does not establish the loose supplies."
+        }
+      ],
+      "source_packet": "d1_c09_art_room_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C09_*.txt",
+      "reason": "Official bright front establish clearly beats both dark provisional empties.",
+      "recommended_timeline": [
+        "0.00–2.00 hold complete dirty Art Room front with the four loose material groups readable.",
+        "2.00–4.50 keep both windows, rack-left/board-center, two counters and desk fixed.",
+        "4.50–6.00 hold the spill-discovery endpoint for Roshan’s scan."
+      ]
+    },
+    {
+      "shot_id": "D1-C09-S02",
+      "movie_id": "D1-C09",
+      "title": "Art Room — Spilled Supplies Discovery — D1-C09-S02",
+      "current_preferred_file": "C09_S02_v1_roshan_scan_OFFICIAL.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C09_S02_v1_roshan_enters_art.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Roshan entry is in an alternate dark studio topology; official scan preserves the current bright Art Room geography."
+        },
+        {
+          "filename": "C09_S02_v1_roshan_scan_OFFICIAL.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "none",
+          "finding": "Roshan’s scan/approach is readable in the bright Art Room front projection and remains a coherent entry-to-look endpoint."
+        },
+        {
+          "filename": "C09_S02_v2_roshan_enters_art.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Bright-room alternate is less purposeful/static than the official scan; prefer the official continuity and endpoint."
+        }
+      ],
+      "source_packet": "d1_c09_art_room_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C09_*.txt",
+      "reason": "Official scan is the clearest bright-room entry/look beat.",
+      "recommended_timeline": [
+        "0.00–2.00 Roshan enters the exact dirty Art Room front projection.",
+        "2.00–4.50 she scans the four loose material groups without changing fixture topology.",
+        "4.50–6.00 stop on the readable look endpoint."
+      ]
+    },
+    {
+      "shot_id": "D1-C09-S03",
+      "movie_id": "D1-C09",
+      "title": "Art Room — Spilled Supplies Discovery — D1-C09-S03",
+      "current_preferred_file": "C09_S03_four_supplies.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C09_S03_four_supplies.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "none",
+          "finding": "Intentional supplies macro cleanly shows the four material families (brushes, pink, blue, cups) and stable spilled-desk state; suitable rough motion reference."
+        }
+      ],
+      "source_packet": "d1_c09_art_room_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C09_*.txt",
+      "reason": "Stable intentional macro establishes the four material families.",
+      "recommended_timeline": [
+        "0.00–2.00 hold four material families on the stained desk.",
+        "2.00–4.50 permit only a restrained material glint; supplies remain four fixed groups.",
+        "4.50–6.00 hold the spill macro for the transition back to the full room."
+      ]
+    },
+    {
+      "shot_id": "D1-C09-S04",
+      "movie_id": "D1-C09",
+      "title": "Exactly three Art Room grime cards",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C09_S04_three_grime_zones.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Wrong boy identity and alternate dark room; does not show Roshan pointing at the exact three fixed Art Room grime-card targets."
+        },
+        {
+          "filename": "C09_S04_v1_three_grime_OFFICIAL.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Bright room and one left/center/right stain each are close, but they are large paint smears rather than the required small lavender grime cards; strict card identity fails throughout."
+        },
+        {
+          "filename": "C09_S04_v1_three_grime_cards_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "048–144",
+          "finding": "The Art Room front concept is close, but the left/right zones multiply into upright card groups instead of exactly one small lavender grime card at each of three fixed targets."
+        }
+      ],
+      "source_packet": "d1_c09_art_room_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C09_*.txt",
+      "reason": "Original official is close in layout but uses large smears rather than exact small lavender grime cards; alternate has wrong boy/room.",
+      "recommended_timeline": [
+        "0.00–2.00 hold exact dirty Art Room front after all four supplies are collected.",
+        "2.00–4.50 keep exactly one small lavender grime card at left counter, center desk and right counter.",
+        "4.50–6.00 Roshan points once; end with exactly those three cards and no extra targets."
+      ]
+    },
+    {
+      "shot_id": "D1-C09-S05",
+      "movie_id": "D1-C09",
+      "title": "Art Room — Spilled Supplies Discovery — D1-C09-S05",
+      "current_preferred_file": "C09_S05_v1_precontact_brush_REGEN.mp4",
+      "preferred_lane": "committed_regen_audit",
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C09_S05_resolve_brush.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Dark close-up depicts active brush scrubbing in the wrong room/state; current shot requires Art Room front, Roshan raising toward the approved cleaning tool, and a visible hand-to-tool gap."
+        },
+        {
+          "filename": "C09_S05_v1_precontact_brush_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "ACCEPT_MOTION_REFERENCE",
+          "weak_frames": "none blocking",
+          "finding": "The three-zone pre-contact beat, brush separation, and straight-on fixture order remain coherent."
+        }
+      ],
+      "source_packet": "d1_c09_art_room_dirty_discovery_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C09_*.txt",
+      "reason": "Original is wrong room/action; Sept 4 regen also failed the required visible hand-to-tool gap.",
+      "recommended_timeline": [
+        "0.00–2.00 hold exact Art Room front with one brush clearly separate from Roshan’s hand.",
+        "2.00–4.50 Roshan raises toward the approved cleaning brush without touching or gripping it.",
+        "4.50–6.00 stop on a clear visible hand-to-tool gap; no scrub yet."
+      ]
+    },
+    {
+      "shot_id": "D1-C10-S01",
+      "movie_id": "D1-C10",
+      "title": "Art Room — Clean Desk Awakening — D1-C10-S01",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C10_S01_final_scrub.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Close-up purple-room brush contact omits the complete exact clean Art Room front projection required for the outgoing S01/S02 seam."
+        },
+        {
+          "filename": "C10_S01_v1_final_scrub_OFFICIAL.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Official close-up is visually polished but remains a partial alternate-room scrub; no complete current front topology or clean-contact seam."
+        }
+      ],
+      "source_packet": "d1_c10_art_room_restored_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C10_*.txt",
+      "reason": "Both originals are polished close-ups but not the exact clean front projection required at the S01/S02 seam.",
+      "recommended_timeline": [
+        "0.00–2.00 show Roshan’s final grime contact in the exact Art Room front.",
+        "2.00–4.50 finish the last localized clean action; all three grime cards disappear causally.",
+        "4.50–6.00 hold the complete clean front endpoint for supplies-home."
+      ]
+    },
+    {
+      "shot_id": "D1-C10-S02",
+      "movie_id": "D1-C10",
+      "title": "Four supplies already home",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C10_S02_supplies_home.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Purple two-window room and center table replace the authoritative front projection; topology lacks rack-left/board-center/counters and cannot establish the current four supplies-home state."
+        },
+        {
+          "filename": "C10_S02_v1_four_supplies_home_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–144",
+          "finding": "Supplies begin on/near the center desk and materialize at the right during the clip; ribbon and fixture topology also change."
+        }
+      ],
+      "source_packet": "d1_c10_art_room_restored_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C10_*.txt",
+      "reason": "Original purple-room supply shot is wrong topology; Sept 4 regen also materialized supplies.",
+      "recommended_timeline": [
+        "0.00–2.00 start on accepted clean-contact front with blank rectangular desk.",
+        "2.00–4.50 reveal all four supply groups already home exactly once on their stations.",
+        "4.50–6.00 allow only localized sparkle; no materialization or fixture change."
+      ]
+    },
+    {
+      "shot_id": "D1-C10-S03",
+      "movie_id": "D1-C10",
+      "title": "Clean Art Room reveal with readable Roshan",
+      "current_preferred_file": "C10_S03_v1_clean_reveal_OFFICIAL.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_WITH_TRIM",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C10_S03_clean_reveal.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Alternate purple-room clean reveal has a single tabletop and no exact Art Room fixture topology; wrong room plate for the runtime seam."
+        },
+        {
+          "filename": "C10_S03_v1_clean_reveal_OFFICIAL.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_WITH_TRIM",
+          "weak_frames": "f048–f144 (2.000–6.000s)",
+          "finding": "Frames 000–047 provide a strong complete Art Room front and readable clean desk. From f048 the pullback reveals extra side-wall/sconce geometry and changes the projection beyond the restrained shot; trim to f000–f047 for rough reference, but regenerate a full-duration delivery shot."
+        },
+        {
+          "filename": "C10_S03_v1_clean_art_room_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–144",
+          "finding": "The opening crop omits the complete layout, the pullback is far greater than ten percent, and Roshan becomes too small for a child-readable endpoint."
+        }
+      ],
+      "source_packet": "d1_c10_art_room_restored_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C10_*.txt",
+      "reason": "First 48 frames are a strong exact-front clean reveal; later pullback exposes extra side-wall geometry and breaks restrained projection.",
+      "recommended_timeline": [
+        "0.00–2.00 begin on complete exact clean front with all fixtures and readable Roshan.",
+        "2.00–4.50 use at most a ten-percent front-axis pullback while keeping topology fixed.",
+        "4.50–6.00 hold a complete clean layout endpoint; do not reveal side walls or shrink Roshan."
+      ]
+    },
+    {
+      "shot_id": "D1-C10-S04",
+      "movie_id": "D1-C10",
+      "title": "Art Room — Clean Desk Awakening — D1-C10-S04",
+      "current_preferred_file": "C10_S04_v1_desk_wake_OFFICIAL.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C10_S04_v1_desk_wake_OFFICIAL.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": "none",
+          "finding": "Best desk-wake variant: exact front room, ribbon rack left of centered board, two shell windows/pearl columns, rectangular blank desk, localized glow and Roshan watching at frame edge."
+        },
+        {
+          "filename": "C10_S04_v1_desk_wake.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Macro crop omits complete room topology and introduces close-up brush/fish-station framing; official full-front desk wake is superior."
+        },
+        {
+          "filename": "C10_S04_v2_desk_wake.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Close-up variant multiplies/reshuffles brush cups and loses the exact front fixture layout; superseded by official full-front wake."
+        }
+      ],
+      "source_packet": "d1_c10_art_room_restored_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C10_*.txt",
+      "reason": "Only original with exact front topology and localized blank-desk wake action.",
+      "recommended_timeline": [
+        "0.00–2.00 hold clean exact front; Roshan watches at frame edge and desk remains blank.",
+        "2.00–4.50 add restrained localized glow/rings around the existing desk surface only.",
+        "4.50–6.00 end with desk awake but still blank; no screen, furniture, or camera redesign."
+      ]
+    },
+    {
+      "shot_id": "D1-C10-S05",
+      "movie_id": "D1-C10",
+      "title": "Art Room — Clean Desk Awakening — D1-C10-S05",
+      "current_preferred_file": "C10_S05_v1_blank_desk_handgap_REGEN.mp4",
+      "preferred_lane": "committed_regen_audit",
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C10_S05_v1_before_play_OFFICIAL.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Exact front topology is strong, but Roshan’s hand is already on/over the desk surface in the active frames; no unambiguous pre-touch hand-to-desk gap seam exists."
+        },
+        {
+          "filename": "C10_S05_v1_before_play.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Alternate purple two-window room lacks the authoritative Art Room front topology and has no valid hand-gap endpoint."
+        },
+        {
+          "filename": "C10_S05_v2_before_play.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f000–f144 (0.000–6.000s)",
+          "finding": "Alternate purple two-window room/close framing is wrong topology; no exact clean-front pre-touch seam."
+        },
+        {
+          "filename": "C10_S05_v1_blank_desk_handgap_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "ACCEPT_MOTION_REFERENCE",
+          "weak_frames": "none blocking",
+          "finding": "The blank rectangular desk, front fixture order, raised hand, and visible hand gap remain stable."
+        }
+      ],
+      "source_packet": "d1_c10_art_room_restored_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C10_*.txt",
+      "reason": "Official has the right room but no unambiguous pre-touch hand gap; other variants also break topology.",
+      "recommended_timeline": [
+        "0.00–2.00 hold exact clean front with blank desk and Roshan at runtime scale.",
+        "2.00–4.50 Roshan raises one hand toward the desk while maintaining a visibly measurable gap.",
+        "4.50–6.00 lock camera and hold the UI-free gap seam; no contact, UI, or geometry change."
+      ]
+    },
+    {
+      "shot_id": "D1-C11-S01",
+      "movie_id": "D1-C11",
+      "title": "Boss Door and Grand Puff Reveal — D1-C11-S01",
+      "current_preferred_file": "C11_S01_route_lights.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C11_S01_route_lights.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": [],
+          "finding": "Restored Main Hall, Roshan identity and multi-route light convergence remain stable; no extra cast or topology break. This is the clearest clean route-light setup."
+        },
+        {
+          "filename": "C11_S01_v1_routes_converge.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": [],
+          "finding": "Usable Main Hall route convergence, but the blown bright grade and a small ambiguous background figure make the route read less cleanly than C11_S01_route_lights."
+        }
+      ],
+      "source_packet": "d1_c11_grand_puff_reveal_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C11_*.txt",
+      "reason": "Clearest restored-Hall route-light convergence with stable Roshan identity and no cast/topology drift.",
+      "recommended_timeline": [
+        "Hold restored Main Hall and Roshan in the opening frame.",
+        "Animate four restrained pastel routes converging on the boss door; keep camera locked.",
+        "End on the converged light path and Roshan at the threshold for a clean S02 seam."
+      ]
+    },
+    {
+      "shot_id": "D1-C11-S02",
+      "movie_id": "D1-C11",
+      "title": "Boss Door and Grand Puff Reveal — D1-C11-S02",
+      "current_preferred_file": "C11_S02_v1_boss_door_approach_REGEN.mp4",
+      "preferred_lane": "committed_regen_audit",
+      "strict_disposition": "KEEP_WITH_TRIM",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C11_S02_approach_boss_door.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "f000-f144 (0.000-6.000s)",
+          "finding": "Roshan approaches a large central purple-curtain hall door. The approved chain uses the right-side boss-door staging and a restrained approach into the boss threshold; this entire camera/door topology is a different event presentation."
+        },
+        {
+          "filename": "C11_S02_v1_boss_door_approach_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "ACCEPT_MOTION_REFERENCE",
+          "weak_frames": "132–144 trim",
+          "finding": "Main Hall geometry, Roshan, closed door, and approach are coherent through frame 131; frames 132–144 let the hand reach the handle instead of stopping just before it."
+        }
+      ],
+      "source_packet": "d1_c11_grand_puff_reveal_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C11_*.txt",
+      "reason": "Use regenerated boss-door topology; retain f000-f131 (0.000-5.458s), trim the weak late handle reach f132-f144.",
+      "recommended_timeline": [
+        "Start on the approved right-side boss door with Roshan approaching, one readable body and tail.",
+        "Make one measured approach/hand reach; keep the door and camera axis fixed.",
+        "End before the hand/handle deformation and cut directly into S03's opening threshold."
+      ]
+    },
+    {
+      "shot_id": "D1-C11-S03",
+      "movie_id": "D1-C11",
+      "title": "Boss Door and Grand Puff Reveal — D1-C11-S03",
+      "current_preferred_file": "C11_S03_v1_door_open_arena_REGEN.mp4",
+      "preferred_lane": "committed_regen_audit",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C11_S03_door_opens_arena.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "f000-f144 (0.000-6.000s)",
+          "finding": "Central Main Hall door opens onto a bright room; it does not maintain the approved boss-door/arena axis. The open-door event is editorially legible but cannot inherit the regenerated S02 seam."
+        },
+        {
+          "filename": "C11_S03_v1_door_open_arena.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "f000-f144 (0.000-6.000s)",
+          "finding": "Alternate central-door opening with the same wrong hall topology and bright threshold; no stable approved octagonal arena reveal for the next cut."
+        },
+        {
+          "filename": "C11_S03_v1_door_open_arena_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "ACCEPT_MOTION_REFERENCE",
+          "weak_frames": "none blocking",
+          "finding": "The door opens into the octagonal arena, Roshan stays at threshold, and the landing zone remains empty; exact predecessor-frame inheritance is unproven."
+        }
+      ],
+      "source_packet": "d1_c11_grand_puff_reveal_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C11_*.txt",
+      "reason": "Regenerated clip preserves the intended door-to-empty-octagonal-arena reveal and coherent threshold seam.",
+      "recommended_timeline": [
+        "Begin with the exact S02 closed-door endpoint and Roshan at threshold.",
+        "Open the doors once with a restrained reveal; do not change the arena geometry.",
+        "End on the empty octagonal arena with the landing zone visible for S04."
+      ]
+    },
+    {
+      "shot_id": "D1-C11-S04",
+      "movie_id": "D1-C11",
+      "title": "Grand Puff lands in the fixed arena",
+      "current_preferred_file": "C11_S04_v1_grand_puff_lands_REGEN.mp4",
+      "preferred_lane": "committed_regen_audit",
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C11_grand_puff_reveal.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000-f144 (0.000-6.000s); landing f000-f071 (0.000-2.958s)",
+          "finding": "Puff lands/recovering in a bright pearl hall, not the approved octagonal Dusty Attic arena. The flattened landing and room topology cannot seam to C11-S03 or the implemented boss arena."
+        },
+        {
+          "filename": "C11_S04_v1_grand_puff_lands_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "006–071 impact/topology; 066–144 expression",
+          "finding": "A dark crater, oversized cloud, and pancake-flat squash destabilize Grand Puff; the recovered face remains menacing and the vulnerability sparkle does not read."
+        }
+      ],
+      "source_packet": "d1_c11_grand_puff_reveal_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C11_*.txt",
+      "reason": "Regenerated location is right but landing/contact and final Puff state are not yet readable enough; all original grand-reveal material is the wrong pearl-hall event.",
+      "recommended_timeline": [
+        "Start on the empty octagonal arena inherited from S03 with a single Puff entering from above.",
+        "Show one physically legible descent, squash/contact and rebound without flattening or duplicating Puff.",
+        "End on a stable intact boss centered in the arena, before the C12 FRIENDS boundary."
+      ]
+    },
+    {
+      "shot_id": "D1-C12-S01",
+      "movie_id": "D1-C12",
+      "title": "Day One Restored-Castle Celebration — D1-C12-S01",
+      "current_preferred_file": "C12_S01_clean_bath_bunny.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C12_S01_clean_bath_bunny.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": [],
+          "finding": "One purple bunny is consistently identifiable in the clean bath; tub, bathroom topology and water contact stay coherent through the bounce/splash. No duplicate bunny or character substitution."
+        }
+      ],
+      "source_packet": "d1_c12_restored_castle_finale_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_*.txt",
+      "reason": "Single bunny, clean tub and water contact remain stable throughout.",
+      "recommended_timeline": [
+        "Hold the clean bath and one purple bunny in the tub.",
+        "Give the bunny one small playful bounce/splash with anatomy fixed.",
+        "End on the same one-bunny tub composition with no added cast."
+      ]
+    },
+    {
+      "shot_id": "D1-C12-S02",
+      "movie_id": "D1-C12",
+      "title": "Day One Restored-Castle Celebration — D1-C12-S02",
+      "current_preferred_file": "C12_S02_rumi_pool_recap.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C12_S02_rumi_pool_recap.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": [],
+          "finding": "Rumi alone swims through the restored rainbow pool with the fixed waterfall and seahorse fountain visible. Motion and framing are restrained and the pool topology remains continuous."
+        }
+      ],
+      "source_packet": "d1_c12_restored_castle_finale_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_*.txt",
+      "reason": "Rumi's pool recap preserves waterfall/seahorse topology and restrained swim continuity.",
+      "recommended_timeline": [
+        "Open on Rumi alone in the restored rainbow pool.",
+        "Swim one smooth arc while fixed waterfall and seahorse fountain stay fixed.",
+        "Settle Rumi at the clean pool endpoint for the next recap cut."
+      ]
+    },
+    {
+      "shot_id": "D1-C12-S03",
+      "movie_id": "D1-C12",
+      "title": "Day One Restored-Castle Celebration — D1-C12-S03",
+      "current_preferred_file": "C12_S03_stuffie_recap.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C12_S03_stuffie_recap.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": [],
+          "finding": "Clean Stuffie room remains fixed while one Baby Eagle and the established purple bunny group play. Counts are stable for the recap beat; no duplicated Baby Eagle or arena intrusion."
+        }
+      ],
+      "source_packet": "d1_c12_restored_castle_finale_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_*.txt",
+      "reason": "Established Stuffie-room group remains readable with one Baby Eagle and the intended bunny play.",
+      "recommended_timeline": [
+        "Hold the clean playroom and established basket/rug topology.",
+        "Let Baby Eagle and the bunnies make one gentle play beat without multiplying identities.",
+        "End on a calm group tableau with Eagle still distinct from the bunnies."
+      ]
+    },
+    {
+      "shot_id": "D1-C12-S04",
+      "movie_id": "D1-C12",
+      "title": "Day One Restored-Castle Celebration — D1-C12-S04",
+      "current_preferred_file": "C12_S04_art_desk_glow.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C12_S04_art_desk_glow.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": [],
+          "finding": "Clean art desk and paint pots hold a stable composition while the desk glow builds locally. The glow is contained to the tabletop and does not alter room topology."
+        },
+        {
+          "filename": "C12_S04_v1_art_desk.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": [],
+          "finding": "Clean close art-desk alternate is coherent, but its cropped brush-rack composition and weaker localized glow are less useful than the wider C12_S04_art_desk_glow setup."
+        }
+      ],
+      "source_packet": "d1_c12_restored_castle_finale_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_*.txt",
+      "reason": "Wider art-desk setup gives the clearest localized glow and stable prop layout.",
+      "recommended_timeline": [
+        "Open on the clean desk, paint pots and fixed room background.",
+        "Build one soft glow on the tabletop only; keep brushes and camera fixed.",
+        "End on a quiet glowing desk with no character or prop drift."
+      ]
+    },
+    {
+      "shot_id": "D1-C12-S05",
+      "movie_id": "D1-C12",
+      "title": "Day One Restored-Castle Celebration — D1-C12-S05",
+      "current_preferred_file": "C12_S05_v1_post_friendship_vignette_REGEN.mp4",
+      "preferred_lane": "committed_regen_audit",
+      "strict_disposition": "KEEP_WITH_TRIM",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C12_S05_v1_grand_puff_friend.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000-f144 (0.000-6.000s)",
+          "finding": "Large dirty Puff and one ordinary purple bunny appear in the Main Hall. C12-S05 requires the clean post-FRIENDS boss-arena vignette with exactly the approved intact Puff and final two-teeth read; wrong room, cast identity and causal state."
+        },
+        {
+          "filename": "C12_S05_v2_grand_puff_friend.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000-f144 (0.000-6.000s)",
+          "finding": "Same wrong Main Hall event as v1: dirty oversized Puff plus a purple dust bunny, not the clean arena friendship continuation. Variant differences do not repair event identity or topology."
+        },
+        {
+          "filename": "C12_S05_v1_post_friendship_vignette_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "ACCEPT_MOTION_REFERENCE",
+          "weak_frames": "optional 108–144 trim",
+          "finding": "Arena topology and the one-Puff/one-rainbow-bunny count are coherent; the ending closes Grand Puff's mouth and does not prove exact C13 inheritance."
+        }
+      ],
+      "source_packet": "d1_c12_restored_castle_finale_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_*.txt",
+      "reason": "The regenerated arena coda is the only correct C12 event; use f018-f107 (0.750-4.458s), then replace the weak opening/terminal identity frames in final generation.",
+      "recommended_timeline": [
+        "Begin immediately after the implemented FRIENDS transition with one intact, harmless Puff in the octagonal arena.",
+        "Give Puff a small friendly settle/recognition beat; no second bunny and no Main Hall cutaway.",
+        "End on the approved clean Puff with exactly two teeth, held long enough to bridge into C13 cleanup."
+      ]
+    },
+    {
+      "shot_id": "D1-C12-S06",
+      "movie_id": "D1-C12",
+      "title": "Day One Restored-Castle Celebration — D1-C12-S06",
+      "current_preferred_file": "C12_family_reunion_hug.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_HIGH_QUALITY",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C12_family_reunion_hug.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_HIGH_QUALITY",
+          "weak_frames": [],
+          "finding": "Restored Main Hall family reunion: Roshan and Daddy are distinct, centered, and hold a readable hug. No stray cast, effect spill, or camera seam is visible across the sampled action."
+        }
+      ],
+      "source_packet": "d1_c12_restored_castle_finale_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C12_*.txt",
+      "reason": "Roshan/Daddy reunion is stable and identity-readable in the restored Main Hall.",
+      "recommended_timeline": [
+        "Open on Roshan and Daddy separated by a small readable gap.",
+        "Bring them into one gentle hug without tail/arm merging.",
+        "Hold the complete embrace on the restored-Hall axis for the edit seam."
+      ]
+    },
+    {
+      "shot_id": "D1-C13-S01",
+      "movie_id": "D1-C13",
+      "title": "Grand Puff Friendship Completion — D1-C13-S01",
+      "current_preferred_file": "C13_S01_v1_roshan_cleanup.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_WITH_TRIM",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C13_S01_v1_roshan_cleanup.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_WITH_TRIM",
+          "weak_frames": "f120-f144 (5.000-6.000s)",
+          "finding": "Best original C13 action reference: Roshan is correctly left of one intact Puff in the octagonal arena and visibly scrubs residual dust. The final hold loses the residual-dust/contact read and should be trimmed before the next action; no extra cast or topology drift."
+        },
+        {
+          "filename": "C13_S01_v2_roshan_cleanup.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "f096-f144 (4.000-6.000s)",
+          "finding": "Correct Roshan/Puff arena setup and cleaning idea, but the late bubbles/face hold are less explicit and less stable than v1; it does not end on a clear handoff-ready clean Puff."
+        },
+        {
+          "filename": "C13_S01_v1_roshan_cleaning_pass_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "ACCEPT_MOTION_REFERENCE",
+          "weak_frames": "minor causal gap 000–031",
+          "finding": "Roshan's brush pass and identities are useful, though the initial residual dust is faint."
+        }
+      ],
+      "source_packet": "d1_c13_grand_puff_friendship_completion_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C13_*.txt",
+      "reason": "Original v1 has the clearest residual-dust brushing action; trim f120-f144 and regenerate only the clean endpoint/neighbor frames as needed.",
+      "recommended_timeline": [
+        "Start from the approved clean-intact Puff after C12, with a small visible residual dust patch and Roshan left.",
+        "Roshan makes one readable brush pass over the patch; preserve one Puff and fixed arena rails.",
+        "End before the weak late hold, on a stable partially-clean state handing to Daddy's sweep."
+      ]
+    },
+    {
+      "shot_id": "D1-C13-S02",
+      "movie_id": "D1-C13",
+      "title": "Grand Puff Friendship Completion — D1-C13-S02",
+      "current_preferred_file": "C13_S02_v2_daddy_sweep.mp4",
+      "preferred_lane": "original_branch",
+      "strict_disposition": "KEEP_WITH_TRIM",
+      "active_generator_card": false,
+      "candidate_files": [
+        {
+          "filename": "C13_S02_v1_daddy_sweep.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "f096-f144 (4.000-6.000s)",
+          "finding": "Daddy, one Puff and the arena are correct, but the broad rainbow tail/sweep dominates the lower half and the late dust state is not a controlled lower-curl collection. v2 has the clearer sweep-to-Puff causal motion."
+        },
+        {
+          "filename": "C13_S02_v2_daddy_sweep.mp4",
+          "lane": "original_branch",
+          "file_verdict": "KEEP_WITH_TRIM",
+          "weak_frames": "f120-f144 (5.000-6.000s)",
+          "finding": "Preferred original Daddy sweep: Daddy remains on the left, one Puff remains centered, and the colorful sweep visibly crosses the Puff. Late frames settle into a less controlled enlarged Puff/robe hold; trim there and regenerate the final dust-in-lower-curls endpoint."
+        },
+        {
+          "filename": "C13_S02_v1_daddy_broad_sweep_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "ACCEPT_MOTION_REFERENCE",
+          "weak_frames": "minor causal gap 000–031 both",
+          "finding": "Both lack a strongly dirty opening shell; v2 has the cleaner composition and sustained Daddy sweep."
+        },
+        {
+          "filename": "C13_S02_v2_daddy_broad_sweep_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "ACCEPT_MOTION_REFERENCE",
+          "weak_frames": "minor causal gap 000–031 both",
+          "finding": "Both lack a strongly dirty opening shell; v2 has the cleaner composition and sustained Daddy sweep."
+        }
+      ],
+      "source_packet": "d1_c13_grand_puff_friendship_completion_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C13_*.txt",
+      "reason": "Original v2 is the strongest causal sweep reference; trim f120-f144 and regenerate a contained dust-to-lower-curls endpoint.",
+      "recommended_timeline": [
+        "Start with Daddy left, one Puff centered, and Roshan's residual dust still visible in the lower curls.",
+        "Daddy makes one controlled sweep that gathers dust downward, with no rainbow cape covering Puff's face.",
+        "End on dust visibly collected in the lower curls, Puff intact and arena rails unchanged."
+      ]
+    },
+    {
+      "shot_id": "D1-C13-S03",
+      "movie_id": "D1-C13",
+      "title": "Baby Eagle's safe wing lift",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C13_S03_v1_eagle_lift.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f024-f095 (1.000-3.958s); no lift read f096-f144 (4.000-6.000s)",
+          "finding": "One Baby Eagle is present, but an unexplained beige ring/bowl grows around Puff and obscures the supposed wing-lift action. Eagle returns to a static hold; no clean single wingbeat or contained dust lift is established."
+        },
+        {
+          "filename": "C13_S03_v2_eagle_lift.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f048-f144 (2.000-6.000s); no lift read f000-f144",
+          "finding": "Correct Baby Eagle/Puff count and arena, but the ring effect still replaces the causal wingbeat and the Eagle never visibly lifts or redirects dust. The frame story is a static pose plus unrelated bowl formation."
+        },
+        {
+          "filename": "C13_S03_v1_baby_eagle_wing_blast_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "v1 048–144; v2 000–144",
+          "finding": "V1's cloud hides/collapses Grand Puff into a bowl; v2 preserves identity but supplies almost no visible dust lift."
+        },
+        {
+          "filename": "C13_S03_v2_baby_eagle_wing_blast_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "v1 048–144; v2 000–144",
+          "finding": "V1's cloud hides/collapses Grand Puff into a bowl; v2 preserves identity but supplies almost no visible dust lift."
+        }
+      ],
+      "source_packet": "d1_c13_grand_puff_friendship_completion_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C13_*.txt",
+      "reason": "Both originals and regenerated variants replace the wingbeat with a ring/bowl or a static hold; no acceptable current clip establishes the causal single-Eagle lift.",
+      "recommended_timeline": [
+        "Start with one Baby Eagle at the arena left and the same single Puff centered, dust localized below Puff.",
+        "Show exactly one readable wingbeat that lifts/blows the remaining dust upward and away; no ring, bowl or cloud hiding either identity.",
+        "End with Eagle grounded again and Puff's silhouette/arena fully restored for C13-S04."
+      ]
+    },
+    {
+      "shot_id": "D1-C13-S04",
+      "movie_id": "D1-C13",
+      "title": "Grand Puff Friendship Completion — D1-C13-S04",
+      "current_preferred_file": "C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+      "preferred_lane": "committed_regen_audit",
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C13_S04_v1_rumi_rinse.mp4",
+          "lane": "original_branch",
+          "file_verdict": "REMAKE",
+          "weak_frames": "f024-f095 (1.000-3.958s) broad water; f096-f144 (4.000-6.000s) missing cradle endpoint",
+          "finding": "Rumi identity and one Puff/arena topology are correct, and the rinse has a readable start-to-clean action, but water ribbons are too broad and the required small prismatic cradle never appears at the clean end. Regenerate as a localized rinse with cradle held separately."
+        },
+        {
+          "filename": "C13_S04_v2_rumi_rinse.mp4",
+          "lane": "original_branch",
+          "file_verdict": "SUPERSEDED_BY_BETTER_VARIANT",
+          "weak_frames": "f024-f095 (1.000-3.958s) broad water; f108-f144 (4.500-6.000s) weak endpoint",
+          "finding": "Rumi/Puff count is correct, but v2's larger water band and late washed-out hold make the contained rinse and clean-cradle handoff less legible than v1."
+        },
+        {
+          "filename": "C13_S04_v1_rumi_contained_rinse_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "ACCEPT_MOTION_REFERENCE",
+          "weak_frames": "v1 minor 032–144; v2 blocking 108–144",
+          "finding": "V1 provides the usable rinse despite a broad ribbon; v2 makes Grand Puff collapse/disappear into pearls."
+        },
+        {
+          "filename": "C13_S04_v2_rumi_contained_rinse_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "ACCEPT_MOTION_REFERENCE",
+          "weak_frames": "v1 minor 032–144; v2 blocking 108–144",
+          "finding": "V1 provides the usable rinse despite a broad ribbon; v2 makes Grand Puff collapse/disappear into pearls."
+        }
+      ],
+      "source_packet": "d1_c13_grand_puff_friendship_completion_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C13_*.txt",
+      "reason": "Rinse motion is readable but water is too broad and neither original nor regenerated version supplies the required small prismatic cradle endpoint.",
+      "recommended_timeline": [
+        "Start with Rumi right, one Puff centered and only a small dirty patch remaining.",
+        "Rumi directs one localized rinse around Puff's lower edge; keep water inside the arena and off the camera.",
+        "End on a clean smiling Puff beside a small separate prismatic cradle, with water gone and a held seam into S05."
+      ]
+    },
+    {
+      "shot_id": "D1-C13-S05",
+      "movie_id": "D1-C13",
+      "title": "Separate rainbow dust bunny emerges",
+      "current_preferred_file": null,
+      "preferred_lane": null,
+      "strict_disposition": "REMAKE",
+      "active_generator_card": true,
+      "candidate_files": [
+        {
+          "filename": "C13_S05_v1_rainbow_friend.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000-f144 (0.000-6.000s)",
+          "finding": "Full cast (Roshan, Daddy, Rumi and Baby Eagle) surrounds Puff while a huge rainbow creature/effect emerges. C13-S05 requires exactly one bunny emerging from a tiny floor cradle after the FRIENDS boundary; extra cast, oversized effect and no cradle violate count, topology and causality."
+        },
+        {
+          "filename": "C13_S05_v2_rainbow_friend.mp4",
+          "lane": "original_branch",
+          "file_verdict": "OMIT_WRONG_EVENT",
+          "weak_frames": "f000-f144 (0.000-6.000s)",
+          "finding": "Same wrong full-cast rainbow reveal as v1; oversized glow dominates the arena and the bunny is not a single small cradle emergence. The apparent extra identities cannot be retained in the post-gameplay coda."
+        },
+        {
+          "filename": "C13_S05_v1_rainbow_bunny_emerges_REGEN.mp4",
+          "lane": "committed_regen_audit",
+          "file_verdict": "REGENERATE",
+          "weak_frames": "000–047 cradle; 048–071 occlusion; identity 000–144",
+          "finding": "The floor cradle becomes a tall canopy/chair, multicolor smoke obscures emergence, and the bunny remains an unapproved identity stand-in."
+        }
+      ],
+      "source_packet": "d1_c13_grand_puff_friendship_completion_visual_v1",
+      "source_card": "design/grok_day_one_video_handoffs_2026-08-30/D1-C13_*.txt",
+      "reason": "All current variants add full cast and an oversized rainbow creature/effect; the required post-FRIENDS coda is exactly one bunny emerging from a tiny cradle.",
+      "recommended_timeline": [
+        "Start after the clean-Puff/Rumi endpoint with only Puff and the tiny prismatic floor cradle visible; keep Roshan, Daddy, Rumi and Eagle off-screen.",
+        "Let exactly one rainbow dust bunny rise once from the cradle, with a small contained glow and no full-cast reveal.",
+        "End on Puff beside the single bunny and cradle, both intact and calm, with no reconstituted boss or extra effects."
+      ]
+    }
+  ]
+}

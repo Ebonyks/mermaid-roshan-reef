@@ -1,0 +1,67 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C06-S04",
+  "movie_id": "D1-C06",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "pool",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "references/D1-C06/handoff_art/objects/mermaid_pool_waterfall_rest.png",
+      "sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/D1-C06/handoff_art/objects/mermaid_pool_seahorse_fountain_rest.png",
+      "sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending"
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.0-1.0: start on an approved wide setup with both fixed sources already flowing. 1.0-4.5: the two flows continue into the same pool. 4.5-6.0: settle with all fixture footprints unchanged.",
+  "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+  "end_state": "both sources visibly feed the same pool from their unchanged locations",
+  "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete",
+  "prompt_sha256": "b8b47c8d1bdf36b56d7234056063d1183ac2b39ea4e413ae5e3eb16dc766cdb5",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-02",
+    "GH2-03"
+  ],
+  "exact_cast": []
+}

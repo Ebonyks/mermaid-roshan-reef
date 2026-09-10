@@ -4,6 +4,10 @@
 **Scope:** D1-C00 through D1-C12 (13 movies, 70 shot jobs)<br>
 **Status:** bridge specification; no footage or endpoint is accepted by this document
 
+The no-footage inventory below is historical to September 2. The
+[September 9 footage audit](../audit/GROK_HANDOFF_2_FOOTAGE_AUDIT_2026-09-09.md)
+now inventories committed footage; endpoint and promotion rules remain current.
+
 This document closes the continuity gap between a generated Grok clip and the
 next Grok shot. A prior clip is sent to Grok for motion/editorial analysis:
 timing, action cause, camera behavior, screen side, scale, contact, geography,
@@ -13,7 +17,7 @@ authority.
 The machine-readable record is
 `design/templates/GROK_CONTINUITY_ANALYSIS_V1.json`.
 
-## Current repository finding
+## Repository finding at the 2026-09-02 snapshot
 
 The 13 current visual packets under
 `assets_src/cinematics/d1_c00_opening_flight_visual_v1/` through

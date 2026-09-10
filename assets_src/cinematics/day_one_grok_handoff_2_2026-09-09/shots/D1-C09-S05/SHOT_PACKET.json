@@ -1,0 +1,72 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C09-S05",
+  "movie_id": "D1-C09",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "art",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/D1-C09/handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "inherited source authority; exact shot binding review pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "references/D1-C09/handoff_art/location/ART_ROOM_FIXTURE_IDENTITY_SHEET.png",
+      "sha256": "ccf85cf97fea81b4d3a496b8e48c57ff574b43aa4978953d8a78b9b4ea7a70f3",
+      "human_review": "inherited source authority; exact shot binding review pending"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "subject_identity",
+      "path": "references/D1-C09/handoff_art/objects/FOUR_LOOSE_SUPPLY_IDENTITY_SHEET.png",
+      "sha256": "73ee8445e861da1c12753c1f8c941aea1fc083af5c09e864f72eb1cac8b1ccf8",
+      "human_review": "inherited source authority; exact shot binding review pending"
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.00–2.00 hold exact Art Room front with one brush clearly separate from Roshan’s hand. 2.00–4.50 Roshan raises toward the approved cleaning brush without touching or gripping it. 4.50–6.00 stop on a clear visible hand-to-tool gap; no scrub yet.",
+  "must_not_move": "same bright lavender-brick front projection, flanking columns, shelves and desk positions; no purple underwater-room insert or new side wall",
+  "end_state": "4.50–6.00 stop on a clear visible hand-to-tool gap; no scrub yet.",
+  "state_contract": "collect then clean then blank desk wake; no teleporting supplies or pre-earned finished artwork",
+  "prompt_sha256": "897f7974a17af287868ebb579ca1711b3ed830912f9a6c5a84aa176c3c51d7a1",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-07"
+  ]
+}

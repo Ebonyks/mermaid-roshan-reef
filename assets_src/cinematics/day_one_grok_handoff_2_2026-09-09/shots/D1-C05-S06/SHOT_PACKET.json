@@ -1,0 +1,70 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C05-S06",
+  "movie_id": "D1-C05",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "pool",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/D1-C05/handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "inherited source authority; exact shot binding review pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/D1-C05/handoff_art/objects/seahorse_sick.png",
+      "sha256": "3af5ff973576d328dde98282f5ad9a5a04931e35f3a48e366de6ad1499b304a0",
+      "human_review": "inherited source authority; exact shot binding review pending"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "object_or_material_identity",
+      "path": "references/D1-C05/handoff_art/seahorse_sick.png",
+      "sha256": "88aa2ce07e79144b13d8e699341404e7b15e79baed861169c9c17e196ddba941",
+      "human_review": "inherited source authority; exact shot binding review pending"
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.0-1.5 Roshan between sources 1.5-4.8 waterfall/seahorse/bunnies all readable 4.8-6.00 resolve hold, no cleanup",
+  "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+  "end_state": "4.8-6.00 resolve hold, no cleanup",
+  "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete",
+  "prompt_sha256": "433f69eeceefb6f8de30b4b06859f10750a9be5898b1a0cd7995893d8990fcbd",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": []
+}

@@ -1,0 +1,74 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C05-S02",
+  "movie_id": "D1-C05",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "pool",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/D1-C05/handoff_art/characters/swimming_bunny_dust_bunny_swimming.png",
+      "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/D1-C05/handoff_art/objects/pool_algae_trash.png",
+      "sha256": "e0ed3c7174dcfeff17eb8261ee46d8e1d2a7c69e93a650f5495db4b6505c7ed9",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "subject_identity",
+      "path": "references/D1-C05/handoff_art/characters/pool_land_bunny_curl_ears.png",
+      "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+      "human_review": "exact runtime source and ASSET_LICENSES hash verified; shot-opening review pending"
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "0.0-1.2 low waterline 1.2-4.8 swimming bunny in water, land bunny dry corner 4.8-6.00 trash depth/scale hold",
+  "must_not_move": "one continuous giant pool; one waterfall and one seahorse on fixed approved footprints; same coping, arches and shell seat in all setups; no invented local basin",
+  "end_state": "4.8-6.00 trash depth/scale hold",
+  "state_contract": "surface then waterfall then seahorse gameplay order; no clean-room jump or Rumi before all causes complete",
+  "prompt_sha256": "39492caeec42b4a9f59c8ebe21af13ac9cf9eefadf3071409d159a3b0e2f3083",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [],
+  "exact_cast": [
+    "swimming bunny",
+    "one curl-ear land bunny on dry shore"
+  ]
+}

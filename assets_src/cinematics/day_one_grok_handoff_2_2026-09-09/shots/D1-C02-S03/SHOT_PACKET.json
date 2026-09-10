@@ -1,0 +1,65 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C02-S03",
+  "movie_id": "D1-C02",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "hall",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/D1-C02/handoff_art/characters/roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "inherited source authority; exact shot binding review pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "references/D1-C02/handoff_art/characters/daddy_daddy_master.png",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "human_review": "inherited source authority; exact shot binding review pending"
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "the camera begins on the accepted Screen-A dirty-hall composition one integrated grime patch, one friendly dust-bunny trace, and one harmless scrap become readable roshan points once without touching or cleaning",
+  "must_not_move": "approved screen A or B only, never merged; exact portal order and floor-open doorways; no evidence placards",
+  "end_state": "roshan points once without touching or cleaning",
+  "state_contract": "dirty discovery only; only bathroom route glows",
+  "prompt_sha256": "04a86cbdf8a2cffd387007108135d2ea8c8c1e3552d9cacdae4707dc4bf7171a",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-05"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "runtime-boundary-capture-provenance-v1",
+  "capture_date": "2026-09-02",
+  "engine": "Godot 4.7.2-stable official ed1daf0bf",
+  "renderer": "Forward Mobile",
+  "capture_profile": "Windows desktop reference capture; target-device and owner visual review pending",
+  "source_script": "scripts/probe_day_one_art_studio_shots.gd",
+  "source_script_sha256": "5fc920e65a93a57a1d22b2486ed22a5b4bc341a7dffbe1a5f2b95b95e73c3c42",
+  "capture_command": "Godot_v4.7.2-stable_win64_console.exe --display-driver windows --rendering-method mobile --windowed --resolution 1280x720 --position 10000,10000 -s scripts/probe_day_one_art_studio_shots.gd",
+  "crop_transform": "whole-frame runtime viewport region crop 1080x608 at x=0,y=620, then whole-canvas Lanczos normalization to 1280x720",
+  "files": [
+    {"path": "00_loose_supplies.png", "sha256": "2c0f11eda244a3913cc23a777d6be21f043b448e706d855af0c6989b1bfe1626", "state": "loose supplies before grime reveal"},
+    {"path": "01_grime_revealed.png", "sha256": "ad7931b71bf879fa09fba1f65401cf8855b8693b3a90b4bd2ac62087fa4b30d8", "state": "post-collection three-grime reveal"}
+  ],
+  "disposition": {"role": "runtime_boundary_reference_only", "hud_present": true, "appearance_authority": false, "bound_reference_eligible": false, "used_as_delivery_pixels": false}
+}

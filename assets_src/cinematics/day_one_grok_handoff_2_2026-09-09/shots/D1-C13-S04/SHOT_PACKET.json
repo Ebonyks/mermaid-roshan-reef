@@ -1,0 +1,70 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C13-S04",
+  "movie_id": "D1-C13",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "arena",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/D1-C13/handoff_art/characters/rumi_rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "human_review": "inherited authority; exact binding review pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "references/D1-C13/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "human_review": "inherited authority; exact binding review pending"
+    }
+  ],
+  "depends_on": [],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "Start with Rumi right, one Puff centered and only a small dirty patch remaining. Rumi directs one localized rinse around Puff's lower edge; keep water inside the arena and off the camera. End on a clean smiling Puff beside a small separate prismatic cradle, with water gone and a held seam into S05.",
+  "must_not_move": "same octagonal arena, rail posts, front door and rear circular purple window; no new shell hall",
+  "end_state": "End on a clean smiling Puff beside a small separate prismatic cradle, with water gone and a held seam into S05.",
+  "state_contract": "cooperative coda remains dependent on its current event authority and owner decisions; no post-vanish resurrection",
+  "prompt_sha256": "078e1a386393264b4063882375b4286269171481bc93d9874a1580f3d25af6cb",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending",
+    "existing C13 owner/event decisions remain unresolved"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-10"
+  ],
+  "exact_cast": [
+    "Rumi",
+    "Grand Puff"
+  ]
+}

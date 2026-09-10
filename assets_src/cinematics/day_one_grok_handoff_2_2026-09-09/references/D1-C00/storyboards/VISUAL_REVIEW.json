@@ -1,0 +1,22 @@
+{
+  "schema": "visual-handoff-review-v1",
+  "movie_id": "D1-C00",
+  "review_authority": "sol_visual_review",
+  "review_date": "2026-09-02",
+  "agent_prescreen": "accepted",
+  "human_decision": "pending",
+  "perspective_gates": {
+    "exactly_six_angles": "accepted",
+    "character_free": "accepted",
+    "environment_continuity": "accepted",
+    "technical_integrity": "accepted"
+  },
+  "storyboard_gates": {
+    "exact_shot_count": "accepted",
+    "narrative_alignment": "accepted",
+    "identity_and_topology_continuity": "accepted",
+    "technical_integrity": "accepted"
+  },
+  "disposition": {"role":"narrative_reference_only","narrative_reference_only":true,"not_delivery_pixels":true,"used_as_delivery_pixels":false},
+  "claims": {"archive_complete":false,"generation_ready":false,"delivery_accepted":false}
+}

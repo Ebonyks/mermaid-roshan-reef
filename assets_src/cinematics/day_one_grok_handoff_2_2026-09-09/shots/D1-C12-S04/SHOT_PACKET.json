@@ -1,0 +1,62 @@
+{
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "shot_id": "D1-C12-S04",
+  "movie_id": "D1-C12",
+  "status": "DRAFT",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "location_id": "art",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "references/D1-C09/handoff_art/objects/room_craft_room_item_paint_table.png",
+      "sha256": "b2eb0fc3a5d7c777540af1447827f6b2f98d47a658d2184d9774e407d46627aa",
+      "human_review": "inherited exact source authority; shot-opening/binding review pending"
+    }
+  ],
+  "depends_on": [
+    "D1-C10-S05"
+  ],
+  "dependency_endpoints": {},
+  "opening_source_kind": "approved_master",
+  "must_move": "Open on the clean desk, paint pots and fixed room background. Build one soft glow on the tabletop only; keep brushes and camera fixed. End on a quiet glowing desk with no character or prop drift.",
+  "must_not_move": "same bright lavender-brick front projection, flanking columns, shelves and desk positions; no purple underwater-room insert or new side wall",
+  "end_state": "End on a quiet glowing desk with no character or prop drift.",
+  "state_contract": "post-completion only; no unverified friendship payoff",
+  "prompt_sha256": "476d1e1d971da87d008679ab50a3eb0766b5d8cb74e2bb616c18d5c7f173aca3",
+  "blocking_findings": [
+    "missing complete human-approved opening",
+    "missing measured setup and incoming/outgoing cut review",
+    "exact binding/cast budget and single-action execution review pending",
+    "accepted predecessor endpoint missing"
+  ],
+  "review": {
+    "human": null,
+    "cross_shot": null,
+    "measurements": null
+  },
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "finding_ids": [
+    "GH2-09"
+  ],
+  "exact_cast": []
+}
