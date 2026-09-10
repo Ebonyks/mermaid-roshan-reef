@@ -31,6 +31,7 @@ var touch_owners: Dictionary = {}
 var world_controls_enabled := true
 var encounter_press: Callable = Callable()
 var encounter_cancel: Callable = Callable()
+var encounter_motion: Callable = Callable()
 var _encounter_finger: int = -1
 
 # ---- drag channel (owner 2026-07-25) ----
@@ -550,12 +551,28 @@ func set_world_controls_enabled(enabled: bool) -> void:
 		return
 	world_controls_enabled = enabled
 	_clear_touch_state()
-func set_encounter_controls(press: Callable = Callable(), cancel: Callable = Callable()) -> void:
+func set_encounter_controls(press: Callable = Callable(), cancel: Callable = Callable(),
+		motion: Callable = Callable()) -> void:
 	_clear_touch_state()
 	encounter_press = press
 	encounter_cancel = cancel
+	encounter_motion = motion
 
 func _encounter_unhandled_input(event: InputEvent) -> void:
+	# Motion belongs only to the original finger and never emits a new press.
+	if event is InputEventScreenDrag:
+		var drag := event as InputEventScreenDrag
+		if drag.index == _encounter_finger and encounter_motion.is_valid():
+			encounter_motion.call(drag.position)
+		get_viewport().set_input_as_handled()
+		return
+	if event is InputEventMouseMotion:
+		var motion := event as InputEventMouseMotion
+		if motion.device != InputEvent.DEVICE_ID_EMULATION \
+				and _encounter_finger == 99 and encounter_motion.is_valid():
+			encounter_motion.call(motion.position)
+		get_viewport().set_input_as_handled()
+		return
 	var finger: int = -1
 	var pressed: bool = false
 	var point := Vector2.ZERO

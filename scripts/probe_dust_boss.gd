@@ -75,6 +75,21 @@ func _tap_boss_world() -> void:
 	_ck("flashing boss head remains inside the touch viewport",
 		main.get_viewport().get_visible_rect().has_point(screen_point))
 	var hits_before: int = _hits()
+	var move_press := InputEventScreenTouch.new()
+	move_press.index = 73
+	move_press.position = main.get_viewport().get_visible_rect().end - Vector2(24.0, 24.0)
+	move_press.pressed = true
+	main.get_viewport().push_input(move_press, true)
+	await process_frame
+	var move_drag := InputEventScreenDrag.new()
+	move_drag.index = 73
+	move_drag.position = screen_point
+	main.get_viewport().push_input(move_drag, true)
+	await process_frame
+	_ck("dragging across an open boss never becomes a counter", _hits() == hits_before)
+	move_press.pressed = false
+	main.get_viewport().push_input(move_press, true)
+	await process_frame
 	main.get_tree().paused = true
 	await _push_screen_tap(screen_point, 71)
 	main.get_tree().paused = false
@@ -176,17 +191,19 @@ func _splash_and_geometry_case() -> void:
 	main.touch_ui.set_mode("hybrid")
 	_navigation_roundtrip_case()
 	_pattern_geometry_case()
+	await _free_steering_case("showing")
 
 func _negative_input_case() -> void:
 	await _frames(340)
 	await _tap_edge()
 	await _wait_state(["tell"], 900)
-	_safe_navigation_case()
+	await _safe_navigation_case()
 	var hits_before: int = _hits()
 	var damage_before: int = _damage()
 	var no_input_recovery := await _wait_state(["damage_recovery"], 900)
 	_ck("zero input takes a harmless bump but cannot damage the boss",
 		no_input_recovery and _damage() > damage_before and _hits() == hits_before)
+	await _free_steering_case("damage_recovery")
 	await _wait_state(["tell"], 900)
 	damage_before = _damage()
 	var saw_tell := false
@@ -227,6 +244,11 @@ func _safe_navigation_case() -> void:
 	var danger: Dictionary = boss.danger_geometry()
 	var safe: Vector2 = danger.get("safe_point", Vector2.ZERO) as Vector2
 	var screen_point: Vector2 = boss.stage.project_floor_point(safe)
+	var nearby: Vector2 = boss.stage.clamp_point(safe + Vector2(1.0, 0.5), 2.6)
+	boss.on_world_tap(boss.stage.project_floor_point(nearby))
+	_ck("floor taps near the old hint do not snap to a prescribed point",
+		boss.navigation.destination.distance_to(nearby) < 0.05)
+	var locked: Vector2 = danger.get("center", Vector2.ZERO) as Vector2
 	var before: Vector2 = boss.stage.player_local()
 	boss.on_world_tap(screen_point)
 	var destination: Vector2 = boss.navigation.destination
@@ -234,6 +256,12 @@ func _safe_navigation_case() -> void:
 		and destination.distance_to(safe) < 0.2)
 	await _frames(12)
 	var after: Vector2 = boss.stage.player_local()
+	var overlay: DustBossTelegraph2D = main.g.get("db_telegraph") as DustBossTelegraph2D
+	var floor_warning: DustBossTelegraph2D = main.g.get("db_floor_telegraph") as DustBossTelegraph2D
+	_ck("landing outline stays locked and has no prescribed safe marker",
+		(boss.patterns.geometry.get("center", Vector2.ZERO) as Vector2).distance_to(locked) < 0.05
+		and floor_warning._visible and floor_warning._points.size() >= 3
+		and not overlay._safe_visible)
 	_ck("safe ground navigation moves the player", after.distance_to(before) > 0.05)
 	boss.navigation.move_to(safe)
 	main.touch_ui.cancel_all_touches()
@@ -242,6 +270,47 @@ func _safe_navigation_case() -> void:
 	main.touch_ui.cancel_all_touches()
 	main.get_tree().paused = false
 	_ck("pause cancellation leaves no stale encounter destination", not boss.navigation.travelling)
+
+func _free_steering_case(expected_state: String) -> void:
+	var boss: DustBossGame = _boss()
+	_ck("free steering enters live " + expected_state, _state() == expected_state)
+	var before: Vector2 = boss.stage.player_local()
+	var target := Vector2(-12.0, 8.0)
+	var press := InputEventScreenTouch.new()
+	press.index = 81
+	press.position = boss.stage.project_floor_point(target)
+	press.pressed = true
+	main.get_viewport().push_input(press, true)
+	await _frames(2)
+	_ck(expected_state + " floor press immediately moves Roshan",
+		boss.navigation.travelling and boss.stage.player_local().distance_to(before) > 0.05)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 81
+	drag.position = boss.stage.project_floor_point(Vector2(12.0, 8.0))
+	main.get_viewport().push_input(drag, true)
+	await process_frame
+	_ck(expected_state + " held finger can freely change direction",
+		boss.navigation.destination.distance_to(Vector2(12.0, 8.0)) < 0.05)
+	var destination: Vector2 = boss.navigation.destination
+	drag.index = 82
+	drag.position = press.position
+	main.get_viewport().push_input(drag, true)
+	await process_frame
+	_ck(expected_state + " second finger cannot steal steering",
+		boss.navigation.destination == destination)
+	press.pressed = false
+	main.get_viewport().push_input(press, true)
+	await process_frame
+	drag.index = 81
+	main.get_viewport().push_input(drag, true)
+	await process_frame
+	_ck(expected_state + " released finger cannot retarget travel",
+		boss.navigation.destination == destination)
+	main.touch_ui.cancel_all_touches()
+	main.get_viewport().push_input(drag, true)
+	await process_frame
+	_ck(expected_state + " cancelled gesture cannot restart movement",
+		not boss.navigation.travelling)
 
 func _navigation_roundtrip_case() -> void:
 	var boss: DustBossGame = _boss()
@@ -266,12 +335,16 @@ func _adaptive_completion_case() -> void:
 	var tapped_opening := false
 	var checkpoint_done := false
 	var final_checkpoint_done := false
+	var checked_breather := false
 	var used_world_touch := false
 	var checkpoint_pearls := main.pearl_count
 	for _i in range(FRAME_CAP):
 		if main.game != "dustboss":
 			break
 		var state: String = _state()
+		if state == "struck" and not checked_breather:
+			checked_breather = true
+			await _free_steering_case("struck")
 		if state != "vuln":
 			tapped_opening = false
 		if state == "tell":
@@ -319,6 +392,7 @@ func _adaptive_completion_case() -> void:
 				continue
 		await process_frame
 	var completion_pearls: int = main.pearl_count
+	_ck("free steering was exercised between earned rounds", checked_breather)
 	_ck("adaptive movement observes all three phases", bool(saw_phase[0]) and bool(saw_phase[1]) and bool(saw_phase[2]))
 	_ck("phase one executes both warned circles", saw_phase_one_combo)
 	_ck("phase two executes its warned lane", saw_final_lane)
