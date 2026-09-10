@@ -58,6 +58,21 @@
       "command": "Temporary diagnostic copy of probe_day_one_bathroom_shots.gd with viewport/capture dimensions set to 1560x720; Godot 4.7.2 Mobile",
       "result": "PASS",
       "evidence": "11/11 captures and RESULT PASS failures=0. Agent inspected sink alignment and contour; not target-device acceptance. [{\"path\": \".godot/sink-repair/wide_probe.gd\", \"sha256\": \"34841d032c6421325149afdb1024f39c0e06f6114788c8cb5670bcb70d489daf\"}, {\"path\": \".godot/sink-repair/wide-visual.log\", \"sha256\": \"697acbf272825a90ec6d21f3490583af450b95a2eb5149a9c829fb9381f10500\"}]"
+    },
+    {
+      "command": "GODOT=<official 4.7.2> scripts/ci.sh over the pending merge of 30c36ac2 and b89577eb",
+      "result": "PASS",
+      "evidence": "Combined source 30c36ac2 + b89577eb: full scripts/ci.sh exit 0, all 78 trusted probes exit 0; static, visual-contract and regression gates passed. .godot/sink-repair/combined-ci.log SHA-256 37d21ddc4b572bd205a497d1390cad92fdc2c920987e3a57387e4671e8232046"
+    },
+    {
+      "command": "GitHub Probe suite for sink source 30c36ac2e05f6a100092f5b69d166dcbd4b58ae6",
+      "result": "PASS",
+      "evidence": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/34421468528; completed success, including full analyzer, trusted probes and Windows area-music provenance. Subsequent reconciliation with b89577eb is validated separately."
+    },
+    {
+      "command": "Godot 4.7.2 Mobile probe_day_one_bathroom_shots.gd over pending merge 30c36ac2 + b89577eb",
+      "result": "PASS",
+      "evidence": "11/11 fresh 1280x720 captures; RESULT PASS failures=0. Agent inspected clean sink contour. {\"path\": \".godot/sink-repair/combined-visual.log\", \"sha256\": \"c0a9d18506d3defd82f451126e891e54f414171746631e4ae4347b4e2c623487\"}"
     }
   ],
   "acceptance_gaps": "Full local suite and final desktop Mobile captures pass. Exact-head work-branch CI and dev integration are subsequent workflow evidence, not available before this commit. Target-device, child and owner acceptance remain outstanding; no game-wide MA closure, zero-3D satisfaction, or Roshan job/contact acceptance is claimed.",
@@ -81,6 +96,10 @@
     {
       "path": ".godot/sink-repair/wide-captures/03_sink_clean_sponge_returns.png",
       "sha256": "ade69a76cdb277f7031e1ff1e6521f63dc828fe95a87d217f0be4df81ed85563"
+    },
+    {
+      "path": ".godot/sink-repair/combined-captures/03_sink_clean_sponge_returns.png",
+      "sha256": "5fe4ea88198b1ff9ac1a5094971ce46f93f6b455cba01ab1bc9ec712d6b68edd"
     }
   ],
   "source_hashes": {
@@ -100,5 +119,11 @@
     "result": "PASS",
     "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/34399284557"
   },
-  "diagnostics": "Import reports pre-existing empty-resource diagnostics for ignored export cinematic WAV files; the baseline import reports the same condition. These are not sink resources. Blocking import checks, all trusted probes and final Mobile captures pass. Existing global visual/2D and device acceptance gaps remain open."
+  "diagnostics": "Import reports pre-existing empty-resource diagnostics for ignored export cinematic WAV files; the baseline import reports the same condition. These are not sink resources. Blocking import checks, all trusted probes and final Mobile captures pass. Existing global visual/2D and device acceptance gaps remain open.",
+  "reconciliation": {
+    "incoming_dev": "b89577ebcac8e6cca39cf8c31304e7ef01d0d739",
+    "incoming_ci": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/34419456676",
+    "sink_source": "30c36ac2e05f6a100092f5b69d166dcbd4b58ae6",
+    "scope": "Conflict-free integration of the independently tested Day Two destination repair. Sink source files and approved art are unchanged. Incoming canonical audit history and its impact record remain intact."
+  }
 }
