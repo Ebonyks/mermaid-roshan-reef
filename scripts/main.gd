@@ -354,6 +354,7 @@ var day_one_bathroom_cleanup_step: int = 0
 var day_one_bathroom_supply_hunt_step: int = 0
 var day_one_bathroom_tools_authorized: bool = false
 var day_one_bathroom_tub_drained: bool = false
+var day_one_bathroom_toilet_cleaned: bool = false
 var day_one_pool_cleanup_step: int = 0
 var day_one_pool_rumi_met: bool = false
 var day_one_pool_skimmer_mask: int = 0
@@ -7695,6 +7696,13 @@ func day_one_record_bathroom_supply_step(step: int) -> void:
 	_queue_save()
 
 
+func day_one_record_bathroom_toilet_cleaned() -> void:
+	if not day_one_is_active() or day_one_bathroom_cleanup_step < 2:
+		return
+	day_one_bathroom_toilet_cleaned = true
+	_queue_save()
+
+
 func day_one_record_bathroom_tub_drained() -> void:
 	if not day_one_is_active() or day_one_bathroom_tub_drained:
 		return
@@ -7727,7 +7735,8 @@ func day_one_complete_bathroom_scene() -> bool:
 	# live cleaning gestures. A stale or partial save must never skip either.
 	if not day_one_bathroom_tools_authorized \
 			or day_one_bathroom_supply_hunt_step < 2 \
-			or day_one_bathroom_cleanup_step < 2:
+			or day_one_bathroom_cleanup_step < 2 \
+			or not day_one_bathroom_toilet_cleaned:
 		return false
 	if not director.complete_tutorial("bathroom"):
 		return false

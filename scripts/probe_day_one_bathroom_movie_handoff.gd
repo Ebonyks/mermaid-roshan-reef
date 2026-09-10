@@ -81,6 +81,7 @@ func _init() -> void:
 	director.bathroom_supply_hunt_step = 2
 	director.bathroom_tools_authorized = true
 	director.bathroom_cleanup_step = 2
+	director.bathroom_toilet_cleaned = true
 	director.complete_tutorial("bathroom")
 	var cleanup: DayOneBathroomMovieHandoff = HANDOFF.new() \
 		as DayOneBathroomMovieHandoff

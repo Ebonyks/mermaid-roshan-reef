@@ -28,6 +28,7 @@ func _init() -> void:
 	director.bathroom_supply_hunt_step = 2
 	director.bathroom_tools_authorized = true
 	director.bathroom_cleanup_step = 2
+	director.bathroom_toilet_cleaned = true
 	_check("bathroom rescue completion unlocks pool",
 		director.complete_tutorial("bathroom")
 		and bool(main.day_one_completed_rooms.get("bathroom", false))

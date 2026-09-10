@@ -81,7 +81,9 @@ var _caption_position := Vector2.ZERO
 var _caption_size := Vector2.ZERO
 var _caption_style: StyleBox = null
 var _warning_points := PackedVector2Array()
-var _safe_destination := Vector2.ZERO
+var _world_move_active: bool = false
+var _dash_tap_time: float = 0.0
+var _dash_tap_point := Vector2.ZERO
 var _telegraph_data: Dictionary = {}
 
 func _init(main: ReefMain) -> void:
@@ -172,11 +174,11 @@ func danger_geometry() -> Dictionary:
 		return {"active": false}
 	var result: Dictionary = patterns.readout()
 	result["active"] = String(m.g.get("db_state", "")) == "tell"
-	result["safe_point"] = _safe_destination
+	# Analytic safe_point stays available to bots; play never snaps to it.
 	return result
 
 func stage_close() -> void:
-	navigation.cancel()
+	_cancel_world_move()
 	if m.touch_ui != null:
 		m.touch_ui.set_encounter_controls()
 	if m.hud_msg != null and _caption_style != null:
@@ -245,6 +247,7 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	# only ever come from a fresh tap edge here, so a zero-input run cannot
 	# scratch him (probe_passive).
 	_update_projection()
+	_dash_tap_time = maxf(0.0, _dash_tap_time - delta)
 	var s: Dictionary = stage.tick(delta, navigation)
 	var tapped: bool = bool(s["tap"])
 	m.g["db_feedback_cd"] = maxf(0.0,
@@ -596,30 +599,49 @@ func _victory_message(bumps: int, tier: int) -> String:
 
 # ---- the verbs -------------------------------------------------------------
 func on_world_tap(screen_pos: Vector2) -> void:
-	# HYBRID TOUCH: the finger lands ON the boss instead of on the action
-	# button. Same verb, and MORE generous — a tap that visibly lands on his
-	# card counts as in-reach however far away she is standing.
-	if not m.g.has("db_state") or m.game != "dustboss" or m.get_tree().paused:
+	_world_move_active = false
+	if not _can_world_move():
 		return
-	var k: DustBunnyBossSprite = kit()
-	var on_him: bool = _screen_hit(screen_pos)
-	if k != null and is_instance_valid(k) and k.vulnerable \
-			and String(m.g.get("db_state", "")) == "vuln":
-		if on_him:
+	# Only the counter opening owns boss taps. During attacks and recovery,
+	# the whole floor remains steerable, including floor behind his cutout.
+	if String(m.g.get("db_state", "")) == "vuln" and _screen_hit(screen_pos):
+		_dash_tap_time = 0.0
+		var k: DustBunnyBossSprite = kit()
+		if k != null and is_instance_valid(k) and k.vulnerable:
 			_accept_counter()
-			return
-	var st_now: String = String(m.g.get("db_state", ""))
-	if st_now == "showing" or st_now == "struck" or st_now == "friends":
-		_answer_only()   # same answer as the button — see D4
+		else:
+			_bounce_off()
 		return
-	if on_him:
-		_bounce_off()
+	_world_move_active = true
+	_move_to_screen(screen_pos)
+	if _dash_tap_time > 0.0 and screen_pos.distance_to(_dash_tap_point) <= 64.0:
+		navigation.try_dash()
+		_dash_tap_time = 0.0
+	else:
+		_dash_tap_time = 0.36
+		_dash_tap_point = screen_pos
+
+func _can_world_move() -> bool:
+	return m.game == "dustboss" and m.g.has("db_state") \
+		and not m.get_tree().paused \
+		and String(m.g["db_state"]) not in ["splash", "friends"]
+
+func on_world_drag(screen_pos: Vector2) -> void:
+	# A movement gesture cannot turn into a counter when the star opens.
+	if not _world_move_active or not _can_world_move():
 		return
+	if screen_pos.distance_to(_dash_tap_point) > 18.0:
+		_dash_tap_time = 0.0
+	_move_to_screen(screen_pos)
+
+func _move_to_screen(screen_pos: Vector2) -> void:
 	var target: Vector2 = navigation.screen_to_floor(screen_pos)
-	if String(m.g.get("db_state", "")) == "tell" \
-			and screen_pos.distance_to(stage.project_floor_point(_safe_destination)) <= 58.0:
-		target = _safe_destination
 	navigation.move_to(stage.clamp_point(target, 2.6))
+
+func _cancel_world_move() -> void:
+	_world_move_active = false
+	_dash_tap_time = 0.0
+	navigation.cancel()
 
 func _accept_counter() -> void:
 	var k: DustBunnyBossSprite = kit()
@@ -642,12 +664,7 @@ func _screen_hit(screen_pos: Vector2) -> bool:
 	return screen_pos.distance_to(centre) <= half or screen_pos.distance_to(top) <= 56.0
 
 func _answer_only() -> void:
-	# A tap during the showing, the bonk reaction or the befriending must not
-	# be silent AND must not scold. Before this, the button did nothing in
-	# these three states while a screen tap ran the full shield answer — so the
-	# same finger got two different answers depending on where it landed, and
-	# "Too puffy! Wait for him to JUMP and FLASH!" could print over the
-	# teaching line itself (2026-08-02 stress-test synthesis, D4).
+	# Button feedback during teaching and recovery is warm and never scolds.
 	m._sparkle_burst(m.player.global_position + Vector3(0, 3.0, 0),
 		Color(0.92, 0.88, 1.0))
 
@@ -844,24 +861,6 @@ func _prepare_telegraph_geometry() -> void:
 			var angle: float = TAU * float(index) / 32.0
 			var point: Vector2 = center + Vector2(cos(angle), sin(angle)) * float(danger["radius"])
 			_warning_points.append(stage.project_floor_point(point))
-	# The destination must be a live ground target, outside the boss's head hit
-	# region as well as its hazard. Search once per warning, never each frame.
-	var safe: Vector2 = danger.get("safe_point", Vector2.ZERO) as Vector2
-	if _screen_hit(stage.project_floor_point(safe)):
-		var origin: Vector2 = stage.player_local()
-		var best_distance: float = INF
-		for distance: float in [10.0, 15.0, 20.0]:
-			for index: int in range(16):
-				var angle: float = TAU * float(index) / 16.0
-				var candidate: Vector2 = stage.clamp_point(origin + Vector2(cos(angle), sin(angle)) * distance, 2.6)
-				if not patterns.contains(candidate, 1.2) and not _screen_hit(stage.project_floor_point(candidate)):
-					var travel: float = origin.distance_to(candidate)
-					if travel < best_distance:
-						best_distance = travel
-						safe = candidate
-			if best_distance < INF:
-				break
-	_safe_destination = safe
 
 func _update_telegraph() -> void:
 	var telegraph: DustBossTelegraph2D = m.g.get("db_telegraph") as DustBossTelegraph2D
@@ -869,13 +868,12 @@ func _update_telegraph() -> void:
 		return
 	var state: String = String(m.g.get("db_state", ""))
 	var player_here: Vector2 = stage.player_local()
-	var threatened: bool = patterns != null and patterns.contains(player_here)
 	_telegraph_data["visible"] = state == "tell" or state == "strike"
 	_telegraph_data["active"] = state == "strike"
 	_telegraph_data["points"] = _warning_points
 	_telegraph_data["progress"] = clampf(patterns.elapsed / maxf(patterns.tell_time, 0.01), 0.0, 1.0)
-	_telegraph_data["safe_point"] = stage.project_floor_point(_safe_destination) if threatened else Vector2.ZERO
-	_telegraph_data["safe_visible"] = threatened
+	# The locked attack outline is the cue; every point outside it is safe.
+	_telegraph_data["safe_visible"] = false
 	_telegraph_data["player_point"] = stage.project_floor_point(player_here)
 	_telegraph_data["puffs"] = encounter.completed_rounds
 	_telegraph_data["total"] = HP
@@ -887,7 +885,7 @@ func _update_telegraph() -> void:
 # ---- the attic in the round ------------------------------------------------
 func _stage_open() -> void:
 	if m.touch_ui != null:
-		m.touch_ui.set_encounter_controls(on_world_tap, navigation.cancel)
+		m.touch_ui.set_encounter_controls(on_world_tap, _cancel_world_move, on_world_drag)
 	if m.hud_msg != null:
 		_caption_position = m.hud_msg.position
 		_caption_size = m.hud_msg.size

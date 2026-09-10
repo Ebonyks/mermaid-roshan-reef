@@ -728,7 +728,7 @@ device, child, human, or owner acceptance.
 | acceptance | Every applicable job has before/during/after runtime evidence showing travel, arrival, meaningful hand/tool action, then completion in that order. Record target coordinates, approach/contact radius, action state and completion time. No detached tool or reward-only probe substitutes for Roshan doing the work. All named cases pass and device/child/owner review is accepted. |
 | closure | Open: pool repair candidate is not game-wide closure. Bathtub, craft-room, baby-eagle, remaining pool work and equivalent jobs require their own implementation/evidence; target-phone and owner acceptance are outstanding. |
 | relationships | Complements `MA-PLAY-003` route/arrival geometry; extends `MA-PLAY-001` reachability and `MA-VIS-006` truthful visual interaction; related touch and child gates remain independent. |
-| history | 2026-09-06: owner reported the skimmer oversight and requested a game-wide master-audit requirement; source confirmed, pool repair begun, named follow-on cases explicitly retained. |
+| history | 2026-09-06: owner reported the skimmer oversight and requested a game-wide master-audit requirement; source confirmed, pool repair begun, named follow-on cases explicitly retained. 2026-09-09: owner commissioned an additional toilet scrub; the new stage includes approach, hand-anchored brush contact and intentional gesture/save probes in [scoped evidence](../../design/audit_impacts/2026-09-09-day-one-toilet-clean.json). Device/child/owner acceptance remains pending and the other bathroom/job cases are not closed. |
 
 ## MA-COMBAT-001
 

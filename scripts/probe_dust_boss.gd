@@ -75,11 +75,27 @@ func _tap_boss_world() -> void:
 	_ck("flashing boss head remains inside the touch viewport",
 		main.get_viewport().get_visible_rect().has_point(screen_point))
 	var hits_before: int = _hits()
+	var move_press := InputEventScreenTouch.new()
+	move_press.index = 73
+	move_press.position = main.get_viewport().get_visible_rect().end - Vector2(24.0, 24.0)
+	move_press.pressed = true
+	main.get_viewport().push_input(move_press, true)
+	await process_frame
+	var move_drag := InputEventScreenDrag.new()
+	move_drag.index = 73
+	move_drag.position = screen_point
+	main.get_viewport().push_input(move_drag, true)
+	await process_frame
+	_ck("dragging across an open boss never becomes a counter", _hits() == hits_before)
+	move_press.pressed = false
+	main.get_viewport().push_input(move_press, true)
+	await process_frame
 	main.get_tree().paused = true
 	await _push_screen_tap(screen_point, 71)
 	main.get_tree().paused = false
 	_ck("paused screen touch cannot counter", _hits() == hits_before)
 	await _push_screen_tap(screen_point, 72)
+	_ck("gold boss tap counters without a dash", _boss().navigation.dash_remaining == 0.0)
 
 func _push_screen_tap(screen_point: Vector2, touch_index: int) -> void:
 	var press := InputEventScreenTouch.new()
@@ -107,6 +123,7 @@ func _prepare_terminal_boundary() -> void:
 	director.bathroom_tools_authorized = true
 	director.bathroom_supply_hunt_step = 2
 	director.bathroom_cleanup_step = 2
+	director.bathroom_toilet_cleaned = true
 	director.complete_tutorial("bathroom")
 	director.complete_placeholder("pool", "pool_activity")
 	director.complete_activity("stuffie", "stuffie_activity")
@@ -176,17 +193,20 @@ func _splash_and_geometry_case() -> void:
 	main.touch_ui.set_mode("hybrid")
 	_navigation_roundtrip_case()
 	_pattern_geometry_case()
+	await _free_steering_case("showing")
+	await _dash_case()
 
 func _negative_input_case() -> void:
 	await _frames(340)
 	await _tap_edge()
 	await _wait_state(["tell"], 900)
-	_safe_navigation_case()
+	await _safe_navigation_case()
 	var hits_before: int = _hits()
 	var damage_before: int = _damage()
 	var no_input_recovery := await _wait_state(["damage_recovery"], 900)
 	_ck("zero input takes a harmless bump but cannot damage the boss",
 		no_input_recovery and _damage() > damage_before and _hits() == hits_before)
+	await _free_steering_case("damage_recovery")
 	await _wait_state(["tell"], 900)
 	damage_before = _damage()
 	var saw_tell := false
@@ -227,6 +247,11 @@ func _safe_navigation_case() -> void:
 	var danger: Dictionary = boss.danger_geometry()
 	var safe: Vector2 = danger.get("safe_point", Vector2.ZERO) as Vector2
 	var screen_point: Vector2 = boss.stage.project_floor_point(safe)
+	var nearby: Vector2 = boss.stage.clamp_point(safe + Vector2(1.0, 0.5), 2.6)
+	boss.on_world_tap(boss.stage.project_floor_point(nearby))
+	_ck("floor taps near the old hint do not snap to a prescribed point",
+		boss.navigation.destination.distance_to(nearby) < 0.05)
+	var locked: Vector2 = danger.get("center", Vector2.ZERO) as Vector2
 	var before: Vector2 = boss.stage.player_local()
 	boss.on_world_tap(screen_point)
 	var destination: Vector2 = boss.navigation.destination
@@ -234,6 +259,12 @@ func _safe_navigation_case() -> void:
 		and destination.distance_to(safe) < 0.2)
 	await _frames(12)
 	var after: Vector2 = boss.stage.player_local()
+	var overlay: DustBossTelegraph2D = main.g.get("db_telegraph") as DustBossTelegraph2D
+	var floor_warning: DustBossTelegraph2D = main.g.get("db_floor_telegraph") as DustBossTelegraph2D
+	_ck("landing outline stays locked and has no prescribed safe marker",
+		(boss.patterns.geometry.get("center", Vector2.ZERO) as Vector2).distance_to(locked) < 0.05
+		and floor_warning._visible and floor_warning._points.size() >= 3
+		and not overlay._safe_visible)
 	_ck("safe ground navigation moves the player", after.distance_to(before) > 0.05)
 	boss.navigation.move_to(safe)
 	main.touch_ui.cancel_all_touches()
@@ -242,6 +273,112 @@ func _safe_navigation_case() -> void:
 	main.touch_ui.cancel_all_touches()
 	main.get_tree().paused = false
 	_ck("pause cancellation leaves no stale encounter destination", not boss.navigation.travelling)
+
+func _free_steering_case(expected_state: String) -> void:
+	var boss: DustBossGame = _boss()
+	_ck("free steering enters live " + expected_state, _state() == expected_state)
+	var before: Vector2 = boss.stage.player_local()
+	var target := Vector2(-12.0, 8.0)
+	var press := InputEventScreenTouch.new()
+	press.index = 81
+	press.position = boss.stage.project_floor_point(target)
+	press.pressed = true
+	main.get_viewport().push_input(press, true)
+	await _frames(2)
+	_ck(expected_state + " floor press immediately moves Roshan",
+		boss.navigation.travelling and boss.stage.player_local().distance_to(before) > 0.05)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 81
+	drag.position = boss.stage.project_floor_point(Vector2(12.0, 8.0))
+	main.get_viewport().push_input(drag, true)
+	await process_frame
+	_ck(expected_state + " held finger can freely change direction",
+		boss.navigation.destination.distance_to(Vector2(12.0, 8.0)) < 0.05)
+	var destination: Vector2 = boss.navigation.destination
+	drag.index = 82
+	drag.position = press.position
+	main.get_viewport().push_input(drag, true)
+	await process_frame
+	_ck(expected_state + " second finger cannot steal steering",
+		boss.navigation.destination == destination)
+	press.pressed = false
+	main.get_viewport().push_input(press, true)
+	await process_frame
+	drag.index = 81
+	main.get_viewport().push_input(drag, true)
+	await process_frame
+	_ck(expected_state + " released finger cannot retarget travel",
+		boss.navigation.destination == destination)
+	main.touch_ui.cancel_all_touches()
+	main.get_viewport().push_input(drag, true)
+	await process_frame
+	_ck(expected_state + " cancelled gesture cannot restart movement",
+		not boss.navigation.travelling)
+
+func _floor_touch(point: Vector2, pressed: bool) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = 84
+	event.position = point
+	event.pressed = pressed
+	main.get_viewport().push_input(event, true)
+
+func _dash_case() -> void:
+	var boss: DustBossGame = _boss()
+	var point: Vector2 = boss.stage.project_floor_point(Vector2(-18.0, 10.0))
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	_ck("single floor tap swims without dash", boss.navigation.dash_remaining == 0.0)
+	_floor_touch(point + Vector2(8.0, 0.0), true)
+	_floor_touch(point, false)
+	_ck("nearby second tap starts dash", boss.navigation.dash_remaining > 0.0)
+	var before: Vector2 = boss.stage.player_local()
+	await _frames(2)
+	_ck("dash advances Roshan immediately", boss.stage.player_local().distance_to(before) > 0.05)
+	_ck("dash remains inside arena", boss.stage.player_local().distance_to(
+		boss.stage.clamp_point(boss.stage.player_local(), 2.6)) < 0.01)
+	main.touch_ui.cancel_all_touches()
+	_ck("touch cancellation stops dash and travel",
+		boss.navigation.dash_remaining == 0.0 and not boss.navigation.travelling)
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	_ck("rapid repeated pairs cannot bypass dash cooldown", boss.navigation.dash_remaining == 0.0)
+	main.touch_ui.cancel_all_touches()
+	await _frames(50)
+	_floor_touch(point, true)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 84
+	drag.position = point + Vector2(90.0, 0.0)
+	main.get_viewport().push_input(drag, true)
+	_floor_touch(drag.position, false)
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	_ck("drag followed by tap is not double tap", boss.navigation.dash_remaining == 0.0)
+	main.touch_ui.cancel_all_touches()
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	await _frames(30)
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	_ck("expired first tap cannot dash", boss.navigation.dash_remaining == 0.0)
+	main.touch_ui.cancel_all_touches()
+	var nav := EncounterNavigation2D.new()
+	nav.move_to(Vector2(100.0, 0.0))
+	_ck("dash starts only when ready", nav.try_dash() and not nav.try_dash())
+	var speed: float = nav.step_speed(24.0, 0.1)
+	_ck("dash is faster than normal swim", is_equal_approx(speed, 67.2))
+	var near := Vector2(99.5, 0.0)
+	var step: Vector2 = nav.direction_for_step(near, speed, 0.1) * speed * 0.1
+	_ck("dash lands at destination without overshoot", (near + step).distance_to(Vector2(100.0, 0.0)) < 0.001)
+	nav.step_speed(24.0, 0.6)
+	_ck("burst expires and cooldown recovers", nav.dash_remaining == 0.0
+		and is_equal_approx(nav.step_speed(24.0, 0.1), 24.0))
+	nav.move_to(Vector2(10.0, 0.0))
+	_ck("dash becomes available again", nav.try_dash())
+	nav.cancel()
+	_ck("cancelled navigation has no residual dash", nav.dash_remaining == 0.0
+		and nav.direction_for_step(Vector2.ZERO, 24.0, 0.1) == Vector2.ZERO)
 
 func _navigation_roundtrip_case() -> void:
 	var boss: DustBossGame = _boss()
@@ -266,12 +403,16 @@ func _adaptive_completion_case() -> void:
 	var tapped_opening := false
 	var checkpoint_done := false
 	var final_checkpoint_done := false
+	var checked_breather := false
 	var used_world_touch := false
 	var checkpoint_pearls := main.pearl_count
 	for _i in range(FRAME_CAP):
 		if main.game != "dustboss":
 			break
 		var state: String = _state()
+		if state == "struck" and not checked_breather:
+			checked_breather = true
+			await _free_steering_case("struck")
 		if state != "vuln":
 			tapped_opening = false
 		if state == "tell":
@@ -319,6 +460,7 @@ func _adaptive_completion_case() -> void:
 				continue
 		await process_frame
 	var completion_pearls: int = main.pearl_count
+	_ck("free steering was exercised between earned rounds", checked_breather)
 	_ck("adaptive movement observes all three phases", bool(saw_phase[0]) and bool(saw_phase[1]) and bool(saw_phase[2]))
 	_ck("phase one executes both warned circles", saw_phase_one_combo)
 	_ck("phase two executes its warned lane", saw_final_lane)

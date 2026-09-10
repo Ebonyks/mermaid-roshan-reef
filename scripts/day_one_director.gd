@@ -73,6 +73,7 @@ const SAVE_KEYS: Array[String] = [
 	"day_one_bathroom_supply_hunt_step",
 	"day_one_bathroom_tools_authorized",
 	"day_one_bathroom_tub_drained",
+	"day_one_bathroom_toilet_cleaned",
 	"day_one_pool_cleanup_step",
 	"day_one_pool_rumi_met",
 	"day_one_pool_skimmer_mask",
@@ -159,6 +160,11 @@ var bathroom_tub_drained: bool:
 		return m.day_one_bathroom_tub_drained
 	set(value):
 		m.day_one_bathroom_tub_drained = value
+var bathroom_toilet_cleaned: bool:
+	get:
+		return m.day_one_bathroom_toilet_cleaned
+	set(value):
+		m.day_one_bathroom_toilet_cleaned = value
 var pool_cleanup_step: int:
 	get:
 		return m.day_one_pool_cleanup_step
@@ -379,7 +385,8 @@ func complete_room(room_id: String) -> bool:
 			bathroom_tools_authorized = true
 		if not bathroom_tools_authorized \
 				or bathroom_supply_hunt_step < 2 \
-				or bathroom_cleanup_step < 2:
+				or bathroom_cleanup_step < 2 \
+				or not bathroom_toilet_cleaned:
 			return false
 		bathroom_cleanup_step = 3
 		bathroom_supply_hunt_step = 2
@@ -511,6 +518,7 @@ func serialize_state() -> Dictionary:
 		"day_one_bathroom_supply_hunt_step": bathroom_supply_hunt_step,
 		"day_one_bathroom_tools_authorized": bathroom_tools_authorized,
 		"day_one_bathroom_tub_drained": bathroom_tub_drained,
+		"day_one_bathroom_toilet_cleaned": bathroom_toilet_cleaned,
 		"day_one_pool_cleanup_step": pool_cleanup_step,
 		"day_one_pool_rumi_met": pool_rumi_met,
 		"day_one_pool_skimmer_mask": pool_skimmer_mask,
@@ -554,6 +562,7 @@ func _normalise_state(source: Dictionary) -> void:
 		"day_one_bathroom_tools_authorized", bathroom_supply_hunt_step >= 2))
 	bathroom_tub_drained = bool(normalised.get(
 		"day_one_bathroom_tub_drained", bathroom_cleanup_step >= 2))
+	bathroom_toilet_cleaned = bool(normalised.get("day_one_bathroom_toilet_cleaned", false))
 	pool_cleanup_step = int(normalised.get("day_one_pool_cleanup_step", 0))
 	pool_rumi_met = bool(normalised.get("day_one_pool_rumi_met", false))
 	pool_skimmer_mask = int(normalised.get("day_one_pool_skimmer_mask", 0))
@@ -672,6 +681,7 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_bathroom_supply_hunt_step": saved_supply_hunt_step,
 		"day_one_bathroom_tools_authorized": saved_tools_authorized,
 		"day_one_bathroom_tub_drained": saved_tub_drained,
+		"day_one_bathroom_toilet_cleaned": bathroom_done or saved_bathroom_step >= 3 or _as_bool_static(source.get("day_one_bathroom_toilet_cleaned", false), false),
 		"day_one_pool_cleanup_step": saved_pool_step,
 		"day_one_pool_rumi_met": pool_done or _as_bool_static(
 			source.get("day_one_pool_rumi_met", false), false),

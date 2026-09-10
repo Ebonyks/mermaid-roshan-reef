@@ -118,6 +118,7 @@ func _init() -> void:
 	day_one.bathroom_supply_hunt_step = 2
 	day_one.bathroom_tools_authorized = true
 	day_one.bathroom_cleanup_step = 2
+	day_one.bathroom_toilet_cleaned = true
 	var day_one_ok: bool = reef_main.day_one_jobs_locked() \
 		and not reef_main.day_one_opera_enabled() \
 		and reef_main.day_one_can_enter_castle_room("bubble_bath") \

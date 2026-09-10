@@ -1,0 +1,97 @@
+{
+  "id": "grand-puff-free-movement-20260909",
+  "scope": "Owner-requested free tap/held steering between Grand Puff attacks, locked landing outlines instead of a prescribed safe destination; preserve counters and no-loss saves. Scope extended by owner: optional double-tap dash, bounded burst/cooldown, drag and counter disambiguation, lifecycle cancellation.",
+  "baseline": "016589c6494d082b01b84c2a974fc2acb87bbf44",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-INT-04",
+    "DL-READ-03",
+    "DL-UI-01",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-MOT-03",
+    "DL-MED-04",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-SND-01",
+    "DL-AGE-07"
+  ],
+  "findings": [
+    "MA-TOUCH-001"
+  ],
+  "files": [
+    "scripts/games/dust_boss.gd",
+    "scripts/touch_ui.gd",
+    "scripts/probe_dust_boss.gd",
+    "scripts/encounter_navigation_2d.gd",
+    "scripts/games/octagon_stage.gd"
+  ],
+  "validation": [
+    {
+      "command": "python -m gdtoolkit.parser scripts/games/dust_boss.gd scripts/touch_ui.gd scripts/probe_dust_boss.gd; python tools/lint_inference.py scripts/games/dust_boss.gd scripts/touch_ui.gd scripts/probe_dust_boss.gd",
+      "result": "PASS",
+      "evidence": "Changed scripts parse and inference checks exit 0."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "559/559 authority inventory/ledger; 51 unit tests and 6/6 stress controls; coverage against 016589c6494d082b01b84c2a974fc2acb87bbf44"
+    },
+    {
+      "command": "Godot 4.7.2 --headless -s scripts/probe_dust_boss.gd -- --touch --classic-touch-test",
+      "result": "PASS",
+      "evidence": "tmp/puff-validation/native-dust/output.log: ALL OK, native subprocess exit 0. Includes live showing/recovery/struck steering, held retargeting, second finger/release/cancel, no safe snapping, fixed outline, no passive or drag counter, all phases, save/re-entry, final reward exactly once. Earlier console-wrapper attempts exited 127/-1 without a final verdict and are not counted as passes."
+    },
+    {
+      "command": "Godot 4.7.2 focused probe_touch_router, probe_touch_stress, probe_ui_system, probe_combat_tutorial",
+      "result": "PASS",
+      "evidence": "tmp/puff-validation/{probe_touch_router,probe_touch_stress,probe_ui_system}/output.log and tutorial-classic.log: ALL OK. Initial tutorial run used hybrid instead of CI classic mode and failed two charge assertions; correct CI-mode run passed without changes."
+    },
+    {
+      "command": "Godot 4.7.2 Mobile scripts/probe_dust_boss_shots.gd at 1280x720 and 1560x720; selected image inspection",
+      "result": "PASS",
+      "evidence": "69 diagnostic PNGs and logs in tmp/puff-validation/{visual-1280,visual-1560,free-roam-1280}; hashes in tmp/puff-validation/evidence.json SHA256 9874949faae519764d677eccf58eaf1f727cd1475801f10b6f0688248f841dca. Selected warning/strike/lane/free-roam states reviewed: Roshan stays visible and the hazard has no prescribed safe marker. Existing edge hazards may extend outside the viewport beyond the playable floor. No external acceptance claimed."
+    },
+    {
+      "command": "GODOT=C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe bash scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "Full local gate exits 0, all 78 trusted probe headings with zero-exit results and no runtime failure lines; includes Dust Boss ALL OK. Log tmp/puff-validation/full-ci.log SHA256 af7da9b769f756b21a97751c12730884b173cf45f6327c4706922ee74c5ba9fa. Exact 4.7.2 official engine/import, parser/inference, audit contracts, 810/810 audio, 44/44 music, 95 visual-contract tests, and applicable asset gates pass. GAME2D reports NO_REGRESSION / UNSATISFIED, not whole-game acceptance."
+    },
+    {
+      "command": "Reconciled parser/inference and audit gates; isolated focused boss/draft/touch probes; verbatim scripts/ci.sh 78-probe loop",
+      "result": "PASS",
+      "evidence": "Pre-dash reconciliation static gates and boss/draft-enabled/touch focused probes pass; stopped 78-probe loop before completion when owner requested dash. This entry does not prove the dash revision."
+    },
+    {
+      "command": "Dash real-input and analytic navigation regression; full combined trusted runtime suite and remote CI",
+      "result": "PASS",
+      "evidence": "Exact 4.7.2 local verbatim scripts/ci.sh runtime loop: 78/78 zero-exit probes, overall exit 0, no failure lines. Includes final dash input, cooldown, drag, counter, cancellation, bounds and no-overshoot assertions. tmp/puff-validation/dash/runtime-suite.log SHA256 9f8c7cc8999b8050bdb4c7fe47d1a49a0eb02e0ff62283741fd66255e8697ced. Parser/inference and document authority/development/2D regression gates pass. Remote combined CI remains required before dev integration."
+    },
+    {
+      "command": "Godot 4.7.2 Mobile ignored dash capture fixture via real viewport double-tap",
+      "result": "PASS",
+      "evidence": "tmp/puff-validation/dash/visual: five dash PNGs, positions.json and output.log. Actual movement from (0,14) to (-18,12), accelerated then settled exactly at destination. Selected dash_01 image inspected. Hashes/source binding in tmp/puff-validation/dash/evidence.json. Desktop diagnostic only."
+    },
+    {
+      "command": "GitHub Probe Suite for original free-movement work cc76a97b9a7793e0011160a5b1885fe630fb3c0c",
+      "result": "PASS",
+      "evidence": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/34421574324 \u2014 success; predates dash/reconciliation."
+    }
+  ],
+  "acceptance_gaps": "Phone/child/owner free-movement and warning-readability acceptance remains open; MA-TOUCH-001 lifecycle unchanged. Existing spoken warning says the bunny is coming closer; an exact spoken instruction to move outside the outline remains an acceptance gap, and protected voices are unchanged. Desktop evidence is diagnostic; existing spatial staging remains 2D migration debt. No finding closure or release claim. Double-tap discoverability and timing require phone/child acceptance; dash is optional and normal movement remains sufficient.",
+  "reconciliation": {
+    "work_parent": "cc76a97b9a7793e0011160a5b1885fe630fb3c0c",
+    "integration_parent": "b89577ebcac8e6cca39cf8c31304e7ef01d0d739",
+    "upstream_ci": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/34419456676",
+    "scope": "Conflict-free Day Two destination merge retained; owner then extended the task with double-tap dash. Earlier full local/capture evidence proves only the original work parent."
+  }
+}

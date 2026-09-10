@@ -1,0 +1,137 @@
+{
+  "id": "2026-09-09-day-one-toilet-clean",
+  "scope": "Owner-commissioned third bathroom cleaning game: intentional circular toilet scrub after the tub, localized clean fixture reveal, spoken circular guidance, Roshan approach/contact, saved completion and legacy completed-save preservation. Reuse approved room, brush, pointer and generic circular-scrub voice; no new raster assets or protected edits.",
+  "baseline": "802a42e3f14b751c5fe4a9ea94b441b32a98aa0d",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-AGE-04",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-MED-05",
+    "DL-ASSET-01"
+  ],
+  "findings": [
+    "MA-PLAY-004"
+  ],
+  "files": [
+    "scripts/day_one_director.gd",
+    "scripts/games/day_one_bathroom_cleaning.gd",
+    "scripts/games/day_one_bathroom_cleanup.gd",
+    "scripts/games/day_one_bathroom_toilet.gd",
+    "scripts/main.gd",
+    "scripts/probe_audit.gd",
+    "scripts/probe_castle_pool_life_2d.gd",
+    "scripts/probe_chapter2.gd",
+    "scripts/probe_day_one_art_attack_state.gd",
+    "scripts/probe_day_one_bathroom_cleanup.gd",
+    "scripts/probe_day_one_bathroom_integration.gd",
+    "scripts/probe_day_one_bathroom_movie_handoff.gd",
+    "scripts/probe_day_one_bathroom_shots.gd",
+    "scripts/probe_day_one_director.gd",
+    "scripts/probe_day_one_draft_integration.gd",
+    "scripts/probe_day_one_integration.gd",
+    "scripts/probe_dust_boss.gd",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "ASSET_LICENSES.md"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 scripts/probe_day_one_bathroom_cleanup.gd",
+      "result": "PASS",
+      "evidence": ".godot/sink-repair/toilet-final-probe.log; intentional, passive, two-finger, interrupted approach, local brush contact and save migration. See final log."
+    },
+    {
+      "command": "Godot 4.7.2 Mobile scripts/probe_day_one_bathroom_shots.gd",
+      "result": "PASS",
+      "evidence": ".godot/sink-repair/toilet-visual2.log; 13 captures, failures=0. Agent reviewed before/during/after toilet stage; handle and bristles aligned using source-image sockets."
+    },
+    {
+      "command": "GODOT=official Godot 4.7.2 scripts/ci.sh; refreshed early source gates after reconciliation",
+      "result": "PASS",
+      "evidence": ".godot/sink-repair/toilet-full-ci.log: exit 0; all 78 trusted probes exit 0. Import and all runtime probes ran after merging dev 50eafc78. Early source-sensitive gates were refreshed separately and passed; immutable art/audio checks passed in the full run. SHA-256 5e7e112bf59a555a2db6cd0877d6f7ebc6972f43cd4747d01b3a866669533ff0"
+    },
+    {
+      "command": "Godot 4.7.2 probe_day_one_bathroom_integration.gd; probe_day_one_draft_integration.gd -- --day-one-draft-movies; probe_chapter2.gd",
+      "result": "PASS",
+      "evidence": "All exit 0: toilet-probe_day_one_bathroom_integration-2.log, toilet-draft-final.log, toilet-chapter2-final.log under .godot/sink-repair. The inactive-Day-One current-room assertion was stale against the unchanged baseline normalizer and now expects an empty room. Initial draft attempt omitted its opt-in flag; the correctly flagged run passed."
+    },
+    {
+      "command": "Godot 4.7.2 Mobile bathroom capture probe at 1560x720",
+      "result": "PASS",
+      "evidence": ".godot/sink-repair/toilet-wide.log; all 13 captures and route handoff passed; reviewed local brush contact at expanded viewport."
+    },
+    {
+      "command": "Godot 4.7.2 Mobile bathroom capture probe after merging dev 50eafc78",
+      "result": "PASS",
+      "evidence": ".godot/sink-repair/toilet-merged-visual.log; 13 captures, RESULT PASS failures=0; updated touch controls preserve bathroom sequence."
+    },
+    {
+      "command": "Unmodified early source-sensitive scripts/ci.sh gates refreshed after dev reconciliation",
+      "result": "PASS",
+      "evidence": ".godot/sink-repair/toilet-refresh-static.log; exit 0, including full-tree parser, inference lint, typography, Roshan/2D contracts, parity, authority, development coverage and handoff checks. SHA-256 e0cb9ebf7286db914695528450b8d48454af148d1fe9ed8af1c8deb9a04e3289"
+    },
+    {
+      "command": "Exact-head GitHub Probe suite and dev integration",
+      "result": "PENDING",
+      "evidence": "Post-commit workflow evidence; integration requires green exact-head CI."
+    }
+  ],
+  "acceptance_gaps": "Target-device, child and owner acceptance pending. Existing sink/tub Roshan contact debt is not closed by the new toilet stage; no global finding closure.",
+  "captures": [
+    {
+      "path": ".godot/sink-repair/toilet-captures2/08a_toilet_circle_prompt.png",
+      "sha256": "30cf35c7a7ebdb7cb33d2dd39b2c04b7fce29aa25bb5083475510cb6d0b6d356"
+    },
+    {
+      "path": ".godot/sink-repair/toilet-captures2/08b_toilet_scrubbing.png",
+      "sha256": "7b8743fee30523c620263e1f08c7b35f218fc530c11d295ce5795a4997b3fd34"
+    },
+    {
+      "path": ".godot/sink-repair/toilet-captures2/08_whole_room_sparkle.png",
+      "sha256": "89a37ab39efcde716c1ed564f10922c5f97ac4520e5c8c11a75baf7e87146ad1"
+    },
+    {
+      "path": ".godot/sink-repair/toilet-wide-captures/08b_toilet_scrubbing.png",
+      "sha256": "bae8fba04f3af911449e7eeed248f5416290e039c88ad626a5849dc3d389df33"
+    },
+    {
+      "path": ".godot/sink-repair/toilet-merged-captures/08b_toilet_scrubbing.png",
+      "sha256": "5d0f090ca21f90ffe34968bb3c8f17d51e85419967d08fe4a036ee8607bd9d3d"
+    }
+  ],
+  "source_hashes": {
+    "scripts/day_one_director.gd": "f1a01e63b358e4fc6f3299d817df98ea4a6e12e76a88e8b89dbc60ea84e02383",
+    "scripts/games/day_one_bathroom_cleaning.gd": "feccc021210b166efe39486957f2537591d05c9e13d40040ab1cffcf56fce594",
+    "scripts/games/day_one_bathroom_cleanup.gd": "c43add29686123d3fc89a8fcf5e34564b0039f94c899773cb610173452173455",
+    "scripts/games/day_one_bathroom_toilet.gd": "5abf202a4c3642921ff99781294931085eb2e550dc068b99212bccfdfdef01fa",
+    "scripts/main.gd": "79dc2df2c2a38d096e0d0ae34507cc334eb0a95483493d7cf13fb849c7e9d88f",
+    "scripts/probe_audit.gd": "c14327d8ebd995e7fcbfea32a2b3d5b2cbebb4fc55f70ffad1fe640bfde90259",
+    "scripts/probe_castle_pool_life_2d.gd": "defc69701ef5d44122a4a08e9ab1a1996fc955c1a162b90cbfc1286559229dee",
+    "scripts/probe_chapter2.gd": "4ff8d8e172ec739c6d09abe0d5bf1daf45534de51e16343dec1cb800b35e3c1b",
+    "scripts/probe_day_one_art_attack_state.gd": "f0ed40e965a0b628b7ae9eea92f2e5e8ddcefc551d0d6ec7eda9ec3eb934f25f",
+    "scripts/probe_day_one_bathroom_cleanup.gd": "7cd36aad1d8f541a15bbb16dbdac924f4037d7964d8ae8f587c98935faeb9e9d",
+    "scripts/probe_day_one_bathroom_integration.gd": "ff8398c16a559c27c4eff2a2b29cd66be9eeb50b26a3704b7b555b1cd368d777",
+    "scripts/probe_day_one_bathroom_movie_handoff.gd": "9217e4a68e22c22804384c81f1546ad8291903a536dabc02dd33dcb76e689f58",
+    "scripts/probe_day_one_bathroom_shots.gd": "29838a41c1a5a269bad9d2ade6dbfe2f94781a3e3965287a5dafef59edd09c7e",
+    "scripts/probe_day_one_director.gd": "0e6cadba1569e1c00f90d58e00b993c7d1af9c11ec616451701dbb30a26124fb",
+    "scripts/probe_day_one_draft_integration.gd": "15ce85f6e05c96330b5e7f9412c2849683d55996eedec2c433395d311a64a9b5",
+    "scripts/probe_day_one_integration.gd": "cfcb6e34b6b3bd8435ee3514c1530c81f5676677c0abff31aeef792c4c620821",
+    "scripts/probe_dust_boss.gd": "3b5afae1f739417240a105cb23fe41c955fe6cc36d8ca070afe543b83a106e1b",
+    "audit/MASTER_AUDIT_2026-08-09.md": "f6ead0506805e5f013933e5fe528c0a044ef6cdea63789561f388ae152fb9f84",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md": "c46880f9c4efe2c9c8e094045fa59ae5bdee2834f3efecad944942efc2876d3f",
+    "ASSET_LICENSES.md": "dcae5e3fd9a84b05e27056048225b1fa5de7f87905041aa94d89b2c5c0fd81a6"
+  },
+  "reconciliation": {
+    "incoming_dev": "50eafc78c7a1e40ee70471bd5d6df9b08d6db841",
+    "sink_ci": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/34426906782",
+    "scope": "Merged Grand Puff movement update conflict-free before scripts/ci.sh reached Godot import or trusted probes. Toilet runtime sources were unchanged by reconciliation; only the incoming boss probe also receives the new completed-toilet fixture flag. All early source-sensitive static gates are refreshed after merge; untouched art/audio evidence remains from the same full run. The full import and all runtime probes execute the combined sources."
+  }
+}

@@ -498,6 +498,7 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	tub_stage._process(0.0)
 	_check("tub grime fades away after the final scrub",
 		not sink_grime.visible and not tub_grime.visible)
+	await _probe_toilet(tub_stage, cleaning_main)
 	await create_timer(0.98).timeout
 	_check("cleaning completion emits exactly once",
 		int(cleaning_main.get_meta(
@@ -522,6 +523,7 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	var interrupted_main := ReefMain.new()
 	interrupted_main._day_one_ref()
 	interrupted_main.day_one_bathroom_cleanup_step = 2
+	interrupted_main.day_one_bathroom_toilet_cleaned = true
 	var interrupted: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
 		as DayOneBathroomCleaning
 	host.add_child(interrupted)
@@ -590,3 +592,41 @@ func _check(label: String, ok: bool) -> void:
 	if not ok:
 		checks_failed += 1
 	print("DAY_ONE_BATHROOM|", label, ": ", "OK" if ok else "FAIL")
+
+
+func _probe_toilet(cleaning: DayOneBathroomCleaning, main: ReefMain) -> void:
+	var toilet: DayOneBathroomToilet = cleaning._toilet_stage
+	_check("tub completion waits for toilet cleaning", toilet != null and not main.day_one_bathroom_toilet_cleaned and not cleaning.audit_snapshot()["completion_sent"])
+	if toilet == null:
+		return
+	toilet._process(30.0)
+	_check("toilet demonstration never earns progress", not main.day_one_bathroom_toilet_cleaned and float(toilet.audit_snapshot()["distance"]) == 0.0)
+	_check("other fixtures cannot start toilet cleaning", not toilet.begin_gesture(SINK_CENTER))
+	var center := DayOneBathroomToilet.CENTER
+	_check("generous toilet target accepts one finger", toilet.begin_gesture(center + Vector2(65, 0), 4))
+	_check("second finger cannot steal toilet gesture", not toilet.begin_gesture(center, 5))
+	toilet.move_gesture(center + Vector2(-65, 0), 0.1)
+	_check("no scrub progress before Roshan arrives", float(toilet.audit_snapshot()["distance"]) == 0.0)
+	toilet.cancel_gesture()
+	toilet._process(5.0)
+	_check("interrupted approach never completes later", not bool(toilet.audit_snapshot()["arrived"]) and not main.day_one_bathroom_toilet_cleaned)
+	toilet.begin_gesture(center + Vector2(65, 0), 4)
+	toilet._process(2.0)
+	_check("Roshan arrives with brush attached to hand", bool(toilet.audit_snapshot()["arrived"]) and float(toilet.audit_snapshot()["hand_contact_error"]) < 0.5 and float(toilet.audit_snapshot()["bristle_contact_error"]) < 15.0)
+	for i: int in range(1, 12):
+		var angle: float = float(i) / 32.0 * TAU
+		toilet.move_gesture(center + Vector2(cos(angle), sin(angle)) * 65.0, 0.06)
+	toilet.cancel_gesture()
+	var partial: Dictionary = main._day_one_ref().serialize_state()
+	_check("partial toilet save stays unfinished", not bool(partial["day_one_bathroom_toilet_cleaned"]))
+	toilet.begin_gesture(center + Vector2(65, 0), 0)
+	for i: int in range(1, 48):
+		var angle: float = float(i) / 32.0 * TAU
+		toilet.move_gesture(center + Vector2(cos(angle), sin(angle)) * 65.0, 0.06)
+	_check("intentional toilet circle saves clean state", main.day_one_bathroom_toilet_cleaned)
+	var restored := ReefMain.new()
+	restored._day_one_ref().restore_state(main._day_one_ref().serialize_state())
+	_check("toilet clean state survives save restore", restored.day_one_bathroom_toilet_cleaned)
+	restored.free()
+	var legacy: Dictionary = DayOneDirector.normalise_save_patch({"day_one_completed_rooms": ["bathroom"]})
+	_check("completed legacy bathrooms stay completed", bool(legacy["day_one_bathroom_toilet_cleaned"]))

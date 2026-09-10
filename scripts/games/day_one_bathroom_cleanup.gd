@@ -36,6 +36,22 @@ const CLEAN_SINK_OUTLINE: Array[Vector2] = [
 	Vector2(490, 207), Vector2(483, 197), Vector2(478, 185),
 ]
 
+const CLEAN_TOILET_OUTLINE: Array[Vector2] = [
+	Vector2(796, 245), Vector2(808, 230), Vector2(811, 205), Vector2(831, 177),
+	Vector2(850, 163), Vector2(871, 163), Vector2(893, 177), Vector2(910, 202),
+	Vector2(921, 229), Vector2(921, 265), Vector2(907, 287), Vector2(901, 315),
+	Vector2(879, 327), Vector2(849, 332), Vector2(808, 330), Vector2(786, 319),
+	Vector2(781, 298), Vector2(790, 284), Vector2(775, 263), Vector2(776, 250),
+]
+const CLEAN_TUB_OUTLINE: Array[Vector2] = [
+	Vector2(79, 228), Vector2(102, 208), Vector2(140, 198), Vector2(182, 191),
+	Vector2(241, 195), Vector2(290, 201), Vector2(342, 209), Vector2(379, 220),
+	Vector2(387, 239), Vector2(375, 270), Vector2(368, 297), Vector2(382, 319),
+	Vector2(363, 339), Vector2(323, 351), Vector2(254, 360), Vector2(188, 357),
+	Vector2(134, 349), Vector2(111, 337), Vector2(105, 302), Vector2(85, 277),
+	Vector2(76, 252),
+]
+
 signal supply_found(index: int, supply_id: String)
 signal supply_hunt_completed
 signal cleanup_step_completed(step: int, cleanup_id: String)
@@ -452,20 +468,33 @@ func _build_dirty_room_plate() -> void:
 	else:
 		_dirty_room_plate.z_index = 1
 		add_child(_dirty_room_plate)
-	_add_clean_sink_cutout(_dirty_room_plate)
+	_add_clean_fixture_cutouts(_dirty_room_plate)
+
+
+func _add_clean_fixture_cutouts(plate: Sprite2D) -> void:
+	_add_clean_sink_cutout(plate)
+	_add_fixture_cutout(plate, "CleanTubCutout", CLEAN_TUB_OUTLINE,
+		Vector2(232, 276), m.day_one_bathroom_cleanup_step >= 2)
+	_add_fixture_cutout(plate, "CleanToiletCutout", CLEAN_TOILET_OUTLINE,
+		Vector2(849, 254), m.day_one_bathroom_toilet_cleaned)
 
 
 func _add_clean_sink_cutout(plate: Sprite2D) -> void:
+	_add_fixture_cutout(plate, "CleanSinkCutout", CLEAN_SINK_OUTLINE,
+		Vector2(559, 232), m.day_one_bathroom_cleanup_step >= 1)
+
+
+func _add_fixture_cutout(plate: Sprite2D, node_name: String,
+		fixture_outline: Array[Vector2], center: Vector2, clean: bool) -> void:
 	var sink := Polygon2D.new()
-	sink.name = "CleanSinkCutout"
+	sink.name = node_name
 	# A narrow transparent edge follows the contour instead of leaving a hard
 	# cut through the painted shadows around the pedestal.
-	var outline := PackedVector2Array(CLEAN_SINK_OUTLINE)
+	var outline := PackedVector2Array(fixture_outline)
 	var vertices := PackedVector2Array(outline)
 	var colors := PackedColorArray()
 	var parts: Array[PackedInt32Array] = []
 	var interior := PackedInt32Array()
-	var center := Vector2(559.0, 232.0)
 	var count: int = outline.size()
 	for point: Vector2 in outline:
 		colors.append(Color(1.0, 1.0, 1.0, 0.0))
@@ -483,7 +512,7 @@ func _add_clean_sink_cutout(plate: Sprite2D) -> void:
 	sink.texture = CLEAN_ROOM_TEXTURE
 	sink.position = -CLEAN_ROOM_TEXTURE.get_size() * 0.5
 	sink.antialiased = true
-	sink.visible = m.day_one_bathroom_cleanup_step >= 1
+	sink.visible = clean
 	plate.add_child(sink)
 
 
@@ -532,7 +561,7 @@ func _reveal_drained_room_plate() -> void:
 	drained_plate.set_meta("true_2d", true)
 	drained_plate.set_meta("tub_drained", true)
 	filled_plate.get_parent().add_child(drained_plate)
-	_add_clean_sink_cutout(drained_plate)
+	_add_clean_fixture_cutouts(drained_plate)
 	_drained_room_plate = drained_plate
 	var drain: Tween = drained_plate.create_tween()
 	drain.tween_property(drained_plate, "modulate:a", 1.0, 0.34) \
@@ -583,6 +612,8 @@ func day_one_bathroom_plate_snapshot() -> Dictionary:
 			_dirty_room_plate.texture.get_height())
 	return {
 		"dirty_plate_visible": visible,
+		"toilet_clean_pixels": visible and (_dirty_room_plate.get_node("CleanToiletCutout") as Polygon2D).visible,
+		"tub_clean_pixels": visible and (_dirty_room_plate.get_node("CleanTubCutout") as Polygon2D).visible,
 		"sink_clean_pixels": visible
 			and _dirty_room_plate.get_node_or_null("CleanSinkCutout") is Polygon2D
 			and (_dirty_room_plate.get_node("CleanSinkCutout") as Polygon2D).visible
@@ -858,6 +889,11 @@ func _on_cleaning_step_completed(step: int, cleanup_id: String) -> void:
 		var sink := _dirty_room_plate.get_node_or_null("CleanSinkCutout") as Polygon2D
 		if sink != null:
 			sink.visible = true
+	if _dirty_room_plate != null and is_instance_valid(_dirty_room_plate):
+		for fixture: String in ["Tub", "Toilet"]:
+			var cutout := _dirty_room_plate.get_node_or_null("Clean%sCutout" % fixture) as Polygon2D
+			if cutout != null:
+				cutout.visible = m.day_one_bathroom_cleanup_step >= 2 if fixture == "Tub" else m.day_one_bathroom_toilet_cleaned
 	cleanup_step_completed.emit(step, cleanup_id)
 
 

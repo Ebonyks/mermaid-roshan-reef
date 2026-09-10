@@ -1,6 +1,6 @@
 class_name DayOneBathroomCleaning
 extends Control
-## Two short, forgiving bathroom gestures that follow the basket handoff.
+## Three short, forgiving bathroom gestures that follow the basket handoff.
 ##
 ## Sink is a circular scrub (arc + distance); tub is a back-and-forth brush
 ## (distance + direction reversals). Both only advance from a live one-finger
@@ -93,6 +93,7 @@ class GestureGuide extends Node2D:
 		draw_line(tip, tip - heading * 14.0 - side * 9.0, color, 5.5, true)
 
 var m: ReefMain
+var _toilet_stage: DayOneBathroomToilet = null
 var _step: int = 0
 var _active_gesture: bool = false
 var _last_point := Vector2.ZERO
@@ -159,6 +160,9 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	_tub_drained = m.day_one_bathroom_tub_drained or _step >= 2
 	_sponge_travel_complete = _step >= 1
 	_brush_travel_complete = _step >= 1
+	if _step >= 2 and not m.day_one_bathroom_toilet_cleaned:
+		_begin_toilet()
+		return
 	if _step >= 2:
 		# A save can land after the tub gesture but before the director's room
 		# completion callback. Re-emit that boundary once on re-entry.
@@ -183,7 +187,8 @@ func teardown() -> void:
 func audit_snapshot() -> Dictionary:
 	return {
 		"active_step": _step,
-		"active_stage": "sink" if _step == 0 else "tub" if _step == 1 else "finale",
+		"active_stage": "sink" if _step == 0 else "tub" if _step == 1 else "toilet" if not m.day_one_bathroom_toilet_cleaned else "finale",
+		"toilet": _toilet_stage.audit_snapshot() if is_instance_valid(_toilet_stage) else {},
 		"sink_arc": _sink_arc,
 		"sink_distance": _sink_distance,
 		"tub_distance": _tub_distance,
@@ -887,6 +892,22 @@ func _finish_tub() -> void:
 	if m != null:
 		m.day_one_record_bathroom_cleanup_step(2)
 	cleanup_step_completed.emit(2, "tub")
+	_update_dirty_overlays()
+	_begin_toilet()
+
+
+func _begin_toilet() -> void:
+	for item: CanvasItem in [_pointer, _target, _sponge, _swoosh, _guide]:
+		if is_instance_valid(item):
+			item.visible = false
+	_toilet_stage = preload("res://scripts/games/day_one_bathroom_toilet.gd").new() as DayOneBathroomToilet
+	add_child(_toilet_stage)
+	_toilet_stage.cleaned.connect(_finish_toilet)
+	_toilet_stage.setup(m, _announcements_enabled)
+
+
+func _finish_toilet() -> void:
+	cleanup_step_completed.emit(2, "toilet")
 	finale_started.emit()
 	if m != null and _announcements_enabled:
 		_say_context("day1_bathroom_tub_clean", "The bathroom is sparkling!",

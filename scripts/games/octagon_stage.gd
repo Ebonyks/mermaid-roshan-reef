@@ -274,7 +274,9 @@ func tick(delta: float, navigation: EncounterNavigation2D = null) -> Dictionary:
 	if navigation != null:
 		if absf(mx) > 0.05 or absf(mz) > 0.05:
 			navigation.cancel()
+			navigation.step_speed(spd, delta)
 		else:
+			spd = navigation.step_speed(spd, delta)
 			var direction: Vector2 = navigation.direction_for_step(player_local(), spd, delta)
 			mx = direction.x
 			mz = direction.y

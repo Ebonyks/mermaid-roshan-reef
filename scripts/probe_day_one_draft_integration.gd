@@ -122,6 +122,7 @@ func _bathroom_boundary() -> void:
 	main._day_one_cancel_draft_movies()
 	main.day_one_authorize_bathroom_tools()
 	main.day_one_record_bathroom_cleanup_step(2)
+	main.day_one_record_bathroom_toilet_cleaned()
 	_check("bathroom completion crosses live seam",
 		main.day_one_complete_bathroom_scene())
 	await _frames(4)

@@ -61,6 +61,8 @@ rules; sealed evidence below remains scoped to its recorded build. Follow the
 
 Scoped 2026-09-09 retired-Reef route repair: [impact and evidence](../design/audit_impacts/retired-reef-20260909.json). `MA-2D-002` and `MA-PLAY-001` remain open; removing these routes is not whole-game archival or device acceptance. Day Two follow-up: [explicit boss return evidence](../design/audit_impacts/day-two-safe-return-20260909.json) covers launch-independent destination ownership.
 
+Scoped Day One toilet cleaning addition: [implementation and evidence](../design/audit_impacts/2026-09-09-day-one-toilet-clean.json). Adds a third intentional bathroom scrub with saved completion and local brush contact; device/child/owner acceptance and game-wide `MA-PLAY-004` remain open.
+
 [Authority reconciliation](#3-authority-and-comprehensive-design-language-confirmation) · [Historical evidence](#4-evidence-at-the-integration-snapshot-and-named-historical-commits) · [Supporting repairs](#6-supporting-repair-evidence--not-canonical-finding-records) · [Superseded ideas](#7-superseded-dismissed-and-deferred-ideas) · [Expanded acceptance](#8-expanded-acceptance-notes-for-highest-priority-indexed-items) · [Audit tools](#11-audit-tool-and-documentation-control-work) · [Change history](#14-change-history)
 
 [Executive verdict](#1-executive-verdict) · [Superseded design choices](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#15-explicitly-superseded-dismissed-and-deferred-ideas) · [Canonical finding schema](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#17-finding-record-fields)

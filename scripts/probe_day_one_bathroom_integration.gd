@@ -64,6 +64,8 @@ func _init() -> void:
 		and not restored.can_enter_room("pool"))
 	restored_main.day_one_bathroom_supply_hunt_step = 2
 	restored_main.day_one_bathroom_tools_authorized = true
+	_check("toilet cannot be skipped after sink and tub", not restored.complete_tutorial("bathroom"))
+	restored_main.day_one_record_bathroom_toilet_cleaned()
 	var bathroom_completed: bool = restored.complete_tutorial("bathroom")
 	_check("bathroom completion unlocks the pool after both gestures",
 		bathroom_completed
@@ -85,7 +87,8 @@ func _init() -> void:
 		and int(legacy_patch.get("day_one_bathroom_cleanup_step", -1)) == 3
 		and int(legacy_patch.get(
 			"day_one_bathroom_supply_hunt_step", -1)) == 2
-		and String(legacy_patch.get("day_one_current_room", "")) == "pool")
+		and bool(legacy_patch.get("day_one_bathroom_toilet_cleaned", false))
+		and String(legacy_patch.get("day_one_current_room", "")) == "")
 	var inactive_main: ReefMain = ReefMain.new()
 	inactive_main.day_one_active = false
 	inactive_main.day_one_bathroom_cleanup_step = 2

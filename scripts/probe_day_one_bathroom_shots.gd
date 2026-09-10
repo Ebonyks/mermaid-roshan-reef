@@ -180,6 +180,19 @@ func _run() -> void:
 	var cleaning: DayOneBathroomCleaning = cleanup._cleaning_stage
 	_check("three forgiving tub reversals complete",
 		cleaning != null and cleaning.probe_tub_strokes(tub_points, 0.75))
+	await _capture("08a_toilet_circle_prompt")
+	var toilet: DayOneBathroomToilet = cleaning._toilet_stage
+	var toilet_center := DayOneBathroomToilet.CENTER
+	toilet.begin_gesture(toilet_center + Vector2(65, 0))
+	await create_timer(1.4).timeout
+	for i: int in range(1, 18):
+		var angle: float = float(i) / 32.0 * TAU
+		toilet.move_gesture(toilet_center + Vector2(cos(angle), sin(angle)) * 65.0, 0.06)
+	await _capture("08b_toilet_scrubbing")
+	for i: int in range(18, 48):
+		var angle: float = float(i) / 32.0 * TAU
+		toilet.move_gesture(toilet_center + Vector2(cos(angle), sin(angle)) * 65.0, 0.06)
+	_check("toilet cleaning completes before the room celebration", main.day_one_bathroom_toilet_cleaned)
 	await create_timer(0.12).timeout
 	var clean_plate_finale: Dictionary = cleanup.day_one_bathroom_plate_snapshot()
 	_check("completion permanently reveals the distinct clean room state",

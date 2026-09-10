@@ -40,6 +40,7 @@ func _init() -> void:
 	director.bathroom_supply_hunt_step = 2
 	director.bathroom_tools_authorized = true
 	director.bathroom_cleanup_step = 2
+	director.bathroom_toilet_cleaned = true
 	director.complete_tutorial("bathroom")
 	director.complete_activity("pool", "pool_activity")
 	director.complete_activity("stuffie", "stuffie_activity")

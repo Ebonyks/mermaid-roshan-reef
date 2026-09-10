@@ -105,6 +105,7 @@ func _audit_boss_boundary() -> void:
 	day_one.bathroom_supply_hunt_step = 2
 	day_one.bathroom_tools_authorized = true
 	day_one.bathroom_cleanup_step = 2
+	day_one.bathroom_toilet_cleaned = true
 	_check("the four clean rooms arm the boss door",
 		day_one.complete_tutorial("bathroom")
 		and day_one.complete_placeholder("pool", "pool_activity")

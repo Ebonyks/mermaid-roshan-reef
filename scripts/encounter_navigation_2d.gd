@@ -5,6 +5,8 @@ extends RefCounted
 ## existing projected stages without adding spatial world logic to new modes.
 var destination := Vector2.ZERO
 var travelling: bool = false
+var dash_remaining: float = 0.0
+var dash_cooldown: float = 0.0
 var bounds := Rect2(-26.0, -26.0, 52.0, 52.0)
 var _a: float = 1.0
 var _b: float = 0.0
@@ -60,8 +62,23 @@ func move_to(point: Vector2) -> void:
 	destination = point
 	travelling = true
 
+func try_dash() -> bool:
+	if not travelling or dash_cooldown > 0.0:
+		return false
+	dash_remaining = 0.22
+	dash_cooldown = 0.7
+	return true
+
+func step_speed(speed: float, delta: float) -> float:
+	# Integrate only the burst portion of this frame, including slow frames.
+	var burst: float = minf(dash_remaining, maxf(delta, 0.0))
+	dash_remaining = maxf(0.0, dash_remaining - delta)
+	dash_cooldown = maxf(0.0, dash_cooldown - delta)
+	return speed * (1.0 + 1.8 * burst / maxf(delta, 0.001))
+
 func cancel() -> void:
 	travelling = false
+	dash_remaining = 0.0
 
 func direction_for_step(current: Vector2, speed: float, delta: float) -> Vector2:
 	if not travelling:
