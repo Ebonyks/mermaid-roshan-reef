@@ -82,6 +82,8 @@ var _caption_size := Vector2.ZERO
 var _caption_style: StyleBox = null
 var _warning_points := PackedVector2Array()
 var _world_move_active: bool = false
+var _dash_tap_time: float = 0.0
+var _dash_tap_point := Vector2.ZERO
 var _telegraph_data: Dictionary = {}
 
 func _init(main: ReefMain) -> void:
@@ -245,6 +247,7 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	# only ever come from a fresh tap edge here, so a zero-input run cannot
 	# scratch him (probe_passive).
 	_update_projection()
+	_dash_tap_time = maxf(0.0, _dash_tap_time - delta)
 	var s: Dictionary = stage.tick(delta, navigation)
 	var tapped: bool = bool(s["tap"])
 	m.g["db_feedback_cd"] = maxf(0.0,
@@ -602,6 +605,7 @@ func on_world_tap(screen_pos: Vector2) -> void:
 	# Only the counter opening owns boss taps. During attacks and recovery,
 	# the whole floor remains steerable, including floor behind his cutout.
 	if String(m.g.get("db_state", "")) == "vuln" and _screen_hit(screen_pos):
+		_dash_tap_time = 0.0
 		var k: DustBunnyBossSprite = kit()
 		if k != null and is_instance_valid(k) and k.vulnerable:
 			_accept_counter()
@@ -609,7 +613,13 @@ func on_world_tap(screen_pos: Vector2) -> void:
 			_bounce_off()
 		return
 	_world_move_active = true
-	on_world_drag(screen_pos)
+	_move_to_screen(screen_pos)
+	if _dash_tap_time > 0.0 and screen_pos.distance_to(_dash_tap_point) <= 64.0:
+		navigation.try_dash()
+		_dash_tap_time = 0.0
+	else:
+		_dash_tap_time = 0.36
+		_dash_tap_point = screen_pos
 
 func _can_world_move() -> bool:
 	return m.game == "dustboss" and m.g.has("db_state") \
@@ -620,11 +630,17 @@ func on_world_drag(screen_pos: Vector2) -> void:
 	# A movement gesture cannot turn into a counter when the star opens.
 	if not _world_move_active or not _can_world_move():
 		return
+	if screen_pos.distance_to(_dash_tap_point) > 18.0:
+		_dash_tap_time = 0.0
+	_move_to_screen(screen_pos)
+
+func _move_to_screen(screen_pos: Vector2) -> void:
 	var target: Vector2 = navigation.screen_to_floor(screen_pos)
 	navigation.move_to(stage.clamp_point(target, 2.6))
 
 func _cancel_world_move() -> void:
 	_world_move_active = false
+	_dash_tap_time = 0.0
 	navigation.cancel()
 
 func _accept_counter() -> void:

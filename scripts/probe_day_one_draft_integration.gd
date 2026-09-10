@@ -240,6 +240,8 @@ func _boss_lifecycle() -> void:
 
 
 func _terminal_day_two() -> void:
+	# Model the cleared boss activity rather than the prior cancellation room.
+	main._clear_game()
 	await _reset_state({
 		"day_one_active": true,
 		"day_one_current_room": "",
@@ -261,6 +263,15 @@ func _terminal_day_two() -> void:
 	_check("skipping C12 presents Day Two",
 		main.day_two_transition_active
 		or bool(main.g.get("day_two_started", false)))
+	if main.day_two_transition_layer != null:
+		main.day_two_transition_layer._complete()
+	await _frames(3)
+	_check("Day Two card reveals live Canvas without menu launch",
+		main.game == "level2" and String(main.g.get("phase", "")) == "promenade"
+		and not main.player.visible and not main.player.cam.current,
+		"game=%s phase=%s player=%s camera=%s castle=%s" % [main.game,
+		main.g.get("phase", ""), main.player.visible, main.player.cam.current,
+		main._castle_rooms_ref().is_open()])
 	main._day_one_cancel_draft_movies()
 	_check("Day Two event is idempotent",
 		not director.complete_day_one_after_boss())

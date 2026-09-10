@@ -95,6 +95,7 @@ func _tap_boss_world() -> void:
 	main.get_tree().paused = false
 	_ck("paused screen touch cannot counter", _hits() == hits_before)
 	await _push_screen_tap(screen_point, 72)
+	_ck("gold boss tap counters without a dash", _boss().navigation.dash_remaining == 0.0)
 
 func _push_screen_tap(screen_point: Vector2, touch_index: int) -> void:
 	var press := InputEventScreenTouch.new()
@@ -192,6 +193,7 @@ func _splash_and_geometry_case() -> void:
 	_navigation_roundtrip_case()
 	_pattern_geometry_case()
 	await _free_steering_case("showing")
+	await _dash_case()
 
 func _negative_input_case() -> void:
 	await _frames(340)
@@ -312,6 +314,71 @@ func _free_steering_case(expected_state: String) -> void:
 	_ck(expected_state + " cancelled gesture cannot restart movement",
 		not boss.navigation.travelling)
 
+func _floor_touch(point: Vector2, pressed: bool) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = 84
+	event.position = point
+	event.pressed = pressed
+	main.get_viewport().push_input(event, true)
+
+func _dash_case() -> void:
+	var boss: DustBossGame = _boss()
+	var point: Vector2 = boss.stage.project_floor_point(Vector2(-18.0, 10.0))
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	_ck("single floor tap swims without dash", boss.navigation.dash_remaining == 0.0)
+	_floor_touch(point + Vector2(8.0, 0.0), true)
+	_floor_touch(point, false)
+	_ck("nearby second tap starts dash", boss.navigation.dash_remaining > 0.0)
+	var before: Vector2 = boss.stage.player_local()
+	await _frames(2)
+	_ck("dash advances Roshan immediately", boss.stage.player_local().distance_to(before) > 0.05)
+	_ck("dash remains inside arena", boss.stage.player_local().distance_to(
+		boss.stage.clamp_point(boss.stage.player_local(), 2.6)) < 0.01)
+	main.touch_ui.cancel_all_touches()
+	_ck("touch cancellation stops dash and travel",
+		boss.navigation.dash_remaining == 0.0 and not boss.navigation.travelling)
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	_ck("rapid repeated pairs cannot bypass dash cooldown", boss.navigation.dash_remaining == 0.0)
+	main.touch_ui.cancel_all_touches()
+	await _frames(50)
+	_floor_touch(point, true)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 84
+	drag.position = point + Vector2(90.0, 0.0)
+	main.get_viewport().push_input(drag, true)
+	_floor_touch(drag.position, false)
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	_ck("drag followed by tap is not double tap", boss.navigation.dash_remaining == 0.0)
+	main.touch_ui.cancel_all_touches()
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	await _frames(30)
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	_ck("expired first tap cannot dash", boss.navigation.dash_remaining == 0.0)
+	main.touch_ui.cancel_all_touches()
+	var nav := EncounterNavigation2D.new()
+	nav.move_to(Vector2(100.0, 0.0))
+	_ck("dash starts only when ready", nav.try_dash() and not nav.try_dash())
+	var speed: float = nav.step_speed(24.0, 0.1)
+	_ck("dash is faster than normal swim", is_equal_approx(speed, 67.2))
+	var near := Vector2(99.5, 0.0)
+	var step: Vector2 = nav.direction_for_step(near, speed, 0.1) * speed * 0.1
+	_ck("dash lands at destination without overshoot", (near + step).distance_to(Vector2(100.0, 0.0)) < 0.001)
+	nav.step_speed(24.0, 0.6)
+	_ck("burst expires and cooldown recovers", nav.dash_remaining == 0.0
+		and is_equal_approx(nav.step_speed(24.0, 0.1), 24.0))
+	nav.move_to(Vector2(10.0, 0.0))
+	_ck("dash becomes available again", nav.try_dash())
+	nav.cancel()
+	_ck("cancelled navigation has no residual dash", nav.dash_remaining == 0.0
+		and nav.direction_for_step(Vector2.ZERO, 24.0, 0.1) == Vector2.ZERO)
+
 func _navigation_roundtrip_case() -> void:
 	var boss: DustBossGame = _boss()
 	var all_ok := true
@@ -399,7 +466,10 @@ func _adaptive_completion_case() -> void:
 	_ck("live tells keep their captured target while the player moves", snapshot_checked)
 	_ck("a visible 2D telegraph accompanies live danger", saw_telegraph)
 	_ck("hybrid head touch can land a real counter", used_world_touch)
-	_ck("one fresh counter edge per opening completes three rounds", main.game == "")
+	_ck("one fresh counter edge per opening returns Day Two to Canvas",
+		main.game == "level2" and String(main.g.get("phase", "")) == "promenade"
+		and not main.player.visible and not main.player.cam.current)
+	_ck("Day Two route does not depend on menu launch", not main._authored_world_session)
 	_ck("the earned final round survives interruption", final_checkpoint_done)
 	_ck("completion grants the base reward exactly once", completion_pearls == checkpoint_pearls + DustBossGame.BASE_WIN_PEARLS)
 	var director: DayOneDirector = main._day_one_ref()

@@ -7558,6 +7558,9 @@ func day_one_complete_boss_and_begin_day_two() -> bool:
 
 
 func _show_day_two_transition() -> void:
+	# Direct event/audit entry must have the same destination as boss teardown.
+	if game == "":
+		_exit_level2_now()
 	if _day_one_draft_movie != null and is_instance_valid(_day_one_draft_movie):
 		# Story state is already saved; only presentation waits for the draft.
 		_day_one_draft_boss_transition_pending = true
@@ -9750,6 +9753,11 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 	_update_hud()
 	_clear_game()
 	_write_save()
+	if completed_day_one_boss:
+		# Day Two owns its destination before its card or optional movie ends.
+		# Never expose the retired world or schedule the generic trophy finale.
+		_exit_level2_now()
+		return
 	if String(fr.get("fname", "")) == "Fairy Pond" and fairy_from_galaxy:
 		fairy_from_galaxy = false
 		call_deferred("_start_galaxy")   # back to the Butterfly World
