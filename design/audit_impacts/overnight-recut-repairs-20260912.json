@@ -41,6 +41,7 @@
     "assets_src/cinematics/overnight_recut_repairs_2026-09-12/OWNER_DIRECTION.json",
     "assets_src/cinematics/overnight_recut_repairs_2026-09-12/README.md",
     "assets_src/cinematics/overnight_recut_repairs_2026-09-12/REFERENCE_INDEX.json",
+    "assets_src/cinematics/overnight_recut_repairs_2026-09-12/REMOTE_VERIFICATION.json",
     "assets_src/cinematics/overnight_recut_repairs_2026-09-12/REVISED_STORYBOARD_GENERATIONS.json",
     "assets_src/cinematics/overnight_recut_repairs_2026-09-12/SETUP_REVIEW_REQUIREMENTS.json",
     "assets_src/cinematics/overnight_recut_repairs_2026-09-12/SHOT_REPAIR_QUEUE.json",
@@ -283,6 +284,11 @@
       "command": "GODOT=C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe scripts/ci.sh",
       "result": "PASS",
       "evidence": "audit/evidence/overnight_recut_20260912/full_ci.txt; Godot 4.7.2.stable.official.ed1daf0bf; process exit 0; all required static/import/runtime probes completed. Runtime unchanged from baseline; later edits are non-runtime artwork, direction and targeted archive validator changes. Transcript normalized only for trailing whitespace/newlines; original raw log SHA256 6abfee08e3027cc65263612ddd096d7d82424abacfe56478ddd97ecb6334a24f."
+    },
+    {
+      "command": "python -B tmp/verify_overnight_remote.py",
+      "result": "PASS",
+      "evidence": "219 public immutable GitHub payload/manifest files fetched and SHA256 verified at content commit 94514786aa58e77f4544d045fe58db8316eddcff; full URLs and results in assets_src/cinematics/overnight_recut_repairs_2026-09-12/REMOTE_VERIFICATION.json. ARCHIVE_COMPLETE true; GENERATION_READY and DELIVERY_ACCEPTED remain false."
     }
   ],
   "acceptance_gaps": "Complete approved opening frames, exact measured setups, human identity/topology/contact review, native-speed and listening review, separate V1/V2 readiness, all-frame cinematic provenance, runtime seams, device/child/owner delivery acceptance remain missing. Grok motion reference is not accepted delivery. No release requested."
