@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "status": "IMPLEMENTED_MACHINE_VERIFIED_PENDING_DEVICE_CHILD_OWNER_ACCEPTANCE",
+  "profile": "ROSHAN_MOVEMENT_LANGUAGE.md / Ribbon Glide working direction",
+  "scope": "Grand Puff gameplay only; existing authored pose reuse, no cinematic delivery",
+  "clips": [
+    {
+      "id": "puff_counter_v1",
+      "intent": "Roshan points and a short sparkle visibly connects her to the earned counter.",
+      "source": "scripts/player.gd play_verb(point), existing approved Roshan atlas",
+      "anticipation": "existing point pose",
+      "contact": "fresh accepted boss tap; gameplay owns reward immediately",
+      "follow_through": "0.55 second Canvas sparkle, existing boss flinch",
+      "recovery": "1.8 seconds; first exchange up to 4.6 seconds for optional dash demonstration",
+      "interrupt": "overlay freed on encounter teardown; scene pause freezes effects",
+      "fallback": "counter/save remain valid if effects are unavailable",
+      "pivot": "Existing approved atlas pivot; no sprite transform overrides",
+      "anchors": "Projected Roshan floor position minus 28 canvas pixels; boss marker-to-floor midpoint",
+      "direction": "Existing player facing ownership; Canvas connection accepts either direction",
+      "loop": "One shot, 0.55 seconds; no looping or accumulation",
+      "exit": "Bounded fade, scene teardown frees the overlay",
+      "source_captures": "tmp/frozen-shots-1280 and tmp/frozen-shots-1560; hashes bound in design/audit_impacts/grand-puff-intuitive-20260912.json",
+      "style_acceptance": "Existing profile and point pose reused; no new character style acceptance claimed"
+    },
+    {
+      "id": "puff_landing_v1",
+      "intent": "Ground contact reads as a soft dust landing",
+      "source": "assets/opera/worlds/props/fx_dust_puff.png",
+      "contact": "actual strike impact sample",
+      "duration_seconds": 0.65,
+      "budget": "5 reused textured quads, at most one burst, 30 Hz redraw",
+      "reward_authority": "none"
+    },
+    {
+      "id": "puff_tuft_v1",
+      "intent": "Optional movement toy after first counter",
+      "source": "assets/opera/worlds/props/fx_dust_puff.png",
+      "trigger": "Roshan within 2.5 floor units; walking or dash",
+      "reward_authority": "none; never required for completion"
+    },
+    {
+      "id": "puff_dash_lesson_v1",
+      "source": "assets/castle/training/ghost_hand.png; UI demonstration, not character acting",
+      "contact_seconds": [
+        0.0,
+        0.26
+      ],
+      "recognizer_window_seconds": 0.36,
+      "anchor": "Fixed optional tuft floor point for the two demonstrated contacts; every floor destination remains valid",
+      "start": "After the first counter response voice finishes at 2.6 seconds into recovery",
+      "exit": "Successful dash, next attack, pause or teardown; no lesson completion requirement"
+    }
+  ],
+  "acceptance": {
+    "machine": "PASS: exact Godot 4.7.2 full scripts/ci.sh, 78/78 probes exit 0; focused boss/balance controls pass",
+    "visual": "Scoped source-bound agent review passed at 1280x720 and 1560x720; device/child/owner acceptance remains pending",
+    "device_child_owner": "pending"
+  }
+}

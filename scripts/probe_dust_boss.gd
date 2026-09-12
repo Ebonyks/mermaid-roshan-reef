@@ -157,6 +157,7 @@ func _open_boss() -> void:
 func _splash_and_geometry_case() -> void:
 	_ck("fight opens on an input-blocking 2D splash", _state() == "splash" and main.g.get("db_splash") is BossSplash2D)
 	var splash: BossSplash2D = main.g.get("db_splash") as BossSplash2D
+	_ck("Grand Puff splash reserves the gold lesson for real play", splash != null and not splash.teach_counter)
 	var splash_elapsed: float = float(splash.get("_elapsed")) if splash != null else -1.0
 	main.get_tree().paused = true
 	await _frames(8)
@@ -183,6 +184,9 @@ func _splash_and_geometry_case() -> void:
 		print("DUSTBOSS|contract_failures|", contract_failures)
 	await _wait_state(["showing"], 1600)
 	_ck("showing follows splash", _state() == "showing")
+	await _frames(340)
+	_ck("unlearned movement waits without a fake gold opening",
+		_state() == "showing" and _hits() == 0 and float(main.g.get("db_flash", 0.0)) == 0.0)
 	_ck("encounter uses direct hybrid world touch without an action medallion",
 		main.touch_ui.encounter_press.is_valid()
 		and main.find_child("JumpButton", true, false) == null)
@@ -197,10 +201,24 @@ func _splash_and_geometry_case() -> void:
 	await _dash_case()
 
 func _negative_input_case() -> void:
-	await _frames(340)
-	await _tap_edge()
-	await _wait_state(["tell"], 900)
+	main.touch_ui.cancel_all_touches()
+	main.save_data["dustboss_lesson_dodge"] = false
+	_boss()._begin_attack_tell()
+	await _frames(120)
+	_ck("first warning holds safely for a stationary new player",
+		_state() == "tell" and _hits() == 0 and not _boss().patterns.tell_finished())
 	await _safe_navigation_case()
+	for _i in range(900):
+		if _state() == "vuln":
+			break
+		if _state() in ["tell", "strike"]:
+			await _move_one_frame_toward(_boss().danger_geometry().get("safe_point", Vector2.ZERO) as Vector2)
+		else:
+			await process_frame
+	main.touch_ui.stick_vec = Vector2.ZERO
+	_ck("real first dodge earns a real opening and saves the lesson",
+		_state() == "vuln" and bool(main.save_data.get("dustboss_lesson_dodge", false)))
+	await _wait_state(["tell"], 1600)
 	var hits_before: int = _hits()
 	var damage_before: int = _damage()
 	var no_input_recovery := await _wait_state(["damage_recovery"], 900)
@@ -208,6 +226,8 @@ func _negative_input_case() -> void:
 		no_input_recovery and _damage() > damage_before and _hits() == hits_before)
 	await _free_steering_case("damage_recovery")
 	await _wait_state(["tell"], 900)
+	_ck("a harmless bump restores the movement demonstration",
+		bool(main.g.get("db_dodge_help", false)) and (main.g.get("db_lesson") as DustBossLesson2D).mode == "move")
 	damage_before = _damage()
 	var saw_tell := false
 	var saw_strike := false
@@ -393,6 +413,8 @@ func _navigation_roundtrip_case() -> void:
 	_ck("2D floor and screen navigation round-trips 16 arena points", all_ok)
 
 func _adaptive_completion_case() -> void:
+	# Begin observation at an attack boundary, independent of the negative leg.
+	_boss()._begin_attack_tell()
 	var saw_phase := [false, false, false]
 	var saw_phase_one_combo := false
 	var saw_final_lane := false
@@ -486,8 +508,18 @@ func _checkpoint_restart_case(pearls_before: int) -> void:
 	var damage_before: int = _damage()
 	var misses_before: int = int(main.g.get("db_opening_misses", 0))
 	_ck("landed round writes its checkpoint", int(main.save_data.get("dustboss_pending_rounds", 0)) == 1)
+	var lesson: DustBossLesson2D = main.g.get("db_lesson") as DustBossLesson2D
+	_ck("first counter connects Roshan to Puff and remembers learning",
+		lesson != null and lesson._beam_time > 0.0 and bool(main.save_data.get("dustboss_lesson_counter", false)))
+	_ck("first counter offers one optional dust tuft", bool(main.g.get("db_tuft_visible", false)))
+	# Contact can scatter the toy, but cannot manufacture another counter.
+	main.g["db_tuft_point"] = _boss().stage.player_local()
+	_boss()._update_lesson()
+	_ck("walking contact scatters tuft without progress or reward",
+		not bool(main.g.get("db_tuft_visible", true)) and _hits() == 1 and main.pearl_count == pearls_before)
 	main._clear_game()
 	await _frames(3)
+	_ck("interrupt clears the lesson and counter effect", not is_instance_valid(lesson))
 	_ck("interrupt removes the dusty room Canvas", not is_instance_valid(old_attic))
 	_ck("interrupt preserves progress without reward", int(main.save_data.get("dustboss_pending_rounds", 0)) == 1 and main.pearl_count == pearls_before)
 	if main._castle_rooms_ref().is_open():

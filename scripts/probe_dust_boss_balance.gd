@@ -46,6 +46,8 @@ func _play(persona: Dictionary, negative: bool) -> void:
 	main.save_data["dustboss_pending_rounds"] = 0
 	main.save_data["dustboss_pending_damage"] = 0
 	main.save_data["dustboss_pending_misses"] = 0
+	for step: String in ["move", "dodge", "counter", "dash"]:
+		main.save_data["dustboss_lesson_" + step] = false
 	main._start_game_now(main.dust_boss_fr)
 	var elapsed: float = 0.0
 	var open_elapsed: float = 0.0
@@ -71,9 +73,11 @@ func _play(persona: Dictionary, negative: bool) -> void:
 				tapped_open = false
 		was_open = open_now
 		main.touch_ui.stick_vec = Vector2.ZERO
+		if state == "showing" and float(main.g.get("db_st", 0.0)) >= float(persona["reaction"]):
+			main.touch_ui.stick_vec = Vector2(float(persona["speed"]), 0.0)
 		if state in ["tell", "strike"] and float(persona["speed"]) > 0.0:
 			var geometry: Dictionary = boss.danger_geometry()
-			var tell_elapsed: float = float(geometry.get("tell_elapsed", 0.0))
+			var tell_elapsed: float = maxf(float(geometry.get("tell_elapsed", 0.0)), float(main.g.get("db_st", 0.0)))
 			if state == "strike":
 				tell_elapsed += float(main.g.get("db_st", 0.0))
 			if tell_elapsed >= float(persona["reaction"]):

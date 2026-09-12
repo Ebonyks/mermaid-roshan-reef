@@ -27,6 +27,7 @@ var _animation_ids: Dictionary = {
 	"identity": &"laugh_vulnerable",
 	"vulnerable": &"laugh_vulnerable",
 }
+var teach_counter: bool = true
 var _elapsed := 0.0
 var _done := false
 var _identity_started := false
@@ -200,7 +201,7 @@ func _process(delta: float) -> void:
 		_name_card.scale = Vector2.ONE * lerpf(0.92, 1.0, name_progress)
 	if _boss_anchor != null:
 		_animate_boss()
-	var flashing: bool = _elapsed >= FLASH_START and _elapsed < EXIT_START
+	var flashing: bool = teach_counter and _elapsed >= FLASH_START and _elapsed < EXIT_START
 	var pulse: float = 0.5 + 0.5 * sin((_elapsed - FLASH_START) * 8.0)
 	if flashing and not _vulnerable_started:
 		_vulnerable_started = true

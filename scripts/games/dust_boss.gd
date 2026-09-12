@@ -8,11 +8,8 @@ const BossSplash2DLogic = preload("res://scripts/boss_splash_2d.gd")
 const DustBossTelegraph2DLogic = preload("res://scripts/dust_boss_telegraph_2d.gd")
 const ATTIC_BACKDROP = preload("res://assets/flats/castle/boss/dusty_attic_arena_2048.png")
 
-const SHOW_T := 6.4            # the showing: he is revealed before he fights
-const SHOW_SKIP_T := 5.2       # the demo flash must have played before skipping
-const LANDED_ROUND_HOLD_T := 5.4 # one bounded, child-readable landed-round hold
+const LANDED_ROUND_HOLD_T := 1.8 # one bounded, child-readable landed-round hold
 const WIN_T := 3.4             # befriending beat before the win banner
-const POSITIVE_PACING_FLOOR := 38.0 # quick completions still get a warm ending
 
 const LEAP_H := 7.6            # existing contact-shadow scale reference
 const HOP_H := 2.4
@@ -37,7 +34,6 @@ const DAMAGE_RECOVERY_T: float = 1.05
 const MUSIC_SECONDS_PER_BEAT := 0.5
 const MUSIC_ACTION_BEAT := 16.0
 const MUSIC_ACTION_T := MUSIC_ACTION_BEAT * MUSIC_SECONDS_PER_BEAT
-const MUSIC_SHOW_FLASH_T := 3.2
 const MUSIC_OPEN_FRAME_T := 0.2
 const MUSIC_SYNC_TOLERANCE := 0.08
 
@@ -152,6 +148,8 @@ func _restore_round_checkpoint() -> void:
 	encounter.configure(EncounterProfile2D.grand_puff(), restored,
 		int(m.g["db_damage_taken"]), int(m.g["db_opening_misses"]))
 	patterns = encounter.patterns
+	if not _lesson_learned("counter"):
+		encounter.profile.counter_seconds = 8.0
 	var k: DustBunnyBossSprite = kit()
 	if k == null or not is_instance_valid(k):
 		return
@@ -293,6 +291,7 @@ func _show_boss_splash(fr: Dictionary) -> void:
 		"GRAND PUFF",
 		"THE GREAT DUST BUNNY",
 		badge, ATTIC_BACKDROP)
+	splash.teach_counter = false
 	splash.finished.connect(_on_boss_splash_finished.bind(fr), CONNECT_ONE_SHOT)
 	m.add_child(splash)
 	m.g["db_splash"] = splash
@@ -305,7 +304,6 @@ func _on_boss_splash_finished(fr: Dictionary) -> void:
 	if int(m.g.get("db_hits", 0)) >= HP:
 		# All counters were earned before the interruption. Resume the ending,
 		# not another attack; its normal save atomically grants and clears once.
-		m.g["db_active_t"] = POSITIVE_PACING_FLOOR
 		_enter_state("friends")
 		var k: DustBunnyBossSprite = kit()
 		if k != null and is_instance_valid(k):
@@ -316,8 +314,9 @@ func _on_boss_splash_finished(fr: Dictionary) -> void:
 
 func _begin_showing(fr: Dictionary) -> void:
 	_enter_state("showing")
-	_say_day_one_context("day1_boss_intro",
-		"The giant dust bunny woke up! It is too fluffy. Sparkle taps will work!")
+	m.g["db_lesson_start"] = stage.player_local()
+	_say_day_one_context("day1_boss_move_floor",
+		"Touch the floor where you want to go!")
 
 # ---- the state machine -----------------------------------------------------
 func _enter_state(next_state: String) -> void:
@@ -353,8 +352,7 @@ func _music_open_delay() -> float:
 func _sync_music_for_state(next_state: String) -> void:
 	match next_state:
 		"showing":
-			# The rehearsal flash receives the same downbeat as real play.
-			_music_seek(MUSIC_ACTION_T - MUSIC_SHOW_FLASH_T)
+			_music_seek(0.0)
 		"tell":
 			# Start far enough back in the quiet passage that the animation's
 			# first open frame, not merely the state boundary, reaches beat 16.
@@ -391,14 +389,19 @@ func _begin_attack_tell() -> void:
 	_prepare_telegraph_geometry()
 	m.g["db_attack_hit"] = false
 	_enter_state("tell")
-	_say_day_one_context("day1_boss_dodge",
-		"The big dust bunny is coming closer!")
+	_say_day_one_context("day1_boss_leave_shape",
+		"Move out of the glowing shape!")
 
 
 func _tick_attack_tell(delta: float, tapped: bool) -> void:
 	if tapped:
 		_bounce_off()
 	if patterns == null:
+		return
+	# On the first real warning, hold anticipation until she discovers an exit.
+	# Every point outside the shape is valid; the demonstration is not a target.
+	if not _lesson_learned("dodge") and patterns.contains(stage.player_local()) \
+			and patterns.elapsed >= patterns.tell_time * 0.25:
 		return
 	encounter.tick_tell(delta)
 	m.g["db_flash"] = 0.18 + 0.22 * clampf(patterns.elapsed / maxf(patterns.tell_time, 0.01), 0.0, 1.0)
@@ -443,9 +446,13 @@ func _tick_attack_strike(st: float, tapped: bool) -> void:
 	m.g["db_y"] = 0.0
 	var impact: BossEncounter2D.Impact = encounter.resolve_impact(
 		stage.player_local(), boss_here, RADIUS)
+	var lesson: DustBossLesson2D = m.g.get("db_lesson_floor") as DustBossLesson2D
+	if lesson != null:
+		lesson.land(stage.project_floor_point(boss_here))
 	m.g["db_impact_sampled"] = true
 	m.g["db_attack_hit"] = impact == BossEncounter2D.Impact.HIT
 	if impact == BossEncounter2D.Impact.HIT:
+		m.g["db_dodge_help"] = true
 		m.g["db_damage_taken"] = encounter.damage_taken
 		m.save_data["dustboss_pending_damage"] = int(m.g["db_damage_taken"])
 		m._write_save()
@@ -458,13 +465,15 @@ func _tick_attack_strike(st: float, tapped: bool) -> void:
 		return
 	if impact == BossEncounter2D.Impact.IGNORED:
 		return
+	_learn_lesson("dodge")
+	m.g["db_dodge_help"] = false
 	m.g["db_avoids"] = encounter.avoids
 	m.g["db_dust_charge"] = int(m.g.get("db_dust_charge", 0)) + 1
 	if impact == BossEncounter2D.Impact.NEXT_TELL:
 		_prepare_telegraph_geometry()
 		_enter_state("tell")
-		_say_day_one_context("day1_boss_dodge",
-			"The big dust bunny is coming closer!")
+		_say_day_one_context("day1_boss_leave_shape",
+			"Move out of the glowing shape!")
 		return
 	_begin_counter_opening()
 
@@ -511,43 +520,43 @@ func _tick_counter_opening(delta: float, tapped: bool) -> void:
 		k.close_vulnerability()
 	_begin_attack_tell()
 
-# THE SHOWING — he is revealed before he is ever fought: he swells up out of
-# his dust nest, takes one big parade hop, and demonstrates the tell (the star
-# flashes) while the voice line and the pointer explain it. Taps do nothing
-# here on purpose; the child is being taught, not tested.
-func _tick_showing(st: float, fr: Dictionary, tapped: bool) -> void:
-	if tapped:
-		if st >= SHOW_SKIP_T:
-			# A demo flash has already been shown. Let the child's tap move on,
-			# while early taps remain a harmless teaching response.
-			_begin_attack_tell()
-			return
-		_answer_only()
-	var grow: float = clampf(st / 1.6, 0.0, 1.0)
-	m.g["db_show_grow"] = grow
-	m.g["db_y"] = sin(clampf((st - 1.8) / 1.4, 0.0, 1.0) * PI) * 5.4
-	# the demo flash: exactly what she has to wait for in the real fight
-	var demo: bool = st > MUSIC_SHOW_FLASH_T and st < SHOW_SKIP_T
-	m.g["db_flash"] = 1.0 if demo else 0.0
-	if demo and not bool(m.g.get("db_show_told", false)):
-		m.g["db_show_told"] = true
-		_say_day_one_context("day1_boss_wait_gold",
-			"Wait for the gold star, then tap!")
-	if st >= SHOW_T:
-		m.g["db_flash"] = 0.0
+# A real first movement: any direction works, and waiting never advances it.
+func _tick_showing(st: float, _fr: Dictionary, _tapped: bool) -> void:
+	m.g["db_show_grow"] = clampf(st / 0.7, 0.0, 1.0)
+	m.g["db_y"] = 0.0
+	m.g["db_flash"] = 0.0
+	var start: Vector2 = m.g.get("db_lesson_start", stage.player_local()) as Vector2
+	if stage.player_local().distance_to(start) >= 2.0:
+		_learn_lesson("move")
+	if st >= 1.0 and _lesson_learned("move"):
 		_begin_attack_tell()
+
+func _lesson_learned(step: String) -> bool:
+	return bool(m.save_data.get("dustboss_lesson_" + step, false)) \
+		or int(m.g.get("db_hits", 0)) > 0
+
+func _learn_lesson(step: String, persist: bool = true) -> void:
+	var key: String = "dustboss_lesson_" + step
+	if not bool(m.save_data.get(key, false)):
+		m.save_data[key] = true
+		if persist:
+			m._write_save()
 
 # The landed counter plays the existing flinch sequence before another attack.
 func _tick_struck(delta: float, st: float, fr: Dictionary, tapped: bool) -> void:
 	if tapped:
 		_answer_only()
 	var rounds: int = int(m.g.get("db_hits", 0))
+	if rounds == 1 and st >= 2.6 and not bool(m.g.get("db_dash_taught", false)) \
+			and not bool(m.save_data.get("dustboss_lesson_dash", false)):
+		m.g["db_dash_taught"] = true
+		_say_day_one_context("day1_boss_double_tap", "Tap twice to dash!")
 	m.g["db_spin"] = float(m.g.get("db_spin", 0.0)) + 9.0 * delta
 	m.g["db_y"] = maxf(0.0, float(m.g.get("db_y", 0.0)) - delta * 22.0)
 	m.g["db_flash"] = 0.0
 	# the kit is playing flinch_3 -> angry; this hold is the breather the child
 	# gets to see what she did before he is moving again
-	var hold: float = LANDED_ROUND_HOLD_T
+	var hold: float = 4.6 if rounds == 1 and not bool(m.save_data.get("dustboss_lesson_dash", false)) else LANDED_ROUND_HOLD_T
 	if rounds >= HP:
 		return                     # the friends beat owns the ending
 	if st >= hold:
@@ -564,13 +573,7 @@ func _tick_friends(st: float, fr: Dictionary, tapped: bool) -> void:
 	# the kit plays the implosion off flinch_3 and reports when the last wisp
 	# is gone; only then is the fight over
 	var done: bool = bool(m.g.get("db_imploded", false))
-	# db_active_t and this state's st both advance every tick. Gate the floor
-	# against the authoritative encounter clock instead of subtracting it into
-	# a second advancing hold (which made the remaining floor shrink twice fast).
-	var floor_met: bool = float(m.g.get("db_active_t", 0.0)) >= POSITIVE_PACING_FLOOR
-	var celebration_ready: bool = st >= WIN_T
-	if ((done and floor_met and celebration_ready) \
-			or (floor_met and st >= WIN_T + 2.0)) \
+	if ((done and st >= WIN_T) or st >= WIN_T + 2.0) \
 			and not bool(m.g.get("db_done", false)):
 		m.g["db_done"] = true
 		m.save_data["dustboss_pending_rounds"] = 0
@@ -615,7 +618,8 @@ func on_world_tap(screen_pos: Vector2) -> void:
 	_world_move_active = true
 	_move_to_screen(screen_pos)
 	if _dash_tap_time > 0.0 and screen_pos.distance_to(_dash_tap_point) <= 64.0:
-		navigation.try_dash()
+		if navigation.try_dash():
+			_learn_lesson("dash")
 		_dash_tap_time = 0.0
 	else:
 		_dash_tap_time = 0.36
@@ -647,6 +651,20 @@ func _accept_counter() -> void:
 	var k: DustBunnyBossSprite = kit()
 	if k != null and encounter.try_counter(true, true, k.vulnerable):
 		navigation.cancel()
+		# The round callback saves learning and earned progress together.
+		_learn_lesson("counter", false)
+		encounter.profile.counter_seconds = 3.2
+		if m.player != null:
+			m.player.play_verb("point")
+		var lesson: DustBossLesson2D = m.g.get("db_lesson") as DustBossLesson2D
+		var hand: EncounterGestureGuide2D = m.g.get("db_hand") as EncounterGestureGuide2D
+		if lesson != null and hand != null:
+			var boss_floor := Vector2(float(m.g.get("db_x", 0.0)), float(m.g.get("db_z", 0.0)))
+			lesson.counter(stage.project_floor_point(stage.player_local()),
+				hand.anchor.lerp(stage.project_floor_point(boss_floor), 0.5))
+		if encounter.completed_rounds == 1:
+			m.g["db_tuft_point"] = stage.clamp_point(stage.player_local() + Vector2(6.0, -3.0), 4.0)
+			m.g["db_tuft_visible"] = true
 		k.register_counter_tap()
 
 func _screen_hit(screen_pos: Vector2) -> bool:
@@ -755,6 +773,7 @@ func _place_boss(delta: float) -> void:
 	var flash: float = float(m.g.get("db_flash", 0.0))
 	var star: Sprite3D = m.g.get("db_star") as Sprite3D
 	if star != null and is_instance_valid(star):
+		star.visible = flash >= 0.99
 		_apply_tell(star, flash >= 0.99)
 		var strobe: float = 0.5 + 0.5 * sin(float(m.g.get("db_st", 0.0)) * 22.0)
 		star.position.y = BOSS_H * puff + 1.5
@@ -811,6 +830,15 @@ func _build_mastery_ui() -> void:
 	telegraph.name = "DustBossTelegraph"
 	root.add_child(telegraph)
 	m.g["db_telegraph"] = telegraph
+	var lesson := DustBossLesson2D.new()
+	lesson.name = "DustBossLesson"
+	root.add_child(lesson)
+	m.g["db_lesson"] = lesson
+	var floor_lesson := DustBossLesson2D.new()
+	floor_lesson.floor_effects = true
+	floor_lesson.name = "DustBossFloorEffects"
+	(m.g["db_attic_layer"] as CanvasLayer).add_child(floor_lesson)
+	m.g["db_lesson_floor"] = floor_lesson
 	# The painted warning belongs on the floor behind the retained actors.
 	# Keep the destination hand and progress above them on the HUD canvas.
 	var floor_telegraph := DustBossTelegraph2DLogic.new() as DustBossTelegraph2D
@@ -826,6 +854,40 @@ func _update_mastery_ui() -> void:
 		return
 	layer.visible = String(m.g.get("db_state", "")) != "splash"
 	_update_telegraph()
+	_update_lesson()
+
+func _update_lesson() -> void:
+	var lesson: DustBossLesson2D = m.g.get("db_lesson") as DustBossLesson2D
+	if lesson == null:
+		return
+	var state: String = String(m.g.get("db_state", ""))
+	var player_point: Vector2 = stage.player_local()
+	lesson.mode = ""
+	lesson.from = stage.project_floor_point(player_point)
+	if state == "showing" and not _lesson_learned("move"):
+		lesson.mode = "move"
+		lesson.target = stage.project_floor_point(stage.clamp_point(player_point + Vector2(7.0, 0.0), 3.0))
+	elif state == "tell" and patterns.contains(player_point) \
+			and (not _lesson_learned("dodge") or bool(m.g.get("db_dodge_help", false))):
+		lesson.mode = "move"
+		lesson.target = stage.project_floor_point(patterns.geometry.get("safe_point", player_point) as Vector2)
+	elif state == "struck" and int(m.g.get("db_hits", 0)) == 1 \
+			and float(m.g.get("db_st", 0.0)) >= 2.6 \
+			and not bool(m.save_data.get("dustboss_lesson_dash", false)):
+		lesson.mode = "dash"
+		# Keep the demonstration still after the first tap so it can be repeated.
+		lesson.target = stage.project_floor_point(m.g.get("db_tuft_point", player_point) as Vector2)
+	var floor_lesson: DustBossLesson2D = m.g.get("db_lesson_floor") as DustBossLesson2D
+	if floor_lesson == null:
+		return
+	floor_lesson.tuft_visible = bool(m.g.get("db_tuft_visible", false))
+	if floor_lesson.tuft_visible:
+		var tuft: Vector2 = m.g.get("db_tuft_point", Vector2.ZERO) as Vector2
+		floor_lesson.tuft = stage.project_floor_point(tuft)
+		if player_point.distance_to(tuft) < 2.5:
+			m.g["db_tuft_visible"] = false
+			floor_lesson.tuft_visible = false
+			floor_lesson.land(floor_lesson.tuft)
 
 func _update_projection() -> void:
 	var viewport_size: Vector2 = m.get_viewport().get_visible_rect().size

@@ -101,3 +101,28 @@ Its visual-only clock owns deterministic review beats; production presentation
 continues to use real frame delta. A runtime capture can expose hierarchy,
 cropping, contrast and motion defects, but it cannot override owner style
 judgment.
+
+## Grand Puff interactive lesson — 2026-09-12
+
+Owner-authorized playable revision: the Grand Puff splash introduces personality
+without a fake gold tap. Other bosses retain the default splash sequence.
+The first movement accepts any direction; the first danger shape holds its
+anticipation while Roshan remains inside. Leaving any edge starts the actual
+jump. A later harmless bump restores the movement demonstration until the next
+clean dodge. A real dodge opens the real gold counter with an eight-second first
+window. Learned movement, dodge, counter and dash use additive save keys.
+The first earned exchange offers an optional double-tap demonstration. Ordinary
+movement remains sufficient throughout. Recovery is 1.8 seconds (4.6 seconds
+for the first optional dash lesson, allowing the landed-response voice to finish), and the ending has no total-time floor.
+One optional contact-scattered dust tuft appears after the first counter; it
+cannot damage the boss or grant progression. Existing art supplies landing dust
+and the counter uses Roshan's existing point pose with a Canvas sparkle connection.
+
+Implementation/evidence: [audit impact](audit_impacts/grand-puff-intuitive-20260912.json)
+and [clip contract](animation/grand_puff_encounter_clips_v1.json).
+Phone, child and owner play acceptance remain open. This change does not close
+whole-game touch, visual, play or 2D migration findings.
+The previous source is preserved on `rollback/grand-puff-before-intuitive-20260912`
+at `d33f2ddef98aa39af7cc2b2d066794945a024550`. Roll back by reverting only the
+redesign commits on a fresh topic branch, then validate and integrate normally;
+keep accumulated saves and Android version codes advancing.

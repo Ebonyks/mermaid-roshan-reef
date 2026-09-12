@@ -911,6 +911,21 @@
       }
     },
     {
+      "cue_id": "day1_boss_double_tap",
+      "moment": "day1 boss double tap",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "Tap twice to dash!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_double_tap.ogg",
+      "status": "READY"
+    },
+    {
       "cue_id": "day1_boss_enraged",
       "moment": "day1 boss enraged",
       "policy": "once_per_session",
@@ -984,6 +999,36 @@
           "day1_shared_voice_slate"
         ]
       }
+    },
+    {
+      "cue_id": "day1_boss_leave_shape",
+      "moment": "day1 boss leave shape",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "Move out of the glowing shape!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_leave_shape.ogg",
+      "status": "READY"
+    },
+    {
+      "cue_id": "day1_boss_move_floor",
+      "moment": "day1 boss move floor",
+      "policy": "once_per_session",
+      "video_reuse": {
+        "eligible": true,
+        "video_ids": [
+          "day1_gameplay"
+        ]
+      },
+      "route": "boss",
+      "caption": "Touch the floor where you want to go!",
+      "audio_path": "assets/audio/voices/filler_v1/roshan_day1_boss_move_floor.ogg",
+      "status": "READY"
     },
     {
       "cue_id": "day1_boss_reminder_almost",

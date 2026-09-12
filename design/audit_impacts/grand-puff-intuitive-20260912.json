@@ -1,0 +1,135 @@
+{
+  "id": "grand-puff-intuitive-20260912",
+  "baseline": "d33f2ddef98aa39af7cc2b2d066794945a024550",
+  "scope": "Owner-approved playable Grand Puff redesign: authentic assisted first movement/dodge/counter, optional dash lesson, connected counter effect, short earned recovery, responsive landing dust and one optional contact-scattered dust tuft. Existing free movement, locked geometry, three rounds, save/re-entry and no-loss behavior preserved. Prior build is preserved for selective rollback.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-AGE-06",
+    "DL-AGE-07",
+    "DL-UI-01",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-MOT-03",
+    "DL-MOT-04",
+    "DL-MOT-06",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-SND-01",
+    "DL-MED-04",
+    "DL-SAVE-01",
+    "DL-QA-02",
+    "DL-QA-04"
+  ],
+  "findings": [
+    "MA-TOUCH-001",
+    "MA-VIS-006",
+    "MA-PLAY-001"
+  ],
+  "files": [
+    "scripts/games/dust_boss.gd",
+    "scripts/boss_splash_2d.gd",
+    "scripts/dust_boss_lesson_2d.gd",
+    "scripts/probe_dust_boss.gd",
+    "design/animation/grand_puff_encounter_clips_v1.json",
+    "design/BOSS_SPLASH_DESIGN_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "scripts/probe_dust_boss_balance.gd",
+    "audit/DAY_ONE_CONTEXTUAL_VOICE_COVERAGE_2026-09-01.json",
+    "scripts/day_one_contextual_voice_catalog.gd",
+    "assets/audio/voices/filler_v1/FILLER_MANIFEST.json",
+    "assets/audio/voices/filler_v1/GRAND_PUFF_COHORT_20260912.json",
+    "ASSET_LICENSES.md",
+    "assets/audio/voices/filler_v1/roshan_day1_boss_double_tap.ogg",
+    "assets/audio/voices/filler_v1/roshan_day1_boss_leave_shape.ogg",
+    "assets/audio/voices/filler_v1/roshan_day1_boss_move_floor.ogg",
+    "audit/audio_quality_ledger_2026-08-24.csv",
+    "audit/audio_quality_summary_2026-08-24.json",
+    "scripts/probe_ui_system.gd"
+  ],
+  "validation": [
+    {
+      "command": "python -m gdtoolkit.parser <changed scripts>; python tools/lint_inference.py <changed scripts>",
+      "result": "PASS",
+      "evidence": "All seven changed GDScripts parse and inference gate passes, including final UI cue assertion."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Final DOCAUTH ALL OK (568 inventory/ledger) and AUDITDEV ALL OK against f2d87d5fdac88729ee470ac2f561b0d22493b069."
+    },
+    {
+      "command": "Godot 4.7.2 --headless -s scripts/probe_dust_boss.gd -- --day-one-draft-movies",
+      "result": "PASS",
+      "evidence": "Focused tmp/deterministic-boss.log ALL OK; final tmp/full-ci-ready.log Grand Puff probe ALL OK and process exit 0."
+    },
+    {
+      "command": "Parler generation, strict select_filler_voices.py, append-only cohort mastering; audit_audio_quality.py",
+      "result": "PASS",
+      "evidence": "3/3 cues selected with exact-word semantic and quality gates, mastered to delivery format. All 687 prior voice files hash-identical. tmp/audio-quality-build.log writes 813 rows; tmp/full-ci-final.log audio check813/813 PASS. User explicitly approved new cues in protected folder."
+    },
+    {
+      "command": "Mobile-rendered source-bound captures at1280x720 and1560x720",
+      "result": "PASS",
+      "evidence": "tmp/frozen-visual-1280.log and tmp/frozen-visual-1560.log DONE with zero bumps and all three rounds using ordinary movement. Exact current-source text hashes verified against the capture launcher. Reviewed movement/dodge, earned counter, optional dash, and floor layering. Scoped agent visual review only; target-device/child/owner acceptance open."
+    },
+    {
+      "command": "GODOT=Godot4.7.2/godot.exe scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "tmp/full-ci-ready.log SHA-256 b42e7573b4fa5f23e681b8babbb2bcbfe0586aa0263a8532a6bfedf8ebacfcde: complete scripts/ci.sh exit 0, all 78/78 probes exit 0, audio 813/813 PASS, 95 visual-tool tests and stress PASS on integrated base f2d87d5fdac88729ee470ac2f561b0d22493b069. Earlier failures retained: tmp/full-ci-native.log obsolete UI cue assertion; tmp/full-ci-integrated.log unrelated draft-index validator collision, fixed separately. Shared audit satisfaction remains scoped; no device/child/owner acceptance."
+    },
+    {
+      "command": "Godot4.7.2 scripts/probe_dust_boss_balance.gd; same with --controls",
+      "result": "PASS",
+      "evidence": "tmp/final-balance-personas.log and tmp/final-balance-controls.log ALL OK. Fresh-session learning diagnostic completes in30.07 simulated seconds; sequential persona timing includes prior-session presentation overhead and is not a child benchmark. Idle, stationary mash, held action and movement-only earn zero rounds."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "NO_REGRESSION; strict whole-game medium satisfaction remains UNSATISFIED. No new spatial actors/resources."
+    },
+    {
+      "command": "Godot 4.7.2 --headless -s scripts/probe_ui_system.gd -- --touch --classic-touch-test",
+      "result": "PASS",
+      "evidence": "tmp/ui-system-cue-check.log RESULT ALL OK and exit 0. Initial full run exposed an obsolete cue-name assertion; now asserts all three new direct-touch cues while retaining every forbidden-overlay/button guard."
+    }
+  ],
+  "acceptance_gaps": "Phone/child/owner gameplay and voice audition remain pending. All three synthetic cues passed exact-word/quality selection; all 687 previous audio files were hash-verified unchanged. Existing spatial staging remains migration debt; added presentation and geometry are Canvas/Vector2. No canonical finding closure.",
+  "rollback": {
+    "branch": "rollback/grand-puff-before-intuitive-20260912",
+    "sha": "d33f2ddef98aa39af7cc2b2d066794945a024550",
+    "policy": "Keep redesign commits isolated. Revert only this task commits on a fresh codex branch, validate and integrate; do not reset dev or downgrade installed Android version. Added lesson keys are ignored safely by prior encounter."
+  },
+  "visual_evidence": {
+    "tmp/frozen-shots-1280/01_real_movement_lesson.png": "1230f7afa422bfe2b157690b2199600a6fd2a47a2b351ff46e20c07a775e6118",
+    "tmp/frozen-shots-1280/04_tell_free_dodge.png": "8cd2d119f04d67e907bd10fcbcebdf35b47b9a63c8b28474e26570c580d2bcf9",
+    "tmp/frozen-shots-1280/phase_1_step_0_struck.png": "95d94ac82bfdf28c2615834e9b226eacbe9f1221090005db2c5f2742c395a0b1",
+    "tmp/frozen-shots-1280/dash_lesson.png": "f420e652b2aad755400085d05cfe1e6e5ac7708f6b3cbdc354da427d05299165",
+    "tmp/frozen-shots-1280/phase_2_step_1_tell.png": "681d83320268564d4ef63236227f68186c250d2ed5cfcdd60184b67babfd9b8d",
+    "tmp/frozen-shots-1560/01_real_movement_lesson.png": "83f152d5df95b4004681fbffa57cd3f530865980a18ca442ea50b336b59fd575",
+    "tmp/frozen-shots-1560/04_tell_free_dodge.png": "bc0291f442017f71a50b67a3f7cea642de61c440d80d7c940dcc8fcdc7807514",
+    "tmp/frozen-shots-1560/phase_1_step_0_struck.png": "b04595da012b6c80322a1052d21707510d4a78173756d677bebfdb04a3898ff5",
+    "tmp/frozen-shots-1560/dash_lesson.png": "a68e099dddf21ace8a2a0012b10d024bb1da97584fa0f6a48182224c28e2af85",
+    "tmp/frozen-shots-1560/phase_2_step_1_tell.png": "46061be71d23d2b01450dfeb4ebddf173bb1f33cbdd7de276f3b63d34834139a"
+  },
+  "source_text_sha256": {
+    "scripts/games/dust_boss.gd": "082a45bb034fd98d9ac388c79c1dc739ef83c2693dbca20309fbfe70f431355f",
+    "scripts/boss_splash_2d.gd": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+    "scripts/dust_boss_lesson_2d.gd": "44678c259d9a22da40e8a728a420710b0c6cb78ec5f1a919e3e658c965ec69b4",
+    "scripts/probe_dust_boss.gd": "425e077bfe2c6611de8233c8f9984a6bb7a24b9ec4f4912bf8ddcc3b2446a569",
+    "scripts/probe_dust_boss_balance.gd": "ea49816d169e6da1bc455c4408241883e53202751b6f9c276bb7b81f61840d1f",
+    "scripts/day_one_contextual_voice_catalog.gd": "c14e8403fb36e82b2a3c6eb20eb0d5839424707046c64c3ded52893918ada75b",
+    "scripts/probe_ui_system.gd": "811fe3a9d71046389ffed530ec79c3f7ecc38043272041bae8de86c4c5b50105"
+  },
+  "integration_base": "f2d87d5fdac88729ee470ac2f561b0d22493b069",
+  "source_hash_encoding": "SHA-256 of UTF-8 source with LF newlines; gameplay preserved byte-for-byte after newline normalization against reconciliation stash 4c7fe602b5d28dc2fded545236789e02739d4d68."
+}

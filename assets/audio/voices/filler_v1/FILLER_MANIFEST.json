@@ -52385,10 +52385,10 @@
   },
   "codec_target": "48 kHz mono Ogg Vorbis 96 kbps, -16 LUFS, <= -1.5 dBTP",
   "contextual_append_only": true,
-  "contextual_cohort_catalog_sha256": "3a247522dd01065d4dd877734299a7b780b46ef3a6fca1440e54bcc662b4e3d7",
-  "contextual_cohort_provenance_path": "assets/audio/voices/filler_v1/DAY_ONE_CONTEXTUAL_COHORT_PROVENANCE.json",
-  "contextual_cohort_provenance_sha256": "48f5b4906de927440b0b27f3d2d32ea8c256ca63262326f00a3b4efd08a588c5",
-  "contextual_cohort_selection_report_sha256": "6339e369e7e86f60162669048abe8e910e0d1efea05dd9cfe71bbb50130ea0a9",
+  "contextual_cohort_catalog_sha256": "40e54f4d4ca9fe2343d883cc78f39f85413f72e759f2b2a34cc3cadd4c69f804",
+  "contextual_cohort_provenance_path": "assets/audio/voices/filler_v1/GRAND_PUFF_COHORT_20260912.json",
+  "contextual_cohort_provenance_sha256": "9927d1b90ebcf08283180a33bc0da6b0abedb4d42c25f83d9d5f7d4eda69ada1",
+  "contextual_cohort_selection_report_sha256": "ec841e29cee4174bbfe946823a55a7e02529ddb313c67b2882ee0c4358d2fc6e",
   "entries": [
     {
       "candidate_manifest_generation_text": "Yay!",
@@ -123176,6 +123176,432 @@
       "speaker_preset": "Joy",
       "status": "PROVISIONAL_SYNTHETIC_CONTEXTUAL",
       "text": "Pick a cuddly toy to play with!"
+    },
+    {
+      "character": "roshan",
+      "contextual_catalog_sha256": "40e54f4d4ca9fe2343d883cc78f39f85413f72e759f2b2a34cc3cadd4c69f804",
+      "contextual_cue_id": "day1_boss_double_tap",
+      "delivery_metrics": {
+        "bit_rate_bps": 93201,
+        "channels": 1,
+        "codec": "vorbis",
+        "dc_offset": 0.00088584,
+        "decoded_clipped_samples": 0,
+        "decoded_peak_linear": 0.6874805,
+        "duration_s": 1.8344,
+        "integrated_lufs": -16.7,
+        "ogg_determinism": {
+          "method": "identical source/filter/FFmpeg command; fixed serial and recomputed page CRCs",
+          "primary": {
+            "byte_length": 21371,
+            "file_sha256": "eb68493231fdf663a9ee7fadcb02d490bf5f6254af159cc74bed7d8c07e891bc",
+            "page_count": 4,
+            "page_crc_sha256": "4c54893d5254cbbea23079aaaebaed775ab77326ac04c65d2ade8affec7b44f6",
+            "serials": [
+              2128846261
+            ]
+          },
+          "repeat": {
+            "byte_length": 21371,
+            "file_sha256": "eb68493231fdf663a9ee7fadcb02d490bf5f6254af159cc74bed7d8c07e891bc",
+            "page_count": 4,
+            "page_crc_sha256": "4c54893d5254cbbea23079aaaebaed775ab77326ac04c65d2ade8affec7b44f6",
+            "serials": [
+              2128846261
+            ]
+          },
+          "serial_offset": 2128846261,
+          "verified": true
+        },
+        "sample_rate_hz": 48000,
+        "true_peak_dbtp": -3.3
+      },
+      "description": "Joy's voice is a very young, tiny, bright feminine storybook-child voice with a very high natural pitch and small four-year-old vocal size; she sounds playful, curious and spontaneous, never adult, breathy, sultry or low, friendly, encouraging and clearly articulated, with lively natural pacing. She speaks the provided line exactly as written, with crisp consonants, complete words, steady identity and no skipped, substituted, repeated, or extra words. Even in a soft mood the pitch stays consistent and every consonant remains bright enough for a small tablet speaker. The studio recording is very clear, dry, close-up, and free of background noise, reverberation, hiss, distortion, robotic cadence, and vocoder artifacts. For this retry, Joy uses her lightest natural upper speaking register through the whole line, with the small vocal size of an excited four-year-old. Keep the pitch clearly higher than an ordinary adult Joy take while remaining relaxed, intelligible, and natural, never squeaky, strained, or falsetto.",
+      "description_tokenizer_revision": "0613663d0d48ea86ba8cb3d7a44f0f65dc596a2a",
+      "ffmpeg_command": [
+        "ffmpeg",
+        "-y",
+        "-hide_banner",
+        "-nostats",
+        "-i",
+        "$SOURCE_WAV",
+        "-af",
+        "volume=7.220dB,alimiter=limit=0.668344:attack=5:release=50:level=false,aresample=48000",
+        "-ac",
+        "1",
+        "-c:a",
+        "libvorbis",
+        "-b:a",
+        "96k",
+        "-serial_offset",
+        "2128846261",
+        "$OUTPUT_OGG"
+      ],
+      "final_ogg_sha256": "eb68493231fdf663a9ee7fadcb02d490bf5f6254af159cc74bed7d8c07e891bc",
+      "generation_segments": [
+        "Tap twice to dash!"
+      ],
+      "generation_text": "Tap twice to dash!",
+      "key": "roshan_day1_boss_double_tap",
+      "model": "parler-tts/parler-tts-mini-v1.1",
+      "model_revision": "fbb2dd281092c5b414ef29cf9d8895f386f1feef",
+      "mood": "guiding",
+      "policy": "once_per_session",
+      "roshan_register_profile": "elevated",
+      "route": "boss",
+      "seed": 1387141797,
+      "segment_seeds": [
+        1387141797
+      ],
+      "selected_attempt": 5,
+      "selection_metrics": {
+        "active_duration_s": 1.51,
+        "asr_avg_logprob": -0.5661,
+        "attempt": 5,
+        "clipped_samples": 0,
+        "codec_sample_rate_hz": 44100,
+        "dnsmos_bak": 3.8443,
+        "dnsmos_ovrl": 2.8932,
+        "dnsmos_sig": 3.2265,
+        "duration_s": 1.8344,
+        "f0_median_hz": 303.88,
+        "integrated_lufs": -19.7,
+        "lra_lu": 0.0,
+        "mfcc_mean": [
+          -402.47495,
+          62.11135,
+          -7.85684,
+          26.29305,
+          -3.40405,
+          -3.59445,
+          12.12739,
+          10.27079,
+          1.20024,
+          7.72824,
+          -2.13428,
+          3.04928,
+          0.32953
+        ],
+        "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\grand-puff-intuitive\\tmp\\puff-voices\\attempt_4\\day1_boss_double_tap__attempt_5.wav",
+        "peak_linear": 0.984314,
+        "seed": 1387141797,
+        "selected_raw_sha256": "827a013e39fd1cbd91d89e7d5ff849ad6a42cc663a4383c21ae93221889c84b0",
+        "selection_score": 2.8932,
+        "semantic_gate_asr": "primary",
+        "semantic_gate_expected_words": [
+          "tap",
+          "twice",
+          "to",
+          "dash"
+        ],
+        "semantic_gate_schema": 3,
+        "semantic_gate_transcript": "Tap twice to dash.",
+        "semantic_gate_transcript_words": [
+          "tap",
+          "twice",
+          "to",
+          "dash"
+        ],
+        "source_sha256": "827a013e39fd1cbd91d89e7d5ff849ad6a42cc663a4383c21ae93221889c84b0",
+        "spectral_centroid_hz": 1650.26,
+        "transcript": "Tap twice to dash.",
+        "true_peak_dbtp": -0.1,
+        "voiced_frame_fraction": 0.4674,
+        "wer": 0.0
+      },
+      "selection_report_sha256": "ec841e29cee4174bbfe946823a55a7e02529ddb313c67b2882ee0c4358d2fc6e",
+      "source_wav_sha256": "827a013e39fd1cbd91d89e7d5ff849ad6a42cc663a4383c21ae93221889c84b0",
+      "speaker_preset": "Joy",
+      "status": "PROVISIONAL_SYNTHETIC_CONTEXTUAL",
+      "text": "Tap twice to dash!"
+    },
+    {
+      "character": "roshan",
+      "contextual_catalog_sha256": "40e54f4d4ca9fe2343d883cc78f39f85413f72e759f2b2a34cc3cadd4c69f804",
+      "contextual_cue_id": "day1_boss_leave_shape",
+      "delivery_metrics": {
+        "bit_rate_bps": 85165,
+        "channels": 1,
+        "codec": "vorbis",
+        "dc_offset": -0.00014272,
+        "decoded_clipped_samples": 0,
+        "decoded_peak_linear": 0.6791292,
+        "duration_s": 2.5658,
+        "integrated_lufs": -16.3,
+        "ogg_determinism": {
+          "method": "identical source/filter/FFmpeg command; fixed serial and recomputed page CRCs",
+          "primary": {
+            "byte_length": 27315,
+            "file_sha256": "cef465d78409bfc95ba65380131092ba5124430f6a4b37a5db2e7e0eb6dda82f",
+            "page_count": 5,
+            "page_crc_sha256": "061cb82dbcfdca9837320af36dfee98bd45811b8268dadf0073c337b96c2df02",
+            "serials": [
+              951121201
+            ]
+          },
+          "repeat": {
+            "byte_length": 27315,
+            "file_sha256": "cef465d78409bfc95ba65380131092ba5124430f6a4b37a5db2e7e0eb6dda82f",
+            "page_count": 5,
+            "page_crc_sha256": "061cb82dbcfdca9837320af36dfee98bd45811b8268dadf0073c337b96c2df02",
+            "serials": [
+              951121201
+            ]
+          },
+          "serial_offset": 951121201,
+          "verified": true
+        },
+        "sample_rate_hz": 48000,
+        "true_peak_dbtp": -3.3
+      },
+      "description": "Joy's voice is a very young, tiny, bright feminine storybook-child voice with a very high natural pitch and small four-year-old vocal size; she sounds playful, curious and spontaneous, never adult, breathy, sultry or low, friendly, encouraging and clearly articulated, with lively natural pacing. She speaks the provided line exactly as written, with crisp consonants, complete words, steady identity and no skipped, substituted, repeated, or extra words. Even in a soft mood the pitch stays consistent and every consonant remains bright enough for a small tablet speaker. The studio recording is very clear, dry, close-up, and free of background noise, reverberation, hiss, distortion, robotic cadence, and vocoder artifacts.",
+      "description_tokenizer_revision": "0613663d0d48ea86ba8cb3d7a44f0f65dc596a2a",
+      "ffmpeg_command": [
+        "ffmpeg",
+        "-y",
+        "-hide_banner",
+        "-nostats",
+        "-i",
+        "$SOURCE_WAV",
+        "-af",
+        "volume=1.030dB,alimiter=limit=0.668344:attack=5:release=50:level=false,aresample=48000",
+        "-ac",
+        "1",
+        "-c:a",
+        "libvorbis",
+        "-b:a",
+        "96k",
+        "-serial_offset",
+        "951121201",
+        "$OUTPUT_OGG"
+      ],
+      "final_ogg_sha256": "cef465d78409bfc95ba65380131092ba5124430f6a4b37a5db2e7e0eb6dda82f",
+      "generation_segments": [
+        "Move out of the glowing shape!"
+      ],
+      "generation_text": "Move out of the glowing shape!",
+      "key": "roshan_day1_boss_leave_shape",
+      "model": "parler-tts/parler-tts-mini-v1.1",
+      "model_revision": "fbb2dd281092c5b414ef29cf9d8895f386f1feef",
+      "mood": "guiding",
+      "policy": "once_per_session",
+      "roshan_register_profile": "baseline",
+      "route": "boss",
+      "seed": 2061156631,
+      "segment_seeds": [
+        2061156631
+      ],
+      "selected_attempt": 2,
+      "selection_metrics": {
+        "active_duration_s": 2.11,
+        "asr_avg_logprob": -0.4431,
+        "attempt": 2,
+        "clipped_samples": 0,
+        "codec_sample_rate_hz": 44100,
+        "dnsmos_bak": 4.0573,
+        "dnsmos_ovrl": 3.1717,
+        "dnsmos_sig": 3.4308,
+        "duration_s": 2.5658,
+        "f0_median_hz": 226.34,
+        "integrated_lufs": -17.0,
+        "lra_lu": 0.0,
+        "mfcc_mean": [
+          -400.48114,
+          78.77515,
+          28.50949,
+          23.50728,
+          -2.26303,
+          7.63235,
+          2.9064,
+          1.71369,
+          -21.31578,
+          0.14471,
+          -7.68752,
+          -2.27523,
+          -6.53779
+        ],
+        "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\grand-puff-intuitive\\tmp\\puff-voices\\attempt_1\\day1_boss_leave_shape__attempt_2.wav",
+        "peak_linear": 0.76538,
+        "seed": 2061156631,
+        "selected_raw_sha256": "6c5fc8e25c8968851bd4f6dbde3ca896dd32080eb4659d4cb22c4ffd83fc4d79",
+        "selection_score": 3.1717,
+        "semantic_gate_asr": "primary",
+        "semantic_gate_expected_words": [
+          "move",
+          "out",
+          "of",
+          "the",
+          "glowing",
+          "shape"
+        ],
+        "semantic_gate_schema": 3,
+        "semantic_gate_transcript": "Move out of the glowing shape.",
+        "semantic_gate_transcript_words": [
+          "move",
+          "out",
+          "of",
+          "the",
+          "glowing",
+          "shape"
+        ],
+        "source_sha256": "6c5fc8e25c8968851bd4f6dbde3ca896dd32080eb4659d4cb22c4ffd83fc4d79",
+        "spectral_centroid_hz": 1055.2,
+        "transcript": "Move out of the glowing shape.",
+        "true_peak_dbtp": -2.3,
+        "voiced_frame_fraction": 0.6654,
+        "wer": 0.0
+      },
+      "selection_report_sha256": "ec841e29cee4174bbfe946823a55a7e02529ddb313c67b2882ee0c4358d2fc6e",
+      "source_wav_sha256": "6c5fc8e25c8968851bd4f6dbde3ca896dd32080eb4659d4cb22c4ffd83fc4d79",
+      "speaker_preset": "Joy",
+      "status": "PROVISIONAL_SYNTHETIC_CONTEXTUAL",
+      "text": "Move out of the glowing shape!"
+    },
+    {
+      "character": "roshan",
+      "contextual_catalog_sha256": "40e54f4d4ca9fe2343d883cc78f39f85413f72e759f2b2a34cc3cadd4c69f804",
+      "contextual_cue_id": "day1_boss_move_floor",
+      "delivery_metrics": {
+        "bit_rate_bps": 88522,
+        "channels": 1,
+        "codec": "vorbis",
+        "dc_offset": -0.00037629,
+        "decoded_clipped_samples": 0,
+        "decoded_peak_linear": 0.678874,
+        "duration_s": 2.0318,
+        "integrated_lufs": -16.3,
+        "ogg_determinism": {
+          "method": "identical source/filter/FFmpeg command; fixed serial and recomputed page CRCs",
+          "primary": {
+            "byte_length": 22482,
+            "file_sha256": "3891aec29ec9b46554168a5a8ba1acce2888102dfa30fa77b3cd2979da270413",
+            "page_count": 5,
+            "page_crc_sha256": "fdac2ab96ea5cf67d623ad0cd94e9539621ac7d7b4370c8a06e4923ae5603948",
+            "serials": [
+              1270485298
+            ]
+          },
+          "repeat": {
+            "byte_length": 22482,
+            "file_sha256": "3891aec29ec9b46554168a5a8ba1acce2888102dfa30fa77b3cd2979da270413",
+            "page_count": 5,
+            "page_crc_sha256": "fdac2ab96ea5cf67d623ad0cd94e9539621ac7d7b4370c8a06e4923ae5603948",
+            "serials": [
+              1270485298
+            ]
+          },
+          "serial_offset": 1270485298,
+          "verified": true
+        },
+        "sample_rate_hz": 48000,
+        "true_peak_dbtp": -3.4
+      },
+      "description": "Joy's voice is a very young, tiny, bright feminine storybook-child voice with a very high natural pitch and small four-year-old vocal size; she sounds playful, curious and spontaneous, never adult, breathy, sultry or low, friendly, encouraging and clearly articulated, with lively natural pacing. She speaks the provided line exactly as written, with crisp consonants, complete words, steady identity and no skipped, substituted, repeated, or extra words. Even in a soft mood the pitch stays consistent and every consonant remains bright enough for a small tablet speaker. The studio recording is very clear, dry, close-up, and free of background noise, reverberation, hiss, distortion, robotic cadence, and vocoder artifacts.",
+      "description_tokenizer_revision": "0613663d0d48ea86ba8cb3d7a44f0f65dc596a2a",
+      "ffmpeg_command": [
+        "ffmpeg",
+        "-y",
+        "-hide_banner",
+        "-nostats",
+        "-i",
+        "$SOURCE_WAV",
+        "-af",
+        "volume=0.220dB,alimiter=limit=0.668344:attack=5:release=50:level=false,aresample=48000",
+        "-ac",
+        "1",
+        "-c:a",
+        "libvorbis",
+        "-b:a",
+        "96k",
+        "-serial_offset",
+        "1270485298",
+        "$OUTPUT_OGG"
+      ],
+      "final_ogg_sha256": "3891aec29ec9b46554168a5a8ba1acce2888102dfa30fa77b3cd2979da270413",
+      "generation_segments": [
+        "Touch the floor where you want to go!"
+      ],
+      "generation_text": "Touch the floor where you want to go!",
+      "key": "roshan_day1_boss_move_floor",
+      "model": "parler-tts/parler-tts-mini-v1.1",
+      "model_revision": "fbb2dd281092c5b414ef29cf9d8895f386f1feef",
+      "mood": "guiding",
+      "policy": "once_per_session",
+      "roshan_register_profile": "baseline",
+      "route": "boss",
+      "seed": 1936451394,
+      "segment_seeds": [
+        1936451394
+      ],
+      "selected_attempt": 2,
+      "selection_metrics": {
+        "active_duration_s": 1.83,
+        "asr_avg_logprob": -0.3169,
+        "attempt": 2,
+        "clipped_samples": 0,
+        "codec_sample_rate_hz": 44100,
+        "dnsmos_bak": 4.171,
+        "dnsmos_ovrl": 3.439,
+        "dnsmos_sig": 3.694,
+        "duration_s": 2.0318,
+        "f0_median_hz": 244.71,
+        "integrated_lufs": -16.2,
+        "lra_lu": 0.0,
+        "mfcc_mean": [
+          -368.48737,
+          117.32627,
+          9.94378,
+          -6.04183,
+          -14.04407,
+          -2.99031,
+          -3.27976,
+          6.38123,
+          -12.59547,
+          -2.58682,
+          -6.64405,
+          -1.14147,
+          -8.66055
+        ],
+        "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\grand-puff-intuitive\\tmp\\puff-voices\\attempt_1\\day1_boss_move_floor__attempt_2.wav",
+        "peak_linear": 0.831292,
+        "seed": 1936451394,
+        "selected_raw_sha256": "d22217e89d3a795513017de09b6de5515fa0469288f6a55f53f8de8ab9b9562d",
+        "selection_score": 3.439,
+        "semantic_gate_asr": "primary",
+        "semantic_gate_expected_words": [
+          "touch",
+          "the",
+          "floor",
+          "where",
+          "you",
+          "want",
+          "to",
+          "go"
+        ],
+        "semantic_gate_schema": 3,
+        "semantic_gate_transcript": "Touch the floor where you want to go.",
+        "semantic_gate_transcript_words": [
+          "touch",
+          "the",
+          "floor",
+          "where",
+          "you",
+          "want",
+          "to",
+          "go"
+        ],
+        "source_sha256": "d22217e89d3a795513017de09b6de5515fa0469288f6a55f53f8de8ab9b9562d",
+        "spectral_centroid_hz": 1097.7,
+        "transcript": "Touch the floor where you want to go.",
+        "true_peak_dbtp": -1.6,
+        "voiced_frame_fraction": 0.8039,
+        "wer": 0.0
+      },
+      "selection_report_sha256": "ec841e29cee4174bbfe946823a55a7e02529ddb313c67b2882ee0c4358d2fc6e",
+      "source_wav_sha256": "d22217e89d3a795513017de09b6de5515fa0469288f6a55f53f8de8ab9b9562d",
+      "speaker_preset": "Joy",
+      "status": "PROVISIONAL_SYNTHETIC_CONTEXTUAL",
+      "text": "Touch the floor where you want to go!"
     }
   ],
   "faron_modified": false,

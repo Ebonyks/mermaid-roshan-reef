@@ -201,7 +201,9 @@ func _check_storybook_coverage() -> void:
 		and not dust_source.contains("db_tap_pips")
 		and not dust_source.contains("day1_boss_dodge_prompt")
 		and not dust_source.to_lower().contains("twirl button")
-		and dust_source.contains("day1_boss_dodge")
+		and dust_source.contains("day1_boss_move_floor")
+		and dust_source.contains("day1_boss_leave_shape")
+		and dust_source.contains("day1_boss_double_tap")
 		and dust_source.contains("func on_world_tap")
 		and dust_source.contains("set_encounter_controls(on_world_tap"),
 		"Dust Boss uses direct world touch without an overlay control or button-dependent voice")
