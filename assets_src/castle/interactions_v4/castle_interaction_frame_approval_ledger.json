@@ -1,6 +1,6 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "8368356cefa1cba280c5c949b102e698045b1f137f7ff8524f4b6dd078adc86c",
+  "candidate_payload_sha256": "d37e4eeb2fad107b10ac66b95586e904c218a3ea2f1bf35c329beb0f8c1d68d8",
   "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
   "metadata_revalidation": {
     "date": "2026-08-29",
@@ -261,6 +261,17 @@
     "prior_candidate_payload_sha256": "42fe2f9a29b673ba99f1482e647380460e2f716c8e265ec0964cde0895dfc7de",
     "evidence_path": "audit/stage_pathfinding/evidence/castle_frame_binding_revalidation.json",
     "evidence_sha256": "21fe2f19de986fcec0124c6ca68efef9421a18582bb2e0f6a517a0f75f1f3727",
+    "owner_acceptance": "pending"
+  },
+  "day_one_usability_binding_revalidation": {
+    "date": "2026-09-12",
+    "reason": "Owner-requested Day One repair changes castle_rooms_25d.gd only in blocked-door feedback: locked doors retain fog, the actual active story door may pulse, and repeat feedback no longer moves Roshan to a locked door. The checker binds this whole script. ROOM_LAYOUTS, fixture rigs, atlas pixels, room tiles, V4 manifest and all reviewed frame render inputs remain unchanged.",
+    "baseline": "cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016",
+    "prior_candidate_payload_sha256": "8368356cefa1cba280c5c949b102e698045b1f137f7ff8524f4b6dd078adc86c",
+    "prior_runtime_layout_semantic_sha256": "a5e663f8215843d020ae8834c8594643632419fb674fb848e400a837d91d13b6",
+    "runtime_layout_semantic_sha256": "3bf113a026aaf45925ecd43e16ac693d92060e425ab24259677347be642c9205",
+    "frame_hash_evidence": "All 96 frame_review_sha256 values and every occlusion relation exactly match the existing ledger. Replacing only the runtime text hash with its baseline value exactly reproduces the prior approved candidate payload; no frame is newly approved.",
+    "evidence_path": "design/audit_impacts/day-one-usability-fixes-20260912.json",
     "owner_acceptance": "pending"
   }
 }

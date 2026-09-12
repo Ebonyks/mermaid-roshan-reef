@@ -27,6 +27,8 @@ var _pending_motion: bool = false
 var _done: bool = false
 var _arrived: bool = false
 var _approaching: bool = false
+var _focus_suspended: bool = false
+var _pause_suspended: bool = false
 var _time: float = 0.0
 var _idle: float = 0.0
 var _reprompts: int = 0
@@ -88,14 +90,18 @@ func setup(main: ReefMain, announcements: bool) -> void:
 	_pointer = Sprite2D.new()
 	_pointer.texture = POINTER
 	_pointer.scale = Vector2.ONE * 0.10
+	_pointer.visible = false
 	add_child(_pointer)
 	if is_instance_valid(m.castle_room_player_shadow):
 		_shadow_visible = m.castle_room_player_shadow.visible
 		m.castle_room_player_shadow.visible = false
-	_announce()
+	# Getting the brush into place is staging, like the earlier bathroom tools.
+	# The child's first short touch must not strand Roshan halfway to the bowl.
+	_approaching = true
 
 func _exit_tree() -> void:
 	cancel_gesture()
+	_approaching = false
 	if m == null or not is_instance_valid(m):
 		return
 	if _claimed and is_instance_valid(m.castle_room_player_sprite):
@@ -104,8 +110,24 @@ func _exit_tree() -> void:
 		m.castle_room_player_shadow.visible = _shadow_visible
 
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_PAUSED:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		_focus_suspended = true
+	elif what == NOTIFICATION_APPLICATION_FOCUS_IN:
+		_focus_suspended = false
+	elif what == NOTIFICATION_PAUSED:
+		_pause_suspended = true
+	elif what == NOTIFICATION_UNPAUSED:
+		_pause_suspended = false
+	else:
+		return
+	if _focus_suspended or _pause_suspended:
 		cancel_gesture()
+		_approaching = false
+		if is_instance_valid(_pointer):
+			_pointer.visible = false
+	else:
+		_approaching = not _arrived and not _done
+	queue_redraw()
 
 func _on_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
@@ -131,16 +153,16 @@ func _on_input(event: InputEvent) -> void:
 		accept_event()
 
 func begin_gesture(at: Vector2, finger: int = 0) -> bool:
-	if _done or _finger != -1 or at.distance_to(CENTER) > TOUCH_RADIUS:
+	if _done or _focus_suspended or _pause_suspended \
+			or _finger != -1 or at.distance_to(CENTER) > TOUCH_RADIUS:
 		return false
 	_finger = finger
 	_last = at
 	_idle = 0.0
-	_approaching = not _arrived
 	return true
 
 func move_gesture(at: Vector2, seconds: float = 0.0) -> bool:
-	if _done or _finger == -1 or not _arrived:
+	if _done or _focus_suspended or _pause_suspended or _finger == -1 or not _arrived:
 		_last = at
 		return false
 	if at.distance_to(CENTER) > TOUCH_RADIUS:
@@ -167,33 +189,37 @@ func move_gesture(at: Vector2, seconds: float = 0.0) -> bool:
 
 func cancel_gesture() -> void:
 	_finger = -1
-	_approaching = false
 	_pending_motion = false
 
 func _process(delta: float) -> void:
 	_time += delta
-	if _done:
+	if _done or _focus_suspended or _pause_suspended:
 		return
+	var approaching_this_frame: bool = _approaching
 	if _approaching:
 		var destination: Vector2 = CENTER - _hand - ((BRISTLE_PIXEL - HANDLE_PIXEL) * _brush.scale).rotated(BRUSH_ANGLE)
 		_actor.position = _actor.position.move_toward(destination, delta * 360.0)
 		_arrived = _actor.position.distance_to(destination) < 1.0
 		if _arrived:
 			_approaching = false
+			_idle = 0.0
+			_announce()
 	if _pending_motion and _finger != -1:
 		_motion += minf(delta, 0.1)
 	_pending_motion = false
-	_idle += delta
-	if _idle >= (5.0 if _reprompts == 0 else 12.0) and _reprompts < 3:
+	if _arrived and not approaching_this_frame:
+		_idle += delta
+	if _arrived and _idle >= (5.0 if _reprompts == 0 else 12.0) and _reprompts < 3:
 		_reprompts += 1
 		_idle = 0.0
 		_announce()
-	_pointer.visible = _finger == -1
+	_pointer.visible = _arrived and _finger == -1
 	_pointer.position = CENTER + Vector2(cos(_time * 2.2), sin(_time * 2.2)) * 48.0 + Vector2(-18.0, -44.0)
 	queue_redraw()
 
 func _draw() -> void:
-	if not _done and _finger == -1:
+	if _arrived and not _done and not _focus_suspended and not _pause_suspended \
+			and _finger == -1:
 		draw_arc(CENTER, 48.0, -0.8, TAU - 0.8, 28, Color(0.46, 0.91, 0.86, 0.7), 5.5, true)
 
 func _announce() -> void:
@@ -204,6 +230,7 @@ func _announce() -> void:
 
 func audit_snapshot() -> Dictionary:
 	return {"done": _done, "arrived": _arrived, "approaching": _approaching,
+		"suspended": _focus_suspended or _pause_suspended,
 		"arc": _arc, "distance": _distance, "motion_seconds": _motion,
 		"finger": _finger, "clean_progress": minf(0.92, minf(_arc / ARC_REQUIRED, _distance / DISTANCE_REQUIRED)),
 		"hand_contact_error": _brush.position.distance_to(_hand),

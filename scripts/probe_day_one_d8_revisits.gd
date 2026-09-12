@@ -22,9 +22,11 @@ func _run_probe() -> void:
 	_check("blocked door has bounded constants",
 		castle.contains("BLOCKED_DOOR_SFX_COOLDOWN_SECONDS := 1.2")
 		and castle.contains("BLOCKED_DOOR_SECOND_TAP_WINDOW_SECONDS := 6.0"))
-	_check("second blocked tap pulses and pans",
-		castle.contains("cue.pulse_plot_feedback()")
-		and castle.contains("_pan_to_blocked_door(destination_id)")
+	_check("second blocked tap keeps local fog and points to the actual story cue",
+		castle.contains("cue.pulse_blocked_feedback()")
+		and castle.contains("_pulse_active_door()")
+		and castle.contains("var active_id: String = active_door_highlight_id()")
+		and not castle.contains("_pan_to_blocked_door")
 		and castle.contains("_blocked_door_last_tap.erase(destination_id)"))
 	_check("blocked feedback SFX is cooldown guarded",
 		castle.contains("if _blocked_door_feedback_cool <= 0.0:")

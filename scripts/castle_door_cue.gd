@@ -23,8 +23,6 @@ const RAINBOW: Array[Color] = [
 var door_state: String = DoorLanguage.OPEN
 var motion_time := 0.0
 var feedback_time := 0.0
-var plot_feedback_time := 0.0
-var _plot_feedback_return_state := DoorLanguage.BLOCKED
 
 
 func _init() -> void:
@@ -39,11 +37,6 @@ func _ready() -> void:
 
 func set_door_state(next_state: String) -> void:
 	var normalized: String = DoorLanguage.normalize(next_state)
-	# A second blocked tap briefly promotes the cue to the gold PLOT treatment.
-	# The regular hall refresh runs every frame; keep it from erasing that small
-	# acknowledgement before the child can see it.
-	if plot_feedback_time > 0.0 and normalized == DoorLanguage.BLOCKED:
-		return
 	set_meta("castle_door_state", normalized)
 	if door_state == normalized:
 		return
@@ -58,10 +51,11 @@ func pulse_blocked_feedback() -> void:
 
 
 func pulse_plot_feedback() -> void:
-	_plot_feedback_return_state = door_state
-	plot_feedback_time = 0.92
+	# Feedback can emphasize the real story destination, never promote a
+	# blocked door or replace the authoritative state after a timer expires.
+	if door_state != DoorLanguage.PLOT:
+		return
 	feedback_time = 0.72
-	set_door_state(DoorLanguage.PLOT)
 	queue_redraw()
 
 
@@ -73,10 +67,6 @@ func _sync_visibility() -> void:
 func _process(delta: float) -> void:
 	motion_time += maxf(0.0, delta)
 	feedback_time = maxf(0.0, feedback_time - maxf(0.0, delta))
-	plot_feedback_time = maxf(0.0, plot_feedback_time - maxf(0.0, delta))
-	if plot_feedback_time <= 0.0 and door_state == DoorLanguage.PLOT \
-			and _plot_feedback_return_state == DoorLanguage.BLOCKED:
-		set_door_state(_plot_feedback_return_state)
 	queue_redraw()
 
 
@@ -128,7 +118,8 @@ func _draw_bonus() -> void:
 
 
 func _draw_plot() -> void:
-	var pulse: float = _motion_wave(PLOT_PERIOD_SECONDS)
+	var pulse: float = maxf(_motion_wave(PLOT_PERIOD_SECONDS),
+		feedback_time / 0.72)
 	var outer := Rect2(Vector2(4.0, 4.0), size - Vector2(8.0, 8.0))
 	var outer_tint := PLOT_OUTER_COLOR
 	outer_tint.a = 0.18 + pulse * 0.16

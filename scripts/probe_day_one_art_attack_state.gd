@@ -1,13 +1,19 @@
 extends SceneTree
 
-## Focused state-only probe for the Day One art room and shared attack profile.
-## No castle scene is opened: this keeps the progression/save contract cheap to
-## exercise and proves malformed additive values fall back safely.
+## Focused state and real GUI-touch probe for the Day One art room and shared
+## attack profile. No castle scene is opened; the actual Canvas controls still
+## receive ordinary touch input, including the mouse-emulation path.
 
 var failures: int = 0
 
 
 func _init() -> void:
+	# Window setup during SceneTree construction is overwritten by engine
+	# initialization, making parsed input miss an otherwise visible control.
+	call_deferred("_run")
+
+
+func _run() -> void:
 	var main: ReefMain = ReefMain.new()
 	var director: DayOneDirector = main._day_one_ref()
 	_check("child-friendly aqua attack default",
@@ -98,14 +104,55 @@ func _init() -> void:
 	main.day_one_art_desk_unlocked = false
 	main.day_one_art_customization_completed = false
 	studio.refresh_from_state()
+	root.size = Vector2i(1280, 720)
+	await process_frame
+	# Keep the required 160px targets generous while separating neighbours.
+	# A blank gap must not silently choose either adjacent supply.
+	for index: int in range(DayOneArtStudio.MATERIALS.size() - 1):
+		var left_id: String = String(DayOneArtStudio.MATERIALS[index]["id"])
+		var right_id: String = String(DayOneArtStudio.MATERIALS[index + 1]["id"])
+		var left: Button = studio._material_buttons[left_id] as Button
+		var right: Button = studio._material_buttons[right_id] as Button
+		var left_rect: Rect2 = left.get_global_rect()
+		var right_rect: Rect2 = right.get_global_rect()
+		_check("art neighbours %s/%s have separate generous targets" % [left_id, right_id],
+			not left_rect.intersects(right_rect)
+			and left_rect.size.x >= 110.0 and right_rect.size.x >= 110.0
+			and left_rect.size.y >= 110.0 and right_rect.size.y >= 110.0)
+		var gap := Vector2((left_rect.end.x + right_rect.position.x) * 0.5,
+			left_rect.get_center().y)
+		await _art_gui_tap(gap)
+		_check("gap between %s/%s does not collect a neighbour" % [left_id, right_id],
+			main.day_one_art_collected_materials.is_empty())
 	for material: Dictionary in DayOneArtStudio.MATERIALS:
 		var material_id: String = String(material["id"])
-		studio.call("_on_material_pressed", material_id)
+		var card: Sprite2D = studio._material_art[material_id] as Sprite2D
+		var button: Button = studio._material_buttons[material_id] as Button
+		var visible_center: Vector2 = card.get_global_transform_with_canvas().origin
+		var pointer_center: Vector2 = studio._pointer.get_global_transform_with_canvas() \
+			* (studio._pointer.size * 0.5)
+		_check("hand points above visible %s in its touch region" % material_id,
+			absf(pointer_center.x - visible_center.x) < 1.0
+			and pointer_center.y < visible_center.y
+			and button.get_global_rect().has_point(visible_center))
+		var before_count: int = main.day_one_art_collected_materials.size()
+		await _art_gui_tap(visible_center)
+		_check("one visible %s tap collects only that supply" % material_id,
+			bool(main.day_one_art_collected_materials.get(material_id, false))
+			and main.day_one_art_collected_materials.size() == before_count + 1)
 		_check("art tap %s never opens logo" % material_id,
 			main.castle_logo_layer == null)
 	for grime: Dictionary in DayOneArtStudio.GRIME:
 		var grime_id: String = String(grime["id"])
-		studio.call("_on_grime_pressed", grime_id)
+		var grime_card: Sprite2D = studio._grime_art[grime_id] as Sprite2D
+		var grime_center: Vector2 = grime_card.get_global_transform_with_canvas().origin
+		var hand_center: Vector2 = studio._pointer.get_global_transform_with_canvas() \
+			* (studio._pointer.size * 0.5)
+		_check("hand points above visible %s" % grime_id,
+			absf(hand_center.x - grime_center.x) < 1.0 and hand_center.y < grime_center.y)
+		await _art_gui_tap(grime_center)
+		_check("visible %s touch cleans its own spot" % grime_id,
+			bool(main.day_one_art_cleaned_grime.get(grime_id, false)))
 		_check("art tap %s never opens logo" % grime_id,
 			main.castle_logo_layer == null)
 	_check("seven art taps finish cleanup without logo hijack",
@@ -119,9 +166,8 @@ func _init() -> void:
 	customizer_layer.layer = 18
 	root.add_child(customizer_layer)
 	customizer_layer.add_child(customizer)
-	# SceneTree._init() runs before the new layer receives its viewport-enter
-	# notification. Wait for that real tree boundary before pushing the outside
-	# tap; otherwise get_viewport() is null even though the layer is parented.
+	# Wait for the layer's viewport-enter notification before pushing the
+	# outside tap; the modal needs its actual viewport to receive GUI input.
 	await process_frame
 	customizer.attach(main)
 	var confirmations := [0]
@@ -195,13 +241,27 @@ func _init() -> void:
 	boss_game.stage_close()
 	_check("Grand Puff feedback tears down with encounter",
 		boss_game.attack_feedback == null)
-	# SceneTree teardown owns the two root children. Queueing them during
-	# SceneTree._init() trips Godot's root lock even though gameplay teardown is
-	# safe after the first frame.
+	# SceneTree teardown owns the root children; the state-only main was never
+	# attached to it and must be freed explicitly.
 	main.free()
 	print("DAY_ONE_ART_ATTACK_STATE|RESULT: ",
 		"PASS" if failures == 0 else "FAIL", " failures=", failures)
 	quit(1 if failures > 0 else 0)
+
+
+func _art_gui_tap(point: Vector2) -> void:
+	var press := InputEventScreenTouch.new()
+	press.index = 0
+	press.pressed = true
+	press.position = point
+	Input.parse_input_event(press)
+	await process_frame
+	var release := InputEventScreenTouch.new()
+	release.index = 0
+	release.pressed = false
+	release.position = point
+	Input.parse_input_event(release)
+	await process_frame
 
 
 func _check(label: String, ok: bool) -> void:

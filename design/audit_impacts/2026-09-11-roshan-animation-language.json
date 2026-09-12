@@ -1,6 +1,6 @@
 {
   "id": "2026-09-11-roshan-animation-language",
-  "scope": "Owner-commissioned character animation design language and production protocol, beginning with Mermaid Roshan; integrate a character animation branch into the master audit, canonical motion rules, art and chapter navigation, and current cinematic continuity guidance. Documentation only; no accepted-art, runtime, finding lifecycle, or release changes.",
+  "scope": "Owner-commissioned character animation design language and production protocol, beginning with Mermaid Roshan; integrate a character animation branch into the master audit, canonical motion rules, art and chapter navigation, and current cinematic continuity guidance. Documentation only; no accepted-art, runtime, finding lifecycle, or release changes. Reconcile concurrently integrated dev ad9bd4d8c3dfa2da8f5a1ec7a7f33f9e22fa8a4f without changing its runtime; retain both independently green parent checkpoints and revalidate the combined documentation and final merge on CI.",
   "baseline": "cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016",
   "rules": [
     "DL-AUTH-05",
@@ -85,6 +85,16 @@
       "command": "GODOT=C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe bash scripts/ci.sh (clean temporary validation worktree)",
       "result": "PASS",
       "evidence": "Official Godot 4.7.2.stable.official.ed1daf0bf; full scripts/ci.sh exits 0 with 78/78 unique trusted probes, every probe exit 0. Includes source/art/document controls, 95 visual-audit tests, audio 810/810, import and post-import game-wide NO_REGRESSION gate. Log tmp/animation-language-validation/isolated-full-ci.log, SHA-256 7c478b8b8e359df51574e20054bdee6cbac24774678f7c4eb3736f0d75be52cd. Identical root/validation staged patches after the run: tmp/animation-language-validation/reviewed-candidate.patch and reviewed-isolated-candidate.patch, SHA-256 6f5c37aa878fb718cdd76928143bf246a00e6e8cfcf453260e2ee926aba11c03. Only template placeholder formatting changed during runtime testing; final document gates above reran afterward. Runtime code/assets remained unchanged throughout, with zero unstaged tracked content differences after import. This record is subsequently updated with validation metadata only. Original interrupted checkout attempt remains explicit history, not an additional required pending run."
+    },
+    {
+      "command": "Exact-parent CI and merge runtime parity",
+      "result": "PASS",
+      "evidence": "Original documentation source 3f02d625e42dc264b9434f7fc9f85d1f630706bb passed both jobs in Probe Suite 34679041638: https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/34679041638. Incoming dev ad9bd4d8c3dfa2da8f5a1ec7a7f33f9e22fa8a4f passed both jobs in Probe Suite 34678338707: https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/34678338707. Clean automatic merge; git diff origin/dev across scripts/assets/assets_src/tools/project.godot/workflows is empty. The complete delta from incoming dev is the same 14 documentation/metadata paths listed by this task. The full local suite above remains scoped to the original documentation candidate; unchanged incoming runtime inherits its exact-parent full gate evidence, not a claimed fresh local full-suite run. Final combined-head CI remains required before integration."
+    },
+    {
+      "command": "Merged document authority/development coverage, 51 document tests, incoming-script parser and inference gates",
+      "result": "PASS",
+      "evidence": "Merged DOCAUTH ALL OK (566/566; 56 active/58 records), AUDITDEV ALL OK against incoming parent ad9bd4d8c3dfa2da8f5a1ec7a7f33f9e22fa8a4f, 51 tests in 13.993 seconds with stress 6/6, and parser/inference checks on all ten incoming GDScript paths. Log tmp/animation-language-validation/merge-gates.log, SHA-256 85a5e2889025816e36b6d58dca0aa5d670fb276668fcfb550751454e914fe706. No runtime or incoming finding-history edits were made during reconciliation; full runtime verification is bound to the green incoming parent and the final combined-head CI, not misreported as a fresh local full run."
     }
   ],
   "acceptance_gaps": "The working artistic direction is commissioned documentation, not an owner-approved motion study. Pilot comparison, authored action/contact clips, runtime integration, Mobile-scale visual review, target-device performance, child comprehension and owner acceptance remain outstanding. Related findings are not repaired or closed. No external archive completeness, generation readiness, delivery acceptance or master-audit satisfaction is claimed."

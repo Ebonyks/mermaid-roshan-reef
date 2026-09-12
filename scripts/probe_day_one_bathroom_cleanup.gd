@@ -599,20 +599,44 @@ func _probe_toilet(cleaning: DayOneBathroomCleaning, main: ReefMain) -> void:
 	_check("tub completion waits for toilet cleaning", toilet != null and not main.day_one_bathroom_toilet_cleaned and not cleaning.audit_snapshot()["completion_sent"])
 	if toilet == null:
 		return
-	toilet._process(30.0)
-	_check("toilet demonstration never earns progress", not main.day_one_bathroom_toilet_cleaned and float(toilet.audit_snapshot()["distance"]) == 0.0)
+	var before_approach: Dictionary = toilet.audit_snapshot()
+	_check("toilet approach starts without holding a finger",
+		bool(before_approach["approaching"]) and int(before_approach["finger"]) == -1
+		and not bool(before_approach["pointer_visible"]))
+	toilet._process(0.1)
+	_check("Roshan visibly approaches before the scrub invitation",
+		(toilet.audit_snapshot()["actor_position"] as Vector2).distance_to(
+			before_approach["actor_position"] as Vector2) > 1.0
+		and not bool(toilet.audit_snapshot()["arrived"]))
 	_check("other fixtures cannot start toilet cleaning", not toilet.begin_gesture(SINK_CENTER))
 	var center := DayOneBathroomToilet.CENTER
 	_check("generous toilet target accepts one finger", toilet.begin_gesture(center + Vector2(65, 0), 4))
 	_check("second finger cannot steal toilet gesture", not toilet.begin_gesture(center, 5))
-	toilet.move_gesture(center + Vector2(-65, 0), 0.1)
-	_check("no scrub progress before Roshan arrives", float(toilet.audit_snapshot()["distance"]) == 0.0)
-	toilet.cancel_gesture()
-	toilet._process(5.0)
-	_check("interrupted approach never completes later", not bool(toilet.audit_snapshot()["arrived"]) and not main.day_one_bathroom_toilet_cleaned)
-	toilet.begin_gesture(center + Vector2(65, 0), 4)
+	for i: int in range(1, 48):
+		var angle: float = float(i) / 32.0 * TAU
+		toilet.move_gesture(center + Vector2(cos(angle), sin(angle)) * 65.0, 0.1)
+	_check("prearrival circles bank no arc distance or scrub time",
+		float(toilet.audit_snapshot()["arc"]) == 0.0
+		and float(toilet.audit_snapshot()["distance"]) == 0.0
+		and float(toilet.audit_snapshot()["motion_seconds"]) == 0.0)
+	var release := InputEventScreenTouch.new()
+	release.index = 4
+	release.pressed = false
+	release.position = center
+	toilet._on_input(release)
 	toilet._process(2.0)
+	_check("short touch release cannot strand Roshan before scrubbing",
+		bool(toilet.audit_snapshot()["arrived"])
+		and int(toilet.audit_snapshot()["finger"]) == -1
+		and bool(toilet.audit_snapshot()["pointer_visible"])
+		and float(toilet.audit_snapshot()["distance"]) == 0.0)
 	_check("Roshan arrives with brush attached to hand", bool(toilet.audit_snapshot()["arrived"]) and float(toilet.audit_snapshot()["hand_contact_error"]) < 0.5 and float(toilet.audit_snapshot()["bristle_contact_error"]) < 15.0)
+	toilet._process(30.0)
+	_check("automatic approach and demonstration never clean the toilet",
+		not main.day_one_bathroom_toilet_cleaned
+		and float(toilet.audit_snapshot()["distance"]) == 0.0
+		and float(toilet.audit_snapshot()["motion_seconds"]) == 0.0)
+	toilet.begin_gesture(center + Vector2(65, 0), 4)
 	for i: int in range(1, 12):
 		var angle: float = float(i) / 32.0 * TAU
 		toilet.move_gesture(center + Vector2(cos(angle), sin(angle)) * 65.0, 0.06)
@@ -630,3 +654,59 @@ func _probe_toilet(cleaning: DayOneBathroomCleaning, main: ReefMain) -> void:
 	restored.free()
 	var legacy: Dictionary = DayOneDirector.normalise_save_patch({"day_one_completed_rooms": ["bathroom"]})
 	_check("completed legacy bathrooms stay completed", bool(legacy["day_one_bathroom_toilet_cleaned"]))
+	await _probe_toilet_lifecycle(cleaning.get_parent())
+
+
+func _probe_toilet_lifecycle(host: Node) -> void:
+	var main := ReefMain.new()
+	main._day_one_ref()
+	var toilet := DayOneBathroomToilet.new()
+	host.add_child(toilet)
+	toilet.setup(main, false)
+	toilet.set_process(false)
+	var center := DayOneBathroomToilet.CENTER
+	toilet.begin_gesture(center + Vector2(65, 0), 4)
+	toilet._process(0.1)
+	var interrupted_position: Vector2 = toilet.audit_snapshot()["actor_position"]
+	toilet.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	toilet._process(3.0)
+	_check("focus loss cancels held toilet input and suspends approach",
+		bool(toilet.audit_snapshot()["suspended"])
+		and int(toilet.audit_snapshot()["finger"]) == -1
+		and not bool(toilet.audit_snapshot()["approaching"])
+		and toilet.audit_snapshot()["actor_position"] == interrupted_position
+		and not toilet.begin_gesture(center, 4)
+		and not main.day_one_bathroom_toilet_cleaned)
+	toilet.notification(Node.NOTIFICATION_PAUSED)
+	toilet.notification(Node.NOTIFICATION_APPLICATION_FOCUS_IN)
+	toilet._process(3.0)
+	_check("focus return cannot resume toilet approach while still paused",
+		bool(toilet.audit_snapshot()["suspended"])
+		and toilet.audit_snapshot()["actor_position"] == interrupted_position)
+	toilet.notification(Node.NOTIFICATION_UNPAUSED)
+	toilet._process(2.0)
+	_check("resumed toilet staging arrives without reviving a held scrub",
+		bool(toilet.audit_snapshot()["arrived"])
+		and int(toilet.audit_snapshot()["finger"]) == -1
+		and bool(toilet.audit_snapshot()["pointer_visible"])
+		and float(toilet.audit_snapshot()["distance"]) == 0.0)
+	toilet.begin_gesture(center + Vector2(65, 0), 4)
+	toilet.move_gesture(center + Vector2(0, 65), 0.1)
+	var partial_distance: float = float(toilet.audit_snapshot()["distance"])
+	toilet.notification(Node.NOTIFICATION_PAUSED)
+	toilet.notification(Node.NOTIFICATION_UNPAUSED)
+	var stale_drag := InputEventScreenDrag.new()
+	stale_drag.index = 4
+	stale_drag.position = center + Vector2(-65, 0)
+	toilet._on_input(stale_drag)
+	toilet._process(3.0)
+	_check("pause preserves partial scrub but stale drag cannot add progress",
+		partial_distance > 0.0
+		and float(toilet.audit_snapshot()["distance"]) == partial_distance
+		and int(toilet.audit_snapshot()["finger"]) == -1
+		and not main.day_one_bathroom_toilet_cleaned)
+	toilet.queue_free()
+	await process_frame
+	_check("toilet teardown cannot complete an unfinished scrub",
+		not is_instance_valid(toilet) and not main.day_one_bathroom_toilet_cleaned)
+	main.free()

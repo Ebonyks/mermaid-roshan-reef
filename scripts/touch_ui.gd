@@ -941,6 +941,16 @@ func _input(ev: InputEvent) -> void:
 			return
 	elif wants_touch() and ev is InputEventMouseButton:
 		var mouse_button := ev as InputEventMouseButton
+		# Godot emits the emulated mouse press BEFORE its original touch. The
+		# priority raw-touch route owns navigation; letting this copy reach the
+		# global Button would pop one route in GUI and another on the raw touch.
+		# Keep emulation everywhere else for ordinary activity controls.
+		if mouse_button.device == InputEvent.DEVICE_ID_EMULATION \
+				and mouse_button.button_index == MOUSE_BUTTON_LEFT \
+				and mouse_button.pressed \
+				and pause_zone().has_point(mouse_button.position):
+			get_viewport().set_input_as_handled()
+			return
 		if mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
 				and mouse_button.button_index == MOUSE_BUTTON_LEFT:
 			if mouse_button.pressed and pause_zone().has_point(mouse_button.position):
