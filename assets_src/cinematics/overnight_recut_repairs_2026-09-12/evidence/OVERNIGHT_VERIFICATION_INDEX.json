@@ -1,0 +1,287 @@
+{
+  "schema": "reef.movie-recut-verification-index.v1",
+  "status": "LOCAL_EDITORIAL_FILMS_RENDERED_AND_MACHINE_VERIFIED",
+  "baseline": "cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016",
+  "plan_path": "design/movie_recut_20260912.json",
+  "plan_sha256": "d985af53954d949cd3adf6b03e088708cae213408a7199d7c69b4ab082e0894e",
+  "resolve_version": "21.0.4.5",
+  "project": "Mermaid Roshan - Continuity Recut 2026-09-12",
+  "master_frames": 3150,
+  "fps": 24,
+  "resolution": [
+    1280,
+    720
+  ],
+  "timeline_count": 15,
+  "scene_exports": 14,
+  "master_picture_events": 46,
+  "audio_tracks": [
+    "Dialogue",
+    "Foley",
+    "Ambience",
+    "Score"
+  ],
+  "source_inventory": {
+    "paths": 416,
+    "unique_file_hashes": 315,
+    "historical_ledger_names_covered": 159,
+    "source_contact_samples_generated": 3780,
+    "review_limit": "All 315 midpoint images triaged plus targeted native and dense candidates. Not every original frame or soundtrack watched."
+  },
+  "picture_conform": {
+    "frames": 3150,
+    "diagnostic_resolution": [
+      160,
+      90
+    ],
+    "mean_pixel_error_0_255": 1.5402580167755249,
+    "max_frame_mean_pixel_error": 6.214907169342041,
+    "flagged_shots": 0,
+    "visual_sample_count": 336,
+    "editorial_joins_reviewed": 45,
+    "inherited_internal_cuts_reviewed": [
+      2504,
+      2906
+    ]
+  },
+  "audio_conform": {
+    "master_lufs": -17.75,
+    "master_true_peak_dbtp": -3.5,
+    "all_scene_offsets_samples": 0,
+    "all16complete_lines_fit": true,
+    "perceptual_listening": "OUTSTANDING"
+  },
+  "portable_archive": {
+    "path": "export/movie_recut_20260912/project/movie_recut_d985af53954d.dra",
+    "files": 35,
+    "all34source_hashes_present": true,
+    "payload_sha256": "a463ee6a8ac427d99997acf15e98336008f3ae40005a3911df5f71f3c960d97a"
+  },
+  "outputs": [
+    {
+      "id": "OPENING_C00_C01",
+      "sha256": "780408a6bc122fb030aa483234aa5973c97987dde40048b0e4a4dc268b34a7d2",
+      "bytes": 51477436,
+      "frames": 780,
+      "fps": 24,
+      "path": "export/movie_recut_20260912/renders/OPENING_C00_C01.mp4"
+    },
+    {
+      "id": "D1-C02",
+      "sha256": "bcaf77aef5b528b32f3b1a2ab7ebdfe93a2b36db70af5ce46200fc5046232e21",
+      "bytes": 10496127,
+      "frames": 163,
+      "fps": 24,
+      "path": "export/movie_recut_20260912/renders/D1-C02.mp4"
+    },
+    {
+      "id": "D1-C03",
+      "sha256": "fa75d28b2211c8e4733e7eae820882386428afe5aaa15e07afb37ac595878f3f",
+      "bytes": 3654573,
+      "frames": 72,
+      "fps": 24,
+      "path": "export/movie_recut_20260912/renders/D1-C03.mp4"
+    },
+    {
+      "id": "D1-C04",
+      "sha256": "f16d0c5428cd1178c11308f5e4eebc760d473bb2018b00e609ac5eaca3ed6046",
+      "bytes": 6257407,
+      "frames": 108,
+      "fps": 24,
+      "path": "export/movie_recut_20260912/renders/D1-C04.mp4"
+    },
+    {
+      "id": "D1-C05",
+      "sha256": "4e55206505d13fb81ad67d41cbe6c7be9c967f85617da922463e4d902384461e",
+      "bytes": 14199963,
+      "frames": 204,
+      "fps": 24,
+      "path": "export/movie_recut_20260912/renders/D1-C05.mp4"
+    },
+    {
+      "id": "D1-C06",
+      "sha256": "4f3635a933150e109138e690c3650c125dde5e1e81bcbb0b1859c5d19f1c1906",
+      "bytes": 37201754,
+      "frames": 354,
+      "fps": 24,
+      "path": "export/movie_recut_20260912/renders/D1-C06.mp4"
+    },
+    {
+      "id": "D1-C07",
+      "sha256": "d9f59e95c7914b00282bfef6cc0e6552830be0501f4838b3fb914c791a7e1911",
+      "bytes": 8593713,
+      "frames": 124,
+      "fps": 24,
+      "path": "export/movie_recut_20260912/renders/D1-C07.mp4"
+    },
+    {
+      "id": "D1-C08",
+      "sha256": "50c3ff921daba508b413150561635441cb8938aed504eaaaedbd28b028882dee",
+      "bytes": 7827292,
+      "frames": 114,
+      "fps": 24,
+      "path": "export/movie_recut_20260912/renders/D1-C08.mp4"
+    },
+    {
+      "id": "D1-C09",
+      "sha256": "1a44366f3a245a810dc93f02107aa4c0fa4c83f39413127945ae0295324a4e47",
+      "bytes": 5519880,
+      "frames": 120,
+      "fps": 24,
+      "path": "export/movie_recut_20260912/renders/D1-C09.mp4"
+    },
+    {
+      "id": "D1-C10",
+      "sha256": "ec1cb34f126f69f8cef5d2f1511947fe3526e8fb87a43a360b896a88f7540d36",
+      "bytes": 4450549,
+      "frames": 81,
+      "fps": 24,
+      "path": "export/movie_recut_20260912/renders/D1-C10.mp4"
+    },
+    {
+      "id": "D1-C11",
+      "sha256": "e145230406d33674f6a0e38a4d3c085e76149078705f37bf980217ced1767139",
+      "bytes": 11366240,
+      "frames": 204,
+      "fps": 24,
+      "path": "export/movie_recut_20260912/renders/D1-C11.mp4"
+    },
+    {
+      "id": "D1-C13",
+      "sha256": "dda736c74d6db8766b3ee389a443ad91650eb380766285282b773b69080289ed",
+      "bytes": 18852931,
+      "frames": 288,
+      "fps": 24,
+      "path": "export/movie_recut_20260912/renders/D1-C13.mp4"
+    },
+    {
+      "id": "D1-C14",
+      "sha256": "eac5566a014658ed8e4d6e22d7c9339334ff89ff4f3957ef46e716fc35ba994a",
+      "bytes": 35731931,
+      "frames": 402,
+      "fps": 24,
+      "path": "export/movie_recut_20260912/renders/D1-C14.mp4"
+    },
+    {
+      "id": "D1-C12",
+      "sha256": "ab448d9de8221d4d4a9441536e0e9ebad204241985c640876e5c3155bee1e043",
+      "bytes": 9344214,
+      "frames": 136,
+      "fps": 24,
+      "path": "export/movie_recut_20260912/renders/D1-C12.mp4"
+    },
+    {
+      "id": "DAY_ONE_CONTINUITY_RECUT",
+      "sha256": "97471d822dd4d2fc05bbfa59f820e7db33451983876dc0a109da084f40e4b0e7",
+      "bytes": 231830357,
+      "frames": 3150,
+      "fps": 24,
+      "path": "export/movie_recut_20260912/renders/DAY_ONE_CONTINUITY_RECUT.mp4"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "export/movie_recut_20260912/PICTURE_EDIT_PLAN.json",
+      "sha256": "d985af53954d949cd3adf6b03e088708cae213408a7199d7c69b4ab082e0894e"
+    },
+    {
+      "path": "export/movie_recut_20260912/RESOLVE_READBACK.json",
+      "sha256": "ec84b5a227b0ea4dff31a85bf0031580c9f5bf62393eb589554e1c806a7cad03"
+    },
+    {
+      "path": "export/movie_recut_20260912/EXPORT_MANIFEST.json",
+      "sha256": "368eae41685121644814391a0d3e27c58c0e520a926a0b3d0e8f395941cbebe6"
+    },
+    {
+      "path": "export/movie_recut_20260912/ARCHIVE_MANIFEST.json",
+      "sha256": "91787b8039a6c62310d5aca694dfd142f56cdb41ac03ec10855485971b27a2df"
+    },
+    {
+      "path": "export/movie_recut_20260912/audio/AUDIO_MANIFEST.json",
+      "sha256": "a9455b8ec7f32b122a6f98b821c4e74a93822f3293c79ab85882c8f6278d7fce"
+    },
+    {
+      "path": "export/movie_recut_20260912/audio/DAY_ONE_AUDIO_METER_REPORT.json",
+      "sha256": "1f32640e8654faf46a4437282b1f29fc1de34c1317826e575374411c5934c9e1"
+    },
+    {
+      "path": "export/movie_recut_20260912/review/CONFORM_REPORT.json",
+      "sha256": "d427d2e40f73a56fb26c9e41c347b72e74c88181d002eedbef29e2f5fc09eeae"
+    },
+    {
+      "path": "export/movie_recut_20260912/review/ARCHIVE_SOURCE_COVERAGE.json",
+      "sha256": "d5c3e57039317b2a7b543133c5c345e7310b1a4049a50f3e2ae3a28e5f40731a"
+    },
+    {
+      "path": "export/movie_recut_20260912/review/RENDER_VISUAL_REVIEW_START.json",
+      "sha256": "b10c651d4812d9e754d837dca7e7c6845c7bd9fd24bc91f03f5c590a30461a42"
+    },
+    {
+      "path": "export/movie_recut_20260912/review/RENDER_VISUAL_REVIEW_END.json",
+      "sha256": "e7bf8c811196b89dd63965ea6c09fd31648a5ace17c24325593d37c65baf44ec"
+    },
+    {
+      "path": "export/movie_recut_20260912/review/RENDERED_AUDIO_QA.json",
+      "sha256": "ea1b27a8ed9fc92fa65f2dae613449ac99f81365e8fa916f0a05145f5f834236"
+    },
+    {
+      "path": "export/movie_recut_20260912/review/LOCATION_COVERAGE.json",
+      "sha256": "80f9fafa03f9f654873c81ab6523131eccee33db3ed574c8447d62e7920c759a"
+    },
+    {
+      "path": "export/movie_recut_20260912/review/inventory/inventory.json",
+      "sha256": "1a056ed1071634610dee242b407f41580eb4483d3894bd9304fbc961b188738b"
+    },
+    {
+      "path": "export/movie_recut_20260912/review/inventory/prior_159_ledger_coverage.json",
+      "sha256": "4eed725f23febb66011dd8913a723e8687cdca15da5eae850e5035f08bf2673a"
+    },
+    {
+      "path": "export/movie_recut_20260912/review/SCENE_MASTER_PARITY.json",
+      "sha256": "acc254579fb1d52bbb8d4c422f710a1b38a52a1461272113da4ab7242bdba3f3"
+    }
+  ],
+  "project_checks": {
+    "status": "PASS",
+    "command": "GODOT=C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe scripts/ci.sh",
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "exit_code": 0,
+    "trusted_probes_passed": 78,
+    "unit_tests_run": 368,
+    "elapsed_log_seconds": 2689.593,
+    "log": "export/movie_recut_20260912/CI_LOG.log",
+    "log_sha256": "07316b6be4b09ec0565a5ff4f552275be2c524f706d2028ccb5cd56c609fa182",
+    "summary": "export/movie_recut_20260912/CI_SUMMARY.json",
+    "summary_sha256": "94d451ab6e40d2c849a847d5f2092f51f08a23f07c8d74234f44b1d6154d0471",
+    "scope": "Full local game suite on unchanged runtime sources. Later offline helper safeguards and final documentation have separate focused checks. This does not grant visual, listening, device, child, owner or production cinematic acceptance."
+  },
+  "claims": {
+    "picture_edit_and_native_render_complete": true,
+    "local_resolve_media_archive_complete": true,
+    "external_animation_handoff_archive_complete": false,
+    "generation_ready": false,
+    "delivery_accepted": false,
+    "runtime_changed": false,
+    "device_child_owner_acceptance": "OUTSTANDING",
+    "findings_closed": []
+  },
+  "scene_master_parity": {
+    "frames_compared": 3150,
+    "scenes": 14,
+    "mean_rgb_error_0_255": 0.422,
+    "max_frame_mean_error": 0.695,
+    "flagged_scenes": 0
+  },
+  "post_render_tool_safeguards": {
+    "changes": [
+      "Audio preparation refuses nonempty output folders and FFmpeg refuses existing outputs.",
+      "Incremental Resolve project exports preserve all prior verified export records if interrupted."
+    ],
+    "media_rerendered": false,
+    "provenance": "The audio manifest retains the original preparation script hash that actually produced the verified stems. Later safeguards do not rewrite historical build provenance.",
+    "status": "PASS",
+    "evidence": "export/movie_recut_20260912/RERUN_SAFETY_CHECKS.json",
+    "sha256": "88b8191c6bf6d0b94d32961472315b7fa5eec26bb8b86c3c4cf1572288c721ec",
+    "controls": "Existing output refused with four WAVs and both audio manifests unchanged; simulated interrupted export and retry retain all 16 verified DRT/DRP records with no re-export; all seven precise readback controls pass."
+  }
+}

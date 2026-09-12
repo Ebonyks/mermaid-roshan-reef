@@ -42,6 +42,11 @@ unclassified until this ledger gains one new scoped row for it.
 
 **Legend**
 
+| Doc | | Note |
+|---|---|---|
+| `audit/OVERNIGHT_RECUT_FRAME_AUDIT_2026-09-12.md` | 🔵 | `SUPPORTING_CURRENT`; fresh sampled/native-frame review of the 3150-frame overnight Resolve render and eighteen bounded repair/conditional cards. Owner direction: recognizable big bunny, soapy scrubbing obscures form, concept friend jumps while casing collapses and dust scatters. Includes original-book Eagle correction and exact Daddy/attic locks. No generated-frame, human, runtime, device or delivery acceptance. |
+| `assets_src/cinematics/overnight_recut_repairs_2026-09-12/README.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; operator index for the overnight-cut repair archive, exact source-frame mappings, new beat boards and draft Grok shot cards. The newer two-window stone attic governs this packet instead of the older wooden arena. Remote archive completeness, opening readiness and delivery acceptance remain separate. |
+
 | | Meaning |
 |---|---|
 | 🟢 | **BINDING/CURRENT** — `BINDING_OPERATIONAL`, `BINDING_DOMAIN`, or current canonical scope; the note names it. |

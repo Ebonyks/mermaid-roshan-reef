@@ -1,0 +1,131 @@
+{
+  "shot_id": "R09",
+  "location_id": "arena",
+  "master_ranges": [
+    [
+      2324,
+      2372
+    ]
+  ],
+  "title": "Scrub the recognizable big bunny until bubbles hide his form",
+  "problem": "The incoming group appears at a cut and contact is uneven. The new owner-directed reveal requires all four helpers visibly working on the same old dust-bunny shell.",
+  "beats": [
+    "The big lavender dust bunny retains his own spiral ears, forehead curl, face and pearls while all four helpers begin scrubbing; obvious wet soap lather appears at every tool contact.",
+    "Everyone keeps scrubbing as white pale-blue suds and translucent bubbles spread from those contact patches over his body and ears.",
+    "His recognizable outline becomes lost under a billowing blanket of soap bubbles; the little rainbow bunny remains completely hidden."
+  ],
+  "end_state": "All four helpers scrub the big bunny under a body-obscuring blanket of soap bubbles; no part of the little rainbow bunny is visible.",
+  "must_not_move": "two ocean windows, chests, stone octagon, four helper screen positions and their identities",
+  "priority": "P0",
+  "depends_on": [],
+  "duration_seconds": 4,
+  "negative_constraints": "no missing helper, extra wings, pain, hard shards, explosion or giant disappearing; no rejected Eagle redraw, sharp talons, backpack or altered book feather proportions; no Daddy beard, moustache, curly mane, bulky torso, open shirt, short sleeves, casual teal shirt or solid blue tail; no early little-rainbow-bunny ears or body, no dry sand brushing, no anonymous mound at R09 start, no loss of big-bunny form before scrubbing starts",
+  "exact_cast": [
+    "Roshan",
+    "Daddy",
+    "Rumi",
+    "Baby Eagle",
+    "old dust shell"
+  ],
+  "conditional_regeneration": false,
+  "review_priority_note": "Direct observed defect or explicit new owner direction.",
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "status": "DRAFT",
+  "movie_id": "OVERNIGHT_RECUT",
+  "mode": "image_to_video",
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "references/e585e52562_grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/7c4f39ef35_tool_star_sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "subject_identity",
+      "path": "references/daddy_generation_preview.jpg",
+      "sha256": "5a7c55e1987017f9fdfad5307538de7ddffce3a5d7025783aa4a08adfc836918",
+      "human_review": "Exact approved Daddy master compatibility preview; complete opening requires review",
+      "authority_domain": "Daddy identity only"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "The big lavender dust bunny retains his own spiral ears, forehead curl, face and pearls while all four helpers begin scrubbing; obvious wet soap lather appears at every tool contact. Everyone keeps scrubbing as white pale-blue suds and translucent bubbles spread from those contact patches over his body and ears. His recognizable outline becomes lost under a billowing blanket of soap bubbles; the little rainbow bunny remains completely hidden.",
+  "prompt_sha256": "28bc53f89b39cd67219af19c45c444800713b20610e03e25e8cdb1cf5a68993c",
+  "blocking_findings": [
+    "missing complete human-approved opening at exact hash",
+    "missing measured setup and accepted predecessor/successor endpoints",
+    "V2 execution/binding review and remote opening verification pending"
+  ],
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "source_events": [
+    {
+      "master_range": [
+        2324,
+        2372
+      ],
+      "source_id": "V_a5e48892ddab6e60",
+      "source_sha256": "a5e48892ddab6e6074cc9710e8145859242203bf43c33c6ff1b85a289cacee28",
+      "source_path": "export/movie_recut_20260912/media/a5e48892ddab_16_D1-C13.mp4",
+      "source_range": [
+        0,
+        48
+      ],
+      "label": "QC_PART_16"
+    }
+  ],
+  "review": {
+    "human": null,
+    "measurements": null,
+    "cross_shot": null
+  },
+  "movement_profile": {
+    "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "version": 1,
+    "register": "attentive helping; eyes before hands; contact before consequence; supported settle"
+  },
+  "endpoint_policy": "Continuations use accepted predecessor endpoint. New camera address needs a separately approved complete opening. No defective source frame is an approved neighbor.",
+  "replacement_policy": "These master ranges are shot replacement envelopes, not claims that every enclosed frame has an independent defect. Preserve exact old index/source map; review every changed candidate frame. New reference duration requires reconform; do not stretch footage to fill the old range.",
+  "eagle_identity_authority": {
+    "path": "references/baby_eagle_original_book.png",
+    "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+    "review_required": true
+  },
+  "daddy_identity_authority": {
+    "path": "references/daddy_generation_preview.jpg",
+    "sha256": "5a7c55e1987017f9fdfad5307538de7ddffce3a5d7025783aa4a08adfc836918",
+    "invariants": "clean-shaven slender face, straight long brown hair, pointed ears, thin rectangular black glasses, jeweled crown, high-neck navy long-sleeve coat with gold embroidery, teal cape with scallop clasps, one rainbow-scaled tail and broad multicolor fluke",
+    "review_required": true
+  },
+  "big_bunny_form_at_start": true,
+  "cleaning_suds_required": true,
+  "little_bunny_hidden_until_jump": true
+}

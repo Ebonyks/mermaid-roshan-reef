@@ -1,0 +1,105 @@
+{
+  "shot_id": "R07",
+  "location_id": "art",
+  "master_ranges": [
+    [
+      2039,
+      2087
+    ]
+  ],
+  "title": "Wipe a legible clean strip",
+  "problem": "Consecutive f2039-2086 shows a glowing brush traversing a persistent purple patch. The cleaning effect is much less legible than the sparkles.",
+  "beats": [
+    "Roshan lowers the brush onto the purple grime at the near supply island.",
+    "She makes one short wipe; the grime rolls into the bristles behind the contact edge.",
+    "She stops and lifts the brush, revealing a clean strip without changing the tabletop."
+  ],
+  "end_state": "A clean strip visibly follows the brush path while untouched grime stays in place.",
+  "must_not_move": "table ellipse, rim, under-shelf containers, room and supported tail pose",
+  "priority": "P1",
+  "depends_on": [],
+  "duration_seconds": 4,
+  "negative_constraints": "no glowing brush hovering above unchanged paint or instantaneous furniture change",
+  "exact_cast": [
+    "Roshan"
+  ],
+  "conditional_regeneration": false,
+  "review_priority_note": "Direct observed defect or explicit new owner direction.",
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "status": "DRAFT",
+  "movie_id": "OVERNIGHT_RECUT",
+  "mode": "image_to_video",
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/69827625a8_roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/17e76b7f75_magic_cleaning_brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "Roshan lowers the brush onto the purple grime at the near supply island. She makes one short wipe; the grime rolls into the bristles behind the contact edge. She stops and lifts the brush, revealing a clean strip without changing the tabletop.",
+  "prompt_sha256": "0dc8b4035b71dac6c79b8448879f0c7a8fd2a261f749cbea1fb583510eab2a8b",
+  "blocking_findings": [
+    "missing complete human-approved opening at exact hash",
+    "missing measured setup and accepted predecessor/successor endpoints",
+    "V2 execution/binding review and remote opening verification pending"
+  ],
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "source_events": [
+    {
+      "master_range": [
+        2039,
+        2087
+      ],
+      "source_id": "V_6c5f3f338348c651",
+      "source_sha256": "6c5f3f338348c6514ecfd79cb3464b49e26864af6ad9af1076cf8a60d2186a56",
+      "source_path": "export/movie_recut_20260912/media/6c5f3f338348_C10_S01_v1_final_scrub_OFFICIAL.mp4",
+      "source_range": [
+        24,
+        72
+      ],
+      "label": "D1-C10-S01"
+    }
+  ],
+  "review": {
+    "human": null,
+    "measurements": null,
+    "cross_shot": null
+  },
+  "movement_profile": {
+    "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "version": 1,
+    "register": "attentive helping; eyes before hands; contact before consequence; supported settle"
+  },
+  "endpoint_policy": "Continuations use accepted predecessor endpoint. New camera address needs a separately approved complete opening. No defective source frame is an approved neighbor.",
+  "replacement_policy": "These master ranges are shot replacement envelopes, not claims that every enclosed frame has an independent defect. Preserve exact old index/source map; review every changed candidate frame. New reference duration requires reconform; do not stretch footage to fill the old range."
+}

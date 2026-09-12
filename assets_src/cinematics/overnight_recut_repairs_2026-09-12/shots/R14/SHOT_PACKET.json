@@ -1,0 +1,114 @@
+{
+  "shot_id": "R14",
+  "location_id": "hall_to_arena",
+  "master_ranges": [
+    [
+      2786,
+      2846
+    ]
+  ],
+  "title": "Water and sponge remove the wall stain",
+  "problem": "Consecutive f2786-2845 shows a persistent brown stain despite water and sponge contact; the cut provides no visible cleaned patch.",
+  "beats": [
+    "Rumi directs a small stream onto Roshan’s star sponge against the wall stain.",
+    "Roshan wipes one short path and the brown dirt transfers into the damp sponge.",
+    "Both stop so the clean patch and remaining edge can be seen."
+  ],
+  "end_state": "A clean wall patch remains behind the sponge and no water crosses a face.",
+  "must_not_move": "wall blocks, trim, door positions, Rumi and Roshan identities",
+  "priority": "P1",
+  "depends_on": [],
+  "duration_seconds": 4,
+  "negative_constraints": "no persistent unchanged stain, wall morphing, water through hands or hovering sponge",
+  "exact_cast": [
+    "Roshan",
+    "Rumi"
+  ],
+  "conditional_regeneration": false,
+  "review_priority_note": "Direct observed defect or explicit new owner direction.",
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "status": "DRAFT",
+  "movie_id": "OVERNIGHT_RECUT",
+  "mode": "image_to_video",
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/69827625a8_roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "references/636ec38fd0_rumi_rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "object_or_material_identity",
+      "path": "references/7c4f39ef35_tool_star_sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "Rumi directs a small stream onto Roshan’s star sponge against the wall stain. Roshan wipes one short path and the brown dirt transfers into the damp sponge. Both stop so the clean patch and remaining edge can be seen.",
+  "prompt_sha256": "c6c2359e611263827f2b6feef343c42dc843e42ccbc19a17c7a61bba17cda54f",
+  "blocking_findings": [
+    "missing complete human-approved opening at exact hash",
+    "missing measured setup and accepted predecessor/successor endpoints",
+    "V2 execution/binding review and remote opening verification pending"
+  ],
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "source_events": [
+    {
+      "master_range": [
+        2786,
+        2846
+      ],
+      "source_id": "V_0f8dcd7c2764bd03",
+      "source_sha256": "0f8dcd7c2764bd0382c747d59bdf0fe033f1134cc9f61284bbfa0adc598e45a2",
+      "source_path": "export/movie_recut_20260912/media/0f8dcd7c2764_C14_S04_c14_water_shared_wipe_APPROVED.mp4",
+      "source_range": [
+        6,
+        66
+      ],
+      "label": "C14-S04-A"
+    }
+  ],
+  "review": {
+    "human": null,
+    "measurements": null,
+    "cross_shot": null
+  },
+  "movement_profile": {
+    "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "version": 1,
+    "register": "attentive helping; eyes before hands; contact before consequence; supported settle"
+  },
+  "endpoint_policy": "Continuations use accepted predecessor endpoint. New camera address needs a separately approved complete opening. No defective source frame is an approved neighbor.",
+  "replacement_policy": "These master ranges are shot replacement envelopes, not claims that every enclosed frame has an independent defect. Preserve exact old index/source map; review every changed candidate frame. New reference duration requires reconform; do not stretch footage to fill the old range."
+}

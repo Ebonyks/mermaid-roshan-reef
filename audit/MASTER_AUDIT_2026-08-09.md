@@ -74,6 +74,8 @@ Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026
 
 <!-- AUDIT_TASK_INDEX_END -->
 
+Scoped overnight-film repair (2026-09-12): [fresh rendered-frame audit](OVERNIGHT_RECUT_FRAME_AUDIT_2026-09-12.md) and [impact](../design/audit_impacts/overnight-recut-repairs-20260912.json). The owner requests recognizable big-bunny form, four-helper soapy scrubbing that hides it in bubbles, then the concept friend jumping while the old casing collapses and scatters into dust. Eighteen repair/conditional jobs include original-book Eagle identity and exact Daddy/attic locks. Generated candidates retain explicit missing human opening/delivery acceptance.
+
 ## Sealed audit snapshot and subsequent round metadata
 
 - **Audit ID:** `MA-2026-08-09`

@@ -1,0 +1,117 @@
+{
+  "shot_id": "R13",
+  "location_id": "hall_to_arena",
+  "master_ranges": [
+    [
+      2678,
+      2786
+    ]
+  ],
+  "title": "Duster must touch and collect a web",
+  "problem": "Native f2690-2729 shows Daddy’s raised duster mostly moving in clear space while the Eagle flaps. The target and removal are too hard to read. Independently, the Eagle identity must match the original book instead of the rejected redraw.",
+  "beats": [
+    "Daddy places the duster against a small visible web on the established column.",
+    "One careful sweep catches that same web in the fibers while Baby Eagle watches nearby.",
+    "Daddy lowers the duster with the web attached, revealing the cleaned column patch."
+  ],
+  "end_state": "The column patch is clean and the removed web remains caught on the duster.",
+  "must_not_move": "Hall B column, far-right Royal arch, Daddy tail and Eagle anatomy",
+  "priority": "P0",
+  "depends_on": [],
+  "duration_seconds": 4,
+  "negative_constraints": "no sweeping empty air, vanishing dirt, tail-to-legs change or extra Eagle wings; no rejected Eagle redraw, sharp talons, backpack or altered book feather proportions; no Daddy beard, moustache, curly mane, bulky torso, open shirt, short sleeves, casual teal shirt or solid blue tail",
+  "exact_cast": [
+    "Daddy",
+    "Baby Eagle"
+  ],
+  "conditional_regeneration": false,
+  "review_priority_note": "Eagle identity repair is mandatory under owner correction. Web-action regeneration remains conditional on native-motion review.",
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "status": "DRAFT",
+  "movie_id": "OVERNIGHT_RECUT",
+  "mode": "image_to_video",
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/daddy_generation_preview.jpg",
+      "sha256": "5a7c55e1987017f9fdfad5307538de7ddffce3a5d7025783aa4a08adfc836918",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "references/baby_eagle_original_book.png",
+      "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+      "human_review": "Original book comparison authority; complete opening still requires review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "Daddy places the duster against a small visible web on the established column. One careful sweep catches that same web in the fibers while Baby Eagle watches nearby. Daddy lowers the duster with the web attached, revealing the cleaned column patch.",
+  "prompt_sha256": "b5b240c1997c16c82dcc97c04b0cedab4d8bae05935114e9e91528c17ef3614d",
+  "blocking_findings": [
+    "missing complete human-approved opening at exact hash",
+    "missing measured setup and accepted predecessor/successor endpoints",
+    "V2 execution/binding review and remote opening verification pending"
+  ],
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "source_events": [
+    {
+      "master_range": [
+        2678,
+        2786
+      ],
+      "source_id": "V_50db46ddf82d9c9a",
+      "source_sha256": "50db46ddf82d9c9a5913e2c2e0e89dba303b0c9d5b38ceaf379ee118c0dcc6d1",
+      "source_path": "export/movie_recut_20260912/media/50db46ddf82d_C14_S03_c14_brush_and_breeze_APPROVED.mp4",
+      "source_range": [
+        0,
+        108
+      ],
+      "label": "C14-S03-A"
+    }
+  ],
+  "review": {
+    "human": null,
+    "measurements": null,
+    "cross_shot": null
+  },
+  "movement_profile": {
+    "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "version": 1,
+    "register": "attentive helping; eyes before hands; contact before consequence; supported settle"
+  },
+  "endpoint_policy": "Continuations use accepted predecessor endpoint. New camera address needs a separately approved complete opening. No defective source frame is an approved neighbor.",
+  "replacement_policy": "These master ranges are shot replacement envelopes, not claims that every enclosed frame has an independent defect. Preserve exact old index/source map; review every changed candidate frame. New reference duration requires reconform; do not stretch footage to fill the old range.",
+  "eagle_identity_authority": {
+    "path": "references/baby_eagle_original_book.png",
+    "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+    "review_required": true
+  },
+  "daddy_identity_authority": {
+    "path": "references/daddy_generation_preview.jpg",
+    "sha256": "5a7c55e1987017f9fdfad5307538de7ddffce3a5d7025783aa4a08adfc836918",
+    "invariants": "clean-shaven slender face, straight long brown hair, pointed ears, thin rectangular black glasses, jeweled crown, high-neck navy long-sleeve coat with gold embroidery, teal cape with scallop clasps, one rainbow-scaled tail and broad multicolor fluke",
+    "review_required": true
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "shot_id": "R17",
+  "location_id": "stuffie",
+  "master_ranges": [
+    [
+      1717,
+      1805
+    ]
+  ],
+  "title": "Restore book Eagle identity in the pinned discovery",
+  "problem": "Owner rejected the derived Eagle reference. Native film frames preserve the redraw’s altered proportions and pointed talons; restore original book identity without changing the established rescue story.",
+  "beats": [
+    "Begin with the book-matching Eagle low on the floor and exactly two soft dust bunnies pinning her two wings.",
+    "Eagle raises her head toward Roshan with a readable worried look, preserving rounded plush feet and the book beak and feather pattern.",
+    "Roshan looks toward both pinning bunnies; neither pin releases in this discovery shot."
+  ],
+  "end_state": "Exactly one book-matching Eagle remains safely pinned by exactly two bunnies; both rescue targets remain visible.",
+  "must_not_move": "established playroom geography, Roshan identity and book Eagle feather/body proportions",
+  "priority": "P0",
+  "depends_on": [],
+  "duration_seconds": 4,
+  "negative_constraints": "no backpack, pointed talons, squat mascot body, new cyan wing bars, duplicate Eagle, extra wings or automatic rescue in discovery; no rejected Eagle redraw, sharp talons, backpack or altered book feather proportions",
+  "exact_cast": [
+    "Roshan",
+    "Baby Eagle",
+    "two pinning dust bunnies"
+  ],
+  "conditional_regeneration": false,
+  "review_priority_note": "Direct observed defect or explicit new owner direction.",
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "status": "DRAFT",
+  "movie_id": "OVERNIGHT_RECUT",
+  "mode": "image_to_video",
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/baby_eagle_original_book.png",
+      "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+      "human_review": "Original protected book source; complete unobscured opening still needs exact-hash human review",
+      "authority_domain": "Eagle identity only; backpack is incidental"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "Begin with the book-matching Eagle low on the floor and exactly two soft dust bunnies pinning her two wings. Eagle raises her head toward Roshan with a readable worried look, preserving rounded plush feet and the book beak and feather pattern. Roshan looks toward both pinning bunnies; neither pin releases in this discovery shot.",
+  "prompt_sha256": "f1d850655902b173d0df28806042f2f419eec82930f3ef1e6368f91ebf87b39b",
+  "blocking_findings": [
+    "missing complete human-approved opening at exact hash",
+    "missing measured setup and accepted predecessor/successor endpoints",
+    "V2 execution/binding review and remote opening verification pending"
+  ],
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "source_events": [
+    {
+      "master_range": [
+        1717,
+        1805
+      ],
+      "source_id": "V_aa1a08d59e0a837d",
+      "source_sha256": "aa1a08d59e0a837d1abdd67a8518740f5777e289525ba22b52362becd396d61d",
+      "source_path": "export/movie_recut_20260912/media/aa1a08d59e0a_grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4",
+      "source_range": [
+        8,
+        96
+      ],
+      "label": "D1-C07-S06"
+    }
+  ],
+  "review": {
+    "human": null,
+    "measurements": null,
+    "cross_shot": null
+  },
+  "movement_profile": {
+    "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "version": 1,
+    "register": "attentive helping; eyes before hands; contact before consequence; supported settle"
+  },
+  "endpoint_policy": "Continuations use accepted predecessor endpoint. New camera address needs a separately approved complete opening. No defective source frame is an approved neighbor.",
+  "replacement_policy": "These master ranges are shot replacement envelopes, not claims that every enclosed frame has an independent defect. Preserve exact old index/source map; review every changed candidate frame. New reference duration requires reconform; do not stretch footage to fill the old range.",
+  "eagle_identity_authority": {
+    "path": "references/baby_eagle_original_book.png",
+    "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+    "review_required": true
+  }
+}

@@ -8,6 +8,10 @@ Use with [MASTER](GROK_MASTER_HANDOFF_FORMULA_2026-08-30.md), the mandatory
 The name Handoff 2 is the owner's new repair commission, not a renaming of the
 historical September 4 third-pass archive. Historical verdicts remain intact.
 
+For the overnight September 12 recut, use the [fresh frame audit](../audit/OVERNIGHT_RECUT_FRAME_AUDIT_2026-09-12.md) and its versioned repair packet. The direct owner revision replaces the old giant-clear cut with the concept rainbow bunny jumping from the scrubbed shell. The current stone attic has two ocean windows and chests; do not inherit the older wooden/circular-window arena reference. Historical immutable packets retain their recorded claims, while this revision uses the newer sources and direction.
+
+The owner's clarification keeps the big bunny's recognizable form and own lavender ears at the start. Four visible wet-soap contacts build bubbles until his form is obscured; only then does the little rainbow bunny jump into view as the casing collapses and scatters into dust over the next seconds. The little bunny has no early ear/body preview. The [Eagle correction](../assets_src/cinematics/overnight_recut_repairs_2026-09-12/BABY_EAGLE_IDENTITY_AUDIT.json) replaces the rejected redraws with original book comparison authority. Daddy's exact clean-shaven master and the actual attic remain bound; generated candidate approval is separate.
+
 ## Why the previous controls did not protect the footage
 
 The written formula already required identity, topology, approved openings and

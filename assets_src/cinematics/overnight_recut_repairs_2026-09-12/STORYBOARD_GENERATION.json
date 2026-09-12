@@ -1,0 +1,62 @@
+{
+  "method": "OpenAI built-in image_gen",
+  "date": "2026-09-12",
+  "output": "boards/SHELL_REVEAL_STORYBOARD_CANDIDATE.png",
+  "sha256": "54037beae8384187ba2604912d6dbfc73412d49d6bd2f932c47c835780d0a18c",
+  "native_dimensions": [
+    1536,
+    1024
+  ],
+  "prompt_path": "boards/SHELL_REVEAL_PROMPT.txt",
+  "prompt_sha256": "1a430eaa312c77c57798a2bc2895fa97630bfa1b04dca1aad29a2aca79b0cc95",
+  "references": [
+    {
+      "path": "references/dusty_attic_arena_native_1254.png",
+      "sha256": "9cb4b02dc4a56e1436ea0a6b21dccf4ef751716d213e3ff7624571f15a9e2cb6"
+    },
+    {
+      "path": "references/rainbow_dust_bunny_concept.png",
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17"
+    },
+    {
+      "path": "references/69827625a8_roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+    },
+    {
+      "path": "references/daddy_generation_preview.jpg",
+      "sha256": "5a7c55e1987017f9fdfad5307538de7ddffce3a5d7025783aa4a08adfc836918"
+    },
+    {
+      "path": "references/636ec38fd0_rumi_rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f"
+    }
+  ],
+  "generated_candidate_count": 1,
+  "pre_generation_errors": [
+    "seven references exceeded five-image tool limit",
+    "original Daddy PNG rejected by strict decoder",
+    "large normalized PNG hit filesystem base64 transport error; whole-image preview used"
+  ],
+  "generation_gap": "No existing asset depicts newly owner-commissioned all-helper scrubbing, rainbow shell emergence, airborne arc and landing. One narrative board generated for that gap.",
+  "role": "narrative_only",
+  "used_as_delivery_pixels": false,
+  "allowed_as_grok_pixel_binding": false,
+  "visual_review": {
+    "reviewer": "Codex",
+    "result": "NARRATIVE_CANDIDATE_ONLY",
+    "supported": [
+      "same two-window stone attic",
+      "all four helpers present",
+      "readable empty-shell origin and airborne rainbow bunny",
+      "large concept ear curls, pearl-like front details and forehead sparkle"
+    ],
+    "issues": [
+      "Eagle identity simplified; use approved Eagle master instead",
+      "stray brush in jump panel; no such extra prop in shot opening",
+      "panel silhouettes and shell geometry are not motion continuity proof"
+    ]
+  },
+  "human_review": null,
+  "generation_ready": false,
+  "delivery_accepted": false
+}

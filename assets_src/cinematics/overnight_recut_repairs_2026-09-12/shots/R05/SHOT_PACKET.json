@@ -1,0 +1,107 @@
+{
+  "shot_id": "R05",
+  "location_id": "pool",
+  "master_ranges": [
+    [
+      1405,
+      1465
+    ]
+  ],
+  "title": "Show two water fronts meeting",
+  "problem": "Frames 1464/1465 cut directly from murky water beneath the rainbow flow to a fully turquoise pool. The cleaning consequence is missing.",
+  "beats": [
+    "From the waterfall and seahorse outlets, two low clear-water fronts spread over the dirty surface.",
+    "The fronts travel toward one another while brown water recedes only behind them.",
+    "They meet; the last dirty patch clears and the surface settles before Rumi appears."
+  ],
+  "end_state": "One clean turquoise pool settles, with waterfall and seahorse in their unchanged positions.",
+  "must_not_move": "pool rim, shell seat, ocean window, shelf count, seahorse pedestal and locked camera",
+  "priority": "P1",
+  "depends_on": [
+    "R04"
+  ],
+  "duration_seconds": 6,
+  "negative_constraints": "no instant recolor, tall rainbow wall, jump cut, camera move, or premature Rumi",
+  "exact_cast": [
+    "Roshan"
+  ],
+  "conditional_regeneration": false,
+  "review_priority_note": "Direct observed defect or explicit new owner direction.",
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "status": "DRAFT",
+  "movie_id": "OVERNIGHT_RECUT",
+  "mode": "image_to_video",
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "references/0c3ab0c843_mermaid_pool_waterfall_rest.png",
+      "sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/5912698f5c_mermaid_pool_seahorse_fountain_rest.png",
+      "sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "From the waterfall and seahorse outlets, two low clear-water fronts spread over the dirty surface. The fronts travel toward one another while brown water recedes only behind them. They meet; the last dirty patch clears and the surface settles before Rumi appears.",
+  "prompt_sha256": "7ce6725d23ef074b396f8aea20cc560beff468a3a31fa6e48f038dd48be377c4",
+  "blocking_findings": [
+    "missing complete human-approved opening at exact hash",
+    "missing measured setup and accepted predecessor/successor endpoints",
+    "V2 execution/binding review and remote opening verification pending"
+  ],
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "source_events": [
+    {
+      "master_range": [
+        1405,
+        1465
+      ],
+      "source_id": "V_6458cc6f4fec4bb3",
+      "source_sha256": "6458cc6f4fec4bb35a4226d88214b3e833df01209f20365c7c6b9e2a356677d1",
+      "source_path": "export/movie_recut_20260912/media/6458cc6f4fec_MERMAID_ROSHAN_CLEAN_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "source_range": [
+        48,
+        108
+      ],
+      "label": "D1-C06-RAINBOW-RESTART"
+    }
+  ],
+  "review": {
+    "human": null,
+    "measurements": null,
+    "cross_shot": null
+  },
+  "movement_profile": {
+    "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "version": 1,
+    "register": "attentive helping; eyes before hands; contact before consequence; supported settle"
+  },
+  "endpoint_policy": "Continuations use accepted predecessor endpoint. New camera address needs a separately approved complete opening. No defective source frame is an approved neighbor.",
+  "replacement_policy": "These master ranges are shot replacement envelopes, not claims that every enclosed frame has an independent defect. Preserve exact old index/source map; review every changed candidate frame. New reference duration requires reconform; do not stretch footage to fill the old range."
+}

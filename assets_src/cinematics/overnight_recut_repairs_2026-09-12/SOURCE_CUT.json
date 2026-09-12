@@ -1,0 +1,64 @@
+{
+  "path": "export/movie_recut_20260912/renders/DAY_ONE_CONTINUITY_RECUT.mp4",
+  "sha256": "97471d822dd4d2fc05bbfa59f820e7db33451983876dc0a109da084f40e4b0e7",
+  "bytes": 231830357,
+  "frames": 3150,
+  "fps": 24,
+  "duration_seconds": 131.25,
+  "frame_convention": "zero-based [start,end), end exclusive; time in seconds = frame/24",
+  "reviewer": "Codex visual inspection; not human acceptance",
+  "overview": "All 14 rendered master overview sheets opened in this task. 336 sampled overview frames; additional consecutive frame sheets and native reveal images inspected. Not an all-3150-frame or at-speed/audio acceptance.",
+  "native_extraction_command": "ffmpeg -i MASTER -vf select=between(n,START,END-1) -vsync 0 %04d.png",
+  "native_generated_spans": [
+    [
+      1028,
+      1075
+    ],
+    [
+      1327,
+      1369
+    ],
+    [
+      1435,
+      1477
+    ],
+    [
+      1980,
+      2010
+    ],
+    [
+      2039,
+      2087
+    ],
+    [
+      2100,
+      2120
+    ],
+    [
+      2635,
+      2678
+    ],
+    [
+      2690,
+      2730
+    ],
+    [
+      2786,
+      2846
+    ],
+    [
+      2890,
+      2942
+    ]
+  ],
+  "native_exact_reveal_frames": [
+    2503,
+    2504,
+    2550,
+    2650,
+    2910,
+    2980
+  ],
+  "plan_sha256": "d985af53954d949cd3adf6b03e088708cae213408a7199d7c69b4ab082e0894e",
+  "prior_handoff_use": "design and provenance authority only; fresh findings derived from overnight render"
+}

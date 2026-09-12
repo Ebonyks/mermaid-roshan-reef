@@ -1,0 +1,125 @@
+{
+  "shot_id": "R08",
+  "location_id": "art",
+  "master_ranges": [
+    [
+      2087,
+      2120
+    ],
+    [
+      3070,
+      3102
+    ]
+  ],
+  "title": "Finish the approach with contact and settle",
+  "problem": "The cut ends on an approaching pose at f2119. There is no readable arrival/contact/settle payoff, and the recap repeats this incomplete beat.",
+  "beats": [
+    "Roshan finishes the short approach to the low workbench after completed gameplay.",
+    "She gently places her palms on its near edge, eyes following her hands.",
+    "She settles and smiles at the clean blank workspace."
+  ],
+  "end_state": "Roshan rests beside the clean blank workbench with both hands clearly settled on its edge.",
+  "must_not_move": "low workbench, two supply islands, shelves, tail support and blank work surface",
+  "priority": "P1",
+  "depends_on": [
+    "R07"
+  ],
+  "duration_seconds": 3,
+  "negative_constraints": "no auto-painted picture, floating hands, new rune or supplies teleporting",
+  "exact_cast": [
+    "Roshan"
+  ],
+  "conditional_regeneration": false,
+  "review_priority_note": "Direct observed defect or explicit new owner direction.",
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "status": "DRAFT",
+  "movie_id": "OVERNIGHT_RECUT",
+  "mode": "image_to_video",
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/69827625a8_roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/b2eb0fc3a5_room_craft_room_item_paint_table.png",
+      "sha256": "b2eb0fc3a5d7c777540af1447827f6b2f98d47a658d2184d9774e407d46627aa",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "Roshan finishes the short approach to the low workbench after completed gameplay. She gently places her palms on its near edge, eyes following her hands. She settles and smiles at the clean blank workspace.",
+  "prompt_sha256": "8c38400531cd6bc79a0ed6f50d48517299758c13e4c8c3e4dd6a571cb756d6ec",
+  "blocking_findings": [
+    "missing complete human-approved opening at exact hash",
+    "missing measured setup and accepted predecessor/successor endpoints",
+    "V2 execution/binding review and remote opening verification pending"
+  ],
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "source_events": [
+    {
+      "master_range": [
+        2087,
+        2120
+      ],
+      "source_id": "V_b9e8a992a4eaf488",
+      "source_sha256": "b9e8a992a4eaf48886ee21e85217bf77a2c8b0a67bbccd9558507667dae9de6c",
+      "source_path": "export/movie_recut_20260912/media/b9e8a992a4ea_14_D1-C10.mp4",
+      "source_range": [
+        0,
+        33
+      ],
+      "label": "QC_PART_14"
+    },
+    {
+      "master_range": [
+        3070,
+        3102
+      ],
+      "source_id": "V_7dff55221175b466",
+      "source_sha256": "7dff55221175b466d4ca32ee2e118d5abcefed400e957fd91c0537c076f3f2cc",
+      "source_path": "export/movie_recut_20260912/media/7dff55221175_23_D1-C12.mp4",
+      "source_range": [
+        0,
+        32
+      ],
+      "label": "QC_PART_23"
+    }
+  ],
+  "review": {
+    "human": null,
+    "measurements": null,
+    "cross_shot": null
+  },
+  "movement_profile": {
+    "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "version": 1,
+    "register": "attentive helping; eyes before hands; contact before consequence; supported settle"
+  },
+  "endpoint_policy": "Continuations use accepted predecessor endpoint. New camera address needs a separately approved complete opening. No defective source frame is an approved neighbor.",
+  "replacement_policy": "These master ranges are shot replacement envelopes, not claims that every enclosed frame has an independent defect. Preserve exact old index/source map; review every changed candidate frame. New reference duration requires reconform; do not stretch footage to fill the old range."
+}

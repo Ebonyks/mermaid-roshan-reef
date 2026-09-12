@@ -1,0 +1,246 @@
+{
+  "method": "Read-only grayscale zero-mean normalized patch correlation; 44x44 manually selected background patches searched within +/-28 pixels. No image transforms or repairs.",
+  "source": "candidates/R09_big_bunny_scrub_opening.png",
+  "candidate_dimensions": [
+    1672,
+    941
+  ],
+  "source_and_candidates": [
+    {
+      "path": "candidates/R09_big_bunny_scrub_opening.png",
+      "sha256": "aa190981537396ab1da059cf799c23f69410a29aa1a09e51da0041267cc942ab"
+    },
+    {
+      "path": "candidates/R09_suds_endpoint.png",
+      "sha256": "ed7f13735a560ee5a187bf1cbc4d40b1a04e2fc9a6375b7fb74ae6a81c285e2b"
+    },
+    {
+      "path": "candidates/R10_jump_from_suds.png",
+      "sha256": "13ff639019cccadd0675aea4ed9550505c57a84ae666d647df6097bb18793889"
+    },
+    {
+      "path": "candidates/R11_dust_settle.png",
+      "sha256": "d166ae3aa034d26beeda8e92dbc0da8da5347646b8b707746237d819e81a4e5a"
+    }
+  ],
+  "measurements": [
+    {
+      "anchor": "left_shell_window",
+      "source_center_pixels": [
+        75,
+        131
+      ],
+      "candidate": "candidates/R09_suds_endpoint.png",
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "offset_normalized": [
+        0.0,
+        0.0
+      ],
+      "normalized_correlation": 0.9813,
+      "at_search_boundary": false
+    },
+    {
+      "anchor": "left_shell_window",
+      "source_center_pixels": [
+        75,
+        131
+      ],
+      "candidate": "candidates/R10_jump_from_suds.png",
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "offset_normalized": [
+        0.0,
+        0.0
+      ],
+      "normalized_correlation": 0.9424,
+      "at_search_boundary": false
+    },
+    {
+      "anchor": "left_shell_window",
+      "source_center_pixels": [
+        75,
+        131
+      ],
+      "candidate": "candidates/R11_dust_settle.png",
+      "offset_pixels": [
+        0,
+        1
+      ],
+      "offset_normalized": [
+        0.0,
+        0.001063
+      ],
+      "normalized_correlation": 0.9521,
+      "at_search_boundary": false
+    },
+    {
+      "anchor": "ceiling_shell_lamp",
+      "source_center_pixels": [
+        836,
+        61
+      ],
+      "candidate": "candidates/R09_suds_endpoint.png",
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "offset_normalized": [
+        0.0,
+        0.0
+      ],
+      "normalized_correlation": 0.9722,
+      "at_search_boundary": false
+    },
+    {
+      "anchor": "ceiling_shell_lamp",
+      "source_center_pixels": [
+        836,
+        61
+      ],
+      "candidate": "candidates/R10_jump_from_suds.png",
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "offset_normalized": [
+        0.0,
+        0.0
+      ],
+      "normalized_correlation": 0.9314,
+      "at_search_boundary": false
+    },
+    {
+      "anchor": "ceiling_shell_lamp",
+      "source_center_pixels": [
+        836,
+        61
+      ],
+      "candidate": "candidates/R11_dust_settle.png",
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "offset_normalized": [
+        0.0,
+        0.0
+      ],
+      "normalized_correlation": 0.9503,
+      "at_search_boundary": false
+    },
+    {
+      "anchor": "right_column_cap",
+      "source_center_pixels": [
+        1320,
+        61
+      ],
+      "candidate": "candidates/R09_suds_endpoint.png",
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "offset_normalized": [
+        0.0,
+        0.0
+      ],
+      "normalized_correlation": 0.9909,
+      "at_search_boundary": false
+    },
+    {
+      "anchor": "right_column_cap",
+      "source_center_pixels": [
+        1320,
+        61
+      ],
+      "candidate": "candidates/R10_jump_from_suds.png",
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "offset_normalized": [
+        0.0,
+        0.0
+      ],
+      "normalized_correlation": 0.9776,
+      "at_search_boundary": false
+    },
+    {
+      "anchor": "right_column_cap",
+      "source_center_pixels": [
+        1320,
+        61
+      ],
+      "candidate": "candidates/R11_dust_settle.png",
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "offset_normalized": [
+        0.0,
+        0.0
+      ],
+      "normalized_correlation": 0.9704,
+      "at_search_boundary": false
+    },
+    {
+      "anchor": "right_navy_banner",
+      "source_center_pixels": [
+        1411,
+        225
+      ],
+      "candidate": "candidates/R09_suds_endpoint.png",
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "offset_normalized": [
+        0.0,
+        0.0
+      ],
+      "normalized_correlation": 0.9952,
+      "at_search_boundary": false
+    },
+    {
+      "anchor": "right_navy_banner",
+      "source_center_pixels": [
+        1411,
+        225
+      ],
+      "candidate": "candidates/R10_jump_from_suds.png",
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "offset_normalized": [
+        0.0,
+        0.0
+      ],
+      "normalized_correlation": 0.9909,
+      "at_search_boundary": false
+    },
+    {
+      "anchor": "right_navy_banner",
+      "source_center_pixels": [
+        1411,
+        225
+      ],
+      "candidate": "candidates/R11_dust_settle.png",
+      "offset_pixels": [
+        0,
+        1
+      ],
+      "offset_normalized": [
+        0.0,
+        0.001063
+      ],
+      "normalized_correlation": 0.9893,
+      "at_search_boundary": false
+    }
+  ],
+  "limits": "Local similarity/translation diagnostic only. Cannot establish full room geometry, background pixel equality, out-of-window displacement, identity, lighting or human acceptance. All candidate frames remain unaccepted.",
+  "human_review": null
+}

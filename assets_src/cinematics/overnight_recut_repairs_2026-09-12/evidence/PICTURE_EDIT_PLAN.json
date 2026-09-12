@@ -1,0 +1,2356 @@
+{
+  "schema": "reef.resolve-continuity-recut.v1",
+  "project": "Mermaid Roshan - Continuity Recut 2026-09-12",
+  "fps": 24,
+  "width": 1280,
+  "height": 720,
+  "output_dir": "export/movie_recut_20260912",
+  "status": "EDITORIAL_MOTION_REFERENCE",
+  "delivery_accepted": false,
+  "picture_editor": "DaVinci Resolve 21.0.4.5",
+  "baseline": "export/day_one_review_demo_2026-09-09/DAY_ONE_REVIEW_DEMO_EDIT_MANIFEST.json",
+  "baseline_sha256": "87e56bc3eb45e0d614e44260fbd13e58e9c1661533537b4e856f556e3e65345b",
+  "baseline_frames": 3304,
+  "frames_saved": 154,
+  "sources": {
+    "V_67b6c57ab7898a57": {
+      "path": "export/movie_recut_20260912/media/67b6c57ab789_GROK_OTTER_PLANE_MASTER_20260823_V02_REVIEW.mp4",
+      "sha256": "67b6c57ab7898a579fed98e7850896cd972c6e21d35ad1171b69adbf992a79b1",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Downloads\\GROK_OTTER_PLANE_MASTER_20260823_V02_REVIEW.mp4",
+      "provenance": "Owner-selected Downloads DaVinci otter master; supersedes both old C00 and C01",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_3f84e5dd14023820": {
+      "path": "export/movie_recut_20260912/media/3f84e5dd1402_grok-0e40140f-8759-4188-8e0f-6ba103909db8.mp4",
+      "sha256": "3f84e5dd1402382067ad8fb06c66405acb71468fe096122aab18d9934b874b99",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Downloads\\grok-0e40140f-8759-4188-8e0f-6ba103909db8.mp4",
+      "provenance": "Downloads backup167; final72frames inspected for tail, castle and bridge continuity",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_df7559c706e582b0": {
+      "path": "export/movie_recut_20260912/media/df7559c706e5_C02_S01_v1_door_open.mp4",
+      "sha256": "df7559c706e582b0fbeea23342ad7b5f05b6725515c6ee2ca4cd8cb26182e814",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C02_S01_v1_door_open.mp4",
+      "provenance": "Exact-hash current V04 selection; constructive Sol native boundary review",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_c1957aa7e64c3e5c": {
+      "path": "export/movie_recut_20260912/media/c1957aa7e64c_02_D1-C02.mp4",
+      "sha256": "c1957aa7e64c3e5cb958f007ea83fb3c089c24024c562daef066fd09075e21b2",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_review_demo_2026-09-09\\parts\\02_D1-C02.mp4",
+      "provenance": "Self-contained September9 corrected demo part; historical source .worktrees/world-animation-audit-20260906/.tmp/world_animation_qc_response_2026-09-09/D1-C02-R01_MAP_ONLY.mp4; no access to alternate checkout",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_6af492e7f2c33e82": {
+      "path": "export/movie_recut_20260912/media/6af492e7f2c3_grok-a4619f70-3e25-400f-a320-0e8f511708c6-720p.mp4",
+      "sha256": "6af492e7f2c33e8247270d1a5fdbf058bfb01a6bb9057349756af965d645144b",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Downloads\\grok-a4619f70-3e25-400f-a320-0e8f511708c6-720p.mp4",
+      "provenance": "Exact-hash current V04 selection; constructive Sol native boundary review",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_f49d9e8f54edf60c": {
+      "path": "export/movie_recut_20260912/media/f49d9e8f54ed_04_D1-C03.mp4",
+      "sha256": "f49d9e8f54edf60c6256331f558eab92e8785c0728d3995e7fa30a35aa3e0f1a",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_review_demo_2026-09-09\\parts\\04_D1-C03.mp4",
+      "provenance": "Self-contained September9 corrected demo part; historical source .worktrees/world-animation-audit-20260906/.tmp/world_animation_qc_response_2026-09-09/D1-C03-S03_TRIM.mp4; no access to alternate checkout",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_452cb98aef1f10e8": {
+      "path": "export/movie_recut_20260912/media/452cb98aef1f_C04_S01_v1_final_scrub.mp4",
+      "sha256": "452cb98aef1f10e811b69e111909965bcd21f5fb30654642610c4cdc1289501d",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C04_S01_v1_final_scrub.mp4",
+      "provenance": "Exact-hash current V04 selection; constructive Sol native boundary review",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_ff6116427486bc4b": {
+      "path": "export/movie_recut_20260912/media/ff6116427486_06_D1-C04.mp4",
+      "sha256": "ff6116427486bc4b20d1da166d7cfffb1f38bd6a531a418a645a2e201c93724a",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_review_demo_2026-09-09\\parts\\06_D1-C04.mp4",
+      "provenance": "Self-contained September9 corrected demo part; historical source .worktrees/world-animation-audit-20260906/.tmp/world_animation_qc_response_2026-09-09/D1-C04-R01_TRIM.mp4; no access to alternate checkout",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_54bb16e968dde7d8": {
+      "path": "export/movie_recut_20260912/media/54bb16e968dd_MERMAID_ROSHAN_DIRTY_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "sha256": "54bb16e968dde7d880876c76afe44efc1655087807d314e002d5ffaa364c910e",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Downloads\\MERMAID_ROSHAN_DIRTY_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "provenance": "C:\\Users\\Peter\\Downloads\\MERMAID_ROSHAN_DIRTY_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_a17b8d7f2548438a": {
+      "path": "export/movie_recut_20260912/media/a17b8d7f2548_grok-4636c5b8-1f9d-4e1e-841f-b433e5345656.mp4",
+      "sha256": "a17b8d7f2548438a899707005add8cc340f8e1682194c3f8a89f9cccca709f71",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Downloads\\grok-4636c5b8-1f9d-4e1e-841f-b433e5345656.mp4",
+      "provenance": "C:\\Users\\Peter\\Downloads\\grok-4636c5b8-1f9d-4e1e-841f-b433e5345656.mp4",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_6458cc6f4fec4bb3": {
+      "path": "export/movie_recut_20260912/media/6458cc6f4fec_MERMAID_ROSHAN_CLEAN_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "sha256": "6458cc6f4fec4bb35a4226d88214b3e833df01209f20365c7c6b9e2a356677d1",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Downloads\\MERMAID_ROSHAN_CLEAN_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "provenance": "C:\\Users\\Peter\\Downloads\\MERMAID_ROSHAN_CLEAN_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_eccc7048e6c345f5": {
+      "path": "export/movie_recut_20260912/media/eccc7048e6c3_grok-ccf1fe73-01f7-4c26-9414-4008078a4cce-720p.mp4",
+      "sha256": "eccc7048e6c345f5ec349f7a9d7afda0b850225be5abc9c152f8f930a8fcb5be",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Downloads\\grok-ccf1fe73-01f7-4c26-9414-4008078a4cce-720p.mp4",
+      "provenance": "Exact-hash current V04 selection; constructive Sol native boundary review",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_aa1a08d59e0a837d": {
+      "path": "export/movie_recut_20260912/media/aa1a08d59e0a_grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4",
+      "sha256": "aa1a08d59e0a837d1abdd67a8518740f5777e289525ba22b52362becd396d61d",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\day_one_davinci_draft_2026-09-04\\sources\\grok-619367f6-ffdc-425f-a2a3-2468aba758e2-720p.mp4",
+      "provenance": "Exact-hash current V04 selection; constructive Sol native boundary review",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_32a81bd888a55897": {
+      "path": "export/movie_recut_20260912/media/32a81bd888a5_C08_S06_v4_eagle_wingbeat_APPROVED.mp4",
+      "sha256": "32a81bd888a5589768bd1a59c944019545bca563154b360d0d8ebac463ea578c",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_creative_v05_2026-09-06\\outputroot\\pass2_verified_retry1\\portable\\Mermaid_Roshan_Creative_Edit_V05_Pass2_Verified_Retry1.dra\\MediaFiles\\Documents\\mermaid-roshan-reef\\.worktrees\\grok-handoffs-publish-20260905\\.tmp\\v4_c14_dual_pass_intake_2026-09-06\\clips\\C08_S06_v4_eagle_wingbeat_APPROVED.mp4",
+      "provenance": "Immutable e5d78bbd77c691e064ad39dae1c91c29e915396e A/B intake, external motion reference only",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_2d5c5ed036cd3e09": {
+      "path": "export/movie_recut_20260912/media/2d5c5ed036cd_C09_S03_v4_four_supplies_APPROVED.mp4",
+      "sha256": "2d5c5ed036cd3e0947a1d7b08893580788147984c55ed24cb16ec8beb13e8f8e",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_creative_v05_2026-09-06\\outputroot\\pass2_verified_retry1\\portable\\Mermaid_Roshan_Creative_Edit_V05_Pass2_Verified_Retry1.dra\\MediaFiles\\Documents\\mermaid-roshan-reef\\.worktrees\\grok-handoffs-publish-20260905\\.tmp\\v4_c14_dual_pass_intake_2026-09-06\\clips\\C09_S03_v4_four_supplies_APPROVED.mp4",
+      "provenance": "Immutable e5d78bbd77c691e064ad39dae1c91c29e915396e A/B intake, external motion reference only",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_98b6c6b0a987fa93": {
+      "path": "export/movie_recut_20260912/media/98b6c6b0a987_12_D1-C09.mp4",
+      "sha256": "98b6c6b0a987fa93f051038ee1b9eac1ee4babd9016849c5c2cbc5b407e25d9f",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_review_demo_2026-09-09\\parts\\12_D1-C09.mp4",
+      "provenance": "Self-contained September9 corrected demo part; historical source .worktrees/world-animation-audit-20260906/.tmp/world_animation_qc_response_2026-09-09/D1-C09-R01_TRIM.mp4; no access to alternate checkout",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_6c5f3f338348c651": {
+      "path": "export/movie_recut_20260912/media/6c5f3f338348_C10_S01_v1_final_scrub_OFFICIAL.mp4",
+      "sha256": "6c5f3f338348c6514ecfd79cb3464b49e26864af6ad9af1076cf8a60d2186a56",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.tmp\\day_one_clip_audit\\clips\\C10_S01_v1_final_scrub_OFFICIAL.mp4",
+      "provenance": "Exact-hash current V04 selection; constructive Sol native boundary review",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_b9e8a992a4eaf488": {
+      "path": "export/movie_recut_20260912/media/b9e8a992a4ea_14_D1-C10.mp4",
+      "sha256": "b9e8a992a4eaf48886ee21e85217bf77a2c8b0a67bbccd9558507667dae9de6c",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_review_demo_2026-09-09\\parts\\14_D1-C10.mp4",
+      "provenance": "Self-contained September9 corrected demo part; historical source .worktrees/world-animation-audit-20260906/.tmp/world_animation_qc_response_2026-09-09/D1-C10-R01_TRIM_BEFORE_CONTACT.mp4; no access to alternate checkout",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_177b71b463f02c11": {
+      "path": "export/movie_recut_20260912/media/177b71b463f0_C11_S01_v4_four_room_trails_BROLL.mp4",
+      "sha256": "177b71b463f02c118b4319dbaf73098afaeeca58b9c07dfea365aa09589fe2c7",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_creative_v05_2026-09-06\\outputroot\\pass2_verified_retry1\\portable\\Mermaid_Roshan_Creative_Edit_V05_Pass2_Verified_Retry1.dra\\MediaFiles\\Documents\\mermaid-roshan-reef\\.worktrees\\grok-handoffs-publish-20260905\\.tmp\\v4_c14_dual_pass_intake_2026-09-06\\clips\\C11_S01_v4_four_room_trails_BROLL.mp4",
+      "provenance": "Immutable e5d78bbd77c691e064ad39dae1c91c29e915396e A/B intake, external motion reference only",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_7f73d81fea4f891b": {
+      "path": "export/movie_recut_20260912/media/7f73d81fea4f_C11_S04_v4_puff_lands_BROLL.mp4",
+      "sha256": "7f73d81fea4f891b385a253c7e839788174cec5c0c68531f39f6ca306d25d070",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_creative_v05_2026-09-06\\outputroot\\pass2_verified_retry1\\portable\\Mermaid_Roshan_Creative_Edit_V05_Pass2_Verified_Retry1.dra\\MediaFiles\\Documents\\mermaid-roshan-reef\\.worktrees\\grok-handoffs-publish-20260905\\.tmp\\v4_c14_dual_pass_intake_2026-09-06\\clips\\C11_S04_v4_puff_lands_BROLL.mp4",
+      "provenance": "Immutable e5d78bbd77c691e064ad39dae1c91c29e915396e A/B intake, external motion reference only",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_a5e48892ddab6e60": {
+      "path": "export/movie_recut_20260912/media/a5e48892ddab_16_D1-C13.mp4",
+      "sha256": "a5e48892ddab6e6074cc9710e8145859242203bf43c33c6ff1b85a289cacee28",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_review_demo_2026-09-09\\parts\\16_D1-C13.mp4",
+      "provenance": "Self-contained September9 corrected demo part; historical source .worktrees/world-animation-audit-20260906/.tmp/world_animation_qc_response_2026-09-09/D1-C13-S04_QCFIX.mp4; no access to alternate checkout",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_2fc0dbded5b7d100": {
+      "path": "export/movie_recut_20260912/media/2fc0dbded5b7_17_D1-C13.mp4",
+      "sha256": "2fc0dbded5b7d1000472765172dc2ba273e8a827fa1d74d37758304a08f748f8",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_review_demo_2026-09-09\\parts\\17_D1-C13.mp4",
+      "provenance": "Self-contained September9 corrected demo part; historical source .worktrees/world-animation-audit-20260906/.tmp/world_animation_reshoot_qc_2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4; no access to alternate checkout",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_dddf9bd6a699e4cb": {
+      "path": "export/movie_recut_20260912/media/dddf9bd6a699_C14_S02_c14_smallest_helper_first_diff_BROLL.mp4",
+      "sha256": "dddf9bd6a699e4cb0c72dfc77bb8a571774bce274392f19a532ab32af6c2e6c5",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_creative_v05_2026-09-06\\outputroot\\pass2_verified_retry1\\portable\\Mermaid_Roshan_Creative_Edit_V05_Pass2_Verified_Retry1.dra\\MediaFiles\\Documents\\mermaid-roshan-reef\\.worktrees\\grok-handoffs-publish-20260905\\.tmp\\v4_c14_dual_pass_intake_2026-09-06\\clips\\C14_S02_c14_smallest_helper_first_diff_BROLL.mp4",
+      "provenance": "Immutable e5d78bbd77c691e064ad39dae1c91c29e915396e A/B intake, external motion reference only",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_50db46ddf82d9c9a": {
+      "path": "export/movie_recut_20260912/media/50db46ddf82d_C14_S03_c14_brush_and_breeze_APPROVED.mp4",
+      "sha256": "50db46ddf82d9c9a5913e2c2e0e89dba303b0c9d5b38ceaf379ee118c0dcc6d1",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_creative_v05_2026-09-06\\outputroot\\pass2_verified_retry1\\portable\\Mermaid_Roshan_Creative_Edit_V05_Pass2_Verified_Retry1.dra\\MediaFiles\\Documents\\mermaid-roshan-reef\\.worktrees\\grok-handoffs-publish-20260905\\.tmp\\v4_c14_dual_pass_intake_2026-09-06\\clips\\C14_S03_c14_brush_and_breeze_APPROVED.mp4",
+      "provenance": "Immutable e5d78bbd77c691e064ad39dae1c91c29e915396e A/B intake, external motion reference only",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_0f8dcd7c2764bd03": {
+      "path": "export/movie_recut_20260912/media/0f8dcd7c2764_C14_S04_c14_water_shared_wipe_APPROVED.mp4",
+      "sha256": "0f8dcd7c2764bd0382c747d59bdf0fe033f1134cc9f61284bbfa0adc598e45a2",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_creative_v05_2026-09-06\\outputroot\\pass2_verified_retry1\\portable\\Mermaid_Roshan_Creative_Edit_V05_Pass2_Verified_Retry1.dra\\MediaFiles\\Documents\\mermaid-roshan-reef\\.worktrees\\grok-handoffs-publish-20260905\\.tmp\\v4_c14_dual_pass_intake_2026-09-06\\clips\\C14_S04_c14_water_shared_wipe_APPROVED.mp4",
+      "provenance": "Immutable e5d78bbd77c691e064ad39dae1c91c29e915396e A/B intake, external motion reference only",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_21f1a1a5b91b32b3": {
+      "path": "export/movie_recut_20260912/media/21f1a1a5b91b_19_D1-C14.mp4",
+      "sha256": "21f1a1a5b91b32b39d42c645a306f1e16defa1d9126a736b82e24532a09c0f06",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_review_demo_2026-09-09\\parts\\19_D1-C14.mp4",
+      "provenance": "Self-contained September9 corrected demo part; historical source .worktrees/world-animation-audit-20260906/.tmp/world_animation_qc_response_2026-09-09/C14-S05_QCFIX_ASSEMBLED.mp4; no access to alternate checkout",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_4146e417ba89b8bd": {
+      "path": "export/movie_recut_20260912/media/4146e417ba89_C14_S06_c14_look_what_we_did_BROLL.mp4",
+      "sha256": "4146e417ba89b8bd76fbb8dd1fb31eea8875ebe8ba8e1cfb88a89c0524cce58b",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_creative_v05_2026-09-06\\outputroot\\pass2_verified_retry1\\portable\\Mermaid_Roshan_Creative_Edit_V05_Pass2_Verified_Retry1.dra\\MediaFiles\\Documents\\mermaid-roshan-reef\\.worktrees\\grok-handoffs-publish-20260905\\.tmp\\v4_c14_dual_pass_intake_2026-09-06\\clips\\C14_S06_c14_look_what_we_did_BROLL.mp4",
+      "provenance": "Immutable e5d78bbd77c691e064ad39dae1c91c29e915396e A/B intake, external motion reference only",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_3c940656d742ef08": {
+      "path": "export/movie_recut_20260912/media/3c940656d742_21_D1-C12.mp4",
+      "sha256": "3c940656d742ef084c3b808696c43429d0754c61dc0b7c39b00629641dde97a0",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_review_demo_2026-09-09\\parts\\21_D1-C12.mp4",
+      "provenance": "Self-contained September9 corrected demo part; historical source .worktrees/world-animation-audit-20260906/.tmp/world_animation_qc_response_2026-09-09/D1-C04-R01_TRIM.mp4; no access to alternate checkout",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_7dff55221175b466": {
+      "path": "export/movie_recut_20260912/media/7dff55221175_23_D1-C12.mp4",
+      "sha256": "7dff55221175b466d4ca32ee2e118d5abcefed400e957fd91c0537c076f3f2cc",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_review_demo_2026-09-09\\parts\\23_D1-C12.mp4",
+      "provenance": "Self-contained September9 corrected demo part; historical source .worktrees/world-animation-audit-20260906/.tmp/world_animation_qc_response_2026-09-09/D1-C10-R01_TRIM_BEFORE_CONTACT.mp4; no access to alternate checkout",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "V_ac366d352b5b4753": {
+      "path": "export/movie_recut_20260912/media/ac366d352b5b_24_D1-C12.mp4",
+      "sha256": "ac366d352b5b4753540c0eb4ae81c9bfc6bf9206ee7e6551d9cc1f9e9e9d944e",
+      "kind": "video",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_review_demo_2026-09-09\\parts\\24_D1-C12.mp4",
+      "provenance": "Self-contained September9 corrected demo part; historical source .worktrees/world-animation-audit-20260906/.tmp/world_animation_qc_response_2026-09-09/D1-C12-R01_TRIM.mp4; no access to alternate checkout",
+      "modifications": "Byte-identical copy; native whole-frame playback; embedded audio excluded",
+      "delivery_accepted": false
+    },
+    "A_DIALOGUE": {
+      "path": "export/movie_recut_20260912/audio/DAY_ONE_dialogue.wav",
+      "sha256": "2845c2e34955ff15894fb905574623b9d4e63ddf717c3f7da9ff3414c6ab0e8e",
+      "kind": "audio",
+      "provenance": "Existing source cues rebuilt with original gains and retimed complete events; see audio/AUDIO_MANIFEST.json",
+      "modifications": "48kHz stereo 24-bit PCM mix; original cue bytes preserved; prepared stem exact6300000samples"
+    },
+    "A_FOLEY": {
+      "path": "export/movie_recut_20260912/audio/DAY_ONE_foley.wav",
+      "sha256": "d12444eff4133ad9089f9e7a79a60d9df08e8eeb70ae5864ce5f071199b2fa35",
+      "kind": "audio",
+      "provenance": "Existing source cues rebuilt with original gains and retimed complete events; see audio/AUDIO_MANIFEST.json",
+      "modifications": "48kHz stereo 24-bit PCM mix; original cue bytes preserved; prepared stem exact6300000samples"
+    },
+    "A_AMBIENCE": {
+      "path": "export/movie_recut_20260912/audio/DAY_ONE_ambience.wav",
+      "sha256": "73bd833b4cfd923225849889171f1a5ce46b71d5b99ddb29ec092463ce26bebe",
+      "kind": "audio",
+      "provenance": "Existing source cues rebuilt with original gains and retimed complete events; see audio/AUDIO_MANIFEST.json",
+      "modifications": "48kHz stereo 24-bit PCM mix; original cue bytes preserved; prepared stem exact6300000samples"
+    },
+    "A_SCORE": {
+      "path": "export/movie_recut_20260912/audio/DAY_ONE_score.wav",
+      "sha256": "648ce7051c4bd2ee332d11060a03310a8215ca81d06664928bbceb23edf27c43",
+      "kind": "audio",
+      "provenance": "Existing source cues rebuilt with original gains and retimed complete events; see audio/AUDIO_MANIFEST.json",
+      "modifications": "48kHz stereo 24-bit PCM mix; original cue bytes preserved; prepared stem exact6300000samples"
+    }
+  },
+  "chapters": [
+    {
+      "id": "OPENING_C00_C01",
+      "title": "Otter flight and Sky Lagoon arrival",
+      "start_frame": 0,
+      "end_frame_exclusive": 780
+    },
+    {
+      "id": "D1-C02",
+      "title": "Discovering the castle",
+      "start_frame": 780,
+      "end_frame_exclusive": 943
+    },
+    {
+      "id": "D1-C03",
+      "title": "Bubbles in the bathroom",
+      "start_frame": 943,
+      "end_frame_exclusive": 1015
+    },
+    {
+      "id": "D1-C04",
+      "title": "Bathroom cleanup",
+      "start_frame": 1015,
+      "end_frame_exclusive": 1123
+    },
+    {
+      "id": "D1-C05",
+      "title": "Helping the seahorse",
+      "start_frame": 1123,
+      "end_frame_exclusive": 1327
+    },
+    {
+      "id": "D1-C06",
+      "title": "Pool restoration and Rumi reunion",
+      "start_frame": 1327,
+      "end_frame_exclusive": 1681
+    },
+    {
+      "id": "D1-C07",
+      "title": "Finding Baby Eagle",
+      "start_frame": 1681,
+      "end_frame_exclusive": 1805
+    },
+    {
+      "id": "D1-C08",
+      "title": "Baby Eagle rescue",
+      "start_frame": 1805,
+      "end_frame_exclusive": 1919
+    },
+    {
+      "id": "D1-C09",
+      "title": "The art room",
+      "start_frame": 1919,
+      "end_frame_exclusive": 2039
+    },
+    {
+      "id": "D1-C10",
+      "title": "Art-room cleanup",
+      "start_frame": 2039,
+      "end_frame_exclusive": 2120
+    },
+    {
+      "id": "D1-C11",
+      "title": "Royal portal and dust bunny",
+      "start_frame": 2120,
+      "end_frame_exclusive": 2324
+    },
+    {
+      "id": "D1-C13",
+      "title": "Team cleaning and rainbow-friend reveal",
+      "start_frame": 2324,
+      "end_frame_exclusive": 2612
+    },
+    {
+      "id": "D1-C14",
+      "title": "Everyone cleans the castle",
+      "start_frame": 2612,
+      "end_frame_exclusive": 3014
+    },
+    {
+      "id": "D1-C12",
+      "title": "Clean-castle recap and family hug",
+      "start_frame": 3014,
+      "end_frame_exclusive": 3150
+    }
+  ],
+  "timelines": [
+    {
+      "id": "OPENING_C00_C01",
+      "name": "OPENING_C00_C01_CONTINUITY_RECUT_20260912",
+      "type": "scene",
+      "title": "Otter flight and Sky Lagoon arrival",
+      "frames": 780,
+      "shots": [
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 0,
+          "out_frame_exclusive": 48,
+          "record_frame": 0,
+          "label": "OTTER-S01",
+          "reason": "Plane establishes the journey in open sky. Keeps the clean aircraft cause before the cabin cut; 48 is the first stable cabin frame.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 72,
+          "out_frame_exclusive": 108,
+          "record_frame": 48,
+          "label": "OTTER-S02",
+          "reason": "Roshan and Daddy are seated together inside the plane. Retains the readable relationship setup and avoids the later repeated cabin hold; 108 begins the hand-contact action.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 108,
+          "out_frame_exclusive": 144,
+          "record_frame": 84,
+          "label": "OTTER-S03",
+          "reason": "Roshan reaches for Daddy's hand; their journey is shared. A short, legible emotional button before returning to the exterior travel geography.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 144,
+          "out_frame_exclusive": 204,
+          "record_frame": 120,
+          "label": "OTTER-S04",
+          "reason": "The plane passes above the island and castle. The wide approach already contains the castle geography; it makes the separate 204-240 island hold unnecessary.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 240,
+          "out_frame_exclusive": 300,
+          "record_frame": 180,
+          "label": "OTTER-S05",
+          "reason": "Castle grows from the island into a readable destination. Provides the strongest destination push after the aerial; the preceding 204-240 wide island hold is omitted as redundant.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 300,
+          "out_frame_exclusive": 372,
+          "record_frame": 240,
+          "label": "OTTER-S06",
+          "reason": "The route continues through the bright forest corridor. Preserves a distinct environmental transition and gives the arrival a gentle, child-readable rhythm instead of jumping directly from castle to plane.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 372,
+          "out_frame_exclusive": 408,
+          "record_frame": 312,
+          "label": "OTTER-S07",
+          "reason": "The path opens toward the lakeside landing area. Short geography bridge from forest to the grounded plane; do not extend this hold.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 408,
+          "out_frame_exclusive": 492,
+          "record_frame": 348,
+          "label": "OTTER-S08",
+          "reason": "The landed plane and otter share the playground space before the interior handoff. Keeps the cause-and-effect landing/boarding beat intact. The otter is the story hook and needs enough screen time to read; trim only the redundant ending of this block if a later review finds it lingers.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 553,
+          "out_frame_exclusive": 613,
+          "record_frame": 432,
+          "label": "OTTER-S09",
+          "reason": "Daddy gestures to Roshan inside the cabin. Retains a specific instruction/reaction beat; 613 begins the repeated centered standing pose and is the clean out point.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 673,
+          "out_frame_exclusive": 733,
+          "record_frame": 492,
+          "label": "OTTER-S10",
+          "reason": "Roshan and Daddy walk together toward the open aircraft door. Uses the distinct rear-view exit action; the 613-673 centered standing section is omitted because it repeats the cabin relationship without advancing the action.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 733,
+          "out_frame_exclusive": 829,
+          "record_frame": 552,
+          "label": "OTTER-S11",
+          "reason": "The otter greets the family by the plane and exits frame. Preserves the complete otter introduction and exit rather than cutting on its first movement.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 829,
+          "out_frame_exclusive": 889,
+          "record_frame": 648,
+          "label": "OTTER-S12",
+          "reason": "Roshan and Daddy share a celebratory high-five. A short human-scale reaction after the otter exits; preserves the independent action rather than merging it into the castle reveal.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_3f84e5dd14023820",
+          "in_frame": 1044,
+          "out_frame_exclusive": 1116,
+          "record_frame": 708,
+          "label": "ARRIVAL_TAIL_CONTINUITY",
+          "reason": "Replaces V05[793,898): both tails persist; same castle bridge destination; small shared look supports full castle-walk line.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        }
+      ],
+      "audio": [
+        {
+          "source_id": "A_DIALOGUE",
+          "in_frame": 0,
+          "out_frame_exclusive": 780,
+          "record_frame": 0,
+          "track_index": 1
+        },
+        {
+          "source_id": "A_FOLEY",
+          "in_frame": 0,
+          "out_frame_exclusive": 780,
+          "record_frame": 0,
+          "track_index": 2
+        },
+        {
+          "source_id": "A_AMBIENCE",
+          "in_frame": 0,
+          "out_frame_exclusive": 780,
+          "record_frame": 0,
+          "track_index": 3
+        },
+        {
+          "source_id": "A_SCORE",
+          "in_frame": 0,
+          "out_frame_exclusive": 780,
+          "record_frame": 0,
+          "track_index": 4
+        }
+      ],
+      "markers": [
+        {
+          "frame": 0,
+          "name": "OTTER-S01",
+          "note": "Plane establishes the journey in open sky. Keeps the clean aircraft cause before the cabin cut; 48 is the first stable cabin frame."
+        },
+        {
+          "frame": 48,
+          "name": "OTTER-S02",
+          "note": "Roshan and Daddy are seated together inside the plane. Retains the readable relationship setup and avoids the later repeated cabin hold; 108 begins the hand-contact action."
+        },
+        {
+          "frame": 84,
+          "name": "OTTER-S03",
+          "note": "Roshan reaches for Daddy's hand; their journey is shared. A short, legible emotional button before returning to the exterior travel geography."
+        },
+        {
+          "frame": 120,
+          "name": "OTTER-S04",
+          "note": "The plane passes above the island and castle. The wide approach already contains the castle geography; it makes the separate 204-240 island hold unnecessary."
+        },
+        {
+          "frame": 180,
+          "name": "OTTER-S05",
+          "note": "Castle grows from the island into a readable destination. Provides the strongest destination push after the aerial; the preceding 204-240 wide island hold is omitted as redundant."
+        },
+        {
+          "frame": 240,
+          "name": "OTTER-S06",
+          "note": "The route continues through the bright forest corridor. Preserves a distinct environmental transition and gives the arrival a gentle, child-readable rhythm instead of jumping directly from castle to plane."
+        },
+        {
+          "frame": 312,
+          "name": "OTTER-S07",
+          "note": "The path opens toward the lakeside landing area. Short geography bridge from forest to the grounded plane; do not extend this hold."
+        },
+        {
+          "frame": 348,
+          "name": "OTTER-S08",
+          "note": "The landed plane and otter share the playground space before the interior handoff. Keeps the cause-and-effect landing/boarding beat intact. The otter is the story hook and needs enough screen time to read; trim only the redundant ending of this block if a later review finds it lingers."
+        },
+        {
+          "frame": 432,
+          "name": "OTTER-S09",
+          "note": "Daddy gestures to Roshan inside the cabin. Retains a specific instruction/reaction beat; 613 begins the repeated centered standing pose and is the clean out point."
+        },
+        {
+          "frame": 492,
+          "name": "OTTER-S10",
+          "note": "Roshan and Daddy walk together toward the open aircraft door. Uses the distinct rear-view exit action; the 613-673 centered standing section is omitted because it repeats the cabin relationship without advancing the action."
+        },
+        {
+          "frame": 552,
+          "name": "OTTER-S11",
+          "note": "The otter greets the family by the plane and exits frame. Preserves the complete otter introduction and exit rather than cutting on its first movement."
+        },
+        {
+          "frame": 648,
+          "name": "OTTER-S12",
+          "note": "Roshan and Daddy share a celebratory high-five. A short human-scale reaction after the otter exits; preserves the independent action rather than merging it into the castle reveal."
+        },
+        {
+          "frame": 708,
+          "name": "ARRIVAL_TAIL_CONTINUITY",
+          "note": "Replaces V05[793,898): both tails persist; same castle bridge destination; small shared look supports full castle-walk line."
+        }
+      ]
+    },
+    {
+      "id": "D1-C02",
+      "name": "D1-C02_CONTINUITY_RECUT_20260912",
+      "type": "scene",
+      "title": "Discovering the castle",
+      "frames": 163,
+      "shots": [
+        {
+          "source_id": "V_df7559c706e582b0",
+          "in_frame": 12,
+          "out_frame_exclusive": 66,
+          "record_frame": 0,
+          "label": "D1-C02-S01",
+          "reason": "Enter on the approach and retain the complete door-opening beat without the long static lead/tail.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_c1957aa7e64c3e5c",
+          "in_frame": 0,
+          "out_frame_exclusive": 72,
+          "record_frame": 54,
+          "label": "QC_PART_02",
+          "reason": "Corrected hall geography; dirty dressing remains weaker",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_6af492e7f2c33e82",
+          "in_frame": 108,
+          "out_frame_exclusive": 145,
+          "record_frame": 126,
+          "label": "D1-C02-S03",
+          "reason": "Use only the published audit-recommended late reaction/point; earlier close-up frames do not advance the beat.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        }
+      ],
+      "audio": [
+        {
+          "source_id": "A_DIALOGUE",
+          "in_frame": 780,
+          "out_frame_exclusive": 943,
+          "record_frame": 0,
+          "track_index": 1
+        },
+        {
+          "source_id": "A_FOLEY",
+          "in_frame": 780,
+          "out_frame_exclusive": 943,
+          "record_frame": 0,
+          "track_index": 2
+        },
+        {
+          "source_id": "A_AMBIENCE",
+          "in_frame": 780,
+          "out_frame_exclusive": 943,
+          "record_frame": 0,
+          "track_index": 3
+        },
+        {
+          "source_id": "A_SCORE",
+          "in_frame": 780,
+          "out_frame_exclusive": 943,
+          "record_frame": 0,
+          "track_index": 4
+        }
+      ],
+      "markers": [
+        {
+          "frame": 0,
+          "name": "D1-C02-S01",
+          "note": "Enter on the approach and retain the complete door-opening beat without the long static lead/tail."
+        },
+        {
+          "frame": 54,
+          "name": "QC_PART_02",
+          "note": "Corrected hall geography; dirty dressing remains weaker"
+        },
+        {
+          "frame": 126,
+          "name": "D1-C02-S03",
+          "note": "Use only the published audit-recommended late reaction/point; earlier close-up frames do not advance the beat."
+        }
+      ]
+    },
+    {
+      "id": "D1-C03",
+      "name": "D1-C03_CONTINUITY_RECUT_20260912",
+      "type": "scene",
+      "title": "Bubbles in the bathroom",
+      "frames": 72,
+      "shots": [
+        {
+          "source_id": "V_f49d9e8f54edf60c",
+          "in_frame": 0,
+          "out_frame_exclusive": 72,
+          "record_frame": 0,
+          "label": "QC_PART_04",
+          "reason": "QC-safe revised bathroom discovery",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        }
+      ],
+      "audio": [
+        {
+          "source_id": "A_DIALOGUE",
+          "in_frame": 943,
+          "out_frame_exclusive": 1015,
+          "record_frame": 0,
+          "track_index": 1
+        },
+        {
+          "source_id": "A_FOLEY",
+          "in_frame": 943,
+          "out_frame_exclusive": 1015,
+          "record_frame": 0,
+          "track_index": 2
+        },
+        {
+          "source_id": "A_AMBIENCE",
+          "in_frame": 943,
+          "out_frame_exclusive": 1015,
+          "record_frame": 0,
+          "track_index": 3
+        },
+        {
+          "source_id": "A_SCORE",
+          "in_frame": 943,
+          "out_frame_exclusive": 1015,
+          "record_frame": 0,
+          "track_index": 4
+        }
+      ],
+      "markers": [
+        {
+          "frame": 0,
+          "name": "QC_PART_04",
+          "note": "QC-safe revised bathroom discovery"
+        }
+      ]
+    },
+    {
+      "id": "D1-C04",
+      "name": "D1-C04_CONTINUITY_RECUT_20260912",
+      "type": "scene",
+      "title": "Bathroom cleanup",
+      "frames": 108,
+      "shots": [
+        {
+          "source_id": "V_452cb98aef1f10e8",
+          "in_frame": 30,
+          "out_frame_exclusive": 90,
+          "record_frame": 0,
+          "label": "D1-C04-S01",
+          "reason": "Preserve the final scrub through the lifted-brush/bubble payoff; remove repeated scrubbing at head and tail.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_ff6116427486bc4b",
+          "in_frame": 0,
+          "out_frame_exclusive": 48,
+          "record_frame": 60,
+          "label": "QC_PART_06",
+          "reason": "Correct clean bathroom endpoint",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        }
+      ],
+      "audio": [
+        {
+          "source_id": "A_DIALOGUE",
+          "in_frame": 1015,
+          "out_frame_exclusive": 1123,
+          "record_frame": 0,
+          "track_index": 1
+        },
+        {
+          "source_id": "A_FOLEY",
+          "in_frame": 1015,
+          "out_frame_exclusive": 1123,
+          "record_frame": 0,
+          "track_index": 2
+        },
+        {
+          "source_id": "A_AMBIENCE",
+          "in_frame": 1015,
+          "out_frame_exclusive": 1123,
+          "record_frame": 0,
+          "track_index": 3
+        },
+        {
+          "source_id": "A_SCORE",
+          "in_frame": 1015,
+          "out_frame_exclusive": 1123,
+          "record_frame": 0,
+          "track_index": 4
+        }
+      ],
+      "markers": [
+        {
+          "frame": 0,
+          "name": "D1-C04-S01",
+          "note": "Preserve the final scrub through the lifted-brush/bubble payoff; remove repeated scrubbing at head and tail."
+        },
+        {
+          "frame": 60,
+          "name": "QC_PART_06",
+          "note": "Correct clean bathroom endpoint"
+        }
+      ]
+    },
+    {
+      "id": "D1-C05",
+      "name": "D1-C05_CONTINUITY_RECUT_20260912",
+      "type": "scene",
+      "title": "Helping the seahorse",
+      "frames": 204,
+      "shots": [
+        {
+          "source_id": "V_54bb16e968dde7d8",
+          "in_frame": 0,
+          "out_frame_exclusive": 72,
+          "record_frame": 0,
+          "label": "D1-C05-PROBLEM-WIDE",
+          "reason": "Three-second actual-room problem map; preserve shell seat/waterfall/ocean window/seahorse order.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_54bb16e968dde7d8",
+          "in_frame": 120,
+          "out_frame_exclusive": 180,
+          "record_frame": 72,
+          "label": "D1-C05-CLOGGED-WATERFALL",
+          "reason": "Two-and-a-half second stopped-sludge close inspection.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_54bb16e968dde7d8",
+          "in_frame": 192,
+          "out_frame_exclusive": 264,
+          "record_frame": 132,
+          "label": "D1-C05-PLUGGED-SEAHORSE",
+          "reason": "Three-second blocked nozzle detail; leave actual cleanup to player.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        }
+      ],
+      "audio": [
+        {
+          "source_id": "A_DIALOGUE",
+          "in_frame": 1123,
+          "out_frame_exclusive": 1327,
+          "record_frame": 0,
+          "track_index": 1
+        },
+        {
+          "source_id": "A_FOLEY",
+          "in_frame": 1123,
+          "out_frame_exclusive": 1327,
+          "record_frame": 0,
+          "track_index": 2
+        },
+        {
+          "source_id": "A_AMBIENCE",
+          "in_frame": 1123,
+          "out_frame_exclusive": 1327,
+          "record_frame": 0,
+          "track_index": 3
+        },
+        {
+          "source_id": "A_SCORE",
+          "in_frame": 1123,
+          "out_frame_exclusive": 1327,
+          "record_frame": 0,
+          "track_index": 4
+        }
+      ],
+      "markers": [
+        {
+          "frame": 0,
+          "name": "D1-C05-PROBLEM-WIDE",
+          "note": "Three-second actual-room problem map; preserve shell seat/waterfall/ocean window/seahorse order."
+        },
+        {
+          "frame": 72,
+          "name": "D1-C05-CLOGGED-WATERFALL",
+          "note": "Two-and-a-half second stopped-sludge close inspection."
+        },
+        {
+          "frame": 132,
+          "name": "D1-C05-PLUGGED-SEAHORSE",
+          "note": "Three-second blocked nozzle detail; leave actual cleanup to player."
+        }
+      ]
+    },
+    {
+      "id": "D1-C06",
+      "name": "D1-C06_CONTINUITY_RECUT_20260912",
+      "type": "scene",
+      "title": "Pool restoration and Rumi reunion",
+      "frames": 354,
+      "shots": [
+        {
+          "source_id": "V_a17b8d7f2548438a",
+          "in_frame": 0,
+          "out_frame_exclusive": 42,
+          "record_frame": 0,
+          "label": "D1-C06-PLUG",
+          "reason": "Retain plug intervention before restored flow; remove repeated continuation.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_6458cc6f4fec4bb3",
+          "in_frame": 0,
+          "out_frame_exclusive": 36,
+          "record_frame": 42,
+          "label": "D1-C06-SEAHORSE-FLOW",
+          "reason": "Brief restored source flow proof.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_6458cc6f4fec4bb3",
+          "in_frame": 48,
+          "out_frame_exclusive": 108,
+          "record_frame": 78,
+          "label": "D1-C06-RAINBOW-RESTART",
+          "reason": "Preserve visible rainbow source activation, without long repeated source hold.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_6458cc6f4fec4bb3",
+          "in_frame": 120,
+          "out_frame_exclusive": 336,
+          "record_frame": 138,
+          "label": "D1-C06-RUMI-RISE-HUG",
+          "reason": "Retain full violet anticipation, Rumi rise, approach and warm hug; do not equalize emotional beats to short insert length.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        }
+      ],
+      "audio": [
+        {
+          "source_id": "A_DIALOGUE",
+          "in_frame": 1327,
+          "out_frame_exclusive": 1681,
+          "record_frame": 0,
+          "track_index": 1
+        },
+        {
+          "source_id": "A_FOLEY",
+          "in_frame": 1327,
+          "out_frame_exclusive": 1681,
+          "record_frame": 0,
+          "track_index": 2
+        },
+        {
+          "source_id": "A_AMBIENCE",
+          "in_frame": 1327,
+          "out_frame_exclusive": 1681,
+          "record_frame": 0,
+          "track_index": 3
+        },
+        {
+          "source_id": "A_SCORE",
+          "in_frame": 1327,
+          "out_frame_exclusive": 1681,
+          "record_frame": 0,
+          "track_index": 4
+        }
+      ],
+      "markers": [
+        {
+          "frame": 0,
+          "name": "D1-C06-PLUG",
+          "note": "Retain plug intervention before restored flow; remove repeated continuation."
+        },
+        {
+          "frame": 42,
+          "name": "D1-C06-SEAHORSE-FLOW",
+          "note": "Brief restored source flow proof."
+        },
+        {
+          "frame": 78,
+          "name": "D1-C06-RAINBOW-RESTART",
+          "note": "Preserve visible rainbow source activation, without long repeated source hold."
+        },
+        {
+          "frame": 138,
+          "name": "D1-C06-RUMI-RISE-HUG",
+          "note": "Retain full violet anticipation, Rumi rise, approach and warm hug; do not equalize emotional beats to short insert length."
+        }
+      ]
+    },
+    {
+      "id": "D1-C07",
+      "name": "D1-C07_CONTINUITY_RECUT_20260912",
+      "type": "scene",
+      "title": "Finding Baby Eagle",
+      "frames": 124,
+      "shots": [
+        {
+          "source_id": "V_eccc7048e6c345f5",
+          "in_frame": 12,
+          "out_frame_exclusive": 48,
+          "record_frame": 0,
+          "label": "D1-C07-S01",
+          "reason": "The curtained dirty-room establish is nearly static; 1.5 seconds establishes geography without a three-second stall.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_aa1a08d59e0a837d",
+          "in_frame": 8,
+          "out_frame_exclusive": 96,
+          "record_frame": 36,
+          "label": "D1-C07-S06",
+          "reason": "Retain the readable pinned-Eagle distress arc, two-bunny invariant, and final open-mouth cry; drop only the soft lead-in.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        }
+      ],
+      "audio": [
+        {
+          "source_id": "A_DIALOGUE",
+          "in_frame": 1681,
+          "out_frame_exclusive": 1805,
+          "record_frame": 0,
+          "track_index": 1
+        },
+        {
+          "source_id": "A_FOLEY",
+          "in_frame": 1681,
+          "out_frame_exclusive": 1805,
+          "record_frame": 0,
+          "track_index": 2
+        },
+        {
+          "source_id": "A_AMBIENCE",
+          "in_frame": 1681,
+          "out_frame_exclusive": 1805,
+          "record_frame": 0,
+          "track_index": 3
+        },
+        {
+          "source_id": "A_SCORE",
+          "in_frame": 1681,
+          "out_frame_exclusive": 1805,
+          "record_frame": 0,
+          "track_index": 4
+        }
+      ],
+      "markers": [
+        {
+          "frame": 0,
+          "name": "D1-C07-S01",
+          "note": "The curtained dirty-room establish is nearly static; 1.5 seconds establishes geography without a three-second stall."
+        },
+        {
+          "frame": 36,
+          "name": "D1-C07-S06",
+          "note": "Retain the readable pinned-Eagle distress arc, two-bunny invariant, and final open-mouth cry; drop only the soft lead-in."
+        }
+      ]
+    },
+    {
+      "id": "D1-C08",
+      "name": "D1-C08_CONTINUITY_RECUT_20260912",
+      "type": "scene",
+      "title": "Baby Eagle rescue",
+      "frames": 114,
+      "shots": [
+        {
+          "source_id": "V_32a81bd888a55897",
+          "in_frame": 0,
+          "out_frame_exclusive": 114,
+          "record_frame": 0,
+          "label": "D1-C08-S06-A",
+          "reason": "Preserve whole wingbeat and landing, cut before extra smiling hold. Do not repeat old four-pin action at postgame event.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        }
+      ],
+      "audio": [
+        {
+          "source_id": "A_DIALOGUE",
+          "in_frame": 1805,
+          "out_frame_exclusive": 1919,
+          "record_frame": 0,
+          "track_index": 1
+        },
+        {
+          "source_id": "A_FOLEY",
+          "in_frame": 1805,
+          "out_frame_exclusive": 1919,
+          "record_frame": 0,
+          "track_index": 2
+        },
+        {
+          "source_id": "A_AMBIENCE",
+          "in_frame": 1805,
+          "out_frame_exclusive": 1919,
+          "record_frame": 0,
+          "track_index": 3
+        },
+        {
+          "source_id": "A_SCORE",
+          "in_frame": 1805,
+          "out_frame_exclusive": 1919,
+          "record_frame": 0,
+          "track_index": 4
+        }
+      ],
+      "markers": [
+        {
+          "frame": 0,
+          "name": "D1-C08-S06-A",
+          "note": "Preserve whole wingbeat and landing, cut before extra smiling hold. Do not repeat old four-pin action at postgame event."
+        }
+      ]
+    },
+    {
+      "id": "D1-C09",
+      "name": "D1-C09_CONTINUITY_RECUT_20260912",
+      "type": "scene",
+      "title": "The art room",
+      "frames": 120,
+      "shots": [
+        {
+          "source_id": "V_2d5c5ed036cd3e09",
+          "in_frame": 0,
+          "out_frame_exclusive": 72,
+          "record_frame": 0,
+          "label": "D1-C09-S03-A",
+          "reason": "Three seconds gives a non-reading child time to scan four targets. Pair only with compatible old entry coverage.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_98b6c6b0a987fa93",
+          "in_frame": 0,
+          "out_frame_exclusive": 48,
+          "record_frame": 72,
+          "label": "QC_PART_12",
+          "reason": "Corrected craft-room target insert",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        }
+      ],
+      "audio": [
+        {
+          "source_id": "A_DIALOGUE",
+          "in_frame": 1919,
+          "out_frame_exclusive": 2039,
+          "record_frame": 0,
+          "track_index": 1
+        },
+        {
+          "source_id": "A_FOLEY",
+          "in_frame": 1919,
+          "out_frame_exclusive": 2039,
+          "record_frame": 0,
+          "track_index": 2
+        },
+        {
+          "source_id": "A_AMBIENCE",
+          "in_frame": 1919,
+          "out_frame_exclusive": 2039,
+          "record_frame": 0,
+          "track_index": 3
+        },
+        {
+          "source_id": "A_SCORE",
+          "in_frame": 1919,
+          "out_frame_exclusive": 2039,
+          "record_frame": 0,
+          "track_index": 4
+        }
+      ],
+      "markers": [
+        {
+          "frame": 0,
+          "name": "D1-C09-S03-A",
+          "note": "Three seconds gives a non-reading child time to scan four targets. Pair only with compatible old entry coverage."
+        },
+        {
+          "frame": 72,
+          "name": "QC_PART_12",
+          "note": "Corrected craft-room target insert"
+        }
+      ]
+    },
+    {
+      "id": "D1-C10",
+      "name": "D1-C10_CONTINUITY_RECUT_20260912",
+      "type": "scene",
+      "title": "Art-room cleanup",
+      "frames": 81,
+      "shots": [
+        {
+          "source_id": "V_6c5f3f338348c651",
+          "in_frame": 24,
+          "out_frame_exclusive": 72,
+          "record_frame": 0,
+          "label": "D1-C10-S01",
+          "reason": "Keep one concise final-scrub action; the published provisional disposition remains unchanged.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_b9e8a992a4eaf488",
+          "in_frame": 0,
+          "out_frame_exclusive": 33,
+          "record_frame": 48,
+          "label": "QC_PART_14",
+          "reason": "Cut before unstable contact; shelved workbench retained; settle still missing",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        }
+      ],
+      "audio": [
+        {
+          "source_id": "A_DIALOGUE",
+          "in_frame": 2039,
+          "out_frame_exclusive": 2120,
+          "record_frame": 0,
+          "track_index": 1
+        },
+        {
+          "source_id": "A_FOLEY",
+          "in_frame": 2039,
+          "out_frame_exclusive": 2120,
+          "record_frame": 0,
+          "track_index": 2
+        },
+        {
+          "source_id": "A_AMBIENCE",
+          "in_frame": 2039,
+          "out_frame_exclusive": 2120,
+          "record_frame": 0,
+          "track_index": 3
+        },
+        {
+          "source_id": "A_SCORE",
+          "in_frame": 2039,
+          "out_frame_exclusive": 2120,
+          "record_frame": 0,
+          "track_index": 4
+        }
+      ],
+      "markers": [
+        {
+          "frame": 0,
+          "name": "D1-C10-S01",
+          "note": "Keep one concise final-scrub action; the published provisional disposition remains unchanged."
+        },
+        {
+          "frame": 48,
+          "name": "QC_PART_14",
+          "note": "Cut before unstable contact; shelved workbench retained; settle still missing"
+        }
+      ]
+    },
+    {
+      "id": "D1-C11",
+      "name": "D1-C11_CONTINUITY_RECUT_20260912",
+      "type": "scene",
+      "title": "Royal portal and dust bunny",
+      "frames": 204,
+      "shots": [
+        {
+          "source_id": "V_177b71b463f02c11",
+          "in_frame": 0,
+          "out_frame_exclusive": 108,
+          "record_frame": 0,
+          "label": "D1-C11-S01-B",
+          "reason": "Keep orientation, trail journey and a short settle; omit A rather than splice two similar angles.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_7f73d81fea4f891b",
+          "in_frame": 12,
+          "out_frame_exclusive": 108,
+          "record_frame": 108,
+          "label": "D1-C11-S04-B",
+          "reason": "Keep anticipation through landing and short recovery, cut before repetitive idle tail.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        }
+      ],
+      "audio": [
+        {
+          "source_id": "A_DIALOGUE",
+          "in_frame": 2120,
+          "out_frame_exclusive": 2324,
+          "record_frame": 0,
+          "track_index": 1
+        },
+        {
+          "source_id": "A_FOLEY",
+          "in_frame": 2120,
+          "out_frame_exclusive": 2324,
+          "record_frame": 0,
+          "track_index": 2
+        },
+        {
+          "source_id": "A_AMBIENCE",
+          "in_frame": 2120,
+          "out_frame_exclusive": 2324,
+          "record_frame": 0,
+          "track_index": 3
+        },
+        {
+          "source_id": "A_SCORE",
+          "in_frame": 2120,
+          "out_frame_exclusive": 2324,
+          "record_frame": 0,
+          "track_index": 4
+        }
+      ],
+      "markers": [
+        {
+          "frame": 0,
+          "name": "D1-C11-S01-B",
+          "note": "Keep orientation, trail journey and a short settle; omit A rather than splice two similar angles."
+        },
+        {
+          "frame": 108,
+          "name": "D1-C11-S04-B",
+          "note": "Keep anticipation through landing and short recovery, cut before repetitive idle tail."
+        }
+      ]
+    },
+    {
+      "id": "D1-C13",
+      "name": "D1-C13_CONTINUITY_RECUT_20260912",
+      "type": "scene",
+      "title": "Team cleaning and rainbow-friend reveal",
+      "frames": 288,
+      "shots": [
+        {
+          "source_id": "V_a5e48892ddab6e60",
+          "in_frame": 0,
+          "out_frame_exclusive": 48,
+          "record_frame": 0,
+          "label": "QC_PART_16",
+          "reason": "Cup-free team insert before sponge drift; giant intact",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_2fc0dbded5b7d100",
+          "in_frame": 0,
+          "out_frame_exclusive": 240,
+          "record_frame": 48,
+          "label": "QC_PART_17",
+          "reason": "Owner-locked full S05; hard giant-clear reveal at source f132",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        }
+      ],
+      "audio": [
+        {
+          "source_id": "A_DIALOGUE",
+          "in_frame": 2324,
+          "out_frame_exclusive": 2612,
+          "record_frame": 0,
+          "track_index": 1
+        },
+        {
+          "source_id": "A_FOLEY",
+          "in_frame": 2324,
+          "out_frame_exclusive": 2612,
+          "record_frame": 0,
+          "track_index": 2
+        },
+        {
+          "source_id": "A_AMBIENCE",
+          "in_frame": 2324,
+          "out_frame_exclusive": 2612,
+          "record_frame": 0,
+          "track_index": 3
+        },
+        {
+          "source_id": "A_SCORE",
+          "in_frame": 2324,
+          "out_frame_exclusive": 2612,
+          "record_frame": 0,
+          "track_index": 4
+        }
+      ],
+      "markers": [
+        {
+          "frame": 0,
+          "name": "QC_PART_16",
+          "note": "Cup-free team insert before sponge drift; giant intact"
+        },
+        {
+          "frame": 48,
+          "name": "QC_PART_17",
+          "note": "Owner-locked full S05; hard giant-clear reveal at source f132"
+        },
+        {
+          "frame": 180,
+          "name": "GIANT_CLEAR_HARD_CUT",
+          "note": "Owner-locked S05 sourcef132. Preserve the full10s clip; this is an editorial reveal, not evidence of continuous transformation."
+        }
+      ]
+    },
+    {
+      "id": "D1-C14",
+      "name": "D1-C14_CONTINUITY_RECUT_20260912",
+      "type": "scene",
+      "title": "Everyone cleans the castle",
+      "frames": 402,
+      "shots": [
+        {
+          "source_id": "V_dddf9bd6a699e4cb",
+          "in_frame": 24,
+          "out_frame_exclusive": 90,
+          "record_frame": 0,
+          "label": "C14-S02-B",
+          "reason": "Tiny helper approaches, Roshan reaches and actually lifts paper by f89. Remove one second of almost unchanged starting pose.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_50db46ddf82d9c9a",
+          "in_frame": 0,
+          "out_frame_exclusive": 108,
+          "record_frame": 66,
+          "label": "C14-S03-A",
+          "reason": "Restore paired Daddy/Eagle contribution: initial reachable web, upward brush stroke, gentle wingbeat, web on bristles. Cut before extended resting pose. Native review corrects the thumbnail-only omission.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_0f8dcd7c2764bd03",
+          "in_frame": 6,
+          "out_frame_exclusive": 66,
+          "record_frame": 174,
+          "label": "C14-S04-A",
+          "reason": "Water reaches sponge and Roshan begins wipe. Preserve contact and exclude the later unchanged stain presentation.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_21f1a1a5b91b32b3",
+          "in_frame": 0,
+          "out_frame_exclusive": 96,
+          "record_frame": 234,
+          "label": "QC_PART_19",
+          "reason": "Conditional rough contact/result edit, hard cut at source f60",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_4146e417ba89b8bd",
+          "in_frame": 36,
+          "out_frame_exclusive": 108,
+          "record_frame": 330,
+          "label": "C14-S06-B",
+          "reason": "Clean Hall B payoff shortened to three seconds; preserve all prior individual team contributions.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        }
+      ],
+      "audio": [
+        {
+          "source_id": "A_DIALOGUE",
+          "in_frame": 2612,
+          "out_frame_exclusive": 3014,
+          "record_frame": 0,
+          "track_index": 1
+        },
+        {
+          "source_id": "A_FOLEY",
+          "in_frame": 2612,
+          "out_frame_exclusive": 3014,
+          "record_frame": 0,
+          "track_index": 2
+        },
+        {
+          "source_id": "A_AMBIENCE",
+          "in_frame": 2612,
+          "out_frame_exclusive": 3014,
+          "record_frame": 0,
+          "track_index": 3
+        },
+        {
+          "source_id": "A_SCORE",
+          "in_frame": 2612,
+          "out_frame_exclusive": 3014,
+          "record_frame": 0,
+          "track_index": 4
+        }
+      ],
+      "markers": [
+        {
+          "frame": 0,
+          "name": "C14-S02-B",
+          "note": "Tiny helper approaches, Roshan reaches and actually lifts paper by f89. Remove one second of almost unchanged starting pose."
+        },
+        {
+          "frame": 66,
+          "name": "C14-S03-A",
+          "note": "Restore paired Daddy/Eagle contribution: initial reachable web, upward brush stroke, gentle wingbeat, web on bristles. Cut before extended resting pose. Native review corrects the thumbnail-only omission."
+        },
+        {
+          "frame": 174,
+          "name": "C14-S04-A",
+          "note": "Water reaches sponge and Roshan begins wipe. Preserve contact and exclude the later unchanged stain presentation."
+        },
+        {
+          "frame": 234,
+          "name": "QC_PART_19",
+          "note": "Conditional rough contact/result edit, hard cut at source f60"
+        },
+        {
+          "frame": 294,
+          "name": "CONTACT_RESULT_CUT",
+          "note": "Inherited QC sweep sourcef60 hard cut; contact-to-clean-result continuity remains a source-material limitation."
+        },
+        {
+          "frame": 330,
+          "name": "C14-S06-B",
+          "note": "Clean Hall B payoff shortened to three seconds; preserve all prior individual team contributions."
+        }
+      ]
+    },
+    {
+      "id": "D1-C12",
+      "name": "D1-C12_CONTINUITY_RECUT_20260912",
+      "type": "scene",
+      "title": "Clean-castle recap and family hug",
+      "frames": 136,
+      "shots": [
+        {
+          "source_id": "V_3c940656d742ef08",
+          "in_frame": 0,
+          "out_frame_exclusive": 24,
+          "record_frame": 0,
+          "label": "QC_PART_21",
+          "reason": "Correct bathroom recap",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_6458cc6f4fec4bb3",
+          "in_frame": 304,
+          "out_frame_exclusive": 336,
+          "record_frame": 24,
+          "label": "D1-C06-RUMI-RISE-HUG",
+          "reason": "Recap reuses the established blue-purple seahorse and Rumi hug; replaces wrong tall golden creature without changing recap rhythm.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_7dff55221175b466",
+          "in_frame": 0,
+          "out_frame_exclusive": 32,
+          "record_frame": 56,
+          "label": "QC_PART_23",
+          "reason": "Correct shelved desk recap before contact",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_ac366d352b5b4753",
+          "in_frame": 0,
+          "out_frame_exclusive": 48,
+          "record_frame": 88,
+          "label": "QC_PART_24",
+          "reason": "Correct family hug endpoint",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        }
+      ],
+      "audio": [
+        {
+          "source_id": "A_DIALOGUE",
+          "in_frame": 3014,
+          "out_frame_exclusive": 3150,
+          "record_frame": 0,
+          "track_index": 1
+        },
+        {
+          "source_id": "A_FOLEY",
+          "in_frame": 3014,
+          "out_frame_exclusive": 3150,
+          "record_frame": 0,
+          "track_index": 2
+        },
+        {
+          "source_id": "A_AMBIENCE",
+          "in_frame": 3014,
+          "out_frame_exclusive": 3150,
+          "record_frame": 0,
+          "track_index": 3
+        },
+        {
+          "source_id": "A_SCORE",
+          "in_frame": 3014,
+          "out_frame_exclusive": 3150,
+          "record_frame": 0,
+          "track_index": 4
+        }
+      ],
+      "markers": [
+        {
+          "frame": 0,
+          "name": "QC_PART_21",
+          "note": "Correct bathroom recap"
+        },
+        {
+          "frame": 24,
+          "name": "D1-C06-RUMI-RISE-HUG",
+          "note": "Recap reuses the established blue-purple seahorse and Rumi hug; replaces wrong tall golden creature without changing recap rhythm."
+        },
+        {
+          "frame": 56,
+          "name": "QC_PART_23",
+          "note": "Correct shelved desk recap before contact"
+        },
+        {
+          "frame": 88,
+          "name": "QC_PART_24",
+          "note": "Correct family hug endpoint"
+        }
+      ]
+    },
+    {
+      "id": "DAY_ONE_CONTINUITY_RECUT",
+      "name": "DAY_ONE_CONTINUITY_RECUT_20260912",
+      "type": "master",
+      "title": "Mermaid Roshan \u2014 Day One continuity recut",
+      "frames": 3150,
+      "shots": [
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 0,
+          "out_frame_exclusive": 48,
+          "record_frame": 0,
+          "label": "OTTER-S01",
+          "reason": "Plane establishes the journey in open sky. Keeps the clean aircraft cause before the cabin cut; 48 is the first stable cabin frame.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 72,
+          "out_frame_exclusive": 108,
+          "record_frame": 48,
+          "label": "OTTER-S02",
+          "reason": "Roshan and Daddy are seated together inside the plane. Retains the readable relationship setup and avoids the later repeated cabin hold; 108 begins the hand-contact action.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 108,
+          "out_frame_exclusive": 144,
+          "record_frame": 84,
+          "label": "OTTER-S03",
+          "reason": "Roshan reaches for Daddy's hand; their journey is shared. A short, legible emotional button before returning to the exterior travel geography.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 144,
+          "out_frame_exclusive": 204,
+          "record_frame": 120,
+          "label": "OTTER-S04",
+          "reason": "The plane passes above the island and castle. The wide approach already contains the castle geography; it makes the separate 204-240 island hold unnecessary.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 240,
+          "out_frame_exclusive": 300,
+          "record_frame": 180,
+          "label": "OTTER-S05",
+          "reason": "Castle grows from the island into a readable destination. Provides the strongest destination push after the aerial; the preceding 204-240 wide island hold is omitted as redundant.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 300,
+          "out_frame_exclusive": 372,
+          "record_frame": 240,
+          "label": "OTTER-S06",
+          "reason": "The route continues through the bright forest corridor. Preserves a distinct environmental transition and gives the arrival a gentle, child-readable rhythm instead of jumping directly from castle to plane.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 372,
+          "out_frame_exclusive": 408,
+          "record_frame": 312,
+          "label": "OTTER-S07",
+          "reason": "The path opens toward the lakeside landing area. Short geography bridge from forest to the grounded plane; do not extend this hold.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 408,
+          "out_frame_exclusive": 492,
+          "record_frame": 348,
+          "label": "OTTER-S08",
+          "reason": "The landed plane and otter share the playground space before the interior handoff. Keeps the cause-and-effect landing/boarding beat intact. The otter is the story hook and needs enough screen time to read; trim only the redundant ending of this block if a later review finds it lingers.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 553,
+          "out_frame_exclusive": 613,
+          "record_frame": 432,
+          "label": "OTTER-S09",
+          "reason": "Daddy gestures to Roshan inside the cabin. Retains a specific instruction/reaction beat; 613 begins the repeated centered standing pose and is the clean out point.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 673,
+          "out_frame_exclusive": 733,
+          "record_frame": 492,
+          "label": "OTTER-S10",
+          "reason": "Roshan and Daddy walk together toward the open aircraft door. Uses the distinct rear-view exit action; the 613-673 centered standing section is omitted because it repeats the cabin relationship without advancing the action.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 733,
+          "out_frame_exclusive": 829,
+          "record_frame": 552,
+          "label": "OTTER-S11",
+          "reason": "The otter greets the family by the plane and exits frame. Preserves the complete otter introduction and exit rather than cutting on its first movement.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_67b6c57ab7898a57",
+          "in_frame": 829,
+          "out_frame_exclusive": 889,
+          "record_frame": 648,
+          "label": "OTTER-S12",
+          "reason": "Roshan and Daddy share a celebratory high-five. A short human-scale reaction after the otter exits; preserves the independent action rather than merging it into the castle reveal.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_3f84e5dd14023820",
+          "in_frame": 1044,
+          "out_frame_exclusive": 1116,
+          "record_frame": 708,
+          "label": "ARRIVAL_TAIL_CONTINUITY",
+          "reason": "Replaces V05[793,898): both tails persist; same castle bridge destination; small shared look supports full castle-walk line.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_df7559c706e582b0",
+          "in_frame": 12,
+          "out_frame_exclusive": 66,
+          "record_frame": 780,
+          "label": "D1-C02-S01",
+          "reason": "Enter on the approach and retain the complete door-opening beat without the long static lead/tail.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_c1957aa7e64c3e5c",
+          "in_frame": 0,
+          "out_frame_exclusive": 72,
+          "record_frame": 834,
+          "label": "QC_PART_02",
+          "reason": "Corrected hall geography; dirty dressing remains weaker",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_6af492e7f2c33e82",
+          "in_frame": 108,
+          "out_frame_exclusive": 145,
+          "record_frame": 906,
+          "label": "D1-C02-S03",
+          "reason": "Use only the published audit-recommended late reaction/point; earlier close-up frames do not advance the beat.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_f49d9e8f54edf60c",
+          "in_frame": 0,
+          "out_frame_exclusive": 72,
+          "record_frame": 943,
+          "label": "QC_PART_04",
+          "reason": "QC-safe revised bathroom discovery",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_452cb98aef1f10e8",
+          "in_frame": 30,
+          "out_frame_exclusive": 90,
+          "record_frame": 1015,
+          "label": "D1-C04-S01",
+          "reason": "Preserve the final scrub through the lifted-brush/bubble payoff; remove repeated scrubbing at head and tail.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_ff6116427486bc4b",
+          "in_frame": 0,
+          "out_frame_exclusive": 48,
+          "record_frame": 1075,
+          "label": "QC_PART_06",
+          "reason": "Correct clean bathroom endpoint",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_54bb16e968dde7d8",
+          "in_frame": 0,
+          "out_frame_exclusive": 72,
+          "record_frame": 1123,
+          "label": "D1-C05-PROBLEM-WIDE",
+          "reason": "Three-second actual-room problem map; preserve shell seat/waterfall/ocean window/seahorse order.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_54bb16e968dde7d8",
+          "in_frame": 120,
+          "out_frame_exclusive": 180,
+          "record_frame": 1195,
+          "label": "D1-C05-CLOGGED-WATERFALL",
+          "reason": "Two-and-a-half second stopped-sludge close inspection.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_54bb16e968dde7d8",
+          "in_frame": 192,
+          "out_frame_exclusive": 264,
+          "record_frame": 1255,
+          "label": "D1-C05-PLUGGED-SEAHORSE",
+          "reason": "Three-second blocked nozzle detail; leave actual cleanup to player.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_a17b8d7f2548438a",
+          "in_frame": 0,
+          "out_frame_exclusive": 42,
+          "record_frame": 1327,
+          "label": "D1-C06-PLUG",
+          "reason": "Retain plug intervention before restored flow; remove repeated continuation.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_6458cc6f4fec4bb3",
+          "in_frame": 0,
+          "out_frame_exclusive": 36,
+          "record_frame": 1369,
+          "label": "D1-C06-SEAHORSE-FLOW",
+          "reason": "Brief restored source flow proof.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_6458cc6f4fec4bb3",
+          "in_frame": 48,
+          "out_frame_exclusive": 108,
+          "record_frame": 1405,
+          "label": "D1-C06-RAINBOW-RESTART",
+          "reason": "Preserve visible rainbow source activation, without long repeated source hold.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_6458cc6f4fec4bb3",
+          "in_frame": 120,
+          "out_frame_exclusive": 336,
+          "record_frame": 1465,
+          "label": "D1-C06-RUMI-RISE-HUG",
+          "reason": "Retain full violet anticipation, Rumi rise, approach and warm hug; do not equalize emotional beats to short insert length.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_eccc7048e6c345f5",
+          "in_frame": 12,
+          "out_frame_exclusive": 48,
+          "record_frame": 1681,
+          "label": "D1-C07-S01",
+          "reason": "The curtained dirty-room establish is nearly static; 1.5 seconds establishes geography without a three-second stall.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_aa1a08d59e0a837d",
+          "in_frame": 8,
+          "out_frame_exclusive": 96,
+          "record_frame": 1717,
+          "label": "D1-C07-S06",
+          "reason": "Retain the readable pinned-Eagle distress arc, two-bunny invariant, and final open-mouth cry; drop only the soft lead-in.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_32a81bd888a55897",
+          "in_frame": 0,
+          "out_frame_exclusive": 114,
+          "record_frame": 1805,
+          "label": "D1-C08-S06-A",
+          "reason": "Preserve whole wingbeat and landing, cut before extra smiling hold. Do not repeat old four-pin action at postgame event.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_2d5c5ed036cd3e09",
+          "in_frame": 0,
+          "out_frame_exclusive": 72,
+          "record_frame": 1919,
+          "label": "D1-C09-S03-A",
+          "reason": "Three seconds gives a non-reading child time to scan four targets. Pair only with compatible old entry coverage.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_98b6c6b0a987fa93",
+          "in_frame": 0,
+          "out_frame_exclusive": 48,
+          "record_frame": 1991,
+          "label": "QC_PART_12",
+          "reason": "Corrected craft-room target insert",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_6c5f3f338348c651",
+          "in_frame": 24,
+          "out_frame_exclusive": 72,
+          "record_frame": 2039,
+          "label": "D1-C10-S01",
+          "reason": "Keep one concise final-scrub action; the published provisional disposition remains unchanged.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_b9e8a992a4eaf488",
+          "in_frame": 0,
+          "out_frame_exclusive": 33,
+          "record_frame": 2087,
+          "label": "QC_PART_14",
+          "reason": "Cut before unstable contact; shelved workbench retained; settle still missing",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_177b71b463f02c11",
+          "in_frame": 0,
+          "out_frame_exclusive": 108,
+          "record_frame": 2120,
+          "label": "D1-C11-S01-B",
+          "reason": "Keep orientation, trail journey and a short settle; omit A rather than splice two similar angles.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_7f73d81fea4f891b",
+          "in_frame": 12,
+          "out_frame_exclusive": 108,
+          "record_frame": 2228,
+          "label": "D1-C11-S04-B",
+          "reason": "Keep anticipation through landing and short recovery, cut before repetitive idle tail.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_a5e48892ddab6e60",
+          "in_frame": 0,
+          "out_frame_exclusive": 48,
+          "record_frame": 2324,
+          "label": "QC_PART_16",
+          "reason": "Cup-free team insert before sponge drift; giant intact",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_2fc0dbded5b7d100",
+          "in_frame": 0,
+          "out_frame_exclusive": 240,
+          "record_frame": 2372,
+          "label": "QC_PART_17",
+          "reason": "Owner-locked full S05; hard giant-clear reveal at source f132",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_dddf9bd6a699e4cb",
+          "in_frame": 24,
+          "out_frame_exclusive": 90,
+          "record_frame": 2612,
+          "label": "C14-S02-B",
+          "reason": "Tiny helper approaches, Roshan reaches and actually lifts paper by f89. Remove one second of almost unchanged starting pose.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_50db46ddf82d9c9a",
+          "in_frame": 0,
+          "out_frame_exclusive": 108,
+          "record_frame": 2678,
+          "label": "C14-S03-A",
+          "reason": "Restore paired Daddy/Eagle contribution: initial reachable web, upward brush stroke, gentle wingbeat, web on bristles. Cut before extended resting pose. Native review corrects the thumbnail-only omission.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_0f8dcd7c2764bd03",
+          "in_frame": 6,
+          "out_frame_exclusive": 66,
+          "record_frame": 2786,
+          "label": "C14-S04-A",
+          "reason": "Water reaches sponge and Roshan begins wipe. Preserve contact and exclude the later unchanged stain presentation.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_21f1a1a5b91b32b3",
+          "in_frame": 0,
+          "out_frame_exclusive": 96,
+          "record_frame": 2846,
+          "label": "QC_PART_19",
+          "reason": "Conditional rough contact/result edit, hard cut at source f60",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_4146e417ba89b8bd",
+          "in_frame": 36,
+          "out_frame_exclusive": 108,
+          "record_frame": 2942,
+          "label": "C14-S06-B",
+          "reason": "Clean Hall B payoff shortened to three seconds; preserve all prior individual team contributions.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_3c940656d742ef08",
+          "in_frame": 0,
+          "out_frame_exclusive": 24,
+          "record_frame": 3014,
+          "label": "QC_PART_21",
+          "reason": "Correct bathroom recap",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_6458cc6f4fec4bb3",
+          "in_frame": 304,
+          "out_frame_exclusive": 336,
+          "record_frame": 3038,
+          "label": "D1-C06-RUMI-RISE-HUG",
+          "reason": "Recap reuses the established blue-purple seahorse and Rumi hug; replaces wrong tall golden creature without changing recap rhythm.",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_7dff55221175b466",
+          "in_frame": 0,
+          "out_frame_exclusive": 32,
+          "record_frame": 3070,
+          "label": "QC_PART_23",
+          "reason": "Correct shelved desk recap before contact",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        },
+        {
+          "source_id": "V_ac366d352b5b4753",
+          "in_frame": 0,
+          "out_frame_exclusive": 48,
+          "record_frame": 3102,
+          "label": "QC_PART_24",
+          "reason": "Correct family hug endpoint",
+          "speed_percent": 100,
+          "transition_in": "cut",
+          "transform": "whole-canvas fit only; no subject manipulation"
+        }
+      ],
+      "audio": [
+        {
+          "source_id": "A_DIALOGUE",
+          "in_frame": 0,
+          "out_frame_exclusive": 3150,
+          "record_frame": 0,
+          "track_index": 1
+        },
+        {
+          "source_id": "A_FOLEY",
+          "in_frame": 0,
+          "out_frame_exclusive": 3150,
+          "record_frame": 0,
+          "track_index": 2
+        },
+        {
+          "source_id": "A_AMBIENCE",
+          "in_frame": 0,
+          "out_frame_exclusive": 3150,
+          "record_frame": 0,
+          "track_index": 3
+        },
+        {
+          "source_id": "A_SCORE",
+          "in_frame": 0,
+          "out_frame_exclusive": 3150,
+          "record_frame": 0,
+          "track_index": 4
+        }
+      ],
+      "markers": [
+        {
+          "frame": 0,
+          "name": "OPENING_C00_C01",
+          "note": "Otter flight and Sky Lagoon arrival"
+        },
+        {
+          "frame": 780,
+          "name": "D1-C02",
+          "note": "Discovering the castle"
+        },
+        {
+          "frame": 943,
+          "name": "D1-C03",
+          "note": "Bubbles in the bathroom"
+        },
+        {
+          "frame": 1015,
+          "name": "D1-C04",
+          "note": "Bathroom cleanup"
+        },
+        {
+          "frame": 1123,
+          "name": "D1-C05",
+          "note": "Helping the seahorse"
+        },
+        {
+          "frame": 1327,
+          "name": "D1-C06",
+          "note": "Pool restoration and Rumi reunion"
+        },
+        {
+          "frame": 1681,
+          "name": "D1-C07",
+          "note": "Finding Baby Eagle"
+        },
+        {
+          "frame": 1805,
+          "name": "D1-C08",
+          "note": "Baby Eagle rescue"
+        },
+        {
+          "frame": 1919,
+          "name": "D1-C09",
+          "note": "The art room"
+        },
+        {
+          "frame": 2039,
+          "name": "D1-C10",
+          "note": "Art-room cleanup"
+        },
+        {
+          "frame": 2120,
+          "name": "D1-C11",
+          "note": "Royal portal and dust bunny"
+        },
+        {
+          "frame": 2324,
+          "name": "D1-C13",
+          "note": "Team cleaning and rainbow-friend reveal"
+        },
+        {
+          "frame": 2504,
+          "name": "GIANT_CLEAR_HARD_CUT",
+          "note": "Owner-locked S05 sourcef132. Preserve the full10s clip; this is an editorial reveal, not evidence of continuous transformation."
+        },
+        {
+          "frame": 2612,
+          "name": "D1-C14",
+          "note": "Everyone cleans the castle"
+        },
+        {
+          "frame": 2906,
+          "name": "CONTACT_RESULT_CUT",
+          "note": "Inherited QC sweep sourcef60 hard cut; contact-to-clean-result continuity remains a source-material limitation."
+        },
+        {
+          "frame": 3014,
+          "name": "D1-C12",
+          "note": "Clean-castle recap and family hug"
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Native 24fps straight cuts; no optical flow, retiming, dissolves, inserted stills or synthetic frames.",
+    "Preserve September9 room corrections and full owner-locked C13 S05 ten seconds.",
+    "No runtime changes; owner, child, device and cinematic frame acceptance remain open."
+  ],
+  "audio_note": "Four separate prepared48kHz stereo24-bitPCM stems, each6300000samples;16completeprovisional voice cues verified byte-for-byte after gain, no overlap; wrong sink and dirty-blue pool cues omitted. Unity mix -17.7LUFS/-3.5dBTP. Listening acceptance remains separate."
+}

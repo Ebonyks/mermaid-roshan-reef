@@ -1,0 +1,108 @@
+{
+  "shot_id": "R12",
+  "location_id": "hall_to_arena",
+  "master_ranges": [
+    [
+      2612,
+      2678
+    ]
+  ],
+  "title": "Carry the same friend into paper pickup",
+  "problem": "The small rainbow companion no longer carries all concept details and the paper action has little readable transfer at its endpoint.",
+  "beats": [
+    "Roshan pinches the corner of one visible paper scrap while the concept-matching bunny watches beside her.",
+    "She lifts the complete scrap from the floor in one uninterrupted movement.",
+    "She holds it clearly; the exact floor patch is now empty."
+  ],
+  "end_state": "Roshan holds the single removed scrap beside the unchanged rainbow bunny.",
+  "must_not_move": "Hall B doors, carpet edge, floor patch, rainbow concept silhouette and Roshan support pose",
+  "priority": "P0",
+  "depends_on": [
+    "R11"
+  ],
+  "duration_seconds": 4,
+  "negative_constraints": "no disappearing paper, extra bunny, amber forehead jewel or invented feet",
+  "exact_cast": [
+    "Roshan",
+    "one rainbow bunny"
+  ],
+  "conditional_regeneration": false,
+  "review_priority_note": "Direct observed defect or explicit new owner direction.",
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "status": "DRAFT",
+  "movie_id": "OVERNIGHT_RECUT",
+  "mode": "image_to_video",
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/rainbow_dust_bunny_concept.png",
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "references/69827625a8_roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "Roshan pinches the corner of one visible paper scrap while the concept-matching bunny watches beside her. She lifts the complete scrap from the floor in one uninterrupted movement. She holds it clearly; the exact floor patch is now empty.",
+  "prompt_sha256": "3fbddd1534ce9c0ace9e94af9922b2e4e26f435e5b12b61c0ed194b1ff01993f",
+  "blocking_findings": [
+    "missing complete human-approved opening at exact hash",
+    "missing measured setup and accepted predecessor/successor endpoints",
+    "V2 execution/binding review and remote opening verification pending"
+  ],
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "source_events": [
+    {
+      "master_range": [
+        2612,
+        2678
+      ],
+      "source_id": "V_dddf9bd6a699e4cb",
+      "source_sha256": "dddf9bd6a699e4cb0c72dfc77bb8a571774bce274392f19a532ab32af6c2e6c5",
+      "source_path": "export/movie_recut_20260912/media/dddf9bd6a699_C14_S02_c14_smallest_helper_first_diff_BROLL.mp4",
+      "source_range": [
+        24,
+        90
+      ],
+      "label": "C14-S02-B"
+    }
+  ],
+  "review": {
+    "human": null,
+    "measurements": null,
+    "cross_shot": null
+  },
+  "movement_profile": {
+    "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "version": 1,
+    "register": "attentive helping; eyes before hands; contact before consequence; supported settle"
+  },
+  "endpoint_policy": "Continuations use accepted predecessor endpoint. New camera address needs a separately approved complete opening. No defective source frame is an approved neighbor.",
+  "replacement_policy": "These master ranges are shot replacement envelopes, not claims that every enclosed frame has an independent defect. Preserve exact old index/source map; review every changed candidate frame. New reference duration requires reconform; do not stretch footage to fill the old range."
+}

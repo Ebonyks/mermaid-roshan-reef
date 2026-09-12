@@ -1,0 +1,105 @@
+{
+  "shot_id": "R06",
+  "location_id": "art",
+  "master_ranges": [
+    [
+      1991,
+      2039
+    ]
+  ],
+  "title": "Keep the Art Room problem present on entry",
+  "problem": "At f1990/1991 the view switches to foreground stations while loose supplies cease to be legible. A new angle does not explain where the mess went.",
+  "beats": [
+    "Roshan looks at one loose supply group in the established dirty room.",
+    "She approaches and points, leaving every loose supply and grime patch visible.",
+    "She settles before the player’s collection begins."
+  ],
+  "end_state": "The loose supplies and dirt remain visible and reachable.",
+  "must_not_move": "two supply islands, low rear workbench, windows and visible storage",
+  "priority": "P1",
+  "depends_on": [],
+  "duration_seconds": 4,
+  "negative_constraints": "no automatic collection, clean-room substitution or new station",
+  "exact_cast": [
+    "Roshan"
+  ],
+  "conditional_regeneration": true,
+  "review_priority_note": "Conditional: retain the source if native full-motion/camera-aware review proves the stated consequence and seam. The observations identify a readability risk, not a proven anatomy/geometry defect.",
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "status": "DRAFT",
+  "movie_id": "OVERNIGHT_RECUT",
+  "mode": "image_to_video",
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/69827625a8_roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/73ee8445e8_FOUR_LOOSE_SUPPLY_IDENTITY_SHEET.png",
+      "sha256": "73ee8445e861da1c12753c1f8c941aea1fc083af5c09e864f72eb1cac8b1ccf8",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "Roshan looks at one loose supply group in the established dirty room. She approaches and points, leaving every loose supply and grime patch visible. She settles before the player’s collection begins.",
+  "prompt_sha256": "409c9b06674b8ca58ee35799d14a2bfeb8c440402d2979bc3ca3072a1114d012",
+  "blocking_findings": [
+    "missing complete human-approved opening at exact hash",
+    "missing measured setup and accepted predecessor/successor endpoints",
+    "V2 execution/binding review and remote opening verification pending"
+  ],
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "source_events": [
+    {
+      "master_range": [
+        1991,
+        2039
+      ],
+      "source_id": "V_98b6c6b0a987fa93",
+      "source_sha256": "98b6c6b0a987fa93f051038ee1b9eac1ee4babd9016849c5c2cbc5b407e25d9f",
+      "source_path": "export/movie_recut_20260912/media/98b6c6b0a987_12_D1-C09.mp4",
+      "source_range": [
+        0,
+        48
+      ],
+      "label": "QC_PART_12"
+    }
+  ],
+  "review": {
+    "human": null,
+    "measurements": null,
+    "cross_shot": null
+  },
+  "movement_profile": {
+    "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "version": 1,
+    "register": "attentive helping; eyes before hands; contact before consequence; supported settle"
+  },
+  "endpoint_policy": "Continuations use accepted predecessor endpoint. New camera address needs a separately approved complete opening. No defective source frame is an approved neighbor.",
+  "replacement_policy": "These master ranges are shot replacement envelopes, not claims that every enclosed frame has an independent defect. Preserve exact old index/source map; review every changed candidate frame. New reference duration requires reconform; do not stretch footage to fill the old range."
+}

@@ -1,0 +1,119 @@
+{
+  "shot_id": "R04",
+  "location_id": "pool",
+  "master_ranges": [
+    [
+      1327,
+      1405
+    ]
+  ],
+  "title": "Pull the plug clear before water starts",
+  "problem": "The short retained plug shot has mostly sustained hand contact; a water jet follows quickly. Preserve a readable hand-to-plug separation rather than letting the jet conceal disposal.",
+  "beats": [
+    "Roshan closes one hand on the visible mouth obstruction.",
+    "She pulls it wholly clear of the spout and holds it to the side.",
+    "The first small stream emerges only from the unblocked mouth."
+  ],
+  "end_state": "The detached obstruction stays in Roshan’s hand and a small clear stream reaches the pool.",
+  "must_not_move": "blue/lavender seahorse, violet crest, peach belly, curled tail, coral pedestal and pool edge",
+  "priority": "P1",
+  "depends_on": [],
+  "duration_seconds": 4,
+  "negative_constraints": "no redrawn yellow seahorse, dissolving plug, duplicate hand or independent fountain basin",
+  "exact_cast": [
+    "Roshan"
+  ],
+  "conditional_regeneration": true,
+  "review_priority_note": "Conditional: retain the source if native full-motion/camera-aware review proves the stated consequence and seam. The observations identify a readability risk, not a proven anatomy/geometry defect.",
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "status": "DRAFT",
+  "movie_id": "OVERNIGHT_RECUT",
+  "mode": "image_to_video",
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/69827625a8_roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/5912698f5c_mermaid_pool_seahorse_fountain_rest.png",
+      "sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "Roshan closes one hand on the visible mouth obstruction. She pulls it wholly clear of the spout and holds it to the side. The first small stream emerges only from the unblocked mouth.",
+  "prompt_sha256": "5ea730a8cb907f49fb4b2e083008c0171868c957cc602e9b98db02a38182dc68",
+  "blocking_findings": [
+    "missing complete human-approved opening at exact hash",
+    "missing measured setup and accepted predecessor/successor endpoints",
+    "V2 execution/binding review and remote opening verification pending"
+  ],
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "source_events": [
+    {
+      "master_range": [
+        1327,
+        1369
+      ],
+      "source_id": "V_a17b8d7f2548438a",
+      "source_sha256": "a17b8d7f2548438a899707005add8cc340f8e1682194c3f8a89f9cccca709f71",
+      "source_path": "export/movie_recut_20260912/media/a17b8d7f2548_grok-4636c5b8-1f9d-4e1e-841f-b433e5345656.mp4",
+      "source_range": [
+        0,
+        42
+      ],
+      "label": "D1-C06-PLUG"
+    },
+    {
+      "master_range": [
+        1369,
+        1405
+      ],
+      "source_id": "V_6458cc6f4fec4bb3",
+      "source_sha256": "6458cc6f4fec4bb35a4226d88214b3e833df01209f20365c7c6b9e2a356677d1",
+      "source_path": "export/movie_recut_20260912/media/6458cc6f4fec_MERMAID_ROSHAN_CLEAN_POOL_REFINED_20260827_V01_REVIEW.mp4",
+      "source_range": [
+        0,
+        36
+      ],
+      "label": "D1-C06-SEAHORSE-FLOW"
+    }
+  ],
+  "review": {
+    "human": null,
+    "measurements": null,
+    "cross_shot": null
+  },
+  "movement_profile": {
+    "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "version": 1,
+    "register": "attentive helping; eyes before hands; contact before consequence; supported settle"
+  },
+  "endpoint_policy": "Continuations use accepted predecessor endpoint. New camera address needs a separately approved complete opening. No defective source frame is an approved neighbor.",
+  "replacement_policy": "These master ranges are shot replacement envelopes, not claims that every enclosed frame has an independent defect. Preserve exact old index/source map; review every changed candidate frame. New reference duration requires reconform; do not stretch footage to fill the old range."
+}

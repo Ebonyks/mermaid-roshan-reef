@@ -1,0 +1,30 @@
+{
+  "schema": "overnight-recut-repair-index-v1",
+  "archive_status": "local_complete_remote_pending",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [
+    "shots/R01/SHOT_PACKET.json",
+    "shots/R02/SHOT_PACKET.json",
+    "shots/R03/SHOT_PACKET.json",
+    "shots/R04/SHOT_PACKET.json",
+    "shots/R05/SHOT_PACKET.json",
+    "shots/R06/SHOT_PACKET.json",
+    "shots/R07/SHOT_PACKET.json",
+    "shots/R08/SHOT_PACKET.json",
+    "shots/R09/SHOT_PACKET.json",
+    "shots/R10/SHOT_PACKET.json",
+    "shots/R11/SHOT_PACKET.json",
+    "shots/R12/SHOT_PACKET.json",
+    "shots/R13/SHOT_PACKET.json",
+    "shots/R14/SHOT_PACKET.json",
+    "shots/R15/SHOT_PACKET.json",
+    "shots/R16/SHOT_PACKET.json",
+    "shots/R17/SHOT_PACKET.json",
+    "shots/R18/SHOT_PACKET.json"
+  ],
+  "blocking_findings": [
+    "Opening candidates are not present or human accepted. Use OPENING_BRIEF.txt, then create separately audited V1/V2 execution cards."
+  ],
+  "full_frame_delivery": "DL-CIN-01 through DL-CIN-15 remain binding. Grok clips are motion references, never automatically accepted delivery."
+}

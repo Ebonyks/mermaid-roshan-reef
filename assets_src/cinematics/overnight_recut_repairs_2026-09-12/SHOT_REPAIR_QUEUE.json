@@ -1,0 +1,321 @@
+{
+  "shots": [
+    {
+      "shot_id": "R01",
+      "title": "Make discovery visibly dirty",
+      "priority": "P1",
+      "master_ranges": [
+        [
+          834,
+          906
+        ]
+      ],
+      "depends_on": [],
+      "card": "shots/R01/SHOT_PACKET.json",
+      "disposition": "REPAIR",
+      "conditional_regeneration": false
+    },
+    {
+      "shot_id": "R02",
+      "title": "Brush contact must remove dirt",
+      "priority": "P1",
+      "master_ranges": [
+        [
+          1015,
+          1075
+        ]
+      ],
+      "depends_on": [],
+      "card": "shots/R02/SHOT_PACKET.json",
+      "disposition": "REPAIR",
+      "conditional_regeneration": false
+    },
+    {
+      "shot_id": "R03",
+      "title": "Match the restored bathroom and recap",
+      "priority": "P1",
+      "master_ranges": [
+        [
+          1075,
+          1123
+        ],
+        [
+          3014,
+          3038
+        ]
+      ],
+      "depends_on": [
+        "R02"
+      ],
+      "card": "shots/R03/SHOT_PACKET.json",
+      "disposition": "CONDITIONAL_REVIEW",
+      "conditional_regeneration": true
+    },
+    {
+      "shot_id": "R04",
+      "title": "Pull the plug clear before water starts",
+      "priority": "P1",
+      "master_ranges": [
+        [
+          1327,
+          1405
+        ]
+      ],
+      "depends_on": [],
+      "card": "shots/R04/SHOT_PACKET.json",
+      "disposition": "CONDITIONAL_REVIEW",
+      "conditional_regeneration": true
+    },
+    {
+      "shot_id": "R05",
+      "title": "Show two water fronts meeting",
+      "priority": "P1",
+      "master_ranges": [
+        [
+          1405,
+          1465
+        ]
+      ],
+      "depends_on": [
+        "R04"
+      ],
+      "card": "shots/R05/SHOT_PACKET.json",
+      "disposition": "REPAIR",
+      "conditional_regeneration": false
+    },
+    {
+      "shot_id": "R06",
+      "title": "Keep the Art Room problem present on entry",
+      "priority": "P1",
+      "master_ranges": [
+        [
+          1991,
+          2039
+        ]
+      ],
+      "depends_on": [],
+      "card": "shots/R06/SHOT_PACKET.json",
+      "disposition": "CONDITIONAL_REVIEW",
+      "conditional_regeneration": true
+    },
+    {
+      "shot_id": "R07",
+      "title": "Wipe a legible clean strip",
+      "priority": "P1",
+      "master_ranges": [
+        [
+          2039,
+          2087
+        ]
+      ],
+      "depends_on": [],
+      "card": "shots/R07/SHOT_PACKET.json",
+      "disposition": "REPAIR",
+      "conditional_regeneration": false
+    },
+    {
+      "shot_id": "R08",
+      "title": "Finish the approach with contact and settle",
+      "priority": "P1",
+      "master_ranges": [
+        [
+          2087,
+          2120
+        ],
+        [
+          3070,
+          3102
+        ]
+      ],
+      "depends_on": [
+        "R07"
+      ],
+      "card": "shots/R08/SHOT_PACKET.json",
+      "disposition": "REPAIR",
+      "conditional_regeneration": false
+    },
+    {
+      "shot_id": "R09",
+      "title": "Scrub the recognizable big bunny until bubbles hide his form",
+      "priority": "P0",
+      "master_ranges": [
+        [
+          2324,
+          2372
+        ]
+      ],
+      "depends_on": [],
+      "card": "shots/R09/SHOT_PACKET.json",
+      "disposition": "REPAIR",
+      "conditional_regeneration": false
+    },
+    {
+      "shot_id": "R10",
+      "title": "Rainbow bunny jumps as the big bunny collapses",
+      "priority": "P0",
+      "master_ranges": [
+        [
+          2372,
+          2504
+        ]
+      ],
+      "depends_on": [
+        "R09"
+      ],
+      "card": "shots/R10/SHOT_PACKET.json",
+      "disposition": "REPAIR",
+      "conditional_regeneration": false
+    },
+    {
+      "shot_id": "R11",
+      "title": "Let dust scatter while the new friend settles",
+      "priority": "P0",
+      "master_ranges": [
+        [
+          2504,
+          2612
+        ]
+      ],
+      "depends_on": [
+        "R10"
+      ],
+      "card": "shots/R11/SHOT_PACKET.json",
+      "disposition": "REPAIR",
+      "conditional_regeneration": false
+    },
+    {
+      "shot_id": "R12",
+      "title": "Carry the same friend into paper pickup",
+      "priority": "P0",
+      "master_ranges": [
+        [
+          2612,
+          2678
+        ]
+      ],
+      "depends_on": [
+        "R11"
+      ],
+      "card": "shots/R12/SHOT_PACKET.json",
+      "disposition": "REPAIR",
+      "conditional_regeneration": false
+    },
+    {
+      "shot_id": "R13",
+      "title": "Duster must touch and collect a web",
+      "priority": "P0",
+      "master_ranges": [
+        [
+          2678,
+          2786
+        ]
+      ],
+      "depends_on": [],
+      "card": "shots/R13/SHOT_PACKET.json",
+      "disposition": "REPAIR",
+      "conditional_regeneration": false
+    },
+    {
+      "shot_id": "R14",
+      "title": "Water and sponge remove the wall stain",
+      "priority": "P1",
+      "master_ranges": [
+        [
+          2786,
+          2846
+        ]
+      ],
+      "depends_on": [],
+      "card": "shots/R14/SHOT_PACKET.json",
+      "disposition": "REPAIR",
+      "conditional_regeneration": false
+    },
+    {
+      "shot_id": "R15",
+      "title": "Preserve the rainbow friend during team cleanup",
+      "priority": "P0",
+      "master_ranges": [
+        [
+          2846,
+          2942
+        ]
+      ],
+      "depends_on": [
+        "R12",
+        "R13",
+        "R14"
+      ],
+      "card": "shots/R15/SHOT_PACKET.json",
+      "disposition": "REPAIR",
+      "conditional_regeneration": false
+    },
+    {
+      "shot_id": "R16",
+      "title": "Keep the concept bunny in the clean wide",
+      "priority": "P0",
+      "master_ranges": [
+        [
+          2942,
+          3014
+        ]
+      ],
+      "depends_on": [
+        "R15"
+      ],
+      "card": "shots/R16/SHOT_PACKET.json",
+      "disposition": "REPAIR",
+      "conditional_regeneration": false
+    },
+    {
+      "shot_id": "R17",
+      "title": "Restore book Eagle identity in the pinned discovery",
+      "priority": "P0",
+      "master_ranges": [
+        [
+          1717,
+          1805
+        ]
+      ],
+      "depends_on": [],
+      "card": "shots/R17/SHOT_PACKET.json",
+      "disposition": "REPAIR",
+      "conditional_regeneration": false
+    },
+    {
+      "shot_id": "R18",
+      "title": "Restore book Eagle identity in the recovered wingbeat",
+      "priority": "P0",
+      "master_ranges": [
+        [
+          1805,
+          1919
+        ]
+      ],
+      "depends_on": [
+        "R17"
+      ],
+      "card": "shots/R18/SHOT_PACKET.json",
+      "disposition": "REPAIR",
+      "conditional_regeneration": false
+    }
+  ],
+  "generation_order": [
+    "R09",
+    "R10",
+    "R11",
+    "R12",
+    "R13",
+    "R14",
+    "R15",
+    "R16",
+    "R02",
+    "R03",
+    "R04",
+    "R05",
+    "R07",
+    "R08",
+    "R01",
+    "R06"
+  ],
+  "reason": "Bunny shell-jump pilot and identity descendants first; then contact/state repairs. Independent jobs can be produced separately."
+}

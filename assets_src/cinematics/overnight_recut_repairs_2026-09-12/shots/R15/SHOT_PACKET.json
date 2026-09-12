@@ -1,0 +1,132 @@
+{
+  "shot_id": "R15",
+  "location_id": "hall_to_arena",
+  "master_ranges": [
+    [
+      2846,
+      2942
+    ]
+  ],
+  "title": "Preserve the rainbow friend during team cleanup",
+  "problem": "At f2910 the bunny has a prominent amber forehead jewel, small paws and different ear/body treatment. This is an identity failure, not simply a small-scale loss of detail.",
+  "beats": [
+    "With the same concept-matching rainbow bunny beside Roshan, the team completes one short floor-cleaning pass.",
+    "Roshan’s sponge follows Daddy’s broom along the visible dirty patch while Rumi and Eagle watch the result.",
+    "The tools settle and the clean patch remains visible; the bunny gives one tiny happy bob."
+  ],
+  "end_state": "All five friends settle beside the cleaned patch, with the rainbow bunny matching the concept.",
+  "must_not_move": "Hall B geometry, carpet edge, all five identities and rainbow curl/pearl topology",
+  "priority": "P0",
+  "depends_on": [
+    "R12",
+    "R13",
+    "R14"
+  ],
+  "duration_seconds": 4,
+  "negative_constraints": "no forehead jewel, articulated paws, identity change, new tools or extra bunny; no rejected Eagle redraw, sharp talons, backpack or altered book feather proportions; no Daddy beard, moustache, curly mane, bulky torso, open shirt, short sleeves, casual teal shirt or solid blue tail",
+  "exact_cast": [
+    "Roshan",
+    "Daddy",
+    "Rumi",
+    "Baby Eagle",
+    "one rainbow bunny"
+  ],
+  "conditional_regeneration": false,
+  "review_priority_note": "Direct observed defect or explicit new owner direction.",
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "status": "DRAFT",
+  "movie_id": "OVERNIGHT_RECUT",
+  "mode": "image_to_video",
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/rainbow_dust_bunny_concept.png",
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/7c4f39ef35_tool_star_sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "subject_identity",
+      "path": "references/daddy_generation_preview.jpg",
+      "sha256": "5a7c55e1987017f9fdfad5307538de7ddffce3a5d7025783aa4a08adfc836918",
+      "human_review": "Exact approved Daddy master compatibility preview; complete opening requires review",
+      "authority_domain": "Daddy identity only"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "With the same concept-matching rainbow bunny beside Roshan, the team completes one short floor-cleaning pass. Roshan’s sponge follows Daddy’s broom along the visible dirty patch while Rumi and Eagle watch the result. The tools settle and the clean patch remains visible; the bunny gives one tiny happy bob.",
+  "prompt_sha256": "66079886eaf9d080e562e28d361881a89036eaf482e0e0c963d02cacdf792510",
+  "blocking_findings": [
+    "missing complete human-approved opening at exact hash",
+    "missing measured setup and accepted predecessor/successor endpoints",
+    "V2 execution/binding review and remote opening verification pending"
+  ],
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "source_events": [
+    {
+      "master_range": [
+        2846,
+        2942
+      ],
+      "source_id": "V_21f1a1a5b91b32b3",
+      "source_sha256": "21f1a1a5b91b32b39d42c645a306f1e16defa1d9126a736b82e24532a09c0f06",
+      "source_path": "export/movie_recut_20260912/media/21f1a1a5b91b_19_D1-C14.mp4",
+      "source_range": [
+        0,
+        96
+      ],
+      "label": "QC_PART_19"
+    }
+  ],
+  "review": {
+    "human": null,
+    "measurements": null,
+    "cross_shot": null
+  },
+  "movement_profile": {
+    "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "version": 1,
+    "register": "attentive helping; eyes before hands; contact before consequence; supported settle"
+  },
+  "endpoint_policy": "Continuations use accepted predecessor endpoint. New camera address needs a separately approved complete opening. No defective source frame is an approved neighbor.",
+  "replacement_policy": "These master ranges are shot replacement envelopes, not claims that every enclosed frame has an independent defect. Preserve exact old index/source map; review every changed candidate frame. New reference duration requires reconform; do not stretch footage to fill the old range.",
+  "eagle_identity_authority": {
+    "path": "references/baby_eagle_original_book.png",
+    "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+    "review_required": true
+  },
+  "daddy_identity_authority": {
+    "path": "references/daddy_generation_preview.jpg",
+    "sha256": "5a7c55e1987017f9fdfad5307538de7ddffce3a5d7025783aa4a08adfc836918",
+    "invariants": "clean-shaven slender face, straight long brown hair, pointed ears, thin rectangular black glasses, jeweled crown, high-neck navy long-sleeve coat with gold embroidery, teal cape with scallop clasps, one rainbow-scaled tail and broad multicolor fluke",
+    "review_required": true
+  }
+}

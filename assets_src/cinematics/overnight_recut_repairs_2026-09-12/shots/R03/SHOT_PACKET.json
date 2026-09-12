@@ -1,0 +1,125 @@
+{
+  "shot_id": "R03",
+  "location_id": "bathroom",
+  "master_ranges": [
+    [
+      1075,
+      1123
+    ],
+    [
+      3014,
+      3038
+    ]
+  ],
+  "title": "Match the restored bathroom and recap",
+  "problem": "The clean wide introduces prominent foreground storage and a changed composition; review its room geography against the dirty entry rather than accepting brightness alone.",
+  "beats": [
+    "Start after completed bathroom gameplay in the same room and camera address as discovery.",
+    "Roshan looks from the now-clean tub toward the same sink and toilet.",
+    "She gives one small satisfied nod and settles."
+  ],
+  "end_state": "The same bathroom is clean, with every fixture in its established location.",
+  "must_not_move": "ocean window, one central sink/mirror, tub and toilet placements",
+  "priority": "P1",
+  "depends_on": [
+    "R02"
+  ],
+  "duration_seconds": 3,
+  "negative_constraints": "no added basin, duplicate bunny or newly invented foreground fixture",
+  "exact_cast": [
+    "Roshan"
+  ],
+  "conditional_regeneration": true,
+  "review_priority_note": "Conditional: retain the source if native full-motion/camera-aware review proves the stated consequence and seam. The observations identify a readability risk, not a proven anatomy/geometry defect.",
+  "schema": "grok-handoff-2-repair-draft-v1",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "status": "DRAFT",
+  "movie_id": "OVERNIGHT_RECUT",
+  "mode": "image_to_video",
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "human_review": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/69827625a8_roshan_roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/d788366485_swimming_bunny_dust_bunny_swimming.png",
+      "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+      "human_review": "Inherited project authority; exact complete opening and final image bindings require review",
+      "authority_domain": "identity only; incidental background does not control layout"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": "Start after completed bathroom gameplay in the same room and camera address as discovery. Roshan looks from the now-clean tub toward the same sink and toilet. She gives one small satisfied nod and settles.",
+  "prompt_sha256": "a74377d89b3df13caa6e9640cde9ba38b48a3cde13d9c195df8a5e0f1ad616e1",
+  "blocking_findings": [
+    "missing complete human-approved opening at exact hash",
+    "missing measured setup and accepted predecessor/successor endpoints",
+    "V2 execution/binding review and remote opening verification pending"
+  ],
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "source_events": [
+    {
+      "master_range": [
+        1075,
+        1123
+      ],
+      "source_id": "V_ff6116427486bc4b",
+      "source_sha256": "ff6116427486bc4b20d1da166d7cfffb1f38bd6a531a418a645a2e201c93724a",
+      "source_path": "export/movie_recut_20260912/media/ff6116427486_06_D1-C04.mp4",
+      "source_range": [
+        0,
+        48
+      ],
+      "label": "QC_PART_06"
+    },
+    {
+      "master_range": [
+        3014,
+        3038
+      ],
+      "source_id": "V_3c940656d742ef08",
+      "source_sha256": "3c940656d742ef084c3b808696c43429d0754c61dc0b7c39b00629641dde97a0",
+      "source_path": "export/movie_recut_20260912/media/3c940656d742_21_D1-C12.mp4",
+      "source_range": [
+        0,
+        24
+      ],
+      "label": "QC_PART_21"
+    }
+  ],
+  "review": {
+    "human": null,
+    "measurements": null,
+    "cross_shot": null
+  },
+  "movement_profile": {
+    "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "version": 1,
+    "register": "attentive helping; eyes before hands; contact before consequence; supported settle"
+  },
+  "endpoint_policy": "Continuations use accepted predecessor endpoint. New camera address needs a separately approved complete opening. No defective source frame is an approved neighbor.",
+  "replacement_policy": "These master ranges are shot replacement envelopes, not claims that every enclosed frame has an independent defect. Preserve exact old index/source map; review every changed candidate frame. New reference duration requires reconform; do not stretch footage to fill the old range."
+}
