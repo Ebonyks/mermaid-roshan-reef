@@ -4,12 +4,31 @@ import hashlib
 import json
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 from tools.audit_imagine_handoff import audit_handoff
 
 
 class ImagineHandoffAuditTest(unittest.TestCase):
+	def test_repair_archive_dispatch_preserves_readiness_and_integrity(self):
+		packet = Path(__file__).resolve().parents[2] / "assets_src/cinematics/overnight_recut_repairs_2026-09-12"
+		self.assertEqual(audit_handoff(packet), [])
+		self.assertTrue(any("not an executable Imagine packet" in error for error in audit_handoff(packet, True)))
+		with patch("tools.audit_overnight_recut_handoff.digest", return_value="0" * 64):
+			self.assertTrue(any("payload hash mismatch" in error for error in audit_handoff(packet)))
+
+	def test_repair_schema_cannot_hide_missing_archive(self):
+		with tempfile.TemporaryDirectory() as tmp:
+			packet = Path(tmp)
+			(packet / "IMAGINE_HANDOFF.json").write_text(json.dumps({
+				"schema": "overnight-recut-repair-index-v1", "generation_status": "ready",
+				"delivery_status": "accepted", "blocking_findings": []}), encoding="utf-8")
+			errors = audit_handoff(packet)
+			self.assertTrue(any("must remain blocked" in error for error in errors))
+			self.assertTrue(any("requires blocking_findings" in error for error in errors))
+			self.assertTrue(any("invalid repair archive" in error for error in errors))
+
 	def _ready_v2_packet(self, root: Path) -> tuple[Path, Path]:
 		packet = root / "packet_v2"
 		shot_dir = packet / "shots" / "S0"

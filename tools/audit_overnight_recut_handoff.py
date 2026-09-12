@@ -6,7 +6,10 @@ import hashlib
 import json
 from pathlib import Path
 
-from audit_grok_handoff_2 import check_card
+if __package__:
+    from .audit_grok_handoff_2 import check_card
+else:
+    from audit_grok_handoff_2 import check_card
 
 
 def digest(path: Path) -> str:

@@ -318,6 +318,22 @@ def audit_handoff(packet_dir: Path, require_ready: bool = False) -> list[str]:
 	manifest_path = packet_dir / HANDOFF_NAME
 	manifest = _load_json(manifest_path, errors)
 	schema = manifest.get("schema")
+	if schema == "overnight-recut-repair-index-v1":
+		# This is a draft archive index, not an executable Imagine packet.
+		# Validate its payload and frame maps; never silently skip its checks.
+		if __package__:
+			from .audit_overnight_recut_handoff import audit as audit_recut
+		else:
+			from audit_overnight_recut_handoff import audit as audit_recut
+		if manifest.get("generation_status") != "blocked" or manifest.get("delivery_status") != "not_accepted":
+			errors.append(f"{manifest_path}: repair draft must remain blocked and not_accepted")
+		if not manifest.get("blocking_findings"):
+			errors.append(f"{manifest_path}: repair draft requires blocking_findings")
+		try:
+			errors.extend(audit_recut(packet_dir, require_ready))
+		except (OSError, ValueError, KeyError, TypeError) as exc:
+			errors.append(f"{manifest_path}: invalid repair archive: {exc}")
+		return errors
 	if schema not in {HANDOFF_SCHEMA_V1, HANDOFF_SCHEMA_V2}:
 		errors.append(f"{manifest_path}: schema must be {HANDOFF_SCHEMA_V1} or {HANDOFF_SCHEMA_V2}")
 	is_v2 = schema == HANDOFF_SCHEMA_V2

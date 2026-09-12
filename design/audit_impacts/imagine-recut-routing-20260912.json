@@ -1,0 +1,37 @@
+{
+  "id": "imagine-recut-routing-20260912",
+  "baseline": "f2d87d5fdac88729ee470ac2f561b0d22493b069",
+  "scope": "Integration prerequisite exposed by Grand Puff final gate: dispatch the explicit overnight repair-index schema to its existing archive validator. Keep draft status and generation-readiness rejection explicit; preserve immutable archive payloads.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-CIN-11",
+    "DL-CIN-12",
+    "DL-QA-02",
+    "DL-QA-04",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15"
+  ],
+  "findings": [],
+  "no_findings_reason": "Newly integrated draft-index schema collision in a shared gate; no canonical finding closure claimed.",
+  "files": [
+    "tools/audit_imagine_handoff.py",
+    "tools/audit_overnight_recut_handoff.py",
+    "tools/tests/test_audit_imagine_handoff.py"
+  ],
+  "validation": [
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_imagine_handoff tools.tests.test_audit_overnight_recut_handoff; python tools/audit_imagine_handoff.py --all",
+      "result": "PASS",
+      "evidence": "16 unit/adversarial tests pass; --all validates every discovered packet. New controls prove archive hash corruption, missing payloads and false readiness are rejected. Initial combined-base failure retained in tmp/full-ci-integrated.log; complete repaired gate pending."
+    },
+    {
+      "command": "GODOT=Godot4.7.2/godot.exe scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "tmp/full-ci-ready.log SHA-256 b42e7573b4fa5f23e681b8babbb2bcbfe0586aa0263a8532a6bfedf8ebacfcde, exit 0; all 78 probes pass. Initial combined-base failure remains in tmp/full-ci-integrated.log. All archive payloads unchanged."
+    }
+  ],
+  "acceptance_gaps": "No cinematic acceptance changes. Draft archive remains blocked for generation and not accepted for delivery."
+}
