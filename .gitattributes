@@ -18,3 +18,6 @@ audit/grok_handoff_2_validation_20260909/** -text whitespace=-blank-at-eol,cr-at
 
 # Overnight cinematic archive hashes bind literal bytes across platforms.
 assets_src/cinematics/overnight_recut_repairs_2026-09-12/** -text whitespace=-blank-at-eol,cr-at-eol
+
+# Preserve the approved synthetic cohort provenance hash across checkouts.
+assets/audio/voices/filler_v1/GRAND_PUFF_COHORT_20260912.json -text whitespace=cr-at-eol

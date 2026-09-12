@@ -54,7 +54,8 @@
     "assets/audio/voices/filler_v1/roshan_day1_boss_move_floor.ogg",
     "audit/audio_quality_ledger_2026-08-24.csv",
     "audit/audio_quality_summary_2026-08-24.json",
-    "scripts/probe_ui_system.gd"
+    "scripts/probe_ui_system.gd",
+    ".gitattributes"
   ],
   "validation": [
     {
@@ -101,6 +102,11 @@
       "command": "Godot 4.7.2 --headless -s scripts/probe_ui_system.gd -- --touch --classic-touch-test",
       "result": "PASS",
       "evidence": "tmp/ui-system-cue-check.log RESULT ALL OK and exit 0. Initial full run exposed an obsolete cue-name assertion; now asserts all three new direct-touch cues while retaining every forbidden-overlay/button guard."
+    },
+    {
+      "command": "Verify new cohort provenance worktree SHA-256 equals staged Git blob and FILLER_MANIFEST declaration",
+      "result": "PASS",
+      "evidence": "Post-push clean-checkout review found Git normalized the new proof JSON to LF while its recorded hash binds generated CRLF bytes. Preserve native provenance bytes with a narrowly scoped -text attribute. Gameplay and all audio bytes remain exactly the full-suite-tested versions. Staged Git blob, native file and declared hash all equal 9927d1b90ebcf08283180a33bc0da6b0abedb4d42c25f83d9d5f7d4eda69ada1."
     }
   ],
   "acceptance_gaps": "Phone/child/owner gameplay and voice audition remain pending. All three synthetic cues passed exact-word/quality selection; all 687 previous audio files were hash-verified unchanged. Existing spatial staging remains migration debt; added presentation and geometry are Canvas/Vector2. No canonical finding closure.",
