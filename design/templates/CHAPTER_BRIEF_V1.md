@@ -81,6 +81,12 @@ new chapter commitment. List derivatives and provenance updates explicitly.
 
 ## 6. Implementation and dependency plan
 
+- Character movement: link each animated character's [individual profile](CHARACTER_MOVEMENT_PROFILE_V1.md)
+  and version; start Roshan with her [movement language](../animation/ROSHAN_MOVEMENT_LANGUAGE.md).
+  State scene-specific support/travel, emotional register, working verbs,
+  hand/tool contact, missing authored poses and planned in-context evidence.
+  Follow the [animation protocol](../animation/ANIMATION_PRODUCTION_PROTOCOL.md).
+
 | Deliverable | Verified existing code/probe to reuse | New work and dependencies | Implementable now? | Next verification and missing-evidence provider |
 |---|---|---|---|---|
 | Representative activity, then bounded expansion | Exact paths; target architecture is not an implemented API | To fill | Yes / only named part blocked | To fill |

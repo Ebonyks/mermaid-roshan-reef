@@ -22,6 +22,15 @@ causal contribution to each generation is unproven.
 
 ## One location and identity register
 
+For character acting, bind [Roshan's movement profile](animation/ROSHAN_MOVEMENT_LANGUAGE.md)
+and its version in the archive sidecar; other cast members use individual
+profiles from the [animation branch](../audit/animation/README.md). Put only the
+shot-specific intention, movement register, contact and settled end in the
+pasted prompt. The [animation protocol](animation/ANIMATION_PRODUCTION_PROTOCOL.md)
+adds acting consistency without changing the room, cast, shot order, source
+locks, readiness or full-frame delivery gates. Existing immutable packets
+retain their recorded sources until explicitly revised and revalidated.
+
 Use one location ID per actual room, shared across discovery, rescue,
 restoration and recap. Dirty and clean are states of that room. Record the
 canonical image hash, camera address, ordered landmarks, fixture count and

@@ -118,6 +118,14 @@ constants instead of copying their values into every chapter brief.
 
 ## 5. Production workflow
 
+For each animated character, link its individual profile from the
+[animation branch](../audit/animation/README.md). Roshan uses her
+[movement language](animation/ROSHAN_MOVEMENT_LANGUAGE.md) across costumes and
+activities. Describe chapter-specific support, tools, contact and emotional
+registers in the brief; use the [production protocol](animation/ANIMATION_PRODUCTION_PROTOCOL.md)
+for missing actions and representative studies. Existing art reuse does not
+prove a new verb's contact, and a character profile does not expand story scope.
+
 1. **Establish scope.** Record premise, entry/ending, creative boundaries,
    budget, dependencies, and the dated owner authorization in the brief.
    For a not-yet-commissioned chapter, prepare a proposal only.

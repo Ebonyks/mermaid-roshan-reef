@@ -1,0 +1,91 @@
+{
+  "id": "2026-09-11-roshan-animation-language",
+  "scope": "Owner-commissioned character animation design language and production protocol, beginning with Mermaid Roshan; integrate a character animation branch into the master audit, canonical motion rules, art and chapter navigation, and current cinematic continuity guidance. Documentation only; no accepted-art, runtime, finding lifecycle, or release changes.",
+  "baseline": "cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-02",
+    "DL-AGE-04",
+    "DL-AGE-06",
+    "DL-AGE-07",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-MED-05",
+    "DL-MOT-01",
+    "DL-MOT-02",
+    "DL-MOT-03",
+    "DL-MOT-04",
+    "DL-MOT-05",
+    "DL-MOT-06",
+    "DL-MOT-07",
+    "DL-MOT-08",
+    "DL-MOT-09",
+    "DL-INT-06",
+    "DL-CIN-01",
+    "DL-CIN-02",
+    "DL-CIN-03",
+    "DL-CIN-04",
+    "DL-PERF-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-VIS-006",
+    "MA-PERF-001"
+  ],
+  "files": [
+    "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+    "design/templates/CHARACTER_MOVEMENT_PROFILE_V1.md",
+    "audit/animation/README.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "design/00_MASTER_INDEX.md",
+    "design/02_ART_DIRECTION.md",
+    "design/09_CHAPTER_DEVELOPMENT_GUIDE.md",
+    "design/templates/CHAPTER_BRIEF_V1.md",
+    "design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md",
+    "docs/CINEMATIC_DIRECTION_AND_INTENT_PROTOCOL.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Final DOCAUTH ALL OK: 566 inventory / 566 ledger, 56 active / 58 retained findings. Log tmp/animation-language-validation/final-doc-gates.log, SHA-256 44955c412346e851bda56e943e6263b3bfb7b37041d01171867dd943a8ad5912."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Final AUDITDEV ALL OK against exact source baseline cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016; same final document log. Repeated after this evidence-only update before commit."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Final 51 existing tests pass in 16.499 seconds, stress 6/6, after the template placeholder readability correction. Same final document log; no tests changed."
+    },
+    {
+      "command": "GODOT=official-4.7.2 bash scripts/ci.sh",
+      "result": "PENDING",
+      "evidence": "Original checkout run deliberately stopped during visual-audit contract tests after inspection showed runtime-source traversal includes the existing .w2 worktrees. No test failure was emitted. Completed preceding source/document/music/audio gates, including audio 810/810. Retained log: tmp/animation-language-validation/full-ci.log. Full verification will run over the identical staged patch in a clean temporary worktree; no gate or source test is changed."
+    },
+    {
+      "command": "Read-only source and documentation review",
+      "result": "PASS",
+      "evidence": "Reviewed at cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016: assets/callers and canonical motion/contact/acceptance rules. Corrected pilot/contact mismatch, preserved torso-anchor limits and Ballerina/Teacher/Geologist pose exceptions, scoped retry cues to active interactions, and separated cinematic review-delivery from motion reference. All findings remain open as recorded; no runtime evidence transferred."
+    },
+    {
+      "command": "GODOT=C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe bash scripts/ci.sh (clean temporary validation worktree)",
+      "result": "PASS",
+      "evidence": "Official Godot 4.7.2.stable.official.ed1daf0bf; full scripts/ci.sh exits 0 with 78/78 unique trusted probes, every probe exit 0. Includes source/art/document controls, 95 visual-audit tests, audio 810/810, import and post-import game-wide NO_REGRESSION gate. Log tmp/animation-language-validation/isolated-full-ci.log, SHA-256 7c478b8b8e359df51574e20054bdee6cbac24774678f7c4eb3736f0d75be52cd. Identical root/validation staged patches after the run: tmp/animation-language-validation/reviewed-candidate.patch and reviewed-isolated-candidate.patch, SHA-256 6f5c37aa878fb718cdd76928143bf246a00e6e8cfcf453260e2ee926aba11c03. Only template placeholder formatting changed during runtime testing; final document gates above reran afterward. Runtime code/assets remained unchanged throughout, with zero unstaged tracked content differences after import. This record is subsequently updated with validation metadata only. Original interrupted checkout attempt remains explicit history, not an additional required pending run."
+    }
+  ],
+  "acceptance_gaps": "The working artistic direction is commissioned documentation, not an owner-approved motion study. Pilot comparison, authored action/contact clips, runtime integration, Mobile-scale visual review, target-device performance, child comprehension and owner acceptance remain outstanding. Related findings are not repaired or closed. No external archive completeness, generation readiness, delivery acceptance or master-audit satisfaction is claimed."
+}

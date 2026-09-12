@@ -732,6 +732,38 @@ therefore holds the required low/heart, open/second, or crown/fifth pose and
 plays only the authored curtain call once, holding its final frame. Earlier
 leg-, foot-, streamer-, extra-tail-, or crop-like candidates remain rejected.
 
+`DL-MOT-10` — Character animation work MUST use an individual movement profile
+recording personality interpretation, attention, propulsion/support, rhythm,
+stillness, emotional registers, action/contact vocabulary, existing art and
+directional gaps. Start with [Roshan's movement language](animation/ROSHAN_MOVEMENT_LANGUAGE.md)
+and the [character template](templates/CHARACTER_MOVEMENT_PROFILE_V1.md).
+Costumes inherit personality while documenting their specific verbs. A new
+profile cannot invent major canon or revive superseded anatomy/medium.
+
+`DL-MOT-11` — Choose acting from the character's intention and the true event:
+attention → purposeful action → visible contact/consequence → settle. Each
+profile distinguishes an everyday register from emotional accents; generic
+idle wobble or identical timing across characters is not personality coverage.
+Acting MUST preserve responsive input, clear objectives and stable support.
+
+`DL-MOT-12` — Each implemented action MUST have a versioned clip contract with
+source/pose coverage, timing, pivots and relevant hand/prop anchors, directional
+behavior, contact/effect markers, loop/exit behavior and interruption rules.
+Navigation owns arrival; gameplay validates targets, action identity and saved
+effects; animation reports presentation events. A timer or clip ending alone
+MUST NOT award progress. Follow the [production protocol](animation/ANIMATION_PRODUCTION_PROTOCOL.md).
+
+`DL-MOT-13` — Establish a character's movement through a comparable style study
+and a representative contextual action/contact study before claiming it is
+visually accepted. Record exact candidates and review outcomes in the
+[animation audit branch](../audit/animation/README.md). Direction documentation,
+authored art, runtime checks, visual/device/child/owner acceptance and external
+cinematic delivery remain separate claims. Routine authorized iteration needs
+no additional planning checkpoint; missing evidence blocks only its dependent
+acceptance. Cinematic delivery and review-delivery candidates retain every
+full-frame requirement in section 11. Separately labeled motion/editorial
+references cannot supply delivery pixels or acquire acceptance by relabeling.
+
 ---
 
 ## 10. Voice, music, and non-reader communication

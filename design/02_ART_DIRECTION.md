@@ -151,6 +151,13 @@ reactive foliage, a second cloud, glints or leaves merely to satisfy a list.
 
 ### Current character-animation authority
 
+For character-specific acting, use [Roshan's movement language](animation/ROSHAN_MOVEMENT_LANGUAGE.md)
+and the [animation production protocol](animation/ANIMATION_PRODUCTION_PROTOCOL.md)
+under `DL-MOT-10` through `DL-MOT-13`. The [animation audit branch](../audit/animation/README.md)
+records individual character profiles, candidate studies and acceptance gaps.
+Ribbon Glide with Playful Dolphin accents is Roshan's working direction;
+it does not retime existing clips or override the special pose rules below.
+
 The merged Opera delivery contains 13 runtime costume atlases, each a 4×4
 1024×1024 sheet with 256 px cells: **208 reviewed frames** in total. Native,
 alpha-derived, pack and runtime hashes plus identity, costume, tail topology,

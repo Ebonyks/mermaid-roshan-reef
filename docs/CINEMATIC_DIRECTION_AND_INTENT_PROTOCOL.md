@@ -2,6 +2,15 @@
 
 ## Purpose
 
+Character performance uses the commissioned [movement language for Roshan](../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md)
+and [animation production protocol](../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md).
+Record the character profile/version and chosen register in the Scene Direction
+Brief; the [animation audit branch](../audit/animation/README.md) tracks evidence.
+These add character-specific attention, action and settling to this intent
+process. They do not replace shot authority, full-frame cinematic production,
+existing acceptance, or owner decisions. Routine drafting within an already
+authorized commission does not require a second planning conversation.
+
 This document defines the conscious pre-generation process for every cinematic
 scene. It exists to prevent vague prompts, technically competent images without
 meaning, rushed montage pacing, and post-production attempts to invent artistic
