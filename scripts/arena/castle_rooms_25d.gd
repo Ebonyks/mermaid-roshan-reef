@@ -926,7 +926,6 @@ var _day_one_persistent_rumi: AnimatedSprite2D = null
 var _day_one_persistent_rumi_hotspot: Button = null
 var _blocked_door_feedback_cool := 0.0
 var _blocked_door_last_tap: Dictionary = {}
-var _blocked_door_pan_count := 0
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -1002,7 +1001,6 @@ func open(start_room: String = "main_hall") -> void:
 	m.castle_royal_hall_feedback_cool = 0.0
 	_blocked_door_feedback_cool = 0.0
 	_blocked_door_last_tap.clear()
-	_blocked_door_pan_count = 0
 	_invalidate_royal_hall_arrival()
 	m.g["castle_dust_bunnies_cleared"] = {}
 	m.g["castle_dust_bunny_runner_time"] = 0.0
@@ -1238,7 +1236,6 @@ func close() -> void:
 	m.castle_room_menu_open = false
 	_blocked_door_feedback_cool = 0.0
 	_blocked_door_last_tap.clear()
-	_blocked_door_pan_count = 0
 	m.g.erase("castle_room_affordance")
 	m.g.erase("castle_dust_bunnies_cleared")
 	m.g.erase("castle_dust_bunny_runner_time")
@@ -1751,12 +1748,9 @@ func _blocked_door_feedback(destination_id: String,
 	else:
 		_blocked_door_last_tap[destination_id] = 0.0
 	if cue != null:
-		if second_tap:
-			cue.pulse_plot_feedback()
-		else:
-			cue.pulse_blocked_feedback()
+		cue.pulse_blocked_feedback()
 	if second_tap:
-		_pan_to_blocked_door(destination_id)
+		_pulse_active_door()
 	if _blocked_door_feedback_cool <= 0.0:
 		_blocked_door_feedback_cool = BLOCKED_DOOR_SFX_COOLDOWN_SECONDS
 		_play_item_sfx("castle/curtain_swish.ogg", 0.78)
@@ -1780,25 +1774,17 @@ func _blocked_door_feedback(destination_id: String,
 			BLOCKED_DOOR_SFX_COOLDOWN_SECONDS)
 
 
-func _pan_to_blocked_door(destination_id: String) -> void:
-	if not _is_wide_hall() or m.castle_room_world_root == null:
+func _pulse_active_door() -> void:
+	var active_id: String = active_door_highlight_id()
+	if active_id.is_empty():
 		return
-	for portal_data: Dictionary in HALL_PORTALS:
-		if String(portal_data.get("id", "")) != destination_id:
+	for record: Dictionary in m.castle_room_door_hotspots:
+		var portal_data: Dictionary = record.get("data", {}) as Dictionary
+		if String(portal_data.get("id", "")) != active_id:
 			continue
-		var foot: Vector2 = portal_data.get("foot", Vector2.ZERO) as Vector2
-		_hall_view_left_art = clampf(
-			foot.x - HALL_VIEW_SIZE.x * 0.5,
-			0.0, HALL_LOGICAL_SIZE.x - HALL_VIEW_SIZE.x)
-		m.castle_room_world_root.position = Vector2(
-			-_hall_view_left_art * HALL_STAGE_SCALE, 0.0)
-		if m.castle_room_player_sprite != null:
-			_position_hall_player_at_foot(foot, false)
-		_blocked_door_pan_count += 1
-		m.g["castle_blocked_door_pan_target"] = destination_id
-		m.g["castle_blocked_door_pan_count"] = _blocked_door_pan_count
-		_sync_hall_horizontal_culling()
-		_update_hall_portals()
+		var cue: CastleDoorCue = record.get("cue") as CastleDoorCue
+		if cue != null:
+			cue.pulse_plot_feedback()
 		return
 
 func _rebuild_room_links(_room_id: String) -> void:

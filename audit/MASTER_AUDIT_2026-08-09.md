@@ -63,6 +63,8 @@ Scoped 2026-09-09 retired-Reef route repair: [impact and evidence](../design/aud
 
 Scoped Day One toilet cleaning addition: [implementation and evidence](../design/audit_impacts/2026-09-09-day-one-toilet-clean.json). Adds a third intentional bathroom scrub with saved completion and local brush contact; device/child/owner acceptance and game-wide `MA-PLAY-004` remain open.
 
+Scoped Day One usability repairs (2026-09-12): [impact and evidence](../design/audit_impacts/day-one-usability-fixes-20260912.json) covers single-touch Back ownership, persistent truthful door highlights, art pointer/target separation, and automatic toilet approach before intentional scrubbing. These bounded repairs do not close game-wide route, embodied-job, touch-device, or child acceptance findings.
+
 [Authority reconciliation](#3-authority-and-comprehensive-design-language-confirmation) · [Historical evidence](#4-evidence-at-the-integration-snapshot-and-named-historical-commits) · [Supporting repairs](#6-supporting-repair-evidence--not-canonical-finding-records) · [Superseded ideas](#7-superseded-dismissed-and-deferred-ideas) · [Expanded acceptance](#8-expanded-acceptance-notes-for-highest-priority-indexed-items) · [Audit tools](#11-audit-tool-and-documentation-control-work) · [Change history](#14-change-history)
 
 [Executive verdict](#1-executive-verdict) · [Superseded design choices](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#15-explicitly-superseded-dismissed-and-deferred-ideas) · [Canonical finding schema](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#17-finding-record-fields)

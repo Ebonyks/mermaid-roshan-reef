@@ -86,6 +86,14 @@ func _run_probe() -> void:
 	cue.call("set_door_state", DoorLanguage.PLOT)
 	_check("plot cue is visible and input-transparent",
 		cue.visible and cue.mouse_filter == Control.MOUSE_FILTER_IGNORE)
+	for frame_index in range(6):
+		await process_frame
+		_check("real plot cue survives process frame %d" % frame_index,
+			String(cue.get("door_state")) == DoorLanguage.PLOT and cue.visible)
+	cue.call("pulse_plot_feedback")
+	cue.call("_process", 1.0)
+	_check("story attention pulse never expires the real plot state",
+		String(cue.get("door_state")) == DoorLanguage.PLOT and cue.visible)
 	_check("unified cue has no legacy keyhole child",
 		cue.find_child("*Keyhole*", true, false) == null
 		and cue.find_child("*LockIcon*", true, false) == null)
@@ -93,7 +101,19 @@ func _run_probe() -> void:
 	cue.call("pulse_blocked_feedback")
 	_check("blocked fog cue owns local feedback",
 		cue.visible and float(cue.get("feedback_time")) > 0.0)
+	for attempt in range(3):
+		cue.call("pulse_plot_feedback")
+		cue.call("_process", 0.1)
+		_check("repeated blocked feedback cannot advertise plot %d" % attempt,
+			String(cue.get("door_state")) == DoorLanguage.BLOCKED
+			and not DoorLanguage.allows_travel(String(cue.get("door_state"))))
+	cue.call("set_door_state", DoorLanguage.PLOT)
+	await process_frame
+	_check("newly unlocked plot survives earlier blocked feedback",
+		String(cue.get("door_state")) == DoorLanguage.PLOT and cue.visible)
+	cue.call("pulse_plot_feedback")
 	cue.call("set_door_state", DoorLanguage.OPEN)
+	cue.call("_process", 1.0)
 	_check("ordinary open has no cue", not cue.visible)
 	cue.queue_free()
 

@@ -1,0 +1,100 @@
+{
+  "id": "day-one-usability-fixes-20260912",
+  "scope": "Owner-requested repairs to Day One review items 1, 2, 3 and 6: one Back touch takes one route, only the actual next castle door retains the gold cue, art pointers and separated touch targets agree with the visible supply, and short toilet gestures no longer strand Roshan before approach. Preserve ordinary controls, protected assets, saved progress and intentional-only scrub completion. Voice policy, boss teaching and companion customization are outside this change. Source-only Castle V4 approval-binding maintenance is included after an exact proof that all 96 reviewed frame hashes, occlusions and manifest data are unchanged; no frame approval or owner acceptance is added.",
+  "baseline": "cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-AGE-06",
+    "DL-AGE-07",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-UI-01",
+    "DL-UI-02",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06"
+  ],
+  "findings": [
+    "MA-PLAY-001",
+    "MA-PLAY-003",
+    "MA-PLAY-004",
+    "MA-TOUCH-001"
+  ],
+  "files": [
+    "scripts/touch_ui.gd",
+    "scripts/castle_door_cue.gd",
+    "scripts/arena/castle_rooms_25d.gd",
+    "scripts/probe_touch_router.gd",
+    "scripts/probe_castle_door_language.gd",
+    "scripts/probe_day_one_d8_revisits.gd",
+    "scripts/day_one_art_studio.gd",
+    "scripts/probe_day_one_art_attack_state.gd",
+    "scripts/games/day_one_bathroom_toilet.gd",
+    "scripts/probe_day_one_bathroom_cleanup.gd",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 Mobile one-finger Day One walkthrough and focused production-script reproductions at baseline cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016",
+      "result": "PASS",
+      "evidence": "Failing behavior reproduced before repair in main checkout tmp/day-one-usability-20260912: screenshots 15-toilet-circles/16-back (one touch exits two routes), 02-castle (missing active gold), 40-art-room/41-pointed-pink-bottle (wrong hand target), 14-toilet-short-circle (no scrub). verification-navigation/results.json reproduces PLOT->BLOCKED on the next process step; double_back_results.json records two callbacks with touch mouse emulation enabled and one disabled. verification-activity/focused-usability.log reproduces the overlapping art hit and stranded 0.1-second toilet touch. Local diagnostic evidence; Android/child acceptance not established."
+    },
+    {
+      "command": "python -m gdtoolkit.parser <changed .gd files>; python tools/lint_inference.py <changed .gd files>; exact Godot 4.7.2 --headless --path . -s scripts/probe_day_one_art_attack_state.gd -- --touch --classic-touch-test; focused touch/door/bathroom probes",
+      "result": "PASS",
+      "evidence": "All changed GDScript parses and passes inference lint. Exact engine bootstrap import exit0 (149.64s), no script/resource errors: tmp/day-one-fixes-validation/bootstrap-import.log. Art real GUI touch matrix PASS failures=0 in art-focused/output-final.log: visible target ownership, all adjacent gaps, next hand alignment, seven cleanup steps, save/customizer/attack-profile siblings. Navigation/probe_touch_router_final.log ALL OK: emulation on/off, one touch per route, ordinary GUI release and next touch. Toilet cleanup and integration pass in tmp/day-one-toilet-fix-verification/bathroom-cleanup.log and bathroom-integration.log, including no prearrival/passive cleaning, short lift, focus/pause, stale drag and teardown. Initial art/router fixture attempts failed because async SceneTree construction let engine initialization overwrite window size; deferred execution restores the genuine input route without weakening assertions. All paths here are relative to the isolated repair worktree."
+    },
+    {
+      "command": "Complete local gate set: original scripts/ci.sh passing prefix, refreshed affected gates, then its unchanged import-and-probe suffix",
+      "result": "PASS",
+      "evidence": "Aggregate local validation is complete; the initial full command remains a recorded failure below. Its unaffected preceding gates passed, then the affected authority/development gates and 51 unit controls passed again (continuation-authority-result.json), as did the refreshed Castle binding check. Exact Godot 4.7.2 import, 2D NO_REGRESSION and all 78 trusted runtime probes passed in tmp/day-one-fixes-validation/ci-continuation.log. ci-continuation-result.json records exit 0 after 1541.138 seconds, completed 2026-09-12T06:27:58Z. continuation-source-manifest.json proves byte-for-byte equality with scripts/ci.sh from line 157 through its original end: original script SHA256 96aba61e2d51296c9296f7ab63735e5df515756337ca21ed067feef3c69f466d, suffix SHA256 a59a51a115860526a5db788beaba5b49a30baa426c0e5054f9d1b271c80f5d61. All ten changed runtime/probe sources remain identical to the frozen initial validation set. This is a complete gate-by-gate result, not a clean exit for the initial full command; existing 2D satisfaction remains UNSATISFIED."
+    },
+    {
+      "command": "Exact-commit remote Probe Suite on codex/day-one-usability-fixes-20260912",
+      "result": "PENDING",
+      "evidence": "Required after committing and pushing this candidate, before integration into dev. Verify the remote run against the actual committed SHA; local evidence does not establish remote CI success."
+    },
+    {
+      "command": "Exact Godot 4.7.2 desktop Mobile/Speedy 1280x720 scoped real-input visual fixtures for castle navigation, art cleanup and toilet staging/scrubbing",
+      "result": "PASS",
+      "evidence": "All selected captures inspected. navigation-visual/engine.log ALL OK with empty error log and results.json: initial bathroom PLOT persists, two actual locked-pool taps keep pool BLOCKED, one Back from completed bathroom reaches Main Hall and next pool PLOT. art-touch-visual/output-final.log PASS failures=0: actual ScreenTouch pairs collect all four visible supplies and clean all three spots; eleven PNGs at1280x720 include each advancing hand. tmp/day-one-toilet-fix-visual/live-main/toilet-visual.log PASS failures=0: short release continues72.85px approach with zero progress; arrival shows existing circle cue and hand/bristle contact error0px; deliberate half-circle47.6%, continued motion2.128s completes and saves cleanup_step3/toilet_cleaned/bathroom completion. All paths under repair worktree tmp/day-one-fixes-validation unless explicitly prefixed tmp/. SHA256 inventory focused-evidence.json binds final logs/captures. These fixtures stage relevant room boundaries, not a full fresh-save playthrough; earlier fixture-only setup/indentation/caption errors are excluded, preserved in diagnostic logs, and no product gates were weakened. Fresh-entry claims are additionally verified through the normal New Game -> castle route with parsed touch, no progression staging: navigation-fresh/evidence.json binds 16 action/state/capture files. 02-castle-entry.png,03-hall-gold-after-wait.png and06-pool-repeat-b.png show only the correct bathroom gold through waiting and repeated locked-pool taps (2.119s apart), with empty runtime error log. The initial staged hall captures carried a separate marker absent from normal play; its exact origin was not isolated, so use navigation-fresh for normal-entry claims and the original staged bathroom/Back pair only for the bounded return check."
+    },
+    {
+      "command": "Initial full scripts/ci.sh at frozen repair sources",
+      "result": "FAIL",
+      "evidence": "tmp/day-one-fixes-validation/full-suite.log and full-suite-result.json: exit1 after1483.91s at Castle V4 approval candidate binding, before runtime probe loop. All preceding gates passed, including95 visual-contract tests (521.724s),810 audio,44 music and64 Castle self-tests. Candidate d37e4eeb2fad107b10ac66b95586e904c218a3ea2f1bf35c329beb0f8c1d68d8 differs from approved8368356cefa1cba280c5c949b102e698045b1f137f7ff8524f4b6dd078adc86c only by normalized whole-file runtime-layout source hash; every reviewed frame and occlusion is unchanged. This failed attempt remains explicit and is not counted as a passing command."
+    },
+    {
+      "command": "Exact Castle frame-binding comparison against baseline cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016",
+      "result": "PASS",
+      "evidence": "tmp/day-one-fixes-validation/frame-binding-proof.json SHA256 7c74279a51aecfdd8430f342093cc993bd129e5991dbdfd9eca9ed54ad392baa: 96/96 frame_review_sha256 values match, zero occlusion mismatches, manifest unchanged. Replacing only current runtime-layout semantic hash 3bf113a026aaf45925ecd43e16ac693d92060e425ab24259677347be642c9205 with baseline a5e663f8215843d020ae8834c8594643632419fb674fb848e400a837d91d13b6 exactly reproduces the prior approved candidate hash 8368356cefa1cba280c5c949b102e698045b1f137f7ff8524f4b6dd078adc86c. Applied the established day_one_binding_revalidation/pathfinding_binding_revalidation procedure, retaining all existing frame approval records and owner_acceptance=pending. Rerun python -B tools/review_castle_interaction_frames_v4.py check exits 0 with RESULT=OK, assets=12, frames=96 and the original reviewer in tmp/day-one-fixes-validation/castle-frame-binding-check.log."
+    }
+  ],
+  "local_validation_index": {
+    "path": "tmp/day-one-fixes-validation/aggregate-validation-result.json",
+    "sha256": "a8d2430ab6cb15f52c30d3203b6d4604b650b0caccb1a84ca650ab745c61e884",
+    "continuation_log_sha256": "22eef96875de533abe199c6940ed57fd0fe09b847f33595396ef7f7bea60e857",
+    "result": "78 expected, 78 executed, 78 unique in original order; every exit 0; no failure, runtime, parse or compile error markers; all ten changed scripts unchanged. Final document-authority and development-coverage logs are retained beside this index."
+  },
+  "acceptance_gaps": "Target Android touch/focus/occlusion/performance, actual child comprehension and applicable owner acceptance remain open. Scoped machine/desktop evidence does not close game-wide MA-PLAY-001/003/004 or MA-TOUCH-001, certify voices, or satisfy the master audit. No protected originals, new assets, save keys, workflows, release branch or unrelated movie-recut work are modified."
+}

@@ -5,14 +5,14 @@ extends Control
 ## Canvas2D scene; this node owns only temporary touch targets and effects.
 
 const MATERIALS: Array[Dictionary] = [
-	{"id": "brushes", "label": "loose brushes", "center": Vector2(344.0, 390.0),
-		"hit_size": Vector2(150.0, 128.0), "color": Color(1.0, 0.72, 0.38)},
-	{"id": "pink_paint", "label": "pink paint", "center": Vector2(416.0, 390.0),
+	{"id": "brushes", "label": "loose brushes", "center": Vector2(296.0, 390.0),
+		"hit_size": Vector2(128.0, 128.0), "color": Color(1.0, 0.72, 0.38)},
+	{"id": "pink_paint", "label": "pink paint", "center": Vector2(440.0, 390.0),
 		"hit_size": Vector2(128.0, 128.0), "color": Color(1.0, 0.48, 0.70)},
-	{"id": "blue_paint", "label": "blue paint", "center": Vector2(608.0, 390.0),
+	{"id": "blue_paint", "label": "blue paint", "center": Vector2(584.0, 390.0),
 		"hit_size": Vector2(128.0, 128.0), "color": Color(0.44, 0.84, 1.0)},
-	{"id": "paint_cups", "label": "paint cups", "center": Vector2(681.0, 390.0),
-		"hit_size": Vector2(150.0, 128.0), "color": Color(0.73, 0.60, 1.0)},
+	{"id": "paint_cups", "label": "paint cups", "center": Vector2(728.0, 390.0),
+		"hit_size": Vector2(128.0, 128.0), "color": Color(0.73, 0.60, 1.0)},
 ]
 const GRIME: Array[Dictionary] = [
 	{"id": "left_counter", "label": "left counter grime", "center": Vector2(180.0, 385.0),
@@ -213,13 +213,13 @@ func _build_item_art() -> void:
 	# These are the only new loose supplies. Existing stored brushes, bottles,
 	# cups, palette and paint table remain owned by the accepted room cards.
 	_material_art["brushes"] = _make_world_card("LooseBrushes", ART_BRUSHES,
-		Vector2(344.0, 390.0), Vector2(92.0, 62.0), 250)
+		_material_center("brushes"), Vector2(92.0, 62.0), 250)
 	_material_art["pink_paint"] = _make_world_card("LoosePinkPaint", ART_PAINT_PINK,
-		Vector2(416.0, 390.0), Vector2(42.0, 56.0), 250)
+		_material_center("pink_paint"), Vector2(42.0, 56.0), 250)
 	_material_art["blue_paint"] = _make_world_card("LooseBluePaint", ART_PAINT_BLUE,
-		Vector2(608.0, 390.0), Vector2(42.0, 56.0), 250)
+		_material_center("blue_paint"), Vector2(42.0, 56.0), 250)
 	_material_art["paint_cups"] = _make_world_card("LoosePaintCups", ART_PAINT_CUPS,
-		Vector2(681.0, 390.0), Vector2(92.0, 62.0), 250)
+		_material_center("paint_cups"), Vector2(92.0, 62.0), 250)
 	for material: Dictionary in MATERIALS:
 		var material_id: String = String(material["id"])
 		var center: Vector2 = material["center"] as Vector2
@@ -403,7 +403,9 @@ func _refresh_pointer() -> void:
 		found = true
 	_pointer.visible = found
 	if found:
-		_pointer.position = target + Vector2(76.0, -78.0) - _pointer.size * 0.5
+		# Keep the fingertip directly above this object, inside its own generous
+		# hit region. A sideways offset points at the neighbouring paint bottle.
+		_pointer.position = target + Vector2(0.0, -64.0) - _pointer.size * 0.5
 
 
 func _announce_current_target() -> void:

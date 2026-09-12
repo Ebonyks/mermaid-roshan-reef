@@ -7,8 +7,17 @@ var touch: CanvasLayer
 var taps: Array[Vector2] = []
 var fingers: Dictionary = {}
 var failures := 0
+var navigation_closed_routes: Array[String] = []
 
 func _init() -> void:
+	call_deferred("_run")
+
+
+func _run() -> void:
+	# Configure the real input window after SceneTree initialization; before
+	# that point the headless driver resets it to 64x64 and drops these taps.
+	root.size = Vector2i(1280, 720)
+	root.content_scale_size = Vector2i(1280, 720)
 	var scene: PackedScene = load("res://scenes/main.tscn")
 	main = scene.instantiate()
 	get_root().add_child(main)
@@ -193,13 +202,13 @@ func _init() -> void:
 	main._tap_move_ref().cancel("probe complete")
 	main.player.verb = ""
 
-	# Priority dispatch: the sole global control is claimed in _input before ordinary
-	# GUI routing. Headless display drivers do not forward synthetic mouse
-	# events through a viewport, so exercise that priority handler directly.
+	# Priority dispatch: the sole global control is claimed in _input before
+	# ordinary GUI routing. Cover parsed physical touch plus direct mouse input.
 	main.game = "level2"
 	main.g["phase"] = "promenade"
 	main._navigation_set_root("sky_lagoon")
 	main._pause_ref().sync_global_navigation()
+	await _probe_single_touch_navigation()
 	var pause_center: Vector2 = touch.pause_zone().get_center()
 	_dispatch_mouse(pause_center, true)
 	await process_frame
@@ -232,6 +241,100 @@ func _init() -> void:
 	if not (touch.stick_vec as Vector2).is_zero_approx() or bool(touch.action_down) or not touch.touch_owners.is_empty():
 		_bad("focus loss left owned touch state behind")
 	_finish()
+
+
+func _probe_single_touch_navigation() -> void:
+	# Exercise the real engine parser and global Button together. Calling only
+	# TouchUI._input bypasses the emulated mouse/GUI half of a physical touch.
+	var previous_emulation: bool = Input.emulate_mouse_from_touch
+	for emulate: bool in [true, false]:
+		Input.emulate_mouse_from_touch = emulate
+		main._navigation_ref().clear()
+		navigation_closed_routes.clear()
+		main._navigation_push("router_parent", self,
+			_record_navigation_close.bind("parent"))
+		main._navigation_push("router_child", self,
+			_record_navigation_close.bind("child"))
+		var center: Vector2 = touch.pause_zone().get_center()
+		_parse_navigation_touch(center, true)
+		await _frames(2)
+		if navigation_closed_routes != ["child"] \
+				or String(main._navigation_ref().top_id()) != "router_parent":
+			_bad("one raw touch popped more than one route with mouse emulation=%s: %s" \
+				% [emulate, navigation_closed_routes])
+		_parse_navigation_touch(center, false)
+		await _frames(2)
+		if navigation_closed_routes != ["child"]:
+			_bad("navigation finger release popped another route with emulation=%s" % emulate)
+		_parse_navigation_touch(center, true)
+		await _frames(2)
+		_parse_navigation_touch(center, false)
+		await _frames(2)
+		if navigation_closed_routes != ["child", "parent"]:
+			_bad("second deliberate navigation touch did not pop exactly its parent: %s" \
+				% [navigation_closed_routes])
+		if main.get_tree().paused:
+			_bad("a single navigation touch leaked through to the root Menu")
+			main._pause_ref().toggle_pause()
+	await _probe_ordinary_gui_touch()
+	Input.emulate_mouse_from_touch = previous_emulation
+	main._navigation_ref().clear()
+	print("TOUCH_ROUTER|single-touch navigation parser matrix completed")
+
+
+func _probe_ordinary_gui_touch() -> void:
+	# Navigation owns only its press. Ordinary GUI still receives emulated
+	# touch and can release a finger that ends over Back without navigating.
+	Input.emulate_mouse_from_touch = true
+	var overlay := CanvasLayer.new()
+	overlay.layer = 100
+	root.add_child(overlay)
+	var button := Button.new()
+	button.position = Vector2(280.0, 220.0)
+	button.size = Vector2(160.0, 100.0)
+	overlay.add_child(button)
+	var counts: Array[int] = [0, 0]
+	button.button_down.connect(func() -> void: counts[0] += 1)
+	button.button_up.connect(func() -> void: counts[1] += 1)
+	main._navigation_push("router_gui_parent", self,
+		_record_navigation_close.bind("gui_parent"))
+	navigation_closed_routes.clear()
+	var start: Vector2 = button.get_global_rect().get_center()
+	var finish: Vector2 = touch.pause_zone().get_center()
+	_parse_navigation_touch(start, true)
+	await _frames(2)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 0
+	drag.position = finish
+	drag.relative = finish - start
+	Input.parse_input_event(drag)
+	_parse_navigation_touch(finish, false)
+	await _frames(2)
+	if counts != [1, 1] or button.is_pressed() \
+			or not navigation_closed_routes.is_empty():
+		_bad("ordinary GUI drag-release onto Back lost ownership: %s, routes=%s" \
+			% [counts, navigation_closed_routes])
+	_parse_navigation_touch(start, true)
+	await _frames(2)
+	_parse_navigation_touch(start, false)
+	await _frames(2)
+	if counts != [2, 2] or button.is_pressed():
+		_bad("ordinary GUI touch no longer works after navigation: %s" % [counts])
+	main._navigation_ref().clear()
+	overlay.queue_free()
+	await process_frame
+
+
+func _record_navigation_close(route_id: String) -> void:
+	navigation_closed_routes.append(route_id)
+
+
+func _parse_navigation_touch(point: Vector2, pressed: bool) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = 0
+	event.position = point
+	event.pressed = pressed
+	Input.parse_input_event(event)
 
 func _record_tap(pos: Vector2) -> void:
 	taps.append(pos)
