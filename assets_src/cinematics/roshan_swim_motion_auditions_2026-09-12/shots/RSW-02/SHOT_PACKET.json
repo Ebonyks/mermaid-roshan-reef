@@ -1,0 +1,114 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "roshan_swim_motion_auditions_2026-09-12",
+  "shot_id": "RSW-02",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 8,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "openings/front-right.png",
+      "sha256": "cb4f0ccccf31937aabeecc4cba0232d2e50ab37fe0dc97c9b9ac2ef986959bf0",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "pending",
+      "approval_scope": "new flattened opening composition has not been human approved"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "dimensions": [
+        768,
+        768
+      ],
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "accepted",
+      "approval_scope": "prior owner-approved front identity painting"
+    }
+  ],
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.html",
+      "used_as_pixel_reference": false,
+      "role": "human timeline and source navigation only"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "gaze and expression express the named intention",
+    "shoulders, elbows and wrists articulate rather than translate as one rigid arm",
+    "torso-to-tail propulsion with delayed broad-fin follow-through",
+    "subtle independent curl and colored-strand follow-through"
+  ],
+  "must_not_move": [
+    "camera",
+    "neutral navy field",
+    "identity/costume/anatomical ownership; pose itself is not locked"
+  ],
+  "end_state": "Roshan is calmly attentive toward screen-right, hands relaxed and tail settled.",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no identity drift",
+    "no pinned fingertips",
+    "no rubber fin",
+    "no boomerang or duplicate-video loop"
+  ],
+  "prompt_path": "shots/RSW-02/PROMPT.txt",
+  "prompt_sha256": "dddd2625774604ff4e7c866b5f83e6635b4e7faaeaef14cabfcb59591f06f8c0",
+  "sample_contract": {
+    "id": "RSW-02",
+    "name": "Playful Dolphin: delighted departure",
+    "opening": "front-right",
+    "register": "excited accent",
+    "comparison_group": "matched_01_02",
+    "question": "Can two contained propulsion beats express delight without frantic pumping?",
+    "beats": [
+      [
+        0,
+        1,
+        "her eyes notice the same offscreen-right point; her brows lift slightly and her expression brightens before her shoulders commit"
+      ],
+      [
+        1,
+        2.5,
+        "she gathers into a compact curved pose and opens into two quick, rounded tail efforts; one hand leads softly while the other balances, with moving elbows and wrists rather than straight outstretched arms"
+      ],
+      [
+        2.5,
+        5.5,
+        "the effort resolves into a buoyant rightward glide and a pleased chest lift; the broad fin trails each tail beat without folding into a ribbon, and her curls lag the acceleration"
+      ],
+      [
+        5.5,
+        8,
+        "she decelerates into the same attentive end position as the gentle version; one delighted smile resolves into calm availability"
+      ]
+    ],
+    "end": "Roshan is calmly attentive toward screen-right, hands relaxed and tail settled.",
+    "path": "same start, end, travel distance, scale and duration as RSW-01; vary effort and phrasing only",
+    "loop": false
+  },
+  "blocking_findings": [
+    "exact IMAGE_1 human approval pending",
+    "immutable remote input URLs pending publication"
+  ]
+}

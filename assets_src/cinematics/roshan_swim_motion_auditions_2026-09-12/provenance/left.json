@@ -1,0 +1,29 @@
+{
+  "sequence": 12,
+  "view": "left",
+  "attempt": 2,
+  "status": "GENERATED_REVIEW_PENDING",
+  "method": "targeted-projection-repair",
+  "prompt": "left/attempt-002/prompt.txt",
+  "prompt_sha256": "f24bb57e4605642092e8637051d41ee6afa13e21e9fb90f71b98031c75af0d2e",
+  "references": [
+    {
+      "path": "left/attempt-002/reference-01.png",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\roshan_eight_views_20260911\\left\\attempt-001\\generated.png",
+      "sha256": "42ecb466d4be7e67790c74c51a6e0fe9745ef6efcb9eec7acfba6d31b7173dd9"
+    },
+    {
+      "path": "left/attempt-002/reference-02.png",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\roshan_eight_views_20260911\\references\\approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c"
+    },
+    {
+      "path": "left/attempt-002/reference-03.png",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\roshan_eight_views_20260911\\back\\attempt-001\\generated.png",
+      "sha256": "0b7c42a3ab822f39d11d8bd19329b05e765941a74c7f866aa6f7823536596cda"
+    }
+  ],
+  "output": "left/attempt-002/generated.png",
+  "output_sha256": "92807fc3e75478d5b1a66f9cac2608489fe38e225450e24cb0c01b4f96eba279",
+  "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a04e57-5a72-7022-b9d3-bab0bad85dc1\\exec-2f4f4446-1219-4db4-b4fd-8e7a7486d3df.png"
+}

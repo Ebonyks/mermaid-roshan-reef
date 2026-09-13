@@ -1,0 +1,113 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "roshan_swim_motion_auditions_2026-09-12",
+  "shot_id": "RSW-05",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 8,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "openings/front-right.png",
+      "sha256": "cb4f0ccccf31937aabeecc4cba0232d2e50ab37fe0dc97c9b9ac2ef986959bf0",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "pending",
+      "approval_scope": "new flattened opening composition has not been human approved"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "dimensions": [
+        768,
+        768
+      ],
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "accepted",
+      "approval_scope": "prior owner-approved front identity painting"
+    }
+  ],
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.html",
+      "used_as_pixel_reference": false,
+      "role": "human timeline and source navigation only"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "gaze and expression express the named intention",
+    "shoulders, elbows and wrists articulate rather than translate as one rigid arm",
+    "torso-to-tail propulsion with delayed broad-fin follow-through",
+    "subtle independent curl and colored-strand follow-through"
+  ],
+  "must_not_move": [
+    "camera",
+    "neutral navy field",
+    "identity/costume/anatomical ownership; pose itself is not locked"
+  ],
+  "end_state": "Roshan is eagerly gliding screen-right with bright eyes, a warm smile and relaxed recovering arms.",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no identity drift",
+    "no pinned fingertips",
+    "no rubber fin",
+    "no boomerang or duplicate-video loop"
+  ],
+  "prompt_path": "shots/RSW-05/PROMPT.txt",
+  "prompt_sha256": "28576f5d51540bf0631c9990d37aba2dc719d39afc6f2f29529bca9f7616b9f8",
+  "sample_contract": {
+    "id": "RSW-05",
+    "name": "Are we playing? impatience turns to eager motion",
+    "opening": "front-right",
+    "register": "bored to mildly impatient to delighted",
+    "question": "Is the personality transition readable silently without anger or a prolonged frozen face?",
+    "beats": [
+      [
+        0,
+        2,
+        "she waits buoyantly, mildly bored; her eyes drift toward the viewer, eyelids soften and one shoulder settles while her hands hang comfortably, not rigidly"
+      ],
+      [
+        2,
+        3.5,
+        "she raises one relaxed open palm a little, gives a small head tilt and lifts one brow as if asking whether play will begin; affectionate impatience, not scolding, no speech"
+      ],
+      [
+        3.5,
+        5,
+        "her gaze suddenly catches the offscreen-right invitation; her eyes brighten and a genuine smile arrives before the chest opens and the tail gathers"
+      ],
+      [
+        5,
+        8,
+        "she commits to two eager rounded tail strokes into a rightward glide; the raised hand returns naturally to swimming balance, wrists and elbows moving, with hair and fin finishing the gesture"
+      ]
+    ],
+    "end": "Roshan is eagerly gliding screen-right with bright eyes, a warm smile and relaxed recovering arms.",
+    "path": "supported waiting followed by short rightward travel; no angry pose, crossed-arm lecture or lip-synced dialogue",
+    "loop": false
+  },
+  "blocking_findings": [
+    "exact IMAGE_1 human approval pending",
+    "immutable remote input URLs pending publication"
+  ]
+}

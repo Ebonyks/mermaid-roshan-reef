@@ -1,0 +1,114 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "roshan_swim_motion_auditions_2026-09-12",
+  "shot_id": "RSW-01",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 8,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "openings/front-right.png",
+      "sha256": "cb4f0ccccf31937aabeecc4cba0232d2e50ab37fe0dc97c9b9ac2ef986959bf0",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "pending",
+      "approval_scope": "new flattened opening composition has not been human approved"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "dimensions": [
+        768,
+        768
+      ],
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "accepted",
+      "approval_scope": "prior owner-approved front identity painting"
+    }
+  ],
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.html",
+      "used_as_pixel_reference": false,
+      "role": "human timeline and source navigation only"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "gaze and expression express the named intention",
+    "shoulders, elbows and wrists articulate rather than translate as one rigid arm",
+    "torso-to-tail propulsion with delayed broad-fin follow-through",
+    "subtle independent curl and colored-strand follow-through"
+  ],
+  "must_not_move": [
+    "camera",
+    "neutral navy field",
+    "identity/costume/anatomical ownership; pose itself is not locked"
+  ],
+  "end_state": "Roshan is calmly attentive toward screen-right, hands relaxed and tail settled.",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no identity drift",
+    "no pinned fingertips",
+    "no rubber fin",
+    "no boomerang or duplicate-video loop"
+  ],
+  "prompt_path": "shots/RSW-01/PROMPT.txt",
+  "prompt_sha256": "a78dc8bfec46474af1d2ca12dca300726b84c584bd7a2cb6b67345a065ca5511",
+  "sample_contract": {
+    "id": "RSW-01",
+    "name": "Ribbon Glide: comfortable curiosity",
+    "opening": "front-right",
+    "register": "everyday",
+    "comparison_group": "matched_01_02",
+    "question": "Does a quiet, generous effort-and-glide phrase feel alive rather than limp?",
+    "beats": [
+      [
+        0,
+        1,
+        "her eyes notice a point offscreen right; a small interested head turn follows, then the chest joins"
+      ],
+      [
+        1,
+        2.5,
+        "she inclines into a diagonal swim with one rounded tail stroke; elbows softly bend and relaxed palms sweep water backward, then recover closer to the body"
+      ],
+      [
+        2.5,
+        5.5,
+        "she glides right with quiet confidence; the curved tail unfurls into fin follow-through, the hands float to comfortable asymmetric balance, and the curls settle later than the head"
+      ],
+      [
+        5.5,
+        8,
+        "she eases to attentive buoyant stillness, a small warm smile and one natural blink; the tail catches up once without repeated bouncing"
+      ]
+    ],
+    "end": "Roshan is calmly attentive toward screen-right, hands relaxed and tail settled.",
+    "path": "pelvis starts at the opening position and travels about one quarter of the frame width right; no camera travel",
+    "loop": false
+  },
+  "blocking_findings": [
+    "exact IMAGE_1 human approval pending",
+    "immutable remote input URLs pending publication"
+  ]
+}

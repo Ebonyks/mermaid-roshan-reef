@@ -1,0 +1,113 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "roshan_swim_motion_auditions_2026-09-12",
+  "shot_id": "RSW-03",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 8,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "openings/front-right.png",
+      "sha256": "cb4f0ccccf31937aabeecc4cba0232d2e50ab37fe0dc97c9b9ac2ef986959bf0",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "pending",
+      "approval_scope": "new flattened opening composition has not been human approved"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "dimensions": [
+        768,
+        768
+      ],
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "accepted",
+      "approval_scope": "prior owner-approved front identity painting"
+    }
+  ],
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.html",
+      "used_as_pixel_reference": false,
+      "role": "human timeline and source navigation only"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "gaze and expression express the named intention",
+    "shoulders, elbows and wrists articulate rather than translate as one rigid arm",
+    "torso-to-tail propulsion with delayed broad-fin follow-through",
+    "subtle independent curl and colored-strand follow-through"
+  ],
+  "must_not_move": [
+    "camera",
+    "neutral navy field",
+    "identity/costume/anatomical ownership; pose itself is not locked"
+  ],
+  "end_state": "Roshan has resumed a relaxed screen-right glide with her attention ahead.",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no identity drift",
+    "no pinned fingertips",
+    "no rubber fin",
+    "no boomerang or duplicate-video loop"
+  ],
+  "prompt_path": "shots/RSW-03/PROMPT.txt",
+  "prompt_sha256": "6854795471233812fe84cae6832c14ee4ba0d649ec61cf6aaaad87b178a05ed1",
+  "sample_contract": {
+    "id": "RSW-03",
+    "name": "Distracted explorer: look, reconsider, continue",
+    "opening": "front-right",
+    "register": "curious",
+    "question": "Does a change of thought read through gaze and body timing without pantomime?",
+    "beats": [
+      [
+        0,
+        1.5,
+        "she begins a relaxed rightward swim with a small tail stroke and soft asymmetric arm recovery"
+      ],
+      [
+        1.5,
+        3,
+        "her gaze catches an unseen detail slightly above-right; the eyes stop first, the head tilts after them, and the chest eases while the tail continues to trail"
+      ],
+      [
+        3,
+        5,
+        "she makes one interested half-reach with the nearer hand, elbow leading and wrist following; the other hand gently sculls to balance, without detailed finger acting"
+      ],
+      [
+        5,
+        8,
+        "a small satisfied smile says she has noticed enough; she lets the hand recover, redirects her gaze along her route and resumes one easy stroke into a quiet glide"
+      ]
+    ],
+    "end": "Roshan has resumed a relaxed screen-right glide with her attention ahead.",
+    "path": "modest rightward travel; a readable slowdown during inspection; do not add a visible object or second character",
+    "loop": false
+  },
+  "blocking_findings": [
+    "exact IMAGE_1 human approval pending",
+    "immutable remote input URLs pending publication"
+  ]
+}

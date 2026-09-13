@@ -21,3 +21,6 @@ assets_src/cinematics/overnight_recut_repairs_2026-09-12/** -text whitespace=-bl
 
 # Preserve the approved synthetic cohort provenance hash across checkouts.
 assets/audio/voices/filler_v1/GRAND_PUFF_COHORT_20260912.json -text whitespace=cr-at-eol
+
+# Literal external-reference packet hashes must survive Windows/Linux checkouts.
+assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/** -text whitespace=cr-at-eol
