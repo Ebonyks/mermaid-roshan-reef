@@ -76,6 +76,8 @@ Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026
 
 Scoped Roshan motion-reference study (2026-09-12): [eight-sample Grok archive](../assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/README.md) and [impact](../design/audit_impacts/2026-09-12-roshan-grok-auditions.json) extend the character animation branch. Candidate selection, opening approval, archive publication and generated delivery remain separate; `MA-VIS-006` is not closed.
 
+Roshan handoff revision (2026-09-13): [video-first execution](../assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/README.md#video-first-revision--2026-09-13) and [impact](../design/audit_impacts/2026-09-13-roshan-grok-video-first.json) correct the reported still-board substitution and stale publication status. One actual image-conditioned video precedes the remaining auditions; no source-art, tool-capability or runtime acceptance is inferred.
+
 Scoped overnight-film repair (2026-09-12): [fresh rendered-frame audit](OVERNIGHT_RECUT_FRAME_AUDIT_2026-09-12.md) and [impact](../design/audit_impacts/overnight-recut-repairs-20260912.json). The owner requests recognizable big-bunny form, four-helper soapy scrubbing that hides it in bubbles, then the concept friend jumping while the old casing collapses and scatters into dust. Eighteen repair/conditional jobs include original-book Eagle identity and exact Daddy/attic locks. Generated candidates retain explicit missing human opening/delivery acceptance.
 
 ## Sealed audit snapshot and subsequent round metadata

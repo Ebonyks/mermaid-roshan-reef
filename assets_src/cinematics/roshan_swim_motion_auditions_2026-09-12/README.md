@@ -5,6 +5,36 @@ Start with [START_HERE.txt](START_HERE.txt), then the [visual shot board](SHOT_B
 The archive requests eight separate eight-second videos, plus at most two targeted
 replacement takes. No video has been generated or accepted by this packet.
 
+## Video-first revision — 2026-09-13
+
+The first job is **one actual RSW-01 video**, not an eight-job batch or a pose
+board. Read the short [start message](START_HERE.txt) and
+[video operator card](VIDEO_OPERATOR.txt). Confirm actual image-to-video access
+and attachment of the named first-frame and identity PNGs. If that tool is not
+available in the current chat, report `VIDEO_TOOL_UNAVAILABLE`, return the prompt
+and image links for the video interface, and stop. Never substitute still art.
+
+The reported failed exchange first followed stale publication flags, then
+substituted still boards when the chat said it could not emit video. Those are
+reported process failures, not a pixel audit of files received here. This revision
+does not accept the reported boards or declare the video provider incapable.
+
+Return and review RSW-01 at normal speed before RSW-02 or the remaining samples.
+Confirm recognizable identity, continuous swimming, articulated arms, and visible
+curiosity before spending the rest of the batch. RSW-01 still counts toward the
+eight samples; failed generations count toward the ten-attempt total cap. After
+two failures of a method, reassess it rather than substituting an easier medium.
+The final two studies retain their genuine double-cycle requirements.
+
+Show only the needed opening if its exact approval has not already been recorded;
+do not require approval of the later profile layout to try RSW-01. Preserve the
+source-art approval and account-spending boundaries without inventing approvals.
+Unknown seed/FPS metadata is not a production blocker: Codex measures returned
+files. Unsupported input modes or requested duration/resolution must be disclosed,
+not silently changed. Aseprite construction and detailed metadata collection are
+downstream work, not duties of the video generator. Preserve the painted design,
+not literal pixel positions or a frozen pose.
+
 ## What this is trying to discover
 
 Find a performance worth adapting before spending more time on sprite conversion.
@@ -60,8 +90,9 @@ An approved character image is not approval of a newly composed opening.
 This is the only pending creative input gate; no room, prop or new character is
 needed. The field is a motion-test setup, not a redesigned game location.
 
-Draft cards remain in `draft_shot_packets` until the approved openings and
-remote image bindings have been verified. `shot_packets` stays empty while
+Draft cards remain in `draft_shot_packets` until each job's approved opening,
+actual video-tool capability and attached image bindings have been verified.
+`shot_packets` stays empty while
 blocked. That is honest staging, not a structural pass for ready generation.
 Do not put `human_decision: accepted` into an unreviewed opening binding.
 
@@ -132,16 +163,23 @@ the independent full-frame-generation rules; this package waives none of them.
 
 ## Archive, readiness and delivery
 
-`HANDOFF_PACKET.json` binds every payload file by path, SHA-256, role, dimensions,
-license/provenance, source path and modification status. Its sorted payload hash
-excludes only itself to avoid self-reference. `IMAGINE_HANDOFF.json` records the
-initial blocked generation state. A separately dated remote receipt can prove
-archive publication without rewriting what was true when the packet was built.
+`HANDOFF_PACKET.json` binds every creative payload file by path, SHA-256, role,
+dimensions, license/provenance, source path and modification status. Version 2
+excludes exactly three control files from that payload: the manifest itself,
+`IMAGINE_HANDOFF.json`, and `PUBLICATION.json`. These contain no artwork or motion
+prompts. Publication uses two commits: freeze the content, fetch and verify every
+payload byte at that commit, then commit the publication/readiness envelope.
+The committed `PUBLICATION.json` binds the content commit, manifest hash and every
+payload hash. `IMAGINE_HANDOFF.json` binds that receipt by SHA-256 and reports the
+current publication state separately from blocked generation. This removes the
+old ambiguity of a completed archive whose verification existed only locally.
+The original ca4dd196 status is historical, not the status of this revision.
 
 - `ARCHIVE_COMPLETE`: only after the whole committed packet and all image URLs
   are verified on GitHub.
 - `GENERATION_READY`: only after exact opening approval, immutable input URL
-  verification and ready-card validation. Initially false.
+  verification, actual video-tool/input-binding evidence and ready-card validation.
+  It remains false until those facts are recorded, regardless of publication.
 - `DELIVERY_ACCEPTED`: false; no generated, sprite, cinematic or device delivery.
 
 The protected book, voices and friend originals are untouched. No external

@@ -21,10 +21,11 @@
         1280,
         720
       ],
-      "remote_url": null,
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ca4dd1963ad36aab420d5f228189231dae924c73/assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/openings/front-right.png",
       "hud_present": false,
       "human_decision": "pending",
-      "approval_scope": "new flattened opening composition has not been human approved"
+      "approval_scope": "new flattened opening composition has not been human approved",
+      "input_binding_status": "NOT_VERIFIED_IN_VIDEO_TOOL"
     },
     {
       "id": "IMAGE_2",
@@ -35,10 +36,11 @@
         768,
         768
       ],
-      "remote_url": null,
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ca4dd1963ad36aab420d5f228189231dae924c73/assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/references/approved-front.png",
       "hud_present": false,
       "human_decision": "accepted",
-      "approval_scope": "prior owner-approved front identity painting"
+      "approval_scope": "prior owner-approved front identity painting",
+      "input_binding_status": "NOT_VERIFIED_IN_VIDEO_TOOL"
     }
   ],
   "non_pixel_references": [
@@ -73,7 +75,7 @@
     "no boomerang or duplicate-video loop"
   ],
   "prompt_path": "shots/RSW-05/PROMPT.txt",
-  "prompt_sha256": "28576f5d51540bf0631c9990d37aba2dc719d39afc6f2f29529bca9f7616b9f8",
+  "prompt_sha256": "ba32f67629b107fc189a1a3e20dcc8c740c656277b9a9c5f8ffd443df47e4440",
   "sample_contract": {
     "id": "RSW-05",
     "name": "Are we playing? impatience turns to eager motion",
@@ -107,7 +109,14 @@
     "loop": false
   },
   "blocking_findings": [
-    "exact IMAGE_1 human approval pending",
-    "immutable remote input URLs pending publication"
-  ]
+    "exact IMAGE_1 approval must be recorded",
+    "actual video tool and two input bindings must be verified"
+  ],
+  "execution": {
+    "deliverable": "original_continuous_video",
+    "fallback_to_stills": false,
+    "stage": "after_reviewed_video_pilot",
+    "actual_tool_mode": null,
+    "capability_evidence": null
+  }
 }

@@ -17,13 +17,17 @@
     "shots/RSW-08/SHOT_PACKET.json"
   ],
   "blocking_findings": [
-    "two exact new opening compositions require human approval",
-    "immutable remote input links require publication and verification"
+    "RSW-01 exact opening approval must be recorded; profile approval is deferred until 07/08",
+    "actual image-to-video tool access and two-image attachment are unverified"
   ],
   "scope": "Eight independent external motion-reference auditions, not a cinematic, runtime animation, or art redesign. At most two additional targeted replacements within ten returned samples.",
   "claims": {
     "ARCHIVE_COMPLETE": false,
     "GENERATION_READY": false,
     "DELIVERY_ACCEPTED": false
-  }
+  },
+  "publication_receipt": "PUBLICATION.json",
+  "publication_receipt_sha256": null,
+  "first_job": "RSW-01",
+  "video_capability_status": "NOT_CHECKED"
 }

@@ -91,6 +91,7 @@ Change/evidence: [2026-09-11 audit impact](../../design/audit_impacts/2026-09-11
 
 ## Branch history
 
+- 2026-09-13: [video-first handoff revision](../../assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/README.md#video-first-revision--2026-09-13) requires actual image-to-video capability and attached source inputs, one returned/reviewed RSW-01 video before the larger batch, and no still-board substitute. Publication now has a committed hash-bound envelope, separate from opening approval and video acceptance. [Impact](../../design/audit_impacts/2026-09-13-roshan-grok-video-first.json). No art pixels changed, no videos generated, no finding closed.
 - 2026-09-12: owner requests [eight Grok swimming-performance auditions](../../assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/README.md), allowing selection or compatible beat combinations. The local swim-scull-v6 prototype is rated 3.5/5 by the owner, superseding earlier agent 4.5 motion scores; static source-art approval does not accept that performance. Two new opening compositions remain pending exact human approval. [Scope and evidence](../../design/audit_impacts/2026-09-12-roshan-grok-auditions.json); no live findings closed or runtime changed.
 - 2026-09-11: created the character animation branch, Roshan's expanded
   movement language, reusable character template and production protocol;

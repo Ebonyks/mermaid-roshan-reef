@@ -1,0 +1,83 @@
+{
+  "id": "2026-09-13-roshan-grok-video-first",
+  "scope": "Repair the Roshan motion-reference handoff after the reported still-board substitution: capability-first actual image-to-video pilot, explicit attached inputs, short acting prompts, preserved approved art, separate publication receipt and downstream Aseprite reconstruction. No generation, spending, runtime or new art is commissioned by this change.",
+  "baseline": "3f9549db0c8cf6c3ac2483e68b582f2f227dabdc",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-13",
+    "DL-ASSET-03",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/CAPABILITY_CHECK.template.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/HANDOFF_PACKET.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/IMAGINE_HANDOFF.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/README.md",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/RETURN_MANIFEST.template.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/SHOT_BOARD.html",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-01/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-01/SHOT_PACKET.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-02/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-02/SHOT_PACKET.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-03/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-03/SHOT_PACKET.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-04/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-04/SHOT_PACKET.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-05/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-05/SHOT_PACKET.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-06/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-06/SHOT_PACKET.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-07/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-07/SHOT_PACKET.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-08/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-08/SHOT_PACKET.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/START_HERE.txt",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/VIDEO_OPERATOR.txt",
+    "audit/animation/README.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "tools/build_roshan_grok_auditions.py",
+    "tools/roshan_grok_video_first.py",
+    "tools/tests/test_roshan_grok_auditions.py"
+  ],
+  "validation": [
+    {
+      "command": "fresh origin/dev baseline CI",
+      "result": "PASS",
+      "evidence": "Exact 3f9549db0c8cf6c3ac2483e68b582f2f227dabdc: https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/34743345694"
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_roshan_grok_auditions",
+      "result": "PASS",
+      "evidence": "13 tests including image-byte preservation, idempotent text refresh, actual-video dispatch boundaries, missing/forged publication rejection and blocked human/readiness gates."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_roshan_grok_auditions tools.tests.test_audit_imagine_handoff tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Final 72 tests, including six authority stress controls; tmp/grok-video-first-validation/focused.log SHA-256 8e1a2971a4afd6e5e7d1002f7de53617d2fd9aee67b9cd49bdf7271f01b59a0e."
+    },
+    {
+      "command": "GODOT=C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe; C:/Program Files/Git/bin/bash.exe scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "Exact 4.7.2.stable.official.ed1daf0bf; full suite exit 0, 78/78 expected trusted probes each exit 0, 95 visual-contract tests and 813/813 audio files passed; tmp/grok-video-first-validation/full-ci.log SHA-256 f83036d35aabccf912ad23112779dddb07064a92e4e0ae2068a9623b16978f2c. Final handoff-only wording/board refinements also covered by the final focused suite. No GDScript, runtime asset or protected source pixels changed."
+    },
+    {
+      "command": "Immutable GitHub payload verification and publication envelope",
+      "result": "PENDING",
+      "evidence": "Content must be pushed first; separate committed receipt will bind its exact hashes without a self-reference."
+    }
+  ],
+  "acceptance_gaps": "Exact opening approval and actual video-tool/input-binding evidence remain pending. No returned video was inspected or accepted. MA-VIS-006 remains open; no runtime, device, child, cinematic delivery or release acceptance."
+}

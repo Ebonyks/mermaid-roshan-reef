@@ -10,8 +10,13 @@ import shutil
 import subprocess
 import sys
 import zipfile
+import concurrent.futures
+import datetime
+import re
+import urllib.request
 
 from PIL import Image
+from roshan_grok_video_first import CONTROL_FILES, refresh, publication_errors
 
 ROOT = Path(__file__).resolve().parents[1]
 BRIEF = ROOT / "design/animation/roshan_grok_auditions_20260912.json"
@@ -92,46 +97,32 @@ def build(source, aseprite):
     intake["fragment_schema"] = {"source_sha256": None, "in_seconds": None, "out_seconds": None, "in_frame": None, "out_frame_exclusive": None, "use": "inspiration_only | adaptation_reference", "reason": None, "known_defects": [], "facing": None, "pose_phase": None, "pelvis_xy_normalized": None, "incoming_velocity": None, "outgoing_velocity": None}
     write_json(PACKET / "RETURN_MANIFEST.template.json", intake)
 
-    opening_lines = "\n".join(f"- IMAGE_1 {view}: openings/{view}.png; SHA-256 {sha(PACKET / ('openings/' + view + '.png'))}" for view in ("front-right", "right"))
-    start = f"""GROK HANDOFF: MERMAID ROSHAN SWIMMING PERFORMANCE AUDITIONS
-
-Please produce EIGHT separate eight-second animation samples, RSW-01 through RSW-08, using the matching short PROMPT.txt files. These are motion/acting references for later sprite development, not final game or cinematic footage. Return the original videos separately so we can analyze them, choose up to three preferred whole performances, or propose an assembly from compatible beats. Up to TWO additional targeted replacement takes are allowed, maximum TEN returned samples. Do not start a paid/API batch without the account owner's normal generation authorization.
-
-FIRST: open README.md, SHOT_BOARD.html and the two opening proposals below. Show these exact files and hashes for human approval. Do not claim the openings were already approved just because the character design was. If the archive cannot be read remotely, use the complete attached ZIP; never substitute remembered art, a screenshot, an old ponytail sprite, or a missing local Windows path.
-{opening_lines}
-
-IMAGE_2 for every sample: references/approved-front.png; SHA-256 {sha(PACKET / 'references/approved-front.png')}.
-01-06 use the front-right opening; 07-08 use the right-profile opening. Bind only IMAGE_1 and IMAGE_2 to each job. Other views and the board are archive context, never extra image inputs. The board's repeated source thumbnails are NOT drawn action poses or approved video frames.
-
-AFTER opening approval and input-link verification: use one shot per generation, locked camera, 16:9 at 1280x720 if supported. If the service cannot preserve these controls or accept both image roles, report the limitation before changing the test; never silently omit identity guidance. Use native generation FPS; no interpolation, automatic enhancement, camera motion, music, speech or montage. Do not interpret unknown alpha support as transparent delivery.
-
-CREATIVE PRIORITY: a warm curious child at home in water, not a rigid superhero flying. Let eyes notice before head/chest commit; let shoulders, elbows and wrists articulate; a connected body-to-tail wave drives the broad fin, which trails rather than distorts. Preserve face/crown/costume, body proportions and the anatomical-LEFT rainbow hair streak (viewer-right in front view; no ponytail). Short effort followed by a generous glide. Gentle curls and colored strands respond independently. Avoid detailed finger pantomime. Do not freeze the whole body in the name of identity preservation.
-
-Generate 01/02 as a matched A/B first; then 03-06; then 07/08. The final two must PERFORM two genuine continuous three-second cycles at 1-4s and 4-7s, with one second of motion handles at each end. Do not duplicate the first cycle, reverse it, boomerang it or hide a reset. Preserve the complete eight-second original even if a good interior loop can later be sliced out.
-
-RETURN: eight individual native video downloads named RSW-XX_take-01.mp4 (or disclose actual format), plus the completed RETURN_MANIFEST.template.json. Preserve all rejected takes. Report model/settings/seed only if actually available. Give a normal-speed shortlist with specific timecoded reasons. An appealing moment in a flawed take can be labeled inspiration_only, never passed as clean delivery. Leave owner choice and all final-delivery statuses pending.
-
-COMBINATIONS: propose exact source-hash/timecode segments and explain compatible view, scale, line of action, hand pose, tail/fin phase and speed at each join. Prefer one whole performance as the timing spine. A straight-cut assembly is a NEW reference to review, not an accepted animation. Do not combine unrelated moving limbs, crossfade, morph, mirror, use optical flow or conceal joins with holds. If a connecting motion is missing, use an available replacement take or state the gap.
-
-Do not inflate scores to meet a target. After two failing attempts at the same brief/method, reassess the pose/reference/action rather than repeating the same prompt. No generation beyond ten, runtime integration, new character design, protected voice synthesis or final cinematic acceptance is authorized by this handoff.
-"""
-    (PACKET / "START_HERE.txt").write_text(start, encoding="utf-8", newline="\n")
+    refresh(PACKET)
     render_board(brief)
+    refresh_manifest(metadata)
+
+
+def refresh_manifest(metadata=None):
+    brief = json.loads(BRIEF.read_text(encoding="utf-8"))
+    if metadata is None:
+        old = json.loads((PACKET / "HANDOFF_PACKET.json").read_text(encoding="utf-8"))
+        metadata = {item["path"]: item for item in old["files"] if item["path"] not in CONTROL_FILES}
     for p in sorted(PACKET.rglob("*")):
-        if p.is_file() and p.name != "HANDOFF_PACKET.json":
+        if p.is_file() and p.relative_to(PACKET).as_posix() not in CONTROL_FILES:
             rel = p.relative_to(PACKET).as_posix()
             meta = metadata.get(rel, {"source_path": "tools/build_roshan_grok_auditions.py and design/animation/roshan_grok_auditions_20260912.json", "role": "project-authored handoff instructions or structured evidence", "modification_status": "new project-authored document; no character delivery pixels"})
             meta.update({"path": rel, "sha256": sha(p), "bytes": p.stat().st_size, "dimensions": dimensions(p) if p.suffix == ".png" else None, "license_provenance": LICENSE if p.suffix == ".png" else "Project-authored instructions/evidence or verbatim project source provenance; original source attribution retained.", "source_url": "project-local source; immutable GitHub archive URL supplied by separate publication receipt"})
             metadata[rel] = meta
     files = [metadata[k] for k in sorted(metadata)]
     payload = "".join(f"{x['path']}\0{x['sha256']}\n" for x in files).encode()
-    write_json(PACKET / "HANDOFF_PACKET.json", {"schema": "roshan-motion-audition-archive-v1", "id": brief["id"], "baseline": brief["baseline"], "source_study_branch": "codex/roshan-eight-views-imagegen-20260911", "source_study_base": "cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016", "files": files, "payload_hash_algorithm": "sha256 of UTF-8 concatenation of sorted relative path + NUL + literal SHA256 + LF; excludes HANDOFF_PACKET.json only", "payload_sha256": hashlib.sha256(payload).hexdigest(), "scope": brief["scope"], "runtime_background_and_props": "not applicable: isolated motion-test field, one Roshan, no prop/contact or runtime seam; no room was redesigned", "approval": "opening proposals pending; native video and motion selection not yet produced"})
+    write_json(PACKET / "HANDOFF_PACKET.json", {"schema": "roshan-motion-audition-archive-v2", "id": brief["id"], "baseline": brief["baseline"], "source_study_branch": "codex/roshan-eight-views-imagegen-20260911", "source_study_base": "cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016", "files": files, "excluded_control_files": sorted(CONTROL_FILES), "control_provenance": "Project-authored manifest and publication/readiness evidence, versioned separately from the immutable creative payload. PUBLICATION.json binds the published payload commit and manifest; IMAGINE_HANDOFF.json binds that receipt by SHA-256. No excluded file supplies art or generation prompts.", "payload_hash_algorithm": "sha256 of UTF-8 concatenation of sorted payload relative path + NUL + literal SHA256 + LF; excludes exactly excluded_control_files to avoid publication self-reference", "payload_sha256": hashlib.sha256(payload).hexdigest(), "scope": brief["scope"], "runtime_background_and_props": "not applicable: isolated motion-test field, one Roshan, no prop/contact or runtime seam; no room was redesigned", "approval": "opening proposals pending; native video and motion selection not yet produced"})
 
 
 def render_board(brief):
     esc = html.escape
     head = '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Roshan — eight motion auditions</title><style>body{font:16px/1.5 system-ui,sans-serif;background:#f7f5f0;color:#253346;margin:0 auto;padding:24px;max-width:1180px}h1{font-size:30px}h2{font-size:23px;margin-top:32px}a{color:#254cc0}img{max-width:100%;object-fit:contain;background:#112536}figure{margin:0}figcaption{font-size:14px}.openings{display:grid;grid-template-columns:1fr 1fr;gap:20px}.ring{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.ring img{width:100%;height:220px}.sample{padding:22px 0;border-top:1px solid #c9cfd5}.sample-head{display:grid;grid-template-columns:240px 1fr;gap:24px}.beats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}.beat{border-top:4px solid #84acae;padding-top:8px}.beat b{display:block}.note{background:#e8edf0;padding:14px}code{overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px}@media(max-width:700px){.openings,.sample-head{grid-template-columns:1fr}.beats{grid-template-columns:1fr 1fr}.ring{grid-template-columns:1fr 1fr}body{padding:16px}}@media print{.sample{break-inside:avoid}a{color:inherit}}</style><h1>Roshan: eight motion auditions</h1><p>Choose a performance worth adapting. These are source references and requested beats — no returned animation or drawn action frames yet.</p><p><a href="START_HERE.txt">Grok start message</a> · <a href="README.md">Operator and review guide</a> · <a href="RETURN_MANIFEST.template.json">Return manifest</a></p><p class="note">Motion-reference only. Exact opening layouts need human approval. Eight native videos requested; no scores or selections prefilled.</p><h2>Two opening proposals</h2><div class="openings">'''
-    pieces = [head]
+    note = '<p class="note"><b>Video-first revision:</b> RSW-01 is the only first job. Confirm actual video-tool access, attach the two exact inputs, then return and review one playable video before the other samples. No still-board fallback. <a href="VIDEO_OPERATOR.txt">Video operator / input links</a> · <a href="IMAGINE_HANDOFF.json">Publication and readiness status</a></p>'
+    pieces = [head.replace('<h2>Two opening proposals</h2>', note + '<h2>Two opening proposals</h2>')]
     for view, jobs in (("front-right", "RSW-01–06"), ("right", "RSW-07–08")):
         pieces.append(f'<figure><img src="openings/{view}.png" alt="Proposed {view} opening on neutral field"><figcaption>{jobs} · {view} · pending opening approval<br><code>{sha(PACKET / ("openings/" + view + ".png"))}</code></figcaption></figure>')
     pieces.append('</div><h2>Identity and turnaround context</h2><p>Rainbow streak belongs to her anatomical left. These thumbnails are source views, not temporal frames. Only the named two images are bound to each generation.</p><div class="ring">')
@@ -154,7 +145,10 @@ def verify():
     manifest = json.loads((PACKET / "IMAGINE_HANDOFF.json").read_text(encoding="utf-8"))
     files = archive["files"]
     listed = [x["path"] for x in files]
-    actual = sorted(p.relative_to(PACKET).as_posix() for p in PACKET.rglob("*") if p.is_file() and p.name != "HANDOFF_PACKET.json")
+    actual = sorted(p.relative_to(PACKET).as_posix() for p in PACKET.rglob("*") if p.is_file() and p.relative_to(PACKET).as_posix() not in CONTROL_FILES)
+    if archive.get("excluded_control_files") != sorted(CONTROL_FILES):
+        errors.append("invalid control-file exclusions")
+    errors.extend(publication_errors(PACKET, archive, manifest))
     if listed != actual:
         errors.append("manifest coverage/order differs from actual packet files")
     for f in files:
@@ -190,6 +184,36 @@ def verify():
     return not errors
 
 
+def bind_remote(commit):
+    """Verify a frozen content commit before writing its publication envelope."""
+    if not re.fullmatch(r"[0-9a-f]{40}", commit):
+        raise ValueError("full immutable Git commit required")
+    if not verify():
+        raise ValueError("local payload failed validation")
+    archive = json.loads((PACKET / "HANDOFF_PACKET.json").read_text(encoding="utf-8"))
+    base = f"https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/{commit}/{REL.as_posix()}/"
+    rows = archive["files"] + [{"path": "HANDOFF_PACKET.json", "sha256": sha(PACKET / "HANDOFF_PACKET.json")}]
+
+    def check(row):
+        url = base + row["path"]
+        with urllib.request.urlopen(url, timeout=45) as response:
+            data = response.read()
+        if hashlib.sha256(data).hexdigest() != row["sha256"]:
+            raise ValueError("remote hash mismatch: " + row["path"])
+        return {"path": row["path"], "sha256": row["sha256"], "url": url, "bytes": len(data)}
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+        checked = list(pool.map(check, rows))
+    remote = {"commit": commit, "tree": f"https://github.com/Ebonyks/mermaid-roshan-reef/tree/{commit}/{REL.as_posix()}", "manifest": base + "HANDOFF_PACKET.json", "verified_at": datetime.datetime.now(datetime.timezone.utc).isoformat(), "verified_via": "HTTPS GET and literal SHA-256 comparison of every immutable payload file and HANDOFF_PACKET.json"}
+    write_json(PACKET / "PUBLICATION.json", {"schema": "roshan-motion-payload-publication-v1", "archive_remote": remote, "manifest_sha256": sha(PACKET / "HANDOFF_PACKET.json"), "payload_sha256": archive["payload_sha256"], "files": checked[:-1], "scope": "Archive publication only; no opening approval, tool attachment, generated video or delivery acceptance."})
+    path = PACKET / "IMAGINE_HANDOFF.json"
+    handoff = json.loads(path.read_text(encoding="utf-8"))
+    handoff.update({"archive_status": "complete", "archive_remote": remote, "publication_receipt_sha256": sha(PACKET / "PUBLICATION.json")})
+    handoff["claims"]["ARCHIVE_COMPLETE"] = True
+    write_json(path, handoff)
+    print(json.dumps({"archive_complete": True, "content_commit": commit, "verified_files": len(checked), "generation_ready": False}))
+
+
 def make_zip(destination):
     destination.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_DEFLATED) as archive:
@@ -210,11 +234,19 @@ def main():
     p.add_argument("--aseprite", type=Path)
     p.add_argument("--verify", action="store_true")
     p.add_argument("--zip", type=Path)
+    p.add_argument("--refresh-dispatch", action="store_true", help="update text/cards only; preserve every image byte")
+    p.add_argument("--bind-remote", help="verify published content SHA and write the separate publication envelope")
     args = p.parse_args()
     if args.source:
         if not args.aseprite:
             p.error("--source requires --aseprite")
         build(args.source.resolve(), args.aseprite.resolve())
+    if args.refresh_dispatch:
+        refresh(PACKET)
+        render_board(json.loads(BRIEF.read_text(encoding="utf-8")))
+        refresh_manifest()
+    if args.bind_remote:
+        bind_remote(args.bind_remote)
     if args.verify and not verify():
         return 1
     if args.zip:

@@ -1,0 +1,36 @@
+VIDEO OPERATOR — NOT THE GENERATION PROMPT
+
+FIRST JOB: RSW-01 only. Deliver a real video, not boards, stills, a slideshow, an animated camera over a still, or a claim that footage exists.
+
+IMAGE INPUTS
+RSW-01 through RSW-06:
+  IMAGE_1 opening / actual first-frame input: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ca4dd1963ad36aab420d5f228189231dae924c73/assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/openings/front-right.png
+RSW-07 and RSW-08 (later, not a prerequisite for RSW-01):
+  IMAGE_1 opening / actual first-frame input: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ca4dd1963ad36aab420d5f228189231dae924c73/assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/openings/right.png
+Every job:
+  IMAGE_2 subject identity: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ca4dd1963ad36aab420d5f228189231dae924c73/assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/references/approved-front.png
+These are immutable original-archive URLs. Exact copies are also inside this ZIP under openings/ and references/. If URLs cannot be attached, upload the actual PNG files. Never substitute a GitHub page screenshot, board, newly generated image, or remembered design.
+
+ROUTE TO AN ACTUAL VIDEO TOOL
+- Report the available video tool/model and whether it can accept an actual first frame AND a separate identity reference. Do not infer availability from a conversational promise or access to image generation.
+- Image-to-video and text-to-image are different operations. Two pictures pasted in chat are not evidence that either reached the video request. Record actual selected/uploaded inputs, IDs or request evidence when exposed. If that evidence is unavailable, say so; do not invent it.
+- A supported image-plus-reference video mode is preferred. Official API documentation checked 2026-09-13 distinguishes grok-imagine-video-1.5, which supports a pinned first frame plus references, from classic grok-imagine-video, which rejects that combination. A consumer chat may expose neither mode. Do not silently drop IMAGE_2 or convert the job into text-to-video; report the limitation and route to a compatible video interface.
+- If this chat has no video tool: output VIDEO_TOOL_UNAVAILABLE, these image links and the RSW-01 prompt, then stop. Do not generate still boards as a substitute. The owner can carry that small job to Imagine's video interface. A paid API is a separate owner-authorized option, not an automatic fallback.
+
+CONTROLS AND APPROVAL
+Request 8 seconds, 16:9, 720p, fixed camera, silent. Camera stability is judged in the resulting video; it is not guaranteed by choosing 720p. Keep native FPS and original audio/provenance tracks if the tool cannot suppress them; report the limitation. No interpolation, frame duplication, watermark removal or auto-enhancement. Unknown seeds and FPS are not a reason to demand a new prompt or invent data; Codex measures the downloaded file.
+If a requested duration, resolution or image-input mode is unsupported, disclose the actual supported option before changing the test. Do not mislabel 6 seconds as 8 or stretch it to fit. Generated technical deviations may still be useful inspiration, but are not a passing matched sample or loop study.
+Exact new opening approval is still pending in the archive. If the owner has already approved these exact bytes in the current exchange, record that decision once rather than asking again. Character identity approval alone is not new-layout approval. Profile approval is needed only before RSW-07/08. No human decision is prefilled by this update.
+
+CREATIVE PRIORITY
+The supplied painted character is the design authority. Preserve the young face, crown/blue gem, pink bodice/lilac frills, pearlescent tail and broad iridescent fin. The loose brown hair has an anatomical-left rainbow streak, not a ponytail. Do not replace the costume with shells, add adult glamour, or flatten the art into a new vector/cel style.
+Animate a warm curious child who is comfortable in water. Eyes notice; head/chest decide; tail propels; elbows and wrists articulate; curls and fin follow later. Preserve design and proportions, NOT literal pixel positions or a rigid pose. Video generation cannot promise pixel-identical anatomy in changed poses. No unrelated elaborate finger acting.
+
+RETURN AND CONTINUATION
+Return RSW-01_take-01.mp4 (or the disclosed original video format), a playable preview/download and the prompt/input/mode used. A stream-only link is insufficient if the original can be downloaded. Do not start video editing or Aseprite conversion here.
+Use CAPABILITY_CHECK.template.json for the short tool/input record. The longer RETURN_MANIFEST.template.json is downstream intake for Codex; missing technical metadata does not justify substituting pictures for footage. Keep original failed videos, name the issue and timecode, and do not inflate ratings.
+One returned video proves the tool path; normal-speed identity/motion review determines whether the pilot is adequate to proceed. Keep RSW-02 comparable with 01. The eventual eight studies and two replacement attempts are a total cap, not an instruction to launch ten jobs at once. Loop jobs must perform two genuine three-second cycles with handles, not duplicate or reverse footage. Preferred whole performances and compatible timecoded combinations are evaluated AFTER video returns.
+
+DOCUMENTATION (operator context only)
+https://docs.x.ai/developers/model-capabilities/video/image-to-video
+https://docs.x.ai/developers/model-capabilities/video/reference-to-video
