@@ -1,10 +1,16 @@
 {
   "schema": "imagine-handoff-v1",
   "handoff_id": "roshan_swim_motion_auditions_2026-09-12",
-  "archive_status": "incomplete",
+  "archive_status": "complete",
   "generation_status": "blocked",
   "delivery_status": "not_accepted",
-  "archive_remote": null,
+  "archive_remote": {
+    "commit": "ee4f42f5247831a541cf8aa603a6af888c9a1cf1",
+    "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/ee4f42f5247831a541cf8aa603a6af888c9a1cf1/assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12",
+    "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ee4f42f5247831a541cf8aa603a6af888c9a1cf1/assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/HANDOFF_PACKET.json",
+    "verified_at": "2026-09-13T17:36:09.494050+00:00",
+    "verified_via": "HTTPS GET and literal SHA-256 comparison of every immutable payload file and HANDOFF_PACKET.json"
+  },
   "shot_packets": [],
   "draft_shot_packets": [
     "shots/RSW-01/SHOT_PACKET.json",
@@ -22,12 +28,12 @@
   ],
   "scope": "Eight independent external motion-reference auditions, not a cinematic, runtime animation, or art redesign. At most two additional targeted replacements within ten returned samples.",
   "claims": {
-    "ARCHIVE_COMPLETE": false,
+    "ARCHIVE_COMPLETE": true,
     "GENERATION_READY": false,
     "DELIVERY_ACCEPTED": false
   },
   "publication_receipt": "PUBLICATION.json",
-  "publication_receipt_sha256": null,
+  "publication_receipt_sha256": "e8fc925c7c64c3b800b46c37afccafcfe1d9be6cf0129e640de6da04dc601880",
   "first_job": "RSW-01",
   "video_capability_status": "NOT_CHECKED"
 }

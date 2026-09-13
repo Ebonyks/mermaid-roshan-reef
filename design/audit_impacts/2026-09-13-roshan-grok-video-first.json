@@ -24,9 +24,12 @@
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/CAPABILITY_CHECK.template.json",
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/HANDOFF_PACKET.json",
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/IMAGINE_HANDOFF.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/PUBLICATION.json",
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/README.md",
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/RETURN_MANIFEST.template.json",
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/SHOT_BOARD.html",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/START_HERE.txt",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/VIDEO_OPERATOR.txt",
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-01/PROMPT.txt",
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-01/SHOT_PACKET.json",
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-02/PROMPT.txt",
@@ -43,10 +46,8 @@
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-07/SHOT_PACKET.json",
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-08/PROMPT.txt",
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/RSW-08/SHOT_PACKET.json",
-    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/START_HERE.txt",
-    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/VIDEO_OPERATOR.txt",
-    "audit/animation/README.md",
     "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/animation/README.md",
     "design/05_DOC_LEDGER.md",
     "tools/build_roshan_grok_auditions.py",
     "tools/roshan_grok_video_first.py",
@@ -75,8 +76,8 @@
     },
     {
       "command": "Immutable GitHub payload verification and publication envelope",
-      "result": "PENDING",
-      "evidence": "Content must be pushed first; separate committed receipt will bind its exact hashes without a self-reference."
+      "result": "PASS",
+      "evidence": "All 49 payload files plus HANDOFF_PACKET.json fetched and SHA-256 verified at ee4f42f5247831a541cf8aa603a6af888c9a1cf1. Committed PUBLICATION.json SHA-256 e8fc925c7c64c3b800b46c37afccafcfe1d9be6cf0129e640de6da04dc601880; manifest SHA-256 9b157764d735bdf63b8087e48c5f0722770dec10a9776a129cf0753574b7da92. Publication changes only the separate control envelope; tested tool/game sources remain unchanged. Generation and delivery acceptance stay false."
     }
   ],
   "acceptance_gaps": "Exact opening approval and actual video-tool/input-binding evidence remain pending. No returned video was inspected or accepted. MA-VIS-006 remains open; no runtime, device, child, cinematic delivery or release acceptance."
