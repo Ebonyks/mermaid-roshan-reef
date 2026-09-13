@@ -285,6 +285,16 @@ func _safe_navigation_case() -> void:
 		(boss.patterns.geometry.get("center", Vector2.ZERO) as Vector2).distance_to(locked) < 0.05
 		and floor_warning._visible and floor_warning._points.size() >= 3
 		and not overlay._safe_visible)
+	_ck("storybook dust samples stay on the locked danger boundary", _dust_edge_matches(floor_warning))
+	_ck("storybook cues leave no finger overlay or spatial badge", floor_warning.get_child_count() == 0
+		and not main.g.has("db_star") and not main.g.has("db_hand") and not main.g.has("db_glow"))
+	_ck("encounter captions have no tutorial panel", main.hud_msg.get_theme_stylebox("normal") is StyleBoxEmpty)
+	var lesson: DustBossLesson2D = main.g.get("db_lesson") as DustBossLesson2D
+	var effect_clock: float = lesson._time
+	main.get_tree().paused = true
+	await _frames(3)
+	_ck("pause freezes the storybook guidance", lesson._time == effect_clock)
+	main.get_tree().paused = false
 	_ck("safe ground navigation moves the player", after.distance_to(before) > 0.05)
 	boss.navigation.move_to(safe)
 	main.touch_ui.cancel_all_touches()
@@ -613,3 +623,16 @@ func _pattern_geometry_case() -> void:
 					expected = points[(point_index + step + 5) % points.size()]
 					sequencer.advance_combo(expected, Vector2.ZERO, DustBossGame.RADIUS)
 	_ck("all 16 edge targets are captured, covered, escapable, and stage-valid in every phase step", all_ok)
+
+func _dust_edge_matches(warning: DustBossTelegraph2D) -> bool:
+	if warning.edge_points.size() < 16 or warning.edge_points.size() > 48:
+		return false
+	for point: Vector2 in warning.edge_points:
+		var distance: float = INF
+		for i: int in warning._points.size():
+			var nearest: Vector2 = Geometry2D.get_closest_point_to_segment(point,
+				warning._points[i], warning._points[(i + 1) % warning._points.size()])
+			distance = minf(distance, point.distance_to(nearest))
+		if distance > 0.1:
+			return false
+	return true

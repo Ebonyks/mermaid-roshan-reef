@@ -1,0 +1,190 @@
+{
+  "id": "grand-puff-storybook-cues-20260912",
+  "baseline": "002320548b88c3fae420c130ebaba57365ed4af0",
+  "scope": "Owner-directed organic storybook encounter presentation: animated painted dust boundaries and shedding, bubble movement/double-beat dash cues, curved sparkle counter and breathing gold invitation; remove tutorial panel, geometric progress row, finger graphics and legacy spatial cue/glow. Preserve exact touch, locked danger geometry, assistance, timing, rewards and saves. Non-destructive mipmap import support for reused small effects; source PNG bytes unchanged. Shrink measured 3D token manifest after removing legacy spatial cues.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-04",
+    "DL-AGE-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-UI-01",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-MED-04",
+    "DL-MED-05",
+    "DL-MOT-03",
+    "DL-MOT-04",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-SND-01",
+    "DL-SND-02",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-TOUCH-001"
+  ],
+  "files": [
+    "scripts/dust_boss_telegraph_2d.gd",
+    "scripts/dust_boss_lesson_2d.gd",
+    "scripts/games/dust_boss.gd",
+    "scripts/probe_dust_boss.gd",
+    "design/animation/grand_puff_storybook_cues_v2.json",
+    "design/BOSS_SPLASH_DESIGN_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "assets/opera/worlds/props/fx_dust_puff.png.import",
+    "assets/opera/worlds/props/fx_stolen_sparkle.png.import",
+    "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png.import",
+    "tools/game_2d_migration_manifest.json"
+  ],
+  "validation": [
+    {
+      "command": "GODOT=C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot.exe scripts/ci.sh; changed-GD parser/inference; audit_document_authority.py; audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "tmp/storybook-full-ci.log: full suite exit 0, 78 probe processes exit 0 (expected visual-only headless skip), Grand Puff/Combat/UI all OK; 813/813 audio checks; GAME2D NO_REGRESSION, whole-game contract still UNSATISFIED. Log SHA-256 0b42b5021d178e60b9103baa251a7fe6a796c900a2aa5006f72b7141833eae3e"
+    },
+    {
+      "command": "Live Mobile tmp/storybook-final-shots.gd at 1280x720 and tmp/puff_shots.gd at 1560x720",
+      "result": "PASS",
+      "evidence": "Source and frame hashes below. Both final logs end DONE, damage=0; no runtime script errors. Prior stippled minification candidate rejected; final source uses mipmap filtering."
+    },
+    {
+      "command": "Protected/reused source PNG SHA-256 comparison",
+      "result": "PASS",
+      "evidence": "All three reused source PNGs match the pre-edit hashes recorded below. No audio or protected-art changes."
+    }
+  ],
+  "acceptance_gaps": "No phone/child/owner visual or play acceptance yet; no canonical finding closure. Existing character frames are reused, not a new character-animation acceptance claim.",
+  "rollback": {
+    "source": "002320548b88c3fae420c130ebaba57365ed4af0",
+    "preserved_branch": "codex/grand-puff-intuitive-20260912",
+    "policy": "Keep this presentation revision independently revertible; preserve earlier pre-intuitive rollback branch as well."
+  },
+  "reused_art": {
+    "assets/opera/worlds/props/fx_dust_puff.png": {
+      "sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+      "role": "Intact approved gameplay effect art; no asset generation or modifications"
+    },
+    "assets/opera/worlds/props/fx_stolen_sparkle.png": {
+      "sha256": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+      "role": "Intact approved gameplay effect art; no asset generation or modifications"
+    },
+    "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png": {
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "role": "Intact approved gameplay effect art; no asset generation or modifications"
+    }
+  },
+  "source_sha256_utf8_lf": {
+    "scripts/dust_boss_telegraph_2d.gd": "b10737c375f458311102e9f5018558de1de042659882e18bf39083f39bb8f137",
+    "scripts/dust_boss_lesson_2d.gd": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4",
+    "scripts/games/dust_boss.gd": "8e06f4f0e44d0e9347416f9d00a7d94357733d40fc56f03695fb2931977d8a5a",
+    "scripts/probe_dust_boss.gd": "b235880eb90bd6c829abc838d2b8d5cd965a657f7ea1e9da0cd089551d17386b",
+    "assets/opera/worlds/props/fx_dust_puff.png.import": "7676c304f1569a482ffe387b0afeefa0f44ae227a315891e659a7e748438458d",
+    "assets/opera/worlds/props/fx_stolen_sparkle.png.import": "258b742ab0fb37f397289918f809123a703606752efcd853c5a779fb40d5b73d",
+    "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png.import": "be37cc45a91d80a73f6afa4fbc21bdc1772cd96494ff1a344c5d60274d2890bb"
+  },
+  "visual_packet": {
+    "tmp/storybook-final-1280": {
+      "frames": {
+        "00_splash.png": "a1c515edc02de44815fbb000bb677cefdcf92ecfe158f1b746198df9812b2ed5",
+        "00b_splash_identity.png": "586b4b060f3b8ee7b4a57121d8bb47d38a975167f6ab4271e0101e810d456245",
+        "00c_splash_weakness_lesson.png": "5d2f41c4e704b4a886e0086a56ab8518a2af9ff598e5b6f0724f6e6935954023",
+        "01_real_movement_lesson.png": "36a35fd14fff83d46af282e265b9c3fc977d1ed25af4123811c68b5afa5de749",
+        "04_tell_free_dodge.png": "cf1a2266973117f648c8d801fb3a92181b74e84ed031ceaa961f58c3313269f0",
+        "dash_beat_00.png": "90e5669944d5008554d37245e29ba56c4cc55fe7c810b9fd9faa3048186734a1",
+        "dash_beat_01.png": "8bc5ad767458ccc1722d292753c8fc587e858c1f181c098dd36549e97967625c",
+        "dash_beat_02.png": "58fe7a7143fdd96c3bc71d2ee8d3ed8a0699f9683b79ef5011a3507cdea0c00f",
+        "dash_beat_03.png": "ed55f3e48e8c54a734dfcdb1302057b9d36dda6489a4f08378f8304c6273ed65",
+        "dash_beat_04.png": "9663febe416e1eac26a0001d1bd692bc936aa484d7bf9d1b565c6280be05f754",
+        "dash_lesson.png": "6d58da8cd4b6fbeb165263170d67739ea408def206808f5659c65ed66de945b7",
+        "move_beat_00.png": "69c97c7ff2739adf8ce6c10575ef1b46ec3618d934dfb46eeb97e56c852069d0",
+        "move_beat_01.png": "b5893b4ff22f26f33c2fbb41d821b7ecea4c19427b71184bd7a17d0ce4b1c3cd",
+        "move_beat_02.png": "bd59ff3a9f0202f1ca1578b8dc9cb1f72eb8f349d96e31e4bed71750b776720b",
+        "move_beat_03.png": "9119ce01ba7f6bdd8c2e81823e972ea4428b9e8dfd60e1ca613c7218e73b2960",
+        "move_beat_04.png": "4936f82f57471338236eb861ee6fe8e88e4a130fcbba92c125095b12cae56979",
+        "move_beat_05.png": "e112a76efdcfbe28928ab0f86a237b73500fcb0d30e46b4216f2346e0226c881",
+        "move_beat_06.png": "fc3a7c0d490d28611a28a4b2294b80cf6f04aa35eacb313f9e6d5559e6b1ddd4",
+        "move_beat_07.png": "eadd7a179cbd9ca3aaa5223c8fe2fcf6752476a699fc15d59af822ea108cdfcd",
+        "move_beat_08.png": "78f7d88f17f2f5ec0d7e256edd29887be977236783ab595d8d533ebeb598d6cb",
+        "move_beat_09.png": "7c7ff90c02b3d366f4adbecc2721555dd9872d2b40bd83177225db15081ae25d",
+        "move_beat_10.png": "bc56f0c70ab00bba73946b4a8a3936fa2775bb6b6f8e65d27a0d271f75761729",
+        "move_beat_11.png": "6f2869f759edea8cffd712f65d2408ad674663cb715efb9c68ff3a87bddc5f75",
+        "phase_0_step_0_strike.png": "1910c337b8e420842c2efdca93632c4416648069ea611e2d8061dd7b9f9a8e5e",
+        "phase_0_step_0_tell.png": "caa26f875043ff7c1f291f42a206b5cb820a30e2b2219210cdc511f8f46d1a9e",
+        "phase_0_step_0_vuln.png": "e6d539bafe6dd8812aeace341b4bbb97548675672ffca178fa36cd0d73844098",
+        "phase_1_step_0_strike.png": "b94a48a8c7fce071d3a73614061980000fb8194ee828447fe57872fc61215434",
+        "phase_1_step_0_struck.png": "f77ec0ae99a98536b85b7e9d06a4adc7b88ff7854eea0bc988f5ca390f483679",
+        "phase_1_step_0_tell.png": "7ded2495c4de577a339603e16a8bf90a92761fbc72227b4818099aa6e34bb17d",
+        "phase_1_step_1_strike.png": "f049a2865e674fc1a4c100bb829e8a9e05f4d13325e86a037d9d0b7b2bfa108c",
+        "phase_1_step_1_tell.png": "6994d98acd4f57485df3d3c7a77920fa105f3c261bf67471c863e74ea21c8e63",
+        "phase_1_step_1_vuln.png": "b979eb48e03ff613eada1d03b0bd945631db79721756f8d066e059edec77c0f6",
+        "phase_2_step_0_strike.png": "d60a9ee16737662380a6dcc3cc47aaaee48b94c249047f9d926d248f686fc5ce",
+        "phase_2_step_0_tell.png": "dadf662ad0d8cb1c1db8cc701b4fc821adcffac9ae209cbc239944e2695b7811",
+        "phase_2_step_1_strike.png": "e72996c50761b2fb1111f90ab0c19bcf7ecef2ddc63c47efbce6f7a002b8c742",
+        "phase_2_step_1_struck.png": "0a64c913c430f8b65a75235732f8f0c43736194f7d16d3f99d7b98c3e76e81f1",
+        "phase_2_step_1_tell.png": "607ca638fad4674cee32b7505b4de3a21d4b009123acabfe63b185c2da08bd4b",
+        "phase_2_step_1_vuln.png": "31a19ed71c5e9d05e1266b751f4ee2125a381ea86884c91221f36f6d6a17400a",
+        "phase_3_step_1_friends.png": "e2828307d38d2789f81a4cf952316a988aa9d420fae7bcdd8e938d16e9b41a7b"
+      },
+      "log_sha256": "ba97e77606beaec844ef052f141133cad7b9bcfa214049376bb1ae6663b505fe",
+      "result": "DONE; all three earned exchanges; zero bumps",
+      "review": "Agent inspected movement/current and dash beat sequences, circle and lane boundaries, strike, counter and finish. No owner/device/child acceptance claimed."
+    },
+    "tmp/storybook-final-1560": {
+      "frames": {
+        "00_splash.png": "4c13053a9b68381be8c3b4f275758aac930a1e1aaf61f2181291af4ef41f3e4e",
+        "00b_splash_identity.png": "97261b51614d53ff42177f64f9affe23cf962912b1fabf8cb4e7ec15cc31a0ed",
+        "00c_splash_weakness_lesson.png": "fd4d6433d1d0aa27a51e500ae42cbcc8f202c37b06c9548b2f4b1b0affe943fd",
+        "01_real_movement_lesson.png": "28f581bc7a63558b23668951940097da105eb1cf4f651f5876af8371e23f5f70",
+        "04_tell_free_dodge.png": "2a85ce28ae0e13548bf7fe67d57b62ac9139592add68dfb738e8ace57c9de579",
+        "dash_lesson.png": "b0488be56b4c5c9491289eafbb4850dbc1de613e19d96734f24915de3085cacc",
+        "phase_0_step_0_strike.png": "f27957d116b7e7c323769cb5958ddd4c972d1886516b0909c12db16aab13e4dc",
+        "phase_0_step_0_tell.png": "90ca82eed33af86350a1c8e8d85fc4ce0efe8d0f4af09c8125d8b3fbfc42da4d",
+        "phase_0_step_0_vuln.png": "59e1d71f7c2d9e4a8dc8bcf700b1a93be795ddbf3951fdd2e7c9807350c216ab",
+        "phase_1_step_0_strike.png": "941af573f18cdd77c41b245774ec51dd64926e360af878be3967e82ba290f63a",
+        "phase_1_step_0_struck.png": "18320bd9cc429db5b9a2b3c628c6b4bbfc356cb65dc2819249d05bc359af8fed",
+        "phase_1_step_0_tell.png": "8ced39be2fe25ac050c258b1e5efee090c06dac62861c5e7668d448efd1b030a",
+        "phase_1_step_1_strike.png": "5879142b1abc81542a4b2edaecd342ebdf826febcfd78fb13ba498fab8d33626",
+        "phase_1_step_1_tell.png": "6e998c1e39b7990e676bd7bdd8397f85d24fea1c88f689c94001c6421b12a348",
+        "phase_1_step_1_vuln.png": "52265ad5990c6c4800042ad21b1668475aed1d7eac6ddcd4be8629cf3df7e094",
+        "phase_2_step_0_strike.png": "469f8b516288d7ae9c7983eb77238ae206034b308d7e3eb94053cc3a2ded924c",
+        "phase_2_step_0_tell.png": "5fdb916c101da64041b001d3a5c261695fc5f7d5d35ccb453b6e043d3961db2c",
+        "phase_2_step_1_strike.png": "fb3c66d02090a86ece8d1f23c7f98b9e2b38c127d6e086c3456909c99c05dd33",
+        "phase_2_step_1_struck.png": "a1f1a9152c605266315601c347e3f7f0098522de0f5da687f802fae08e7a00bc",
+        "phase_2_step_1_tell.png": "808675c58fa95df767c39dd4aa42095a943b4308e32413aa95e40e274f579bf6",
+        "phase_2_step_1_vuln.png": "845c22c3080688cc5ef8b923ac9edf2ba0a77e7a82108da9ff0305ebca070dc4",
+        "phase_3_step_1_friends.png": "d16e1c3e53f1c74bd154a32af97ef9e3c84dd69e9228de24aab9ff07eab04407"
+      },
+      "log_sha256": "afbb13f550f9e750cb521466be37e991512c7edc9e6be29fbe1d0078ee00c38f",
+      "result": "DONE; all three earned exchanges; zero bumps",
+      "review": "Agent inspected movement/current and dash beat sequences, circle and lane boundaries, strike, counter and finish. No owner/device/child acceptance claimed."
+    },
+    "tmp/storybook-gold-1280": {
+      "frames": {
+        "phase_0_step_0_vuln_gold.png": "8f86bbd250c9c06f8a52add8ec40253faf770b9f3834c24a2b2f0676cd430316",
+        "phase_1_step_1_vuln_gold.png": "9a9550a8f273d380afeb4768aa37a1b70b3e2b95c023137dea5aaffa726ebbc7",
+        "phase_2_step_1_vuln_gold.png": "e6d86100c96c8e0853fe942073bbf7e718a1d5793c5e72616b117dcab43a8245"
+      },
+      "log_sha256": "f310a8a6d223fe27a576a6556515e682eb8e6cf90fa54c311f286db6ea1c8389",
+      "result": "DONE, damage=0; all three gold invitation centres tested inside the existing boss touch envelope",
+      "review": "Agent inspected the fully unfolded gold invitation, preserving authored boss face and removing strobe/finger."
+    }
+  },
+  "testing_incident": "One diagnostic/probe was mistakenly run without save isolation and advanced the normal desktop Godot save. Owner notified; no older backup was restored. Final visual captures and full CI use isolated data directories; Android saves untouched.",
+  "capture_script_sha256_utf8_lf": {
+    "tmp/puff_shots.gd": "b1595358c27c57624d1ef540ece5c27c88e590775e7a74e25058638529e671a5",
+    "tmp/storybook-final-shots.gd": "d2de96f75d070429c3c03c16a9a90d9fa3d085cc241dfac60f889b7cfd106dab",
+    "tmp/storybook-gold-shots.gd": "f724a8a876192604defd8d29cea6a6133f62e9b4d2f1c36562d1de81b946a3d5"
+  }
+}

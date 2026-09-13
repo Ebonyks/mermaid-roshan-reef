@@ -126,3 +126,23 @@ The previous source is preserved on `rollback/grand-puff-before-intuitive-202609
 at `d33f2ddef98aa39af7cc2b2d066794945a024550`. Roll back by reverting only the
 redesign commits on a fresh topic branch, then validate and integrate normally;
 keep accumulated saves and Android version codes advancing.
+
+### Storybook cue revision — 2026-09-12
+
+The owner's subsequent presentation direction replaces Grand Puff's boxed caption,
+finger demonstrations, geometric countdown and detached progress row with animated
+approved effect art. Dust gathers along the same locked landing boundary, with a
+quiet ink seam preserving its exact edge. Bubble currents invite movement; two
+bubble beats precede a faster wake for the optional dash. The genuine counter
+opening unfolds a gold star, and Roshan's point sends a curved sparkle response.
+Landing and earned exchanges shed bounded dust plumes. Captions remain plain text.
+These effects grant no input, damage, save or reward authority. Existing assisted
+lesson timing and freely chosen destinations remain unchanged.
+
+The [v2 choreography contract](animation/grand_puff_storybook_cues_v2.json) supersedes
+v1 effect presentation only; v1 gameplay timing and character-pose reuse still apply.
+See the [presentation impact](audit_impacts/grand-puff-storybook-cues-20260912.json)
+for validation and open acceptance. The preceding playable revision is preserved on
+`codex/grand-puff-intuitive-20260912` at
+`002320548b88c3fae420c130ebaba57365ed4af0`; this presentation can be reverted
+independently through the normal tested integration workflow.

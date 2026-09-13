@@ -46,19 +46,8 @@ const MASTERY_COLORS: Dictionary = {
 	MASTERY_BRONZE: Color(0.83, 0.48, 0.28),
 }
 
-# ---- the boss art contract -------------------------------------------------
-# One cutout per BEAT, not one cutout for the whole fight. Codex delivered the
-# sheets on 2026-08-02 (see BOSS_ART_INTEGRATION_2026-08-02.md for the cell
-# map); each pose below is optional, and any file that is not present falls
-# back to BOSS_FALLBACK_TEX, so the encounter runs identically whether none,
-# some or all of the art has landed.
-const BOSS_ART_DIR := "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/boss/"
-# The tell is its own art too: a closed badge and an open badge that read as
-# DIFFERENT OBJECTS, not one badge at two alphas.
-const TELL_OPEN_TEX := BOSS_ART_DIR + "boss_tell_open.png"
-const TELL_SHUT_TEX := BOSS_ART_DIR + "boss_tell_shielded.png"
-const STAR_TEX := "res://assets/mg/star.png"   # fallback tell (generic reward star)
-
+# Existing approved character poses remain owned by DustBunnyBossSprite.
+# DustBossLesson2D owns the Canvas invitation and response effects.
 const PHASE_ART: Dictionary = {
 	&"puffy": {"name": "puffy", "puff": 1.0},
 	&"dizzy": {"name": "dizzy", "puff": 0.96},
@@ -285,7 +274,7 @@ func _show_boss_splash(fr: Dictionary) -> void:
 	if splash == null:
 		_begin_showing(fr)
 		return
-	var badge: Texture2D = load(STAR_TEX) as Texture2D
+	var badge: Texture2D = DustBossLesson2D.STAR
 	splash.configure(
 		DustBunnyBossSprite.make_sprite_frames(),
 		"GRAND PUFF",
@@ -657,11 +646,10 @@ func _accept_counter() -> void:
 		if m.player != null:
 			m.player.play_verb("point")
 		var lesson: DustBossLesson2D = m.g.get("db_lesson") as DustBossLesson2D
-		var hand: EncounterGestureGuide2D = m.g.get("db_hand") as EncounterGestureGuide2D
-		if lesson != null and hand != null:
+		if lesson != null:
 			var boss_floor := Vector2(float(m.g.get("db_x", 0.0)), float(m.g.get("db_z", 0.0)))
 			lesson.counter(stage.project_floor_point(stage.player_local()),
-				hand.anchor.lerp(stage.project_floor_point(boss_floor), 0.5))
+				lesson.boss_anchor.lerp(stage.project_floor_point(boss_floor), 0.5))
 		if encounter.completed_rounds == 1:
 			m.g["db_tuft_point"] = stage.clamp_point(stage.player_local() + Vector2(6.0, -3.0), 4.0)
 			m.g["db_tuft_visible"] = true
@@ -737,21 +725,6 @@ func pose_for_state() -> String:
 			return "implode"
 	return "idle"
 
-func _apply_tell(star: Sprite3D, open_now: bool) -> void:
-	var want: String = TELL_OPEN_TEX if open_now else TELL_SHUT_TEX
-	if not ResourceLoader.exists(want):
-		want = STAR_TEX
-	if not ResourceLoader.exists(want):
-		return
-	if String(m.g.get("db_tell_tex", "")) == want:
-		return
-	var tex: Texture2D = load(want)
-	if tex == null:
-		return
-	star.texture = tex
-	star.pixel_size = 4.2 / maxf(1.0, float(tex.get_height()))
-	m.g["db_tell_tex"] = want
-
 # ---- presentation ----------------------------------------------------------
 func _place_boss(delta: float) -> void:
 	var boss: Node3D = m.g.get("db_boss") as Node3D
@@ -768,27 +741,14 @@ func _place_boss(delta: float) -> void:
 	var k: DustBunnyBossSprite = kit()
 	if k != null and is_instance_valid(k):
 		k.position.y = 0.0
-	# THE TELL: the star over his head. Dim and small while he is shielded,
-	# huge and strobing gold the instant he is open.
 	var flash: float = float(m.g.get("db_flash", 0.0))
-	var star: Sprite3D = m.g.get("db_star") as Sprite3D
-	if star != null and is_instance_valid(star):
-		star.visible = flash >= 0.99
-		_apply_tell(star, flash >= 0.99)
-		var strobe: float = 0.5 + 0.5 * sin(float(m.g.get("db_st", 0.0)) * 22.0)
-		star.position.y = BOSS_H * puff + 1.5
-		star.position.x = 0.0
-		if String(m.g.get("db_state", "")) == "struck" and int(m.g.get("db_hits", 0)) == 1:
-			# seeing stars: the tell orbits his head while he is dizzy
-			var orbit: float = float(m.g.get("db_spin", 0.0)) * 3.0
-			star.position.x = cos(orbit) * 2.6
-			star.position.y = BOSS_H * puff + 1.0 + sin(orbit) * 0.6
-		if flash >= 0.99:
-			star.modulate = Color(1.0, 0.92, 0.45, 0.55 + 0.45 * strobe)
-			star.scale = Vector3.ONE * (1.35 + 0.35 * strobe)
-		else:
-			star.modulate = Color(0.66, 0.62, 0.78, 0.42 + 0.35 * flash)
-			star.scale = Vector3.ONE * (0.85 + 0.3 * flash)
+	var lesson: DustBossLesson2D = m.g.get("db_lesson") as DustBossLesson2D
+	if lesson != null:
+		lesson.counter_open = flash >= 0.99
+		if m.player != null and m.player.cam != null:
+			# Retained actor projection bridge; the invitation itself is Canvas art.
+			lesson.boss_anchor = m.player.cam.unproject_position(
+				boss.global_position + Vector3(0.0, BOSS_H * puff + 1.5, 0.0))
 	var shadow: Sprite2D = m.g.get("db_shadow") as Sprite2D
 	if shadow != null and is_instance_valid(shadow):
 		var lift: float = clampf(float(m.g.get("db_y", 0.0)) / LEAP_H, 0.0, 1.0)
@@ -797,19 +757,9 @@ func _place_boss(delta: float) -> void:
 		var width: float = stage.project_floor_point(floor_point + Vector2(BOSS_H * 0.36, 0.0)).distance_to(shadow.position) * 2.0
 		shadow.scale = Vector2.ONE * width / float(shadow.texture.get_width()) * (1.0 - 0.5 * lift) * maxf(0.02, puff)
 		shadow.modulate.a = 0.65 - 0.35 * lift
-	var glow: MeshInstance3D = m.g.get("db_glow") as MeshInstance3D
-	if glow != null and is_instance_valid(glow):
-		glow.visible = flash >= 0.99
-		glow.position.y = BOSS_H * puff * 0.5
-	var hand: EncounterGestureGuide2D = m.g.get("db_hand") as EncounterGestureGuide2D
-	if hand != null and is_instance_valid(hand):
-		# the non-reader pointer: a finger over his head only while he is open
-		hand.visible = flash >= 0.99
-		if star != null and m.player.cam != null:
-			hand.anchor = m.player.cam.unproject_position(star.global_position)
 
 func _update_hud() -> void:
-	# The live head and three encounter puffs carry the lesson. Mastery belongs
+	# Grand Puff and his remaining floor dust carry the lesson. Mastery belongs
 	# to the earned result, not a second bright instruction during an attack.
 	m.hud_game.visible = false
 
@@ -840,7 +790,7 @@ func _build_mastery_ui() -> void:
 	(m.g["db_attic_layer"] as CanvasLayer).add_child(floor_lesson)
 	m.g["db_lesson_floor"] = floor_lesson
 	# The painted warning belongs on the floor behind the retained actors.
-	# Keep the destination hand and progress above them on the HUD canvas.
+	# Bubble guidance and the counter invitation live above the actors.
 	var floor_telegraph := DustBossTelegraph2DLogic.new() as DustBossTelegraph2D
 	floor_telegraph.configure_quality(m.quality)
 	floor_telegraph.draw_overlay = false
@@ -939,6 +889,9 @@ func _update_telegraph() -> void:
 	_telegraph_data["player_point"] = stage.project_floor_point(player_here)
 	_telegraph_data["puffs"] = encounter.completed_rounds
 	_telegraph_data["total"] = HP
+	_telegraph_data["boss_point"] = stage.project_floor_point(Vector2(
+		float(m.g.get("db_x", 0.0)), float(m.g.get("db_z", 0.0))))
+	_telegraph_data["encounter_visible"] = state != "splash"
 	telegraph.set_telegraph(_telegraph_data)
 	var floor_telegraph: DustBossTelegraph2D = m.g.get("db_floor_telegraph") as DustBossTelegraph2D
 	if floor_telegraph != null and is_instance_valid(floor_telegraph):
@@ -952,8 +905,7 @@ func _stage_open() -> void:
 		_caption_position = m.hud_msg.position
 		_caption_size = m.hud_msg.size
 		_caption_style = m.hud_msg.get_theme_stylebox("normal")
-		m.hud_msg.add_theme_stylebox_override("normal", StorybookUI.panel_style(
-			StorybookUI.LAVENDER, Color(0.94, 0.96, 1.0, 0.88), 18, 2))
+		m.hud_msg.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
 	_projection_size = Vector2.ZERO
 	_build_attic_backdrop()
 	stage.open({
@@ -1035,32 +987,6 @@ func _build_boss() -> void:
 	shadow.texture = preload("res://assets/flats/castle/rooms/room_actor_shadow.png")
 	(m.g["db_attic_layer"] as CanvasLayer).add_child(shadow)
 	m.g["db_shadow"] = shadow
-	# THE ICON ON HIS HEAD — the art carries a glowing crest on the exposed
-	# frame, and this badge repeats it above the card so the tell is readable
-	# from across the ring on a phone.
-	var star := Sprite3D.new()
-	_apply_tell(star, false)
-	star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	star.shaded = false
-	star.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
-	star.position = Vector3(0, BOSS_H + 1.5, 0)
-	star.modulate = Color(0.66, 0.62, 0.78, 0.42)
-	boss.add_child(star)
-	m.g["db_star"] = star
-	# a small warm halo BEHIND him only. The authored open frame already
-	# carries a glowing crest, so the old BOSS_H*1.5 bloom was washing the
-	# character out instead of pointing at him.
-	var glow := stage.glow(Color(1.0, 0.90, 0.60), BOSS_H * 0.62)
-	glow.position = Vector3(0, BOSS_H * 0.42, -0.4)
-	glow.visible = false
-	boss.add_child(glow)
-	m.g["db_glow"] = glow
-	var hand := EncounterGestureGuide2D.new()
-	hand.show_chip = false
-	hand.configure_quality(m.quality)
-	hand.visible = false
-	(m.g["db_mastery_layer"] as CanvasLayer).add_child(hand)
-	m.g["db_hand"] = hand
 
 func kit() -> DustBunnyBossSprite:
 	return m.g.get("db_kit") as DustBunnyBossSprite

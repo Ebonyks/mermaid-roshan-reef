@@ -1,0 +1,76 @@
+{
+  "version": 2,
+  "status": "IMPLEMENTED_MACHINE_VERIFIED_PENDING_DEVICE_CHILD_OWNER_ACCEPTANCE",
+  "scope": "Grand Puff gameplay effect presentation only; no cinematic delivery or new character acting",
+  "supersedes": "grand_puff_encounter_clips_v1.json effect presentation only",
+  "source_art": [
+    "assets/opera/worlds/props/fx_dust_puff.png",
+    "assets/opera/worlds/props/fx_stolen_sparkle.png",
+    "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png"
+  ],
+  "clips": [
+    {
+      "id": "dust_boundary",
+      "trigger": "locked tell geometry through strike",
+      "anticipation": "48 or fewer painted puffs breathe and gather inside the original contour; 2px quiet seam fixes the true edge",
+      "contact": "existing authored jump owns actual impact",
+      "exit": "warning removed after strike; separate 0.65s five-puff landing burst",
+      "budget": "30 Hz redraw; geometry cached; three sparse interior wisps"
+    },
+    {
+      "id": "move_current",
+      "trigger": "unlearned movement or assisted dodge",
+      "loop_seconds": 2.6,
+      "action": "five curved bubble clusters flow from Roshan toward an example destination; all floor destinations remain valid"
+    },
+    {
+      "id": "dash_bubbles",
+      "contact_seconds": [
+        0,
+        0.26
+      ],
+      "wake_seconds": [
+        0.44,
+        1.5
+      ],
+      "loop_seconds": 2.6,
+      "trigger": "existing first recovery lesson after voice finishes",
+      "exit": "dash learned or next attack"
+    },
+    {
+      "id": "counter_invitation",
+      "trigger": "actual vulnerable animation signal only",
+      "anticipation_seconds": 0.18,
+      "action": "gold star unfolds, then breathes with two small orbiting glints; no strobe"
+    },
+    {
+      "id": "counter_response",
+      "trigger": "fresh accepted counter",
+      "duration_seconds": 0.55,
+      "contact_seconds": 0.16,
+      "action": "seven-star curved trail reaches boss before first flinch, then five-star bloom fades",
+      "character": "unchanged approved Roshan point pose and Grand Puff flinch frames"
+    },
+    {
+      "id": "earned_dust",
+      "trigger": "completed round count increases",
+      "duration_seconds": 0.85,
+      "action": "three small wisps shed from Grand Puff; remaining dust banks replace progress row"
+    }
+  ],
+  "lifecycle": "Scene pause freezes clocks; encounter teardown frees owned Canvas layers; effects have no reward or input authority",
+  "fallback": "Missing presentation does not invalidate accepted counters or saves",
+  "acceptance": {
+    "machine": "PASS: exact Godot 4.7.2 scripts/ci.sh exit 0, 78 probe processes exit 0 including expected visual-only headless skip; focused boss/UI/sibling checks pass.",
+    "visual": "Scoped agent review of source-bound 1280x720 and 1560x720 Mobile captures; see impact. Device/child/owner acceptance pending.",
+    "device_child_owner": "pending"
+  },
+  "anchors": {
+    "floor": "Immutable projected encounter geometry; effects never shift collision edges",
+    "invitation": "Retained actor projection above Grand Puff; existing generous boss touch envelope",
+    "counter": "Roshan floor projection minus 28 canvas pixels to boss marker/floor midpoint",
+    "pivot": "Effect texture centre; approved character pivots unchanged"
+  },
+  "sampling": "30 Hz effect redraw; bounded one-shot timers; no accumulating particles",
+  "imports": "Mipmaps preserve painted detail under minification; source PNG bytes unchanged. NPOT dust uses lossless compression."
+}
