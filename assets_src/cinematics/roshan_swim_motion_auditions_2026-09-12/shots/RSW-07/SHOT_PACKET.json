@@ -1,0 +1,124 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "roshan_swim_motion_auditions_2026-09-12",
+  "shot_id": "RSW-07",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 8,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "openings/right.png",
+      "sha256": "5839c5cef6948666984700fb73ed07a77a047f8ad0ae5c75b9e44a465557ae48",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "pending",
+      "approval_scope": "new flattened opening composition has not been human approved"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "dimensions": [
+        768,
+        768
+      ],
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "accepted",
+      "approval_scope": "prior owner-approved front identity painting"
+    }
+  ],
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.html",
+      "used_as_pixel_reference": false,
+      "role": "human timeline and source navigation only"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "gaze and expression express the named intention",
+    "shoulders, elbows and wrists articulate rather than translate as one rigid arm",
+    "torso-to-tail propulsion with delayed broad-fin follow-through",
+    "subtle independent curl and colored-strand follow-through"
+  ],
+  "must_not_move": [
+    "camera",
+    "neutral navy field",
+    "identity/costume/anatomical ownership; pose itself is not locked"
+  ],
+  "end_state": "Roshan continues the easy screen-right-facing cruise with uninterrupted recovery motion.",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no identity drift",
+    "no pinned fingertips",
+    "no rubber fin",
+    "no boomerang or duplicate-video loop"
+  ],
+  "prompt_path": "shots/RSW-07/PROMPT.txt",
+  "prompt_sha256": "305ee2804adea2c3288761fa9ee50a6c07c865fea5a05eb49d15834dfb4a0628",
+  "sample_contract": {
+    "id": "RSW-07",
+    "name": "Ribbon cruise: two genuine three-second cycles",
+    "opening": "right",
+    "register": "everyday loop study",
+    "question": "Can a repeatable base swim retain breathing room and articulated arms without obvious resets?",
+    "beats": [
+      [
+        0,
+        1,
+        "she eases from the opening hover into a comfortable diagonal screen-right swimming posture"
+      ],
+      [
+        1,
+        4,
+        "perform the first complete three-second swim phrase against a gentle implied current: soft elbow-and-palm scull with a rounded torso-to-tail propulsion wave, followed by a longer glide and relaxed recovery; the broad fin follows late"
+      ],
+      [
+        4,
+        7,
+        "perform the same full three-second phrase a second time continuously, passing through the same pose, stroke phase and speed at the join; do not reverse time, insert a hold, duplicate the rendered first cycle or reset her body"
+      ],
+      [
+        7,
+        8,
+        "continue the natural glide and recovery beyond the second cycle so the editor has motion handles"
+      ]
+    ],
+    "end": "Roshan continues the easy screen-right-facing cruise with uninterrupted recovery motion.",
+    "path": "in-place against an implied current for extraction, stable average pelvis location and camera; local body wave and articulated arms must still read as swimming",
+    "loop": true,
+    "requested_cycles": [
+      [
+        1,
+        4
+      ],
+      [
+        4,
+        7
+      ]
+    ],
+    "loop_note": "Ask the generator to perform both cycles, not an editor to repeat the same video. Exact seams are a measured selection result, never guaranteed by prompt."
+  },
+  "blocking_findings": [
+    "exact IMAGE_1 human approval pending",
+    "immutable remote input URLs pending publication"
+  ]
+}

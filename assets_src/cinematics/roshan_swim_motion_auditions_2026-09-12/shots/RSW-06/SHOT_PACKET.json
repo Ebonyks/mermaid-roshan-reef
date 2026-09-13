@@ -1,0 +1,113 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "roshan_swim_motion_auditions_2026-09-12",
+  "shot_id": "RSW-06",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 8,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "openings/front-right.png",
+      "sha256": "cb4f0ccccf31937aabeecc4cba0232d2e50ab37fe0dc97c9b9ac2ef986959bf0",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "pending",
+      "approval_scope": "new flattened opening composition has not been human approved"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "dimensions": [
+        768,
+        768
+      ],
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "accepted",
+      "approval_scope": "prior owner-approved front identity painting"
+    }
+  ],
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.html",
+      "used_as_pixel_reference": false,
+      "role": "human timeline and source navigation only"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "gaze and expression express the named intention",
+    "shoulders, elbows and wrists articulate rather than translate as one rigid arm",
+    "torso-to-tail propulsion with delayed broad-fin follow-through",
+    "subtle independent curl and colored-strand follow-through"
+  ],
+  "must_not_move": [
+    "camera",
+    "neutral navy field",
+    "identity/costume/anatomical ownership; pose itself is not locked"
+  ],
+  "end_state": "Roshan waits upright and buoyant near screen-right, offering one relaxed hand and an attentive smile.",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no identity drift",
+    "no pinned fingertips",
+    "no rubber fin",
+    "no boomerang or duplicate-video loop"
+  ],
+  "prompt_path": "shots/RSW-06/PROMPT.txt",
+  "prompt_sha256": "dbdac8838050e29350adac1205b9a33afcee13f69d7c89501962974b723552b8",
+  "sample_contract": {
+    "id": "RSW-06",
+    "name": "Considerate arrival: ready to help",
+    "opening": "front-right",
+    "register": "focused and warm",
+    "question": "Does deceleration make the hands available for useful action instead of leaving her in a flying pose?",
+    "beats": [
+      [
+        0,
+        1.5,
+        "she looks toward an unseen destination at screen-right and inclines into a purposeful, quiet swim"
+      ],
+      [
+        1.5,
+        4,
+        "one rounded tail effort carries her right; elbows flex and relaxed palms recover with water resistance, while the chest remains readable and the gaze stays on the destination"
+      ],
+      [
+        4,
+        6,
+        "she decelerates with a gentle tail counter-sweep and small balancing palm motion; the torso becomes more upright as the tail catches up, without a sudden stop or size change"
+      ],
+      [
+        6,
+        8,
+        "she offers one open hand toward the destination, looks from it to the unseen recipient, then waits with a small reassuring smile; no object appears and no contact is claimed"
+      ]
+    ],
+    "end": "Roshan waits upright and buoyant near screen-right, offering one relaxed hand and an attentive smile.",
+    "path": "same approximate travel distance as RSW-01; explicit slowing before the offer; no fabricated prop contact",
+    "loop": false
+  },
+  "blocking_findings": [
+    "exact IMAGE_1 human approval pending",
+    "immutable remote input URLs pending publication"
+  ]
+}

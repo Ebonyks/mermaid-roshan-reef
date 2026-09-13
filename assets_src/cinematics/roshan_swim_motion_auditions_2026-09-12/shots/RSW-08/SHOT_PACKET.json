@@ -1,0 +1,124 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "roshan_swim_motion_auditions_2026-09-12",
+  "shot_id": "RSW-08",
+  "status": "DRAFT",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 8,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "openings/right.png",
+      "sha256": "5839c5cef6948666984700fb73ed07a77a047f8ad0ae5c75b9e44a465557ae48",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "pending",
+      "approval_scope": "new flattened opening composition has not been human approved"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "dimensions": [
+        768,
+        768
+      ],
+      "remote_url": null,
+      "hud_present": false,
+      "human_decision": "accepted",
+      "approval_scope": "prior owner-approved front identity painting"
+    }
+  ],
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.html",
+      "used_as_pixel_reference": false,
+      "role": "human timeline and source navigation only"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "gaze and expression express the named intention",
+    "shoulders, elbows and wrists articulate rather than translate as one rigid arm",
+    "torso-to-tail propulsion with delayed broad-fin follow-through",
+    "subtle independent curl and colored-strand follow-through"
+  ],
+  "must_not_move": [
+    "camera",
+    "neutral navy field",
+    "identity/costume/anatomical ownership; pose itself is not locked"
+  ],
+  "end_state": "Roshan continues the lively screen-right-facing cruise with uninterrupted recovery motion.",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no identity drift",
+    "no pinned fingertips",
+    "no rubber fin",
+    "no boomerang or duplicate-video loop"
+  ],
+  "prompt_path": "shots/RSW-08/PROMPT.txt",
+  "prompt_sha256": "1109db145e90b38e492a1303aa046bac5ef20ecc326f596a9d2f509a2f7d31a5",
+  "sample_contract": {
+    "id": "RSW-08",
+    "name": "Eager cruise: two genuine three-second cycles",
+    "opening": "right",
+    "register": "livelier loop study",
+    "question": "Can paired strokes feel eager but remain sustainable and pleasant when repeated?",
+    "beats": [
+      [
+        0,
+        1,
+        "she eases from the opening hover into the same diagonal screen-right swimming posture as the gentle loop, with alert eyes and a small warm smile"
+      ],
+      [
+        1,
+        4,
+        "perform one complete three-second phrase against a gentle implied current: two compact, rounded tail pulses with softly alternating elbow and palm recovery, then an easy buoyant glide; do not lock either arm straight"
+      ],
+      [
+        4,
+        7,
+        "perform a second complete three-second phrase with the same effort pattern, pose phase and speed at the join; keep the gaze purposeful and the smile restrained, without repeating a large facial gag or reversing time"
+      ],
+      [
+        7,
+        8,
+        "continue the glide and relaxed arm recovery naturally beyond the second cycle, letting fin and curls trail the body"
+      ]
+    ],
+    "end": "Roshan continues the lively screen-right-facing cruise with uninterrupted recovery motion.",
+    "path": "same framing, average pelvis position and viewing angle as RSW-07; in-place loop study, not a claim of measured world propulsion",
+    "loop": true,
+    "requested_cycles": [
+      [
+        1,
+        4
+      ],
+      [
+        4,
+        7
+      ]
+    ],
+    "loop_note": "Keep both native cycles. No boomerang, optical-flow seam repair, duplicated first-cycle footage or pose reset."
+  },
+  "blocking_findings": [
+    "exact IMAGE_1 human approval pending",
+    "immutable remote input URLs pending publication"
+  ]
+}
