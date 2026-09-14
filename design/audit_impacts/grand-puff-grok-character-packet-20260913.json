@@ -119,7 +119,8 @@
     "assets_src/characters/grand_puff_2026-09-13/TECHNICAL_SHEET_CONTRACT.txt",
     "ASSET_LICENSES.md",
     "design/05_DOC_LEDGER.md",
-    "design/BOSS_SPLASH_DESIGN_LANGUAGE.md"
+    "design/BOSS_SPLASH_DESIGN_LANGUAGE.md",
+    "design/animation/grand_puff_grok_packet_remote_20260913.json"
   ],
   "validation": [
     {
@@ -138,11 +139,11 @@
       "evidence": "tmp/puff-handoff-gates.log: all exit 0; packet hash inventory checked and alpha reproduced byte-identically. Remote verification remains a separate pending step."
     },
     {
-      "command": "Immutable GitHub packet publication and remote payload verification",
-      "result": "PENDING",
-      "evidence": "Initial remote comparison caught Windows CRLF normalization in text files; normalized archive text to LF and refreshed all payload hashes. Reverification follows this corrected content commit."
+      "command": "GitHub recursive tree/blob match, immutable raw HEAD for every packet file, remote manifest byte comparison",
+      "result": "PASS",
+      "evidence": "design/animation/grand_puff_grok_packet_remote_20260913.json: 90 files verified at a3083c759117e35865407fb996f9b854b08bd0e6; all HTTP 200, all Git blob hashes match. ARCHIVE_COMPLETE true; GENERATION_READY and DELIVERY_ACCEPTED false."
     }
   ],
-  "acceptance_gaps": "Identity lock awaiting owner/Grok signature. No new animation generation or Aseprite production. Device/child/owner animation acceptance remains open; archive, generation readiness and delivery acceptance separate.",
+  "acceptance_gaps": "Archive published and every payload file verified. Identity lock awaiting owner/Grok signature. No new animation generation or Aseprite production. Gold counter versus requested aqua forehead cue, current implosion versus intended cuddly deflate, and legacy Sprite3D remain explicit runtime/rebuild differences. Device/child/owner animation acceptance remains open.",
   "packet_payload_sha256": "4df736b55017d38cdf5554121f333bb46b5984a38c9df2992fb8f3d4ec78e700"
 }
