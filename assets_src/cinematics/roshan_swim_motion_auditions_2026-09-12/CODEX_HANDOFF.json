@@ -6,28 +6,34 @@
   "from": "Reef Imagine Bridge",
   "to": "Codex",
   "job": "Reconstruct reserved swim motion in Aseprite from take-03 references. Video remains reference. DELIVERY_ACCEPTED false.",
+  "videos_root": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos",
+  "videos_tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/codex/roshan-swim-combined-handoff-20260914/assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos",
   "combined": {
     "RESERVED_REEL": {
-      "path": "auditions/combined/RESERVED_REEL.mp4",
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/combined/RESERVED_REEL.mp4",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/codex/roshan-swim-combined-handoff-20260914/assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/combined/RESERVED_REEL.mp4",
       "sha256": "7360743e173cc4d83869d66d037abf82cd1312091079738fa35e635db7cc000b",
+      "bytes": 25526104,
       "duration_seconds": 91.6,
       "fps": 24,
       "dimensions": [1280, 720],
       "method": "ffmpeg concat, 1.25s navy slates, straight cuts",
       "note": "All eight take-03 clips in commission order. Review reel, not one performance.",
-      "binary_on_github": false,
+      "binary_on_github": true,
       "playable_in_bridge": true
     },
     "ASSEMBLY-01": {
-      "path": "auditions/combined/ASSEMBLY-01.mp4",
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/combined/ASSEMBLY-01.mp4",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/codex/roshan-swim-combined-handoff-20260914/assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/combined/ASSEMBLY-01.mp4",
       "sha256": "29c0977cac9d5641d86f2af9bdf200f453892a6155f0cab7cc85cad4ef51884c",
+      "bytes": 5104514,
       "duration_seconds": 22.31,
       "fps": 24,
       "dimensions": [1280, 720],
       "method": "ffmpeg re-encode, straight cuts, no morph",
       "status": "proposed",
       "note": "New reference candidate. Joins are not pelvis/phase matched.",
-      "binary_on_github": false,
+      "binary_on_github": true,
       "playable_in_bridge": true,
       "segments": [
         {"order": 1, "sample_id": "RSW-05", "take": 3, "in_seconds": 0, "out_seconds": 3, "role": "idle wait", "source_sha256": "f0327efa16a8821f8d77b17198a761de9b5001e8fe0a3138512b9616708d51ea"},
@@ -55,26 +61,28 @@
     "crossfade / morph / reverse to hide a join"
   ],
   "source_takes": [
-    {"id": "RSW-01", "take": 3, "sha256": "027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d", "disposition": "comparison_candidate"},
-    {"id": "RSW-02", "take": 3, "sha256": "7095f4de8cb39f3ed30ccf0952af287e040d73422adc685aa67c07ff7e1a48b4", "disposition": "comparison_candidate"},
-    {"id": "RSW-03", "take": 3, "sha256": "a24e44bf84bc7aa3f8679fddf482058442ee49f3009c22521a5cfca032692715", "disposition": "comparison_candidate", "shortlist": true},
-    {"id": "RSW-04", "take": 3, "sha256": "072741097f2b43af119a9b65fbb23d4904adfd109fe4a3c19c4ea2a3f6f27a42", "disposition": "comparison_candidate", "shortlist": true},
-    {"id": "RSW-05", "take": 3, "sha256": "f0327efa16a8821f8d77b17198a761de9b5001e8fe0a3138512b9616708d51ea", "disposition": "comparison_candidate", "shortlist": true},
-    {"id": "RSW-06", "take": 3, "sha256": "9478b60c3f182c3b491fc3af854f7f6d85cc08346150ed1d1fdaf996c11a70e7", "disposition": "comparison_candidate"},
-    {"id": "RSW-07", "take": 3, "sha256": "678edf78e584624202cdc9bf5f301512095e0c68f612f7313befcd65d3400483", "disposition": "inspiration_only", "mutation": "invented gold bracelets"},
-    {"id": "RSW-08", "take": 3, "sha256": "092e8b4659a7156d0dd7e5f1157e7f80216500e66f628f0fa20c05c51ba83128", "disposition": "inspiration_only", "mutation": "invented gold bracelets"}
+    {"id": "RSW-01", "take": 3, "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-01_take-03.mp4", "sha256": "027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d", "disposition": "comparison_candidate"},
+    {"id": "RSW-02", "take": 3, "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-02_take-03.mp4", "sha256": "7095f4de8cb39f3ed30ccf0952af287e040d73422adc685aa67c07ff7e1a48b4", "disposition": "comparison_candidate"},
+    {"id": "RSW-03", "take": 3, "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-03_take-03.mp4", "sha256": "a24e44bf84bc7aa3f8679fddf482058442ee49f3009c22521a5cfca032692715", "disposition": "comparison_candidate", "shortlist": true},
+    {"id": "RSW-04", "take": 3, "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-04_take-03.mp4", "sha256": "072741097f2b43af119a9b65fbb23d4904adfd109fe4a3c19c4ea2a3f6f27a42", "disposition": "comparison_candidate", "shortlist": true},
+    {"id": "RSW-05", "take": 3, "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-05_take-03.mp4", "sha256": "f0327efa16a8821f8d77b17198a761de9b5001e8fe0a3138512b9616708d51ea", "disposition": "comparison_candidate", "shortlist": true},
+    {"id": "RSW-06", "take": 3, "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-06_take-03.mp4", "sha256": "9478b60c3f182c3b491fc3af854f7f6d85cc08346150ed1d1fdaf996c11a70e7", "disposition": "comparison_candidate"},
+    {"id": "RSW-07", "take": 3, "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-07_take-03.mp4", "sha256": "678edf78e584624202cdc9bf5f301512095e0c68f612f7313befcd65d3400483", "disposition": "inspiration_only", "mutation": "invented gold bracelets"},
+    {"id": "RSW-08", "take": 3, "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-08_take-03.mp4", "sha256": "092e8b4659a7156d0dd7e5f1157e7f80216500e66f628f0fa20c05c51ba83128", "disposition": "inspiration_only", "mutation": "invented gold bracelets"}
   ],
   "github": {
     "branch": "codex/roshan-swim-combined-handoff-20260914",
     "base": "dev",
-    "binary_mp4": false,
-    "related": ["pull/8", "pull/9"]
+    "pr": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/10",
+    "binary_mp4": true,
+    "related": ["pull/8", "pull/9", "pull/10"]
   },
   "claims": {
     "ARCHIVE_COMPLETE": true,
     "GENERATION_READY": false,
     "DELIVERY_ACCEPTED": false,
     "CORE_ART_HELD_ON_TAKE03": true,
-    "COMBINED_REEL_READY": true
+    "COMBINED_REEL_READY": true,
+    "BINARIES_ON_GITHUB": true
   }
 }
