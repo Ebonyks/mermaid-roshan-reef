@@ -1,0 +1,44 @@
+{
+  "version": 3,
+  "baseline": "3f9549db0c8cf6c3ac2483e68b582f2f227dabdc",
+  "status": "STYLE_REFINEMENT_IN_PROGRESS",
+  "lane": "Interactive Canvas gameplay effect; no new character or cinematic animation",
+  "intent": "Grand Puff announces where he will jump or charge, visibly commits there, then attacks it.",
+  "sources": "One generated purple vortex with owner-authorized alpha extraction for the jump and an opaque painted swatch for charge streams; existing approved dust puff for charge crests/front. Unchanged approved boss jump/flinch sprites and counter assets.",
+  "anchors": "Projected immutable hit geometry and boss floor sampled on each warning entry; marker/rail origins owned by the encounter adapter; Canvas behind actors.",
+  "timeline": {
+    "warning_seconds": [
+      2.2,
+      2.7
+    ],
+    "aim_fraction": 0.35,
+    "locked_flashes": 3,
+    "jump": "Painted round purple vortex rotates 1.5 turns while moving from boss to fixed destination and growing to final footprint.",
+    "charge": "Two tapered painted streams extend; two painted dust crests unfold sequentially between them; a broad dust front gathers at the advancing end. No endpoint vortex.",
+    "lock": "Fixed geometry, three local brightness pulses; third flash shifts paint and boundary from purple to coral-peach before launch.",
+    "launch": "Warning stays steadily warm; authored boss jump/charge reaches existing committed destination."
+  },
+  "interrupts": "Encounter pause freezes the shared attack clock; exit frees Canvas; subsequent attack resets the sampled origin. First learning hold waits at arrival until Roshan leaves the danger area.",
+  "authority": "Effects grant no input, reward or damage. Existing pattern/encounter controller owns targets, strikes, assistance and saves.",
+  "fallback": "Geometry and actual attacks remain valid independently of the visual renderer.",
+  "readability": "Minimum 2.2s warning; bounded local flashes, no full-screen flash, no blank hazard interval; 30Hz effects. Review circle and charge at 1280x720 and 1560x720.",
+  "acceptance": {
+    "machine": "Final exact Godot 4.7.2 scripts/ci.sh exit 0 and ALL OK (tmp/puff-front-full-ci.log); focused boss and static/audit/2D gates pass. Earlier rough-draft Opera exit 127 remains historical, superseded by this full final-candidate pass.",
+    "visual": "Owner accepts jump basics; charge-end swirl rejected at 3.5/5. Revised extending-wave pattern and coral-peach third flash under live verification; final 4.75/5 target remains unawarded.",
+    "device_child_owner": "pending"
+  },
+  "supersedes": "v2 dust warning presentation only; other v2 response effects retained.",
+  "source_bindings": {
+    "effects": "scripts/dust_boss_telegraph_2d.gd and scripts/encounter_warning_cue_2d.gd; exact LF-normalized hashes in impact record",
+    "retained_art": "grand_puff_storybook_cues_v2.json source_art and grand_puff_encounter_clips_v1.json character bindings remain unchanged; no new authored character pose."
+  },
+  "presentation_revision": 4,
+  "style_target": 4.75,
+  "style_brief": {
+    "jump": "Painted purple dust vortex, projected onto the floor; grouped rounded curls replace diagram strokes. Travel and lock timing unchanged.",
+    "charge": "Paint-textured tapered streams, two unfolding painted dust crests and a broad dust front. Charge-end vortex rejected by owner at 3.5/5 and removed.",
+    "hierarchy": "Boss and Roshan remain clear; one warning event at a time; purple attacks distinct from gold counters. No new tutorial panel or reward-like stars.",
+    "mobile": "One 512px POT mipmapped effect texture; 30Hz effects, bounded explicit strip quads, no accumulating particles or new 3D debt.",
+    "source": "Native painted vortex from built-in imagegen; owner approved local alpha extraction. One 512px RGBA asset supplies the jump icon and an opaque paint swatch for the streams; no vortex icon at the charge end."
+  }
+}

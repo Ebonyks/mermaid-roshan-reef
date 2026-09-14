@@ -15,9 +15,9 @@ static func grand_puff() -> EncounterProfile2D:
 	var profile := EncounterProfile2D.new()
 	profile.encounter_id = &"grand_puff"
 	profile.phases = [
-		EncounterPhase2D.make(&"puffy", [EncounterAttack2D.circle(5.2, 1.55)]),
-		EncounterPhase2D.make(&"dizzy", [EncounterAttack2D.circle(), EncounterAttack2D.circle()]),
-		EncounterPhase2D.make(&"angry", [EncounterAttack2D.circle(), EncounterAttack2D.lane()]),
+		EncounterPhase2D.make(&"puffy", [EncounterAttack2D.circle(5.2, 2.35)]),
+		EncounterPhase2D.make(&"dizzy", [EncounterAttack2D.circle(5.2, 2.2), EncounterAttack2D.circle(5.2, 2.2)]),
+		EncounterPhase2D.make(&"angry", [EncounterAttack2D.circle(5.2, 2.2), EncounterAttack2D.lane(4.4, 2.7)]),
 	]
 	return profile
 
