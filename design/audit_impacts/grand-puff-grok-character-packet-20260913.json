@@ -140,9 +140,9 @@
     {
       "command": "Immutable GitHub packet publication and remote payload verification",
       "result": "PENDING",
-      "evidence": "Next: commit/push packet, verify exact remote tree/blob hashes and raw image URLs."
+      "evidence": "Initial remote comparison caught Windows CRLF normalization in text files; normalized archive text to LF and refreshed all payload hashes. Reverification follows this corrected content commit."
     }
   ],
   "acceptance_gaps": "Identity lock awaiting owner/Grok signature. No new animation generation or Aseprite production. Device/child/owner animation acceptance remains open; archive, generation readiness and delivery acceptance separate.",
-  "packet_payload_sha256": "6599fb39b15dbe3b4302e34b7d92a99ac540dc5050a653bb2899c4796f3d757a"
+  "packet_payload_sha256": "4df736b55017d38cdf5554121f333bb46b5984a38c9df2992fb8f3d4ec78e700"
 }
