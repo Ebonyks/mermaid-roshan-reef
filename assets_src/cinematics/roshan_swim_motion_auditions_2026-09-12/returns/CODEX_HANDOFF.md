@@ -9,6 +9,33 @@ Reconstruct selected reserved swim motion in Aseprite from the take-03 reference
 Imagine made the videos. Codex reconstructs movement. Video remains reference until
 an explicit later production decision.
 
+## Owner reconstruction basis (2026-09-14)
+
+A prior reconstruction draft is **rejected for this request**. It missed broad
+tail strokes, changing full-body posture, arm placement, and trailing hair.
+Do not continue from that draft.
+
+Use the **front-right** view — not the old right-profile construction.
+
+| Shot | Role | SHA-256 |
+| --- | --- | --- |
+| RSW-01 take-03 | Launch and swimming performance | `027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d` |
+| RSW-06 take-03 | Arrival and upright recovery | `9478b60c3f182c3b491fc3af854f7f6d85cc08346150ed1d1fdaf996c11a70e7` |
+| RSW-03 take-03 | Attention and quieter personality | `a24e44bf84bc7aa3f8679fddf482058442ee49f3009c22521a5cfca032692715` |
+| RSW-05 take-03 | Attention and quieter personality | `f0327efa16a8821f8d77b17198a761de9b5001e8fe0a3138512b9616708d51ea` |
+
+Measure those four motion facts from the selected clips.
+
+RSW-07 and RSW-08 contain **ghosted resets**. Reconstruct loops; do not reuse
+those files as a cycle. Discard invented gold bracelets. Profile is not the
+construction view.
+
+ASSEMBLY-01 is superseded as the reconstruction spine. Keep as evidence only.
+
+Full record: [returns/OWNER_SELECTION.md](returns/OWNER_SELECTION.md)
+
+`DELIVERY_ACCEPTED` stays false.
+
 ## MP4s are on this branch
 
 All original H.264 files live here (19 files, ~89 MB):
@@ -40,16 +67,18 @@ Native 10.04s / 1280×720 / 24 fps / AAC.
 
 | ID | GitHub path | SHA-256 | Disposition |
 | --- | --- | --- | --- |
-| RSW-01 | `returns/videos/take-03/RSW-01_take-03.mp4` | `027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d` | comparison_candidate |
+| RSW-01 | `returns/videos/take-03/RSW-01_take-03.mp4` | `027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d` | **owner basis** · launch and swimming |
 | RSW-02 | `returns/videos/take-03/RSW-02_take-03.mp4` | `7095f4de8cb39f3ed30ccf0952af287e040d73422adc685aa67c07ff7e1a48b4` | comparison_candidate |
-| RSW-03 | `returns/videos/take-03/RSW-03_take-03.mp4` | `a24e44bf84bc7aa3f8679fddf482058442ee49f3009c22521a5cfca032692715` | comparison_candidate · shortlist |
-| RSW-04 | `returns/videos/take-03/RSW-04_take-03.mp4` | `072741097f2b43af119a9b65fbb23d4904adfd109fe4a3c19c4ea2a3f6f27a42` | comparison_candidate · shortlist |
-| RSW-05 | `returns/videos/take-03/RSW-05_take-03.mp4` | `f0327efa16a8821f8d77b17198a761de9b5001e8fe0a3138512b9616708d51ea` | comparison_candidate · shortlist |
-| RSW-06 | `returns/videos/take-03/RSW-06_take-03.mp4` | `9478b60c3f182c3b491fc3af854f7f6d85cc08346150ed1d1fdaf996c11a70e7` | comparison_candidate |
-| RSW-07 | `returns/videos/take-03/RSW-07_take-03.mp4` | `678edf78e584624202cdc9bf5f301512095e0c68f612f7313befcd65d3400483` | inspiration_only · bracelet mutation |
-| RSW-08 | `returns/videos/take-03/RSW-08_take-03.mp4` | `092e8b4659a7156d0dd7e5f1157e7f80216500e66f628f0fa20c05c51ba83128` | inspiration_only · bracelet mutation |
+| RSW-03 | `returns/videos/take-03/RSW-03_take-03.mp4` | `a24e44bf84bc7aa3f8679fddf482058442ee49f3009c22521a5cfca032692715` | **owner basis** · attention / personality |
+| RSW-04 | `returns/videos/take-03/RSW-04_take-03.mp4` | `072741097f2b43af119a9b65fbb23d4904adfd109fe4a3c19c4ea2a3f6f27a42` | comparison_candidate · not in owner basis |
+| RSW-05 | `returns/videos/take-03/RSW-05_take-03.mp4` | `f0327efa16a8821f8d77b17198a761de9b5001e8fe0a3138512b9616708d51ea` | **owner basis** · attention / personality |
+| RSW-06 | `returns/videos/take-03/RSW-06_take-03.mp4` | `9478b60c3f182c3b491fc3af854f7f6d85cc08346150ed1d1fdaf996c11a70e7` | **owner basis** · arrival and recovery |
+| RSW-07 | `returns/videos/take-03/RSW-07_take-03.mp4` | `678edf78e584624202cdc9bf5f301512095e0c68f612f7313befcd65d3400483` | ghosted resets · reconstruct loops · bracelet mutation |
+| RSW-08 | `returns/videos/take-03/RSW-08_take-03.mp4` | `092e8b4659a7156d0dd7e5f1157e7f80216500e66f628f0fa20c05c51ba83128` | ghosted resets · reconstruct loops · bracelet mutation |
 
-## ASSEMBLY-01 edit list (straight cuts)
+## ASSEMBLY-01 edit list (straight cuts) — SUPERSEDED
+
+Not the owner reconstruction basis. Evidence only.
 
 1. RSW-05 0.00–3.00 idle wait — `f0327efa…`
 2. RSW-01 1.00–5.50 ribbon glide — `027ff011…`
@@ -73,8 +102,11 @@ Pink bodice, lilac frills, pearlescent tail. Not Disney/Pixar 3D.
 
 ## Do not
 
+- Continue the rejected reconstruction draft (missed tail strokes, posture, arms, trailing hair).
+- Use the old right-profile construction.
+- Reuse RSW-07/08 as loops — ghosted resets. Reconstruct. Discard bracelets.
+- Treat ASSEMBLY-01 as the owner-selected spine.
 - Adapt take-01. Style rewrite (bun, silver crown, extra fauna).
-- Promote 07/08 gold bracelets as design.
 - Treat the reel as a single generated performance.
 - Switch to 3D, invent a new mermaid, or change Godot runtime / cinematics.
 - Set `DELIVERY_ACCEPTED`.

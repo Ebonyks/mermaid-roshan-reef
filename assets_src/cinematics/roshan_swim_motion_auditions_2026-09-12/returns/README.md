@@ -6,16 +6,17 @@ Branch: `codex/roshan-swim-combined-handoff-20260914` — [PR #10](https://githu
 
 ## Start here
 
-1. [../CODEX_HANDOFF.md](../CODEX_HANDOFF.md) — job, do/do-not, appearance lock
-2. [videos/README.md](videos/README.md) — 19 original H.264 files + SHA-256
-3. [RETURN_MANIFEST.take-03.json](RETURN_MANIFEST.take-03.json) — reserved pass scores, knockouts, fragments
-4. [CORE_ART_AUDIT.json](CORE_ART_AUDIT.json) — take-01 lost Roshan; take-03 holds
+1. [OWNER_SELECTION.md](OWNER_SELECTION.md) — **owner reconstruction basis** (start here)
+2. [../CODEX_HANDOFF.md](../CODEX_HANDOFF.md) — job, do/do-not, appearance lock
+3. [videos/README.md](videos/README.md) — 19 original H.264 files + SHA-256
+4. [RETURN_MANIFEST.take-03.json](RETURN_MANIFEST.take-03.json) — reserved pass scores, knockouts, fragments
+5. [CORE_ART_AUDIT.json](CORE_ART_AUDIT.json) — take-01 lost Roshan; take-03 holds
 
 ## Files in this folder
 
 | File | What |
 | --- | --- |
-| `videos/` | Original MP4s: combined reel, ASSEMBLY-01, take-01/02/03 |
+| `OWNER_SELECTION.md` / `.json` | Owner reconstruction basis — RSW-01 / 06 / 03 / 05, front-right |
 | `RETURN_MANIFEST.take-03.json` | Reserved pass (use these) |
 | `RETURN_MANIFEST.json` | Take-01 historical (style rewrite — do not adapt) |
 | `CAPABILITY_CHECK.json` | Take-01 tool proof (`reference_to_video`) |
@@ -44,5 +45,6 @@ These are the painted 8-view cutouts composited onto navy. No character redraw.
 | BINARIES_ON_GITHUB | true |
 | CORE_ART_HELD_ON_TAKE03 | true |
 | GENERATION_READY | false |
+| OWNER_RECONSTRUCTION_BASIS | true |
 | DELIVERY_ACCEPTED | **false** |
 | OPENING_LAYOUT_OWNER_CONFIRMED | false |
