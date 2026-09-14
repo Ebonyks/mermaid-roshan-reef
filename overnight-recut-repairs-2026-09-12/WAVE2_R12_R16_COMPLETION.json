@@ -1,0 +1,87 @@
+{
+  "schema": "overnight-recut-wave2-r12-r16-v1",
+  "commit": "f2d87d5fdac88729ee470ac2f561b0d22493b069",
+  "delivery_accepted": false,
+  "output_disposition": "motion_reference_only",
+  "openings": {
+    "R12": "dca3a667-2003-49c8-a209-48b5473ae195",
+    "R13": "6cfca354-b7fb-4994-84ff-d8a2057da711",
+    "R14": "9f6afad6-db28-4c23-ac55-435d202d94f3",
+    "R15": "1fc8b9c0-a142-4bf0-8c66-4a11ecdb8d6c",
+    "R16": "ea46c99c-a709-48f4-ae43-bb25938679a2"
+  },
+  "videos": {
+    "R12": "6f559c85-636d-43d4-890e-fd70ab3674cb",
+    "R13": "1e9682b5-1330-4dcb-971e-fc07fbd2f4ad",
+    "R14": "40f38035-9765-4ebc-8252-d5539c7099e9",
+    "R15": "005f86cd-0e30-4d29-8ff8-79d083d37a0f",
+    "R16_motion_fail": "65d35909-f0c5-49e0-ab2b-a976265a4771"
+  },
+  "primaries": {
+    "R12": "R12_PAPER_PRIMARY_4s.mp4",
+    "R13": "R13_DUSTER_PRIMARY_4s.mp4",
+    "R14": "R14_SPONGE_PRIMARY_4s.mp4",
+    "R15": "R15_TEAM_PRIMARY_4s.mp4",
+    "R16": "R16_CLEAN_WIDE_LOCKED_STILL_3s.mp4"
+  },
+  "qc": {
+    "R12": "PASS paper pinch\u2192lift\u2192hold; rainbow holds concept; dirt patch remains under but scrap clears hand",
+    "R13": "PASS duster web contact\u2192sweep\u2192lower; eagle holds; mild FLAG web visibility on fibers after lower",
+    "R14": "WEAK: dirt mostly floor puddle not wall wipe; water stream ok no cup; treat as rough contact ref",
+    "R15": "PASS five cast, clean white patch appears, rainbow concept holds, no extra bunny",
+    "R16": "MOTION FAIL: beard on Daddy (rejected), extra cast, bunny drifts \u2014 PRIMARY locked still of approved IMAGE_1"
+  },
+  "clips": [
+    {
+      "file": "R12_PAPER_FULL_6s.mp4",
+      "sha256": "6e103e5aa7c25d65f25d6c272ae5e5b85dd64e9dd9758b8af5593dd33c97fad5",
+      "bytes": 3200492
+    },
+    {
+      "file": "R12_PAPER_PRIMARY_4s.mp4",
+      "sha256": "cbe30db721ae381a28e7fb71c645549ba72666e2414b53144d255326597d0785",
+      "bytes": 2273156
+    },
+    {
+      "file": "R13_DUSTER_FULL_6s.mp4",
+      "sha256": "70f1492227a841f62588409deca57c4912e0649406d11e56ac2c8f617e3aca50",
+      "bytes": 3741224
+    },
+    {
+      "file": "R13_DUSTER_PRIMARY_4s.mp4",
+      "sha256": "9f4bf100f5ae1f1459d14fb50abcd39fec7fb1b611e8d12619ea715cf539cc16",
+      "bytes": 2465956
+    },
+    {
+      "file": "R14_SPONGE_FULL_6s.mp4",
+      "sha256": "ac23b9c791ad582804a358ab08eb5f3f2fee9740cd468615d0f2e80f4c450652",
+      "bytes": 4207483
+    },
+    {
+      "file": "R14_SPONGE_PRIMARY_4s.mp4",
+      "sha256": "751c3d6373a3b8191db2c7c1e9449cf342c2aa9d05773de36f43f86135091005",
+      "bytes": 2833280
+    },
+    {
+      "file": "R15_TEAM_FULL_6s.mp4",
+      "sha256": "603bca109800a924af2d39d48f1850d7717bde7deeabc9591a2ab40861b8e59b",
+      "bytes": 3459130
+    },
+    {
+      "file": "R15_TEAM_PRIMARY_4s.mp4",
+      "sha256": "b473e6526923dd2a886037db465e9b9edfd170dfe2df274d908f377d09adc5de",
+      "bytes": 2360063
+    },
+    {
+      "file": "R16_CLEAN_WIDE_LOCKED_STILL_3s.mp4",
+      "sha256": "13e636cbf88ddf99610103b4a8a40b8c056e4d4adb38159d71c885469bc714ce",
+      "bytes": 377468
+    },
+    {
+      "file": "R16_MOTION_FAIL_BEARD_CAST.mp4",
+      "sha256": "8f53d4add44db864d9ce5f3c54a25490a6c8d7003dead7de4ecc42eaa054df34",
+      "bytes": 3499596
+    }
+  ],
+  "completed_at": "2026-09-12T16:24:57.363455+00:00"
+}

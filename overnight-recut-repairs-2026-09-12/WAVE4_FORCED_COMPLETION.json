@@ -1,0 +1,54 @@
+{
+  "schema": "overnight-recut-wave4-forced-r03-r04-r06-v1",
+  "commit": "f2d87d5fdac88729ee470ac2f561b0d22493b069",
+  "delivery_accepted": false,
+  "note": "Owner forced CONDITIONAL_REVIEW shots",
+  "primaries": {
+    "R03": "R03_BATH_RECAP_PRIMARY_3s.mp4",
+    "R04": "R04_PLUG_PULL_PRIMARY_4s.mp4",
+    "R06": "R06_ART_ENTRY_PRIMARY_4s.mp4"
+  },
+  "video_assets": {
+    "R03": "0273e4de-da21-460c-b656-df3c1bcf502b",
+    "R04": "02dacf71-5330-4ba4-a7fd-a8201f9943bd",
+    "R06": "0ac04cc8-6eac-41d6-a3a1-a8ba4691e182"
+  },
+  "qc": {
+    "R03": "PASS clean bathroom recap; look sink/toilet; nod settle; fixtures hold",
+    "R04": "PASS grip plug \u2192 pull clear \u2192 clear stream; seahorse colors hold; obstruction remains in hand",
+    "R06": "PASS points at loose supplies; dirt and clutter remain; no auto-collect"
+  },
+  "clips": [
+    {
+      "file": "R03_BATH_RECAP_FULL_6s.mp4",
+      "sha256": "2c759916b6189d79438ebd8f2ce648cd9e739daa0a8d13857a866ff69b6a3493",
+      "bytes": 3139254
+    },
+    {
+      "file": "R03_BATH_RECAP_PRIMARY_3s.mp4",
+      "sha256": "5a1129d73b59f831ab629efa3e791098990443d6b14e02623035bc08ba3c167d",
+      "bytes": 1609399
+    },
+    {
+      "file": "R04_PLUG_PULL_FULL_6s.mp4",
+      "sha256": "7433ac606abb7606d3af6ba7f1da841b81e0491ffdc9260e879018364ce7f7ad",
+      "bytes": 4163034
+    },
+    {
+      "file": "R04_PLUG_PULL_PRIMARY_4s.mp4",
+      "sha256": "e26840f51da9b09f854c0a647bfc10e6a48c816c06b0ad5b99f13516891803c0",
+      "bytes": 2792264
+    },
+    {
+      "file": "R06_ART_ENTRY_FULL_6s.mp4",
+      "sha256": "7c6e7f862e0e48776b7cd3bf0b02e32a855b78b9220f97f2098ef7d41fab7525",
+      "bytes": 3110094
+    },
+    {
+      "file": "R06_ART_ENTRY_PRIMARY_4s.mp4",
+      "sha256": "fdbea37bda7bbdede31b3ee607db1a58d1154057ee382ae6ba32cca1c37d37a9",
+      "bytes": 2131728
+    }
+  ],
+  "completed_at": "2026-09-12T16:41:15.661702+00:00"
+}

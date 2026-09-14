@@ -1,0 +1,94 @@
+{
+  "schema": "overnight-recut-stage-v1",
+  "commit": "f2d87d5fdac88729ee470ac2f561b0d22493b069",
+  "packet": "assets_src/cinematics/overnight_recut_repairs_2026-09-12",
+  "generation_ready": true,
+  "delivery_accepted": false,
+  "pilot_order": [
+    "R09",
+    "R10",
+    "R11"
+  ],
+  "pending_owner_approval": [
+    {
+      "shot": "R09",
+      "role": "IMAGE_1_opening",
+      "file": "candidates/R09_big_bunny_scrub_opening.png",
+      "sha256": "aa190981537396ab1da059cf799c23f69410a29aa1a09e51da0041267cc942ab"
+    },
+    {
+      "shot": "R09",
+      "role": "endpoint_ref",
+      "file": "candidates/R09_suds_endpoint.png",
+      "sha256": "ed7f13735a560ee5a187bf1cbc4d40b1a04e2fc9a6375b7fb74ae6a81c285e2b"
+    },
+    {
+      "shot": "R10",
+      "role": "IMAGE_1_opening_or_mid",
+      "file": "candidates/R10_jump_from_suds.png",
+      "sha256": "13ff639019cccadd0675aea4ed9550505c57a84ae666d647df6097bb18793889"
+    },
+    {
+      "shot": "R11",
+      "role": "IMAGE_1_opening",
+      "file": "candidates/R11_dust_settle.png",
+      "sha256": "d166ae3aa034d26beeda8e92dbc0da8da5347646b8b707746237d819e81a4e5a"
+    }
+  ],
+  "identity_locks": {
+    "rainbow_dust_bunny_concept.png": {
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "bytes": 1608938
+    },
+    "dusty_attic_arena_native_1254.png": {
+      "sha256": "9cb4b02dc4a56e1436ea0a6b21dccf4ef751716d213e3ff7624571f15a9e2cb6",
+      "bytes": 2079404
+    },
+    "daddy_generation_preview.jpg": {
+      "sha256": "5a7c55e1987017f9fdfad5307538de7ddffce3a5d7025783aa4a08adfc836918",
+      "bytes": 154991
+    },
+    "baby_eagle_original_book.png": {
+      "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+      "bytes": 235829
+    },
+    "e585e52562_grand_puff_BOSS_DUST_BUNNY_IDENTITY.png": {
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "bytes": 1822045
+    }
+  },
+  "next_action": "Owner must approve exact-hash openings for R09/R10/R11 before any image-to-video. Reply Approve all or flag per candidate.",
+  "staged_at": "2026-09-12T15:53:57.727108+00:00",
+  "owner_approval": {
+    "status": "APPROVE_ALL",
+    "at": "2026-09-12T15:58:54.737623+00:00",
+    "bound_image1": {
+      "R09": {
+        "file": "candidates/R09_big_bunny_scrub_opening.png",
+        "sha256": "aa190981537396ab1da059cf799c23f69410a29aa1a09e51da0041267cc942ab",
+        "asset_id": "5db1f646-e6d5-4a2f-bd1a-278b47944d23"
+      },
+      "R09_endpoint": {
+        "file": "candidates/R09_suds_endpoint.png",
+        "sha256": "ed7f13735a560ee5a187bf1cbc4d40b1a04e2fc9a6375b7fb74ae6a81c285e2b",
+        "asset_id": "ae177a14-d182-4ef5-8918-c173f61bcbab"
+      },
+      "R10_mid_ref": {
+        "file": "candidates/R10_jump_from_suds.png",
+        "sha256": "13ff639019cccadd0675aea4ed9550505c57a84ae666d647df6097bb18793889",
+        "asset_id": "11910f73-3aa4-4727-84e5-f3e6184cbd34"
+      },
+      "R11": {
+        "file": "candidates/R11_dust_settle.png",
+        "sha256": "d166ae3aa034d26beeda8e92dbc0da8da5347646b8b707746237d819e81a4e5a",
+        "asset_id": "583811ec-a51c-4557-9106-89d5805ce433"
+      }
+    },
+    "identity": {
+      "rainbow": "a3a71f8d-0dc0-4d1f-ba4d-47bb9e663a80",
+      "daddy": "c39e3328-887c-4c9e-8183-4a5d3978518f",
+      "eagle": "6f1b1e9f-ca7a-4564-9a62-d2fc3a6fa244",
+      "attic": "627264b8-1703-477f-9247-f8811f17d792"
+    }
+  }
+}

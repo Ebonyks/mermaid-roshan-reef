@@ -1,0 +1,56 @@
+{
+  "schema": "overnight-recut-pilot-r09-r11-v1",
+  "commit": "f2d87d5fdac88729ee470ac2f561b0d22493b069",
+  "owner_approval": "APPROVE_ALL openings",
+  "delivery_accepted": false,
+  "output_disposition": "motion_reference_only",
+  "video_assets": {
+    "R09": "2477400f-6a39-4fb6-b6d7-ac1465b3661d",
+    "R10": "62a0c23f-029f-4791-b4e6-ce4494eeb842",
+    "R11": "8c12bc53-d4d5-457f-a20a-5d1d7fda3ee9"
+  },
+  "primaries": {
+    "R09": "R09_SCRUB_PRIMARY_4s.mp4",
+    "R10": "R10_JUMP_COLLAPSE_6s.mp4",
+    "R11": "R11_DUST_SETTLE_PRIMARY_3s.mp4",
+    "sequence": "PILOT_R09_R10_R11_STITCH_13s.mp4"
+  },
+  "qc": {
+    "R09": "PASS scrub progression 0-4s; FLAG late 4-6s: eagle morphs toward bunny-shape and a small multicolor body peeks \u2014 use 4s primary not full 6s. Endpoint still shows partial face under foam (not full hide of approved still).",
+    "R10": "PASS readable jump ~2s, concept-matching rainbow mid-air, casing collapses to dust mound, no intact shell, four helpers hold, no early little in first second.",
+    "R11": "PASS landed concept rainbow, dust thins, no giant, cast of four helpers + one friend, no backpack on eagle in opening."
+  },
+  "clips": [
+    {
+      "file": "PILOT_R09_R10_R11_STITCH_13s.mp4",
+      "sha256": "2fe70cb793f86fc89b80b84007e9d73119e991cd9596f335bded607e208d2d87",
+      "bytes": 10784871
+    },
+    {
+      "file": "R09_SCRUB_FULL_6s.mp4",
+      "sha256": "6811e980187f0a81385a205496ab67ee2b28d2ed4a96e4c335c32bb05f1f3fbb",
+      "bytes": 5408624
+    },
+    {
+      "file": "R09_SCRUB_PRIMARY_4s.mp4",
+      "sha256": "d02b60bc5512c398f94db50e4f88d5dd9c2e48658a5d5a934c641100844df119",
+      "bytes": 3585961
+    },
+    {
+      "file": "R10_JUMP_COLLAPSE_6s.mp4",
+      "sha256": "77fed38058f6d619051b56b9fb2ec60808be14c75f3cb319c75300f66ac0c76d",
+      "bytes": 5257921
+    },
+    {
+      "file": "R11_DUST_SETTLE_FULL_6s.mp4",
+      "sha256": "89378cf64234e548fd0b9f648f47789952cad6b2faddea1a6db8f3119e005715",
+      "bytes": 4341710
+    },
+    {
+      "file": "R11_DUST_SETTLE_PRIMARY_3s.mp4",
+      "sha256": "85c7b876fa1936728054b5bd694e7753f7863d463651de342fa1bcc164c75588",
+      "bytes": 2514486
+    }
+  ],
+  "completed_at": "2026-09-12T16:00:57.583475+00:00"
+}

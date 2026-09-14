@@ -1,0 +1,107 @@
+{
+  "schema": "overnight-recut-wave3-r17-r18-contact-v1",
+  "commit": "f2d87d5fdac88729ee470ac2f561b0d22493b069",
+  "delivery_accepted": false,
+  "output_disposition": "motion_reference_only",
+  "primaries": {
+    "R17": "R17_PINNED_EAGLE_PRIMARY_4s.mp4",
+    "R18": "R18_WINGBEAT_PRIMARY_4s.mp4",
+    "R01": "R01_DIRTY_DISCOVERY_PRIMARY_4s.mp4",
+    "R02": "R02_BRUSH_TUB_PRIMARY_4s.mp4",
+    "R05": "R05_POOL_FRONTS_PRIMARY_6s.mp4",
+    "R07": "R07_CRAFT_WIPE_PRIMARY_4s.mp4",
+    "R08": "R08_WORKBENCH_PRIMARY_3s.mp4"
+  },
+  "video_assets": {
+    "R17": "2992f96e-af22-4247-a8f7-c8b5d4e9c50c",
+    "R18": "d857db81-00b7-4d72-b395-37ae532be0c6",
+    "R01": "931c18ab-a349-45f0-bfda-47a4bb880ecc",
+    "R02": "b03e020a-1749-4b98-8328-c2e1623ad18a",
+    "R05": "11a9711d-b93e-4d9e-b5e1-7705e6637a23",
+    "R07": "06f4f310-e5bb-4a7a-8cd6-85f27476059e",
+    "R08": "f0186e8c-40dd-4590-95ed-465ecf39c86c"
+  },
+  "qc": {
+    "R17": "PASS book Eagle pinned by exactly two bunnies; head raise; pins hold; no backpack no talons",
+    "R18": "PASS wingbeat then settle; book colors; no backpack; no pins",
+    "R01": "PASS points at dust; grime remains; emblems hold",
+    "R02": "PASS scrub contact; dirt lifts to floor strip; tub dirt remains; mild water drip ok",
+    "R05": "PASS two clear fronts meet; dirty\u2192turquoise; no character",
+    "R07": "PASS clean circle strip on purple grime; untouched paint remains",
+    "R08": "PASS hands settle on blank workbench; no auto paint",
+    "R03_R04_R06": "CONDITIONAL_REVIEW \u2014 not regenerated this wave; keep native source unless owner forces"
+  },
+  "clips": [
+    {
+      "file": "R01_DIRTY_DISCOVERY_FULL_6s.mp4",
+      "sha256": "022af9c2c8ebd09013ffd85af3ed8fa496ee284e45fc24cf009561fffd79f0c4",
+      "bytes": 4485491
+    },
+    {
+      "file": "R01_DIRTY_DISCOVERY_PRIMARY_4s.mp4",
+      "sha256": "592e514a69ffe98d7ea1546af1212e7c1298852facf5d237a192f3f4292618f9",
+      "bytes": 3025138
+    },
+    {
+      "file": "R02_BRUSH_TUB_FULL_6s.mp4",
+      "sha256": "689bbbf5588ceba3428d712183a2ce96927293d3b100dbe5720678dfd86fe687",
+      "bytes": 4839144
+    },
+    {
+      "file": "R02_BRUSH_TUB_PRIMARY_4s.mp4",
+      "sha256": "bc22d617e31197f7862996b934056bf3ab0f93d129efc2d36e07a57b765e8493",
+      "bytes": 3229544
+    },
+    {
+      "file": "R05_POOL_FRONTS_FULL_6s.mp4",
+      "sha256": "83c0473b5210f6af5fe9fad1577d0b48d69b02847a843e208e42d0cd81ed3e39",
+      "bytes": 5269350
+    },
+    {
+      "file": "R05_POOL_FRONTS_PRIMARY_6s.mp4",
+      "sha256": "ee065f49b3768da4c37f18bb77c63f26a980a8ba56ff2cf944e9ae7bde63216b",
+      "bytes": 5254299
+    },
+    {
+      "file": "R07_CRAFT_WIPE_FULL_6s.mp4",
+      "sha256": "8be9c208c63a2ab656e77cc5cdef90ac1c5990a0fa00341b407eeca1c97945c5",
+      "bytes": 2589594
+    },
+    {
+      "file": "R07_CRAFT_WIPE_PRIMARY_4s.mp4",
+      "sha256": "fecc651ea0c8f8d259078d73227afdf15996559e8c09940a79a4d8e46612ef59",
+      "bytes": 1813180
+    },
+    {
+      "file": "R08_WORKBENCH_FULL_6s.mp4",
+      "sha256": "2a6cf77754a647c03b14bd384a54b1f251c503722482ac6bc04f717a134a93c3",
+      "bytes": 2769054
+    },
+    {
+      "file": "R08_WORKBENCH_PRIMARY_3s.mp4",
+      "sha256": "23c3b80a4379435f5f5fd9aa02bed73d1f0c551679472144229bb8bbebe4afb9",
+      "bytes": 1492028
+    },
+    {
+      "file": "R17_PINNED_EAGLE_FULL_6s.mp4",
+      "sha256": "c1a81ce4335c030a3e2af9712b24be92fadb212a632b916ae1426c956e1ef6b6",
+      "bytes": 2076631
+    },
+    {
+      "file": "R17_PINNED_EAGLE_PRIMARY_4s.mp4",
+      "sha256": "80afb9853d6ee278a796f415ed41f7fba4ee99da69038b2daf89f47f49d8063b",
+      "bytes": 1499850
+    },
+    {
+      "file": "R18_WINGBEAT_FULL_6s.mp4",
+      "sha256": "f53464043b73b7c80d55038b88f73d2674796f9c4503d1524cb45192f21c211b",
+      "bytes": 2744384
+    },
+    {
+      "file": "R18_WINGBEAT_PRIMARY_4s.mp4",
+      "sha256": "b1fe3ecedde3e33ba92e3ff94194fd48c56c4ec95b361904ef78d3ecbe7cd25f",
+      "bytes": 2025319
+    }
+  ],
+  "completed_at": "2026-09-12T16:34:15.059419+00:00"
+}
