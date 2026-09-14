@@ -1,7 +1,8 @@
 # Imagine bridge return — 2026-09-13
 
 Topic branch: `grok/imagine-bridge-return-20260913` off `origin/dev`
-(`f98ef836`). Do not treat `ca4dd196` as current status.
+(`f98ef836`). Return PR: https://github.com/Ebonyks/mermaid-roshan-reef/pull/8
+Do not treat `ca4dd196` as current status.
 
 Filled Codex intake files live next to the packet templates:
 
