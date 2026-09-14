@@ -1,0 +1,63 @@
+{
+  "schema": "world-animation-audit-batch1-completion-v1",
+  "owner_command": "Approve all + reference @c74794c2 (C13 10s attempt)",
+  "reference_video_note": "User ref last-frame still had giant coexisting with friend \u2014 same hard fail; not used as final delivery",
+  "generation_ready_override": "owner approve all 2026-09-09",
+  "delivery_accepted": false,
+  "disposition": "motion_reference_only",
+  "c13_primary": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+  "c02_image1_rebuilt": "D1-C02_REBUILT_IMAGE1.jpg",
+  "c02_image1_asset": "4abe303b-c7ca-400b-967f-c13221eb5faf",
+  "clips": [
+    {
+      "file": "D1-C02-R01_APPROVED.mp4",
+      "shot_id": "D1-C02-R01",
+      "sha256": "82d1ba64208d3e04d30f3063ee546cca176962a9d9bed910e7d69a54ca142825",
+      "bytes": 4198823,
+      "note": "Rebuilt IMAGE1 emblems teddy/palette/droplet/pearls + Roshan; 6s motion ref (packet 3s)"
+    },
+    {
+      "file": "D1-C02-R02_APPROVED.mp4",
+      "shot_id": "D1-C02-R02",
+      "sha256": "d6bc869f99ef46411f69b7f6398aa5e4885f32eadae99bc4ddcfec629b3d43c5",
+      "bytes": 4228748,
+      "note": "Same rebuilt IMAGE1; bathroom three-pearl cue; 6s (packet 2s)"
+    },
+    {
+      "file": "D1-C10-R01_APPROVED.mp4",
+      "shot_id": "D1-C10-R01",
+      "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+      "bytes": 1747915,
+      "note": "Owner approve-all on angle blank-mat opening; 6s (packet 3s)"
+    },
+    {
+      "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+      "shot_id": "D1-C13-S05",
+      "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+      "bytes": 7885229,
+      "note": "PRIMARY delivery: 5.5s cleaning + 4.5s endpoint hold; last frame QC no giant"
+    },
+    {
+      "file": "D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+      "shot_id": "D1-C13-S05",
+      "sha256": "83b258648d40fa2ca7b77416c0722c1d431476b4810f525ee9873197c1dd1eee",
+      "bytes": 8711894,
+      "note": "QC FAIL end: giant remains \u2014 do not use for assembly"
+    },
+    {
+      "file": "D1-C13-S05_ENDPOINT_HOLD.mp4",
+      "shot_id": "D1-C13-S05",
+      "sha256": "cd182eb4b0fd4044ec89cf03a23b92e33200deefc3b0b4c384a548422be33f85",
+      "bytes": 3861098,
+      "note": "Endpoint plate only; no giant"
+    }
+  ],
+  "video_assets": {
+    "D1-C02-R01": "b92c177d-020c-4599-bfc2-26f197e1c78e",
+    "D1-C02-R02": "a84b668e-35c4-44dd-bbe5-74062951719d",
+    "D1-C10-R01": "467505b9-88e7-4486-a247-8591a2f13640",
+    "D1-C13-S05_single_fail": "78f8c3a1-a8fe-44cf-a441-f2252e1ef21c",
+    "D1-C13-S05_endpoint": "4c40c524-31c1-459a-a9dc-789c0b8b1c8d"
+  },
+  "completed_at": "2026-09-09T15:22:40.362651+00:00"
+}

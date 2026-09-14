@@ -1,0 +1,802 @@
+{
+  "schema": "world-animation-reshoot-editorial-decisions-v1",
+  "date": "2026-09-09",
+  "status": "SAMPLED_EDITORIAL_QC_NOT_FINAL_ACCEPTANCE",
+  "fps": 24,
+  "range_convention": "Zero-based source frames, in-inclusive/out-exclusive; trim recommendations not yet applied.",
+  "delivery_accepted": false,
+  "new_generation_ready_jobs": 0,
+  "counts": {
+    "strong_keep_trim": 4,
+    "conditional_salvage": 2,
+    "locked_rough_primary": 1,
+    "priority_corrections": 4
+  },
+  "shots": [
+    {
+      "shot_id": "D1-C02-R01",
+      "file": "D1-C02-R01_APPROVED.mp4",
+      "decision": "KEEP_MAP_ONLY",
+      "category": "conditional_salvage",
+      "suggested_range": [
+        72,
+        144
+      ],
+      "conditional_pickup": "Dirty-state/staging pickup if this must establish the original dirty hall.",
+      "observation": "Correct portal sequence and Royal opening; runner/floor read largely clean. Roshan traverses the portals instead of settling near the left.",
+      "evidence_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ],
+      "source": {
+        "file": "D1-C02-R01_APPROVED.mp4",
+        "sha256": "82d1ba64208d3e04d30f3063ee546cca176962a9d9bed910e7d69a54ca142825",
+        "github_asset_id": 553028391,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R01_APPROVED.mp4",
+        "bytes": 4198823
+      },
+      "contact_sheet": "sheets/D1-C02-R01_APPROVED.jpg",
+      "source_frames": 145,
+      "source_duration_seconds": 6.041667,
+      "suggested_duration_seconds": 3.0,
+      "evidence": [
+        {
+          "frame": 0,
+          "time_seconds": 0.0,
+          "path": "frames/D1-C02-R01_APPROVED/sample_001.png"
+        },
+        {
+          "frame": 24,
+          "time_seconds": 1.0,
+          "path": "frames/D1-C02-R01_APPROVED/sample_002.png"
+        },
+        {
+          "frame": 48,
+          "time_seconds": 2.0,
+          "path": "frames/D1-C02-R01_APPROVED/sample_003.png"
+        },
+        {
+          "frame": 72,
+          "time_seconds": 3.0,
+          "path": "frames/D1-C02-R01_APPROVED/sample_004.png"
+        },
+        {
+          "frame": 96,
+          "time_seconds": 4.0,
+          "path": "frames/D1-C02-R01_APPROVED/sample_005.png"
+        },
+        {
+          "frame": 120,
+          "time_seconds": 5.0,
+          "path": "frames/D1-C02-R01_APPROVED/sample_006.png"
+        },
+        {
+          "frame": 144,
+          "time_seconds": 6.0,
+          "path": "frames/D1-C02-R01_APPROVED/sample_007.png"
+        }
+      ]
+    },
+    {
+      "shot_id": "D1-C02-R02",
+      "file": "D1-C02-R02_APPROVED.mp4",
+      "decision": "REGENERATE_DESTINATION_CUE",
+      "category": "priority_corrections",
+      "suggested_range": null,
+      "observation": "Blue-drop pool and three-pearl bathroom glow together.",
+      "reconstruction": "Only three pearls invite the player. Pool remains visible but unlit. Preserve geometry, open Royal arch and intentional dirty dressing. New complete frames, no localized pixel repair.",
+      "evidence_frames": [
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ],
+      "source": {
+        "file": "D1-C02-R02_APPROVED.mp4",
+        "sha256": "d6bc869f99ef46411f69b7f6398aa5e4885f32eadae99bc4ddcfec629b3d43c5",
+        "github_asset_id": 553028394,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R02_APPROVED.mp4",
+        "bytes": 4228748
+      },
+      "contact_sheet": "sheets/D1-C02-R02_APPROVED.jpg",
+      "source_frames": 145,
+      "source_duration_seconds": 6.041667,
+      "evidence": [
+        {
+          "frame": 24,
+          "time_seconds": 1.0,
+          "path": "frames/D1-C02-R02_APPROVED/sample_002.png"
+        },
+        {
+          "frame": 48,
+          "time_seconds": 2.0,
+          "path": "frames/D1-C02-R02_APPROVED/sample_003.png"
+        },
+        {
+          "frame": 72,
+          "time_seconds": 3.0,
+          "path": "frames/D1-C02-R02_APPROVED/sample_004.png"
+        },
+        {
+          "frame": 96,
+          "time_seconds": 4.0,
+          "path": "frames/D1-C02-R02_APPROVED/sample_005.png"
+        },
+        {
+          "frame": 120,
+          "time_seconds": 5.0,
+          "path": "frames/D1-C02-R02_APPROVED/sample_006.png"
+        },
+        {
+          "frame": 144,
+          "time_seconds": 6.0,
+          "path": "frames/D1-C02-R02_APPROVED/sample_007.png"
+        }
+      ]
+    },
+    {
+      "shot_id": "D1-C03-S03",
+      "file": "D1-C03-S03_APPROVED.mp4",
+      "decision": "TRIM_NO_REGENERATION",
+      "category": "strong_keep_trim",
+      "suggested_range": [
+        0,
+        72
+      ],
+      "observation": "Ocean window restored; dirty bath, mirror/shell sink, toilet, purple swimmer and viewer-right Roshan match the staged reference.",
+      "evidence_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ],
+      "source": {
+        "file": "D1-C03-S03_APPROVED.mp4",
+        "sha256": "93571f0f6a832145b415562d125291d405c70b844173b2185877ebb1d9bd5efe",
+        "github_asset_id": 553055166,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C03-S03_APPROVED.mp4",
+        "bytes": 4229721
+      },
+      "contact_sheet": "sheets/D1-C03-S03_APPROVED.jpg",
+      "source_frames": 145,
+      "source_duration_seconds": 6.041667,
+      "suggested_duration_seconds": 3.0,
+      "evidence": [
+        {
+          "frame": 0,
+          "time_seconds": 0.0,
+          "path": "frames/D1-C03-S03_APPROVED/sample_001.png"
+        },
+        {
+          "frame": 24,
+          "time_seconds": 1.0,
+          "path": "frames/D1-C03-S03_APPROVED/sample_002.png"
+        },
+        {
+          "frame": 48,
+          "time_seconds": 2.0,
+          "path": "frames/D1-C03-S03_APPROVED/sample_003.png"
+        },
+        {
+          "frame": 72,
+          "time_seconds": 3.0,
+          "path": "frames/D1-C03-S03_APPROVED/sample_004.png"
+        },
+        {
+          "frame": 96,
+          "time_seconds": 4.0,
+          "path": "frames/D1-C03-S03_APPROVED/sample_005.png"
+        },
+        {
+          "frame": 120,
+          "time_seconds": 5.0,
+          "path": "frames/D1-C03-S03_APPROVED/sample_006.png"
+        },
+        {
+          "frame": 144,
+          "time_seconds": 6.0,
+          "path": "frames/D1-C03-S03_APPROVED/sample_007.png"
+        }
+      ]
+    },
+    {
+      "shot_id": "D1-C04-R01",
+      "file": "D1-C04-R01_APPROVED.mp4",
+      "decision": "TRIM_NO_REGENERATION",
+      "category": "strong_keep_trim",
+      "suggested_range": [
+        0,
+        48
+      ],
+      "observation": "Correct clean bath topology and swimmer; no cleaning tool. Later decorative fish drift is minor and unnecessary tail can be removed.",
+      "evidence_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ],
+      "source": {
+        "file": "D1-C04-R01_APPROVED.mp4",
+        "sha256": "cc44baa4bbb182b221125e684279b8ac268d865da2e5af930f6840d824c24194",
+        "github_asset_id": 553055164,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C04-R01_APPROVED.mp4",
+        "bytes": 2901926
+      },
+      "contact_sheet": "sheets/D1-C04-R01_APPROVED.jpg",
+      "source_frames": 145,
+      "source_duration_seconds": 6.041667,
+      "suggested_duration_seconds": 2.0,
+      "evidence": [
+        {
+          "frame": 0,
+          "time_seconds": 0.0,
+          "path": "frames/D1-C04-R01_APPROVED/sample_001.png"
+        },
+        {
+          "frame": 24,
+          "time_seconds": 1.0,
+          "path": "frames/D1-C04-R01_APPROVED/sample_002.png"
+        },
+        {
+          "frame": 48,
+          "time_seconds": 2.0,
+          "path": "frames/D1-C04-R01_APPROVED/sample_003.png"
+        },
+        {
+          "frame": 72,
+          "time_seconds": 3.0,
+          "path": "frames/D1-C04-R01_APPROVED/sample_004.png"
+        },
+        {
+          "frame": 96,
+          "time_seconds": 4.0,
+          "path": "frames/D1-C04-R01_APPROVED/sample_005.png"
+        },
+        {
+          "frame": 120,
+          "time_seconds": 5.0,
+          "path": "frames/D1-C04-R01_APPROVED/sample_006.png"
+        },
+        {
+          "frame": 144,
+          "time_seconds": 6.0,
+          "path": "frames/D1-C04-R01_APPROVED/sample_007.png"
+        }
+      ]
+    },
+    {
+      "shot_id": "D1-C09-R01",
+      "file": "D1-C09-R01_APPROVED.mp4",
+      "decision": "TRIM_NO_REGENERATION",
+      "category": "strong_keep_trim",
+      "suggested_range": [
+        0,
+        48
+      ],
+      "observation": "Low central shelved workbench, supply groups and plain pink top agree with the source. Head turn settles by the end of the two-second insert.",
+      "evidence_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ],
+      "source": {
+        "file": "D1-C09-R01_APPROVED.mp4",
+        "sha256": "c612238fcef54b501b75a484af0911256b6f194ac23f86a973d5c2508dcbdd2f",
+        "github_asset_id": 553055162,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C09-R01_APPROVED.mp4",
+        "bytes": 1848849
+      },
+      "contact_sheet": "sheets/D1-C09-R01_APPROVED.jpg",
+      "source_frames": 145,
+      "source_duration_seconds": 6.041667,
+      "suggested_duration_seconds": 2.0,
+      "evidence": [
+        {
+          "frame": 0,
+          "time_seconds": 0.0,
+          "path": "frames/D1-C09-R01_APPROVED/sample_001.png"
+        },
+        {
+          "frame": 24,
+          "time_seconds": 1.0,
+          "path": "frames/D1-C09-R01_APPROVED/sample_002.png"
+        },
+        {
+          "frame": 48,
+          "time_seconds": 2.0,
+          "path": "frames/D1-C09-R01_APPROVED/sample_003.png"
+        },
+        {
+          "frame": 72,
+          "time_seconds": 3.0,
+          "path": "frames/D1-C09-R01_APPROVED/sample_004.png"
+        },
+        {
+          "frame": 96,
+          "time_seconds": 4.0,
+          "path": "frames/D1-C09-R01_APPROVED/sample_005.png"
+        },
+        {
+          "frame": 120,
+          "time_seconds": 5.0,
+          "path": "frames/D1-C09-R01_APPROVED/sample_006.png"
+        },
+        {
+          "frame": 144,
+          "time_seconds": 6.0,
+          "path": "frames/D1-C09-R01_APPROVED/sample_007.png"
+        }
+      ]
+    },
+    {
+      "shot_id": "D1-C10-R01",
+      "file": "D1-C10-R01_APPROVED.mp4",
+      "decision": "TRIM_BEFORE_CONTACT",
+      "category": "conditional_salvage",
+      "suggested_range": [
+        0,
+        33
+      ],
+      "conditional_pickup": "If a 1.375-second approach is too short, request the missing three-second pre-contact settle rather than holding or duplicating a frame.",
+      "observation": "Correct room/mat; f32 last defensible gap; f33 starts silhouette overlap/ambiguous contact. Later two-second samples show contact.",
+      "evidence_frames": [
+        0,
+        24,
+        32,
+        33,
+        48,
+        72,
+        96,
+        120,
+        144
+      ],
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "contact_sheet": "sheets/D1-C10-R01_APPROVED.jpg",
+      "source_frames": 145,
+      "source_duration_seconds": 6.041667,
+      "suggested_duration_seconds": 1.375,
+      "evidence": [
+        {
+          "frame": 0,
+          "time_seconds": 0.0,
+          "path": "frames/D1-C10-R01_APPROVED/sample_001.png"
+        },
+        {
+          "frame": 24,
+          "time_seconds": 1.0,
+          "path": "manual_frames/C10_f24plus_001.png"
+        },
+        {
+          "frame": 32,
+          "time_seconds": 1.3333333333333333,
+          "path": "manual_frames/C10_f24plus_009.png"
+        },
+        {
+          "frame": 33,
+          "time_seconds": 1.375,
+          "path": "manual_frames/C10_f24plus_010.png"
+        },
+        {
+          "frame": 48,
+          "time_seconds": 2.0,
+          "path": "manual_frames/C10_f24plus_025.png"
+        },
+        {
+          "frame": 72,
+          "time_seconds": 3.0,
+          "path": "frames/D1-C10-R01_APPROVED/sample_004.png"
+        },
+        {
+          "frame": 96,
+          "time_seconds": 4.0,
+          "path": "frames/D1-C10-R01_APPROVED/sample_005.png"
+        },
+        {
+          "frame": 120,
+          "time_seconds": 5.0,
+          "path": "frames/D1-C10-R01_APPROVED/sample_006.png"
+        },
+        {
+          "frame": 144,
+          "time_seconds": 6.0,
+          "path": "frames/D1-C10-R01_APPROVED/sample_007.png"
+        }
+      ]
+    },
+    {
+      "shot_id": "D1-C12-R01",
+      "file": "D1-C12-R01_APPROVED.mp4",
+      "decision": "KEEP_TRIM_NO_REGENERATION",
+      "category": "strong_keep_trim",
+      "suggested_range": [
+        0,
+        48
+      ],
+      "observation": "Clean Hall B and open Royal arch match; Daddy glasses and separate tails survive sampled hug. Already embracing at f0; usable affectionate hold.",
+      "evidence_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ],
+      "source": {
+        "file": "D1-C12-R01_APPROVED.mp4",
+        "sha256": "551073a71c7d8e825ea92f1b7d7061ee49f93424ce66b58f1d0d5ef82ac8c163",
+        "github_asset_id": 553055161,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C12-R01_APPROVED.mp4",
+        "bytes": 3877356
+      },
+      "contact_sheet": "sheets/D1-C12-R01_APPROVED.jpg",
+      "source_frames": 145,
+      "source_duration_seconds": 6.041667,
+      "suggested_duration_seconds": 2.0,
+      "evidence": [
+        {
+          "frame": 0,
+          "time_seconds": 0.0,
+          "path": "frames/D1-C12-R01_APPROVED/sample_001.png"
+        },
+        {
+          "frame": 24,
+          "time_seconds": 1.0,
+          "path": "frames/D1-C12-R01_APPROVED/sample_002.png"
+        },
+        {
+          "frame": 48,
+          "time_seconds": 2.0,
+          "path": "frames/D1-C12-R01_APPROVED/sample_003.png"
+        },
+        {
+          "frame": 72,
+          "time_seconds": 3.0,
+          "path": "frames/D1-C12-R01_APPROVED/sample_004.png"
+        },
+        {
+          "frame": 96,
+          "time_seconds": 4.0,
+          "path": "frames/D1-C12-R01_APPROVED/sample_005.png"
+        },
+        {
+          "frame": 120,
+          "time_seconds": 5.0,
+          "path": "frames/D1-C12-R01_APPROVED/sample_006.png"
+        },
+        {
+          "frame": 144,
+          "time_seconds": 6.0,
+          "path": "frames/D1-C12-R01_APPROVED/sample_007.png"
+        }
+      ]
+    },
+    {
+      "shot_id": "D1-C13-S04",
+      "file": "D1-C13-S04_APPROVED.mp4",
+      "decision": "REGENERATE_RUMI_CONTACT",
+      "category": "priority_corrections",
+      "suggested_range": null,
+      "observation": "Correct intact giant, four helpers and two-window arena, but Rumi uses a white cup by f72 and in later samples.",
+      "reconstruction": "Keep giant intact and tiny friend absent. Rumi uses thin open-hand water stream, no vessel or drinking. Preserve team action and correctly held tools. New complete frames, no localized pixel repair.",
+      "evidence_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ],
+      "source": {
+        "file": "D1-C13-S04_APPROVED.mp4",
+        "sha256": "7d528cc00ac88adf815fda15d38e7784cdb636112fbc0598c4e5f0c39aec6056",
+        "github_asset_id": 553055163,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S04_APPROVED.mp4",
+        "bytes": 4272096
+      },
+      "contact_sheet": "sheets/D1-C13-S04_APPROVED.jpg",
+      "source_frames": 145,
+      "source_duration_seconds": 6.041667,
+      "evidence": [
+        {
+          "frame": 0,
+          "time_seconds": 0.0,
+          "path": "frames/D1-C13-S04_APPROVED/sample_001.png"
+        },
+        {
+          "frame": 24,
+          "time_seconds": 1.0,
+          "path": "frames/D1-C13-S04_APPROVED/sample_002.png"
+        },
+        {
+          "frame": 48,
+          "time_seconds": 2.0,
+          "path": "frames/D1-C13-S04_APPROVED/sample_003.png"
+        },
+        {
+          "frame": 72,
+          "time_seconds": 3.0,
+          "path": "frames/D1-C13-S04_APPROVED/sample_004.png"
+        },
+        {
+          "frame": 96,
+          "time_seconds": 4.0,
+          "path": "frames/D1-C13-S04_APPROVED/sample_005.png"
+        },
+        {
+          "frame": 120,
+          "time_seconds": 5.0,
+          "path": "frames/D1-C13-S04_APPROVED/sample_006.png"
+        },
+        {
+          "frame": 144,
+          "time_seconds": 6.0,
+          "path": "frames/D1-C13-S04_APPROVED/sample_007.png"
+        }
+      ]
+    },
+    {
+      "shot_id": "D1-C13-S05",
+      "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+      "decision": "KEEP_LOCKED_ROUGH_CUT",
+      "category": "locked_rough_primary",
+      "suggested_range": [
+        0,
+        240
+      ],
+      "locked_primary": true,
+      "cut_frame": 132,
+      "continuous_removal_proven": false,
+      "observation": "f131 giant and suds present; f132 assembled cut removes giant, showing four helpers and one tiny friend. Preserve owner lock; hard cut is not continuous cleaning reveal.",
+      "exclude_from_primary": [
+        "D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "D1-C13-S05_ENDPOINT_HOLD.mp4"
+      ],
+      "evidence_frames": [
+        0,
+        120,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        144,
+        168,
+        192,
+        216,
+        239
+      ],
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "contact_sheet": "sheets/D1-C13-S05_FIX_ASSEMBLED_10s.jpg",
+      "source_frames": 240,
+      "source_duration_seconds": 10.0,
+      "suggested_duration_seconds": 10.0,
+      "evidence": [
+        {
+          "frame": 0,
+          "time_seconds": 0.0,
+          "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_001.png"
+        },
+        {
+          "frame": 120,
+          "time_seconds": 5.0,
+          "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_006.png"
+        },
+        {
+          "frame": 129,
+          "time_seconds": 5.375,
+          "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_007.png"
+        },
+        {
+          "frame": 130,
+          "time_seconds": 5.416666666666667,
+          "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_008.png"
+        },
+        {
+          "frame": 131,
+          "time_seconds": 5.458333333333333,
+          "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_009.png"
+        },
+        {
+          "frame": 132,
+          "time_seconds": 5.5,
+          "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_010.png"
+        },
+        {
+          "frame": 133,
+          "time_seconds": 5.541666666666667,
+          "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_011.png"
+        },
+        {
+          "frame": 134,
+          "time_seconds": 5.583333333333333,
+          "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_012.png"
+        },
+        {
+          "frame": 144,
+          "time_seconds": 6.0,
+          "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_014.png"
+        },
+        {
+          "frame": 168,
+          "time_seconds": 7.0,
+          "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_016.png"
+        },
+        {
+          "frame": 192,
+          "time_seconds": 8.0,
+          "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_017.png"
+        },
+        {
+          "frame": 216,
+          "time_seconds": 9.0,
+          "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_018.png"
+        },
+        {
+          "frame": 239,
+          "time_seconds": 9.958333333333334,
+          "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_019.png"
+        }
+      ]
+    },
+    {
+      "shot_id": "C14-S01",
+      "file": "C14-S01_APPROVED.mp4",
+      "decision": "REGENERATE_CAST_COUNT_IDENTITY",
+      "category": "priority_corrections",
+      "suggested_range": null,
+      "observation": "Tiny friend present at f0; second giant furry rainbow rabbit visible by f24 and persistent through f144.",
+      "reconstruction": "Exactly five actors throughout. One tiny low cloud friend with spiral ears, orange forehead curl and pearl feet, no greater than one-quarter Roshan height at shared depth. No new actor entrance or growth. New complete frames, no localized pixel repair.",
+      "evidence_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ],
+      "source": {
+        "file": "C14-S01_APPROVED.mp4",
+        "sha256": "d159222ae9da6871f6820792961e54d2c90925e5d09485f5312353b17748e5b1",
+        "github_asset_id": 553055182,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S01_APPROVED.mp4",
+        "bytes": 5731544
+      },
+      "contact_sheet": "sheets/C14-S01_APPROVED.jpg",
+      "source_frames": 145,
+      "source_duration_seconds": 6.041667,
+      "evidence": [
+        {
+          "frame": 0,
+          "time_seconds": 0.0,
+          "path": "frames/C14-S01_APPROVED/sample_001.png"
+        },
+        {
+          "frame": 24,
+          "time_seconds": 1.0,
+          "path": "frames/C14-S01_APPROVED/sample_002.png"
+        },
+        {
+          "frame": 48,
+          "time_seconds": 2.0,
+          "path": "frames/C14-S01_APPROVED/sample_003.png"
+        },
+        {
+          "frame": 72,
+          "time_seconds": 3.0,
+          "path": "frames/C14-S01_APPROVED/sample_004.png"
+        },
+        {
+          "frame": 96,
+          "time_seconds": 4.0,
+          "path": "frames/C14-S01_APPROVED/sample_005.png"
+        },
+        {
+          "frame": 120,
+          "time_seconds": 5.0,
+          "path": "frames/C14-S01_APPROVED/sample_006.png"
+        },
+        {
+          "frame": 144,
+          "time_seconds": 6.0,
+          "path": "frames/C14-S01_APPROVED/sample_007.png"
+        }
+      ]
+    },
+    {
+      "shot_id": "C14-S05",
+      "file": "C14-S05_APPROVED.mp4",
+      "decision": "REGENERATE_CLEANING_RESULT",
+      "category": "priority_corrections",
+      "suggested_range": null,
+      "observation": "Tools carry dirt at f48, pink spill prominent by f72, dirty material redeposited by f96; final f144 retains puddle/mud/smear.",
+      "reconstruction": "Dirt transfers from existing patch into tools and stays collected. Reveal clean patch behind passing tools; no new pink liquid or dirt poured back. Preserve physical contributions of exactly five characters. New complete frames, no localized pixel repair.",
+      "evidence_frames": [
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ],
+      "source": {
+        "file": "C14-S05_APPROVED.mp4",
+        "sha256": "7c669b664cc47f37a42af031c8e117f73f7bcff3bdc4ecefbb29e7d32c65c4b3",
+        "github_asset_id": 553055185,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S05_APPROVED.mp4",
+        "bytes": 6283804
+      },
+      "contact_sheet": "sheets/C14-S05_APPROVED.jpg",
+      "source_frames": 145,
+      "source_duration_seconds": 6.041667,
+      "evidence": [
+        {
+          "frame": 24,
+          "time_seconds": 1.0,
+          "path": "frames/C14-S05_APPROVED/sample_002.png"
+        },
+        {
+          "frame": 48,
+          "time_seconds": 2.0,
+          "path": "frames/C14-S05_APPROVED/sample_003.png"
+        },
+        {
+          "frame": 72,
+          "time_seconds": 3.0,
+          "path": "frames/C14-S05_APPROVED/sample_004.png"
+        },
+        {
+          "frame": 96,
+          "time_seconds": 4.0,
+          "path": "frames/C14-S05_APPROVED/sample_005.png"
+        },
+        {
+          "frame": 120,
+          "time_seconds": 5.0,
+          "path": "frames/C14-S05_APPROVED/sample_006.png"
+        },
+        {
+          "frame": 144,
+          "time_seconds": 6.0,
+          "path": "frames/C14-S05_APPROVED/sample_007.png"
+        }
+      ]
+    }
+  ],
+  "release_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-world-animation-audit-2026-09-09",
+  "report_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/RESHOOT_QC_2026-09-09.md",
+  "evidence_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/RESHOOT_QC_EVIDENCE_2026-09-09.zip",
+  "review_limit": "Whole-frame decoded samples plus technical metadata only; not every-frame motion/identity, listening, device or production acceptance. No source media changed."
+}

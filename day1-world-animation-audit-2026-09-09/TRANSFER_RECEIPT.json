@@ -1,0 +1,73 @@
+{
+  "schema": "world-animation-release-transfer-receipt-v1",
+  "status": "REMOTE_TRANSFER_VERIFIED",
+  "verified_utc": "2026-09-09T14:56:10.4666068+00:00",
+  "release_id": 385609269,
+  "release_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-world-animation-audit-2026-09-09",
+  "release_tag": "day1-world-animation-audit-2026-09-09",
+  "source_anchor_commit": "7055d6769252f3db3f9436c509122e7575d2881a",
+  "source_anchor_contains_packet": false,
+  "zip_entries_verified": 320,
+  "packet_payload_sha256": "c7bb604fe0aa5810e66dcbdb6ae07236323e4f0115bb00ec8ddc9da5f710cae6",
+  "method": "Every ZIP entry was decompressed locally and SHA-256 compared with the source manifest/sidecars. GitHub reported matching whole-file SHA-256 digests and sizes for all six uploaded assets. An unauthenticated GET received a body byte from each public asset URL. This proves transferred bytes/access, not game validation or cinematic acceptance.",
+  "archive_complete": false,
+  "archive_complete_gap": "Entire packet is not committed to a durable Git tree; attachment-only transfer does not satisfy DL-CIN-13 in full.",
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "assets": [
+    {
+      "name": "day_one_world_animation_audit_v1_2026-09-06.zip",
+      "github_asset_id": 552975914,
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/day_one_world_animation_audit_v1_2026-09-06.zip",
+      "bytes": 603498073,
+      "sha256": "7307db8bdae240992cf2decea8b25330bb0f5ffa797cfbb8a166a33bb1672995",
+      "github_digest": "sha256:7307db8bdae240992cf2decea8b25330bb0f5ffa797cfbb8a166a33bb1672995",
+      "anonymous_get_status": 206
+    },
+    {
+      "name": "PACKET_MANIFEST.json",
+      "github_asset_id": 552975918,
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/PACKET_MANIFEST.json",
+      "bytes": 229824,
+      "sha256": "e23f27caf90cc7e0fe5582c8ba7bad92ed3ebb7de1ed86ebedb30200348bd11f",
+      "github_digest": "sha256:e23f27caf90cc7e0fe5582c8ba7bad92ed3ebb7de1ed86ebedb30200348bd11f",
+      "anonymous_get_status": 206
+    },
+    {
+      "name": "REGENERATION_QUEUE.json",
+      "github_asset_id": 552975917,
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/REGENERATION_QUEUE.json",
+      "bytes": 4185,
+      "sha256": "2f0a6942630d6bf992dd14580f6d512983049ae7802bb5ed4f7c92abdd3c097b",
+      "github_digest": "sha256:2f0a6942630d6bf992dd14580f6d512983049ae7802bb5ed4f7c92abdd3c097b",
+      "anonymous_get_status": 206
+    },
+    {
+      "name": "START_HERE_GROK.txt",
+      "github_asset_id": 552975916,
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/START_HERE_GROK.txt",
+      "bytes": 3034,
+      "sha256": "00bbd9436a27a439403125be256a49ac4e0c452077d23a276af2fb38b99eada2",
+      "github_digest": "sha256:00bbd9436a27a439403125be256a49ac4e0c452077d23a276af2fb38b99eada2",
+      "anonymous_get_status": 206
+    },
+    {
+      "name": "LOCAL_TRANSFER_VERIFICATION.json",
+      "github_asset_id": 552975915,
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/LOCAL_TRANSFER_VERIFICATION.json",
+      "bytes": 1259,
+      "sha256": "ab1cade3db5069a862faa4b85da8a51f43b647be142f161e8e0d8a75231350ea",
+      "github_digest": "sha256:ab1cade3db5069a862faa4b85da8a51f43b647be142f161e8e0d8a75231350ea",
+      "anonymous_get_status": 206
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "github_asset_id": 552975931,
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/SHA256SUMS.txt",
+      "bytes": 377,
+      "sha256": "3d324c135d18e03fd587f6f896625340fb83bc10932c83650654a044d8acb2fa",
+      "github_digest": "sha256:3d324c135d18e03fd587f6f896625340fb83bc10932c83650654a044d8acb2fa",
+      "anonymous_get_status": 206
+    }
+  ]
+}

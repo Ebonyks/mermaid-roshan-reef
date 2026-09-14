@@ -1,0 +1,111 @@
+{
+  "schema": "bstock-set2-v1",
+  "label": "B-STOCK Set 2 alternate takes \u2014 not DELIVERY_ACCEPTED",
+  "source_handoff": "START_HERE_GROK.txt + REGENERATION_QUEUE.json",
+  "prior_set": "out/ BSTOCK (set1)",
+  "delivery_accepted": false,
+  "primaries": {
+    "D1-C02-R01": "D1-C02-R01_BSTOCK2.mp4",
+    "D1-C02-R02": "D1-C02-R02_BSTOCK2.mp4",
+    "D1-C10-R01": "D1-C10-R01_BSTOCK2_TRIM_BEFORE_CONTACT.mp4",
+    "D1-C13-S05": "D1-C13-S05_BSTOCK2_ASSEMBLED_10s.mp4",
+    "D1-C03-S03": "D1-C03-S03_BSTOCK2.mp4",
+    "D1-C04-R01": "D1-C04-R01_BSTOCK2.mp4",
+    "D1-C09-R01": "D1-C09-R01_BSTOCK2.mp4",
+    "D1-C12-R01": "D1-C12-R01_BSTOCK2_TRIM2s.mp4",
+    "D1-C13-S04": "D1-C13-S04_BSTOCK2.mp4",
+    "C14-S01": "C14-S01_BSTOCK2_LOCKED_STILL.mp4",
+    "C14-S05": "C14-S05_BSTOCK2.mp4"
+  },
+  "notes": {
+    "C14-S01": "Set2 motion invented extra birds/creatures \u2014 PRIMARY is LOCKED_STILL; motion archived FAIL",
+    "D1-C12-R01": "full 6s drifts out of hug \u2014 PRIMARY is 2s trim",
+    "D1-C10-R01": "full contacts mat ~f48 \u2014 PRIMARY pre-contact 1.375s",
+    "D1-C13-S05": "assembled hard-cut; endpoint motion cast clean this time",
+    "D1-C02-R02": "pearls-only glow held",
+    "D1-C13-S04": "cup-free giant intact"
+  },
+  "clips": [
+    {
+      "file": "C14-S01_BSTOCK2_LOCKED_STILL.mp4",
+      "sha256": "5a75759fb92323be71e870f2081facee57911562e783390d7eeb035646f3a39e",
+      "bytes": 464007
+    },
+    {
+      "file": "C14-S01_BSTOCK2_MOTION_FAIL_CAST.mp4",
+      "sha256": "356dbaa23d3c966e6cd2563cf14a1de0c20ab6ec5b31a1da91741341309ad6c5",
+      "bytes": 5527336
+    },
+    {
+      "file": "C14-S05_BSTOCK2.mp4",
+      "sha256": "739381064ab776887501a1d4cda477c5f8a76dc173da4849b227bfd5411670ae",
+      "bytes": 6206147
+    },
+    {
+      "file": "D1-C02-R01_BSTOCK2.mp4",
+      "sha256": "dc0ab3f6ae46786dba97724f7488e7fac3ebd8acb92b2312ccca2fca65817e71",
+      "bytes": 3977203
+    },
+    {
+      "file": "D1-C02-R02_BSTOCK2.mp4",
+      "sha256": "546331bde02b225ee9ba543512f64216349cbb01e93bfe6037df8a7ade9eb2e9",
+      "bytes": 3848885
+    },
+    {
+      "file": "D1-C03-S03_BSTOCK2.mp4",
+      "sha256": "f6f805c2a1e94cd76a3f1e105681d31e849d95428a6c1d61cca87617af4fa422",
+      "bytes": 4885003
+    },
+    {
+      "file": "D1-C04-R01_BSTOCK2.mp4",
+      "sha256": "07e2e09d35a0f98344b3a3a7fbf55079bc6a0b00bdb1c8220f1420764e647a87",
+      "bytes": 4059486
+    },
+    {
+      "file": "D1-C09-R01_BSTOCK2.mp4",
+      "sha256": "b74bef0d8e794fdcbd062d4026bfc8a8cc51333be165db72a3bd2aa4d2f9807d",
+      "bytes": 3333375
+    },
+    {
+      "file": "D1-C10-R01_BSTOCK2_FULL.mp4",
+      "sha256": "a7fef2fbc46b2595c99eebf7250fdc8498c5cc6a38b26b1c5cf828a750f1e4b9",
+      "bytes": 1924313
+    },
+    {
+      "file": "D1-C10-R01_BSTOCK2_TRIM_BEFORE_CONTACT.mp4",
+      "sha256": "be1bb6eb1bc8896e76f9551fd25e99dde7e777aacf26b6822bcc4f1133a214a7",
+      "bytes": 613670
+    },
+    {
+      "file": "D1-C12-R01_BSTOCK2_FULL.mp4",
+      "sha256": "185f5764f63a196fe405c58f68ccb87ce9cb8a6d850621a41f47ecfe2a5a97da",
+      "bytes": 4682920
+    },
+    {
+      "file": "D1-C12-R01_BSTOCK2_TRIM2s.mp4",
+      "sha256": "215f9eeca025776ed12f12f09a1e24e10b9669d7b7c7272c73dc7d0af06a630e",
+      "bytes": 1556554
+    },
+    {
+      "file": "D1-C13-S04_BSTOCK2.mp4",
+      "sha256": "133599dba65e906fc1fbe1eb950b75e09c61bcdaa6a631b1bd08bed4a7fcadd1",
+      "bytes": 4036228
+    },
+    {
+      "file": "D1-C13-S05_BSTOCK2_ASSEMBLED_10s.mp4",
+      "sha256": "7f4d8721489928e2865176abe521bfddfff60472a3d96108b2a583871077423d",
+      "bytes": 8607148
+    },
+    {
+      "file": "D1-C13-S05_CLEANING_PLATE2.mp4",
+      "sha256": "4b70bd156e8fcedbd1b877ff4253aeb249788f2bc37b322f83fe1018252f96af",
+      "bytes": 6095631
+    },
+    {
+      "file": "D1-C13-S05_ENDPOINT2.mp4",
+      "sha256": "25f2327338a972f761f837d491f6433343ab5716773ce757973776296b01ef62",
+      "bytes": 3923084
+    }
+  ],
+  "completed_at": "2026-09-12T14:27:31.902137+00:00"
+}

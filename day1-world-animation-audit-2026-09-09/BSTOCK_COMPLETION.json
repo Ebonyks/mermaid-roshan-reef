@@ -1,0 +1,103 @@
+{
+  "schema": "bstock-regen-v1",
+  "label": "B-STOCK motion/editorial references \u2014 not DELIVERY_ACCEPTED",
+  "source_handoff": "START_HERE_GROK.txt + REGENERATION_QUEUE.json from day1-world-animation-audit-2026-09-09",
+  "queue_shots": 11,
+  "delivery_accepted": false,
+  "generation_ready": false,
+  "notes": {
+    "C14-S01": "MOTION hold 5 cast in samples; LOCKED_STILL also provided for cast-safe insert",
+    "C14-S05": "cleaning progress mixed; still dirt at end in places \u2014 rough B-stock only",
+    "D1-C13-S05": "ASSEMBLED = cleaning plate + locked one-friend still (hard cut). Endpoint motion i2v invented extra mermaids \u2014 discarded for endpoint.",
+    "D1-C13-S04": "cup-free, giant intact in samples",
+    "D1-C02-R02": "pearls-only glow held in samples",
+    "D1-C10-R01": "hand may contact mat late \u2014 trim before contact if needed"
+  },
+  "clips": [
+    {
+      "file": "C14-S01_BSTOCK_LOCKED_STILL.mp4",
+      "sha256": "5a75759fb92323be71e870f2081facee57911562e783390d7eeb035646f3a39e",
+      "bytes": 464007,
+      "imagine_asset_id": null
+    },
+    {
+      "file": "C14-S01_BSTOCK_MOTION.mp4",
+      "sha256": "fdcb1c3d6a17f08413343f84952bfcc9c9d1bc6eee9a94c0a413eca1cc65c248",
+      "bytes": 5194982,
+      "imagine_asset_id": "4cf882f3-bb69-49a0-8cfe-baa7b7e35583"
+    },
+    {
+      "file": "C14-S05_BSTOCK.mp4",
+      "sha256": "c93120d18e2574cba119395f740d9031ffabd2d00e4ea31459ce590ef45c19c7",
+      "bytes": 5969542,
+      "imagine_asset_id": "f2f826c3-4680-44b5-af7c-a46a38c2d64e"
+    },
+    {
+      "file": "D1-C02-R01_BSTOCK.mp4",
+      "sha256": "c720e94230a36d3c9ae2b00332bfb5b70bee1f4a9a017302c0cc56cc5e12fdaf",
+      "bytes": 4363229,
+      "imagine_asset_id": "e5a12f75-71f4-4b82-8fa5-0c050a5babd7"
+    },
+    {
+      "file": "D1-C02-R02_BSTOCK.mp4",
+      "sha256": "89000693335b39a600c8d9387ee8b8fb840245b0a682473048dd1111dd740099",
+      "bytes": 3978427,
+      "imagine_asset_id": "d313e335-77ae-4d05-aeef-4ce804a8d838"
+    },
+    {
+      "file": "D1-C03-S03_BSTOCK.mp4",
+      "sha256": "026deb9a95c3945180da60b86108da4c0e9dbaa7e9e39b23987b6d6b9859a1e3",
+      "bytes": 5070106,
+      "imagine_asset_id": "e03e6ebf-6f5a-45a3-a941-f7ae45824fe0"
+    },
+    {
+      "file": "D1-C04-R01_BSTOCK.mp4",
+      "sha256": "da31680d8f77322d5b2c80ba0f060e0bc8e86b94fec0a42ba48c7fc24eb4c8b9",
+      "bytes": 3346550,
+      "imagine_asset_id": "409144f6-35d4-45cf-b6eb-546a7f9759a6"
+    },
+    {
+      "file": "D1-C09-R01_BSTOCK.mp4",
+      "sha256": "bf915893e2df9845bc83a6d1e283be309ebb883d3d95a2b3aa5f1a015de78a25",
+      "bytes": 1909308,
+      "imagine_asset_id": "c21b2f9a-cf5e-4202-9c1f-cae77532c054"
+    },
+    {
+      "file": "D1-C10-R01_BSTOCK.mp4",
+      "sha256": "c3c9380e19e88768e16357af52041d39f6676c6d903c6556060d3e7cf0989ded",
+      "bytes": 2529622,
+      "imagine_asset_id": "603e45a9-3386-41f0-b2c6-bfc54ff14bab"
+    },
+    {
+      "file": "D1-C12-R01_BSTOCK.mp4",
+      "sha256": "8fe696a7b80b524336311187b0e19e6f3f98cc3ee4d3a13f598a980033834bd9",
+      "bytes": 3752017,
+      "imagine_asset_id": "10e38db0-d278-4b90-8a1e-168520f7bc84"
+    },
+    {
+      "file": "D1-C13-S04_BSTOCK.mp4",
+      "sha256": "0d6a8eb1826d7680f6a27985417b25329dbe061479a480917585d65f7f3e40fb",
+      "bytes": 4872184,
+      "imagine_asset_id": "574d5341-6075-4b6e-af54-fad26c2241f0"
+    },
+    {
+      "file": "D1-C13-S05_BSTOCK_ASSEMBLED_10s.mp4",
+      "sha256": "9a6fbc93b99e4e56fd24f8140a8e9af19711987ea8098b8ccec00552036a6005",
+      "bytes": 5689223,
+      "imagine_asset_id": null
+    },
+    {
+      "file": "D1-C13-S05_CLEANING_PLATE.mp4",
+      "sha256": "aef0d8403e3af33d8a78dec70ecadd2d6dc4d11acabb6611f4eedaf7cd9d8374",
+      "bytes": 5606997,
+      "imagine_asset_id": "f4df83c3-043d-4d2a-a2a1-5e77774a0dbd"
+    },
+    {
+      "file": "D1-C13-S05_ENDPOINT_LOCKED_STILL.mp4",
+      "sha256": "ff2fbb6a2f91b3ce9fa29a314132e407de16b416f8b2dd300910af63ba5ddd9a",
+      "bytes": 400209,
+      "imagine_asset_id": null
+    }
+  ],
+  "completed_at": "2026-09-12T14:23:11.339598+00:00"
+}

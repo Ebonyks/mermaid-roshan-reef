@@ -1,0 +1,249 @@
+{
+  "schema": "qc-response-editorial-review-v1",
+  "date": "2026-09-09",
+  "reviewed_upload_time": "2026-09-09T16:20Z",
+  "status": "SAMPLED_EDITORIAL_QC",
+  "delivery_accepted": false,
+  "new_generation_ready_jobs": 0,
+  "ranges": "Zero-based source frames, end-exclusive at24fps; recommendations not applied by this review.",
+  "shots": [
+    {
+      "shot_id": "D1-C03-S03",
+      "file": "D1-C03-S03_TRIM.mp4",
+      "decision": "KEEP_ROUGH_INSERT",
+      "suggested_range": [
+        0,
+        72
+      ],
+      "source": {
+        "file": "D1-C03-S03_TRIM.mp4",
+        "sha256": "edd1a135b5f05717da630f72472af94111091caa0f3d2928e2f87bb60b9611f6",
+        "github_asset_id": 553131925,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C03-S03_TRIM.mp4",
+        "bytes": 2099117
+      },
+      "suggested_duration_seconds": 3.0
+    },
+    {
+      "shot_id": "D1-C04-R01",
+      "file": "D1-C04-R01_TRIM.mp4",
+      "decision": "KEEP_ROUGH_INSERT",
+      "suggested_range": [
+        0,
+        48
+      ],
+      "source": {
+        "file": "D1-C04-R01_TRIM.mp4",
+        "sha256": "89ca03d7e44739201556adc76b13da6f0967f68d0e8ed908bcb0ea1950d1abbe",
+        "github_asset_id": 553131927,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C04-R01_TRIM.mp4",
+        "bytes": 1100550
+      },
+      "suggested_duration_seconds": 2.0
+    },
+    {
+      "shot_id": "D1-C09-R01",
+      "file": "D1-C09-R01_TRIM.mp4",
+      "decision": "KEEP_ROUGH_INSERT",
+      "suggested_range": [
+        0,
+        48
+      ],
+      "source": {
+        "file": "D1-C09-R01_TRIM.mp4",
+        "sha256": "39e2d9891bb6e4dc57d3acd8a9046ab51068c54cfc1ffc37e6a4e67c5c70e772",
+        "github_asset_id": 553131928,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C09-R01_TRIM.mp4",
+        "bytes": 738585
+      },
+      "suggested_duration_seconds": 2.0
+    },
+    {
+      "shot_id": "D1-C12-R01",
+      "file": "D1-C12-R01_TRIM.mp4",
+      "decision": "KEEP_ROUGH_INSERT",
+      "suggested_range": [
+        0,
+        48
+      ],
+      "source": {
+        "file": "D1-C12-R01_TRIM.mp4",
+        "sha256": "bb4bf50a3f7f4738a5a4a58e09c5f25656441b34ef699115099984ca75fe5d5c",
+        "github_asset_id": 553131934,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C12-R01_TRIM.mp4",
+        "bytes": 1350273
+      },
+      "suggested_duration_seconds": 2.0
+    },
+    {
+      "shot_id": "D1-C10-R01",
+      "file": "D1-C10-R01_TRIM_BEFORE_CONTACT.mp4",
+      "decision": "KEEP_SHORT_APPROACH",
+      "suggested_range": [
+        0,
+        33
+      ],
+      "limitation": "Not a three-second settled endpoint.",
+      "source": {
+        "file": "D1-C10-R01_TRIM_BEFORE_CONTACT.mp4",
+        "sha256": "6b0db5f06018b0d4b3d0d26b2b01151065865be5d8f4e950698ac7c78b741c1f",
+        "github_asset_id": 553131938,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_TRIM_BEFORE_CONTACT.mp4",
+        "bytes": 586124
+      },
+      "suggested_duration_seconds": 1.375
+    },
+    {
+      "shot_id": "D1-C02-R01",
+      "file": "D1-C02-R01_MAP_ONLY.mp4",
+      "decision": "KEEP_GEOGRAPHY_ONLY",
+      "suggested_range": [
+        0,
+        72
+      ],
+      "old_source_range": [
+        72,
+        144
+      ],
+      "limitation": "Does not adequately establish dirty hall.",
+      "source": {
+        "file": "D1-C02-R01_MAP_ONLY.mp4",
+        "sha256": "77a7143f9bf90c2345c461de747ce24f53aac7dbfe17dc95aee0060f07556491",
+        "github_asset_id": 553131950,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R01_MAP_ONLY.mp4",
+        "bytes": 2034299
+      },
+      "suggested_duration_seconds": 3.0
+    },
+    {
+      "shot_id": "C14-S01",
+      "file": "C14-S01_QCFIX.mp4",
+      "decision": "REGENERATE_CAST_COUNT",
+      "evidence_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ],
+      "reason": "Second bird present byf24 and at endpoint, alongside original bird and tiny friend; six actors.",
+      "requirement": "Exactly three mermaids, one Baby Eagle and one tiny rainbow bunny, all present at start; no extra entrances.",
+      "source": {
+        "file": "C14-S01_QCFIX.mp4",
+        "sha256": "96be912634e002292f34a43d489a49f39360efa5c5e6390f0ab201984f7c180b",
+        "github_asset_id": 553131894,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S01_QCFIX.mp4",
+        "bytes": 5378553
+      }
+    },
+    {
+      "shot_id": "D1-C02-R02",
+      "file": "D1-C02-R02_QCFIX.mp4",
+      "decision": "REGENERATE_INVITATION",
+      "evidence_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ],
+      "reason": "Pool dim but art palette glows alongside bathroom pearls byf24.",
+      "requirement": "Only three pearls invite; all other portal luminance remains non-cue throughout.",
+      "source": {
+        "file": "D1-C02-R02_QCFIX.mp4",
+        "sha256": "df87c2db415538d27d24e613b40324016ac49f191cf5df1f3ee5d7eca5e4fdc6",
+        "github_asset_id": 553131896,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R02_QCFIX.mp4",
+        "bytes": 3588225
+      }
+    },
+    {
+      "shot_id": "D1-C13-S04",
+      "file": "D1-C13-S04_QCFIX.mp4",
+      "decision": "TRIM_CUP_FREE_ROUGH_TEAM_INSERT",
+      "suggested_range": [
+        0,
+        48
+      ],
+      "reason": "Cup removed and giant intact; avoid later pink-star-to-yellow-rounded sponge drift visible byf72.",
+      "limitation": "Two-second insert is not original five-second stable-prop action.",
+      "source": {
+        "file": "D1-C13-S04_QCFIX.mp4",
+        "sha256": "8c0e7da943c465e9e1b24723da4c83b686b98da9ac6b6ebdc374ad8d1c8a6d86",
+        "github_asset_id": 553131892,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S04_QCFIX.mp4",
+        "bytes": 3785151
+      },
+      "suggested_duration_seconds": 2.0
+    },
+    {
+      "shot_id": "C14-S05",
+      "file": "C14-S05_QCFIX_ASSEMBLED.mp4",
+      "decision": "CONDITIONAL_ROUGH_CONTACT_RESULT_CUT",
+      "suggested_range": [
+        0,
+        96
+      ],
+      "shot_segments": [
+        [
+          0,
+          60
+        ],
+        [
+          60,
+          96
+        ]
+      ],
+      "cut_frame": 60,
+      "continuous_removal_proven": false,
+      "reason": "Dirty atf59; clean floor atf60 through an assembled cut. Better endpoint, not a continuous cleanup.",
+      "owner_approval_of_new_c14_construction": "NOT_ASSERTED",
+      "source": {
+        "file": "C14-S05_QCFIX_ASSEMBLED.mp4",
+        "sha256": "461a07b8e960d0495687e0126c7a6a197021d58e0937ee1a2d47ef82e2d81f79",
+        "github_asset_id": 553131893,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S05_QCFIX_ASSEMBLED.mp4",
+        "bytes": 6088101
+      },
+      "suggested_duration_seconds": 4.0
+    },
+    {
+      "shot_id": "C14-S05_ENDPOINT_ALTERNATE",
+      "file": "C14-S05_CLEAN_ENDPOINT_HOLD.mp4",
+      "decision": "ENDPOINT_ALTERNATE_ONLY",
+      "reason": "Do not double-append after assembled primary; contains motion despite filename.",
+      "source": {
+        "file": "C14-S05_CLEAN_ENDPOINT_HOLD.mp4",
+        "sha256": "d60b7c0abc9ee242391ecf033c89fc27397e0f73bde3ca02a3a1d1fdaefd3358",
+        "github_asset_id": 553131890,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S05_CLEAN_ENDPOINT_HOLD.mp4",
+        "bytes": 5726145
+      }
+    },
+    {
+      "shot_id": "D1-C13-S05",
+      "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+      "decision": "KEEP_OWNER_LOCK_UNCHANGED",
+      "suggested_range": [
+        0,
+        240
+      ],
+      "locked_primary": true,
+      "reason": "Previously reviewed; unchanged source hash; preserve S04 intact giant -> assembled S05 reveal.",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "suggested_duration_seconds": 10.0
+    }
+  ],
+  "release_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-world-animation-audit-2026-09-09",
+  "prior_report_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/RESHOOT_QC_2026-09-09.md"
+}

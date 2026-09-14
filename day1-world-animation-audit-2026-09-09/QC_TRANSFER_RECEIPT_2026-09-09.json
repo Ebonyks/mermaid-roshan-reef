@@ -1,0 +1,59 @@
+{
+  "schema": "world-animation-qc-transfer-receipt-v1",
+  "date": "2026-09-09",
+  "status": "REMOTE_TRANSFER_VERIFIED",
+  "release_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-world-animation-audit-2026-09-09",
+  "release_id": 385609269,
+  "files": [
+    {
+      "file": "RESHOOT_QC_2026-09-09.md",
+      "sha256": "d476c961230979b7ac96b0927c01664fb1d5c7c750528b69dc60c3dc2af7a026",
+      "bytes": 16772,
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/RESHOOT_QC_2026-09-09.md",
+      "asset_id": 553107028,
+      "github_digest": "sha256:d476c961230979b7ac96b0927c01664fb1d5c7c750528b69dc60c3dc2af7a026",
+      "public_http_status": 200,
+      "public_bytes_read": 16772,
+      "body_verification": "Anonymous full download SHA-256 equals local artifact."
+    },
+    {
+      "file": "RESHOOT_QC_DECISIONS_2026-09-09.json",
+      "sha256": "a4981ff163d715529fe8353bc6252e1d17aa4f53db203ac8c5764135e3ba1163",
+      "bytes": 25576,
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/RESHOOT_QC_DECISIONS_2026-09-09.json",
+      "asset_id": 553107029,
+      "github_digest": "sha256:a4981ff163d715529fe8353bc6252e1d17aa4f53db203ac8c5764135e3ba1163",
+      "public_http_status": 200,
+      "public_bytes_read": 25576,
+      "body_verification": "Anonymous full download SHA-256 equals local artifact."
+    },
+    {
+      "file": "QC_EVIDENCE_MANIFEST.json",
+      "sha256": "b03658562f1a30a7913c7019f308ebd6caa26cd2b7d16b755ec720a08bca3a84",
+      "bytes": 186049,
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/QC_EVIDENCE_MANIFEST.json",
+      "asset_id": 553107033,
+      "github_digest": "sha256:b03658562f1a30a7913c7019f308ebd6caa26cd2b7d16b755ec720a08bca3a84",
+      "public_http_status": 200,
+      "public_bytes_read": 186049,
+      "body_verification": "Anonymous full download SHA-256 equals local artifact."
+    },
+    {
+      "file": "RESHOOT_QC_EVIDENCE_2026-09-09.zip",
+      "sha256": "3578b8ff0872fca040dc678d932772790bcc1276eca9ac630e4e6cfa23510808",
+      "bytes": 200627105,
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/RESHOOT_QC_EVIDENCE_2026-09-09.zip",
+      "asset_id": 553107031,
+      "github_digest": "sha256:3578b8ff0872fca040dc678d932772790bcc1276eca9ac630e4e6cfa23510808",
+      "public_http_status": 206,
+      "public_bytes_read": 1024,
+      "body_verification": "Anonymous first 1024 bytes read; ZIP signature verified. Whole-file digest verified via GitHub API, not full remote redownload."
+    }
+  ],
+  "local_zip_roundtrip": {
+    "entries": 169,
+    "payload_sha256": "2105b973b021da017e206dc3e957791c21d949f726f5b5acc5649ed11f356e59",
+    "result": "ALL_PAYLOAD_HASHES_MATCH"
+  },
+  "acceptance": "QC transfer only. Not final delivery, new generation approval, durable source-tree publication or game integration."
+}

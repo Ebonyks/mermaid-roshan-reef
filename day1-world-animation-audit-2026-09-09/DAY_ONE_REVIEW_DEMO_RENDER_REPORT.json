@@ -1,0 +1,364 @@
+{
+  "status": "MACHINE_VERIFIED_ROUGH_REVIEW_NOT_FINAL",
+  "movie": "MERMAID_ROSHAN_DAY_ONE_REVIEW_DEMO_2026-09-09.mp4",
+  "sha256": "ede3533777104b5595bf455d85d494610d573f69d2cbcc6c3a2e561adee80ce1",
+  "bytes": 102641073,
+  "frames": 3304,
+  "duration_s": 137.66666666666666,
+  "audio_samples_authored": 6608000,
+  "aac_decoded_samples": 6608896,
+  "meter": {
+    "integrated_lufs": -17.7,
+    "lra_lu": 2.5,
+    "true_peak_dbtp": -3.5
+  },
+  "full_decode": "PASS",
+  "source_hashes_unchanged": "PASS",
+  "video_mux_packet_match": "PASS",
+  "complete_nonoverlapping_voice_lines": 18,
+  "chapter_count": 14,
+  "visual_sampling": "Root inspected 6 join sheets: all 24 new assembly joins plus C13 and C14 internal hard cuts. Inherited limitations recorded in notes; not full-frame acceptance.",
+  "listening_review": "NOT_CLAIMED",
+  "resolve_xml_import": "NOT_TESTED",
+  "probe": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "mime_codec_string": "avc1.64001f",
+        "width": 1280,
+        "height": 720,
+        "coded_width": 1280,
+        "coded_height": 720,
+        "has_b_frames": 2,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "16:9",
+        "pix_fmt": "yuv420p",
+        "level": 31,
+        "color_range": "tv",
+        "color_space": "bt709",
+        "color_transfer": "bt709",
+        "color_primaries": "bt709",
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "time_base": "1/24000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 3304000,
+        "duration": "137.666667",
+        "bit_rate": "5764373",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "3304",
+        "extradata_size": 49,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler"
+        }
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "mime_codec_string": "mp4a.40.2",
+        "sample_fmt": "fltp",
+        "sample_rate": "48000",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 6608000,
+        "duration": "137.666667",
+        "bit_rate": "194516",
+        "nb_frames": "6455",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "SoundHandler"
+        }
+      },
+      {
+        "index": 2,
+        "codec_name": "bin_data",
+        "codec_long_name": "binary data",
+        "codec_type": "data",
+        "codec_tag_string": "text",
+        "codec_tag": "0x74786574",
+        "id": "0x3",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 6608000,
+        "duration": "137.666667",
+        "bit_rate": "30",
+        "nb_frames": "14",
+        "extradata_size": 63,
+        "disposition": {
+          "default": 0,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "eng",
+          "handler_name": "SubtitleHandler"
+        }
+      }
+    ],
+    "chapters": [
+      {
+        "id": 0,
+        "time_base": "1/48000",
+        "start": 0,
+        "start_time": "0.000000",
+        "end": 1796000,
+        "end_time": "37.416667",
+        "tags": {
+          "title": "Otter flight and Sky Lagoon arrival"
+        }
+      },
+      {
+        "id": 1,
+        "time_base": "1/48000",
+        "start": 1796000,
+        "start_time": "37.416667",
+        "end": 2122000,
+        "end_time": "44.208333",
+        "tags": {
+          "title": "Discovering the castle"
+        }
+      },
+      {
+        "id": 2,
+        "time_base": "1/48000",
+        "start": 2122000,
+        "start_time": "44.208333",
+        "end": 2266000,
+        "end_time": "47.208333",
+        "tags": {
+          "title": "Bubbles in the bathroom"
+        }
+      },
+      {
+        "id": 3,
+        "time_base": "1/48000",
+        "start": 2266000,
+        "start_time": "47.208333",
+        "end": 2482000,
+        "end_time": "51.708333",
+        "tags": {
+          "title": "Bathroom cleanup"
+        }
+      },
+      {
+        "id": 4,
+        "time_base": "1/48000",
+        "start": 2482000,
+        "start_time": "51.708333",
+        "end": 2890000,
+        "end_time": "60.208333",
+        "tags": {
+          "title": "Helping the seahorse"
+        }
+      },
+      {
+        "id": 5,
+        "time_base": "1/48000",
+        "start": 2890000,
+        "start_time": "60.208333",
+        "end": 3598000,
+        "end_time": "74.958333",
+        "tags": {
+          "title": "Pool restoration and Rumi reunion"
+        }
+      },
+      {
+        "id": 6,
+        "time_base": "1/48000",
+        "start": 3598000,
+        "start_time": "74.958333",
+        "end": 3846000,
+        "end_time": "80.125000",
+        "tags": {
+          "title": "Finding Baby Eagle"
+        }
+      },
+      {
+        "id": 7,
+        "time_base": "1/48000",
+        "start": 3846000,
+        "start_time": "80.125000",
+        "end": 4074000,
+        "end_time": "84.875000",
+        "tags": {
+          "title": "Baby Eagle rescue"
+        }
+      },
+      {
+        "id": 8,
+        "time_base": "1/48000",
+        "start": 4074000,
+        "start_time": "84.875000",
+        "end": 4314000,
+        "end_time": "89.875000",
+        "tags": {
+          "title": "The art room"
+        }
+      },
+      {
+        "id": 9,
+        "time_base": "1/48000",
+        "start": 4314000,
+        "start_time": "89.875000",
+        "end": 4476000,
+        "end_time": "93.250000",
+        "tags": {
+          "title": "Art-room cleanup"
+        }
+      },
+      {
+        "id": 10,
+        "time_base": "1/48000",
+        "start": 4476000,
+        "start_time": "93.250000",
+        "end": 4884000,
+        "end_time": "101.750000",
+        "tags": {
+          "title": "Royal portal and dust bunny"
+        }
+      },
+      {
+        "id": 11,
+        "time_base": "1/48000",
+        "start": 4884000,
+        "start_time": "101.750000",
+        "end": 5460000,
+        "end_time": "113.750000",
+        "tags": {
+          "title": "Team cleaning and rainbow-friend reveal"
+        }
+      },
+      {
+        "id": 12,
+        "time_base": "1/48000",
+        "start": 5460000,
+        "start_time": "113.750000",
+        "end": 6336000,
+        "end_time": "132.000000",
+        "tags": {
+          "title": "Everyone cleans the castle"
+        }
+      },
+      {
+        "id": 13,
+        "time_base": "1/48000",
+        "start": 6336000,
+        "start_time": "132.000000",
+        "end": 6608000,
+        "end_time": "137.666667",
+        "tags": {
+          "title": "Clean-castle recap and family hug"
+        }
+      }
+    ],
+    "format": {
+      "filename": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\day_one_review_demo_2026-09-09\\MERMAID_ROSHAN_DAY_ONE_REVIEW_DEMO_2026-09-09.mp4",
+      "nb_streams": 3,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
+      "duration": "137.666667",
+      "size": "102641073",
+      "bit_rate": "5964614",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "title": "Mermaid Roshan - Day One - Review and Demo Draft",
+        "encoder": "Lavf62.12.102",
+        "comment": "Rough cinematic montage; gameplay elided. Not production-final."
+      }
+    }
+  }
+}

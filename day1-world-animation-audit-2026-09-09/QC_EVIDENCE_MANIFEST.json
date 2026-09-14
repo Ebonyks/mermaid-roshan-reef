@@ -1,0 +1,3927 @@
+{
+  "schema": "world-animation-qc-evidence-v1",
+  "scope": "Sampled QC supplement, not generation-ready handoff or final media",
+  "original_audit_source_commit": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
+  "original_packet_payload_sha256": "c7bb604fe0aa5810e66dcbdb6ae07236323e4f0115bb00ec8ddc9da5f710cae6",
+  "release_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/day1-world-animation-audit-2026-09-09",
+  "source_intake": "INTAKE.json",
+  "file_count": 168,
+  "payload_hash_algorithm": "SHA256 of lexically sorted UTF-8 path + NUL + lowercase file SHA256 + LF; manifest excluded",
+  "payload_sha256": "2105b973b021da017e206dc3e957791c21d949f726f5b5acc5649ed11f356e59",
+  "files": [
+    {
+      "path": "INTAKE.json",
+      "sha256": "72e5ec58389d7dab82eebc91855982178cc3c97bd836416f493a29aac0baed0c",
+      "bytes": 49279,
+      "role": "QC prose, intake metadata or reproducibility script",
+      "source": "INTAKE.json",
+      "modification_status": "Authored review or generated diagnostic metadata",
+      "license_provenance": "Project-authored QC evidence; not new cinematic art or a change to source rights.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "QC_PLAN.json",
+      "sha256": "70c43076b0ccb4646e2bee5dac255b4d350f7e071dd30889cdc3c8797a6c3562",
+      "bytes": 5632,
+      "role": "QC prose, intake metadata or reproducibility script",
+      "source": "QC_PLAN.json",
+      "modification_status": "Authored review or generated diagnostic metadata",
+      "license_provenance": "Project-authored QC evidence; not new cinematic art or a change to source rights.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "RESHOOT_QC_2026-09-09.md",
+      "sha256": "d476c961230979b7ac96b0927c01664fb1d5c7c750528b69dc60c3dc2af7a026",
+      "bytes": 16772,
+      "role": "QC prose, intake metadata or reproducibility script",
+      "source": "RESHOOT_QC_2026-09-09.md",
+      "modification_status": "Authored review or generated diagnostic metadata",
+      "license_provenance": "Project-authored QC evidence; not new cinematic art or a change to source rights.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "RESHOOT_QC_DECISIONS_2026-09-09.json",
+      "sha256": "a4981ff163d715529fe8353bc6252e1d17aa4f53db203ac8c5764135e3ba1163",
+      "bytes": 25576,
+      "role": "editorial QC decisions",
+      "source": "QC_PLAN.json + hash-verified INTAKE.json",
+      "modification_status": "Derived machine metadata",
+      "license_provenance": "Project-authored QC evidence; not new cinematic art or a change to source rights.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "direction/C14_CHARACTER_LOCKS.json",
+      "sha256": "a59941cb5e1ab9f4cf366aaa6d3eabbc723ca3c87e003c57ef761a2bc74ce445",
+      "bytes": 4262,
+      "role": "original audit continuity reference",
+      "source": {
+        "original_packet_path": "direction/C14_CHARACTER_LOCKS.json",
+        "original_packet_source_commit": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
+        "inherited_manifest_record": {
+          "path": "direction/C14_CHARACTER_LOCKS.json",
+          "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\grok-handoffs-publish-20260905\\assets_src\\cinematics\\d1_c14_castle_team_cleanup_v1\\CHARACTER_LOCKS.json",
+          "role": "owner character design, not shot approval",
+          "sha256": "a59941cb5e1ab9f4cf366aaa6d3eabbc723ca3c87e003c57ef761a2bc74ce445",
+          "bytes": 4262,
+          "modification_status": "byte-identical copy",
+          "license": "Inherited project source rights; project artwork all rights reserved",
+          "used_as_delivery_pixels": false
+        }
+      },
+      "modification_status": "Byte-identical copy of already published audit file",
+      "license_provenance": "Inherited project source rights; project artwork all rights reserved",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "frames/C14-S01_APPROVED/sample_001.png",
+      "sha256": "b260918cdfcb679c2fd578ea518ded5d017fd2ac7a2aa1062517f2584bf4acf4",
+      "bytes": 1472715,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "C14-S01_APPROVED.mp4",
+        "sha256": "d159222ae9da6871f6820792961e54d2c90925e5d09485f5312353b17748e5b1",
+        "github_asset_id": 553055182,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S01_APPROVED.mp4",
+        "bytes": 5731544
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 0,
+      "source_time_seconds": 0.0
+    },
+    {
+      "path": "frames/C14-S01_APPROVED/sample_002.png",
+      "sha256": "e6b53f0f1113eefd471595319c8ede6372867d3070cd26cba87783c0dc4a3d73",
+      "bytes": 1612083,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "C14-S01_APPROVED.mp4",
+        "sha256": "d159222ae9da6871f6820792961e54d2c90925e5d09485f5312353b17748e5b1",
+        "github_asset_id": 553055182,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S01_APPROVED.mp4",
+        "bytes": 5731544
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 24,
+      "source_time_seconds": 1.0
+    },
+    {
+      "path": "frames/C14-S01_APPROVED/sample_003.png",
+      "sha256": "09120a5d58713018f75ae1d47bda4f53ab08294aea41a088d944ab788f7fc446",
+      "bytes": 1646195,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "C14-S01_APPROVED.mp4",
+        "sha256": "d159222ae9da6871f6820792961e54d2c90925e5d09485f5312353b17748e5b1",
+        "github_asset_id": 553055182,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S01_APPROVED.mp4",
+        "bytes": 5731544
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 48,
+      "source_time_seconds": 2.0
+    },
+    {
+      "path": "frames/C14-S01_APPROVED/sample_004.png",
+      "sha256": "62f6ffab7de5d7fd625c8eb9a4cd0986e5ca95dc239039795c85292573437fee",
+      "bytes": 1668837,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "C14-S01_APPROVED.mp4",
+        "sha256": "d159222ae9da6871f6820792961e54d2c90925e5d09485f5312353b17748e5b1",
+        "github_asset_id": 553055182,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S01_APPROVED.mp4",
+        "bytes": 5731544
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 72,
+      "source_time_seconds": 3.0
+    },
+    {
+      "path": "frames/C14-S01_APPROVED/sample_005.png",
+      "sha256": "aac321271022b599a0d6aa5760c2c6a691f90a36bdf79e51ba44451c298fa10c",
+      "bytes": 1671670,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "C14-S01_APPROVED.mp4",
+        "sha256": "d159222ae9da6871f6820792961e54d2c90925e5d09485f5312353b17748e5b1",
+        "github_asset_id": 553055182,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S01_APPROVED.mp4",
+        "bytes": 5731544
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 96,
+      "source_time_seconds": 4.0
+    },
+    {
+      "path": "frames/C14-S01_APPROVED/sample_006.png",
+      "sha256": "679ef49d348e08bff7b9feb1cecf496beb64f5774ee9a1f0758e8c26d4e5e803",
+      "bytes": 1677594,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "C14-S01_APPROVED.mp4",
+        "sha256": "d159222ae9da6871f6820792961e54d2c90925e5d09485f5312353b17748e5b1",
+        "github_asset_id": 553055182,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S01_APPROVED.mp4",
+        "bytes": 5731544
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 120,
+      "source_time_seconds": 5.0
+    },
+    {
+      "path": "frames/C14-S01_APPROVED/sample_007.png",
+      "sha256": "483ff8a9ef466bee2df366f2f8ca3361514e4b4c827e9ffcca75fdc38af5e7e6",
+      "bytes": 1684277,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "C14-S01_APPROVED.mp4",
+        "sha256": "d159222ae9da6871f6820792961e54d2c90925e5d09485f5312353b17748e5b1",
+        "github_asset_id": 553055182,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S01_APPROVED.mp4",
+        "bytes": 5731544
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 144,
+      "source_time_seconds": 6.0
+    },
+    {
+      "path": "frames/C14-S05_APPROVED/sample_001.png",
+      "sha256": "48eb3eb319ccc53e5a83f2a0365142052cb2f7e81294249d883e6c1d15c6fe2a",
+      "bytes": 1496753,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "C14-S05_APPROVED.mp4",
+        "sha256": "7c669b664cc47f37a42af031c8e117f73f7bcff3bdc4ecefbb29e7d32c65c4b3",
+        "github_asset_id": 553055185,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S05_APPROVED.mp4",
+        "bytes": 6283804
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 0,
+      "source_time_seconds": 0.0
+    },
+    {
+      "path": "frames/C14-S05_APPROVED/sample_002.png",
+      "sha256": "7af9e842ca9f53e5b1004032579c937dd678222802d3403dd2faf5cbc10ddb86",
+      "bytes": 1606841,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "C14-S05_APPROVED.mp4",
+        "sha256": "7c669b664cc47f37a42af031c8e117f73f7bcff3bdc4ecefbb29e7d32c65c4b3",
+        "github_asset_id": 553055185,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S05_APPROVED.mp4",
+        "bytes": 6283804
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 24,
+      "source_time_seconds": 1.0
+    },
+    {
+      "path": "frames/C14-S05_APPROVED/sample_003.png",
+      "sha256": "20e0dab377d4673e784ca002bc278ea14e9716b53f01e96d7ea1c290682b2c7e",
+      "bytes": 1608678,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "C14-S05_APPROVED.mp4",
+        "sha256": "7c669b664cc47f37a42af031c8e117f73f7bcff3bdc4ecefbb29e7d32c65c4b3",
+        "github_asset_id": 553055185,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S05_APPROVED.mp4",
+        "bytes": 6283804
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 48,
+      "source_time_seconds": 2.0
+    },
+    {
+      "path": "frames/C14-S05_APPROVED/sample_004.png",
+      "sha256": "dd81f6e5398a1ad1130c531a00de47393cae6c280d939076aabafec8916153e5",
+      "bytes": 1610425,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "C14-S05_APPROVED.mp4",
+        "sha256": "7c669b664cc47f37a42af031c8e117f73f7bcff3bdc4ecefbb29e7d32c65c4b3",
+        "github_asset_id": 553055185,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S05_APPROVED.mp4",
+        "bytes": 6283804
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 72,
+      "source_time_seconds": 3.0
+    },
+    {
+      "path": "frames/C14-S05_APPROVED/sample_005.png",
+      "sha256": "fe2cf360063e9d06f7c22c17ceefcd164ba979f7bebca014c0465991331f2a06",
+      "bytes": 1623719,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "C14-S05_APPROVED.mp4",
+        "sha256": "7c669b664cc47f37a42af031c8e117f73f7bcff3bdc4ecefbb29e7d32c65c4b3",
+        "github_asset_id": 553055185,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S05_APPROVED.mp4",
+        "bytes": 6283804
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 96,
+      "source_time_seconds": 4.0
+    },
+    {
+      "path": "frames/C14-S05_APPROVED/sample_006.png",
+      "sha256": "b4604a6acaa1380ddb2b6ff5d134bcc1ae4f60b1a9aeef68897f143fc6872002",
+      "bytes": 1640783,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "C14-S05_APPROVED.mp4",
+        "sha256": "7c669b664cc47f37a42af031c8e117f73f7bcff3bdc4ecefbb29e7d32c65c4b3",
+        "github_asset_id": 553055185,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S05_APPROVED.mp4",
+        "bytes": 6283804
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 120,
+      "source_time_seconds": 5.0
+    },
+    {
+      "path": "frames/C14-S05_APPROVED/sample_007.png",
+      "sha256": "ed4957d2a5e059fd6376faaa9e747f5a92c4fa3e6ede8249a6260a819db5f7db",
+      "bytes": 1634126,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "C14-S05_APPROVED.mp4",
+        "sha256": "7c669b664cc47f37a42af031c8e117f73f7bcff3bdc4ecefbb29e7d32c65c4b3",
+        "github_asset_id": 553055185,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S05_APPROVED.mp4",
+        "bytes": 6283804
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 144,
+      "source_time_seconds": 6.0
+    },
+    {
+      "path": "frames/D1-C02-R01_APPROVED/sample_001.png",
+      "sha256": "bf607108da658622fed8a04f09139d6461e85f28f55c86477f6e659458570b56",
+      "bytes": 1193811,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C02-R01_APPROVED.mp4",
+        "sha256": "82d1ba64208d3e04d30f3063ee546cca176962a9d9bed910e7d69a54ca142825",
+        "github_asset_id": 553028391,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R01_APPROVED.mp4",
+        "bytes": 4198823
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 0,
+      "source_time_seconds": 0.0
+    },
+    {
+      "path": "frames/D1-C02-R01_APPROVED/sample_002.png",
+      "sha256": "07372caf381c3242a530e8bc09ee0f91f1b4f242fe2212af1677a754a341b6d7",
+      "bytes": 1293908,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C02-R01_APPROVED.mp4",
+        "sha256": "82d1ba64208d3e04d30f3063ee546cca176962a9d9bed910e7d69a54ca142825",
+        "github_asset_id": 553028391,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R01_APPROVED.mp4",
+        "bytes": 4198823
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 24,
+      "source_time_seconds": 1.0
+    },
+    {
+      "path": "frames/D1-C02-R01_APPROVED/sample_003.png",
+      "sha256": "17031752bd1ac57bd36471f6c265fa601b5f21344abcc88e30de055adf23fbc4",
+      "bytes": 1320193,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C02-R01_APPROVED.mp4",
+        "sha256": "82d1ba64208d3e04d30f3063ee546cca176962a9d9bed910e7d69a54ca142825",
+        "github_asset_id": 553028391,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R01_APPROVED.mp4",
+        "bytes": 4198823
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 48,
+      "source_time_seconds": 2.0
+    },
+    {
+      "path": "frames/D1-C02-R01_APPROVED/sample_004.png",
+      "sha256": "904a920a57f8fd19640f66f43454040f072049c366ee9bfb38b81085ffe36114",
+      "bytes": 1354328,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C02-R01_APPROVED.mp4",
+        "sha256": "82d1ba64208d3e04d30f3063ee546cca176962a9d9bed910e7d69a54ca142825",
+        "github_asset_id": 553028391,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R01_APPROVED.mp4",
+        "bytes": 4198823
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 72,
+      "source_time_seconds": 3.0
+    },
+    {
+      "path": "frames/D1-C02-R01_APPROVED/sample_005.png",
+      "sha256": "c4be924f405683086a224bc10139ddab9b69152c7760d908c8c14133d98aa200",
+      "bytes": 1398689,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C02-R01_APPROVED.mp4",
+        "sha256": "82d1ba64208d3e04d30f3063ee546cca176962a9d9bed910e7d69a54ca142825",
+        "github_asset_id": 553028391,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R01_APPROVED.mp4",
+        "bytes": 4198823
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 96,
+      "source_time_seconds": 4.0
+    },
+    {
+      "path": "frames/D1-C02-R01_APPROVED/sample_006.png",
+      "sha256": "0f08dad0069520cc9cdc1d27de6f4c4c16c7c4102ad375ac8173649c19ce5362",
+      "bytes": 1407160,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C02-R01_APPROVED.mp4",
+        "sha256": "82d1ba64208d3e04d30f3063ee546cca176962a9d9bed910e7d69a54ca142825",
+        "github_asset_id": 553028391,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R01_APPROVED.mp4",
+        "bytes": 4198823
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 120,
+      "source_time_seconds": 5.0
+    },
+    {
+      "path": "frames/D1-C02-R01_APPROVED/sample_007.png",
+      "sha256": "b1d3d9e662f678076bfdfb7b0fa91775f7bfbd09f3be578d71cc22cb1c8ffc20",
+      "bytes": 1427228,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C02-R01_APPROVED.mp4",
+        "sha256": "82d1ba64208d3e04d30f3063ee546cca176962a9d9bed910e7d69a54ca142825",
+        "github_asset_id": 553028391,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R01_APPROVED.mp4",
+        "bytes": 4198823
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 144,
+      "source_time_seconds": 6.0
+    },
+    {
+      "path": "frames/D1-C02-R02_APPROVED/sample_001.png",
+      "sha256": "172fc6310bc7286b87933bd1aea1ea4393e44ee6753cdc32a608283974eb0b23",
+      "bytes": 1196189,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C02-R02_APPROVED.mp4",
+        "sha256": "d6bc869f99ef46411f69b7f6398aa5e4885f32eadae99bc4ddcfec629b3d43c5",
+        "github_asset_id": 553028394,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R02_APPROVED.mp4",
+        "bytes": 4228748
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 0,
+      "source_time_seconds": 0.0
+    },
+    {
+      "path": "frames/D1-C02-R02_APPROVED/sample_002.png",
+      "sha256": "e46da77e26dbd2883c0d08755865c84913d0107127b03fbd629f4aa8d6fb6976",
+      "bytes": 1310513,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C02-R02_APPROVED.mp4",
+        "sha256": "d6bc869f99ef46411f69b7f6398aa5e4885f32eadae99bc4ddcfec629b3d43c5",
+        "github_asset_id": 553028394,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R02_APPROVED.mp4",
+        "bytes": 4228748
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 24,
+      "source_time_seconds": 1.0
+    },
+    {
+      "path": "frames/D1-C02-R02_APPROVED/sample_003.png",
+      "sha256": "1993637e2d414a4e231604ce364f7492367e30b1423992042659b3565f9f9257",
+      "bytes": 1346851,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C02-R02_APPROVED.mp4",
+        "sha256": "d6bc869f99ef46411f69b7f6398aa5e4885f32eadae99bc4ddcfec629b3d43c5",
+        "github_asset_id": 553028394,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R02_APPROVED.mp4",
+        "bytes": 4228748
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 48,
+      "source_time_seconds": 2.0
+    },
+    {
+      "path": "frames/D1-C02-R02_APPROVED/sample_004.png",
+      "sha256": "a473836604f53b4d1dc8c3662ff1130bf445d3c86e51a33a40f766c953129d2a",
+      "bytes": 1386932,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C02-R02_APPROVED.mp4",
+        "sha256": "d6bc869f99ef46411f69b7f6398aa5e4885f32eadae99bc4ddcfec629b3d43c5",
+        "github_asset_id": 553028394,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R02_APPROVED.mp4",
+        "bytes": 4228748
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 72,
+      "source_time_seconds": 3.0
+    },
+    {
+      "path": "frames/D1-C02-R02_APPROVED/sample_005.png",
+      "sha256": "169c564904c036c78d4314c32d6940acf706158b666f3c624c4f468570eb747f",
+      "bytes": 1410196,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C02-R02_APPROVED.mp4",
+        "sha256": "d6bc869f99ef46411f69b7f6398aa5e4885f32eadae99bc4ddcfec629b3d43c5",
+        "github_asset_id": 553028394,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R02_APPROVED.mp4",
+        "bytes": 4228748
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 96,
+      "source_time_seconds": 4.0
+    },
+    {
+      "path": "frames/D1-C02-R02_APPROVED/sample_006.png",
+      "sha256": "51aaa8d7e1ce0a0c8109f84ca043d5010cb9c4e0a982ab9ba17d84481483fd68",
+      "bytes": 1422936,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C02-R02_APPROVED.mp4",
+        "sha256": "d6bc869f99ef46411f69b7f6398aa5e4885f32eadae99bc4ddcfec629b3d43c5",
+        "github_asset_id": 553028394,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R02_APPROVED.mp4",
+        "bytes": 4228748
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 120,
+      "source_time_seconds": 5.0
+    },
+    {
+      "path": "frames/D1-C02-R02_APPROVED/sample_007.png",
+      "sha256": "6ccc25d663050cef7e1f387232bd2be6571473671becbcdb1a30f2ba6d88213e",
+      "bytes": 1417367,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C02-R02_APPROVED.mp4",
+        "sha256": "d6bc869f99ef46411f69b7f6398aa5e4885f32eadae99bc4ddcfec629b3d43c5",
+        "github_asset_id": 553028394,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R02_APPROVED.mp4",
+        "bytes": 4228748
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 144,
+      "source_time_seconds": 6.0
+    },
+    {
+      "path": "frames/D1-C03-S03_APPROVED/sample_001.png",
+      "sha256": "b21405bc9782c924f5ef1ca1db5d5da54b4f18b9beed980d78cb837a9b75b9e9",
+      "bytes": 1442339,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C03-S03_APPROVED.mp4",
+        "sha256": "93571f0f6a832145b415562d125291d405c70b844173b2185877ebb1d9bd5efe",
+        "github_asset_id": 553055166,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C03-S03_APPROVED.mp4",
+        "bytes": 4229721
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 0,
+      "source_time_seconds": 0.0
+    },
+    {
+      "path": "frames/D1-C03-S03_APPROVED/sample_002.png",
+      "sha256": "36e32b4a13ee99d43301572346694bce7a798095f29d2e924c149724613db312",
+      "bytes": 1518124,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C03-S03_APPROVED.mp4",
+        "sha256": "93571f0f6a832145b415562d125291d405c70b844173b2185877ebb1d9bd5efe",
+        "github_asset_id": 553055166,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C03-S03_APPROVED.mp4",
+        "bytes": 4229721
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 24,
+      "source_time_seconds": 1.0
+    },
+    {
+      "path": "frames/D1-C03-S03_APPROVED/sample_003.png",
+      "sha256": "44eb8a690499dfefe95c1197ea11c6ec2fb5777dcad4041c71d7594b5b4265d2",
+      "bytes": 1520060,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C03-S03_APPROVED.mp4",
+        "sha256": "93571f0f6a832145b415562d125291d405c70b844173b2185877ebb1d9bd5efe",
+        "github_asset_id": 553055166,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C03-S03_APPROVED.mp4",
+        "bytes": 4229721
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 48,
+      "source_time_seconds": 2.0
+    },
+    {
+      "path": "frames/D1-C03-S03_APPROVED/sample_004.png",
+      "sha256": "41d31306bd9d7318a8b1e34f16b0caec214b2f5c0f5af226a42208125ffbbaa7",
+      "bytes": 1526109,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C03-S03_APPROVED.mp4",
+        "sha256": "93571f0f6a832145b415562d125291d405c70b844173b2185877ebb1d9bd5efe",
+        "github_asset_id": 553055166,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C03-S03_APPROVED.mp4",
+        "bytes": 4229721
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 72,
+      "source_time_seconds": 3.0
+    },
+    {
+      "path": "frames/D1-C03-S03_APPROVED/sample_005.png",
+      "sha256": "7901abbd5a63bbd41e2882ba94755402bc0a430a624391122f34413f5eddc124",
+      "bytes": 1537011,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C03-S03_APPROVED.mp4",
+        "sha256": "93571f0f6a832145b415562d125291d405c70b844173b2185877ebb1d9bd5efe",
+        "github_asset_id": 553055166,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C03-S03_APPROVED.mp4",
+        "bytes": 4229721
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 96,
+      "source_time_seconds": 4.0
+    },
+    {
+      "path": "frames/D1-C03-S03_APPROVED/sample_006.png",
+      "sha256": "cef931b8cd52d21146ae57d979a887a39f7d72519fad0d9df8d59564742644f9",
+      "bytes": 1559212,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C03-S03_APPROVED.mp4",
+        "sha256": "93571f0f6a832145b415562d125291d405c70b844173b2185877ebb1d9bd5efe",
+        "github_asset_id": 553055166,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C03-S03_APPROVED.mp4",
+        "bytes": 4229721
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 120,
+      "source_time_seconds": 5.0
+    },
+    {
+      "path": "frames/D1-C03-S03_APPROVED/sample_007.png",
+      "sha256": "523b9c23d0dc96719e85013ca809467302ba08f906c65f1c4a04bc0c2fd1c8b7",
+      "bytes": 1551880,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C03-S03_APPROVED.mp4",
+        "sha256": "93571f0f6a832145b415562d125291d405c70b844173b2185877ebb1d9bd5efe",
+        "github_asset_id": 553055166,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C03-S03_APPROVED.mp4",
+        "bytes": 4229721
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 144,
+      "source_time_seconds": 6.0
+    },
+    {
+      "path": "frames/D1-C04-R01_APPROVED/sample_001.png",
+      "sha256": "b884f75dc97e7b7a9b13a65579ec27811faf7fb843a123c8ee59ba4e5e14478e",
+      "bytes": 1286186,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C04-R01_APPROVED.mp4",
+        "sha256": "cc44baa4bbb182b221125e684279b8ac268d865da2e5af930f6840d824c24194",
+        "github_asset_id": 553055164,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C04-R01_APPROVED.mp4",
+        "bytes": 2901926
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 0,
+      "source_time_seconds": 0.0
+    },
+    {
+      "path": "frames/D1-C04-R01_APPROVED/sample_002.png",
+      "sha256": "d25a00fbdd895ef28bc054cf1e6a72d32065c3f4d510a0db29066718dbc1800a",
+      "bytes": 1346296,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C04-R01_APPROVED.mp4",
+        "sha256": "cc44baa4bbb182b221125e684279b8ac268d865da2e5af930f6840d824c24194",
+        "github_asset_id": 553055164,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C04-R01_APPROVED.mp4",
+        "bytes": 2901926
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 24,
+      "source_time_seconds": 1.0
+    },
+    {
+      "path": "frames/D1-C04-R01_APPROVED/sample_003.png",
+      "sha256": "bbc94810f1f89723531a1a15d51a72e3c1a3de5a7b7ef5c4c3e1e34fdbd2ce69",
+      "bytes": 1362376,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C04-R01_APPROVED.mp4",
+        "sha256": "cc44baa4bbb182b221125e684279b8ac268d865da2e5af930f6840d824c24194",
+        "github_asset_id": 553055164,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C04-R01_APPROVED.mp4",
+        "bytes": 2901926
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 48,
+      "source_time_seconds": 2.0
+    },
+    {
+      "path": "frames/D1-C04-R01_APPROVED/sample_004.png",
+      "sha256": "44f5f36c802911394946c715490ebf2eac7eeaa63f1a65319393539ef3dd52e9",
+      "bytes": 1371749,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C04-R01_APPROVED.mp4",
+        "sha256": "cc44baa4bbb182b221125e684279b8ac268d865da2e5af930f6840d824c24194",
+        "github_asset_id": 553055164,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C04-R01_APPROVED.mp4",
+        "bytes": 2901926
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 72,
+      "source_time_seconds": 3.0
+    },
+    {
+      "path": "frames/D1-C04-R01_APPROVED/sample_005.png",
+      "sha256": "35d3303d9c38d6b78ebd370de8b48690ccf09e2fb76eec8cf6f3d1187a839f27",
+      "bytes": 1374201,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C04-R01_APPROVED.mp4",
+        "sha256": "cc44baa4bbb182b221125e684279b8ac268d865da2e5af930f6840d824c24194",
+        "github_asset_id": 553055164,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C04-R01_APPROVED.mp4",
+        "bytes": 2901926
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 96,
+      "source_time_seconds": 4.0
+    },
+    {
+      "path": "frames/D1-C04-R01_APPROVED/sample_006.png",
+      "sha256": "2f6178a19da3f8bc78c95cfb6dc9a2b7d949a84d92c9e67740164a04f1b4f009",
+      "bytes": 1378320,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C04-R01_APPROVED.mp4",
+        "sha256": "cc44baa4bbb182b221125e684279b8ac268d865da2e5af930f6840d824c24194",
+        "github_asset_id": 553055164,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C04-R01_APPROVED.mp4",
+        "bytes": 2901926
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 120,
+      "source_time_seconds": 5.0
+    },
+    {
+      "path": "frames/D1-C04-R01_APPROVED/sample_007.png",
+      "sha256": "1ac38353df382cb0172694acc2aa00747ac995e33f4b9479b2d63b615cfe25c2",
+      "bytes": 1377204,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C04-R01_APPROVED.mp4",
+        "sha256": "cc44baa4bbb182b221125e684279b8ac268d865da2e5af930f6840d824c24194",
+        "github_asset_id": 553055164,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C04-R01_APPROVED.mp4",
+        "bytes": 2901926
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 144,
+      "source_time_seconds": 6.0
+    },
+    {
+      "path": "frames/D1-C09-R01_APPROVED/sample_001.png",
+      "sha256": "4db005830791db2ad7615c787b773ab5cb4cf54a5818327a950e04fb847669c1",
+      "bytes": 1019685,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C09-R01_APPROVED.mp4",
+        "sha256": "c612238fcef54b501b75a484af0911256b6f194ac23f86a973d5c2508dcbdd2f",
+        "github_asset_id": 553055162,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C09-R01_APPROVED.mp4",
+        "bytes": 1848849
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 0,
+      "source_time_seconds": 0.0
+    },
+    {
+      "path": "frames/D1-C09-R01_APPROVED/sample_002.png",
+      "sha256": "b7b9b92f3aac2990a0e9980b526e4ff9a28ce2ad8fe6b91901be9d0794508bce",
+      "bytes": 1117113,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C09-R01_APPROVED.mp4",
+        "sha256": "c612238fcef54b501b75a484af0911256b6f194ac23f86a973d5c2508dcbdd2f",
+        "github_asset_id": 553055162,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C09-R01_APPROVED.mp4",
+        "bytes": 1848849
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 24,
+      "source_time_seconds": 1.0
+    },
+    {
+      "path": "frames/D1-C09-R01_APPROVED/sample_003.png",
+      "sha256": "8f5dbe3959de180cb9f29e10eabfda1451e630a0065787d9932418b3495c7dee",
+      "bytes": 1143139,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C09-R01_APPROVED.mp4",
+        "sha256": "c612238fcef54b501b75a484af0911256b6f194ac23f86a973d5c2508dcbdd2f",
+        "github_asset_id": 553055162,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C09-R01_APPROVED.mp4",
+        "bytes": 1848849
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 48,
+      "source_time_seconds": 2.0
+    },
+    {
+      "path": "frames/D1-C09-R01_APPROVED/sample_004.png",
+      "sha256": "83bc11c133a9fe98f4bcd04f36b511751947ae75a66cdeca372a3c4c318eb2bc",
+      "bytes": 1152746,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C09-R01_APPROVED.mp4",
+        "sha256": "c612238fcef54b501b75a484af0911256b6f194ac23f86a973d5c2508dcbdd2f",
+        "github_asset_id": 553055162,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C09-R01_APPROVED.mp4",
+        "bytes": 1848849
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 72,
+      "source_time_seconds": 3.0
+    },
+    {
+      "path": "frames/D1-C09-R01_APPROVED/sample_005.png",
+      "sha256": "38873a7119c06e6e6bf4692d11a2371904fd990de1a4731c27d4a80c3f47570f",
+      "bytes": 1162635,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C09-R01_APPROVED.mp4",
+        "sha256": "c612238fcef54b501b75a484af0911256b6f194ac23f86a973d5c2508dcbdd2f",
+        "github_asset_id": 553055162,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C09-R01_APPROVED.mp4",
+        "bytes": 1848849
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 96,
+      "source_time_seconds": 4.0
+    },
+    {
+      "path": "frames/D1-C09-R01_APPROVED/sample_006.png",
+      "sha256": "7057c9a9eecfb8d7deb75c0cacd07ec7db715035bfd3c7ee9e0a52cf99e6bc81",
+      "bytes": 1167427,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C09-R01_APPROVED.mp4",
+        "sha256": "c612238fcef54b501b75a484af0911256b6f194ac23f86a973d5c2508dcbdd2f",
+        "github_asset_id": 553055162,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C09-R01_APPROVED.mp4",
+        "bytes": 1848849
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 120,
+      "source_time_seconds": 5.0
+    },
+    {
+      "path": "frames/D1-C09-R01_APPROVED/sample_007.png",
+      "sha256": "defa0e5d8a574e9291c86e0c1091dbdec99a23cf5ac5e264b605c591719ff7bd",
+      "bytes": 1170074,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C09-R01_APPROVED.mp4",
+        "sha256": "c612238fcef54b501b75a484af0911256b6f194ac23f86a973d5c2508dcbdd2f",
+        "github_asset_id": 553055162,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C09-R01_APPROVED.mp4",
+        "bytes": 1848849
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 144,
+      "source_time_seconds": 6.0
+    },
+    {
+      "path": "frames/D1-C10-R01_APPROVED/sample_001.png",
+      "sha256": "d9df049ef37d6223c92aa8aaa12422f9f028ea5190b118fd758bdaeb38660fa9",
+      "bytes": 995570,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 0,
+      "source_time_seconds": 0.0
+    },
+    {
+      "path": "frames/D1-C10-R01_APPROVED/sample_002.png",
+      "sha256": "1ab1c9defdea4db7da62f4cc21a67d5e4d75809da303fa078064ea12fc5db733",
+      "bytes": 1089051,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 24,
+      "source_time_seconds": 1.0
+    },
+    {
+      "path": "frames/D1-C10-R01_APPROVED/sample_003.png",
+      "sha256": "4796304582c3f6e62496783acca93d2fd9d28edfbee136530f05840d375820b7",
+      "bytes": 1124113,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 48,
+      "source_time_seconds": 2.0
+    },
+    {
+      "path": "frames/D1-C10-R01_APPROVED/sample_004.png",
+      "sha256": "59cde11ac40777397d75ed9e93c57fa94c6e354cde5381f31ace8a5f2312b110",
+      "bytes": 1135525,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 72,
+      "source_time_seconds": 3.0
+    },
+    {
+      "path": "frames/D1-C10-R01_APPROVED/sample_005.png",
+      "sha256": "d2c8514a876734610389d63ca2df6966b185498a98610782e96a2283e360d20d",
+      "bytes": 1141714,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 96,
+      "source_time_seconds": 4.0
+    },
+    {
+      "path": "frames/D1-C10-R01_APPROVED/sample_006.png",
+      "sha256": "fe335d15ba6d31d530aeacccdf33cff325f36c8d855bab1f4cc558615d1d334e",
+      "bytes": 1143078,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 120,
+      "source_time_seconds": 5.0
+    },
+    {
+      "path": "frames/D1-C10-R01_APPROVED/sample_007.png",
+      "sha256": "cafb145b8aea944b69b3c47d7ec71851a1a85f1718c32a207f1b71cccba9e9d4",
+      "bytes": 1142733,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 144,
+      "source_time_seconds": 6.0
+    },
+    {
+      "path": "frames/D1-C12-R01_APPROVED/sample_001.png",
+      "sha256": "f356a9d0bbc42cfd818021ebe38d2a2d72f43a5c0e3d278917fb0e934a2c0a10",
+      "bytes": 1223845,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C12-R01_APPROVED.mp4",
+        "sha256": "551073a71c7d8e825ea92f1b7d7061ee49f93424ce66b58f1d0d5ef82ac8c163",
+        "github_asset_id": 553055161,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C12-R01_APPROVED.mp4",
+        "bytes": 3877356
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 0,
+      "source_time_seconds": 0.0
+    },
+    {
+      "path": "frames/D1-C12-R01_APPROVED/sample_002.png",
+      "sha256": "a07f4dcba54815d221d7bf869fb75e12967cbf6beb0d8e3ae2fc86175e751bd3",
+      "bytes": 1328019,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C12-R01_APPROVED.mp4",
+        "sha256": "551073a71c7d8e825ea92f1b7d7061ee49f93424ce66b58f1d0d5ef82ac8c163",
+        "github_asset_id": 553055161,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C12-R01_APPROVED.mp4",
+        "bytes": 3877356
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 24,
+      "source_time_seconds": 1.0
+    },
+    {
+      "path": "frames/D1-C12-R01_APPROVED/sample_003.png",
+      "sha256": "e9e2df4a527f08fcd85c4773d095a31b1b3b17aecbcddd6c528fe144220b5519",
+      "bytes": 1334851,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C12-R01_APPROVED.mp4",
+        "sha256": "551073a71c7d8e825ea92f1b7d7061ee49f93424ce66b58f1d0d5ef82ac8c163",
+        "github_asset_id": 553055161,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C12-R01_APPROVED.mp4",
+        "bytes": 3877356
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 48,
+      "source_time_seconds": 2.0
+    },
+    {
+      "path": "frames/D1-C12-R01_APPROVED/sample_004.png",
+      "sha256": "fbab8d1f69e573dd0a91eba1f352b8edcaa8cd3f7653395efbb4f604f0ccbafb",
+      "bytes": 1399612,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C12-R01_APPROVED.mp4",
+        "sha256": "551073a71c7d8e825ea92f1b7d7061ee49f93424ce66b58f1d0d5ef82ac8c163",
+        "github_asset_id": 553055161,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C12-R01_APPROVED.mp4",
+        "bytes": 3877356
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 72,
+      "source_time_seconds": 3.0
+    },
+    {
+      "path": "frames/D1-C12-R01_APPROVED/sample_005.png",
+      "sha256": "26f120979b0b39a7ac8f631f2e42b8e9b22686c5a302c0193f9d83ac9e687d46",
+      "bytes": 1424496,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C12-R01_APPROVED.mp4",
+        "sha256": "551073a71c7d8e825ea92f1b7d7061ee49f93424ce66b58f1d0d5ef82ac8c163",
+        "github_asset_id": 553055161,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C12-R01_APPROVED.mp4",
+        "bytes": 3877356
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 96,
+      "source_time_seconds": 4.0
+    },
+    {
+      "path": "frames/D1-C12-R01_APPROVED/sample_006.png",
+      "sha256": "9b2b6232c6a929a0312c962518f1a9beac889bc0c2f10ce69dd1d54731e3a871",
+      "bytes": 1439971,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C12-R01_APPROVED.mp4",
+        "sha256": "551073a71c7d8e825ea92f1b7d7061ee49f93424ce66b58f1d0d5ef82ac8c163",
+        "github_asset_id": 553055161,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C12-R01_APPROVED.mp4",
+        "bytes": 3877356
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 120,
+      "source_time_seconds": 5.0
+    },
+    {
+      "path": "frames/D1-C12-R01_APPROVED/sample_007.png",
+      "sha256": "686f85148d4eedccfb5d7ec7990e424441721882479d31c37d69ade0e73da736",
+      "bytes": 1443965,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C12-R01_APPROVED.mp4",
+        "sha256": "551073a71c7d8e825ea92f1b7d7061ee49f93424ce66b58f1d0d5ef82ac8c163",
+        "github_asset_id": 553055161,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C12-R01_APPROVED.mp4",
+        "bytes": 3877356
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 144,
+      "source_time_seconds": 6.0
+    },
+    {
+      "path": "frames/D1-C13-S04_APPROVED/sample_001.png",
+      "sha256": "00282ab1bf966970415cd0de28667f3bda6214cfcccf258944f5a1cac4bfcf22",
+      "bytes": 1267157,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S04_APPROVED.mp4",
+        "sha256": "7d528cc00ac88adf815fda15d38e7784cdb636112fbc0598c4e5f0c39aec6056",
+        "github_asset_id": 553055163,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S04_APPROVED.mp4",
+        "bytes": 4272096
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 0,
+      "source_time_seconds": 0.0
+    },
+    {
+      "path": "frames/D1-C13-S04_APPROVED/sample_002.png",
+      "sha256": "4268c613667de79b6acf6fef4de33bffe7650f526a53bccebe4ad4e78871a43c",
+      "bytes": 1379581,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S04_APPROVED.mp4",
+        "sha256": "7d528cc00ac88adf815fda15d38e7784cdb636112fbc0598c4e5f0c39aec6056",
+        "github_asset_id": 553055163,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S04_APPROVED.mp4",
+        "bytes": 4272096
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 24,
+      "source_time_seconds": 1.0
+    },
+    {
+      "path": "frames/D1-C13-S04_APPROVED/sample_003.png",
+      "sha256": "d4d69cc46929caa5a91811a6a0e72b22320d1e0136abc729a2f9e0a2430b88a4",
+      "bytes": 1403188,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S04_APPROVED.mp4",
+        "sha256": "7d528cc00ac88adf815fda15d38e7784cdb636112fbc0598c4e5f0c39aec6056",
+        "github_asset_id": 553055163,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S04_APPROVED.mp4",
+        "bytes": 4272096
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 48,
+      "source_time_seconds": 2.0
+    },
+    {
+      "path": "frames/D1-C13-S04_APPROVED/sample_004.png",
+      "sha256": "b5f351b56ffa30bac070b08184b25b00e4c964104384bedf36ecb9e9a029fe00",
+      "bytes": 1426891,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S04_APPROVED.mp4",
+        "sha256": "7d528cc00ac88adf815fda15d38e7784cdb636112fbc0598c4e5f0c39aec6056",
+        "github_asset_id": 553055163,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S04_APPROVED.mp4",
+        "bytes": 4272096
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 72,
+      "source_time_seconds": 3.0
+    },
+    {
+      "path": "frames/D1-C13-S04_APPROVED/sample_005.png",
+      "sha256": "98b547445b9345831d1b045c348d6758e36a90fbfa4c7fa57dd93e3f5463ceea",
+      "bytes": 1435607,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S04_APPROVED.mp4",
+        "sha256": "7d528cc00ac88adf815fda15d38e7784cdb636112fbc0598c4e5f0c39aec6056",
+        "github_asset_id": 553055163,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S04_APPROVED.mp4",
+        "bytes": 4272096
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 96,
+      "source_time_seconds": 4.0
+    },
+    {
+      "path": "frames/D1-C13-S04_APPROVED/sample_006.png",
+      "sha256": "13f6edc2492fbb0c3415ba30b5ea91f287c940815a68e17776efaa0d53a18473",
+      "bytes": 1442978,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S04_APPROVED.mp4",
+        "sha256": "7d528cc00ac88adf815fda15d38e7784cdb636112fbc0598c4e5f0c39aec6056",
+        "github_asset_id": 553055163,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S04_APPROVED.mp4",
+        "bytes": 4272096
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 120,
+      "source_time_seconds": 5.0
+    },
+    {
+      "path": "frames/D1-C13-S04_APPROVED/sample_007.png",
+      "sha256": "ba7c19c0a503e240611d3dc0dd2534f17d2c28b14056a918f4b78fe862dc74c0",
+      "bytes": 1448367,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S04_APPROVED.mp4",
+        "sha256": "7d528cc00ac88adf815fda15d38e7784cdb636112fbc0598c4e5f0c39aec6056",
+        "github_asset_id": 553055163,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S04_APPROVED.mp4",
+        "bytes": 4272096
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 144,
+      "source_time_seconds": 6.0
+    },
+    {
+      "path": "frames/D1-C13-S05_ENDPOINT_HOLD/sample_001.png",
+      "sha256": "f14d99ee9c0e6c2de7d6dd29dfb8052c91a05c806e69e15daecab68856c7c373",
+      "bytes": 1298805,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "sha256": "cd182eb4b0fd4044ec89cf03a23b92e33200deefc3b0b4c384a548422be33f85",
+        "github_asset_id": 553028388,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "bytes": 3861098
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 0,
+      "source_time_seconds": 0.0
+    },
+    {
+      "path": "frames/D1-C13-S05_ENDPOINT_HOLD/sample_002.png",
+      "sha256": "164ddf5fd343cd393c357965a754b1d4447f053095543887f0ff46b5891251c0",
+      "bytes": 1393084,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "sha256": "cd182eb4b0fd4044ec89cf03a23b92e33200deefc3b0b4c384a548422be33f85",
+        "github_asset_id": 553028388,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "bytes": 3861098
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 24,
+      "source_time_seconds": 1.0
+    },
+    {
+      "path": "frames/D1-C13-S05_ENDPOINT_HOLD/sample_003.png",
+      "sha256": "8f97da68f5543a73726b6ac5272789d933b9af6ce8889792698245be9d31360a",
+      "bytes": 1401499,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "sha256": "cd182eb4b0fd4044ec89cf03a23b92e33200deefc3b0b4c384a548422be33f85",
+        "github_asset_id": 553028388,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "bytes": 3861098
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 48,
+      "source_time_seconds": 2.0
+    },
+    {
+      "path": "frames/D1-C13-S05_ENDPOINT_HOLD/sample_004.png",
+      "sha256": "cbf7aadcd6b876325d1cc3cb7a6eb5253ef24155f74e98329e869acaf32a4a22",
+      "bytes": 1429571,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "sha256": "cd182eb4b0fd4044ec89cf03a23b92e33200deefc3b0b4c384a548422be33f85",
+        "github_asset_id": 553028388,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "bytes": 3861098
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 72,
+      "source_time_seconds": 3.0
+    },
+    {
+      "path": "frames/D1-C13-S05_ENDPOINT_HOLD/sample_005.png",
+      "sha256": "de0cc213e59dd9e9bb62949bd191a5439727099e0d538ead73a314ef3efa98fb",
+      "bytes": 1449748,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "sha256": "cd182eb4b0fd4044ec89cf03a23b92e33200deefc3b0b4c384a548422be33f85",
+        "github_asset_id": 553028388,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "bytes": 3861098
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 96,
+      "source_time_seconds": 4.0
+    },
+    {
+      "path": "frames/D1-C13-S05_ENDPOINT_HOLD/sample_006.png",
+      "sha256": "56adc38a1ffc98c650e658952448ee7508f79701c2e1dc45b19309b438dd2bed",
+      "bytes": 1467486,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "sha256": "cd182eb4b0fd4044ec89cf03a23b92e33200deefc3b0b4c384a548422be33f85",
+        "github_asset_id": 553028388,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "bytes": 3861098
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 120,
+      "source_time_seconds": 5.0
+    },
+    {
+      "path": "frames/D1-C13-S05_ENDPOINT_HOLD/sample_007.png",
+      "sha256": "8c0720a9d0572b4f6aebce2780d80395477e8d91645bf1be9777fa52a29cc021",
+      "bytes": 1467762,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "sha256": "cd182eb4b0fd4044ec89cf03a23b92e33200deefc3b0b4c384a548422be33f85",
+        "github_asset_id": 553028388,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "bytes": 3861098
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 144,
+      "source_time_seconds": 6.0
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_001.png",
+      "sha256": "032147a6e4c9209fc0a133610b6a494e07c2b92920bda1ae5e75113a7d98433f",
+      "bytes": 1338308,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 0,
+      "source_time_seconds": 0.0
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_002.png",
+      "sha256": "2ec2a41dd67f8dfdae9f44fc6c17bce36bbfc2bce9c4863f0a4aff2bad5f9e84",
+      "bytes": 1449224,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 24,
+      "source_time_seconds": 1.0
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_003.png",
+      "sha256": "db9314bed2adf5d65db7d7d6f11e7a464850bbe7522bd292d3742fe4980fc45c",
+      "bytes": 1478423,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 48,
+      "source_time_seconds": 2.0
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_004.png",
+      "sha256": "4455283979a825772f1cab47c0d66f778bc44aff2bc73e85244dab6952c8f918",
+      "bytes": 1494669,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 72,
+      "source_time_seconds": 3.0
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_005.png",
+      "sha256": "04c4b6792a7643d6e1e01cc36698d4668c62344953dfc1f6e5fc7c1ce8d54af8",
+      "bytes": 1514510,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 96,
+      "source_time_seconds": 4.0
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_006.png",
+      "sha256": "1d870569e64f50fe511b4c228cd6d3df2f63bfaf1756ae159d2ebf41c362d6eb",
+      "bytes": 1506759,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 120,
+      "source_time_seconds": 5.0
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_007.png",
+      "sha256": "7b246581cd1249009588da2ecf2fab24f2f03b36f0c1644e03aaca61870293bf",
+      "bytes": 1502345,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 129,
+      "source_time_seconds": 5.375
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_008.png",
+      "sha256": "90796d197721364c51ac0152541c18c148e08e9781c6f92364f759615c4810ad",
+      "bytes": 1494089,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 130,
+      "source_time_seconds": 5.416666666666667
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_009.png",
+      "sha256": "aec3044d8f2b1c03b8c1234a967edf2ffb205d1c607877e1300bb872acc56be6",
+      "bytes": 1506105,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 131,
+      "source_time_seconds": 5.458333333333333
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_010.png",
+      "sha256": "688a3b392ad9e7da93f64a693508c0cfddac0b462db3cf2ca764a8f9e161eb96",
+      "bytes": 1354647,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 132,
+      "source_time_seconds": 5.5
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_011.png",
+      "sha256": "94c0746ccb00ef46bbc655c7bcda580071883a301a0e236ab3c60b811871c4c5",
+      "bytes": 1359246,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 133,
+      "source_time_seconds": 5.541666666666667
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_012.png",
+      "sha256": "c2c28ebd7aacb03d6481cd4e3eeca80986eb346af0f85a44f5b8de53d9f5ceb9",
+      "bytes": 1355843,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 134,
+      "source_time_seconds": 5.583333333333333
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_013.png",
+      "sha256": "00cfc8f709bcd04cf9281227dbfdc2c7e3ba05f8365afd306f0046430496505e",
+      "bytes": 1392833,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 143,
+      "source_time_seconds": 5.958333333333333
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_014.png",
+      "sha256": "c082719eb1f3e33a66064252c14cbc21b0f66165e254b71230a47e5bfab55614",
+      "bytes": 1394888,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 144,
+      "source_time_seconds": 6.0
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_015.png",
+      "sha256": "5dff7b519cadbd50476dc39e4f9bc1f631ea4e3660be04699d7e21571ed187d7",
+      "bytes": 1400168,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 145,
+      "source_time_seconds": 6.041666666666667
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_016.png",
+      "sha256": "04c7e8ca345c2f72d4da74362b271aa5688ef22f84315422fed451e57f546ff3",
+      "bytes": 1400535,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 168,
+      "source_time_seconds": 7.0
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_017.png",
+      "sha256": "5ee6a31893c28129da368133ff05a692a6391c61114ccdca97b2cb3f54c0e2d7",
+      "bytes": 1428396,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 192,
+      "source_time_seconds": 8.0
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_018.png",
+      "sha256": "7340b627d8be8dd492c9fb29437ce7268b5bbfdb657abc581e41e0370211a79d",
+      "bytes": 1446699,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 216,
+      "source_time_seconds": 9.0
+    },
+    {
+      "path": "frames/D1-C13-S05_FIX_ASSEMBLED_10s/sample_019.png",
+      "sha256": "f6f94267bb0bb094883f661b8253cc1fe31cf2bc5100a0195cf51f7992c9f1a4",
+      "bytes": 1449883,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 239,
+      "source_time_seconds": 9.958333333333334
+    },
+    {
+      "path": "frames/D1-C13-S05_SINGLE_SHOT_DRAFT/sample_001.png",
+      "sha256": "032147a6e4c9209fc0a133610b6a494e07c2b92920bda1ae5e75113a7d98433f",
+      "bytes": 1338308,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "sha256": "83b258648d40fa2ca7b77416c0722c1d431476b4810f525ee9873197c1dd1eee",
+        "github_asset_id": 553028419,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "bytes": 8711894
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 0,
+      "source_time_seconds": 0.0
+    },
+    {
+      "path": "frames/D1-C13-S05_SINGLE_SHOT_DRAFT/sample_002.png",
+      "sha256": "2ec2a41dd67f8dfdae9f44fc6c17bce36bbfc2bce9c4863f0a4aff2bad5f9e84",
+      "bytes": 1449224,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "sha256": "83b258648d40fa2ca7b77416c0722c1d431476b4810f525ee9873197c1dd1eee",
+        "github_asset_id": 553028419,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "bytes": 8711894
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 24,
+      "source_time_seconds": 1.0
+    },
+    {
+      "path": "frames/D1-C13-S05_SINGLE_SHOT_DRAFT/sample_003.png",
+      "sha256": "db9314bed2adf5d65db7d7d6f11e7a464850bbe7522bd292d3742fe4980fc45c",
+      "bytes": 1478423,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "sha256": "83b258648d40fa2ca7b77416c0722c1d431476b4810f525ee9873197c1dd1eee",
+        "github_asset_id": 553028419,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "bytes": 8711894
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 48,
+      "source_time_seconds": 2.0
+    },
+    {
+      "path": "frames/D1-C13-S05_SINGLE_SHOT_DRAFT/sample_004.png",
+      "sha256": "4455283979a825772f1cab47c0d66f778bc44aff2bc73e85244dab6952c8f918",
+      "bytes": 1494669,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "sha256": "83b258648d40fa2ca7b77416c0722c1d431476b4810f525ee9873197c1dd1eee",
+        "github_asset_id": 553028419,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "bytes": 8711894
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 72,
+      "source_time_seconds": 3.0
+    },
+    {
+      "path": "frames/D1-C13-S05_SINGLE_SHOT_DRAFT/sample_005.png",
+      "sha256": "b21c81b8d95faa208f9f0c970612cc20b7f7d4fa111292a002dcdbcfa438808e",
+      "bytes": 1514026,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "sha256": "83b258648d40fa2ca7b77416c0722c1d431476b4810f525ee9873197c1dd1eee",
+        "github_asset_id": 553028419,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "bytes": 8711894
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 96,
+      "source_time_seconds": 4.0
+    },
+    {
+      "path": "frames/D1-C13-S05_SINGLE_SHOT_DRAFT/sample_006.png",
+      "sha256": "3bef66bbeff11a0d967f007f55d4727ab7cb1b4fa953c06bca3ef51c2f9a0ecb",
+      "bytes": 1510428,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "sha256": "83b258648d40fa2ca7b77416c0722c1d431476b4810f525ee9873197c1dd1eee",
+        "github_asset_id": 553028419,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "bytes": 8711894
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 120,
+      "source_time_seconds": 5.0
+    },
+    {
+      "path": "frames/D1-C13-S05_SINGLE_SHOT_DRAFT/sample_007.png",
+      "sha256": "0c153f0643136fba3b5b31609539571707549a60096c5781a34eba8d2be35f56",
+      "bytes": 1495008,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "sha256": "83b258648d40fa2ca7b77416c0722c1d431476b4810f525ee9873197c1dd1eee",
+        "github_asset_id": 553028419,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "bytes": 8711894
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 144,
+      "source_time_seconds": 6.0
+    },
+    {
+      "path": "frames/D1-C13-S05_SINGLE_SHOT_DRAFT/sample_008.png",
+      "sha256": "494e939fdfec1b68c4b09e045619dbd587e72878e7a48035c6633f37ca847ff1",
+      "bytes": 1462297,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "sha256": "83b258648d40fa2ca7b77416c0722c1d431476b4810f525ee9873197c1dd1eee",
+        "github_asset_id": 553028419,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "bytes": 8711894
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 168,
+      "source_time_seconds": 7.0
+    },
+    {
+      "path": "frames/D1-C13-S05_SINGLE_SHOT_DRAFT/sample_009.png",
+      "sha256": "1dda4e1c6433fba6337e6b2af491c483a6e9df70dce6f183249a380bb27c6e89",
+      "bytes": 1433229,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "sha256": "83b258648d40fa2ca7b77416c0722c1d431476b4810f525ee9873197c1dd1eee",
+        "github_asset_id": 553028419,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "bytes": 8711894
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 192,
+      "source_time_seconds": 8.0
+    },
+    {
+      "path": "frames/D1-C13-S05_SINGLE_SHOT_DRAFT/sample_010.png",
+      "sha256": "72df64602d57c340005411f8681fb8ee9ac34cb5979133aa82e38fbd917cb287",
+      "bytes": 1441413,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "sha256": "83b258648d40fa2ca7b77416c0722c1d431476b4810f525ee9873197c1dd1eee",
+        "github_asset_id": 553028419,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "bytes": 8711894
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 216,
+      "source_time_seconds": 9.0
+    },
+    {
+      "path": "frames/D1-C13-S05_SINGLE_SHOT_DRAFT/sample_011.png",
+      "sha256": "8a08d454e224697c8344d7ffd978abeca632204cc7043c7fa02ecb58d48c5f64",
+      "bytes": 1460271,
+      "role": "native decoded whole-frame diagnostic",
+      "source": {
+        "file": "D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "sha256": "83b258648d40fa2ca7b77416c0722c1d431476b4810f525ee9873197c1dd1eee",
+        "github_asset_id": 553028419,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "bytes": 8711894
+      },
+      "modification_status": "FFmpeg decoded PNG, no cropping, masking, subject repair or synthesis",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 240,
+      "source_time_seconds": 10.0
+    },
+    {
+      "path": "incoming/BATCH1_COMPLETION.json",
+      "sha256": "d401f66c4b41080f2889aa419b09666df22bf9bd364a3e632aef531a225aaf31",
+      "bytes": 2634,
+      "role": "received source image or handoff record",
+      "source": {
+        "file": "BATCH1_COMPLETION.json",
+        "sha256": "d401f66c4b41080f2889aa419b09666df22bf9bd364a3e632aef531a225aaf31",
+        "github_asset_id": 553028423,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/BATCH1_COMPLETION.json",
+        "bytes": 2634
+      },
+      "modification_status": "Byte-identical copy of uploaded source; uploader approval claims retained as reported history only",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "incoming/BATCH2_COMPLETION.json",
+      "sha256": "ee7ea826f4b7a5a0fe5fdfa215e7d656df99cb85c5ca5d2a4002462689bbb004",
+      "bytes": 2414,
+      "role": "received source image or handoff record",
+      "source": {
+        "file": "BATCH2_COMPLETION.json",
+        "sha256": "ee7ea826f4b7a5a0fe5fdfa215e7d656df99cb85c5ca5d2a4002462689bbb004",
+        "github_asset_id": 553055193,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/BATCH2_COMPLETION.json",
+        "bytes": 2414
+      },
+      "modification_status": "Byte-identical copy of uploaded source; uploader approval claims retained as reported history only",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "incoming/CODEX_HANDOFF_AUDIT_BATCH1_AND_BATCH2.md",
+      "sha256": "ecade1c9a301f1773a54c04879138c573939bc7a7ac8b2f802f0273665b40078",
+      "bytes": 933,
+      "role": "received source image or handoff record",
+      "source": {
+        "file": "CODEX_HANDOFF_AUDIT_BATCH1_AND_BATCH2.md",
+        "sha256": "ecade1c9a301f1773a54c04879138c573939bc7a7ac8b2f802f0273665b40078",
+        "github_asset_id": 553055221,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/CODEX_HANDOFF_AUDIT_BATCH1_AND_BATCH2.md",
+        "bytes": 933
+      },
+      "modification_status": "Byte-identical copy of uploaded source; uploader approval claims retained as reported history only",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "incoming/CODEX_HANDOFF_BATCH1_AUDIT.md",
+      "sha256": "4575ba8e950d8f3979971eb4ddf7aea93209d0eb428a7e30ed5bb22111a5f708",
+      "bytes": 1425,
+      "role": "received source image or handoff record",
+      "source": {
+        "file": "CODEX_HANDOFF_BATCH1_AUDIT.md",
+        "sha256": "4575ba8e950d8f3979971eb4ddf7aea93209d0eb428a7e30ed5bb22111a5f708",
+        "github_asset_id": 553028424,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/CODEX_HANDOFF_BATCH1_AUDIT.md",
+        "bytes": 1425
+      },
+      "modification_status": "Byte-identical copy of uploaded source; uploader approval claims retained as reported history only",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "incoming/CODEX_HANDOFF_BATCH2_AUDIT.md",
+      "sha256": "e4b24f91286845cfcc9e5cdc4ed21d813c30fdb091d9ef89a2e9654dfcab7895",
+      "bytes": 1129,
+      "role": "received source image or handoff record",
+      "source": {
+        "file": "CODEX_HANDOFF_BATCH2_AUDIT.md",
+        "sha256": "e4b24f91286845cfcc9e5cdc4ed21d813c30fdb091d9ef89a2e9654dfcab7895",
+        "github_asset_id": 553055190,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/CODEX_HANDOFF_BATCH2_AUDIT.md",
+        "bytes": 1129
+      },
+      "modification_status": "Byte-identical copy of uploaded source; uploader approval claims retained as reported history only",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "incoming/D1-C02_REBUILT_IMAGE1.jpg",
+      "sha256": "9b13756a1fc36eef4a8c29ee390d3ccd64c9e048e956efd2b41d2281e637686c",
+      "bytes": 751450,
+      "role": "received source image or handoff record",
+      "source": {
+        "file": "D1-C02_REBUILT_IMAGE1.jpg",
+        "sha256": "9b13756a1fc36eef4a8c29ee390d3ccd64c9e048e956efd2b41d2281e637686c",
+        "github_asset_id": 553028426,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02_REBUILT_IMAGE1.jpg",
+        "bytes": 751450
+      },
+      "modification_status": "Byte-identical copy of uploaded source; uploader approval claims retained as reported history only",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1792,
+        1008
+      ]
+    },
+    {
+      "path": "incoming/D1-C03-S03_IMAGE1.jpg",
+      "sha256": "ee858e295ab7f4da8a4f7073ae86bbd979bf8fc62e21f9a4d595efacb435883c",
+      "bytes": 777923,
+      "role": "received source image or handoff record",
+      "source": {
+        "file": "D1-C03-S03_IMAGE1.jpg",
+        "sha256": "ee858e295ab7f4da8a4f7073ae86bbd979bf8fc62e21f9a4d595efacb435883c",
+        "github_asset_id": 553055189,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C03-S03_IMAGE1.jpg",
+        "bytes": 777923
+      },
+      "modification_status": "Byte-identical copy of uploaded source; uploader approval claims retained as reported history only",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1792,
+        1008
+      ]
+    },
+    {
+      "path": "incoming/D1-C04-R01_IMAGE1.jpg",
+      "sha256": "e28c7372408555a6ea7f12fbcb01366d3cf2b947a6e35066e72519fba9d25739",
+      "bytes": 655819,
+      "role": "received source image or handoff record",
+      "source": {
+        "file": "D1-C04-R01_IMAGE1.jpg",
+        "sha256": "e28c7372408555a6ea7f12fbcb01366d3cf2b947a6e35066e72519fba9d25739",
+        "github_asset_id": 553055205,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C04-R01_IMAGE1.jpg",
+        "bytes": 655819
+      },
+      "modification_status": "Byte-identical copy of uploaded source; uploader approval claims retained as reported history only",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1792,
+        1008
+      ]
+    },
+    {
+      "path": "incoming/D1-C09-R01_IMAGE1.jpg",
+      "sha256": "c0883e43000eef5db1467d466c1dbccabeb39246c771587af1febe5c5b99b78e",
+      "bytes": 592634,
+      "role": "received source image or handoff record",
+      "source": {
+        "file": "D1-C09-R01_IMAGE1.jpg",
+        "sha256": "c0883e43000eef5db1467d466c1dbccabeb39246c771587af1febe5c5b99b78e",
+        "github_asset_id": 553055211,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C09-R01_IMAGE1.jpg",
+        "bytes": 592634
+      },
+      "modification_status": "Byte-identical copy of uploaded source; uploader approval claims retained as reported history only",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1792,
+        1008
+      ]
+    },
+    {
+      "path": "incoming/D1-C12-R01_IMAGE1.jpg",
+      "sha256": "0ba26f0d4bf2ba723ac5fcf804ab98fa7e5c867d2d347de1eff03bab7bbf649b",
+      "bytes": 762049,
+      "role": "received source image or handoff record",
+      "source": {
+        "file": "D1-C12-R01_IMAGE1.jpg",
+        "sha256": "0ba26f0d4bf2ba723ac5fcf804ab98fa7e5c867d2d347de1eff03bab7bbf649b",
+        "github_asset_id": 553055232,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C12-R01_IMAGE1.jpg",
+        "bytes": 762049
+      },
+      "modification_status": "Byte-identical copy of uploaded source; uploader approval claims retained as reported history only",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1792,
+        1008
+      ]
+    },
+    {
+      "path": "manual_frames/C10_f24plus_001.png",
+      "sha256": "1ab1c9defdea4db7da62f4cc21a67d5e4d75809da303fa078064ea12fc5db733",
+      "bytes": 1089051,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 24,
+      "source_time_seconds": 1.0
+    },
+    {
+      "path": "manual_frames/C10_f24plus_002.png",
+      "sha256": "0061dc04c58eb35c7c0be8e3220c8ea6944700ed684a0590f9bbbc4a34e517be",
+      "bytes": 1087619,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 25,
+      "source_time_seconds": 1.0416666666666667
+    },
+    {
+      "path": "manual_frames/C10_f24plus_003.png",
+      "sha256": "0bdcbdfdc048cbc93cf7ddd85dda231a89292d76d6ba9daa1a51e85379797a86",
+      "bytes": 1091290,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 26,
+      "source_time_seconds": 1.0833333333333333
+    },
+    {
+      "path": "manual_frames/C10_f24plus_004.png",
+      "sha256": "8e20e298cc6321d96d633f1d38fdd0a85981a790885de874f21485ba81a33e9d",
+      "bytes": 1092192,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 27,
+      "source_time_seconds": 1.125
+    },
+    {
+      "path": "manual_frames/C10_f24plus_005.png",
+      "sha256": "14a437ff5bca17b3a6bcf1af0d35f6d1567a2cacf2fc96aab92e036eea99d6d4",
+      "bytes": 1095442,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 28,
+      "source_time_seconds": 1.1666666666666667
+    },
+    {
+      "path": "manual_frames/C10_f24plus_006.png",
+      "sha256": "b616525c15ef1a189d051955ddc5faa32b21d60c71e15965e40660a24184fdff",
+      "bytes": 1092923,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 29,
+      "source_time_seconds": 1.2083333333333333
+    },
+    {
+      "path": "manual_frames/C10_f24plus_007.png",
+      "sha256": "f2357a8a0dcb069a1792800648832e2bef15f0825e0161a07c548c3dd7fa7ef7",
+      "bytes": 1097624,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 30,
+      "source_time_seconds": 1.25
+    },
+    {
+      "path": "manual_frames/C10_f24plus_008.png",
+      "sha256": "4f39eee9b6f82da8a6a81fbf3de9c2f5df22bec6e271be1c003576ba8c56c972",
+      "bytes": 1095158,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 31,
+      "source_time_seconds": 1.2916666666666667
+    },
+    {
+      "path": "manual_frames/C10_f24plus_009.png",
+      "sha256": "bc9a18f03105fbb642ed40ffe4b90d0181c261152d86201aad081585dc026751",
+      "bytes": 1098698,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 32,
+      "source_time_seconds": 1.3333333333333333
+    },
+    {
+      "path": "manual_frames/C10_f24plus_010.png",
+      "sha256": "27e54e25f51a0076c9019622fa540ede14328b6009c11fa1eb4cbb8184e04f84",
+      "bytes": 1099519,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 33,
+      "source_time_seconds": 1.375
+    },
+    {
+      "path": "manual_frames/C10_f24plus_011.png",
+      "sha256": "ff76204ed6048a07a4739d6b64992898778f7b321f8d286036d5cfbdcec6270a",
+      "bytes": 1105316,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 34,
+      "source_time_seconds": 1.4166666666666667
+    },
+    {
+      "path": "manual_frames/C10_f24plus_012.png",
+      "sha256": "af3ac002f79f9427c62f1c18bd7dcbc7792fcceb95a875ac83bb06e0e05bf82b",
+      "bytes": 1100536,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 35,
+      "source_time_seconds": 1.4583333333333333
+    },
+    {
+      "path": "manual_frames/C10_f24plus_013.png",
+      "sha256": "969889d9bff8b057e41ff68a3dbeb2f08561de51f9cf6debbe5f92f94b548a67",
+      "bytes": 1103218,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 36,
+      "source_time_seconds": 1.5
+    },
+    {
+      "path": "manual_frames/C10_f24plus_014.png",
+      "sha256": "dc5ae75ae093ac859ed5654f7410b18adc146c1d6f924daf2899221a80ad0fa5",
+      "bytes": 1102900,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 37,
+      "source_time_seconds": 1.5416666666666667
+    },
+    {
+      "path": "manual_frames/C10_f24plus_015.png",
+      "sha256": "0dfc247da167d6fa265af2c8c737bdfd26663b6dec1f8779b9f110d911cb598e",
+      "bytes": 1108553,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 38,
+      "source_time_seconds": 1.5833333333333333
+    },
+    {
+      "path": "manual_frames/C10_f24plus_016.png",
+      "sha256": "dfecf75b66e5529a2b0af7f82fcde03bc1a425eb4071465f368c7fcd5c127025",
+      "bytes": 1104666,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 39,
+      "source_time_seconds": 1.625
+    },
+    {
+      "path": "manual_frames/C10_f24plus_017.png",
+      "sha256": "f757903cf0d5f1651cb32af03443c8b94045380dcb738f963ebf45102ba72602",
+      "bytes": 1107268,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 40,
+      "source_time_seconds": 1.6666666666666667
+    },
+    {
+      "path": "manual_frames/C10_f24plus_018.png",
+      "sha256": "8acc9781bef3fa18346a16b37c45089297313f754e95ab93c3bddaea5ad48276",
+      "bytes": 1113687,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 41,
+      "source_time_seconds": 1.7083333333333333
+    },
+    {
+      "path": "manual_frames/C10_f24plus_019.png",
+      "sha256": "8f2378cce52d0698fb552e341f3e9cce0d76a15b39c3b345fea637e8e60f6143",
+      "bytes": 1117118,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 42,
+      "source_time_seconds": 1.75
+    },
+    {
+      "path": "manual_frames/C10_f24plus_020.png",
+      "sha256": "2dc9f44d622c027a0fd6f2244661fbedbbbfb27c7377435df71367f8ea24bc24",
+      "bytes": 1116829,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 43,
+      "source_time_seconds": 1.7916666666666667
+    },
+    {
+      "path": "manual_frames/C10_f24plus_021.png",
+      "sha256": "7afe2f86b2861500ac96572106f83b6cdd11317b6de055df57823b1732b6a954",
+      "bytes": 1119611,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 44,
+      "source_time_seconds": 1.8333333333333333
+    },
+    {
+      "path": "manual_frames/C10_f24plus_022.png",
+      "sha256": "bc6a9a426eac34426161e6c10b324689c5b0c5dc503c15371acc021c4aa66f26",
+      "bytes": 1115565,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 45,
+      "source_time_seconds": 1.875
+    },
+    {
+      "path": "manual_frames/C10_f24plus_023.png",
+      "sha256": "5db462267f0902cef5b953b1ec825db96b1e105d0f7b7148e8decf9bc5e11b96",
+      "bytes": 1119786,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 46,
+      "source_time_seconds": 1.9166666666666667
+    },
+    {
+      "path": "manual_frames/C10_f24plus_024.png",
+      "sha256": "bbfec24b52d0fd8d6e23bea0775c4fe6ec001d3cf1fe29b3d521f8dfef999d15",
+      "bytes": 1119688,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 47,
+      "source_time_seconds": 1.9583333333333333
+    },
+    {
+      "path": "manual_frames/C10_f24plus_025.png",
+      "sha256": "4796304582c3f6e62496783acca93d2fd9d28edfbee136530f05840d375820b7",
+      "bytes": 1124113,
+      "role": "adjacent native contact-boundary diagnostic",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "FFmpeg decoded PNG, whole frame unchanged",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_frame": 48,
+      "source_time_seconds": 2.0
+    },
+    {
+      "path": "package_qc.py",
+      "sha256": "205ff0c4439e64dbd4c53ffa118c0d03a9d5c34d931a6a10863b6abc9ecee055",
+      "bytes": 7511,
+      "role": "QC prose, intake metadata or reproducibility script",
+      "source": "package_qc.py",
+      "modification_status": "Authored review or generated diagnostic metadata",
+      "license_provenance": "Project-authored QC evidence; not new cinematic art or a change to source rights.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "references/3ecd80b1be_room_bubble_bath.png",
+      "sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da",
+      "bytes": 986757,
+      "role": "original audit continuity reference",
+      "source": {
+        "original_packet_path": "references/3ecd80b1be_room_bubble_bath.png",
+        "original_packet_source_commit": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
+        "inherited_manifest_record": {
+          "path": "references/3ecd80b1be_room_bubble_bath.png",
+          "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\grok-handoffs-publish-20260905\\assets_src\\cinematics\\day_one_grok_handoff_v4_2026-09-05\\references\\3ecd80b1be_room_bubble_bath.png",
+          "role": "owner approved design/reference; shot approval separate",
+          "sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da",
+          "bytes": 986757,
+          "license": "Inherits project source rights; project artwork all rights reserved; reference/review use only",
+          "modification_status": "byte-identical copy",
+          "used_as_delivery_pixels": false,
+          "dimensions": [
+            1024,
+            576
+          ]
+        }
+      },
+      "modification_status": "Byte-identical copy of already published audit file",
+      "license_provenance": "Inherits project source rights; project artwork all rights reserved; reference/review use only",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "references/7e77e4c29b_accepted_screen_b_native_1672x941.png",
+      "sha256": "7e77e4c29bbbdcaf2230031a760137a28371532debefda971ab1b251df3ee2ad",
+      "bytes": 2623714,
+      "role": "original audit continuity reference",
+      "source": {
+        "original_packet_path": "references/7e77e4c29b_accepted_screen_b_native_1672x941.png",
+        "original_packet_source_commit": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
+        "inherited_manifest_record": {
+          "path": "references/7e77e4c29b_accepted_screen_b_native_1672x941.png",
+          "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\grok-handoffs-publish-20260905\\assets_src\\cinematics\\day_one_grok_handoff_v4_2026-09-05\\references\\7e77e4c29b_accepted_screen_b_native_1672x941.png",
+          "role": "owner approved design/reference; shot approval separate",
+          "sha256": "7e77e4c29bbbdcaf2230031a760137a28371532debefda971ab1b251df3ee2ad",
+          "bytes": 2623714,
+          "license": "Inherits project source rights; project artwork all rights reserved; reference/review use only",
+          "modification_status": "byte-identical copy",
+          "used_as_delivery_pixels": false,
+          "dimensions": [
+            1672,
+            941
+          ]
+        }
+      },
+      "modification_status": "Byte-identical copy of already published audit file",
+      "license_provenance": "Inherits project source rights; project artwork all rights reserved; reference/review use only",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "references/90bcc501e4_room_bubble_bath_dirty_day_one.png",
+      "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+      "bytes": 1239053,
+      "role": "original audit continuity reference",
+      "source": {
+        "original_packet_path": "references/90bcc501e4_room_bubble_bath_dirty_day_one.png",
+        "original_packet_source_commit": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
+        "inherited_manifest_record": {
+          "path": "references/90bcc501e4_room_bubble_bath_dirty_day_one.png",
+          "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\grok-handoffs-publish-20260905\\assets_src\\cinematics\\day_one_grok_handoff_v4_2026-09-05\\references\\90bcc501e4_room_bubble_bath_dirty_day_one.png",
+          "role": "owner approved design/reference; shot approval separate",
+          "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+          "bytes": 1239053,
+          "license": "Inherits project source rights; project artwork all rights reserved; reference/review use only",
+          "modification_status": "byte-identical copy",
+          "used_as_delivery_pixels": false,
+          "dimensions": [
+            1024,
+            576
+          ]
+        }
+      },
+      "modification_status": "Byte-identical copy of already published audit file",
+      "license_provenance": "Inherits project source rights; project artwork all rights reserved; reference/review use only",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "references/916522a6fa_room_craft_room.png",
+      "sha256": "916522a6fab6691866e8ff768056a5725bfbb76044dba869935eb7b585420eae",
+      "bytes": 856426,
+      "role": "original audit continuity reference",
+      "source": {
+        "original_packet_path": "references/916522a6fa_room_craft_room.png",
+        "original_packet_source_commit": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
+        "inherited_manifest_record": {
+          "path": "references/916522a6fa_room_craft_room.png",
+          "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\grok-handoffs-publish-20260905\\assets_src\\cinematics\\day_one_grok_handoff_v4_2026-09-05\\references\\916522a6fa_room_craft_room.png",
+          "role": "owner approved design/reference; shot approval separate",
+          "sha256": "916522a6fab6691866e8ff768056a5725bfbb76044dba869935eb7b585420eae",
+          "bytes": 856426,
+          "license": "Inherits project source rights; project artwork all rights reserved; reference/review use only",
+          "modification_status": "byte-identical copy",
+          "used_as_delivery_pixels": false,
+          "dimensions": [
+            1024,
+            576
+          ]
+        }
+      },
+      "modification_status": "Byte-identical copy of already published audit file",
+      "license_provenance": "Inherits project source rights; project artwork all rights reserved; reference/review use only",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "references/9cb4b02dc4_dusty_attic_arena_native_1254.png",
+      "sha256": "9cb4b02dc4a56e1436ea0a6b21dccf4ef751716d213e3ff7624571f15a9e2cb6",
+      "bytes": 2079404,
+      "role": "original audit continuity reference",
+      "source": {
+        "original_packet_path": "references/9cb4b02dc4_dusty_attic_arena_native_1254.png",
+        "original_packet_source_commit": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
+        "inherited_manifest_record": {
+          "path": "references/9cb4b02dc4_dusty_attic_arena_native_1254.png",
+          "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\grok-handoffs-publish-20260905\\assets_src\\cinematics\\day_one_grok_handoff_v4_2026-09-05\\references\\9cb4b02dc4_dusty_attic_arena_native_1254.png",
+          "role": "owner approved design/reference; shot approval separate",
+          "sha256": "9cb4b02dc4a56e1436ea0a6b21dccf4ef751716d213e3ff7624571f15a9e2cb6",
+          "bytes": 2079404,
+          "license": "Inherits project source rights; project artwork all rights reserved; reference/review use only",
+          "modification_status": "byte-identical copy",
+          "used_as_delivery_pixels": false,
+          "dimensions": [
+            1254,
+            1254
+          ]
+        }
+      },
+      "modification_status": "Byte-identical copy of already published audit file",
+      "license_provenance": "Inherits project source rights; project artwork all rights reserved; reference/review use only",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "references/e488d7c300_rainbow_dust_bunny_concept.png",
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "bytes": 1608938,
+      "role": "original audit continuity reference",
+      "source": {
+        "original_packet_path": "references/e488d7c300_rainbow_dust_bunny_concept.png",
+        "original_packet_source_commit": "6d7c5e85b6c53b6fbd4a304759ec97f7a6935b5d",
+        "inherited_manifest_record": {
+          "path": "references/e488d7c300_rainbow_dust_bunny_concept.png",
+          "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\grok-handoffs-publish-20260905\\assets_src\\cinematics\\day_one_grok_handoff_v4_2026-09-05\\references\\e488d7c300_rainbow_dust_bunny_concept.png",
+          "role": "owner approved design/reference; shot approval separate",
+          "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+          "bytes": 1608938,
+          "license": "Inherits project source rights; project artwork all rights reserved; reference/review use only",
+          "modification_status": "byte-identical copy",
+          "used_as_delivery_pixels": false,
+          "dimensions": [
+            1024,
+            1024
+          ]
+        }
+      },
+      "modification_status": "Byte-identical copy of already published audit file",
+      "license_provenance": "Inherits project source rights; project artwork all rights reserved; reference/review use only",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "sample_intake.py",
+      "sha256": "b7b0f4960a662e5b6fe74b926df3f590fd524826bb36519680398bc34b55c4bc",
+      "bytes": 4484,
+      "role": "QC prose, intake metadata or reproducibility script",
+      "source": "sample_intake.py",
+      "modification_status": "Authored review or generated diagnostic metadata",
+      "license_provenance": "Project-authored QC evidence; not new cinematic art or a change to source rights.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "sheets/C14-S01_APPROVED.jpg",
+      "sha256": "8c1313c1e8793193be38bc11dd2fc185cab8865a0c0c19c050b36a8cd6017c9e",
+      "bytes": 762264,
+      "role": "diagnostic contact sheet",
+      "source": {
+        "file": "C14-S01_APPROVED.mp4",
+        "sha256": "d159222ae9da6871f6820792961e54d2c90925e5d09485f5312353b17748e5b1",
+        "github_asset_id": 553055182,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S01_APPROVED.mp4",
+        "bytes": 5731544
+      },
+      "modification_status": "Whole frames downscaled into labeled review grid; never delivery or generation pixels",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        1618
+      ],
+      "source_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ]
+    },
+    {
+      "path": "sheets/C14-S05_APPROVED.jpg",
+      "sha256": "a1ee71c153f7ce5862fe3cdce5b947c5eeaa54802777b0d1114c4c05c2e7dba4",
+      "bytes": 740101,
+      "role": "diagnostic contact sheet",
+      "source": {
+        "file": "C14-S05_APPROVED.mp4",
+        "sha256": "7c669b664cc47f37a42af031c8e117f73f7bcff3bdc4ecefbb29e7d32c65c4b3",
+        "github_asset_id": 553055185,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/C14-S05_APPROVED.mp4",
+        "bytes": 6283804
+      },
+      "modification_status": "Whole frames downscaled into labeled review grid; never delivery or generation pixels",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        1618
+      ],
+      "source_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ]
+    },
+    {
+      "path": "sheets/D1-C02-R01_APPROVED.jpg",
+      "sha256": "1db1b457133d77953c73c039269b77319e9a05db45061bd9464acc86a8c461b4",
+      "bytes": 573787,
+      "role": "diagnostic contact sheet",
+      "source": {
+        "file": "D1-C02-R01_APPROVED.mp4",
+        "sha256": "82d1ba64208d3e04d30f3063ee546cca176962a9d9bed910e7d69a54ca142825",
+        "github_asset_id": 553028391,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R01_APPROVED.mp4",
+        "bytes": 4198823
+      },
+      "modification_status": "Whole frames downscaled into labeled review grid; never delivery or generation pixels",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        1618
+      ],
+      "source_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ]
+    },
+    {
+      "path": "sheets/D1-C02-R02_APPROVED.jpg",
+      "sha256": "72e76cc0b9381a412b377b53f107300985264596c45f636976125b07cc38750e",
+      "bytes": 584599,
+      "role": "diagnostic contact sheet",
+      "source": {
+        "file": "D1-C02-R02_APPROVED.mp4",
+        "sha256": "d6bc869f99ef46411f69b7f6398aa5e4885f32eadae99bc4ddcfec629b3d43c5",
+        "github_asset_id": 553028394,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C02-R02_APPROVED.mp4",
+        "bytes": 4228748
+      },
+      "modification_status": "Whole frames downscaled into labeled review grid; never delivery or generation pixels",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        1618
+      ],
+      "source_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ]
+    },
+    {
+      "path": "sheets/D1-C03-S03_APPROVED.jpg",
+      "sha256": "6de542cdea14eaa29fbabc36a35f9061ad1f2b1e6d095c214213752fe96c33c9",
+      "bytes": 716664,
+      "role": "diagnostic contact sheet",
+      "source": {
+        "file": "D1-C03-S03_APPROVED.mp4",
+        "sha256": "93571f0f6a832145b415562d125291d405c70b844173b2185877ebb1d9bd5efe",
+        "github_asset_id": 553055166,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C03-S03_APPROVED.mp4",
+        "bytes": 4229721
+      },
+      "modification_status": "Whole frames downscaled into labeled review grid; never delivery or generation pixels",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        1618
+      ],
+      "source_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ]
+    },
+    {
+      "path": "sheets/D1-C04-R01_APPROVED.jpg",
+      "sha256": "2462a39c72ee9227aee64174a936c550142c8d062e234ae957c402404d50cc06",
+      "bytes": 659266,
+      "role": "diagnostic contact sheet",
+      "source": {
+        "file": "D1-C04-R01_APPROVED.mp4",
+        "sha256": "cc44baa4bbb182b221125e684279b8ac268d865da2e5af930f6840d824c24194",
+        "github_asset_id": 553055164,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C04-R01_APPROVED.mp4",
+        "bytes": 2901926
+      },
+      "modification_status": "Whole frames downscaled into labeled review grid; never delivery or generation pixels",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        1618
+      ],
+      "source_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ]
+    },
+    {
+      "path": "sheets/D1-C09-R01_APPROVED.jpg",
+      "sha256": "383dcf177fed92037419422e665b639d03dde4ae31e9a886e432ee4eabf6a35c",
+      "bytes": 620493,
+      "role": "diagnostic contact sheet",
+      "source": {
+        "file": "D1-C09-R01_APPROVED.mp4",
+        "sha256": "c612238fcef54b501b75a484af0911256b6f194ac23f86a973d5c2508dcbdd2f",
+        "github_asset_id": 553055162,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C09-R01_APPROVED.mp4",
+        "bytes": 1848849
+      },
+      "modification_status": "Whole frames downscaled into labeled review grid; never delivery or generation pixels",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        1618
+      ],
+      "source_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ]
+    },
+    {
+      "path": "sheets/D1-C10-R01_APPROVED.jpg",
+      "sha256": "d626dd15da52b413900ae88a34304ebc96ea90ce99149ddffd763f00c8a4b1aa",
+      "bytes": 583782,
+      "role": "diagnostic contact sheet",
+      "source": {
+        "file": "D1-C10-R01_APPROVED.mp4",
+        "sha256": "086b7b0d6704c94c322a048998a173d6119e15d7832776faa7f12ee963f2400f",
+        "github_asset_id": 553028393,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C10-R01_APPROVED.mp4",
+        "bytes": 1747915
+      },
+      "modification_status": "Whole frames downscaled into labeled review grid; never delivery or generation pixels",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        1618
+      ],
+      "source_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ]
+    },
+    {
+      "path": "sheets/D1-C12-R01_APPROVED.jpg",
+      "sha256": "9a75233e91bd8c64dd612c8fd81b0742ec23711f7a53b74a1ce5c4a5592660e9",
+      "bytes": 593237,
+      "role": "diagnostic contact sheet",
+      "source": {
+        "file": "D1-C12-R01_APPROVED.mp4",
+        "sha256": "551073a71c7d8e825ea92f1b7d7061ee49f93424ce66b58f1d0d5ef82ac8c163",
+        "github_asset_id": 553055161,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C12-R01_APPROVED.mp4",
+        "bytes": 3877356
+      },
+      "modification_status": "Whole frames downscaled into labeled review grid; never delivery or generation pixels",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        1618
+      ],
+      "source_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ]
+    },
+    {
+      "path": "sheets/D1-C13-S04_APPROVED.jpg",
+      "sha256": "71c9ea959ae8ac81cbbf5d363aa21d732681c974c816f59415810e4f2a99fdb9",
+      "bytes": 683420,
+      "role": "diagnostic contact sheet",
+      "source": {
+        "file": "D1-C13-S04_APPROVED.mp4",
+        "sha256": "7d528cc00ac88adf815fda15d38e7784cdb636112fbc0598c4e5f0c39aec6056",
+        "github_asset_id": 553055163,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S04_APPROVED.mp4",
+        "bytes": 4272096
+      },
+      "modification_status": "Whole frames downscaled into labeled review grid; never delivery or generation pixels",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        1618
+      ],
+      "source_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ]
+    },
+    {
+      "path": "sheets/D1-C13-S05_ENDPOINT_HOLD.jpg",
+      "sha256": "4b3d49ef3ebffea2cf8121b7e2b3b0a3dfb47356e1e659bb9e7949bf5d2a866a",
+      "bytes": 650311,
+      "role": "diagnostic contact sheet",
+      "source": {
+        "file": "D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "sha256": "cd182eb4b0fd4044ec89cf03a23b92e33200deefc3b0b4c384a548422be33f85",
+        "github_asset_id": 553028388,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_ENDPOINT_HOLD.mp4",
+        "bytes": 3861098
+      },
+      "modification_status": "Whole frames downscaled into labeled review grid; never delivery or generation pixels",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        1618
+      ],
+      "source_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144
+      ]
+    },
+    {
+      "path": "sheets/D1-C13-S05_FIX_ASSEMBLED_10s.jpg",
+      "sha256": "7cb4be2a731d731fd944fc361a4a373bd7f02799808c356f251c07af5279f540",
+      "bytes": 1829612,
+      "role": "diagnostic contact sheet",
+      "source": {
+        "file": "D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "sha256": "80631b69383965155b03bde2e12e6b336648b4854117ba5282854f11ff60e2fb",
+        "github_asset_id": 553028392,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_FIX_ASSEMBLED_10s.mp4",
+        "bytes": 7885229
+      },
+      "modification_status": "Whole frames downscaled into labeled review grid; never delivery or generation pixels",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1920,
+        2794
+      ],
+      "source_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        143,
+        144,
+        145,
+        168,
+        192,
+        216,
+        239
+      ]
+    },
+    {
+      "path": "sheets/D1-C13-S05_SINGLE_SHOT_DRAFT.jpg",
+      "sha256": "414c115e5e0ff442295be02d652bccee742d86999f971f266a21df427fb9448e",
+      "bytes": 1101796,
+      "role": "diagnostic contact sheet",
+      "source": {
+        "file": "D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "sha256": "83b258648d40fa2ca7b77416c0722c1d431476b4810f525ee9873197c1dd1eee",
+        "github_asset_id": 553028419,
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/day1-world-animation-audit-2026-09-09/D1-C13-S05_SINGLE_SHOT_DRAFT.mp4",
+        "bytes": 8711894
+      },
+      "modification_status": "Whole frames downscaled into labeled review grid; never delivery or generation pixels",
+      "license_provenance": "Owner-supplied Grok motion-reference footage on the cited public project release; rights/provenance inherited, no new external license or production clearance asserted.",
+      "used_as_delivery_pixels": false,
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1920,
+        1618
+      ],
+      "source_frames": [
+        0,
+        24,
+        48,
+        72,
+        96,
+        120,
+        144,
+        168,
+        192,
+        216,
+        240
+      ]
+    }
+  ]
+}

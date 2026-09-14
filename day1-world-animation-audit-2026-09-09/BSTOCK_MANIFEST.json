@@ -1,0 +1,147 @@
+{
+  "schema": "bstock-regen-v1",
+  "date": "2026-09-12",
+  "guide": "START_HERE_GROK.txt + REGENERATION_QUEUE.json + QC_RESPONSE_REVIEW_2026-09-09.md from day1-world-animation-audit-2026-09-09",
+  "label": "B-STOCK motion references \u2014 not A-stock acceptance",
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "shots": [
+    {
+      "id": "D1-C02-R01",
+      "primary": "D1-C02-R01_BSTOCK_6s.mp4",
+      "note": "portal map orientation"
+    },
+    {
+      "id": "D1-C02-R02",
+      "primary": "D1-C02-R02_BSTOCK_6s.mp4",
+      "note": "three-pearl only glow IMAGE1"
+    },
+    {
+      "id": "D1-C10-R01",
+      "primary": "D1-C10-R01_BSTOCK_6s.mp4",
+      "note": "approach may over-contact; trim early if needed"
+    },
+    {
+      "id": "D1-C13-S05",
+      "primary": "D1-C13-S05_BSTOCK_ASSEMBLED_10s.mp4",
+      "note": "two-plate hard cut; not continuous removal"
+    },
+    {
+      "id": "D1-C03-S03",
+      "primary": "D1-C03-S03_BSTOCK_6s.mp4"
+    },
+    {
+      "id": "D1-C04-R01",
+      "primary": "D1-C04-R01_BSTOCK_6s.mp4",
+      "note": "trim early if floor-swim invents"
+    },
+    {
+      "id": "D1-C09-R01",
+      "primary": "D1-C09-R01_BSTOCK_6s.mp4"
+    },
+    {
+      "id": "D1-C12-R01",
+      "primary": "D1-C12-R01_BSTOCK_6s.mp4"
+    },
+    {
+      "id": "D1-C13-S04",
+      "primary": "D1-C13-S04_BSTOCK_6s.mp4",
+      "note": "cup-free; giant intact"
+    },
+    {
+      "id": "C14-S01",
+      "primary": "C14-S01_BSTOCK_LOCKED_STILL_6s.mp4",
+      "alt_motion": "C14-S01_BSTOCK_6s.mp4",
+      "note": "motion drops cast; use locked still"
+    },
+    {
+      "id": "C14-S05",
+      "primary": "C14-S05_BSTOCK_ROUGH_4s.mp4",
+      "alt": "C14-S05_BSTOCK_6s.mp4",
+      "note": "editorial contact+clean still"
+    }
+  ],
+  "files": [
+    {
+      "file": "C14-S01_BSTOCK_6s.mp4",
+      "sha256": "b2aa14919690bc1d13fd24aa24ed72ebf54954a3d9bcea61ed8c1eafd91327ea",
+      "bytes": 5495413
+    },
+    {
+      "file": "C14-S01_BSTOCK_LOCKED_STILL_6s.mp4",
+      "sha256": "4b597f0c30fa2bd43a641354ef12b313321975765478d9e50f2313ee86b6c487",
+      "bytes": 627786
+    },
+    {
+      "file": "C14-S05_BSTOCK_6s.mp4",
+      "sha256": "dd69712b3e75813c58cd730460314a79eb8ee94d7b6b8bf1e427539a26dbd85d",
+      "bytes": 6450157
+    },
+    {
+      "file": "C14-S05_BSTOCK_ROUGH_4s.mp4",
+      "sha256": "ec2de95eeabb8c26a6b619cca8797e6b2d664d85abbef68e81d3a7102b2370c8",
+      "bytes": 3229144
+    },
+    {
+      "file": "C14-S05_CLEAN_STILL_HOLD.mp4",
+      "sha256": "e4f04d125d16c18c72b19b05722a7bb9b915e6efe9516809a88b67a3562a2907",
+      "bytes": 466431
+    },
+    {
+      "file": "D1-C02-R01_BSTOCK_6s.mp4",
+      "sha256": "2ff8124b65a3006873ea98abd4aee6821946582b496823dc08aa97d115e72f81",
+      "bytes": 3661899
+    },
+    {
+      "file": "D1-C02-R02_BSTOCK_6s.mp4",
+      "sha256": "f0b4bdf004afd04acb017c484b1df8c6c89bd99739c170b4ded58acabf5005f1",
+      "bytes": 4012760
+    },
+    {
+      "file": "D1-C03-S03_BSTOCK_6s.mp4",
+      "sha256": "fb4c4ba637dffbb30acbf5159ea307e7852392337f758b8f8c1d169ebf53c43f",
+      "bytes": 4222011
+    },
+    {
+      "file": "D1-C04-R01_BSTOCK_6s.mp4",
+      "sha256": "15b70ad2b8a0d957d823039e11cce169999403fd7c772af4f7ec8b46d66ac624",
+      "bytes": 3596305
+    },
+    {
+      "file": "D1-C09-R01_BSTOCK_6s.mp4",
+      "sha256": "a99b7f6f5524a1849435f38a6a8a9e795e553b2c6f9bdefdb367f306f6b76223",
+      "bytes": 3115739
+    },
+    {
+      "file": "D1-C10-R01_BSTOCK_6s.mp4",
+      "sha256": "f76e6c9d34a093aac06e2a8401212f772e1032cf5849d195b23df9af86bbdfa7",
+      "bytes": 2769637
+    },
+    {
+      "file": "D1-C12-R01_BSTOCK_6s.mp4",
+      "sha256": "3c0048232afc5035c7da9179a4e578eec695d187164f164a4556425c46875087",
+      "bytes": 3920196
+    },
+    {
+      "file": "D1-C13-S04_BSTOCK_6s.mp4",
+      "sha256": "cab816c32a99ae12baafee2c7beb3e8478d0147cc02e1dda53c670d2f0d585db",
+      "bytes": 4727774
+    },
+    {
+      "file": "D1-C13-S05_BSTOCK_ASSEMBLED_10s.mp4",
+      "sha256": "63ad038fa34cdcc10914dd5c6e1244b3149e0054b2c57a1e20000d26732a143b",
+      "bytes": 7583003
+    },
+    {
+      "file": "D1-C13-S05_CLEAN_BSTOCK_6s.mp4",
+      "sha256": "0acebc97e439bb176d73224a2fa6c4dd5460f88a058d4f0260667ddb5c2e1476",
+      "bytes": 4975125
+    },
+    {
+      "file": "D1-C13-S05_ENDPOINT_BSTOCK_6s.mp4",
+      "sha256": "a90cbb2b7dca4307b4210047a24c8eb29e95739c890b97ebf430e91caa0b7359",
+      "bytes": 4504950
+    }
+  ],
+  "completed_at": "2026-09-12T14:24:07.608408+00:00"
+}
