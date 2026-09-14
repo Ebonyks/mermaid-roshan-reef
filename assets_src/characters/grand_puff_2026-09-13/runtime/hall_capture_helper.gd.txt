@@ -1,0 +1,63 @@
+extends SceneTree
+
+## Live visual capture for the rebuilt Dust Bunny encounter.
+## This owns only the encounter clock after the real main scene is running;
+## every image is read from the rendered viewport after frame_post_draw.
+
+const DT := 0.05
+const FRAME_CAP := 3600
+
+var main: ReefMain
+var boss: DustBossGame
+var out_dir := ""
+var frames := 0
+
+func _init() -> void:
+	if DisplayServer.get_name() == "headless":
+		print("DUSTSHOT|HEADLESS SKIP (needs a real viewport; run with display)")
+		quit()
+		return
+	Engine.time_scale = 1.0
+	Engine.max_fps = 60
+	var capture_width: int = maxi(1280, OS.get_environment("DUSTBOSS_SHOT_WIDTH").to_int())
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	DisplayServer.window_set_size(Vector2i(capture_width, 720))
+	out_dir = OS.get_environment("DUSTBOSS_SHOT_OUT")
+	if out_dir == "":
+		out_dir = ProjectSettings.globalize_path("res://tmp/dust_boss_shots")
+	DirAccess.make_dir_recursive_absolute(out_dir)
+	var scene: PackedScene = load("res://scenes/main.tscn")
+	main = scene.instantiate() as ReefMain
+	main.first_session = false
+	get_root().add_child(main)
+	await _settle(4)
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+	elif main.intro_active:
+		main._skip_intro()
+	await _settle(20)
+	main._enter_castle_interior_now(false)
+	await _settle(120)
+	main._castle_rooms_ref().show_room("main_hall", false)
+	await _settle(60)
+	var foot: Vector2 = main.castle_room_player_sprite.get_meta("current_stage_foot", Vector2.ZERO) as Vector2
+	main._castle_rooms_ref()._position_hall_player_at_foot(foot + Vector2(350, 0), false)
+	await _settle(4)
+	await RenderingServer.frame_post_draw
+	get_root().get_texture().get_image().save_png(out_dir + "/hall_runtime_1280.png")
+	var records: Dictionary = {}
+	for key: Variant in main.castle_room_item_sprites:
+		var record: Dictionary = main.castle_room_item_sprites[key]
+		var sprite: Sprite2D = record.get("sprite") as Sprite2D
+		if sprite != null and sprite.texture != null:
+			records[String(key)] = {"texture": sprite.texture.resource_path,
+				"position": str(sprite.get_global_transform_with_canvas().origin),
+				"scale": str(sprite.get_global_transform_with_canvas().get_scale()),
+				"visible": sprite.is_visible_in_tree()}
+	var file := FileAccess.open(out_dir + "/hall_runtime_nodes.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(records, "  "))
+	quit()
+
+func _settle(count: int) -> void:
+	for _i in range(count):
+		await process_frame

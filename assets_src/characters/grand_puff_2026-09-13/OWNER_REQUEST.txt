@@ -1,0 +1,173 @@
+What I am locking (so Codex does not redesign)
+
+Name candidates: Grand Puff (splash language) / The Great Dust Bunny (boss canon). Codex should report which string the live HUD, splash, and voice actually use.
+Species: castle dust-bunny mascot. Friendly helper, never a monster, never dirt, never realistic smoke.
+Boss read: scale, three-tier cloud mass, ram-horn spiral ears, curl crest, grey-plum values — not armor, not a crown prop, not a redesigned face.
+Weak point: forehead sparkle that becomes a big aqua-white star while he laughs. That is the tap target.
+Child safety: cute pointed teeth, no snarl, no injury. Third hit befriends him.
+Medium: true 2D Sprite2D cutout. Sprite3D is debt.
+
+
+Codex packet I need
+Store it as a Rumi-style character packet:
+assets_src/characters/grand_puff_YYYY-MM-DD/
+Do not generate a new boss. Inventory, extract, hash, and photograph what already exists.
+1. Push the missing owner portrait
+The Aug 2 note says the canonical boss still lives only at
+
+C:\Users\Peter\.codex\generated_images\019fa72e-863a-7911-a68b-21489e3c3c38
+I cannot see that file from here. Codex should:
+
+Copy it into the packet as owner_local_boss_portrait.png
+Record SHA-256, dimensions, date
+Put it on a contact sheet next to dust_bunny_first_boss_concept_v2_teeth.png
+Mark which one is identity authority. If they disagree, stop. Do not blend them.
+
+Until that lands, I treat v2 teeth as the working identity.
+2. Authority contact sheet (one image, labeled)
+Same scale, cream or chroma field, no HUD:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CellSourceAHall curl-ears (family DNA)BHall hopCOwner local portrait (if found)DBoss concept v1 (closed smile)EBoss concept v2 teeth (preferred)FOne jump-atlas peak frameGOne laugh-atlas weak-point frameHRoshan next to Grand Puff for scale
+Also a family row: sleepy, shell-hide, family, swimming, rainbow concept. Rainbow stays concept, not this rebuild.
+3. Identity lock card (Rumi format)
+One JSON + one paragraph of visual facts, not adjectives:
+
+8–12 discriminative traits (ears, crest, teeth count, paw count, sparkle, blush, outline color)
+Exact forbidden changes
+Palette hexes sampled from v2 (face, mid curl, deep plum, paw, outline, sparkle, blush)
+Topology: one body, two spiral ears, four pearl paws, two teeth, one crest sparkle
+Relative scale vs Roshan and vs a hall bunny (from a real 1280×720 capture, not the old BOSS_H = 16 placeholder)
+
+Alpha-isolate the identity portrait. Cream backgrounds cannot go into Imagine as pixel authority.
+4. Reconcile the two fight contracts
+There are two live stories. Codex must quote the current code, not the docs.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dust_boss.gd (Aug 2)dust_bunny_boss_sprite.gd (Jul 28)Artscaled dust_bunny_curl_ears.png placeholderfive 2×2 boss atlasesHits3 taps, one per jump window3 rounds × 3 tapsTellgold star over headglowing forehead crestWindeflates into a cuddly puff, gives shine backimplodes into wisps
+I will design the sprite around befriend / deflate. Implode is retained as rejected-or-alternate until the owner picks.
+Codex deliverable: a one-page runtime consumer map — every script, splash, attic peek, and hall pop that draws a dust bunny, with the exact texture path and animation name.
+5. Pose bible of what already exists
+For each of the five shipped boss sheets (jump, laugh_vulnerable, flinch, angry, implode), cell by cell:
+
+1-line pose description
+Identity pass/fail (teeth, ears, crest, paws, silhouette)
+Crop / scale / chroma defects
+Whether the frame is reusable for the Aseprite rebuild
+
+Same for hall idle / hop / clean-poof if they share species language.
+Then a gap list of poses the fight and splash actually need that no sheet has:
+Must-have for the rebuild:
+
+Neutral idle (breathing cloud)
+Showing / swell out of nest
+Attic-door peek
+Prowl hop (travel, not the big dust-plume jump)
+Wind-up squash (0.7s telegraph)
+Shielded giggle (tap bounced)
+Dizzy wobble (after hit 1)
+Friends / deflate to small cuddly puff
+Splash “personality pose”
+One 3/4 and one profile (sprite travel)
+
+Do not draw these yet. Name them, note the closest existing cell, and stop.
+6. Technical sheet contract
+Match the Roshan Aseprite rebuild, not the old 3D card:
+
+Final medium: Sprite2D / AnimatedSprite2D
+Recommended cell size, padding, bottom-center pivot
+Whether we keep 2×2 / 512 or move to the Opera 256-cell language
+What FX stays off the body sheet (dust ring, landing plume, star tell, soap bubbles)
+Phone-squint test: crest star must read at Lenovo Tab M11 size with HUD on
+
+7. Provenance + license
+Rumi-style PROVENANCE.json: path, role, SHA-256, dimensions, license line, modifications: none. No new generation. ASSET_LICENSES.md only if a file is newly committed (the owner portrait).
+
+What Codex must not do
+
+Do not invent a new Grand Puff
+Do not scale the hall bunny up and call it the boss
+Do not regenerate approved hall-bunny cutouts
+Do not start Aseprite production until I sign the identity lock
+Do not treat implode as the win
+Do not revive 3D / Sprite3D
+Do not mix rainbow-variant colors into this character
+
+
+After this packet
+I will make:
+
+Signed identity portrait (alpha)
+Eight-pose turnaround
+Motion-audition videos for hop, laugh-window, dizzy, angry, friends-deflate
+Imagine shot cards Codex can reconstruct in Aseprite
+
+Same split as Roshan: I paint and direct motion; Codex reconstructs the sprite.
+Highest-leverage first step: commit the owner’s local portrait and the labeled contact sheet. Without those two images I cannot honestly lock the face.

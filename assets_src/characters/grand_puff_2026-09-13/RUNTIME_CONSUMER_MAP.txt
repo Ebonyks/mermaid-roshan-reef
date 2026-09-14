@@ -1,0 +1,26 @@
+RUNTIME CONSUMER MAP — source f28106a5 (2026-09-13)
+This is observed code, not a proposed replacement. Paths are relative to repository root.
+
+BOSS: scripts/games/dust_boss.gd -> scripts/dust_bunny_boss_sprite.gd.
+Draws assets/sprites/dust_bunnies/boss/dust_bunny_boss_{jump,laugh_vulnerable,flinch,angry,implode}.png.
+Current actor is AnimatedSprite3D on Node3D: migration debt. make_sprite_frames supplies 512px cells in 2x2 sheets.
+Aliases: idle=jump[0]; jump=[0,1,2,3]; laugh_vulnerable=[0,1,2,3]; flinch_1=[0,1], flinch_2=[1,2], flinch_3=[2,3]; angry=[0,1,2,3]; angry_jump_final=angry[2,3]+jump[1,3]; implode=[0,1,2,3].
+
+SPLASH: scripts/boss_splash_2d.gd, configured by dust_boss.gd:272-283, draws the SAME SpriteFrames in AnimatedSprite2D. Entrance=jump; identity=laugh_vulnerable. teach_counter=false for Grand Puff. Title "GRAND PUFF", subtitle "THE GREAT DUST BUNNY". No separate persistent boss-name health bar in the current battle; mastery is carried by dust, not a named HUD bar. Portal/friend route name is "Dusty Attic" (main.gd:773).
+
+ATTIC PEEK: dust_boss.gd:1040-1073 build_portal(), called by main.gd:1134. Same DustBunnyBossSprite, idle=jump[0]. Legacy 3D doorway and sprite; no authored peek animation exists. Retained code path is not an accepted 2D rebuild.
+
+HALL / PLAYROOM: scripts/arena/castle_rooms_25d.gd draws assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png, dust_bunny_shell_hide.png and dust_bunny_hop.png as Sprite2D item cutouts. Sleepy/shell static; runner translates the hop cutout; playroom pin pair uses hop. _explode_dust_bunny / _item_burst scatters the current cutout and bounded particles; it does not play the six-cell defeat atlas.
+ROOM DRESSING: scripts/arena/day_one_castle_dressing.gd uses the same directory: bubble_bath=shell_hide; mermaid_pool= curl_ears; playroom=family; craft_room=curl_ears. Sprite2D static/placement effects, no body animation name.
+SWIMMERS: scripts/games/day_one_dust_bunny_swimmer.gd draws dust_bunny_swimming.png from that directory. Consumers: day_one_pool_cleanup.gd, day_one_bathroom_cleanup.gd and castle_rooms_25d.gd. Single Sprite2D cutout motion, no atlas animation. day_one_bathroom_cleaning.gd references cleanup state, not another bunny texture.
+
+LEGACY SWARM / TUTORIAL: combat_arena.gd and combat_tutorial.gd instantiate DustBunnySprite (dust_bunny_sprite.gd), AnimatedSprite3D debt. assets/sprites/dust_bunnies/dust_bunny_{idle,hop,defeat}.png: 3x2, 256px, six row-major frames; idle 5 fps loop, hop 9 fps once, defeat 8 fps once. combat_arena also uses dust_bunny_clean_bubbles.png as separate cleanup FX. dust_bunny_ai.gd chooses movement/actions; it supplies no independent art.
+LEGACY DUNGEON: dungeon_art.gd maps "Imp" to assets/sprites/dust_bunnies/dust_bunny_idle.png. This is a source mapping, not an accepted boss or new 2D animation contract.
+STATE-ONLY: main.gd, day_one_director.gd, chapter_two_director.gd, save_state.gd track routes/progression; they supply no additional bunny identity art. Probe scripts are diagnostic consumers and listed in RUNTIME_CODE_EVIDENCE.txt.
+
+FIGHT CONTRACT RECONCILIATION
+Live: three earned rounds, ONE intentional counter tap per opening; configure_counter_mode(_counter_window()) overrides standalone REQUIRED_TAPS=3. First counter window is 8.0 s; learned counter is 3.2 s. Pattern/encounter own success and saves, sprite owns acting.
+Current warn duration: 2.35 s first jump, 2.2 s other circles, 2.7 s charge; first 35% aiming, three locked flashes, third coral-peach then launch. Do not replace this with the stale 0.7 s total warning. Proposed squash can occupy part of the aiming interval.
+Live tap cue: separate GOLD star, assets/opera/worlds/props/fx_stolen_sparkle.png, DustBossLesson2D; authored laugh sheet has a pale/aqua forehead sparkle. Aqua-only target is Grok's requested art direction, NOT current input/voice truth. Preserve gold counter semantics unless deliberately coordinated later.
+Current ending: pose_for_state("friends") returns "implode"; sprite plays it after final flinch and hides. Comment says cuddly deflate, executable code does not. Rebuild target is befriend/deflate; implode is archived rejected/alternate, not accepted win.
+Voice catalogue and live calls name "Grand Puff": e.g. "Boop! Grand Puff is dizzy!" and "Grand Puff burst into sparkly stars!". The latter is an ending mismatch to resolve with the future deflate animation; existing audio is unchanged. Catalogue/path binding inspected, audio not independently transcribed in this packet.

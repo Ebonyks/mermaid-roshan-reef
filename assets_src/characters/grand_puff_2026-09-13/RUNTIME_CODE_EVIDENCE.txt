@@ -1,0 +1,279 @@
+
+scripts/games/dust_boss.gd SHA256 600f21d52b8197d8187115d12a0f35e78f5fa2c555e5c358e9a0f0043597e85f
+3: # Grand Puff teaches one repeating rule: leave every painted danger shape,
+6: const HP := DustBunnyBossSprite.TOTAL_DAMAGE_ROUNDS
+31: # Grand Puff owns a deterministic 120 BPM adaptive cue. The rendered track's
+49: # Existing approved character poses remain owned by DustBunnyBossSprite.
+52: 	&"puffy": {"name": "puffy", "puff": 1.0},
+53: 	&"dizzy": {"name": "dizzy", "puff": 0.96},
+54: 	&"angry": {"name": "angry", "puff": 1.12},
+141: 		encounter.profile.counter_seconds = 8.0
+142: 	var k: DustBunnyBossSprite = kit()
+148: 	k.combat_speed_scale = DustBunnyBossSprite.FINAL_ROUND_SPEED_SCALE \
+154: 	var k: DustBunnyBossSprite = kit()
+279: 		DustBunnyBossSprite.make_sprite_frames(),
+280: 		"GRAND PUFF",
+281: 		"THE GREAT DUST BUNNY",
+297: 		var k: DustBunnyBossSprite = kit()
+299: 			k.play_implode()
+334: 	var k: DustBunnyBossSprite = kit()
+370: 	return PHASE_ART.get(encounter.profile.phases[phase()].phase_id, PHASE_ART[&"puffy"])
+414: 		var k: DustBunnyBossSprite = kit()
+452: 		_say_day_one_context("day1_boss_bump", "Grand Puff bounced away!")
+484: 	var k: DustBunnyBossSprite = kit()
+486: 		k.configure_counter_mode(_counter_window())
+495: 	var k: DustBunnyBossSprite = kit()
+564: 	var done: bool = bool(m.g.get("db_imploded", false))
+585: 		return "PERFECT AVOIDANCE! Three gold stars and two bonus pearls — Grand Puff is your friend!"
+587: 		return "Three gold stars! Grand Puff is your friend. Avoid every dust attack next time for the shining bonus!"
+589: 		return "Two silver stars! Grand Puff is your friend. Dodge one more bump next time to light the gold star!"
+590: 	return "A bronze star! Grand Puff is your friend. Play again and dodge his hops to light more stars!"
+601: 		var k: DustBunnyBossSprite = kit()
+640: 	var k: DustBunnyBossSprite = kit()
+645: 		encounter.profile.counter_seconds = 3.2
+714: 	# the tick. (Names are DustBunnyBossSprite animation names.)
+725: 			return "implode"
+741: 	var k: DustBunnyBossSprite = kit()
+762: 	# Grand Puff and his remaining floor dust carry the lesson. Mastery belongs
+973: 	# THE ANIMATED BOSS. DustBunnyBossSprite owns the four-frame sheets, the
+976: 	var kit := DustBunnyBossSprite.new()
+978: 	kit.scale = Vector3.ONE * (BOSS_H / maxf(0.01, DustBunnyBossSprite.DISPLAY_HEIGHT))
+992: func kit() -> DustBunnyBossSprite:
+993: 	return m.g.get("db_kit") as DustBunnyBossSprite
+1014: 			"Grand Puff burst into sparkly stars!")
+1021: 			"Boop! Grand Puff is dizzy!")
+1028: 		"Grand Puff is speedy now! Keep watching the star!")
+1031: 	m.g["db_imploded"] = true
+1066: 	var peek := DustBunnyBossSprite.new()
+1068: 	peek.scale = Vector3.ONE * (6.5 / maxf(0.01, DustBunnyBossSprite.DISPLAY_HEIGHT))
+
+scripts/dust_bunny_boss_sprite.gd SHA256 7c0ebfe926a6d110d026c286d8aed1a828dee83d71a631c30459182605ad4760
+1: class_name DustBunnyBossSprite
+18: const REQUIRED_TAPS := 3
+19: const TOTAL_DAMAGE_ROUNDS := 3
+23: const SHEET_ROOT := "res://assets/sprites/dust_bunnies/boss/"
+31: const ANIMATION_SPECS: Dictionary = {
+32: 	&"idle": {
+33: 		"path": SHEET_ROOT + "dust_bunny_boss_jump.png",
+36: 		"frames": [0],
+38: 	&"jump": {
+39: 		"path": SHEET_ROOT + "dust_bunny_boss_jump.png",
+42: 		"frames": [0, 1, 2, 3],
+44: 	&"laugh_vulnerable": {
+45: 		"path": SHEET_ROOT + "dust_bunny_boss_laugh_vulnerable.png",
+48: 		"frames": [0, 1, 2, 3],
+50: 	&"flinch_1": {
+51: 		"path": SHEET_ROOT + "dust_bunny_boss_flinch.png",
+54: 		"frames": [0, 1],
+56: 	&"flinch_2": {
+57: 		"path": SHEET_ROOT + "dust_bunny_boss_flinch.png",
+60: 		"frames": [1, 2],
+62: 	&"flinch_3": {
+63: 		"path": SHEET_ROOT + "dust_bunny_boss_flinch.png",
+66: 		"frames": [2, 3],
+68: 	&"angry": {
+69: 		"path": SHEET_ROOT + "dust_bunny_boss_angry.png",
+72: 		"frames": [0, 1, 2, 3],
+74: 	&"angry_jump_final": {
+75: 		"path": SHEET_ROOT + "dust_bunny_boss_angry.png",
+77: 			SHEET_ROOT + "dust_bunny_boss_angry.png",
+78: 			SHEET_ROOT + "dust_bunny_boss_angry.png",
+79: 			SHEET_ROOT + "dust_bunny_boss_jump.png",
+80: 			SHEET_ROOT + "dust_bunny_boss_jump.png",
+84: 		"frames": [2, 3, 1, 3],
+86: 	&"implode": {
+87: 		"path": SHEET_ROOT + "dust_bunny_boss_implode.png",
+90: 		"frames": [0, 1, 2, 3],
+103: var boss_health_rounds_remaining: int = TOTAL_DAMAGE_ROUNDS
+111: 	name = "DustBunnyBoss"
+112: 	add_to_group(&"enemy")
+113: 	add_to_group(&"boss_enemy")
+114: 	add_to_group(&"dust_bunny_boss")
+116: 	sprite.name = "AnimatedDustBunnyBoss"
+133: 	tap_sfx_player.bus = &"SFX"
+138: 	sprite.play(&"idle")
+143: 	if frames.has_animation(&"default"):
+144: 		frames.remove_animation(&"default")
+145: 	for animation: StringName in ANIMATION_SPECS:
+146: 		var spec: Dictionary = ANIMATION_SPECS[animation]
+152: 		var source_frames: Array = spec["frames"] as Array
+185: 	if sprite.animation != &"idle" or not sprite.is_playing():
+187: 		sprite.play(&"idle")
+194: 		&"angry_jump_final" if final_round_active else &"jump"
+201: 	return _play_action(&"laugh_vulnerable")
+210: 	tap_progress_changed.emit(accepted_taps, REQUIRED_TAPS)
+217: 	if accepted_taps >= REQUIRED_TAPS:
+223: func configure_counter_mode(window_seconds: float) -> void:
+241: 	sprite.play(&"flinch_1")
+279: 		&"angry_jump_final" if final_round_active else &"angry"
+284: func play_implode() -> float:
+290: 	return _play_action(&"implode", true)
+298: 	sprite.speed_scale = 1.0 if animation == &"implode" else combat_speed_scale
+310: 	var playback_scale: float = 1.0 if animation == &"implode" else combat_speed_scale
+347: 		TOTAL_DAMAGE_ROUNDS
+349: 	boss_health_rounds_remaining = TOTAL_DAMAGE_ROUNDS - damage_rounds_completed
+352: 		TOTAL_DAMAGE_ROUNDS
+355: 	if damage_rounds_completed == TOTAL_DAMAGE_ROUNDS - 1:
+363: 	tap_progress_changed.emit(accepted_taps, 1 if counter_window_seconds > 0.0 else REQUIRED_TAPS)
+367: 	if sprite.animation == &"laugh_vulnerable" and sprite.frame >= 1:
+374: 		&"laugh_vulnerable":
+378: 		&"flinch_1", &"flinch_2":
+381: 				var next_reaction: int = 2 if finished_animation == &"flinch_1" else 3
+385: 				sprite.animation = &"laugh_vulnerable"
+390: 		&"flinch_3":
+394: 				play_implode()
+397: 		&"implode":
+406: 			sprite.play(&"idle")
+
+scripts/dust_bunny_sprite.gd SHA256 e103d0402cea68429d7af2d2e44f161aaafd84df91e227d31ca6549db5d9a1f5
+1: class_name DustBunnySprite
+13: const SHEET_ROOT := "res://assets/sprites/dust_bunnies/"
+14: const ANIMATION_SPECS: Dictionary = {
+15: 	&"idle": {
+16: 		"path": SHEET_ROOT + "dust_bunny_idle.png",
+20: 	&"hop": {
+21: 		"path": SHEET_ROOT + "dust_bunny_hop.png",
+25: 	&"defeat": {
+26: 		"path": SHEET_ROOT + "dust_bunny_defeat.png",
+38: 	name = "DustBunnyEnemy"
+39: 	add_to_group(&"enemy")
+40: 	add_to_group(&"dust_bunny_enemy")
+42: 	sprite.name = "AnimatedDustBunny"
+56: 	sprite.play(&"idle")
+61: 	if frames.has_animation(&"default"):
+62: 		frames.remove_animation(&"default")
+63: 	for animation: StringName in ANIMATION_SPECS:
+64: 		var spec: Dictionary = ANIMATION_SPECS[animation]
+96: 	if sprite.animation != &"idle" or not sprite.is_playing():
+98: 		sprite.play(&"idle")
+108: 	sprite.play(&"hop")
+109: 	return animation_duration(&"hop") / maxf(custom_speed, 0.01)
+121: 	sprite.play(&"defeat")
+122: 	return animation_duration(&"defeat")
+141: 		&"hop":
+144: 			sprite.play(&"idle")
+146: 		&"defeat":
+
+scripts/boss_splash_2d.gd SHA256 62e9c65d87ff2a25f384fe16db444257326fea98ad72358f744103a3138ae141
+26: 	"entrance": &"jump",
+27: 	"identity": &"laugh_vulnerable",
+28: 	"vulnerable": &"laugh_vulnerable",
+254: 	var animation := StringName(_animation_ids.get(role, &"idle"))
+
+scripts/dust_boss_lesson_2d.gd SHA256 50fd0897b2a78381c76ddba995622552d91e5d3b41a3f6b971581b1d9d6a2ba0
+6: const STAR := preload("res://assets/opera/worlds/props/fx_stolen_sparkle.png")
+
+scripts/encounter_profile_2d.gd SHA256 cb96728d8267b91a91125e014fff87dfeedd23c72b97d064e60f3241d7ca250e
+6: @export var encounter_id: StringName = &"encounter"
+8: @export var counter_seconds: float = 3.2
+16: 	profile.encounter_id = &"grand_puff"
+18: 		EncounterPhase2D.make(&"puffy", [EncounterAttack2D.circle(5.2, 2.35)]),
+19: 		EncounterPhase2D.make(&"dizzy", [EncounterAttack2D.circle(5.2, 2.2), EncounterAttack2D.circle(5.2, 2.2)]),
+20: 		EncounterPhase2D.make(&"angry", [EncounterAttack2D.circle(5.2, 2.2), EncounterAttack2D.lane(4.4, 2.7)]),
+26: 	profile.encounter_id = &"pepper"
+27: 	profile.counter_seconds = 4.5
+37: 	if phases.is_empty() or counter_seconds <= 0.0:
+43: 			if attack == null or attack.warning_seconds < 1.0 or attack.radius <= 0.0 or attack.half_width <= 0.0:
+
+scripts/encounter_warning_cue_2d.gd SHA256 89f86ca80f367da2b5f8b07e7dbbfd8ea969a8741369a857ebc416ae74196a93
+
+scripts/arena/castle_rooms_25d.gd SHA256 0b54080f2256ce1d72bac34cda2cf3451b7d80f633e71c8fec568edce8ff052d
+22: 	"res://scripts/games/day_one_dust_bunny_swimmer.gd")
+203: 			+ "dust_bunnies/dust_bunny_sleepy.png",
+204: 		"scale": 0.34, "dust_bunny_role": "sleeping_static",
+212: 			+ "dust_bunnies/dust_bunny_shell_hide.png",
+213: 		"scale": 0.32, "dust_bunny_role": "shell_static",
+221: 			+ "dust_bunnies/dust_bunny_hop.png",
+222: 		"scale": 0.32, "dust_bunny_role": "runner",
+239: 			+ "dust_bunnies/dust_bunny_hop.png",
+240: 		"scale": 0.26, "dust_bunny_role": "playroom_pin_left",
+249: 			+ "dust_bunnies/dust_bunny_hop.png",
+251: 		"dust_bunny_role": "playroom_pin_right",
+922: var day_one_bathtub_swimmer: DayOneDustBunnySwimmer = null
+1006: 	m.g["castle_dust_bunny_runner_time"] = 0.0
+1241: 	m.g.erase("castle_dust_bunny_runner_time")
+1286: 	_update_dust_bunny_runner(delta)
+1287: 	_check_dust_bunny_contacts()
+1943: 		if not item_data.has("dust_bunny_role") \
+2047: 	frames.remove_animation(&"default")
+2048: 	frames.add_animation(&"idle")
+2049: 	frames.set_animation_speed(&"idle", 1.5)
+2050: 	frames.set_animation_loop(&"idle", true)
+2056: 		frames.add_frame(&"idle", frame)
+2060: 	_day_one_persistent_rumi.animation = &"idle"
+2068: 	_day_one_persistent_rumi.play(&"idle")
+2121: 		as DayOneDustBunnySwimmer
+2429: 	var bunny_id: String = _dust_bunny_id_from_camera_ray(screen_position)
+2431: 		_explode_dust_bunny(bunny_id)
+2687: func _dust_bunny_foot_from_camera_ray(screen_position: Vector2) -> Vector2:
+2688: 	var item_id: String = _dust_bunny_id_from_camera_ray(screen_position)
+2695: func _dust_bunny_id_from_camera_ray(screen_position: Vector2) -> String:
+2705: 		if String(item_data.get("dust_bunny_role", "")) == "":
+3204: 		item_data["frames"] = int(v2_visual.get("authored_frame_count", 8))
+3208: 			"timeline_frame_count", item_data["frames"]))
+3230: 		item_data["frames"] = 8
+3236: 	var bunny_role: String = String(item_data.get("dust_bunny_role", ""))
+3303: 	piece.set_meta("frames", int(item_data.get("frames", 1)))
+3310: 	piece.set_meta("animation_frame_count", int(item_data.get("frames", 1)))
+3333: 		piece.set_meta("dust_bunny_role", bunny_role)
+4177: 			"timeline_frames", item_data.get("frames", available_frames))), 1, 12)
+4396: 	if profile == "dust_bunny":
+4662: func _update_dust_bunny_runner(delta: float) -> void:
+4674: 		"castle_dust_bunny_runner_time", 0.0)) + delta
+4675: 	m.g["castle_dust_bunny_runner_time"] = elapsed
+4702: func _check_dust_bunny_contacts() -> void:
+4714: 		if String(item_data.get("dust_bunny_role", "")) == "":
+4730: 		_explode_dust_bunny(item_id)
+4732: func _explode_dust_bunny(item_id: String, partner_pop: bool = false) -> void:
+4738: 	if String(item_data.get("dust_bunny_role", "")) == "":
+4768: 				DUST_BUNNY_BURST_COUNT, "dust_bunny")
+4797: 			DUST_BUNNY_BURST_COUNT, "dust_bunny")
+4824: 		if String(item_data.get("dust_bunny_role", "")) == "":
+4835: 				DUST_BUNNY_BURST_COUNT, "dust_bunny")
+4836: 		_explode_dust_bunny(item_id, true)
+
+scripts/arena/day_one_castle_dressing.gd SHA256 d6808b789e5f765ef37da765359da8a6423ab6c54f93f7f0449aa5fa1c8f7a8b
+34: 	"bubble_bath": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+35: 	"mermaid_pool": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+36: 	"playroom": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_family.png",
+37: 	"craft_room": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+201: 		"dust_bunny_count": _dust_bunnies.size(),
+202: 		"dust_bunny_sprite2d": true,
+252: 		bunny.name = "DustBunny_%s" % room_id
+
+scripts/games/day_one_dust_bunny_swimmer.gd SHA256 ac5ccb389f9802b03b7a5164961ce159d23750bda3346347c7211ebb385adeac
+1: class_name DayOneDustBunnySwimmer
+8: 	"res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png"
+36: 	name = "DayOneDustBunnySwimmer"
+48: 	_sprite.name = "SwimmingDustBunnyCutout"
+
+scripts/combat_arena.gd SHA256 bc0b1476472fc7310252dd00f816e6731c5077513d5ccb724480de4981cfee6d
+10: const CLEAN_BUBBLE_PATH := "res://assets/sprites/dust_bunnies/dust_bunny_clean_bubbles.png"
+79: 		_build_dust_bunny_swarm()
+284: func _build_dust_bunny_swarm() -> void:
+300: 		var bunny := DustBunnySprite.new()
+303: 		var brain := DustBunnyAI.new()
+312: 			"type": "dust_bunny",
+582: 		_clean_dust_bunny(enemy)
+684: 					_clean_dust_bunny(enemy)
+838: func _clean_dust_bunny(enemy: Dictionary) -> void:
+842: 	var bunny: DustBunnySprite = enemy["node"] as DustBunnySprite
+852: 		var bunny: DustBunnySprite = enemy["node"] as DustBunnySprite
+856: 			var brain: DustBunnyAI = enemy["brain"] as DustBunnyAI
+860: 			if StringName(events["action"]) == &"hop":
+868: 				_finish_dust_bunny_clean(enemy)
+873: func _finish_dust_bunny_clean(enemy: Dictionary) -> void:
+875: 	var bunny: DustBunnySprite = enemy["node"] as DustBunnySprite
+
+scripts/combat_tutorial.gd SHA256 9f8caf5ca2e3245285d080d879ddee40a5147403cdc419b122318a45f8a953fe
+170: 	var art := DustBunnySprite.new()
+
+scripts/dungeon_art.gd SHA256 16998ece30cc0115c83ceb2f47bf7da23a8e27507a65aaa248f34bfacd765128
+58: 	"Imp": "res://assets/sprites/dust_bunnies/dust_bunny_idle.png",
+
+scripts/day_one_contextual_voice_catalog.gd SHA256 09582aeda0b067a451d652f1e387fd4e651f31a6af06c2fabaf4618a641b434b
+61: 	{"audio_path":"assets/audio/voices/filler_v1/roshan_day1_boss_bump.ogg","caption":"Grand Puff bounced away!","cue_id":"day1_boss_bump","moment":"day1 boss bump","policy":"once_per_session","route":"boss","status":"READY","video_reuse":{"eligible":true,"video_ids":["day1_gameplay"]}},
+63: 	{"audio_path":"assets/audio/voices/filler_v1/roshan_day1_boss_defeated.ogg","caption":"Grand Puff burst into sparkly stars!","cue_id":"day1_boss_defeated","moment":"The giant dust bunny is defeated","policy":"once_per_session","route":"boss","status":"READY","video_reuse":{"eligible":true,"video_ids":["day1_shared_voice_slate"]}},
+69: 	{"audio_path":"assets/audio/voices/filler_v1/roshan_day1_boss_enraged.ogg","caption":"Grand Puff is speedy now! Keep watching the star!","cue_id":"day1_boss_enraged","moment":"day1 boss enraged","policy":"once_per_session","route":"boss","status":"READY","video_reuse":{"eligible":true,"video_ids":["day1_gameplay"]}},
+71: 	{"audio_path":"assets/audio/voices/filler_v1/roshan_day1_boss_hit_first.ogg","caption":"Boop! Grand Puff is dizzy!","cue_id":"day1_boss_hit_first","moment":"day1 boss hit first","policy":"once_per_session","route":"boss","status":"READY","video_reuse":{"eligible":true,"video_ids":["day1_gameplay"]}},
+79: 	{"audio_path":"assets/audio/voices/filler_v1/roshan_day1_boss_reminder_mercy.ogg","caption":"Grand Puff slowed down! Take your time — wait for the BIG GOLD STAR!","cue_id":"day1_boss_reminder_mercy","moment":"day1 boss reminder mercy","policy":"once_per_session","route":"boss","status":"READY","video_reuse":{"eligible":true,"video_ids":["day1_gameplay"]}},

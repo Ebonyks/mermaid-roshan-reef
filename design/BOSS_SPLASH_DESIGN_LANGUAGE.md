@@ -185,3 +185,5 @@ the endpoint vortex on the charge and asked for the distinct third-flash cue. De
 boundary remains precise and visible. The target is not an awarded score.
 [Refinement evidence](audit_impacts/grand-puff-painted-warning-20260913.json)
 tracks source reuse, any new art gap, runtime review and open acceptance.
+
+Scoped September 13 Grok inventory: [character packet](../assets_src/characters/grand_puff_2026-09-13/START_HERE.txt) recovers the native teeth portrait, compares every existing pose, and reconciles runtime consumers. Identity signature and future animation production remain separate; it accepts neither the legacy implosion ending nor a Sprite3D rebuild. [Impact](audit_impacts/grand-puff-grok-character-packet-20260913.json).

@@ -1,0 +1,634 @@
+{
+  "indexing": "Zero-based row-major; boss 2x2 512px, hall 3x2 256px. PASS means recognisable existing species, not signed topology or runtime-ready motion.",
+  "reviewer": "Codex visual inventory, 2026-09-13",
+  "frames": [
+    {
+      "family": "boss",
+      "animation": "jump",
+      "cell": 0,
+      "description": "Low broad crouch, eyes forward; two teeth visible.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Broad squash; body/ear scale differs from portrait, no clipping evident.",
+      "alpha_bounds": [
+        29,
+        191,
+        488,
+        479
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Pose reference; not final clean animation without anchor/FX review"
+    },
+    {
+      "family": "boss",
+      "animation": "jump",
+      "cell": 1,
+      "description": "Body rises over a tall attached dust column.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Dust column baked into cell; body floats above pivot.",
+      "alpha_bounds": [
+        23,
+        37,
+        438,
+        494
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Pose reference; not final clean animation without anchor/FX review"
+    },
+    {
+      "family": "boss",
+      "animation": "jump",
+      "cell": 2,
+      "description": "Airborne rounded body above detached floor puff.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Detached landing puff baked into cell; body much smaller than neighbouring cells. Stray cropped purple fragment at right edge below the body; do not reuse pixels as a clean cell.",
+      "alpha_bounds": [
+        98,
+        11,
+        512,
+        465
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Pose reference; not final clean animation without anchor/FX review"
+    },
+    {
+      "family": "boss",
+      "animation": "jump",
+      "cell": 3,
+      "description": "Wide compressed landing with floor ring and side plumes.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Baked ring/plumes; side effects approach cell edges; body anchor differs.",
+      "alpha_bounds": [
+        0,
+        148,
+        484,
+        476
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Pose reference; not final clean animation without anchor/FX review"
+    },
+    {
+      "family": "boss",
+      "animation": "laugh_vulnerable",
+      "cell": 0,
+      "description": "Front stance with alert eyes and small crest star.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Forward pearl-paw depth/spacing differs; no visible crop.",
+      "alpha_bounds": [
+        32,
+        60,
+        476,
+        467
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Pose reference; not final clean animation without anchor/FX review"
+    },
+    {
+      "family": "boss",
+      "animation": "laugh_vulnerable",
+      "cell": 1,
+      "description": "Closed-eye laugh, mouth open with two teeth; brighter star.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Expanded star baked on body; no independent cue control.",
+      "alpha_bounds": [
+        13,
+        44,
+        461,
+        462
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Pose reference; not final clean animation without anchor/FX review"
+    },
+    {
+      "family": "boss",
+      "animation": "laugh_vulnerable",
+      "cell": 2,
+      "description": "Raised laughing body with two lifted pearl forms and large star.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Baked star/ring; body/paw anchors move substantially.",
+      "alpha_bounds": [
+        18,
+        22,
+        509,
+        432
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Pose reference; not final clean animation without anchor/FX review"
+    },
+    {
+      "family": "boss",
+      "animation": "laugh_vulnerable",
+      "cell": 3,
+      "description": "Laugh with long drooping ears and largest crest star.",
+      "identity_review": "FAIL",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Spiral ears lose their defining upright spiral silhouette; baked star ring.",
+      "alpha_bounds": [
+        10,
+        49,
+        479,
+        437
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Reject as identity key; expression reference only"
+    },
+    {
+      "family": "boss",
+      "animation": "flinch",
+      "cell": 0,
+      "description": "Surprised open mouth; aqua-white forehead contact burst.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Teeth occluded by expression; contact sparkle baked on face.",
+      "alpha_bounds": [
+        37,
+        72,
+        459,
+        449
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Pose reference; not final clean animation without anchor/FX review"
+    },
+    {
+      "family": "boss",
+      "animation": "flinch",
+      "cell": 1,
+      "description": "Body tilts and compresses left; eyes squeezed shut.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Baked side motion marks; pearl/body pivot drifts.",
+      "alpha_bounds": [
+        16,
+        104,
+        476,
+        454
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Pose reference; not final clean animation without anchor/FX review"
+    },
+    {
+      "family": "boss",
+      "animation": "flinch",
+      "cell": 2,
+      "description": "Body tips right with one spiral dizzy eye.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Expression reference only; baked motion arcs and detached curls.",
+      "alpha_bounds": [
+        41,
+        24,
+        489,
+        404
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Pose reference; not final clean animation without anchor/FX review"
+    },
+    {
+      "family": "boss",
+      "animation": "flinch",
+      "cell": 3,
+      "description": "Settled broad wink with two tiny teeth.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Useful recovery key; source body narrower than portrait.",
+      "alpha_bounds": [
+        25,
+        93,
+        482,
+        427
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Pose reference; not final clean animation without anchor/FX review"
+    },
+    {
+      "family": "boss",
+      "animation": "angry",
+      "cell": 0,
+      "description": "Low broad wink and tiny teeth beneath lit crest.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Squash key; no independent anticipation sequence.",
+      "alpha_bounds": [
+        50,
+        168,
+        469,
+        460
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Pose reference; not final clean animation without anchor/FX review"
+    },
+    {
+      "family": "boss",
+      "animation": "angry",
+      "cell": 1,
+      "description": "Tall front body with raised narrow ears and side puffs.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Ears elongate relative to portrait; requires proportion cleanup, side FX baked.",
+      "alpha_bounds": [
+        15,
+        64,
+        453,
+        456
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Pose reference; not final clean animation without anchor/FX review"
+    },
+    {
+      "family": "boss",
+      "animation": "angry",
+      "cell": 2,
+      "description": "Airborne body enclosed by a dust loop.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Baked enclosing ring approaches top edge; cannot use as clean body.",
+      "alpha_bounds": [
+        30,
+        11,
+        499,
+        443
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Pose reference; not final clean animation without anchor/FX review"
+    },
+    {
+      "family": "boss",
+      "animation": "angry",
+      "cell": 3,
+      "description": "Forward tipped traveling body with trailing cloud.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Travel reference only; baked trail and one tilted ear.",
+      "alpha_bounds": [
+        24,
+        98,
+        484,
+        413
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Pose reference; not final clean animation without anchor/FX review"
+    },
+    {
+      "family": "boss",
+      "animation": "implode",
+      "cell": 0,
+      "description": "Surprised body with inward arrows and central sparkle.",
+      "identity_review": "PASS",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Baked arrows; rejected ending action, do not reuse for friendship.",
+      "alpha_bounds": [
+        58,
+        61,
+        496,
+        483
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Reference only; reject ending action"
+    },
+    {
+      "family": "boss",
+      "animation": "implode",
+      "cell": 1,
+      "description": "Body compressed into tiny curled ball around star.",
+      "identity_review": "FAIL",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Face and normal three-tier body disappear; rejected ending.",
+      "alpha_bounds": [
+        91,
+        242,
+        357,
+        466
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Reference only; reject ending action"
+    },
+    {
+      "family": "boss",
+      "animation": "implode",
+      "cell": 2,
+      "description": "Body replaced by dust ring and bright star.",
+      "identity_review": "FAIL",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "No body, ears, paws or face remain; FX-only alternate, rejected win.",
+      "alpha_bounds": [
+        64,
+        31,
+        485,
+        423
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Reference only; reject ending action"
+    },
+    {
+      "family": "boss",
+      "animation": "implode",
+      "cell": 3,
+      "description": "Separated dust wisps around a small star.",
+      "identity_review": "FAIL",
+      "review_scope": "Species/topology appearance at diagnostic size; PASS is not production/owner acceptance. Occluded teeth/paws are not invented.",
+      "defects": "Character topology absent; rejected win.",
+      "alpha_bounds": [
+        100,
+        119,
+        375,
+        403
+      ],
+      "green_dominant_pixels_alpha_gt24": 0,
+      "reusable_for_rebuild": "Reference only; reject ending action"
+    },
+    {
+      "family": "hall",
+      "animation": "idle",
+      "cell": 0,
+      "description": "Front seated rest.",
+      "identity_review": "PASS",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Scale/pivot vary across atlas; no obvious chroma green at review size",
+      "alpha_bounds": [
+        35,
+        32,
+        224,
+        234
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "idle",
+      "cell": 1,
+      "description": "Slight tall stretch.",
+      "identity_review": "PASS",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Scale/pivot vary across atlas; no obvious chroma green at review size",
+      "alpha_bounds": [
+        27,
+        27,
+        224,
+        234
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "idle",
+      "cell": 2,
+      "description": "Low tilted wink.",
+      "identity_review": "PASS",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Scale/pivot vary across atlas; no obvious chroma green at review size",
+      "alpha_bounds": [
+        11,
+        49,
+        205,
+        236
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "idle",
+      "cell": 3,
+      "description": "Open-mouth lifted bounce.",
+      "identity_review": "PASS",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Scale/pivot vary across atlas; no obvious chroma green at review size",
+      "alpha_bounds": [
+        40,
+        13,
+        226,
+        201
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "idle",
+      "cell": 4,
+      "description": "Wide low squash.",
+      "identity_review": "PASS",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Scale/pivot vary across atlas; no obvious chroma green at review size",
+      "alpha_bounds": [
+        23,
+        29,
+        218,
+        213
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "idle",
+      "cell": 5,
+      "description": "Front settle.",
+      "identity_review": "PASS",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Scale/pivot vary across atlas; no obvious chroma green at review size",
+      "alpha_bounds": [
+        13,
+        17,
+        200,
+        218
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "hop",
+      "cell": 0,
+      "description": "Front prepare.",
+      "identity_review": "PASS",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Scale/pivot vary across atlas; no obvious chroma green at review size",
+      "alpha_bounds": [
+        45,
+        51,
+        232,
+        239
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "hop",
+      "cell": 1,
+      "description": "Low compressed launch.",
+      "identity_review": "PASS",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Scale/pivot vary across atlas; no obvious chroma green at review size",
+      "alpha_bounds": [
+        25,
+        107,
+        212,
+        242
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "hop",
+      "cell": 2,
+      "description": "Tilted airborne body with visible rear extension.",
+      "identity_review": "PASS",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Scale/pivot vary across atlas; no obvious chroma green at review size",
+      "alpha_bounds": [
+        8,
+        41,
+        184,
+        231
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "hop",
+      "cell": 3,
+      "description": "Forward travel with baked dust wake.",
+      "identity_review": "PASS",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Baked wake and large pivot movement",
+      "alpha_bounds": [
+        12,
+        2,
+        234,
+        181
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "hop",
+      "cell": 4,
+      "description": "Low landing.",
+      "identity_review": "PASS",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Scale/pivot vary across atlas; no obvious chroma green at review size",
+      "alpha_bounds": [
+        27,
+        74,
+        213,
+        212
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "hop",
+      "cell": 5,
+      "description": "Upright settle.",
+      "identity_review": "PASS",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Scale/pivot vary across atlas; no obvious chroma green at review size",
+      "alpha_bounds": [
+        19,
+        24,
+        199,
+        210
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "defeat",
+      "cell": 0,
+      "description": "Star touches body beside paw.",
+      "identity_review": "PASS",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Baked FX / no intact character; not a clean body pose",
+      "alpha_bounds": [
+        37,
+        51,
+        198,
+        213
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "defeat",
+      "cell": 1,
+      "description": "Body curls into ball with aqua streak.",
+      "identity_review": "PASS",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Baked FX / no intact character; not a clean body pose",
+      "alpha_bounds": [
+        14,
+        55,
+        256,
+        220
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "defeat",
+      "cell": 2,
+      "description": "Body replaced by bright puff/star burst.",
+      "identity_review": "FAIL",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Baked FX / no intact character; not a clean body pose Burst is clipped at left cell edge.",
+      "alpha_bounds": [
+        0,
+        21,
+        228,
+        227
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "defeat",
+      "cell": 3,
+      "description": "Dust ring surrounds empty centre.",
+      "identity_review": "FAIL",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Baked FX / no intact character; not a clean body pose",
+      "alpha_bounds": [
+        19,
+        5,
+        245,
+        203
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "defeat",
+      "cell": 4,
+      "description": "Three wisps and bubbles separate.",
+      "identity_review": "FAIL",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Baked FX / no intact character; not a clean body pose",
+      "alpha_bounds": [
+        31,
+        35,
+        214,
+        192
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    },
+    {
+      "family": "hall",
+      "animation": "defeat",
+      "cell": 5,
+      "description": "Only star and bubbles remain.",
+      "identity_review": "FAIL",
+      "review_scope": "Hall species only, never boss identity authority",
+      "defects": "Baked FX / no intact character; not a clean body pose",
+      "alpha_bounds": [
+        64,
+        54,
+        157,
+        162
+      ],
+      "reusable_for_rebuild": "Hall movement/FX reference only; never enlarge as Grand Puff"
+    }
+  ]
+}
