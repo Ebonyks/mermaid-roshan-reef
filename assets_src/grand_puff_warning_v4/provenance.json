@@ -1,0 +1,59 @@
+{
+  "id": "grand_puff_warning_v4",
+  "method": "OpenAI built-in image_gen, then explicitly owner-authorized local background extraction",
+  "prompt": "Create a new derivative game effect from this dust puff's polished painted storybook style. Single asset, centered on genuinely transparent RGBA background: a ROUND PURPLE DUST VORTEX viewed exactly from above, a flat floor sigil made of two broad curling dust arms flowing into one readable spiral. Use the source only for its soft rounded painted masses, lavender/plum palette, restrained thin plum contours and broad matte value bands. This is an enemy attack warning for a gentle children's game; it should feel like purple dust magically curling, not a menu icon. Rich medium violet body, lavender lit surfaces, plum undersides, subtle hand-painted texture and three quiet rounded dust lobes grouped along the outside. Full roughly circular silhouette, centered pivot, generous 12 percent transparent padding all sides. Strong readable sweep at 120 pixels. No face, character, letters, stars, sparkles, ring badge, enclosing circle, border, arrows, geometric rails, UI frame, neon glow, white sticker rim, glossy metal, black shadow, background floor or rectangular matte. Preserve genuine transparency. One complete isolated vortex only, ideally 1024 square.",
+  "prompt_sha256": "6b535b43958e54145f478f7a3785d7945bc18134c1acabd8b841e55c316759bf",
+  "reference": {
+    "path": "assets/opera/worlds/props/fx_dust_puff.png",
+    "sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+    "role": "existing project dust paint/style reference; unchanged"
+  },
+  "native": {
+    "path": "assets_src/grand_puff_warning_v4/purple_vortex_native.png",
+    "sha256": "94ba2b507e3e5925eac7dda8c3f01cfbe734c43ad5324cdf051d701fe924f35e",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGB",
+    "generation_output": "exec-15d565b0-d8b9-4e8c-b7b5-4c728d4ac2c7.png",
+    "limitation": "Generator baked a checkerboard instead of alpha. This byte-identical native is provenance, not directly runtime-ready."
+  },
+  "rejected_followup": {
+    "output": "exec-b0543c25-163d-4449-89b2-071211810396.png",
+    "reason": "Background-extraction generation still baked the checkerboard and enlarged the composition; not used."
+  },
+  "owner_authorization": "2026-09-13: Approve local background extraction",
+  "derivation": {
+    "script": "tools/extract_grand_puff_vortex.py",
+    "steps": [
+      "B minus G chroma >20 identifies the connected purple silhouette.",
+      "Keep largest connected component; fill enclosed highlight holes; exclude two native pixels of matte-mixed outer antialias boundary.",
+      "Preserve source RGB in retained painted area; create alpha; uniformly normalize complete canvas to 512x512 with Lanczos."
+    ],
+    "native_unchanged": true
+  },
+  "runtime": {
+    "path": "assets/effects/grand_puff/purple_vortex_v4.png",
+    "sha256": "882a8feedb980399c2f4b7f782a4da7d2142b789de43cdd4c462b79c1d1e52e1",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "alpha_components_above_24": 1,
+    "alpha_bounds": [
+      51,
+      38,
+      485,
+      458
+    ],
+    "max_normalized_alpha_radius": 0.904013,
+    "mipmaps": true,
+    "compression": "lossless",
+    "gpu_rgba_mib_including_mips": 1.33334,
+    "usage": "Jump vortex and opaque paint swatch for two charge streams. Charge endpoint uses the existing dust puff, not the vortex icon."
+  },
+  "review": "Agent inspected on warm floor, dark plum and aqua at 150px. No matte islands; no character or cinematic art changed. Final live/owner/device/child review pending.",
+  "license": "Project-generated derivative of (c) Mermaid Roshan LLC, all rights reserved; no third-party art added."
+}

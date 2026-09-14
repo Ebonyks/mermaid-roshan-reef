@@ -1,0 +1,118 @@
+{
+  "id": "grand-puff-painted-warning-20260913",
+  "baseline": "3f9549db0c8cf6c3ac2483e68b582f2f227dabdc",
+  "scope": "Owner accepts attack choreography as a rough draft and requests master-audit style refinement targeting 4.75/5. Refine jump/charge warning surfaces, preserve free movement/dash/locked geometry/three flashes/launch. One new source-bound painted vortex because existing dust, cleanup ring and rainbow ribbon do not supply a neutral purple attack vortex; reuse existing approved dust for sparse accents. No character or cinematic redesign. Owner explicitly approved local background extraction on 2026-09-13; preserve the original native and reproducible extraction. Subsequent owner review rejects the charge endpoint swirl (3.5/5), requests a richer extending pattern and a distinct third warning flash. Replace charge endpoint with two sequentially unfolding painted dust crests and a broad dust front; third flash shifts coral before launch on both attacks.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-READ-05",
+    "DL-MOT-03",
+    "DL-MOT-04",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-TOUCH-001"
+  ],
+  "files": [
+    "scripts/dust_boss_telegraph_2d.gd",
+    "assets/effects/grand_puff/purple_vortex_v4.png",
+    "assets/effects/grand_puff/purple_vortex_v4.png.import",
+    "assets_src/grand_puff_warning_v4/purple_vortex_native.png",
+    "assets_src/grand_puff_warning_v4/provenance.json",
+    "ASSET_LICENSES.md",
+    "design/animation/grand_puff_attack_windup_v3.json",
+    "design/BOSS_SPLASH_DESIGN_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "tools/extract_grand_puff_vortex.py",
+    "scripts/encounter_warning_cue_2d.gd",
+    "scripts/encounter_profile_2d.gd",
+    "scripts/probe_dust_boss.gd"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 --headless -s scripts/probe_dust_boss.gd -- --touch --classic-touch-test; isolated APPDATA/LOCALAPPDATA",
+      "result": "PASS",
+      "evidence": "tmp/puff-front-probe.log; exit 0 and DUSTBOSS result ALL OK; fixed target/origin, three flashes, distinct third-flash colour, free movement/dash, pause, interruption, earned counter and save/reward checks."
+    },
+    {
+      "command": "Actual Mobile viewport captures at 1280x720 and 1560x720 using isolated save directories",
+      "result": "PASS",
+      "evidence": "tmp/puff-front-movie.log and tmp/puff-front-1560.log; both exit 0, no ERROR/FAIL, complete three rounds. Agent inspected purple lock and coral third flash at full and 780x360 scale; charge endpoint vortex absent. Sampled GIF is diagnostic, not device frame-rate evidence."
+    },
+    {
+      "command": "python -B tools/extract_grand_puff_vortex.py --check",
+      "result": "PASS",
+      "evidence": "tmp/puff-front-static.log; exact reproducible runtime hash 882a8feedb980399c2f4b7f782a4da7d2142b789de43cdd4c462b79c1d1e52e1"
+    },
+    {
+      "command": "Parser, inference, document authority and audit development --base auto",
+      "result": "PASS",
+      "evidence": "tmp/puff-front-static.log; all exit 0, authority and development ALL OK against baseline 3f9549db0c8cf6c3ac2483e68b582f2f227dabdc."
+    },
+    {
+      "command": "Final exact Godot 4.7.2 full scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "tmp/puff-front-full-ci.log and tmp/puff-front-full-ci.exit: exact Godot 4.7.2 full suite exit 0, ALL OK; isolated save directories, no concurrent GUI Godot."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "tmp/puff-front-static.log: exit 0, NO_REGRESSION; existing game-wide 3D migration remains UNSATISFIED."
+    }
+  ],
+  "acceptance_gaps": "4.75/5 is the commissioned target, not an awarded score. Source-bound visual review and mobile budget checks required; owner, real-device and child acceptance remain outstanding. Canonical findings unchanged.",
+  "source_sha256_lf": {
+    "scripts/dust_boss_telegraph_2d.gd": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982",
+    "scripts/encounter_warning_cue_2d.gd": "750a09cad16bd8517551aab6b091d37f2d76bcb0b517b4d51ce0c553e2b2fb59",
+    "scripts/encounter_profile_2d.gd": "fe3c18d4996772eb0467816998cfa7157030b35fdfd0c356c96b4ce38f8d0354",
+    "scripts/probe_dust_boss.gd": "6310091c48a5977b79eae1bb624e1db2cd1f6b870f7f5fdf60a0b5358075a350"
+  },
+  "capture_evidence": [
+    {
+      "path": "tmp/puff-front-movie",
+      "png_count": 50,
+      "sorted_filename_sha256_payload": "19a6dd5497a7bd525e009e597e9617903216e3a13e7187f0dfe040ddb05cb14e",
+      "source_bindings": {
+        "scripts\\dust_boss_telegraph_2d.gd": "69ee774976c8fe338356c6e0fac4e4c5acad5d24156c6a9f324febf1dd02feed",
+        "scripts\\encounter_warning_cue_2d.gd": "89f86ca80f367da2b5f8b07e7dbbfd8ea969a8741369a857ebc416ae74196a93",
+        "scripts\\encounter_profile_2d.gd": "cb96728d8267b91a91125e014fff87dfeedd23c72b97d064e60f3241d7ca250e"
+      },
+      "log_sha256": "051fea4ce7810e4243b917b7bc44e9c31852ac40ef09a2e45f55c7f403fe8d13"
+    },
+    {
+      "path": "tmp/puff-front-1560",
+      "png_count": 72,
+      "sorted_filename_sha256_payload": "476eaf1a4131852aed9155ac498664ea3c3e4cc4c395979fa62d2dee6ab7b0e5",
+      "source_bindings": {
+        "scripts/dust_boss_telegraph_2d.gd": "69ee774976c8fe338356c6e0fac4e4c5acad5d24156c6a9f324febf1dd02feed",
+        "scripts/encounter_warning_cue_2d.gd": "89f86ca80f367da2b5f8b07e7dbbfd8ea969a8741369a857ebc416ae74196a93",
+        "scripts/encounter_profile_2d.gd": "cb96728d8267b91a91125e014fff87dfeedd23c72b97d064e60f3241d7ca250e"
+      },
+      "log_sha256": "93083d0ce2912ac7e5cd4249a343653d8ccf02086da7d53beac36a3cf54352ea"
+    }
+  ],
+  "sampled_previews": {
+    "path": "tmp/puff-front-movie",
+    "files": {
+      "circle.gif": "0c6839afe7834d4bdc3bc7833d445ac6780e5efb564f623eee5d9d7c40da60c2",
+      "lane.gif": "6be368dbbecc0112dfac57599e046453878d36801d849c001c36dde297341b0e",
+      "movie_times.json": "817249d2fc8c2d4ed1d3db1b194b63ee9affdad32a5f9e9fce2f96350a0d6a41"
+    },
+    "method": "Full live viewport samples, whole-canvas resize to 960x540, durations from simulation clock; reset interval replaced by median positive interval, 300ms final review hold. No synthesized/interpolated frames."
+  },
+  "rollback": "Previous shipped version ecd08827c8d0417456a9a23ccd40a4cdf30697df preserved on codex/grand-puff-storybook-cues-20260912; rough draft also preserved locally in tmp/puff-rough-draft-20260913."
+}

@@ -1,0 +1,102 @@
+{
+  "id": "grand-puff-attack-windup-20260913",
+  "baseline": "3f9549db0c8cf6c3ac2483e68b582f2f227dabdc",
+  "scope": "Owner-directed attack animation: travelling purple spiral for jumps, growing twin charge bands and expanding terminal shape, then three fixed-position lock flashes before launch. Reusable warning phase contract and binding boss convention. First-learning hold moves to arrival boundary; retain actual target geometry, free movement, dash, rewards and saves. Use clean existing worktree; unrelated root project.godot/output changes remain outside task.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-UI-01",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-MOT-03",
+    "DL-MOT-04",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-TOUCH-001"
+  ],
+  "files": [
+    "scripts/encounter_warning_cue_2d.gd",
+    "scripts/dust_boss_telegraph_2d.gd",
+    "scripts/games/dust_boss.gd",
+    "scripts/encounter_profile_2d.gd",
+    "scripts/probe_dust_boss.gd",
+    "design/BOSS_SPLASH_DESIGN_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "design/animation/grand_puff_attack_windup_v3.json"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 --headless --import; Godot 4.7.2 --headless -s scripts/probe_dust_boss.gd -- --touch --classic-touch-test (isolated APPDATA/LOCALAPPDATA)",
+      "result": "PASS",
+      "evidence": "tmp/windup-import-probe.log; DUSTBOSS result ALL OK; includes origin/arrival/three-flash/steady-launch phase checks, first-warning assistance, pause, movement, dash, positive/negative counters, persistence and no duplicate rewards."
+    },
+    {
+      "command": "Actual Mobile viewport capture via tmp/windup-shots.gd, 1280x720 and 1560x720, isolated APPDATA/LOCALAPPDATA",
+      "result": "PASS",
+      "evidence": "tmp/windup-final-1280 and tmp/windup-final-1560; ten sampled warning beats per attack, all three rounds completed with zero bumps; agent inspected departure/arrival, jump contour, charge growth/terminal shape and bright/dim frames. This is scoped desktop visual evidence, not device/child/owner acceptance."
+    },
+    {
+      "command": "Exact Godot 4.7.2 scripts/ci.sh",
+      "result": "FAIL",
+      "evidence": "tmp/windup-full-ci.log: scripts/ci.sh exit 1; 77 of 78 probe processes exit 0; probe_opera exit 127, under investigation. No full-suite pass claimed."
+    },
+    {
+      "command": "Parser, inference, document authority, audit development and 2D regression gates",
+      "result": "PASS",
+      "evidence": "tmp/windup-gates.log: all five commands exit 0; document authority and development ALL OK; 2D NO_REGRESSION, existing migration debt remains UNSATISFIED."
+    },
+    {
+      "command": "Godot 4.7.2 isolated probe_opera.gd rerun",
+      "result": "PASS",
+      "evidence": "tmp/puff-opera-recheck.log: OPERA result ALL OK; original process exit 127 not reproduced. This focused rerun does not replace the failed full-suite result; full final candidate rerun remains required."
+    }
+  ],
+  "acceptance_gaps": "Owner accepts this choreography as a rough draft and commissions a further master-audit style refinement targeting 4.75/5. Device/child/owner final acceptance remains pending. Other bosses have a shared convention, not a claimed presentation conversion.",
+  "rollback": "Previous shipped presentation preserved at ecd08827c8d0417456a9a23ccd40a4cdf30697df on codex/grand-puff-storybook-cues-20260912.",
+  "source_sha256_lf": {
+    "scripts/encounter_warning_cue_2d.gd": "5d54dc0e481abd113264b61b119510919e7ee2c828319104fea658d0966a6ebb",
+    "scripts/dust_boss_telegraph_2d.gd": "323a3302c85a99cf0ff2529bf61aa659dc7e0d7e36d42d5a2905999d1589441b",
+    "scripts/games/dust_boss.gd": "11292f1de881ac0187501838b1ca84aa9a48b46cd564c1279409207a962c972d",
+    "scripts/encounter_profile_2d.gd": "5aa7fddf84282b7a90822a1ccb8623f3b7aab556e2782ea9295748c0d1b8fe98",
+    "scripts/probe_dust_boss.gd": "2f22ccc7f5c3a17443b46cde0841571aa8d2b15a66ecab3486121e113fbcb304"
+  },
+  "capture_evidence": [
+    {
+      "path": "tmp/windup-final-1280",
+      "png_count": 72,
+      "sorted_filename_sha256_payload": "4266897cdcd2b4ca72a7bd57fb7ac56cbbc27f69477fd63a9aed65e17f59317c",
+      "log_sha256": "d8568427d122ca3c2b163107a6fea6c45ffd3577db8a534a352bce836ac20f15",
+      "helper_sha256": "9883bd953bf0cdde8f7618aa7549407a986da57f9141e77c02947df1fe54de99"
+    },
+    {
+      "path": "tmp/windup-final-1560",
+      "png_count": 72,
+      "sorted_filename_sha256_payload": "125342185d0e32a2addb9e306a84d9ebe5003ba8f18067c474b655b60bdf2207",
+      "log_sha256": "a84cb84417b4a9126552a108b0791c6dddc1c519510ab33048f253f96d09f088",
+      "helper_sha256": "9883bd953bf0cdde8f7618aa7549407a986da57f9141e77c02947df1fe54de99"
+    }
+  ],
+  "sampled_previews": {
+    "path": "tmp/windup-movie-clean",
+    "method": "Unmodified full viewport frames sampled from live Mobile run, whole-canvas scaled to 960x540 and GIF encoded. Durations use encounter simulation-clock intervals; transition reset uses median sample interval; 300ms final hold for review. No generated/interpolated action frames. Diagnostic preview, not cinematic delivery or device performance evidence.",
+    "files": {
+      "circle-preview.gif": "a12ce3ebaf6d9e78065208be232b398bda67c1f4328c1c11893010532903746f",
+      "lane-preview.gif": "95112107163a84dc72384499a62846167757657bde67ab91ec010c8d95092592",
+      "movie_times.json": "e097561830166479818e09edc760433031821c9c410298f8e32c718f1cf58fa1"
+    },
+    "helper_sha256": "702d82633222929805259278acdf84e5f499495ad9b0d1d72805a8f16b8e33e9"
+  },
+  "evidence_scope": "Historical v3 rough draft captured before painted v4 refinement; source_sha256_lf and capture_evidence bind that snapshot, retained under tmp/puff-rough-draft-20260913. Current candidate hashes and checks are in grand-puff-painted-warning-20260913.json."
+}

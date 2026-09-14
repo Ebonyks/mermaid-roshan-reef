@@ -1,0 +1,15 @@
+POSE GAPS — name and closest existing cell only; DO NOT DRAW YET
+Neutral breathing-cloud idle — jump[0] is one static crouch; no breathing loop.
+Showing / swell from nest — jump[0] -> jump[1] is closest; live growth uses transform, no emergence frames.
+Attic-door peek — jump[0] currently parked in doorway; no occlusion-aware peek acting.
+Prowl hop / short travel — angry[3] closest; hall hop[2:3] is species motion reference only, never boss pixels.
+Wind-up squash — jump[0] closest; no dedicated squash sequence. A roughly 0.7 s body gesture must fit current aiming interval, not shorten the complete warning.
+Shielded giggle / bounced tap — laugh_vulnerable[1] closest but visually OPEN; no closed-window giggle exists.
+Dizzy wobble after round one — flinch[2] is a dizzy key; no coherent looping wobble/settle.
+Friends / small cuddly deflate — implode[1] gives only a compressed ball; wrong ending, no smiling small intact final body.
+Splash personality pose — laugh_vulnerable[0:1] closest; no separate identity settle with closed target.
+Three-quarter travel — angry[3] closest, proportions/trail unsuitable as clean turnaround.
+Profile travel — no clean boss profile; hall hop[3] is motion reference only.
+Charge anticipation / launch / recovery — angry[2:3] closest, no authored coherent charge cycle.
+
+Production remains stopped at this gap list until the identity lock is signed. No requested missing pose has been generated, drawn or reconstructed.

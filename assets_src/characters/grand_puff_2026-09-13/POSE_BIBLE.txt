@@ -1,0 +1,41 @@
+EXISTING POSE BIBLE — inventory, no production acceptance
+Zero-based reading order. PASS is recognisable species, not final pixel/clip approval.
+
+boss jump [0] — Low broad crouch, eyes forward; two teeth visible. Identity: PASS. Broad squash; body/ear scale differs from portrait, no clipping evident. Reuse: Pose reference; not final clean animation without anchor/FX review.
+boss jump [1] — Body rises over a tall attached dust column. Identity: PASS. Dust column baked into cell; body floats above pivot. Reuse: Pose reference; not final clean animation without anchor/FX review.
+boss jump [2] — Airborne rounded body above detached floor puff. Identity: PASS. Detached landing puff baked into cell; body much smaller than neighbouring cells. Stray cropped purple fragment at right edge below the body; do not reuse pixels as a clean cell. Reuse: Pose reference; not final clean animation without anchor/FX review.
+boss jump [3] — Wide compressed landing with floor ring and side plumes. Identity: PASS. Baked ring/plumes; side effects approach cell edges; body anchor differs. Reuse: Pose reference; not final clean animation without anchor/FX review.
+boss laugh_vulnerable [0] — Front stance with alert eyes and small crest star. Identity: PASS. Forward pearl-paw depth/spacing differs; no visible crop. Reuse: Pose reference; not final clean animation without anchor/FX review.
+boss laugh_vulnerable [1] — Closed-eye laugh, mouth open with two teeth; brighter star. Identity: PASS. Expanded star baked on body; no independent cue control. Reuse: Pose reference; not final clean animation without anchor/FX review.
+boss laugh_vulnerable [2] — Raised laughing body with two lifted pearl forms and large star. Identity: PASS. Baked star/ring; body/paw anchors move substantially. Reuse: Pose reference; not final clean animation without anchor/FX review.
+boss laugh_vulnerable [3] — Laugh with long drooping ears and largest crest star. Identity: FAIL. Spiral ears lose their defining upright spiral silhouette; baked star ring. Reuse: Reject as identity key; expression reference only.
+boss flinch [0] — Surprised open mouth; aqua-white forehead contact burst. Identity: PASS. Teeth occluded by expression; contact sparkle baked on face. Reuse: Pose reference; not final clean animation without anchor/FX review.
+boss flinch [1] — Body tilts and compresses left; eyes squeezed shut. Identity: PASS. Baked side motion marks; pearl/body pivot drifts. Reuse: Pose reference; not final clean animation without anchor/FX review.
+boss flinch [2] — Body tips right with one spiral dizzy eye. Identity: PASS. Expression reference only; baked motion arcs and detached curls. Reuse: Pose reference; not final clean animation without anchor/FX review.
+boss flinch [3] — Settled broad wink with two tiny teeth. Identity: PASS. Useful recovery key; source body narrower than portrait. Reuse: Pose reference; not final clean animation without anchor/FX review.
+boss angry [0] — Low broad wink and tiny teeth beneath lit crest. Identity: PASS. Squash key; no independent anticipation sequence. Reuse: Pose reference; not final clean animation without anchor/FX review.
+boss angry [1] — Tall front body with raised narrow ears and side puffs. Identity: PASS. Ears elongate relative to portrait; requires proportion cleanup, side FX baked. Reuse: Pose reference; not final clean animation without anchor/FX review.
+boss angry [2] — Airborne body enclosed by a dust loop. Identity: PASS. Baked enclosing ring approaches top edge; cannot use as clean body. Reuse: Pose reference; not final clean animation without anchor/FX review.
+boss angry [3] — Forward tipped traveling body with trailing cloud. Identity: PASS. Travel reference only; baked trail and one tilted ear. Reuse: Pose reference; not final clean animation without anchor/FX review.
+boss implode [0] — Surprised body with inward arrows and central sparkle. Identity: PASS. Baked arrows; rejected ending action, do not reuse for friendship. Reuse: Reference only; reject ending action.
+boss implode [1] — Body compressed into tiny curled ball around star. Identity: FAIL. Face and normal three-tier body disappear; rejected ending. Reuse: Reference only; reject ending action.
+boss implode [2] — Body replaced by dust ring and bright star. Identity: FAIL. No body, ears, paws or face remain; FX-only alternate, rejected win. Reuse: Reference only; reject ending action.
+boss implode [3] — Separated dust wisps around a small star. Identity: FAIL. Character topology absent; rejected win. Reuse: Reference only; reject ending action.
+hall idle [0] — Front seated rest. Identity: PASS. Scale/pivot vary across atlas; no obvious chroma green at review size Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall idle [1] — Slight tall stretch. Identity: PASS. Scale/pivot vary across atlas; no obvious chroma green at review size Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall idle [2] — Low tilted wink. Identity: PASS. Scale/pivot vary across atlas; no obvious chroma green at review size Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall idle [3] — Open-mouth lifted bounce. Identity: PASS. Scale/pivot vary across atlas; no obvious chroma green at review size Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall idle [4] — Wide low squash. Identity: PASS. Scale/pivot vary across atlas; no obvious chroma green at review size Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall idle [5] — Front settle. Identity: PASS. Scale/pivot vary across atlas; no obvious chroma green at review size Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall hop [0] — Front prepare. Identity: PASS. Scale/pivot vary across atlas; no obvious chroma green at review size Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall hop [1] — Low compressed launch. Identity: PASS. Scale/pivot vary across atlas; no obvious chroma green at review size Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall hop [2] — Tilted airborne body with visible rear extension. Identity: PASS. Scale/pivot vary across atlas; no obvious chroma green at review size Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall hop [3] — Forward travel with baked dust wake. Identity: PASS. Baked wake and large pivot movement Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall hop [4] — Low landing. Identity: PASS. Scale/pivot vary across atlas; no obvious chroma green at review size Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall hop [5] — Upright settle. Identity: PASS. Scale/pivot vary across atlas; no obvious chroma green at review size Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall defeat [0] — Star touches body beside paw. Identity: PASS. Baked FX / no intact character; not a clean body pose Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall defeat [1] — Body curls into ball with aqua streak. Identity: PASS. Baked FX / no intact character; not a clean body pose Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall defeat [2] — Body replaced by bright puff/star burst. Identity: FAIL. Baked FX / no intact character; not a clean body pose Burst is clipped at left cell edge. Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall defeat [3] — Dust ring surrounds empty centre. Identity: FAIL. Baked FX / no intact character; not a clean body pose Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall defeat [4] — Three wisps and bubbles separate. Identity: FAIL. Baked FX / no intact character; not a clean body pose Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.
+hall defeat [5] — Only star and bubbles remain. Identity: FAIL. Baked FX / no intact character; not a clean body pose Reuse: Hall movement/FX reference only; never enlarge as Grand Puff.

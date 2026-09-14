@@ -390,7 +390,7 @@ func _tick_attack_tell(delta: float, tapped: bool) -> void:
 	# On the first real warning, hold anticipation until she discovers an exit.
 	# Every point outside the shape is valid; the demonstration is not a target.
 	if not _lesson_learned("dodge") and patterns.contains(stage.player_local()) \
-			and patterns.elapsed >= patterns.tell_time * 0.25:
+			and patterns.elapsed >= patterns.tell_time * EncounterWarningCue2D.AIM_FRACTION:
 		return
 	encounter.tick_tell(delta)
 	m.g["db_flash"] = 0.18 + 0.22 * clampf(patterns.elapsed / maxf(patterns.tell_time, 0.01), 0.0, 1.0)
@@ -883,6 +883,7 @@ func _update_telegraph() -> void:
 	_telegraph_data["visible"] = state == "tell" or state == "strike"
 	_telegraph_data["active"] = state == "strike"
 	_telegraph_data["points"] = _warning_points
+	_telegraph_data["shape"] = String(patterns.geometry.get("shape", "circle"))
 	_telegraph_data["progress"] = clampf(patterns.elapsed / maxf(patterns.tell_time, 0.01), 0.0, 1.0)
 	# The locked attack outline is the cue; every point outside it is safe.
 	_telegraph_data["safe_visible"] = false

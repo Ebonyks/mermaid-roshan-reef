@@ -146,3 +146,44 @@ for validation and open acceptance. The preceding playable revision is preserved
 `codex/grand-puff-intuitive-20260912` at
 `002320548b88c3fae420c130ebaba57365ed4af0`; this presentation can be reverted
 independently through the normal tested integration workflow.
+
+### Shared boss attack convention — owner direction 2026-09-13
+
+Enemy attack warnings follow **aim → locked flashes → launch**. The aiming
+animation originates from the enemy and visibly travels or grows toward its
+chosen footprint. Arrival is followed by three deliberate local flashes at a
+fixed location, confirming commitment; then the enemy attacks that location.
+The warning never follows Roshan after commitment, never disappears completely
+during a dim interval, and stays steady through the active attack. Purple is
+Grand Puff's aiming/early-lock identity; the third flash shifts to coral-peach
+to announce imminent launch and stays warm through the strike. Gold remains
+the separate earned counter cue.
+
+Grand Puff's jump sends a round two-arm purple swirl out from beneath him,
+rotating and unfolding to its final footprint. His charge grows two thick
+purple bands from his floor position, unfolding two painted dust crests
+and gathering a broad dust front between their ends. The rejected
+charge-end vortex is removed. Both settle before the same three lock flashes. The first learning
+hold occurs on arrival, before the timed flashing sequence continues, rather
+than freezing the marker midway through travel. Warning durations are 2.2–2.7
+seconds, with 35% for aiming and the rest for the three flashes. Free movement,
+dash, no-loss assistance, geometry and saved progress retain their owners.
+
+This supersedes the v2 dust-outline warning presentation. The other v2 response
+and lesson effects remain. [v3 clip contract](animation/grand_puff_attack_windup_v3.json)
+and [impact/evidence](audit_impacts/grand-puff-attack-windup-20260913.json) record
+the scoped implementation. `EncounterWarningCue2D` supplies the reusable phase
+contract for other bosses; their individual presentations are not claimed
+converted by this document. New or revised boss attacks must follow this trope.
+Owner visual/play, child and device acceptance remain open.
+
+The owner's subsequent 4.75/5 restyle commission keeps that choreography and
+raises the presentation target: broad painted purple curls, thin plum contours,
+matte lavender value bands, tapered streams and a gathering painted dust front at the
+charge destination. The jump retains its painted vortex; the owner rejected
+the endpoint vortex on the charge and asked for the distinct third-flash cue. Details cluster at origin and destination; the actual hazard
+boundary remains precise and visible. The target is not an awarded score.
+[Refinement evidence](audit_impacts/grand-puff-painted-warning-20260913.json)
+tracks source reuse, any new art gap, runtime review and open acceptance.
+
+Scoped September 13 Grok inventory: [character packet](../assets_src/characters/grand_puff_2026-09-13/START_HERE.txt) recovers the native teeth portrait, compares every existing pose, and reconciles runtime consumers. Identity signature and future animation production remain separate; it accepts neither the legacy implosion ending nor a Sprite3D rebuild. [Impact](audit_impacts/grand-puff-grok-character-packet-20260913.json).

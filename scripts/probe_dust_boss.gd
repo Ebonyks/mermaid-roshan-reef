@@ -6,6 +6,7 @@ var main: ReefMain
 var bad := 0
 
 func _init() -> void:
+	_warning_choreography_case()
 	seed(20260905)
 	Engine.time_scale = 3.0
 	# Frame-count watchdogs must leave real timers time to advance on fast CI.
@@ -636,3 +637,38 @@ func _dust_edge_matches(warning: DustBossTelegraph2D) -> bool:
 		if distance > 0.1:
 			return false
 	return true
+
+func _warning_choreography_case() -> void:
+	var warning := DustBossTelegraph2D.new()
+	var points := PackedVector2Array([Vector2(160, 80), Vector2(200, 80), Vector2(200, 120), Vector2(160, 120)])
+	var data: Dictionary = {"visible": true, "active": false, "points": points,
+		"boss_point": Vector2(30, 100), "progress": 0.0, "encounter_visible": true}
+	warning.set_telegraph(data)
+	_ck("jump warning starts underneath Grand Puff", warning.warning_center().distance_to(Vector2(30, 100)) < 0.01)
+	data["progress"] = EncounterWarningCue2D.AIM_FRACTION
+	warning.set_telegraph(data)
+	_ck("jump warning arrives before lock flashes", warning.warning_center().distance_to(Vector2(180, 100)) < 0.01)
+	data["boss_point"] = Vector2(900, 400)
+	data["progress"] = 0.8
+	warning.set_telegraph(data)
+	_ck("locked marker never chases later actor positions", warning.warning_center().distance_to(Vector2(180, 100)) < 0.01)
+	var flashes: int = 0
+	var bright: bool = false
+	for i: int in range(1001):
+		var value: float = EncounterWarningCue2D.lock_brightness(float(i) / 1000.0)
+		var now_bright: bool = value > 0.85
+		if now_bright and not bright:
+			flashes += 1
+		bright = now_bright
+	_ck("three distinct lock flashes precede a steady launched warning", flashes == 3
+		and EncounterWarningCue2D.lock_brightness(1.0, true) == 1.0)
+	_ck("only the third flash changes to the launch colour",
+		EncounterWarningCue2D.imminence(0.67) == 0.0
+		and EncounterWarningCue2D.imminence(0.89) > 0.99
+		and EncounterWarningCue2D.imminence(1.0, true) == 1.0)
+	var enough_time: bool = true
+	for phase: EncounterPhase2D in EncounterProfile2D.grand_puff().phases:
+		for attack: EncounterAttack2D in phase.attacks:
+			enough_time = enough_time and attack.warning_seconds >= EncounterWarningCue2D.MIN_WARNING_SECONDS
+	_ck("every Grand Puff attack leaves time for travel and three lock flashes", enough_time)
+	warning.free()

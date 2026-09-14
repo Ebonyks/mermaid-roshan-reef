@@ -1,0 +1,1061 @@
+{
+  "character": "Grand Puff / The Great Dust Bunny",
+  "status": "INVENTORY_FOR_IDENTITY_SIGNATURE",
+  "baseline": "f28106a5d0ee049c2af04259b7fb03369c6def25",
+  "new_generation": false,
+  "owner_portrait": {
+    "source": "C:\\Users\\Peter\\.codex\\generated_images\\019fa72e-863a-7911-a68b-21489e3c3c38\\call_sjjIQeuGXe5v43sjvEOaUCoC.png",
+    "sha256": "59cc35d87953cf74d3b116ab371bb061fa939919cc063bf66944b3749b645cb3",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "file_modified_utc": "2026-07-29T02:00:01.457537+00:00",
+    "copied_on": "2026-09-13",
+    "date_caveat": "Filesystem timestamp is not independent proof of generation date.",
+    "authority": "Native teeth portrait and repository v2 teeth show the same design; native preserves source resolution. v1 closed smile superseded.",
+    "comparison": "1254 native vs 1024 v2; bicubic downsample mean RGB absolute error [0.25337,0.28508,0.23247]/255; visual composition/identity match, not byte-identical."
+  },
+  "selected_files": [
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/owner_local_boss_portrait.png",
+      "source_path": "C:/Users/Peter/.codex/generated_images/019fa72e-863a-7911-a68b-21489e3c3c38/call_sjjIQeuGXe5v43sjvEOaUCoC.png",
+      "role": "native preferred teeth identity; source master for existing v2 design",
+      "sha256": "59cc35d87953cf74d3b116ab371bb061fa939919cc063bf66944b3749b645cb3",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/references/dust_bunny_first_boss_concept.png",
+      "source_path": "assets_src/concepts/dust_bunny_animated_2026-07-27/dust_bunny_first_boss_concept.png",
+      "role": "identity comparison; rainbow concept excluded from rebuild",
+      "sha256": "d9d4fe2ba733697b73bf45a777a59fc8b62a234336a4933d88cde3797a74784d",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/references/dust_bunny_first_boss_concept_v2_teeth.png",
+      "source_path": "assets_src/concepts/dust_bunny_animated_2026-07-27/dust_bunny_first_boss_concept_v2_teeth.png",
+      "role": "identity comparison; rainbow concept excluded from rebuild",
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/references/rainbow_dust_bunny_concept.png",
+      "source_path": "assets_src/concepts/dust_bunny_animated_2026-07-27/rainbow_dust_bunny_concept.png",
+      "role": "identity comparison; rainbow concept excluded from rebuild",
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/references/dust_bunny_curl_ears.png",
+      "source_path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+      "role": "approved hall species reference, not boss substitute",
+      "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/references/dust_bunny_family.png",
+      "source_path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_family.png",
+      "role": "approved hall species reference, not boss substitute",
+      "sha256": "df25f35249b735e077f8fb21b3d932ab06eba21107792ed220c5cbbea6fe216d",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/references/dust_bunny_hop.png",
+      "source_path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+      "role": "approved hall species reference, not boss substitute",
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/references/dust_bunny_shell_hide.png",
+      "source_path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+      "role": "approved hall species reference, not boss substitute",
+      "sha256": "b3fbe139d79ba9567213afeb70a25bd986d90230052be7a9b320802a65613293",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/references/dust_bunny_sleepy.png",
+      "source_path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+      "role": "approved hall species reference, not boss substitute",
+      "sha256": "02c37b1d84a78da7c750308cbf708b98636808c855e9811bf82dcdccfc26ec90",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/references/dust_bunny_swimming.png",
+      "source_path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
+      "role": "approved hall species reference, not boss substitute",
+      "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+      "dimensions": [
+        1024,
+        683
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_angry.png",
+      "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_angry.png",
+      "role": "existing runtime atlas or separate clean-bubble effect",
+      "sha256": "897ca1fec2e3dbdfddb1b6566fc014b0809e3e276148b46267746466cfdb5915",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_flinch.png",
+      "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_flinch.png",
+      "role": "existing runtime atlas or separate clean-bubble effect",
+      "sha256": "fe885c898dc70d4ac621005a4f7b0c2727ac354322453b434e96dc2b7dabb743",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_implode.png",
+      "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_implode.png",
+      "role": "existing runtime atlas or separate clean-bubble effect",
+      "sha256": "273770fa67763662e2294d80444da727575bb0a10c63938d5fe20689d0f9d256",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_jump.png",
+      "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_jump.png",
+      "role": "existing runtime atlas or separate clean-bubble effect",
+      "sha256": "7f117638631841c31eb58b9c81224158d29d64f325980c75c475e0376e36788c",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_laugh_vulnerable.png",
+      "source_path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png",
+      "role": "existing runtime atlas or separate clean-bubble effect",
+      "sha256": "bdcf03aab906fa9c8f7293733e780ffaac883c14ba72bdc43069a4ace4f9afca",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_clean_bubbles.png",
+      "source_path": "assets/sprites/dust_bunnies/dust_bunny_clean_bubbles.png",
+      "role": "existing runtime atlas or separate clean-bubble effect",
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_defeat.png",
+      "source_path": "assets/sprites/dust_bunnies/dust_bunny_defeat.png",
+      "role": "existing runtime atlas or separate clean-bubble effect",
+      "sha256": "f1f3e1cb0e679e19912e821fa67e9eb721f1cbfe293a65aca4442236011482b7",
+      "dimensions": [
+        768,
+        512
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_hop.png",
+      "source_path": "assets/sprites/dust_bunnies/dust_bunny_hop.png",
+      "role": "existing runtime atlas or separate clean-bubble effect",
+      "sha256": "95dd20ba212927d6bde3caf52dca357001c1c57176bd829907923933d6cd6f89",
+      "dimensions": [
+        768,
+        512
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_idle.png",
+      "source_path": "assets/sprites/dust_bunnies/dust_bunny_idle.png",
+      "role": "existing runtime atlas or separate clean-bubble effect",
+      "sha256": "0be27cef5fc32ada5489da287f4dce0397008d1be0c8d1680229133ddc0539b4",
+      "dimensions": [
+        768,
+        512
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/runtime/boss_runtime_1280.png",
+      "source_path": "tmp/puff-front-movie/movie_lane_0033.png",
+      "role": "real 1280x720 Mobile gameplay, HUD retained, diagnostic only",
+      "sha256": "ff269af085e44dc9bcec67b29783b12b8e4a9cf92abc7df29143c659a525ecbc",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/runtime/jump_lock_1280.png",
+      "source_path": "tmp/puff-front-movie/movie_circle_0008.png",
+      "role": "real jump lock diagnostic, no generation pixels",
+      "sha256": "22800b8356e21af3b3db60212bf98add31bc2157d6b8e286cb7a3dc702c03477",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/runtime/third_flash_1560.png",
+      "source_path": "tmp/puff-front-1560/phase_2_step_1_tell_beat_892.png",
+      "role": "real third-flash diagnostic, no generation pixels",
+      "sha256": "2834fcdabc7e6dcda795f469f597f28caf9357454fb6c86ad83715d21abcdc34",
+      "dimensions": [
+        1560,
+        720
+      ],
+      "license": "Existing project-generated artwork; Mermaid Roshan LLC; see source ASSET_LICENSES.md entries.",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/identity_alpha.png",
+      "source_path": "C:\\Users\\Peter\\.codex\\generated_images\\019fa72e-863a-7911-a68b-21489e3c3c38\\call_sjjIQeuGXe5v43sjvEOaUCoC.png",
+      "role": "technical alpha-isolated identity candidate; signature pending",
+      "sha256": "63110c7fc9b0208e26adb8a4dd05ae58a43e04cc46ff5a7df5774eeae5db2d68",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "license": "Project-derived, same source license",
+      "modifications": "Local chroma mask B-R>5 and B-G>12, retain components >=100 native pixels, fill enclosed holes; RGB unchanged; no resizing or generation. Exclude four-pixel outer source-frame border before component extraction; retained RGB remains byte-identical."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_jump_0.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_jump.png",
+      "role": "pose audit crop only",
+      "sha256": "df0d5d27b06903c80b09e0d6982d8c672e892fc09159cbd566b1066f89026027",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 0, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_jump_1.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_jump.png",
+      "role": "pose audit crop only",
+      "sha256": "1c5539010e4ff80b59b7d2e590da46db790ab56599953401a7ddb033cecb13b4",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 1, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_jump_2.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_jump.png",
+      "role": "pose audit crop only",
+      "sha256": "65e0de039bb51a239ff427ff629c37e209c406527870f0286b6b8f6e58991e35",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 2, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_jump_3.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_jump.png",
+      "role": "pose audit crop only",
+      "sha256": "117df4819879e06989a963145a044fd205a8bb1871a15a9c352318be264fd319",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 3, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_laugh_vulnerable_0.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_laugh_vulnerable.png",
+      "role": "pose audit crop only",
+      "sha256": "30517defb2ddfa38d27aef5fc04042f2d2e56457ed70be56af7594a064944962",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 0, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_laugh_vulnerable_1.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_laugh_vulnerable.png",
+      "role": "pose audit crop only",
+      "sha256": "a5726a6bd64ac10478d7b582b2aecf2644cfdcae8edaf135fe7a94608008d99b",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 1, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_laugh_vulnerable_2.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_laugh_vulnerable.png",
+      "role": "pose audit crop only",
+      "sha256": "7d102f9deb175f28f38486bd6fa857fa0b1f37da093058bd8ca1a3acb48e9315",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 2, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_laugh_vulnerable_3.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_laugh_vulnerable.png",
+      "role": "pose audit crop only",
+      "sha256": "0edd8505151c6bf0c2fe67c7668c34f78bd6b3666cfc8b0ac0afc23a6dc64c01",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 3, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_flinch_0.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_flinch.png",
+      "role": "pose audit crop only",
+      "sha256": "3944e081bde0bdb3c9ed7522622577402996ffe2b612b8d0a9c7243d874ba8ee",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 0, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_flinch_1.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_flinch.png",
+      "role": "pose audit crop only",
+      "sha256": "cd0dcd4811be3f00fd0255efbd7ef53093693c55451108a74d40f972c1670648",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 1, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_flinch_2.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_flinch.png",
+      "role": "pose audit crop only",
+      "sha256": "5663ffa8e645617dce5c8e4c5bf75f5df33dbcdb72624e735bfa2bb92fb02da7",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 2, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_flinch_3.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_flinch.png",
+      "role": "pose audit crop only",
+      "sha256": "654321589d1a48352d98d297e1d4567eb90b1248305347f114327749a79e6421",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 3, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_angry_0.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_angry.png",
+      "role": "pose audit crop only",
+      "sha256": "4033ee9a73e4bd55c809c39cad891386da7057dbec2afd94e2be2515dbf29f1c",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 0, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_angry_1.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_angry.png",
+      "role": "pose audit crop only",
+      "sha256": "daf77f875fce07fcea0df5588ec00e1b8c566296501ac3e5982cba0717b7f938",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 1, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_angry_2.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_angry.png",
+      "role": "pose audit crop only",
+      "sha256": "3c5025710f215da4dc71b781cf9d1b111f80f2585640d04f80be4efa6fe2ad93",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 2, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_angry_3.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_angry.png",
+      "role": "pose audit crop only",
+      "sha256": "ffbdbd2a4a253355dd223a6949b6c1be019ebf21acc26c4267c407448e48cccb",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 3, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_implode_0.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_implode.png",
+      "role": "pose audit crop only",
+      "sha256": "7a401e4681f661d42ad8b8933d0842fd165239dd088106ca7f6dc9b5cb7f6bdf",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 0, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_implode_1.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_implode.png",
+      "role": "pose audit crop only",
+      "sha256": "0d8496f404564b87c85767a30fd1b4ad2f1cb91243e2fe607f6b64f69ee0d832",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 1, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_implode_2.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_implode.png",
+      "role": "pose audit crop only",
+      "sha256": "91b064ff2fb520fedbd1b9d190f84fa007ef3e035e9db8607aabae516419e357",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 2, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/boss_implode_3.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_boss_implode.png",
+      "role": "pose audit crop only",
+      "sha256": "b38749209f88b6b978e9bb291582ec9d2d0cabc1c0830d83259b41828fc3b7e1",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 3, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/boss_pose_contact_sheet.png",
+      "source_path": "cells/boss_*",
+      "role": "labeled diagnostic board, not generator pixels",
+      "sha256": "ee3ec61f19f171a3215d74218eab72c0c3e24fa78518302723f0a868a22a9311",
+      "dimensions": [
+        1120,
+        1550
+      ],
+      "license": "Same as source artwork",
+      "modifications": "Uniform thumbnail scaling, neutral field and labels."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_idle_0.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_idle.png",
+      "role": "pose audit crop only",
+      "sha256": "fc249a3feb015186c635dc62afd283fd61f2834851f28505cfd463a54bfb6ab6",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 0, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_idle_1.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_idle.png",
+      "role": "pose audit crop only",
+      "sha256": "61308b1a262cf8631d65c9fa721b474331a5a799ef58c5a3a46f328822df0faa",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 1, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_idle_2.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_idle.png",
+      "role": "pose audit crop only",
+      "sha256": "7482230d7736865b5c283d6578e7e87490fadc745502d63823d293d27d187106",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 2, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_idle_3.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_idle.png",
+      "role": "pose audit crop only",
+      "sha256": "fc6d3312fc3bd5dcaaec9d45e5a5f3e02eeeb116817ce64472dafb4cbed5719d",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 3, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_idle_4.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_idle.png",
+      "role": "pose audit crop only",
+      "sha256": "9f56fe52e948c7b98b8a0722d13862e68ca7012bf04a17add8601bbc6195bb79",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 4, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_idle_5.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_idle.png",
+      "role": "pose audit crop only",
+      "sha256": "c880bae88d2398ba87fc6b54fe4610e1fa47dad356f6e893edbd68f30c7888c1",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 5, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_hop_0.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_hop.png",
+      "role": "pose audit crop only",
+      "sha256": "7f00754f99de5e4ed1a4a8d0f082bb62822f44ab994ca2fba5ff544b4ad77d7d",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 0, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_hop_1.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_hop.png",
+      "role": "pose audit crop only",
+      "sha256": "25cc66f58c49f4cf836022c9b9c71c96e27c8ce99d3f7653a468a02f9036f655",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 1, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_hop_2.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_hop.png",
+      "role": "pose audit crop only",
+      "sha256": "f3f2ab701c73ead32177928f403f52b2cb8ca00611445718855f9033793d78ff",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 2, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_hop_3.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_hop.png",
+      "role": "pose audit crop only",
+      "sha256": "689c64741d48c2e3c774f8894f73f957ab1e8dcd75c5a32ceb8fc205db10071e",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 3, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_hop_4.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_hop.png",
+      "role": "pose audit crop only",
+      "sha256": "9b4349763c2b41a8750da441a17d526bd003b8c1441e6f4c978d125a6b7c7db2",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 4, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_hop_5.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_hop.png",
+      "role": "pose audit crop only",
+      "sha256": "5f1b3d5b94d21cfd9e7054c1d052b287973d5aaa049a30db9779f9e5dceeeed1",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 5, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_defeat_0.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_defeat.png",
+      "role": "pose audit crop only",
+      "sha256": "25a067ee879bf4b91c020c49c297cbb25c26faf071a666df67f4eb031396feda",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 0, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_defeat_1.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_defeat.png",
+      "role": "pose audit crop only",
+      "sha256": "6dc10deef0498053adcb0028fc8989301f78f77dc13515f3e05b194aa0b5d1bb",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 1, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_defeat_2.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_defeat.png",
+      "role": "pose audit crop only",
+      "sha256": "34b6ff94aa5f86e4acd85d513d1b438b6af9faac5fb5b25a5bd263908715dd28",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 2, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_defeat_3.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_defeat.png",
+      "role": "pose audit crop only",
+      "sha256": "563cd0ba5857e308aea60471fd3e54d41ece26f64e6f1257b51827a5d3b67926",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 3, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_defeat_4.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_defeat.png",
+      "role": "pose audit crop only",
+      "sha256": "a98e606bccff9f13a48a97e2014f725543053e30d3ecd207f3f26a14e1613273",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 4, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/cells/hall_defeat_5.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/sheets/dust_bunny_defeat.png",
+      "role": "pose audit crop only",
+      "sha256": "651f6829bc675ff325099332d87dd708a076b6aaeb4cfd0d9e8c3012daab46d2",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Same as source atlas",
+      "modifications": "Exact integer cell crop, index 5, reading order; no pixel repair."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/hall_pose_contact_sheet.png",
+      "source_path": "cells/hall_*",
+      "role": "labeled diagnostic board, not generator pixels",
+      "sha256": "19502605e962d42ca04c5423ffabde71b114939813ed1d74f07aacfba637289d",
+      "dimensions": [
+        1680,
+        930
+      ],
+      "license": "Same as source artwork",
+      "modifications": "Uniform thumbnail scaling, neutral field and labels."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/AUTHORITY_CONTACT_SHEET.png",
+      "source_path": [
+        "references/dust_bunny_curl_ears.png",
+        "references/dust_bunny_hop.png",
+        "owner_local_boss_portrait.png",
+        "references/dust_bunny_first_boss_concept.png",
+        "references/dust_bunny_first_boss_concept_v2_teeth.png",
+        "cells/boss_jump_2.png",
+        "cells/boss_laugh_vulnerable_2.png",
+        "runtime/boss_runtime_1280.png",
+        "references/dust_bunny_sleepy.png",
+        "references/dust_bunny_shell_hide.png",
+        "references/dust_bunny_family.png",
+        "references/dust_bunny_swimming.png",
+        "references/rainbow_dust_bunny_concept.png"
+      ],
+      "role": "authority comparison only; equal presentation cells, not canonical relative species scale",
+      "sha256": "e41b403a8110ff4371963f02147c8a0dcac68b970caf4b86f5fdd79af797c67d",
+      "dimensions": [
+        1400,
+        1280
+      ],
+      "license": "Same as source art",
+      "modifications": "Uniform thumbnail scaling, neutral field, labels; H is a HUD-free crop retaining actual screen scale."
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/runtime/hall_runtime_1280.png",
+      "source_path": "tmp/puff-handoff-captures/hall_runtime_1280.png",
+      "role": "Actual 1280x720 Mobile hall; isolated save, player positioned through existing hall placement method for unobscured scale comparison",
+      "sha256": "60c0942dda078bf8c707db17aeeee7caf5e1f8c52f1ee2667bf13124fcfb78d2",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "license": "Project-owned; original source license applies",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/runtime/hall_runtime_nodes.json",
+      "source_path": "tmp/puff-handoff-captures/hall_runtime_nodes.json",
+      "role": "Runtime source/position/scale inventory",
+      "sha256": "b8d0999d9e639891cf399ecc7aef9f563690a1c5503957c969a1470b237fc409",
+      "dimensions": null,
+      "license": "Project-owned; original source license applies",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/references/arena.png",
+      "source_path": "assets/flats/castle/boss/dusty_attic_arena_2048.png",
+      "role": "Approved actual boss arena background; continuity only",
+      "sha256": "a6f4bb59df43e63cedbf9a164526475b91985c85c73cac7e061f830d60ef4122",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "license": "Project-owned; original source license applies",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/references/counter_star.png",
+      "source_path": "assets/opera/worlds/props/fx_stolen_sparkle.png",
+      "role": "Separate effect; do not bake into body",
+      "sha256": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+      "dimensions": [
+        128,
+        128
+      ],
+      "license": "Project-owned; original source license applies",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/references/dust_puff.png",
+      "source_path": "assets/opera/worlds/props/fx_dust_puff.png",
+      "role": "Separate effect; do not bake into body",
+      "sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Project-owned; original source license applies",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/references/soap_bubbles.png",
+      "source_path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+      "role": "Separate effect; do not bake into body",
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "dimensions": [
+        512,
+        512
+      ],
+      "license": "Project-owned; original source license applies",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/references/roshan_base.png",
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "role": "Approved Roshan source atlas, scale/identity context only",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Existing project-owned Roshan source; ASSET_LICENSES.md",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/EXTRACT_IDENTITY_ALPHA.py",
+      "source_path": "Project code/source audit at f28106a5d0ee049c2af04259b7fb03369c6def25",
+      "role": "inventory/technical audit documentation; no generation authority",
+      "sha256": "cfa9861b17768e52b9645ac60fc84586d16ba15fdb9800db3cd9689b921eadd1",
+      "dimensions": null,
+      "license": "Project-owned source or project-authored documentation; source license retained",
+      "modifications": "Authored inventory/excerpts/technical recipe; source originals unchanged"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/IDENTITY_FACTS.txt",
+      "source_path": "Project code/source audit at f28106a5d0ee049c2af04259b7fb03369c6def25",
+      "role": "inventory/technical audit documentation; no generation authority",
+      "sha256": "33612c4fe391e1419e51096cfa08ae6ab65b5893eb296710ad33b8ee87891a20",
+      "dimensions": null,
+      "license": "Project-owned source or project-authored documentation; source license retained",
+      "modifications": "Authored inventory/excerpts/technical recipe; source originals unchanged"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/IDENTITY_LOCK.json",
+      "source_path": "Project code/source audit at f28106a5d0ee049c2af04259b7fb03369c6def25",
+      "role": "inventory/technical audit documentation; no generation authority",
+      "sha256": "51c70f66632a8713163c0cbf81959d85cf04f44c35c5ef96e477e9302a3a9a17",
+      "dimensions": null,
+      "license": "Project-owned source or project-authored documentation; source license retained",
+      "modifications": "Authored inventory/excerpts/technical recipe; source originals unchanged"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/OWNER_REQUEST.txt",
+      "source_path": "Owner-supplied packet request",
+      "role": "inventory/technical audit documentation; no generation authority",
+      "sha256": "4270c8b2870a2b73133fc64a8ec18a9aab125027b115a383ec4b38f71ae10863",
+      "dimensions": null,
+      "license": "Project-owned source or project-authored documentation; source license retained",
+      "modifications": "none"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/POSE_BIBLE.json",
+      "source_path": "Project code/source audit at f28106a5d0ee049c2af04259b7fb03369c6def25",
+      "role": "inventory/technical audit documentation; no generation authority",
+      "sha256": "b9bc9466b1d84a52ec8102d94f38b3a7ebcbb52354eadabb5271c8bb57329592",
+      "dimensions": null,
+      "license": "Project-owned source or project-authored documentation; source license retained",
+      "modifications": "Authored inventory/excerpts/technical recipe; source originals unchanged"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/POSE_BIBLE.txt",
+      "source_path": "Project code/source audit at f28106a5d0ee049c2af04259b7fb03369c6def25",
+      "role": "inventory/technical audit documentation; no generation authority",
+      "sha256": "1db4226b3c1d3ab1ae1a37bc7e06e43158a7fcae65f0e73436fe525a91d4de72",
+      "dimensions": null,
+      "license": "Project-owned source or project-authored documentation; source license retained",
+      "modifications": "Authored inventory/excerpts/technical recipe; source originals unchanged"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/POSE_GAPS.txt",
+      "source_path": "Project code/source audit at f28106a5d0ee049c2af04259b7fb03369c6def25",
+      "role": "inventory/technical audit documentation; no generation authority",
+      "sha256": "86a441f25d0412c41072e997f676f965907bfccf0f597040d6085f947848126c",
+      "dimensions": null,
+      "license": "Project-owned source or project-authored documentation; source license retained",
+      "modifications": "Authored inventory/excerpts/technical recipe; source originals unchanged"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/runtime/boss_phone_squint.png",
+      "source_path": "runtime/boss_runtime_1280.png",
+      "role": "diagnostic whole-canvas squint derivative",
+      "sha256": "b376e6fe1a812581fc3ba0149f2541e078bd247b4c2556dbab3c233fe0d15251",
+      "dimensions": [
+        640,
+        360
+      ],
+      "license": "Project-owned source or project-authored documentation; source license retained",
+      "modifications": "Whole-canvas 640x360 Lanczos reduction"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/runtime/hall_capture_helper.gd.txt",
+      "source_path": "Project code/source audit at f28106a5d0ee049c2af04259b7fb03369c6def25",
+      "role": "inventory/technical audit documentation; no generation authority",
+      "sha256": "51713565e720b474657a908d3f8bfce28c7f1ae3d5c0b93e79133cbf3b64a3dc",
+      "dimensions": null,
+      "license": "Project-owned source or project-authored documentation; source license retained",
+      "modifications": "Authored inventory/excerpts/technical recipe; source originals unchanged"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/RUNTIME_CODE_EVIDENCE.txt",
+      "source_path": "Project code/source audit at f28106a5d0ee049c2af04259b7fb03369c6def25",
+      "role": "inventory/technical audit documentation; no generation authority",
+      "sha256": "badfecbe5d4e7364e56dd6485fa5149f483163dc3bfaa56e5d15b260e8067cdd",
+      "dimensions": null,
+      "license": "Project-owned source or project-authored documentation; source license retained",
+      "modifications": "Authored inventory/excerpts/technical recipe; source originals unchanged"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/RUNTIME_CONSUMER_MAP.txt",
+      "source_path": "Project code/source audit at f28106a5d0ee049c2af04259b7fb03369c6def25",
+      "role": "inventory/technical audit documentation; no generation authority",
+      "sha256": "2ca85ead999709d8df6d2e112148ce83ee3d622ff465fae5f96f28971fdcaf2f",
+      "dimensions": null,
+      "license": "Project-owned source or project-authored documentation; source license retained",
+      "modifications": "Authored inventory/excerpts/technical recipe; source originals unchanged"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/START_HERE.txt",
+      "source_path": "Project code/source audit at f28106a5d0ee049c2af04259b7fb03369c6def25",
+      "role": "inventory/technical audit documentation; no generation authority",
+      "sha256": "9dfae493dae11b294edca9b3c9245439d2a4b7f0437cd771a12f359b2e9867a2",
+      "dimensions": null,
+      "license": "Project-owned source or project-authored documentation; source license retained",
+      "modifications": "Authored inventory/excerpts/technical recipe; source originals unchanged"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/TECHNICAL_SHEET_CONTRACT.txt",
+      "source_path": "Project code/source audit at f28106a5d0ee049c2af04259b7fb03369c6def25",
+      "role": "inventory/technical audit documentation; no generation authority",
+      "sha256": "74cc42789fe9328138a8bbf187424d5a43315a89ab1d1d016ae673af6a37cd5c",
+      "dimensions": null,
+      "license": "Project-owned source or project-authored documentation; source license retained",
+      "modifications": "Authored inventory/excerpts/technical recipe; source originals unchanged"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/runtime/counter_capture_helper.gd.txt",
+      "source_path": "Project-authored code inventory/capture helper",
+      "role": "one-page consumer map or diagnostic helper",
+      "dimensions": null,
+      "license": "Project-owned source/diagnostic, no external art",
+      "modifications": "authored documentation or helper; runtime unchanged",
+      "sha256": "16b34469f279c3a9a8149662afe92398aa57b20f68b2c4637bbb911e192b7fab"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/runtime/counter_open_1280.png",
+      "source_path": "tmp/puff-handoff-captures/counter_open_1280.png",
+      "role": "actual gold-counter Mobile diagnostic; not generation pixels",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "license": "Project-owned source/diagnostic, no external art",
+      "modifications": "none",
+      "sha256": "7447260c64d2e35e2057e0b0f850ea82680383363e577bd465e87e7737d92cdc"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/runtime/counter_phone_squint.png",
+      "source_path": "runtime/counter_open_1280.png",
+      "role": "actual gold-counter Mobile diagnostic; not generation pixels",
+      "dimensions": [
+        640,
+        360
+      ],
+      "license": "Project-owned source/diagnostic, no external art",
+      "modifications": "whole-canvas 640x360 Lanczos reduction",
+      "sha256": "9434c7a819da89f18723ea25ae5b4c0a8086024a17edca1c4bda2b1a2051d1f4"
+    },
+    {
+      "path": "assets_src/characters/grand_puff_2026-09-13/RUNTIME_CONSUMER_MAP.html",
+      "source_path": "Project-authored code inventory/capture helper",
+      "role": "one-page consumer map or diagnostic helper",
+      "dimensions": null,
+      "license": "Project-owned source/diagnostic, no external art",
+      "modifications": "authored documentation or helper; runtime unchanged",
+      "sha256": "5bbd1bf6358a42f3640f0c2200786bd8ca8fabc1f67e2886fdb2824a39526166"
+    }
+  ],
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "acceptance": "Inventory and technical alpha only. Await signed identity; no Aseprite production or motion generation authorized by this packet.",
+  "review": {
+    "identity_match": "Native and v2 agree in composition, face, teeth, ears and crest; no blending performed.",
+    "alpha": "Inspected on contrasting teal; cream/background removed, ivory pearl and star interiors retained.",
+    "pose_bible": "38 cells inspected; body identity and usable motion separated from baked FX/topology failures.",
+    "scale": "Real Mobile captures with HUD and isolated save data; manual screen measurements, not device approval.",
+    "missing_authority": "No signed Aseprite identity or Roshan Aseprite technical spec supplied; proposed contract is explicitly unsigned.",
+    "counter_capture": "Actual first opening at >=0.8s, gold separate target plus pale forehead star; isolated Mobile capture exit 0 in tmp/puff-counter-capture-clean.log. Included 640x360 squint derivative, not Lenovo device proof."
+  },
+  "archive_status": "LOCAL_COMPLETE_PENDING_REMOTE_VERIFICATION",
+  "license_index": "ASSET_LICENSES.md: Grand Puff Grok character inventory \u2014 2026-09-13",
+  "archive_text_encoding": "UTF-8 LF; hashes cover the exact GitHub payload bytes, not Windows checkout CRLF variants."
+}

@@ -1,0 +1,120 @@
+{
+  "character": "Grand Puff",
+  "status": "PROPOSED_LOCK_AWAITING_SIGNATURE",
+  "identity_authority": "owner_local_boss_portrait.png (native teeth version), same design as references/dust_bunny_first_boss_concept_v2_teeth.png",
+  "superseded": "v1 closed smile; rainbow is concept-only and excluded",
+  "traits": [
+    "One contiguous body, broad base tapering through three cloud tiers.",
+    "Two large raised spiral ears, each curling inward; upper pair of pearl forms sits at ear bases.",
+    "One central stacked curl crest with a hooked top.",
+    "One four-point forehead sparkle centered on the crest.",
+    "Two lower round pearl paws plus two upper pearl forms; four total visible pearl forms.",
+    "Two small pointed white upper teeth at opposite mouth corners.",
+    "Two large dark plum eyes with white and aqua highlights.",
+    "Two pink oval cheek blushes.",
+    "Plum/navy contours surround grey-lavender painted masses.",
+    "No neck, separate torso, crown, armor, fingers or realistic smoke."
+  ],
+  "topology_requested": {
+    "body": 1,
+    "spiral_ears": 2,
+    "pearl_paws": 4,
+    "teeth": 2,
+    "crest_sparkle": 1
+  },
+  "topology_visual_note": "Portrait visibly has four pearl forms: two at ear bases and two on the floor. Preserve these locations; do not reinterpret the upper pair as extra floor feet. Their anatomical naming is pending signature.",
+  "forbidden_changes": [
+    "new boss or enlarged hall-bunny substitute",
+    "new face, realistic teeth, snarl, injury or monster anatomy",
+    "armor, crown or other new prop",
+    "rainbow palette mixed into Grand Puff",
+    "extra/missing ears, teeth, pearl forms or crest",
+    "Sprite3D production or 3D rig",
+    "implosion as accepted friendship ending",
+    "Aseprite production before signed identity"
+  ],
+  "palette": {
+    "face": {
+      "hex": "#c5afcc",
+      "source_pixel_xy": [
+        510,
+        610
+      ]
+    },
+    "mid_curl": {
+      "hex": "#bfa8c9",
+      "source_pixel_xy": [
+        400,
+        470
+      ]
+    },
+    "deep_plum": {
+      "hex": "#8674a0",
+      "source_pixel_xy": [
+        157,
+        829
+      ]
+    },
+    "paw": {
+      "hex": "#e0bec8",
+      "source_pixel_xy": [
+        292,
+        924
+      ]
+    },
+    "outline": {
+      "hex": "#271053",
+      "source_pixel_xy": [
+        95,
+        250
+      ]
+    },
+    "sparkle": {
+      "hex": "#fdfdfd",
+      "source_pixel_xy": [
+        510,
+        359
+      ]
+    },
+    "blush": {
+      "hex": "#f7bfce",
+      "source_pixel_xy": [
+        334,
+        679
+      ]
+    }
+  },
+  "scale": {
+    "method": "Manual visible-ink bounds in real unscaled 1280x720 Mobile captures, approximately +/-3 px; excludes airborne dust/wake. Ratios are screen-space observations at different scene depths, not physical world units.",
+    "boss_capture": "runtime/boss_runtime_1280.png",
+    "boss_bounds_xyxy": [
+      430,
+      283,
+      596,
+      385
+    ],
+    "roshan_boss_bounds_xyxy": [
+      520,
+      473,
+      591,
+      564
+    ],
+    "boss_to_roshan_height": 1.120879120879121,
+    "hall_capture": "runtime/hall_runtime_1280.png",
+    "hall_bunny_bounds_xyxy": [
+      585,
+      594,
+      664,
+      672
+    ],
+    "roshan_hall_bounds_xyxy": [
+      850,
+      469,
+      970,
+      622
+    ],
+    "hall_bunny_to_roshan_height": 0.5098039215686274,
+    "boss_to_hall_normalized_by_roshan": 2.1986475063398143,
+    "acceptance": "Observed current framing only. No use of BOSS_H placeholder as size authority; owner must sign final relative scale."
+  }
+}
