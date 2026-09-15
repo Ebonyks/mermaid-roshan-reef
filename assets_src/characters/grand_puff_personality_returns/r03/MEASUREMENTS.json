@@ -1,0 +1,266 @@
+{
+  "schema": "grand-puff-r03-measurements-v1",
+  "method": "non-ivory isolation bbox",
+  "shots": {
+    "P02_ANGRY_WINDUP": {
+      "frames": [
+        {
+          "bw": 687,
+          "bh": 639,
+          "x0": 295,
+          "y0": 37,
+          "x1": 981,
+          "y1": 675,
+          "pixels": 311282,
+          "t": "0.4"
+        },
+        {
+          "bw": 690,
+          "bh": 633,
+          "x0": 294,
+          "y0": 43,
+          "x1": 983,
+          "y1": 675,
+          "pixels": 311075,
+          "t": "0.9"
+        },
+        {
+          "bw": 681,
+          "bh": 656,
+          "x0": 298,
+          "y0": 20,
+          "x1": 978,
+          "y1": 675,
+          "pixels": 316614,
+          "t": "1.6"
+        },
+        {
+          "bw": 680,
+          "bh": 659,
+          "x0": 299,
+          "y0": 17,
+          "x1": 978,
+          "y1": 675,
+          "pixels": 317010,
+          "t": "2.2"
+        },
+        {
+          "bw": 791,
+          "bh": 542,
+          "x0": 244,
+          "y0": 130,
+          "x1": 1034,
+          "y1": 671,
+          "pixels": 303679,
+          "t": "3.2"
+        },
+        {
+          "bw": 754,
+          "bh": 549,
+          "x0": 261,
+          "y0": 120,
+          "x1": 1014,
+          "y1": 668,
+          "pixels": 295181,
+          "t": "4.4"
+        },
+        {
+          "bw": 753,
+          "bh": 549,
+          "x0": 261,
+          "y0": 120,
+          "x1": 1013,
+          "y1": 668,
+          "pixels": 295547,
+          "t": "5.2"
+        },
+        {
+          "bw": 753,
+          "bh": 549,
+          "x0": 261,
+          "y0": 120,
+          "x1": 1013,
+          "y1": 668,
+          "pixels": 295512,
+          "t": "5.9"
+        }
+      ],
+      "height_ratio_last_over_first": 0.8591549295774648,
+      "width_ratio_last_over_first": 1.0960698689956332,
+      "pixel_ratio_last_over_first": 0.949338541900913,
+      "floor_y1_start_to_end": [
+        675,
+        668,
+        -7
+      ],
+      "start_bbox_px": [
+        687,
+        639
+      ],
+      "end_bbox_px": [
+        753,
+        549
+      ]
+    },
+    "P03_FRIENDS": {
+      "frames": [
+        {
+          "bw": 646,
+          "bh": 628,
+          "x0": 317,
+          "y0": 46,
+          "x1": 962,
+          "y1": 673,
+          "pixels": 288469,
+          "t": "0.5"
+        },
+        {
+          "bw": 644,
+          "bh": 629,
+          "x0": 318,
+          "y0": 45,
+          "x1": 961,
+          "y1": 673,
+          "pixels": 288886,
+          "t": "1.2"
+        },
+        {
+          "bw": 633,
+          "bh": 628,
+          "x0": 324,
+          "y0": 46,
+          "x1": 956,
+          "y1": 673,
+          "pixels": 284492,
+          "t": "1.8"
+        },
+        {
+          "bw": 599,
+          "bh": 601,
+          "x0": 342,
+          "y0": 74,
+          "x1": 940,
+          "y1": 674,
+          "pixels": 262764,
+          "t": "2.8"
+        },
+        {
+          "bw": 563,
+          "bh": 573,
+          "x0": 361,
+          "y0": 105,
+          "x1": 923,
+          "y1": 677,
+          "pixels": 237030,
+          "t": "3.8"
+        },
+        {
+          "bw": 582,
+          "bh": 498,
+          "x0": 350,
+          "y0": 181,
+          "x1": 931,
+          "y1": 678,
+          "pixels": 219205,
+          "t": "4.6"
+        },
+        {
+          "bw": 543,
+          "bh": 550,
+          "x0": 371,
+          "y0": 129,
+          "x1": 913,
+          "y1": 678,
+          "pixels": 225246,
+          "t": "5.2"
+        },
+        {
+          "bw": 543,
+          "bh": 549,
+          "x0": 371,
+          "y0": 130,
+          "x1": 913,
+          "y1": 678,
+          "pixels": 225428,
+          "t": "5.9"
+        }
+      ],
+      "height_ratio_last_over_first": 0.8742038216560509,
+      "width_ratio_last_over_first": 0.8405572755417957,
+      "pixel_ratio_last_over_first": 0.7814635194769629,
+      "floor_y1_start_to_end": [
+        673,
+        678,
+        5
+      ],
+      "start_bbox_px": [
+        646,
+        628
+      ],
+      "end_bbox_px": [
+        543,
+        549
+      ]
+    }
+  },
+  "technical": {
+    "P02_ANGRY_WINDUP": {
+      "original": {
+        "duration_s": 6.04,
+        "fps": 24.0,
+        "width": 0,
+        "height": 1,
+        "has_audio": true,
+        "frames": 145
+      },
+      "audio": {
+        "peak_db": -17.073451,
+        "rms_db": -58.073686,
+        "peak_lin": 0.140064298343002,
+        "rms_lin": 0.0012482905995454955
+      },
+      "silent": {
+        "duration_s": 6.04,
+        "fps": 24.0,
+        "width": 0,
+        "height": 1,
+        "has_audio": false,
+        "frames": 145
+      },
+      "sha": "beb3a63b0d7d7397414b0024ac5e05038bc26faf7992cd82ad5d388040f40321",
+      "silent_sha": "1184551a99553f3f4d43a5af1779d6ad360606aee661f5e4cc5f960a15db0b19"
+    },
+    "P03_FRIENDS": {
+      "original": {
+        "duration_s": 6.04,
+        "fps": 24.0,
+        "width": 0,
+        "height": 1,
+        "has_audio": true,
+        "frames": 145
+      },
+      "audio": {
+        "peak_db": -87.714921,
+        "rms_db": -124.643202,
+        "peak_lin": 4.113902077071318e-05,
+        "rms_lin": 5.859221280934199e-07
+      },
+      "silent": {
+        "duration_s": 6.04,
+        "fps": 24.0,
+        "width": 0,
+        "height": 1,
+        "has_audio": false,
+        "frames": 145
+      },
+      "sha": "b8cf5d69cad640a70b3a1964f1bc3bd77d8f034ea52de13011226006fb363d2e",
+      "silent_sha": "94a697a454d24a50d2753ee531dd36927b5ff341f1271c5fc8ceb1cb952a82a5"
+    }
+  },
+  "p01_carried": {
+    "source_commit": "f55d22365cd7f5380ea8d01abe471fe70399f822",
+    "path": "assets_src/characters/grand_puff_personality_returns/r02/P01_LAUGH/P01_LAUGH_study_silent.mp4",
+    "sha256": "091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f",
+    "regenerate": false
+  }
+}

@@ -1,0 +1,23 @@
+GRAND PUFF r03 ACTING RETURN
+Published: grok/grand-puff-motion-mp4-20260914
+Path: assets_src/characters/grand_puff_personality_returns/r03/
+Responds to: df5ebcebea5c500cac51b4fc4acdd3fa3e726eff
+(START_HERE / REVIEW_R02 on codex/grand-puff-grok-review-cycle-20260914)
+
+JOBS: generate ONLY P02 and P03. P01 carried unchanged from r02.
+
+P01 carry (do not regenerate):
+  commit f55d22365cd7f5380ea8d01abe471fe70399f822
+  path  .../r02/P01_LAUGH/P01_LAUGH_study_silent.mp4
+  sha256 091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f
+  disposition preferred_motion_reference_only_not_production_accepted
+
+Bound refs: IMAGE_1 signed front 1fc9ed2f... IMAGE_2 profile 5941f10f... commit 8d07b09
+Construction: imagine_reference_to_video, verbatim r03 PROMPT.txt
+Prompt hashes: P02 fdeafdb6... P03 03a773cf...
+
+r03 vs REVIEW_R02:
+P02 — two eyes readable at 1.6s (not disc replacements); spiral tips visible in 4.4-5.9s crouch. No jump.
+P03 — inward spirals held through 5.9s (not floppy hooks); floor dy +5; height 0.874x, pixels 0.781x; 0.55-0.65 height target NOT met.
+
+DELIVERY_ACCEPTED=false. No expansion to fifteen. No live integration.
