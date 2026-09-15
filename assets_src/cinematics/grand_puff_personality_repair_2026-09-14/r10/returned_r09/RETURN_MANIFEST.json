@@ -1,0 +1,198 @@
+{
+  "schema": "grand-puff-acting-return-v1",
+  "round": "r09",
+  "responds_to_handoff_commit": "085077198b9ede9e6881f6d5f43b956735b8986a",
+  "status": "review_candidate",
+  "published_branch": "grok/grand-puff-motion-mp4-20260914",
+  "published_at_utc": "2026-09-15T09:25:40.065099+00:00",
+  "delivery_accepted": false,
+  "study_scope": "huff_substudy_only_not_complete_windup",
+  "generated_new_art": true,
+  "quality_target_note": "4.75/5 is the owner target, not a self-issued production approval.",
+  "clips": [
+    {
+      "shot_id": "P02_ANGRY_WINDUP",
+      "routing_id_note": "huff_substudy, not a complete windup",
+      "files": [
+        {
+          "path": "P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study.mp4",
+          "sha256": "536ed96c5b9c3233754a9a70d5e6d373bbc9f9904a16fa5857ecf3ee761ef368",
+          "bytes": 1611179,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "duration_or_frame_time": "6.041667s / 145 frames / 24fps",
+          "source_paths_and_hashes": [
+            {
+              "id": "IMAGE_1",
+              "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664",
+              "role": "signed_front"
+            },
+            {
+              "id": "IMAGE_2",
+              "sha256": "5941f10f7211a61a6457271213207e01bd5567381a2a29167855ae0b72db9089",
+              "role": "signed_profile"
+            },
+            {
+              "id": "PROMPT.txt",
+              "sha256": "2cd024fbde04cd3b028da05a11785cb977d7978b2062b1288c61826f9ffb6a5d"
+            }
+          ],
+          "construction_method": "imagine_reference_to_video duration=6 aspect=16:9 resolution_name=720p; verbatim PROMPT.txt; IMAGE_1 then IMAGE_2 only",
+          "role_motion_reference_or_authored_candidate": "motion_reference",
+          "selected_take": "take3",
+          "imagine_artifact": "b92138ae-574a-4500-b6d6-885ee4a5ed45.mp4"
+        },
+        {
+          "path": "P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study_silent.mp4",
+          "sha256": "e7e960c6a37ff491cceb75e9a8c7294580381cc742ee4c40f558e1023b9c08cd",
+          "bytes": 1462213,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "duration_or_frame_time": "6.041667s / 145 frames / 24fps; audio stripped",
+          "source_paths_and_hashes": [
+            {
+              "path": "P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study.mp4",
+              "sha256": "536ed96c5b9c3233754a9a70d5e6d373bbc9f9904a16fa5857ecf3ee761ef368"
+            }
+          ],
+          "construction_method": "ffmpeg -an -c:v copy from selected original",
+          "role_motion_reference_or_authored_candidate": "motion_reference_silent"
+        }
+      ],
+      "reference_timestamps": [
+        {
+          "index": 0,
+          "seconds": 0.0,
+          "beat": "start smile; four signed pearls"
+        },
+        {
+          "index": 24,
+          "seconds": 1.0,
+          "beat": "inflate start / eyes must remain"
+        },
+        {
+          "index": 36,
+          "seconds": 1.5,
+          "beat": "mid inflate"
+        },
+        {
+          "index": 60,
+          "seconds": 2.5,
+          "beat": "exhale start"
+        },
+        {
+          "index": 108,
+          "seconds": 4.5,
+          "beat": "settle start"
+        },
+        {
+          "index": 144,
+          "seconds": 6.0,
+          "beat": "end hold"
+        }
+      ],
+      "exact_frames": [
+        {
+          "index": 0,
+          "seconds": 0.0,
+          "path": "P02_ANGRY_WINDUP/frames/frame_000.png",
+          "sha256": "02e54c1ee2c1c7758f8b68e21be80f26c24eab70cb30d47afa8023d0afe206bb",
+          "role": "analytical_reference_not_production_cel"
+        },
+        {
+          "index": 24,
+          "seconds": 1.0,
+          "path": "P02_ANGRY_WINDUP/frames/frame_024.png",
+          "sha256": "ee38bba90d946358fa1a06bb826756345df9e4d2d8af3c6d3eeda8c2125af7c1",
+          "role": "analytical_reference_not_production_cel"
+        },
+        {
+          "index": 36,
+          "seconds": 1.5,
+          "path": "P02_ANGRY_WINDUP/frames/frame_036.png",
+          "sha256": "2b5a7fd118d93fc52e9dc65694f896d5fe8c0394ad772dd0df30fa2826f5ec0c",
+          "role": "analytical_reference_not_production_cel"
+        },
+        {
+          "index": 60,
+          "seconds": 2.5,
+          "path": "P02_ANGRY_WINDUP/frames/frame_060.png",
+          "sha256": "276dbd6e1c140ced65415716ef1eac2046c8760f3e7d7b114d7076f6b565cecb",
+          "role": "analytical_reference_not_production_cel"
+        },
+        {
+          "index": 108,
+          "seconds": 4.5,
+          "path": "P02_ANGRY_WINDUP/frames/frame_108.png",
+          "sha256": "a62084bb34c768d208728b0799f5ee1f9a75265b0df899ad740c52b1b8facba9",
+          "role": "analytical_reference_not_production_cel"
+        },
+        {
+          "index": 144,
+          "seconds": 6.0,
+          "path": "P02_ANGRY_WINDUP/frames/frame_144.png",
+          "sha256": "dffa8b9f5e6de0a159ab2eb9dcbba58630b9b491835871f3c27c46e74193df87",
+          "role": "analytical_reference_not_production_cel"
+        }
+      ],
+      "contact_sheet": {
+        "path": "P02_ANGRY_WINDUP/P02_exact_index_contact.jpg",
+        "sha256": "889a2e249608efc497a8cdfd1d3be73299ab3d41de7f96b09709c3f757408dc6",
+        "role": "review_only_not_generation_input"
+      },
+      "acting_changes": [
+        "Isolated 6s huff: smile closes, cheeks round from f0 to f24, later mouth a small closed line.",
+        "Eyes remain readable dark pupils on sampled frames 0/24/36/60/108/144; no purple-disc replacement at f24.",
+        "Face stays in the lower front of the puff (not the r06 +94px upward shift)."
+      ],
+      "known_anatomy_or_contact_issues": [
+        "FAIL extra pearl-like forms appear by frame 24 on the lower flanks. Frame 0 of take3 shows the four signed forms (two ear-base, two floor). Extra forms are Imagine drift for Codex to strip; they are not signed pearls.",
+        "FAIL extra floor-contact lobes / a small extra puff appear in later frames.",
+        "PARTIAL cheek inflate is visible (rounder sides f0->f24) but not a strong sealed mouthful; exhale shrink is modest.",
+        "PARTIAL mouth at f24 is not a clean sealed purse.",
+        "No crouch. Coiled ears held. No jump."
+      ],
+      "pose_candidates": [],
+      "gameplay_edit_proposal": null,
+      "takes_not_selected": [
+        {
+          "id": "take1",
+          "imagine_artifact": "f9a31866-f0d8-44e0-8d15-0ec163454cb5.mp4",
+          "sha256": "5a6a65839d62a70537cc4947613a8e7c7fe26d34778b97f85e302c6203ce9925",
+          "reason": "extra pearl/paw forms already at frame 0"
+        },
+        {
+          "id": "take2",
+          "imagine_artifact": "36ccd1a0-114a-4068-8b89-9b038e29772f.mp4",
+          "sha256": "8bd4c9e207bbd7a324739c3a0c79eb0c997a3dff5b2f05dbfbdb8f9112875b27",
+          "reason": "extra pearl/paw forms already at frame 0"
+        }
+      ]
+    }
+  ],
+  "carried_references": [
+    {
+      "shot_id": "P01_LAUGH",
+      "disposition": "preferred_motion_reference_only_not_production_accepted",
+      "source_commit": "f55d22365cd7f5380ea8d01abe471fe70399f822",
+      "path": "assets_src/characters/grand_puff_personality_returns/r02/P01_LAUGH/P01_LAUGH_study_silent.mp4",
+      "sha256": "091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f",
+      "regenerate": false
+    },
+    {
+      "shot_id": "P03_FRIENDS",
+      "disposition": "preferred_motion_reference_only_not_production_accepted",
+      "source_commit": "8dd2d96a00e7776752ef67117f5685cd7f054103",
+      "path": "assets_src/characters/grand_puff_personality_returns/r04/P03_FRIENDS/P03_FRIENDS_study_silent.mp4",
+      "sha256": "b3ec9764a76dab379cedf25d54f637043ebd4f0e6cdddb68989fe9ff80dd888f",
+      "regenerate": false,
+      "known_limits": "Approx0.76 height ratio vs proposed0.60; silhouette bottom rises20px; performance reference only, not production-ready support."
+    }
+  ],
+  "model_slug": "unavailable",
+  "submission_record_status": "partial_available"
+}

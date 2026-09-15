@@ -145,3 +145,5 @@ Round06 selected pixels contradict its eye/extra-form review. Round07 requests e
 Round07 PNG identity passes, but eye coordinates, shift direction and mouth descriptions remain wrong. Round08 supplies source-bound overlays and requests corrected mapping. [r08 handoff](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r08/START_HERE.txt). No owner/production acceptance.
 
 R08 reconciles incorrect coordinates and review claims. R09 resumes one six-second huff study preserving facial placement; laugh and friendship remain carried motion references. [r09 handoff](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r09/START_HERE.txt). No owner/production acceptance.
+
+R09 has a clearer puff/release but closes its eyes during effort. R10 preserves the partial performance and requests truthful frame observations; no further generation. [r10 handoff](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r10/START_HERE.txt). No owner/production acceptance.
