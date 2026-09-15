@@ -101,3 +101,5 @@ Change/evidence: [2026-09-11 audit impact](../../design/audit_impacts/2026-09-11
   No motion study, runtime change, new art or acceptance is claimed.
 
 - 2026-09-14: Grand Puff [round-one return review and round-two correction](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r02/START_HERE.txt) preserves stronger acting but records absent shrink, unclear huff and wrong laugh end emotion. Motion study only; no acceptance or finding closure.
+
+- 2026-09-14: Grand Puff [round-three packet](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r03/START_HERE.txt) preserves r02 laugh as a preferred reference, with two remaining topology/support repair jobs. No live or owner acceptance.

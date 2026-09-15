@@ -1,0 +1,32 @@
+GRAND PUFF r02 ACTING RETURN
+Published: grok/grand-puff-motion-mp4-20260914
+Path: assets_src/characters/grand_puff_personality_returns/r02/
+Responds to: 59561b56c51c386fb51ef8a2e8e4a868186caccd
+(START_HERE / REVIEW_R01 on codex/grand-puff-grok-review-cycle-20260914)
+
+PILOT ONLY: P01 laugh, P02 angry windup, P03 friends. 16:9 / 6.04s / 145 frames / 24fps.
+Not production sprites. DELIVERY_ACCEPTED=false.
+
+Bound refs: IMAGE_1 signed front 1fc9ed2f... IMAGE_2 profile 5941f10f... commit 8d07b09
+Construction: imagine_reference_to_video, verbatim r02 shot PROMPT.txt
+Prompts hashed to packet values 35e56db6 / 531db01a / fd4eadeb
+
+Files:
+- RETURN_MANIFEST.json (schema grand-puff-acting-return-v1)
+- ACTING_COMPARISON.txt  (decoded observations)
+- MEASUREMENTS.json      (fixed-framing bboxes)
+- GROK_RETURN.txt
+- P0*/P0*_study.mp4              motion_reference (has generator audio)
+- P0*/P0*_study_silent.mp4       silent_review_copy (audio stripped)
+- P0*/frames/*.jpg               extracted MP4 frames — NOT production cels
+- authored_poses/*_candidate.jpg ivory authored stills — not Aseprite
+- compare/*                      review boards — not generation input
+  including *_fixed_scale_before_after.jpg (no auto-fit)
+
+r02 vs REVIEW_R01:
+P03 shrink is real (pixels 0.593x) but height only 0.876x, not 0.55-0.65.
+P02 closed-mouth cheek inflation is visible; crouch reads; height 0.898x.
+P01 happy ending is visible; ear stagger is not.
+Four required pearl forms kept. Faint P03 t5.9 right ghost noted.
+
+No expansion to fifteen clips. No live integration.

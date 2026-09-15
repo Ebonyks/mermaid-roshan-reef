@@ -131,3 +131,5 @@ score is assigned. Existing live renderer and ending are unchanged.
 ## Round-one Grok return review
 
 The [round-two correction](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r02/START_HERE.txt) records direct review of Grok return `caec2f39188599b4c94f82e6cdd787d79821b732`: richer movement, but missing sustained friendship shrink, smiling huff, and challenging laugh ending. Four pearl forms are correct in inspected samples; the return's extra-pearl claim is unsupported there. No clip, runtime, owner or finding acceptance is granted.
+
+Round-two return `f55d22365cd7f5380ea8d01abe471fe70399f822` restores the laugh payoff and introduces real shrink. [Round three](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r03/START_HERE.txt) carries P01 as preferred motion reference and limits regeneration to P02 eye/ear continuity and P03 spiral-ear/support/shrink repairs. No production acceptance.

@@ -1,0 +1,82 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "grand_puff_personality_repair_r03",
+  "shot_id": "P02_ANGRY_WINDUP",
+  "status": "GENERATION_READY",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "references/front.jpg",
+      "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664",
+      "role": "approved_clean_first_frame",
+      "hud_present": false,
+      "human_decision": "accepted",
+      "acceptance_scope": "Owner commissioned use of these existing Grok-signed stills; new motion is not accepted.",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/8d07b0908c39051c2a310caf29fd86a56dc82b40/assets_src/characters/grand_puff_2026-09-13/grok_signed/grand_puff_signed_identity.jpg"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/profile.jpg",
+      "sha256": "5941f10f7211a61a6457271213207e01bd5567381a2a29167855ae0b72db9089",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "accepted",
+      "acceptance_scope": "Owner commissioned use of these existing Grok-signed stills; new motion is not accepted.",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/8d07b0908c39051c2a310caf29fd86a56dc82b40/assets_src/characters/grand_puff_2026-09-13/grok_signed/grand_puff_profile.jpg"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "eyes, brows, cheeks, mouth, cloud tiers and spiral ears according to the timed acting beats"
+  ],
+  "must_not_move": [
+    "camera and pale ivory background"
+  ],
+  "end_state": "hold the supported crouch with two determined eyes, closed mouth, two visible curled ear tips and two ear-base pearls; no jump.",
+  "negative_constraints": [
+    "no missing eyes",
+    "no replacement ear topology",
+    "no extra limbs or pearls",
+    "no camera drift or auto-fit",
+    "no HUD text or external effects"
+  ],
+  "prompt_path": "shots/P02_ANGRY_WINDUP/PROMPT.txt",
+  "prompt_sha256": "fdeafdb6d3153b0580299f5d98d18b0c1657efd25455da43e7393eccab0f0d8c",
+  "non_pixel_references": [
+    {
+      "path": "review/P02_ANGRY_WINDUP_decoded.jpg",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "acting_beats": [
+    {
+      "time": "0.0-0.8s",
+      "action": "gather the eyebrows and purse the mouth; keep both dark eyes plainly visible."
+    },
+    {
+      "time": "0.8-2.3s",
+      "action": "inflate soft cheek flesh below and outside the eyes; both eyes and brows stay visible above the cheek bulges; lips remain closed."
+    },
+    {
+      "time": "2.3-4.4s",
+      "action": "exhale into a deep wide crouch, sinking the face and crest while the two paws stay planted; the ears lower from their bases a moment later but both inward spiral tips remain visible beside the crest."
+    },
+    {
+      "time": "4.4-6.0s",
+      "action": "hold the supported crouch with two determined eyes, closed mouth, two visible curled ear tips and two ear-base pearls; no jump."
+    }
+  ],
+  "first_frame_fit": "The signed square still supplies appearance/layout. The wide motion study must show the full silhouette on ivory with side clearance; do not crop ears to fill 16:9. This is a motion study, not a runtime cell.",
+  "readiness_evidence": "BOUND_REFERENCE_VERIFICATION.json; user-commissioned existing signed references, opened and SHA256-verified from immutable GitHub URLs. This is readiness for motion study only."
+}
