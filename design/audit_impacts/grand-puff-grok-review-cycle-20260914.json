@@ -492,6 +492,7 @@
     "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r07/runtime_context/hall_runtime_1280.png",
     "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r07/runtime_context/roshan_base.png",
     "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r07/runtime_context/soap_bubbles.png",
+    "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r07_REMOTE_VERIFICATION.json",
     "audit/animation/README.md",
     "design/05_DOC_LEDGER.md",
     "design/animation/GRAND_PUFF_MOVEMENT_PROFILE.md"
@@ -571,6 +572,11 @@
       "command": "r06 direct video/hash/visual review; r07 packet/document/coverage validation",
       "result": "PASS",
       "evidence": "14 declared hashes and silent decoded RGB checked atd6bc7d66c8238359083ebb881cae9225b29b0f4e; actual sampled frame24 has absent pupils/discs while frame0 has four pearls. Diagnostic claim-check board inspected. No new art commission; packet gates pending. 56 payload hashes verified; diagnostic Imagine schema passes without require-ready, document/coverage gates pass. GENERATION_READY false intentionally: no new generation requested. Prior full78-probe CI applies to unchanged runtime; remote proof follows."
+    },
+    {
+      "command": "HTTPS fetch every r07 packet file and compare full byte SHA256 at immutable content commit",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r07_REMOTE_VERIFICATION.json: 57 files verified at 84d15eb33e59f91fb2daf9c70e2ed0241354ddf4"
     }
   ],
   "acceptance_gaps": "Archive, generator readiness and delivery acceptance are separate. Owner rejects reduced performance; new acting and all device/child/live integration acceptance remain open. Active-session monitoring only; scheduling tool not exposed."
