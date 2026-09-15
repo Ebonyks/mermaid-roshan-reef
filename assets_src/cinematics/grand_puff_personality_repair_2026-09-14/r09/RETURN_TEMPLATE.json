@@ -1,0 +1,53 @@
+{
+  "schema": "grand-puff-acting-return-v1",
+  "round": "r09",
+  "responds_to_handoff_commit": "REPLACE_WITH_IMMUTABLE_HANDOFF_COMMIT",
+  "status": "review_candidate",
+  "clips": [
+    {
+      "shot_id": "P02_ANGRY_WINDUP",
+      "files": [],
+      "reference_timestamps": [],
+      "acting_changes": [],
+      "known_anatomy_or_contact_issues": [],
+      "pose_candidates": [],
+      "gameplay_edit_proposal": null
+    }
+  ],
+  "file_fields_required": [
+    "path",
+    "sha256",
+    "dimensions",
+    "duration_or_frame_time",
+    "source_paths_and_hashes",
+    "construction_method",
+    "role_motion_reference_or_authored_candidate"
+  ],
+  "delivery_accepted": false,
+  "required_review_corrections": [
+    "Huff sub-study only, six actual seconds",
+    "Keep eyes in signed facial placement; no purple disc replacement",
+    "Visible cheek inflation followed by release",
+    "Four signed pearl forms throughout",
+    "Report exact indices and observed failures honestly"
+  ],
+  "carried_references": [
+    {
+      "shot_id": "P01_LAUGH",
+      "disposition": "preferred_motion_reference_only_not_production_accepted",
+      "source_commit": "f55d22365cd7f5380ea8d01abe471fe70399f822",
+      "path": "assets_src/characters/grand_puff_personality_returns/r02/P01_LAUGH/P01_LAUGH_study_silent.mp4",
+      "sha256": "091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f",
+      "regenerate": false
+    },
+    {
+      "shot_id": "P03_FRIENDS",
+      "disposition": "preferred_motion_reference_only_not_production_accepted",
+      "source_commit": "8dd2d96a00e7776752ef67117f5685cd7f054103",
+      "path": "assets_src/characters/grand_puff_personality_returns/r04/P03_FRIENDS/P03_FRIENDS_study_silent.mp4",
+      "sha256": "b3ec9764a76dab379cedf25d54f637043ebd4f0e6cdddb68989fe9ff80dd888f",
+      "regenerate": false,
+      "known_limits": "Approx0.76 height ratio vs proposed0.60; silhouette bottom rises20px; performance reference only, not production-ready support."
+    }
+  ]
+}

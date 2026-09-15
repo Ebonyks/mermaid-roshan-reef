@@ -1,0 +1,35 @@
+GRAND PUFF r08 COORDINATE CORRECTION — NO NEW ART
+Responds to 4e9b11a58f19896694eb68f84f823b4e164a1f05
+Source video sha256 12d6ae3dd75d331a37a964a9a031782dfb0fefa576c15740dafb692607f62231
+Canvas 1280x720, origin top-left, x right, y down.
+PNGs reused byte-identical from r07. generated_new_art=false.
+
+EYES (approximate outer eye/lid regions, not pupil centroids)
+  frame 0  (0.0s)  [523,411,587,485] / [688,411,753,486]  mean center y 448
+  frame 12 (0.5s)  [521,413,587,488] / [688,413,754,488]
+  frame 24 (1.0s)  NO BOX. Purple discs occupy the eye areas. No readable pupils.
+  frame 36 (1.5s)  [532,321,594,386] / [682,324,746,387]  mean center y 354
+  frame 60 (2.5s)  [531,318,594,389] / [682,322,747,389]
+  frame 144(6.0s)  [531,316,594,389] / [683,322,748,388]
+  SHIFT frame0 -> frame36: UP 94px (delta_y -94). Not down.
+  r07 boxes [575,268,625,312]/[655,268,705,312] lie in the crest. Retracted.
+  Do not use y290 / "stable high-face" as a target.
+
+MOUTH
+  frame 0, 12: two-tooth smile
+  frame 24: small open oval
+  frames 36, 60, 144: small closed curved line, not an open toothed mouth.
+
+PEARLS
+  Retract r07 extra floor pearl pair on 36/60/144. Those samples do not show it.
+
+CAUSE
+  Retract r07 timestamp-seek explanation. For this source, -ss vs exact-index RGB
+  matches at the sampled times. JPEG cannot turn discs into pupils.
+  Cause of the r07 semantic/coordinate error is UNKNOWN.
+
+Overlays: overlays/frame000_submitted_boxes.png (lime=submitted, red=retracted)
+          overlays/frame036_submitted_boxes.png
+These overlays are review-only, never generation input.
+
+P01 r02 / P03 r04 carried. DELIVERY_ACCEPTED false.

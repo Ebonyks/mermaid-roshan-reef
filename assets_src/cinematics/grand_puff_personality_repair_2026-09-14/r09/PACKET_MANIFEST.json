@@ -1,0 +1,713 @@
+{
+  "schema": "grand-puff-personality-archive-v1",
+  "baseline": "d64cb8a18940a7a23426f9470d0bfc597380e2de",
+  "source_return_commit": "19a805f15c60349f62a938ce107198646407df0d",
+  "payload_hash_algorithm": "SHA256 of sorted relative path + NUL + file SHA256 + LF, excluding this manifest",
+  "payload_sha256": "4c20408dd14ee74d2595de35a8f79f5831d5468f001c82edee39b28ef2413b5c",
+  "files": [
+    {
+      "path": "BOUND_REFERENCE_VERIFICATION.json",
+      "source_path": "Owner commission and current tool observations",
+      "dimensions": null,
+      "role": "handoff scheduling/input-verification metadata",
+      "modifications": "new UTF-8 LF JSON",
+      "license_provenance": "Project-authored review metadata.",
+      "used_as_generation_pixels": false,
+      "sha256": "8131193e08d26f06b3ee1d20e9976af1d41ed01c7aa12b309e957c912ba49078"
+    },
+    {
+      "path": "CARRY_FORWARD.json",
+      "source_path": "Owner commission and direct decoded review 8dd2d96a00e7776752ef67117f5685cd7f054103",
+      "role": "authored scoped review/shot instructions",
+      "modifications": "UTF-8 LF text/JSON",
+      "license_provenance": "Project-authored review metadata",
+      "used_as_generation_pixels": false,
+      "sha256": "0366cf57e0a98e4162fd8927fb8de500f6f1bb0e79b84cdc13bae37fb082d0fd",
+      "dimensions": null
+    },
+    {
+      "path": "DIRECTOR_BRIEF.txt",
+      "source_path": "Owner commission and direct decoded review 19a805f15c60349f62a938ce107198646407df0d",
+      "role": "authored scoped review/shot instructions",
+      "modifications": "UTF-8 LF text/JSON",
+      "license_provenance": "Project-authored review metadata",
+      "used_as_generation_pixels": false,
+      "sha256": "d323aff79d9de3f99ef2b3ddee14075094a078ee39b8ea55f3e2729f78463e6e",
+      "dimensions": null
+    },
+    {
+      "path": "IMAGINE_HANDOFF.json",
+      "source_path": "Owner commission and direct decoded review 19a805f15c60349f62a938ce107198646407df0d",
+      "role": "authored scoped review/shot instructions",
+      "modifications": "UTF-8 LF text/JSON",
+      "license_provenance": "Project-authored review metadata",
+      "used_as_generation_pixels": false,
+      "sha256": "4c62464b6ca82ad873993228699a97ec5bad6477047326ee25ea63594ce836b6",
+      "dimensions": null
+    },
+    {
+      "path": "MONITOR_CONTRACT.json",
+      "source_path": "Owner commission and current tool observations",
+      "dimensions": null,
+      "role": "handoff scheduling/input-verification metadata",
+      "modifications": "new UTF-8 LF JSON",
+      "license_provenance": "Project-authored review metadata.",
+      "used_as_generation_pixels": false,
+      "sha256": "a8844cb2df496d2dfd458808802107bb28e5a50a2200c1f2d8ffc2b8b079e1d5"
+    },
+    {
+      "path": "RETURN_TEMPLATE.json",
+      "source_path": "Owner commission and direct decoded review 19a805f15c60349f62a938ce107198646407df0d",
+      "role": "authored scoped review/shot instructions",
+      "modifications": "UTF-8 LF text/JSON",
+      "license_provenance": "Project-authored review metadata",
+      "used_as_generation_pixels": false,
+      "sha256": "065c8937325e0137e330e73b2818be2a4844ae8cfe566bfcacec4a3e596e2025",
+      "dimensions": null
+    },
+    {
+      "path": "REVIEW_R08.txt",
+      "source_path": "Owner commission and direct decoded review 19a805f15c60349f62a938ce107198646407df0d",
+      "role": "authored scoped review/shot instructions",
+      "modifications": "UTF-8 LF text/JSON",
+      "license_provenance": "Project-authored review metadata",
+      "used_as_generation_pixels": false,
+      "sha256": "1e78a561f8c273e460fede6aabdb751d58323b1d5e5d01a6a81129652d2f6c5b",
+      "dimensions": null
+    },
+    {
+      "path": "START_HERE.txt",
+      "source_path": "Owner commission and direct decoded review 19a805f15c60349f62a938ce107198646407df0d",
+      "role": "authored scoped review/shot instructions",
+      "modifications": "UTF-8 LF text/JSON",
+      "license_provenance": "Project-authored review metadata",
+      "used_as_generation_pixels": false,
+      "sha256": "f53cc3e1bb84e2054ca39dad4d25e520348e3d892d6b952f2f74a0f8f42b248b",
+      "dimensions": null
+    },
+    {
+      "path": "boards/ALL_THREE_STUDIES.jpg",
+      "source_path": [
+        "boards/P01_LAUGH_comparison.jpg",
+        "boards/P02_ANGRY_WINDUP_comparison.jpg",
+        "boards/P03_FRIENDS_comparison.jpg"
+      ],
+      "sha256": "51f73f32bed2e522fe38be0d48e2a47f6f7dcc2da4281ffe7090b94e64f983b3",
+      "dimensions": [
+        1440,
+        2040
+      ],
+      "role": "non-generation complete three-shot comparison board",
+      "modifications": "vertical arrangement of packet comparison boards",
+      "license_provenance": "Same commissioned source terms.",
+      "used_as_generation_pixels": false,
+      "source_sha256": [
+        "3f224ddc42a1caf52d9f5c5016337d34715fd8ddba2a52f4681e4a5aba8373c0",
+        "e79bd08a60362d2b9acefe847049ee904c9f9cebc9e9620e0bdda4cd32d77fd9",
+        "e58f4bf3203a89346996665bd27b96bad15ec49f9e60fbfa19841c203c3e2c05"
+      ]
+    },
+    {
+      "path": "boards/P01_LAUGH_comparison.jpg",
+      "source_path": [
+        "assets_src/characters/grand_puff_2026-09-13/mp4/GP03_laugh_vulnerable.mp4",
+        "assets_src/characters/grand_puff_aseprite_2026-09-14/grand_puff_actions.aseprite"
+      ],
+      "source_sha256": [
+        "61316c35783030115a50bad071b709a7667886941f4d9ffa7c85d51a1d003ee6",
+        "7661d11b79b99c331bef264c2c3b9261f835f6fb8d199ff89f8f2e098f92d5d0"
+      ],
+      "sha256": "3f224ddc42a1caf52d9f5c5016337d34715fd8ddba2a52f4681e4a5aba8373c0",
+      "dimensions": [
+        1440,
+        680
+      ],
+      "role": "non-generation acting comparison / beat coverage",
+      "modifications": "six editorial MP4 samples at 0..5 seconds; six native Aseprite exports at evenly distributed state indices; resized and labelled for analysis only",
+      "license_provenance": "Same commissioned source project terms; comparison layout by Codex.",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "boards/P02_ANGRY_WINDUP_comparison.jpg",
+      "source_path": [
+        "assets_src/characters/grand_puff_2026-09-13/mp4/GP07_angry.mp4",
+        "assets_src/characters/grand_puff_aseprite_2026-09-14/grand_puff_actions.aseprite"
+      ],
+      "source_sha256": [
+        "c4b6d5b6e3c61f349412bbe41e07677c210999e0981903ee456136d9f6e6df3b",
+        "7661d11b79b99c331bef264c2c3b9261f835f6fb8d199ff89f8f2e098f92d5d0"
+      ],
+      "sha256": "e79bd08a60362d2b9acefe847049ee904c9f9cebc9e9620e0bdda4cd32d77fd9",
+      "dimensions": [
+        1440,
+        680
+      ],
+      "role": "non-generation acting comparison / beat coverage",
+      "modifications": "six editorial MP4 samples at 0..5 seconds; six native Aseprite exports at evenly distributed state indices; resized and labelled for analysis only",
+      "license_provenance": "Same commissioned source project terms; comparison layout by Codex.",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "boards/P03_FRIENDS_comparison.jpg",
+      "source_path": [
+        "assets_src/characters/grand_puff_2026-09-13/mp4/GP09_friends.mp4",
+        "assets_src/characters/grand_puff_aseprite_2026-09-14/grand_puff_actions.aseprite"
+      ],
+      "source_sha256": [
+        "fde0742ac16bb9619468e9d2ed589ed66bae71d524199540a3cea7f5b99707d6",
+        "7661d11b79b99c331bef264c2c3b9261f835f6fb8d199ff89f8f2e098f92d5d0"
+      ],
+      "sha256": "e58f4bf3203a89346996665bd27b96bad15ec49f9e60fbfa19841c203c3e2c05",
+      "dimensions": [
+        1440,
+        680
+      ],
+      "role": "non-generation acting comparison / beat coverage",
+      "modifications": "six editorial MP4 samples at 0..5 seconds; six native Aseprite exports at evenly distributed state indices; resized and labelled for analysis only",
+      "license_provenance": "Same commissioned source project terms; comparison layout by Codex.",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "carried/P01_LAUGH_study_silent.mp4",
+      "source_path": "assets_src/characters/grand_puff_personality_returns/r02/P01_LAUGH/P01_LAUGH_study_silent.mp4",
+      "source_commit": "f55d22365cd7f5380ea8d01abe471fe70399f822",
+      "source_sha256": "091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f",
+      "role": "preferred_motion_reference_only_not_production_accepted",
+      "modifications": "byte-identical canonical source",
+      "license_provenance": "Owner-commissioned Grok motion reference",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f"
+    },
+    {
+      "path": "carried/P03_FRIENDS_study_silent.mp4",
+      "source_path": "assets_src/characters/grand_puff_personality_returns/r04/P03_FRIENDS/P03_FRIENDS_study_silent.mp4",
+      "source_commit": "8dd2d96a00e7776752ef67117f5685cd7f054103",
+      "source_sha256": "b3ec9764a76dab379cedf25d54f637043ebd4f0e6cdddb68989fe9ff80dd888f",
+      "role": "preferred_motion_reference_only_not_production_accepted",
+      "modifications": "byte-identical canonical source",
+      "license_provenance": "Owner-commissioned Grok motion reference",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "b3ec9764a76dab379cedf25d54f637043ebd4f0e6cdddb68989fe9ff80dd888f"
+    },
+    {
+      "path": "context/DIRECTOR_REVIEW.txt",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/grok_signed/DIRECTOR_REVIEW.txt",
+      "source_sha256": "db49c49180ff730dcdee33a5809f6abc85775853e4a3b95edc1ace7c97454937",
+      "sha256": "db49c49180ff730dcdee33a5809f6abc85775853e4a3b95edc1ace7c97454937",
+      "dimensions": null,
+      "role": "historical_signed_return",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "context/HISTORICAL_TECHNICAL_CONTRACT.txt",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/TECHNICAL_SHEET_CONTRACT.txt",
+      "source_sha256": "74cc42789fe9328138a8bbf187424d5a43315a89ab1d1d016ae673af6a37cd5c",
+      "sha256": "74cc42789fe9328138a8bbf187424d5a43315a89ab1d1d016ae673af6a37cd5c",
+      "dimensions": null,
+      "role": "historical_proposal; current brief resolves sparkle and timing scope",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "context/IDENTITY_SIGNATURE.txt",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/grok_signed/IDENTITY_SIGNATURE.txt",
+      "source_sha256": "3a5b8a767abec5076455369d2cc4218a12cc0cadf2f93c35e16a0f02ad75ecc6",
+      "sha256": "3a5b8a767abec5076455369d2cc4218a12cc0cadf2f93c35e16a0f02ad75ecc6",
+      "dimensions": null,
+      "role": "historical_signed_return",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "motion_references/GP03_laugh_vulnerable.mp4",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/mp4/GP03_laugh_vulnerable.mp4",
+      "source_sha256": "61316c35783030115a50bad071b709a7667886941f4d9ffa7c85d51a1d003ee6",
+      "sha256": "61316c35783030115a50bad071b709a7667886941f4d9ffa7c85d51a1d003ee6",
+      "dimensions": [
+        944,
+        944
+      ],
+      "role": "original acting reference; known anatomy drift, never final pixels",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "duration_seconds": 6.041667,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "motion_references/GP07_angry.mp4",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/mp4/GP07_angry.mp4",
+      "source_sha256": "c4b6d5b6e3c61f349412bbe41e07677c210999e0981903ee456136d9f6e6df3b",
+      "sha256": "c4b6d5b6e3c61f349412bbe41e07677c210999e0981903ee456136d9f6e6df3b",
+      "dimensions": [
+        944,
+        944
+      ],
+      "role": "original acting reference; known anatomy drift, never final pixels",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "duration_seconds": 6.041667,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "motion_references/GP09_friends.mp4",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/mp4/GP09_friends.mp4",
+      "source_sha256": "fde0742ac16bb9619468e9d2ed589ed66bae71d524199540a3cea7f5b99707d6",
+      "sha256": "fde0742ac16bb9619468e9d2ed589ed66bae71d524199540a3cea7f5b99707d6",
+      "dimensions": [
+        944,
+        944
+      ],
+      "role": "original acting reference; known anatomy drift, never final pixels",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "duration_seconds": 6.041667,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "references/back.jpg",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/grok_signed/grand_puff_back.jpg",
+      "source_sha256": "f03fb293f681bbb941738c8b50b509482760c74f1cb3bb829f22f008a9251f7c",
+      "sha256": "f03fb293f681bbb941738c8b50b509482760c74f1cb3bb829f22f008a9251f7c",
+      "dimensions": [
+        1408,
+        1408
+      ],
+      "role": "archive_turnaround",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "references/front.jpg",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/grok_signed/grand_puff_signed_identity.jpg",
+      "source_sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664",
+      "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664",
+      "dimensions": [
+        1408,
+        1408
+      ],
+      "role": "bound_clean_first_frame_and_identity",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": true,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "references/profile.jpg",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/grok_signed/grand_puff_profile.jpg",
+      "source_sha256": "5941f10f7211a61a6457271213207e01bd5567381a2a29167855ae0b72db9089",
+      "sha256": "5941f10f7211a61a6457271213207e01bd5567381a2a29167855ae0b72db9089",
+      "dimensions": [
+        1408,
+        1408
+      ],
+      "role": "bound_subject_identity",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": true,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "rejected_candidate/CLIP_CONTRACT.json",
+      "source_path": "assets_src/characters/grand_puff_aseprite_2026-09-14/CLIP_CONTRACT.json",
+      "source_sha256": "e1080e779148554e534abc9fce8a624e96e8e12e64bb4cea993bbf053ae357cc",
+      "sha256": "e1080e779148554e534abc9fce8a624e96e8e12e64bb4cea993bbf053ae357cc",
+      "dimensions": null,
+      "role": "rejected_motion_timing; not new timing authority",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "rejected_candidate/all_actions_review.mp4",
+      "source_path": "assets_src/characters/grand_puff_aseprite_2026-09-14/previews/all_actions_review.mp4",
+      "source_sha256": "a7500cdf11ece4d6f7031daab1655316fd6714ecb3156ec379b3757baad211f6",
+      "sha256": "a7500cdf11ece4d6f7031daab1655316fd6714ecb3156ec379b3757baad211f6",
+      "dimensions": [
+        768,
+        600
+      ],
+      "role": "rejected_motion_baseline; never generation pixels",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "duration_seconds": 18.666667,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "rejected_candidate/angry.gif",
+      "source_path": "assets_src/characters/grand_puff_aseprite_2026-09-14/previews/angry.gif",
+      "source_sha256": "457841148dff170d33bacd2776101d56e873c46e27acd21c181c59ef019fc99a",
+      "sha256": "457841148dff170d33bacd2776101d56e873c46e27acd21c181c59ef019fc99a",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "rejected_motion_baseline; never generation pixels",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "rejected_candidate/friends.gif",
+      "source_path": "assets_src/characters/grand_puff_aseprite_2026-09-14/previews/friends.gif",
+      "source_sha256": "4b08f505c4df29660d3eefdc357ff1ce80cca3eacab0ac35bf99c80a819a0d76",
+      "sha256": "4b08f505c4df29660d3eefdc357ff1ce80cca3eacab0ac35bf99c80a819a0d76",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "rejected_motion_baseline; never generation pixels",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "rejected_candidate/grand_puff_actions.aseprite",
+      "source_path": "assets_src/characters/grand_puff_aseprite_2026-09-14/grand_puff_actions.aseprite",
+      "source_sha256": "7661d11b79b99c331bef264c2c3b9261f835f6fb8d199ff89f8f2e098f92d5d0",
+      "sha256": "7661d11b79b99c331bef264c2c3b9261f835f6fb8d199ff89f8f2e098f92d5d0",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "rejected_motion_baseline; editable organization only",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "frame_count": 105,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "rejected_candidate/laugh_vulnerable.gif",
+      "source_path": "assets_src/characters/grand_puff_aseprite_2026-09-14/previews/laugh_vulnerable.gif",
+      "source_sha256": "acd6ca26c246c9a3ca95113c9700193c8c8dd193895fe43d3361da968fff5d08",
+      "sha256": "acd6ca26c246c9a3ca95113c9700193c8c8dd193895fe43d3361da968fff5d08",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "rejected_motion_baseline; never generation pixels",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "returned_r08/ACTING_COMPARISON.txt",
+      "source_path": "assets_src/characters/grand_puff_personality_returns/r08/ACTING_COMPARISON.txt",
+      "source_commit": "19a805f15c60349f62a938ce107198646407df0d",
+      "source_sha256": "1a082d444699af20047c5234b22693da173b0f31030b7513353e47f242094d73",
+      "role": "unaccepted external motion/pose/review source",
+      "modifications": "byte-identical Git source",
+      "license_provenance": "Owner-commissioned Grok reference; method declared externally, no delivery acceptance",
+      "used_as_generation_pixels": false,
+      "sha256": "1a082d444699af20047c5234b22693da173b0f31030b7513353e47f242094d73",
+      "dimensions": null
+    },
+    {
+      "path": "returned_r08/GROK_RETURN.txt",
+      "source_path": "assets_src/characters/grand_puff_personality_returns/r08/GROK_RETURN.txt",
+      "source_commit": "19a805f15c60349f62a938ce107198646407df0d",
+      "source_sha256": "c6e31fe24d91b241491e178c6becbfbafee98b1560bd0cdc26bc76d7017c3b86",
+      "role": "unaccepted external motion/pose/review source",
+      "modifications": "byte-identical Git source",
+      "license_provenance": "Owner-commissioned Grok reference; method declared externally, no delivery acceptance",
+      "used_as_generation_pixels": false,
+      "sha256": "c6e31fe24d91b241491e178c6becbfbafee98b1560bd0cdc26bc76d7017c3b86",
+      "dimensions": null
+    },
+    {
+      "path": "returned_r08/RETURN_MANIFEST.json",
+      "source_path": "assets_src/characters/grand_puff_personality_returns/r08/RETURN_MANIFEST.json",
+      "source_commit": "19a805f15c60349f62a938ce107198646407df0d",
+      "source_sha256": "7cd244d84578c1015a87dfef59336f52937e33b28cf477f6256229cc92a2e0ab",
+      "role": "unaccepted external motion/pose/review source",
+      "modifications": "byte-identical Git source",
+      "license_provenance": "Owner-commissioned Grok reference; method declared externally, no delivery acceptance",
+      "used_as_generation_pixels": false,
+      "sha256": "7cd244d84578c1015a87dfef59336f52937e33b28cf477f6256229cc92a2e0ab",
+      "dimensions": null
+    },
+    {
+      "path": "returned_r08/frames/frame_000.png",
+      "source_path": "assets_src/characters/grand_puff_personality_returns/r08/frames/frame_000.png",
+      "source_commit": "19a805f15c60349f62a938ce107198646407df0d",
+      "source_sha256": "4f77540cbbdba2b788229e2ed411458ae1a3df92731c27f7e6b63ac86454aadc",
+      "role": "unaccepted external motion/pose/review source",
+      "modifications": "byte-identical Git source",
+      "license_provenance": "Owner-commissioned Grok reference; method declared externally, no delivery acceptance",
+      "used_as_generation_pixels": false,
+      "sha256": "4f77540cbbdba2b788229e2ed411458ae1a3df92731c27f7e6b63ac86454aadc",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "returned_r08/frames/frame_012.png",
+      "source_path": "assets_src/characters/grand_puff_personality_returns/r08/frames/frame_012.png",
+      "source_commit": "19a805f15c60349f62a938ce107198646407df0d",
+      "source_sha256": "1dba1a7da44ba950cd4ffaf513a7136ef25123d8ffe7c91a8792e164872efa3b",
+      "role": "unaccepted external motion/pose/review source",
+      "modifications": "byte-identical Git source",
+      "license_provenance": "Owner-commissioned Grok reference; method declared externally, no delivery acceptance",
+      "used_as_generation_pixels": false,
+      "sha256": "1dba1a7da44ba950cd4ffaf513a7136ef25123d8ffe7c91a8792e164872efa3b",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "returned_r08/frames/frame_024.png",
+      "source_path": "assets_src/characters/grand_puff_personality_returns/r08/frames/frame_024.png",
+      "source_commit": "19a805f15c60349f62a938ce107198646407df0d",
+      "source_sha256": "60f6fd15607cc9e701741c4473b39ef66ad44e143cc4ac479e6f69209ce52436",
+      "role": "unaccepted external motion/pose/review source",
+      "modifications": "byte-identical Git source",
+      "license_provenance": "Owner-commissioned Grok reference; method declared externally, no delivery acceptance",
+      "used_as_generation_pixels": false,
+      "sha256": "60f6fd15607cc9e701741c4473b39ef66ad44e143cc4ac479e6f69209ce52436",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "returned_r08/frames/frame_036.png",
+      "source_path": "assets_src/characters/grand_puff_personality_returns/r08/frames/frame_036.png",
+      "source_commit": "19a805f15c60349f62a938ce107198646407df0d",
+      "source_sha256": "4d369246c58df9e8db0eb59f430199315966962fc7dab0c675a5c0f4f7b2c3bd",
+      "role": "unaccepted external motion/pose/review source",
+      "modifications": "byte-identical Git source",
+      "license_provenance": "Owner-commissioned Grok reference; method declared externally, no delivery acceptance",
+      "used_as_generation_pixels": false,
+      "sha256": "4d369246c58df9e8db0eb59f430199315966962fc7dab0c675a5c0f4f7b2c3bd",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "returned_r08/frames/frame_060.png",
+      "source_path": "assets_src/characters/grand_puff_personality_returns/r08/frames/frame_060.png",
+      "source_commit": "19a805f15c60349f62a938ce107198646407df0d",
+      "source_sha256": "01f32bf834e1ef54378c3dcc4d0f90fc0cf827cdf3fc605d0e3337e624cc63fa",
+      "role": "unaccepted external motion/pose/review source",
+      "modifications": "byte-identical Git source",
+      "license_provenance": "Owner-commissioned Grok reference; method declared externally, no delivery acceptance",
+      "used_as_generation_pixels": false,
+      "sha256": "01f32bf834e1ef54378c3dcc4d0f90fc0cf827cdf3fc605d0e3337e624cc63fa",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "returned_r08/frames/frame_144.png",
+      "source_path": "assets_src/characters/grand_puff_personality_returns/r08/frames/frame_144.png",
+      "source_commit": "19a805f15c60349f62a938ce107198646407df0d",
+      "source_sha256": "997bcccfe06707723bf105963949e34dd13f2571ea2af94a0ca0cf2083d137a9",
+      "role": "unaccepted external motion/pose/review source",
+      "modifications": "byte-identical Git source",
+      "license_provenance": "Owner-commissioned Grok reference; method declared externally, no delivery acceptance",
+      "used_as_generation_pixels": false,
+      "sha256": "997bcccfe06707723bf105963949e34dd13f2571ea2af94a0ca0cf2083d137a9",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "returned_r08/overlays/frame000_frame036_submitted_boxes.png",
+      "source_path": "assets_src/characters/grand_puff_personality_returns/r08/overlays/frame000_frame036_submitted_boxes.png",
+      "source_commit": "19a805f15c60349f62a938ce107198646407df0d",
+      "source_sha256": "3ed1d13122ff91dce8176dc57b5c11410776cfbda05006967ae0a0546aea6650",
+      "role": "unaccepted external motion/pose/review source",
+      "modifications": "byte-identical Git source",
+      "license_provenance": "Owner-commissioned Grok reference; method declared externally, no delivery acceptance",
+      "used_as_generation_pixels": false,
+      "sha256": "3ed1d13122ff91dce8176dc57b5c11410776cfbda05006967ae0a0546aea6650",
+      "dimensions": [
+        1280,
+        1476
+      ]
+    },
+    {
+      "path": "returned_r08/overlays/frame000_submitted_boxes.png",
+      "source_path": "assets_src/characters/grand_puff_personality_returns/r08/overlays/frame000_submitted_boxes.png",
+      "source_commit": "19a805f15c60349f62a938ce107198646407df0d",
+      "source_sha256": "492f2d34821fd2f662c0f2d35ee31c079b0ea2a1c33a5de292aebae426cb787b",
+      "role": "unaccepted external motion/pose/review source",
+      "modifications": "byte-identical Git source",
+      "license_provenance": "Owner-commissioned Grok reference; method declared externally, no delivery acceptance",
+      "used_as_generation_pixels": false,
+      "sha256": "492f2d34821fd2f662c0f2d35ee31c079b0ea2a1c33a5de292aebae426cb787b",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "returned_r08/overlays/frame036_submitted_boxes.png",
+      "source_path": "assets_src/characters/grand_puff_personality_returns/r08/overlays/frame036_submitted_boxes.png",
+      "source_commit": "19a805f15c60349f62a938ce107198646407df0d",
+      "source_sha256": "4074bf486393b681b270b0181a9e5bf56caa3effa92b81787e6bc5e6959e6ec5",
+      "role": "unaccepted external motion/pose/review source",
+      "modifications": "byte-identical Git source",
+      "license_provenance": "Owner-commissioned Grok reference; method declared externally, no delivery acceptance",
+      "used_as_generation_pixels": false,
+      "sha256": "4074bf486393b681b270b0181a9e5bf56caa3effa92b81787e6bc5e6959e6ec5",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "review/VERIFICATION.json",
+      "source_path": "19a805f15c60349f62a938ce107198646407df0d",
+      "role": "analytical decoded video evidence, never generation input",
+      "modifications": "FFmpeg exact decode; fixed-scale timestamp board or labelled source/detail crop comparison; JSON declares measurement method. All full frames preserved in returned MP4.",
+      "license_provenance": "Project-authored review of commissioned sources",
+      "used_as_generation_pixels": false,
+      "sha256": "254fad95ca377bfcbfac0e5df3fd6d4bce03f29f13343cfddc91189c764c8ca7",
+      "dimensions": null
+    },
+    {
+      "path": "runtime_context/arena.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/references/arena.png",
+      "source_sha256": "a6f4bb59df43e63cedbf9a164526475b91985c85c73cac7e061f830d60ef4122",
+      "sha256": "a6f4bb59df43e63cedbf9a164526475b91985c85c73cac7e061f830d60ef4122",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "role": "archive_only_runtime_background_character_or_effect; never generation pixels",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "runtime_context/counter_star.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/references/counter_star.png",
+      "source_sha256": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+      "sha256": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+      "dimensions": [
+        128,
+        128
+      ],
+      "role": "archive_only_runtime_background_character_or_effect; never generation pixels",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "runtime_context/dust_puff.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/references/dust_puff.png",
+      "source_sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+      "sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "archive_only_runtime_background_character_or_effect; never generation pixels",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "runtime_context/hall_runtime_1280.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/runtime/hall_runtime_1280.png",
+      "source_sha256": "60c0942dda078bf8c707db17aeeee7caf5e1f8c52f1ee2667bf13124fcfb78d2",
+      "sha256": "60c0942dda078bf8c707db17aeeee7caf5e1f8c52f1ee2667bf13124fcfb78d2",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "role": "archive_only_actual_room_and_boundary; never generation pixels",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "runtime_context/roshan_base.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/references/roshan_base.png",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "archive_only_runtime_background_character_or_effect; never generation pixels",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "runtime_context/soap_bubbles.png",
+      "source_path": "assets_src/characters/grand_puff_2026-09-13/references/soap_bubbles.png",
+      "source_sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "archive_only_runtime_background_character_or_effect; never generation pixels",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
+      "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
+    },
+    {
+      "path": "shots/P02_ANGRY_WINDUP/PROMPT.txt",
+      "source_path": "Owner commission and direct decoded review 19a805f15c60349f62a938ce107198646407df0d",
+      "role": "authored scoped review/shot instructions",
+      "modifications": "UTF-8 LF text/JSON",
+      "license_provenance": "Project-authored review metadata",
+      "used_as_generation_pixels": false,
+      "sha256": "2cd024fbde04cd3b028da05a11785cb977d7978b2062b1288c61826f9ffb6a5d",
+      "dimensions": null
+    },
+    {
+      "path": "shots/P02_ANGRY_WINDUP/SHOT_PACKET.json",
+      "source_path": "Owner commission and direct decoded review 19a805f15c60349f62a938ce107198646407df0d",
+      "role": "authored scoped review/shot instructions",
+      "modifications": "UTF-8 LF text/JSON",
+      "license_provenance": "Project-authored review metadata",
+      "used_as_generation_pixels": false,
+      "sha256": "8a56187d56edcbbd7b4c86db84c40515880da2b9764c71fb756d0adf1a400c99",
+      "dimensions": null
+    }
+  ],
+  "archive_complete": false,
+  "generation_ready": true,
+  "delivery_accepted": false
+}
