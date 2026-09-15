@@ -1,0 +1,41 @@
+{
+  "schema": "builder-shot-planning-v1",
+  "shot_id": "SHOT-TEAM-WEB",
+  "status": "DRAFT",
+  "event_id": "EV-D1-TEAM",
+  "template": "evidence/IMAGINE_SHOT_CARD_V1.txt",
+  "duration_seconds": 4,
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "path": null,
+      "role": "approved complete first frame",
+      "human_review": null
+    }
+  ],
+  "reference_pool_ids": [
+    "REF-7e77e4c29bbbdcaf",
+    "REF-69827625a8a795f1",
+    "REF-2eda6f76760b8598",
+    "REF-636ec38fd0e01d47",
+    "REF-da8ead4677192ef4",
+    "REF-e488d7c300eff116"
+  ],
+  "binding_note": "Select 1\u20133 additional identity/material images only after complete ensemble opening review; pool is not bound automatically.",
+  "beats": [
+    "Hall still dirty",
+    "Duster contacts and gathers web in actual hall.",
+    "This local cleanup target complete; other unfinished targets remain"
+  ],
+  "camera": "locked",
+  "end_state": "This local cleanup target complete; other unfinished targets remain",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false
+}

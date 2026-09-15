@@ -1,0 +1,37 @@
+{
+  "schema": "builder-shot-planning-v1",
+  "shot_id": "SHOT-BATH-SINK",
+  "status": "DRAFT",
+  "event_id": "EV-D1-BATH",
+  "template": "evidence/IMAGINE_SHOT_CARD_V1.txt",
+  "duration_seconds": 4,
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "path": null,
+      "role": "approved complete first frame",
+      "human_review": null
+    }
+  ],
+  "reference_pool_ids": [
+    "REF-3ecd80b1be8444ae",
+    "REF-69827625a8a795f1"
+  ],
+  "binding_note": "Select 1\u20133 additional identity/material images only after complete ensemble opening review; pool is not bound automatically.",
+  "beats": [
+    "Correct sink fixture/task pending; prior completed surfaces remain clean",
+    "Scrub central sink in circles; contact reveals clean patch.",
+    "sink task visibly complete; other unfinished bathroom tasks remain"
+  ],
+  "camera": "locked",
+  "end_state": "sink task visibly complete; other unfinished bathroom tasks remain",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false
+}

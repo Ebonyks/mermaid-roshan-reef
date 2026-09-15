@@ -1,0 +1,37 @@
+{
+  "schema": "builder-shot-planning-v1",
+  "shot_id": "SHOT-CRAFT-SCRUB-1",
+  "status": "DRAFT",
+  "event_id": "EV-D1-ARTCLEAN",
+  "template": "evidence/IMAGINE_SHOT_CARD_V1.txt",
+  "duration_seconds": 4,
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "path": null,
+      "role": "approved complete first frame",
+      "human_review": null
+    }
+  ],
+  "reference_pool_ids": [
+    "REF-916522a6fab66918",
+    "REF-69827625a8a795f1"
+  ],
+  "binding_note": "Select 1\u20133 additional identity/material images only after complete ensemble opening review; pool is not bound automatically.",
+  "beats": [
+    "Four supplies collected; 0 of three grime surfaces clean",
+    "Scrub left curved counter; contact removes grime and clean area persists.",
+    "1 surfaces clean; earlier clean areas persist; remaining grime stays"
+  ],
+  "camera": "locked",
+  "end_state": "1 surfaces clean; earlier clean areas persist; remaining grime stays",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false
+}

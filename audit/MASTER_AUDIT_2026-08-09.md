@@ -72,6 +72,8 @@ Scoped Day One usability repairs (2026-09-12): [impact and evidence](../design/a
 [Executive verdict](#1-executive-verdict) · [Superseded design choices](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#15-explicitly-superseded-dismissed-and-deferred-ideas) · [Canonical finding schema](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#17-finding-record-fields)
 Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026-09-09.md), [protocol](../design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md), and [impact](../design/audit_impacts/grok-handoff-2-20260909.json). External motion-reference repairs do not close live visual findings or delivery gates.
 
+Scoped Grok builder consolidation (2026-09-14): [single project database](../assets_src/cinematics/grok_builder_2026-09-14/README.md) and [impact](../design/audit_impacts/grok-builder-20260914.json). Character/location/event state and missing-shot planning are unified; MA-VIS-006 and all cinematic delivery gates remain open.
+
 <!-- AUDIT_TASK_INDEX_END -->
 
 Scoped Roshan motion-reference study (2026-09-12): [eight-sample Grok archive](../assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/README.md) and [impact](../design/audit_impacts/2026-09-12-roshan-grok-auditions.json) extend the character animation branch. Candidate selection, opening approval, archive publication and generated delivery remain separate; `MA-VIS-006` is not closed.

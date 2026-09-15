@@ -1,0 +1,65 @@
+{
+  "authority": "Owner rejected current Eagle reference in this task; original protected book art is the available identity comparison source, not an invented approval of generated replacements",
+  "reference": "references/baby_eagle_original_book.png",
+  "reference_sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+  "reference_limit": "Original is 296x508 and partly occluded by a backpack. Do not invent unseen anatomy; no clean free-standing opening is approved. A generated unobscured candidate needs owner/human review.",
+  "identity_invariants": [
+    "original book body and neck proportions; no squat mascot redesign",
+    "soft turquoise/mint scalloped feathers with pastel transitions, not saturated armor-like scales",
+    "yellow eye patch, pink three-lobed crest, glossy blue eyes and authored lashes",
+    "lavender beak base and black hooked tip, not an all-black oversized beak",
+    "pink wings with broad black outer tips; exactly two wings",
+    "soft silver-grey legs with broad rounded plush toe silhouettes; no newly sharpened black talons",
+    "backpack is incidental to the original crop and must not be added to these films"
+  ],
+  "rejected_references": [
+    "evidence/rejected_identity/90c54412aa_baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+    "evidence/rejected_identity/dab2d2cd9c_baby_eagle_pinned_BABY_EAGLE_PINNED_STATE.png"
+  ],
+  "observations": [
+    {
+      "frames": [
+        1730
+      ],
+      "finding": "Pinned Eagle has spread silver claw-like digits beside the face rather than the book’s rounded plush foot silhouette; retain two-pin story, replace identity."
+    },
+    {
+      "frames": [
+        1810,
+        1880
+      ],
+      "finding": "Recovered Eagle follows the squat redraw and pointed dark talons; elevated wing frame adds broad cyan inner-wing bands. Preserve recovery action but repair book identity."
+    },
+    {
+      "frames": [
+        2350,
+        2440,
+        2700
+      ],
+      "finding": "Later Eagle becomes a small saturated mascot with short body/neck, bright yellow breast and pointed toes; carry the same corrected book identity into the group shots."
+    },
+    {
+      "frames": [
+        2980
+      ],
+      "finding": "Group wide uses an oversized round head and reduced body; source scale limits detail review, so identity must be checked on the replacement opening."
+    },
+    {
+      "frames": [
+        3120
+      ],
+      "finding": "Final Daddy/Roshan hug contains no Eagle; no Eagle repair needed there."
+    }
+  ],
+  "repair_jobs": [
+    "R09",
+    "R10",
+    "R11",
+    "R13",
+    "R15",
+    "R16",
+    "R17",
+    "R18"
+  ],
+  "acceptance": "SPECIFIED_NOT_GENERATED; per-frame identity/topology review remains required; no human acceptance fabricated"
+}

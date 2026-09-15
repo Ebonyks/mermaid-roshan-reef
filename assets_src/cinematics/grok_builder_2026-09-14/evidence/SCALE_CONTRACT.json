@@ -1,0 +1,92 @@
+{
+  "schema": "chapter2-scale-v2",
+  "status": "implemented_alpha_candidate_owner_review_pending",
+  "units": "1280x720 logical canvas pixels; alpha greater than 0.125; preserve aspect ratio",
+  "background": {
+    "source": "references/lawn.png",
+    "native_dimensions": [
+      6144,
+      2048
+    ],
+    "runtime_crop": "middle 2048x2048 playable screen; four 1024 tiles at 0.625 scale, y=-340",
+    "camera_rule": "Keep the same lawn patch and landmark order. Never squeeze the complete 3:1 panorama into a 16:9 frame. Distant hillside cabin is not a foreground size ruler."
+  },
+  "cast": {
+    "roshan": {
+      "visible_height": 215,
+      "canvas_size": [
+        256,
+        256
+      ],
+      "story_ground_y": 560
+    },
+    "ember_king": {
+      "visible_height": 288,
+      "source_alpha_bounds": [
+        10,
+        10,
+        737,
+        807
+      ],
+      "story_ground_y": 560
+    },
+    "ember_prince": {
+      "visible_height": 230.4,
+      "king_height_ratio": 0.8,
+      "source_region": [
+        56,
+        75,
+        144,
+        301
+      ],
+      "story_ground_y": 560
+    }
+  },
+  "ratios": {
+    "king_to_roshan": 1.3395348837209302,
+    "prince_to_roshan": 1.0716279069767443,
+    "prince_to_king": 0.8
+  },
+  "scale_authority": "Prince/King 0.8 from approved historical identity card. King/Roshan ratio is this owner-commissioned staging refinement, not newly invented historical canon.",
+  "props": {
+    "candle_frame_size": [
+      64,
+      90
+    ],
+    "same_size_on_cake_and_in_kings_hand": true,
+    "cake": "one unchanged six-tier, five-berry master",
+    "rocket_frame": [
+      480,
+      422,
+      140,
+      145
+    ],
+    "button_source_pixel": [
+      256,
+      168
+    ],
+    "button_canvas": [
+      550,
+      470.4375
+    ],
+    "final_reach_fingertip_local": [
+      16,
+      77
+    ]
+  },
+  "before": {
+    "king_visible_height": 321.92166462668297,
+    "roshan_visible_height": 151.171875,
+    "king_to_roshan": 2.1295076523108745,
+    "candle_frame_height": 148
+  },
+  "forbidden": [
+    "Character-dependent zoom between shots",
+    "King V6 fringe or redesign",
+    "Making Prince stocky",
+    "Using unaccepted C2-02 candidates 01-06 as scale authority",
+    "Changing cake tiers or strawberries",
+    "Using gameplay captures or diagram pixels as cinematic generation bindings"
+  ],
+  "acceptance": "Geometry and desktop Mobile review are evidence only; owner, child, device and clean cinematic first-frame review remain open."
+}

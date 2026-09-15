@@ -1,0 +1,37 @@
+{
+  "schema": "builder-shot-planning-v1",
+  "shot_id": "SHOT-CRAFT-PICK-4",
+  "status": "DRAFT",
+  "event_id": "EV-D1-SUPPLIES",
+  "template": "evidence/IMAGINE_SHOT_CARD_V1.txt",
+  "duration_seconds": 3,
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "path": null,
+      "role": "approved complete first frame",
+      "human_review": null
+    }
+  ],
+  "reference_pool_ids": [
+    "REF-916522a6fab66918",
+    "REF-69827625a8a795f1"
+  ],
+  "binding_note": "Select 1\u20133 additional identity/material images only after complete ensemble opening review; pool is not bound automatically.",
+  "beats": [
+    "3 of four supply groups collected; remaining supplies and rear table unchanged",
+    "Collect paint cups with visible hand contact; other supplies and rear worktable persist.",
+    "4 of four supply groups collected; all furniture and other props persist"
+  ],
+  "camera": "locked",
+  "end_state": "4 of four supply groups collected; all furniture and other props persist",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false
+}

@@ -1,3 +1,5 @@
+> **Current builder entry:** [Unified project database](../../assets_src/cinematics/grok_builder_2026-09-14/README.md). Use it for shared character, location, event and shot state. This earlier packet remains scoped historical/reference evidence; its conflicting instructions do not override the consolidated owner corrections.
+
 # Mermaid Roshan — Grok handoff project
 
 ## Chapter 2: Sky Lagoon birthday and candle theft

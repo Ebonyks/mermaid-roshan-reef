@@ -1,0 +1,42 @@
+{
+  "schema": "builder-shot-planning-v1",
+  "shot_id": "SHOT-BUNNY-JUMP",
+  "status": "DRAFT",
+  "event_id": "EV-D1-JUMP",
+  "template": "evidence/IMAGINE_SHOT_CARD_V1.txt",
+  "duration_seconds": 4,
+  "aspect": "16:9",
+  "size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bindings": [
+    {
+      "id": "IMAGE_1",
+      "path": null,
+      "role": "approved complete first frame",
+      "human_review": null
+    }
+  ],
+  "reference_pool_ids": [
+    "REF-9cb4b02dc4a56e14",
+    "REF-69827625a8a795f1",
+    "REF-2eda6f76760b8598",
+    "REF-636ec38fd0e01d47",
+    "REF-da8ead4677192ef4",
+    "REF-e488d7c300eff116",
+    "REF-e585e525624f4da1"
+  ],
+  "binding_note": "Select 1\u20133 additional identity/material images only after complete ensemble opening review; pool is not bound automatically.",
+  "beats": [
+    "Foam-covered old casing",
+    "Concept rainbow bunny jumps into view as old casing collapses simultaneously.",
+    "Little bunny airborne; old casing collapsing"
+  ],
+  "camera": "locked",
+  "end_state": "Little bunny airborne; old casing collapsing",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false
+}

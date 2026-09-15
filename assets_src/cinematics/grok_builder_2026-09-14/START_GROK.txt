@@ -1,0 +1,17 @@
+MERMAID ROSHAN — SINGLE BUILDER HANDOFF
+
+Use this folder as one persistent project, not a collection of unrelated Imagine topics. Start by importing DATABASE.json. It is the editable source of truth for this handoff; DATABASE.sqlite and index.html are derived conveniences. Preserve stable IDs and all references, events, relationships, conflicts and readiness states. Do not generate a film during onboarding.
+
+Build/maintain a searchable project library with Characters, Locations, Props, Events, Shots, Storyboards, Clips and Review Queue. Entity detail must show the actual reference images, identity/layout invariants, aliases, source/provenance and revision. Event detail must show prerequisites and before/action/after states. Shot detail must link its event, cast, location, source boards, missing action, first-frame approval and dependent endpoints. Display rejected/historical material only with a clear warning; never feed it into appearance generation.
+
+Import by ID with a preview of changes, detect duplicate references by SHA-256, preserve revisions, and refuse broken foreign keys. Export the full updated JSON database and media manifest so work can move back into Git. Never silently overwrite approved art. Mark all dependent openings stale when a character, fixture, location or incoming endpoint changes. Do not equate an uploaded file, an attractive storyboard, or an old keep decision with accepted footage.
+
+Read CONFLICT_RESOLUTIONS.json before interpreting old packets. Particularly: original-book Eagle; exact clean-shaven Daddy; two-seat plane with two round windows plus engine intake and no rear exit; actual craft counters/rear worktable; purple seahorse/pink plug; fixed stone attic; intact big bunny -> group wet scrubbing -> bubbles obscure -> rainbow friend jumps as casing collapses -> landing and multi-second dust.
+
+The project covers Day One and the Chapter 2 birthday/candle-theft plan. Chapter 2 earned objects must persist; King takes only the candle after Roshan succeeds. Keep later-chapter source documents within their commissioned scopes. Do not invent missing story canon.
+
+When asked to produce a shot, resolve the event state and all referenced entities first, then create a separate execution card using the included Imagine template. Bind only 2–4 approved images, including a reviewed complete first frame. A database reference pool is not a request to bind every image. Boards are narrative-only; runtime captures are text seam constraints, never generation pixels. One shot, one action, at most one camera move, explicit endpoint, final Sound: line. Grok motion output remains editorial reference under the project's independent full-frame delivery rule.
+
+First builder response: report imported entity/event/shot counts, unresolved reference or state conflicts, and the ordered replacement queue. Confirm that no old pinned/standing Eagle, wooden attic, giant craft desk or early rainbow ears has become active authority. Do not request the user to paste each historical handoff separately.
+
+Import the 332 historical clip records too. Keep source URLs, hashes and prior audit findings; the video bytes remain in the existing releases. Their earlier editorial selections are not new acceptance and the later stage audit overrides conflicting ranges.

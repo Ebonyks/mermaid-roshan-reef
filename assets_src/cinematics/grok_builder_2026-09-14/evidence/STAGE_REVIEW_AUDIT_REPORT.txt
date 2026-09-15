@@ -1,0 +1,47 @@
+# Day One stage and event audit — replacement revision
+
+This supersedes the 106.54-second archive recut. The revised workprint replaces the rejected arrival, seahorse, bath and craft selections while retaining the major Day One story beats. It does not yet represent every gameplay action correctly. No event is declared repaired merely because its defective footage was removed.
+
+## Changes
+
+- Arrival expanded to 24 seconds: approach, destination geography, landed plane, seated belt release and bridge approach. Approved plane art has two cabin windows plus an engine intake; the intake was previously misidentified as a third passenger window. No rear-door exit is used. Continuous touchdown is still missing.
+- Seahorse release now uses the older purple seahorse and pink weed pull, with visible clear-water release. The final source scene switch is excluded. Brown seahorse references and the overnight brown-lump release are rejected.
+- Craft giant-table and table-hop shots replaced by curved storage-counter scrubbing and approach to the small stocked rear worktable. Actual runtime has an open central floor and a rear worktable beneath the idea board. The whole three-surface cleaning and customization sequence remains incomplete; the source-117 angle also drops the rear table and must be regenerated.
+- Bathroom scrub now contacts the stage's horizontal shell tub. Hall discovery returns to the plain lavender doorway layout; glowing completed-room trails return before the boss invitation.
+
+## Actual stage evidence
+
+Fresh isolated-save captures cover seven craft states, eleven pool states and five room layouts. Craft and pool probes passed using Godot 4.7.2 Mobile. The separate broad castle probe had menu-occluded captures and one opera-sconce failure; it is excluded. This is scoped stage evidence, not a green full-game release test. Capture dimensions and SHA-256 are in STAGE_EVIDENCE.json. The checkout contains pre-existing project.godot changes; they were preserved.
+
+Current pool order is litter skimming, waterfall cleaning, seahorse plug release, then Rumi. Runtime evidence wins over older contradictory prose. The purple seahorse sits right of the rainbow waterfall, with towel storage behind it. Bathroom fixtures are left horizontal shell tub, central sink/mirror, right pink toilet. Craft work includes four loose supply groups, three grime surfaces, desk unlock and customization.
+
+## Event coverage
+
+| Event | Status | Evidence / remaining replacement |
+|---|---|---|
+| Arrival: Approach, landed aircraft, seated arrival, castle bridge | REPLACED / PARTIAL | 24 seconds restored; two-seat cabin and no rear-door exit. Continuous touchdown still unavailable. |
+| Hall discovery: Dirty hall and room choices | REPLACED / PROVISIONAL | Plain lavender hall replaces ornate remodel. Door icon/order and exact frame identity still require acceptance. |
+| Bathroom: Tool introduction, sink, tub, drain/toilet, clean payoff | PARTIAL | Horizontal shell tub replaces upright clam scrub. Sink/toilet/drain actions and visible complete dirt removal still need replacement shots. |
+| Pool litter: Skim floating litter | RESTORED / PROVISIONAL | Visible scoop retained. Darker grade, missing seahorse in wide skimmer angle, and fixture continuity require regeneration. |
+| Pool waterfall: Scrub three waterfall lanes | PARTIAL | Blocked and flowing states represented before final seahorse release, matching runtime order; actual three-lane scrubbing is missing. |
+| Seahorse: Pull pink mouth obstruction from purple seahorse | REPLACED / PROVISIONAL | Earlier purple-seahorse/pink-weed pull replaces brown-lump R04. Keep frames 0–47; later embedded scene switch excluded. Source identity still requires exhaustive review. |
+| Rumi: Rumi appears after pool rescue | PRESENT / PROVISIONAL | Existing emergence and greeting retained. |
+| Stuffie Room: Free original Baby Eagle, wingbeat payoff | PARTIAL / REGENERATION REQUIRED | Help action remains, explicit payoff gap remains. Empty room needs authored plush seat, bins, cubbies and teepee. Preserve original plush bird anatomy. |
+| Craft supplies: Collect brushes, pink paint, blue paint, paint cups | PARTIAL | Four groups shown, collection not fully depicted. Source 117 loses rear worktable; regenerate this angle with table fixed. |
+| Craft cleaning: Clean left counter, desk counter, right counter | REPLACED / PARTIAL | Curved-counter scrub replaces invented giant table. Purple stain persists; all three surfaces and actual rear desk cleaning still require replacement. |
+| Craft customization: Unlock stocked rear worktable; paint customization | PARTIAL | Approach to correct small rear worktable restored. Customization action missing; approach is not completion. |
+| Boss invitation: Four completed-room trails and glowing royal doorway | RESTORED / PROVISIONAL | Light trails and stone threshold retained. |
+| Bunny reveal: Intact big bunny, group scrub, obscuring bubbles, little bunny jump | PARTIAL / REGENERATION REQUIRED | Big bunny retains own shape and lavender ears. Little rainbow bunny must stay entirely hidden until jump. Bubble-completion gap remains. |
+| Shell collapse: Casing collapses at jump; landing; dust scatters for seconds | PARTIAL / REGENERATION REQUIRED | Explicit landing/dust gap remains; airborne-to-grounded edit is not accepted action. |
+| Team cleanup: Four characters clean actual hall and finish together | PARTIAL / REGENERATION REQUIRED | Existing help references remain but ornate hall mismatches current stage. Completion gap remains. |
+| Day Two: Clean-room recall, Daddy hug and invitation | PRESENT / PROVISIONAL | Craft recap replaced with curved-counter room. Whole family voice sources retained; listening acceptance pending. |
+
+## Verification and limitations
+
+Native 24 fps source trims, straight cuts and whole-canvas fit/pad only. No generated interpolation, speed changes, compositing, synthetic camera move or duplicated-action frames. Existing four workprint gap cards remain for Eagle payoff, full bubble coverage, bunny landing/dust and cleanup completion. They are not cinematic delivery frames.
+
+EDIT_PLAN.json records every source range and source SHA-256. verification/RENDER_CHECKS.json records decoded frame counts and output hashes for the master and fourteen scenes. Visual sheets sample every half second plus cut boundaries; this is not exhaustive frame acceptance. The audio uses existing score/ambience and whole family voice cues, with no Grok soundtrack or unsynchronized inherited foley; listening acceptance remains pending.
+
+ARCHIVE_COMPLETE (new handoff): false. GENERATION_READY: false. DELIVERY_ACCEPTED: false. MA-VIS-006 remains open. No new full-frame regeneration or GitHub packet was delivered in this revision. No video-generation tool was available in this session. Existing archive packet remains a separate prior artifact, not evidence that these new replacement jobs are ready or accepted.
+
+See REPLACEMENT_STORYBOARD.md for required continuation. This local workprint is useful for editorial review; it is not stage-complete or release-ready.

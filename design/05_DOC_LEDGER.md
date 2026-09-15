@@ -45,6 +45,7 @@ unclassified until this ledger gains one new scoped row for it.
 | Doc | | Note |
 |---|---|---|
 | `audit/OVERNIGHT_RECUT_FRAME_AUDIT_2026-09-12.md` | 🔵 | `SUPPORTING_CURRENT`; fresh sampled/native-frame review of the 3150-frame overnight Resolve render and eighteen bounded repair/conditional cards. Owner direction: recognizable big bunny, soapy scrubbing obscures form, concept friend jumps while casing collapses and dust scatters. Includes original-book Eagle correction and exact Daddy/attic locks. No generated-frame, human, runtime, device or delivery acceptance. |
+| `assets_src/cinematics/grok_builder_2026-09-14/README.md` | 🔵 | `SUPPORTING_CURRENT`; single builder import/navigation for the shared character, location, prop, event, shot and reference database. Consolidates scoped Day One corrections and Chapter 2 planning; historical boards retain explicit conflicts. Does not grant generation, delivery, runtime, device, child or whole-game acceptance. |
 | `assets_src/cinematics/overnight_recut_repairs_2026-09-12/README.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; operator index for the overnight-cut repair archive, exact source-frame mappings, new beat boards and draft Grok shot cards. The newer two-window stone attic governs this packet instead of the older wooden arena. Remote archive completeness, opening readiness and delivery acceptance remain separate. |
 
 | | Meaning |
@@ -794,9 +795,9 @@ Kept as-is; noted so a future edit updates every copy.
 
 | `assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/README.md` | 🟣 | `CANDIDATE` owner-run Chapter 2 visual planning archive after scale refinement; approved identities retained, new staging pending owner/device/child review. No generation or cinematic delivery acceptance. |
 
-| `docs/grok_animation_series_project/README_FIRST.md` | 🟣 | `CANDIDATE` Chapter 2 owner-run Grok navigation and planning handoff; links the preserved private-series guide and revised visual archive. No generation, cinematic, owner, device or child acceptance is granted. |
+| `docs/grok_animation_series_project/README_FIRST.md` | 🟣 | `SUPPORTING_CURRENT` navigation to the unified builder database plus preserved Chapter 2 owner-run planning; links the preserved private-series guide and revised visual archive. No generation, cinematic, owner, device or child acceptance is granted. |
 
-| `docs/grok_animation_series_project/modules/chapter2_birthday_lawn/README.md` | 🟣 | `CANDIDATE` Chapter 2 owner-run Grok navigation and planning handoff; links the preserved private-series guide and revised visual archive. No generation, cinematic, owner, device or child acceptance is granted. |
+| `docs/grok_animation_series_project/modules/chapter2_birthday_lawn/README.md` | 🟣 | `SUPPORTING_CURRENT` navigation to the unified builder database plus preserved Chapter 2 owner-run planning; links the preserved private-series guide and revised visual archive. No generation, cinematic, owner, device or child acceptance is granted. |
 
 ## Grok Handoff 2 continuity repair commission
 
