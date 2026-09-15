@@ -137,3 +137,5 @@ Round-two return `f55d22365cd7f5380ea8d01abe471fe70399f822` restores the laugh p
 Round03 fixes eye visibility and P03 ear/support continuity, but P02 still unrolls ears and loses huff amplitude; P03 shrink remains modest. [r04 handoff](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r04/START_HERE.txt). No owner/production acceptance.
 
 Round04 repairs P02 coiled ears and improves P03 shrink. P03 joins P01 as preferred motion reference; one P02 exhale/open-eye hold job remains. [r05 handoff](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r05/START_HERE.txt). No owner/production acceptance.
+
+Round05 restores open eyes but shows smiling huff and an exact-frame extra flank pair. Round06 isolates a three-second huff/release study before recombining. [r06 handoff](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r06/START_HERE.txt). No owner/production acceptance.

@@ -1,0 +1,75 @@
+GRAND PUFF — IDENTITY SIGNATURE
+Artistic director: Grok
+Date: 2026-09-13
+Packet: assets_src/characters/grand_puff_2026-09-13 @ a3083c759117e35865407fb996f9b854b08bd0e6
+
+STATUS: SIGNED (design lock). Production pixels below are newly generated from the owner portrait and still require visual QC against this card.
+
+NAME
+- Spoken / HUD title: Grand Puff
+- Formal subtitle: The Great Dust Bunny
+- Live splash already uses both. Voice catalogue uses Grand Puff. Do not rename.
+
+IDENTITY AUTHORITY
+- owner_local_boss_portrait.png is the same design as dust_bunny_first_boss_concept_v2_teeth.png.
+- v1 closed-smile is superseded.
+- Rainbow variant is concept-only and excluded.
+- identity_alpha.png is a technical isolation CANDIDATE only (cream fringe / corner residue). It is not signed production pixels.
+
+ANATOMY — signed visual facts (paint, not the old four-paw prompt)
+- 1 contiguous three-tier cloud body, broad base, no neck, no separate torso.
+- 2 inward spiral ears (ram-horn curls).
+- 2 EAR-BASE PEARLS: glossy round beads at the junction of each ear and the head. Species ornament, NOT extra feet.
+- 2 FLOOR PAWS: the locomotion pearls on the ground at the front of the base.
+- Total pearl forms: 4. Do not invent a third pair of paws.
+- 1 stacked central curl crest with 1 four-point forehead sparkle (body anatomy).
+- 2 small pointed white upper teeth at the mouth corners. Cute, compact, never a snarl or extra teeth.
+- 2 dark plum eyes with white + aqua highlights.
+- 2 pink oval cheek blushes.
+- Plum/navy contours around grey-lavender painted masses.
+
+PALETTE (sampled lock; keep family)
+- face #c5afcc, mid curl #bfa8c9, deep plum #8674a0, paw #e0bec8,
+  outline #271053, sparkle #fdfdfd, blush #f7bfce.
+
+SCALE (playable, signed from observed Mobile 1280x720)
+- Fight size ≈ 1.12× Roshan height, ≈ 2.2× hall bunny.
+- This is the readable first-boss size. Do not restore the BOSS_H=16 placeholder.
+- Splash may present him larger; gameplay stays at this relative size.
+
+TELL
+- Body sparkle remains pale/white/lavender anatomy on the crest.
+- Live counter cue is a SEPARATE GOLD star layer (fx_stolen_sparkle.png).
+- Do not replace gold with aqua until input, animation, and voice are changed together.
+- laugh_vulnerable baked stars stay off the body sheet in the rebuild.
+
+ENDING
+- Signed win: intact small cuddly Grand Puff (friends / deflate). Same face, ears, two teeth, smaller body.
+- Implode atlas is REJECTED as the win. Archive only.
+
+FORBIDDEN
+- New boss or scaled hall bunny
+- Rainbow palette
+- Armor, crown, extra limbs
+- Injury, snarl, realistic teeth, monster anatomy
+- Sprite3D / 3D rig
+- Aseprite production from unsigned or contact-sheet pixels
+- Contact sheets, HUD captures, and runtime frames as Imagine pixel authority
+
+POSE NOTES FROM INVENTORY (do not treat as production)
+- laugh_vulnerable[3]: IDENTITY FAIL (ears lose spiral) — expression reference only.
+- jump[2]: stray crop fragment — do not reuse pixels.
+- implode[*]: rejected ending.
+- Existing 2x2 sheets are pose reference; FX is baked in and must be split.
+
+TECHNICAL (accept Codex proposal)
+- Canvas Sprite2D / AnimatedSprite2D.
+- Authoring cell 512x512, ≥32px pad, support pivot ~ (256,480).
+- Body sheets: no dust rings, plumes, gold tell, hit sparkle, soap, speed marks.
+- Warning timing: live 2.2–2.7s; squash may occupy ~0.7s of the aim beat.
+
+NEXT (this Grok pass)
+1. Signed identity still (clean field, owner-portrait identity).
+2. Eight-pose turnaround from that still.
+3. Motion auditions: hop, laugh-window, dizzy, angry, friends-deflate.
+Codex archives after QC; no Aseprite until these are accepted.

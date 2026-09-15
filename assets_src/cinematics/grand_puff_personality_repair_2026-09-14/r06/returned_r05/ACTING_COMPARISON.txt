@@ -1,0 +1,34 @@
+GRAND PUFF r05 ACTING COMPARISON
+Responds to content commit 0b1063d17fb98dbc97ab3d51dbd5f6e16faed41d
+Incoming r04: 8dd2d96a00e7776752ef67117f5685cd7f054103
+Decoded observations, not prompt restatement.
+Video: 1280x720, 24fps, 145 frames, container 6.04s.
+Selected: P02 take1 of three. Take2/take3 discarded (more extra paw-like lobes; no clearer exhale).
+
+P01 LAUGH — CARRIED, NOT REGENERATED
+  path assets_src/characters/grand_puff_personality_returns/r02/P01_LAUGH/P01_LAUGH_study_silent.mp4
+  sha256 091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f
+  commit f55d22365cd7f5380ea8d01abe471fe70399f822
+
+P03 FRIENDS — CARRIED, NOT REGENERATED
+  path assets_src/characters/grand_puff_personality_returns/r04/P03_FRIENDS/P03_FRIENDS_study_silent.mp4
+  sha256 b3ec9764a76dab379cedf25d54f637043ebd4f0e6cdddb68989fe9ff80dd888f
+  commit 8dd2d96a00e7776752ef67117f5685cd7f054103
+  known limits: ~0.76 height vs proposed 0.60; silhouette bottom +20px rise; reference only.
+
+P02 ANGRY WINDUP (only new job)
+r04 miss: eyes stayed shut 1.0-5.9s; cheeks stayed swollen; no ready-to-launch reopen.
+This study (take1):
+  0.4-0.8s two dark eyes OPEN on the viewer; brows down; mouth pursed.
+  1.4-2.0s cheeks lift and widen below the eyes; pupils remain readable (not the r04 closed-eye freeze).
+  2.5-3.5s eyes stay open into the crouch. Cheek volume is still round — the asked visible deflate is MODEST, not a full empty-face release.
+  5.0-5.9s loaded crouch hold: two OPEN focused dark eyes, closed determined mouth, both coiled ear disks with internal spirals still visible. No jump. Floor y1 693->692 (dy -1). Height 639->606px (0.948x).
+Ready-to-launch cue (open eyes + coiled ears + planted crouch) is present. Breath-release of the cheek bulges is only partial.
+
+ANATOMY
+Sampled frames show two ear-base pearls and two floor paws (the four required forms). No extra-pearl claim is copied from prior returns. Take2/take3 showed additional paw-like lobes and were not selected. Extracted frames are NOT production cels. No native Aseprite.
+DELIVERY_ACCEPTED false. 4.75/5 is the owner target, not self-issued.
+
+TECHNICAL
+P02 original audio peak/rms lin 0.1400 / 0.00977. Silent copy is ffmpeg -an -c:v copy.
+Prompt hash e35f0ead... Bound plates IMAGE_1 1fc9ed2f... IMAGE_2 5941f10f... commit 8d07b09.
