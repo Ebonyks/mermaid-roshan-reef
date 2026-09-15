@@ -1,0 +1,39 @@
+GRAND PUFF r01 ACTING RETURN
+Published on: grok/grand-puff-motion-mp4-20260914
+Path: assets_src/characters/grand_puff_personality_returns/r01/
+Responds to handoff: 297d706697507c1acad9d8438071f9dd061ed922
+Handoff START_HERE lives on: codex/grand-puff-grok-review-cycle-20260914
+
+PILOT ONLY — P01 laugh, P02 angry windup, P03 friends.
+Do not treat this as approval to expand the remaining twelve clips.
+DELIVERY_ACCEPTED = false. archive_complete = false. generation_ready = false.
+4.75/5 is the owner target, not a self-issued score.
+
+Read first: RETURN_MANIFEST.json, ACTING_COMPARISON.txt, then the three
+16:9 study MP4s. Compare boards are review-only — never generation input.
+
+FILE ROLES
+  P0x_*/P0x_*_study.mp4
+      motion_reference — 1280x720, 6s, bound IMAGE_1 signed front + IMAGE_2 profile
+      + verbatim shots/*/PROMPT.txt via imagine_reference_to_video
+  P0x_*/frames/*.jpg
+      motion_reference_still_extracted_not_production_cel
+      ffmpeg grabs from the study MP4. NEVER label these as production cels.
+  authored_poses/*_candidate.jpg
+      authored_candidate — ivory stills. Not Aseprite. Not production cels.
+  compare/*
+      review_board_not_generation_input
+
+BOUND IDENTITY (commit 8d07b0908c39051c2a310caf29fd86a56dc82b40)
+  IMAGE_1 signed front  sha256 1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664
+  IMAGE_2 profile       sha256 5941f10f7211a61a6457271213207e01bd5567381a2a29167855ae0b72db9089
+
+ANATOMY LOCK
+  Two ear-base pearls + two floor paws only. Spiral ears. No arms.
+  No implode. Extra flank pearls still appear in Imagine output — signed
+  front has none; Codex must strip. P02 does not jump. P03 ends as an
+  intact small puff.
+
+Codex review packet belongs on:
+  codex/grand-puff-grok-review-cycle-20260914
+Do not edit live game code, protected assets, or saves.

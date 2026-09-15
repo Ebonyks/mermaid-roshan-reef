@@ -127,3 +127,7 @@ child comprehension or owner animation acceptance has occurred for these cels.
 The modest part articulation and new facial states are review candidates; a richer
 painted in-between pass may still be needed to meet the requested impact. No 4.75/5
 score is assigned. Existing live renderer and ending are unchanged.
+
+## Round-one Grok return review
+
+The [round-two correction](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r02/START_HERE.txt) records direct review of Grok return `caec2f39188599b4c94f82e6cdd787d79821b732`: richer movement, but missing sustained friendship shrink, smiling huff, and challenging laugh ending. Four pearl forms are correct in inspected samples; the return's extra-pearl claim is unsupported there. No clip, runtime, owner or finding acceptance is granted.
