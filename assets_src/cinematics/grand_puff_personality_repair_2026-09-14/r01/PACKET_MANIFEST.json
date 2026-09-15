@@ -2,7 +2,7 @@
   "schema": "grand-puff-personality-archive-v1",
   "baseline": "b860142666c2316a199a4b447fa0d2d8583e573b",
   "payload_hash_algorithm": "SHA256 of sorted relative path + NUL + file SHA256 + LF, excluding this manifest",
-  "payload_sha256": "1babed8726add1e30a8afba576293c9c0c6f8869b74ea630e26a7688fc291bce",
+  "payload_sha256": "39d19ad68e0f8e50fb8c5362c2154fff31d049a737d5982cbcc5f80bf9b2a590",
   "files": [
     {
       "path": "BOUND_REFERENCE_VERIFICATION.json",
@@ -149,35 +149,38 @@
     {
       "path": "context/DIRECTOR_REVIEW.txt",
       "source_path": "assets_src/characters/grand_puff_2026-09-13/grok_signed/DIRECTOR_REVIEW.txt",
-      "source_sha256": "c70dba0eebc8b1a05f08eacbd3153f3201e1ca7ba811025c0a2c1de6e802b66a",
-      "sha256": "c70dba0eebc8b1a05f08eacbd3153f3201e1ca7ba811025c0a2c1de6e802b66a",
+      "source_sha256": "db49c49180ff730dcdee33a5809f6abc85775853e4a3b95edc1ace7c97454937",
+      "sha256": "db49c49180ff730dcdee33a5809f6abc85775853e4a3b95edc1ace7c97454937",
       "dimensions": null,
       "role": "historical_signed_return",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": false
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "context/HISTORICAL_TECHNICAL_CONTRACT.txt",
       "source_path": "assets_src/characters/grand_puff_2026-09-13/TECHNICAL_SHEET_CONTRACT.txt",
-      "source_sha256": "a3ecc600865d24b031d9f36cc835b652f95e0faf1e7922ed050aee34013002ff",
-      "sha256": "a3ecc600865d24b031d9f36cc835b652f95e0faf1e7922ed050aee34013002ff",
+      "source_sha256": "74cc42789fe9328138a8bbf187424d5a43315a89ab1d1d016ae673af6a37cd5c",
+      "sha256": "74cc42789fe9328138a8bbf187424d5a43315a89ab1d1d016ae673af6a37cd5c",
       "dimensions": null,
       "role": "historical_proposal; current brief resolves sparkle and timing scope",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": false
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "context/IDENTITY_SIGNATURE.txt",
       "source_path": "assets_src/characters/grand_puff_2026-09-13/grok_signed/IDENTITY_SIGNATURE.txt",
-      "source_sha256": "e4b6e35fe6b1565948c66a3fe7d0476350dfe1c12c796538f5120471d98b456b",
-      "sha256": "e4b6e35fe6b1565948c66a3fe7d0476350dfe1c12c796538f5120471d98b456b",
+      "source_sha256": "3a5b8a767abec5076455369d2cc4218a12cc0cadf2f93c35e16a0f02ad75ecc6",
+      "sha256": "3a5b8a767abec5076455369d2cc4218a12cc0cadf2f93c35e16a0f02ad75ecc6",
       "dimensions": null,
       "role": "historical_signed_return",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": false
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "motion_references/GP03_laugh_vulnerable.mp4",
@@ -189,10 +192,11 @@
         944
       ],
       "role": "original acting reference; known anatomy drift, never final pixels",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
       "used_as_generation_pixels": false,
-      "duration_seconds": 6.041667
+      "duration_seconds": 6.041667,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "motion_references/GP07_angry.mp4",
@@ -204,10 +208,11 @@
         944
       ],
       "role": "original acting reference; known anatomy drift, never final pixels",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
       "used_as_generation_pixels": false,
-      "duration_seconds": 6.041667
+      "duration_seconds": 6.041667,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "motion_references/GP09_friends.mp4",
@@ -219,10 +224,11 @@
         944
       ],
       "role": "original acting reference; known anatomy drift, never final pixels",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
       "used_as_generation_pixels": false,
-      "duration_seconds": 6.041667
+      "duration_seconds": 6.041667,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "references/back.jpg",
@@ -234,9 +240,10 @@
         1408
       ],
       "role": "archive_turnaround",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": false
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "references/front.jpg",
@@ -248,9 +255,10 @@
         1408
       ],
       "role": "bound_clean_first_frame_and_identity",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": true
+      "used_as_generation_pixels": true,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "references/profile.jpg",
@@ -262,20 +270,22 @@
         1408
       ],
       "role": "bound_subject_identity",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": true
+      "used_as_generation_pixels": true,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "rejected_candidate/CLIP_CONTRACT.json",
       "source_path": "assets_src/characters/grand_puff_aseprite_2026-09-14/CLIP_CONTRACT.json",
-      "source_sha256": "7f34e5ddc7bb9d99fb14d10821d7a1cae49afda9a8112d46c46564a474d73b0a",
-      "sha256": "7f34e5ddc7bb9d99fb14d10821d7a1cae49afda9a8112d46c46564a474d73b0a",
+      "source_sha256": "e1080e779148554e534abc9fce8a624e96e8e12e64bb4cea993bbf053ae357cc",
+      "sha256": "e1080e779148554e534abc9fce8a624e96e8e12e64bb4cea993bbf053ae357cc",
       "dimensions": null,
       "role": "rejected_motion_timing; not new timing authority",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": false
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "rejected_candidate/all_actions_review.mp4",
@@ -287,10 +297,11 @@
         600
       ],
       "role": "rejected_motion_baseline; never generation pixels",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
       "used_as_generation_pixels": false,
-      "duration_seconds": 18.666667
+      "duration_seconds": 18.666667,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "rejected_candidate/angry.gif",
@@ -302,9 +313,10 @@
         512
       ],
       "role": "rejected_motion_baseline; never generation pixels",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": false
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "rejected_candidate/friends.gif",
@@ -316,9 +328,10 @@
         512
       ],
       "role": "rejected_motion_baseline; never generation pixels",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": false
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "rejected_candidate/grand_puff_actions.aseprite",
@@ -330,10 +343,11 @@
         512
       ],
       "role": "rejected_motion_baseline; editable organization only",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
       "used_as_generation_pixels": false,
-      "frame_count": 105
+      "frame_count": 105,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "rejected_candidate/laugh_vulnerable.gif",
@@ -345,9 +359,10 @@
         512
       ],
       "role": "rejected_motion_baseline; never generation pixels",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": false
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "runtime_context/arena.png",
@@ -359,9 +374,10 @@
         2048
       ],
       "role": "archive_only_runtime_background_character_or_effect; never generation pixels",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": false
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "runtime_context/counter_star.png",
@@ -373,9 +389,10 @@
         128
       ],
       "role": "archive_only_runtime_background_character_or_effect; never generation pixels",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": false
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "runtime_context/dust_puff.png",
@@ -387,9 +404,10 @@
         256
       ],
       "role": "archive_only_runtime_background_character_or_effect; never generation pixels",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": false
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "runtime_context/hall_runtime_1280.png",
@@ -401,9 +419,10 @@
         720
       ],
       "role": "archive_only_actual_room_and_boundary; never generation pixels",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": false
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "runtime_context/roshan_base.png",
@@ -415,9 +434,10 @@
         256
       ],
       "role": "archive_only_runtime_background_character_or_effect; never generation pixels",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": false
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "runtime_context/soap_bubbles.png",
@@ -429,9 +449,10 @@
         512
       ],
       "role": "archive_only_runtime_background_character_or_effect; never generation pixels",
-      "modifications": "none; byte copy",
+      "modifications": "none; byte copy of canonical Git blob (not platform checkout line endings)",
       "license_provenance": "Owner-commissioned project/Grok reference; same source project terms, no separate public license asserted.",
-      "used_as_generation_pixels": false
+      "used_as_generation_pixels": false,
+      "source_commit": "b860142666c2316a199a4b447fa0d2d8583e573b"
     },
     {
       "path": "shots/P01_LAUGH/PROMPT.txt",
