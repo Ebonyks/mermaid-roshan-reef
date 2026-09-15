@@ -1,0 +1,34 @@
+GRAND PUFF r02 ACTING COMPARISON
+Responds to content commit 59561b56c51c386fb51ef8a2e8e4a868186caccd
+Incoming r01: caec2f39188599b4c94f82e6cdd787d79821b732
+Observations from decoded r02 output, not a restatement of the prompt.
+All videos: 1280x720, 24fps, 145 frames, container 6.04s (last image 6.0s).
+
+P03 FRIENDS (priority)
+r01 at fixed framing grew (1.044x W / 1.033x H). This study shrinks.
+Filled-body pixels: 295548 at 0.5s -> 175374 at 5.9s (0.593x).
+Isolated height: 623px -> 546px (0.876x). Review target 0.55-0.65 height is NOT met.
+Width bbox at 5.9s inflates to 832px because a faint right-side ghost reaches x=1201; the core body is still smaller (507px wide at 2.8s).
+Sequence that IS visible: face softens first (1.2s, relaxed brows, small smile, size still 662x624), then a sustained shrink through 1.8-3.8s, then a small hold. Does not implode. Does not grow back after 3.8s.
+Warm open-eyed smile at 5.9s. Happy blink is not a distinct readable beat I can point to.
+Authored small-friend still is actually small, with ivory space and relaxed brows.
+
+P02 ANGRY WINDUP
+r01 1.5-2.5s read as open-mouth delight. This study at 0.9-2.2s has a CLOSED pursed mouth and a round inflated body/cheeks, determined eyes, not a grin. That correction is visible.
+Crouch: face/crest drop y0 48 -> 111; height 626 -> 562px (0.898x); width 689 -> 739px; pixels 0.823x. Visual squat is real. Height ratio is similar to r01's 0.891x, so "deeper than r01" is only weakly supported by bbox; the pose still reads as a loaded crouch with planted paws. No jump. Hold 4.2-5.9s stays on the floor with a closed mouth.
+Authored crouch still is a stronger loaded pose than r01's: sunk crest, spread base, closed mouth.
+
+P01 LAUGH
+Anticipation ~1.0s, tall open two-tooth laugh at 1.5s (body y0 35->25), squash pulse at 2.5s (pixels 323k->279k). Keep.
+Ending 4.4-5.9s is a wide HAPPY grin with relaxed brows and crescent eyes — not the r01 glower. Correction visible.
+Tooth count at the hold drifts to a many-tooth piano-key crescent; the 1.5s laugh had two teeth.
+Left-before-right ear stagger is NOT demonstrated in the sampled frames (2.5 / 4.4 / 5.9 look paired). Not recorded as success.
+Authored grin still has even paw heights and a relaxed happy mouth.
+
+ANATOMY
+Sampled frames show two inward spiral ears, two ear-base pearls and two floor paws. Four required forms are present. Round lobe highlights appear on the cloud body; they are not counted as extra locomotion paws. P03 t5.9 has a faint extra right-side ghost — identify that frame before any strip. Do not repeat r01's unsupported extra-flank-pearl claim.
+
+TECHNICAL
+Original MP4s have nonzero audio despite silent prompts.
+Decoded peak/RMS linear: laugh 0.4425/0.0356; angry 0.1390/0.00110; friends 0.1310/0.000542.
+Silent review copies are ffmpeg -an -c:v copy derivatives. No native Aseprite. DELIVERY_ACCEPTED false.
