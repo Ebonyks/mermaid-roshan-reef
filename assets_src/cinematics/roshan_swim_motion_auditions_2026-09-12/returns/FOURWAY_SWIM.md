@@ -6,6 +6,18 @@ swimming animation. This is **not** delivery. `DELIVERY_ACCEPTED` stays false.
 Launch, arrival, and personality are out of scope for this packet. Those still
 live on the front-right take-03 basis (RSW-01 / 06 / 03 / 05).
 
+## Owner inspection — 2026-09-15
+
+Recorded, not repaired in this packet:
+
+- Hair/tail colour corrections remain **outstanding**. Do not treat these
+  stills or clips as colour-corrected masters.
+- The navy-flattened `locked-4way-*.png` openings **cannot establish clean
+  hair alpha**. Do not key, flood-fill, or recover fringe from the navy plates.
+- Hair alpha authority remains the existing RGBA 8-view cutouts:
+  `references/{front,right,back,left}.png`.
+- These remain motion references. Nothing was merged. Runtime is unchanged.
+
 ## Method
 
 - IMAGE_1 = painted 8-view cutouts composited onto navy RGB(17,37,54), 1280×720.
@@ -18,7 +30,9 @@ live on the front-right take-03 basis (RSW-01 / 06 / 03 / 05).
 
 ## Openings
 
-| View | Locked opening SHA-256 | 8-view cutout SHA-256 |
+Navy plates are observation-field IMAGE_1 only.
+
+| View | Locked opening SHA-256 | 8-view RGBA cutout SHA-256 |
 | --- | --- | --- |
 | front | `b53d2d6c535179581bdf72988de8b7d53a00f15544cf7c9b1ddef2d5ccf20b02` | `a716ce355dd3bd35add0a6b3fa76219ce23fef25fe7c8c41b90b745c8ab06150` |
 | right | `e2062eb39c8a39abb600894a7e1ea9f8ffd67ce6faed68f93b6c2f4587c1a7c4` | `5f2eec477d00de4625c3dc501de71739fcb2e27ce3c76de6aac9dc464dcf5825` |
@@ -52,6 +66,8 @@ No ghosted resets in sampled frames. Do not reuse RSW-07 / RSW-08 as loops.
 
 - Treat these as cinematic or Godot / runtime delivery
 - Convert here in Aseprite — that is Codex's job
+- Recover hair alpha from the navy openings
+- Treat colour as corrected
 - Adapt take-01
 - Merge to master or dev
 - Set `DELIVERY_ACCEPTED`
