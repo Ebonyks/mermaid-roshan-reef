@@ -1,0 +1,35 @@
+GRAND PUFF r03 ACTING COMPARISON
+Responds to content commit df5ebcebea5c500cac51b4fc4acdd3fa3e726eff
+Incoming r02: f55d22365cd7f5380ea8d01abe471fe70399f822
+Decoded observations, not prompt restatement.
+Videos: 1280x720, 24fps, 145 frames, container 6.04s.
+
+P01 LAUGH — CARRIED, NOT REGENERATED
+Preferred motion reference from r02 silent copy
+  path assets_src/characters/grand_puff_personality_returns/r02/P01_LAUGH/P01_LAUGH_study_silent.mp4
+  sha256 091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f
+  commit f55d22365cd7f5380ea8d01abe471fe70399f822
+Not production-accepted. No new P01 job this round.
+
+P02 ANGRY WINDUP
+r02 1-2.5s replaced eyes with round discs; crouch hid spiral tips.
+This study at 1.6s: two dark eyes remain readable above/in the cheek mass; closed pursed mouth. Cheeks are still large and crowd the eyes, but they are not disc-replacements of the eyes.
+Crouch 4.4-5.9s: both inward spiral tips stay visible beside the crest; ear-base pearls readable; two determined eyes; closed mouth; wide planted paws. No jump.
+Height 639->549px (0.859x); floor y1 675->668 (dy -7). Acting squat is real.
+Authored crouch still keeps eyes and spiral tips; extra round lobe highlights on the body.
+
+P03 FRIENDS
+r02 ending turned spirals into outward floppy hooks; floor rose ~27px.
+This study (second take; first grew back after 3.8s and was discarded):
+  1.2s face softens before size change (644x629, still large).
+  3.8s smaller wide body (563x573) with inward spirals and both ear-base pearls.
+  5.9s hold still smaller (543x549 = 0.874x height, 0.781x pixels); inward spirals, not hooks; pearls visible; three tiers; floor y1 673->678 (dy +5).
+Height target 0.55-0.65 is NOT met. Pixel shrink weaker than r02's 0.593x. Topology at the hold is the asked repair.
+Authored small-friend still is small, wide, inward spirals, pearls, relaxed brows.
+
+ANATOMY
+Four required forms present in sampled P02/P03 frames (2 ear-base pearls + 2 floor paws). Round lobe highlights appear on cloud bodies; not counted as extra paws. No unsupported tooth or ghost claims from r02 are repeated.
+No native Aseprite. DELIVERY_ACCEPTED false.
+
+TECHNICAL
+P02 original audio peak/rms lin 0.1401/0.00125. P03 original essentially silent (peak/rms lin 4.1e-5 / 5.9e-7). Silent copies are ffmpeg -an -c:v copy.
