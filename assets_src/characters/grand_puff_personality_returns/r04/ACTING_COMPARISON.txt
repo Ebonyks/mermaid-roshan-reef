@@ -1,0 +1,45 @@
+GRAND PUFF r04 ACTING COMPARISON
+Responds to content commit ba4a6636f2cb34d00ff70e0c0d5336b1f9f839bf
+Incoming r03: 9efbe7c927d30e2fcb33fa2e413dedbd311b4f5d
+Decoded observations, not prompt restatement.
+Videos: 1280x720, 24fps, 145 frames, container 6.04s.
+Selected takes: P02 take2, P03 take2. Take1 of each kept in local source storage only.
+
+P01 LAUGH — CARRIED, NOT REGENERATED
+Preferred motion reference from r02 silent copy
+  path assets_src/characters/grand_puff_personality_returns/r02/P01_LAUGH/P01_LAUGH_study_silent.mp4
+  sha256 091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f
+  commit f55d22365cd7f5380ea8d01abe471fe70399f822
+Not production-accepted. No new P01 job this round.
+
+P02 ANGRY WINDUP
+r03 at 1.6s looked near-resting with a small frown; cheeks had lost the big huff.
+This study (take2) at 1.6s and 2.2s: both cheeks inflate downward/sideways below two dark eyes; pupils and brows stay readable; mouth closed and pursed. Huff is present.
+Crouch 3.2-5.9s: body widens and sits lower (height 638->596px = 0.934x; width 697->782; floor y1 675->683, dy +8). No jump.
+Ears: take1 (discarded) unrolled the right ear into an outward hook by 5.9s — the same r03 miss.
+Take2 final 5.9s: both ears read as rounded coiled disks with internal spiral lines and both ear-base pearls. At 4.4-5.2s the right ear is slightly more elongated than a perfect circular disk, but it is not the long floppy hook of take1/r03.
+Extra flank pearls and extra paw-like lobes appear on the cloud body (Imagine drift; Codex strips). Four required forms (2 ear-base pearls + 2 floor paws) remain in sampled frames.
+Authored loaded-crouch still: eyes above puffed cheeks, coiled disks, closed mouth; extra pearls/paws.
+
+P03 FRIENDS
+r03 held coiled ears and floor (dy +4) but shrink was modest (height 0.874x, pixels 0.781x).
+Take1 this round: coiled ears, but height 0.932x / pixels 0.713x — discarded for insufficient shrink.
+Take2 (selected):
+  0.5-1.2s still large (668x638 / 668x637) with a softened smile before size change.
+  2.8s 584x537; 3.8s 594x495; 4.6-5.9s hold 595x486.
+  Height 638->486px = 0.762x. Pixels 0.629x. Review staging target ~0.60 height is NOT met; closer than r03.
+  Shrink holds through 5.9s (no grow-back after 3.8s).
+  Coiled ear disks with internal spirals at 3.8s and 5.9s, not outward hooks. Pale crest sparkle remains on the small body. Warm open-eyed smile at the hold.
+  Floor y1 678->658 (dy -20): the silhouette bottom rose as the body shrank — less floor-stable than r03's +4. Paws still read as planted under the small body, but contact is not the same pixel line.
+Extra flank pearls and extra paw-like forms (often four instead of two) — Imagine drift.
+Authored small-friend still: crest sparkle present; extra pearls/paws; eyes can read half-lidded. Not a generation input.
+
+ANATOMY
+Required four forms present in sampled P02/P03 frames. Extra flank pearls and extra paw lobes are drift, not counted as approved anatomy. No implode. No jump. No native Aseprite. Extracted frames are NOT production cels.
+DELIVERY_ACCEPTED false. 4.75/5 is the owner target, not self-issued.
+
+TECHNICAL
+P02 original audio peak/rms lin 0.1402 / 0.00976. P03 original audio peak/rms lin 0.1399 / 0.00978.
+Silent copies are ffmpeg -an -c:v copy from the selected study MP4s.
+Prompt hashes match packet: P02 291dd916... P03 ba68d0f5...
+Bound plates: IMAGE_1 1fc9ed2f... IMAGE_2 5941f10f... commit 8d07b09.
