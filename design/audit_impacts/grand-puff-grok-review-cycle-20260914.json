@@ -693,6 +693,7 @@
     "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/runtime_context/hall_runtime_1280.png",
     "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/runtime_context/roshan_base.png",
     "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/runtime_context/soap_bubbles.png",
+    "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11_REMOTE_VERIFICATION.json",
     "audit/animation/README.md",
     "design/05_DOC_LEDGER.md",
     "design/animation/GRAND_PUFF_MOVEMENT_PROFILE.md"
@@ -812,6 +813,11 @@
       "command": "r10 direct video/hash/visual review; r11 packet/document/coverage validation",
       "result": "PASS",
       "evidence": "Six R10 hashes and source PNG byte identities pass; corrected descriptions agree with inspected R09 frames. Consolidation gates pending. Diagnostic Imagine, document and coverage gates pass; unchanged runtime covered by prior full78-probe CI. Publication proof follows."
+    },
+    {
+      "command": "HTTPS fetch every r11 packet file and compare full byte SHA256 at immutable content commit",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11_REMOTE_VERIFICATION.json: 47 files verified at d9d4e6b4ca7590d0a7376ae57a96270ecc173939"
     }
   ],
   "acceptance_gaps": "Archive, generator readiness and delivery acceptance are separate. Owner rejects reduced performance; new acting and all device/child/live integration acceptance remain open. Active-session monitoring only; scheduling tool not exposed."
