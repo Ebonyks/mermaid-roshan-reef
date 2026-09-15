@@ -1,0 +1,692 @@
+{
+  "schema": "grand-puff-diagnostic-return-v1",
+  "round": "r07",
+  "responds_to_handoff_commit": "84d15eb33e59f91fb2daf9c70e2ed0241354ddf4",
+  "source_video_commit": "d6bc7d66c8238359083ebb881cae9225b29b0f4e",
+  "source_video_path": "assets_src/characters/grand_puff_personality_returns/r06/P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study.mp4",
+  "source_video_sha256": "12d6ae3dd75d331a37a964a9a031782dfb0fefa576c15740dafb692607f62231",
+  "source_video_bytes": 1507448,
+  "decoded_frame_count": 145,
+  "fps": 24,
+  "container_duration_s": 6.041667,
+  "published_branch": "grok/grand-puff-motion-mp4-20260914",
+  "published_at_utc": "2026-09-15T08:28:07.556283+00:00",
+  "generated_new_art": false,
+  "delivery_accepted": false,
+  "frames": [
+    {
+      "index": 0,
+      "seconds": 0.0,
+      "png_path": "frames/frame_000.png",
+      "png_sha256": "4f77540cbbdba2b788229e2ed411458ae1a3df92731c27f7e6b63ac86454aadc",
+      "actually_viewed": true,
+      "viewed_file": "assets_src/characters/grand_puff_personality_returns/r06/P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study.mp4",
+      "source_video_sha256": "12d6ae3dd75d331a37a964a9a031782dfb0fefa576c15740dafb692607f62231",
+      "decode": "ffmpeg -vf select=eq(n\\,INDEX) -vframes 1 -pix_fmt rgb24 lossless PNG from the selected original",
+      "eyes": [
+        {
+          "id": "left_facial_mark",
+          "status": "present_uncertain_if_crisp_pupil",
+          "bbox_xyxy": [
+            575,
+            268,
+            625,
+            312
+          ],
+          "center": [
+            600,
+            290
+          ],
+          "note": "dark facial mark below crest; smaller than the 1.5s pupils"
+        },
+        {
+          "id": "right_facial_mark",
+          "status": "present_uncertain_if_crisp_pupil",
+          "bbox_xyxy": [
+            655,
+            268,
+            705,
+            312
+          ],
+          "center": [
+            680,
+            290
+          ],
+          "note": "pair of the left mark"
+        }
+      ],
+      "not_eyes": [
+        {
+          "id": "left_ear_spiral_interior",
+          "bbox_xyxy": [
+            548,
+            168,
+            575,
+            235
+          ],
+          "center": [
+            560,
+            205
+          ],
+          "note": "coiled-ear dark interior; not a pupil"
+        },
+        {
+          "id": "right_ear_spiral_interior",
+          "bbox_xyxy": [
+            698,
+            168,
+            728,
+            230
+          ],
+          "center": [
+            710,
+            200
+          ],
+          "note": "coiled-ear dark interior; not a pupil"
+        }
+      ],
+      "mouth": {
+        "shape": "open_two_tooth_smile",
+        "note": "not pursed/closed"
+      },
+      "pearl_forms": [
+        {
+          "role": "signed_left_ear_base",
+          "center": [
+            455,
+            325
+          ],
+          "bbox_xyxy": [
+            430,
+            300,
+            485,
+            355
+          ],
+          "status": "observed"
+        },
+        {
+          "role": "signed_right_ear_base",
+          "center": [
+            845,
+            325
+          ],
+          "bbox_xyxy": [
+            818,
+            298,
+            872,
+            355
+          ],
+          "status": "observed"
+        },
+        {
+          "role": "signed_left_floor_paw",
+          "center": [
+            530,
+            645
+          ],
+          "bbox_xyxy": [
+            500,
+            615,
+            565,
+            675
+          ],
+          "status": "observed"
+        },
+        {
+          "role": "signed_right_floor_paw",
+          "center": [
+            750,
+            645
+          ],
+          "bbox_xyxy": [
+            720,
+            615,
+            785,
+            675
+          ],
+          "status": "observed"
+        }
+      ],
+      "checked_r05_coords": [
+        {
+          "xy": [
+            520,
+            530
+          ],
+          "result": "ordinary painted body/cloud interior; NOT an extra pearl form"
+        },
+        {
+          "xy": [
+            750,
+            530
+          ],
+          "result": "ordinary painted body/cloud interior; NOT an extra pearl form"
+        }
+      ],
+      "uncertainty": "Facial dark marks at y\u2248290 are small; they are not the large crisp pupils of frame 36. Ear-spiral interiors at y\u2248200 are not pupils. Pearl centers \u00b115px visual."
+    },
+    {
+      "index": 12,
+      "seconds": 0.5,
+      "png_path": "frames/frame_012.png",
+      "png_sha256": "1dba1a7da44ba950cd4ffaf513a7136ef25123d8ffe7c91a8792e164872efa3b",
+      "actually_viewed": true,
+      "viewed_file": "assets_src/characters/grand_puff_personality_returns/r06/P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study.mp4",
+      "source_video_sha256": "12d6ae3dd75d331a37a964a9a031782dfb0fefa576c15740dafb692607f62231",
+      "decode": "ffmpeg -vf select=eq(n\\,12) lossless PNG",
+      "eyes": [
+        {
+          "id": "left_facial_mark",
+          "status": "present_uncertain_if_crisp_pupil",
+          "bbox_xyxy": [
+            575,
+            268,
+            625,
+            312
+          ],
+          "center": [
+            600,
+            290
+          ]
+        },
+        {
+          "id": "right_facial_mark",
+          "status": "present_uncertain_if_crisp_pupil",
+          "bbox_xyxy": [
+            655,
+            268,
+            705,
+            312
+          ],
+          "center": [
+            680,
+            290
+          ]
+        }
+      ],
+      "not_eyes": [
+        {
+          "id": "left_ear_spiral_interior",
+          "center": [
+            560,
+            210
+          ],
+          "note": "not a pupil"
+        },
+        {
+          "id": "right_ear_spiral_interior",
+          "center": [
+            705,
+            204
+          ],
+          "note": "not a pupil"
+        }
+      ],
+      "mouth": {
+        "shape": "slightly_open",
+        "note": "not a sealed purse"
+      },
+      "pearl_forms": [
+        {
+          "role": "signed_left_ear_base",
+          "status": "observed",
+          "center": [
+            455,
+            325
+          ]
+        },
+        {
+          "role": "signed_right_ear_base",
+          "status": "observed",
+          "center": [
+            845,
+            325
+          ]
+        },
+        {
+          "role": "signed_left_floor_paw",
+          "status": "observed",
+          "center": [
+            530,
+            645
+          ]
+        },
+        {
+          "role": "signed_right_floor_paw",
+          "status": "observed",
+          "center": [
+            750,
+            645
+          ]
+        }
+      ],
+      "uncertainty": "Same four signed forms. Cheeks beginning to read rounder. No extra flank pair at the copied r05 coordinates."
+    },
+    {
+      "index": 24,
+      "seconds": 1.0,
+      "png_path": "frames/frame_024.png",
+      "png_sha256": "60f6fd15607cc9e701741c4473b39ef66ad44e143cc4ac479e6f69209ce52436",
+      "actually_viewed": true,
+      "viewed_file": "assets_src/characters/grand_puff_personality_returns/r06/P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study.mp4",
+      "source_video_sha256": "12d6ae3dd75d331a37a964a9a031782dfb0fefa576c15740dafb692607f62231",
+      "decode": "ffmpeg -vf select=eq(n\\,24) lossless PNG",
+      "eyes": [
+        {
+          "id": "left",
+          "status": "absent_replaced_by_smooth_purple_disc",
+          "bbox_xyxy": [
+            540,
+            250,
+            625,
+            335
+          ],
+          "center": [
+            582,
+            292
+          ],
+          "note": "smooth round purple disc; no dark pupil inside; NOT counted as a pupil"
+        },
+        {
+          "id": "right",
+          "status": "absent_replaced_by_smooth_purple_disc",
+          "bbox_xyxy": [
+            655,
+            250,
+            745,
+            335
+          ],
+          "center": [
+            700,
+            292
+          ],
+          "note": "smooth round purple disc; no dark pupil inside; NOT counted as a pupil"
+        }
+      ],
+      "mouth": {
+        "shape": "small_open_oval",
+        "note": "not sealed lips"
+      },
+      "pearl_forms": [
+        {
+          "role": "signed_left_ear_base",
+          "status": "observed",
+          "center": [
+            455,
+            320
+          ]
+        },
+        {
+          "role": "signed_right_ear_base",
+          "status": "observed",
+          "center": [
+            845,
+            320
+          ]
+        },
+        {
+          "role": "signed_left_floor_paw",
+          "status": "observed",
+          "center": [
+            530,
+            645
+          ]
+        },
+        {
+          "role": "signed_right_floor_paw",
+          "status": "observed",
+          "center": [
+            750,
+            645
+          ]
+        }
+      ],
+      "uncertainty": "Codex frame24 observation confirmed. Purple discs are not pupils."
+    },
+    {
+      "index": 36,
+      "seconds": 1.5,
+      "png_path": "frames/frame_036.png",
+      "png_sha256": "4d369246c58df9e8db0eb59f430199315966962fc7dab0c675a5c0f4f7b2c3bd",
+      "actually_viewed": true,
+      "viewed_file": "assets_src/characters/grand_puff_personality_returns/r06/P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study.mp4",
+      "source_video_sha256": "12d6ae3dd75d331a37a964a9a031782dfb0fefa576c15740dafb692607f62231",
+      "decode": "ffmpeg -vf select=eq(n\\,36) lossless PNG",
+      "eyes": [
+        {
+          "id": "left_pupil",
+          "status": "present",
+          "bbox_xyxy": [
+            534,
+            325,
+            592,
+            383
+          ],
+          "center": [
+            561,
+            352
+          ],
+          "note": "large dark pupil; lower on the face than frame 0 marks"
+        },
+        {
+          "id": "right_pupil",
+          "status": "present",
+          "bbox_xyxy": [
+            684,
+            327,
+            744,
+            383
+          ],
+          "center": [
+            715,
+            352
+          ],
+          "note": "pair"
+        }
+      ],
+      "mouth": {
+        "shape": "open_with_teeth",
+        "note": "not a sealed purse; not a clean deflate face"
+      },
+      "pearl_forms": [
+        {
+          "role": "signed_left_ear_base",
+          "status": "observed",
+          "center": [
+            455,
+            325
+          ]
+        },
+        {
+          "role": "signed_right_ear_base",
+          "status": "observed",
+          "center": [
+            845,
+            325
+          ]
+        },
+        {
+          "role": "signed_left_floor_paw",
+          "status": "observed",
+          "center": [
+            520,
+            650
+          ]
+        },
+        {
+          "role": "signed_right_floor_paw",
+          "status": "observed",
+          "center": [
+            760,
+            650
+          ]
+        }
+      ],
+      "additional_round_forms": [
+        {
+          "role": "uncertain_extra_floor_contact_or_painted_lobe",
+          "center": [
+            430,
+            660
+          ],
+          "note": "possible extra floor lobe; not counted as a signed pearl"
+        },
+        {
+          "role": "uncertain_extra_floor_contact_or_painted_lobe",
+          "center": [
+            850,
+            660
+          ],
+          "note": "possible extra floor lobe; not counted as a signed pearl"
+        }
+      ],
+      "uncertainty": "Eyes returned but the arrangement changed (centers y\u2248352 vs frame0 y\u2248290). Additional floor lobes are painted contacts, not signed pearls. Cheeks still full: this is not a clean deflate."
+    },
+    {
+      "index": 60,
+      "seconds": 2.5,
+      "png_path": "frames/frame_060.png",
+      "png_sha256": "01f32bf834e1ef54378c3dcc4d0f90fc0cf827cdf3fc605d0e3337e624cc63fa",
+      "actually_viewed": true,
+      "viewed_file": "assets_src/characters/grand_puff_personality_returns/r06/P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study.mp4",
+      "source_video_sha256": "12d6ae3dd75d331a37a964a9a031782dfb0fefa576c15740dafb692607f62231",
+      "decode": "ffmpeg -vf select=eq(n\\,60) lossless PNG",
+      "eyes": [
+        {
+          "id": "left_pupil",
+          "status": "present",
+          "bbox_xyxy": [
+            533,
+            325,
+            591,
+            386
+          ],
+          "center": [
+            561,
+            353
+          ]
+        },
+        {
+          "id": "right_pupil",
+          "status": "present",
+          "bbox_xyxy": [
+            684,
+            322,
+            744,
+            386
+          ],
+          "center": [
+            715,
+            352
+          ]
+        }
+      ],
+      "mouth": {
+        "shape": "open_or_soft_oval",
+        "note": "not a determined sealed purse"
+      },
+      "pearl_forms": [
+        {
+          "role": "signed_left_ear_base",
+          "status": "observed",
+          "center": [
+            455,
+            325
+          ]
+        },
+        {
+          "role": "signed_right_ear_base",
+          "status": "observed",
+          "center": [
+            845,
+            325
+          ]
+        },
+        {
+          "role": "signed_left_floor_paw",
+          "status": "observed",
+          "center": [
+            520,
+            650
+          ]
+        },
+        {
+          "role": "signed_right_floor_paw",
+          "status": "observed",
+          "center": [
+            760,
+            650
+          ]
+        }
+      ],
+      "additional_round_forms": [
+        {
+          "role": "uncertain_extra_floor_contact_or_painted_lobe",
+          "note": "extra floor contacts persist; not signed pearls"
+        }
+      ],
+      "uncertainty": "Hold of the changed lower-eye arrangement. Not a deflated determined face."
+    },
+    {
+      "index": 144,
+      "seconds": 6.0,
+      "png_path": "frames/frame_144.png",
+      "png_sha256": "997bcccfe06707723bf105963949e34dd13f2571ea2af94a0ca0cf2083d137a9",
+      "actually_viewed": true,
+      "viewed_file": "assets_src/characters/grand_puff_personality_returns/r06/P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study.mp4",
+      "source_video_sha256": "12d6ae3dd75d331a37a964a9a031782dfb0fefa576c15740dafb692607f62231",
+      "decode": "ffmpeg -vf select=eq(n\\,144) lossless PNG; last index of 145 decoded frames (0-144)",
+      "eyes": [
+        {
+          "id": "left_pupil",
+          "status": "present",
+          "bbox_xyxy": [
+            533,
+            325,
+            591,
+            386
+          ],
+          "center": [
+            558,
+            355
+          ]
+        },
+        {
+          "id": "right_pupil",
+          "status": "present",
+          "bbox_xyxy": [
+            686,
+            323,
+            745,
+            386
+          ],
+          "center": [
+            715,
+            352
+          ]
+        }
+      ],
+      "mouth": {
+        "shape": "soft_open_or_oval"
+      },
+      "pearl_forms": [
+        {
+          "role": "signed_left_ear_base",
+          "status": "observed",
+          "center": [
+            455,
+            325
+          ]
+        },
+        {
+          "role": "signed_right_ear_base",
+          "status": "observed",
+          "center": [
+            845,
+            325
+          ]
+        },
+        {
+          "role": "signed_left_floor_paw",
+          "status": "observed",
+          "center": [
+            520,
+            650
+          ]
+        },
+        {
+          "role": "signed_right_floor_paw",
+          "status": "observed",
+          "center": [
+            760,
+            650
+          ]
+        }
+      ],
+      "additional_round_forms": [
+        {
+          "role": "uncertain_extra_floor_contact_or_painted_lobe",
+          "note": "leftover 6s hold; extra floor lobes visible; not signed pearls"
+        }
+      ],
+      "uncertainty": "Native leftover after the requested 3s window. Not a windup and not a clean deflate hold."
+    }
+  ],
+  "corrected_claims": [
+    "RETRACT r06 claim that t0.8-1.3 has sealed lips with readable pupils. Exact frame 24 (1.0s) has smooth purple discs and a small open oval mouth; no dark pupils.",
+    "RETRACT r06 extra-flank-pearl claim at (520,530)/(750,530) on this file. Those coordinates were copied from the r05 Codex review. Frame 0 of THIS video shows the four signed forms only at those sample points; the copied coords land on ordinary painted body.",
+    "RETRACT r06 claim of a closed-lip inflate/exhale diagnostic. Frame 0 is a two-tooth smile; frame 24 is an open oval; frame 36 is an open mouth with teeth. No sealed purse is visible at the required indices.",
+    "KEEP: selected file identity. take1 == published study == Imagine job 8b4a9843-538e-473e-b02f-a0b55accf858.mp4, sha256 12d6ae3d.... No take mixup.",
+    "KEEP: native duration is 6.04s / 145 frames. Requested 3s was not delivered as a 3s file.",
+    "CORRECT: eyes that are clearly readable as large dark pupils appear at frame 36 (1.5s) and remain through 60/144, but they sit lower (centers y\u2248352) than the frame-0 facial marks (y\u2248290). This is a changed facial arrangement, not a stable-eye cheek deflate.",
+    "CAUSE of the prose/pixel mismatch: r06 sampled with ffmpeg -ss TIME JPEGs, not exact decoded frame indices, and reused r05 extra-form coordinates instead of measuring this file."
+  ],
+  "submission_record_status": "partial_available",
+  "submission_record": {
+    "tool": "imagine_reference_to_video",
+    "requested_duration_seconds": 6,
+    "requested_aspect_ratio": "16:9",
+    "requested_resolution_name": "720p",
+    "prompt_path": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r06/shots/P02_ANGRY_WINDUP/PROMPT.txt",
+    "prompt_sha256": "928c8c3bd7e18df5eeeaf08e419013005d35ea5238f213984c50d7c85853333e",
+    "prompt_commit": "1e7ca65b1c490b6aaef90dad86780c8e72dd4d29",
+    "ordered_image_input_hashes": [
+      {
+        "id": "IMAGE_1",
+        "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664",
+        "role": "signed_front"
+      },
+      {
+        "id": "IMAGE_2",
+        "sha256": "5941f10f7211a61a6457271213207e01bd5567381a2a29167855ae0b72db9089",
+        "role": "signed_profile"
+      }
+    ],
+    "takes": [
+      {
+        "local_id": "take1",
+        "imagine_artifact": "8b4a9843-538e-473e-b02f-a0b55accf858.mp4",
+        "sha256": "12d6ae3dd75d331a37a964a9a031782dfb0fefa576c15740dafb692607f62231",
+        "selected": true
+      },
+      {
+        "local_id": "take2",
+        "imagine_artifact": "63f21b34-b62b-4198-9557-646e86e71732.mp4",
+        "sha256": "d7acd3c5a6ea539af56644e115152ba980dcf379ae1ada4c9c1e460308bc6acd",
+        "selected": false
+      },
+      {
+        "local_id": "take3",
+        "imagine_artifact": "c244c7ba-75c1-4490-84da-84ecf237e74c.mp4",
+        "sha256": "6689c128c70d56b3c330cd217b46a0f0a7845457cdf433bbf4ae0cdd87aea421",
+        "selected": false
+      }
+    ],
+    "model_slug": "unavailable",
+    "vendor_endpoint": "unavailable",
+    "hidden_reasoning": "not supplied",
+    "notes": "Tool output does not return a model name. UUID filenames are the only job identifiers retained locally. No credentials."
+  },
+  "next_repair_proposal": "No new MP4 in this round. After Codex issues a fresh shot card: isolate a still-face hold in which two dark pupils remain at a stable high-face location (below the crest, not y\u2248352), never replaced by purple discs, while cheeks inflate then deflate with sealed lips. Review with exact frame indices (0,12,24,36,...) not ffmpeg -ss JPEGs. Do not copy r05 coordinates. Keep the four signed pearl forms. Native duration remains 6s minimum; declare leftover hold. Do not recombine crouch/ear-sweep until this face beat is trustworthy.",
+  "carried_references": [
+    {
+      "shot_id": "P01_LAUGH",
+      "disposition": "preferred_motion_reference_only_not_production_accepted",
+      "source_commit": "f55d22365cd7f5380ea8d01abe471fe70399f822",
+      "path": "assets_src/characters/grand_puff_personality_returns/r02/P01_LAUGH/P01_LAUGH_study_silent.mp4",
+      "sha256": "091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f",
+      "regenerate": false
+    },
+    {
+      "shot_id": "P03_FRIENDS",
+      "disposition": "preferred_motion_reference_only_not_production_accepted",
+      "source_commit": "8dd2d96a00e7776752ef67117f5685cd7f054103",
+      "path": "assets_src/characters/grand_puff_personality_returns/r04/P03_FRIENDS/P03_FRIENDS_study_silent.mp4",
+      "sha256": "b3ec9764a76dab379cedf25d54f637043ebd4f0e6cdddb68989fe9ff80dd888f",
+      "regenerate": false,
+      "known_limits": "Approx0.76 height ratio vs proposed0.60; silhouette bottom rises20px; performance reference only, not production-ready support."
+    }
+  ],
+  "quality_target_note": "4.75/5 is the owner target, not a self-issued production approval.",
+  "png_role": "analytical_reference_not_production_cel"
+}

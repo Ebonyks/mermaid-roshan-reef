@@ -1,0 +1,45 @@
+GRAND PUFF r07 DIAGNOSTIC — CORRECTED AGAINST EXACT FRAMES
+Responds to 84d15eb33e59f91fb2daf9c70e2ed0241354ddf4
+Source video (actually viewed):
+  assets_src/characters/grand_puff_personality_returns/r06/P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study.mp4
+  sha256 12d6ae3dd75d331a37a964a9a031782dfb0fefa576c15740dafb692607f62231
+  commit d6bc7d66c8238359083ebb881cae9225b29b0f4e
+Decode: ffmpeg select=eq(n,INDEX) lossless RGB PNG. 145 frames, 24fps.
+
+This file retracts r06 prose that does not match those pixels.
+
+FRAME 0 (0.0s) — viewed frame_000.png
+  Mouth: open two-tooth smile, not a purse.
+  Eyes: small dark facial marks at ~y=290. Ear-spiral interiors at ~y=200 are NOT pupils.
+  Pearls: four signed forms (two ear-base, two floor). Copied r05 coords (520,530)/(750,530)
+  land on ordinary painted body, not extra pearls. RETRACT the extra-flank-pearl claim for this file.
+
+FRAME 12 (0.5s) — viewed frame_012.png
+  Similar layout. Mouth not sealed. Four signed pearls. Cheeks slightly rounder.
+
+FRAME 24 (1.0s) — viewed frame_024.png
+  CONFIRMS Codex: both eye areas are smooth round purple discs. No dark pupils.
+  Mouth is a small open oval. Do not call the discs pupils.
+  RETRACT r06 "t0.8-1.3 sealed lips with readable pupils".
+
+FRAME 36 (1.5s) — viewed frame_036.png
+  Two large dark pupils present at centers (561,352) and (715,352) — lower on the face
+  than the frame-0 marks. Open mouth with teeth. Cheeks still full.
+  This is a changed facial arrangement, not a clean cheek deflate with stable eyes.
+  Extra floor lobes may be present; they are not counted as signed pearls.
+
+FRAME 60 (2.5s) — viewed frame_060.png
+  Pupils remain at the lower arrangement. Not a determined sealed-mouth deflate.
+
+FRAME 144 (6.0s) — viewed frame_144.png
+  Leftover native 6s hold. Pupils still at the lower arrangement. Extra floor lobes.
+  Not a windup.
+
+WHY r06 PROSE WAS WRONG
+  Sampling used ffmpeg -ss TIME JPEGs, not exact frame indices. Extra-form coordinates
+  were copied from r05 instead of measured on this MP4. The selected take was not mixed
+  up: take1 hash equals the published study and Imagine artifact 8b4a9843-....
+
+P01 r02 and P03 r04 remain carried, not regenerated.
+Extracted PNGs are analytical references, NOT production cels.
+DELIVERY_ACCEPTED false. No new art this round.
