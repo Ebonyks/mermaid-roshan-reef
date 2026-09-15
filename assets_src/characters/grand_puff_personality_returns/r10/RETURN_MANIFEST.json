@@ -1,0 +1,130 @@
+{
+  "schema": "grand-puff-factual-review-v1",
+  "round": "r10",
+  "responds_to_handoff_commit": "1a686a7cc86768585be37b2a1af598917d4f0599",
+  "source_return_commit": "616a5db3599b90ef7961ed07aafc674c41586147",
+  "source_video_sha256": "536ed96c5b9c3233754a9a70d5e6d373bbc9f9904a16fa5857ecf3ee761ef368",
+  "source_video_path": "assets_src/characters/grand_puff_personality_returns/r09/P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study.mp4",
+  "decoded_frame_count": 145,
+  "fps": 24,
+  "container_duration_s": 6.041667,
+  "published_branch": "grok/grand-puff-motion-mp4-20260914",
+  "published_at_utc": "2026-09-15T09:51:41.899906+00:00",
+  "generated_new_art": false,
+  "delivery_accepted": false,
+  "disposition": "useful_partial_huff_performance_reference_not_compliant_not_accepted",
+  "png_role": "reused_r09_analytical_pngs_not_production_cels",
+  "frames": [
+    {
+      "index": 0,
+      "seconds": 0.0,
+      "png_path": "frames/frame_000.png",
+      "png_sha256": "02e54c1ee2c1c7758f8b68e21be80f26c24eab70cb30d47afa8023d0afe206bb",
+      "png_reused_from": "assets_src/characters/grand_puff_personality_returns/r09/P02_ANGRY_WINDUP/frames/frame_000.png",
+      "actually_viewed": true,
+      "eyes": "open_dark_pupils",
+      "mouth": "two_tooth_smile",
+      "cheeks": "rest",
+      "pearls": "four_signed_forms_two_ear_base_two_floor",
+      "note": "Start smile. Readable pupils."
+    },
+    {
+      "index": 24,
+      "seconds": 1.0,
+      "png_path": "frames/frame_024.png",
+      "png_sha256": "ee38bba90d946358fa1a06bb826756345df9e4d2d8af3c6d3eeda8c2125af7c1",
+      "png_reused_from": "assets_src/characters/grand_puff_personality_returns/r09/P02_ANGRY_WINDUP/frames/frame_024.png",
+      "actually_viewed": true,
+      "eyes": "open_dark_pupils",
+      "mouth": "two_tooth_smile",
+      "cheeks": "beginning_to_round",
+      "pearls": "four_signed_forms_only",
+      "note": "Still a two-tooth smile. Claimed extra flank pearls are not visible as new forms; lower round painted lobes belong to the contiguous body."
+    },
+    {
+      "index": 36,
+      "seconds": 1.5,
+      "png_path": "frames/frame_036.png",
+      "png_sha256": "2b5a7fd118d93fc52e9dc65694f896d5fe8c0394ad772dd0df30fa2826f5ec0c",
+      "png_reused_from": "assets_src/characters/grand_puff_personality_returns/r09/P02_ANGRY_WINDUP/frames/frame_036.png",
+      "actually_viewed": true,
+      "eyes": "closed_upper_lid_marks_not_open_pupils",
+      "mouth": "small_pursed_oval",
+      "cheeks": "large_pink_bulges",
+      "pearls": "four_signed_forms",
+      "note": "Huff peak. Closed lids can read as physical effort. No readable dark pupils."
+    },
+    {
+      "index": 60,
+      "seconds": 2.5,
+      "png_path": "frames/frame_060.png",
+      "png_sha256": "276dbd6e1c140ced65415716ef1eac2046c8760f3e7d7b114d7076f6b565cecb",
+      "png_reused_from": "assets_src/characters/grand_puff_personality_returns/r09/P02_ANGRY_WINDUP/frames/frame_060.png",
+      "actually_viewed": true,
+      "eyes": "closed",
+      "mouth": "small_pursed",
+      "cheeks": "still_puffed",
+      "pearls": "four_signed_forms",
+      "note": "Eyes remain closed during the huff."
+    },
+    {
+      "index": 108,
+      "seconds": 4.5,
+      "png_path": "frames/frame_108.png",
+      "png_sha256": "a62084bb34c768d208728b0799f5ee1f9a75265b0df899ad740c52b1b8facba9",
+      "png_reused_from": "assets_src/characters/grand_puff_personality_returns/r09/P02_ANGRY_WINDUP/frames/frame_108.png",
+      "actually_viewed": true,
+      "eyes": "reopened",
+      "mouth": "small_closed",
+      "cheeks": "released",
+      "pearls": "four_signed_forms",
+      "note": "Cheek bulges released. Eyes open again."
+    },
+    {
+      "index": 144,
+      "seconds": 6.0,
+      "png_path": "frames/frame_144.png",
+      "png_sha256": "dffa8b9f5e6de0a159ab2eb9dcbba58630b9b491835871f3c27c46e74193df87",
+      "png_reused_from": "assets_src/characters/grand_puff_personality_returns/r09/P02_ANGRY_WINDUP/frames/frame_144.png",
+      "actually_viewed": true,
+      "eyes": "open_determined_brows",
+      "mouth": "small_downturned_closed",
+      "cheeks": "settled",
+      "pearls": "four_signed_forms",
+      "note": "Determined finish. Native leftover 6s hold."
+    }
+  ],
+  "corrected_claims": [
+    "RETRACT r09 claim that eyes remain readable dark pupils on frames 36 and 60. Those frames show closed upper-lid marks, not open pupils.",
+    "RETRACT r09 claim of extra flank pearls at frame 24. That exact frame does not show a new pearl pair. Painted lower-body lobes belong to the contiguous design. Do not strip them.",
+    "RETRACT r09 extra floor puff / extra floor-lobe FAIL on later sampled frames. Not substantiated as new forms beside the signed four.",
+    "CORRECT mouth: frame 24 is still a two-tooth smile, not a sealed purse. This fails the initial closed-lip timing.",
+    "CORRECT acting: large pink cheek bulges at 36/60, released by 108, determined finish at 144. The huff is more readable than r09 prose allowed.",
+    "Closed eyes at 36/60 can convey effort and are preserved as personality in this partial reference, but they deviate from the continuous-open-eye brief."
+  ],
+  "alleged_extra_form_evidence": [],
+  "unknowns": [
+    "Cause of the r09 open-pupil and extra-pearl prose is unknown. No process diagnosis.",
+    "Sampled frames 0/24/36/60/108/144 only; not every-frame anatomy certification."
+  ],
+  "carried_references": [
+    {
+      "shot_id": "P01_LAUGH",
+      "disposition": "preferred_motion_reference_only_not_production_accepted",
+      "source_commit": "f55d22365cd7f5380ea8d01abe471fe70399f822",
+      "path": "assets_src/characters/grand_puff_personality_returns/r02/P01_LAUGH/P01_LAUGH_study_silent.mp4",
+      "sha256": "091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f",
+      "regenerate": false
+    },
+    {
+      "shot_id": "P03_FRIENDS",
+      "disposition": "preferred_motion_reference_only_not_production_accepted",
+      "source_commit": "8dd2d96a00e7776752ef67117f5685cd7f054103",
+      "path": "assets_src/characters/grand_puff_personality_returns/r04/P03_FRIENDS/P03_FRIENDS_study_silent.mp4",
+      "sha256": "b3ec9764a76dab379cedf25d54f637043ebd4f0e6cdddb68989fe9ff80dd888f",
+      "regenerate": false,
+      "known_limits": "Approx0.76 height ratio vs proposed0.60; silhouette bottom rises20px; performance reference only, not production-ready support."
+    }
+  ],
+  "r09_huff_status": "useful_partial_performance_reference_only"
+}
