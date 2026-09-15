@@ -300,6 +300,7 @@
     "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r04/shots/P02_ANGRY_WINDUP/SHOT_PACKET.json",
     "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r04/shots/P03_FRIENDS/PROMPT.txt",
     "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r04/shots/P03_FRIENDS/SHOT_PACKET.json",
+    "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r04_REMOTE_VERIFICATION.json",
     "audit/animation/README.md",
     "design/05_DOC_LEDGER.md",
     "design/animation/GRAND_PUFF_MOVEMENT_PROFILE.md"
@@ -349,6 +350,11 @@
       "command": "r03 direct video/hash/visual review; r04 packet/document/coverage validation",
       "result": "PASS",
       "evidence": "28 declared hashes at9efbe7c927d30e2fcb33fa2e413dedbd311b4f5d match; silent copies no audio and exact decoded-pixel match; actual boards/full-size/ear topology comparison reviewed. P02 end spirals fail, P03 height change modest. New packet gates/publication pending. 74 payload hashes and signed HTTPS bindings match; Imagine/document/coverage gates pass; earlier full78-probe CI applies to unchanged runtime. Remote archive proof follows upload."
+    },
+    {
+      "command": "HTTPS fetch every r04 packet file and compare full byte SHA256 at immutable content commit",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r04_REMOTE_VERIFICATION.json: 75 files verified at ba4a6636f2cb34d00ff70e0c0d5336b1f9f839bf"
     }
   ],
   "acceptance_gaps": "Archive, generator readiness and delivery acceptance are separate. Owner rejects reduced performance; new acting and all device/child/live integration acceptance remain open. Active-session monitoring only; scheduling tool not exposed."
