@@ -1,0 +1,59 @@
+GRAND PUFF — ANIMATION SCRIPTS → MP4
+Source of truth: scripts/dust_bunny_boss_sprite.gd ANIMATION_SPECS
+                  scripts/games/dust_boss.gd pose_for_state / splash
+Identity: grand_puff_signed_identity.jpg
+Format: MP4, 1:1, locked camera, pale ivory void
+Rebuild ending: friends (not implode)
+
+Each clip is editorial motion for Aseprite. Body only. Gold tell and dust FX stay off the body sheet.
+
+ID  GODOT NAME            CLIP                         STATUS
+01  idle                  GP01_idle.mp4                generate (breathing loop)
+02  jump                  GP02_jump.mp4                reuse hop audition if pass, else remake
+03  laugh_vulnerable      GP03_laugh_vulnerable.mp4    reuse laugh audition
+04  flinch_1              GP04_flinch_1.mp4            generate (first boop)
+05  flinch_2              GP05_flinch_2.mp4            RETAKE dizzy
+06  flinch_3              GP06_flinch_3.mp4            generate (settle wink)
+07  angry                 GP07_angry.mp4               reuse angry audition
+08  angry_jump_final      GP08_angry_jump_final.mp4    generate (puff + big hop)
+09  implode → friends     GP09_friends.mp4             reuse friends audition
+10  (showing / swell)     GP10_showing.mp4             generate (dust_boss entrance)
+11  (attic peek)          GP11_peek.mp4                generate (build_portal idle)
+12  (wind-up squash)      GP12_windup.mp4              generate (aim beat ~0.7s of 2.2s warn)
+13  (prowl hop)           GP13_prowl.mp4               generate (travel, not dust-column jump)
+14  (shielded giggle)     GP14_giggle.mp4              generate (bounced tap)
+15  splash identity       GP15_splash.mp4              generate (boss_splash_2d identity)
+
+IDENTITY LINE (every prompt)
+Grand Puff: grey-lavender three-tier cloud, two inward spiral ears, pearl beads only at ear bases, exactly two floor pearl paws, hips plain, two tiny pointed teeth, pink oval blushes, navy-plum outlines, 2D children's storybook cel shading.
+
+SHOT PROMPTS
+01 idle — Locked front camera, pale ivory void. Grand Puff breathes in place: the cloud body slowly inflates then settles, spiral ears bob, a tiny closed-mouth smile with two teeth. Loopable, no extra pearls.
+02 jump — Locked front camera. He squashes, hops straight up, lands in a soft squash. Graphic rounded dust only at landing. Same identity, two floor paws only.
+03 laugh — Locked front camera. He laughs, eyes closing into crescents, two tiny teeth, spiral ears loosening but still spirals, forehead sparkle only slightly brighter. Hold the grin.
+04 flinch_1 — Locked front camera. A gentle boop hits the crest sparkle. He blinks wide, body compresses, ears flick, cute surprise, two tiny teeth. No injury.
+05 flinch_2 — Locked front camera. He wobbles left then right like a balloon, one eye briefly a cute spiral, ears flop out of sync, then slumps dazed and smiling.
+06 flinch_3 — Locked front camera. He settles from a tip, winks one eye, two tiny teeth, ears return to clean spirals, friendly recovery.
+07 angry — Locked front camera. Cheeks puff, spiral ears rise tall, brows knit in comic annoyance, then a determined crouch. Still cute, no snarl.
+08 angry_jump_final — Locked front camera. After a huffy puff he loads a deep squash and launches a bigger hop, landing with a dusty poof, still Grand Puff.
+09 friends — Locked front camera. He shrinks smoothly into a small intact cuddly puff, same face, ears, two teeth, then sparkles of returned shine drift up. No implosion.
+10 showing — Locked front camera. A tiny round Grand Puff swells up into full three-tier size, ears unfurling, and settles with a proud little bounce.
+11 peek — Locked camera. Grand Puff peeks over a round wooden attic hatch: spiral ears, then eyes, then two tiny teeth, then he ducks back down, still cute.
+12 windup — Locked front camera. He compresses into a round squash, ears press back, body loads like a spring and holds the crouch, ready to hop.
+13 prowl — Locked front camera. Two small in-place bunny hops, low travel, no giant dust column, ears bounce, then he settles.
+14 giggle — Locked front camera. A tap bounces off him in a sparkle; he scrunches and giggles with eyes closed, smug, spiral ears held, two tiny teeth.
+15 splash — Locked front camera. He poses for a title card: one ear cocked, two tiny teeth, crest sparkle, a gentle proud settle.
+
+CODEX BINDING
+idle               ← 01
+jump               ← 02
+laugh_vulnerable   ← 03
+flinch_1           ← 04
+flinch_2           ← 05
+flinch_3           ← 06
+angry              ← 07
+angry_jump_final   ← 08
+friends (new)      ← 09   replaces implode
+splash identity    ← 15
+portal peek        ← 11
+warn squash        ← 12 (body only; flashes and gold star are FX layers)

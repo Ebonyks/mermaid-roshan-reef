@@ -25,6 +25,8 @@ It does not create findings, close existing ones, or declare game-wide satisfact
 |---|---|---|---|---|---|
 | Mermaid Roshan | [Movement language v1](../../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md) | Ribbon Glide everyday; Playful Dolphin for delight. Pilot selection remains open. | Not produced by this documentation task; existing atlas inventory is linked in the profile | Not implemented or tested as a new movement suite; existing scoped game evidence is not transferred | All remain open for the proposed suite |
 
+| Grand Puff | [Review profile v1](../../design/animation/GRAND_PUFF_MOVEMENT_PROFILE.md) | Proud effort, playful recovery; signed Grok identity | 105 candidate frames / 15 tags, seven editable layers; front/profile/back reference document | Native file/alpha/bounds evidence in profile; no live integration | New cel motion, device, child and owner acceptance remain open |
+
 This table is a **profile commission inventory**, not a claim that only one
 character exists or that the game has no prior animation. Add each next
 commissioned character as an individual row, with verified source/canon links.

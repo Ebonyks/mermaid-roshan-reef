@@ -1,0 +1,45 @@
+GRAND PUFF — GROK MOTION ARCHIVE, 2026-09-14
+Branch: grok/grand-puff-motion-mp4-20260914
+Base:   codex/monitor-puff-audit-repair-20260914 (inventory packet)
+
+Made locally, now in git. Editorial MP4s for Aseprite reconstruction.
+Not runtime sprites. Not signed as GENERATION_READY for cinematics.
+
+IDENTITY
+  grok_signed/grand_puff_signed_identity.jpg   FRONT — Imagine pixel authority
+  grok_signed/grand_puff_profile.jpg           profile PASS-with-notes
+  grok_signed/grand_puff_back.jpg              back PASS
+  grok_signed/IDENTITY_SIGNATURE.txt
+  grok_signed/DIRECTOR_REVIEW.txt
+Three-quarter stills were rejected. Reconstruct 3/4 from front + profile.
+
+ATTACK / FIGHT MP4s  (mp4/)
+  GP02_jump.mp4              jump
+  GP07_angry.mp4             angry
+  GP08_angry_jump_final.mp4  angry_jump_final
+  GP12_windup.mp4            warn squash (body only; gold star / flashes are FX)
+  GP13_prowl.mp4             short travel hops
+
+OTHER CLIPS
+  GP01_idle.mp4              idle
+  GP03_laugh_vulnerable.mp4  laugh_vulnerable (spiral ears held)
+  GP04_flinch_1.mp4          flinch_1
+  GP05_flinch_2.mp4          flinch_2 dizzy retake
+  GP06_flinch_3.mp4          flinch_3
+  GP09_friends.mp4           REPLACES implode
+  GP10_showing.mp4           entrance swell
+  GP11_peek.mp4              attic portal
+  GP14_giggle.mp4            bounced tap
+  GP15_splash.mp4            splash identity
+
+Stills: stills/GP10_showing_start.jpg  stills/GP11_peek_start.jpg
+Scripts: scripts/ANIMATION_SCRIPTS.txt  scripts/MP4_MANIFEST.txt
+
+CODEX
+- Strip extra flank pearls (drift). Signed front has two ear-base pearls + two floor paws only.
+- Body sheets without baked dust rings or gold tell.
+- Friends ending, not implode.
+- No Sprite3D.
+- Do not treat contact sheets or these MP4s as final pixels; reconstruct.
+
+See scripts/MP4_MANIFEST.txt for QC notes.
