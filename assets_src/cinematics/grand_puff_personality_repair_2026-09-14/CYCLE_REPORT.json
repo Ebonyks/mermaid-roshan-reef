@@ -1,0 +1,289 @@
+{
+  "schema": "grand-puff-six-hour-cycle-report-v1",
+  "monitor": {
+    "started_utc": "2026-09-15T04:17:36.088161+00:00",
+    "deadline_utc": "2026-09-15T10:17:36.088161+00:00",
+    "interval_seconds": 900,
+    "scheduled_checks": 24,
+    "completed_checks": 24,
+    "status": "complete",
+    "incoming_pattern": "refs/heads/grok/*grand*puff*",
+    "primary_branch": "grok/grand-puff-motion-mp4-20260914",
+    "outgoing_branch": "codex/grand-puff-grok-review-cycle-20260914",
+    "events": [
+      {
+        "type": "new_grok_heads",
+        "tick": 5,
+        "at_utc": "2026-09-15T05:32:36.980642+00:00",
+        "changes": {
+          "refs/heads/grok/grand-puff-motion-mp4-20260914": {
+            "old": "8d07b0908c39051c2a310caf29fd86a56dc82b40",
+            "new": "caec2f39188599b4c94f82e6cdd787d79821b732"
+          }
+        }
+      },
+      {
+        "type": "new_grok_heads",
+        "tick": 7,
+        "at_utc": "2026-09-15T06:02:37.022218+00:00",
+        "changes": {
+          "refs/heads/grok/grand-puff-motion-mp4-20260914": {
+            "old": "caec2f39188599b4c94f82e6cdd787d79821b732",
+            "new": "f55d22365cd7f5380ea8d01abe471fe70399f822"
+          }
+        }
+      },
+      {
+        "type": "new_grok_heads",
+        "tick": 9,
+        "at_utc": "2026-09-15T06:32:37.064083+00:00",
+        "changes": {
+          "refs/heads/grok/grand-puff-motion-mp4-20260914": {
+            "old": "f55d22365cd7f5380ea8d01abe471fe70399f822",
+            "new": "9efbe7c927d30e2fcb33fa2e413dedbd311b4f5d"
+          }
+        }
+      },
+      {
+        "type": "new_grok_heads",
+        "tick": 11,
+        "at_utc": "2026-09-15T07:02:37.104692+00:00",
+        "changes": {
+          "refs/heads/grok/grand-puff-motion-mp4-20260914": {
+            "old": "9efbe7c927d30e2fcb33fa2e413dedbd311b4f5d",
+            "new": "8dd2d96a00e7776752ef67117f5685cd7f054103"
+          }
+        }
+      },
+      {
+        "type": "new_grok_heads",
+        "tick": 13,
+        "at_utc": "2026-09-15T07:32:37.145486+00:00",
+        "changes": {
+          "refs/heads/grok/grand-puff-motion-mp4-20260914": {
+            "old": "8dd2d96a00e7776752ef67117f5685cd7f054103",
+            "new": "795391251f1096d2e263d531fb0178f8324bd2b0"
+          }
+        }
+      },
+      {
+        "type": "new_grok_heads",
+        "tick": 15,
+        "at_utc": "2026-09-15T08:02:37.185660+00:00",
+        "changes": {
+          "refs/heads/grok/grand-puff-motion-mp4-20260914": {
+            "old": "795391251f1096d2e263d531fb0178f8324bd2b0",
+            "new": "d6bc7d66c8238359083ebb881cae9225b29b0f4e"
+          }
+        }
+      },
+      {
+        "type": "new_grok_heads",
+        "tick": 17,
+        "at_utc": "2026-09-15T08:32:37.225818+00:00",
+        "changes": {
+          "refs/heads/grok/grand-puff-motion-mp4-20260914": {
+            "old": "d6bc7d66c8238359083ebb881cae9225b29b0f4e",
+            "new": "3febea1b62043f4695a057c59709f39940dd1087"
+          }
+        }
+      },
+      {
+        "type": "new_grok_heads",
+        "tick": 19,
+        "at_utc": "2026-09-15T09:02:37.265979+00:00",
+        "changes": {
+          "refs/heads/grok/grand-puff-motion-mp4-20260914": {
+            "old": "3febea1b62043f4695a057c59709f39940dd1087",
+            "new": "19a805f15c60349f62a938ce107198646407df0d"
+          }
+        }
+      },
+      {
+        "type": "new_grok_heads",
+        "tick": 21,
+        "at_utc": "2026-09-15T09:32:37.305828+00:00",
+        "changes": {
+          "refs/heads/grok/grand-puff-motion-mp4-20260914": {
+            "old": "19a805f15c60349f62a938ce107198646407df0d",
+            "new": "616a5db3599b90ef7961ed07aafc674c41586147"
+          }
+        }
+      },
+      {
+        "type": "new_grok_heads",
+        "tick": 23,
+        "at_utc": "2026-09-15T10:02:37.345596+00:00",
+        "changes": {
+          "refs/heads/grok/grand-puff-motion-mp4-20260914": {
+            "old": "616a5db3599b90ef7961ed07aafc674c41586147",
+            "new": "030f1cc7380c77f428703970be4788df1911236b"
+          }
+        }
+      }
+    ],
+    "initial_heads": {
+      "refs/heads/grok/grand-puff-motion-mp4-20260914": "8d07b0908c39051c2a310caf29fd86a56dc82b40"
+    },
+    "last_heads": {
+      "refs/heads/grok/grand-puff-motion-mp4-20260914": "030f1cc7380c77f428703970be4788df1911236b"
+    },
+    "last_check_utc": "2026-09-15T10:17:37.365957+00:00",
+    "finished_utc": "2026-09-15T10:17:38.130847+00:00"
+  },
+  "returns_reviewed": 10,
+  "published_handoff_rounds": 11,
+  "rounds": [
+    {
+      "round": "r01",
+      "content_commit": "297d706697507c1acad9d8438071f9dd061ed922",
+      "files_verified": 38,
+      "archive_complete": true,
+      "generation_ready": true,
+      "delivery_accepted": false,
+      "proof_path": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r01_REMOTE_VERIFICATION.json",
+      "proof_sha256": "8f82e99be84ee5b6817af53f51b87fb7637dc6e4d057ec9e20ce41641f1a7b6f"
+    },
+    {
+      "round": "r02",
+      "content_commit": "59561b56c51c386fb51ef8a2e8e4a868186caccd",
+      "files_verified": 76,
+      "archive_complete": true,
+      "generation_ready": true,
+      "delivery_accepted": false,
+      "proof_path": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r02_REMOTE_VERIFICATION.json",
+      "proof_sha256": "2c1e11c567dbfd8a40e7881e001c5f1f86aa1b837e25c166e57b02698345dc16"
+    },
+    {
+      "round": "r03",
+      "content_commit": "df5ebcebea5c500cac51b4fc4acdd3fa3e726eff",
+      "files_verified": 88,
+      "archive_complete": true,
+      "generation_ready": true,
+      "delivery_accepted": false,
+      "proof_path": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r03_REMOTE_VERIFICATION.json",
+      "proof_sha256": "252a177dad046758ac2a122db9fb4a108e9ca8b2858b2d32b242f027271fb1e1"
+    },
+    {
+      "round": "r04",
+      "content_commit": "ba4a6636f2cb34d00ff70e0c0d5336b1f9f839bf",
+      "files_verified": 75,
+      "archive_complete": true,
+      "generation_ready": true,
+      "delivery_accepted": false,
+      "proof_path": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r04_REMOTE_VERIFICATION.json",
+      "proof_sha256": "7a47dffe5046517456be218ee1b31c36fccd7d24be897765d224d8f328689f2f"
+    },
+    {
+      "round": "r05",
+      "content_commit": "0b1063d17fb98dbc97ab3d51dbd5f6e16faed41d",
+      "files_verified": 73,
+      "archive_complete": true,
+      "generation_ready": true,
+      "delivery_accepted": false,
+      "proof_path": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r05_REMOTE_VERIFICATION.json",
+      "proof_sha256": "78278ec1c4b8853b2ec05e1c2b5a3dc8ebebb94ad304ed3a05334189c13a7a3c"
+    },
+    {
+      "round": "r06",
+      "content_commit": "1e7ca65b1c490b6aaef90dad86780c8e72dd4d29",
+      "files_verified": 59,
+      "archive_complete": true,
+      "generation_ready": true,
+      "delivery_accepted": false,
+      "proof_path": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r06_REMOTE_VERIFICATION.json",
+      "proof_sha256": "d565acaf801c0c7f3199c7b66e2b122bab6e817e79105526baef658761d73504"
+    },
+    {
+      "round": "r07",
+      "content_commit": "84d15eb33e59f91fb2daf9c70e2ed0241354ddf4",
+      "files_verified": 57,
+      "archive_complete": true,
+      "generation_ready": false,
+      "delivery_accepted": false,
+      "proof_path": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r07_REMOTE_VERIFICATION.json",
+      "proof_sha256": "0bbccc2847b4389e097981b89370cbcd72b7c1820c3756031346a891e2982de3"
+    },
+    {
+      "round": "r08",
+      "content_commit": "4e9b11a58f19896694eb68f84f823b4e164a1f05",
+      "files_verified": 47,
+      "archive_complete": true,
+      "generation_ready": false,
+      "delivery_accepted": false,
+      "proof_path": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r08_REMOTE_VERIFICATION.json",
+      "proof_sha256": "d3641fb71d56fab4e35f6abcef27e46a9852d156f834d9197ff8a62127c67b06"
+    },
+    {
+      "round": "r09",
+      "content_commit": "085077198b9ede9e6881f6d5f43b956735b8986a",
+      "files_verified": 51,
+      "archive_complete": true,
+      "generation_ready": true,
+      "delivery_accepted": false,
+      "proof_path": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r09_REMOTE_VERIFICATION.json",
+      "proof_sha256": "673bd23b2e7deea4b333c979e2fedc86caaf60c1d0ec2288a2cf88bf9e10d44c"
+    },
+    {
+      "round": "r10",
+      "content_commit": "1a686a7cc86768585be37b2a1af598917d4f0599",
+      "files_verified": 52,
+      "archive_complete": true,
+      "generation_ready": false,
+      "delivery_accepted": false,
+      "proof_path": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r10_REMOTE_VERIFICATION.json",
+      "proof_sha256": "b01634f64251d6e38dc8c1bf552ffca949032bad59f96e8e207bfaef3f31cd06"
+    },
+    {
+      "round": "r11",
+      "content_commit": "d9d4e6b4ca7590d0a7376ae57a96270ecc173939",
+      "files_verified": 47,
+      "archive_complete": true,
+      "generation_ready": false,
+      "delivery_accepted": false,
+      "proof_path": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11_REMOTE_VERIFICATION.json",
+      "proof_sha256": "1e9dafc3d32e9b2ce31f58c444047353a2581f624d948051becae9f47bff4e5d"
+    }
+  ],
+  "final_handoff_commit": "d9d4e6b4ca7590d0a7376ae57a96270ecc173939",
+  "final_handoff_path": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/START_HERE.txt",
+  "selected_references": [
+    {
+      "shot_id": "P01_LAUGH",
+      "disposition": "preferred_motion_reference_only_not_production_accepted",
+      "source_commit": "f55d22365cd7f5380ea8d01abe471fe70399f822",
+      "path": "assets_src/characters/grand_puff_personality_returns/r02/P01_LAUGH/P01_LAUGH_study_silent.mp4",
+      "sha256": "091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f",
+      "regenerate": false
+    },
+    {
+      "shot_id": "P03_FRIENDS",
+      "disposition": "preferred_motion_reference_only_not_production_accepted",
+      "source_commit": "8dd2d96a00e7776752ef67117f5685cd7f054103",
+      "path": "assets_src/characters/grand_puff_personality_returns/r04/P03_FRIENDS/P03_FRIENDS_study_silent.mp4",
+      "sha256": "b3ec9764a76dab379cedf25d54f637043ebd4f0e6cdddb68989fe9ff80dd888f",
+      "regenerate": false,
+      "known_limits": "Approx0.76 height ratio vs proposed0.60; silhouette bottom rises20px; performance reference only, not production-ready support."
+    },
+    {
+      "shot_id": "P02_ANGRY_WINDUP",
+      "disposition": "useful_partial_huff_performance_reference_only_not_complete_windup",
+      "source_commit": "616a5db3599b90ef7961ed07aafc674c41586147",
+      "path": "assets_src/characters/grand_puff_personality_returns/r09/P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study_silent.mp4",
+      "sha256": "e7e960c6a37ff491cceb75e9a8c7294580381cc742ee4c40f558e1023b9c08cd",
+      "regenerate": false,
+      "known_limits": "Eyes close during effort; smile persists at1s. Partial acting reference, not complete windup or native Aseprite."
+    }
+  ],
+  "machine_verification": "Per-round payload/staged/HTTPS hashes, document authority and impact coverage, Imagine readiness or diagnostic schema. Earlier full78-probe local CI passes on unchanged runtime.",
+  "implementation": "Source-only review packets and direction. No live game integration.",
+  "outstanding_acceptance": [
+    "Editable Aseprite acting repair",
+    "Complete authored windup",
+    "Full-frame cinematic evidence when applicable",
+    "Owner visual review",
+    "Device and child acceptance",
+    "4.75/5 target remains unawarded"
+  ],
+  "monitoring_limit": "Active task completed; no durable recurring automation installed. No further checks scheduled."
+}

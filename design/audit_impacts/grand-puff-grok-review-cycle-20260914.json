@@ -20,6 +20,7 @@
   ],
   "files": [
     "ASSET_LICENSES.md",
+    "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/CYCLE_REPORT.json",
     "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r01/BOUND_REFERENCE_VERIFICATION.json",
     "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r01/DIRECTOR_BRIEF.txt",
     "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r01/IMAGINE_HANDOFF.json",
@@ -716,8 +717,8 @@
     },
     {
       "command": "15-minute Grok return checks for six hours",
-      "result": "PENDING",
-      "evidence": "Active polling 2026-09-15T04:17:36Z through 2026-09-15T10:17:36Z; exact contract in r01/MONITOR_CONTRACT.json, local state tmp/puff-grok-cycle/STATE.json."
+      "result": "PASS",
+      "evidence": "24/24 checks completed 2026-09-15T04:17:36Z through10:17:38Z;10 changed heads reviewed,11 handoffs published. assets_src/cinematics/grand_puff_personality_repair_2026-09-14/CYCLE_REPORT.json"
     },
     {
       "command": "Round-one direct decode, hash verification, pose/board review; r02 audit_imagine_handoff --require-ready; audit_document_authority; audit_development --base auto",
@@ -820,5 +821,5 @@
       "evidence": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11_REMOTE_VERIFICATION.json: 47 files verified at d9d4e6b4ca7590d0a7376ae57a96270ecc173939"
     }
   ],
-  "acceptance_gaps": "Archive, generator readiness and delivery acceptance are separate. Owner rejects reduced performance; new acting and all device/child/live integration acceptance remain open. Active-session monitoring only; scheduling tool not exposed."
+  "acceptance_gaps": "Six-hour active task monitor completed; no recurring automation installed. Selected laugh/friendship and partial huff are motion references only. Editable Aseprite repair, full windup, production/device/child/owner acceptance and 4.75 target remain outstanding."
 }
