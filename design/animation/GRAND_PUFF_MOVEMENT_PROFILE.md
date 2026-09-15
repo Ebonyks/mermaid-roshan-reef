@@ -4,6 +4,16 @@ Status: `SUPPORTING_CURRENT`, 2026-09-14. This is an editable asset review,
 commissioned by the owner from Grok's signed return. It grants no runtime,
 cinematic, device, child or final visual acceptance.
 
+## Owner review update — 2026-09-14
+
+The owner rejected the reconstructed motion as too limited and insufficiently
+faithful to Grok's personality. The 105-frame set remains an editable source and
+rejected performance baseline; its machine checks do not rehabilitate the acting.
+The current corrective work is the [three-pilot Grok handoff](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r01/START_HERE.txt):
+laugh, angry windup and friends, followed by timed return/review cycles. Preserve
+the expressive poses and emotional beats while repairing anatomy drift. No live
+integration or production acceptance has been authorized by this update.
+
 ## Identity, scope and sources
 
 Grand Puff is the cloud bunny boss who becomes a small intact friend. The signed

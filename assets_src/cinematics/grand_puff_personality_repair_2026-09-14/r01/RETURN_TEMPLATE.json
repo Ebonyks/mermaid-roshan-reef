@@ -1,0 +1,45 @@
+{
+  "schema": "grand-puff-acting-return-v1",
+  "round": "r01",
+  "responds_to_handoff_commit": "REPLACE_WITH_IMMUTABLE_HANDOFF_COMMIT",
+  "status": "review_candidate",
+  "clips": [
+    {
+      "shot_id": "P01_LAUGH",
+      "files": [],
+      "reference_timestamps": [],
+      "acting_changes": [],
+      "known_anatomy_or_contact_issues": [],
+      "pose_candidates": [],
+      "gameplay_edit_proposal": null
+    },
+    {
+      "shot_id": "P02_ANGRY_WINDUP",
+      "files": [],
+      "reference_timestamps": [],
+      "acting_changes": [],
+      "known_anatomy_or_contact_issues": [],
+      "pose_candidates": [],
+      "gameplay_edit_proposal": null
+    },
+    {
+      "shot_id": "P03_FRIENDS",
+      "files": [],
+      "reference_timestamps": [],
+      "acting_changes": [],
+      "known_anatomy_or_contact_issues": [],
+      "pose_candidates": [],
+      "gameplay_edit_proposal": null
+    }
+  ],
+  "file_fields_required": [
+    "path",
+    "sha256",
+    "dimensions",
+    "duration_or_frame_time",
+    "source_paths_and_hashes",
+    "construction_method",
+    "role_motion_reference_or_authored_candidate"
+  ],
+  "delivery_accepted": false
+}

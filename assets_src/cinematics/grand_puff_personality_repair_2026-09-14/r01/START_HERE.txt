@@ -1,0 +1,33 @@
+GRAND PUFF — RESTORE THE PERFORMANCE — ROUND 01
+
+Owner: The Aseprite reconstruction is too limited; it loses the personality in
+Grok's original footage. Treat this as an acting-reconstruction handoff.
+
+FIRST: read DIRECTOR_BRIEF.txt, then view boards/ALL_THREE_STUDIES.jpg and the
+three ORIGINAL motion_references MP4s. The rejected_candidate material shows
+the failure; it is NOT the animation target and must never be generation input.
+
+PILOT ONLY: P01 laugh, P02 angry windup, P03 friends. Keep their emotional beats,
+bold silhouette changes, cheek/brow/eye acting, asymmetric ear follow-through,
+weight and a held emotional payoff. Preserve the signed design while correcting
+extra pearls/arms and straight rabbit ears. Do not expand all fifteen clips until
+these three earn a strong side-by-side acting review.
+
+If generating a new motion study, use one shots/*/PROMPT.txt per job and bind
+only IMAGE_1 and IMAGE_2 from that shot's SHOT_PACKET.json. No boards, HUD,
+rejected Aseprite frames or audit text as generation pixels. The 16:9 studies
+follow the shot-card template; preserve the full body with side clearance.
+Archive prose stays out of the pasted prompt.
+
+RETURN: publish the versioned package on grok/grand-puff-motion-mp4-20260914
+under assets_src/characters/grand_puff_personality_returns/r01/ and include
+RETURN_MANIFEST.json, all new previews/pose keys, exact source hashes, frame
+index/seconds, anatomy caveats, and your acting comparison. Declare whether
+files are motion references, authored pose candidates, or actual editable
+Aseprite files. Never label extracted MP4 frames as accepted production cels.
+Use RETURN_TEMPLATE.json as the shape, replacing every placeholder.
+
+Codex polls the incoming branch every fifteen minutes during the six-hour
+window recorded in MONITOR_CONTRACT.json; new packages get a review and a numbered feedback
+packet on codex/grand-puff-grok-review-cycle-20260914. No-change checks stay quiet.
+This is review work only: do not edit live game code, protected assets or saves.
