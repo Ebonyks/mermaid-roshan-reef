@@ -109,3 +109,5 @@ Change/evidence: [2026-09-11 audit impact](../../design/audit_impacts/2026-09-11
 - 2026-09-14: Grand Puff [r05 correction](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r05/START_HERE.txt): Round04 repairs P02 coiled ears and improves P03 shrink. P03 joins P01 as preferred motion reference; one P02 exhale/open-eye hold job remains. No finding closure.
 
 - 2026-09-14: Grand Puff [r06 correction](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r06/START_HERE.txt): Round05 restores open eyes but shows smiling huff and an exact-frame extra flank pair. Round06 isolates a three-second huff/release study before recombining. No finding closure.
+
+- 2026-09-14: Grand Puff [r07 correction](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r07/START_HERE.txt): Round06 selected pixels contradict its eye/extra-form review. Round07 requests exact-frame and input-binding reconciliation before further P02 generation. No finding closure.
