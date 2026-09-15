@@ -117,3 +117,5 @@ Change/evidence: [2026-09-11 audit impact](../../design/audit_impacts/2026-09-11
 - 2026-09-14: Grand Puff [r09 correction](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r09/START_HERE.txt): R08 reconciles incorrect coordinates and review claims. R09 resumes one six-second huff study preserving facial placement; laugh and friendship remain carried motion references. No finding closure.
 
 - 2026-09-14: Grand Puff [r10 correction](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r10/START_HERE.txt): R09 has a clearer puff/release but closes its eyes during effort. R10 preserves the partial performance and requests truthful frame observations; no further generation. No finding closure.
+
+- 2026-09-14: Grand Puff [r11 correction](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/START_HERE.txt): R10 factual record reconciled. R11 consolidates selected laugh, partial huff and friendship motion references; editable Aseprite and production acceptance remain outstanding. No finding closure.

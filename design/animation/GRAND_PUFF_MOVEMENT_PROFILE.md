@@ -147,3 +147,5 @@ Round07 PNG identity passes, but eye coordinates, shift direction and mouth desc
 R08 reconciles incorrect coordinates and review claims. R09 resumes one six-second huff study preserving facial placement; laugh and friendship remain carried motion references. [r09 handoff](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r09/START_HERE.txt). No owner/production acceptance.
 
 R09 has a clearer puff/release but closes its eyes during effort. R10 preserves the partial performance and requests truthful frame observations; no further generation. [r10 handoff](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r10/START_HERE.txt). No owner/production acceptance.
+
+R10 factual record reconciled. R11 consolidates selected laugh, partial huff and friendship motion references; editable Aseprite and production acceptance remain outstanding. [r11 handoff](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/START_HERE.txt). No owner/production acceptance.

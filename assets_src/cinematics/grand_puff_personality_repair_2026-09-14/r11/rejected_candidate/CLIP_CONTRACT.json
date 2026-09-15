@@ -1,0 +1,2671 @@
+{
+  "status": "REVIEW_CANDIDATE_NOT_RUNTIME_ACCEPTED",
+  "canvas": [
+    512,
+    512
+  ],
+  "support_pivot": [
+    256,
+    480
+  ],
+  "minimum_pad_px": 32,
+  "source_transform": {
+    "source_bbox": [
+      28,
+      56,
+      1383,
+      1327
+    ],
+    "scale": 0.30996309963099633,
+    "offset": [
+      37.321033210332104,
+      66.64206642066421
+    ]
+  },
+  "layers": [
+    "ear_left",
+    "ear_right",
+    "body_crest",
+    "paw_left",
+    "paw_right",
+    "eyes",
+    "mouth"
+  ],
+  "tags": [
+    {
+      "name": "idle",
+      "from": 1,
+      "to": 6,
+      "duration_ms": 1200,
+      "loop": true
+    },
+    {
+      "name": "jump",
+      "from": 7,
+      "to": 16,
+      "duration_ms": 1280,
+      "loop": false
+    },
+    {
+      "name": "laugh_vulnerable",
+      "from": 17,
+      "to": 25,
+      "duration_ms": 1440,
+      "loop": false
+    },
+    {
+      "name": "flinch_1",
+      "from": 26,
+      "to": 30,
+      "duration_ms": 710,
+      "loop": false
+    },
+    {
+      "name": "flinch_2",
+      "from": 31,
+      "to": 37,
+      "duration_ms": 1130,
+      "loop": false
+    },
+    {
+      "name": "flinch_3",
+      "from": 38,
+      "to": 42,
+      "duration_ms": 880,
+      "loop": false
+    },
+    {
+      "name": "angry",
+      "from": 43,
+      "to": 48,
+      "duration_ms": 1150,
+      "loop": false
+    },
+    {
+      "name": "angry_jump_final",
+      "from": 49,
+      "to": 60,
+      "duration_ms": 1820,
+      "loop": false
+    },
+    {
+      "name": "friends",
+      "from": 61,
+      "to": 67,
+      "duration_ms": 1720,
+      "loop": false
+    },
+    {
+      "name": "showing",
+      "from": 68,
+      "to": 73,
+      "duration_ms": 1220,
+      "loop": false
+    },
+    {
+      "name": "peek",
+      "from": 74,
+      "to": 80,
+      "duration_ms": 1560,
+      "loop": false
+    },
+    {
+      "name": "windup",
+      "from": 81,
+      "to": 86,
+      "duration_ms": 1260,
+      "loop": false
+    },
+    {
+      "name": "prowl",
+      "from": 87,
+      "to": 92,
+      "duration_ms": 740,
+      "loop": true
+    },
+    {
+      "name": "giggle",
+      "from": 93,
+      "to": 99,
+      "duration_ms": 1140,
+      "loop": true
+    },
+    {
+      "name": "splash",
+      "from": 100,
+      "to": 105,
+      "duration_ms": 1410,
+      "loop": false
+    }
+  ],
+  "frames": [
+    {
+      "index": 1,
+      "clip": "idle",
+      "key": 0,
+      "duration_ms": 320,
+      "parameters": {
+        "dt": 0.32,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 2,
+      "clip": "idle",
+      "key": 1,
+      "duration_ms": 220,
+      "parameters": {
+        "dt": 0.22,
+        "sx": 1,
+        "sy": 1.006,
+        "z": 0,
+        "ear": 1,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        81,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 3,
+      "clip": "idle",
+      "key": 2,
+      "duration_ms": 180,
+      "parameters": {
+        "dt": 0.18,
+        "sx": 1,
+        "sy": 1.012,
+        "z": 0,
+        "ear": 2,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        79,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 4,
+      "clip": "idle",
+      "key": 3,
+      "duration_ms": 100,
+      "parameters": {
+        "dt": 0.1,
+        "sx": 1,
+        "sy": 1.009,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        80,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 5,
+      "clip": "idle",
+      "key": 4,
+      "duration_ms": 100,
+      "parameters": {
+        "dt": 0.1,
+        "sx": 1,
+        "sy": 1.006,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        81,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 6,
+      "clip": "idle",
+      "key": 5,
+      "duration_ms": 280,
+      "parameters": {
+        "dt": 0.28,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 7,
+      "clip": "jump",
+      "key": 0,
+      "duration_ms": 150,
+      "parameters": {
+        "dt": 0.15,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 8,
+      "clip": "jump",
+      "key": 1,
+      "duration_ms": 140,
+      "parameters": {
+        "dt": 0.14,
+        "sx": 1.025,
+        "sy": 0.96,
+        "z": 0,
+        "ear": 3,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        40,
+        100,
+        472,
+        479
+      ]
+    },
+    {
+      "index": 9,
+      "clip": "jump",
+      "key": 2,
+      "duration_ms": 200,
+      "parameters": {
+        "dt": 0.2,
+        "sx": 1.045,
+        "sy": 0.9,
+        "z": 0,
+        "ear": 5,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        36,
+        125,
+        476,
+        479
+      ]
+    },
+    {
+      "index": 10,
+      "clip": "jump",
+      "key": 3,
+      "duration_ms": 80,
+      "parameters": {
+        "dt": 0.08,
+        "sx": 0.97,
+        "sy": 1.005,
+        "z": 6,
+        "ear": -3,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        52,
+        73,
+        460,
+        472
+      ]
+    },
+    {
+      "index": 11,
+      "clip": "jump",
+      "key": 4,
+      "duration_ms": 100,
+      "parameters": {
+        "dt": 0.1,
+        "sx": 0.96,
+        "sy": 1.015,
+        "z": 16,
+        "ear": -4,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        54,
+        58,
+        458,
+        462
+      ]
+    },
+    {
+      "index": 12,
+      "clip": "jump",
+      "key": 5,
+      "duration_ms": 120,
+      "parameters": {
+        "dt": 0.12,
+        "sx": 0.98,
+        "sy": 1,
+        "z": 22,
+        "ear": -2,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        50,
+        60,
+        462,
+        456
+      ]
+    },
+    {
+      "index": 13,
+      "clip": "jump",
+      "key": 6,
+      "duration_ms": 90,
+      "parameters": {
+        "dt": 0.09,
+        "sx": 1,
+        "sy": 1,
+        "z": 12,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        72,
+        466,
+        466
+      ]
+    },
+    {
+      "index": 14,
+      "clip": "jump",
+      "key": 7,
+      "duration_ms": 80,
+      "parameters": {
+        "dt": 0.08,
+        "sx": 1.045,
+        "sy": 0.91,
+        "z": 0,
+        "ear": 5,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        36,
+        121,
+        476,
+        479
+      ]
+    },
+    {
+      "index": 15,
+      "clip": "jump",
+      "key": 8,
+      "duration_ms": 120,
+      "parameters": {
+        "dt": 0.12,
+        "sx": 1.015,
+        "sy": 0.97,
+        "z": 0,
+        "ear": -2,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        42,
+        93,
+        470,
+        479
+      ]
+    },
+    {
+      "index": 16,
+      "clip": "jump",
+      "key": 9,
+      "duration_ms": 200,
+      "parameters": {
+        "dt": 0.2,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 17,
+      "clip": "laugh_vulnerable",
+      "key": 0,
+      "duration_ms": 160,
+      "parameters": {
+        "dt": 0.16,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 18,
+      "clip": "laugh_vulnerable",
+      "key": 1,
+      "duration_ms": 120,
+      "parameters": {
+        "dt": 0.12,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 19,
+      "clip": "laugh_vulnerable",
+      "key": 2,
+      "duration_ms": 180,
+      "parameters": {
+        "dt": 0.18,
+        "sx": 1.015,
+        "sy": 0.98,
+        "z": 0,
+        "ear": 2,
+        "eyes": "closed",
+        "mouth": "laugh",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        42,
+        92,
+        470,
+        479
+      ]
+    },
+    {
+      "index": 20,
+      "clip": "laugh_vulnerable",
+      "key": 3,
+      "duration_ms": 120,
+      "parameters": {
+        "dt": 0.12,
+        "sx": 1,
+        "sy": 1.01,
+        "z": 0,
+        "ear": -2,
+        "eyes": "closed",
+        "mouth": "laugh",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        78,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 21,
+      "clip": "laugh_vulnerable",
+      "key": 4,
+      "duration_ms": 160,
+      "parameters": {
+        "dt": 0.16,
+        "sx": 1.015,
+        "sy": 0.98,
+        "z": 0,
+        "ear": 2,
+        "eyes": "closed",
+        "mouth": "laugh",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        42,
+        92,
+        470,
+        479
+      ]
+    },
+    {
+      "index": 22,
+      "clip": "laugh_vulnerable",
+      "key": 5,
+      "duration_ms": 140,
+      "parameters": {
+        "dt": 0.14,
+        "sx": 1,
+        "sy": 1.01,
+        "z": 0,
+        "ear": -2,
+        "eyes": "closed",
+        "mouth": "laugh",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        78,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 23,
+      "clip": "laugh_vulnerable",
+      "key": 6,
+      "duration_ms": 180,
+      "parameters": {
+        "dt": 0.18,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "laugh",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 24,
+      "clip": "laugh_vulnerable",
+      "key": 7,
+      "duration_ms": 160,
+      "parameters": {
+        "dt": 0.16,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 25,
+      "clip": "laugh_vulnerable",
+      "key": 8,
+      "duration_ms": 220,
+      "parameters": {
+        "dt": 0.22,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 26,
+      "clip": "flinch_1",
+      "key": 0,
+      "duration_ms": 70,
+      "parameters": {
+        "dt": 0.07,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 27,
+      "clip": "flinch_1",
+      "key": 1,
+      "duration_ms": 100,
+      "parameters": {
+        "dt": 0.1,
+        "sx": 0.98,
+        "sy": 1.01,
+        "z": 0,
+        "ear": -4,
+        "eyes": "open",
+        "mouth": "surprise",
+        "step": 0,
+        "size": 1,
+        "lean": -3
+      },
+      "bounds": [
+        47,
+        76,
+        459,
+        478
+      ]
+    },
+    {
+      "index": 28,
+      "clip": "flinch_1",
+      "key": 2,
+      "duration_ms": 140,
+      "parameters": {
+        "dt": 0.14,
+        "sx": 1.025,
+        "sy": 0.95,
+        "z": 0,
+        "ear": 4,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        40,
+        105,
+        472,
+        479
+      ]
+    },
+    {
+      "index": 29,
+      "clip": "flinch_1",
+      "key": 3,
+      "duration_ms": 160,
+      "parameters": {
+        "dt": 0.16,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": -2,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        82,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 30,
+      "clip": "flinch_1",
+      "key": 4,
+      "duration_ms": 240,
+      "parameters": {
+        "dt": 0.24,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 31,
+      "clip": "flinch_2",
+      "key": 0,
+      "duration_ms": 90,
+      "parameters": {
+        "dt": 0.09,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 32,
+      "clip": "flinch_2",
+      "key": 1,
+      "duration_ms": 120,
+      "parameters": {
+        "dt": 0.12,
+        "sx": 1.02,
+        "sy": 0.96,
+        "z": 0,
+        "ear": 4,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        41,
+        101,
+        471,
+        479
+      ]
+    },
+    {
+      "index": 33,
+      "clip": "flinch_2",
+      "key": 2,
+      "duration_ms": 180,
+      "parameters": {
+        "dt": 0.18,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 3,
+        "eyes": "dizzy",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": -4
+      },
+      "bounds": [
+        42,
+        85,
+        462,
+        478
+      ]
+    },
+    {
+      "index": 34,
+      "clip": "flinch_2",
+      "key": 3,
+      "duration_ms": 180,
+      "parameters": {
+        "dt": 0.18,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": -3,
+        "eyes": "dizzy",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 4
+      },
+      "bounds": [
+        50,
+        81,
+        470,
+        478
+      ]
+    },
+    {
+      "index": 35,
+      "clip": "flinch_2",
+      "key": 4,
+      "duration_ms": 180,
+      "parameters": {
+        "dt": 0.18,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 2,
+        "eyes": "dizzy",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": -2
+      },
+      "bounds": [
+        44,
+        84,
+        464,
+        478
+      ]
+    },
+    {
+      "index": 36,
+      "clip": "flinch_2",
+      "key": 5,
+      "duration_ms": 140,
+      "parameters": {
+        "dt": 0.14,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 37,
+      "clip": "flinch_2",
+      "key": 6,
+      "duration_ms": 240,
+      "parameters": {
+        "dt": 0.24,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 38,
+      "clip": "flinch_3",
+      "key": 0,
+      "duration_ms": 80,
+      "parameters": {
+        "dt": 0.08,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 39,
+      "clip": "flinch_3",
+      "key": 1,
+      "duration_ms": 140,
+      "parameters": {
+        "dt": 0.14,
+        "sx": 1.02,
+        "sy": 0.96,
+        "z": 0,
+        "ear": 3,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        41,
+        100,
+        471,
+        479
+      ]
+    },
+    {
+      "index": 40,
+      "clip": "flinch_3",
+      "key": 2,
+      "duration_ms": 220,
+      "parameters": {
+        "dt": 0.22,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": -2,
+        "eyes": "wink",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 2
+      },
+      "bounds": [
+        48,
+        82,
+        468,
+        478
+      ]
+    },
+    {
+      "index": 41,
+      "clip": "flinch_3",
+      "key": 3,
+      "duration_ms": 200,
+      "parameters": {
+        "dt": 0.2,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "wink",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 42,
+      "clip": "flinch_3",
+      "key": 4,
+      "duration_ms": 240,
+      "parameters": {
+        "dt": 0.24,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 43,
+      "clip": "angry",
+      "key": 0,
+      "duration_ms": 180,
+      "parameters": {
+        "dt": 0.18,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 44,
+      "clip": "angry",
+      "key": 1,
+      "duration_ms": 150,
+      "parameters": {
+        "dt": 0.15,
+        "sx": 1.015,
+        "sy": 0.98,
+        "z": 0,
+        "ear": 2,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        42,
+        92,
+        470,
+        479
+      ]
+    },
+    {
+      "index": 45,
+      "clip": "angry",
+      "key": 2,
+      "duration_ms": 200,
+      "parameters": {
+        "dt": 0.2,
+        "sx": 1.035,
+        "sy": 0.99,
+        "z": 0,
+        "ear": -3,
+        "eyes": "open",
+        "mouth": "surprise",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        38,
+        85,
+        474,
+        479
+      ]
+    },
+    {
+      "index": 46,
+      "clip": "angry",
+      "key": 3,
+      "duration_ms": 240,
+      "parameters": {
+        "dt": 0.24,
+        "sx": 1.04,
+        "sy": 1.0,
+        "z": 0,
+        "ear": -4,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        37,
+        80,
+        475,
+        478
+      ]
+    },
+    {
+      "index": 47,
+      "clip": "angry",
+      "key": 4,
+      "duration_ms": 160,
+      "parameters": {
+        "dt": 0.16,
+        "sx": 1.02,
+        "sy": 0.985,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        41,
+        89,
+        471,
+        479
+      ]
+    },
+    {
+      "index": 48,
+      "clip": "angry",
+      "key": 5,
+      "duration_ms": 220,
+      "parameters": {
+        "dt": 0.22,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 49,
+      "clip": "angry_jump_final",
+      "key": 0,
+      "duration_ms": 180,
+      "parameters": {
+        "dt": 0.18,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 50,
+      "clip": "angry_jump_final",
+      "key": 1,
+      "duration_ms": 180,
+      "parameters": {
+        "dt": 0.18,
+        "sx": 1.035,
+        "sy": 0.98,
+        "z": 0,
+        "ear": -3,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        38,
+        89,
+        474,
+        479
+      ]
+    },
+    {
+      "index": 51,
+      "clip": "angry_jump_final",
+      "key": 2,
+      "duration_ms": 160,
+      "parameters": {
+        "dt": 0.16,
+        "sx": 1.045,
+        "sy": 0.92,
+        "z": 0,
+        "ear": 4,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        36,
+        116,
+        476,
+        479
+      ]
+    },
+    {
+      "index": 52,
+      "clip": "angry_jump_final",
+      "key": 3,
+      "duration_ms": 260,
+      "parameters": {
+        "dt": 0.26,
+        "sx": 1.05,
+        "sy": 0.89,
+        "z": 0,
+        "ear": 5,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        35,
+        129,
+        477,
+        479
+      ]
+    },
+    {
+      "index": 53,
+      "clip": "angry_jump_final",
+      "key": 4,
+      "duration_ms": 80,
+      "parameters": {
+        "dt": 0.08,
+        "sx": 0.96,
+        "sy": 1.015,
+        "z": 8,
+        "ear": -4,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        54,
+        66,
+        458,
+        470
+      ]
+    },
+    {
+      "index": 54,
+      "clip": "angry_jump_final",
+      "key": 5,
+      "duration_ms": 110,
+      "parameters": {
+        "dt": 0.11,
+        "sx": 0.95,
+        "sy": 1.01,
+        "z": 20,
+        "ear": -5,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        56,
+        56,
+        456,
+        458
+      ]
+    },
+    {
+      "index": 55,
+      "clip": "angry_jump_final",
+      "key": 6,
+      "duration_ms": 140,
+      "parameters": {
+        "dt": 0.14,
+        "sx": 0.98,
+        "sy": 1,
+        "z": 24,
+        "ear": -2,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        50,
+        58,
+        462,
+        454
+      ]
+    },
+    {
+      "index": 56,
+      "clip": "angry_jump_final",
+      "key": 7,
+      "duration_ms": 90,
+      "parameters": {
+        "dt": 0.09,
+        "sx": 1,
+        "sy": 1,
+        "z": 12,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        72,
+        466,
+        466
+      ]
+    },
+    {
+      "index": 57,
+      "clip": "angry_jump_final",
+      "key": 8,
+      "duration_ms": 90,
+      "parameters": {
+        "dt": 0.09,
+        "sx": 1.05,
+        "sy": 0.9,
+        "z": 0,
+        "ear": 5,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        35,
+        125,
+        477,
+        479
+      ]
+    },
+    {
+      "index": 58,
+      "clip": "angry_jump_final",
+      "key": 9,
+      "duration_ms": 130,
+      "parameters": {
+        "dt": 0.13,
+        "sx": 1.02,
+        "sy": 0.95,
+        "z": 0,
+        "ear": -3,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        41,
+        101,
+        471,
+        479
+      ]
+    },
+    {
+      "index": 59,
+      "clip": "angry_jump_final",
+      "key": 10,
+      "duration_ms": 200,
+      "parameters": {
+        "dt": 0.2,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 60,
+      "clip": "angry_jump_final",
+      "key": 11,
+      "duration_ms": 200,
+      "parameters": {
+        "dt": 0.2,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 61,
+      "clip": "friends",
+      "key": 0,
+      "duration_ms": 200,
+      "parameters": {
+        "dt": 0.2,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 62,
+      "clip": "friends",
+      "key": 1,
+      "duration_ms": 160,
+      "parameters": {
+        "dt": 0.16,
+        "sx": 1,
+        "sy": 0.98,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        91,
+        466,
+        479
+      ]
+    },
+    {
+      "index": 63,
+      "clip": "friends",
+      "key": 2,
+      "duration_ms": 180,
+      "parameters": {
+        "dt": 0.18,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 3,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 0.9,
+        "lean": 0
+      },
+      "bounds": [
+        67,
+        124,
+        445,
+        479
+      ]
+    },
+    {
+      "index": 64,
+      "clip": "friends",
+      "key": 3,
+      "duration_ms": 220,
+      "parameters": {
+        "dt": 0.22,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 2,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 0.8,
+        "lean": 0
+      },
+      "bounds": [
+        88,
+        163,
+        424,
+        479
+      ]
+    },
+    {
+      "index": 65,
+      "clip": "friends",
+      "key": 4,
+      "duration_ms": 260,
+      "parameters": {
+        "dt": 0.26,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 0.72,
+        "lean": 0
+      },
+      "bounds": [
+        104,
+        195,
+        408,
+        479
+      ]
+    },
+    {
+      "index": 66,
+      "clip": "friends",
+      "key": 5,
+      "duration_ms": 200,
+      "parameters": {
+        "dt": 0.2,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "wink",
+        "mouth": "smile",
+        "step": 0,
+        "size": 0.72,
+        "lean": 0
+      },
+      "bounds": [
+        104,
+        195,
+        408,
+        479
+      ]
+    },
+    {
+      "index": 67,
+      "clip": "friends",
+      "key": 6,
+      "duration_ms": 500,
+      "parameters": {
+        "dt": 0.5,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 0.72,
+        "lean": 0
+      },
+      "bounds": [
+        104,
+        195,
+        408,
+        479
+      ]
+    },
+    {
+      "index": 68,
+      "clip": "showing",
+      "key": 0,
+      "duration_ms": 200,
+      "parameters": {
+        "dt": 0.2,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 0.72,
+        "lean": 0
+      },
+      "bounds": [
+        104,
+        195,
+        408,
+        479
+      ]
+    },
+    {
+      "index": 69,
+      "clip": "showing",
+      "key": 1,
+      "duration_ms": 180,
+      "parameters": {
+        "dt": 0.18,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 0.78,
+        "lean": 0
+      },
+      "bounds": [
+        92,
+        171,
+        420,
+        479
+      ]
+    },
+    {
+      "index": 70,
+      "clip": "showing",
+      "key": 2,
+      "duration_ms": 180,
+      "parameters": {
+        "dt": 0.18,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 2,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 0.88,
+        "lean": 0
+      },
+      "bounds": [
+        71,
+        131,
+        441,
+        479
+      ]
+    },
+    {
+      "index": 71,
+      "clip": "showing",
+      "key": 3,
+      "duration_ms": 200,
+      "parameters": {
+        "dt": 0.2,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": -2,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 0.97,
+        "lean": 0
+      },
+      "bounds": [
+        52,
+        93,
+        460,
+        479
+      ]
+    },
+    {
+      "index": 72,
+      "clip": "showing",
+      "key": 4,
+      "duration_ms": 160,
+      "parameters": {
+        "dt": 0.16,
+        "sx": 1.025,
+        "sy": 0.97,
+        "z": 0,
+        "ear": 3,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        40,
+        96,
+        472,
+        479
+      ]
+    },
+    {
+      "index": 73,
+      "clip": "showing",
+      "key": 5,
+      "duration_ms": 300,
+      "parameters": {
+        "dt": 0.3,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 74,
+      "clip": "peek",
+      "key": 0,
+      "duration_ms": 200,
+      "parameters": {
+        "dt": 0.2,
+        "sx": 1,
+        "sy": 0.92,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        115,
+        466,
+        479
+      ]
+    },
+    {
+      "index": 75,
+      "clip": "peek",
+      "key": 1,
+      "duration_ms": 180,
+      "parameters": {
+        "dt": 0.18,
+        "sx": 1,
+        "sy": 0.96,
+        "z": 0,
+        "ear": 2,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        100,
+        466,
+        479
+      ]
+    },
+    {
+      "index": 76,
+      "clip": "peek",
+      "key": 2,
+      "duration_ms": 260,
+      "parameters": {
+        "dt": 0.26,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "wink",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": -3
+      },
+      "bounds": [
+        43,
+        84,
+        463,
+        478
+      ]
+    },
+    {
+      "index": 77,
+      "clip": "peek",
+      "key": 3,
+      "duration_ms": 200,
+      "parameters": {
+        "dt": 0.2,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 3
+      },
+      "bounds": [
+        49,
+        84,
+        469,
+        478
+      ]
+    },
+    {
+      "index": 78,
+      "clip": "peek",
+      "key": 4,
+      "duration_ms": 300,
+      "parameters": {
+        "dt": 0.3,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 79,
+      "clip": "peek",
+      "key": 5,
+      "duration_ms": 180,
+      "parameters": {
+        "dt": 0.18,
+        "sx": 1,
+        "sy": 0.96,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        99,
+        466,
+        479
+      ]
+    },
+    {
+      "index": 80,
+      "clip": "peek",
+      "key": 6,
+      "duration_ms": 240,
+      "parameters": {
+        "dt": 0.24,
+        "sx": 1,
+        "sy": 0.92,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        115,
+        466,
+        479
+      ]
+    },
+    {
+      "index": 81,
+      "clip": "windup",
+      "key": 0,
+      "duration_ms": 220,
+      "parameters": {
+        "dt": 0.22,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 82,
+      "clip": "windup",
+      "key": 1,
+      "duration_ms": 220,
+      "parameters": {
+        "dt": 0.22,
+        "sx": 1.015,
+        "sy": 0.98,
+        "z": 0,
+        "ear": 2,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        42,
+        92,
+        470,
+        479
+      ]
+    },
+    {
+      "index": 83,
+      "clip": "windup",
+      "key": 2,
+      "duration_ms": 220,
+      "parameters": {
+        "dt": 0.22,
+        "sx": 1.025,
+        "sy": 0.955,
+        "z": 0,
+        "ear": 3,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        40,
+        102,
+        472,
+        479
+      ]
+    },
+    {
+      "index": 84,
+      "clip": "windup",
+      "key": 3,
+      "duration_ms": 240,
+      "parameters": {
+        "dt": 0.24,
+        "sx": 1.04,
+        "sy": 0.93,
+        "z": 0,
+        "ear": 4,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        37,
+        112,
+        475,
+        479
+      ]
+    },
+    {
+      "index": 85,
+      "clip": "windup",
+      "key": 4,
+      "duration_ms": 200,
+      "parameters": {
+        "dt": 0.2,
+        "sx": 1.045,
+        "sy": 0.91,
+        "z": 0,
+        "ear": 5,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        36,
+        121,
+        476,
+        479
+      ]
+    },
+    {
+      "index": 86,
+      "clip": "windup",
+      "key": 5,
+      "duration_ms": 160,
+      "parameters": {
+        "dt": 0.16,
+        "sx": 1.035,
+        "sy": 0.925,
+        "z": 0,
+        "ear": 3,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        38,
+        114,
+        474,
+        479
+      ]
+    },
+    {
+      "index": 87,
+      "clip": "prowl",
+      "key": 0,
+      "duration_ms": 120,
+      "parameters": {
+        "dt": 0.12,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 88,
+      "clip": "prowl",
+      "key": 1,
+      "duration_ms": 130,
+      "parameters": {
+        "dt": 0.13,
+        "sx": 1,
+        "sy": 0.97,
+        "z": 0,
+        "ear": 2,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": -3,
+        "size": 1,
+        "lean": -2
+      },
+      "bounds": [
+        44,
+        96,
+        464,
+        479
+      ]
+    },
+    {
+      "index": 89,
+      "clip": "prowl",
+      "key": 2,
+      "duration_ms": 110,
+      "parameters": {
+        "dt": 0.11,
+        "sx": 1,
+        "sy": 1,
+        "z": 3,
+        "ear": -2,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 3,
+        "size": 1,
+        "lean": 2
+      },
+      "bounds": [
+        48,
+        79,
+        468,
+        475
+      ]
+    },
+    {
+      "index": 90,
+      "clip": "prowl",
+      "key": 3,
+      "duration_ms": 130,
+      "parameters": {
+        "dt": 0.13,
+        "sx": 1.015,
+        "sy": 0.975,
+        "z": 0,
+        "ear": 2,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 3,
+        "size": 1,
+        "lean": 2
+      },
+      "bounds": [
+        44,
+        94,
+        472,
+        479
+      ]
+    },
+    {
+      "index": 91,
+      "clip": "prowl",
+      "key": 4,
+      "duration_ms": 110,
+      "parameters": {
+        "dt": 0.11,
+        "sx": 1,
+        "sy": 1,
+        "z": 3,
+        "ear": -2,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": -3,
+        "size": 1,
+        "lean": -2
+      },
+      "bounds": [
+        44,
+        79,
+        464,
+        475
+      ]
+    },
+    {
+      "index": 92,
+      "clip": "prowl",
+      "key": 5,
+      "duration_ms": 140,
+      "parameters": {
+        "dt": 0.14,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 93,
+      "clip": "giggle",
+      "key": 0,
+      "duration_ms": 160,
+      "parameters": {
+        "dt": 0.16,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 94,
+      "clip": "giggle",
+      "key": 1,
+      "duration_ms": 160,
+      "parameters": {
+        "dt": 0.16,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 95,
+      "clip": "giggle",
+      "key": 2,
+      "duration_ms": 130,
+      "parameters": {
+        "dt": 0.13,
+        "sx": 1,
+        "sy": 0.985,
+        "z": 0,
+        "ear": 2,
+        "eyes": "closed",
+        "mouth": "laugh",
+        "step": 0,
+        "size": 1,
+        "lean": -2
+      },
+      "bounds": [
+        44,
+        90,
+        464,
+        479
+      ]
+    },
+    {
+      "index": 96,
+      "clip": "giggle",
+      "key": 3,
+      "duration_ms": 130,
+      "parameters": {
+        "dt": 0.13,
+        "sx": 1,
+        "sy": 1.005,
+        "z": 0,
+        "ear": -2,
+        "eyes": "closed",
+        "mouth": "laugh",
+        "step": 0,
+        "size": 1,
+        "lean": 2
+      },
+      "bounds": [
+        48,
+        80,
+        468,
+        478
+      ]
+    },
+    {
+      "index": 97,
+      "clip": "giggle",
+      "key": 4,
+      "duration_ms": 160,
+      "parameters": {
+        "dt": 0.16,
+        "sx": 1,
+        "sy": 0.99,
+        "z": 0,
+        "ear": 1,
+        "eyes": "closed",
+        "mouth": "laugh",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        87,
+        466,
+        479
+      ]
+    },
+    {
+      "index": 98,
+      "clip": "giggle",
+      "key": 5,
+      "duration_ms": 160,
+      "parameters": {
+        "dt": 0.16,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 99,
+      "clip": "giggle",
+      "key": 6,
+      "duration_ms": 240,
+      "parameters": {
+        "dt": 0.24,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 100,
+      "clip": "splash",
+      "key": 0,
+      "duration_ms": 240,
+      "parameters": {
+        "dt": 0.24,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 101,
+      "clip": "splash",
+      "key": 1,
+      "duration_ms": 200,
+      "parameters": {
+        "dt": 0.2,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 3,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": -2
+      },
+      "bounds": [
+        44,
+        85,
+        464,
+        478
+      ]
+    },
+    {
+      "index": 102,
+      "clip": "splash",
+      "key": 2,
+      "duration_ms": 180,
+      "parameters": {
+        "dt": 0.18,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": -2,
+        "eyes": "wink",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 2
+      },
+      "bounds": [
+        48,
+        82,
+        468,
+        478
+      ]
+    },
+    {
+      "index": 103,
+      "clip": "splash",
+      "key": 3,
+      "duration_ms": 200,
+      "parameters": {
+        "dt": 0.2,
+        "sx": 1.02,
+        "sy": 0.98,
+        "z": 0,
+        "ear": 2,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        41,
+        92,
+        471,
+        479
+      ]
+    },
+    {
+      "index": 104,
+      "clip": "splash",
+      "key": 4,
+      "duration_ms": 240,
+      "parameters": {
+        "dt": 0.24,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "open",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    },
+    {
+      "index": 105,
+      "clip": "splash",
+      "key": 5,
+      "duration_ms": 350,
+      "parameters": {
+        "dt": 0.35,
+        "sx": 1,
+        "sy": 1,
+        "z": 0,
+        "ear": 0,
+        "eyes": "closed",
+        "mouth": "smile",
+        "step": 0,
+        "size": 1,
+        "lean": 0
+      },
+      "bounds": [
+        46,
+        84,
+        466,
+        478
+      ]
+    }
+  ],
+  "construction": "Signed still paint isolated and partitioned; harmonic underpainting beneath separated features; independently articulated ears, paws, body; new facial cels. No video pixels or image generation. Not full-frame cinematic delivery.",
+  "limitations": [
+    "Three-quarter reconstruction is not included; front/profile/back authority views are retained.",
+    "Part articulation is a review candidate, not a claim of complete production movement or a 4.75/5 result.",
+    "Peek requires external foreground occlusion; no hatch or dust is baked in.",
+    "Jump elevation here is local acting clearance only; runtime owns full trajectory.",
+    "Third lock flash and gold counter are external effects, not character pixels."
+  ]
+}
