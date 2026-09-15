@@ -1,0 +1,31 @@
+GRAND PUFF r04 ACTING RETURN
+Published: grok/grand-puff-motion-mp4-20260914
+Path: assets_src/characters/grand_puff_personality_returns/r04/
+Responds to: ba4a6636f2cb34d00ff70e0c0d5336b1f9f839bf
+(START_HERE / REVIEW_R03 on codex/grand-puff-grok-review-cycle-20260914)
+
+JOBS: generate ONLY P02 and P03. P01 carried unchanged from r02.
+
+P01 carry (do not regenerate):
+  commit f55d22365cd7f5380ea8d01abe471fe70399f822
+  path  .../r02/P01_LAUGH/P01_LAUGH_study_silent.mp4
+  sha256 091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f
+  disposition preferred_motion_reference_only_not_production_accepted
+
+Bound refs: IMAGE_1 signed front 1fc9ed2f... IMAGE_2 profile 5941f10f... commit 8d07b09
+Construction: imagine_reference_to_video, verbatim r04 PROMPT.txt
+Prompt hashes: P02 291dd916... P03 ba68d0f5...
+Selected: P02 take2, P03 take2. Take1 discarded (P02 right-ear hook; P03 insufficient shrink).
+
+r04 vs REVIEW_R03 (output-based, not prompt claims):
+P02 — huff restored at 1.6-2.2s with eyes still visible; take2 5.9s coiled disks (take1 hooked, discarded). No jump.
+P03 — height 0.762x / pixels 0.629x, held small; coiled disks + crest sparkle at end. Floor dy -20 (worse than r03 +4). 0.60 height target NOT met.
+
+Roles:
+  *_study.mp4 = motion_reference
+  *_study_silent.mp4 = silent_review_copy
+  frames/*.jpg = extracted stills, NOT production cels
+  authored_poses/* = authored_candidate, not Aseprite
+  compare/* = review boards only, never generation input
+
+DELIVERY_ACCEPTED=false. No expansion to fifteen. No live integration.
