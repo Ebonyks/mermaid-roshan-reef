@@ -1,0 +1,149 @@
+{
+  "source_commit": "d6bc7d66c8238359083ebb881cae9225b29b0f4e",
+  "source_sha256": "12d6ae3dd75d331a37a964a9a031782dfb0fefa576c15740dafb692607f62231",
+  "canvas": [
+    1280,
+    720
+  ],
+  "origin": "top_left",
+  "x_axis": "right",
+  "y_axis": "down",
+  "frames": [
+    {
+      "frame": 0,
+      "seconds": 0.0,
+      "eye_outer_regions_xyxy": [
+        [
+          523,
+          411,
+          587,
+          485
+        ],
+        [
+          688,
+          411,
+          753,
+          486
+        ]
+      ],
+      "eyes_present": true,
+      "review_scope": "manually selected outer eye/lid regions visually checked; not pixel-perfect segmentation or pupil centroids",
+      "note": ""
+    },
+    {
+      "frame": 12,
+      "seconds": 0.5,
+      "eye_outer_regions_xyxy": [
+        [
+          521,
+          413,
+          587,
+          488
+        ],
+        [
+          688,
+          413,
+          754,
+          488
+        ]
+      ],
+      "eyes_present": true,
+      "review_scope": "manually selected outer eye/lid regions visually checked; not pixel-perfect segmentation or pupil centroids",
+      "note": ""
+    },
+    {
+      "frame": 24,
+      "seconds": 1.0,
+      "eye_outer_regions_xyxy": [],
+      "eyes_present": false,
+      "review_scope": "manually selected outer eye/lid regions visually checked; not pixel-perfect segmentation or pupil centroids",
+      "note": "purple discs occupy eye areas"
+    },
+    {
+      "frame": 36,
+      "seconds": 1.5,
+      "eye_outer_regions_xyxy": [
+        [
+          532,
+          321,
+          594,
+          386
+        ],
+        [
+          682,
+          324,
+          746,
+          387
+        ]
+      ],
+      "eyes_present": true,
+      "review_scope": "manually selected outer eye/lid regions visually checked; not pixel-perfect segmentation or pupil centroids",
+      "note": ""
+    },
+    {
+      "frame": 60,
+      "seconds": 2.5,
+      "eye_outer_regions_xyxy": [
+        [
+          531,
+          318,
+          594,
+          389
+        ],
+        [
+          682,
+          322,
+          747,
+          389
+        ]
+      ],
+      "eyes_present": true,
+      "review_scope": "manually selected outer eye/lid regions visually checked; not pixel-perfect segmentation or pupil centroids",
+      "note": ""
+    },
+    {
+      "frame": 144,
+      "seconds": 6.0,
+      "eye_outer_regions_xyxy": [
+        [
+          531,
+          316,
+          594,
+          389
+        ],
+        [
+          683,
+          322,
+          748,
+          388
+        ]
+      ],
+      "eyes_present": true,
+      "review_scope": "manually selected outer eye/lid regions visually checked; not pixel-perfect segmentation or pupil centroids",
+      "note": ""
+    }
+  ],
+  "timestamp_seek_checks": [
+    {
+      "frame": 0,
+      "seek_equals_exact_rgb": true
+    },
+    {
+      "frame": 12,
+      "seek_equals_exact_rgb": true
+    },
+    {
+      "frame": 24,
+      "seek_equals_exact_rgb": true
+    },
+    {
+      "frame": 36,
+      "seek_equals_exact_rgb": true
+    },
+    {
+      "frame": 60,
+      "seek_equals_exact_rgb": true
+    }
+  ],
+  "finding": "Start eye-region center y~448, frame36 y~354; eyes move UP by about94px. Original submitted frame0 y290 boxes lie in crest. Timestamp seeking produces identical sampled RGB and cannot explain qualitative prose mismatch."
+}

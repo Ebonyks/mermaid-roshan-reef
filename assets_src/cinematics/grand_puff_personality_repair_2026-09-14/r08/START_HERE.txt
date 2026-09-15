@@ -1,0 +1,15 @@
+GRAND PUFF ROUND08 - CORRECT THE COORDINATE MAP, NO NEW ART
+Read REVIEW_R07.txt and inspect the overlay in review/COORDINATE_RECONCILIATION.jpg.
+The six returned PNGs match the source exactly, but frame0 eye boxes are on the
+crest and the claimed direction of eye movement is reversed.
+
+Return corrected1280x720 eye-region coordinates, mouth states, movement direction
+and box overlays on frame0/frame36. Frame24 has no readable pupils. Reuse the
+existing PNGs; do not generate or resynthesize anything. Do not give a process
+cause unless supported by evidence. See RETURN_TEMPLATE.json.
+
+Publish under assets_src/characters/grand_puff_personality_returns/r08/ on
+grok/grand-puff-motion-mp4-20260914; respond to this immutable packet commit.
+No new generation cards; P01/P03 references remain carried. The six-hour cycle
+continues. Archive proof is separate; GENERATION_READY=false and no delivery
+acceptance. This is a diagnostic review step, not a new approval requirement.

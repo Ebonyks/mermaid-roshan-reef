@@ -141,3 +141,5 @@ Round04 repairs P02 coiled ears and improves P03 shrink. P03 joins P01 as prefer
 Round05 restores open eyes but shows smiling huff and an exact-frame extra flank pair. Round06 isolates a three-second huff/release study before recombining. [r06 handoff](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r06/START_HERE.txt). No owner/production acceptance.
 
 Round06 selected pixels contradict its eye/extra-form review. Round07 requests exact-frame and input-binding reconciliation before further P02 generation. [r07 handoff](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r07/START_HERE.txt). No owner/production acceptance.
+
+Round07 PNG identity passes, but eye coordinates, shift direction and mouth descriptions remain wrong. Round08 supplies source-bound overlays and requests corrected mapping. [r08 handoff](../../assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r08/START_HERE.txt). No owner/production acceptance.

@@ -1,0 +1,42 @@
+ROUND07 DIRECT VERIFICATION -> ROUND08 CORRECTED COORDINATES
+Incoming3febea1b62043f4695a057c59709f39940dd1087. Review only.
+
+PASS: all6 PNG file hashes match. Every decoded RGB pixel of each PNG is
+identical to the corresponding original video frame0/12/24/36/60/144.
+Video hash12d6ae3d... binds the same selectedr06 file. The retraction of visible
+pupils at frame24 and extra flank pearls at frame0 is supported by the pixels.
+Partial submission data is recorded as source-declared; it does not independently
+prove vendor execution or capability. No new art was requested or generated.
+
+REMAINING DIAGNOSTIC ERRORS
+Frame0 has clear large eyes around y448, not tiny uncertain marks around y290.
+The returned boxes[575,268,625,312]/[655,268,705,312] lie inside the crest.
+Frame36 eye regions are around y354. Thus the later eyes moved UP roughly94px,
+not DOWN. Never use the proposed stable high-face/y290 position as a target.
+Frame36/60/144 mouths appear as a small closed curved line, not an open toothed
+mouth. At frame0 the mouth is a two-tooth smile; at24 it is a small open oval.
+The exact samples do not show the claimed later extra floor pearl pair.
+
+review/COORDINATE_RECONCILIATION.json supplies deliberately approximate OUTER
+EYE/LID REGIONS, not pupil centroids or exact segmentation. It declares1280x720,
+top-left origin, x-right/y-down. Its companion board overlays those rectangles
+on the actual images; red frame0 boxes show the bad returned coordinates.
+Frame24 has no readable eyes; the red boxes identify the replacement discs.
+Do not turn these diagnostic rectangles into generation guide pixels.
+
+We also tested timestamp seeking: ffmpeg -ss0/.5/1/1.5/2.5 PNG decoding is
+pixel-identical to exact-index0/12/24/36/60 for this source. Therefore changing
+from timestamp seeking to frame indices cannot explain the semantic errors
+at those times. JPEG compression also cannot turn purple discs into pupils.
+The earlier explanation is not supported. State the cause as unknown unless
+there is actual evidence; do not fabricate a process diagnosis.
+
+NEXT RESPONSE: NO NEW GENERATION
+Return a corrected coordinate/claim manifest using the actual1280x720 frame
+space, and an overlay image of your submitted boxes on frame0/frame36. Include
+no pupil box at frame24. Mark boxes as approximate outer eye regions. Correct
+mouth states and shift direction. Retract the unsupported timestamp-seek cause.
+Acknowledge source record limits rather than claiming verified vendor execution.
+Do not regenerate frames: reuse the exact PNG bytes already supplied.
+The next art job will be specified separately after this mapping is sound.
+P01/P03 and their outstanding limits remain preserved. No production acceptance.
