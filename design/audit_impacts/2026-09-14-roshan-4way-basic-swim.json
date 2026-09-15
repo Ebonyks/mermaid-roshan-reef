@@ -32,6 +32,7 @@
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/openings/locked-4way-left.png",
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/openings/locked-4way-right.png",
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/FOURWAY_SWIM.md",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/OWNER_INSPECTION.4way.json",
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/RETURN_MANIFEST.4way.json",
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/4way/FOURWAY_REEL.mp4",
     "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/4way/RSW-SWIM-BACK.mp4",
@@ -76,5 +77,5 @@
       "evidence": "No scripts/, assets/, or project.godot changes. Packet lives only under assets_src/cinematics/... plus audit-impact, ledger, and license metadata. Full Godot probe suite is not re-run for this non-runtime packet; remote probes still gate the topic head."
     }
   ],
-  "acceptance_gaps": "DELIVERY_ACCEPTED stays false. Hair/tail colour corrections remain outstanding. Navy-flattened openings cannot establish clean hair alpha; use the 8-view RGBA cutouts for alpha. Layout of locked-4way plates is not owner-approved. Clips are motion references only — not cinematic frames, not Aseprite sprites, not runtime. MA-VIS-006 remains open. No device, child, owner, or release acceptance. Do not merge to master or dev until remote probes are green and owner says so."
+  "acceptance_gaps": "DELIVERY_ACCEPTED stays false. Hair/tail colour corrections remain outstanding. Navy-flattened locked-4way-*.png cannot establish clean hair alpha. Alpha authority: existing RGBA 8-view cutouts references/{front,right,back,left}.png. Motion references only. Nothing merged. Runtime unchanged. Layout of locked-4way plates is not owner-approved. Clips are not cinematic frames, not Aseprite sprites, not runtime. MA-VIS-006 remains open. No device, child, owner, or release acceptance. Do not merge to master or dev until remote probes are green and owner says so."
 }

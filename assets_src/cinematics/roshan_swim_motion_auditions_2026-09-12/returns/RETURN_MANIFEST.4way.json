@@ -2,7 +2,7 @@
   "schema": "roshan-motion-reference-return-v1",
   "handoff_id": "roshan_4way_basic_swim_2026-09-14",
   "pass": "4way-basic-swim",
-  "instructions": "Cardinal 4-way basic swim generated in Grok Build with imagine_image_to_video on painted 8-view cutouts composited onto navy. Front / right / back / left only. Not launch, not arrival, not personality. Navy openings cannot establish clean hair alpha. Hair/tail colour corrections remain outstanding. DELIVERY_ACCEPTED remains false.",
+  "instructions": "Cardinal 4-way basic swim generated in Grok Build with imagine_image_to_video on painted 8-view cutouts composited onto navy. Front / right / back / left only. Not launch, not arrival, not personality. Hair/tail colour corrections remain outstanding. Navy-flattened locked-4way-*.png cannot establish clean hair alpha. Alpha authority: existing RGBA 8-view cutouts references/{front,right,back,left}.png. Motion references only. Nothing merged. Runtime unchanged. DELIVERY_ACCEPTED remains false.",
   "source_packet_commit": "29bd345dd67dbc4ed4bbf2f02527cd53c7482cfc",
   "stale_commit_not_used_for_status": "ca4dd1963ad36aab420d5f228189231dae924c73",
   "method": "imagine_image_to_video",
@@ -245,6 +245,17 @@
     "BINARIES_ON_GITHUB": true,
     "OWNER_RECONSTRUCTION_BASIS": true,
     "FOURWAY_BASIC_SWIM": true
+  },
+  "owner_inspection": {
+    "recorded_at": "2026-09-15",
+    "repaired_in_this_packet": false,
+    "source": "returns/OWNER_INSPECTION.4way.json",
+    "facts": [
+      "Hair/tail colour corrections remain outstanding",
+      "Navy-flattened locked-4way-*.png cannot establish clean hair alpha",
+      "Alpha authority: existing RGBA 8-view cutouts references/{front,right,back,left}.png",
+      "Motion references only. Nothing merged. Runtime unchanged."
+    ]
   },
   "reviewer": "grok-build-imagine-bridge-2026-09-14-4way",
   "created_at": "2026-09-14T20:00:00-07:00"

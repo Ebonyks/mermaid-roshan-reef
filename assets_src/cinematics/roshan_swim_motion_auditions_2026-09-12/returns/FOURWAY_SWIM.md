@@ -10,13 +10,12 @@ live on the front-right take-03 basis (RSW-01 / 06 / 03 / 05).
 
 Recorded, not repaired in this packet:
 
-- Hair/tail colour corrections remain **outstanding**. Do not treat these
-  stills or clips as colour-corrected masters.
-- The navy-flattened `locked-4way-*.png` openings **cannot establish clean
-  hair alpha**. Do not key, flood-fill, or recover fringe from the navy plates.
-- Hair alpha authority remains the existing RGBA 8-view cutouts:
-  `references/{front,right,back,left}.png`.
-- These remain motion references. Nothing was merged. Runtime is unchanged.
+- Hair/tail colour corrections remain outstanding
+- Navy-flattened locked-4way-*.png cannot establish clean hair alpha
+- Alpha authority: existing RGBA 8-view cutouts references/{front,right,back,left}.png
+- Motion references only. Nothing merged. Runtime unchanged.
+
+Do not treat these stills or clips as colour-corrected masters. Do not key, flood-fill, or recover fringe from the navy plates.
 
 ## Method
 
