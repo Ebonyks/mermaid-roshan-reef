@@ -645,6 +645,7 @@
     "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r10/runtime_context/hall_runtime_1280.png",
     "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r10/runtime_context/roshan_base.png",
     "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r10/runtime_context/soap_bubbles.png",
+    "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r10_REMOTE_VERIFICATION.json",
     "audit/animation/README.md",
     "design/05_DOC_LEDGER.md",
     "design/animation/GRAND_PUFF_MOVEMENT_PROFILE.md"
@@ -754,6 +755,11 @@
       "command": "r09 direct video/hash/visual review; r10 packet/document/coverage validation",
       "result": "PASS",
       "evidence": "Nine hashes and six exact PNG/source RGB matches verified; silent stream identity checked; actual sampled frames contradict open-pupil and extra-pearl claims. Diagnostic gates pending. Diagnostic Imagine, document authority and development coverage gates pass. Prior full78-probe CI applies to unchanged runtime. Remote proof follows publication."
+    },
+    {
+      "command": "HTTPS fetch every r10 packet file and compare full byte SHA256 at immutable content commit",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r10_REMOTE_VERIFICATION.json: 52 files verified at 1a686a7cc86768585be37b2a1af598917d4f0599"
     }
   ],
   "acceptance_gaps": "Archive, generator readiness and delivery acceptance are separate. Owner rejects reduced performance; new acting and all device/child/live integration acceptance remain open. Active-session monitoring only; scheduling tool not exposed."
