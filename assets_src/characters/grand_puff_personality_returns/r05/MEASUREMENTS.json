@@ -1,0 +1,131 @@
+{
+  "schema": "grand-puff-r05-measurements-v1",
+  "method": "border flood-fill ivory then remaining-pixel bbox",
+  "selected_takes": {
+    "P02_ANGRY_WINDUP": "take1"
+  },
+  "discarded_takes_note": "take2/take3 had more extra paw-like lobes at the hold; take1 selected for open-eyed hold + coiled disks + cleaner silhouette. Exhale remains modest in all three takes.",
+  "shots": {
+    "P02_ANGRY_WINDUP": {
+      "frames": [
+        {
+          "t": "0.4",
+          "bw": 976,
+          "bh": 639,
+          "x0": 82,
+          "y0": 55,
+          "x1": 1057,
+          "y1": 693,
+          "pixels": 303354,
+          "bg_flood": 618246
+        },
+        {
+          "t": "0.8",
+          "bw": 980,
+          "bh": 637,
+          "x0": 79,
+          "y0": 57,
+          "x1": 1058,
+          "y1": 693,
+          "pixels": 303462,
+          "bg_flood": 618138
+        },
+        {
+          "t": "1.4",
+          "bw": 961,
+          "bh": 668,
+          "x0": 97,
+          "y0": 25,
+          "x1": 1057,
+          "y1": 692,
+          "pixels": 307463,
+          "bg_flood": 614137
+        },
+        {
+          "t": "2.0",
+          "bw": 954,
+          "bh": 668,
+          "x0": 106,
+          "y0": 24,
+          "x1": 1059,
+          "y1": 691,
+          "pixels": 308264,
+          "bg_flood": 613336
+        },
+        {
+          "t": "2.5",
+          "bw": 1048,
+          "bh": 580,
+          "x0": 81,
+          "y0": 113,
+          "x1": 1128,
+          "y1": 692,
+          "pixels": 293483,
+          "bg_flood": 628117
+        },
+        {
+          "t": "3.5",
+          "bw": 977,
+          "bh": 592,
+          "x0": 83,
+          "y0": 99,
+          "x1": 1059,
+          "y1": 690,
+          "pixels": 289127,
+          "bg_flood": 632473
+        },
+        {
+          "t": "5.0",
+          "bw": 1117,
+          "bh": 604,
+          "x0": 104,
+          "y0": 88,
+          "x1": 1220,
+          "y1": 691,
+          "pixels": 299693,
+          "bg_flood": 621907
+        },
+        {
+          "t": "5.9",
+          "bw": 981,
+          "bh": 606,
+          "x0": 79,
+          "y0": 87,
+          "x1": 1059,
+          "y1": 692,
+          "pixels": 300022,
+          "bg_flood": 621578
+        }
+      ],
+      "height_ratio_last_over_first": 0.9483568075117371,
+      "width_ratio_last_over_first": 1.0051229508196722,
+      "pixel_ratio_last_over_first": 0.9890161329667649,
+      "floor_y1_start_to_end": [
+        693,
+        692,
+        -1
+      ],
+      "start_bbox_px": [
+        976,
+        639
+      ],
+      "end_bbox_px": [
+        981,
+        606
+      ]
+    }
+  },
+  "technical": {
+    "P02": {
+      "frames": 145,
+      "audio": {
+        "peak_db": -17.079078,
+        "rms_db": -40.200246,
+        "peak_lin": 0.13997358954944594,
+        "rms_lin": 0.009772095442338948
+      },
+      "sha": "9505d04fd18f674b1bf1e5cdbc85ff2e7d0ac2f3ba2798e4188fd49056a33b9d",
+      "bytes": 1660163
+    }
+  }
+}

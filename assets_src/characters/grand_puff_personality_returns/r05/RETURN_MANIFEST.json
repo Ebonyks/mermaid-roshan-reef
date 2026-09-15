@@ -1,0 +1,386 @@
+{
+  "schema": "grand-puff-acting-return-v1",
+  "round": "r05",
+  "responds_to_handoff_commit": "0b1063d17fb98dbc97ab3d51dbd5f6e16faed41d",
+  "responds_to_r04_return_commit": "8dd2d96a00e7776752ef67117f5685cd7f054103",
+  "status": "review_candidate",
+  "published_branch": "grok/grand-puff-motion-mp4-20260914",
+  "published_at_utc": "2026-09-15T07:25:49.153709+00:00",
+  "selected_takes": {
+    "P02_ANGRY_WINDUP": "take1"
+  },
+  "discarded_takes_note": "take2 and take3 discarded: more extra paw-like lobes, no clearer cheek deflate.",
+  "clips": [
+    {
+      "shot_id": "P02_ANGRY_WINDUP",
+      "files": [
+        {
+          "path": "P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study.mp4",
+          "sha256": "9505d04fd18f674b1bf1e5cdbc85ff2e7d0ac2f3ba2798e4188fd49056a33b9d",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "duration_or_frame_time": "6.04s / 145 frames / 24fps",
+          "source_paths_and_hashes": [
+            {
+              "path": "assets_src/characters/grand_puff_2026-09-13/grok_signed/grand_puff_signed_identity.jpg",
+              "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664",
+              "commit": "8d07b0908c39051c2a310caf29fd86a56dc82b40"
+            },
+            {
+              "path": "assets_src/characters/grand_puff_2026-09-13/grok_signed/grand_puff_profile.jpg",
+              "sha256": "5941f10f7211a61a6457271213207e01bd5567381a2a29167855ae0b72db9089",
+              "commit": "8d07b0908c39051c2a310caf29fd86a56dc82b40"
+            },
+            {
+              "path": "shots/P02_ANGRY_WINDUP/PROMPT.txt",
+              "sha256": "e35f0ead05428e5973011c38594483b4a002b776ce4fa6a81f158c0f9c1c932d",
+              "commit": "0b1063d17fb98dbc97ab3d51dbd5f6e16faed41d"
+            }
+          ],
+          "construction_method": "imagine_reference_to_video bound IMAGE_1 signed front + IMAGE_2 profile; verbatim r05 PROMPT.txt; 16:9; selected take1 of three",
+          "role_motion_reference_or_authored_candidate": "motion_reference",
+          "audio": {
+            "present": true,
+            "peak_lin": 0.139974,
+            "rms_lin": 0.009772,
+            "declared_silent_prompt": true
+          }
+        },
+        {
+          "path": "P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study_silent.mp4",
+          "sha256": "e9921ab2d98a1390336aefe18796ab52cfe613f8dba95be61780afb16b1e49e3",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "duration_or_frame_time": "6.04s / 145 frames / 24fps",
+          "source_paths_and_hashes": [
+            {
+              "path": "P02_ANGRY_WINDUP/P02_ANGRY_WINDUP_study.mp4",
+              "sha256": "9505d04fd18f674b1bf1e5cdbc85ff2e7d0ac2f3ba2798e4188fd49056a33b9d"
+            }
+          ],
+          "construction_method": "ffmpeg -an -c:v copy from P02_ANGRY_WINDUP_study.mp4",
+          "role_motion_reference_or_authored_candidate": "silent_review_copy"
+        },
+        {
+          "path": "P02_ANGRY_WINDUP/frames/t0.4.jpg",
+          "sha256": "6020a5b9d523ce44cb67e63bf5ad80f1a3b1dabc0c48b1fd9cdc6943775d1d51",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "duration_or_frame_time": "0.4s",
+          "source_paths_and_hashes": [
+            {
+              "path": "P02_ANGRY_WINDUP_study.mp4",
+              "sha256": "9505d04fd18f674b1bf1e5cdbc85ff2e7d0ac2f3ba2798e4188fd49056a33b9d"
+            }
+          ],
+          "construction_method": "ffmpeg -ss frame grab from the 16:9 study MP4; NOT an accepted production cel",
+          "role_motion_reference_or_authored_candidate": "motion_reference_still_extracted_not_production_cel"
+        },
+        {
+          "path": "P02_ANGRY_WINDUP/frames/t0.8.jpg",
+          "sha256": "9e24df218e3aec1626116e83214f537f8a52ab1b09d0379af0d1f9c5776a3961",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "duration_or_frame_time": "0.8s",
+          "source_paths_and_hashes": [
+            {
+              "path": "P02_ANGRY_WINDUP_study.mp4",
+              "sha256": "9505d04fd18f674b1bf1e5cdbc85ff2e7d0ac2f3ba2798e4188fd49056a33b9d"
+            }
+          ],
+          "construction_method": "ffmpeg -ss frame grab from the 16:9 study MP4; NOT an accepted production cel",
+          "role_motion_reference_or_authored_candidate": "motion_reference_still_extracted_not_production_cel"
+        },
+        {
+          "path": "P02_ANGRY_WINDUP/frames/t1.4.jpg",
+          "sha256": "9c61a836da8835359a0f7bee8ece526530ed1c3b45e24accf77f461c3ffe46c0",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "duration_or_frame_time": "1.4s",
+          "source_paths_and_hashes": [
+            {
+              "path": "P02_ANGRY_WINDUP_study.mp4",
+              "sha256": "9505d04fd18f674b1bf1e5cdbc85ff2e7d0ac2f3ba2798e4188fd49056a33b9d"
+            }
+          ],
+          "construction_method": "ffmpeg -ss frame grab from the 16:9 study MP4; NOT an accepted production cel",
+          "role_motion_reference_or_authored_candidate": "motion_reference_still_extracted_not_production_cel"
+        },
+        {
+          "path": "P02_ANGRY_WINDUP/frames/t2.0.jpg",
+          "sha256": "3643bc8664e779b7673fe5387e5d11186f53fe857197bc5edc35b65c113c2c37",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "duration_or_frame_time": "2.0s",
+          "source_paths_and_hashes": [
+            {
+              "path": "P02_ANGRY_WINDUP_study.mp4",
+              "sha256": "9505d04fd18f674b1bf1e5cdbc85ff2e7d0ac2f3ba2798e4188fd49056a33b9d"
+            }
+          ],
+          "construction_method": "ffmpeg -ss frame grab from the 16:9 study MP4; NOT an accepted production cel",
+          "role_motion_reference_or_authored_candidate": "motion_reference_still_extracted_not_production_cel"
+        },
+        {
+          "path": "P02_ANGRY_WINDUP/frames/t2.5.jpg",
+          "sha256": "e303cf1bf96ea5043a425689add2ca5ccfe12971045176db997be8db7fbe0bcd",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "duration_or_frame_time": "2.5s",
+          "source_paths_and_hashes": [
+            {
+              "path": "P02_ANGRY_WINDUP_study.mp4",
+              "sha256": "9505d04fd18f674b1bf1e5cdbc85ff2e7d0ac2f3ba2798e4188fd49056a33b9d"
+            }
+          ],
+          "construction_method": "ffmpeg -ss frame grab from the 16:9 study MP4; NOT an accepted production cel",
+          "role_motion_reference_or_authored_candidate": "motion_reference_still_extracted_not_production_cel"
+        },
+        {
+          "path": "P02_ANGRY_WINDUP/frames/t3.5.jpg",
+          "sha256": "ff6eb3c1fc78323f7ae5db21e0441621fb67f561bd801e9b200ec70a26ba97e2",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "duration_or_frame_time": "3.5s",
+          "source_paths_and_hashes": [
+            {
+              "path": "P02_ANGRY_WINDUP_study.mp4",
+              "sha256": "9505d04fd18f674b1bf1e5cdbc85ff2e7d0ac2f3ba2798e4188fd49056a33b9d"
+            }
+          ],
+          "construction_method": "ffmpeg -ss frame grab from the 16:9 study MP4; NOT an accepted production cel",
+          "role_motion_reference_or_authored_candidate": "motion_reference_still_extracted_not_production_cel"
+        },
+        {
+          "path": "P02_ANGRY_WINDUP/frames/t5.0.jpg",
+          "sha256": "e900d69eb57531de350609a252f826bdfbec5af857a9a62c0a6d1e308338dc68",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "duration_or_frame_time": "5.0s",
+          "source_paths_and_hashes": [
+            {
+              "path": "P02_ANGRY_WINDUP_study.mp4",
+              "sha256": "9505d04fd18f674b1bf1e5cdbc85ff2e7d0ac2f3ba2798e4188fd49056a33b9d"
+            }
+          ],
+          "construction_method": "ffmpeg -ss frame grab from the 16:9 study MP4; NOT an accepted production cel",
+          "role_motion_reference_or_authored_candidate": "motion_reference_still_extracted_not_production_cel"
+        },
+        {
+          "path": "P02_ANGRY_WINDUP/frames/t5.9.jpg",
+          "sha256": "0c533b3a65ff5945782bfef0ea2cf1b24918bbfe850d57369b49ca544470a86f",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "duration_or_frame_time": "5.9s",
+          "source_paths_and_hashes": [
+            {
+              "path": "P02_ANGRY_WINDUP_study.mp4",
+              "sha256": "9505d04fd18f674b1bf1e5cdbc85ff2e7d0ac2f3ba2798e4188fd49056a33b9d"
+            }
+          ],
+          "construction_method": "ffmpeg -ss frame grab from the 16:9 study MP4; NOT an accepted production cel",
+          "role_motion_reference_or_authored_candidate": "motion_reference_still_extracted_not_production_cel"
+        },
+        {
+          "path": "authored_poses/P02_loaded_crouch_candidate.jpg",
+          "sha256": "e7c3885964b7e8ecb76a7254ffa70352b6cadcffe4d47069789a7ca13ff8bbd1",
+          "dimensions": [
+            1408,
+            1408
+          ],
+          "duration_or_frame_time": "still",
+          "source_paths_and_hashes": [
+            {
+              "path": "assets_src/characters/grand_puff_2026-09-13/grok_signed/grand_puff_signed_identity.jpg",
+              "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664",
+              "commit": "8d07b0908c39051c2a310caf29fd86a56dc82b40"
+            }
+          ],
+          "construction_method": "imagine_image_to_image from signed front; ivory; not Aseprite and not a production cel",
+          "role_motion_reference_or_authored_candidate": "authored_candidate"
+        }
+      ],
+      "reference_timestamps": [
+        {
+          "t": "0.4s",
+          "beat": "two open dark eyes; brows down; mouth pursed"
+        },
+        {
+          "t": "0.8s",
+          "beat": "eyes still open as puff begins"
+        },
+        {
+          "t": "1.4s",
+          "beat": "cheeks lift/widen below the eyes; pupils readable"
+        },
+        {
+          "t": "2.0s",
+          "beat": "puff peak; pupils still readable"
+        },
+        {
+          "t": "2.5s",
+          "beat": "eyes open into crouch; cheek volume still round (deflate modest)"
+        },
+        {
+          "t": "3.5s",
+          "beat": "wide crouch; coiled disks visible; eyes open"
+        },
+        {
+          "t": "5.0s",
+          "beat": "loaded hold; two open eyes; coiled disks"
+        },
+        {
+          "t": "5.9s",
+          "beat": "open focused eyes; closed mouth; coiled disks; no jump; cheek release only partial"
+        }
+      ],
+      "acting_changes": [
+        "r04 shut-eye hold is not present: two dark pupils are readable at 0.4s, 1.4-2.0s puff, and 5.9s loaded crouch.",
+        "Cheeks lift and widen at 1.4-2.0s below the eyes.",
+        "Visible cheek deflate after 2.0s is modest; the hold still has round cheeks rather than a fully emptied face.",
+        "5.9s: two OPEN focused eyes, closed determined mouth, coiled ear disks with internal spirals, no jump.",
+        "Take2/take3 discarded for extra paw-like lobes without a clearer exhale."
+      ],
+      "known_anatomy_or_contact_issues": [
+        "Sampled frames show two ear-base pearls and two floor paws (four required forms).",
+        "No extra-pearl claim is copied from prior returns.",
+        "Cheek-release beat is only partial.",
+        "Extracted frames are not production cels.",
+        "Original MP4 has residual audio (peak/rms lin 0.1400/0.00977); silent copy is -an."
+      ],
+      "pose_candidates": [
+        {
+          "path": "authored_poses/P02_loaded_crouch_candidate.jpg",
+          "sha256": "e7c3885964b7e8ecb76a7254ffa70352b6cadcffe4d47069789a7ca13ff8bbd1",
+          "role": "authored_candidate"
+        }
+      ],
+      "gameplay_edit_proposal": {
+        "keep_six_second_study": true,
+        "gameplay_length_proposal": "2.6s: 0.5s gather, 0.7s puff, 0.6s exhale, 0.8s crouch-hold. No jump. Do not auto-fit."
+      },
+      "original_motion_reference": "motion_references/GP07_angry.mp4",
+      "technical": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "frames": 145,
+        "container_duration_s": 6.04,
+        "last_image_s": 6.0
+      },
+      "fixed_framing_size_change": {
+        "method": "border flood-fill ivory then remaining-pixel bbox",
+        "start_t": "0.4s",
+        "end_t": "5.9s",
+        "start_bbox_px": [
+          976,
+          639
+        ],
+        "end_bbox_px": [
+          981,
+          606
+        ],
+        "height_ratio": 0.9484,
+        "pixel_ratio": 0.989,
+        "floor_y1_delta": -1
+      }
+    }
+  ],
+  "file_fields_required": [
+    "path",
+    "sha256",
+    "dimensions",
+    "duration_or_frame_time",
+    "source_paths_and_hashes",
+    "construction_method",
+    "role_motion_reference_or_authored_candidate"
+  ],
+  "delivery_accepted": false,
+  "archive_complete": false,
+  "generation_ready": false,
+  "quality_target_note": "4.75/5 is the owner target, not a self-issued production approval.",
+  "anatomy_lock": "two ear-base pearls + two floor paws; circular coiled ear disks with internal spiral lines; two visible eyes; no implode; do not strip the four correct forms",
+  "acting_comparison_file": "ACTING_COMPARISON.txt",
+  "measurements_file": "MEASUREMENTS.json",
+  "return_readme": "GROK_RETURN.txt",
+  "required_review_corrections": [
+    "P02 actual cheek inflation followed by visible deflation",
+    "P02 two open eyes in final loaded hold",
+    "P02 repaired coiled ears retained",
+    "Carry P01/P03 exact bytes, no new jobs",
+    "No unsupported extra-pearl claims"
+  ],
+  "required_review_corrections_result": {
+    "P02_puff": "1.4-2.0s cheeks lift and widen; pupils readable above them",
+    "P02_deflate": "modest; hold still has round cheeks rather than a fully emptied face",
+    "P02_open_eyes_hold": "two open dark eyes at 5.9s loaded crouch",
+    "P02_coiled_ears": "rounded coiled disks with internal spirals at 3.5s and 5.9s",
+    "P01_P03_carried": "exact hashes; not regenerated",
+    "extra_pearl_claims": "none copied; four required forms present in sampled frames"
+  },
+  "carried_references": [
+    {
+      "shot_id": "P01_LAUGH",
+      "disposition": "preferred_motion_reference_only_not_production_accepted",
+      "source_commit": "f55d22365cd7f5380ea8d01abe471fe70399f822",
+      "path": "assets_src/characters/grand_puff_personality_returns/r02/P01_LAUGH/P01_LAUGH_study_silent.mp4",
+      "sha256": "091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f",
+      "regenerate": false
+    },
+    {
+      "shot_id": "P03_FRIENDS",
+      "disposition": "preferred_motion_reference_only_not_production_accepted",
+      "source_commit": "8dd2d96a00e7776752ef67117f5685cd7f054103",
+      "path": "assets_src/characters/grand_puff_personality_returns/r04/P03_FRIENDS/P03_FRIENDS_study_silent.mp4",
+      "sha256": "b3ec9764a76dab379cedf25d54f637043ebd4f0e6cdddb68989fe9ff80dd888f",
+      "regenerate": false,
+      "known_limits": "Approx0.76 height ratio vs proposed0.60; silhouette bottom rises20px; performance reference only, not production-ready support."
+    }
+  ],
+  "compare_boards": [
+    "compare/P02_ANGRY_WINDUP_112px_keys.jpg",
+    "compare/P02_angry_vs_original.jpg",
+    "compare/P02_ANGRY_WINDUP_fixed_scale_before_after.jpg"
+  ],
+  "compare_board_files": [
+    {
+      "path": "compare/P02_ANGRY_WINDUP_112px_keys.jpg",
+      "sha256": "827b97fa865c7b9fc44475562df6b4d71e5b2f0ff1a17bd50cab0cc932104744",
+      "role": "review_board_not_generation_input"
+    },
+    {
+      "path": "compare/P02_angry_vs_original.jpg",
+      "sha256": "eeca3461f2f2dab606fdb039ce6073d6c943e436543e1f84f903db2b56ff3dd6",
+      "role": "review_board_not_generation_input"
+    },
+    {
+      "path": "compare/P02_ANGRY_WINDUP_fixed_scale_before_after.jpg",
+      "sha256": "769d976308b7d2bb724dc540b6c060645b309924b9225c6d2ca593d39a9b5d79",
+      "role": "review_board_not_generation_input"
+    }
+  ],
+  "pilot_only": true,
+  "generated_this_round": [
+    "P02_ANGRY_WINDUP"
+  ]
+}

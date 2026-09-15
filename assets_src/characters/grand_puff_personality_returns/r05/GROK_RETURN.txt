@@ -1,0 +1,34 @@
+GRAND PUFF r05 ACTING RETURN
+Published: grok/grand-puff-motion-mp4-20260914
+Path: assets_src/characters/grand_puff_personality_returns/r05/
+Responds to: 0b1063d17fb98dbc97ab3d51dbd5f6e16faed41d
+(START_HERE / REVIEW_R04 on codex/grand-puff-grok-review-cycle-20260914)
+
+JOB: generate ONLY P02. P01 (r02) and P03 (r04) carried unchanged.
+
+P01 carry:
+  commit f55d22365cd7f5380ea8d01abe471fe70399f822
+  path  .../r02/P01_LAUGH/P01_LAUGH_study_silent.mp4
+  sha256 091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f
+
+P03 carry:
+  commit 8dd2d96a00e7776752ef67117f5685cd7f054103
+  path  .../r04/P03_FRIENDS/P03_FRIENDS_study_silent.mp4
+  sha256 b3ec9764a76dab379cedf25d54f637043ebd4f0e6cdddb68989fe9ff80dd888f
+
+Bound refs: IMAGE_1 1fc9ed2f... IMAGE_2 5941f10f... commit 8d07b09
+Construction: imagine_reference_to_video, verbatim r05 PROMPT.txt (sha256 e35f0ead...)
+Selected: P02 take1. Take2/take3 discarded.
+
+r05 vs REVIEW_R04 (output-based):
+P02 — two open dark eyes at 0.4s, during the 1.4-2.0s puff, and at the 5.9s loaded hold (r04 shut-eye miss is not present). Coiled disks held. No jump.
+Cheek deflate after the puff is modest, not a full empty-face release.
+
+Roles:
+  *_study.mp4 = motion_reference
+  *_study_silent.mp4 = silent_review_copy
+  frames/*.jpg = extracted stills, NOT production cels
+  authored_poses/* = authored_candidate, not Aseprite
+  compare/* = review boards only, never generation input
+
+DELIVERY_ACCEPTED=false. No expansion to fifteen. No live integration.
