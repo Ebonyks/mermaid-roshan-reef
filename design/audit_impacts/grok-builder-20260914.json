@@ -28,6 +28,7 @@
     "assets_src/cinematics/grok_builder_2026-09-14/HANDOFF_PACKET.json",
     "assets_src/cinematics/grok_builder_2026-09-14/PROVENANCE_INPUTS.json",
     "assets_src/cinematics/grok_builder_2026-09-14/README.md",
+    "assets_src/cinematics/grok_builder_2026-09-14/REMOTE_VERIFICATION.json",
     "assets_src/cinematics/grok_builder_2026-09-14/START_GROK.txt",
     "assets_src/cinematics/grok_builder_2026-09-14/VISUAL_REVIEW.json",
     "assets_src/cinematics/grok_builder_2026-09-14/boards/SHOT-ARRIVAL-TOUCHDOWN.jpg",
@@ -329,6 +330,11 @@
       "command": "Compare staged Git blobs with native packet bytes",
       "result": "PASS",
       "evidence": "274 staged files, including manifest, match byte-for-byte; Git newline handling preserves provenance."
+    },
+    {
+      "command": "Download and SHA256-check every immutable GitHub packet file",
+      "result": "PASS",
+      "evidence": "274 payload/manifest files verified at 9ec7de5cc39b5a5e73fd455432e96391cfc22cd9; assets_src/cinematics/grok_builder_2026-09-14/REMOTE_VERIFICATION.json SHA256 fbf610862015aeefe254d58f0c57cca53a27df1f4b6649ff45b1d32223172ca6"
     }
   ],
   "acceptance_gaps": "No finding closed. Complete clean first frames, per-shot image bindings, full-frame delivery evidence and human/device/child acceptance remain open. Historical board inventory is not exhaustive per-panel reacceptance. External Grok builder import not performed; no new generation. New worktree preserves unrelated user edits after automated rescue-upload rejection."
