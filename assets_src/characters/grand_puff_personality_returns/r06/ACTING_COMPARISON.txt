@@ -1,0 +1,41 @@
+GRAND PUFF r06 ACTING COMPARISON — HUFF SUB-STUDY
+Responds to content commit 1e7ca65b1c490b6aaef90dad86780c8e72dd4d29
+Incoming r05: 795391251f1096d2e263d531fb0178f8324bd2b0
+This is NOT a complete windup. Label: huff_substudy.
+Decoded observations, not prompt restatement.
+
+DURATION CONSTRAINT
+Requested 3.0s. Imagine reference_to_video native minimum is 6s (options 6/10/15).
+Delivered: 1280x720, 24fps, 145 frames, container 6.04s. Last image 6.0s.
+Requested beats occupy 0.0-3.0s. 3.0-6.0s is leftover hold, not crouch/windup.
+Do not treat the 6s file as a 3s file.
+
+P01 LAUGH — CARRIED, NOT REGENERATED
+  sha256 091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f
+  commit f55d22365cd7f5380ea8d01abe471fe70399f822
+
+P03 FRIENDS — CARRIED, NOT REGENERATED
+  sha256 b3ec9764a76dab379cedf25d54f637043ebd4f0e6cdddb68989fe9ff80dd888f
+  commit 8dd2d96a00e7776752ef67117f5685cd7f054103
+  known limits: ~0.76 height vs proposed 0.60; floor rise 20px.
+
+P02 HUFF SUB-STUDY (only new job; take1 of three)
+Requested map vs actual:
+  0.0-0.4 close lips / open eyes  -> t0.0 still shows a small two-tooth opening; t0.4-0.8 lips are closed/pursed, two dark eyes OPEN.
+  0.4-1.3 inflate                 -> t0.8 and t1.3 cheeks are clearly larger/rounder below the eyes; lips sealed, no r05 open-smile huff.
+  1.3-2.3 exhale                  -> t1.8-2.3 cheek volume is slightly reduced, not a full empty-face collapse. Eyes remain visible.
+  2.3-3.0 hold deflated           -> t3.0 still has round cheeks; mouth closed; eyes open; standing (no crouch).
+  leftover 3.0-6.0                -> t5.9 extra paw-like floor lobes increase; not part of the diagnostic.
+
+EXTRA FORMS (exact, not a copied generic caveat)
+t0.0 1280x720: additional round pearl-like forms on the left and right mid-cloud flanks, approximately (520,530) and (750,530), plus the two signed ear-base pearls and two floor paws — six-plus pearl-like forms at start (same class of defect Codex marked on r05 frame0). Extra paw-like lobes sit on the ivory floor near the signed paws. Extra forms persist through t0.8-t3.0; t5.9 leftover hold has more floor lobes.
+Four signed forms are present; extra flank/floor forms were NOT avoided.
+
+Take2/take3 discarded: more extra paw-like floor lobes, no clearer deflate.
+
+Extracted frames are NOT production cels. No native Aseprite.
+DELIVERY_ACCEPTED false. 4.75/5 is the owner target, not self-issued.
+
+TECHNICAL
+P02 original audio peak/rms lin 0.1398 / 0.00975. Silent copy is ffmpeg -an -c:v copy.
+Prompt hash 928c8c3b... Bound plates IMAGE_1 1fc9ed2f... IMAGE_2 5941f10f... commit 8d07b09.

@@ -1,0 +1,119 @@
+{
+  "schema": "grand-puff-r06-measurements-v1",
+  "method": "border flood-fill ivory then remaining-pixel bbox",
+  "native_duration_constraint": "Imagine reference_to_video minimum is 6s; requested 3s huff_substudy is not natively available. Delivered file is 6s. Requested beats occupy 0.0-3.0s; 3.0-6.0s is leftover hold, not a complete windup.",
+  "selected_takes": {
+    "P02_ANGRY_WINDUP": "take1"
+  },
+  "discarded_takes_note": "take2/take3 had more extra paw-like floor lobes; no clearer deflate.",
+  "shots": {
+    "P02_ANGRY_WINDUP": {
+      "role": "huff_substudy_only_not_complete_windup",
+      "frames": [
+        {
+          "t": "0.0",
+          "bw": 682,
+          "bh": 636,
+          "x0": 299,
+          "y0": 40,
+          "x1": 980,
+          "y1": 675,
+          "pixels": 314773
+        },
+        {
+          "t": "0.2",
+          "bw": 682,
+          "bh": 636,
+          "x0": 299,
+          "y0": 40,
+          "x1": 980,
+          "y1": 675,
+          "pixels": 315035
+        },
+        {
+          "t": "0.4",
+          "bw": 684,
+          "bh": 635,
+          "x0": 298,
+          "y0": 41,
+          "x1": 981,
+          "y1": 675,
+          "pixels": 315409
+        },
+        {
+          "t": "0.8",
+          "bw": 683,
+          "bh": 638,
+          "x0": 299,
+          "y0": 39,
+          "x1": 981,
+          "y1": 676,
+          "pixels": 316041
+        },
+        {
+          "t": "1.3",
+          "bw": 687,
+          "bh": 640,
+          "x0": 297,
+          "y0": 37,
+          "x1": 983,
+          "y1": 676,
+          "pixels": 318072
+        },
+        {
+          "t": "1.8",
+          "bw": 679,
+          "bh": 652,
+          "x0": 301,
+          "y0": 26,
+          "x1": 979,
+          "y1": 677,
+          "pixels": 321120
+        },
+        {
+          "t": "2.3",
+          "bw": 683,
+          "bh": 651,
+          "x0": 299,
+          "y0": 27,
+          "x1": 981,
+          "y1": 677,
+          "pixels": 321468
+        },
+        {
+          "t": "3.0",
+          "bw": 688,
+          "bh": 641,
+          "x0": 296,
+          "y0": 37,
+          "x1": 983,
+          "y1": 677,
+          "pixels": 319613
+        },
+        {
+          "t": "5.9",
+          "bw": 693,
+          "bh": 648,
+          "x0": 294,
+          "y0": 33,
+          "x1": 986,
+          "y1": 680,
+          "pixels": 325910
+        }
+      ]
+    }
+  },
+  "technical": {
+    "P02": {
+      "frames": 145,
+      "audio": {
+        "peak_db": -17.090889,
+        "rms_db": -40.219672,
+        "peak_lin": 0.13978338398369783,
+        "rms_lin": 0.009750264563568943
+      },
+      "sha": "12d6ae3dd75d331a37a964a9a031782dfb0fefa576c15740dafb692607f62231",
+      "bytes": 1507448
+    }
+  }
+}

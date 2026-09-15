@@ -1,0 +1,28 @@
+GRAND PUFF r06 ACTING RETURN — HUFF SUB-STUDY
+Published: grok/grand-puff-motion-mp4-20260914
+Path: assets_src/characters/grand_puff_personality_returns/r06/
+Responds to: 1e7ca65b1c490b6aaef90dad86780c8e72dd4d29
+
+JOB: isolated P02 breath diagnostic. NOT a complete windup. P01 r02 / P03 r04 carried.
+
+DURATION: requested 3s; Imagine min native is 6s. File is 6.04s / 145 frames / 24fps.
+Requested beats 0.0-3.0s. 3.0-6.0s leftover hold. Do not pretend this is a 3s file.
+
+Bound refs: IMAGE_1 1fc9ed2f... IMAGE_2 5941f10f... commit 8d07b09
+Construction: imagine_reference_to_video, verbatim r06 PROMPT.txt (sha256 928c8c3b...)
+Selected: take1. Take2/take3 discarded.
+
+r06 vs REVIEW_R05 (output-based):
+- Closed-lip puff at 0.8-1.3s (not the r05 1-2s two-tooth smile as the huff).
+- Eyes stay open.
+- Exhale is modest, not a full empty-face release.
+- Extra flank pearl-like forms at t0.0 ~ (520,530)/(750,530) plus extra floor lobes: six-plus forms. Documented; not claimed as four-only.
+
+Roles:
+  *_study.mp4 = motion_reference / huff_substudy
+  *_study_silent.mp4 = silent_review_copy
+  frames/*.jpg = extracted stills, NOT production cels
+  authored_poses/* = authored_candidate, not Aseprite
+  compare/* = review boards only, never generation input
+
+DELIVERY_ACCEPTED=false. No expansion to fifteen. No live integration.
