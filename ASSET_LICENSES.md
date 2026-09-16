@@ -4604,6 +4604,8 @@ All following paths are under `assets_src/cinematics/roshan_swim_flow_revision_2
 | `reshoots/inbox/RSW-FLOW-01/A003/RSW-FLOW-01_take-03.mp4` | Grok Imagine image-to-video from `references/IMAGE_1_locked-front-right.png`; inherited project art | Original native A003 source candidate. 1280x720 24fps 10.04s AAC. Not cinematic delivery, not sprites, not runtime. Take-02 was not recovered or relabeled. |
 | `reshoots/attempts/RSW-SLOW-01/A001/inputs/IMAGE_1.png` | Byte-identical `baseline/frame-0154.png` native frame 154 of `baseline/RSW-01_take-03.mp4` | Lossless selected Grok-frame opening for slow A001. Does not accept source motion. |
 | `reshoots/inbox/RSW-SLOW-01/A001/RSW-SLOW-01_take-01.mp4` | Grok Imagine image-to-video from the selected frame-0154 native PNG | Original native slow A001 candidate. 1280x720 24fps 10.04s AAC. Not cinematic delivery, not sprites, not runtime. |
+| `reshoots/attempts/RSW-DASH-01/A001/inputs/IMAGE_1.png` | Byte-identical `baseline/frame-0120.png` native frame 120 of `baseline/RSW-01_take-03.mp4` | Lossless selected Grok-frame opening for dash A001. Does not accept source motion. Distinct from slow A001's frame-0154. |
+| `reshoots/inbox/RSW-DASH-01/A001/RSW-DASH-01_take-01.mp4` | Grok Imagine image-to-video from the selected frame-0120 native PNG | Original native dash A001 candidate. 1280x720 24fps 10.04s AAC. Separate native performance, not a retime of slow. Not cinematic delivery, not sprites, not runtime. |
 
 <!-- ROSHAN_TWO_SPEED_SOURCE_20260916_START -->
 ### Roshan two-speed handoff — native-frame input clarification (2026-09-16)

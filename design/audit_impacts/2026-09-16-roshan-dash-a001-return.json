@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-16-roshan-dash-a001-return",
+  "scope": "Grok-owned RSW-DASH-01 A001 return: selected native baseline frame 120 as IMAGE_1, imagine_image_to_video original, INPUT_SELECTION and RETURN. Sequential second job after slow A001. Distinct native performance, not a retime of slow. Not cinematic or runtime delivery.",
+  "baseline": "f98ef836df35fc75657473755354b418f9c7d17f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-13",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A001/INPUT_SELECTION.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A001/RETURN.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A001/inputs/IMAGE_1.png",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A001/RSW-DASH-01_take-01.mp4"
+  ],
+  "validation": [
+    {
+      "command": "Bind REQUEST and selected IMAGE_1 hashes",
+      "result": "PASS",
+      "evidence": "REQUEST sha256 74915aa4c0ac9697677a9579ee85c99dd3d8b0fd9a5eb2fac90c8032b893d5b8. IMAGE_1 sha256 581f40604670d256b8878891e00b7dfb52ee6c0aac87b41e45f4aea739d9eb3f byte-identical to baseline/frame-0120.png native frame 120. INPUT_SELECTION sha256 5922c8b7cf18403648e21199a95f67a770562840cfd7c3114f91bd52902de1be. MP4 sha256 9fbebb47e6a60a85d27881be38fabbdcc3a7546fa321e194a9732357c5335fac, 5373114 bytes, 1280x720 24fps 241 frames 10.04s AAC."
+    },
+    {
+      "command": "Mode",
+      "result": "PASS",
+      "evidence": "imagine_image_to_video, not reference_to_video. IMAGE_2 consulted not bound. No new still generation. Distinct IMAGE_1 from slow A001 (frame 154 vs frame 120)."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "This record covers the dash A001 Grok-owned files. No runtime mutation."
+    },
+    {
+      "command": "Runtime / Godot / assets/ diff versus origin/dev",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Non-runtime exchange only. DELIVERY_ACCEPTED stays false."
+    }
+  ],
+  "acceptance_gaps": "No independent source review. Pair-review of slow vs dash at native 1x is outstanding. Rest bridge deferred. Do not merge to master or dev. MA-VIS-006 remains open."
+}

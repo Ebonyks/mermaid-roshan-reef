@@ -1,0 +1,92 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A001",
+  "request_id": "RSW-DASH-01-A001-performance-led",
+  "request_sha256": "74915aa4c0ac9697677a9579ee85c99dd3d8b0fd9a5eb2fac90c8032b893d5b8",
+  "performance_mode": "dash",
+  "status": "RETURNED",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generation_job_id": "grok-dash-a001-2026-09-16T18:57Z",
+  "generator_model": "imagine_image_to_video",
+  "mode": "imagine_image_to_video",
+  "input_selection_path": "reshoots/attempts/RSW-DASH-01/A001/INPUT_SELECTION.json",
+  "input_selection_sha256": "5922c8b7cf18403648e21199a95f67a770562840cfd7c3114f91bd52902de1be",
+  "prompt_used": "reshoots/attempts/RSW-DASH-01/A001/PROMPT.txt",
+  "prompt_used_sha256": "79ab5c7490c631b1c585d9e555a6f7a1aba2466b8a26c1145a58c7e1ad5d03ac",
+  "settings": {
+    "aspect_ratio": "16:9",
+    "requested_duration": 10,
+    "native_duration": 10.04,
+    "resolution": "720p",
+    "camera": "locked"
+  },
+  "bound_inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "reshoots/attempts/RSW-DASH-01/A001/inputs/IMAGE_1.png",
+      "sha256": "581f40604670d256b8878891e00b7dfb52ee6c0aac87b41e45f4aea739d9eb3f",
+      "binding": "actual imagine_image_to_video starting image; native frame 120 of baseline/RSW-01_take-03.mp4"
+    }
+  ],
+  "consulted_inputs": [
+    {
+      "name": "IMAGE_2",
+      "path": "references/IMAGE_2_approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "binding": "consulted painted-child identity; one-image slot so not bound"
+    }
+  ],
+  "artifacts": [
+    {
+      "role": "original_native_video",
+      "path": "reshoots/inbox/RSW-DASH-01/A001/RSW-DASH-01_take-01.mp4",
+      "sha256": "9fbebb47e6a60a85d27881be38fabbdcc3a7546fa321e194a9732357c5335fac",
+      "bytes": 5373114,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frame_count": 241,
+      "duration_seconds": 10.04,
+      "audio_present": true
+    }
+  ],
+  "proposed_segments": {
+    "entry": {
+      "start_frame": 0,
+      "end_frame_exclusive": 24,
+      "note": "compact gather from seed S-curve into first launch; proposed after seeing footage"
+    },
+    "cruise_cycles": [
+      {
+        "start_frame": 24,
+        "end_frame_exclusive": 72,
+        "note": "first quicker stroke-and-recover pair; Codex must confirm actual seam"
+      },
+      {
+        "start_frame": 72,
+        "end_frame_exclusive": 120,
+        "note": "second quicker cycle; native 1x cadence reads faster than slow A001's ~72-frame windows"
+      }
+    ],
+    "exit": {
+      "start_frame": 120,
+      "end_frame_exclusive": 241,
+      "note": "later half still has swimming energy then more horizontal deceleration; not a rest-sprite match. Codex should pick the actual deceleration window"
+    },
+    "frame_index_convention": "zero-based, end-exclusive; proposed only after observing source, not copied from prompt times"
+  },
+  "rest_bridge_status": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+  "speed_distinction_observation": "Dash is a separate native imagine_image_to_video performance from a distinct IMAGE_1 (baseline frame 120), not a retime of RSW-SLOW-01_take-01. Sampled frames read brighter/stronger compact gather-and-launch than the slow take at native 1x. Independent pair-review still required; producer observation is not a score.",
+  "producer_notes": [
+    "Identity holds on sampled frames: painted child, gold crown/blue gem, rainbow lock anatomical left, pink/lilac, pearlescent two-lobed fin. Right-facing three-quarter. No in-shot mirror or front/rear turnaround.",
+    "Native 10.04s / 24fps / AAC stereo. Silence requested; unavoidable generated audio preserved.",
+    "First frame is the same character, not pixel-identical to IMAGE_1.",
+    "Not A003 relabeled. Not take-02 recovery. Source motion of the seed video is not accepted.",
+    "Not a time-scaled copy of slow A001. Rest bridge deferred.",
+    "Producer self-score does not count."
+  ],
+  "unknown_metadata_reasons": [],
+  "source_acceptance": false,
+  "delivery_accepted": false
+}
