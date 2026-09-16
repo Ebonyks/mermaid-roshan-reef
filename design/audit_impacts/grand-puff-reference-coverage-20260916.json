@@ -143,6 +143,11 @@
       "command": "History and visual reference coverage review",
       "result": "PASS",
       "evidence": "112-file r03 packet, seven per-shot reference maps, exact full-review frame spans. Arena image visually matches native stone attic; hall is context only. No output acceptance inferred."
+    },
+    {
+      "command": "Immutable GitHub archive and authority verification",
+      "result": "PASS",
+      "evidence": "112/112 remote files identical at 79537ba9f8c0c37c97c8f75ac66d5adf30bfc93d; 10/10 authority source URLs identical to pinned Git blobs; per-shot references fully mapped, MP4 dimensions measured. Final metadata revision verified after push."
     }
   ],
   "acceptance_gaps": "Reference coverage does not grant delivered animation acceptance; new r03 attack returns require pixel review. No live/device/child acceptance."
