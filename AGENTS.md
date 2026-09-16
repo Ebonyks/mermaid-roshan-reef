@@ -113,24 +113,29 @@ supersedes any cinematic document or tool that recommends temporal shortcuts.
   sprites, vector animation, procedural animation, or another visual medium
   to make the sequence easier to produce.
 
-### Grand Puff video-cel exception (owner decision 2026-09-15)
+### Character and gameplay video-cel exception (owner decision 2026-09-15)
 
-The owner explicitly authorizes pixel-for-pixel extraction, tracing, raster
-redrawing, background isolation and pixel cleanup of the existing commissioned
-Grok Grand Puff animations into editable Aseprite character cels. This is an
-authorized production method for Grand Puff review assets, superseding the
-motion-reference-only/no-video-delivery-pixels restriction for this scope.
-Preserve the original videos and their hashes, exact source frame indices and
-timestamps, native timing, transformations/masks and per-cel provenance. Label
-machine-transferred pixels honestly; do not call extraction a hand redraw.
-Keep each performance frame editable; do not replace its acting with affine
-motion of a still, interpolate missing poses or conceal defects with duplicates.
+The owner explicitly extends the successful Grand Puff workflow to all
+characters and gameplay assets when the task dictates it. Existing commissioned
+Grok videos may supply pixel-for-pixel extraction, tracing, raster redrawing,
+background isolation and local pixel cleanup into editable Aseprite review
+cels. This supersedes the motion-reference-only restriction and incompatible
+full-frame production-method requirements for these assets. Follow the
+[production bible](design/animation/ASEPRITE_PRODUCTION_BIBLE.md).
 
-This exception authorizes the method, not automatic visual acceptance. Keep
-signed identity, known source defects, licenses and review evidence explicit.
-Deliver at new non-runtime paths for owner review first; live integration,
-cinematic scene assembly, device/child acceptance and release are separate.
-Protected originals and other characters' cinematic rules are unchanged.
+Inventory and reuse suitable approved art first; this is not an instruction to
+regenerate every asset. Preserve original media and hashes, source frame indices,
+timestamps, native timing, masks/transforms and per-cel provenance. Label
+machine-transferred pixels honestly; extraction is not hand drawing. Keep each
+performance frame editable. Do not substitute affine motion of a still,
+interpolate missing poses or conceal defects with duplicates. Select masks and
+cleanup for the actual subject; Puff's mask is not universal.
+
+This authorizes the method, not automatic visual acceptance. Preserve approved
+identity and record source defects, licenses and review evidence. Deliver at new
+non-runtime paths for review first. Live integration, complete cinematic scene
+delivery, device/child acceptance and release remain separate. Protected
+originals and full-frame cinematic scene rules retain their authority.
 
 ### Position-guide exception
 
@@ -217,7 +222,7 @@ in text. Never ask one generation to make a multi-shot movie; generate shots
 separately and assemble them in edit. Keep hashes, licensing, audit prose, and
 policy language in the archive sidecar, never in the pasted generation prompt.
 
-Except for the explicit Grand Puff video-cel exception above,
+Except for the explicit character and gameplay video-cel exception above,
 Grok/Imagine image-to-video output is motion/editorial reference only unless
 the binding full-frame cinematic evidence above independently proves every
 delivered changed frame. Generator readiness therefore never relaxes the

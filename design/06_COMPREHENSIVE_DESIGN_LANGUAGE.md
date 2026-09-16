@@ -763,8 +763,9 @@ no additional planning checkpoint; missing evidence blocks only its dependent
 acceptance. Cinematic delivery and review-delivery candidates retain every
 full-frame requirement in section 11. Separately labeled motion/editorial
 references cannot supply delivery pixels or acquire acceptance by relabeling.
-The explicit Grand Puff video-cel exception under `DL-CIN-15` authorizes its
-named Aseprite method without granting visual acceptance.
+The explicit character and gameplay video-cel exception under `DL-CIN-15`
+authorizes the Aseprite method when the task dictates it, without granting
+visual acceptance. Follow the [production bible](animation/ASEPRITE_PRODUCTION_BIBLE.md).
 
 ---
 
@@ -983,15 +984,18 @@ implies a later status. Grok/Imagine image-to-video output remains motion or
 editorial reference unless every delivered changed frame independently satisfies
 `DL-CIN-01` through `DL-CIN-12`.
 
-Owner exception 2026-09-15, scoped to Grand Puff under `DL-CIN-15` and
-`DL-MOT-13`: existing commissioned Grok videos may supply extracted, traced,
-redrawn and background-isolated pixels for editable Aseprite character review
-cels. This supersedes the reference-only restriction and incompatible full-frame
-method requirements for these character assets only. Preserve source/frame
-hashes, exact timing, masks/transforms and editable raster cels; distinguish
-pixel transfer from hand drawing. No automatic visual acceptance, runtime
-integration or cinematic scene assembly follows. Other characters and full
-cinematic delivery retain their rules. See the [operational exception](../AGENTS.md#grand-puff-video-cel-exception-owner-decision-2026-09-15).
+Owner exception 2026-09-15 under `DL-CIN-15` and `DL-MOT-13`: the faithful
+Grand Puff video-cel workflow extends to all characters and gameplay assets when
+the task dictates it. Existing commissioned Grok videos may supply extracted,
+traced, redrawn, background-isolated and locally cleaned pixels for editable
+Aseprite review cels. This supersedes the reference-only restriction and
+incompatible full-frame method requirements for these assets. Preserve original
+media, source/frame hashes, native timing, masks/transforms and editable cels;
+distinguish automated transfer from hand drawing. Reuse suitable approved art
+first and review source identity and defects per subject. No automatic visual
+acceptance, runtime integration or complete cinematic scene delivery follows.
+See the [operational exception](../AGENTS.md#character-and-gameplay-video-cel-exception-owner-decision-2026-09-15)
+and [production bible](animation/ASEPRITE_PRODUCTION_BIBLE.md).
 
 ---
 

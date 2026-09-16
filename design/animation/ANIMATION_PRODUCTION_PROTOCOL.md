@@ -51,15 +51,17 @@ whole-canvas normalization follows acceptance and preserves native generation ha
 Position guides remain neutral-field, `POSITION_GUIDE_ONLY`, non-delivery evidence
 under the complete binding exception; no guide pixels enter a delivered frame.
 
-### Grand Puff video-cel lane
+### Character and gameplay video-cel lane
 
-Owner decision 2026-09-15 permits direct Grok-video pixel extraction, tracing,
-redrawing and background isolation into editable Aseprite Grand Puff review
-cels. This is the scoped `DL-CIN-15`/`DL-MOT-13` exception, not relabeling a
-reference as accepted art. Preserve native frame sequence/timing and source
-hashes; record per-frame masks/transforms and derived hashes. Call automated
-pixel transfer by that name. Source defects and owner review remain open;
-no live integration or full cinematic scene delivery is commissioned.
+Owner decision 2026-09-15 extends the approved Puff workflow to all characters
+and gameplay assets when the task dictates it. Under `DL-CIN-15`/`DL-MOT-13`,
+existing commissioned Grok videos may supply extraction, tracing, redrawing,
+isolation and local cleanup into editable Aseprite review cels. Follow the
+[production bible](ASEPRITE_PRODUCTION_BIBLE.md): preserve performance, source
+hashes, native sequence/timing and recorded masks/transforms; verify saved native
+cels. Reuse suitable approved art first. Source-specific visual review remains
+required; method approval does not accept a clip or authorize live integration
+or complete cinematic scene delivery.
 
 ## Inventory and bind sources
 

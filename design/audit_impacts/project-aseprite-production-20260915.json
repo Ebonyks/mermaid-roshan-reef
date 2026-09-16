@@ -1,0 +1,44 @@
+{
+  "id": "project-aseprite-production-20260915",
+  "baseline": "9f41418394b922270497c177b918c3f0f39a3e8f",
+  "scope": "Owner explicitly approves extending the faithful Grok-video to editable Aseprite workflow to all characters and gameplay assets when dictated. Update AGENTS.md and CLAUDE.md and synchronized authority, publish a reusable production bible. Existing approved art reuse and review-first delivery remain; no new asset or live integration in this rules change.",
+  "owner_authorization": "Yes, extend to all characters and gameplay assets for this workflow when dictated",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-CIN-15",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+    "design/animation/ASEPRITE_PRODUCTION_BIBLE.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/animation/README.md",
+    "audit/animation/PROJECT_ASEPRITE_PRODUCTION_QUEUE.json"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "572/572 authority entries; ALL OK. Coverage baseline a46c8ae19f8ee8f870fcbc1144c4b2cec4554eb3."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development; git diff --check",
+      "result": "PASS",
+      "evidence": "51 tests pass; 6/6 authority stress controls. No whitespace errors. Documentation-only change; no GDScript or art pixels changed. Full runtime CI remains separate."
+    }
+  ],
+  "acceptance_gaps": "Method approval only. MA-VIS-006 remains open; individual source, visual, runtime, device and child acceptance remain separate. All-project animation production is ongoing."
+}

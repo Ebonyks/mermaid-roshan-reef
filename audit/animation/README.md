@@ -104,5 +104,7 @@ Owner commission2026-09-15 continues project animation production from the
 approved Puff benchmark. [Production source queue](PROJECT_ASEPRITE_PRODUCTION_QUEUE.json)
 records current character/event sources, Roshan source gaps and existing atlas
 candidates. It is a starting inventory, not a claim of exhaustive completion.
-Project-wide rule expansion awaits explicit approval after automatic review;
-Puff production continues under its existing exception.
+Owner approval now extends the method to all characters and gameplay assets
+when dictated. The [production bible](../../design/animation/ASEPRITE_PRODUCTION_BIBLE.md)
+records the shared process; [impact](../../design/audit_impacts/project-aseprite-production-20260915.json)
+records the authority change. Source defects and individual acceptance remain open.

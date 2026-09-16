@@ -52,10 +52,14 @@ Current cross-domain rules and audit state:
 `audit/MASTER_AUDIT_2026-08-09.md`.
 
 The complete full-frame cinematic rule in `AGENTS.md` remains binding, including
-its explicit 2026-09-15 Grand Puff video-cel exception. The owner authorizes
-video pixel extraction/tracing/redrawing and background isolation into editable
-Aseprite Grand Puff review cels with source/frame hashes and truthful method
-labels. This does not authorize live integration or accept other cinematic work.
+its explicit 2026-09-15 character and gameplay video-cel exception. The owner
+extends the approved Puff workflow to all characters and gameplay assets when
+the task dictates it: video extraction/tracing/redrawing, isolation and local
+cleanup into editable Aseprite review cels with source/frame hashes, timing,
+masks/transforms and truthful method labels. Follow
+`design/animation/ASEPRITE_PRODUCTION_BIBLE.md`; reuse suitable approved art first.
+This method approval grants no automatic visual acceptance, live integration or
+complete cinematic scene delivery. Preserve protected originals.
 
 External animation handoffs are incomplete unless they include the binding
 self-contained visual-reference packet required by `AGENTS.md`: actual

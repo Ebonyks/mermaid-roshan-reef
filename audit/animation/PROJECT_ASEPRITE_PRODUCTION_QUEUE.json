@@ -1,8 +1,8 @@
 {
   "schema": "project-aseprite-production-queue-v1",
   "owner_commission": "2026-09-15 continue all project animations following approved Puff benchmark; publish assets.",
-  "scope_note": "This is a source-backed starting inventory, not a certified exhaustive game roster. Cinematic scope clarification and project-wide method authorization requested; Puff work continues under existing exception.",
-  "database_source": "origin/dev:assets_src/cinematics/grok_builder_2026-09-14/DATABASE.json",
+  "scope_note": "Owner explicitly authorizes this workflow for all characters and gameplay assets when dictated. This starting inventory is not exhaustive; complete cinematic scene delivery remains separate.",
+  "database_source": "a46c8ae19f8ee8f870fcbc1144c4b2cec4554eb3:assets_src/cinematics/grok_builder_2026-09-14/DATABASE.json",
   "priority": [
     "Complete authorized source-ready Puff candidates and name rejected-source repairs",
     "Resolve Roshan hair/tail colours and source-specific alpha, then select true swim performance",
@@ -1276,5 +1276,11 @@
   "existing_assets_scope": "Filename inventory only; inspect chronology/callers before reuse or replacement. Do not regenerate approved art simply to make new files.",
   "missing_motion_generation": "No callable Grok/video-generation tool available in this session. New source gaps need prepared source-specific handoffs or supplied corrected footage; do not fabricate frames.",
   "runtime_changes": false,
-  "all_project_animations_complete": false
+  "all_project_animations_complete": false,
+  "method_authorization": {
+    "date": "2026-09-15",
+    "owner_quote": "Yes, extend to all characters and gameplay assets for this workflow when dictated",
+    "bible": "design/animation/ASEPRITE_PRODUCTION_BIBLE.md",
+    "automatic_live_integration": false
+  }
 }
