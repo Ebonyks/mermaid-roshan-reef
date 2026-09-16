@@ -1,16 +1,21 @@
 {
   "schema": "imagine-handoff-v1",
-  "archive_status": "incomplete",
-  "generation_status": "blocked",
+  "archive_status": "complete",
+  "generation_status": "ready",
   "delivery_status": "not_accepted",
-  "blocking_findings": [
-    "Publication and bound-image remote verification pending."
-  ],
+  "blocking_findings": [],
   "shot_packets": [
     "shots/P01_IDLE/SHOT_PACKET.json",
     "shots/P02_FLINCH/SHOT_PACKET.json",
     "shots/P03_PROWL/SHOT_PACKET.json",
     "shots/P04_GIGGLE/SHOT_PACKET.json",
     "shots/P05_BOUNCE/SHOT_PACKET.json"
-  ]
+  ],
+  "archive_remote": {
+    "commit": "52308ae4effee4e7e562a595401827afeaa5ba33",
+    "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/52308ae4effee4e7e562a595401827afeaa5ba33/assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r01",
+    "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/52308ae4effee4e7e562a595401827afeaa5ba33/assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r01/PACKET_MANIFEST.json",
+    "verified_via": "All 44 immutable raw GitHub files downloaded and SHA256 compared; bound images included.",
+    "verified_at": "2026-09-16T03:37:40.190299+00:00"
+  }
 }

@@ -1,6 +1,6 @@
 # Grand Puff movement profile
 
-Status: owner-commissioned video-derived Aseprite review candidate, 2026-09-15.
+Status: laugh, huff and friendship owner-approved; five additional drafts await repair, 2026-09-15.
 The [production protocol](ANIMATION_PRODUCTION_PROTOCOL.md#character-and-gameplay-video-cel-lane)
 and [scoped owner exception](../../AGENTS.md#character-and-gameplay-video-cel-exception-owner-decision-2026-09-15)
 authorize pixel transfer from commissioned Grok videos. Method approval is

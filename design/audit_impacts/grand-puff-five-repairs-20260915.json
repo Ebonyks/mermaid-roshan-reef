@@ -63,13 +63,19 @@
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r01/shots/P05_BOUNCE/SHOT_PACKET.json",
     "ASSET_LICENSES.md",
     "design/animation/GRAND_PUFF_MOVEMENT_PROFILE.md",
-    "audit/animation/README.md"
+    "audit/animation/README.md",
+    "design/05_DOC_LEDGER.md"
   ],
   "validation": [
     {
-      "command": "Packet, authority and coverage checks",
-      "result": "PENDING",
-      "evidence": "To run after build and remote publication."
+      "command": "python -B tools/audit_imagine_handoff.py assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r01 --require-ready; authority and development gates",
+      "result": "PASS",
+      "evidence": "Five generation-ready shot cards pass; authority572/572 and coverage ALL OK. Eight Imagine validator tests pass after restoring220 unchanged tracked sparse-checkout fixture files. No art pixels or runtime changed."
+    },
+    {
+      "command": "Immutable raw GitHub payload verification",
+      "result": "PASS",
+      "evidence": "52308ae4effee4e7e562a595401827afeaa5ba33: all44 files downloaded and SHA256 matched, including both bound images. IMAGINE_HANDOFF.json records verified source publication."
     }
   ],
   "acceptance_gaps": "Five repaired animations require Grok returns, source review and verified Aseprite reconstruction. No video generation capability available; no live integration or device/child acceptance claimed."
