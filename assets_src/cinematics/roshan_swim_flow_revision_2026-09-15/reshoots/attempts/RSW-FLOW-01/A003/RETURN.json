@@ -1,0 +1,62 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-FLOW-01",
+  "attempt": "A003",
+  "request_id": "RSW-FLOW-01-A003-new-right-facing-take",
+  "request_sha256": "28b86c0a9734d49beb06416568ce7ead13ba35a57c3c7a5d8cea70662e16ace3",
+  "status": "RETURNED",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generation_job_id": "grok-a003-2026-09-16T15:03Z",
+  "generator_model": "imagine_image_to_video",
+  "mode": "imagine_image_to_video",
+  "prompt_used": "reshoots/attempts/RSW-FLOW-01/A003/PROMPT.txt",
+  "prompt_used_sha256": "01d1daa5561e42b46356c166356b268cffcac69a8ce55cb8d013e25253841af4",
+  "settings": {
+    "aspect_ratio": "16:9",
+    "requested_duration": 10,
+    "native_duration": 10.04,
+    "resolution": "720p",
+    "camera": "locked"
+  },
+  "bound_inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "references/IMAGE_1_locked-front-right.png",
+      "sha256": "6b0918967e5b1703e4b04a67b27798b7a733a6ab79c44314ebcf6f12bf1be685",
+      "binding": "actual imagine_image_to_video starting image"
+    }
+  ],
+  "consulted_inputs": [
+    {
+      "name": "IMAGE_2",
+      "path": "references/IMAGE_2_approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "binding": "consulted for painted-child identity; this tool has one image slot so IMAGE_2 was not a bound input"
+    }
+  ],
+  "artifacts": [
+    {
+      "role": "original_native_video",
+      "path": "reshoots/inbox/RSW-FLOW-01/A003/RSW-FLOW-01_take-03.mp4",
+      "sha256": "ab3b7006e71130b7373a64f06ef8b33b650d4df8d28527d6f5aa95819fbf6507",
+      "bytes": 2524651,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frame_count": 241,
+      "duration_seconds": 10.04,
+      "audio_present": true
+    }
+  ],
+  "unknown_metadata_reasons": [],
+  "producer_notes": [
+    "Identity holds on sampled frames: painted storybook child, gold crown with blue gem, rainbow lock on anatomical left, pink bodice, lilac frills, pearlescent two-lobed tail. Right-facing three-quarter throughout sampled frames. No in-shot mirrored duplicate or front/rear turnaround.",
+    "BODY-01 still at risk: she translates across the field rather than holding pelvis in a small in-place area for the cruise loop.",
+    "Native 10.04s / 24fps / AAC stereo. Silence was requested; unavoidable generated audio was preserved in the original.",
+    "First frame is the same character, not pixel-identical to IMAGE_1.",
+    "This is not take-02 recovery. A002 remains BLOCKED_SOURCE_UNAVAILABLE.",
+    "Producer self-score does not count. Waiting for independent Codex source review."
+  ],
+  "source_acceptance": false,
+  "delivery_accepted": false
+}

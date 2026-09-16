@@ -1,0 +1,51 @@
+{
+  "id": "2026-09-16-roshan-flow-a003-job",
+  "scope": "Grok-owned A003 return: one authorized imagine_image_to_video take of RSW-FLOW-01_take-03.mp4 plus JOB/RETURN metadata and license row. Not take-02 recovery. Not cinematic or runtime delivery. Waiting for Codex source-first review.",
+  "baseline": "f98ef836df35fc75657473755354b418f9c7d17f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-13",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-FLOW-01/A003/JOB.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-FLOW-01/A003/RETURN.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-FLOW-01/A003/RSW-FLOW-01_take-03.mp4"
+  ],
+  "validation": [
+    {
+      "command": "sha256sum A003 REQUEST.json and original MP4",
+      "result": "PASS",
+      "evidence": "RETURN.request_sha256 binds REQUEST bytes 28b86c0a9734d49beb06416568ce7ead13ba35a57c3c7a5d8cea70662e16ace3. Original MP4 sha256 ab3b7006e71130b7373a64f06ef8b33b650d4df8d28527d6f5aa95819fbf6507, 2524651 bytes, 1280x720, 24 fps, 241 frames, 10.04s, AAC present."
+    },
+    {
+      "command": "Mode and input binding",
+      "result": "PASS",
+      "evidence": "imagine_image_to_video on IMAGE_1_locked-front-right.png sha256 6b0918967e5b1703e4b04a67b27798b7a733a6ab79c44314ebcf6f12bf1be685. IMAGE_2 consulted, not bound. Prompt file sha256 01d1daa5561e42b46356c166356b268cffcac69a8ce55cb8d013e25253841af4. Not reference_to_video."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "This record covers JOB, RETURN, original MP4 and the license row. No scripts/, assets/, or project.godot changes."
+    },
+    {
+      "command": "Runtime / Godot / assets/ diff versus origin/dev",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Non-runtime exchange only. DELIVERY_ACCEPTED stays false. Source review is Codex's next action."
+    }
+  ],
+  "acceptance_gaps": "Producer notes translation vs in-place cruise; native 10.04s + AAC. No independent source review, no Aseprite, no human/runtime/device/child acceptance. Do not merge to master or dev. MA-VIS-006 remains open."
+}

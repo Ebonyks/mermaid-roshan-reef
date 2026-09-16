@@ -1,0 +1,18 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-FLOW-01",
+  "attempt": "A003",
+  "request_id": "RSW-FLOW-01-A003-new-right-facing-take",
+  "request_sha256": "28b86c0a9734d49beb06416568ce7ead13ba35a57c3c7a5d8cea70662e16ace3",
+  "status": "RETURNED",
+  "generation_job_id": "grok-a003-2026-09-16T15:03Z",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "mode": "imagine_image_to_video",
+  "started_at": "2026-09-16T15:03:00Z",
+  "completed_at": "2026-09-16T15:04:00Z",
+  "output_path": "reshoots/inbox/RSW-FLOW-01/A003/RSW-FLOW-01_take-03.mp4",
+  "return_path": "reshoots/attempts/RSW-FLOW-01/A003/RETURN.json",
+  "max_new_takes": 1,
+  "duplicate_guard": "A003 original is returned. Another refresh must not start a second A003 render.",
+  "delivery_accepted": false
+}

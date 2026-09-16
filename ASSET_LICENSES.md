@@ -4601,3 +4601,4 @@ All following paths are under `assets_src/cinematics/roshan_swim_flow_revision_2
 | `baseline/frame-0138.png` | Same baseline video, native frame 138 | Lossless FFmpeg PNG decode; no character repair |
 | `baseline/frame-0154.png` | Same baseline video, native frame 154 | Lossless FFmpeg PNG decode; no character repair |
 | `SHOT_BOARD.png` | Above source frames and project-authored annotations | Uniformly reduced complete frames and proposed-beat labels; diagnosis only, never generator-bound or delivery pixels |
+| `reshoots/inbox/RSW-FLOW-01/A003/RSW-FLOW-01_take-03.mp4` | Grok Imagine image-to-video from `references/IMAGE_1_locked-front-right.png`; inherited project art | Original native A003 source candidate. 1280x720 24fps 10.04s AAC. Not cinematic delivery, not sprites, not runtime. Take-02 was not recovered or relabeled. |
