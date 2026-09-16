@@ -1,0 +1,75 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-SLOW-01",
+  "attempt": "A001",
+  "request_id": "RSW-SLOW-01-A001-performance-led",
+  "request_sha256": "f4e21297056880c8e1485f5a021e4824917d2bee72143b2a08eee16019500ec5",
+  "performance_mode": "slow_relaxed",
+  "status": "RETURNED",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generation_job_id": "grok-slow-a001-2026-09-16T18:52Z",
+  "generator_model": "imagine_image_to_video",
+  "mode": "imagine_image_to_video",
+  "input_selection_path": "reshoots/attempts/RSW-SLOW-01/A001/INPUT_SELECTION.json",
+  "input_selection_sha256": "daa3e98a1908b2cf15bb246d5e2c0b72231fb7d9aeb8e5e22bedea457ef85c22",
+  "prompt_used": "reshoots/attempts/RSW-SLOW-01/A001/PROMPT.txt",
+  "prompt_used_sha256": "3499661499cf69abb42513f8316a7c1782301489fb901139182ad866b4712c8a",
+  "settings": {
+    "aspect_ratio": "16:9",
+    "requested_duration": 10,
+    "native_duration": 10.04,
+    "resolution": "720p",
+    "camera": "locked"
+  },
+  "bound_inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "reshoots/attempts/RSW-SLOW-01/A001/inputs/IMAGE_1.png",
+      "sha256": "bb7779e2ab90b68dc236b0d4668c4333324e7cd31bd5d37b796fe05fb8e1ce04",
+      "binding": "actual imagine_image_to_video starting image; native frame 154 of baseline/RSW-01_take-03.mp4"
+    }
+  ],
+  "consulted_inputs": [
+    {
+      "name": "IMAGE_2",
+      "path": "references/IMAGE_2_approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "binding": "consulted painted-child identity; one-image slot so not bound"
+    }
+  ],
+  "artifacts": [
+    {
+      "role": "original_native_video",
+      "path": "reshoots/inbox/RSW-SLOW-01/A001/RSW-SLOW-01_take-01.mp4",
+      "sha256": "f56e8e0134f2ddd59fec61a159b23ddd15a4caee89bdcabbd7c0d4417e3fd1a7",
+      "bytes": 4603843,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frame_count": 241,
+      "duration_seconds": 10.04,
+      "audio_present": true
+    }
+  ],
+  "proposed_segments": {
+    "entry": {"start_frame": 0, "end_frame_exclusive": 24, "note": "notice and gather; proposed after seeing footage"},
+    "cruise_cycles": [
+      {"start_frame": 24, "end_frame_exclusive": 96, "note": "first relaxed stroke-and-glide"},
+      {"start_frame": 96, "end_frame_exclusive": 168, "note": "second relaxed cycle; Codex must confirm actual seam"}
+    ],
+    "exit": {"start_frame": 168, "end_frame_exclusive": 241, "note": "decelerate to attentive hold"},
+    "frame_index_convention": "zero-based, end-exclusive; proposed only after observing source, not copied from prompt times"
+  },
+  "rest_bridge_status": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+  "speed_distinction_observation": "Slow take returned first. Dash not yet generated at this commit. Side-by-side native-speed comparison is for the pair review after dash returns.",
+  "producer_notes": [
+    "Identity holds on sampled frames: painted child, gold crown/blue gem, rainbow lock anatomical left, pink/lilac, pearlescent two-lobed fin. Right-facing three-quarter. No in-shot mirror or front/rear turnaround.",
+    "Native 10.04s / 24fps / AAC stereo. Silence requested; unavoidable generated audio preserved.",
+    "First frame is the same character, not pixel-identical to IMAGE_1.",
+    "Not A003 relabeled. Not take-02 recovery. Source motion of the seed video is not accepted.",
+    "Producer self-score does not count."
+  ],
+  "unknown_metadata_reasons": [],
+  "source_acceptance": false,
+  "delivery_accepted": false
+}

@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-16-roshan-slow-a001-return",
+  "scope": "Grok-owned RSW-SLOW-01 A001 return: selected native baseline frame 154 as IMAGE_1, imagine_image_to_video original, INPUT_SELECTION and RETURN. Slow job only. Dash is a later sequential commit. Not cinematic or runtime delivery.",
+  "baseline": "f98ef836df35fc75657473755354b418f9c7d17f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-13",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A001/INPUT_SELECTION.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A001/RETURN.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A001/inputs/IMAGE_1.png",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A001/RSW-SLOW-01_take-01.mp4"
+  ],
+  "validation": [
+    {
+      "command": "Bind REQUEST and selected IMAGE_1 hashes",
+      "result": "PASS",
+      "evidence": "REQUEST sha256 f4e21297056880c8e1485f5a021e4824917d2bee72143b2a08eee16019500ec5. IMAGE_1 sha256 bb7779e2ab90b68dc236b0d4668c4333324e7cd31bd5d37b796fe05fb8e1ce04 byte-identical to baseline/frame-0154.png native frame 154. MP4 sha256 f56e8e0134f2ddd59fec61a159b23ddd15a4caee89bdcabbd7c0d4417e3fd1a7, 4603843 bytes, 1280x720 24fps 241 frames 10.04s AAC."
+    },
+    {
+      "command": "Mode",
+      "result": "PASS",
+      "evidence": "imagine_image_to_video, not reference_to_video. IMAGE_2 consulted not bound. No new still generation."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "This record covers the slow A001 Grok-owned files. No runtime mutation."
+    },
+    {
+      "command": "Runtime / Godot / assets/ diff versus origin/dev",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Non-runtime exchange only. DELIVERY_ACCEPTED stays false."
+    }
+  ],
+  "acceptance_gaps": "No independent source review. Dash not in this commit. Rest bridge deferred. Do not merge to master or dev. MA-VIS-006 remains open."
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "reef.roshan-native-frame-input.v1",
+  "shot_id": "RSW-SLOW-01",
+  "attempt": "A001",
+  "request_id": "RSW-SLOW-01-A001-performance-led",
+  "request_sha256": "f4e21297056880c8e1485f5a021e4824917d2bee72143b2a08eee16019500ec5",
+  "status": "SELECTED",
+  "selector": "grok-build-imagine-bridge-2026-09-16",
+  "selected_at": "2026-09-16T18:52:00Z",
+  "source_video": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "commit": "9739dbeb207923ddec5f988673a8200ade9271ed",
+    "path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/baseline/RSW-01_take-03.mp4",
+    "sha256": "027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d",
+    "native_frame_index_zero_based": 154,
+    "presentation_timestamp_seconds": 6.416667,
+    "time_base": "1/24",
+    "decode_method": "byte-identical copy of packet baseline/frame-0154.png, the lossless FFmpeg PNG of native frame 154"
+  },
+  "extracted_image": {
+    "path": "reshoots/attempts/RSW-SLOW-01/A001/inputs/IMAGE_1.png",
+    "sha256": "bb7779e2ab90b68dc236b0d4668c4333324e7cd31bd5d37b796fe05fb8e1ce04",
+    "width": 1280,
+    "height": 720,
+    "transforms": []
+  },
+  "candidates_inspected": [
+    "A003 take-03 native frames 0/48/96/144 (identity holds but 3D volume creep; not selected)",
+    "baseline/frame-0084.png (painted identity, arms more extended / BODY-01)",
+    "baseline/frame-0120.png (painted stroke S-curve; reserved for dash seed)",
+    "baseline/frame-0154.png (selected)"
+  ],
+  "screening": {
+    "identity_face_crown_costume": "PASS — painted child face, gold crown/blue gem, pink bodice, lilac frills",
+    "anatomy_proportions": "PASS — child proportions, one tail, no extra limbs",
+    "hair_attachment": "PASS — scalp roots attached, rainbow lock on anatomical left",
+    "waist_tail_continuity": "PASS — continuous waist-to-tail join",
+    "broad_fin": "PASS — two-lobed pearlescent fin readable, not hinged or inverted",
+    "right_facing_readability": "PASS — right-facing three-quarter",
+    "full_body_margins": "PASS — crown, hands and fin inside frame",
+    "findings": [
+      "Calmer, more upright pose than earlier baseline frames; better slow-entry seed than outstretched-arm frame 84.",
+      "Source video remains owner 4.25 rejected motion. Selecting this frame does not pass that take."
+    ],
+    "input_frame_suitable": true
+  },
+  "selection_reason": "Best screened painted native frame for a slow relaxed start: identity, attached hair, continuous tail, readable broad fin, right-facing, full margins, arms not flying.",
+  "source_motion_accepted": false,
+  "existing_rest_pose_match_required": false,
+  "owner_opening_approval_required": false
+}
