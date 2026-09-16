@@ -1,0 +1,20 @@
+{
+  "schema": "reef.grok-regen-return.v1",
+  "date": "2026-09-16",
+  "delivery_accepted": false,
+  "generation_ready": false,
+  "disposition": "motion_reference_only",
+  "release_tag": "grok-regen-return-2026-09-16",
+  "do_not_copy_into_assets_src": true,
+  "primaries": [
+    {"shot": "C14-S01", "file": "C14-S01_REGEN_2026-09-16_6s.mp4", "bytes": 3174920, "sha256": "e77d4d4d9603f5a51030357349dcb8b15502e13537284d084657a1284f7a9502", "verdict": "ROUGH_REFERENCE_CANDIDATE"},
+    {"shot": "C14-S05", "file": "C14-S05_REGEN_2026-09-16_6s.mp4", "bytes": 5970008, "sha256": "46f89b0e1435aa6e60435c1a896c43930c313ee1fbc0d8945bf12c2c122117b6", "verdict": "ROUGH_REFERENCE_CANDIDATE"},
+    {"shot": "D1-C02-R02", "file": "D1-C02-R02_REGEN_v2_2026-09-16_6s.mp4", "bytes": 4076439, "sha256": "1f6fbd84b3e2dd42c79a7c5f5d016168fa1ed64513a4f90396c37be05dff2833", "verdict": "ROUGH_REFERENCE_CANDIDATE"},
+    {"shot": "D1-C13-S04", "file": "D1-C13-S04_REGEN_2026-09-16_6s.mp4", "bytes": 4796327, "sha256": "190d55a95b72c194a6d3a63310b2aba19fae7160c227041d589c2b4551829a63", "verdict": "ROUGH_REFERENCE_CANDIDATE"},
+    {"shot": "R14", "file": "R14_TEAM_WALL_REGEN_2026-09-16_6s.mp4", "bytes": 5558951, "sha256": "472959a34811eb9ac9623c6342ea75b19e63498ea72b43b55e9cb5b2afb5a8cf", "verdict": "ROUGH_REFERENCE_CANDIDATE"},
+    {"shot": "R16", "file": "R16_TEAM_FINISH_REGEN_2026-09-16_6s.mp4", "bytes": 3781735, "sha256": "e9ec8deda1d02c4c6ce475228a56f5c004b0ebe73bb90391ce0c2a69439f282b", "verdict": "ROUGH_REFERENCE_CANDIDATE"}
+  ],
+  "superseded": [
+    {"shot": "D1-C02-R02", "file": "D1-C02-R02_REGEN_2026-09-16_6s.mp4", "bytes": 3900576, "sha256": "0edfedbfd87468f9bdd7b8f37362048d1261e589c598147e15d68f1fdd25cbbf", "reason": "dual destination glow"}
+  ]
+}
