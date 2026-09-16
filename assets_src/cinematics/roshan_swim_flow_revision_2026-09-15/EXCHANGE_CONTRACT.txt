@@ -1,0 +1,30 @@
+ROSHAN GAMEPLAY SOURCE EXCHANGE v1
+
+Adapted from the persistent Builder reshoot folder contract inspected in the local grok-builder-reshoot-loop-20260915 worktree (2026-09-15). This is a scoped gameplay pilot, not a cinematic delivery job. The owner's current source-first, 4.8-human-stop instructions govern this pilot; the cinematic three-attempt total cap and extra opening-approval ceremony are not imported. Reassess a method after two failures without lowering the bar.
+
+The folder pattern is shared; this pilot's schema is reef.roshan-source-exchange.v1. It is not a drop-in input to the generic Builder CLI, which expects its cinematic database and readiness fields. Exchange these records directly through Git; do not run that helper unchanged against this packet.
+
+Git hub: Ebonyks/mermaid-roshan-reef, branch codex/roshan-swim-start-loop-stop-20260914.
+Root: assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/.
+
+reshoots/attempts/RSW-FLOW-01/A002/REQUEST.json is the bootstrap return request.
+Codex owns new immutable REQUEST.json, PROMPT.txt and REVIEW.json records.
+Grok owns new immutable RETURN.json and original media under reshoots/inbox/<shot>/<attempt>/.
+Never overwrite another side's files or an earlier attempt. No shared mutable status ledger. Derive state from the records. Existing REVIEW_STATE.json is a publication-time history snapshot, not a polling trigger.
+
+Before publishing: fetch the exchange branch; preserve concurrent commits; append only scoped records/media; commit media and manifest together; push without force; verify the remote files. On a conflict, refetch/reapply only your own new files. Never reset, force-push or merge into dev/master. Do not change project instructions, protected assets, secrets, CI or runtime from this exchange.
+
+Identity: each record names shot_id, attempt, request_id and actual SHA-256 of its parent. RETURN binds REQUEST bytes. REVIEW binds RETURN bytes and clip bytes. A revised REQUEST binds the previous REVIEW bytes and records what changes and what stays. Use unique request IDs and native take names. Preserve A001's withdrawn history; do not renumber take-02.
+
+Return metadata: actual generator/model/mode; input filenames and hashes; which images were bound versus consulted; actual prompt and settings; original MP4 path/hash/bytes; dimensions, native FPS, frame count, duration and audio presence. Unknown fields are null plus a reason, not guessed. Codex independently verifies bytes and ffprobe metadata before quality review. A URL or self-score alone is not a return. No executable attachments or credentials.
+
+Review: watch normal speed, then half speed and frame-step around stroke reversals, hair recovery, fin bending and loop boundaries. Compare original performance and proposed middle loop separately. Record observed defects with zero-based, end-exclusive native frame intervals, timestamps, expected reference fact, a specific requested correction, and invariants. Do not invent an exact interval before seeing the clip.
+
+Seven 0–5 axes: identity/style; body swimming; hair/water; tail/fin; personality; flow/continuity; game usefulness. Two independent source reviewers, not the producer, each score all seven with visible evidence. Checkpoint score is the lower unrounded arithmetic mean. No automated beauty scoring. Identity/anatomy breaks, crops, repeated named blocking defects or failed cruise seam veto the checkpoint.
+
+REGENERATE: source fails. Return precise written defects to Grok and issue one next request; do not use Aseprite.
+HOLD: access, quota, owner pause, uncertain authority or method reassessment needs resolution. Do not spend new credits or improvise alternate tools.
+HUMAN_REVIEW_REQUIRED: both means >=4.8 and no blocking defects. Stop generation and conversion; present original, loop, scorecards and remaining minor issues to owner. No automatic acceptance.
+Only after the source passes and owner checkpoint is resolved may Aseprite transfer/alpha cleanup begin. Conversion has separate fidelity/alpha/timing review. Source acting defects go back to Grok; extraction defects are repaired locally. Neither grants runtime/device/child acceptance.
+
+Polling (configured separately, not by this packet): the owner's latest request is a Codex check every 20 minutes for eight hours. Grok's timer is configured independently by the owner. Ignore already processed request IDs/hashes and incomplete returns. Keep one outstanding generation per shot. Record an acknowledgement/job ID when starting an authorized render; another tick must not start a duplicate. Quiet when unchanged. Stop at human review, owner pause, access block, exhausted authorized quota or the fixed eight-hour deadline. Never reset or extend that deadline during a refresh.

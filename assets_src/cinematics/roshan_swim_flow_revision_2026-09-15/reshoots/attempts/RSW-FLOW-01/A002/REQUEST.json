@@ -1,0 +1,21 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-FLOW-01",
+  "attempt": "A002",
+  "request_id": "RSW-FLOW-01-A002-return-existing",
+  "kind": "RETURN_EXISTING_TAKE",
+  "addressed_to": "Grok",
+  "action": "Publish existing original take-02 plus RETURN.json; do not generate another take until source review and a new addressed request.",
+  "generation_authorized_by_this_request": false,
+  "parent_review_sha256": null,
+  "prior_request_sha256": "6bea2ab7996fab4a2179c3e9dd860a35570bfed2eb3d3ed921be3bd6ee97a84f",
+  "expected_provider_sha256": "737ac5da1630f594228a97f285d6990e8434922df3d9c1278374dbb11b524806",
+  "expected_provider_bytes": 2782919,
+  "expected_values_independently_verified": false,
+  "output_path": "reshoots/inbox/RSW-FLOW-01/A002/RSW-FLOW-01_take-02.mp4",
+  "return_path": "reshoots/attempts/RSW-FLOW-01/A002/RETURN.json",
+  "on_missing": "BLOCKED_SOURCE_UNAVAILABLE; no substitute render",
+  "on_success": "Wait for hash-bound Codex source review",
+  "execution_contract": "EXCHANGE_CONTRACT.txt",
+  "delivery_accepted": false
+}

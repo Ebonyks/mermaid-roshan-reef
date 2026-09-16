@@ -4585,3 +4585,19 @@ Non-runtime archive and diagnostic boards only; no delivered film pixels. Protec
 | assets/audio/voices/filler_v1/roshan_day1_boss_double_tap.ogg | Parler-TTS Mini v1.1 synthetic contextual voice; project-authored line `day1_boss_double_tap` | Apache-2.0 model/code; synthesized provisional output | https://huggingface.co/parler-tts/parler-tts-mini-v1.1 (catalog SHA-256 `40e54f4d4ca9fe2343d883cc78f39f85413f72e759f2b2a34cc3cadd4c69f804`) | Append-only selected cohort; 48 kHz mono Ogg Vorbis 96 kbps; -16 LUFS; protected Faron/family recordings unchanged |
 | assets/audio/voices/filler_v1/roshan_day1_boss_leave_shape.ogg | Parler-TTS Mini v1.1 synthetic contextual voice; project-authored line `day1_boss_leave_shape` | Apache-2.0 model/code; synthesized provisional output | https://huggingface.co/parler-tts/parler-tts-mini-v1.1 (catalog SHA-256 `40e54f4d4ca9fe2343d883cc78f39f85413f72e759f2b2a34cc3cadd4c69f804`) | Append-only selected cohort; 48 kHz mono Ogg Vorbis 96 kbps; -16 LUFS; protected Faron/family recordings unchanged |
 | assets/audio/voices/filler_v1/roshan_day1_boss_move_floor.ogg | Parler-TTS Mini v1.1 synthetic contextual voice; project-authored line `day1_boss_move_floor` | Apache-2.0 model/code; synthesized provisional output | https://huggingface.co/parler-tts/parler-tts-mini-v1.1 (catalog SHA-256 `40e54f4d4ca9fe2343d883cc78f39f85413f72e759f2b2a34cc3cadd4c69f804`) | Append-only selected cohort; 48 kHz mono Ogg Vorbis 96 kbps; -16 LUFS; protected Faron/family recordings unchanged |
+
+## Roshan source-performance Git exchange — 2026-09-15
+
+All following paths are under `assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/`. Source art and video are reused from the [immutable take-03 archive](https://github.com/Ebonyks/mermaid-roshan-reef/tree/90bbb3a10cc8b0885bbc9d25f8a67d8a61da058c/assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12). Inherited project-art and owner-supplied Grok-source rights apply; no new public-domain license or cinematic delivery acceptance is asserted. Exact source paths, hashes and roles are in `PACKET_MANIFEST.json`.
+
+| Asset | Source / rights | Modification |
+|---|---|---|
+| `references/IMAGE_1_locked-front-right.png` | Archive `openings/locked-front-right.png`; inherited project art | Byte-identical copy; starting-image reference, not new art |
+| `references/IMAGE_2_approved-front.png` | Archive `references/approved-front.png`; inherited project art | Byte-identical copy; identity reference |
+| `baseline/RSW-01_take-03.mp4` | Archive `returns/videos/take-03/RSW-01_take-03.mp4`; owner-supplied Grok source | Byte-identical original; rejected source-performance diagnosis |
+| `baseline/frame-0084.png` | Same baseline video, native frame 84 | Lossless FFmpeg PNG decode; no character repair |
+| `baseline/frame-0102.png` | Same baseline video, native frame 102 | Lossless FFmpeg PNG decode; no character repair |
+| `baseline/frame-0120.png` | Same baseline video, native frame 120 | Lossless FFmpeg PNG decode; no character repair |
+| `baseline/frame-0138.png` | Same baseline video, native frame 138 | Lossless FFmpeg PNG decode; no character repair |
+| `baseline/frame-0154.png` | Same baseline video, native frame 154 | Lossless FFmpeg PNG decode; no character repair |
+| `SHOT_BOARD.png` | Above source frames and project-authored annotations | Uniformly reduced complete frames and proposed-beat labels; diagnosis only, never generator-bound or delivery pixels |

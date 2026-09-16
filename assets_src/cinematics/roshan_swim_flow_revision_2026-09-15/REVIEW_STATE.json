@@ -1,0 +1,180 @@
+{
+  "schema": "roshan-grok-source-iteration-v1",
+  "shot_id": "RSW-FLOW-01",
+  "state": "TAKE_02_REMOTE_RETURN_AWAITING_GIT_HANDOFF",
+  "baseline_owner_score": 4.25,
+  "baseline_video_sha256": "027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d",
+  "baseline_source_seconds": [
+    3.5,
+    6.5
+  ],
+  "baseline_native_sha256": "aea0728df18689ada1ff0de6fe8746e19b1d65e0ed76dad34c040955c1230fc0",
+  "defects": [
+    {
+      "id": "BODY-01",
+      "source": "owner critique plus independent source comparison",
+      "finding": "Glide-heavy source holds near-straight arms and upper-body pose; no extraction-side static inserts found",
+      "blocking": true
+    },
+    {
+      "id": "HAIR-01",
+      "source": "owner observation",
+      "finding": "Abnormal hair motion; require coherent buoyant curl follow-through",
+      "worst_frame_timestamp": null,
+      "blocking": true
+    },
+    {
+      "id": "FIN-01",
+      "source": "owner observation",
+      "finding": "Fin bends unnaturally for the 2D sprite; require continuous root, readable broad lobes and gentle membrane curvature",
+      "worst_frame_timestamp": null,
+      "blocking": true
+    }
+  ],
+  "requested_take": {
+    "id": "RSW-FLOW-01_take-02",
+    "duration_seconds": 10,
+    "duration_plan": "native-format source-study accommodation, no new human timing gate",
+    "dimensions": [
+      1280,
+      720
+    ],
+    "camera": "locked",
+    "sound_request": "silent",
+    "source_fps": null,
+    "central_cycles": 2,
+    "cycle_duration_seconds": 3,
+    "phase_seconds": {
+      "start": [
+        0,
+        1
+      ],
+      "cycle_1": [
+        1,
+        4
+      ],
+      "cycle_2": [
+        4,
+        7
+      ],
+      "settle": [
+        7,
+        9
+      ],
+      "intentional_attentive_hold": [
+        9,
+        10
+      ]
+    },
+    "mode_required": "image_to_video",
+    "painted_starting_image_sha256": "6b0918967e5b1703e4b04a67b27798b7a733a6ab79c44314ebcf6f12bf1be685",
+    "opening_layout_approval_required": false,
+    "reference_is_pose_lock": false
+  },
+  "checkpoint": {
+    "threshold": 4.8,
+    "scale_max": 5,
+    "axis_count": 7,
+    "independent_reviews_required": 2,
+    "aggregate": "lower of the two unrounded seven-axis arithmetic means",
+    "blocking_defects_veto": true,
+    "on_pass": "HUMAN_REVIEW_REQUIRED",
+    "automatic_acceptance": false,
+    "producer_self_score_counts": false
+  },
+  "method_reassessment_after_failed_revisions": 2,
+  "axes": [
+    "identity_style",
+    "body_swimming",
+    "hair_water",
+    "tail_fin",
+    "personality",
+    "flow_continuity",
+    "game_usefulness"
+  ],
+  "video_generation_authorized": true,
+  "owner_workflow_clarification": "Written instructions produce improved Grok performances. Initial video audit FIRST; failed source goes directly back to Grok, never into Aseprite. Only a passing source is eligible for conversion. No fixed-opening approval detour. Human review at 4.8 before further promotion.",
+  "checkpoint_artifacts": [
+    "original source video",
+    "independent source review and scorecards"
+  ],
+  "transport_plan": {
+    "hub": "Git",
+    "branch": "codex/roshan-swim-start-loop-stop-20260914",
+    "path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15",
+    "check_interval_minutes": 20,
+    "requested_codex_window_hours": 8,
+    "codex_schedule_created": false,
+    "grok_schedule_created": false,
+    "status": "PACKAGED_FOR_OWNER_HANDOFF",
+    "browser_asset_download_permission": "DENIED_NOT_REAUTHORIZED",
+    "aseprite_import_performed": false
+  },
+  "codex_still_generation_authorized": false,
+  "paid_api_purchase_authorized": false,
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "dispatch": {
+    "verified_at": "2026-09-15T18:57:50-07:00",
+    "method": "browser message to the existing Imagine agent; visible submitted message and active response verified",
+    "url": "https://grok.com/imagine/agent/a2c9748e-230f-466f-98b9-8fbe30953e93?conversation=1bf62255-7c01-457e-ba9f-2ebed2662947",
+    "request_file": "EXCHANGE_01.txt",
+    "request_file_sha256": "7483301bb1a624075ba20e8e56f158be6f8c8c2160990c692a33d6981308c5e8",
+    "new_video_returned": false,
+    "generation_readiness_verified": false,
+    "limitation": "Dispatched message is not evidence of an actual native-video tool call, approved opening, correct attachments or a successful render"
+  },
+  "takes": [
+    {
+      "id": "RSW-FLOW-01_take-01",
+      "status": "WITHDRAWN_WRONG_OPENING_AND_MODE",
+      "original_video_returned": false,
+      "artistic_score": null,
+      "generation_started_provider_report": true,
+      "credits_consumed": null,
+      "receipt": "RESPONSE_01.json",
+      "counts_as_performance_revision": false
+    },
+    {
+      "id": "RSW-FLOW-01_take-02",
+      "status": "GENERATED_REMOTE_SOURCE_AUDIT_PENDING",
+      "provider_reported_sha256": "737ac5da1630f594228a97f285d6990e8434922df3d9c1278374dbb11b524806",
+      "sha256_independently_verified": false,
+      "provider_reported_bytes": 2782919,
+      "provider_asset_id": "99d42bfd-78d0-47e1-9a34-189716943085",
+      "provider_reported_mode": "imagine_image_to_video",
+      "duration_seconds_observed_in_browser": 10.041667,
+      "dimensions_provider_report": [
+        1280,
+        720
+      ],
+      "audio_provider_report": "stream present",
+      "artistic_score": null,
+      "independent_source_review": "PENDING",
+      "grok_self_reported_defects": [
+        "body translation and rotation rather than in-place cruise",
+        "central cycles do not clearly match phase",
+        "some hair may look windy"
+      ],
+      "aseprite_import_performed": false,
+      "local_file": null,
+      "download_attempt": "browser asset bundle permission denied; no fallback retrieval attempted"
+    }
+  ],
+  "historical_pause": {
+    "request": "EXCHANGE_02.txt",
+    "acknowledged_by_grok": true,
+    "reason": "Obsolete IMAGE_1 and wrong mode",
+    "opening_approval_gate": "SUPERSEDED_BY_OWNER_WORKFLOW_CLARIFICATION"
+  },
+  "resume": {
+    "request": "EXCHANGE_03.txt",
+    "submitted_in_same_grok_conversation": true,
+    "request_scope": "one new actual video; source-first audit clarified subsequently",
+    "new_video_returned_in_browser": true
+  },
+  "human_review": null,
+  "runtime_changes": false,
+  "next_action": "Grok publishes existing take-02 and exact RETURN receipt through Git; source audit before another render or Aseprite."
+}

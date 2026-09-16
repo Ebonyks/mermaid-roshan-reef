@@ -1,0 +1,32 @@
+{
+  "schema": "roshan-grok-exchange-receipt-v1",
+  "date_local": "2026-09-15",
+  "source": "Visible response in the existing Grok Imagine agent after EXCHANGE_02 pause message; provider-reported status, not independently inspected provider internals",
+  "conversation_url": "https://grok.com/imagine/agent/a2c9748e-230f-466f-98b9-8fbe30953e93?conversation=1bf62255-7c01-457e-ba9f-2ebed2662947",
+  "request_01_disposition": "WITHDRAWN_WRONG_OPENING_AND_MODE",
+  "request_01_hash": "7483301bb1a624075ba20e8e56f158be6f8c8c2160990c692a33d6981308c5e8",
+  "codex_error": "Reused the obsolete original opening rather than inspecting take-03's locked-opening return records before dispatch",
+  "grok_report": {
+    "generation_call_started": true,
+    "mode": "imagine_reference_to_video",
+    "mode_allowed_for_next_take": false,
+    "opening_sha256": "cb4f0ccccf31937aabeecc4cba0232d2e50ab37fe0dc97c9b9ac2ef986959bf0",
+    "completed_mp4_returned": false,
+    "output_file_exists": false,
+    "job_identifier": null,
+    "credits_consumed": null,
+    "credits_note": "Unknown; agent reports no media-service credit/spend report. No separate paid API call was reported.",
+    "native_duration_choices_seconds": [6, 10, 15],
+    "stated_action_after_pause": "No new generation; preserved input files and NOT_FOR_USE_WRONG_OPENING tag; awaiting opening and duration decision"
+  },
+  "correct_input": {
+    "commit": "90bbb3a10cc8b0885bbc9d25f8a67d8a61da058c",
+    "path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/openings/locked-front-right.png",
+    "sha256": "6b0918967e5b1703e4b04a67b27798b7a733a6ab79c44314ebcf6f12bf1be685",
+    "locally_extracted_and_viewed": true,
+    "source_receipt": "returns/CAPABILITY_CHECK.take-03.json and returns/README.md at the same commit explicitly leave opening-layout owner confirmation false",
+    "owner_approval": "PENDING"
+  },
+  "new_artistic_score": null,
+  "DELIVERY_ACCEPTED": false
+}

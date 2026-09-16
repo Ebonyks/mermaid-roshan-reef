@@ -1,0 +1,22 @@
+movie_id: ROSHAN_GAMEPLAY_SOURCE_PILOT
+shot_id: RSW-FLOW-01
+status: GENERATED_PENDING_SOURCE_REVIEW (take-02)
+duration: native 10 seconds (gameplay-source accommodation)
+aspect: 16:9
+size: 1280x720
+mode: image-to-video
+output_disposition: gameplay_source_candidate; not cinematic delivery
+
+IMAGE_1: references/IMAGE_1_locked-front-right.png
+job: existing painted starting image/navy field; identity and framing, not a frozen pose
+IMAGE_2: references/IMAGE_2_approved-front.png
+job: approved painted child identity; bound if supported, otherwise explicitly consulted
+
+camera: locked
+must_move: eyes/head intention, connected torso/tail stroke, softly bending sculling arms, buoyant curl follow-through, broad fin membrane
+must_not_move: camera, background, overall character scale; hair roots stay attached
+end_state: calmly attentive to screen-right with relaxed hands and settled tail
+negative_constraints: no redesign, extra anatomy, Superman arms, pinned fingertips, hair wind/texture sliding, sharp fin hinge or inverted lobes, crop, camera drift, cuts or fake duplicated cycles
+sound_intent: silent; preserve and disclose unavoidable native audio
+
+Paste PROMPT.txt only into the generation prompt. Keep hashes, review prose and policy outside it. This card describes future authorized revisions, not permission to duplicate take-02. First return the existing take and wait for Codex's review/request.

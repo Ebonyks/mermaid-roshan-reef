@@ -1,0 +1,90 @@
+{
+  "id": "2026-09-15-roshan-grok-handoff-publication",
+  "scope": "Publish the self-contained Roshan source-video Git handoff and source-art provenance only. Preserve prior local drawing experiments/protocol work outside this publication commit. Bootstrap requests the existing Grok take-02, then independent source audit; failed videos return to Grok without Aseprite; 4.8/5 stops for human review. Owner authorizes Codex checks every 20 minutes for eight hours after publication; Grok timer remains owner-managed. No source-video acceptance, runtime or security changes.",
+  "baseline": "f98ef836df35fc75657473755354b418f9c7d17f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/.gdignore",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/.gitattributes",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_01.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_02.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_03.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_CONTRACT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/HANDOFF.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/PACKET_MANIFEST.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/RESPONSE_01.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/RETURN_TEMPLATE.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/REVIEW_STATE.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/REVIEW_TEMPLATE.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/SHOT_BOARD.html",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/SHOT_BOARD.png",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/SHOT_CARD.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/START_HERE.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/baseline/RSW-01_take-03.mp4",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/baseline/frame-0084.png",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/baseline/frame-0102.png",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/baseline/frame-0120.png",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/baseline/frame-0138.png",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/baseline/frame-0154.png",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/references/IMAGE_1_locked-front-right.png",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/references/IMAGE_2_approved-front.png",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-FLOW-01/A002/REQUEST.json"
+  ],
+  "validation": [
+    {
+      "command": "Owner-authorized non-runtime handoff publication exception",
+      "result": "PASS",
+      "evidence": "Owner explicitly answered yes to publishing only the non-runtime Grok handoff branch despite the recorded full-game import-cache failures, with dev/master untouched. Owner additionally requested 20-minute Git checks and iterative Grok handoffs for eight hours. This scoped publication authority does not relabel failed CI, waive source/human review or permit runtime integration."
+    },
+    {
+      "command": "Packet source/hash and visual-reference inspection",
+      "result": "PASS",
+      "evidence": "25 payload files plus manifest; sorted payload SHA-256 ecd0d8127b90ae4eb5af54ab6bef46178a3defad2f3d6811a261ad30d8b0ead0. Correct painted opening and approved-front copied byte-identically from immutable Git sources. Baseline original MP4 hash 027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d. All five native baseline decodes and labeled diagnostic board included; board inspected. No new character generation."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; git diff --check",
+      "result": "PASS",
+      "evidence": "ALL OK at baseline f98ef836; working tree 572 inventory/ledger entries. No new Markdown in the standalone packet. Timers false, source review pending, bootstrap cannot generate."
+    },
+    {
+      "command": "First exact Godot 4.7.2 full scripts/ci.sh",
+      "result": "FAIL",
+      "evidence": "tmp/roshan-flow-publication-ci.log: static/source/document/asset gates passed, including 813 audio checks and 95 visual-contract tests, then import completed its work but exited with a segmentation fault at script line 161. Suite exit 1; no full PASS claimed."
+    },
+    {
+      "command": "Godot 4.7.2 cached --headless --path . --import retry",
+      "result": "PASS",
+      "evidence": "tmp/roshan-flow-import-retry.log; direct engine invocation exited 0 after the failed cold-import run. This does not retroactively pass the first suite."
+    },
+    {
+      "command": "Full scripts/ci.sh rerun after cached import",
+      "result": "FAIL",
+      "evidence": "tmp/roshan-flow-publication-ci-retry.log. Static checks, cached import and 2D no-regression gate passed; probe_reef_districts exited 0 with PASS. probe_ocean_kingdoms failed to load missing local .godot/imported texture artifacts, starting with caustics.png and castle banners, causing dependent parse/compile and Nil-property errors. Original caustics.png exists; runtime source and project settings have no diff from HEAD. Interrupted after confirmed blocking errors; no complete suite verdict claimed. No commit/push until green or explicit owner exception restricted to this handoff-only publication; dev/master integration remains blocked."
+    },
+    {
+      "command": "Immutable GitHub publication and payload verification",
+      "result": "PENDING",
+      "evidence": "Push only the packet, licenses and this record after required gates; then verify manifest and every payload byte against immutable commit."
+    }
+  ],
+  "acceptance_gaps": "Gameplay-source pilot only, not cinematic delivery. Take-02 exists only in Grok per provider report; no independently verified return, source quality score, Aseprite conversion, human/runtime/device/child approval or MA-VIS-006 closure. No timers created. Older local source experiments remain uncommitted separately."
+}
