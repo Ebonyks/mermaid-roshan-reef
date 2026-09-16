@@ -411,5 +411,16 @@
       "evidence": "assets_src/cinematics/grok_builder_2026-09-14/evidence/REVISION4_VALIDATION.json; no human, every-frame or device acceptance."
     }
   ],
+  "publication_verification": {
+    "result": "PASS",
+    "content_commit": "5443a16681215f9d5deaa6cb6928e650870a9a04",
+    "method": "Anonymous immutable GitHub downloads; manifest bytes and every payload file's byte count and SHA-256 matched the committed candidate.",
+    "payload_files": 547,
+    "payload_bytes": 348327140,
+    "evidence": "assets_src/cinematics/grok_builder_2026-09-14/REMOTE_VERIFICATION.json",
+    "archive_complete": true,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
   "acceptance_gaps": "No new first-frame owner approval; no external Grok execution, automatic generation spend, every-frame delivery provenance, listening/device/child acceptance or game-wide finding closure. External builder storage/API support is not assumed."
 }
