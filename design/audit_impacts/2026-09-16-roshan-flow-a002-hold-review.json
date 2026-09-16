@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-16-roshan-flow-a002-hold-review",
+  "scope": "Scheduled Git check: validate Grok's source-unavailable A002 return, append metadata-only HOLD review, preserve absent visual evidence and pause this monitor for owner resolution. No new render request, source substitution, Aseprite, runtime or release work.",
+  "baseline": "69439f31930f5d3091744cb2240c3dcebb003d26",
+  "rules": ["DL-AUTH-05", "DL-AUTH-06", "DL-AUTH-07", "DL-MOT-10", "DL-MOT-12", "DL-MOT-13"],
+  "findings": ["MA-VIS-006"],
+  "files": ["assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-FLOW-01/A002/REVIEW.json"],
+  "validation": [
+    {"command": "Fresh Git fetch, return binding and relevant branch/PR inventory", "result": "PASS", "evidence": "Checked at 2026-09-16 05:49:24 UTC. Exchange head 69439f31; RETURN sha256 f5acdc5ceda13a588532909096e4ed1f0de3b7ec89374b5dbfe41d1e379e5986 binds REQUEST b7e9abc12e0fd24f4a39e02906c3d520e65171952e55c323a0c4116958064c2d. Grok reports BLOCKED_SOURCE_UNAVAILABLE with no media. No matching original path in fetched all-ref history. Related PR11 head 056e668f is a two-view policy update over older, distinct motion-reference clips; no FLOW-01 source returned there."},
+    {"command": "Source-video visual audit", "result": "PENDING", "evidence": "No original video bytes. No normal-speed review, temporal rating, two-reviewer score, mirror acceptance or fabricated native frame interval. This is a transport HOLD, not an artistic FAIL or 4.8 pass."},
+    {"command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; PowerShell JSON/hash assertions", "result": "PASS", "evidence": "DOCAUTH and AUDITDEV ALL OK at merge-base f98ef836. A002 REQUEST/RETURN hashes match; empty source artifacts and null clip/score evidence are asserted. Only this HOLD review and its impact record are appended."},
+    {"command": "Heartbeat status update", "result": "PASS", "evidence": "App confirmed roshan-grok-swim-iteration-eight-hours PAUSED; existing prompt, 20-minute recurrence and fixed 2026-09-16 13:29:01 UTC expiry preserved. Separate world-animation monitor unchanged."},
+    {"command": "Full runtime CI", "result": "NOT_APPLICABLE", "evidence": "Scoped non-runtime exchange publication under the owner's existing handoff-only exception. Prior missing-import-cache failures remain failed; no dev/master integration."}
+  ],
+  "acceptance_gaps": "Original A002 source unavailable, all visual ratings unreviewed. Owner must provide the original or authorize a distinctly named fresh take. No gameplay/cinematic/owner/device/child acceptance or canonical finding lifecycle change."
+}
