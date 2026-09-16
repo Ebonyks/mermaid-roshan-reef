@@ -1,0 +1,262 @@
+{
+  "schema": "roshan-motion-reference-return-v1",
+  "handoff_id": "roshan_4way_basic_swim_2026-09-14",
+  "pass": "4way-basic-swim",
+  "instructions": "Cardinal 4-way basic swim generated in Grok Build with imagine_image_to_video on painted 8-view cutouts composited onto navy. Front / right / back / left only. Not launch, not arrival, not personality. Hair/tail colour corrections remain outstanding. Navy-flattened locked-4way-*.png cannot establish clean hair alpha. Alpha authority: existing RGBA 8-view cutouts references/{front,right,back,left}.png. Motion references only. Nothing merged. Runtime unchanged. DELIVERY_ACCEPTED remains false.",
+  "source_packet_commit": "29bd345dd67dbc4ed4bbf2f02527cd53c7482cfc",
+  "stale_commit_not_used_for_status": "ca4dd1963ad36aab420d5f228189231dae924c73",
+  "method": "imagine_image_to_video",
+  "opening_method": "8-view painted cutout on navy RGB(17,37,54), 1280x720, body height 580px centered, no redraw",
+  "candidates": [
+    {
+      "sample_id": "RSW-SWIM-FRONT",
+      "view": "front",
+      "take": 1,
+      "video_path": "4way/RSW-SWIM-FRONT.mp4",
+      "sha256": "efc7b8669936569d36739f05d10c849e6cbe23ebae56bb94c77353ebbb60e2b9",
+      "prompt_sha256": "3f6d093c48bc287dcb672097c320974ea9d7ce190f7a31261b1008f40d35172d",
+      "input_hashes": ["b53d2d6c535179581bdf72988de8b7d53a00f15544cf7c9b1ddef2d5ccf20b02"],
+      "cutout_sha256": "a716ce355dd3bd35add0a6b3fa76219ce23fef25fe7c8c41b90b745c8ab06150",
+      "inferred_intention_before_reading_prompt": "She is swimming in place toward the camera, then easing into a smile.",
+      "knockouts": [
+        "t2.5 both arms rise away from the body",
+        "t8-t9.5 eases into a camera-facing smile",
+        "Late 3D hair-volume creep",
+        "First frame not pixel-identical to the locked opening",
+        "Native 10.04s, not 8s; AAC stereo"
+      ],
+      "observations": [
+        "Identity holds.",
+        "t4-t5.5 broad tail stroke with changing torso pitch.",
+        "Stays front-facing. Discard raised arms and the end smile."
+      ],
+      "scores": {
+        "intention": 3.5,
+        "character_warmth": 3.5,
+        "buoyancy_propulsion": 4,
+        "rhythm_spacing": 3.5,
+        "arm_body_integration": 2.5,
+        "normal_speed_appeal": 3.5
+      },
+      "disposition": "comparison_candidate",
+      "useful_fragments": [
+        {
+          "in_seconds": 4.0,
+          "out_seconds": 5.5,
+          "use": "adaptation_reference",
+          "reason": "Broad front tail stroke. Discard arm pose.",
+          "facing": "front",
+          "pose_phase": "stroke"
+        }
+      ],
+      "service_model": "imagine_image_to_video",
+      "settings": {
+        "aspect_ratio": "16:9",
+        "requested_duration": 8,
+        "native_duration": 10,
+        "resolution": "720p"
+      },
+      "duration_seconds": 10.04,
+      "fps": 24,
+      "frame_count": 241,
+      "dimensions": [1280, 720],
+      "normal_speed_reviewed": true,
+      "loop_candidate": null,
+      "binary_on_github": true
+    },
+    {
+      "sample_id": "RSW-SWIM-RIGHT",
+      "view": "right",
+      "take": 1,
+      "video_path": "4way/RSW-SWIM-RIGHT.mp4",
+      "sha256": "685bae4461ebe42e9520e33e4a6556d4ca3286b9d8f5709f7e94b3e0065c6550",
+      "prompt_sha256": "82091ffb38ef0fba2566ce35002aaf4acd07dacdc8b3837969477e245ac50e24",
+      "input_hashes": ["e2062eb39c8a39abb600894a7e1ea9f8ffd67ce6faed68f93b6c2f4587c1a7c4"],
+      "cutout_sha256": "5f2eec477d00de4625c3dc501de71739fcb2e27ce3c76de6aac9dc464dcf5825",
+      "inferred_intention_before_reading_prompt": "She is swimming along to screen-right, body and tail in a reserved S-curve.",
+      "knockouts": [
+        "Rainbow streak mostly hidden in right profile (anatomical left)",
+        "Late 3D volume creep on the tail",
+        "First frame not pixel-identical to the locked opening",
+        "Native 10.04s; AAC stereo"
+      ],
+      "observations": [
+        "Identity holds. Strongest directional clip.",
+        "t5.5 full-body undulation with broad fin travel, trailing hair, hands near the ribs.",
+        "Keeps the right-profile silhouette."
+      ],
+      "scores": {
+        "intention": 4,
+        "character_warmth": 3.5,
+        "buoyancy_propulsion": 4.5,
+        "rhythm_spacing": 4,
+        "arm_body_integration": 3.5,
+        "normal_speed_appeal": 4
+      },
+      "disposition": "comparison_candidate",
+      "useful_fragments": [
+        {
+          "in_seconds": 4.0,
+          "out_seconds": 8.0,
+          "use": "adaptation_reference",
+          "reason": "Full right-facing stroke. Measure tail, posture, arms, hair.",
+          "facing": "right",
+          "pose_phase": "stroke"
+        }
+      ],
+      "service_model": "imagine_image_to_video",
+      "settings": {
+        "aspect_ratio": "16:9",
+        "requested_duration": 8,
+        "native_duration": 10,
+        "resolution": "720p"
+      },
+      "duration_seconds": 10.04,
+      "fps": 24,
+      "frame_count": 241,
+      "dimensions": [1280, 720],
+      "normal_speed_reviewed": true,
+      "loop_candidate": null,
+      "binary_on_github": true
+    },
+    {
+      "sample_id": "RSW-SWIM-BACK",
+      "view": "back",
+      "take": 1,
+      "video_path": "4way/RSW-SWIM-BACK.mp4",
+      "sha256": "50795b0fcef726419cf74fb127da696982428de0979e6cc7c7e2d6cbd6b0b2fd",
+      "prompt_sha256": "ab24dff902e70014ee09e90bba929f69d933fa2e0494ce5477eddfc932edc69d",
+      "input_hashes": ["a45e0fbec08cc5e87a0c3db9442937449d5166e54d4be4f8ab1c357e8b6261f3"],
+      "cutout_sha256": "aa6c3865a88f608fe82bbee3233daf915f5f3404a5bed459246534c4cd32dfd7",
+      "inferred_intention_before_reading_prompt": "She is swimming away, then drifting into a three-quarter back.",
+      "knockouts": [
+        "t8 drifts from pure back toward a back-left three-quarter",
+        "Late hair-volume creep",
+        "First frame not pixel-identical to the locked opening",
+        "Native 10.04s; AAC stereo"
+      ],
+      "observations": [
+        "Identity holds from behind: gold crown, rainbow streak, pink/lilac, pearlescent tail.",
+        "t4 broad tail stroke with a full S-curve through the back.",
+        "Reconstruct from t2.5-t5.5. Do not treat the late 3/4 as the facing lock."
+      ],
+      "scores": {
+        "intention": 3.5,
+        "character_warmth": 3.5,
+        "buoyancy_propulsion": 4.5,
+        "rhythm_spacing": 4,
+        "arm_body_integration": 3.5,
+        "normal_speed_appeal": 4
+      },
+      "disposition": "comparison_candidate",
+      "useful_fragments": [
+        {
+          "in_seconds": 2.5,
+          "out_seconds": 5.5,
+          "use": "adaptation_reference",
+          "reason": "Broad back tail stroke. Discard later 3/4 drift.",
+          "facing": "back",
+          "pose_phase": "stroke"
+        }
+      ],
+      "service_model": "imagine_image_to_video",
+      "settings": {
+        "aspect_ratio": "16:9",
+        "requested_duration": 8,
+        "native_duration": 10,
+        "resolution": "720p"
+      },
+      "duration_seconds": 10.04,
+      "fps": 24,
+      "frame_count": 241,
+      "dimensions": [1280, 720],
+      "normal_speed_reviewed": true,
+      "loop_candidate": null,
+      "binary_on_github": true
+    },
+    {
+      "sample_id": "RSW-SWIM-LEFT",
+      "view": "left",
+      "take": 1,
+      "video_path": "4way/RSW-SWIM-LEFT.mp4",
+      "sha256": "a619712ab5daafefbedaa0033fe6b202ce95f340df02127e24e43a8364b5e94c",
+      "prompt_sha256": "292e13cab7728f86858e9dce3bf6dfff9a0370edfce87aa6c2f6ac5762bdda21",
+      "input_hashes": ["901ac7474a21faba7b2a95836cae339bd1328c95845e623b2984caa4237c319f"],
+      "cutout_sha256": "9c13fccbe44a9a961d7eb27cd7951be507476a99043fc38dd38af4cca6bdc5e4",
+      "inferred_intention_before_reading_prompt": "She is swimming along to screen-left, then easing slightly toward the viewer.",
+      "knockouts": [
+        "t8 eases slightly camera-ward out of pure left profile",
+        "Mid-stroke arms travel farther than the reserved brief",
+        "First frame not pixel-identical to the locked opening",
+        "Native 10.04s; AAC stereo"
+      ],
+      "observations": [
+        "Identity holds. Rainbow streak visible on anatomical left.",
+        "t5.5 broad tail stroke with changing posture and trailing hair.",
+        "Measure the tail; do not copy the late camera ease."
+      ],
+      "scores": {
+        "intention": 3.5,
+        "character_warmth": 3.5,
+        "buoyancy_propulsion": 4,
+        "rhythm_spacing": 3.5,
+        "arm_body_integration": 3,
+        "normal_speed_appeal": 3.5
+      },
+      "disposition": "comparison_candidate",
+      "useful_fragments": [
+        {
+          "in_seconds": 4.0,
+          "out_seconds": 5.5,
+          "use": "adaptation_reference",
+          "reason": "Left-facing tail stroke. Discard late camera ease.",
+          "facing": "left",
+          "pose_phase": "stroke"
+        }
+      ],
+      "service_model": "imagine_image_to_video",
+      "settings": {
+        "aspect_ratio": "16:9",
+        "requested_duration": 8,
+        "native_duration": 10,
+        "resolution": "720p"
+      },
+      "duration_seconds": 10.04,
+      "fps": 24,
+      "frame_count": 241,
+      "dimensions": [1280, 720],
+      "normal_speed_reviewed": true,
+      "loop_candidate": null,
+      "binary_on_github": true
+    }
+  ],
+  "combined": {
+    "id": "FOURWAY_REEL",
+    "video_path": "4way/FOURWAY_REEL.mp4",
+    "sha256": "52bbc7cecf5b7ee1446f7215d23a7a736ad9172ae78158878a9ce1a11a0253f1",
+    "duration_seconds": 45.15,
+    "method": "ffmpeg concat re-encode, 1.25s navy slates, straight cuts",
+    "order": ["RSW-SWIM-FRONT", "RSW-SWIM-RIGHT", "RSW-SWIM-BACK", "RSW-SWIM-LEFT"]
+  },
+  "claims": {
+    "ARCHIVE_COMPLETE": true,
+    "GENERATION_READY": false,
+    "DELIVERY_ACCEPTED": false,
+    "BINARIES_ON_GITHUB": true,
+    "OWNER_RECONSTRUCTION_BASIS": true,
+    "FOURWAY_BASIC_SWIM": true
+  },
+  "owner_inspection": {
+    "recorded_at": "2026-09-15",
+    "repaired_in_this_packet": false,
+    "source": "returns/OWNER_INSPECTION.4way.json",
+    "facts": [
+      "Hair/tail colour corrections remain outstanding",
+      "Navy-flattened locked-4way-*.png cannot establish clean hair alpha",
+      "Alpha authority: existing RGBA 8-view cutouts references/{front,right,back,left}.png",
+      "Motion references only. Nothing merged. Runtime unchanged."
+    ]
+  },
+  "reviewer": "grok-build-imagine-bridge-2026-09-14-4way",
+  "created_at": "2026-09-14T20:00:00-07:00"
+}
