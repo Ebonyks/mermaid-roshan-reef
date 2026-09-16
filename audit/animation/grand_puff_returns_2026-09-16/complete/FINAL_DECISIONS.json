@@ -1,0 +1,92 @@
+{
+  "schema": "grand-puff-complete-source-review-v1",
+  "status": "SOURCE_REVIEW_COMPLETE",
+  "reviewer": "Codex",
+  "source_commits": [
+    "b433f1f5d22a60ac1f939e7f73b5ce638c7b0f64",
+    "1451624b076bbe717fa39a52104d116528aaa5e8"
+  ],
+  "coverage": {
+    "clips": 10,
+    "frames_each": 145,
+    "frames_inspected": 1450,
+    "method": "All source frames inspected chronologically across30 labeled boards, with native full-resolution checks for prowl60, giggle60, and both bounce33. Native24fps timing checked from metadata and frame differences. No claim of human real-time playback/device testing.",
+    "boards": "complete/*_{0,50,100}.jpg; board thumbnails320x180, ordered left-to-right/top-to-bottom"
+  },
+  "decisions": [
+    {
+      "action": "idle",
+      "decision": "REPAIR_LOOP_SEAM",
+      "preferred_source": "r01",
+      "detail": "Both fail opening-to-end continuity. R01 eyes close around40 and reopen around82; mouth/pose at144 differs from0. R02 ear fold is much stronger at44-80 and also fails return. Keep R01 acting; repair the return into the exact opening stance. Do not loop by crossfade or reverse playback.",
+      "frame_ranges_reviewed": [
+        0,
+        144
+      ]
+    },
+    {
+      "action": "flinch",
+      "decision": "KEEP_R02_FOR_ASEPRITE",
+      "preferred_source": "r02",
+      "detail": "R02 has readable anticipation20-29, squash30-45, recoil46 onward and face settle94-100. One face, two coiled ears, four pearls throughout chronological inspection. No pink crest pulse seen. R01 is a usable alternate with longer squeezed-eye dwell36-66 but weaker anticipation. One-shot; no loop claim.",
+      "frame_ranges_reviewed": [
+        0,
+        144
+      ]
+    },
+    {
+      "action": "prowl",
+      "decision": "REPAIR_CONTACT_AND_GAIT",
+      "preferred_source": "r02",
+      "detail": "Both have four recognizable pearls; do not delete purple cloud curls as invented limbs. R01 sways/slides laterally across19-87, with changing support. R02 restrains lateral drift but shows body compression and sliding pearl positions rather than two clearly planted alternating steps. Keep R02 identity and repair two readable contacts; do not claim a clean walking loop.",
+      "frame_ranges_reviewed": [
+        0,
+        144
+      ]
+    },
+    {
+      "action": "giggle",
+      "decision": "KEEP_R01_FOR_ASEPRITE_REJECT_R02",
+      "preferred_source": "r01",
+      "detail": "R01 transitions into a single squeezed-eye face26-84, two subtle body/ear pulses, then opens and settles85-95. No added halo or duplicated face observed. R02 starts a malformed second mouth/raised facial construction around52, clearly present53-84, resolving85-91. Reject R02. R01 is a one-shot, not a loop.",
+      "frame_ranges_reviewed": [
+        0,
+        144
+      ]
+    },
+    {
+      "action": "bounce",
+      "decision": "REPAIR_CLIPPED_PEAK_BOTH_TAKES",
+      "preferred_source": "r02",
+      "detail": "Both have recognizable compress/rebound/settle, stable pale crest and no extra pearl set. Top-edge pixel test and native33 confirm clipped ears: R01 frames31-36, R02 frames31-38. R02 has the stronger grounded reading; reconstruct or regenerate only the affected peak with full clearance, preserving squash/settle. Padding or shrinking already-clipped footage cannot recover missing pixels.",
+      "frame_ranges_reviewed": [
+        0,
+        144
+      ]
+    }
+  ],
+  "silent_previews": [
+    {
+      "path": "r02_P02_FLINCH_silent.mp4",
+      "source": "tmp\\puff-return-review\\r02_P02_FLINCH.mp4",
+      "video_frame_timing_and_md5_match": true,
+      "modification": "Lossless video stream copy; native audio omitted from derivative only."
+    },
+    {
+      "path": "r01_P04_GIGGLE_silent.mp4",
+      "source": "tmp\\puff-return-review\\r01_P04_GIGGLE.mp4",
+      "video_frame_timing_and_md5_match": true,
+      "modification": "Lossless video stream copy; native audio omitted from derivative only."
+    }
+  ],
+  "summary": {
+    "keep_actions": 2,
+    "repair_actions": 3,
+    "rejected_take": "R02 giggle",
+    "owner_acceptance_granted": false,
+    "runtime_integration": false
+  },
+  "audio": "All10native originals retain audio. Selected review derivatives remove it losslessly without changing video pixels/timing.",
+  "acceptance_boundary": "KEEP means source selected by Codex for editable reconstruction. This completes source review, not Aseprite conversion, owner acceptance or live integration.",
+  "next_work": "Reconstruct kept flinch/giggle in Aseprite; repair idle seam, prowl contacts and bounce peak. Jump/charge returns remain external pending jobs, independent of this finished source review."
+}

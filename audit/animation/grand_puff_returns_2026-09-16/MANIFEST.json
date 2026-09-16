@@ -122,7 +122,7 @@
     },
     {
       "path": "REVIEW.json",
-      "sha256": "df17b8da95e47763fc951c0a750de5e24a6e9adb4b74a5fdf55bdca0fe8bdccd",
+      "sha256": "ffdfc02f9ff57cd0b7ebec1b914e54f224076bf0532e45547834e3537644ab3e",
       "source": "Immutable return commits in TECHNICAL.json; per-clip frame indices are printed on boards. Native PNGs are frame60 of R01 prowl and R02 giggle.",
       "role": "diagnostic review only; no generation or delivery pixels",
       "modification": "MP4 decode and labeled thumbnail layout for boards; unscaled native PNG decode; JSON/text metadata",
@@ -130,13 +130,13 @@
     },
     {
       "path": "START_HERE.txt",
-      "sha256": "68974115e4b9da0e0d2d8576fc50ecc371e704752fd89bd7c78fe9992179d37c",
+      "sha256": "3da4e47b978993946fb7a8224ff013c9c65546e7059b5f2eb72fa8efb40ff178",
       "source": "Immutable return commits in TECHNICAL.json; per-clip frame indices are printed on boards. Native PNGs are frame60 of R01 prowl and R02 giggle.",
       "role": "diagnostic review only; no generation or delivery pixels",
       "modification": "MP4 decode and labeled thumbnail layout for boards; unscaled native PNG decode; JSON/text metadata",
       "license": "Owner-commissioned project media and project-authored review derivatives; native MP4 originals remain unchanged on source branch."
     }
   ],
-  "payload_sha256": "668ab9ae3c7395d8b9e81582693b7849a636ee0dccb5a019864644a87fe241dc",
+  "payload_sha256": "ea95046a0c7a84fb3fe7d330c744a8383b4d1c6e74aa101cad8c99de76061a99",
   "algorithm": "sorted relative path + NUL + SHA256 + LF; excludes this manifest"
 }

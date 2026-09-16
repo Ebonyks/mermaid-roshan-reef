@@ -1,0 +1,75 @@
+{
+  "id": "grand-puff-complete-review-20260916",
+  "baseline": "5fe1297a081f3c3ce99de2dc50c480e81f793851",
+  "scope": "Complete source continuity/loop review now as explicitly requested. Every source frame reviewed, final keep/repair/reject decisions and lossless silent previews published; no new gameplay or acceptance claim.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-13",
+    "DL-CIN-15",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "audit/animation/grand_puff_returns_2026-09-16/complete/CONTINUITY_METRICS.json",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/EDGE_CHECK.json",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/FINAL_DECISIONS.json",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_bounce33.png",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P01_IDLE_0.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P01_IDLE_100.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P01_IDLE_50.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P02_FLINCH_0.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P02_FLINCH_100.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P02_FLINCH_50.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P03_PROWL_0.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P03_PROWL_100.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P03_PROWL_50.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P04_GIGGLE_0.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P04_GIGGLE_100.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P04_GIGGLE_50.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P04_GIGGLE_silent.mp4",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P05_BOUNCE_0.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P05_BOUNCE_100.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r01_P05_BOUNCE_50.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_bounce33.png",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P01_IDLE_0.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P01_IDLE_100.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P01_IDLE_50.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P02_FLINCH_0.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P02_FLINCH_100.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P02_FLINCH_50.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P02_FLINCH_silent.mp4",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P03_PROWL_0.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P03_PROWL_100.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P03_PROWL_50.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P04_GIGGLE_0.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P04_GIGGLE_100.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P04_GIGGLE_50.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P05_BOUNCE_0.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P05_BOUNCE_100.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/r02_P05_BOUNCE_50.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/START_HERE.txt",
+    "audit/animation/grand_puff_returns_2026-09-16/complete/MANIFEST.json",
+    "audit/animation/grand_puff_returns_2026-09-16/REVIEW.json",
+    "audit/animation/grand_puff_returns_2026-09-16/START_HERE.txt",
+    "audit/animation/grand_puff_returns_2026-09-16/MANIFEST.json",
+    "ASSET_LICENSES.md",
+    "audit/animation/README.md"
+  ],
+  "validation": [
+    {
+      "command": "All-frame sequential image review, seam/edge diagnostics, FFmpeg framemd5 comparison",
+      "result": "PASS",
+      "evidence": "complete/FINAL_DECISIONS.json:1450frames,30boards; silent derivatives identical decoded video frames/timing. Two KEEP and three REPAIR source decisions."
+    },
+    {
+      "command": "Document authority and audit coverage",
+      "result": "PASS",
+      "evidence": "audit_document_authority.py: 572 inventory / 572 ledger, ALL OK; audit_development.py --base auto: ALL OK against a46c8ae19f8ee8f870fcbc1144c4b2cec4554eb3."
+    }
+  ],
+  "acceptance_gaps": "Source review complete. Conversion and named repairs remain production work; no owner/gameplay/device acceptance. No claim of human real-time playback."
+}

@@ -116,3 +116,5 @@ commissions [five draft repairs](../../assets_src/cinematics/grand_puff_five_rep
 Attack-inclusive [R02 handoff](../../assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r02/START_HERE.txt) adds full jump and charge performances plus the existing three-flash warning contract; seven jobs total. [Impact](../../design/audit_impacts/grand-puff-attack-handoff-20260916.json). Returns remain pending.
 
 [Pixel review of R01/R02 returns](grand_puff_returns_2026-09-16/START_HERE.txt): source metadata verified; ten clips remain unaccepted. Universal extra-pearl claims are not established by sampled pixels; R02 giggle has confirmed duplicated facial anatomy. [Impact](../../design/audit_impacts/grand-puff-return-review-20260916.json). Attack jobs remain pending.
+
+[Complete Puff source review](grand_puff_returns_2026-09-16/complete/START_HERE.txt) supersedes sampled triage: all1450frames inspected; select R02 flinch and R01 giggle, repair idle seam/prowl contact/bounce clipping, reject R02 giggle. [Impact](../../design/audit_impacts/grand-puff-complete-review-20260916.json). No owner/runtime acceptance inferred.
