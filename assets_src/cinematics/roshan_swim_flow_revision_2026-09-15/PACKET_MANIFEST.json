@@ -210,8 +210,8 @@
       "modification_status": "new instructions or preserved prior exchange; no delivery pixels",
       "license_provenance": "Project-authored text/evidence; no external license invented.",
       "path": "START_HERE.txt",
-      "sha256": "14a969c3cdd0f9d380c63f7be35c1b1d49faa9607bf605fa1091f507e8961a05",
-      "bytes": 2565,
+      "sha256": "515efcf3593c1da78e97631b187546cfa68932a2079141da649444b03c8a14d4",
+      "bytes": 2806,
       "dimensions": null
     },
     {
@@ -423,6 +423,17 @@
       "bytes": 2549
     },
     {
+      "path": "reshoots/attempts/RSW-FLOW-01/A003/JOB.json",
+      "source_path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-FLOW-01/A003/JOB.json",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/b3bc1c3cd84b93ec81bf91e7a2646aea6bd357fe/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-FLOW-01/A003/JOB.json",
+      "role": "unchanged provider job/return receipt; producer observations are not independent source acceptance",
+      "modification_status": "byte-identical preservation from concurrent Grok commit b3bc1c3c",
+      "license_provenance": "Grok original using inherited project painted art; ASSET_LICENSES.md concurrent return entry preserved; no new rights assertion.",
+      "dimensions": null,
+      "sha256": "f723154ab1a9c625fe40393ea016bce8e56566fe4116bc8bf089733ef135cc5f",
+      "bytes": 793
+    },
+    {
       "path": "reshoots/attempts/RSW-FLOW-01/A003/PROMPT.txt",
       "source_path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-FLOW-01/A003/PROMPT.txt",
       "source_url": "project-authored exchange; immutable URL supplied in publication receipt",
@@ -443,6 +454,17 @@
       "dimensions": null,
       "sha256": "28b86c0a9734d49beb06416568ce7ead13ba35a57c3c7a5d8cea70662e16ace3",
       "bytes": 5799
+    },
+    {
+      "path": "reshoots/attempts/RSW-FLOW-01/A003/RETURN.json",
+      "source_path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-FLOW-01/A003/RETURN.json",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/b3bc1c3cd84b93ec81bf91e7a2646aea6bd357fe/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-FLOW-01/A003/RETURN.json",
+      "role": "unchanged provider job/return receipt; producer observations are not independent source acceptance",
+      "modification_status": "byte-identical preservation from concurrent Grok commit b3bc1c3c",
+      "license_provenance": "Grok original using inherited project painted art; ASSET_LICENSES.md concurrent return entry preserved; no new rights assertion.",
+      "dimensions": null,
+      "sha256": "00d5cedae0c18dbf7faafe7c9096171316a72016c687bbc788073dba2faa00df",
+      "bytes": 2678
     },
     {
       "path": "reshoots/attempts/RSW-FLOW-01/A003/RETURN_TEMPLATE.json",
@@ -531,9 +553,23 @@
       "dimensions": null,
       "sha256": "68d2f7f35d69391ccf1878361b90c387cd5658cd4ddb622cf083b7c6a624b6bb",
       "bytes": 2986
+    },
+    {
+      "path": "reshoots/inbox/RSW-FLOW-01/A003/RSW-FLOW-01_take-03.mp4",
+      "source_path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-FLOW-01/A003/RSW-FLOW-01_take-03.mp4",
+      "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/b3bc1c3cd84b93ec81bf91e7a2646aea6bd357fe/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-FLOW-01/A003/RSW-FLOW-01_take-03.mp4",
+      "role": "concurrently returned original Grok source; optional native-frame pool after individual screening, motion unreviewed",
+      "modification_status": "byte-identical preservation from concurrent Grok commit b3bc1c3c",
+      "license_provenance": "Grok original using inherited project painted art; ASSET_LICENSES.md concurrent return entry preserved; no new rights assertion.",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "ab3b7006e71130b7373a64f06ef8b33b650d4df8d28527d6f5aa95819fbf6507",
+      "bytes": 2524651
     }
   ],
-  "payload_sha256": "307b2b25f109ecb9ed8b701977eb94a4aa8d211ce2cda9ad320ba3f174911c9a",
+  "payload_sha256": "e3471020dc96dd15a36dcbe8a7231717227f3a4d3c9c2354e95584de162c4de8",
   "payload_algorithm": "SHA256 UTF-8 sorted path<TAB>sha256<TAB>bytes<LF>; excludes manifest and remote receipt",
   "archive_remote_verified": false,
   "generation_ready": false,
@@ -587,6 +623,17 @@
       "path": "reshoots/attempts/RSW-FLOW-01/A003/REQUEST.json",
       "disposition_path": "reshoots/attempts/RSW-FLOW-01/A003/SUPERSEDED.json",
       "preserve_in_flight_output": true
+    }
+  ],
+  "available_newer_sources": [
+    {
+      "return_path": "reshoots/attempts/RSW-FLOW-01/A003/RETURN.json",
+      "source_commit": "b3bc1c3cd84b93ec81bf91e7a2646aea6bd357fe",
+      "video_path": "reshoots/inbox/RSW-FLOW-01/A003/RSW-FLOW-01_take-03.mp4",
+      "video_sha256": "ab3b7006e71130b7373a64f06ef8b33b650d4df8d28527d6f5aa95819fbf6507",
+      "bytes": 2524651,
+      "source_visual_review": "NOT_PERFORMED_BY_THIS_HANDOFF_TASK",
+      "frame_selection_allowed_after_individual_screening": true
     }
   ]
 }

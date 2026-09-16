@@ -47,17 +47,17 @@
     {
       "command": "Fresh fetch, source inventory and request lineage review",
       "result": "PASS",
-      "evidence": "Local and remote exchange b882696f5233bdf28e4dc28204b43819ef64aacc; index initially empty. Reuse packet baseline video, five native diagnostic frames and approved identity image. Existing images remain unchanged. No A003 RETURN found in this fetched exchange; disposition preserves any already-running job/output without requesting another old take."
+      "evidence": "Local and remote exchange b882696f5233bdf28e4dc28204b43819ef64aacc; index initially empty. Reuse packet baseline video, five native diagnostic frames and approved identity image. Existing images remain unchanged. No A003 RETURN found in this fetched exchange; disposition preserves any already-running job/output without requesting another old take. During publication Grok advanced the shared branch to b3bc1c3cd84b93ec81bf91e7a2646aea6bd357fe with original A003 video, JOB, RETURN and license row. Reconciled in a separate clean publication worktree, preserving those exact bytes and both provenance additions; original dirty worktree untouched."
     },
     {
       "command": "python -B tmp/verify_roshan_two_speed.py; staged check follows before commit",
       "result": "PASS",
-      "evidence": "45 payload files, SHA256 307b2b25f109ecb9ed8b701977eb94a4aa8d211ce2cda9ad320ba3f174911c9a. Verifies both request/prompt/card/policy/template bindings; real-frame selection with no extra owner gate; separately performed slow/dash; rest bridge deferred; no old-opening/rest match gate; all existing media and prior attempts unchanged; local board links resolve. No footage or selected inputs are claimed."
+      "evidence": "48 payload files including concurrent A003 original/receipts, SHA256 e3471020dc96dd15a36dcbe8a7231717227f3a4d3c9c2354e95584de162c4de8. Both new request/prompt/card/direction/template hashes and unchanged old media/attempts verified. No selected opening or source-art pass claimed. Returned A003 hash independently matches ab3b7006e71130b7373a64f06ef8b33b650d4df8d28527d6f5aa95819fbf6507; ffprobe: 2524651 bytes, main video 1280x720/24fps/241 frames, duration 10.041667s and audio present. This is metadata verification, not visual scoring."
     },
     {
       "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
       "result": "PASS",
-      "evidence": "DOCAUTH ALL OK, 572 inventory/ledger entries; AUDITDEV ALL OK at merge-base f98ef836df35fc75657473755354b418f9c7d17f; 51 unit tests pass and stress 6/6. Packet/owned clean-document diff whitespace check passed. Partial staging preserves unrelated changes in license, ledger and animation-index documents."
+      "evidence": "DOCAUTH ALL OK, 572 inventory/ledger entries; AUDITDEV ALL OK at merge-base f98ef836df35fc75657473755354b418f9c7d17f; 51 unit tests pass and stress 6/6. Packet/owned clean-document diff whitespace check passed. Partial staging preserves unrelated changes in license, ledger and animation-index documents. Combined publication worktree: sparse-only missing link targets were materialized from unchanged Git objects; DOCAUTH ALL OK (569 committed inventory/ledger entries) and AUDITDEV ALL OK at the same merge-base. Source-return bytes and provenance preserved; no unresolved conflict."
     },
     {
       "command": "Exact-commit GitHub packet verification",
