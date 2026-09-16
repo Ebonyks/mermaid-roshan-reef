@@ -1,0 +1,100 @@
+{
+  "references/arrival.png": {
+    "source_path": "tmp/sky-lagoon-layered-v7/originals/01-arrival-v1.png",
+    "role": "approved source art",
+    "modification_status": "byte-identical copy",
+    "license_provenance": "Owner-supplied AI Sky Lagoon art / existing approved project castle; v6 derived composition retains its pending acceptance. No third-party stock introduced.",
+    "source_sha256": "84d3a8c9ced2b1c596275725d706d884dfb80988a4b067617f6ca652a626a693"
+  },
+  "references/meadow.png": {
+    "source_path": "tmp/sky-lagoon-layered-v7/originals/02-meadow-v1.png",
+    "role": "approved source art",
+    "modification_status": "byte-identical copy",
+    "license_provenance": "Owner-supplied AI Sky Lagoon art / existing approved project castle; v6 derived composition retains its pending acceptance. No third-party stock introduced.",
+    "source_sha256": "e89676b84978da3079f831fbb73efc7283e30296c4b695a17d4ea4a2e9b8429b"
+  },
+  "references/lake.png": {
+    "source_path": "tmp/sky-lagoon-layered-v7/originals/03-lake-approach-v1.png",
+    "role": "approved source art",
+    "modification_status": "byte-identical copy",
+    "license_provenance": "Owner-supplied AI Sky Lagoon art / existing approved project castle; v6 derived composition retains its pending acceptance. No third-party stock introduced.",
+    "source_sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64"
+  },
+  "references/castle.png": {
+    "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+    "role": "existing project four-tower castle master; source artwork",
+    "modification_status": "byte-identical copy of canonical v4; prior review encoding had identical RGBA pixels",
+    "license_provenance": "Owner-supplied AI Sky Lagoon art / existing approved project castle; v6 derived composition retains its pending acceptance. No third-party stock introduced.",
+    "source_sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+    "pixel_equivalent_review_sha256": "3cd52d8524c699ed97aa2b593ca8483a82d7a9fed67fb68baea368dba8409530"
+  },
+  "references/castle-layout-candidate.png": {
+    "source_path": "tmp/sky-lagoon-layered-v6/review/3-composite.png",
+    "role": "unaccepted clean composition candidate; not a gameplay/HUD capture",
+    "modification_status": "byte-identical copy",
+    "license_provenance": "Owner-supplied AI Sky Lagoon art / existing approved project castle; v6 derived composition retains its pending acceptance. No third-party stock introduced.",
+    "source_sha256": "3cc8933b06982a8791fd8f1d58a071e8df23a57d154d45ff51b8fa2bebe7e52c"
+  },
+  "shots/SL-W01/IMAGE_1.png": {
+    "source_path": "references/lake.png",
+    "source_sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64",
+    "role": "clean first-frame candidate",
+    "modification_status": "exact pixel crop [430, 660, 1070, 1020]; no resizing or repainting",
+    "license_provenance": "Derived from packet source artwork; no external content"
+  },
+  "shots/SL-W01/IMAGE_2.png": {
+    "source_path": "references/lake.png",
+    "source_sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64",
+    "role": "object/material identity; operator side-reference on single-image interfaces",
+    "modification_status": "byte-identical copy",
+    "license_provenance": "Derived from packet source artwork; no external content"
+  },
+  "shots/SL-W02/IMAGE_1.png": {
+    "source_path": "references/arrival.png",
+    "source_sha256": "84d3a8c9ced2b1c596275725d706d884dfb80988a4b067617f6ca652a626a693",
+    "role": "clean first-frame candidate",
+    "modification_status": "exact pixel crop [0, 650, 640, 1010]; no resizing or repainting",
+    "license_provenance": "Derived from packet source artwork; no external content"
+  },
+  "shots/SL-W02/IMAGE_2.png": {
+    "source_path": "references/arrival.png",
+    "source_sha256": "84d3a8c9ced2b1c596275725d706d884dfb80988a4b067617f6ca652a626a693",
+    "role": "object/material identity; operator side-reference on single-image interfaces",
+    "modification_status": "byte-identical copy",
+    "license_provenance": "Derived from packet source artwork; no external content"
+  },
+  "shots/SL-P01/IMAGE_1.png": {
+    "source_path": "references/lake.png",
+    "source_sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64",
+    "role": "clean first-frame candidate",
+    "modification_status": "exact pixel crop [0, 850, 640, 1210]; no resizing or repainting",
+    "license_provenance": "Derived from packet source artwork; no external content"
+  },
+  "shots/SL-P01/IMAGE_2.png": {
+    "source_path": "references/lake.png",
+    "source_sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64",
+    "role": "object/material identity; operator side-reference on single-image interfaces",
+    "modification_status": "byte-identical copy",
+    "license_provenance": "Derived from packet source artwork; no external content"
+  },
+  "shots/SL-D01/IMAGE_1.png": {
+    "source_path": "references/castle-layout-candidate.png",
+    "source_sha256": "3cc8933b06982a8791fd8f1d58a071e8df23a57d154d45ff51b8fa2bebe7e52c",
+    "role": "clean first-frame candidate",
+    "modification_status": "exact pixel crop [640, 635, 960, 815]; no resizing or repainting",
+    "license_provenance": "Derived from packet source artwork; no external content"
+  },
+  "shots/SL-D01/IMAGE_2.png": {
+    "source_path": "references/castle.png",
+    "source_sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+    "role": "object/material identity; operator side-reference on single-image interfaces",
+    "modification_status": "byte-identical copy",
+    "license_provenance": "Derived from packet source artwork; no external content"
+  },
+  "SHOT_BOARD.png": {
+    "source_path": "shots/*/IMAGE_1.png",
+    "role": "human shot/beat board, not generator pixels",
+    "modification_status": "layout thumbnails with text; no generated motion claimed",
+    "license_provenance": "Same packet artwork"
+  }
+}

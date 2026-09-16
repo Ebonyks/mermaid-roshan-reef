@@ -61,6 +61,8 @@ unclassified until this ledger gains one new scoped row for it.
 
 ## Authority and operations
 
+| `design/animation/GROK_MINIMUM_CLIP_HANDOFF_PROFILE.md` | 🟢 | `BINDING_DOMAIN`; owner 2026-09-15 permanent external-animation workflow: durable GitHub packets, shortest supported single-action clips, preserved source identity, separate archive/readiness/delivery claims. Current API minimum is one second; UI minimum must be verified. `DL-MOT-14` governs; full-frame delivery remains unchanged. |
+
 | Doc | | Note |
 |---|---|---|
 | `CLAUDE.md` | 🟢 | `BINDING_OPERATIONAL`; reconciled 2026-08-09 to exact Godot 4.7.1 and true-2D medium. The complete `AGENTS.md` cinematic rule remains controlling. |

@@ -1,0 +1,105 @@
+{
+  "id": "sky-lagoon-grok-profile-20260915",
+  "scope": "Owner-requested permanent GitHub handoff and minimum-clip animation profile, prioritized Sky Lagoon source-only motion-reference packet. No production runtime or save changes.",
+  "baseline": "a46c8ae19f8ee8f870fcbc1144c4b2cec4554eb3",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-05",
+    "DL-VIS-04",
+    "DL-LAY-05",
+    "DL-MOT-03",
+    "DL-CIN-01",
+    "DL-CIN-12",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15",
+    "DL-MOT-14"
+  ],
+  "findings": [
+    "MA-VIS-002"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/animation/GROK_MINIMUM_CLIP_HANDOFF_PROFILE.md",
+    "design/templates/IMAGINE_SHOT_CARD_V1.md",
+    "tools/audit_imagine_handoff.py",
+    "tools/tests/test_audit_imagine_handoff.py",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/.gdignore",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/ARCHIVE_MANIFEST.json",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/IMAGINE_HANDOFF.json",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/references/arrival.png",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/references/castle-layout-candidate.png",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/references/castle.png",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/references/lake.png",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/references/meadow.png",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/RUNTIME_BOUNDARIES.json",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/SHOT_BOARD.png",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-D01/IMAGE_1.png",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-D01/IMAGE_2.png",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-D01/PROMPT.txt",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-D01/PROMPT_UI_6S_IF_MINIMUM.txt",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-D01/SHOT_PACKET.json",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-P01/IMAGE_1.png",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-P01/IMAGE_2.png",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-P01/PROMPT.txt",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-P01/PROMPT_UI_6S_IF_MINIMUM.txt",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-P01/SHOT_PACKET.json",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-W01/IMAGE_1.png",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-W01/IMAGE_2.png",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-W01/PROMPT.txt",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-W01/PROMPT_UI_6S_IF_MINIMUM.txt",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-W01/SHOT_PACKET.json",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-W02/IMAGE_1.png",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-W02/IMAGE_2.png",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-W02/PROMPT.txt",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-W02/PROMPT_UI_6S_IF_MINIMUM.txt",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-W02/SHOT_PACKET.json",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/SOURCE_PROVENANCE.json",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/START_HERE.txt",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/.gitattributes",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/REMOTE_VERIFICATION.json"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "571 inventory / 571 ledger; all authority checks passed."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Exact baseline a46c8ae19f8ee8f870fcbc1144c4b2cec4554eb3; all changed files covered."
+    },
+    {
+      "command": "python -B tools/audit_imagine_handoff.py assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15",
+      "result": "PASS",
+      "evidence": "Valid blocked draft archive; does not assert generator readiness."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_imagine_handoff tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "60 tests passed. Final 1..8 duration boundary rerun: 9 handoff tests passed."
+    },
+    {
+      "command": "Packet SHA-256 and Git index byte verification",
+      "result": "PASS",
+      "evidence": "32 payload files match local and staged bytes; first-frame crops preserve native pixels. Remote verification follows content publication."
+    },
+    {
+      "command": "GODOT=Godot 4.7.2-stable scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "Local full gate exit 0; 78 probe processes exited 0. Log: tmp/grok-handoff-local-ci-20260915.log; SHA-256 19c33cd9bfd6d4bd5b06ecf6ada9e842ebef28db579c54d02332a93cb7b6ee3d. Existing visual-debt advisory remains UNSATISFIED; no visual/device acceptance inferred."
+    },
+    {
+      "command": "Immutable GitHub HTTPS GET and SHA-256 verification",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/REMOTE_VERIFICATION.json; all 33 content files verified at caa5b49e7ec6c2bd5286c09eb20c7558cf4cb7a4. ARCHIVE_COMPLETE only; generation and delivery pending."
+    }
+  ],
+  "acceptance_gaps": "External motion-reference planning only. Shot-specific first-frame and image-binding acceptance remains pending. No delivery frames, live game, phone, child or owner visual acceptance claimed."
+}

@@ -10,7 +10,7 @@ policy, audit scores, or storyboard prose into the generator prompt.
 movie_id: <stable movie id>
 shot_id: <one unique shot id>
 status: DRAFT | GENERATION_READY | GENERATED_PENDING_REVIEW | ACCEPTED_REFERENCE
-duration: <2–8 seconds>
+duration: <shortest supported duration within 1–8 seconds; API micro-study minimum 1 second>
 aspect: 16:9
 size: 1280x720
 mode: image-to-video
@@ -27,6 +27,8 @@ Store the machine-readable card as
 paste-ready prose as `PROMPT.txt`. After committing and pushing the content,
 write a separate remote-verification record that points back to that immutable
 content commit. Do not put the card's own future commit SHA inside the card.
+
+Owner decision 2026-09-15: follow the [permanent minimum-clip profile](../animation/GROK_MINIMUM_CLIP_HANDOFF_PROFILE.md). The former two-second lower bound is superseded. Record the actual execution surface and its minimum; 1–15 seconds is the documented API range, not a universal UI promise.
 
 ## Bound images — two to four only
 

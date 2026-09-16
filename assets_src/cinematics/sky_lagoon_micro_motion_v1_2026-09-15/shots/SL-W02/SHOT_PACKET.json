@@ -1,0 +1,80 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "sky_lagoon_micro_motion_v1",
+  "shot_id": "SL-W02",
+  "title": "Water against shoreline stones",
+  "priority": 2,
+  "status": "DRAFT",
+  "duration_seconds": 1,
+  "duration_policy": "shortest supported by verified execution surface; one second documented for API; UI minimum unconfirmed",
+  "conditional_ui_variant": {
+    "duration_seconds": 6,
+    "prompt_path": "shots/SL-W02/PROMPT_UI_6S_IF_MINIMUM.txt",
+    "use_only_if": "six seconds is the operator-confirmed shortest setting"
+  },
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "native_first_frame_size": [
+    640,
+    360
+  ],
+  "native_detail_note": "Requested 720p output does not create native source detail. No source upscaling performed.",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "shots/SL-W02/IMAGE_1.png",
+      "sha256": "0e94387082cb63ed255f5e47c76c2cc0f4876bd88c1be880052233dce7c25c9f",
+      "hud_present": false,
+      "human_decision": "pending shot-specific crop and binding review",
+      "source_art_authority": "owner-provided background family; existing castle design",
+      "remote_url": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "shots/SL-W02/IMAGE_2.png",
+      "sha256": "84d3a8c9ced2b1c596275725d706d884dfb80988a4b067617f6ca652a626a693",
+      "hud_present": false,
+      "human_decision": "pending shot-specific crop and binding review",
+      "source_art_authority": "owner-provided background family; existing castle design",
+      "remote_url": null
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "one narrow water lap touching the existing stone edge"
+  ],
+  "must_not_move": [
+    "stones, rope posts, rope, path, plants and camera"
+  ],
+  "end_state": "the stones and original waterline are unchanged after one gentle lap",
+  "negative_constraints": [
+    "no moving rocks, rope wobble, flood, large splash or new shoreline",
+    "no HUD or text"
+  ],
+  "prompt_path": "shots/SL-W02/PROMPT.txt",
+  "prompt_sha256": "3252c4ad3966664a6628a64e4218af8b74bf7027928bcf4464c931a0c5add265",
+  "sound_intent": "silence",
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.png",
+      "used_as_pixel_reference": false
+    },
+    {
+      "path": "RUNTIME_BOUNDARIES.json",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "benefit": "Improve visible contact and depth at water/land boundaries.",
+  "runtime_contract": "Use existing shoreline and prop occlusion; any foam or water mask must stay inside authored water. Keep bridge and path completely fixed.",
+  "first_frame_review": "Source family supplied by owner; exact shot crop/bindings not yet accepted."
+}

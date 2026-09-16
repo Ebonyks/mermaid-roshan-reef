@@ -1,0 +1,80 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "sky_lagoon_micro_motion_v1",
+  "shot_id": "SL-W01",
+  "title": "Painted water surface",
+  "priority": 1,
+  "status": "DRAFT",
+  "duration_seconds": 1,
+  "duration_policy": "shortest supported by verified execution surface; one second documented for API; UI minimum unconfirmed",
+  "conditional_ui_variant": {
+    "duration_seconds": 6,
+    "prompt_path": "shots/SL-W01/PROMPT_UI_6S_IF_MINIMUM.txt",
+    "use_only_if": "six seconds is the operator-confirmed shortest setting"
+  },
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "native_first_frame_size": [
+    640,
+    360
+  ],
+  "native_detail_note": "Requested 720p output does not create native source detail. No source upscaling performed.",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "shots/SL-W01/IMAGE_1.png",
+      "sha256": "f5af64dbb18a44a1f66363a14de9d5b31052d294ed500e04f67f6f19b7b53e37",
+      "hud_present": false,
+      "human_decision": "pending shot-specific crop and binding review",
+      "source_art_authority": "owner-provided background family; existing castle design",
+      "remote_url": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "shots/SL-W01/IMAGE_2.png",
+      "sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64",
+      "hud_present": false,
+      "human_decision": "pending shot-specific crop and binding review",
+      "source_art_authority": "owner-provided background family; existing castle design",
+      "remote_url": null
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "only the painted water highlights"
+  ],
+  "must_not_move": [
+    "shoreline, stones, plants, water level and camera"
+  ],
+  "end_state": "the water returns near its opening pattern without a visible jump",
+  "negative_constraints": [
+    "no photoreal waves, foam, new objects, hue pumping or camera movement",
+    "no HUD or text"
+  ],
+  "prompt_path": "shots/SL-W01/PROMPT.txt",
+  "prompt_sha256": "7a29674b929bf9f12a97928fec4ada63674ef762b8d0dd742c8db2763b411417",
+  "sound_intent": "silence",
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.png",
+      "used_as_pixel_reference": false
+    },
+    {
+      "path": "RUNTIME_BOUNDARIES.json",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "benefit": "Replace incoherent brightness shimmer with a coherent restrained painted-water motion reference.",
+  "runtime_contract": "Keep original water alpha mask and fixed coastline. No full-scene video background. Inspect texture seams and any claimed temporal loop separately.",
+  "first_frame_review": "Source family supplied by owner; exact shot crop/bindings not yet accepted."
+}

@@ -74,6 +74,8 @@ Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026
 
 Scoped Grok builder consolidation (2026-09-14): [single project database](../assets_src/cinematics/grok_builder_2026-09-14/README.md) and [impact](../design/audit_impacts/grok-builder-20260914.json). Character/location/event state and missing-shot planning are unified; MA-VIS-006 and all cinematic delivery gates remain open.
 
+Permanent external-animation workflow (owner 2026-09-15): [minimum-clip GitHub handoff profile](../design/animation/GROK_MINIMUM_CLIP_HANDOFF_PROFILE.md), governed by `DL-MOT-14`. The [Sky Lagoon micro-motion packet](../assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/START_HERE.txt) prioritizes water surface, shoreline contact, large-plant flex and a small castle-door opening. Publication does not grant generation or delivery acceptance.
+
 <!-- AUDIT_TASK_INDEX_END -->
 
 Scoped Roshan motion-reference study (2026-09-12): [eight-sample Grok archive](../assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/README.md) and [impact](../design/audit_impacts/2026-09-12-roshan-grok-auditions.json) extend the character animation branch. Candidate selection, opening approval, archive publication and generated delivery remain separate; `MA-VIS-006` is not closed.

@@ -1,0 +1,80 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "sky_lagoon_micro_motion_v1",
+  "shot_id": "SL-P01",
+  "title": "Large foreground plant flex",
+  "priority": 3,
+  "status": "DRAFT",
+  "duration_seconds": 1,
+  "duration_policy": "shortest supported by verified execution surface; one second documented for API; UI minimum unconfirmed",
+  "conditional_ui_variant": {
+    "duration_seconds": 6,
+    "prompt_path": "shots/SL-P01/PROMPT_UI_6S_IF_MINIMUM.txt",
+    "use_only_if": "six seconds is the operator-confirmed shortest setting"
+  },
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "native_first_frame_size": [
+    640,
+    360
+  ],
+  "native_detail_note": "Requested 720p output does not create native source detail. No source upscaling performed.",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "shots/SL-P01/IMAGE_1.png",
+      "sha256": "bc2c8692d8ed10ec5628ee3a54c01660065ebf179ac87efde0b5f555a1e08782",
+      "hud_present": false,
+      "human_decision": "pending shot-specific crop and binding review",
+      "source_art_authority": "owner-provided background family; existing castle design",
+      "remote_url": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "shots/SL-P01/IMAGE_2.png",
+      "sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64",
+      "hud_present": false,
+      "human_decision": "pending shot-specific crop and binding review",
+      "source_art_authority": "owner-provided background family; existing castle design",
+      "remote_url": null
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "only the broad leaves of the left foreground plant beneath the white flowers"
+  ],
+  "must_not_move": [
+    "roots, flowers, ground, path, background plants and camera"
+  ],
+  "end_state": "the same leaves settle at their original rooted pose",
+  "negative_constraints": [
+    "no new leaves, melting, plant translation, flower redesign, glossy relighting or moving ground",
+    "no HUD or text"
+  ],
+  "prompt_path": "shots/SL-P01/PROMPT.txt",
+  "prompt_sha256": "5d68fd62943c1ff49db2d8de9bb07b403f462463aa1f9bbf40f0bdc9e5364580",
+  "sound_intent": "silence",
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.png",
+      "used_as_pixel_reference": false
+    },
+    {
+      "path": "RUNTIME_BOUNDARIES.json",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "benefit": "Reference for independent leaf articulation beyond whole-card skew.",
+  "runtime_contract": "Root is invariant. Extracting or repainting final sprites is a separate art task; preserve original species and palette. Do not animate neighboring ground cover.",
+  "first_frame_review": "Source family supplied by owner; exact shot crop/bindings not yet accepted."
+}
