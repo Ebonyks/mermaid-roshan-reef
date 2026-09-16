@@ -1,0 +1,6 @@
+P01_IDLE
+QUEUE: REPAIR_LOOP_SEAM
+R01 frames 0 and 144 differ in face/pose. Review all 145 source frames. Match pose AND breathing velocity across 144 -> 0; no reverse, duplicate hold or crossfade. Keep breath, blink and delayed ears.
+
+Read REFERENCES.txt for every relevant visual and its authority. Only IMAGE_1 and IMAGE_2 are attached. Do not bind boards, videos, room plates or runtime captures. No room, Roshan, props or FX occur in these character-only frames.
+Read the short PROMPT.txt only after checking queue status. Preserve native output/audio and report actual bound hashes and frame timing.

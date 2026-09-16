@@ -1,0 +1,1272 @@
+{
+  "schema": "grand-puff-reference-archive-v3",
+  "baseline": "b8016cef7bc16656273f8ab1d69fe6789ac74c31",
+  "supersedes": "r02 handoff directions only; preserves its images and provenance; no acceptance changes",
+  "payload_hash_algorithm": "SHA256 sorted path + NUL + SHA256 + LF; excludes this manifest",
+  "payload_sha256": "7131105ac632cdd6c2a6396b0bb81d7213a9a576a0c39ebd6a632742ba6d7c03",
+  "files": [
+    {
+      "path": "approved/friendship.mp4",
+      "source_path": "assets_src/characters/grand_puff_video_cels_2026-09-15/sources/friendship.mp4",
+      "role": "owner-approved acting reference; preserve unchanged",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "b3ec9764a76dab379cedf25d54f637043ebd4f0e6cdddb68989fe9ff80dd888f",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "approved/huff.mp4",
+      "source_path": "assets_src/characters/grand_puff_video_cels_2026-09-15/sources/huff.mp4",
+      "role": "owner-approved acting reference; preserve unchanged",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "e7e960c6a37ff491cceb75e9a8c7294580381cc742ee4c40f558e1023b9c08cd",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "approved/laugh.mp4",
+      "source_path": "assets_src/characters/grand_puff_video_cels_2026-09-15/sources/laugh.mp4",
+      "role": "owner-approved acting reference; preserve unchanged",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "091ba1a3f544b9116770bef0dcc98bf56d6f1452a89a571b5cd32abbeeb2ef8f",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "boards/bounce_contact.png",
+      "source_path": "assets_src/characters/grand_puff_additional_cels_2026-09-15/previews/bounce_contact.png",
+      "role": "diagnostic source beat board; defects retained; never generation pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        848
+      ],
+      "sha256": "9d340612a536b3a9c0b7846e4130045719ee977b0cbaeb247e5cb1819055ae15",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "source_path": "references/opening.png + project-authored phase labels",
+      "role": "inspectable attack beat guide; no pose or delivery authority",
+      "modifications": "diagnostic layout with repeated identity thumbnails; no animated pose synthesis",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored diagram using owner-approved source reference.",
+      "path": "boards/charge_attack_beats.png",
+      "sha256": "c836793b9fafd9068d477df7eb02b941196f8c0e1c87a9d238dd65210ba6e7bf",
+      "dimensions": [
+        1280,
+        560
+      ]
+    },
+    {
+      "path": "boards/flinch_contact.png",
+      "source_path": "assets_src/characters/grand_puff_additional_cels_2026-09-15/previews/flinch_contact.png",
+      "role": "diagnostic source beat board; defects retained; never generation pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        848
+      ],
+      "sha256": "eb7cd10c2850789e09f756ba72b9fb059fec76e79b38a06085f320ab91c7a1df",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "boards/giggle_contact.png",
+      "source_path": "assets_src/characters/grand_puff_additional_cels_2026-09-15/previews/giggle_contact.png",
+      "role": "diagnostic source beat board; defects retained; never generation pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        848
+      ],
+      "sha256": "7234053acf1552ec5cebcf173fe0f653cfe5ab7eab1e2ab83e8206f5b21ac0f4",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "boards/idle_contact.png",
+      "source_path": "assets_src/characters/grand_puff_additional_cels_2026-09-15/previews/idle_contact.png",
+      "role": "diagnostic source beat board; defects retained; never generation pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        848
+      ],
+      "sha256": "89c23985f9972c3a7e1c0c770188416a124ffb14ddab5c7ba4dbb60317f3578a",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "source_path": "references/opening.png + project-authored phase labels",
+      "role": "inspectable attack beat guide; no pose or delivery authority",
+      "modifications": "diagnostic layout with repeated identity thumbnails; no animated pose synthesis",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored diagram using owner-approved source reference.",
+      "path": "boards/jump_attack_beats.png",
+      "sha256": "0672a7ea68458b7a507977b6b0db93f375ff4acc1bec6e9f9b76195be9c1216d",
+      "dimensions": [
+        1280,
+        560
+      ]
+    },
+    {
+      "path": "boards/prowl_contact.png",
+      "source_path": "assets_src/characters/grand_puff_additional_cels_2026-09-15/previews/prowl_contact.png",
+      "role": "diagnostic source beat board; defects retained; never generation pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        848
+      ],
+      "sha256": "581ac9985b85e3dcd27e6922982e0aeb604f267482b734fc8ba966c34ff4c00f",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "source_path": "Owner attack-handoff commission and existing attack contract",
+      "role": "project-authored attack direction",
+      "modifications": "new UTF-8 LF text/JSON",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "context/ATTACK_CHOREOGRAPHY.txt",
+      "sha256": "be5dac1f521f911b7e937066ac2b4f6835b5efda77f045034c73bd736b779856",
+      "dimensions": null
+    },
+    {
+      "source_path": "ecfd472eaab76d1c5888ab7da1926f819336c612:design/animation/grand_puff_attack_windup_v3.json",
+      "role": "existing attack reference; archive only",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Existing project asset; original attribution in ASSET_LICENSES.md.",
+      "path": "context/ATTACK_CONTRACT.json",
+      "sha256": "fe0c81b1f9c9a68a60a9cbda57dcfc2e2204f84a0343413a734a5554f4f304fc",
+      "dimensions": null
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:design/05_DOC_LEDGER.md",
+      "role": "pinned authority snapshot; original source authority and scope retained",
+      "modifications": "byte-identical copy; .txt suffix on Markdown snapshot",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored authority evidence.",
+      "path": "context/authority/05_DOC_LEDGER.md.txt",
+      "sha256": "d2a919060d9e0b1624093379cbd7b6554f3e7d236c73dffec4019397423e6d11",
+      "dimensions": null
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "role": "pinned authority snapshot; original source authority and scope retained",
+      "modifications": "byte-identical copy; .txt suffix on Markdown snapshot",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored authority evidence.",
+      "path": "context/authority/06_COMPREHENSIVE_DESIGN_LANGUAGE.md.txt",
+      "sha256": "c597e04738f176a71e71a0bcf37c9a62fa1d58db704b00aecceb147f842b0487",
+      "dimensions": null
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "role": "pinned authority snapshot; original source authority and scope retained",
+      "modifications": "byte-identical copy; .txt suffix on Markdown snapshot",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored authority evidence.",
+      "path": "context/authority/ACTIVE_FINDINGS_2026-08-13.md.txt",
+      "sha256": "9de18c8732109e1568f976d3147b42d328c40f02360130751afa804e623033b7",
+      "dimensions": null
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:design/animation/ASEPRITE_PRODUCTION_BIBLE.md",
+      "role": "pinned authority snapshot; original source authority and scope retained",
+      "modifications": "byte-identical copy; .txt suffix on Markdown snapshot",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored authority evidence.",
+      "path": "context/authority/ASEPRITE_PRODUCTION_BIBLE.md.txt",
+      "sha256": "19e3eb85104dc855d58aebf9ed495de34d38854dcb08eaebd15413f980985498",
+      "dimensions": null
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:design/BOSS_SPLASH_DESIGN_LANGUAGE.md",
+      "role": "pinned authority snapshot; original source authority and scope retained",
+      "modifications": "byte-identical copy; .txt suffix on Markdown snapshot",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored authority evidence.",
+      "path": "context/authority/BOSS_SPLASH_DESIGN_LANGUAGE.md.txt",
+      "sha256": "4f217c64b85c9e0ed70bdaf85429cc050138a2925dcbe595e260a79de6813237",
+      "dimensions": null
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:design/animation/grand_puff_attack_windup_v3.json",
+      "role": "pinned authority snapshot; original source authority and scope retained",
+      "modifications": "byte-identical copy; .txt suffix on Markdown snapshot",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored authority evidence.",
+      "path": "context/authority/grand_puff_attack_windup_v3.json",
+      "sha256": "fe0c81b1f9c9a68a60a9cbda57dcfc2e2204f84a0343413a734a5554f4f304fc",
+      "dimensions": null
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:design/animation/GRAND_PUFF_MOVEMENT_PROFILE.md",
+      "role": "pinned authority snapshot; original source authority and scope retained",
+      "modifications": "byte-identical copy; .txt suffix on Markdown snapshot",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored authority evidence.",
+      "path": "context/authority/GRAND_PUFF_MOVEMENT_PROFILE.md.txt",
+      "sha256": "91852f918226a0ee91b57f56ffef460abfb0e912093f303b0fe2ea0aa774d1e4",
+      "dimensions": null
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:design/templates/IMAGINE_SHOT_CARD_V1.md",
+      "role": "pinned authority snapshot; original source authority and scope retained",
+      "modifications": "byte-identical copy; .txt suffix on Markdown snapshot",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored authority evidence.",
+      "path": "context/authority/IMAGINE_SHOT_CARD_V1.md.txt",
+      "sha256": "0999f027cac1db0d1d7e65a99c4c5cc9e79e0f33e7cb92008fa9b5d11cbf002c",
+      "dimensions": null
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/MASTER_AUDIT_2026-08-09.md",
+      "role": "pinned authority snapshot; original source authority and scope retained",
+      "modifications": "byte-identical copy; .txt suffix on Markdown snapshot",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored authority evidence.",
+      "path": "context/authority/MASTER_AUDIT_2026-08-09.md.txt",
+      "sha256": "ca91293dca1fd74d449eb6b3d30f019d90f1bd6ea21369026f94fdb96bbc71fc",
+      "dimensions": null
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/OVERNIGHT_RECUT_FRAME_AUDIT_2026-09-12.md",
+      "role": "pinned authority snapshot; original source authority and scope retained",
+      "modifications": "byte-identical copy; .txt suffix on Markdown snapshot",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored authority evidence.",
+      "path": "context/authority/OVERNIGHT_RECUT_FRAME_AUDIT_2026-09-12.md.txt",
+      "sha256": "6fcb450de7577484b81dfeaf3f5cfb49d59d96939c7b3f0722b3a7298cc3f11c",
+      "dimensions": null
+    },
+    {
+      "path": "context/IDENTITY_SIGNATURE_HISTORICAL.txt",
+      "source_path": "d9d4e6b4ca7590d0a7376ae57a96270ecc173939:assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/context/IDENTITY_SIGNATURE.txt",
+      "role": "historical signed design facts; production-method clauses superseded by current bible",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "3a5b8a767abec5076455369d2cc4218a12cc0cadf2f93c35e16a0f02ad75ecc6",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "source_path": "Project-authored reference-coverage audit at b8016cef7bc16656273f8ab1d69fe6789ac74c31",
+      "role": "handoff direction/provenance",
+      "modifications": "new or revised project-authored text",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "context/NEW_ATTACK_RETURN.json",
+      "sha256": "8c61ccf1c543a46655bd1eabdc4a2b8a717912192f730e0b023d59cbe9e113dd",
+      "dimensions": null
+    },
+    {
+      "path": "DIRECTOR_BRIEF.txt",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "229827f65e456cedcea0c1e87f9d689ca0817c4c202daa4428dccd90e1a61cea",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "drafts/bounce.mp4",
+      "source_path": "assets_src/characters/grand_puff_additional_cels_2026-09-15/sources/bounce.mp4",
+      "role": "defect/acting review only; not appearance authority",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "e7c60db62e5d47d96ffc93443af6e3092d06cad871abc8dba7a2bba6fb42f7c2",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "drafts/flinch.mp4",
+      "source_path": "assets_src/characters/grand_puff_additional_cels_2026-09-15/sources/flinch.mp4",
+      "role": "defect/acting review only; not appearance authority",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "ff8bf7e8b5981f30f2d93c6fc377ccca4a4eea303acb70793c2407d49b4ceabb",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "drafts/giggle.mp4",
+      "source_path": "assets_src/characters/grand_puff_additional_cels_2026-09-15/sources/giggle.mp4",
+      "role": "defect/acting review only; not appearance authority",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "4aa1df15b5fabc908f17828700447a7cc8dc03258bdeafa02810483a7dde851b",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "drafts/idle.mp4",
+      "source_path": "assets_src/characters/grand_puff_additional_cels_2026-09-15/sources/idle.mp4",
+      "role": "defect/acting review only; not appearance authority",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "4e3145f01bc0a75ba6945e72701db171d614b0d792a96b61f8e39b0a5011262d",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "drafts/prowl.mp4",
+      "source_path": "assets_src/characters/grand_puff_additional_cels_2026-09-15/sources/prowl.mp4",
+      "role": "defect/acting review only; not appearance authority",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "7a00c47964bc827b40d2c380efc779246e8934fde286afe7788f4d1529718a40",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "IMAGINE_HANDOFF.json",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "23ad8cbfd37cb4bd27696d5174dd99a6b65cb2ee5a97501bc5e3d808d79e8eb7",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "source_path": "Project-authored reference-coverage audit at b8016cef7bc16656273f8ab1d69fe6789ac74c31",
+      "role": "handoff direction/provenance",
+      "modifications": "new or revised project-authored text",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "REFERENCE_COVERAGE.json",
+      "sha256": "80656452387c3e984c338370ff1d7e473ff555e4e07b5c2a85d38e260cb56e0e",
+      "dimensions": null
+    },
+    {
+      "path": "references/back.jpg",
+      "source_path": "d9d4e6b4ca7590d0a7376ae57a96270ecc173939:assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/references/back.jpg",
+      "role": "signed identity/turnaround reference",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1408,
+        1408
+      ],
+      "sha256": "f03fb293f681bbb941738c8b50b509482760c74f1cb3bb829f22f008a9251f7c",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "references/front.jpg",
+      "source_path": "d9d4e6b4ca7590d0a7376ae57a96270ecc173939:assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/references/front.jpg",
+      "role": "signed identity/turnaround reference",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": true,
+      "dimensions": [
+        1408,
+        1408
+      ],
+      "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "references/opening.png",
+      "source_path": "978a79d5127beafdf543a2640d58ddb69e55b909:assets_src/characters/grand_puff_video_cels_2026-09-15/sources/laugh.mp4 frame 0",
+      "role": "approved laugh source first-frame/layout",
+      "modifications": "FFmpeg RGB first-frame decode; no crop/scale/repaint",
+      "used_as_generation_pixels": true,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "references/profile.jpg",
+      "source_path": "d9d4e6b4ca7590d0a7376ae57a96270ecc173939:assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/references/profile.jpg",
+      "role": "signed identity/turnaround reference",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1408,
+        1408
+      ],
+      "sha256": "5941f10f7211a61a6457271213207e01bd5567381a2a29167855ae0b72db9089",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "RETURN_TEMPLATE.json",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "598a724a415c9606f80b152ed25b51fdfbe56143401079774ad2323100039715",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/CONTINUITY_METRICS.json",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/CONTINUITY_METRICS.json",
+      "sha256": "8e5ae3e7ddbdb15a66855f43b06d7bf8b8314a01c0ee73abb3b643eb08bc4688",
+      "dimensions": null
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/EDGE_CHECK.json",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/EDGE_CHECK.json",
+      "sha256": "4a6af625e6a8d1f2a9c82298169fdb5b802f2fa81191548f73d599858374a2e6",
+      "dimensions": null
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/FINAL_DECISIONS.json",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/FINAL_DECISIONS.json",
+      "sha256": "825f40300302bb5256f3674f5ad5b7a78d18f2f26c76265aacaf8ba2afafe608",
+      "dimensions": null
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_bounce33.png",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_bounce33.png",
+      "sha256": "c60164ea3c5ff90169f4b0e4cbf8dd6e68114786af2618ee5360761d9366038a",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P01_IDLE_0.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P01_IDLE_0.jpg",
+      "sha256": "2ac496ca65169a79b9e3a98d1d668d05559e22b6e79b6adadcfca04ba38ca3a0",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P01_IDLE_100.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P01_IDLE_100.jpg",
+      "sha256": "08d1ab91dc9bc09ef9cb9fd7c903a151ec5e0592b17e10a723b7e794885aa937",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P01_IDLE_50.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P01_IDLE_50.jpg",
+      "sha256": "49b688479d1399f19c646d9a721d0e397260c0904e0f3629124fbf5876f268cd",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P02_FLINCH_0.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P02_FLINCH_0.jpg",
+      "sha256": "09e10e1ee0d37fcf214969a283022bf5f7aaa049442bef0a56a39cc9cecc4b18",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P02_FLINCH_100.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P02_FLINCH_100.jpg",
+      "sha256": "6e20fb984f0747b411a353c96e6ea3fd4004e0144d95a59746eea8a42f115344",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P02_FLINCH_50.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P02_FLINCH_50.jpg",
+      "sha256": "831759582c2e50000f94118c2e33d38eb0b0fa0d980bbaa37acc16385bbe410a",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P03_PROWL_0.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P03_PROWL_0.jpg",
+      "sha256": "3f729022808234249b2a8934b4ba57cb5983f89f8f4155ff8196d14748aa949e",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P03_PROWL_100.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P03_PROWL_100.jpg",
+      "sha256": "deec5c80247fa922b6ee5cafb1c893a082303da17d03e67d67a99e3d57627692",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P03_PROWL_50.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P03_PROWL_50.jpg",
+      "sha256": "a1213d2090322be371b6463d776c134fecbd014dd276bfd341b88051221853ed",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P04_GIGGLE_0.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P04_GIGGLE_0.jpg",
+      "sha256": "54db8566c98556eb8171fcd947b5add0cd149faed96e10ec19fef4406c28dae4",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P04_GIGGLE_100.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P04_GIGGLE_100.jpg",
+      "sha256": "3b29ca11019a85cac27a91192bc5ba9730dcd3904e22da594bb6584568197fdd",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P04_GIGGLE_50.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P04_GIGGLE_50.jpg",
+      "sha256": "d3936bac2773dc5e35f615b25a4c29c14b3b8a8eb976ac17486dd070a9a4414c",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P04_GIGGLE_silent.mp4",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P04_GIGGLE_silent.mp4",
+      "sha256": "899859bf6c6431c9db23796dad589df5634a64c866ba375a6cc9757130927ace",
+      "dimensions": null
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P05_BOUNCE_0.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P05_BOUNCE_0.jpg",
+      "sha256": "a07ed43cc271961db6c19f2c7158b96ee0b16c8c37528faad77ff08dd4d3af2f",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P05_BOUNCE_100.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P05_BOUNCE_100.jpg",
+      "sha256": "e606ee79cb45da08413996dff136400be069088f52e83c6391aee9813be689a1",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r01_P05_BOUNCE_50.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r01_P05_BOUNCE_50.jpg",
+      "sha256": "7da42ab9cba53ab5b62b540b70b67f48bc5e50c8fceb05cc48dc1c0274a97f31",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_bounce33.png",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_bounce33.png",
+      "sha256": "9d5e3bd7f51936983a403573f7dd950f1dda54451afb2ae2e817575304e82ef3",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P01_IDLE_0.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P01_IDLE_0.jpg",
+      "sha256": "57b3e489635ee6b8fdfa42cd81e21ef6056eb72c7d217b2e4bdede22353e8f39",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P01_IDLE_100.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P01_IDLE_100.jpg",
+      "sha256": "0d9982760767e70051240414021f3fac2bcb1fa16d7fa63c82b61673690ca9da",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P01_IDLE_50.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P01_IDLE_50.jpg",
+      "sha256": "4d2b039b93f0a216e62b489312693e0f1338fad9c174c86ec3514c3f8a37541f",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P02_FLINCH_0.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P02_FLINCH_0.jpg",
+      "sha256": "cd5e781635ccb012dab1eb3b9cecdcdbb0fe4f5aba19b59932040298bc2418d5",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P02_FLINCH_100.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P02_FLINCH_100.jpg",
+      "sha256": "70003ad4289727567a0fb7e32b520fb80ad12b241255d2306cc5c7a4a9412135",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P02_FLINCH_50.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P02_FLINCH_50.jpg",
+      "sha256": "683ac6e1a0fd345aa985e644a05e2eebdf5bd02daa49af3ca7f126e4ed283d99",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P02_FLINCH_silent.mp4",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P02_FLINCH_silent.mp4",
+      "sha256": "f4653c283199b331f35183301fbc1087b09461c374da99d65bd453491e1bad87",
+      "dimensions": null
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P03_PROWL_0.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P03_PROWL_0.jpg",
+      "sha256": "834f218b1a741c6bf11f3106c09bea89d778885000719e7e1d5e088fa0f6335f",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P03_PROWL_100.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P03_PROWL_100.jpg",
+      "sha256": "cfdfe65a8853760b302e14a0ca83e23dbfa866296caa7ed283f2700bfd35649f",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P03_PROWL_50.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P03_PROWL_50.jpg",
+      "sha256": "5f6067bf8c5ed10efb0b263e02a812930d2231f22e763452220ad506ccbdf4eb",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P04_GIGGLE_0.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P04_GIGGLE_0.jpg",
+      "sha256": "8f029d6fb4304d8aa5165885d9bf067591452cf346f98d472af9b7ed267a35f4",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P04_GIGGLE_100.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P04_GIGGLE_100.jpg",
+      "sha256": "68e78943e9732f41d536476b3730848128ccbdf2112d23d45a2b176fc835452f",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P04_GIGGLE_50.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P04_GIGGLE_50.jpg",
+      "sha256": "7ceb6ccd4691578bad7a4cdaa49f0b68d8a74c3e8954b481401b73cdcc44c0b0",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P05_BOUNCE_0.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P05_BOUNCE_0.jpg",
+      "sha256": "df41c4ab4877342530cb7c8f8c5e96339d2bd98ed6a0a8e27427c77c132b4b6f",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P05_BOUNCE_100.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P05_BOUNCE_100.jpg",
+      "sha256": "03d75f3af125e4377ed0a437d1805c31646e4ec5903102012f51d518d2ba4531",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:audit/animation/grand_puff_returns_2026-09-16/complete/r02_P05_BOUNCE_50.jpg",
+      "role": "completed source review; chronological frames and selected one-shot previews; never generator pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Owner-commissioned source; project-authored review evidence.",
+      "path": "review/r02_P05_BOUNCE_50.jpg",
+      "sha256": "96529bdf3a3316bf8e0cbb8b9fba7346e87fcc301ce4ce8eb15085e1f4babf9f",
+      "dimensions": [
+        1600,
+        2000
+      ]
+    },
+    {
+      "path": "runtime_context/arena.png",
+      "source_path": "d9d4e6b4ca7590d0a7376ae57a96270ecc173939:assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/runtime_context/arena.png",
+      "role": "context only; never bind as generation pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "sha256": "a6f4bb59df43e63cedbf9a164526475b91985c85c73cac7e061f830d60ef4122",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "runtime_context/counter_star.png",
+      "source_path": "d9d4e6b4ca7590d0a7376ae57a96270ecc173939:assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/runtime_context/counter_star.png",
+      "role": "context only; never bind as generation pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        128,
+        128
+      ],
+      "sha256": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "runtime_context/dust_puff.png",
+      "source_path": "d9d4e6b4ca7590d0a7376ae57a96270ecc173939:assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/runtime_context/dust_puff.png",
+      "role": "context only; never bind as generation pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        256,
+        256
+      ],
+      "sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "runtime_context/hall_runtime_1280.png",
+      "source_path": "d9d4e6b4ca7590d0a7376ae57a96270ecc173939:assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/runtime_context/hall_runtime_1280.png",
+      "role": "context only; never bind as generation pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "60c0942dda078bf8c707db17aeeee7caf5e1f8c52f1ee2667bf13124fcfb78d2",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "source_path": "ecfd472eaab76d1c5888ab7da1926f819336c612:assets/effects/grand_puff/purple_vortex_v4.png",
+      "role": "existing attack reference; archive only",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Existing project asset; original attribution in ASSET_LICENSES.md.",
+      "path": "runtime_context/purple_vortex_v4.png",
+      "sha256": "882a8feedb980399c2f4b7f782a4da7d2142b789de43cdd4c462b79c1d1e52e1",
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "runtime_context/roshan_base.png",
+      "source_path": "d9d4e6b4ca7590d0a7376ae57a96270ecc173939:assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/runtime_context/roshan_base.png",
+      "role": "context only; never bind as generation pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        256,
+        256
+      ],
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "runtime_context/soap_bubbles.png",
+      "source_path": "d9d4e6b4ca7590d0a7376ae57a96270ecc173939:assets_src/cinematics/grand_puff_personality_repair_2026-09-14/r11/runtime_context/soap_bubbles.png",
+      "role": "context only; never bind as generation pixels",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "source_path": "b8016cef7bc16656273f8ab1d69fe6789ac74c31:assets_src/imagegen/dust_bunny_boss_arena_2026-08-30/dusty_attic_arena_native_1254.png",
+      "role": "current stone attic geometry per overnight frame audit; archive only, not the cream-field character background",
+      "modifications": "byte-identical copy",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Existing project source; inherited provenance in source directory and ASSET_LICENSES.md.",
+      "path": "runtime_context/stone_attic_current.png",
+      "sha256": "9cb4b02dc4a56e1436ea0a6b21dccf4ef751716d213e3ff7624571f15a9e2cb6",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "shots/P01_IDLE/PROMPT.txt",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "3bdf9eec2849646c9c2bd835d9746b1a552de9bab6d93e2bf074bb285684fc40",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "shots/P01_IDLE/READ_FIRST.txt",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "1045829958ca972df99cd1e9dbe4abea3492e7953aee75a10b5843c24bd3863f",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "source_path": "Project-authored reference-coverage audit at b8016cef7bc16656273f8ab1d69fe6789ac74c31",
+      "role": "handoff direction/provenance",
+      "modifications": "new or revised project-authored text",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "shots/P01_IDLE/REFERENCES.txt",
+      "sha256": "fac9202f1e133b57a758b7ecf4e6f7eb49e0a68d46a5f8a53a7b53737ff772f6",
+      "dimensions": null
+    },
+    {
+      "path": "shots/P01_IDLE/SHOT_PACKET.json",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "bf775fd8d86916b1e0851d9cddb524887ce502e478537efb29b04226a34f1aeb",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "shots/P02_FLINCH/PROMPT.txt",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "new UTF-8 LF",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "8192331deb9d1ac08d5d6b5dbad557b2702824227a319fe92a512a46d76e41fe",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "shots/P02_FLINCH/READ_FIRST.txt",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "05eddeb44faff64adc38c9a5c298daef6d14335c46d4137dbfbf3d4d06524a79",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "source_path": "Project-authored reference-coverage audit at b8016cef7bc16656273f8ab1d69fe6789ac74c31",
+      "role": "handoff direction/provenance",
+      "modifications": "new or revised project-authored text",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "shots/P02_FLINCH/REFERENCES.txt",
+      "sha256": "bf15c1e2c33b3bd570168e7e66dbc382508a1f9d0df11cfe982c1cb9500ccd5e",
+      "dimensions": null
+    },
+    {
+      "path": "shots/P02_FLINCH/SHOT_PACKET.json",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "369135baf89d2a79691994c8c765c9c90fad75d878c9d91db7890f6333aca46a",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "shots/P03_PROWL/PROMPT.txt",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "62ce9e966f233df8bdaca254d51fa083a641acafe299571b452fee5579731f7b",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "shots/P03_PROWL/READ_FIRST.txt",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "f9263c003a7d374f08f6520d83d1457d125d7af9dcbbb67344e05b7cea4db842",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "source_path": "Project-authored reference-coverage audit at b8016cef7bc16656273f8ab1d69fe6789ac74c31",
+      "role": "handoff direction/provenance",
+      "modifications": "new or revised project-authored text",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "shots/P03_PROWL/REFERENCES.txt",
+      "sha256": "010a824ad037031d7a22020c235bd41941f13d8c63d715e4097286403a3bec65",
+      "dimensions": null
+    },
+    {
+      "path": "shots/P03_PROWL/SHOT_PACKET.json",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "b84239fbd426fe0d12ed26e37001dae103f8d1cee6a51a24cb0d27d14a005906",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "shots/P04_GIGGLE/PROMPT.txt",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "new UTF-8 LF",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "b01799a47df13af4c0ce736f3949d1c6cb91c19563df00f96a4cfdf487019cad",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "shots/P04_GIGGLE/READ_FIRST.txt",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "df2710973a0220302a21a6cf3b475ecba1803f4bf9549e17613f2058069c5b02",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "source_path": "Project-authored reference-coverage audit at b8016cef7bc16656273f8ab1d69fe6789ac74c31",
+      "role": "handoff direction/provenance",
+      "modifications": "new or revised project-authored text",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "shots/P04_GIGGLE/REFERENCES.txt",
+      "sha256": "729a15914bf79112993de647205826bacec8782a2e21e7105563c26efde6842c",
+      "dimensions": null
+    },
+    {
+      "path": "shots/P04_GIGGLE/SHOT_PACKET.json",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "b3290b885700a7976ec010241934854c56fa3a88f18e18dd80841263494d71c1",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "shots/P05_BOUNCE/PROMPT.txt",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "4fc1f8fb7b1193174bc5fbfd30854bf50cfd719d71cff8cfa171faaf331ea512",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "path": "shots/P05_BOUNCE/READ_FIRST.txt",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "84c0a8cb4a9d094baccac074c259a22ed58681649a3a5e4a8cc0a3da8e278894",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "source_path": "Project-authored reference-coverage audit at b8016cef7bc16656273f8ab1d69fe6789ac74c31",
+      "role": "handoff direction/provenance",
+      "modifications": "new or revised project-authored text",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "shots/P05_BOUNCE/REFERENCES.txt",
+      "sha256": "63ca52aa044a06e3366834e2112ae336d90e0cd2a1de9a0c414f1fa8f6b3cc95",
+      "dimensions": null
+    },
+    {
+      "path": "shots/P05_BOUNCE/SHOT_PACKET.json",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "919908b2b942c3773c214a0d3076622f36ac3eb1ba70ee1a3e6c38cb7ec227e5",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    },
+    {
+      "source_path": "Owner attack-handoff commission and existing attack contract",
+      "role": "project-authored attack direction",
+      "modifications": "new UTF-8 LF text/JSON",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "shots/P06_JUMP_ATTACK/PROMPT.txt",
+      "sha256": "785bfc4e4e8ffd8cda98780cdd415c33c9ab2fbfeab36a03b8fdcb9044238d53",
+      "dimensions": null
+    },
+    {
+      "source_path": "Owner attack-handoff commission and existing attack contract",
+      "role": "project-authored attack direction",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "shots/P06_JUMP_ATTACK/READ_FIRST.txt",
+      "sha256": "0c1c8f466bbe4c4021270c41477dcb6e0c9b8a010eb631940c54ae49abbfcd7a",
+      "dimensions": null
+    },
+    {
+      "source_path": "Project-authored reference-coverage audit at b8016cef7bc16656273f8ab1d69fe6789ac74c31",
+      "role": "handoff direction/provenance",
+      "modifications": "new or revised project-authored text",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "shots/P06_JUMP_ATTACK/REFERENCES.txt",
+      "sha256": "46c5fafb132d9708c6fb65e24d25eb9e3f4bd27e377a8e5b2d278cfa7212abc4",
+      "dimensions": null
+    },
+    {
+      "source_path": "Owner attack-handoff commission and existing attack contract",
+      "role": "project-authored attack direction",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "shots/P06_JUMP_ATTACK/SHOT_PACKET.json",
+      "sha256": "535a1fe9bc2c9057345e59d31ba72d6f841c3c06d34af435d20886c56f10b7fb",
+      "dimensions": null
+    },
+    {
+      "source_path": "Owner attack-handoff commission and existing attack contract",
+      "role": "project-authored attack direction",
+      "modifications": "new UTF-8 LF text/JSON",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "shots/P07_CHARGE_ATTACK/PROMPT.txt",
+      "sha256": "c88b4b8ed47a7f399ae27a068fa186e556c980272d5ef4436f1ab257fe258694",
+      "dimensions": null
+    },
+    {
+      "source_path": "Owner attack-handoff commission and existing attack contract",
+      "role": "project-authored attack direction",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "shots/P07_CHARGE_ATTACK/READ_FIRST.txt",
+      "sha256": "3f11347190327ac99dd9e15cc129c11ea87206333e124439f98a690a80baa6a5",
+      "dimensions": null
+    },
+    {
+      "source_path": "Project-authored reference-coverage audit at b8016cef7bc16656273f8ab1d69fe6789ac74c31",
+      "role": "handoff direction/provenance",
+      "modifications": "new or revised project-authored text",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "shots/P07_CHARGE_ATTACK/REFERENCES.txt",
+      "sha256": "4813cb08545110b99b3561ceb1dd1b9b10b4fa1304d4d8417dd3b801cf89b299",
+      "dimensions": null
+    },
+    {
+      "source_path": "Owner attack-handoff commission and existing attack contract",
+      "role": "project-authored attack direction",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "license_provenance": "Project-authored metadata.",
+      "path": "shots/P07_CHARGE_ATTACK/SHOT_PACKET.json",
+      "sha256": "6195a507cb786410d65365eb3718a7e5b990dd715a20cfd3785783a759d12910",
+      "dimensions": null
+    },
+    {
+      "path": "START_HERE.txt",
+      "source_path": "Project-authored repair direction",
+      "role": "archive metadata",
+      "modifications": "updated direction/coverage or LF-normalized text; original preserved in r02",
+      "used_as_generation_pixels": false,
+      "dimensions": null,
+      "sha256": "5b54f260b9d08d10697484df31278bce656efbda22b761f74b6f436993df0a4c",
+      "license_provenance": "Project-owned/owner-commissioned Grand Puff source and project-authored derivatives; copied source attribution retained. See repository ASSET_LICENSES.md. Not third-party stock."
+    }
+  ]
+}

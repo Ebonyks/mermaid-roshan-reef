@@ -1,0 +1,60 @@
+{
+  "schema": "grand-puff-seven-job-return-v2",
+  "handoff_content_commit": "COPY_IMMUTABLE_CONTENT_SHA",
+  "clips": [
+    {
+      "shot_id": "P01_IDLE",
+      "file": "P01_IDLE.mp4",
+      "sha256": "",
+      "width": null,
+      "height": null,
+      "fps": null,
+      "frames": null,
+      "duration_seconds": null,
+      "generator_job_id": "",
+      "actual_bound_image_hashes": [],
+      "known_defects": [],
+      "source_unmodified": true
+    },
+    {
+      "shot_id": "P03_PROWL",
+      "file": "P03_PROWL.mp4",
+      "sha256": "",
+      "width": null,
+      "height": null,
+      "fps": null,
+      "frames": null,
+      "duration_seconds": null,
+      "generator_job_id": "",
+      "actual_bound_image_hashes": [],
+      "known_defects": [],
+      "source_unmodified": true
+    },
+    {
+      "shot_id": "P05_BOUNCE",
+      "file": "P05_BOUNCE.mp4",
+      "sha256": "",
+      "width": null,
+      "height": null,
+      "fps": null,
+      "frames": null,
+      "duration_seconds": null,
+      "generator_job_id": "",
+      "actual_bound_image_hashes": [],
+      "known_defects": [],
+      "source_unmodified": true
+    }
+  ],
+  "instructions": "Return all seven independent clips plus this completed JSON on the existing Grok branch under assets_src/characters/grand_puff_five_repairs_returns/r02/. Partial returns are allowed; never mark unreturned shots complete. Do not edit gameplay or replace approved clips.",
+  "handoff_revision": "reference-complete-r03",
+  "queue": {
+    "P01_IDLE": "REPAIR_LOOP_SEAM",
+    "P02_FLINCH": "REUSE_R02_SOURCE_NO_REROLL",
+    "P03_PROWL": "REPAIR_CONTACT_AND_GAIT",
+    "P04_GIGGLE": "REUSE_R01_SOURCE_NO_REROLL",
+    "P05_BOUNCE": "REPAIR_CLIPPED_PEAK",
+    "P06_JUMP_ATTACK": "REVIEW_NEW_R03_RETURN_BEFORE_REROLL",
+    "P07_CHARGE_ATTACK": "REVIEW_NEW_R03_RETURN_BEFORE_REROLL"
+  },
+  "return_path": "assets_src/characters/grand_puff_five_repairs_returns/<next-unused-round>/"
+}

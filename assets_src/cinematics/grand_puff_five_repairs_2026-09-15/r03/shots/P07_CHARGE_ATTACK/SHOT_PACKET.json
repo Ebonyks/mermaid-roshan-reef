@@ -1,0 +1,161 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "grand-puff-reference-complete-r03",
+  "shot_id": "P07_CHARGE_ATTACK",
+  "status": "GENERATION_READY",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "subsequent_use": "Eligible for reviewed video-derived Aseprite reconstruction under owner exception; not automatically accepted delivery.",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "references/opening.png",
+      "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924",
+      "role": "approved_clean_first_frame",
+      "hud_present": false,
+      "human_decision": "accepted",
+      "approval_basis": "Frame 0 of owner-approved laugh performance; latest explicit review approval in conversation.",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f64a193e0996b861417a65e10051029dbd4bde48/assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r02/references/opening.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/front.jpg",
+      "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "accepted",
+      "approval_basis": "Existing signed identity; use for anatomy and painted material, not independent action/layout.",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f64a193e0996b861417a65e10051029dbd4bde48/assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r02/references/front.jpg"
+    }
+  ],
+  "non_pixel_references": [
+    {
+      "path": "references/profile.jpg",
+      "used_as_pixel_reference": false,
+      "purpose": "Turnaround identity, no requested turn; do not import incidental background."
+    },
+    {
+      "path": "references/back.jpg",
+      "used_as_pixel_reference": false,
+      "purpose": "Turnaround identity, no requested turn; do not import incidental background."
+    },
+    {
+      "path": "context/IDENTITY_SIGNATURE_HISTORICAL.txt",
+      "used_as_pixel_reference": false,
+      "purpose": "Identity facts only; old pixel-method restrictions superseded by current Aseprite bible."
+    },
+    {
+      "path": "approved/laugh.mp4",
+      "used_as_pixel_reference": false,
+      "purpose": "Identity, material, acting or separation context."
+    },
+    {
+      "path": "approved/huff.mp4",
+      "used_as_pixel_reference": false,
+      "purpose": "Identity, material, acting or separation context."
+    },
+    {
+      "path": "approved/friendship.mp4",
+      "used_as_pixel_reference": false,
+      "purpose": "Identity, material, acting or separation context."
+    },
+    {
+      "path": "runtime_context/stone_attic_current.png",
+      "used_as_pixel_reference": false,
+      "purpose": "Current room geometry per overnight audit; all seven jobs are isolated cream-field body clips, so room must not appear in generated frames."
+    },
+    {
+      "path": "runtime_context/roshan_base.png",
+      "used_as_pixel_reference": false,
+      "purpose": "Player relationship only; Roshan does not appear in these isolated enemy clips."
+    },
+    {
+      "path": "runtime_context/arena.png",
+      "used_as_pixel_reference": false,
+      "purpose": "Old context is not current room authority; stone attic supersedes conflicting geometry. Do not bind or copy into character footage."
+    },
+    {
+      "path": "runtime_context/hall_runtime_1280.png",
+      "used_as_pixel_reference": false,
+      "purpose": "Old context is not current room authority; stone attic supersedes conflicting geometry. Do not bind or copy into character footage."
+    },
+    {
+      "path": "runtime_context/soap_bubbles.png",
+      "used_as_pixel_reference": false,
+      "purpose": "Separate gameplay/reveal FX; excluded from body cels. Gold counter must not become a crest/halo."
+    },
+    {
+      "path": "runtime_context/counter_star.png",
+      "used_as_pixel_reference": false,
+      "purpose": "Separate gameplay/reveal FX; excluded from body cels. Gold counter must not become a crest/halo."
+    },
+    {
+      "path": "review/FINAL_DECISIONS.json",
+      "used_as_pixel_reference": false,
+      "purpose": "Identity, material, acting or separation context."
+    },
+    {
+      "path": "boards/charge_attack_beats.png",
+      "used_as_pixel_reference": false,
+      "purpose": "Exact source frame coverage or action-phase direction. Earlier drafts are negative examples, not anatomy authority."
+    },
+    {
+      "path": "context/ATTACK_CHOREOGRAPHY.txt",
+      "used_as_pixel_reference": false,
+      "purpose": "Identity, material, acting or separation context."
+    },
+    {
+      "path": "context/ATTACK_CONTRACT.json",
+      "used_as_pixel_reference": false,
+      "purpose": "Identity, material, acting or separation context."
+    },
+    {
+      "path": "runtime_context/dust_puff.png",
+      "used_as_pixel_reference": false,
+      "purpose": "Identity, material, acting or separation context."
+    },
+    {
+      "path": "runtime_context/purple_vortex_v4.png",
+      "used_as_pixel_reference": false,
+      "purpose": "Identity, material, acting or separation context."
+    },
+    {
+      "path": "context/NEW_ATTACK_RETURN.json",
+      "used_as_pixel_reference": false,
+      "purpose": "Exact source frame coverage or action-phase direction. Earlier drafts are negative examples, not anatomy authority."
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "cloud body anticipation and recoil",
+    "coiled ears with delayed follow-through",
+    "two existing floor pearls"
+  ],
+  "must_not_move": [
+    "camera",
+    "background",
+    "lighting"
+  ],
+  "end_state": "Original supported size, complete silhouette visible",
+  "negative_constraints": [
+    "No extra anatomy",
+    "No baked floor warnings or gold cue",
+    "No crop, camera drift or change of scale"
+  ],
+  "prompt_path": "shots/P07_CHARGE_ATTACK/PROMPT.txt",
+  "prompt_sha256": "c88b4b8ed47a7f399ae27a068fa186e556c980272d5ef4436f1ab257fe258694",
+  "repair_brief": "New R03 body study arrived. Review before requesting a replacement. Load -> lean -> driving two-pearl shuffle -> plant/brake -> recoil. No endpoint vortex; two thick bands, intermediate dust crests and broad front belong to separate runtime FX.",
+  "beat_board": "boards/charge_attack_beats.png",
+  "queue_action": "REVIEW_NEW_R03_RETURN_BEFORE_REROLL",
+  "reference_coverage_path": "REFERENCE_COVERAGE.json",
+  "source_review_instruction": "New R03 body study arrived. Review before requesting a replacement. Load -> lean -> driving two-pearl shuffle -> plant/brake -> recoil. No endpoint vortex; two thick bands, intermediate dust crests and broad front belong to separate runtime FX."
+}
