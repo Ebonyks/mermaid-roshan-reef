@@ -77,9 +77,14 @@
   ],
   "validation": [
     {
-      "command": "Imagine readiness, authority, coverage and payload verification",
-      "result": "PENDING",
-      "evidence": "Run before final publication."
+      "command": "python -B tools/audit_imagine_handoff.py assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r01 --require-ready; authority and development gates",
+      "result": "PASS",
+      "evidence": "Seven generation-ready shot cards pass. Authority572/572 and coverage ALL OK; eight Imagine handoff tests pass. R02 adds source-study timing only, no runtime changes."
+    },
+    {
+      "command": "Immutable raw GitHub payload verification",
+      "result": "PASS",
+      "evidence": "f64a193e0996b861417a65e10051029dbd4bde48: all55 files downloaded and SHA256 matched, including both bound images. IMAGINE_HANDOFF.json records verified source publication."
     }
   ],
   "acceptance_gaps": "Generated attack footage and runtime integration/device/child review remain pending. Existing warning choreography retained; no visual quality score awarded."
