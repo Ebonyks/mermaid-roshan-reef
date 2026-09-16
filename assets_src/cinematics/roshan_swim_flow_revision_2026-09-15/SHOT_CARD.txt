@@ -6,6 +6,9 @@ aspect: 16:9
 size: 1280x720
 mode: image-to-video
 output_disposition: gameplay_source_candidate; not cinematic delivery
+facing_policy: EXCHANGE_04.txt; left/right only, no four/eight-way sets
+source_facing: right-facing three-quarter throughout, with full-body articulation
+left_variant: later whole-sprite horizontal mirror; no second generated direction take
 
 IMAGE_1: references/IMAGE_1_locked-front-right.png
 job: existing painted starting image/navy field; identity and framing, not a frozen pose

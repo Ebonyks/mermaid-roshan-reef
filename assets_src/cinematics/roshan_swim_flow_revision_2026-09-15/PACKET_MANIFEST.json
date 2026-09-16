@@ -58,14 +58,25 @@
       "dimensions": null
     },
     {
+      "source_path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_04.txt",
+      "source_url": "project-authored; immutable URL supplied in publication receipt",
+      "role": "owner left/right gameplay direction update; not a generation request",
+      "modification_status": "new instructions or preserved prior exchange; no delivery pixels",
+      "license_provenance": "Project-authored text/evidence; no external license invented.",
+      "path": "EXCHANGE_04.txt",
+      "sha256": "a9cb6b100acaacf6fb67558e65b5f95845c2e97ee8ca6c03d48b9db2b28f1daf",
+      "bytes": 2042,
+      "dimensions": null
+    },
+    {
       "source_path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_CONTRACT.txt",
       "source_url": "project-authored; immutable URL supplied in publication receipt",
       "role": "project-authored handoff or retained historical exchange evidence",
       "modification_status": "new instructions or preserved prior exchange; no delivery pixels",
       "license_provenance": "Project-authored text/evidence; no external license invented.",
       "path": "EXCHANGE_CONTRACT.txt",
-      "sha256": "e4413ec570a202ffbd9c0917ec3085c25007afc139276663e2760a2c3fdc6e9f",
-      "bytes": 4774,
+      "sha256": "e3dd43b67ca672688cbdd80158f13ac965c3e25a62131b9c3aed2413fd705e6f",
+      "bytes": 5371,
       "dimensions": null
     },
     {
@@ -75,8 +86,8 @@
       "modification_status": "new instructions or preserved prior exchange; no delivery pixels",
       "license_provenance": "Project-authored text/evidence; no external license invented.",
       "path": "HANDOFF.txt",
-      "sha256": "1fbeb2f1b057058e56686b1e0b6617825f509c6c5deffcd29f80c696e3712eb6",
-      "bytes": 7106,
+      "sha256": "3e139ba61964e236d8837d9cf6751590520badd7b9f7c19f64c4a0cb23cedfed",
+      "bytes": 7211,
       "dimensions": null
     },
     {
@@ -86,8 +97,8 @@
       "modification_status": "new instructions or preserved prior exchange; no delivery pixels",
       "license_provenance": "Project-authored text/evidence; no external license invented.",
       "path": "PROMPT.txt",
-      "sha256": "4ccaa76656a43592042c45d96a827e3300223aa839a3298f78aef494dc637ba4",
-      "bytes": 2062,
+      "sha256": "01d1daa5561e42b46356c166356b268cffcac69a8ce55cb8d013e25253841af4",
+      "bytes": 2392,
       "dimensions": null
     },
     {
@@ -130,8 +141,8 @@
       "modification_status": "new instructions or preserved prior exchange; no delivery pixels",
       "license_provenance": "Project-authored text/evidence; no external license invented.",
       "path": "REVIEW_TEMPLATE.json",
-      "sha256": "f786383b644d4e933d0986d4d76551bf5955175fbe7d0a2550fe021d336d19bc",
-      "bytes": 612,
+      "sha256": "ce19770c30e53b08ed48a0bc77d48ae08ae2935741801d068972fa8c2ab2afdc",
+      "bytes": 884,
       "dimensions": null
     },
     {
@@ -166,8 +177,8 @@
       "modification_status": "new instructions or preserved prior exchange; no delivery pixels",
       "license_provenance": "Project-authored text/evidence; no external license invented.",
       "path": "SHOT_CARD.txt",
-      "sha256": "072edb9346b32081f831e0012bcd9b3adad19940f16a965d6d7444f4f6dc88bf",
-      "bytes": 1406,
+      "sha256": "749cd0d10c0025f410d3e9ef3027ee7fb17f3f59044dfa4309f1eed6f362736b",
+      "bytes": 1647,
       "dimensions": null
     },
     {
@@ -177,8 +188,8 @@
       "modification_status": "new instructions or preserved prior exchange; no delivery pixels",
       "license_provenance": "Project-authored text/evidence; no external license invented.",
       "path": "START_HERE.txt",
-      "sha256": "1e173022a20422b0f4907aeecf4c77dad28bbca1cc16c550c54556bfc15342bd",
-      "bytes": 3475,
+      "sha256": "8bc013e7cf428ff326d4414e92868b5eb2861ea45d4dfeb1ede91ebbecd12200",
+      "bytes": 3875,
       "dimensions": null
     },
     {
@@ -313,10 +324,20 @@
       "dimensions": null
     }
   ],
-  "payload_sha256": "ecd0d8127b90ae4eb5af54ab6bef46178a3defad2f3d6811a261ad30d8b0ead0",
+  "payload_sha256": "9ea4c85be0b8f35a0f46016ad605cdab4e9649873d2446d13d05e746f822063a",
   "payload_algorithm": "SHA256 UTF-8 sorted path<TAB>sha256<TAB>bytes<LF>; excludes manifest and remote receipt",
   "archive_remote_verified": false,
   "generation_ready": false,
   "delivery_accepted": false,
-  "status_note": "Bootstrap is return-existing, not a generation job. Owner enables timers separately."
+  "status_note": "Bootstrap is return-existing, not a generation job. Owner enables timers separately.",
+  "direction_policy": {
+    "path": "EXCHANGE_04.txt",
+    "sha256": "a9cb6b100acaacf6fb67558e65b5f95845c2e97ee8ca6c03d48b9db2b28f1daf",
+    "source_facing": "right",
+    "display_facings": [
+      "right",
+      "left"
+    ],
+    "left_method": "whole_sprite_horizontal_mirror"
+  }
 }

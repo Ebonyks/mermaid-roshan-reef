@@ -1,0 +1,28 @@
+{
+  "id": "2026-09-16-roshan-left-right",
+  "scope": "Owner core design change: Roshan gameplay animation uses left/right facing only, with one canonical right-facing source family horizontally mirrored for left. Update movement direction, master navigation, audit coverage, Grok handoff and existing monitor; no runtime or art pixels changed. Preserve earlier local experiments and immutable A002 request.",
+  "baseline": "ffee71a35aaaac5a1943aa13a9f2a617d66cf915",
+  "rules": ["DL-AUTH-05", "DL-AUTH-06", "DL-AUTH-07", "DL-MOT-10", "DL-MOT-11", "DL-MOT-12", "DL-MOT-13", "DL-CIN-13", "DL-CIN-14", "DL-CIN-15"],
+  "findings": ["MA-VIS-006"],
+  "files": [
+    "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/animation/README.md",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/START_HERE.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_04.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_CONTRACT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/HANDOFF.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/SHOT_CARD.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/REVIEW_TEMPLATE.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/PACKET_MANIFEST.json"
+  ],
+  "validation": [
+    {"command": "Owner direction and construction review", "result": "PASS", "evidence": "Explicit left/right-only and mirrorable-graphic request supersedes four/eight-heading production. Canonical source keeps anatomical-left streak; whole-sprite left display flip may reverse on-screen asymmetry. Navigation semantics, expressive full-body acting, source-first 4.8 human checkpoint and cinematic rules remain unchanged."},
+    {"command": "python -B tmp/prepare_roshan_left_right.py; python -B tmp/verify_roshan_flow_publication.py --staged; python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; git diff --cached --check", "result": "PASS", "evidence": "26 payload files byte-verified; payload SHA-256 9ea4c85be0b8f35a0f46016ad605cdab4e9649873d2446d13d05e746f822063a. EXCHANGE_04 SHA-256 a9cb6b100acaacf6fb67558e65b5f95845c2e97ee8ca6c03d48b9db2b28f1daf. Reference/video pixels and immutable A002 request unchanged. DOCAUTH and AUDITDEV ALL OK, diff check clean. Only current directional deltas staged in shared dirty documents."},
+    {"command": "Full game CI / runtime validation", "result": "NOT_APPLICABLE", "evidence": "Non-runtime direction/handoff continuation under the owner's packet-only publication exception. Prior full-game import-cache failures remain FAIL; no runtime files or assets changed and no integration authorized."},
+    {"command": "Existing heartbeat update and configuration verification", "result": "PASS", "evidence": "Automation roshan-grok-swim-iteration-eight-hours remains ACTIVE, every 20 minutes until the unchanged 2026-09-16 13:29:01 UTC deadline. App confirms update; saved prompt includes LEFT/RIGHT ONLY, canonical source versus mirrored-display asymmetry, two-facing review and immutable A002. No second timer or deadline extension."}
+  ],
+  "acceptance_gaps": "Design and handoff only. No new video, mirrored sprite, source-motion pass, Aseprite import, runtime implementation, device/child/owner approval or finding closure. Both displayed facings and reflected anchors require future visual/runtime evidence. Grok must receive the updated immutable handoff URL."
+}

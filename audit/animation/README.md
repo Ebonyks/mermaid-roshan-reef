@@ -6,6 +6,20 @@ the [master audit](../MASTER_AUDIT_2026-08-09.md#development-task-index).
 This branch organizes animation work by character, beginning with Roshan.
 It does not create findings, close existing ones, or declare game-wide satisfaction.
 
+<!-- ROSHAN_LEFT_RIGHT_20260916_START -->
+## Current Roshan directional scope
+
+Owner decision 2026-09-16: **left/right gameplay animation only**. Author one
+right-facing family and mirror the complete sprite for left; do not commission
+four-way/eight-way or front/rear animation sets. The
+[movement profile](../../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md#gameplay-facing--leftright-only)
+defines screen-side asymmetry permission, stable pivots, reflected contact
+anchors and two-facing review. Existing art stays preserved. This is a direction
+change, not a new visual pass or a runtime flip implementation.
+[Impact](../../design/audit_impacts/2026-09-16-roshan-left-right.json).
+
+<!-- ROSHAN_LEFT_RIGHT_20260916_END -->
+
 ## Start an animation task here
 
 1. Read the [canonical motion rules](../../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards)

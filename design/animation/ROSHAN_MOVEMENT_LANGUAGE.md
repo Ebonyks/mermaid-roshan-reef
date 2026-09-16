@@ -1,6 +1,6 @@
 # Mermaid Roshan — movement and acting language
 
-Version 1 · owner commission 2026-09-11 · source baseline
+Version 1.1 · owner commission 2026-09-11; left/right decision 2026-09-16 · source baseline
 `cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016`.
 
 Authority: `BINDING_DOMAIN` for the commissioned direction and briefing
@@ -10,6 +10,43 @@ Its numerical targets are pilot starting points, not measured asset facts or
 approved footage. The owner has commissioned this language, not selected an
 unseen pilot. Refine it through the [production protocol](ANIMATION_PRODUCTION_PROTOCOL.md)
 and record evidence in the [animation audit branch](../../audit/animation/README.md).
+
+## Gameplay facing — left/right only
+
+Owner decision 2026-09-16: Roshan gameplay animation has **two display facings,
+left and right**, not four-way or eight-way authored coverage. Produce one
+canonical **right-facing** source family and derive the left display by a
+horizontal mirror of the complete sprite. A readable right-facing three-quarter
+view is valid; do not redesign the approved painting into a strict profile.
+Apply this to idle, start/cruise/stop swimming, dash, and applicable interactions.
+Existing front/rear/turnaround art remains preserved reference, not a requirement
+to commission additional direction sets. Cinematic shot direction is unchanged.
+
+This changes presentation, not navigation: vertical/diagonal travel may retain
+the appropriate left/right facing. Pure vertical travel and rest retain the last
+nonzero horizontal facing; a new actor defaults to right. Future runtime work
+must use a small direction dead zone/hysteresis to avoid flicker near zero.
+Do not rotate toward/away from the viewer to manufacture cardinal directions.
+Keep genuine torso response, sculling arms, tail propulsion, expression and
+buoyant hair; reduced view count is not permission for a rigid translated body.
+
+The canonical source retains the rainbow streak on Roshan's anatomical left.
+The owner-authorized whole-sprite mirror reverses its apparent screen/anatomical
+side in the left-facing gameplay display; that deterministic display reversal
+is allowed and is not source-identity drift. Never randomly migrate the streak
+within a source take or independently regenerate it to match the display flip.
+The exception is for mirrored gameplay presentation, not canonical reference art
+or authored cinematic continuity. Do not mirror a whole scene, UI or lettering.
+
+Mirror about the same actor pivot without changing scale, timing or stroke phase.
+Reflect local hand/tool sockets, grip offsets and orientation consistently
+(`x_local' = -x_local` about that pivot); world targets remain fixed. Review
+attached props separately where readable markings or contact prevent blind
+mirroring. Do not invent a four-direction set to solve a named contact exception.
+A left/right reversal is a discrete presentation flip, not a scale tween through
+zero or a fake yaw. Verify silhouette, pivot stability, loop seam, hand/prop
+contact and rapid reversals in **both** displayed facings before acceptance.
+No runtime flip or mirrored art is implemented or accepted by this document.
 
 ## The character in one sentence
 
@@ -171,7 +208,7 @@ brief after observing existing movement speeds and frame coverage.
 | Idle/listen | Supported neutral pose; attention available | No task progress | Leave immediately for input or a real event |
 | Notice/select | Look and small useful reach toward selected target | Visual selection corresponds to that target | Replace cleanly when target changes |
 | Start/travel | Lean into route; tail phrase supports movement | No remote work during travel | Preserve phase where possible; arrive through navigation |
-| Turn/reverse | Look toward new heading; authored torso/tail transition | Heading and tool side stay coherent | No negative-scale body squeeze or unreviewed mirror swap |
+| Turn/reverse | Look toward the new left/right heading; preserve authored stroke phase across the whole-sprite flip | Reflect hand/tool anchors with the same pivot transform | No scale-through-zero squeeze, unreviewed contact jump or front/rear turn requirement |
 | Arrive | Become ready to work; quiet the travel rhythm | Enter actual approach/contact range | Do not drift out while playing settle |
 | Reach/take | Eyes follow working hand; other hand supports if needed | Attach only at the visible grasp event | If canceled before grasp, object remains in prior state |
 | Carry | Hands support object; stable torso, restrained tail | Prop remains at correct anchor through headings | Teardown reconciles ownership; no orphaned prop |
@@ -234,7 +271,7 @@ of any frame. Inventory accepted frames before requesting additional art.
 
 | Existing source | Useful vocabulary | Review before reuse |
 |---|---|---|
-| [Atlas contract](../../assets/characters/roshan_25d/README.md) and `roshan_directional.png` beside it | Eight documented headings | Turns are not proved by eight static headings |
+| [Atlas contract](../../assets/characters/roshan_25d/README.md) and `roshan_directional.png` beside it | Eight historical headings, preserved reference | New gameplay coverage is left/right only; static headings do not prove motion |
 | `roshan_swim_front.png`, `roshan_swim_back.png` in that family | Sixteen chronological frames per view | Silhouette, phase, source sampling, actual directional fit |
 | `roshan_gesture_a.png` through `roshan_gesture_d.png` | Wave/cheer/clap/twirl; look/giggle/sleep/reach; collect and carry vocabulary | Each verb's meaning, contact and continuity in the target scene |
 | `roshan_play_a.png`, `roshan_play_b.png` | Existing supported playground actions | Correct seat/support and scenario; not generic locomotion |
@@ -254,8 +291,8 @@ source-specific selections; verify every live caller rather than assuming
 one universal playback policy. They are existing constraints, not new repairs
 or a claim that all other career motion has been visually reaccepted here.
 
-Likely **questions to test**, not predeclared asset defects: whether existing
-front/back cycles can express both rhythms; whether heading transitions are
+Likely **questions to test**, not predeclared asset defects: whether a reusable
+right-facing cycle expresses both rhythms and mirrors cleanly; whether reversals are
 readable; whether every required work verb has a credible hand/tool contact;
 whether carry anchors survive turns. Record the exact failed case before any
 new frame commission. Protected book art, family voices and friend portraits
