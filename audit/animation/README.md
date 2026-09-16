@@ -97,3 +97,5 @@ Change/evidence: [2026-09-11 audit impact](../../design/audit_impacts/2026-09-11
   movement language, reusable character template and production protocol;
   integrated canonical motion rules and art/chapter/cinematic navigation.
   No motion study, runtime change, new art or acceptance is claimed.
+
+Grand Puff 2026-09-15: [movement profile](../../design/animation/GRAND_PUFF_MOVEMENT_PROFILE.md) and [impact](../../design/audit_impacts/grand-puff-video-cels-20260915.json) record the explicit video-pixel-to-Aseprite review commission. Three selected performances preserve source acting; no finding closure or runtime acceptance.

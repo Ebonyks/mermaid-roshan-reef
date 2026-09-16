@@ -1,0 +1,35 @@
+GRAND PUFF - EDITABLE VIDEO-DERIVED ASEPRITE CELS
+Owner commission and method exception: 2026-09-15.
+
+Open grand_puff_laugh.aseprite, grand_puff_huff.aseprite or
+ grand_puff_friendship.aseprite in Aseprite. Each contains145 independent
+editable character cels,24fps timing rounded to integer milliseconds,
+a blank pixel-cleanup layer, and a hidden first-frame source reference.
+Character canvas1024x720 is a fixed1:1 crop from1280x720 video (x128..1152).
+No resize, pose interpolation, per-frame fitting or hand-redraw claim.
+All opaque character RGB pixels are preserved from the exact source frame.
+Background isolation uses a recorded chromatic connected silhouette mask;
+light eyes, pearls and crest are preserved by filling enclosed regions.
+
+Watch previews/*_source_vs_aseprite.mp4: LEFT source, RIGHT actual native
+Aseprite re-export on navy. previews/*_contact.png show sampled cels.
+The native .aseprite documents are the editable delivery; the videos are
+comparison previews. Original selected MP4 bytes are kept in sources/.
+
+KNOWN LIMITS
+Laugh briefly clips ear tips in the SOURCE video at the top edge; those
+missing pixels have not been invented. Huff preserves closed-eye effort
+and the initial smile; this is a partial huff, not a complete attack windup.
+Friendship retains source size/floor drift. Edge masks are technical isolation,
+not an anatomy or visual acceptance claim. No4.75/5 self-awarded score.
+
+CEL_MANIFEST.json maps every cel to a source commit/video hash, exact frame,
+time, duration, mask hash and RGBA hash. VERIFICATION.json records native
+Aseprite1.3.18.4 reload/export verification for all435 frames.
+SOURCE_AND_OUTPUTS.json hashes the complete review package.
+
+This uses the explicitly owner-approved Grand Puff exception in AGENTS.md,
+CLAUDE.md, canonical design language and animation production protocol.
+Other characters/cinematics keep their existing method rules.
+No runtime files, protected originals or prior Aseprite build were replaced.
+Future live integration, owner/device/child review remain separate.

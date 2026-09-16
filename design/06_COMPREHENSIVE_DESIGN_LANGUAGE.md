@@ -763,6 +763,8 @@ no additional planning checkpoint; missing evidence blocks only its dependent
 acceptance. Cinematic delivery and review-delivery candidates retain every
 full-frame requirement in section 11. Separately labeled motion/editorial
 references cannot supply delivery pixels or acquire acceptance by relabeling.
+The explicit Grand Puff video-cel exception under `DL-CIN-15` authorizes its
+named Aseprite method without granting visual acceptance.
 
 ---
 
@@ -980,6 +982,16 @@ the complete full-frame cinematic, human, and device gates. No score or status
 implies a later status. Grok/Imagine image-to-video output remains motion or
 editorial reference unless every delivered changed frame independently satisfies
 `DL-CIN-01` through `DL-CIN-12`.
+
+Owner exception 2026-09-15, scoped to Grand Puff under `DL-CIN-15` and
+`DL-MOT-13`: existing commissioned Grok videos may supply extracted, traced,
+redrawn and background-isolated pixels for editable Aseprite character review
+cels. This supersedes the reference-only restriction and incompatible full-frame
+method requirements for these character assets only. Preserve source/frame
+hashes, exact timing, masks/transforms and editable raster cels; distinguish
+pixel transfer from hand drawing. No automatic visual acceptance, runtime
+integration or cinematic scene assembly follows. Other characters and full
+cinematic delivery retain their rules. See the [operational exception](../AGENTS.md#grand-puff-video-cel-exception-owner-decision-2026-09-15).
 
 ---
 

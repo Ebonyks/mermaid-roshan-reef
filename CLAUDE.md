@@ -51,8 +51,11 @@ Current cross-domain rules and audit state:
 `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` and
 `audit/MASTER_AUDIT_2026-08-09.md`.
 
-The complete full-frame cinematic rule in `AGENTS.md` remains binding without
-relaxation; no summary here or elsewhere may narrow it.
+The complete full-frame cinematic rule in `AGENTS.md` remains binding, including
+its explicit 2026-09-15 Grand Puff video-cel exception. The owner authorizes
+video pixel extraction/tracing/redrawing and background isolation into editable
+Aseprite Grand Puff review cels with source/frame hashes and truthful method
+labels. This does not authorize live integration or accept other cinematic work.
 
 External animation handoffs are incomplete unless they include the binding
 self-contained visual-reference packet required by `AGENTS.md`: actual
@@ -70,7 +73,8 @@ action-first timeline, end state, negatives, and `Sound:` line. Generated
 boards and HUD/runtime captures are never bound pixel inputs. Report
 `ARCHIVE_COMPLETE`, `GENERATION_READY`, and `DELIVERY_ACCEPTED` separately;
 Imagine video remains motion reference unless the full-frame rule independently
-accepts every changed delivery frame.
+accepts every changed delivery frame, except for the explicitly scoped Grand Puff
+Aseprite review-cel method above.
 
 ## Layout
 - scenes/main.tscn → scripts/main.gd (8,465 lines at the synchronized

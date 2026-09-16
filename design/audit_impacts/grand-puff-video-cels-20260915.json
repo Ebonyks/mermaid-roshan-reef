@@ -1,0 +1,70 @@
+{
+  "id": "grand-puff-video-cels-20260915",
+  "baseline": "a46c8ae19f8ee8f870fcbc1144c4b2cec4554eb3",
+  "scope": "Explicit owner exception authorizes pixel-for-pixel Grok video extraction/tracing into editable Grand Puff Aseprite review cels, preserving performance and sources. Three selected cycle clips; no runtime integration. Update operational/canonical authority consistently.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-CIN-15",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "AGENTS.md",
+    "ASSET_LICENSES.md",
+    "CLAUDE.md",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/CEL_MANIFEST.json",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/SOURCE_AND_OUTPUTS.json",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/START_HERE.txt",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/VERIFICATION.json",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/grand_puff_friendship.aseprite",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/grand_puff_huff.aseprite",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/grand_puff_laugh.aseprite",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/previews/friendship_contact.png",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/previews/friendship_source_vs_aseprite.mp4",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/previews/huff_contact.png",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/previews/huff_source_vs_aseprite.mp4",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/previews/laugh_contact.png",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/previews/laugh_source_vs_aseprite.mp4",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/sources/friendship.mp4",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/sources/huff.mp4",
+    "assets_src/characters/grand_puff_video_cels_2026-09-15/sources/laugh.mp4",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/animation/README.md",
+    "design/05_DOC_LEDGER.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+    "design/animation/GRAND_PUFF_MOVEMENT_PROFILE.md",
+    "tools/art/build_grand_puff_video_cels.py"
+  ],
+  "validation": [
+    {
+      "command": "python -X utf8 tools/art/build_grand_puff_video_cels.py --phase build; --phase verify",
+      "result": "PASS",
+      "evidence": "assets_src/characters/grand_puff_video_cels_2026-09-15/VERIFICATION.json: Aseprite1.3.18.4 reopened435cels; exact RGBA pixel match, frame counts, layers and millisecond durations. Three source MP4 hashes unchanged."
+    },
+    {
+      "command": "Visual review of native round-trip contact sheets",
+      "result": "PASS",
+      "evidence": "Sampled performance preservation only; source ear clipping, huff closed eyes and friendship drift retained. Owner acceptance pending."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "571/571 documents; impact coverage ALL OK;51tests and6/6stress pass."
+    },
+    {
+      "command": "Exact unchanged runtime baseline full-probe evidence",
+      "result": "PASS",
+      "evidence": "origin/dev a46c8ae19f8ee8f870fcbc1144c4b2cec4554eb3 completed success https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/34981127177. This change alters rules, source assets and offline tooling only. No local full import/probe rerun: sparse checkout required by available disk. Exact work-branch CI is separate and not claimed here."
+    }
+  ],
+  "acceptance_gaps": "Owner visual acceptance and any future runtime/device/child acceptance remain open; no master-audit score awarded."
+}
