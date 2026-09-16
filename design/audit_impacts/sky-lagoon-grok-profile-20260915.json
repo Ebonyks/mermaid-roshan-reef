@@ -61,7 +61,8 @@
     "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/shots/SL-W02/SHOT_PACKET.json",
     "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/SOURCE_PROVENANCE.json",
     "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/START_HERE.txt",
-    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/.gitattributes"
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/.gitattributes",
+    "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/REMOTE_VERIFICATION.json"
   ],
   "validation": [
     {
@@ -93,6 +94,11 @@
       "command": "GODOT=Godot 4.7.2-stable scripts/ci.sh",
       "result": "PASS",
       "evidence": "Local full gate exit 0; 78 probe processes exited 0. Log: tmp/grok-handoff-local-ci-20260915.log; SHA-256 19c33cd9bfd6d4bd5b06ecf6ada9e842ebef28db579c54d02332a93cb7b6ee3d. Existing visual-debt advisory remains UNSATISFIED; no visual/device acceptance inferred."
+    },
+    {
+      "command": "Immutable GitHub HTTPS GET and SHA-256 verification",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_micro_motion_v1_2026-09-15/REMOTE_VERIFICATION.json; all 33 content files verified at caa5b49e7ec6c2bd5286c09eb20c7558cf4cb7a4. ARCHIVE_COMPLETE only; generation and delivery pending."
     }
   ],
   "acceptance_gaps": "External motion-reference planning only. Shot-specific first-frame and image-binding acceptance remains pending. No delivery frames, live game, phone, child or owner visual acceptance claimed."
