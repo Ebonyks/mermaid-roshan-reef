@@ -1,0 +1,91 @@
+{
+  "id": "grand-puff-expansion-20260915",
+  "baseline": "978a79d5127beafdf543a2640d58ddb69e55b909",
+  "scope": "Continue authorized Grand Puff pixel-cel production from remaining existing motion sources. Preserve accepted three-clip benchmark; triage anatomy/prop failures and convert source-backed additional candidates without live integration. Project-wide rule expansion is a nonbinding proposal awaiting explicit approval after automatic review rejection.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-CIN-15",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "audit/animation/README.md",
+    "audit/animation/PROJECT_ASEPRITE_PRODUCTION_QUEUE.json",
+    "design/animation/GRAND_PUFF_MOVEMENT_PROFILE.md",
+    "tools/art/build_grand_puff_additional_cels.py",
+    "tools/art/split_grand_puff_native.py",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/APPROVED_SET_REMOTE_VERIFICATION.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/bounce_CEL_MANIFEST.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/bounce_SPLIT_VERIFICATION.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/bounce_VERIFICATION.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/CEL_MANIFEST.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/flinch_CEL_MANIFEST.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/flinch_SPLIT_VERIFICATION.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/flinch_VERIFICATION.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/giggle_CEL_MANIFEST.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/giggle_SPLIT_VERIFICATION.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/giggle_VERIFICATION.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/grand_puff_bounce_part01.aseprite",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/grand_puff_bounce_part02.aseprite",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/grand_puff_flinch_part01.aseprite",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/grand_puff_flinch_part02.aseprite",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/grand_puff_giggle_part01.aseprite",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/grand_puff_giggle_part02.aseprite",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/grand_puff_idle_part01.aseprite",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/grand_puff_idle_part02.aseprite",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/grand_puff_prowl_part01.aseprite",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/grand_puff_prowl_part02.aseprite",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/idle_CEL_MANIFEST.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/idle_SPLIT_VERIFICATION.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/idle_VERIFICATION.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/prowl_CEL_MANIFEST.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/prowl_SPLIT_VERIFICATION.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/prowl_VERIFICATION.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/SOURCE_AND_OUTPUTS.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/SOURCE_TRIAGE.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/START_HERE.txt",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/VERIFICATION.json",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/previews/bounce_contact.png",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/previews/bounce_source_vs_aseprite.mp4",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/previews/flinch_contact.png",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/previews/flinch_source_vs_aseprite.mp4",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/previews/giggle_contact.png",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/previews/giggle_source_vs_aseprite.mp4",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/previews/idle_contact.png",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/previews/idle_source_vs_aseprite.mp4",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/previews/prowl_contact.png",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/previews/prowl_source_vs_aseprite.mp4",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/sources/bounce.mp4",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/sources/flinch.mp4",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/sources/giggle.mp4",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/sources/idle.mp4",
+    "assets_src/characters/grand_puff_additional_cels_2026-09-15/sources/prowl.mp4"
+  ],
+  "validation": [
+    {
+      "command": "Build/reopen/compare every additional native cel; split and parse all native RGBA cels/durations",
+      "result": "PASS",
+      "evidence": "assets_src/characters/grand_puff_additional_cels_2026-09-15/VERIFICATION.json:725frames,5clips,10native documents; exact pixel/duration matches. Five12-frame native boards visually reviewed; source defects explicitly classified."
+    },
+    {
+      "command": "Original approved-set immutable GitHub byte verification",
+      "result": "PASS",
+      "evidence": "assets_src/characters/grand_puff_additional_cels_2026-09-15/APPROVED_SET_REMOTE_VERIFICATION.json:16files at978a79d5127beafdf543a2640d58ddb69e55b909."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; authority/development unittest suite",
+      "result": "PASS",
+      "evidence": "571/571 authority, coverage ALL OK,51tests and6/6stress pass. Runtime unchanged; exact new-branch CI remains separate, no integration or release claimed."
+    }
+  ],
+  "acceptance_gaps": "Additional clips remain owner-review candidates. Some original motions fail identity and need new source/repair; all-project animation production remains in progress."
+}

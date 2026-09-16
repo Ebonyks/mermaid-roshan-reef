@@ -1,0 +1,1280 @@
+{
+  "schema": "project-aseprite-production-queue-v1",
+  "owner_commission": "2026-09-15 continue all project animations following approved Puff benchmark; publish assets.",
+  "scope_note": "This is a source-backed starting inventory, not a certified exhaustive game roster. Cinematic scope clarification and project-wide method authorization requested; Puff work continues under existing exception.",
+  "database_source": "origin/dev:assets_src/cinematics/grok_builder_2026-09-14/DATABASE.json",
+  "priority": [
+    "Complete authorized source-ready Puff candidates and name rejected-source repairs",
+    "Resolve Roshan hair/tail colours and source-specific alpha, then select true swim performance",
+    "Cover Roshan attention/turn/start/stop/contact/carry and career actions using actual state contracts",
+    "Review supporting-character event actions and existing chronological atlas coverage",
+    "Extend inventory to remaining gameplay actors/effects and commission named source gaps"
+  ],
+  "characters": [
+    {
+      "id": "CHAR-ROSHAN",
+      "name": "Roshan",
+      "identity_invariants": [
+        "Young mermaid child; exact brown/rainbow hair, tiara, pink bodice, one continuous rainbow tail; no legs or adult redesign.",
+        "Curious, brave, affectionate; child scale."
+      ],
+      "reference_ids": [
+        "REF-69827625a8a795f1"
+      ],
+      "documented_event_actions": [
+        {
+          "event_id": "EV-D1-ARRIVE",
+          "name": "Flight, landing and castle approach",
+          "action": "Approach, settle, arrive and reach castle bridge"
+        },
+        {
+          "event_id": "EV-D1-DISCOVER",
+          "name": "Discover dirty castle",
+          "action": "Notice dirty rooms and invitation to help"
+        },
+        {
+          "event_id": "EV-D1-BATH",
+          "name": "Clean bathroom",
+          "action": "Find tools; scrub sink and tub; drain tub; clean toilet"
+        },
+        {
+          "event_id": "EV-D1-SKIM",
+          "name": "Skim pool litter",
+          "action": "Net collects litter with real contact"
+        },
+        {
+          "event_id": "EV-D1-FALL",
+          "name": "Clean waterfall",
+          "action": "Scrub all three lanes; restore flowing colors"
+        },
+        {
+          "event_id": "EV-D1-PULL",
+          "name": "Free seahorse fountain",
+          "action": "Pull plug clear, then stream begins"
+        },
+        {
+          "event_id": "EV-D1-RUMI",
+          "name": "Meet Rumi",
+          "action": "Rumi emerges and greets Roshan"
+        },
+        {
+          "event_id": "EV-D1-EAGLE",
+          "name": "Free Baby Eagle",
+          "action": "Remove two pins; free bird; recovery wingbeat"
+        },
+        {
+          "event_id": "EV-D1-SUPPLIES",
+          "name": "Collect art supplies",
+          "action": "Collect four distinct groups"
+        },
+        {
+          "event_id": "EV-D1-ARTCLEAN",
+          "name": "Clean craft work surfaces",
+          "action": "Scrub all three surfaces, preserve furniture"
+        },
+        {
+          "event_id": "EV-D1-CUSTOMIZE",
+          "name": "Customize at worktable",
+          "action": "Complete authored paint customization"
+        },
+        {
+          "event_id": "EV-D1-DOOR",
+          "name": "Completed-room trails invite onward",
+          "action": "Trails connect to glowing royal doorway"
+        },
+        {
+          "event_id": "EV-D1-PUFF",
+          "name": "Meet and play with Grand Puff",
+          "action": "Preserve friendly authored encounter and vulnerability tells"
+        },
+        {
+          "event_id": "EV-D1-SOAP",
+          "name": "Scrub until bubbles hide big bunny",
+          "action": "All four helpers scrub; wet lather builds until outline disappears"
+        },
+        {
+          "event_id": "EV-D1-JUMP",
+          "name": "Rainbow bunny emerges; casing collapses",
+          "action": "Little concept bunny jumps; old casing simultaneously collapses"
+        },
+        {
+          "event_id": "EV-D1-LAND",
+          "name": "Land and scatter dust",
+          "action": "Land visibly; dust scatters low and thins over several seconds"
+        },
+        {
+          "event_id": "EV-D1-TEAM",
+          "name": "Clean hall together",
+          "action": "Paper pickup, web dusting and wall scrub with visible contact"
+        },
+        {
+          "event_id": "EV-D1-END",
+          "name": "Day Two invitation",
+          "action": "Recall actual clean endpoints; Daddy hug and invitation"
+        },
+        {
+          "event_id": "EV-C2-JOB-FARMER",
+          "name": "farmer prepares exactly five Sky Lagoon strawberries",
+          "action": "gather_strawberries -> fill_basket -> deliver_to_kitchen"
+        },
+        {
+          "event_id": "EV-C2-JOB-CHEF",
+          "name": "chef prepares six-tier rainbow cake",
+          "action": "mix -> stir -> bake -> stack -> frost"
+        },
+        {
+          "event_id": "EV-C2-JOB-CANDYMAKER",
+          "name": "candymaker prepares candied strawberries decorating that same cake",
+          "action": "coat_strawberries -> sort_strawberries -> glaze_strawberries -> place_candied_strawberries"
+        },
+        {
+          "event_id": "EV-C2-JOB-PAINTER",
+          "name": "painter prepares rainbow birthday banner with five star stamps",
+          "action": "paint_banner -> stamp_banner -> hang_banner"
+        },
+        {
+          "event_id": "EV-C2-JOB-BALLERINA",
+          "name": "ballerina prepares doll_cat and doll_bunny learned dance; existing music box",
+          "action": "stuffies_mirror -> stuffies_twirling -> stuffies_bow"
+        },
+        {
+          "event_id": "EV-C2-JOB-POPSTAR",
+          "name": "popstar prepares Rumi and Roshan prepared performance with microphone",
+          "action": "sound_check -> stage_rumi -> rhythm -> encore"
+        },
+        {
+          "event_id": "EV-C2-JOB-ASTRONAUT",
+          "name": "astronaut prepares finished parked candle-lighting rocket",
+          "action": "build_rocket -> patch -> valve -> ready_park"
+        },
+        {
+          "event_id": "EV-C2-JOB-DETECTIVE",
+          "name": "detective prepares unlit rainbow candle",
+          "action": "storybook_lens -> storybook_board -> unlit_rainbow_candle_reveal"
+        },
+        {
+          "event_id": "EV-C2-01",
+          "name": "Friends on the lawn",
+          "action": "friends settle around the completed birthday table wearing their party hats"
+        },
+        {
+          "event_id": "EV-C2-02",
+          "name": "Roshan lights the candle",
+          "action": "Roshan taps the finished rocket; its tiny light reaches the candle wick"
+        },
+        {
+          "event_id": "EV-C2-03",
+          "name": "The royals arrive",
+          "action": "the King strides into the lawn; his son follows one step behind"
+        },
+        {
+          "event_id": "EV-C2-04",
+          "name": "Invitation and demand",
+          "action": "Roshan offers a welcoming hand; the King plants himself between her and the Prince"
+        },
+        {
+          "event_id": "EV-C2-05",
+          "name": "Protection challenge",
+          "action": "the King raises one foot and completes one slow sulky stomp with a warm ground puff"
+        },
+        {
+          "event_id": "EV-C2-PROTECT",
+          "name": "Three playable rounds complete the rainbow shelter",
+          "action": "Round 1: fixed warning, dodge royal stomp, tap exposed crest; first shelter section. Round 2: two separately warned stomps, Prince points to clear lawn, counter grows shelter. Round 3: warned stomp then marked straight sweep, dodge and counter closes shelter."
+        },
+        {
+          "event_id": "EV-C2-06",
+          "name": "Friends are safe",
+          "action": "Roshan turns to her friends under their completed rainbow shelter"
+        },
+        {
+          "event_id": "EV-C2-07",
+          "name": "The King cheats",
+          "action": "the King reaches around the finished shelter and takes the candle from its holder"
+        },
+        {
+          "event_id": "EV-C2-08",
+          "name": "Conflicted departure",
+          "action": "the King leaves carrying the candle; the Prince follows after a sorry glance toward Roshan"
+        },
+        {
+          "event_id": "EV-C2-09",
+          "name": "We will find it together",
+          "action": "Roshan looks at the empty holder, then accepts her friends gathering beside her"
+        }
+      ],
+      "production_status": "ROSHAN_SOURCES_NEED_CORRECTION_AND_MASK_REVIEW"
+    },
+    {
+      "id": "CHAR-DADDY",
+      "name": "Daddy Mermaid",
+      "identity_invariants": [
+        "Clean-shaven slender face, long straight brown hair, pointed ears, thin rectangular black glasses, jeweled crown.",
+        "High-neck long-sleeve navy coat with gold embroidery, teal cape with shell clasps, one rainbow tail and multicolor fluke.",
+        "Patient offered hand and reassuring proximity; never beard, curly hair, generic king or solid blue tail."
+      ],
+      "reference_ids": [
+        "REF-2eda6f76760b8598"
+      ],
+      "documented_event_actions": [
+        {
+          "event_id": "EV-D1-ARRIVE",
+          "name": "Flight, landing and castle approach",
+          "action": "Approach, settle, arrive and reach castle bridge"
+        },
+        {
+          "event_id": "EV-D1-DISCOVER",
+          "name": "Discover dirty castle",
+          "action": "Notice dirty rooms and invitation to help"
+        },
+        {
+          "event_id": "EV-D1-SOAP",
+          "name": "Scrub until bubbles hide big bunny",
+          "action": "All four helpers scrub; wet lather builds until outline disappears"
+        },
+        {
+          "event_id": "EV-D1-JUMP",
+          "name": "Rainbow bunny emerges; casing collapses",
+          "action": "Little concept bunny jumps; old casing simultaneously collapses"
+        },
+        {
+          "event_id": "EV-D1-LAND",
+          "name": "Land and scatter dust",
+          "action": "Land visibly; dust scatters low and thins over several seconds"
+        },
+        {
+          "event_id": "EV-D1-TEAM",
+          "name": "Clean hall together",
+          "action": "Paper pickup, web dusting and wall scrub with visible contact"
+        },
+        {
+          "event_id": "EV-D1-END",
+          "name": "Day Two invitation",
+          "action": "Recall actual clean endpoints; Daddy hug and invitation"
+        },
+        {
+          "event_id": "EV-C2-01",
+          "name": "Friends on the lawn",
+          "action": "friends settle around the completed birthday table wearing their party hats"
+        },
+        {
+          "event_id": "EV-C2-02",
+          "name": "Roshan lights the candle",
+          "action": "Roshan taps the finished rocket; its tiny light reaches the candle wick"
+        },
+        {
+          "event_id": "EV-C2-03",
+          "name": "The royals arrive",
+          "action": "the King strides into the lawn; his son follows one step behind"
+        },
+        {
+          "event_id": "EV-C2-04",
+          "name": "Invitation and demand",
+          "action": "Roshan offers a welcoming hand; the King plants himself between her and the Prince"
+        },
+        {
+          "event_id": "EV-C2-05",
+          "name": "Protection challenge",
+          "action": "the King raises one foot and completes one slow sulky stomp with a warm ground puff"
+        },
+        {
+          "event_id": "EV-C2-PROTECT",
+          "name": "Three playable rounds complete the rainbow shelter",
+          "action": "Round 1: fixed warning, dodge royal stomp, tap exposed crest; first shelter section. Round 2: two separately warned stomps, Prince points to clear lawn, counter grows shelter. Round 3: warned stomp then marked straight sweep, dodge and counter closes shelter."
+        },
+        {
+          "event_id": "EV-C2-06",
+          "name": "Friends are safe",
+          "action": "Roshan turns to her friends under their completed rainbow shelter"
+        },
+        {
+          "event_id": "EV-C2-07",
+          "name": "The King cheats",
+          "action": "the King reaches around the finished shelter and takes the candle from its holder"
+        },
+        {
+          "event_id": "EV-C2-08",
+          "name": "Conflicted departure",
+          "action": "the King leaves carrying the candle; the Prince follows after a sorry glance toward Roshan"
+        },
+        {
+          "event_id": "EV-C2-09",
+          "name": "We will find it together",
+          "action": "Roshan looks at the empty holder, then accepts her friends gathering beside her"
+        }
+      ],
+      "production_status": "SOURCE_ACTION_COVERAGE_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CHAR-RUMI",
+      "name": "Rumi",
+      "identity_invariants": [
+        "Adult mermaid, enormous sculpted violet braid, pointed ears, star-shell earrings, navy/lavender jacket, aqua/violet/pink tail and coral split fin.",
+        "Keep separate arms/torsos/tails during hug."
+      ],
+      "reference_ids": [
+        "REF-636ec38fd0e01d47"
+      ],
+      "documented_event_actions": [
+        {
+          "event_id": "EV-D1-RUMI",
+          "name": "Meet Rumi",
+          "action": "Rumi emerges and greets Roshan"
+        },
+        {
+          "event_id": "EV-D1-SOAP",
+          "name": "Scrub until bubbles hide big bunny",
+          "action": "All four helpers scrub; wet lather builds until outline disappears"
+        },
+        {
+          "event_id": "EV-D1-JUMP",
+          "name": "Rainbow bunny emerges; casing collapses",
+          "action": "Little concept bunny jumps; old casing simultaneously collapses"
+        },
+        {
+          "event_id": "EV-D1-LAND",
+          "name": "Land and scatter dust",
+          "action": "Land visibly; dust scatters low and thins over several seconds"
+        },
+        {
+          "event_id": "EV-D1-TEAM",
+          "name": "Clean hall together",
+          "action": "Paper pickup, web dusting and wall scrub with visible contact"
+        },
+        {
+          "event_id": "EV-C2-JOB-POPSTAR",
+          "name": "popstar prepares Rumi and Roshan prepared performance with microphone",
+          "action": "sound_check -> stage_rumi -> rhythm -> encore"
+        },
+        {
+          "event_id": "EV-C2-01",
+          "name": "Friends on the lawn",
+          "action": "friends settle around the completed birthday table wearing their party hats"
+        },
+        {
+          "event_id": "EV-C2-02",
+          "name": "Roshan lights the candle",
+          "action": "Roshan taps the finished rocket; its tiny light reaches the candle wick"
+        },
+        {
+          "event_id": "EV-C2-03",
+          "name": "The royals arrive",
+          "action": "the King strides into the lawn; his son follows one step behind"
+        },
+        {
+          "event_id": "EV-C2-04",
+          "name": "Invitation and demand",
+          "action": "Roshan offers a welcoming hand; the King plants himself between her and the Prince"
+        },
+        {
+          "event_id": "EV-C2-05",
+          "name": "Protection challenge",
+          "action": "the King raises one foot and completes one slow sulky stomp with a warm ground puff"
+        },
+        {
+          "event_id": "EV-C2-PROTECT",
+          "name": "Three playable rounds complete the rainbow shelter",
+          "action": "Round 1: fixed warning, dodge royal stomp, tap exposed crest; first shelter section. Round 2: two separately warned stomps, Prince points to clear lawn, counter grows shelter. Round 3: warned stomp then marked straight sweep, dodge and counter closes shelter."
+        },
+        {
+          "event_id": "EV-C2-06",
+          "name": "Friends are safe",
+          "action": "Roshan turns to her friends under their completed rainbow shelter"
+        },
+        {
+          "event_id": "EV-C2-07",
+          "name": "The King cheats",
+          "action": "the King reaches around the finished shelter and takes the candle from its holder"
+        },
+        {
+          "event_id": "EV-C2-08",
+          "name": "Conflicted departure",
+          "action": "the King leaves carrying the candle; the Prince follows after a sorry glance toward Roshan"
+        },
+        {
+          "event_id": "EV-C2-09",
+          "name": "We will find it together",
+          "action": "Roshan looks at the empty holder, then accepts her friends gathering beside her"
+        }
+      ],
+      "production_status": "SOURCE_ACTION_COVERAGE_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CHAR-EAGLE",
+      "name": "Baby Eagle",
+      "identity_invariants": [
+        "original book body and neck proportions; no squat mascot redesign",
+        "soft turquoise/mint scalloped feathers with pastel transitions, not saturated armor-like scales",
+        "yellow eye patch, pink three-lobed crest, glossy blue eyes and authored lashes",
+        "lavender beak base and black hooked tip, not an all-black oversized beak",
+        "pink wings with broad black outer tips; exactly two wings",
+        "soft silver-grey legs with broad rounded plush toe silhouettes; no newly sharpened black talons",
+        "backpack is incidental to the original crop and must not be added to these films",
+        "Original book crop partly occluded; unobscured anatomy is not approved. Reject prior pinned/standing redesigns."
+      ],
+      "reference_ids": [
+        "REF-da8ead4677192ef4"
+      ],
+      "documented_event_actions": [
+        {
+          "event_id": "EV-D1-EAGLE",
+          "name": "Free Baby Eagle",
+          "action": "Remove two pins; free bird; recovery wingbeat"
+        },
+        {
+          "event_id": "EV-D1-SOAP",
+          "name": "Scrub until bubbles hide big bunny",
+          "action": "All four helpers scrub; wet lather builds until outline disappears"
+        },
+        {
+          "event_id": "EV-D1-JUMP",
+          "name": "Rainbow bunny emerges; casing collapses",
+          "action": "Little concept bunny jumps; old casing simultaneously collapses"
+        },
+        {
+          "event_id": "EV-D1-LAND",
+          "name": "Land and scatter dust",
+          "action": "Land visibly; dust scatters low and thins over several seconds"
+        },
+        {
+          "event_id": "EV-D1-TEAM",
+          "name": "Clean hall together",
+          "action": "Paper pickup, web dusting and wall scrub with visible contact"
+        },
+        {
+          "event_id": "EV-C2-01",
+          "name": "Friends on the lawn",
+          "action": "friends settle around the completed birthday table wearing their party hats"
+        },
+        {
+          "event_id": "EV-C2-02",
+          "name": "Roshan lights the candle",
+          "action": "Roshan taps the finished rocket; its tiny light reaches the candle wick"
+        },
+        {
+          "event_id": "EV-C2-03",
+          "name": "The royals arrive",
+          "action": "the King strides into the lawn; his son follows one step behind"
+        },
+        {
+          "event_id": "EV-C2-04",
+          "name": "Invitation and demand",
+          "action": "Roshan offers a welcoming hand; the King plants himself between her and the Prince"
+        },
+        {
+          "event_id": "EV-C2-05",
+          "name": "Protection challenge",
+          "action": "the King raises one foot and completes one slow sulky stomp with a warm ground puff"
+        },
+        {
+          "event_id": "EV-C2-PROTECT",
+          "name": "Three playable rounds complete the rainbow shelter",
+          "action": "Round 1: fixed warning, dodge royal stomp, tap exposed crest; first shelter section. Round 2: two separately warned stomps, Prince points to clear lawn, counter grows shelter. Round 3: warned stomp then marked straight sweep, dodge and counter closes shelter."
+        },
+        {
+          "event_id": "EV-C2-06",
+          "name": "Friends are safe",
+          "action": "Roshan turns to her friends under their completed rainbow shelter"
+        },
+        {
+          "event_id": "EV-C2-07",
+          "name": "The King cheats",
+          "action": "the King reaches around the finished shelter and takes the candle from its holder"
+        },
+        {
+          "event_id": "EV-C2-08",
+          "name": "Conflicted departure",
+          "action": "the King leaves carrying the candle; the Prince follows after a sorry glance toward Roshan"
+        },
+        {
+          "event_id": "EV-C2-09",
+          "name": "We will find it together",
+          "action": "Roshan looks at the empty holder, then accepts her friends gathering beside her"
+        }
+      ],
+      "production_status": "SOURCE_ACTION_COVERAGE_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CHAR-PUFF",
+      "name": "Grand Puff",
+      "identity_invariants": [
+        "Big lavender bunny begins intact with his own spiral ears, crest, face and pearl details.",
+        "Only group scrubbing loses his silhouette in bubbles. Casing collapses as the little friend jumps. Friendly, no pain, corpse, shards or explosion."
+      ],
+      "reference_ids": [
+        "REF-e585e525624f4da1"
+      ],
+      "documented_event_actions": [
+        {
+          "event_id": "EV-D1-PUFF",
+          "name": "Meet and play with Grand Puff",
+          "action": "Preserve friendly authored encounter and vulnerability tells"
+        },
+        {
+          "event_id": "EV-D1-SOAP",
+          "name": "Scrub until bubbles hide big bunny",
+          "action": "All four helpers scrub; wet lather builds until outline disappears"
+        },
+        {
+          "event_id": "EV-D1-JUMP",
+          "name": "Rainbow bunny emerges; casing collapses",
+          "action": "Little concept bunny jumps; old casing simultaneously collapses"
+        }
+      ],
+      "production_status": "PUFF_IN_PRODUCTION"
+    },
+    {
+      "id": "CHAR-RAINBOW",
+      "name": "Rainbow Dust Bunny",
+      "identity_invariants": [
+        "two large broad spiral ears, not antenna stalks",
+        "left ear coral/yellow, right ear mint/blue/lavender",
+        "large pink forehead curl with a four-point prismatic sparkle, not an amber jewel",
+        "layered cloud scallops with warm upper face and cool blue/lavender base",
+        "large plum glossy eyes, pink cheeks and tiny curved mouth",
+        "two pearl-like front details and pearl ear-base details; no invented articulated paws",
+        "dark plum authored outline; no wings, legs, teeth, crown or extra bunny",
+        "Completely hidden until jump from scrubbed old casing; no early rainbow ears. Do not merge identity with ordinary dust bunnies."
+      ],
+      "reference_ids": [
+        "REF-e488d7c300eff116"
+      ],
+      "documented_event_actions": [
+        {
+          "event_id": "EV-D1-JUMP",
+          "name": "Rainbow bunny emerges; casing collapses",
+          "action": "Little concept bunny jumps; old casing simultaneously collapses"
+        },
+        {
+          "event_id": "EV-D1-LAND",
+          "name": "Land and scatter dust",
+          "action": "Land visibly; dust scatters low and thins over several seconds"
+        },
+        {
+          "event_id": "EV-D1-TEAM",
+          "name": "Clean hall together",
+          "action": "Paper pickup, web dusting and wall scrub with visible contact"
+        }
+      ],
+      "production_status": "SOURCE_ACTION_COVERAGE_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CHAR-PLAY-BUNNY",
+      "name": "Playroom Dust Bunny",
+      "identity_invariants": [
+        "Ordinary playroom species, distinct from Grand Puff and rainbow friend. Pose sheet is one subject over time, not simultaneous clones."
+      ],
+      "reference_ids": [
+        "REF-677cda8c5de1d3aa"
+      ],
+      "documented_event_actions": [
+        {
+          "event_id": "EV-D1-EAGLE",
+          "name": "Free Baby Eagle",
+          "action": "Remove two pins; free bird; recovery wingbeat"
+        }
+      ],
+      "production_status": "SOURCE_ACTION_COVERAGE_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CHAR-SWIM-BUNNY",
+      "name": "Swimming Dust Bunny",
+      "identity_invariants": [
+        "Approved aquatic bunny; paddle action, no invented legs."
+      ],
+      "reference_ids": [
+        "REF-d788366485da7a19"
+      ],
+      "documented_event_actions": [],
+      "production_status": "SOURCE_ACTION_COVERAGE_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CHAR-KING",
+      "name": "Ember King",
+      "identity_invariants": [
+        "Use owner-selected V4 identity, not V6 fringe/redesign.",
+        "After Roshan succeeds he cheats and steals only the candle. Friends and earned objects remain safe."
+      ],
+      "reference_ids": [
+        "REF-422f7bd45a13f1d3"
+      ],
+      "documented_event_actions": [
+        {
+          "event_id": "EV-C2-03",
+          "name": "The royals arrive",
+          "action": "the King strides into the lawn; his son follows one step behind"
+        },
+        {
+          "event_id": "EV-C2-04",
+          "name": "Invitation and demand",
+          "action": "Roshan offers a welcoming hand; the King plants himself between her and the Prince"
+        },
+        {
+          "event_id": "EV-C2-05",
+          "name": "Protection challenge",
+          "action": "the King raises one foot and completes one slow sulky stomp with a warm ground puff"
+        },
+        {
+          "event_id": "EV-C2-PROTECT",
+          "name": "Three playable rounds complete the rainbow shelter",
+          "action": "Round 1: fixed warning, dodge royal stomp, tap exposed crest; first shelter section. Round 2: two separately warned stomps, Prince points to clear lawn, counter grows shelter. Round 3: warned stomp then marked straight sweep, dodge and counter closes shelter."
+        },
+        {
+          "event_id": "EV-C2-06",
+          "name": "Friends are safe",
+          "action": "Roshan turns to her friends under their completed rainbow shelter"
+        },
+        {
+          "event_id": "EV-C2-07",
+          "name": "The King cheats",
+          "action": "the King reaches around the finished shelter and takes the candle from its holder"
+        },
+        {
+          "event_id": "EV-C2-08",
+          "name": "Conflicted departure",
+          "action": "the King leaves carrying the candle; the Prince follows after a sorry glance toward Roshan"
+        }
+      ],
+      "production_status": "SOURCE_ACTION_COVERAGE_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CHAR-PRINCE",
+      "name": "Ember Prince",
+      "identity_invariants": [
+        "Approved thin Prince; 80% of King height at same ground plane.",
+        "Sincere kindness, conflicted loyalty; only light future-affection hint."
+      ],
+      "reference_ids": [
+        "REF-95d5cf35321c87a1"
+      ],
+      "documented_event_actions": [
+        {
+          "event_id": "EV-C2-03",
+          "name": "The royals arrive",
+          "action": "the King strides into the lawn; his son follows one step behind"
+        },
+        {
+          "event_id": "EV-C2-04",
+          "name": "Invitation and demand",
+          "action": "Roshan offers a welcoming hand; the King plants himself between her and the Prince"
+        },
+        {
+          "event_id": "EV-C2-05",
+          "name": "Protection challenge",
+          "action": "the King raises one foot and completes one slow sulky stomp with a warm ground puff"
+        },
+        {
+          "event_id": "EV-C2-PROTECT",
+          "name": "Three playable rounds complete the rainbow shelter",
+          "action": "Round 1: fixed warning, dodge royal stomp, tap exposed crest; first shelter section. Round 2: two separately warned stomps, Prince points to clear lawn, counter grows shelter. Round 3: warned stomp then marked straight sweep, dodge and counter closes shelter."
+        },
+        {
+          "event_id": "EV-C2-06",
+          "name": "Friends are safe",
+          "action": "Roshan turns to her friends under their completed rainbow shelter"
+        },
+        {
+          "event_id": "EV-C2-07",
+          "name": "The King cheats",
+          "action": "the King reaches around the finished shelter and takes the candle from its holder"
+        },
+        {
+          "event_id": "EV-C2-08",
+          "name": "Conflicted departure",
+          "action": "the King leaves carrying the candle; the Prince follows after a sorry glance toward Roshan"
+        }
+      ],
+      "production_status": "SOURCE_ACTION_COVERAGE_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CHAR-GUEST-FLOWER-FRIEND",
+      "name": "Flower Friend",
+      "identity_invariants": [
+        "Preserve the source portrait/group exactly; no inferred unseen anatomy or extra copies.",
+        "Party guest source; removable hats must not alter protected original. Full-body cinematic identity/scale needs review."
+      ],
+      "reference_ids": [
+        "REF-c13b27ebb9f214f5"
+      ],
+      "documented_event_actions": [],
+      "production_status": "SOURCE_ACTION_COVERAGE_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CHAR-GUEST-HULUU",
+      "name": "Huluu",
+      "identity_invariants": [
+        "Preserve the source portrait/group exactly; no inferred unseen anatomy or extra copies.",
+        "Party guest source; removable hats must not alter protected original. Full-body cinematic identity/scale needs review."
+      ],
+      "reference_ids": [
+        "REF-4b6c0e4d1c4945cc"
+      ],
+      "documented_event_actions": [],
+      "production_status": "SOURCE_ACTION_COVERAGE_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CHAR-GUEST-KAREEM",
+      "name": "Kareem",
+      "identity_invariants": [
+        "Preserve the source portrait/group exactly; no inferred unseen anatomy or extra copies.",
+        "Party guest source; removable hats must not alter protected original. Full-body cinematic identity/scale needs review."
+      ],
+      "reference_ids": [
+        "REF-8e9c64bed039bf3e"
+      ],
+      "documented_event_actions": [],
+      "production_status": "SOURCE_ACTION_COVERAGE_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CHAR-GUEST-MAMA-BABY",
+      "name": "Mama and baby source group",
+      "identity_invariants": [
+        "Preserve the source portrait/group exactly; no inferred unseen anatomy or extra copies.",
+        "Party guest source; removable hats must not alter protected original. Full-body cinematic identity/scale needs review."
+      ],
+      "reference_ids": [
+        "REF-57c479d7a709b1bd"
+      ],
+      "documented_event_actions": [],
+      "production_status": "SOURCE_ACTION_COVERAGE_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CHAR-GUEST-PEARL-FRIEND",
+      "name": "Pearl Friend",
+      "identity_invariants": [
+        "Preserve the source portrait/group exactly; no inferred unseen anatomy or extra copies.",
+        "Party guest source; removable hats must not alter protected original. Full-body cinematic identity/scale needs review."
+      ],
+      "reference_ids": [
+        "REF-165f6448ef0b1ea8"
+      ],
+      "documented_event_actions": [],
+      "production_status": "SOURCE_ACTION_COVERAGE_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CHAR-GUEST-TWO-FRIENDS",
+      "name": "Two Friends source group",
+      "identity_invariants": [
+        "Preserve the source portrait/group exactly; no inferred unseen anatomy or extra copies.",
+        "Party guest source; removable hats must not alter protected original. Full-body cinematic identity/scale needs review."
+      ],
+      "reference_ids": [
+        "REF-85f2cc1bc7247d08"
+      ],
+      "documented_event_actions": [],
+      "production_status": "SOURCE_ACTION_COVERAGE_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CHAR-GUEST-WACKY-CHUCK",
+      "name": "Wacky Chuck",
+      "identity_invariants": [
+        "Preserve the source portrait/group exactly; no inferred unseen anatomy or extra copies.",
+        "Party guest source; removable hats must not alter protected original. Full-body cinematic identity/scale needs review."
+      ],
+      "reference_ids": [
+        "REF-191da94a84ee9b96"
+      ],
+      "documented_event_actions": [],
+      "production_status": "SOURCE_ACTION_COVERAGE_REVIEW_REQUIRED"
+    }
+  ],
+  "roshan_fourway_source": {
+    "commit": "eb6befbe9a287555a1d3e498473a7624992edff6",
+    "manifest_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/RETURN_MANIFEST.4way.json",
+    "clips": [
+      {
+        "id": "RSW-SWIM-FRONT",
+        "sha256": "efc7b8669936569d36739f05d10c849e6cbe23ebae56bb94c77353ebbb60e2b9",
+        "video_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/4way/RSW-SWIM-FRONT.mp4",
+        "reported_issues": [
+          "t2.5 both arms rise away from the body",
+          "t8-t9.5 eases into a camera-facing smile",
+          "Late 3D hair-volume creep",
+          "First frame not pixel-identical to the locked opening",
+          "Native 10.04s, not 8s; AAC stereo"
+        ]
+      },
+      {
+        "id": "RSW-SWIM-RIGHT",
+        "sha256": "685bae4461ebe42e9520e33e4a6556d4ca3286b9d8f5709f7e94b3e0065c6550",
+        "video_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/4way/RSW-SWIM-RIGHT.mp4",
+        "reported_issues": [
+          "Rainbow streak mostly hidden in right profile (anatomical left)",
+          "Late 3D volume creep on the tail",
+          "First frame not pixel-identical to the locked opening",
+          "Native 10.04s; AAC stereo"
+        ]
+      },
+      {
+        "id": "RSW-SWIM-BACK",
+        "sha256": "50795b0fcef726419cf74fb127da696982428de0979e6cc7c7e2d6cbd6b0b2fd",
+        "video_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/4way/RSW-SWIM-BACK.mp4",
+        "reported_issues": [
+          "t8 drifts from pure back toward a back-left three-quarter",
+          "Late hair-volume creep",
+          "First frame not pixel-identical to the locked opening",
+          "Native 10.04s; AAC stereo"
+        ]
+      },
+      {
+        "id": "RSW-SWIM-LEFT",
+        "sha256": "a619712ab5daafefbedaa0033fe6b202ce95f340df02127e24e43a8364b5e94c",
+        "video_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/4way/RSW-SWIM-LEFT.mp4",
+        "reported_issues": [
+          "t8 eases slightly camera-ward out of pure left profile",
+          "Mid-stroke arms travel farther than the reserved brief",
+          "First frame not pixel-identical to the locked opening",
+          "Native 10.04s; AAC stereo"
+        ]
+      }
+    ],
+    "direct_sample_review": "Front and right4.5s decoded images inspected. Navy background contains scene/particle content; existing review records hair/tail corrections. Do not reuse Puff chromatic segmentation. No conversion or fresh source acceptance claimed."
+  },
+  "existing_atlas_and_report_candidates": [
+    "assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+    "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+    "assets/flats/castle/interactions/bubble_bath_bathtub_atlas.png",
+    "assets/flats/castle/interactions/bubble_bath_rubber_duck_atlas.png",
+    "assets/flats/castle/interactions/bubble_bath_sink_atlas.png",
+    "assets/flats/castle/interactions/bubble_bath_toilet_atlas.png",
+    "assets/flats/castle/interactions/craft_room_idea_board_atlas.png",
+    "assets/flats/castle/interactions/craft_room_paint_table_atlas.png",
+    "assets/flats/castle/interactions/craft_room_palette_atlas.png",
+    "assets/flats/castle/interactions/craft_room_ribbon_rack_atlas.png",
+    "assets/flats/castle/interactions/kitchen_fridge_atlas.png",
+    "assets/flats/castle/interactions/kitchen_oven_atlas.png",
+    "assets/flats/castle/interactions/kitchen_pan_1_atlas.png",
+    "assets/flats/castle/interactions/kitchen_pan_2_atlas.png",
+    "assets/flats/castle/interactions/kitchen_pan_3_atlas.png",
+    "assets/flats/castle/interactions/kitchen_pan_4_atlas.png",
+    "assets/flats/castle/interactions/kitchen_sink_atlas.png",
+    "assets/flats/castle/interactions/library_book_stack_atlas.png",
+    "assets/flats/castle/interactions/library_magic_book_atlas.png",
+    "assets/flats/castle/interactions/library_pearl_lamp_atlas.png",
+    "assets/flats/castle/interactions/library_pearl_table_atlas.png",
+    "assets/flats/castle/interactions/main_hall_sconce_atlas.png",
+    "assets/flats/castle/interactions/main_hall_tapestry_atlas.png",
+    "assets/flats/castle/interactions/mermaid_pool_bubble_fountain_atlas.png",
+    "assets/flats/castle/interactions/mermaid_pool_flower_float_atlas.png",
+    "assets/flats/castle/interactions/mermaid_pool_seahorse_fountain_atlas.png",
+    "assets/flats/castle/interactions/mermaid_pool_star_float_atlas.png",
+    "assets/flats/castle/interactions/mermaid_pool_waterfall_atlas.png",
+    "assets/flats/castle/interactions/opera_hall_chandelier_atlas.png",
+    "assets/flats/castle/interactions/opera_hall_curtains_atlas.png",
+    "assets/flats/castle/interactions/opera_hall_footlights_atlas.png",
+    "assets/flats/castle/interactions/opera_hall_stage_star_atlas.png",
+    "assets/flats/castle/interactions/playroom_blocks_atlas.png",
+    "assets/flats/castle/interactions/playroom_play_tent_atlas.png",
+    "assets/flats/castle/interactions/playroom_stacking_toy_atlas.png",
+    "assets/flats/castle/interactions/playroom_stuffie_nook_atlas.png",
+    "assets/flats/castle/interactions_v2/bubble_bath_bathtub_sheet.png",
+    "assets/flats/castle/interactions_v2/bubble_bath_rubber_duck_sheet.png",
+    "assets/flats/castle/interactions_v2/bubble_bath_sink_sheet.png",
+    "assets/flats/castle/interactions_v2/bubble_bath_toilet_sheet.png",
+    "assets/flats/castle/interactions_v2/craft_room_idea_board_sheet.png",
+    "assets/flats/castle/interactions_v2/craft_room_paint_table_sheet.png",
+    "assets/flats/castle/interactions_v2/craft_room_palette_sheet.png",
+    "assets/flats/castle/interactions_v2/craft_room_ribbon_rack_sheet.png",
+    "assets/flats/castle/interactions_v2/kitchen_fridge_sheet.png",
+    "assets/flats/castle/interactions_v2/kitchen_oven_sheet.png",
+    "assets/flats/castle/interactions_v2/kitchen_pan_1_sheet.png",
+    "assets/flats/castle/interactions_v2/kitchen_pan_2_sheet.png",
+    "assets/flats/castle/interactions_v2/kitchen_pan_3_sheet.png",
+    "assets/flats/castle/interactions_v2/kitchen_pan_4_sheet.png",
+    "assets/flats/castle/interactions_v2/kitchen_sink_sheet.png",
+    "assets/flats/castle/interactions_v2/library_book_stack_sheet.png",
+    "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
+    "assets/flats/castle/interactions_v2/library_pearl_lamp_sheet.png",
+    "assets/flats/castle/interactions_v2/library_pearl_table_sheet.png",
+    "assets/flats/castle/interactions_v2/main_hall_sconce_sheet.png",
+    "assets/flats/castle/interactions_v2/main_hall_tapestry_sheet.png",
+    "assets/flats/castle/interactions_v2/mermaid_pool_bubble_fountain_sheet.png",
+    "assets/flats/castle/interactions_v2/mermaid_pool_flower_float_sheet.png",
+    "assets/flats/castle/interactions_v2/mermaid_pool_star_float_sheet.png",
+    "assets/flats/castle/interactions_v2/mermaid_pool_waterfall_sheet.png",
+    "assets/flats/castle/interactions_v2/opera_hall_chandelier_sheet.png",
+    "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+    "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+    "assets/flats/castle/interactions_v2/opera_hall_stage_star_sheet.png",
+    "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
+    "assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png",
+    "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+    "assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png",
+    "assets/flats/castle/interactions_v4/sheets/bubble_bath_vanity_mirror_sheet.png",
+    "assets/flats/castle/interactions_v4/sheets/craft_room_supply_cupboard_left_sheet.png",
+    "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+    "assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png",
+    "assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png",
+    "assets/flats/castle/interactions_v4/sheets/mermaid_pool_flower_float_sheet.png",
+    "assets/flats/castle/interactions_v4/sheets/mermaid_pool_seahorse_fountain_sheet.png",
+    "assets/flats/castle/interactions_v4/sheets/mermaid_pool_star_float_sheet.png",
+    "assets/flats/castle/interactions_v4/sheets/mermaid_pool_waterfall_sheet.png",
+    "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png",
+    "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png",
+    "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+    "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+    "assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png",
+    "assets/opera/worlds/actors/animation/roshan_boxer_sheet_a.png",
+    "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+    "assets/opera/worlds/actors/animation/roshan_chef_sheet_a.png",
+    "assets/opera/worlds/actors/animation/roshan_detective_sheet_a.png",
+    "assets/opera/worlds/actors/animation/roshan_doctor_sheet_a.png",
+    "assets/opera/worlds/actors/animation/roshan_farmer_sheet_a.png",
+    "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+    "assets/opera/worlds/actors/animation/roshan_magician_sheet_a.png",
+    "assets/opera/worlds/actors/animation/roshan_nursery_sheet_a.png",
+    "assets/opera/worlds/actors/animation/roshan_painter_sheet_a.png",
+    "assets/opera/worlds/actors/animation/roshan_popstar_sheet_a.png",
+    "assets/opera/worlds/actors/animation/roshan_racer_sheet_a.png",
+    "assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png",
+    "assets/sprites/fx_water/fx_water_bubble_burst_atlas.png",
+    "assets/sprites/fx_water/fx_water_ripple_ring_atlas.png",
+    "assets/sprites/fx_water/fx_water_splash_breach_atlas.png",
+    "assets/sprites/fx_water/fx_water_splash_medium_atlas.png",
+    "assets/sprites/fx_water/fx_water_splash_small_atlas.png",
+    "assets/sprites/sky_lagoon/animals/frog_idle_atlas.png",
+    "assets/sprites/sky_lagoon/animals/frog_startle_atlas.png",
+    "assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+    "assets/sprites/sky_lagoon/animals/hare_startle_atlas.png",
+    "assets/sprites/sky_lagoon/animals/otter_idle_atlas.png",
+    "assets/sprites/sky_lagoon/animals/otter_startle_atlas.png",
+    "assets/sprites/sky_lagoon/animals/raccoon_idle_atlas.png",
+    "assets/sprites/sky_lagoon/animals/raccoon_startle_atlas.png",
+    "assets/sprites/sky_lagoon/animals/squirrel_idle_atlas.png",
+    "assets/sprites/sky_lagoon/animals/squirrel_startle_atlas.png",
+    "assets_src/imagegen/boot_splash_2026-08-01/references/supporting_cast_identity_sheet.png",
+    "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_alpha.png",
+    "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_chroma.png",
+    "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+    "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/dry_rooms/library_book_stack_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/dry_rooms/library_magic_book_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/dry_rooms/library_pearl_lamp_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/dry_rooms/library_pearl_table_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/dry_rooms/main_hall_sconce_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/dry_rooms/main_hall_tapestry_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_chandelier_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_curtains_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_footlights_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_stage_star_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/kitchen_fridge_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_1_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_2_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_3_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_4_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/craft_room_idea_board_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/craft_room_paint_table_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/craft_room_palette_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/craft_room_ribbon_rack_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/mermaid_pool_flower_float_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/mermaid_pool_star_float_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/playroom_blocks_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/playroom_play_tent_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/playroom_stacking_toy_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/playroom_stuffie_nook_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/wet_rooms/bubble_bath_bathtub_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/wet_rooms/bubble_bath_rubber_duck_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/wet_rooms/bubble_bath_sink_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/wet_rooms/bubble_bath_toilet_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/wet_rooms/kitchen_oven_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/wet_rooms/kitchen_sink_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/wet_rooms/mermaid_pool_bubble_fountain_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v2/wet_rooms/mermaid_pool_waterfall_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v4/bubble_bath/rejected/rejected_source_ownership_bubble_bath_toilet_roll_sheet_alpha.png",
+    "assets_src/imagegen/castle_object_animations_v4/bubble_bath/rejected/rejected_source_ownership_bubble_bath_toilet_roll_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v4/craft_room/craft_room_supply_cupboard_left_sheet_alpha.png",
+    "assets_src/imagegen/castle_object_animations_v4/craft_room/craft_room_supply_cupboard_left_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v4/craft_room/rejected/craft_room_ribbon_rack_right_sheet_alpha.png",
+    "assets_src/imagegen/castle_object_animations_v4/craft_room/rejected/craft_room_ribbon_rack_right_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v4/kitchen/kitchen_fridge_sheet_checkerboard.png",
+    "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/attempt2_kitchen_tea_service_sheet_alpha.png",
+    "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/attempt2_kitchen_tea_service_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_lid_sheet_alpha.png",
+    "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_lid_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_sheet_alpha.png",
+    "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_flower_float_sheet_alpha.png",
+    "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_flower_float_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_seahorse_fountain_sheet_alpha.png",
+    "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_seahorse_fountain_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_star_float_sheet_alpha.png",
+    "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_star_float_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/attempt1_magenta_sheet_alpha_failed.png",
+    "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/attempt1_magenta_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/rejected_design_drift_mermaid_pool_waterfall_sheet_alpha.png",
+    "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/rejected_design_drift_mermaid_pool_waterfall_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v4/playroom/playroom_shelf_sailboat_sheet_alpha.png",
+    "assets_src/imagegen/castle_object_animations_v4/playroom/playroom_shelf_sailboat_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v4/playroom/playroom_tent_flaps_right_sheet_alpha.png",
+    "assets_src/imagegen/castle_object_animations_v4/playroom/playroom_tent_flaps_right_sheet_chroma.png",
+    "assets_src/imagegen/castle_object_animations_v4/playroom/rejected/full_arch_playroom_play_tent_right_sheet_alpha.png",
+    "assets_src/imagegen/castle_object_animations_v4/playroom/rejected/full_arch_playroom_play_tent_right_sheet_chroma.png",
+    "assets_src/imagegen/day_one_pool_activities_2026-08-23/floating_trash_atlas_native.png",
+    "assets_src/imagegen/geologist_roshan_2026-08-30/raw/geologist_roshan_sheet_raw.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_bopped_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_bopped_sheet_d_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_bow_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_charge_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_flee_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_flee_sheet_d_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_guard_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_hop_a_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_recover_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_sheet_a_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_sheet_a_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_sheet_b_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_sheet_b_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_sheet_d_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_sheet_d_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_slash_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_stagger_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_stagger_sheet_d_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_taunt_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_astronaut_windup_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_bopped_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_bow_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_charge_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_flee_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_guard_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_hop_a_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_recover_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_sheet_a_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_sheet_a_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_sheet_b_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_sheet_b_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_slash_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_stagger_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_taunt_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_ballerina_windup_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_bopped_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_bow_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_charge_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_flee_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_guard_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_hop_a_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_recover_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_sheet_a_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_sheet_a_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_sheet_b_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_sheet_b_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_slash_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_stagger_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_taunt_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_boxer_windup_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_bopped_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_bow_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_charge_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_flee_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_guard_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_hop_a_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_recover_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_sheet_a_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_sheet_a_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_sheet_b_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_sheet_b_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_slash_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_stagger_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_taunt_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_candymaker_windup_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_bopped_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_bow_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_charge_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_flee_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_guard_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_hop_a_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_recover_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_sheet_a_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_sheet_a_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_sheet_b_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_sheet_b_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_slash_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_stagger_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_taunt_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_chef_windup_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_bopped_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_bow_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_charge_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_flee_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_guard_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_hop_a_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_recover_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_sheet_a_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_sheet_a_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_sheet_b_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_sheet_b_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_slash_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_stagger_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_taunt_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_detective_windup_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_bopped_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_bow_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_charge_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_flee_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_guard_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_hop_a_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_recover_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_sheet_a_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_sheet_a_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_sheet_b_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_sheet_b_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_slash_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_stagger_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_taunt_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_doctor_windup_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_bopped_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_bow_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_charge_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_flee_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_guard_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_hop_a_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_recover_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_sheet_a_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_sheet_a_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_sheet_b_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_sheet_b_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_slash_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_stagger_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_taunt_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_farmer_windup_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_bopped_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_bow_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_charge_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_flee_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_guard_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_hop_a_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_recover_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_sheet_a_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_sheet_a_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_sheet_b_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_sheet_b_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_slash_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_stagger_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_taunt_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_magician_windup_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_bopped_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_bopped_sheet_c_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_bow_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_bow_sheet_c_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_charge_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_flee_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_guard_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_hop_a_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_recover_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_sheet_a_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_sheet_a_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_sheet_b_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_sheet_b_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_sheet_c_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_sheet_c_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_slash_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_stagger_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_stagger_sheet_c_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_taunt_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_painter_windup_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_bopped_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_bow_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_charge_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_flee_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_guard_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_hop_a_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_recover_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_sheet_a_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_sheet_a_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_sheet_b_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_sheet_b_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_slash_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_stagger_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_taunt_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_popstar_windup_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_bopped_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_bow_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_charge_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_flee_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_guard_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_hop_a_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_recover_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_sheet_a_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_sheet_a_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_sheet_b_attempt01_alpha_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_sheet_b_attempt01_chroma_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_slash_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_stagger_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_taunt_sheet_b_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/imp_animation_states_2026-08-02/candidates/rival_racer_windup_sheet_a_attempt01_alpha_crop_native.png",
+    "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_alpha_native.png",
+    "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_astronaut_sheet_a_alpha_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_astronaut_sheet_a_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_astronaut_sheet_a_pack_report.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_ballerina_sheet_a_alpha_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_ballerina_sheet_a_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_ballerina_sheet_a_pack_report.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_boxer_sheet_a_alpha_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_boxer_sheet_a_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_boxer_sheet_a_pack_report.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_candymaker_sheet_a_alpha_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_candymaker_sheet_a_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_candymaker_sheet_a_pack_report.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_chef_sheet_a_alpha_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_chef_sheet_a_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_chef_sheet_a_pack_report.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_detective_sheet_a_alpha_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_detective_sheet_a_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_detective_sheet_a_pack_report.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_doctor_sheet_a_alpha_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_doctor_sheet_a_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_doctor_sheet_a_pack_report.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_farmer_sheet_a_alpha_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_farmer_sheet_a_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_farmer_sheet_a_pack_report.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_magician_sheet_a_alpha_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_magician_sheet_a_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_magician_sheet_a_pack_report.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_nursery_sheet_a_alpha_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_nursery_sheet_a_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_nursery_sheet_a_pack_report.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_painter_sheet_a_alpha_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_painter_sheet_a_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_painter_sheet_a_pack_report.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_popstar_sheet_a_alpha_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_popstar_sheet_a_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_popstar_sheet_a_pack_report.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_racer_sheet_a_alpha_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_racer_sheet_a_native.png",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_racer_sheet_a_pack_report.json",
+    "assets_src/imagegen/seek_animated_2026-08-09/evie_atlas_chroma.png",
+    "assets_src/imagegen/seek_animated_2026-08-09/lamma_atlas_chroma.png",
+    "assets_src/imagegen/teacher_roshan_2026-09-03/raw/teacher_roshan_sheet_raw.png",
+    "assets_src/imagegen/teacher_roshan_2026-09-03/rejected/teacher_roshan_sheet_attempt_1_missing_fins.png",
+    "assets_src/imagegen/teacher_roshan_2026-09-03/teacher_roshan_sheet_alpha_native.png",
+    "assets_src/imagegen/teacher_roshan_2026-09-03/teacher_roshan_sheet_pack_report.json"
+  ],
+  "existing_assets_scope": "Filename inventory only; inspect chronology/callers before reuse or replacement. Do not regenerate approved art simply to make new files.",
+  "missing_motion_generation": "No callable Grok/video-generation tool available in this session. New source gaps need prepared source-specific handoffs or supplied corrected footage; do not fabricate frames.",
+  "runtime_changes": false,
+  "all_project_animations_complete": false
+}

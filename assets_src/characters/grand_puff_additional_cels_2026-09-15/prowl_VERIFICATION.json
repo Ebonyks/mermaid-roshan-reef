@@ -1,0 +1,18 @@
+{
+  "schema": "grand-puff-video-cels-verification-v1",
+  "aseprite_version": "Aseprite 1.3.18.4-x64",
+  "results": [
+    {
+      "clip": "prowl",
+      "native_sha256": "154ea25e5128011e8b9bb0d46118db24f67384d3179c1452707067cbe6cd4acd",
+      "frames_verified": 145,
+      "rgba_roundtrip": "exact byte match for every pixel of every cel",
+      "timing": "integer ms within0.5ms cumulative of source24fps",
+      "source_preserved": true,
+      "visual_acceptance": "pending owner; source defects retained"
+    }
+  ],
+  "runtime_changes": false,
+  "production_accepted": false,
+  "verification_stage": "Unsplit native roundtrip, followed by all-pixel verification of sequential split native documents."
+}

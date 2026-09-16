@@ -99,3 +99,10 @@ Change/evidence: [2026-09-11 audit impact](../../design/audit_impacts/2026-09-11
   No motion study, runtime change, new art or acceptance is claimed.
 
 Grand Puff 2026-09-15: [movement profile](../../design/animation/GRAND_PUFF_MOVEMENT_PROFILE.md) and [impact](../../design/audit_impacts/grand-puff-video-cels-20260915.json) record the explicit video-pixel-to-Aseprite review commission. Three selected performances preserve source acting; no finding closure or runtime acceptance.
+
+Owner commission2026-09-15 continues project animation production from the
+approved Puff benchmark. [Production source queue](PROJECT_ASEPRITE_PRODUCTION_QUEUE.json)
+records current character/event sources, Roshan source gaps and existing atlas
+candidates. It is a starting inventory, not a claim of exhaustive completion.
+Project-wide rule expansion awaits explicit approval after automatic review;
+Puff production continues under its existing exception.
