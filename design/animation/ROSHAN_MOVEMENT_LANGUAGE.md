@@ -1,6 +1,6 @@
 # Mermaid Roshan — movement and acting language
 
-Version 1.1 · owner commission 2026-09-11; left/right decision 2026-09-16 · source baseline
+Version 1.2 · owner commission 2026-09-11; left/right and two-speed/source-frame decisions 2026-09-16 · source baseline
 `cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016`.
 
 Authority: `BINDING_DOMAIN` for the commissioned direction and briefing
@@ -47,6 +47,48 @@ A left/right reversal is a discrete presentation flip, not a scale tween through
 zero or a fake yaw. Verify silhouette, pivot stability, loop seam, hand/prop
 contact and rapid reversals in **both** displayed facings before acceptance.
 No runtime flip or mirrored art is implemented or accepted by this document.
+
+## Two swim speeds and performance-led openings
+
+Owner clarification 2026-09-16 commissions **two distinct performances**:
+slow, relaxed swimming and a dash. Both retain the right-facing source /
+mirrored-left display contract above. A dash is newly performed stronger
+propulsion, compact preparation, coordinated arm recovery and readable
+deceleration, not the slow clip played faster. Relaxed travel uses softer
+effort, longer glides and available attention. Fast need not mean panicked.
+Compare both at native normal speed before accepting their distinction.
+
+For this Grok gameplay-source workflow, select a suitable **actual native
+frame from existing Grok footage** as the next generation's starting image.
+Keep approved artwork as identity/style authority, not a mandatory opening or
+resting pose. Grok may choose the frame without another owner opening-approval
+step, but must screen face/crown/costume, anatomy, hair attachment, tail/fin,
+right-facing readability and full-body margins and record the source video
+hash, native frame index/timestamp and extracted PNG hash. A sound frame from
+a motion-rejected take may seed a revision; that does not pass the old video.
+This lossless frame capture is generation-input preparation, not Aseprite
+conversion of failed footage. No new still, composite or deformation seed.
+
+This clarification supersedes earlier fixed-opening instructions for this
+pilot, including reuse of a particular locked-front-right still. Preserve
+identity, broad framing and camera stability, not pixel equality to that
+painting. Give expressive poses room to change. Take start/loop/finish cuts
+from observed motion; prompt timestamps are choreography guides, not mandatory
+edit indices. Loop joins must match pose, motion direction and speed, including
+arms, hair and fin, rather than merely similar endpoint images.
+
+Any small bridge between these performances and the current resting character
+is **deferred separate work if needed**. Do not constrain either performance
+to the resting sprite's exact pose or add a rest-match rejection gate.
+This is not permission to hide defects with morphing, warping, crossfades or
+static inserts. The bridge method and slow/dash transition implementation need
+their own scoped design and review; neither is implemented here. A mismatch
+to the old resting pose alone does not fail a good core performance.
+
+Use the [two-speed handoff](../../assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/START_HERE.txt).
+Every new source still requires independent source review; failures go back
+to Grok, never Aseprite. At 4.8/5 with no blocking defect, stop for human review.
+This direction change accepts no clip, runtime behavior or cinematic delivery.
 
 ## The character in one sentence
 

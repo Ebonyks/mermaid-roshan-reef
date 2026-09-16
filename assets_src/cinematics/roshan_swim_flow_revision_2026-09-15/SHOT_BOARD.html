@@ -1,1 +1,61 @@
-<!doctype html><meta charset="utf-8"><title>Roshan swim source handoff</title><style>body{background:#151e34;color:white;font:18px system-ui;max-width:1280px;margin:24px auto}img{max-width:100%}video{width:100%}a{color:#badeff}</style><h1>Roshan swimming: source-review loop</h1><p>Baseline owner score 4.25/5. These images diagnose existing motion; they are not proposed generated poses.</p><img src="SHOT_BOARD.png"><h2>Original baseline</h2><video controls loop src="baseline/RSW-01_take-03.mp4"></video><p><a href="START_HERE.txt">Start here</a> · <a href="PROMPT.txt">Future revision prompt</a> · <a href="EXCHANGE_CONTRACT.txt">Exchange contract</a></p>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roshan — relaxed swim and dash reference board</title>
+<style>
+body{margin:0;background:#142235;color:#edf4fc;font:17px/1.5 system-ui,sans-serif}
+main{max-width:1160px;margin:auto;padding:24px}
+a{color:#bfe1ff}h1,h2,h3{line-height:1.2}section{margin:32px 0}
+.references,.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px}
+figure{margin:0}img,video{display:block;width:100%;height:auto;background:#102332}
+figcaption{margin-top:8px;color:#d1deec}article{border-top:2px solid #54718d;padding-top:16px}
+li{margin:12px 0}.note{border-left:4px solid #e7bc7d;padding-left:16px}
+code{overflow-wrap:anywhere}nav{display:flex;flex-wrap:wrap;gap:16px}
+</style>
+</head>
+<body><main>
+<h1>Roshan: relaxed swim + dash</h1>
+<p>Two distinct source performances. These are existing reference pictures and new acting briefs—not completed animations, accepted poses, or locked opening frames.</p>
+<nav><a href="START_HERE.txt">Grok start here</a><a href="EXCHANGE_06.txt">Owner direction</a><a href="PACKET_MANIFEST.json">Provenance manifest</a></nav>
+<p class="note">Choose a suitable actual Grok frame for each generation. Preserve identity, not the old opening pose. Any bridge to the existing resting sprite is separate future work if needed.</p>
+<section aria-labelledby="references"><h2 id="references">Actual visual inputs available in this packet</h2>
+<div class="references">
+<figure><img src="references/IMAGE_2_approved-front.png" alt="Approved painted Roshan identity reference"><figcaption>Identity/style authority: face, crown, costume and materials. Not an opening or endpoint pose requirement.</figcaption></figure>
+<figure><img src="baseline/frame-0084.png" alt="Native frame 84 from the existing Grok baseline"><figcaption>Actual Grok source frame 84, 3.5s at 24fps. Optional input candidate after individual screening; source motion remains owner-rated 4.25, not accepted.</figcaption></figure>
+<figure><img src="baseline/frame-0120.png" alt="Native frame 120 from the existing Grok baseline"><figcaption>Actual source frame 120, 5s. Another pose option, not a prescribed slow or dash keyframe. Newer published footage may offer better choices.</figcaption></figure>
+</div></section>
+<section aria-labelledby="shots"><h2 id="shots">One continuous video per performance</h2>
+<div class="shots">
+<article><h3>RSW-SLOW-01 — relaxed swim</h3>
+<p>Warm curiosity. Soft propulsion, generous glides, responsive shoulders and relaxed asymmetric arm recovery.</p>
+<ol>
+<li><strong>Entry, about 0–1s:</strong> eyes notice right; a small smile and gentle chest/elbow gathering flow from the selected native pose.</li>
+<li><strong>Cycle one, about 1–4s:</strong> tail stroke → connected body response and small bent-elbow scull → long easy glide.</li>
+<li><strong>Cycle two, about 4–7s:</strong> genuinely perform the recurring cycle again. Hair and broad fin follow with coherent delayed movement.</li>
+<li><strong>Exit, about 7–10s:</strong> reduce effort, blink and naturally settle. No compulsory match to the old resting painting.</li>
+</ol>
+<p><a href="reshoots/attempts/RSW-SLOW-01/A001/SHOT_CARD.txt">Input/shot card</a> · <a href="reshoots/attempts/RSW-SLOW-01/A001/PROMPT.txt">Paste-ready prompt</a></p>
+</article>
+<article><h3>RSW-DASH-01 — dash</h3>
+<p>Purposeful bright energy. Stronger launch, quicker compact recoveries and a clear controlled deceleration—not retimed relaxed footage.</p>
+<ol>
+<li><strong>Gather, about 0–0.8s:</strong> committed gaze, eager composed expression and compact chest/elbow/tail preparation.</li>
+<li><strong>Launch, about 0.8–1.5s:</strong> stronger connected tail propulsion; bent arms sweep and recover without Superman stiffness.</li>
+<li><strong>Fast recurring action, about 1.5–7s:</strong> at least two actual fast cycles; short stronger pulses, compact recoveries, readable glides and full-body response.</li>
+<li><strong>Exit, about 7–10s:</strong> lengthen the glide and ease down; hands, curls and fin settle after the body. End in the performance's natural pose.</li>
+</ol>
+<p><a href="reshoots/attempts/RSW-DASH-01/A001/SHOT_CARD.txt">Input/shot card</a> · <a href="reshoots/attempts/RSW-DASH-01/A001/PROMPT.txt">Paste-ready prompt</a></p>
+</article>
+</div>
+<p>These times are acting guides, not mandatory cut points. Choose real entry/cruise/exit windows after watching the returns. Match loop pose and velocity, including arms, hair and fin. Compare both modes at native 1x.</p>
+</section>
+<section><h2>Original source pool — not the requested new animations</h2>
+<video controls preload="metadata" aria-label="Existing owner-rated 4.25 Grok baseline"><source src="baseline/RSW-01_take-03.mp4" type="video/mp4"></video>
+<p>Native source video and optional frames <a href="baseline/frame-0084.png">84</a>, <a href="baseline/frame-0102.png">102</a>, <a href="baseline/frame-0120.png">120</a>, <a href="baseline/frame-0138.png">138</a>, <a href="baseline/frame-0154.png">154</a>. Input screening is not source-motion acceptance. Never bind this board or a screenshot of the player as IMAGE_1.</p>
+</section>
+<section><h2>Review boundaries</h2>
+<p>Keep right-facing source presentation, stable scale, complete crown/hands/fin and painted identity. Reject rigid bodies, pinned fingertips, hair distortion and fin hinge/pinch/inversion. A left display mirror comes later; no front/back set.</p>
+<p>Failed source → written Grok revision, never Aseprite. Each mode needs two independent reviews, lower unrounded mean at least 4.8 and no blocking defects, then human review. No exact old-rest-pose match is required. This board claims neither generated footage nor runtime/cinematic acceptance.</p>
+</section>
+</main></body></html>

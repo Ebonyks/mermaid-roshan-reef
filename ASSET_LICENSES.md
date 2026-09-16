@@ -4601,3 +4601,20 @@ All following paths are under `assets_src/cinematics/roshan_swim_flow_revision_2
 | `baseline/frame-0138.png` | Same baseline video, native frame 138 | Lossless FFmpeg PNG decode; no character repair |
 | `baseline/frame-0154.png` | Same baseline video, native frame 154 | Lossless FFmpeg PNG decode; no character repair |
 | `SHOT_BOARD.png` | Above source frames and project-authored annotations | Uniformly reduced complete frames and proposed-beat labels; diagnosis only, never generator-bound or delivery pixels |
+
+<!-- ROSHAN_TWO_SPEED_SOURCE_20260916_START -->
+### Roshan two-speed handoff — native-frame input clarification (2026-09-16)
+
+The owner now permits individually screened native frames from the existing Grok
+videos above as **starting inputs for new gameplay-source video revisions**.
+The unchanged `baseline/frame-*.png` files are optional candidates, not automatic
+approvals or locked openings. Their source remains `RSW-01_take-03.mp4`,
+SHA-256 `027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d`,
+from the [original published Grok return](https://github.com/Ebonyks/mermaid-roshan-reef/blob/90bbb3a10cc8b0885bbc9d25f8a67d8a61da058c/assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-01_take-03.mp4).
+No media bytes or inherited rights are changed and no new public-domain claim
+is made. The revised `SHOT_BOARD.html` uses these existing images for annotated
+shot/beat guidance only; the board itself is never a generator input or delivery.
+Future selected frames and new videos require their own exact source/input/output
+provenance. A clean input frame does not accept a motion-rejected video; failed
+sources still cannot enter Aseprite conversion. Cinematic delivery is unchanged.
+<!-- ROSHAN_TWO_SPEED_SOURCE_20260916_END -->

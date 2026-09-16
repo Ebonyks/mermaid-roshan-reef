@@ -1,26 +1,23 @@
-ROSHAN SWIMMING — NEW A003 REQUEST / START HERE
+ROSHAN — TWO SWIM SPEEDS / NEW OWNER DIRECTION
 
-GROK: generate ONE NEW video, RSW-FLOW-01_take-03.mp4. The owner explicitly authorized this on 2026-09-16 after take-02 proved unavailable. This is a new addressed request, not recovery, substitution or relabeling of take-02. Do not wait for that missing file.
+GROK: make TWO separate original videos, one per job:
+1. RSW-SLOW-01 / A001 — slow, relaxed swim.
+2. RSW-DASH-01 / A001 — dash: a genuinely different stronger performance, NOT sped-up slow footage.
 
-ACTIVE REQUEST: reshoots/attempts/RSW-FLOW-01/A003/REQUEST.json
-PASTE-READY PROMPT: reshoots/attempts/RSW-FLOW-01/A003/PROMPT.txt
-INPUTS / SETTINGS: reshoots/attempts/RSW-FLOW-01/A003/SHOT_CARD.txt
-RETURN TEMPLATE: reshoots/attempts/RSW-FLOW-01/A003/RETURN_TEMPLATE.json
+Each job has its own REQUEST.json, SHOT_CARD.txt, PROMPT.txt and return templates under reshoots/attempts/<shot>/A001/. One first take per job is authorized. Return the slow take, then the dash; do not wait for another opening approval. Generate sequentially, never duplicate an active job on a refresh.
 
-Use the two existing painted references linked in the shot card. Native image-to-video; one 10-second, 1280x720, locked-camera performance: start 0–1s, real swim cycles 1–4s and 4–7s, settle 7–9s, attentive hold 9–10s. Keep warm curiosity, connected torso/tail propulsion, bent-elbow sculling, buoyant curls and a naturally flexing broad fin. No new stills or character redesign.
+IMPORTANT: NO HARD-LOCKED OPENING OR RESTING POSE. Choose a suitable actual frame from available Grok video, check identity/anatomy/framing, and use that as IMAGE_1. Select it yourself and record its video/frame/PNG provenance in INPUT_SELECTION.json before generation. Existing approved artwork is IMAGE_2 identity guidance, not a pose lock. The included baseline video and five native frames are a self-contained starting pool, not compulsory choices or accepted motion. Newer published Grok frames may be better. Read EXCHANGE_06.txt for boundaries.
 
-LEFT/RIGHT ONLY: keep the approved right-facing three-quarter view. Later gameplay mirrors the whole sprite for left. No left/front/rear batch, no in-shot duplicate or turnaround. EXCHANGE_04.txt supplies direction; EXCHANGE_05.txt is the new generation authorization. The source rainbow lock stays on anatomical left; only the later display mirror may reverse its apparent side.
+Aim for 10 seconds per video: an expressive entry, genuine repeatable swimming in the middle, and natural deceleration. Let the performance determine the eventual cuts. Do NOT force either endpoint to match the current resting sprite. Any small connecting transition is a separate project if needed; do not make it here. Keep right-facing presentation; the game can mirror the whole sprite for left. No front/back set.
 
 REPOSITORY: Ebonyks/mermaid-roshan-reef
-EXCHANGE BRANCH: codex/roshan-swim-start-loop-stop-20260914
-PACKET ROOT: assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/
+BRANCH: codex/roshan-swim-start-loop-stop-20260914
+ROOT: assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/
 
-Return the ORIGINAL native MP4 at reshoots/inbox/RSW-FLOW-01/A003/RSW-FLOW-01_take-03.mp4, with completed reshoots/attempts/RSW-FLOW-01/A003/RETURN.json, in one Git commit. Bind RETURN to the actual A003 REQUEST byte hash. Record actual model, mode, prompt, settings, inputs and output metadata; unknown is null with a reason. Report immutable commit and direct RETURN URL. Use authorized Git access, not a sandbox-only filename or a browser-download workaround.
+Preserve original native MP4s and actual inputs/settings. Commit each original plus its input selection and RETURN.json together at the job's declared paths; provide immutable Git links. Do not send only sandbox filenames.
 
-Before starting, fetch and check whether A003 already has a job acknowledgement or return. One active job only; another refresh is not a new generation request. If video or Git write access is unavailable, return the specific blocker without stills or substitute media. No new API purchases. Do not overwrite A002 records or merge into dev/master.
+A003/FLOW-01 is SUPERSEDED, not failed. Do not start it. If already running, preserve and return it under its old ID, then follow these new jobs; do not relabel it as slow or dash.
 
-THEN WAIT for Codex's source review. A failed source returns to Grok with corrections; NO Aseprite on failed footage. Two failures using one method trigger reassessment. Two independent seven-axis reviews with lower unrounded mean >=4.8 and no blocking defect mean STOP FOR HUMAN REVIEW, not acceptance. No automatic game integration.
+Then wait for source review. Failed video goes back to Grok, NEVER Aseprite. Two failures with one method require reassessment. Each mode reaching independent 4.8/5 with no blocking defects stops for human review, not automatic acceptance.
 
-Historical HANDOFF/EXCHANGE notes and root RETURN_TEMPLATE.json describe earlier attempts; use the A003 files above for this job. The archive board and baseline are diagnosis, not generator-bound images. REVIEW_STATE.json is historical, not a work queue.
-
-TIMER: the original Codex eight-hour window expired at 2026-09-16 13:29:01 UTC. This new generation request does not itself install or extend either app's timer. Any renewed Codex schedule is managed separately; the owner manages Grok's timer.
+This handoff changes no timers, runtime, protected assets or cinematic delivery policy. No new still generation or paid API purchase. SHOT_BOARD.html is a reference board, NOT a generated-animation preview or a generator image.

@@ -20,6 +20,19 @@ change, not a new visual pass or a runtime flip implementation.
 
 <!-- ROSHAN_LEFT_RIGHT_20260916_END -->
 
+<!-- ROSHAN_TWO_SPEED_20260916_START -->
+## Current Roshan swimming source commission
+
+The owner now requests separate **slow relaxed swim** and **dash** performances.
+Use [movement profile v1.2](../../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md#two-swim-speeds-and-performance-led-openings)
+and the [current Grok handoff](../../assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/START_HERE.txt).
+Suitable actual Grok frames seed new takes; the old opening/rest pose is not a
+lock. The two modes are separately performed, not playback-speed variants.
+Rest-to-motion bridges are deferred separate work if needed. Source, loop,
+mode-distinction and human review remain open; no new animation is accepted.
+[Impact](../../design/audit_impacts/2026-09-16-roshan-two-speed-handoff.json).
+<!-- ROSHAN_TWO_SPEED_20260916_END -->
+
 ## Start an animation task here
 
 1. Read the [canonical motion rules](../../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards)

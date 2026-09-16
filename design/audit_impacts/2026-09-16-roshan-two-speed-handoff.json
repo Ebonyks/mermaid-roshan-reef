@@ -1,0 +1,74 @@
+{
+  "id": "2026-09-16-roshan-two-speed-handoff",
+  "scope": "Owner-directed source-performance handoff: replace the fixed opening/single swim request with two independent Grok jobs, slow relaxed swim and dash, using individually screened native Grok frames as starting images. Derive cuts from observed motion. Defer any bridge to the existing resting sprite; no bridge implementation or animation-method waiver. Preserve A003 and older attempts and all media bytes. Publish only the non-runtime handoff and scoped direction documentation.",
+  "baseline": "b882696f5233bdf28e4dc28204b43819ef64aacc",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/START_HERE.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/HANDOFF.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/SHOT_CARD.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_CONTRACT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_06.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/SHOT_BOARD.html",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/PACKET_MANIFEST.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-FLOW-01/A003/SUPERSEDED.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A001/REQUEST.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A001/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A001/SHOT_CARD.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A001/INPUT_SELECTION_TEMPLATE.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A001/RETURN_TEMPLATE.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A001/REQUEST.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A001/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A001/SHOT_CARD.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A001/INPUT_SELECTION_TEMPLATE.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A001/RETURN_TEMPLATE.json",
+    "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/animation/README.md",
+    "design/05_DOC_LEDGER.md",
+    "ASSET_LICENSES.md"
+  ],
+  "validation": [
+    {
+      "command": "Fresh fetch, source inventory and request lineage review",
+      "result": "PASS",
+      "evidence": "Local and remote exchange b882696f5233bdf28e4dc28204b43819ef64aacc; index initially empty. Reuse packet baseline video, five native diagnostic frames and approved identity image. Existing images remain unchanged. No A003 RETURN found in this fetched exchange; disposition preserves any already-running job/output without requesting another old take."
+    },
+    {
+      "command": "python -B tmp/verify_roshan_two_speed.py; staged check follows before commit",
+      "result": "PASS",
+      "evidence": "45 payload files, SHA256 307b2b25f109ecb9ed8b701977eb94a4aa8d211ce2cda9ad320ba3f174911c9a. Verifies both request/prompt/card/policy/template bindings; real-frame selection with no extra owner gate; separately performed slow/dash; rest bridge deferred; no old-opening/rest match gate; all existing media and prior attempts unchanged; local board links resolve. No footage or selected inputs are claimed."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "DOCAUTH ALL OK, 572 inventory/ledger entries; AUDITDEV ALL OK at merge-base f98ef836df35fc75657473755354b418f9c7d17f; 51 unit tests pass and stress 6/6. Packet/owned clean-document diff whitespace check passed. Partial staging preserves unrelated changes in license, ledger and animation-index documents."
+    },
+    {
+      "command": "Exact-commit GitHub packet verification",
+      "result": "PENDING",
+      "evidence": "Run after push; remote receipt separate from source content."
+    },
+    {
+      "command": "Full runtime CI",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Existing owner handoff-only publication exception in 2026-09-15-roshan-grok-handoff-publication.json. Previous full-game import-cache failures are not cleared. No runtime source/assets, dev/master integration, API purchase or timer change."
+    }
+  ],
+  "acceptance_gaps": "Each selected input frame needs documented identity/anatomy/framing screening, performed by Grok without another owner opening-approval gate. Two new source performances not generated or accepted. Source-first independent review, 4.8 human-review stop and failed-source return to Grok remain. Rest-to-motion bridge and slow/dash transitions are deferred, not implemented or accepted. Runtime/device/child gates and MA-VIS-006 remain open."
+}

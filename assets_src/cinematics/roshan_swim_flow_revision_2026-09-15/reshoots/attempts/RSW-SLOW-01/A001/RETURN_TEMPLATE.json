@@ -1,0 +1,46 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-SLOW-01",
+  "attempt": "A001",
+  "request_id": "RSW-SLOW-01-A001-performance-led",
+  "request_sha256": "f4e21297056880c8e1485f5a021e4824917d2bee72143b2a08eee16019500ec5",
+  "performance_mode": "slow_relaxed",
+  "status": "REPLACE_WITH_RETURNED_OR_SPECIFIC_BLOCKER",
+  "producer": null,
+  "generation_job_id": null,
+  "generator_model": null,
+  "mode": null,
+  "input_selection_path": "reshoots/attempts/RSW-SLOW-01/A001/INPUT_SELECTION.json",
+  "input_selection_sha256": null,
+  "prompt_used": null,
+  "prompt_used_sha256": null,
+  "settings": {},
+  "bound_inputs": [],
+  "consulted_inputs": [],
+  "artifacts": [
+    {
+      "role": "original_native_video",
+      "path": "reshoots/inbox/RSW-SLOW-01/A001/RSW-SLOW-01_take-01.mp4",
+      "sha256": null,
+      "bytes": null,
+      "width": null,
+      "height": null,
+      "fps": null,
+      "frame_count": null,
+      "duration_seconds": null,
+      "audio_present": null
+    }
+  ],
+  "proposed_segments": {
+    "entry": null,
+    "cruise_cycles": [],
+    "exit": null,
+    "frame_index_convention": "zero-based, end-exclusive; proposed only after observing source, not copied from prompt times"
+  },
+  "rest_bridge_status": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+  "speed_distinction_observation": null,
+  "unknown_metadata_reasons": [],
+  "source_acceptance": false,
+  "delivery_accepted": false,
+  "instructions": "Publish original video plus actual selected PNG, INPUT_SELECTION.json and this completed return in Git. Bind exact request and input-selection hashes. Record actual prompt/settings/bound-vs-consulted inputs, not expected values. Unknown is null with a reason. For a blocker use artifacts:[] and specific reason. No producer self-score establishes acceptance."
+}

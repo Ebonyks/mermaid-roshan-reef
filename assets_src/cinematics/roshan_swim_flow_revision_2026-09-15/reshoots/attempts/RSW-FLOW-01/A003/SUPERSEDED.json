@@ -1,0 +1,27 @@
+{
+  "schema": "reef.roshan-source-exchange-disposition.v1",
+  "shot_id": "RSW-FLOW-01",
+  "attempt": "A003",
+  "request_id": "RSW-FLOW-01-A003-new-right-facing-take",
+  "request_sha256": "28b86c0a9734d49beb06416568ce7ead13ba35a57c3c7a5d8cea70662e16ace3",
+  "status": "SUPERSEDED_FOR_NEW_GENERATION",
+  "reason": "Owner replaced mandatory painted opening/single swim with performance-led native Grok-frame openings and distinct slow relaxed swim/dash; rest bridge deferred.",
+  "direction_path": "EXCHANGE_06.txt",
+  "direction_sha256": "adeaf265f1f3861b77c29dfb6acbafccb3804f11c43d57a676b2fd6cca5abc7b",
+  "successors": [
+    {
+      "request_path": "reshoots/attempts/RSW-SLOW-01/A001/REQUEST.json",
+      "request_sha256": "f4e21297056880c8e1485f5a021e4824917d2bee72143b2a08eee16019500ec5"
+    },
+    {
+      "request_path": "reshoots/attempts/RSW-DASH-01/A001/REQUEST.json",
+      "request_sha256": "74915aa4c0ac9697677a9579ee85c99dd3d8b0fd9a5eb2fac90c8032b893d5b8"
+    }
+  ],
+  "do_not_start_old_job": true,
+  "if_already_running": "Preserve and return original under A003; no forced discard, relabeling or automatic acceptance. Then execute successors sequentially.",
+  "artistic_failure_count_increment": 0,
+  "visual_review_performed": false,
+  "source_accepted": false,
+  "delivery_accepted": false
+}

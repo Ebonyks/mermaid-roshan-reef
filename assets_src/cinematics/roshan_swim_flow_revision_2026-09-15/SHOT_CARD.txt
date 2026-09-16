@@ -1,38 +1,9 @@
-CURRENT SHOT CARD — A003
+TWO DISTINCT SHOT CARDS — DO NOT COMBINE INTO ONE VIDEO
 
-The new addressed shot card is reshoots/attempts/RSW-FLOW-01/A003/SHOT_CARD.txt.
-Use its sibling REQUEST.json, PROMPT.txt and RETURN_TEMPLATE.json.
-A003 authorizes one new RSW-FLOW-01_take-03.mp4. A002 remains unavailable-source history.
-Do not use root RETURN_TEMPLATE.json for A003; it preserves the earlier A002 template.
+Slow relaxed swim:
+reshoots/attempts/RSW-SLOW-01/A001/SHOT_CARD.txt
 
-movie_id: ROSHAN_GAMEPLAY_SOURCE_PILOT
-shot_id: RSW-FLOW-01
-attempt: A003
-request_id: RSW-FLOW-01-A003-new-right-facing-take
-status: OWNER_AUTHORIZED_NEW_GAMEPLAY_SOURCE_REQUEST
-duration: native 10 seconds (scoped gameplay-source accommodation, not cinematic rule change)
-aspect: 16:9
-size: 1280x720
-mode: image_to_video
-output_disposition: gameplay_source_candidate; not cinematic delivery
-output_name: RSW-FLOW-01_take-03.mp4
-source_facing: approved right-facing three-quarter
-left_variant: later whole-sprite horizontal mirror; not a second generation
+Dash:
+reshoots/attempts/RSW-DASH-01/A001/SHOT_CARD.txt
 
-IMAGE_1: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/69439f31930f5d3091744cb2240c3dcebb003d26/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/references/IMAGE_1_locked-front-right.png
-job: unchanged painted starting image and navy layout; pose is free to articulate
-sha256: 6b0918967e5b1703e4b04a67b27798b7a733a6ab79c44314ebcf6f12bf1be685
-IMAGE_2: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/69439f31930f5d3091744cb2240c3dcebb003d26/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/references/IMAGE_2_approved-front.png
-job: painted child identity; bind if a second reference slot exists, otherwise consult and record that honestly
-sha256: db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c
-
-camera: locked
-must_move: purposeful eyes/head; connected chest/tail propulsion; softly bending elbows and following wrists; buoyant curl masses; continuous broad fin membrane
-must_not_move: camera, navy field, overall character scale; hair roots stay attached
-end_state: calmly attentive toward screen-right, hands relaxed and tail settled
-negative_constraints: no redesign, extra anatomy, rigid flying arms, pinned fingertips, hair wind/texture sliding, sharp fin hinge, inverted lobes, crops, cuts, camera drift or pasted duplicate cycles
-sound_intent: silent; preserve and disclose unavoidable native audio
-
-Paste only reshoots/attempts/RSW-FLOW-01/A003/PROMPT.txt. Do not paste hashes, audit rules or the board. Native source timing: 0–1 start, 1–4 cycle one, 4–7 cycle two, 7–9 settle, 9–10 intentional attentive hold. Same phase and velocity at cruise boundaries are desired; no seam pass is presumed before review. Generate the two cycles as one continuous performance, not an edited duplication.
-
-This A003 request is now authorized. Do not wait for unavailable A002. Return one original via Git with its A003 RETURN, then wait. No new stills, reference_to_video substitution, separate direction batch, API purchase, Aseprite or runtime changes.
+Read each corresponding REQUEST.json. Select a suitable actual Grok frame for IMAGE_1 and document INPUT_SELECTION.json; the old opening/resting painting is not mandatory. Each card has a separate paste-ready PROMPT.txt. Generate one original take per card, sequentially. No time-scaled duplicates.

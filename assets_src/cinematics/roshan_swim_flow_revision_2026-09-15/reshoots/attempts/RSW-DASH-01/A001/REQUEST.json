@@ -1,0 +1,143 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A001",
+  "request_id": "RSW-DASH-01-A001-performance-led",
+  "kind": "SELECT_NATIVE_GROK_FRAME_THEN_GENERATE_NEW_TAKE",
+  "addressed_to": "Grok",
+  "created_at": "2026-09-16",
+  "generation_authorized_by_this_request": true,
+  "max_new_takes": 1,
+  "mode": "dash",
+  "owner_authorization": "New handoff explicitly commissioned: suitable Grok-frame openings rather than a hard-locked still; slow relaxed swim AND separately performed dash; any small bridge to resting character deferred as a separate project if needed.",
+  "direction_path": "EXCHANGE_06.txt",
+  "direction_sha256": "adeaf265f1f3861b77c29dfb6acbafccb3804f11c43d57a676b2fd6cca5abc7b",
+  "facing_policy_path": "EXCHANGE_04.txt",
+  "facing_policy_sha256": "a9cb6b100acaacf6fb67558e65b5f95845c2e97ee8ca6c03d48b9db2b28f1daf",
+  "supersedes_request_path": "reshoots/attempts/RSW-FLOW-01/A003/REQUEST.json",
+  "supersedes_request_sha256": "28b86c0a9734d49beb06416568ce7ead13ba35a57c3c7a5d8cea70662e16ace3",
+  "parent_review_path": "reshoots/attempts/RSW-FLOW-01/A002/REVIEW.json",
+  "parent_review_sha256": "110462821bc75aadda9acbe5ec0cca0ca6d88d6c04e2c186ec0cc314244892e3",
+  "parent_review_scope": "Last actual review is metadata-only unavailable-source HOLD; no A003 visual review exists here. New two-mode scope comes from owner direction, not a fabricated failed review.",
+  "artistic_failure_count_increment": 0,
+  "prompt_path": "reshoots/attempts/RSW-DASH-01/A001/PROMPT.txt",
+  "prompt_sha256": "79ab5c7490c631b1c585d9e555a6f7a1aba2466b8a26c1145a58c7e1ad5d03ac",
+  "shot_card_path": "reshoots/attempts/RSW-DASH-01/A001/SHOT_CARD.txt",
+  "shot_card_sha256": "e7249c890caa7dfd72370c7904457d70067cd72e08b9eb654098e7af3cd4abd2",
+  "input_selection": {
+    "operator": "Grok",
+    "required_before_generation": true,
+    "requires_new_owner_opening_approval": false,
+    "template_path": "reshoots/attempts/RSW-DASH-01/A001/INPUT_SELECTION_TEMPLATE.json",
+    "record_path": "reshoots/attempts/RSW-DASH-01/A001/INPUT_SELECTION.json",
+    "selected_png_path": "reshoots/attempts/RSW-DASH-01/A001/inputs/IMAGE_1.png",
+    "selection_source": "actual native frame from available original Grok video; choose individually, not a compulsory old painting",
+    "candidate_video": {
+      "path": "baseline/RSW-01_take-03.mp4",
+      "sha256": "027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d",
+      "motion_status": "owner 4.25 baseline; not accepted source motion"
+    },
+    "optional_frame_pool": [
+      "baseline/frame-0084.png",
+      "baseline/frame-0102.png",
+      "baseline/frame-0120.png",
+      "baseline/frame-0138.png",
+      "baseline/frame-0154.png"
+    ],
+    "other_published_grok_source_allowed": true,
+    "selected_input_sha256": null,
+    "screening": [
+      "identity/face/crown/costume",
+      "anatomy/proportions",
+      "hair attachment",
+      "continuous waist/tail",
+      "broad readable fin",
+      "right-facing visibility",
+      "full-body margins"
+    ],
+    "transform": "lossless native frame capture only; no crop, resize, repaint, composite, warping, still generation or optical flow",
+    "rejected_motion_source_frame_allowed_if_individually_sound": true,
+    "does_not_approve_source_motion": true,
+    "no_aseprite_on_failed_source": true
+  },
+  "identity_reference": {
+    "path": "references/IMAGE_2_approved-front.png",
+    "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+    "role": "identity/style only, not pose/end-state lock",
+    "binding": "bind if supported, otherwise record honestly as consulted"
+  },
+  "requested_settings": {
+    "mode": "image_to_video",
+    "duration_seconds": 10,
+    "width": 1280,
+    "height": 720,
+    "camera": "locked",
+    "source_facing": "right-facing three-quarter",
+    "display_facings": [
+      "right",
+      "left"
+    ],
+    "left_method": "later whole-sprite horizontal mirror",
+    "audio": "request silent; preserve/disclose unavoidable original native audio"
+  },
+  "performance_contract": {
+    "speed": "dash",
+    "native_performance_required": true,
+    "retimed_other_mode_allowed": false,
+    "min_genuinely_performed_cruise_cycles": 2,
+    "start_loop_finish_required": true,
+    "timing": "prompt times are approximate choreography; select actual windows after observing video",
+    "loop_boundary_test": "pose plus incoming/outgoing motion for body, hands, tail/fin and hair",
+    "exact_old_opening_required": false,
+    "exact_existing_rest_pose_required": false,
+    "first_frame_pixel_equality_to_old_art_required": false,
+    "rest_bridge": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+    "rest_mismatch_alone_is_source_failure": false,
+    "bridge_implementation_authorized": false,
+    "mode_distinction": "compare slow and dash side by side at native 1x; dash stronger/quicker with meaningful launch/deceleration, not a time-scaled duplicate"
+  },
+  "preserve": [
+    "painted child identity/costume/iridescence",
+    "source anatomical-left rainbow lock",
+    "right-facing presentation; left is a later display mirror",
+    "complete full-body framing and stable scale",
+    "connected expressive torso, bent arms, coherent buoyant curls, broad continuous fin"
+  ],
+  "blocking_defects": [
+    "identity/anatomy drift",
+    "rigid body/flying arms/pinned fingertips",
+    "hair wind/distortion/sliding texture",
+    "waist discontinuity/fin hinge/pinch/inversion",
+    "crop/size pulse",
+    "fake duplicated cycles or failed actual cruise seam",
+    "slow/dash not distinct at native speed"
+  ],
+  "output_path": "reshoots/inbox/RSW-DASH-01/A001/RSW-DASH-01_take-01.mp4",
+  "return_path": "reshoots/attempts/RSW-DASH-01/A001/RETURN.json",
+  "return_template_path": "reshoots/attempts/RSW-DASH-01/A001/RETURN_TEMPLATE.json",
+  "output_sha256": null,
+  "output_bytes": null,
+  "execution_order": 2,
+  "execution_note": "Two initial jobs authorized, one take each. Run sequentially, publish each original and return before starting the next. Do not wait for another opening approval. Then wait for addressed review/revision; never regenerate on a repeated refresh.",
+  "on_missing_inputs_or_tools": "Report precise blocker and empty media artifacts, not a new still or unapproved substitute mode/API purchase.",
+  "review_contract": {
+    "independent_reviewers": 2,
+    "axes": [
+      "identity/style",
+      "body swimming",
+      "hair/water",
+      "tail/fin",
+      "personality",
+      "flow/continuity",
+      "game usefulness"
+    ],
+    "score": "lower unrounded mean >=4.8 with no blocking defects, then HUMAN_REVIEW_REQUIRED per mode",
+    "pair_review": "distinct native-speed performances; no mode can compensate for failure of the other",
+    "aseprite_on_failed_source": false,
+    "automatic_acceptance": false,
+    "two_same_method_failures": "reassess method without lowering threshold"
+  },
+  "source_accepted": false,
+  "delivery_accepted": false,
+  "timers_changed": false
+}

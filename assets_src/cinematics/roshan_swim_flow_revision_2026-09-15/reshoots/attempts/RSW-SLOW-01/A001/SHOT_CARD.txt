@@ -1,0 +1,34 @@
+movie_id: ROSHAN_TWO_SPEED_GAMEPLAY_SOURCE
+shot_id: RSW-SLOW-01
+attempt: A001
+request_id: RSW-SLOW-01-A001-performance-led
+status: AUTHORIZED_SELECT_INPUT_THEN_GENERATE
+performance: Slow relaxed swim
+duration: native 10 seconds requested; record actual settings/duration
+aspect: 16:9
+size: 1280x720
+mode: image_to_video
+output_disposition: gameplay_source_candidate; not cinematic delivery
+camera: locked
+source_facing: readable right-facing three-quarter; no front/back turns
+left_variant: later complete-sprite horizontal mirror
+
+IMAGE_1: SELECT_FROM_ACTUAL_GROK_VIDEO
+job: suitable native starting frame, NOT the old mandatory opening or resting sprite
+operator_action: inspect available native Grok frames; choose a sound frame; complete INPUT_SELECTION.json and preserve its PNG in this attempt; then generate without another owner opening approval
+self_contained_video: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/b882696f5233bdf28e4dc28204b43819ef64aacc/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/baseline/RSW-01_take-03.mp4
+optional_frame_pool: baseline/frame-0084.png, baseline/frame-0102.png, baseline/frame-0120.png, baseline/frame-0138.png, baseline/frame-0154.png
+pool_status: options only, not accepted motion or automatic input approval; a newer Git-published Grok frame may be better
+IMAGE_2: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/b882696f5233bdf28e4dc28204b43819ef64aacc/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/references/IMAGE_2_approved-front.png
+job: subject identity/style, not pose or endpoint lock; bind if supported, otherwise explicitly consult
+sha256: db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c
+
+must_move: intentional eyes/head, connected chest/shoulders/tail, bending sculling arms and following wrists, buoyant coherent curls, broad flexible fin
+must_not_move: camera and navy field; stable overall scale; hair roots stay attached
+end_state: natural attentive right-facing pose resulting from this performance, NOT a match to an existing resting sprite
+speed_test: soft effort and generous glides; calm, curious, not rigid
+negative_constraints: no identity/proportion drift, static body inserts, pinned fingertips, hair distortion, fin hinge/pinch/inversion, crops, extra anatomy, copied cycles or camera motion
+sound_intent: silent; preserve/disclose unavoidable native audio
+deferred: exact resting-sprite bridge, slow/dash switching, runtime anchors and implementation
+
+Paste the sibling PROMPT.txt only. Its times guide acting, not mandatory slice indices. Include entry, at least two real recurring swim cycles and natural exit; later loop selection must match pose and motion. Do not add a rest-pose lock to pass a seam test. If no source frame passes screening, report the specific blocker without making a replacement still. Return the original native video, actual input selection, settings and RETURN; do not claim source approval from generation.
