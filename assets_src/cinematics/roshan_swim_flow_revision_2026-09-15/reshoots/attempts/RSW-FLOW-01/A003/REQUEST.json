@@ -1,0 +1,137 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-FLOW-01",
+  "attempt": "A003",
+  "request_id": "RSW-FLOW-01-A003-new-right-facing-take",
+  "kind": "GENERATE_NEW_TAKE",
+  "addressed_to": "Grok",
+  "created_at": "2026-09-16",
+  "generation_authorized_by_this_request": true,
+  "max_new_takes": 1,
+  "owner_authorization": "Owner answered yes to a distinct fresh A003/take-03 generation request following A002 source-unavailable HOLD; not permission to relabel/recover take-02 or purchase API credits.",
+  "parent_review_path": "reshoots/attempts/RSW-FLOW-01/A002/REVIEW.json",
+  "parent_review_sha256": "110462821bc75aadda9acbe5ec0cca0ca6d88d6c04e2c186ec0cc314244892e3",
+  "prior_request_sha256": "b7e9abc12e0fd24f4a39e02906c3d520e65171952e55c323a0c4116958064c2d",
+  "prior_return_sha256": "f5acdc5ceda13a588532909096e4ed1f0de3b7ec89374b5dbfe41d1e379e5986",
+  "prior_disposition": "BLOCKED_SOURCE_UNAVAILABLE; metadata-only HOLD, not artistic failure",
+  "prior_attempt_artistic_failure_count_increment": 0,
+  "authorization_path": "EXCHANGE_05.txt",
+  "authorization_sha256": "4592f73de82ec635edb3885bec1f80d82c48984040ba2625777beca69a02af7f",
+  "direction_policy_path": "EXCHANGE_04.txt",
+  "direction_policy_sha256": "a9cb6b100acaacf6fb67558e65b5f95845c2e97ee8ca6c03d48b9db2b28f1daf",
+  "prompt_path": "reshoots/attempts/RSW-FLOW-01/A003/PROMPT.txt",
+  "prompt_sha256": "01d1daa5561e42b46356c166356b268cffcac69a8ce55cb8d013e25253841af4",
+  "shot_card_path": "reshoots/attempts/RSW-FLOW-01/A003/SHOT_CARD.txt",
+  "shot_card_sha256": "2424d7f4d550e2bb50da3e520519119cdd82c8a96fe9123951270c6f5f74ca87",
+  "inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "references/IMAGE_1_locked-front-right.png",
+      "sha256": "6b0918967e5b1703e4b04a67b27798b7a733a6ab79c44314ebcf6f12bf1be685",
+      "role": "approved painted starting image/layout; pose may articulate",
+      "binding": "required image_to_video input"
+    },
+    {
+      "name": "IMAGE_2",
+      "path": "references/IMAGE_2_approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "role": "painted child identity",
+      "binding": "second reference if supported; otherwise consult and disclose not bound"
+    }
+  ],
+  "requested_settings": {
+    "mode": "image_to_video",
+    "width": 1280,
+    "height": 720,
+    "duration_seconds": 10,
+    "camera": "locked",
+    "source_facing": "right-facing three-quarter",
+    "display_facings": [
+      "right",
+      "left"
+    ],
+    "left_method": "later whole-sprite horizontal mirror",
+    "audio": "request silent; preserve and disclose unavoidable original native audio"
+  },
+  "timeline": [
+    {
+      "start": 0,
+      "end": 1,
+      "action": "notice right, smile and gather",
+      "kind": "action"
+    },
+    {
+      "start": 1,
+      "end": 4,
+      "action": "first continuous cruise cycle",
+      "kind": "action"
+    },
+    {
+      "start": 4,
+      "end": 7,
+      "action": "second genuinely performed cruise cycle; matching boundary phase and speed",
+      "kind": "action"
+    },
+    {
+      "start": 7,
+      "end": 9,
+      "action": "decelerate and settle with blink, hair and fin follow-through",
+      "kind": "action"
+    },
+    {
+      "start": 9,
+      "end": 10,
+      "action": "attentive stillness ready to play",
+      "kind": "intentional_hold"
+    }
+  ],
+  "required_corrections": [
+    {
+      "id": "BODY-01",
+      "provenance": "owner-observed 4.25 baseline; not unseen A002",
+      "change": "Connected torso/tail propulsion with gathered elbows, backward palm scull and soft recovery; no rigid flying body or pinned fingertips."
+    },
+    {
+      "id": "HAIR-01",
+      "provenance": "owner-observed baseline; exact worst native frame interval not measured",
+      "change": "Attached roots and coherent buoyant curls with delayed recovery and slight independent rainbow-lock lag; no wind, accordion folds or sliding texture."
+    },
+    {
+      "id": "FIN-01",
+      "provenance": "owner-observed baseline; exact worst native frame interval not measured",
+      "change": "Continuous broad two-lobed membrane flexion and delayed tips; no sharp hinge, pinch, inversion, tube, melt or sudden edge-on flip."
+    }
+  ],
+  "invariants": [
+    "Preserve existing painted child face, crown/blue gem, brown eyes, costume and iridescent scaled tail.",
+    "No new stills, reference_to_video restyling, copied motion cycles, optical flow or local character deformation.",
+    "One right-facing source only; no front/back/four-way batch or in-shot mirrored duplicate.",
+    "Keep full crown, hands and fin inside generous margins; stable overall scale and continuous waist-tail join."
+  ],
+  "output_path": "reshoots/inbox/RSW-FLOW-01/A003/RSW-FLOW-01_take-03.mp4",
+  "return_path": "reshoots/attempts/RSW-FLOW-01/A003/RETURN.json",
+  "return_template_path": "reshoots/attempts/RSW-FLOW-01/A003/RETURN_TEMPLATE.json",
+  "output_sha256": null,
+  "output_bytes": null,
+  "on_unavailable": "Return specific VIDEO_TOOL_UNAVAILABLE, GIT_WRITE_UNAVAILABLE or quota/access blocker with empty artifacts; no substitute stills or undisclosed mode/purchase.",
+  "review_contract": {
+    "source_first": true,
+    "aseprite_on_failed_source": false,
+    "independent_reviewers": 2,
+    "axes": [
+      "identity/style",
+      "body swimming",
+      "hair/water",
+      "tail/fin",
+      "personality",
+      "flow/continuity",
+      "game usefulness"
+    ],
+    "checkpoint": "lower unrounded arithmetic mean >=4.8, no blocking defect, then HUMAN_REVIEW_REQUIRED",
+    "automatic_acceptance": false,
+    "two_artistic_failures_same_method": "reassess method without lowering the bar"
+  },
+  "source_accepted": false,
+  "delivery_accepted": false,
+  "monitor_schedule_authorized_by_this_file": false
+}

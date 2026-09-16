@@ -1,0 +1,60 @@
+{
+  "id": "2026-09-16-roshan-flow-a003-request",
+  "scope": "Owner-authorized fresh RSW-FLOW-01 A003/take-03 request after A002 source-unavailable HOLD. One expressive right-facing start/cruise/settle source video using unchanged painted inputs; left display will be mirrored. Preserve all A002 bytes and history. Publication only, no video generation by Codex, Aseprite, runtime or release work.",
+  "baseline": "1e39d8c18fd549926b476b47606504ec145da376",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/START_HERE.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/HANDOFF.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/SHOT_CARD.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_CONTRACT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_05.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/PACKET_MANIFEST.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-FLOW-01/A003/REQUEST.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-FLOW-01/A003/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-FLOW-01/A003/SHOT_CARD.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-FLOW-01/A003/RETURN_TEMPLATE.json"
+  ],
+  "validation": [
+    {
+      "command": "Fresh Git fetch and A002 lineage/unchanged-image checks",
+      "result": "PASS",
+      "evidence": "Local and fetched exchange HEAD 1e39d8c18fd549926b476b47606504ec145da376. tmp/verify_roshan_a003.py confirms all A002 REQUEST/RETURN/REVIEW, baseline media, reference images, original root prompt and history snapshots byte-identical to that baseline; new request binds the exact HOLD and EXCHANGE_04 hashes."
+    },
+    {
+      "command": "python -B tmp/verify_roshan_a003.py; staged-byte and remote checks run separately before handoff completion",
+      "result": "PASS",
+      "evidence": "33 payload files; sorted payload SHA256 b962a25e0a9f6f9e5e31c1f0249762f8e03e2a36788663b41b4c4156a0fac893. A003 REQUEST SHA256 28b86c0a9734d49beb06416568ce7ead13ba35a57c3c7a5d8cea70662e16ace3. Prompt/card/authorization/policy/parent/return-template bindings verified. No source output, rating, generation completion or timer activation claimed by this test."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development; git diff --check -- packet",
+      "result": "PASS",
+      "evidence": "DOCAUTH ALL OK (572 inventoried/ledger files; 56 active, 58 records). AUDITDEV ALL OK at merge-base f98ef836df35fc75657473755354b418f9c7d17f. 51 unit tests passed, stress 6/6. Packet whitespace clean. Unrelated historical work stays outside this change."
+    },
+    {
+      "command": "Full runtime CI",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Owner's handoff-only publication exception is recorded in design/audit_impacts/2026-09-15-roshan-grok-handoff-publication.json. Existing import-cache failures remain failed. No dev/master integration or runtime changes."
+    },
+    {
+      "command": "Immutable GitHub publication verification",
+      "result": "PENDING",
+      "evidence": "Run tmp/verify_roshan_a003.py with exact content commit after push. Separate receipt tmp/roshan-flow-a003-remote-verification.json will bind remote manifest plus all 33 payload files and both shot-card input URLs; this source commit does not claim that future check already passed."
+    }
+  ],
+  "acceptance_gaps": "A003 source not yet returned or visually rated. Two independent seven-axis reviews, lower unrounded mean >=4.8 with no blocking defects, then human review before Aseprite. No gameplay/cinematic/device/child acceptance or finding closure. Original monitor deadline 2026-09-16T13:29:01Z has expired; a new duration requires explicit owner direction."
+}

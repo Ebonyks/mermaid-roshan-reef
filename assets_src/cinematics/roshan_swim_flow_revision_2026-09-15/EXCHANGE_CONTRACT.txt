@@ -9,7 +9,7 @@ Current facing policy: EXCHANGE_04.txt (owner 2026-09-16). Left/right gameplay o
 Git hub: Ebonyks/mermaid-roshan-reef, branch codex/roshan-swim-start-loop-stop-20260914.
 Root: assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/.
 
-reshoots/attempts/RSW-FLOW-01/A002/REQUEST.json is the bootstrap return request.
+ACTIVE REQUEST: reshoots/attempts/RSW-FLOW-01/A003/REQUEST.json authorizes one new take after the owner resolved the A002 transport HOLD. EXCHANGE_05.txt explains this authorization. A002's bootstrap REQUEST/RETURN/REVIEW are immutable history, not the active job.
 Codex owns new immutable REQUEST.json, PROMPT.txt and REVIEW.json records.
 Grok owns new immutable RETURN.json and original media under reshoots/inbox/<shot>/<attempt>/.
 Never overwrite another side's files or an earlier attempt. No shared mutable status ledger. Derive state from the records. Existing REVIEW_STATE.json is a publication-time history snapshot, not a polling trigger.
@@ -29,4 +29,4 @@ HOLD: access, quota, owner pause, uncertain authority or method reassessment nee
 HUMAN_REVIEW_REQUIRED: both means >=4.8 and no blocking defects. Stop generation and conversion; present original, loop, scorecards and remaining minor issues to owner. No automatic acceptance.
 Only after the source passes and owner checkpoint is resolved may Aseprite transfer/alpha cleanup begin. Conversion has separate fidelity/alpha/timing review. Source acting defects go back to Grok; extraction defects are repaired locally. Neither grants runtime/device/child acceptance.
 
-Polling (configured separately, not by this packet): the owner's latest request is a Codex check every 20 minutes for eight hours. Grok's timer is configured independently by the owner. Ignore already processed request IDs/hashes and incomplete returns. Keep one outstanding generation per shot. Record an acknowledgement/job ID when starting an authorized render; another tick must not start a duplicate. Quiet when unchanged. Stop at human review, owner pause, access block, exhausted authorized quota or the fixed eight-hour deadline. Never reset or extend that deadline during a refresh.
+Polling (configured separately, not by this packet): the original 20-minute/eight-hour Codex window expired at 2026-09-16 13:29:01 UTC. A new duration requires owner authorization; this request does not extend that window. Grok's timer is configured independently by the owner. Ignore already processed request IDs/hashes and incomplete returns. Keep one outstanding generation per shot. Record an acknowledgement/job ID when starting an authorized render; another tick must not start a duplicate. Quiet when unchanged. Stop at human review, owner pause, access block, exhausted authorized quota or the fixed eight-hour deadline. Never reset or extend that deadline during a refresh.

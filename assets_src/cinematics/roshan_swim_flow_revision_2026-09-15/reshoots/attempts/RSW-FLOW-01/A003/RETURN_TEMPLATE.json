@@ -1,0 +1,35 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-FLOW-01",
+  "attempt": "A003",
+  "request_id": "RSW-FLOW-01-A003-new-right-facing-take",
+  "request_sha256": "28b86c0a9734d49beb06416568ce7ead13ba35a57c3c7a5d8cea70662e16ace3",
+  "status": "REPLACE_WITH_RETURNED_OR_SPECIFIC_BLOCKER",
+  "producer": null,
+  "generation_job_id": null,
+  "generator_model": null,
+  "mode": null,
+  "prompt_used": null,
+  "prompt_used_sha256": null,
+  "settings": {},
+  "bound_inputs": [],
+  "consulted_inputs": [],
+  "artifacts": [
+    {
+      "role": "original_native_video",
+      "path": "reshoots/inbox/RSW-FLOW-01/A003/RSW-FLOW-01_take-03.mp4",
+      "sha256": null,
+      "bytes": null,
+      "width": null,
+      "height": null,
+      "fps": null,
+      "frame_count": null,
+      "duration_seconds": null,
+      "audio_present": null
+    }
+  ],
+  "unknown_metadata_reasons": [],
+  "instructions": "Replace placeholder/null values with actual observations where available. Keep unavailable metadata null and explain why. For a blocker use artifacts:[] and a precise reason; never fabricate a video. Bind REQUEST exactly; record actual prompt/settings and actual bound versus consulted inputs. Commit original MP4 and completed RETURN together.",
+  "source_acceptance": false,
+  "delivery_accepted": false
+}
