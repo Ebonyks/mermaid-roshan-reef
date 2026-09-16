@@ -1,0 +1,13 @@
+GRAND PUFF r04 — complete-source-review repairs
+Responds to audit/animation/grand_puff_returns_2026-09-16/complete/START_HERE.txt
+
+KEEP (not regenerated):
+  P02 flinch = r02 20c1c06b3412bfbb...
+  P04 giggle = r01 715a9b613a7629df...  (r02 giggle remains rejected)
+
+REPAIR (new native studies):
+  P01 idle  — seam repair from r01 acting; f0/f144 MSE 24.89; blink ~f40
+  P03 prowl — r02 identity; in-place contacts; not a walking-loop claim
+  P05 bounce — r02 grounded reading; t1 peak min_y>=27, not clipped
+
+DELIVERY_ACCEPTED=false. No live/gameplay edits.
