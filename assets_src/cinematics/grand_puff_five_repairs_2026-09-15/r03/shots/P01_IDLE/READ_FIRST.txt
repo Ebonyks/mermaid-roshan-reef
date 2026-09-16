@@ -1,3 +1,7 @@
+LATEST SOURCE REVIEW
+REPAIR_LOOP_SEAM: R04 has strong ear fold at35-80, blink50-81 and a changed smaller end pose at144 versus0. Seam ROI MAE2.435 versus final adjacent step0.145 supports the visible discontinuity. Preserve acting but restore exact opening pose and breathing phase; no crossfade/reverse/duplicated hold.
+Evidence: ../../review/rounds_r03_r04/START_HERE.txt
+
 P01_IDLE
 QUEUE: REPAIR_LOOP_SEAM
 R01 frames 0 and 144 differ in face/pose. Review all 145 source frames. Match pose AND breathing velocity across 144 -> 0; no reverse, duplicate hold or crossfade. Keep breath, blink and delayed ears.

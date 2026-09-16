@@ -205,9 +205,10 @@
   ],
   "prompt_path": "shots/P01_IDLE/PROMPT.txt",
   "prompt_sha256": "3bdf9eec2849646c9c2bd835d9746b1a552de9bab6d93e2bf074bb285684fc40",
-  "repair_brief": "R01 frames 0 and 144 differ in face/pose. Review all 145 source frames. Match pose AND breathing velocity across 144 -> 0; no reverse, duplicate hold or crossfade. Keep breath, blink and delayed ears.",
+  "repair_brief": "REPAIR_LOOP_SEAM: R04 has strong ear fold at35-80, blink50-81 and a changed smaller end pose at144 versus0. Seam ROI MAE2.435 versus final adjacent step0.145 supports the visible discontinuity. Preserve acting but restore exact opening pose and breathing phase; no crossfade/reverse/duplicated hold.",
   "beat_board": "boards/idle_contact.png",
   "queue_action": "REPAIR_LOOP_SEAM",
   "reference_coverage_path": "REFERENCE_COVERAGE.json",
-  "source_review_instruction": "R01 frames 0 and 144 differ in face/pose. Review all 145 source frames. Match pose AND breathing velocity across 144 -> 0; no reverse, duplicate hold or crossfade. Keep breath, blink and delayed ears."
+  "source_review_instruction": "REPAIR_LOOP_SEAM: R04 has strong ear fold at35-80, blink50-81 and a changed smaller end pose at144 versus0. Seam ROI MAE2.435 versus final adjacent step0.145 supports the visible discontinuity. Preserve acting but restore exact opening pose and breathing phase; no crossfade/reverse/duplicated hold.",
+  "latest_review_path": "review/rounds_r03_r04/DECISIONS.json"
 }

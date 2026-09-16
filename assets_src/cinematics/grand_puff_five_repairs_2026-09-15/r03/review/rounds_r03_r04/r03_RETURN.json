@@ -1,0 +1,103 @@
+{
+  "schema": "grand-puff-seven-job-return-v2",
+  "round": "r03",
+  "handoff_content_commit": "f346a96adcec8e48ee4eb353cf51cc920b1e196f",
+  "responds_to_pixel_review": "5fe1297a081f3c3ce99de2dc50c480e81f793851",
+  "published_branch": "grok/grand-puff-motion-mp4-20260914",
+  "published_at_utc": "2026-09-16T05:25:21.272343+00:00",
+  "delivery_accepted": false,
+  "generated_new_art": true,
+  "construction_method": "imagine_reference_to_video duration=6 16:9 720p; IMAGE_1 opening.png + IMAGE_2 front.jpg; verbatim P06/P07 PROMPT.txt",
+  "pixel_review_ack": {
+    "P01_IDLE": "prefer r01 (b433f1f P01_IDLE.mp4 sha 07b1e4b9ffd0afba55d43a906569fd6e0e6bce763f1f29f824a98b38c2b435b3) for seam review; not rerolled",
+    "P02_FLINCH": "r01 and r02 remain candidates; not rerolled",
+    "P03_PROWL": "r01 f60 four pearls noted; r02 gentler gait; not rerolled",
+    "P04_GIGGLE": "REJECT r02 duplicated face. RETAIN r01 P04_GIGGLE.mp4 sha 715a9b613a7629df1d2f244dffece47f0f34a2353044042f510660065367f4e5",
+    "P05_BOUNCE": "both r01/r02 squash/rebound still open; not a jump substitute",
+    "do_not_strip_authored_cloud_curls": true,
+    "preserve_native_audio": true
+  },
+  "clips": [
+    {
+      "shot_id": "P06_JUMP_ATTACK",
+      "file": "P06_JUMP_ATTACK.mp4",
+      "sha256": "e97d360ee1b29c6c3d90bd7456c669825fcfa33679373da1b8470f5db9f39542",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 145,
+      "duration_seconds": 6.041667,
+      "generator_job_id": "7a382a8a-3e38-484f-9cad-f22a140e1c4d",
+      "selected_take": "t1",
+      "actual_bound_image_hashes": [
+        {
+          "id": "IMAGE_1",
+          "path": "references/opening.png",
+          "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924"
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/front.jpg",
+          "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664"
+        }
+      ],
+      "source_unmodified": true,
+      "known_defects": [
+        "Native extra left puff / extra floor lobes inherit from bound opening.png.",
+        "No baked warning vortex/bands (body-only study; gameplay owns ground cues).",
+        "Native audio present despite silent prompt; preserved per pixel review.",
+        "Timing markers are editorial (aim 0-0.95, lock 0.95-2.7, launch 2.7, contact 3.5); not live damage timing."
+      ]
+    },
+    {
+      "shot_id": "P07_CHARGE_ATTACK",
+      "file": "P07_CHARGE_ATTACK.mp4",
+      "sha256": "9da4c5913570a51cd0df12e95c84f4ecf58eff1681d035be183408723e89fe96",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 145,
+      "duration_seconds": 6.041667,
+      "generator_job_id": "65592cbc-ad28-42e0-8e43-08c324b96c8c",
+      "selected_take": "t1",
+      "actual_bound_image_hashes": [
+        {
+          "id": "IMAGE_1",
+          "path": "references/opening.png",
+          "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924"
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/front.jpg",
+          "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664"
+        }
+      ],
+      "source_unmodified": true,
+      "known_defects": [
+        "Native extra left puff / extra floor lobes inherit from bound opening.png.",
+        "No baked warning vortex/bands (body-only study; gameplay owns ground cues).",
+        "Native audio present despite silent prompt; preserved per pixel review.",
+        "Timing markers are editorial (aim 0-0.95, lock 0.95-2.7, launch 2.7, contact 3.5); not live damage timing."
+      ]
+    }
+  ],
+  "not_returned_this_round": [
+    "P01_IDLE",
+    "P02_FLINCH",
+    "P03_PROWL",
+    "P04_GIGGLE",
+    "P05_BOUNCE"
+  ],
+  "rejected_takes": [
+    {
+      "shot": "P06_JUMP_ATTACK",
+      "job": "c9bfaf6d-1513-4a10-b52c-0edbca890a43",
+      "reason": "weaker hop vs t1 at f65"
+    },
+    {
+      "shot": "P07_CHARGE_ATTACK",
+      "job": "d968079c-4707-4e0f-b08f-f950d31bd946",
+      "reason": "extra forms similar; t1 selected"
+    }
+  ]
+}

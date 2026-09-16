@@ -1,6 +1,6 @@
 # Grand Puff movement profile
 
-Status: laugh, huff and friendship owner-approved; source review complete: two selected takes, three repairs; attack studies awaiting pixel review, 2026-09-16.
+Status: laugh, huff and friendship owner-approved; source review complete: two selected takes, three repairs; attack studies reviewed with peak/contact/action defects, 2026-09-16.
 The [production protocol](ANIMATION_PRODUCTION_PROTOCOL.md#character-and-gameplay-video-cel-lane)
 and [scoped owner exception](../../AGENTS.md#character-and-gameplay-video-cel-exception-owner-decision-2026-09-15)
 authorize pixel transfer from commissioned Grok videos. Method approval is
@@ -52,4 +52,4 @@ runtime/device acceptance. The five additional drafts remain pending repairs in
 [the five-job Grok packet](../../assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r01/START_HERE.txt).
 
 Latest handoff: [reference-complete R03](../../assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/START_HERE.txt).
-The [complete source review](../../audit/animation/grand_puff_returns_2026-09-16/complete/START_HERE.txt) selects R02 flinch and R01 giggle; idle seam, prowl contacts and clipped bounce peak need repairs. New Grok attack returns at bb90a0c0 require pixel review before any reroll. Earlier five-job directions above are history.
+The [complete source review](../../audit/animation/grand_puff_returns_2026-09-16/complete/START_HERE.txt) selects R02 flinch and R01 giggle; idle seam, prowl contacts and clipped bounce peak need repairs. R03 attacks at bb90a0c0 now have complete source review: jump peak/pearls and charge-as-hop need repair. R04 bounce is selected; idle/prowl remain repairs. See latest handoff review/rounds_r03_r04/START_HERE.txt. Earlier five-job directions above are history.

@@ -1,0 +1,97 @@
+{
+  "processed_remote_head": "e28dbb032722e28e7c1bcbf3d5b8ec16667f0f62",
+  "source_commits": {
+    "r03": "bb90a0c06ed981f93ec377df22c125ff274d2c42",
+    "r04": "e28dbb032722e28e7c1bcbf3d5b8ec16667f0f62"
+  },
+  "reviewed_frames": 725,
+  "method": "All 15 chronological boards reviewed, 145 frames per clip; native attack frame84 checks; color-edge and seam diagnostics. Not human real-time playback or audio review.",
+  "source_hashes": [
+    {
+      "round": "r03",
+      "shot": "P06_JUMP_ATTACK",
+      "sha256": "e97d360ee1b29c6c3d90bd7456c669825fcfa33679373da1b8470f5db9f39542",
+      "frames": 145,
+      "top_edge_purple_frames": [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "seam_mae": 2.181167133520075,
+      "first_step_mae": 0.7384086134453781,
+      "last_step_mae": 0.07982434640522876,
+      "scope": "Color/ROI diagnostics support visual review, not acceptance proof."
+    },
+    {
+      "round": "r03",
+      "shot": "P07_CHARGE_ATTACK",
+      "sha256": "9da4c5913570a51cd0df12e95c84f4ecf58eff1681d035be183408723e89fe96",
+      "frames": 145,
+      "top_edge_purple_frames": [
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83
+      ],
+      "seam_mae": 2.9214770074696546,
+      "first_step_mae": 0.9417699579831933,
+      "last_step_mae": 0.18338585434173668,
+      "scope": "Color/ROI diagnostics support visual review, not acceptance proof."
+    },
+    {
+      "round": "r04",
+      "shot": "P01_IDLE",
+      "sha256": "a540e2191c33c55bd4e0c6d478cfcb59b9963dcc974cd0612cf5f1d0f1f37db8",
+      "frames": 145,
+      "top_edge_purple_frames": [],
+      "seam_mae": 2.434810924369748,
+      "first_step_mae": 0.8610334967320261,
+      "last_step_mae": 0.14492530345471522,
+      "scope": "Color/ROI diagnostics support visual review, not acceptance proof."
+    },
+    {
+      "round": "r04",
+      "shot": "P03_PROWL",
+      "sha256": "e207dfb3dd3731ee9ce3c090df74a73fa950fce2e2401c3a31c0ae11fa258224",
+      "frames": 145,
+      "top_edge_purple_frames": [],
+      "seam_mae": 9.837436974789917,
+      "first_step_mae": 2.7921165966386554,
+      "last_step_mae": 0.12347105508870215,
+      "scope": "Color/ROI diagnostics support visual review, not acceptance proof."
+    },
+    {
+      "round": "r04",
+      "shot": "P05_BOUNCE",
+      "sha256": "be67e3e073d17c52d9dfa42b8087bb22c7eaf558f1756d4e71fdf9938d0ddf6d",
+      "frames": 145,
+      "top_edge_purple_frames": [],
+      "seam_mae": 2.3135801820728292,
+      "first_step_mae": 0.5987797619047619,
+      "last_step_mae": 0.24770074696545286,
+      "scope": "Color/ROI diagnostics support visual review, not acceptance proof."
+    }
+  ],
+  "decisions": {
+    "P01_IDLE": "REPAIR_LOOP_SEAM: R04 has strong ear fold at35-80, blink50-81 and a changed smaller end pose at144 versus0. Seam ROI MAE2.435 versus final adjacent step0.145 supports the visible discontinuity. Preserve acting but restore exact opening pose and breathing phase; no crossfade/reverse/duplicated hold.",
+    "P03_PROWL": "REPAIR_CONTACT_AND_RETURN: R04 rocks/yaws repeatedly through30-99; pearls move but no clear two alternating planted footfalls. End pose/placement differs (seam MAE9.837). Retain only as motion reference. Plant left while right shuffles, then right while left shuffles at a fixed floor height; finish on opening support.",
+    "P05_BOUNCE": "KEEP_R04_FOR_ASEPRITE: Both complete ears remain within frame across all145 frames; no top-edge purple pixels. Grounded squash8-26, rebound27-45; second bob82-107, then settle. Four pearl identity and single face remain readable. This is a one-shot selection for reconstruction, not owner acceptance or a seamless loop.",
+    "P06_JUMP_ATTACK": "REPAIR_PEAK_AND_LANDING: R03 crouches around20-24; loaded stance persists to67, lifts around70-73 (later than nominal65 launch). Ear tips clip73-84. Floor pearls detach in flight and are visibly doubled at83-84 (native84 confirms); squash86-101 follows. Retain anticipation/recovery but tuck ears on a lower compact hop, keep exactly two floor pearls attached, and land them together with no duplicate circles.",
+    "P07_CHARGE_ATTACK": "REJECT_AS_CHARGE_REPAIR_ACTION: R03 lifts both floor pearls around74-83 and performs a vertical hop; tips clip76-83. The requested forward-driving grounded shuffle, planted brake and recoil are missing. Replace flight with body lean, alternating grounded contacts and a readable two-pearl brake. Do not substitute a jump or mere whole-image translation."
+  },
+  "metadata_correction": "Do not accept generic extra-flank/lobe claims. Distinguish authored cloud curls from the actual transient doubled floor pearls in jump83-84. Binding declarations match known images but are not independent proof of generator input use.",
+  "acceptance": "No delivery, runtime, device, child or owner acceptance."
+}

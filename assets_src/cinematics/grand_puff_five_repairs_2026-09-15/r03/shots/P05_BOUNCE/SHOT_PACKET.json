@@ -205,9 +205,10 @@
   ],
   "prompt_path": "shots/P05_BOUNCE/PROMPT.txt",
   "prompt_sha256": "4fc1f8fb7b1193174bc5fbfd30854bf50cfd719d71cff8cfa171faaf331ea512",
-  "repair_brief": "R01 ears clip31-36; R02 clip31-38. Keep R02 grounded squash and settle, change peak extension so the complete ears remain inside the frame. Fixed camera/scale; padding or shrinking clipped footage cannot restore missing pixels.",
+  "repair_brief": "KEEP_R04_FOR_ASEPRITE: Both complete ears remain within frame across all145 frames; no top-edge purple pixels. Grounded squash8-26, rebound27-45; second bob82-107, then settle. Four pearl identity and single face remain readable. This is a one-shot selection for reconstruction, not owner acceptance or a seamless loop.",
   "beat_board": "boards/bounce_contact.png",
-  "queue_action": "REPAIR_CLIPPED_PEAK",
+  "queue_action": "KEEP_R04_FOR_ASEPRITE",
   "reference_coverage_path": "REFERENCE_COVERAGE.json",
-  "source_review_instruction": "R01 ears clip31-36; R02 clip31-38. Keep R02 grounded squash and settle, change peak extension so the complete ears remain inside the frame. Fixed camera/scale; padding or shrinking clipped footage cannot restore missing pixels."
+  "source_review_instruction": "KEEP_R04_FOR_ASEPRITE: Both complete ears remain within frame across all145 frames; no top-edge purple pixels. Grounded squash8-26, rebound27-45; second bob82-107, then settle. Four pearl identity and single face remain readable. This is a one-shot selection for reconstruction, not owner acceptance or a seamless loop.",
+  "latest_review_path": "review/rounds_r03_r04/DECISIONS.json"
 }

@@ -1,0 +1,150 @@
+{
+  "schema": "grand-puff-complete-review-repair-v1",
+  "round": "r04",
+  "responds_to": "477049f46f97 / complete/START_HERE.txt (hashes corrected b8016cef7bc1)",
+  "pixel_review_commit": "5fe1297a081f3c3ce99de2dc50c480e81f793851",
+  "published_branch": "grok/grand-puff-motion-mp4-20260914",
+  "published_at_utc": "2026-09-16T05:40:31.049442+00:00",
+  "delivery_accepted": false,
+  "owner_acceptance_granted": false,
+  "construction_method": "imagine_reference_to_video duration=6 16:9 720p; IMAGE_1 opening.png + IMAGE_2 front.jpg; verbatim PROMPT.txt; native MP4s only",
+  "codex_decisions_honored": {
+    "P01_IDLE": "REPAIR_LOOP_SEAM from r01 acting",
+    "P02_FLINCH": "KEEP_R02_FOR_ASEPRITE; not regenerated",
+    "P03_PROWL": "REPAIR_CONTACT_AND_GAIT from r02 identity",
+    "P04_GIGGLE": "KEEP_R01_FOR_ASEPRITE; r02 rejected duplicated face; not regenerated",
+    "P05_BOUNCE": "REPAIR_CLIPPED_PEAK from r02 grounded reading"
+  },
+  "kept_not_returned_this_round": [
+    {
+      "shot_id": "P02_FLINCH",
+      "round": "r02",
+      "file": "assets_src/characters/grand_puff_five_repairs_returns/r02/P02_FLINCH.mp4",
+      "sha256": "20c1c06b3412bfbbfc72f3326066cbb2e897793d64e7ec14f8ad77b246d3eede"
+    },
+    {
+      "shot_id": "P04_GIGGLE",
+      "round": "r01",
+      "file": "assets_src/characters/grand_puff_five_repairs_returns/r01/P04_GIGGLE.mp4",
+      "sha256": "715a9b613a7629df1d2f244dffece47f0f34a2353044042f510660065367f4e5"
+    }
+  ],
+  "clips": [
+    {
+      "shot_id": "P01_IDLE",
+      "file": "P01_IDLE.mp4",
+      "sha256": "a540e2191c33c55bd4e0c6d478cfcb59b9963dcc974cd0612cf5f1d0f1f37db8",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 145,
+      "duration_seconds": 6.041667,
+      "generator_job_id": "3c9aaa52-6a85-410f-a3bf-46a3cd3e1e95",
+      "selected_take": "t1",
+      "actual_bound_image_hashes": [
+        {
+          "id": "IMAGE_1",
+          "path": "references/opening.png",
+          "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924"
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/front.jpg",
+          "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664"
+        }
+      ],
+      "source_unmodified": true,
+      "known_defects": [
+        "Repair of r01 seam: f0-vs-f144 full-frame MSE 24.89 (body 44.36). Blink present ~f40. Not certified velocity continuity.",
+        "Do not loop by crossfade or reverse. Native output only.",
+        "Native extra left puff inherited from bound opening.png; purple cloud curls not stripped.",
+        "Native audio preserved."
+      ]
+    },
+    {
+      "shot_id": "P03_PROWL",
+      "file": "P03_PROWL.mp4",
+      "sha256": "e207dfb3dd3731ee9ce3c090df74a73fa950fce2e2401c3a31c0ae11fa258224",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 145,
+      "duration_seconds": 6.041667,
+      "generator_job_id": "3f2c22ec-66a2-4600-9789-815551c60683",
+      "selected_take": "t2",
+      "actual_bound_image_hashes": [
+        {
+          "id": "IMAGE_1",
+          "path": "references/opening.png",
+          "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924"
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/front.jpg",
+          "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664"
+        }
+      ],
+      "source_unmodified": true,
+      "known_defects": [
+        "Repair of r02 contacts: in-place shuffle study; not claimed as a clean walking loop.",
+        "Four pearls + authored cloud curls retained; curls not treated as extra limbs.",
+        "Native extra left puff inherited from bound opening.png.",
+        "Native audio preserved."
+      ]
+    },
+    {
+      "shot_id": "P05_BOUNCE",
+      "file": "P05_BOUNCE.mp4",
+      "sha256": "be67e3e073d17c52d9dfa42b8087bb22c7eaf558f1756d4e71fdf9938d0ddf6d",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 145,
+      "duration_seconds": 6.041667,
+      "generator_job_id": "572f5cb3-fd2b-4383-91d5-7929ced59861",
+      "selected_take": "t1",
+      "actual_bound_image_hashes": [
+        {
+          "id": "IMAGE_1",
+          "path": "references/opening.png",
+          "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924"
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/front.jpg",
+          "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664"
+        }
+      ],
+      "source_unmodified": true,
+      "known_defects": [
+        "Repair of r02 clipped peak. t1 min_y at f031-38 is 85..27 (top8_noncream=0). t2 still clipped (min_y=0) and rejected.",
+        "Padding/shrink of prior clipped footage was not used.",
+        "Native extra left puff inherited from bound opening.png.",
+        "Native audio preserved."
+      ]
+    }
+  ],
+  "rejected_takes": [
+    {
+      "shot": "P01_IDLE",
+      "job": "fac6458c-7507-439c-a7cc-cdcb8181fcbe",
+      "reason": "worse f0/f144 MSE than t1"
+    },
+    {
+      "shot": "P03_PROWL",
+      "job": "ddc323ad-c010-4d12-9ebf-0097c45301fd",
+      "reason": "noisier mid-frame extra forms vs t2"
+    },
+    {
+      "shot": "P05_BOUNCE",
+      "job": "c30b575e-7773-450c-b983-c6950a36cc9b",
+      "reason": "ears still clipped min_y=0 at peak"
+    }
+  ],
+  "notes": [
+    "Laugh/huff/friendship unchanged.",
+    "Jump/charge remain independent r03 studies.",
+    "Aseprite conversion of kept flinch/giggle is Codex work.",
+    "4.75/5 is owner target, not self-issued."
+  ]
+}

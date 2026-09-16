@@ -190,10 +190,11 @@
     "No crop, camera drift or change of scale"
   ],
   "prompt_path": "shots/P07_CHARGE_ATTACK/PROMPT.txt",
-  "prompt_sha256": "c88b4b8ed47a7f399ae27a068fa186e556c980272d5ef4436f1ab257fe258694",
-  "repair_brief": "New R03 body study arrived. Review before requesting a replacement. Load -> lean -> driving two-pearl shuffle -> plant/brake -> recoil. No endpoint vortex; two thick bands, intermediate dust crests and broad front belong to separate runtime FX.",
+  "prompt_sha256": "5b88c917b686e540008b5c330ed8af0fa2daa2ff293b32fbab1a2882234f8995",
+  "repair_brief": "REJECT_AS_CHARGE_REPAIR_ACTION: R03 lifts both floor pearls around74-83 and performs a vertical hop; tips clip76-83. The requested forward-driving grounded shuffle, planted brake and recoil are missing. Replace flight with body lean, alternating grounded contacts and a readable two-pearl brake. Do not substitute a jump or mere whole-image translation.",
   "beat_board": "boards/charge_attack_beats.png",
-  "queue_action": "REVIEW_NEW_R03_RETURN_BEFORE_REROLL",
+  "queue_action": "REJECT_AS_CHARGE_REPAIR_ACTION",
   "reference_coverage_path": "REFERENCE_COVERAGE.json",
-  "source_review_instruction": "New R03 body study arrived. Review before requesting a replacement. Load -> lean -> driving two-pearl shuffle -> plant/brake -> recoil. No endpoint vortex; two thick bands, intermediate dust crests and broad front belong to separate runtime FX."
+  "source_review_instruction": "REJECT_AS_CHARGE_REPAIR_ACTION: R03 lifts both floor pearls around74-83 and performs a vertical hop; tips clip76-83. The requested forward-driving grounded shuffle, planted brake and recoil are missing. Replace flight with body lean, alternating grounded contacts and a readable two-pearl brake. Do not substitute a jump or mere whole-image translation.",
+  "latest_review_path": "review/rounds_r03_r04/DECISIONS.json"
 }

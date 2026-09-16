@@ -205,9 +205,10 @@
   ],
   "prompt_path": "shots/P03_PROWL/PROMPT.txt",
   "prompt_sha256": "62ce9e966f233df8bdaca254d51fa083a641acafe299571b452fee5579731f7b",
-  "repair_brief": "R02 has four actual pearls but weak floor contacts. R01 slides during 19-87. Show left pearl planted during right shuffle, then right planted during left shuffle; maintain floor height and two footfall beats. Cloud curls are not extra limbs.",
+  "repair_brief": "REPAIR_CONTACT_AND_RETURN: R04 rocks/yaws repeatedly through30-99; pearls move but no clear two alternating planted footfalls. End pose/placement differs (seam MAE9.837). Retain only as motion reference. Plant left while right shuffles, then right while left shuffles at a fixed floor height; finish on opening support.",
   "beat_board": "boards/prowl_contact.png",
-  "queue_action": "REPAIR_CONTACT_AND_GAIT",
+  "queue_action": "REPAIR_CONTACT_AND_RETURN",
   "reference_coverage_path": "REFERENCE_COVERAGE.json",
-  "source_review_instruction": "R02 has four actual pearls but weak floor contacts. R01 slides during 19-87. Show left pearl planted during right shuffle, then right planted during left shuffle; maintain floor height and two footfall beats. Cloud curls are not extra limbs."
+  "source_review_instruction": "REPAIR_CONTACT_AND_RETURN: R04 rocks/yaws repeatedly through30-99; pearls move but no clear two alternating planted footfalls. End pose/placement differs (seam MAE9.837). Retain only as motion reference. Plant left while right shuffles, then right while left shuffles at a fixed floor height; finish on opening support.",
+  "latest_review_path": "review/rounds_r03_r04/DECISIONS.json"
 }
