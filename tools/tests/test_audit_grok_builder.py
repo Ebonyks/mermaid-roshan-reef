@@ -59,6 +59,52 @@ class BuilderDatabaseTests(unittest.TestCase):
         with closing(sqlite3.connect(self.root/'DATABASE.sqlite')) as db:
             self.assertEqual(db.execute('SELECT id FROM clips').fetchone()[0],'CLIP-A')
 
+    def test_corrupt_scene_shot_orphan_fails(self):
+        self.data['scenes']=[dict(id='SCENE-A', name='Scene', location_id='CHAR-A', event_id='EV-A', shot_ids=['missing-shot'], depends_on=[])]
+        errors=validate(self.root,self.data)
+        self.assertTrue(any('SCENE-A: unresolved shots ID missing-shot' in x for x in errors))
+        self.assertTrue(any('not assigned to a scene' in x for x in errors))
+
+    def test_duplicate_jobs_and_retired_tombstone_acts_fail(self):
+        self.data['jobs']=[
+            dict(id='JOB-A', name='First', key='first', act_index=1, runtime_source='runtime/a', roster=['CHAR-A']),
+            dict(id='JOB-A', name='Duplicate', key='duplicate', act_index=2, runtime_source='runtime/b', roster=[]),
+            dict(id='JOB-ACTIVE-4', name='Active tombstone 4', key='active-4', act_index=4, active=True, runtime_source='runtime/4', roster=[]),
+            dict(id='JOB-ACTIVE-9', name='Active tombstone 9', key='active-9', act_index=9, active=True, runtime_source='runtime/9', roster=[]),
+            dict(id='JOB-ACTIVE-14', name='Active tombstone 14', key='active-14', act_index=14, active=True, runtime_source='runtime/14', roster=[]),
+            dict(id='JOB-RET', name='Retired tombstone', key='retired', act_index=4, retired=True, runtime_source='runtime/retired', roster=[]),
+        ]
+        errors=validate(self.root,self.data)
+        self.assertTrue(any('Duplicate ID in jobs' in x for x in errors))
+        for act_index in (4, 9, 14):
+            self.assertTrue(any(f'act_index {act_index} retired tombstone cannot be a career job' in x for x in errors))
+
+    def test_jobs_sidecar_must_mirror_database(self):
+        self.data['jobs']=[dict(id='JOB-A', name='First', canon_key='first', act_index=1, runtime_source='runtime/a', roster=['CHAR-A'])]
+        (self.root/'JOBS.json').write_text('''{"jobs": [], "chapter2_variants": []}''', encoding='utf-8')
+        errors=validate(self.root,self.data)
+        self.assertTrue(any('JOBS.json does not mirror DATABASE.json' in x for x in errors))
+
+    def test_job_variant_base_event_and_reference_foreign_keys_fail(self):
+        self.data['jobs']=[dict(id='JOB-A', name='First', key='first', act_index=1, runtime_source='runtime/a', roster=['CHAR-A'])]
+        self.data['job_variants']=[dict(id='JOBVAR-C2-A', name='Variant', base_job_id='missing-job', event_id='missing-event', reference_ids=['REF-A'])]
+        errors=validate(self.root,self.data)
+        self.assertTrue(any('JOBVAR-C2-A: unresolved jobs ID missing-job' in x for x in errors))
+        self.assertTrue(any('JOBVAR-C2-A: unresolved events ID missing-event' in x for x in errors))
+
+    def test_sqlite_mirrors_jobs_scenes_and_scene_shots(self):
+        self.data['jobs']=[dict(id='JOB-A', name='First', canon_key='first', act_index=1, runtime_source='runtime/a', roster=['CHAR-A'])]
+        self.data['job_variants']=[dict(id='JOBVAR-C2-A', name='Variant', canon_key='variant', base_job_id='JOB-A', act_index=1, event_id='EV-A', scene_id='SCENE-A', reference_ids=['REF-A'])]
+        self.data['scenes']=[dict(id='SCENE-A', name='Scene', location_id='CHAR-A', event_id='EV-A', shot_ids=['SHOT-A'], depends_on=[])]
+        self.assertEqual(validate(self.root,self.data),[])
+        rebuild(self.root,self.data)
+        with closing(sqlite3.connect(self.root/'DATABASE.sqlite')) as db:
+            self.assertEqual(db.execute('SELECT id,name,"key",act_index,runtime_source,roster FROM jobs').fetchone(), ('JOB-A','First','first',1,'runtime/a','["CHAR-A"]'))
+            self.assertEqual(db.execute('SELECT id,base_job_id,event_id,scene_id FROM job_variants').fetchone(), ('JOBVAR-C2-A','JOB-A','EV-A','SCENE-A'))
+            self.assertEqual(db.execute('SELECT id,name,location_id,event_id FROM scenes').fetchone(), ('SCENE-A','Scene','CHAR-A','EV-A'))
+            self.assertEqual(db.execute('SELECT scene_id,shot_id,shot_index FROM scene_shots').fetchone(), ('SCENE-A','SHOT-A',0))
+            self.assertEqual(db.execute('PRAGMA foreign_key_check').fetchall(),[])
+
 
 if __name__=='__main__':
     unittest.main()

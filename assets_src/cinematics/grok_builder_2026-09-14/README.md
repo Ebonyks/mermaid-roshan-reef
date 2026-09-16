@@ -1,6 +1,16 @@
 # Mermaid Roshan — unified Grok builder handoff
 
-Give Grok **START_GROK.txt and this entire folder**, or its single archive download. Start with [the database browser](index.html), [builder instructions](START_GROK.txt), and [the editable database](DATABASE.json). This is one persistent project library, not topic-by-topic Imagine prompts.
+Give Grok **START_GROK.txt and this entire folder**. Start with [the database browser](index.html), [builder instructions](START_GROK.txt), and [the editable database](DATABASE.json). This is one persistent project library, not topic-by-topic Imagine prompts.
+
+## Revision 4 — permanent library and reshoot loop
+
+The [career catalog](JOBS.json) covers all 15 active jobs, 61 freeplay phases and eight separate Chapter 2 variants with 29 phases. Their 90 phase-shot proposals are planning breakdowns, not 90 approved clips. Actual costume sheets, stage/room tiles and props are bundled with per-job reference/beat boards. Geologist's code-native room still needs a reviewed visual setup; historical grotto candidates are not silently promoted.
+
+[Character direction](CHARACTER_DIRECTION.json) specifies Roshan, Daddy, Rumi and original-book Baby Eagle, with Grand Puff/rainbow-friend authority notes. [Scene registry](SCENES.json) indexes every current event, incoming/outgoing state, shot membership and missing coverage. All 36 existing cinematic shots have individual draft cards, timeline intervals and inspectable reference/text boards. [Scene/shot direction](SCENE_SHOT_DIRECTION.json) records concrete camera addresses, corrections and review requirements.
+
+The [reshoot exchange](reshoots/README.md) is the ongoing request → return → QC → revised-request folder. It includes a tested, append-only Python tool, templates, source fingerprints, exact weak-frame spans and a three-attempt cap. It does not invoke Grok, run a scheduler, spend generation credits or approve footage. Keep the owner approval step for each exact first frame.
+
+Build Mode is a workspace/application-building capability, not evidence that Imagine now preserves identity or geography reliably. See the official [Build Mode announcement](https://x.ai/news/grok-build-mode) and separate [Imagine documentation](https://docs.x.ai/developers/model-capabilities/imagine). This handoff supplies the source data and exchange contract; actual Grok import/execution has not been performed here.
 
 The shared records cover characters, locations, props, Day One events and missing shots, Chapter 2 earned objects and nine lawn shots. Existing boards and older shot decisions remain linked, with explicit authority conflicts. The new missing-shot boards show actual reference art beside before/action/after text; they are not newly generated action illustrations.
 
@@ -12,7 +22,7 @@ The Eagle original book crop does not approve invented unobscured anatomy. Chapt
 
 ## Maintenance
 
-Edit DATABASE.json using stable IDs, increment revisions, preserve immutable media and record supersession. Run `python tools/audit_grok_builder.py assets_src/cinematics/grok_builder_2026-09-14 --rebuild` to rebuild SQLite/browser and validate relationships and hashes. Shared changes invalidate dependent openings and endpoints. Never automatically accept draft art or revive retired references. The builder brief defines import/export and review behavior for the Grok project; no claim is made that the external Grok application has already imported it.
+Edit DATABASE.json using stable IDs, increment revisions, preserve immutable media and record supersession. JOBS.json, CHARACTER_DIRECTION.json and SCENE_SHOT_DIRECTION.json own their respective authoring details; DATABASE mirrors them for import/search. Run `python -B tools/refresh_grok_builder_handoff.py assets_src/cinematics/grok_builder_2026-09-14`, then `python -B tools/audit_grok_builder.py assets_src/cinematics/grok_builder_2026-09-14 --rebuild`. SCENES.json, SQLite, browser and boards are derived; do not hand-edit divergent copies. Shared changes invalidate dependent openings and endpoints. Never automatically accept draft art or revive retired references. The builder brief defines import/export and review behavior for the Grok project; no claim is made that the external Grok application has already imported it.
 
 ## Separate completion claims
 

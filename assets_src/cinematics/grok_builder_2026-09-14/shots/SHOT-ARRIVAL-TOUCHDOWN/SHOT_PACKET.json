@@ -1,8 +1,8 @@
 {
   "schema": "builder-shot-planning-v1",
   "shot_id": "SHOT-ARRIVAL-TOUCHDOWN",
-  "status": "DRAFT",
   "event_id": "EV-D1-ARRIVE",
+  "status": "DRAFT",
   "template": "evidence/IMAGINE_SHOT_CARD_V1.txt",
   "duration_seconds": 4,
   "aspect": "16:9",
@@ -23,16 +23,69 @@
   "reference_pool_ids": [
     "REF-017532ae864e534d",
     "REF-69827625a8a795f1",
-    "REF-2eda6f76760b8598"
+    "REF-2eda6f76760b8598",
+    "REF-850d9614c299df94"
   ],
-  "binding_note": "Select 1\u20133 additional identity/material images only after complete ensemble opening review; pool is not bound automatically.",
+  "binding_note": "Pool is archival. Choose only 1–3 identity/material refs after complete opening review.",
   "beats": [
-    "Family aboard approved two-seat plane",
-    "Plane settles on approved ground with visible contact; cabin remains two-seat.",
-    "Family at castle"
+    "Roshan and Daddy remain seated in the approved two-seat plane above its landing patch",
+    "The plane descends, makes visible ground contact and settles once; neither passenger exits",
+    "Plane grounded and stationary; Roshan and Daddy still inside, not yet at the castle"
   ],
-  "camera": "locked",
-  "end_state": "Family at castle",
+  "timeline": [
+    {
+      "start_frame": 0,
+      "end_frame_exclusive": 24,
+      "intent": "Roshan and Daddy remain seated in the approved two-seat plane above its landing patch"
+    },
+    {
+      "start_frame": 24,
+      "end_frame_exclusive": 72,
+      "intent": "The plane descends, makes visible ground contact and settles once; neither passenger exits"
+    },
+    {
+      "start_frame": 72,
+      "end_frame_exclusive": 96,
+      "intent": "Plane grounded and stationary; Roshan and Daddy still inside, not yet at the castle"
+    }
+  ],
+  "timeline_basis": "PROPOSED_24FPS_NOT_MEASURED_RETURN_FOOTAGE",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "camera_address": "Exterior ground-level three-quarter view facing the approved landing patch, bridge and castle; lake and open sky remain legible. Do not squeeze the full panorama into one screen or turn the air island underwater.",
+  "cast": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY"
+  ],
+  "cast_status": "PROPOSED_CAST_REQUIRES_FIRST_FRAME_REVIEW",
+  "scene_cohort_ids": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY"
+  ],
+  "must_move": [
+    "The plane descends, makes visible ground contact and settles once; neither passenger exits"
+  ],
+  "must_not_move": [
+    "Room landmarks",
+    "Unaffected fixtures",
+    "Previously completed work"
+  ],
+  "end_state": "Plane grounded and stationary; Roshan and Daddy still inside, not yet at the castle",
+  "specific_continuity_risk": "Do not undo prior saved work, repair unseen geometry, or add a premature success.",
+  "depends_on": [],
+  "depends_on_events": [],
+  "opening_approval": null,
+  "previous_accepted_endpoint": null,
+  "blocking_findings": [
+    "Human-approved complete first frame missing",
+    "Exact per-shot 2–4 IMAGE bindings and reviews pending",
+    "Reference pool is not an instruction to bind every image",
+    "Exact complete first-frame filename/hash needs owner approval; no board or room-only fallback",
+    "Resolve exact cast, 2–4 bindings, contact/scale, incoming/outgoing endpoint review",
+    "Independent Imagine readiness gate and full-frame delivery gate remain required"
+  ],
   "GENERATION_READY": false,
   "DELIVERY_ACCEPTED": false
 }

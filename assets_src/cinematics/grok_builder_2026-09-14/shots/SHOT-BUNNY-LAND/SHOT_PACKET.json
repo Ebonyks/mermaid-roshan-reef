@@ -1,8 +1,8 @@
 {
   "schema": "builder-shot-planning-v1",
   "shot_id": "SHOT-BUNNY-LAND",
-  "status": "DRAFT",
   "event_id": "EV-D1-LAND",
+  "status": "DRAFT",
   "template": "evidence/IMAGINE_SHOT_CARD_V1.txt",
   "duration_seconds": 4,
   "aspect": "16:9",
@@ -28,14 +28,76 @@
     "REF-da8ead4677192ef4",
     "REF-e488d7c300eff116"
   ],
-  "binding_note": "Select 1\u20133 additional identity/material images only after complete ensemble opening review; pool is not bound automatically.",
+  "binding_note": "Pool is archival. Choose only 1–3 identity/material refs after complete opening review.",
   "beats": [
     "Little bunny airborne; dust falling",
     "Continue trajectory through ground contact; dust scatters and thins for remaining seconds.",
     "Friend grounded; no intact old shell"
   ],
-  "camera": "locked",
+  "timeline": [
+    {
+      "start_frame": 0,
+      "end_frame_exclusive": 24,
+      "intent": "Little bunny airborne; dust falling"
+    },
+    {
+      "start_frame": 24,
+      "end_frame_exclusive": 72,
+      "intent": "Continue trajectory through ground contact; dust scatters and thins for remaining seconds."
+    },
+    {
+      "start_frame": 72,
+      "end_frame_exclusive": 96,
+      "intent": "Friend grounded; no intact old shell"
+    }
+  ],
+  "timeline_basis": "PROPOSED_24FPS_NOT_MEASURED_RETURN_FOOTAGE",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "camera_address": "Stone attic ground plane with two ocean windows, columns, banners, chests, shelf and low shell light. Ensemble medium-wide retains brush contacts and bunny ears. Lower contact/reveal setup may vary height, but cannot move windows or substitute a wooden room.",
+  "cast": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY",
+    "CHAR-RUMI",
+    "CHAR-EAGLE",
+    "CHAR-RAINBOW"
+  ],
+  "cast_status": "PROPOSED_CAST_REQUIRES_FIRST_FRAME_REVIEW",
+  "scene_cohort_ids": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY",
+    "CHAR-RUMI",
+    "CHAR-EAGLE",
+    "CHAR-RAINBOW"
+  ],
+  "must_move": [
+    "Continue trajectory through ground contact; dust scatters and thins for remaining seconds."
+  ],
+  "must_not_move": [
+    "Room landmarks",
+    "Unaffected fixtures",
+    "Previously completed work"
+  ],
   "end_state": "Friend grounded; no intact old shell",
+  "specific_continuity_risk": "Blocked until SHOT-BUNNY-JUMP's airborne endpoint is human-reviewed and hash-locked; no endpoint is accepted yet. After that review, continue its trajectory into visible ground contact, then let dust travel low/outward and thin for several seconds. No intact casing, duplicate bird or second rainbow friend at the settled end.",
+  "depends_on": [
+    "SHOT-BUNNY-JUMP"
+  ],
+  "depends_on_events": [
+    "EV-D1-JUMP"
+  ],
+  "opening_approval": null,
+  "previous_accepted_endpoint": null,
+  "blocking_findings": [
+    "Human-approved complete first frame missing",
+    "Exact per-shot 2–4 IMAGE bindings and reviews pending",
+    "Reference pool is not an instruction to bind every image",
+    "Exact complete first-frame filename/hash needs owner approval; no board or room-only fallback",
+    "Resolve exact cast, 2–4 bindings, contact/scale, incoming/outgoing endpoint review",
+    "Independent Imagine readiness gate and full-frame delivery gate remain required"
+  ],
   "GENERATION_READY": false,
   "DELIVERY_ACCEPTED": false
 }

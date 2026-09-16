@@ -1,8 +1,8 @@
 {
   "schema": "builder-shot-planning-v1",
   "shot_id": "SHOT-POOL-SKIM",
-  "status": "DRAFT",
   "event_id": "EV-D1-SKIM",
+  "status": "DRAFT",
   "template": "evidence/IMAGINE_SHOT_CARD_V1.txt",
   "duration_seconds": 4,
   "aspect": "16:9",
@@ -24,14 +24,66 @@
     "REF-1a9a2005d4d27bd5",
     "REF-69827625a8a795f1"
   ],
-  "binding_note": "Select 1\u20133 additional identity/material images only after complete ensemble opening review; pool is not bound automatically.",
+  "binding_note": "Pool is archival. Choose only 1–3 identity/material refs after complete opening review.",
   "beats": [
     "Litter in pool",
     "Net lifts litter while all fixed pool fixtures remain.",
     "Litter cleared"
   ],
-  "camera": "locked",
+  "timeline": [
+    {
+      "start_frame": 0,
+      "end_frame_exclusive": 24,
+      "intent": "Litter in pool"
+    },
+    {
+      "start_frame": 24,
+      "end_frame_exclusive": 72,
+      "intent": "Net lifts litter while all fixed pool fixtures remain."
+    },
+    {
+      "start_frame": 72,
+      "end_frame_exclusive": 96,
+      "intent": "Litter cleared"
+    }
+  ],
+  "timeline_basis": "PROPOSED_24FPS_NOT_MEASURED_RETURN_FOOTAGE",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "camera_address": "From approved coping toward the left-centre waterfall and right seahorse. Move closer along this known view for contacts, preserving waterline and adjacent fixture; never add a separate fountain basin.",
+  "cast": [
+    "CHAR-ROSHAN"
+  ],
+  "cast_status": "PROPOSED_CAST_REQUIRES_FIRST_FRAME_REVIEW",
+  "scene_cohort_ids": [
+    "CHAR-ROSHAN"
+  ],
+  "must_move": [
+    "Net lifts litter while all fixed pool fixtures remain."
+  ],
+  "must_not_move": [
+    "Room landmarks",
+    "Unaffected fixtures",
+    "Previously completed work"
+  ],
   "end_state": "Litter cleared",
+  "specific_continuity_risk": "Do not undo prior saved work, repair unseen geometry, or add a premature success.",
+  "depends_on": [],
+  "depends_on_events": [
+    "EV-D1-BATH"
+  ],
+  "opening_approval": null,
+  "previous_accepted_endpoint": null,
+  "blocking_findings": [
+    "Human-approved complete first frame missing",
+    "Exact per-shot 2–4 IMAGE bindings and reviews pending",
+    "Reference pool is not an instruction to bind every image",
+    "Exact complete first-frame filename/hash needs owner approval; no board or room-only fallback",
+    "Resolve exact cast, 2–4 bindings, contact/scale, incoming/outgoing endpoint review",
+    "Independent Imagine readiness gate and full-frame delivery gate remain required"
+  ],
   "GENERATION_READY": false,
   "DELIVERY_ACCEPTED": false
 }

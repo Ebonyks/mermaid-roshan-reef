@@ -1,8 +1,8 @@
 {
   "schema": "builder-shot-planning-v1",
   "shot_id": "SHOT-BATH-TOILET",
-  "status": "DRAFT",
   "event_id": "EV-D1-BATH",
+  "status": "DRAFT",
   "template": "evidence/IMAGINE_SHOT_CARD_V1.txt",
   "duration_seconds": 4,
   "aspect": "16:9",
@@ -24,14 +24,66 @@
     "REF-3ecd80b1be8444ae",
     "REF-69827625a8a795f1"
   ],
-  "binding_note": "Select 1\u20133 additional identity/material images only after complete ensemble opening review; pool is not bound automatically.",
+  "binding_note": "Pool is archival. Choose only 1–3 identity/material refs after complete opening review.",
   "beats": [
     "Correct toilet fixture/task pending; prior completed surfaces remain clean",
     "Scrub right pink toilet; dirt visibly clears.",
     "toilet task visibly complete; other unfinished bathroom tasks remain"
   ],
-  "camera": "locked",
+  "timeline": [
+    {
+      "start_frame": 0,
+      "end_frame_exclusive": 24,
+      "intent": "Correct toilet fixture/task pending; prior completed surfaces remain clean"
+    },
+    {
+      "start_frame": 24,
+      "end_frame_exclusive": 72,
+      "intent": "Scrub right pink toilet; dirt visibly clears."
+    },
+    {
+      "start_frame": 72,
+      "end_frame_exclusive": 96,
+      "intent": "toilet task visibly complete; other unfinished bathroom tasks remain"
+    }
+  ],
+  "timeline_basis": "PROPOSED_24FPS_NOT_MEASURED_RETURN_FOOTAGE",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "camera_address": "Room-facing view: horizontal shell tub left, sink/mirror centre, pink toilet right. Sink insert retains mirror/tub edge; tub insert retains sink edge; toilet insert retains right wall. No invented reverse wall.",
+  "cast": [
+    "CHAR-ROSHAN"
+  ],
+  "cast_status": "PROPOSED_CAST_REQUIRES_FIRST_FRAME_REVIEW",
+  "scene_cohort_ids": [
+    "CHAR-ROSHAN"
+  ],
+  "must_move": [
+    "Scrub right pink toilet; dirt visibly clears."
+  ],
+  "must_not_move": [
+    "Room landmarks",
+    "Unaffected fixtures",
+    "Previously completed work"
+  ],
   "end_state": "toilet task visibly complete; other unfinished bathroom tasks remain",
+  "specific_continuity_risk": "Do not undo prior saved work, repair unseen geometry, or add a premature success.",
+  "depends_on": [],
+  "depends_on_events": [
+    "EV-D1-DISCOVER"
+  ],
+  "opening_approval": null,
+  "previous_accepted_endpoint": null,
+  "blocking_findings": [
+    "Human-approved complete first frame missing",
+    "Exact per-shot 2–4 IMAGE bindings and reviews pending",
+    "Reference pool is not an instruction to bind every image",
+    "Exact complete first-frame filename/hash needs owner approval; no board or room-only fallback",
+    "Resolve exact cast, 2–4 bindings, contact/scale, incoming/outgoing endpoint review",
+    "Independent Imagine readiness gate and full-frame delivery gate remain required"
+  ],
   "GENERATION_READY": false,
   "DELIVERY_ACCEPTED": false
 }

@@ -1,0 +1,262 @@
+{
+  "schema": "reef.grok.character-direction.v1",
+  "revision": 1,
+  "purpose": "Advisory identity and acting locks for the persistent Grok Builder handoff. This file is not an executable shot card and does not grant generation or delivery approval.",
+  "authority": {
+    "database": "assets_src/cinematics/grok_builder_2026-09-14/DATABASE.json",
+    "database_baseline": "29bd345dd67dbc4ed4bbf2f02527cd53c7482cfc",
+    "conflict_map": "assets_src/cinematics/grok_builder_2026-09-14/CONFLICT_RESOLUTIONS.json",
+    "source_rule": "Stable entity IDs and bound reference IDs control identity. Historical boards, runtime captures, old pinned/standing Eagle art, and attractive generated panels are not appearance authority.",
+    "first_frame_status": "MISSING_FOR_ALL_CURRENT_SHOTS",
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "global_direction": {
+    "medium": "Complete polished 2D storybook frame; motion references remain editorial only.",
+    "camera": "Use the shot's locked camera unless a reviewed card explicitly states one camera move. Preserve room geometry and character relationships; do not use camera drift or reframing to hide identity or contact failures.",
+    "continuity": [
+      "A complete first frame must be reviewed before motion generation.",
+      "Keep identity, topology, object ownership, handedness, and contacts continuous across every frame.",
+      "No HUD, text, runtime capture pixels, added fixtures, identity drift, anatomy drift, or invented room architecture.",
+      "Use only the two to four references explicitly bound by a reviewed shot card; a database reference pool is not an instruction to bind every image.",
+      "Scale is qualitative and relational. Do not invent numeric proportions; establish relative scale in the complete first frame against the bound room and cast.",
+      "When a view or action is not established by the source, leave it unresolved for human review rather than inventing anatomy or a turnaround."
+    ],
+    "voice_policy": {
+      "allowed": "Existing project recordings only, within their existing approved scope.",
+      "forbidden": [
+        "Family-voice cloning or synthesis",
+        "New synthetic character dialogue presented as family voice",
+        "Using a generated voice to fill a missing line or approval gap"
+      ],
+      "default": "Use no character voice when no existing recording is bound; a gentle contact foley/room-tone line is acceptable in the shot card."
+    }
+  },
+  "characters": [
+    {
+      "entity_id": "CHAR-ROSHAN",
+      "name": "Roshan",
+      "reference_id": "REF-69827625a8a795f1",
+      "reference_path": "media/69827625a8a795f1.png",
+      "source_path": "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/69827625a8_roshan_roshan_base.png",
+      "source_dimensions": [256, 256],
+      "identity_locks": [
+        "Young mermaid child with the approved brown hair and rainbow hair accents.",
+        "Tiara, pink bodice, child-readable face, and one continuous rainbow tail with its authored fluke.",
+        "Curious, brave, affectionate presence; child scale relative to Daddy, Rumi, rooms, and props."
+      ],
+      "anatomy_and_continuity": [
+        "No legs, adult redesign, extra tail, duplicate torso, or disconnected tail/fluke.",
+        "Hands and arms must remain attached and readable through reaches, hugs, and tool contacts.",
+        "Do not change the approved hair, tiara, bodice, tail identity, or face between frames."
+      ],
+      "forbidden_changes": [
+        "Adult or humanoid redesign",
+        "Legs, fins replacing the continuous tail, extra limbs, or mirrored identity drift",
+        "Unapproved costume, hair, tiara, or tail redesign"
+      ],
+      "acting_and_movement": [
+        "Use small, readable child actions: settle, look, reach, scrub, lift, pull, and gentle recovery gestures.",
+        "Contact must precede the visible cleanup result; preserve the commissioned Day One order: bath, pool, Eagle rescue, craft room, then team work.",
+        "Affectionate proximity is allowed with Daddy and Rumi; do not turn a task beat into an uncommissioned performance or pose."
+      ],
+      "object_contact_and_handedness": "Roshan is the primary Day One worker. The source does not establish one permanent dominant brush hand. Choose a hand in the reviewed complete first frame, show an unambiguous grip/contact, and keep that hand, tool orientation, and body support continuous; never mirror or swap hands mid-shot. No tool may move by itself.",
+      "scale_authority": "Use the bound Roshan identity plus the reviewed complete first frame and current room reference. Preserve child scale relationally; do not add numeric proportions.",
+      "relationships": {
+        "established": [
+          "Daughter/child relationship with Daddy; Daddy offers a hand and reassuring proximity.",
+          "Roshan meets Rumi after the pool is restored and Rumi emerges.",
+          "Roshan frees Baby Eagle after the Rumi event and later works with the four-helper group."
+        ],
+        "unknown_or_pending": [
+          "Exact new pose, hand choice, and complete ensemble staging remain shot-specific first-frame decisions.",
+          "No unreviewed alternate Roshan view becomes a new identity authority."
+        ]
+      },
+      "camera_view_limits": "The 256x256 full-body identity is an appearance/layout authority, not a complete pose library. Keep face, hair, tiara, bodice, tail continuity, and child scale stable in any approved view; do not infer a new costume or anatomy from historical panels.",
+      "first_frame_approval": "Missing for every current Roshan-bearing shot. Current cards have no human-approved complete IMAGE_1."
+    },
+    {
+      "entity_id": "CHAR-DADDY",
+      "name": "Daddy Mermaid",
+      "aliases": ["Daddy"],
+      "reference_id": "REF-2eda6f76760b8598",
+      "reference_path": "media/2eda6f76760b8598.png",
+      "source_path": "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/2eda6f7676_daddy_daddy_master.png",
+      "source_dimensions": [1677, 2362],
+      "portrait_only_reference_id": "REF-9031736498f05662",
+      "portrait_only_scope": "Chapter 2 party portrait source only; never substitute it for the cinematic Daddy master.",
+      "identity_locks": [
+        "Clean-shaven slender face, long straight brown hair, pointed ears, thin rectangular black glasses, and jeweled crown.",
+        "High-neck long-sleeve navy coat with gold embroidery and teal cape with shell clasps.",
+        "One continuous rainbow tail with multicolor fluke; patient fatherly presence."
+      ],
+      "anatomy_and_continuity": [
+        "Keep the slender face, glasses, ears, hair silhouette, coat/cape, tail, and fluke connected and stable.",
+        "Hands must remain readable when offering a hand, holding position, or taking a team-cleaning contact.",
+        "Relative adult scale is established only against the reviewed shot first frame and the room; no numeric ratio is authoritative."
+      ],
+      "forbidden_changes": [
+        "Beard, curly hair, generic king costume, solid-blue tail, extra tail, or adult identity drift",
+        "Replacing the master with the Chapter 2 portrait, a historical board, or a runtime capture",
+        "Invented royal props, changed crown, or costume embellishment not present in the master"
+      ],
+      "acting_and_movement": [
+        "Offer a hand and maintain reassuring proximity during arrival or family beats.",
+        "For revised bunny/team actions, use calm coordinated helper movements with visible contacts, never frantic or heroic posing.",
+        "Do not make Daddy perform an action assigned to Roshan, Rumi, Eagle, or the rainbow friend unless the shot card explicitly assigns it."
+      ],
+      "object_contact_and_handedness": "No fixed canonical Daddy brush hand is approved. Establish the hand and grip in the complete first frame: fingers wrap the handle behind the bristle head, bristles point toward and contact the bunny, never backwards through Daddy's hands. Preserve grip and tool orientation through contact/release; no mirrored hand swap. Do not invent brush action in arrival or identity-only beats.",
+      "scale_authority": "The Daddy master controls appearance; use reviewed first-frame staging for relative adult/child scale. Do not promote the Chapter 2 portrait's crop or any numeric ratio to cinematic authority.",
+      "relationships": {
+        "established": [
+          "Daddy is Roshan's patient father and offers reassuring proximity.",
+          "Daddy is one of the four helpers in the revised bunny scrub/reveal and clean-hall team jobs."
+        ],
+        "unknown_or_pending": [
+          "Exact hand assignment, contact side, and ensemble pose remain pending per-shot first-frame approval.",
+          "No approved Daddy turnaround or alternate performance view is registered beyond the master."
+        ]
+      },
+      "camera_view_limits": "The master is the identity authority, not an approval of every side/back/foreshortened view. Keep the glasses, hair, ears, crown, coat, cape, tail, and fluke legible; do not use the portrait-only reference for cinematic appearance.",
+      "first_frame_approval": "Missing for every current Daddy-bearing shot."
+    },
+    {
+      "entity_id": "CHAR-RUMI",
+      "name": "Rumi",
+      "aliases": ["Violet"],
+      "reference_id": "REF-636ec38fd0e01d47",
+      "reference_path": "media/636ec38fd0e01d47.png",
+      "source_path": "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/636ec38fd0_rumi_rumi_full_body_identity.png",
+      "source_dimensions": [576, 1024],
+      "identity_locks": [
+        "Adult mermaid with an enormous sculpted violet braid and pointed ears.",
+        "Star-shell earrings and navy/lavender jacket with the authored trim.",
+        "Aqua/violet/pink tail with coral split fin; preserve the adult silhouette and color identity."
+      ],
+      "anatomy_and_continuity": [
+        "Keep both arms, torso, braid, tail, and split fin distinct and attached.",
+        "During hugs or group work, separate Rumi's arms/tail from Roshan, Daddy, Eagle, and props; do not fuse limbs or tails.",
+        "Use adult scale relationally from the reviewed ensemble first frame, not invented numeric proportions."
+      ],
+      "forbidden_changes": [
+        "Child redesign, shortened or generic hair, missing braid, missing pointed ears, or changed earrings",
+        "Single undifferentiated tail, fused arms/torsos, wrong fin colors, or extra limbs",
+        "Unapproved costume, weapon, crown, or new mermaid species traits"
+      ],
+      "acting_and_movement": [
+        "Rumi emerges and greets Roshan only after the pool restoration sequence.",
+        "In revised bunny/team jobs, use coordinated, readable helper actions and gentle settling; preserve independent body contacts.",
+        "Do not imply Rumi was present before the commissioned rescue/meeting event unless the shot's before-state says so."
+      ],
+      "object_contact_and_handedness": "No fixed canonical Rumi brush hand is approved. If a team shot assigns a tool, bind the hand and contact in the reviewed complete first frame and keep grip, arm path, and release continuous; never mirror hands or let the tool float. Rumi's emergence/greeting does not require an invented cleaning prop.",
+      "scale_authority": "The full-body Rumi identity controls appearance. Relative adult scale and hug spacing must be solved in the complete first frame; no numeric scale is invented from the portrait crop.",
+      "relationships": {
+        "established": [
+          "Rumi is rescued after the purple seahorse is unblocked and emerges to greet Roshan.",
+          "Rumi later participates as one of the four helpers with Roshan, Daddy, and Baby Eagle."
+        ],
+        "unknown_or_pending": [
+          "Exact greeting pose, hug contact, hand assignment, and group spacing remain shot-specific and unapproved.",
+          "No approved alternate back/side action view is registered."
+        ]
+      },
+      "camera_view_limits": "The single full-body source is identity/layout authority only. Do not infer unseen braid, tail, hand, or fin geometry from historical panels; keep any new view pending human first-frame review.",
+      "first_frame_approval": "Missing for every current Rumi-bearing shot."
+    },
+    {
+      "entity_id": "CHAR-EAGLE",
+      "name": "Baby Eagle",
+      "reference_id": "REF-da8ead4677192ef4",
+      "reference_path": "media/da8ead4677192ef4.png",
+      "source_path": "assets/book/baby_eagle.png",
+      "source_dimensions": [290, 512],
+      "identity_locks": [
+        "Original-book body and neck proportions; soft turquoise/mint scalloped feathers with pastel transitions.",
+        "Yellow eye patch, pink three-lobed crest, glossy blue eyes with authored lashes.",
+        "Lavender beak base with black hooked tip; pink wings with broad black outer tips; soft silver-grey legs with rounded plush toes."
+      ],
+      "anatomy_and_continuity": [
+        "The original book crop is partly occluded by the backpack. Unobscured anatomy, back/underside, and flight/wingbeat turnaround are not approved.",
+        "Preserve exactly two wings and the visible authored feather/leg/toe silhouette; do not sharpen toes into black talons.",
+        "Keep the book identity stable when removing pins, freeing the bird, and showing the one recovery wingbeat."
+      ],
+      "forbidden_changes": [
+        "Standing/pinned redesigns, squat mascot proportions, saturated armor-like scales, backpack added to the film, or invented anatomy",
+        "All-black oversized beak, extra wings, extra legs, sharpened talons, changed crest/eye patch, or generic bird substitution",
+        "A flight turnaround or wing choreography inferred from an unseen side/back view"
+      ],
+      "acting_and_movement": [
+        "Begin trapped in the fully dressed Stuffie Room; remove two pins before the bird is free.",
+        "After release, use one readable recovery wingbeat and settle; do not add a separate flight sequence.",
+        "Eagle is a helper in the revised group beats only after the commissioned rescue state; preserve the room dressing."
+      ],
+      "object_contact_and_handedness": "Baby Eagle has no approved brush-hand or tool-contact role. Do not assign a brush, articulated paws, or a new prop. Pin removal must be established by the reviewed complete first frame and must not require invented Eagle anatomy.",
+      "scale_authority": "Use the original-book Eagle crop and the reviewed dressed Stuffie Room first frame for qualitative relative scale. No numeric proportion or unobscured anatomy may be invented.",
+      "relationships": {
+        "established": [
+          "Roshan frees Eagle after the Rumi event in the dressed Stuffie Room.",
+          "Eagle joins Daddy, Rumi, and Roshan as a helper only in the revised bunny/team sequence after rescue."
+        ],
+        "unknown_or_pending": [
+          "Exact pin placement, free pose, and wingbeat view require a human-approved complete first frame.",
+          "Unobscured body/back/underside and a flight turnaround remain unavailable."
+        ]
+      },
+      "camera_view_limits": "Keep the source-facing book crop and room dressing as the safe identity boundary. No new back, underside, or extended-flight view is accepted until separately reviewed; historical Eagle panels cannot fill that gap.",
+      "first_frame_approval": "Missing for SHOT-EAGLE-FREE, SHOT-EAGLE-WING, and every later ensemble shot containing Eagle."
+    }
+  ],
+  "supporting_conflict_authority": {
+    "grand_puff": {
+      "entity_id": "CHAR-PUFF",
+      "reference_id": "REF-e585e525624f4da1",
+      "source_path": "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/e585e52562_grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+      "locks": [
+        "Grand Puff begins as an intact big lavender bunny with his own spiral ears, crest, face, and pearl details.",
+        "Only coordinated group scrubbing causes bubbles to hide the silhouette; the casing collapses as the little friend jumps.",
+        "Friendly transformation only: no pain, corpse, shards, explosion, or extra intact giant after the collapse."
+      ],
+      "conflict_note": "The revised continuous soap/emerge/collapse sequence supersedes earless-mound, early-rainbow-ear, hard-cut, and intact-shell alternatives."
+    },
+    "rainbow_friend": {
+      "entity_id": "CHAR-RAINBOW",
+      "reference_id": "REF-e488d7c300eff116",
+      "source_path": "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/rainbow_dust_bunny_concept.png",
+      "locks": [
+        "Two broad spiral ears: left coral/yellow, right mint/blue/lavender.",
+        "Pink forehead curl with four-point prismatic sparkle, layered cloud scallops, plum glossy eyes, pink cheeks, and authored dark-plum outline.",
+        "No wings, legs, teeth, crown, extra bunny, or invented articulated paws; remain completely hidden until the jump."
+      ],
+      "conflict_note": "This is a concept identity reference, not an owner-approved complete first frame. It does not approve early ears, an early reveal, or a second friend."
+    },
+    "ordinary_playroom_bunny": {
+      "entity_id": "CHAR-PLAY-BUNNY",
+      "reference_id": "REF-677cda8c5de1d3aa",
+      "note": "Distinct ordinary playroom species; never substitute it for Baby Eagle, Grand Puff, or the Rainbow Dust Bunny."
+    }
+  },
+  "current_job_coverage": {
+    "major_character_shots": 27,
+    "groups": {
+      "arrival": ["SHOT-ARRIVAL-TOUCHDOWN"],
+      "roshan_bath": ["SHOT-BATH-SINK", "SHOT-BATH-TUB", "SHOT-BATH-DRAIN", "SHOT-BATH-TOILET"],
+      "roshan_pool": ["SHOT-POOL-SKIM", "SHOT-POOL-FALL-1", "SHOT-POOL-FALL-2", "SHOT-POOL-FALL-3", "SHOT-POOL-PULL"],
+      "eagle_rescue": ["SHOT-EAGLE-FREE", "SHOT-EAGLE-WING"],
+      "roshan_craft": ["SHOT-CRAFT-PICK-1", "SHOT-CRAFT-PICK-2", "SHOT-CRAFT-PICK-3", "SHOT-CRAFT-PICK-4", "SHOT-CRAFT-SCRUB-1", "SHOT-CRAFT-SCRUB-2", "SHOT-CRAFT-SCRUB-3", "SHOT-CRAFT-CUSTOMIZE"],
+      "bunny_reveal": ["SHOT-BUNNY-SOAP", "SHOT-BUNNY-JUMP", "SHOT-BUNNY-LAND"],
+      "team_cleanup": ["SHOT-TEAM-PAPER", "SHOT-TEAM-WEB", "SHOT-TEAM-WALL", "SHOT-TEAM-FINISH"]
+    },
+    "shared_shot_rule": "Every listed shot remains draft/replacement with a missing human-approved complete first frame and no delivery acceptance."
+  },
+  "example_action_direction_fragments": {
+    "executable": false,
+    "note": "Examples only; convert into a reviewed per-shot card with exact IMAGE_1–IMAGE_4 bindings before any generation request.",
+    "fragments": [
+      "Roshan: locked camera; establish the approved child mermaid and tool in one complete frame; one hand keeps the brush in visible contact while the clean patch appears; no hand swap or fixture drift.",
+      "Daddy/Rumi/Eagle team: start with the approved ensemble first frame and separate limbs/tails; each helper performs only the named contact; maintain Daddy's master identity, Rumi's braid and fin, and Eagle's book identity.",
+      "Eagle: begin in the dressed Stuffie Room with both pins visible; remove the pins, then show one recovery wingbeat; do not reveal an invented back/underside or add a backpack.",
+      "Grand Puff/Rainbow: keep Grand Puff intact until wet foam fully obscures him; Rainbow remains hidden until the jump and simultaneous casing collapse; no early ears or surviving intact shell."
+    ]
+  }
+}

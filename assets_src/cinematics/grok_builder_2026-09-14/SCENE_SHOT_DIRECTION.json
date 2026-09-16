@@ -1,0 +1,77 @@
+{
+  "schema": "reef.scene-shot-direction.v1",
+  "source_baseline": "a46c8ae19f8ee8f870fcbc1144c4b2cec4554eb3",
+  "status": "DRAFT_DIRECTION_NOT_APPROVED_FIRST_FRAMES",
+  "purpose": "Explicit scene boundaries, camera addresses and bounded shot endpoints. No new runtime state or unseen architecture is authorized.",
+  "location_setups": {
+    "LOC-SKY": "Exterior ground-level three-quarter view facing the approved landing patch, bridge and castle; lake and open sky remain legible. Do not squeeze the full panorama into one screen or turn the air island underwater.",
+    "LOC-HALL": "Inside the plain lavender hall, camera on the established runner axis; keep a recognizable gold column and the correct small themed doorway as anchors. An oblique insert must join the same wall, not invent a palace or reorder doors.",
+    "LOC-BATH": "Room-facing view: horizontal shell tub left, sink/mirror centre, pink toilet right. Sink insert retains mirror/tub edge; tub insert retains sink edge; toilet insert retains right wall. No invented reverse wall.",
+    "LOC-POOL": "From approved coping toward the left-centre waterfall and right seahorse. Move closer along this known view for contacts, preserving waterline and adjacent fixture; never add a separate fountain basin.",
+    "LOC-STUFFIE": "From the dressed playroom front, retain shell seat/cubbies/toy bins/teepee as applicable to the approved view. Rescue inserts must retain one room anchor and both pin positions; no invented empty nursery.",
+    "LOC-ART": "Front-facing known-wall family only: wide establishes both curved counters, central floor, stocked small rear worktable/idea board. Left-front insert, central rear-table insert and right-front insert vary depth/shot size within that same geometry. New reverse walls require a separately approved turnaround.",
+    "LOC-ATTIC": "Stone attic ground plane with two ocean windows, columns, banners, chests, shelf and low shell light. Ensemble medium-wide retains brush contacts and bunny ears. Lower contact/reveal setup may vary height, but cannot move windows or substitute a wooden room.",
+    "LOC-LAWN": "One playable middle lawn patch in the Sky Lagoon panorama; retain lake/mountain/bridge orientation and earned-object table. Never shrink the entire multi-screen landscape into the camera view. King/Roshan scale remains a staging proposal."
+  },
+  "shot_overrides": {
+    "SHOT-ARRIVAL-TOUCHDOWN": {
+      "before": "Roshan and Daddy remain seated in the approved two-seat plane above its landing patch",
+      "action": "The plane descends, makes visible ground contact and settles once; neither passenger exits",
+      "after": "Plane grounded and stationary; Roshan and Daddy still inside, not yet at the castle",
+      "open_gap": "Disembark/reunion and travel to the bridge are separate missing beats. Do not teleport passengers to the castle or add a rear exit. Preserve stronger existing otter footage as historical editorial evidence, not permission to invent its precise blocking."
+    },
+    "SHOT-POOL-PULL": {
+      "before": "All three waterfall lanes restored; the pink obstruction remains lodged in the purple seahorse mouth",
+      "action": "Roshan visibly grips the pink obstruction and pulls it clear once; fixture and coral pedestal stay fixed",
+      "after": "Pink obstruction held clear of the open mouth; seahorse remains dry at this cut",
+      "open_gap": "Separate water-start/Rumi-emergence beat must follow this dry endpoint. Earlier combined pull-and-flow summary is superseded by the material-state continuity protocol."
+    },
+    "SHOT-CRAFT-CUSTOMIZE": {
+      "before": "Four supplies collected and all three surfaces clean; small stocked rear worktable unlocked",
+      "action": "Roshan makes one authored colour choice at the existing worktable, with visible hand contact",
+      "after": "That one choice is visibly selected; the table, supplies and prior cleaning remain intact",
+      "open_gap": "A cinematic choice must match the saved player selection; do not award every craft choice or assume customization completion from a single contact."
+    },
+    "SHOT-TEAM-WEB": {
+      "before": "Previously collected hall paper stays collected; the selected web and unsolved wall stain remain",
+      "action": "The held duster meets and gathers the selected web while the other helpers make small coordinated supporting actions",
+      "after": "That web is gathered on the duster; paper stays collected, wall stain remains"
+    },
+    "SHOT-TEAM-WALL": {
+      "before": "Paper and selected web have been cleared; the named wall stain remains",
+      "action": "Sponge contact visibly lifts the stain while the group cooperates; unrelated architecture remains fixed",
+      "after": "The named stain is clean; earlier cleared paper/web do not reappear"
+    },
+    "SHOT-TEAM-FINISH": {
+      "before": "All required hall cleanup has already completed; four helpers and the new rainbow friend are together",
+      "action": "The group settles and notices the same now-clean hall; one restrained sparkle acknowledges completed work",
+      "after": "Same architecture fully clean, all four helpers and exactly one small rainbow friend at rest; no giant bunny"
+    }
+  },
+  "specific_risks": {
+    "SHOT-EAGLE-FREE": "Two actual rescue-pin bunnies hold the original-book Eagle. Removal follows saved rescue; no swing/basket search. Two releases may need separate shots if contact is unreadable in four seconds. Unobscured Eagle anatomy remains unapproved.",
+    "SHOT-EAGLE-WING": "Single recovery wingbeat only after rescue; do not use rejected standing Eagle. Original crop does not supply an approved open-wing view; candidate approval is required before generation.",
+    "SHOT-BUNNY-SOAP": "All four helpers work together, not four static solo attack portraits. Daddy grips brush handle behind the bristles; bristles face and contact the bunny. Big bunny's own ears/curl/face remain recognizable until lather hides them. No early rainbow ears.",
+    "SHOT-BUNNY-JUMP": "Small rainbow bunny first appears by jumping while the old soft casing collapses inwards at the same time. No intact second giant, no hollow hard shell, no shell spin or injury. Ensemble helpers remain consistent.",
+    "SHOT-BUNNY-LAND": "Blocked until SHOT-BUNNY-JUMP's airborne endpoint is human-reviewed and hash-locked; no endpoint is accepted yet. After that review, continue its trajectory into visible ground contact, then let dust travel low/outward and thin for several seconds. No intact casing, duplicate bird or second rainbow friend at the settled end.",
+    "SHOT-C2-02": "Rocket-based ignition is provisional owner direction, not settled canon. Do not generate until that mechanism and exact first frame are approved. The parked rocket cannot launch during career preparation.",
+    "SHOT-C2-06": "Depends on the three real protection rounds completing; the challenge shot alone cannot justify victory. Film adaptation needs separate action coverage of those rounds.",
+    "SHOT-C2-07": "Only one candle is taken AFTER Roshan succeeds. The cake, strawberries, banner, music preparation and saved success persist; no forced failure or stolen whole cake."
+  },
+  "shot_dependencies": {
+    "SHOT-BATH-DRAIN": ["SHOT-BATH-TUB"],
+    "SHOT-TEAM-WEB": ["SHOT-TEAM-PAPER"],
+    "SHOT-TEAM-WALL": ["SHOT-TEAM-WEB"]
+  },
+  "prompt_constraints": {
+    "SHOT-EAGLE-FREE": "Two rescue-pin bunnies hold Baby Eagle until Roshan visibly releases each contact. No early wingbeat, swing or basket search; keep the book bird's anatomy and room dressing fixed.",
+    "SHOT-EAGLE-WING": "Both rescue pins are already removed. One recovery wingbeat, exactly two authored wings, then a gentle settle; no backpack, new limbs or departure flight.",
+    "SHOT-BUNNY-LAND": "Continue the airborne pose in IMAGE_1 into visible ground contact. Dust moves low and outward, thinning over the remaining seconds. No intact old casing, duplicate bird or second rainbow friend."
+  },
+  "review_contract": {
+    "frame_basis": "Proposed 24fps editorial timeline, zero-based, end-exclusive; validate actual native rate/count on return before applying frame findings.",
+    "required_checks": ["first frame vs approved opening hash", "every action/contact interval", "final frame vs explicit local end state", "incoming and outgoing cut vs room/cast/object ownership", "runtime entry/completion vs saved gameplay flags", "normal-speed pacing and audible foley", "full-frame evidence remains separate from sampled QC"],
+    "measurements": "Record actual landmark coordinates and subject boxes after first-frame approval. No prefabricated measured passes. Locked-frame drift >0.015 normalized or >5% scale change triggers inspection, not automatic acceptance below those thresholds.",
+    "reshoot_unit": "One shot per job. Record exact weak frame spans and reconstruction targets; regenerate complete failed frames/shot, never interpolate, morph, composite or crossfade a repair."
+  }
+}

@@ -1,8 +1,8 @@
 {
   "schema": "builder-shot-planning-v1",
   "shot_id": "SHOT-BUNNY-JUMP",
-  "status": "DRAFT",
   "event_id": "EV-D1-JUMP",
+  "status": "DRAFT",
   "template": "evidence/IMAGINE_SHOT_CARD_V1.txt",
   "duration_seconds": 4,
   "aspect": "16:9",
@@ -29,14 +29,78 @@
     "REF-e488d7c300eff116",
     "REF-e585e525624f4da1"
   ],
-  "binding_note": "Select 1\u20133 additional identity/material images only after complete ensemble opening review; pool is not bound automatically.",
+  "binding_note": "Pool is archival. Choose only 1–3 identity/material refs after complete opening review.",
   "beats": [
     "Foam-covered old casing",
     "Concept rainbow bunny jumps into view as old casing collapses simultaneously.",
     "Little bunny airborne; old casing collapsing"
   ],
-  "camera": "locked",
+  "timeline": [
+    {
+      "start_frame": 0,
+      "end_frame_exclusive": 24,
+      "intent": "Foam-covered old casing"
+    },
+    {
+      "start_frame": 24,
+      "end_frame_exclusive": 72,
+      "intent": "Concept rainbow bunny jumps into view as old casing collapses simultaneously."
+    },
+    {
+      "start_frame": 72,
+      "end_frame_exclusive": 96,
+      "intent": "Little bunny airborne; old casing collapsing"
+    }
+  ],
+  "timeline_basis": "PROPOSED_24FPS_NOT_MEASURED_RETURN_FOOTAGE",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "camera_address": "Stone attic ground plane with two ocean windows, columns, banners, chests, shelf and low shell light. Ensemble medium-wide retains brush contacts and bunny ears. Lower contact/reveal setup may vary height, but cannot move windows or substitute a wooden room.",
+  "cast": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY",
+    "CHAR-RUMI",
+    "CHAR-EAGLE",
+    "CHAR-RAINBOW",
+    "CHAR-PUFF"
+  ],
+  "cast_status": "PROPOSED_CAST_REQUIRES_FIRST_FRAME_REVIEW",
+  "scene_cohort_ids": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY",
+    "CHAR-RUMI",
+    "CHAR-EAGLE",
+    "CHAR-RAINBOW",
+    "CHAR-PUFF"
+  ],
+  "must_move": [
+    "Concept rainbow bunny jumps into view as old casing collapses simultaneously."
+  ],
+  "must_not_move": [
+    "Room landmarks",
+    "Unaffected fixtures",
+    "Previously completed work"
+  ],
   "end_state": "Little bunny airborne; old casing collapsing",
+  "specific_continuity_risk": "Small rainbow bunny first appears by jumping while the old soft casing collapses inwards at the same time. No intact second giant, no hollow hard shell, no shell spin or injury. Ensemble helpers remain consistent.",
+  "depends_on": [
+    "SHOT-BUNNY-SOAP"
+  ],
+  "depends_on_events": [
+    "EV-D1-SOAP"
+  ],
+  "opening_approval": null,
+  "previous_accepted_endpoint": null,
+  "blocking_findings": [
+    "Human-approved complete first frame missing",
+    "Exact per-shot 2–4 IMAGE bindings and reviews pending",
+    "Reference pool is not an instruction to bind every image",
+    "Exact complete first-frame filename/hash needs owner approval; no board or room-only fallback",
+    "Resolve exact cast, 2–4 bindings, contact/scale, incoming/outgoing endpoint review",
+    "Independent Imagine readiness gate and full-frame delivery gate remain required"
+  ],
   "GENERATION_READY": false,
   "DELIVERY_ACCEPTED": false
 }

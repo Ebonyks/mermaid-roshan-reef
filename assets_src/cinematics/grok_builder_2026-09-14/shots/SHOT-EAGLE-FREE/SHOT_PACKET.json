@@ -1,8 +1,8 @@
 {
   "schema": "builder-shot-planning-v1",
   "shot_id": "SHOT-EAGLE-FREE",
-  "status": "DRAFT",
   "event_id": "EV-D1-EAGLE",
+  "status": "DRAFT",
   "template": "evidence/IMAGINE_SHOT_CARD_V1.txt",
   "duration_seconds": 4,
   "aspect": "16:9",
@@ -27,14 +27,70 @@
     "REF-da8ead4677192ef4",
     "REF-677cda8c5de1d3aa"
   ],
-  "binding_note": "Select 1\u20133 additional identity/material images only after complete ensemble opening review; pool is not bound automatically.",
+  "binding_note": "Pool is archival. Choose only 1–3 identity/material refs after complete opening review.",
   "beats": [
     "Original-book Eagle trapped in dressed Stuffie Room",
     "Remove two pins and free original-book Eagle in dressed Stuffie Room.",
     "Original-book Eagle freed; recovery wingbeat follows"
   ],
-  "camera": "locked",
+  "timeline": [
+    {
+      "start_frame": 0,
+      "end_frame_exclusive": 24,
+      "intent": "Original-book Eagle trapped in dressed Stuffie Room"
+    },
+    {
+      "start_frame": 24,
+      "end_frame_exclusive": 72,
+      "intent": "Remove two pins and free original-book Eagle in dressed Stuffie Room."
+    },
+    {
+      "start_frame": 72,
+      "end_frame_exclusive": 96,
+      "intent": "Original-book Eagle freed; recovery wingbeat follows"
+    }
+  ],
+  "timeline_basis": "PROPOSED_24FPS_NOT_MEASURED_RETURN_FOOTAGE",
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "camera_address": "From the dressed playroom front, retain shell seat/cubbies/toy bins/teepee as applicable to the approved view. Rescue inserts must retain one room anchor and both pin positions; no invented empty nursery.",
+  "cast": [
+    "CHAR-ROSHAN",
+    "CHAR-EAGLE",
+    "CHAR-PLAY-BUNNY"
+  ],
+  "cast_status": "PROPOSED_CAST_REQUIRES_FIRST_FRAME_REVIEW",
+  "scene_cohort_ids": [
+    "CHAR-ROSHAN",
+    "CHAR-EAGLE",
+    "CHAR-PLAY-BUNNY"
+  ],
+  "must_move": [
+    "Remove two pins and free original-book Eagle in dressed Stuffie Room."
+  ],
+  "must_not_move": [
+    "Room landmarks",
+    "Unaffected fixtures",
+    "Previously completed work"
+  ],
   "end_state": "Original-book Eagle freed; recovery wingbeat follows",
+  "specific_continuity_risk": "Two actual rescue-pin bunnies hold the original-book Eagle. Removal follows saved rescue; no swing/basket search. Two releases may need separate shots if contact is unreadable in four seconds. Unobscured Eagle anatomy remains unapproved.",
+  "depends_on": [],
+  "depends_on_events": [
+    "EV-D1-RUMI"
+  ],
+  "opening_approval": null,
+  "previous_accepted_endpoint": null,
+  "blocking_findings": [
+    "Human-approved complete first frame missing",
+    "Exact per-shot 2–4 IMAGE bindings and reviews pending",
+    "Reference pool is not an instruction to bind every image",
+    "Exact complete first-frame filename/hash needs owner approval; no board or room-only fallback",
+    "Resolve exact cast, 2–4 bindings, contact/scale, incoming/outgoing endpoint review",
+    "Independent Imagine readiness gate and full-frame delivery gate remain required"
+  ],
   "GENERATION_READY": false,
   "DELIVERY_ACCEPTED": false
 }
