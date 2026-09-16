@@ -112,3 +112,5 @@ records the authority change. Source defects and individual acceptance remain op
 2026-09-15: owner explicitly approves the three Puff benchmark clips and
 commissions [five draft repairs](../../assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r01/START_HERE.txt).
 [Impact](../../design/audit_impacts/grand-puff-five-repairs-20260915.json); generated returns and Aseprite reconstruction remain pending.
+
+Attack-inclusive [R02 handoff](../../assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r02/START_HERE.txt) adds full jump and charge performances plus the existing three-flash warning contract; seven jobs total. [Impact](../../design/audit_impacts/grand-puff-attack-handoff-20260916.json). Returns remain pending.

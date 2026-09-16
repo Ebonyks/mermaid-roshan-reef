@@ -1,0 +1,71 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "grand-puff-seven-jobs-r02",
+  "shot_id": "P03_PROWL",
+  "status": "DRAFT",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "subsequent_use": "Eligible for reviewed video-derived Aseprite reconstruction under owner exception; not automatically accepted delivery.",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "path": "references/opening.png",
+      "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924",
+      "role": "approved_clean_first_frame",
+      "hud_present": false,
+      "human_decision": "accepted",
+      "approval_basis": "Frame 0 of owner-approved laugh performance; latest explicit review approval in conversation.",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/52308ae4effee4e7e562a595401827afeaa5ba33/assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r01/references/opening.png"
+    },
+    {
+      "id": "IMAGE_2",
+      "path": "references/front.jpg",
+      "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664",
+      "role": "subject_identity",
+      "hud_present": false,
+      "human_decision": "accepted",
+      "approval_basis": "Existing signed identity; use for anatomy and painted material, not independent action/layout.",
+      "remote_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/52308ae4effee4e7e562a595401827afeaa5ba33/assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r01/references/front.jpg"
+    }
+  ],
+  "non_pixel_references": [
+    {
+      "path": "boards/prowl_contact.png",
+      "used_as_pixel_reference": false
+    },
+    {
+      "path": "drafts/prowl.mp4",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "face",
+    "cheek/body curls",
+    "coiled-ear follow-through"
+  ],
+  "must_not_move": [
+    "camera",
+    "background",
+    "lighting"
+  ],
+  "end_state": "opening support and scale, all four original pearls visible",
+  "negative_constraints": [
+    "No extra limbs or pearl forms",
+    "No baked gameplay FX",
+    "No crop or camera drift"
+  ],
+  "prompt_path": "shots/P03_PROWL/PROMPT.txt",
+  "prompt_sha256": "6f0ab8d93936ae058d44697560ce22e06d206d12080a2e2e204077db21b6fce0",
+  "repair_brief": "Replace malformed source: exactly two ear-base pearls plus two floor pearls; no toes, fingers, legs, additional beads or vertical hops. No ear clipping. In-place gait; navigation owns world movement.",
+  "beat_board": "boards/prowl_contact.png"
+}
