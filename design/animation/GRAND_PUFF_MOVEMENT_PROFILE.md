@@ -1,8 +1,8 @@
 # Grand Puff movement profile
 
 Status: owner-commissioned video-derived Aseprite review candidate, 2026-09-15.
-The [production protocol](ANIMATION_PRODUCTION_PROTOCOL.md#grand-puff-video-cel-lane)
-and [scoped owner exception](../../AGENTS.md#grand-puff-video-cel-exception-owner-decision-2026-09-15)
+The [production protocol](ANIMATION_PRODUCTION_PROTOCOL.md#character-and-gameplay-video-cel-lane)
+and [scoped owner exception](../../AGENTS.md#character-and-gameplay-video-cel-exception-owner-decision-2026-09-15)
 authorize pixel transfer from commissioned Grok videos. Method approval is
 separate from visual, runtime, device, child and owner acceptance.
 
@@ -45,3 +45,8 @@ The [additional-source triage](../../assets_src/characters/grand_puff_additional
 separates further Puff candidates from topology/prop failures needing repair.
 Source idle/prowl names do not prove seamless loops or locomotion. Existing
 three-clip sources, previous reconstruction and all runtime behavior stay intact.
+
+Owner explicitly approves laugh, huff and friendship on 2026-09-15. This accepts
+the reviewed performance assets with their recorded source limits; it is not
+runtime/device acceptance. The five additional drafts remain pending repairs in
+[the five-job Grok packet](../../assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r01/START_HERE.txt).

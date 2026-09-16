@@ -108,3 +108,7 @@ Owner approval now extends the method to all characters and gameplay assets
 when dictated. The [production bible](../../design/animation/ASEPRITE_PRODUCTION_BIBLE.md)
 records the shared process; [impact](../../design/audit_impacts/project-aseprite-production-20260915.json)
 records the authority change. Source defects and individual acceptance remain open.
+
+2026-09-15: owner explicitly approves the three Puff benchmark clips and
+commissions [five draft repairs](../../assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r01/START_HERE.txt).
+[Impact](../../design/audit_impacts/grand-puff-five-repairs-20260915.json); generated returns and Aseprite reconstruction remain pending.

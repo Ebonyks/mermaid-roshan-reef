@@ -1,0 +1,20 @@
+GRAND PUFF: FINISH FIVE DRAFTS - R01
+Generate five separate character performances: idle, flinch, prowl, giggle, bounce.
+The owner has approved laugh, huff and friendship. Preserve those three unchanged.
+The prior R11 packet covers those three only; it contains no job for these five.
+
+1. Read DIRECTOR_BRIEF.txt and each shots/*/READ_FIRST.txt.
+2. For each job attach exactly IMAGE_1=references/opening.png and IMAGE_2=references/front.jpg.
+3. Paste that job's PROMPT.txt. Generate ONE clip per job; no montage or transitions.
+4. Return untouched MP4s and completed RETURN_TEMPLATE.json at the specified return path.
+
+boards/ and drafts/ show the old performances and defects, not desired appearance.
+approved/ contains the accepted acting benchmark. runtime_context/ is archive-only.
+No boards, gameplay captures or other videos are bound generation images.
+Do not add feedback stars or attack warning flashes to body footage.
+
+Codex will review every returned frame, preserve native timing, isolate editable
+cels, rebuild Aseprite files, verify every saved pixel/duration and publish review
+previews. The five final animations are NOT complete until that return/review loop.
+See IMAGINE_HANDOFF.json for archive/readiness status and PACKET_MANIFEST.json
+for source provenance. No new clip is accepted merely because it was generated.
