@@ -62,7 +62,7 @@ class DevelopmentAuditTests(unittest.TestCase):
 
 	def navigation_fixture(self, root: Path):
 		for name in ("AGENTS.md", "CLAUDE.md"):
-			(root / name).write_text("# Rules\n\n" + development.CONTRACT, encoding="utf-8")
+			(root / name).write_text("# Rules\n\n" + development.CONTRACT + development.HANDOFF_CONTRACT, encoding="utf-8")
 		for path, body in {
 			"scripts/ci.sh": 'python3 tools/audit_development.py --base auto \\\n\t|| { echo "AUDIT DEVELOPMENT COVERAGE FAIL"; exit 1; }\n',
 			".github/workflows/probes.yml": "          python3 tools/audit_development.py --base auto\n",
@@ -98,6 +98,28 @@ class DevelopmentAuditTests(unittest.TestCase):
 					path.write_text(original.replace(before, after), encoding="utf-8")
 					self.assertTrue(development.navigation_issues(root))
 					path.write_text(original, encoding="utf-8")
+
+	def test_external_handoff_contract_mutations_fail_both_entrypoints(self):
+		with tempfile.TemporaryDirectory() as directory:
+			root = Path(directory)
+			self.navigation_fixture(root)
+			self.assertEqual([], development.navigation_issues(root))
+			for name in ("AGENTS.md", "CLAUDE.md"):
+				path = root / name
+				original = path.read_text(encoding="utf-8")
+				mutations = {
+					"removed": original.replace(development.HANDOFF_CONTRACT, ""),
+					"changed": original.replace("Publishing is part of the handoff task", "Publishing may be deferred", 1),
+					"duplicated": original + development.HANDOFF_CONTRACT,
+				}
+				for mutation, changed in mutations.items():
+					with self.subTest(file=name, mutation=mutation):
+						self.assertNotEqual(original, changed)
+						path.write_text(changed, encoding="utf-8")
+						issues = development.navigation_issues(root)
+						self.assertTrue(any(issue.startswith(f"{name}: external handoff contract") for issue in issues), issues)
+						path.write_text(original, encoding="utf-8")
+				self.assertEqual([], development.navigation_issues(root))
 
 	def init_repo(self, root: Path) -> str:
 		development.git(root, "init", "-q")

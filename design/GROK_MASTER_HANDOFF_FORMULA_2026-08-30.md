@@ -207,12 +207,30 @@ Do not stack many repairs in one retry. A score never overrides a knockout.
 
 ## Stage 9 — publish and report three claims
 
+Publication is automatic within the authorized handoff task, including every
+QC/reshoot revision and review draft. Local workspace paths are never delivery.
+Apply the [GitHub-delivery contract](../AGENTS.md#external-handoffs-github-delivery-is-mandatory).
+Record the established owner-authorized repository/branch and recipient access
+before preparing the packet. An owner-directed dedicated repository replaces
+the default game-tree storage location above; do not republish an archive the
+owner removed. Missing owner image approval blocks generation, not publishing
+the draft review request. Do not spend a return-monitoring cycle waiting for an
+unpublished request.
+
 Use a two-commit publication flow to avoid self-referential hashes:
 
 1. Commit/push packet art and first-frame authorities.
 2. Put immutable URLs from that content commit into ready shot cards; audit,
    commit/push the cards and remote verification record.
-3. Verify the remote manifest and every referenced asset resolves.
+3. Fetch the exact remote manifest and every referenced asset, compare bytes
+   and SHA-256, and verify accessibility using the recipient's access mode.
+   Codex's authenticated private-repository access alone is insufficient.
+4. Publish a receipt naming content commit, per-file checks/hashes, access mode
+   and check time, then give the recipient an entry link, immutable tree and
+   direct manifest link. Track that published request ID/hash for return intake.
+5. If publication/access fails, use an already-authorized reachable GitHub
+   destination, or report `HANDOFF_BLOCKED` immediately with the exact failure.
+   Do not substitute a local path, unpublished draft release or expiring URL.
 
 Report independently:
 

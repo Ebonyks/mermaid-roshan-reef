@@ -1,0 +1,54 @@
+{
+  "id": "handoff-publication-memory-20260916",
+  "scope": "Owner-requested project-memory repair: automatic remote publication and recipient verification for all external handoff revisions, local paths prohibited as delivery, mirrored agent instructions protected by regression tests. The existing paused monitor's saved prompt also mirrors this requirement without restarting or extending it. No runtime, generated art or production acceptance changes.",
+  "baseline": "f5639404e7a1d0d77624ff1dcc2c2515e277c28c",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15"
+  ],
+  "findings": [],
+  "no_findings_reason": "Repairs the owner-reported external-handoff publication workflow, not a canonical game-content finding. MA-VIS-006 and all cinematic acceptance states remain unchanged.",
+  "files": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "design/GROK_MASTER_HANDOFF_FORMULA_2026-08-30.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "tools/audit_development.py",
+    "tools/tests/test_audit_development.py"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "2026-09-16: DOCAUTH inventory 571, ledger 571, active 56, records 58; ALL OK. Stress 6/6. Initial sparse-checkout missing-target errors disappeared after materializing this task worktree, without changing any referenced content."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "2026-09-16: AUDITDEV ALL OK against exact baseline f5639404e7a1d0d77624ff1dcc2c2515e277c28c. Both instruction entry points contain one identical required publication section."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "2026-09-16: 52 tests OK, including removed/changed/duplicated publication-contract cases for AGENTS.md and CLAUDE.md. git diff --check also passes."
+    },
+    {
+      "command": "scripts/ci.sh with official Godot 4.7.2",
+      "result": "PASS",
+      "evidence": "2026-09-16: full local scripts/ci.sh exited 0 on baseline f5639404e7a1d0d77624ff1dcc2c2515e277c28c plus this nine-file policy/test/evidence change. Official Godot 4.7.2-stable ed1daf0bf; static gates, 813-file audio check, 95 visual-contract tests/stress, asset checks, fresh import, 2D no-regression and all trusted gameplay probes passed through probe_props. Existing advisory visual UNSATISFIED and 3D debt remain open, not accepted. No runtime/asset content diff. Published-commit CI remains a separate integration prerequisite."
+    },
+    {
+      "command": "automation_update update + saved automation.toml readback for grok-return-audit-four-hour-cycle",
+      "result": "PASS",
+      "evidence": "2026-09-16: tool confirmed updated PAUSED heartbeat. Readback confirms automatic publication, no local-only monitoring, recipient-access checks, no false receipt claim, and original expired deadline 2026-09-16T09:18:56Z. No new cycle, schedule extension or generation was authorized."
+    }
+  ],
+  "acceptance_gaps": "Instruction/test changes do not prove recipient receipt of past handoffs or close visual, owner, full-frame, device or child acceptance. Prior Grok QC must be separately published and recipient access verified. No runtime or protected assets changed."
+}

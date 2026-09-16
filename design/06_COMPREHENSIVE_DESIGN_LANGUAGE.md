@@ -960,6 +960,17 @@ and the animation system receives immutable GitHub commit/tree links plus a
 direct manifest link. Local-only, unpushed, expiring, or merely upload-ready
 packets do not qualify as delivered handoffs.
 
+Owner clarification 2026-09-16: publication is an automatic part of every
+external handoff revision, including QC/reshoot feedback and review drafts
+awaiting first-frame approval. Apply the synchronized GitHub-delivery contract
+in `AGENTS.md` and `CLAUDE.md`. Local folders are staging only; verify the exact
+remote bytes and the intended recipient's access before reporting delivery or
+waiting for a return. A GitHub push alone, or Codex-only private-repository
+access, does not establish recipient access. Known authorized destinations do
+not require another routine upload permission; unresolved access is reported
+immediately as `HANDOFF_BLOCKED`. Owner-directed archive migrations and privacy
+remain binding; do not restore unpublished material or change visibility.
+
 `DL-CIN-14` — External-generator packaging has two non-interchangeable layers.
 The archive packet owns provenance, licensing, hashes, authority, runtime seams,
 boards, and delivery evidence. The generator packet owns one executable shot

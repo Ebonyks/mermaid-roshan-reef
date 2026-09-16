@@ -11,6 +11,45 @@ Read the applicable [design rules](design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md), 
 - Before commit/push, run `python -B tools/audit_document_authority.py` and `python -B tools/audit_development.py --base auto`, plus all existing applicable gates. Missing coverage or broken authority/navigation blocks the change. Preserve exact baseline and evidence references in the impact record.
 - Report implementation, machine verification, and outstanding visual/device/child/owner acceptance separately. Green regression checks do not establish master-audit satisfaction. Existing security, protected-content, save, owner-decision, and release precedence remains unchanged; this contract grants no new approval checkpoint or release authority.
 
+## External handoffs: GitHub delivery is mandatory
+
+Owner decision: 2026-09-16. Applies to Grok and every external collaborator,
+including revised shot cards, QC feedback, reshoot queues, references and
+monitor-cycle results.
+
+- Publishing is part of the handoff task, not an optional follow-up. Automatically
+  commit/push each initial packet and material revision to the established,
+  owner-authorized GitHub destination; do not ask again whether to upload it.
+- Local workspaces, worktrees, Downloads and temporary folders are staging or
+  testing only. They MUST NOT be the handoff destination, canonical exchange
+  record, or the only copy of information needed by the recipient. A local path,
+  unpushed commit, draft release or expiring download is not a delivered handoff.
+- Resolve and record the repository, branch/path and recipient access at task
+  start. Reuse the established authorized destination and follow explicit owner
+  migrations; do not restore an unpublished archive or change repository
+  visibility. If routing/access is genuinely unresolved, report the blocker
+  immediately, not after a local-only monitoring cycle.
+- Publish review drafts and QC corrections even when generation or owner image
+  approval is pending; label their blocked states honestly. Missing IMAGE_1
+  approval blocks generation, not publication of the review request.
+- Before saying "handed off", waiting for Grok, or starting a return monitor,
+  fetch the published manifest and every required file from the exact remote
+  revision; verify bytes/SHA-256 and all instructions, prompts, references and
+  boards needed by that revision. Test the intended recipient's access mode.
+  Authenticated access by Codex alone does not prove access by Grok.
+- Provide one GitHub entry link, an immutable commit/tree link, a direct manifest
+  link, and a remote-verification receipt naming the revision, hashes, access
+  mode and check time. Publish and verify each revision before waiting for its
+  return; track the published request ID/hash, not an unpublished local request.
+- If upload or recipient access fails, use an already-authorized reachable
+  GitHub destination when available; otherwise report HANDOFF_BLOCKED with the
+  exact failure and required action. Never silently substitute local files,
+  expose private/protected content, or claim that the recipient received it.
+- Publication is not creative acceptance. Keep ARCHIVE_COMPLETE,
+  GENERATION_READY and DELIVERY_ACCEPTED separate; first-frame owner approval,
+  full-frame provenance, protected originals, game integration and release gates
+  remain unchanged.
+
 ## What this is
 A Godot 4.7.2 game for one specific 4-year-old, playable on a 3–4-year-old
 Android phone by touch. Every decision is weighed against: non-reader,
