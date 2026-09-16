@@ -17,8 +17,10 @@
   ],
   "files": [
     "ASSET_LICENSES.md",
+    "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/DIRECTOR_BRIEF.txt",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/PACKET_MANIFEST.json",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/REFERENCE_COVERAGE.json",
+    "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/RETURN_TEMPLATE.json",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/START_HERE.txt",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/review/rounds_r03_r04/DECISIONS.json",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/review/rounds_r03_r04/METRICS.json",
@@ -46,16 +48,21 @@
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/review/rounds_r03_r04/r04_P05_BOUNCE_f33.png",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/review/rounds_r03_r04/r04_RETURN.json",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P01_IDLE/READ_FIRST.txt",
+    "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P01_IDLE/REFERENCES.txt",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P01_IDLE/SHOT_PACKET.json",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P03_PROWL/READ_FIRST.txt",
+    "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P03_PROWL/REFERENCES.txt",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P03_PROWL/SHOT_PACKET.json",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P05_BOUNCE/READ_FIRST.txt",
+    "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P05_BOUNCE/REFERENCES.txt",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P05_BOUNCE/SHOT_PACKET.json",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P06_JUMP_ATTACK/PROMPT.txt",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P06_JUMP_ATTACK/READ_FIRST.txt",
+    "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P06_JUMP_ATTACK/REFERENCES.txt",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P06_JUMP_ATTACK/SHOT_PACKET.json",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P07_CHARGE_ATTACK/PROMPT.txt",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P07_CHARGE_ATTACK/READ_FIRST.txt",
+    "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P07_CHARGE_ATTACK/REFERENCES.txt",
     "assets_src/cinematics/grand_puff_five_repairs_2026-09-15/r03/shots/P07_CHARGE_ATTACK/SHOT_PACKET.json",
     "design/05_DOC_LEDGER.md",
     "design/animation/GRAND_PUFF_MOVEMENT_PROFILE.md"
@@ -65,6 +72,11 @@
       "command": "All-frame source inspection, source SHA256, seam/edge diagnostics",
       "result": "PASS",
       "evidence": "725 frames/15 boards; 5 native detail images; all five MP4 hashes match declared returns. Source dispositions recorded, not a visual-acceptance claim."
+    },
+    {
+      "command": "Handoff, authority, impact gates; immutable GitHub verification",
+      "result": "PASS",
+      "evidence": "ALL OK; 137 published packet files byte-verified at 39bfd4910ffc8a2ba6ac972d50e4860d8bdc63db. Latest shot reference links pinned to full review. Final metadata rechecked after push."
     }
   ],
   "acceptance_gaps": "Source audit only; no owner, live, device or child acceptance."
