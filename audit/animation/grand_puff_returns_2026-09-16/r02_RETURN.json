@@ -1,0 +1,251 @@
+{
+  "schema": "grand-puff-five-repair-return-v1",
+  "round": "r02",
+  "handoff_content_commit": "ecfd472eaab76d1c5888ab7da1926f819336c612",
+  "supersedes_return": "assets_src/characters/grand_puff_five_repairs_returns/r01/",
+  "published_branch": "grok/grand-puff-motion-mp4-20260914",
+  "published_at_utc": "2026-09-16T04:29:01.308055+00:00",
+  "delivery_accepted": false,
+  "acceptance_blocker": "Bound IMAGE_1 opening.png already contains extra left puff and extra floor-contact lobes, so native clips cannot satisfy the two-ear-base-plus-two-floor lock while remaining faithful to the required first frame. Codex must either rebind a clean opening or accept inherited extra forms as IMAGE_1 layout.",
+  "construction_method": "imagine_reference_to_video duration=6 aspect=16:9 resolution_name=720p; IMAGE_1=opening.png IMAGE_2=front.jpg; verbatim per-shot PROMPT.txt; selected from multiple native takes; no paint-over or interpolation",
+  "clips": [
+    {
+      "shot_id": "P01_IDLE",
+      "file": "P01_IDLE.mp4",
+      "sha256": "1dd35658675bc379e587d4210120280dca64b4492efbe05a1a170e7ad9d912cf",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 145,
+      "duration_seconds": 6.041667,
+      "generator_job_id": "c3a74529-e1c1-43cc-82a9-426e47c85921",
+      "selected_take": "t4",
+      "actual_bound_image_hashes": [
+        {
+          "id": "IMAGE_1",
+          "path": "references/opening.png",
+          "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924"
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/front.jpg",
+          "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664"
+        }
+      ],
+      "known_defects": [
+        "Bound IMAGE_1 opening.png already shows extra left puff and extra floor-contact lobes vs the two+two signed lock. Native output inherits them; they are not stripped.",
+        "Native output includes an audio track despite silent prompt. Untouched; not stripped.",
+        "Selected t4 because extra left puff is present at both f0 and f144 (closer inherited loop than takes that grow a new puff). Gaze/pose still not a certified pose+velocity seam.",
+        "Soft breath/blink acting is only partial."
+      ],
+      "rejected_takes": [
+        {
+          "take": "r01",
+          "job": "2d66998a-6752-4a49-9b67-6c346802de71",
+          "reason": "extra puff growth; weaker loop"
+        },
+        {
+          "take": "t1",
+          "job": "6e4399d2-ebc5-411a-811e-02f85b92097b",
+          "reason": "extra puff at start"
+        },
+        {
+          "take": "t2",
+          "job": "3e8bdeba-c4be-4f4e-829f-5a3fd5cf1514",
+          "reason": "clean f0 but extra puff appears by f144"
+        },
+        {
+          "take": "t3",
+          "job": "43d9afd3-d057-456d-9d37-c3b2d952e4fc",
+          "reason": "extra puff both ends; selected t4 instead"
+        }
+      ],
+      "source_unmodified": true
+    },
+    {
+      "shot_id": "P02_FLINCH",
+      "file": "P02_FLINCH.mp4",
+      "sha256": "20c1c06b3412bfbbfc72f3326066cbb2e897793d64e7ec14f8ad77b246d3eede",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 145,
+      "duration_seconds": 6.041667,
+      "generator_job_id": "7620a4b2-ff57-4235-a606-2796aafb3065",
+      "selected_take": "t2",
+      "actual_bound_image_hashes": [
+        {
+          "id": "IMAGE_1",
+          "path": "references/opening.png",
+          "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924"
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/front.jpg",
+          "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664"
+        }
+      ],
+      "known_defects": [
+        "Bound IMAGE_1 opening.png already shows extra left puff and extra floor-contact lobes vs the two+two signed lock. Native output inherits them; they are not stripped.",
+        "Native output includes an audio track despite silent prompt. Untouched; not stripped.",
+        "Closed-eye squash at ~1s is present (allowed). Extra left puff persists through rebound.",
+        "Sheepish end smile is partial."
+      ],
+      "rejected_takes": [
+        {
+          "take": "r01",
+          "job": "526cea15-5e67-4f9c-b4d5-1f0f7aa04357",
+          "reason": "weaker squash than t2"
+        },
+        {
+          "take": "t1",
+          "job": "576a1b3d-48bb-426b-aa9a-09f26efc2f44",
+          "reason": "weaker closed-eye squash than t2"
+        }
+      ],
+      "source_unmodified": true
+    },
+    {
+      "shot_id": "P03_PROWL",
+      "file": "P03_PROWL.mp4",
+      "sha256": "13b0c0ab5d42ff3b8de8163ebe824a1020eb38887afdb754932e97f3aabe050a",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 145,
+      "duration_seconds": 6.041667,
+      "generator_job_id": "8b6e13f4-cd34-4ea2-b9b1-4df285a8ac17",
+      "selected_take": "t4",
+      "actual_bound_image_hashes": [
+        {
+          "id": "IMAGE_1",
+          "path": "references/opening.png",
+          "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924"
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/front.jpg",
+          "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664"
+        }
+      ],
+      "known_defects": [
+        "Bound IMAGE_1 opening.png already shows extra left puff and extra floor-contact lobes vs the two+two signed lock. Native output inherits them; they are not stripped.",
+        "Native output includes an audio track despite silent prompt. Untouched; not stripped.",
+        "FAIL extra floor lobes vs two+two lock. In-place shuffle is only partial. Extra left puff persists.",
+        "No airborne hop in sampled frames."
+      ],
+      "rejected_takes": [
+        {
+          "take": "r01",
+          "job": "bbea64dd-6b58-4407-8be3-48cf9235e8bc",
+          "reason": "extra anatomy"
+        },
+        {
+          "take": "t1",
+          "job": "9826c4c5-543e-439d-8e09-18d68980ee4f",
+          "reason": "extra anatomy"
+        },
+        {
+          "take": "t2",
+          "job": "c049c234-7e8e-49c1-8e24-f5a9abec4146",
+          "reason": "extra anatomy at mid"
+        },
+        {
+          "take": "t3",
+          "job": "cda1ddf1-664e-4eb5-835c-c733d81f4d7f",
+          "reason": "extra anatomy"
+        }
+      ],
+      "source_unmodified": true
+    },
+    {
+      "shot_id": "P04_GIGGLE",
+      "file": "P04_GIGGLE.mp4",
+      "sha256": "8311e8e42a9f61b4626500085920f72df95954d2196665bcaba0846342c03e39",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 145,
+      "duration_seconds": 6.041667,
+      "generator_job_id": "bde28759-8b07-46d8-8846-1db1781b54a2",
+      "selected_take": "t1",
+      "actual_bound_image_hashes": [
+        {
+          "id": "IMAGE_1",
+          "path": "references/opening.png",
+          "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924"
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/front.jpg",
+          "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664"
+        }
+      ],
+      "known_defects": [
+        "Bound IMAGE_1 opening.png already shows extra left puff and extra floor-contact lobes vs the two+two signed lock. Native output inherits them; they are not stripped.",
+        "Native output includes an audio track despite silent prompt. Untouched; not stripped.",
+        "Warm squeezed-eye pulse at mid frames. Extra left puff persists. Crest sparkle still reads gold-ish vs pale anatomical only."
+      ],
+      "rejected_takes": [
+        {
+          "take": "r01",
+          "job": "b54bb622-279a-4ce4-bb93-d9b22d72853e",
+          "reason": "weaker squeeze than t1"
+        },
+        {
+          "take": "t2",
+          "job": "bbc3e758-7c5d-4866-b4ab-b25d30e46743",
+          "reason": "extra puff at start"
+        }
+      ],
+      "source_unmodified": true
+    },
+    {
+      "shot_id": "P05_BOUNCE",
+      "file": "P05_BOUNCE.mp4",
+      "sha256": "54f2e8691737995b1207e202feb51ca36ea38c3eef28ecc5e5c5e2621f029029",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 145,
+      "duration_seconds": 6.041667,
+      "generator_job_id": "d995775d-de1d-4a73-9a92-42bc3bd32d86",
+      "selected_take": "t1",
+      "actual_bound_image_hashes": [
+        {
+          "id": "IMAGE_1",
+          "path": "references/opening.png",
+          "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924"
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/front.jpg",
+          "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664"
+        }
+      ],
+      "known_defects": [
+        "Bound IMAGE_1 opening.png already shows extra left puff and extra floor-contact lobes vs the two+two signed lock. Native output inherits them; they are not stripped.",
+        "Native output includes an audio track despite silent prompt. Untouched; not stripped.",
+        "Grounded compress/rebound present; extra floor lobes and left puff persist. Not an airborne jump in sampled frames."
+      ],
+      "rejected_takes": [
+        {
+          "take": "r01",
+          "job": "7e94ccfe-ff6c-4aa3-ac9a-413c0b407c5f",
+          "reason": "extra anatomy"
+        },
+        {
+          "take": "t2",
+          "job": "e7a52867-3908-4b7f-bf08-3a1f141c25df",
+          "reason": "extra paws at apex"
+        }
+      ],
+      "source_unmodified": true
+    }
+  ],
+  "notes": [
+    "Laugh, huff and friendship were not regenerated.",
+    "r01 native MP4s kept. Rejected r02 takes kept locally, hashes listed.",
+    "4.75/5 is owner target, not self-issued."
+  ]
+}

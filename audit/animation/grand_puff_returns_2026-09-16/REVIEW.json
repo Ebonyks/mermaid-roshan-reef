@@ -1,0 +1,52 @@
+{
+  "schema": "grand-puff-return-pixel-review-v1",
+  "baseline": "f346a96adcec8e48ee4eb353cf51cc920b1e196f",
+  "status": "NOT_ACCEPTED",
+  "scope": "All10 source clips decoded and hashed (1450frames). Visual triage:16 indexed samples per clip (160 thumbnails), plus two native-resolution inspections. This is NOT every-frame human acceptance or normal-speed playback review.",
+  "source_commits": [
+    "1451624b076bbe717fa39a52104d116528aaa5e8",
+    "b433f1f5d22a60ac1f939e7f73b5ce638c7b0f64"
+  ],
+  "technical": {
+    "sha256_matches": 10,
+    "decoded_frames": 1450,
+    "audio_present": 10,
+    "binding_hashes": "Each return-declared IMAGE_1/IMAGE_2 hash compared below with published R01 references; hashes verify declaration consistency, not actual generator input use."
+  },
+  "shots": [
+    {
+      "shot_id": "P01_IDLE",
+      "decision": "REVIEW_OPEN",
+      "observation": "R01 has breath/blink and moderate ear squash. R02 folds ears farther inward at sampled48-72. Neither is certified seamless; endpoint still similarity cannot prove velocity continuity. Prefer R01 for further seam review."
+    },
+    {
+      "shot_id": "P02_FLINCH",
+      "decision": "REVIEW_OPEN",
+      "observation": "R01 closed-eye squash at36-60 and R02 sharper squash at36 are visible. R02 anticipates with widened eyes at24 and recovers by48. Both remain candidate material; no blanket extra-pearl failure established from inspected samples."
+    },
+    {
+      "shot_id": "P03_PROWL",
+      "decision": "REVIEW_OPEN",
+      "observation": "R01 native frame60 shows exactly two ear-base and two floor pearls. Ordinary purple side curls are not automatically additional limbs. R01 support/stance shifts are larger; R02 has gentler in-place movement. Neither gait/contact continuity is certified by sampled boards."
+    },
+    {
+      "shot_id": "P04_GIGGLE",
+      "decision": "REJECT_R02_DUPLICATED_FACE",
+      "observation": "R01 sampled36-72 preserves one face and warm closed-eye mouth acting. R02 sampled60,72,84 (2.5,3.0,3.5s) shows duplicated face/mouth construction and raised rounded forms; native60 confirms. Reject R02 giggle. Retain R01 for full continuity review."
+    },
+    {
+      "shot_id": "P05_BOUNCE",
+      "decision": "REVIEW_OPEN",
+      "observation": "Both show squash/rebound. R01 sampled36-60 lifts the lower cloud contour relative to the pearls/background; ground contact requires motion review. R02 sampled36 approaches the top boundary and should be checked for edge clearance. Neither substitutes for the commissioned jump attack."
+    }
+  ],
+  "metadata_correction": "Extra pearls, detached side puff and gold crest are NOT confirmed as universal defects. R01 P03 frame60 visibly retains four pearls and pale four-point crest. Do not remove authored cloud curls on the strength of prose.",
+  "next_actions": [
+    "Inspect R01 idle seam and R02 flinch, R02 prowl, R01 giggle, R02 bounce through every frame and normal-speed playback before choosing reconstruction inputs. These are provisional priorities, not accepted selections.",
+    "Reject R02 giggle and retain R01 rather than rerolling all five for unconfirmed anatomy faults.",
+    "Preserve native source audio; strip only in silent review/export derivatives. Native audio does not itself disqualify usable visual acting.",
+    "Jump/charge P06/P07 remain separate pending jobs in attack-inclusive R02 handoff; neither return contains them."
+  ],
+  "runtime_changed": false,
+  "accepted_three_changed": false
+}

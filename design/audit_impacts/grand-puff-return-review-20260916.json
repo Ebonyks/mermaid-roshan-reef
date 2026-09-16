@@ -1,0 +1,51 @@
+{
+  "id": "grand-puff-return-review-20260916",
+  "baseline": "f346a96adcec8e48ee4eb353cf51cc920b1e196f",
+  "scope": "Inspect owner-supplied R01 and newly discovered R02 Grok five-draft returns; publish scoped pixel triage and distinguish unverified generator prose from observed defects. No animation acceptance or runtime integration.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-13",
+    "DL-CIN-15",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "audit/animation/grand_puff_returns_2026-09-16/r01_P01_IDLE.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/r01_P02_FLINCH.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/r01_P03_PROWL.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/r01_P04_GIGGLE.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/r01_P05_BOUNCE.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/r02_P01_IDLE.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/r02_P02_FLINCH.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/r02_P03_PROWL.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/r02_P04_GIGGLE.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/r02_P05_BOUNCE.jpg",
+    "audit/animation/grand_puff_returns_2026-09-16/prowl60.png",
+    "audit/animation/grand_puff_returns_2026-09-16/giggle60.png",
+    "audit/animation/grand_puff_returns_2026-09-16/TECHNICAL.json",
+    "audit/animation/grand_puff_returns_2026-09-16/r01_RETURN.json",
+    "audit/animation/grand_puff_returns_2026-09-16/r02_RETURN.json",
+    "audit/animation/grand_puff_returns_2026-09-16/REVIEW.json",
+    "audit/animation/grand_puff_returns_2026-09-16/START_HERE.txt",
+    "audit/animation/grand_puff_returns_2026-09-16/MANIFEST.json",
+    "ASSET_LICENSES.md",
+    "audit/animation/README.md"
+  ],
+  "validation": [
+    {
+      "command": "FFmpeg full decode, ffprobe, SHA256 and declared input-binding comparison",
+      "result": "PASS",
+      "evidence": "audit/animation/grand_puff_returns_2026-09-16/TECHNICAL.json and REVIEW.json:10clips1450decodedframes,160visually inspected thumbnails plus2nativeframes. Ten source SHA256 and all declared reference hashes match."
+    },
+    {
+      "command": "Authority and development coverage gates",
+      "result": "PASS",
+      "evidence": "Authority572/572 and development coverage ALL OK at baseline a46c8ae19f8ee8f870fcbc1144c4b2cec4554eb3; no runtime, script or native animation edits."
+    }
+  ],
+  "acceptance_gaps": "No full per-frame human or real-time playback acceptance. Five draft repairs and two attack jobs remain unfinished. Approved three unchanged."
+}

@@ -1,0 +1,175 @@
+{
+  "schema": "grand-puff-five-repair-return-v1",
+  "handoff_content_commit": "ecfd472eaab76d1c5888ab7da1926f819336c612",
+  "published_branch": "grok/grand-puff-motion-mp4-20260914",
+  "published_at_utc": "2026-09-16T03:44:19.453614+00:00",
+  "delivery_accepted": false,
+  "construction_method": "imagine_reference_to_video duration=6 aspect=16:9 resolution_name=720p; IMAGE_1=opening.png IMAGE_2=front.jpg; verbatim per-shot PROMPT.txt; one clip per job",
+  "clips": [
+    {
+      "shot_id": "P01_IDLE",
+      "file": "P01_IDLE.mp4",
+      "sha256": "07b1e4b9ffd0afba55d43a906569fd6e0e6bce763f1f29f824a98b38c2b435b3",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 145,
+      "duration_seconds": 6.041667,
+      "generator_job_id": "2d66998a-6752-4a49-9b67-6c346802de71",
+      "actual_bound_image_hashes": [
+        {
+          "id": "IMAGE_1",
+          "path": "references/opening.png",
+          "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924"
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/front.jpg",
+          "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664"
+        }
+      ],
+      "known_defects": [
+        "Imagine drift: extra round flank/body pearls beyond the two ear-base + two floor signed forms.",
+        "Extra floor-contact lobes / extra small puff beside the body on sampled frames.",
+        "Gold-looking crest sparkle rather than a strictly pale four-point anatomical sparkle.",
+        "End frame still shows extra side puff; cannot claim a pose+velocity seamless loop from sampled f0 vs f144.",
+        "Acting: soft breath/blink present but extra anatomy dominates the silhouette.",
+        "Native output includes an audio track despite silent prompt. Untouched; not stripped."
+      ],
+      "source_unmodified": true
+    },
+    {
+      "shot_id": "P02_FLINCH",
+      "file": "P02_FLINCH.mp4",
+      "sha256": "64f2e7254bc9ec546c8249b0d11312ca59e681eb8284bed5112d558ef58caff9",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 145,
+      "duration_seconds": 6.041667,
+      "generator_job_id": "526cea15-5e67-4f9c-b4d5-1f0f7aa04357",
+      "actual_bound_image_hashes": [
+        {
+          "id": "IMAGE_1",
+          "path": "references/opening.png",
+          "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924"
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/front.jpg",
+          "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664"
+        }
+      ],
+      "known_defects": [
+        "Imagine drift: extra round flank/body pearls beyond the two ear-base + two floor signed forms.",
+        "Extra floor-contact lobes / extra small puff beside the body on sampled frames.",
+        "Gold-looking crest sparkle rather than a strictly pale four-point anatomical sparkle.",
+        "Closed-eye squash at ~1s is present (allowed). Extra forms persist through rebound.",
+        "No visible attacker in sampled frames; extra gold sparkle remains.",
+        "Native output includes an audio track despite silent prompt. Untouched; not stripped."
+      ],
+      "source_unmodified": true
+    },
+    {
+      "shot_id": "P03_PROWL",
+      "file": "P03_PROWL.mp4",
+      "sha256": "a3aa28bf1fd3d9c9c45c3cd3367850a2556b5dc1ea66acbdf0f8c72f58f5dacb",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 145,
+      "duration_seconds": 6.041667,
+      "generator_job_id": "bbea64dd-6b58-4407-8be3-48cf9235e8bc",
+      "actual_bound_image_hashes": [
+        {
+          "id": "IMAGE_1",
+          "path": "references/opening.png",
+          "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924"
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/front.jpg",
+          "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664"
+        }
+      ],
+      "known_defects": [
+        "Imagine drift: extra round flank/body pearls beyond the two ear-base + two floor signed forms.",
+        "Extra floor-contact lobes / extra small puff beside the body on sampled frames.",
+        "Gold-looking crest sparkle rather than a strictly pale four-point anatomical sparkle.",
+        "FAIL extra pearls/paws vs the two+two lock. Possible extra limb-like lobes.",
+        "In-place shuffle is only partial; extra side puff remains at f144.",
+        "Native output includes an audio track despite silent prompt. Untouched; not stripped."
+      ],
+      "source_unmodified": true
+    },
+    {
+      "shot_id": "P04_GIGGLE",
+      "file": "P04_GIGGLE.mp4",
+      "sha256": "715a9b613a7629df1d2f244dffece47f0f34a2353044042f510660065367f4e5",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 145,
+      "duration_seconds": 6.041667,
+      "generator_job_id": "b54bb622-279a-4ce4-bb93-d9b22d72853e",
+      "actual_bound_image_hashes": [
+        {
+          "id": "IMAGE_1",
+          "path": "references/opening.png",
+          "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924"
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/front.jpg",
+          "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664"
+        }
+      ],
+      "known_defects": [
+        "Imagine drift: extra round flank/body pearls beyond the two ear-base + two floor signed forms.",
+        "Extra floor-contact lobes / extra small puff beside the body on sampled frames.",
+        "Gold-looking crest sparkle rather than a strictly pale four-point anatomical sparkle.",
+        "Warm squeezed-eye giggle at mid frames is present. Extra forms persist.",
+        "Crest sparkle reads gold/halo-like rather than pale anatomical only.",
+        "Native output includes an audio track despite silent prompt. Untouched; not stripped."
+      ],
+      "source_unmodified": true
+    },
+    {
+      "shot_id": "P05_BOUNCE",
+      "file": "P05_BOUNCE.mp4",
+      "sha256": "f65f1c76fb41c4638eac5eaa1d98549005686bb1c7a9ec8648237959d9166dbf",
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 145,
+      "duration_seconds": 6.041667,
+      "generator_job_id": "7e94ccfe-ff6c-4aa3-ac9a-413c0b407c5f",
+      "actual_bound_image_hashes": [
+        {
+          "id": "IMAGE_1",
+          "path": "references/opening.png",
+          "sha256": "e181607003e23b652f5440c49d3e20c7a3396da3ad2d0f93633eff1d865a7924"
+        },
+        {
+          "id": "IMAGE_2",
+          "path": "references/front.jpg",
+          "sha256": "1fc9ed2f9d0904cebd3a94099421d02f8be7b2a23c507b6dcfb0e773d8759664"
+        }
+      ],
+      "known_defects": [
+        "Imagine drift: extra round flank/body pearls beyond the two ear-base + two floor signed forms.",
+        "Extra floor-contact lobes / extra small puff beside the body on sampled frames.",
+        "Gold-looking crest sparkle rather than a strictly pale four-point anatomical sparkle.",
+        "Grounded compress/rebound is present; extra paws and extra side puff persist.",
+        "Not an airborne jump in sampled frames, but extra anatomy remains.",
+        "Native output includes an audio track despite silent prompt. Untouched; not stripped."
+      ],
+      "source_unmodified": true
+    }
+  ],
+  "notes": [
+    "Laugh, huff and friendship were not regenerated.",
+    "Extracted review frames are local only; not production cels.",
+    "4.75/5 is owner target, not self-issued."
+  ]
+}
