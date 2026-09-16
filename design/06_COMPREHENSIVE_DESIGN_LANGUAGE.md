@@ -766,6 +766,17 @@ references cannot supply delivery pixels or acquire acceptance by relabeling.
 
 ---
 
+`DL-MOT-14` — Owner decision 2026-09-15 makes versioned GitHub handoffs and
+minimum-duration, single-action Grok motion studies the permanent external
+animation workflow. Use the [minimum-clip handoff profile](animation/GROK_MINIMUM_CLIP_HANDOFF_PROFILE.md):
+preserve approved artwork, verify the shortest supported duration for the actual
+execution interface, prioritize material/organic motion, and keep simple
+feedback and gameplay logic in Godot. Archive publication, generation readiness
+and delivery acceptance remain separate; the full-frame cinematic rules are
+unchanged.
+
+---
+
 ## 10. Voice, music, and non-reader communication
 
 `DL-SND-01` — Every required objective has an exact spoken cue. A generic cheer,

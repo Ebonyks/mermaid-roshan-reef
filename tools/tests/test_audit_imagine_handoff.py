@@ -11,6 +11,19 @@ from tools.audit_imagine_handoff import audit_handoff
 
 
 class ImagineHandoffAuditTest(unittest.TestCase):
+	def test_minimum_clip_duration_preserves_project_ceiling(self):
+		with tempfile.TemporaryDirectory() as tmp:
+			packet, card_path = self._ready_packet(Path(tmp))
+			card = json.loads(card_path.read_text(encoding="utf-8"))
+			for duration in (1, 2, 8):
+				card["duration_seconds"] = duration
+				card_path.write_text(json.dumps(card), encoding="utf-8")
+				self.assertEqual(audit_handoff(packet), [], duration)
+			for duration in (0, 0.5, 9, 15, True, "1", None):
+				card["duration_seconds"] = duration
+				card_path.write_text(json.dumps(card), encoding="utf-8")
+				self.assertTrue(any("duration_seconds" in e for e in audit_handoff(packet)), duration)
+
 	def test_repair_archive_dispatch_preserves_readiness_and_integrity(self):
 		packet = Path(__file__).resolve().parents[2] / "assets_src/cinematics/overnight_recut_repairs_2026-09-12"
 		self.assertEqual(audit_handoff(packet), [])

@@ -1,0 +1,80 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "sky_lagoon_micro_motion_v1",
+  "shot_id": "SL-D01",
+  "title": "Castle door small opening",
+  "priority": 4,
+  "status": "DRAFT",
+  "duration_seconds": 1,
+  "duration_policy": "shortest supported by verified execution surface; one second documented for API; UI minimum unconfirmed",
+  "conditional_ui_variant": {
+    "duration_seconds": 6,
+    "prompt_path": "shots/SL-D01/PROMPT_UI_6S_IF_MINIMUM.txt",
+    "use_only_if": "six seconds is the operator-confirmed shortest setting"
+  },
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "native_first_frame_size": [
+    320,
+    180
+  ],
+  "native_detail_note": "Requested 720p output does not create native source detail. No source upscaling performed.",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "shots/SL-D01/IMAGE_1.png",
+      "sha256": "1f445348a1c0ae71cccad4684788c4f8680e63da0cd651dadbbe4125d66d5afe",
+      "hud_present": false,
+      "human_decision": "pending shot-specific crop and binding review",
+      "source_art_authority": "owner-provided background family; existing castle design",
+      "remote_url": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "shots/SL-D01/IMAGE_2.png",
+      "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+      "hud_present": false,
+      "human_decision": "pending shot-specific crop and binding review",
+      "source_art_authority": "owner-provided background family; existing castle design",
+      "remote_url": null
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "only the two wooden door leaves around their outer hinges"
+  ],
+  "must_not_move": [
+    "stone arch, facade, bridge, gold fittings on their own door leaf, stained-glass portrait and camera"
+  ],
+  "end_state": "the unchanged double door holds a narrow inward opening",
+  "negative_constraints": [
+    "no new characters, bent masonry, detached handle, extra door, wide reveal or stained-glass animation",
+    "no HUD or text"
+  ],
+  "prompt_path": "shots/SL-D01/PROMPT.txt",
+  "prompt_sha256": "2106e43a7f8422a6f0464ba46fe8ac6c8938fe0967da8153f2bf6da84cc6dfb6",
+  "sound_intent": "silence",
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.png",
+      "used_as_pixel_reference": false
+    },
+    {
+      "path": "RUNTIME_BOUNDARIES.json",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "benefit": "Reference for hinge behavior and the missing interior state; lower priority than water.",
+  "runtime_contract": "Motion study only. Gameplay must approach before knocking/opening/transition. Preserve bridge contact and exact return route. Interior reveal is a new candidate, not approved architecture.",
+  "first_frame_review": "Source family supplied by owner; exact shot crop/bindings not yet accepted."
+}

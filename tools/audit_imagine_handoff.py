@@ -236,8 +236,8 @@ def audit_shot(
 	if card.get("output_disposition") != "motion_reference_only":
 		errors.append(f"{card_path}: output_disposition must be motion_reference_only")
 	duration = card.get("duration_seconds")
-	if not isinstance(duration, (int, float)) or isinstance(duration, bool) or not 2 <= duration <= 8:
-		errors.append(f"{card_path}: duration_seconds must be from 2 through 8")
+	if not isinstance(duration, (int, float)) or isinstance(duration, bool) or not 1 <= duration <= 8:
+		errors.append(f"{card_path}: duration_seconds must be from 1 through 8")
 	if card.get("aspect_ratio") != "16:9" or card.get("delivery_size") != [1280, 720]:
 		errors.append(f"{card_path}: aspect_ratio/delivery_size must be 16:9 and 1280x720")
 

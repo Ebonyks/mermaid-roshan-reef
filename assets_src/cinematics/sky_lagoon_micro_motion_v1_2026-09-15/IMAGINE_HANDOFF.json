@@ -1,0 +1,21 @@
+{
+  "schema": "imagine-handoff-v1",
+  "movie_id": "sky_lagoon_micro_motion_v1",
+  "archive_status": "incomplete",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "draft_shot_packets": [
+    "shots/SL-W01/SHOT_PACKET.json",
+    "shots/SL-W02/SHOT_PACKET.json",
+    "shots/SL-P01/SHOT_PACKET.json",
+    "shots/SL-D01/SHOT_PACKET.json"
+  ],
+  "blocking_findings": [
+    "Exact first-frame crop and binding acceptance pending for each shot; source-family authority retained",
+    "Execution interface and its shortest supported duration must be recorded before submission"
+  ],
+  "archive_payload_manifest": "ARCHIVE_MANIFEST.json",
+  "shot_board": "SHOT_BOARD.png",
+  "permanent_profile": "design/animation/GROK_MINIMUM_CLIP_HANDOFF_PROFILE.md"
+}

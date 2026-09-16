@@ -1,0 +1,390 @@
+{
+  "schema": "source-archive-manifest-v1",
+  "handoff_id": "sky_lagoon_micro_motion_v1_2026-09-15",
+  "source_commit": "a46c8ae19f8ee8f870fcbc1144c4b2cec4554eb3",
+  "payload_hash_method": "SHA256 of sorted UTF-8 path + TAB + lowercase SHA256 + LF; excludes this manifest and later remote verification",
+  "payload_sha256": "20848bd2478a02e51597d523a1987e85e724ad77003a8b06efe3d420cc447adf",
+  "files": [
+    {
+      "path": ".gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "3f6a31fe0cec0cea12d5b2ab709d198547618559305d770c6a33483dac5c5506",
+      "bytes": 71,
+      "dimensions": null,
+      "source_path": "authored for this archive",
+      "role": "cross-platform payload byte preservation",
+      "modification_status": "new scoped Git attributes",
+      "license_provenance": "Project-authored configuration; affects only this packet"
+    },
+    {
+      "path": "IMAGINE_HANDOFF.json",
+      "sha256": "05230a289f159b4cf905a62621bf073a3274664cecf4335fa33a3cbf2d5a9582",
+      "bytes": 790,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": "RUNTIME_BOUNDARIES.json",
+      "sha256": "33052dbb81594a7508fa0543b04c0ce29936c0c4141662a35f45fbb2195c6579",
+      "bytes": 805,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": "SHOT_BOARD.png",
+      "sha256": "faccbdf1721cfcbfd12442ef4ee662f56810b596d4566e913efa27dfa72a0698",
+      "bytes": 1432842,
+      "dimensions": [
+        1280,
+        920
+      ],
+      "source_path": "shots/*/IMAGE_1.png",
+      "role": "human shot/beat board, not generator pixels",
+      "modification_status": "layout thumbnails with text; no generated motion claimed",
+      "license_provenance": "Same packet artwork"
+    },
+    {
+      "path": "SOURCE_PROVENANCE.json",
+      "sha256": "cd5eb134136a83fc2fe7f01e09bc8eda135e12e9605e41deb84cd87890de56f3",
+      "bytes": 6053,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": "START_HERE.txt",
+      "sha256": "3efc60ff3fb4d1f80c37ec9b209f012ac4ee8126c9dcd25c67ccc280584c8445",
+      "bytes": 876,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": "references/arrival.png",
+      "sha256": "84d3a8c9ced2b1c596275725d706d884dfb80988a4b067617f6ca652a626a693",
+      "bytes": 2199160,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp/sky-lagoon-layered-v7/originals/01-arrival-v1.png",
+      "role": "approved source art",
+      "modification_status": "byte-identical copy",
+      "license_provenance": "Owner-supplied AI Sky Lagoon art / existing approved project castle; v6 derived composition retains its pending acceptance. No third-party stock introduced.",
+      "source_sha256": "84d3a8c9ced2b1c596275725d706d884dfb80988a4b067617f6ca652a626a693"
+    },
+    {
+      "path": "references/castle-layout-candidate.png",
+      "sha256": "3cc8933b06982a8791fd8f1d58a071e8df23a57d154d45ff51b8fa2bebe7e52c",
+      "bytes": 3087494,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp/sky-lagoon-layered-v6/review/3-composite.png",
+      "role": "unaccepted clean composition candidate; not a gameplay/HUD capture",
+      "modification_status": "byte-identical copy",
+      "license_provenance": "Owner-supplied AI Sky Lagoon art / existing approved project castle; v6 derived composition retains its pending acceptance. No third-party stock introduced.",
+      "source_sha256": "3cc8933b06982a8791fd8f1d58a071e8df23a57d154d45ff51b8fa2bebe7e52c"
+    },
+    {
+      "path": "references/castle.png",
+      "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+      "bytes": 1412255,
+      "dimensions": [
+        1022,
+        1024
+      ],
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+      "role": "existing project four-tower castle master; source artwork",
+      "modification_status": "byte-identical copy of canonical v4; prior review encoding had identical RGBA pixels",
+      "license_provenance": "Owner-supplied AI Sky Lagoon art / existing approved project castle; v6 derived composition retains its pending acceptance. No third-party stock introduced.",
+      "source_sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+      "pixel_equivalent_review_sha256": "3cd52d8524c699ed97aa2b593ca8483a82d7a9fed67fb68baea368dba8409530"
+    },
+    {
+      "path": "references/lake.png",
+      "sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64",
+      "bytes": 2508030,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp/sky-lagoon-layered-v7/originals/03-lake-approach-v1.png",
+      "role": "approved source art",
+      "modification_status": "byte-identical copy",
+      "license_provenance": "Owner-supplied AI Sky Lagoon art / existing approved project castle; v6 derived composition retains its pending acceptance. No third-party stock introduced.",
+      "source_sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64"
+    },
+    {
+      "path": "references/meadow.png",
+      "sha256": "e89676b84978da3079f831fbb73efc7283e30296c4b695a17d4ea4a2e9b8429b",
+      "bytes": 2343009,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp/sky-lagoon-layered-v7/originals/02-meadow-v1.png",
+      "role": "approved source art",
+      "modification_status": "byte-identical copy",
+      "license_provenance": "Owner-supplied AI Sky Lagoon art / existing approved project castle; v6 derived composition retains its pending acceptance. No third-party stock introduced.",
+      "source_sha256": "e89676b84978da3079f831fbb73efc7283e30296c4b695a17d4ea4a2e9b8429b"
+    },
+    {
+      "path": "shots/SL-D01/IMAGE_1.png",
+      "sha256": "1f445348a1c0ae71cccad4684788c4f8680e63da0cd651dadbbe4125d66d5afe",
+      "bytes": 125564,
+      "dimensions": [
+        320,
+        180
+      ],
+      "source_path": "references/castle-layout-candidate.png",
+      "source_sha256": "3cc8933b06982a8791fd8f1d58a071e8df23a57d154d45ff51b8fa2bebe7e52c",
+      "role": "clean first-frame candidate",
+      "modification_status": "exact pixel crop [640, 635, 960, 815]; no resizing or repainting",
+      "license_provenance": "Derived from packet source artwork; no external content"
+    },
+    {
+      "path": "shots/SL-D01/IMAGE_2.png",
+      "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+      "bytes": 1412255,
+      "dimensions": [
+        1022,
+        1024
+      ],
+      "source_path": "references/castle.png",
+      "source_sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+      "role": "object/material identity; operator side-reference on single-image interfaces",
+      "modification_status": "byte-identical copy",
+      "license_provenance": "Derived from packet source artwork; no external content"
+    },
+    {
+      "path": "shots/SL-D01/PROMPT.txt",
+      "sha256": "2106e43a7f8422a6f0464ba46fe8ac6c8938fe0967da8153f2bf6da84cc6dfb6",
+      "bytes": 714,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": "shots/SL-D01/PROMPT_UI_6S_IF_MINIMUM.txt",
+      "sha256": "64d8651848af263352930a9301a16bf3e3eebec4845ba3e7ef5e06db8e60e7b0",
+      "bytes": 801,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": "shots/SL-D01/SHOT_PACKET.json",
+      "sha256": "a1a864979754edcce207dffa08bce9c6bcfba60b356fd040a7ec49d5c7080cd3",
+      "bytes": 3036,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": "shots/SL-P01/IMAGE_1.png",
+      "sha256": "bc2c8692d8ed10ec5628ee3a54c01660065ebf179ac87efde0b5f555a1e08782",
+      "bytes": 431130,
+      "dimensions": [
+        640,
+        360
+      ],
+      "source_path": "references/lake.png",
+      "source_sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64",
+      "role": "clean first-frame candidate",
+      "modification_status": "exact pixel crop [0, 850, 640, 1210]; no resizing or repainting",
+      "license_provenance": "Derived from packet source artwork; no external content"
+    },
+    {
+      "path": "shots/SL-P01/IMAGE_2.png",
+      "sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64",
+      "bytes": 2508030,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "references/lake.png",
+      "source_sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64",
+      "role": "object/material identity; operator side-reference on single-image interfaces",
+      "modification_status": "byte-identical copy",
+      "license_provenance": "Derived from packet source artwork; no external content"
+    },
+    {
+      "path": "shots/SL-P01/PROMPT.txt",
+      "sha256": "5d68fd62943c1ff49db2d8de9bb07b403f462463aa1f9bbf40f0bdc9e5364580",
+      "bytes": 669,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": "shots/SL-P01/PROMPT_UI_6S_IF_MINIMUM.txt",
+      "sha256": "d632e958288df22022e5fc62a184b240e7b12e59fa5efdba7039bf02e8e13333",
+      "bytes": 756,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": "shots/SL-P01/SHOT_PACKET.json",
+      "sha256": "7f7b486b7f122aa4177c49ec6c66b5b249c2a4acfe822dd6a4561b4e90339798",
+      "bytes": 2960,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": "shots/SL-W01/IMAGE_1.png",
+      "sha256": "f5af64dbb18a44a1f66363a14de9d5b31052d294ed500e04f67f6f19b7b53e37",
+      "bytes": 341465,
+      "dimensions": [
+        640,
+        360
+      ],
+      "source_path": "references/lake.png",
+      "source_sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64",
+      "role": "clean first-frame candidate",
+      "modification_status": "exact pixel crop [430, 660, 1070, 1020]; no resizing or repainting",
+      "license_provenance": "Derived from packet source artwork; no external content"
+    },
+    {
+      "path": "shots/SL-W01/IMAGE_2.png",
+      "sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64",
+      "bytes": 2508030,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "references/lake.png",
+      "source_sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64",
+      "role": "object/material identity; operator side-reference on single-image interfaces",
+      "modification_status": "byte-identical copy",
+      "license_provenance": "Derived from packet source artwork; no external content"
+    },
+    {
+      "path": "shots/SL-W01/PROMPT.txt",
+      "sha256": "7a29674b929bf9f12a97928fec4ada63674ef762b8d0dd742c8db2763b411417",
+      "bytes": 601,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": "shots/SL-W01/PROMPT_UI_6S_IF_MINIMUM.txt",
+      "sha256": "36165bdafede87115b5da01ad3c1a676fd1f93340c9265f2e0e29d855c880081",
+      "bytes": 690,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": "shots/SL-W01/SHOT_PACKET.json",
+      "sha256": "e49f50c9ff30f74e933663a2192b3d72f8e84283a718ac1df3ca2c78bb8c8007",
+      "bytes": 2905,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": "shots/SL-W02/IMAGE_1.png",
+      "sha256": "0e94387082cb63ed255f5e47c76c2cc0f4876bd88c1be880052233dce7c25c9f",
+      "bytes": 378944,
+      "dimensions": [
+        640,
+        360
+      ],
+      "source_path": "references/arrival.png",
+      "source_sha256": "84d3a8c9ced2b1c596275725d706d884dfb80988a4b067617f6ca652a626a693",
+      "role": "clean first-frame candidate",
+      "modification_status": "exact pixel crop [0, 650, 640, 1010]; no resizing or repainting",
+      "license_provenance": "Derived from packet source artwork; no external content"
+    },
+    {
+      "path": "shots/SL-W02/IMAGE_2.png",
+      "sha256": "84d3a8c9ced2b1c596275725d706d884dfb80988a4b067617f6ca652a626a693",
+      "bytes": 2199160,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "references/arrival.png",
+      "source_sha256": "84d3a8c9ced2b1c596275725d706d884dfb80988a4b067617f6ca652a626a693",
+      "role": "object/material identity; operator side-reference on single-image interfaces",
+      "modification_status": "byte-identical copy",
+      "license_provenance": "Derived from packet source artwork; no external content"
+    },
+    {
+      "path": "shots/SL-W02/PROMPT.txt",
+      "sha256": "3252c4ad3966664a6628a64e4218af8b74bf7027928bcf4464c931a0c5add265",
+      "bytes": 625,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": "shots/SL-W02/PROMPT_UI_6S_IF_MINIMUM.txt",
+      "sha256": "9687a5aed971b51db0ab9b37e99a0b5aaa1cdd4c3ddb37c5655a9f04a9cefe69",
+      "bytes": 712,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    },
+    {
+      "path": "shots/SL-W02/SHOT_PACKET.json",
+      "sha256": "7a93890c868ccba16fc94eb1691719bbe76a6190f39ff037670c0821ce5f0534",
+      "bytes": 2887,
+      "dimensions": null,
+      "source_path": "authored for owner instruction 2026-09-15",
+      "role": "shot direction, provenance or runtime seam evidence",
+      "modification_status": "new project-authored text",
+      "license_provenance": "Project-authored handoff documentation"
+    }
+  ],
+  "status": "ARCHIVE_ASSEMBLED_LOCAL; immutable remote verification follows publication",
+  "source_selection": "Three owner-provided Sky Lagoon source frames and existing castle, plus unaccepted v6 castle composition candidate; no obsolete panorama",
+  "generation_submitted": false,
+  "readiness": "DRAFT exact crop/binding review pending; execution interface minimum must be confirmed",
+  "delivery": "motion_reference_only; not accepted runtime or cinematic frames"
+}
