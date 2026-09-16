@@ -4843,3 +4843,18 @@ Non-runtime source/reference archive. Originals preserved. Images and review boa
 | `assets_src/cinematics/grok_builder_2026-09-14/media/fddab0ef204be19a.png` | assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/fddab0ef20_sky_lagoon_castle_door_focus_v1.png; project-owned approved authority copied losslessly; byte-identical copy. See packet manifest. |
 | `assets_src/cinematics/grok_builder_2026-09-14/media/fe53ef3018b9f816.png` | assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/fe53ef3018_target_sink_grime_v1.png; project-owned approved authority copied losslessly; byte-identical copy. See packet manifest. |
 | `assets_src/cinematics/grok_builder_2026-09-14/media/3bef406012e9a5ec.png` | assets/chapter2/birthday/sky_lagoon_strawberry_single.png; existing project-owned strawberry; byte-identical copy, not new delivery pixels. |
+
+# Painter engine prototype — source-code reuse (2026-09-16)
+
+`scripts/painter/vendor/painter_flood_fill.gd` adapts the MIT-licensed
+`src/Classes/FloodFillObject.gd` from Orama Interactive's Pixelorama, pinned to
+commit `da7b68f97806c461abde615d1d847af91921c37b`:
+https://github.com/Orama-Interactive/Pixelorama/tree/da7b68f97806c461abde615d1d847af91921c37b.
+Copyright (c) 2019-present Orama Interactive and contributors. The full MIT
+notice is retained in `scripts/painter/vendor/LICENSE.txt`; upstream source and
+LF-normalized hashes are in `FloodFillObject.upstream.txt` and `provenance.json`.
+The original Shawn Hargreaves/Allegro algorithm attribution is retained.
+Modifications: rename class, remove editor Project/selection coupling, guard
+seed bounds, use exact RGBA comparison. No Pixelorama art, fonts or audio are
+imported. Existing Roshan graphics and recorded voice are referenced unchanged
+under their existing provenance; only a separate child-authored canvas changes.

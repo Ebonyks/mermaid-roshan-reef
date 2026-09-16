@@ -76,6 +76,8 @@ Scoped Grok builder consolidation (2026-09-14): [single project database](../ass
 
 <!-- AUDIT_TASK_INDEX_END -->
 
+Scoped standalone Painter engine prototype (2026-09-16): [candidate scope](../design/PAINTER_ENGINE_PROTOTYPE_2026-09-16.md) and [impact/evidence](../design/audit_impacts/painter-engine-prototype-20260916.json). Selective Pixelorama fill reuse preserves all existing graphics and career consumers. Device, child, owner and whole-game acceptance remain open; no finding lifecycle changes.
+
 Scoped Roshan motion-reference study (2026-09-12): [eight-sample Grok archive](../assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/README.md) and [impact](../design/audit_impacts/2026-09-12-roshan-grok-auditions.json) extend the character animation branch. Candidate selection, opening approval, archive publication and generated delivery remain separate; `MA-VIS-006` is not closed.
 
 Roshan handoff revision (2026-09-13): [video-first execution](../assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/README.md#video-first-revision--2026-09-13) and [impact](../design/audit_impacts/2026-09-13-roshan-grok-video-first.json) correct the reported still-board substitution and stale publication status. One actual image-conditioned video precedes the remaining auditions; no source-art, tool-capability or runtime acceptance is inferred.

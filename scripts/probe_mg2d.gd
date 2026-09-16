@@ -58,6 +58,16 @@ func _tweens_stopped(tweens: Array) -> bool:
 
 
 func _init() -> void:
+	# The standalone Painter prototype rides this existing local/remote
+	# trusted roster entry; its own real-input and passive checks fail closed.
+	call_deferred("_run_games")
+
+
+func _run_games() -> void:
+	var painter_probe := preload("res://scripts/painter/painter_probe.gd").new()
+	if not await painter_probe.run(self):
+		quit(1)
+		return
 	Engine.time_scale = 6.0
 	var ms: PackedScene = load("res://scenes/main.tscn")
 	var main: Node = ms.instantiate()

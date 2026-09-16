@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/Orama-Interactive/Pixelorama",
+  "commit": "da7b68f97806c461abde615d1d847af91921c37b",
+  "source_path": "src/Classes/FloodFillObject.gd",
+  "license": "MIT",
+  "upstream_attribution": "Scanline routine by Shawn Hargreaves (Allegro); retained verbatim upstream comment.",
+  "upstream_lf_sha256": "e2f5aca17ca3dce826dafe026c61dab25d57f9e68640dd9ff3bf8977156633cd",
+  "license_lf_sha256": "c41ab6daf72f4cd2da64066dd3951c7199ea4cab8cd1e25aa169719c63df9894",
+  "adaptations": [
+    "Renamed class to PainterFloodFill",
+    "Removed editor Project and selection dependencies",
+    "Seed bounds guard",
+    "Exact RGBA comparison for opaque prototype canvas"
+  ],
+  "source_evidence": "Pinned text fetched and inspected in the preceding repository audit; full editor and donor art not imported."
+}

@@ -1,0 +1,144 @@
+{
+  "id": "painter-engine-prototype-20260916",
+  "scope": "Owner-commissioned single Painter engine prototype, revised by owner: guided matching-colour blank regions by default, coloured model and persistent finished picture. Free paint retained only as explicit future Craft Room option. Selective Pixelorama fill import; all existing graphics preserved; no multiple chapters or career rewards.",
+  "baseline": "a46c8ae19f8ee8f870fcbc1144c4b2cec4554eb3",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-06",
+    "DL-AGE-07",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-MED-05",
+    "DL-VIS-06",
+    "DL-READ-03",
+    "DL-READ-05",
+    "DL-INT-04",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-UI-07",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-SAVE-03",
+    "DL-PERF-01",
+    "DL-PERF-02",
+    "DL-PERF-04",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-06",
+    "DL-CODE-01",
+    "DL-CODE-02",
+    "DL-CODE-10",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-PLAN-04",
+    "DL-SND-01",
+    "DL-AGE-05"
+  ],
+  "findings": [],
+  "no_findings_reason": "New isolated creative-tool prototype, not a repair or closure of MA-PLAY-004 or Opera findings. No existing career, main state, narrative or reward consumer changes.",
+  "files": [
+    "scripts/painter/vendor/painter_flood_fill.gd",
+    "scripts/painter/vendor/FloodFillObject.upstream.txt",
+    "scripts/painter/vendor/LICENSE.txt",
+    "scripts/painter/vendor/provenance.json",
+    "scripts/painter/painter_document.gd",
+    "scripts/painter/painter_studio.gd",
+    "scripts/painter/painter_probe.gd",
+    "scripts/probe_painter.gd",
+    "scripts/probe_mg2d.gd",
+    "scenes/painter_prototype.tscn",
+    "design/PAINTER_ENGINE_PROTOTYPE_2026-09-16.md",
+    "design/05_DOC_LEDGER.md",
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "tools/run_painter_prototype.ps1",
+    "scripts/painter/painter_template.gd",
+    "scripts/painter/painter_guided_probe.gd",
+    "audit/audio_quality_ledger_2026-08-24.csv",
+    "audit/audio_quality_summary_2026-08-24.json",
+    "export_presets.cfg"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 headless focused Painter probe including guided and free-paint engine legs",
+      "result": "PASS",
+      "evidence": "tmp/painter-prototype/leak-check-final.log: imported fill matches independent BFS on 32 maps; exact undo/redo, save/backup, real touch, wrong-colour/short-hold/passive negatives, five guided regions, exact reference equality and re-entry. Exit is clean after explicit voice teardown and an audio-server retirement interval in the standalone probe. Immediate hold feedback is asserted on the first input frame; final full-suite MG2D also passes this refinement."
+    },
+    {
+      "command": "Godot 4.7.2 desktop Mobile diagnostic captures at 1280x720 and 1280x800",
+      "result": "PASS",
+      "evidence": "tmp/painter-prototype/visual-720.log, visual-800.log and corresponding empty error logs: both guided/free probes pass on Vulkan Forward Mobile. Live guided-partial and guided-complete captures at 1280x720 and 1280x800 inspected for source-art preservation, reference/target visibility, palette/next-area cue, layout and cutoff. These desktop diagnostics do not claim master fresh-runtime, device, child or owner acceptance."
+    },
+    {
+      "command": "scripts/ci.sh complete local suite and authority/development gates",
+      "result": "PASS",
+      "evidence": "tmp/painter-prototype/full-ci-final.log; full-ci-final-exit.txt = 0. Official Godot 4.7.2, scripts/ci.sh: all 78 trusted runtime probes exit 0, including final Painter/MG2D; static, authority, development, art/audio, visual-audit contract/stress and 2D regression gates pass. Existing advisory whole-game UNSATISFIED findings and unrelated exit warnings remain; this is no master-audit acceptance claim."
+    },
+    {
+      "command": "Initial scripts/ci.sh attempt",
+      "result": "FAIL",
+      "evidence": "tmp/painter-prototype/full-ci.log: AUDIO_QUALITY 813/813 STALE. Source inspection isolates exactly three runtime_reference_count updates caused by the two existing voice references; no audio bytes changed. Full rerun required after updating those ledger cells."
+    },
+    {
+      "command": "Full audio audit regeneration comparison",
+      "result": "PASS",
+      "evidence": "tmp/painter-prototype/audio-current outputs exactly match the updated tracked ledger/summary. Only three runtime_reference_count cells and the resulting inventory SHA changed; 813 audio records and every source audio byte retain their prior state."
+    },
+    {
+      "command": "Reused-art/audio SHA-256 against task baseline and source tree",
+      "result": "PASS",
+      "evidence": "All five reused source files match the exact baseline Git blobs and recorded SHA-256. No source graphics or audio modified. Existing root checkout changes remain preserved separately on rescue/peter-painter-20260916."
+    },
+    {
+      "command": "Official Godot 4.7.2 --headless --path . -s scripts/probe_mg2d.gd",
+      "result": "PASS",
+      "evidence": "tmp/painter-prototype/mg2d-final.log; process exit 0. New Painter legs and all five existing picture games, feedback, teardown/re-entry checks pass with no script/resource/leak errors."
+    },
+    {
+      "command": "Changed GDScript parser and inference lint; audit_document_authority.py; audit_development.py --base auto; source-art byte comparison",
+      "result": "PASS",
+      "evidence": "All commands exit 0 after final lifecycle fix; DOCAUTH 571 inventory / 571 ledger; AUDITDEV baseline a46c8ae19f8ee8f870fcbc1144c4b2cec4554eb3; all five reused files equal baseline bytes."
+    }
+  ],
+  "acceptance_gaps": "Standalone candidate only. Desktop diagnostic review complete; exact recorded-cue listening, target-device Mobile latency/performance, observed child comprehension, owner UI/art acceptance and future in-world/save-service integration remain open. No master satisfaction or career-finding closure.",
+  "unchanged_reused_assets": {
+    "assets/opera/worlds/actors/animation/roshan_painter_sheet_a.png": "016dbac4a6c2342679410c19aa782d999557b92f4fc34f99f58d23dd714ea638",
+    "assets/opera/worlds/backdrops/world_painter.png": "582276aa838559c392dcf64df6440e909e47d9aaafb38031f78b3208d0279d14",
+    "assets/flats/castle/logo_studio_v2/castle_banner_motif_shell.png": "6460cd110e925cdea7006ed7adf85d34cc1ace442018cbe56d3d340cc44a2209",
+    "assets/audio/voices/filler_v1/roshan_day1_art_enter.ogg": "b4407e22377d2fe0ea53eae7e611a39422fe61786a84d3f002e48a762bf6c95d",
+    "assets/audio/voices/filler_v1/roshan_op_painter_fill.ogg": "bea2e5e4b6a80478b2348e8cbde5d7d090a477ba9f53bcf8ee41fc5848d4fa84"
+  },
+  "source_hashes_lf": {
+    "scripts/painter/vendor/painter_flood_fill.gd": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c",
+    "scripts/painter/painter_document.gd": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff",
+    "scripts/painter/painter_studio.gd": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a",
+    "scripts/painter/painter_probe.gd": "288ce1900225597006e16c2ddc23ddf8990df131ad9d5b5b4162daea5f8aee9c",
+    "scripts/probe_painter.gd": "8084b3475c1ab3ff668be78216471e129718aacfc2d90ae5437f0218e332cd88",
+    "scripts/probe_mg2d.gd": "f37008aa1844e82b761921c914df83756c87ed3508c53d555ce95842e139555b",
+    "scripts/painter/painter_template.gd": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746",
+    "scripts/painter/painter_guided_probe.gd": "356738628280b63dcb6885726538f85033267386f123bb1c7f0672188e3bb5a0"
+  },
+  "evidence_sha256": {
+    "tmp/painter-prototype/leak-check-final.log": "d6a8cf8f9e5068e270334e931a4bd52a18199f93db906a65d88cec79bcc65741",
+    "tmp/painter-prototype/mg2d-final.log": "cbe52add41637b9ba52f65d539a83b3e2b7291795e9955bc302a35d0bdfd3c96",
+    "tmp/painter-prototype/guided-partial-1280x720.png": "48c748350d0565dc679b4dca3425485e5cadef82b613862a713defbc85ed3e75",
+    "tmp/painter-prototype/guided-complete-1280x720.png": "0a1ebf9d1a4e74cecbfa958fd958634532e1d35eee9a065ac0d65d47df8ec273",
+    "tmp/painter-prototype/guided-partial-1280x800.png": "4259e8e5b06ab82b5a66376815c1e4ff51ea4b9b000bcb957f5e6d4c53f693ee",
+    "tmp/painter-prototype/guided-complete-1280x800.png": "c40f858c5eac4c52bce1e6e81295ccc7b8fe904a41dba3518d4d0f72d21a5297",
+    "tmp/painter-prototype/full-ci-final.log": "e82b8785c908ea6ba92de445b3e441dfaae56b1d56375c32ba80f9cf35eb93df",
+    "tmp/painter-prototype/full-ci-final-exit.txt": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+  }
+}
