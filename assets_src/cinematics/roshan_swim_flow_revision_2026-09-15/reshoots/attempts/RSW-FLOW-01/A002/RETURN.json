@@ -1,0 +1,33 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-FLOW-01",
+  "attempt": "A002",
+  "request_id": "RSW-FLOW-01-A002-return-existing",
+  "request_sha256": "b7e9abc12e0fd24f4a39e02906c3d520e65171952e55c323a0c4116958064c2d",
+  "status": "BLOCKED_SOURCE_UNAVAILABLE",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generator_model": null,
+  "mode": null,
+  "prompt_used": null,
+  "settings": {},
+  "bound_inputs": [],
+  "consulted_inputs": [],
+  "artifacts": [],
+  "unknown_metadata_reasons": [
+    "Original RSW-FLOW-01_take-02.mp4 is not in this Grok Build sandbox and is not on GitHub.",
+    "Provider-reported SHA-256 737ac5da1630f594228a97f285d6990e8434922df3d9c1278374dbb11b524806, 2782919 bytes, asset 99d42bfd-78d0-47e1-9a34-189716943085 was generated in a prior Imagine conversation and is not retrievable here.",
+    "Local RSW-01_take-02.mp4 is a different file (sha256 fabb219b99df6ecfd0fd6f3b8578ecb204ce019541e3e0088b74d787529ecbf5, 2884890 bytes) and was not substituted.",
+    "No Imagine download-by-asset-id exists in this environment. Git write is available."
+  ],
+  "source_acceptance": false,
+  "delivery_accepted": false,
+  "generation_performed": false,
+  "generation_authorized_by_this_request": false,
+  "substitute_render": false,
+  "expected_provider_sha256": "737ac5da1630f594228a97f285d6990e8434922df3d9c1278374dbb11b524806",
+  "expected_provider_bytes": 2782919,
+  "expected_output_path": "reshoots/inbox/RSW-FLOW-01/A002/RSW-FLOW-01_take-02.mp4",
+  "on_success_would_have_been": "Wait for hash-bound Codex source review",
+  "limitation": "This environment can commit Git records and can generate new Imagine video, but cannot export the prior conversation's original take-02 MP4. START_HERE forbids a replacement disguised as take-02.",
+  "owner_direction_recorded_separately": "Standard swim animations use 2 views only: left and right. No front/back standard swim animations. That lock does not reauthorize FLOW-01 generation and does not change this shot's front-right IMAGE_1."
+}
