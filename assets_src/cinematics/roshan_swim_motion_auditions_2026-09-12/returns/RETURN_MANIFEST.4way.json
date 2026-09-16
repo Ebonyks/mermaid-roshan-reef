@@ -244,18 +244,29 @@
     "DELIVERY_ACCEPTED": false,
     "BINARIES_ON_GITHUB": true,
     "OWNER_RECONSTRUCTION_BASIS": true,
-    "FOURWAY_BASIC_SWIM": true
+    "FOURWAY_BASIC_SWIM": true,
+    "TWO_VIEW_STANDARD_SWIM": true
   },
   "owner_inspection": {
     "recorded_at": "2026-09-15",
+    "updated_at": "2026-09-16",
     "repaired_in_this_packet": false,
     "source": "returns/OWNER_INSPECTION.4way.json",
     "facts": [
       "Hair/tail colour corrections remain outstanding",
       "Navy-flattened locked-4way-*.png cannot establish clean hair alpha",
       "Alpha authority: existing RGBA 8-view cutouts references/{front,right,back,left}.png",
-      "Motion references only. Nothing merged. Runtime unchanged."
+      "Motion references only. Nothing merged. Runtime unchanged.",
+      "Standard swim animations use 2 views only: left and right",
+      "No front/back standard swim animations"
     ]
+  },
+  "owner_direction_two_view": {
+    "recorded_at": "2026-09-16",
+    "source": "returns/OWNER_DIRECTION_TWO_VIEW.json",
+    "active_views": ["left", "right"],
+    "withdrawn_views": ["front", "back"],
+    "does_not_reauthorize_flow_01_generation": true
   },
   "reviewer": "grok-build-imagine-bridge-2026-09-14-4way",
   "created_at": "2026-09-14T20:00:00-07:00"

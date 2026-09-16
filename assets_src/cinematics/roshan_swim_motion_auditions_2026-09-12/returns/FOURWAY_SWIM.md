@@ -17,6 +17,17 @@ Recorded, not repaired in this packet:
 
 Do not treat these stills or clips as colour-corrected masters. Do not key, flood-fill, or recover fringe from the navy plates.
 
+## Owner direction — 2026-09-16
+
+Standard swim animations use 2 views only: left and right
+No front/back standard swim animations
+
+Front and back clips in this packet are withdrawn from the standard-swim set.
+They remain historical motion references. Nothing merged. Runtime unchanged.
+
+RSW-FLOW-01 is a separate front-right gameplay source pilot. This 2-view lock
+does not authorize a FLOW-01 render.
+
 ## Method
 
 - IMAGE_1 = painted 8-view cutouts composited onto navy RGB(17,37,54), 1280×720.
@@ -38,17 +49,19 @@ Navy plates are observation-field IMAGE_1 only.
 | back | `a45e0fbec08cc5e87a0c3db9442937449d5166e54d4be4f8ab1c357e8b6261f3` | `aa6c3865a88f608fe82bbee3233daf915f5f3404a5bed459246534c4cd32dfd7` |
 | left | `901ac7474a21faba7b2a95836cae339bd1328c95845e623b2984caa4237c319f` | `9c13fccbe44a9a961d7eb27cd7951be507476a99043fc38dd38af4cca6bdc5e4` |
 
+Active standard-swim views: **left**, **right**. Front and back withdrawn from the standard-swim set.
+
 ## Takes
 
 | Shot | SHA-256 | Disposition | Measure |
 | --- | --- | --- | --- |
-| RSW-SWIM-FRONT | `efc7b8669936569d36739f05d10c849e6cbe23ebae56bb94c77353ebbb60e2b9` | comparison_candidate | t4–t5.5 tail. Discard raised arms and end smile. |
-| RSW-SWIM-RIGHT | `685bae4461ebe42e9520e33e4a6556d4ca3286b9d8f5709f7e94b3e0065c6550` | comparison_candidate | t4–t8 full stroke. Strongest clip. |
-| RSW-SWIM-BACK | `50795b0fcef726419cf74fb127da696982428de0979e6cc7c7e2d6cbd6b0b2fd` | comparison_candidate | t2.5–t5.5 stroke. Discard late 3/4 drift. |
-| RSW-SWIM-LEFT | `a619712ab5daafefbedaa0033fe6b202ce95f340df02127e24e43a8364b5e94c` | comparison_candidate | t4–t5.5 tail. Discard late camera ease. |
+| RSW-SWIM-FRONT | `efc7b8669936569d36739f05d10c849e6cbe23ebae56bb94c77353ebbb60e2b9` | withdrawn_from_standard_swim | Historical only. Not a standard swim profile. |
+| RSW-SWIM-RIGHT | `685bae4461ebe42e9520e33e4a6556d4ca3286b9d8f5709f7e94b3e0065c6550` | comparison_candidate | t4–t8 full stroke. Strongest clip. Active 2-view. |
+| RSW-SWIM-BACK | `50795b0fcef726419cf74fb127da696982428de0979e6cc7c7e2d6cbd6b0b2fd` | withdrawn_from_standard_swim | Historical only. Not a standard swim profile. |
+| RSW-SWIM-LEFT | `a619712ab5daafefbedaa0033fe6b202ce95f340df02127e24e43a8364b5e94c` | comparison_candidate | t4–t5.5 tail. Discard late camera ease. Active 2-view. |
 
 Reel `FOURWAY_REEL.mp4` SHA-256 `52bbc7cecf5b7ee1446f7215d23a7a736ad9172ae78158878a9ce1a11a0253f1`
-(45.15s, navy slates, straight cuts).
+(45.15s, navy slates, straight cuts). Historical 4-way review reel; standard swim is now left/right only.
 
 ## Core art
 
@@ -67,6 +80,7 @@ No ghosted resets in sampled frames. Do not reuse RSW-07 / RSW-08 as loops.
 - Convert here in Aseprite — that is Codex's job
 - Recover hair alpha from the navy openings
 - Treat colour as corrected
+- Treat front/back as current standard swim
 - Adapt take-01
 - Merge to master or dev
 - Set `DELIVERY_ACCEPTED`
