@@ -1,0 +1,80 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A004",
+  "request_id": "RSW-DASH-01-A004-inplane-fin-sprite",
+  "kind": "OWNER_AUTHORIZED_INPLANE_FIN_SPRITE_RETRY",
+  "addressed_to": "Grok",
+  "created_at": "2026-09-17",
+  "generation_authorized_by_this_request": true,
+  "max_new_takes": 1,
+  "mode": "dash",
+  "owner_authorization": "Owner asked to try again with more horizontal fin movement for left/right 2D sprite conversion; three-quarter fin rotation is confusing; no extra effects. Acting otherwise looks good.",
+  "direction_path": "EXCHANGE_09.txt",
+  "direction_sha256": "7527fe9dbf7c1b220ad3aa4156c3cb8cc2795dc1c248ec3631332e1a002ff3f4",
+  "facing_policy_path": "EXCHANGE_04.txt",
+  "facing_policy_sha256": "a9cb6b100acaacf6fb67558e65b5f95845c2e97ee8ca6c03d48b9db2b28f1daf",
+  "timing_policy_path": "EXCHANGE_07.txt",
+  "timing_policy_sha256": "25a9ebafebcbf3b24a249a0a9866154259efbc30754720da48f0f80a7da45dfd",
+  "supersedes_request_path": "reshoots/attempts/RSW-DASH-01/A003/REQUEST.json",
+  "supersedes_request_sha256": "6c406284e8e6a0abc7745204c70cdad75bd23d1ef85fc7e8e699167d2659664a",
+  "parent_review_path": "reshoots/attempts/RSW-DASH-01/A003/RETURN.json",
+  "parent_review_sha256": "253378278f3a0f7efe34d7a9d8123a2b4050987c4c714887dfe4691fbc0b3f4b",
+  "parent_review_scope": "Owner direction in chat after compact takes; no Codex REVIEW of the compact pair had landed yet.",
+  "artistic_failure_count_increment": 0,
+  "prompt_path": "reshoots/attempts/RSW-DASH-01/A004/PROMPT.txt",
+  "prompt_sha256": "f7f0cf4dc5a42dea7195e0b82b25a47436f3cdf3c6614dab30f88452734be31d",
+  "shot_card_path": "reshoots/attempts/RSW-DASH-01/A004/SHOT_CARD.txt",
+  "shot_card_sha256": "879ae68e866a5e78559e6bf5560abb08f9a6eb495be882aa2cc9f5e41d689c32",
+  "input_selection": {
+    "operator": "Grok",
+    "required_before_generation": true,
+    "requires_new_owner_opening_approval": false,
+    "record_path": "reshoots/attempts/RSW-DASH-01/A004/INPUT_SELECTION.json",
+    "selected_png_path": "reshoots/attempts/RSW-DASH-01/A004/inputs/IMAGE_1.png",
+    "candidate_video": {
+      "path": "reshoots/inbox/RSW-DASH-01/A003/RSW-DASH-01_take-03.mp4",
+      "commit": "72f59d28e4a2a45c8d67f64c231c65a29b59da50",
+      "sha256": "08961961027c543a82a7f322443ff8de485828d6f98a6f1019f04943bf307c3e",
+      "motion_status": "crop-cleared dash candidate; 3/4 fin rotation still confusing for sprites"
+    },
+    "other_published_grok_source_allowed": true,
+    "transform": "lossless native frame capture only; no crop, resize, repaint, composite or optical flow",
+    "does_not_approve_source_motion": true
+  },
+  "identity_reference": {
+    "path": "references/IMAGE_2_approved-front.png",
+    "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+    "role": "identity/style only",
+    "binding": "consulted; one-image slot"
+  },
+  "requested_settings": {
+    "mode": "image_to_video",
+    "duration_seconds": 3,
+    "width": 1280,
+    "height": 720,
+    "camera": "locked",
+    "source_facing": "right-facing side view with in-plane tail; face may remain slightly three-quarter",
+    "display_facings": [
+      "right",
+      "left"
+    ],
+    "left_method": "later whole-sprite horizontal mirror",
+    "audio": "request silent; preserve unavoidable original native audio",
+    "effects": "none"
+  },
+  "performance_contract": {
+    "fin_motion": "in-plane horizontal S-curve; no depth rotation of fin lobes",
+    "sprite_conversion_intent": true,
+    "extra_vfx_allowed": false,
+    "native_performance_required": true,
+    "retimed_other_mode_allowed": false,
+    "rest_bridge": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED"
+  },
+  "output_path": "reshoots/inbox/RSW-DASH-01/A004/RSW-DASH-01_take-04.mp4",
+  "return_path": "reshoots/attempts/RSW-DASH-01/A004/RETURN.json",
+  "execution_order": 2,
+  "source_accepted": false,
+  "delivery_accepted": false,
+  "timers_changed": false
+}

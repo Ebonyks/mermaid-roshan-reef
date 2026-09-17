@@ -4612,6 +4612,10 @@ All following paths are under `assets_src/cinematics/roshan_swim_flow_revision_2
 | `reshoots/inbox/RSW-DASH-01/A002/RSW-DASH-01_take-02.mp4` | Grok Imagine image-to-video from the selected A001 dash frame-12 native PNG | Original native dash A002 compact-timing candidate. 1280x720 24fps 6.04s AAC. 3s requested; 6s is tool minimum. Fin-bottom contact on three pulse windows is recorded in RETURN.json. Not cinematic delivery, not sprites, not runtime. |
 | `reshoots/attempts/RSW-DASH-01/A003/inputs/IMAGE_1.png` | Lossless native frame 180 of `reshoots/inbox/RSW-DASH-01/A001/RSW-DASH-01_take-01.mp4` | Selected higher/smaller Grok-frame opening for owner-authorized dash A003 crop retry. Does not accept A001/A002 motion. |
 | `reshoots/inbox/RSW-DASH-01/A003/RSW-DASH-01_take-03.mp4` | Grok Imagine image-to-video from the selected A001 frame-180 native PNG | Original native dash A003 retry. 1280x720 24fps 6.04s AAC. A002 preserved. Not cinematic delivery, not sprites, not runtime. |
+| `reshoots/attempts/RSW-SLOW-01/A003/inputs/IMAGE_1.png` | Lossless native frame 109 of `reshoots/inbox/RSW-SLOW-01/A002/RSW-SLOW-01_take-02.mp4` | Selected trailing-tail Grok-frame opening for in-plane slow A003. Does not accept A002 motion. |
+| `reshoots/inbox/RSW-SLOW-01/A003/RSW-SLOW-01_take-03.mp4` | Grok Imagine image-to-video from that frame-109 PNG | Original native slow A003 in-plane-fin candidate for later 2D sprites. 1280x720 24fps 6.04s AAC. No extra VFX. Not cinematic delivery, not runtime. |
+| `reshoots/attempts/RSW-DASH-01/A004/inputs/IMAGE_1.png` | Lossless native frame 103 of `reshoots/inbox/RSW-DASH-01/A003/RSW-DASH-01_take-03.mp4` | Selected extended-tail Grok-frame opening for in-plane dash A004. Does not accept A003 motion. |
+| `reshoots/inbox/RSW-DASH-01/A004/RSW-DASH-01_take-04.mp4` | Grok Imagine image-to-video from that frame-103 PNG | Original native dash A004 in-plane-fin candidate for later 2D sprites. 1280x720 24fps 6.04s AAC. No extra VFX. A002/A003 preserved. Not cinematic delivery, not runtime. |
 
 <!-- ROSHAN_TWO_SPEED_SOURCE_20260916_START -->
 ### Roshan two-speed handoff — native-frame input clarification (2026-09-16)

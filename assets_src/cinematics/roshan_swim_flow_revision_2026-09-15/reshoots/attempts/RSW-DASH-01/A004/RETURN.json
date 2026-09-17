@@ -1,0 +1,111 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A004",
+  "request_id": "RSW-DASH-01-A004-inplane-fin-sprite",
+  "request_sha256": "23e4cbc3da24c250f0a6db03d65f3bf79bb81f09699411a8941a3ba0487db558",
+  "performance_mode": "dash",
+  "status": "RETURNED",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generation_job_id": "grok-dash-a004-2026-09-17T04:54Z",
+  "generator_model": "imagine_image_to_video",
+  "mode": "imagine_image_to_video",
+  "input_selection_path": "reshoots/attempts/RSW-DASH-01/A004/INPUT_SELECTION.json",
+  "input_selection_sha256": "e61a9302bc8acf7428dcc48374a4e3a59cc1ce72bcc33cb4068d2a8a881e564e",
+  "prompt_used": "reshoots/attempts/RSW-DASH-01/A004/PROMPT.txt",
+  "prompt_used_sha256": "f7f0cf4dc5a42dea7195e0b82b25a47436f3cdf3c6614dab30f88452734be31d",
+  "settings": {
+    "aspect_ratio": "16:9",
+    "requested_duration": 3,
+    "supported_minimum_duration": 6,
+    "native_duration": 6.04,
+    "resolution": "720p",
+    "camera": "locked",
+    "effects": "none requested; none observed on sampled frames"
+  },
+  "bound_inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "reshoots/attempts/RSW-DASH-01/A004/inputs/IMAGE_1.png",
+      "sha256": "84e855ce618ef842301c45f45561238ea839167d575605e049385fb4882089e7",
+      "binding": "native frame 103 of RSW-DASH-01_take-03.mp4; extended horizontal tail seed"
+    }
+  ],
+  "consulted_inputs": [
+    {
+      "name": "IMAGE_2",
+      "path": "references/IMAGE_2_approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "binding": "consulted painted-child identity; one-image slot so not bound"
+    }
+  ],
+  "artifacts": [
+    {
+      "role": "original_native_video",
+      "path": "reshoots/inbox/RSW-DASH-01/A004/RSW-DASH-01_take-04.mp4",
+      "sha256": "b51459aab2b7a0a6a70f29b759fa088e6b5a9737fa9f75f799a36cd656d5fbcd",
+      "bytes": 2897991,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.04,
+      "audio_present": true
+    }
+  ],
+  "proposed_segments": {
+    "entry": {
+      "start_frame": 0,
+      "end_frame_exclusive": 12,
+      "note": "Immediate in-plane launch from extended-tail seed."
+    },
+    "cruise_cycles": [
+      {
+        "start_frame": 12,
+        "end_frame_exclusive": 36,
+        "note": "First compact in-plane pulse; Codex must confirm seam."
+      },
+      {
+        "start_frame": 36,
+        "end_frame_exclusive": 72,
+        "note": "Second cycle. Observed spacing still slower than 0.4-0.6s pilot."
+      },
+      {
+        "start_frame": 72,
+        "end_frame_exclusive": 102,
+        "note": "Extra middle cycle filling 6s tool minimum."
+      }
+    ],
+    "exit": {
+      "start_frame": 102,
+      "end_frame_exclusive": 145,
+      "note": "Right-facing in-plane finish. Fin on canvas. Mild scale-up on the last second."
+    },
+    "frame_index_convention": "zero-based, end-exclusive; proposed after observing source"
+  },
+  "rest_bridge_status": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+  "speed_distinction_observation": "Separate native dash take from a different seed than slow A003. Not a retime of slow.",
+  "sprite_readability_observation": "Sampled frames show horizontal trailing tail and stacked fin silhouette versus A001-A003 3/4 lobe twist. Stronger compact pulses than slow A003. No particles/glow observed.",
+  "producer_notes": [
+    "Owner-authorized in-plane fin retry. A002 and A003 originals preserved.",
+    "Identity holds, eager smile, right-facing. No extra VFX on sampled frames.",
+    "Native 6.04s / 24fps / 145 frames / AAC.",
+    "Whole-frame navy-key: NO edge contact. Min bottom 55px at frame 11.",
+    "Bounding-box height 356-588px (smaller pulse than A003 343-674). Width up to 893px.",
+    "Cadence still slower than 0.4-0.6s pilot. Pair review required.",
+    "Producer self-score does not count."
+  ],
+  "unknown_metadata_reasons": [],
+  "source_acceptance": false,
+  "delivery_accepted": false,
+  "crop_observations": {
+    "scan": "navy-key bounding box on every decoded frame",
+    "bottom_edge_contact_frames_zero_based_end_exclusive": [],
+    "minimum_bottom_clearance_px": 55,
+    "minimum_bottom_clearance_frame": 11
+  },
+  "size_pulse_px_height": [
+    356,
+    588
+  ]
+}

@@ -1,0 +1,23 @@
+movie_id: ROSHAN_TWO_SPEED_GAMEPLAY_SOURCE
+shot_id: RSW-SLOW-01
+attempt: A003
+request_id: RSW-SLOW-01-A003-inplane-fin-sprite
+status: OWNER_AUTHORIZED_SPRITE_READABILITY_RETRY
+duration: 3 seconds preferred; otherwise shortest supported with MORE in-plane cycles
+aspect: 16:9
+size: 1280x720
+mode: image_to_video
+output_disposition: gameplay_source_candidate for later 2D sprite conversion; not cinematic delivery
+camera: locked
+policy: EXCHANGE_09 in-plane horizontal fin. EXCHANGE_07 compact timing remains. Do not overwrite A002.
+
+IMAGE_1: SELECT_FROM_ACTUAL_GROK_VIDEO
+job: native frame whose tail already trails more horizontally, with safe margins. not a locked old opening.
+available_source: reshoots/inbox/RSW-SLOW-01/A002/RSW-SLOW-01_take-02.mp4
+IMAGE_2: references/IMAGE_2_approved-front.png identity only
+
+must_move: in-plane horizontal S-curve tail/fin, prompt commitment, connected torso, soft bent arms, rooted curls
+must_not_move: camera/background; stable scale; fin must not depth-twist or leave the canvas; no extra vfx
+negative_constraints: no 3D propeller fin, particles, glow, crop, front turn, size pulse, Aseprite
+
+Paste PROMPT.txt only. Return original RSW-SLOW-01_take-03.mp4 plus INPUT_SELECTION and RETURN.

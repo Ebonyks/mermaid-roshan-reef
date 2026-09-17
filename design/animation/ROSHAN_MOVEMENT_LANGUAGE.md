@@ -124,6 +124,13 @@ Compact slow A002 and dash A003 originals are on the exchange branch for
 Producer timing/crop notes are inspection flags, not 4.8 scores or accepted
 cuts. Dash A002 remains preserved cropped history. No clip is accepted here.
 
+Owner 2026-09-17: left/right sources that will become 2D sprites need the tail
+and two-lobed fin to beat **in the picture plane** (a horizontal S-curve behind
+her), not a three-quarter depth rotation that twists a lobe toward the camera.
+Face may stay slightly three-quarter for identity. No extra particles/glow.
+See [EXCHANGE_09](../../assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_09.txt).
+Independent review still required; this is not sprite conversion or acceptance.
+
 ## The character in one sentence
 
 **Roshan notices with her eyes, decides with her hands, and travels with her

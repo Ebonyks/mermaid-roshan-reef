@@ -1,0 +1,44 @@
+{
+  "schema": "reef.roshan-native-frame-input.v1",
+  "shot_id": "RSW-SLOW-01",
+  "attempt": "A003",
+  "request_id": "RSW-SLOW-01-A003-inplane-fin-sprite",
+  "request_sha256": "831b06f51177c51db56e795f74d584bc97ed153d5ec32dde4fd5a36017f99535",
+  "status": "SELECTED",
+  "selector": "grok-build-imagine-bridge-2026-09-16",
+  "selected_at": "2026-09-17T04:52:00Z",
+  "source_video": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "commit": "952684e155a2119bef273813d1d5b8e78c7ec24a",
+    "path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A002/RSW-SLOW-01_take-02.mp4",
+    "sha256": "80ab7dfdcf63fa5f5ba65b5edc04d498fdaf690775c0cf5a118f03f16ab41a6b",
+    "native_frame_index_zero_based": 109,
+    "presentation_timestamp_seconds": 4.541667,
+    "time_base": "1/24",
+    "decode_method": "lossless FFmpeg PNG decode of native frame 109; no crop, resize, repaint"
+  },
+  "extracted_image": {
+    "path": "reshoots/attempts/RSW-SLOW-01/A003/inputs/IMAGE_1.png",
+    "sha256": "430532f8d5076b112c6f28da7811f682092e9a523e1f3c8b3ee9d617741f1cb6",
+    "width": 1280,
+    "height": 720,
+    "transforms": []
+  },
+  "screening": {
+    "identity_face_crown_costume": "PASS",
+    "anatomy_proportions": "PASS",
+    "hair_attachment": "PASS",
+    "waist_tail_continuity": "PASS",
+    "broad_fin": "PASS \u2014 two-lobed fin trailing more horizontally than coiled 3/4 seeds",
+    "right_facing_readability": "PASS",
+    "full_body_margins": "PASS \u2014 ~88px top / 192px bottom on the source frame",
+    "input_frame_suitable": true,
+    "findings": [
+      "Chosen for already-trailing horizontal tail to seed in-plane beats. Does not accept A002 motion or 3/4 perspective."
+    ]
+  },
+  "selection_reason": "Wide trailing tail with safe bottom clearance so the new take can emphasize in-plane horizontal fin motion for 2D sprites.",
+  "source_motion_accepted": false,
+  "existing_rest_pose_match_required": false,
+  "owner_opening_approval_required": false
+}

@@ -48,6 +48,13 @@ ask independent source review. Producer notes are not scores; no clip, runtime
 or delivery is accepted.
 [Impact](../../design/audit_impacts/2026-09-17-roshan-compact-codex-handoff.json).
 
+Owner then asked for more horizontal in-plane fin motion for 2D sprite
+conversion (no extra effects). Current pair: slow A003 take-03 and dash A004
+take-04. Direction: [EXCHANGE_09](../../assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_09.txt).
+Prior compact takes remain history. Conversion is still later; these are source
+candidates only.
+[Impact](../../design/audit_impacts/2026-09-17-roshan-inplane-fin-return.json).
+
 ## Start an animation task here
 
 1. Read the [canonical motion rules](../../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards)

@@ -1,0 +1,12 @@
+OWNER DIRECTION — IN-PLANE HORIZONTAL FIN FOR 2D SPRITES — 2026-09-17
+
+The owner asked to try again with more horizontal fin movement for the left/right swim. These takes will be converted into 2D sprites; the current three-quarter fin rotation is confusing in that perspective. Acting otherwise looks good. Do not add particles, sparkles, bubbles, glow, streaks or other extra effects.
+
+This is a sprite-readability correction, not a new character. Keep the painted child, crown/blue gem, pink/lilac, anatomical-left rainbow lock and pearlescent two-lobed fin. Right-facing source; left remains a later whole-sprite mirror. Face may stay slightly three-quarter so identity stays readable. The TAIL and FIN must beat in the picture plane: a clear horizontal S-curve behind her, both lobes stacked in one flat silhouette, not a 3D propeller twisting a lobe toward the camera.
+
+Preserve compact click-to-move timing from EXCHANGE_07. Keep the entire fin on canvas and stable scale. Rest-sprite bridge still deferred. Failed source returns to Grok, never Aseprite. No merge to master/dev. DELIVERY_ACCEPTED stays false.
+
+Authorized jobs, one take each, sequential:
+1. RSW-SLOW-01 / A003
+2. RSW-DASH-01 / A004
+Do not overwrite A002/A003 originals. Those remain history (including dash A002 crop and dash A003 crop-retry).

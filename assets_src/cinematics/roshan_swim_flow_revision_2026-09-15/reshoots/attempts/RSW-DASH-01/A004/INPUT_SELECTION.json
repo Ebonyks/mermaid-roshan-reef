@@ -1,0 +1,44 @@
+{
+  "schema": "reef.roshan-native-frame-input.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A004",
+  "request_id": "RSW-DASH-01-A004-inplane-fin-sprite",
+  "request_sha256": "23e4cbc3da24c250f0a6db03d65f3bf79bb81f09699411a8941a3ba0487db558",
+  "status": "SELECTED",
+  "selector": "grok-build-imagine-bridge-2026-09-16",
+  "selected_at": "2026-09-17T04:52:00Z",
+  "source_video": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "commit": "72f59d28e4a2a45c8d67f64c231c65a29b59da50",
+    "path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A003/RSW-DASH-01_take-03.mp4",
+    "sha256": "08961961027c543a82a7f322443ff8de485828d6f98a6f1019f04943bf307c3e",
+    "native_frame_index_zero_based": 103,
+    "presentation_timestamp_seconds": 4.291667,
+    "time_base": "1/24",
+    "decode_method": "lossless FFmpeg PNG decode of native frame 103; no crop, resize, repaint"
+  },
+  "extracted_image": {
+    "path": "reshoots/attempts/RSW-DASH-01/A004/inputs/IMAGE_1.png",
+    "sha256": "84e855ce618ef842301c45f45561238ea839167d575605e049385fb4882089e7",
+    "width": 1280,
+    "height": 720,
+    "transforms": []
+  },
+  "screening": {
+    "identity_face_crown_costume": "PASS",
+    "anatomy_proportions": "PASS",
+    "hair_attachment": "PASS",
+    "waist_tail_continuity": "PASS",
+    "broad_fin": "PASS \u2014 extended two-lobed fin, more horizontal than coiled seeds",
+    "right_facing_readability": "PASS",
+    "full_body_margins": "PASS \u2014 ~100px top / 150px bottom on the source frame",
+    "input_frame_suitable": true,
+    "findings": [
+      "Chosen for already-extended horizontal tail. Does not accept A003 motion or remaining 3/4 fin twist."
+    ]
+  },
+  "selection_reason": "Extended trailing tail with 150px bottom clearance to seed stronger in-plane dash pulses without repeating the A003 coiled 3/4 seed.",
+  "source_motion_accepted": false,
+  "existing_rest_pose_match_required": false,
+  "owner_opening_approval_required": false
+}
