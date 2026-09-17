@@ -1,0 +1,56 @@
+SKY LAGOON ANIMATION PRODUCTION PLAN — V14
+Decision: retain the character frame-authoring workflow where it earns its cost, but use a mixed environment workflow. Grok is material/organic motion reference, layered raster files are the editable art masters, and Godot owns live motion, input, timing, masks and saves. This packet implements no runtime animation.
+
+1. WHY ASEPRITE IS NOT THE WHOLE ENVIRONMENT PIPELINE
+Aseprite is useful for deliberate frame drawing, onion-skin review, timing, named loops and sprite-sheet/JSON export. Retain it for small splash/leaf-flutter effects, door state sequences, and character animation that already uses it. Work in RGBA with the authored antialiasing; do not reduce painterly plants to indexed pixel art or nearest-neighbour scaling merely because the editor supports those workflows.
+Aseprite is not required to animate every large bush or water surface. Full-size painted bush frames repeat almost all pixels and cost memory; a 1024x1024 RGBA frame is 4 MiB before mipmaps, so eight such frames cost 32 MiB. Godot transforms of existing cards are much cheaper for restrained environmental motion. Krita is my preferred environment paint editor here: keep its native master plus the supplied OpenRaster interchange layers. It also supports raster frame animation if painterly touch-ups are easier there. Aseprite can remain the existing sequence editor; changing editors does not create missing leaf topology.
+Repository search found no Aseprite source or pipeline references in the searched tracked art/design/tools paths at the starting checkout. The owner's description establishes the intended character workflow; this report does not claim to have verified its particular export settings or assets. Audit that pipeline before sharing import presets.
+
+2. DIVISION OF WORK
+Water highlights: highest Grok priority. Study painted lateral flow, then author a small seamless highlight tile. In Godot use a CanvasItem material confined to water, a fixed shoreline mask and at most two slow UV phases. Avoid screen-reading displacement that bends bridge or plants. Preserve the painted base colour. Aseprite is optional for a small frame loop if shader flow looks mechanical.
+Shoreline contact: Grok second. Study one lap against the fixed rocks. Author a small alpha overlay or controlled shoreline strip behind the stones; an Aseprite sequence is appropriate for changing shapes. Do not drag the shoreline mask with the water. No opaque video patch.
+Large shrubs: reuse the current RGBA asset. Start with a very small root-pinned branch/card motion in Godot. For richer articulation, purpose-draw two or three connected leaf groups with healed hidden overlap and stable roots; animate groups with different phase and amplitude. Use Aseprite frames only for leaf folding/occlusion changes that transforms cannot describe. Grok P01 clarifies lag/settle, not source pixels.
+Bellflowers and hydrangea: low amplitude independent stem movement; flower follows stem. Never pulse flower scale or hue as ambient life. Whole-plant movement should be restrained until separate stem/head layers exist.
+Cloud bank: mostly static. Optional Grok C01 tests gentle internal motion. Keep the outer contour and mountain occlusion fixed; use one small masked texture effect only if it is visibly better at actual screen size. Static is an acceptable mobile fallback.
+Castle: architecture, portrait and bridge remain rigid. Local Godot overlays can give occasional warm window variation or a tiny glint. Door opening needs separate door leaves, hinge anchors, a painted interior and correct contact/transition states; prepare those before commissioning motion. Do not wobble the castle.
+Touch: water gets one local ripple at the actual tap; an optional plant touch causes one brief spring-and-settle with a cooldown. Keep the path hit regions unobstructed. Decorative motion must not look like a mandatory objective. Any new objective also needs the existing voice/pointer contract. These interactions are proposals, not implemented features.
+
+3. INITIAL MOTION TUNING — STARTING VALUES, NOT ACCEPTED CONSTANTS
+Water: broad highlight travel 2–5 source pixels/second; no whole-water brightness pumping; begin at very low overlay opacity and compare beside static art.
+Foreground shrub: 0.5–1.0 degree branch motion, 6–10 second cycle, root exactly fixed. Midground at about one-third amplitude; distant foliage static. Independently phased groups share one wind direction rather than wobbling randomly.
+Flowers: about 0.5 degree stem sway, slightly lagging leaf movement; no constant bobbing.
+Clouds: less than 1 source pixel/second internal drift; no continuous blanket opacity pulse.
+Touch response: one 0.4–0.8 second low-amplitude settle, no repeat spam and no reward from passive motion.
+Grok's one-second leaf clip studies a tiny flex/settle, not a complete six-second idle loop. Transfer timing principles into authored runtime motion; do not stretch a generated clip or claim a forced one-second seamless loop.
+Pause all ambient time with pause/focus loss; cancel touch transients on scene exit. Do not write ambient phase to saves. Use deterministic initial phase per plant so debugging captures are repeatable.
+
+4. TEXTURE / EXPORT CONTRACT
+Keep native source PNG/ORA, alpha, prompt and hashes. Every layer has a stable name, crop rectangle, placement, pivot, z order and deformation exclusion area. The supplied root pivots are preliminary bounding-box anchors; place and verify true stem anchors before any runtime sway. Production masters still require native 2048x2048 coverage per playable screen; these 1254px review scenes are not runtime-ready backgrounds.
+For Aseprite effects export RGBA PNG sheet plus JSON with frame rectangles/durations/tags. Keep a stable canvas and explicit pivot; trim only with matching offsets. Use small effect frames (typically 128–256px), 6–12 authored frames only where needed, and power-of-two atlas pages. Extrude edge colours into transparent gutters to prevent filtered halos. PNG alpha is not evidence of a clean edge: inspect on dark, light and actual scene backgrounds.
+Use Godot SpriteFrames/AnimatedSprite2D for independent frame effects or AnimationPlayer when synchronizing tracks/events. Keep source layers in the painterly editor and texture-page generation separate from scene logic. Never convert Grok MP4 directly to a runtime atlas in this project.
+Initial incremental texture allowance: target at most 8 MiB above the accepted static scene, measured including mipmaps, atlas packing and retained images. This is a proposed budget, not a performance result. Water tiles 256–512px, minimal alpha overlays, no fullscreen transparent effect stack. Start with one water shader and a few nearby moving plant groups; stop updating off-screen groups. Validate on Mobile/Speedy at 30fps on the target phone.
+
+5. GROK EXECUTION AND REVIEW
+Use the archived four shot cards, one candidate per job. Run water first; stop and name defects before another candidate. W02 follows accepted water direction; P01 follows visual plant acceptance; C01 is optional. Do not spend on a full-scene animated background. Castle reflection is deferred until its exact painted footprint is designed; the current lake has no accepted reflection layer.
+Each job has IMAGE_1 (exact clean first-frame crop) and IMAGE_2 (material/plant identity). The beat board is never uploaded. For single-image I2V submit IMAGE_1 only and retain IMAGE_2 as operator reference. A multi-reference mode must preserve the first-frame contract before it can substitute. Keep the input aspect: explicitly forcing a different ratio can stretch the image. Crops are native; requested output resolution does not manufacture source detail.
+Default one second, the documented API minimum as checked 2026-09-16. Record actual model, surface, shortest available duration and date. Website minimum remains unverified. If that minimum exceeds the existing eight-second project shot ceiling, reconcile the contract before execution. If its minimum is longer, use a revised timeline with the tiny action followed by a declared quiet hold; no fake slowed action or unrelated events. Every prompt ends Sound: silence. No protected voices.
+Inspect all changed frames, not only first/middle/last. Reject moving shores/roots, new leaves/berries, white/neon foam, photoreal shading, flicker, hue pumping, camera drift or changed castle details. Separately inspect a proposed loop boundary and interior phase progression; similar endpoints do not establish a good loop. No optical-flow repair or hidden jump via crossfade. Record native output dimensions/fps/duration, input/output hashes, prompt, model, reviewer and decision.
+A successful reference is translated into separately authored game assets and implementation. Cinematic delivery remains subject to the existing full-frame-generation contract. This packet grants neither runtime nor cinematic acceptance.
+
+6. ACCEPTANCE AND REVERSIBILITY
+V14 changes the castle bed treatment and plant scale; Arrival/Meadow remain the comparison anchors. The left connector and descending path stay clear. Current larger foreground uses the same huckleberry family as the other stages, with one restrained lilac companion.
+Keep v13 intact. New files live at v14 paths. The ORA ground and plant layers can be toggled independently. In implementation provide independent water, plant and ambient-effect switches so a visual defect can be isolated quickly; static accepted art is the fallback.
+Before promotion: inspect all three stages together; confirm leaf style/grade match, no cutout halos, consistent plant size with depth, roots visually grounded, no path obstruction through the entire sway range, and castle remains dominant. Then test 16:9 and wider crops, pause/resume/teardown, passive/no-input behavior, touch ripples and phone frame time. Owner visual acceptance and 4.9 target remain open.
+ARCHIVE_COMPLETE only after durable GitHub publication and remote file verification. GENERATION_READY remains false until exact scene/crop bindings and execution surface are accepted. DELIVERY_ACCEPTED remains false. This is not a new runtime or a released game update.
+
+Primary references checked 2026-09-16:
+https://www.aseprite.org/docs/cli/
+https://docs.godotengine.org/en/stable/tutorials/2d/2d_sprite_animation.html
+https://docs.godotengine.org/en/stable/tutorials/shaders/shader_reference/canvas_item_shader.html
+https://docs.x.ai/developers/model-capabilities/video/generation
+https://docs.x.ai/developers/model-capabilities/video/image-to-video
+Recommendations and numeric starting budgets above are project-specific design judgments, not guarantees from those sources.
+
+Krita source references checked 2026-09-16:
+https://docs.krita.org/en/general_concepts/file_formats/file_ora.html
+https://docs.krita.org/en/user_manual/animation.html

@@ -1,0 +1,21 @@
+{
+  "lane": "interactive 2D environment planning; no runtime implementation in this packet",
+  "engine": "4.7.2-stable Mobile",
+  "target": "Lenovo Tab M11 / 30fps Speedy",
+  "camera": "fixed for all Grok studies",
+  "plant_rule": "root pinned, independent existing alpha; no artwork duplicated under moving layer",
+  "path_rule": "left cross-screen connector and descending approach excluded from plant/texture deformation",
+  "water_rule": "only water UVs/highlights move; never sample shoreline/castle via screen-space distortion",
+  "geometry_rule": "castle architecture, stained glass, bridge, stones, path remain fixed",
+  "pause_rule": "all ambient timers and interactions pause; focus loss/back cancels transients; no per-frame save writes",
+  "save_rule": "ambient phase unsaved; new interactions require existing state owner, defaults and intentional input",
+  "grok_output": "reference only, no automatic video-to-atlas or cinematic delivery",
+  "memory_budget": "provisional: <=8 MiB incremental resident texture budget; measure mipmaps/overdraw on device",
+  "fallback": "static accepted art with ambient effects disabled",
+  "character_authorities": "not applicable: no character animation or voice generation jobs; portrait stays fixed",
+  "deferred": [
+    "castle reflection until a painted footprint is designed",
+    "door opening until hinge/interior/contact states are prepared",
+    "foreground branch articulation until separate leaf groups and hidden areas are clean"
+  ]
+}

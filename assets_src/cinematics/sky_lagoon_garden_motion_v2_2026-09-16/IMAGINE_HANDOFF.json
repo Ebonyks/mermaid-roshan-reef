@@ -1,0 +1,22 @@
+{
+  "schema": "imagine-handoff-v1",
+  "movie_id": "sky_lagoon_garden_motion_v2_2026-09-16",
+  "archive_status": "incomplete",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "draft_shot_packets": [
+    "shots/SL2-W01/SHOT_PACKET.json",
+    "shots/SL2-W02/SHOT_PACKET.json",
+    "shots/SL2-P01/SHOT_PACKET.json",
+    "shots/SL2-C01/SHOT_PACKET.json"
+  ],
+  "blocking_findings": [
+    "v14 art and exact crops need visual acceptance",
+    "execution interface, model and minimum duration not yet recorded",
+    "remote packet verification pending",
+    "Reconcile integration ready-card validator with owner minimum-duration profile and native input aspect before promotion"
+  ],
+  "archive_payload_manifest": "ARCHIVE_MANIFEST.json",
+  "shot_board": "SHOT_BOARD.png"
+}

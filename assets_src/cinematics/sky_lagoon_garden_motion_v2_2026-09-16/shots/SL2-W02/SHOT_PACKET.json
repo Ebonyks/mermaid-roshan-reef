@@ -1,0 +1,75 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "sky_lagoon_garden_motion_v2_2026-09-16",
+  "shot_id": "SL2-W02",
+  "title": "Pool shoreline contact",
+  "priority": 2,
+  "status": "DRAFT",
+  "duration_seconds": 1,
+  "duration_policy": "shortest actually supported; API minimum 1s verified 2026-09-16, website minimum not assumed",
+  "aspect_ratio": "466:307",
+  "delivery_size": null,
+  "native_first_frame_size": [
+    466,
+    307
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "shots/SL2-W02/IMAGE_1.png",
+      "sha256": "e739f9cd26d588e27916b291079cc3eeb8c864096261c9049d6fdd930b232bc9",
+      "hud_present": false,
+      "human_decision": "pending exact candidate/binding review",
+      "remote_url": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "shots/SL2-W02/IMAGE_2.png",
+      "sha256": "531612721ad898e6fa5a8e243a9d89dfdb97fb29072550fd01e4a450f4686959",
+      "hud_present": false,
+      "human_decision": "pending exact candidate/binding review",
+      "remote_url": null
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "one small painted water lap touches the existing shoreline stones and recedes"
+  ],
+  "must_not_move": [
+    "stones, rope posts, rope, plants, path and camera"
+  ],
+  "end_state": "the lap recedes to the original waterline",
+  "negative_constraints": [
+    "no moving stones, rising water level, foam piles, new reflections or camera motion",
+    "no HUD or text"
+  ],
+  "prompt_path": "shots/SL2-W02/PROMPT.txt",
+  "prompt_sha256": "bf7db7bc68cb82a92199d414ed097956f77104d3e11335e5b7f192f92568fb4b",
+  "sound_intent": "silence",
+  "runtime_contract": "Short authored shoreline overlay behind stone cutouts, with fixed contact mask; fallback to tiny ring response. No opaque video rectangle.",
+  "first_frame_review": "DRAFT: candidate painting and crop unaccepted",
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.png",
+      "used_as_pixel_reference": false
+    },
+    {
+      "path": "RUNTIME_CONTRACT.json",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "interface_contract": "Single-image I2V uploads IMAGE_1 only; IMAGE_2 is operator reference unless selected multi-reference interface demonstrably preserves first-frame lock. Preserve input aspect; do not force 16:9. Request lowest sufficient supported resolution; returned native size/fps recorded separately.",
+  "review_crop_size": [
+    466,
+    307
+  ],
+  "requested_resolution": "480p initial motion study; actual returned dimensions must be recorded",
+  "aspect_policy": "inherit IMAGE_1 without stretching"
+}

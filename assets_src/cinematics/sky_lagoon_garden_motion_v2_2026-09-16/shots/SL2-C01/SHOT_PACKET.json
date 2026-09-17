@@ -1,0 +1,75 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "sky_lagoon_garden_motion_v2_2026-09-16",
+  "shot_id": "SL2-C01",
+  "title": "Cloud-bank softness",
+  "priority": 4,
+  "status": "DRAFT",
+  "duration_seconds": 1,
+  "duration_policy": "shortest actually supported; API minimum 1s verified 2026-09-16, website minimum not assumed",
+  "aspect_ratio": "353:307",
+  "delivery_size": null,
+  "native_first_frame_size": [
+    353,
+    307
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "shots/SL2-C01/IMAGE_1.png",
+      "sha256": "1fc5c12a99c616db2a5d6873e3c53286cd473c05591e1045290ab843d7bc0a05",
+      "hud_present": false,
+      "human_decision": "pending exact candidate/binding review",
+      "remote_url": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "shots/SL2-C01/IMAGE_2.png",
+      "sha256": "a66472edf7dcf06dfede8be38352be46cc559fa6e1c09e75ed1558d8fa4c514e",
+      "hud_present": false,
+      "human_decision": "pending exact candidate/binding review",
+      "remote_url": null
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "only the soft interior wisps within the cloud bank drift almost imperceptibly"
+  ],
+  "must_not_move": [
+    "mountain silhouettes, tree islands, outer cloud bank silhouette, garden and camera"
+  ],
+  "end_state": "the cloud bank keeps its original shape and nearly its original interior pattern",
+  "negative_constraints": [
+    "no boiling fog, expanding cloud mass, hidden mountain peaks, gray smoke or camera movement",
+    "no HUD or text"
+  ],
+  "prompt_path": "shots/SL2-C01/PROMPT.txt",
+  "prompt_sha256": "ab9b6952547aace7500c0d2de4b727f0c52957636954de201a02813d6baadb96",
+  "sound_intent": "silence",
+  "runtime_contract": "Optional subtle local masked interior flow; if it reads as boiling or costs too much overdraw keep clouds static. Lower priority than water and plants.",
+  "first_frame_review": "DRAFT: candidate painting and crop unaccepted",
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.png",
+      "used_as_pixel_reference": false
+    },
+    {
+      "path": "RUNTIME_CONTRACT.json",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "interface_contract": "Single-image I2V uploads IMAGE_1 only; IMAGE_2 is operator reference unless selected multi-reference interface demonstrably preserves first-frame lock. Preserve input aspect; do not force 16:9. Request lowest sufficient supported resolution; returned native size/fps recorded separately.",
+  "review_crop_size": [
+    353,
+    307
+  ],
+  "requested_resolution": "480p initial motion study; actual returned dimensions must be recorded",
+  "aspect_policy": "inherit IMAGE_1 without stretching"
+}

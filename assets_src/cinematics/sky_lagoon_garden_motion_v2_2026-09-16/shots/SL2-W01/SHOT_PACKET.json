@@ -1,0 +1,75 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "sky_lagoon_garden_motion_v2_2026-09-16",
+  "shot_id": "SL2-W01",
+  "title": "Painted lake highlights",
+  "priority": 1,
+  "status": "DRAFT",
+  "duration_seconds": 1,
+  "duration_policy": "shortest actually supported; API minimum 1s verified 2026-09-16, website minimum not assumed",
+  "aspect_ratio": "454:150",
+  "delivery_size": null,
+  "native_first_frame_size": [
+    454,
+    150
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "shots/SL2-W01/IMAGE_1.png",
+      "sha256": "10c8c0aed3dd6ef37c8d4801d35c20856656ea4c261d7df451fec5c981e93863",
+      "hud_present": false,
+      "human_decision": "pending exact candidate/binding review",
+      "remote_url": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "shots/SL2-W01/IMAGE_2.png",
+      "sha256": "d34b610cf797cdeaca89f03fb91b7f964505d61206c8ac80495860e5e9d6a3ba",
+      "hud_present": false,
+      "human_decision": "pending exact candidate/binding review",
+      "remote_url": null
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "the broad painted water highlights drift gently sideways"
+  ],
+  "must_not_move": [
+    "shoreline, stones, castle, bridge, water level and camera"
+  ],
+  "end_state": "the broad highlight pattern approaches its starting phase",
+  "negative_constraints": [
+    "no photoreal waves, foam, hue pumping, boiling noise or camera movement",
+    "no HUD or text"
+  ],
+  "prompt_path": "shots/SL2-W01/PROMPT.txt",
+  "prompt_sha256": "3411ebf2142d57cfe38da28888e5115e05f90dfa3ecbb872fb7ec6cc9f2a37ea",
+  "sound_intent": "silence",
+  "runtime_contract": "Masked local UV flow from an authored seamless highlight texture; fixed shoreline alpha. Grok supplies timing/shape inspiration, never automatic video pixels.",
+  "first_frame_review": "DRAFT: candidate painting and crop unaccepted",
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.png",
+      "used_as_pixel_reference": false
+    },
+    {
+      "path": "RUNTIME_CONTRACT.json",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "interface_contract": "Single-image I2V uploads IMAGE_1 only; IMAGE_2 is operator reference unless selected multi-reference interface demonstrably preserves first-frame lock. Preserve input aspect; do not force 16:9. Request lowest sufficient supported resolution; returned native size/fps recorded separately.",
+  "review_crop_size": [
+    454,
+    150
+  ],
+  "requested_resolution": "480p initial motion study; actual returned dimensions must be recorded",
+  "aspect_policy": "inherit IMAGE_1 without stretching"
+}

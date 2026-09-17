@@ -1,0 +1,649 @@
+{
+  "schema": "source-archive-manifest-v1",
+  "handoff_id": "sky_lagoon_garden_motion_v2_2026-09-16",
+  "source_commit": "29d717be5270214f572811b6f0a73bf05b3c1531",
+  "payload_hash_method": "SHA256 of sorted UTF-8 path + TAB + lowercase SHA256 + LF; excludes this manifest and later remote verification",
+  "payload_sha256": "1d74035bcbcfa750d882715c4d1eb4a383b9e78585e36064ffbddc16240f5f43",
+  "files": [
+    {
+      "path": ".gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "f06202a408fef9b9ea69bb6b1cb8160dbb0378c5bb67a444d510d231813824c8",
+      "bytes": 30,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "ANIMATION_METHODS.txt",
+      "sha256": "13e913003be462554ccbf72de5ac34806e05362aceae91f902b82b17a97a99a1",
+      "bytes": 10984,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "IMAGINE_HANDOFF.json",
+      "sha256": "a7392fbcebf0087719959690d09c1d42f095db924ef1bc014d19b49841ce976c",
+      "bytes": 837,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "LAYER_PLACEMENTS.json",
+      "sha256": "8a25ac66dfb553b43790a3c2eee883d20aa1b2e6f637a7db6fa2a105c1bb9fb9",
+      "bytes": 6413,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "RUNTIME_CONTRACT.json",
+      "sha256": "ab096fd2d1764c6ec6c5240938e48633d77ebe5752459d6c9ab5c4f43e3214d9",
+      "bytes": 1519,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "SHOT_BOARD.png",
+      "sha256": "094f0b433bb40efc5bdc17fa48db98cef818aea6f71f15b684a050b9d23b226f",
+      "bytes": 440428,
+      "dimensions": [
+        1500,
+        1240
+      ],
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "SOURCE_PROVENANCE.json",
+      "sha256": "1a19035b7e353bb3f428abf12c8f19b0e2b00a73cf9241a7036c08a58269ed1c",
+      "bytes": 14981,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "START_HERE.txt",
+      "sha256": "4f86c5fe140ff24bb71b570e4f45e71fbac5d4f82db53ee48d2ea90cf922215d",
+      "bytes": 1336,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "THREE_STAGE_REVIEW.jpg",
+      "sha256": "ac20b7c8861b14c852a4d2c3e27ae7342a81a88b1f7f4e7271bc802e066b095c",
+      "bytes": 449091,
+      "dimensions": [
+        1500,
+        546
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\three-stage-review.jpg",
+      "role": "composition review only; never generator pixels",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "editable/arrival.ora",
+      "sha256": "e0948290e1b635994e1ae1747e35e37b9840948fbdbfc3d44744608ef3bf241b",
+      "bytes": 5044156,
+      "dimensions": null,
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\arrival-editable.ora",
+      "role": "editable independent foreground layers",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "editable/castle.ora",
+      "sha256": "40dca3839fbbb575cc23c33a6ed1496caba81e6aae5856020755dd3b63a2c76d",
+      "bytes": 5938988,
+      "dimensions": null,
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\castle-editable.ora",
+      "role": "editable independent foreground layers",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "editable/meadow.ora",
+      "sha256": "a90334f94ea7afa568aa765bb027241aed50e4b87fb6eccf5c33554d34522509",
+      "bytes": 5093784,
+      "dimensions": null,
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\meadow-editable.ora",
+      "role": "editable independent foreground layers",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "evidence/castle-ground-generation-prompt.txt",
+      "source_path": "authored v14 generation provenance / verification",
+      "role": "evidence",
+      "modification_status": "new project-authored evidence",
+      "license_provenance": "Project-authored text",
+      "sha256": "bf8bff4b5ece7ad780bb4747536539e9eae576f3d6574ffde8b8ec31b0466f22",
+      "bytes": 1063,
+      "dimensions": null
+    },
+    {
+      "path": "evidence/castle-repair-mask.png",
+      "sha256": "4a6bece64e7dacccdbd9c0ea1a1a0d3169c339ff685ee0e6ab7aeff81505ca78",
+      "bytes": 14958,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "evidence/draft-card-checks.json",
+      "source_path": "authored v14 generation provenance / verification",
+      "role": "evidence",
+      "modification_status": "new project-authored evidence",
+      "license_provenance": "Project-authored text",
+      "sha256": "7b9fa7d19936a29b1bcc76fb58eb15eafca34e2988c0b55d426bcc1e4c7c0a65",
+      "bytes": 733,
+      "dimensions": null
+    },
+    {
+      "path": "evidence/full-validation.json",
+      "source_path": "tmp/sky-lagoon-v14-ci.log",
+      "role": "exact local full-validation summary and log hash",
+      "modification_status": "new machine evidence",
+      "license_provenance": "Project-generated validation metadata",
+      "dimensions": null,
+      "sha256": "bb00a13c4fdd584137de10ab62fdae3e1a5d04286a0a9dec31e27d2a276603e8",
+      "bytes": 6442
+    },
+    {
+      "path": "evidence/hydrangea-generation-prompt.txt",
+      "sha256": "046e23fc5713f01507566063b29532f4be1eb0d718675ca72cf6e029ac3cee1a",
+      "bytes": 900,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "evidence/plant-generation-prompts.json",
+      "sha256": "4c75dcb056eefca637d8277be4d44a487cee9bc3c3dcadde169f6852f0b1224d",
+      "bytes": 6303,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "evidence/visual-checks.json",
+      "sha256": "26f9c5e30f7daab1fcd85db7a0af97fda80d8cb56bbc63376461b9ba41e2cacc",
+      "bytes": 607,
+      "dimensions": null,
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\verification.json",
+      "role": "local selected-pixel verification",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "layers/arrival-ground.png",
+      "sha256": "5730da45d3319035bf4cd848b09c294a81139a31c65b51cd66b24229e3ab8ca5",
+      "bytes": 2555497,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\arrival-clean-plate.png",
+      "role": "fixed healed ground plate",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "layers/castle-ground.png",
+      "sha256": "5f4ada63454f270a6fb700df57d1f6fe3d2eb690fe69f509ed811efec1d68640",
+      "bytes": 2967832,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\castle-clean-plate.png",
+      "role": "fixed healed ground plate",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "layers/cream-bellflower.png",
+      "sha256": "dc51f9e05220fe2e20fa51820b332e0454f75895f2712ab917c0fc69aef468e4",
+      "bytes": 1012841,
+      "dimensions": [
+        1238,
+        1248
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\cream-bellflower.png",
+      "role": "independent RGBA plant; animation study source",
+      "modification_status": "cropped transparent margins; original alpha retained",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "layers/huckleberry-companion.png",
+      "sha256": "a4830e3ceee6d71d509b5465d3db3ac331a374e0a015c86d8920b0c034eeb897",
+      "bytes": 1542796,
+      "dimensions": [
+        1856,
+        801
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\huckleberry-companion.png",
+      "role": "independent RGBA plant; animation study source",
+      "modification_status": "cropped transparent margins; original alpha retained",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "layers/huckleberry-foreground.png",
+      "sha256": "ec29e2fec09a00cce93a2f3f17b17b60aa787f4b670ddc8cfd1ba23bb5923d47",
+      "bytes": 1423293,
+      "dimensions": [
+        1711,
+        858
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\huckleberry-foreground.png",
+      "role": "independent RGBA plant; animation study source",
+      "modification_status": "cropped transparent margins; original alpha retained",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "layers/hydrangea.png",
+      "sha256": "215a86b4a769a40518b679ee3c62124f9d58803b4ccd40ffe989a59dbf7810d7",
+      "bytes": 880933,
+      "dimensions": [
+        1157,
+        1193
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\hydrangea.png",
+      "role": "independent RGBA plant; animation study source",
+      "modification_status": "cropped transparent margins; original alpha retained",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "layers/meadow-ground.png",
+      "sha256": "17fbd0474c10547c17aa509a5123a75750397be428b814c9f1813c469ce193a9",
+      "bytes": 2608653,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\meadow-clean-plate.png",
+      "role": "fixed healed ground plate",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "native/castle-ground-repair.png",
+      "sha256": "4f7a5e42438ddd2de0b9305dcf49ab0a7b845848be8d4e7e5565f356b796ad4b",
+      "bytes": 2528117,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\native\\plate-castle.png",
+      "role": "native full-frame generation; only masked garden pixels used",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "native/cream-bellflower.png",
+      "sha256": "3f87cc6406c2d7c7a2cd4f3bf27ef804035ce17d20264c274e5726055a22cc23",
+      "bytes": 992173,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\native\\cream-bellflower.png",
+      "role": "native generated plant source",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "native/huckleberry-companion.png",
+      "sha256": "cc52c1237f1c0056447d849d44fe258d681d0bdb9fbb0f84e6ae6b65d6282be4",
+      "bytes": 1492833,
+      "dimensions": [
+        1902,
+        827
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\native\\huckleberry-companion.png",
+      "role": "native generated plant source",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "native/huckleberry-foreground.png",
+      "sha256": "128394d077362dffcd755acd8139f03eba7d072bab65843ac897355fdcd93b1c",
+      "bytes": 1386960,
+      "dimensions": [
+        1774,
+        887
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\native\\huckleberry-foreground.png",
+      "role": "native generated plant source",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "native/hydrangea.png",
+      "sha256": "cba522ee26cadd235b3ef6f2ddc3f559965cf0800c3bf85084aff4aaf46a8704",
+      "bytes": 868092,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\native\\hydrangea.png",
+      "role": "native generated plant source",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "originals/arrival.png",
+      "sha256": "84d3a8c9ced2b1c596275725d706d884dfb80988a4b067617f6ca652a626a693",
+      "bytes": 2199160,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-layered-v7\\originals\\01-arrival-v1.png",
+      "role": "original world / prop appearance reference",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "originals/castle.png",
+      "sha256": "3cd52d8524c699ed97aa2b593ca8483a82d7a9fed67fb68baea368dba8409530",
+      "bytes": 1456455,
+      "dimensions": [
+        1022,
+        1024
+      ],
+      "source_path": "tmp\\sky-lagoon-layered-v7\\originals\\castle.png",
+      "role": "original world / prop appearance reference",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "originals/lake.png",
+      "sha256": "d4744e8e7ff4f24b134891729b368a5b774f5d6ed34447d5011a9879ab88aa64",
+      "bytes": 2508030,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-layered-v7\\originals\\03-lake-approach-v1.png",
+      "role": "original world / prop appearance reference",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "originals/meadow.png",
+      "sha256": "e89676b84978da3079f831fbb73efc7283e30296c4b695a17d4ea4a2e9b8429b",
+      "bytes": 2343009,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-layered-v7\\originals\\02-meadow-v1.png",
+      "role": "original world / prop appearance reference",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "references/arrival-v14.png",
+      "sha256": "95f6410c54ae03a51e143a37342159486c28ff47928c073fa305eadbd1887ba7",
+      "bytes": 2249781,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\arrival-layered-review.png",
+      "role": "current UI-free scene layout candidate",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "references/castle-v14.png",
+      "sha256": "f8b66ef474e5c5d4ae47dc42d33001a35adb184a1c92158a59c45549a54d22dd",
+      "bytes": 2613098,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\castle-layered-review.png",
+      "role": "current UI-free scene layout candidate",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "references/meadow-v14.png",
+      "sha256": "cb0ddec6db78dc4adeca76b2004618f3908be120c2fe4d25145a088364fb8236",
+      "bytes": 2313819,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-plant-family-v14\\meadow-layered-review.png",
+      "role": "current UI-free scene layout candidate",
+      "modification_status": "unchanged copy",
+      "license_provenance": "Project AI-generated artwork or owner-supplied project source; no third-party asset license added"
+    },
+    {
+      "path": "shots/SL2-C01/IMAGE_1.png",
+      "sha256": "1fc5c12a99c616db2a5d6873e3c53286cd473c05591e1045290ab843d7bc0a05",
+      "bytes": 135455,
+      "dimensions": [
+        353,
+        307
+      ],
+      "source_path": "references/arrival-v14.png",
+      "role": "clean first-frame crop",
+      "modification_status": "native crop (457, 469, 810, 776)",
+      "license_provenance": "Derived from bundled project art; reference only"
+    },
+    {
+      "path": "shots/SL2-C01/IMAGE_2.png",
+      "sha256": "a66472edf7dcf06dfede8be38352be46cc559fa6e1c09e75ed1558d8fa4c514e",
+      "bytes": 46538,
+      "dimensions": [
+        251,
+        146
+      ],
+      "source_path": "references/arrival-v14.png",
+      "role": "material / subject identity",
+      "modification_status": "native crop (492, 562, 743, 708)",
+      "license_provenance": "Derived from bundled project art; reference only"
+    },
+    {
+      "path": "shots/SL2-C01/PROMPT.txt",
+      "sha256": "ab9b6952547aace7500c0d2de4b727f0c52957636954de201a02813d6baadb96",
+      "bytes": 679,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "shots/SL2-C01/SHOT_PACKET.json",
+      "sha256": "557f9b8c13ead9d2f3b84a3b21f951c3bdb0371f4ee6e511385db44694e1e397",
+      "bytes": 2944,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "shots/SL2-P01/IMAGE_1.png",
+      "sha256": "031a47c1035272fd025f4fa05d30340004a7207cedad7f957bd4f478fa6af3fe",
+      "bytes": 195999,
+      "dimensions": [
+        352,
+        308
+      ],
+      "source_path": "references/castle-v14.png",
+      "role": "clean first-frame crop",
+      "modification_status": "native crop (902, 946, 1254, 1254)",
+      "license_provenance": "Derived from bundled project art; reference only"
+    },
+    {
+      "path": "shots/SL2-P01/IMAGE_2.png",
+      "sha256": "ec29e2fec09a00cce93a2f3f17b17b60aa787f4b670ddc8cfd1ba23bb5923d47",
+      "bytes": 1423293,
+      "dimensions": [
+        1711,
+        858
+      ],
+      "source_path": "layers/huckleberry-foreground.png",
+      "role": "material / subject identity",
+      "modification_status": "unchanged RGBA copy",
+      "license_provenance": "Derived from bundled project art; reference only"
+    },
+    {
+      "path": "shots/SL2-P01/PROMPT.txt",
+      "sha256": "5e71a43745ac7947c2011100e9c7d496ea53b36ee0df66ac701f35485bc8855f",
+      "bytes": 627,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "shots/SL2-P01/SHOT_PACKET.json",
+      "sha256": "19e74fe75da6acf049a5e0a3020bdf12fb71fba82630bb89768e253e51b5ac3e",
+      "bytes": 2930,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "shots/SL2-W01/IMAGE_1.png",
+      "sha256": "10c8c0aed3dd6ef37c8d4801d35c20856656ea4c261d7df451fec5c981e93863",
+      "bytes": 92105,
+      "dimensions": [
+        454,
+        150
+      ],
+      "source_path": "references/castle-v14.png",
+      "role": "clean first-frame crop",
+      "modification_status": "native crop (800, 850, 1254, 1000)",
+      "license_provenance": "Derived from bundled project art; reference only"
+    },
+    {
+      "path": "shots/SL2-W01/IMAGE_2.png",
+      "sha256": "d34b610cf797cdeaca89f03fb91b7f964505d61206c8ac80495860e5e9d6a3ba",
+      "bytes": 35565,
+      "dimensions": [
+        350,
+        84
+      ],
+      "source_path": "references/castle-v14.png",
+      "role": "material / subject identity",
+      "modification_status": "native crop (880, 876, 1230, 960)",
+      "license_provenance": "Derived from bundled project art; reference only"
+    },
+    {
+      "path": "shots/SL2-W01/PROMPT.txt",
+      "sha256": "3411ebf2142d57cfe38da28888e5115e05f90dfa3ecbb872fb7ec6cc9f2a37ea",
+      "bytes": 572,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "shots/SL2-W01/SHOT_PACKET.json",
+      "sha256": "26d133deba6885f468d6352d460b2f6399f889a3c760a371b70d8e681616377a",
+      "bytes": 2867,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "shots/SL2-W02/IMAGE_1.png",
+      "sha256": "e739f9cd26d588e27916b291079cc3eeb8c864096261c9049d6fdd930b232bc9",
+      "bytes": 245288,
+      "dimensions": [
+        466,
+        307
+      ],
+      "source_path": "references/arrival-v14.png",
+      "role": "clean first-frame crop",
+      "modification_status": "native crop (0, 698, 466, 1005)",
+      "license_provenance": "Derived from bundled project art; reference only"
+    },
+    {
+      "path": "shots/SL2-W02/IMAGE_2.png",
+      "sha256": "531612721ad898e6fa5a8e243a9d89dfdb97fb29072550fd01e4a450f4686959",
+      "bytes": 92153,
+      "dimensions": [
+        290,
+        186
+      ],
+      "source_path": "references/arrival-v14.png",
+      "role": "material / subject identity",
+      "modification_status": "native crop (0, 734, 290, 920)",
+      "license_provenance": "Derived from bundled project art; reference only"
+    },
+    {
+      "path": "shots/SL2-W02/PROMPT.txt",
+      "sha256": "bf7db7bc68cb82a92199d414ed097956f77104d3e11335e5b7f192f92568fb4b",
+      "bytes": 574,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    },
+    {
+      "path": "shots/SL2-W02/SHOT_PACKET.json",
+      "sha256": "03b712f42b7a8391d1f48142ada65e9c2ccdea079bff3ad17419fb12fe9493b9",
+      "bytes": 2854,
+      "dimensions": null,
+      "source_path": "authored for v14 scene review and animation handoff; scene provenance in LAYER_PLACEMENTS.json",
+      "role": "direction, editable archive, review or verification",
+      "modification_status": "new project-authored packet artifact",
+      "license_provenance": "Project-authored document or derived project artwork; provenance retained; no new third-party license asserted"
+    }
+  ]
+}

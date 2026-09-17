@@ -1,0 +1,75 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "sky_lagoon_garden_motion_v2_2026-09-16",
+  "shot_id": "SL2-P01",
+  "title": "Large foreground huckleberry flex",
+  "priority": 3,
+  "status": "DRAFT",
+  "duration_seconds": 1,
+  "duration_policy": "shortest actually supported; API minimum 1s verified 2026-09-16, website minimum not assumed",
+  "aspect_ratio": "352:308",
+  "delivery_size": null,
+  "native_first_frame_size": [
+    352,
+    308
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "shots/SL2-P01/IMAGE_1.png",
+      "sha256": "031a47c1035272fd025f4fa05d30340004a7207cedad7f957bd4f478fa6af3fe",
+      "hud_present": false,
+      "human_decision": "pending exact candidate/binding review",
+      "remote_url": null
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "shots/SL2-P01/IMAGE_2.png",
+      "sha256": "ec29e2fec09a00cce93a2f3f17b17b60aa787f4b670ddc8cfd1ba23bb5923d47",
+      "hud_present": false,
+      "human_decision": "pending exact candidate/binding review",
+      "remote_url": null
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "the large huckleberry leaf sprays flex a little to the right then settle"
+  ],
+  "must_not_move": [
+    "root, leaf count, berry count, path, hydrangea, soil and camera"
+  ],
+  "end_state": "the same leaf sprays settle near their starting silhouette",
+  "negative_constraints": [
+    "no new leaves, melted shapes, sliding roots, berry inflation, global color pulse or camera movement",
+    "no HUD or text"
+  ],
+  "prompt_path": "shots/SL2-P01/PROMPT.txt",
+  "prompt_sha256": "5e71a43745ac7947c2011100e9c7d496ea53b36ee0df66ac701f35485bc8855f",
+  "sound_intent": "silence",
+  "runtime_contract": "Godot root-pinned leaf groups after clean branch preparation; one card sway is interim only. Aseprite authored frames only when leaf overlap changes materially.",
+  "first_frame_review": "DRAFT: candidate painting and crop unaccepted",
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.png",
+      "used_as_pixel_reference": false
+    },
+    {
+      "path": "RUNTIME_CONTRACT.json",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "interface_contract": "Single-image I2V uploads IMAGE_1 only; IMAGE_2 is operator reference unless selected multi-reference interface demonstrably preserves first-frame lock. Preserve input aspect; do not force 16:9. Request lowest sufficient supported resolution; returned native size/fps recorded separately.",
+  "review_crop_size": [
+    352,
+    308
+  ],
+  "requested_resolution": "480p initial motion study; actual returned dimensions must be recorded",
+  "aspect_policy": "inherit IMAGE_1 without stretching"
+}

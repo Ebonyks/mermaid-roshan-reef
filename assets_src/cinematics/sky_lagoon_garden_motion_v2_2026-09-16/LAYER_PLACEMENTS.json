@@ -1,0 +1,223 @@
+{
+  "status": "REVIEW_DRAFT_NOT_RUNTIME",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "stages": {
+    "arrival": {
+      "source": "references/arrival-v14.png",
+      "base": "layers/arrival-ground.png",
+      "layers": [
+        {
+          "asset": "layers/huckleberry-foreground.png",
+          "x": -95,
+          "y": 1040,
+          "width": 490,
+          "height": 246,
+          "pivot": [
+            0.5,
+            1
+          ],
+          "z": 10,
+          "motion": "root-pinned subtle sway; not yet implemented"
+        },
+        {
+          "asset": "layers/huckleberry-companion.png",
+          "x": 1010,
+          "y": 1110,
+          "width": 410,
+          "height": 177,
+          "pivot": [
+            0.5,
+            1
+          ],
+          "z": 11,
+          "motion": "root-pinned subtle sway; not yet implemented"
+        },
+        {
+          "asset": "layers/cream-bellflower.png",
+          "x": 300,
+          "y": 1128,
+          "width": 96,
+          "height": 97,
+          "pivot": [
+            0.5,
+            1
+          ],
+          "z": 12,
+          "motion": "root-pinned subtle sway; not yet implemented"
+        }
+      ]
+    },
+    "meadow": {
+      "source": "references/meadow-v14.png",
+      "base": "layers/meadow-ground.png",
+      "layers": [
+        {
+          "asset": "layers/huckleberry-companion.png",
+          "x": -145,
+          "y": 1084,
+          "width": 510,
+          "height": 220,
+          "pivot": [
+            0.5,
+            1
+          ],
+          "z": 10,
+          "motion": "root-pinned subtle sway; not yet implemented"
+        },
+        {
+          "asset": "layers/huckleberry-foreground.png",
+          "x": 978,
+          "y": 1078,
+          "width": 470,
+          "height": 236,
+          "pivot": [
+            0.5,
+            1
+          ],
+          "z": 11,
+          "motion": "root-pinned subtle sway; not yet implemented"
+        }
+      ]
+    },
+    "castle": {
+      "source": "references/castle-v14.png",
+      "base": "layers/castle-ground.png",
+      "layers": [
+        {
+          "asset": "layers/huckleberry-foreground.png",
+          "x": -150,
+          "y": 1038,
+          "width": 620,
+          "height": 311,
+          "pivot": [
+            0.5,
+            1
+          ],
+          "z": 10,
+          "motion": "root-pinned subtle sway; not yet implemented"
+        },
+        {
+          "asset": "layers/huckleberry-foreground.png",
+          "x": 960,
+          "y": 977,
+          "width": 475,
+          "height": 238,
+          "pivot": [
+            0.5,
+            1
+          ],
+          "z": 11,
+          "motion": "root-pinned subtle sway; not yet implemented"
+        },
+        {
+          "asset": "layers/huckleberry-companion.png",
+          "x": -105,
+          "y": 1118,
+          "width": 445,
+          "height": 192,
+          "pivot": [
+            0.5,
+            1
+          ],
+          "z": 12,
+          "motion": "root-pinned subtle sway; not yet implemented"
+        },
+        {
+          "asset": "layers/hydrangea.png",
+          "x": 1117,
+          "y": 1036,
+          "width": 151,
+          "height": 156,
+          "pivot": [
+            0.5,
+            1
+          ],
+          "z": 13,
+          "motion": "root-pinned subtle sway; not yet implemented"
+        }
+      ]
+    }
+  },
+  "provenance": [
+    {
+      "name": "hydrangea",
+      "source": "C:\\Users\\Peter\\.codex\\generated_images\\01a09877-a77a-74c0-8908-8ec54bf94f07\\exec-1f94508d-ca7f-49fa-b2ee-8537646746b9.png",
+      "sha256": "cba522ee26cadd235b3ef6f2ddc3f559965cf0800c3bf85084aff4aaf46a8704",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "method": "built-in image_gen",
+      "status": "review only"
+    },
+    {
+      "name": "huckleberry-foreground",
+      "source": "C:\\Users\\Peter\\.codex\\generated_images\\01a09877-a77a-74c0-8908-8ec54bf94f07\\exec-1d7f161e-ed69-4025-a268-68fecccfb4c9.png",
+      "sha256": "128394d077362dffcd755acd8139f03eba7d072bab65843ac897355fdcd93b1c",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "method": "built-in image_gen",
+      "status": "review only"
+    },
+    {
+      "name": "huckleberry-companion",
+      "source": "C:\\Users\\Peter\\.codex\\generated_images\\01a09877-a77a-74c0-8908-8ec54bf94f07\\exec-63e6bbe3-de6d-4fd6-80f5-fc70c90f0b0e.png",
+      "sha256": "cc52c1237f1c0056447d849d44fe258d681d0bdb9fbb0f84e6ae6b65d6282be4",
+      "dimensions": [
+        1902,
+        827
+      ],
+      "method": "built-in image_gen",
+      "status": "review only"
+    },
+    {
+      "name": "cream-bellflower",
+      "source": "C:\\Users\\Peter\\.codex\\generated_images\\01a09877-a77a-74c0-8908-8ec54bf94f07\\exec-23e2b1f7-e33f-4f94-8e76-64bdfc7eb630.png",
+      "sha256": "3f87cc6406c2d7c7a2cd4f3bf27ef804035ce17d20264c274e5726055a22cc23",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "method": "built-in image_gen",
+      "status": "review only"
+    },
+    {
+      "name": "plate-arrival",
+      "source": "C:\\Users\\Peter\\.codex\\generated_images\\01a09877-a77a-74c0-8908-8ec54bf94f07\\exec-562a3788-ea65-4218-99c4-f76cbcb90469.png",
+      "sha256": "e1755f0a3e2b7d04ee0baca7997f1f4e42c01d993ae94536f21fe7f95de80421",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "method": "built-in image_gen",
+      "status": "review only"
+    },
+    {
+      "name": "plate-meadow",
+      "source": "C:\\Users\\Peter\\.codex\\generated_images\\01a09877-a77a-74c0-8908-8ec54bf94f07\\exec-f8118c84-1641-4ad5-a574-2965fcaea54c.png",
+      "sha256": "29ad4f80b727036521629c5e4b9762d7d0cc18e60456ee6d0fcb763a6689d63f",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "method": "built-in image_gen",
+      "status": "review only"
+    },
+    {
+      "name": "plate-castle",
+      "source": "C:\\Users\\Peter\\.codex\\generated_images\\01a09877-a77a-74c0-8908-8ec54bf94f07\\exec-bf308d0f-9727-45bc-beb5-722b4e51c890.png",
+      "sha256": "4f7a5e42438ddd2de0b9305dcf49ab0a7b845848be8d4e7e5565f356b796ad4b",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "method": "built-in image_gen",
+      "status": "review only"
+    }
+  ]
+}
