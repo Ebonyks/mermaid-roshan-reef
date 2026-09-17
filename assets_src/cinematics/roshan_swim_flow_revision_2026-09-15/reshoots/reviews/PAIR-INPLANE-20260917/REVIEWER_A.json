@@ -1,0 +1,40 @@
+{
+  "schema": "reef.roshan-independent-source-review.v1",
+  "reviewed_git_head": "0782fc6ff16dd9744a11491c438ae7b5db94a413",
+  "model": "gpt-5.6-sol",
+  "producer_overlap": false,
+  "independent": true,
+  "review_method": "Ordered every-third-frame sheets covering native frames 0-144 plus native PNG details. No uninterrupted 1x or half-speed video stream was observed.",
+  "complete_acceptance_scores": null,
+  "lower_unrounded_mean": null,
+  "source_accepted": false,
+  "delivery_accepted": false,
+  "frame_convention": "zero-based; intervals end-exclusive; time=frame/24",
+  "source_bindings": {
+    "slow": {
+      "attempt": "A003",
+      "return_sha256": "714ca30c0e0b835fcb2a55cb0d592f27d62cfa038551db987657295dc8b314a1",
+      "video_sha256": "211124e1c7bdf6252cd759f85753e52962114b162980743484a51644aa996148"
+    },
+    "dash": {
+      "attempt": "A004",
+      "return_sha256": "72ee45e0c2d177678ad344148a10d953f853db37ae66f25dacfa3409a2641e87",
+      "video_sha256": "b51459aab2b7a0a6a70f29b759fa088e6b5a9737fa9f75f799a36cd656d5fbcd"
+    }
+  },
+  "identity": "codex-sol-review-A-20260917",
+  "agent": "/root/slow_dash_review_a",
+  "coverage": "All eight every-third-frame sheets and 30 native detail frames per clip; exact detailed subset was not exhaustively returned by agent.",
+  "observations": [
+    "Dash translucent second tail/fin visible f0,1,3,6,9,12,15,18; gone by f21. Confirmed defect interval [0,19), not a claim about f19-20.",
+    "Similar raised-fin phases slow f42/f81 and dash f39/f78: about 39 frames/1.625s. Phase landmarks only, NOT certified loop boundaries.",
+    "Both move by f3; this does not establish input-to-animation latency. Upright settling roughly f117-144; short brake not established.",
+    "Later sampled fins read broad and in-plane. Preserve current acting and fin design. No scale-pulsing conclusion from bbox alone."
+  ],
+  "seed_screen": {
+    "slow_frame": 72,
+    "dash_frame": 78,
+    "decision": "SUITABLE_GENERATION_INPUTS_ONLY",
+    "evidence": "Each shows one connected tail, two clear fin lobes, no visible ghost/crop/detached waist; recognizable face, crown, costume, curls, right-three-quarter and margins. No motion acceptance."
+  }
+}

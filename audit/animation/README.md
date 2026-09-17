@@ -55,6 +55,15 @@ Prior compact takes remain history. Conversion is still later; these are source
 candidates only.
 [Impact](../../design/audit_impacts/2026-09-17-roshan-inplane-fin-return.json).
 
+The [independent A003/A004 review and next requests](../../assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-INPLANE-20260917/START_HERE.txt)
+reject the dash opening's ghosted second tail (also present in its input seed).
+Ordered-frame evidence does not establish the two compact cadences or a clean
+whole-body loop; no full temporal score is claimed. The next bounded method
+isolates core-loop production: slow A004 and dash A005 use screened native
+inputs, with separate entry/phase-aware exit work still required afterward.
+Owner renewed Codex Git checks every 15 minutes; no Grok timer is changed.
+[Impact](../../design/audit_impacts/2026-09-17-roshan-inplane-source-review.json).
+
 ## Start an animation task here
 
 1. Read the [canonical motion rules](../../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards)

@@ -1,0 +1,62 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-SLOW-01",
+  "attempt": "A003",
+  "request_id": "RSW-SLOW-01-A003-inplane-fin-sprite",
+  "reviewed_git_head": "0782fc6ff16dd9744a11491c438ae7b5db94a413",
+  "request_sha256": "831b06f51177c51db56e795f74d584bc97ed153d5ec32dde4fd5a36017f99535",
+  "return_sha256": "714ca30c0e0b835fcb2a55cb0d592f27d62cfa038551db987657295dc8b314a1",
+  "clip_sha256": "211124e1c7bdf6252cd759f85753e52962114b162980743484a51644aa996148",
+  "decision": "REGENERATE",
+  "decision_reason": "No ghost defect observed; compact cadence and clean whole-body loop not established. Isolate the core rather than redesigning approved acting.",
+  "reviewers": [
+    {
+      "identity": "codex-sol-review-A-20260917",
+      "evidence_path": "reshoots/reviews/PAIR-INPLANE-20260917/REVIEWER_A.json"
+    },
+    {
+      "identity": "codex-sol-review-B-20260917",
+      "evidence_path": "reshoots/reviews/PAIR-INPLANE-20260917/REVIEWER_B.json"
+    }
+  ],
+  "score_status": "NOT_COMPUTED_INCOMPLETE_TEMPORAL_REVIEW",
+  "lower_unrounded_mean": null,
+  "normal_speed_evidence": null,
+  "issues": [
+    {
+      "id": "CADENCE-NOT-DISTINCT",
+      "start_frame": 0,
+      "end_frame_exclusive": 145,
+      "start_seconds": 0,
+      "end_seconds": 6.041666666666667,
+      "observation": "Ordered repeated tail phases recur roughly 36-42 frames (1.5-1.75s) in both modes. Exact whole-body cycles and seams remain unverified.",
+      "expected": "Native relaxed cadence about 0.8-1.2s and clearly faster distinct dash about 0.4-0.6s; targets, not measured acceptance.",
+      "correction": "Isolate repeatable core-loop performance before adding entry/brake. Return native cycle boundaries and seam-neighborhood frames for pose AND velocity inspection.",
+      "blocking": true,
+      "evidence_limit": "Inferred tail phase intervals from ordered stills, not normal-speed performance certification."
+    },
+    {
+      "id": "SHORT-EXIT-UNPROVEN",
+      "start_frame": 117,
+      "end_frame_exclusive": 145,
+      "start_seconds": 4.875,
+      "end_seconds": 6.041666666666667,
+      "observation": "Sampled final approximately one second turns/settles upright. No clean 0.15-0.25s brake or arbitrary-phase exit coverage demonstrated.",
+      "expected": "Responsive start/loop/stop without waiting for whole source film.",
+      "correction": "Preserve future entry/phase-aware exit requirements. Build separately after core cycle selection, not in this loop-only take.",
+      "blocking": true,
+      "scope": "Whole start-loop-stop readiness, not a required beat in the next core-only trial."
+    }
+  ],
+  "owner_motion_direction_preserved": true,
+  "artistic_failure_count_increment": 1,
+  "method_reassessment": "reshoots/reviews/PAIR-INPLANE-20260917/METHOD_CHANGE.txt",
+  "next_action": "reshoots/attempts/RSW-SLOW-01/A004/REQUEST.json",
+  "source_originals_modified": false,
+  "source_accepted": false,
+  "aseprite_eligible": false,
+  "delivery_accepted": false,
+  "human_approval": null,
+  "runtime_mirror_verified": false,
+  "rest_bridge": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED"
+}

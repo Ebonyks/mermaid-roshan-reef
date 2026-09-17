@@ -1,0 +1,28 @@
+movie_id: roshan-two-speed-source-pilot
+shot_id: RSW-SLOW-01
+attempt: A004
+status: DRAFT_PENDING_IMMUTABLE_REMOTE_VERIFICATION
+duration: 6 seconds
+aspect: 16:9
+size: 1280x720
+mode: image-to-video
+output_disposition: motion_reference_only
+
+Readiness: after publication, use the immutable IMAGE URLs and GENERATION_READY field in reshoots/reviews/PAIR-INPLANE-20260917/REMOTE_VERIFICATION.json. No new owner opening approval is needed for the screened native frame. A local-only card is not remotely ready.
+
+IMAGE_1: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/codex/roshan-swim-start-loop-stop-20260914/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A004/inputs/IMAGE_1.png
+job: screened clean native first-frame/layout; one connected tail, no ghost.
+IMAGE_2: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/0782fc6ff16dd9744a11491c438ae7b5db94a413/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/references/IMAGE_2_approved-front.png
+job: approved character identity/style, not a pose lock.
+If video UI exposes one input slot, bind IMAGE_1 and consult IMAGE_2; record that limitation accurately. Do not claim both were bound. Neither diagnostic board is an input.
+
+start_frame: IMAGE_1
+camera: locked
+must_move: coordinated chest, elbows, wrists, in-plane tail and buoyant curl tips
+must_not_move: camera and navy field; preserve anatomical scale
+end_state: roshan continues swimming right at the opening stroke phase, not at rest.
+negative_constraints: no duplicate tail/ghost/trails/VFX, crops, perspective fin twist, straight locked arms, size pulsing, added limbs, redesign, cuts, stop or upright ending
+sound_intent: silent; no dialogue, voices or music
+
+Paste only sibling PROMPT.txt into Imagine. It contains the complete action-first timeline and Sound line.
+Target: six ~1-second relaxed genuinely performed strokes in this single shot. This is core-only, not an entry/stop performance or runtime delivery.

@@ -4661,3 +4661,20 @@ sheets, never generator inputs, sprite pixels, cinematic or runtime delivery.
 | `reshoots/reviews/PAIR-COMPACT-20260917/evidence/dash-a003-crop-clear.jpg` | [Original dash A003](https://github.com/Ebonyks/mermaid-roshan-reef/blob/72f59d28e4a2a45c8d67f64c231c65a29b59da50/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A003/RSW-DASH-01_take-03.mp4); inherited project-generated/Grok source terms above, not CC0; native video decode, whole-frame reduction, labels and diagnostic assembly only. |
 | `reshoots/reviews/PAIR-COMPACT-20260917/evidence/pair-a002-a003-native.jpg` | Slow A002 and dash A003 originals linked above; inherited terms; paired reduced whole frames at matching timestamps only. |
 | `reshoots/reviews/PAIR-COMPACT-20260917/evidence/dash-a002-crop-history.jpg` | [Dash A002](https://github.com/Ebonyks/mermaid-roshan-reef/blob/11c14e7f9ef80803b7dc57c808765b81fa2d6901/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A002/RSW-DASH-01_take-02.mp4) (cropped history) and dash A003 (current candidate); inherited terms; labeled reduced whole frames only. |
+
+### Roshan in-plane source review and core-loop inputs (2026-09-17)
+
+These five derivatives inherit the originals' existing project-generated/Grok
+source terms; no new CC0, public-domain, or third-party ownership claim.
+Original movies remain byte-identical. Exact hashes, dimensions, source frames
+and modification roles are recorded in
+`assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-INPLANE-20260917/EVIDENCE_MANIFEST.json`.
+A clean native seed does not accept its source movie.
+
+| Packet-relative asset | Source / license / modifications |
+|---|---|
+| `reshoots/attempts/RSW-SLOW-01/A004/inputs/IMAGE_1.png` | [Native original](https://github.com/Ebonyks/mermaid-roshan-reef/blob/0782fc6ff16dd9744a11491c438ae7b5db94a413/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A003/RSW-SLOW-01_take-03.mp4); inherited source terms above. Lossless native frame 72 (3.000s), 1280x720; generation input only, no repaint/crop/resize. |
+| `reshoots/attempts/RSW-DASH-01/A005/inputs/IMAGE_1.png` | [Native original](https://github.com/Ebonyks/mermaid-roshan-reef/blob/0782fc6ff16dd9744a11491c438ae7b5db94a413/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A004/RSW-DASH-01_take-04.mp4); inherited source terms above. Lossless native frame 78 (3.250s), 1280x720; generation input only, no repaint/crop/resize. |
+| `reshoots/reviews/PAIR-INPLANE-20260917/evidence/slow-cadence.jpg` | [Native original](https://github.com/Ebonyks/mermaid-roshan-reef/blob/0782fc6ff16dd9744a11491c438ae7b5db94a413/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A003/RSW-SLOW-01_take-03.mp4); inherited source terms above. Labeled, uniformly reduced whole native frames; diagnostic only, never generator/sprite/delivery pixels. |
+| `reshoots/reviews/PAIR-INPLANE-20260917/evidence/dash-ghost-and-cadence.jpg` | [Native original](https://github.com/Ebonyks/mermaid-roshan-reef/blob/0782fc6ff16dd9744a11491c438ae7b5db94a413/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A004/RSW-DASH-01_take-04.mp4); inherited source terms above. Labeled, uniformly reduced whole native frames; diagnostic only, never generator/sprite/delivery pixels. |
+| `reshoots/reviews/PAIR-INPLANE-20260917/evidence/phase-reference-board.jpg` | [Native original](https://github.com/Ebonyks/mermaid-roshan-reef/blob/0782fc6ff16dd9744a11491c438ae7b5db94a413/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A003/RSW-SLOW-01_take-03.mp4); inherited source terms above. Also uses dash A004 above; labeled native-frame phase board for both jobs. Not approved loop seams or generator input. |

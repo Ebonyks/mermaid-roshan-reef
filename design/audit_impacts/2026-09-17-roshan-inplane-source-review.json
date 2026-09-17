@@ -1,0 +1,75 @@
+{
+  "id": "2026-09-17-roshan-inplane-source-review",
+  "scope": "Review new slow A003 and dash A004 original Grok returns, preserve approved motion direction, reject ghosted dash seed and unproven compact cadence; publish one core-loop-only request per mode (slow A004, dash A005) with individually screened native-frame inputs as a method change. Update animation navigation. Owner-authorized local 15-minute heartbeat is configured separately through the app; no Grok timer, runtime, protected content, old source/return bytes or dev/master changes.",
+  "baseline": "0782fc6ff16dd9744a11491c438ae7b5db94a413",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-INPLANE-20260917/START_HERE.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-INPLANE-20260917/PAIR_REVIEW.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-INPLANE-20260917/TECHNICAL.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-INPLANE-20260917/REVIEWER_A.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-INPLANE-20260917/REVIEWER_B.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-INPLANE-20260917/METHOD_CHANGE.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-INPLANE-20260917/EVIDENCE_MANIFEST.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-INPLANE-20260917/REMOTE_VERIFICATION.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-INPLANE-20260917/evidence/slow-cadence.jpg",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-INPLANE-20260917/evidence/dash-ghost-and-cadence.jpg",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-INPLANE-20260917/evidence/phase-reference-board.jpg",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_10.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A003/REVIEW.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A004/REVIEW.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A004/REQUEST.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A004/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A004/SHOT_CARD.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A004/INPUT_SELECTION.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A004/inputs/IMAGE_1.png",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A005/REQUEST.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A005/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A005/SHOT_CARD.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A005/INPUT_SELECTION.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A005/inputs/IMAGE_1.png",
+    "ASSET_LICENSES.md",
+    "audit/animation/README.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Source hash bindings, ffprobe and ordered-frame independent Sol reviews",
+      "result": "PASS",
+      "evidence": "Both source returns verified at baseline. Two independent Sol reviewers inspected every-third-frame sheets and native detail; dash ghost visible f0-18. This is evidence for rejection, not continuous 1x/half-speed certification or numerical acceptance. TECHNICAL.json and REVIEWER_A/B.json bind evidence."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development; git diff --check",
+      "result": "PASS",
+      "evidence": "Document authority ALL OK (569 inventory/ledger, 56 active, 58 records), audit coverage ALL OK at f98ef836 merge-base, 51 unit tests pass, authority stress 6/6, git diff --check clean. Re-run coverage after staging."
+    },
+    {
+      "command": "Scoped packet bindings and immutable GitHub payload verification",
+      "result": "PENDING",
+      "evidence": "Local tmp/verify_inplane_packet.py ALL OK: 29 payload files/dependencies and both request/review/input hash chains. Native input frames independently screened by Sol A and root. Immutable remote verification remains pending and will be appended in REMOTE_VERIFICATION.json."
+    },
+    {
+      "command": "Full Godot scripts/ci.sh / device / runtime",
+      "result": "NOT_APPLICABLE",
+      "evidence": "No runtime or asset import. Handoff-only publication uses explicit owner exception recorded in 2026-09-15-roshan-grok-handoff-publication.json. Prior full CI failures remain failures; no integration authorized."
+    }
+  ],
+  "acceptance_gaps": "No complete seven-axis temporal score, 4.8 checkpoint, Aseprite conversion, mirrored-left/phase-exit runtime evidence, human/device/child acceptance or MA-VIS-006 closure. Core-loop isolation is a bounded production experiment, not removal of future entry/exit requirements. New media must return before further review."
+}

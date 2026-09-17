@@ -1,0 +1,34 @@
+{
+  "schema": "reef.roshan-independent-source-review.v1",
+  "reviewed_git_head": "0782fc6ff16dd9744a11491c438ae7b5db94a413",
+  "model": "gpt-5.6-sol",
+  "producer_overlap": false,
+  "independent": true,
+  "review_method": "Ordered every-third-frame sheets covering native frames 0-144 plus native PNG details. No uninterrupted 1x or half-speed video stream was observed.",
+  "complete_acceptance_scores": null,
+  "lower_unrounded_mean": null,
+  "source_accepted": false,
+  "delivery_accepted": false,
+  "frame_convention": "zero-based; intervals end-exclusive; time=frame/24",
+  "source_bindings": {
+    "slow": {
+      "attempt": "A003",
+      "return_sha256": "714ca30c0e0b835fcb2a55cb0d592f27d62cfa038551db987657295dc8b314a1",
+      "video_sha256": "211124e1c7bdf6252cd759f85753e52962114b162980743484a51644aa996148"
+    },
+    "dash": {
+      "attempt": "A004",
+      "return_sha256": "72ee45e0c2d177678ad344148a10d953f853db37ae66f25dacfa3409a2641e87",
+      "video_sha256": "b51459aab2b7a0a6a70f29b759fa088e6b5a9737fa9f75f799a36cd656d5fbcd"
+    }
+  },
+  "identity": "codex-sol-review-B-20260917",
+  "agent": "/root/slow_dash_review_b",
+  "coverage": "All eight every-third-frame sheets; native opening and end details including f113,117,121,126,132,138,144 for both. Exhaustive native subset not returned.",
+  "observations": [
+    "Dash f0/3 shows overlapping translucent full tails, f9 crossed tail roots, f15 third apparent lobe and f18 dim lower lobe. Reject [0,19).",
+    "Similar slow raised-fin phases f0/42/84 and dash f36/78/114 suggest 36-42-frame (~1.5-1.75s) recurrence. Arms/body differ: not a demonstrated seamless loop.",
+    "Both spend about final 24-28 frames settling, not a demonstrated 4-6-frame brake.",
+    "Right-facing and full-body framing preserved in inspected frames. No bbox-only scale claim. Slow endpoint strict side and dash three-quarter right are permitted, not rest-pose failures."
+  ]
+}

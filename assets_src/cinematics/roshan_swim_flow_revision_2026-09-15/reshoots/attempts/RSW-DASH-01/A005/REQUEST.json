@@ -1,0 +1,93 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A005",
+  "request_id": "RSW-DASH-01-A005-core-loop-method-v1",
+  "kind": "CORE_LOOP_ONLY_METHOD_TRIAL",
+  "addressed_to": "Grok",
+  "created_at": "2026-09-17",
+  "generation_authorized_by_this_request": true,
+  "max_new_takes": 1,
+  "authorization_scope": "Owner requests continued iterative Grok handoffs and source-first review; one bounded native core-loop take for this mode. No paid API purchase or timer change.",
+  "mode": "dash",
+  "parent_review_path": "reshoots/attempts/RSW-DASH-01/A004/REVIEW.json",
+  "parent_review_sha256": "9599bb618cd1e3724b13ca84ce2bf7452d3beedbcaa7a8c7393950447d931dca",
+  "parent_return_sha256": "72ee45e0c2d177678ad344148a10d953f853db37ae66f25dacfa3409a2641e87",
+  "parent_video_sha256": "b51459aab2b7a0a6a70f29b759fa088e6b5a9737fa9f75f799a36cd656d5fbcd",
+  "direction_path": "EXCHANGE_10.txt",
+  "direction_sha256": "ffdd6665ea3fc5b81620cdb923cf5e59ca44a142d6da98a6138da8fdf9d215f4",
+  "timing_policy_path": "EXCHANGE_07.txt",
+  "timing_policy_sha256": "25a9ebafebcbf3b24a249a0a9866154259efbc30754720da48f0f80a7da45dfd",
+  "facing_policy_path": "EXCHANGE_04.txt",
+  "facing_policy_sha256": "a9cb6b100acaacf6fb67558e65b5f95845c2e97ee8ca6c03d48b9db2b28f1daf",
+  "method_reassessment_path": "reshoots/reviews/PAIR-INPLANE-20260917/METHOD_CHANGE.txt",
+  "method_id": "core-loop-only-v1",
+  "attempt_within_method": 1,
+  "reassess_after_failed_attempts": 2,
+  "prompt_path": "reshoots/attempts/RSW-DASH-01/A005/PROMPT.txt",
+  "prompt_sha256": "f21584b1667bfe08f45088321e74f135c877a0a9e7655ed5c58a9170b92b068c",
+  "shot_card_path": "reshoots/attempts/RSW-DASH-01/A005/SHOT_CARD.txt",
+  "input_selection_path": "reshoots/attempts/RSW-DASH-01/A005/INPUT_SELECTION.json",
+  "input_selection_sha256": "ab9d2252b6ceda02d350ca834764186e94305de885a443664fbe29adc86a1a63",
+  "image_1_path": "reshoots/attempts/RSW-DASH-01/A005/inputs/IMAGE_1.png",
+  "image_1_sha256": "0c030c69ec128e953173468c29ec6e1c258a33dc52b300681e00c08f42e78ec3",
+  "identity_reference": {
+    "path": "references/IMAGE_2_approved-front.png",
+    "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+    "role": "subject_identity",
+    "binding": "Bind if available; otherwise consult and record one-image-slot limitation."
+  },
+  "requested_settings": {
+    "mode": "image_to_video",
+    "duration_seconds": 6,
+    "width": 1280,
+    "height": 720,
+    "camera": "locked",
+    "audio": "request silent; preserve unavoidable original native audio",
+    "extra_effects": false
+  },
+  "performance_contract": {
+    "component": "cruise_core_only",
+    "native_cycle_target_seconds": [
+      0.4,
+      0.6
+    ],
+    "approximate_complete_cycles_in_six_seconds": 12,
+    "entry_or_stop_requested": false,
+    "face_personality": "bright, eager, not panicked",
+    "tail": "One connected iridescent tail, broad two-lobed fin; horizontal S-wave in picture plane.",
+    "hands": "Expressive rounded elbow/wrist water sweep and recovery, not locked flying arms.",
+    "hair": "Loose curl-tip follow-through, not ghost trails or static cutouts.",
+    "true_native_performance_required": true,
+    "retimed_other_mode_allowed": false,
+    "copied_loop_frames_allowed": false,
+    "loop_cut_requirement": "Record actual native frame indices; match body, arms, hair and fin pose AND velocity. Prompt timestamp alone is not a cut.",
+    "left_method": "Later whole-sprite mirror of accepted right-facing source.",
+    "entry_and_phase_exits": "Deferred to separately addressed requests after choosing this core; still required before gameplay acceptance.",
+    "rest_bridge": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED"
+  },
+  "preserve": [
+    "Owner-approved painted character/art and acting direction",
+    "Current in-plane fin design",
+    "Original clips and every previous request/return"
+  ],
+  "required_corrections": [
+    "DASH-DUPLICATE-TAIL",
+    "CADENCE-NOT-DISTINCT"
+  ],
+  "required_return": [
+    "Original MP4, RETURN bound to this REQUEST hash, actual model/settings and source input hashes.",
+    "Actual cycle-phase indices and proposed seam neighborhoods, measured native cadence, duration/fps/frame count/audio and byte hash.",
+    "Actual bound versus consulted image identities, job ID and prompt hash; unknown values null with explanation.",
+    "If supported duration differs, preserve original and disclose it; do not slow the requested cadence or substitute a retimed render.",
+    "Publish return before any new take; no Aseprite cleanup. If unable, return HOLD and specific blocker."
+  ],
+  "output_path": "reshoots/inbox/RSW-DASH-01/A005/RSW-DASH-01_take-05.mp4",
+  "return_path": "reshoots/attempts/RSW-DASH-01/A005/RETURN.json",
+  "execution_order": 2,
+  "remote_readiness_receipt": "reshoots/reviews/PAIR-INPLANE-20260917/REMOTE_VERIFICATION.json",
+  "source_accepted": false,
+  "delivery_accepted": false,
+  "grok_timer_changed": false,
+  "shot_card_sha256": "846c783b3d58884231057554397d2569b26b4b6da7dbba5b05d555533926bd6d"
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "reef.roshan-pair-review.v1",
+  "source_commit": "0782fc6ff16dd9744a11491c438ae7b5db94a413",
+  "pair": {
+    "slow": "RSW-SLOW-01/A003",
+    "dash": "RSW-DASH-01/A004"
+  },
+  "decision": "REGENERATE_CORE_LOOP_METHOD_TRIAL",
+  "preserve": "Owner-approved painted art and acting, expressive arms, in-plane tail, right-facing/mirrored-left scope, no VFX.",
+  "finding": "Dash starting PNG already has duplicate tail. Its source selection screen failed; this is not an Aseprite extraction problem.",
+  "timing": "Both modes show approximately 1.5-1.75s similar tail phases in ordered frames; this is not a proven whole-body period/seam. No certified short gameplay loop or brake.",
+  "review_coverage": "Two independent Sol ordered-frame reviews; root native-frame checks. No continuous native/half-speed review or score fabricated.",
+  "checkpoint_target": 4.8,
+  "checkpoint_score": null,
+  "checkpoint_reached": false,
+  "method_change": "Split core-loop production from entry/exit. One new native take each, six seconds containing ~6 slow cycles vs ~12 dash cycles; never duplicate pixels or retime slow to make dash.",
+  "remaining_after_core": [
+    "1x/0.5x source and exact seam review",
+    "Separately addressed short entry/phase-aware brakes",
+    "1s/2s/5s input and release/restart/reversal demo",
+    "Independent complete scoring then human checkpoint",
+    "Aseprite only after source acceptance and owner review",
+    "Runtime/device/child acceptance"
+  ],
+  "source_accepted": false,
+  "delivery_accepted": false
+}

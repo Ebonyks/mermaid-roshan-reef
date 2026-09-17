@@ -1,0 +1,88 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A004",
+  "request_id": "RSW-DASH-01-A004-inplane-fin-sprite",
+  "reviewed_git_head": "0782fc6ff16dd9744a11491c438ae7b5db94a413",
+  "request_sha256": "23e4cbc3da24c250f0a6db03d65f3bf79bb81f09699411a8941a3ba0487db558",
+  "return_sha256": "72ee45e0c2d177678ad344148a10d953f853db37ae66f25dacfa3409a2641e87",
+  "clip_sha256": "b51459aab2b7a0a6a70f29b759fa088e6b5a9737fa9f75f799a36cd656d5fbcd",
+  "decision": "REGENERATE",
+  "decision_reason": "Confirmed ghosted anatomy in seed/opening; compact distinct cadence and exact loop unproven.",
+  "reviewers": [
+    {
+      "identity": "codex-sol-review-A-20260917",
+      "evidence_path": "reshoots/reviews/PAIR-INPLANE-20260917/REVIEWER_A.json"
+    },
+    {
+      "identity": "codex-sol-review-B-20260917",
+      "evidence_path": "reshoots/reviews/PAIR-INPLANE-20260917/REVIEWER_B.json"
+    }
+  ],
+  "score_status": "NOT_COMPUTED_INCOMPLETE_TEMPORAL_REVIEW",
+  "lower_unrounded_mean": null,
+  "normal_speed_evidence": null,
+  "issues": [
+    {
+      "id": "DASH-DUPLICATE-TAIL",
+      "start_frame": 0,
+      "end_frame_exclusive": 19,
+      "start_seconds": 0,
+      "end_seconds": 0.7916666666666666,
+      "observation": "A translucent second lower tail/fin is visible alongside the principal tail. The same two-tail artwork is already in the bound IMAGE_1 (from previous dash A003 frame103).",
+      "expected": "Exactly one continuous torso-tail connection and one broad two-lobed fin; no ghost, afterimage or secondary anatomy.",
+      "correction": "Reject the old seed itself. Use screened native A004 frame78 supplied for the next attempt, with no composite/ghost/VFX. Preserve later in-plane motion direction.",
+      "blocking": true,
+      "confirmed_samples": [
+        0,
+        1,
+        3,
+        6,
+        9,
+        12,
+        15,
+        18
+      ],
+      "absence_sample": 21,
+      "unsampled_boundary_frames": [
+        19,
+        20
+      ]
+    },
+    {
+      "id": "CADENCE-NOT-DISTINCT",
+      "start_frame": 0,
+      "end_frame_exclusive": 145,
+      "start_seconds": 0,
+      "end_seconds": 6.041666666666667,
+      "observation": "Ordered repeated tail phases recur roughly 36-42 frames (1.5-1.75s) in both modes. Exact whole-body cycles and seams remain unverified.",
+      "expected": "Native relaxed cadence about 0.8-1.2s and clearly faster distinct dash about 0.4-0.6s; targets, not measured acceptance.",
+      "correction": "Isolate repeatable core-loop performance before adding entry/brake. Return native cycle boundaries and seam-neighborhood frames for pose AND velocity inspection.",
+      "blocking": true,
+      "evidence_limit": "Inferred tail phase intervals from ordered stills, not normal-speed performance certification."
+    },
+    {
+      "id": "SHORT-EXIT-UNPROVEN",
+      "start_frame": 117,
+      "end_frame_exclusive": 145,
+      "start_seconds": 4.875,
+      "end_seconds": 6.041666666666667,
+      "observation": "Sampled final approximately one second turns/settles upright. No clean 0.15-0.25s brake or arbitrary-phase exit coverage demonstrated.",
+      "expected": "Responsive start/loop/stop without waiting for whole source film.",
+      "correction": "Preserve future entry/phase-aware exit requirements. Build separately after core cycle selection, not in this loop-only take.",
+      "blocking": true,
+      "scope": "Whole start-loop-stop readiness, not a required beat in the next core-only trial."
+    }
+  ],
+  "owner_motion_direction_preserved": true,
+  "artistic_failure_count_increment": 1,
+  "method_reassessment": "reshoots/reviews/PAIR-INPLANE-20260917/METHOD_CHANGE.txt",
+  "next_action": "reshoots/attempts/RSW-DASH-01/A005/REQUEST.json",
+  "source_originals_modified": false,
+  "source_accepted": false,
+  "aseprite_eligible": false,
+  "delivery_accepted": false,
+  "human_approval": null,
+  "runtime_mirror_verified": false,
+  "rest_bridge": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED"
+}

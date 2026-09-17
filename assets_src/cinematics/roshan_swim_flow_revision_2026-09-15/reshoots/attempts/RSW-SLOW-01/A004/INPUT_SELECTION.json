@@ -1,0 +1,36 @@
+{
+  "schema": "reef.roshan-native-input-selection.v1",
+  "shot_id": "RSW-SLOW-01",
+  "attempt": "A004",
+  "operator": "Codex root + independent Sol input screen",
+  "source_commit": "0782fc6ff16dd9744a11491c438ae7b5db94a413",
+  "source_video_path": "reshoots/inbox/RSW-SLOW-01/A003/RSW-SLOW-01_take-03.mp4",
+  "source_video_sha256": "211124e1c7bdf6252cd759f85753e52962114b162980743484a51644aa996148",
+  "native_frame_index": 72,
+  "timestamp_seconds": 3,
+  "png_path": "reshoots/attempts/RSW-SLOW-01/A004/inputs/IMAGE_1.png",
+  "png_sha256": "eddde1106f0bcccc787e05bf8e6465e8d196a36fae26e1d434a8b6722a132c74",
+  "rgba_dimensions": [
+    1280,
+    720
+  ],
+  "pixel_format": "RGB native FFmpeg decode, no alpha supplied by original MP4",
+  "transform": "Lossless native whole-frame decode only; no crop, resize, repaint, composite, deformation or image generation.",
+  "screen": {
+    "single_connected_tail": true,
+    "two_clear_fin_lobes": true,
+    "no_visible_ghost": true,
+    "full_body_margins": true,
+    "right_facing": true,
+    "recognizable_identity": true,
+    "reviewer": "codex-sol-review-A-20260917 plus root",
+    "approval_scope": "Technical/identity screen for generation input only; not full source motion or owner acceptance."
+  },
+  "source_video_accepted": false,
+  "identity_reference": {
+    "path": "references/IMAGE_2_approved-front.png",
+    "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+    "role": "subject identity; bind if supported, otherwise declare consulted accurately"
+  },
+  "new_owner_opening_approval_required": false
+}
