@@ -1,0 +1,36 @@
+{
+  "schema": "reef.roshan-independent-source-review.v1",
+  "reviewed_git_head": "a28362e087bba6a7b52da3f71095d09698f793ab",
+  "model": "gpt-5.6-sol",
+  "producer_overlap": false,
+  "independent": true,
+  "review_method": "Ordered every-third-frame sheets covering native frames 0-144 plus native PNG details. No uninterrupted 1x or half-speed video stream was observed.",
+  "complete_acceptance_scores": null,
+  "lower_unrounded_mean": null,
+  "source_accepted": false,
+  "delivery_accepted": false,
+  "frame_convention": "zero-based; intervals end-exclusive; time=frame/24",
+  "source_bindings": {
+    "slow": {
+      "attempt": "A004",
+      "return_sha256": "5a2a063bdecfefe7edda9110c6fbba768e78967d4008a2bf8146133525e96f54",
+      "video_sha256": "25d966c31d532f6ff9601c98fe9f9f35c5fb1b7543cb1a8324b805b50c70abdb"
+    },
+    "dash": {
+      "attempt": "A005",
+      "return_sha256": "42b3fd0fad70b6b12d057d5accf880429c12940d5c8d56f8c21e248b3fb34f10",
+      "video_sha256": "89be9032c68324b7f06c5234aa461af1c8d4436792887b0f9b5357f68a0ef0a9"
+    }
+  },
+  "identity": "codex-sol-core-review-B-20260917",
+  "agent": "/root/slow_dash_review_b",
+  "coverage": "Four every-third-frame sheets per clip and native phase/seam spot checks, independent of A and producer conclusions.",
+  "observations": [
+    "Sampled identity, full framing and broad in-plane single tail are preserved; prior ghost not observed.",
+    "Slow similar high-fin poses at f12/48/84/120 and low-fin poses f24/60/96/132 suggest approximately 36-frame/1.5s tail strokes, not certified whole-body loop boundaries.",
+    "Dash later similar high-fin phases f72/96/120/144 and low-fin phases f84/108/132 suggest approximately 24-frame/1s tail strokes, not 0.5s coordinated full cycles.",
+    "Dash has white/blue hand ribbons/droplets at sampled f24/36/72/96/120/144. No-clean-effects requirement is established by root from the bound prompt, not inferred solely from these visuals.",
+    "Slow [0,72) is a possible broad seam neighborhood, not an accepted cut; [72,144) mismatches arms/fin at f143 versus f72.",
+    "Dash f72/f96 share a fin phase but arms/water differ; f143 versus f72 also differs. Neither candidate is a clean pose-and-velocity loop."
+  ]
+}

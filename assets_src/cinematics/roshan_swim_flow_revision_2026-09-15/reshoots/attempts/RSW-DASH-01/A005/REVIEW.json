@@ -1,0 +1,76 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A005",
+  "request_id": "RSW-DASH-01-A005-core-loop-method-v1",
+  "reviewed_git_head": "a28362e087bba6a7b52da3f71095d09698f793ab",
+  "request_sha256": "e2ae1fc26620c1102e61e0bf295354f1422d15668cc49ad1103053758ee75648",
+  "return_sha256": "42b3fd0fad70b6b12d057d5accf880429c12940d5c8d56f8c21e248b3fb34f10",
+  "clip_sha256": "89be9032c68324b7f06c5234aa461af1c8d4436792887b0f9b5357f68a0ef0a9",
+  "decision": "REGENERATE",
+  "decision_reason": "New forbidden water VFX plus unproven compact coordinated cycle; preserve improved single-tail anatomy.",
+  "reviewers": [
+    {
+      "identity": "codex-sol-core-review-A-20260917",
+      "evidence_path": "reshoots/reviews/PAIR-CORE-01-20260917/REVIEWER_A.json"
+    },
+    {
+      "identity": "codex-sol-core-review-B-20260917",
+      "evidence_path": "reshoots/reviews/PAIR-CORE-01-20260917/REVIEWER_B.json"
+    }
+  ],
+  "score_status": "NOT_COMPUTED_INCOMPLETE_TEMPORAL_REVIEW",
+  "lower_unrounded_mean": null,
+  "normal_speed_evidence": null,
+  "issues": [
+    {
+      "id": "DASH-UNREQUESTED-WATER-VFX",
+      "start_frame": 3,
+      "end_frame_exclusive": 145,
+      "observed_frames": [
+        3,
+        6,
+        12,
+        24,
+        36,
+        72,
+        96,
+        101,
+        120,
+        144
+      ],
+      "observation": "White/blue hand-linked ribbons and droplets appear intermittently across this span; they are new source pixels, not hair or fin. The producer's no-extra-VFX claim is contradicted by native images.",
+      "expected": "Only Roshan on the navy observation field, no visible water effects.",
+      "correction": "Generate again from the same clean A005 input. Remove visible water, ribbons, droplets and particles; preserve natural soft sculling arms and eager acting. Do not clean a failed source in Aseprite.",
+      "blocking": true
+    },
+    {
+      "id": "CORE-PHASE-CADENCE",
+      "start_frame": 0,
+      "end_frame_exclusive": 145,
+      "observation": "Later semantic fin phases suggest roughly 1s strokes and different arm phases. A coordinated 0.4-0.6s dash core is not established.",
+      "expected": "A separately performed native eager whole-body cycle around 0.5s.",
+      "correction": "Smaller contained propulsion/recovery arcs; coordinate body, arms and tail phase without freezing them. Supply actual native seam neighborhoods and direction-of-motion evidence.",
+      "blocking": true,
+      "evidence_limit": "Ordered frame evidence, not a full normal-speed performance score."
+    },
+    {
+      "id": "CORE-SEAM-UNVERIFIED",
+      "observation": "Similar fin poses do not share matching arm/hair/whole-body phases. No pose-and-velocity seam has been accepted.",
+      "correction": "Return actual neighboring frames around proposed loop boundaries; no copied cycles, retiming, optical flow or cleanup.",
+      "blocking": true
+    }
+  ],
+  "method_id": "core-loop-only-v1",
+  "attempt_within_method": 1,
+  "next_attempt_within_method": 2,
+  "reassess_after_failed_attempts": 2,
+  "next_action": "reshoots/attempts/RSW-DASH-01/A006/REQUEST.json",
+  "source_originals_modified": false,
+  "source_accepted": false,
+  "aseprite_eligible": false,
+  "delivery_accepted": false,
+  "human_approval": null,
+  "runtime_mirror_verified": false,
+  "rest_bridge": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED"
+}

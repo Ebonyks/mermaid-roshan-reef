@@ -70,6 +70,15 @@ reused. Producer cadence measurements are inspection notes, not a 4.8 score
 or loop acceptance. Independent Codex review is next.
 [Impact](../../design/audit_impacts/2026-09-17-roshan-core-loop-return.json).
 
+The [independent first core-loop review and second trial](../../assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-CORE-01-20260917/START_HERE.txt)
+preserve improved single-tail anatomy and acting. Short coordinated whole-body
+cycles and seams remain unproven; dash adds forbidden hand-water ribbons and
+droplets. Slow A005 and dash A006 reuse the same clean native seeds with
+phase-defined short strokes and no visible water. This is trial 2 of the same
+core-only method: another failure requires reassessment before further renders.
+No full temporal score, source pass or Aseprite conversion is claimed.
+[Impact](../../design/audit_impacts/2026-09-17-roshan-core-first-review.json).
+
 ## Start an animation task here
 
 1. Read the [canonical motion rules](../../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards)

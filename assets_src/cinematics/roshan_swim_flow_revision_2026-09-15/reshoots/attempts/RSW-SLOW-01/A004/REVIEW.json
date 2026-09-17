@@ -1,0 +1,55 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-SLOW-01",
+  "attempt": "A004",
+  "request_id": "RSW-SLOW-01-A004-core-loop-method-v1",
+  "reviewed_git_head": "a28362e087bba6a7b52da3f71095d09698f793ab",
+  "request_sha256": "cc2a7647a7797d73bef6c507a0dcc1682ab553d9d05fb737d75f73d055d25c5d",
+  "return_sha256": "5a2a063bdecfefe7edda9110c6fbba768e78967d4008a2bf8146133525e96f54",
+  "clip_sha256": "25d966c31d532f6ff9601c98fe9f9f35c5fb1b7543cb1a8324b805b50c70abdb",
+  "decision": "REGENERATE",
+  "decision_reason": "Identity and clean tail improved; compact coordinated cycle and seam still not demonstrated.",
+  "reviewers": [
+    {
+      "identity": "codex-sol-core-review-A-20260917",
+      "evidence_path": "reshoots/reviews/PAIR-CORE-01-20260917/REVIEWER_A.json"
+    },
+    {
+      "identity": "codex-sol-core-review-B-20260917",
+      "evidence_path": "reshoots/reviews/PAIR-CORE-01-20260917/REVIEWER_B.json"
+    }
+  ],
+  "score_status": "NOT_COMPUTED_INCOMPLETE_TEMPORAL_REVIEW",
+  "lower_unrounded_mean": null,
+  "normal_speed_evidence": null,
+  "issues": [
+    {
+      "id": "CORE-PHASE-CADENCE",
+      "start_frame": 0,
+      "end_frame_exclusive": 145,
+      "observation": "Ordered semantic fin poses suggest roughly 1.5s strokes, with a longer arm phrase. A coordinated 0.8-1.2s core is not established.",
+      "expected": "A native relaxed whole-body cycle around 1s.",
+      "correction": "Smaller contained propulsion/recovery arcs; coordinate body, arms and tail phase without freezing them. Supply actual native seam neighborhoods and direction-of-motion evidence.",
+      "blocking": true,
+      "evidence_limit": "Ordered frame evidence, not a full normal-speed performance score."
+    },
+    {
+      "id": "CORE-SEAM-UNVERIFIED",
+      "observation": "Similar fin poses do not share matching arm/hair/whole-body phases. No pose-and-velocity seam has been accepted.",
+      "correction": "Return actual neighboring frames around proposed loop boundaries; no copied cycles, retiming, optical flow or cleanup.",
+      "blocking": true
+    }
+  ],
+  "method_id": "core-loop-only-v1",
+  "attempt_within_method": 1,
+  "next_attempt_within_method": 2,
+  "reassess_after_failed_attempts": 2,
+  "next_action": "reshoots/attempts/RSW-SLOW-01/A005/REQUEST.json",
+  "source_originals_modified": false,
+  "source_accepted": false,
+  "aseprite_eligible": false,
+  "delivery_accepted": false,
+  "human_approval": null,
+  "runtime_mirror_verified": false,
+  "rest_bridge": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED"
+}

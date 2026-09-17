@@ -1,0 +1,64 @@
+{
+  "source_head": "a28362e087bba6a7b52da3f71095d09698f793ab",
+  "clips": {
+    "slow": {
+      "attempt": "A004",
+      "bindings": {
+        "request": true,
+        "input_selection_path": true,
+        "prompt_used": true,
+        "reshoots/attempts/RSW-SLOW-01/A004/inputs/IMAGE_1.png": true,
+        "references/IMAGE_2_approved-front.png": true,
+        "reshoots/inbox/RSW-SLOW-01/A004/RSW-SLOW-01_take-04.mp4": true
+      },
+      "return_sha256": "5a2a063bdecfefe7edda9110c6fbba768e78967d4008a2bf8146133525e96f54",
+      "request_sha256": "cc2a7647a7797d73bef6c507a0dcc1682ab553d9d05fb737d75f73d055d25c5d",
+      "input_selection_sha256": "0d99d5bd6624a73d28ec44b5953211191516f81fbfb9cba34158d3cd05b2d0a1",
+      "video_path": "reshoots/inbox/RSW-SLOW-01/A004/RSW-SLOW-01_take-04.mp4",
+      "video_sha256": "25d966c31d532f6ff9601c98fe9f9f35c5fb1b7543cb1a8324b805b50c70abdb",
+      "bytes": 3012652,
+      "width": 1280,
+      "height": 720,
+      "fps": "24/1",
+      "frames": 145,
+      "duration_seconds": "6.041667",
+      "audio_present": true,
+      "bottom_bright_pixel_frames": [],
+      "min_bottom_clearance_px": 23,
+      "measurement_limit": "Thresholded silhouette locator only. Bounding-box size changes also result from pose: not an anatomical/scale judgment.",
+      "inspection_scope": "All native frames decoded and technical measurements checked; ordered frame review is not uninterrupted playback."
+    },
+    "dash": {
+      "attempt": "A005",
+      "bindings": {
+        "request": true,
+        "input_selection_path": true,
+        "prompt_used": true,
+        "reshoots/attempts/RSW-DASH-01/A005/inputs/IMAGE_1.png": true,
+        "references/IMAGE_2_approved-front.png": true,
+        "reshoots/inbox/RSW-DASH-01/A005/RSW-DASH-01_take-05.mp4": true
+      },
+      "return_sha256": "42b3fd0fad70b6b12d057d5accf880429c12940d5c8d56f8c21e248b3fb34f10",
+      "request_sha256": "e2ae1fc26620c1102e61e0bf295354f1422d15668cc49ad1103053758ee75648",
+      "input_selection_sha256": "ab9d2252b6ceda02d350ca834764186e94305de885a443664fbe29adc86a1a63",
+      "video_path": "reshoots/inbox/RSW-DASH-01/A005/RSW-DASH-01_take-05.mp4",
+      "video_sha256": "89be9032c68324b7f06c5234aa461af1c8d4436792887b0f9b5357f68a0ef0a9",
+      "bytes": 2646109,
+      "width": 1280,
+      "height": 720,
+      "fps": "24/1",
+      "frames": 145,
+      "duration_seconds": "6.041667",
+      "audio_present": true,
+      "bottom_bright_pixel_frames": [],
+      "min_bottom_clearance_px": 64,
+      "measurement_limit": "Thresholded silhouette locator only. Bounding-box size changes also result from pose: not an anatomical/scale judgment.",
+      "inspection_scope": "All native frames decoded and technical measurements checked; ordered frame review is not uninterrupted playback."
+    }
+  },
+  "reviewed_git_head": "a28362e087bba6a7b52da3f71095d09698f793ab",
+  "normal_speed_visual_review": false,
+  "half_speed_visual_review": false,
+  "source_accepted": false,
+  "delivery_accepted": false
+}

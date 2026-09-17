@@ -4678,5 +4678,19 @@ A clean native seed does not accept its source movie.
 | `reshoots/reviews/PAIR-INPLANE-20260917/evidence/slow-cadence.jpg` | [Native original](https://github.com/Ebonyks/mermaid-roshan-reef/blob/0782fc6ff16dd9744a11491c438ae7b5db94a413/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A003/RSW-SLOW-01_take-03.mp4); inherited source terms above. Labeled, uniformly reduced whole native frames; diagnostic only, never generator/sprite/delivery pixels. |
 | `reshoots/reviews/PAIR-INPLANE-20260917/evidence/dash-ghost-and-cadence.jpg` | [Native original](https://github.com/Ebonyks/mermaid-roshan-reef/blob/0782fc6ff16dd9744a11491c438ae7b5db94a413/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A004/RSW-DASH-01_take-04.mp4); inherited source terms above. Labeled, uniformly reduced whole native frames; diagnostic only, never generator/sprite/delivery pixels. |
 | `reshoots/reviews/PAIR-INPLANE-20260917/evidence/phase-reference-board.jpg` | [Native original](https://github.com/Ebonyks/mermaid-roshan-reef/blob/0782fc6ff16dd9744a11491c438ae7b5db94a413/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A003/RSW-SLOW-01_take-03.mp4); inherited source terms above. Also uses dash A004 above; labeled native-frame phase board for both jobs. Not approved loop seams or generator input. |
-| `reshoots/inbox/RSW-SLOW-01/A004/RSW-SLOW-01_take-04.mp4` | Grok Imagine image-to-video from Codex-screened native A003 frame 72 (`reshoots/attempts/RSW-SLOW-01/A004/inputs/IMAGE_1.png`) | Original native slow A004 core-loop trial. 1280x720 24fps 6.04s AAC. No extra VFX. Not cinematic delivery, not sprites, not runtime. |
-| `reshoots/inbox/RSW-DASH-01/A005/RSW-DASH-01_take-05.mp4` | Grok Imagine image-to-video from Codex-screened native A004 frame 78 (`reshoots/attempts/RSW-DASH-01/A005/inputs/IMAGE_1.png`) | Original native dash A005 core-loop trial. 1280x720 24fps 6.04s AAC. Ghosted A004 seed not reused. Not cinematic delivery, not sprites, not runtime. |
+| `reshoots/inbox/RSW-SLOW-01/A004/RSW-SLOW-01_take-04.mp4` | Grok Imagine image-to-video from Codex-screened native A003 frame 72 (`reshoots/attempts/RSW-SLOW-01/A004/inputs/IMAGE_1.png`). Original native slow A004 core-loop trial. 1280x720 24fps 6.04s AAC. No extra VFX. Not cinematic delivery, not sprites, not runtime. |
+| `reshoots/inbox/RSW-DASH-01/A005/RSW-DASH-01_take-05.mp4` | Grok Imagine image-to-video from Codex-screened native A004 frame 78 (`reshoots/attempts/RSW-DASH-01/A005/inputs/IMAGE_1.png`). Original native dash A005 core-loop trial. 1280x720 24fps 6.04s AAC. Ghosted A004 seed not reused. Not cinematic delivery, not sprites, not runtime. |
+
+### First core-loop review diagnostics (2026-09-17)
+
+These derivatives inherit the existing project/Grok source terms, not CC0.
+Originals and the reused native input PNGs remain byte-identical. Exact source
+frames, hashes and 1024x576 diagnostic dimensions are recorded in
+`assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-CORE-01-20260917/EVIDENCE_MANIFEST.json`.
+Boards are uniformly reduced complete frames with labels, never generation
+inputs, accepted seams, sprites or cinematic delivery pixels.
+
+| Packet-relative asset | Source / license / modifications |
+|---|---|
+| `reshoots/reviews/PAIR-CORE-01-20260917/evidence/slow-phrase-and-seam.jpg` | [Native original](https://github.com/Ebonyks/mermaid-roshan-reef/blob/a28362e087bba6a7b52da3f71095d09698f793ab/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A004/RSW-SLOW-01_take-04.mp4); inherited source terms above; labeled whole-frame diagnostic board, no subject edits. |
+| `reshoots/reviews/PAIR-CORE-01-20260917/evidence/dash-vfx-and-seam.jpg` | [Native original](https://github.com/Ebonyks/mermaid-roshan-reef/blob/a28362e087bba6a7b52da3f71095d09698f793ab/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A005/RSW-DASH-01_take-05.mp4); inherited source terms above; labeled whole-frame diagnostic board, no subject edits. |

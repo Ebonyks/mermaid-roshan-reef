@@ -1,0 +1,35 @@
+{
+  "schema": "reef.roshan-independent-source-review.v1",
+  "reviewed_git_head": "a28362e087bba6a7b52da3f71095d09698f793ab",
+  "model": "gpt-5.6-sol",
+  "producer_overlap": false,
+  "independent": true,
+  "review_method": "Ordered every-third-frame sheets covering native frames 0-144 plus native PNG details. No uninterrupted 1x or half-speed video stream was observed.",
+  "complete_acceptance_scores": null,
+  "lower_unrounded_mean": null,
+  "source_accepted": false,
+  "delivery_accepted": false,
+  "frame_convention": "zero-based; intervals end-exclusive; time=frame/24",
+  "source_bindings": {
+    "slow": {
+      "attempt": "A004",
+      "return_sha256": "5a2a063bdecfefe7edda9110c6fbba768e78967d4008a2bf8146133525e96f54",
+      "video_sha256": "25d966c31d532f6ff9601c98fe9f9f35c5fb1b7543cb1a8324b805b50c70abdb"
+    },
+    "dash": {
+      "attempt": "A005",
+      "return_sha256": "42b3fd0fad70b6b12d057d5accf880429c12940d5c8d56f8c21e248b3fb34f10",
+      "video_sha256": "89be9032c68324b7f06c5234aa461af1c8d4436792887b0f9b5357f68a0ef0a9"
+    }
+  },
+  "identity": "codex-sol-core-review-A-20260917",
+  "agent": "/root/slow_dash_review_a",
+  "coverage": "Four every-third-frame sheets per clip plus native spot checks; exact complete spot-check list not returned.",
+  "observations": [
+    "Slow preserves recognizable face/crown/curls/rainbow/costume, margins and single broad in-plane fin. Preserve gentle acting.",
+    "Slow f0/f72 resemble a broad three-second arm/torso/fin phrase, while f24/f96 differ. Six coordinated 24-frame cycles and a final seam are not demonstrated.",
+    "Dash has new hand-linked water ribbons/droplets visible by f3, large at f12/f24, still present f144. Conservative affected span [3,145) is intermittent, not a claim every intervening frame contains the effect.",
+    "Dash f0/f12/f24 have different whole-body/arm phases; twelve coordinated 12-frame cycles are not demonstrated.",
+    "No ghosted second tail observed in sampled frames. Pose-dependent bounds do not establish anatomical scale drift."
+  ]
+}

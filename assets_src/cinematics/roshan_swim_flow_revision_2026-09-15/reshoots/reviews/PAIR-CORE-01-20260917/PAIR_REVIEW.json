@@ -1,0 +1,64 @@
+{
+  "schema": "reef.roshan-pair-review.v1",
+  "reviewed_git_head": "a28362e087bba6a7b52da3f71095d09698f793ab",
+  "source_bindings": {
+    "slow": {
+      "attempt": "A004",
+      "return_sha256": "5a2a063bdecfefe7edda9110c6fbba768e78967d4008a2bf8146133525e96f54",
+      "video_sha256": "25d966c31d532f6ff9601c98fe9f9f35c5fb1b7543cb1a8324b805b50c70abdb"
+    },
+    "dash": {
+      "attempt": "A005",
+      "return_sha256": "42b3fd0fad70b6b12d057d5accf880429c12940d5c8d56f8c21e248b3fb34f10",
+      "video_sha256": "89be9032c68324b7f06c5234aa461af1c8d4436792887b0f9b5357f68a0ef0a9"
+    }
+  },
+  "decision": "REGENERATE_SECOND_CORE_ONLY_TRIAL",
+  "preserve": [
+    "Painted identity, expressive acting and distinct relaxed/eager intent",
+    "Full framing and improved single connected broad in-plane fin"
+  ],
+  "finding_summary": [
+    "Neither short coordinated whole-body loop/seam is established.",
+    "Dash newly adds hand-water VFX contrary to its request; immutable RETURN is retained with this correction."
+  ],
+  "evidence": [
+    "REVIEWER_A.json",
+    "REVIEWER_B.json",
+    "TECHNICAL.json",
+    "CADENCE.json",
+    "evidence/slow-phrase-and-seam.jpg",
+    "evidence/dash-vfx-and-seam.jpg"
+  ],
+  "root_native_spot_checks": {
+    "slow": [
+      0,
+      72,
+      80,
+      121
+    ],
+    "dash": [
+      6,
+      24,
+      36,
+      101,
+      120,
+      144
+    ]
+  },
+  "review_limitations": "Two independent Sol ordered-frame reviews plus root spot checks, not uninterrupted 1x/0.5x playback. Technical locators are not semantic cycle counts or artistic scores.",
+  "complete_score": null,
+  "human_review_checkpoint": 4.8,
+  "checkpoint_reached": false,
+  "source_accepted": false,
+  "aseprite_eligible": false,
+  "delivery_accepted": false,
+  "next_requests": [
+    "reshoots/attempts/RSW-SLOW-01/A005/REQUEST.json",
+    "reshoots/attempts/RSW-DASH-01/A006/REQUEST.json"
+  ],
+  "method_id": "core-loop-only-v1",
+  "next_attempt_within_method": 2,
+  "third_attempt_authorized": false,
+  "entry_and_phase_exits": "Not requested in this core-only trial; still required before responsive gameplay acceptance."
+}

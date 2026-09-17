@@ -1,0 +1,28 @@
+movie_id: roshan-two-speed-source-pilot
+shot_id: RSW-DASH-01
+attempt: A006
+status: DRAFT_PENDING_IMMUTABLE_REMOTE_VERIFICATION
+duration: 6 seconds
+aspect: 16:9
+size: 1280x720
+mode: image-to-video
+output_disposition: motion_reference_only
+
+Readiness: use GENERATION_READY and the immutable URLs in reshoots/reviews/PAIR-CORE-01-20260917/REMOTE_VERIFICATION.json after publication. No new owner opening approval needed for the unchanged screened native frame.
+
+IMAGE_1: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a28362e087bba6a7b52da3f71095d09698f793ab/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A005/inputs/IMAGE_1.png
+job: screened clean native first-frame/layout; one connected tail, no ghost or hand-water effects.
+IMAGE_2: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a28362e087bba6a7b52da3f71095d09698f793ab/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/references/IMAGE_2_approved-front.png
+job: approved character identity/style, not a pose lock.
+If only one input slot exists, bind IMAGE_1 and consult IMAGE_2; report actual binding honestly. Diagnostic boards are NOT generation inputs.
+
+start_frame: IMAGE_1
+camera: locked
+must_move: responsive chest, curved sculling elbows/wrists, tail-root wave, broad in-plane fin, buoyant curl tips
+must_not_move: camera and navy field; preserve anatomy and scale
+end_state: roshan continues the same eager rightward swim at a compatible whole-body stroke phase, without freezing.
+negative_constraints: no visible water/ribbons/droplets/bubbles/trails/VFX, duplicate tail, crops, perspective fin twist, stiff arms, size pulsing, added limbs, redesign, cuts or stop
+sound_intent: silent; no dialogue, voices or music
+
+Paste only sibling PROMPT.txt. Target twelve ~0.5s eager coordinated native cycles, NOT a 1s tail cycle over a different long arm routine. Core only; entries/phase exits remain separate required work.
+Attempt 2 of core-loop-only-v1. One original take only; no third trial without reassessment. No speed-up, copied frames or cleanup.

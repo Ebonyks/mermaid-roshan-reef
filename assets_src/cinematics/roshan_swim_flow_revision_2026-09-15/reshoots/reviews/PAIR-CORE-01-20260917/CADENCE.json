@@ -1,0 +1,672 @@
+{
+  "schema": "reef.roshan-phase-locator.v1",
+  "reviewed_git_head": "a28362e087bba6a7b52da3f71095d09698f793ab",
+  "source_bindings": {
+    "slow": {
+      "attempt": "A004",
+      "return_sha256": "5a2a063bdecfefe7edda9110c6fbba768e78967d4008a2bf8146133525e96f54",
+      "video_sha256": "25d966c31d532f6ff9601c98fe9f9f35c5fb1b7543cb1a8324b805b50c70abdb"
+    },
+    "dash": {
+      "attempt": "A005",
+      "return_sha256": "42b3fd0fad70b6b12d057d5accf880429c12940d5c8d56f8c21e248b3fb34f10",
+      "video_sha256": "89be9032c68324b7f06c5234aa461af1c8d4436792887b0f9b5357f68a0ef0a9"
+    }
+  },
+  "method": "Unaligned native image-plane locator. Fin ROI x=50..519, y=0..719, max RGB>115; local bottom extrema locate candidates only. Whole-frame RGB difference at 160x90 ranks possible neighborhoods, not accepted cuts. No synthesized source pixels.",
+  "results": {
+    "slow": {
+      "frame_rate": 24,
+      "locator_roi_xyxy": [
+        50,
+        0,
+        520,
+        720
+      ],
+      "threshold": "max RGB >115",
+      "fin_region_bottom_by_frame": [
+        593,
+        593,
+        577,
+        552,
+        536,
+        511,
+        495,
+        482,
+        488,
+        498,
+        504,
+        513,
+        518,
+        526,
+        531,
+        538,
+        542,
+        549,
+        562,
+        582,
+        594,
+        611,
+        621,
+        634,
+        642,
+        652,
+        658,
+        664,
+        668,
+        675,
+        681,
+        686,
+        687,
+        684,
+        678,
+        665,
+        656,
+        638,
+        624,
+        603,
+        588,
+        566,
+        551,
+        527,
+        512,
+        491,
+        482,
+        492,
+        498,
+        507,
+        514,
+        523,
+        528,
+        535,
+        539,
+        562,
+        577,
+        599,
+        612,
+        629,
+        638,
+        648,
+        653,
+        656,
+        657,
+        659,
+        663,
+        663,
+        658,
+        646,
+        633,
+        612,
+        597,
+        571,
+        556,
+        533,
+        517,
+        495,
+        484,
+        494,
+        500,
+        509,
+        516,
+        525,
+        531,
+        539,
+        544,
+        551,
+        555,
+        573,
+        585,
+        603,
+        614,
+        629,
+        638,
+        650,
+        657,
+        666,
+        671,
+        677,
+        679,
+        685,
+        688,
+        695,
+        696,
+        694,
+        690,
+        679,
+        669,
+        652,
+        639,
+        618,
+        603,
+        581,
+        567,
+        545,
+        530,
+        507,
+        492,
+        485,
+        491,
+        501,
+        507,
+        515,
+        521,
+        529,
+        533,
+        540,
+        543,
+        554,
+        567,
+        586,
+        598,
+        615,
+        624,
+        636,
+        644,
+        653,
+        657,
+        662,
+        664,
+        667,
+        670,
+        672,
+        671
+      ],
+      "local_maximum_frames": [
+        32,
+        66,
+        104
+      ],
+      "successive_deltas_seconds": [
+        1.4166666666666667,
+        1.5833333333333333
+      ],
+      "best_whole_frame_candidates": [
+        {
+          "lag_frames": 41,
+          "best_pairs": [
+            {
+              "difference": 4.7284,
+              "frames": [
+                80,
+                121
+              ]
+            },
+            {
+              "difference": 4.747,
+              "frames": [
+                78,
+                119
+              ]
+            }
+          ]
+        },
+        {
+          "lag_frames": 42,
+          "best_pairs": [
+            {
+              "difference": 5.274,
+              "frames": [
+                80,
+                122
+              ]
+            },
+            {
+              "difference": 5.3178,
+              "frames": [
+                79,
+                121
+              ]
+            }
+          ]
+        },
+        {
+          "lag_frames": 40,
+          "best_pairs": [
+            {
+              "difference": 5.3526,
+              "frames": [
+                78,
+                118
+              ]
+            },
+            {
+              "difference": 5.3993,
+              "frames": [
+                79,
+                119
+              ]
+            }
+          ]
+        },
+        {
+          "lag_frames": 39,
+          "best_pairs": [
+            {
+              "difference": 5.8995,
+              "frames": [
+                5,
+                44
+              ]
+            },
+            {
+              "difference": 6.2467,
+              "frames": [
+                6,
+                45
+              ]
+            }
+          ]
+        },
+        {
+          "lag_frames": 43,
+          "best_pairs": [
+            {
+              "difference": 6.1806,
+              "frames": [
+                79,
+                122
+              ]
+            },
+            {
+              "difference": 6.4313,
+              "frames": [
+                81,
+                124
+              ]
+            }
+          ]
+        },
+        {
+          "lag_frames": 38,
+          "best_pairs": [
+            {
+              "difference": 6.3791,
+              "frames": [
+                106,
+                144
+              ]
+            },
+            {
+              "difference": 6.4936,
+              "frames": [
+                105,
+                143
+              ]
+            }
+          ]
+        },
+        {
+          "lag_frames": 32,
+          "best_pairs": [
+            {
+              "difference": 6.4736,
+              "frames": [
+                45,
+                77
+              ]
+            },
+            {
+              "difference": 6.494,
+              "frames": [
+                46,
+                78
+              ]
+            }
+          ]
+        },
+        {
+          "lag_frames": 73,
+          "best_pairs": [
+            {
+              "difference": 6.4838,
+              "frames": [
+                41,
+                114
+              ]
+            },
+            {
+              "difference": 6.501,
+              "frames": [
+                43,
+                116
+              ]
+            }
+          ]
+        }
+      ],
+      "limitation": "Image-plane phase locator, not anatomical scale, loop approval, semantic complete cycle, beauty, continuous video review or source synthesis."
+    },
+    "dash": {
+      "frame_rate": 24,
+      "locator_roi_xyxy": [
+        50,
+        0,
+        520,
+        720
+      ],
+      "threshold": "max RGB >115",
+      "fin_region_bottom_by_frame": [
+        489,
+        489,
+        490,
+        490,
+        490,
+        497,
+        518,
+        542,
+        568,
+        592,
+        613,
+        630,
+        641,
+        644,
+        640,
+        630,
+        618,
+        601,
+        581,
+        560,
+        535,
+        511,
+        487,
+        459,
+        446,
+        454,
+        462,
+        471,
+        479,
+        486,
+        493,
+        499,
+        503,
+        506,
+        508,
+        509,
+        529,
+        554,
+        579,
+        605,
+        627,
+        643,
+        653,
+        655,
+        647,
+        630,
+        604,
+        576,
+        551,
+        524,
+        463,
+        504,
+        552,
+        588,
+        617,
+        639,
+        649,
+        649,
+        644,
+        633,
+        617,
+        595,
+        567,
+        546,
+        522,
+        493,
+        479,
+        484,
+        487,
+        489,
+        490,
+        490,
+        488,
+        486,
+        483,
+        491,
+        509,
+        533,
+        558,
+        582,
+        601,
+        619,
+        628,
+        630,
+        625,
+        613,
+        593,
+        571,
+        548,
+        526,
+        501,
+        477,
+        459,
+        467,
+        474,
+        482,
+        488,
+        492,
+        496,
+        497,
+        497,
+        519,
+        544,
+        571,
+        596,
+        616,
+        632,
+        639,
+        638,
+        626,
+        607,
+        580,
+        554,
+        527,
+        496,
+        475,
+        480,
+        484,
+        487,
+        489,
+        490,
+        489,
+        488,
+        490,
+        510,
+        534,
+        559,
+        583,
+        605,
+        621,
+        630,
+        633,
+        627,
+        614,
+        594,
+        572,
+        547,
+        523,
+        496,
+        465,
+        461,
+        470,
+        478,
+        486,
+        493
+      ],
+      "local_maximum_frames": [
+        13,
+        43,
+        56,
+        70,
+        83,
+        107,
+        131
+      ],
+      "successive_deltas_seconds": [
+        1.25,
+        0.5416666666666666,
+        0.5833333333333334,
+        0.5416666666666666,
+        1,
+        1
+      ],
+      "best_whole_frame_candidates": [
+        {
+          "lag_frames": 65,
+          "best_pairs": [
+            {
+              "difference": 4.1677,
+              "frames": [
+                36,
+                101
+              ]
+            },
+            {
+              "difference": 4.2395,
+              "frames": [
+                35,
+                100
+              ]
+            }
+          ]
+        },
+        {
+          "lag_frames": 64,
+          "best_pairs": [
+            {
+              "difference": 4.6411,
+              "frames": [
+                46,
+                110
+              ]
+            },
+            {
+              "difference": 4.8525,
+              "frames": [
+                45,
+                109
+              ]
+            }
+          ]
+        },
+        {
+          "lag_frames": 66,
+          "best_pairs": [
+            {
+              "difference": 4.9111,
+              "frames": [
+                31,
+                97
+              ]
+            },
+            {
+              "difference": 4.9252,
+              "frames": [
+                30,
+                96
+              ]
+            }
+          ]
+        },
+        {
+          "lag_frames": 48,
+          "best_pairs": [
+            {
+              "difference": 4.9797,
+              "frames": [
+                89,
+                137
+              ]
+            },
+            {
+              "difference": 5.1727,
+              "frames": [
+                87,
+                135
+              ]
+            }
+          ]
+        },
+        {
+          "lag_frames": 63,
+          "best_pairs": [
+            {
+              "difference": 5.2775,
+              "frames": [
+                44,
+                107
+              ]
+            },
+            {
+              "difference": 5.5518,
+              "frames": [
+                45,
+                108
+              ]
+            }
+          ]
+        },
+        {
+          "lag_frames": 49,
+          "best_pairs": [
+            {
+              "difference": 5.6026,
+              "frames": [
+                71,
+                120
+              ]
+            },
+            {
+              "difference": 5.638,
+              "frames": [
+                70,
+                119
+              ]
+            }
+          ]
+        },
+        {
+          "lag_frames": 62,
+          "best_pairs": [
+            {
+              "difference": 5.8237,
+              "frames": [
+                41,
+                103
+              ]
+            },
+            {
+              "difference": 5.8891,
+              "frames": [
+                44,
+                106
+              ]
+            }
+          ]
+        },
+        {
+          "lag_frames": 67,
+          "best_pairs": [
+            {
+              "difference": 5.8286,
+              "frames": [
+                28,
+                95
+              ]
+            },
+            {
+              "difference": 5.8618,
+              "frames": [
+                29,
+                96
+              ]
+            }
+          ]
+        }
+      ],
+      "limitation": "Image-plane phase locator, not anatomical scale, loop approval, semantic complete cycle, beauty, continuous video review or source synthesis."
+    }
+  },
+  "interpretation": "Different fin lobes can create extrema within one stroke. Do not count those peaks as full cycles. Match tail root and lobe orientation, arms, torso, hair and direction of motion. Near-pose candidates still mismatch arms or effects and exceed target periods.",
+  "accepted_loop_cuts": [],
+  "source_accepted": false
+}

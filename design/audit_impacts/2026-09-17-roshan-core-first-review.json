@@ -1,0 +1,76 @@
+{
+  "id": "2026-09-17-roshan-core-first-review",
+  "scope": "Independently review first core-only returns slow A004/dash A005, verify source hashes, preserve owner-approved acting and improved single-tail anatomy, reject dash hand-water VFX and unproven target loops. Issue second bounded core-only trials slow A005/dash A006 using the same clean native seeds, phase-defined coordinated short strokes and no visible water. No source acceptance, Aseprite, runtime, protected assets, timer changes or dev/master integration.",
+  "baseline": "a28362e087bba6a7b52da3f71095d09698f793ab",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-CORE-01-20260917/START_HERE.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-CORE-01-20260917/PAIR_REVIEW.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-CORE-01-20260917/TECHNICAL.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-CORE-01-20260917/CADENCE.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-CORE-01-20260917/REVIEWER_A.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-CORE-01-20260917/REVIEWER_B.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-CORE-01-20260917/EVIDENCE_MANIFEST.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-CORE-01-20260917/REMOTE_VERIFICATION.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-CORE-01-20260917/evidence/slow-phrase-and-seam.jpg",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-CORE-01-20260917/evidence/dash-vfx-and-seam.jpg",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_11.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A004/REVIEW.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A005/REVIEW.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A005/REQUEST.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A005/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A005/SHOT_CARD.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A005/INPUT_SELECTION.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A006/REQUEST.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A006/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A006/SHOT_CARD.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A006/INPUT_SELECTION.json",
+    "ASSET_LICENSES.md",
+    "audit/animation/README.md",
+    "design/05_DOC_LEDGER.md",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/HANDOFF.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/START_HERE.txt"
+  ],
+  "validation": [
+    {
+      "command": "Native return bindings, ffprobe and two independent Sol ordered-frame source reviews",
+      "result": "PASS",
+      "evidence": "Source bindings verified; each original 1280x720,24fps,145 frames,6.041667s,audio. Two independent ordered-frame reviews; no complete native-speed/half-speed viewing or numerical acceptance. Source findings and limitations will be recorded in this review packet."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development; git diff --check",
+      "result": "PASS",
+      "evidence": "Document authority 569 inventory/569 ledger, 56 active/58 records ALL OK; development coverage ALL OK; 51 unit tests and 6/6 stress pass; diff whitespace check pass. Fixed two inherited malformed license table rows (three cells under a two-cell header) without changing their source claims."
+    },
+    {
+      "command": "Packet lineage, staged-byte and immutable GitHub verification",
+      "result": "PENDING",
+      "evidence": "Bind review/return/source, retry parent hashes, reused clean input selection and manifest. Remote readiness receipt follows immutable content publication."
+    },
+    {
+      "command": "Full Godot CI and runtime/device tests",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Non-runtime source-handoff-only publication under owner exception in 2026-09-15-roshan-grok-handoff-publication.json. Prior failed full CI is not relabeled green; no runtime integration."
+    }
+  ],
+  "acceptance_gaps": "Source fails current brief; no 4.8 checkpoint, approved seam, full temporal review, source-to-Aseprite conversion, entry/phase-exit/restart/reversal runtime proof or device/child/owner acceptance. MA-VIS-006 unchanged. A second failure of core-loop-only-v1 requires reassessment before any further render, not relaxing the gate."
+}
