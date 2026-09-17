@@ -1,0 +1,55 @@
+{
+  "id": "2026-09-17-roshan-core-loop-return",
+  "scope": "Grok return of PAIR-INPLANE-20260917 core-loop-only trials: RSW-SLOW-01 A004 take-04 and RSW-DASH-01 A005 take-05. imagine_image_to_video originals plus RETURN bound to Codex REQUEST hashes and screened IMAGE_1. Cadence shortfall recorded, not retimed. Ghosted dash seed not reused. Prior originals preserved. Not sprite conversion, cinematic or runtime delivery.",
+  "baseline": "f98ef836df35fc75657473755354b418f9c7d17f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-13",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "audit/animation/README.md",
+    "design/05_DOC_LEDGER.md",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/HANDOFF.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A004/RETURN.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A004/RSW-SLOW-01_take-04.mp4",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A005/RETURN.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A005/RSW-DASH-01_take-05.mp4"
+  ],
+  "validation": [
+    {
+      "command": "Bind hashes against REMOTE_VERIFICATION / REQUEST",
+      "result": "PASS",
+      "evidence": "Used Codex IMAGE_1 eddde110... and 0c030c69... matching 44db08d6 verification. Slow mp4 25d966c31d532f6ff9601c98fe9f9f35c5fb1b7543cb1a8324b805b50c70abdb 3012652 bytes. Dash mp4 89be9032c68324b7f06c5234aa461af1c8d4436792887b0f9b5357f68a0ef0a9 2646109 bytes. Both 1280x720 24fps 145 frames 6.04s AAC. REQUEST hashes cc2a7647... and e2ae1fc2...."
+    },
+    {
+      "command": "Preserve prior originals / no ghost seed reuse",
+      "result": "PASS",
+      "evidence": "A003/A004 movies untouched. Dash A005 bound IMAGE_1 is A004 frame 78, not the ghosted A004 opening seed. DELIVERY_ACCEPTED false."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "This record covers Grok-owned core-loop return files. No runtime mutation."
+    },
+    {
+      "command": "Runtime / Godot / assets/ diff versus origin/dev",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Non-runtime exchange only. Sprite conversion is later and not performed here."
+    }
+  ],
+  "acceptance_gaps": "Independent Codex 1x/half-speed review not done. Measured cadence still misses 1s/0.5s pilots. Loop seams not accepted. Entry/phase-aware stops still required after a core is selected. Do not merge to master or dev."
+}

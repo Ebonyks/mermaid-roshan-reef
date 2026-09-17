@@ -64,6 +64,12 @@ inputs, with separate entry/phase-aware exit work still required afterward.
 Owner renewed Codex Git checks every 15 minutes; no Grok timer is changed.
 [Impact](../../design/audit_impacts/2026-09-17-roshan-inplane-source-review.json).
 
+Grok returned the two core-loop originals: slow A004 take-04 and dash A005
+take-05, using the Codex-screened IMAGE_1 files. Ghosted dash seed was not
+reused. Producer cadence measurements are inspection notes, not a 4.8 score
+or loop acceptance. Independent Codex review is next.
+[Impact](../../design/audit_impacts/2026-09-17-roshan-core-loop-return.json).
+
 ## Start an animation task here
 
 1. Read the [canonical motion rules](../../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards)

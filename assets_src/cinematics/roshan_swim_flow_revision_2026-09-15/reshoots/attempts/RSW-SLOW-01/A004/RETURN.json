@@ -1,0 +1,151 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-SLOW-01",
+  "attempt": "A004",
+  "request_id": "RSW-SLOW-01-A004-core-loop-method-v1",
+  "request_sha256": "cc2a7647a7797d73bef6c507a0dcc1682ab553d9d05fb737d75f73d055d25c5d",
+  "performance_mode": "slow_relaxed",
+  "method_id": "core-loop-only-v1",
+  "status": "RETURNED",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generation_job_id": "grok-slow-a004-2026-09-17T13:44Z",
+  "generator_model": "imagine_image_to_video",
+  "mode": "imagine_image_to_video",
+  "remote_verification_commit": "44db08d66c06beb1909317bcc2f064df88172688",
+  "input_selection_path": "reshoots/attempts/RSW-SLOW-01/A004/INPUT_SELECTION.json",
+  "input_selection_sha256": "0d99d5bd6624a73d28ec44b5953211191516f81fbfb9cba34158d3cd05b2d0a1",
+  "prompt_used": "reshoots/attempts/RSW-SLOW-01/A004/PROMPT.txt",
+  "prompt_used_sha256": "84ee615b2a2db82e6d8e2a321ae6f69e9092db01934f7b69db4443a3be1f8678",
+  "settings": {
+    "aspect_ratio": "16:9",
+    "requested_duration": 6,
+    "supported_minimum_duration": 6,
+    "native_duration": 6.04,
+    "resolution": "720p",
+    "camera": "locked",
+    "effects": "none requested; none observed on sampled frames"
+  },
+  "bound_inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "reshoots/attempts/RSW-SLOW-01/A004/inputs/IMAGE_1.png",
+      "sha256": "eddde1106f0bcccc787e05bf8e6465e8d196a36fae26e1d434a8b6722a132c74",
+      "binding": "Codex-screened native A003 frame 72; one-image slot bound"
+    }
+  ],
+  "consulted_inputs": [
+    {
+      "name": "IMAGE_2",
+      "path": "references/IMAGE_2_approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "binding": "consulted painted-child identity; one-image slot so not bound"
+    }
+  ],
+  "artifacts": [
+    {
+      "role": "original_native_video",
+      "path": "reshoots/inbox/RSW-SLOW-01/A004/RSW-SLOW-01_take-04.mp4",
+      "sha256": "25d966c31d532f6ff9601c98fe9f9f35c5fb1b7543cb1a8324b805b50c70abdb",
+      "bytes": 3012652,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.04,
+      "audio_present": true
+    }
+  ],
+  "measured_cadence": {
+    "method": "navy-key bounding-box bottom-clearance local minima (tail-down extrema)",
+    "tail_down_frames_zero_based": [
+      31,
+      67,
+      104,
+      143
+    ],
+    "tail_down_times_seconds": [
+      1.292,
+      2.792,
+      4.333,
+      5.958
+    ],
+    "peak_to_peak_seconds": [
+      1.5,
+      1.541,
+      1.625
+    ],
+    "approximate_complete_cycles_in_six_seconds": 4,
+    "target_cycle_seconds": [
+      0.8,
+      1.2
+    ],
+    "target_cycles_in_six_seconds": 6,
+    "meets_target": false,
+    "note": "Observed ~1.5-1.6s recurrence, similar to prior pair. Not six 1s strokes."
+  },
+  "proposed_segments": {
+    "component": "cruise_core_only",
+    "entry_or_stop_present": false,
+    "core": {
+      "start_frame": 0,
+      "end_frame_exclusive": 145,
+      "note": "Whole file is the requested core-only take; still swimming on last frame."
+    },
+    "observed_beats": [
+      {
+        "start_frame": 0,
+        "end_frame_exclusive": 31,
+        "note": "First large in-plane tail-down ~1.3s."
+      },
+      {
+        "start_frame": 31,
+        "end_frame_exclusive": 67,
+        "note": "Second beat ~1.5s."
+      },
+      {
+        "start_frame": 67,
+        "end_frame_exclusive": 104,
+        "note": "Third beat ~1.54s."
+      },
+      {
+        "start_frame": 104,
+        "end_frame_exclusive": 145,
+        "note": "Fourth beat ~1.62s into last frame."
+      }
+    ],
+    "proposed_seam_neighborhoods": [
+      {
+        "frames_zero_based": [
+          0,
+          31,
+          67,
+          104
+        ],
+        "note": "Candidate same-phase neighborhoods by tail-down. First vs last are NOT a match: f0 bot=125px/h=497 vs f144 bot=48px/h=582. Codex must confirm pose AND velocity."
+      }
+    ],
+    "frame_index_convention": "zero-based, end-exclusive; measured after observing source, not from prompt times"
+  },
+  "rest_bridge_status": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+  "ghost_duplicate_tail": "Not observed on sampled frames including f0, f31, f72, f104, f144. Single connected two-lobed fin.",
+  "crop_observations": {
+    "scan": "navy-key bounding box on every decoded frame",
+    "bottom_edge_contact_frames_zero_based_end_exclusive": [],
+    "minimum_bottom_clearance_px": 22,
+    "minimum_bottom_clearance_frame": 104
+  },
+  "size_pulse_px_height": [
+    424,
+    611
+  ],
+  "producer_notes": [
+    "Executed PAIR-INPLANE START_HERE after owner pointed out the missed overnight handoff. Sequential job 1 of 2.",
+    "Used Codex-supplied screened IMAGE_1 (A003 frame 72). Did not pick a new still.",
+    "Core-only: no entry/stop/upright ending on sampled frames. Identity holds. In-plane trailing tail.",
+    "Native 6.04s / 24fps / 145 frames / AAC. Cadence did not meet ~1s / six-stroke target; original returned unretimed.",
+    "Producer self-score does not count."
+  ],
+  "unknown_metadata_reasons": [],
+  "source_acceptance": false,
+  "delivery_accepted": false
+}

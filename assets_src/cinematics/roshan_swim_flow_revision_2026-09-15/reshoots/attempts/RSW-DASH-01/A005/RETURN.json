@@ -1,0 +1,169 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A005",
+  "request_id": "RSW-DASH-01-A005-core-loop-method-v1",
+  "request_sha256": "e2ae1fc26620c1102e61e0bf295354f1422d15668cc49ad1103053758ee75648",
+  "performance_mode": "dash",
+  "method_id": "core-loop-only-v1",
+  "status": "RETURNED",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generation_job_id": "grok-dash-a005-2026-09-17T13:44Z",
+  "generator_model": "imagine_image_to_video",
+  "mode": "imagine_image_to_video",
+  "remote_verification_commit": "44db08d66c06beb1909317bcc2f064df88172688",
+  "input_selection_path": "reshoots/attempts/RSW-DASH-01/A005/INPUT_SELECTION.json",
+  "input_selection_sha256": "ab9d2252b6ceda02d350ca834764186e94305de885a443664fbe29adc86a1a63",
+  "prompt_used": "reshoots/attempts/RSW-DASH-01/A005/PROMPT.txt",
+  "prompt_used_sha256": "f21584b1667bfe08f45088321e74f135c877a0a9e7655ed5c58a9170b92b068c",
+  "settings": {
+    "aspect_ratio": "16:9",
+    "requested_duration": 6,
+    "supported_minimum_duration": 6,
+    "native_duration": 6.04,
+    "resolution": "720p",
+    "camera": "locked",
+    "effects": "none requested; none observed on sampled frames"
+  },
+  "bound_inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "reshoots/attempts/RSW-DASH-01/A005/inputs/IMAGE_1.png",
+      "sha256": "0c030c69ec128e953173468c29ec6e1c258a33dc52b300681e00c08f42e78ec3",
+      "binding": "Codex-screened native A004 frame 78; ghosted A004 IMAGE_1 was not reused; one-image slot bound"
+    }
+  ],
+  "consulted_inputs": [
+    {
+      "name": "IMAGE_2",
+      "path": "references/IMAGE_2_approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "binding": "consulted painted-child identity; one-image slot so not bound"
+    }
+  ],
+  "artifacts": [
+    {
+      "role": "original_native_video",
+      "path": "reshoots/inbox/RSW-DASH-01/A005/RSW-DASH-01_take-05.mp4",
+      "sha256": "89be9032c68324b7f06c5234aa461af1c8d4436792887b0f9b5357f68a0ef0a9",
+      "bytes": 2646109,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.04,
+      "audio_present": true
+    }
+  ],
+  "measured_cadence": {
+    "method": "navy-key bounding-box bottom-clearance local minima (tail-down extrema)",
+    "tail_down_frames_zero_based": [
+      13,
+      43,
+      56,
+      83,
+      107,
+      131
+    ],
+    "tail_down_times_seconds": [
+      0.542,
+      1.792,
+      2.333,
+      3.458,
+      4.458,
+      5.458
+    ],
+    "peak_to_peak_seconds": [
+      1.25,
+      0.541,
+      1.125,
+      1.0,
+      1.0
+    ],
+    "approximate_complete_cycles_in_six_seconds": 6,
+    "target_cycle_seconds": [
+      0.4,
+      0.6
+    ],
+    "target_cycles_in_six_seconds": 12,
+    "meets_target": false,
+    "note": "Mixed ~0.5-1.25s spacing; visually more compact/eager than slow A004, not twelve 0.5s strokes and not a retime of slow."
+  },
+  "proposed_segments": {
+    "component": "cruise_core_only",
+    "entry_or_stop_present": false,
+    "core": {
+      "start_frame": 0,
+      "end_frame_exclusive": 145,
+      "note": "Whole file is the requested core-only take; still swimming on last frame."
+    },
+    "observed_beats": [
+      {
+        "start_frame": 0,
+        "end_frame_exclusive": 13,
+        "note": "First compact tail-down ~0.54s."
+      },
+      {
+        "start_frame": 13,
+        "end_frame_exclusive": 43,
+        "note": "Longer ~1.25s interval."
+      },
+      {
+        "start_frame": 43,
+        "end_frame_exclusive": 56,
+        "note": "Shorter ~0.54s pulse."
+      },
+      {
+        "start_frame": 56,
+        "end_frame_exclusive": 83,
+        "note": "~1.13s."
+      },
+      {
+        "start_frame": 83,
+        "end_frame_exclusive": 107,
+        "note": "~1.00s."
+      },
+      {
+        "start_frame": 107,
+        "end_frame_exclusive": 131,
+        "note": "~1.00s into last frames."
+      }
+    ],
+    "proposed_seam_neighborhoods": [
+      {
+        "frames_zero_based": [
+          13,
+          56,
+          83,
+          107,
+          131
+        ],
+        "note": "Candidate same-phase neighborhoods by tail-down. First vs last are not a lock: f0 bot=222/h=402 vs f144 bot=174/h=454. Codex must confirm pose AND velocity."
+      }
+    ],
+    "frame_index_convention": "zero-based, end-exclusive; measured after observing source, not from prompt times"
+  },
+  "rest_bridge_status": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+  "ghost_duplicate_tail": "Required correction DASH-DUPLICATE-TAIL. Ghosted A004 IMAGE_1 was not reused. Sampled frames f0, f13, f43, f72, f108, f144 show one connected two-lobed fin; no second translucent tail observed.",
+  "crop_observations": {
+    "scan": "navy-key bounding box on every decoded frame",
+    "bottom_edge_contact_frames_zero_based_end_exclusive": [],
+    "minimum_bottom_clearance_px": 62,
+    "minimum_bottom_clearance_frame": 43
+  },
+  "size_pulse_px_height": [
+    395,
+    568
+  ],
+  "speed_distinction_observation": "Separate native dash take from A004 frame 78, not a retime of slow A004. Eager face and more compact envelope; measured cadence still overlapping slow (~1s) more than the 0.4-0.6s pilot.",
+  "producer_notes": [
+    "Executed PAIR-INPLANE START_HERE after owner pointed out the missed overnight handoff. Sequential job 2 of 2 after slow A004 generation.",
+    "Used Codex-supplied screened IMAGE_1 (A004 frame 78). Did not reuse the ghosted dash seed.",
+    "Core-only: no entry/stop/upright ending on sampled frames. Identity holds. In-plane trailing tail.",
+    "Native 6.04s / 24fps / 145 frames / AAC. Cadence did not meet ~0.5s / twelve-stroke target; original returned unretimed.",
+    "Producer self-score does not count."
+  ],
+  "unknown_metadata_reasons": [],
+  "source_acceptance": false,
+  "delivery_accepted": false
+}
