@@ -1,0 +1,148 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-SLOW-01",
+  "attempt": "A002",
+  "request_id": "RSW-SLOW-01-A002-responsive-gameplay",
+  "request_sha256": "5f1f854b13a6fe9d0cdebd74f3c0536088e8387471249d35c82552d859e1ce0d",
+  "performance_mode": "slow_relaxed",
+  "status": "RETURNED",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generation_job_id": "grok-slow-a002-2026-09-17T03:15Z",
+  "generator_model": "imagine_image_to_video",
+  "mode": "imagine_image_to_video",
+  "input_selection_path": "reshoots/attempts/RSW-SLOW-01/A002/INPUT_SELECTION.json",
+  "input_selection_sha256": "13f380cf2cbdf232abbd266c8a024d31ee1f6c7a4a9b73f2696d40f53b3e07cc",
+  "prompt_used": "reshoots/attempts/RSW-SLOW-01/A002/PROMPT.txt",
+  "prompt_used_sha256": "ea08a05f9ac1a8698ff8b603b15cf8afe959f8a13eab478f1956eeb4b822c9c8",
+  "settings": {
+    "aspect_ratio": "16:9",
+    "requested_duration": 3,
+    "supported_minimum_duration": 6,
+    "native_duration": 6.04,
+    "resolution": "720p",
+    "camera": "locked"
+  },
+  "bound_inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "reshoots/attempts/RSW-SLOW-01/A002/inputs/IMAGE_1.png",
+      "sha256": "5348d03ccae77f59e8bf8b9f159a99a1c6e6f611270400755a0fd4002364ea9e",
+      "binding": "actual imagine_image_to_video starting image; native frame 12 of RSW-SLOW-01_take-01.mp4"
+    }
+  ],
+  "consulted_inputs": [
+    {
+      "name": "IMAGE_2",
+      "path": "references/IMAGE_2_approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "binding": "consulted painted-child identity; one-image slot so not bound"
+    }
+  ],
+  "artifacts": [
+    {
+      "role": "original_native_video",
+      "path": "reshoots/inbox/RSW-SLOW-01/A002/RSW-SLOW-01_take-02.mp4",
+      "sha256": "80ab7dfdcf63fa5f5ba65b5edc04d498fdaf690775c0cf5a118f03f16ab41a6b",
+      "bytes": 3459391,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.04,
+      "audio_present": true
+    }
+  ],
+  "proposed_segments": {
+    "entry": {
+      "start_frame": 0,
+      "end_frame_exclusive": 12,
+      "note": "Immediate glance/first-stroke overlap. Motion already visible by frame 3 (0.125s). Proposed after seeing footage."
+    },
+    "cruise_cycles": [
+      {
+        "start_frame": 12,
+        "end_frame_exclusive": 48,
+        "note": "First observed ~36-frame / 1.5s peak-to-peak. Codex must confirm pose+velocity seam. Slower than 0.8-1.2s pilot."
+      },
+      {
+        "start_frame": 48,
+        "end_frame_exclusive": 84,
+        "note": "Second ~1.5s cycle; Codex must confirm seam."
+      },
+      {
+        "start_frame": 84,
+        "end_frame_exclusive": 120,
+        "note": "Third extra middle cycle filling the 6s tool minimum at the same cadence, not a stretched start/stop."
+      }
+    ],
+    "exit": {
+      "start_frame": 120,
+      "end_frame_exclusive": 145,
+      "note": "Recovery remains right-three-quarter and fully on canvas; not an old rest-pose match. Brake is not a 0.15-0.25s snap."
+    },
+    "frame_index_convention": "zero-based, end-exclusive; proposed only after observing source, not copied from prompt times"
+  },
+  "rest_bridge_status": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+  "speed_distinction_observation": "Slow A002 returned first. Dash A002 not in this commit. Side-by-side native-speed comparison is for the pair review after dash returns.",
+  "producer_notes": [
+    "Identity holds on sampled frames: painted child, gold crown/blue gem, rainbow lock anatomical left, pink/lilac, pearlescent two-lobed fin. Right-facing three-quarter throughout sampled frames. No in-shot mirror or front/rear turnaround.",
+    "Native 6.04s / 24fps / 145 frames / AAC stereo. 3s requested; imagine_image_to_video shortest supported duration is 6s. Silence requested; unavoidable generated audio preserved.",
+    "First frame is the same character, not pixel-identical to IMAGE_1.",
+    "Whole-frame navy-key scan of all 145 frames: no edge contact. Closest bottom clearances are 4px at frames 57 and 96; not clipped.",
+    "Observed cruise cadence ~1.5s peak-to-peak (downstroke intervals 1.50 / 1.625 / 1.375s), outside the 0.8-1.2s pilot. Recorded as measured, not claimed accepted.",
+    "Preserves A001 soft arm/tail acting direction; this is a compact-timing revision, not a redesign and not A001 relabeled.",
+    "Producer self-score does not count."
+  ],
+  "unknown_metadata_reasons": [],
+  "source_acceptance": false,
+  "delivery_accepted": false,
+  "gameplay_timing": {
+    "visible_commitment_seconds": 0.125,
+    "measured_cycle_durations_seconds": [
+      1.5,
+      1.5,
+      1.5
+    ],
+    "brake_duration_seconds": 1.041667,
+    "departure_phase_of_returned_stop": "post-downstroke recovery into a compact right-three-quarter hold around frames 129-144; not a mid-stroke extension exit",
+    "missing_release_phases": [
+      "mid-downstroke / peak fin extension",
+      "pre-stroke gather",
+      "opposite tail-phase",
+      "rapid restart from this stop",
+      "left/right reversal"
+    ],
+    "short_action_demonstrations": [
+      {
+        "scenario": "1s commanded travel",
+        "status": "NOT_DEMONSTRATED",
+        "note": "Frames [0,24) are 1.0s of native acting including entry and part of the first stroke. Observation only; not a controller playback pass."
+      },
+      {
+        "scenario": "2s commanded travel",
+        "status": "NOT_DEMONSTRATED",
+        "note": "Frames [0,48) cover entry plus one proposed 1.5s cycle. Not a playback pass."
+      },
+      {
+        "scenario": "5s sustained travel",
+        "status": "NOT_DEMONSTRATED",
+        "note": "File is 6.04s of additional middle cycles. Looping a confirmed cruise is still required for true sustained travel."
+      },
+      {
+        "scenario": "release mid-stroke",
+        "status": "NOT_COVERED",
+        "note": "One stop from post-downstroke recovery cannot cover mid-stroke release."
+      },
+      {
+        "scenario": "rapid restart",
+        "status": "NOT_COVERED"
+      },
+      {
+        "scenario": "left/right reversal",
+        "status": "NOT_COVERED",
+        "note": "Right-facing source only; left remains a later whole-sprite mirror."
+      }
+    ],
+    "longer_tool_duration_handling": "Requested 3s. imagine_image_to_video minimum supported duration is 6s. Native 6.04s / 145 frames / 24fps / AAC. Extra middle time is additional performed cycles at the same observed ~1.5s cadence, not a stretched start or finish."
+  }
+}

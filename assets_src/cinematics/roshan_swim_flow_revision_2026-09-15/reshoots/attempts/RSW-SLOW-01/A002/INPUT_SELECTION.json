@@ -1,0 +1,54 @@
+{
+  "schema": "reef.roshan-native-frame-input.v1",
+  "shot_id": "RSW-SLOW-01",
+  "attempt": "A002",
+  "request_id": "RSW-SLOW-01-A002-responsive-gameplay",
+  "request_sha256": "5f1f854b13a6fe9d0cdebd74f3c0536088e8387471249d35c82552d859e1ce0d",
+  "status": "SELECTED",
+  "selector": "grok-build-imagine-bridge-2026-09-16",
+  "selected_at": "2026-09-17T03:14:00Z",
+  "source_video": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "commit": "90014720f54d77bbc3b4f2a57f949bec828be9df",
+    "path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A001/RSW-SLOW-01_take-01.mp4",
+    "sha256": "f56e8e0134f2ddd59fec61a159b23ddd15a4caee89bdcabbd7c0d4417e3fd1a7",
+    "native_frame_index_zero_based": 12,
+    "presentation_timestamp_seconds": 0.5,
+    "time_base": "1/24",
+    "decode_method": "lossless FFmpeg PNG decode of native frame 12; no crop, resize, repaint, composite or optical flow"
+  },
+  "extracted_image": {
+    "path": "reshoots/attempts/RSW-SLOW-01/A002/inputs/IMAGE_1.png",
+    "sha256": "5348d03ccae77f59e8bf8b9f159a99a1c6e6f611270400755a0fd4002364ea9e",
+    "width": 1280,
+    "height": 720,
+    "transforms": []
+  },
+  "candidates_inspected": [
+    "slow A001 native frames 0/12/18/24/36/48/60/72/84/96/108/120/144/168/192 (margin scan)",
+    "slow A001 frame 0 (calm S-curve, 194px bottom; more rest-like)",
+    "slow A001 frame 48/60/144 (bottom margin 38/18/14; too tight to seed)",
+    "slow A001 frame 84/96 (high bottom margin; more coiled glide)",
+    "slow A001 frame 12 (selected)",
+    "baseline painted frames 84/102/120/138/154 (historical pool; not selected so A002 keeps A001 acting)"
+  ],
+  "screening": {
+    "identity_face_crown_costume": "PASS \u2014 painted child face, gold crown/blue gem, pink bodice, lilac frills",
+    "anatomy_proportions": "PASS \u2014 child proportions, one tail",
+    "hair_attachment": "PASS \u2014 scalp roots attached, rainbow lock on anatomical left",
+    "waist_tail_continuity": "PASS \u2014 continuous waist-to-tail join",
+    "broad_fin": "PASS \u2014 two-lobed pearlescent fin fully on canvas",
+    "right_facing_readability": "PASS \u2014 right-facing three-quarter",
+    "full_body_margins": "PASS \u2014 crown, hands and both fin lobes inside frame; measured ~92px top / 182px bottom / 241px left / 372px right navy room",
+    "findings": [
+      "In-motion relaxed stroke with soft bent arms; better immediate-travel seed than the calmer frame 0.",
+      "A001 timing is not accepted. Selecting this frame does not pass A001 source motion or loop cuts.",
+      "Owner approved A001 acting direction; this native frame is used to preserve that vocabulary."
+    ],
+    "input_frame_suitable": true
+  },
+  "selection_reason": "Sound native A001 slow frame already in the approved relaxed acting, with comfortable full-fin margins, so compact A002 can start moving immediately without a rest-pose lock.",
+  "source_motion_accepted": false,
+  "existing_rest_pose_match_required": false,
+  "owner_opening_approval_required": false
+}
