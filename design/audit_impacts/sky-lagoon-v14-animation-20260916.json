@@ -76,7 +76,8 @@
     "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/shots/SL2-W02/SHOT_PACKET.json",
     "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/SOURCE_PROVENANCE.json",
     "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/START_HERE.txt",
-    "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/THREE_STAGE_REVIEW.jpg"
+    "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/THREE_STAGE_REVIEW.jpg",
+    "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/REMOTE_VERIFICATION.json"
   ],
   "validation": [
     {
@@ -103,7 +104,12 @@
       "command": "python -B tools/audit_imagine_handoff.py assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16",
       "result": "PASS",
       "evidence": "Archive envelope only; detailed draft checks in evidence/draft-card-checks.json. Ready-card validation remains explicitly blocked."
+    },
+    {
+      "command": "verify_remote.py 23179829b6452ff9b2ac6e4a58662935bffe340f",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/REMOTE_VERIFICATION.json: 56/56 immutable raw GitHub files verified, ARCHIVE_COMPLETE true; GENERATION_READY and DELIVERY_ACCEPTED false"
     }
   ],
-  "acceptance_gaps": "Owner art/crop acceptance, interface-specific minimum, device review, clean alpha in motion and runtime implementation remain open. Draft cards are not generation-ready. MA-VIS-002 unchanged; archive completeness requires remote verification. No claim of 4.9 or cinematic acceptance. Integration ready-card validator still requires reconciliation with the owner minimum-duration profile and native input aspect; cards remain DRAFT."
+  "acceptance_gaps": "Owner art/crop acceptance, interface-specific minimum, device review, clean alpha in motion and runtime implementation remain open. Draft cards are not generation-ready. MA-VIS-002 unchanged; archive completeness is verified at content commit 23179829b6452ff9b2ac6e4a58662935bffe340f. No claim of 4.9 or cinematic acceptance. Integration ready-card validator still requires reconciliation with the owner minimum-duration profile and native input aspect; cards remain DRAFT."
 }
