@@ -1,0 +1,53 @@
+{
+  "schema": "reef.roshan-native-frame-input.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A003",
+  "request_id": "RSW-DASH-01-A003-crop-reassess-retry",
+  "request_sha256": "6c406284e8e6a0abc7745204c70cdad75bd23d1ef85fc7e8e699167d2659664a",
+  "status": "SELECTED",
+  "selector": "grok-build-imagine-bridge-2026-09-16",
+  "selected_at": "2026-09-17T03:58:00Z",
+  "source_video": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "commit": "90014720f54d77bbc3b4f2a57f949bec828be9df",
+    "path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A001/RSW-DASH-01_take-01.mp4",
+    "sha256": "9fbebb47e6a60a85d27881be38fabbdcc3a7546fa321e194a9732357c5335fac",
+    "native_frame_index_zero_based": 180,
+    "presentation_timestamp_seconds": 7.5,
+    "time_base": "1/24",
+    "decode_method": "lossless FFmpeg PNG decode of native frame 180; no crop, resize, repaint, composite or optical flow"
+  },
+  "extracted_image": {
+    "path": "reshoots/attempts/RSW-DASH-01/A003/inputs/IMAGE_1.png",
+    "sha256": "377b98cab037879925035cffa2faed56d243e7a21c7c7cb3c02f96ba2a0a1cbc",
+    "width": 1280,
+    "height": 720,
+    "transforms": []
+  },
+  "candidates_inspected": [
+    "A002 take-02 frame 12 seed had 213px bottom and still cropped on pulses \u2014 do not reuse that composition",
+    "A002 take-02 frames 26/52/74/106/108 (227-215px bottom, similar scale to the failed seed)",
+    "A001 take-01 cropped windows 45-50 and 228-240 (cannot seed)",
+    "A001 take-01 frame 12 (previous A002 seed)",
+    "A001 take-01 frame 180 (selected): 257px bottom, character height 343px vs A002 seed 431px, compact coiled fin, right-facing, identity holds"
+  ],
+  "screening": {
+    "identity_face_crown_costume": "PASS \u2014 painted child face, gold crown/blue gem, pink bodice, lilac frills, eager smile",
+    "anatomy_proportions": "PASS \u2014 child proportions, one tail",
+    "hair_attachment": "PASS \u2014 scalp roots attached, rainbow lock on anatomical left",
+    "waist_tail_continuity": "PASS \u2014 continuous waist-to-tail join",
+    "broad_fin": "PASS \u2014 two-lobed pearlescent fin fully on canvas, coiled, not a cropped seed",
+    "right_facing_readability": "PASS \u2014 right-facing three-quarter",
+    "full_body_margins": "PASS \u2014 measured ~120px top / 257px bottom / 196px left / 335px right; smaller on-screen scale than the A002 seed so launch has more water under the fin",
+    "findings": [
+      "Composition reassessment: higher/smaller character than A002 IMAGE_1, not a PNG resize.",
+      "A001 timing and crop are not accepted. Selecting this frame does not pass A001 or A002 source motion.",
+      "Owner authorized this retry after A002 crop; acting vocabulary is preserved."
+    ],
+    "input_frame_suitable": true
+  },
+  "selection_reason": "Highest-clearance compact dash pose in published Grok video after A002's 213px seed still clipped. Reassessed input composition, not a duplicate of A002.",
+  "source_motion_accepted": false,
+  "existing_rest_pose_match_required": false,
+  "owner_opening_approval_required": false
+}

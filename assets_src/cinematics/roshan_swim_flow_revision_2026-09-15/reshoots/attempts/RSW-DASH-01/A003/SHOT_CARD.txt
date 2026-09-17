@@ -1,0 +1,32 @@
+movie_id: ROSHAN_TWO_SPEED_GAMEPLAY_SOURCE
+shot_id: RSW-DASH-01
+attempt: A003
+request_id: RSW-DASH-01-A003-crop-reassess-retry
+status: OWNER_AUTHORIZED_RETRY_SELECT_NATIVE_INPUT
+duration: 3 seconds preferred if tool supports; otherwise shortest supported duration with MORE cycles, never stretched start/stop
+aspect: 16:9
+size: 1280x720
+mode: image_to_video
+output_disposition: gameplay_source_candidate; not cinematic delivery
+camera: locked
+policy: Owner chat retry after A002 still cropped. Reassess input composition and on-canvas envelope. EXCHANGE_07 timing remains. Do not overwrite A002.
+
+IMAGE_1: SELECT_FROM_ACTUAL_GROK_VIDEO
+job: individually sound native pose with MORE lower-canvas room than A002's 213px seed; prefer a compact/higher character so the strongest tail beat stays on canvas. not a locked old opening/rest painting. do not resize, pad, crop or inpaint the PNG.
+available_sources:
+  A001: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/90014720f54d77bbc3b4f2a57f949bec828be9df/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A001/RSW-DASH-01_take-01.mp4
+  A002: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/11c14e7f9ef80803b7dc57c808765b81fa2d6901/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A002/RSW-DASH-01_take-02.mp4
+source_status: owner-approved acting; A001 and A002 both cropped on launch pulses; those cropped frames cannot seed. A002 original is preserved history.
+operator_action: inspect and select a sound actual native frame with extra bottom clearance; preserve exact PNG under this attempt inputs/IMAGE_1.png; complete INPUT_SELECTION before rendering.
+IMAGE_2: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/90014720f54d77bbc3b4f2a57f949bec828be9df/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/references/IMAGE_2_approved-front.png
+job: identity/style only, not pose lock; bind if supported, otherwise explicitly consult
+
+must_move: prompt eye/shoulder intention overlapping first stroke, connected torso/tail, soft bent arms, buoyant rooted curls, broad fin
+must_not_move: camera/background; stable overall scale; hair roots attached; fin must not reach the bottom edge
+start: visible commitment within roughly 0.10-0.15s
+cruise: 0.4-0.6s cycles, native performed cadence; at least two complete cycles
+stop: roughly 0.15-0.25s, natural attentive right-facing brake
+negative_constraints: no long preparation, stretched stop, crop, front turn, anatomy/identity change, artificial motion repair, copied cycle or retimed other mode
+sound_intent: silent; disclose unavoidable original audio
+
+Paste PROMPT.txt only. Do not bind audit sheets as generation pixels. One take authorized. Return original RSW-DASH-01_take-03.mp4 plus input selection/RETURN. Do not overwrite A002. Report actual entry, loop, stop, departure phase and any remaining crop. No Aseprite rescue or paid tool switch.

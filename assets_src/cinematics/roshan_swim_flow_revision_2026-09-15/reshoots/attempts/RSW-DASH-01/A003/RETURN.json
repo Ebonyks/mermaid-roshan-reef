@@ -1,0 +1,157 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A003",
+  "request_id": "RSW-DASH-01-A003-crop-reassess-retry",
+  "request_sha256": "6c406284e8e6a0abc7745204c70cdad75bd23d1ef85fc7e8e699167d2659664a",
+  "performance_mode": "dash",
+  "status": "RETURNED",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generation_job_id": "grok-dash-a003-2026-09-17T04:01Z",
+  "generator_model": "imagine_image_to_video",
+  "mode": "imagine_image_to_video",
+  "input_selection_path": "reshoots/attempts/RSW-DASH-01/A003/INPUT_SELECTION.json",
+  "input_selection_sha256": "672080ea185f63092641621cc5bd9e54d5f5f0375b9eb394fc1d195c6e5d132a",
+  "prompt_used": "reshoots/attempts/RSW-DASH-01/A003/PROMPT.txt",
+  "prompt_used_sha256": "a5aefcdcb3f13df45239068e9db0a4b370b92f8ed12fecd227b288ebbf005f3c",
+  "settings": {
+    "aspect_ratio": "16:9",
+    "requested_duration": 3,
+    "supported_minimum_duration": 6,
+    "native_duration": 6.04,
+    "resolution": "720p",
+    "camera": "locked"
+  },
+  "bound_inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "reshoots/attempts/RSW-DASH-01/A003/inputs/IMAGE_1.png",
+      "sha256": "377b98cab037879925035cffa2faed56d243e7a21c7c7cb3c02f96ba2a0a1cbc",
+      "binding": "actual imagine_image_to_video starting image; native frame 180 of RSW-DASH-01_take-01.mp4; compact higher-scale seed (257px bottom, character height 343) after A002's 213px seed still cropped"
+    }
+  ],
+  "consulted_inputs": [
+    {
+      "name": "IMAGE_2",
+      "path": "references/IMAGE_2_approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "binding": "consulted painted-child identity; one-image slot so not bound"
+    }
+  ],
+  "artifacts": [
+    {
+      "role": "original_native_video",
+      "path": "reshoots/inbox/RSW-DASH-01/A003/RSW-DASH-01_take-03.mp4",
+      "sha256": "08961961027c543a82a7f322443ff8de485828d6f98a6f1019f04943bf307c3e",
+      "bytes": 3374687,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.04,
+      "audio_present": true
+    }
+  ],
+  "proposed_segments": {
+    "entry": {
+      "start_frame": 0,
+      "end_frame_exclusive": 12,
+      "note": "Immediate gather/launch from compact seed. Motion visible by frame 3 (0.125s)."
+    },
+    "cruise_cycles": [
+      {
+        "start_frame": 12,
+        "end_frame_exclusive": 36,
+        "note": "First pulse-and-recover; fin stays on canvas (min ~96px at frame 27). Peak-to-peak ~1.5s, slower than 0.4-0.6s pilot. Codex must confirm seam."
+      },
+      {
+        "start_frame": 36,
+        "end_frame_exclusive": 69,
+        "note": "Second cycle ~1.375s. Codex must confirm seam."
+      },
+      {
+        "start_frame": 69,
+        "end_frame_exclusive": 117,
+        "note": "Third extra middle cycle filling 6s tool minimum. Longer observed spacing ~2.0s into the settle."
+      }
+    ],
+    "exit": {
+      "start_frame": 117,
+      "end_frame_exclusive": 145,
+      "note": "Right-three-quarter finish, fin on canvas. Character height grows 360->674 over this window (size pulse). Not an old rest-pose match."
+    },
+    "frame_index_convention": "zero-based, end-exclusive; proposed only after observing source, not copied from prompt times"
+  },
+  "rest_bridge_status": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+  "speed_distinction_observation": "Native dash retry, not a retime of slow A002 or a copy of dash A002. Brighter compact acting preserved. Observed pulse ~1.375-1.5s, still outside 0.4-0.6s pilot. Slow A002 was ~1.5s. Pair review required.",
+  "producer_notes": [
+    "Owner-authorized retry after A002 crop. A002 original is preserved and was not overwritten.",
+    "Identity holds on sampled frames: painted child, gold crown/blue gem, rainbow lock anatomical left, pink/lilac, pearlescent two-lobed fin, eager smile. Finish remains readable right-three-quarter.",
+    "Native 6.04s / 24fps / 145 frames / AAC stereo. 3s requested; tool minimum 6s. Silence requested; unavoidable generated audio preserved.",
+    "First frame is the same character, not pixel-identical to IMAGE_1.",
+    "Whole-frame navy-key scan of all 145 frames: NO edge contact. Minimum bottom clearance 16px at frame 144. Launch pulses that cropped A001/A002 stay on canvas here.",
+    "Character bounding-box height starts 343px and ends 674px (size pulse, strongest on the exit). Recorded as a remaining defect, not repaired.",
+    "Reassessed composition (higher/smaller seed + on-canvas envelope in prompt). Same imagine_image_to_video method. No automatic fourth take.",
+    "Producer self-score does not count."
+  ],
+  "unknown_metadata_reasons": [],
+  "source_acceptance": false,
+  "delivery_accepted": false,
+  "gameplay_timing": {
+    "visible_commitment_seconds": 0.125,
+    "measured_cycle_durations_seconds": [
+      1.5,
+      1.375,
+      2.0
+    ],
+    "brake_duration_seconds": 1.166667,
+    "departure_phase_of_returned_stop": "late compact recovery into a larger right-three-quarter hold; not a mid-launch extension exit",
+    "missing_release_phases": [
+      "mid-launch / peak fin extension",
+      "pre-stroke gather",
+      "opposite tail-phase",
+      "rapid restart from this stop",
+      "left/right reversal"
+    ],
+    "short_action_demonstrations": [
+      {
+        "scenario": "1s commanded travel",
+        "status": "NOT_DEMONSTRATED",
+        "note": "Frames [0,24) are native acting including first launch. Not a controller playback pass."
+      },
+      {
+        "scenario": "2s commanded travel",
+        "status": "NOT_DEMONSTRATED",
+        "note": "Frames [0,48) cover entry plus one cycle."
+      },
+      {
+        "scenario": "5s sustained travel",
+        "status": "NOT_DEMONSTRATED"
+      },
+      {
+        "scenario": "release mid-stroke",
+        "status": "NOT_COVERED"
+      },
+      {
+        "scenario": "rapid restart",
+        "status": "NOT_COVERED"
+      },
+      {
+        "scenario": "left/right reversal",
+        "status": "NOT_COVERED",
+        "note": "Right-facing source only; left remains a later whole-sprite mirror."
+      }
+    ],
+    "longer_tool_duration_handling": "Requested 3s. imagine_image_to_video minimum supported duration is 6s. Native 6.04s / 145 frames / 24fps / AAC. Extra middle time is additional performed cycles, not a stretched start."
+  },
+  "crop_observations": {
+    "scan": "navy-key bounding box on every decoded frame",
+    "bottom_edge_contact_frames_zero_based_end_exclusive": [],
+    "minimum_bottom_clearance_px": 16,
+    "minimum_bottom_clearance_frame": 144,
+    "finish_on_canvas": true,
+    "launch_on_canvas": true,
+    "a001_a002_crop_windows_cleared_in_this_take": true,
+    "remaining_framing_defect": "character height 343px at frame 0 to 674px at frame 144 (size pulse on exit)"
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A003",
+  "request_id": "RSW-DASH-01-A003-crop-reassess-retry",
+  "kind": "OWNER_AUTHORIZED_RETRY_REASSESS_COMPOSITION",
+  "addressed_to": "Grok",
+  "created_at": "2026-09-17",
+  "generation_authorized_by_this_request": true,
+  "max_new_takes": 1,
+  "mode": "dash",
+  "owner_authorization": "Owner asked why A002 was not retried and explicitly directed a retry after A002 still cropped the fin on launch pulses. This is one new take, not an overwrite of A002, not Aseprite repair, not a third identical same-seed render.",
+  "direction_path": "EXCHANGE_07.txt",
+  "direction_sha256": "25a9ebafebcbf3b24a249a0a9866154259efbc30754720da48f0f80a7da45dfd",
+  "facing_policy_path": "EXCHANGE_04.txt",
+  "facing_policy_sha256": "a9cb6b100acaacf6fb67558e65b5f95845c2e97ee8ca6c03d48b9db2b28f1daf",
+  "supersedes_request_path": "reshoots/attempts/RSW-DASH-01/A002/REQUEST.json",
+  "supersedes_request_sha256": "285be32221a76f83ed72e53b9776c03d64da8ada77d2823ce7965c42d8f043c5",
+  "parent_review_path": "reshoots/attempts/RSW-DASH-01/A002/RETURN.json",
+  "parent_review_sha256": "364afcf15ebe964e61c58e7200d8d3a1ad64d083c58c9fc8edf2c344bdb17153",
+  "parent_review_scope": "A002 original returned with honest crop_observations at [15,19), [42,46), [90,96). Owner authorized retry. No Codex A003 REVIEW existed at generation time.",
+  "artistic_failure_count_increment": 0,
+  "prompt_path": "reshoots/attempts/RSW-DASH-01/A003/PROMPT.txt",
+  "prompt_sha256": "a5aefcdcb3f13df45239068e9db0a4b370b92f8ed12fecd227b288ebbf005f3c",
+  "shot_card_path": "reshoots/attempts/RSW-DASH-01/A003/SHOT_CARD.txt",
+  "shot_card_sha256": "1c3ccd7fb1baeee362035d68eb7def6b5ddc26c6500f9182fbe648fc98f53452",
+  "input_selection": {
+    "operator": "Grok",
+    "required_before_generation": true,
+    "requires_new_owner_opening_approval": false,
+    "template_path": "reshoots/attempts/RSW-DASH-01/A003/INPUT_SELECTION_TEMPLATE.json",
+    "record_path": "reshoots/attempts/RSW-DASH-01/A003/INPUT_SELECTION.json",
+    "selected_png_path": "reshoots/attempts/RSW-DASH-01/A003/inputs/IMAGE_1.png",
+    "selection_source": "actual native frame from available original Grok video; choose individually, not a compulsory old painting",
+    "candidate_video": {
+      "path": "reshoots/inbox/RSW-DASH-01/A001/RSW-DASH-01_take-01.mp4",
+      "commit": "90014720f54d77bbc3b4f2a57f949bec828be9df",
+      "sha256": "9fbebb47e6a60a85d27881be38fabbdcc3a7546fa321e194a9732357c5335fac",
+      "motion_status": "Owner approves acting; A001 cropped. Frame 180 screened as compact high-clearance seed, not as accepted motion."
+    },
+    "optional_frame_pool": [
+      "baseline/frame-0084.png",
+      "baseline/frame-0102.png",
+      "baseline/frame-0120.png",
+      "baseline/frame-0138.png",
+      "baseline/frame-0154.png"
+    ],
+    "other_published_grok_source_allowed": true,
+    "selected_input_sha256": null,
+    "screening": [
+      "identity/face/crown/costume",
+      "anatomy/proportions",
+      "hair attachment",
+      "continuous waist/tail",
+      "broad readable fin",
+      "right-facing visibility",
+      "full-body margins"
+    ],
+    "transform": "lossless native frame capture only; no crop, resize, repaint, composite, warping, still generation or optical flow",
+    "rejected_motion_source_frame_allowed_if_individually_sound": true,
+    "does_not_approve_source_motion": true,
+    "no_aseprite_on_failed_source": true
+  },
+  "identity_reference": {
+    "path": "references/IMAGE_2_approved-front.png",
+    "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+    "role": "identity/style only, not pose/end-state lock",
+    "binding": "bind if supported, otherwise record honestly as consulted"
+  },
+  "requested_settings": {
+    "mode": "image_to_video",
+    "duration_seconds": 3,
+    "width": 1280,
+    "height": 720,
+    "camera": "locked",
+    "source_facing": "right-facing three-quarter",
+    "display_facings": [
+      "right",
+      "left"
+    ],
+    "left_method": "later whole-sprite horizontal mirror",
+    "audio": "request silent; preserve/disclose unavoidable original native audio",
+    "duration_fallback": "Use shortest actual supported duration; put more natural middle cycles in longer video, never stretch start/stop or slow the cadence. Record actual settings."
+  },
+  "performance_contract": {
+    "speed": "dash",
+    "native_performance_required": true,
+    "retimed_other_mode_allowed": false,
+    "min_genuinely_performed_cruise_cycles": 2,
+    "start_loop_finish_required": true,
+    "timing": "prompt times are approximate choreography; select actual windows after observing video",
+    "loop_boundary_test": "pose plus incoming/outgoing motion for body, hands, tail/fin and hair",
+    "exact_old_opening_required": false,
+    "exact_existing_rest_pose_required": false,
+    "first_frame_pixel_equality_to_old_art_required": false,
+    "rest_bridge": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+    "rest_mismatch_alone_is_source_failure": false,
+    "bridge_implementation_authorized": false,
+    "mode_distinction": "compare slow and dash side by side at native 1x; dash stronger/quicker with meaningful launch/deceleration, not a time-scaled duplicate",
+    "gameplay_timing_targets_seconds": {
+      "visible_commitment_max": 0.15,
+      "relaxed_cruise_cycle": [
+        0.8,
+        1.2
+      ],
+      "dash_cruise_cycle": [
+        0.4,
+        0.6
+      ],
+      "brake": [
+        0.15,
+        0.25
+      ],
+      "status": "pilot targets, not measured/accepted source facts"
+    },
+    "controller_expectation": "Immediate control response; START once then CRUISE repeated while moving; STOP on release/arrival without whole-clip/cycle lock. Source job must report exit phases; runtime/controller not implemented by this packet.",
+    "validation_scenarios": [
+      "1s commanded travel",
+      "2s commanded travel",
+      "5s sustained travel",
+      "release mid-stroke",
+      "rapid restart",
+      "left/right reversal"
+    ],
+    "required_return_segment_evidence": [
+      "actual native entry range",
+      "actual natural loop range(s) and both-side pose/velocity evidence",
+      "actual stop range and departure phase",
+      "missing release phases explicitly listed"
+    ]
+  },
+  "preserve": [
+    "Owner-approved A001 movement/acting direction; fix pacing, not a redesign",
+    "painted child identity/costume/iridescence",
+    "source anatomical-left rainbow lock",
+    "right-facing presentation; left is a later display mirror",
+    "complete full-body framing and stable scale",
+    "connected expressive torso, bent arms, coherent buoyant curls, broad continuous fin"
+  ],
+  "blocking_defects": [
+    "identity/anatomy drift",
+    "rigid body/flying arms/pinned fingertips",
+    "hair wind/distortion/sliding texture",
+    "waist discontinuity/fin hinge/pinch/inversion",
+    "crop/size pulse",
+    "fake duplicated cycles or failed actual cruise seam",
+    "slow/dash not distinct at native speed",
+    "Long theatrical preparation or braking mismatched to 1-2s travel",
+    "Whole-film duration mistaken for uninterruptible gameplay action"
+  ],
+  "output_path": "reshoots/inbox/RSW-DASH-01/A003/RSW-DASH-01_take-03.mp4",
+  "return_path": "reshoots/attempts/RSW-DASH-01/A003/RETURN.json",
+  "return_template_path": "reshoots/attempts/RSW-DASH-01/A003/RETURN_TEMPLATE.json",
+  "output_sha256": null,
+  "output_bytes": null,
+  "execution_order": 1,
+  "execution_note": "Owner-authorized single retry after two cropped dash takes. Reassessed IMAGE_1 toward higher/smaller on-screen scale and stronger on-canvas envelope in PROMPT. Preserve A002 bytes. Then wait for addressed review; no automatic fourth same-method render.",
+  "on_missing_inputs_or_tools": "Report precise blocker and empty media artifacts, not a new still or unapproved substitute mode/API purchase.",
+  "review_contract": {
+    "independent_reviewers": 2,
+    "axes": [
+      "identity/style",
+      "body swimming",
+      "hair/water",
+      "tail/fin",
+      "personality",
+      "flow/continuity",
+      "game usefulness"
+    ],
+    "score": "lower unrounded mean >=4.8 with no blocking defects, then HUMAN_REVIEW_REQUIRED per mode",
+    "pair_review": "distinct native-speed performances; no mode can compensate for failure of the other",
+    "aseprite_on_failed_source": false,
+    "automatic_acceptance": false,
+    "two_same_method_failures": "reassess method without lowering threshold"
+  },
+  "source_accepted": false,
+  "delivery_accepted": false,
+  "timers_changed": false,
+  "previous_direction_path": "EXCHANGE_06.txt",
+  "previous_direction_sha256": "adeaf265f1f3861b77c29dfb6acbafccb3804f11c43d57a676b2fd6cca5abc7b",
+  "same_method_failures_before_this_generation": 2,
+  "addressed_findings": [
+    "DASH-CROP-01",
+    "DASH-CROP-02",
+    "A002-CROP-PULSES"
+  ],
+  "generation_ready": false,
+  "generation_ready_reason": "Authorized selection/generation job; record IMAGE_1 before invoking video tool."
+}
