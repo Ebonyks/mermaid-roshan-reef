@@ -58,12 +58,12 @@
     {
       "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development; git diff --check",
       "result": "PASS",
-      "evidence": "Document authority ALL OK (569 inventory/ledger, 56 active, 58 records), audit coverage ALL OK at f98ef836 merge-base, 51 unit tests pass, authority stress 6/6, git diff --check clean. Re-run coverage after staging."
+      "evidence": "Document authority ALL OK (569 inventory/ledger, 56 active, 58 records), audit coverage ALL OK at f98ef836 merge-base, 51 unit tests pass, authority stress 6/6, git diff --check clean. Coverage and bindings rechecked after staging."
     },
     {
       "command": "Scoped packet bindings and immutable GitHub payload verification",
-      "result": "PENDING",
-      "evidence": "Local tmp/verify_inplane_packet.py ALL OK: 29 payload files/dependencies and both request/review/input hash chains. Native input frames independently screened by Sol A and root. Immutable remote verification remains pending and will be appended in REMOTE_VERIFICATION.json."
+      "result": "PASS",
+      "evidence": "At immutable 44db08d66c06beb1909317bcc2f064df88172688, all 30 remote payload/dependency/manifest files matched SHA-256 and byte counts. Payload 569a358969ed29bb4f4231e8afe43f58c6fb4473065b81a51eb6bd571861f375. Separate REMOTE_VERIFICATION.json records URLs and image readiness; no source acceptance. Staged Git blob and local request/review chains passed. Final packet-text verification by root/machine only; Sol B text read was blocked, not counted as approval."
     },
     {
       "command": "Full Godot scripts/ci.sh / device / runtime",
