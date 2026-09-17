@@ -1,0 +1,82 @@
+{
+  "id": "2026-09-14-roshan-4way-basic-swim",
+  "scope": "Cardinal 4-way basic-swim motion references (front/right/back/left) from painted 8-view cutouts animated in place. Non-runtime packet only. Navy-flattened openings are observation-field IMAGE_1, not hair-alpha sources. Hair/tail colour corrections remain outstanding. DELIVERY_ACCEPTED stays false; no runtime mutation.",
+  "baseline": "29bd345dd67dbc4ed4bbf2f02527cd53c7482cfc",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-13",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/openings/locked-4way-back.png",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/openings/locked-4way-front.png",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/openings/locked-4way-left.png",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/openings/locked-4way-right.png",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/FOURWAY_SWIM.md",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/OWNER_DIRECTION_TWO_VIEW.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/OWNER_INSPECTION.4way.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/RETURN_MANIFEST.4way.json",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/4way/FOURWAY_REEL.mp4",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/4way/RSW-SWIM-BACK.mp4",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/4way/RSW-SWIM-FRONT.mp4",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/4way/RSW-SWIM-LEFT.mp4",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/4way/RSW-SWIM-RIGHT.mp4",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/4way/PROMPT.back.txt",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/4way/PROMPT.front.txt",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/4way/PROMPT.left.txt",
+    "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/shots/4way/PROMPT.right.txt",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Local AUDITDEV ALL OK against origin/dev baseline 29bd345dd67dbc4ed4bbf2f02527cd53c7482cfc after this impact record covers the 15 packet files plus ledger and license rows. Prior head 256972f failed probes at Static gates: 15 AUDITDEV|FAIL no changed audit-impact record. Remote probe suite on this head remains required."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "FOURWAY_SWIM.md ledger row added. Local inventory/ledger both 570. DOC007 for this packet is cleared. Remaining local DOC009/DOC072 hits are sparse-checkout files that exist on a full clone; CI uses a full checkout."
+    },
+    {
+      "command": "Read-only identity review of RSW-SWIM-FRONT/RIGHT/BACK/LEFT sampled frames",
+      "result": "PASS",
+      "evidence": "Painted storybook identity holds on all four facings (gold crown one gem, rainbow streak, pink/lilac, pearlescent tail). Motion is comparison_candidate only. Knockouts recorded in RETURN_MANIFEST.4way.json. Not cinematic or runtime pixels."
+    },
+    {
+      "command": "Hair/tail colour correction against approved-front.png",
+      "result": "FAIL",
+      "evidence": "Owner inspection 2026-09-15: hair/tail colour corrections remain outstanding. This packet does not retint, regenerate, or accept colour. Do not treat 8-view or navy openings as colour-corrected masters."
+    },
+    {
+      "command": "Hair-alpha recovery from navy-flattened 4-way openings",
+      "result": "FAIL",
+      "evidence": "Owner inspection 2026-09-15: navy-flattened locked-4way-*.png cannot establish clean hair alpha. Alpha authority remains the existing RGBA 8-view cutouts under references/{front,right,back,left}.png. Do not key or recover alpha from the navy plates."
+    },
+    {
+      "command": "Runtime / Godot / assets/ diff versus origin/dev",
+      "result": "NOT_APPLICABLE",
+      "evidence": "No scripts/, assets/, or project.godot changes. Packet lives only under assets_src/cinematics/... plus audit-impact, ledger, and license metadata. Full Godot probe suite is not re-run for this non-runtime packet; remote probes still gate the topic head."
+    }
+  ],
+  "acceptance_gaps": "DELIVERY_ACCEPTED stays false. Owner 2026-09-16: Standard swim animations use 2 views only: left and right. No front/back standard swim animations. Front/back clips withdrawn from the standard-swim set, not deleted. Hair/tail colour corrections remain outstanding. Navy-flattened locked-4way-*.png cannot establish clean hair alpha. Alpha authority: existing RGBA 8-view cutouts references/{front,right,back,left}.png. Motion references only. Nothing merged. Runtime unchanged. Layout of locked-4way plates is not owner-approved. Clips are not cinematic frames, not Aseprite sprites, not runtime. MA-VIS-006 remains open. No device, child, owner, or release acceptance. Do not merge to master or dev until remote probes are green and owner says so."
+}
