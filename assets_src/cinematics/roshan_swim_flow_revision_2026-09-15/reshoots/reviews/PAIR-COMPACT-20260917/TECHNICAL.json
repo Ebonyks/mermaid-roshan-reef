@@ -1,0 +1,102 @@
+{
+  "schema": "reef.roshan-source-technical.v1",
+  "reviewed_git_head": "72f59d28e4a2a45c8d67f64c231c65a29b59da50",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "claims": {
+    "producer_hash_bundle": true,
+    "codex_must_independently_verify": true,
+    "artistic_acceptance": false
+  },
+  "current_candidates": {
+    "slow": {
+      "shot_id": "RSW-SLOW-01",
+      "attempt": "A002",
+      "role": "current_slow_review_candidate",
+      "return_sha256": "8155a8d8067a8e648aa490e1937978e97c489646474b939f4bd5c5b21d23ca00",
+      "request_sha256": "5f1f854b13a6fe9d0cdebd74f3c0536088e8387471249d35c82552d859e1ce0d",
+      "input_selection_sha256": "13f380cf2cbdf232abbd266c8a024d31ee1f6c7a4a9b73f2696d40f53b3e07cc",
+      "prompt_sha256": "ea08a05f9ac1a8698ff8b603b15cf8afe959f8a13eab478f1956eeb4b822c9c8",
+      "image_1_sha256": "5348d03ccae77f59e8bf8b9f159a99a1c6e6f611270400755a0fd4002364ea9e",
+      "clip_sha256": "80ab7dfdcf63fa5f5ba65b5edc04d498fdaf690775c0cf5a118f03f16ab41a6b",
+      "bytes": 3459391,
+      "path": "reshoots/inbox/RSW-SLOW-01/A002/RSW-SLOW-01_take-02.mp4",
+      "git_blob": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/72f59d28e4a2a45c8d67f64c231c65a29b59da50/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A002/RSW-SLOW-01_take-02.mp4",
+      "width": 1280,
+      "height": 720,
+      "native_fps": "24/1",
+      "frame_count": 145,
+      "duration_seconds": 6.04,
+      "audio_present": true,
+      "image_1_source": "native frame 12 of RSW-SLOW-01_take-01.mp4",
+      "producer_crop_scan": "no edge contact; closest bottom 4px at frames 57 and 96",
+      "producer_measured_cycle_seconds": [
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "dash": {
+      "shot_id": "RSW-DASH-01",
+      "attempt": "A003",
+      "role": "current_dash_review_candidate",
+      "return_sha256": "253378278f3a0f7efe34d7a9d8123a2b4050987c4c714887dfe4691fbc0b3f4b",
+      "request_sha256": "6c406284e8e6a0abc7745204c70cdad75bd23d1ef85fc7e8e699167d2659664a",
+      "input_selection_sha256": "672080ea185f63092641621cc5bd9e54d5f5f0375b9eb394fc1d195c6e5d132a",
+      "prompt_sha256": "a5aefcdcb3f13df45239068e9db0a4b370b92f8ed12fecd227b288ebbf005f3c",
+      "image_1_sha256": "377b98cab037879925035cffa2faed56d243e7a21c7c7cb3c02f96ba2a0a1cbc",
+      "clip_sha256": "08961961027c543a82a7f322443ff8de485828d6f98a6f1019f04943bf307c3e",
+      "bytes": 3374687,
+      "path": "reshoots/inbox/RSW-DASH-01/A003/RSW-DASH-01_take-03.mp4",
+      "git_blob": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/72f59d28e4a2a45c8d67f64c231c65a29b59da50/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A003/RSW-DASH-01_take-03.mp4",
+      "width": 1280,
+      "height": 720,
+      "native_fps": "24/1",
+      "frame_count": 145,
+      "duration_seconds": 6.04,
+      "audio_present": true,
+      "image_1_source": "native frame 180 of RSW-DASH-01_take-01.mp4 (composition reassessment)",
+      "producer_crop_scan": "no edge contact; min bottom 16px at frame 144",
+      "producer_size_pulse_px_height": [
+        343,
+        674
+      ],
+      "producer_measured_cycle_seconds": [
+        1.5,
+        1.375,
+        2.0
+      ]
+    }
+  },
+  "history_not_current_dash_candidate": {
+    "shot_id": "RSW-DASH-01",
+    "attempt": "A002",
+    "role": "preserved_crop_failure",
+    "return_sha256": "364afcf15ebe964e61c58e7200d8d3a1ad64d083c58c9fc8edf2c344bdb17153",
+    "request_sha256": "285be32221a76f83ed72e53b9776c03d64da8ada77d2823ce7965c42d8f043c5",
+    "clip_sha256": "bb64fd702e5ce0aa20390884edb619c51812420bfeba109b010919d23e88371f",
+    "bytes": 3284298,
+    "path": "reshoots/inbox/RSW-DASH-01/A002/RSW-DASH-01_take-02.mp4",
+    "producer_crop_frames_end_exclusive": [
+      [
+        15,
+        19
+      ],
+      [
+        42,
+        46
+      ],
+      [
+        90,
+        96
+      ]
+    ]
+  },
+  "direction": {
+    "exchange_07_sha256": "25a9ebafebcbf3b24a249a0a9866154259efbc30754720da48f0f80a7da45dfd",
+    "exchange_07_status": "timing pilots remain unaccepted measurements",
+    "exchange_08_sha256": "65c2d3fd9d56486eb8d5c45e71f8f1f1989c137e8cf5b9f0d0e594cd14744d70",
+    "exchange_08_bytes": 3827
+  },
+  "artistic_acceptance": false,
+  "delivery_accepted": false
+}

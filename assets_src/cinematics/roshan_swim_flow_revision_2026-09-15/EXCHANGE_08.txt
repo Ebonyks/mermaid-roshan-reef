@@ -1,0 +1,40 @@
+OWNER / PRODUCER HANDOFF TO CODEX — COMPACT TAKES READY FOR INDEPENDENT REVIEW — 2026-09-17
+
+Authority: owner approved A001 acting, commissioned compact 1-2s click-to-move timing (EXCHANGE_07), then explicitly told Grok to retry dash after A002 still cropped the fin. This record does not score the footage, accept delivery, or authorize Aseprite / runtime / dev / master.
+
+CURRENT REVIEW PAIR (media head 72f59d28e4a2a45c8d67f64c231c65a29b59da50)
+- Slow candidate: reshoots/inbox/RSW-SLOW-01/A002/RSW-SLOW-01_take-02.mp4
+  sha256 80ab7dfdcf63fa5f5ba65b5edc04d498fdaf690775c0cf5a118f03f16ab41a6b  bytes 3459391
+  RETURN sha256 8155a8d8067a8e648aa490e1937978e97c489646474b939f4bd5c5b21d23ca00
+  REQUEST sha256 5f1f854b13a6fe9d0cdebd74f3c0536088e8387471249d35c82552d859e1ce0d
+  Git: https://github.com/Ebonyks/mermaid-roshan-reef/blob/72f59d28e4a2a45c8d67f64c231c65a29b59da50/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A002/RSW-SLOW-01_take-02.mp4
+- Dash candidate: reshoots/inbox/RSW-DASH-01/A003/RSW-DASH-01_take-03.mp4
+  sha256 08961961027c543a82a7f322443ff8de485828d6f98a6f1019f04943bf307c3e  bytes 3374687
+  RETURN sha256 253378278f3a0f7efe34d7a9d8123a2b4050987c4c714887dfe4691fbc0b3f4b
+  REQUEST sha256 6c406284e8e6a0abc7745204c70cdad75bd23d1ef85fc7e8e699167d2659664a
+  Git: https://github.com/Ebonyks/mermaid-roshan-reef/blob/72f59d28e4a2a45c8d67f64c231c65a29b59da50/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A003/RSW-DASH-01_take-03.mp4
+
+HISTORY, NOT THE CURRENT DASH CANDIDATE
+- Dash A002 take-02 remains immutable at reshoots/inbox/RSW-DASH-01/A002/RSW-DASH-01_take-02.mp4
+  sha256 bb64fd702e5ce0aa20390884edb619c51812420bfeba109b010919d23e88371f
+  Producer crop_observations: fin-bottom contact at [15,19), [42,46), [90,96). Owner then authorized one composition-reassessed retry (A003). Do not overwrite A002. Do not relabel A003 as A002.
+
+CODEX OWNS
+Independent technical verification, two-reviewer seven-axis source review, pair native-speed distinction, actual loop/stop/phase evidence, and any next REQUEST.json / REVIEW.json. Grok does not self-score. Producer proposed_segments and gameplay_timing are observations, not accepted cuts.
+
+Do not trust this file's hashes blindly: re-hash and ffprobe the originals.
+
+REVIEW BAR (unchanged)
+Watch 1x, 0.5x and frame-step around strokes, hair, fin and proposed seams. Checkpoint is the lower unrounded mean of two independent reviewers across seven axes, with no blockers, then HUMAN_REVIEW_REQUIRED. Failed source returns to Grok with timed findings; never Aseprite. Two same-method failures require method reassessment; dash A001+A002 already cropped, A003 was the owner-authorized composition change. Do not auto-issue a fourth identical render.
+
+Producer flags for inspection (not pass/fail):
+- Tool minimum 6.04s / 24fps / 145 frames / AAC used instead of requested 3s; extra time should be extra cycles, not stretched start/stop.
+- Slow A002: no edge contact; closest bottom clearance 4px at frames 57 and 96; observed cruise ~1.5s vs 0.8-1.2s pilot.
+- Dash A003: no edge contact; min 16px at frame 144; launch pulses on canvas; character height 343px -> 674px on the exit (size pulse); observed pulse ~1.4s vs 0.4-0.6s pilot; finish readable right-three-quarter.
+- Pair must be distinct at native 1x; dash is not a retime of slow.
+- Each take has one stop from a late recovery phase. Mid-stroke release, rapid restart and reversal remain uncovered.
+- Rest-sprite bridge still deferred. Left is still a later whole-sprite mirror.
+
+Diagnostic boards: reshoots/reviews/PAIR-COMPACT-20260917/ — evidence only, never generator-bound pixels.
+
+No timer extension, paid API, new stills, runtime/device/child acceptance, or merge to master/dev. DELIVERY_ACCEPTED stays false.

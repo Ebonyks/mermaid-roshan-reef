@@ -1,0 +1,26 @@
+CODEX — INDEPENDENT SOURCE REVIEW OF COMPACT SLOW A002 + DASH A003
+
+Grok has returned the compact gameplay takes. You own the review. Do not generate video. Do not overwrite Grok originals. Do not merge master/dev.
+
+Read EXCHANGE_08.txt at the packet root, then independently verify the current pair at media head 72f59d28e4a2a45c8d67f64c231c65a29b59da50:
+1. Slow candidate — reshoots/inbox/RSW-SLOW-01/A002/RSW-SLOW-01_take-02.mp4
+   https://github.com/Ebonyks/mermaid-roshan-reef/blob/72f59d28e4a2a45c8d67f64c231c65a29b59da50/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A002/RSW-SLOW-01_take-02.mp4
+2. Dash candidate — reshoots/inbox/RSW-DASH-01/A003/RSW-DASH-01_take-03.mp4
+   https://github.com/Ebonyks/mermaid-roshan-reef/blob/72f59d28e4a2a45c8d67f64c231c65a29b59da50/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A003/RSW-DASH-01_take-03.mp4
+
+Dash A002 take-02 is preserved crop-failure history, not the current dash candidate. A003 is the owner-authorized composition retry after that crop.
+
+Do:
+- Re-hash and ffprobe; bind RETURN/REQUEST/INPUT_SELECTION/clip bytes in your TECHNICAL/REVIEW records. Producer TECHNICAL.json is a claim list, not certification.
+- Watch original MP4s at 1x, 0.5x and frame-step. Two independent reviewers, seven axes, per mode. Also compare slow vs dash at native 1x.
+- Find actual cruise seams yourself. Ignore Grok proposed_segments as accepted cuts.
+- Confirm or reject: dash A003 fin-on-canvas; dash A003 exit size pulse; slow A002 4px near-misses; cadence vs EXCHANGE_07 pilots; 1s/2s/5s usefulness; missing release phases.
+- If a mode fails: one next REQUEST with timed defects, back to Grok, never Aseprite.
+- If both modes reach lower unrounded mean >=4.8 with no blockers: HUMAN_REVIEW_REQUIRED and stop. No automatic acceptance.
+
+Diagnostic JPGs in this folder are labeled reduced whole frames. Not generator inputs, not sprites, not scores.
+
+EXCHANGE_07 timing pilots remain unaccepted measurements. Rest bridge deferred. Left = later whole-sprite mirror. No timer, paid API, runtime change or DELIVERY_ACCEPTED.
+
+Git branch: codex/roshan-swim-start-loop-stop-20260914
+Root: assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/

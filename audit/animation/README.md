@@ -41,6 +41,13 @@ travel, including interruption. Source crop, actual loop and phase-exit tests
 remain open; source-film length must not lock movement duration.
 [Impact](../../design/audit_impacts/2026-09-16-roshan-pair-a001-source-review.json).
 
+Compact originals now exist: slow A002 take-02 and dash A003 take-03 (dash A002
+preserved as cropped history). The [Codex review handoff](../../assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-COMPACT-20260917/START_HERE.txt)
+and [EXCHANGE_08](../../assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_08.txt)
+ask independent source review. Producer notes are not scores; no clip, runtime
+or delivery is accepted.
+[Impact](../../design/audit_impacts/2026-09-17-roshan-compact-codex-handoff.json).
+
 ## Start an animation task here
 
 1. Read the [canonical motion rules](../../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards)

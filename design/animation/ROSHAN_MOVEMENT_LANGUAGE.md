@@ -119,6 +119,11 @@ not implemented runtime behavior here. Native cadence, continuity, margins and
 the 4.8/owner checkpoint remain required. Exact resting-sprite bridges remain
 separate; qualitative motion approval is not fabricated numerical acceptance.
 
+Compact slow A002 and dash A003 originals are on the exchange branch for
+[independent Codex review](../../assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-COMPACT-20260917/START_HERE.txt).
+Producer timing/crop notes are inspection flags, not 4.8 scores or accepted
+cuts. Dash A002 remains preserved cropped history. No clip is accepted here.
+
 ## The character in one sentence
 
 **Roshan notices with her eyes, decides with her hands, and travels with her

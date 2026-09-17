@@ -4643,3 +4643,17 @@ Exact source frame lists, dimensions and SHA-256 are in the accompanying
 |---|---|
 | `reshoots/reviews/PAIR-A001-20260916/evidence/slow-seams.jpg` | [Original slow A001](https://github.com/Ebonyks/mermaid-roshan-reef/blob/90014720f54d77bbc3b4f2a57f949bec828be9df/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A001/RSW-SLOW-01_take-01.mp4); inherited project-generated/Grok source terms above, not CC0; native video decode, whole-frame reduction, labels and diagnostic assembly only. |
 | `reshoots/reviews/PAIR-A001-20260916/evidence/dash-crop-seams.jpg` | [Original dash A001](https://github.com/Ebonyks/mermaid-roshan-reef/blob/90014720f54d77bbc3b4f2a57f949bec828be9df/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A001/RSW-DASH-01_take-01.mp4); inherited project-generated/Grok source terms above, not CC0; native video decode, whole-frame reduction, labels and diagnostic assembly only. |
+
+### Roshan compact-take Codex-review diagnostic boards (2026-09-17)
+
+The files below inherit the compact-take videos' existing project/Grok provenance;
+no new public-domain or third-party ownership claim is made. Original videos
+are unchanged. These are labeled, uniformly reduced whole-frame diagnostic
+sheets, never generator inputs, sprite pixels, cinematic or runtime delivery.
+
+| Packet-relative diagnostic asset | Source / license / modifications |
+|---|---|
+| `reshoots/reviews/PAIR-COMPACT-20260917/evidence/slow-a002-cadence.jpg` | [Original slow A002](https://github.com/Ebonyks/mermaid-roshan-reef/blob/72f59d28e4a2a45c8d67f64c231c65a29b59da50/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A002/RSW-SLOW-01_take-02.mp4); inherited project-generated/Grok source terms above, not CC0; native video decode, whole-frame reduction, labels and diagnostic assembly only. |
+| `reshoots/reviews/PAIR-COMPACT-20260917/evidence/dash-a003-crop-clear.jpg` | [Original dash A003](https://github.com/Ebonyks/mermaid-roshan-reef/blob/72f59d28e4a2a45c8d67f64c231c65a29b59da50/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A003/RSW-DASH-01_take-03.mp4); inherited project-generated/Grok source terms above, not CC0; native video decode, whole-frame reduction, labels and diagnostic assembly only. |
+| `reshoots/reviews/PAIR-COMPACT-20260917/evidence/pair-a002-a003-native.jpg` | Slow A002 and dash A003 originals linked above; inherited terms; paired reduced whole frames at matching timestamps only. |
+| `reshoots/reviews/PAIR-COMPACT-20260917/evidence/dash-a002-crop-history.jpg` | [Dash A002](https://github.com/Ebonyks/mermaid-roshan-reef/blob/11c14e7f9ef80803b7dc57c808765b81fa2d6901/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A002/RSW-DASH-01_take-02.mp4) (cropped history) and dash A003 (current candidate); inherited terms; labeled reduced whole frames only. |

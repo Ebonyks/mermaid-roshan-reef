@@ -1,0 +1,141 @@
+{
+  "schema": "reef.roshan-review-packet.v1",
+  "source_head": "72f59d28e4a2a45c8d67f64c231c65a29b59da50",
+  "addressed_to": "Codex",
+  "payload_algorithm": "sorted UTF-8 path TAB sha256 TAB bytes LF; excludes this manifest and audit-impact metadata",
+  "payload_sha256": "5eb961d0a445cede63f50b659bde641e676599fc9f79c8e74dde3c2a7f832663",
+  "files": [
+    {
+      "path": "ASSET_LICENSES.md",
+      "sha256": "15cd289c912ef852e30c387ff6c304e1799cf8abd5b116b426f77c50e486da36",
+      "bytes": 1190026,
+      "role": "direction_review_or_generation_instruction",
+      "source": "project-authored text/metadata; not visual delivery",
+      "dimensions": null,
+      "modification_status": "new_or_scoped_text_update",
+      "license_provenance": "project-authored handoff documentation"
+    },
+    {
+      "path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_08.txt",
+      "sha256": "65c2d3fd9d56486eb8d5c45e71f8f1f1989c137e8cf5b9f0d0e594cd14744d70",
+      "bytes": 3827,
+      "role": "direction_review_or_generation_instruction",
+      "source": "project-authored text/metadata; not visual delivery",
+      "dimensions": null,
+      "modification_status": "new_or_scoped_text_update",
+      "license_provenance": "project-authored handoff documentation"
+    },
+    {
+      "path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/HANDOFF.txt",
+      "sha256": "fc5d785b6c2f07c028d7b81a663b487ebfdc8e0a2877c1ff29751562388bf6e0",
+      "bytes": 726,
+      "role": "direction_review_or_generation_instruction",
+      "source": "project-authored text/metadata; not visual delivery",
+      "dimensions": null,
+      "modification_status": "new_or_scoped_text_update",
+      "license_provenance": "project-authored handoff documentation"
+    },
+    {
+      "path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-COMPACT-20260917/START_HERE.txt",
+      "sha256": "c55d6e7fea053a2abf3b07569b72ba2b0b77e23c0df42967634770e249fba306",
+      "bytes": 2272,
+      "role": "direction_review_or_generation_instruction",
+      "source": "project-authored text/metadata; not visual delivery",
+      "dimensions": null,
+      "modification_status": "new_or_scoped_text_update",
+      "license_provenance": "project-authored handoff documentation"
+    },
+    {
+      "path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-COMPACT-20260917/TECHNICAL.json",
+      "sha256": "0462e4765389148e984b459d428b2dcb6ff2d2f5771f9f136be52827bdfb432f",
+      "bytes": 4287,
+      "role": "direction_review_or_generation_instruction",
+      "source": "project-authored text/metadata; not visual delivery",
+      "dimensions": null,
+      "modification_status": "new_or_scoped_text_update",
+      "license_provenance": "project-authored handoff documentation"
+    },
+    {
+      "path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-COMPACT-20260917/evidence/dash-a002-crop-history.jpg",
+      "sha256": "54676afc2bc2d2077a943163fc5da8dbfaabc2ea097182e179d234c34a6c58e2",
+      "bytes": 79614,
+      "role": "diagnostic_board",
+      "source": "labeled reduced whole frames from compact-take originals; not generator-bound",
+      "dimensions": {
+        "width": 1008,
+        "height": 572
+      },
+      "modification_status": "diagnostic_assembly_only",
+      "license_provenance": "inherited Grok/project source terms; reduction+labels only"
+    },
+    {
+      "path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-COMPACT-20260917/evidence/dash-a003-crop-clear.jpg",
+      "sha256": "0e4f224c2778d907540951488f687332973d1480aad48250df1ce4d2818baec5",
+      "bytes": 104828,
+      "role": "diagnostic_board",
+      "source": "labeled reduced whole frames from compact-take originals; not generator-bound",
+      "dimensions": {
+        "width": 1340,
+        "height": 572
+      },
+      "modification_status": "diagnostic_assembly_only",
+      "license_provenance": "inherited Grok/project source terms; reduction+labels only"
+    },
+    {
+      "path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-COMPACT-20260917/evidence/pair-a002-a003-native.jpg",
+      "sha256": "9d9be15621c158d6600b329f4e661abae17fc97d2b187d3acc447de5ee3d1188",
+      "bytes": 164438,
+      "role": "diagnostic_board",
+      "source": "labeled reduced whole frames from compact-take originals; not generator-bound",
+      "dimensions": {
+        "width": 876,
+        "height": 1496
+      },
+      "modification_status": "diagnostic_assembly_only",
+      "license_provenance": "inherited Grok/project source terms; reduction+labels only"
+    },
+    {
+      "path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-COMPACT-20260917/evidence/slow-a002-cadence.jpg",
+      "sha256": "108147403b0653a0b214edc959eaceeb7c6cceca9403395bb2ce379670bfc2fa",
+      "bytes": 105477,
+      "role": "diagnostic_board",
+      "source": "labeled reduced whole frames from compact-take originals; not generator-bound",
+      "dimensions": {
+        "width": 1340,
+        "height": 572
+      },
+      "modification_status": "diagnostic_assembly_only",
+      "license_provenance": "inherited Grok/project source terms; reduction+labels only"
+    },
+    {
+      "path": "audit/animation/README.md",
+      "sha256": "03199f68746e13aa9db180e1eed3d113442a9beded3a86af5c040c8f8c5bbf21",
+      "bytes": 10559,
+      "role": "direction_review_or_generation_instruction",
+      "source": "project-authored text/metadata; not visual delivery",
+      "dimensions": null,
+      "modification_status": "new_or_scoped_text_update",
+      "license_provenance": "project-authored handoff documentation"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "bcd88e1d2586b777463f03a2425a4ad82e149638db6b9595cbe8bc1001717533",
+      "bytes": 149993,
+      "role": "direction_review_or_generation_instruction",
+      "source": "project-authored text/metadata; not visual delivery",
+      "dimensions": null,
+      "modification_status": "new_or_scoped_text_update",
+      "license_provenance": "project-authored handoff documentation"
+    },
+    {
+      "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+      "sha256": "fe14cc0d2383fa4e3890e75eb7f2940a4568604331f541c9727c6d9b71facafb",
+      "bytes": 29239,
+      "role": "direction_review_or_generation_instruction",
+      "source": "project-authored text/metadata; not visual delivery",
+      "dimensions": null,
+      "modification_status": "new_or_scoped_text_update",
+      "license_provenance": "project-authored handoff documentation"
+    }
+  ]
+}

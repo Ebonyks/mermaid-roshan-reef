@@ -1,0 +1,60 @@
+{
+  "id": "2026-09-17-roshan-compact-codex-handoff",
+  "scope": "Grok-to-Codex handoff: compact slow A002 and dash A003 originals are ready for independent source review. Diagnostic boards and EXCHANGE_08/START_HERE only. No new video, no REVIEW/REQUEST authored by Grok, no runtime/dev/master change.",
+  "baseline": "f98ef836df35fc75657473755354b418f9c7d17f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-13",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "audit/animation/README.md",
+    "design/05_DOC_LEDGER.md",
+    "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_08.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/HANDOFF.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-COMPACT-20260917/START_HERE.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-COMPACT-20260917/TECHNICAL.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-COMPACT-20260917/evidence/slow-a002-cadence.jpg",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-COMPACT-20260917/evidence/dash-a003-crop-clear.jpg",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-COMPACT-20260917/evidence/pair-a002-a003-native.jpg",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-COMPACT-20260917/evidence/dash-a002-crop-history.jpg",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-COMPACT-20260917/EVIDENCE_MANIFEST.json"
+  ],
+  "validation": [
+    {
+      "command": "Current-candidate hashes bound",
+      "result": "PASS",
+      "evidence": "Slow A002 mp4 80ab7dfdcf63fa5f5ba65b5edc04d498fdaf690775c0cf5a118f03f16ab41a6b. Dash A003 mp4 08961961027c543a82a7f322443ff8de485828d6f98a6f1019f04943bf307c3e. Media head 72f59d28. Codex must independently re-hash/ffprobe."
+    },
+    {
+      "command": "Ownership split",
+      "result": "PASS",
+      "evidence": "No new REVIEW.json or generation REQUEST.json. Codex owns those. Grok owns existing originals/RETURNs. Dash A002 not overwritten."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "This record covers the Codex-handoff files. No runtime mutation."
+    },
+    {
+      "command": "Runtime / Godot / assets/ diff versus origin/dev",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Non-runtime exchange only. DELIVERY_ACCEPTED stays false. Boards are diagnostics, not generator inputs."
+    }
+  ],
+  "acceptance_gaps": "Independent Codex review not yet done. Cadence vs EXCHANGE_07 pilots, dash A003 size pulse, actual loop seams, 1s/2s interruption and 4.8 checkpoint remain open. MA-VIS-006 remains open. Do not merge to master or dev."
+}
