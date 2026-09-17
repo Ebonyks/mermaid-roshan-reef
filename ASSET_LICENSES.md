@@ -4623,3 +4623,17 @@ Future selected frames and new videos require their own exact source/input/outpu
 provenance. A clean input frame does not accept a motion-rejected video; failed
 sources still cannot enter Aseprite conversion. Cinematic delivery is unchanged.
 <!-- ROSHAN_TWO_SPEED_SOURCE_20260916_END -->
+
+### Roshan A001 source-review diagnostic boards (2026-09-16)
+
+The files below inherit the source videos' existing project/Grok provenance;
+no new public-domain or third-party ownership claim is made. Original videos
+are unchanged. These are labeled, uniformly reduced whole-frame diagnostic
+sheets, never generator inputs, sprite pixels, cinematic or runtime delivery.
+Exact source frame lists, dimensions and SHA-256 are in the accompanying
+`reshoots/reviews/PAIR-A001-20260916/EVIDENCE_MANIFEST.json` in the same packet.
+
+| Packet-relative diagnostic asset | Source / license / modifications |
+|---|---|
+| `reshoots/reviews/PAIR-A001-20260916/evidence/slow-seams.jpg` | [Original slow A001](https://github.com/Ebonyks/mermaid-roshan-reef/blob/90014720f54d77bbc3b4f2a57f949bec828be9df/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A001/RSW-SLOW-01_take-01.mp4); inherited project-generated/Grok source terms above, not CC0; native video decode, whole-frame reduction, labels and diagnostic assembly only. |
+| `reshoots/reviews/PAIR-A001-20260916/evidence/dash-crop-seams.jpg` | [Original dash A001](https://github.com/Ebonyks/mermaid-roshan-reef/blob/90014720f54d77bbc3b4f2a57f949bec828be9df/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A001/RSW-DASH-01_take-01.mp4); inherited project-generated/Grok source terms above, not CC0; native video decode, whole-frame reduction, labels and diagnostic assembly only. |

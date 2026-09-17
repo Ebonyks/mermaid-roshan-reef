@@ -1,0 +1,65 @@
+{
+  "id": "codex-sol-review-B-20260916",
+  "task": "/root/slow_dash_review_b",
+  "model": "gpt-5.6-sol",
+  "method": "All twelve every-third-frame contact sheets plus native frames around proposed cuts; no original-video playback by this reviewer.",
+  "coverage": {
+    "slow": [
+      23,
+      24,
+      25,
+      95,
+      96,
+      97,
+      167,
+      168,
+      169
+    ],
+    "dash": [
+      23,
+      24,
+      25,
+      47,
+      48,
+      71,
+      72,
+      73,
+      119,
+      120,
+      121,
+      240
+    ]
+  },
+  "provisional_still_only_axes": {
+    "slow": {
+      "identity/style": 4,
+      "body swimming": 3,
+      "hair/water": 2,
+      "tail/fin": 4,
+      "personality": 3,
+      "flow/continuity": 2,
+      "game usefulness": 2
+    },
+    "dash": {
+      "identity/style": 4,
+      "body swimming": 3,
+      "hair/water": 2,
+      "tail/fin": 3,
+      "personality": 4,
+      "flow/continuity": 2,
+      "game usefulness": 2
+    }
+  },
+  "findings": {
+    "slow": "Suggested f95->24 and f167->96 cuts have different torso/tail/arm states. Preserve footage for alternative cut investigation.",
+    "dash": "Distinct brighter compact performance. Suggested f71->24 cut obviously mismatches; f119->72 is closer but not verified. Bottom fin crop at launch and finish."
+  },
+  "schema": "reef.roshan-independent-partial-review.v1",
+  "reviewed_git_head": "90014720f54d77bbc3b4f2a57f949bec828be9df",
+  "blind_to_other_reviewer": true,
+  "producer_identity_overlap": false,
+  "acceptance_axes": null,
+  "acceptance_mean": null,
+  "temporal_review_complete": false,
+  "limitation": "Provisional numbers express still-frame impressions only, not source checkpoint scores; do not aggregate them into a 4.8 acceptance result."
+}

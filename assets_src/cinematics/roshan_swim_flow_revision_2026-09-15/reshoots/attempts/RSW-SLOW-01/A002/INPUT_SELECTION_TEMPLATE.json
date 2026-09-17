@@ -1,0 +1,43 @@
+{
+  "schema": "reef.roshan-native-frame-input.v1",
+  "shot_id": "RSW-SLOW-01",
+  "attempt": "A002",
+  "request_id": "RSW-SLOW-01-A002-responsive-gameplay",
+  "request_sha256": "5f1f854b13a6fe9d0cdebd74f3c0536088e8387471249d35c82552d859e1ce0d",
+  "status": "UNSELECTED_TEMPLATE",
+  "selector": null,
+  "selected_at": null,
+  "source_video": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "commit": null,
+    "path": null,
+    "sha256": null,
+    "native_frame_index_zero_based": null,
+    "presentation_timestamp_seconds": null,
+    "time_base": null,
+    "decode_method": null
+  },
+  "extracted_image": {
+    "path": "reshoots/attempts/RSW-SLOW-01/A002/inputs/IMAGE_1.png",
+    "sha256": null,
+    "width": null,
+    "height": null,
+    "transforms": []
+  },
+  "screening": {
+    "identity_face_crown_costume": null,
+    "anatomy_proportions": null,
+    "hair_attachment": null,
+    "waist_tail_continuity": null,
+    "broad_fin": null,
+    "right_facing_readability": null,
+    "full_body_margins": null,
+    "findings": [],
+    "input_frame_suitable": null
+  },
+  "selection_reason": null,
+  "source_motion_accepted": false,
+  "existing_rest_pose_match_required": false,
+  "owner_opening_approval_required": false,
+  "instructions": "Choose a suitable actual native Grok frame and fill with measured values and observed screening, not assumed passes. Preserve the exact decoded PNG. The fixed opening painting is not mandatory. If unsuitable, choose another frame or report an input blocker. Selecting this frame does not pass its source motion or permit failed-source Aseprite conversion."
+}

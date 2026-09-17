@@ -1,0 +1,148 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "attempt": "A001",
+  "reviewed_git_head": "90014720f54d77bbc3b4f2a57f949bec828be9df",
+  "reviewers": [
+    {
+      "identity": "codex-sol-review-A-20260916",
+      "model": "gpt-5.6-sol",
+      "evidence_path": "reshoots/reviews/PAIR-A001-20260916/REVIEWER_A.json",
+      "independent": true,
+      "producer_overlap": false,
+      "complete_acceptance_scores": null
+    },
+    {
+      "identity": "codex-sol-review-B-20260916",
+      "model": "gpt-5.6-sol",
+      "evidence_path": "reshoots/reviews/PAIR-A001-20260916/REVIEWER_B.json",
+      "independent": true,
+      "producer_overlap": false,
+      "complete_acceptance_scores": null
+    }
+  ],
+  "lower_unrounded_mean": null,
+  "score_status": "NOT_COMPUTED_INCOMPLETE_TEMPORAL_REVIEW",
+  "normal_speed_evidence": {
+    "method": "Original MP4s played in local browser at 1x and 0.5x; root received discrete screenshots, not an uninterrupted video stream. Player showed unequal playback positions; not a synchronized/certified full pair review.",
+    "sampled_native_playback_seconds": {
+      "slow": [
+        0.481,
+        4.727,
+        9.774
+      ],
+      "dash": [
+        0.225,
+        4.475,
+        9.53
+      ]
+    },
+    "half_speed_samples": "Start for both, later slow endpoint and dash around 3.945s. Not complete half-speed coverage.",
+    "independent_reviewers_used_frames_only": true
+  },
+  "direction_policy": "EXCHANGE_04.txt",
+  "direction_policy_sha256": "a9cb6b100acaacf6fb67558e65b5f95845c2e97ee8ca6c03d48b9db2b28f1daf",
+  "performance_policy": "EXCHANGE_06.txt",
+  "performance_policy_sha256": "adeaf265f1f3861b77c29dfb6acbafccb3804f11c43d57a676b2fd6cca5abc7b",
+  "runtime_mirror_verified": false,
+  "mirrored_left_review_evidence": null,
+  "mirror_pivot_and_contact_evidence": null,
+  "human_approval": null,
+  "aseprite_eligible": false,
+  "source_accepted": false,
+  "delivery_accepted": false,
+  "rest_bridge": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+  "frame_index_convention": "zero-based, end-exclusive; time = native frame / 24",
+  "source_originals_modified": false,
+  "shot_id": "RSW-SLOW-01",
+  "request_id": "RSW-SLOW-01-A001-performance-led",
+  "request_sha256": "f4e21297056880c8e1485f5a021e4824917d2bee72143b2a08eee16019500ec5",
+  "return_sha256": "b7cdd38e66a72223a9775c4be810a0a4b8c5df9bf0283e1d9780a0e720926b67",
+  "clip_sha256": "f56e8e0134f2ddd59fec61a159b23ddd15a4caee89bdcabbd7c0d4417e3fd1a7",
+  "decision": "REGENERATE",
+  "decision_reason": "Owner approves motion direction, commissions faster gameplay phrasing for 1-2s travel. Preserve acting; new timing brief, not proof every possible old cut fails.",
+  "artistic_failure_count_increment": 0,
+  "loop_seam_evidence": "reshoots/reviews/PAIR-A001-20260916/evidence/slow-seams.jpg",
+  "right_facing_review_evidence": "Right-three-quarter progression remains readable in sampled sheets. Exact old resting pose is not required.",
+  "issues": [
+    {
+      "id": "SLOW-CUT-01",
+      "start_frame": 24,
+      "end_frame_exclusive": 168,
+      "start_seconds": 1,
+      "end_seconds": 7,
+      "compared_cut_pairs": [
+        [
+          95,
+          24
+        ],
+        [
+          167,
+          96
+        ]
+      ],
+      "observation": "Proposed [24,96) and [96,168) loops join different torso inclinations, hand poses and fin stroke phases.",
+      "expected": "A complete cruise cycle returns to a compatible body/hand/fin/hair pose AND motion direction without synthetic repair.",
+      "reconstruction": "Select actual natural cycle boundaries from the original, inspect preceding/following frames, and return evidence. Do not assume either 72-frame proposal is correct. If no clean span exists, report that before further generation.",
+      "preserve": [
+        "original slow A001 pixels",
+        "relaxed child acting",
+        "natural start/end poses"
+      ],
+      "blocking": true,
+      "scope": "proposed loop approval, not evidence that every possible source span fails"
+    },
+    {
+      "id": "SLOW-HAIR-OBS",
+      "start_frame": 190,
+      "end_frame_exclusive": 241,
+      "start_seconds": 7.916666666666667,
+      "end_seconds": 10.041666666666666,
+      "observation": "Sampled settle frames retain a strongly swept-back hair silhouette as the body becomes upright.",
+      "expected": "Hair response should follow water/body deceleration coherently.",
+      "reconstruction": "Evaluate curl-tip phase and settling at native speed; do not invent a settled-air pose or repair in Aseprite.",
+      "blocking": false,
+      "scope": "observation pending full temporal review"
+    },
+    {
+      "id": "SLOW-PACE-01",
+      "start_frame": 0,
+      "end_frame_exclusive": 241,
+      "start_seconds": 0,
+      "end_seconds": 10.041666666666666,
+      "observation": "Owner finds ten-second performance pacing unsuitable for frequent 1-2s click-to-move actions.",
+      "expected": "Rapid commitment, native compact cruise cycles and short phase-compatible brake; preserve approved movement.",
+      "reconstruction": "Use EXCHANGE_07 timing targets in the next native take; no long look/gather, no mandatory whole-film playback. Prove actual source ranges and short action timing.",
+      "blocking": true,
+      "evidence_basis": "explicit owner feedback and gameplay-duration requirement, not an automated artistic score"
+    }
+  ],
+  "alternative_candidates": {
+    "method": "Whole-frame low-resolution difference used ONLY to locate comparisons, not beauty, loop approval, or pixel synthesis.",
+    "pairs": [
+      [
+        55,
+        143
+      ],
+      [
+        63,
+        151
+      ],
+      [
+        47,
+        135
+      ]
+    ],
+    "status": "Not accepted: visible hand/fin differences remain. Search around these or better actual boundaries; no mandated frame index."
+  },
+  "next_action": "reshoots/attempts/RSW-SLOW-01/A002/REQUEST.json",
+  "owner_feedback": {
+    "date": "2026-09-16",
+    "statement": "The animations and motions themselves are great; speed and pacing do not fit click-to-move actions often lasting 1-2 seconds.",
+    "motion_direction_approved": true,
+    "temporal_gameplay_accepted": false,
+    "numeric_score": null,
+    "scope": "Preserve approved acting/style. Revise timing to compact entry, recurring core cycle and short stop. Not a new identity/acting redesign.",
+    "direction_path": "EXCHANGE_07.txt",
+    "direction_sha256": "25a9ebafebcbf3b24a249a0a9866154259efbc30754720da48f0f80a7da45dfd"
+  }
+}

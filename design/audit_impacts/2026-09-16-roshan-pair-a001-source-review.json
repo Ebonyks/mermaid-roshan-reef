@@ -1,0 +1,83 @@
+{
+  "id": "2026-09-16-roshan-pair-a001-source-review",
+  "scope": "Append A001 source-review evidence and owner timing correction; preserve owner-approved movement/acting. Commission responsive short-form slow and dash A002 takes with quick entry, recurring loops and short braking. Update durable movement language and audit navigation. No runtime, timer, prior source/return or dev/master changes.",
+  "baseline": "90014720f54d77bbc3b4f2a57f949bec828be9df",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-13",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-A001-20260916/START_HERE.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-A001-20260916/PAIR_REVIEW.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-A001-20260916/TECHNICAL.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-A001-20260916/REVIEWER_A.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-A001-20260916/REVIEWER_B.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-A001-20260916/EVIDENCE_MANIFEST.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-A001-20260916/evidence/slow-seams.jpg",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-A001-20260916/evidence/dash-crop-seams.jpg",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A001/REVIEW.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A001/REVIEW.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A002/REQUEST.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A002/REQUEST.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A002/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A002/SHOT_CARD.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A002/INPUT_SELECTION_TEMPLATE.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A002/RETURN_TEMPLATE.json",
+    "ASSET_LICENSES.md",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_07.txt",
+    "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/animation/README.md",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A002/PROMPT.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A002/SHOT_CARD.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A002/INPUT_SELECTION_TEMPLATE.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A002/RETURN_TEMPLATE.json"
+  ],
+  "validation": [
+    {
+      "command": "Original-video hashes, input bindings and ffprobe",
+      "result": "PASS",
+      "evidence": "Both A001 request/prompt/input/reference/video hashes match their returns; each original is 1280x720, 24fps, 241 frames, 10.041667 seconds, audio present. Full source fields in pair TECHNICAL.json."
+    },
+    {
+      "command": "Independent Sol frame reviews and root browser sampling",
+      "result": "PASS",
+      "evidence": "Two blind Sol reviews inspected every-third-frame sheets and native detail frames. Root inspected native detail/diagnostic sheets and sampled browser playback at 1x/0.5x. This is sufficient for a visible crop rejection, NOT complete temporal certification or passing seven-axis scores."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development; git diff --check",
+      "result": "PASS",
+      "evidence": "Document authority ALL OK (569 inventory/ledger, 56 active, 58 records); development coverage ALL OK against f98ef836 merge-base; 51 unit tests pass and authority stress 6/6; diff whitespace check clean. Re-run after final staging."
+    },
+    {
+      "command": "Full Godot CI, runtime/device tests",
+      "result": "NOT_APPLICABLE",
+      "evidence": "No runtime/source-art import or integration. Handoff-only publication follows the explicitly scoped owner exception in 2026-09-15-roshan-grok-handoff-publication.json; prior full CI failures are not relabeled green."
+    },
+    {
+      "command": "Immutable remote handoff verification",
+      "result": "PENDING",
+      "evidence": "Push scoped records to exchange branch then verify every new file/hash and referenced asset."
+    },
+    {
+      "command": "Independent Sol request/brief and parent-hash review",
+      "result": "PASS",
+      "evidence": "/root/slow_dash_review_a checked both A002 source/parent/direction/prompt/card hashes and short-timing constraints. Corrected the single slow-card copy/paste note; rebinding verified by package script. No stale ten-second action lock or complete source pass found."
+    }
+  ],
+  "acceptance_gaps": "Owner approves motion/acting direction but rejects gameplay pacing. A002 remains source production only: 1s/2s click-move timing, arbitrary-release phase exits, complete temporal scores, source/owner acceptance, Aseprite, runtime/device/child evidence remain unapproved. Confirmed dash crop must be repaired at source. MA-VIS-006 remains open."
+}

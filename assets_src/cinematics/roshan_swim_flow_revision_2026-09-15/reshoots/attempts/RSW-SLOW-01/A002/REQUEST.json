@@ -1,0 +1,188 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-SLOW-01",
+  "attempt": "A002",
+  "request_id": "RSW-SLOW-01-A002-responsive-gameplay",
+  "kind": "SELECT_NATIVE_GROK_FRAME_THEN_GENERATE_COMPACT_GAMEPLAY_TAKE",
+  "addressed_to": "Grok",
+  "created_at": "2026-09-16",
+  "generation_authorized_by_this_request": true,
+  "max_new_takes": 1,
+  "mode": "slow_relaxed",
+  "owner_authorization": "Owner approves motions and acting but requests speed/pacing appropriate for click-to-move often lasting 1-2s. Prior source-first iterative generation authority remains; one revised take per mode.",
+  "direction_path": "EXCHANGE_07.txt",
+  "direction_sha256": "25a9ebafebcbf3b24a249a0a9866154259efbc30754720da48f0f80a7da45dfd",
+  "facing_policy_path": "EXCHANGE_04.txt",
+  "facing_policy_sha256": "a9cb6b100acaacf6fb67558e65b5f95845c2e97ee8ca6c03d48b9db2b28f1daf",
+  "supersedes_request_path": "reshoots/attempts/RSW-SLOW-01/A001/REQUEST.json",
+  "supersedes_request_sha256": "f4e21297056880c8e1485f5a021e4824917d2bee72143b2a08eee16019500ec5",
+  "parent_review_path": "reshoots/attempts/RSW-SLOW-01/A001/REVIEW.json",
+  "parent_review_sha256": "7056f68752d0d4d94275d6432efa2d975fb612fa5164217e6b21e762225ac40d",
+  "parent_review_scope": "Actual original-video technical verification, two independent still-frame reviews and root sampled playback, plus owner approval of acting and request for compact timing. No complete temporal checkpoint score.",
+  "artistic_failure_count_increment": 0,
+  "prompt_path": "reshoots/attempts/RSW-SLOW-01/A002/PROMPT.txt",
+  "prompt_sha256": "ea08a05f9ac1a8698ff8b603b15cf8afe959f8a13eab478f1956eeb4b822c9c8",
+  "shot_card_path": "reshoots/attempts/RSW-SLOW-01/A002/SHOT_CARD.txt",
+  "shot_card_sha256": "71a9a3de78c6691f6952242b1edcedbb98bd08ac1393fbbf317216552e617211",
+  "input_selection": {
+    "operator": "Grok",
+    "required_before_generation": true,
+    "requires_new_owner_opening_approval": false,
+    "template_path": "reshoots/attempts/RSW-SLOW-01/A002/INPUT_SELECTION_TEMPLATE.json",
+    "record_path": "reshoots/attempts/RSW-SLOW-01/A002/INPUT_SELECTION.json",
+    "selected_png_path": "reshoots/attempts/RSW-SLOW-01/A002/inputs/IMAGE_1.png",
+    "selection_source": "actual native frame from available original Grok video; choose individually, not a compulsory old painting",
+    "candidate_video": {
+      "path": "reshoots/inbox/RSW-SLOW-01/A001/RSW-SLOW-01_take-01.mp4",
+      "commit": "90014720f54d77bbc3b4f2a57f949bec828be9df",
+      "sha256": "f56e8e0134f2ddd59fec61a159b23ddd15a4caee89bdcabbd7c0d4417e3fd1a7",
+      "motion_status": "Owner approves slow acting direction; timing and loop/source acceptance remain open. Screen each candidate frame."
+    },
+    "optional_frame_pool": [
+      "baseline/frame-0084.png",
+      "baseline/frame-0102.png",
+      "baseline/frame-0120.png",
+      "baseline/frame-0138.png",
+      "baseline/frame-0154.png"
+    ],
+    "other_published_grok_source_allowed": true,
+    "selected_input_sha256": null,
+    "screening": [
+      "identity/face/crown/costume",
+      "anatomy/proportions",
+      "hair attachment",
+      "continuous waist/tail",
+      "broad readable fin",
+      "right-facing visibility",
+      "full-body margins"
+    ],
+    "transform": "lossless native frame capture only; no crop, resize, repaint, composite, warping, still generation or optical flow",
+    "rejected_motion_source_frame_allowed_if_individually_sound": true,
+    "does_not_approve_source_motion": true,
+    "no_aseprite_on_failed_source": true
+  },
+  "identity_reference": {
+    "path": "references/IMAGE_2_approved-front.png",
+    "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+    "role": "identity/style only, not pose/end-state lock",
+    "binding": "bind if supported, otherwise record honestly as consulted"
+  },
+  "requested_settings": {
+    "mode": "image_to_video",
+    "duration_seconds": 3,
+    "width": 1280,
+    "height": 720,
+    "camera": "locked",
+    "source_facing": "right-facing three-quarter",
+    "display_facings": [
+      "right",
+      "left"
+    ],
+    "left_method": "later whole-sprite horizontal mirror",
+    "audio": "request silent; preserve/disclose unavoidable original native audio",
+    "duration_fallback": "Use shortest actual supported duration; put more natural middle cycles in longer video, never stretch start/stop or slow the cadence. Record actual settings."
+  },
+  "performance_contract": {
+    "speed": "slow_relaxed",
+    "native_performance_required": true,
+    "retimed_other_mode_allowed": false,
+    "min_genuinely_performed_cruise_cycles": 2,
+    "start_loop_finish_required": true,
+    "timing": "prompt times are approximate choreography; select actual windows after observing video",
+    "loop_boundary_test": "pose plus incoming/outgoing motion for body, hands, tail/fin and hair",
+    "exact_old_opening_required": false,
+    "exact_existing_rest_pose_required": false,
+    "first_frame_pixel_equality_to_old_art_required": false,
+    "rest_bridge": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+    "rest_mismatch_alone_is_source_failure": false,
+    "bridge_implementation_authorized": false,
+    "mode_distinction": "compare slow and dash side by side at native 1x; dash stronger/quicker with meaningful launch/deceleration, not a time-scaled duplicate",
+    "gameplay_timing_targets_seconds": {
+      "visible_commitment_max": 0.15,
+      "relaxed_cruise_cycle": [
+        0.8,
+        1.2
+      ],
+      "dash_cruise_cycle": [
+        0.4,
+        0.6
+      ],
+      "brake": [
+        0.15,
+        0.25
+      ],
+      "status": "pilot targets, not measured/accepted source facts"
+    },
+    "controller_expectation": "Immediate control response; START once then CRUISE repeated while moving; STOP on release/arrival without whole-clip/cycle lock. Source job must report exit phases; runtime/controller not implemented by this packet.",
+    "validation_scenarios": [
+      "1s commanded travel",
+      "2s commanded travel",
+      "5s sustained travel",
+      "release mid-stroke",
+      "rapid restart",
+      "left/right reversal"
+    ],
+    "required_return_segment_evidence": [
+      "actual native entry range",
+      "actual natural loop range(s) and both-side pose/velocity evidence",
+      "actual stop range and departure phase",
+      "missing release phases explicitly listed"
+    ]
+  },
+  "preserve": [
+    "Owner-approved A001 movement/acting direction; fix pacing, not a redesign",
+    "painted child identity/costume/iridescence",
+    "source anatomical-left rainbow lock",
+    "right-facing presentation; left is a later display mirror",
+    "complete full-body framing and stable scale",
+    "connected expressive torso, bent arms, coherent buoyant curls, broad continuous fin"
+  ],
+  "blocking_defects": [
+    "identity/anatomy drift",
+    "rigid body/flying arms/pinned fingertips",
+    "hair wind/distortion/sliding texture",
+    "waist discontinuity/fin hinge/pinch/inversion",
+    "crop/size pulse",
+    "fake duplicated cycles or failed actual cruise seam",
+    "slow/dash not distinct at native speed",
+    "Long theatrical preparation or braking mismatched to 1-2s travel",
+    "Whole-film duration mistaken for uninterruptible gameplay action"
+  ],
+  "output_path": "reshoots/inbox/RSW-SLOW-01/A002/RSW-SLOW-01_take-02.mp4",
+  "return_path": "reshoots/attempts/RSW-SLOW-01/A002/RETURN.json",
+  "return_template_path": "reshoots/attempts/RSW-SLOW-01/A002/RETURN_TEMPLATE.json",
+  "output_sha256": null,
+  "output_bytes": null,
+  "execution_order": 1,
+  "execution_note": "One compact timing revision per mode, sequentially; check ACK/RETURN to avoid duplicates. Publish each native output/input/return. Then wait for addressed review. No automatic third same-method failed attempt.",
+  "on_missing_inputs_or_tools": "Report precise blocker and empty media artifacts, not a new still or unapproved substitute mode/API purchase.",
+  "review_contract": {
+    "independent_reviewers": 2,
+    "axes": [
+      "identity/style",
+      "body swimming",
+      "hair/water",
+      "tail/fin",
+      "personality",
+      "flow/continuity",
+      "game usefulness"
+    ],
+    "score": "lower unrounded mean >=4.8 with no blocking defects, then HUMAN_REVIEW_REQUIRED per mode",
+    "pair_review": "distinct native-speed performances; no mode can compensate for failure of the other",
+    "aseprite_on_failed_source": false,
+    "automatic_acceptance": false,
+    "two_same_method_failures": "reassess method without lowering threshold"
+  },
+  "source_accepted": false,
+  "delivery_accepted": false,
+  "timers_changed": false,
+  "previous_direction_path": "EXCHANGE_06.txt",
+  "previous_direction_sha256": "adeaf265f1f3861b77c29dfb6acbafccb3804f11c43d57a676b2fd6cca5abc7b",
+  "same_method_failures_before_this_generation": 0,
+  "addressed_findings": [
+    "SLOW-PACE-01",
+    "SLOW-CUT-01"
+  ],
+  "generation_ready": false,
+  "generation_ready_reason": "Authorized selection/generation job, but actual native IMAGE_1 not yet selected and screened; record selection before invoking video tool. No extra owner opening approval."
+}

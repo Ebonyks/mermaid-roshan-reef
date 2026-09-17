@@ -24,7 +24,7 @@ change, not a new visual pass or a runtime flip implementation.
 ## Current Roshan swimming source commission
 
 The owner now requests separate **slow relaxed swim** and **dash** performances.
-Use [movement profile v1.2](../../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md#two-swim-speeds-and-performance-led-openings)
+Use [movement profile v1.3](../../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md#two-swim-speeds-and-performance-led-openings)
 and the [current Grok handoff](../../assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/START_HERE.txt).
 Suitable actual Grok frames seed new takes; the old opening/rest pose is not a
 lock. The two modes are separately performed, not playback-speed variants.
@@ -32,6 +32,14 @@ Rest-to-motion bridges are deferred separate work if needed. Source, loop,
 mode-distinction and human review remain open; no new animation is accepted.
 [Impact](../../design/audit_impacts/2026-09-16-roshan-two-speed-handoff.json).
 <!-- ROSHAN_TWO_SPEED_20260916_END -->
+
+The owner approves A001's motion direction but rejects ten-second gameplay
+pacing. The [short-action direction](../../assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_07.txt)
+and [A001 review / A002 handoff](../../assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/reviews/PAIR-A001-20260916/START_HERE.txt)
+require quick starts, repeatable cruise and short stops demonstrated on 1s/2s
+travel, including interruption. Source crop, actual loop and phase-exit tests
+remain open; source-film length must not lock movement duration.
+[Impact](../../design/audit_impacts/2026-09-16-roshan-pair-a001-source-review.json).
 
 ## Start an animation task here
 

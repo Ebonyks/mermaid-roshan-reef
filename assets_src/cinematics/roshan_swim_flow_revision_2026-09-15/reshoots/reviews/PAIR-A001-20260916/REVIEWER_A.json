@@ -1,0 +1,81 @@
+{
+  "id": "codex-sol-review-A-20260916",
+  "task": "/root/slow_dash_review_a",
+  "model": "gpt-5.6-sol",
+  "method": "All twelve every-third-frame contact sheets plus selected native PNGs; no original-video playback by this reviewer.",
+  "coverage": {
+    "slow": [
+      0,
+      3,
+      84,
+      90,
+      93,
+      96,
+      180,
+      183,
+      186,
+      189,
+      210,
+      216,
+      225,
+      234,
+      240
+    ],
+    "dash": [
+      0,
+      36,
+      42,
+      48,
+      60,
+      72,
+      84,
+      96,
+      120,
+      132,
+      144,
+      156,
+      168,
+      180,
+      192,
+      204,
+      210,
+      216,
+      222,
+      228,
+      234,
+      240
+    ]
+  },
+  "provisional_still_only_axes": {
+    "slow": {
+      "identity/style": 4.3,
+      "body swimming": 4.1,
+      "hair/water": 3.4,
+      "tail/fin": 4,
+      "personality": 4.1,
+      "flow/continuity": 3.2,
+      "game usefulness": 3.5
+    },
+    "dash": {
+      "identity/style": 4.1,
+      "body swimming": 4,
+      "hair/water": 3.4,
+      "tail/fin": 3,
+      "personality": 4.4,
+      "flow/continuity": 2.7,
+      "game usefulness": 2.5
+    }
+  },
+  "findings": {
+    "slow": "Promising relaxed performance. Loop windows require investigation; comparable fin poses do not imply phase/velocity equality. Hair remains swept back at settle.",
+    "dash": "Distinct bright compact effort; fin cropped at f48 and late ending; finish turns toward near-front rather than staying clearly right-three-quarter. Preserve acting and correct framing."
+  },
+  "schema": "reef.roshan-independent-partial-review.v1",
+  "reviewed_git_head": "90014720f54d77bbc3b4f2a57f949bec828be9df",
+  "blind_to_other_reviewer": true,
+  "producer_identity_overlap": false,
+  "acceptance_axes": null,
+  "acceptance_mean": null,
+  "temporal_review_complete": false,
+  "limitation": "Provisional numbers express still-frame impressions only, not source checkpoint scores; do not aggregate them into a 4.8 acceptance result."
+}

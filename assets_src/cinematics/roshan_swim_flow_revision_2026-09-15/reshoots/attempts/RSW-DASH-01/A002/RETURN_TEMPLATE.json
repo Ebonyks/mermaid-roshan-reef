@@ -1,0 +1,55 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A002",
+  "request_id": "RSW-DASH-01-A002-responsive-gameplay",
+  "request_sha256": "285be32221a76f83ed72e53b9776c03d64da8ada77d2823ce7965c42d8f043c5",
+  "performance_mode": "dash",
+  "status": "REPLACE_WITH_RETURNED_OR_SPECIFIC_BLOCKER",
+  "producer": null,
+  "generation_job_id": null,
+  "generator_model": null,
+  "mode": null,
+  "input_selection_path": "reshoots/attempts/RSW-DASH-01/A002/INPUT_SELECTION.json",
+  "input_selection_sha256": null,
+  "prompt_used": null,
+  "prompt_used_sha256": null,
+  "settings": {},
+  "bound_inputs": [],
+  "consulted_inputs": [],
+  "artifacts": [
+    {
+      "role": "original_native_video",
+      "path": "reshoots/inbox/RSW-DASH-01/A002/RSW-DASH-01_take-02.mp4",
+      "sha256": null,
+      "bytes": null,
+      "width": null,
+      "height": null,
+      "fps": null,
+      "frame_count": null,
+      "duration_seconds": null,
+      "audio_present": null
+    }
+  ],
+  "proposed_segments": {
+    "entry": null,
+    "cruise_cycles": [],
+    "exit": null,
+    "frame_index_convention": "zero-based, end-exclusive; proposed only after observing source, not copied from prompt times"
+  },
+  "rest_bridge_status": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+  "speed_distinction_observation": null,
+  "unknown_metadata_reasons": [],
+  "source_acceptance": false,
+  "delivery_accepted": false,
+  "instructions": "Publish original video plus actual selected PNG, INPUT_SELECTION.json and this completed return in Git. Bind exact request and input-selection hashes. Record actual prompt/settings/bound-vs-consulted inputs, not expected values. Unknown is null with a reason. For a blocker use artifacts:[] and specific reason. No producer self-score establishes acceptance. Owner approves A001 acting direction; record compact timing actually achieved, not prompt intentions. Keep actual fps and zero-based end-exclusive cuts. Explain which release phases remain unsupported; no fake 1s/2s playback pass. Never stretch choreography to tool duration.",
+  "gameplay_timing": {
+    "visible_commitment_seconds": null,
+    "measured_cycle_durations_seconds": [],
+    "brake_duration_seconds": null,
+    "departure_phase_of_returned_stop": null,
+    "missing_release_phases": [],
+    "short_action_demonstrations": [],
+    "longer_tool_duration_handling": null
+  }
+}

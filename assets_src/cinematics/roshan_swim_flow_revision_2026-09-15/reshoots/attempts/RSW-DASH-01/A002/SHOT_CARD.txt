@@ -1,0 +1,30 @@
+movie_id: ROSHAN_TWO_SPEED_GAMEPLAY_SOURCE
+shot_id: RSW-DASH-01
+attempt: A002
+request_id: RSW-DASH-01-A002-responsive-gameplay
+status: DRAFT_SELECT_NATIVE_INPUT
+duration: 3 seconds preferred if tool supports; otherwise shortest supported duration with MORE cycles, never stretched start/stop
+aspect: 16:9
+size: 1280x720
+mode: image_to_video
+output_disposition: gameplay_source_candidate; not cinematic delivery
+camera: locked
+policy: EXCHANGE_07 timing clarification supersedes ten-second choreography for new takes only
+
+IMAGE_1: SELECT_FROM_ACTUAL_GROK_VIDEO
+job: clean individually sound native pose, with safe margins for full motion; not a locked old opening/rest painting
+available_source: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/90014720f54d77bbc3b4f2a57f949bec828be9df/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A001/RSW-DASH-01_take-01.mp4
+source_status: owner-approved motion direction, NOT accepted timing/source/delivery; dash contains cropped fin frames that cannot seed generation
+operator_action: inspect and select a sound actual native frame; preserve exact PNG under this attempt inputs/IMAGE_1.png; complete INPUT_SELECTION before rendering. No extra owner opening approval. Other published sound Grok frames also allowed if fully recorded.
+IMAGE_2: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/90014720f54d77bbc3b4f2a57f949bec828be9df/assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/references/IMAGE_2_approved-front.png
+job: identity/style only, not pose lock; bind if supported, otherwise explicitly consult
+
+must_move: prompt eye/shoulder intention overlapping first stroke, connected torso/tail, soft bent arms, buoyant rooted curls, broad fin
+must_not_move: camera/background; stable overall scale; hair roots attached
+start: visible commitment within roughly 0.10-0.15s
+cruise: 0.4-0.6s cycles, native performed cadence; at least two complete cycles
+stop: roughly 0.15-0.25s, natural attentive right-facing brake
+negative_constraints: no long preparation, stretched stop, crop, front turn, anatomy/identity change, artificial motion repair, copied cycle or retimed other mode
+sound_intent: silent; disclose unavoidable original audio
+
+Paste PROMPT.txt only. Do not bind audit sheets as generation pixels. One take authorized, acknowledge job ID and return original RSW-DASH-01_take-02.mp4 plus input selection/RETURN. Report actual entry, loop, stop and departure phase; prompt times are not cut indices. This does not implement all release-phase exits. Keep enough canvas below the fin. Exact resting-sprite bridges remain deferred. No Aseprite rescue or paid tool switch.

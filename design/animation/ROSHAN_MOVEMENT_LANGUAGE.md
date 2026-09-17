@@ -1,6 +1,6 @@
 # Mermaid Roshan — movement and acting language
 
-Version 1.2 · owner commission 2026-09-11; left/right and two-speed/source-frame decisions 2026-09-16 · source baseline
+Version 1.3 · owner commission 2026-09-11; left/right, two-speed/source-frame and short-gameplay timing decisions 2026-09-16 · source baseline
 `cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016`.
 
 Authority: `BINDING_DOMAIN` for the commissioned direction and briefing
@@ -89,6 +89,35 @@ Use the [two-speed handoff](../../assets_src/cinematics/roshan_swim_flow_revisio
 Every new source still requires independent source review; failures go back
 to Grok, never Aseprite. At 4.8/5 with no blocking defect, stop for human review.
 This direction change accepts no clip, runtime behavior or cinematic delivery.
+
+## Responsive click-to-move timing
+
+The owner approves the A001 motion/acting direction but rejects its long-form
+pacing: routine movements often last only **one or two seconds**. Preserve the
+soft relaxed swim and brighter dash; do not redesign acting to fix timing. The
+[short-gameplay handoff](../../assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/EXCHANGE_07.txt)
+supersedes earlier ten-second choreography for new takes, not their history.
+
+Source-video duration is not the duration of a gameplay action. Author a brief
+start, a repeatable core cycle and a short stop. Starting pilot targets are
+0.10–0.15s for visible commitment, 0.8–1.2s per relaxed cycle, 0.4–0.6s per dash
+cycle and roughly 0.15–0.25s for braking. These are unmeasured design targets,
+not approved asset timings. Eye/shoulder intention overlaps the first stroke;
+never make movement wait for theatrical preparation. Hair and fin overlap
+carry personality during travel. Longer generator clips should contain more
+genuine cycles, not slower starts or stretched stops.
+
+The future controller must respond immediately to start/release/arrival,
+loop only cruise, and allow release mid-stroke without waiting a whole cycle.
+Preserve phase-compatible exits; identify missing exit phases as additional
+source work rather than snapping, freezing or morphing a pose. One supplied
+stop does not prove arbitrary-phase interruption. Restart and left/right
+reversal must not queue a whole clip. Validate 1s, 2s and 5s commanded travel,
+mid-stroke release and rapid restart/reversal; report whether the short visual
+settle is additional to travel duration. These are future timing demonstrations,
+not implemented runtime behavior here. Native cadence, continuity, margins and
+the 4.8/owner checkpoint remain required. Exact resting-sprite bridges remain
+separate; qualitative motion approval is not fabricated numerical acceptance.
 
 ## The character in one sentence
 

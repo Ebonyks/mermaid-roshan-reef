@@ -1,0 +1,164 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "attempt": "A001",
+  "reviewed_git_head": "90014720f54d77bbc3b4f2a57f949bec828be9df",
+  "reviewers": [
+    {
+      "identity": "codex-sol-review-A-20260916",
+      "model": "gpt-5.6-sol",
+      "evidence_path": "reshoots/reviews/PAIR-A001-20260916/REVIEWER_A.json",
+      "independent": true,
+      "producer_overlap": false,
+      "complete_acceptance_scores": null
+    },
+    {
+      "identity": "codex-sol-review-B-20260916",
+      "model": "gpt-5.6-sol",
+      "evidence_path": "reshoots/reviews/PAIR-A001-20260916/REVIEWER_B.json",
+      "independent": true,
+      "producer_overlap": false,
+      "complete_acceptance_scores": null
+    }
+  ],
+  "lower_unrounded_mean": null,
+  "score_status": "NOT_COMPUTED_INCOMPLETE_TEMPORAL_REVIEW",
+  "normal_speed_evidence": {
+    "method": "Original MP4s played in local browser at 1x and 0.5x; root received discrete screenshots, not an uninterrupted video stream. Player showed unequal playback positions; not a synchronized/certified full pair review.",
+    "sampled_native_playback_seconds": {
+      "slow": [
+        0.481,
+        4.727,
+        9.774
+      ],
+      "dash": [
+        0.225,
+        4.475,
+        9.53
+      ]
+    },
+    "half_speed_samples": "Start for both, later slow endpoint and dash around 3.945s. Not complete half-speed coverage.",
+    "independent_reviewers_used_frames_only": true
+  },
+  "direction_policy": "EXCHANGE_04.txt",
+  "direction_policy_sha256": "a9cb6b100acaacf6fb67558e65b5f95845c2e97ee8ca6c03d48b9db2b28f1daf",
+  "performance_policy": "EXCHANGE_06.txt",
+  "performance_policy_sha256": "adeaf265f1f3861b77c29dfb6acbafccb3804f11c43d57a676b2fd6cca5abc7b",
+  "runtime_mirror_verified": false,
+  "mirrored_left_review_evidence": null,
+  "mirror_pivot_and_contact_evidence": null,
+  "human_approval": null,
+  "aseprite_eligible": false,
+  "source_accepted": false,
+  "delivery_accepted": false,
+  "rest_bridge": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+  "frame_index_convention": "zero-based, end-exclusive; time = native frame / 24",
+  "source_originals_modified": false,
+  "shot_id": "RSW-DASH-01",
+  "request_id": "RSW-DASH-01-A001-performance-led",
+  "request_sha256": "74915aa4c0ac9697677a9579ee85c99dd3d8b0fd9a5eb2fac90c8032b893d5b8",
+  "return_sha256": "fad496ce52be9c58d2d4e2e942d449f215b7d87f05c34313f9045451e012bca2",
+  "clip_sha256": "9fbebb47e6a60a85d27881be38fabbdcc3a7546fa321e194a9732357c5335fac",
+  "decision": "REGENERATE",
+  "decision_reason": "Owner approves motion direction, commissions compact gameplay timing; confirmed source fin cropping also needs correction. Preserve acting and fix source margins.",
+  "artistic_failure_count_increment": 1,
+  "loop_seam_evidence": "reshoots/reviews/PAIR-A001-20260916/evidence/dash-crop-seams.jpg",
+  "right_facing_review_evidence": "Compact eager action is distinct in sampled frames, but [204,241) turns towards near-frontal upright finish. Preserve three-quarter right-facing readability while braking, not old-rest-pose equality.",
+  "issues": [
+    {
+      "id": "DASH-CROP-01",
+      "start_frame": 45,
+      "end_frame_exclusive": 50,
+      "start_seconds": 1.875,
+      "end_seconds": 2.0833333333333335,
+      "observation": "The lower fin reaches/crosses the bottom image edge during launch; clearly truncated in f47-48.",
+      "expected": "Complete crown, fingers and both fin lobes remain visible with breathing room throughout the performed arc.",
+      "reconstruction": "Compose the next native generation with enough lower margin for the full launch excursion; do not crop, pad, shrink/reposition parts or paint missing fin pixels locally.",
+      "preserve": [
+        "bright anticipation",
+        "native dash timing",
+        "continuous waist/tail",
+        "broad two-lobed fin"
+      ],
+      "blocking": true
+    },
+    {
+      "id": "DASH-CROP-02",
+      "start_frame": 230,
+      "end_frame_exclusive": 241,
+      "start_seconds": 9.583333333333334,
+      "end_seconds": 10.041666666666666,
+      "observation": "The fin touches/crosses the bottom border again during the ending; final lower lobe is cut off.",
+      "expected": "Full-body safe framing throughout deceleration.",
+      "reconstruction": "Keep braking motion in a bounded on-screen envelope with both fin tips fully visible; fixed camera and stable scale.",
+      "preserve": [
+        "natural rest bridge deferred",
+        "full source identity"
+      ],
+      "blocking": true
+    },
+    {
+      "id": "DASH-FACING-01",
+      "start_frame": 204,
+      "end_frame_exclusive": 241,
+      "start_seconds": 8.5,
+      "end_seconds": 10.041666666666666,
+      "observation": "Ending becomes near-frontal and vertical, rather than a clearly right-facing brake.",
+      "expected": "Right-facing source family for deterministic left mirror; end pose can be natural without matching the old resting sprite.",
+      "reconstruction": "Keep head/chest/pelvis oriented right-three-quarter through deceleration; ease tail stroke and open soft braking palms without turning to face the viewer.",
+      "preserve": [
+        "warm satisfied face",
+        "expressive shoulders",
+        "no forced old endpoint"
+      ],
+      "blocking": true
+    },
+    {
+      "id": "DASH-CUT-01",
+      "start_frame": 24,
+      "end_frame_exclusive": 120,
+      "start_seconds": 1,
+      "end_seconds": 5,
+      "compared_cut_pairs": [
+        [
+          71,
+          24
+        ],
+        [
+          119,
+          72
+        ]
+      ],
+      "observation": "First proposed loop jumps from horizontal propulsion to upright arms-down pose. Second differs in arm/fin configuration and is not proven.",
+      "expected": "Recurring actual cruise cycles with compatible pose and incoming/outgoing velocity at an observed cut.",
+      "reconstruction": "Perform repeatable compact swim pulses; select true boundaries after viewing, not by 48-frame arithmetic. No duplicated cycles, retime, optical flow or crossfade.",
+      "preserve": [
+        "separate native dash",
+        "brighter energy than slow"
+      ],
+      "blocking": true
+    },
+    {
+      "id": "DASH-PACE-01",
+      "start_frame": 0,
+      "end_frame_exclusive": 241,
+      "start_seconds": 0,
+      "end_seconds": 10.041666666666666,
+      "observation": "Owner finds ten-second performance pacing unsuitable for frequent 1-2s click-to-move actions.",
+      "expected": "Rapid commitment, native compact cruise cycles and short phase-compatible brake; preserve approved movement.",
+      "reconstruction": "Use EXCHANGE_07 timing targets in the next native take; no long look/gather, no mandatory whole-film playback. Prove actual source ranges and short action timing.",
+      "blocking": true,
+      "evidence_basis": "explicit owner feedback and gameplay-duration requirement, not an automated artistic score"
+    }
+  ],
+  "next_action": "reshoots/attempts/RSW-DASH-01/A002/REQUEST.json",
+  "owner_feedback": {
+    "date": "2026-09-16",
+    "statement": "The animations and motions themselves are great; speed and pacing do not fit click-to-move actions often lasting 1-2 seconds.",
+    "motion_direction_approved": true,
+    "temporal_gameplay_accepted": false,
+    "numeric_score": null,
+    "scope": "Preserve approved acting/style. Revise timing to compact entry, recurring core cycle and short stop. Not a new identity/acting redesign.",
+    "direction_path": "EXCHANGE_07.txt",
+    "direction_sha256": "25a9ebafebcbf3b24a249a0a9866154259efbc30754720da48f0f80a7da45dfd"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "reef.roshan-pair-source-review.v1",
+  "head": "90014720f54d77bbc3b4f2a57f949bec828be9df",
+  "status": "OWNER_APPROVED_MOTION_DIRECTION_TIMING_REVISION_REQUIRED",
+  "technical_verification": "PASS",
+  "slow_decision": "REGENERATE_GAMEPLAY_TIMING_PRESERVE_ACTING",
+  "dash_decision": "REGENERATE_GAMEPLAY_TIMING_AND_CROP_PRESERVE_ACTING",
+  "scores_meet_4_8": null,
+  "pair_native_speed_review_complete": false,
+  "distinct_performances_observed": "Distinct anticipation, arms, expressions and tail poses in frame evidence; not merely identical frames. Full native-speed cadence certification remains incomplete.",
+  "limits": "Root observed discrete browser samples at requested rates, not continuous video; both Sol reviewers used frame evidence. No honest full checkpoint score is available. Clear clipping suffices to reject dash, but incorrect suggested cuts do not alone prove slow must be regenerated. New owner direction commissions both compact-timing revisions without declaring the approved acting artistically failed.",
+  "next_jobs": [
+    {
+      "shot": "RSW-SLOW-01",
+      "attempt": "A002",
+      "kind": "COMPACT_NATIVE_GAMEPLAY_TAKE",
+      "max_new_takes": 1
+    },
+    {
+      "shot": "RSW-DASH-01",
+      "attempt": "A002",
+      "kind": "COMPACT_NATIVE_GAMEPLAY_TAKE",
+      "max_new_takes": 1
+    }
+  ],
+  "method_failure_counts": {
+    "slow": 0,
+    "dash": 1
+  },
+  "on_second_same_method_failure": "Reassess input composition or choreography; do not automatically issue a third same-method render or lower threshold.",
+  "aseprite_eligible": false,
+  "source_accepted": false,
+  "delivery_accepted": false,
+  "timers_changed": false,
+  "owner_feedback": {
+    "date": "2026-09-16",
+    "statement": "The animations and motions themselves are great; speed and pacing do not fit click-to-move actions often lasting 1-2 seconds.",
+    "motion_direction_approved": true,
+    "temporal_gameplay_accepted": false,
+    "numeric_score": null,
+    "scope": "Preserve approved acting/style. Revise timing to compact entry, recurring core cycle and short stop. Not a new identity/acting redesign.",
+    "direction_path": "EXCHANGE_07.txt",
+    "direction_sha256": "25a9ebafebcbf3b24a249a0a9866154259efbc30754720da48f0f80a7da45dfd"
+  }
+}
