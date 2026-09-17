@@ -4608,6 +4608,8 @@ All following paths are under `assets_src/cinematics/roshan_swim_flow_revision_2
 | `reshoots/inbox/RSW-DASH-01/A001/RSW-DASH-01_take-01.mp4` | Grok Imagine image-to-video from the selected frame-0120 native PNG | Original native dash A001 candidate. 1280x720 24fps 10.04s AAC. Separate native performance, not a retime of slow. Not cinematic delivery, not sprites, not runtime. |
 | `reshoots/attempts/RSW-SLOW-01/A002/inputs/IMAGE_1.png` | Lossless native frame 12 of `reshoots/inbox/RSW-SLOW-01/A001/RSW-SLOW-01_take-01.mp4` | Selected Grok-frame opening for compact slow A002. Does not accept A001 timing or source motion. |
 | `reshoots/inbox/RSW-SLOW-01/A002/RSW-SLOW-01_take-02.mp4` | Grok Imagine image-to-video from the selected A001 frame-12 native PNG | Original native slow A002 compact-timing candidate. 1280x720 24fps 6.04s AAC. 3s requested; 6s is tool minimum. Not cinematic delivery, not sprites, not runtime. |
+| `reshoots/attempts/RSW-DASH-01/A002/inputs/IMAGE_1.png` | Lossless native frame 12 of `reshoots/inbox/RSW-DASH-01/A001/RSW-DASH-01_take-01.mp4` | Selected Grok-frame opening for compact dash A002. Outside A001 crop windows. Does not accept A001 timing or source motion. |
+| `reshoots/inbox/RSW-DASH-01/A002/RSW-DASH-01_take-02.mp4` | Grok Imagine image-to-video from the selected A001 dash frame-12 native PNG | Original native dash A002 compact-timing candidate. 1280x720 24fps 6.04s AAC. 3s requested; 6s is tool minimum. Fin-bottom contact on three pulse windows is recorded in RETURN.json. Not cinematic delivery, not sprites, not runtime. |
 
 <!-- ROSHAN_TWO_SPEED_SOURCE_20260916_START -->
 ### Roshan two-speed handoff — native-frame input clarification (2026-09-16)

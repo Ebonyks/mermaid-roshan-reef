@@ -1,0 +1,55 @@
+{
+  "schema": "reef.roshan-native-frame-input.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A002",
+  "request_id": "RSW-DASH-01-A002-responsive-gameplay",
+  "request_sha256": "285be32221a76f83ed72e53b9776c03d64da8ada77d2823ce7965c42d8f043c5",
+  "status": "SELECTED",
+  "selector": "grok-build-imagine-bridge-2026-09-16",
+  "selected_at": "2026-09-17T03:20:00Z",
+  "source_video": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "commit": "90014720f54d77bbc3b4f2a57f949bec828be9df",
+    "path": "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A001/RSW-DASH-01_take-01.mp4",
+    "sha256": "9fbebb47e6a60a85d27881be38fabbdcc3a7546fa321e194a9732357c5335fac",
+    "native_frame_index_zero_based": 12,
+    "presentation_timestamp_seconds": 0.5,
+    "time_base": "1/24",
+    "decode_method": "lossless FFmpeg PNG decode of native frame 12; no crop, resize, repaint, composite or optical flow"
+  },
+  "extracted_image": {
+    "path": "reshoots/attempts/RSW-DASH-01/A002/inputs/IMAGE_1.png",
+    "sha256": "0d5f54634e57bc4b818461fd533a85069b435f10cc42809dddd746d256edae78",
+    "width": 1280,
+    "height": 720,
+    "transforms": []
+  },
+  "candidates_inspected": [
+    "dash A001 native frames 0/12/18/24/36/42/48/60/72/84/96/108/120/144/180/200/216/228/240 (margin scan)",
+    "dash A001 frames 45-50 and 228-240 (fin at/over bottom edge; cannot seed)",
+    "dash A001 frame 0 (S-curve, 196px bottom)",
+    "dash A001 frame 60/84 (good margins, later cruise poses)",
+    "dash A001 frame 180 (257px bottom but later and more upright)",
+    "dash A001 frame 12 (selected)",
+    "slow A002 take-02 not used; dash must be a separate native performance"
+  ],
+  "screening": {
+    "identity_face_crown_costume": "PASS \u2014 painted child face, gold crown/blue gem, pink bodice, lilac frills, eager smile",
+    "anatomy_proportions": "PASS \u2014 child proportions, one tail",
+    "hair_attachment": "PASS \u2014 scalp roots attached, rainbow lock on anatomical left",
+    "waist_tail_continuity": "PASS \u2014 continuous waist-to-tail join",
+    "broad_fin": "PASS \u2014 two-lobed pearlescent fin fully on canvas, not a cropped seed",
+    "right_facing_readability": "PASS \u2014 right-facing three-quarter",
+    "full_body_margins": "PASS \u2014 crown, hands and both fin lobes inside frame; measured ~76px top / 213px bottom / 236px left / 468px right navy room so launch/brake have extra lower canvas",
+    "findings": [
+      "Compact gather with bright acting; extra bottom margin versus A001 cropped launch/finish frames.",
+      "A001 timing and cropped frames are not accepted. Selecting this frame does not pass A001 source motion.",
+      "Owner approved A001 dash acting direction; this native frame preserves that vocabulary while giving the next take room for the full fin."
+    ],
+    "input_frame_suitable": true
+  },
+  "selection_reason": "Sound native A001 dash gather pose with 213px bottom clearance, outside confirmed crop windows, so compact A002 can launch immediately without seeding from a clipped fin.",
+  "source_motion_accepted": false,
+  "existing_rest_pose_match_required": false,
+  "owner_opening_approval_required": false
+}

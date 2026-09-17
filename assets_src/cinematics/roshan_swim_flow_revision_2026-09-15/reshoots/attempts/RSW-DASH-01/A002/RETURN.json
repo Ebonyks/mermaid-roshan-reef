@@ -1,0 +1,167 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A002",
+  "request_id": "RSW-DASH-01-A002-responsive-gameplay",
+  "request_sha256": "285be32221a76f83ed72e53b9776c03d64da8ada77d2823ce7965c42d8f043c5",
+  "performance_mode": "dash",
+  "status": "RETURNED",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generation_job_id": "grok-dash-a002-2026-09-17T03:19Z",
+  "generator_model": "imagine_image_to_video",
+  "mode": "imagine_image_to_video",
+  "input_selection_path": "reshoots/attempts/RSW-DASH-01/A002/INPUT_SELECTION.json",
+  "input_selection_sha256": "56e08bd3436a562ad958e2d6703542942dd69de491cca033795d1c39f905059b",
+  "prompt_used": "reshoots/attempts/RSW-DASH-01/A002/PROMPT.txt",
+  "prompt_used_sha256": "45c33496faed754aa52fb0b030e654821a7a806531c7e039af9d01740c18d51d",
+  "settings": {
+    "aspect_ratio": "16:9",
+    "requested_duration": 3,
+    "supported_minimum_duration": 6,
+    "native_duration": 6.04,
+    "resolution": "720p",
+    "camera": "locked"
+  },
+  "bound_inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "reshoots/attempts/RSW-DASH-01/A002/inputs/IMAGE_1.png",
+      "sha256": "0d5f54634e57bc4b818461fd533a85069b435f10cc42809dddd746d256edae78",
+      "binding": "actual imagine_image_to_video starting image; native frame 12 of RSW-DASH-01_take-01.mp4, chosen for 213px bottom clearance outside A001 crop windows"
+    }
+  ],
+  "consulted_inputs": [
+    {
+      "name": "IMAGE_2",
+      "path": "references/IMAGE_2_approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "binding": "consulted painted-child identity; one-image slot so not bound"
+    }
+  ],
+  "artifacts": [
+    {
+      "role": "original_native_video",
+      "path": "reshoots/inbox/RSW-DASH-01/A002/RSW-DASH-01_take-02.mp4",
+      "sha256": "bb64fd702e5ce0aa20390884edb619c51812420bfeba109b010919d23e88371f",
+      "bytes": 3284298,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.04,
+      "audio_present": true
+    }
+  ],
+  "proposed_segments": {
+    "entry": {
+      "start_frame": 0,
+      "end_frame_exclusive": 12,
+      "note": "Immediate compact gather/launch. Motion visible by frame 2 (0.083s). First fin-bottom contact begins at frame 15, after this window."
+    },
+    "cruise_cycles": [
+      {
+        "start_frame": 20,
+        "end_frame_exclusive": 48,
+        "note": "Recovery after first launch pulse through second pulse. Fin touches bottom at [42,46). Codex must confirm seam. Observed pulse spacing ~1.1s, slower than 0.4-0.6s pilot."
+      },
+      {
+        "start_frame": 48,
+        "end_frame_exclusive": 74,
+        "note": "Second recovery; local low-bot at frame 66 with 20px remaining. Codex must confirm seam."
+      },
+      {
+        "start_frame": 74,
+        "end_frame_exclusive": 108,
+        "note": "Third extra middle cycle filling 6s tool minimum. Fin touches bottom at [90,96)."
+      }
+    ],
+    "exit": {
+      "start_frame": 108,
+      "end_frame_exclusive": 145,
+      "note": "Gradual right-three-quarter settle; last frame keeps both fin lobes on canvas (~27px). Not an old rest-pose match. Longer than 0.15-0.25s brake pilot."
+    },
+    "frame_index_convention": "zero-based, end-exclusive; proposed only after observing source, not copied from prompt times"
+  },
+  "rest_bridge_status": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+  "speed_distinction_observation": "Separate native imagine_image_to_video performance from a distinct IMAGE_1 (dash A001 frame 12), not a retime of slow A002. Sampled frames read brighter/more compact than slow A002. Observed pulse spacing ~1.0-1.1s versus slow A002 ~1.5s. Dash 0.4-0.6s pilot is not met. Pair review still required.",
+  "producer_notes": [
+    "Identity holds on sampled frames: painted child, gold crown/blue gem, rainbow lock anatomical left, pink/lilac, pearlescent two-lobed fin, eager smile. Finish sampled frame 144 remains readable right-three-quarter, not the A001 near-frontal ending.",
+    "Native 6.04s / 24fps / 145 frames / AAC stereo. 3s requested; imagine_image_to_video shortest supported duration is 6s. Silence requested; unavoidable generated audio preserved.",
+    "First frame is the same character, not pixel-identical to IMAGE_1.",
+    "Whole-frame navy-key scan of all 145 frames: fin touches the bottom edge at frames [15,19), [42,46) and [90,96). Launch/pulse crop is NOT cleared. Finish [108,145) stays on canvas. Seed IMAGE_1 had 213px bottom clearance; generator still drove the fin to the edge on stronger pulses.",
+    "This is the one authorized dash A002 take. No second same-request render. A001 dash already counted one same-method crop failure; Codex reassessment is for review, not a producer retry.",
+    "Preserves A001 bright eager acting direction; compact-timing revision, not A001 relabeled, not take-02 recovery of FLOW-01.",
+    "Producer self-score does not count."
+  ],
+  "unknown_metadata_reasons": [],
+  "source_acceptance": false,
+  "delivery_accepted": false,
+  "gameplay_timing": {
+    "visible_commitment_seconds": 0.083,
+    "measured_cycle_durations_seconds": [
+      1.125,
+      0.958,
+      1.083
+    ],
+    "brake_duration_seconds": 1.541667,
+    "departure_phase_of_returned_stop": "late upright recovery after the third cropped pulse, into a compact right-three-quarter hold; not a mid-launch extension exit",
+    "missing_release_phases": [
+      "mid-launch / peak fin extension (those frames are also cropped)",
+      "pre-stroke gather",
+      "opposite tail-phase",
+      "rapid restart from this stop",
+      "left/right reversal"
+    ],
+    "short_action_demonstrations": [
+      {
+        "scenario": "1s commanded travel",
+        "status": "NOT_DEMONSTRATED",
+        "note": "Frames [0,24) include the first cropped launch pulse. Observation only; not a controller playback pass."
+      },
+      {
+        "scenario": "2s commanded travel",
+        "status": "NOT_DEMONSTRATED",
+        "note": "Frames [0,48) cover entry plus one pulse that includes [42,46) crop."
+      },
+      {
+        "scenario": "5s sustained travel",
+        "status": "NOT_DEMONSTRATED",
+        "note": "File is 6.04s of additional pulses. Looping a confirmed uncropped cruise is still required."
+      },
+      {
+        "scenario": "release mid-stroke",
+        "status": "NOT_COVERED"
+      },
+      {
+        "scenario": "rapid restart",
+        "status": "NOT_COVERED"
+      },
+      {
+        "scenario": "left/right reversal",
+        "status": "NOT_COVERED",
+        "note": "Right-facing source only; left remains a later whole-sprite mirror."
+      }
+    ],
+    "longer_tool_duration_handling": "Requested 3s. imagine_image_to_video minimum supported duration is 6s. Native 6.04s / 145 frames / 24fps / AAC. Extra middle time is additional performed pulses at the same observed ~1s cadence, not a stretched start or finish."
+  },
+  "crop_observations": {
+    "scan": "navy-key bounding box on every decoded frame",
+    "bottom_edge_contact_frames_zero_based_end_exclusive": [
+      [
+        15,
+        19
+      ],
+      [
+        42,
+        46
+      ],
+      [
+        90,
+        96
+      ]
+    ],
+    "finish_on_canvas": true,
+    "seed_had_safe_margin": true,
+    "a001_crop_windows_addressed_by_this_take": false
+  }
+}

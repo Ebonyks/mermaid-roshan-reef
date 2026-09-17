@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-17-roshan-dash-a002-return",
+  "scope": "Grok-owned RSW-DASH-01 A002 return: selected native A001 frame 12 as IMAGE_1, imagine_image_to_video compact-timing original, INPUT_SELECTION and RETURN. One authorized take. Fin-bottom contact on three pulse windows is recorded, not repaired. Not cinematic or runtime delivery.",
+  "baseline": "f98ef836df35fc75657473755354b418f9c7d17f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-13",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A002/INPUT_SELECTION.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A002/RETURN.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A002/inputs/IMAGE_1.png",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A002/RSW-DASH-01_take-02.mp4"
+  ],
+  "validation": [
+    {
+      "command": "Bind REQUEST and selected IMAGE_1 hashes",
+      "result": "PASS",
+      "evidence": "REQUEST sha256 285be32221a76f83ed72e53b9776c03d64da8ada77d2823ce7965c42d8f043c5. IMAGE_1 sha256 0d5f54634e57bc4b818461fd533a85069b435f10cc42809dddd746d256edae78 native frame 12 of A001 dash take-01. MP4 sha256 bb64fd702e5ce0aa20390884edb619c51812420bfeba109b010919d23e88371f, 3284298 bytes, 1280x720 24fps 145 frames 6.04s AAC."
+    },
+    {
+      "command": "Mode and duration fallback",
+      "result": "PASS",
+      "evidence": "imagine_image_to_video, not reference_to_video. IMAGE_2 consulted not bound. 3s requested; tool minimum 6s used with extra middle pulses. No new still generation. No second take on this request."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "This record covers the dash A002 Grok-owned files. No runtime mutation."
+    },
+    {
+      "command": "Runtime / Godot / assets/ diff versus origin/dev",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Non-runtime exchange only. DELIVERY_ACCEPTED stays false. Crop findings are in RETURN.json, not repaired in Aseprite."
+    }
+  ],
+  "acceptance_gaps": "No independent source review. Fin still contacts the bottom edge at [15,19), [42,46), [90,96). Measured pulse ~1.0-1.1s is outside 0.4-0.6s pilot. Finish facing looks improved versus A001 but is not a score. Rest bridge deferred. Do not merge to master or dev. MA-VIS-006 remains open."
+}
