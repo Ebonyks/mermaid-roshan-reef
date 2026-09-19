@@ -1,0 +1,19 @@
+{
+  "schema": "reef.grok-reshoot.v2",
+  "kind": "REVIEW",
+  "shot_id": "SHOT-ID",
+  "attempt": 1,
+  "decision": "REGENERATE | HOLD | ROUGH_REFERENCE_CANDIDATE",
+  "knockouts_hit": [],
+  "spans": [
+    {
+      "t": "0.0-1.0",
+      "observed": "",
+      "expected": "",
+      "reconstruct": ""
+    }
+  ],
+  "owner_approval": false,
+  "next_attempt_reconstruction": "",
+  "note": "ROUGH_REFERENCE_CANDIDATE is not delivery. Sampled QC is not full-span acceptance. Watch t_end."
+}

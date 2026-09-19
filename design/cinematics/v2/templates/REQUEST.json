@@ -1,0 +1,12 @@
+{
+  "schema": "reef.grok-reshoot.v2",
+  "kind": "PLANNING_REQUEST",
+  "shot_id": "SHOT-ID",
+  "attempt": 1,
+  "card_sha256": "<sha256 of shots/SHOT-ID/CARD.json>",
+  "prompt_sha256": "<sha256 of shots/SHOT-ID/PROMPT.txt>",
+  "bind_sha256s": {},
+  "opening_approved": false,
+  "generation_allowed": false,
+  "note": "A request is not permission to generate. opening_approved must be true for motion."
+}

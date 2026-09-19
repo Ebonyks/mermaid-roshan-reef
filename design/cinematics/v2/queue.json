@@ -1,0 +1,574 @@
+{
+  "schema": "reef.grok.queue.v2",
+  "revision": 1,
+  "rule": "Grok receives ONE row, as CARD.json. Never this whole file plus DATABASE.",
+  "ordered": [
+    {
+      "shot_id": "SHOT-ARRIVAL-TOUCHDOWN",
+      "location_id": "LOC-SKY",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY"
+      ],
+      "still_attempt_allowed": true,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "NO_APPROVED_LANDING_PATCH_STILL_USE_16X9_CROP_ONLY_FOR_STILL_ATTEMPT; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 4,
+      "v1_pool_size": 4
+    },
+    {
+      "shot_id": "SHOT-BATH-SINK",
+      "location_id": "LOC-BATH",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": true,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 3,
+      "v1_pool_size": 2
+    },
+    {
+      "shot_id": "SHOT-BATH-TUB",
+      "location_id": "LOC-BATH",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": true,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 3,
+      "v1_pool_size": 2
+    },
+    {
+      "shot_id": "SHOT-BATH-DRAIN",
+      "location_id": "LOC-BATH",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": true,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 3,
+      "v1_pool_size": 2
+    },
+    {
+      "shot_id": "SHOT-BATH-TOILET",
+      "location_id": "LOC-BATH",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": true,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 3,
+      "v1_pool_size": 2
+    },
+    {
+      "shot_id": "SHOT-POOL-SKIM",
+      "location_id": "LOC-POOL",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 2
+    },
+    {
+      "shot_id": "SHOT-POOL-FALL-1",
+      "location_id": "LOC-POOL",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 3,
+      "v1_pool_size": 2
+    },
+    {
+      "shot_id": "SHOT-POOL-FALL-2",
+      "location_id": "LOC-POOL",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 3,
+      "v1_pool_size": 2
+    },
+    {
+      "shot_id": "SHOT-POOL-FALL-3",
+      "location_id": "LOC-POOL",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 3,
+      "v1_pool_size": 2
+    },
+    {
+      "shot_id": "SHOT-POOL-PULL",
+      "location_id": "LOC-POOL",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 3,
+      "v1_pool_size": 5
+    },
+    {
+      "shot_id": "SHOT-EAGLE-FREE",
+      "location_id": "LOC-STUFFIE",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-EAGLE",
+        "CHAR-PLAY-BUNNY"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "CONFIRM_EMPTY_DRESSED_PLATE_THEN_OWNER_FIRST_FRAME; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 3,
+      "v1_pool_size": 5
+    },
+    {
+      "shot_id": "SHOT-EAGLE-WING",
+      "location_id": "LOC-STUFFIE",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-EAGLE",
+        "CHAR-PLAY-BUNNY"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "CONFIRM_EMPTY_DRESSED_PLATE_THEN_OWNER_FIRST_FRAME; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 3,
+      "v1_pool_size": 5
+    },
+    {
+      "shot_id": "SHOT-CRAFT-PICK-1",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 6
+    },
+    {
+      "shot_id": "SHOT-CRAFT-PICK-2",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 6
+    },
+    {
+      "shot_id": "SHOT-CRAFT-PICK-3",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 6
+    },
+    {
+      "shot_id": "SHOT-CRAFT-PICK-4",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 6
+    },
+    {
+      "shot_id": "SHOT-CRAFT-SCRUB-1",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 4
+    },
+    {
+      "shot_id": "SHOT-CRAFT-SCRUB-2",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 4
+    },
+    {
+      "shot_id": "SHOT-CRAFT-SCRUB-3",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 4
+    },
+    {
+      "shot_id": "SHOT-CRAFT-CUSTOMIZE",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 4
+    },
+    {
+      "shot_id": "SHOT-BUNNY-SOAP",
+      "location_id": "LOC-ATTIC",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-PUFF"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_STONE_ATTIC_INTERIOR_EMPTY_PLATE; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 4,
+      "v1_pool_size": 6
+    },
+    {
+      "shot_id": "SHOT-BUNNY-JUMP",
+      "location_id": "LOC-ATTIC",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW",
+        "CHAR-PUFF"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_STONE_ATTIC_INTERIOR_EMPTY_PLATE; GAP-RAINBOW-IDENTITY \u2014 do not bind contact sheet; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 7
+    },
+    {
+      "shot_id": "SHOT-BUNNY-LAND",
+      "location_id": "LOC-ATTIC",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": true,
+      "blocking_reason": "HOLD until SHOT-BUNNY-JUMP endpoint is owner-hashed; MISSING_STONE_ATTIC_INTERIOR_EMPTY_PLATE; GAP-RAINBOW-IDENTITY \u2014 do not bind contact sheet; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 6
+    },
+    {
+      "shot_id": "SHOT-TEAM-PAPER",
+      "location_id": "LOC-HALL",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; GAP-RAINBOW-IDENTITY \u2014 do not bind contact sheet; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 6
+    },
+    {
+      "shot_id": "SHOT-TEAM-WEB",
+      "location_id": "LOC-HALL",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; GAP-RAINBOW-IDENTITY \u2014 do not bind contact sheet; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 6
+    },
+    {
+      "shot_id": "SHOT-TEAM-WALL",
+      "location_id": "LOC-HALL",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; GAP-RAINBOW-IDENTITY \u2014 do not bind contact sheet; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 6
+    },
+    {
+      "shot_id": "SHOT-TEAM-FINISH",
+      "location_id": "LOC-HALL",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW"
+      ],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; GAP-RAINBOW-IDENTITY \u2014 do not bind contact sheet; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 6
+    },
+    {
+      "shot_id": "SHOT-C2-01",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "NO_APPROVED_LANDING_OR_LAWN_PATCH_STILL; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 11
+    },
+    {
+      "shot_id": "SHOT-C2-02",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": true,
+      "blocking_reason": "HOLD \u2014 rocket ignition is provisional owner direction, not canon; NO_APPROVED_LANDING_OR_LAWN_PATCH_STILL; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 11
+    },
+    {
+      "shot_id": "SHOT-C2-03",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "NO_APPROVED_LANDING_OR_LAWN_PATCH_STILL; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 13
+    },
+    {
+      "shot_id": "SHOT-C2-04",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "NO_APPROVED_LANDING_OR_LAWN_PATCH_STILL; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 13
+    },
+    {
+      "shot_id": "SHOT-C2-05",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "NO_APPROVED_LANDING_OR_LAWN_PATCH_STILL; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 13
+    },
+    {
+      "shot_id": "SHOT-C2-06",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": true,
+      "blocking_reason": "HOLD \u2014 depends on three real protection rounds; film cannot invent victory; NO_APPROVED_LANDING_OR_LAWN_PATCH_STILL; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 13
+    },
+    {
+      "shot_id": "SHOT-C2-07",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": true,
+      "blocking_reason": "HOLD \u2014 candle take is after success; do not generate until C2-06 exists; NO_APPROVED_LANDING_OR_LAWN_PATCH_STILL; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 13
+    },
+    {
+      "shot_id": "SHOT-C2-08",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "NO_APPROVED_LANDING_OR_LAWN_PATCH_STILL; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 13
+    },
+    {
+      "shot_id": "SHOT-C2-09",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [],
+      "still_attempt_allowed": false,
+      "generation_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "NO_APPROVED_LANDING_OR_LAWN_PATCH_STILL; Human-approved first frame missing (opening_approved=false)",
+      "bind_count": 2,
+      "v1_pool_size": 11
+    }
+  ],
+  "next_still_candidates": [
+    "SHOT-ARRIVAL-TOUCHDOWN",
+    "SHOT-BATH-SINK",
+    "SHOT-BATH-TUB",
+    "SHOT-BATH-DRAIN",
+    "SHOT-BATH-TOILET"
+  ],
+  "blocked_on_plates": [
+    "SHOT-ARRIVAL-TOUCHDOWN",
+    "SHOT-POOL-SKIM",
+    "SHOT-POOL-FALL-1",
+    "SHOT-POOL-FALL-2",
+    "SHOT-POOL-FALL-3",
+    "SHOT-POOL-PULL",
+    "SHOT-EAGLE-FREE",
+    "SHOT-EAGLE-WING",
+    "SHOT-CRAFT-PICK-1",
+    "SHOT-CRAFT-PICK-2",
+    "SHOT-CRAFT-PICK-3",
+    "SHOT-CRAFT-PICK-4",
+    "SHOT-CRAFT-SCRUB-1",
+    "SHOT-CRAFT-SCRUB-2",
+    "SHOT-CRAFT-SCRUB-3",
+    "SHOT-CRAFT-CUSTOMIZE",
+    "SHOT-BUNNY-SOAP",
+    "SHOT-BUNNY-JUMP",
+    "SHOT-BUNNY-LAND",
+    "SHOT-TEAM-PAPER",
+    "SHOT-TEAM-WEB",
+    "SHOT-TEAM-WALL",
+    "SHOT-TEAM-FINISH",
+    "SHOT-C2-01",
+    "SHOT-C2-02",
+    "SHOT-C2-03",
+    "SHOT-C2-04",
+    "SHOT-C2-05",
+    "SHOT-C2-06",
+    "SHOT-C2-07",
+    "SHOT-C2-08",
+    "SHOT-C2-09"
+  ],
+  "hold": [
+    "SHOT-BUNNY-LAND",
+    "SHOT-C2-02",
+    "SHOT-C2-06",
+    "SHOT-C2-07"
+  ]
+}
