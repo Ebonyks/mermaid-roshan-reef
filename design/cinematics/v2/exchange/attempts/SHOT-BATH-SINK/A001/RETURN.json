@@ -1,0 +1,38 @@
+{
+  "schema": "reef.grok-reshoot.v2",
+  "kind": "RETURN",
+  "shot_id": "SHOT-BATH-SINK",
+  "attempt": 1,
+  "request_sha256": "5e6a69ca373084abf456ec7f700cf8bc22e41634044f0e8a449ec034764a3a86",
+  "still": {
+    "filename": "SHOT-BATH-SINK_A001_still.jpg",
+    "sha256": "81ea24771eeb56d1c6f4fd5b20ce97dc1f26f4f6320347c1e7dea208b2626d8c",
+    "bytes": 745506,
+    "private_path": "videos/v2-stills-2026-09-18/SHOT-BATH-SINK_A001_still.jpg",
+    "private_commit": "e02d2e539b48273e80d795aa9e143c3cfd0e7da1",
+    "private_repo": "Ebonyks/mermaid-roshan-grok-videos",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/e02d2e539b48273e80d795aa9e143c3cfd0e7da1/videos/v2-stills-2026-09-18/SHOT-BATH-SINK_A001_still.jpg"
+  },
+  "clip": null,
+  "frames": {
+    "t0": {
+      "filename": "SHOT-BATH-SINK_A001_still.jpg",
+      "sha256": "81ea24771eeb56d1c6f4fd5b20ce97dc1f26f4f6320347c1e7dea208b2626d8c"
+    }
+  },
+  "claimed_cast_count": 1,
+  "observed": {
+    "cast": "solo Roshan \u2014 PASS",
+    "identity": "child, rainbow-streak hair, jeweled tiara not a horn, pink bodice, rainbow tail \u2014 PASS",
+    "room": "tub left, sink centre, toilet right, dirty \u2014 PASS",
+    "contact": "brush in right hand toward basin \u2014 PASS",
+    "defects": [
+      "extra hanging plants not on the dirty plate",
+      "extra small window / extra starfish (decor, not cast)",
+      "IMAGE_3 brush file failed to copy into the bind folder this attempt; brush still appeared from identity+prompt"
+    ]
+  },
+  "opening_approved": false,
+  "generation_allowed": false,
+  "notes": "Still only. Not a lock. Do not animate. Owner must accept or reject extra decor before A002 still or motion."
+}
