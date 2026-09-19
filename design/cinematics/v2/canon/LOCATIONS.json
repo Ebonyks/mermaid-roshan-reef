@@ -30,14 +30,19 @@
       },
       "drained_dirty_plate": {
         "game_repo_path": "assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
+        "private_repo_path": "plates/dirty/bath/room_bubble_bath_dirty_drained_day_one.png",
+        "sha256_prefix": "1382a8adcb37f1b0",
         "in_builder_packet": false,
+        "on_videos_repo": true,
         "use": "SHOT-BATH-DRAIN after water is gone"
-      }
+      },
+      "all_dirty_on_videos_repo": "plates/dirty/bath/"
     },
     "LOC-POOL": {
       "name": "Mermaid Pool",
       "camera": "From approved coping toward left-centre waterfall and right seahorse. Closer along this view. No second basin.",
       "empty_dirty_plate": null,
+      "dirty_overlays_on_videos_repo": "plates/dirty/pool/",
       "object_overlays_only": [
         "REF-e0ed3c7174dcfeff",
         "REF-df7c3147bc886761",
@@ -55,6 +60,7 @@
       "name": "Craft Room",
       "camera": "Front-facing known wall. Left-front / rear-table / right-front inserts vary depth only.",
       "empty_dirty_plate": null,
+      "dirty_overlays_on_videos_repo": "plates/dirty/craft/",
       "grime_strips_only": ["REF-125978f082934e3b", "REF-586021e28238f3dd", "REF-339f248e488bf651"],
       "clean_restored_plate": {"reference_id": "REF-916522a6fab66918"},
       "generation_allowed": false,
