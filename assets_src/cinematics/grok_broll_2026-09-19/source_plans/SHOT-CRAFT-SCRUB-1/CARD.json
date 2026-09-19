@@ -1,0 +1,263 @@
+{
+  "schema": "reef.grok.shot-plan.v2",
+  "shot_id": "SHOT-CRAFT-SCRUB-1",
+  "event_id": "EV-D1-ARTCLEAN",
+  "name": "Scrub left curved counter; contact removes grime and clean area persists.",
+  "generation_allowed": false,
+  "still_attempt_allowed": false,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-CRAFT-EMPTY-DIRTY",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "exact_cast": [
+    "CHAR-ROSHAN"
+  ],
+  "exact_prop_counts": {
+    "extra_fixtures": 0
+  },
+  "location_id": "LOC-ART",
+  "room_state": {
+    "left_counter": "dirty",
+    "rear_table": "dirty",
+    "right_counter": "dirty",
+    "supplies": "collected"
+  },
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "address": "Front-facing known wall. Left-front / rear-table / right-front inserts vary depth only. Scrub left curved counter; contact removes grime and clean area persists. Keep the neighboring counter/table as a depth anchor. A true alternate view requires approved turnaround; no repeated front-wide pretending to be new perspective."
+  },
+  "before": "Four supplies collected; 0 of three grime surfaces clean",
+  "action": "Scrub left curved counter; contact removes grime and clean area persists.",
+  "after": "1 surfaces clean; earlier clean areas persist; remaining grime stays",
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "reference_id": null,
+      "remote_url": null,
+      "sha256": null,
+      "path": null,
+      "missing_reason": "Complete owner-approved acted first frame missing; no room-only fallback."
+    },
+    {
+      "path": "media/69827625a8a795f1.png",
+      "source_path": "grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "subject_identity",
+      "bytes": 50051,
+      "reference_id": "REF-69827625a8a795f1",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/69827625a8_roshan_roshan_base.png",
+        "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/roshan.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening",
+      "id": "IMAGE_2",
+      "human_decision": "pending",
+      "hud_present": false,
+      "authority_domain": "identity/material only, not competing room geography"
+    }
+  ],
+  "bind_count": 2,
+  "must_move": [
+    "Scrub left curved counter; contact removes grime and clean area persists."
+  ],
+  "must_not_move": [
+    "two curved counters and stocked rear table",
+    "previously completed cleanup",
+    "identity, anatomy and prop counts"
+  ],
+  "depends_on": [
+    "SHOT-CRAFT-PICK-4"
+  ],
+  "prompt_path": "PROMPT.txt",
+  "attempt_cap": 3,
+  "output_disposition": "motion_reference_only",
+  "v1_pool_was": [
+    "REF-916522a6fab66918",
+    "REF-69827625a8a795f1",
+    "REF-b2eb0fc3a5d7c777",
+    "REF-17e76b7f758f31a9"
+  ],
+  "v1_pool_note": "Archival only. Do not bind the pool. v2 binds are the list above, max 4.",
+  "revision": 2,
+  "source_snapshot": "b085580fb5c615e386af46c9a8c25a0c41b08cb0",
+  "sequence_position": 16,
+  "beat_ids": [
+    "SHOT-CRAFT-SCRUB-1-ACTION"
+  ],
+  "mode": "image_to_video",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "cast_status": "PROPOSED_STAGING_REQUIRES_OWNER_FIRST_FRAME_APPROVAL",
+  "cast_instances": [
+    {
+      "instance_id": "CHAR-ROSHAN-1",
+      "character_id": "CHAR-ROSHAN",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    }
+  ],
+  "end_room_state": {
+    "left_counter": "clean",
+    "rear_table": "dirty",
+    "right_counter": "dirty",
+    "supplies": "collected"
+  },
+  "opening_candidate": null,
+  "approval_receipt": null,
+  "request": null,
+  "causal_chain": {
+    "trigger": "Scrub left curved counter; contact removes grime and clean area persists.",
+    "visible_change": "1 surfaces clean; earlier clean areas persist; remaining grime stays",
+    "end_confirmation": "1 surfaces clean; earlier clean areas persist; remaining grime stays"
+  },
+  "end_state": "1 surfaces clean; earlier clean areas persist; remaining grime stays",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no extra characters or fixtures",
+    "no identity drift",
+    "no result without contact",
+    "no premature payoff"
+  ],
+  "preparation_references": [
+    {
+      "path": "media/916522a6fab66918.png",
+      "source_path": "grok_builder_2026-09-14/media/916522a6fab66918.png",
+      "sha256": "916522a6fab6691866e8ff768056a5725bfbb76044dba869935eb7b585420eae",
+      "role": "reference",
+      "bytes": 856426,
+      "reference_id": "REF-916522a6fab66918",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/916522a6fab66918.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/916522a6fab66918.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "license_provenance": "Project-owned original art or owner-provided Grok editorial footage; inherited ASSET_LICENSES.md source attribution; review/continuity use only",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/current_art_full_room.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/69827625a8a795f1.png",
+      "source_path": "grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "reference",
+      "bytes": 50051,
+      "reference_id": "REF-69827625a8a795f1",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/69827625a8_roshan_roshan_base.png",
+        "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/roshan.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/b2eb0fc3a5d7c777.png",
+      "source_path": "grok_builder_2026-09-14/media/b2eb0fc3a5d7c777.png",
+      "sha256": "b2eb0fc3a5d7c777540af1447827f6b2f98d47a658d2184d9774e407d46627aa",
+      "role": "reference",
+      "bytes": 39159,
+      "reference_id": "REF-b2eb0fc3a5d7c777",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/b2eb0fc3a5d7c777.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/b2eb0fc3a5d7c777.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        224,
+        95
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/b2eb0fc3a5_room_craft_room_item_paint_table.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/17e76b7f758f31a9.png",
+      "source_path": "grok_builder_2026-09-14/media/17e76b7f758f31a9.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "role": "reference",
+      "bytes": 535795,
+      "reference_id": "REF-17e76b7f758f31a9",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/17e76b7f758f31a9.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/17e76b7f758f31a9.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        936,
+        1024
+      ],
+      "license_provenance": "project-original generated reference art",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/17e76b7f75_magic_cleaning_brush.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    }
+  ],
+  "preparation_reference_scope": "Archive inputs for planner/full-frame candidate preparation, not a multi-image motion binding list. Boards and pose strips are never generation pixels.",
+  "blocking_findings": [
+    "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING",
+    "ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+    "GAP-CRAFT-EMPTY-DIRTY"
+  ],
+  "attempts_used": 0,
+  "hold": false,
+  "attempt_cap_override_receipt": null,
+  "still_preparation_status": "Brief supplied. No queued generation or automatic cap reset; publish a scoped still REQUEST before spending an attempt.",
+  "continuity": {
+    "kind": "new_setup",
+    "previous_shot_id": null,
+    "inherited_state": [
+      "Four supplies collected; 0 of three grime surfaces clean",
+      "Prior completed work remains completed."
+    ],
+    "allowed_changes": [
+      "Scrub left curved counter; contact removes grime and clean area persists."
+    ]
+  },
+  "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+  "prompt_sha256": "8d30588b0b861a66872c8450d527790e02440503165038aaa800f3c2fbc80733",
+  "canon_sha256": "a3da9b70ea8ad34c80f3992bd844196561d52821d306c49256a41fff5635721c",
+  "depends_on_events": [
+    "EV-D1-SUPPLIES"
+  ],
+  "hold_release_receipt": null,
+  "historical_hold": false,
+  "original_hold_reason": null
+}

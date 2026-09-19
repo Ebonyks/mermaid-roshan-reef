@@ -1,0 +1,217 @@
+{
+  "event_id": "EV-D1-SOAP",
+  "location_id": "LOC-ATTIC",
+  "exact_cast": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY",
+    "CHAR-RUMI",
+    "CHAR-EAGLE",
+    "CHAR-PUFF"
+  ],
+  "cast_instances": [
+    {
+      "instance_id": "CHAR-ROSHAN-1",
+      "character_id": "CHAR-ROSHAN",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-DADDY-1",
+      "character_id": "CHAR-DADDY",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-RUMI-1",
+      "character_id": "CHAR-RUMI",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-EAGLE-1",
+      "character_id": "CHAR-EAGLE",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-PUFF-1",
+      "character_id": "CHAR-PUFF",
+      "start_visibility": "visible",
+      "end_visibility": "fully_occluded_by_foam"
+    }
+  ],
+  "exact_prop_counts": {
+    "giant_bunnies": 1,
+    "rainbow_friends": 0,
+    "windows": 2
+  },
+  "room_state": {
+    "giant": "intact_visible",
+    "foam": "initial_contact",
+    "rainbow_friend": "hidden",
+    "windows": 2
+  },
+  "end_room_state": {
+    "giant": "hidden_by_foam",
+    "foam": "opaque",
+    "rainbow_friend": "hidden",
+    "windows": 2
+  },
+  "depends_on": [],
+  "depends_on_events": [
+    "EV-D1-PUFF"
+  ],
+  "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+  "end_state": "Foam hides body and ears; little bunny still hidden",
+  "schema": "reef.grok.broll-plan.v1",
+  "shot_id": "SHOT-BUNNY-SOAP-B01",
+  "parent_shot_id": "SHOT-BUNNY-SOAP",
+  "parent_commit": "0b26557f9500983f7ba2eb670df072dffd352779",
+  "parent_card_sha256": "e2fb9a6f0f0f42534036bede5793db0fd163ecd64edc2bc1062c36f31ef2144a",
+  "parent_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0b26557f9500983f7ba2eb670df072dffd352779/design/cinematics/v2/shots/SHOT-BUNNY-SOAP/CARD.json",
+  "intent": "Alternate coverage of the SAME action, not a new event or second completion.",
+  "status": "DRAFT_REQUIRES_EXACT_OWNER_OPENING_APPROVAL",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "inherited_hold": false,
+  "attempt_lineage": {
+    "parent_shot_id": "SHOT-BUNNY-SOAP",
+    "attempts_used": 0,
+    "attempt_cap": 3,
+    "reset_allowed": false,
+    "broll_attempts_generated": 0
+  },
+  "blockers": [
+    "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING",
+    "ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+    "GAP-ENSEMBLE-IDENTITY",
+    "NEW_CAMERA_LAYOUT_AND_COMPLETE_OPENING_REVIEW",
+    "GROK_ACCESS_ACK",
+    "PAIRED_ACTION_PHASE_MATCH"
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "framing": "ensemble-wide",
+    "viewpoint": "Front-left oblique of octagonal rug, with two-window stone attic, left pillar and far chest anchoring depth.",
+    "proposed_offset_degrees": 35,
+    "proposed_elevation_degrees": 12,
+    "measured": false,
+    "same_action_hemisphere": true,
+    "mirror_allowed": false,
+    "digital_crop_is_new_angle": false,
+    "unseen_reverse_wall_allowed": false
+  },
+  "duration_seconds": 4,
+  "fps_plan": 24,
+  "frame_count_plan": 96,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "output_disposition": "motion_reference_only",
+  "beats": [
+    {
+      "frames_half_open": [
+        0,
+        18
+      ],
+      "seconds": [
+        0,
+        0.75
+      ],
+      "phase": "start",
+      "visible": "Big bunny own form and ears visible; little bunny hidden"
+    },
+    {
+      "frames_half_open": [
+        18,
+        78
+      ],
+      "seconds": [
+        0.75,
+        3.25
+      ],
+      "phase": "contact_action",
+      "visible": "Four helpers scrub intact big bunny; wet lather expands until outline is hidden. Little bunny entirely hidden."
+    },
+    {
+      "frames_half_open": [
+        78,
+        96
+      ],
+      "seconds": [
+        3.25,
+        4
+      ],
+      "phase": "endpoint",
+      "visible": "Foam hides body and ears; little bunny still hidden"
+    }
+  ],
+  "editorial": {
+    "mapping_basis": "PROPOSED_PHASE_MARKERS_NOT_MEASURED_FOOTAGE_TIMECODES",
+    "cut_in": "four helpers begin coordinated contact on intact giant",
+    "cut_out": "wet suds hide BOTH ears and body, tiny friend still hidden",
+    "suggested_b_use_seconds": [
+      0.8,
+      2.6
+    ],
+    "preserve_full_causal_action": false,
+    "replace_span_not_append_repeat": true,
+    "match_checks": [
+      "same motion phase and travel direction",
+      "same hand/tool and contact point",
+      "same dirt/water/prop state",
+      "same cast count and costume",
+      "same camera hemisphere and eyelines",
+      "no replay of contact or payoff"
+    ],
+    "audio": "Use one continuous room-tone bed; carry foley across cut, never double the impact. Reuse authorized in-game voices only later in edit; generate no voice here."
+  },
+  "preparation_references": [
+    "REF-9cb4b02dc4a56e14",
+    "REF-69827625a8a795f1",
+    "REF-2eda6f76760b8598",
+    "REF-636ec38fd0e01d47",
+    "REF-da8ead4677192ef4",
+    "REF-e585e525624f4da1"
+  ],
+  "suggested_bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "owner_approved": false
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": null,
+      "sha256": null,
+      "requires_binding_review": true
+    }
+  ],
+  "board": {
+    "path": "boards/BOSS_v2.png",
+    "row_one_based": 1,
+    "columns": {
+      "1": "start",
+      "2": "contact/action",
+      "3": "endpoint"
+    },
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "approval": "CANDIDATE_COMPOSITION_ONLY_SEE_BOARD_QC"
+  },
+  "prompt_sha256": "f1d32cf43a94db3b59aa621a8174e4f2f66d8d2b858e91edee2c9795321399c7",
+  "source_board_path": "historical_boards/SHOT-BUNNY-SOAP.jpg",
+  "continuous_endpoint_lock": {
+    "required": false,
+    "previous_b_shot": null,
+    "accepted_endpoint_sha256": null,
+    "alternate_angle_opening_sha256": null,
+    "note": "Different angles need two separately approved full frames of the SAME world-state/trajectory phase. Do not reuse A pixels or blend endpoints."
+  }
+}

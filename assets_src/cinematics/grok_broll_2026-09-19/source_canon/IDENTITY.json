@@ -1,0 +1,386 @@
+{
+  "schema": "reef.grok.identity-sidecar.v2",
+  "revision": 2,
+  "note": "Planner uses named sources. Render executor receives only resolved accepted bindings. Cast proposals do not authorize generation.",
+  "characters": {
+    "CHAR-ROSHAN": {
+      "name": "Roshan",
+      "reference_id": "REF-69827625a8a795f1",
+      "keep": [
+        "Child mermaid, child scale",
+        "Brown hair with rainbow streaks",
+        "Small jeweled tiara — not a horn, not a unicorn",
+        "Pink bodice",
+        "One continuous rainbow tail, no legs"
+      ],
+      "forbidden": [
+        "Second Roshan",
+        "Adult redesign",
+        "Unicorn horn / spiral horn tiara",
+        "Legs",
+        "Extra tail or extra arms"
+      ],
+      "prompt_phrases": [
+        "child mermaid Roshan, brown rainbow-streak hair, jeweled tiara not a horn, pink bodice, one rainbow tail"
+      ],
+      "reference": {
+        "path": "media/69827625a8a795f1.png",
+        "source_path": "grok_builder_2026-09-14/media/69827625a8a795f1.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "role": "reference",
+        "bytes": 50051,
+        "reference_id": "REF-69827625a8a795f1",
+        "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+        "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+        "repository": "Ebonyks/mermaid-roshan-grok-videos",
+        "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+        "dimensions": [
+          256,
+          256
+        ],
+        "license_provenance": "project-owned approved authority copied losslessly",
+        "source_paths": [
+          "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/69827625a8_roshan_roshan_base.png",
+          "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/roshan.png"
+        ],
+        "modifications": "byte-identical copy",
+        "used_as_delivery_pixels": false,
+        "acceptance_scope": "source reference only; not an approved complete opening"
+      }
+    },
+    "CHAR-DADDY": {
+      "name": "Daddy",
+      "reference_id": "REF-2eda6f76760b8598",
+      "keep": [
+        "Clean-shaven slender face",
+        "Long straight brown hair",
+        "Thin rectangular black glasses",
+        "Jeweled crown",
+        "Navy embroidered coat, teal cape",
+        "One rainbow tail"
+      ],
+      "forbidden": [
+        "Beard",
+        "Curly hair",
+        "Bulky generic king",
+        "Solid blue tail",
+        "Rear-door exit from the plane"
+      ],
+      "prompt_phrases": [
+        "clean-shaven Daddy, straight brown hair, thin black glasses, navy coat, teal cape, rainbow tail, no beard"
+      ],
+      "reference": {
+        "path": "media/2eda6f76760b8598.png",
+        "source_path": "grok_builder_2026-09-14/media/2eda6f76760b8598.png",
+        "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+        "role": "reference",
+        "bytes": 4708599,
+        "reference_id": "REF-2eda6f76760b8598",
+        "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/2eda6f76760b8598.png",
+        "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/2eda6f76760b8598.png",
+        "repository": "Ebonyks/mermaid-roshan-grok-videos",
+        "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+        "dimensions": [
+          1677,
+          2362
+        ],
+        "license_provenance": "project-owned approved authority copied losslessly",
+        "source_paths": [
+          "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/2eda6f7676_daddy_daddy_master.png"
+        ],
+        "modifications": "byte-identical copy",
+        "used_as_delivery_pixels": false,
+        "acceptance_scope": "source reference only; not an approved complete opening"
+      }
+    },
+    "CHAR-RUMI": {
+      "name": "Rumi",
+      "reference_id": "REF-636ec38fd0e01d47",
+      "keep": [
+        "Adult mermaid",
+        "Enormous sculpted violet braid",
+        "Pointed ears, star-shell earrings",
+        "Navy/lavender jacket",
+        "Aqua/violet/pink tail, coral split fin"
+      ],
+      "forbidden": [
+        "Child redesign",
+        "Missing braid",
+        "Fused tail with Roshan",
+        "Present before pool rescue"
+      ],
+      "prompt_phrases": [
+        "adult mermaid Rumi, enormous violet braid, pointed ears, navy lavender jacket, coral split fin"
+      ],
+      "reference": {
+        "path": "media/636ec38fd0e01d47.png",
+        "source_path": "grok_builder_2026-09-14/media/636ec38fd0e01d47.png",
+        "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+        "role": "reference",
+        "bytes": 470838,
+        "reference_id": "REF-636ec38fd0e01d47",
+        "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/636ec38fd0e01d47.png",
+        "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/636ec38fd0e01d47.png",
+        "repository": "Ebonyks/mermaid-roshan-grok-videos",
+        "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+        "dimensions": [
+          576,
+          1024
+        ],
+        "license_provenance": "project-owned approved authority copied losslessly",
+        "source_paths": [
+          "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/636ec38fd0_rumi_rumi_full_body_identity.png"
+        ],
+        "modifications": "byte-identical copy",
+        "used_as_delivery_pixels": false,
+        "acceptance_scope": "source reference only; not an approved complete opening"
+      }
+    },
+    "CHAR-EAGLE": {
+      "name": "Baby Eagle",
+      "reference_id": "REF-da8ead4677192ef4",
+      "keep": [
+        "Original-book body and neck",
+        "Soft turquoise/mint scalloped feathers",
+        "Yellow eye patch, pink three-lobed crest",
+        "Exactly two pink wings with black tips"
+      ],
+      "forbidden": [
+        "Standing/pinned heraldic eagle",
+        "Second eagle",
+        "Backpack",
+        "Armor scales",
+        "Unobscured invented anatomy"
+      ],
+      "prompt_phrases": [
+        "original-book baby eagle, turquoise scalloped feathers, pink crest, two wings only"
+      ],
+      "reference": {
+        "path": "media/da8ead4677192ef4.png",
+        "source_path": "grok_builder_2026-09-14/media/da8ead4677192ef4.png",
+        "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+        "role": "reference",
+        "bytes": 235829,
+        "reference_id": "REF-da8ead4677192ef4",
+        "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/da8ead4677192ef4.png",
+        "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/da8ead4677192ef4.png",
+        "repository": "Ebonyks/mermaid-roshan-grok-videos",
+        "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+        "dimensions": [
+          290,
+          512
+        ],
+        "license_provenance": "Project-owned protected book artwork; original unchanged",
+        "source_paths": [
+          "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/baby_eagle_original_book.png"
+        ],
+        "modifications": "byte-identical copy",
+        "used_as_delivery_pixels": false,
+        "acceptance_scope": "source reference only; not an approved complete opening"
+      }
+    },
+    "CHAR-PUFF": {
+      "name": "Grand Puff",
+      "reference_id": "REF-e585e525624f4da1",
+      "keep": [
+        "One intact big lavender bunny",
+        "Own spiral ears, crest, face, pearls until foam hides them"
+      ],
+      "forbidden": [
+        "Second giant bunny",
+        "Early rainbow ears",
+        "Hard shell shards",
+        "Pain or corpse"
+      ],
+      "prompt_phrases": [
+        "one intact big lavender dust bunny with spiral ears"
+      ],
+      "reference": {
+        "path": "media/e585e525624f4da1.png",
+        "source_path": "grok_builder_2026-09-14/media/e585e525624f4da1.png",
+        "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+        "role": "reference",
+        "bytes": 1822045,
+        "reference_id": "REF-e585e525624f4da1",
+        "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/e585e525624f4da1.png",
+        "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/e585e525624f4da1.png",
+        "repository": "Ebonyks/mermaid-roshan-grok-videos",
+        "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "license_provenance": "project-owned approved authority copied losslessly",
+        "source_paths": [
+          "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/e585e52562_grand_puff_BOSS_DUST_BUNNY_IDENTITY.png"
+        ],
+        "modifications": "byte-identical copy",
+        "used_as_delivery_pixels": false,
+        "acceptance_scope": "source reference only; not an approved complete opening"
+      }
+    },
+    "CHAR-RAINBOW": {
+      "name": "Rainbow Dust Bunny",
+      "reference_id": "REF-e488d7c300eff116",
+      "keep": [
+        "two large broad spiral ears, not antenna stalks",
+        "left ear coral/yellow, right ear mint/blue/lavender",
+        "large pink forehead curl with a four-point prismatic sparkle, not an amber jewel",
+        "layered cloud scallops with warm upper face and cool blue/lavender base",
+        "large plum glossy eyes, pink cheeks and tiny curved mouth",
+        "two pearl-like front details and pearl ear-base details; no invented articulated paws",
+        "dark plum authored outline; no wings, legs, teeth, crown or extra bunny",
+        "Completely hidden until jump from scrubbed old casing; no early rainbow ears. Do not merge identity with ordinary dust bunnies."
+      ],
+      "forbidden": [
+        "early rainbow ears during SOAP",
+        "intact giant alongside landed friend",
+        "extra little bunny"
+      ],
+      "prompt_phrases": [
+        "one small spiral-eared rainbow-cloud bunny"
+      ],
+      "status": "SOURCE_REFERENCE_NOT_FIRST_FRAME_APPROVAL",
+      "reference": {
+        "path": "media/e488d7c300eff116.png",
+        "source_path": "grok_builder_2026-09-14/media/e488d7c300eff116.png",
+        "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+        "role": "reference",
+        "bytes": 1608938,
+        "reference_id": "REF-e488d7c300eff116",
+        "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/e488d7c300eff116.png",
+        "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/e488d7c300eff116.png",
+        "repository": "Ebonyks/mermaid-roshan-grok-videos",
+        "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "license_provenance": "project-original generated reference art",
+        "source_paths": [
+          "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/rainbow_dust_bunny_concept.png"
+        ],
+        "modifications": "byte-identical copy",
+        "used_as_delivery_pixels": false,
+        "acceptance_scope": "source reference only; not an approved complete opening"
+      }
+    },
+    "CHAR-PLAY-BUNNY": {
+      "name": "Playroom Dust Bunny",
+      "reference_id": "REF-677cda8c5de1d3aa",
+      "keep": [
+        "Ordinary playroom species, distinct from Grand Puff and rainbow friend. Pose sheet is one subject over time, not simultaneous clones."
+      ],
+      "forbidden": [
+        "Grand Puff identity",
+        "rainbow-friend identity",
+        "metal pins or restraints"
+      ],
+      "prompt_phrases": [
+        "two ordinary playroom dust bunnies, no hardware pins"
+      ],
+      "status": "SOURCE_REFERENCE_NOT_FIRST_FRAME_APPROVAL",
+      "reference": {
+        "path": "media/677cda8c5de1d3aa.png",
+        "source_path": "grok_builder_2026-09-14/media/677cda8c5de1d3aa.png",
+        "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+        "role": "reference",
+        "bytes": 164693,
+        "reference_id": "REF-677cda8c5de1d3aa",
+        "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/677cda8c5de1d3aa.png",
+        "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/677cda8c5de1d3aa.png",
+        "repository": "Ebonyks/mermaid-roshan-grok-videos",
+        "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+        "dimensions": [
+          512,
+          512
+        ],
+        "license_provenance": "project-owned approved authority copied losslessly",
+        "source_paths": [
+          "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/677cda8c5d_playroom_bunny_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png"
+        ],
+        "modifications": "byte-identical copy",
+        "used_as_delivery_pixels": false,
+        "acceptance_scope": "source reference only; not an approved complete opening"
+      }
+    },
+    "CHAR-KING": {
+      "name": "Ember King",
+      "reference_id": "REF-422f7bd45a13f1d3",
+      "keep": [
+        "Use owner-selected V4 identity, not V6 fringe/redesign.",
+        "After Roshan succeeds he cheats and steals only the candle. Friends and earned objects remain safe."
+      ],
+      "forbidden": [
+        "V6 fringe redesign",
+        "stealing the cake or friends"
+      ],
+      "prompt_phrases": [
+        "approved Ember King, no redesign"
+      ],
+      "status": "SOURCE_REFERENCE_NOT_FIRST_FRAME_APPROVAL",
+      "reference": {
+        "path": "media/422f7bd45a13f1d3.png",
+        "source_path": "grok_builder_2026-09-14/media/422f7bd45a13f1d3.png",
+        "sha256": "422f7bd45a13f1d3c0304082727d72298e3bc01babd8919dc0c7e3e92777052c",
+        "role": "reference",
+        "bytes": 1048544,
+        "reference_id": "REF-422f7bd45a13f1d3",
+        "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/422f7bd45a13f1d3.png",
+        "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/422f7bd45a13f1d3.png",
+        "repository": "Ebonyks/mermaid-roshan-grok-videos",
+        "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+        "dimensions": [
+          1024,
+          683
+        ],
+        "license_provenance": "project-owned original artwork; all rights reserved",
+        "source_paths": [
+          "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/characters/ember_king_v4.png"
+        ],
+        "modifications": "byte-identical copy",
+        "used_as_delivery_pixels": false,
+        "acceptance_scope": "source reference only; not an approved complete opening"
+      }
+    },
+    "CHAR-PRINCE": {
+      "name": "Ember Prince",
+      "reference_id": "REF-95d5cf35321c87a1",
+      "keep": [
+        "Approved thin Prince; 80% of King height at same ground plane.",
+        "Sincere kindness, conflicted loyalty; only light future-affection hint."
+      ],
+      "forbidden": [
+        "adult king clone",
+        "more than one Prince"
+      ],
+      "prompt_phrases": [
+        "thin Ember Prince, four-fifths King height"
+      ],
+      "status": "SOURCE_REFERENCE_NOT_FIRST_FRAME_APPROVAL",
+      "reference": {
+        "path": "media/95d5cf35321c87a1.png",
+        "source_path": "grok_builder_2026-09-14/media/95d5cf35321c87a1.png",
+        "sha256": "95d5cf35321c87a1b5fae280a76a52fa7d3c6930e56503c10a4054c4c75169c4",
+        "role": "reference",
+        "bytes": 933718,
+        "reference_id": "REF-95d5cf35321c87a1",
+        "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/95d5cf35321c87a1.png",
+        "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/95d5cf35321c87a1.png",
+        "repository": "Ebonyks/mermaid-roshan-grok-videos",
+        "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+        "dimensions": [
+          1024,
+          683
+        ],
+        "license_provenance": "project-owned original artwork; all rights reserved",
+        "source_paths": [
+          "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/characters/ember_prince_identity.png"
+        ],
+        "modifications": "byte-identical copy",
+        "used_as_delivery_pixels": false,
+        "acceptance_scope": "source reference only; not an approved complete opening"
+      }
+    }
+  }
+}

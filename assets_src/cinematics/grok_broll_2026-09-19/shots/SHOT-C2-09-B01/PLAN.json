@@ -1,0 +1,230 @@
+{
+  "event_id": "EV-C2-09",
+  "location_id": "LOC-LAWN",
+  "exact_cast": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY",
+    "CHAR-RUMI",
+    "CHAR-EAGLE"
+  ],
+  "cast_instances": [
+    {
+      "instance_id": "CHAR-ROSHAN-1",
+      "character_id": "CHAR-ROSHAN",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-DADDY-1",
+      "character_id": "CHAR-DADDY",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-RUMI-1",
+      "character_id": "CHAR-RUMI",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-EAGLE-1",
+      "character_id": "CHAR-EAGLE",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    }
+  ],
+  "exact_prop_counts": {
+    "extra_fixtures": 0,
+    "cake": 1,
+    "cake_tiers": 6,
+    "candied_strawberries": 5,
+    "candles": 0,
+    "extra_cakes": 0
+  },
+  "room_state": {
+    "cake_tiers": 6,
+    "cake": "intact_finished",
+    "candied_strawberries": 5,
+    "earned_objects": "all_eight_careers_complete_preserved",
+    "rocket": "parked_complete",
+    "candle": "absent_stolen",
+    "royals": "departed",
+    "shelter": "completed_after_three_successful_playable_rounds",
+    "candle_holder": "empty"
+  },
+  "end_room_state": {
+    "cake_tiers": 6,
+    "cake": "intact_finished",
+    "candied_strawberries": 5,
+    "earned_objects": "all_eight_careers_complete_preserved",
+    "rocket": "parked_complete",
+    "candle": "absent_stolen",
+    "royals": "departed",
+    "shelter": "completed_after_three_successful_playable_rounds",
+    "candle_holder": "empty"
+  },
+  "depends_on": [
+    "SHOT-C2-08"
+  ],
+  "depends_on_events": [
+    "EV-C2-08"
+  ],
+  "game_prerequisite": "All eight careers completed and earned objects preserved; three successful playable protection rounds precede SHOT-C2-06 and theft.",
+  "end_state": "Roshan and her friends stand together, ready to find their light",
+  "schema": "reef.grok.broll-plan.v1",
+  "shot_id": "SHOT-C2-09-B01",
+  "parent_shot_id": "SHOT-C2-09",
+  "parent_commit": "0b26557f9500983f7ba2eb670df072dffd352779",
+  "parent_card_sha256": "f4d28c5b887314b9c49fb86d7a275a04dfee006ddc4e776f29c5acd441de11b1",
+  "parent_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0b26557f9500983f7ba2eb670df072dffd352779/design/cinematics/v2/shots/SHOT-C2-09/CARD.json",
+  "intent": "Alternate coverage of the SAME action, not a new event or second completion.",
+  "status": "DRAFT_REQUIRES_EXACT_OWNER_OPENING_APPROVAL",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "inherited_hold": false,
+  "attempt_lineage": {
+    "parent_shot_id": "SHOT-C2-09",
+    "attempts_used": 0,
+    "attempt_cap": 3,
+    "reset_allowed": false,
+    "broll_attempts_generated": 0
+  },
+  "blockers": [
+    "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING",
+    "ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+    "GAP-ENSEMBLE-IDENTITY",
+    "NEW_CAMERA_LAYOUT_AND_COMPLETE_OPENING_REVIEW",
+    "GROK_ACCESS_ACK",
+    "PAIRED_ACTION_PHASE_MATCH"
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "framing": "ensemble-medium",
+    "viewpoint": "Shoulder-height from Roshan side, empty holder foreground and comforting friends in layered depth.",
+    "proposed_offset_degrees": 35,
+    "proposed_elevation_degrees": 18,
+    "measured": false,
+    "same_action_hemisphere": true,
+    "mirror_allowed": false,
+    "digital_crop_is_new_angle": false,
+    "unseen_reverse_wall_allowed": false
+  },
+  "duration_seconds": 4,
+  "fps_plan": 24,
+  "frame_count_plan": 96,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "output_disposition": "motion_reference_only",
+  "beats": [
+    {
+      "frames_half_open": [
+        0,
+        18
+      ],
+      "seconds": [
+        0,
+        0.75
+      ],
+      "phase": "start",
+      "visible": "Both royals have left with the candle; Roshan and her friends remain with the intact party objects and empty socket."
+    },
+    {
+      "frames_half_open": [
+        18,
+        78
+      ],
+      "seconds": [
+        0.75,
+        3.25
+      ],
+      "phase": "contact_action",
+      "visible": "Roshan looks at the empty holder, then accepts her friends gathering beside her"
+    },
+    {
+      "frames_half_open": [
+        78,
+        96
+      ],
+      "seconds": [
+        3.25,
+        4
+      ],
+      "phase": "endpoint",
+      "visible": "Roshan and her friends stand together, ready to find their light"
+    }
+  ],
+  "editorial": {
+    "mapping_basis": "PROPOSED_PHASE_MARKERS_NOT_MEASURED_FOOTAGE_TIMECODES",
+    "cut_in": "Roshan notices empty candle holder",
+    "cut_out": "four friends together; candle stays absent, cake intact",
+    "suggested_b_use_seconds": [
+      0.8,
+      2.6
+    ],
+    "preserve_full_causal_action": false,
+    "replace_span_not_append_repeat": true,
+    "match_checks": [
+      "same motion phase and travel direction",
+      "same hand/tool and contact point",
+      "same dirt/water/prop state",
+      "same cast count and costume",
+      "same camera hemisphere and eyelines",
+      "no replay of contact or payoff"
+    ],
+    "audio": "Use one continuous room-tone bed; carry foley across cut, never double the impact. Reuse authorized in-game voices only later in edit; generate no voice here."
+  },
+  "preparation_references": [
+    "REF-017532ae864e534d",
+    "REF-69827625a8a795f1",
+    "REF-2eda6f76760b8598",
+    "REF-636ec38fd0e01d47",
+    "REF-da8ead4677192ef4",
+    "REF-91dbeb1f9c634eeb",
+    "REF-bd1d4edd2b3e6d77",
+    "REF-2c00e80e57315283",
+    "REF-910f531303ec813a",
+    "REF-1cbf785bded294e8",
+    "REF-940afd1160f25967"
+  ],
+  "suggested_bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "owner_approved": false
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": null,
+      "sha256": null,
+      "requires_binding_review": true
+    }
+  ],
+  "board": {
+    "path": "boards/LAWN_B_v2.png",
+    "row_one_based": 4,
+    "columns": {
+      "1": "start",
+      "2": "contact/action",
+      "3": "endpoint"
+    },
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "approval": "CANDIDATE_COMPOSITION_ONLY_SEE_BOARD_QC"
+  },
+  "prompt_sha256": "100efe2a4298982f38c7d11aed7437924bbc58cb85fa123e9bc59853e66413fa",
+  "source_board_path": "historical_boards/SHOT-C2-09.jpg",
+  "continuous_endpoint_lock": {
+    "required": false,
+    "previous_b_shot": null,
+    "accepted_endpoint_sha256": null,
+    "alternate_angle_opening_sha256": null,
+    "note": "Different angles need two separately approved full frames of the SAME world-state/trajectory phase. Do not reuse A pixels or blend endpoints."
+  }
+}

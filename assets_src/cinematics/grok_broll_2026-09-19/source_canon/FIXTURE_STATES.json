@@ -1,0 +1,524 @@
+{
+  "schema": "reef.grok.fixture-states.v2",
+  "revision": 2,
+  "by_shot": {
+    "SHOT-ARRIVAL-TOUCHDOWN": {
+      "plane": "airborne_above_patch",
+      "passengers": "seated"
+    },
+    "SHOT-BATH-SINK": {
+      "sink": "dirty",
+      "tub": "dirty",
+      "toilet": "dirty",
+      "drain": "closed_full"
+    },
+    "SHOT-BATH-TUB": {
+      "sink": "clean",
+      "tub": "dirty",
+      "toilet": "dirty",
+      "drain": "closed_full"
+    },
+    "SHOT-BATH-DRAIN": {
+      "sink": "clean",
+      "tub": "clean_full",
+      "toilet": "dirty",
+      "drain": "about_to_open"
+    },
+    "SHOT-BATH-TOILET": {
+      "sink": "clean",
+      "tub": "clean_drained",
+      "toilet": "dirty",
+      "drain": "open"
+    },
+    "SHOT-POOL-SKIM": {
+      "litter": "present",
+      "waterfall_lanes_clean": 0,
+      "plug": "lodged",
+      "seahorse": "dry"
+    },
+    "SHOT-POOL-FALL-1": {
+      "litter": "cleared",
+      "waterfall_lanes_clean": 0,
+      "plug": "lodged",
+      "seahorse": "dry"
+    },
+    "SHOT-POOL-FALL-2": {
+      "litter": "cleared",
+      "waterfall_lanes_clean": 1,
+      "plug": "lodged",
+      "seahorse": "dry"
+    },
+    "SHOT-POOL-FALL-3": {
+      "litter": "cleared",
+      "waterfall_lanes_clean": 2,
+      "plug": "lodged",
+      "seahorse": "dry"
+    },
+    "SHOT-POOL-PULL": {
+      "litter": "cleared",
+      "waterfall_lanes_clean": 3,
+      "plug": "lodged",
+      "seahorse": "dry"
+    },
+    "SHOT-EAGLE-FREE": {
+      "pinning_bunnies": 2,
+      "left_bunny": "holding_eagle",
+      "right_bunny": "holding_eagle",
+      "eagle": "restrained",
+      "hardware_pins": 0
+    },
+    "SHOT-EAGLE-WING": {
+      "pinning_bunnies": 0,
+      "left_bunny": "cleared",
+      "right_bunny": "cleared",
+      "eagle": "freed_settling",
+      "hardware_pins": 0
+    },
+    "SHOT-CRAFT-PICK-1": {
+      "left_counter": "dirty",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "in_progress",
+      "supply_groups_collected": 0
+    },
+    "SHOT-CRAFT-PICK-2": {
+      "left_counter": "dirty",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "in_progress",
+      "supply_groups_collected": 1
+    },
+    "SHOT-CRAFT-PICK-3": {
+      "left_counter": "dirty",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "in_progress",
+      "supply_groups_collected": 2
+    },
+    "SHOT-CRAFT-PICK-4": {
+      "left_counter": "dirty",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "in_progress",
+      "supply_groups_collected": 3
+    },
+    "SHOT-CRAFT-SCRUB-1": {
+      "left_counter": "dirty",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "collected"
+    },
+    "SHOT-CRAFT-SCRUB-2": {
+      "left_counter": "clean",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "collected"
+    },
+    "SHOT-CRAFT-SCRUB-3": {
+      "left_counter": "clean",
+      "rear_table": "clean",
+      "right_counter": "dirty",
+      "supplies": "collected"
+    },
+    "SHOT-CRAFT-CUSTOMIZE": {
+      "left_counter": "clean",
+      "rear_table": "clean",
+      "right_counter": "clean",
+      "supplies": "collected"
+    },
+    "SHOT-BUNNY-SOAP": {
+      "giant": "intact_visible",
+      "foam": "initial_contact",
+      "rainbow_friend": "hidden",
+      "windows": 2
+    },
+    "SHOT-BUNNY-JUMP": {
+      "giant": "hidden_by_foam",
+      "foam": "opaque",
+      "rainbow_friend": "hidden",
+      "windows": 2
+    },
+    "SHOT-BUNNY-LAND": {
+      "giant": "no_intact_form_collapsing_residue",
+      "foam": "dissipating",
+      "rainbow_friend": "airborne",
+      "windows": 2
+    },
+    "SHOT-TEAM-PAPER": {
+      "paper": "present",
+      "web": "present",
+      "wall_stain": "present",
+      "hall": "dirty"
+    },
+    "SHOT-TEAM-WEB": {
+      "paper": "collected",
+      "web": "present",
+      "wall_stain": "present",
+      "hall": "dirty"
+    },
+    "SHOT-TEAM-WALL": {
+      "paper": "collected",
+      "web": "cleared",
+      "wall_stain": "present",
+      "hall": "dirty"
+    },
+    "SHOT-TEAM-FINISH": {
+      "paper": "collected",
+      "web": "cleared",
+      "wall_stain": "clean",
+      "hall": "clean"
+    },
+    "SHOT-C2-01": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "unlit_in_holder",
+      "royals": "offscreen_not_arrived",
+      "shelter": "not_yet_earned"
+    },
+    "SHOT-C2-02": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "unlit_in_holder",
+      "royals": "offscreen_not_arrived",
+      "shelter": "not_yet_earned"
+    },
+    "SHOT-C2-03": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "lit_in_holder",
+      "royals": "offscreen_not_arrived",
+      "shelter": "not_yet_earned"
+    },
+    "SHOT-C2-04": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "lit_in_holder",
+      "royals": "at_lawn_edge",
+      "shelter": "not_yet_earned"
+    },
+    "SHOT-C2-05": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "lit_in_holder",
+      "royals": "at_lawn_edge",
+      "shelter": "not_yet_earned"
+    },
+    "SHOT-C2-06": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "lit_in_holder",
+      "royals": "present_outside_shelter",
+      "shelter": "completed_after_three_successful_playable_rounds"
+    },
+    "SHOT-C2-07": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "lit_in_holder",
+      "royals": "present_outside_shelter",
+      "shelter": "completed_after_three_successful_playable_rounds"
+    },
+    "SHOT-C2-08": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "lit_carried_by_king",
+      "royals": "present_outside_shelter",
+      "shelter": "completed_after_three_successful_playable_rounds"
+    },
+    "SHOT-C2-09": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "absent_stolen",
+      "royals": "departed",
+      "shelter": "completed_after_three_successful_playable_rounds",
+      "candle_holder": "empty"
+    }
+  },
+  "end_by_shot": {
+    "SHOT-ARRIVAL-TOUCHDOWN": {
+      "plane": "grounded_stationary",
+      "passengers": "seated"
+    },
+    "SHOT-BATH-SINK": {
+      "sink": "clean",
+      "tub": "dirty",
+      "toilet": "dirty",
+      "drain": "closed_full"
+    },
+    "SHOT-BATH-TUB": {
+      "sink": "clean",
+      "tub": "clean_full",
+      "toilet": "dirty",
+      "drain": "closed_full"
+    },
+    "SHOT-BATH-DRAIN": {
+      "sink": "clean",
+      "tub": "clean_drained",
+      "toilet": "dirty",
+      "drain": "open"
+    },
+    "SHOT-BATH-TOILET": {
+      "sink": "clean",
+      "tub": "clean_drained",
+      "toilet": "clean",
+      "drain": "open"
+    },
+    "SHOT-POOL-SKIM": {
+      "litter": "cleared",
+      "waterfall_lanes_clean": 0,
+      "plug": "lodged",
+      "seahorse": "dry"
+    },
+    "SHOT-POOL-FALL-1": {
+      "litter": "cleared",
+      "waterfall_lanes_clean": 1,
+      "plug": "lodged",
+      "seahorse": "dry"
+    },
+    "SHOT-POOL-FALL-2": {
+      "litter": "cleared",
+      "waterfall_lanes_clean": 2,
+      "plug": "lodged",
+      "seahorse": "dry"
+    },
+    "SHOT-POOL-FALL-3": {
+      "litter": "cleared",
+      "waterfall_lanes_clean": 3,
+      "plug": "lodged",
+      "seahorse": "dry"
+    },
+    "SHOT-POOL-PULL": {
+      "litter": "cleared",
+      "waterfall_lanes_clean": 3,
+      "plug": "held_clear",
+      "seahorse": "dry"
+    },
+    "SHOT-EAGLE-FREE": {
+      "pinning_bunnies": 0,
+      "left_bunny": "cleared",
+      "right_bunny": "cleared",
+      "eagle": "freed_settling",
+      "hardware_pins": 0
+    },
+    "SHOT-EAGLE-WING": {
+      "pinning_bunnies": 0,
+      "left_bunny": "cleared",
+      "right_bunny": "cleared",
+      "eagle": "safe_settled",
+      "hardware_pins": 0
+    },
+    "SHOT-CRAFT-PICK-1": {
+      "left_counter": "dirty",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "in_progress",
+      "supply_groups_collected": 1
+    },
+    "SHOT-CRAFT-PICK-2": {
+      "left_counter": "dirty",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "in_progress",
+      "supply_groups_collected": 2
+    },
+    "SHOT-CRAFT-PICK-3": {
+      "left_counter": "dirty",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "in_progress",
+      "supply_groups_collected": 3
+    },
+    "SHOT-CRAFT-PICK-4": {
+      "left_counter": "dirty",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "collected",
+      "supply_groups_collected": 4
+    },
+    "SHOT-CRAFT-SCRUB-1": {
+      "left_counter": "clean",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "collected"
+    },
+    "SHOT-CRAFT-SCRUB-2": {
+      "left_counter": "clean",
+      "rear_table": "clean",
+      "right_counter": "dirty",
+      "supplies": "collected"
+    },
+    "SHOT-CRAFT-SCRUB-3": {
+      "left_counter": "clean",
+      "rear_table": "clean",
+      "right_counter": "clean",
+      "supplies": "collected"
+    },
+    "SHOT-CRAFT-CUSTOMIZE": {
+      "left_counter": "clean",
+      "rear_table": "clean",
+      "right_counter": "clean",
+      "supplies": "collected"
+    },
+    "SHOT-BUNNY-SOAP": {
+      "giant": "hidden_by_foam",
+      "foam": "opaque",
+      "rainbow_friend": "hidden",
+      "windows": 2
+    },
+    "SHOT-BUNNY-JUMP": {
+      "giant": "no_intact_form_collapsing_residue",
+      "foam": "dissipating",
+      "rainbow_friend": "airborne",
+      "windows": 2
+    },
+    "SHOT-BUNNY-LAND": {
+      "giant": "gone",
+      "foam": "thinned_dust_settles",
+      "rainbow_friend": "grounded_happy",
+      "windows": 2
+    },
+    "SHOT-TEAM-PAPER": {
+      "paper": "collected",
+      "web": "present",
+      "wall_stain": "present",
+      "hall": "dirty"
+    },
+    "SHOT-TEAM-WEB": {
+      "paper": "collected",
+      "web": "cleared",
+      "wall_stain": "present",
+      "hall": "dirty"
+    },
+    "SHOT-TEAM-WALL": {
+      "paper": "collected",
+      "web": "cleared",
+      "wall_stain": "clean",
+      "hall": "clean"
+    },
+    "SHOT-TEAM-FINISH": {
+      "paper": "collected",
+      "web": "cleared",
+      "wall_stain": "clean",
+      "hall": "clean"
+    },
+    "SHOT-C2-01": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "unlit_in_holder",
+      "royals": "offscreen_not_arrived",
+      "shelter": "not_yet_earned"
+    },
+    "SHOT-C2-02": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "lit_in_holder",
+      "royals": "offscreen_not_arrived",
+      "shelter": "not_yet_earned"
+    },
+    "SHOT-C2-03": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "lit_in_holder",
+      "royals": "at_lawn_edge",
+      "shelter": "not_yet_earned"
+    },
+    "SHOT-C2-04": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "lit_in_holder",
+      "royals": "at_lawn_edge",
+      "shelter": "not_yet_earned"
+    },
+    "SHOT-C2-05": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "lit_in_holder",
+      "royals": "at_lawn_edge",
+      "shelter": "not_yet_earned"
+    },
+    "SHOT-C2-06": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "lit_in_holder",
+      "royals": "present_outside_shelter",
+      "shelter": "completed_after_three_successful_playable_rounds"
+    },
+    "SHOT-C2-07": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "lit_carried_by_king",
+      "royals": "present_outside_shelter",
+      "shelter": "completed_after_three_successful_playable_rounds",
+      "candle_holder": "empty"
+    },
+    "SHOT-C2-08": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "absent_stolen",
+      "royals": "departed",
+      "shelter": "completed_after_three_successful_playable_rounds",
+      "candle_holder": "empty"
+    },
+    "SHOT-C2-09": {
+      "cake_tiers": 6,
+      "cake": "intact_finished",
+      "candied_strawberries": 5,
+      "earned_objects": "all_eight_careers_complete_preserved",
+      "rocket": "parked_complete",
+      "candle": "absent_stolen",
+      "royals": "departed",
+      "shelter": "completed_after_three_successful_playable_rounds",
+      "candle_holder": "empty"
+    }
+  }
+}

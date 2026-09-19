@@ -1,0 +1,218 @@
+{
+  "event_id": "EV-D1-TEAM",
+  "location_id": "LOC-HALL",
+  "exact_cast": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY",
+    "CHAR-RUMI",
+    "CHAR-EAGLE",
+    "CHAR-RAINBOW"
+  ],
+  "cast_instances": [
+    {
+      "instance_id": "CHAR-ROSHAN-1",
+      "character_id": "CHAR-ROSHAN",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-DADDY-1",
+      "character_id": "CHAR-DADDY",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-RUMI-1",
+      "character_id": "CHAR-RUMI",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-EAGLE-1",
+      "character_id": "CHAR-EAGLE",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-RAINBOW-1",
+      "character_id": "CHAR-RAINBOW",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    }
+  ],
+  "exact_prop_counts": {
+    "extra_fixtures": 0
+  },
+  "room_state": {
+    "paper": "collected",
+    "web": "cleared",
+    "wall_stain": "present",
+    "hall": "dirty"
+  },
+  "end_room_state": {
+    "paper": "collected",
+    "web": "cleared",
+    "wall_stain": "clean",
+    "hall": "clean"
+  },
+  "depends_on": [
+    "SHOT-TEAM-WEB"
+  ],
+  "depends_on_events": [
+    "EV-D1-LAND"
+  ],
+  "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+  "end_state": "The named stain is clean; earlier cleared paper/web do not reappear",
+  "schema": "reef.grok.broll-plan.v1",
+  "shot_id": "SHOT-TEAM-WALL-B01",
+  "parent_shot_id": "SHOT-TEAM-WALL",
+  "parent_commit": "0b26557f9500983f7ba2eb670df072dffd352779",
+  "parent_card_sha256": "4d9db2d1e2d3bd3c7dde120df63c16d7af3f3c4defee1f16303852ec900bb35b",
+  "parent_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0b26557f9500983f7ba2eb670df072dffd352779/design/cinematics/v2/shots/SHOT-TEAM-WALL/CARD.json",
+  "intent": "Alternate coverage of the SAME action, not a new event or second completion.",
+  "status": "DRAFT_REQUIRES_EXACT_OWNER_OPENING_APPROVAL",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "inherited_hold": false,
+  "attempt_lineage": {
+    "parent_shot_id": "SHOT-TEAM-WALL",
+    "attempts_used": 0,
+    "attempt_cap": 3,
+    "reset_allowed": false,
+    "broll_attempts_generated": 0
+  },
+  "blockers": [
+    "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING",
+    "ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+    "GAP-HALL-EMPTY-DIRTY",
+    "GAP-ENSEMBLE-IDENTITY",
+    "NEW_CAMERA_LAYOUT_AND_COMPLETE_OPENING_REVIEW",
+    "GROK_ACCESS_ACK",
+    "PAIRED_ACTION_PHASE_MATCH"
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "framing": "ensemble-medium",
+    "viewpoint": "Eye-level quarter view across lavender wall stain, nearest gold column edge fixes location.",
+    "proposed_offset_degrees": 35,
+    "proposed_elevation_degrees": 12,
+    "measured": false,
+    "same_action_hemisphere": true,
+    "mirror_allowed": false,
+    "digital_crop_is_new_angle": false,
+    "unseen_reverse_wall_allowed": false
+  },
+  "duration_seconds": 4,
+  "fps_plan": 24,
+  "frame_count_plan": 96,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "output_disposition": "motion_reference_only",
+  "beats": [
+    {
+      "frames_half_open": [
+        0,
+        18
+      ],
+      "seconds": [
+        0,
+        0.75
+      ],
+      "phase": "start",
+      "visible": "Paper and selected web have been cleared; the named wall stain remains"
+    },
+    {
+      "frames_half_open": [
+        18,
+        78
+      ],
+      "seconds": [
+        0.75,
+        3.25
+      ],
+      "phase": "contact_action",
+      "visible": "Sponge contact visibly lifts the stain while the group cooperates; unrelated architecture remains fixed"
+    },
+    {
+      "frames_half_open": [
+        78,
+        96
+      ],
+      "seconds": [
+        3.25,
+        4
+      ],
+      "phase": "endpoint",
+      "visible": "The named stain is clean; earlier cleared paper/web do not reappear"
+    }
+  ],
+  "editorial": {
+    "mapping_basis": "PROPOSED_PHASE_MARKERS_NOT_MEASURED_FOOTAGE_TIMECODES",
+    "cut_in": "sponge contacts stain with coordinated team support",
+    "cut_out": "stain gone; previous paper/web stay cleared",
+    "suggested_b_use_seconds": [
+      0.8,
+      2.6
+    ],
+    "preserve_full_causal_action": false,
+    "replace_span_not_append_repeat": true,
+    "match_checks": [
+      "same motion phase and travel direction",
+      "same hand/tool and contact point",
+      "same dirt/water/prop state",
+      "same cast count and costume",
+      "same camera hemisphere and eyelines",
+      "no replay of contact or payoff"
+    ],
+    "audio": "Use one continuous room-tone bed; carry foley across cut, never double the impact. Reuse authorized in-game voices only later in edit; generate no voice here."
+  },
+  "preparation_references": [
+    "REF-7e77e4c29bbbdcaf",
+    "REF-69827625a8a795f1",
+    "REF-2eda6f76760b8598",
+    "REF-636ec38fd0e01d47",
+    "REF-da8ead4677192ef4",
+    "REF-e488d7c300eff116"
+  ],
+  "suggested_bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "owner_approved": false
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": null,
+      "sha256": null,
+      "requires_binding_review": true
+    }
+  ],
+  "board": {
+    "path": "boards/TEAM_v3.png",
+    "row_one_based": 3,
+    "columns": {
+      "1": "start",
+      "2": "contact/action",
+      "3": "endpoint"
+    },
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "approval": "CANDIDATE_COMPOSITION_ONLY_SEE_BOARD_QC"
+  },
+  "prompt_sha256": "9b70b677f05911460117c32771c6b4a76930797cd990e207d92fc467b8001bce",
+  "source_board_path": "historical_boards/SHOT-TEAM-WALL.jpg",
+  "continuous_endpoint_lock": {
+    "required": false,
+    "previous_b_shot": null,
+    "accepted_endpoint_sha256": null,
+    "alternate_angle_opening_sha256": null,
+    "note": "Different angles need two separately approved full frames of the SAME world-state/trajectory phase. Do not reuse A pixels or blend endpoints."
+  }
+}

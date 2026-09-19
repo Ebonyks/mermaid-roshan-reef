@@ -1,0 +1,31 @@
+{
+  "schema": "reef.grok.broll-board-review.v1",
+  "reviewer": "Codex visual review; not owner acceptance",
+  "scope": "10 newly generated storyboard families, 108 illustrative beat panels; none is an accepted first frame or measured room turnaround.",
+  "selected_versions": {"ARRIVAL":1,"BATH":2,"POOL":2,"CRAFT_PICK":1,"CRAFT_CLEAN":1,"EAGLE":1,"BOSS":2,"TEAM":3,"LAWN_A":2,"LAWN_B":2},
+  "corrective_redraws": [
+    {"board":"BATH","rejected":1,"selected":2,"defect":"Drain row used brush instead of hand.","correction":"Bare hand engages outlet, then withdraws as water falls."},
+    {"board":"POOL","rejected":1,"selected":2,"defect":"Net removed flower toy as litter; Roshan vanished from lane-one endpoint.","correction":"Collect distinct scraps/debris, retain both pool toys and Roshan; correct handled brush."},
+    {"board":"BOSS","rejected":1,"selected":2,"defect":"Giant lacked exact two-ear cloud identity and small friend grew too large.","correction":"Use source giant identity, obscure both ears with foam, reduce emerging friend size."},
+    {"board":"TEAM","rejected":1,"selected":3,"defect":"Rainbow friend became a generic fuzzy rabbit; invented spray bottle.","correction":"Reinstate cloud-family friend and cloth support while retaining Eagle."},
+    {"board":"TEAM","rejected":2,"selected":3,"defect":"Correction wrongly replaced Eagle with a second floating bunny.","correction":"Return to original board; change only floor bunny, preserve exactly one bird."},
+    {"board":"LAWN_A","rejected":1,"selected":2,"defect":"King accepted handshake and rocket/companion designs drifted.","correction":"King blocks Prince without handshake; restore cream/red rocket and companion identities."},
+    {"board":"LAWN_B","rejected":1,"selected":2,"defect":"Daddy stole the candle; a second candle remained on cake.","correction":"Ember King red claw/purple cloak and dragon body take the candle; socket empty."}
+  ],
+  "remaining_execution_checks": [
+    {"board":"ALL","rows":"all","blocking_for_IMAGE_1":true,"note":"Illustrations sometimes reframe between columns; do not animate that as a camera cut. A generation uses one approved setup. Proposed angles are not measured offsets and newly exposed surfaces remain unapproved. Boards are never bound pixels."},
+    {"board":"ARRIVAL","rows":"1","blocking_for_IMAGE_1":true,"note":"Board uses a close source-like plane side view. New approved opening must demonstrate genuinely changed perspective, original window/engine count and physically plausible ground contact without adding unapproved gear."},
+    {"board":"BATH","rows":"1-4","blocking_for_IMAGE_1":true,"note":"Sink/tub scale and edge detail vary in the illustrations. Match actual shell fixtures and outlet, precise waterline and previous-cleaning states; do not accept board stylization as redesigned fixtures."},
+    {"board":"POOL","rows":"2-4","blocking_for_IMAGE_1":true,"note":"Lane-one start can read partly clear in the sketch. Reconstruct exact 0/1/2-lane starting states from PLAN.json and preserve one connected waterfall fixture, not separate added waterfalls."},
+    {"board":"CRAFT_PICK","rows":"1-4","blocking_for_IMAGE_1":true,"note":"Illustration props are simplified. Exact collectible bundle/bottle/cup forms and counts come from source references; collected supplies must not reappear as loose targets. End-panel reframing is not motion permission."},
+    {"board":"CRAFT_CLEAN","rows":"4","blocking_for_IMAGE_1":true,"note":"Residual tabletop speckles can read as grime despite all-clean state. Complete opening must be visibly clean, small and stocked; use authored colour control, not newly invented magic object."},
+    {"board":"EAGLE","rows":"1-2","blocking_for_IMAGE_1":true,"note":"First rescue sketch omits Roshan and final clearing may retain a dispersing bunny silhouette. Approved opening must contain required Roshan; endpoint has zero pinning bunnies. Wing row illustrations are not measured wingbeat phases. Keep original-book Eagle proportions, not generic fluffy bird."},
+    {"board":"BOSS","rows":"2-3","blocking_for_IMAGE_1":true,"note":"Small friend scale still varies in final close compositions. Fix its world size relative to Roshan and rug through airborne/contact frames. No lingering giant body or ears; all four helpers remain in ensemble. Tools require exact source/role review."},
+    {"board":"TEAM","rows":"1-4","blocking_for_IMAGE_1":true,"note":"Cloud friend is still a stylized concept and hand tools vary. Bind exact rainbow/brush identities through the approved complete opening; one Eagle plus one rainbow friend, never two bunnies. Wide endpoint must preserve four small left arches and single royal right arch."},
+    {"board":"LAWN_A","rows":"1-2","blocking_for_IMAGE_1":true,"note":"Use exact single candle design and verified unlit-then-lit state; six tiers/five strawberries and earned object inventory need exact review. Party hats/costumes persist; no extra prop or flame inferred from board."},
+    {"board":"LAWN_B","rows":"2-3","blocking_for_IMAGE_1":true,"note":"Claw actor is corrected, but candle shape and cake decorations remain illustrative. Prince must be present from start of exit shot and both royals must actually clear frame at endpoint; final sketch shows an intermediate departure, not its required end state."}
+  ],
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "owner_review": "Not requested for storyboard pixels; show each complete individual opening candidate for approval."
+}

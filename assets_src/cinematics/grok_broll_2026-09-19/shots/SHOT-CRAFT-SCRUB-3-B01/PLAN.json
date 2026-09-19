@@ -1,0 +1,187 @@
+{
+  "event_id": "EV-D1-ARTCLEAN",
+  "location_id": "LOC-ART",
+  "exact_cast": [
+    "CHAR-ROSHAN"
+  ],
+  "cast_instances": [
+    {
+      "instance_id": "CHAR-ROSHAN-1",
+      "character_id": "CHAR-ROSHAN",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    }
+  ],
+  "exact_prop_counts": {
+    "extra_fixtures": 0
+  },
+  "room_state": {
+    "left_counter": "clean",
+    "rear_table": "clean",
+    "right_counter": "dirty",
+    "supplies": "collected"
+  },
+  "end_room_state": {
+    "left_counter": "clean",
+    "rear_table": "clean",
+    "right_counter": "clean",
+    "supplies": "collected"
+  },
+  "depends_on": [
+    "SHOT-CRAFT-SCRUB-2"
+  ],
+  "depends_on_events": [
+    "EV-D1-SUPPLIES"
+  ],
+  "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+  "end_state": "3 surfaces clean; earlier clean areas persist; desk unlocks",
+  "schema": "reef.grok.broll-plan.v1",
+  "shot_id": "SHOT-CRAFT-SCRUB-3-B01",
+  "parent_shot_id": "SHOT-CRAFT-SCRUB-3",
+  "parent_commit": "0b26557f9500983f7ba2eb670df072dffd352779",
+  "parent_card_sha256": "1ef7ab7dc374fe4d15422b9f3742fe211a59c99bc378489adc6de24b4400527c",
+  "parent_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0b26557f9500983f7ba2eb670df072dffd352779/design/cinematics/v2/shots/SHOT-CRAFT-SCRUB-3/CARD.json",
+  "intent": "Alternate coverage of the SAME action, not a new event or second completion.",
+  "status": "DRAFT_REQUIRES_EXACT_OWNER_OPENING_APPROVAL",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "inherited_hold": false,
+  "attempt_lineage": {
+    "parent_shot_id": "SHOT-CRAFT-SCRUB-3",
+    "attempts_used": 0,
+    "attempt_cap": 3,
+    "reset_allowed": false,
+    "broll_attempts_generated": 0
+  },
+  "blockers": [
+    "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING",
+    "ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+    "GAP-CRAFT-EMPTY-DIRTY",
+    "NEW_CAMERA_LAYOUT_AND_COMPLETE_OPENING_REVIEW",
+    "GROK_ACCESS_ACK",
+    "PAIRED_ACTION_PHASE_MATCH"
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "framing": "medium",
+    "viewpoint": "Right-front counter-height oblique along curved counter, clean rear/left visible in depth.",
+    "proposed_offset_degrees": 35,
+    "proposed_elevation_degrees": 8,
+    "measured": false,
+    "same_action_hemisphere": true,
+    "mirror_allowed": false,
+    "digital_crop_is_new_angle": false,
+    "unseen_reverse_wall_allowed": false
+  },
+  "duration_seconds": 4,
+  "fps_plan": 24,
+  "frame_count_plan": 96,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "output_disposition": "motion_reference_only",
+  "beats": [
+    {
+      "frames_half_open": [
+        0,
+        18
+      ],
+      "seconds": [
+        0,
+        0.75
+      ],
+      "phase": "start",
+      "visible": "Four supplies collected; 2 of three grime surfaces clean"
+    },
+    {
+      "frames_half_open": [
+        18,
+        78
+      ],
+      "seconds": [
+        0.75,
+        3.25
+      ],
+      "phase": "contact_action",
+      "visible": "Scrub right curved counter; contact removes grime and clean area persists."
+    },
+    {
+      "frames_half_open": [
+        78,
+        96
+      ],
+      "seconds": [
+        3.25,
+        4
+      ],
+      "phase": "endpoint",
+      "visible": "3 surfaces clean; earlier clean areas persist; desk unlocks"
+    }
+  ],
+  "editorial": {
+    "mapping_basis": "PROPOSED_PHASE_MARKERS_NOT_MEASURED_FOOTAGE_TIMECODES",
+    "cut_in": "brush contacts right-counter grime",
+    "cut_out": "all three surfaces clean, same stocked table unlocked",
+    "suggested_b_use_seconds": [
+      0.8,
+      2.6
+    ],
+    "preserve_full_causal_action": false,
+    "replace_span_not_append_repeat": true,
+    "match_checks": [
+      "same motion phase and travel direction",
+      "same hand/tool and contact point",
+      "same dirt/water/prop state",
+      "same cast count and costume",
+      "same camera hemisphere and eyelines",
+      "no replay of contact or payoff"
+    ],
+    "audio": "Use one continuous room-tone bed; carry foley across cut, never double the impact. Reuse authorized in-game voices only later in edit; generate no voice here."
+  },
+  "preparation_references": [
+    "REF-916522a6fab66918",
+    "REF-69827625a8a795f1",
+    "REF-b2eb0fc3a5d7c777",
+    "REF-17e76b7f758f31a9"
+  ],
+  "suggested_bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "owner_approved": false
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": "REF-69827625a8a795f1",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "requires_binding_review": true
+    }
+  ],
+  "board": {
+    "path": "boards/CRAFT_CLEAN_v1.png",
+    "row_one_based": 3,
+    "columns": {
+      "1": "start",
+      "2": "contact/action",
+      "3": "endpoint"
+    },
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "approval": "CANDIDATE_COMPOSITION_ONLY_SEE_BOARD_QC"
+  },
+  "prompt_sha256": "2eff76a84f36b87f1323424eb4dca2c0891fbc12c956bed3fdb1f2c1f3caf44b",
+  "source_board_path": "historical_boards/SHOT-CRAFT-SCRUB-3.jpg",
+  "continuous_endpoint_lock": {
+    "required": false,
+    "previous_b_shot": null,
+    "accepted_endpoint_sha256": null,
+    "alternate_angle_opening_sha256": null,
+    "note": "Different angles need two separately approved full frames of the SAME world-state/trajectory phase. Do not reuse A pixels or blend endpoints."
+  }
+}

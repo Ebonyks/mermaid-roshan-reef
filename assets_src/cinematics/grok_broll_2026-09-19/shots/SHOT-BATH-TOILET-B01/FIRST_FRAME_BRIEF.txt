@@ -1,0 +1,15 @@
+SHOT-BATH-TOILET-B01 — complete alternate first-frame brief
+Paired A shot: SHOT-BATH-TOILET
+
+Redraw the full scene from: Low sink-side three-quarter on right pink toilet; clean sink edge and right wall anchor retained.
+Framing: medium-close; proposed yaw offset 30 degrees, elevation 8 degrees. Angles are planning proposals, not measured geometry.
+
+Start world state: {"sink": "clean", "tub": "clean_drained", "toilet": "dirty", "drain": "open"}
+Cast instances: [{"instance_id": "CHAR-ROSHAN-1", "character_id": "CHAR-ROSHAN", "start_visibility": "visible", "end_visibility": "visible"}]
+Exact prop counts: {"tubs": 1, "sinks": 1, "toilets": 1, "roshan": 1, "extra_mermaids": 0}
+Action to prepare: Scrub right pink toilet; dirt visibly clears.
+End state must remain: toilet task visibly complete; other unfinished bathroom tasks remain
+
+Use actual room, identity and prop sources in REFERENCES.json; current clean source does not authorize a dirty or changed-angle opening. Show recognizable near and far anchors, maintain fixture adjacency, do not invent the unseen rear wall. A close crop/flip is NOT new perspective. Maintain one continuous mermaid tail, child/adult scale and correct handle-to-bristle contact.
+
+Deliver one native complete UI-free candidate and exact filename/hash for owner approval. No storyboard or gameplay pixels may be bound as IMAGE_1. No automatic motion generation or acceptance. Inherit A HOLD and attempt cap; angle naming never bypasses them.

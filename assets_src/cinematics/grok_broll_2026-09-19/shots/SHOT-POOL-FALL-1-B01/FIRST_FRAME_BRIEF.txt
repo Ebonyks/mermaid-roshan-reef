@@ -1,0 +1,15 @@
+SHOT-POOL-FALL-1-B01 — complete alternate first-frame brief
+Paired A shot: SHOT-POOL-FALL-1
+
+Redraw the full scene from: Front-left oblique toward waterfall lane one, shell seat and neighboring dirty lane remain in view.
+Framing: medium; proposed yaw offset 30 degrees, elevation 10 degrees. Angles are planning proposals, not measured geometry.
+
+Start world state: {"litter": "cleared", "waterfall_lanes_clean": 0, "plug": "lodged", "seahorse": "dry"}
+Cast instances: [{"instance_id": "CHAR-ROSHAN-1", "character_id": "CHAR-ROSHAN", "start_visibility": "visible", "end_visibility": "visible"}]
+Exact prop counts: {"waterfalls": 1, "seahorses": 1, "roshan": 1, "extra_mermaids": 0}
+Action to prepare: Scrub waterfall lane 1; restored earlier lanes persist.
+End state must remain: 1 lanes flowing; seahorse plug still lodged
+
+Use actual room, identity and prop sources in REFERENCES.json; current clean source does not authorize a dirty or changed-angle opening. Show recognizable near and far anchors, maintain fixture adjacency, do not invent the unseen rear wall. A close crop/flip is NOT new perspective. Maintain one continuous mermaid tail, child/adult scale and correct handle-to-bristle contact.
+
+Deliver one native complete UI-free candidate and exact filename/hash for owner approval. No storyboard or gameplay pixels may be bound as IMAGE_1. No automatic motion generation or acceptance. Inherit A HOLD and attempt cap; angle naming never bypasses them.

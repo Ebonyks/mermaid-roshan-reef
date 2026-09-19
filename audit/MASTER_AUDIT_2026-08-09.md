@@ -90,6 +90,8 @@ Scoped Grok V2 repair (2026-09-19): [handoff](../design/cinematics/v2/README.md)
 
 ## Sealed audit snapshot and subsequent round metadata
 
+Scoped Grok B-roll commission (2026-09-19): [alternate-coverage handoff](../assets_src/cinematics/grok_broll_2026-09-19/README.md) and [impact](../design/audit_impacts/grok-broll-20260919.json) pair all 36 V2 actions with proposed new camera setups, illustrated beat boards and editorial splice checks. No new game event, approved room geometry, owner first-frame approval or delivery acceptance is inferred; `MA-VIS-006` remains open.
+
 - **Audit ID:** `MA-2026-08-09`
 - **Audit date:** 2026-08-09
 - **Current audit-control candidate branch:**

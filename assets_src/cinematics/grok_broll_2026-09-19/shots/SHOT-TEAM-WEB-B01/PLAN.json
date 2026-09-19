@@ -1,0 +1,218 @@
+{
+  "event_id": "EV-D1-TEAM",
+  "location_id": "LOC-HALL",
+  "exact_cast": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY",
+    "CHAR-RUMI",
+    "CHAR-EAGLE",
+    "CHAR-RAINBOW"
+  ],
+  "cast_instances": [
+    {
+      "instance_id": "CHAR-ROSHAN-1",
+      "character_id": "CHAR-ROSHAN",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-DADDY-1",
+      "character_id": "CHAR-DADDY",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-RUMI-1",
+      "character_id": "CHAR-RUMI",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-EAGLE-1",
+      "character_id": "CHAR-EAGLE",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-RAINBOW-1",
+      "character_id": "CHAR-RAINBOW",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    }
+  ],
+  "exact_prop_counts": {
+    "extra_fixtures": 0
+  },
+  "room_state": {
+    "paper": "collected",
+    "web": "present",
+    "wall_stain": "present",
+    "hall": "dirty"
+  },
+  "end_room_state": {
+    "paper": "collected",
+    "web": "cleared",
+    "wall_stain": "present",
+    "hall": "dirty"
+  },
+  "depends_on": [
+    "SHOT-TEAM-PAPER"
+  ],
+  "depends_on_events": [
+    "EV-D1-LAND"
+  ],
+  "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+  "end_state": "That web is gathered on the duster; paper stays collected, wall stain remains",
+  "schema": "reef.grok.broll-plan.v1",
+  "shot_id": "SHOT-TEAM-WEB-B01",
+  "parent_shot_id": "SHOT-TEAM-WEB",
+  "parent_commit": "0b26557f9500983f7ba2eb670df072dffd352779",
+  "parent_card_sha256": "0efd6b874570caf44dac5565f0d6eafbd95f29a8da4deb2cc11c5b14420637b3",
+  "parent_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0b26557f9500983f7ba2eb670df072dffd352779/design/cinematics/v2/shots/SHOT-TEAM-WEB/CARD.json",
+  "intent": "Alternate coverage of the SAME action, not a new event or second completion.",
+  "status": "DRAFT_REQUIRES_EXACT_OWNER_OPENING_APPROVAL",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "inherited_hold": false,
+  "attempt_lineage": {
+    "parent_shot_id": "SHOT-TEAM-WEB",
+    "attempts_used": 0,
+    "attempt_cap": 3,
+    "reset_allowed": false,
+    "broll_attempts_generated": 0
+  },
+  "blockers": [
+    "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING",
+    "ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+    "GAP-HALL-EMPTY-DIRTY",
+    "GAP-ENSEMBLE-IDENTITY",
+    "NEW_CAMERA_LAYOUT_AND_COMPLETE_OPENING_REVIEW",
+    "GROK_ACCESS_ACK",
+    "PAIRED_ACTION_PHASE_MATCH"
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "framing": "ensemble-medium",
+    "viewpoint": "Elevated oblique toward SAME gold pillar and selected web, helpers staggered in depth.",
+    "proposed_offset_degrees": 35,
+    "proposed_elevation_degrees": 28,
+    "measured": false,
+    "same_action_hemisphere": true,
+    "mirror_allowed": false,
+    "digital_crop_is_new_angle": false,
+    "unseen_reverse_wall_allowed": false
+  },
+  "duration_seconds": 4,
+  "fps_plan": 24,
+  "frame_count_plan": 96,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "output_disposition": "motion_reference_only",
+  "beats": [
+    {
+      "frames_half_open": [
+        0,
+        18
+      ],
+      "seconds": [
+        0,
+        0.75
+      ],
+      "phase": "start",
+      "visible": "Previously collected hall paper stays collected; the selected web and unsolved wall stain remain"
+    },
+    {
+      "frames_half_open": [
+        18,
+        78
+      ],
+      "seconds": [
+        0.75,
+        3.25
+      ],
+      "phase": "contact_action",
+      "visible": "The held duster meets and gathers the selected web while the other helpers make small coordinated supporting actions"
+    },
+    {
+      "frames_half_open": [
+        78,
+        96
+      ],
+      "seconds": [
+        3.25,
+        4
+      ],
+      "phase": "endpoint",
+      "visible": "That web is gathered on the duster; paper stays collected, wall stain remains"
+    }
+  ],
+  "editorial": {
+    "mapping_basis": "PROPOSED_PHASE_MARKERS_NOT_MEASURED_FOOTAGE_TIMECODES",
+    "cut_in": "held duster contacts selected web",
+    "cut_out": "web gathered; paper absent and wall stain remains",
+    "suggested_b_use_seconds": [
+      0.8,
+      2.6
+    ],
+    "preserve_full_causal_action": false,
+    "replace_span_not_append_repeat": true,
+    "match_checks": [
+      "same motion phase and travel direction",
+      "same hand/tool and contact point",
+      "same dirt/water/prop state",
+      "same cast count and costume",
+      "same camera hemisphere and eyelines",
+      "no replay of contact or payoff"
+    ],
+    "audio": "Use one continuous room-tone bed; carry foley across cut, never double the impact. Reuse authorized in-game voices only later in edit; generate no voice here."
+  },
+  "preparation_references": [
+    "REF-7e77e4c29bbbdcaf",
+    "REF-69827625a8a795f1",
+    "REF-2eda6f76760b8598",
+    "REF-636ec38fd0e01d47",
+    "REF-da8ead4677192ef4",
+    "REF-e488d7c300eff116"
+  ],
+  "suggested_bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "owner_approved": false
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": null,
+      "sha256": null,
+      "requires_binding_review": true
+    }
+  ],
+  "board": {
+    "path": "boards/TEAM_v3.png",
+    "row_one_based": 2,
+    "columns": {
+      "1": "start",
+      "2": "contact/action",
+      "3": "endpoint"
+    },
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "approval": "CANDIDATE_COMPOSITION_ONLY_SEE_BOARD_QC"
+  },
+  "prompt_sha256": "9c940a84e9a9ba9cdac2d3f70e6f56449ea6c339ba874f31d08a904cf28ed264",
+  "source_board_path": "historical_boards/SHOT-TEAM-WEB.jpg",
+  "continuous_endpoint_lock": {
+    "required": false,
+    "previous_b_shot": null,
+    "accepted_endpoint_sha256": null,
+    "alternate_angle_opening_sha256": null,
+    "note": "Different angles need two separately approved full frames of the SAME world-state/trajectory phase. Do not reuse A pixels or blend endpoints."
+  }
+}

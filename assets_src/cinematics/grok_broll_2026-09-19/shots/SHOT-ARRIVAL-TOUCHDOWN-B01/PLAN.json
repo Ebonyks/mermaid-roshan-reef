@@ -1,0 +1,204 @@
+{
+  "event_id": "EV-D1-ARRIVE",
+  "location_id": "LOC-SKY",
+  "exact_cast": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY"
+  ],
+  "cast_instances": [
+    {
+      "instance_id": "CHAR-ROSHAN-1",
+      "character_id": "CHAR-ROSHAN",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-DADDY-1",
+      "character_id": "CHAR-DADDY",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    }
+  ],
+  "exact_prop_counts": {
+    "cabin_windows": 2,
+    "engine_intake": 1,
+    "rear_door": 0,
+    "mermaids_outside_plane": 0,
+    "birds_foreground": 0
+  },
+  "room_state": {
+    "plane": "airborne_above_patch",
+    "passengers": "seated"
+  },
+  "end_room_state": {
+    "plane": "grounded_stationary",
+    "passengers": "seated"
+  },
+  "depends_on": [],
+  "depends_on_events": [],
+  "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+  "end_state": "Plane grounded and stationary; Roshan and Daddy still inside, not yet at the castle",
+  "schema": "reef.grok.broll-plan.v1",
+  "shot_id": "SHOT-ARRIVAL-TOUCHDOWN-B01",
+  "parent_shot_id": "SHOT-ARRIVAL-TOUCHDOWN",
+  "parent_commit": "0b26557f9500983f7ba2eb670df072dffd352779",
+  "parent_card_sha256": "8be32aa78a63582a59e331c38922d3e208106794fe9de81e8b93d30ddd915c07",
+  "parent_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0b26557f9500983f7ba2eb670df072dffd352779/design/cinematics/v2/shots/SHOT-ARRIVAL-TOUCHDOWN/CARD.json",
+  "intent": "Alternate coverage of the SAME action, not a new event or second completion.",
+  "status": "DRAFT_REQUIRES_EXACT_OWNER_OPENING_APPROVAL",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "inherited_hold": false,
+  "attempt_lineage": {
+    "parent_shot_id": "SHOT-ARRIVAL-TOUCHDOWN",
+    "attempts_used": 1,
+    "attempt_cap": 3,
+    "reset_allowed": false,
+    "broll_attempts_generated": 0
+  },
+  "blockers": [
+    "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING",
+    "ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+    "GAP-SKY-LANDING-STILL",
+    "NEW_CAMERA_LAYOUT_AND_COMPLETE_OPENING_REVIEW",
+    "GROK_ACCESS_ACK",
+    "PAIRED_ACTION_PHASE_MATCH"
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "framing": "medium-wide",
+    "viewpoint": "Low front-left quarter of the established landing patch; lake-side mountain remains behind the nose. Nose and travel retain A-roll screen direction.",
+    "proposed_offset_degrees": 35,
+    "proposed_elevation_degrees": 8,
+    "measured": false,
+    "same_action_hemisphere": true,
+    "mirror_allowed": false,
+    "digital_crop_is_new_angle": false,
+    "unseen_reverse_wall_allowed": false
+  },
+  "duration_seconds": 4,
+  "fps_plan": 24,
+  "frame_count_plan": 96,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "output_disposition": "motion_reference_only",
+  "beats": [
+    {
+      "frames_half_open": [
+        0,
+        18
+      ],
+      "seconds": [
+        0,
+        0.75
+      ],
+      "phase": "start",
+      "visible": "Roshan and Daddy remain seated in the approved two-seat plane above its landing patch"
+    },
+    {
+      "frames_half_open": [
+        18,
+        78
+      ],
+      "seconds": [
+        0.75,
+        3.25
+      ],
+      "phase": "contact_action",
+      "visible": "The plane descends, makes visible ground contact and settles once; neither passenger exits"
+    },
+    {
+      "frames_half_open": [
+        78,
+        96
+      ],
+      "seconds": [
+        3.25,
+        4
+      ],
+      "phase": "endpoint",
+      "visible": "Plane grounded and stationary; Roshan and Daddy still inside, not yet at the castle"
+    }
+  ],
+  "editorial": {
+    "mapping_basis": "PROPOSED_PHASE_MARKERS_NOT_MEASURED_FOOTAGE_TIMECODES",
+    "cut_in": "descent reaches grass-contact phase",
+    "cut_out": "plane settles with both passengers still seated",
+    "suggested_b_use_seconds": [
+      0.8,
+      2.6
+    ],
+    "preserve_full_causal_action": false,
+    "replace_span_not_append_repeat": true,
+    "match_checks": [
+      "same motion phase and travel direction",
+      "same hand/tool and contact point",
+      "same dirt/water/prop state",
+      "same cast count and costume",
+      "same camera hemisphere and eyelines",
+      "no replay of contact or payoff"
+    ],
+    "audio": "Use one continuous room-tone bed; carry foley across cut, never double the impact. Reuse authorized in-game voices only later in edit; generate no voice here."
+  },
+  "preparation_references": [
+    "REF-017532ae864e534d",
+    "REF-69827625a8a795f1",
+    "REF-2eda6f76760b8598",
+    "REF-850d9614c299df94"
+  ],
+  "suggested_bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "owner_approved": false
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": "REF-69827625a8a795f1",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "requires_binding_review": true
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "reference_id": "REF-2eda6f76760b8598",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "requires_binding_review": true
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "object_or_material_identity",
+      "reference_id": "REF-850d9614c299df94",
+      "sha256": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde",
+      "requires_binding_review": true
+    }
+  ],
+  "board": {
+    "path": "boards/ARRIVAL_v1.png",
+    "row_one_based": 1,
+    "columns": {
+      "1": "start",
+      "2": "contact/action",
+      "3": "endpoint"
+    },
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "approval": "CANDIDATE_COMPOSITION_ONLY_SEE_BOARD_QC"
+  },
+  "prompt_sha256": "abef5a5c13c3e7ca0b189768f2d5669a76379e5165daeaa6b6b514f31528c29d",
+  "source_board_path": "historical_boards/SHOT-ARRIVAL-TOUCHDOWN.jpg",
+  "continuous_endpoint_lock": {
+    "required": false,
+    "previous_b_shot": null,
+    "accepted_endpoint_sha256": null,
+    "alternate_angle_opening_sha256": null,
+    "note": "Different angles need two separately approved full frames of the SAME world-state/trajectory phase. Do not reuse A pixels or blend endpoints."
+  }
+}

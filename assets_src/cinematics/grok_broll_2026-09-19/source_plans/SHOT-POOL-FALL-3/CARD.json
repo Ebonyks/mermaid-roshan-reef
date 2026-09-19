@@ -1,0 +1,218 @@
+{
+  "schema": "reef.grok.shot-plan.v2",
+  "shot_id": "SHOT-POOL-FALL-3",
+  "event_id": "EV-D1-FALL",
+  "name": "Scrub waterfall lane 3; restored earlier lanes persist.",
+  "generation_allowed": false,
+  "still_attempt_allowed": false,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-POOL-EMPTY-DIRTY",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "exact_cast": [
+    "CHAR-ROSHAN"
+  ],
+  "exact_prop_counts": {
+    "waterfalls": 1,
+    "seahorses": 1,
+    "roshan": 1,
+    "extra_mermaids": 0
+  },
+  "location_id": "LOC-POOL",
+  "room_state": {
+    "litter": "cleared",
+    "waterfall_lanes_clean": 2,
+    "plug": "lodged",
+    "seahorse": "dry"
+  },
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "address": "From approved coping toward the left-centre waterfall and right seahorse. Move closer along this known view for contacts, preserving waterline and adjacent fixture; never add a separate fountain basin."
+  },
+  "before": "2 waterfall lanes clean; remaining lanes slimed",
+  "action": "Scrub waterfall lane 3; restored earlier lanes persist.",
+  "after": "3 lanes flowing; seahorse plug still lodged",
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "reference_id": null,
+      "remote_url": null,
+      "sha256": null,
+      "path": null,
+      "missing_reason": "Complete owner-approved acted first frame missing; no room-only fallback."
+    },
+    {
+      "path": "media/69827625a8a795f1.png",
+      "source_path": "grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "subject_identity",
+      "bytes": 50051,
+      "reference_id": "REF-69827625a8a795f1",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/69827625a8_roshan_roshan_base.png",
+        "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/roshan.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening",
+      "id": "IMAGE_2",
+      "human_decision": "pending",
+      "hud_present": false,
+      "authority_domain": "identity/material only, not competing room geography"
+    }
+  ],
+  "bind_count": 2,
+  "must_move": [
+    "Scrub waterfall lane 3; restored earlier lanes persist."
+  ],
+  "must_not_move": [
+    "one pool, three waterfall lanes, fixed purple seahorse",
+    "previously completed cleanup",
+    "identity, anatomy and prop counts"
+  ],
+  "depends_on": [
+    "SHOT-POOL-FALL-2"
+  ],
+  "prompt_path": "PROMPT.txt",
+  "attempt_cap": 3,
+  "output_disposition": "motion_reference_only",
+  "v1_pool_was": [
+    "REF-1a9a2005d4d27bd5",
+    "REF-69827625a8a795f1"
+  ],
+  "v1_pool_note": "Archival only. Do not bind the pool. v2 binds are the list above, max 4.",
+  "revision": 2,
+  "source_snapshot": "b085580fb5c615e386af46c9a8c25a0c41b08cb0",
+  "sequence_position": 8,
+  "beat_ids": [
+    "SHOT-POOL-FALL-3-ACTION"
+  ],
+  "mode": "image_to_video",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "cast_status": "PROPOSED_STAGING_REQUIRES_OWNER_FIRST_FRAME_APPROVAL",
+  "cast_instances": [
+    {
+      "instance_id": "CHAR-ROSHAN-1",
+      "character_id": "CHAR-ROSHAN",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    }
+  ],
+  "end_room_state": {
+    "litter": "cleared",
+    "waterfall_lanes_clean": 3,
+    "plug": "lodged",
+    "seahorse": "dry"
+  },
+  "opening_candidate": null,
+  "approval_receipt": null,
+  "request": null,
+  "causal_chain": {
+    "trigger": "Scrub waterfall lane 3; restored earlier lanes persist.",
+    "visible_change": "3 lanes flowing; seahorse plug still lodged",
+    "end_confirmation": "3 lanes flowing; seahorse plug still lodged"
+  },
+  "end_state": "3 lanes flowing; seahorse plug still lodged",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no extra characters or fixtures",
+    "no identity drift",
+    "no result without contact",
+    "no premature payoff"
+  ],
+  "preparation_references": [
+    {
+      "path": "media/1a9a2005d4d27bd5.png",
+      "source_path": "grok_builder_2026-09-14/media/1a9a2005d4d27bd5.png",
+      "sha256": "1a9a2005d4d27bd57848130c5d7b402b71d8004d4eb803fa16e1493f6a6a222d",
+      "role": "reference",
+      "bytes": 983759,
+      "reference_id": "REF-1a9a2005d4d27bd5",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/1a9a2005d4d27bd5.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/1a9a2005d4d27bd5.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "license_provenance": "Project-owned original art or owner-provided Grok editorial footage; inherited ASSET_LICENSES.md source attribution; review/continuity use only",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/current_pool_full_room.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/69827625a8a795f1.png",
+      "source_path": "grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "reference",
+      "bytes": 50051,
+      "reference_id": "REF-69827625a8a795f1",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/69827625a8_roshan_roshan_base.png",
+        "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/roshan.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    }
+  ],
+  "preparation_reference_scope": "Archive inputs for planner/full-frame candidate preparation, not a multi-image motion binding list. Boards and pose strips are never generation pixels.",
+  "blocking_findings": [
+    "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING",
+    "ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+    "GAP-POOL-EMPTY-DIRTY"
+  ],
+  "attempts_used": 0,
+  "hold": false,
+  "attempt_cap_override_receipt": null,
+  "still_preparation_status": "Brief supplied. No queued generation or automatic cap reset; publish a scoped still REQUEST before spending an attempt.",
+  "continuity": {
+    "kind": "authored_cut",
+    "previous_shot_id": "SHOT-POOL-FALL-2",
+    "inherited_state": [
+      "2 waterfall lanes clean; remaining lanes slimed",
+      "Prior completed work remains completed."
+    ],
+    "allowed_changes": [
+      "Scrub waterfall lane 3; restored earlier lanes persist."
+    ]
+  },
+  "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+  "prompt_sha256": "4049f922218b4132361ec6f3af3055a62af3819ec6f146b1ba6b8db7cebc0b60",
+  "canon_sha256": "a3da9b70ea8ad34c80f3992bd844196561d52821d306c49256a41fff5635721c",
+  "depends_on_events": [
+    "EV-D1-SKIM"
+  ],
+  "hold_release_receipt": null,
+  "historical_hold": false,
+  "original_hold_reason": null
+}

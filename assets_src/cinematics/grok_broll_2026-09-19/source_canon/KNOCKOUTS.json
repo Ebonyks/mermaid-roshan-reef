@@ -1,0 +1,21 @@
+{
+  "schema": "reef.grok.knockouts.v2",
+  "any_one_fails_the_clip": [
+    "Wrong/extra character instance, or visibility not matching CARD.cast_instances at the named time.",
+    "Unicorn horn / spiral horn on Roshan",
+    "Beard or bulky king on Daddy",
+    "Text, HUD, captions, watermarks, the word GROK",
+    "Extra toilet, sink, tub, waterfall, window, door, eagle, bunny, bird, or cup",
+    "Clean restored room on a dirty opening",
+    "Whole-room magic-clean when only one fixture is the action",
+    "Board, contact sheet, or runtime HUD used as IMAGE_1",
+    "People baked into IMAGE_1 who are not the exact cast",
+    "Plane with three cabin windows or a rear door",
+    "Heraldic / standing Eagle instead of the book bird",
+    "Second giant bunny or early rainbow ears",
+    "Architecture morph during the camera move",
+    "Missing contact: tool floats, no grip, result with no cause"
+  ],
+  "sampled_qc_is_not_acceptance": "Watch the whole clip, then first/contact/end and every suspect frame. Use measured fps, frame index and seconds; historical t55 is ambiguous.",
+  "regenerate": "Complete new clip from the locked still. No morph, crossfade, or composite repair."
+}

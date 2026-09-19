@@ -1,0 +1,15 @@
+SHOT-ARRIVAL-TOUCHDOWN-B01 — complete alternate first-frame brief
+Paired A shot: SHOT-ARRIVAL-TOUCHDOWN
+
+Redraw the full scene from: Low front-left quarter of the established landing patch; lake-side mountain remains behind the nose. Nose and travel retain A-roll screen direction.
+Framing: medium-wide; proposed yaw offset 35 degrees, elevation 8 degrees. Angles are planning proposals, not measured geometry.
+
+Start world state: {"plane": "airborne_above_patch", "passengers": "seated"}
+Cast instances: [{"instance_id": "CHAR-ROSHAN-1", "character_id": "CHAR-ROSHAN", "start_visibility": "visible", "end_visibility": "visible"}, {"instance_id": "CHAR-DADDY-1", "character_id": "CHAR-DADDY", "start_visibility": "visible", "end_visibility": "visible"}]
+Exact prop counts: {"cabin_windows": 2, "engine_intake": 1, "rear_door": 0, "mermaids_outside_plane": 0, "birds_foreground": 0}
+Action to prepare: The plane descends, makes visible ground contact and settles once; neither passenger exits
+End state must remain: Plane grounded and stationary; Roshan and Daddy still inside, not yet at the castle
+
+Use actual room, identity and prop sources in REFERENCES.json; current clean source does not authorize a dirty or changed-angle opening. Show recognizable near and far anchors, maintain fixture adjacency, do not invent the unseen rear wall. A close crop/flip is NOT new perspective. Maintain one continuous mermaid tail, child/adult scale and correct handle-to-bristle contact.
+
+Deliver one native complete UI-free candidate and exact filename/hash for owner approval. No storyboard or gameplay pixels may be bound as IMAGE_1. No automatic motion generation or acceptance. Inherit A HOLD and attempt cap; angle naming never bypasses them.

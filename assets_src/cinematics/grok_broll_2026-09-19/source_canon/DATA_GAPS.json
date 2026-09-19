@@ -1,0 +1,149 @@
+{
+  "schema": "reef.grok.data-gaps.v2",
+  "revision": 2,
+  "rule": "Resolved sources are not new art tickets. Outstanding preparation and owner approval block only dependent shots; no automatic generation.",
+  "gaps": [
+    {
+      "id": "GAP-POOL-EMPTY-DIRTY",
+      "need": "Empty-of-people dirty full Mermaid Pool room plate (algae, clogged falls, plugged seahorse, no mermaids)",
+      "blocks": [
+        "SHOT-POOL-SKIM",
+        "SHOT-POOL-FALL-1",
+        "SHOT-POOL-FALL-2",
+        "SHOT-POOL-FALL-3",
+        "SHOT-POOL-PULL"
+      ],
+      "have": "Object overlays REF-e0ed3c7174dcfeff / REF-df7c3147bc886761 / REF-3af5ff973576d328. Runtime 00_dirty_arrival.png is never generation pixels. Clean pool plate contains people.",
+      "status": "OPEN_PREPARATION"
+    },
+    {
+      "id": "GAP-HALL-EMPTY-DIRTY",
+      "need": "Empty dirty Main Hall full-room plate (paper, web, named wall stain, nobody)",
+      "blocks": [
+        "SHOT-TEAM-PAPER",
+        "SHOT-TEAM-WEB",
+        "SHOT-TEAM-WALL"
+      ],
+      "have": "Clean hall REF-7e77e4c29bbbdcaf only",
+      "status": "OPEN_PREPARATION"
+    },
+    {
+      "id": "GAP-CRAFT-EMPTY-DIRTY",
+      "need": "Empty dirty Craft Room full-room plate (both curved counters + rear table grimy, nobody)",
+      "blocks": [
+        "SHOT-CRAFT-PICK-1",
+        "SHOT-CRAFT-PICK-2",
+        "SHOT-CRAFT-PICK-3",
+        "SHOT-CRAFT-PICK-4",
+        "SHOT-CRAFT-SCRUB-1",
+        "SHOT-CRAFT-SCRUB-2",
+        "SHOT-CRAFT-SCRUB-3"
+      ],
+      "have": "Grime strips only (left/desk/right) plus clean restored room",
+      "status": "OPEN_PREPARATION"
+    },
+    {
+      "id": "GAP-SKY-LANDING-STILL",
+      "need": "Owner-approved 16:9 landing-patch still (plane not required) registered as IMAGE_1",
+      "blocks": [
+        "SHOT-ARRIVAL-TOUCHDOWN"
+      ],
+      "have": "ASSET-CAM-SKY-LANDING-16x9_from_panorama; crop exists. Complete plane/passenger opening remains required.",
+      "status": "CANDIDATE_EXISTS_APPROVAL_PENDING"
+    },
+    {
+      "id": "GAP-ATTIC-INTERIOR",
+      "need": "Register existing two-window stone interior; then prepare complete ensemble opening",
+      "blocks": [],
+      "have": "REF-9cb4b02dc4a56e14; verified interior, not exterior",
+      "status": "RESOLVED_SOURCE_EXISTS"
+    },
+    {
+      "id": "GAP-RAINBOW-IDENTITY",
+      "need": "Register existing standalone single rainbow bunny",
+      "blocks": [],
+      "have": "REF-e488d7c300eff116; one subject, not contact sheet",
+      "status": "RESOLVED_SOURCE_EXISTS"
+    },
+    {
+      "id": "GAP-BATH-REVERSE-EMPTY",
+      "need": "Approve coherent turnaround before true reverse/three-quarter work; same-wall pilot inserts do not depend on it.",
+      "blocks": [],
+      "have": "Dirty wide plate REF-90bcc501e471b8d8. Inserts must crop that plate and keep neighbor fixtures. Grime overlays are not cameras. Boards are locked-camera narrative only.",
+      "status": "OPTIONAL_ALTERNATE_CAMERA_PREPARATION"
+    },
+    {
+      "id": "GAP-BATH-DRAINED-IN-PACKET",
+      "need": "Copy room_bubble_bath_dirty_drained_day_one.png into the builder packet as a hashed ref",
+      "status": "RESOLVED_REGISTERED",
+      "blocks": [],
+      "have": "ASSET-room_bubble_bath_dirty_drained_day_one; exact URL/hash now in REFERENCES.json"
+    },
+    {
+      "id": "GAP-COMPLETE-OPENINGS",
+      "status": "OWNER_APPROVAL_PENDING",
+      "blocks": [
+        "SHOT-ARRIVAL-TOUCHDOWN",
+        "SHOT-BATH-SINK",
+        "SHOT-BATH-TUB",
+        "SHOT-BATH-DRAIN",
+        "SHOT-BATH-TOILET",
+        "SHOT-POOL-SKIM",
+        "SHOT-POOL-FALL-1",
+        "SHOT-POOL-FALL-2",
+        "SHOT-POOL-FALL-3",
+        "SHOT-POOL-PULL",
+        "SHOT-EAGLE-FREE",
+        "SHOT-EAGLE-WING",
+        "SHOT-CRAFT-PICK-1",
+        "SHOT-CRAFT-PICK-2",
+        "SHOT-CRAFT-PICK-3",
+        "SHOT-CRAFT-PICK-4",
+        "SHOT-CRAFT-SCRUB-1",
+        "SHOT-CRAFT-SCRUB-2",
+        "SHOT-CRAFT-SCRUB-3",
+        "SHOT-CRAFT-CUSTOMIZE",
+        "SHOT-BUNNY-SOAP",
+        "SHOT-BUNNY-JUMP",
+        "SHOT-BUNNY-LAND",
+        "SHOT-TEAM-PAPER",
+        "SHOT-TEAM-WEB",
+        "SHOT-TEAM-WALL",
+        "SHOT-TEAM-FINISH",
+        "SHOT-C2-01",
+        "SHOT-C2-02",
+        "SHOT-C2-03",
+        "SHOT-C2-04",
+        "SHOT-C2-05",
+        "SHOT-C2-06",
+        "SHOT-C2-07",
+        "SHOT-C2-08",
+        "SHOT-C2-09"
+      ],
+      "need": "Complete per-shot cast, contact and fixture-state opening approved by exact hash; no empty coverage substitution."
+    },
+    {
+      "id": "GAP-ENSEMBLE-IDENTITY",
+      "status": "OPEN_PREPARATION",
+      "blocks": [
+        "SHOT-BUNNY-SOAP",
+        "SHOT-BUNNY-JUMP",
+        "SHOT-BUNNY-LAND",
+        "SHOT-TEAM-PAPER",
+        "SHOT-TEAM-WEB",
+        "SHOT-TEAM-WALL",
+        "SHOT-TEAM-FINISH",
+        "SHOT-C2-01",
+        "SHOT-C2-02",
+        "SHOT-C2-03",
+        "SHOT-C2-04",
+        "SHOT-C2-05",
+        "SHOT-C2-06",
+        "SHOT-C2-07",
+        "SHOT-C2-08",
+        "SHOT-C2-09"
+      ],
+      "need": "Accepted single-scene ensemble identity authority or approved shot-specific binding solution within four images; not a contact sheet or isolated-solo replacement."
+    }
+  ]
+}

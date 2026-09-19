@@ -346,6 +346,10 @@ unclassified until this ledger gains one new scoped row for it.
 | Doc | | Note |
 |---|---|---|
 | `design/cinematics/v2/README.md` | 🔵 | `SUPPORTING_CURRENT`; 2026-09-19 repaired 36-shot planning package and private visual-archive routing. Planning, publication, recipient access, opening approval and delivery are independent; no runtime/finding closure. |
+| `assets_src/cinematics/grok_broll_2026-09-19/README.md` | 🔵 | `SUPPORTING_CURRENT`; owner-commissioned 36-pair alternate-angle companion to repaired V2, with private visual archive. Boards/cameras remain candidate direction, not approved IMAGE_1 or delivery; source HOLDs and owner gates persist. |
+| `assets_src/cinematics/grok_broll_2026-09-19/EDITORIAL_GUIDE.md` | 🔵 | `SUPPORTING_CURRENT`; proposed A/B phase matching, short inserts and sound continuity, not measured footage timecodes or final movie acceptance. |
+| `assets_src/cinematics/grok_broll_2026-09-19/ASSET_LICENSES.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; exact source/board provenance for private review media; no protected original modified, no owner or delivery approval inferred. |
+| `assets_src/cinematics/grok_broll_2026-09-19/reshoots/README.md` | 🔵 | `SUPPORTING_CURRENT`; GitHub-first persistent B-roll request/return/review format. No autonomous scheduler, cap reset or generation authorization. |
 | `design/cinematics/v2/REPAIR_HANDOFF.md` | 🔵 | `SUPPORTING_CURRENT`; concrete source corrections, preparation order, shot-state/contact requirements and remaining approval/art gaps. |
 | `design/cinematics/v2/PROTOCOL.md` | 🔵 | `SUPPORTING_CURRENT`; applies V1/V2 canonical shot discipline without changing owner/full-frame/private-media policy. |
 | `design/cinematics/v2/SCHEMA.md` | 🔵 | `SUPPORTING_CURRENT`; planning sidecar and guarded canonical export, not an alternate accepted delivery schema. |

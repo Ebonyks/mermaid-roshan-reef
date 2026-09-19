@@ -1,0 +1,189 @@
+{
+  "event_id": "EV-D1-BATH",
+  "location_id": "LOC-BATH",
+  "exact_cast": [
+    "CHAR-ROSHAN"
+  ],
+  "cast_instances": [
+    {
+      "instance_id": "CHAR-ROSHAN-1",
+      "character_id": "CHAR-ROSHAN",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    }
+  ],
+  "exact_prop_counts": {
+    "tubs": 1,
+    "sinks": 1,
+    "toilets": 1,
+    "roshan": 1,
+    "extra_mermaids": 0
+  },
+  "room_state": {
+    "sink": "clean",
+    "tub": "clean_full",
+    "toilet": "dirty",
+    "drain": "about_to_open"
+  },
+  "end_room_state": {
+    "sink": "clean",
+    "tub": "clean_drained",
+    "toilet": "dirty",
+    "drain": "open"
+  },
+  "depends_on": [
+    "SHOT-BATH-TUB"
+  ],
+  "depends_on_events": [
+    "EV-D1-DISCOVER"
+  ],
+  "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+  "end_state": "The same clean tub is drained with its original outlet open; sink stays clean and toilet stays dirty.",
+  "schema": "reef.grok.broll-plan.v1",
+  "shot_id": "SHOT-BATH-DRAIN-B01",
+  "parent_shot_id": "SHOT-BATH-DRAIN",
+  "parent_commit": "0b26557f9500983f7ba2eb670df072dffd352779",
+  "parent_card_sha256": "cdf0b4ebab57b8fe1b02ffe480bac9a3792ac96dfbc4b1408d4925da86caf5ef",
+  "parent_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0b26557f9500983f7ba2eb670df072dffd352779/design/cinematics/v2/shots/SHOT-BATH-DRAIN/CARD.json",
+  "intent": "Alternate coverage of the SAME action, not a new event or second completion.",
+  "status": "DRAFT_REQUIRES_EXACT_OWNER_OPENING_APPROVAL",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "inherited_hold": false,
+  "attempt_lineage": {
+    "parent_shot_id": "SHOT-BATH-DRAIN",
+    "attempts_used": 1,
+    "attempt_cap": 3,
+    "reset_allowed": false,
+    "broll_attempts_generated": 0
+  },
+  "blockers": [
+    "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING",
+    "ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+    "NEW_CAMERA_LAYOUT_AND_COMPLETE_OPENING_REVIEW",
+    "GROK_ACCESS_ACK",
+    "PAIRED_ACTION_PHASE_MATCH"
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "framing": "medium-close",
+    "viewpoint": "High oblique from the same front hemisphere into tub; include original outlet and clean sink edge.",
+    "proposed_offset_degrees": 25,
+    "proposed_elevation_degrees": 45,
+    "measured": false,
+    "same_action_hemisphere": true,
+    "mirror_allowed": false,
+    "digital_crop_is_new_angle": false,
+    "unseen_reverse_wall_allowed": false
+  },
+  "duration_seconds": 4,
+  "fps_plan": 24,
+  "frame_count_plan": 96,
+  "size": [
+    1280,
+    720
+  ],
+  "aspect": "16:9",
+  "output_disposition": "motion_reference_only",
+  "beats": [
+    {
+      "frames_half_open": [
+        0,
+        18
+      ],
+      "seconds": [
+        0,
+        0.75
+      ],
+      "phase": "start",
+      "visible": "Sink clean; authored tub clean but full, original drain closed; toilet still dirty."
+    },
+    {
+      "frames_half_open": [
+        18,
+        78
+      ],
+      "seconds": [
+        0.75,
+        3.25
+      ],
+      "phase": "contact_action",
+      "visible": "Roshan engages the authored drain at visible contact; the waterline lowers continuously inside the existing tub."
+    },
+    {
+      "frames_half_open": [
+        78,
+        96
+      ],
+      "seconds": [
+        3.25,
+        4
+      ],
+      "phase": "endpoint",
+      "visible": "The same clean tub is drained with its original outlet open; sink stays clean and toilet stays dirty."
+    }
+  ],
+  "editorial": {
+    "mapping_basis": "PROPOSED_PHASE_MARKERS_NOT_MEASURED_FOOTAGE_TIMECODES",
+    "cut_in": "bare fingers engage original drain",
+    "cut_out": "water visibly reaches the drained level; never hide the falling waterline",
+    "suggested_b_use_seconds": [
+      0.0,
+      4.0
+    ],
+    "preserve_full_causal_action": true,
+    "replace_span_not_append_repeat": true,
+    "match_checks": [
+      "same motion phase and travel direction",
+      "same hand/tool and contact point",
+      "same dirt/water/prop state",
+      "same cast count and costume",
+      "same camera hemisphere and eyelines",
+      "no replay of contact or payoff"
+    ],
+    "audio": "Use one continuous room-tone bed; carry foley across cut, never double the impact. Reuse authorized in-game voices only later in edit; generate no voice here."
+  },
+  "preparation_references": [
+    "REF-90bcc501e471b8d8",
+    "REF-3ecd80b1be8444ae",
+    "REF-69827625a8a795f1"
+  ],
+  "suggested_bindings": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "owner_approved": false
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": "REF-69827625a8a795f1",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "requires_binding_review": true
+    }
+  ],
+  "board": {
+    "path": "boards/BATH_v2.png",
+    "row_one_based": 3,
+    "columns": {
+      "1": "start",
+      "2": "contact/action",
+      "3": "endpoint"
+    },
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "approval": "CANDIDATE_COMPOSITION_ONLY_SEE_BOARD_QC"
+  },
+  "prompt_sha256": "c406c9c504af03dcd1cfcc0496fc790d8d465efb4e862fc5af7deb9cabad557a",
+  "source_board_path": "historical_boards/SHOT-BATH-DRAIN.jpg",
+  "continuous_endpoint_lock": {
+    "required": false,
+    "previous_b_shot": null,
+    "accepted_endpoint_sha256": null,
+    "alternate_angle_opening_sha256": null,
+    "note": "Different angles need two separately approved full frames of the SAME world-state/trajectory phase. Do not reuse A pixels or blend endpoints."
+  }
+}

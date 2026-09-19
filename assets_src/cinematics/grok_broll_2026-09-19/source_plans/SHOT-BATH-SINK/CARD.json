@@ -1,0 +1,267 @@
+{
+  "schema": "reef.grok.shot-plan.v2",
+  "shot_id": "SHOT-BATH-SINK",
+  "event_id": "EV-D1-BATH",
+  "name": "Scrub central sink in circles; contact reveals clean patch.",
+  "generation_allowed": false,
+  "still_attempt_allowed": false,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; ATTEMPT_CAP_REACHED_OWNER_EXCEPTION_REQUIRED",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "exact_cast": [
+    "CHAR-ROSHAN"
+  ],
+  "exact_prop_counts": {
+    "tubs": 1,
+    "sinks": 1,
+    "toilets": 1,
+    "roshan": 1,
+    "extra_mermaids": 0
+  },
+  "location_id": "LOC-BATH",
+  "room_state": {
+    "sink": "dirty",
+    "tub": "dirty",
+    "toilet": "dirty",
+    "drain": "closed_full"
+  },
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "address": "Centre-wall sink-height insert, retain the tub edge and mirror as anchors; Roshan beside sink, not a front-facing cutout in the middle of the room."
+  },
+  "before": "Correct sink fixture/task pending; prior completed surfaces remain clean",
+  "action": "Scrub central sink in circles; contact reveals clean patch.",
+  "after": "sink task visibly complete; other unfinished bathroom tasks remain",
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "reference_id": null,
+      "remote_url": null,
+      "sha256": null,
+      "path": null,
+      "missing_reason": "Complete owner-approved acted first frame missing; no room-only fallback."
+    },
+    {
+      "path": "media/69827625a8a795f1.png",
+      "source_path": "grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "subject_identity",
+      "bytes": 50051,
+      "reference_id": "REF-69827625a8a795f1",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/69827625a8_roshan_roshan_base.png",
+        "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/roshan.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening",
+      "id": "IMAGE_2",
+      "human_decision": "pending",
+      "hud_present": false,
+      "authority_domain": "identity/material only, not competing room geography"
+    },
+    {
+      "path": "media/17e76b7f758f31a9.png",
+      "source_path": "grok_builder_2026-09-14/media/17e76b7f758f31a9.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "role": "object_or_material_identity",
+      "bytes": 535795,
+      "reference_id": "REF-17e76b7f758f31a9",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/17e76b7f758f31a9.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/17e76b7f758f31a9.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        936,
+        1024
+      ],
+      "license_provenance": "project-original generated reference art",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/17e76b7f75_magic_cleaning_brush.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening",
+      "id": "IMAGE_3",
+      "human_decision": "pending",
+      "hud_present": false,
+      "authority_domain": "identity/material only, not competing room geography"
+    }
+  ],
+  "bind_count": 3,
+  "must_move": [
+    "Scrub central sink in circles; contact reveals clean patch."
+  ],
+  "must_not_move": [
+    "tub left, sink centre, pink toilet right",
+    "previously completed cleanup",
+    "identity, anatomy and prop counts"
+  ],
+  "depends_on": [],
+  "prompt_path": "PROMPT.txt",
+  "attempt_cap": 3,
+  "output_disposition": "motion_reference_only",
+  "v1_pool_was": [
+    "REF-3ecd80b1be8444ae",
+    "REF-69827625a8a795f1"
+  ],
+  "v1_pool_note": "Archival only. Do not bind the pool. v2 binds are the list above, max 4.",
+  "revision": 2,
+  "source_snapshot": "b085580fb5c615e386af46c9a8c25a0c41b08cb0",
+  "sequence_position": 1,
+  "beat_ids": [
+    "SHOT-BATH-SINK-ACTION"
+  ],
+  "mode": "image_to_video",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "cast_status": "PROPOSED_STAGING_REQUIRES_OWNER_FIRST_FRAME_APPROVAL",
+  "cast_instances": [
+    {
+      "instance_id": "CHAR-ROSHAN-1",
+      "character_id": "CHAR-ROSHAN",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    }
+  ],
+  "end_room_state": {
+    "sink": "clean",
+    "tub": "dirty",
+    "toilet": "dirty",
+    "drain": "closed_full"
+  },
+  "opening_candidate": null,
+  "approval_receipt": null,
+  "request": null,
+  "causal_chain": {
+    "trigger": "Scrub central sink in circles; contact reveals clean patch.",
+    "visible_change": "sink task visibly complete; other unfinished bathroom tasks remain",
+    "end_confirmation": "sink task visibly complete; other unfinished bathroom tasks remain"
+  },
+  "end_state": "sink task visibly complete; other unfinished bathroom tasks remain",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no extra characters or fixtures",
+    "no identity drift",
+    "no result without contact",
+    "no premature payoff"
+  ],
+  "preparation_references": [
+    {
+      "path": "media/90bcc501e471b8d8.png",
+      "source_path": "grok_builder_2026-09-14/media/90bcc501e471b8d8.png",
+      "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+      "role": "reference",
+      "bytes": 1239053,
+      "reference_id": "REF-90bcc501e471b8d8",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/90bcc501e471b8d8.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/90bcc501e471b8d8.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/90bcc501e4_room_bubble_bath_dirty_day_one.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/3ecd80b1be8444ae.png",
+      "source_path": "grok_builder_2026-09-14/media/3ecd80b1be8444ae.png",
+      "sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da",
+      "role": "reference",
+      "bytes": 986757,
+      "reference_id": "REF-3ecd80b1be8444ae",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/3ecd80b1be8444ae.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/3ecd80b1be8444ae.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "license_provenance": "Project-owned original art or owner-provided Grok editorial footage; inherited ASSET_LICENSES.md source attribution; review/continuity use only",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/current_bathroom_full_room.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/69827625a8a795f1.png",
+      "source_path": "grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "reference",
+      "bytes": 50051,
+      "reference_id": "REF-69827625a8a795f1",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/69827625a8_roshan_roshan_base.png",
+        "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/roshan.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    }
+  ],
+  "preparation_reference_scope": "Archive inputs for planner/full-frame candidate preparation, not a multi-image motion binding list. Boards and pose strips are never generation pixels.",
+  "blocking_findings": [
+    "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING",
+    "ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+    "ATTEMPT_CAP_REACHED_OWNER_EXCEPTION_REQUIRED"
+  ],
+  "attempts_used": 6,
+  "hold": true,
+  "attempt_cap_override_receipt": null,
+  "still_preparation_status": "Brief supplied. No queued generation or automatic cap reset; publish a scoped still REQUEST before spending an attempt.",
+  "continuity": {
+    "kind": "new_setup",
+    "previous_shot_id": null,
+    "inherited_state": [
+      "Correct sink fixture/task pending; prior completed surfaces remain clean",
+      "Prior completed work remains completed."
+    ],
+    "allowed_changes": [
+      "Scrub central sink in circles; contact reveals clean patch."
+    ]
+  },
+  "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+  "prompt_sha256": "807def63724f401eea61090fd3f23e5c6b8f79cb5bacd93f8da6622613f7db95",
+  "canon_sha256": "a3da9b70ea8ad34c80f3992bd844196561d52821d306c49256a41fff5635721c",
+  "depends_on_events": [
+    "EV-D1-DISCOVER"
+  ],
+  "hold_release_receipt": null,
+  "historical_hold": false,
+  "original_hold_reason": null
+}

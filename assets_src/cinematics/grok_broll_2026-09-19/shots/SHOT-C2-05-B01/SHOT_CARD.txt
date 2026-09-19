@@ -1,0 +1,38 @@
+Imagine shot card v1 — planning copy, NOT executable until canonical packet is compiled and audited
+movie_id: MERMAID-ROSHAN-BROLL-20260919
+shot_id: SHOT-C2-05-B01
+status: DRAFT
+duration: 4 seconds
+aspect: 16:9
+size: 1280x720
+mode: image-to-video
+output_disposition: motion_reference_only
+
+IMAGE_1: MISSING — complete owner-approved alternate opening required
+job: approved_clean_first_frame
+IMAGE_2: REF-422f7bd45a13f1d3
+job: subject_identity
+
+start_frame: IMAGE_1
+camera: locked
+must_move: the King raises one foot and completes one slow sulky stomp with a warm ground puff
+must_not_move: one lawn patch, intact six-tier cake and earned objects, previously completed cleanup, identity, anatomy and prop counts
+end_state: his foot is planted and the warm puff has settled
+negative_constraints: no HUD/text, no extra fixtures/cast, no mirror, no unapproved reverse wall, no repeated story completion
+sound_intent: synchronized contact foley and room tone, no synthesized family voice
+
+ARCHIVE_COMPLETE: see immutable publication receipt
+GENERATION_READY: false
+DELIVERY_ACCEPTED: false
+
+Paste-ready draft prompt (only after readiness):
+the king raises one foot and completes one slow sulky stomp with a warm ground puff from the approved alternate opening in IMAGE_1.
+locked close camera; low oblique of ember king red scaly foot and grass, cloak hem anchors identity.
+0.0-0.75s: begin in the same pre-action state; foot descends to grass.
+0.75-3.25s: carry out that single action with visible physical cause; one soft warm puff settles; no damage or repeated stomp.
+3.25-4.0s: settle only where the action is finished; never freeze unfinished motion.
+keep room geometry, identities, tool orientation, unaffected fixtures and prior completed work fixed. no mirrored layout, new wall, HUD, text, extra characters, identity drift or repeated payoff. preserve identity from IMAGE_2 and any named object/grade bindings.
+end: his foot is planted and the warm puff has settled.
+Sound: synchronized gentle contact foley and matching room tone; no speech, music or protected voice synthesis.
+
+Archive: PLAN.json, FIRST_FRAME_BRIEF.txt, ../../REFERENCES.json, ../../BOARD_QC.json

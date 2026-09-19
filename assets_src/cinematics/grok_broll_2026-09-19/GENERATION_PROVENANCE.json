@@ -1,0 +1,670 @@
+[
+  {
+    "id": "BATH",
+    "version": 1,
+    "path": "boards/BATH_v1.png",
+    "sha256": "4d4e47f5ed89a4dd8e67e3d07c10bff2d2a42d541424f975d50b8143227944e9",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Use case: illustration-story. Create one polished 2D storybook cinematography storyboard sheet with exactly 4 rows and 3 panels per row, 12 landscape panels. Thin neutral gutters; no text, letters or numbers. This is a B-roll concept, not delivery frames. Image 1 is exact bathroom geometry/material reference, image 2 Roshan identity, image 3 brush identity. Redraw, do not crop or mirror. Same pastel shell fixtures, indigo contours, warm high-key light. One child Roshan per panel, pink bodice, brown rainbow-streak hair, tiny jeweled tiara, one rainbow tail and no legs. Correct brush grip on handle behind bristle head, bristles touch the surface. No extra people. Known wall order tub LEFT, sink/mirror CENTRE, pink toilet RIGHT; two ocean windows; do not invent a reverse wall. Each row is one locked different perspective, then progresses start/contact/result across its 3 panels. ROW1 sink: oblique 25-degree view from tub-side toward centre sink; sink dirty then circular bristle contact then clean; tub edge dirty/full at left, toilet still dirty. ROW2 tub: elevated three-quarter from front-left into long tub, clean sink edge right; tub dirty/full then horizontal scrub then clean/full, never drain. ROW3 drain: higher downward view inside same clean full tub with clean sink edge beyond; Roshan hand contacts original drain then waterline midway lower then tub empty. Toilet remains dirty off to right. ROW4 toilet: low oblique from sink-side toward pink toilet; clean sink edge left, toilet dirty then brush contact then toilet clean. No second tub/basin, no underwater camera or swimming fish indoors, no invented room redesign. These are genuinely different camera heights/orientations, not the same master zoomed. Preserve an adjacent fixed fixture in every row.",
+    "prompt_sha256": "00c5759e19c8976022e402220e9a87beaad5582908a3894cdcc8bf32f917cda8",
+    "inputs": [
+      {
+        "path": "references/media/90bcc501e471b8d8.png",
+        "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/69827625a8a795f1.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/17e76b7f758f31a9.png",
+        "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": false,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "CRAFT_PICK",
+    "version": 1,
+    "path": "boards/CRAFT_PICK_v1.png",
+    "sha256": "8c2cd3f9cc4111dd057c0384344b979fb9e03c07b5877138bb4e5d1c0bb7803c",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Use case: illustration-story. Generate ONE polished 2D storybook storyboard sheet, high-key pastel handmade toy world, clear indigo outlines. Each cell is a newly redrawn complete cinematic view, NOT crop/flip of an existing master. No text or numbers, thin neutral gutters. References are identity and architecture, never boards for final pixels. This is planning only. One exact instance per named character per cell; no legs on mermaids, no extra arms, no duplicate people, no generic replacements. Preserve reference room object order. Rows use different camera positions/heights; within each row all three beat panels use ONE fixed setup. Change physical perspective, not just scale. 4 rows x 3 landscape panels. Only child Roshan (reference 2), hands and face visible; brown hair rainbow streak, pink bodice, tiara, one rainbow tail. Room reference 1: curved counters LEFT and RIGHT foreground, SMALL LOW STOCKED WORKTABLE at REAR CENTRE, craft pinboard directly above, two side windows, pillars. No giant bare central desk. Three panels each row: before contact, grasp/lift, object securely held. ROW1 low oblique from front-left along left curved counter, collect same brush bundle from reference3. ROW2 elevated oblique on pink bottle reference4 at left counter, grasp and lift, collected brushes never reappear loose. ROW3 low right-front counter view with rear table behind, collect same blue bottle same bottle design as pink but blue, previous supplies absent from loose pile. ROW4 over Roshan's shoulder from front-right downward toward same cups reference5, grasp cups as one group, then secured, other collection complete. Keep counter grime visible through all rows; no cleaning occurs yet. Each row retain counter edge plus rear worktable or nearest fixed pillar as depth anchor. Do not move the rear table, pinboard or duplicate bottles. Baskets of background supplies stay stocked and are not the four collectible groups.",
+    "prompt_sha256": "0eead26e64aea9f4a1ba51b9bb3a734c2636a7be56461b20c33a33beff1da78c",
+    "inputs": [
+      {
+        "path": "references/media/916522a6fab66918.png",
+        "sha256": "916522a6fab6691866e8ff768056a5725bfbb76044dba869935eb7b585420eae",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/69827625a8a795f1.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/7de7cf80939fe62e.png",
+        "sha256": "7de7cf80939fe62e16d6931d1eb6b377ec2454107b855703b76f445aa8aad99a",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/089bcaf7b7e27a47.png",
+        "sha256": "089bcaf7b7e27a4760ca70f05cfeb6954e72eb59ac4ecd125fd6b5cfe0ebba4a",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/fca25541d66e07bf.png",
+        "sha256": "fca25541d66e07bf28ee31a36ff049130af64c495a077759750f291e526780a0",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": true,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "CRAFT_CLEAN",
+    "version": 1,
+    "path": "boards/CRAFT_CLEAN_v1.png",
+    "sha256": "abb4eeac8ab0b0d19f154b6f43f2329ce48ee209b9384644319227c5a1c08fd7",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Use case: illustration-story. Generate ONE polished 2D storybook storyboard sheet, high-key pastel handmade toy world, clear indigo outlines. Each cell is a newly redrawn complete cinematic view, NOT crop/flip of an existing master. No text or numbers, thin neutral gutters. References are identity and architecture, never boards for final pixels. This is planning only. One exact instance per named character per cell; no legs on mermaids, no extra arms, no duplicate people, no generic replacements. Preserve reference room object order. Rows use different camera positions/heights; within each row all three beat panels use ONE fixed setup. Change physical perspective, not just scale. 4 rows x 3 landscape panels. Only child Roshan, brown rainbow-streak hair, tiara, pink bodice, one rainbow tail. Reference1 actual craft geometry; reference4 SMALL stocked rear table identity. Fixed left/right curved counters, small rear table, board above; TWO side windows. Row1 front-left low oblique along curved left counter: grime, bristle contact on surface, same counter clean; rear table and right counter stay dirty. Row2 elevated three-quarter from centre aisle left toward SMALL rear stocked table: dirty tabletop, bristles contact clear patch BETWEEN retained supplies, table clean. Left counter remains clean, right remains dirty. Row3 low front-right angle along RIGHT curved counter: dirty, brush contacts, clean; previous left and rear stay clean. Correct grip behind brush head, no backwards brush. Row4 over Roshan shoulder near rear table: clean small STOCKED table and colour palette; she touches one existing colour, that selection glows gently; all objects intact, no chest/runes, no empty desk. Character front/three-quarter expression sometimes visible; framing varies substantially across rows but preserves known room architecture.",
+    "prompt_sha256": "8427ec9cf036dea9ca33a3f1fe6a5d50751121f72999e466c313ffea7765eea0",
+    "inputs": [
+      {
+        "path": "references/media/916522a6fab66918.png",
+        "sha256": "916522a6fab6691866e8ff768056a5725bfbb76044dba869935eb7b585420eae",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/69827625a8a795f1.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/17e76b7f758f31a9.png",
+        "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/b2eb0fc3a5d7c777.png",
+        "sha256": "b2eb0fc3a5d7c777540af1447827f6b2f98d47a658d2184d9774e407d46627aa",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": true,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "POOL",
+    "version": 1,
+    "path": "boards/POOL_v1.png",
+    "sha256": "d879ebee3dfa985589dedb8d044e0719fdb28aa61ac6b53da32b528c9b996c9e",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Use case: illustration-story. Generate ONE polished 2D storybook storyboard sheet, high-key pastel handmade toy world, clear indigo outlines. Each cell is a newly redrawn complete cinematic view, NOT crop/flip of an existing master. No text or numbers, thin neutral gutters. References are identity and architecture, never boards for final pixels. This is planning only. One exact instance per named character per cell; no legs on mermaids, no extra arms, no duplicate people, no generic replacements. Preserve reference room object order. Rows use different camera positions/heights; within each row all three beat panels use ONE fixed setup. Change physical perspective, not just scale. 5 rows x 3 landscape panels. ONE pool, waterfall left-centre, shell seat far left, window middle-right, purple seahorse on ONE coral pedestal at right, shelf behind seahorse. Only one Roshan with tiara pink bodice and rainbow tail. Rowan panels show start/contact/result. Row1 low waterline diagonal along known front coping: her net approaches floating litter, catches it, lifts litter out; all 3 waterfall lanes still dirty and seahorse mouth obstructed. Row2 front-left oblique toward waterfall: lane1 slimed, brush contacts lane1, lane1 clear, lanes2/3 dirty. Row3 elevated diagonal along pool coping toward lane2: lane1 stays clear, brush contacts lane2, lane2 becomes clear; lane3 dirty. Row4 low oblique from centre coping toward lane3: first2 clear, brush contacts lane3, all3 clear. Row5 right-front three-quarter close view of PURPLE seahorse mouth: exact pink mouth obstruction reference5 lodged, Roshan's bare hand GRIPS and pulls it, hand holds obstruction entirely clear; NO WATER FROM SEAHORSE at any panel. Coral pedestal never moves, no extra bowl/basin, no statue resizing, no duplicate fountains. Keep one neighboring fixed architectural anchor in each row.",
+    "prompt_sha256": "b630a52d2b6b2183c3b93baa3f2e2e9366c8eff137aff5bea2f90fa203e692df",
+    "inputs": [
+      {
+        "path": "references/media/1a9a2005d4d27bd5.png",
+        "sha256": "1a9a2005d4d27bd57848130c5d7b402b71d8004d4eb803fa16e1493f6a6a222d",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/69827625a8a795f1.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/df7c3147bc886761.png",
+        "sha256": "df7c3147bc8867612e9d59b4eb50771399341040ecd6305342dffe5ce4166589",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/3af5ff973576d328.png",
+        "sha256": "3af5ff973576d328dde98282f5ad9a5a04931e35f3a48e366de6ad1499b304a0",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/9c48ac1ca7be923f.png",
+        "sha256": "9c48ac1ca7be923fcb14902b3e2b62263f34d53e031f11002776bfc4322652f9",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": false,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "EAGLE",
+    "version": 1,
+    "path": "boards/EAGLE_v1.png",
+    "sha256": "63f0fc13e4f640f339f70adcb6e4e673ef9b2a9fa597b78e7bc232b8bd53993e",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Use case: illustration-story. Generate ONE polished 2D storybook storyboard sheet, high-key pastel handmade toy world, clear indigo outlines. Each cell is a newly redrawn complete cinematic view, NOT crop/flip of an existing master. No text or numbers, thin neutral gutters. References are identity and architecture, never boards for final pixels. This is planning only. One exact instance per named character per cell; no legs on mermaids, no extra arms, no duplicate people, no generic replacements. Preserve reference room object order. Rows use different camera positions/heights; within each row all three beat panels use ONE fixed setup. Change physical perspective, not just scale. 2 rows x 3 landscape panels. Exact original-book Baby Eagle reference3: pastel aqua/mint body, pink wings/headtuft, yellow eye patches, dark curved beak, NOT a brown bald eagle, NO backpack from source in scene. One child Roshan pink bodice rainbow tail. Roomref1 shell couch at rear centre stuffed with toys, cubbies flanking, tent rear-left, rainbow tunnel rear-right, two toy bins foreground. Row1 30degree low oblique from front-left toward rescue area, retain shell couch/cubby and BOTH restraint positions. Panel1 exactly TWO small purple dust bunnies pin one Eagle gently; panel2 Roshan hand visibly contacts LEFT bunny which disperses, RIGHT remains; panel3 second hand contact clears RIGHT bunny, one Eagle free and both bunnies gone. Never hardware pins. Row2 35degree higher view from same camera hemisphere retaining cubby and shell couch: freed Eagle wings low, ONE wingbeat open, then safe folded wings while Roshan smiles nearby. No restraints return; no bonus bird, no giant bunny, no room redesign.",
+    "prompt_sha256": "e17aa9bd87e43b77a1be6fcd7a1b87aa59c1d12543bb90cc999e6c593d3949e8",
+    "inputs": [
+      {
+        "path": "references/media/5c7797c3be3586da.png",
+        "sha256": "5c7797c3be3586daca648f4fa4ab1161368f1c99fee719b42ba5efd27f5eaf6f",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/69827625a8a795f1.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/da8ead4677192ef4.png",
+        "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/677cda8c5de1d3aa.png",
+        "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": true,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "BOSS",
+    "version": 1,
+    "path": "boards/BOSS_v1.png",
+    "sha256": "a8dcc36cf7be4d66d4f2d986add455649a65b9e934400f5ffa362b5fd01c8346",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Use case: illustration-story. One polished 2D storybook storyboard sheet, soft high-key pastels, painterly indigo contours, thin neutral gutters and no text. Three landscape panels per row show start/contact/result of one action. Every cell newly redraws whole scene from proposed alternate camera, no mirrored or zoomed source. One locked setup within a row, different physical camera position/height between rows. Preserve EXACT architecture and designs from image references. Concepts only, not approval. Roshan: one CHILD mermaid, brown hair rainbow streak, tiara, pink bodice, one rainbow tail; Daddy: one clean-shaven slender adult, long straight brown hair, thin rectangular black glasses, jeweled crown, navy embroidered coat, teal cape, rainbow tail; Rumi: one adult purple braid, purple jacket, aqua-pink tail; Baby Eagle: exactly one SMALL pastel aqua/mint bird with pink wings/headtuft, yellow eye patches and dark curved beak, NOT brown bald eagle, no backpack. All mermaids have NO legs. Rainbow friend when present: ONE tiny pastel rainbow CLOUD-shaped bunny with spiral/curled ears, pearl paws and big dark eyes, NOT a furry white rabbit. Keep adult/child size differences. 3 rows x3 columns. Exact enclosed stone attic reference1 with TWO side windows, left/right gold columns, shell chandelier, shelves/chests and octagonal rug. No wooden rafters or exterior. Giant dust bunny is a very large lavender CLOUD mound, dark plum outlines, huge curled ears, pearl paws, recognizable face; not furry animal. Row1 eye-level 35deg front-left oblique, four helpers visibly cooperate around SAME giant across ALL3 panels: first giant fully recognizable, Roshan and Daddy brush correctly bristles on body while Rumi sponges and Eagle fans soap; then wet white suds thicken; then all giant body AND ears hidden by foam, tiny friend NOT YET VISIBLE. Keep hands gripping behind brush head. Row2 slightly lower 35deg SAME hemisphere, all four helpers: first foam mound ONLY, second tiny rainbow cloud bunny bursts upward while old casing folds and disperses SIMULTANEOUSLY, third bunny airborne and old mound flattened to low falling dust, NO intact giant or recognizable giant head/ears anywhere. Row3 eye-level from same approved hemisphere: tiny friend airborne over low falling dust; then feet/pearl paws touch octagonal rug; finally tiny friend smiles with four friends, airborne dust thin, giant COMPLETELY GONE. No coexisting intact giant+friend, no second bird, no isolated helper solo. Keep reference sidewindow and floor rug corner as spatial anchors in every panel.",
+    "prompt_sha256": "9cfe5f7767347777a5009990ac518e6ea8c9b20ed6e98514f018261b35eb264c",
+    "inputs": [
+      {
+        "path": "references/media/9cb4b02dc4a56e14.png",
+        "sha256": "9cb4b02dc4a56e1436ea0a6b21dccf4ef751716d213e3ff7624571f15a9e2cb6",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/69827625a8a795f1.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "board_inputs/daddy.jpg",
+        "sha256": "5bcc627c695c1c45396a6a8ea1d9c9fac8f9dfceeeba896855b50bbff99555ec",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/636ec38fd0e01d47.png",
+        "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/e488d7c300eff116.png",
+        "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": false,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "TEAM",
+    "version": 1,
+    "path": "boards/TEAM_v1.png",
+    "sha256": "e2f7ebcd8a5344cb758f10a8f31b03d84b63c219cc5a3560c42abaa5b6a026a1",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Use case: illustration-story. One polished 2D storybook storyboard sheet, soft high-key pastels, painterly indigo contours, thin neutral gutters and no text. Three landscape panels per row show start/contact/result of one action. Every cell newly redraws whole scene from proposed alternate camera, no mirrored or zoomed source. One locked setup within a row, different physical camera position/height between rows. Preserve EXACT architecture and designs from image references. Concepts only, not approval. Roshan: one CHILD mermaid, brown hair rainbow streak, tiara, pink bodice, one rainbow tail; Daddy: one clean-shaven slender adult, long straight brown hair, thin rectangular black glasses, jeweled crown, navy embroidered coat, teal cape, rainbow tail; Rumi: one adult purple braid, purple jacket, aqua-pink tail; Baby Eagle: exactly one SMALL pastel aqua/mint bird with pink wings/headtuft, yellow eye patches and dark curved beak, NOT brown bald eagle, no backpack. All mermaids have NO legs. Rainbow friend when present: ONE tiny pastel rainbow CLOUD-shaped bunny with spiral/curled ears, pearl paws and big dark eyes, NOT a furry white rabbit. Keep adult/child size differences. 4 rows x3 landscape columns. Main hall exact lavender stone wall: four SMALL identical gold arch openings in a row on LEFT, one BIG draped royal arch with red steps on RIGHT, red runner along floor, gold pillars. There are NO windows in this reference hall. No new palace, no new doors, no rearranged arches. All FIVE companions cooperate in each row; giant absent throughout. Row1 low floor-level oblique from front-left, foreground red runner and gold arch base: loose PAPER mess, companions gather paper together, paper secured and floor clear; web/stain remain. Tiny bunny helps corral paper. Row2 elevated oblique aimed up same wall beside known gold pillar: paper absent, Daddy's duster touches existing web while Rumi supports and other companions help, web gathered and gone; wall stain persists. Row3 eye-level oblique toward stain on same lavender wall: stain visible, Rumi sponge and Roshan brush contact while Daddy/Eagle/tiny friend support, stain clean; no paper/web reappears. Row4 higher front-left three-quarter WIDE of same clean hall, five companions settle, one restrained sparkle travels over clean surfaces, final proud group calm in CLEAN hall. Preserve four small arches LEFT and single royal arch RIGHT in wide frame; don't replace it with symmetrical grand staircase. All characters have same clothing and tools between panels. No underwater bubbles, no added windows.",
+    "prompt_sha256": "737d8ffb9d908d23bad2bc01d8319ccfb77ab0e6e409eaddb9a76093a623c4ba",
+    "inputs": [
+      {
+        "path": "references/media/7e77e4c29bbbdcaf.png",
+        "sha256": "7e77e4c29bbbdcaf2230031a760137a28371532debefda971ab1b251df3ee2ad",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/69827625a8a795f1.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "board_inputs/daddy.jpg",
+        "sha256": "5bcc627c695c1c45396a6a8ea1d9c9fac8f9dfceeeba896855b50bbff99555ec",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/636ec38fd0e01d47.png",
+        "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/e488d7c300eff116.png",
+        "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": false,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "ARRIVAL",
+    "version": 1,
+    "path": "boards/ARRIVAL_v1.png",
+    "sha256": "e54de11af4eccce0c01ff1056bc8657b3807442f0eb19dc7387974438ae2abe8",
+    "dimensions": [
+      2172,
+      724
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Use case: illustration-story. One polished 2D storybook storyboard sheet, soft high-key pastels, painterly indigo contours, thin neutral gutters and no text. Three landscape panels per row show start/contact/result of one action. Every cell newly redraws whole scene from proposed alternate camera, no mirrored or zoomed source. One locked setup within a row, different physical camera position/height between rows. Preserve EXACT architecture and designs from image references. Concepts only, not approval. ONE row of THREE landscape panels. Exterior daylight on the middle lawn landing patch in reference1, clouds and distant mountains, lake on right, NO underwater environment. Exact aqua/lavender toy plane reference2 facing screen-right. New camera from low front-left quarter approximately35deg off previous side view, keep nose facing right throughout. Roshan and Daddy small, still seated inside cabin; show only through correct windows if visible, never outside. Panel1 whole plane descends just above grass, panel2 underside makes unmistakable grass contact with tiny soft compressed-grass response (do NOT invent landing wheels/gear), panel3 same plane grounded and settled; neither passenger exits. Maintain same dimensions and three side windows, twin rear engines, shell emblem, wings, no duplicate airplane. Do not invent castle where source lawn has none.",
+    "prompt_sha256": "4ae18001b542005d1e9216d1e304edde765460b323776d1b9d0f76b4767724d1",
+    "inputs": [
+      {
+        "path": "board_inputs/lawn.jpg",
+        "sha256": "67f94d1ae9fba7f7ca08a5f4d30881aea6412ae441de1730f39b646098c9d4d6",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/850d9614c299df94.png",
+        "sha256": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/69827625a8a795f1.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "board_inputs/daddy.jpg",
+        "sha256": "5bcc627c695c1c45396a6a8ea1d9c9fac8f9dfceeeba896855b50bbff99555ec",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": true,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "LAWN_A",
+    "version": 1,
+    "path": "boards/LAWN_A_v1.png",
+    "sha256": "cd2c3d1c85e1cf7b3bc6fa1fbcbcab1bfcea7fcaf99500d161a04763fba8c52d",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Use case: illustration-story. One polished 2D storybook storyboard sheet, soft high-key pastels, painterly indigo contours, thin neutral gutters and no text. Three landscape panels per row show start/contact/result of one action. Every cell newly redraws whole scene from proposed alternate camera, no mirrored or zoomed source. One locked setup within a row, different physical camera position/height between rows. Preserve EXACT architecture and designs from image references. Concepts only, not approval. Roshan: one CHILD mermaid, brown hair rainbow streak, tiara, pink bodice, one rainbow tail; Daddy: one clean-shaven slender adult, long straight brown hair, thin rectangular black glasses, jeweled crown, navy embroidered coat, teal cape, rainbow tail; Rumi: one adult purple braid, purple jacket, aqua-pink tail; Baby Eagle: exactly one SMALL pastel aqua/mint bird with pink wings/headtuft, yellow eye patches and dark curved beak, NOT brown bald eagle, no backpack. All mermaids have NO legs. Rainbow friend when present: ONE tiny pastel rainbow CLOUD-shaped bunny with spiral/curled ears, pearl paws and big dark eyes, NOT a furry white rabbit. Keep adult/child size differences. 5 rows x3 landscape columns, same Sky Lagoon middle grass party patch, not full panorama or underwater. EXACT cake reference5 SIX tiers, five strawberries, one candle and persistent party objects. Royals as image3 King red dragon squat dark crown purple cape and image4 slim red Prince dark asymmetric hair long dark coat; do not merge them. Row1 alternate35deg eye-level from table front-left: Roshan Daddy Rumi Eagle gather, slight settle, warm group around intact cake; candle UNLIT, no royals yet. Row2 low tabletop oblique towards one candle: Roshan hand taps small finished toy rocket BESIDE cake; tiny light travels to wick; ONE candle lit, six-tier cake untouched. Row3 low side-on from same hemisphere: King strides into lawn, Prince one step behind, both stop facing party offscreen; do not show duplicate kings from reference sheet. Row4 three-quarter medium across same encounter axis: Roshan offers hand, King moves BETWEEN Roshan and Prince, Prince watches his father; candle lit in retained distant background. Row5 low insert on single King's planted feet, foot lifts, contacts grass with soft warm puff, settles; no destructive flames, no cake damage. No camera changes inside any row, keep phase order exactly.",
+    "prompt_sha256": "ab5251f1fe111e09d822d05e415b0ed85f04a487cbfc7bd48966fac411aa2a8c",
+    "inputs": [
+      {
+        "path": "board_inputs/lawn.jpg",
+        "sha256": "67f94d1ae9fba7f7ca08a5f4d30881aea6412ae441de1730f39b646098c9d4d6",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/69827625a8a795f1.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/422f7bd45a13f1d3.png",
+        "sha256": "422f7bd45a13f1d3c0304082727d72298e3bc01babd8919dc0c7e3e92777052c",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/95d5cf35321c87a1.png",
+        "sha256": "95d5cf35321c87a1b5fae280a76a52fa7d3c6930e56503c10a4054c4c75169c4",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/91dbeb1f9c634eeb.png",
+        "sha256": "91dbeb1f9c634eebac04cd61f29318a3f4da6c2486fcab1182cdbf93668cad59",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": false,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "LAWN_B",
+    "version": 1,
+    "path": "boards/LAWN_B_v1.png",
+    "sha256": "bf38825ba918445ae98b75882448dc4a40211a1f9e53ef8474a73e69304ceca8",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Use case: illustration-story. One polished 2D storybook storyboard sheet, soft high-key pastels, painterly indigo contours, thin neutral gutters and no text. Three landscape panels per row show start/contact/result of one action. Every cell newly redraws whole scene from proposed alternate camera, no mirrored or zoomed source. One locked setup within a row, different physical camera position/height between rows. Preserve EXACT architecture and designs from image references. Concepts only, not approval. Roshan: one CHILD mermaid, brown hair rainbow streak, tiara, pink bodice, one rainbow tail; Daddy: one clean-shaven slender adult, long straight brown hair, thin rectangular black glasses, jeweled crown, navy embroidered coat, teal cape, rainbow tail; Rumi: one adult purple braid, purple jacket, aqua-pink tail; Baby Eagle: exactly one SMALL pastel aqua/mint bird with pink wings/headtuft, yellow eye patches and dark curved beak, NOT brown bald eagle, no backpack. All mermaids have NO legs. Rainbow friend when present: ONE tiny pastel rainbow CLOUD-shaped bunny with spiral/curled ears, pearl paws and big dark eyes, NOT a furry white rabbit. Keep adult/child size differences. 4 rows x3 landscape columns on SAME middle lawn party patch. Six-tier cake reference5, FIVE strawberries remain, one candle. Four friends only when stated; tiny bunny not in this Chapter2 cast. All game protection rounds have ALREADY been won. Row1 eye-level oblique from table-left: Roshan Daddy Rumi Eagle safe under completed gentle rainbow shelter, Roshan turns, all settle relieved, candle still lit on intact cake. Row2 tight low tabletop35deg angle from same side, only King visible as actor: hand approaches SINGLE lit candle, grips and lifts ONLY candle, hand holds candle with EMPTY holder left on INTACT SIX-tier cake, shelter remains intact. Never steal a cake tier. Row3 medium35deg of King and Prince leaving along same screen direction, King carries one candle, Prince gives sorry glance back and follows, both leave lawn together; no teleporting candle. Row4 closer shoulder-height from Roshan side: empty candle socket foreground on intact cake, Roshan sees absence, Daddy Rumi Eagle gather to comfort her; final four friends together. No candle reappears, no broken shelter, no second King/Prince, no new major event or aggressive destruction.",
+    "prompt_sha256": "9850495e61a4484980dfee08d91c5f8c9013f29fb3db2a3f7d1158ac978e5445",
+    "inputs": [
+      {
+        "path": "board_inputs/lawn.jpg",
+        "sha256": "67f94d1ae9fba7f7ca08a5f4d30881aea6412ae441de1730f39b646098c9d4d6",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/69827625a8a795f1.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/422f7bd45a13f1d3.png",
+        "sha256": "422f7bd45a13f1d3c0304082727d72298e3bc01babd8919dc0c7e3e92777052c",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/95d5cf35321c87a1.png",
+        "sha256": "95d5cf35321c87a1b5fae280a76a52fa7d3c6930e56503c10a4054c4c75169c4",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/91dbeb1f9c634eeb.png",
+        "sha256": "91dbeb1f9c634eebac04cd61f29318a3f4da6c2486fcab1182cdbf93668cad59",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": false,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "BATH",
+    "version": 2,
+    "path": "boards/BATH_v2.png",
+    "sha256": "73d5213b5b3b58f0f31417120cb92c48603178c3f24449488f07926fff4189fe",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Edit this STORYBOARD SHEET only, not cinematic delivery. Keep exact 4x3 layout, all art and rows1,2,4 unchanged. Correct ONLY ROW3 (the drain row): Roshan must use her bare hand, NOT a brush, to engage the existing drain. Remove the brush entirely from all THREE row3 cells. First row3 cell: fingers visibly contact the original outlet/stopper at tub bottom through FULL CLEAR water. Middle cell: bare hand now withdrawn above water and waterline HALFWAY lowered, outlet open. Last cell: SAME tub empty and original drain open, Roshan's bare hand rests on rim. Clean sink remains at right, no added lever or new fixture, no change in tub shape. No text. This is still a proposed board, not approved geometry.",
+    "prompt_sha256": "4143e8918a13f3932233f3db8ee23cca94d8980edd44d0a84d0620f9fe66776b",
+    "inputs": [
+      {
+        "path": "boards/BATH_v1.png",
+        "sha256": "4d4e47f5ed89a4dd8e67e3d07c10bff2d2a42d541424f975d50b8143227944e9",
+        "role": "board_edit_target_only"
+      },
+      {
+        "path": "references/media/90bcc501e471b8d8.png",
+        "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": true,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "LAWN_B",
+    "version": 2,
+    "path": "boards/LAWN_B_v2.png",
+    "sha256": "7e6637b4178f77a14f5538f110ea4cc205064399dabb13d035c6266ecbe2dfcc",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Edit this storyboard sheet. It has an IMPORTANT WRONG ACTOR. 4 rows x3 columns, thin gutters no text. Image1 is BOARD EDIT TARGET ONLY. Image2 is the ONE Ember King identity: squat RED dragon with BLACK spiky obsidian horns/crown, PURPLE cloak, red scaly hands and feet, NO mermaid tail, NO human glasses, NO long brown hair. Image3 slim Ember Prince identity. Image4 Rumi identity and image5 Baby Eagle identity (omit backpack). ROW2 replace ALL three human/Daddy hands and navy sleeves with King's RED SCALY CLAWED hand and dark purple cloak cuff. First claw approaches one candle, second claw lifts that SAME candle, third claw holds it fully clear over EMPTY socket, cake remains intact. ROW3 replace the entire Daddy mermaid thief in every panel with ONE exact squat RED DRAGON EMBER KING from image2 carrying candle, walking on his red dragon FEET. ONE slim Prince follows, looks sorry then leaves. Daddy MUST NOT be in row3. King and Prince completely exit last panel; candle absent from cake in ALL row3 cells (target wrongly has a second candle on cake in last row3 panel: REMOVE). ROW1 and ROW4 keep Daddy as gentle mermaid with friends; correct Rumi jacket/teal-pink tail to image4 and Eagle pastel mint-pink dark beak identity to image5. Shelter and six-tier cake stay intact; exactly FIVE strawberries, no replacement candle. Do not conflate Daddy with King. This is a concept sheet, not delivery.",
+    "prompt_sha256": "15418bafa97c22f081fee2af80bef0b57671c853061671618775bf611f6ed989",
+    "inputs": [
+      {
+        "path": "boards/LAWN_B_v1.png",
+        "sha256": "bf38825ba918445ae98b75882448dc4a40211a1f9e53ef8474a73e69304ceca8",
+        "role": "board_edit_target_only"
+      },
+      {
+        "path": "references/media/422f7bd45a13f1d3.png",
+        "sha256": "422f7bd45a13f1d3c0304082727d72298e3bc01babd8919dc0c7e3e92777052c",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/95d5cf35321c87a1.png",
+        "sha256": "95d5cf35321c87a1b5fae280a76a52fa7d3c6930e56503c10a4054c4c75169c4",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/636ec38fd0e01d47.png",
+        "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/da8ead4677192ef4.png",
+        "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": true,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "LAWN_A",
+    "version": 2,
+    "path": "boards/LAWN_A_v2.png",
+    "sha256": "5a86d118a53a8aab752be05d6293cf869b8fb37abd94bf30d5c3a58c30dac411",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Edit this storyboard concept sheet only. Keep5rows x3columns and its alternate-perspective art. Image1 targetboard; image2 EmberKing identity; image3 actual toyrocket; image4 Rumi; image5 BabyEagle (no backpack). Correct ROW4: NO hand-shake, no hugging King. First panel Roshan offers an OPEN welcoming hand at a respectful distance; second King ignores it and steps BETWEEN Roshan and Prince, blocking Prince; last King has body planted between them, arms to himself, Roshan's offered hand lowered, Prince watches his father. Only Roshan, King, Prince in all row4 cells; remove Daddy/Rumi foreground cameos. Keep King red dragon purplecape, no human/Daddy substitute. ROW2 use the EXACT cream toy rocket with RED pointed top, RED side fins and aqua round window from image3, not invented silver space rocket. Roshan taps rocket beside cake, tiny light goes to wick, single candle lit. ROW1 candle unlit, friends wearing small party hats; only Roshan Daddy Rumi Eagle, correct Rumi navy-purplejacket turquoise-pinktail and originalbook aqua/pink Eagle. Keep SIX cake tiers and FIVE strawberries, don't multiply them. All other scene content remains.",
+    "prompt_sha256": "3b12555e70aa387ebf4b52094517eb83ab3c876c537e35d6a4990806bad17e63",
+    "inputs": [
+      {
+        "path": "boards/LAWN_A_v1.png",
+        "sha256": "cd2c3d1c85e1cf7b3bc6fa1fbcbcab1bfcea7fcaf99500d161a04763fba8c52d",
+        "role": "board_edit_target_only"
+      },
+      {
+        "path": "references/media/422f7bd45a13f1d3.png",
+        "sha256": "422f7bd45a13f1d3c0304082727d72298e3bc01babd8919dc0c7e3e92777052c",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/910f531303ec813a.png",
+        "sha256": "910f531303ec813a522f98b8ac2f97adeb5ed24bd0b438ecef9f136e19d77845",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/636ec38fd0e01d47.png",
+        "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/da8ead4677192ef4.png",
+        "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": true,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "POOL",
+    "version": 2,
+    "path": "boards/POOL_v2.png",
+    "sha256": "437c2f96fb456a9c25c862cfb3583b3ada5d2b688cd7603553426798dc39cf8f",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Edit this 5x3 storyboard sheet, not delivery frames. Fix only these concrete mistakes: ROW1 the pink flower and yellow star are POOL TOYS, NOT litter. Keep BOTH floating toys in the water in all3cells, unchanged. Roshan's net scoops a small cluster of soggy grey paper scraps and loose green debris separate from toys. First debris floats, middle debris caught, last debris raised while flower/star still float. ROW2 PANEL3 must retain Roshan at same left lane position from panels1/2, smiling after cleaning, not vanish. Replace the small shell scrubbing object in ROWS2,3,4 with the actual handled MAGIC BRUSH from image2, gripped BEHIND broad pale bristle head; bristles touch waterfall slime. Preserve three-lane progressive order, unchanged purple seahorse mouth plug and dry nozzle until row5, every other drawing. No text.",
+    "prompt_sha256": "8cf7ae354ff078a476d25953c58f7d44d097008383b324490d6ad91ec84c0ef5",
+    "inputs": [
+      {
+        "path": "boards/POOL_v1.png",
+        "sha256": "d879ebee3dfa985589dedb8d044e0719fdb28aa61ac6b53da32b528c9b996c9e",
+        "role": "board_edit_target_only"
+      },
+      {
+        "path": "references/media/17e76b7f758f31a9.png",
+        "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": true,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "BOSS",
+    "version": 2,
+    "path": "boards/BOSS_v2.png",
+    "sha256": "6a8c9bc47f73a6e3d42833fa14af593b63eed0dc927eb549087e3c6754b6be28",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Edit the 3x3 storyboard concept sheet image1. Preserve all four helpers, stone room two sidewindows, chests rug and layout. ONLY CORRECT: ROW1 giant in firstpanel must be exact giant cloud bunny from image2 including TWO large round curl/spiral ears, triangular cloudmound and recognizable face; second panel suds cover most body with both ears partly visible, third panel wet white foam completely HIDES body AND BOTH EARS. Daddy and Roshan brushes in firstrow must use image4 magical brush, hands on handle behind bristles and bristles contact foam/body, never reversed. Keep simultaneous teamwork. ROW2/ROW3 small bunny must be the SMALL RAINBOW CLOUD of image3, matching curled ears pearl feet/cornerpaws and continuous cloud silhouette, no generic furry rabbit. Reduce its size to about Roshan's torso (not Roshan's whole body); maintain consistent apparent scale under perspective, no growth at landing/hug. Row2 first foam only; second tinyfriend jumps while old casing COLLAPSES; third tinyfriend airborne and no intact giant. Row3 tinyfriend lands, dust dissipates, happyteam. No text or new props.",
+    "prompt_sha256": "514f0f8ff48a9a2d2298284f2a1fe8e2e9d4d5301c983cc477cb7dac15d024de",
+    "inputs": [
+      {
+        "path": "boards/BOSS_v1.png",
+        "sha256": "a8dcc36cf7be4d66d4f2d986add455649a65b9e934400f5ffa362b5fd01c8346",
+        "role": "board_edit_target_only"
+      },
+      {
+        "path": "references/media/e585e525624f4da1.png",
+        "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/e488d7c300eff116.png",
+        "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/17e76b7f758f31a9.png",
+        "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": true,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "TEAM",
+    "version": 2,
+    "path": "boards/TEAM_v2.png",
+    "sha256": "def0a5c8a78ebe0b96dd80bd0bc13b5296732fa07db025212f6f1c3e6f517b3b",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Edit this 4x3 storyboard concept sheet only. Keep team actions, all known hall architecture, four small LEFT arches and one large draped RIGHT arch, no windows. Replace the tiny bunny in EVERY panel with EXACT reference2 rainbow CLOUD silhouette: rounded triangular scalloped pastel cloud body, two big curled spiral ears, pearl feet/paws, dark large eyes; NOT furry rabbit with separate head/legs. Keep tinyfriend about Roshan torso-sized and same scale across panels. In row3 Roshan's brush must be exact magical brush reference3, gripping handle behind pale bristle head, bristles contact wall at middlepanel. Remove invented spray bottle from Daddy's hand in row3; his support action is holding the existing cleaning cloth. Keep all other action/staging unchanged. No text.",
+    "prompt_sha256": "84c3fcd45ead169bfc72b9ff396f69395112780556f4351ab592b09e1b04fff3",
+    "inputs": [
+      {
+        "path": "boards/TEAM_v1.png",
+        "sha256": "e2f7ebcd8a5344cb758f10a8f31b03d84b63c219cc5a3560c42abaa5b6a026a1",
+        "role": "board_edit_target_only"
+      },
+      {
+        "path": "references/media/e488d7c300eff116.png",
+        "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/17e76b7f758f31a9.png",
+        "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": false,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "TEAM",
+    "version": 3,
+    "path": "boards/TEAM_v3.png",
+    "sha256": "0c16e17342e8f18a61972bde2f4c9a75f28f724265d833f41c51661dd2b396c5",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Edit image1, the ORIGINAL 4x3 team STORYBOARD sheet only. In EVERY cell preserve the one FLYING BIRD at upper right EXACTLY AS A BIRD; its reference is image3 pastel aqua/pink Baby Eagle. Never turn the bird into a bunny. There must be EXACTLY FIVE friends in every panel: Roshan, Daddy, Rumi, ONE flying Baby Eagle and ONE FLOOR-level rainbow cloud bunny. Change ONLY the FLOOR-level small fuzzy bunny into image2's rainbow CLOUD silhouette with scalloped triangular body, 2 spiral ears and pearl paws, matching size/location of the old floor bunny. DO NOT add a second bunny. DO NOT replace the flying bird. Preserve all other pixels, room layout, tool grips, actions, costumes and cameras. No text. In row3 remove Daddy's unapproved spray bottle and replace only it with folded cleaning cloth held in his same hand. The goal is candidate storyboard, never cinematic delivery.",
+    "prompt_sha256": "df2130986da5d0bf18899e89807e20a86dcc1d06473e254d2559a628f9919a1e",
+    "inputs": [
+      {
+        "path": "boards/TEAM_v1.png",
+        "sha256": "e2f7ebcd8a5344cb758f10a8f31b03d84b63c219cc5a3560c42abaa5b6a026a1",
+        "role": "board_edit_target_only"
+      },
+      {
+        "path": "references/media/e488d7c300eff116.png",
+        "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+        "role": "identity_or_layout_for_board_only"
+      },
+      {
+        "path": "references/media/da8ead4677192ef4.png",
+        "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": true,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  }
+]
