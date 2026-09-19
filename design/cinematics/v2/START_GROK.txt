@@ -1,0 +1,35 @@
+MERMAID ROSHAN — GROK HANDOFF V2 (execution only)
+
+You are generating ONE cinematic shot. Do not import DATABASE.json, historical clips, storyboards, or the rest of the queue.
+
+Read, in this order:
+1. this file
+2. the single shots/<SHOT_ID>/CARD.json you were given
+3. the single shots/<SHOT_ID>/PROMPT.txt
+4. canon/IDENTITY.json entries named in CARD.cast only
+5. canon/KNOCKOUTS.json
+
+Do not read CHARACTER_DIRECTION.json, JOBS.json, DATABASE.json, boards, or other shot folders unless the CARD names them.
+
+HARD RULES
+- One shot, one action, at most one camera move, 3–6 seconds.
+- Bind 2–4 images only, exactly the CARD.bind list. A reference pool is not a bind list.
+- IMAGE_1 must be an empty-of-people plate or an owner-approved first frame. If CARD.opening_approved is false, produce the still, show the owner filename + SHA-256, and STOP. Do not animate.
+- Refresh identity from canon/IDENTITY.json at the start of every new scene. Do not carry a previous scene's extra extras, horn, beard, or crowd.
+- Day One cleanup openings use DIRTY plates. Never bind a restored/clean room as IMAGE_1 for a dirty opening.
+- Do not bind boards, HUD, runtime captures, contact sheets, or historical rejected clips.
+- Exact cast count is a knockout. If the still or clip gains a person, bird, toilet, waterfall, or window that is not in CARD.exact_cast / CARD.exact_props, it fails.
+- Negative prompts do not hold for six seconds. Put the lock in the STILL (empty room + one child) and keep the motion prompt to the contact only.
+- Stop after 3 attempts or HOLD. Never auto-approve. GENERATION_READY and DELIVERY_ACCEPTED stay false until the CARD says otherwise.
+
+WHAT YOU RETURN (one shot)
+- still (if opening not approved): filename + sha256
+- or clip + t0 / contact / t_end frames + hashes
+- exchange/attempts/<SHOT_ID>/A00N/RETURN.json filled from the template
+- Do not write media into the game tree. Bytes go to the private videos repo / a release. This repo gets hashes only.
+
+IF THE CARD SAYS generation_allowed = false
+Do not generate. Return the blocking_reason to Codex. Typical: missing empty dirty plate, HOLD, missing identity, opening not approved.
+
+FIRST RESPONSE
+Confirm the one SHOT_ID, exact_cast count, bind count, dirty/clean fixture map, opening_approved, and whether you will make a still or must stop.
