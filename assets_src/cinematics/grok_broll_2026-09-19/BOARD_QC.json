@@ -2,8 +2,10 @@
   "schema": "reef.grok.broll-board-review.v1",
   "reviewer": "Codex visual review; not owner acceptance",
   "scope": "10 newly generated storyboard families, 108 illustrative beat panels; none is an accepted first frame or measured room turnaround.",
-  "selected_versions": {"ARRIVAL":1,"BATH":2,"POOL":2,"CRAFT_PICK":1,"CRAFT_CLEAN":1,"EAGLE":1,"BOSS":2,"TEAM":3,"LAWN_A":2,"LAWN_B":2},
+  "selected_versions": {"ARRIVAL":1,"BATH":2,"POOL":2,"CRAFT_PICK":1,"CRAFT_CLEAN":1,"EAGLE":1,"BOSS":2,"TEAM":3,"LAWN_A":3,"LAWN_B":3},
   "corrective_redraws": [
+    {"board":"LAWN_A","rejected":2,"selected":3,"defect":"Owner flags Rumi identity in cake/candle scene; braid, adult proportions and costume simplified.","correction":"Target Rumi in top three panels using exact adult identity source. Other scene direction retained; corrected candidate awaits owner review."},
+    {"board":"LAWN_B","rejected":2,"selected":3,"defect":"Rumi became childlike with reduced braid and altered jacket/tail.","correction":"Target Rumi in top three panels and bottom two hug panels; restore adult face, enormous braid, jacket/white blouse and coral fin. See RUMI_CORRECTION.json."},
     {"board":"BATH","rejected":1,"selected":2,"defect":"Drain row used brush instead of hand.","correction":"Bare hand engages outlet, then withdraws as water falls."},
     {"board":"POOL","rejected":1,"selected":2,"defect":"Net removed flower toy as litter; Roshan vanished from lane-one endpoint.","correction":"Collect distinct scraps/debris, retain both pool toys and Roshan; correct handled brush."},
     {"board":"BOSS","rejected":1,"selected":2,"defect":"Giant lacked exact two-ear cloud identity and small friend grew too large.","correction":"Use source giant identity, obscure both ears with foam, reduce emerging friend size."},

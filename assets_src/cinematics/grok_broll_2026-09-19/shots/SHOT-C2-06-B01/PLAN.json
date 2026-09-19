@@ -208,7 +208,7 @@
     }
   ],
   "board": {
-    "path": "boards/LAWN_B_v2.png",
+    "path": "boards/LAWN_B_v3.png",
     "row_one_based": 1,
     "columns": {
       "1": "start",
@@ -219,7 +219,7 @@
     "used_as_delivery_pixels": false,
     "approval": "CANDIDATE_COMPOSITION_ONLY_SEE_BOARD_QC"
   },
-  "prompt_sha256": "37c106d5c759a6d79784c7761562a98a3654e23c1fc4801244fb9eb593d97cc0",
+  "prompt_sha256": "e800c835d43e94a0fb0c27f6b5824f67129e8883d300d5fff386417f21be0807",
   "source_board_path": "historical_boards/SHOT-C2-06.jpg",
   "continuous_endpoint_lock": {
     "required": false,
@@ -227,5 +227,12 @@
     "accepted_endpoint_sha256": null,
     "alternate_angle_opening_sha256": null,
     "note": "Different angles need two separately approved full frames of the SAME world-state/trajectory phase. Do not reuse A pixels or blend endpoints."
+  },
+  "character_identity_locks": {
+    "CHAR-RUMI": {
+      "reference_id": "REF-636ec38fd0e01d47",
+      "required_features": "keep rumi adult with an enormous sculpted violet braid, pointed ears, star-shell earrings, gold-trimmed navy/lavender jacket over white blouse, aqua-to-violet-to-pink scales and coral split fin; never a child or duplicate roshan.",
+      "review": "Compare every visible Rumi to the actual identity source, not the rejected v2 boards. No other character is redesigned."
+    }
   }
 }

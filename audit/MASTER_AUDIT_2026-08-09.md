@@ -92,6 +92,8 @@ Scoped Grok V2 repair (2026-09-19): [handoff](../design/cinematics/v2/README.md)
 
 Scoped Grok B-roll commission (2026-09-19): [alternate-coverage handoff](../assets_src/cinematics/grok_broll_2026-09-19/README.md) and [impact](../design/audit_impacts/grok-broll-20260919.json) pair all 36 V2 actions with proposed new camera setups, illustrated beat boards and editorial splice checks. No new game event, approved room geometry, owner first-frame approval or delivery acceptance is inferred; `MA-VIS-006` remains open.
 
+Scoped owner Rumi correction (2026-09-19): [cake/candle identity review](../assets_src/cinematics/grok_broll_2026-09-19/RUMI_CORRECTION.json) and [impact](../design/audit_impacts/grok-broll-rumi-20260919.json) replace her appearances in two B-roll boards and strengthen three ensemble prompts. Other scene direction is retained; corrected art and individual openings still need owner review, with no finding closure.
+
 - **Audit ID:** `MA-2026-08-09`
 - **Audit date:** 2026-08-09
 - **Current audit-control candidate branch:**

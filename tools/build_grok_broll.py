@@ -99,6 +99,8 @@ def build(root, source_cache, generations, media_stage):
         parent_path = v2/'shots'/aid/'CARD.json'
         parent_bytes = parent_path.read_bytes()
         a = json.loads(parent_bytes)
+        rumi_cake = suffix in ('C2-01', 'C2-06', 'C2-09')
+        rumi_lock = 'keep rumi adult with an enormous sculpted violet braid, pointed ears, star-shell earrings, gold-trimmed navy/lavender jacket over white blouse, aqua-to-violet-to-pink scales and coral split fin; never a child or duplicate roshan.'
         write(public/'source_plans'/aid/'CARD.json', parent_bytes.decode('utf-8'))
         prompt = (
             f"{a['action'].rstrip('.').lower()} from the approved alternate opening in IMAGE_1.\n"
@@ -115,6 +117,8 @@ def build(root, source_cache, generations, media_stage):
         if suffix == 'BUNNY-JUMP':
             prompt = prompt.replace('3.25-4.0s: settle only where the action is finished; never freeze unfinished motion.',
                 '3.25-4.0s: continue the airborne trajectory and falling dust; no settle or freeze before LAND.')
+        if rumi_cake:
+            prompt = prompt.replace('end: ', rumi_lock+'\nend: ', 1)
         inherited = ['event_id','location_id','exact_cast','cast_instances','exact_prop_counts','room_state','end_room_state','depends_on','depends_on_events','game_prerequisite','end_state']
         plan = {key: a.get(key) for key in inherited}
         board_path = f"boards/{group}_v{latest[group]['version']}.png"
@@ -136,9 +140,13 @@ def build(root, source_cache, generations, media_stage):
             'prompt_sha256':sha(prompt.encode()),'source_board_path':f'historical_boards/{aid}.jpg',
             'continuous_endpoint_lock':{'required':suffix in ('BUNNY-JUMP','BUNNY-LAND'),'previous_b_shot':{'BUNNY-JUMP':'SHOT-BUNNY-SOAP-B01','BUNNY-LAND':'SHOT-BUNNY-JUMP-B01'}.get(suffix),'accepted_endpoint_sha256':None,'alternate_angle_opening_sha256':None,'note':'Different angles need two separately approved full frames of the SAME world-state/trajectory phase. Do not reuse A pixels or blend endpoints.'}
         })
+        if rumi_cake:
+            plan['character_identity_locks'] = {'CHAR-RUMI': {'reference_id':'REF-636ec38fd0e01d47','required_features':rumi_lock,'review':'Compare every visible Rumi to the actual identity source, not the rejected v2 boards. No other character is redesigned.'}}
         dump(public/'shots'/bid/'PLAN.json',plan)
         write(public/'shots'/bid/'PROMPT.txt',prompt)
         brief = f"{bid} — complete alternate first-frame brief\nPaired A shot: {aid}\n\nRedraw the full scene from: {viewpoint}\nFraming: {framing}; proposed yaw offset {yaw} degrees, elevation {elevation} degrees. Angles are planning proposals, not measured geometry.\n\nStart world state: {json.dumps(a['room_state'],ensure_ascii=False)}\nCast instances: {json.dumps(a['cast_instances'],ensure_ascii=False)}\nExact prop counts: {json.dumps(a['exact_prop_counts'],ensure_ascii=False)}\nAction to prepare: {a['action']}\nEnd state must remain: {a['end_state']}\n\nUse actual room, identity and prop sources in REFERENCES.json; current clean source does not authorize a dirty or changed-angle opening. Show recognizable near and far anchors, maintain fixture adjacency, do not invent the unseen rear wall. A close crop/flip is NOT new perspective. Maintain one continuous mermaid tail, child/adult scale and correct handle-to-bristle contact.\n\nDeliver one native complete UI-free candidate and exact filename/hash for owner approval. No storyboard or gameplay pixels may be bound as IMAGE_1. No automatic motion generation or acceptance. Inherit A HOLD and attempt cap; angle naming never bypasses them.\n"
+        if rumi_cake:
+            brief += '\nOWNER RUMI CORRECTION: '+rumi_lock+'\nCompare references/media/636ec38fd0e01d47.png before rendering. Rejected LAWN_A_v2 and LAWN_B_v2 do not define Rumi. Preserve other cast and existing composition; see RUMI_CORRECTION.json.\n'
         write(public/'shots'/bid/'FIRST_FRAME_BRIEF.txt',brief)
         slots='\n'.join(f"{s['id']}: {s.get('reference_id') or 'MISSING — complete owner-approved alternate opening required'}\njob: {s['role']}" for s in plan['suggested_bindings'])
         card=f"Imagine shot card v1 — planning copy, NOT executable until canonical packet is compiled and audited\nmovie_id: MERMAID-ROSHAN-BROLL-20260919\nshot_id: {bid}\nstatus: DRAFT\nduration: 4 seconds\naspect: 16:9\nsize: 1280x720\nmode: image-to-video\noutput_disposition: motion_reference_only\n\n{slots}\n\nstart_frame: IMAGE_1\ncamera: locked\nmust_move: {a['action']}\nmust_not_move: {', '.join(a['must_not_move'])}\nend_state: {a['end_state']}\nnegative_constraints: no HUD/text, no extra fixtures/cast, no mirror, no unapproved reverse wall, no repeated story completion\nsound_intent: synchronized contact foley and room tone, no synthesized family voice\n\nARCHIVE_COMPLETE: see immutable publication receipt\nGENERATION_READY: false\nDELIVERY_ACCEPTED: false\n\nPaste-ready draft prompt (only after readiness):\n{prompt}\nArchive: PLAN.json, FIRST_FRAME_BRIEF.txt, ../../REFERENCES.json, ../../BOARD_QC.json\n"

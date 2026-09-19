@@ -1,0 +1,20 @@
+{
+  "schema": "reef.grok.broll-owner-correction.v1",
+  "owner_feedback": "Rumi's art is wrong in the scene with the cake/candle, otherwise looks good",
+  "feedback_scope": "Correct Rumi only; preserve other storyboard direction. This does not approve unshown IMAGE_1 candidates or movie delivery.",
+  "source_reference_id": "REF-636ec38fd0e01d47",
+  "source_path": "references/media/636ec38fd0e01d47.png",
+  "source_sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+  "affected_shots": ["SHOT-C2-01-B01", "SHOT-C2-06-B01", "SHOT-C2-09-B01"],
+  "replacements": [
+    {"previous": "boards/LAWN_A_v2.png", "candidate": "boards/LAWN_A_v3.png", "target_panels": "row 1 columns 1-3"},
+    {"previous": "boards/LAWN_B_v2.png", "candidate": "boards/LAWN_B_v3.png", "target_panels": "row 1 columns 1-3 and row 4 columns 2-3"}
+  ],
+  "required_identity": ["Adult mermaid; not a second child", "Enormous sculpted violet braid, not small bun or loose ponytail", "Pointed ears and star-shell earrings", "Gold-trimmed navy/lavender jacket over white blouse", "Aqua-violet-pink scaled tail with coral split fin, not Roshan's sparkly rainbow tail"],
+  "review": {"reviewer": "Codex visual comparison, not owner approval", "result": "CORRECTED_CANDIDATE_PENDING_OWNER_REVIEW", "observations": "v3 improves adult face/proportions, braid silhouette, jacket, white blouse and visible tail/fin. Existing framing, cake/candle sequence and other actors remain compositionally consistent; no pixel-identical preservation claim. Earlier board limitations and exact fixture/cast/event checks still apply."},
+  "generation_method": "built_in_image_gen; complete storyboard edits, native outputs preserved",
+  "prompt_and_input_provenance": "GENERATION_PROVENANCE.json",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "owner_approved_replacements": false
+}

@@ -13,6 +13,8 @@ Start with [START_GROK.txt](START_GROK.txt). [PUBLICATION.json](PUBLICATION.json
 - [Editorial guide](EDITORIAL_GUIDE.md), [board QC](BOARD_QC.json), [queue](QUEUE.json), [return template](RESHOOT_RETURN_TEMPLATE.json) and a persistent [reshoot protocol](reshoots/README.md).
 - Private `index.html` gives an all-shot visual review gallery. View it from a downloaded private packet; GitHub displays individual PNGs directly. The public HTML copy cannot display private images by itself.
 
+Owner Rumi correction: [RUMI_CORRECTION.json](RUMI_CORRECTION.json) replaces only her cake/candle appearances with `LAWN_A_v3` and `LAWN_B_v3`. Use the actual adult Rumi reference, not the rejected v2 depictions. Other scene direction is retained; corrected artwork still awaits owner review.
+
 ## Creative direction
 
 Use low contact-level views, high obliques, three-quarter ensembles and over-the-shoulder inserts. Keep near/mid/far room anchors so the spaces have depth. The camera stays locked within each 4-second generation; variety comes from separate approved setups. Do not manufacture depth by mirroring, digitally cropping, or animating static layers.
@@ -21,7 +23,7 @@ The first six recommended reviews cover tub cleaning, craft pickup, the small st
 
 ## Acceptance limits
 
-The new boards are **illustrated planning concepts, not first-frame candidates or approved new architecture**. Seven corrective redraws were made across six board families; remaining panel-specific issues are listed in `BOARD_QC.json`. In particular, do not copy inferred room corners, modified prop forms, panel-to-panel camera changes, or compressed staging into an execution opening. The actual source references and exact state plan control.
+The new boards are **illustrated planning concepts, not first-frame candidates or approved new architecture**. Nine corrective redraws were made across six board families; remaining panel-specific issues are listed in `BOARD_QC.json`. In particular, do not copy inferred room corners, modified prop forms, panel-to-panel camera changes, or compressed staging into an execution opening. The actual source references and exact state plan control.
 
 `ARCHIVE_COMPLETE`, `GENERATION_READY` and `DELIVERY_ACCEPTED` are separate. The archive can be published and checked while openings remain unapproved. None of these I2V jobs is currently generation-ready or delivery-accepted. Actual frame-by-frame provenance and human/device review remain independent blocking gates. `MA-VIS-006` remains open.
 

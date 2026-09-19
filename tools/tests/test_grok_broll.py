@@ -13,6 +13,17 @@ class BrollTests(unittest.TestCase):
         self.assertTrue(v.validate_plan(p,self.parent,self.prompt))
     def test_valid_planning_control(self):self.assertEqual([],v.validate_plan(self.plan,self.parent,self.prompt))
     def test_full_packet(self):self.assertEqual([],v.validate(self.packet)['errors'])
+    def test_cake_rumi_identity_lock(self):
+        for suffix in ('01','06','09'):
+            aid='SHOT-C2-'+suffix;folder=self.packet/'shots'/(aid+'-B01')
+            p=v.read(folder/'PLAN.json');a=v.read(self.packet/'source_plans'/aid/'CARD.json');prompt=(folder/'PROMPT.txt').read_bytes()
+            self.assertEqual([],v.validate_plan(p,a,prompt))
+            p.pop('character_identity_locks')
+            self.assertIn('cake Rumi exact reference',v.validate_plan(p,a,prompt))
+    def test_cake_rumi_wrong_character_reference(self):
+        folder=self.packet/'shots/SHOT-C2-06-B01';p=v.read(folder/'PLAN.json');a=v.read(self.packet/'source_plans/SHOT-C2-06/CARD.json');prompt=(folder/'PROMPT.txt').read_bytes()
+        p['character_identity_locks']['CHAR-RUMI']['reference_id']='REF-69827625a8a795f1'
+        self.assertIn('cake Rumi exact reference',v.validate_plan(p,a,prompt))
     def test_not_generation_ready(self):self.assertTrue(v.validate(self.packet,True)['errors'])
     def test_wrong_pair(self):self.bad(lambda p:p.update(parent_shot_id='SHOT-BATH-SINK'))
     def test_state_reset(self):self.bad(lambda p:p['room_state'].update(sink='dirty'))

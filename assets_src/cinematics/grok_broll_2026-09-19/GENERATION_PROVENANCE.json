@@ -482,7 +482,7 @@
         "role": "identity_or_layout_for_board_only"
       }
     ],
-    "selected_concept": true,
+    "selected_concept": false,
     "used_as_generation_pixels": false,
     "used_as_delivery_pixels": false,
     "owner_approved": false
@@ -526,7 +526,7 @@
         "role": "identity_or_layout_for_board_only"
       }
     ],
-    "selected_concept": true,
+    "selected_concept": false,
     "used_as_generation_pixels": false,
     "used_as_delivery_pixels": false,
     "owner_approved": false
@@ -659,6 +659,64 @@
       {
         "path": "references/media/da8ead4677192ef4.png",
         "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": true,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "LAWN_A",
+    "version": 3,
+    "path": "boards/LAWN_A_v3.png",
+    "sha256": "e775a928cd22455eb709fdd1d971ce106ba97ade1047f9ddaccac1e5bc0af3a5",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Use case: identity-preserve. Edit ONLY Rumi in the storyboard sheet (image 1); image 2 is the sole approved Rumi character identity reference, not a pose to paste mechanically. Owner says all other art looks good. Preserve every panel, its framing and actions, the complete canvas, cake/candle, other characters, props, light and scenery. Do not redesign anyone else.\nRumi is an ADULT mermaid, not a child/sister of Roshan. Match image 2's mature face and eye shape, pointed ears, delicate star-shell earrings, HUGE thick sculpted lavender-violet braid with rope-like interwoven segments hanging down beside her shoulder and body, high gathered braid crown (not a small bun or loose ponytail). Her cropped jacket is navy and lavender with gold edging, tall collar, wide sleeves with wave patterns, small star/shell patches, over a WHITE blouse; gold heart-shell waist clasp. Her scaly tail grades aqua near waist through blue/violet to pink with broad CORAL-PINK split fins and pink side fins, NOT a duplicate sparkly rainbow Roshan tail. Her head and torso have adult proportions relative to small Roshan, still gentle polished 2D storybook style. Keep her same footprint and poses naturally seated or leaning so no other subject is displaced. Do not invent extra Rumi figures or floating braid pieces. Where cropped, only show naturally visible anatomy; do not force her whole reference body into a panel. No text, labels or new details outside Rumi. Return complete edited storyboard, preserving grid and untouched panels.\nThis is a FIVE-row by THREE-column sheet. Rumi appears ONLY in the TOP ROW, all three panels, to the RIGHT of the cake; correct those three appearances only. Retain her blue-and-gold party hat and existing expressions. Leave rows 2 through 5 unchanged.",
+    "prompt_sha256": "975b53ae3023eeed153e7b9c3481c12c3fa00e60898e5f2b51380c32ff1fd492",
+    "inputs": [
+      {
+        "path": "boards/LAWN_A_v2.png",
+        "sha256": "5a86d118a53a8aab752be05d6293cf869b8fb37abd94bf30d5c3a58c30dac411",
+        "role": "board_edit_target_only"
+      },
+      {
+        "path": "references/media/636ec38fd0e01d47.png",
+        "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+        "role": "identity_or_layout_for_board_only"
+      }
+    ],
+    "selected_concept": true,
+    "used_as_generation_pixels": false,
+    "used_as_delivery_pixels": false,
+    "owner_approved": false
+  },
+  {
+    "id": "LAWN_B",
+    "version": 3,
+    "path": "boards/LAWN_B_v3.png",
+    "sha256": "dd01fb95a5924d475ec00dd8395a4dfe4dd93b5bffc6925dfaf317f0699fa31a",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "method": "built_in_image_gen",
+    "prompt": "Use case: identity-preserve. Edit ONLY Rumi in the storyboard sheet (image 1); image 2 is the sole approved Rumi character identity reference, not a pose to paste mechanically. Owner says all other art looks good. Preserve every panel, its framing and actions, the complete canvas, cake/candle, other characters, props, light and scenery. Do not redesign anyone else.\nRumi is an ADULT mermaid, not a child/sister of Roshan. Match image 2's mature face and eye shape, pointed ears, delicate star-shell earrings, HUGE thick sculpted lavender-violet braid with rope-like interwoven segments hanging down beside her shoulder and body, high gathered braid crown (not a small bun or loose ponytail). Her cropped jacket is navy and lavender with gold edging, tall collar, wide sleeves with wave patterns, small star/shell patches, over a WHITE blouse; gold heart-shell waist clasp. Her scaly tail grades aqua near waist through blue/violet to pink with broad CORAL-PINK split fins and pink side fins, NOT a duplicate sparkly rainbow Roshan tail. Her head and torso have adult proportions relative to small Roshan, still gentle polished 2D storybook style. Keep her same footprint and poses naturally seated or leaning so no other subject is displaced. Do not invent extra Rumi figures or floating braid pieces. Where cropped, only show naturally visible anatomy; do not force her whole reference body into a panel. No text, labels or new details outside Rumi. Return complete edited storyboard, preserving grid and untouched panels.\nThis is a FOUR-row by THREE-column sheet. Rumi appears in the TOP ROW all three panels and in BOTTOM ROW columns 2 and 3, next to Daddy/Roshan and the bird. Correct those five appearances only. Keep the existing hug choreography, expressions and occlusion. Leave rows 2 and 3 and bottom-left panel unchanged. Specifically do not change Daddy, Roshan or the bird.",
+    "prompt_sha256": "426a13a312fe00f6b9827332e12160da2712406380b8b562cb0550bd132ada42",
+    "inputs": [
+      {
+        "path": "boards/LAWN_B_v2.png",
+        "sha256": "7e6637b4178f77a14f5538f110ea4cc205064399dabb13d035c6266ecbe2dfcc",
+        "role": "board_edit_target_only"
+      },
+      {
+        "path": "references/media/636ec38fd0e01d47.png",
+        "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
         "role": "identity_or_layout_for_board_only"
       }
     ],

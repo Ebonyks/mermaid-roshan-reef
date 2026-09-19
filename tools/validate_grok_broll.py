@@ -57,6 +57,10 @@ def validate_plan(plan, parent, prompt):
     check('end: '+parent['end_state'].rstrip('.')+'.' in text,'exact endpoint prompt')
     check('IMAGE_1' in text and 'IMAGE_2' in text,'input roles in prompt')
     check('locked' in text and 'no mirrored layout' in text,'prompt camera/negative controls')
+    if parent['shot_id'] in ('SHOT-C2-01','SHOT-C2-06','SHOT-C2-09'):
+        lock=plan.get('character_identity_locks',{}).get('CHAR-RUMI',{})
+        check(lock.get('reference_id')=='REF-636ec38fd0e01d47','cake Rumi exact reference')
+        check('rumi adult' in text and 'enormous sculpted violet braid' in text and 'coral split fin' in text,'cake Rumi identity prompt')
     if parent['shot_id'] in ('SHOT-BUNNY-JUMP','SHOT-BUNNY-LAND'):
         lock=plan.get('continuous_endpoint_lock',{})
         check(lock.get('required') is True and lock.get('accepted_endpoint_sha256') is None,'continuous endpoint remains gated')
