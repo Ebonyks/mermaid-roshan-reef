@@ -1,0 +1,20 @@
+{
+  "id": "grok-handoff-v2",
+  "branch": "codex/grok-handoff-v2",
+  "delivery_accepted": false,
+  "generation_ready": false,
+  "protocol": "design/cinematics/v2/",
+  "start": "design/cinematics/v2/START_GROK.txt",
+  "shot_cards": 36,
+  "bind_cap": [2, 4],
+  "still_attempt_allowed": [
+    "SHOT-ARRIVAL-TOUCHDOWN",
+    "SHOT-BATH-SINK",
+    "SHOT-BATH-TUB",
+    "SHOT-BATH-DRAIN",
+    "SHOT-BATH-TOILET"
+  ],
+  "hold": ["SHOT-BUNNY-LAND", "SHOT-C2-02", "SHOT-C2-06", "SHOT-C2-07"],
+  "media_policy": "private mermaid-roshan-grok-videos only; hashes in this repo",
+  "replaces": "Passing DATABASE.json / START_GROK revision 4 library into Grok as the job"
+}
