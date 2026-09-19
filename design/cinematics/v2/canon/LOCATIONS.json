@@ -1,0 +1,94 @@
+{
+  "schema": "reef.grok.locations.v2",
+  "revision": 1,
+  "rule": "IMAGE_1 for a dirty opening must be an empty-of-people dirty plate. Restored flats are not dirty openings. Career tiles and HUD captures are never IMAGE_1.",
+  "locations": {
+    "LOC-SKY": {
+      "name": "Sky Lagoon landing",
+      "camera": "Ground-level three-quarter on one landing patch, castle and lake legible. Do not squeeze the 3x1 panorama.",
+      "empty_plate": {
+        "reference_id": "REF-017532ae864e534d",
+        "kind": "panorama_master_3x1",
+        "people_in_plate": false,
+        "use": "Crop a 16:9 landing-patch window at full height. Do not bind the full 6144x2048 squeeze."
+      },
+      "missing": "No dedicated landing-patch still is registered as IMAGE_1. Career tiles in assets/flats/sky_lagoon/main/ are comparison-only.",
+      "generation_allowed_without_crop_lock": false
+    },
+    "LOC-BATH": {
+      "name": "Bubble Bathroom",
+      "camera": "Tub left, sink/mirror centre, pink toilet right. Inserts keep a neighbor fixture. No reverse wall.",
+      "empty_dirty_plate": {
+        "reference_id": "REF-90bcc501e471b8d8",
+        "path_in_packet": "media/90bcc501e471b8d8.png",
+        "people_in_plate": false,
+        "note": "Was in Revision 4 and unused by A001. This is IMAGE_1 for all dirty bath openings."
+      },
+      "clean_restored_plate": {
+        "reference_id": "REF-3ecd80b1be8444ae",
+        "do_not_bind_for": "dirty openings"
+      },
+      "drained_dirty_plate": {
+        "game_repo_path": "assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
+        "in_builder_packet": false,
+        "use": "SHOT-BATH-DRAIN after water is gone"
+      }
+    },
+    "LOC-POOL": {
+      "name": "Mermaid Pool",
+      "camera": "From approved coping toward left-centre waterfall and right seahorse. Closer along this view. No second basin.",
+      "empty_dirty_plate": null,
+      "object_overlays_only": [
+        "REF-e0ed3c7174dcfeff",
+        "REF-df7c3147bc886761",
+        "REF-3af5ff973576d328"
+      ],
+      "clean_restored_plate": {
+        "reference_id": "REF-1a9a2005d4d27bd5",
+        "people_in_plate": true,
+        "do_not_bind_as_image_1": "Baked-in mermaids densify in I2V."
+      },
+      "generation_allowed": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE"
+    },
+    "LOC-ART": {
+      "name": "Craft Room",
+      "camera": "Front-facing known wall. Left-front / rear-table / right-front inserts vary depth only.",
+      "empty_dirty_plate": null,
+      "grime_strips_only": ["REF-125978f082934e3b", "REF-586021e28238f3dd", "REF-339f248e488bf651"],
+      "clean_restored_plate": {"reference_id": "REF-916522a6fab66918"},
+      "generation_allowed": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE"
+    },
+    "LOC-HALL": {
+      "name": "Main Hall",
+      "camera": "Runner axis, gold column, correct small themed doorway. Oblique insert joins the same wall.",
+      "empty_dirty_plate": null,
+      "clean_restored_plate": {"reference_id": "REF-7e77e4c29bbbdcaf"},
+      "generation_allowed": false,
+      "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE"
+    },
+    "LOC-STUFFIE": {
+      "name": "Stuffie Room",
+      "camera": "Dressed playroom front. Rescue inserts keep one room anchor and both pin positions.",
+      "empty_plate_status": "Dressed plate exists; confirm people_in_plate before bind.",
+      "generation_allowed": false,
+      "blocking_reason": "CONFIRM_EMPTY_DRESSED_PLATE_THEN_OWNER_FIRST_FRAME"
+    },
+    "LOC-ATTIC": {
+      "name": "Stone Attic",
+      "camera": "Two ocean windows, columns, banners, chests, low shell light. Height may vary; windows may not move. No wooden attic.",
+      "empty_interior_plate": null,
+      "arena_still": {"reference_id": "REF-9cb4b02dc4a56e14", "note": "Reads as exterior/arena more than the two-window interior."},
+      "generation_allowed": false,
+      "blocking_reason": "MISSING_STONE_ATTIC_INTERIOR_EMPTY_PLATE"
+    },
+    "LOC-LAWN": {
+      "name": "Chapter 2 lawn patch",
+      "camera": "One playable middle lawn patch of the Sky Lagoon panorama. Never the full 3x1.",
+      "empty_plate": {"reference_id": "REF-017532ae864e534d", "use": "16:9 crop of the playable patch only"},
+      "generation_allowed": false,
+      "blocking_reason": "NO_APPROVED_LANDING_OR_LAWN_PATCH_STILL"
+    }
+  }
+}

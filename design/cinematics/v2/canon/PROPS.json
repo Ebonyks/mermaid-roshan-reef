@@ -1,0 +1,31 @@
+{
+  "schema": "reef.grok.props.v2",
+  "unique_counts_are_knockouts": true,
+  "props": {
+    "PROP-PLANE": {
+      "reference_id": "REF-850d9614c299df94",
+      "exact": {
+        "cabin_windows": 2,
+        "engine_intake": 1,
+        "seats": 2,
+        "rear_door": 0
+      },
+      "forbidden": ["third window", "rear-door exit", "passengers on the grass"]
+    },
+    "PROP-BRUSH": {
+      "reference_id": "REF-17e76b7f758f31a9",
+      "exact": {"count": 1},
+      "rule": "Grip on handle behind bristles; bristles face the target; no floating head"
+    },
+    "PROP-SEAHORSE": {
+      "reference_id": "REF-3af5ff973576d328",
+      "exact": {"count": 1, "color": "purple", "nozzle_added": 0},
+      "plug": {"id": "PROP-PLUG", "reference_id": "REF-9c48ac1ca7be923f", "color": "pink", "brown_lump": 0}
+    },
+    "PROP-CUPS": {
+      "reference_id": "REF-fca25541d66e07bf",
+      "exact": {"authored_group": 1},
+      "forbidden": ["duplicate extra cups", "second white cup"]
+    }
+  }
+}

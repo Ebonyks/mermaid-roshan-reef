@@ -1,0 +1,123 @@
+{
+  "schema": "reef.grok.identity-sidecar.v2",
+  "revision": 1,
+  "note": "This is what Grok may read — only entries named on the current CARD. Not CHARACTER_DIRECTION.json.",
+  "characters": {
+    "CHAR-ROSHAN": {
+      "name": "Roshan",
+      "reference_id": "REF-69827625a8a795f1",
+      "keep": [
+        "Child mermaid, child scale",
+        "Brown hair with rainbow streaks",
+        "Small jeweled tiara — not a horn, not a unicorn",
+        "Pink bodice",
+        "One continuous rainbow tail, no legs"
+      ],
+      "forbidden": [
+        "Second Roshan",
+        "Adult redesign",
+        "Unicorn horn / spiral horn tiara",
+        "Legs",
+        "Extra tail or extra arms"
+      ],
+      "prompt_phrases": [
+        "child mermaid Roshan, brown rainbow-streak hair, jeweled tiara not a horn, pink bodice, one rainbow tail"
+      ]
+    },
+    "CHAR-DADDY": {
+      "name": "Daddy",
+      "reference_id": "REF-2eda6f76760b8598",
+      "keep": [
+        "Clean-shaven slender face",
+        "Long straight brown hair",
+        "Thin rectangular black glasses",
+        "Jeweled crown",
+        "Navy embroidered coat, teal cape",
+        "One rainbow tail"
+      ],
+      "forbidden": [
+        "Beard",
+        "Curly hair",
+        "Bulky generic king",
+        "Solid blue tail",
+        "Rear-door exit from the plane"
+      ],
+      "prompt_phrases": [
+        "clean-shaven Daddy, straight brown hair, thin black glasses, navy coat, teal cape, rainbow tail, no beard"
+      ]
+    },
+    "CHAR-RUMI": {
+      "name": "Rumi",
+      "reference_id": "REF-636ec38fd0e01d47",
+      "keep": [
+        "Adult mermaid",
+        "Enormous sculpted violet braid",
+        "Pointed ears, star-shell earrings",
+        "Navy/lavender jacket",
+        "Aqua/violet/pink tail, coral split fin"
+      ],
+      "forbidden": [
+        "Child redesign",
+        "Missing braid",
+        "Fused tail with Roshan",
+        "Present before pool rescue"
+      ],
+      "prompt_phrases": [
+        "adult mermaid Rumi, enormous violet braid, pointed ears, navy lavender jacket, coral split fin"
+      ]
+    },
+    "CHAR-EAGLE": {
+      "name": "Baby Eagle",
+      "reference_id": "REF-da8ead4677192ef4",
+      "keep": [
+        "Original-book body and neck",
+        "Soft turquoise/mint scalloped feathers",
+        "Yellow eye patch, pink three-lobed crest",
+        "Exactly two pink wings with black tips"
+      ],
+      "forbidden": [
+        "Standing/pinned heraldic eagle",
+        "Second eagle",
+        "Backpack",
+        "Armor scales",
+        "Unobscured invented anatomy"
+      ],
+      "prompt_phrases": [
+        "original-book baby eagle, turquoise scalloped feathers, pink crest, two wings only"
+      ]
+    },
+    "CHAR-PUFF": {
+      "name": "Grand Puff",
+      "reference_id": "REF-e585e525624f4da1",
+      "keep": [
+        "One intact big lavender bunny",
+        "Own spiral ears, crest, face, pearls until foam hides them"
+      ],
+      "forbidden": [
+        "Second giant bunny",
+        "Early rainbow ears",
+        "Hard shell shards",
+        "Pain or corpse"
+      ],
+      "prompt_phrases": [
+        "one intact big lavender dust bunny with spiral ears"
+      ]
+    },
+    "CHAR-RAINBOW": {
+      "name": "Rainbow friend",
+      "reference_id": null,
+      "keep": [
+        "Appears only at the jump, as the old casing collapses"
+      ],
+      "forbidden": [
+        "Contact-sheet bind",
+        "Early rainbow ears on Grand Puff",
+        "Second rainbow friend"
+      ],
+      "prompt_phrases": [
+        "one small rainbow friend, first appearance at the jump"
+      ],
+      "status": "IDENTITY_SHEET_MISSING_DO_NOT_BIND_CONTACT_SHEET"
+    }
+  }
+}

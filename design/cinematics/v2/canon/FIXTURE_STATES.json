@@ -1,0 +1,177 @@
+{
+  "schema": "reef.grok.fixture-states.v2",
+  "by_shot": {
+    "SHOT-ARRIVAL-TOUCHDOWN": {
+      "plane": "airborne_above_patch",
+      "passengers": "seated"
+    },
+    "SHOT-BATH-SINK": {
+      "sink": "dirty",
+      "tub": "dirty",
+      "toilet": "dirty",
+      "drain": "closed_full"
+    },
+    "SHOT-BATH-TUB": {
+      "sink": "clean",
+      "tub": "dirty",
+      "toilet": "dirty",
+      "drain": "closed_full"
+    },
+    "SHOT-BATH-DRAIN": {
+      "sink": "clean",
+      "tub": "clean_full",
+      "toilet": "dirty",
+      "drain": "about_to_open"
+    },
+    "SHOT-BATH-TOILET": {
+      "sink": "clean",
+      "tub": "clean_drained",
+      "toilet": "dirty",
+      "drain": "open"
+    },
+    "SHOT-POOL-SKIM": {
+      "litter": "present",
+      "waterfall_lanes_clean": 0,
+      "plug": "lodged",
+      "seahorse": "dry"
+    },
+    "SHOT-POOL-FALL-1": {
+      "litter": "cleared",
+      "waterfall_lanes_clean": 0,
+      "plug": "lodged",
+      "seahorse": "dry"
+    },
+    "SHOT-POOL-FALL-2": {
+      "litter": "cleared",
+      "waterfall_lanes_clean": 1,
+      "plug": "lodged",
+      "seahorse": "dry"
+    },
+    "SHOT-POOL-FALL-3": {
+      "litter": "cleared",
+      "waterfall_lanes_clean": 2,
+      "plug": "lodged",
+      "seahorse": "dry"
+    },
+    "SHOT-POOL-PULL": {
+      "litter": "cleared",
+      "waterfall_lanes_clean": 3,
+      "plug": "lodged",
+      "seahorse": "dry"
+    },
+    "SHOT-EAGLE-FREE": {
+      "note": "set per fixture before still work"
+    },
+    "SHOT-EAGLE-WING": {
+      "note": "set per fixture before still work"
+    },
+    "SHOT-CRAFT-PICK-1": {
+      "left_counter": "dirty",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "in_progress"
+    },
+    "SHOT-CRAFT-PICK-2": {
+      "left_counter": "dirty",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "in_progress"
+    },
+    "SHOT-CRAFT-PICK-3": {
+      "left_counter": "dirty",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "in_progress"
+    },
+    "SHOT-CRAFT-PICK-4": {
+      "left_counter": "dirty",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "in_progress"
+    },
+    "SHOT-CRAFT-SCRUB-1": {
+      "left_counter": "dirty",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "collected"
+    },
+    "SHOT-CRAFT-SCRUB-2": {
+      "left_counter": "clean",
+      "rear_table": "dirty",
+      "right_counter": "dirty",
+      "supplies": "collected"
+    },
+    "SHOT-CRAFT-SCRUB-3": {
+      "left_counter": "clean",
+      "rear_table": "clean",
+      "right_counter": "dirty",
+      "supplies": "collected"
+    },
+    "SHOT-CRAFT-CUSTOMIZE": {
+      "left_counter": "clean",
+      "rear_table": "clean",
+      "right_counter": "clean",
+      "supplies": "collected"
+    },
+    "SHOT-BUNNY-SOAP": {
+      "note": "set per fixture before still work"
+    },
+    "SHOT-BUNNY-JUMP": {
+      "note": "set per fixture before still work"
+    },
+    "SHOT-BUNNY-LAND": {
+      "note": "set per fixture before still work"
+    },
+    "SHOT-TEAM-PAPER": {
+      "paper": "present",
+      "web": "present",
+      "wall_stain": "present",
+      "hall": "dirty"
+    },
+    "SHOT-TEAM-WEB": {
+      "paper": "collected",
+      "web": "present",
+      "wall_stain": "present",
+      "hall": "dirty"
+    },
+    "SHOT-TEAM-WALL": {
+      "paper": "collected",
+      "web": "cleared",
+      "wall_stain": "present",
+      "hall": "dirty"
+    },
+    "SHOT-TEAM-FINISH": {
+      "paper": "collected",
+      "web": "cleared",
+      "wall_stain": "clean",
+      "hall": "clean"
+    },
+    "SHOT-C2-01": {
+      "note": "set per fixture before still work"
+    },
+    "SHOT-C2-02": {
+      "note": "set per fixture before still work"
+    },
+    "SHOT-C2-03": {
+      "note": "set per fixture before still work"
+    },
+    "SHOT-C2-04": {
+      "note": "set per fixture before still work"
+    },
+    "SHOT-C2-05": {
+      "note": "set per fixture before still work"
+    },
+    "SHOT-C2-06": {
+      "note": "set per fixture before still work"
+    },
+    "SHOT-C2-07": {
+      "note": "set per fixture before still work"
+    },
+    "SHOT-C2-08": {
+      "note": "set per fixture before still work"
+    },
+    "SHOT-C2-09": {
+      "note": "set per fixture before still work"
+    }
+  }
+}

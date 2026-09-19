@@ -1,0 +1,49 @@
+{
+  "schema": "reef.grok.data-gaps.v2",
+  "revision": 1,
+  "rule": "A gap is a Codex art ticket, not a Grok prompt. generation_allowed stays false.",
+  "gaps": [
+    {
+      "id": "GAP-POOL-EMPTY-DIRTY",
+      "need": "Empty-of-people dirty full Mermaid Pool room plate (algae, clogged falls, plugged seahorse, no mermaids)",
+      "blocks": ["SHOT-POOL-SKIM", "SHOT-POOL-FALL-1", "SHOT-POOL-FALL-2", "SHOT-POOL-FALL-3", "SHOT-POOL-PULL"],
+      "have": "Object overlays REF-e0ed3c7174dcfeff / REF-df7c3147bc886761 / REF-3af5ff973576d328. Runtime 00_dirty_arrival.png is never generation pixels. Clean pool plate contains people."
+    },
+    {
+      "id": "GAP-HALL-EMPTY-DIRTY",
+      "need": "Empty dirty Main Hall full-room plate (paper, web, named wall stain, nobody)",
+      "blocks": ["SHOT-TEAM-PAPER", "SHOT-TEAM-WEB", "SHOT-TEAM-WALL", "SHOT-TEAM-FINISH"],
+      "have": "Clean hall REF-7e77e4c29bbbdcaf only"
+    },
+    {
+      "id": "GAP-CRAFT-EMPTY-DIRTY",
+      "need": "Empty dirty Craft Room full-room plate (both curved counters + rear table grimy, nobody)",
+      "blocks": ["SHOT-CRAFT-PICK-1", "SHOT-CRAFT-PICK-2", "SHOT-CRAFT-PICK-3", "SHOT-CRAFT-PICK-4", "SHOT-CRAFT-SCRUB-1", "SHOT-CRAFT-SCRUB-2", "SHOT-CRAFT-SCRUB-3", "SHOT-CRAFT-CUSTOMIZE"],
+      "have": "Grime strips only (left/desk/right) plus clean restored room"
+    },
+    {
+      "id": "GAP-SKY-LANDING-STILL",
+      "need": "Owner-approved 16:9 landing-patch still (plane not required) registered as IMAGE_1",
+      "blocks": ["SHOT-ARRIVAL-TOUCHDOWN", "SHOT-C2-01"],
+      "have": "3x1 panorama master REF-017532ae864e534d. Career tiles marked not IMAGE_1."
+    },
+    {
+      "id": "GAP-ATTIC-INTERIOR",
+      "need": "Empty two-window stone attic interior plate",
+      "blocks": ["SHOT-BUNNY-SOAP", "SHOT-BUNNY-JUMP", "SHOT-BUNNY-LAND"],
+      "have": "Dusty arena still REF-9cb4b02dc4a56e14"
+    },
+    {
+      "id": "GAP-RAINBOW-IDENTITY",
+      "need": "Single rainbow-friend identity that is not a contact sheet",
+      "blocks": ["SHOT-BUNNY-JUMP", "SHOT-BUNNY-LAND", "SHOT-TEAM-PAPER", "SHOT-TEAM-WEB", "SHOT-TEAM-WALL", "SHOT-TEAM-FINISH"],
+      "have": "Contact sheet only — do not bind"
+    },
+    {
+      "id": "GAP-BATH-DRAINED-IN-PACKET",
+      "need": "Copy room_bubble_bath_dirty_drained_day_one.png into the builder packet as a hashed ref",
+      "blocks": [],
+      "have": "File exists in the game repo at assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png but not in grok_builder_2026-09-14/media/"
+    }
+  ]
+}
