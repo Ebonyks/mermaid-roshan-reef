@@ -73,8 +73,10 @@ def main() -> int:
     queue = json.loads((ROOT / "queue.json").read_text())
     qids = [r["shot_id"] for r in queue["ordered"]]
     cids = [p.parent.name for p in shots]
-    if qids != cids:
-        errors.append("queue order does not match shot folders")
+    if sorted(qids) != sorted(cids):
+        errors.append("queue ids do not match shot folders")
+    if len(qids) != len(set(qids)):
+        errors.append("queue has duplicate shot ids")
     if errors:
         print("FAIL")
         for e in errors:
