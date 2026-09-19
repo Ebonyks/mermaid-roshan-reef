@@ -1,0 +1,46 @@
+{
+  "schema": "reef.grok-reshoot.v2",
+  "kind": "STILL_REQUEST",
+  "shot_id": "SHOT-BATH-SINK",
+  "attempt": 1,
+  "card_path": "design/cinematics/v2/shots/SHOT-BATH-SINK/CARD.json",
+  "card_sha256": "f56290e9a9ba71b687886402463ff1db86e5c9c10d518938160af1d9b6bcda6f",
+  "prompt_path": "design/cinematics/v2/shots/SHOT-BATH-SINK/PROMPT.txt",
+  "prompt_sha256": "0a46a46edca06e9c02754a0fe1f6452d302b5829eedc22f91fa28e57b45ba876",
+  "opening_approved": false,
+  "generation_allowed": false,
+  "still_attempt_allowed": true,
+  "exact_cast": ["CHAR-ROSHAN"],
+  "exact_cast_count": 1,
+  "room_state": {
+    "sink": "dirty",
+    "tub": "dirty",
+    "toilet": "dirty",
+    "drain": "closed_full"
+  },
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "empty_dirty_plate",
+      "reference_id": "REF-90bcc501e471b8d8",
+      "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+      "people_in_plate": false
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": "REF-69827625a8a795f1",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "people_in_plate": false
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "reference_id": "REF-17e76b7f758f31a9",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "people_in_plate": false
+    }
+  ],
+  "still_brief": "Dirty bathroom IMAGE_1 with nobody in it. Add only Roshan at the grimy center sink, brush bristles toward the basin, about to scrub. Tub left and toilet right stay dirty and empty of people. Closer insert on the sink. Zero extra mermaids, plants-as-cast, text, HUD, or horn.",
+  "note": "Frozen planning request for a first-frame still. Not permission to animate."
+}
