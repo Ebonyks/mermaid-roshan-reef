@@ -3,22 +3,21 @@
   "kind": "RETURN",
   "shot_id": "SHOT-BATH-TOILET",
   "attempt": 1,
-  "derived_from": "SHOT-BATH-SINK_A004_still.jpg",
-  "still": {
-    "filename": "SHOT-BATH-TOILET_A001_still.jpg",
-    "sha256": "70639984acb98ac52a06c4db696494eb2b8ebc78587db9688f04ec52f719a302",
-    "bytes": 751864,
-    "private_path": "videos/v2-stills-2026-09-18/SHOT-BATH-TOILET_A001_still.jpg",
-    "private_commit": "33e9c87f554749a422e37b27dd44d1ea19bb24c8",
-    "private_repo": "Ebonyks/mermaid-roshan-grok-videos",
-    "url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/33e9c87f554749a422e37b27dd44d1ea19bb24c8/videos/v2-stills-2026-09-18/SHOT-BATH-TOILET_A001_still.jpg"
+  "scene_id": "SCENE-EV-D1-BATH",
+  "keyframe": {
+    "file": "videos/v2-stills-2026-09-18/SHOT-BATH-TOILET_opening.jpg",
+    "sha256": "b52eb10347f54c65a4003d7123e640ae9aeb09924e2c5dbeb47b5592f436fe9c"
   },
-  "clip": null,
-  "observed": {
-    "sinks": "one \u2014 PASS",
-    "tails": "one \u2014 PASS",
-    "cast": "solo Roshan at pink toilet \u2014 PASS",
-    "brushes": "one \u2014 PASS"
+  "clip": {
+    "file": "videos/v2-clips-2026-09-18/SHOT-BATH-TOILET_A001.mp4",
+    "sha256": "098dd2297492be4a8b355fcbd5305e30c6fa46ee958289e1772917fb9bef2e52",
+    "bytes": 2804843,
+    "duration_s": 6
+  },
+  "qc": {
+    "people": 0,
+    "toilets": 1,
+    "note": "Empty coverage push-in. End frame grew extra gold fittings — coverage only. Director may add character."
   },
   "opening_approved": false,
   "generation_allowed": false

@@ -3,22 +3,21 @@
   "kind": "RETURN",
   "shot_id": "SHOT-BATH-TUB",
   "attempt": 1,
-  "derived_from": "SHOT-BATH-SINK_A004_still.jpg",
-  "still": {
-    "filename": "SHOT-BATH-TUB_A001_still.jpg",
-    "sha256": "728e566c79a7f8f17d962aafd6adbd8c1d5c023d2471d9736b9d0240945831d5",
-    "bytes": 728267,
-    "private_path": "videos/v2-stills-2026-09-18/SHOT-BATH-TUB_A001_still.jpg",
-    "private_commit": "33e9c87f554749a422e37b27dd44d1ea19bb24c8",
-    "private_repo": "Ebonyks/mermaid-roshan-grok-videos",
-    "url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/33e9c87f554749a422e37b27dd44d1ea19bb24c8/videos/v2-stills-2026-09-18/SHOT-BATH-TUB_A001_still.jpg"
+  "scene_id": "SCENE-EV-D1-BATH",
+  "keyframe": {
+    "file": "videos/v2-stills-2026-09-18/SHOT-BATH-TUB_opening.jpg",
+    "sha256": "8940ffd08afc3fb445ab4db915c3d39f391d89d7c2f87a0e82883a4c91202a28"
   },
-  "clip": null,
-  "observed": {
-    "sinks": "one \u2014 PASS",
-    "tails": "one \u2014 PASS",
-    "cast": "solo Roshan at left tub \u2014 PASS",
-    "brushes": "one \u2014 PASS"
+  "clip": {
+    "file": "videos/v2-clips-2026-09-18/SHOT-BATH-TUB_A001.mp4",
+    "sha256": "c0613412f060c861c9f5e052dc0644fdd0cb10cf7de741972a781fcb3adc7355",
+    "bytes": 2962867,
+    "duration_s": 6
+  },
+  "qc": {
+    "people": 0,
+    "tubs": 1,
+    "note": "Empty coverage push-in. Director may add character."
   },
   "opening_approved": false,
   "generation_allowed": false
