@@ -1,0 +1,151 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-DASH-01",
+  "attempt": "A006",
+  "request_id": "RSW-DASH-01-A006-core-loop-phase-v2",
+  "request_sha256": "ff59bfa4d31a18c8feffc3c94ec100582a927c3892e67ae3461e4308ccaf7fbb",
+  "performance_mode": "dash",
+  "method_id": "core-loop-only-v1",
+  "attempt_within_method": 2,
+  "status": "RETURNED",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generation_job_id": "grok-dash-a006-2026-09-19T16:24Z",
+  "generator_model": "imagine_image_to_video",
+  "mode": "imagine_image_to_video",
+  "remote_verification_commit": "32b185ad9259afd2adfa4459d046033d8a204319",
+  "input_selection_path": "reshoots/attempts/RSW-DASH-01/A006/INPUT_SELECTION.json",
+  "input_selection_sha256": "15748aaa8f47fd4a3bda9607652024ee004fd6fbcf3148405bcc7c67af5ee740",
+  "prompt_used": "reshoots/attempts/RSW-DASH-01/A006/PROMPT.txt",
+  "prompt_used_sha256": "c8f119fa7ed41198abbd7ef9b0228138f96792c984d19e6ce1c1c0c0e7eb2bce",
+  "settings": {
+    "aspect_ratio": "16:9",
+    "requested_duration": 6,
+    "supported_minimum_duration": 6,
+    "native_duration": 6.04,
+    "resolution": "720p",
+    "camera": "locked",
+    "effects": "none requested",
+    "visible_water_requested": false
+  },
+  "bound_inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "reshoots/attempts/RSW-DASH-01/A005/inputs/IMAGE_1.png",
+      "sha256": "0c030c69ec128e953173468c29ec6e1c258a33dc52b300681e00c08f42e78ec3",
+      "binding": "reused A005 screened native frame 78; not a water-VFX frame from take-05; one-image slot bound"
+    }
+  ],
+  "consulted_inputs": [
+    {
+      "name": "IMAGE_2",
+      "path": "references/IMAGE_2_approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "binding": "consulted painted-child identity; one-image slot so not bound"
+    }
+  ],
+  "artifacts": [
+    {
+      "role": "original_native_video",
+      "path": "reshoots/inbox/RSW-DASH-01/A006/RSW-DASH-01_take-06.mp4",
+      "sha256": "56507625ffe4420e2aefd19b7f46827cd029f844fa70fec114475c8f102f6141",
+      "bytes": 2609718,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.04,
+      "audio_present": true
+    }
+  ],
+  "measured_cadence": {
+    "method": "navy-key bounding-box bottom-clearance local minima (tail-down extrema). Tail extrema alone are not complete coordinated cycles.",
+    "tail_down_frames_zero_based": [
+      17,
+      57,
+      94,
+      130
+    ],
+    "tail_down_times_seconds": [
+      0.708,
+      2.375,
+      3.917,
+      5.417
+    ],
+    "peak_to_peak_seconds": [
+      1.667,
+      1.542,
+      1.5
+    ],
+    "approximate_complete_cycles_in_six_seconds": 4,
+    "target_cycle_seconds": [
+      0.4,
+      0.6
+    ],
+    "target_cycles_in_six_seconds": 12,
+    "meets_target": false,
+    "note": "Visually more compact/eager than slow A005, measured ~1.5s not 0.5s. Original unretimed. Not a retime of slow."
+  },
+  "proposed_segments": {
+    "component": "cruise_core_only",
+    "entry_or_stop_present": false,
+    "core": {
+      "start_frame": 0,
+      "end_frame_exclusive": 145,
+      "note": "Whole file is the requested core-only take; still swimming on last frame."
+    },
+    "observed_beats": [
+      {
+        "start_frame": 0,
+        "end_frame_exclusive": 17,
+        "note": "First compact tail-down ~0.71s."
+      },
+      {
+        "start_frame": 17,
+        "end_frame_exclusive": 57,
+        "note": "~1.67s."
+      },
+      {
+        "start_frame": 57,
+        "end_frame_exclusive": 94,
+        "note": "~1.54s."
+      },
+      {
+        "start_frame": 94,
+        "end_frame_exclusive": 130,
+        "note": "~1.50s."
+      }
+    ],
+    "proposed_seam_neighborhoods": [
+      {
+        "frames_zero_based": [
+          17,
+          57,
+          94,
+          130
+        ],
+        "note": "Candidate tail-down neighborhoods only. Codex must confirm whole-body pose AND velocity. First vs last height happens to match 402 vs 402 but bot 222 vs 208 \u2014 not claimed as a seam."
+      }
+    ],
+    "frame_index_convention": "zero-based, end-exclusive; measured after observing source, not from prompt times"
+  },
+  "visible_water_ribbons_or_droplets": "Required correction DASH-UNREQUESTED-WATER-VFX. Not observed on sampled frames f0, f24, f57, f94, f120, f144. Hands against navy; no splash ribbons/droplets in those frames. Codex must still check remaining frames at 1x.",
+  "crop_observations": {
+    "scan": "navy-key bounding box on every decoded frame",
+    "bottom_edge_contact_frames_zero_based_end_exclusive": [],
+    "minimum_bottom_clearance_px": 44,
+    "minimum_bottom_clearance_frame": 57
+  },
+  "size_pulse_px_height": [
+    381,
+    588
+  ],
+  "rest_bridge_status": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+  "third_attempt_authorized": false,
+  "producer_notes": [
+    "PAIR-CORE-01 second trial, sequential job 2 of 2 after slow A005 generation. Reused A005 IMAGE_1. Did not seed from take-05 water frames. No new still.",
+    "Cadence did not meet twelve ~0.5s coordinated strokes. Original unretimed.",
+    "Producer self-score does not count. After a second core-only miss, await method reassessment; no third take."
+  ],
+  "source_acceptance": false,
+  "delivery_accepted": false
+}

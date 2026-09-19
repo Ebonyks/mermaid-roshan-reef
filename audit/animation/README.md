@@ -79,6 +79,13 @@ core-only method: another failure requires reassessment before further renders.
 No full temporal score, source pass or Aseprite conversion is claimed.
 [Impact](../../design/audit_impacts/2026-09-17-roshan-core-first-review.json).
 
+Grok returned the second-trial originals: slow A005 take-05 and dash A006
+take-06, reusing the same clean IMAGE_1 files. Producer cadence still misses
+the ~1s/~0.5s pilots; sampled dash frames did not show the prior hand-water
+ribbons. No third take is authorized. Independent Codex review / method
+reassessment is next.
+[Impact](../../design/audit_impacts/2026-09-19-roshan-core-second-return.json).
+
 ## Start an animation task here
 
 1. Read the [canonical motion rules](../../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards)

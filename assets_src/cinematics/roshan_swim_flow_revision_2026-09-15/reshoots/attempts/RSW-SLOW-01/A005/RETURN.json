@@ -1,0 +1,143 @@
+{
+  "schema": "reef.roshan-source-exchange.v1",
+  "shot_id": "RSW-SLOW-01",
+  "attempt": "A005",
+  "request_id": "RSW-SLOW-01-A005-core-loop-phase-v2",
+  "request_sha256": "c04fed6a99865ff668ea53b388d1dd5b78cc6027ecd75ae0a72ba1e7d2fd5660",
+  "performance_mode": "slow_relaxed",
+  "method_id": "core-loop-only-v1",
+  "attempt_within_method": 2,
+  "status": "RETURNED",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generation_job_id": "grok-slow-a005-2026-09-19T16:24Z",
+  "generator_model": "imagine_image_to_video",
+  "mode": "imagine_image_to_video",
+  "remote_verification_commit": "32b185ad9259afd2adfa4459d046033d8a204319",
+  "input_selection_path": "reshoots/attempts/RSW-SLOW-01/A005/INPUT_SELECTION.json",
+  "input_selection_sha256": "2014b14bf2f3d3a6205f358649a6bc09fc26832fa0405ead1ce1cf2c810f324a",
+  "prompt_used": "reshoots/attempts/RSW-SLOW-01/A005/PROMPT.txt",
+  "prompt_used_sha256": "6299c973255db25918b7a135e21feb9cfb3b00436b0357b91432028dc0786589",
+  "settings": {
+    "aspect_ratio": "16:9",
+    "requested_duration": 6,
+    "supported_minimum_duration": 6,
+    "native_duration": 6.04,
+    "resolution": "720p",
+    "camera": "locked",
+    "effects": "none requested",
+    "visible_water_requested": false
+  },
+  "bound_inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "reshoots/attempts/RSW-SLOW-01/A004/inputs/IMAGE_1.png",
+      "sha256": "eddde1106f0bcccc787e05bf8e6465e8d196a36fae26e1d434a8b6722a132c74",
+      "binding": "reused A004 screened native frame; one-image slot bound"
+    }
+  ],
+  "consulted_inputs": [
+    {
+      "name": "IMAGE_2",
+      "path": "references/IMAGE_2_approved-front.png",
+      "sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+      "binding": "consulted painted-child identity; one-image slot so not bound"
+    }
+  ],
+  "artifacts": [
+    {
+      "role": "original_native_video",
+      "path": "reshoots/inbox/RSW-SLOW-01/A005/RSW-SLOW-01_take-05.mp4",
+      "sha256": "c824c209128299a39c8f6d322ec7ca03b20acba749868ee2947f94b8252ff3b4",
+      "bytes": 3115683,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frame_count": 145,
+      "duration_seconds": 6.04,
+      "audio_present": true
+    }
+  ],
+  "measured_cadence": {
+    "method": "navy-key bounding-box bottom-clearance local minima (tail-down extrema). Tail extrema alone are not complete coordinated cycles.",
+    "tail_down_frames_zero_based": [
+      40,
+      55,
+      101
+    ],
+    "tail_down_times_seconds": [
+      1.667,
+      2.292,
+      4.208
+    ],
+    "peak_to_peak_seconds": [
+      0.625,
+      1.916
+    ],
+    "approximate_complete_cycles_in_six_seconds": 3,
+    "target_cycle_seconds": [
+      0.8,
+      1.2
+    ],
+    "target_cycles_in_six_seconds": 6,
+    "meets_target": false,
+    "note": "Still slower/irregular vs ~1s. Original returned unretimed."
+  },
+  "proposed_segments": {
+    "component": "cruise_core_only",
+    "entry_or_stop_present": false,
+    "core": {
+      "start_frame": 0,
+      "end_frame_exclusive": 145,
+      "note": "Whole file is the requested core-only take; still swimming on last frame."
+    },
+    "observed_beats": [
+      {
+        "start_frame": 0,
+        "end_frame_exclusive": 40,
+        "note": "First large tail-down ~1.67s."
+      },
+      {
+        "start_frame": 40,
+        "end_frame_exclusive": 101,
+        "note": "Long interval ~2.5s including a shallow extra dip at f55."
+      },
+      {
+        "start_frame": 101,
+        "end_frame_exclusive": 145,
+        "note": "Into last frame; first vs last not a lock (bot 125 vs 24, h 497 vs 619)."
+      }
+    ],
+    "proposed_seam_neighborhoods": [
+      {
+        "frames_zero_based": [
+          0,
+          40,
+          101
+        ],
+        "note": "Candidate tail-down neighborhoods only. Codex must confirm torso/arms/hair/fin pose AND velocity. First vs last are not a match."
+      }
+    ],
+    "frame_index_convention": "zero-based, end-exclusive; measured after observing source, not from prompt times"
+  },
+  "visible_water_ribbons_or_droplets": "Not observed on sampled frames f0, f40, f72, f144. Hands stay against navy with no splash ribbons in those frames.",
+  "crop_observations": {
+    "scan": "navy-key bounding box on every decoded frame",
+    "bottom_edge_contact_frames_zero_based_end_exclusive": [],
+    "minimum_bottom_clearance_px": 2,
+    "minimum_bottom_clearance_frame": 40,
+    "note": "Near-crop at f40 (2px). No pixel-on-edge contact."
+  },
+  "size_pulse_px_height": [
+    419,
+    644
+  ],
+  "rest_bridge_status": "DEFERRED_SEPARATE_PROJECT_IF_NEEDED",
+  "third_attempt_authorized": false,
+  "producer_notes": [
+    "PAIR-CORE-01 second trial, sequential job 1 of 2. Reused A004 IMAGE_1. No new still.",
+    "Cadence did not meet six ~1s coordinated strokes. Original unretimed.",
+    "Producer self-score does not count. After a second core-only miss, await method reassessment; no third take."
+  ],
+  "source_acceptance": false,
+  "delivery_accepted": false
+}

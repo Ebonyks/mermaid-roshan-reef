@@ -1,0 +1,55 @@
+{
+  "id": "2026-09-19-roshan-core-second-return",
+  "scope": "Grok return of PAIR-CORE-01-20260917 second core-loop trials: RSW-SLOW-01 A005 take-05 and RSW-DASH-01 A006 take-06. Reused Codex-screened IMAGE_1 files. Cadence shortfall recorded, not retimed. No third take. Prior originals preserved. Not sprite conversion, cinematic or runtime delivery.",
+  "baseline": "f98ef836df35fc75657473755354b418f9c7d17f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-13",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "audit/animation/README.md",
+    "design/05_DOC_LEDGER.md",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/HANDOFF.txt",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-SLOW-01/A005/RETURN.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-SLOW-01/A005/RSW-SLOW-01_take-05.mp4",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/attempts/RSW-DASH-01/A006/RETURN.json",
+    "assets_src/cinematics/roshan_swim_flow_revision_2026-09-15/reshoots/inbox/RSW-DASH-01/A006/RSW-DASH-01_take-06.mp4"
+  ],
+  "validation": [
+    {
+      "command": "Bind hashes against REMOTE_VERIFICATION / REQUEST",
+      "result": "PASS",
+      "evidence": "Slow IMAGE_1 eddde110... Dash IMAGE_1 0c030c69... REQUEST c04fed6a... and ff59bfa4.... Slow mp4 c824c209128299a39c8f6d322ec7ca03b20acba749868ee2947f94b8252ff3b4 3115683 bytes. Dash mp4 56507625ffe4420e2aefd19b7f46827cd029f844fa70fec114475c8f102f6141 2609718 bytes. Both 1280x720 24fps 145 frames 6.04s AAC."
+    },
+    {
+      "command": "Preserve prior originals / no water-seed reuse",
+      "result": "PASS",
+      "evidence": "A004/A005 movies untouched. Dash A006 bound the A005 screened seed, not take-05 water frames. DELIVERY_ACCEPTED false. third_attempt_authorized false."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "This record covers Grok-owned second-trial return files. No runtime mutation."
+    },
+    {
+      "command": "Runtime / Godot / assets/ diff versus origin/dev",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Non-runtime exchange only. Sprite conversion is later and not performed here."
+    }
+  ],
+  "acceptance_gaps": "Independent Codex 1x/half-speed review not done. Measured cadence still misses 1s/0.5s pilots. Loop seams not accepted. No third take authorized. Entry/phase-aware stops still required after a core is selected. Do not merge to master or dev."
+}
