@@ -1,0 +1,37 @@
+{
+  "schema": "reef.grok.motion-return.v2.1",
+  "kind": "RETURN",
+  "shot_id": "SHOT-BATH-TOILET",
+  "attempt": 3,
+  "status": "RETURNED_MOTION_REFERENCE",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generation_job_id": "c3279965-9bed-4442-a0fe-6649a5e67ec1",
+  "mode": "imagine_image_to_video",
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "output_disposition": "motion_reference_only",
+  "owner_instruction": "Execute all without stopping",
+  "artifact": {
+    "shot_id": "SHOT-BATH-TOILET",
+    "attempt": "A003",
+    "kind": "MOTION_REFERENCE",
+    "filename": "SHOT-BATH-TOILET_A003.mp4",
+    "private_path": "videos/OWNER-CONTINUE-20260919/SHOT-BATH-TOILET_A003.mp4",
+    "sha256": "35a341383f73e97854b1f62b0d45c10471fad8090eb64f55cc049912b041a70a",
+    "bytes": 4934086,
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "duration_seconds": 6.04,
+    "generation_job_id": "c3279965-9bed-4442-a0fe-6649a5e67ec1",
+    "opening_source": "TOILET A002 still",
+    "opening_approved": false,
+    "requested_duration": 4,
+    "notes": [
+      "6s native vs requested 4s."
+    ]
+  },
+  "producer_notes": [
+    "6s native vs requested 4s."
+  ]
+}

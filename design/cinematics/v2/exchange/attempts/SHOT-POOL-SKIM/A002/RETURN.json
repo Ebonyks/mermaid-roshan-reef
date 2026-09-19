@@ -1,0 +1,37 @@
+{
+  "schema": "reef.grok.motion-return.v2.1",
+  "kind": "RETURN",
+  "shot_id": "SHOT-POOL-SKIM",
+  "attempt": 2,
+  "status": "RETURNED_MOTION_REFERENCE",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generation_job_id": "35c41df2-780a-42f3-9b98-e0b38f35b69b",
+  "mode": "imagine_image_to_video",
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "output_disposition": "motion_reference_only",
+  "owner_instruction": "Execute all without stopping",
+  "artifact": {
+    "shot_id": "SHOT-POOL-SKIM",
+    "attempt": "A002",
+    "kind": "MOTION_REFERENCE",
+    "filename": "SHOT-POOL-SKIM_A002.mp4",
+    "private_path": "videos/OWNER-CONTINUE-20260919/SHOT-POOL-SKIM_A002.mp4",
+    "sha256": "6589eb280f110fecd68125036b5701154a1cbe36451267e9c0abfd282ab8f59a",
+    "bytes": 7518081,
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "duration_seconds": 6.04,
+    "generation_job_id": "35c41df2-780a-42f3-9b98-e0b38f35b69b",
+    "opening_source": "POOL-SKIM A001 still",
+    "opening_approved": false,
+    "requested_duration": 4,
+    "notes": [
+      "6s native vs requested 4s."
+    ]
+  },
+  "producer_notes": [
+    "6s native vs requested 4s."
+  ]
+}

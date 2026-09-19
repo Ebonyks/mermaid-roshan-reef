@@ -1,0 +1,51 @@
+{
+  "id": "2026-09-19-owner-continue-batch",
+  "scope": "Owner instruction Execute all without stopping. Batch of first-frame candidates and motion-reference clips on non-HOLD shots. IMAGE_1 not owner-approved. DELIVERY_ACCEPTED false. SINK/LAND/C2-02/C2-06/C2-07 HOLD skipped. Native media in private mermaid-roshan-grok-videos.",
+  "baseline": "808bf44c8ee7141f297f7a8e3d4f99baaf0bbf33",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15",
+    "DL-ASSET-01"
+  ],
+  "findings": [],
+  "no_findings_reason": "Owner-continue candidates only. Does not close MA-VIS-006 or any finding; openings remain unapproved.",
+  "files": [
+    "design/cinematics/v2/exchange/OWNER-CONTINUE-20260919-MANIFEST.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-ARRIVAL-TOUCHDOWN/A002/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-BATH-DRAIN/A002/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-BATH-DRAIN/A003/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-BATH-TOILET/A002/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-BATH-TOILET/A003/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-BATH-TUB/A003/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-BUNNY-SOAP/A001/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-C2-01/A001/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-CRAFT-PICK-1/A001/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-EAGLE-FREE/A001/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-POOL-FALL-1/A001/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-POOL-PULL/A001/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-POOL-SKIM/A001/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-POOL-SKIM/A002/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-TEAM-PAPER/A001/RETURN.json"
+  ],
+  "validation": [
+    {
+      "command": "Hold shots skipped",
+      "result": "PASS",
+      "evidence": "SHOT-BATH-SINK, SHOT-BUNNY-LAND, SHOT-C2-02, SHOT-C2-06, SHOT-C2-07 not generated."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base origin/codex/grok-v2-repairs-20260919",
+      "result": "PASS",
+      "evidence": "This record covers Grok-owned continue-batch metadata."
+    },
+    {
+      "command": "Runtime / master/dev merge",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Exchange metadata only. DELIVERY_ACCEPTED false."
+    }
+  ],
+  "acceptance_gaps": "Owner has not approved any new opening hash. Motion clips are editorial reference. Ensemble shots missing full cast. Remaining queue stills not yet returned. Do not merge to master or dev."
+}

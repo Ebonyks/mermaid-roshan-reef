@@ -1,0 +1,37 @@
+{
+  "schema": "reef.grok.motion-return.v2.1",
+  "kind": "RETURN",
+  "shot_id": "SHOT-BATH-TUB",
+  "attempt": 3,
+  "status": "RETURNED_MOTION_REFERENCE",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generation_job_id": "f8452f9d-1d94-4f51-b774-a1741126bd16",
+  "mode": "imagine_image_to_video",
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "output_disposition": "motion_reference_only",
+  "owner_instruction": "Execute all without stopping",
+  "artifact": {
+    "shot_id": "SHOT-BATH-TUB",
+    "attempt": "A003",
+    "kind": "MOTION_REFERENCE",
+    "filename": "SHOT-BATH-TUB_A003.mp4",
+    "private_path": "videos/OWNER-CONTINUE-20260919/SHOT-BATH-TUB_A003.mp4",
+    "sha256": "55aa18e812b9329e516205017f390d6d55898df47cf4d58f11bae36f8ee85b58",
+    "bytes": 6204023,
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "duration_seconds": 6.04,
+    "generation_job_id": "f8452f9d-1d94-4f51-b774-a1741126bd16",
+    "opening_source": "TUB A002 still",
+    "opening_approved": false,
+    "requested_duration": 4,
+    "notes": [
+      "6s native vs requested 4s. IMAGE_1 was TUB A002 still, not owner-approved."
+    ]
+  },
+  "producer_notes": [
+    "6s native vs requested 4s. IMAGE_1 was TUB A002 still, not owner-approved."
+  ]
+}
