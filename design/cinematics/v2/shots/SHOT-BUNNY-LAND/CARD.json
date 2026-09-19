@@ -1,0 +1,76 @@
+{
+  "schema": "imagine-shot-packet-v2-reef",
+  "shot_id": "SHOT-BUNNY-LAND",
+  "event_id": "EV-D1-LAND",
+  "name": "Continue trajectory through ground contact; dust scatters and thins for remaining seconds.",
+  "generation_allowed": false,
+  "still_attempt_allowed": false,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "blocking_reason": "HOLD until SHOT-BUNNY-JUMP endpoint is owner-hashed; MISSING_STONE_ATTIC_INTERIOR_EMPTY_PLATE; GAP-RAINBOW-IDENTITY \u2014 do not bind contact sheet; Human-approved first frame missing (opening_approved=false)",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "exact_cast": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY",
+    "CHAR-RUMI",
+    "CHAR-EAGLE",
+    "CHAR-RAINBOW"
+  ],
+  "exact_prop_counts": {
+    "giant_bunnies": 0,
+    "rainbow_friends": 1
+  },
+  "location_id": "LOC-ATTIC",
+  "room_state": {
+    "note": "set per fixture before still work"
+  },
+  "camera": {
+    "verb": "follow landing only after jump lock",
+    "move_count": 1
+  },
+  "before": "Little bunny airborne; dust falling",
+  "action": "Continue trajectory through ground contact; dust scatters and thins for remaining seconds.",
+  "after": "Friend grounded; no intact old shell",
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "empty_dirty_plate",
+      "reference_id": null,
+      "people_in_plate": null,
+      "authority_domain": "MISSING empty plate \u2014 see blocking_reason"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": "REF-69827625a8a795f1",
+      "people_in_plate": false,
+      "authority_domain": "CHAR-ROSHAN identity only"
+    }
+  ],
+  "bind_count": 2,
+  "must_move": [
+    "Continue trajectory through ground contact; dust scatters and thins for remaining seconds."
+  ],
+  "must_not_move": [
+    "room landmarks",
+    "unnamed fixtures",
+    "cast count",
+    "prior completed fixtures"
+  ],
+  "depends_on": [
+    "SHOT-BUNNY-JUMP"
+  ],
+  "prompt_path": "PROMPT.txt",
+  "attempt_cap": 3,
+  "output_disposition": "motion_reference_only",
+  "v1_pool_was": [
+    "REF-9cb4b02dc4a56e14",
+    "REF-69827625a8a795f1",
+    "REF-2eda6f76760b8598",
+    "REF-636ec38fd0e01d47",
+    "REF-da8ead4677192ef4",
+    "REF-e488d7c300eff116"
+  ],
+  "v1_pool_note": "Archival only. Do not bind the pool. v2 binds are the list above, max 4."
+}

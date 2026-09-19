@@ -1,0 +1,74 @@
+{
+  "schema": "imagine-shot-packet-v2-reef",
+  "shot_id": "SHOT-TEAM-PAPER",
+  "event_id": "EV-D1-TEAM",
+  "name": "Pick up paper in actual plain lavender hall; paper stays collected.",
+  "generation_allowed": false,
+  "still_attempt_allowed": false,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; GAP-RAINBOW-IDENTITY \u2014 do not bind contact sheet; Human-approved first frame missing (opening_approved=false)",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "exact_cast": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY",
+    "CHAR-RUMI",
+    "CHAR-EAGLE",
+    "CHAR-RAINBOW"
+  ],
+  "exact_prop_counts": {},
+  "location_id": "LOC-HALL",
+  "room_state": {
+    "paper": "present",
+    "web": "present",
+    "wall_stain": "present",
+    "hall": "dirty"
+  },
+  "camera": {
+    "verb": "slight oblique on runner",
+    "move_count": 1
+  },
+  "before": "Hall still dirty",
+  "action": "Pick up paper in actual plain lavender hall; paper stays collected.",
+  "after": "This local cleanup target complete; other unfinished targets remain",
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "empty_dirty_plate",
+      "reference_id": null,
+      "people_in_plate": null,
+      "authority_domain": "MISSING empty plate \u2014 see blocking_reason"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": "REF-69827625a8a795f1",
+      "people_in_plate": false,
+      "authority_domain": "CHAR-ROSHAN identity only"
+    }
+  ],
+  "bind_count": 2,
+  "must_move": [
+    "Pick up paper in actual plain lavender hall; paper stays collected."
+  ],
+  "must_not_move": [
+    "room landmarks",
+    "unnamed fixtures",
+    "cast count",
+    "prior completed fixtures"
+  ],
+  "depends_on": [],
+  "prompt_path": "PROMPT.txt",
+  "attempt_cap": 3,
+  "output_disposition": "motion_reference_only",
+  "v1_pool_was": [
+    "REF-7e77e4c29bbbdcaf",
+    "REF-69827625a8a795f1",
+    "REF-2eda6f76760b8598",
+    "REF-636ec38fd0e01d47",
+    "REF-da8ead4677192ef4",
+    "REF-e488d7c300eff116"
+  ],
+  "v1_pool_note": "Archival only. Do not bind the pool. v2 binds are the list above, max 4."
+}

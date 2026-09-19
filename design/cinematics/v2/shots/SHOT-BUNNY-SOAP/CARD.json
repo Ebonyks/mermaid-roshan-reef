@@ -1,0 +1,88 @@
+{
+  "schema": "imagine-shot-packet-v2-reef",
+  "shot_id": "SHOT-BUNNY-SOAP",
+  "event_id": "EV-D1-SOAP",
+  "name": "Four helpers scrub intact big bunny; wet lather expands until outline is hidden. Little bunny entirely hidden.",
+  "generation_allowed": false,
+  "still_attempt_allowed": false,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "blocking_reason": "MISSING_STONE_ATTIC_INTERIOR_EMPTY_PLATE; Human-approved first frame missing (opening_approved=false)",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "exact_cast": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY",
+    "CHAR-RUMI",
+    "CHAR-EAGLE",
+    "CHAR-PUFF"
+  ],
+  "exact_prop_counts": {
+    "giant_bunnies": 1,
+    "rainbow_friends": 0
+  },
+  "location_id": "LOC-ATTIC",
+  "room_state": {
+    "note": "set per fixture before still work"
+  },
+  "camera": {
+    "verb": "slightly lower contact height",
+    "move_count": 1
+  },
+  "before": "Big bunny own form and ears visible; little bunny hidden",
+  "action": "Four helpers scrub intact big bunny; wet lather expands until outline is hidden. Little bunny entirely hidden.",
+  "after": "Foam hides body and ears; little bunny still hidden",
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "empty_dirty_plate",
+      "reference_id": null,
+      "people_in_plate": null,
+      "authority_domain": "MISSING empty plate \u2014 see blocking_reason"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": "REF-69827625a8a795f1",
+      "people_in_plate": false,
+      "authority_domain": "CHAR-ROSHAN identity only"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "reference_id": "REF-e585e525624f4da1",
+      "people_in_plate": false,
+      "authority_domain": "one intact Grand Puff"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "subject_identity",
+      "reference_id": "REF-2eda6f76760b8598",
+      "people_in_plate": false,
+      "authority_domain": "Daddy helper identity"
+    }
+  ],
+  "bind_count": 4,
+  "must_move": [
+    "Four helpers scrub intact big bunny; wet lather expands until outline is hidden. Little bunny entirely hidden."
+  ],
+  "must_not_move": [
+    "room landmarks",
+    "unnamed fixtures",
+    "cast count",
+    "prior completed fixtures"
+  ],
+  "depends_on": [],
+  "prompt_path": "PROMPT.txt",
+  "attempt_cap": 3,
+  "output_disposition": "motion_reference_only",
+  "v1_pool_was": [
+    "REF-9cb4b02dc4a56e14",
+    "REF-69827625a8a795f1",
+    "REF-2eda6f76760b8598",
+    "REF-636ec38fd0e01d47",
+    "REF-da8ead4677192ef4",
+    "REF-e585e525624f4da1"
+  ],
+  "v1_pool_note": "Archival only. Do not bind the pool. v2 binds are the list above, max 4."
+}
