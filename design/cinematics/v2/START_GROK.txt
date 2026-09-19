@@ -14,7 +14,11 @@ Do not read CHARACTER_DIRECTION.json, JOBS.json, DATABASE.json, boards, or other
 HARD RULES
 - One shot, one action, at most one camera move, 3–6 seconds.
 - Bind 2–4 images only, exactly the CARD.bind list. A reference pool is not a bind list.
-- IMAGE_1 must be an empty-of-people plate or an owner-approved first frame. If CARD.opening_approved is false, produce the still, show the owner filename + SHA-256, and STOP. Do not animate.
+- If CARD.opening_approved is false:
+  - If CARD.still_attempt_allowed is true: produce the still, show filename + SHA-256, fill RETURN.json, STOP. Do not animate.
+  - Else: do not generate. Return blocking_reason to Codex.
+- If CARD.generation_allowed is false, do not animate. Still work follows still_attempt_allowed only.
+
 - Refresh identity from canon/IDENTITY.json at the start of every new scene. Do not carry a previous scene's extra extras, horn, beard, or crowd.
 - Day One cleanup openings use DIRTY plates. Never bind a restored/clean room as IMAGE_1 for a dirty opening.
 - Do not bind boards, HUD, runtime captures, contact sheets, or historical rejected clips.
