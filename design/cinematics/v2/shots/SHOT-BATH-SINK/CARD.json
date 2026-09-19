@@ -1,0 +1,79 @@
+{
+  "schema": "imagine-shot-packet-v2-reef",
+  "shot_id": "SHOT-BATH-SINK",
+  "event_id": "EV-D1-BATH",
+  "name": "Scrub central sink in circles; contact reveals clean patch.",
+  "generation_allowed": false,
+  "still_attempt_allowed": true,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "blocking_reason": "Human-approved first frame missing (opening_approved=false)",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "exact_cast": [
+    "CHAR-ROSHAN"
+  ],
+  "exact_prop_counts": {
+    "tubs": 1,
+    "sinks": 1,
+    "toilets": 1,
+    "roshan": 1,
+    "extra_mermaids": 0
+  },
+  "location_id": "LOC-BATH",
+  "room_state": {
+    "sink": "dirty",
+    "tub": "dirty",
+    "toilet": "dirty",
+    "drain": "closed_full"
+  },
+  "camera": {
+    "verb": "push-in to sink",
+    "move_count": 1
+  },
+  "before": "Correct sink fixture/task pending; prior completed surfaces remain clean",
+  "action": "Scrub central sink in circles; contact reveals clean patch.",
+  "after": "sink task visibly complete; other unfinished bathroom tasks remain",
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "empty_dirty_plate",
+      "reference_id": "REF-90bcc501e471b8d8",
+      "people_in_plate": false,
+      "authority_domain": "dirty bathroom layout"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": "REF-69827625a8a795f1",
+      "people_in_plate": false,
+      "authority_domain": "CHAR-ROSHAN identity only"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "reference_id": "REF-17e76b7f758f31a9",
+      "people_in_plate": false,
+      "authority_domain": "magic brush contact"
+    }
+  ],
+  "bind_count": 3,
+  "must_move": [
+    "Scrub central sink in circles; contact reveals clean patch."
+  ],
+  "must_not_move": [
+    "room landmarks",
+    "unnamed fixtures",
+    "cast count",
+    "prior completed fixtures"
+  ],
+  "depends_on": [],
+  "prompt_path": "PROMPT.txt",
+  "attempt_cap": 3,
+  "output_disposition": "motion_reference_only",
+  "v1_pool_was": [
+    "REF-3ecd80b1be8444ae",
+    "REF-69827625a8a795f1"
+  ],
+  "v1_pool_note": "Archival only. Do not bind the pool. v2 binds are the list above, max 4."
+}

@@ -1,0 +1,87 @@
+{
+  "schema": "imagine-shot-packet-v2-reef",
+  "shot_id": "SHOT-ARRIVAL-TOUCHDOWN",
+  "event_id": "EV-D1-ARRIVE",
+  "name": "Plane settles on approved ground with visible contact; cabin remains two-seat.",
+  "generation_allowed": false,
+  "still_attempt_allowed": true,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "blocking_reason": "NO_APPROVED_LANDING_PATCH_STILL_USE_16X9_CROP_ONLY_FOR_STILL_ATTEMPT; Human-approved first frame missing (opening_approved=false)",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "exact_cast": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY"
+  ],
+  "exact_prop_counts": {
+    "cabin_windows": 2,
+    "engine_intake": 1,
+    "rear_door": 0,
+    "mermaids_outside_plane": 0,
+    "birds_foreground": 0
+  },
+  "location_id": "LOC-SKY",
+  "room_state": {
+    "plane": "airborne_above_patch",
+    "passengers": "seated"
+  },
+  "camera": {
+    "verb": "downward settle",
+    "move_count": 1
+  },
+  "before": "Roshan and Daddy remain seated in the approved two-seat plane above its landing patch",
+  "action": "The plane descends, makes visible ground contact and settles once; neither passenger exits",
+  "after": "Plane grounded and stationary; Roshan and Daddy still inside, not yet at the castle",
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "empty_dirty_plate",
+      "reference_id": "REF-017532ae864e534d",
+      "people_in_plate": false,
+      "authority_domain": "16:9 landing-patch crop of panorama, not the squeezed 3x1"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": "REF-69827625a8a795f1",
+      "people_in_plate": false,
+      "authority_domain": "CHAR-ROSHAN identity only"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "reference_id": "REF-850d9614c299df94",
+      "people_in_plate": false,
+      "authority_domain": "two-window two-seat plane"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "subject_identity",
+      "reference_id": "REF-2eda6f76760b8598",
+      "people_in_plate": false,
+      "authority_domain": "Daddy identity only"
+    }
+  ],
+  "bind_count": 4,
+  "must_move": [
+    "The plane descends, makes visible ground contact and settles once; neither passenger exits"
+  ],
+  "must_not_move": [
+    "room landmarks",
+    "unnamed fixtures",
+    "cast count",
+    "prior completed fixtures"
+  ],
+  "depends_on": [],
+  "prompt_path": "PROMPT.txt",
+  "attempt_cap": 3,
+  "output_disposition": "motion_reference_only",
+  "v1_pool_was": [
+    "REF-017532ae864e534d",
+    "REF-69827625a8a795f1",
+    "REF-2eda6f76760b8598",
+    "REF-850d9614c299df94"
+  ],
+  "v1_pool_note": "Archival only. Do not bind the pool. v2 binds are the list above, max 4."
+}
