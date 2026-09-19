@@ -18,6 +18,7 @@ HARD RULES
   - If CARD.still_attempt_allowed is true: produce the still, show filename + SHA-256, fill RETURN.json, STOP. Do not animate.
   - Else: do not generate. Return blocking_reason to Codex.
 - If CARD.generation_allowed is false, do not animate. Still work follows still_attempt_allowed only.
+- The still is IMAGE_1's camera and fixture positions. Do not restage a closer set, move a sink, or rebuild the room. Push-in / orbit / tilt is motion AFTER the owner locks the still.
 
 - Refresh identity from canon/IDENTITY.json at the start of every new scene. Do not carry a previous scene's extra extras, horn, beard, or crowd.
 - Day One cleanup openings use DIRTY plates. Never bind a restored/clean room as IMAGE_1 for a dirty opening.

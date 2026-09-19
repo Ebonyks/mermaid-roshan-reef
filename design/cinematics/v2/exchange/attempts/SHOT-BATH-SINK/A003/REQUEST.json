@@ -1,0 +1,16 @@
+{
+  "schema": "reef.grok-reshoot.v2",
+  "kind": "STILL_REQUEST",
+  "shot_id": "SHOT-BATH-SINK",
+  "attempt": 3,
+  "previous_attempt": 2,
+  "reconstruction": "IMAGE_1 is the locked camera and sink. Do not I2I the room. Composite CHAR-ROSHAN onto the plate at the existing center sink. Push-in is motion after lock, not a still restage.",
+  "opening_approved": false,
+  "generation_allowed": false,
+  "still_attempt_allowed": true,
+  "knockout_to_fix": "moved sink / restaged bathroom",
+  "plate_authority": "REF-90bcc501e471b8d8",
+  "note": "Attempt cap is 3. This still must keep the plate geometry. Not permission to animate.",
+  "card_path": "design/cinematics/v2/shots/SHOT-BATH-SINK/CARD.json",
+  "card_sha256": "e78b1e7247fdf9564470df6b5ab96f37b8393a407e0f04fca916596daf9716f3"
+}
