@@ -1,0 +1,33 @@
+{
+  "id": "2026-09-19-broll-tub-b01",
+  "scope": "B-roll ACCESS_ACK and one SHOT-BATH-TUB-B01 still candidate. No motion, no 36-shot batch, no delivery acceptance.",
+  "baseline": "502fd25247ca6800319d529d9021673ac79f2a96",
+  "rules": [
+    "DL-CIN-01",
+    "DL-CIN-04",
+    "DL-CIN-11",
+    "DL-CIN-12",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BATH-TUB-B01/A001/ACCESS_ACK.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BATH-TUB-B01/A001/PROMPT.used.txt",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BATH-TUB-B01/A001/REQUEST.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BATH-TUB-B01/A001/RETURN.json",
+    "design/audit_impacts/2026-09-19-broll-tub-b01.json"
+  ],
+  "validation": [
+    {
+      "command": "python3 -B tools/audit_development.py --base 502fd25247ca6800319d529d9021673ac79f2a96",
+      "result": "PASS",
+      "evidence": "Metadata-only return for one B-roll still. Pixels in private media repo. DELIVERY_ACCEPTED false."
+    }
+  ],
+  "acceptance_gaps": "Owner has not approved this filename/hash. No motion. Extra goldfish defect recorded. A-roll SINK HOLD noted. Not generation-ready."
+}

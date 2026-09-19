@@ -1,0 +1,84 @@
+{
+  "schema": "reef.grok.still-return.v2.1",
+  "kind": "RETURN",
+  "shot_id": "SHOT-BATH-TUB-B01",
+  "parent_shot_id": "SHOT-BATH-TUB",
+  "attempt": 1,
+  "attempt_label": "A001",
+  "status": "RETURNED_STILL_CANDIDATE",
+  "construction": "cold_start",
+  "stop_after_return": true,
+  "request_id": "PREP-BATH-TUB-B01-20260919",
+  "request_sha256": "4ba14fee00ed7217fe93ea0997cbb2d7c0d90ac8d7e6ef570290eb15baeabeab",
+  "input_bindings": [
+    {
+      "slot": "SOURCE_1",
+      "role": "location_plate",
+      "reference_id": "REF-90bcc501e471b8d8",
+      "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+      "bytes": 1239053,
+      "immutable_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/90bcc501e471b8d8.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/90bcc501e471b8d8.png"
+    },
+    {
+      "slot": "SOURCE_2",
+      "role": "CHAR-ROSHAN",
+      "reference_id": "REF-69827625a8a795f1",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "bytes": 50051,
+      "immutable_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png"
+    },
+    {
+      "slot": "SOURCE_3",
+      "role": "PROP-BRUSH",
+      "reference_id": "REF-17e76b7f758f31a9",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "bytes": 535795,
+      "immutable_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/17e76b7f758f31a9.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/17e76b7f758f31a9.png"
+    }
+  ],
+  "prompt_sha256": "77f4b4598eecb422d76526aa231c5b6f8e9f3c1334ca31905a9936cc51097e37",
+  "generation_job_id": "6fe01e1f-727f-470c-8658-54d858b7e11d",
+  "mode": "imagine_reference_to_image",
+  "immutable_native_file_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/e71ad294184efb71ad5a74e1c476e055826fe9ce/assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BATH-TUB-B01/A001/SHOT-BATH-TUB-B01_A001.jpg",
+  "sha256": "fe276cbd4a850b18b158c8df26d5e5b91233889fc338118618ae8b6395c45990",
+  "bytes": 788333,
+  "dimensions": [
+    1792,
+    1008
+  ],
+  "filename": "SHOT-BATH-TUB-B01_A001.jpg",
+  "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BATH-TUB-B01/A001/SHOT-BATH-TUB-B01_A001.jpg",
+  "browse_path": "first_frames/BROLL-20260919/SHOT-BATH-TUB-B01_A001.jpg",
+  "camera_setup_id": "elevated-front-left-three-quarter-tub-rim-to-sink",
+  "owner_opening_approval_receipt": null,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "motion_phase_markers": {
+    "first_contact_frame": null,
+    "irreversible_change_frame": null,
+    "end_state_frame": null
+  },
+  "a_b_match": {
+    "a_clip_sha256": null,
+    "state_and_direction_review": "Still only; no motion. Same action phase: horizontal tub scrub, sink already clean, toilet still dirty."
+  },
+  "defects": [
+    {
+      "frame_start": 0,
+      "frame_end": 0,
+      "observed": "Extra goldfish in the tub (recurring leak from room plate).",
+      "required_reconstruction": "Remove extra fish; keep one Roshan, one brush, known-wall fixtures."
+    }
+  ],
+  "producer_notes": [
+    "New camera vs A-roll frontal insert: elevated three-quarter along tub rim toward sink.",
+    "Known wall preserved; reverse wall not invented.",
+    "Roshan identity and brush grip held. Board not bound.",
+    "STOP. No other B01 stills and no I2V in this return."
+  ],
+  "browse_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/e71ad294184efb71ad5a74e1c476e055826fe9ce/first_frames/BROLL-20260919/SHOT-BATH-TUB-B01_A001.jpg",
+  "private_commit": "e71ad294184efb71ad5a74e1c476e055826fe9ce"
+}
