@@ -1,0 +1,80 @@
+{
+  "schema": "imagine-shot-packet-v2-reef",
+  "shot_id": "SHOT-EAGLE-WING",
+  "event_id": "EV-D1-EAGLE",
+  "name": "Freed book-identity Eagle gives one wingbeat and settles.",
+  "generation_allowed": false,
+  "still_attempt_allowed": false,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "blocking_reason": "CONFIRM_EMPTY_DRESSED_PLATE_THEN_OWNER_FIRST_FRAME; Human-approved first frame missing (opening_approved=false)",
+  "duration_seconds": 3,
+  "aspect_ratio": "16:9",
+  "exact_cast": [
+    "CHAR-ROSHAN",
+    "CHAR-EAGLE",
+    "CHAR-PLAY-BUNNY"
+  ],
+  "exact_prop_counts": {
+    "eagles": 1,
+    "heraldic_eagles": 0
+  },
+  "location_id": "LOC-STUFFIE",
+  "room_state": {
+    "note": "set per fixture before still work"
+  },
+  "camera": {
+    "verb": "locked, one wingbeat",
+    "move_count": 0
+  },
+  "before": "Eagle freed, both pins already removed",
+  "action": "Freed book-identity Eagle gives one wingbeat and settles.",
+  "after": "Eagle safe",
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "empty_dirty_plate",
+      "reference_id": null,
+      "people_in_plate": null,
+      "authority_domain": "MISSING empty plate \u2014 see blocking_reason"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": "REF-69827625a8a795f1",
+      "people_in_plate": false,
+      "authority_domain": "CHAR-ROSHAN identity only"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "reference_id": "REF-da8ead4677192ef4",
+      "people_in_plate": false,
+      "authority_domain": "book eagle only"
+    }
+  ],
+  "bind_count": 3,
+  "must_move": [
+    "Freed book-identity Eagle gives one wingbeat and settles."
+  ],
+  "must_not_move": [
+    "room landmarks",
+    "unnamed fixtures",
+    "cast count",
+    "prior completed fixtures"
+  ],
+  "depends_on": [
+    "SHOT-EAGLE-FREE"
+  ],
+  "prompt_path": "PROMPT.txt",
+  "attempt_cap": 3,
+  "output_disposition": "motion_reference_only",
+  "v1_pool_was": [
+    "REF-5c7797c3be3586da",
+    "REF-bd0baef94bad5c92",
+    "REF-69827625a8a795f1",
+    "REF-da8ead4677192ef4",
+    "REF-677cda8c5de1d3aa"
+  ],
+  "v1_pool_note": "Archival only. Do not bind the pool. v2 binds are the list above, max 4."
+}

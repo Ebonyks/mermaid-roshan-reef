@@ -1,0 +1,70 @@
+{
+  "schema": "imagine-shot-packet-v2-reef",
+  "shot_id": "SHOT-CRAFT-SCRUB-2",
+  "event_id": "EV-D1-ARTCLEAN",
+  "name": "Scrub small stocked rear worktable; contact removes grime and clean area persists.",
+  "generation_allowed": false,
+  "still_attempt_allowed": false,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "exact_cast": [
+    "CHAR-ROSHAN"
+  ],
+  "exact_prop_counts": {},
+  "location_id": "LOC-ART",
+  "room_state": {
+    "left_counter": "clean",
+    "rear_table": "dirty",
+    "right_counter": "dirty",
+    "supplies": "collected"
+  },
+  "camera": {
+    "verb": "rear-table insert",
+    "move_count": 1
+  },
+  "before": "Four supplies collected; 1 of three grime surfaces clean",
+  "action": "Scrub small stocked rear worktable; contact removes grime and clean area persists.",
+  "after": "2 surfaces clean; earlier clean areas persist; remaining grime stays",
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "empty_dirty_plate",
+      "reference_id": null,
+      "people_in_plate": null,
+      "authority_domain": "MISSING empty plate \u2014 see blocking_reason"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": "REF-69827625a8a795f1",
+      "people_in_plate": false,
+      "authority_domain": "CHAR-ROSHAN identity only"
+    }
+  ],
+  "bind_count": 2,
+  "must_move": [
+    "Scrub small stocked rear worktable; contact removes grime and clean area persists."
+  ],
+  "must_not_move": [
+    "room landmarks",
+    "unnamed fixtures",
+    "cast count",
+    "prior completed fixtures"
+  ],
+  "depends_on": [
+    "SHOT-CRAFT-SCRUB-1"
+  ],
+  "prompt_path": "PROMPT.txt",
+  "attempt_cap": 3,
+  "output_disposition": "motion_reference_only",
+  "v1_pool_was": [
+    "REF-916522a6fab66918",
+    "REF-69827625a8a795f1",
+    "REF-b2eb0fc3a5d7c777",
+    "REF-17e76b7f758f31a9"
+  ],
+  "v1_pool_note": "Archival only. Do not bind the pool. v2 binds are the list above, max 4."
+}
