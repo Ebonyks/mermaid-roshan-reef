@@ -1,0 +1,67 @@
+{
+  "id": "2026-09-19-cold-start-rebuild",
+  "scope": "Cold-start regeneration of v2 stills/motion-reference clips. Metadata in this repo; pixels in private media. No delivery acceptance.",
+  "baseline": "e8181087a7ce76db7529c8019fee3f211423540e",
+  "rules": [
+    "DL-CIN-01",
+    "DL-CIN-04",
+    "DL-CIN-11",
+    "DL-CIN-12",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "design/audit_impacts/2026-09-19-cold-start-rebuild.json",
+    "design/cinematics/v2/exchange/COLD-START-20260919-MANIFEST.json",
+    "design/cinematics/v2/exchange/COLD-START-20260919/PREP-DADDY-LOCK_A010_RETURN.json",
+    "design/cinematics/v2/exchange/COLD-START-20260919/PREP-EAGLE-CAST_A010_RETURN.json",
+    "design/cinematics/v2/exchange/COLD-START-20260919/PREP-PLANE-LOCK_A010_RETURN.json",
+    "design/cinematics/v2/exchange/COLD-START-20260919/PREP-PUFF-LOCK_A010_RETURN.json",
+    "design/cinematics/v2/exchange/COLD-START-20260919/PREP-ROCKET-LOCK_A010_MOTION_RETURN.json",
+    "design/cinematics/v2/exchange/COLD-START-20260919/PREP-ROCKET-LOCK_A010_RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-ARRIVAL-TOUCHDOWN/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-BATH-DRAIN/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-BATH-TOILET/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-BATH-TUB/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-BUNNY-JUMP/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-BUNNY-SOAP/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-C2-01/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-C2-03/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-C2-04/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-C2-05/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-C2-08/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-C2-09/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-CRAFT-CUSTOMIZE/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-CRAFT-PICK-1/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-CRAFT-PICK-2/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-CRAFT-PICK-3/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-CRAFT-PICK-4/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-CRAFT-SCRUB-1/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-CRAFT-SCRUB-2/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-CRAFT-SCRUB-3/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-EAGLE-FREE/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-EAGLE-WING/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-POOL-FALL-1/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-POOL-FALL-2/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-POOL-FALL-3/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-POOL-PULL/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-POOL-SKIM/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-TEAM-FINISH/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-TEAM-PAPER/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-TEAM-WALL/A010/RETURN.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-TEAM-WEB/A010/RETURN.json"
+  ],
+  "validation": [
+    {
+      "command": "python3 -B tools/audit_development.py --base e8181087a7ce76db7529c8019fee3f211423540e",
+      "result": "PASS",
+      "evidence": "Impact covers every metadata path in this cold-start return. Pixels are in the private media repository. DELIVERY_ACCEPTED remains false."
+    }
+  ],
+  "acceptance_gaps": "No first-frame approval, no motion acceptance, no runtime integration. Extra goldfish/mermaids/helpers remain known leaks. HOLD shots were skipped. IMAGE_1 is not owner-approved."
+}

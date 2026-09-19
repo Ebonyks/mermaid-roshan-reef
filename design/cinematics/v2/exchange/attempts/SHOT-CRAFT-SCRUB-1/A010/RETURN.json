@@ -1,0 +1,33 @@
+{
+  "schema": "reef.grok.still-return.v2.1",
+  "kind": "RETURN",
+  "shot_id": "SHOT-CRAFT-SCRUB-1",
+  "attempt": 10,
+  "status": "RETURNED_STILL_CANDIDATE",
+  "construction": "cold_start",
+  "stop_after_return": true,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "output_disposition": "still_candidate",
+  "artifact": {
+    "shot_id": "SHOT-CRAFT-SCRUB-1",
+    "attempt": "A010",
+    "kind": "STILL_CANDIDATE",
+    "filename": "SHOT-CRAFT-SCRUB-1_A010.jpg",
+    "private_path": "first_frames/COLD-START-20260919/SHOT-CRAFT-SCRUB-1_A010.jpg",
+    "sha256": "5310edf87f65f7d2a47e8b4881cd61868cd26d98f4d6ac4b78f3b261f23f17e5",
+    "bytes": 643634,
+    "width": 1792,
+    "height": 1008,
+    "opening_approved": false,
+    "construction": "cold_start",
+    "notes": [
+      "Left counter scrub.",
+      "Not owner-approved IMAGE_1. Cold-start 3-slot rebuild."
+    ]
+  },
+  "producer_notes": [
+    "Left counter scrub.",
+    "Not owner-approved IMAGE_1. Cold-start 3-slot rebuild."
+  ]
+}

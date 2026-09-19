@@ -1,0 +1,33 @@
+{
+  "schema": "reef.grok.still-return.v2.1",
+  "kind": "RETURN",
+  "shot_id": "SHOT-POOL-PULL",
+  "attempt": 10,
+  "status": "RETURNED_STILL_CANDIDATE",
+  "construction": "cold_start",
+  "stop_after_return": true,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "output_disposition": "still_candidate",
+  "artifact": {
+    "shot_id": "SHOT-POOL-PULL",
+    "attempt": "A010",
+    "kind": "STILL_CANDIDATE",
+    "filename": "SHOT-POOL-PULL_A010.jpg",
+    "private_path": "first_frames/COLD-START-20260919/SHOT-POOL-PULL_A010.jpg",
+    "sha256": "fce0f8323327e85fc4d8812fa92c254333728aae19610b871375a932435c5027",
+    "bytes": 723914,
+    "width": 1792,
+    "height": 1008,
+    "opening_approved": false,
+    "construction": "cold_start",
+    "notes": [
+      "Seahorse/plug contact.",
+      "Not owner-approved IMAGE_1. Cold-start 3-slot rebuild."
+    ]
+  },
+  "producer_notes": [
+    "Seahorse/plug contact.",
+    "Not owner-approved IMAGE_1. Cold-start 3-slot rebuild."
+  ]
+}

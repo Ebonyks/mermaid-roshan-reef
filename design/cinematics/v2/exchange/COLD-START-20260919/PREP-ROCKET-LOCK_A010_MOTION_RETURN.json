@@ -1,0 +1,40 @@
+{
+  "schema": "reef.grok.motion-return.v2.1",
+  "kind": "RETURN",
+  "shot_id": "PREP-ROCKET-LOCK",
+  "attempt": 10,
+  "status": "RETURNED_MOTION_REFERENCE",
+  "producer": "grok-build-imagine-bridge-2026-09-19",
+  "generation_job_id": "2e1cbc2e-977b-43a4-9005-82a41c62ef82",
+  "mode": "imagine_image_to_video",
+  "construction": "cold_start",
+  "stop_after_return": true,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "output_disposition": "motion_reference_only",
+  "artifact": {
+    "shot_id": "PREP-ROCKET-LOCK",
+    "attempt": "A010",
+    "kind": "MOTION_REFERENCE",
+    "filename": "PREP-ROCKET-LOCK_A010.mp4",
+    "private_path": "videos/COLD-START-20260919/PREP-ROCKET-LOCK_A010.mp4",
+    "sha256": "aa041ca5d3742ed6814f884cc543d343151ad370bfa178a052c5dd541773079a",
+    "bytes": 6159252,
+    "width": 1280,
+    "height": 720,
+    "fps": 24.0,
+    "duration_seconds": 6.04,
+    "generation_job_id": "2e1cbc2e-977b-43a4-9005-82a41c62ef82",
+    "opening_approved": false,
+    "requested_duration": 4,
+    "construction": "cold_start",
+    "notes": [
+      "Roshan taps rocket toward candle.",
+      "6s native vs requested 4s. Motion reference only."
+    ]
+  },
+  "producer_notes": [
+    "Roshan taps rocket toward candle.",
+    "6s native vs requested 4s. Motion reference only."
+  ]
+}
