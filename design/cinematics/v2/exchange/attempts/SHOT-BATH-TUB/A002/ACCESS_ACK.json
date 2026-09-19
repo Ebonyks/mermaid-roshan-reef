@@ -1,0 +1,94 @@
+{
+  "kind": "ACCESS_ACK",
+  "schema": "reef.grok.access-ack.v2",
+  "recipient": "grok",
+  "checked_at": "2026-09-19T16:14:00Z",
+  "revision": 2,
+  "game_commit": "f8753da208798dd4cd4d3f5afda53c95b97c635a",
+  "game_branch": "codex/grok-v2-repairs-20260919",
+  "private_media_repository": "Ebonyks/mermaid-roshan-grok-videos",
+  "private_content_commit": "2938ea39427cf225785c25e3f1f2cb48f1e4db98",
+  "source_commit_opened": "34ca6928d4c7c3fe107650d3202408d00232c288",
+  "request_id": "PREP-BATH-TUB-20260919",
+  "shot_id": "SHOT-BATH-TUB",
+  "attempt": 2,
+  "stage": "still_preparation",
+  "motion_authorized": false,
+  "unauthenticated_raw_github": "HTTP 404 on raw.githubusercontent.com (private repo)",
+  "authenticated_open": true,
+  "bind_sha256s": {
+    "SOURCE_1": {
+      "path": "grok_builder_2026-09-14/media/90bcc501e471b8d8.png",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/90bcc501e471b8d8.png",
+      "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+      "bytes": 1239053,
+      "dimensions": [
+        1024,
+        576
+      ],
+      "opened": true,
+      "observed": "landscape bathroom: horizontal tub left with full dirty water, sink/mirror centre, pink toilet right"
+    },
+    "SOURCE_2": {
+      "path": "grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "bytes": 50051,
+      "dimensions": [
+        256,
+        256
+      ],
+      "opened": true,
+      "observed": "Roshan identity crop: brown rainbow-streaked hair, jeweled tiara, pink bodice"
+    },
+    "SOURCE_3": {
+      "path": "grok_builder_2026-09-14/media/17e76b7f758f31a9.png",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/17e76b7f758f31a9.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "bytes": 535795,
+      "dimensions": [
+        936,
+        1024
+      ],
+      "opened": true,
+      "observed": "magic cleaning brush; handle behind head"
+    },
+    "BOARD": {
+      "path": "grok_builder_2026-09-14/boards_v4/SHOT-BATH-TUB.jpg",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/boards_v4/SHOT-BATH-TUB.jpg",
+      "sha256": "b39ab68f1d2cacded022df4b75ad5b6aa28de5510a1a541bae95f360319cc50b",
+      "bytes": 220068,
+      "opened": true,
+      "role": "historical narrative context ONLY; not a bound generation image"
+    }
+  },
+  "exact_cast": [
+    "CHAR-ROSHAN"
+  ],
+  "cast_instances": [
+    {
+      "instance_id": "CHAR-ROSHAN-1",
+      "character_id": "CHAR-ROSHAN",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    }
+  ],
+  "room_state": {
+    "sink": "clean",
+    "tub": "dirty",
+    "toilet": "dirty",
+    "drain": "closed_full"
+  },
+  "end_room_state": {
+    "sink": "clean",
+    "tub": "clean_full",
+    "toilet": "dirty",
+    "drain": "closed_full"
+  },
+  "blockers_remaining_after_still": [
+    "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING",
+    "ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING"
+  ],
+  "next_required_artifact": "One native 16:9 SHOT-BATH-TUB A002 first-frame candidate. Show owner and STOP. No motion.",
+  "status": "ACCESS_ACK"
+}

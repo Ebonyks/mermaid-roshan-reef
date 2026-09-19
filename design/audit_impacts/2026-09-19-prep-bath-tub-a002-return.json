@@ -1,0 +1,43 @@
+{
+  "id": "2026-09-19-prep-bath-tub-a002-return",
+  "scope": "Grok ACCESS_ACK plus one SHOT-BATH-TUB A002 first-frame candidate. Native still lives in private mermaid-roshan-grok-videos. Metadata only here. Not owner approval, motion, or delivery. No 36-shot generation.",
+  "baseline": "0b26557f9500983f7ba2eb670df072dffd352779",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15",
+    "DL-ASSET-01"
+  ],
+  "findings": [],
+  "files": [
+    "design/cinematics/v2/exchange/attempts/SHOT-BATH-TUB/A002/ACCESS_ACK.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-BATH-TUB/A002/REQUEST.json",
+    "design/cinematics/v2/exchange/attempts/SHOT-BATH-TUB/A002/RETURN.json"
+  ],
+  "validation": [
+    {
+      "command": "Open three bound private sources and hash them",
+      "result": "PASS",
+      "evidence": "SOURCE_1 90bcc501e471b8d8... 1239053 bytes; SOURCE_2 69827625a8a795f1... 50051; SOURCE_3 17e76b7f758f31a9... 535795. Unauthenticated raw GitHub was 404; authenticated clone opened the files."
+    },
+    {
+      "command": "One still only, then stop",
+      "result": "PASS",
+      "evidence": "imagine_reference_to_image native JPEG sha256 f5505c430794f633a620da2fdd3ea4b0523827416b75c01caf7308e7189b0b0e 787063 bytes 1792x1008 at private e871b958cad7e3fac350c467bcac4038505f8106. No video."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "This record covers Grok-owned A002 metadata. No runtime mutation."
+    },
+    {
+      "command": "Runtime / Godot / master/dev merge",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Exchange metadata only. DELIVERY_ACCEPTED false."
+    }
+  ],
+  "acceptance_gaps": "Owner must review the exact still. IMAGE_1 remains null until that approval. Motion is not authorized. SINK remains HOLD. Do not merge to master or dev.",
+  "no_findings_reason": "Metadata-only still candidate. Does not close MA-VIS-006 or any other finding; owner review is still required."
+}

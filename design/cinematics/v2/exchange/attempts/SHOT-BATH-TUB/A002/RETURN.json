@@ -1,0 +1,86 @@
+{
+  "schema": "reef.grok.still-return.v2.1",
+  "kind": "RETURN",
+  "request_id": "PREP-BATH-TUB-20260919",
+  "request_declared_sha256": "b10cce66e00dfce0d17beec41190f7893b52b4b5dd00975876a670d43470b60c",
+  "request_git_blob_sha256": "5945e4df5528002afeca75e8c0ca3053278a127252f64ac9e219938adfb53150",
+  "shot_id": "SHOT-BATH-TUB",
+  "attempt": 2,
+  "attempt_cap": 3,
+  "prior_attempts_used": 1,
+  "status": "RETURNED_STILL_CANDIDATE",
+  "producer": "grok-build-imagine-bridge-2026-09-16",
+  "generation_job_id": "9cc1d6b3-e716-4a9d-a941-66f998533166",
+  "generator_model": "imagine_reference_to_image",
+  "mode": "imagine_reference_to_image",
+  "motion_generated": false,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "stop_after_return": true,
+  "access_ack_path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-TUB/A002/ACCESS_ACK.json",
+  "packet_still_prompt_path": "design/cinematics/v2/preparation/PREP-BATH-TUB-20260919/STILL_PROMPT.txt",
+  "packet_still_prompt_sha256": "3064acb4152c7b1ba487607d4b0feecc7fe03ce44a3ae3f0c1dc4b5b0d8ec1ac",
+  "generation_prompt_sha256": "af4510f2d6e10d1a92dd369b4a5fac3d2617d57e17d66040ab64353d5857b159",
+  "settings": {
+    "aspect_ratio": "16:9",
+    "native_width": 1792,
+    "native_height": 1008,
+    "format": "jpeg"
+  },
+  "bound_inputs": [
+    {
+      "slot": "IMAGE_0/SOURCE_1",
+      "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+      "role": "room geometry and dirty-tub material"
+    },
+    {
+      "slot": "IMAGE_1/SOURCE_2",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "Roshan identity only"
+    },
+    {
+      "slot": "IMAGE_2/SOURCE_3",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "role": "brush identity and grip only"
+    }
+  ],
+  "not_bound": [
+    {
+      "id": "BOARD",
+      "sha256": "b39ab68f1d2cacded022df4b75ad5b6aa28de5510a1a541bae95f360319cc50b",
+      "reason": "historical narrative only"
+    }
+  ],
+  "artifact": {
+    "role": "native_first_frame_candidate",
+    "filename": "SHOT-BATH-TUB_A002.jpg",
+    "private_path": "first_frames/PREP-BATH-TUB-20260919/SHOT-BATH-TUB_A002.jpg",
+    "repository": "Ebonyks/mermaid-roshan-grok-videos",
+    "sha256": "f5505c430794f633a620da2fdd3ea4b0523827416b75c01caf7308e7189b0b0e",
+    "bytes": 787063,
+    "width": 1792,
+    "height": 1008,
+    "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/e871b958cad7e3fac350c467bcac4038505f8106/first_frames/PREP-BATH-TUB-20260919/SHOT-BATH-TUB_A002.jpg",
+    "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/e871b958cad7e3fac350c467bcac4038505f8106/first_frames/PREP-BATH-TUB-20260919/SHOT-BATH-TUB_A002.jpg",
+    "commit": "e871b958cad7e3fac350c467bcac4038505f8106"
+  },
+  "producer_observations": [
+    "Known-wall layout held: tub left, sink centre, pink toilet right, two ocean windows.",
+    "Exactly one Roshan; jeweled tiara, rainbow streak, pink bodice, one continuous tail.",
+    "Brush handle gripped; bristles contact dirty tub rim. No cleaned stripe, water still full.",
+    "Sink reads cleaner than SOURCE_1. Toilet is only mildly stained vs required dirty.",
+    "Possible extra creature: small purple fish-like toy on the floor (not in SOURCE_1).",
+    "Native Imagine JPEG is 1792x1008, not 1280x720. Not resized.",
+    "This is not owner approval, not an Imagine IMAGE_1 lock, not motion authorization."
+  ],
+  "defects_for_owner": [
+    {
+      "id": "POSSIBLE_EXTRA_CREATURE",
+      "note": "Small purple fish-like figure on floor left of Roshan."
+    },
+    {
+      "id": "TOILET_MAY_READ_TOO_CLEAN",
+      "note": "Toilet bowl is not as dirty as SOURCE_1."
+    }
+  ]
+}
