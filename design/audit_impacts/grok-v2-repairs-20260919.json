@@ -29,6 +29,7 @@
     "design/cinematics/v2/PROTOCOL.md",
     "design/cinematics/v2/PUBLICATION.json",
     "design/cinematics/v2/README.md",
+    "design/cinematics/v2/REMOTE_VERIFICATION.json",
     "design/cinematics/v2/REPAIR_HANDOFF.md",
     "design/cinematics/v2/SCENE_PLAN.json",
     "design/cinematics/v2/SCHEMA.md",
@@ -235,7 +236,7 @@
     {
       "command": "GitHub exact-byte publication verification",
       "result": "PASS",
-      "evidence": "Private archive 2938ea39427cf225785c25e3f1f2cb48f1e4db98: every one of 422 paths fetched and SHA-256 checked; receipt d5df814cbc11a28dc3a254e5a77fc02983a3e5d0. Public verification follows its content commit; recipient access remains open."
+      "evidence": "Private archive 2938ea39427cf225785c25e3f1f2cb48f1e4db98: all 422 paths fetched and SHA-256 checked; receipt d5df814cbc11a28dc3a254e5a77fc02983a3e5d0. Public content f8753da208798dd4cd4d3f5afda53c95b97c635a: all 183 changed files freshly fetched and checked; anonymous START_GROK.txt access HTTP 200. Public receipt design/cinematics/v2/REMOTE_VERIFICATION.json SHA-256 dda60cfbbb8e403a5cc565a4ac7c1cd81c8c561fc36b8458f5ea2e11b9d39ce5. Private main routing updated at 6bc944a71d2c6b85d6e705806cc9f6d5a51fdf5e; four routing files freshly fetched and checked. Grok recipient access remains open."
     }
   ],
   "acceptance_gaps": "Owner-approved complete first frames, independent cinematic frame provenance and visual/device/child acceptance remain open. Private media access must be acknowledged by Grok; authenticated Codex verification is not recipient access. MA-VIS-006 remains CONFIRMED_OPEN. Unrelated dirty root project.godot and output/pdf are preserved, not staged or published."

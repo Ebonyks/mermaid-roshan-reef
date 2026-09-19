@@ -1,0 +1,1120 @@
+{
+  "schema": "reef.grok.remote-verification.v2",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "content_commit": "f8753da208798dd4cd4d3f5afda53c95b97c635a",
+  "branches": [
+    "codex/grok-handoff-v2",
+    "codex/grok-v2-repairs-20260919"
+  ],
+  "checked_at": "2026-09-19T15:38:20.636855+00:00",
+  "files": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "git_blob": "597aa615b0fce54830b8142c64efc2f885f2a091",
+      "sha256": "ac501af4c8361857309930164f7641577ce49b9355fcd37ac1a6289c0608623b",
+      "bytes": 267592
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "git_blob": "590792ffaf5557c71d437606857f4ceabb5ec3bb",
+      "sha256": "bb5781edc8f7b2c14d10f7983d926c6848c036628106157005341f117086d4f1",
+      "bytes": 153275
+    },
+    {
+      "path": "design/audit_impacts/grok-handoff-v2.json",
+      "git_blob": "9efb420bfaaa90154435a19d6fe2fd5980714710",
+      "sha256": "3b3f2c81d2d4b7416e03098ac28fffdcb3fdd218d2da6259640339d31e702be3",
+      "bytes": 1843
+    },
+    {
+      "path": "design/audit_impacts/grok-queue-a001-20260916.json",
+      "git_blob": "917dba0340b96bd797a85b13d9061dc00caf3475",
+      "sha256": "5c400e10ce6f2f229b10a1913c9df463f56dd65ff2082da98141023d5d21e81c",
+      "bytes": 1727
+    },
+    {
+      "path": "design/audit_impacts/grok-queue-a002-20260916.json",
+      "git_blob": "485c8ce00857c203f0f2e87c0099272fc98a04f8",
+      "sha256": "94a6af40b7199cb3441605371e3fc19f14d4aac0bb461eb52b0b3c440a3121f1",
+      "bytes": 1895
+    },
+    {
+      "path": "design/audit_impacts/grok-v2-repairs-20260919.json",
+      "git_blob": "fdcbbdfe8621592ac8238b098238e6381360f6e8",
+      "sha256": "0d1feb86f96a09bd3361466b042def7b3f15a38f0b535d732defc2b1e4fe7092",
+      "bytes": 14253
+    },
+    {
+      "path": "design/cinematics/v2/.gitattributes",
+      "git_blob": "861705585d8d18ded9b85e625ef2d7c2960dfeab",
+      "sha256": "cc8e5609f1df99bc80beaf4072b5d83e9b6c0ecfd1f95e50881601e5c9c90c5a",
+      "bytes": 98
+    },
+    {
+      "path": "design/cinematics/v2/GIT_LAYOUT.md",
+      "git_blob": "a2b22e827b467a08161d68a741036415ede2e506",
+      "sha256": "ac3bd20af6247dc7dc63baac12e4fcdb99f9a9fa7b000df65263ce4bcbea68e9",
+      "bytes": 985
+    },
+    {
+      "path": "design/cinematics/v2/MANIFEST.json",
+      "git_blob": "2ed4cd506409a47a6f86dcf94f9264a30728d571",
+      "sha256": "ef804bd7c38f27293b408a98fe9e4cade6a3674b8fe42230d0867b1a26612390",
+      "bytes": 29304
+    },
+    {
+      "path": "design/cinematics/v2/PROTOCOL.md",
+      "git_blob": "535eda3869e63f32e7552116b2adaa99f2913ad7",
+      "sha256": "16daa3b00f9adec06d729438dc0b117504bb9e93ed56090d10dd6dbb77ce0637",
+      "bytes": 2298
+    },
+    {
+      "path": "design/cinematics/v2/PUBLICATION.json",
+      "git_blob": "2e550379f12ee52141b7fbca94e045e8cc0bf4c6",
+      "sha256": "50c5126a356931cd15a0bf5d89bd78adc2bdf4fa27d48454acc9b1e1a345a6d3",
+      "bytes": 2035
+    },
+    {
+      "path": "design/cinematics/v2/README.md",
+      "git_blob": "bba10894ee2e7c31cdceae0bc14dab05d71f711d",
+      "sha256": "3f4f2b5d200a5af92c943a2a31ae2c6706d37d6278c97745ecf9e0aa79a3a65d",
+      "bytes": 2601
+    },
+    {
+      "path": "design/cinematics/v2/REPAIR_HANDOFF.md",
+      "git_blob": "4263607d6b7a6a24074528c36fca4673a7ee2735",
+      "sha256": "dad47e9688618753c6e3530c12c7efe753091cef051441f727e7f8ccb4b197a0",
+      "bytes": 6101
+    },
+    {
+      "path": "design/cinematics/v2/SCENE_PLAN.json",
+      "git_blob": "ca3f4abde06c7b7fc77cff5b67fe92d34ba17d13",
+      "sha256": "7dfe1924ca9fb3155aec2d85006cb061a91c832fad772a4d92e17fe267defe89",
+      "bytes": 72842
+    },
+    {
+      "path": "design/cinematics/v2/SCHEMA.md",
+      "git_blob": "85c5bb96c7ea2b6fb46360b4d528b318a277a3cd",
+      "sha256": "3bee707591d2ea57221085d140a134cef5d43739cb4b51b18f1f6de94f986c3a",
+      "bytes": 1987
+    },
+    {
+      "path": "design/cinematics/v2/START_GROK.txt",
+      "git_blob": "f71c788960548d6b96de9c5b3333b8a8b58bdc2d",
+      "sha256": "9ba298219bfaf850efea014c05f328c04e495bf806c02043014ae38c41d84504",
+      "bytes": 3115
+    },
+    {
+      "path": "design/cinematics/v2/VALIDATION.json",
+      "git_blob": "3556fcddb2b82ac37257ce9d2d5a47d8063f6eed",
+      "sha256": "4eb52b9b2fbf40b857f7bff0e59a9ecdfa22989ce4e3ee2b5e76b4ca182509a4",
+      "bytes": 1044
+    },
+    {
+      "path": "design/cinematics/v2/canon/CAMERA_COVERAGE.json",
+      "git_blob": "21968465129184ef00f0e2d01438f1808afa862f",
+      "sha256": "98d2b783e442b6ebadcf75c9d4533835a424006929dcbe11801f900d50c9b7bc",
+      "bytes": 2606
+    },
+    {
+      "path": "design/cinematics/v2/canon/CONFLICTS.json",
+      "git_blob": "beec7212bfe6085dbab8b3463966116e54ac54c0",
+      "sha256": "212600244eba9425d8b1f36ed17139a03ed69824ed0a86342aaa1f1793d2d5c1",
+      "bytes": 1251
+    },
+    {
+      "path": "design/cinematics/v2/canon/DATA_GAPS.json",
+      "git_blob": "e0644245ee36a3d36ed7c5a61231378dac660e5d",
+      "sha256": "442ad908473409b00f0115ec9180ac3a3eddd0a5df0fb5febca3c7bfe9168226",
+      "bytes": 5173
+    },
+    {
+      "path": "design/cinematics/v2/canon/FIXTURE_STATES.json",
+      "git_blob": "e8a2e81ece0fd81e6b1c26adb2a695108fbe0635",
+      "sha256": "8a7493d0066ddcb63e88120e835cdbba67bf22e9f4b4842d786fded1466f891e",
+      "bytes": 14500
+    },
+    {
+      "path": "design/cinematics/v2/canon/IDENTITY.json",
+      "git_blob": "d09ce0e743d992c2f7fa3cb66dccadceba181e05",
+      "sha256": "6dba75647f386a574464b1369e8983a8ad8fd85ebcd40577dd78a992bfb4c11c",
+      "bytes": 17784
+    },
+    {
+      "path": "design/cinematics/v2/canon/KNOCKOUTS.json",
+      "git_blob": "ee4ebb822aaf2d697c1fa9a1f5576c3c1e808c12",
+      "sha256": "0a0308c862de5904f0499f73ed64534be9e0f8f56b8573ba25759ef8c0fa78dd",
+      "bytes": 1186
+    },
+    {
+      "path": "design/cinematics/v2/canon/LOCATIONS.json",
+      "git_blob": "da54dcf29cfb0f92f3d477d6f1dab32c479cde19",
+      "sha256": "bc50d5f6728c09cd7e3303c8dc2086e8d45305224f1ed46ae52184ead0a75969",
+      "bytes": 4862
+    },
+    {
+      "path": "design/cinematics/v2/canon/PROPS.json",
+      "git_blob": "53d8000268e8a5120b5a460fef9d20dfee454081",
+      "sha256": "d9ce2045a4c047a1ba51df90ddadf30c1c27395584be5ebb5cd8541d7a479003",
+      "bytes": 990
+    },
+    {
+      "path": "design/cinematics/v2/canon/REFERENCES.json",
+      "git_blob": "fb69fecd1a84dd290faa67a247320aa03129ceaa",
+      "sha256": "79ac91532cb4bee0c9bdd496c0aebe1617ffdbf6f8201c4b1ce0b79cd7db0bbe",
+      "bytes": 53178
+    },
+    {
+      "path": "design/cinematics/v2/canon/SOURCE_DEPENDENCIES.json",
+      "git_blob": "ed25ac99d106fdeb48dcb9bc67960d4a4037577c",
+      "sha256": "de6a7052bedcb6c5b0a2e569b71e8c7564a0ded24da16cb913e15e60b005706b",
+      "bytes": 8750
+    },
+    {
+      "path": "design/cinematics/v2/exchange/README.md",
+      "git_blob": "ba2194c4afe550a9975e78aa6584b4740cf55aa9",
+      "sha256": "584d4f2d3dedab9cf24ac67dc110ec6f3a3ca5681d147296b4def1c1f3dd86f3",
+      "bytes": 974
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-ARRIVAL-TOUCHDOWN/A001/REQUEST.json",
+      "git_blob": "194aaae9067d8ad0f8ffacd2f5895573a66092a2",
+      "sha256": "24f7973d716041656975bdd5571980e5abb487dc3fe75501f1e26f262cf220b3",
+      "bytes": 2056
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-ARRIVAL-TOUCHDOWN/A001/RETURN.json",
+      "git_blob": "211f9f6294a7acf5df46b4cef985de19c2cfe0c7",
+      "sha256": "b07e7f6c6fa27590cb9a24c253e9a9a646bd0791b75bbe8f70866964e417b6c0",
+      "bytes": 1008
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-ARRIVAL-TOUCHDOWN/A001/REVIEW.json",
+      "git_blob": "75a43655c4c089de7844dff84af9af578e52cf06",
+      "sha256": "74d46a2bf484669e612e8285169cb744957dfa84f35305909a0e579b77c6300d",
+      "bytes": 306
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-DRAIN/A001/REQUEST.json",
+      "git_blob": "a10c1656e147e1cc108900ccfa42f4143097336a",
+      "sha256": "2126fa56ba3d2b164246bcf1469c352cd1b1f6804355c2d9efefd8a3c003a4e9",
+      "bytes": 1737
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-DRAIN/A001/RETURN.json",
+      "git_blob": "1c95a317497a277aa7022ac8571765dc1a51c274",
+      "sha256": "a223e829fbbaa903afa5e0465f4554f0abbfed38a4f33c2fd0b49e85f5ba397d",
+      "bytes": 503
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-DRAIN/A001/REVIEW.json",
+      "git_blob": "c4dcae991f436172be788aa6906637798ab7e86c",
+      "sha256": "cb94584e6af322e6e70a9c9c5a1519aad48858811533cdbfcc83912fc3f24334",
+      "bytes": 384
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-SINK/A001/REQUEST.json",
+      "git_blob": "2815695e1199321ce0e439ac95bd68adba595b9a",
+      "sha256": "5e6a69ca373084abf456ec7f700cf8bc22e41634044f0e8a449ec034764a3a86",
+      "bytes": 1799
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-SINK/A001/RETURN.json",
+      "git_blob": "f1636937b97ebeb5656b83759f6785ad282077bd",
+      "sha256": "05ffddbcd877ab9a7e668da8808e091d998e66bbea09def79ddf56bae134ef15",
+      "bytes": 1699
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-SINK/A001/REVIEW.json",
+      "git_blob": "e052781532f844858555ff1052e4f4209896b6b1",
+      "sha256": "148f41567b1fc7627c79d96a150c95e5baf42ef644d3ab8d9fbbcaaab7aed56a",
+      "bytes": 1114
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-SINK/A002/REQUEST.json",
+      "git_blob": "bcb345fa8b83e99884ba2d96677cd20cda929b9e",
+      "sha256": "2c6c038b3f6fd2dbf3e2662ff7e3522fa0cb635f6ec576606711f423789f81c2",
+      "bytes": 672
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-SINK/A002/RETURN.json",
+      "git_blob": "7aa3d18e73b51f0c54685462be231a11616bf4d9",
+      "sha256": "9c12ec908154183a771841b4fda944815f8dd9fdb0f5d66acf6eaa8e45f556b4",
+      "bytes": 1632
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-SINK/A002/REVIEW.json",
+      "git_blob": "cd7abbffa1fa0568a98ae0ce5834ba58fe612b56",
+      "sha256": "ff6a99fcf52f8c38b2327cb5d7533d01d229b220675a6ccdc9839bcc42788221",
+      "bytes": 530
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-SINK/A003/REQUEST.json",
+      "git_blob": "dd41b8af2492acdfb0e3ce244018b9dc505c4317",
+      "sha256": "4fdbf0f6657d7af054ca4c2160ff2eda989129c9afff5b5490c5354653f614a5",
+      "bytes": 785
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-SINK/A003/RETURN.json",
+      "git_blob": "e8fd0ff7c4559563ea144445201d902218c1c817",
+      "sha256": "70698ef53832c5056f5eed1fd9242c8b5589d3842cb9975be2425f7f8be3fcb3",
+      "bytes": 1316
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-SINK/A003/REVIEW.json",
+      "git_blob": "e6b86f926c919f3cd4166653e4387008fdf055b0",
+      "sha256": "8b059f473531190f7d11466fd1646db8d8cac46e74a59fbf7a39fdc5fdc30926",
+      "bytes": 478
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-SINK/A004/REQUEST.json",
+      "git_blob": "9ce515988ed5a6e22f6327e3df6a2bbe6dc643c9",
+      "sha256": "eef8b22f35cea0c348b6b40b08ecd0b6a690b2570f9e1a9740699c35b347a6fd",
+      "bytes": 561
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-SINK/A004/RETURN.json",
+      "git_blob": "0ed21816456ad64e770ab8ad11ff2fc2ee14683f",
+      "sha256": "8d94150e3f8bdd0d649da6269f89bc37111005ef0d0a75a35c4f4959b51209ea",
+      "bytes": 1118
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-SINK/A004/REVIEW.json",
+      "git_blob": "050f1f0cb7a692421fa8c66d9ee7591ed7513289",
+      "sha256": "b47f0d9ee5d84123ed2df5d87fa180eda131c8b1b424140574bb54faba6e592e",
+      "bytes": 418
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-SINK/A006/RETURN.json",
+      "git_blob": "b93186df1cc840798965fe47c294094c30e1ac51",
+      "sha256": "88ae801637f0462835326d75e9503b005bac1f8e888010a3000159c5ffbc5e6d",
+      "bytes": 727
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-TOILET/A001/REQUEST.json",
+      "git_blob": "b4071a9b4d96cea9fb92536d5ab63f59d340e4e1",
+      "sha256": "ad9aee7239d6fee0c7ac1d9d815077db3a6bdeb572899c89d6aa2eb6042c9711",
+      "bytes": 1715
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-TOILET/A001/RETURN.json",
+      "git_blob": "69f20a2c85fb167d97a0f67885ee7ba61550ed74",
+      "sha256": "782fbb07129fce0347e909d9056178de50942d85c9fc4d865f01528bce57c70a",
+      "bytes": 755
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-TOILET/A001/REVIEW.json",
+      "git_blob": "c17119a1cc2cd66b58eee70dd7bccc66d585e6ab",
+      "sha256": "b1ce65b900d09538eedc5414906bb621bdd65937c5ede2f02bead3faf8a62dea",
+      "bytes": 291
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-TUB/A001/REQUEST.json",
+      "git_blob": "753d1643dde0dfa99a9c630473f4ec23e54f483f",
+      "sha256": "a9e673ac60e6023490e8d5868754a441e6dae3ba6bfde8ee4bb8fd4e6c5ef7c2",
+      "bytes": 1713
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-TUB/A001/RETURN.json",
+      "git_blob": "c0b8af7e6521d764c45d3d97d2567fb4113c0cdc",
+      "sha256": "74a71b1fbc1b721e14fb4b231a83c82ad6424d422a34a9658b32e1ec53b762b2",
+      "bytes": 689
+    },
+    {
+      "path": "design/cinematics/v2/exchange/attempts/SHOT-BATH-TUB/A001/REVIEW.json",
+      "git_blob": "bb540884a77f72283ed82adea416fb9c1b7df27d",
+      "sha256": "d83830aa3dd1f2089a24cdf940a8db4389aab2944fd2e17ca5f2acbeb6bc0683",
+      "bytes": 288
+    },
+    {
+      "path": "design/cinematics/v2/jobs/SHOT-BATH-SINK.md",
+      "git_blob": "7a0d0ca5e69e673a552c8710498cc0f76f396130",
+      "sha256": "7b92ebab0191bfa632c4eae0350a6e070dc42a51d7d5bac99a80e1f072b83d03",
+      "bytes": 914
+    },
+    {
+      "path": "design/cinematics/v2/preparation/PREP-BATH-TUB-20260919/REQUEST.json",
+      "git_blob": "0f2c094bb461e7a06ac759524090c713e0d3bd42",
+      "sha256": "5945e4df5528002afeca75e8c0ca3053278a127252f64ac9e219938adfb53150",
+      "bytes": 5979
+    },
+    {
+      "path": "design/cinematics/v2/preparation/PREP-BATH-TUB-20260919/STILL_PROMPT.txt",
+      "git_blob": "3711b96b65860d789a02d83d1cbe06c433a42b86",
+      "sha256": "3064acb4152c7b1ba487607d4b0feecc7fe03ce44a3ae3f0c1dc4b5b0d8ec1ac",
+      "bytes": 1167
+    },
+    {
+      "path": "design/cinematics/v2/queue.json",
+      "git_blob": "d6a7edeb9852b2de1346a188efb91c9de73d128d",
+      "sha256": "170a15e98ff2d45886cb352eca20a8ce30f030653f528cf692b23723f3b3077b",
+      "bytes": 18218
+    },
+    {
+      "path": "design/cinematics/v2/scenes/SCENE-EV-D1-BATH.json",
+      "git_blob": "1f54cf5b80e835e3d3aaddf5d11a26602dc66cb7",
+      "sha256": "1c2bff0c281357e722fbdfe010ee9dadde31b74235814bb553f7f184ec244a7b",
+      "bytes": 3711
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-ARRIVAL-TOUCHDOWN/CARD.json",
+      "git_blob": "e426732b38b74af52381dcfde836cb0307e80e09",
+      "sha256": "8be32aa78a63582a59e331c38922d3e208106794fe9de81e8b93d30ddd915c07",
+      "bytes": 14817
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-ARRIVAL-TOUCHDOWN/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "5e814bb26104852382ca98117a2062c13cd29c29",
+      "sha256": "437f9fdd5dbb6731e1c0e63680d3b61c99c70626db23770db487dfaeef2377d3",
+      "bytes": 2120
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-ARRIVAL-TOUCHDOWN/PROMPT.txt",
+      "git_blob": "377d8dc7946cc8cac7da13cc03ff0a9e99800281",
+      "sha256": "53182d644e56403e53ecc027d550c4202b05f6144630c50b2dc2826f1cad16cb",
+      "bytes": 720
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BATH-DRAIN/CARD.json",
+      "git_blob": "bee031d748ddc731d7d2cc8136dc8dc91113bb71",
+      "sha256": "cdf0b4ebab57b8fe1b02ffe480bac9a3792ac96dfbc4b1408d4925da86caf5ef",
+      "bytes": 10584
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BATH-DRAIN/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "832799b1a08bb87efed2abddf6a5b54db0756c84",
+      "sha256": "d8ddd4d35f941c8698f067165c34b28928c96a8381dc6d585e96a6a4c7fe751c",
+      "bytes": 2051
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BATH-DRAIN/PROMPT.txt",
+      "git_blob": "26dc707ce333cd0cbffd632a49b20ddb4bac8f84",
+      "sha256": "bf334d867b67ec3131a41c0db8e9181e5c1f84a76d4c8345351a7a4b462d55df",
+      "bytes": 727
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BATH-SINK/CARD.json",
+      "git_blob": "5a1990c04dbd1eeac778cfe3e2dafb9b1aceae14",
+      "sha256": "22cd13380a5956b043a15be7665eea227ccd5c384e217907a1f880c4ac05419e",
+      "bytes": 11696
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BATH-SINK/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "8bcdc4400a59ee0a6d0d51a9d112b8a5469586a5",
+      "sha256": "a06dbd2b8400f7e9c89e1d424799fecdd17bc65dd9657c08c8109b593ef00e94",
+      "bytes": 2004
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BATH-SINK/PROMPT.txt",
+      "git_blob": "4866d95e364a69ecd32845b69b04e8f5cc194c6d",
+      "sha256": "807def63724f401eea61090fd3f23e5c6b8f79cb5bacd93f8da6622613f7db95",
+      "bytes": 604
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BATH-TOILET/CARD.json",
+      "git_blob": "43c9e1013757959796f0ece92d5d4215430d6b53",
+      "sha256": "570bcec05c862a50297d4127d89869673af6a92c7e3fc4f911050a02f37f7e0a",
+      "bytes": 11535
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BATH-TOILET/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "4f3eba72b760bf6823f557f4efe41ff904f68789",
+      "sha256": "1cca1ded102dea29935cc8a99d0f2f27421c19243f992c933c0ba3e4a2f3ea42",
+      "bytes": 1915
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BATH-TOILET/PROMPT.txt",
+      "git_blob": "b2500789f0171169e5da472c5f86c15bfe9f92ec",
+      "sha256": "81e09b3c920cba43e9da41af3604564ff19de0c869e78c86f8eaa4ce819a72b4",
+      "bytes": 594
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BATH-TUB/CARD.json",
+      "git_blob": "09b29953b5c50d59937f8fa3283be97a90ff4d7b",
+      "sha256": "879a37570e62f55184dcab9a24c02551ed15d5ae91e24fd96f8fd6b2c3e1f4d4",
+      "bytes": 11606
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BATH-TUB/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "b1869ad2ef84f1d52cb70bd4cd6c07e849c73d2e",
+      "sha256": "03849f35a56b56272b5296c37480581429c45345b81ed31d498c09b01ef18606",
+      "bytes": 1942
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BATH-TUB/PROMPT.txt",
+      "git_blob": "91f40987965bdf17e10f295ac714bc5abd1ba602",
+      "sha256": "603434e29a6f83d888ec05c8dcc767d2fbafc855623f883d4425ccbae7374112",
+      "bytes": 602
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BUNNY-JUMP/CARD.json",
+      "git_blob": "5f231c846848ea962d224fc727908e85c39fbb85",
+      "sha256": "cb96151523e8686984b8e424d5fb86de5093ca1a79f109a3da16a3b89f129f69",
+      "bytes": 15260
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BUNNY-JUMP/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "dc6faccda0f9a07250da50373713eefca99a3f99",
+      "sha256": "75faf167df94d8f763cf82b9ecd8dc1b3b69b40d8952bf1fda25a6cb606eca7f",
+      "bytes": 2174
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BUNNY-JUMP/PROMPT.txt",
+      "git_blob": "e2a189ed1461be784915d41566ac08f52cc71032",
+      "sha256": "b0b59d8b1a4c6d587fb70ca2e15eed94d281c2003032377a3f91e9e743d97ffa",
+      "bytes": 820
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BUNNY-LAND/CARD.json",
+      "git_blob": "32ced2ada84a938360681e91079833e23e579dfc",
+      "sha256": "329c12ccde83a2ecab3c944669adf498649807d29549af1265ce7360dca40997",
+      "bytes": 14112
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BUNNY-LAND/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "fa6073638718e8bf502cbd5432e60b4b31e0b157",
+      "sha256": "e82cd4985e1585a1ac21fc95190b1d7b4f71a51f3dbf2f1524d212cfded33c08",
+      "bytes": 2532
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BUNNY-LAND/PROMPT.txt",
+      "git_blob": "bcef6a96b41400619b969b93fe97f1f95bcd5da1",
+      "sha256": "058e4778a962324c3617043dc374296d7d1039c5e8d43610a7a3ed2db0b887e3",
+      "bytes": 778
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BUNNY-SOAP/CARD.json",
+      "git_blob": "b0087968de639476682f3d4643cd3bf41f593437",
+      "sha256": "e2fb9a6f0f0f42534036bede5793db0fd163ecd64edc2bc1062c36f31ef2144a",
+      "bytes": 13878
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BUNNY-SOAP/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "71ac26673e24c5de430853e24e27985d61075685",
+      "sha256": "5ae9de668fe082b9be6902817d661a8b0bde308975cc36502160a4ba49afcfda",
+      "bytes": 2192
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-BUNNY-SOAP/PROMPT.txt",
+      "git_blob": "ab59c6d915557c70102a33fcfc4627249df84c38",
+      "sha256": "4c1625b2182791e882167277f766442aa71a7f5daa4d0afeeaaff2e5432182f0",
+      "bytes": 823
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-01/CARD.json",
+      "git_blob": "ce0de892cab59a49c284df7f038bf49c3a53f616",
+      "sha256": "839179df5e7c55cf44ec40569c748a4510ac8dcaeb8349cdec2f5b62056abbe1",
+      "bytes": 20887
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-01/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "98c59f68f403dfdc1737e47130cded2fd79942b0",
+      "sha256": "4bb57f8b2232d147caac2eb282768fd4fc506e7284047fa8a1a6a7c4a9716d55",
+      "bytes": 2414
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-01/PROMPT.txt",
+      "git_blob": "e224f793f12e76df12855028bc676fa91c09aca5",
+      "sha256": "cc0a58501713d58ee1864d9d089b80391bbef11638163b928a24515c08eec033",
+      "bytes": 759
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-02/CARD.json",
+      "git_blob": "afefb1db9f241a50e94aa29c5fab522570046bc0",
+      "sha256": "60c1ecbb37347df666f9e90c28151770cf954764b51f847024cf97baab03eed2",
+      "bytes": 21676
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-02/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "a99509feae9d8c7d7e132dd75369df3e9a619c69",
+      "sha256": "bd0ea72d71f2af04e1b20c190bfbfd4d6c2362b703479fc8b5a5b8cd78d0bc83",
+      "bytes": 2550
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-02/PROMPT.txt",
+      "git_blob": "bda7c1f5986fafb46fe1fd50a3411bd39109f925",
+      "sha256": "afefa86edc11aecb671767dc07e0fff767123df44864349ec79d225fddc9721e",
+      "bytes": 617
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-03/CARD.json",
+      "git_blob": "3b2395a78ce74e37b28fe272503e900929d8cca1",
+      "sha256": "b35c984d79175fada7acbde53fed96a011ed27788096a0bf57fa2d8d07539057",
+      "bytes": 25341
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-03/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "cbf40e61aebfc0294b52835f91d512af1363b6d7",
+      "sha256": "db822f4b3f27463695a9c3b492c4fc8f485dc2fb76ce8722828256747be66987",
+      "bytes": 2243
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-03/PROMPT.txt",
+      "git_blob": "760475dbe70a2457308624c21ccc7dda9b6bf82e",
+      "sha256": "5c61e202b3d2d9e5fd89dd78caad32270f04a04ceebdfae396f5fbd59ed26588",
+      "bytes": 609
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-04/CARD.json",
+      "git_blob": "928bcef65b8bfb9218eaa12661399ec509bc5322",
+      "sha256": "c5df631c86145fc245972d2147825ae16bcc50a3fa461006e0b36393af2cb961",
+      "bytes": 23050
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-04/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "af46be0bd150df423a2e69ddb0074603a829454d",
+      "sha256": "fdc69886b4ae8535efe51c64594933ca9e1c8c2259ec6fa449943e3518741108",
+      "bytes": 2272
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-04/PROMPT.txt",
+      "git_blob": "a4811582ffa89860b862b550581d0cc5805a1b5f",
+      "sha256": "91e4536c986031edf8f7318ab16970fc602c0fb471d1be8a574d48f3b5fadcb1",
+      "bytes": 696
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-05/CARD.json",
+      "git_blob": "d0e638f6669f0e13802998c32edeee071798da50",
+      "sha256": "86870395d1115b85dd923cede9492d9281370994f8eddaccfdc7ba167033eeed",
+      "bytes": 23801
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-05/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "ab9e2a4874f8b28d7195187443adfee85aa78379",
+      "sha256": "bdb909f8a5db32e49d0d5da63da229a5b24e02ffbfea0c6909ad136bb01cc39d",
+      "bytes": 2239
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-05/PROMPT.txt",
+      "git_blob": "fc555814f56b99fb6ede21f94ec0d3d8605c76ef",
+      "sha256": "3489ce1e3315bd4b413a959c2d78039bc07418f949473835a184aca18b28b62f",
+      "bytes": 587
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-06/CARD.json",
+      "git_blob": "e290ce6715975549da54ad8ec092f4b50fbaacf6",
+      "sha256": "21ee5efbd9de6b163f3a2f70a492551dc9e948e1d655f03b1499002cd73f1e47",
+      "bytes": 23544
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-06/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "6c22b56b86d1bc2b502af2210c13a5e358cfc16e",
+      "sha256": "fc05e78b597732a3415bd762a35b75fb92db626fc117e41ca90bc68c409bfad5",
+      "bytes": 2623
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-06/PROMPT.txt",
+      "git_blob": "21a7cd91307784ced5b352053880bb3fdbce9fe5",
+      "sha256": "3feab9f813a7472a8a48adc4382407e49064caa02a82205a03e638009e13c7bd",
+      "bytes": 759
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-07/CARD.json",
+      "git_blob": "b9e3e9bbb9f7bda33ecaf5b3f7297c1bed54b584",
+      "sha256": "e3f0d5d6a6f851533001b988a4d5a67f17610d7d9b76ba8072272233bfef299b",
+      "bytes": 24249
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-07/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "79c092a434bc34a387c750b93b82a7bd3aa1298e",
+      "sha256": "57c6d12396f0f1109b8d3607909bb30706772d7718164e8f20e5b37709301573",
+      "bytes": 2606
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-07/PROMPT.txt",
+      "git_blob": "9c3c6d4262ebcad3257cd2b0d0e5039962451d32",
+      "sha256": "b13ccf2d41da42267189b430fd03f10b8cf96fdb89615a9109f794f15ec131ad",
+      "bytes": 619
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-08/CARD.json",
+      "git_blob": "ec6fcadf70866c906a86ec095ec8131d50a1b9fb",
+      "sha256": "7398fac3cbef79a32e132166f72c6393636d7e019ceceb159e42ba2d1e4912b0",
+      "bytes": 25544
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-08/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "79d161a652a92eecbffb739cc3484906881b7888",
+      "sha256": "e24462d0a9e3bff7e499fed05406812be66e7659f2d08cf97c8479a4abea364c",
+      "bytes": 2316
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-08/PROMPT.txt",
+      "git_blob": "1eabcf28e1cb717f6c19221fefab94d3e09d62be",
+      "sha256": "61b703339cef165d9b1c764ae57d84ab935eb686cf2f08ef8d12e2e7cc558a37",
+      "bytes": 644
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-09/CARD.json",
+      "git_blob": "825b8dbb3c66cb18c35aa8f46bfa55a077f7b379",
+      "sha256": "f4d28c5b887314b9c49fb86d7a275a04dfee006ddc4e776f29c5acd441de11b1",
+      "bytes": 20888
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-09/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "54fbc62de46e5db2de62f8425f6b1a2a0ce07695",
+      "sha256": "595b3f00fc8e3b697c1c122297a530ddf85f4b26a7527f16c095ecc1cfb41e75",
+      "bytes": 2343
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-C2-09/PROMPT.txt",
+      "git_blob": "bed21844d2598192b3360a16dd7ad24bef5a1a3b",
+      "sha256": "5192cd64bdddd0bebb1ba67a0ce2190271bf8d80a13e43e4bb8bdd23c0ce68a5",
+      "bytes": 793
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-CUSTOMIZE/CARD.json",
+      "git_blob": "843541925d888c7d7af93482dae74bc11c117214",
+      "sha256": "d0edf5bbbbe9618766b31a284ad618011209142bc357e95f826486090978eda6",
+      "bytes": 11946
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-CUSTOMIZE/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "3b8848e01869f6c40f4a54da7914e75235024747",
+      "sha256": "3c3eaf2008e5bf4a4156fcd6e11e74e8861f72cf06115b26eec55ff62e86c70d",
+      "bytes": 2265
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-CUSTOMIZE/PROMPT.txt",
+      "git_blob": "be3723f18f8129aedf13fa590d292b1fca1f6c2f",
+      "sha256": "349411e738f71fdded0dc735ca6661275ea498e0b4046eb619a21ea95fa09f68",
+      "bytes": 685
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-PICK-1/CARD.json",
+      "git_blob": "62b1bd783829c1af5ef481942b29c4cd50f012f6",
+      "sha256": "3628f0667e0e10d1628271429f16fe551b77b412bdeb7a3e5885f9e23fe5bfd9",
+      "bytes": 14477
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-PICK-1/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "7781ca7e86f62564a19566c0fc9675fb43ac8181",
+      "sha256": "7e3eced473f9877727d46f1f1466669addf27243fb285e6bc83a1e07ac543e04",
+      "bytes": 2270
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-PICK-1/PROMPT.txt",
+      "git_blob": "eae525f379b481d5de2c4f932c9093662e392a75",
+      "sha256": "accfa64373e59d86481be6864d790cb70e88e649c9b02b9f466ad9d401764ee4",
+      "bytes": 649
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-PICK-2/CARD.json",
+      "git_blob": "1cb545b578a030055ae75df36d86d8b4edb84009",
+      "sha256": "b04618ec8a3729dcdd6e7ffb35bf632abbe5fa68091c8dc7fefd654669518d5b",
+      "bytes": 14510
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-PICK-2/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "a410e1a3796281bbe825bf96c161bbf361bdea52",
+      "sha256": "cd04c1a353ed7bd51f16a84904c3f378671ae13787106cd57f321731658d98fd",
+      "bytes": 2285
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-PICK-2/PROMPT.txt",
+      "git_blob": "b22bc7222971e0dc32aac1f15421d853dcadeec4",
+      "sha256": "5ba5749e33f80de828e812feaa1a3bdddf59d73e9d2a5cafa92988ad3c90ec3f",
+      "bytes": 647
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-PICK-3/CARD.json",
+      "git_blob": "a3f4378c46cfb917168f4c5ebdd4f5e8910bc193",
+      "sha256": "c35a111be3bdf03537fffce0565ed4be36e41a2de7d6a8af2a5f261054694169",
+      "bytes": 14510
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-PICK-3/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "dfc918fd412fb2b2af096cb1f376f06f123a2ec7",
+      "sha256": "118a2e1f602f4ce6ce1f1388a71dacc058d5578fa369fd71f58d16bf34baf921",
+      "bytes": 2285
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-PICK-3/PROMPT.txt",
+      "git_blob": "788757ccb40d3ca00c5b164012f1d5631d9f4bd3",
+      "sha256": "2b36ec4388deafa590e74984375fa5293301397a4222dc46a0ea3540753fba3a",
+      "bytes": 647
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-PICK-4/CARD.json",
+      "git_blob": "b7761ccea50d1ed5316c008029a3b0bb29395044",
+      "sha256": "99ba0c9d01687d37a00ea3767deb3a3cd3656e38588f5e5a6da7d779a409497d",
+      "bytes": 14508
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-PICK-4/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "8ebd48c9cb178ad46661fca0446a2c6f77575999",
+      "sha256": "9909c35d0556c6ab247a693810c74f7dfc30add76bbdc14882d081bffc624420",
+      "bytes": 2285
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-PICK-4/PROMPT.txt",
+      "git_blob": "4f17ddeefd876e2c1a1587204530d63782e82d4a",
+      "sha256": "3145bf535df989fed078c605dcc48a4600acf01b9052baebec3c090b6f1ade5d",
+      "bytes": 647
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-SCRUB-1/CARD.json",
+      "git_blob": "2f3a1f3d4e5912c9a1c24aaacb506d6e13366308",
+      "sha256": "d1072179cdfd133a119ad314b0446152e19aa65518ec427180627f76c34123d5",
+      "bytes": 11758
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-SCRUB-1/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "77683d5cc9e5ac350313d0661e062da10c95575e",
+      "sha256": "98dd3f8bff721e4a6a1433a69de0a470bb154b06951a7d8c90b2ae5b72554a06",
+      "bytes": 2224
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-SCRUB-1/PROMPT.txt",
+      "git_blob": "e4dec06190016a60548e02478550540903d094a1",
+      "sha256": "8d30588b0b861a66872c8450d527790e02440503165038aaa800f3c2fbc80733",
+      "bytes": 624
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-SCRUB-2/CARD.json",
+      "git_blob": "9d00b03c63a49cbe1d596162f6c5884187b0e061",
+      "sha256": "1495f1d459d97b50ddbdebe4178f50a4797bb433a429927c0a56810a6d0390c0",
+      "bytes": 11832
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-SCRUB-2/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "adaac92e7f1ae0a255975d2058797c499f75471e",
+      "sha256": "c7b896faecd39e743ac0ae970f3bd130c9ff5e4a4cf59fd397a341262b8960ea",
+      "bytes": 2243
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-SCRUB-2/PROMPT.txt",
+      "git_blob": "3294a8650d095da3eda1ebfab7e6c2a7cb00bd8c",
+      "sha256": "11c51c5a8dc48865ce8798b7e3aa6095f49ddd56ed23b997ed3d1f12ac1d9c16",
+      "bytes": 633
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-SCRUB-3/CARD.json",
+      "git_blob": "a957dda84837ebcccc22ae2a941bf75c49028ce5",
+      "sha256": "1ef7ab7dc374fe4d15422b9f3742fe211a59c99bc378489adc6de24b4400527c",
+      "bytes": 11748
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-SCRUB-3/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "e53085c9cce142c1eb9f04d1cb044b8191990079",
+      "sha256": "dd22ae48ce4e4cdbaded4112f06dfa6cbd3e277ba8bb545ac307810fde3d87e0",
+      "bytes": 2218
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-CRAFT-SCRUB-3/PROMPT.txt",
+      "git_blob": "f436c6cd39d5de43f4eaa3658e125b0d7b00b2c1",
+      "sha256": "a0576ad0410dff08f23b3d40b236de7410475d22a38e80f5371417d32acbbdd7",
+      "bytes": 607
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-EAGLE-FREE/CARD.json",
+      "git_blob": "a61189b8d168cbbc808b09b429db7f4e82f1f945",
+      "sha256": "27a7f82308982130bff82676771ab3132752d38898149a02d59014aa24e6b041",
+      "bytes": 12535
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-EAGLE-FREE/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "045530011c9dc0d271a5954004d36c821fdbce30",
+      "sha256": "f69228cfc370a31135a365fe70a992b846579be4d210615e59bb7e77cb5b33b4",
+      "bytes": 2170
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-EAGLE-FREE/PROMPT.txt",
+      "git_blob": "e6288265ecf47b2e6992d0f3a08ddd1958c19906",
+      "sha256": "1862ad222edf9e38137c36e7723159d1b400f42b52dfa92b5ce2c350267b14bd",
+      "bytes": 785
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-EAGLE-WING/CARD.json",
+      "git_blob": "d2b98867854241e1ec58bbb8bed769140cafd44c",
+      "sha256": "76e0ceda716c68ff64a0a93c8d0b38b9c4223cdf8e0a22e646bcb06f83e25e64",
+      "bytes": 14127
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-EAGLE-WING/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "783e273a91d3035a7526e4c6f40121916d941d17",
+      "sha256": "10d81fad98d0bc9e22981e902c9eb09c5a71313ed6f314c6b96f8069349ab543",
+      "bytes": 2028
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-EAGLE-WING/PROMPT.txt",
+      "git_blob": "8a2e99a8e927142793d4cc23a94ff98a0394ea6a",
+      "sha256": "cae7315e3a48a5d1862fa03ae46f315908bad3a481471e62de17b124868008fb",
+      "bytes": 539
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-POOL-FALL-1/CARD.json",
+      "git_blob": "29b0ad92d80a89c5250284e47f03c2f330ab935c",
+      "sha256": "5ab80ee345fed033c4924aac91a07752d0177d873dd53b3e58dfee88ed6758b8",
+      "bytes": 8918
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-POOL-FALL-1/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "41d48c8f5caae6f99ba4fabc386ac8e3984031ac",
+      "sha256": "ec4c3a9a51267c0168cb3dbf890d4c2fc523f62febf644149cf356b60df41871",
+      "bytes": 2033
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-POOL-FALL-1/PROMPT.txt",
+      "git_blob": "b4daa2b28474c26db0f36432cd129e94618535cb",
+      "sha256": "61bb051e1348c66b03c666421236f724c716b618ed70df3c9329915009fe4140",
+      "bytes": 568
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-POOL-FALL-2/CARD.json",
+      "git_blob": "31e58ab106b60939d31c1ac5dde97d50cd1c57a5",
+      "sha256": "f8f5662d741d9806e1f4c9c55554d2dbc65dff001cba33939188d15347d4bcf3",
+      "bytes": 8937
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-POOL-FALL-2/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "9a64d029da7f01601aa48be8c76516e286831eed",
+      "sha256": "f2848ec45a8cbe8f2b04cb9d8f0c37d29cde57d4d3eb38e82d000751d044c1a6",
+      "bytes": 2035
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-POOL-FALL-2/PROMPT.txt",
+      "git_blob": "21e4baa448d89c64ad34a8d9a85c0f441aa1f34e",
+      "sha256": "88c3ebf891efa38ffa0be28f402b6440c1279b80704ec866190ee6384e574e3b",
+      "bytes": 568
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-POOL-FALL-3/CARD.json",
+      "git_blob": "370b06cb5f727aa1970dc3dddf88b673945c9e93",
+      "sha256": "a25731f8165e91cc27f9ae07d396d0ee0258ec25a126de628aaf8b2a409fb304",
+      "bytes": 8937
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-POOL-FALL-3/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "0c124e4a8d51b61e9bbe1fe4fc0f4b1b45615b9b",
+      "sha256": "168487e479b80b7b2b510f784b74984e006e066327fc34dd0d70cf30ffb46a25",
+      "bytes": 2035
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-POOL-FALL-3/PROMPT.txt",
+      "git_blob": "8302447db8cd042a14491fec103240b424cb1c54",
+      "sha256": "4049f922218b4132361ec6f3af3055a62af3819ec6f146b1ba6b8db7cebc0b60",
+      "bytes": 568
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-POOL-PULL/CARD.json",
+      "git_blob": "1a41043147f5d5f4c9c6608f9dea191d202afa32",
+      "sha256": "faedfe9b0be80786b2f747515c9f47c43e47a3231c42082ee56a8048c7352b0d",
+      "bytes": 13193
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-POOL-PULL/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "c457284cc2514872335eaac346cadecee265f39c",
+      "sha256": "28a85394bb2b054acfadb41f862a5d89be0e42aa83985d2c98110d9b5dc6dd6a",
+      "bytes": 2116
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-POOL-PULL/PROMPT.txt",
+      "git_blob": "9bdeb041cab6c54ab6875ed0543e75cda1a9a39e",
+      "sha256": "da97281a35d5e11ce43adec7d68dccd5f90ab77a2725dbf7c3832d74f6b64db6",
+      "bytes": 689
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-POOL-SKIM/CARD.json",
+      "git_blob": "073362d67302a4278a1f9f84c02ee701addcd323",
+      "sha256": "911a5f895cf3156c2a7d33d763f1c82f865b6ce3f5c2c7b8f8a1ad97013aa1f0",
+      "bytes": 8703
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-POOL-SKIM/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "f2991251cec6546525ca6eda5a6272836d2c4508",
+      "sha256": "fa88649edb2111a9ae8809bb2e550a2807521cb7a493fe7a70d18eed5693165b",
+      "bytes": 1983
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-POOL-SKIM/PROMPT.txt",
+      "git_blob": "6ff38a97ff7986c88b964e4f5efbb2db7b3c02b2",
+      "sha256": "a142ba6728e0c6ee524586f08c810c73bccf3ec0535df48ce5c57dc1fd571785",
+      "bytes": 509
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-TEAM-FINISH/CARD.json",
+      "git_blob": "a4ceafbaa17dcfb6f8c1f3f188197cb045f540a8",
+      "sha256": "f9693ce116b701d6b2660191311c028c9f1442f9bb08172d83f57e8c41487e56",
+      "bytes": 14079
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-TEAM-FINISH/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "754e6a06b5c7f67908e3247279120747292dc8f4",
+      "sha256": "f60b6918660e2ae49237e20b1dd0a35e6ed1e2ed857c880db0eb5fcc898e8214",
+      "bytes": 2255
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-TEAM-FINISH/PROMPT.txt",
+      "git_blob": "bdb031ae631645b9c113014b99c22ccb36e84e98",
+      "sha256": "bd1e4ac41cb7092223bb083518620d16273db850f167f16395da49b16d27a923",
+      "bytes": 936
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-TEAM-PAPER/CARD.json",
+      "git_blob": "24d31aff6ed704243f3a3f01d50cec4580de90d4",
+      "sha256": "8f534f0b61a520341710a9e75e3ad1ea53a2ca8f593be900db9f82c7f3edab64",
+      "bytes": 13561
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-TEAM-PAPER/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "a51c3cb8fdc79610ebac86d17eb006e6065cc403",
+      "sha256": "78a9b7193753e27da721ed51efe9986d3b41806694d2143a480746a1c7f9efdd",
+      "bytes": 2148
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-TEAM-PAPER/PROMPT.txt",
+      "git_blob": "e52a8de4008d52d1efff639cade2c3dce905e50a",
+      "sha256": "ad78a04c649c231cfd9027588ea40d61d48b6e04c6eac236efb07ab25e39dea9",
+      "bytes": 816
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-TEAM-WALL/CARD.json",
+      "git_blob": "13363c8c60e21ee51e9fbac5cca29bdbc3f24919",
+      "sha256": "4d9db2d1e2d3bd3c7dde120df63c16d7af3f3c4defee1f16303852ec900bb35b",
+      "bytes": 13831
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-TEAM-WALL/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "74090f5e2d4b6f92662250ac2f6fab675b013bb9",
+      "sha256": "c71df836e0493ef534c21eb496a17217a21cbe8f6bd369219137cf32aa9a0077",
+      "bytes": 2199
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-TEAM-WALL/PROMPT.txt",
+      "git_blob": "f14fd5dcb2bd45c8d4434703a2bc4cf98622427a",
+      "sha256": "19d347d6e463237aec13d6d4e3aa66c93d79cc96e5732f83a61bcf37ed0bf153",
+      "bytes": 852
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-TEAM-WEB/CARD.json",
+      "git_blob": "0253db64815ec4ddb65a751a7da5521c5c7f3a9e",
+      "sha256": "0efd6b874570caf44dac5565f0d6eafbd95f29a8da4deb2cc11c5b14420637b3",
+      "bytes": 13976
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-TEAM-WEB/FIRST_FRAME_BRIEF.txt",
+      "git_blob": "2276778a584c4f6faf6174b19b91fb04084ec12d",
+      "sha256": "fd40ba17b26caaaa244bb5ac97a722eba030c0413b6559edc032fd58d9f0dd95",
+      "bytes": 2222
+    },
+    {
+      "path": "design/cinematics/v2/shots/SHOT-TEAM-WEB/PROMPT.txt",
+      "git_blob": "62ff5eb9422c517029d1a842a0ad4b3abe575419",
+      "sha256": "e681b5c516b3c0bbd8ac648fa1b7163bcf0e4720ec57f4912f4e4efd959a3c8b",
+      "bytes": 885
+    },
+    {
+      "path": "design/cinematics/v2/templates/ACCESS_ACK.json",
+      "git_blob": "d1f4a1769c3eb7b7da0b93cf78618ee0d7b6218d",
+      "sha256": "5eeb1c69bdcc5d02927c6fb6d6d4604654c344989e7460b4494212d899abe872",
+      "bytes": 235
+    },
+    {
+      "path": "design/cinematics/v2/templates/CARD.json",
+      "git_blob": "ae7acef5df788a316c80a854f8e513ede08d1f87",
+      "sha256": "059bccceba1d292720820ad7e2a73042803af2b6f4b5b40d61e63fd879c5e745",
+      "bytes": 336
+    },
+    {
+      "path": "design/cinematics/v2/templates/EXECUTION_CARD.json",
+      "git_blob": "919c3bd851eb596528a9cef059171a9bb6d893e3",
+      "sha256": "8350bcf3c782f08a609dd4382d51d4c1aa3163dc42a3ecbdad5c9eb92140bbc9",
+      "bytes": 527
+    },
+    {
+      "path": "design/cinematics/v2/templates/OWNER_APPROVAL.json",
+      "git_blob": "e67947ea7aa78ddb4421ff5531514ac52ead0086",
+      "sha256": "8084d3d517cdf973955bb3601642738a97823613d3218e95dcb74e2952fb711a",
+      "bytes": 245
+    },
+    {
+      "path": "design/cinematics/v2/templates/PROMPT.txt",
+      "git_blob": "2033224e9451b840fbb1e93b10599e28b56e3a9c",
+      "sha256": "be0359bd4308c74fb2d8797bdf68c029c884366581ff76a3a222138226cc0d5e",
+      "bytes": 412
+    },
+    {
+      "path": "design/cinematics/v2/templates/REQUEST.json",
+      "git_blob": "2c8a0a579cf7e78581d9344da6fd1c9dccf02530",
+      "sha256": "83a78aa327664fe7ada0a4011639270797b82da9a77d5257a0d9b22d91909ec4",
+      "bytes": 397
+    },
+    {
+      "path": "design/cinematics/v2/templates/RETURN.json",
+      "git_blob": "81591da1964c1b521febee284ddc46fa9e4f4824",
+      "sha256": "4871014794b0288feff8d915883be04fd0d815a8908d9dab2728c62be3206cea",
+      "bytes": 551
+    },
+    {
+      "path": "design/cinematics/v2/templates/REVIEW.json",
+      "git_blob": "cedbea888846853da9da877ac36fbef4e8be162f",
+      "sha256": "d288afa0798277e4644e2fc9215e52f2c9aa7624d4f8039666e6068c7f272a45",
+      "bytes": 535
+    },
+    {
+      "path": "design/cinematics/v2/templates/STILL_REQUEST.json",
+      "git_blob": "d3ab367d47208ef0d813513c0aee9bbd1a3635fd",
+      "sha256": "02b8b4b165f26b230c0cd4ed12aa49f3a4be934b52754c0e89734a8c6cd91e74",
+      "bytes": 410
+    },
+    {
+      "path": "design/cinematics/v2/tools/compile_v2.py",
+      "git_blob": "3cf749284897ffc133b356ef76a4ce60852cf76a",
+      "sha256": "824ec8ec8afe8a706bdacde4e750041b4398a31e3934e1047e68cb7575b22b5d",
+      "bytes": 2890
+    },
+    {
+      "path": "design/cinematics/v2/tools/test_validate_v2.py",
+      "git_blob": "66b1144884c1d7d442ffb12cecc32b573909f784",
+      "sha256": "fb6d5502efe761aa0030b65950589177573689368c8b486a841f3c0c984753fd",
+      "bytes": 8900
+    },
+    {
+      "path": "design/cinematics/v2/tools/validate_v2.py",
+      "git_blob": "3b9d4f10035f00e99df731ee521df05958ddb8fe",
+      "sha256": "cd2ee12703a3ada93e264bf2411cf26addbba115c82c30b14e6ae591e6e0740e",
+      "bytes": 17935
+    },
+    {
+      "path": "design/handoffs/2026-09-16-grok-queue-a001/CODEX_HANDOFF.md",
+      "git_blob": "864b2617180081f169696669445367eaaf790fd7",
+      "sha256": "230e93f6572979f0b60ba3102b97cbdf875a9c5837e59beea65b31f93e7aef0e",
+      "bytes": 4437
+    },
+    {
+      "path": "design/handoffs/2026-09-16-grok-queue-a001/SHA256.json",
+      "git_blob": "34c1c23325368e05ba08900456859e60e3ef2c53",
+      "sha256": "5eca47336484c1f93a1d38646da3a8e3f27bc9b79452ea9989fb358b733bc777",
+      "bytes": 4441
+    },
+    {
+      "path": "design/handoffs/2026-09-16-grok-queue-a002/CODEX_HANDOFF.md",
+      "git_blob": "1e38633e4104116a73c33bd8718116c4b6100518",
+      "sha256": "f236b18fd15a156bf80923f883b8b369509eb8066c2a8a28c5629d31aa33f0c8",
+      "bytes": 4961
+    },
+    {
+      "path": "design/handoffs/2026-09-16-grok-queue-a002/SHA256.json",
+      "git_blob": "7a8f602b08e93638d4f9cfab7c504fb295da66c5",
+      "sha256": "13c2d627873f5bc5fbf0cd8cb6d4ead1678952c050a0ae34ee552f58830d750e",
+      "bytes": 1656
+    },
+    {
+      "path": "design/handoffs/2026-09-18-grok-handoff-v2/CODEX_HANDOFF.md",
+      "git_blob": "1109c2726398852e9d7795b1ca448256cb0d04cb",
+      "sha256": "367c28705ad112aae8be0f2b4777e4b2d2efc5fbbb4323eb7ab35d8aed3d4c48",
+      "bytes": 1000
+    }
+  ],
+  "method": "Remote commit tree path mapping plus freshly fetched Git blob bytes, SHA-256 compared to exact committed bytes",
+  "anonymous_public_entry": {
+    "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f8753da208798dd4cd4d3f5afda53c95b97c635a/design/cinematics/v2/START_GROK.txt",
+    "status": 200,
+    "sha256": "9ba298219bfaf850efea014c05f328c04e495bf806c02043014ae38c41d84504"
+  },
+  "private_media_verification": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/d5df814cbc11a28dc3a254e5a77fc02983a3e5d0/assets_src/cinematics/grok_v2_repaired_2026-09-19/receipts/REMOTE_VERIFICATION.json",
+  "recipient_access": "Public entry verified anonymously. Private media verified as Codex only; Grok ACCESS_ACK pending. Do not claim recipient receipt or start video.",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false
+}
