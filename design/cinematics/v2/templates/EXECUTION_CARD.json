@@ -1,40 +1,9 @@
 {
-  "schema": "imagine-shot-packet-v2-reef",
-  "shot_id": "SHOT-ID",
-  "event_id": "EV-ID",
+  "schema": "reef.grok.superseded-template.v2",
+  "status": "DO_NOT_EXECUTE",
+  "replaced_by": "CARD.json",
+  "canonical_template": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/2b342e55067c498e35f1b4755f25d7086ef9aeb0/design/templates/IMAGINE_SHOT_CARD_V2.md",
+  "instruction": "Legacy imagine-shot-packet-v2-reef was not the canonical execution contract. Use the planning CARD plus compile_v2.py after exact input approval and request/access receipts.",
   "generation_allowed": false,
-  "opening_approved": false,
-  "delivery_accepted": false,
-  "blocking_reason": "Human-approved first frame missing",
-  "duration_seconds": 4,
-  "aspect_ratio": "16:9",
-  "exact_cast": ["CHAR-ROSHAN"],
-  "exact_prop_counts": {},
-  "location_id": "LOC-ID",
-  "room_state": {},
-  "camera": {"verb": "push-in", "move_count": 1},
-  "before": "",
-  "action": "",
-  "after": "",
-  "binds": [
-    {
-      "id": "IMAGE_1",
-      "role": "empty_dirty_plate",
-      "reference_id": "REF-",
-      "people_in_plate": false,
-      "authority_domain": "room layout and dirty state"
-    },
-    {
-      "id": "IMAGE_2",
-      "role": "subject_identity",
-      "reference_id": "REF-69827625a8a795f1",
-      "people_in_plate": false,
-      "authority_domain": "Roshan identity only"
-    }
-  ],
-  "must_move": [],
-  "must_not_move": ["room landmarks", "unnamed fixtures", "cast count"],
-  "prompt_path": "PROMPT.txt",
-  "attempt_cap": 3,
-  "output_disposition": "motion_reference_only"
+  "delivery_accepted": false
 }

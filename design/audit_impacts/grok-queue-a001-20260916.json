@@ -1,0 +1,45 @@
+{
+  "id": "grok-queue-a001-20260916",
+  "scope": "Preserve historical producer handoff metadata during non-destructive V2 branch reconciliation; original claims are history, not current permission or fresh audit.",
+  "baseline": "ff68f9550c28f7d979896d5c84d1214264c29165",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15"
+  ],
+  "findings": [],
+  "no_findings_reason": "Historical source record normalization only; no new game defect or finding closure.",
+  "files": [
+    "design/handoffs/2026-09-16-grok-queue-a001/CODEX_HANDOFF.md",
+    "design/handoffs/2026-09-16-grok-queue-a001/SHA256.json"
+  ],
+  "validation": [
+    {
+      "command": "Historical source preservation review",
+      "result": "PASS",
+      "evidence": "Original metadata retained verbatim as historical_payload from b085580fb5c615e386af46c9a8c25a0c41b08cb0. Current repairs and machine checks are in grok-v2-repairs-20260919.json."
+    }
+  ],
+  "acceptance_gaps": "No first-frame approval, clip acceptance, runtime integration, active monitor or resolved source-gap claim transfers from this history.",
+  "historical_payload": {
+    "id": "grok-queue-a001-20260916",
+    "delivery_accepted": false,
+    "generation_ready": false,
+    "media_repo": "Ebonyks/mermaid-roshan-grok-videos",
+    "media_commit": "7f42c2cf4d21bf4dbb33cfd5b0e1c47acaad23ed",
+    "release": "grok-queue-a001-2026-09-16",
+    "attempt": "A001",
+    "motion_clips": 16,
+    "first_frame_collages": 36,
+    "hold": [
+      "SHOT-C2-02",
+      "SHOT-C2-06",
+      "SHOT-C2-07",
+      "SHOT-BUNNY-LAND"
+    ],
+    "qc": "ROUGH_REFERENCE_CANDIDATE — extra cast and extra fixtures persist; do not auto-accept"
+  }
+}

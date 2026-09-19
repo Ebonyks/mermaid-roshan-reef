@@ -1,0 +1,54 @@
+{
+  "id": "grok-handoff-v2",
+  "scope": "Preserve historical producer handoff metadata during non-destructive V2 branch reconciliation; original claims are history, not current permission or fresh audit.",
+  "baseline": "ff68f9550c28f7d979896d5c84d1214264c29165",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15"
+  ],
+  "findings": [],
+  "no_findings_reason": "Historical source record normalization only; no new game defect or finding closure.",
+  "files": [
+    "design/handoffs/2026-09-18-grok-handoff-v2/CODEX_HANDOFF.md"
+  ],
+  "validation": [
+    {
+      "command": "Historical source preservation review",
+      "result": "PASS",
+      "evidence": "Original metadata retained verbatim as historical_payload from b085580fb5c615e386af46c9a8c25a0c41b08cb0. Current repairs and machine checks are in grok-v2-repairs-20260919.json."
+    }
+  ],
+  "acceptance_gaps": "No first-frame approval, clip acceptance, runtime integration, active monitor or resolved source-gap claim transfers from this history.",
+  "historical_payload": {
+    "id": "grok-handoff-v2",
+    "branch": "codex/grok-handoff-v2",
+    "delivery_accepted": false,
+    "generation_ready": false,
+    "protocol": "design/cinematics/v2/",
+    "start": "design/cinematics/v2/START_GROK.txt",
+    "shot_cards": 36,
+    "bind_cap": [
+      2,
+      4
+    ],
+    "still_attempt_allowed": [
+      "SHOT-ARRIVAL-TOUCHDOWN",
+      "SHOT-BATH-SINK",
+      "SHOT-BATH-TUB",
+      "SHOT-BATH-DRAIN",
+      "SHOT-BATH-TOILET"
+    ],
+    "hold": [
+      "SHOT-BUNNY-LAND",
+      "SHOT-C2-02",
+      "SHOT-C2-06",
+      "SHOT-C2-07"
+    ],
+    "media_policy": "private mermaid-roshan-grok-videos only; hashes in this repo",
+    "replaces": "Passing DATABASE.json / START_GROK revision 4 library into Grok as the job"
+  }
+}

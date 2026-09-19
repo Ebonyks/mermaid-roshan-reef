@@ -352,6 +352,8 @@ unclassified until this ledger gains one new scoped row for it.
 | `design/cinematics/v2/GIT_LAYOUT.md` | 🔵 | `SUPPORTING_CURRENT`; immutable public protocol/private media routing and append-only exchange. |
 | `design/cinematics/v2/exchange/README.md` | 🔵 | `SUPPORTING_CURRENT`; exact request/return lineage and preservation of historical missing receipts. |
 | `design/cinematics/v2/jobs/SHOT-BATH-SINK.md` | 🔵 | `SUPPORTING_CURRENT`; supersedes stale A001 dispatch with HOLD and exact owner-retry requirements. |
+| `design/handoffs/2026-09-16-grok-queue-a001/CODEX_HANDOFF.md` | ⚪ | `HISTORICAL_EVIDENCE`; producer A001 return assertions and sampled QC preserved, not a current execution request or acceptance. Repaired V2 controls current work. |
+| `design/handoffs/2026-09-16-grok-queue-a002/CODEX_HANDOFF.md` | ⚪ | `HISTORICAL_EVIDENCE`; producer A002 return assertions preserved. Its missing-attic/rainbow claims and active-monitor statement are superseded, not present instructions. Repaired V2 controls current work. |
 | `design/handoffs/2026-09-18-grok-handoff-v2/CODEX_HANDOFF.md` | 🔵 | `SUPPORTING_CURRENT`; routes the former V2 entry to the repaired planning package; does not authorize motion. |
 
 ## Cinematics
