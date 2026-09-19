@@ -14,3 +14,10 @@ Coverage is COV-* and never fulfills an acted SHOT-* automatically. Attempt numb
 continue existing lineage; a revision does not reset the cap. Do not overwrite
 rejected bytes or fabricate missing historical receipts. Planning receipt !=
 still authorization != motion readiness != delivery acceptance.
+
+Cold-start construction (2026-09-19): each REQUEST is self-contained
+(`construction: cold_start`, 2–3 files, verbatim identity, stop after return).
+Do not batch shots or carry prompt memory. See
+[../SHOT_CONSTRUCTION.md](../SHOT_CONSTRUCTION.md) and
+[COLD-START-20260919/START_HERE.txt](COLD-START-20260919/START_HERE.txt).
+

@@ -1,0 +1,132 @@
+{
+  "schema": "reef.grok.bind-kits.v1",
+  "revision": 1,
+  "note": "Executable 3-slot kits. Codex copies these into source_references. Grok binds only these files.",
+  "shots": {
+    "SHOT-BATH-TUB": {
+      "status": "READY_IF_AUTHORIZED",
+      "SOURCE_1": {
+        "reference_id": "REF-90bcc501e471b8d8",
+        "role": "location_plate"
+      },
+      "SOURCE_2": {
+        "reference_id": "REF-69827625a8a795f1",
+        "role": "CHAR-ROSHAN"
+      },
+      "SOURCE_3": {
+        "reference_id": "REF-17e76b7f758f31a9",
+        "role": "PROP-BRUSH"
+      }
+    },
+    "SHOT-BATH-DRAIN": {
+      "status": "READY_IF_AUTHORIZED",
+      "SOURCE_1": {
+        "reference_id": "REF-90bcc501e471b8d8",
+        "role": "location_plate_or_approved_tub_endpoint"
+      },
+      "SOURCE_2": {
+        "reference_id": "REF-69827625a8a795f1",
+        "role": "CHAR-ROSHAN"
+      },
+      "SOURCE_3": {
+        "reference_id": "REF-17e76b7f758f31a9",
+        "role": "PROP-BRUSH"
+      }
+    },
+    "SHOT-BATH-TOILET": {
+      "status": "READY_IF_AUTHORIZED",
+      "SOURCE_1": {
+        "reference_id": "REF-90bcc501e471b8d8",
+        "role": "location_plate_or_approved_prior_endpoint"
+      },
+      "SOURCE_2": {
+        "reference_id": "REF-69827625a8a795f1",
+        "role": "CHAR-ROSHAN"
+      },
+      "SOURCE_3": {
+        "reference_id": "REF-17e76b7f758f31a9",
+        "role": "PROP-BRUSH"
+      }
+    },
+    "SHOT-ARRIVAL-TOUCHDOWN": {
+      "status": "BLOCKED",
+      "blocked_until": [
+        "PREP-PLANE-LOCK isolated plane still (not HUD board REF-850d9614)",
+        "Then bind: landing plate + Daddy REF-2eda6f + plane lock. Roshan must already be seated in the plane lock, not described."
+      ],
+      "do_not_bind": [
+        "REF-850d9614c299df94"
+      ],
+      "wrong_previous_pack": "landing + Roshan + Daddy with plane described in text \u2014 that invented a seaplane"
+    },
+    "SHOT-EAGLE-FREE": {
+      "status": "SPLIT_REQUIRED",
+      "pass_a": {
+        "id": "PREP-EAGLE-ENSEMBLE",
+        "SOURCE_1": {
+          "reference_id": "REF-5c7797c3be3586da",
+          "role": "playroom_plate"
+        },
+        "SOURCE_2": {
+          "reference_id": "REF-da8ead4677192ef4",
+          "role": "CHAR-EAGLE"
+        },
+        "SOURCE_3": {
+          "reference_id": "REF-677cda8c5de1d3aa",
+          "role": "CHAR-PLAY-BUNNY"
+        }
+      },
+      "pass_b": {
+        "id": "SHOT-EAGLE-FREE still",
+        "SOURCE_1": "approved PREP-EAGLE-ENSEMBLE hash",
+        "SOURCE_2": {
+          "reference_id": "REF-69827625a8a795f1",
+          "role": "CHAR-ROSHAN"
+        },
+        "SOURCE_3": {
+          "reference_id": "REF-17e76b7f758f31a9",
+          "role": "PROP-BRUSH"
+        }
+      },
+      "wrong_previous_pack": "playroom + Roshan + Eagle with bunnies described in text \u2014 that invented gray fluff"
+    },
+    "SHOT-BUNNY-SOAP": {
+      "status": "SPLIT_REQUIRED",
+      "pass_a": {
+        "id": "PREP-PUFF-LOCK",
+        "SOURCE_1": {
+          "reference_id": "REF-9cb4b02dc4a56e14",
+          "role": "attic_plate"
+        },
+        "SOURCE_2": {
+          "reference_id": "REF-e585e525624f4da1",
+          "role": "CHAR-PUFF"
+        },
+        "SOURCE_3": {
+          "reference_id": "REF-69827625a8a795f1",
+          "role": "CHAR-ROSHAN"
+        }
+      },
+      "note": "Helpers and rainbow friend are later cold-starts that bind the approved Puff opening as SOURCE_1. Do not text-fill the ensemble."
+    },
+    "SHOT-C2-01": {
+      "status": "SPLIT_REQUIRED",
+      "pass_a": {
+        "id": "PREP-ROCKET-LOCK",
+        "SOURCE_1": {
+          "reference_id": "REF-91dbeb1f9c634eeb",
+          "role": "PROP-CAKE"
+        },
+        "SOURCE_2": {
+          "reference_id": "REF-910f531303ec813a",
+          "role": "PROP-ROCKET"
+        },
+        "SOURCE_3": {
+          "reference_id": "REF-69827625a8a795f1",
+          "role": "CHAR-ROSHAN"
+        }
+      },
+      "note": "King/Prince/friends are later cold-starts from the approved cake+rocket lock. Do not describe a toy rocket."
+    }
+  }
+}

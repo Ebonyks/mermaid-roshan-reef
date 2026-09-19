@@ -1,0 +1,56 @@
+MERMAID ROSHAN — COLD-START CONSTRUCTION HANDOFF — 2026-09-19
+Audience: Codex (repackage REQUESTs) and Grok (execute one shot, then stop).
+
+Owner rule: after every shot, clear token memory and rebuild from the proper
+elements. Do not merge shots into one project or one chat.
+
+This supersedes "execute all without stopping" for identity-bearing stills.
+Scene stills from OWNER-CONTINUE-20260919 that reinvented Daddy, plane,
+dust bunnies, or rocket are identity rejects, not openings.
+
+READ
+  design/cinematics/v2/SHOT_CONSTRUCTION.md
+  design/cinematics/v2/SHOT_CONSTRUCTION.json
+  design/cinematics/v2/exchange/COLD-START-20260919/BIND_KITS.json
+  design/cinematics/v2/canon/IDENTITY.json  (copy phrases; do not paraphrase)
+
+CODEX — REPACKAGE, DO NOT BATCH
+1. One PREPARATION_REQUEST per shot or per PREP lock. Never a 36-shot dump.
+2. Each REQUEST must set:
+     construction: "cold_start"
+     stop_after_return: true
+     source_references: exactly 2 or 3 files (Imagine cap is 3)
+     verbatim_identity / verbatim_props copied from SHOT_CONSTRUCTION.json
+3. still_prompt may use CARD action/camera/room_state plus copied
+   prompt_phrases. It may not add beard, curly hair, green tail, seaplane,
+   gray fluff, toy rocket, or any other new anatomy.
+4. Do not put REF-850d9614 (HUD airplane board) in source_references.
+5. Register PROP-ROCKET = REF-910f531303ec813a in canon/PROPS.json.
+6. If BIND_KITS.json status is BLOCKED or SPLIT_REQUIRED, emit the PREP
+   lock REQUEST first. Do not authorize the acted shot until that lock
+   hash exists.
+7. After Grok RETURN, wait. Next REQUEST is a new cold start. Do not tell
+   Grok to "continue the batch".
+
+GROK — ONE SHOT, THEN STOP
+1. Open only the assigned REQUEST and its 2–3 files. ACCESS_ACK hashes.
+2. Bind those files in slot order. Copy identity phrases verbatim.
+3. Generate at most one still (or one motion if that REQUEST authorizes it).
+4. RETURN native bytes, hashes, and which identities were unbound.
+5. STOP. Do not load the next CARD from chat memory.
+6. A chat that already paraphrased Daddy/plane/bunnies is contaminated.
+   The next still belongs in a new turn that restates the kit.
+
+FIRST LOCKS TO EMIT (in this order, one at a time)
+  PREP-PLANE-LOCK     — blocked until an isolated plane still exists
+                        (pearl plane, 2 windows, 1 intake, 2 seats, no rear door;
+                         NOT the HUD board)
+  PREP-EAGLE-ENSEMBLE — playroom + Eagle + play-bunny files
+  PREP-PUFF-LOCK      — attic + Grand Puff + Roshan
+  PREP-ROCKET-LOCK    — cake + rocket + Roshan
+
+Bathroom inserts may reuse the existing 3-slot kit (room + Roshan + brush)
+as separate cold-start REQUESTs. Do not generate them from this handoff
+until Codex publishes the matching REQUEST.
+
+DELIVERY_ACCEPTED stays false. Exchange branch only. No merge to master/dev.

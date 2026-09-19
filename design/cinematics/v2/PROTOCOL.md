@@ -32,3 +32,12 @@ Apply the existing V1 discipline and [V2 contract](../../templates/IMAGINE_SHOT_
   remain historical; missing A006 REQUEST is not retrospectively invented.
 - Full-frame cinematic provenance, human/device/child acceptance and protected
   family voices retain their independent rules. DELIVERY_ACCEPTED stays false.
+
+## Cold-start construction (owner 2026-09-19)
+
+After every shot, clear token memory and rebuild from the REQUEST's files.
+Do not merge shots into one project. Imagine's effective bind cap is 3.
+Overflow identities need a prior PREP lock still, not a prompt sentence.
+HUD boards and `v1_pool` are never generation pixels.
+See [SHOT_CONSTRUCTION.md](SHOT_CONSTRUCTION.md).
+

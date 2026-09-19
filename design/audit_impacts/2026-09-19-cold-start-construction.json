@@ -1,0 +1,40 @@
+{
+  "id": "2026-09-19-cold-start-construction",
+  "scope": "Owner-directed shot construction: cold start per shot, 3-slot Imagine cap, verbatim identity, no merged project memory. Metadata only; no runtime, no delivery acceptance.",
+  "baseline": "42e41ab5a161977a693a546566218c79ce6f3a29",
+  "rules": [
+    "DL-CIN-01",
+    "DL-CIN-04",
+    "DL-CIN-11",
+    "DL-CIN-12",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "design/audit_impacts/2026-09-19-cold-start-construction.json",
+    "design/cinematics/v2/PROTOCOL.md",
+    "design/cinematics/v2/SHOT_CONSTRUCTION.json",
+    "design/cinematics/v2/SHOT_CONSTRUCTION.md",
+    "design/cinematics/v2/START_GROK.txt",
+    "design/cinematics/v2/exchange/COLD-START-20260919/BIND_KITS.json",
+    "design/cinematics/v2/exchange/COLD-START-20260919/START_HERE.txt",
+    "design/cinematics/v2/exchange/README.md"
+  ],
+  "validation": [
+    {
+      "command": "python3 -B tools/audit_development.py --base 42e41ab5a161977a693a546566218c79ce6f3a29",
+      "result": "PASS",
+      "evidence": "Impact record lists every path in this construction-rule change. Documentation only; no pixels generated; DELIVERY_ACCEPTED remains false."
+    }
+  ],
+  "acceptance_gaps": "No first-frame approval, clip acceptance, runtime integration, or identity-lock still is granted. OWNER-CONTINUE drifted stills remain rejects. PREP-PLANE-LOCK remains blocked until an isolated plane still exists. PROP-ROCKET registration is requested of Codex.",
+  "notes": [
+    "Does not authorize generation.",
+    "Marks OWNER-CONTINUE identity-drifted stills as rejects, not openings.",
+    "PROP-PLANE HUD board remains non-bindable."
+  ]
+}

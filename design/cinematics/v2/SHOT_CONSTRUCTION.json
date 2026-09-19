@@ -1,0 +1,142 @@
+{
+  "schema": "reef.grok.shot-construction.v1",
+  "revision": 1,
+  "date": "2026-09-19",
+  "rule": "cold_start_per_shot",
+  "owner_direction": "After every shot, token memory is cleared and rebuilt with the proper elements instead of merging into a single project.",
+  "imagine_input_cap": 3,
+  "protocol_bind_cap": 4,
+  "effective_bind_cap": 3,
+  "discard_after_return": true,
+  "forbid": [
+    "Carry prompt text, paraphrased anatomy, or invented prop design from a previous shot",
+    "Batch-generate multiple shots from one accumulated session",
+    "Bind HUD / storyboard / contact-sheet pixels",
+    "Copy v1_pool into source_references",
+    "Describe an unbound character or prop with new physical details",
+    "Point PROP-PLANE at REF-850d9614 (HUD board) as generation pixels"
+  ],
+  "allow_carry_forward": [
+    "The owner-approved opening or endpoint file, rebound by exact hash as SOURCE_1 of the next REQUEST only"
+  ],
+  "request_must_contain": [
+    "construction=cold_start",
+    "Exactly 2 or 3 source_references with roles and sha256",
+    "verbatim_identity for every CHAR in exact_cast that is bound",
+    "verbatim_props for every PROP that is bound",
+    "still_prompt assembled only from CARD action/camera/room_state plus copied prompt_phrases",
+    "stop_after_return=true"
+  ],
+  "slot_recipe": {
+    "SOURCE_1": "Location plate, or the approved previous opening/endpoint of this same room (bytes, not memory)",
+    "SOURCE_2": "The identity this shot is most likely to reinvent (Daddy, Eagle, play-bunny, plane, rocket)",
+    "SOURCE_3": "Tool, second character, or second prop. Never a board."
+  },
+  "overflow_rule": "If exact_cast + location + props need more than 3 files, do not text-fill the fourth. Split into a prior PREP lock still that already contains the extra identity, then bind that lock as SOURCE_1. If no lock exists, the shot is BLOCKED.",
+  "verbatim_identity": {
+    "CHAR-ROSHAN": {
+      "reference_id": "REF-69827625a8a795f1",
+      "prompt_phrases": [
+        "child mermaid Roshan, brown rainbow-streak hair, jeweled tiara not a horn, pink bodice, one rainbow tail"
+      ],
+      "forbidden": [
+        "Second Roshan",
+        "Adult redesign",
+        "Unicorn horn / spiral horn tiara",
+        "Legs",
+        "Extra tail or extra arms"
+      ]
+    },
+    "CHAR-DADDY": {
+      "reference_id": "REF-2eda6f76760b8598",
+      "prompt_phrases": [
+        "clean-shaven Daddy, straight brown hair, thin black glasses, navy coat, teal cape, rainbow tail, no beard"
+      ],
+      "forbidden": [
+        "Beard",
+        "Curly hair",
+        "Bulky generic king",
+        "Solid blue tail",
+        "Rear-door exit from the plane"
+      ]
+    },
+    "CHAR-EAGLE": {
+      "reference_id": "REF-da8ead4677192ef4",
+      "prompt_phrases": [
+        "original-book baby eagle, turquoise scalloped feathers, pink crest, two wings only"
+      ],
+      "forbidden": [
+        "Standing/pinned heraldic eagle",
+        "Second eagle",
+        "Backpack",
+        "Armor scales",
+        "Unobscured invented anatomy"
+      ]
+    },
+    "CHAR-PLAY-BUNNY": {
+      "reference_id": "REF-677cda8c5de1d3aa",
+      "prompt_phrases": [
+        "two ordinary playroom dust bunnies, no hardware pins"
+      ],
+      "forbidden": [
+        "Grand Puff identity",
+        "rainbow-friend identity",
+        "metal pins or restraints"
+      ],
+      "note": "Pose sheet is one subject over time, not simultaneous clones. Bind the file; do not describe gray generic fluff."
+    },
+    "CHAR-PUFF": {
+      "reference_id": "REF-e585e525624f4da1",
+      "prompt_phrases": [
+        "one intact big lavender dust bunny with spiral ears"
+      ],
+      "forbidden": [
+        "Second giant bunny",
+        "Early rainbow ears",
+        "Hard shell shards",
+        "Pain or corpse"
+      ]
+    },
+    "CHAR-RAINBOW": {
+      "reference_id": "REF-e488d7c300eff116",
+      "prompt_phrases": [
+        "one small spiral-eared rainbow-cloud bunny"
+      ],
+      "forbidden": [
+        "early rainbow ears during SOAP",
+        "intact giant alongside landed friend",
+        "extra little bunny"
+      ]
+    }
+  },
+  "verbatim_props": {
+    "PROP-PLANE": {
+      "reference_id": "REF-850d9614c299df94",
+      "generation_bind": false,
+      "reason": "File is a HUD storyboard, not an isolated plane hero. Do not bind as Imagine input.",
+      "exact": {
+        "cabin_windows": 2,
+        "engine_intake": 1,
+        "seats": 2,
+        "rear_door": 0
+      },
+      "forbidden": [
+        "third window",
+        "rear-door exit",
+        "passengers on the grass",
+        "generic seaplane redesign"
+      ],
+      "blocked_until": "PREP-PLANE-LOCK isolated pearl-plane still approved by hash"
+    },
+    "PROP-ROCKET": {
+      "reference_id": "REF-910f531303ec813a",
+      "generation_bind": true,
+      "path": "media/910f531303ec813a.png",
+      "note": "Exists. Register in PROPS.json. Bind the file; do not describe a toy rocket."
+    },
+    "PROP-BRUSH": {
+      "reference_id": "REF-17e76b7f758f31a9",
+      "generation_bind": true
+    }
+  }
+}
