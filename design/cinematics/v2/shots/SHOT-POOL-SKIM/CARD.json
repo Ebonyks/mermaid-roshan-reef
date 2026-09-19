@@ -1,0 +1,71 @@
+{
+  "schema": "imagine-shot-packet-v2-reef",
+  "shot_id": "SHOT-POOL-SKIM",
+  "event_id": "EV-D1-SKIM",
+  "name": "Net lifts litter while all fixed pool fixtures remain.",
+  "generation_allowed": false,
+  "still_attempt_allowed": false,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "exact_cast": [
+    "CHAR-ROSHAN"
+  ],
+  "exact_prop_counts": {
+    "waterfalls": 1,
+    "seahorses": 1,
+    "roshan": 1,
+    "extra_mermaids": 0
+  },
+  "location_id": "LOC-POOL",
+  "room_state": {
+    "litter": "present",
+    "waterfall_lanes_clean": 0,
+    "plug": "lodged",
+    "seahorse": "dry"
+  },
+  "camera": {
+    "verb": "closer along coping",
+    "move_count": 1
+  },
+  "before": "Litter in pool",
+  "action": "Net lifts litter while all fixed pool fixtures remain.",
+  "after": "Litter cleared",
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "empty_dirty_plate",
+      "reference_id": null,
+      "people_in_plate": null,
+      "authority_domain": "MISSING empty plate \u2014 see blocking_reason"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": "REF-69827625a8a795f1",
+      "people_in_plate": false,
+      "authority_domain": "CHAR-ROSHAN identity only"
+    }
+  ],
+  "bind_count": 2,
+  "must_move": [
+    "Net lifts litter while all fixed pool fixtures remain."
+  ],
+  "must_not_move": [
+    "room landmarks",
+    "unnamed fixtures",
+    "cast count",
+    "prior completed fixtures"
+  ],
+  "depends_on": [],
+  "prompt_path": "PROMPT.txt",
+  "attempt_cap": 3,
+  "output_disposition": "motion_reference_only",
+  "v1_pool_was": [
+    "REF-1a9a2005d4d27bd5",
+    "REF-69827625a8a795f1"
+  ],
+  "v1_pool_note": "Archival only. Do not bind the pool. v2 binds are the list above, max 4."
+}

@@ -1,0 +1,83 @@
+{
+  "schema": "imagine-shot-packet-v2-reef",
+  "shot_id": "SHOT-POOL-PULL",
+  "event_id": "EV-D1-PULL",
+  "name": "Pull pink weed clear once; purple seahorse mouth then streams water.",
+  "generation_allowed": false,
+  "still_attempt_allowed": false,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "blocking_reason": "MISSING_EMPTY_DIRTY_FULL_ROOM_PLATE; Human-approved first frame missing (opening_approved=false)",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "exact_cast": [
+    "CHAR-ROSHAN"
+  ],
+  "exact_prop_counts": {
+    "waterfalls": 1,
+    "seahorses": 1,
+    "roshan": 1,
+    "extra_mermaids": 0
+  },
+  "location_id": "LOC-POOL",
+  "room_state": {
+    "litter": "cleared",
+    "waterfall_lanes_clean": 3,
+    "plug": "lodged",
+    "seahorse": "dry"
+  },
+  "camera": {
+    "verb": "closer on seahorse mouth",
+    "move_count": 1
+  },
+  "before": "All three waterfall lanes restored; the pink obstruction remains lodged in the purple seahorse mouth",
+  "action": "Roshan visibly grips the pink obstruction and pulls it clear once; fixture and coral pedestal stay fixed",
+  "after": "Pink obstruction held clear of the open mouth; seahorse remains dry at this cut",
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "empty_dirty_plate",
+      "reference_id": null,
+      "people_in_plate": null,
+      "authority_domain": "MISSING empty plate \u2014 see blocking_reason"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": "REF-69827625a8a795f1",
+      "people_in_plate": false,
+      "authority_domain": "CHAR-ROSHAN identity only"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "reference_id": "REF-3af5ff973576d328",
+      "people_in_plate": false,
+      "authority_domain": "sick purple seahorse + pink plug"
+    }
+  ],
+  "bind_count": 3,
+  "must_move": [
+    "Roshan visibly grips the pink obstruction and pulls it clear once; fixture and coral pedestal stay fixed"
+  ],
+  "must_not_move": [
+    "room landmarks",
+    "unnamed fixtures",
+    "cast count",
+    "prior completed fixtures"
+  ],
+  "depends_on": [
+    "SHOT-POOL-FALL-3"
+  ],
+  "prompt_path": "PROMPT.txt",
+  "attempt_cap": 3,
+  "output_disposition": "motion_reference_only",
+  "v1_pool_was": [
+    "REF-1a9a2005d4d27bd5",
+    "REF-69827625a8a795f1",
+    "REF-3af5ff973576d328",
+    "REF-5912698f5c91165f",
+    "REF-9c48ac1ca7be923f"
+  ],
+  "v1_pool_note": "Archival only. Do not bind the pool. v2 binds are the list above, max 4."
+}
