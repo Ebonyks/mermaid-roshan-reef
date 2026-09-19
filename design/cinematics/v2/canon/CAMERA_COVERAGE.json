@@ -1,0 +1,55 @@
+{
+  "schema": "reef.grok.camera-coverage.v2",
+  "revision": 1,
+  "purpose": "3D fullness of existing rooms. Do not invent Roshan. Do not invent a new bathroom.",
+  "gameplay_camera": {
+    "id": "CAM-BATH-WIDE",
+    "authority": "assets/flats/castle/rooms/room_bubble_bath.png and REF-90bcc501e471b8d8 dirty plate",
+    "framing": "straight-on 16:9: tub left, sink center, toilet right, two foreground baskets",
+    "locked_by": [
+      "design/HANDOFF_GROK_DAY_ONE_BATHROOM_MOVIES_2026-08-28.md — camera locked for the entire OGV",
+      "7-panel entry board 10_entry_shot_board_7_panel_reference.png — panels labeled LOCKED CAMERA",
+      "8-panel cleanup board 14_cleanup_shot_board_8_panel_reference.png — same wide"
+    ],
+    "note": "Those boards are narrative order only. Never bind them as generation pixels."
+  },
+  "existing_other_perspectives_of_this_room": [
+    {
+      "id": "CAM-BATH-SINK-34",
+      "shot_seed": "D1-C03-S04 medium reverse / D1-C04-S01 close contact",
+      "file": "assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/13_sink_grime_reference.png",
+      "reference_id": "REF-fe53ef3018b9f816",
+      "sha256": "fe53ef3018b9f8164417cde5bf47489dff389179aad8432ea8ef1993cffab3ed",
+      "people": false,
+      "view": "3/4 closer on the one shell vanity, oval pearl mirror, gold faucet, dirty basin. Not the gameplay wide."
+    },
+    {
+      "id": "CAM-BATH-TUB-34",
+      "shot_seed": "D1-C03-S03 close dirty bathtub",
+      "file": "assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/08_tub_grime_reference.png",
+      "reference_id": "REF-52e8c42b0c044c1b",
+      "sha256": "52e8c42b0c044c1b5dba42681d7dfb5e34dc44b345e6535e9432df5f186ecb67",
+      "people": false,
+      "view": "Closer 3/4 on the one scalloped tub and dirty waterline. Not the gameplay wide."
+    }
+  ],
+  "authored_in_copy_but_no_plate": [
+    {
+      "id": "CAM-BATH-REVERSE-TOOLS",
+      "shot_seed": "D1-C03-S04 medium reverse toward Roshan, dirty sink, and established cleaning tools; one subtle push-in",
+      "status": "CODEX_TICKET",
+      "need": "Empty 16:9 reverse/medium of sink+tools from a camera that is not CAM-BATH-WIDE. Seed from REF-fe53ef3018b9f816. No people on the plate."
+    },
+    {
+      "id": "CAM-BATH-FOLLOW-ENTRY",
+      "shot_seed": "D1-C03-S02 one short camera follow stops inside the room",
+      "status": "CODEX_TICKET",
+      "need": "Approved follow endpoint still. Do not let Grok invent the new wall."
+    }
+  ],
+  "do_not": [
+    "Ask Grok to redraw Roshan onto a new camera",
+    "Treat LOCKED CAMERA storyboard panels as coverage",
+    "Restage the wide plate into a second sink"
+  ]
+}
