@@ -1,0 +1,25 @@
+{
+  "schema": "reef.grok-reshoot.v2",
+  "kind": "RETURN",
+  "shot_id": "SHOT-BATH-SINK",
+  "attempt": 6,
+  "scene_id": "SCENE-EV-D1-BATH",
+  "keyframe": {
+    "file": "videos/v2-stills-2026-09-18/SHOT-BATH-SINK_opening.jpg",
+    "sha256": "27e11f0e10e011a7ff60cf55eb6df9c0a72e3305093b03c3b723e639c59ec3dc"
+  },
+  "clip": {
+    "file": "videos/v2-clips-2026-09-18/SHOT-BATH-SINK_A001.mp4",
+    "sha256": "0630d976ab10646f1e5dffa91421361c4e0626e6bd17ec0789259d5b51c2f9ec",
+    "bytes": 3817986,
+    "duration_s": 6
+  },
+  "qc": {
+    "people": 0,
+    "sinks": 1,
+    "tubs_in_frame": "edge only",
+    "note": "Empty coverage push-in. Director may add character."
+  },
+  "opening_approved": false,
+  "generation_allowed": false
+}

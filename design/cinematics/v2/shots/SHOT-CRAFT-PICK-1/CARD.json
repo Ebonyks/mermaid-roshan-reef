@@ -1,0 +1,311 @@
+{
+  "schema": "reef.grok.shot-plan.v2",
+  "shot_id": "SHOT-CRAFT-PICK-1",
+  "event_id": "EV-D1-SUPPLIES",
+  "name": "Collect brush bundle with visible hand contact; other supplies and rear worktable persist.",
+  "generation_allowed": false,
+  "still_attempt_allowed": false,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-CRAFT-EMPTY-DIRTY",
+  "duration_seconds": 3,
+  "aspect_ratio": "16:9",
+  "exact_cast": [
+    "CHAR-ROSHAN"
+  ],
+  "exact_prop_counts": {
+    "extra_fixtures": 0
+  },
+  "location_id": "LOC-ART",
+  "room_state": {
+    "left_counter": "dirty",
+    "rear_table": "dirty",
+    "right_counter": "dirty",
+    "supplies": "in_progress",
+    "supply_groups_collected": 0
+  },
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "address": "Front-facing known wall. Left-front / rear-table / right-front inserts vary depth only. Collect brush bundle with visible hand contact; other supplies and rear worktable persist. Keep the neighboring counter/table as a depth anchor. A true alternate view requires approved turnaround; no repeated front-wide pretending to be new perspective."
+  },
+  "before": "0 of four supply groups collected; remaining supplies and rear table unchanged",
+  "action": "Collect brush bundle with visible hand contact; other supplies and rear worktable persist.",
+  "after": "1 of four supply groups collected; all furniture and other props persist",
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "reference_id": null,
+      "remote_url": null,
+      "sha256": null,
+      "path": null,
+      "missing_reason": "Complete owner-approved acted first frame missing; no room-only fallback."
+    },
+    {
+      "path": "media/69827625a8a795f1.png",
+      "source_path": "grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "subject_identity",
+      "bytes": 50051,
+      "reference_id": "REF-69827625a8a795f1",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/69827625a8_roshan_roshan_base.png",
+        "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/roshan.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening",
+      "id": "IMAGE_2",
+      "human_decision": "pending",
+      "hud_present": false,
+      "authority_domain": "identity/material only, not competing room geography"
+    }
+  ],
+  "bind_count": 2,
+  "must_move": [
+    "Collect brush bundle with visible hand contact; other supplies and rear worktable persist."
+  ],
+  "must_not_move": [
+    "two curved counters and stocked rear table",
+    "previously completed cleanup",
+    "identity, anatomy and prop counts"
+  ],
+  "depends_on": [],
+  "prompt_path": "PROMPT.txt",
+  "attempt_cap": 3,
+  "output_disposition": "motion_reference_only",
+  "v1_pool_was": [
+    "REF-916522a6fab66918",
+    "REF-69827625a8a795f1",
+    "REF-7de7cf80939fe62e",
+    "REF-089bcaf7b7e27a47",
+    "REF-ce6adb14e4d87710",
+    "REF-fca25541d66e07bf"
+  ],
+  "v1_pool_note": "Archival only. Do not bind the pool. v2 binds are the list above, max 4.",
+  "revision": 2,
+  "source_snapshot": "b085580fb5c615e386af46c9a8c25a0c41b08cb0",
+  "sequence_position": 12,
+  "beat_ids": [
+    "SHOT-CRAFT-PICK-1-ACTION"
+  ],
+  "mode": "image_to_video",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "cast_status": "PROPOSED_STAGING_REQUIRES_OWNER_FIRST_FRAME_APPROVAL",
+  "cast_instances": [
+    {
+      "instance_id": "CHAR-ROSHAN-1",
+      "character_id": "CHAR-ROSHAN",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    }
+  ],
+  "end_room_state": {
+    "left_counter": "dirty",
+    "rear_table": "dirty",
+    "right_counter": "dirty",
+    "supplies": "in_progress",
+    "supply_groups_collected": 1
+  },
+  "opening_candidate": null,
+  "approval_receipt": null,
+  "request": null,
+  "causal_chain": {
+    "trigger": "Collect brush bundle with visible hand contact; other supplies and rear worktable persist.",
+    "visible_change": "1 of four supply groups collected; all furniture and other props persist",
+    "end_confirmation": "1 of four supply groups collected; all furniture and other props persist"
+  },
+  "end_state": "1 of four supply groups collected; all furniture and other props persist",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no extra characters or fixtures",
+    "no identity drift",
+    "no result without contact",
+    "no premature payoff"
+  ],
+  "preparation_references": [
+    {
+      "path": "media/916522a6fab66918.png",
+      "source_path": "grok_builder_2026-09-14/media/916522a6fab66918.png",
+      "sha256": "916522a6fab6691866e8ff768056a5725bfbb76044dba869935eb7b585420eae",
+      "role": "reference",
+      "bytes": 856426,
+      "reference_id": "REF-916522a6fab66918",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/916522a6fab66918.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/916522a6fab66918.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "license_provenance": "Project-owned original art or owner-provided Grok editorial footage; inherited ASSET_LICENSES.md source attribution; review/continuity use only",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/current_art_full_room.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/69827625a8a795f1.png",
+      "source_path": "grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "reference",
+      "bytes": 50051,
+      "reference_id": "REF-69827625a8a795f1",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/69827625a8_roshan_roshan_base.png",
+        "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/roshan.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/7de7cf80939fe62e.png",
+      "source_path": "grok_builder_2026-09-14/media/7de7cf80939fe62e.png",
+      "sha256": "7de7cf80939fe62e16d6931d1eb6b377ec2454107b855703b76f445aa8aad99a",
+      "role": "reference",
+      "bytes": 319749,
+      "reference_id": "REF-7de7cf80939fe62e",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/7de7cf80939fe62e.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/7de7cf80939fe62e.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        768,
+        512
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/7de7cf8093_loose_brush_bundle.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/089bcaf7b7e27a47.png",
+      "source_path": "grok_builder_2026-09-14/media/089bcaf7b7e27a47.png",
+      "sha256": "089bcaf7b7e27a4760ca70f05cfeb6954e72eb59ac4ecd125fd6b5cfe0ebba4a",
+      "role": "reference",
+      "bytes": 151777,
+      "reference_id": "REF-089bcaf7b7e27a47",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/089bcaf7b7e27a47.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/089bcaf7b7e27a47.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        384,
+        512
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/089bcaf7b7_paint_bottle_pink.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/ce6adb14e4d87710.png",
+      "source_path": "grok_builder_2026-09-14/media/ce6adb14e4d87710.png",
+      "sha256": "ce6adb14e4d877108ae2748138417ef436f6e154b8c4321f69196795114319ff",
+      "role": "reference",
+      "bytes": 158702,
+      "reference_id": "REF-ce6adb14e4d87710",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/ce6adb14e4d87710.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/ce6adb14e4d87710.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        384,
+        512
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/ce6adb14e4_paint_bottle_blue.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/fca25541d66e07bf.png",
+      "source_path": "grok_builder_2026-09-14/media/fca25541d66e07bf.png",
+      "sha256": "fca25541d66e07bf28ee31a36ff049130af64c495a077759750f291e526780a0",
+      "role": "reference",
+      "bytes": 266700,
+      "reference_id": "REF-fca25541d66e07bf",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/fca25541d66e07bf.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/fca25541d66e07bf.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        768,
+        512
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/fca25541d6_paint_cups.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    }
+  ],
+  "preparation_reference_scope": "Archive inputs for planner/full-frame candidate preparation, not a multi-image motion binding list. Boards and pose strips are never generation pixels.",
+  "blocking_findings": [
+    "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING",
+    "ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+    "GAP-CRAFT-EMPTY-DIRTY"
+  ],
+  "attempts_used": 0,
+  "hold": false,
+  "attempt_cap_override_receipt": null,
+  "still_preparation_status": "Brief supplied. No queued generation or automatic cap reset; publish a scoped still REQUEST before spending an attempt.",
+  "continuity": {
+    "kind": "new_setup",
+    "previous_shot_id": null,
+    "inherited_state": [
+      "0 of four supply groups collected; remaining supplies and rear table unchanged",
+      "Prior completed work remains completed."
+    ],
+    "allowed_changes": [
+      "Collect brush bundle with visible hand contact; other supplies and rear worktable persist."
+    ]
+  },
+  "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+  "prompt_sha256": "81ab5c09577b89c7d5fb0e91a14493513ebc09c13fed9a79824d156fc441423e",
+  "canon_sha256": "b31adf7821a37b7034ce68373080ab8f3f4d710bc2d538b65a0347130cbf3654",
+  "depends_on_events": [
+    "EV-D1-EAGLE"
+  ],
+  "hold_release_receipt": null,
+  "historical_hold": false,
+  "original_hold_reason": null
+}

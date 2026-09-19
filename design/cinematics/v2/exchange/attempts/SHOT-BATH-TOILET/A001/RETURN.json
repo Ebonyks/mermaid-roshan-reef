@@ -1,0 +1,24 @@
+{
+  "schema": "reef.grok-reshoot.v2",
+  "kind": "RETURN",
+  "shot_id": "SHOT-BATH-TOILET",
+  "attempt": 1,
+  "scene_id": "SCENE-EV-D1-BATH",
+  "keyframe": {
+    "file": "videos/v2-stills-2026-09-18/SHOT-BATH-TOILET_opening.jpg",
+    "sha256": "b52eb10347f54c65a4003d7123e640ae9aeb09924e2c5dbeb47b5592f436fe9c"
+  },
+  "clip": {
+    "file": "videos/v2-clips-2026-09-18/SHOT-BATH-TOILET_A001.mp4",
+    "sha256": "098dd2297492be4a8b355fcbd5305e30c6fa46ee958289e1772917fb9bef2e52",
+    "bytes": 2804843,
+    "duration_s": 6
+  },
+  "qc": {
+    "people": 0,
+    "toilets": 1,
+    "note": "Empty coverage push-in. End frame grew extra gold fittings — coverage only. Director may add character."
+  },
+  "opening_approved": false,
+  "generation_allowed": false
+}

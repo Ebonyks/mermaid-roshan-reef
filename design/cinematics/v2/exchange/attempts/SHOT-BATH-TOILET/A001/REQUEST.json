@@ -1,0 +1,48 @@
+{
+  "schema": "reef.grok-reshoot.v2",
+  "kind": "STILL_REQUEST",
+  "shot_id": "SHOT-BATH-TOILET",
+  "attempt": 1,
+  "card_path": "design/cinematics/v2/shots/SHOT-BATH-TOILET/CARD.json",
+  "card_sha256": "d4f129d8fd6f7bfbf75850127ae759ad4ec4339d58682738171560c25a72ddda",
+  "prompt_path": "design/cinematics/v2/shots/SHOT-BATH-TOILET/PROMPT.txt",
+  "prompt_sha256": "829faa516fca9164afbbfd0cd6e1f784cecac693e67acb284b41a25f4839cbc7",
+  "opening_approved": false,
+  "generation_allowed": false,
+  "still_attempt_allowed": true,
+  "exact_cast": [
+    "CHAR-ROSHAN"
+  ],
+  "exact_cast_count": 1,
+  "room_state": {
+    "sink": "clean",
+    "tub": "clean_drained",
+    "toilet": "dirty",
+    "drain": "open"
+  },
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "empty_dirty_plate",
+      "reference_id": "REF-90bcc501e471b8d8",
+      "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+      "people_in_plate": false
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": "REF-69827625a8a795f1",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "people_in_plate": false
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "reference_id": "REF-17e76b7f758f31a9",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "people_in_plate": false
+    }
+  ],
+  "still_brief": "Dirty bathroom IMAGE_1 empty of people. Add only Roshan at the RIGHT grimy pink toilet with the brush. Sink edge still visible. Other fixtures stay dirty. Zero extra mermaids.",
+  "note": "Frozen planning request for a first-frame still. Not permission to animate."
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "reef.grok-reshoot.v2",
+  "kind": "STILL_REQUEST",
+  "shot_id": "SHOT-ARRIVAL-TOUCHDOWN",
+  "attempt": 1,
+  "card_path": "design/cinematics/v2/shots/SHOT-ARRIVAL-TOUCHDOWN/CARD.json",
+  "card_sha256": "6326f91a3d5ab6d1c226ea528c7d942ed179c35723e96912f28c5c19d6bdc244",
+  "prompt_path": "design/cinematics/v2/shots/SHOT-ARRIVAL-TOUCHDOWN/PROMPT.txt",
+  "prompt_sha256": "21b4a8f071fcd55e5dab02f6629856b2a07c14405a147d426588932c42524dc3",
+  "opening_approved": false,
+  "generation_allowed": false,
+  "still_attempt_allowed": true,
+  "exact_cast": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY"
+  ],
+  "exact_cast_count": 2,
+  "room_state": {
+    "plane": "airborne_above_patch",
+    "passengers": "seated"
+  },
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "empty_dirty_plate",
+      "reference_id": "REF-017532ae864e534d",
+      "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+      "people_in_plate": false
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": "REF-69827625a8a795f1",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "people_in_plate": false
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "reference_id": "REF-850d9614c299df94",
+      "sha256": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde",
+      "people_in_plate": false
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "subject_identity",
+      "reference_id": "REF-2eda6f76760b8598",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "people_in_plate": false
+    }
+  ],
+  "still_brief": "16:9 landing-patch crop of IMAGE_1 (do not squeeze the 3x1). Pearl-white two-seat plane from IMAGE_3 hovering above grass, two round windows only, no rear door. Roshan IMAGE_2 in left seat, Daddy IMAGE_4 in right seat, both inside. Nobody on the grass. No extra birds, no text.",
+  "note": "Frozen planning request for a first-frame still. Not permission to animate."
+}

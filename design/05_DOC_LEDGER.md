@@ -341,6 +341,19 @@ unclassified until this ledger gains one new scoped row for it.
 | `CLAUDE_FABLE_ORNATE_SHELL_UI_HANDOFF_2026-07-29.md` | 🔵 | `HISTORICAL_EVIDENCE` for the UI lineage that produced `StorybookUI`; current UI rules live in design 06 and current runtime evidence. |
 | `CLAUDE_FABLE_UI_HANDOFF_2026-07-21.md` | 🔵 | `HISTORICAL_EVIDENCE` for the UI lineage that produced `StorybookUI`; current UI rules live in design 06 and current runtime evidence. |
 
+## Grok V2 repaired preparation and execution contract
+
+| Doc | | Note |
+|---|---|---|
+| `design/cinematics/v2/README.md` | 🔵 | `SUPPORTING_CURRENT`; 2026-09-19 repaired 36-shot planning package and private visual-archive routing. Planning, publication, recipient access, opening approval and delivery are independent; no runtime/finding closure. |
+| `design/cinematics/v2/REPAIR_HANDOFF.md` | 🔵 | `SUPPORTING_CURRENT`; concrete source corrections, preparation order, shot-state/contact requirements and remaining approval/art gaps. |
+| `design/cinematics/v2/PROTOCOL.md` | 🔵 | `SUPPORTING_CURRENT`; applies V1/V2 canonical shot discipline without changing owner/full-frame/private-media policy. |
+| `design/cinematics/v2/SCHEMA.md` | 🔵 | `SUPPORTING_CURRENT`; planning sidecar and guarded canonical export, not an alternate accepted delivery schema. |
+| `design/cinematics/v2/GIT_LAYOUT.md` | 🔵 | `SUPPORTING_CURRENT`; immutable public protocol/private media routing and append-only exchange. |
+| `design/cinematics/v2/exchange/README.md` | 🔵 | `SUPPORTING_CURRENT`; exact request/return lineage and preservation of historical missing receipts. |
+| `design/cinematics/v2/jobs/SHOT-BATH-SINK.md` | 🔵 | `SUPPORTING_CURRENT`; supersedes stale A001 dispatch with HOLD and exact owner-retry requirements. |
+| `design/handoffs/2026-09-18-grok-handoff-v2/CODEX_HANDOFF.md` | 🔵 | `SUPPORTING_CURRENT`; routes the former V2 entry to the repaired planning package; does not authorize motion. |
+
 ## Cinematics
 
 | Doc | | Note |

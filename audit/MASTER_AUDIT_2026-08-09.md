@@ -86,6 +86,8 @@ Roshan handoff revision (2026-09-13): [video-first execution](../assets_src/cine
 
 Scoped overnight-film repair (2026-09-12): [fresh rendered-frame audit](OVERNIGHT_RECUT_FRAME_AUDIT_2026-09-12.md) and [impact](../design/audit_impacts/overnight-recut-repairs-20260912.json). The owner requests recognizable big-bunny form, four-helper soapy scrubbing that hides it in bubbles, then the concept friend jumping while the old casing collapses and scatters into dust. Eighteen repair/conditional jobs include original-book Eagle identity and exact Daddy/attic locks. Generated candidates retain explicit missing human opening/delivery acceptance.
 
+Scoped Grok V2 repair (2026-09-19): [handoff](../design/cinematics/v2/README.md) and [impact](../design/audit_impacts/grok-v2-repairs-20260919.json) repair reference registration, 36 shot-state/actor plans, coverage-versus-action separation and fail-closed execution checks. Source images/boards remain in the established private media archive. Recipient access, complete opening approval and independent delivery gates remain open; `MA-VIS-006` stays `CONFIRMED_OPEN`.
+
 ## Sealed audit snapshot and subsequent round metadata
 
 - **Audit ID:** `MA-2026-08-09`

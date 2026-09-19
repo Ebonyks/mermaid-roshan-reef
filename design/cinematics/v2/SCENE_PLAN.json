@@ -1,0 +1,1858 @@
+{
+  "schema": "reef.grok.scene-plan.v2",
+  "revision": 2,
+  "scope": "Existing 36-shot plan repaired; not a claim of full game coverage or a completed film.",
+  "shots": [
+    {
+      "shot_id": "SHOT-ARRIVAL-TOUCHDOWN",
+      "event_id": "EV-D1-ARRIVE",
+      "sequence_position": 0,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Exterior ground-level three-quarter view facing the approved landing patch, bridge and castle; lake and open sky remain legible. Do not squeeze the full panorama into one screen or turn the air island underwater."
+      },
+      "before": "Roshan and Daddy remain seated in the approved two-seat plane above its landing patch",
+      "action": "The plane descends, makes visible ground contact and settles once; neither passenger exits",
+      "after": "Plane grounded and stationary; Roshan and Daddy still inside, not yet at the castle",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY"
+      ],
+      "room_state": {
+        "plane": "airborne_above_patch",
+        "passengers": "seated"
+      },
+      "end_room_state": {
+        "plane": "grounded_stationary",
+        "passengers": "seated"
+      },
+      "continuity": {
+        "kind": "new_setup",
+        "previous_shot_id": null,
+        "inherited_state": [
+          "Roshan and Daddy remain seated in the approved two-seat plane above its landing patch",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "The plane descends, makes visible ground contact and settles once; neither passenger exits"
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [],
+      "depends_on_events": [],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-BATH-SINK",
+      "event_id": "EV-D1-BATH",
+      "sequence_position": 1,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Centre-wall sink-height insert, retain the tub edge and mirror as anchors; Roshan beside sink, not a front-facing cutout in the middle of the room."
+      },
+      "before": "Correct sink fixture/task pending; prior completed surfaces remain clean",
+      "action": "Scrub central sink in circles; contact reveals clean patch.",
+      "after": "sink task visibly complete; other unfinished bathroom tasks remain",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "sink": "dirty",
+        "tub": "dirty",
+        "toilet": "dirty",
+        "drain": "closed_full"
+      },
+      "end_room_state": {
+        "sink": "clean",
+        "tub": "dirty",
+        "toilet": "dirty",
+        "drain": "closed_full"
+      },
+      "continuity": {
+        "kind": "new_setup",
+        "previous_shot_id": null,
+        "inherited_state": [
+          "Correct sink fixture/task pending; prior completed surfaces remain clean",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Scrub central sink in circles; contact reveals clean patch."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [],
+      "depends_on_events": [
+        "EV-D1-DISCOVER"
+      ],
+      "hold": true,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-BATH-TUB",
+      "event_id": "EV-D1-BATH",
+      "sequence_position": 2,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Known-wall left tub insert; retain sink edge on right, horizontal rim and visible waterline. No invented reverse wall."
+      },
+      "before": "Correct tub fixture/task pending; prior completed surfaces remain clean",
+      "action": "Scrub horizontal tub back and forth; clean stripe persists.",
+      "after": "tub task visibly complete; other unfinished bathroom tasks remain",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "sink": "clean",
+        "tub": "dirty",
+        "toilet": "dirty",
+        "drain": "closed_full"
+      },
+      "end_room_state": {
+        "sink": "clean",
+        "tub": "clean_full",
+        "toilet": "dirty",
+        "drain": "closed_full"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-BATH-SINK",
+        "inherited_state": [
+          "Correct tub fixture/task pending; prior completed surfaces remain clean",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Scrub horizontal tub back and forth; clean stripe persists."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-BATH-SINK"
+      ],
+      "depends_on_events": [
+        "EV-D1-DISCOVER"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-BATH-DRAIN",
+      "event_id": "EV-D1-BATH",
+      "sequence_position": 3,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Tighter same-wall view of the original outlet and full tub waterline; retain rim shape and Roshan contact. No empty-tub opening."
+      },
+      "before": "Sink clean; authored tub clean but full, original drain closed; toilet still dirty.",
+      "action": "Roshan engages the authored drain at visible contact; the waterline lowers continuously inside the existing tub.",
+      "after": "The same clean tub is drained with its original outlet open; sink stays clean and toilet stays dirty.",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "sink": "clean",
+        "tub": "clean_full",
+        "toilet": "dirty",
+        "drain": "about_to_open"
+      },
+      "end_room_state": {
+        "sink": "clean",
+        "tub": "clean_drained",
+        "toilet": "dirty",
+        "drain": "open"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-BATH-TUB",
+        "inherited_state": [
+          "Sink clean; authored tub clean but full, original drain closed; toilet still dirty.",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Roshan engages the authored drain at visible contact; the waterline lowers continuously inside the existing tub."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-BATH-TUB"
+      ],
+      "depends_on_events": [
+        "EV-D1-DISCOVER"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-BATH-TOILET",
+      "event_id": "EV-D1-BATH",
+      "sequence_position": 4,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Right-wall toilet insert retaining sink edge; existing pink toilet only, no new gold fittings."
+      },
+      "before": "Correct toilet fixture/task pending; prior completed surfaces remain clean",
+      "action": "Scrub right pink toilet; dirt visibly clears.",
+      "after": "toilet task visibly complete; other unfinished bathroom tasks remain",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "sink": "clean",
+        "tub": "clean_drained",
+        "toilet": "dirty",
+        "drain": "open"
+      },
+      "end_room_state": {
+        "sink": "clean",
+        "tub": "clean_drained",
+        "toilet": "clean",
+        "drain": "open"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-BATH-DRAIN",
+        "inherited_state": [
+          "Correct toilet fixture/task pending; prior completed surfaces remain clean",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Scrub right pink toilet; dirt visibly clears."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-BATH-DRAIN"
+      ],
+      "depends_on_events": [
+        "EV-D1-DISCOVER"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-POOL-SKIM",
+      "event_id": "EV-D1-SKIM",
+      "sequence_position": 5,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "From approved coping toward the left-centre waterfall and right seahorse. Move closer along this known view for contacts, preserving waterline and adjacent fixture; never add a separate fountain basin."
+      },
+      "before": "Litter in pool",
+      "action": "Net lifts litter while all fixed pool fixtures remain.",
+      "after": "Litter cleared",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "litter": "present",
+        "waterfall_lanes_clean": 0,
+        "plug": "lodged",
+        "seahorse": "dry"
+      },
+      "end_room_state": {
+        "litter": "cleared",
+        "waterfall_lanes_clean": 0,
+        "plug": "lodged",
+        "seahorse": "dry"
+      },
+      "continuity": {
+        "kind": "new_setup",
+        "previous_shot_id": null,
+        "inherited_state": [
+          "Litter in pool",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Net lifts litter while all fixed pool fixtures remain."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [],
+      "depends_on_events": [
+        "EV-D1-BATH"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-POOL-FALL-1",
+      "event_id": "EV-D1-FALL",
+      "sequence_position": 6,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "From approved coping toward the left-centre waterfall and right seahorse. Move closer along this known view for contacts, preserving waterline and adjacent fixture; never add a separate fountain basin."
+      },
+      "before": "0 waterfall lanes clean; remaining lanes slimed",
+      "action": "Scrub waterfall lane 1; restored earlier lanes persist.",
+      "after": "1 lanes flowing; seahorse plug still lodged",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "litter": "cleared",
+        "waterfall_lanes_clean": 0,
+        "plug": "lodged",
+        "seahorse": "dry"
+      },
+      "end_room_state": {
+        "litter": "cleared",
+        "waterfall_lanes_clean": 1,
+        "plug": "lodged",
+        "seahorse": "dry"
+      },
+      "continuity": {
+        "kind": "new_setup",
+        "previous_shot_id": null,
+        "inherited_state": [
+          "0 waterfall lanes clean; remaining lanes slimed",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Scrub waterfall lane 1; restored earlier lanes persist."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-POOL-SKIM"
+      ],
+      "depends_on_events": [
+        "EV-D1-SKIM"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-POOL-FALL-2",
+      "event_id": "EV-D1-FALL",
+      "sequence_position": 7,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "From approved coping toward the left-centre waterfall and right seahorse. Move closer along this known view for contacts, preserving waterline and adjacent fixture; never add a separate fountain basin."
+      },
+      "before": "1 waterfall lanes clean; remaining lanes slimed",
+      "action": "Scrub waterfall lane 2; restored earlier lanes persist.",
+      "after": "2 lanes flowing; seahorse plug still lodged",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "litter": "cleared",
+        "waterfall_lanes_clean": 1,
+        "plug": "lodged",
+        "seahorse": "dry"
+      },
+      "end_room_state": {
+        "litter": "cleared",
+        "waterfall_lanes_clean": 2,
+        "plug": "lodged",
+        "seahorse": "dry"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-POOL-FALL-1",
+        "inherited_state": [
+          "1 waterfall lanes clean; remaining lanes slimed",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Scrub waterfall lane 2; restored earlier lanes persist."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-POOL-FALL-1"
+      ],
+      "depends_on_events": [
+        "EV-D1-SKIM"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-POOL-FALL-3",
+      "event_id": "EV-D1-FALL",
+      "sequence_position": 8,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "From approved coping toward the left-centre waterfall and right seahorse. Move closer along this known view for contacts, preserving waterline and adjacent fixture; never add a separate fountain basin."
+      },
+      "before": "2 waterfall lanes clean; remaining lanes slimed",
+      "action": "Scrub waterfall lane 3; restored earlier lanes persist.",
+      "after": "3 lanes flowing; seahorse plug still lodged",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "litter": "cleared",
+        "waterfall_lanes_clean": 2,
+        "plug": "lodged",
+        "seahorse": "dry"
+      },
+      "end_room_state": {
+        "litter": "cleared",
+        "waterfall_lanes_clean": 3,
+        "plug": "lodged",
+        "seahorse": "dry"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-POOL-FALL-2",
+        "inherited_state": [
+          "2 waterfall lanes clean; remaining lanes slimed",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Scrub waterfall lane 3; restored earlier lanes persist."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-POOL-FALL-2"
+      ],
+      "depends_on_events": [
+        "EV-D1-SKIM"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-POOL-PULL",
+      "event_id": "EV-D1-PULL",
+      "sequence_position": 9,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "From approved coping toward the left-centre waterfall and right seahorse. Move closer along this known view for contacts, preserving waterline and adjacent fixture; never add a separate fountain basin."
+      },
+      "before": "All three waterfall lanes restored; the pink obstruction remains lodged in the purple seahorse mouth",
+      "action": "Roshan visibly grips the pink obstruction and pulls it clear once; fixture and coral pedestal stay fixed",
+      "after": "Pink obstruction held clear of the open mouth; seahorse remains dry at this cut",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "litter": "cleared",
+        "waterfall_lanes_clean": 3,
+        "plug": "lodged",
+        "seahorse": "dry"
+      },
+      "end_room_state": {
+        "litter": "cleared",
+        "waterfall_lanes_clean": 3,
+        "plug": "held_clear",
+        "seahorse": "dry"
+      },
+      "continuity": {
+        "kind": "new_setup",
+        "previous_shot_id": null,
+        "inherited_state": [
+          "All three waterfall lanes restored; the pink obstruction remains lodged in the purple seahorse mouth",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Roshan visibly grips the pink obstruction and pulls it clear once; fixture and coral pedestal stay fixed"
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-POOL-FALL-3"
+      ],
+      "depends_on_events": [
+        "EV-D1-FALL"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-EAGLE-FREE",
+      "event_id": "EV-D1-EAGLE",
+      "sequence_position": 10,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "From the dressed playroom front, retain shell seat/cubbies/toy bins/teepee as applicable to the approved view. Rescue inserts must retain one room anchor and both pin positions; no invented empty nursery."
+      },
+      "before": "Two ordinary dust bunnies hold the original-book Eagle in place; no metal pins.",
+      "action": "Roshan reaches each of the two pinning dust bunnies in sequence; each clears on contact, freeing Baby Eagle after the second.",
+      "after": "Both pinning bunnies are gone and one Baby Eagle is free; room props remain.",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-EAGLE",
+        "CHAR-PLAY-BUNNY"
+      ],
+      "room_state": {
+        "pinning_bunnies": 2,
+        "left_bunny": "holding_eagle",
+        "right_bunny": "holding_eagle",
+        "eagle": "restrained",
+        "hardware_pins": 0
+      },
+      "end_room_state": {
+        "pinning_bunnies": 0,
+        "left_bunny": "cleared",
+        "right_bunny": "cleared",
+        "eagle": "freed_settling",
+        "hardware_pins": 0
+      },
+      "continuity": {
+        "kind": "new_setup",
+        "previous_shot_id": null,
+        "inherited_state": [
+          "Two ordinary dust bunnies hold the original-book Eagle in place; no metal pins.",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Roshan reaches each of the two pinning dust bunnies in sequence; each clears on contact, freeing Baby Eagle after the second."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [],
+      "depends_on_events": [
+        "EV-D1-RUMI"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-EAGLE-WING",
+      "event_id": "EV-D1-EAGLE",
+      "sequence_position": 11,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "From the dressed playroom front, retain shell seat/cubbies/toy bins/teepee as applicable to the approved view. Rescue inserts must retain one room anchor and both pin positions; no invented empty nursery."
+      },
+      "before": "Eagle freed, both pins already removed",
+      "action": "Freed book-identity Eagle gives one wingbeat and settles.",
+      "after": "Eagle safe",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-EAGLE"
+      ],
+      "room_state": {
+        "pinning_bunnies": 0,
+        "left_bunny": "cleared",
+        "right_bunny": "cleared",
+        "eagle": "freed_settling",
+        "hardware_pins": 0
+      },
+      "end_room_state": {
+        "pinning_bunnies": 0,
+        "left_bunny": "cleared",
+        "right_bunny": "cleared",
+        "eagle": "safe_settled",
+        "hardware_pins": 0
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-EAGLE-FREE",
+        "inherited_state": [
+          "Eagle freed, both pins already removed",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Freed book-identity Eagle gives one wingbeat and settles."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-EAGLE-FREE"
+      ],
+      "depends_on_events": [
+        "EV-D1-RUMI"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-CRAFT-PICK-1",
+      "event_id": "EV-D1-SUPPLIES",
+      "sequence_position": 12,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Front-facing known wall. Left-front / rear-table / right-front inserts vary depth only. Collect brush bundle with visible hand contact; other supplies and rear worktable persist. Keep the neighboring counter/table as a depth anchor. A true alternate view requires approved turnaround; no repeated front-wide pretending to be new perspective."
+      },
+      "before": "0 of four supply groups collected; remaining supplies and rear table unchanged",
+      "action": "Collect brush bundle with visible hand contact; other supplies and rear worktable persist.",
+      "after": "1 of four supply groups collected; all furniture and other props persist",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "left_counter": "dirty",
+        "rear_table": "dirty",
+        "right_counter": "dirty",
+        "supplies": "in_progress",
+        "supply_groups_collected": 0
+      },
+      "end_room_state": {
+        "left_counter": "dirty",
+        "rear_table": "dirty",
+        "right_counter": "dirty",
+        "supplies": "in_progress",
+        "supply_groups_collected": 1
+      },
+      "continuity": {
+        "kind": "new_setup",
+        "previous_shot_id": null,
+        "inherited_state": [
+          "0 of four supply groups collected; remaining supplies and rear table unchanged",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Collect brush bundle with visible hand contact; other supplies and rear worktable persist."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [],
+      "depends_on_events": [
+        "EV-D1-EAGLE"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-CRAFT-PICK-2",
+      "event_id": "EV-D1-SUPPLIES",
+      "sequence_position": 13,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Front-facing known wall. Left-front / rear-table / right-front inserts vary depth only. Collect pink paint with visible hand contact; other supplies and rear worktable persist. Keep the neighboring counter/table as a depth anchor. A true alternate view requires approved turnaround; no repeated front-wide pretending to be new perspective."
+      },
+      "before": "1 of four supply groups collected; remaining supplies and rear table unchanged",
+      "action": "Collect pink paint with visible hand contact; other supplies and rear worktable persist.",
+      "after": "2 of four supply groups collected; all furniture and other props persist",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "left_counter": "dirty",
+        "rear_table": "dirty",
+        "right_counter": "dirty",
+        "supplies": "in_progress",
+        "supply_groups_collected": 1
+      },
+      "end_room_state": {
+        "left_counter": "dirty",
+        "rear_table": "dirty",
+        "right_counter": "dirty",
+        "supplies": "in_progress",
+        "supply_groups_collected": 2
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-CRAFT-PICK-1",
+        "inherited_state": [
+          "1 of four supply groups collected; remaining supplies and rear table unchanged",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Collect pink paint with visible hand contact; other supplies and rear worktable persist."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-CRAFT-PICK-1"
+      ],
+      "depends_on_events": [
+        "EV-D1-EAGLE"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-CRAFT-PICK-3",
+      "event_id": "EV-D1-SUPPLIES",
+      "sequence_position": 14,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Front-facing known wall. Left-front / rear-table / right-front inserts vary depth only. Collect blue paint with visible hand contact; other supplies and rear worktable persist. Keep the neighboring counter/table as a depth anchor. A true alternate view requires approved turnaround; no repeated front-wide pretending to be new perspective."
+      },
+      "before": "2 of four supply groups collected; remaining supplies and rear table unchanged",
+      "action": "Collect blue paint with visible hand contact; other supplies and rear worktable persist.",
+      "after": "3 of four supply groups collected; all furniture and other props persist",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "left_counter": "dirty",
+        "rear_table": "dirty",
+        "right_counter": "dirty",
+        "supplies": "in_progress",
+        "supply_groups_collected": 2
+      },
+      "end_room_state": {
+        "left_counter": "dirty",
+        "rear_table": "dirty",
+        "right_counter": "dirty",
+        "supplies": "in_progress",
+        "supply_groups_collected": 3
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-CRAFT-PICK-2",
+        "inherited_state": [
+          "2 of four supply groups collected; remaining supplies and rear table unchanged",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Collect blue paint with visible hand contact; other supplies and rear worktable persist."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-CRAFT-PICK-2"
+      ],
+      "depends_on_events": [
+        "EV-D1-EAGLE"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-CRAFT-PICK-4",
+      "event_id": "EV-D1-SUPPLIES",
+      "sequence_position": 15,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Front-facing known wall. Left-front / rear-table / right-front inserts vary depth only. Collect paint cups with visible hand contact; other supplies and rear worktable persist. Keep the neighboring counter/table as a depth anchor. A true alternate view requires approved turnaround; no repeated front-wide pretending to be new perspective."
+      },
+      "before": "3 of four supply groups collected; remaining supplies and rear table unchanged",
+      "action": "Collect paint cups with visible hand contact; other supplies and rear worktable persist.",
+      "after": "4 of four supply groups collected; all furniture and other props persist",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "left_counter": "dirty",
+        "rear_table": "dirty",
+        "right_counter": "dirty",
+        "supplies": "in_progress",
+        "supply_groups_collected": 3
+      },
+      "end_room_state": {
+        "left_counter": "dirty",
+        "rear_table": "dirty",
+        "right_counter": "dirty",
+        "supplies": "collected",
+        "supply_groups_collected": 4
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-CRAFT-PICK-3",
+        "inherited_state": [
+          "3 of four supply groups collected; remaining supplies and rear table unchanged",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Collect paint cups with visible hand contact; other supplies and rear worktable persist."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-CRAFT-PICK-3"
+      ],
+      "depends_on_events": [
+        "EV-D1-EAGLE"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-CRAFT-SCRUB-1",
+      "event_id": "EV-D1-ARTCLEAN",
+      "sequence_position": 16,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Front-facing known wall. Left-front / rear-table / right-front inserts vary depth only. Scrub left curved counter; contact removes grime and clean area persists. Keep the neighboring counter/table as a depth anchor. A true alternate view requires approved turnaround; no repeated front-wide pretending to be new perspective."
+      },
+      "before": "Four supplies collected; 0 of three grime surfaces clean",
+      "action": "Scrub left curved counter; contact removes grime and clean area persists.",
+      "after": "1 surfaces clean; earlier clean areas persist; remaining grime stays",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "left_counter": "dirty",
+        "rear_table": "dirty",
+        "right_counter": "dirty",
+        "supplies": "collected"
+      },
+      "end_room_state": {
+        "left_counter": "clean",
+        "rear_table": "dirty",
+        "right_counter": "dirty",
+        "supplies": "collected"
+      },
+      "continuity": {
+        "kind": "new_setup",
+        "previous_shot_id": null,
+        "inherited_state": [
+          "Four supplies collected; 0 of three grime surfaces clean",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Scrub left curved counter; contact removes grime and clean area persists."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-CRAFT-PICK-4"
+      ],
+      "depends_on_events": [
+        "EV-D1-SUPPLIES"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-CRAFT-SCRUB-2",
+      "event_id": "EV-D1-ARTCLEAN",
+      "sequence_position": 17,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Front-facing known wall. Left-front / rear-table / right-front inserts vary depth only. Scrub small stocked rear worktable; contact removes grime and clean area persists. Keep the neighboring counter/table as a depth anchor. A true alternate view requires approved turnaround; no repeated front-wide pretending to be new perspective."
+      },
+      "before": "Four supplies collected; 1 of three grime surfaces clean",
+      "action": "Scrub small stocked rear worktable; contact removes grime and clean area persists.",
+      "after": "2 surfaces clean; earlier clean areas persist; remaining grime stays",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "left_counter": "clean",
+        "rear_table": "dirty",
+        "right_counter": "dirty",
+        "supplies": "collected"
+      },
+      "end_room_state": {
+        "left_counter": "clean",
+        "rear_table": "clean",
+        "right_counter": "dirty",
+        "supplies": "collected"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-CRAFT-SCRUB-1",
+        "inherited_state": [
+          "Four supplies collected; 1 of three grime surfaces clean",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Scrub small stocked rear worktable; contact removes grime and clean area persists."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-CRAFT-SCRUB-1"
+      ],
+      "depends_on_events": [
+        "EV-D1-SUPPLIES"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-CRAFT-SCRUB-3",
+      "event_id": "EV-D1-ARTCLEAN",
+      "sequence_position": 18,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Front-facing known wall. Left-front / rear-table / right-front inserts vary depth only. Scrub right curved counter; contact removes grime and clean area persists. Keep the neighboring counter/table as a depth anchor. A true alternate view requires approved turnaround; no repeated front-wide pretending to be new perspective."
+      },
+      "before": "Four supplies collected; 2 of three grime surfaces clean",
+      "action": "Scrub right curved counter; contact removes grime and clean area persists.",
+      "after": "3 surfaces clean; earlier clean areas persist; desk unlocks",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "left_counter": "clean",
+        "rear_table": "clean",
+        "right_counter": "dirty",
+        "supplies": "collected"
+      },
+      "end_room_state": {
+        "left_counter": "clean",
+        "rear_table": "clean",
+        "right_counter": "clean",
+        "supplies": "collected"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-CRAFT-SCRUB-2",
+        "inherited_state": [
+          "Four supplies collected; 2 of three grime surfaces clean",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Scrub right curved counter; contact removes grime and clean area persists."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-CRAFT-SCRUB-2"
+      ],
+      "depends_on_events": [
+        "EV-D1-SUPPLIES"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-CRAFT-CUSTOMIZE",
+      "event_id": "EV-D1-CUSTOMIZE",
+      "sequence_position": 19,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Front-facing known wall. Left-front / rear-table / right-front inserts vary depth only. Roshan makes one authored colour choice at the existing worktable, with visible hand contact Keep the neighboring counter/table as a depth anchor. A true alternate view requires approved turnaround; no repeated front-wide pretending to be new perspective."
+      },
+      "before": "Four supplies collected and all three surfaces clean; small stocked rear worktable unlocked",
+      "action": "Roshan makes one authored colour choice at the existing worktable, with visible hand contact",
+      "after": "That one choice is visibly selected; the table, supplies and prior cleaning remain intact",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "left_counter": "clean",
+        "rear_table": "clean",
+        "right_counter": "clean",
+        "supplies": "collected"
+      },
+      "end_room_state": {
+        "left_counter": "clean",
+        "rear_table": "clean",
+        "right_counter": "clean",
+        "supplies": "collected"
+      },
+      "continuity": {
+        "kind": "new_setup",
+        "previous_shot_id": null,
+        "inherited_state": [
+          "Four supplies collected and all three surfaces clean; small stocked rear worktable unlocked",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Roshan makes one authored colour choice at the existing worktable, with visible hand contact"
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-CRAFT-SCRUB-3"
+      ],
+      "depends_on_events": [
+        "EV-D1-ARTCLEAN"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-BUNNY-SOAP",
+      "event_id": "EV-D1-SOAP",
+      "sequence_position": 20,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Stone attic ground plane with two ocean windows, columns, banners, chests, shelf and low shell light. Ensemble medium-wide retains brush contacts and bunny ears. Lower contact/reveal setup may vary height, but cannot move windows or substitute a wooden room."
+      },
+      "before": "Big bunny own form and ears visible; little bunny hidden",
+      "action": "Four helpers scrub intact big bunny; wet lather expands until outline is hidden. Little bunny entirely hidden.",
+      "after": "Foam hides body and ears; little bunny still hidden",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-PUFF"
+      ],
+      "room_state": {
+        "giant": "intact_visible",
+        "foam": "initial_contact",
+        "rainbow_friend": "hidden",
+        "windows": 2
+      },
+      "end_room_state": {
+        "giant": "hidden_by_foam",
+        "foam": "opaque",
+        "rainbow_friend": "hidden",
+        "windows": 2
+      },
+      "continuity": {
+        "kind": "new_setup",
+        "previous_shot_id": null,
+        "inherited_state": [
+          "Big bunny own form and ears visible; little bunny hidden",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Four helpers scrub intact big bunny; wet lather expands until outline is hidden. Little bunny entirely hidden."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [],
+      "depends_on_events": [
+        "EV-D1-PUFF"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-BUNNY-JUMP",
+      "event_id": "EV-D1-JUMP",
+      "sequence_position": 21,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Stone attic ground plane with two ocean windows, columns, banners, chests, shelf and low shell light. Ensemble medium-wide retains brush contacts and bunny ears. Lower contact/reveal setup may vary height, but cannot move windows or substitute a wooden room."
+      },
+      "before": "Foam-covered old casing",
+      "action": "Concept rainbow bunny jumps into view as old casing collapses simultaneously.",
+      "after": "Little bunny airborne; old casing collapsing",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW",
+        "CHAR-PUFF"
+      ],
+      "room_state": {
+        "giant": "hidden_by_foam",
+        "foam": "opaque",
+        "rainbow_friend": "hidden",
+        "windows": 2
+      },
+      "end_room_state": {
+        "giant": "no_intact_form_collapsing_residue",
+        "foam": "dissipating",
+        "rainbow_friend": "airborne",
+        "windows": 2
+      },
+      "continuity": {
+        "kind": "continuous_action",
+        "previous_shot_id": "SHOT-BUNNY-SOAP",
+        "inherited_state": [
+          "Foam-covered old casing",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Concept rainbow bunny jumps into view as old casing collapses simultaneously."
+        ],
+        "previous_end_sha256": null
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-BUNNY-SOAP"
+      ],
+      "depends_on_events": [
+        "EV-D1-SOAP"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-BUNNY-LAND",
+      "event_id": "EV-D1-LAND",
+      "sequence_position": 22,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Stone attic ground plane with two ocean windows, columns, banners, chests, shelf and low shell light. Ensemble medium-wide retains brush contacts and bunny ears. Lower contact/reveal setup may vary height, but cannot move windows or substitute a wooden room."
+      },
+      "before": "Little bunny airborne; dust falling",
+      "action": "Continue trajectory through ground contact; dust scatters and thins for remaining seconds.",
+      "after": "Friend grounded; no intact old shell",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW"
+      ],
+      "room_state": {
+        "giant": "no_intact_form_collapsing_residue",
+        "foam": "dissipating",
+        "rainbow_friend": "airborne",
+        "windows": 2
+      },
+      "end_room_state": {
+        "giant": "gone",
+        "foam": "thinned_dust_settles",
+        "rainbow_friend": "grounded_happy",
+        "windows": 2
+      },
+      "continuity": {
+        "kind": "continuous_action",
+        "previous_shot_id": "SHOT-BUNNY-JUMP",
+        "inherited_state": [
+          "Little bunny airborne; dust falling",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Continue trajectory through ground contact; dust scatters and thins for remaining seconds."
+        ],
+        "previous_end_sha256": null
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-BUNNY-JUMP"
+      ],
+      "depends_on_events": [
+        "EV-D1-JUMP"
+      ],
+      "hold": true,
+      "original_hold_reason": "HOLD until SHOT-BUNNY-JUMP endpoint is owner-hashed; MISSING_STONE_ATTIC_INTERIOR_EMPTY_PLATE; GAP-RAINBOW-IDENTITY — do not bind contact sheet; Human-approved first frame missing (opening_approved=false)"
+    },
+    {
+      "shot_id": "SHOT-TEAM-PAPER",
+      "event_id": "EV-D1-TEAM",
+      "sequence_position": 23,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Inside the plain lavender hall, camera on the established runner axis; keep a recognizable gold column and the correct small themed doorway as anchors. An oblique insert must join the same wall, not invent a palace or reorder doors."
+      },
+      "before": "Hall still dirty",
+      "action": "Pick up paper in actual plain lavender hall; paper stays collected.",
+      "after": "This local cleanup target complete; other unfinished targets remain",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW"
+      ],
+      "room_state": {
+        "paper": "present",
+        "web": "present",
+        "wall_stain": "present",
+        "hall": "dirty"
+      },
+      "end_room_state": {
+        "paper": "collected",
+        "web": "present",
+        "wall_stain": "present",
+        "hall": "dirty"
+      },
+      "continuity": {
+        "kind": "new_setup",
+        "previous_shot_id": null,
+        "inherited_state": [
+          "Hall still dirty",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Pick up paper in actual plain lavender hall; paper stays collected."
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [],
+      "depends_on_events": [
+        "EV-D1-LAND"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-TEAM-WEB",
+      "event_id": "EV-D1-TEAM",
+      "sequence_position": 24,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Inside the plain lavender hall, camera on the established runner axis; keep a recognizable gold column and the correct small themed doorway as anchors. An oblique insert must join the same wall, not invent a palace or reorder doors."
+      },
+      "before": "Previously collected hall paper stays collected; the selected web and unsolved wall stain remain",
+      "action": "The held duster meets and gathers the selected web while the other helpers make small coordinated supporting actions",
+      "after": "That web is gathered on the duster; paper stays collected, wall stain remains",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW"
+      ],
+      "room_state": {
+        "paper": "collected",
+        "web": "present",
+        "wall_stain": "present",
+        "hall": "dirty"
+      },
+      "end_room_state": {
+        "paper": "collected",
+        "web": "cleared",
+        "wall_stain": "present",
+        "hall": "dirty"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-TEAM-PAPER",
+        "inherited_state": [
+          "Previously collected hall paper stays collected; the selected web and unsolved wall stain remain",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "The held duster meets and gathers the selected web while the other helpers make small coordinated supporting actions"
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-TEAM-PAPER"
+      ],
+      "depends_on_events": [
+        "EV-D1-LAND"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-TEAM-WALL",
+      "event_id": "EV-D1-TEAM",
+      "sequence_position": 25,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Inside the plain lavender hall, camera on the established runner axis; keep a recognizable gold column and the correct small themed doorway as anchors. An oblique insert must join the same wall, not invent a palace or reorder doors."
+      },
+      "before": "Paper and selected web have been cleared; the named wall stain remains",
+      "action": "Sponge contact visibly lifts the stain while the group cooperates; unrelated architecture remains fixed",
+      "after": "The named stain is clean; earlier cleared paper/web do not reappear",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW"
+      ],
+      "room_state": {
+        "paper": "collected",
+        "web": "cleared",
+        "wall_stain": "present",
+        "hall": "dirty"
+      },
+      "end_room_state": {
+        "paper": "collected",
+        "web": "cleared",
+        "wall_stain": "clean",
+        "hall": "clean"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-TEAM-WEB",
+        "inherited_state": [
+          "Paper and selected web have been cleared; the named wall stain remains",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Sponge contact visibly lifts the stain while the group cooperates; unrelated architecture remains fixed"
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-TEAM-WEB"
+      ],
+      "depends_on_events": [
+        "EV-D1-LAND"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-TEAM-FINISH",
+      "event_id": "EV-D1-TEAM",
+      "sequence_position": 26,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "Inside the plain lavender hall, camera on the established runner axis; keep a recognizable gold column and the correct small themed doorway as anchors. An oblique insert must join the same wall, not invent a palace or reorder doors."
+      },
+      "before": "All required hall cleanup has already completed; four helpers and the new rainbow friend are together",
+      "action": "The group settles and notices the same now-clean hall; one restrained sparkle acknowledges completed work",
+      "after": "Same architecture fully clean, all four helpers and exactly one small rainbow friend at rest; no giant bunny",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW"
+      ],
+      "room_state": {
+        "paper": "collected",
+        "web": "cleared",
+        "wall_stain": "clean",
+        "hall": "clean"
+      },
+      "end_room_state": {
+        "paper": "collected",
+        "web": "cleared",
+        "wall_stain": "clean",
+        "hall": "clean"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-TEAM-WALL",
+        "inherited_state": [
+          "All required hall cleanup has already completed; four helpers and the new rainbow friend are together",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "The group settles and notices the same now-clean hall; one restrained sparkle acknowledges completed work"
+        ]
+      },
+      "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+      "depends_on": [
+        "SHOT-TEAM-WALL",
+        "SHOT-TEAM-PAPER",
+        "SHOT-TEAM-WEB"
+      ],
+      "depends_on_events": [
+        "EV-D1-LAND"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-C2-01",
+      "event_id": "EV-C2-01",
+      "sequence_position": 27,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "One playable middle lawn patch in the Sky Lagoon panorama; retain lake/mountain/bridge orientation and earned-object table. Never shrink the entire multi-screen landscape into the camera view. King/Roshan scale remains a staging proposal."
+      },
+      "before": "Eight careers are complete; their earned objects reach the birthday lawn. The candle is unlit and the royals have not arrived.",
+      "action": "friends settle around the completed birthday table wearing their party hats",
+      "after": "all friends are together around the six-tier cake",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE"
+      ],
+      "room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "unlit_in_holder",
+        "royals": "offscreen_not_arrived",
+        "shelter": "not_yet_earned"
+      },
+      "end_room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "unlit_in_holder",
+        "royals": "offscreen_not_arrived",
+        "shelter": "not_yet_earned"
+      },
+      "continuity": {
+        "kind": "new_setup",
+        "previous_shot_id": null,
+        "inherited_state": [
+          "Eight careers are complete; their earned objects reach the birthday lawn. The candle is unlit and the royals have not arrived.",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "friends settle around the completed birthday table wearing their party hats"
+        ]
+      },
+      "game_prerequisite": "All eight careers completed and earned objects preserved; three successful playable protection rounds precede SHOT-C2-06 and theft.",
+      "depends_on": [],
+      "depends_on_events": [
+        "EV-C2-JOB-FARMER",
+        "EV-C2-JOB-CHEF",
+        "EV-C2-JOB-CANDYMAKER",
+        "EV-C2-JOB-PAINTER",
+        "EV-C2-JOB-BALLERINA",
+        "EV-C2-JOB-POPSTAR",
+        "EV-C2-JOB-ASTRONAUT",
+        "EV-C2-JOB-DETECTIVE"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-C2-02",
+      "event_id": "EV-C2-02",
+      "sequence_position": 28,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "One playable middle lawn patch in the Sky Lagoon panorama; retain lake/mountain/bridge orientation and earned-object table. Never shrink the entire multi-screen landscape into the camera view. King/Roshan scale remains a staging proposal."
+      },
+      "before": "Friends have gathered; the single candle is unlit on the intact six-tier cake and the completed rocket is parked beside it.",
+      "action": "Roshan taps the finished rocket; its tiny light reaches the candle wick",
+      "after": "the single rainbow candle shines while the cake stays still",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "unlit_in_holder",
+        "royals": "offscreen_not_arrived",
+        "shelter": "not_yet_earned"
+      },
+      "end_room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "lit_in_holder",
+        "royals": "offscreen_not_arrived",
+        "shelter": "not_yet_earned"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-C2-01",
+        "inherited_state": [
+          "Friends have gathered; the single candle is unlit on the intact six-tier cake and the completed rocket is parked beside it.",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Roshan taps the finished rocket; its tiny light reaches the candle wick"
+        ]
+      },
+      "game_prerequisite": "All eight careers completed and earned objects preserved; three successful playable protection rounds precede SHOT-C2-06 and theft.",
+      "depends_on": [
+        "SHOT-C2-01"
+      ],
+      "depends_on_events": [
+        "EV-C2-01"
+      ],
+      "hold": true,
+      "original_hold_reason": "HOLD — rocket ignition is provisional owner direction, not canon; NO_APPROVED_LANDING_OR_LAWN_PATCH_STILL; Human-approved first frame missing (opening_approved=false)"
+    },
+    {
+      "shot_id": "SHOT-C2-03",
+      "event_id": "EV-C2-03",
+      "sequence_position": 29,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "One playable middle lawn patch in the Sky Lagoon panorama; retain lake/mountain/bridge orientation and earned-object table. Never shrink the entire multi-screen landscape into the camera view. King/Roshan scale remains a staging proposal."
+      },
+      "before": "The candle is lit; the party and earned objects remain on the lawn. Neither royal has entered yet.",
+      "action": "the King strides into the lawn; his son follows one step behind",
+      "after": "both royals stand at the lawn edge facing the party",
+      "exact_cast": [
+        "CHAR-KING",
+        "CHAR-PRINCE"
+      ],
+      "room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "lit_in_holder",
+        "royals": "offscreen_not_arrived",
+        "shelter": "not_yet_earned"
+      },
+      "end_room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "lit_in_holder",
+        "royals": "at_lawn_edge",
+        "shelter": "not_yet_earned"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-C2-02",
+        "inherited_state": [
+          "The candle is lit; the party and earned objects remain on the lawn. Neither royal has entered yet.",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "the King strides into the lawn; his son follows one step behind"
+        ]
+      },
+      "game_prerequisite": "All eight careers completed and earned objects preserved; three successful playable protection rounds precede SHOT-C2-06 and theft.",
+      "depends_on": [
+        "SHOT-C2-02"
+      ],
+      "depends_on_events": [
+        "EV-C2-02"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-C2-04",
+      "event_id": "EV-C2-04",
+      "sequence_position": 30,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "One playable middle lawn patch in the Sky Lagoon panorama; retain lake/mountain/bridge orientation and earned-object table. Never shrink the entire multi-screen landscape into the camera view. King/Roshan scale remains a staging proposal."
+      },
+      "before": "King and Prince have reached the lawn edge; Roshan faces them beside the party.",
+      "action": "Roshan offers a welcoming hand; the King plants himself between her and the Prince",
+      "after": "the King faces Roshan while the Prince watches his father",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-KING",
+        "CHAR-PRINCE"
+      ],
+      "room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "lit_in_holder",
+        "royals": "at_lawn_edge",
+        "shelter": "not_yet_earned"
+      },
+      "end_room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "lit_in_holder",
+        "royals": "at_lawn_edge",
+        "shelter": "not_yet_earned"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-C2-03",
+        "inherited_state": [
+          "King and Prince have reached the lawn edge; Roshan faces them beside the party.",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Roshan offers a welcoming hand; the King plants himself between her and the Prince"
+        ]
+      },
+      "game_prerequisite": "All eight careers completed and earned objects preserved; three successful playable protection rounds precede SHOT-C2-06 and theft.",
+      "depends_on": [
+        "SHOT-C2-03"
+      ],
+      "depends_on_events": [
+        "EV-C2-03"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-C2-05",
+      "event_id": "EV-C2-05",
+      "sequence_position": 31,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "One playable middle lawn patch in the Sky Lagoon panorama; retain lake/mountain/bridge orientation and earned-object table. Never shrink the entire multi-screen landscape into the camera view. King/Roshan scale remains a staging proposal."
+      },
+      "before": "The King has rejected the invitation and demands the light; Roshan chooses to protect her friends.",
+      "action": "the King raises one foot and completes one slow sulky stomp with a warm ground puff",
+      "after": "his foot is planted and the warm puff has settled",
+      "exact_cast": [
+        "CHAR-KING"
+      ],
+      "room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "lit_in_holder",
+        "royals": "at_lawn_edge",
+        "shelter": "not_yet_earned"
+      },
+      "end_room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "lit_in_holder",
+        "royals": "at_lawn_edge",
+        "shelter": "not_yet_earned"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-C2-04",
+        "inherited_state": [
+          "The King has rejected the invitation and demands the light; Roshan chooses to protect her friends.",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "the King raises one foot and completes one slow sulky stomp with a warm ground puff"
+        ]
+      },
+      "game_prerequisite": "All eight careers completed and earned objects preserved; three successful playable protection rounds precede SHOT-C2-06 and theft.",
+      "depends_on": [
+        "SHOT-C2-04"
+      ],
+      "depends_on_events": [
+        "EV-C2-04"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-C2-06",
+      "event_id": "EV-C2-06",
+      "sequence_position": 32,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "One playable middle lawn patch in the Sky Lagoon panorama; retain lake/mountain/bridge orientation and earned-object table. Never shrink the entire multi-screen landscape into the camera view. King/Roshan scale remains a staging proposal."
+      },
+      "before": "Three successful playable rounds have completed and saved the rainbow shelter around the friends and cake.",
+      "action": "Roshan turns to her friends under their completed rainbow shelter",
+      "after": "her friends are safe and Roshan holds a relieved smile",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE"
+      ],
+      "room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "lit_in_holder",
+        "royals": "present_outside_shelter",
+        "shelter": "completed_after_three_successful_playable_rounds"
+      },
+      "end_room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "lit_in_holder",
+        "royals": "present_outside_shelter",
+        "shelter": "completed_after_three_successful_playable_rounds"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-C2-05",
+        "inherited_state": [
+          "Three successful playable rounds have completed and saved the rainbow shelter around the friends and cake.",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Roshan turns to her friends under their completed rainbow shelter"
+        ]
+      },
+      "game_prerequisite": "All eight careers completed and earned objects preserved; three successful playable protection rounds precede SHOT-C2-06 and theft.",
+      "depends_on": [
+        "SHOT-C2-05"
+      ],
+      "depends_on_events": [
+        "EV-C2-PROTECT"
+      ],
+      "hold": true,
+      "original_hold_reason": "HOLD — depends on three real protection rounds; film cannot invent victory; NO_APPROVED_LANDING_OR_LAWN_PATCH_STILL; Human-approved first frame missing (opening_approved=false)"
+    },
+    {
+      "shot_id": "SHOT-C2-07",
+      "event_id": "EV-C2-07",
+      "sequence_position": 33,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "One playable middle lawn patch in the Sky Lagoon panorama; retain lake/mountain/bridge orientation and earned-object table. Never shrink the entire multi-screen landscape into the camera view. King/Roshan scale remains a staging proposal."
+      },
+      "before": "The protection challenge is won; the shelter holds and the single lit candle remains on the intact cake.",
+      "action": "the King reaches around the finished shelter and takes the candle from its holder",
+      "after": "the lit candle is in his hand; the whole cake remains on the table",
+      "exact_cast": [
+        "CHAR-KING"
+      ],
+      "room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "lit_in_holder",
+        "royals": "present_outside_shelter",
+        "shelter": "completed_after_three_successful_playable_rounds"
+      },
+      "end_room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "lit_carried_by_king",
+        "royals": "present_outside_shelter",
+        "shelter": "completed_after_three_successful_playable_rounds",
+        "candle_holder": "empty"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-C2-06",
+        "inherited_state": [
+          "The protection challenge is won; the shelter holds and the single lit candle remains on the intact cake.",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "the King reaches around the finished shelter and takes the candle from its holder"
+        ]
+      },
+      "game_prerequisite": "All eight careers completed and earned objects preserved; three successful playable protection rounds precede SHOT-C2-06 and theft.",
+      "depends_on": [
+        "SHOT-C2-06"
+      ],
+      "depends_on_events": [
+        "EV-C2-06"
+      ],
+      "hold": true,
+      "original_hold_reason": "HOLD — candle take is after success; do not generate until C2-06 exists; NO_APPROVED_LANDING_OR_LAWN_PATCH_STILL; Human-approved first frame missing (opening_approved=false)"
+    },
+    {
+      "shot_id": "SHOT-C2-08",
+      "event_id": "EV-C2-08",
+      "sequence_position": 34,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "One playable middle lawn patch in the Sky Lagoon panorama; retain lake/mountain/bridge orientation and earned-object table. Never shrink the entire multi-screen landscape into the camera view. King/Roshan scale remains a staging proposal."
+      },
+      "before": "The King holds the stolen lit candle; the cake remains intact with its empty candle socket.",
+      "action": "the King leaves carrying the candle; the Prince follows after a sorry glance toward Roshan",
+      "after": "both royals have left the lawn together with the candle",
+      "exact_cast": [
+        "CHAR-KING",
+        "CHAR-PRINCE"
+      ],
+      "room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "lit_carried_by_king",
+        "royals": "present_outside_shelter",
+        "shelter": "completed_after_three_successful_playable_rounds"
+      },
+      "end_room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "absent_stolen",
+        "royals": "departed",
+        "shelter": "completed_after_three_successful_playable_rounds",
+        "candle_holder": "empty"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-C2-07",
+        "inherited_state": [
+          "The King holds the stolen lit candle; the cake remains intact with its empty candle socket.",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "the King leaves carrying the candle; the Prince follows after a sorry glance toward Roshan"
+        ]
+      },
+      "game_prerequisite": "All eight careers completed and earned objects preserved; three successful playable protection rounds precede SHOT-C2-06 and theft.",
+      "depends_on": [
+        "SHOT-C2-07"
+      ],
+      "depends_on_events": [
+        "EV-C2-07"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    },
+    {
+      "shot_id": "SHOT-C2-09",
+      "event_id": "EV-C2-09",
+      "sequence_position": 35,
+      "camera": {
+        "verb": "locked",
+        "move_count": 0,
+        "address": "One playable middle lawn patch in the Sky Lagoon panorama; retain lake/mountain/bridge orientation and earned-object table. Never shrink the entire multi-screen landscape into the camera view. King/Roshan scale remains a staging proposal."
+      },
+      "before": "Both royals have left with the candle; Roshan and her friends remain with the intact party objects and empty socket.",
+      "action": "Roshan looks at the empty holder, then accepts her friends gathering beside her",
+      "after": "Roshan and her friends stand together, ready to find their light",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE"
+      ],
+      "room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "absent_stolen",
+        "royals": "departed",
+        "shelter": "completed_after_three_successful_playable_rounds",
+        "candle_holder": "empty"
+      },
+      "end_room_state": {
+        "cake_tiers": 6,
+        "cake": "intact_finished",
+        "candied_strawberries": 5,
+        "earned_objects": "all_eight_careers_complete_preserved",
+        "rocket": "parked_complete",
+        "candle": "absent_stolen",
+        "royals": "departed",
+        "shelter": "completed_after_three_successful_playable_rounds",
+        "candle_holder": "empty"
+      },
+      "continuity": {
+        "kind": "authored_cut",
+        "previous_shot_id": "SHOT-C2-08",
+        "inherited_state": [
+          "Both royals have left with the candle; Roshan and her friends remain with the intact party objects and empty socket.",
+          "Prior completed work remains completed."
+        ],
+        "allowed_changes": [
+          "Roshan looks at the empty holder, then accepts her friends gathering beside her"
+        ]
+      },
+      "game_prerequisite": "All eight careers completed and earned objects preserved; three successful playable protection rounds precede SHOT-C2-06 and theft.",
+      "depends_on": [
+        "SHOT-C2-08"
+      ],
+      "depends_on_events": [
+        "EV-C2-08"
+      ],
+      "hold": false,
+      "original_hold_reason": null
+    }
+  ]
+}

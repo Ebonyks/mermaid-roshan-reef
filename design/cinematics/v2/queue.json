@@ -1,0 +1,557 @@
+{
+  "schema": "reef.grok.queue.v2",
+  "revision": 2,
+  "rule": "Planner routes one published request. No batch generation is authorized by this queue.",
+  "ordered": [
+    {
+      "shot_id": "SHOT-ARRIVAL-TOUCHDOWN",
+      "location_id": "LOC-SKY",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-SKY-LANDING-STILL",
+      "bind_count": 4,
+      "attempts_used": 1
+    },
+    {
+      "shot_id": "SHOT-BATH-SINK",
+      "location_id": "LOC-BATH",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": true,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; ATTEMPT_CAP_REACHED_OWNER_EXCEPTION_REQUIRED",
+      "bind_count": 3,
+      "attempts_used": 6
+    },
+    {
+      "shot_id": "SHOT-BATH-TUB",
+      "location_id": "LOC-BATH",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+      "bind_count": 3,
+      "attempts_used": 1
+    },
+    {
+      "shot_id": "SHOT-BATH-DRAIN",
+      "location_id": "LOC-BATH",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+      "bind_count": 2,
+      "attempts_used": 1
+    },
+    {
+      "shot_id": "SHOT-BATH-TOILET",
+      "location_id": "LOC-BATH",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+      "bind_count": 3,
+      "attempts_used": 1
+    },
+    {
+      "shot_id": "SHOT-POOL-SKIM",
+      "location_id": "LOC-POOL",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-POOL-EMPTY-DIRTY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-POOL-FALL-1",
+      "location_id": "LOC-POOL",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-POOL-EMPTY-DIRTY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-POOL-FALL-2",
+      "location_id": "LOC-POOL",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-POOL-EMPTY-DIRTY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-POOL-FALL-3",
+      "location_id": "LOC-POOL",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-POOL-EMPTY-DIRTY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-POOL-PULL",
+      "location_id": "LOC-POOL",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-POOL-EMPTY-DIRTY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-EAGLE-FREE",
+      "location_id": "LOC-STUFFIE",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-EAGLE",
+        "CHAR-PLAY-BUNNY"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-EAGLE-WING",
+      "location_id": "LOC-STUFFIE",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-EAGLE"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+      "bind_count": 3,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-CRAFT-PICK-1",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-CRAFT-EMPTY-DIRTY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-CRAFT-PICK-2",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-CRAFT-EMPTY-DIRTY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-CRAFT-PICK-3",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-CRAFT-EMPTY-DIRTY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-CRAFT-PICK-4",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-CRAFT-EMPTY-DIRTY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-CRAFT-SCRUB-1",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-CRAFT-EMPTY-DIRTY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-CRAFT-SCRUB-2",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-CRAFT-EMPTY-DIRTY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-CRAFT-SCRUB-3",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-CRAFT-EMPTY-DIRTY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-CRAFT-CUSTOMIZE",
+      "location_id": "LOC-ART",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-BUNNY-SOAP",
+      "location_id": "LOC-ATTIC",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-PUFF"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-ENSEMBLE-IDENTITY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-BUNNY-JUMP",
+      "location_id": "LOC-ATTIC",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW",
+        "CHAR-PUFF"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-ENSEMBLE-IDENTITY; ACCEPTED_PREVIOUS_ENDPOINT_MISSING",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-BUNNY-LAND",
+      "location_id": "LOC-ATTIC",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": true,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-ENSEMBLE-IDENTITY; ACCEPTED_PREVIOUS_ENDPOINT_MISSING; PRESERVED_SOURCE_HOLD_REQUIRES_REVIEW",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-TEAM-PAPER",
+      "location_id": "LOC-HALL",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-HALL-EMPTY-DIRTY; GAP-ENSEMBLE-IDENTITY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-TEAM-WEB",
+      "location_id": "LOC-HALL",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-HALL-EMPTY-DIRTY; GAP-ENSEMBLE-IDENTITY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-TEAM-WALL",
+      "location_id": "LOC-HALL",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-HALL-EMPTY-DIRTY; GAP-ENSEMBLE-IDENTITY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-TEAM-FINISH",
+      "location_id": "LOC-HALL",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE",
+        "CHAR-RAINBOW"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-ENSEMBLE-IDENTITY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-C2-01",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-ENSEMBLE-IDENTITY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-C2-02",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [
+        "CHAR-ROSHAN"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": true,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-ENSEMBLE-IDENTITY; PRESERVED_SOURCE_HOLD_REQUIRES_REVIEW",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-C2-03",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [
+        "CHAR-KING",
+        "CHAR-PRINCE"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-ENSEMBLE-IDENTITY",
+      "bind_count": 3,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-C2-04",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-KING",
+        "CHAR-PRINCE"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-ENSEMBLE-IDENTITY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-C2-05",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [
+        "CHAR-KING"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-ENSEMBLE-IDENTITY",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-C2-06",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": true,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-ENSEMBLE-IDENTITY; PRESERVED_SOURCE_HOLD_REQUIRES_REVIEW",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-C2-07",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [
+        "CHAR-KING"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": true,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-ENSEMBLE-IDENTITY; PRESERVED_SOURCE_HOLD_REQUIRES_REVIEW",
+      "bind_count": 2,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-C2-08",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [
+        "CHAR-KING",
+        "CHAR-PRINCE"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-ENSEMBLE-IDENTITY",
+      "bind_count": 3,
+      "attempts_used": 0
+    },
+    {
+      "shot_id": "SHOT-C2-09",
+      "location_id": "LOC-LAWN",
+      "exact_cast": [
+        "CHAR-ROSHAN",
+        "CHAR-DADDY",
+        "CHAR-RUMI",
+        "CHAR-EAGLE"
+      ],
+      "generation_allowed": false,
+      "still_attempt_allowed": false,
+      "opening_approved": false,
+      "hold": false,
+      "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-ENSEMBLE-IDENTITY",
+      "bind_count": 2,
+      "attempts_used": 0
+    }
+  ]
+}

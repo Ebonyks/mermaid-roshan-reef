@@ -1,0 +1,117 @@
+{
+  "schema": "reef.grok.still-request.v2.1",
+  "kind": "PREPARATION_REQUEST",
+  "request_id": "PREP-BATH-TUB-20260919",
+  "shot_id": "SHOT-BATH-TUB",
+  "attempt": 2,
+  "attempt_cap": 3,
+  "prior_attempts_used": 1,
+  "maximum_candidates_this_request": 1,
+  "plan_sha256": "92a1f7be98f0ed8af07a31408b7aa6080946f9ceec42f24419c696eb92b71591",
+  "brief_sha256": "917d683ad2c4dbaa83a5aa344f46993e38a1bf2bd7e79d3f4dda3fe3f753fc52",
+  "still_prompt_sha256": "ca1a87bd13c0f41df8345d305cfdeadc630dda442d32467cdf19418f066ba418",
+  "source_references": [
+    {
+      "slot": "SOURCE_1",
+      "path": "media/90bcc501e471b8d8.png",
+      "source_path": "grok_builder_2026-09-14/media/90bcc501e471b8d8.png",
+      "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+      "role": "reference",
+      "bytes": 1239053,
+      "reference_id": "REF-90bcc501e471b8d8",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/90bcc501e471b8d8.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/90bcc501e471b8d8.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/90bcc501e4_room_bubble_bath_dirty_day_one.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "slot": "SOURCE_2",
+      "path": "media/69827625a8a795f1.png",
+      "source_path": "grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "reference",
+      "bytes": 50051,
+      "reference_id": "REF-69827625a8a795f1",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/69827625a8_roshan_roshan_base.png",
+        "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/roshan.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "slot": "SOURCE_3",
+      "path": "media/17e76b7f758f31a9.png",
+      "source_path": "grok_builder_2026-09-14/media/17e76b7f758f31a9.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "role": "reference",
+      "bytes": 535795,
+      "reference_id": "REF-17e76b7f758f31a9",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/17e76b7f758f31a9.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/17e76b7f758f31a9.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        936,
+        1024
+      ],
+      "license_provenance": "project-original generated reference art",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/17e76b7f75_magic_cleaning_brush.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    }
+  ],
+  "source_roles": [
+    "room geometry and tub material only; requested progressive state comes from the card",
+    "Roshan identity only",
+    "brush identity and correct grip only"
+  ],
+  "required_room_state": {
+    "sink": "clean",
+    "tub": "dirty",
+    "toilet": "dirty",
+    "drain": "closed_full"
+  },
+  "required_cast_instances": [
+    {
+      "instance_id": "CHAR-ROSHAN-1",
+      "character_id": "CHAR-ROSHAN",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    }
+  ],
+  "authorization_scope": "Owner requested handoff repairs and a detailed GitHub handoff. One full-frame reference candidate only; no motion, no creative acceptance.",
+  "dispatch_gate": "Recipient must open all three exact source files and return ACCESS_ACK before any still attempt. If access fails, stop and report HANDOFF_BLOCKED.",
+  "still_attempt_authorized_after_access_ack": true,
+  "motion_authorized": false,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "output": "Publish one native full-frame candidate, exact filename/hash/dimensions, generation prompt/settings and source hashes to the private media repository. Show the owner and STOP.",
+  "return_location": "Private media under first_frames/PREP-BATH-TUB-20260919/; metadata under design/cinematics/v2/exchange/attempts/SHOT-BATH-TUB/A002/. Do not overwrite any existing attempt; if A002 appeared concurrently, stop for reconciliation.",
+  "stop_after_return": true,
+  "request_sha256": "9b5ca87618e82e985b810fd5d3f6aba381e2f598fa9d20dccf698e4c5ab2849a"
+}

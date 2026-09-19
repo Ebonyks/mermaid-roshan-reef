@@ -1,0 +1,55 @@
+{
+  "schema": "reef.grok.camera-coverage.v2",
+  "revision": 2,
+  "purpose": "3D fullness of existing rooms without inventing Roshan or a reverse wall.",
+  "retract": "Revision 1 wrongly named sink_grime / tub_grime as coverage cameras. Those are interaction target textures, not room cameras. Do not bind them as IMAGE_1.",
+  "gameplay_camera": {
+    "id": "CAM-BATH-WIDE",
+    "authority": [
+      "assets/flats/castle/rooms/room_bubble_bath.png",
+      "assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png",
+      "REF-90bcc501e471b8d8"
+    ],
+    "framing": "Straight-on known wall: tub left, sink/mirror centre, pink toilet right, two foreground shell baskets.",
+    "same_camera_depth_cards": [
+      "assets/flats/castle/rooms/room_bubble_bath_front_left.png",
+      "assets/flats/castle/rooms/room_bubble_bath_front_right.png",
+      "assets/flats/castle/rooms/room_bubble_bath_background.png"
+    ],
+    "note": "front_left / front_right are foreground occluders on this same camera, not a new angle. 7-panel and 8-panel boards are LOCKED CAMERA narrative only."
+  },
+  "authorized_inserts_along_known_wall": {
+    "source": "design grok_builder SCENE_SHOT_DIRECTION.json LOC-BATH",
+    "rule": "Sink insert retains mirror and tub edge. Tub insert retains sink edge. Toilet insert retains right wall. No invented reverse wall.",
+    "plates": [
+      {
+        "id": "CAM-BATH-SINK-INSERT",
+        "method": "crop of the dirty wide plate; keep tub edge",
+        "file": "videos/v2-stills-2026-09-18/CAM-BATH-SINK-INSERT_from_dirty_plate.jpg"
+      },
+      {
+        "id": "CAM-BATH-TUB-INSERT",
+        "method": "crop of the dirty wide plate; keep sink edge",
+        "file": "videos/v2-stills-2026-09-18/CAM-BATH-TUB-INSERT_from_dirty_plate.jpg"
+      },
+      {
+        "id": "CAM-BATH-TOILET-INSERT",
+        "method": "crop of the dirty wide plate; keep right wall",
+        "file": "videos/v2-stills-2026-09-18/CAM-BATH-TOILET-INSERT_from_dirty_plate.jpg"
+      }
+    ]
+  },
+  "does_not_exist_for_this_room": [
+    "A painted bathroom turnaround or reverse wall",
+    "A 3/4 orbit of the bubble bathroom",
+    "D1-C03-S04 reverse-to-tools as an approved empty plate"
+  ],
+  "exists_elsewhere_as_the_pattern": [
+    {
+      "id": "REF-00eed099cae3acd9",
+      "file": "pearl_castle_exterior_turnaround_v2",
+      "view": "Castle OUTSIDE from a non-gameplay camera. Not the bathroom."
+    }
+  ],
+  "codex_ticket": "If the bathroom needs a true reverse/orbit, Codex paints an empty turnaround that joins the known wall. Grok does not invent it and does not redraw Roshan onto it."
+}

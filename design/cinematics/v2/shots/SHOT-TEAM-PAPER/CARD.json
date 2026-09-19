@@ -1,0 +1,319 @@
+{
+  "schema": "reef.grok.shot-plan.v2",
+  "shot_id": "SHOT-TEAM-PAPER",
+  "event_id": "EV-D1-TEAM",
+  "name": "Pick up paper in actual plain lavender hall; paper stays collected.",
+  "generation_allowed": false,
+  "still_attempt_allowed": false,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-HALL-EMPTY-DIRTY; GAP-ENSEMBLE-IDENTITY",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "exact_cast": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY",
+    "CHAR-RUMI",
+    "CHAR-EAGLE",
+    "CHAR-RAINBOW"
+  ],
+  "exact_prop_counts": {
+    "extra_fixtures": 0
+  },
+  "location_id": "LOC-HALL",
+  "room_state": {
+    "paper": "present",
+    "web": "present",
+    "wall_stain": "present",
+    "hall": "dirty"
+  },
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "address": "Inside the plain lavender hall, camera on the established runner axis; keep a recognizable gold column and the correct small themed doorway as anchors. An oblique insert must join the same wall, not invent a palace or reorder doors."
+  },
+  "before": "Hall still dirty",
+  "action": "Pick up paper in actual plain lavender hall; paper stays collected.",
+  "after": "This local cleanup target complete; other unfinished targets remain",
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "reference_id": null,
+      "remote_url": null,
+      "sha256": null,
+      "path": null,
+      "missing_reason": "Complete owner-approved acted first frame missing; no room-only fallback."
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "reference_id": null,
+      "remote_url": null,
+      "sha256": null,
+      "path": null,
+      "missing_reason": "Accepted single-scene ensemble identity authority within 4-image budget missing; keep simultaneous teamwork."
+    }
+  ],
+  "bind_count": 2,
+  "must_move": [
+    "Pick up paper in actual plain lavender hall; paper stays collected."
+  ],
+  "must_not_move": [
+    "same runner, columns and themed doorways",
+    "previously completed cleanup",
+    "identity, anatomy and prop counts"
+  ],
+  "depends_on": [],
+  "prompt_path": "PROMPT.txt",
+  "attempt_cap": 3,
+  "output_disposition": "motion_reference_only",
+  "v1_pool_was": [
+    "REF-7e77e4c29bbbdcaf",
+    "REF-69827625a8a795f1",
+    "REF-2eda6f76760b8598",
+    "REF-636ec38fd0e01d47",
+    "REF-da8ead4677192ef4",
+    "REF-e488d7c300eff116"
+  ],
+  "v1_pool_note": "Archival only. Do not bind the pool. v2 binds are the list above, max 4.",
+  "revision": 2,
+  "source_snapshot": "b085580fb5c615e386af46c9a8c25a0c41b08cb0",
+  "sequence_position": 23,
+  "beat_ids": [
+    "SHOT-TEAM-PAPER-ACTION"
+  ],
+  "mode": "image_to_video",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "cast_status": "PROPOSED_STAGING_REQUIRES_OWNER_FIRST_FRAME_APPROVAL",
+  "cast_instances": [
+    {
+      "instance_id": "CHAR-ROSHAN-1",
+      "character_id": "CHAR-ROSHAN",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-DADDY-1",
+      "character_id": "CHAR-DADDY",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-RUMI-1",
+      "character_id": "CHAR-RUMI",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-EAGLE-1",
+      "character_id": "CHAR-EAGLE",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-RAINBOW-1",
+      "character_id": "CHAR-RAINBOW",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    }
+  ],
+  "end_room_state": {
+    "paper": "collected",
+    "web": "present",
+    "wall_stain": "present",
+    "hall": "dirty"
+  },
+  "opening_candidate": null,
+  "approval_receipt": null,
+  "request": null,
+  "causal_chain": {
+    "trigger": "Pick up paper in actual plain lavender hall; paper stays collected.",
+    "visible_change": "This local cleanup target complete; other unfinished targets remain",
+    "end_confirmation": "This local cleanup target complete; other unfinished targets remain"
+  },
+  "end_state": "This local cleanup target complete; other unfinished targets remain",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no extra characters or fixtures",
+    "no identity drift",
+    "no result without contact",
+    "no premature payoff"
+  ],
+  "preparation_references": [
+    {
+      "path": "media/7e77e4c29bbbdcaf.png",
+      "source_path": "grok_builder_2026-09-14/media/7e77e4c29bbbdcaf.png",
+      "sha256": "7e77e4c29bbbdcaf2230031a760137a28371532debefda971ab1b251df3ee2ad",
+      "role": "reference",
+      "bytes": 2623714,
+      "reference_id": "REF-7e77e4c29bbbdcaf",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/7e77e4c29bbbdcaf.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/7e77e4c29bbbdcaf.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "license_provenance": "Project-owned original art or owner-provided Grok editorial footage; inherited ASSET_LICENSES.md source attribution; review/continuity use only",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/current_hall_full_room.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/69827625a8a795f1.png",
+      "source_path": "grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "reference",
+      "bytes": 50051,
+      "reference_id": "REF-69827625a8a795f1",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/69827625a8_roshan_roshan_base.png",
+        "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/roshan.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/2eda6f76760b8598.png",
+      "source_path": "grok_builder_2026-09-14/media/2eda6f76760b8598.png",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "role": "reference",
+      "bytes": 4708599,
+      "reference_id": "REF-2eda6f76760b8598",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/2eda6f76760b8598.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/2eda6f76760b8598.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        1677,
+        2362
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/2eda6f7676_daddy_daddy_master.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/636ec38fd0e01d47.png",
+      "source_path": "grok_builder_2026-09-14/media/636ec38fd0e01d47.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "role": "reference",
+      "bytes": 470838,
+      "reference_id": "REF-636ec38fd0e01d47",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/636ec38fd0e01d47.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/636ec38fd0e01d47.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        576,
+        1024
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/636ec38fd0_rumi_rumi_full_body_identity.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/da8ead4677192ef4.png",
+      "source_path": "grok_builder_2026-09-14/media/da8ead4677192ef4.png",
+      "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+      "role": "reference",
+      "bytes": 235829,
+      "reference_id": "REF-da8ead4677192ef4",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/da8ead4677192ef4.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/da8ead4677192ef4.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        290,
+        512
+      ],
+      "license_provenance": "Project-owned protected book artwork; original unchanged",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/baby_eagle_original_book.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/e488d7c300eff116.png",
+      "source_path": "grok_builder_2026-09-14/media/e488d7c300eff116.png",
+      "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+      "role": "reference",
+      "bytes": 1608938,
+      "reference_id": "REF-e488d7c300eff116",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/e488d7c300eff116.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/e488d7c300eff116.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "license_provenance": "project-original generated reference art",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/rainbow_dust_bunny_concept.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    }
+  ],
+  "preparation_reference_scope": "Archive inputs for planner/full-frame candidate preparation, not a multi-image motion binding list. Boards and pose strips are never generation pixels.",
+  "blocking_findings": [
+    "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING",
+    "ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+    "GAP-HALL-EMPTY-DIRTY",
+    "GAP-ENSEMBLE-IDENTITY"
+  ],
+  "attempts_used": 0,
+  "hold": false,
+  "attempt_cap_override_receipt": null,
+  "still_preparation_status": "Brief supplied. No queued generation or automatic cap reset; publish a scoped still REQUEST before spending an attempt.",
+  "continuity": {
+    "kind": "new_setup",
+    "previous_shot_id": null,
+    "inherited_state": [
+      "Hall still dirty",
+      "Prior completed work remains completed."
+    ],
+    "allowed_changes": [
+      "Pick up paper in actual plain lavender hall; paper stays collected."
+    ]
+  },
+  "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+  "prompt_sha256": "ddcc31e9c9245da7cdb43e8cd51d426120bfd0eb024c72bb1f483a5df8482e36",
+  "canon_sha256": "b31adf7821a37b7034ce68373080ab8f3f4d710bc2d538b65a0347130cbf3654",
+  "depends_on_events": [
+    "EV-D1-LAND"
+  ],
+  "hold_release_receipt": null,
+  "historical_hold": false,
+  "original_hold_reason": null
+}

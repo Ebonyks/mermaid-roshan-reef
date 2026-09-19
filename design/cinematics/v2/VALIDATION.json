@@ -1,0 +1,33 @@
+{
+  "schema": "reef.grok.validation.v2",
+  "source_game_commit": "b085580fb5c615e386af46c9a8c25a0c41b08cb0",
+  "planning_gate": {
+    "cards": 36,
+    "ready": 0,
+    "blocked": 36,
+    "result": "PASS"
+  },
+  "v2_regressions": {
+    "tests": 36,
+    "result": "PASS"
+  },
+  "canonical_and_document_regressions": {
+    "tests": 60,
+    "result": "PASS"
+  },
+  "readiness_gate": "EXPECTED_FAIL: no owner-approved complete openings; do not turn draft validation into generation permission",
+  "visual_review_scope": "Reference registration and previously inspected source stills; no newly generated first frames and no fresh whole-clip/audio QC in this repair",
+  "public_ci": "Not yet observed; no dev/master integration or runtime/device acceptance claimed",
+  "private_verification": {
+    "files": 422,
+    "result": "PASS",
+    "commit": "2938ea39427cf225785c25e3f1f2cb48f1e4db98"
+  },
+  "source_holds_preserved": [
+    "SHOT-BUNNY-LAND",
+    "SHOT-C2-02",
+    "SHOT-C2-06",
+    "SHOT-C2-07"
+  ],
+  "additional_cap_hold": "SHOT-BATH-SINK"
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "reef.grok-reshoot.v2",
+  "kind": "RETURN",
+  "shot_id": "SHOT-BATH-SINK",
+  "attempt": 3,
+  "still": {
+    "filename": "SHOT-BATH-SINK_A003_still.jpg",
+    "sha256": "2edb29de637da6746863d4b6ecbda3b2bff0b180dc6df4b80cc43d1427924843",
+    "bytes": 567395,
+    "private_path": "videos/v2-stills-2026-09-18/SHOT-BATH-SINK_A003_still.jpg",
+    "private_commit": "896d3001af3203e9fae211a96ffe45ce8b98b316",
+    "private_repo": "Ebonyks/mermaid-roshan-grok-videos",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/896d3001af3203e9fae211a96ffe45ce8b98b316/videos/v2-stills-2026-09-18/SHOT-BATH-SINK_A003_still.jpg"
+  },
+  "clip": null,
+  "method": "No Imagine restage. Scale IMAGE_1 to 1920x1080 with no crop. Paste CHAR-ROSHAN sprite in front of the existing sink. One tail from the sprite.",
+  "observed": {
+    "sink": "same center sink and oval mirror as REF-90bcc501e471b8d8 \u2014 PASS",
+    "tails": "one \u2014 PASS",
+    "cast": "solo Roshan \u2014 PASS",
+    "defects": [
+      "sprite is a cutout, not blended into the plate",
+      "not a scrubbing pose \u2014 identity turnaround, not a sink-contact pose"
+    ]
+  },
+  "opening_approved": false,
+  "generation_allowed": false,
+  "notes": "Attempt cap 3. Plate geometry held by not I2I-ing the room. Owner lock or HOLD."
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "reef.grok-reshoot.v2",
+  "kind": "REVIEW",
+  "shot_id": "SHOT-BATH-SINK",
+  "attempt": 1,
+  "decision": "REGENERATE",
+  "knockouts_hit": [],
+  "near_knockouts": [
+    "extra hanging plants not on REF-90bcc501e471b8d8",
+    "extra small window / starfish"
+  ],
+  "spans": [
+    {
+      "t": "still",
+      "observed": "Solo Roshan at dirty center sink, brush toward basin, tub left and toilet right present and dirty, tiara not a horn.",
+      "expected": "Exact dirty plate layout, only Roshan, no added plants/windows.",
+      "reconstruct": "I2I from the dirty plate again. Delete hanging plants and extra window. Keep one Roshan, one sink, one tub, one toilet, brush contact."
+    }
+  ],
+  "owner_approval": false,
+  "opening_approved": false,
+  "next_attempt_reconstruction": "A002 still: same three binds. Prompt must say keep IMAGE_1 fixtures and decorations exactly; add Roshan only; no new plants, windows, starfish, or frames.",
+  "note": "Named QC, not owner approval. Cast count passed. Do not animate. Watch any future clip through the last second — A002 motion grew extras at t55."
+}

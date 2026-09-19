@@ -1,0 +1,321 @@
+{
+  "schema": "reef.grok.shot-plan.v2",
+  "shot_id": "SHOT-ARRIVAL-TOUCHDOWN",
+  "event_id": "EV-D1-ARRIVE",
+  "name": "Plane settles on approved ground with visible contact; cabin remains two-seat.",
+  "generation_allowed": false,
+  "still_attempt_allowed": false,
+  "opening_approved": false,
+  "delivery_accepted": false,
+  "blocking_reason": "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING; ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING; GAP-SKY-LANDING-STILL",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "exact_cast": [
+    "CHAR-ROSHAN",
+    "CHAR-DADDY"
+  ],
+  "exact_prop_counts": {
+    "cabin_windows": 2,
+    "engine_intake": 1,
+    "rear_door": 0,
+    "mermaids_outside_plane": 0,
+    "birds_foreground": 0
+  },
+  "location_id": "LOC-SKY",
+  "room_state": {
+    "plane": "airborne_above_patch",
+    "passengers": "seated"
+  },
+  "camera": {
+    "verb": "locked",
+    "move_count": 0,
+    "address": "Exterior ground-level three-quarter view facing the approved landing patch, bridge and castle; lake and open sky remain legible. Do not squeeze the full panorama into one screen or turn the air island underwater."
+  },
+  "before": "Roshan and Daddy remain seated in the approved two-seat plane above its landing patch",
+  "action": "The plane descends, makes visible ground contact and settles once; neither passenger exits",
+  "after": "Plane grounded and stationary; Roshan and Daddy still inside, not yet at the castle",
+  "binds": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "reference_id": null,
+      "remote_url": null,
+      "sha256": null,
+      "path": null,
+      "missing_reason": "Complete owner-approved acted first frame missing; no room-only fallback."
+    },
+    {
+      "path": "media/69827625a8a795f1.png",
+      "source_path": "grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "subject_identity",
+      "bytes": 50051,
+      "reference_id": "REF-69827625a8a795f1",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/69827625a8_roshan_roshan_base.png",
+        "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/roshan.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening",
+      "id": "IMAGE_2",
+      "human_decision": "pending",
+      "hud_present": false,
+      "authority_domain": "identity/material only, not competing room geography"
+    },
+    {
+      "path": "media/2eda6f76760b8598.png",
+      "source_path": "grok_builder_2026-09-14/media/2eda6f76760b8598.png",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "role": "subject_identity",
+      "bytes": 4708599,
+      "reference_id": "REF-2eda6f76760b8598",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/2eda6f76760b8598.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/2eda6f76760b8598.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        1677,
+        2362
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/2eda6f7676_daddy_daddy_master.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening",
+      "id": "IMAGE_3",
+      "human_decision": "pending",
+      "hud_present": false,
+      "authority_domain": "identity/material only, not competing room geography"
+    },
+    {
+      "path": "media/850d9614c299df94.png",
+      "source_path": "grok_builder_2026-09-14/media/850d9614c299df94.png",
+      "sha256": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde",
+      "role": "object_or_material_identity",
+      "bytes": 218626,
+      "reference_id": "REF-850d9614c299df94",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/850d9614c299df94.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/850d9614c299df94.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        775,
+        360
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/850d9614c2_06_AIRPLANE_EXACT.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening",
+      "id": "IMAGE_4",
+      "human_decision": "pending",
+      "hud_present": false,
+      "authority_domain": "identity/material only, not competing room geography"
+    }
+  ],
+  "bind_count": 4,
+  "must_move": [
+    "The plane descends, makes visible ground contact and settles once; neither passenger exits"
+  ],
+  "must_not_move": [
+    "same sky island, lake and bridge",
+    "previously completed cleanup",
+    "identity, anatomy and prop counts"
+  ],
+  "depends_on": [],
+  "prompt_path": "PROMPT.txt",
+  "attempt_cap": 3,
+  "output_disposition": "motion_reference_only",
+  "v1_pool_was": [
+    "REF-017532ae864e534d",
+    "REF-69827625a8a795f1",
+    "REF-2eda6f76760b8598",
+    "REF-850d9614c299df94"
+  ],
+  "v1_pool_note": "Archival only. Do not bind the pool. v2 binds are the list above, max 4.",
+  "revision": 2,
+  "source_snapshot": "b085580fb5c615e386af46c9a8c25a0c41b08cb0",
+  "sequence_position": 0,
+  "beat_ids": [
+    "SHOT-ARRIVAL-TOUCHDOWN-ACTION"
+  ],
+  "mode": "image_to_video",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "cast_status": "PROPOSED_STAGING_REQUIRES_OWNER_FIRST_FRAME_APPROVAL",
+  "cast_instances": [
+    {
+      "instance_id": "CHAR-ROSHAN-1",
+      "character_id": "CHAR-ROSHAN",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    },
+    {
+      "instance_id": "CHAR-DADDY-1",
+      "character_id": "CHAR-DADDY",
+      "start_visibility": "visible",
+      "end_visibility": "visible"
+    }
+  ],
+  "end_room_state": {
+    "plane": "grounded_stationary",
+    "passengers": "seated"
+  },
+  "opening_candidate": null,
+  "approval_receipt": null,
+  "request": null,
+  "causal_chain": {
+    "trigger": "The plane descends, makes visible ground contact and settles once; neither passenger exits",
+    "visible_change": "Plane grounded and stationary; Roshan and Daddy still inside, not yet at the castle",
+    "end_confirmation": "Plane grounded and stationary; Roshan and Daddy still inside, not yet at the castle"
+  },
+  "end_state": "Plane grounded and stationary; Roshan and Daddy still inside, not yet at the castle",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no extra characters or fixtures",
+    "no identity drift",
+    "no result without contact",
+    "no premature payoff"
+  ],
+  "preparation_references": [
+    {
+      "path": "media/017532ae864e534d.png",
+      "source_path": "grok_builder_2026-09-14/media/017532ae864e534d.png",
+      "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+      "role": "reference",
+      "bytes": 18000705,
+      "reference_id": "REF-017532ae864e534d",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/017532ae864e534d.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/017532ae864e534d.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        6144,
+        2048
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/017532ae86_sky_lagoon_panorama_master_v5_hd_3x1.png",
+        "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/lawn.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/69827625a8a795f1.png",
+      "source_path": "grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "reference",
+      "bytes": 50051,
+      "reference_id": "REF-69827625a8a795f1",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/69827625a8a795f1.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/69827625a8_roshan_roshan_base.png",
+        "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/roshan.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/2eda6f76760b8598.png",
+      "source_path": "grok_builder_2026-09-14/media/2eda6f76760b8598.png",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "role": "reference",
+      "bytes": 4708599,
+      "reference_id": "REF-2eda6f76760b8598",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/2eda6f76760b8598.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/2eda6f76760b8598.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        1677,
+        2362
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/2eda6f7676_daddy_daddy_master.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    },
+    {
+      "path": "media/850d9614c299df94.png",
+      "source_path": "grok_builder_2026-09-14/media/850d9614c299df94.png",
+      "sha256": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde",
+      "role": "reference",
+      "bytes": 218626,
+      "reference_id": "REF-850d9614c299df94",
+      "remote_url": "https://github.com/Ebonyks/mermaid-roshan-grok-videos/blob/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/850d9614c299df94.png",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-grok-videos/34ca6928d4c7c3fe107650d3202408d00232c288/grok_builder_2026-09-14/media/850d9614c299df94.png",
+      "repository": "Ebonyks/mermaid-roshan-grok-videos",
+      "commit": "34ca6928d4c7c3fe107650d3202408d00232c288",
+      "dimensions": [
+        775,
+        360
+      ],
+      "license_provenance": "project-owned approved authority copied losslessly",
+      "source_paths": [
+        "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/850d9614c2_06_AIRPLANE_EXACT.png"
+      ],
+      "modifications": "byte-identical copy",
+      "used_as_delivery_pixels": false,
+      "acceptance_scope": "source reference only; not an approved complete opening"
+    }
+  ],
+  "preparation_reference_scope": "Archive inputs for planner/full-frame candidate preparation, not a multi-image motion binding list. Boards and pose strips are never generation pixels.",
+  "blocking_findings": [
+    "COMPLETE_OPENING_AND_EXACT_OWNER_APPROVAL_MISSING",
+    "ACCEPTED_BINDINGS_AND_MATCHING_EXECUTION_REQUEST_MISSING",
+    "GAP-SKY-LANDING-STILL"
+  ],
+  "attempts_used": 1,
+  "hold": false,
+  "attempt_cap_override_receipt": null,
+  "still_preparation_status": "Brief supplied. No queued generation or automatic cap reset; publish a scoped still REQUEST before spending an attempt.",
+  "continuity": {
+    "kind": "new_setup",
+    "previous_shot_id": null,
+    "inherited_state": [
+      "Roshan and Daddy remain seated in the approved two-seat plane above its landing patch",
+      "Prior completed work remains completed."
+    ],
+    "allowed_changes": [
+      "The plane descends, makes visible ground contact and settles once; neither passenger exits"
+    ]
+  },
+  "game_prerequisite": "Do not make gameplay progress happen automatically: this cinematic reflects the associated completed/specified player event, not a substitute for play.",
+  "prompt_sha256": "aa5c2c411ed647d9300f054b0751743e357808dd3378ca0f18cd8b7e411531f5",
+  "canon_sha256": "b31adf7821a37b7034ce68373080ab8f3f4d710bc2d538b65a0347130cbf3654",
+  "depends_on_events": [],
+  "hold_release_receipt": null,
+  "historical_hold": false,
+  "original_hold_reason": null
+}
