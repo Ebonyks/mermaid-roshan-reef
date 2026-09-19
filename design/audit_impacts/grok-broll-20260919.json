@@ -39,6 +39,7 @@
     "assets_src/cinematics/grok_broll_2026-09-19/README.md",
     "assets_src/cinematics/grok_broll_2026-09-19/REFERENCES.json",
     "assets_src/cinematics/grok_broll_2026-09-19/RESHOOT_RETURN_TEMPLATE.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/receipts/REMOTE_VERIFICATION.json",
     "assets_src/cinematics/grok_broll_2026-09-19/reshoots/README.md",
     "assets_src/cinematics/grok_broll_2026-09-19/shots/SHOT-ARRIVAL-TOUCHDOWN-B01/FIRST_FRAME_BRIEF.txt",
     "assets_src/cinematics/grok_broll_2026-09-19/shots/SHOT-ARRIVAL-TOUCHDOWN-B01/PLAN.json",
@@ -279,6 +280,11 @@
       "command": "Game runtime/device probes",
       "result": "NOT_APPLICABLE",
       "evidence": "Non-runtime planning/review archive only. No game source, runtime assets or release integration changed; no game acceptance claim."
+    },
+    {
+      "command": "Public GitHub path and fresh remote-byte verification",
+      "result": "PASS",
+      "evidence": "All 214 changed content paths at 9d9c53d6f8b5a5a37382f01262d4271b3c6897b3 verified against exact committed bytes; public START_GROK fetched anonymously with HTTP 200 and matching SHA-256. Receipt: assets_src/cinematics/grok_broll_2026-09-19/receipts/REMOTE_VERIFICATION.json; SHA-256 e535cf704a6bc35f94d611f82c3dc307784f4113666c83fab23da5d9365e0b82. Private recipient access remains pending."
     }
   ],
   "acceptance_gaps": "Candidate alternate-camera concepts are not approved room geometry or IMAGE_1. Owner opening approval, Grok private access, cinematic frame provenance and delivery/device/child review remain open; MA-VIS-006 not closed. Root project.godot and output/pdf changes remain untouched."
