@@ -3,20 +3,38 @@
   "scene_id": "SCENE-EV-D1-BATH",
   "event_id": "EV-D1-BATH",
   "location_id": "LOC-BATH",
-  "purpose": "Associate bathroom keyframes with shots. Coverage inserts only. Director may add character shots. No reverse wall.",
+  "purpose": "Full bathroom scene cut from keyframes. Empty coverage + brush contact. Director may add character. No reverse wall.",
+  "assembled": {
+    "file": "videos/v2-clips-2026-09-18/SCENE-EV-D1-BATH.mp4",
+    "sha256": "cd1f70440abd0a543d2ec9dd760296ab4014dfdb740f726774df40df5c14a24d",
+    "bytes": 14862659,
+    "duration_s": 27,
+    "cut_order": ["WIDE", "SINK", "TUB", "DRAIN_HOLD", "TOILET"]
+  },
   "order": [
+    {
+      "shot_id": "SHOT-BATH-WIDE",
+      "beat": "empty dirty room lock",
+      "keyframe": {
+        "file": "plates/dirty/bath/room_bubble_bath_dirty_day_one.png",
+        "people": false
+      },
+      "clip": {
+        "file": "videos/v2-clips-2026-09-18/SHOT-BATH-WIDE_A001.mp4",
+        "sha256": "f50dc3f91fd52c8acdb45aa3b32eb5bb4e404969ed18d0c673bc15697cf5ee57"
+      }
+    },
     {
       "shot_id": "SHOT-BATH-SINK",
       "beat": "sink scrub",
       "keyframe": {
         "file": "videos/v2-stills-2026-09-18/SHOT-BATH-SINK_opening.jpg",
         "sha256": "27e11f0e10e011a7ff60cf55eb6df9c0a72e3305093b03c3b723e639c59ec3dc",
-        "source": "crop of dirty filled plate; keep tub edge",
         "people": false
       },
       "clip": {
-        "file": "videos/v2-clips-2026-09-18/SHOT-BATH-SINK_A001.mp4",
-        "sha256": "0630d976ab10646f1e5dffa91421361c4e0626e6bd17ec0789259d5b51c2f9ec"
+        "file": "videos/v2-clips-2026-09-18/SHOT-BATH-SINK_A002.mp4",
+        "sha256": "e936a862e40848531ed4b24937bebe0363b44d88c2d45f62af04ed619ba95d61"
       }
     },
     {
@@ -25,12 +43,11 @@
       "keyframe": {
         "file": "videos/v2-stills-2026-09-18/SHOT-BATH-TUB_opening.jpg",
         "sha256": "8940ffd08afc3fb445ab4db915c3d39f391d89d7c2f87a0e82883a4c91202a28",
-        "source": "crop of dirty filled plate; keep sink edge",
         "people": false
       },
       "clip": {
-        "file": "videos/v2-clips-2026-09-18/SHOT-BATH-TUB_A001.mp4",
-        "sha256": "c0613412f060c861c9f5e052dc0644fdd0cb10cf7de741972a781fcb3adc7355"
+        "file": "videos/v2-clips-2026-09-18/SHOT-BATH-TUB_A002.mp4",
+        "sha256": "295e7d8e6057cd1740ad13451f0cd1aa46e873e8811d271881cd0bbeba783964"
       }
     },
     {
@@ -39,11 +56,13 @@
       "keyframe": {
         "file": "videos/v2-stills-2026-09-18/SHOT-BATH-DRAIN_opening.jpg",
         "sha256": "df9c3697d58ca92b135599166d87d77affef8bb529912308be488dba5d7f1623",
-        "source": "crop of dirty DRAINED plate; same tub insert window",
         "people": false
       },
-      "clip": null,
-      "motion": "HOLD — do not animate water leaving. Keyframe is the drained state."
+      "clip": {
+        "file": "videos/v2-clips-2026-09-18/SHOT-BATH-DRAIN_hold.mp4",
+        "sha256": "ddb152017db905c3bf314bf2d6a53800f2ade4d3cd7780d4bd3dc1fee7bf9150"
+      },
+      "motion": "HOLD on drained keyframe. Water-leaving was not animated."
     },
     {
       "shot_id": "SHOT-BATH-TOILET",
@@ -51,13 +70,13 @@
       "keyframe": {
         "file": "videos/v2-stills-2026-09-18/SHOT-BATH-TOILET_opening.jpg",
         "sha256": "b52eb10347f54c65a4003d7123e640ae9aeb09924e2c5dbeb47b5592f436fe9c",
-        "source": "crop of dirty filled plate; keep right wall",
         "people": false
       },
       "clip": {
-        "file": "videos/v2-clips-2026-09-18/SHOT-BATH-TOILET_A001.mp4",
-        "sha256": "098dd2297492be4a8b355fcbd5305e30c6fa46ee958289e1772917fb9bef2e52"
-      }
+        "file": "videos/v2-clips-2026-09-18/SHOT-BATH-TOILET_A002.mp4",
+        "sha256": "78a6626cf5aca8d808cb8463f550c4596734eaa359e3c53153e54875b8fd102f"
+      },
+      "qc": "Extra gold fittings densified. Coverage only."
     }
   ]
 }
