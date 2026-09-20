@@ -23,11 +23,11 @@ The Gemini prompt governs the blank stationery BACKGROUND and integrated border 
 
 - **BK-PG-01 — Rhythm:** blue vignette pages alternate purposefully with border-free full art. Adjacent setup pages are allowed; a run must serve the story, not a repeated template.
 - **BK-PG-02 — Cuts:** isolate whole action groups and meaningful objects along authored contours. Preserve contact, faces, hands, tails, location and object identity. Do not use rounded screenshot rectangles as a substitute.
-- **BK-PG-03 — Spreads:** story page 1 is recto. Compose pages 2-3, 14-15 and 34-35 as single canvases and divide once. Keep critical action out of the gutter; no duplicate subject from independently cropping each half.
+- **BK-PG-03 — Spreads:** the current book uses 7 x 5 inch landscape single pages, 32 story pages plus covers. Wide reveals occupy a single page. No image is split or independently recropped across a gutter. The former 40-page portrait spread assignments are superseded.
 - **BK-PG-04 — Text:** Sniglet; short navy text in quiet image space. No opaque full-width caption strips. Background decorations remain small; foreground story artwork remains large.
 - **BK-PG-05 — Source-only narrative:** existing Grok and storyboard/handoff art; no whole-scene redraws. Targeted isolation/inpainting/outpainting remains allowed within owner limits. Missing action art is a gap, never permission to invent a scene.
 - **BK-PG-06 — Story:** waterfall clears and turns rainbow. Two dust bunnies hold Baby Eagle. Preserve four-helper soap concealment, rainbow jump, collapse and landing order. No changed landing or omitted-action restoration.
-- **BK-PG-07 — Distinct pages:** page 12 shows the obstruction; page 13 must show clearing. Never reuse page 12's source/crop or a cosmetic recrop as page 13's action. Current page 13 has an explicit source gap; pages 14-15 are the rainbow payoff.
+- **BK-PG-07 — Distinct pages:** in the landscape edition, page 11 narrates clearing against the obstruction source; page 12 shows the distinct rainbow payoff. The actual clearing-action illustration remains a declared gap. Do not invent an action frame or repeat the obstruction as a cosmetic second page.
 
 ## Current study status
 
@@ -44,4 +44,4 @@ Record base/source paths and SHA-256, canvas size, exact asset source and alpha 
 - **BK-PG-10 — Foreground and background ownership:** each reduced page explicitly lists foreground cutouts, left mound assets, right mound assets, removed context and placement. The Gemini 85%/12%/10% restrictions apply to small background integrations, not large foreground story cutouts. Never repeat an object in both roles.
 - **BK-PG-11 — Source previews:** raw scene frames may appear only in clearly separated, collapsed source-reference sections of the production plan. They are not proposed reduced-page artwork. A missing cutout remains a production job, not a displayed screenshot substitute.
 
-The revised plan fixes every page as CUTOUT or FULL ART (including spread halves). Page 10 becomes full art because the pool's spatial context matters; page 29 becomes a large Grand Puff cutout. Page 32 uses complete tools instead of cropped contact fragments, and page 38 uses whole result objects instead of scene thumbnails. Earlier ambiguous vignette/fallback instructions are superseded by the explicit current page rows.
+The previous 40-page plan is preserved as superseded planning evidence. The current 32-page landscape manuscript and per-page assignments live in `landscape/book.json` and `landscape/PAGE_PLAN.md`.

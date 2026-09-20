@@ -46,7 +46,7 @@ unclassified until this ledger gains one new scoped row for it.
 |---|---|---|
 | `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; dedicated static-book branch navigation; prior rough and current source gaps remain explicit. |
 | `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; owner static-book stationery integration rules, blue panels, exact cutouts, lower-15% anchoring, 12% bounds, grounding and no duplicate props. No game/cinematic authority. |
-| `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `PROPOSED`; 40-page binary cutout/full-art plan with explicit foreground and left/right mound assignments; no scenic crops on reduced pages. Page 13 clearing-action art missing; extraction/background/print/owner review outstanding. |
+| `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `SUPERSEDED`; preserved 40-page portrait proposal; current pagination and assignments are in landscape/PAGE_PLAN.md. No art acceptance inherited. |
 
 | `design/PAINTER_ENGINE_PROTOTYPE_2026-09-16.md` | 🟣 | `PROPOSED / CANDIDATE`; owner-commissioned single standalone Painter prototype with a pinned Pixelorama fill import, unchanged Roshan graphics and isolated artwork persistence. No career/chapter integration, device/child/owner acceptance or master-audit closure. |
 | `audit/OVERNIGHT_RECUT_FRAME_AUDIT_2026-09-12.md` | 🔵 | `SUPPORTING_CURRENT`; fresh sampled/native-frame review of the 3150-frame overnight Resolve render and eighteen bounded repair/conditional cards. Owner direction: recognizable big bunny, soapy scrubbing obscures form, concept friend jumps while casing collapses and dust scatters. Includes original-book Eagle correction and exact Daddy/attic locks. No generated-frame, human, runtime, device or delivery acceptance. |
@@ -811,3 +811,10 @@ Kept as-is; noted so a future edit updates every copy.
 | `design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md` | 🔵 | `SUPPORTING_CURRENT`; sequence continuity controls implementing existing cinematic rules; grants no opening, motion or delivery acceptance. |
 | `audit/GROK_HANDOFF_2_FOOTAGE_AUDIT_2026-09-09.md` | 🔵 | `SUPPORTING_CURRENT`; scoped 73-file inventory, selected-cut/native-sample review and 74-shot reconciliation; historical evidence is distinguished from fresh observations. |
 | `assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/README.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; versioned repair archive operator index; 47 draft jobs remain generation-blocked and delivery-unaccepted. |
+
+## Landscape picture-book review
+
+| Doc | | Note |
+|---|---|---|
+| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; 32-page landscape assignments supersede portrait pagination; no final art acceptance. |
+| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; rough build evidence and remaining print/source gaps. |

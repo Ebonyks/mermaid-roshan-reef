@@ -2,16 +2,16 @@
 
 Dedicated branch: `codex/mermaid-roshan-picture-book`.
 
-- [Book design language](DESIGN_LANGUAGE.md): owner rules and precise interpretation of the original Gemini prompt.
-- [Original prompt](ORIGINAL_GEMINI_BACKGROUND_PROMPT.txt): owner-provided wording, formatting normalized only.
-- [Illustrated plan](plan/DESIGN_PLAN.html): current 40-page CUTOUT-or-FULL-ART plan: 23 cutout pages, 17 full-art pages, explicit foreground/mound/removal assignments. Raw sources are collapsed reference inputs, never proposed reduced-page panels.
-- [Written page plan](plan/PAGE_BY_PAGE_PLAN.md) and [editable table](plan/page_plan.csv).
-- `plan/source_catalog.json`: original source chains and file hashes.
-- `archive/rough_v5/`: preserved, superseded rough source package; run `python render_book.py` there to regenerate. It is not the accepted new layout.
-- [Change evidence](../../design/audit_impacts/picture-book-dedicated-branch-20260920.json).
+The current deliverable is a **7 x 5 inch landscape rough: 32 story pages plus front/back covers**. Existing scenes run full-art; reduced illustrations are alpha silhouettes. Sniglet and the blue two-mound background carry the original book design language.
 
-The book is not rebuilt yet. Page 12 is the blocked waterfall; page 13 is a distinct clearing-action requirement, with no reused page-12 placeholder. The existing material reviewed does not establish a valid clearing-action frame, so it stays an explicit gap rather than becoming invented art. Later rainbow flow remains on pages 14-15.
+- [Current manuscript](landscape/book.json) and [page assignments](landscape/PAGE_PLAN.md).
+- [Build and review notes](landscape/REVIEW.md).
+- [Design rules](DESIGN_LANGUAGE.md) and [original background prompt](ORIGINAL_GEMINI_BACKGROUND_PROMPT.txt).
+- [Previous portrait plan](plan/PAGE_BY_PAGE_PLAN.md), superseded by landscape pagination.
+- `archive/rough_v5/`: preserved older source package, not the current layout.
 
-These assets are non-runtime. `.gdignore` prevents Godot import. Keep development on this dedicated branch; game integration/release is not part of this book task. Do not poll for the stopped Resolve handoff.
+Run `python books/chapter_one/landscape/render_book.py --output output/pdf/landscape` from the repository root. This creates the 34-page PDF, faithful page-image HTML reader, five contact sheets and verification JSON. The renderer requires Pillow, reportlab and pypdfium2.
 
-Regenerate the review HTML, Markdown, JSON and CSV with `python books/chapter_one/render_plan.py` from the repository root. The plan is the deliverable for this layout revision; actual cutout production and book rebuilding remain pending.
+The waterfall action is narrated using existing obstruction art followed by a distinct rainbow frame; a true clearing-action illustration remains absent. Some original storyboard sources have low print resolution. This is a review rough, not a print master or cinematic delivery acceptance.
+
+These assets are non-runtime; `.gdignore` prevents import. Work stays on the dedicated book branch. Do not restart the stopped Resolve handoff search.
