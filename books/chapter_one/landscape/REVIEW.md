@@ -1,15 +1,13 @@
 # Landscape rough review
 
-Status: `SUPPORTING_CURRENT`; static book review, no game or cinematic acceptance claim.
+Status: `SUPPORTING_CURRENT`; stress-revised rough, not final owner or print acceptance. No game/cinematic acceptance claim.
 
-The edition contains 32 numbered story pages and two covers at 504 x 360 PDF points. Page 11 restores waterfall-clearing narration, followed by the rainbow on page 12. Pages 17-18 retain two dust bunnies holding Baby Eagle. Pages 27-30 preserve the four-helper scrub, total soap concealment, rainbow jump and landing order.
+The previous v7 mechanical PASS did not establish sufficient visual quality. The owner rejected its background relevance, identity consistency and caption placement. [The comprehensive stress test](STRESS_TEST.md) supersedes earlier broad visual-pass wording and records every story page, corrections and unresolved sources.
 
-All cutouts are existing alpha assets or bounded isolation derivatives. Page 13 uses full art because the available seahorse cutout severed the characters at the torso. The four finale frames retain their complete original pixels. The mismatched floor extension was removed; only empty ceiling space is added above the originals. Generated extension centres and floor strips are excluded. Protected original assets remain untouched.
+The current proof retains 32 story pages plus covers at 7 x 5 inches. The opening explicitly enters the dirty castle and proposes cleaning together. Contextual background assignments, individually placed captions and corrected identity-source selections are in `book.json`. Protected originals are unchanged. No full-scene redraw was made.
 
-Mechanical checks: all 32 manuscript rows resolve, all reduced sources have transparent alpha, output is 34 landscape pages, Sniglet is embedded. Full-page artwork is clipped only at the outside page trim. No framed scene panels or caption bands.
+The new Eagle isolation is a bounded edit of the original-book asset. It removes the bag and heals previously occluded areas; its grey feet, pastel plumage and beak/crest signatures were compared with the original. Owner acceptance and exact extraction fidelity remain open. Original rescue frames retain small/partly obscured Eagle details that do not justify an unconditional identity pass.
 
-Visual review covers all pages using rendered contact sheets and representative full-size pages. Caption halo was corrected after the first proof. Final print resolution, precise extraction-edge fidelity, subtle extension seams, and owner acceptance remain open. Border integrations use exact source alpha, <=12% bounds, low contact shadows and a bottom-10% reveal of the base mound texture. The small occlusion transitions still need print-size acceptance.
+Page 11 still narrates clearing against an obstruction frame. No missing action was invented. Ceiling joins and print resolution also remain open. Resolve searching stays stopped.
 
-The waterfall clearing source is still missing. Page 11 explicitly narrates the action against the existing blocked-waterfall frame. This is not a fabricated clearing frame and not a claim that the source gap is resolved. Resolve search stays stopped.
-
-Portable source delivery: `package_book.py` includes only actually drawn image sources, Sniglet and its OFL license, editable manuscript, renderer, design rules and provenance. Each rendered image operation records its source hash, sampled rectangle, placement, role and page; covers and background redraws are included. The archive is independently extracted and rebuilt for verification. A matching render establishes portability only, not final owner acceptance.
+`audit_book.py` distinguishes mechanical geometry/source checks from manual identity and readability review. `package_book.py` creates a portable source ZIP with the used images, font/license, manuscript, renderer and review evidence. Independent rebuild comparison proves portability only.

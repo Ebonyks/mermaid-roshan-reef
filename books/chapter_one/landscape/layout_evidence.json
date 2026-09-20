@@ -1,1003 +1,3951 @@
-[
-  {
-    "page": 1,
-    "mode": "F",
-    "foreground": [
-      "window"
-    ],
-    "background_assets": [],
-    "layout": "right_top",
-    "sources": [
-      {
-        "key": "window",
-        "sha256": "d288e075760d5652e648fdc3fb3802486b3ce1f42a55fab71008932a064e9e5e"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
+{
+  "font": {
+    "file": "../archive/rough_v5/fonts/Sniglet-Regular.ttf",
+    "sha256": "a20f3a50e8d92dfc143ee82e46df07f6e7f01e21b50f2d78081314a7c25bd9dd"
   },
-  {
-    "page": 2,
-    "mode": "F",
-    "foreground": [
-      "arrival"
-    ],
-    "background_assets": [],
-    "layout": "top",
-    "sources": [
-      {
-        "key": "arrival",
-        "sha256": "6fed99de13b61b068c528b101def01551b4fc61de6f4bd0a37ca66d9f58a5725"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 3,
-    "mode": "C",
-    "foreground": [
-      "daddy",
-      "roshan"
-    ],
-    "background_assets": [],
-    "layout": "pair",
-    "sources": [
-      {
-        "key": "daddy",
-        "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77"
-      },
-      {
-        "key": "roshan",
-        "sha256": "69892135ddb2249ce24968477311d0d0394c834b003fc0a14e0bab86745e9290"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 4,
-    "mode": "C",
-    "foreground": [
-      "brush",
-      "sponge"
-    ],
-    "background_assets": [
-      "bubbles"
-    ],
-    "layout": "tools",
-    "sources": [
-      {
-        "key": "brush",
-        "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3"
-      },
-      {
-        "key": "sponge",
-        "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 5,
-    "mode": "F",
-    "foreground": [
-      "bath_dirty"
-    ],
-    "background_assets": [],
-    "layout": "top",
-    "sources": [
-      {
-        "key": "bath_dirty",
-        "sha256": "05426636cb92212eac76e44f2be7167916e6a4d3b63e9d8a5b67fe2e39f3c89a"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 6,
-    "mode": "C",
-    "foreground": [
-      "sponge"
-    ],
-    "background_assets": [
-      "brush"
-    ],
-    "layout": "left_art",
-    "sources": [
-      {
-        "key": "sponge",
-        "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 7,
-    "mode": "C",
-    "foreground": [
-      "bath_drained_local"
-    ],
-    "background_assets": [
-      "bubbles"
-    ],
-    "layout": "wide_cut",
-    "sources": [
-      {
-        "key": "bath_drained_local",
-        "sha256": "b33c3d90158d0618680803b1c9a3c9b2f61fee1bfd7db55fc57c138c14316dc3"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 8,
-    "mode": "F",
-    "foreground": [
-      "bath_safe"
-    ],
-    "background_assets": [],
-    "layout": "top",
-    "sources": [
-      {
-        "key": "bath_safe",
-        "sha256": "80aa6ebf7afbde59635138c5d9763a0c347e9fe8b8ff8f6b93165c201e9c3813"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 9,
-    "mode": "F",
-    "foreground": [
-      "pool_dirty"
-    ],
-    "background_assets": [],
-    "layout": "top",
-    "sources": [
-      {
-        "key": "pool_dirty",
-        "sha256": "2cecf47490beb7b69e5148e6be187f77861e3f226934710fd6f19f505ab0b198"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 10,
-    "mode": "C",
-    "foreground": [
-      "net_cut"
-    ],
-    "background_assets": [
-      "bubbles"
-    ],
-    "layout": "wide_cut",
-    "sources": [
-      {
-        "key": "net_cut",
-        "sha256": "5320644cfe21ad99828f0b2d4ecbcfd20041e8b6bb90623d08d821a7960cc206"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 11,
-    "mode": "F",
-    "foreground": [
-      "waterfall"
-    ],
-    "background_assets": [],
-    "layout": "top",
-    "sources": [
-      {
-        "key": "waterfall",
-        "sha256": "10d2283bded5d3261999002fe9985f6cf38444c74536cf74c39a61aefd70f6da"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 12,
-    "mode": "F",
-    "foreground": [
-      "rainbowfall"
-    ],
-    "background_assets": [],
-    "layout": "top",
-    "sources": [
-      {
-        "key": "rainbowfall",
-        "sha256": "0bb9383f849764bd8d65d532f562130153acdc033bcd2e989e3d33f6507e2c72"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 13,
-    "mode": "F",
-    "foreground": [
-      "seahorse"
-    ],
-    "background_assets": [],
-    "layout": "top",
-    "sources": [
-      {
-        "key": "seahorse",
-        "sha256": "77c74377a03e77c6b5f6dda6b25245df4983242d9dd10af234bda7aa3c6ed715"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 14,
-    "mode": "F",
-    "foreground": [
-      "pool_clean"
-    ],
-    "background_assets": [],
-    "layout": "top",
-    "sources": [
-      {
-        "key": "pool_clean",
-        "sha256": "420a26b831802720692437fe654a1e827d97be7b21ec6fc2a2a87f6634b16690"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 15,
-    "mode": "F",
-    "foreground": [
-      "rumi_hug"
-    ],
-    "background_assets": [],
-    "layout": "right_top",
-    "sources": [
-      {
-        "key": "rumi_hug",
-        "sha256": "7da50c706927cdc0fbadf666db6f397b9991dad4f4d9f9d2c815aa3e3434faab"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 16,
-    "mode": "F",
-    "foreground": [
-      "stuffie_entry"
-    ],
-    "background_assets": [],
-    "layout": "top",
-    "sources": [
-      {
-        "key": "stuffie_entry",
-        "sha256": "32c1e4013fdbdc95908144da412770e24dbdae072df2404c8c1a0915b9418826"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 17,
-    "mode": "C",
-    "foreground": [
-      "rescue_isolated"
-    ],
-    "background_assets": [
-      "bubbles"
-    ],
-    "layout": "wide_cut",
-    "sources": [
-      {
-        "key": "rescue_isolated",
-        "sha256": "a5e1562af1875c5a87df86cd18d07f8c749a9181197731249495509dd9056ed1"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 18,
-    "mode": "C",
-    "foreground": [
-      "release_cut"
-    ],
-    "background_assets": [],
-    "layout": "wide_cut",
-    "sources": [
-      {
-        "key": "release_cut",
-        "sha256": "1d534bf86390b2ba2e9787d4297c53bef66a164fa75744f58f9fa2035dbd9f35"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 19,
-    "mode": "C",
-    "foreground": [
-      "eagle"
-    ],
-    "background_assets": [
-      "bubbles"
-    ],
-    "layout": "right_art",
-    "sources": [
-      {
-        "key": "eagle",
-        "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 20,
-    "mode": "F",
-    "foreground": [
-      "playroom"
-    ],
-    "background_assets": [],
-    "layout": "top",
-    "sources": [
-      {
-        "key": "playroom",
-        "sha256": "f58a831b9aeed63f37596cb21db127e2255f2a5ebb4e4a87cffe02dd2be9117b"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 21,
-    "mode": "C",
-    "foreground": [
-      "cups",
-      "brushes",
-      "pink"
-    ],
-    "background_assets": [],
-    "layout": "supplies",
-    "sources": [
-      {
-        "key": "cups",
-        "sha256": "fca25541d66e07bf28ee31a36ff049130af64c495a077759750f291e526780a0"
-      },
-      {
-        "key": "brushes",
-        "sha256": "7de7cf80939fe62e16d6931d1eb6b377ec2454107b855703b76f445aa8aad99a"
-      },
-      {
-        "key": "pink",
-        "sha256": "089bcaf7b7e27a4760ca70f05cfeb6954e72eb59ac4ecd125fd6b5cfe0ebba4a"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 22,
-    "mode": "C",
-    "foreground": [
-      "brush",
-      "sponge"
-    ],
-    "background_assets": [
-      "cups"
-    ],
-    "layout": "tools",
-    "sources": [
-      {
-        "key": "brush",
-        "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3"
-      },
-      {
-        "key": "sponge",
-        "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 23,
-    "mode": "F",
-    "foreground": [
-      "paint"
-    ],
-    "background_assets": [],
-    "layout": "right_top",
-    "sources": [
-      {
-        "key": "paint",
-        "sha256": "a5305eba8f0c6fc7d5b99b1899d4abc4365d4617362c62b498a046918759089e"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 24,
-    "mode": "C",
-    "foreground": [
-      "royal_door_isolated"
-    ],
-    "background_assets": [],
-    "layout": "left_art",
-    "sources": [
-      {
-        "key": "royal_door_isolated",
-        "sha256": "d72b6bd7532330b60d24855006adb7ccf4082fa15400a003576fb5e1198c9c1b"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 25,
-    "mode": "C",
-    "foreground": [
-      "boss_cut"
-    ],
-    "background_assets": [],
-    "layout": "right_art",
-    "sources": [
-      {
-        "key": "boss_cut",
-        "sha256": "9333a2b1d892eb9cb8176eefb8b0fbbc4f74c18f35d4cb1b9fbfdbf7e667cb8d"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 26,
-    "mode": "C",
-    "foreground": [
-      "grand_puff_jump_sheet"
-    ],
-    "background_assets": [],
-    "layout": "left_art",
-    "sources": [
-      {
-        "key": "grand_puff_jump_sheet",
-        "sha256": "7f117638631841c31eb58b9c81224158d29d64f325980c75c475e0376e36788c"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 27,
-    "mode": "F",
-    "foreground": [
-      "R09_open"
-    ],
-    "background_assets": [],
-    "layout": "extension",
-    "sources": [
-      {
-        "key": "R09_open",
-        "sha256": "aa190981537396ab1da059cf799c23f69410a29aa1a09e51da0041267cc942ab"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 28,
-    "mode": "F",
-    "foreground": [
-      "R09_suds"
-    ],
-    "background_assets": [],
-    "layout": "extension",
-    "sources": [
-      {
-        "key": "R09_suds",
-        "sha256": "ed7f13735a560ee5a187bf1cbc4d40b1a04e2fc9a6375b7fb74ae6a81c285e2b"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 29,
-    "mode": "F",
-    "foreground": [
-      "R10_jump"
-    ],
-    "background_assets": [],
-    "layout": "extension",
-    "sources": [
-      {
-        "key": "R10_jump",
-        "sha256": "13ff639019cccadd0675aea4ed9550505c57a84ae666d647df6097bb18793889"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 30,
-    "mode": "F",
-    "foreground": [
-      "R11_land"
-    ],
-    "background_assets": [],
-    "layout": "extension",
-    "sources": [
-      {
-        "key": "R11_land",
-        "sha256": "d166ae3aa034d26beeda8e92dbc0da8da5347646b8b707746237d819e81a4e5a"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 31,
-    "mode": "F",
-    "foreground": [
-      "hug"
-    ],
-    "background_assets": [],
-    "layout": "top",
-    "sources": [
-      {
-        "key": "hug",
-        "sha256": "bf42761bdd1537a83edb9bd98b238e02cbb9c980c43e9f8d578b5ff410b014aa"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  },
-  {
-    "page": 32,
-    "mode": "C",
-    "foreground": [
-      "rainbow_cut"
-    ],
-    "background_assets": [
-      "bubbles"
-    ],
-    "layout": "right_art",
-    "sources": [
-      {
-        "key": "rainbow_cut",
-        "sha256": "3446d4c1c981b15c5f53e99af0a03c47fdfe7b6daa6f33e54b7ea5421351c9f8"
-      }
-    ],
-    "border_max_box_points": [
-      48,
-      38
-    ],
-    "border_slot_points": [
-      53,
-      10,
-      48,
-      38
-    ],
-    "mound": "left",
-    "occlusion_fraction": 0.1,
-    "shadow_opacity": 0.12,
-    "central_gap": "x=190..314; no integrated decorations",
-    "review": "rough visually reviewed; print acceptance pending"
-  }
-]
+  "coordinate_system": "source pixels: top-left x,y; PDF target points: bottom-left x,y,width,height; page-trim layers clipped to page",
+  "layers": [
+    {
+      "page": "front_cover",
+      "source_key": "arrival",
+      "file": "../archive/rough_v5/art/arrival.png",
+      "sha256": "6fed99de13b61b068c528b101def01551b4fc61de6f4bd0a37ca66d9f58a5725",
+      "native_size": [
+        830,
+        455
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        830,
+        455
+      ],
+      "target_box_points": [
+        -76.35164835164835,
+        0.0,
+        656.7032967032967,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 1,
+      "source_key": "window",
+      "file": "../archive/rough_v5/art/window.png",
+      "sha256": "d288e075760d5652e648fdc3fb3802486b3ce1f42a55fab71008932a064e9e5e",
+      "native_size": [
+        544,
+        454
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        544,
+        454
+      ],
+      "target_box_points": [
+        0.0,
+        -30.308823529411768,
+        504.0,
+        420.61764705882354
+      ],
+      "operation": "page_trim",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 2,
+      "source_key": "arrival",
+      "file": "../archive/rough_v5/art/arrival.png",
+      "sha256": "6fed99de13b61b068c528b101def01551b4fc61de6f4bd0a37ca66d9f58a5725",
+      "native_size": [
+        830,
+        455
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        830,
+        455
+      ],
+      "target_box_points": [
+        -76.35164835164835,
+        0.0,
+        656.7032967032967,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 3,
+      "source_key": "dirty_hall_entry",
+      "file": "art/stress_revision/dirty_hall_entry.png",
+      "sha256": "3d3aef9fcaf2133380af45c7b0e0374275e0537c88aa94462d433a1a11be9750",
+      "native_size": [
+        1672,
+        941
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "target_box_points": [
+        -0.0,
+        0.0,
+        639.6599362380447,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 4,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "stationery_base",
+      "alpha": false
+    },
+    {
+      "page": 4,
+      "source_key": "mound_grime_left",
+      "file": "art/stress_revision/mound_grime_left.png",
+      "sha256": "125978f082934e3b290370c6a7a2c0082b8e5df5044feecbf22f3d5d6dca0ac1",
+      "native_size": [
+        512,
+        306
+      ],
+      "source_box_pixels": [
+        41,
+        42,
+        477,
+        285
+      ],
+      "target_box_points": [
+        53.0,
+        15.623853211009173,
+        48.0,
+        26.752293577981654
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 4,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        53.0,
+        15.623853211009173,
+        48.0,
+        2.6752293577981656
+      ]
+    },
+    {
+      "page": 4,
+      "source_key": "mound_grime_right",
+      "file": "art/stress_revision/mound_grime_right.png",
+      "sha256": "339f248e488bf651749746c0819ba0214373684ec59859ed3815ddfa387bfe28",
+      "native_size": [
+        512,
+        307
+      ],
+      "source_box_pixels": [
+        43,
+        48,
+        469,
+        291
+      ],
+      "target_box_points": [
+        400.0,
+        15.309859154929578,
+        48.0,
+        27.380281690140844
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 4,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        400.0,
+        15.309859154929578,
+        48.0,
+        2.7380281690140844
+      ]
+    },
+    {
+      "page": 4,
+      "source_key": "brush",
+      "file": "../archive/rough_v5/art/brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "native_size": [
+        936,
+        1024
+      ],
+      "source_box_pixels": [
+        45,
+        38,
+        899,
+        978
+      ],
+      "target_box_points": [
+        65.19148936170214,
+        65.0,
+        172.61702127659572,
+        190.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 4,
+      "source_key": "sponge",
+      "file": "../archive/rough_v5/art/sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        32,
+        479,
+        480
+      ],
+      "target_box_points": [
+        304.15513392857144,
+        62.0,
+        138.68973214285714,
+        139.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 5,
+      "source_key": "bath_dirty",
+      "file": "../archive/rough_v5/art/bath_dirty.png",
+      "sha256": "05426636cb92212eac76e44f2be7167916e6a4d3b63e9d8a5b67fe2e39f3c89a",
+      "native_size": [
+        818,
+        452
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        818,
+        452
+      ],
+      "target_box_points": [
+        -73.75221238938053,
+        0.0,
+        651.5044247787611,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 6,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "stationery_base",
+      "alpha": false
+    },
+    {
+      "page": 6,
+      "source_key": "bath_badge",
+      "file": "art/stress_revision/bath_badge.png",
+      "sha256": "3a43e1fc23f95f9f3a2ec256861d418017d783bbf0d30f7b85fee677838aa3c4",
+      "native_size": [
+        256,
+        256
+      ],
+      "source_box_pixels": [
+        78,
+        80,
+        178,
+        176
+      ],
+      "target_box_points": [
+        57.208333333333336,
+        10.0,
+        39.58333333333333,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 6,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        57.208333333333336,
+        10.0,
+        39.58333333333333,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 6,
+      "source_key": "brush",
+      "file": "../archive/rough_v5/art/brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "native_size": [
+        936,
+        1024
+      ],
+      "source_box_pixels": [
+        45,
+        38,
+        899,
+        978
+      ],
+      "target_box_points": [
+        406.7382978723404,
+        10.0,
+        34.52340425531915,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 6,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        406.7382978723404,
+        10.0,
+        34.52340425531915,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 6,
+      "source_key": "sponge",
+      "file": "../archive/rough_v5/art/sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        32,
+        479,
+        480
+      ],
+      "target_box_points": [
+        35.74107142857143,
+        63.0,
+        215.51785714285714,
+        216.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 7,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "stationery_base",
+      "alpha": false
+    },
+    {
+      "page": 7,
+      "source_key": "bath_badge",
+      "file": "art/stress_revision/bath_badge.png",
+      "sha256": "3a43e1fc23f95f9f3a2ec256861d418017d783bbf0d30f7b85fee677838aa3c4",
+      "native_size": [
+        256,
+        256
+      ],
+      "source_box_pixels": [
+        78,
+        80,
+        178,
+        176
+      ],
+      "target_box_points": [
+        57.208333333333336,
+        10.0,
+        39.58333333333333,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 7,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        57.208333333333336,
+        10.0,
+        39.58333333333333,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 7,
+      "source_key": "bubbles",
+      "file": "../archive/rough_v5/art/bubbles.png",
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        44,
+        480,
+        467
+      ],
+      "target_box_points": [
+        403.87706855791964,
+        10.0,
+        40.24586288416076,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 7,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        403.87706855791964,
+        10.0,
+        40.24586288416076,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 7,
+      "source_key": "bath_drained_local",
+      "file": "../archive/rough_v5/art/bath_drained_local.png",
+      "sha256": "b33c3d90158d0618680803b1c9a3c9b2f61fee1bfd7db55fc57c138c14316dc3",
+      "native_size": [
+        1589,
+        990
+      ],
+      "source_box_pixels": [
+        0,
+        9,
+        1589,
+        990
+      ],
+      "target_box_points": [
+        81.11365953109072,
+        53.0,
+        341.77268093781856,
+        211.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 8,
+      "source_key": "bath_safe",
+      "file": "../archive/rough_v5/art/bath_safe.png",
+      "sha256": "80aa6ebf7afbde59635138c5d9763a0c347e9fe8b8ff8f6b93165c201e9c3813",
+      "native_size": [
+        818,
+        452
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        818,
+        452
+      ],
+      "target_box_points": [
+        -73.75221238938053,
+        0.0,
+        651.5044247787611,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 9,
+      "source_key": "pool_dirty",
+      "file": "../archive/rough_v5/art/pool_dirty.png",
+      "sha256": "2cecf47490beb7b69e5148e6be187f77861e3f226934710fd6f19f505ab0b198",
+      "native_size": [
+        820,
+        296
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        820,
+        296
+      ],
+      "target_box_points": [
+        -246.64864864864865,
+        0.0,
+        997.2972972972973,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 10,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "stationery_base",
+      "alpha": false
+    },
+    {
+      "page": 10,
+      "source_key": "pool_float",
+      "file": "art/stress_revision/pool_float.png",
+      "sha256": "d1f3067ce56cd2e6a844c597a48bf01b0661ae34507d99af3272a7a56db88fc5",
+      "native_size": [
+        90,
+        70
+      ],
+      "source_box_pixels": [
+        9,
+        8,
+        81,
+        59
+      ],
+      "target_box_points": [
+        53.0,
+        12.0,
+        48.0,
+        34.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 10,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        53.0,
+        12.0,
+        48.0,
+        3.4000000000000004
+      ]
+    },
+    {
+      "page": 10,
+      "source_key": "cleanup_basket",
+      "file": "art/stress_revision/cleanup_basket.png",
+      "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+      "native_size": [
+        1024,
+        936
+      ],
+      "source_box_pixels": [
+        0,
+        39,
+        987,
+        906
+      ],
+      "target_box_points": [
+        402.3702422145329,
+        10.0,
+        43.25951557093426,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 10,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        402.3702422145329,
+        10.0,
+        43.25951557093426,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 10,
+      "source_key": "net_cut",
+      "file": "art/net_cut.png",
+      "sha256": "5320644cfe21ad99828f0b2d4ecbcfd20041e8b6bb90623d08d821a7960cc206",
+      "native_size": [
+        1706,
+        922
+      ],
+      "source_box_pixels": [
+        0,
+        21,
+        1682,
+        922
+      ],
+      "target_box_points": [
+        55.05105438401776,
+        53.0,
+        393.8978912319645,
+        211.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 11,
+      "source_key": "waterfall",
+      "file": "../archive/rough_v5/art/waterfall.png",
+      "sha256": "10d2283bded5d3261999002fe9985f6cf38444c74536cf74c39a61aefd70f6da",
+      "native_size": [
+        819,
+        300
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        819,
+        300
+      ],
+      "target_box_points": [
+        -239.39999999999998,
+        0.0,
+        982.8,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 12,
+      "source_key": "rainbowfall",
+      "file": "../archive/rough_v5/art/rainbowfall.png",
+      "sha256": "0bb9383f849764bd8d65d532f562130153acdc033bcd2e989e3d33f6507e2c72",
+      "native_size": [
+        1280,
+        720
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "target_box_points": [
+        -68.0,
+        0.0,
+        640.0,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 13,
+      "source_key": "seahorse",
+      "file": "../archive/rough_v5/art/seahorse.png",
+      "sha256": "77c74377a03e77c6b5f6dda6b25245df4983242d9dd10af234bda7aa3c6ed715",
+      "native_size": [
+        541,
+        299
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        541,
+        299
+      ],
+      "target_box_points": [
+        -73.68561872909703,
+        0.0,
+        651.3712374581941,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 14,
+      "source_key": "pool_clean",
+      "file": "../archive/rough_v5/art/pool_clean.png",
+      "sha256": "420a26b831802720692437fe654a1e827d97be7b21ec6fc2a2a87f6634b16690",
+      "native_size": [
+        546,
+        284
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        546,
+        284
+      ],
+      "target_box_points": [
+        -94.05633802816902,
+        0.0,
+        692.112676056338,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 15,
+      "source_key": "rumi_hug",
+      "file": "../archive/rough_v5/art/rumi_hug.png",
+      "sha256": "7da50c706927cdc0fbadf666db6f397b9991dad4f4d9f9d2c815aa3e3434faab",
+      "native_size": [
+        546,
+        317
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        546,
+        317
+      ],
+      "target_box_points": [
+        -58.03154574132492,
+        0.0,
+        620.0630914826498,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 16,
+      "source_key": "stuffie_entry",
+      "file": "../archive/rough_v5/art/stuffie_entry.png",
+      "sha256": "32c1e4013fdbdc95908144da412770e24dbdae072df2404c8c1a0915b9418826",
+      "native_size": [
+        383,
+        450
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        383,
+        450
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        -116.08355091383811,
+        503.99999999999994,
+        592.1671018276762
+      ],
+      "operation": "page_trim",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 17,
+      "source_key": "pinned",
+      "file": "../archive/rough_v5/art/pinned.png",
+      "sha256": "417e3a44f098f49ca7ca94786b4d1f243ef0147f94df56712f8f312f94c2772a",
+      "native_size": [
+        1280,
+        720
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "target_box_points": [
+        -68.0,
+        0.0,
+        640.0,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 18,
+      "source_key": "loose",
+      "file": "../archive/rough_v5/art/loose.png",
+      "sha256": "8aa92304a86d8b5795058e29349c91fc4b7e919c72cab691341dfed2b8e96aa3",
+      "native_size": [
+        1280,
+        720
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "target_box_points": [
+        -68.0,
+        0.0,
+        640.0,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 19,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "stationery_base",
+      "alpha": false
+    },
+    {
+      "page": 19,
+      "source_key": "sleepy_bunny",
+      "file": "art/stress_revision/sleepy_bunny.png",
+      "sha256": "02c37b1d84a78da7c750308cbf708b98636808c855e9811bf82dcdccfc26ec90",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        84,
+        480,
+        427
+      ],
+      "target_box_points": [
+        53.0,
+        10.625,
+        48.0,
+        36.75
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 19,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        53.0,
+        10.625,
+        48.0,
+        3.6750000000000003
+      ]
+    },
+    {
+      "page": 19,
+      "source_key": "cleanup_basket",
+      "file": "art/stress_revision/cleanup_basket.png",
+      "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+      "native_size": [
+        1024,
+        936
+      ],
+      "source_box_pixels": [
+        0,
+        39,
+        987,
+        906
+      ],
+      "target_box_points": [
+        402.3702422145329,
+        10.0,
+        43.25951557093426,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 19,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        402.3702422145329,
+        10.0,
+        43.25951557093426,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 19,
+      "source_key": "eagle_original_isolated",
+      "file": "art/stress_revision/eagle_original_isolated.png",
+      "sha256": "166461427017b2624dcf1c342bde658c63a8247b522ad113c92f6ec1bb084bd9",
+      "native_size": [
+        944,
+        1666
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        944,
+        1564
+      ],
+      "target_box_points": [
+        288.89002557544757,
+        57.0,
+        138.21994884910487,
+        229.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 20,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "stationery_base",
+      "alpha": false
+    },
+    {
+      "page": 20,
+      "source_key": "sleepy_bunny",
+      "file": "art/stress_revision/sleepy_bunny.png",
+      "sha256": "02c37b1d84a78da7c750308cbf708b98636808c855e9811bf82dcdccfc26ec90",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        84,
+        480,
+        427
+      ],
+      "target_box_points": [
+        53.0,
+        10.625,
+        48.0,
+        36.75
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 20,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        53.0,
+        10.625,
+        48.0,
+        3.6750000000000003
+      ]
+    },
+    {
+      "page": 20,
+      "source_key": "cleanup_basket",
+      "file": "art/stress_revision/cleanup_basket.png",
+      "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+      "native_size": [
+        1024,
+        936
+      ],
+      "source_box_pixels": [
+        0,
+        39,
+        987,
+        906
+      ],
+      "target_box_points": [
+        402.3702422145329,
+        10.0,
+        43.25951557093426,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 20,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        402.3702422145329,
+        10.0,
+        43.25951557093426,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 20,
+      "source_key": "roshan",
+      "file": "../archive/rough_v5/art/roshan.png",
+      "sha256": "69892135ddb2249ce24968477311d0d0394c834b003fc0a14e0bab86745e9290",
+      "native_size": [
+        256,
+        256
+      ],
+      "source_box_pixels": [
+        44,
+        12,
+        215,
+        231
+      ],
+      "target_box_points": [
+        84.67123287671234,
+        55.0,
+        168.65753424657532,
+        216.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 20,
+      "source_key": "eagle_original_isolated",
+      "file": "art/stress_revision/eagle_original_isolated.png",
+      "sha256": "166461427017b2624dcf1c342bde658c63a8247b522ad113c92f6ec1bb084bd9",
+      "native_size": [
+        944,
+        1666
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        944,
+        1564
+      ],
+      "target_box_points": [
+        320.0920716112532,
+        74.0,
+        103.81585677749361,
+        172.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 21,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "stationery_base",
+      "alpha": false
+    },
+    {
+      "page": 21,
+      "source_key": "mound_grime_left",
+      "file": "art/stress_revision/mound_grime_left.png",
+      "sha256": "125978f082934e3b290370c6a7a2c0082b8e5df5044feecbf22f3d5d6dca0ac1",
+      "native_size": [
+        512,
+        306
+      ],
+      "source_box_pixels": [
+        41,
+        42,
+        477,
+        285
+      ],
+      "target_box_points": [
+        53.0,
+        15.623853211009173,
+        48.0,
+        26.752293577981654
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 21,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        53.0,
+        15.623853211009173,
+        48.0,
+        2.6752293577981656
+      ]
+    },
+    {
+      "page": 21,
+      "source_key": "mound_grime_right",
+      "file": "art/stress_revision/mound_grime_right.png",
+      "sha256": "339f248e488bf651749746c0819ba0214373684ec59859ed3815ddfa387bfe28",
+      "native_size": [
+        512,
+        307
+      ],
+      "source_box_pixels": [
+        43,
+        48,
+        469,
+        291
+      ],
+      "target_box_points": [
+        400.0,
+        15.309859154929578,
+        48.0,
+        27.380281690140844
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 21,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        400.0,
+        15.309859154929578,
+        48.0,
+        2.7380281690140844
+      ]
+    },
+    {
+      "page": 21,
+      "source_key": "cups",
+      "file": "../archive/rough_v5/art/cups.png",
+      "sha256": "fca25541d66e07bf28ee31a36ff049130af64c495a077759750f291e526780a0",
+      "native_size": [
+        768,
+        512
+      ],
+      "source_box_pixels": [
+        42,
+        71,
+        742,
+        436
+      ],
+      "target_box_points": [
+        40.000000000000014,
+        100.46428571428572,
+        189.99999999999997,
+        99.07142857142857
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 21,
+      "source_key": "brushes",
+      "file": "../archive/rough_v5/art/brushes.png",
+      "sha256": "7de7cf80939fe62e16d6931d1eb6b377ec2454107b855703b76f445aa8aad99a",
+      "native_size": [
+        768,
+        512
+      ],
+      "source_box_pixels": [
+        44,
+        31,
+        727,
+        481
+      ],
+      "target_box_points": [
+        247.4688888888889,
+        146.0,
+        176.06222222222223,
+        116.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 21,
+      "source_key": "pink",
+      "file": "../archive/rough_v5/art/pink.png",
+      "sha256": "089bcaf7b7e27a4760ca70f05cfeb6954e72eb59ac4ecd125fd6b5cfe0ebba4a",
+      "native_size": [
+        384,
+        512
+      ],
+      "source_box_pixels": [
+        71,
+        33,
+        360,
+        455
+      ],
+      "target_box_points": [
+        344.4372037914692,
+        57.00000000000001,
+        80.12559241706161,
+        116.99999999999999
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 22,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "stationery_base",
+      "alpha": false
+    },
+    {
+      "page": 22,
+      "source_key": "cups",
+      "file": "../archive/rough_v5/art/cups.png",
+      "sha256": "fca25541d66e07bf28ee31a36ff049130af64c495a077759750f291e526780a0",
+      "native_size": [
+        768,
+        512
+      ],
+      "source_box_pixels": [
+        42,
+        71,
+        742,
+        436
+      ],
+      "target_box_points": [
+        53.0,
+        16.485714285714288,
+        48.0,
+        25.02857142857143
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 22,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        53.0,
+        16.485714285714288,
+        48.0,
+        2.502857142857143
+      ]
+    },
+    {
+      "page": 22,
+      "source_key": "blue_bottle",
+      "file": "art/stress_revision/blue_bottle.png",
+      "sha256": "ce6adb14e4d877108ae2748138417ef436f6e154b8c4321f69196795114319ff",
+      "native_size": [
+        384,
+        512
+      ],
+      "source_box_pixels": [
+        26,
+        33,
+        312,
+        455
+      ],
+      "target_box_points": [
+        411.1232227488152,
+        10.0,
+        25.753554502369667,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 22,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        411.1232227488152,
+        10.0,
+        25.753554502369667,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 22,
+      "source_key": "brush",
+      "file": "../archive/rough_v5/art/brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "native_size": [
+        936,
+        1024
+      ],
+      "source_box_pixels": [
+        45,
+        38,
+        899,
+        978
+      ],
+      "target_box_points": [
+        65.19148936170214,
+        65.0,
+        172.61702127659572,
+        190.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 22,
+      "source_key": "sponge",
+      "file": "../archive/rough_v5/art/sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        32,
+        479,
+        480
+      ],
+      "target_box_points": [
+        304.15513392857144,
+        62.0,
+        138.68973214285714,
+        139.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 23,
+      "source_key": "paint",
+      "file": "../archive/rough_v5/art/paint.png",
+      "sha256": "a5305eba8f0c6fc7d5b99b1899d4abc4365d4617362c62b498a046918759089e",
+      "native_size": [
+        1280,
+        720
+      ],
+      "source_box_pixels": [
+        420,
+        90,
+        1280,
+        704
+      ],
+      "target_box_points": [
+        0,
+        0,
+        504,
+        360
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": false
+    },
+    {
+      "page": 24,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "stationery_base",
+      "alpha": false
+    },
+    {
+      "page": 24,
+      "source_key": "brush",
+      "file": "../archive/rough_v5/art/brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "native_size": [
+        936,
+        1024
+      ],
+      "source_box_pixels": [
+        45,
+        38,
+        899,
+        978
+      ],
+      "target_box_points": [
+        59.738297872340425,
+        10.0,
+        34.52340425531915,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 24,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        59.738297872340425,
+        10.0,
+        34.52340425531915,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 24,
+      "source_key": "sponge",
+      "file": "../archive/rough_v5/art/sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        32,
+        479,
+        480
+      ],
+      "target_box_points": [
+        405.0424107142857,
+        10.0,
+        37.91517857142858,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 24,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        405.0424107142857,
+        10.0,
+        37.91517857142858,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 24,
+      "source_key": "royal_door_isolated",
+      "file": "../archive/rough_v5/art/royal_door_isolated.png",
+      "sha256": "d72b6bd7532330b60d24855006adb7ccf4082fa15400a003576fb5e1198c9c1b",
+      "native_size": [
+        1157,
+        1359
+      ],
+      "source_box_pixels": [
+        142,
+        45,
+        1095,
+        1359
+      ],
+      "target_box_points": [
+        62.3306697108067,
+        51.0,
+        173.3386605783866,
+        239.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 25,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "stationery_base",
+      "alpha": false
+    },
+    {
+      "page": 25,
+      "source_key": "brush",
+      "file": "../archive/rough_v5/art/brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "native_size": [
+        936,
+        1024
+      ],
+      "source_box_pixels": [
+        45,
+        38,
+        899,
+        978
+      ],
+      "target_box_points": [
+        59.738297872340425,
+        10.0,
+        34.52340425531915,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 25,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        59.738297872340425,
+        10.0,
+        34.52340425531915,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 25,
+      "source_key": "sponge",
+      "file": "../archive/rough_v5/art/sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        32,
+        479,
+        480
+      ],
+      "target_box_points": [
+        405.0424107142857,
+        10.0,
+        37.91517857142858,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 25,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        405.0424107142857,
+        10.0,
+        37.91517857142858,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 25,
+      "source_key": "boss_cut",
+      "file": "../archive/rough_v5/art/boss_cut.png",
+      "sha256": "9333a2b1d892eb9cb8176eefb8b0fbbc4f74c18f35d4cb1b9fbfdbf7e667cb8d",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "source_box_pixels": [
+        23,
+        17,
+        1236,
+        1192
+      ],
+      "target_box_points": [
+        263.0,
+        68.25803792250619,
+        208.0,
+        201.48392415498762
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 26,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "stationery_base",
+      "alpha": false
+    },
+    {
+      "page": 26,
+      "source_key": "cleanup_basket",
+      "file": "art/stress_revision/cleanup_basket.png",
+      "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+      "native_size": [
+        1024,
+        936
+      ],
+      "source_box_pixels": [
+        0,
+        39,
+        987,
+        906
+      ],
+      "target_box_points": [
+        55.370242214532865,
+        10.0,
+        43.25951557093426,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 26,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        55.370242214532865,
+        10.0,
+        43.25951557093426,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 26,
+      "source_key": "sponge",
+      "file": "../archive/rough_v5/art/sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        32,
+        479,
+        480
+      ],
+      "target_box_points": [
+        405.0424107142857,
+        10.0,
+        37.91517857142858,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 26,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        405.0424107142857,
+        10.0,
+        37.91517857142858,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 26,
+      "source_key": "grand_puff_jump_sheet",
+      "file": "../archive/rough_v5/art/grand_puff_jump_sheet.png",
+      "sha256": "7f117638631841c31eb58b9c81224158d29d64f325980c75c475e0376e36788c",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "source_box_pixels": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "target_box_points": [
+        32.5,
+        54.0,
+        228.0,
+        228.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 27,
+      "source_key": "R09_open_wide",
+      "file": "art/R09_open_wide.png",
+      "sha256": "6cb39919810fba4e164de9942966d607647a607a65b6f67827a86ccd1f03d5c4",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        100
+      ],
+      "target_box_points": [
+        0,
+        283.6507177033493,
+        504,
+        76.3492822966507
+      ],
+      "operation": "source_region",
+      "role": "empty_ceiling_extension",
+      "alpha": false
+    },
+    {
+      "page": 27,
+      "source_key": "R09_open",
+      "file": "../plan/source_art/R09_open.png",
+      "sha256": "aa190981537396ab1da059cf799c23f69410a29aa1a09e51da0041267cc942ab",
+      "native_size": [
+        1672,
+        941
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "target_box_points": [
+        0,
+        0,
+        504,
+        283.6507177033493
+      ],
+      "operation": "source_region",
+      "role": "original_complete_scene",
+      "alpha": false
+    },
+    {
+      "page": 28,
+      "source_key": "R09_suds_wide",
+      "file": "art/R09_suds_wide.png",
+      "sha256": "1ca10da5acf66d43471434fcd49972d9ad8fb744278d532e649326d53807f658",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        100
+      ],
+      "target_box_points": [
+        0,
+        283.6507177033493,
+        504,
+        76.3492822966507
+      ],
+      "operation": "source_region",
+      "role": "empty_ceiling_extension",
+      "alpha": false
+    },
+    {
+      "page": 28,
+      "source_key": "R09_suds",
+      "file": "../plan/source_art/R09_suds.png",
+      "sha256": "ed7f13735a560ee5a187bf1cbc4d40b1a04e2fc9a6375b7fb74ae6a81c285e2b",
+      "native_size": [
+        1672,
+        941
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "target_box_points": [
+        0,
+        0,
+        504,
+        283.6507177033493
+      ],
+      "operation": "source_region",
+      "role": "original_complete_scene",
+      "alpha": false
+    },
+    {
+      "page": 29,
+      "source_key": "R10_jump_wide",
+      "file": "art/R10_jump_wide.png",
+      "sha256": "4769b994024158d0f0b8b7cd8d762bec56629197998e7b97718b6bcc3faa635d",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        100
+      ],
+      "target_box_points": [
+        0,
+        283.6507177033493,
+        504,
+        76.3492822966507
+      ],
+      "operation": "source_region",
+      "role": "empty_ceiling_extension",
+      "alpha": false
+    },
+    {
+      "page": 29,
+      "source_key": "R10_jump",
+      "file": "../plan/source_art/R10_jump.png",
+      "sha256": "13ff639019cccadd0675aea4ed9550505c57a84ae666d647df6097bb18793889",
+      "native_size": [
+        1672,
+        941
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "target_box_points": [
+        0,
+        0,
+        504,
+        283.6507177033493
+      ],
+      "operation": "source_region",
+      "role": "original_complete_scene",
+      "alpha": false
+    },
+    {
+      "page": 30,
+      "source_key": "R11_land_wide",
+      "file": "art/R11_land_wide.png",
+      "sha256": "2bc7bb5c200eeaa020353c38589dc41d161d1777a8ac6ac871d5c887fe33df9f",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        100
+      ],
+      "target_box_points": [
+        0,
+        283.6507177033493,
+        504,
+        76.3492822966507
+      ],
+      "operation": "source_region",
+      "role": "empty_ceiling_extension",
+      "alpha": false
+    },
+    {
+      "page": 30,
+      "source_key": "R11_land",
+      "file": "../plan/source_art/R11_land.png",
+      "sha256": "d166ae3aa034d26beeda8e92dbc0da8da5347646b8b707746237d819e81a4e5a",
+      "native_size": [
+        1672,
+        941
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "target_box_points": [
+        0,
+        0,
+        504,
+        283.6507177033493
+      ],
+      "operation": "source_region",
+      "role": "original_complete_scene",
+      "alpha": false
+    },
+    {
+      "page": 31,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "stationery_base",
+      "alpha": false
+    },
+    {
+      "page": 31,
+      "source_key": "bath_badge",
+      "file": "art/stress_revision/bath_badge.png",
+      "sha256": "3a43e1fc23f95f9f3a2ec256861d418017d783bbf0d30f7b85fee677838aa3c4",
+      "native_size": [
+        256,
+        256
+      ],
+      "source_box_pixels": [
+        78,
+        80,
+        178,
+        176
+      ],
+      "target_box_points": [
+        57.208333333333336,
+        10.0,
+        39.58333333333333,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 31,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        57.208333333333336,
+        10.0,
+        39.58333333333333,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 31,
+      "source_key": "pool_float",
+      "file": "art/stress_revision/pool_float.png",
+      "sha256": "d1f3067ce56cd2e6a844c597a48bf01b0661ae34507d99af3272a7a56db88fc5",
+      "native_size": [
+        90,
+        70
+      ],
+      "source_box_pixels": [
+        9,
+        8,
+        81,
+        59
+      ],
+      "target_box_points": [
+        400.0,
+        12.0,
+        48.0,
+        34.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 31,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        400.0,
+        12.0,
+        48.0,
+        3.4000000000000004
+      ]
+    },
+    {
+      "page": 31,
+      "source_key": "daddy",
+      "file": "../archive/rough_v5/art/daddy.png",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "native_size": [
+        1677,
+        2362
+      ],
+      "source_box_pixels": [
+        8,
+        8,
+        1670,
+        2355
+      ],
+      "target_box_points": [
+        74.95888368129526,
+        51.0,
+        155.08223263740948,
+        219.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 31,
+      "source_key": "roshan",
+      "file": "../archive/rough_v5/art/roshan.png",
+      "sha256": "69892135ddb2249ce24968477311d0d0394c834b003fc0a14e0bab86745e9290",
+      "native_size": [
+        256,
+        256
+      ],
+      "source_box_pixels": [
+        44,
+        12,
+        215,
+        231
+      ],
+      "target_box_points": [
+        262.5753424657534,
+        55.0,
+        160.84931506849315,
+        206.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": 32,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "stationery_base",
+      "alpha": false
+    },
+    {
+      "page": 32,
+      "source_key": "brush",
+      "file": "../archive/rough_v5/art/brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "native_size": [
+        936,
+        1024
+      ],
+      "source_box_pixels": [
+        45,
+        38,
+        899,
+        978
+      ],
+      "target_box_points": [
+        59.738297872340425,
+        10.0,
+        34.52340425531915,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 32,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        59.738297872340425,
+        10.0,
+        34.52340425531915,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 32,
+      "source_key": "sponge",
+      "file": "../archive/rough_v5/art/sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        32,
+        479,
+        480
+      ],
+      "target_box_points": [
+        405.0424107142857,
+        10.0,
+        37.91517857142858,
+        38.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true
+    },
+    {
+      "page": 32,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": false,
+      "clip_points": [
+        405.0424107142857,
+        10.0,
+        37.91517857142858,
+        3.8000000000000003
+      ]
+    },
+    {
+      "page": 32,
+      "source_key": "rainbow_cut",
+      "file": "../archive/rough_v5/art/rainbow_cut.png",
+      "sha256": "3446d4c1c981b15c5f53e99af0a03c47fdfe7b6daa6f33e54b7ea5421351c9f8",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "source_box_pixels": [
+        103,
+        21,
+        1159,
+        1189
+      ],
+      "target_box_points": [
+        257.0,
+        54.70454545454547,
+        213.0,
+        235.59090909090907
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": "back_cover",
+      "source_key": "landscape_base",
+      "file": "art/landscape_base.png",
+      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "stationery_base",
+      "alpha": false
+    },
+    {
+      "page": "back_cover",
+      "source_key": "brush",
+      "file": "../archive/rough_v5/art/brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "native_size": [
+        936,
+        1024
+      ],
+      "source_box_pixels": [
+        45,
+        38,
+        899,
+        978
+      ],
+      "target_box_points": [
+        107.71489361702129,
+        64.0,
+        103.57021276595744,
+        114.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    },
+    {
+      "page": "back_cover",
+      "source_key": "sponge",
+      "file": "../archive/rough_v5/art/sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        32,
+        479,
+        480
+      ],
+      "target_box_points": [
+        303.1015625,
+        70.0,
+        90.796875,
+        91.0
+      ],
+      "operation": "source_region",
+      "role": "story_art",
+      "alpha": true
+    }
+  ],
+  "text_lines": [
+    {
+      "page": "front_cover",
+      "text": "Mermaid Roshan",
+      "box": [
+        141.15,
+        301.33,
+        221.7,
+        37.35
+      ],
+      "font_size": 30,
+      "color": "navy"
+    },
+    {
+      "page": "front_cover",
+      "text": "and the Hidden Rainbow",
+      "box": [
+        129.4675,
+        263.353,
+        245.065,
+        28.635
+      ],
+      "font_size": 23,
+      "color": "navy"
+    },
+    {
+      "page": "front_cover",
+      "text": "A Pearl Castle friendship story",
+      "box": [
+        166.213,
+        24.243,
+        171.574,
+        16.185
+      ],
+      "font_size": 13,
+      "color": "navy"
+    },
+    {
+      "page": 1,
+      "text": "“Look, Daddy!",
+      "box": [
+        278,
+        70.798,
+        106.29,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 1,
+      "text": "Pearl Castle!”",
+      "box": [
+        278,
+        47.397999999999996,
+        105.33600000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 2,
+      "text": "They landed at Sky Lagoon.",
+      "box": [
+        28,
+        312.798,
+        216.66600000000003,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 2,
+      "text": "Together, they went to Pearl Castle.",
+      "box": [
+        28,
+        289.398,
+        282.00600000000003,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 3,
+      "text": "Inside Pearl Castle,",
+      "box": [
+        205,
+        312.798,
+        148.30200000000002,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 3,
+      "text": "dust covered the floor!",
+      "box": [
+        205,
+        289.398,
+        177.85800000000003,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 3,
+      "text": "“Let’s clean it together!”",
+      "box": [
+        205,
+        265.99800000000005,
+        188.64000000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 4,
+      "text": "“One little job at a time,” said Daddy.",
+      "box": [
+        108.78299999999999,
+        310.798,
+        286.434,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 4,
+      "text": "He gave Roshan a brush and a sponge.",
+      "box": [
+        100.47599999999997,
+        287.398,
+        303.04800000000006,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 5,
+      "text": "First, Roshan drained the murky bath.",
+      "box": [
+        103.392,
+        312.798,
+        297.216,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 6,
+      "text": "Round and round",
+      "box": [
+        278,
+        244.798,
+        135.39600000000002,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 6,
+      "text": "went the sponge.",
+      "box": [
+        278,
+        221.398,
+        135.41400000000002,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 6,
+      "text": "Roshan wiped",
+      "box": [
+        278,
+        197.998,
+        110.01600000000002,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 6,
+      "text": "the sink clean.",
+      "box": [
+        278,
+        174.59799999999998,
+        112.05000000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 7,
+      "text": "Back and forth. Scrub, scrub!",
+      "box": [
+        139.392,
+        310.798,
+        225.21600000000004,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 7,
+      "text": "Roshan brushed the empty tub clean.",
+      "box": [
+        103.99499999999998,
+        287.398,
+        296.01000000000005,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 8,
+      "text": "Clean water sparkled in the bath.",
+      "box": [
+        122.34699999999998,
+        47.798,
+        261.30600000000004,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 8,
+      "text": "The little bunny splashed happily.",
+      "box": [
+        121.267,
+        24.397999999999996,
+        263.466,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 9,
+      "text": "The great pool was still murky.",
+      "box": [
+        131.94,
+        92.798,
+        240.12000000000003,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 9,
+      "text": "Its rainbow waterfall had stopped.",
+      "box": [
+        117.16199999999998,
+        69.398,
+        269.67600000000004,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 10,
+      "text": "Scoop, lift, and out it came!",
+      "box": [
+        145.305,
+        310.798,
+        213.39000000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 10,
+      "text": "Roshan gathered the floating rubbish.",
+      "box": [
+        102.57299999999998,
+        287.398,
+        298.85400000000004,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 11,
+      "text": "Roshan cleared the blocked waterfall—",
+      "box": [
+        99.71099999999998,
+        61.798,
+        304.57800000000003,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 11,
+      "text": "one side, the middle, then the other side.",
+      "box": [
+        93.29399999999998,
+        38.397999999999996,
+        317.41200000000003,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 12,
+      "text": "Whoooosh!",
+      "box": [
+        283,
+        294.22,
+        96.18,
+        24.9
+      ],
+      "font_size": 20,
+      "color": "white"
+    },
+    {
+      "page": 12,
+      "text": "The waterfall",
+      "box": [
+        283,
+        268.22,
+        114.9,
+        24.9
+      ],
+      "font_size": 20,
+      "color": "white"
+    },
+    {
+      "page": 12,
+      "text": "turned rainbow!",
+      "box": [
+        283,
+        242.22,
+        139.92000000000002,
+        24.9
+      ],
+      "font_size": 20,
+      "color": "white"
+    },
+    {
+      "page": 13,
+      "text": "The seahorse fountain was blocked, too.",
+      "box": [
+        94.06799999999998,
+        52.798,
+        315.86400000000003,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 13,
+      "text": "Roshan gently pulled the rubbish free.",
+      "box": [
+        103.19399999999999,
+        29.397999999999996,
+        297.612,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 14,
+      "text": "The fountain flowed again.",
+      "box": [
+        142.6645,
+        131.50900000000001,
+        218.671,
+        23.655
+      ],
+      "font_size": 19,
+      "color": "white"
+    },
+    {
+      "page": 14,
+      "text": "Fresh water swirled. The pool was clear!",
+      "box": [
+        87.65950000000001,
+        106.809,
+        328.681,
+        23.655
+      ],
+      "font_size": 19,
+      "color": "white"
+    },
+    {
+      "page": 15,
+      "text": "“Thank you for helping!” said Rumi.",
+      "box": [
+        116.49599999999998,
+        31.798000000000002,
+        271.00800000000004,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 16,
+      "text": "A tiny chirp! “Someone needs help!”",
+      "box": [
+        112.374,
+        28.798000000000002,
+        279.252,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 17,
+      "text": "Two dust bunnies held Baby Eagle.",
+      "box": [
+        116.60399999999998,
+        312.798,
+        270.79200000000003,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 17,
+      "text": "“I’m here,” said Roshan. “I’ll help you.”",
+      "box": [
+        108.70199999999997,
+        289.398,
+        286.59600000000006,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 18,
+      "text": "Roshan loosened one dusty bunny,",
+      "box": [
+        115.20899999999997,
+        312.798,
+        273.58200000000005,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 18,
+      "text": "then the other. Little by little...",
+      "box": [
+        134.99099999999999,
+        289.398,
+        234.01800000000003,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 19,
+      "text": "Baby Eagle",
+      "box": [
+        42,
+        241.798,
+        88.596,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 19,
+      "text": "was free!",
+      "box": [
+        42,
+        218.398,
+        70.38000000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 19,
+      "text": "A little help made",
+      "box": [
+        42,
+        194.998,
+        138.33,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 19,
+      "text": "a big difference.",
+      "box": [
+        42,
+        171.59799999999998,
+        125.01000000000002,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 20,
+      "text": "Now there was room to play together.",
+      "box": [
+        101.41099999999997,
+        310.798,
+        299.17800000000005,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 20,
+      "text": "“Come with me, Baby Eagle!”",
+      "box": [
+        138.212,
+        287.398,
+        225.57600000000002,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 21,
+      "text": "The art room was messy, too.",
+      "box": [
+        136.21499999999997,
+        310.798,
+        231.57000000000002,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 21,
+      "text": "Roshan sorted the brushes and paints.",
+      "box": [
+        99.945,
+        287.398,
+        304.11,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 22,
+      "text": "She put the supplies away",
+      "box": [
+        148.34699999999998,
+        310.798,
+        207.306,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 22,
+      "text": "and brushed the sticky grime off the desk.",
+      "box": [
+        86.71499999999997,
+        287.398,
+        330.57000000000005,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 23,
+      "text": "Her very own",
+      "box": [
+        305,
+        310.22,
+        113.56,
+        24.9
+      ],
+      "font_size": 20,
+      "color": "white"
+    },
+    {
+      "page": 23,
+      "text": "picture!",
+      "box": [
+        305,
+        284.22,
+        67.74,
+        24.9
+      ],
+      "font_size": 20,
+      "color": "white"
+    },
+    {
+      "page": 24,
+      "text": "One last door",
+      "box": [
+        290,
+        236.798,
+        106.56000000000002,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 24,
+      "text": "began to glow.",
+      "box": [
+        290,
+        213.398,
+        115.29000000000002,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 24,
+      "text": "Beyond it came",
+      "box": [
+        290,
+        189.998,
+        123.28200000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 24,
+      "text": "a rumble...",
+      "box": [
+        290,
+        166.59799999999998,
+        79.632,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 25,
+      "text": "Grand Puff!",
+      "box": [
+        37,
+        251.798,
+        87.102,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 25,
+      "text": "A great, big",
+      "box": [
+        37,
+        228.398,
+        90.00000000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 25,
+      "text": "bundle of dust!",
+      "box": [
+        37,
+        204.998,
+        116.60400000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 25,
+      "text": "Roshan took",
+      "box": [
+        37,
+        181.59799999999998,
+        99.86400000000002,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 25,
+      "text": "a brave breath.",
+      "box": [
+        37,
+        158.19799999999998,
+        121.35600000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 26,
+      "text": "Boing! Roshan",
+      "box": [
+        292,
+        246.798,
+        111.69000000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 26,
+      "text": "dodged the bounce.",
+      "box": [
+        292,
+        223.398,
+        156.67200000000003,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 26,
+      "text": "Then she answered",
+      "box": [
+        292,
+        199.998,
+        152.352,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 26,
+      "text": "with a little",
+      "box": [
+        292,
+        176.59799999999998,
+        87.75000000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 26,
+      "text": "sparkle.",
+      "box": [
+        292,
+        153.19799999999998,
+        62.08200000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 27,
+      "text": "Daddy, Rumi and Baby Eagle helped Roshan.",
+      "box": [
+        77.85899999999998,
+        312.798,
+        348.28200000000004,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 27,
+      "text": "Four friends. Four busy helpers. Scrub, scrub!",
+      "box": [
+        76.67999999999998,
+        289.398,
+        350.64000000000004,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 28,
+      "text": "Bubbles grew until Grand Puff was hidden.",
+      "box": [
+        88.13699999999997,
+        312.798,
+        327.72600000000006,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 28,
+      "text": "Then something stirred inside...",
+      "box": [
+        130.077,
+        289.398,
+        243.84600000000003,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 29,
+      "text": "POP! A little rainbow bunny jumped out!",
+      "box": [
+        96.09299999999999,
+        312.798,
+        311.814,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 29,
+      "text": "The dusty casing tumbled into fluff.",
+      "box": [
+        114.03899999999999,
+        289.398,
+        275.922,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 30,
+      "text": "Down came the bunny. Down settled the dust.",
+      "box": [
+        72.189,
+        312.798,
+        359.622,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 30,
+      "text": "Four friends met one very small friend.",
+      "box": [
+        101.17799999999997,
+        289.398,
+        301.64400000000006,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "white"
+    },
+    {
+      "page": 31,
+      "text": "“We helped each other,” said Roshan.",
+      "box": [
+        107.26199999999997,
+        310.798,
+        289.47600000000006,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 31,
+      "text": "“And found a friend hiding under all that dust!”",
+      "box": [
+        70.72199999999998,
+        287.398,
+        362.55600000000004,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 32,
+      "text": "“Hello, little",
+      "box": [
+        38,
+        239.798,
+        88.09200000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 32,
+      "text": "rainbow friend.",
+      "box": [
+        38,
+        216.398,
+        117.30600000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 32,
+      "text": "Come and play",
+      "box": [
+        38,
+        192.998,
+        118.74600000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 32,
+      "text": "with us!”",
+      "box": [
+        38,
+        169.59799999999998,
+        66.078,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": "back_cover",
+      "text": "One little thing.",
+      "box": [
+        175.45600000000002,
+        261.353,
+        153.088,
+        28.635
+      ],
+      "font_size": 23,
+      "color": "navy"
+    },
+    {
+      "page": "back_cover",
+      "text": "One helping hand.",
+      "box": [
+        161.6905,
+        231.453,
+        180.619,
+        28.635
+      ],
+      "font_size": 23,
+      "color": "navy"
+    },
+    {
+      "page": "back_cover",
+      "text": "One very big adventure.",
+      "box": [
+        132.1355,
+        201.553,
+        239.72899999999998,
+        28.635
+      ],
+      "font_size": 23,
+      "color": "navy"
+    },
+    {
+      "page": "back_cover",
+      "text": "Landscape review edition • Chapter One",
+      "box": [
+        164.805,
+        22.11,
+        174.39000000000001,
+        12.45
+      ],
+      "font_size": 10,
+      "color": "navy"
+    }
+  ],
+  "scope": "v8 actual rendered operations; manual identity/contrast acceptance separate"
+}

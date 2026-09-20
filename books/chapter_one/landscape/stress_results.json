@@ -1,18 +1,14 @@
 {
-  "status": "PASS",
-  "verified_payload_files": 63,
-  "matching_page_renders": 34,
-  "archive_sha256": "4c11a2a06bac2efe01e4d2b573d965eb3bb5fc6f962609e1be9a6f07c11e2c66",
-  "independent_rebuild": "All 34 rendered JPEGs are byte-identical from extracted relative-path package; review link resolves.",
-  "latest_archive_verification": "All 63 payload hashes checked. All 50 rendering inputs are byte-identical to the independently rebuilt package; only written review metadata changed afterward.",
-  "pdf_sha256": "8e32cbb336aeb043c0004997e7b3ba2e7f13cbfa83bbab78177a528f38aba82a",
-  "pdf_pages": 34,
-  "page_size_points": [
-    504,
-    360
-  ],
   "mechanical_status": "PASS",
-  "visual_status": "REVISED_ROUGH; OWNER ACCEPTANCE NOT GRANTED",
+  "issues": [],
+  "story_pages_checked": 32,
+  "pdf_pages_checked": 34,
+  "text_lines_checked": 84,
+  "image_operations_checked": 111,
+  "contextual_cutout_pages": 13,
+  "unique_border_assignments": 9,
+  "scope": "Geometry, source hashes, selected-source exclusions, contextual assignments, and manual focal-zone intersections. Not automatic character-identity, contrast or publication acceptance.",
+  "visual_verdict": "REVISED_FOR_REVIEW_NOT_FINAL_ACCEPTANCE",
   "open_findings": [
     {
       "id": "BK-ST-OPEN-01",
