@@ -36,3 +36,12 @@ The previous seven blue backgrounds are retained as design studies, not accepted
 ## Required evidence per composed background
 
 Record base/source paths and SHA-256, canvas size, exact asset source and alpha extraction method, normalized pre-occlusion bounding box, left/right mound, mound-mask reference, occlusion fraction, shadow bounds/opacity, central-gap mask, foreground prop exclusions and human print-size review. No automatic pass from a filename or attractive preview. Original book/reference and protected game assets remain unchanged.
+
+## Owner correction: exactly two image treatments
+
+- **BK-PG-08 — Binary image treatment:** every delivered illustration is either full-art to the page/spread edges OR a genuine object/character silhouette with transparency outside its authored contour. No reduced scene rectangles, rounded rectangles, circles, torn-paper crops, soft scenic blobs or irregular room/floor fragments. There is no third vignette-panel category.
+- **BK-PG-09 — Complete cutouts:** a sticker means an unboxed isolated figure, whole object, or connected action group, without an added white sticker stroke. Preserve natural holes and gaps. Never substitute a severed head/hand or partial environmental crop. A naturally rectangular object (paper, book, display) can retain its physical contour; its surrounding scene cannot.
+- **BK-PG-10 — Foreground and background ownership:** each reduced page explicitly lists foreground cutouts, left mound assets, right mound assets, removed context and placement. The Gemini 85%/12%/10% restrictions apply to small background integrations, not large foreground story cutouts. Never repeat an object in both roles.
+- **BK-PG-11 — Source previews:** raw scene frames may appear only in clearly separated, collapsed source-reference sections of the production plan. They are not proposed reduced-page artwork. A missing cutout remains a production job, not a displayed screenshot substitute.
+
+The revised plan fixes every page as CUTOUT or FULL ART (including spread halves). Page 10 becomes full art because the pool's spatial context matters; page 29 becomes a large Grand Puff cutout. Page 32 uses complete tools instead of cropped contact fragments, and page 38 uses whole result objects instead of scene thumbnails. Earlier ambiguous vignette/fallback instructions are superseded by the explicit current page rows.

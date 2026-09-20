@@ -1,7 +1,50 @@
 {
-  "status": "DESIGN_PLAN_NOT_REBUILT_BOOK",
+  "status": "CUTOUT_OR_FULL_ART_PLAN; NOT_REBUILT_BOOK",
   "story_pages": 40,
-  "recto_first": true,
+  "cutout_pages": [
+    1,
+    4,
+    5,
+    7,
+    8,
+    11,
+    13,
+    16,
+    18,
+    20,
+    21,
+    22,
+    24,
+    25,
+    27,
+    28,
+    29,
+    30,
+    32,
+    33,
+    37,
+    38,
+    40
+  ],
+  "full_art_pages": [
+    2,
+    3,
+    6,
+    9,
+    10,
+    12,
+    14,
+    15,
+    17,
+    19,
+    23,
+    26,
+    31,
+    34,
+    35,
+    36,
+    39
+  ],
   "spreads": [
     [
       2,
@@ -19,16 +62,22 @@
   "pages": [
     {
       "page": 1,
-      "mode": "V",
+      "mode": "C",
       "background": "base",
       "beat": "Flying toward Pearl Castle",
       "sources": [
         "flight",
         "window"
       ],
-      "composition": "Plane upper-left; Roshan and the whole oval window lower-right. Copy in their diagonal gap. Two irregular object/action islands, as in reference 4.",
-      "ownership": "No plane, window or luggage in border.",
-      "work": "Isolate existing plane and window group; merge old pages 1-2 into this setup."
+      "composition": "Plane upper left at about 45% page width; window-and-Roshan lower right about 65%; copy between. Neither shape is clipped by a rectangular container.",
+      "ownership": "Left mound: Base shell only; no added travel prop Right mound: Base coral only; no added travel prop",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove exterior sky from the plane and all cabin wall outside the oval frame/character contours. Keep the view only inside the actual window opening, not a rectangular cabin crop.",
+      "foreground_cutouts": "Whole plane; Roshan with the complete oval window frame as a connected second cutout",
+      "background_left": "Base shell only; no added travel prop",
+      "background_right": "Base coral only; no added travel prop",
+      "remove_from_source": "Remove exterior sky from the plane and all cabin wall outside the oval frame/character contours. Keep the view only inside the actual window opening, not a rectangular cabin crop.",
+      "placement": "Plane upper left at about 45% page width; window-and-Roshan lower right about 65%; copy between. Neither shape is clipped by a rectangular container.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 2,
@@ -40,7 +89,13 @@
       ],
       "composition": "LEFT of a single spread with page 3. Plane and lagoon left; short line in sky. Whole-scene scale chosen before division.",
       "ownership": "No page surround or caption bar.",
-      "work": "Extend only peripheral sky/water if needed; no new landing. Gutter crosses open water."
+      "work": "Extend only peripheral sky/water if needed; no new landing. Gutter crosses open water.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "LEFT of a single spread with page 3. Plane and lagoon left; short line in sky. Whole-scene scale chosen before division.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 3,
@@ -52,35 +107,51 @@
       ],
       "composition": "RIGHT of page 2's scene. Bridge leads to castle. One short question in quiet sky. Never zoom this half separately.",
       "ownership": "No repeated castle badge or template.",
-      "work": "Same scale/crop as page 2; preserve plane-bridge-castle geography. Reference 19-20's continuous composition."
+      "work": "Same scale/crop as page 2; preserve plane-bridge-castle geography. Reference 19-20's continuous composition.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "RIGHT of page 2's scene. Bridge leads to castle. One short question in quiet sky. Never zoom this half separately.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 4,
-      "mode": "V",
+      "mode": "C",
       "background": "dust",
       "beat": "Inside the dusty hall",
       "sources": [
         "hall",
         "together"
       ],
-      "composition": "One tall doorway-and-family island fills upper two-thirds; brief copy below. Keep dark doorway context. Return from panorama to quiet blue.",
-      "ownership": "Only low inanimate dust marks; no miniature door or cast.",
-      "work": "Extract one connected group; do not combine near-identical reaction frames. Reference 7/28."
+      "composition": "Pair dominates center/lower page, about 75% page height; door leaf smaller upper-left only if it adds information; copy upper-right.",
+      "ownership": "Left mound: One faint existing dust patch isolated from hall, at mound edge Right mound: Base shell only",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove every wall, column, floor patch and dark rectangular doorway interior. A door leaf is an object; a slice of hallway is not.",
+      "foreground_cutouts": "Daddy and Roshan together in their existing discovery poses; optional complete open door leaf as a separate object if its full contour is available",
+      "background_left": "One faint existing dust patch isolated from hall, at mound edge",
+      "background_right": "Base shell only",
+      "remove_from_source": "Remove every wall, column, floor patch and dark rectangular doorway interior. A door leaf is an object; a slice of hallway is not.",
+      "placement": "Pair dominates center/lower page, about 75% page height; door leaf smaller upper-left only if it adds information; copy upper-right.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 5,
-      "mode": "V",
+      "mode": "C",
       "background": "base",
       "beat": "Daddy gives the tools",
       "sources": [
         "daddy_brush",
-        "rumi_sponge",
-        "brush",
         "sponge"
       ],
-      "composition": "Large existing tool-giving action and smaller useful sponge detail; short copy beside each. Reference 16's asymmetrical process cutouts.",
-      "ownership": "Each tool appears once: either in the action or separately. None in footer.",
-      "work": "Check who gives/holds each tool. Do not invent a handoff from unrelated poses."
+      "composition": "Daddy/action lower-left about 65% height; sponge upper-right about 20%; copy beside sponge. Large foreground sponge is not subject to the border's 12% cap.",
+      "ownership": "Left mound: One folded towel extracted from bath_safe, if its complete contour is visible Right mound: Small existing soap-bubble cluster from archived bubbles asset",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove room walls/floor from Daddy. Do not add a second brush or a separate repeated Daddy portrait. Do not invent a giving gesture.",
+      "foreground_cutouts": "Daddy with the existing held brush as one connected figure/tool cutout; one complete star sponge",
+      "background_left": "One folded towel extracted from bath_safe, if its complete contour is visible",
+      "background_right": "Small existing soap-bubble cluster from archived bubbles asset",
+      "remove_from_source": "Remove room walls/floor from Daddy. Do not add a second brush or a separate repeated Daddy portrait. Do not invent a giving gesture.",
+      "placement": "Daddy/action lower-left about 65% height; sponge upper-right about 20%; copy beside sponge. Large foreground sponge is not subject to the border's 12% cap.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 6,
@@ -93,31 +164,49 @@
       ],
       "composition": "Full dirty-bath view; tub and water state clear. Short copy in quiet wall area. Immersive problem before two close actions.",
       "ownership": "No ornamental background or second tub inset.",
-      "work": "Dirty frame depicts before-state; drained plate supplies continuity for subsequent scrubbing. Outpaint wall/floor only if needed."
+      "work": "Dirty frame depicts before-state; drained plate supplies continuity for subsequent scrubbing. Outpaint wall/floor only if needed.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "Full dirty-bath view; tub and water state clear. Short copy in quiet wall area. Immersive problem before two close actions.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 7,
-      "mode": "V",
+      "mode": "C",
       "background": "bath",
       "beat": "Sponge the sink",
       "sources": [
         "bath_scrub"
       ],
-      "composition": "Large irregular Roshan-sink action, copy opposite. Preserve sponge contact and sink silhouette. Reference 10's connected person/object island.",
-      "ownership": "Only low bubbles; no second sponge, tap or brush.",
-      "work": "Extract actual sink action if present in the handoff; never manufacture contact. Retain this source as provisional until contact checked."
+      "composition": "Action group across lower two-thirds; caption upper-left; faucet stays below text. Existing bath_scrub is a source candidate, not proof of sink contact.",
+      "ownership": "Left mound: One folded towel from bath_safe Right mound: Base shell only",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove bathroom wall, mirror surround not attached to sink, floor and all rectangular shot edges. Preserve sink silhouette and actual sponge contact; no floating severed hands.",
+      "foreground_cutouts": "Roshan, sponge and entire sink/faucet as ONE connected action cutout, contingent on a valid existing sink-contact frame",
+      "background_left": "One folded towel from bath_safe",
+      "background_right": "Base shell only",
+      "remove_from_source": "Remove bathroom wall, mirror surround not attached to sink, floor and all rectangular shot edges. Preserve sink silhouette and actual sponge contact; no floating severed hands.",
+      "placement": "Action group across lower two-thirds; caption upper-left; faucet stays below text. Existing bath_scrub is a source candidate, not proof of sink contact.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 8,
-      "mode": "V",
+      "mode": "C",
       "background": "bath",
       "beat": "Brush the drained tub",
       "sources": [
         "bath_drained_local"
       ],
-      "composition": "Nearly page-wide Roshan-brush-tub cutout; caption above. Visibly empty basin; full tail and brush contact. Bigger than page 7.",
-      "ownership": "No duplicate brush/tub in footer; subdued low bubbles only.",
-      "work": "Use existing corrected cutout; inspect basin and all contours at reading size. Reference 26's large action scale."
+      "composition": "One large silhouette nearly page-wide, about 65% height; short caption above. Tool contact is the focal point.",
+      "ownership": "Left mound: Small existing soap bubbles Right mound: Base coral only; remove shell if it visually repeats tub silhouette",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove all exterior room pixels; retain only tub interior within the tub boundary, character and tool. Preserve tail, bristles, rim and faucet. No floor island.",
+      "foreground_cutouts": "Existing bath_drained_local: complete Roshan, held brush and entire empty shell tub as one silhouette",
+      "background_left": "Small existing soap bubbles",
+      "background_right": "Base coral only; remove shell if it visually repeats tub silhouette",
+      "remove_from_source": "Remove all exterior room pixels; retain only tub interior within the tub boundary, character and tool. Preserve tail, bristles, rim and faucet. No floor island.",
+      "placement": "One large silhouette nearly page-wide, about 65% height; short caption above. Tool contact is the focal point.",
+      "extraction_status": "EXISTING_CUTOUT_REQUIRES_EDGE_REVIEW"
     },
     {
       "page": 9,
@@ -129,31 +218,49 @@
       ],
       "composition": "Full restored bath with Roshan and bunny together. Brief caption on quiet floor, away from tails. First room payoff.",
       "ownership": "No frame, footer or extra bath-bunny portrait.",
-      "work": "Preserve entire interaction; extend peripheral room rather than crop a character to fill portrait."
+      "work": "Preserve entire interaction; extend peripheral room rather than crop a character to fill portrait.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "Full restored bath with Roshan and bunny together. Brief caption on quiet floor, away from tails. First room payoff.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 10,
-      "mode": "V",
-      "background": "pool",
+      "mode": "F",
+      "background": "NONE",
       "beat": "The pool still needs help",
       "sources": [
         "pool_dirty"
       ],
-      "composition": "Wide irregular basin vignette including far rim and stopped waterfall; Roshan anchors foreground. Brief narration above.",
-      "ownership": "Low ripples only; no miniature waterfall, net or seahorse.",
-      "work": "Cut around meaningful architecture and basin contour, not a rounded rectangle. New-problem pause after full bath."
+      "composition": "Full-art dirty-pool establishing shot to all page edges. Keep the basin, stopped waterfall and Roshan in their original spatial relationship. Short text in quiet upper wall/water space.",
+      "ownership": "No stationery, border assets, inset or additional cutouts.",
+      "work": "Peripheral outpainting only if needed; never reduce this complex setting to a cropped scene floating on blue.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "Full-art dirty-pool establishing shot to all page edges. Keep the basin, stopped waterfall and Roshan in their original spatial relationship. Short text in quiet upper wall/water space.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 11,
-      "mode": "V",
+      "mode": "C",
       "background": "pool",
       "beat": "Scoop floating rubbish",
       "sources": [
         "pool_net"
       ],
-      "composition": "Roshan, net and contents form one large angled action island. Keep water contact. Copy opposite net sweep.",
-      "ownership": "No spare net, rubbish or basket in border.",
-      "work": "Preserve source geometry. No omitted basket-search action. Different silhouette from page 10."
+      "composition": "Diagonal figure/net across 75% width, lower-middle; copy upper-left opposite net. Do not retain an irregular puddle to disguise a scene crop.",
+      "ownership": "Left mound: Base shell only Right mound: One small bubble cluster, without a second net or rubbish item",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove pool surface, walls, fountain, floor and shot boundaries. Preserve net mesh holes as transparency while retaining rubbish inside the net.",
+      "foreground_cutouts": "Whole Roshan plus held net and its contents as one silhouette",
+      "background_left": "Base shell only",
+      "background_right": "One small bubble cluster, without a second net or rubbish item",
+      "remove_from_source": "Remove pool surface, walls, fountain, floor and shot boundaries. Preserve net mesh holes as transparency while retaining rubbish inside the net.",
+      "placement": "Diagonal figure/net across 75% width, lower-middle; copy upper-left opposite net. Do not retain an irregular puddle to disguise a scene crop.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 12,
@@ -165,17 +272,29 @@
       ],
       "composition": "One full-art close view of the existing blocked waterfall, showing the obstruction before any clearing. Short setup text in quiet stone space. This is the sole use of this blocked-waterfall view in pages 12-13.",
       "ownership": "No page surround or added shell motif.",
-      "work": "Preserve waterfall topology. A location detail can fill portrait without sacrificing a character."
+      "work": "Preserve waterfall topology. A location detail can fill portrait without sacrificing a character.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "One full-art close view of the existing blocked waterfall, showing the obstruction before any clearing. Short setup text in quiet stone space. This is the sole use of this blocked-waterfall view in pages 12-13.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 13,
-      "mode": "V",
+      "mode": "C",
       "background": "pool",
       "beat": "Roshan clears the waterfall",
       "sources": [],
-      "composition": "A distinct existing clearing-action frame, isolated around Roshan, the tool and actual contact with the waterfall lanes. One large action silhouette on blue, with short side-middle-other-side narration. Do not show the blocked establishing image again, even as a different crop.",
-      "ownership": "No duplicate tool or waterfall motif in the lower border. Keep exact background integrations on the mound slopes in the bottom 15%, <=12% width and height, with the central gap clear.",
-      "work": "ART GAP: the inspected source set supplies obstruction and rainbow endpoints, but no verified clearing-contact frame. Repeated page-12 thumbnail removed. No invented three-state sequence or full-scene redraw. Populate this slot only with a distinct existing Grok/handoff clearing action; no new handoff polling."
+      "composition": "Single large action silhouette across center/lower page with short ordered narration above. Leave this as an explicit production gap until existing action evidence is available.",
+      "ownership": "Left mound: Base shell only Right mound: Base coral only",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove all room context. Do not reuse page 12, depict three invented states or cut out a generic dirty waterfall as fake action. Current foreground source is missing. ART GAP: distinct clearing-action source missing.",
+      "foreground_cutouts": "Roshan and actual waterfall-clearing tool/contact group from a DISTINCT existing action frame; complete waterfall object only if its full contour can be isolated",
+      "background_left": "Base shell only",
+      "background_right": "Base coral only",
+      "remove_from_source": "Remove all room context. Do not reuse page 12, depict three invented states or cut out a generic dirty waterfall as fake action. Current foreground source is missing.",
+      "placement": "Single large action silhouette across center/lower page with short ordered narration above. Leave this as an explicit production gap until existing action evidence is available.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 14,
@@ -187,7 +306,13 @@
       ],
       "composition": "LEFT of one full-art spread with page 15. Place actual rainbow streams left of gutter. WHOOSH in quiet upper space.",
       "ownership": "No decorative background, border or extra rainbow.",
-      "work": "Use existing Grok waterfall frame. Pool remains dark before seahorse cleanup. Extend peripheral wall/water only."
+      "work": "Use existing Grok waterfall frame. Pool remains dark before seahorse cleanup. Extend peripheral wall/water only.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "LEFT of one full-art spread with page 15. Place actual rainbow streams left of gutter. WHOOSH in quiet upper space.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 15,
@@ -199,20 +324,32 @@
       ],
       "composition": "RIGHT continuation: flowing water and pool. One short line toward outer edge. No duplicate waterfall close-up.",
       "ownership": "No background template or caption strip.",
-      "work": "Shared transform with page 14. Reference 19-20's spacious continuous reveal; no invented clear pool."
+      "work": "Shared transform with page 14. Reference 19-20's spacious continuous reveal; no invented clear pool.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "RIGHT continuation: flowing water and pool. One short line toward outer edge. No duplicate waterfall close-up.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 16,
-      "mode": "V",
+      "mode": "C",
       "background": "pool",
       "beat": "Free the seahorse fountain",
       "sources": [
         "seahorse_isolated",
         "seahorse_free"
       ],
-      "composition": "Large connected fountain-and-Roshan action. A small blockage detail only if it adds information absent from main group. Copy above/left.",
-      "ownership": "Ripples only; no seahorse figurine or spare blockage.",
-      "work": "Preserve shape and contact. Return from spectacle to the necessary next task; no clear endpoint before this action."
+      "composition": "Tall fountain anchors right; Roshan reaches from left in existing pose. Short caption upper-left. Whole fountain snout/contact must stay visible.",
+      "ownership": "Left mound: One small original leaf taken from pool_net only if not present in foreground Right mound: Base coral only",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove water plane, wall and shelving. Keep fountain plinth as part of the object, not a surrounding floor tile. No duplicate blockage detail or spare seahorse.",
+      "foreground_cutouts": "Roshan and complete seahorse fountain during blockage removal as one connected cutout",
+      "background_left": "One small original leaf taken from pool_net only if not present in foreground",
+      "background_right": "Base coral only",
+      "remove_from_source": "Remove water plane, wall and shelving. Keep fountain plinth as part of the object, not a surrounding floor tile. No duplicate blockage detail or spare seahorse.",
+      "placement": "Tall fountain anchors right; Roshan reaches from left in existing pose. Short caption upper-left. Whole fountain snout/contact must stay visible.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 17,
@@ -224,19 +361,31 @@
       ],
       "composition": "Whole restored-pool view with fountain and water readable. Minimal copy in quiet water, away from effect focus.",
       "ownership": "No decorative surround or recap stickers.",
-      "work": "Use actual clean endpoint. Preserve geography; peripheral expansion only if portrait fit requires it."
+      "work": "Use actual clean endpoint. Preserve geography; peripheral expansion only if portrait fit requires it.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "Whole restored-pool view with fountain and water readable. Minimal copy in quiet water, away from effect focus.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 18,
-      "mode": "V",
+      "mode": "C",
       "background": "base",
       "beat": "Rumi says thank you",
       "sources": [
         "rumi_hug"
       ],
-      "composition": "One large connected hug silhouette below short copy. Whole hands, faces and tails. Reference 31's emotional pause.",
-      "ownership": "Clean blue base; no tools or portraits in border.",
-      "work": "Isolate the existing interaction as a whole; no new contact or pose."
+      "composition": "Hug about 75% page height, low-center; two short lines above. No second Rumi portrait.",
+      "ownership": "Left mound: Base shell only Right mound: One tiny existing soap-bubble cluster as a quiet cleanup echo",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove all pool/room pixels outside figures. Preserve interlocked hands and tails; transparent gaps between bodies, not a soft-edged rectangle.",
+      "foreground_cutouts": "Existing connected Rumi/Roshan hug, both complete figures",
+      "background_left": "Base shell only",
+      "background_right": "One tiny existing soap-bubble cluster as a quiet cleanup echo",
+      "remove_from_source": "Remove all pool/room pixels outside figures. Preserve interlocked hands and tails; transparent gaps between bodies, not a soft-edged rectangle.",
+      "placement": "Hug about 75% page height, low-center; two short lines above. No second Rumi portrait.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 19,
@@ -248,45 +397,69 @@
       ],
       "composition": "Existing tall doorway scene fills page naturally. Roshan and door intact. Short copy high in quiet darkness.",
       "ownership": "No extra doorway badge or ornamental background.",
-      "work": "Use portrait source directly. A small soft local caption halo only if needed, never a solid bar."
+      "work": "Use portrait source directly. A small soft local caption halo only if needed, never a solid bar.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "Existing tall doorway scene fills page naturally. Roshan and door intact. Short copy high in quiet darkness.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 20,
-      "mode": "V",
+      "mode": "C",
       "background": "play",
       "beat": "TWO dust bunnies hold Baby Eagle",
       "sources": [
         "rescue_isolated",
         "pinned"
       ],
-      "composition": "One large connected rescue silhouette shows Roshan, Eagle and BOTH pinning bunnies together. Brief copy above.",
-      "ownership": "Stitched/scalloped blue footing only; no toy birds, bunny faces or blankets.",
-      "work": "Use actual Grok two-pin source and existing isolation. Preserve contact geometry; reference 26's dominant interaction."
+      "composition": "Large central group at 85% page width; caption above. Keep two bunnies separated enough to count, exactly as source, without moving them.",
+      "ownership": "Left mound: Small complete toy block extracted from playroom, only if distinct from rescue foreground Right mound: Base shell only",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove floor, toy baskets, room wall and backdrop; preserve every pinning contact and both dust-bunny silhouettes. No blanket. No amputated tail or bird feet.",
+      "foreground_cutouts": "rescue_isolated: Roshan, Baby Eagle and BOTH pinning dust bunnies as one group",
+      "background_left": "Small complete toy block extracted from playroom, only if distinct from rescue foreground",
+      "background_right": "Base shell only",
+      "remove_from_source": "Remove floor, toy baskets, room wall and backdrop; preserve every pinning contact and both dust-bunny silhouettes. No blanket. No amputated tail or bird feet.",
+      "placement": "Large central group at 85% page width; caption above. Keep two bunnies separated enough to count, exactly as source, without moving them.",
+      "extraction_status": "EXISTING_CUTOUT_REQUIRES_EDGE_REVIEW"
     },
     {
       "page": 21,
-      "mode": "V",
+      "mode": "C",
       "background": "play",
       "beat": "Loosen one, then the other",
       "sources": [
         "loose",
         "pinned"
       ],
-      "composition": "Two asymmetrical action details only if states are genuinely different and supported. Otherwise one large release vignette with sequential narration.",
-      "ownership": "No decorative bunny or repeated rescue group in border.",
-      "work": "Verify both pins released; do not use the rejected owl/free-body frame. Purposeful paired process pages like reference 4-5."
+      "composition": "One large low-center group. Copy high. This page shows one verified later state, not a fabricated two-step strip.",
+      "ownership": "Left mound: Base shell only Right mound: Same toy-block family as page 20, using a different existing block only if available; otherwise no added asset",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove all room/floor/baskets; do not combine unrelated poses or repeat the pinned group as a second sticker. Do not crop away remaining pinning contacts to imply release.",
+      "foreground_cutouts": "One complete connected release group from loose, with Roshan and Eagle; include only bunnies actually still visible in that source",
+      "background_left": "Base shell only",
+      "background_right": "Same toy-block family as page 20, using a different existing block only if available; otherwise no added asset",
+      "remove_from_source": "Remove all room/floor/baskets; do not combine unrelated poses or repeat the pinned group as a second sticker. Do not crop away remaining pinning contacts to imply release.",
+      "placement": "One large low-center group. Copy high. This page shows one verified later state, not a fabricated two-step strip.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 22,
-      "mode": "V",
+      "mode": "C",
       "background": "play",
       "beat": "Baby Eagle is free",
       "sources": [
         "eagle"
       ],
-      "composition": "One large original Eagle silhouette, full feet/beak/wings. Short relieved copy above; no second pose.",
-      "ownership": "Blue stitched banks only; no character miniatures.",
-      "work": "Use original identity cutout; do not claim an unsupported wing action. Warm simple portrait after complex rescue."
+      "composition": "Eagle roughly 65% page height, slightly right; short copy upper-left. Avoid shrinking him to match a thumbnail.",
+      "ownership": "Left mound: One small toy block from playroom, absent from foreground Right mound: Base shell only",
+      "work": "TRUE SILHOUETTE REQUIRED. Keep existing transparency; no portrait box, circular head crop, second Eagle or new wing pose.",
+      "foreground_cutouts": "Original whole Baby Eagle identity cutout, full wings, beak and feet",
+      "background_left": "One small toy block from playroom, absent from foreground",
+      "background_right": "Base shell only",
+      "remove_from_source": "Keep existing transparency; no portrait box, circular head crop, second Eagle or new wing pose.",
+      "placement": "Eagle roughly 65% page height, slightly right; short copy upper-left. Avoid shrinking him to match a thumbnail.",
+      "extraction_status": "EXISTING_CUTOUT_REQUIRES_EDGE_REVIEW"
     },
     {
       "page": 23,
@@ -298,33 +471,50 @@
       ],
       "composition": "Full restored-room scene with Roshan and Eagle; caption in quiet floor away from toy row. Full-room reward after close rescue pages.",
       "ownership": "No added toys or decorative template.",
-      "work": "Restoration follows completed rescue. Remove earlier invented wing-trail cleanup claim; no omitted swing/basket actions."
+      "work": "Restoration follows completed rescue. Remove earlier invented wing-trail cleanup claim; no omitted swing/basket actions.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "Full restored-room scene with Roshan and Eagle; caption in quiet floor away from toy row. Full-room reward after close rescue pages.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 24,
-      "mode": "V",
+      "mode": "C",
       "background": "craft_marks",
       "beat": "Put the art supplies in their places",
       "sources": [
-        "art_dirty",
         "cups",
         "brushes"
       ],
-      "composition": "Table/room action island upper-right; one distinct supplies detail lower-left if useful. Copy in diagonal gap. Reference 21.",
-      "ownership": "Marks-only border because cups/brushes are foreground objects; never show same cup group twice.",
-      "work": "Extract actual objects; no invented arranging hands or new scene. Small background marks stay subordinate."
+      "composition": "Three asymmetric silhouettes: cups lower-left largest, brush bundle upper-right, bottle lower-right. Short copy in upper-left gap. Each prop appears once.",
+      "ownership": "Left mound: Base shell only Right mound: Small existing paint daub extracted from art_dirty, different from foreground objects",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove room/table rectangles completely. Use whole individual supplies, not a fragment of a messy desk. Do not repeat cup group in footer.",
+      "foreground_cutouts": "Complete existing paint-cup group; complete loose-brush bundle; one complete paint bottle if it adds a distinct sorting item",
+      "background_left": "Base shell only",
+      "background_right": "Small existing paint daub extracted from art_dirty, different from foreground objects",
+      "remove_from_source": "Remove room/table rectangles completely. Use whole individual supplies, not a fragment of a messy desk. Do not repeat cup group in footer.",
+      "placement": "Three asymmetric silhouettes: cups lower-left largest, brush bundle upper-right, bottle lower-right. Short copy in upper-left gap. Each prop appears once.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 25,
-      "mode": "V",
+      "mode": "C",
       "background": "craft_marks",
       "beat": "Scrub the art room",
       "sources": [
         "art_scrub"
       ],
-      "composition": "Single large cleaning island preserving work surface and tool contact. Short copy above; different scale from page 24.",
-      "ownership": "No brush or cup icons; use plain base if lower paint marks repeat main artwork.",
-      "work": "Cut around work surface/action, not screenshot edges. Preserve room and action identity."
+      "composition": "Large action/table silhouette in lower 70%; copy above. No supplies inset duplicating objects on table.",
+      "ownership": "Left mound: Small existing paint daub, only if absent from main table/action Right mound: Base shell only",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove wall, shelves, windows and floor. Preserve whole table legs and top; an incomplete table/arm is an extraction gap, not permission for a scene patch.",
+      "foreground_cutouts": "Roshan with held cleaning tool and whole worktable as a connected action cutout, only where a source supports the full contour",
+      "background_left": "Small existing paint daub, only if absent from main table/action",
+      "background_right": "Base shell only",
+      "remove_from_source": "Remove wall, shelves, windows and floor. Preserve whole table legs and top; an incomplete table/arm is an extraction gap, not permission for a scene patch.",
+      "placement": "Large action/table silhouette in lower 70%; copy above. No supplies inset duplicating objects on table.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 26,
@@ -336,57 +526,86 @@
       ],
       "composition": "Full customization frame; hand, purple glitter and paper together. Text in quiet peripheral desk/wall space.",
       "ownership": "No template or extra paint-cup illustration.",
-      "work": "She is sprinkling material, not painting with a brush. Preserve actual contact; outpaint only peripheral surfaces."
+      "work": "She is sprinkling material, not painting with a brush. Preserve actual contact; outpaint only peripheral surfaces.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "Full customization frame; hand, purple glitter and paper together. Text in quiet peripheral desk/wall space.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 27,
-      "mode": "V",
+      "mode": "C",
       "background": "craft",
       "beat": "Her own creation",
       "sources": [
         "paint"
       ],
-      "composition": "Actual paper/creation isolated large below short copy. Optional small action only if distinct. Model on reference 21's finished-craft scale.",
-      "ownership": "Cup-bearing border ONLY if cups/stick are excluded from foreground; otherwise marks-only/base.",
-      "work": "Do not invent a finished drawing. If source remains work-in-progress, write about choosing colors rather than completion."
+      "composition": "Artwork object large and slightly off-center, about 70% width; short copy above. No little inset of the same source action.",
+      "ownership": "Left mound: Exact cups asset, only after removing all cups from foreground extraction Right mound: One complete loose paintbrush from brushes, only if absent from foreground",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove tabletop, room and hand unless a real connected hand/paper interaction is intentionally retained. Paper may be rectangular because the physical object is rectangular; no rectangular surrounding scenery.",
+      "foreground_cutouts": "The actual complete paper/work surface object containing Roshan's visible artwork, extracted to its physical outer contour; no invented finished drawing",
+      "background_left": "Exact cups asset, only after removing all cups from foreground extraction",
+      "background_right": "One complete loose paintbrush from brushes, only if absent from foreground",
+      "remove_from_source": "Remove tabletop, room and hand unless a real connected hand/paper interaction is intentionally retained. Paper may be rectangular because the physical object is rectangular; no rectangular surrounding scenery.",
+      "placement": "Artwork object large and slightly off-center, about 70% width; short copy above. No little inset of the same source action.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 28,
-      "mode": "V",
+      "mode": "C",
       "background": "dust",
       "beat": "One last door",
       "sources": [
         "royal_door_isolated"
       ],
-      "composition": "Large tall gold-edged purple door/arch/steps cutout. Two short lines above. A quiet threshold before reveal.",
-      "ownership": "Low dust marks only; no keys, knobs or miniature doors.",
-      "work": "Use existing Royal Hall door; no old circular arena or new architecture."
+      "composition": "Door occupies center at about 70% height, with short anticipation text above. Preserve actual purple/gold design.",
+      "ownership": "Left mound: One faint existing dust patch from hall Right mound: Base shell only",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove all wall/floor outside the complete arch and attached stair contours; do not retain an oval room crop. No spare key or second doorway.",
+      "foreground_cutouts": "Existing royal_door_isolated: complete door, arch and attached steps as one architectural OBJECT silhouette",
+      "background_left": "One faint existing dust patch from hall",
+      "background_right": "Base shell only",
+      "remove_from_source": "Remove all wall/floor outside the complete arch and attached stair contours; do not retain an oval room crop. No spare key or second doorway.",
+      "placement": "Door occupies center at about 70% height, with short anticipation text above. Preserve actual purple/gold design.",
+      "extraction_status": "EXISTING_CUTOUT_REQUIRES_EDGE_REVIEW"
     },
     {
       "page": 29,
-      "mode": "F",
-      "background": "NONE",
+      "mode": "C",
+      "background": "dust",
       "beat": "Meet Grand Puff",
       "sources": [
-        "boss_identity",
         "boss_cut"
       ],
-      "composition": "Existing boss source with context if suitable for full page. Recognizable own lavender ears; short text away from face. Dominant scale.",
-      "ownership": "No border or premature rainbow motif.",
-      "work": "If source lacks enough scene context, explicitly fall back to huge boss_cut on blue. No fabricated attic; no four-helper image before their arrival."
+      "composition": "Grand Puff nearly fills usable width; short text above. Firm CUTOUT choice replaces the old uncertain full-art/fallback instruction.",
+      "ownership": "Left mound: Base shell only Right mound: One faint existing dust patch from hall, distinct from boss silhouette",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove every scene/background pixel; no circular frame and no rectangular boss_identity backdrop. Do not add early rainbow colors/ears in footer.",
+      "foreground_cutouts": "Existing boss_cut: whole Grand Puff silhouette, including his own lavender ears",
+      "background_left": "Base shell only",
+      "background_right": "One faint existing dust patch from hall, distinct from boss silhouette",
+      "remove_from_source": "Remove every scene/background pixel; no circular frame and no rectangular boss_identity backdrop. Do not add early rainbow colors/ears in footer.",
+      "placement": "Grand Puff nearly fills usable width; short text above. Firm CUTOUT choice replaces the old uncertain full-art/fallback instruction.",
+      "extraction_status": "EXISTING_CUTOUT_REQUIRES_EDGE_REVIEW"
     },
     {
       "page": 30,
-      "mode": "V",
+      "mode": "C",
       "background": "dust",
       "beat": "Dodge, then respond",
       "sources": [
         "grand_puff_jump_sheet",
         "roshan"
       ],
-      "composition": "Existing boss-jump atlas cell as irregular action; response vignette only if a valid existing pose supports it. Short ordered narration.",
-      "ownership": "Sparse low dust only; no spare boss, brush or rainbow bunny.",
-      "work": "Do not imply the atlas proves a complete dodge. One jump cutout plus accurate narration is fallback. No fabricated shared scene."
+      "composition": "Jump silhouette upper-right, text lower-left. If response pose is unsupported, show only jump and accurate narration; no invented reaction sticker.",
+      "ownership": "Left mound: Base shell only Right mound: No added prop; retain base coral only",
+      "work": "TRUE SILHOUETTE REQUIRED. Discard atlas cell's rectangular field and dust patch beyond the subject unless genuine attached action dust follows the silhouette. Never retain a square cell or fabricate contact between figures.",
+      "foreground_cutouts": "One complete Grand Puff jump pose extracted from its atlas cell; Roshan only as a separate WHOLE source pose if that pose actually depicts the response",
+      "background_left": "Base shell only",
+      "background_right": "No added prop; retain base coral only",
+      "remove_from_source": "Discard atlas cell's rectangular field and dust patch beyond the subject unless genuine attached action dust follows the silhouette. Never retain a square cell or fabricate contact between figures.",
+      "placement": "Jump silhouette upper-right, text lower-left. If response pose is unsupported, show only jump and accurate narration; no invented reaction sticker.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 31,
@@ -398,31 +617,50 @@
       ],
       "composition": "Current stone-attic source with all four helpers and wet-soap contacts visible. Full scene; text in quiet upper space.",
       "ownership": "No template or duplicate helper portraits.",
-      "work": "R09 is PROVISIONAL candidate, not delivery-approved. Check two windows/chests, clean-shaven Daddy and correct Eagle. Preserve all contacts."
+      "work": "R09 is PROVISIONAL candidate, not delivery-approved. Check two windows/chests, clean-shaven Daddy and correct Eagle. Preserve all contacts.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "Current stone-attic source with all four helpers and wet-soap contacts visible. Full scene; text in quiet upper space.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 32,
-      "mode": "V",
+      "mode": "C",
       "background": "bath",
       "beat": "Scrub and swish together",
       "sources": [
-        "R09_open"
+        "brush",
+        "sponge"
       ],
-      "composition": "Two useful irregular contact details from different parts of source, alternating with short copy. Do not repeat whole-scene thumbnails.",
-      "ownership": "No spare tools; omit border bubbles if exact foreground cluster repeats.",
-      "work": "Do not move helpers or manufacture contact. Small process pause between team view and concealment; reference 16."
+      "composition": "Large brush diagonal upper-left; sponge lower-right; short rhythmic copy between. Object close-up contrasts with page 31's full team scene.",
+      "ownership": "Left mound: Base shell only Right mound: Small existing soap-bubble cluster",
+      "work": "TRUE SILHOUETTE REQUIRED. No cropped hands, faces or little fragments of the four-helper frame. Use real whole tool assets rather than screenshot detail boxes. No tools in footer.",
+      "foreground_cutouts": "Exact whole brush and star sponge as TWO separate foreground object cutouts",
+      "background_left": "Base shell only",
+      "background_right": "Small existing soap-bubble cluster",
+      "remove_from_source": "No cropped hands, faces or little fragments of the four-helper frame. Use real whole tool assets rather than screenshot detail boxes. No tools in footer.",
+      "placement": "Large brush diagonal upper-left; sponge lower-right; short rhythmic copy between. Object close-up contrasts with page 31's full team scene.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 33,
-      "mode": "V",
+      "mode": "C",
       "background": "bath",
       "beat": "Hidden beneath the soap",
       "sources": [
         "R09_suds"
       ],
-      "composition": "Large complete mound silhouette; retain needed helper hand/tool edges. One short anticipation line above. Quiet page-turn setup.",
-      "ownership": "Plain blue footing, no rainbow, eyes or ears in border; no second soap mound.",
-      "work": "Boss fully obscured; no little-bunny preview. Use current existing endpoint; preserve canonical concealment before reveal."
+      "composition": "Broad large group lower-middle, one anticipation line above. Mound remains totally opaque. This is a single cutout, not a softly masked scene patch.",
+      "ownership": "Left mound: Base shell only Right mound: No added bubbles, tools or characters; base coral only",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove entire attic wall and floor outside group. Do not leave severed hands on foam edge. No boss eyes/ears or little rainbow preview. If full cast contours are unavailable, record extraction gap rather than crop them off.",
+      "foreground_cutouts": "Complete soap mound plus all visible connected helper figures as ONE silhouette group from R09_suds; preserve full cast where present",
+      "background_left": "Base shell only",
+      "background_right": "No added bubbles, tools or characters; base coral only",
+      "remove_from_source": "Remove entire attic wall and floor outside group. Do not leave severed hands on foam edge. No boss eyes/ears or little rainbow preview. If full cast contours are unavailable, record extraction gap rather than crop them off.",
+      "placement": "Broad large group lower-middle, one anticipation line above. Mound remains totally opaque. This is a single cutout, not a softly masked scene patch.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 34,
@@ -434,7 +672,13 @@
       ],
       "composition": "LEFT of one continuous spread with page 35. Bunny clear of gutter; four helpers remain around collapse. POP in quiet upper space.",
       "ownership": "No decorative rainbow, footer or template.",
-      "work": "Use existing R10 source. No rejected landing redraw. Peripheral wall/floor expansion only; no new action."
+      "work": "Use existing R10 source. No rejected landing redraw. Peripheral wall/floor expansion only; no new action.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "LEFT of one continuous spread with page 35. Bunny clear of gutter; four helpers remain around collapse. POP in quiet upper space.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 35,
@@ -446,7 +690,13 @@
       ],
       "composition": "RIGHT of same moment, scene and scale. Show fluff and helpers; caption near outer edge. No duplicated little bunny.",
       "ownership": "No page background or character icon.",
-      "work": "One shared crop with page 34; don't pretend halves are consecutive frames. Gutter misses faces/contact points."
+      "work": "One shared crop with page 34; don't pretend halves are consecutive frames. Gutter misses faces/contact points.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "RIGHT of same moment, scene and scale. Show fluff and helpers; caption near outer edge. No duplicated little bunny.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 36,
@@ -458,34 +708,51 @@
       ],
       "composition": "Existing aftermath, full art. Preserve actual bunny landing position, four helpers and settled environment. Brief copy low in quiet floor.",
       "ownership": "No ornamental footer or rearranged cast.",
-      "work": "Use R11 exactly as available; no new landing staging. Deliberate sustained full-art beat after the reveal."
+      "work": "Use R11 exactly as available; no new landing staging. Deliberate sustained full-art beat after the reveal.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "Existing aftermath, full art. Preserve actual bunny landing position, four helpers and settled environment. Brief copy low in quiet floor.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 37,
-      "mode": "V",
+      "mode": "C",
       "background": "base",
       "beat": "Welcome, little friend",
       "sources": [
         "rainbow_cut"
       ],
-      "composition": "One large rainbow-bunny cutout with a short welcome. Existing identity; no new greeting pose. Return to intimacy after climax.",
-      "ownership": "No bunny ears, rainbow arc or duplicate character in border.",
-      "work": "Add another character only if a real connected source interaction exists; otherwise retain single honest portrait."
+      "composition": "Bunny around 65% page height; welcome text above/left. One generous silhouette rather than several small stickers.",
+      "ownership": "Left mound: One small soap-bubble cluster as cleanup echo Right mound: Base shell only",
+      "work": "TRUE SILHOUETTE REQUIRED. Use alpha boundary; no colored square, extra face portrait or decorative duplicate rainbow bunny. No invented greeting pose.",
+      "foreground_cutouts": "Existing whole rainbow_cut, preserving source identity",
+      "background_left": "One small soap-bubble cluster as cleanup echo",
+      "background_right": "Base shell only",
+      "remove_from_source": "Use alpha boundary; no colored square, extra face portrait or decorative duplicate rainbow bunny. No invented greeting pose.",
+      "placement": "Bunny around 65% page height; welcome text above/left. One generous silhouette rather than several small stickers.",
+      "extraction_status": "EXISTING_CUTOUT_REQUIRES_EDGE_REVIEW"
     },
     {
       "page": 38,
-      "mode": "V",
+      "mode": "C",
       "background": "base",
       "beat": "Look what helping changed",
       "sources": [
         "bath_safe",
         "pool_clean",
-        "playroom",
-        "art_ready"
+        "paint"
       ],
-      "composition": "Three or four small irregular location details, each showing a different result. Diagonal rhythm; one unifying sentence. No repeated hero crops.",
-      "ownership": "Base only; all story objects belong to recap islands.",
-      "work": "Use clean endpoints only. Reference 34's memory-object hierarchy, not its held-IP imagery."
+      "composition": "Three different sizes in a loose diagonal, largest fountain right; copy upper-left. If an object cannot be extracted whole, omit it rather than use a scene crop.",
+      "ownership": "Left mound: Base shell only Right mound: Base coral only; no recap props in border",
+      "work": "TRUE SILHOUETTE REQUIRED. Remove ALL room context from each. No basin photo, cleaned-room thumbnail, window crop or torn-edged scenic island. Do not invent paper content. Keep fountain whole.",
+      "foreground_cutouts": "Three distinct complete OBJECT cutouts: bath bunny from bath_safe; whole seahorse fountain from pool_clean; actual paper/artwork object from paint",
+      "background_left": "Base shell only",
+      "background_right": "Base coral only; no recap props in border",
+      "remove_from_source": "Remove ALL room context from each. No basin photo, cleaned-room thumbnail, window crop or torn-edged scenic island. Do not invent paper content. Keep fountain whole.",
+      "placement": "Three different sizes in a loose diagonal, largest fountain right; copy upper-left. If an object cannot be extracted whole, omit it rather than use a scene crop.",
+      "extraction_status": "EXTRACTION_REQUIRED_OR_SOURCE_GAP"
     },
     {
       "page": 39,
@@ -497,19 +764,31 @@
       ],
       "composition": "Existing Daddy/Roshan embrace fills the page; faces, hands and tails whole. Brief copy beside/above in quiet source space.",
       "ownership": "No hearts, border or repeated portrait.",
-      "work": "Expand only peripheral hall if wide source needs portrait room; never invent a different embrace. Last immersive emotional beat."
+      "work": "Expand only peripheral hall if wide source needs portrait room; never invent a different embrace. Last immersive emotional beat.",
+      "foreground_cutouts": "NONE \u2014 existing scene fills the entire page/spread",
+      "background_left": "NONE",
+      "background_right": "NONE",
+      "remove_from_source": "No silhouette extraction. Preserve scene, cast and contact; trim only to page/spread edges without losing essential action.",
+      "placement": "Existing Daddy/Roshan embrace fills the page; faces, hands and tails whole. Brief copy beside/above in quiet source space.",
+      "extraction_status": "FULL_ART_COMPOSITION_REQUIRED"
     },
     {
       "page": 40,
-      "mode": "V",
+      "mode": "C",
       "background": "base",
       "beat": "Come and play with us",
       "sources": [
         "rainbow_cut"
       ],
-      "composition": "Large single rainbow-bunny portrait and direct invitation. Existing connected friendship group only if actually available; no fabricated interaction.",
-      "ownership": "Quiet blue banks, no cast miniatures or recap props.",
-      "work": "Calm framed ending after hug; keep wording consistent with depicted pose. Back cover is separate from 40 story pages."
+      "composition": "Bunny low-center, invitation above. Match blue family and end quietly after full-art hug.",
+      "ownership": "Left mound: Base shell only Right mound: Base coral only; no additional story prop",
+      "work": "TRUE SILHOUETTE REQUIRED. Keep alpha silhouette and actual pose. No rectangular scene, extra cast portraits or memory-object repetition.",
+      "foreground_cutouts": "One whole existing rainbow-bunny cutout; no new composite friendship scene",
+      "background_left": "Base shell only",
+      "background_right": "Base coral only; no additional story prop",
+      "remove_from_source": "Keep alpha silhouette and actual pose. No rectangular scene, extra cast portraits or memory-object repetition.",
+      "placement": "Bunny low-center, invitation above. Match blue family and end quietly after full-art hug.",
+      "extraction_status": "EXISTING_CUTOUT_REQUIRES_EDGE_REVIEW"
     }
   ]
 }

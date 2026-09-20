@@ -1,0 +1,53 @@
+{
+  "id": "picture-book-cutout-layout-20260920",
+  "scope": "Owner layout correction: exactly full-art or true silhouette cutouts; explicit foreground/background/removal/placement plan for every reduced page. Editorial only.",
+  "baseline": "98f33373eb215405d024eb683bb6d40d7b557e14",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Book layout commission; no game defect closure.",
+  "files": [
+    "books/chapter_one/DESIGN_LANGUAGE.md",
+    "books/chapter_one/README.md",
+    "books/chapter_one/plan/DESIGN_PLAN.html",
+    "books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md",
+    "books/chapter_one/plan/design_manifest.json",
+    "books/chapter_one/plan/design_plan.template.html",
+    "books/chapter_one/plan/page_plan.csv",
+    "books/chapter_one/plan/page_plan.json",
+    "books/chapter_one/plan/page_plan.psv",
+    "books/chapter_one/plan/page_plan.template.txt",
+    "books/chapter_one/render_plan.py",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B books/chapter_one/render_plan.py",
+      "result": "PASS",
+      "evidence": "40 assigned pages; 23 cutout/17 full art; explicit foreground, left/right mound, removal and placement fields; sources resolve; page 13 remains separate art gap."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "574 inventory / 574 ledger; ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "ALL OK against integration baseline 5920c673305989ee29d91876480ff445dba9fc8b."
+    },
+    {
+      "command": "Headless browser review at 1400px and 760px widths",
+      "result": "PASS",
+      "evidence": "40 cards, 23 cutout/17 full art; zero raw source images visible by default; no horizontal overflow; page 24 screenshot visually reviewed. This verifies plan presentation only, not completed book art."
+    }
+  ],
+  "acceptance_gaps": "Plan only. New cutouts, grounded background integrations and final page compositions still require production and visual acceptance. Page 13 clearing action remains missing."
+}

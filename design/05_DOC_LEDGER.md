@@ -46,7 +46,7 @@ unclassified until this ledger gains one new scoped row for it.
 |---|---|---|
 | `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; dedicated static-book branch navigation; prior rough and current source gaps remain explicit. |
 | `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; owner static-book stationery integration rules, blue panels, exact cutouts, lower-15% anchoring, 12% bounds, grounding and no duplicate props. No game/cinematic authority. |
-| `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `PROPOSED`; 40-page editorial plan and reference analysis; page 13 clearing-action art missing; background/print/owner review outstanding. |
+| `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `PROPOSED`; 40-page binary cutout/full-art plan with explicit foreground and left/right mound assignments; no scenic crops on reduced pages. Page 13 clearing-action art missing; extraction/background/print/owner review outstanding. |
 
 | `design/PAINTER_ENGINE_PROTOTYPE_2026-09-16.md` | 🟣 | `PROPOSED / CANDIDATE`; owner-commissioned single standalone Painter prototype with a pinned Pixelorama fill import, unchanged Roshan graphics and isolated artwork persistence. No career/chapter integration, device/child/owner acceptance or master-audit closure. |
 | `audit/OVERNIGHT_RECUT_FRAME_AUDIT_2026-09-12.md` | 🔵 | `SUPPORTING_CURRENT`; fresh sampled/native-frame review of the 3150-frame overnight Resolve render and eighteen bounded repair/conditional cards. Owner direction: recognizable big bunny, soapy scrubbing obscures form, concept friend jumps while casing collapses and dust scatters. Includes original-book Eagle correction and exact Daddy/attic locks. No generated-frame, human, runtime, device or delivery acceptance. |

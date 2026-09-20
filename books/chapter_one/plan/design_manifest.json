@@ -129,7 +129,13 @@
     "Art-room study is quality reference",
     "No duplicated foreground objects in background decoration"
   ],
-  "status": "EDITORIAL_PLAN_REVISED; BACKGROUNDS_UNVERIFIED_AGAINST_OWNER_GEMINI_SPEC; BOOK_NOT_REBUILT",
+  "status": "BINARY_CUTOUT_FULL_ART_PLAN; EXTRACTION_AND_BOOK_REBUILD_PENDING",
   "binding_background_spec": "../DESIGN_LANGUAGE.md",
-  "page13": "Distinct clearing-action source required; duplicated obstruction preview removed"
+  "page13": "Distinct clearing-action source required; duplicated obstruction preview removed",
+  "treatments": {
+    "cutout_pages": 23,
+    "full_art_pages": 17,
+    "reduced_scene_panels": 0
+  },
+  "layout_rules": "../DESIGN_LANGUAGE.md#owner-correction-exactly-two-image-treatments"
 }
