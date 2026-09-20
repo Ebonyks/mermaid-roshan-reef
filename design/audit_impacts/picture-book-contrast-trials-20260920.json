@@ -1,0 +1,81 @@
+{
+  "id": "picture-book-contrast-trials-20260920",
+  "baseline": "12bcf31e6666f59277d42bff45b0dec55432c195",
+  "scope": "Execute varied marginal-action trials, inspect existing source gaps, replace repeated page22 tool illustration with existing craft-table action frame, and rebuild review PDF/source without narrative redraw.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book only; no game findings closed.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/landscape/BORDER_ART_DIRECTION.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md",
+    "books/chapter_one/landscape/art/contrast_trials/craft_table_action.png",
+    "books/chapter_one/landscape/art/contrast_trials/page_20.png",
+    "books/chapter_one/landscape/art/contrast_trials/page_22.png",
+    "books/chapter_one/landscape/art/contrast_trials/page_24.png",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/contrast_trial_evidence.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/stress_review.json"
+  ],
+  "validation": [
+    {
+      "command": "Source inventory and visual inspection",
+      "result": "PASS",
+      "evidence": "Bathroom cleanup board lacks sink action. Existing D1-C10-S01 shows Roshan brushing table; inspected original pixels and review authority. Grand Puff reveal board lacks dodge. Canonical runtime customizer sources found but not treated as finished picture art."
+    },
+    {
+      "command": "Rendered unchanged-page regression",
+      "result": "PASS",
+      "evidence": "31 unchanged JPEGs byte-identical to v13; contrast_trial_evidence.json records exact page list."
+    },
+    {
+      "command": "audit_book.py --proof v15_contrast_trials/complete --baseline v7_landscape/complete",
+      "result": "PASS",
+      "evidence": "34 PDF pages,84 caption lines,58 image operations; zero geometry/source issues. Actual source hashes and selected-source exclusions checked."
+    },
+    {
+      "command": "Visual review of rendered pages20/22/24",
+      "result": "PASS",
+      "evidence": "Trials fit secondary role; count3/1 on20/24. Page22 caption moved from left table to clear floor; source action retained. Owner acceptance remains open."
+    },
+    {
+      "command": "Headless Edge review1400/760",
+      "result": "PASS",
+      "evidence": "3 comparison cards,6 decoded images,zero broken images or page overflow."
+    },
+    {
+      "command": "Portable ZIP extract, payload hash verification, rerender",
+      "result": "PASS",
+      "evidence": "83 payload files verified; all34 JPEG pages byte-identical; archive3923fdc26d443021d36efcd0c0266d8faff04ab40e8bc507db672b1e4b8d302f"
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "ALL OK;579 ledger/inventory"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "ALL OK;base5920c673305989ee29d91876480ff445dba9fc8b"
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS",
+      "evidence": "No whitespace errors"
+    }
+  ],
+  "acceptance_gaps": "Trial art and full book still require visual verification; source gaps6/23/26 remain. Child/owner acceptance not implied."
+}

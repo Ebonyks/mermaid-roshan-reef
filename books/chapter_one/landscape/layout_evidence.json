@@ -760,9 +760,9 @@
     },
     {
       "page": 20,
-      "source_key": "integrated_border_20",
-      "file": "art/integrated_borders/page_20.png",
-      "sha256": "038c0ee92feaa93861f837ab5c84c54a75f79653dca843cf30b7a2568fbfe937",
+      "source_key": "contrast_border_20",
+      "file": "art/contrast_trials/page_20.png",
+      "sha256": "5d6a609633f7f1eab755a6a75b20fcf9bd610a744deb33c40e0bf2dc765a0bae",
       "native_size": [
         1484,
         1060
@@ -935,78 +935,28 @@
     },
     {
       "page": 22,
-      "source_key": "integrated_border_22",
-      "file": "art/integrated_borders/page_22.png",
-      "sha256": "6e56e20053bd14d383deaa9c9dba4df1dc599f8afbccb31b9663c73a17e35b85",
+      "source_key": "craft_table_action",
+      "file": "art/contrast_trials/craft_table_action.png",
+      "sha256": "e62e67088502bb4f43f848e7538e8e6a7f9db1fb4c938520f41a6f82c2a3163d",
       "native_size": [
-        1484,
-        1060
+        1672,
+        941
       ],
       "source_box_pixels": [
         0,
         0,
-        1484,
-        1060
+        1672,
+        941
       ],
       "target_box_points": [
-        2.842170943040401e-14,
+        -67.82996811902234,
         0.0,
-        503.99999999999994,
+        639.6599362380447,
         360.0
       ],
       "operation": "page_trim",
-      "role": "integrated_stationery",
+      "role": "story_art",
       "alpha": false
-    },
-    {
-      "page": 22,
-      "source_key": "brush",
-      "file": "../archive/rough_v5/art/brush.png",
-      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
-      "native_size": [
-        936,
-        1024
-      ],
-      "source_box_pixels": [
-        45,
-        38,
-        899,
-        978
-      ],
-      "target_box_points": [
-        65.19148936170214,
-        65.0,
-        172.61702127659572,
-        190.0
-      ],
-      "operation": "source_region",
-      "role": "story_art",
-      "alpha": true
-    },
-    {
-      "page": 22,
-      "source_key": "sponge",
-      "file": "../archive/rough_v5/art/sponge.png",
-      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
-      "native_size": [
-        512,
-        512
-      ],
-      "source_box_pixels": [
-        32,
-        32,
-        479,
-        480
-      ],
-      "target_box_points": [
-        304.15513392857144,
-        62.0,
-        138.68973214285714,
-        139.0
-      ],
-      "operation": "source_region",
-      "role": "story_art",
-      "alpha": true
     },
     {
       "page": 23,
@@ -1035,9 +985,9 @@
     },
     {
       "page": 24,
-      "source_key": "integrated_border_24",
-      "file": "art/integrated_borders/page_24.png",
-      "sha256": "9e38587c630cb7fa8f97d5ce5216dfe083aed28d21f35606598fd8733a813949",
+      "source_key": "contrast_border_24",
+      "file": "art/contrast_trials/page_24.png",
+      "sha256": "0163ba988ecad39e71d62a8743b78c2d06f5dd8deddeaa177259cd3480ffbe64",
       "native_size": [
         1484,
         1060
@@ -2163,11 +2113,11 @@
     },
     {
       "page": 22,
-      "text": "She put the supplies away",
+      "text": "She put the supplies away.",
       "box": [
-        148.34699999999998,
-        310.798,
-        207.306,
+        140,
+        48.798,
+        210.24000000000004,
         22.41
       ],
       "font_size": 18,
@@ -2175,11 +2125,11 @@
     },
     {
       "page": 22,
-      "text": "and brushed the sticky grime off the desk.",
+      "text": "Then she brushed the table clean.",
       "box": [
-        86.71499999999997,
-        287.398,
-        330.57000000000005,
+        140,
+        25.397999999999996,
+        265.824,
         22.41
       ],
       "font_size": 18,

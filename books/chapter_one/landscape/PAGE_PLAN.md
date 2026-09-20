@@ -23,11 +23,11 @@ Status: `SUPPORTING_CURRENT`; integrated-border review rough. 32 story pages plu
 | 17 | F | pinned | None | None | 18 pt; navy; x=33, baseline=318, width=438 |
 | 18 | F | loose | None | None | 18 pt; navy; x=33, baseline=318, width=438 |
 | 19 | C | eagle_original_isolated | toy_blocks | star_cushion | 18 pt; navy; x=42, baseline=247, width=188 |
-| 20 | C | roshan, eagle_original_isolated | toy_sailboat | nesting_cups | 18 pt; navy; x=31, baseline=316, width=440 |
+| 20 | C | roshan, eagle_original_isolated | native bank only | three bunnies with one cup | 18 pt; navy; x=31, baseline=316, width=440 |
 | 21 | C | cups, brushes, pink | ribbon_spools | crayons | 18 pt; navy; x=32, baseline=316, width=440 |
-| 22 | C | brush, sponge | sorting_tray | paper_stack | 18 pt; navy; x=32, baseline=316, width=440 |
+| 22 | F | craft_table_action | None | None | 18 pt; navy; x=140, baseline=54, width=334 |
 | 23 | F | paint | None | None | 20 pt; white; x=305, baseline=316, width=165 |
-| 24 | C | royal_door_isolated | cobweb_shells | keepsake_chest | 18 pt; navy; x=290, baseline=242, width=172 |
+| 24 | C | royal_door_isolated | one listening bunny | native bank only | 18 pt; navy; x=290, baseline=242, width=172 |
 | 25 | C | boss_cut | attic_storage_jar | shell_lid_canister | 18 pt; navy; x=37, baseline=257, width=204 |
 | 26 | C | grand_puff_jump_sheet | left_bank_glints | right_bank_glints | 18 pt; navy; x=292, baseline=252, width=174 |
 | 27 | F | R09_open | None | None | 18 pt; white; x=32, baseline=318, width=440 |
@@ -41,4 +41,6 @@ F pages fill the page trim. C pages retain genuine foreground alpha silhouettes 
 
 See `integrated_border_evidence.json` for inspected visible bounds, relevance, grounding notes and source/prompt hashes. Generated hidden occlusion and source pixel fidelity are not measured claims.
 
-The table above records the current rendered v13 assignments. Proposed replacements and comprehension risks are in [Border art direction](BORDER_ART_DIRECTION.md); they are not yet implemented artwork.
+The table above records current rendered assignments, including the v15 contrast trials. Proposed replacements and comprehension risks are in [Border art direction](BORDER_ART_DIRECTION.md); they are not yet implemented artwork.
+
+Contrast-trial execution: page20 now has one shared three-bunny cup activity on the right; page24 one listening bunny on the left. Page22 is now FULL ART using the existing D1-C10-S01 table-cleaning frame, replacing the repeated brush/sponge inventory. The quiet sorting-tray trial is preserved but unused. All other rendered assignments remain unchanged. See `contrast_trial_evidence.json` for exact sources, prompts and review limits.

@@ -2116,6 +2116,30 @@
         "evidence": "integrated_border_evidence.json",
         "page": 32
       }
+    },
+    "contrast_border_20": {
+      "file": "art/contrast_trials/page_20.png",
+      "provenance": {
+        "sha256": "5d6a609633f7f1eab755a6a75b20fcf9bd610a744deb33c40e0bf2dc765a0bae",
+        "evidence": "contrast_trial_evidence.json"
+      }
+    },
+    "contrast_border_24": {
+      "file": "art/contrast_trials/page_24.png",
+      "provenance": {
+        "sha256": "0163ba988ecad39e71d62a8743b78c2d06f5dd8deddeaa177259cd3480ffbe64",
+        "evidence": "contrast_trial_evidence.json"
+      }
+    },
+    "craft_table_action": {
+      "file": "art/contrast_trials/craft_table_action.png",
+      "provenance": {
+        "source": "assets_src/cinematics/d1_c10_art_room_restored_visual_v1/storyboards/generated_keyframes/D1-C10-S01_runtime_informed_candidate.png",
+        "source_sha256": "e62e67088502bb4f43f848e7538e8e6a7f9db1fb4c938520f41a6f82c2a3163d",
+        "output_sha256": "e62e67088502bb4f43f848e7538e8e6a7f9db1fb4c938520f41a6f82c2a3163d",
+        "modifications": "None; copied existing authored reference. Page uses trim crop only.",
+        "authority": "Narrative reference approved for static-book reuse by owner; cinematic human acceptance pending, not promoted by book use."
+      }
     }
   },
   "pages": [
@@ -2896,7 +2920,7 @@
       "text": "Now there was room to play together.\n“Come with me, Baby Eagle!”",
       "layout": "friends_pair",
       "border_assets": [],
-      "background_theme": "There is room to play together. LEFT bank: supplied small pastel wooden toy sailboat resting its rounded hull securely in sand. RIGHT bank: three nesting cups, top-middle atlas cell, modest and correctly grounded. No blocks, no puzzle pieces, no flags beyond the tiny sailboat pennant already part of the boat.",
+      "background_theme": "Three lavender bunnies share one tipped cup on the right bank; distinct low, leaning and upright poses, left bank quiet. Grounded and within lower zone. Small cup interaction still needs print-size/owner review.",
       "caption": {
         "x": 31,
         "y": 316,
@@ -2913,23 +2937,34 @@
         211
       ],
       "border_placements": [],
-      "integrated_background": "integrated_border_20",
+      "integrated_background": "contrast_border_20",
       "integrated_motifs": [
-        "toy_sailboat",
-        "nesting_cups"
+        "three_bunnies_shared_cup"
       ],
       "integrated_prop_bounds": [
         [
-          0.163747,
-          0.850943,
-          0.063342,
-          0.091509
+          0.626010781671159,
+          0.8915094339622641,
+          0.06132075471698113,
+          0.0820754716981132
         ],
         [
-          0.791105,
-          0.868868,
-          0.051213,
-          0.083019
+          0.6960916442048517,
+          0.8952830188679245,
+          0.06266846361185983,
+          0.07264150943396226
+        ],
+        [
+          0.7493261455525606,
+          0.870754716981132,
+          0.06671159029649595,
+          0.09528301886792453
+        ],
+        [
+          0.6691374663072777,
+          0.9264150943396227,
+          0.05121293800539083,
+          0.05471698113207547
         ]
       ]
     },
@@ -2983,48 +3018,36 @@
     },
     {
       "page": 22,
-      "mode": "C",
+      "mode": "F",
       "art": [
-        "brush",
-        "sponge"
+        "craft_table_action"
       ],
-      "text": "She put the supplies away\nand brushed the sticky grime off the desk.",
-      "layout": "tools",
+      "text": "She put the supplies away.\nThen she brushed the table clean.",
+      "layout": "full",
       "border_assets": [],
-      "background_theme": "Putting supplies away. LEFT bank: the blue compartment tray of sorted buttons from bottom-right atlas cell, sitting with its whole bottom grounded, no corner clipped off. RIGHT bank: neat stack of pastel paper from top-right atlas cell, lying FLAT with edge parallel to the local bank perspective, slight overlap from a low curve of sand only at its contact. No loose scissors, glitter bottle or ribbon.",
+      "background_theme": "Full art: existing Roshan/table brush-contact frame.",
       "caption": {
-        "x": 32,
-        "y": 316,
-        "width": 440,
+        "x": 140,
+        "y": 54,
+        "width": 334,
         "size": 18,
-        "align": "center",
+        "align": "left",
         "color": "navy",
         "shadow": false
       },
-      "foreground_zone": [
-        30,
-        53,
-        444,
-        211
-      ],
       "border_placements": [],
-      "integrated_background": "integrated_border_22",
-      "integrated_motifs": [
-        "sorting_tray",
-        "paper_stack"
-      ],
-      "integrated_prop_bounds": [
+      "focal_exclusions": [
         [
-          0.144879,
-          0.860377,
-          0.108491,
-          0.103774
+          275,
+          90,
+          170,
+          215
         ],
         [
-          0.752022,
-          0.862264,
-          0.113208,
-          0.10566
+          378,
+          55,
+          126,
+          155
         ]
       ]
     },
@@ -3078,7 +3101,7 @@
       "text": "One last door\nbegan to glow.\nBeyond it came\na rumble...",
       "layout": "wide_cut",
       "border_assets": [],
-      "background_theme": "An old doorway leads to the dusty attic. LEFT bank: a delicate small cobweb spanning two old shells, top-middle atlas cell, both shells grounded in the bank, web complete above them. RIGHT bank: one tiny blue antique keepsake chest, top-right atlas cell, with crisp lightly weathered surfaces, REMOVE noisy dust frosting and any smear. No door knocker or key; do not duplicate the foreground door.",
+      "background_theme": "One lavender bunny leans and looks upper-left toward the foreground door; no chest/costume. Left-bank contact follows slope; right bank quiet. Pose reads as attentive rather than an explicit ear-cupping gesture.",
       "caption": {
         "x": 290,
         "y": 242,
@@ -3095,23 +3118,16 @@
         239
       ],
       "border_placements": [],
-      "integrated_background": "integrated_border_24",
+      "integrated_background": "contrast_border_24",
       "integrated_motifs": [
-        "cobweb_shells",
-        "keepsake_chest"
+        "single_listening_bunny"
       ],
       "integrated_prop_bounds": [
         [
-          0.101752,
-          0.883962,
-          0.095013,
-          0.057547
-        ],
-        [
-          0.751348,
-          0.858491,
-          0.097709,
-          0.099057
+          0.22574123989218328,
+          0.8594339622641509,
+          0.09299191374663072,
+          0.1018867924528302
         ]
       ]
     },

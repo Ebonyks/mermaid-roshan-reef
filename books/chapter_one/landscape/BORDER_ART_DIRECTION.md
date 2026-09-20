@@ -77,3 +77,5 @@ This is an editorial self-review, not a child test or owner acceptance. Source e
 6. Record keep/revise/remove with evidence. Revise the failed composition and repeat. Store the reviewed plan, studies and findings on the dedicated book branch before another whole-story pass. Human/child comprehension and owner acceptance stay explicitly unperformed until actually obtained.
 
 Production order: contrast a one-bunny listening page (24), the three-bunny shared play page (20), and object-only tidy page (22) first. These test whether the visual grammar has real variety. Then build remaining borders and audit the complete story, including all border-free pages. Do not batch-generate thirteen variants from one bilateral prompt.
+
+Execution adjustment after source inspection: page22 changes to full art because an existing brush-contact frame better communicates its main action. Its planned quiet tray border is retained only as a study. The next proof therefore tests one-bunny page24, three-bunny page20, and full-art page22 together; object-only treatment remains elsewhere in the book.

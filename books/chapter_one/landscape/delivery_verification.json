@@ -1,16 +1,16 @@
 {
   "status": "PASS",
-  "verified_payload_files": 80,
+  "verified_payload_files": 83,
   "matching_page_renders": 34,
-  "archive_sha256": "57d8af2213b4afd9a1db66fa45d748060597823500d4eb11a57687834c5a2c76",
-  "pdf_sha256": "55ff05d462e91f4e278d6a8087900debd3d1de002f90c65a50539b87256eb957",
+  "archive_sha256": "3923fdc26d443021d36efcd0c0266d8faff04ab40e8bc507db672b1e4b8d302f",
+  "pdf_sha256": "9bac4c1b4e31518ffc1309a2df0ab7d92f7a09f6380c6cd1bf241316307722c6",
   "pdf_pages": 34,
   "page_size_points": [
     504,
     360
   ],
   "mechanical_status": "PASS",
-  "visual_status": "INTEGRATED_BORDER_REVIEW; OWNER ACCEPTANCE NOT GRANTED",
+  "visual_status": "CONTRAST_TRIAL_REVIEW; OWNER ACCEPTANCE NOT GRANTED",
   "open_findings": [
     {
       "id": "BK-ST-OPEN-01",
@@ -76,6 +76,16 @@
       ],
       "severity": "P2",
       "issue": "Owner rejected pasted-on event borders and smudge. Integrated variants remove those defects in this review candidate; grounded contact, relevance and print-size finish still require owner acceptance."
+    },
+    {
+      "id": "BK-ST-OPEN-07",
+      "pages": [
+        6,
+        23,
+        26
+      ],
+      "severity": "P2",
+      "issue": "Main image/text action gaps remain: sink wiping, authored-picture emphasis, Roshan dodge. Border changes cannot resolve these; no suitable replacement narrative source selected yet."
     }
   ]
 }
