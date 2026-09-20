@@ -1,0 +1,133 @@
+{ "frames": [
+   {
+    "filename": "bridge-planks-v3 0.aseprite",
+    "frame": { "x": 0, "y": 0, "w": 1022, "h": 1024 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1022, "h": 1024 },
+    "sourceSize": { "w": 1022, "h": 1024 },
+    "duration": 50
+   },
+   {
+    "filename": "bridge-planks-v3 1.aseprite",
+    "frame": { "x": 1022, "y": 0, "w": 1022, "h": 1024 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1022, "h": 1024 },
+    "sourceSize": { "w": 1022, "h": 1024 },
+    "duration": 50
+   },
+   {
+    "filename": "bridge-planks-v3 2.aseprite",
+    "frame": { "x": 2044, "y": 0, "w": 1022, "h": 1024 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1022, "h": 1024 },
+    "sourceSize": { "w": 1022, "h": 1024 },
+    "duration": 40
+   },
+   {
+    "filename": "bridge-planks-v3 3.aseprite",
+    "frame": { "x": 3066, "y": 0, "w": 1022, "h": 1024 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1022, "h": 1024 },
+    "sourceSize": { "w": 1022, "h": 1024 },
+    "duration": 50
+   },
+   {
+    "filename": "bridge-planks-v3 4.aseprite",
+    "frame": { "x": 0, "y": 1024, "w": 1022, "h": 1024 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1022, "h": 1024 },
+    "sourceSize": { "w": 1022, "h": 1024 },
+    "duration": 70
+   },
+   {
+    "filename": "bridge-planks-v3 5.aseprite",
+    "frame": { "x": 1022, "y": 1024, "w": 1022, "h": 1024 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1022, "h": 1024 },
+    "sourceSize": { "w": 1022, "h": 1024 },
+    "duration": 70
+   },
+   {
+    "filename": "bridge-planks-v3 6.aseprite",
+    "frame": { "x": 2044, "y": 1024, "w": 1022, "h": 1024 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1022, "h": 1024 },
+    "sourceSize": { "w": 1022, "h": 1024 },
+    "duration": 60
+   },
+   {
+    "filename": "bridge-planks-v3 7.aseprite",
+    "frame": { "x": 3066, "y": 1024, "w": 1022, "h": 1024 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1022, "h": 1024 },
+    "sourceSize": { "w": 1022, "h": 1024 },
+    "duration": 60
+   },
+   {
+    "filename": "bridge-planks-v3 8.aseprite",
+    "frame": { "x": 0, "y": 2048, "w": 1022, "h": 1024 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1022, "h": 1024 },
+    "sourceSize": { "w": 1022, "h": 1024 },
+    "duration": 50
+   },
+   {
+    "filename": "bridge-planks-v3 9.aseprite",
+    "frame": { "x": 1022, "y": 2048, "w": 1022, "h": 1024 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1022, "h": 1024 },
+    "sourceSize": { "w": 1022, "h": 1024 },
+    "duration": 60
+   },
+   {
+    "filename": "bridge-planks-v3 10.aseprite",
+    "frame": { "x": 2044, "y": 2048, "w": 1022, "h": 1024 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1022, "h": 1024 },
+    "sourceSize": { "w": 1022, "h": 1024 },
+    "duration": 60
+   },
+   {
+    "filename": "bridge-planks-v3 11.aseprite",
+    "frame": { "x": 3066, "y": 2048, "w": 1022, "h": 1024 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1022, "h": 1024 },
+    "sourceSize": { "w": 1022, "h": 1024 },
+    "duration": 100
+   }
+ ],
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.18.4-x64",
+  "image": "planks-full-atlas.png",
+  "format": "RGBA8888",
+  "size": { "w": 4088, "h": 3072 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "footstep_contact", "from": 0, "to": 11, "direction": "forward", "color": "#000000ff" }
+  ],
+  "layers": [
+   { "name": "concealed_deck_backing", "opacity": 255, "blendMode": "normal" },
+   { "name": "deck_fixed_ends", "opacity": 255, "blendMode": "normal" },
+   { "name": "plank_1", "opacity": 255, "blendMode": "normal" },
+   { "name": "plank_2", "opacity": 255, "blendMode": "normal" },
+   { "name": "plank_3", "opacity": 255, "blendMode": "normal" },
+   { "name": "plank_4", "opacity": 255, "blendMode": "normal" },
+   { "name": "plank_5", "opacity": 255, "blendMode": "normal" },
+   { "name": "plank_6", "opacity": 255, "blendMode": "normal" },
+   { "name": "castle_posts_chains_fixed", "opacity": 255, "blendMode": "normal" }
+  ]
+ }
+}

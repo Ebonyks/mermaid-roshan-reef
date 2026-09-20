@@ -1,0 +1,55 @@
+{
+  "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+  "source_sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+  "master_size": [
+    6144,
+    2048
+  ],
+  "runtime_mask_size": [
+    1024,
+    512
+  ],
+  "polygons": [
+    [
+      [
+        0,
+        1180
+      ],
+      [
+        620,
+        1180
+      ],
+      [
+        620,
+        1580
+      ],
+      [
+        0,
+        1580
+      ]
+    ],
+    [
+      [
+        4520,
+        1000
+      ],
+      [
+        6143,
+        1000
+      ],
+      [
+        6143,
+        1620
+      ],
+      [
+        4520,
+        1620
+      ]
+    ]
+  ],
+  "method": "bounded painted-water hue/value classification; tiny highlight-hole fill; runtime alpha mask",
+  "interaction": "direct finger ripple only, no reward/job/actor action claim",
+  "frame_count": 8,
+  "frame_count_reason": "reuse accepted fixed-pivot eight-frame shared ripple atlas; within owner 6-24 range",
+  "status": "mask candidate requires rendered shore and blocker tests"
+}

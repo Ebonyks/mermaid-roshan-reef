@@ -1,0 +1,48 @@
+{
+  "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+  "method": "existing painted ridges separated into four light groups; direct Aseprite per-cel opacity authorship; no spatial warping",
+  "status": "candidate, requires temporal and device acceptance",
+  "clips": [
+    {
+      "id": "arrival",
+      "master_rect": [
+        0,
+        1180,
+        640,
+        1580
+      ],
+      "cell_size": [
+        256,
+        256
+      ],
+      "groups": 4,
+      "frames": 12,
+      "duration_ms": 180,
+      "role": "light-only painted ridge accent; fixed shoreline and texture coordinates",
+      "source_sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41"
+    },
+    {
+      "id": "castle",
+      "master_rect": [
+        4520,
+        1000,
+        6144,
+        1640
+      ],
+      "cell_size": [
+        512,
+        256
+      ],
+      "groups": 4,
+      "frames": 12,
+      "duration_ms": 180,
+      "role": "light-only painted ridge accent; fixed shoreline and texture coordinates",
+      "source_sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41"
+    }
+  ],
+  "runtime_budget": {
+    "sprites": 2,
+    "atlas_rgba_bytes": 11534336,
+    "note": "base atlas uncompressed storage only; import/mipmaps and device frame time still require measurement"
+  }
+}

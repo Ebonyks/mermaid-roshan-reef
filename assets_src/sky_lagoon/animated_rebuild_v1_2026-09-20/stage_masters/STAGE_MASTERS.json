@@ -1,0 +1,2443 @@
+{
+  "canvas": [
+    6144,
+    2048
+  ],
+  "source_layers": [
+    {
+      "cell": "cells/000.png",
+      "name": "SkyLagoonBackdrop_r0_c0",
+      "order": 0,
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "role": "base_panorama",
+      "source": "assets/sprites/sky_lagoon/animated_v1/arrival_bough_base.png",
+      "source_sha256": "ab620448699bf046c81093d780e6afabb38350dddd82c4efdd20ca13593286f7",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "visible": true,
+      "z": -500
+    },
+    {
+      "cell": "cells/001.png",
+      "name": "SkyLagoonBackdrop_r0_c1",
+      "order": 1,
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "role": "base_panorama",
+      "source": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
+      "source_sha256": "ae962d17088df75e6f3db9fd632a1c2f105d91a902996cd5ac5aba184f82fc1d",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.0,
+        0.0,
+        1024.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "visible": true,
+      "z": -500
+    },
+    {
+      "cell": "cells/002.png",
+      "name": "SkyLagoonBackdrop_r0_c2",
+      "order": 2,
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "role": "base_panorama",
+      "source": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+      "source_sha256": "a5e0dc1e71031ade14059722885bf7905d88f3ea45e9b04e5994cb09ece88850",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.0,
+        0.0,
+        2048.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "visible": true,
+      "z": -500
+    },
+    {
+      "cell": "cells/003.png",
+      "name": "SkyLagoonBackdrop_r0_c3",
+      "order": 3,
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "role": "base_panorama",
+      "source": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+      "source_sha256": "b423c7c320377e15a38d684d4cec4499c81fa9a31e20bdf4d7dbf051d63c1959",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.0,
+        0.0,
+        3072.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "visible": true,
+      "z": -500
+    },
+    {
+      "cell": "cells/004.png",
+      "name": "SkyLagoonBackdrop_r0_c4",
+      "order": 4,
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "role": "base_panorama",
+      "source": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
+      "source_sha256": "bb674934980b1b3e70dfe4e2fcb0f866e61f0ac6eefc3414b398a6da654f86ac",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.0,
+        0.0,
+        4096.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "visible": true,
+      "z": -500
+    },
+    {
+      "cell": "cells/005.png",
+      "name": "SkyLagoonBackdrop_r0_c5",
+      "order": 5,
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "role": "base_panorama",
+      "source": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
+      "source_sha256": "563cdab3a65bd22518350c441cffd6f0f1173ab51df7d70cf09c11b4c151035c",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.0,
+        0.0,
+        5120.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "visible": true,
+      "z": -500
+    },
+    {
+      "cell": "cells/006.png",
+      "name": "SkyLagoonBackdrop_r1_c0",
+      "order": 6,
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "role": "base_panorama",
+      "source": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
+      "source_sha256": "60b2ca6fb0ed517929a7dcdaa19cc9cf13a61cb27d7a7700c396383c85418a3a",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1024.0
+      ],
+      "visible": true,
+      "z": -500
+    },
+    {
+      "cell": "cells/007.png",
+      "name": "SkyLagoonBackdrop_r1_c1",
+      "order": 7,
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "role": "base_panorama",
+      "source": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
+      "source_sha256": "2fb96fa18f1e9ccec77ba4f1fd162223385fdfaa230f57647f0240de27ca1400",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.0,
+        0.0,
+        1024.0,
+        0.0,
+        1.0,
+        1024.0
+      ],
+      "visible": true,
+      "z": -500
+    },
+    {
+      "cell": "cells/008.png",
+      "name": "SkyLagoonBackdrop_r1_c2",
+      "order": 8,
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "role": "base_panorama",
+      "source": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+      "source_sha256": "2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.0,
+        0.0,
+        2048.0,
+        0.0,
+        1.0,
+        1024.0
+      ],
+      "visible": true,
+      "z": -500
+    },
+    {
+      "cell": "cells/009.png",
+      "name": "SkyLagoonBackdrop_r1_c3",
+      "order": 9,
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "role": "base_panorama",
+      "source": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+      "source_sha256": "1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.0,
+        0.0,
+        3072.0,
+        0.0,
+        1.0,
+        1024.0
+      ],
+      "visible": true,
+      "z": -500
+    },
+    {
+      "cell": "cells/010.png",
+      "name": "SkyLagoonBackdrop_r1_c4",
+      "order": 10,
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "role": "base_panorama",
+      "source": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
+      "source_sha256": "72e54d1d6a1fbfbeba326670c0d0c640d582b0a60f89d95db77ebcec1257e9c4",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.0,
+        0.0,
+        4096.0,
+        0.0,
+        1.0,
+        1024.0
+      ],
+      "visible": true,
+      "z": -500
+    },
+    {
+      "cell": "cells/011.png",
+      "name": "SkyLagoonBackdrop_r1_c5",
+      "order": 11,
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "role": "base_panorama",
+      "source": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
+      "source_sha256": "6ef1dd25a1ea4ee998886d6e0c5a824ef915dddb2cff786ffad5520ba0aa2e21",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.0,
+        0.0,
+        5120.0,
+        0.0,
+        1.0,
+        1024.0
+      ],
+      "visible": true,
+      "z": -500
+    },
+    {
+      "cell": "cells/012.png",
+      "name": "SkyLagoonArrivalBoughCels",
+      "order": 12,
+      "region": [
+        0,
+        0,
+        512,
+        256
+      ],
+      "role": "original_boughs_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/arrival_boughs.png",
+      "source_sha256": "83440d3fe866ddcbdf28303f1809d869fd7083a23f02c369ec47baa2e0ba433d",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        448.0
+      ],
+      "visible": true,
+      "z": -500
+    },
+    {
+      "cell": "cells/013.png",
+      "name": "SkyLagoonPaintedWater_arrival",
+      "order": 13,
+      "region": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "role": "painted_water_light",
+      "source": "assets/sprites/sky_lagoon/animated_v1/water_arrival_highlights.png",
+      "source_sha256": "3ac62c1bb9460bb6077f97a67303dca9eff61b13163078b342fcf800dbe4c9a6",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        2.5,
+        0.0,
+        0.0,
+        0.0,
+        1.5625,
+        1180.0
+      ],
+      "visible": true,
+      "z": -400
+    },
+    {
+      "cell": "cells/014.png",
+      "name": "SkyLagoonPaintedWater_castle",
+      "order": 14,
+      "region": [
+        0,
+        0,
+        512,
+        256
+      ],
+      "role": "painted_water_light",
+      "source": "assets/sprites/sky_lagoon/animated_v1/water_castle_highlights.png",
+      "source_sha256": "7519768dbe595023f87d02ab32824afe82fe75e16b983b7a3860c04ea04ffe68",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        3.171875,
+        0.0,
+        4520.0,
+        0.0,
+        2.5,
+        1000.0
+      ],
+      "visible": true,
+      "z": -400
+    },
+    {
+      "cell": "cells/015.png",
+      "name": "SkyLagoonShoreline_arrival",
+      "order": 15,
+      "region": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "role": "painted_shoreline_lap",
+      "source": "assets/sprites/sky_lagoon/animated_v1/water_arrival_shore.png",
+      "source_sha256": "72e9759a140eafe10d53ad17b0c2d1e2d03cb3402ccce0934ded1f9243791eda",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        2.5,
+        0.0,
+        0.0,
+        0.0,
+        1.5625,
+        1180.0
+      ],
+      "visible": true,
+      "z": -400
+    },
+    {
+      "cell": "cells/016.png",
+      "name": "SkyLagoonShoreline_castle",
+      "order": 16,
+      "region": [
+        0,
+        0,
+        512,
+        256
+      ],
+      "role": "painted_shoreline_lap",
+      "source": "assets/sprites/sky_lagoon/animated_v1/water_castle_shore.png",
+      "source_sha256": "96a798822d70b462f4ada2792f0a090ff3d4effd9e010c7f45f2424e002c7b84",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        3.171875,
+        0.0,
+        4520.0,
+        0.0,
+        2.5,
+        1000.0
+      ],
+      "visible": true,
+      "z": -400
+    },
+    {
+      "cell": "cells/017.png",
+      "name": "SkyLagoonRearCloud",
+      "order": 17,
+      "region": [
+        0,
+        0,
+        327,
+        167
+      ],
+      "role": "rear_ambient",
+      "source": "assets/sprites/sky_lagoon/animated_v1/cloud_painted.png",
+      "source_sha256": "21d639baf0dcc783b1ba5c69ab9a534db848ba88a4ec9c064273bd6d1ef3418f",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.40718567371368,
+        0.0,
+        2449.92504882813,
+        0.0,
+        1.40718567371368,
+        312.5
+      ],
+      "visible": true,
+      "z": -400
+    },
+    {
+      "cell": "cells/018.png",
+      "name": "SkyLagoonSmoke_0",
+      "order": 18,
+      "region": [
+        0,
+        0,
+        46,
+        256
+      ],
+      "role": "landmark_ambient",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "source_sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.52734375,
+        0.0,
+        4687.87109375,
+        0.0,
+        0.52734375,
+        687.5
+      ],
+      "visible": true,
+      "z": -300
+    },
+    {
+      "cell": "cells/019.png",
+      "name": "SkyLagoonSmoke_1",
+      "order": 19,
+      "region": [
+        0,
+        0,
+        46,
+        256
+      ],
+      "role": "landmark_ambient",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "source_sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.52734375,
+        0.0,
+        4837.87109375,
+        0.0,
+        0.52734375,
+        755.5
+      ],
+      "visible": true,
+      "z": -300
+    },
+    {
+      "cell": "cells/020.png",
+      "name": "SkyLagoonSmoke_2",
+      "order": 20,
+      "region": [
+        0,
+        0,
+        46,
+        256
+      ],
+      "role": "landmark_ambient",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "source_sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.52734375,
+        0.0,
+        4987.87109375,
+        0.0,
+        0.52734375,
+        823.5
+      ],
+      "visible": true,
+      "z": -300
+    },
+    {
+      "cell": "cells/021.png",
+      "name": "SkyLagoonReefPlane",
+      "order": 21,
+      "region": [
+        0,
+        0,
+        775,
+        360
+      ],
+      "role": "",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+      "source_sha256": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.75,
+        0.0,
+        19.375,
+        0.0,
+        0.75,
+        770.0
+      ],
+      "visible": true,
+      "z": -300
+    },
+    {
+      "cell": "cells/022.png",
+      "name": "SkyLagoonCastleFourTower",
+      "order": 22,
+      "region": [
+        0,
+        0,
+        1022,
+        1024
+      ],
+      "role": "",
+      "source": "assets/sprites/sky_lagoon/animated_v1/castle_fixed.png",
+      "source_sha256": "64c0a83bfb68bbd5da9d1ecc594e185af0555d30d4439dba40693f31ee860eae",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.18460702896118,
+        0.0,
+        4667.107421875,
+        0.0,
+        1.18460702896118,
+        352.530456542969
+      ],
+      "visible": true,
+      "z": -300
+    },
+    {
+      "cell": "cells/023.png",
+      "name": "BridgeContactCels",
+      "order": 23,
+      "region": [
+        0,
+        0,
+        256,
+        192
+      ],
+      "role": "",
+      "source": "assets/sprites/sky_lagoon/animated_v1/bridge_contact.png",
+      "source_sha256": "872467dd67e785468d883817eaa8c66bd192987ff851c67b6d6927d442bd014f",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.18460702896118,
+        0.0,
+        4742.921875,
+        0.0,
+        1.18460702896118,
+        1338.12341308594
+      ],
+      "visible": true,
+      "z": -300
+    },
+    {
+      "cell": "cells/028.png",
+      "name": "SkyLagoonSlideContactShadow",
+      "order": 28,
+      "region": [
+        0,
+        0,
+        256,
+        128
+      ],
+      "role": "contact_shadow",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "source_sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "tint": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "transform": [
+        1.953125,
+        0.0,
+        2300.0,
+        0.0,
+        0.3125,
+        1380.0
+      ],
+      "visible": true,
+      "z": -1
+    },
+    {
+      "cell": "cells/029.png",
+      "name": "SkyLagoonPromenadeSwingFrameContactShadow",
+      "order": 29,
+      "region": [
+        0,
+        0,
+        256,
+        128
+      ],
+      "role": "contact_shadow",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "source_sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "tint": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "transform": [
+        2.265625,
+        0.0,
+        2910.0,
+        0.0,
+        0.328125,
+        1369.0
+      ],
+      "visible": true,
+      "z": -1
+    },
+    {
+      "cell": "cells/030.png",
+      "name": "SkyLagoonSeesawContactShadow",
+      "order": 30,
+      "region": [
+        0,
+        0,
+        256,
+        128
+      ],
+      "role": "contact_shadow",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "source_sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "tint": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "transform": [
+        1.6796875,
+        0.0,
+        3611.0,
+        0.0,
+        0.296875,
+        1481.0
+      ],
+      "visible": true,
+      "z": -1
+    },
+    {
+      "cell": "cells/024.png",
+      "name": "SkyLagoonSlide",
+      "order": 24,
+      "region": [
+        0,
+        0,
+        425,
+        412
+      ],
+      "role": "interactive",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+      "source_sha256": "3b917608d9e3067d9fe68bbd260eba045acc0a15074795f4649f40ee0c69a3e4",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.5048543214798,
+        0.0,
+        2230.21850585938,
+        0.0,
+        1.5048543214798,
+        780.0
+      ],
+      "visible": true,
+      "z": 0
+    },
+    {
+      "cell": "cells/025.png",
+      "name": "SkyLagoonPromenadeSwingFrame",
+      "order": 25,
+      "region": [
+        0,
+        0,
+        1024,
+        719
+      ],
+      "role": "interactive",
+      "source": "assets/props/story/play_swing_frame.png",
+      "source_sha256": "a2098346be89be32ff1b559a8db96fbc95a9ab29c7ef3d7bb451059e2ef05592",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.667593896389008,
+        0.0,
+        2858.19189453125,
+        0.0,
+        0.667593896389008,
+        910.0
+      ],
+      "visible": true,
+      "z": 0
+    },
+    {
+      "cell": "cells/026.png",
+      "name": "SwingSeatAndRopes",
+      "order": 26,
+      "region": [
+        0,
+        0,
+        554,
+        1024
+      ],
+      "role": "",
+      "source": "assets/props/story/play_swing_seat.png",
+      "source_sha256": "b3e6933400d83ece5e58ff62f23a052b3e1a5ce3ef788f66752e1f8f8fd0db7b",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.352051466703415,
+        0.0,
+        3102.48168945313,
+        0.0,
+        0.352051466703415,
+        964.408813476563
+      ],
+      "visible": true,
+      "z": 0
+    },
+    {
+      "cell": "cells/027.png",
+      "name": "SkyLagoonSeesaw",
+      "order": 27,
+      "region": [
+        0,
+        0,
+        377,
+        168
+      ],
+      "role": "interactive",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "source_sha256": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.57738089561462,
+        0.0,
+        3528.66357421875,
+        0.0,
+        1.57738089561462,
+        1235.0
+      ],
+      "visible": true,
+      "z": 0
+    },
+    {
+      "cell": "cells/031.png",
+      "name": "SkyLagoonGrassCels_00",
+      "order": 31,
+      "region": [
+        0,
+        0,
+        320,
+        320
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+      "source_sha256": "921131b075d4be11e29b7f95ad807897979919bc4c66063b0dde04564a59bf95",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.300000011920929,
+        0.0,
+        562.0,
+        0.0,
+        0.300000011920929,
+        1807.40002441406
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/032.png",
+      "name": "SkyLagoonGrassCels_01",
+      "order": 32,
+      "region": [
+        0,
+        0,
+        320,
+        320
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+      "source_sha256": "921131b075d4be11e29b7f95ad807897979919bc4c66063b0dde04564a59bf95",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.300000011920929,
+        0.0,
+        657.0,
+        0.0,
+        0.300000011920929,
+        1790.40002441406
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/033.png",
+      "name": "SkyLagoonGrassCels_02",
+      "order": 33,
+      "region": [
+        0,
+        0,
+        320,
+        320
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+      "source_sha256": "921131b075d4be11e29b7f95ad807897979919bc4c66063b0dde04564a59bf95",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.300000011920929,
+        0.0,
+        1302.0,
+        0.0,
+        0.300000011920929,
+        1767.40002441406
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/034.png",
+      "name": "SkyLagoonGrassCels_03",
+      "order": 34,
+      "region": [
+        0,
+        0,
+        320,
+        320
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+      "source_sha256": "921131b075d4be11e29b7f95ad807897979919bc4c66063b0dde04564a59bf95",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.300000011920929,
+        0.0,
+        2202.0,
+        0.0,
+        0.300000011920929,
+        1787.40002441406
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/035.png",
+      "name": "SkyLagoonGrassCels_04",
+      "order": 35,
+      "region": [
+        0,
+        0,
+        320,
+        320
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+      "source_sha256": "921131b075d4be11e29b7f95ad807897979919bc4c66063b0dde04564a59bf95",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.300000011920929,
+        0.0,
+        2292.0,
+        0.0,
+        0.300000011920929,
+        1812.40002441406
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/036.png",
+      "name": "SkyLagoonGrassCels_05",
+      "order": 36,
+      "region": [
+        0,
+        0,
+        320,
+        320
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+      "source_sha256": "921131b075d4be11e29b7f95ad807897979919bc4c66063b0dde04564a59bf95",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.300000011920929,
+        0.0,
+        3017.0,
+        0.0,
+        0.300000011920929,
+        1802.40002441406
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/037.png",
+      "name": "SkyLagoonGrassCels_06",
+      "order": 37,
+      "region": [
+        0,
+        0,
+        320,
+        320
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+      "source_sha256": "921131b075d4be11e29b7f95ad807897979919bc4c66063b0dde04564a59bf95",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.300000011920929,
+        0.0,
+        3572.0,
+        0.0,
+        0.300000011920929,
+        1772.40002441406
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/038.png",
+      "name": "SkyLagoonGrassCels_07",
+      "order": 38,
+      "region": [
+        0,
+        0,
+        320,
+        320
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+      "source_sha256": "921131b075d4be11e29b7f95ad807897979919bc4c66063b0dde04564a59bf95",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.300000011920929,
+        0.0,
+        3682.0,
+        0.0,
+        0.300000011920929,
+        1807.40002441406
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/039.png",
+      "name": "SkyLagoonGrassCels_08",
+      "order": 39,
+      "region": [
+        0,
+        0,
+        320,
+        320
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+      "source_sha256": "921131b075d4be11e29b7f95ad807897979919bc4c66063b0dde04564a59bf95",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.300000011920929,
+        0.0,
+        4452.0,
+        0.0,
+        0.300000011920929,
+        1812.40002441406
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/040.png",
+      "name": "SkyLagoonGrassCels_09",
+      "order": 40,
+      "region": [
+        0,
+        0,
+        320,
+        320
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+      "source_sha256": "921131b075d4be11e29b7f95ad807897979919bc4c66063b0dde04564a59bf95",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.300000011920929,
+        0.0,
+        4532.0,
+        0.0,
+        0.300000011920929,
+        1792.40002441406
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/041.png",
+      "name": "SkyLagoonGrassCels_10",
+      "order": 41,
+      "region": [
+        0,
+        0,
+        320,
+        320
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+      "source_sha256": "921131b075d4be11e29b7f95ad807897979919bc4c66063b0dde04564a59bf95",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.300000011920929,
+        0.0,
+        5572.0,
+        0.0,
+        0.300000011920929,
+        1832.40002441406
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/042.png",
+      "name": "SkyLagoonGrassCels_11",
+      "order": 42,
+      "region": [
+        0,
+        0,
+        320,
+        320
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+      "source_sha256": "921131b075d4be11e29b7f95ad807897979919bc4c66063b0dde04564a59bf95",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.300000011920929,
+        0.0,
+        5672.0,
+        0.0,
+        0.300000011920929,
+        1812.40002441406
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/043.png",
+      "name": "SkyLagoonBellflower_0",
+      "order": 43,
+      "region": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/bellflower_breeze.png",
+      "source_sha256": "a56cfcc419ebe2b2a3b080fede126924dc4100429a2a2822b9e230b0c35b0662",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.720000028610229,
+        0.0,
+        898.240051269531,
+        0.0,
+        0.720000028610229,
+        1633.0400390625
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/044.png",
+      "name": "SkyLagoonBellflower_1",
+      "order": 44,
+      "region": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/bellflower_breeze.png",
+      "source_sha256": "a56cfcc419ebe2b2a3b080fede126924dc4100429a2a2822b9e230b0c35b0662",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.949999988079071,
+        0.0,
+        5527.39990234375,
+        0.0,
+        0.949999988079071,
+        1535.40002441406
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/045.png",
+      "name": "SkyLagoonHuckleberry_0",
+      "order": 45,
+      "region": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/huckleberry_breeze.png",
+      "source_sha256": "1012cf4b54e8815a622ad18838bf2a01aba66bb63834c5e54e39095c6f932af0",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.25,
+        0.0,
+        -140.0,
+        0.0,
+        1.25,
+        1635.0
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/046.png",
+      "name": "SkyLagoonHuckleberry_1",
+      "order": 46,
+      "region": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/huckleberry_breeze.png",
+      "source_sha256": "1012cf4b54e8815a622ad18838bf2a01aba66bb63834c5e54e39095c6f932af0",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.35000002384186,
+        0.0,
+        2884.39990234375,
+        0.0,
+        1.35000002384186,
+        1617.0
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/047.png",
+      "name": "SkyLagoonForegroundTree",
+      "order": 47,
+      "region": [
+        0,
+        0,
+        256,
+        384
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/conifer_breeze.png",
+      "source_sha256": "32e42006a25537cb5f08937aecc77adacf3676bbc9bbe1d60cf7340e743d43b5",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        0.921052634716034,
+        0.0,
+        5942.56591796875,
+        0.0,
+        0.921052634716034,
+        1383.15795898438
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/048.png",
+      "name": "BridgeFrontRail",
+      "order": 48,
+      "region": [
+        0,
+        0,
+        304,
+        286
+      ],
+      "role": "foreground_geography_locked",
+      "source": "assets/sprites/sky_lagoon/animated_v1/bridge_front_rail_fixed.png",
+      "source_sha256": "20c066f03e2f4bb8bc2fac2e7f9fad42b445683c07993cb96fa5c3673327d596",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.18460702896118,
+        0.0,
+        5046.181640625,
+        0.0,
+        1.18460702896118,
+        1193.60144042969
+      ],
+      "visible": true,
+      "z": 300
+    },
+    {
+      "cell": "cells/049.png",
+      "name": "BridgeChainResponseCels",
+      "order": 49,
+      "region": [
+        0,
+        0,
+        224,
+        192
+      ],
+      "role": "",
+      "source": "assets/sprites/sky_lagoon/animated_v1/bridge_chains.png",
+      "source_sha256": "930379a22dcadafabb801e382a049ee36fcee4e2868da2eb7ebc3ff2480343a9",
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": [
+        1.18460702896118,
+        0.0,
+        5103.04296875,
+        0.0,
+        1.18460702896118,
+        1226.77038574219
+      ],
+      "visible": true,
+      "z": 300
+    }
+  ],
+  "stage_masters": [
+    {
+      "stage": "arrival",
+      "master_rect": [
+        0,
+        0,
+        2048,
+        2048
+      ],
+      "path": "arrival-editable.ora",
+      "layers": [
+        {
+          "name": "Original background with concealed bough fill",
+          "path": "data/layer00.png",
+          "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+          "position": [
+            0,
+            0
+          ],
+          "size": [
+            2048,
+            2048
+          ],
+          "sha256": "deb5c91daeddf3629536df1e5ab4c74efe68af146b8aa9e3912fe16d591a428f"
+        },
+        {
+          "name": "SkyLagoonArrivalBoughCels / central_stem_and_lower_tier_fixed",
+          "path": "data/layer01.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/arrival_boughs.png",
+          "position": [
+            0,
+            448
+          ],
+          "size": [
+            311,
+            256
+          ],
+          "sha256": "45411d58e169f8928d0f54e216a062b4bdc041aff6c8e64472a2a6bc68593d42"
+        },
+        {
+          "name": "SkyLagoonArrivalBoughCels / left_outer_tips",
+          "path": "data/layer02.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/arrival_boughs.png",
+          "position": [
+            8,
+            480
+          ],
+          "size": [
+            88,
+            192
+          ],
+          "sha256": "92fbcbc2b19a663a12ab3536d2b9f68c514acc6737d0a47d50175f9322f841af"
+        },
+        {
+          "name": "SkyLagoonArrivalBoughCels / right_outer_tips",
+          "path": "data/layer03.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/arrival_boughs.png",
+          "position": [
+            145,
+            480
+          ],
+          "size": [
+            208,
+            192
+          ],
+          "sha256": "1b3258a4461eb757d4f3c6fb30b69d3094ba319b6e6e9ed63f7505a02395c417"
+        },
+        {
+          "name": "SkyLagoonPaintedWater_arrival",
+          "path": "data/layer04.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/water_arrival_highlights.png",
+          "position": [
+            1,
+            1251
+          ],
+          "size": [
+            417,
+            266
+          ],
+          "sha256": "f042e960b3e4deb29c68ba4f56a29413ecd6be370f25e5f46b2647f1ad4e7caf"
+        },
+        {
+          "name": "SkyLagoonShoreline_arrival",
+          "path": "data/layer05.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/water_arrival_shore.png",
+          "position": [
+            4,
+            1245
+          ],
+          "size": [
+            415,
+            290
+          ],
+          "sha256": "40030c23c69786d536762ee804241440a1c11219aeca2795414cff1ef5c49c7e"
+        },
+        {
+          "name": "SkyLagoonReefPlane",
+          "path": "data/layer06.png",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+          "position": [
+            37,
+            787
+          ],
+          "size": [
+            547,
+            236
+          ],
+          "sha256": "ff7368492cda255b0f3820fc1028694c158eb9ee10fdbd1b1c8880495a02d598"
+        },
+        {
+          "name": "SkyLagoonGrassCels_00",
+          "path": "data/layer07.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+          "position": [
+            583,
+            1836
+          ],
+          "size": [
+            55,
+            60
+          ],
+          "sha256": "c041a5312749948824c9433ffb44150914c270d57fc7802cd18325700910da26"
+        },
+        {
+          "name": "SkyLagoonGrassCels_01",
+          "path": "data/layer08.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+          "position": [
+            678,
+            1819
+          ],
+          "size": [
+            55,
+            60
+          ],
+          "sha256": "c041a5312749948824c9433ffb44150914c270d57fc7802cd18325700910da26"
+        },
+        {
+          "name": "SkyLagoonGrassCels_02",
+          "path": "data/layer09.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+          "position": [
+            1323,
+            1796
+          ],
+          "size": [
+            55,
+            60
+          ],
+          "sha256": "c041a5312749948824c9433ffb44150914c270d57fc7802cd18325700910da26"
+        },
+        {
+          "name": "SkyLagoonBellflower_0 / stems",
+          "path": "data/layer10.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/bellflower_breeze.png",
+          "position": [
+            1008,
+            1667
+          ],
+          "size": [
+            151,
+            167
+          ],
+          "sha256": "d6481b4c4ff3d24db4ca7518357e7cc4458e6e7595327724c24cb0779ac9978a"
+        },
+        {
+          "name": "SkyLagoonBellflower_0 / bell_tall",
+          "path": "data/layer11.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/bellflower_breeze.png",
+          "position": [
+            972,
+            1684
+          ],
+          "size": [
+            72,
+            65
+          ],
+          "sha256": "f7b33f2247de262e33b5f4c9fe0d6e36d0d894249f45890d1a3310c99b449602"
+        },
+        {
+          "name": "SkyLagoonBellflower_0 / bell_middle",
+          "path": "data/layer12.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/bellflower_breeze.png",
+          "position": [
+            1018,
+            1741
+          ],
+          "size": [
+            67,
+            61
+          ],
+          "sha256": "942e981705bc55ad274cc9e3ec410034021f53c4ea34c8dacb59eab05381b0bd"
+        },
+        {
+          "name": "SkyLagoonBellflower_0 / bell_right",
+          "path": "data/layer13.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/bellflower_breeze.png",
+          "position": [
+            1112,
+            1777
+          ],
+          "size": [
+            63,
+            59
+          ],
+          "sha256": "68e13ed239952bd2cd0aba89a914ae71ecb48751e5ba68eac7c66d1c77419f75"
+        },
+        {
+          "name": "SkyLagoonBellflower_0 / bud",
+          "path": "data/layer14.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/bellflower_breeze.png",
+          "position": [
+            1151,
+            1743
+          ],
+          "size": [
+            26,
+            39
+          ],
+          "sha256": "daa5b4bcc4987b1820a30c00d811065e0cc932b20940a4a6e0b9c3afe7b8589a"
+        },
+        {
+          "name": "SkyLagoonBellflower_0 / leaves_fixed",
+          "path": "data/layer15.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/bellflower_breeze.png",
+          "position": [
+            965,
+            1816
+          ],
+          "size": [
+            271,
+            158
+          ],
+          "sha256": "e90934bf546df8c1ee94de9bd1e743f0eadec6150182251c28e919546ef55d85"
+        },
+        {
+          "name": "SkyLagoonHuckleberry_0 / branch_left",
+          "path": "data/layer16.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/huckleberry_breeze.png",
+          "position": [
+            0,
+            1861
+          ],
+          "size": [
+            104,
+            187
+          ],
+          "sha256": "a2eda496b6e08ee50c9295a9b6c8946bfd034ff47b51415983c5d429b1618b33"
+        },
+        {
+          "name": "SkyLagoonHuckleberry_0 / branch_middle",
+          "path": "data/layer17.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/huckleberry_breeze.png",
+          "position": [
+            104,
+            1848
+          ],
+          "size": [
+            166,
+            200
+          ],
+          "sha256": "b225ccf1329255533b818d42759d0d421a1ec5d8ca898713cd5fa065b25ba6ff"
+        },
+        {
+          "name": "SkyLagoonHuckleberry_0 / branch_right",
+          "path": "data/layer18.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/huckleberry_breeze.png",
+          "position": [
+            270,
+            1810
+          ],
+          "size": [
+            199,
+            238
+          ],
+          "sha256": "2f6fba93c83cea528a2c19ea18e9f17f79d9f7e103fd8af615575afe83f719cf"
+        }
+      ],
+      "layer_count": 19,
+      "sha256": "6e46b3de8e839fbbf1e651fb59a58dce606e1ed97db5ed391e61977bbadd1bf0",
+      "merged_rgba_sha256": "ee2e17a57142e7b70e7e73e1884e649def3eed4c25bd7120fe777f0a1049f7d1"
+    },
+    {
+      "stage": "meadow",
+      "master_rect": [
+        2048,
+        0,
+        2048,
+        2048
+      ],
+      "path": "meadow-editable.ora",
+      "layers": [
+        {
+          "name": "Original painted background preserved",
+          "path": "data/layer00.png",
+          "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+          "position": [
+            0,
+            0
+          ],
+          "size": [
+            2048,
+            2048
+          ],
+          "sha256": "d9fa7044d7b013713ecc9e3b1e3053a4d2092ee10e8776ebe16c39d9fa9e8dc4"
+        },
+        {
+          "name": "SkyLagoonRearCloud",
+          "path": "data/layer01.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/cloud_painted.png",
+          "position": [
+            402,
+            313
+          ],
+          "size": [
+            460,
+            235
+          ],
+          "sha256": "0aa4788db829e8e2dcbb53a5c44e545300fa2a05697c645485b06839d3becbbd"
+        },
+        {
+          "name": "SkyLagoonSlideContactShadow",
+          "path": "data/layer02.png",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+          "position": [
+            276,
+            1386
+          ],
+          "size": [
+            452,
+            33
+          ],
+          "sha256": "93a8e5ede91aee78f0b08e5c8a8b8cafdc0457f7afc8b9942d49015859b907fb"
+        },
+        {
+          "name": "SkyLagoonPromenadeSwingFrameContactShadow",
+          "path": "data/layer03.png",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+          "position": [
+            890,
+            1376
+          ],
+          "size": [
+            524,
+            34
+          ],
+          "sha256": "e48d866ecd6113e9af2e80f3f17b66b2dc48dbe7e39eec4dca230a24521386da"
+        },
+        {
+          "name": "SkyLagoonSeesawContactShadow",
+          "path": "data/layer04.png",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+          "position": [
+            1584,
+            1487
+          ],
+          "size": [
+            388,
+            31
+          ],
+          "sha256": "6667cfcc7d069f8192f92b13baf8639a08509ddcaf11deaf51432cb1a0ad795c"
+        },
+        {
+          "name": "SkyLagoonSlide",
+          "path": "data/layer05.png",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+          "position": [
+            201,
+            799
+          ],
+          "size": [
+            602,
+            582
+          ],
+          "sha256": "f0d2dc959608f0de5c7e0e56c09c8066da02b182064c5812711186233f4dd18c"
+        },
+        {
+          "name": "SkyLagoonPromenadeSwingFrame",
+          "path": "data/layer06.png",
+          "source": "assets/props/story/play_swing_frame.png",
+          "position": [
+            814,
+            915
+          ],
+          "size": [
+            676,
+            472
+          ],
+          "sha256": "6a2b6772d3a3825097ca3f3b6f124ae644aca5988acf2c95d3db0dadf6dc7c73"
+        },
+        {
+          "name": "SwingSeatAndRopes",
+          "path": "data/layer07.png",
+          "source": "assets/props/story/play_swing_seat.png",
+          "position": [
+            1057,
+            966
+          ],
+          "size": [
+            190,
+            357
+          ],
+          "sha256": "58d09c2220b602ed1b52b3848bb022876d8d04fd51de4ce60aeeef26047c9b4d"
+        },
+        {
+          "name": "SkyLagoonSeesaw",
+          "path": "data/layer08.png",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+          "position": [
+            1499,
+            1253
+          ],
+          "size": [
+            549,
+            228
+          ],
+          "sha256": "4d1f15fdd29276c97c6d91ca45d030bf618ed9246cada68c220ed1f65ed2daed"
+        },
+        {
+          "name": "SkyLagoonGrassCels_03",
+          "path": "data/layer09.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+          "position": [
+            175,
+            1816
+          ],
+          "size": [
+            55,
+            60
+          ],
+          "sha256": "c041a5312749948824c9433ffb44150914c270d57fc7802cd18325700910da26"
+        },
+        {
+          "name": "SkyLagoonGrassCels_04",
+          "path": "data/layer10.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+          "position": [
+            265,
+            1841
+          ],
+          "size": [
+            55,
+            60
+          ],
+          "sha256": "c041a5312749948824c9433ffb44150914c270d57fc7802cd18325700910da26"
+        },
+        {
+          "name": "SkyLagoonGrassCels_05",
+          "path": "data/layer11.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+          "position": [
+            990,
+            1831
+          ],
+          "size": [
+            55,
+            60
+          ],
+          "sha256": "c041a5312749948824c9433ffb44150914c270d57fc7802cd18325700910da26"
+        },
+        {
+          "name": "SkyLagoonGrassCels_06",
+          "path": "data/layer12.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+          "position": [
+            1545,
+            1801
+          ],
+          "size": [
+            55,
+            60
+          ],
+          "sha256": "c041a5312749948824c9433ffb44150914c270d57fc7802cd18325700910da26"
+        },
+        {
+          "name": "SkyLagoonGrassCels_07",
+          "path": "data/layer13.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+          "position": [
+            1655,
+            1836
+          ],
+          "size": [
+            55,
+            60
+          ],
+          "sha256": "c041a5312749948824c9433ffb44150914c270d57fc7802cd18325700910da26"
+        },
+        {
+          "name": "SkyLagoonHuckleberry_1 / branch_left",
+          "path": "data/layer14.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/huckleberry_breeze.png",
+          "position": [
+            877,
+            1861
+          ],
+          "size": [
+            223,
+            187
+          ],
+          "sha256": "cdef44f14d2d6b251257e257aff9b4c6d810ec344e6685652e17a4953ef0b7e4"
+        },
+        {
+          "name": "SkyLagoonHuckleberry_1 / branch_middle",
+          "path": "data/layer15.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/huckleberry_breeze.png",
+          "position": [
+            1100,
+            1847
+          ],
+          "size": [
+            179,
+            201
+          ],
+          "sha256": "e3074a2e0a0a40383fbe2d93b58bf7add13978c4cfafe1dadbe5557ef11734c9"
+        },
+        {
+          "name": "SkyLagoonHuckleberry_1 / branch_right",
+          "path": "data/layer16.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/huckleberry_breeze.png",
+          "position": [
+            1279,
+            1806
+          ],
+          "size": [
+            215,
+            242
+          ],
+          "sha256": "b9087476deed2599e8b71e87f9de20d48cff1e3eeacca6517e4bfa3274dfef78"
+        }
+      ],
+      "layer_count": 17,
+      "sha256": "203285a3a9925a750e9fb309c17a4a35b3b9f975b75b057e56449e3843599df9",
+      "merged_rgba_sha256": "d9bf7321aa33bb7601024c8377c7624addf374b687453a32cf1db4f67f9a9a8c"
+    },
+    {
+      "stage": "castle",
+      "master_rect": [
+        4096,
+        0,
+        2048,
+        2048
+      ],
+      "path": "castle-editable.ora",
+      "layers": [
+        {
+          "name": "Original painted background preserved",
+          "path": "data/layer00.png",
+          "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+          "position": [
+            0,
+            0
+          ],
+          "size": [
+            2048,
+            2048
+          ],
+          "sha256": "d9607a68cb82ad5269b5846bab1e033a5502a89a642ccb2b9dbd2862bb8428bf"
+        },
+        {
+          "name": "SkyLagoonPaintedWater_castle",
+          "path": "data/layer01.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/water_castle_highlights.png",
+          "position": [
+            470,
+            1011
+          ],
+          "size": [
+            1436,
+            593
+          ],
+          "sha256": "13cc89835fc50f39f8ef24e6034b01feb6aa58b6408a747eae9c184f43ed4bf0"
+        },
+        {
+          "name": "SkyLagoonShoreline_castle",
+          "path": "data/layer02.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/water_castle_shore.png",
+          "position": [
+            473,
+            1004
+          ],
+          "size": [
+            1450,
+            617
+          ],
+          "sha256": "bb251934c1ca57fdc69c8f0d50e4ffe51d97d0a784e3d69fdf08d044312eea81"
+        },
+        {
+          "name": "SkyLagoonSmoke_0",
+          "path": "data/layer03.png",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+          "position": [
+            592,
+            687
+          ],
+          "size": [
+            24,
+            135
+          ],
+          "sha256": "5a70931ea53963b2b7e818a33b24184333ecfe9a6f246ae0a512c7ea9dd49117"
+        },
+        {
+          "name": "SkyLagoonSmoke_1",
+          "path": "data/layer04.png",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+          "position": [
+            742,
+            755
+          ],
+          "size": [
+            24,
+            135
+          ],
+          "sha256": "5a70931ea53963b2b7e818a33b24184333ecfe9a6f246ae0a512c7ea9dd49117"
+        },
+        {
+          "name": "SkyLagoonSmoke_2",
+          "path": "data/layer05.png",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+          "position": [
+            892,
+            823
+          ],
+          "size": [
+            24,
+            135
+          ],
+          "sha256": "5a70931ea53963b2b7e818a33b24184333ecfe9a6f246ae0a512c7ea9dd49117"
+        },
+        {
+          "name": "SkyLagoonCastleFourTower",
+          "path": "data/layer06.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/castle_fixed.png",
+          "position": [
+            578,
+            359
+          ],
+          "size": [
+            1197,
+            1204
+          ],
+          "sha256": "c4470615a03b86ecde7d3b3552d513208e2a5d6a4d1352ff13660f18f72c9136"
+        },
+        {
+          "name": "BridgeContactCels",
+          "path": "data/layer07.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/bridge_contact.png",
+          "position": [
+            647,
+            1338
+          ],
+          "size": [
+            303,
+            218
+          ],
+          "sha256": "9b42d3022fabad0932e2fec6b658bae8dc4b6623a5ec8334805876d697e6edcf"
+        },
+        {
+          "name": "SkyLagoonSeesaw",
+          "path": "data/layer08.png",
+          "source": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+          "position": [
+            0,
+            1274
+          ],
+          "size": [
+            10,
+            105
+          ],
+          "sha256": "a82f6c744212a14a95e3b2a3a5315c3b4643a28cd3432cbbd839f729f315a110"
+        },
+        {
+          "name": "SkyLagoonGrassCels_08",
+          "path": "data/layer09.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+          "position": [
+            377,
+            1841
+          ],
+          "size": [
+            55,
+            60
+          ],
+          "sha256": "c041a5312749948824c9433ffb44150914c270d57fc7802cd18325700910da26"
+        },
+        {
+          "name": "SkyLagoonGrassCels_09",
+          "path": "data/layer10.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+          "position": [
+            457,
+            1821
+          ],
+          "size": [
+            55,
+            60
+          ],
+          "sha256": "c041a5312749948824c9433ffb44150914c270d57fc7802cd18325700910da26"
+        },
+        {
+          "name": "SkyLagoonGrassCels_10",
+          "path": "data/layer11.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+          "position": [
+            1497,
+            1861
+          ],
+          "size": [
+            55,
+            60
+          ],
+          "sha256": "c041a5312749948824c9433ffb44150914c270d57fc7802cd18325700910da26"
+        },
+        {
+          "name": "SkyLagoonGrassCels_11",
+          "path": "data/layer12.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+          "position": [
+            1597,
+            1841
+          ],
+          "size": [
+            55,
+            60
+          ],
+          "sha256": "c041a5312749948824c9433ffb44150914c270d57fc7802cd18325700910da26"
+        },
+        {
+          "name": "SkyLagoonBellflower_1 / stems",
+          "path": "data/layer13.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/bellflower_breeze.png",
+          "position": [
+            1577,
+            1581
+          ],
+          "size": [
+            200,
+            221
+          ],
+          "sha256": "ff70558149f7e16129bb9a12d0954df7f4dc86c2898ed90afdaddb9b5c8b15a0"
+        },
+        {
+          "name": "SkyLagoonBellflower_1 / bell_tall",
+          "path": "data/layer14.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/bellflower_breeze.png",
+          "position": [
+            1529,
+            1603
+          ],
+          "size": [
+            94,
+            85
+          ],
+          "sha256": "ef9bd5616d60b9b4c5e2f30960284a283052b93821cb96aba0f543a28930a3b8"
+        },
+        {
+          "name": "SkyLagoonBellflower_1 / bell_middle",
+          "path": "data/layer15.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/bellflower_breeze.png",
+          "position": [
+            1590,
+            1676
+          ],
+          "size": [
+            88,
+            83
+          ],
+          "sha256": "aea31bfa464af62c133169b955f294067a9e0b2a3bf4ffe56c27071cdfabc015"
+        },
+        {
+          "name": "SkyLagoonBellflower_1 / bell_right",
+          "path": "data/layer16.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/bellflower_breeze.png",
+          "position": [
+            1713,
+            1725
+          ],
+          "size": [
+            81,
+            78
+          ],
+          "sha256": "dc57e7cc5571d945dd7572553588525d370c1a02158fca069404028bb3a01558"
+        },
+        {
+          "name": "SkyLagoonBellflower_1 / bud",
+          "path": "data/layer17.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/bellflower_breeze.png",
+          "position": [
+            1764,
+            1681
+          ],
+          "size": [
+            35,
+            51
+          ],
+          "sha256": "4d151a37b60706dee6dab10be0959d599e3dbe055c997d8a21b69a3e72c6b146"
+        },
+        {
+          "name": "SkyLagoonBellflower_1 / leaves_fixed",
+          "path": "data/layer18.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/bellflower_breeze.png",
+          "position": [
+            1521,
+            1777
+          ],
+          "size": [
+            356,
+            208
+          ],
+          "sha256": "faf101dcef1b57b7ac93ebadee1fdcc2f4d11ef53e23646e50bb1bf49baac8ec"
+        },
+        {
+          "name": "SkyLagoonForegroundTree / trunk_and_garden_fixed",
+          "path": "data/layer19.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/conifer_breeze.png",
+          "position": [
+            1847,
+            1385
+          ],
+          "size": [
+            201,
+            350
+          ],
+          "sha256": "e4e10d3afe9b4e42b9e7aab56da198c9fd936d1c13836632e9239d119ad8bdb1"
+        },
+        {
+          "name": "SkyLagoonForegroundTree / left_boughs",
+          "path": "data/layer20.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/conifer_breeze.png",
+          "position": [
+            1892,
+            1408
+          ],
+          "size": [
+            61,
+            197
+          ],
+          "sha256": "f19361d87657fd16002ce6ca43d26475831d905cc57f80df7c6b85bb3fdbd4bc"
+        },
+        {
+          "name": "SkyLagoonForegroundTree / right_boughs",
+          "path": "data/layer21.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/conifer_breeze.png",
+          "position": [
+            1976,
+            1419
+          ],
+          "size": [
+            60,
+            186
+          ],
+          "sha256": "2e69a93df685d39fdb9380d31437461da31b62e9f710bf7a004c1be753073f4a"
+        },
+        {
+          "name": "BridgeFrontRail",
+          "path": "data/layer22.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/bridge_front_rail_fixed.png",
+          "position": [
+            959,
+            1204
+          ],
+          "size": [
+            340,
+            325
+          ],
+          "sha256": "442e1df2ef5d24144c32e0b74a6264cfb10ed99ecea01b5a260b6e0b93b7e02a"
+        },
+        {
+          "name": "BridgeChainResponseCels",
+          "path": "data/layer23.png",
+          "source": "assets/sprites/sky_lagoon/animated_v1/bridge_chains.png",
+          "position": [
+            1007,
+            1227
+          ],
+          "size": [
+            265,
+            222
+          ],
+          "sha256": "d808a05ed80f1132461e5a049ec8515c3ca395cada39ba2ecf0c7071fd60ba71"
+        }
+      ],
+      "layer_count": 24,
+      "sha256": "3fc6720f5ce8217ef5318b061876eba8fe4b58392c01adbcb68fb1c5bdf78ee7",
+      "merged_rgba_sha256": "d55d47e8a6f0e86901a5961f075fc2f1a9b9f37ee6d6662ae98f422de65379fc"
+    }
+  ],
+  "component_sources": {
+    "arrival_boughs/arrival-boughs-editable.ora": {
+      "source": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/arrival_boughs/arrival-boughs-editable.ora",
+      "sha256": "a05e49d5216f5f38cb402c2c4e2988bf40b0ecd00a1d4f229e0571742ea4f3db",
+      "components": [
+        "central_stem_and_lower_tier_fixed",
+        "left_outer_tips",
+        "right_outer_tips"
+      ],
+      "method": "authored source-region ownership applied to rendered card; no new artwork or hidden geometry"
+    },
+    "bellflower/bellflower-editable.ora": {
+      "source": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/bellflower/bellflower-editable.ora",
+      "sha256": "5e511d73efca48ce68970383daf91acb0f148b28de99ef14d5a4b136fa69119c",
+      "components": [
+        "stems",
+        "bell_tall",
+        "bell_middle",
+        "bell_right",
+        "bud",
+        "leaves_fixed"
+      ],
+      "method": "authored source-region ownership applied to rendered card; no new artwork or hidden geometry"
+    },
+    "huckleberry/huckleberry-editable.ora": {
+      "source": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/huckleberry/huckleberry-editable.ora",
+      "sha256": "d515011133551066eeb6efbaad116ddf6e12a6a81000c5934d2b3d16a705b2d0",
+      "components": [
+        "branch_left",
+        "branch_middle",
+        "branch_right",
+        "root_fixed"
+      ],
+      "method": "authored source-region ownership applied to rendered card; no new artwork or hidden geometry"
+    },
+    "conifer/conifer-editable.ora": {
+      "source": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/conifer/conifer-editable.ora",
+      "sha256": "35cddcadb7b0c969592e81d6060b4228e8ad6f000720863677157de809e35c57",
+      "components": [
+        "trunk_and_garden_fixed",
+        "left_boughs",
+        "right_boughs"
+      ],
+      "method": "authored source-region ownership applied to rendered card; no new artwork or hidden geometry"
+    }
+  },
+  "scope": "native-resolution day/rest environment working masters; actors, HUD, interaction cues and shader output excluded",
+  "limits": "painted panorama preserved with source-owned concealed bough fill; remaining painted-in scenery is not individually separated; animation timelines remain in asset-family Aseprite files"
+}

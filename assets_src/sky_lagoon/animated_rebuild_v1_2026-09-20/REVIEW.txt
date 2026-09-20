@@ -1,0 +1,73 @@
+SKY LAGOON ANIMATED CANDIDATE — REVIEW AND ROLLBACK
+
+Status: opt-in gameplay candidate. Original art remains the default.
+This package does not claim 4.9/5 visual, device, child, or owner acceptance.
+It is layered Canvas2D gameplay, not cinematic delivery frames.
+
+TRY IT
+Use Godot 4.7.2-stable exactly. Open this work branch, then run:
+  godot --path . -- --sky-lagoon-animated-preview
+Enter Sky Lagoon through the normal game flow.
+For a motion-free comparison of the same new artwork:
+  godot --path . -- --sky-lagoon-animated-preview --sky-lagoon-animation-static
+For original artwork and the original route, restart without either flag.
+These flags do not migrate or replace save data.
+
+ROLLBACK AND FAULT ISOLATION
+The candidate preflight checks the whole manifest and all required textures
+before applying any candidate art or route. Missing/malformed resources select
+the original stage, instead of leaving a partly rebuilt scene.
+For development, main.g owns these booleans (false disables the family):
+  lagoon_environment_motion_enabled
+  lagoon_plants_motion_enabled
+  lagoon_huckleberry_motion_enabled
+  lagoon_water_motion_enabled
+  lagoon_bridge_motion_enabled
+They survive level rebuilds in the current session. Change them through an
+explicit debugging session; no player-facing settings or reading task added.
+The CLI preview flag overrides lagoon_art_version. Remove the flag for a
+complete original-version comparison. Teardown removes animation state and
+restores the source background tile before rebuilding.
+
+EDITABLE SOURCES
+Open stage_masters/arrival-editable.ora, meadow-editable.ora, or
+castle-editable.ora in Krita: 2048x2048 each, with 19/17/24 meaningful layers.
+These are day/rest environment masters, not imported Krita animation timelines.
+Original painted-in background masses still share a base layer. Foreground
+flower, stem and branch components are separated where source geometry exists.
+Do not assume the hidden backs of all plants have been reconstructed.
+
+Use each family's .aseprite file for the runtime animation timeline:
+  Grass: 4 frames; arrival native bough: 3 frames.
+  Conifer: 6 frames; bellflower and huckleberry: 8 each.
+  Bridge rigid planks and chains: 12 contact frames each.
+  Water highlights: 12 frames; shoreline and tap ring: 8 each.
+Bridge structure, plant roots and water geography remain fixed. No whole-castle
+or whole-tree wobble substitutes for these owned motions.
+TOOLCHAIN.json contains rebuild order and batch invocation details.
+
+REVIEW IN MOTION
+1. Arrival: inspect the lower tree bough at the left edge; reject a cut seam,
+   halo, trunk movement or exposed fill. Check shoreline stays inside water.
+2. Meadow: inspect grounded roots and planting hierarchy. Flowers should feel
+   attached to stems and avoid repetitive synchronous movement.
+3. Castle: tap the gate from the left approach. Roshan must walk across the
+   bridge before entering; repeated taps must not teleport her. Near rails
+   must occlude her correctly. Leave and confirm exact exterior return.
+4. Pause each scene; resume without motion jumps. Compare day, night and static.
+5. Tap water repeatedly: bounded rings should fade fully, remain in the pool,
+   avoid opaque props and not keep an old walking destination active.
+6. On the target device, measure 30 fps and texture/overdraw behavior. Desktop
+   Mobile-renderer captures do not establish phone performance.
+
+EVIDENCE AND LIMITS
+stage_masters/VALIDATION.json: independent reopened layers and flat source
+export reconstruct each master exactly.
+evidence/source-rebuild.json: isolated batch rebuild reproduced all 16 derived
+runtime textures pixel-for-pixel on the pinned local toolchain.
+evidence/candidate-fallback-and-profiles.txt: whole-stage fallback/recovery,
+resource fault injection, both original and animated L2 scene profiles.
+PROGRESS.json: latest full regression state and outstanding acceptance.
+The linked Grok return contains reports but omitted its MP4s/stills; no claim
+is made to have reviewed or imported those clips. Local fallback cels are
+independent, editable sources. No image-generation API key is required.

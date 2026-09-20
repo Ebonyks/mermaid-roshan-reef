@@ -1,0 +1,54 @@
+extends "res://scripts/probe_sky_lagoon_animation_visual.gd"
+
+func _capture(name: String) -> void:
+	await super._capture(name)
+	if not name.begins_with("canvas_screen_"):
+		return
+	var folder: String = OS.get_environment("LIVING_CARD_SHOT_OUT").path_join(name)
+	DirAccess.make_dir_recursive_absolute(folder)
+	var was_processing: bool = main.is_processing()
+	main.set_process(false)
+	for sample: int in range(72):
+		promenade._tick_ambient_life(1.0 / 24.0)
+		promenade.EnvironmentCels.tick(main.g, 1.0 / 24.0, false)
+		promenade.BoughCels.tick(main.g, 1.0 / 24.0, false)
+		promenade.PlantCels.tick(main.g, 1.0 / 24.0, false)
+		promenade.HuckleberryCels.tick(main.g, 1.0 / 24.0, false)
+		promenade.WaterHighlights.tick(main.g, 1.0 / 24.0, false)
+		promenade.ShorelineCels.tick(main.g, 1.0 / 24.0, false)
+		promenade.WaterCels.tick(main.g, 1.0 / 24.0, false)
+		await RenderingServer.frame_post_draw
+		var frame: Image = get_root().get_texture().get_image()
+		_check("temporal_%s_%02d" % [name, sample], frame.save_png(folder.path_join("%03d.png" % sample)) == OK)
+	if name == "canvas_screen_3_day":
+		await _record_bridge_contact()
+	main.set_process(was_processing)
+
+func _record_bridge_contact() -> void:
+	var folder: String = OS.get_environment("LIVING_CARD_SHOT_OUT").path_join("bridge_contact_motion")
+	DirAccess.make_dir_recursive_absolute(folder)
+	promenade.set_master_route_x(4875.0)
+	main.g["lagoon_walk_goal_master"] = null
+	promenade.EnvironmentCels.tick(main.g, 2.0, false)
+	var initial_count: int = int(main.g.get("lagoon_bridge_play_count", 0))
+	var patch: Sprite2D = main.g.get("lagoon_bridge_patch") as Sprite2D
+	var sampled_frames: Dictionary = {}
+	for sample: int in range(90):
+		if sample == 12:
+			main.g["lagoon_walk_goal_master"] = Vector2(5010, 1442)
+		promenade._tick_movement(1.0 / 30.0)
+		promenade.EnvironmentCels.tick(main.g, 1.0 / 30.0, false)
+		promenade._tick_ambient_life(1.0 / 30.0)
+		promenade.BoughCels.tick(main.g, 1.0 / 30.0, false)
+		promenade.PlantCels.tick(main.g, 1.0 / 30.0, false)
+		promenade.HuckleberryCels.tick(main.g, 1.0 / 30.0, false)
+		promenade.WaterHighlights.tick(main.g, 1.0 / 30.0, false)
+		promenade.ShorelineCels.tick(main.g, 1.0 / 30.0, false)
+		promenade.WaterCels.tick(main.g, 1.0 / 30.0, false)
+		sampled_frames[patch.frame] = true
+		await RenderingServer.frame_post_draw
+		var frame: Image = get_root().get_texture().get_image()
+		_check("bridge_temporal_frame_%02d" % sample, frame.save_png(folder.path_join("%03d.png" % sample)) == OK)
+	_check("bridge_temporal_physical_contact", int(main.g.get("lagoon_bridge_play_count", 0)) > initial_count)
+	_check("bridge_temporal_shows_multiple_cels", sampled_frames.size() >= 6)
+	_check("bridge_temporal_settles_to_rest", patch.frame == 0)

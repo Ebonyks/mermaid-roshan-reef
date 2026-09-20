@@ -7,6 +7,14 @@ extends RefCounted
 
 const Affordance := preload("res://scripts/interaction_affordance.gd")
 const FRAMES := preload("res://scripts/roshan_sprite_frames.gd")
+const CandidateManifest := preload("res://scripts/arena/sky_lagoon_candidate_manifest.gd")
+const BoughCels := preload("res://scripts/arena/sky_lagoon_bough_cels.gd")
+const EnvironmentCels := preload("res://scripts/arena/sky_lagoon_environment_cels.gd")
+const HuckleberryCels := preload("res://scripts/arena/sky_lagoon_huckleberry_cels.gd")
+const PlantCels := preload("res://scripts/arena/sky_lagoon_plant_cels.gd")
+const ShorelineCels := preload("res://scripts/arena/sky_lagoon_shoreline_cels.gd")
+const WaterHighlights := preload("res://scripts/arena/sky_lagoon_water_highlights.gd")
+const WaterCels := preload("res://scripts/arena/sky_lagoon_water_cels.gd")
 const LAYOUT_PATH := "res://scripts/arena/sky_lagoon_layout.json"
 
 const MASTER_SIZE := Vector2(6144.0, 2048.0)
@@ -78,6 +86,18 @@ const ROUTE_MASTER: Array[Vector2] = [
 	Vector2(4905.0, 1610.0),
 	Vector2(CASTLE_DOOR_MASTER_X, 1584.0),
 ]
+
+# Candidate route crosses the physical deck before entering the door.
+const ANIMATED_ROUTE_MASTER: Array[Vector2] = [
+	Vector2(170, 1610), Vector2(610, 1644), Vector2(1380, 1668),
+	Vector2(2230, 1652), Vector2(3072, 1644), Vector2(3920, 1652),
+	Vector2(4520, 1668), Vector2(4740, 1624), Vector2(4830, 1580),
+	Vector2(4905, 1505), Vector2(5050, 1418), Vector2(5190, 1334),
+	Vector2(CASTLE_DOOR_MASTER_X, 1262),
+]
+
+func _route_points() -> Array[Vector2]:
+	return ANIMATED_ROUTE_MASTER if String(m.g.get("lagoon_art_version_active", "original")) == "animated_v1" else ROUTE_MASTER
 
 # One pooled actor represents the page's ecological roster. Paths are master
 # pixels, clear of the route/equipment and intentionally larger than the old
@@ -191,9 +211,9 @@ func camera_2d() -> Camera2D:
 	return m.g.get("lagoon_camera_2d") as Camera2D
 
 func master_route_x() -> float:
-	return float(m.g.get("lagoon_master_x", ROUTE_MASTER[0].x))
+	return float(m.g.get("lagoon_master_x", _route_points()[0].x))
 
-func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void:
+func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool, art_manifest_path: String = CandidateManifest.PATH) -> void:
 	teardown()
 	m.g["phase"] = "promenade"
 	m.g["ocean_gate_hub"] = at_ocean_gate_hub
@@ -268,7 +288,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	m.g["lagoon_camera_2d"] = camera
 
 	_build_backdrop()
-	_build_ambient_life()
+	_build_ambient_life(art_manifest_path)
 	_build_night_fireflies()
 	_build_runway_screen()
 	_build_playground_screen()
@@ -294,6 +314,14 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		_show_reef_route_guidance()
 
 func teardown() -> void:
+	CandidateManifest.clear(m.g)
+	BoughCels.clear(m.g)
+	ShorelineCels.clear(m.g)
+	WaterHighlights.clear(m.g)
+	WaterCels.clear(m.g)
+	HuckleberryCels.clear(m.g)
+	PlantCels.clear(m.g)
+	EnvironmentCels.clear(m.g)
 	var layer: CanvasLayer = root()
 	if layer != null and is_instance_valid(layer):
 		if layer.get_parent() != null:
@@ -332,8 +360,17 @@ func tick(delta: float) -> void:
 		_tick_movement(delta)
 		_handle_action()
 		_tick_doorstep()
+		if root() == null:
+			return
 	_tick_plane_arrival(delta)
 	_tick_ambient_life(delta)
+	BoughCels.tick(m.g, delta, m.get_tree().paused)
+	EnvironmentCels.tick(m.g, delta, m.get_tree().paused)
+	PlantCels.tick(m.g, delta, m.get_tree().paused)
+	HuckleberryCels.tick(m.g, delta, m.get_tree().paused)
+	WaterCels.tick(m.g, delta, m.get_tree().paused)
+	WaterHighlights.tick(m.g, delta, m.get_tree().paused)
+	ShorelineCels.tick(m.g, delta, m.get_tree().paused)
 	_tick_animals(delta)
 	_tick_roshan_animation(delta)
 	var focus_t: float = float(m.g.get("lagoon_promenade_focus_t", 0.0)) + delta
@@ -350,11 +387,16 @@ func handle_touch(screen_pos: Vector2) -> bool:
 		return true
 	var target: Dictionary = _target_at(screen_pos)
 	if target.is_empty():
+		if WaterCels.tap(m.g, master_from_screen(screen_pos)):
+			cancel_navigation()
+			return true
 		_clear_focus()
 		_set_walk_goal(screen_pos)
 		return true
 	m.g["lagoon_walk_goal_master"] = null
 	var target_id: String = String(target.get("id", ""))
+	if _request_preview_castle(target):
+		return true
 	if String(m.g.get("lagoon_promenade_focus", "")) == target_id:
 		_activate(target)
 		_clear_focus()
@@ -366,6 +408,8 @@ func handle_drag(_from: Vector2, to: Vector2) -> bool:
 	if root() == null or not (m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
 		return false
 	cancel_navigation()
+	if _request_preview_castle(_target_at(to)):
+		return true
 	_set_walk_goal(to)
 	return true
 
@@ -390,7 +434,7 @@ func action_label() -> String:
 	return "JUMP"
 
 func set_master_route_x(master_x: float) -> void:
-	var point: Vector2 = _route_point_for_x(clampf(master_x, ROUTE_MASTER[0].x, ROUTE_MASTER[-1].x))
+	var point: Vector2 = _route_point_for_x(clampf(master_x, _route_points()[0].x, _route_points()[-1].x))
 	m.g["lagoon_master_x"] = point.x
 	m.g["lagoon_master_y"] = point.y
 	m.g["lagoon_route_t"] = _route_fraction(point.x)
@@ -427,14 +471,28 @@ func _build_backdrop() -> void:
 			if m.is_night:
 				tile.modulate = Color(0.48, 0.56, 0.82)
 
-func _build_ambient_life() -> void:
+func _build_ambient_life(art_manifest_path: String = CandidateManifest.PATH) -> void:
 	m.g["lagoon_ambient_t"] = 0.0
 	m.g["lagoon_ambient_cards"] = []
+	var art_version: String = String(m.g.get("lagoon_art_version", "original"))
+	if OS.get_cmdline_user_args().has("--sky-lagoon-animated-preview"):
+		art_version = "animated_v1"
+	if OS.get_cmdline_user_args().has("--sky-lagoon-animation-static"):
+		m.g["lagoon_environment_motion_enabled"] = false
+	art_version = CandidateManifest.select_version(art_version, m.g, art_manifest_path)
+	m.g["lagoon_art_version_active"] = art_version
+	BoughCels.build(m.g, m.g.get("lagoon_base_layer") as Node2D, art_version)
+	EnvironmentCels.build(m.g, m.g.get("lagoon_foreground_geography_layer") as Node2D, art_version, m.is_night)
+	PlantCels.build(m.g, m.g.get("lagoon_foreground_geography_layer") as Node2D, art_version, m.is_night)
+	HuckleberryCels.build(m.g, m.g.get("lagoon_foreground_geography_layer") as Node2D, art_version, m.is_night)
 	# The independently generated tall tree has no source-object socket in the
 	# v5 plate and obscured its scenic mountain path.  Its disabled contract is
 	# retained in the shared manifest so previews and audits cannot revive it.
+	var cloud_path: String = "res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png"
+	if art_version == "animated_v1" and ResourceLoader.exists("res://assets/sprites/sky_lagoon/animated_v1/cloud_painted.png"):
+		cloud_path = "res://assets/sprites/sky_lagoon/animated_v1/cloud_painted.png"
 	var cloud := _make_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+		cloud_path,
 		Vector2(2680, 430), 235.0, false, m.g.get("lagoon_rear_layer") as Node2D)
 	cloud.name = "SkyLagoonRearCloud"
 	cloud.set_meta("ambient_kind", "cloud")
@@ -455,8 +513,16 @@ func _build_ambient_life() -> void:
 	# This is new foreground dressing, not a claimed extraction from the plate.
 	var foreground_tree := _make_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
-		Vector2(5750, 1510), 350.0, true,
+		Vector2(6060, 1735) if String(m.g.get("lagoon_art_version_active", "original")) == "animated_v1" else Vector2(5750, 1510), 350.0, true,
 		m.g.get("lagoon_foreground_geography_layer") as Node2D)
+	if art_version == "animated_v1" and ResourceLoader.exists("res://assets/sprites/sky_lagoon/animated_v1/conifer_breeze.png"):
+		var bough_atlas: Texture2D = load("res://assets/sprites/sky_lagoon/animated_v1/conifer_breeze.png") as Texture2D
+		if bough_atlas != null and bough_atlas.get_size() == Vector2(768, 768):
+			foreground_tree.texture = bough_atlas
+			foreground_tree.hframes = 3
+			foreground_tree.vframes = 2
+			foreground_tree.offset.x = 0.5
+			foreground_tree.set_meta("authored_bough_cels", true)
 	foreground_tree.name = "SkyLagoonForegroundTree"
 	foreground_tree.set_meta("ambient_kind", "foreground_tree")
 	foreground_tree.set_meta("canvas_layer_role", "foreground_geography_locked")
@@ -587,6 +653,19 @@ func _build_castle_screen() -> void:
 	castle.set_meta("composition_support_min_span_master", float(
 		contract.get("minimum_support_span_master", 0.0)))
 	m.g["lagoon_castle_card"] = castle
+	EnvironmentCels.build_bridge(m.g, castle, String(m.g.get("lagoon_art_version_active", "original")), m.g.get("lagoon_foreground_geography_layer") as Node2D)
+	WaterHighlights.build(m.g, m.g.get("lagoon_rear_geography_layer") as Node2D, String(m.g.get("lagoon_art_version_active", "original")), m.is_night)
+	ShorelineCels.build(m.g, m.g.get("lagoon_rear_geography_layer") as Node2D, String(m.g.get("lagoon_art_version_active", "original")), m.is_night)
+	var water_blockers: Array[Sprite2D] = [castle]
+	var plane: Sprite2D = m.g.get("lagoon_plane_card") as Sprite2D
+	if is_instance_valid(plane):
+		water_blockers.append(plane)
+	for value: Variant in m.g.get("lagoon_ambient_cards", []) as Array:
+		var ambient: Sprite2D = value as Sprite2D
+		if ambient != null and String(ambient.get_meta("ambient_kind", "")) == "foreground_tree":
+			water_blockers.append(ambient)
+	WaterCels.build(m.g, m.g.get("lagoon_rear_geography_layer") as Node2D, String(m.g.get("lagoon_art_version_active", "original")), water_blockers)
+
 	var door_anchor := Node2D.new()
 	door_anchor.name = "SkyLagoonCastleDoorFocus"
 	# Derive the focus socket from the accepted door-pixel bounds in the actual
@@ -853,7 +932,21 @@ func _tick_target_affordances(focus_id: String, focus_t: float) -> void:
 			if node is Sprite2D:
 				glow.scale = (node as Sprite2D).scale * base_scale * pulse
 
+func _request_preview_castle(target: Dictionary) -> bool:
+	if String(m.g.get("lagoon_art_version_active", "original")) != "animated_v1" or String(target.get("id", "")) != "castle_gate":
+		return false
+	var already_selected: bool = String(m.g.get("lagoon_promenade_focus", "")) == "castle_gate"
+	_focus(target)
+	m.g["lagoon_walk_goal_master"] = _route_points()[-1]
+	m.g["lagoon_castle_armed"] = true
+	# One travel request; repeated taps cannot enter remotely or stack a cut.
+	if not already_selected:
+		m.show_msg("Roshan", "Let's go to the castle!", "roshan_day1_castle")
+	return true
+
 func _activate(target: Dictionary) -> void:
+	if _request_preview_castle(target):
+		return
 	match String(target.get("kind", "")):
 		"playground":
 			_start_playground_animation(String(target.get("payload", "")), target.get("node") as Node2D)
@@ -867,6 +960,8 @@ func _handle_action() -> bool:
 	for value: Variant in m.g.get("lagoon_promenade_targets", []) as Array:
 		var target: Dictionary = value as Dictionary
 		if String(target.get("id", "")) == focus_id:
+			if _request_preview_castle(target):
+				return true
 			_activate(target)
 			_clear_focus()
 			return true
@@ -943,14 +1038,14 @@ func _tick_movement(delta: float) -> void:
 	var goal_value: Variant = m.g.get("lagoon_walk_goal_master")
 	if absf(direction) > 0.05:
 		cancel_navigation()
-		next_x += direction * WALK_SPEED_MASTER * delta
+		next_x = _advance_preview_route(old_x, _route_points()[-1].x if direction > 0.0 else _route_points()[0].x, absf(direction) * WALK_SPEED_MASTER * delta) if String(m.g.get("lagoon_art_version_active", "original")) == "animated_v1" else next_x + direction * WALK_SPEED_MASTER * delta
 	elif goal_value is Vector2:
 		var goal: Vector2 = goal_value as Vector2
-		next_x = move_toward(next_x, goal.x, WALK_SPEED_MASTER * delta)
-		if absf(next_x - goal.x) <= ARRIVE_RADIUS_MASTER:
+		next_x = _advance_preview_route(old_x, goal.x, WALK_SPEED_MASTER * delta) if String(m.g.get("lagoon_art_version_active", "original")) == "animated_v1" else move_toward(next_x, goal.x, WALK_SPEED_MASTER * delta)
+		if absf(next_x - goal.x) <= (0.001 if String(m.g.get("lagoon_art_version_active", "original")) == "animated_v1" else ARRIVE_RADIUS_MASTER):
 			next_x = goal.x
 			m.g["lagoon_walk_goal_master"] = null
-	next_x = clampf(next_x, ROUTE_MASTER[0].x, ROUTE_MASTER[-1].x)
+	next_x = clampf(next_x, _route_points()[0].x, _route_points()[-1].x)
 	var point: Vector2 = _route_point_for_x(next_x)
 	m.g["lagoon_master_x"] = point.x
 	m.g["lagoon_master_y"] = point.y
@@ -960,6 +1055,7 @@ func _tick_movement(delta: float) -> void:
 		float(m.g.get("lagoon_camera_x", camera_target)), camera_target,
 		1.0 - exp(-CAMERA_FOLLOW * delta))
 	_sync_roshan_card(next_x - old_x, absf(next_x - old_x) > 0.1)
+	EnvironmentCels.tick_bridge(m.g, delta, point, absf(next_x - old_x) > 0.1, m.get_tree().paused)
 
 func _sync_roshan_card(delta_x: float = 0.0, moving: bool = false) -> void:
 	var card: Sprite2D = m.g.get("lagoon_roshan_card") as Sprite2D
@@ -969,8 +1065,8 @@ func _sync_roshan_card(delta_x: float = 0.0, moving: bool = false) -> void:
 	if moving:
 		card.flip_h = delta_x < 0.0
 	_configure_route_roshan_card(card)
-	var contact := Vector2(float(m.g.get("lagoon_master_x", ROUTE_MASTER[0].x)),
-		float(m.g.get("lagoon_master_y", ROUTE_MASTER[0].y)))
+	var contact := Vector2(float(m.g.get("lagoon_master_x", _route_points()[0].x)),
+		float(m.g.get("lagoon_master_y", _route_points()[0].y)))
 	_place_route_roshan_contact(card, contact)
 	_sync_contact_shadow(card)
 
@@ -1073,23 +1169,47 @@ func _camera_clamp_x(value: float) -> float:
 	return clampf(value, half_master, MASTER_SIZE.x - half_master)
 
 func _route_point_for_x(value: float) -> Vector2:
-	for index: int in range(ROUTE_MASTER.size() - 1):
-		var start: Vector2 = ROUTE_MASTER[index]
-		var finish: Vector2 = ROUTE_MASTER[index + 1]
+	for index: int in range(_route_points().size() - 1):
+		var start: Vector2 = _route_points()[index]
+		var finish: Vector2 = _route_points()[index + 1]
 		if value <= finish.x:
 			var amount: float = inverse_lerp(start.x, finish.x, value)
 			return start.lerp(finish, amount)
-	return ROUTE_MASTER[-1]
+	return _route_points()[-1]
+
+func _advance_preview_route(from_x: float, target_x: float, distance: float) -> float:
+	var route: Array[Vector2] = _route_points()
+	var current: float = clampf(from_x, route[0].x, route[-1].x)
+	var target: float = clampf(target_x, route[0].x, route[-1].x)
+	var remaining: float = maxf(0.0, distance)
+	var forward: bool = target >= current
+	for _step: int in range(route.size()):
+		if is_equal_approx(current, target) or remaining <= 0.0:
+			break
+		var boundary: float = target
+		for point: Vector2 in route:
+			if forward and point.x > current + 0.001:
+				boundary = minf(boundary, point.x)
+			elif not forward and point.x < current - 0.001:
+				boundary = maxf(boundary, point.x)
+		var segment_length: float = _route_point_for_x(current).distance_to(_route_point_for_x(boundary))
+		if segment_length <= remaining:
+			current = boundary
+			remaining -= segment_length
+		else:
+			current = lerpf(current, boundary, remaining / segment_length)
+			break
+	return current
 
 func _route_fraction(value: float) -> float:
-	return inverse_lerp(ROUTE_MASTER[0].x, ROUTE_MASTER[-1].x, value)
+	return inverse_lerp(_route_points()[0].x, _route_points()[-1].x, value)
 
 func _closest_route_point(point: Vector2) -> Vector2:
-	var best: Vector2 = ROUTE_MASTER[0]
+	var best: Vector2 = _route_points()[0]
 	var best_distance: float = INF
-	for index: int in range(ROUTE_MASTER.size() - 1):
-		var start: Vector2 = ROUTE_MASTER[index]
-		var finish: Vector2 = ROUTE_MASTER[index + 1]
+	for index: int in range(_route_points().size() - 1):
+		var start: Vector2 = _route_points()[index]
+		var finish: Vector2 = _route_points()[index + 1]
 		var segment: Vector2 = finish - start
 		var amount: float = clampf((point - start).dot(segment) / maxf(segment.length_squared(), 0.001), 0.0, 1.0)
 		var candidate: Vector2 = start + segment * amount
@@ -1109,6 +1229,8 @@ func _tick_doorstep() -> void:
 		m.g["lagoon_castle_armed"] = false
 		m.g["lagoon_walk_goal_master"] = null
 		_clear_focus()
+		if String(m.g.get("lagoon_art_version_active", "original")) == "animated_v1":
+			m.g["lagoon_animated_castle_return"] = {"master_x": master_route_x(), "camera_x": float(m.g.get("lagoon_camera_x", master_route_x()))}
 		m._enter_castle_interior()
 
 func _tick_plane_arrival(delta: float) -> void:
@@ -1155,7 +1277,10 @@ func _target_by_id(target_id: String) -> Dictionary:
 	return {}
 
 func _tick_ambient_life(delta: float) -> void:
-	var timer: float = fmod(float(m.g.get("lagoon_ambient_t", 0.0)) + delta, 3600.0)
+	if m.get_tree().paused:
+		return
+	var ambient_step: float = delta if bool(m.g.get("lagoon_environment_motion_enabled", true)) else 0.0
+	var timer: float = fmod(float(m.g.get("lagoon_ambient_t", 0.0)) + ambient_step, 3600.0)
 	m.g["lagoon_ambient_t"] = timer
 	for value: Variant in m.g.get("lagoon_ambient_cards", []) as Array:
 		var card: Sprite2D = value as Sprite2D
@@ -1165,7 +1290,12 @@ func _tick_ambient_life(delta: float) -> void:
 			"tree":
 				card.rotation = sin(timer * 0.72) * 0.010
 			"foreground_tree":
-				card.rotation = sin(timer * 0.78 + 0.7) * 0.008
+				if bool(card.get_meta("authored_bough_cels", false)):
+					card.rotation = 0.0
+					var bough_motion: bool = bool(m.g.get("lagoon_environment_motion_enabled", true)) and bool(m.g.get("lagoon_plants_motion_enabled", true))
+					card.frame = mini(5, int(fposmod(timer, 2.16) / 0.36)) if bough_motion else 0
+				else:
+					card.rotation = sin(timer * 0.78 + 0.7) * 0.008
 			"cloud":
 				var base: Vector2 = card.get_meta("ambient_base", card.position) as Vector2
 				# Bounded triangle drift starts exactly at the authored socket and
