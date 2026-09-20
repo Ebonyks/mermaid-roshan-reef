@@ -34,6 +34,7 @@
     "assets_src/cinematics/sky_lagoon_aseprite_motion_v3_2026-09-19/HANDOFF_PACKET.json",
     "assets_src/cinematics/sky_lagoon_aseprite_motion_v3_2026-09-19/IMAGINE_HANDOFF.json",
     "assets_src/cinematics/sky_lagoon_aseprite_motion_v3_2026-09-19/README.md",
+    "assets_src/cinematics/sky_lagoon_aseprite_motion_v3_2026-09-19/REMOTE_VERIFICATION.json",
     "assets_src/cinematics/sky_lagoon_aseprite_motion_v3_2026-09-19/RETURN_TEMPLATE.json",
     "assets_src/cinematics/sky_lagoon_aseprite_motion_v3_2026-09-19/SHOT_BOARD.jpg",
     "assets_src/cinematics/sky_lagoon_aseprite_motion_v3_2026-09-19/SOURCE_V16_MANIFEST.json",
@@ -96,6 +97,11 @@
       "result": "PASS",
       "evidence": "Pre-publication gate transcripts; five V2 draft card candidate hashes independently checked.",
       "details": "PASS; archive validation only, not generation-ready validation"
+    },
+    {
+      "command": "Anonymous immutable GitHub GET plus SHA-256 comparison for all 58 packet files and persistent-builder database",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_aseprite_motion_v3_2026-09-19/REMOTE_VERIFICATION.json"
     }
   ],
   "acceptance_gaps": "Current source-art/crop acceptance, execution surface/minimum and ready-card scoped reconciliation; no generated Grok footage, runtime delivery, device or owner look acceptance."
