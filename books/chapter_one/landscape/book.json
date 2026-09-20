@@ -1626,8 +1626,9 @@
       "file": "../plan/source_art/R11_land.png"
     },
     "landscape_base": {
-      "file": "art/landscape_base.png",
-      "provenance_record": "image_edit_provenance.json"
+      "file": "art/landscape_base_v2.png",
+      "provenance_record": "border_revision_evidence.json",
+      "modifications": "Blank stationery edit: layered blue banks, small native coral and pebbles. See border_revision_evidence.json."
     },
     "R09_open_wide": {
       "file": "art/R09_open_wide.png",
@@ -1838,7 +1839,8 @@
       "layout": "tools",
       "border_assets": [
         "mound_grime_left",
-        "mound_grime_right"
+        "mound_grime_right",
+        "cleanup_basket"
       ],
       "background_theme": "dirty castle",
       "caption": {
@@ -1855,6 +1857,38 @@
         53,
         444,
         211
+      ],
+      "border_placements": [
+        {
+          "source": "mound_grime_left",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "mound_grime_right",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "cleanup_basket",
+          "box": [
+            126,
+            3,
+            36,
+            27
+          ],
+          "mound": "left"
+        }
       ]
     },
     {
@@ -1896,7 +1930,8 @@
       "layout": "wide_cut",
       "border_assets": [
         "bath_badge",
-        "brush"
+        "brush",
+        "bubbles"
       ],
       "background_theme": "bathroom wash",
       "caption": {
@@ -1913,6 +1948,38 @@
         63,
         219,
         216
+      ],
+      "border_placements": [
+        {
+          "source": "bath_badge",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "brush",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "bubbles",
+          "box": [
+            126,
+            3,
+            36,
+            27
+          ],
+          "mound": "left"
+        }
       ]
     },
     {
@@ -1942,6 +2009,28 @@
         53,
         444,
         211
+      ],
+      "border_placements": [
+        {
+          "source": "bath_badge",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "bubbles",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        }
       ]
     },
     {
@@ -2011,7 +2100,8 @@
       "layout": "wide_cut",
       "border_assets": [
         "pool_float",
-        "cleanup_basket"
+        "cleanup_basket",
+        "bubbles"
       ],
       "background_theme": "pool cleanup",
       "caption": {
@@ -2028,6 +2118,38 @@
         53,
         444,
         211
+      ],
+      "border_placements": [
+        {
+          "source": "pool_float",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "cleanup_basket",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "bubbles",
+          "box": [
+            126,
+            3,
+            36,
+            27
+          ],
+          "mound": "left"
+        }
       ]
     },
     {
@@ -2391,7 +2513,8 @@
       "layout": "wide_cut",
       "border_assets": [
         "sleepy_bunny",
-        "cleanup_basket"
+        "cleanup_basket",
+        "mound_grime_left"
       ],
       "background_theme": "stuffie reunion",
       "caption": {
@@ -2408,6 +2531,38 @@
         57,
         206,
         229
+      ],
+      "border_placements": [
+        {
+          "source": "sleepy_bunny",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "cleanup_basket",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "mound_grime_left",
+          "box": [
+            342,
+            3,
+            36,
+            27
+          ],
+          "mound": "right"
+        }
       ]
     },
     {
@@ -2420,8 +2575,9 @@
       "text": "Now there was room to play together.\n“Come with me, Baby Eagle!”",
       "layout": "friends_pair",
       "border_assets": [
+        "cleanup_basket",
         "sleepy_bunny",
-        "cleanup_basket"
+        "bubbles"
       ],
       "background_theme": "stuffie room friendship",
       "caption": {
@@ -2438,6 +2594,38 @@
         53,
         444,
         211
+      ],
+      "border_placements": [
+        {
+          "source": "cleanup_basket",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "sleepy_bunny",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "bubbles",
+          "box": [
+            126,
+            3,
+            36,
+            27
+          ],
+          "mound": "left"
+        }
       ]
     },
     {
@@ -2452,7 +2640,8 @@
       "layout": "supplies",
       "border_assets": [
         "mound_grime_left",
-        "mound_grime_right"
+        "mound_grime_right",
+        "blue_bottle"
       ],
       "background_theme": "messy art supplies",
       "caption": {
@@ -2469,6 +2658,38 @@
         53,
         444,
         211
+      ],
+      "border_placements": [
+        {
+          "source": "mound_grime_left",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "mound_grime_right",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "blue_bottle",
+          "box": [
+            342,
+            3,
+            36,
+            27
+          ],
+          "mound": "right"
+        }
       ]
     },
     {
@@ -2482,7 +2703,8 @@
       "layout": "tools",
       "border_assets": [
         "cups",
-        "blue_bottle"
+        "blue_bottle",
+        "pink"
       ],
       "background_theme": "art studio restored",
       "caption": {
@@ -2499,6 +2721,38 @@
         53,
         444,
         211
+      ],
+      "border_placements": [
+        {
+          "source": "cups",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "blue_bottle",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "pink",
+          "box": [
+            126,
+            3,
+            36,
+            27
+          ],
+          "mound": "left"
+        }
       ]
     },
     {
@@ -2551,8 +2805,9 @@
       "text": "One last door\nbegan to glow.\nBeyond it came\na rumble...",
       "layout": "wide_cut",
       "border_assets": [
-        "brush",
-        "sponge"
+        "mound_grime_left",
+        "cleanup_basket",
+        "mound_grime_right"
       ],
       "background_theme": "cleanup journey",
       "caption": {
@@ -2569,6 +2824,38 @@
         51,
         228,
         239
+      ],
+      "border_placements": [
+        {
+          "source": "mound_grime_left",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "cleanup_basket",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "mound_grime_right",
+          "box": [
+            126,
+            3,
+            36,
+            27
+          ],
+          "mound": "left"
+        }
       ]
     },
     {
@@ -2581,7 +2868,8 @@
       "layout": "wide_cut",
       "border_assets": [
         "brush",
-        "sponge"
+        "sponge",
+        "mound_grime_left"
       ],
       "background_theme": "ready to help",
       "caption": {
@@ -2598,6 +2886,38 @@
         54,
         208,
         230
+      ],
+      "border_placements": [
+        {
+          "source": "brush",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "sponge",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "mound_grime_left",
+          "box": [
+            342,
+            3,
+            36,
+            27
+          ],
+          "mound": "right"
+        }
       ]
     },
     {
@@ -2610,7 +2930,8 @@
       "layout": "wide_cut",
       "border_assets": [
         "cleanup_basket",
-        "sponge"
+        "sponge",
+        "bubbles"
       ],
       "background_theme": "ready to help",
       "caption": {
@@ -2627,6 +2948,38 @@
         54,
         229,
         228
+      ],
+      "border_placements": [
+        {
+          "source": "cleanup_basket",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "sponge",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "bubbles",
+          "box": [
+            126,
+            3,
+            36,
+            27
+          ],
+          "mound": "left"
+        }
       ]
     },
     {
@@ -2756,7 +3109,8 @@
       "layout": "pair",
       "border_assets": [
         "bath_badge",
-        "pool_float"
+        "pool_float",
+        "cups"
       ],
       "background_theme": "shared adventure",
       "caption": {
@@ -2773,6 +3127,38 @@
         53,
         444,
         211
+      ],
+      "border_placements": [
+        {
+          "source": "bath_badge",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "pool_float",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "cups",
+          "box": [
+            342,
+            3,
+            36,
+            27
+          ],
+          "mound": "right"
+        }
       ]
     },
     {
@@ -2785,7 +3171,8 @@
       "layout": "wide_cut",
       "border_assets": [
         "brush",
-        "sponge"
+        "sponge",
+        "bubbles"
       ],
       "background_theme": "friendship through helping",
       "caption": {
@@ -2802,6 +3189,38 @@
         53,
         213,
         239
+      ],
+      "border_placements": [
+        {
+          "source": "brush",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "sponge",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "bubbles",
+          "box": [
+            126,
+            3,
+            36,
+            27
+          ],
+          "mound": "left"
+        }
       ]
     }
   ],

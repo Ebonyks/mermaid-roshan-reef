@@ -1,0 +1,55 @@
+{
+  "id": "picture-book-borders-20260920",
+  "baseline": "8160450a7f7eaa584e62c4c610d91207c35fadd3",
+  "scope": "Strengthen simple blue stationery lower banks and contextual existing-prop arrangements after owner rejection of weak borders. Preserve all full-art pages and story cutouts. No narrative scene generation.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book border refinement; no runtime finding changed.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STRESS_TEST.md",
+    "books/chapter_one/landscape/art/landscape_base_v2.png",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/border_base_prompt.txt",
+    "books/chapter_one/landscape/border_revision_evidence.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/stress_results.json",
+    "books/chapter_one/landscape/stress_review.json"
+  ],
+  "validation": [
+    {
+      "command": "Original book comparison and rendered review of all 13 reduced pages",
+      "result": "PASS",
+      "evidence": "border_revision_evidence.json; pages 4, 19, 22 inspected enlarged; owner acceptance remains open."
+    },
+    {
+      "command": "audit_book.py --proof v10_borders/complete --baseline v7_landscape/complete",
+      "result": "PASS",
+      "evidence": "34 pages, 84 text lines, 136 image operations; all 13 contextual arrangements. 19 full-art pages byte-identical to v9; all text and foreground story layers unchanged."
+    },
+    {
+      "command": "Portable ZIP hash verification and independent rebuild",
+      "result": "PASS",
+      "evidence": "delivery_verification.json: 68 payload files; all 34 page JPEGs byte-identical."
+    },
+    {
+      "command": "Headless Edge border review at 1400px and 760px",
+      "result": "PASS",
+      "evidence": "13 comparisons, 26 loaded images, no broken images or horizontal overflow."
+    }
+  ],
+  "acceptance_gaps": "Owner acceptance of revised borders pending. Prior small-source identity, extraction edges, ceiling joins and print-resolution findings remain open. No runtime changes or game acceptance claimed."
+}

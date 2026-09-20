@@ -11,3 +11,5 @@ The new Eagle isolation is a bounded edit of the original-book asset. It removes
 Page 11 now shows one cleared rainbow lane beside two clogged lanes. A bounded inpaint is clipped to that lane over the unchanged original frame. No character action pose or new scene was invented; owner acceptance of the local edit remains open. Ceiling joins and print resolution also remain open. Resolve searching stays stopped.
 
 `audit_book.py` distinguishes mechanical geometry/source checks from manual identity and readability review. `package_book.py` creates a portable source ZIP with the used images, font/license, manuscript, renderer and review evidence. Independent rebuild comparison proves portability only.
+
+The owner also rejected the weak v9 borders. The revised base now has shaded blue banks, small native corner coral and pebbles, while exact existing contextual props form asymmetric low groups. Decorative props are bottom-aligned, bounded to 12% in both axes and grounded under the base texture. Full-art pages and all foreground story layouts are unchanged. See `border_revision_evidence.json`; visual owner acceptance remains open.

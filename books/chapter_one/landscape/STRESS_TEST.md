@@ -59,3 +59,7 @@ Status: `SUPPORTING_CURRENT`. Baseline v7 fails the owner visual review. Current
 Automated checks cover PDF size/count, text safety, manual focal-zone intersections, alpha availability, actual source hashes, excluded-source regressions, source-key duplication and border geometry. They do not prove identity, narrative adequacy, real glyph/background contrast or final publication quality. Rendered visual review and owner acceptance remain separate.
 
 Run `python books/chapter_one/landscape/audit_book.py --proof <current-proof-directory> --baseline <v7-proof-directory>` to produce the illustrated before/after HTML review and machine JSON. The PDF remains 32 story pages plus two covers.
+
+## Border follow-up after owner rejection
+
+The v9 thin-bank background was still visually weak. The current border revision adds blue value bands and small native corner coral/pebbles, with larger existing activity props and asymmetric lower-bank groups. The blue center stays clear. Exact assignments and geometry are in `book.json` and `border_revision_evidence.json`. This is a revision for review, not an owner acceptance.

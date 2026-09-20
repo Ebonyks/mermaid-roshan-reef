@@ -112,8 +112,8 @@
     {
       "page": 4,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -132,7 +132,7 @@
       ],
       "operation": "page_trim",
       "role": "stationery_base",
-      "alpha": false
+      "alpha": true
     },
     {
       "page": 4,
@@ -150,20 +150,22 @@
         285
       ],
       "target_box_points": [
-        53.0,
-        15.623853211009173,
-        48.0,
-        26.752293577981654
+        52.0,
+        6,
+        60.0,
+        33.440366972477065
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
     },
     {
       "page": 4,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -182,12 +184,12 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        53.0,
-        15.623853211009173,
-        48.0,
-        2.6752293577981656
+        52.0,
+        6,
+        60.0,
+        3.3440366972477067
       ]
     },
     {
@@ -206,20 +208,22 @@
         291
       ],
       "target_box_points": [
-        400.0,
-        15.309859154929578,
-        48.0,
-        27.380281690140844
+        392.0,
+        6,
+        60.0,
+        34.225352112676056
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
     },
     {
       "page": 4,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -238,12 +242,70 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        400.0,
-        15.309859154929578,
-        48.0,
-        2.7380281690140844
+        392.0,
+        6,
+        60.0,
+        3.422535211267606
+      ]
+    },
+    {
+      "page": 4,
+      "source_key": "cleanup_basket",
+      "file": "art/stress_revision/cleanup_basket.png",
+      "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+      "native_size": [
+        1024,
+        936
+      ],
+      "source_box_pixels": [
+        0,
+        39,
+        987,
+        906
+      ],
+      "target_box_points": [
+        128.63148788927336,
+        3,
+        30.737024221453286,
+        27.0
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
+    },
+    {
+      "page": 4,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": true,
+      "clip_points": [
+        128.63148788927336,
+        3,
+        30.737024221453286,
+        2.7
       ]
     },
     {
@@ -324,8 +386,8 @@
     {
       "page": 6,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -344,7 +406,7 @@
       ],
       "operation": "page_trim",
       "role": "stationery_base",
-      "alpha": false
+      "alpha": true
     },
     {
       "page": 6,
@@ -362,20 +424,22 @@
         176
       ],
       "target_box_points": [
-        57.208333333333336,
-        10.0,
-        39.58333333333333,
-        38.0
+        59.604166666666664,
+        6,
+        44.79166666666667,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
     },
     {
       "page": 6,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -394,12 +458,12 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        57.208333333333336,
-        10.0,
-        39.58333333333333,
-        3.8000000000000003
+        59.604166666666664,
+        6,
+        44.79166666666667,
+        4.3
       ]
     },
     {
@@ -418,20 +482,22 @@
         978
       ],
       "target_box_points": [
-        406.7382978723404,
-        10.0,
-        34.52340425531915,
-        38.0
+        402.46702127659574,
+        6,
+        39.06595744680851,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
     },
     {
       "page": 6,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -450,12 +516,70 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        406.7382978723404,
-        10.0,
-        34.52340425531915,
-        3.8000000000000003
+        402.46702127659574,
+        6,
+        39.06595744680851,
+        4.3
+      ]
+    },
+    {
+      "page": 6,
+      "source_key": "bubbles",
+      "file": "../archive/rough_v5/art/bubbles.png",
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        44,
+        480,
+        467
+      ],
+      "target_box_points": [
+        129.70212765957447,
+        3,
+        28.595744680851062,
+        26.999999999999996
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
+    },
+    {
+      "page": 6,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": true,
+      "clip_points": [
+        129.70212765957447,
+        3,
+        28.595744680851062,
+        2.6999999999999997
       ]
     },
     {
@@ -486,8 +610,8 @@
     {
       "page": 7,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -506,7 +630,7 @@
       ],
       "operation": "page_trim",
       "role": "stationery_base",
-      "alpha": false
+      "alpha": true
     },
     {
       "page": 7,
@@ -524,20 +648,22 @@
         176
       ],
       "target_box_points": [
-        57.208333333333336,
-        10.0,
-        39.58333333333333,
-        38.0
+        59.604166666666664,
+        6,
+        44.79166666666667,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
     },
     {
       "page": 7,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -556,12 +682,12 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        57.208333333333336,
-        10.0,
-        39.58333333333333,
-        3.8000000000000003
+        59.604166666666664,
+        6,
+        44.79166666666667,
+        4.3
       ]
     },
     {
@@ -580,20 +706,22 @@
         467
       ],
       "target_box_points": [
-        403.87706855791964,
-        10.0,
-        40.24586288416076,
-        38.0
+        399.2293144208038,
+        6,
+        45.54137115839243,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
     },
     {
       "page": 7,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -612,12 +740,12 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        403.87706855791964,
-        10.0,
-        40.24586288416076,
-        3.8000000000000003
+        399.2293144208038,
+        6,
+        45.54137115839243,
+        4.3
       ]
     },
     {
@@ -698,8 +826,8 @@
     {
       "page": 10,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -718,7 +846,7 @@
       ],
       "operation": "page_trim",
       "role": "stationery_base",
-      "alpha": false
+      "alpha": true
     },
     {
       "page": 10,
@@ -736,20 +864,22 @@
         59
       ],
       "target_box_points": [
-        53.0,
-        12.0,
-        48.0,
-        34.0
+        52.0,
+        6,
+        60.0,
+        42.5
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
     },
     {
       "page": 10,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -768,12 +898,12 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        53.0,
-        12.0,
-        48.0,
-        3.4000000000000004
+        52.0,
+        6,
+        60.0,
+        4.25
       ]
     },
     {
@@ -792,20 +922,22 @@
         906
       ],
       "target_box_points": [
-        402.3702422145329,
-        10.0,
-        43.25951557093426,
-        38.0
+        397.52422145328717,
+        6,
+        48.951557093425606,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
     },
     {
       "page": 10,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -824,12 +956,70 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        402.3702422145329,
-        10.0,
-        43.25951557093426,
-        3.8000000000000003
+        397.52422145328717,
+        6,
+        48.951557093425606,
+        4.3
+      ]
+    },
+    {
+      "page": 10,
+      "source_key": "bubbles",
+      "file": "../archive/rough_v5/art/bubbles.png",
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        44,
+        480,
+        467
+      ],
+      "target_box_points": [
+        129.70212765957447,
+        3,
+        28.595744680851062,
+        26.999999999999996
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
+    },
+    {
+      "page": 10,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": true,
+      "clip_points": [
+        129.70212765957447,
+        3,
+        28.595744680851062,
+        2.6999999999999997
       ]
     },
     {
@@ -1159,8 +1349,8 @@
     {
       "page": 19,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -1179,7 +1369,7 @@
       ],
       "operation": "page_trim",
       "role": "stationery_base",
-      "alpha": false
+      "alpha": true
     },
     {
       "page": 19,
@@ -1197,20 +1387,22 @@
         427
       ],
       "target_box_points": [
-        53.0,
-        10.625,
-        48.0,
-        36.75
+        53.91836734693877,
+        6,
+        56.163265306122454,
+        43.00000000000001
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
     },
     {
       "page": 19,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -1229,12 +1421,12 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        53.0,
-        10.625,
-        48.0,
-        3.6750000000000003
+        53.91836734693877,
+        6,
+        56.163265306122454,
+        4.300000000000001
       ]
     },
     {
@@ -1253,20 +1445,22 @@
         906
       ],
       "target_box_points": [
-        402.3702422145329,
-        10.0,
-        43.25951557093426,
-        38.0
+        397.52422145328717,
+        6,
+        48.951557093425606,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
     },
     {
       "page": 19,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -1285,12 +1479,70 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        402.3702422145329,
-        10.0,
-        43.25951557093426,
-        3.8000000000000003
+        397.52422145328717,
+        6,
+        48.951557093425606,
+        4.3
+      ]
+    },
+    {
+      "page": 19,
+      "source_key": "mound_grime_left",
+      "file": "art/stress_revision/mound_grime_left.png",
+      "sha256": "125978f082934e3b290370c6a7a2c0082b8e5df5044feecbf22f3d5d6dca0ac1",
+      "native_size": [
+        512,
+        306
+      ],
+      "source_box_pixels": [
+        41,
+        42,
+        477,
+        285
+      ],
+      "target_box_points": [
+        342.0,
+        3,
+        36.0,
+        20.06422018348624
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
+    },
+    {
+      "page": 19,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": true,
+      "clip_points": [
+        342.0,
+        3,
+        36.0,
+        2.006422018348624
       ]
     },
     {
@@ -1321,8 +1573,8 @@
     {
       "page": 20,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -1341,63 +1593,7 @@
       ],
       "operation": "page_trim",
       "role": "stationery_base",
-      "alpha": false
-    },
-    {
-      "page": 20,
-      "source_key": "sleepy_bunny",
-      "file": "art/stress_revision/sleepy_bunny.png",
-      "sha256": "02c37b1d84a78da7c750308cbf708b98636808c855e9811bf82dcdccfc26ec90",
-      "native_size": [
-        512,
-        512
-      ],
-      "source_box_pixels": [
-        32,
-        84,
-        480,
-        427
-      ],
-      "target_box_points": [
-        53.0,
-        10.625,
-        48.0,
-        36.75
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
       "alpha": true
-    },
-    {
-      "page": 20,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": false,
-      "clip_points": [
-        53.0,
-        10.625,
-        48.0,
-        3.6750000000000003
-      ]
     },
     {
       "page": 20,
@@ -1415,20 +1611,22 @@
         906
       ],
       "target_box_points": [
-        402.3702422145329,
-        10.0,
-        43.25951557093426,
-        38.0
+        57.5242214532872,
+        6,
+        48.951557093425606,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
     },
     {
       "page": 20,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -1447,12 +1645,128 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        402.3702422145329,
-        10.0,
-        43.25951557093426,
-        3.8000000000000003
+        57.5242214532872,
+        6,
+        48.951557093425606,
+        4.3
+      ]
+    },
+    {
+      "page": 20,
+      "source_key": "sleepy_bunny",
+      "file": "art/stress_revision/sleepy_bunny.png",
+      "sha256": "02c37b1d84a78da7c750308cbf708b98636808c855e9811bf82dcdccfc26ec90",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        84,
+        480,
+        427
+      ],
+      "target_box_points": [
+        393.9183673469388,
+        6,
+        56.163265306122454,
+        43.00000000000001
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
+    },
+    {
+      "page": 20,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": true,
+      "clip_points": [
+        393.9183673469388,
+        6,
+        56.163265306122454,
+        4.300000000000001
+      ]
+    },
+    {
+      "page": 20,
+      "source_key": "bubbles",
+      "file": "../archive/rough_v5/art/bubbles.png",
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        44,
+        480,
+        467
+      ],
+      "target_box_points": [
+        129.70212765957447,
+        3,
+        28.595744680851062,
+        26.999999999999996
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
+    },
+    {
+      "page": 20,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": true,
+      "clip_points": [
+        129.70212765957447,
+        3,
+        28.595744680851062,
+        2.6999999999999997
       ]
     },
     {
@@ -1508,8 +1822,8 @@
     {
       "page": 21,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -1528,7 +1842,7 @@
       ],
       "operation": "page_trim",
       "role": "stationery_base",
-      "alpha": false
+      "alpha": true
     },
     {
       "page": 21,
@@ -1546,20 +1860,22 @@
         285
       ],
       "target_box_points": [
-        53.0,
-        15.623853211009173,
-        48.0,
-        26.752293577981654
+        52.0,
+        6,
+        60.0,
+        33.440366972477065
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
     },
     {
       "page": 21,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -1578,12 +1894,12 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        53.0,
-        15.623853211009173,
-        48.0,
-        2.6752293577981656
+        52.0,
+        6,
+        60.0,
+        3.3440366972477067
       ]
     },
     {
@@ -1602,20 +1918,22 @@
         291
       ],
       "target_box_points": [
-        400.0,
-        15.309859154929578,
-        48.0,
-        27.380281690140844
+        392.0,
+        6,
+        60.0,
+        34.225352112676056
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
     },
     {
       "page": 21,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -1634,12 +1952,70 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        400.0,
-        15.309859154929578,
-        48.0,
-        2.7380281690140844
+        392.0,
+        6,
+        60.0,
+        3.422535211267606
+      ]
+    },
+    {
+      "page": 21,
+      "source_key": "blue_bottle",
+      "file": "art/stress_revision/blue_bottle.png",
+      "sha256": "ce6adb14e4d877108ae2748138417ef436f6e154b8c4321f69196795114319ff",
+      "native_size": [
+        384,
+        512
+      ],
+      "source_box_pixels": [
+        26,
+        33,
+        312,
+        455
+      ],
+      "target_box_points": [
+        350.8507109004739,
+        3,
+        18.29857819905213,
+        26.999999999999996
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
+    },
+    {
+      "page": 21,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": true,
+      "clip_points": [
+        350.8507109004739,
+        3,
+        18.29857819905213,
+        2.6999999999999997
       ]
     },
     {
@@ -1720,8 +2096,8 @@
     {
       "page": 22,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -1740,7 +2116,7 @@
       ],
       "operation": "page_trim",
       "role": "stationery_base",
-      "alpha": false
+      "alpha": true
     },
     {
       "page": 22,
@@ -1758,20 +2134,22 @@
         436
       ],
       "target_box_points": [
-        53.0,
-        16.485714285714288,
-        48.0,
-        25.02857142857143
+        52.0,
+        6,
+        60.0,
+        31.285714285714285
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
     },
     {
       "page": 22,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -1790,12 +2168,12 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        53.0,
-        16.485714285714288,
-        48.0,
-        2.502857142857143
+        52.0,
+        6,
+        60.0,
+        3.1285714285714286
       ]
     },
     {
@@ -1814,20 +2192,22 @@
         455
       ],
       "target_box_points": [
-        411.1232227488152,
-        10.0,
-        25.753554502369667,
-        38.0
+        407.42890995260666,
+        6,
+        29.142180094786728,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
     },
     {
       "page": 22,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -1846,12 +2226,70 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        411.1232227488152,
-        10.0,
-        25.753554502369667,
-        3.8000000000000003
+        407.42890995260666,
+        6,
+        29.142180094786728,
+        4.3
+      ]
+    },
+    {
+      "page": 22,
+      "source_key": "pink",
+      "file": "../archive/rough_v5/art/pink.png",
+      "sha256": "089bcaf7b7e27a4760ca70f05cfeb6954e72eb59ac4ecd125fd6b5cfe0ebba4a",
+      "native_size": [
+        384,
+        512
+      ],
+      "source_box_pixels": [
+        71,
+        33,
+        360,
+        455
+      ],
+      "target_box_points": [
+        134.7547393364929,
+        3,
+        18.490521327014218,
+        26.999999999999996
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
+    },
+    {
+      "page": 22,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": true,
+      "clip_points": [
+        134.7547393364929,
+        3,
+        18.490521327014218,
+        2.6999999999999997
       ]
     },
     {
@@ -1932,8 +2370,8 @@
     {
       "page": 24,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -1952,38 +2390,40 @@
       ],
       "operation": "page_trim",
       "role": "stationery_base",
-      "alpha": false
-    },
-    {
-      "page": 24,
-      "source_key": "brush",
-      "file": "../archive/rough_v5/art/brush.png",
-      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
-      "native_size": [
-        936,
-        1024
-      ],
-      "source_box_pixels": [
-        45,
-        38,
-        899,
-        978
-      ],
-      "target_box_points": [
-        59.738297872340425,
-        10.0,
-        34.52340425531915,
-        38.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
       "alpha": true
     },
     {
       "page": 24,
+      "source_key": "mound_grime_left",
+      "file": "art/stress_revision/mound_grime_left.png",
+      "sha256": "125978f082934e3b290370c6a7a2c0082b8e5df5044feecbf22f3d5d6dca0ac1",
+      "native_size": [
+        512,
+        306
+      ],
+      "source_box_pixels": [
+        41,
+        42,
+        477,
+        285
+      ],
+      "target_box_points": [
+        52.0,
+        6,
+        60.0,
+        33.440366972477065
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
+    },
+    {
+      "page": 24,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -2002,44 +2442,46 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        59.738297872340425,
-        10.0,
-        34.52340425531915,
-        3.8000000000000003
+        52.0,
+        6,
+        60.0,
+        3.3440366972477067
       ]
     },
     {
       "page": 24,
-      "source_key": "sponge",
-      "file": "../archive/rough_v5/art/sponge.png",
-      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "source_key": "cleanup_basket",
+      "file": "art/stress_revision/cleanup_basket.png",
+      "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
       "native_size": [
-        512,
-        512
+        1024,
+        936
       ],
       "source_box_pixels": [
-        32,
-        32,
-        479,
-        480
+        0,
+        39,
+        987,
+        906
       ],
       "target_box_points": [
-        405.0424107142857,
-        10.0,
-        37.91517857142858,
-        38.0
+        397.52422145328717,
+        6,
+        48.951557093425606,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
     },
     {
       "page": 24,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -2058,12 +2500,70 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        405.0424107142857,
-        10.0,
-        37.91517857142858,
-        3.8000000000000003
+        397.52422145328717,
+        6,
+        48.951557093425606,
+        4.3
+      ]
+    },
+    {
+      "page": 24,
+      "source_key": "mound_grime_right",
+      "file": "art/stress_revision/mound_grime_right.png",
+      "sha256": "339f248e488bf651749746c0819ba0214373684ec59859ed3815ddfa387bfe28",
+      "native_size": [
+        512,
+        307
+      ],
+      "source_box_pixels": [
+        43,
+        48,
+        469,
+        291
+      ],
+      "target_box_points": [
+        126.0,
+        3,
+        36.0,
+        20.535211267605632
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
+    },
+    {
+      "page": 24,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": true,
+      "clip_points": [
+        126.0,
+        3,
+        36.0,
+        2.0535211267605633
       ]
     },
     {
@@ -2094,8 +2594,8 @@
     {
       "page": 25,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -2114,7 +2614,7 @@
       ],
       "operation": "page_trim",
       "role": "stationery_base",
-      "alpha": false
+      "alpha": true
     },
     {
       "page": 25,
@@ -2132,20 +2632,22 @@
         978
       ],
       "target_box_points": [
-        59.738297872340425,
-        10.0,
-        34.52340425531915,
-        38.0
+        62.467021276595744,
+        6,
+        39.06595744680851,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
     },
     {
       "page": 25,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -2164,12 +2666,12 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        59.738297872340425,
-        10.0,
-        34.52340425531915,
-        3.8000000000000003
+        62.467021276595744,
+        6,
+        39.06595744680851,
+        4.3
       ]
     },
     {
@@ -2188,20 +2690,22 @@
         480
       ],
       "target_box_points": [
-        405.0424107142857,
-        10.0,
-        37.91517857142858,
-        38.0
+        400.54799107142856,
+        6,
+        42.90401785714286,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
     },
     {
       "page": 25,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -2220,12 +2724,70 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        405.0424107142857,
-        10.0,
-        37.91517857142858,
-        3.8000000000000003
+        400.54799107142856,
+        6,
+        42.90401785714286,
+        4.3
+      ]
+    },
+    {
+      "page": 25,
+      "source_key": "mound_grime_left",
+      "file": "art/stress_revision/mound_grime_left.png",
+      "sha256": "125978f082934e3b290370c6a7a2c0082b8e5df5044feecbf22f3d5d6dca0ac1",
+      "native_size": [
+        512,
+        306
+      ],
+      "source_box_pixels": [
+        41,
+        42,
+        477,
+        285
+      ],
+      "target_box_points": [
+        342.0,
+        3,
+        36.0,
+        20.06422018348624
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
+    },
+    {
+      "page": 25,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": true,
+      "clip_points": [
+        342.0,
+        3,
+        36.0,
+        2.006422018348624
       ]
     },
     {
@@ -2256,8 +2818,8 @@
     {
       "page": 26,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -2276,7 +2838,7 @@
       ],
       "operation": "page_trim",
       "role": "stationery_base",
-      "alpha": false
+      "alpha": true
     },
     {
       "page": 26,
@@ -2294,20 +2856,22 @@
         906
       ],
       "target_box_points": [
-        55.370242214532865,
-        10.0,
-        43.25951557093426,
-        38.0
+        57.5242214532872,
+        6,
+        48.951557093425606,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
     },
     {
       "page": 26,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -2326,12 +2890,12 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        55.370242214532865,
-        10.0,
-        43.25951557093426,
-        3.8000000000000003
+        57.5242214532872,
+        6,
+        48.951557093425606,
+        4.3
       ]
     },
     {
@@ -2350,20 +2914,22 @@
         480
       ],
       "target_box_points": [
-        405.0424107142857,
-        10.0,
-        37.91517857142858,
-        38.0
+        400.54799107142856,
+        6,
+        42.90401785714286,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
     },
     {
       "page": 26,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -2382,12 +2948,70 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        405.0424107142857,
-        10.0,
-        37.91517857142858,
-        3.8000000000000003
+        400.54799107142856,
+        6,
+        42.90401785714286,
+        4.3
+      ]
+    },
+    {
+      "page": 26,
+      "source_key": "bubbles",
+      "file": "../archive/rough_v5/art/bubbles.png",
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        44,
+        480,
+        467
+      ],
+      "target_box_points": [
+        129.70212765957447,
+        3,
+        28.595744680851062,
+        26.999999999999996
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
+    },
+    {
+      "page": 26,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": true,
+      "clip_points": [
+        129.70212765957447,
+        3,
+        28.595744680851062,
+        2.6999999999999997
       ]
     },
     {
@@ -2618,8 +3242,8 @@
     {
       "page": 31,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -2638,7 +3262,7 @@
       ],
       "operation": "page_trim",
       "role": "stationery_base",
-      "alpha": false
+      "alpha": true
     },
     {
       "page": 31,
@@ -2656,20 +3280,22 @@
         176
       ],
       "target_box_points": [
-        57.208333333333336,
-        10.0,
-        39.58333333333333,
-        38.0
+        59.604166666666664,
+        6,
+        44.79166666666667,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
     },
     {
       "page": 31,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -2688,12 +3314,12 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        57.208333333333336,
-        10.0,
-        39.58333333333333,
-        3.8000000000000003
+        59.604166666666664,
+        6,
+        44.79166666666667,
+        4.3
       ]
     },
     {
@@ -2712,20 +3338,22 @@
         59
       ],
       "target_box_points": [
-        400.0,
-        12.0,
-        48.0,
-        34.0
+        392.0,
+        6,
+        60.0,
+        42.5
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
     },
     {
       "page": 31,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -2744,12 +3372,70 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        400.0,
-        12.0,
-        48.0,
-        3.4000000000000004
+        392.0,
+        6,
+        60.0,
+        4.25
+      ]
+    },
+    {
+      "page": 31,
+      "source_key": "cups",
+      "file": "../archive/rough_v5/art/cups.png",
+      "sha256": "fca25541d66e07bf28ee31a36ff049130af64c495a077759750f291e526780a0",
+      "native_size": [
+        768,
+        512
+      ],
+      "source_box_pixels": [
+        42,
+        71,
+        742,
+        436
+      ],
+      "target_box_points": [
+        342.0,
+        3,
+        36.0,
+        18.771428571428572
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
+    },
+    {
+      "page": 31,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": true,
+      "clip_points": [
+        342.0,
+        3,
+        36.0,
+        1.8771428571428572
       ]
     },
     {
@@ -2805,8 +3491,8 @@
     {
       "page": 32,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -2825,7 +3511,7 @@
       ],
       "operation": "page_trim",
       "role": "stationery_base",
-      "alpha": false
+      "alpha": true
     },
     {
       "page": 32,
@@ -2843,20 +3529,22 @@
         978
       ],
       "target_box_points": [
-        59.738297872340425,
-        10.0,
-        34.52340425531915,
-        38.0
+        62.467021276595744,
+        6,
+        39.06595744680851,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
     },
     {
       "page": 32,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -2875,12 +3563,12 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        59.738297872340425,
-        10.0,
-        34.52340425531915,
-        3.8000000000000003
+        62.467021276595744,
+        6,
+        39.06595744680851,
+        4.3
       ]
     },
     {
@@ -2899,20 +3587,22 @@
         480
       ],
       "target_box_points": [
-        405.0424107142857,
-        10.0,
-        37.91517857142858,
-        38.0
+        400.54799107142856,
+        6,
+        42.90401785714286,
+        43.0
       ],
       "operation": "source_region",
       "role": "mound_decoration",
-      "alpha": true
+      "alpha": true,
+      "mound": "right",
+      "shadow_opacity": 0.12
     },
     {
       "page": 32,
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -2931,12 +3621,70 @@
       ],
       "operation": "page_trim",
       "role": "mound_occlusion",
-      "alpha": false,
+      "alpha": true,
       "clip_points": [
-        405.0424107142857,
-        10.0,
-        37.91517857142858,
-        3.8000000000000003
+        400.54799107142856,
+        6,
+        42.90401785714286,
+        4.3
+      ]
+    },
+    {
+      "page": 32,
+      "source_key": "bubbles",
+      "file": "../archive/rough_v5/art/bubbles.png",
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "native_size": [
+        512,
+        512
+      ],
+      "source_box_pixels": [
+        32,
+        44,
+        480,
+        467
+      ],
+      "target_box_points": [
+        129.70212765957447,
+        3,
+        28.595744680851062,
+        26.999999999999996
+      ],
+      "operation": "source_region",
+      "role": "mound_decoration",
+      "alpha": true,
+      "mound": "left",
+      "shadow_opacity": 0.12
+    },
+    {
+      "page": 32,
+      "source_key": "landscape_base",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1484,
+        1060
+      ],
+      "target_box_points": [
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
+      ],
+      "operation": "page_trim",
+      "role": "mound_occlusion",
+      "alpha": true,
+      "clip_points": [
+        129.70212765957447,
+        3,
+        28.595744680851062,
+        2.6999999999999997
       ]
     },
     {
@@ -2967,8 +3715,8 @@
     {
       "page": "back_cover",
       "source_key": "landscape_base",
-      "file": "art/landscape_base.png",
-      "sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+      "file": "art/landscape_base_v2.png",
+      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
       "native_size": [
         1484,
         1060
@@ -2987,7 +3735,7 @@
       ],
       "operation": "page_trim",
       "role": "stationery_base",
-      "alpha": false
+      "alpha": true
     },
     {
       "page": "back_cover",

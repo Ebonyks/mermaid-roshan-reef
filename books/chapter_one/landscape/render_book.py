@@ -69,11 +69,14 @@ base='landscape_base'
 def background(p):
  global ROLE
  ROLE='stationery_base';full(base)
- for i,k in enumerate(p.get('border_assets',[])):
-  ROLE='mound_decoration'
-  x=53 if i%2==0 else 400;y=10;w=48;h=38
+ for placement in p.get('border_placements',[]):
+  k=placement['source'];x,y,w,h=placement['box'];ROLE='mound_decoration'
   assert w<=W*.12 and h<=H*.12 and y+h<=H*.15
-  c.saveState();c.setFillColorRGB(.25,.4,.6);c.setFillAlpha(.12);c.ellipse(x+4,y-1,x+w-4,y+5,fill=1,stroke=0);c.restoreState();ax,ay,aw,ah=cut(k,x,y,w,h)
+  assert (placement['mound']=='left' and x+w<=190) or (placement['mound']=='right' and x>=314)
+  # Bottom-align exact alpha artwork rather than center it above its support.
+  im=Image.open(path(k));l,t,r,b=im.getchannel('A').getbbox();scale=min(w/(r-l),h/(b-t));aw=(r-l)*scale;ah=(b-t)*scale;ax=x+(w-aw)/2;ay=y
+  c.saveState();c.setFillColorRGB(.25,.4,.6);c.setFillAlpha(.12);c.ellipse(ax,ay-1,ax+aw,ay+4,fill=1,stroke=0);c.restoreState()
+  region(k,(l,t,r,b),(ax,ay,aw,ah));LAYERS[-1]['mound']=placement['mound'];LAYERS[-1]['shadow_opacity']=.12
   ROLE='mound_occlusion';c.saveState();cliprect(ax,ay,aw,ah*.1);full(base);LAYERS[-1]['clip_points']=[ax,ay,aw,ah*.1];c.restoreState()
  ROLE='story_art'
 def extension(k):
