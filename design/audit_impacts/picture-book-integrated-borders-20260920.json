@@ -1,0 +1,85 @@
+{
+  "id": "picture-book-integrated-borders-20260920",
+  "baseline": "4326d86af15646ffba5a31cc31d1fc5505563a13",
+  "scope": "Owner rejection of pasted-on border props: replace rectangular ground masks with locally rendered integrated stationery variants, remove smudge and loosely related motifs, preserve story artwork.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book backgrounds only; no game finding affected.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/DESIGN_LANGUAGE.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STRESS_TEST.md",
+    "books/chapter_one/landscape/art/integrated_borders/page_04.png",
+    "books/chapter_one/landscape/art/integrated_borders/page_06.png",
+    "books/chapter_one/landscape/art/integrated_borders/page_07.png",
+    "books/chapter_one/landscape/art/integrated_borders/page_10.png",
+    "books/chapter_one/landscape/art/integrated_borders/page_19.png",
+    "books/chapter_one/landscape/art/integrated_borders/page_20.png",
+    "books/chapter_one/landscape/art/integrated_borders/page_21.png",
+    "books/chapter_one/landscape/art/integrated_borders/page_22.png",
+    "books/chapter_one/landscape/art/integrated_borders/page_24.png",
+    "books/chapter_one/landscape/art/integrated_borders/page_25.png",
+    "books/chapter_one/landscape/art/integrated_borders/page_26.png",
+    "books/chapter_one/landscape/art/integrated_borders/page_31.png",
+    "books/chapter_one/landscape/art/integrated_borders/page_32.png",
+    "books/chapter_one/landscape/audit_book.py",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/integrated_border_evidence.json",
+    "books/chapter_one/landscape/integrated_border_jobs.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/stress_results.json",
+    "books/chapter_one/landscape/stress_review.json",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "python books/chapter_one/landscape/audit_book.py --proof v13_integrated/complete --baseline v7_landscape/complete",
+      "result": "PASS",
+      "evidence": "books/chapter_one/landscape/stress_results.json: 34 pages, 84 caption lines, 13 integrated backgrounds. Manual visible bounds are explicitly separate from source-alpha and hidden-occlusion claims."
+    },
+    {
+      "command": "Rendered page and enlarged border review",
+      "result": "PASS",
+      "evidence": "books/chapter_one/landscape/integrated_border_evidence.json; v13_integrated/complete/integrated_contact_1.jpg through _3.jpg. 13 complete pages inspected; no smudge or rectangular cutoff; owner acceptance not inferred."
+    },
+    {
+      "command": "Compare v12 narrative draw operations and all full-art/cover JPEGs",
+      "result": "PASS",
+      "evidence": "integrated_border_evidence.json regression_checks: 21 unchanged page renders; all captions and story-art layers unchanged."
+    },
+    {
+      "command": "Independent extracted-source rebuild and archive hash verification",
+      "result": "PASS",
+      "evidence": "books/chapter_one/landscape/delivery_verification.json: 34 matching JPEGs; all archive payloads hashed."
+    },
+    {
+      "command": "Edge browser review at 1400px and 760px",
+      "result": "PASS",
+      "evidence": "v13_integrated/complete/browser_verification.json: 13 articles, 26 loaded images, no horizontal overflow."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH RESULT ALL OK; 577 documents inventoried/classified."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV RESULT ALL OK; automatic base 5920c673305989ee29d91876480ff445dba9fc8b."
+    }
+  ],
+  "acceptance_gaps": "Review rough only. Owner background/contact/relevance acceptance remains open, alongside existing extraction, waterfall-action, ceiling and print-resolution findings. No game/runtime/device/child/cinematic acceptance claimed."
+}

@@ -4,12 +4,12 @@
   "story_pages_checked": 32,
   "pdf_pages_checked": 34,
   "text_lines_checked": 84,
-  "image_operations_checked": 134,
+  "image_operations_checked": 60,
   "contextual_cutout_pages": 13,
   "unique_border_assignments": 13,
-  "unique_decorative_props": 27,
-  "maximum_prop_repetition": 2,
-  "scope": "Geometry, source hashes, selected-source exclusions, contextual assignments, and manual focal-zone intersections. Not automatic character-identity, contrast or publication acceptance.",
+  "unique_decorative_props": 26,
+  "maximum_prop_repetition": 1,
+  "scope": "Geometry, source hashes, selected-source exclusions, contextual assignments, manually annotated visible border bounds, and manual focal-zone intersections. Integrated shadow/occlusion and exact prop pixel preservation are not measured. Not automatic character-identity, contrast or publication acceptance.",
   "visual_verdict": "REVISED_FOR_REVIEW_NOT_FINAL_ACCEPTANCE",
   "open_findings": [
     {
@@ -56,6 +56,26 @@
       "pages": "multiple",
       "severity": "P2",
       "issue": "Low-resolution storyboard panels prevent a print-ready claim."
+    },
+    {
+      "id": "BK-ST-OPEN-06",
+      "pages": [
+        4,
+        6,
+        7,
+        10,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        31,
+        32
+      ],
+      "severity": "P2",
+      "issue": "Owner rejected pasted-on event borders and smudge. Integrated variants remove those defects in this review candidate; grounded contact, relevance and print-size finish still require owner acceptance."
     }
   ]
 }

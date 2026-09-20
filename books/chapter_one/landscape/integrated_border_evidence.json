@@ -1,0 +1,682 @@
+{
+  "status": "REVIEW_CANDIDATE_NOT_OWNER_ACCEPTED",
+  "method": "Built-in imagegen local blank-stationery integration. Narrative scenes and characters not redrawn.",
+  "baseline_commit": "4326d86af15646ffba5a31cc31d1fc5505563a13",
+  "removed": [
+    "dust_curl",
+    "rainbow_crystal",
+    "friend_pennants",
+    "redundant third props",
+    "rectangular ground masks"
+  ],
+  "limits": "Visible prop bounds are manually annotated after inspection, not alpha-derived. Generated source fidelity, concealed geometry, exact 10% occlusion and numeric shadow opacity are not mechanically established. Owner visual acceptance remains open.",
+  "backgrounds": [
+    {
+      "page": 4,
+      "file": "art/integrated_borders/page_04.png",
+      "sha256": "8fd1f1f4a44d0b48e9a8f399c35359016d86596ae9546911810326a5fdddd12d",
+      "size": [
+        1485,
+        1059
+      ],
+      "references": [
+        {
+          "file": "art/landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+          "role": "edit_target"
+        },
+        {
+          "file": "art/event_borders/bath_atlas.png",
+          "sha256": "ad2e168c514760c22bd6640442c81b3cd80ee3fd2c217d9bed5f8e0f90b9f90f",
+          "role": "prop_design_reference"
+        }
+      ],
+      "prompt_sha256": "92221f92fdd1b3fc80d8d8bd2e53add9c893cd69ea8bc4061dd3ed35d09119fc",
+      "prompt_file": "integrated_border_jobs.json",
+      "generated_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-a122d257-ac0c-4b96-a787-7e2d1ed83715.png",
+      "motifs": [
+        "cleaning_pail_cloth",
+        "folded_cleaning_cloth"
+      ],
+      "relevance": "Preparing to help. LEFT bank: a small pale-blue cleaning pail with a folded aqua cloth draped over its rim (new modest housekeeping prop, no brush). RIGHT bank: one folded lavender cleaning cloth lying FLAT along the bank, not an upright standing rectangle. Match the bath atlas cloth texture. Do not use a rolled towel.",
+      "review": "Inspected complete background at native size: small contextual props contact the blue bank, no rectangular ground cutoffs, central gap clear. Visual candidate; owner acceptance pending.",
+      "visible_bounds_pixels": [
+        [
+          235,
+          903,
+          133,
+          103
+        ],
+        [
+          1098,
+          926,
+          163,
+          93
+        ]
+      ],
+      "owner_acceptance": false
+    },
+    {
+      "page": 6,
+      "file": "art/integrated_borders/page_06.png",
+      "sha256": "4faaf174d6ea277386292af1f6b498885f6866b27734472fe7f64aaa74525827",
+      "size": [
+        1484,
+        1060
+      ],
+      "references": [
+        {
+          "file": "art/landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+          "role": "edit_target"
+        },
+        {
+          "file": "art/event_borders/bath_atlas.png",
+          "sha256": "ad2e168c514760c22bd6640442c81b3cd80ee3fd2c217d9bed5f8e0f90b9f90f",
+          "role": "prop_design_reference"
+        }
+      ],
+      "prompt_sha256": "ccebb48c016cc134803b0fef5e8f2f11c78cb765503c6ca733ad754baa27ace6",
+      "prompt_file": "integrated_border_jobs.json",
+      "generated_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-6293d350-79e1-4b4b-b1b7-a35889d802e5.png",
+      "motifs": [
+        "soap_dish",
+        "shell_comb"
+      ],
+      "relevance": "Wiping the sink. LEFT bank: the pearl shell dish with pink bar soap, top-left atlas item, base seated naturally into sand. RIGHT bank: the gold shell comb, top-right item, lying on its back at a shallow oblique angle with teeth along the slope, not standing upright like a sign.",
+      "review": "Inspected complete background at native size: small contextual props contact the blue bank, no rectangular ground cutoffs, central gap clear. Visual candidate; owner acceptance pending.",
+      "visible_bounds_pixels": [
+        [
+          227,
+          913,
+          130,
+          106
+        ],
+        [
+          1132,
+          928,
+          124,
+          112
+        ]
+      ],
+      "owner_acceptance": false
+    },
+    {
+      "page": 7,
+      "file": "art/integrated_borders/page_07.png",
+      "sha256": "d2b4e9a6e052c81439e33d882395bc9b47dedf12a25ab10a12cfa729f5c7d1e0",
+      "size": [
+        1484,
+        1060
+      ],
+      "references": [
+        {
+          "file": "art/landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+          "role": "edit_target"
+        },
+        {
+          "file": "art/event_borders/bath_duck_eye.png",
+          "sha256": "2ea728f2018d5b1d350572dbb3f4b8520ed11caf31393fce44014718c64e6910",
+          "role": "prop_design_reference"
+        }
+      ],
+      "prompt_sha256": "6a1575f6ed4b5caa0311a10c8e783e932625df1435f087ceda8aba70413b3419",
+      "prompt_file": "integrated_border_jobs.json",
+      "generated_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-e0d3842a-0c83-44f6-9d70-d98fc71ac46c.png",
+      "motifs": [
+        "rubber_duck",
+        "rolled_towel"
+      ],
+      "relevance": "Finishing the empty bath. LEFT bank: small yellow rubber duck with its visible dark eye from bottom-left reference cell, sitting level on a shallow bank shelf. RIGHT bank: rolled lavender towel from bottom-middle cell resting lengthwise along the slope, complete rounded end, contact shadow underneath. No folded cloths or soap dish.",
+      "review": "Inspected complete background at native size: small contextual props contact the blue bank, no rectangular ground cutoffs, central gap clear. Visual candidate; owner acceptance pending.",
+      "visible_bounds_pixels": [
+        [
+          227,
+          903,
+          105,
+          95
+        ],
+        [
+          1127,
+          916,
+          137,
+          93
+        ]
+      ],
+      "owner_acceptance": false
+    },
+    {
+      "page": 10,
+      "file": "art/integrated_borders/page_10.png",
+      "sha256": "46362072c201d50c9ac879eff0747a399678afcb08dcbb13f8e1d9f8b536c86c",
+      "size": [
+        1484,
+        1060
+      ],
+      "references": [
+        {
+          "file": "art/landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+          "role": "edit_target"
+        },
+        {
+          "file": "art/stress_revision/pool_float.png",
+          "sha256": "d1f3067ce56cd2e6a844c597a48bf01b0661ae34507d99af3272a7a56db88fc5",
+          "role": "prop_design_reference"
+        },
+        {
+          "file": "art/stress_revision/cleanup_basket.png",
+          "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+          "role": "prop_design_reference"
+        }
+      ],
+      "prompt_sha256": "2b25c3869f6b98d2d6d9e0ec89cb615df26c6b9216039833c7aaa51e8645ae82",
+      "prompt_file": "integrated_border_jobs.json",
+      "generated_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-12f3b012-c462-4667-821b-7befb2202307.png",
+      "motifs": [
+        "pool_float",
+        "cleanup_basket"
+      ],
+      "relevance": "Collecting pool rubbish. LEFT bank: supplied golden star-shaped pool float, gently resting flat along the bank. RIGHT bank: supplied pink-and-aqua collection basket sitting on a stable subtly flattened spot in the sand. No loose rubbish outside basket, no net, no towel, no suds.",
+      "review": "Inspected complete background at native size: small contextual props contact the blue bank, no rectangular ground cutoffs, central gap clear. Visual candidate; owner acceptance pending.",
+      "visible_bounds_pixels": [
+        [
+          229,
+          945,
+          114,
+          71
+        ],
+        [
+          1129,
+          903,
+          138,
+          115
+        ]
+      ],
+      "owner_acceptance": false
+    },
+    {
+      "page": 19,
+      "file": "art/integrated_borders/page_19.png",
+      "sha256": "15437a4b12a3497e49777ae44abc6f24922e8841026180e38764b0b477e42472",
+      "size": [
+        1484,
+        1060
+      ],
+      "references": [
+        {
+          "file": "art/landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+          "role": "edit_target"
+        },
+        {
+          "file": "art/event_borders/play_atlas.png",
+          "sha256": "c7535dd6b7a10eb46068a0b6a7098189fa33c4bb9fb47c71237121f79d1b8614",
+          "role": "prop_design_reference"
+        }
+      ],
+      "prompt_sha256": "d1165e2e81d52c6b077627b71d9fcd27aee122de4bc637822c297931ba654287",
+      "prompt_file": "integrated_border_jobs.json",
+      "generated_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-649536f9-7b29-43d6-8df2-649c910f0c21.png",
+      "motifs": [
+        "toy_blocks",
+        "star_cushion"
+      ],
+      "relevance": "Baby Eagle is freed, the playroom becomes usable. LEFT bank: three small pastel toy blocks from top-left atlas cell, placed on a little level resting area of the blue bank with contact at each bottom block. RIGHT bank: a tiny soft pastel star-shaped cushion, a modest new playroom toy with stitched edge, no eyes or face. No ball or rainbow arch.",
+      "review": "Inspected complete background at native size: small contextual props contact the blue bank, no rectangular ground cutoffs, central gap clear. Visual candidate; owner acceptance pending.",
+      "visible_bounds_pixels": [
+        [
+          227,
+          907,
+          81,
+          75
+        ],
+        [
+          1165,
+          917,
+          78,
+          68
+        ]
+      ],
+      "owner_acceptance": false,
+      "correction": {
+        "prompt": "Local stationery correction only. Keep this complete background and all its pixels visually unchanged except the small left and right added props and their contact shadows. Reduce BOTH prop groups to exactly 60% of their current linear size while keeping their bottom contact at the same ground level around y=1000. Page 19: three blocks on left, star cushion on right. The result must have every new prop top BELOW y=920 on this 1060px-high canvas. Keep them seated naturally in the BLUE slope with narrow contact shadows. Preserve all object details/design and broad watercolor forms. Preserve native shells, coral, bubbles, dotted border, two blue mounds, open blue wash and central void. Do not add any object. Do not make any larger. Output complete landscape image.",
+        "reference": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-773d8e09-09df-423d-885b-de87a8bfc4e4.png",
+        "reference_sha256": "ff66aeb29924d7d0416df68293e7560cdbc86766adebe8e652a3d9b1542a9480",
+        "prompt_sha256": "88f1ba3ee1df437c747e64369688dec6b07d917eab99db9a48d6a2742dd377e0"
+      }
+    },
+    {
+      "page": 20,
+      "file": "art/integrated_borders/page_20.png",
+      "sha256": "038c0ee92feaa93861f837ab5c84c54a75f79653dca843cf30b7a2568fbfe937",
+      "size": [
+        1484,
+        1060
+      ],
+      "references": [
+        {
+          "file": "art/landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+          "role": "edit_target"
+        },
+        {
+          "file": "art/event_borders/sailboat_detail.png",
+          "sha256": "e8e47eca417401dff455842a376e5ac5372bbc1e2ef291117dedaaa6dc0526ea",
+          "role": "prop_design_reference"
+        },
+        {
+          "file": "art/event_borders/play_atlas.png",
+          "sha256": "c7535dd6b7a10eb46068a0b6a7098189fa33c4bb9fb47c71237121f79d1b8614",
+          "role": "prop_design_reference"
+        }
+      ],
+      "prompt_sha256": "790269860b101913da1bad37f8cc5731c3763aaa72e02a1e2996337d4070d978",
+      "prompt_file": "integrated_border_jobs.json",
+      "generated_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-402ac709-e4c6-4aea-af77-84043406cfcb.png",
+      "motifs": [
+        "toy_sailboat",
+        "nesting_cups"
+      ],
+      "relevance": "There is room to play together. LEFT bank: supplied small pastel wooden toy sailboat resting its rounded hull securely in sand. RIGHT bank: three nesting cups, top-middle atlas cell, modest and correctly grounded. No blocks, no puzzle pieces, no flags beyond the tiny sailboat pennant already part of the boat.",
+      "review": "Inspected complete background at native size: small contextual props contact the blue bank, no rectangular ground cutoffs, central gap clear. Visual candidate; owner acceptance pending.",
+      "visible_bounds_pixels": [
+        [
+          243,
+          902,
+          94,
+          97
+        ],
+        [
+          1174,
+          921,
+          76,
+          88
+        ]
+      ],
+      "owner_acceptance": false,
+      "correction": {
+        "prompt": "Local stationery correction only. Keep this complete background and all its pixels visually unchanged except the small left and right added props and their contact shadows. Reduce BOTH prop groups to exactly 60% of their current linear size while keeping their bottom contact at the same ground level around y=1000. Page 20: toy sailboat on left, stacked cups on right. The result must have every new prop top BELOW y=920 on this 1060px-high canvas. Keep them seated naturally in the BLUE slope with narrow contact shadows. Preserve all object details/design and broad watercolor forms. Preserve native shells, coral, bubbles, dotted border, two blue mounds, open blue wash and central void. Do not add any object. Do not make any larger. Output complete landscape image.",
+        "reference": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-1dec558b-c6ba-4a19-b2e0-48fc3d2be615.png",
+        "reference_sha256": "173d122c38e983dd47b168622ec967779e64f628d67a20f2bc2e451c9b4a9a8c",
+        "prompt_sha256": "175a27e0d12ec49e453078ec575378919e4e899727029fd87f9c7e1a4f7aa53f"
+      }
+    },
+    {
+      "page": 21,
+      "file": "art/integrated_borders/page_21.png",
+      "sha256": "60dd4901ca7df5105ad0264bcb25633d5aa1106289539ff878e8ec0aa24b2ced",
+      "size": [
+        1484,
+        1060
+      ],
+      "references": [
+        {
+          "file": "art/landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+          "role": "edit_target"
+        },
+        {
+          "file": "art/event_borders/craft_atlas.png",
+          "sha256": "295fcdd6bab2e7c7c73cda88ca210f4bc7daa81ef91619aecdc67cedf8157933",
+          "role": "prop_design_reference"
+        }
+      ],
+      "prompt_sha256": "0a5e124b3b2bdcfcd0613f5d7a69cda2f751db4806bf2dac3939401ab7256b14",
+      "prompt_file": "integrated_border_jobs.json",
+      "generated_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-e1c5b306-a581-44ad-8499-0aa79e266090.png",
+      "motifs": [
+        "ribbon_spools",
+        "crayons"
+      ],
+      "relevance": "Sorting the messy craft supplies. LEFT bank: the two ribbon spools from top-left atlas cell, one upright and one resting on its side, a short ribbon follows the sand's curve. RIGHT bank: three crayons from bottom-left atlas cell lying in a loose fan directly on the bank. No brush, paint cup or bottle; those already appear in the foreground.",
+      "review": "Inspected complete background at native size: small contextual props contact the blue bank, no rectangular ground cutoffs, central gap clear. Visual candidate; owner acceptance pending.",
+      "visible_bounds_pixels": [
+        [
+          214,
+          919,
+          125,
+          79
+        ],
+        [
+          1133,
+          929,
+          139,
+          76
+        ]
+      ],
+      "owner_acceptance": false,
+      "correction": {
+        "prompt": "Edit this blank landscape stationery background only, no narrative scene. Shrink both added groups (ribbon spools on left and crayons on right) to 65% their current size, keep bottom contact at y=1000. All new object tops below y=925. Keep ribbon resting along ground and narrow contact shadows. Preserve all other image details. Preserve complete 1484x1060 landscape canvas and all other features, no text or foreground picture.",
+        "reference": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-e4080054-bcc9-41a1-b605-d6204d164609.png",
+        "reference_sha256": "9725f66cd3277bb90f9094d5c30bf4b03312a923960373e07b7df727c95f054d",
+        "prompt_sha256": "68d817cc4c6a9289328b49816ea192a0d500ef02ebb417fa050ab5c3b23a803f"
+      }
+    },
+    {
+      "page": 22,
+      "file": "art/integrated_borders/page_22.png",
+      "sha256": "6e56e20053bd14d383deaa9c9dba4df1dc599f8afbccb31b9663c73a17e35b85",
+      "size": [
+        1484,
+        1060
+      ],
+      "references": [
+        {
+          "file": "art/landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+          "role": "edit_target"
+        },
+        {
+          "file": "art/event_borders/craft_atlas.png",
+          "sha256": "295fcdd6bab2e7c7c73cda88ca210f4bc7daa81ef91619aecdc67cedf8157933",
+          "role": "prop_design_reference"
+        }
+      ],
+      "prompt_sha256": "8fa43198baf691f647389c537964152911da32e6876ff861c6fdd73c434ef968",
+      "prompt_file": "integrated_border_jobs.json",
+      "generated_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-b2088745-282e-42bf-8da7-3ff99583292c.png",
+      "motifs": [
+        "sorting_tray",
+        "paper_stack"
+      ],
+      "relevance": "Putting supplies away. LEFT bank: the blue compartment tray of sorted buttons from bottom-right atlas cell, sitting with its whole bottom grounded, no corner clipped off. RIGHT bank: neat stack of pastel paper from top-right atlas cell, lying FLAT with edge parallel to the local bank perspective, slight overlap from a low curve of sand only at its contact. No loose scissors, glitter bottle or ribbon.",
+      "review": "Inspected complete background at native size: small contextual props contact the blue bank, no rectangular ground cutoffs, central gap clear. Visual candidate; owner acceptance pending.",
+      "visible_bounds_pixels": [
+        [
+          215,
+          912,
+          161,
+          110
+        ],
+        [
+          1116,
+          914,
+          168,
+          112
+        ]
+      ],
+      "owner_acceptance": false
+    },
+    {
+      "page": 24,
+      "file": "art/integrated_borders/page_24.png",
+      "sha256": "9e38587c630cb7fa8f97d5ce5216dfe083aed28d21f35606598fd8733a813949",
+      "size": [
+        1484,
+        1060
+      ],
+      "references": [
+        {
+          "file": "art/landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+          "role": "edit_target"
+        },
+        {
+          "file": "art/event_borders/attic_atlas.png",
+          "sha256": "b5b1718202cbe7f971b0c491cfecf5d2e6a88c0866b3ae1b7cb364f124c3fd42",
+          "role": "prop_design_reference"
+        }
+      ],
+      "prompt_sha256": "9603f1adec7a51a3df974ce80b57558b12cca6a21bb7cd52a55e321bd17ac779",
+      "prompt_file": "integrated_border_jobs.json",
+      "generated_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-8bfb2862-60c4-4af5-b2a3-c8a00f91e488.png",
+      "motifs": [
+        "cobweb_shells",
+        "keepsake_chest"
+      ],
+      "relevance": "An old doorway leads to the dusty attic. LEFT bank: a delicate small cobweb spanning two old shells, top-middle atlas cell, both shells grounded in the bank, web complete above them. RIGHT bank: one tiny blue antique keepsake chest, top-right atlas cell, with crisp lightly weathered surfaces, REMOVE noisy dust frosting and any smear. No door knocker or key; do not duplicate the foreground door.",
+      "review": "Inspected complete background at native size: small contextual props contact the blue bank, no rectangular ground cutoffs, central gap clear. Visual candidate; owner acceptance pending.",
+      "visible_bounds_pixels": [
+        [
+          151,
+          937,
+          141,
+          61
+        ],
+        [
+          1115,
+          910,
+          145,
+          105
+        ]
+      ],
+      "owner_acceptance": false,
+      "correction": {
+        "prompt": "Edit this blank landscape stationery background only, no narrative scene. Shrink the entire left web-and-two-shells group to 65% its current size, keep bottom contact at y=1000. On right REMOVE all frosted dust/crust/noisy white speckling from chest. Chest should be clean smooth blue weathered wood with gold trim, not sparkling/dust covered. Keep chest small, unchanged size. No smudge or detached dust. Ground both groups in blue bank naturally. Preserve complete 1484x1060 landscape canvas and all other features, no text or foreground picture.",
+        "reference": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-ec0691cd-dc94-47b7-978f-0546fc98eb46.png",
+        "reference_sha256": "08270939e79fc0fedc40b5eb90672038007e8541349bbc0944a32faf459ce15a",
+        "prompt_sha256": "9fd44112d4ea36e6a163cfbaee0032a348d9d0010a22eabd225900c4849212ce"
+      }
+    },
+    {
+      "page": 25,
+      "file": "art/integrated_borders/page_25.png",
+      "sha256": "2a5fe9aa432db6ac133b3135ea336f9b37fafb7601bd75d49847b6d062edac89",
+      "size": [
+        1484,
+        1060
+      ],
+      "references": [
+        {
+          "file": "art/landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+          "role": "edit_target"
+        }
+      ],
+      "prompt_sha256": "6ed054abf7781e0a9a4e06d2f13077ce6f98d9afd95fc8f197870d6451df4a9d",
+      "prompt_file": "integrated_border_jobs.json",
+      "generated_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-2b71c7c0-c026-4fef-b42c-5e4182871a17.png",
+      "motifs": [
+        "attic_storage_jar",
+        "shell_lid_canister"
+      ],
+      "relevance": "Meeting Grand Puff in the old attic. Use two very small storage objects like those on an old castle attic shelf: LEFT bank a squat pale blue ceramic storage jar with a simple lid; RIGHT bank a small dull-gold lidded canister with a shell knob. Both should rest naturally on the bank, clean distinct contours with slight age, no dust frosting, no smudges, no fluff, no faces. No chest or cobweb from the preceding border. These are quiet attic-setting hints, not magical objects.",
+      "review": "Inspected complete background at native size: small contextual props contact the blue bank, no rectangular ground cutoffs, central gap clear. Visual candidate; owner acceptance pending.",
+      "visible_bounds_pixels": [
+        [
+          239,
+          919,
+          84,
+          87
+        ],
+        [
+          1170,
+          930,
+          75,
+          77
+        ]
+      ],
+      "owner_acceptance": false
+    },
+    {
+      "page": 26,
+      "file": "art/integrated_borders/page_26.png",
+      "sha256": "ff56cc9734708ab0bc8534df741d9d2897c155510320c5b557e6f7f297bedc4e",
+      "size": [
+        1484,
+        1060
+      ],
+      "references": [
+        {
+          "file": "art/landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+          "role": "edit_target"
+        }
+      ],
+      "prompt_sha256": "e60dc2d8da22d5229f1c3bdcb01430bf4282bb9350cc24cde4cbfdaca32c7543",
+      "prompt_file": "integrated_border_jobs.json",
+      "generated_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-0e5acda7-fb58-42ee-a0d4-24a26431a814.png",
+      "motifs": [
+        "left_bank_glints",
+        "right_bank_glints"
+      ],
+      "relevance": "Roshan answers the bounce with a little sparkle. Add NO props. Instead locally illuminate the existing two blue banks with a few tiny warm four-point glints resting along their contours, two on left and three on right, and faint reflected gold light immediately underneath. This is a subtle magic-light detail on the existing ground, not new crystals, gems, dust or floating icons. Preserve all base shapes; keep the center gap empty. The glints stay below the 85% line and smaller than the native shells.",
+      "review": "Inspected complete background at native size: small contextual props contact the blue bank, no rectangular ground cutoffs, central gap clear. Visual candidate; owner acceptance pending.",
+      "visible_bounds_pixels": [
+        [
+          131,
+          925,
+          38,
+          43
+        ],
+        [
+          317,
+          982,
+          42,
+          43
+        ],
+        [
+          1070,
+          972,
+          43,
+          47
+        ],
+        [
+          1234,
+          921,
+          42,
+          55
+        ],
+        [
+          1207,
+          1001,
+          32,
+          32
+        ]
+      ],
+      "owner_acceptance": false,
+      "correction": {
+        "prompt": "Edit this blank landscape stationery background only, no narrative scene. REMOVE the extra orange starfish at lower left and the extra spiral conch shell at lower right. Heal their areas with continuous blue bank texture. Keep ONLY the tiny gold glints and subtle reflected light as the contextual change. Preserve existing white corner seashells, blue coral, pebbles, dotted border, blue wash and bank silhouettes exactly. No new objects. Preserve complete 1484x1060 landscape canvas and all other features, no text or foreground picture.",
+        "reference": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-25d27a33-e310-4cb5-bc1a-4926b7300da4.png",
+        "reference_sha256": "b88b5dec2c156ac78769ada5a72ae4dbe4ad55873e3a115ef51b90cfe924d2bd",
+        "prompt_sha256": "c7796b2c98bd154be0148c536ea142740ea97873066afd0f9b1cc53589c3391d"
+      }
+    },
+    {
+      "page": 31,
+      "file": "art/integrated_borders/page_31.png",
+      "sha256": "a1b70a21d20cecceefe6165e4fa9c8cb4189cad69c7d48ce9449a25da0b8ec78",
+      "size": [
+        1484,
+        1060
+      ],
+      "references": [
+        {
+          "file": "art/landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+          "role": "edit_target"
+        },
+        {
+          "file": "art/event_borders/play_atlas.png",
+          "sha256": "c7535dd6b7a10eb46068a0b6a7098189fa33c4bb9fb47c71237121f79d1b8614",
+          "role": "prop_design_reference"
+        }
+      ],
+      "prompt_sha256": "cbb90a9a2f873111adcf0f07529251085360c4d21521b770dd36d97bc3662d53",
+      "prompt_file": "integrated_border_jobs.json",
+      "generated_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-a589649e-9920-43ae-aa23-b6045706b710.png",
+      "motifs": [
+        "puzzle_pair",
+        "wooden_heart"
+      ],
+      "relevance": "We helped each other. LEFT bank: the two interlocking pastel puzzle pieces from bottom-middle cell, lying FLAT fitted together as a quiet reminder of shared play. RIGHT bank: one small wooden heart-shaped play piece matching the same pastel wood, lying flat and partly nestled at its contact. No pennants, flags, crystals, beads or sparkle clusters.",
+      "review": "Inspected complete background at native size: small contextual props contact the blue bank, no rectangular ground cutoffs, central gap clear. Visual candidate; owner acceptance pending.",
+      "visible_bounds_pixels": [
+        [
+          208,
+          929,
+          177,
+          98
+        ],
+        [
+          1169,
+          947,
+          87,
+          77
+        ]
+      ],
+      "owner_acceptance": false
+    },
+    {
+      "page": 32,
+      "file": "art/integrated_borders/page_32.png",
+      "sha256": "15a41b47aa1d4d03fd45b3adf2167de7b14a54510561e88261a28a6fb7381ed3",
+      "size": [
+        1484,
+        1060
+      ],
+      "references": [
+        {
+          "file": "art/landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+          "role": "edit_target"
+        },
+        {
+          "file": "art/event_borders/play_atlas.png",
+          "sha256": "c7535dd6b7a10eb46068a0b6a7098189fa33c4bb9fb47c71237121f79d1b8614",
+          "role": "prop_design_reference"
+        }
+      ],
+      "prompt_sha256": "b036a51081e423f95639011eef6f009bfdb8b7541d78bd5a7a4cbf789cef3ae2",
+      "prompt_file": "integrated_border_jobs.json",
+      "generated_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-6941e759-16fd-44e4-8d39-a4d1c8b4b17c.png",
+      "motifs": [
+        "rainbow_arch",
+        "patchwork_ball"
+      ],
+      "relevance": "Come and play, rainbow friend. LEFT bank: the small wooden rainbow arch from bottom-right atlas cell with both feet seated naturally in blue sand. RIGHT bank: the patchwork ball from top-right cell, resting in a shallow sand cradle so its complete round silhouette remains visible; short contact shadow. No blocks or cups repeated from previous pages.",
+      "review": "Inspected complete background at native size: small contextual props contact the blue bank, no rectangular ground cutoffs, central gap clear. Visual candidate; owner acceptance pending.",
+      "visible_bounds_pixels": [
+        [
+          209,
+          903,
+          147,
+          107
+        ],
+        [
+          1173,
+          920,
+          100,
+          89
+        ]
+      ],
+      "owner_acceptance": false,
+      "correction": {
+        "prompt": "Make a tiny local correction to this blank book stationery: reduce ONLY the patchwork ball on the lower-right blue bank to 75% of its current diameter while keeping its bottom at the same ground level, naturally cradled by the blue bank. It must begin below y=925 on this 1060 pixel-high canvas. Keep its round silhouette, colored patchwork fabric, contact shadow. Every other feature including left rainbow arch, native corner shells/coral, blue banks and open wash and dotted border stays unchanged. Return complete landscape 1484x1060 background. No added objects/text.",
+        "reference": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-5a13d288-d6a0-415f-bee1-47ac89206ba4.png",
+        "reference_sha256": "6649d49c2164d2e62eab84860b336dd38763d40199168e4b9a79d8ee42b0de8e",
+        "prompt_sha256": "42462b26aca5be7a13a7c819e21edca1e2a8cb3dc0f9cd107726acd0f6677ecf"
+      }
+    }
+  ],
+  "regression_checks": {
+    "all_caption_operations_unchanged": true,
+    "all_story_art_operations_unchanged": true,
+    "pixel_identical_full_art_and_cover_pages": [
+      0,
+      33,
+      1,
+      2,
+      3,
+      5,
+      8,
+      9,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      23,
+      27,
+      28,
+      29,
+      30
+    ],
+    "source_baseline": "v12_ceiling/complete/page_provenance.json"
+  }
+}

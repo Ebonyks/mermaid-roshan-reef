@@ -1999,6 +1999,123 @@
       "file": "art/event_borders/sailboat_detail.png",
       "provenance_record": "event_border_evidence.json",
       "modifications": "New isolated decorative toy based on existing sailboat concept; previous tiny rest card fails readability at placement."
+    },
+    "integrated_border_04": {
+      "file": "art/integrated_borders/page_04.png",
+      "provenance": {
+        "method": "Built-in imagegen local blank-stationery integration. Narrative scenes and characters not redrawn.",
+        "sha256": "8fd1f1f4a44d0b48e9a8f399c35359016d86596ae9546911810326a5fdddd12d",
+        "evidence": "integrated_border_evidence.json",
+        "page": 4
+      }
+    },
+    "integrated_border_06": {
+      "file": "art/integrated_borders/page_06.png",
+      "provenance": {
+        "method": "Built-in imagegen local blank-stationery integration. Narrative scenes and characters not redrawn.",
+        "sha256": "4faaf174d6ea277386292af1f6b498885f6866b27734472fe7f64aaa74525827",
+        "evidence": "integrated_border_evidence.json",
+        "page": 6
+      }
+    },
+    "integrated_border_07": {
+      "file": "art/integrated_borders/page_07.png",
+      "provenance": {
+        "method": "Built-in imagegen local blank-stationery integration. Narrative scenes and characters not redrawn.",
+        "sha256": "d2b4e9a6e052c81439e33d882395bc9b47dedf12a25ab10a12cfa729f5c7d1e0",
+        "evidence": "integrated_border_evidence.json",
+        "page": 7
+      }
+    },
+    "integrated_border_10": {
+      "file": "art/integrated_borders/page_10.png",
+      "provenance": {
+        "method": "Built-in imagegen local blank-stationery integration. Narrative scenes and characters not redrawn.",
+        "sha256": "46362072c201d50c9ac879eff0747a399678afcb08dcbb13f8e1d9f8b536c86c",
+        "evidence": "integrated_border_evidence.json",
+        "page": 10
+      }
+    },
+    "integrated_border_19": {
+      "file": "art/integrated_borders/page_19.png",
+      "provenance": {
+        "method": "Built-in imagegen local blank-stationery integration. Narrative scenes and characters not redrawn.",
+        "sha256": "15437a4b12a3497e49777ae44abc6f24922e8841026180e38764b0b477e42472",
+        "evidence": "integrated_border_evidence.json",
+        "page": 19
+      }
+    },
+    "integrated_border_20": {
+      "file": "art/integrated_borders/page_20.png",
+      "provenance": {
+        "method": "Built-in imagegen local blank-stationery integration. Narrative scenes and characters not redrawn.",
+        "sha256": "038c0ee92feaa93861f837ab5c84c54a75f79653dca843cf30b7a2568fbfe937",
+        "evidence": "integrated_border_evidence.json",
+        "page": 20
+      }
+    },
+    "integrated_border_21": {
+      "file": "art/integrated_borders/page_21.png",
+      "provenance": {
+        "method": "Built-in imagegen local blank-stationery integration. Narrative scenes and characters not redrawn.",
+        "sha256": "60dd4901ca7df5105ad0264bcb25633d5aa1106289539ff878e8ec0aa24b2ced",
+        "evidence": "integrated_border_evidence.json",
+        "page": 21
+      }
+    },
+    "integrated_border_22": {
+      "file": "art/integrated_borders/page_22.png",
+      "provenance": {
+        "method": "Built-in imagegen local blank-stationery integration. Narrative scenes and characters not redrawn.",
+        "sha256": "6e56e20053bd14d383deaa9c9dba4df1dc599f8afbccb31b9663c73a17e35b85",
+        "evidence": "integrated_border_evidence.json",
+        "page": 22
+      }
+    },
+    "integrated_border_24": {
+      "file": "art/integrated_borders/page_24.png",
+      "provenance": {
+        "method": "Built-in imagegen local blank-stationery integration. Narrative scenes and characters not redrawn.",
+        "sha256": "9e38587c630cb7fa8f97d5ce5216dfe083aed28d21f35606598fd8733a813949",
+        "evidence": "integrated_border_evidence.json",
+        "page": 24
+      }
+    },
+    "integrated_border_25": {
+      "file": "art/integrated_borders/page_25.png",
+      "provenance": {
+        "method": "Built-in imagegen local blank-stationery integration. Narrative scenes and characters not redrawn.",
+        "sha256": "2a5fe9aa432db6ac133b3135ea336f9b37fafb7601bd75d49847b6d062edac89",
+        "evidence": "integrated_border_evidence.json",
+        "page": 25
+      }
+    },
+    "integrated_border_26": {
+      "file": "art/integrated_borders/page_26.png",
+      "provenance": {
+        "method": "Built-in imagegen local blank-stationery integration. Narrative scenes and characters not redrawn.",
+        "sha256": "ff56cc9734708ab0bc8534df741d9d2897c155510320c5b557e6f7f297bedc4e",
+        "evidence": "integrated_border_evidence.json",
+        "page": 26
+      }
+    },
+    "integrated_border_31": {
+      "file": "art/integrated_borders/page_31.png",
+      "provenance": {
+        "method": "Built-in imagegen local blank-stationery integration. Narrative scenes and characters not redrawn.",
+        "sha256": "a1b70a21d20cecceefe6165e4fa9c8cb4189cad69c7d48ce9449a25da0b8ec78",
+        "evidence": "integrated_border_evidence.json",
+        "page": 31
+      }
+    },
+    "integrated_border_32": {
+      "file": "art/integrated_borders/page_32.png",
+      "provenance": {
+        "method": "Built-in imagegen local blank-stationery integration. Narrative scenes and characters not redrawn.",
+        "sha256": "15a41b47aa1d4d03fd45b3adf2167de7b14a54510561e88261a28a6fb7381ed3",
+        "evidence": "integrated_border_evidence.json",
+        "page": 32
+      }
     }
   },
   "pages": [
@@ -2110,12 +2227,8 @@
       ],
       "text": "“One little job at a time,” said Daddy.\nHe gave Roshan a brush and a sponge.",
       "layout": "tools",
-      "border_assets": [
-        "folded_cloths",
-        "cleanup_basket",
-        "rolled_towel"
-      ],
-      "background_theme": "Getting ready to help: folded cloths and supply basket",
+      "border_assets": [],
+      "background_theme": "Preparing to help. LEFT bank: a small pale-blue cleaning pail with a folded aqua cloth draped over its rim (new modest housekeeping prop, no brush). RIGHT bank: one folded lavender cleaning cloth lying FLAT along the bank, not an upright standing rectangle. Match the bath atlas cloth texture. Do not use a rolled towel.",
       "caption": {
         "x": 32,
         "y": 316,
@@ -2131,37 +2244,25 @@
         444,
         211
       ],
-      "border_placements": [
-        {
-          "source": "folded_cloths",
-          "box": [
-            52,
-            6,
-            60,
-            43
-          ],
-          "mound": "left"
-        },
-        {
-          "source": "cleanup_basket",
-          "box": [
-            392,
-            6,
-            60,
-            43
-          ],
-          "mound": "right"
-        },
-        {
-          "source": "rolled_towel",
-          "box": [
-            126,
-            3,
-            36,
-            27
-          ],
-          "mound": "left"
-        }
+      "border_placements": [],
+      "integrated_background": "integrated_border_04",
+      "integrated_motifs": [
+        "cleaning_pail_cloth",
+        "folded_cleaning_cloth"
+      ],
+      "integrated_prop_bounds": [
+        [
+          0.158249,
+          0.852691,
+          0.089562,
+          0.097262
+        ],
+        [
+          0.739394,
+          0.87441,
+          0.109764,
+          0.087819
+        ]
       ]
     },
     {
@@ -2201,12 +2302,8 @@
       ],
       "text": "Round and round\nwent the sponge.\nRoshan wiped\nthe sink clean.",
       "layout": "wide_cut",
-      "border_assets": [
-        "soap_dish",
-        "shell_comb",
-        "folded_cloths"
-      ],
-      "background_theme": "Sink accessories beside a freshly cleaned basin",
+      "border_assets": [],
+      "background_theme": "Wiping the sink. LEFT bank: the pearl shell dish with pink bar soap, top-left atlas item, base seated naturally into sand. RIGHT bank: the gold shell comb, top-right item, lying on its back at a shallow oblique angle with teeth along the slope, not standing upright like a sign.",
       "caption": {
         "x": 278,
         "y": 250,
@@ -2222,37 +2319,25 @@
         219,
         216
       ],
-      "border_placements": [
-        {
-          "source": "soap_dish",
-          "box": [
-            52,
-            6,
-            60,
-            43
-          ],
-          "mound": "left"
-        },
-        {
-          "source": "shell_comb",
-          "box": [
-            392,
-            6,
-            60,
-            43
-          ],
-          "mound": "right"
-        },
-        {
-          "source": "folded_cloths",
-          "box": [
-            126,
-            3,
-            36,
-            27
-          ],
-          "mound": "left"
-        }
+      "border_placements": [],
+      "integrated_background": "integrated_border_06",
+      "integrated_motifs": [
+        "soap_dish",
+        "shell_comb"
+      ],
+      "integrated_prop_bounds": [
+        [
+          0.152965,
+          0.861321,
+          0.087601,
+          0.1
+        ],
+        [
+          0.762803,
+          0.875472,
+          0.083558,
+          0.10566
+        ]
       ]
     },
     {
@@ -2263,12 +2348,8 @@
       ],
       "text": "Back and forth. Scrub, scrub!\nRoshan brushed the empty tub clean.",
       "layout": "wide_cut",
-      "border_assets": [
-        "rubber_duck",
-        "rolled_towel",
-        "bath_salts"
-      ],
-      "background_theme": "Bath ready to use again: duck, dry towel and bath salts",
+      "border_assets": [],
+      "background_theme": "Finishing the empty bath. LEFT bank: small yellow rubber duck with its visible dark eye from bottom-left reference cell, sitting level on a shallow bank shelf. RIGHT bank: rolled lavender towel from bottom-middle cell resting lengthwise along the slope, complete rounded end, contact shadow underneath. No folded cloths or soap dish.",
       "caption": {
         "x": 32,
         "y": 316,
@@ -2284,37 +2365,25 @@
         444,
         211
       ],
-      "border_placements": [
-        {
-          "source": "rubber_duck",
-          "box": [
-            52,
-            6,
-            60,
-            43
-          ],
-          "mound": "left"
-        },
-        {
-          "source": "rolled_towel",
-          "box": [
-            392,
-            6,
-            60,
-            43
-          ],
-          "mound": "right"
-        },
-        {
-          "source": "bath_salts",
-          "box": [
-            342,
-            3,
-            36,
-            27
-          ],
-          "mound": "right"
-        }
+      "border_placements": [],
+      "integrated_background": "integrated_border_07",
+      "integrated_motifs": [
+        "rubber_duck",
+        "rolled_towel"
+      ],
+      "integrated_prop_bounds": [
+        [
+          0.152965,
+          0.851887,
+          0.070755,
+          0.089623
+        ],
+        [
+          0.759434,
+          0.864151,
+          0.092318,
+          0.087736
+        ]
       ]
     },
     {
@@ -2382,11 +2451,8 @@
       ],
       "text": "Scoop, lift, and out it came!\nRoshan gathered the floating rubbish.",
       "layout": "wide_cut",
-      "border_assets": [
-        "pool_float",
-        "cleanup_basket"
-      ],
-      "background_theme": "Poolside collection: float and rubbish basket; no duplicate net contents",
+      "border_assets": [],
+      "background_theme": "Collecting pool rubbish. LEFT bank: supplied golden star-shaped pool float, gently resting flat along the bank. RIGHT bank: supplied pink-and-aqua collection basket sitting on a stable subtly flattened spot in the sand. No loose rubbish outside basket, no net, no towel, no suds.",
       "caption": {
         "x": 32,
         "y": 316,
@@ -2402,27 +2468,25 @@
         444,
         211
       ],
-      "border_placements": [
-        {
-          "source": "pool_float",
-          "box": [
-            52,
-            6,
-            60,
-            43
-          ],
-          "mound": "left"
-        },
-        {
-          "source": "cleanup_basket",
-          "box": [
-            392,
-            6,
-            60,
-            43
-          ],
-          "mound": "right"
-        }
+      "border_placements": [],
+      "integrated_background": "integrated_border_10",
+      "integrated_motifs": [
+        "pool_float",
+        "cleanup_basket"
+      ],
+      "integrated_prop_bounds": [
+        [
+          0.154313,
+          0.891509,
+          0.076819,
+          0.066981
+        ],
+        [
+          0.760782,
+          0.851887,
+          0.092992,
+          0.108491
+        ]
       ]
     },
     {
@@ -2784,11 +2848,8 @@
       ],
       "text": "Baby Eagle\nwas free!\nA little help made\na big difference.",
       "layout": "wide_cut",
-      "border_assets": [
-        "toy_blocks",
-        "patchwork_ball"
-      ],
-      "background_theme": "Rescue opens the way to play: blocks and soft ball",
+      "border_assets": [],
+      "background_theme": "Baby Eagle is freed, the playroom becomes usable. LEFT bank: three small pastel toy blocks from top-left atlas cell, placed on a little level resting area of the blue bank with contact at each bottom block. RIGHT bank: a tiny soft pastel star-shaped cushion, a modest new playroom toy with stitched edge, no eyes or face. No ball or rainbow arch.",
       "caption": {
         "x": 42,
         "y": 247,
@@ -2804,27 +2865,25 @@
         206,
         229
       ],
-      "border_placements": [
-        {
-          "source": "toy_blocks",
-          "box": [
-            52,
-            6,
-            60,
-            43
-          ],
-          "mound": "left"
-        },
-        {
-          "source": "patchwork_ball",
-          "box": [
-            392,
-            6,
-            60,
-            43
-          ],
-          "mound": "right"
-        }
+      "border_placements": [],
+      "integrated_background": "integrated_border_19",
+      "integrated_motifs": [
+        "toy_blocks",
+        "star_cushion"
+      ],
+      "integrated_prop_bounds": [
+        [
+          0.152965,
+          0.85566,
+          0.054582,
+          0.070755
+        ],
+        [
+          0.78504,
+          0.865094,
+          0.052561,
+          0.064151
+        ]
       ]
     },
     {
@@ -2836,12 +2895,8 @@
       ],
       "text": "Now there was room to play together.\n“Come with me, Baby Eagle!”",
       "layout": "friends_pair",
-      "border_assets": [
-        "toy_sailboat",
-        "nesting_cups",
-        "puzzle_pair"
-      ],
-      "background_theme": "Playing together: sailboat, stacking cups and interlocking pieces",
+      "border_assets": [],
+      "background_theme": "There is room to play together. LEFT bank: supplied small pastel wooden toy sailboat resting its rounded hull securely in sand. RIGHT bank: three nesting cups, top-middle atlas cell, modest and correctly grounded. No blocks, no puzzle pieces, no flags beyond the tiny sailboat pennant already part of the boat.",
       "caption": {
         "x": 31,
         "y": 316,
@@ -2857,37 +2912,25 @@
         444,
         211
       ],
-      "border_placements": [
-        {
-          "source": "toy_sailboat",
-          "box": [
-            52,
-            6,
-            60,
-            43
-          ],
-          "mound": "left"
-        },
-        {
-          "source": "nesting_cups",
-          "box": [
-            392,
-            6,
-            60,
-            43
-          ],
-          "mound": "right"
-        },
-        {
-          "source": "puzzle_pair",
-          "box": [
-            126,
-            3,
-            36,
-            27
-          ],
-          "mound": "left"
-        }
+      "border_placements": [],
+      "integrated_background": "integrated_border_20",
+      "integrated_motifs": [
+        "toy_sailboat",
+        "nesting_cups"
+      ],
+      "integrated_prop_bounds": [
+        [
+          0.163747,
+          0.850943,
+          0.063342,
+          0.091509
+        ],
+        [
+          0.791105,
+          0.868868,
+          0.051213,
+          0.083019
+        ]
       ]
     },
     {
@@ -2900,12 +2943,8 @@
       ],
       "text": "The art room was messy, too.\nRoshan sorted the brushes and paints.",
       "layout": "supplies",
-      "border_assets": [
-        "ribbon_spools",
-        "crayons",
-        "scissors"
-      ],
-      "background_theme": "Sorting creative supplies: ribbons, crayons and scissors",
+      "border_assets": [],
+      "background_theme": "Sorting the messy craft supplies. LEFT bank: the two ribbon spools from top-left atlas cell, one upright and one resting on its side, a short ribbon follows the sand's curve. RIGHT bank: three crayons from bottom-left atlas cell lying in a loose fan directly on the bank. No brush, paint cup or bottle; those already appear in the foreground.",
       "caption": {
         "x": 32,
         "y": 316,
@@ -2921,37 +2960,25 @@
         444,
         211
       ],
-      "border_placements": [
-        {
-          "source": "ribbon_spools",
-          "box": [
-            52,
-            6,
-            60,
-            43
-          ],
-          "mound": "left"
-        },
-        {
-          "source": "crayons",
-          "box": [
-            392,
-            6,
-            60,
-            43
-          ],
-          "mound": "right"
-        },
-        {
-          "source": "scissors",
-          "box": [
-            342,
-            3,
-            36,
-            27
-          ],
-          "mound": "right"
-        }
+      "border_placements": [],
+      "integrated_background": "integrated_border_21",
+      "integrated_motifs": [
+        "ribbon_spools",
+        "crayons"
+      ],
+      "integrated_prop_bounds": [
+        [
+          0.144205,
+          0.866981,
+          0.084232,
+          0.074528
+        ],
+        [
+          0.763477,
+          0.876415,
+          0.093666,
+          0.071698
+        ]
       ]
     },
     {
@@ -2963,12 +2990,8 @@
       ],
       "text": "She put the supplies away\nand brushed the sticky grime off the desk.",
       "layout": "tools",
-      "border_assets": [
-        "sorting_tray",
-        "paper_stack",
-        "glitter_jar"
-      ],
-      "background_theme": "Everything has a place: sorted buttons, stacked paper and glitter",
+      "border_assets": [],
+      "background_theme": "Putting supplies away. LEFT bank: the blue compartment tray of sorted buttons from bottom-right atlas cell, sitting with its whole bottom grounded, no corner clipped off. RIGHT bank: neat stack of pastel paper from top-right atlas cell, lying FLAT with edge parallel to the local bank perspective, slight overlap from a low curve of sand only at its contact. No loose scissors, glitter bottle or ribbon.",
       "caption": {
         "x": 32,
         "y": 316,
@@ -2984,37 +3007,25 @@
         444,
         211
       ],
-      "border_placements": [
-        {
-          "source": "sorting_tray",
-          "box": [
-            52,
-            6,
-            60,
-            43
-          ],
-          "mound": "left"
-        },
-        {
-          "source": "paper_stack",
-          "box": [
-            392,
-            6,
-            60,
-            43
-          ],
-          "mound": "right"
-        },
-        {
-          "source": "glitter_jar",
-          "box": [
-            126,
-            3,
-            36,
-            27
-          ],
-          "mound": "left"
-        }
+      "border_placements": [],
+      "integrated_background": "integrated_border_22",
+      "integrated_motifs": [
+        "sorting_tray",
+        "paper_stack"
+      ],
+      "integrated_prop_bounds": [
+        [
+          0.144879,
+          0.860377,
+          0.108491,
+          0.103774
+        ],
+        [
+          0.752022,
+          0.862264,
+          0.113208,
+          0.10566
+        ]
       ]
     },
     {
@@ -3066,12 +3077,8 @@
       ],
       "text": "One last door\nbegan to glow.\nBeyond it came\na rumble...",
       "layout": "wide_cut",
-      "border_assets": [
-        "door_knocker",
-        "cobweb_shells",
-        "dusty_chest"
-      ],
-      "background_theme": "A long-closed doorway: tarnished knocker, cobweb and keepsake chest",
+      "border_assets": [],
+      "background_theme": "An old doorway leads to the dusty attic. LEFT bank: a delicate small cobweb spanning two old shells, top-middle atlas cell, both shells grounded in the bank, web complete above them. RIGHT bank: one tiny blue antique keepsake chest, top-right atlas cell, with crisp lightly weathered surfaces, REMOVE noisy dust frosting and any smear. No door knocker or key; do not duplicate the foreground door.",
       "caption": {
         "x": 290,
         "y": 242,
@@ -3087,37 +3094,25 @@
         228,
         239
       ],
-      "border_placements": [
-        {
-          "source": "door_knocker",
-          "box": [
-            52,
-            6,
-            60,
-            43
-          ],
-          "mound": "left"
-        },
-        {
-          "source": "cobweb_shells",
-          "box": [
-            392,
-            6,
-            60,
-            43
-          ],
-          "mound": "right"
-        },
-        {
-          "source": "dusty_chest",
-          "box": [
-            126,
-            3,
-            36,
-            27
-          ],
-          "mound": "left"
-        }
+      "border_placements": [],
+      "integrated_background": "integrated_border_24",
+      "integrated_motifs": [
+        "cobweb_shells",
+        "keepsake_chest"
+      ],
+      "integrated_prop_bounds": [
+        [
+          0.101752,
+          0.883962,
+          0.095013,
+          0.057547
+        ],
+        [
+          0.751348,
+          0.858491,
+          0.097709,
+          0.099057
+        ]
       ]
     },
     {
@@ -3128,12 +3123,8 @@
       ],
       "text": "Grand Puff!\nA great, big\nbundle of dust!\nRoshan took\na brave breath.",
       "layout": "wide_cut",
-      "border_assets": [
-        "dusty_chest",
-        "dust_curl",
-        "cobweb_shells"
-      ],
-      "background_theme": "Dusty attic discoveries: old chest, web and curled fluff",
+      "border_assets": [],
+      "background_theme": "Meeting Grand Puff in the old attic. Use two very small storage objects like those on an old castle attic shelf: LEFT bank a squat pale blue ceramic storage jar with a simple lid; RIGHT bank a small dull-gold lidded canister with a shell knob. Both should rest naturally on the bank, clean distinct contours with slight age, no dust frosting, no smudges, no fluff, no faces. No chest or cobweb from the preceding border. These are quiet attic-setting hints, not magical objects.",
       "caption": {
         "x": 37,
         "y": 257,
@@ -3149,37 +3140,25 @@
         208,
         230
       ],
-      "border_placements": [
-        {
-          "source": "dusty_chest",
-          "box": [
-            52,
-            6,
-            60,
-            43
-          ],
-          "mound": "left"
-        },
-        {
-          "source": "dust_curl",
-          "box": [
-            392,
-            6,
-            60,
-            43
-          ],
-          "mound": "right"
-        },
-        {
-          "source": "cobweb_shells",
-          "box": [
-            342,
-            3,
-            36,
-            27
-          ],
-          "mound": "right"
-        }
+      "border_placements": [],
+      "integrated_background": "integrated_border_25",
+      "integrated_motifs": [
+        "attic_storage_jar",
+        "shell_lid_canister"
+      ],
+      "integrated_prop_bounds": [
+        [
+          0.161051,
+          0.866981,
+          0.056604,
+          0.082075
+        ],
+        [
+          0.78841,
+          0.877358,
+          0.050539,
+          0.072642
+        ]
       ]
     },
     {
@@ -3190,12 +3169,8 @@
       ],
       "text": "Boing! Roshan\ndodged the bounce.\nThen she answered\nwith a little\nsparkle.",
       "layout": "wide_cut",
-      "border_assets": [
-        "dust_curl",
-        "rainbow_crystal",
-        "pearl_glint"
-      ],
-      "background_theme": "Bounce and sparkle: disturbed fluff beside small iridescent glints",
+      "border_assets": [],
+      "background_theme": "Roshan answers the bounce with a little sparkle. Add NO props. Instead locally illuminate the existing two blue banks with a few tiny warm four-point glints resting along their contours, two on left and three on right, and faint reflected gold light immediately underneath. This is a subtle magic-light detail on the existing ground, not new crystals, gems, dust or floating icons. Preserve all base shapes; keep the center gap empty. The glints stay below the 85% line and smaller than the native shells.",
       "caption": {
         "x": 292,
         "y": 252,
@@ -3211,37 +3186,43 @@
         229,
         228
       ],
-      "border_placements": [
-        {
-          "source": "dust_curl",
-          "box": [
-            52,
-            6,
-            60,
-            43
-          ],
-          "mound": "left"
-        },
-        {
-          "source": "rainbow_crystal",
-          "box": [
-            392,
-            6,
-            60,
-            43
-          ],
-          "mound": "right"
-        },
-        {
-          "source": "pearl_glint",
-          "box": [
-            126,
-            3,
-            36,
-            27
-          ],
-          "mound": "left"
-        }
+      "border_placements": [],
+      "integrated_background": "integrated_border_26",
+      "integrated_motifs": [
+        "left_bank_glints",
+        "right_bank_glints"
+      ],
+      "integrated_prop_bounds": [
+        [
+          0.088275,
+          0.872642,
+          0.025606,
+          0.040566
+        ],
+        [
+          0.213612,
+          0.926415,
+          0.028302,
+          0.040566
+        ],
+        [
+          0.721024,
+          0.916981,
+          0.028976,
+          0.04434
+        ],
+        [
+          0.831536,
+          0.868868,
+          0.028302,
+          0.051887
+        ],
+        [
+          0.813342,
+          0.94434,
+          0.021563,
+          0.030189
+        ]
       ]
     },
     {
@@ -3369,12 +3350,8 @@
       ],
       "text": "“We helped each other,” said Roshan.\n“And found a friend hiding under all that dust!”",
       "layout": "pair",
-      "border_assets": [
-        "puzzle_pair",
-        "friend_pennants",
-        "pearl_glint"
-      ],
-      "background_theme": "Helping each other: pieces that fit and a tied pair of pennants",
+      "border_assets": [],
+      "background_theme": "We helped each other. LEFT bank: the two interlocking pastel puzzle pieces from bottom-middle cell, lying FLAT fitted together as a quiet reminder of shared play. RIGHT bank: one small wooden heart-shaped play piece matching the same pastel wood, lying flat and partly nestled at its contact. No pennants, flags, crystals, beads or sparkle clusters.",
       "caption": {
         "x": 32,
         "y": 316,
@@ -3390,37 +3367,25 @@
         444,
         211
       ],
-      "border_placements": [
-        {
-          "source": "puzzle_pair",
-          "box": [
-            52,
-            6,
-            60,
-            43
-          ],
-          "mound": "left"
-        },
-        {
-          "source": "friend_pennants",
-          "box": [
-            392,
-            6,
-            60,
-            43
-          ],
-          "mound": "right"
-        },
-        {
-          "source": "pearl_glint",
-          "box": [
-            342,
-            3,
-            36,
-            27
-          ],
-          "mound": "right"
-        }
+      "border_placements": [],
+      "integrated_background": "integrated_border_31",
+      "integrated_motifs": [
+        "puzzle_pair",
+        "wooden_heart"
+      ],
+      "integrated_prop_bounds": [
+        [
+          0.140162,
+          0.876415,
+          0.119272,
+          0.092453
+        ],
+        [
+          0.787736,
+          0.893396,
+          0.058625,
+          0.072642
+        ]
       ]
     },
     {
@@ -3431,12 +3396,8 @@
       ],
       "text": "“Hello, little\nrainbow friend.\nCome and play\nwith us!”",
       "layout": "wide_cut",
-      "border_assets": [
-        "rainbow_arch",
-        "patchwork_ball",
-        "toy_blocks"
-      ],
-      "background_theme": "An invitation to play: rainbow toy, shared ball and blocks",
+      "border_assets": [],
+      "background_theme": "Come and play, rainbow friend. LEFT bank: the small wooden rainbow arch from bottom-right atlas cell with both feet seated naturally in blue sand. RIGHT bank: the patchwork ball from top-right cell, resting in a shallow sand cradle so its complete round silhouette remains visible; short contact shadow. No blocks or cups repeated from previous pages.",
       "caption": {
         "x": 38,
         "y": 245,
@@ -3452,37 +3413,25 @@
         213,
         239
       ],
-      "border_placements": [
-        {
-          "source": "rainbow_arch",
-          "box": [
-            52,
-            6,
-            60,
-            43
-          ],
-          "mound": "left"
-        },
-        {
-          "source": "patchwork_ball",
-          "box": [
-            392,
-            6,
-            60,
-            43
-          ],
-          "mound": "right"
-        },
-        {
-          "source": "toy_blocks",
-          "box": [
-            126,
-            3,
-            36,
-            27
-          ],
-          "mound": "left"
-        }
+      "border_placements": [],
+      "integrated_background": "integrated_border_32",
+      "integrated_motifs": [
+        "rainbow_arch",
+        "patchwork_ball"
+      ],
+      "integrated_prop_bounds": [
+        [
+          0.140836,
+          0.851887,
+          0.099057,
+          0.100943
+        ],
+        [
+          0.790431,
+          0.867925,
+          0.067385,
+          0.083962
+        ]
       ]
     }
   ],

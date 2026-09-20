@@ -49,3 +49,9 @@ The previous 40-page plan is preserved as superseded planning evidence. The curr
 ## Owner refinement: event-specific border details
 
 Owner direction, 2026-09-20: the improved blue bank base is retained, but repeated brushes, suds and generic cleanup symbols are insufficient. Each lower-border composition must reflect that page's event with contextual props and subtle detail. Inventory the richer repository catalog first; new isolated decorative assets related to these events are explicitly permitted where needed. This permission does not authorize new narrative scenes or character redesign. Existing supplied objects retain their exact style and texture. New props follow the original book's simple outlined watercolor border language. The bottom-15%, maximum-12%, central-gap and foreground-duplication rules still apply.
+
+## Owner correction: integrated ground contact
+
+The owner rejected the event-border proof for pasted-on ground contact, loosely related repeated objects and the smudge. Remove the smudge entirely. Decorative variants may render the authorized new props into the existing blue banks with coherent perspective, narrow contact shadows and shaped sand contact. This is background integration, not permission to redraw narrative scenes or characters. Do not use a horizontal rectangular mask to claim natural grounding.
+
+For these flattened background variants, the earlier exact-alpha/occlusion record describes only the superseded cutout-compositing method. Record the actual generated background, bound source references, prompt/hash, inspected visible prop bounds, relevance and contact review instead. Do not claim pixel-exact supplied-asset preservation, a measured hidden 10% occlusion, or numeric shadow opacity for generated pixels. The target remains subtly nestled objects, unchanged story foregrounds, bottom-15% placement, maximum-12% size and an empty central gap. A mechanical bounds pass is not owner visual acceptance.

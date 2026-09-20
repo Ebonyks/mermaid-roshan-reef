@@ -111,202 +111,28 @@
     },
     {
       "page": 4,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "source_key": "integrated_border_04",
+      "file": "art/integrated_borders/page_04.png",
+      "sha256": "8fd1f1f4a44d0b48e9a8f399c35359016d86596ae9546911810326a5fdddd12d",
       "native_size": [
-        1484,
-        1060
+        1485,
+        1059
       ],
       "source_box_pixels": [
         0,
         0,
-        1484,
-        1060
+        1485,
+        1059
       ],
       "target_box_points": [
-        2.842170943040401e-14,
+        -0.4079320113314395,
         0.0,
-        503.99999999999994,
+        504.8158640226629,
         360.0
       ],
       "operation": "page_trim",
-      "role": "stationery_base",
-      "alpha": true
-    },
-    {
-      "page": 4,
-      "source_key": "folded_cloths",
-      "file": "art/event_borders/bath_atlas.png",
-      "sha256": "ad2e168c514760c22bd6640442c81b3cd80ee3fd2c217d9bed5f8e0f90b9f90f",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        564,
-        140,
-        1014,
-        469
-      ],
-      "target_box_points": [
-        52.59270516717325,
-        6,
-        58.81458966565349,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 4,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        52.59270516717325,
-        6,
-        58.81458966565349,
-        4.3
-      ]
-    },
-    {
-      "page": 4,
-      "source_key": "cleanup_basket",
-      "file": "art/stress_revision/cleanup_basket.png",
-      "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
-      "native_size": [
-        1024,
-        936
-      ],
-      "source_box_pixels": [
-        0,
-        39,
-        987,
-        906
-      ],
-      "target_box_points": [
-        397.52422145328717,
-        6,
-        48.951557093425606,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 4,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        397.52422145328717,
-        6,
-        48.951557093425606,
-        4.3
-      ]
-    },
-    {
-      "page": 4,
-      "source_key": "rolled_towel",
-      "file": "art/event_borders/bath_atlas.png",
-      "sha256": "ad2e168c514760c22bd6640442c81b3cd80ee3fd2c217d9bed5f8e0f90b9f90f",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        549,
-        603,
-        1017,
-        929
-      ],
-      "target_box_points": [
-        126.0,
-        3,
-        36.0,
-        25.076923076923077
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 4,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        126.0,
-        3,
-        36.0,
-        2.5076923076923077
-      ]
+      "role": "integrated_stationery",
+      "alpha": false
     },
     {
       "page": 4,
@@ -385,9 +211,9 @@
     },
     {
       "page": 6,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "source_key": "integrated_border_06",
+      "file": "art/integrated_borders/page_06.png",
+      "sha256": "4faaf174d6ea277386292af1f6b498885f6866b27734472fe7f64aaa74525827",
       "native_size": [
         1484,
         1060
@@ -405,182 +231,8 @@
         360.0
       ],
       "operation": "page_trim",
-      "role": "stationery_base",
-      "alpha": true
-    },
-    {
-      "page": 6,
-      "source_key": "soap_dish",
-      "file": "art/event_borders/bath_atlas.png",
-      "sha256": "ad2e168c514760c22bd6640442c81b3cd80ee3fd2c217d9bed5f8e0f90b9f90f",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        52,
-        100,
-        490,
-        476
-      ],
-      "target_box_points": [
-        56.954787234042556,
-        6,
-        50.090425531914896,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 6,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        56.954787234042556,
-        6,
-        50.090425531914896,
-        4.3
-      ]
-    },
-    {
-      "page": 6,
-      "source_key": "shell_comb",
-      "file": "art/event_borders/bath_atlas.png",
-      "sha256": "ad2e168c514760c22bd6640442c81b3cd80ee3fd2c217d9bed5f8e0f90b9f90f",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        1114,
-        97,
-        1478,
-        490
-      ],
-      "target_box_points": [
-        402.08651399491094,
-        6,
-        39.82697201017812,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 6,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        402.08651399491094,
-        6,
-        39.82697201017812,
-        4.3
-      ]
-    },
-    {
-      "page": 6,
-      "source_key": "folded_cloths",
-      "file": "art/event_borders/bath_atlas.png",
-      "sha256": "ad2e168c514760c22bd6640442c81b3cd80ee3fd2c217d9bed5f8e0f90b9f90f",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        564,
-        140,
-        1014,
-        469
-      ],
-      "target_box_points": [
-        126.0,
-        3,
-        36.0,
-        26.32
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 6,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        126.0,
-        3,
-        36.0,
-        2.632
-      ]
+      "role": "integrated_stationery",
+      "alpha": false
     },
     {
       "page": 6,
@@ -609,9 +261,9 @@
     },
     {
       "page": 7,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "source_key": "integrated_border_07",
+      "file": "art/integrated_borders/page_07.png",
+      "sha256": "d2b4e9a6e052c81439e33d882395bc9b47dedf12a25ab10a12cfa729f5c7d1e0",
       "native_size": [
         1484,
         1060
@@ -629,182 +281,8 @@
         360.0
       ],
       "operation": "page_trim",
-      "role": "stationery_base",
-      "alpha": true
-    },
-    {
-      "page": 7,
-      "source_key": "rubber_duck",
-      "file": "art/event_borders/bath_duck_eye.png",
-      "sha256": "2ea728f2018d5b1d350572dbb3f4b8520ed11caf31393fce44014718c64e6910",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        67,
-        585,
-        434,
-        931
-      ],
-      "target_box_points": [
-        59.195086705202314,
-        6,
-        45.60982658959537,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 7,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        59.195086705202314,
-        6,
-        45.60982658959537,
-        4.3
-      ]
-    },
-    {
-      "page": 7,
-      "source_key": "rolled_towel",
-      "file": "art/event_borders/bath_atlas.png",
-      "sha256": "ad2e168c514760c22bd6640442c81b3cd80ee3fd2c217d9bed5f8e0f90b9f90f",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        549,
-        603,
-        1017,
-        929
-      ],
-      "target_box_points": [
-        392.0,
-        6,
-        59.99999999999999,
-        41.79487179487179
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 7,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        392.0,
-        6,
-        59.99999999999999,
-        4.179487179487179
-      ]
-    },
-    {
-      "page": 7,
-      "source_key": "bath_salts",
-      "file": "art/event_borders/bath_atlas.png",
-      "sha256": "ad2e168c514760c22bd6640442c81b3cd80ee3fd2c217d9bed5f8e0f90b9f90f",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        1127,
-        538,
-        1485,
-        950
-      ],
-      "target_box_points": [
-        348.2694174757282,
-        3,
-        23.461165048543688,
-        27.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 7,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        348.2694174757282,
-        3,
-        23.461165048543688,
-        2.7
-      ]
+      "role": "integrated_stationery",
+      "alpha": false
     },
     {
       "page": 7,
@@ -883,9 +361,9 @@
     },
     {
       "page": 10,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "source_key": "integrated_border_10",
+      "file": "art/integrated_borders/page_10.png",
+      "sha256": "46362072c201d50c9ac879eff0747a399678afcb08dcbb13f8e1d9f8b536c86c",
       "native_size": [
         1484,
         1060
@@ -903,124 +381,8 @@
         360.0
       ],
       "operation": "page_trim",
-      "role": "stationery_base",
-      "alpha": true
-    },
-    {
-      "page": 10,
-      "source_key": "pool_float",
-      "file": "art/stress_revision/pool_float.png",
-      "sha256": "d1f3067ce56cd2e6a844c597a48bf01b0661ae34507d99af3272a7a56db88fc5",
-      "native_size": [
-        90,
-        70
-      ],
-      "source_box_pixels": [
-        9,
-        8,
-        81,
-        59
-      ],
-      "target_box_points": [
-        52.0,
-        6,
-        60.0,
-        42.5
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 10,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        52.0,
-        6,
-        60.0,
-        4.25
-      ]
-    },
-    {
-      "page": 10,
-      "source_key": "cleanup_basket",
-      "file": "art/stress_revision/cleanup_basket.png",
-      "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
-      "native_size": [
-        1024,
-        936
-      ],
-      "source_box_pixels": [
-        0,
-        39,
-        987,
-        906
-      ],
-      "target_box_points": [
-        397.52422145328717,
-        6,
-        48.951557093425606,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 10,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        397.52422145328717,
-        6,
-        48.951557093425606,
-        4.3
-      ]
+      "role": "integrated_stationery",
+      "alpha": false
     },
     {
       "page": 10,
@@ -1348,9 +710,9 @@
     },
     {
       "page": 19,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "source_key": "integrated_border_19",
+      "file": "art/integrated_borders/page_19.png",
+      "sha256": "15437a4b12a3497e49777ae44abc6f24922e8841026180e38764b0b477e42472",
       "native_size": [
         1484,
         1060
@@ -1368,124 +730,8 @@
         360.0
       ],
       "operation": "page_trim",
-      "role": "stationery_base",
-      "alpha": true
-    },
-    {
-      "page": 19,
-      "source_key": "toy_blocks",
-      "file": "art/event_borders/play_atlas.png",
-      "sha256": "c7535dd6b7a10eb46068a0b6a7098189fa33c4bb9fb47c71237121f79d1b8614",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        65,
-        90,
-        481,
-        496
-      ],
-      "target_box_points": [
-        59.970443349753694,
-        6,
-        44.05911330049261,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 19,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        59.970443349753694,
-        6,
-        44.05911330049261,
-        4.3
-      ]
-    },
-    {
-      "page": 19,
-      "source_key": "patchwork_ball",
-      "file": "art/event_borders/play_atlas.png",
-      "sha256": "c7535dd6b7a10eb46068a0b6a7098189fa33c4bb9fb47c71237121f79d1b8614",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        1080,
-        114,
-        1470,
-        497
-      ],
-      "target_box_points": [
-        400.1070496083551,
-        6,
-        43.78590078328982,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 19,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        400.1070496083551,
-        6,
-        43.78590078328982,
-        4.3
-      ]
+      "role": "integrated_stationery",
+      "alpha": false
     },
     {
       "page": 19,
@@ -1514,9 +760,9 @@
     },
     {
       "page": 20,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "source_key": "integrated_border_20",
+      "file": "art/integrated_borders/page_20.png",
+      "sha256": "038c0ee92feaa93861f837ab5c84c54a75f79653dca843cf30b7a2568fbfe937",
       "native_size": [
         1484,
         1060
@@ -1534,182 +780,8 @@
         360.0
       ],
       "operation": "page_trim",
-      "role": "stationery_base",
-      "alpha": true
-    },
-    {
-      "page": 20,
-      "source_key": "toy_sailboat",
-      "file": "art/event_borders/sailboat_detail.png",
-      "sha256": "e8e47eca417401dff455842a376e5ac5372bbc1e2ef291117dedaaa6dc0526ea",
-      "native_size": [
-        1309,
-        1202
-      ],
-      "source_box_pixels": [
-        41,
-        21,
-        1266,
-        1182
-      ],
-      "target_box_points": [
-        59.31481481481482,
-        6,
-        45.37037037037037,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 20,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        59.31481481481482,
-        6,
-        45.37037037037037,
-        4.3
-      ]
-    },
-    {
-      "page": 20,
-      "source_key": "nesting_cups",
-      "file": "art/event_borders/play_atlas.png",
-      "sha256": "c7535dd6b7a10eb46068a0b6a7098189fa33c4bb9fb47c71237121f79d1b8614",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        615,
-        72,
-        930,
-        511
-      ],
-      "target_box_points": [
-        406.5728929384966,
-        6,
-        30.854214123006834,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 20,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        406.5728929384966,
-        6,
-        30.854214123006834,
-        4.3
-      ]
-    },
-    {
-      "page": 20,
-      "source_key": "puzzle_pair",
-      "file": "art/event_borders/play_atlas.png",
-      "sha256": "c7535dd6b7a10eb46068a0b6a7098189fa33c4bb9fb47c71237121f79d1b8614",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        548,
-        630,
-        993,
-        949
-      ],
-      "target_box_points": [
-        126.0,
-        3,
-        36.0,
-        25.806741573033705
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 20,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        126.0,
-        3,
-        36.0,
-        2.5806741573033705
-      ]
+      "role": "integrated_stationery",
+      "alpha": false
     },
     {
       "page": 20,
@@ -1763,9 +835,9 @@
     },
     {
       "page": 21,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "source_key": "integrated_border_21",
+      "file": "art/integrated_borders/page_21.png",
+      "sha256": "60dd4901ca7df5105ad0264bcb25633d5aa1106289539ff878e8ec0aa24b2ced",
       "native_size": [
         1484,
         1060
@@ -1783,182 +855,8 @@
         360.0
       ],
       "operation": "page_trim",
-      "role": "stationery_base",
-      "alpha": true
-    },
-    {
-      "page": 21,
-      "source_key": "ribbon_spools",
-      "file": "art/event_borders/craft_atlas.png",
-      "sha256": "295fcdd6bab2e7c7c73cda88ca210f4bc7daa81ef91619aecdc67cedf8157933",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        55,
-        135,
-        505,
-        492
-      ],
-      "target_box_points": [
-        54.89915966386555,
-        6,
-        54.20168067226891,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 21,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        54.89915966386555,
-        6,
-        54.20168067226891,
-        4.3
-      ]
-    },
-    {
-      "page": 21,
-      "source_key": "crayons",
-      "file": "art/event_borders/craft_atlas.png",
-      "sha256": "295fcdd6bab2e7c7c73cda88ca210f4bc7daa81ef91619aecdc67cedf8157933",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        55,
-        590,
-        493,
-        930
-      ],
-      "target_box_points": [
-        394.3029411764706,
-        6,
-        55.39411764705882,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 21,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        394.3029411764706,
-        6,
-        55.39411764705882,
-        4.3
-      ]
-    },
-    {
-      "page": 21,
-      "source_key": "scissors",
-      "file": "art/event_borders/craft_atlas.png",
-      "sha256": "295fcdd6bab2e7c7c73cda88ca210f4bc7daa81ef91619aecdc67cedf8157933",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        572,
-        95,
-        992,
-        453
-      ],
-      "target_box_points": [
-        344.16201117318434,
-        3,
-        31.675977653631286,
-        27.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 21,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        344.16201117318434,
-        3,
-        31.675977653631286,
-        2.7
-      ]
+      "role": "integrated_stationery",
+      "alpha": false
     },
     {
       "page": 21,
@@ -2037,9 +935,9 @@
     },
     {
       "page": 22,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "source_key": "integrated_border_22",
+      "file": "art/integrated_borders/page_22.png",
+      "sha256": "6e56e20053bd14d383deaa9c9dba4df1dc599f8afbccb31b9663c73a17e35b85",
       "native_size": [
         1484,
         1060
@@ -2057,182 +955,8 @@
         360.0
       ],
       "operation": "page_trim",
-      "role": "stationery_base",
-      "alpha": true
-    },
-    {
-      "page": 22,
-      "source_key": "sorting_tray",
-      "file": "art/event_borders/craft_atlas.png",
-      "sha256": "295fcdd6bab2e7c7c73cda88ca210f4bc7daa81ef91619aecdc67cedf8157933",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        1016,
-        611,
-        1496,
-        928
-      ],
-      "target_box_points": [
-        52.0,
-        6,
-        60.0,
-        39.625
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 22,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        52.0,
-        6,
-        60.0,
-        3.9625000000000004
-      ]
-    },
-    {
-      "page": 22,
-      "source_key": "paper_stack",
-      "file": "art/event_borders/craft_atlas.png",
-      "sha256": "295fcdd6bab2e7c7c73cda88ca210f4bc7daa81ef91619aecdc67cedf8157933",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        1058,
-        93,
-        1488,
-        471
-      ],
-      "target_box_points": [
-        397.54232804232805,
-        6,
-        48.91534391534391,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 22,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        397.54232804232805,
-        6,
-        48.91534391534391,
-        4.3
-      ]
-    },
-    {
-      "page": 22,
-      "source_key": "glitter_jar",
-      "file": "art/event_borders/craft_atlas.png",
-      "sha256": "295fcdd6bab2e7c7c73cda88ca210f4bc7daa81ef91619aecdc67cedf8157933",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        648,
-        571,
-        892,
-        928
-      ],
-      "target_box_points": [
-        134.7731092436975,
-        3,
-        18.45378151260504,
-        26.999999999999996
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 22,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        134.7731092436975,
-        3,
-        18.45378151260504,
-        2.6999999999999997
-      ]
+      "role": "integrated_stationery",
+      "alpha": false
     },
     {
       "page": 22,
@@ -2311,9 +1035,9 @@
     },
     {
       "page": 24,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "source_key": "integrated_border_24",
+      "file": "art/integrated_borders/page_24.png",
+      "sha256": "9e38587c630cb7fa8f97d5ce5216dfe083aed28d21f35606598fd8733a813949",
       "native_size": [
         1484,
         1060
@@ -2331,182 +1055,8 @@
         360.0
       ],
       "operation": "page_trim",
-      "role": "stationery_base",
-      "alpha": true
-    },
-    {
-      "page": 24,
-      "source_key": "door_knocker",
-      "file": "art/event_borders/attic_atlas.png",
-      "sha256": "b5b1718202cbe7f971b0c491cfecf5d2e6a88c0866b3ae1b7cb364f124c3fd42",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        111,
-        85,
-        424,
-        507
-      ],
-      "target_box_points": [
-        66.05331753554502,
-        6,
-        31.893364928909953,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 24,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        66.05331753554502,
-        6,
-        31.893364928909953,
-        4.3
-      ]
-    },
-    {
-      "page": 24,
-      "source_key": "cobweb_shells",
-      "file": "art/event_borders/attic_atlas.png",
-      "sha256": "b5b1718202cbe7f971b0c491cfecf5d2e6a88c0866b3ae1b7cb364f124c3fd42",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        508,
-        246,
-        1031,
-        476
-      ],
-      "target_box_points": [
-        392.0,
-        6,
-        60.0,
-        26.38623326959847
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 24,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        392.0,
-        6,
-        60.0,
-        2.638623326959847
-      ]
-    },
-    {
-      "page": 24,
-      "source_key": "dusty_chest",
-      "file": "art/event_borders/attic_atlas.png",
-      "sha256": "b5b1718202cbe7f971b0c491cfecf5d2e6a88c0866b3ae1b7cb364f124c3fd42",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        1072,
-        158,
-        1484,
-        489
-      ],
-      "target_box_points": [
-        127.1963746223565,
-        3,
-        33.60725075528701,
-        27.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 24,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        127.1963746223565,
-        3,
-        33.60725075528701,
-        2.7
-      ]
+      "role": "integrated_stationery",
+      "alpha": false
     },
     {
       "page": 24,
@@ -2535,9 +1085,9 @@
     },
     {
       "page": 25,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "source_key": "integrated_border_25",
+      "file": "art/integrated_borders/page_25.png",
+      "sha256": "2a5fe9aa432db6ac133b3135ea336f9b37fafb7601bd75d49847b6d062edac89",
       "native_size": [
         1484,
         1060
@@ -2555,182 +1105,8 @@
         360.0
       ],
       "operation": "page_trim",
-      "role": "stationery_base",
-      "alpha": true
-    },
-    {
-      "page": 25,
-      "source_key": "dusty_chest",
-      "file": "art/event_borders/attic_atlas.png",
-      "sha256": "b5b1718202cbe7f971b0c491cfecf5d2e6a88c0866b3ae1b7cb364f124c3fd42",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        1072,
-        158,
-        1484,
-        489
-      ],
-      "target_box_points": [
-        55.23867069486405,
-        6,
-        53.522658610271904,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 25,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        55.23867069486405,
-        6,
-        53.522658610271904,
-        4.3
-      ]
-    },
-    {
-      "page": 25,
-      "source_key": "dust_curl",
-      "file": "art/event_borders/attic_atlas.png",
-      "sha256": "b5b1718202cbe7f971b0c491cfecf5d2e6a88c0866b3ae1b7cb364f124c3fd42",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        77,
-        667,
-        455,
-        918
-      ],
-      "target_box_points": [
-        392.0,
-        6,
-        60.0,
-        39.84126984126984
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 25,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        392.0,
-        6,
-        60.0,
-        3.984126984126984
-      ]
-    },
-    {
-      "page": 25,
-      "source_key": "cobweb_shells",
-      "file": "art/event_borders/attic_atlas.png",
-      "sha256": "b5b1718202cbe7f971b0c491cfecf5d2e6a88c0866b3ae1b7cb364f124c3fd42",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        508,
-        246,
-        1031,
-        476
-      ],
-      "target_box_points": [
-        342.0,
-        3,
-        36.0,
-        15.831739961759082
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 25,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        342.0,
-        3,
-        36.0,
-        1.5831739961759084
-      ]
+      "role": "integrated_stationery",
+      "alpha": false
     },
     {
       "page": 25,
@@ -2759,9 +1135,9 @@
     },
     {
       "page": 26,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "source_key": "integrated_border_26",
+      "file": "art/integrated_borders/page_26.png",
+      "sha256": "ff56cc9734708ab0bc8534df741d9d2897c155510320c5b557e6f7f297bedc4e",
       "native_size": [
         1484,
         1060
@@ -2779,182 +1155,8 @@
         360.0
       ],
       "operation": "page_trim",
-      "role": "stationery_base",
-      "alpha": true
-    },
-    {
-      "page": 26,
-      "source_key": "dust_curl",
-      "file": "art/event_borders/attic_atlas.png",
-      "sha256": "b5b1718202cbe7f971b0c491cfecf5d2e6a88c0866b3ae1b7cb364f124c3fd42",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        77,
-        667,
-        455,
-        918
-      ],
-      "target_box_points": [
-        52.0,
-        6,
-        60.0,
-        39.84126984126984
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 26,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        52.0,
-        6,
-        60.0,
-        3.984126984126984
-      ]
-    },
-    {
-      "page": 26,
-      "source_key": "rainbow_crystal",
-      "file": "art/event_borders/attic_atlas.png",
-      "sha256": "b5b1718202cbe7f971b0c491cfecf5d2e6a88c0866b3ae1b7cb364f124c3fd42",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        1095,
-        582,
-        1427,
-        939
-      ],
-      "target_box_points": [
-        402.00560224089634,
-        6,
-        39.98879551820728,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 26,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        402.00560224089634,
-        6,
-        39.98879551820728,
-        4.3
-      ]
-    },
-    {
-      "page": 26,
-      "source_key": "pearl_glint",
-      "file": "art/event_borders/attic_atlas.png",
-      "sha256": "b5b1718202cbe7f971b0c491cfecf5d2e6a88c0866b3ae1b7cb364f124c3fd42",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        595,
-        613,
-        960,
-        926
-      ],
-      "target_box_points": [
-        128.25718849840257,
-        3,
-        31.48562300319489,
-        27.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 26,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        128.25718849840257,
-        3,
-        31.48562300319489,
-        2.7
-      ]
+      "role": "integrated_stationery",
+      "alpha": false
     },
     {
       "page": 26,
@@ -3183,9 +1385,9 @@
     },
     {
       "page": 31,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "source_key": "integrated_border_31",
+      "file": "art/integrated_borders/page_31.png",
+      "sha256": "a1b70a21d20cecceefe6165e4fa9c8cb4189cad69c7d48ce9449a25da0b8ec78",
       "native_size": [
         1484,
         1060
@@ -3203,182 +1405,8 @@
         360.0
       ],
       "operation": "page_trim",
-      "role": "stationery_base",
-      "alpha": true
-    },
-    {
-      "page": 31,
-      "source_key": "puzzle_pair",
-      "file": "art/event_borders/play_atlas.png",
-      "sha256": "c7535dd6b7a10eb46068a0b6a7098189fa33c4bb9fb47c71237121f79d1b8614",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        548,
-        630,
-        993,
-        949
-      ],
-      "target_box_points": [
-        52.00783699059561,
-        6,
-        59.98432601880878,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 31,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        52.00783699059561,
-        6,
-        59.98432601880878,
-        4.3
-      ]
-    },
-    {
-      "page": 31,
-      "source_key": "friend_pennants",
-      "file": "art/event_borders/play_atlas.png",
-      "sha256": "c7535dd6b7a10eb46068a0b6a7098189fa33c4bb9fb47c71237121f79d1b8614",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        57,
-        549,
-        485,
-        963
-      ],
-      "target_box_points": [
-        399.77294685990336,
-        6,
-        44.45410628019324,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 31,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        399.77294685990336,
-        6,
-        44.45410628019324,
-        4.3
-      ]
-    },
-    {
-      "page": 31,
-      "source_key": "pearl_glint",
-      "file": "art/event_borders/attic_atlas.png",
-      "sha256": "b5b1718202cbe7f971b0c491cfecf5d2e6a88c0866b3ae1b7cb364f124c3fd42",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        595,
-        613,
-        960,
-        926
-      ],
-      "target_box_points": [
-        344.25718849840257,
-        3,
-        31.48562300319489,
-        27.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 31,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        344.25718849840257,
-        3,
-        31.48562300319489,
-        2.7
-      ]
+      "role": "integrated_stationery",
+      "alpha": false
     },
     {
       "page": 31,
@@ -3432,9 +1460,9 @@
     },
     {
       "page": 32,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "source_key": "integrated_border_32",
+      "file": "art/integrated_borders/page_32.png",
+      "sha256": "15a41b47aa1d4d03fd45b3adf2167de7b14a54510561e88261a28a6fb7381ed3",
       "native_size": [
         1484,
         1060
@@ -3452,182 +1480,8 @@
         360.0
       ],
       "operation": "page_trim",
-      "role": "stationery_base",
-      "alpha": true
-    },
-    {
-      "page": 32,
-      "source_key": "rainbow_arch",
-      "file": "art/event_borders/play_atlas.png",
-      "sha256": "c7535dd6b7a10eb46068a0b6a7098189fa33c4bb9fb47c71237121f79d1b8614",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        1056,
-        619,
-        1498,
-        943
-      ],
-      "target_box_points": [
-        52.66975308641975,
-        6,
-        58.660493827160494,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 32,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        52.66975308641975,
-        6,
-        58.660493827160494,
-        4.3
-      ]
-    },
-    {
-      "page": 32,
-      "source_key": "patchwork_ball",
-      "file": "art/event_borders/play_atlas.png",
-      "sha256": "c7535dd6b7a10eb46068a0b6a7098189fa33c4bb9fb47c71237121f79d1b8614",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        1080,
-        114,
-        1470,
-        497
-      ],
-      "target_box_points": [
-        400.1070496083551,
-        6,
-        43.78590078328982,
-        43.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "right",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 32,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        400.1070496083551,
-        6,
-        43.78590078328982,
-        4.3
-      ]
-    },
-    {
-      "page": 32,
-      "source_key": "toy_blocks",
-      "file": "art/event_borders/play_atlas.png",
-      "sha256": "c7535dd6b7a10eb46068a0b6a7098189fa33c4bb9fb47c71237121f79d1b8614",
-      "native_size": [
-        1536,
-        1024
-      ],
-      "source_box_pixels": [
-        65,
-        90,
-        481,
-        496
-      ],
-      "target_box_points": [
-        130.16748768472905,
-        3,
-        27.665024630541872,
-        27.0
-      ],
-      "operation": "source_region",
-      "role": "mound_decoration",
-      "alpha": true,
-      "mound": "left",
-      "shadow_opacity": 0.12
-    },
-    {
-      "page": 32,
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
-      "native_size": [
-        1484,
-        1060
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1484,
-        1060
-      ],
-      "target_box_points": [
-        2.842170943040401e-14,
-        0.0,
-        503.99999999999994,
-        360.0
-      ],
-      "operation": "page_trim",
-      "role": "mound_occlusion",
-      "alpha": true,
-      "clip_points": [
-        130.16748768472905,
-        3,
-        27.665024630541872,
-        2.7
-      ]
+      "role": "integrated_stationery",
+      "alpha": false
     },
     {
       "page": 32,

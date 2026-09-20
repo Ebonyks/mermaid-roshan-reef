@@ -68,16 +68,10 @@ def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False):
 base='landscape_base'
 def background(p):
  global ROLE
+ if p.get('integrated_background'):
+  ROLE='integrated_stationery';full(p['integrated_background']);ROLE='story_art';return
  ROLE='stationery_base';full(base)
- for placement in p.get('border_placements',[]):
-  k=placement['source'];x,y,w,h=placement['box'];ROLE='mound_decoration'
-  assert w<=W*.12 and h<=H*.12 and y+h<=H*.15
-  assert (placement['mound']=='left' and x+w<=190) or (placement['mound']=='right' and x>=314)
-  # Bottom-align exact alpha artwork rather than center it above its support.
-  im=Image.open(path(k));l,t,r,b=B['sources'][k].get('alpha_box',im.getchannel('A').getbbox());scale=min(w/(r-l),h/(b-t));aw=(r-l)*scale;ah=(b-t)*scale;ax=x+(w-aw)/2;ay=y
-  c.saveState();c.setFillColorRGB(.25,.4,.6);c.setFillAlpha(.12);c.ellipse(ax,ay-1,ax+aw,ay+4,fill=1,stroke=0);c.restoreState()
-  region(k,(l,t,r,b),(ax,ay,aw,ah));LAYERS[-1]['mound']=placement['mound'];LAYERS[-1]['shadow_opacity']=.12
-  ROLE='mound_occlusion';c.saveState();cliprect(ax,ay,aw,ah*.1);full(base);LAYERS[-1]['clip_points']=[ax,ay,aw,ah*.1];c.restoreState()
+ assert not p.get('border_placements'), 'Use an inspected integrated background; flat ground masks are retired.'
  ROLE='story_art'
 def extension(k):
  global ROLE

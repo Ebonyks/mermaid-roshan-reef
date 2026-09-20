@@ -30,7 +30,17 @@ def main():
  for page in b['pages']:
   n=page['page']
   if page['mode']=='C':
-   if not page['border_assets']:issues.append(f'Page {n}: no contextual background assignment.')
+   if not page.get('integrated_background') and not page['border_assets']:issues.append(f'Page {n}: no contextual background assignment.')
+   if page.get('integrated_background'):
+    if page['border_assets'] or page['border_placements']:issues.append(f'Page {n}: legacy pasted props still enabled.')
+    if not page.get('integrated_motifs'):issues.append(f'Page {n}: missing contextual motifs.')
+    if set(page['art'])&set(page.get('integrated_motifs',[])):issues.append(f'Page {n}: foreground prop repeated in integrated border.')
+    if not page.get('integrated_prop_bounds'):issues.append(f'Page {n}: missing inspected visible prop bounds.')
+    actual=[q for q in p['layers'] if q['page']==n and q['role']=='integrated_stationery']
+    if len(actual)!=1 or actual[0]['source_key']!=page['integrated_background']:issues.append(f'Page {n}: integrated background source mismatch.')
+    for box in page.get('integrated_prop_bounds',[]):
+     x,y,w,h=box
+     if w>.12 or h>.12 or y<.85 or y+h>1 or (x<.62 and x+w>.38):issues.append(f'Page {n}: annotated decoration bounds fail limits.')
    if set(page['art'])&set(page['border_assets']):issues.append(f'Page {n}: foreground/background source duplication.')
    for key in page['art']+page['border_assets']:
     im=Image.open(ROOT/b['sources'][key]['file'])
@@ -42,9 +52,9 @@ def main():
   if layer['role']=='mound_decoration':
    x,y,w,h=layer['target_box_points']
    if w>504*.12+.01 or h>360*.12+.01 or y+h>54+.01 or (x<314 and x+w>190):issues.append(f"Page {layer['page']}: mound restrictions failed.")
- counts=Counter(key for page in b['pages'] for key in page.get('border_assets',[]))
+ counts=Counter(key for page in b['pages'] for key in page.get('integrated_motifs',page.get('border_assets',[])))
  if any(count>2 for count in counts.values()):issues.append('Event-border repetition: one decorative prop used more than twice.')
- if {'brush','sponge','bubbles'} & set(counts):issues.append('Generic brush/sponge/suds border motif has returned.')
+ if {'brush','sponge','bubbles','dust_curl','rainbow_crystal','friend_pennants'} & set(counts):issues.append('Rejected generic border motif has returned.')
  for page in b['pages']:
   if page['mode']!='C':continue
   if [q['source'] for q in page['border_placements']]!=page['border_assets']:issues.append(f"Page {page['page']}: border plan differs from actual placements.")
@@ -60,12 +70,12 @@ def main():
  for n,key in [(17,'pinned'),(18,'loose'),(27,'R09_open'),(28,'R09_suds'),(29,'R10_jump'),(30,'R11_land')]:
   if pages[n]['art']!=[key]:issues.append(f'Canonical rescue/finale order mismatch: page {n}.')
  if pages[23].get('art_crop')!=[420,90,1280,704]:issues.append('Noncanonical paint crown has not been excluded.')
- results={'mechanical_status':'FAIL' if issues else 'PASS','issues':issues,'story_pages_checked':32,'pdf_pages_checked':34,'text_lines_checked':len(p['text_lines']),'image_operations_checked':len(p['layers']),'contextual_cutout_pages':sum(q['mode']=='C' for q in b['pages']),'unique_border_assignments':len({tuple(q['border_assets']) for q in b['pages'] if q['mode']=='C'}),'unique_decorative_props':len(counts),'maximum_prop_repetition':max(counts.values(),default=0),'scope':'Geometry, source hashes, selected-source exclusions, contextual assignments, and manual focal-zone intersections. Not automatic character-identity, contrast or publication acceptance.','visual_verdict':review['revision_verdict'],'open_findings':review['open_findings']}
+ results={'mechanical_status':'FAIL' if issues else 'PASS','issues':issues,'story_pages_checked':32,'pdf_pages_checked':34,'text_lines_checked':len(p['text_lines']),'image_operations_checked':len(p['layers']),'contextual_cutout_pages':sum(q['mode']=='C' for q in b['pages']),'unique_border_assignments':len({tuple(q.get('integrated_motifs',q['border_assets'])) for q in b['pages'] if q['mode']=='C'}),'unique_decorative_props':len(counts),'maximum_prop_repetition':max(counts.values(),default=0),'scope':'Geometry, source hashes, selected-source exclusions, contextual assignments, manually annotated visible border bounds, and manual focal-zone intersections. Integrated shadow/occlusion and exact prop pixel preservation are not measured. Not automatic character-identity, contrast or publication acceptance.','visual_verdict':review['revision_verdict'],'open_findings':review['open_findings']}
  (args.proof/'stress_results.json').write_text(json.dumps(results,indent=2,ensure_ascii=False),encoding='utf8')
  cards=[]
  for row in review['pages']:
   n=row['page'];old=(args.baseline/f'page_{n:02}.jpg').resolve().as_uri();new=f'page_{n:02}.jpg';q=pages[n]
-  cards.append(f'<article id="page-{n}"><h2>Page {n}</h2><p><b>Baseline:</b> {html.escape(row["baseline_issue"])}</p><div class="pair"><figure><figcaption>Rejected v7</figcaption><img loading="lazy" src="{old}"></figure><figure><figcaption>Revised proof</figcaption><img loading="lazy" src="{new}"></figure></div><p><b>Change:</b> {html.escape(row["revision"])}</p><p><b>Identity review:</b> {html.escape(row["identity_review"])}</p><p><b>Background:</b> {html.escape(q["background_theme"])} · {html.escape(", ".join(q["border_assets"]) or "Full art; no stationery")}</p></article>')
+  cards.append(f'<article id="page-{n}"><h2>Page {n}</h2><p><b>Baseline:</b> {html.escape(row["baseline_issue"])}</p><div class="pair"><figure><figcaption>Rejected v7</figcaption><img loading="lazy" src="{old}"></figure><figure><figcaption>Revised proof</figcaption><img loading="lazy" src="{new}"></figure></div><p><b>Change:</b> {html.escape(row["revision"])}</p><p><b>Identity review:</b> {html.escape(row["identity_review"])}</p><p><b>Background:</b> {html.escape(q["background_theme"])} · {html.escape(", ".join(q.get("integrated_motifs",q["border_assets"])) or "Full art; no stationery")}</p></article>')
  open_rows=''.join('<li><b>'+html.escape(f['id'])+'</b> · '+html.escape(str(f['pages']))+': '+html.escape(f['issue'])+'</li>' for f in review['open_findings'])
  doc='<!doctype html><meta charset="utf-8"><title>Mermaid Roshan · Comprehensive stress review</title><style>body{font:17px/1.5 system-ui;background:#e5f2f8;color:#153047;margin:0}header,article{max-width:1250px;margin:25px auto;padding:24px;background:white;border-radius:10px}h1{font-size:32px}h2{margin-top:0}.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}figure{margin:0}img{width:100%}figcaption{font-weight:bold;padding:8px 0}.status{background:#fff1d2;padding:18px}a{color:#125bb0}@media(max-width:800px){.pair{grid-template-columns:1fr}article,header{margin:15px;padding:16px}}</style><header><h1>Comprehensive picture-book stress review</h1><p class="status"><b>The v7 proof failed the owner’s visual review.</b> This revision addresses confirmed issues; it is not a final visual acceptance.</p><p>32 story pages + covers. Text placement, source selection, identity signatures, background ownership and story progression reviewed. Mechanical checks: '+results['mechanical_status']+'.</p><p><a href="READ_BOOK.html">Read the revised book</a> · <a href="stress_results.json">Machine evidence</a></p><h2>Still open</h2><ul>'+open_rows+'</ul><p>Comparison panels below are audit evidence, not proposed framed illustrations in the book.</p></header>'+''.join(cards)
  original=ROOT.parents[2]/'assets/book/baby_eagle.png'
