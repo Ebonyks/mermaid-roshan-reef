@@ -1,0 +1,41 @@
+{
+  "id": "picture-book-source-art-rules-20260920",
+  "scope": "Record owner picture-book art permissions: reuse existing Grok and handoff frames; allow isolation and targeted inpainting/outpainting; prohibit full-scene redraws. Documentation only.",
+  "baseline": "2b342e55067c498e35f1b4755f25d7086ef9aeb0",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-06",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "New owner constraint for the static picture-book adaptation; no game defect is repaired and no cinematic or visual finding is closed.",
+  "files": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/MASTER_AUDIT_2026-08-09.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "2026-09-20 local documentation candidate against baseline 2b342e55067c498e35f1b4755f25d7086ef9aeb0: ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "2026-09-20 local documentation candidate against baseline 2b342e55067c498e35f1b4755f25d7086ef9aeb0: ALL OK."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "2026-09-20 local documentation candidate against baseline 2b342e55067c498e35f1b4755f25d7086ef9aeb0: 52 tests OK; DOCAUTH STRESS 6/6."
+    }
+  ],
+  "acceptance_gaps": "Documentation-only change. Book page visual/owner acceptance and DaVinci refinement remain outstanding; no runtime or cinematic delivery acceptance claimed."
+}

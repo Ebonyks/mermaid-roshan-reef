@@ -11,6 +11,29 @@ Read the applicable [design rules](design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md), 
 - Before commit/push, run `python -B tools/audit_document_authority.py` and `python -B tools/audit_development.py --base auto`, plus all existing applicable gates. Missing coverage or broken authority/navigation blocks the change. Preserve exact baseline and evidence references in the impact record.
 - Report implementation, machine verification, and outstanding visual/device/child/owner acceptance separately. Green regression checks do not establish master-audit satisfaction. Existing security, protected-content, save, owner-decision, and release precedence remains unchanged; this contract grants no new approval checkpoint or release authority.
 
+## Picture-book art: preserve existing scenes
+
+Owner decision: 2026-09-19, clarified 2026-09-20. For the Mermaid Roshan
+picture-book adaptation, use existing Grok frames and storyboard/handoff
+frames as the artwork source. Full-scene redraws and newly invented scenes
+are not authorized; this supersedes earlier permission to redraw book scenes.
+
+- Cropping, isolating items/characters, irregular cutouts, and combining source
+  artwork in creative page layouts are allowed.
+- Targeted inpainting (indrawing) and outpainting (outdrawing) are allowed as
+  needed to clean an isolation, fill a local gap, or extend existing artwork.
+  Preserve the source scene's identity, setting, staging, action and story
+  facts. These edits must not become a full-scene redraw or change the game.
+- Preserve originals; save derivatives separately with source paths/hashes and
+  a description of the crop, isolation, inpaint/outpaint and layout changes.
+  If an accurate story moment is missing, record the source gap instead of
+  inventing a replacement scene. Exclude rejected full-scene redraws.
+- Restore the waterfall clearing and turning rainbow. Baby Eagle is trapped
+  under two dust bunnies, not a blanket. Layout freedom does not change canon.
+
+This scoped static-book rule is `DL-ASSET-08`; it grants no exception to the
+separate cinematic delivery/audit rules and does not authorize game changes.
+
 ## External handoffs: GitHub delivery is mandatory
 
 Owner decision: 2026-09-16. Applies to Grok and every external collaborator,

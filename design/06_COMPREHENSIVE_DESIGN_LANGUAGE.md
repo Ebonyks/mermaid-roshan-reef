@@ -1088,6 +1088,18 @@ commit. Protected originals are never modified. Archive preservation does not
 create a runtime fallback, rollback requirement, or permission to merge those
 resources back into the active game.
 
+
+`DL-ASSET-08` — The Mermaid Roshan picture-book adaptation uses existing Grok
+and storyboard/handoff frames. Cropping, item/character isolation, irregular
+cutouts, creative page composition, and targeted inpainting/outpainting are
+authorized; full-scene redraws and invented replacement scenes are prohibited.
+Local edits/extensions preserve source identity, setting, staging, action and
+story facts. Preserve originals, record derivative source hashes and edits,
+and exclude rejected scene redraws. Missing story art remains a recorded gap.
+The waterfall clears and turns rainbow; two dust bunnies trap Baby Eagle,
+not a blanket. Owner clarification 2026-09-20 supersedes earlier book redraw
+permission and does not relax the separate cinematic delivery contract.
+
 ---
 
 ## 15. Explicitly superseded, dismissed, and deferred ideas
