@@ -1,0 +1,37 @@
+{
+  "id": "picture-book-eagle-review-20260920",
+  "baseline": "fc23f6740969074bdf94ee56eef7f3fad717f091",
+  "scope": "Complete visible identity-cue comparison of original Eagle rescue frames and narrow unresolved evidence without changing delivered art.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book review only; no game finding changed.",
+  "files": [
+    "books/chapter_one/landscape/STRESS_TEST.md",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/eagle_rescue_review.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/stress_results.json",
+    "books/chapter_one/landscape/stress_review.json"
+  ],
+  "validation": [
+    {
+      "command": "Native source comparison: original baby_eagle.png versus pinned.png and loose.png",
+      "result": "PASS",
+      "evidence": "eagle_rescue_review.json records visible cues, source hashes, source dimensions, legitimate occlusion and unresolved exact fidelity."
+    },
+    {
+      "command": "Archive payload hashes and rendering-input comparison with independently rebuilt v10",
+      "result": "PASS",
+      "evidence": "delivery_verification.json; book pixels unchanged, review evidence added."
+    }
+  ],
+  "acceptance_gaps": "Exact small-detail/occluded anatomy and owner acceptance remain open. No new art or book layout authored."
+}

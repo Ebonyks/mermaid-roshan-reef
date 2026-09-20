@@ -51,7 +51,7 @@ Status: `SUPPORTING_CURRENT`. Baseline v7 fails the owner visual review. Current
 ## Still open
 
 - BK-ST-OPEN-01 (P2; pages [11]): Partial clearing state now illustrated; bounded first-lane edit needs owner acceptance. No hand/tool action pose is shown.
-- BK-ST-OPEN-02 (P2; pages [17, 18]): Higher-resolution comparison of the small visible Eagle details in existing rescue frames remains open. Legitimate occlusion is not itself drift; no defect is inferred in hidden anatomy.
+- BK-ST-OPEN-02 (P2; pages [17, 18]): Visible Eagle identity cues reviewed in both original rescue frames: no confirmed contradiction in crest, beak colours, cheek patch, wing colours or grey feet. Small detail and occluded leg proportions do not establish exact fidelity; owner acceptance remains open.
 - BK-ST-OPEN-03 (P2; pages [7, 19, 20, 32]): Alpha extraction/occlusion-healing fidelity and edges need owner visual acceptance.
 - BK-ST-OPEN-04 (P2; pages [27, 28, 29, 30]): Ceiling extension joins remain visible on close inspection.
 - BK-ST-OPEN-05 (P2; pages multiple): Low-resolution storyboard panels prevent a print-ready claim.
@@ -63,3 +63,5 @@ Run `python books/chapter_one/landscape/audit_book.py --proof <current-proof-dir
 ## Border follow-up after owner rejection
 
 The v9 thin-bank background was still visually weak. The current border revision adds blue value bands and small native corner coral/pebbles, with larger existing activity props and asymmetric lower-bank groups. The blue center stays clear. Exact assignments and geometry are in `book.json` and `border_revision_evidence.json`. This is a revision for review, not an owner acceptance.
+
+The native page 17/18 source-frame comparison is recorded in `eagle_rescue_review.json`. The visible signature review is complete; exact fidelity of small or hidden anatomy remains unproven. Existing source pixels are retained.

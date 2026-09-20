@@ -1,8 +1,8 @@
 {
   "status": "PASS",
-  "verified_payload_files": 68,
+  "verified_payload_files": 69,
   "matching_page_renders": 34,
-  "archive_sha256": "812f6b0ff25740da80b1e24132a53acff680f28794a01b102d7accf471e469ba",
+  "archive_sha256": "a93516788a25bbedad653cd3561453a375f0ca03fc30c4582e07152373b45bc3",
   "pdf_sha256": "a69741678052609ba8a9233c0ca9ef6f5707e97b7d9f42a94cdb21ab5a6d54e1",
   "pdf_pages": 34,
   "page_size_points": [
@@ -27,7 +27,7 @@
         18
       ],
       "severity": "P2",
-      "issue": "Higher-resolution comparison of the small visible Eagle details in existing rescue frames remains open. Legitimate occlusion is not itself drift; no defect is inferred in hidden anatomy."
+      "issue": "Visible Eagle identity cues reviewed in both original rescue frames: no confirmed contradiction in crest, beak colours, cheek patch, wing colours or grey feet. Small detail and occluded leg proportions do not establish exact fidelity; owner acceptance remains open."
     },
     {
       "id": "BK-ST-OPEN-03",
@@ -57,5 +57,6 @@
       "severity": "P2",
       "issue": "Low-resolution storyboard panels prevent a print-ready claim."
     }
-  ]
+  ],
+  "latest_archive_verification": "All 69 payload hashes verified. All 50 rendering inputs byte-identical to independently rebuilt v10 package; only review metadata changed."
 }

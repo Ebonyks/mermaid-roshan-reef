@@ -19,7 +19,7 @@ def main():
  book['sources']=portable_sources
  font=ROOT/book['font'];payload['fonts/Sniglet-Regular.ttf']=font.read_bytes();payload['fonts/OFL.txt']=(font.parent/'OFL.txt').read_bytes();book['font']='fonts/Sniglet-Regular.ttf'
  payload['book.json']=(json.dumps(book,indent=2,ensure_ascii=False)+'\n').encode('utf8')
- for name in ['render_book.py','PAGE_PLAN.md','REVIEW.md','image_edit_provenance.json','eagle_isolation_provenance.json','waterfall_progress_evidence.json','waterfall_lane_prompt.txt','border_base_prompt.txt','border_revision_evidence.json','layout_evidence.json','stress_review.json','audit_book.py','STRESS_TEST.md']:
+ for name in ['render_book.py','PAGE_PLAN.md','REVIEW.md','image_edit_provenance.json','eagle_isolation_provenance.json','waterfall_progress_evidence.json','waterfall_lane_prompt.txt','border_base_prompt.txt','border_revision_evidence.json','eagle_rescue_review.json','layout_evidence.json','stress_review.json','audit_book.py','STRESS_TEST.md']:
   payload[name]=(ROOT/name).read_bytes()
  for name in ['DESIGN_LANGUAGE.md','ORIGINAL_GEMINI_BACKGROUND_PROMPT.txt']:
   payload[name]=(ROOT.parent/name).read_bytes()
