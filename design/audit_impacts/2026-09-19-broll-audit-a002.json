@@ -1,0 +1,32 @@
+{
+  "id": "2026-09-19-broll-audit-a002",
+  "scope": "B-roll extra-cast audit plus three A002 keeper returns. Remaining shots still fail extra mermaids.",
+  "baseline": "fcfe1faa542cc84fbb1716e726158b1967a04062",
+  "rules": [
+    "DL-CIN-01",
+    "DL-CIN-04",
+    "DL-CIN-11",
+    "DL-CIN-12",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/BROLL-AUDIT-20260919.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-ARRIVAL-TOUCHDOWN-B01/A002/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BATH-TUB-B01/A002/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-PICK-1-B01/A002/RETURN.json",
+    "design/audit_impacts/2026-09-19-broll-audit-a002.json"
+  ],
+  "validation": [
+    {
+      "command": "python3 -B tools/audit_development.py --base  fcfe1faa542cc84fbb1716e726158b1967a04062",
+      "result": "PASS",
+      "evidence": "Metadata-only. Pixels private. DELIVERY_ACCEPTED false."
+    }
+  ],
+  "acceptance_gaps": "28 B01 shots still fail extra-cast. Three A002 keepers are still not owner-approved."
+}

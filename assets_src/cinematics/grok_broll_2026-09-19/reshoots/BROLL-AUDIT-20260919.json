@@ -1,0 +1,197 @@
+{
+  "schema": "reef.grok.broll-audit.v1",
+  "method": "Visual inspect of all 31 A001 stills plus selected A002/I2I retries. Recurring defect: extra mermaids/animals spawned from busy location plates.",
+  "A001_verdict": "FAIL_CAST_OVERFLOW on almost every ensemble and most singles",
+  "A002_keepers": [
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "shot_id": "SHOT-ARRIVAL-TOUCHDOWN-B01",
+      "attempt": 2,
+      "attempt_label": "A002",
+      "status": "RETURNED_RESHOOT_CANDIDATE",
+      "filename": "SHOT-ARRIVAL-TOUCHDOWN-B01_A002.jpg",
+      "sha256": "300b5aedc7c79ab0cddd1853246d5cf8b85647dbc1b1395da4297186c2295c1e",
+      "bytes": 817877,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "generation_job_id": "f4a3422d-1cb5-4909-b44a-b8bcf9d2b8d1",
+      "motion_job_id": "41a56920-94b1-4476-8a21-e340676e1866",
+      "motion_filename": "SHOT-ARRIVAL-TOUCHDOWN-B01_A002.mp4",
+      "motion_sha256": "a9746daa13475c6ab5d73581d70d86c80b16642ac9f96031cb5515283f4b7104",
+      "motion_bytes": 5408220,
+      "audit": "PASS: two windows, passengers inside, empty grass.",
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "shot_id": "SHOT-BATH-TUB-B01",
+      "attempt": 2,
+      "attempt_label": "A002",
+      "status": "RETURNED_RESHOOT_CANDIDATE",
+      "filename": "SHOT-BATH-TUB-B01_A002.jpg",
+      "sha256": "895a5def520fd47f11416705513032ba05d3ab9538a361d6c38b8d97e5d16e47",
+      "bytes": 714230,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "generation_job_id": "401b0304-7967-45b9-abe5-243e43d48aae",
+      "motion_job_id": "fba3ba57-06d8-4a31-8739-d620f2f53ac5",
+      "motion_filename": "SHOT-BATH-TUB-B01_A002.mp4",
+      "motion_sha256": "cc8cea2da3b620f5e63fe34c3bb49dc1a16149bba6c5bfc09de712bef229c732",
+      "motion_bytes": 6724528,
+      "audit": "PASS: exactly one mermaid after extra-cast strip.",
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "shot_id": "SHOT-CRAFT-PICK-1-B01",
+      "attempt": 2,
+      "attempt_label": "A002",
+      "status": "RETURNED_RESHOOT_CANDIDATE",
+      "filename": "SHOT-CRAFT-PICK-1-B01_A002.jpg",
+      "sha256": "10ae01d58b9858e6f2a147c179502a279051cd18182d70d7c9c481424807c272",
+      "bytes": 538758,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "generation_job_id": "c2a008c2-e5fa-41a1-9f3c-1f6072130f6c",
+      "motion_job_id": "89a21009-e956-41e9-a075-e32183056868",
+      "motion_filename": "SHOT-CRAFT-PICK-1-B01_A002.mp4",
+      "motion_sha256": "7ee45305acec717dbf57a3116f60dfead9ac5e553f1305a804e97adf53a332f4",
+      "motion_bytes": 3355374,
+      "audit": "PASS: exactly one mermaid after extra-cast strip.",
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false
+    }
+  ],
+  "still_needs_reshoot": [
+    {
+      "shot_id": "SHOT-BATH-DRAIN-B01",
+      "defect": "extra mermaids + goldfish"
+    },
+    {
+      "shot_id": "SHOT-BATH-TOILET-B01",
+      "defect": "extra mermaids + animals"
+    },
+    {
+      "shot_id": "SHOT-CRAFT-PICK-2-B01",
+      "defect": "extra mermaids (A001 pattern; not yet A002)"
+    },
+    {
+      "shot_id": "SHOT-CRAFT-PICK-3-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-CRAFT-PICK-4-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-CRAFT-SCRUB-1-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-CRAFT-SCRUB-2-B01",
+      "defect": "extra mermaids + cat after A002 retry"
+    },
+    {
+      "shot_id": "SHOT-CRAFT-SCRUB-3-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-CRAFT-CUSTOMIZE-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-EAGLE-FREE-B01",
+      "defect": "extra mermaids, extra eagles, extra bunnies after A002/A003 retries"
+    },
+    {
+      "shot_id": "SHOT-EAGLE-WING-B01",
+      "defect": "extra mermaids + extra eagles"
+    },
+    {
+      "shot_id": "SHOT-POOL-SKIM-B01",
+      "defect": "extra mermaids + extra animals after I2I"
+    },
+    {
+      "shot_id": "SHOT-POOL-FALL-1-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-POOL-FALL-2-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-POOL-FALL-3-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-POOL-PULL-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-BUNNY-SOAP-B01",
+      "defect": "extra mermaids, extra eagles, extra bunnies after A002 retries"
+    },
+    {
+      "shot_id": "SHOT-BUNNY-JUMP-B01",
+      "defect": "extra mermaids + extra animals"
+    },
+    {
+      "shot_id": "SHOT-TEAM-PAPER-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-TEAM-WEB-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-TEAM-WALL-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-TEAM-FINISH-B01",
+      "defect": "extra mermaids + extra animals after A002 retries"
+    },
+    {
+      "shot_id": "SHOT-C2-01-B01",
+      "defect": "extra mermaids + extra animals + extra rocket after A002 retries"
+    },
+    {
+      "shot_id": "SHOT-C2-03-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-C2-04-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-C2-05-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-C2-08-B01",
+      "defect": "extra mermaids"
+    },
+    {
+      "shot_id": "SHOT-C2-09-B01",
+      "defect": "extra mermaids"
+    }
+  ],
+  "holds_untouched": [
+    "SHOT-BATH-SINK-B01",
+    "SHOT-BUNNY-LAND-B01",
+    "SHOT-C2-02-B01",
+    "SHOT-C2-06-B01",
+    "SHOT-C2-07-B01"
+  ],
+  "what_worked": "Strip extras via image-to-image on already-sparse singles (tub, craft-pick-1). Arrival from empty landing plate + plane lock kept two windows and empty grass.",
+  "what_failed": "Rebinding crowded plates, or I2I on ensembles, re-spawns extras. Sequential new-camera from a clean still also re-spawned extras (drain/toilet/scrub-2).",
+  "DELIVERY_ACCEPTED": false
+}
