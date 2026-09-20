@@ -2196,6 +2196,137 @@
         "sha256": "e2637ca9c2490f3749f64736b46957e4a13d3f518314dd86b5cf24923bee25df",
         "evidence": "border_rollout_evidence.json"
       }
+    },
+    "roshan_inviting": {
+      "file": "art/repo_details_v17/roshan_gestures.png",
+      "alpha_box": [
+        97,
+        17,
+        237,
+        251
+      ],
+      "provenance": {
+        "source": "assets/characters/roshan_25d/roshan_gestures.png",
+        "source_sha256": "d7d7d78d68311e5d4285aada7a306c555dba985a06145dea2bcb611ea4e2409e",
+        "modifications": "None; complete existing alpha pose selected by atlas cell. No raster repaint, reflection or warp.",
+        "cell_column_row": [
+          0,
+          0
+        ]
+      }
+    },
+    "roshan_reflecting": {
+      "file": "art/repo_details_v17/roshan_gestures.png",
+      "alpha_box": [
+        559,
+        521,
+        697,
+        728
+      ],
+      "provenance": {
+        "source": "assets/characters/roshan_25d/roshan_gestures.png",
+        "source_sha256": "d7d7d78d68311e5d4285aada7a306c555dba985a06145dea2bcb611ea4e2409e",
+        "modifications": "None to pixels; full silhouette isolated using measured inter-pose transparent gutters, not assumed regular cell rows.",
+        "cell_column_row": [
+          2,
+          2
+        ]
+      }
+    },
+    "roshan_dodging": {
+      "file": "art/repo_details_v17/roshan_gestures.png",
+      "alpha_box": [
+        787,
+        26,
+        963,
+        250
+      ],
+      "provenance": {
+        "source": "assets/characters/roshan_25d/roshan_gestures.png",
+        "source_sha256": "d7d7d78d68311e5d4285aada7a306c555dba985a06145dea2bcb611ea4e2409e",
+        "modifications": "None; complete existing alpha pose selected by atlas cell. No raster repaint, reflection or warp.",
+        "cell_column_row": [
+          3,
+          0
+        ]
+      }
+    },
+    "roshan_cover": {
+      "file": "art/repo_details_v17/roshan_gestures.png",
+      "alpha_box": [
+        47,
+        748,
+        228,
+        972
+      ],
+      "provenance": {
+        "source": "assets/characters/roshan_25d/roshan_gestures.png",
+        "source_sha256": "d7d7d78d68311e5d4285aada7a306c555dba985a06145dea2bcb611ea4e2409e",
+        "modifications": "None to pixels; full silhouette isolated using measured inter-pose transparent gutters, not assumed regular cell rows.",
+        "cell_column_row": [
+          0,
+          3
+        ]
+      }
+    },
+    "messy_paints": {
+      "file": "art/repo_details_v17/messy_paints.png",
+      "provenance": {
+        "method": "builtin image_gen prop-state edit",
+        "source": "books/chapter_one/archive/rough_v5/art/cups.png",
+        "output_sha256": "718c67659a8cf56abe948eaeda42e1a51e46a40fd93884bfe1d200da0f4d6273",
+        "prompt": "repo_detail_jobs.json:messy_paints",
+        "review": "Tipped jar and dripped paint; transparent prop only, no narrative scene regenerated."
+      }
+    },
+    "repo_border_10": {
+      "file": "art/repo_details_v17/page_10.png",
+      "provenance": {
+        "method": "builtin image_gen bounded integrated bank edit",
+        "job": "page_10_placed",
+        "output_sha256": "666331e9c37c2557272755b4d44845877e121dbc9640461f6f31366fe4d44133",
+        "prompts": "repo_detail_jobs.json",
+        "scope": "Decorative bank details only; no narrative scene generation"
+      }
+    },
+    "repo_border_21": {
+      "file": "art/repo_details_v17/page_21.png",
+      "provenance": {
+        "method": "builtin image_gen bounded integrated bank edit",
+        "job": "page_21_final",
+        "output_sha256": "4cf9860e7e838c441d2a99b9a658d04ab75b54f953072caaaae30492b3dc0138",
+        "prompts": "repo_detail_jobs.json",
+        "scope": "Decorative bank details only; no narrative scene generation"
+      }
+    },
+    "repo_border_24": {
+      "file": "art/repo_details_v17/page_24.png",
+      "provenance": {
+        "method": "builtin image_gen bounded integrated bank edit",
+        "job": "page_24_placed",
+        "output_sha256": "1270751edb1a9eb3bc1038b42ce04ff31ced37d7312a2c08ae84b137e934a302",
+        "prompts": "repo_detail_jobs.json",
+        "scope": "Decorative bank details only; no narrative scene generation"
+      }
+    },
+    "repo_border_25": {
+      "file": "art/repo_details_v17/page_25.png",
+      "provenance": {
+        "method": "builtin image_gen bounded integrated bank edit",
+        "job": "page_25_placed",
+        "output_sha256": "4af1c31529a02c99a99ea959b861cef2ff552486a836a502e4c1aa6c3fe85290",
+        "prompts": "repo_detail_jobs.json",
+        "scope": "Decorative bank details only; no narrative scene generation"
+      }
+    },
+    "repo_border_26": {
+      "file": "art/repo_details_v17/page_26.png",
+      "provenance": {
+        "method": "builtin image_gen bounded bank edit",
+        "job": "page_26_lower",
+        "output_sha256": "73e3f192a1292c466448ff37d580bad4c98eb882cfe9ac68f651b1573bc4005e",
+        "prompts": "repo_detail_jobs.json"
+      }
     }
   },
   "pages": [
@@ -2531,7 +2662,7 @@
       "text": "Scoop, lift, and out it came!\nRoshan gathered the floating rubbish.",
       "layout": "wide_cut",
       "border_assets": [],
-      "background_theme": "Empty collection basket on right bank receives rubbish; decorative yellow float removed. Main net remains the action.",
+      "background_theme": "Actual pool rubbish: torn star wrapper left; algae-covered dented can and discarded blue cap right. Replaces clean accessories and empty basket.",
       "caption": {
         "x": 32,
         "y": 316,
@@ -2548,16 +2679,30 @@
         211
       ],
       "border_placements": [],
-      "integrated_background": "rollout_border_10",
+      "integrated_background": "repo_border_10",
       "integrated_motifs": [
-        "empty_collection_basket"
+        "torn_star_wrapper",
+        "algae_dented_can",
+        "discarded_blue_cap"
       ],
       "integrated_prop_bounds": [
         [
-          0.7601078167115903,
-          0.8537735849056604,
-          0.09231805929919137,
-          0.10377358490566038
+          0.15902964959568733,
+          0.879245283018868,
+          0.08086253369272237,
+          0.08773584905660377
+        ],
+        [
+          0.7088948787061995,
+          0.8858490566037736,
+          0.08018867924528301,
+          0.0820754716981132
+        ],
+        [
+          0.8119946091644205,
+          0.9056603773584906,
+          0.06401617250673855,
+          0.07169811320754717
         ]
       ]
     },
@@ -2962,13 +3107,13 @@
       "page": 20,
       "mode": "C",
       "art": [
-        "roshan",
+        "roshan_inviting",
         "eagle_original_isolated"
       ],
       "text": "Now there was room to play together.\n“Come with me, Baby Eagle!”",
       "layout": "friends_pair",
       "border_assets": [],
-      "background_theme": "Three lavender bunnies share one tipped cup on the right bank; distinct low, leaning and upright poses, left bank quiet. Grounded and within lower zone. Small cup interaction still needs print-size/owner review.",
+      "background_theme": "Distinct existing waving Roshan pose invites Baby Eagle. Shared-cup bunny border retained.",
       "caption": {
         "x": 31,
         "y": 316,
@@ -3020,14 +3165,12 @@
       "page": 21,
       "mode": "C",
       "art": [
-        "cups",
-        "brushes",
-        "pink"
+        "messy_paints"
       ],
       "text": "The art room was messy, too.\nRoshan sorted the brushes and paints.",
-      "layout": "supplies",
+      "layout": "wide_cut",
       "border_assets": [],
-      "background_theme": "One lavender dust puff nudges paper toward a low stack on left; two ordered crayons on right. Rabbit identity error rejected and corrected.",
+      "background_theme": "Messy paint-jar silhouette in the foreground. Tipped pink bottle and paint-marked crumpled paper in the banks establish the untidy state before the clean-table payoff.",
       "caption": {
         "x": 32,
         "y": 316,
@@ -3038,40 +3181,40 @@
         "shadow": false
       },
       "foreground_zone": [
-        30,
-        53,
-        444,
-        211
+        52,
+        62,
+        400,
+        206
       ],
       "border_placements": [],
-      "integrated_background": "rollout_border_21",
+      "integrated_background": "repo_border_21",
       "integrated_motifs": [
-        "paper_sorting_puff",
-        "parallel_crayons"
+        "tipped_pink_bottle",
+        "paint_marked_crumpled_paper"
       ],
       "integrated_prop_bounds": [
         [
-          0.1179245283018868,
-          0.8537735849056604,
-          0.09501347708894879,
-          0.1018867924528302
+          0.12331536388140162,
+          0.8679245283018868,
+          0.11118598382749326,
+          0.08867924528301886
         ],
         [
-          0.1752021563342318,
-          0.9084905660377358,
-          0.07345013477088949,
-          0.0660377358490566
+          0.20754716981132076,
+          0.9009433962264151,
+          0.03571428571428571,
+          0.03773584905660377
         ],
         [
-          0.24528301886792453,
-          0.9150943396226415,
-          0.07749326145552561,
-          0.057547169811320756
+          0.7567385444743935,
+          0.870754716981132,
+          0.11185983827493262,
+          0.08018867924528301
         ],
         [
-          0.7580862533692723,
-          0.8783018867924528,
-          0.08018867924528301,
+          0.7884097035040432,
+          0.8952830188679245,
+          0.07412398921832884,
           0.06320754716981132
         ]
       ]
@@ -3161,7 +3304,7 @@
       "text": "One last door\nbegan to glow.\nBeyond it came\na rumble...",
       "layout": "wide_cut",
       "border_assets": [],
-      "background_theme": "One lavender bunny leans and looks upper-left toward the foreground door; no chest/costume. Left-bank contact follows slope; right bank quiet. Pose reads as attentive rather than an explicit ear-cupping gesture.",
+      "background_theme": "One worried lavender bunny in lower right looks toward the rumbling door. No unrelated attic prop.",
       "caption": {
         "x": 290,
         "y": 242,
@@ -3178,16 +3321,16 @@
         239
       ],
       "border_placements": [],
-      "integrated_background": "contrast_border_24",
+      "integrated_background": "repo_border_24",
       "integrated_motifs": [
-        "single_listening_bunny"
+        "nervous_glance"
       ],
       "integrated_prop_bounds": [
         [
-          0.22574123989218328,
-          0.8594339622641509,
-          0.09299191374663072,
-          0.1018867924528302
+          0.7702156334231806,
+          0.869811320754717,
+          0.08962264150943396,
+          0.07641509433962264
         ]
       ]
     },
@@ -3200,11 +3343,11 @@
       "text": "Grand Puff!\nA great, big\nbundle of dust!\nRoshan took\na brave breath.",
       "layout": "wide_cut",
       "border_assets": [],
-      "background_theme": "Unadorned blue banks deliberately give Grand Puff the full reveal beat. No added prop or marginal bunny.",
+      "background_theme": "Two differently posed scared bunnies huddle in lower right beneath Grand Puff. Latest owner direction supersedes the former empty-bank reveal.",
       "caption": {
-        "x": 37,
+        "x": 55,
         "y": 257,
-        "width": 204,
+        "width": 186,
         "size": 18,
         "align": "left",
         "color": "navy",
@@ -3217,27 +3360,42 @@
         230
       ],
       "border_placements": [],
-      "integrated_background": "landscape_base",
-      "integrated_motifs": [],
-      "integrated_prop_bounds": [],
-      "border_intent": "quiet_reveal"
+      "integrated_background": "repo_border_25",
+      "integrated_motifs": [
+        "frightened_huddle"
+      ],
+      "integrated_prop_bounds": [
+        [
+          0.7095687331536388,
+          0.8603773584905661,
+          0.07277628032345014,
+          0.08018867924528301
+        ],
+        [
+          0.7688679245283019,
+          0.8924528301886793,
+          0.05188679245283019,
+          0.04622641509433962
+        ]
+      ]
     },
     {
       "page": 26,
       "mode": "C",
       "art": [
-        "grand_puff_jump_sheet"
+        "grand_puff_jump_sheet",
+        "roshan_dodging"
       ],
-      "text": "Boing! Roshan\ndodged the bounce.\nThen she answered\nwith a little\nsparkle.",
-      "layout": "wide_cut",
+      "text": "Boing! Roshan dodged the bounce.\nThen she answered with a little sparkle.",
+      "layout": "dodge_pair",
       "border_assets": [],
-      "background_theme": "One compressed dust puff crouches low on right, one eye squinting. No duplicate sparkle or upright observer. Marginal reaction does not fill the main dodge-source gap.",
+      "background_theme": "Existing curled swimming Roshan pose and jumping Grand Puff form a separated action composite. Three lower-right bunnies duck, compress and recoil. Illustrative dodge cue, not a newly authored game frame.",
       "caption": {
-        "x": 292,
-        "y": 252,
-        "width": 174,
+        "x": 30,
+        "y": 317,
+        "width": 444,
         "size": 18,
-        "align": "left",
+        "align": "center",
         "color": "navy",
         "shadow": false
       },
@@ -3248,16 +3406,28 @@
         228
       ],
       "border_placements": [],
-      "integrated_background": "rollout_border_26",
+      "integrated_background": "repo_border_26",
       "integrated_motifs": [
-        "ducking_low"
+        "three_frightened_reactions"
       ],
       "integrated_prop_bounds": [
         [
-          0.7142857142857143,
-          0.879245283018868,
-          0.10444743935309973,
-          0.08867924528301886
+          0.6509433962264151,
+          0.9207547169811321,
+          0.06199460916442048,
+          0.057547169811320756
+        ],
+        [
+          0.7230458221024259,
+          0.8962264150943396,
+          0.06805929919137467,
+          0.07169811320754717
+        ],
+        [
+          0.7998652291105122,
+          0.8745283018867924,
+          0.06401617250673855,
+          0.07452830188679245
         ]
       ]
     },
@@ -3382,12 +3552,12 @@
       "mode": "C",
       "art": [
         "daddy",
-        "roshan"
+        "roshan_reflecting"
       ],
       "text": "“We helped each other,” said Roshan.\n“And found a friend hiding under all that dust!”",
       "layout": "pair",
       "border_assets": [],
-      "background_theme": "Two dust puffs attend to complementary puzzle pieces on left. One shared cooperation task; right bank quiet, extra pair/blocks removed.",
+      "background_theme": "Existing conversational Roshan gesture replaces neutral standing pose; Daddy and puzzle-sharing border retained.",
       "caption": {
         "x": 32,
         "y": 316,
@@ -3482,5 +3652,16 @@
     "Replaced common caption template with explicit page placements.",
     "Each reduced page has assigned contextual lower-mound props; no generic bubble-only defaults.",
     "Removed the second black-talon Eagle in the playroom recap. Art customization is a full-bleed hand/action detail, excluding the source frame’s noncanonical silver tiara."
-  ]
+  ],
+  "cover": {
+    "treatment": "Existing alpha cutout composite; not a new narrative scene",
+    "art": [
+      "roshan_cover",
+      "eagle_original_isolated",
+      "boss_cut",
+      "brush",
+      "sponge"
+    ],
+    "spoiler_policy": "Rainbow friend retained for the interior reveal"
+  }
 }

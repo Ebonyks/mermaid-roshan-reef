@@ -1,5 +1,20 @@
 # Border art direction — small performances in the margins
 
+## Current owner revision: repository details (v17)
+
+This section supersedes the older page10/21/24/25/26 and cover decisions below; those describe prior editorial passes. The current score is rubbish / messy art / nervous glance / huddle / recoil. Full-art rescue and finale scenes remain border-free. The frightened margin sequence uses 1, 2, then 3 bunnies on the lower right, with distinct compression, gaze and ear poses. It is an escalating secondary reaction, never a replacement for the main action.
+
+- Page 10: Actual pool rubbish: torn star wrapper left; algae-covered dented can and discarded blue cap right. Replaces clean accessories and empty basket.
+- Page 20: Distinct existing waving Roshan pose invites Baby Eagle. Shared-cup bunny border retained.
+- Page 21: Messy paint-jar silhouette in the foreground. Tipped pink bottle and paint-marked crumpled paper in the banks establish the untidy state before the clean-table payoff.
+- Page 24: One worried lavender bunny in lower right looks toward the rumbling door. No unrelated attic prop.
+- Page 25: Two differently posed scared bunnies huddle in lower right beneath Grand Puff. Latest owner direction supersedes the former empty-bank reveal.
+- Page 26: Existing curled swimming Roshan pose and jumping Grand Puff form a separated action composite. Three lower-right bunnies duck, compress and recoil. Illustrative dodge cue, not a newly authored game frame.
+- Page 31: Existing conversational Roshan gesture replaces neutral standing pose; Daddy and puzzle-sharing border retained.
+- Cover: existing dynamic Roshan, Baby Eagle, Grand Puff, brush and sponge form a new alpha-cutout composition. It promises friendship and cleanup; the rainbow newcomer is not revealed.
+
+Bounded new art is limited to bank integration, decorative reactions and a messy paint-prop state. Existing characters are not repainted. The reusable bank base and canonical narrative frames remain source authorities. Source hashes, generation prompts and rejected oversize trials are recorded in `repo_detail_evidence.json` and `repo_detail_jobs.json`. Geometry is checked separately from expressive readability and natural contact; owner/child/print acceptance remains open.
+
 Status: `SUPPORTING_CURRENT`; revised production brief, not accepted artwork. Owner direction 2026-09-20. [Binding design language](../DESIGN_LANGUAGE.md) governs. [Current rendered assignments](PAGE_PLAN.md) describe v13, not the proposal below.
 
 ## What the borders do

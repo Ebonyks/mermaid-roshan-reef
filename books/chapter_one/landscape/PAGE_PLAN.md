@@ -1,6 +1,6 @@
 # Landscape page assignments
 
-Status: `SUPPORTING_CURRENT`; v16 border-direction review rough.32 story pages plus covers. Main art and captions unchanged from v15.
+Status: `SUPPORTING_CURRENT`; v17 repository-detail rough.32 story pages plus covers. Full-art frames are retained; reduced art uses complete alpha silhouettes.
 
 | Page | Treatment | Main artwork | Border action / object state | Marginal bunnies |
 |---|---|---|---|---|
@@ -13,7 +13,7 @@ Status: `SUPPORTING_CURRENT`; v16 border-direction review rough.32 story pages p
 | 7 | C | bath_drained_local | Finishing the empty bath. LEFT bank: small yellow rubber duck with its visible dark eye from bottom-left reference cell, sitting level on a shallow bank shelf. RIGHT bank: rolled lavender towel from bottom-middle cell resting lengthwise along the slope, complete rounded end, contact shadow underneath. No folded cloths or soap dish. | 0 |
 | 8 | F | bath_safe | Full art; no stationery | 0 |
 | 9 | F | pool_dirty | Full art; no stationery | 0 |
-| 10 | C | net_cut | Empty collection basket on right bank receives rubbish; decorative yellow float removed. Main net remains the action. | 0 |
+| 10 | C | net_cut | Actual pool rubbish: torn star wrapper left; algae-covered dented can and discarded blue cap right. Replaces clean accessories and empty basket. | 0 |
 | 11 | F | waterfall | Full art; no stationery | 0 |
 | 12 | F | rainbowfall | Full art; no stationery | 0 |
 | 13 | F | seahorse | Full art; no stationery | 0 |
@@ -23,20 +23,20 @@ Status: `SUPPORTING_CURRENT`; v16 border-direction review rough.32 story pages p
 | 17 | F | pinned | Full art; no stationery | 0 |
 | 18 | F | loose | Full art; no stationery | 0 |
 | 19 | C | eagle_original_isolated | Two dust puffs move outward, clearing space after Eagle's rescue. Small rolling and sheepish retreat reactions; no toys or second rescue. | 2 |
-| 20 | C | roshan, eagle_original_isolated | Three lavender bunnies share one tipped cup on the right bank; distinct low, leaning and upright poses, left bank quiet. Grounded and within lower zone. Small cup interaction still needs print-size/owner review. | 3 |
-| 21 | C | cups, brushes, pink | One lavender dust puff nudges paper toward a low stack on left; two ordered crayons on right. Rabbit identity error rejected and corrected. | 1 |
+| 20 | C | roshan_inviting, eagle_original_isolated | Distinct existing waving Roshan pose invites Baby Eagle. Shared-cup bunny border retained. | 3 |
+| 21 | C | messy_paints | Messy paint-jar silhouette in the foreground. Tipped pink bottle and paint-marked crumpled paper in the banks establish the untidy state before the clean-table payoff. | 0 |
 | 22 | F | craft_table_action | Full art; no stationery | 0 |
 | 23 | F | paint | Full art; no stationery | 0 |
-| 24 | C | royal_door_isolated | One lavender bunny leans and looks upper-left toward the foreground door; no chest/costume. Left-bank contact follows slope; right bank quiet. Pose reads as attentive rather than an explicit ear-cupping gesture. | 1 |
-| 25 | C | boss_cut | Unadorned blue banks deliberately give Grand Puff the full reveal beat. No added prop or marginal bunny. | 0 |
-| 26 | C | grand_puff_jump_sheet | One compressed dust puff crouches low on right, one eye squinting. No duplicate sparkle or upright observer. Marginal reaction does not fill the main dodge-source gap. | 1 |
+| 24 | C | royal_door_isolated | One worried lavender bunny in lower right looks toward the rumbling door. No unrelated attic prop. | 1 |
+| 25 | C | boss_cut | Two differently posed scared bunnies huddle in lower right beneath Grand Puff. Latest owner direction supersedes the former empty-bank reveal. | 2 |
+| 26 | C | grand_puff_jump_sheet, roshan_dodging | Existing curled swimming Roshan pose and jumping Grand Puff form a separated action composite. Three lower-right bunnies duck, compress and recoil. Illustrative dodge cue, not a newly authored game frame. | 3 |
 | 27 | F | R09_open | Full art; no stationery | 0 |
 | 28 | F | R09_suds | Full art; no stationery | 0 |
 | 29 | F | R10_jump | Full art; no stationery | 0 |
 | 30 | F | R11_land | Full art; no stationery | 0 |
-| 31 | C | daddy, roshan | Two dust puffs attend to complementary puzzle pieces on left. One shared cooperation task; right bank quiet, extra pair/blocks removed. | 2 |
+| 31 | C | daddy, roshan_reflecting | Existing conversational Roshan gesture replaces neutral standing pose; Daddy and puzzle-sharing border retained. | 2 |
 | 32 | C | rainbow_cut | One patchwork ball on left invites the new friend to play. Rainbow arch removed so the foreground newcomer owns the rainbow. | 0 |
 
-Sources, prompts, manual visible bounds and limitations: `border_rollout_evidence.json`, `contrast_trial_evidence.json`, and retained `integrated_border_evidence.json`. Full-art pages have no border additions; reduced foregrounds remain genuine alpha silhouettes. Page22 uses existing full-art cleaning action. Page25 intentionally uses the unchanged blank base.
+Front cover: new composite of existing dynamic Roshan, Baby Eagle, Grand Puff and cleanup tools. Back cover remains the quiet tool refrain. Main reduced poses use measured atlas gutters; no rectangular scenic inserts.
 
-See [Border art direction](BORDER_ART_DIRECTION.md) for rationale and [whole-story audit](STORY_COMPREHENSION_AUDIT.md) for remaining action gaps. This is not owner or print acceptance.
+Page26 is an illustrative composition of existing poses, not an exact delivered gameplay action frame. Source gaps and final visual/child/print acceptance remain open. See `repo_detail_evidence.json`.

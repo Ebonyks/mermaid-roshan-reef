@@ -1,0 +1,94 @@
+{
+  "id": "picture-book-repo-details-20260920",
+  "baseline": "2b14b693220304d7441bf41f985acad3eff10733",
+  "scope": "Owner-requested repository litter, messy paint props, varied scared lower-right dust bunnies, distinct existing Roshan poses and composite cover; static source-only picture book.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book only; no runtime or cinematic delivery changes and no game finding closed.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/README.md",
+    "books/chapter_one/landscape/BORDER_ART_DIRECTION.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md",
+    "books/chapter_one/landscape/art/repo_details_v17/messy_paints.png",
+    "books/chapter_one/landscape/art/repo_details_v17/page_10.png",
+    "books/chapter_one/landscape/art/repo_details_v17/page_21.png",
+    "books/chapter_one/landscape/art/repo_details_v17/page_24.png",
+    "books/chapter_one/landscape/art/repo_details_v17/page_25.png",
+    "books/chapter_one/landscape/art/repo_details_v17/page_26.png",
+    "books/chapter_one/landscape/art/repo_details_v17/roshan_gestures.png",
+    "books/chapter_one/landscape/audit_book.py",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/repo_detail_evidence.json",
+    "books/chapter_one/landscape/repo_detail_jobs.json",
+    "books/chapter_one/landscape/stress_review.json",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Repository source inventory and image inspection",
+      "result": "PASS",
+      "evidence": "repo_detail_evidence.json records existing litter, tidy/messy prop candidates, Roshan gestures and bunny identity; originals preserved."
+    },
+    {
+      "command": "Visual review of all changed pages and five full-story contact sheets",
+      "result": "PASS",
+      "evidence": "Atlas clipping/neighbor bleed corrected; oversize decorative trials rejected; title safety inset and page25 dotted-border clearance corrected. Review rough, not final owner/child/print acceptance."
+    },
+    {
+      "command": "audit_book.py --proof v17_repo_story_details/complete --baseline v7_landscape/complete",
+      "result": "PASS",
+      "evidence": "34 pages,81 text lines,62 image operations; zero geometry/source issues."
+    },
+    {
+      "command": "Rendered source regression versus v16",
+      "result": "PASS",
+      "evidence": "Exactly eight changed pages: cover,10,20,21,24,25,26,31. Other26 pages byte-identical, including castle entry, Eagle rescue and full finale."
+    },
+    {
+      "command": "Portable source manifest validation and independent rerender",
+      "result": "PASS",
+      "evidence": "84 payload files hash-verified; all34 page JPEGs byte-identical. ZIP ac89e9cbd5aedaaca8cd9d44f4a8beb925fbf87ce4e14bd18d9267489b143701; delivery_verification.json."
+    },
+    {
+      "command": "Headless Edge review at1400/760",
+      "result": "PASS",
+      "evidence": "8 review cards and8 decoded images; zero broken images or horizontal overflow."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH ALL OK;579 inventory/ledger entries."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV ALL OK;base5920c673305989ee29d91876480ff445dba9fc8b; rerun against final impact file coverage before commit."
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS",
+      "evidence": "No whitespace errors."
+    },
+    {
+      "command": "Godot runtime/probe gates",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Non-runtime static-book assets and authoring/docs only; no gameplay scripts, runtime art or project settings changed."
+    }
+  ],
+  "acceptance_gaps": "Review rough. Owner/child/print acceptance open. Roshan pose cells and some storyboard frames need higher native print resolution. Exact dodge/sparkle contact, sink wiping, authored-picture emphasis and existing extraction/ceiling findings remain documented."
+}

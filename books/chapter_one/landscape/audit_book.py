@@ -48,6 +48,15 @@ def main():
     im=Image.open(ROOT/b['sources'][key]['file'])
     if im.mode!='RGBA' or im.getextrema()[3][0]!=0:issues.append(f'Page {n}: non-transparent reduced asset {key}.')
   if page['mode']=='F' and 'focal_exclusions' not in page:issues.append(f'Page {n}: missing manual focal review field.')
+ for key in {layer['source_key'] for layer in p['layers']}:
+  source=b['sources'][key]
+  if 'alpha_box' in source:
+   im=Image.open(ROOT/source['file']);x0,y0,x1,y1=source['alpha_box']
+   if not (0<=x0<x1<=im.width and 0<=y0<y1<=im.height):issues.append(f'Invalid complete-pose atlas bounds: {key}.')
+   if im.mode!='RGBA':issues.append(f'Atlas pose is not alpha artwork: {key}.')
+ if 'roshan' in {layer['source_key'] for layer in p['layers']}:issues.append('Repeated neutral Roshan cutout has returned.')
+ cover_keys={q['source_key'] for q in p['layers'] if q['page']=='front_cover'}
+ if not set(b.get('cover',{}).get('art',[]))<=cover_keys:issues.append('Composite cover is missing a declared source.')
  for layer in p['layers']:
   src=ROOT/b['sources'][layer['source_key']]['file']
   if hashlib.sha256(src.read_bytes()).hexdigest()!=layer['sha256']:issues.append(f"Source hash mismatch: {layer['source_key']}")

@@ -43,7 +43,7 @@ def local_patch(p):
 
 def cut(k,x,y,w,h):
  im=Image.open(path(k));assert im.mode=='RGBA' and im.getextrema()[3][0]==0,k
- box=(512,0,1024,512) if k=='grand_puff_jump_sheet' else im.getchannel('A').getbbox()
+ box=B['sources'][k].get('alpha_box') or ((512,0,1024,512) if k=='grand_puff_jump_sheet' else im.getchannel('A').getbbox())
  l,t,r,b=box;s=min(w/(r-l),h/(b-t));dw=(r-l)*s;dh=(b-t)*s;region(k,box,(x+(w-dw)/2,y+(h-dh)/2,dw,dh));return (x+(w-dw)/2,y+(h-dh)/2,dw,dh)
 def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False):
  lines=[]
@@ -79,7 +79,15 @@ def extension(k):
  ROLE='empty_ceiling_extension';region(ext,(0,0,ew,B['sources'][ext].get('ceiling_end',100)),(0,middle,W,top))
  ROLE='original_complete_scene';region(k,(0,0,iw,ih),(0,0,W,middle));ROLE='story_art'
 # Covers remain part of the rough, outside the 32 numbered story pages.
-full('arrival');text('Mermaid Roshan',20,310,464,30,True,True);text('and the Hidden Rainbow',20,270,464,23,True,True);text('A Pearl Castle friendship story',20,28,464,13,True,True);c.showPage()
+background({})
+text('Mermaid Roshan',24,306,456,34,True)
+text('and the Hidden Rainbow',24,270,456,25,True)
+cut('boss_cut',286,58,182,192)
+cut('roshan_cover',43,58,187,195)
+cut('eagle_original_isolated',220,58,77,127)
+cut('brush',226,189,45,51);cut('sponge',262,198,32,30)
+text('A Pearl Castle friendship story',24,28,456,13,True)
+c.showPage()
 for p in B['pages']:
  PAGE=p['page'];a=p['art'];layout=p['layout']
  if p['mode']=='F':
@@ -88,7 +96,9 @@ for p in B['pages']:
   else:full(a[0],0 if layout=='full_left' else .5)
  else:
   background(p)
-  if layout=='pair':
+  if layout=='dodge_pair':
+   cut(a[0],266,64,189,203);cut(a[1],48,75,189,179)
+  elif layout=='pair':
    cut(a[0],65,51,175,219);cut(a[1],255,55,176,206)
   elif layout=='friends_pair':
    cut(a[0],70,55,198,216);cut(a[1],310,74,124,172)
