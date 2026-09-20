@@ -39,4 +39,4 @@ Status: `SUPPORTING_CURRENT`; replaces the 40-page portrait pagination. 32 story
 
 Cutout pages remove all source room, floor and scenery. Whole subject alpha contours are retained. Foreground placements use the named layout in `book.json`; no foreground prop repeats in the border. Full-art pages have no blue stationery beneath them.
 
-The four finale pages preserve the complete original scene pixels at full page width. Only empty ceiling/floor strips from extension candidates are used beyond the original frame; regenerated candidate centres are discarded. The window extension candidate is unused.
+The four finale pages preserve the complete original scene pixels at full page width. Only an empty ceiling strip from each extension candidate is used above the original frame; no floor strip is drawn; regenerated candidate centres are discarded. The window extension candidate is unused.

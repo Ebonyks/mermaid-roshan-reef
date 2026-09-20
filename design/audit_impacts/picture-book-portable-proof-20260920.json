@@ -1,0 +1,52 @@
+{
+  "id": "picture-book-portable-proof-20260920",
+  "scope": "Remove mismatched finale floor extension; record all actually drawn image layers and font provenance; deliver a relocatable editable source archive verified by independent rebuild. No new art or game changes.",
+  "baseline": "5f849ca0c9990275edd14abc205785dde3349b4b",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book rough refinement only; no game finding closure.",
+  "files": [
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/README.md",
+    "books/chapter_one/landscape/delivery_verification.json"
+  ],
+  "validation": [
+    {
+      "command": "Independent extracted-source rebuild and page comparison",
+      "result": "PASS",
+      "evidence": "53 payload hashes verified; all 34 JPEG page renders byte-identical. ZIP SHA256 89b7d94064d7b54a2bf1ea4a28a51fe885b13144af6acb418273a0856a8b9107. Exact PDF and proof evidence in books/chapter_one/landscape/delivery_verification.json."
+    },
+    {
+      "command": "PDF and source-layer assertions",
+      "result": "PASS",
+      "evidence": "34 pages at 504x360 points; all finale originals used whole, bottom extension absent, top strips bounded; no foreground/background source-key duplication."
+    },
+    {
+      "command": "Visual review of changed pages 27-30",
+      "result": "PASS",
+      "evidence": "Removed discontinuous floor strips; all characters retained. Ceiling joins still require refinement; no final visual acceptance claimed."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "576 inventory / 576 ledger; ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "ALL OK against 5920c673305989ee29d91876480ff445dba9fc8b."
+    }
+  ],
+  "acceptance_gaps": "Owner visual acceptance, print resolution, ceiling joins, extraction fidelity and missing waterfall action frame remain open. Resolve search stays stopped."
+}

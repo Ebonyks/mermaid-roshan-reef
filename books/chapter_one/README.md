@@ -15,3 +15,5 @@ Run `python books/chapter_one/landscape/render_book.py --output output/pdf/lands
 The waterfall action is narrated using existing obstruction art followed by a distinct rainbow frame; a true clearing-action illustration remains absent. Some original storyboard sources have low print resolution. This is a review rough, not a print master or cinematic delivery acceptance.
 
 These assets are non-runtime; `.gdignore` prevents import. Work stays on the dedicated book branch. Do not restart the stopped Resolve handoff search.
+
+Create a portable editable ZIP after rendering with `python books/chapter_one/landscape/package_book.py --proof output/pdf/landscape --output output/pdf/Mermaid_Roshan_EDITABLE_SOURCE.zip`. The archive includes only used image assets, the font/license and all required build inputs. `page_provenance.json` records actual image-layer use, including both covers and blue backgrounds.

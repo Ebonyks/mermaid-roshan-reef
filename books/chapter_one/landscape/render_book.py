@@ -9,18 +9,24 @@ from reportlab.lib.utils import ImageReader
 import pypdfium2 as pdfium
 ROOT=Path(__file__).resolve().parent
 B=json.loads((ROOT/'book.json').read_text(encoding='utf8'))
-ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,default=ROOT.parents[2]/'output/pdf/landscape');args=ap.parse_args();O=args.output;O.mkdir(parents=True,exist_ok=True)
+ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,default=Path.cwd()/'output/pdf/landscape');args=ap.parse_args();O=args.output;O.mkdir(parents=True,exist_ok=True)
 pdfmetrics.registerFont(TTFont('Sniglet',str(ROOT/B['font'])))
 W,H=504,360
 PDF=O/'Mermaid_Roshan_LANDSCAPE_ROUGH.pdf';c=canvas.Canvas(str(PDF),pagesize=(W,H));c.setTitle(B['title']);c.setAuthor('Mermaid Roshan picture-book project')
 def path(k):return ROOT/B['sources'][k]['file']
+PAGE='front_cover'
+LAYERS=[]
+ROLE='story_art'
+def record(k,source_box,target,operation):
+ im=Image.open(path(k));LAYERS.append({'page':PAGE,'source_key':k,'file':B['sources'][k]['file'],'sha256':hashlib.sha256(path(k).read_bytes()).hexdigest(),'native_size':list(im.size),'source_box_pixels':list(source_box),'target_box_points':list(target),'operation':operation,'role':ROLE,'alpha':im.mode=='RGBA'})
+
 def cliprect(x,y,w,h):
  p=c.beginPath();p.rect(x,y,w,h);c.clipPath(p,stroke=0,fill=0)
 def region(k,box,target):
  im=Image.open(path(k));iw,ih=im.size;l,t,r,b=box;x,y,w,h=target
- c.saveState();cliprect(x,y,w,h);c.drawImage(str(path(k)),x-l*w/(r-l),y-(ih-b)*h/(b-t),width=iw*w/(r-l),height=ih*h/(b-t),mask='auto');c.restoreState()
+ record(k,box,target,'source_region');c.saveState();cliprect(x,y,w,h);c.drawImage(str(path(k)),x-l*w/(r-l),y-(ih-b)*h/(b-t),width=iw*w/(r-l),height=ih*h/(b-t),mask='auto');c.restoreState()
 def full(k):
- iw,ih=Image.open(path(k)).size;s=max(W/iw,H/ih);c.saveState();cliprect(0,0,W,H);c.drawImage(str(path(k)),(W-iw*s)/2,(H-ih*s)/2,width=iw*s,height=ih*s);c.restoreState()
+ iw,ih=Image.open(path(k)).size;s=max(W/iw,H/ih);record(k,(0,0,iw,ih),((W-iw*s)/2,(H-ih*s)/2,iw*s,ih*s),'page_trim');c.saveState();cliprect(0,0,W,H);c.drawImage(str(path(k)),(W-iw*s)/2,(H-ih*s)/2,width=iw*s,height=ih*s);c.restoreState()
 def cut(k,x,y,w,h):
  im=Image.open(path(k));assert im.mode=='RGBA' and im.getextrema()[3][0]==0,k
  box=(512,0,1024,512) if k=='grand_puff_jump_sheet' else im.getchannel('A').getbbox()
@@ -45,18 +51,24 @@ def text(s,x,y,width,size=16,center=False,halo=False):
  return y
 base='landscape_base'
 def background(p):
- full(base)
+ global ROLE
+ ROLE='stationery_base';full(base)
  for i,k in enumerate(p.get('border_assets',[])):
+  ROLE='mound_decoration'
   x=53 if i%2==0 else 400;y=10;w=48;h=38
   assert w<=W*.12 and h<=H*.12 and y+h<=H*.15
   c.saveState();c.setFillColorRGB(.25,.4,.6);c.setFillAlpha(.12);c.ellipse(x+4,y-1,x+w-4,y+5,fill=1,stroke=0);c.restoreState();ax,ay,aw,ah=cut(k,x,y,w,h)
-  c.saveState();cliprect(ax,ay,aw,ah*.1);full(base);c.restoreState()
+  ROLE='mound_occlusion';c.saveState();cliprect(ax,ay,aw,ah*.1);full(base);LAYERS[-1]['clip_points']=[ax,ay,aw,ah*.1];c.restoreState()
+ ROLE='story_art'
 def extension(k):
- ext=k+'_wide';iw,ih=Image.open(path(k)).size;middle=ih/iw*W;bottom=19;top=H-middle-bottom;ew,eh=Image.open(path(ext)).size
- region(ext,(0,0,ew,100),(0,H-top,W,top));region(ext,(0,eh-60,ew,eh),(0,0,W,bottom));c.drawImage(str(path(k)),0,bottom,width=W,height=middle)
+ global ROLE
+ ext=k+'_wide';iw,ih=Image.open(path(k)).size;middle=ih/iw*W;top=H-middle;ew,eh=Image.open(path(ext)).size
+ ROLE='empty_ceiling_extension';region(ext,(0,0,ew,100),(0,middle,W,top))
+ ROLE='original_complete_scene';region(k,(0,0,iw,ih),(0,0,W,middle));ROLE='story_art'
 # Covers remain part of the rough, outside the 32 numbered story pages.
 full('arrival');text('Mermaid Roshan',20,324,464,30,True,True);text('and the Hidden Rainbow',20,286,464,23,True,True);text('A Pearl Castle friendship story',20,28,464,13,True,True);c.showPage()
 for p in B['pages']:
+ PAGE=p['page']
  a=p['art'];layout=p['layout'];s=p['text']
  if p['mode']=='F':
   extension(a[0]) if layout=='extension' else full(a[0])
@@ -74,7 +86,10 @@ for p in B['pages']:
   elif layout=='left_art':cut(a[0],25,49,265,258);text(s,303,246,174,17)
   else:cut(a[0],232,45,248,265);text(s,32,254,195,17)
  c.showPage()
+PAGE='back_cover'
 background({});text('One little thing.\nOne helping hand.\nOne very big adventure.',45,268,414,23,True);cut('brush',92,64,135,114);cut('sponge',299,70,99,91);text('Landscape review edition • Chapter One',25,25,454,10,True);c.showPage();c.save()
+font_path=ROOT/B['font']
+(O/'page_provenance.json').write_text(json.dumps({'page_size_points':[W,H],'coordinate_system':'source pixels: top-left x,y; PDF target points: bottom-left x,y,width,height; page-trim layers clipped to page','font':{'file':B['font'],'sha256':hashlib.sha256(font_path.read_bytes()).hexdigest()},'layers':LAYERS,'note':'Actual draw operations, including covers and background occlusion redraws. This proves source use, not visual acceptance.'},indent=2),encoding='utf8')
 doc=pdfium.PdfDocument(str(PDF));thumbs=[]
 for i,page in enumerate(doc):
  im=page.render(scale=1.65).to_pil().convert('RGB');im.save(O/f'page_{i:02}.jpg',quality=91);im.thumbnail((336,240));thumbs.append(im.copy())
