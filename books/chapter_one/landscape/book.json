@@ -2327,6 +2327,20 @@
         "output_sha256": "73e3f192a1292c466448ff37d580bad4c98eb882cfe9ac68f651b1573bc4005e",
         "prompts": "repo_detail_jobs.json"
       }
+    },
+    "sink_complete": {
+      "file": "art/action_clarity_v18/sink_sheet.png",
+      "alpha_box": [
+        18,
+        45,
+        239,
+        250
+      ],
+      "provenance": {
+        "source": "assets/flats/castle/interactions_v2/bubble_bath_sink_sheet.png",
+        "source_sha256": "843395316d3285e6f771f7ed0a4e1d818f1f2814854a8a883ff6e606688d2574",
+        "modifications": "No raster edit. Complete first sink silhouette selected; existing sponge composed on its rim in book layout. Not a new game action frame."
+      }
     }
   },
   "pages": [
@@ -2509,12 +2523,13 @@
       "page": 6,
       "mode": "C",
       "art": [
+        "sink_complete",
         "sponge"
       ],
       "text": "Round and round\nwent the sponge.\nRoshan wiped\nthe sink clean.",
-      "layout": "wide_cut",
+      "layout": "sink_and_sponge",
       "border_assets": [],
-      "background_theme": "Shell soap dish and comb grouped on right bank; left bank quiet. Accessories anticipate sink cleanup without a second sponge.",
+      "background_theme": "Existing sink and sponge identify the surface being cleaned. Soap dish/comb bank retained; hand contact is still not illustrated.",
       "caption": {
         "x": 278,
         "y": 250,
@@ -3260,15 +3275,15 @@
       "art": [
         "paint"
       ],
-      "text": "Her very own\npicture!",
+      "text": "A splash of colour.\nHer very own choice!",
       "layout": "right_top",
       "border_assets": [],
       "background_theme": "full scene",
       "caption": {
-        "x": 305,
+        "x": 302,
         "y": 316,
-        "width": 165,
-        "size": 20,
+        "width": 173,
+        "size": 18,
         "align": "left",
         "color": "white",
         "shadow": true

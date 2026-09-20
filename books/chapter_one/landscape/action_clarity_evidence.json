@@ -1,0 +1,82 @@
+{
+  "edition": "v18_action_clarity",
+  "baseline_commit": "745c81e875b0387cd9552f2cad0b3bb846e29cbe",
+  "previous_goal_turn": "PROGRESS: v17 was committed/pushed with verified PDF and editable source.",
+  "inventory": [
+    {
+      "path": "assets_src/cinematics/grok_builder_2026-09-14/boards/SHOT-BATH-SINK.jpg",
+      "sha256": "4429363b3a3445809469b1529a9f79e7eb7d69985726aadabd509c6dcfe31428",
+      "decision": "Planning board with prose and repeated clean-room plates, not sink-contact action."
+    },
+    {
+      "path": "assets_src/cinematics/grok_builder_2026-09-14/boards/SHOT-CRAFT-CUSTOMIZE.jpg",
+      "sha256": "d30ef7b4dbf6d488f3425ce482223c96430644b46906a0768b03aa181e78d194",
+      "decision": "Planning board with proposed colour-choice beat, not a finished-picture frame."
+    },
+    {
+      "path": "assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/03_cleanup_storyboard_reference.png",
+      "sha256": "6417736ec0c54971210fe2399eae018797aeccdd95802ba74433b75c90367451",
+      "decision": "Bath restoration reference; no Roshan hand/sink contact shown."
+    },
+    {
+      "path": "assets_src/cinematics/d1_c10_art_room_restored_visual_v1/storyboards/SCENE_SHOT_BOARD.png",
+      "sha256": "cef9b8169f318ed35f19f966eae844e0b42ab1691e4f29ccb4ec4c84380dcb15",
+      "decision": "Final table-cleaning source plus runtime HUD references; no completed authored picture."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_bubble_bath_item_sink.png",
+      "sha256": "13ea75728ad4243822978d2e580e8d67606d8ac8f28cd950d2b2829a43c25988",
+      "decision": "Rejected small opaque room crop, not an acceptable reduced silhouette."
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/bubble_bath_sink_sheet.png",
+      "sha256": "843395316d3285e6f771f7ed0a4e1d818f1f2814854a8a883ff6e606688d2574",
+      "decision": "Selected complete existing first sink alpha silhouette; source unchanged."
+    }
+  ],
+  "changes": {
+    "6": "Existing sink alpha silhouette plus original sponge placed at bowl rim. Identifies target surface; does not assert an exact gameplay action frame or visible hand contact.",
+    "23": "Caption now names visible splash/colour choice, removing unsupported claim of a completed picture. Existing cropped full-art source and canonical crown exclusion unchanged."
+  },
+  "generation": "None; source selection and page composition only.",
+  "acceptance": "Review rough; source resolution, manual contact/identity, child comprehension and owner acceptance remain open.",
+  "changed_pages": [
+    6,
+    23
+  ],
+  "unchanged_byte_identical_pages": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33
+  ],
+  "visual_review": "Inspected full-size rendered pages6/23: complete sink silhouette, sponge at rim, no text collision; caption identifies visible paint choice. Sink/pose source resolution remains rough. Other32 pages match v17 byte-for-byte."
+}

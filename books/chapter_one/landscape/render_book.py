@@ -96,7 +96,9 @@ for p in B['pages']:
   else:full(a[0],0 if layout=='full_left' else .5)
  else:
   background(p)
-  if layout=='dodge_pair':
+  if layout=='sink_and_sponge':
+   cut(a[0],42,73,215,188);cut(a[1],183,188,43,42)
+  elif layout=='dodge_pair':
    cut(a[0],266,64,189,203);cut(a[1],48,75,189,179)
   elif layout=='pair':
    cut(a[0],65,51,175,219);cut(a[1],255,55,176,206)

@@ -1,6 +1,6 @@
 # Landscape page assignments
 
-Status: `SUPPORTING_CURRENT`; v17 repository-detail rough.32 story pages plus covers. Full-art frames are retained; reduced art uses complete alpha silhouettes.
+Status: `SUPPORTING_CURRENT`; v18 action-clarity rough.32 story pages plus covers. Full-art frames are retained; reduced art uses complete alpha silhouettes.
 
 | Page | Treatment | Main artwork | Border action / object state | Marginal bunnies |
 |---|---|---|---|---|
@@ -9,7 +9,7 @@ Status: `SUPPORTING_CURRENT`; v17 repository-detail rough.32 story pages plus co
 | 3 | F | dirty_hall_entry | Full art; no stationery | 0 |
 | 4 | C | brush, sponge | One dust puff peeks around the pail on the left; folded cloth alone on the right. Curious anticipation, no duplicated foreground tools. | 1 |
 | 5 | F | bath_dirty | Full art; no stationery | 0 |
-| 6 | C | sponge | Shell soap dish and comb grouped on right bank; left bank quiet. Accessories anticipate sink cleanup without a second sponge. | 0 |
+| 6 | C | sink_complete, sponge | Existing sink identifies cleaning target; original sponge rests at rim. Soap dish/comb border retained. | 0 |
 | 7 | C | bath_drained_local | Finishing the empty bath. LEFT bank: small yellow rubber duck with its visible dark eye from bottom-left reference cell, sitting level on a shallow bank shelf. RIGHT bank: rolled lavender towel from bottom-middle cell resting lengthwise along the slope, complete rounded end, contact shadow underneath. No folded cloths or soap dish. | 0 |
 | 8 | F | bath_safe | Full art; no stationery | 0 |
 | 9 | F | pool_dirty | Full art; no stationery | 0 |
@@ -26,7 +26,7 @@ Status: `SUPPORTING_CURRENT`; v17 repository-detail rough.32 story pages plus co
 | 20 | C | roshan_inviting, eagle_original_isolated | Distinct existing waving Roshan pose invites Baby Eagle. Shared-cup bunny border retained. | 3 |
 | 21 | C | messy_paints | Messy paint-jar silhouette in the foreground. Tipped pink bottle and paint-marked crumpled paper in the banks establish the untidy state before the clean-table payoff. | 0 |
 | 22 | F | craft_table_action | Full art; no stationery | 0 |
-| 23 | F | paint | Full art; no stationery | 0 |
+| 23 | F | paint | Full art; caption now names splash and personal colour choice, not a completed picture. | 0 |
 | 24 | C | royal_door_isolated | One worried lavender bunny in lower right looks toward the rumbling door. No unrelated attic prop. | 1 |
 | 25 | C | boss_cut | Two differently posed scared bunnies huddle in lower right beneath Grand Puff. Latest owner direction supersedes the former empty-bank reveal. | 2 |
 | 26 | C | grand_puff_jump_sheet, roshan_dodging | Existing curled swimming Roshan pose and jumping Grand Puff form a separated action composite. Three lower-right bunnies duck, compress and recoil. Illustrative dodge cue, not a newly authored game frame. | 3 |

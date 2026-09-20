@@ -24,4 +24,6 @@ The prior v16 border-performance rough implemented the [reviewed art direction](
 
 After saving the direction to the branch, the [whole-story comprehension cycle](landscape/STORY_COMPREHENSION_AUDIT.md) reviewed all 32 pages. Its verdict is REVISE, with foreground/action gaps prioritized before further border polish.
 
-Current edition: **v17 repository story details**. Rubbish and messy-art states now match the cleanup beats; lower-right bunny reactions escalate across pages24–26; Roshan uses distinct existing poses; the cover is a new composition of existing cutouts. The portable source and PDF are rebuilt from the same current manifest. See landscape/repo_detail_evidence.json.
+Previous edition: **v17 repository story details**. Rubbish and messy-art states now match the cleanup beats; lower-right bunny reactions escalate across pages24–26; Roshan uses distinct existing poses; the cover is a new composition of existing cutouts. The portable source and PDF are rebuilt from the same current manifest. See landscape/repo_detail_evidence.json.
+
+Current edition: **v18 action clarity**. Page6 shows the existing sink with the sponge; page23 names the visible colour choice. Other32 rendered pages retain v17. See landscape/action_clarity_evidence.json.
