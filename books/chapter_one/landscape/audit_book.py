@@ -33,9 +33,11 @@ def main():
    if not page.get('integrated_background') and not page['border_assets']:issues.append(f'Page {n}: no contextual background assignment.')
    if page.get('integrated_background'):
     if page['border_assets'] or page['border_placements']:issues.append(f'Page {n}: legacy pasted props still enabled.')
-    if not page.get('integrated_motifs'):issues.append(f'Page {n}: missing contextual motifs.')
+    quiet=page.get('border_intent')=='quiet_reveal'
+    if quiet and (n!=25 or page['integrated_background']!='landscape_base' or page.get('integrated_motifs') or page.get('integrated_prop_bounds')):issues.append(f'Page {n}: quiet reveal must use unadorned base with no decorative motifs/bounds.')
+    if not quiet and not page.get('integrated_motifs'):issues.append(f'Page {n}: missing contextual motifs.')
     if set(page['art'])&set(page.get('integrated_motifs',[])):issues.append(f'Page {n}: foreground prop repeated in integrated border.')
-    if not page.get('integrated_prop_bounds'):issues.append(f'Page {n}: missing inspected visible prop bounds.')
+    if not quiet and not page.get('integrated_prop_bounds'):issues.append(f'Page {n}: missing inspected visible prop bounds.')
     actual=[q for q in p['layers'] if q['page']==n and q['role']=='integrated_stationery']
     if len(actual)!=1 or actual[0]['source_key']!=page['integrated_background']:issues.append(f'Page {n}: integrated background source mismatch.')
     for box in page.get('integrated_prop_bounds',[]):

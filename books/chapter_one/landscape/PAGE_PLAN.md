@@ -1,46 +1,42 @@
 # Landscape page assignments
 
-Status: `SUPPORTING_CURRENT`; integrated-border review rough. 32 story pages plus covers; owner acceptance remains open.
+Status: `SUPPORTING_CURRENT`; v16 border-direction review rough.32 story pages plus covers. Main art and captions unchanged from v15.
 
-| Page | Treatment | Foreground/full art | Left bank detail | Right bank detail | Caption |
-|---|---|---|---|---|---|
-| 1 | F | window | None | None | 18 pt; white; x=278, baseline=76, width=194 |
-| 2 | F | arrival | None | None | 18 pt; navy; x=28, baseline=318, width=365 |
-| 3 | F | dirty_hall_entry | None | None | 18 pt; white; x=205, baseline=318, width=270 |
-| 4 | C | brush, sponge | cleaning_pail_cloth | folded_cleaning_cloth | 18 pt; navy; x=32, baseline=316, width=440 |
-| 5 | F | bath_dirty | None | None | 18 pt; white; x=32, baseline=318, width=440 |
-| 6 | C | sponge | soap_dish | shell_comb | 18 pt; navy; x=278, baseline=250, width=184 |
-| 7 | C | bath_drained_local | rubber_duck | rolled_towel | 18 pt; navy; x=32, baseline=316, width=440 |
-| 8 | F | bath_safe | None | None | 18 pt; white; x=29, baseline=53, width=448 |
-| 9 | F | pool_dirty | None | None | 18 pt; white; x=54, baseline=98, width=396 |
-| 10 | C | net_cut | pool_float | cleanup_basket | 18 pt; navy; x=32, baseline=316, width=440 |
-| 11 | F | waterfall + bounded lane inpaint | None | None | 18 pt; white; x=157, baseline=66, width=316 |
-| 12 | F | rainbowfall | None | None | 20 pt; white; x=283, baseline=300, width=188 |
-| 13 | F | seahorse | None | None | 18 pt; white; x=30, baseline=58, width=444 |
-| 14 | F | pool_clean | None | None | 19 pt; white; x=36, baseline=137, width=432 |
-| 15 | F | rumi_hug | None | None | 18 pt; white; x=30, baseline=37, width=444 |
-| 16 | F | stuffie_entry | None | None | 18 pt; white; x=35, baseline=34, width=434 |
-| 17 | F | pinned | None | None | 18 pt; navy; x=33, baseline=318, width=438 |
-| 18 | F | loose | None | None | 18 pt; navy; x=33, baseline=318, width=438 |
-| 19 | C | eagle_original_isolated | toy_blocks | star_cushion | 18 pt; navy; x=42, baseline=247, width=188 |
-| 20 | C | roshan, eagle_original_isolated | native bank only | three bunnies with one cup | 18 pt; navy; x=31, baseline=316, width=440 |
-| 21 | C | cups, brushes, pink | ribbon_spools | crayons | 18 pt; navy; x=32, baseline=316, width=440 |
-| 22 | F | craft_table_action | None | None | 18 pt; navy; x=140, baseline=54, width=334 |
-| 23 | F | paint | None | None | 20 pt; white; x=305, baseline=316, width=165 |
-| 24 | C | royal_door_isolated | one listening bunny | native bank only | 18 pt; navy; x=290, baseline=242, width=172 |
-| 25 | C | boss_cut | attic_storage_jar | shell_lid_canister | 18 pt; navy; x=37, baseline=257, width=204 |
-| 26 | C | grand_puff_jump_sheet | left_bank_glints | right_bank_glints | 18 pt; navy; x=292, baseline=252, width=174 |
-| 27 | F | R09_open | None | None | 18 pt; white; x=32, baseline=318, width=440 |
-| 28 | F | R09_suds | None | None | 18 pt; white; x=32, baseline=318, width=440 |
-| 29 | F | R10_jump | None | None | 18 pt; white; x=32, baseline=318, width=440 |
-| 30 | F | R11_land | None | None | 18 pt; white; x=32, baseline=318, width=440 |
-| 31 | C | daddy, roshan | puzzle_pair | wooden_heart | 18 pt; navy; x=32, baseline=316, width=440 |
-| 32 | C | rainbow_cut | rainbow_arch | patchwork_ball | 18 pt; navy; x=38, baseline=245, width=196 |
+| Page | Treatment | Main artwork | Border action / object state | Marginal bunnies |
+|---|---|---|---|---|
+| 1 | F | window | Full art; no stationery | 0 |
+| 2 | F | arrival | Full art; no stationery | 0 |
+| 3 | F | dirty_hall_entry | Full art; no stationery | 0 |
+| 4 | C | brush, sponge | One dust puff peeks around the pail on the left; folded cloth alone on the right. Curious anticipation, no duplicated foreground tools. | 1 |
+| 5 | F | bath_dirty | Full art; no stationery | 0 |
+| 6 | C | sponge | Shell soap dish and comb grouped on right bank; left bank quiet. Accessories anticipate sink cleanup without a second sponge. | 0 |
+| 7 | C | bath_drained_local | Finishing the empty bath. LEFT bank: small yellow rubber duck with its visible dark eye from bottom-left reference cell, sitting level on a shallow bank shelf. RIGHT bank: rolled lavender towel from bottom-middle cell resting lengthwise along the slope, complete rounded end, contact shadow underneath. No folded cloths or soap dish. | 0 |
+| 8 | F | bath_safe | Full art; no stationery | 0 |
+| 9 | F | pool_dirty | Full art; no stationery | 0 |
+| 10 | C | net_cut | Empty collection basket on right bank receives rubbish; decorative yellow float removed. Main net remains the action. | 0 |
+| 11 | F | waterfall | Full art; no stationery | 0 |
+| 12 | F | rainbowfall | Full art; no stationery | 0 |
+| 13 | F | seahorse | Full art; no stationery | 0 |
+| 14 | F | pool_clean | Full art; no stationery | 0 |
+| 15 | F | rumi_hug | Full art; no stationery | 0 |
+| 16 | F | stuffie_entry | Full art; no stationery | 0 |
+| 17 | F | pinned | Full art; no stationery | 0 |
+| 18 | F | loose | Full art; no stationery | 0 |
+| 19 | C | eagle_original_isolated | Two dust puffs move outward, clearing space after Eagle's rescue. Small rolling and sheepish retreat reactions; no toys or second rescue. | 2 |
+| 20 | C | roshan, eagle_original_isolated | Three lavender bunnies share one tipped cup on the right bank; distinct low, leaning and upright poses, left bank quiet. Grounded and within lower zone. Small cup interaction still needs print-size/owner review. | 3 |
+| 21 | C | cups, brushes, pink | One lavender dust puff nudges paper toward a low stack on left; two ordered crayons on right. Rabbit identity error rejected and corrected. | 1 |
+| 22 | F | craft_table_action | Full art; no stationery | 0 |
+| 23 | F | paint | Full art; no stationery | 0 |
+| 24 | C | royal_door_isolated | One lavender bunny leans and looks upper-left toward the foreground door; no chest/costume. Left-bank contact follows slope; right bank quiet. Pose reads as attentive rather than an explicit ear-cupping gesture. | 1 |
+| 25 | C | boss_cut | Unadorned blue banks deliberately give Grand Puff the full reveal beat. No added prop or marginal bunny. | 0 |
+| 26 | C | grand_puff_jump_sheet | One compressed dust puff crouches low on right, one eye squinting. No duplicate sparkle or upright observer. Marginal reaction does not fill the main dodge-source gap. | 1 |
+| 27 | F | R09_open | Full art; no stationery | 0 |
+| 28 | F | R09_suds | Full art; no stationery | 0 |
+| 29 | F | R10_jump | Full art; no stationery | 0 |
+| 30 | F | R11_land | Full art; no stationery | 0 |
+| 31 | C | daddy, roshan | Two dust puffs attend to complementary puzzle pieces on left. One shared cooperation task; right bank quiet, extra pair/blocks removed. | 2 |
+| 32 | C | rainbow_cut | One patchwork ball on left invites the new friend to play. Rainbow arch removed so the foreground newcomer owns the rainbow. | 0 |
 
-F pages fill the page trim. C pages retain genuine foreground alpha silhouettes over an integrated blue blank-stationery variant. Small contextual details are rendered into the blue banks rather than pasted beneath rectangular masks. The central gap remains clear. Full-art sources, foreground cuts, captions and finale ceiling alignment are unchanged.
+Sources, prompts, manual visible bounds and limitations: `border_rollout_evidence.json`, `contrast_trial_evidence.json`, and retained `integrated_border_evidence.json`. Full-art pages have no border additions; reduced foregrounds remain genuine alpha silhouettes. Page22 uses existing full-art cleaning action. Page25 intentionally uses the unchanged blank base.
 
-See `integrated_border_evidence.json` for inspected visible bounds, relevance, grounding notes and source/prompt hashes. Generated hidden occlusion and source pixel fidelity are not measured claims.
-
-The table above records current rendered assignments, including the v15 contrast trials. Proposed replacements and comprehension risks are in [Border art direction](BORDER_ART_DIRECTION.md); they are not yet implemented artwork.
-
-Contrast-trial execution: page20 now has one shared three-bunny cup activity on the right; page24 one listening bunny on the left. Page22 is now FULL ART using the existing D1-C10-S01 table-cleaning frame, replacing the repeated brush/sponge inventory. The quiet sorting-tray trial is preserved but unused. All other rendered assignments remain unchanged. See `contrast_trial_evidence.json` for exact sources, prompts and review limits.
+See [Border art direction](BORDER_ART_DIRECTION.md) for rationale and [whole-story audit](STORY_COMPREHENSION_AUDIT.md) for remaining action gaps. This is not owner or print acceptance.

@@ -1,0 +1,87 @@
+{
+  "id": "picture-book-border-rollout-20260920",
+  "baseline": "0d74f524d53f022771e599ebe7e594046e494c97",
+  "scope": "Apply reviewed border artistic direction across remaining reduced pages using existing studies and bounded decorative edits; preserve main art and captions, include intentional quiet Grand Puff reveal.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book only; no game finding closed.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/README.md",
+    "books/chapter_one/landscape/BORDER_ART_DIRECTION.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md",
+    "books/chapter_one/landscape/art/border_rollout/page_04.png",
+    "books/chapter_one/landscape/art/border_rollout/page_06.png",
+    "books/chapter_one/landscape/art/border_rollout/page_10.png",
+    "books/chapter_one/landscape/art/border_rollout/page_19.png",
+    "books/chapter_one/landscape/art/border_rollout/page_21.png",
+    "books/chapter_one/landscape/art/border_rollout/page_26.png",
+    "books/chapter_one/landscape/art/border_rollout/page_31.png",
+    "books/chapter_one/landscape/art/border_rollout/page_32.png",
+    "books/chapter_one/landscape/audit_book.py",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/border_rollout_evidence.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/stress_review.json"
+  ],
+  "validation": [
+    {
+      "command": "Inventory and inspect existing studies and integrated backgrounds",
+      "result": "PASS",
+      "evidence": "Reused p19 study unchanged; selected existing p4/6/10/21/26/31/32 drawings as local edit targets. No narrative regeneration."
+    },
+    {
+      "command": "Rendered regressions versus v15",
+      "result": "PASS",
+      "evidence": "25 unchanged pages byte-identical; every caption and non-stationery draw operation identical. border_rollout_evidence.json."
+    },
+    {
+      "command": "audit_book.py --proof v16_border_performances/complete --baseline v7_landscape/complete",
+      "result": "PASS",
+      "evidence": "34 pages,84 text lines,58 image operations; zero geometry/source issues. Intentional quiet page25 validated against exact blank-base source."
+    },
+    {
+      "command": "Visual inspection of all five rendered contact sheets plus pages19/21/31 at full preview size",
+      "result": "PASS",
+      "evidence": "Border counts/context/identity/grounding reviewed; rejected ordinary rabbit corrected. Main actions and finale remain unchanged. Print-size child/owner acceptance still open."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH ALL OK;579 inventory and ledger entries"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV ALL OK;base5920c673305989ee29d91876480ff445dba9fc8b"
+    },
+    {
+      "command": "Portable archive payload verification and independent rerender",
+      "result": "PASS",
+      "evidence": "83 payload files verified; all34 JPEGs reproduced byte-identically. ZIP253208f39b3497961ddf1e0d60efedec455f64abf9e8256acff2ae6e999ff7a9"
+    },
+    {
+      "command": "Headless Edge review1400/760",
+      "result": "PASS",
+      "evidence": "12 images decode;12 cards;zero broken images/overflow"
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS",
+      "evidence": "No whitespace errors"
+    }
+  ],
+  "acceptance_gaps": "Border direction implemented and editorially reviewed, not owner/child/print accepted. Main-image action gaps6/23/26 and previous extraction/ceiling/resolution findings remain open."
+}
