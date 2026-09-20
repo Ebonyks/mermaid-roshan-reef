@@ -1,16 +1,16 @@
 {
   "status": "PASS",
-  "verified_payload_files": 87,
+  "verified_payload_files": 91,
   "matching_page_renders": 34,
-  "archive_sha256": "4afeaa8f31dd16500acf3cdb6713de410f40a94a66f6bb8601bab8fe713edd4e",
-  "pdf_sha256": "0832a10b21d1f7f4b29f3ada654abf30abe8b5a8f90e092bf6d256272be76fd0",
+  "archive_sha256": "fd0118633db01f236bc4a782282aa6b3810b324a39b9e2ba2e9758e2f7486e00",
+  "pdf_sha256": "ec26b3463cae00e6783a97ceadd239a1c09ec619c4fc6260d90b41fb1fa55b57",
   "pdf_pages": 34,
   "page_size_points": [
     504,
     360
   ],
   "mechanical_status": "PASS",
-  "visual_status": "RESCUE_LEGIBILITY_REVIEW; OWNER ACCEPTANCE NOT GRANTED",
+  "visual_status": "ART_DIRECTION_REVIEW; OWNER ACCEPTANCE NOT GRANTED",
   "open_findings": [
     {
       "id": "BK-ST-OPEN-01",
@@ -35,10 +35,10 @@
         7,
         19,
         20,
-        32
+        24
       ],
       "severity": "P2",
-      "issue": "Alpha extraction/occlusion-healing fidelity and edges need owner visual acceptance."
+      "issue": "Alpha extraction, targeted Eagle pose and door-glow edges remain owner review candidates. Page32 is now a full-art commissioned nap, not an alpha extraction."
     },
     {
       "id": "BK-ST-OPEN-04",
@@ -70,11 +70,10 @@
         24,
         25,
         26,
-        31,
-        32
+        31
       ],
       "severity": "P2",
-      "issue": "Repository-related rubbish and messy supplies, plus varied one-to-three frightened marginal bunnies are implemented. Print-size comprehension, ground-contact polish and owner acceptance remain open."
+      "issue": "Individual quality audit preserved six strong backgrounds and selectively replaced five. Frightened shell shelter25 changes to cheering/popcorn26; ground contact, tiny cameo readability and owner acceptance remain open."
     },
     {
       "id": "BK-ST-OPEN-07",
@@ -85,6 +84,15 @@
       ],
       "severity": "P2",
       "issue": "P6 now identifies the sink and places the existing sponge at its rim, but no hand-wiping frame is shown. P23 caption now describes visible colour choice rather than a completed picture. P26 composition cues dodge, but exact gameplay timing and sparkle contact remain unproven."
+    },
+    {
+      "id": "BK-ST-OPEN-08",
+      "pages": [
+        "front_cover",
+        32
+      ],
+      "severity": "P2",
+      "issue": "Owner-commissioned rendered cover and bubble-nap epilogue implemented and visually inspected; final character/style/print acceptance remains open."
     }
   ]
 }

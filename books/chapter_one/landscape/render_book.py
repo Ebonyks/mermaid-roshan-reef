@@ -79,13 +79,9 @@ def extension(k):
  ROLE='empty_ceiling_extension';region(ext,(0,0,ew,B['sources'][ext].get('ceiling_end',100)),(0,middle,W,top))
  ROLE='original_complete_scene';region(k,(0,0,iw,ih),(0,0,W,middle));ROLE='story_art'
 # Covers remain part of the rough, outside the 32 numbered story pages.
-background({})
-text('Mermaid Roshan',24,306,456,34,True)
-text('and the Hidden Rainbow',24,270,456,25,True)
-cut('boss_cut',286,58,182,192)
-cut('roshan_cover',43,58,187,195)
-cut('eagle_original_isolated',220,58,77,127)
-cut('brush',226,189,45,51);cut('sponge',262,198,32,30)
+full('cover_rendered')
+text('Mermaid Roshan',142,312,338,30,True)
+text('and the Hidden Rainbow',142,282,338,22,True)
 text('A Pearl Castle friendship story',24,28,456,13,True)
 c.showPage()
 for p in B['pages']:

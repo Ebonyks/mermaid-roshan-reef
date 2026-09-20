@@ -1,6 +1,6 @@
 {
   "baseline_verdict": "FAIL: owner rejection confirmed",
-  "revision_verdict": "RESCUE_CAPTION_LEGIBILITY_REVISED_ROUGH; final completion not proven.",
+  "revision_verdict": "V20_RENDERED_COVER_AND_EPILOGUE; selective background personality revision; owner acceptance pending.",
   "coverage": "All 32 story pages and both covers reviewed as rendered pages; named critical identity/text pages examined at enlarged scale. Automated tests cover geometry/source selection only.",
   "identity_locks": {
     "Roshan": "Brown hair with rainbow section; gold/blue crown; pink ruffled short sleeves; blue waist trim; lavender iridescent tail with rainbow fin. No long-sleeve substitution.",
@@ -48,9 +48,9 @@
     {
       "page": 6,
       "baseline_issue": "Sponge-only page had generic border and awkward side text.",
-      "revision": "Existing sink alpha silhouette plus original sponge placed at bowl rim. Identifies target surface; does not assert an exact gameplay action frame or visible hand contact.",
+      "revision": "One puff wrings a cloth over a shell basin; a damp cloth rests on a shell dish opposite.",
       "identity_review": "Existing complete sink and unchanged star sponge; no character redraw. Layout depicts target/contact location, not a hand-scrubbing frame.",
-      "visual_status": "REVISED_REVIEWED_WITH_SOURCE_LIMITS"
+      "visual_status": "V20_VISUALLY_INSPECTED_REVIEW_CANDIDATE"
     },
     {
       "page": 7,
@@ -146,9 +146,9 @@
     {
       "page": 20,
       "baseline_issue": "A second black-talon Eagle remained in the room recap; text crowded Roshan crown.",
-      "revision": "Distinct existing waving Roshan pose invites Baby Eagle. Shared-cup bunny border retained.",
-      "identity_review": "Unmodified approved roshan_gestures atlas cell; brown/rainbow hair, gold-blue crown, pink ruffles and rainbow tail preserved. Page-scale pose/composition review; not an exact cinematic action frame.",
-      "visual_status": "REVISED_REVIEWED_WITH_SOURCE_LIMITS"
+      "revision": "Two puffs cooperate with the canonical sailboat stacking-ring toy; Eagle takes an eager step toward Roshan.",
+      "identity_review": "New targeted Eagle pose retains crest/beak/pastel plumage and smooth grey feet; differs from unchanged page19. Existing Roshan wave retained.",
+      "visual_status": "V20_VISUALLY_INSPECTED_REVIEW_CANDIDATE"
     },
     {
       "page": 21,
@@ -174,23 +174,23 @@
     {
       "page": 24,
       "baseline_issue": "Side text ran close to dotted border; generic bare background.",
-      "revision": "One worried lavender bunny in lower right looks toward the rumbling door. No unrelated attic prop.",
+      "revision": "A cobwebbed gold-banded attic chest and jar sit opposite a nervous puff peeking over dusty books; the royal door glows deep violet.",
       "identity_review": "Whole door silhouette; no scene fragment.",
-      "visual_status": "REVISED_REVIEWED_WITH_SOURCE_LIMITS"
+      "visual_status": "V20_VISUALLY_INSPECTED_REVIEW_CANDIDATE"
     },
     {
       "page": 25,
       "baseline_issue": "Text crowded border and generic background ignored coming cleanup.",
-      "revision": "Two differently posed scared bunnies huddle in lower right beneath Grand Puff. Latest owner direction supersedes the former empty-bank reveal.",
+      "revision": "Two lower-right puffs cower: one flattened with tucked ears, one frightened under a pink pearl shell. Attic chest and books sit left.",
       "identity_review": "Grand Puff lavender spiral ears/curl/pearls retained.",
-      "visual_status": "REVISED_REVIEWED_WITH_SOURCE_LIMITS"
+      "visual_status": "V20_VISUALLY_INSPECTED_REVIEW_CANDIDATE"
     },
     {
       "page": 26,
       "baseline_issue": "Uncontrolled side wrapping and unthemed background.",
-      "revision": "Existing curled swimming Roshan pose and jumping Grand Puff form a separated action composite. Three lower-right bunnies duck, compress and recoil. Illustrative dodge cue, not a newly authored game frame.",
+      "revision": "Three lower-right spectators cheer Roshan; one eats popcorn. Teal attic jar and lavender books anchor the left bank.",
       "identity_review": "Unmodified approved roshan_gestures atlas cell; brown/rainbow hair, gold-blue crown, pink ruffles and rainbow tail preserved. Page-scale pose/composition review; not an exact cinematic action frame.",
-      "visual_status": "REVISED_REVIEWED_WITH_SOURCE_LIMITS"
+      "visual_status": "V20_VISUALLY_INSPECTED_REVIEW_CANDIDATE"
     },
     {
       "page": 27,
@@ -230,9 +230,9 @@
     {
       "page": 32,
       "baseline_issue": "Generic bubbles and unnecessarily long welcome text.",
-      "revision": "One patchwork ball on left invites the new friend to play. Rainbow arch removed so the foreground newcomer owns the rainbow.",
-      "identity_review": "Rainbow cutout compared with concept ears/curl/pearls/sparkle; extraction remains candidate.",
-      "visual_status": "REVISED_REVIEWED_WITH_SOURCE_LIMITS"
+      "revision": "Full-art resting epilogue: all five friends asleep in one bubble pile, after the unchanged canonical landing.",
+      "identity_review": "All five friends asleep: Daddy glasses/crown, Roshan pink ruffles, Rumi purple braid, pastel Eagle/grey foot, rainbow puff spiral ears. New owner-commissioned epilogue, not a replacement landing.",
+      "visual_status": "V20_VISUALLY_INSPECTED_REVIEW_CANDIDATE"
     }
   ],
   "open_findings": [
@@ -259,10 +259,10 @@
         7,
         19,
         20,
-        32
+        24
       ],
       "severity": "P2",
-      "issue": "Alpha extraction/occlusion-healing fidelity and edges need owner visual acceptance."
+      "issue": "Alpha extraction, targeted Eagle pose and door-glow edges remain owner review candidates. Page32 is now a full-art commissioned nap, not an alpha extraction."
     },
     {
       "id": "BK-ST-OPEN-04",
@@ -294,11 +294,10 @@
         24,
         25,
         26,
-        31,
-        32
+        31
       ],
       "severity": "P2",
-      "issue": "Repository-related rubbish and messy supplies, plus varied one-to-three frightened marginal bunnies are implemented. Print-size comprehension, ground-contact polish and owner acceptance remain open."
+      "issue": "Individual quality audit preserved six strong backgrounds and selectively replaced five. Frightened shell shelter25 changes to cheering/popcorn26; ground contact, tiny cameo readability and owner acceptance remain open."
     },
     {
       "id": "BK-ST-OPEN-07",
@@ -309,6 +308,15 @@
       ],
       "severity": "P2",
       "issue": "P6 now identifies the sink and places the existing sponge at its rim, but no hand-wiping frame is shown. P23 caption now describes visible colour choice rather than a completed picture. P26 composition cues dodge, but exact gameplay timing and sparkle contact remain unproven."
+    },
+    {
+      "id": "BK-ST-OPEN-08",
+      "pages": [
+        "front_cover",
+        32
+      ],
+      "severity": "P2",
+      "issue": "Owner-commissioned rendered cover and bubble-nap epilogue implemented and visually inspected; final character/style/print acceptance remains open."
     }
   ],
   "covers": [

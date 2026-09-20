@@ -1,10 +1,23 @@
 # Landscape rough review
 
+## Current revision: v20 art direction
+
+The original cover was inspected directly: story elements share one rendered environment, perspective, lighting and ground plane. The new commissioned cover follows that composition in Pearl Castle, with the waterfall, paints, cleanup tools, family, Baby Eagle and Grand Puff. It supersedes the cutout-collage cover described in older entries below.
+
+Every background was reviewed individually in `background_quality_audit.json`. Keep4/7/10/19/21/31; replace6/20/24/25/26. Page21 remains byte-for-byte unchanged. Page25 now has two scared cowering puffs, one under the pearl shell; page26 has three cheering spectators, one eating popcorn. Attic chests, jars and books provide location context. The p24 door has a bounded violet lighting edit. A new grey-footed original-identity Eagle walking/waving pose distinguishes20 from19. Selected background attempts were reduced and re-grounded after visible oversize failures.
+
+Page32 is now the explicitly commissioned full-art bubble-pile nap with Daddy, Roshan, Rumi, Baby Eagle and the rainbow friend, plus two sleepy lavender puffs. Exact rescue17/18 and finale27–30 are preserved. The resting epilogue follows the canonical landing and welcome; it does not replace them. Only cover/6/20/24/25/26/32 are intended to change. All new outputs are review candidates. Child/owner acceptance, fine identity review and higher-resolution source refinement remain open; existing rough source-resolution limits are not repaired by this pass.
+
+New art and prompts: `art/personality_v20/`, `art_personality_jobs.json`, `art_personality_evidence.json`. Mode: built-in image generation. Protected source files and game runtime unchanged.
+
+## Earlier review history
+
+
 Status: `SUPPORTING_CURRENT`; stress-revised rough, not final owner or print acceptance. No game/cinematic acceptance claim.
 
 The previous v7 mechanical PASS did not establish sufficient visual quality. The owner rejected its background relevance, identity consistency and caption placement. [The comprehensive stress test](STRESS_TEST.md) supersedes earlier broad visual-pass wording and records every story page, corrections and unresolved sources.
 
-The current proof retains 32 story pages plus covers at 7 x 5 inches. The opening explicitly enters the dirty castle and proposes cleaning together. Contextual background assignments, individually placed captions and corrected identity-source selections are in `book.json`. Protected originals are unchanged. No full-scene redraw was made.
+The current proof retains 32 story pages plus covers at 7 x 5 inches. The opening explicitly enters the dirty castle and proposes cleaning together. Contextual background assignments, individually placed captions and corrected identity-source selections are in `book.json`. Protected originals are unchanged. The earlier source-only revision made no full-scene redraw; the two specific v20 owner commissions are described above.
 
 The new Eagle isolation is a bounded edit of the original-book asset. It removes the bag and heals previously occluded areas; its grey feet, pastel plumage and beak/crest signatures were compared with the original. Owner acceptance and exact extraction fidelity remain open. Original rescue frames retain small/partly obscured Eagle details that do not justify an unconditional identity pass.
 

@@ -28,4 +28,6 @@ Previous edition: **v17 repository story details**. Rubbish and messy-art states
 
 Previous edition: **v18 action clarity**. Page6 shows the existing sink with the sponge; page23 names the visible colour choice. Other32 rendered pages retain v17. See landscape/action_clarity_evidence.json.
 
-Current edition: **v19 rescue legibility**. Pages17/18 move shortened captions off ceiling fixtures to clear floor. The goal-requirements audit records rough delivery and remaining acceptance/source limits separately. See landscape/goal_requirements_audit.json.
+Previous edition: **v19 rescue legibility**. Pages17/18 move shortened captions off ceiling fixtures to clear floor. The goal-requirements audit records rough delivery and remaining acceptance/source limits separately. See landscape/goal_requirements_audit.json.
+
+Current edition: **v20 art direction**. Unified rendered cover, selective contextual backgrounds, frightened shell shelter25 and cheering/popcorn26, glowing door24, distinct Eagle20 and a full-art five-friend bubble nap32. See landscape/background_quality_audit.json and landscape/art_personality_evidence.json. Final visual/print acceptance remains open.

@@ -11,9 +11,9 @@
   "layers": [
     {
       "page": "front_cover",
-      "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "source_key": "cover_rendered",
+      "file": "art/personality_v20/cover_rendered.png",
+      "sha256": "7245b1a5edcb03c80ee4af75d5ca0fd7849574278b0a0bacbb63579f2d1bc1d2",
       "native_size": [
         1484,
         1060
@@ -31,133 +31,8 @@
         360.0
       ],
       "operation": "page_trim",
-      "role": "stationery_base",
-      "alpha": true
-    },
-    {
-      "page": "front_cover",
-      "source_key": "boss_cut",
-      "file": "../archive/rough_v5/art/boss_cut.png",
-      "sha256": "9333a2b1d892eb9cb8176eefb8b0fbbc4f74c18f35d4cb1b9fbfdbf7e667cb8d",
-      "native_size": [
-        1254,
-        1254
-      ],
-      "source_box_pixels": [
-        23,
-        17,
-        1236,
-        1192
-      ],
-      "target_box_points": [
-        286.0,
-        65.85078318219291,
-        182.0,
-        176.29843363561417
-      ],
-      "operation": "source_region",
       "role": "story_art",
-      "alpha": true
-    },
-    {
-      "page": "front_cover",
-      "source_key": "roshan_cover",
-      "file": "art/repo_details_v17/roshan_gestures.png",
-      "sha256": "d7d7d78d68311e5d4285aada7a306c555dba985a06145dea2bcb611ea4e2409e",
-      "native_size": [
-        1024,
-        1024
-      ],
-      "source_box_pixels": [
-        47,
-        748,
-        228,
-        972
-      ],
-      "target_box_points": [
-        57.71651785714286,
-        58.0,
-        157.56696428571428,
-        195.0
-      ],
-      "operation": "source_region",
-      "role": "story_art",
-      "alpha": true
-    },
-    {
-      "page": "front_cover",
-      "source_key": "eagle_original_isolated",
-      "file": "art/stress_revision/eagle_original_isolated.png",
-      "sha256": "166461427017b2624dcf1c342bde658c63a8247b522ad113c92f6ec1bb084bd9",
-      "native_size": [
-        944,
-        1666
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        944,
-        1564
-      ],
-      "target_box_points": [
-        220.17263427109975,
-        58.0,
-        76.65473145780051,
-        127.0
-      ],
-      "operation": "source_region",
-      "role": "story_art",
-      "alpha": true
-    },
-    {
-      "page": "front_cover",
-      "source_key": "brush",
-      "file": "../archive/rough_v5/art/brush.png",
-      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
-      "native_size": [
-        936,
-        1024
-      ],
-      "source_box_pixels": [
-        45,
-        38,
-        899,
-        978
-      ],
-      "target_box_points": [
-        226.0,
-        189.73419203747073,
-        45.0,
-        49.53161592505855
-      ],
-      "operation": "source_region",
-      "role": "story_art",
-      "alpha": true
-    },
-    {
-      "page": "front_cover",
-      "source_key": "sponge",
-      "file": "../archive/rough_v5/art/sponge.png",
-      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
-      "native_size": [
-        512,
-        512
-      ],
-      "source_box_pixels": [
-        32,
-        32,
-        479,
-        480
-      ],
-      "target_box_points": [
-        263.03348214285717,
-        198.0,
-        29.93303571428571,
-        30.0
-      ],
-      "operation": "source_region",
-      "role": "story_art",
-      "alpha": true
+      "alpha": false
     },
     {
       "page": 1,
@@ -336,9 +211,9 @@
     },
     {
       "page": 6,
-      "source_key": "rollout_border_6",
-      "file": "art/border_rollout/page_06.png",
-      "sha256": "1da091fb3dec872401c6f319633fcd020443344b7240f7a2178e82abb9804224",
+      "source_key": "border_06",
+      "file": "art/personality_v20/border_06.png",
+      "sha256": "e347f9491de48bfb631a13f45e5cdb58aadf6e437d93bbe091dbc7eb346cee36",
       "native_size": [
         1484,
         1060
@@ -910,9 +785,9 @@
     },
     {
       "page": 20,
-      "source_key": "contrast_border_20",
-      "file": "art/contrast_trials/page_20.png",
-      "sha256": "5d6a609633f7f1eab755a6a75b20fcf9bd610a744deb33c40e0bf2dc765a0bae",
+      "source_key": "border_20",
+      "file": "art/personality_v20/border_20.png",
+      "sha256": "d1ec9475291d398c84a5f1f872b2127361639462b3318bd11844400457ccf166",
       "native_size": [
         1484,
         1060
@@ -960,23 +835,23 @@
     },
     {
       "page": 20,
-      "source_key": "eagle_original_isolated",
-      "file": "art/stress_revision/eagle_original_isolated.png",
-      "sha256": "166461427017b2624dcf1c342bde658c63a8247b522ad113c92f6ec1bb084bd9",
+      "source_key": "eagle_inviting",
+      "file": "art/personality_v20/eagle_inviting.png",
+      "sha256": "fb70f4660ad4a45ccb760c5e5e72dbb8f5f36c43e80e8c9a63a050e5a491b79b",
       "native_size": [
         944,
-        1666
+        1665
       ],
       "source_box_pixels": [
         0,
-        0,
+        22,
         944,
-        1564
+        1623
       ],
       "target_box_points": [
-        320.0920716112532,
+        321.29169269206744,
         74.0,
-        103.81585677749361,
+        101.41661461586509,
         172.0
       ],
       "operation": "source_region",
@@ -1085,9 +960,9 @@
     },
     {
       "page": 24,
-      "source_key": "repo_border_24",
-      "file": "art/repo_details_v17/page_24.png",
-      "sha256": "1270751edb1a9eb3bc1038b42ce04ff31ced37d7312a2c08ae84b137e934a302",
+      "source_key": "border_24",
+      "file": "art/personality_v20/border_24.png",
+      "sha256": "b8022481645c22ab9f76d74611dd165cf23751b1c0fd6540d04749ca0e4e0147",
       "native_size": [
         1484,
         1060
@@ -1110,23 +985,23 @@
     },
     {
       "page": 24,
-      "source_key": "royal_door_isolated",
-      "file": "../archive/rough_v5/art/royal_door_isolated.png",
-      "sha256": "d72b6bd7532330b60d24855006adb7ccf4082fa15400a003576fb5e1198c9c1b",
+      "source_key": "door_glowing",
+      "file": "art/personality_v20/door_glowing.png",
+      "sha256": "9d3a19132ff49ea428fd4973af4c635f1cdb996018e1d15d03ea51448206e3ed",
       "native_size": [
         1157,
         1359
       ],
       "source_box_pixels": [
-        142,
-        45,
-        1095,
+        0,
+        0,
+        1154,
         1359
       ],
       "target_box_points": [
-        62.3306697108067,
+        47.526122148638706,
         51.0,
-        173.3386605783866,
+        202.9477557027226,
         239.0
       ],
       "operation": "source_region",
@@ -1135,9 +1010,9 @@
     },
     {
       "page": 25,
-      "source_key": "repo_border_25",
-      "file": "art/repo_details_v17/page_25.png",
-      "sha256": "4af1c31529a02c99a99ea959b861cef2ff552486a836a502e4c1aa6c3fe85290",
+      "source_key": "border_25",
+      "file": "art/personality_v20/border_25.png",
+      "sha256": "a6ce70b6552230d823450c320f5f764ec7cbeacea9041a39ed119f946ae23f48",
       "native_size": [
         1484,
         1060
@@ -1185,9 +1060,9 @@
     },
     {
       "page": 26,
-      "source_key": "repo_border_26",
-      "file": "art/repo_details_v17/page_26.png",
-      "sha256": "73e3f192a1292c466448ff37d580bad4c98eb882cfe9ac68f651b1573bc4005e",
+      "source_key": "border_26",
+      "file": "art/personality_v20/border_26.png",
+      "sha256": "abb8fdbb3f937426bbf67c06c60d6168f986760eae3b7dd932b8039a1dd38e24",
       "native_size": [
         1484,
         1060
@@ -1535,9 +1410,9 @@
     },
     {
       "page": 32,
-      "source_key": "rollout_border_32",
-      "file": "art/border_rollout/page_32.png",
-      "sha256": "e2637ca9c2490f3749f64736b46957e4a13d3f518314dd86b5cf24923bee25df",
+      "source_key": "bubble_nap",
+      "file": "art/personality_v20/bubble_nap.png",
+      "sha256": "938a33de574edef7bde90ddbe89e7616e1448d26dc33b62f6415f694b0c344df",
       "native_size": [
         1484,
         1060
@@ -1555,33 +1430,8 @@
         360.0
       ],
       "operation": "page_trim",
-      "role": "integrated_stationery",
-      "alpha": false
-    },
-    {
-      "page": 32,
-      "source_key": "rainbow_cut",
-      "file": "../archive/rough_v5/art/rainbow_cut.png",
-      "sha256": "3446d4c1c981b15c5f53e99af0a03c47fdfe7b6daa6f33e54b7ea5421351c9f8",
-      "native_size": [
-        1254,
-        1254
-      ],
-      "source_box_pixels": [
-        103,
-        21,
-        1159,
-        1189
-      ],
-      "target_box_points": [
-        257.0,
-        54.70454545454547,
-        213.0,
-        235.59090909090907
-      ],
-      "operation": "source_region",
       "role": "story_art",
-      "alpha": true
+      "alpha": false
     },
     {
       "page": "back_cover",
@@ -1664,24 +1514,24 @@
       "page": "front_cover",
       "text": "Mermaid Roshan",
       "box": [
-        126.36999999999999,
-        296.174,
-        251.26000000000002,
-        42.33
+        200.15,
+        303.33,
+        221.7,
+        37.35
       ],
-      "font_size": 34,
+      "font_size": 30,
       "color": "navy"
     },
     {
       "page": "front_cover",
       "text": "and the Hidden Rainbow",
       "box": [
-        118.8125,
-        262.775,
-        266.375,
-        31.125
+        193.79500000000002,
+        275.642,
+        234.41,
+        27.39
       ],
-      "font_size": 25,
+      "font_size": 22,
       "color": "navy"
     },
     {
@@ -2514,51 +2364,27 @@
     },
     {
       "page": 32,
-      "text": "\u201cHello, little",
+      "text": "There was room for everyone.",
       "box": [
-        38,
-        239.798,
-        88.09200000000001,
+        134.90099999999998,
+        311.798,
+        234.19800000000004,
         22.41
       ],
       "font_size": 18,
-      "color": "navy"
+      "color": "white"
     },
     {
       "page": 32,
-      "text": "rainbow friend.",
+      "text": "Together, they drifted off in a big pile of bubbles.",
       "box": [
-        38,
-        216.398,
-        117.30600000000001,
+        62.13599999999997,
+        288.398,
+        379.72800000000007,
         22.41
       ],
       "font_size": 18,
-      "color": "navy"
-    },
-    {
-      "page": 32,
-      "text": "Come and play",
-      "box": [
-        38,
-        192.998,
-        118.74600000000001,
-        22.41
-      ],
-      "font_size": 18,
-      "color": "navy"
-    },
-    {
-      "page": 32,
-      "text": "with us!\u201d",
-      "box": [
-        38,
-        169.59799999999998,
-        66.078,
-        22.41
-      ],
-      "font_size": 18,
-      "color": "navy"
+      "color": "white"
     },
     {
       "page": "back_cover",
