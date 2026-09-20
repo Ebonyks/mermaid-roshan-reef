@@ -6685,3 +6685,7 @@ Sky Lagoon animated rebuild source checkpoint (2026-09-20; review only):
 - `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/twelve_cloud_render/castle_day.png` — Non-runtime local Godot Mobile capture of approved/derived Sky Lagoon assets; inherited asset licenses/provenance; URL: local project; modifications: screenshot, crop or contact sheet.
 
 - `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/twelve_cloud_render/castle_night.png` — Non-runtime local Godot Mobile capture of approved/derived Sky Lagoon assets; inherited asset licenses/provenance; URL: local project; modifications: screenshot, crop or contact sheet.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v2/day-night-board.jpg` — Diagnostic board derived from existing project Godot 4.7.2 Mobile captures in `../twelve_cloud_render/`; inherits underlying project asset provenance and licenses; URL: local project; modification: scaling, layout and sample annotations only; non-runtime review evidence.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v2/sample-map.jpg` — Diagnostic board derived from existing project Godot 4.7.2 Mobile captures in `../twelve_cloud_render/`; inherits underlying project asset provenance and licenses; URL: local project; modification: scaling, layout and sample annotations only; non-runtime review evidence.

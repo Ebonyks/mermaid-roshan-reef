@@ -29,8 +29,8 @@
     "DL-QA-06",
     "DL-QA-07",
     "DL-VIS-01",
-    "DL-VIS-04",
     "DL-VIS-03",
+    "DL-VIS-04",
     "DL-VIS-05",
     "DL-VIS-08"
   ],
@@ -539,6 +539,11 @@
     "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/clouds/meadow_high_right/loop.webp",
     "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/clouds/meadow_high_right/native.png",
     "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/clouds/meadow_high_right/source-comparison.jpg",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v2/AUDIT.json",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v2/build_review.py",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v2/day-night-board.jpg",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v2/index.html",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v2/sample-map.jpg",
     "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/direct_clouds/REVIEW.json",
     "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/direct_clouds/arrival_mid_right/REVIEW.json",
     "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/direct_clouds/arrival_mid_right/author.log",
@@ -1719,6 +1724,11 @@
       "command": "GODOT=pinned4.7.2 bash scripts/ci.sh (twelve-cloud checkpoint)",
       "result": "PASS",
       "evidence": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/FULL_REGRESSION_TWELVE_CLOUDS.json;2075.13seconds;78 runtime probes exit0;overall0;changed inputs empty. Later ignored source trials excluded."
+    },
+    {
+      "command": "Current-checkpoint all-material color review",
+      "result": "PASS",
+      "evidence": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v2/AUDIT.json and index.html: 48 mapped diagnostics from six exact Godot 4.7.2 Forward Mobile captures at checkpoint 73a7c21b; source hashes recorded. Sample-map inspection corrected castle mountain/roof/window regions and excluded moving actors. PASS means review artifacts reproduced; all listed visual findings and device/owner gates remain open."
     }
   ],
   "acceptance_gaps": "Owner explicitly rejects d90936b candidate at 3.5/5: partial tree motion, static painted grass/background and cloud field. Whole-scene coverage revision is in progress. Device and child evidence remain missing; no 4.9 quality claim."
