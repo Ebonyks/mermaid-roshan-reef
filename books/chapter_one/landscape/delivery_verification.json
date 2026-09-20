@@ -2,7 +2,7 @@
   "status": "PASS",
   "verified_payload_files": 91,
   "matching_page_renders": 34,
-  "archive_sha256": "fd0118633db01f236bc4a782282aa6b3810b324a39b9e2ba2e9758e2f7486e00",
+  "archive_sha256": "92d9c070bc6fbe59e9713d7c54ace9e13637c65714f0ae182bcc55e9a468f22c",
   "pdf_sha256": "ec26b3463cae00e6783a97ceadd239a1c09ec619c4fc6260d90b41fb1fa55b57",
   "pdf_pages": 34,
   "page_size_points": [
@@ -94,5 +94,15 @@
       "severity": "P2",
       "issue": "Owner-commissioned rendered cover and bubble-nap epilogue implemented and visually inspected; final character/style/print acceptance remains open."
     }
-  ]
+  ],
+  "metadata_only_package_reverification": {
+    "status": "PASS",
+    "prior_independently_rebuilt_archive_sha256": "fd0118633db01f236bc4a782282aa6b3810b324a39b9e2ba2e9758e2f7486e00",
+    "changed_payloads": [
+      "goal_requirements_audit.json"
+    ],
+    "payload_hashes_checked": 91,
+    "render_inputs_identical": true,
+    "evidence": "All91 payload hashes verified; only goal_requirements_audit.json differs from the extracted independently rebuilt v20 package. Renderer, book,54 source keys,font and delivered provenance unchanged. Prior34 byte-identical page rebuild remains applicable."
+  }
 }

@@ -1,8 +1,8 @@
 {
   "edition": "v20_art_direction",
-  "baseline_commit": "5c057cce17cc43e024562f63351f496053b33375",
-  "previous_turn_classification": "PROGRESS: v18 source, PDF and editable package were changed, verified and pushed.",
-  "completion_verdict": "NOT_PROVEN; keep full goal active",
+  "baseline_commit": "4ca185aba29c5812c88caefc56db74f87d11ea0e",
+  "previous_turn_classification": "PROGRESS: v20 art, source, PDF, portable rebuild and dedicated-branch commit were delivered and verified.",
+  "completion_verdict": "NOT_PROVEN: rough delivery verified; current owner/child acceptance and reviewed-source print refinement remain open.",
   "requirements": [
     {
       "requirement": "32 or 40 story pages",
@@ -16,8 +16,8 @@
     },
     {
       "requirement": "Original-book visual language",
-      "status": "PARTIAL",
-      "evidence": "Blue dotted stationery, two low banks, full-art/cutout rhythm and contextual props implemented. Final stylistic equivalence and owner acceptance not proven."
+      "status": "PROVEN_WITH_LIMITS",
+      "evidence": "Original cover visually inspected; new cover shares a physical setting, light and perspective. Blue dotted stationery/full-art rhythm retained. Final aesthetic equivalence requires owner review."
     },
     {
       "requirement": "Canonical Chapter One setup and tools",
@@ -47,12 +47,12 @@
     {
       "requirement": "Friendship and positive ending",
       "status": "EDITORIAL_REVIEW_PASS",
-      "evidence": "Pages19–20 show help and inclusion;31 names shared help and hidden friend;32 explicitly invites newcomer to play. No punishment/failure ending."
+      "evidence": "Current rendered31 states shared help and finding a friend under dust;32 says there was room for everyone and shows all five friends asleep in one bubble pile. No punishment/failure ending. Owner/child acceptance remains open."
     },
     {
       "requirement": "Pacing",
       "status": "EDITORIAL_REVIEW_PASS",
-      "evidence": "Bath5–8/pool9–15/rescue16–20/art21–23/suspense24–26/teamwork27–30/reflection31–32. Personal creative pause precedes final encounter. Child comprehension not tested."
+      "evidence": "Bath5–8;pool9–15;rescue16–20;creative pause21–23;suspense24–26;teamwork and reveal27–30;reflection31;rest32. Full-art finale is followed by one quiet cutout reflection and a full-art shared nap. Reviewed current contact4/5; no child session performed."
     },
     {
       "requirement": "Images full art or contour cutouts",
@@ -61,18 +61,18 @@
     },
     {
       "requirement": "Contextual grounded lower-bank details",
-      "status": "PARTIAL",
-      "evidence": "Repository rubbish/messy paint and scared lower-right reactions are implemented; measured bounds pass. Exact ground-contact polish is visually reviewed, not pixel-certified."
+      "status": "PROVEN_WITH_LIMITS",
+      "evidence": "All32 backgrounds individually classified. Five weaker stationery backgrounds replaced, six preserved exactly including21. Shell-hiding fear25 changes to cheering/popcorn26. Visible bounds verified; contact and expression remain visual review candidates."
     },
     {
       "requirement": "No whole-scene redraw",
-      "status": "PROVEN_FOR_CURRENT_CHANGE",
-      "evidence": "V19 changes captions only. Current source provenance retains bounded extractions/props/background edits; canonical narrative scenes retained."
+      "status": "PROVEN_WITH_OWNER_EXCEPTIONS",
+      "evidence": "Owner specifically commissioned the unified rendered cover and nap epilogue32; other canonical scenes preserved. Door lighting and Eagle pose are targeted edits. These exceptions do not authorize other full-scene replacement."
     },
     {
       "requirement": "PDF and editable source with page-level provenance",
-      "status": "ROUGH_DELIVERY_VERIFICATION",
-      "evidence": "Current PDF read as34 pages with embedded Sniglet; all63 image operations preserved and hashed. Portable build outcome is recorded separately in delivery_verification.json after packaging."
+      "status": "ROUGH_DELIVERY_VERIFIED",
+      "evidence": "Current PDF has34 pages;57 image operations have source hashes and placements. Independent portable rebuild reproduced all34 rendered pages. This evidence-only package correction preserves all rendering inputs."
     },
     {
       "requirement": "Complete visual/owner acceptance",
@@ -88,9 +88,34 @@
       "requirement": "Hourly monitoring",
       "status": "SUPERSEDED_BY_OWNER_STOP",
       "evidence": "Earlier hourly request was followed by explicit instruction to stop handoff searching. No monitor is restarted by this audit."
+    },
+    {
+      "requirement": "Page25 scared cowering and shell shelter",
+      "status": "IMPLEMENTED_REVIEW_CANDIDATE",
+      "evidence": "Native border_25 and rendered25 inspected; two cowering puffs, right puff beneath pearl shell."
+    },
+    {
+      "requirement": "Page26 cheering Roshan with popcorn",
+      "status": "IMPLEMENTED_REVIEW_CANDIDATE",
+      "evidence": "Native border_26 and rendered26 inspected; three smiling spectators, one holding popcorn carton."
+    },
+    {
+      "requirement": "Door24 ominous glow and attic props24–26",
+      "status": "IMPLEMENTED_REVIEW_CANDIDATE",
+      "evidence": "Complete RGBA door has plum panels and violet seam/step glow; integrated borders contain canonical attic chest/jar/book references."
+    },
+    {
+      "requirement": "Different Baby Eagles19 and20",
+      "status": "IMPLEMENTED_REVIEW_CANDIDATE",
+      "evidence": "19 retains eagle_original_isolated;20 uses distinct walking/waving eagle_inviting. Original pink crest, pastel body, beak and smooth grey feet retained in candidate."
+    },
+    {
+      "requirement": "Everyone napping in bubbles",
+      "status": "IMPLEMENTED_REVIEW_CANDIDATE",
+      "evidence": "Full-art32 shows Daddy, Roshan, Rumi, Baby Eagle and rainbow friend asleep in shared bubbles; follows exact landing30 and reflection31."
     }
   ],
-  "current_change": "P17/18 single-line captions at31.5pt baseline in clear floor band, away from ceiling fixtures. Main source images and all other captions unchanged. Two-bunny count and reassurance retained.",
+  "current_change": "V20 art revision changes only cover/6/20/24/25/26/32 relative to v19. This follow-up corrects stale evidence only; current artwork/manuscript/PDF unchanged.",
   "remaining_limits": [
     "Low-resolution storyboard and atlas cells are not print masters.",
     "Exact wiping/dodge/sparkle contact is not depicted by every source.",
@@ -99,18 +124,194 @@
   ],
   "current_proof": {
     "pdf_pages": 34,
-    "pdf_sha256": "0832a10b21d1f7f4b29f3ada654abf30abe8b5a8f90e092bf6d256272be76fd0",
+    "pdf_sha256": "ec26b3463cae00e6783a97ceadd239a1c09ec619c4fc6260d90b41fb1fa55b57",
+    "image_operations": 57,
     "font_names": [
       "/AAAAAA+Sniglet-Regular",
       "/Helvetica"
     ],
-    "changed_pages": [
-      17,
-      18
+    "changed_pages_relative_to_v19": [
+      0,
+      6,
+      20,
+      24,
+      25,
+      26,
+      32
     ],
-    "unchanged_byte_identical_pages": 32,
-    "all_image_draw_operations_identical_to_v18": true,
-    "visual_review": "Inspected both new pages full-size: captions below characters on unobstructed floor, clear of fixtures, no image or staging change. 18pt story type and measured safety inset retained."
+    "unchanged_byte_identical_pages_relative_to_v19": 27,
+    "canonical_draw_operations_preserved": [
+      17,
+      18,
+      27,
+      28,
+      29,
+      30
+    ],
+    "visual_review": "V20 changed pages reviewed full-size in prior turn; finale24–32 re-inspected this turn for sequence and positive closure. Owner/child acceptance not established."
   },
-  "latest_owner_revision": "Specific cover/nap commission and background/pose/door revisions implemented as review candidates; acceptance remains open."
+  "latest_owner_revision": "Specific cover/nap commission and background/pose/door revisions implemented as review candidates; acceptance remains open.",
+  "source_resolution": {
+    "source_commit": "4ca185aba29c5812c88caefc56db74f87d11ea0e",
+    "scope": "Actual raster sampling density at PDF draw scale. Measures native pixels per placed inch, not subjective sharpness, upscaling history, generated fidelity or print acceptance. Whole-frame trim and region selections use their actual source-to-destination scale.",
+    "formula": "effective_ppi = min((right-left)*72/width_points, (bottom-top)*72/height_points)",
+    "image_operations": 57,
+    "minimum_effective_ppi": 54.7,
+    "story_art_uses_below_100_ppi": 14,
+    "below_100_note": "100ppi is a descriptive grouping, not an owner-approved print threshold.",
+    "lowest_main_art": [
+      {
+        "page": 16,
+        "source_key": "stuffie_entry",
+        "role": "story_art",
+        "effective_ppi": 54.7,
+        "used_pixel_region": [
+          0,
+          0,
+          383,
+          450
+        ],
+        "draw_size_inches": [
+          7.0,
+          8.225
+        ],
+        "source_file": "../archive/rough_v5/art/stuffie_entry.png",
+        "source_sha256": "32c1e4013fdbdc95908144da412770e24dbdae072df2404c8c1a0915b9418826",
+        "placement_operation": "page_trim"
+      },
+      {
+        "page": 14,
+        "source_key": "pool_clean",
+        "role": "story_art",
+        "effective_ppi": 56.8,
+        "used_pixel_region": [
+          0,
+          0,
+          546,
+          284
+        ],
+        "draw_size_inches": [
+          9.613,
+          5.0
+        ],
+        "source_file": "../archive/rough_v5/art/pool_clean.png",
+        "source_sha256": "420a26b831802720692437fe654a1e827d97be7b21ec6fc2a2a87f6634b16690",
+        "placement_operation": "page_trim"
+      },
+      {
+        "page": 9,
+        "source_key": "pool_dirty",
+        "role": "story_art",
+        "effective_ppi": 59.2,
+        "used_pixel_region": [
+          0,
+          0,
+          820,
+          296
+        ],
+        "draw_size_inches": [
+          13.851,
+          5.0
+        ],
+        "source_file": "../archive/rough_v5/art/pool_dirty.png",
+        "source_sha256": "2cecf47490beb7b69e5148e6be187f77861e3f226934710fd6f19f505ab0b198",
+        "placement_operation": "page_trim"
+      },
+      {
+        "page": 13,
+        "source_key": "seahorse",
+        "role": "story_art",
+        "effective_ppi": 59.8,
+        "used_pixel_region": [
+          0,
+          0,
+          541,
+          299
+        ],
+        "draw_size_inches": [
+          9.047,
+          5.0
+        ],
+        "source_file": "../archive/rough_v5/art/seahorse.png",
+        "source_sha256": "77c74377a03e77c6b5f6dda6b25245df4983242d9dd10af234bda7aa3c6ed715",
+        "placement_operation": "page_trim"
+      },
+      {
+        "page": 11,
+        "source_key": "waterfall",
+        "role": "story_art",
+        "effective_ppi": 60.0,
+        "used_pixel_region": [
+          0,
+          0,
+          819,
+          300
+        ],
+        "draw_size_inches": [
+          13.65,
+          5.0
+        ],
+        "source_file": "../archive/rough_v5/art/waterfall.png",
+        "source_sha256": "10d2283bded5d3261999002fe9985f6cf38444c74536cf74c39a61aefd70f6da",
+        "placement_operation": "page_trim"
+      },
+      {
+        "page": 15,
+        "source_key": "rumi_hug",
+        "role": "story_art",
+        "effective_ppi": 63.4,
+        "used_pixel_region": [
+          0,
+          0,
+          546,
+          317
+        ],
+        "draw_size_inches": [
+          8.612,
+          5.0
+        ],
+        "source_file": "../archive/rough_v5/art/rumi_hug.png",
+        "source_sha256": "7da50c706927cdc0fbadf666db6f397b9991dad4f4d9f9d2c815aa3e3434faab",
+        "placement_operation": "page_trim"
+      },
+      {
+        "page": 31,
+        "source_key": "roshan_reflecting",
+        "role": "story_art",
+        "effective_ppi": 72.3,
+        "used_pixel_region": [
+          559,
+          521,
+          697,
+          728
+        ],
+        "draw_size_inches": [
+          1.907,
+          2.861
+        ],
+        "source_file": "art/repo_details_v17/roshan_gestures.png",
+        "source_sha256": "d7d7d78d68311e5d4285aada7a306c555dba985a06145dea2bcb611ea4e2409e",
+        "placement_operation": "source_region"
+      },
+      {
+        "page": 1,
+        "source_key": "window",
+        "role": "story_art",
+        "effective_ppi": 77.7,
+        "used_pixel_region": [
+          0,
+          0,
+          544,
+          454
+        ],
+        "draw_size_inches": [
+          7.0,
+          5.842
+        ],
+        "source_file": "../archive/rough_v5/art/window.png",
+        "source_sha256": "d288e075760d5652e648fdc3fb3802486b3ce1f42a55fab71008932a064e9e5e",
+        "placement_operation": "page_trim"
+      }
+    ]
+  }
 }
