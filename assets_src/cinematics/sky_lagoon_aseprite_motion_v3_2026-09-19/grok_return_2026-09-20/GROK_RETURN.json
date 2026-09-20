@@ -29,5 +29,94 @@
     "note": "G01-G04 take2 still unreadably quiet or worse rest/photoreal. G05 take2 has clearer rings; fade still failed."
   },
   "codex_handoff": "CODEX_HANDOFF.md",
-  "start_codex": "START_CODEX.txt"
+  "start_codex": "START_CODEX.txt",
+  "shots": [
+    {
+      "shot_id": "G01",
+      "decision": "reference_only",
+      "duration_seconds": 6.04,
+      "fps": 24,
+      "native_dimensions": "1296x704",
+      "source_crop": "372x202",
+      "native_output_path": "output/G01/native.mp4",
+      "native_output_sha256": "6b91ae4136bea39010a03c13d5a06e32d4b55bec2b96f3bfe68e76f2adbfe2a4",
+      "native_first_frame": { "path": "output/G01/first.png" },
+      "native_last_frame": { "path": "output/G01/last.png" },
+      "contact_sheet": { "path": "output/G01/contact_action.png", "role": "review_only" },
+      "mae_first_last": 3.23,
+      "intended_loop": false,
+      "runtime_pixels_accepted": false,
+      "dependent_jobs_invalidated": [],
+      "aseprite_acceptance": {
+        "authored_source_path": null,
+        "layer_inventory": ["reference_locked", "rear_chain", "supports_fixed", "deck_boards", "front_chain", "front_posts", "contact_shadow"],
+        "frame_tags": ["rest"],
+        "gameplay_contact_review": "pending"
+      },
+      "defects": [
+        "deflection below readable Aseprite amplitude",
+        "rest not pixel-identical",
+        "upscaled video vs crop",
+        "6s surface vs 1s request"
+      ]
+    },
+    {
+      "shot_id": "G02",
+      "decision": "reference_only",
+      "depends_on": ["G01 timing review"],
+      "duration_seconds": 6.04,
+      "fps": 24,
+      "native_dimensions": "1296x704",
+      "source_crop": "372x202",
+      "native_output_path": "output/G02/native.mp4",
+      "native_output_sha256": "2e6a06e01c5988541a371543c07ced66bd3444db381db5f0938bf89e231bf722",
+      "mae_first_last": 4.98,
+      "runtime_pixels_accepted": false,
+      "defects": [
+        "chain travel at or below authorship threshold",
+        "rest drift",
+        "do not separate clip until G01 timing is useful"
+      ]
+    },
+    {
+      "shot_id": "G03",
+      "decision": "reference_only",
+      "hold_until": "G01 Aseprite accepted in-scene",
+      "duration_seconds": 6.04,
+      "native_dimensions": "1616x560",
+      "source_crop": "398x140",
+      "native_output_path": "output/G03/native.mp4",
+      "native_output_sha256": "5494c97ccb79eebac9fc1f87ef9a4e16d051996e0a7d5bc2d2a57f7f93f11143",
+      "mae_first_last": 4.38,
+      "intended_loop": false,
+      "runtime_pixels_accepted": false,
+      "defects": ["rest not restored", "possible gloss", "not a tile"]
+    },
+    {
+      "shot_id": "G04",
+      "decision": "reference_only",
+      "hold_until": "G01 Aseprite accepted in-scene",
+      "duration_seconds": 6.04,
+      "native_dimensions": "1184x768",
+      "source_crop": "451x294",
+      "native_output_path": "output/G04/native.mp4",
+      "native_output_sha256": "5480941aa334728ee527b7e7a78db426bd459f59b09545c2a78683a299928fc3",
+      "mae_first_last": 4.29,
+      "runtime_pixels_accepted": false,
+      "defects": ["lap too faint", "needs rock occlusion mask"]
+    },
+    {
+      "shot_id": "G05",
+      "decision": "reference_only",
+      "hold_until": "G01 Aseprite accepted in-scene",
+      "duration_seconds": 6.04,
+      "native_dimensions": "1632x560",
+      "source_crop": "394x136",
+      "native_output_path": "output/G05/native.mp4",
+      "native_output_sha256": "930359eecc9f1f697a68ebd8e922170e9d9bb80ba9f03701a16ed16c00734fc5",
+      "mae_first_last": 20.99,
+      "runtime_pixels_accepted": false,
+      "defects": ["take2 kept for clearer rings", "did not fade to calm — use 0-1.2s only", "may couple to G03", "not clipped"]
+    }
+  ]
 }
