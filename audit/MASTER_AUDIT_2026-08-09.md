@@ -75,6 +75,8 @@ Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026
 
 Scoped Grok builder consolidation (2026-09-14): [single project database](../assets_src/cinematics/grok_builder_2026-09-14/README.md) and [impact](../design/audit_impacts/grok-builder-20260914.json). Character/location/event state and missing-shot planning are unified; MA-VIS-006 and all cinematic delivery gates remain open.
 
+Scoped static Chapter One book: [book workspace](../books/chapter_one/README.md), [owner background and page design language](../books/chapter_one/DESIGN_LANGUAGE.md), and [impact](../design/audit_impacts/picture-book-dedicated-branch-20260920.json). No game finding closure or cinematic acceptance.
+
 <!-- AUDIT_TASK_INDEX_END -->
 
 Owner handoff-publication correction (2026-09-16): [mandatory GitHub delivery](../AGENTS.md#external-handoffs-github-delivery-is-mandatory) and [change evidence](../design/audit_impacts/handoff-publication-memory-20260916.json). Publish and remotely verify each external handoff/QC revision before waiting for returns; local workspaces are staging only. This operational correction closes no cinematic or game-wide acceptance finding.

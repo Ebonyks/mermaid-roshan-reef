@@ -1,0 +1,515 @@
+{
+  "status": "DESIGN_PLAN_NOT_REBUILT_BOOK",
+  "story_pages": 40,
+  "recto_first": true,
+  "spreads": [
+    [
+      2,
+      3
+    ],
+    [
+      14,
+      15
+    ],
+    [
+      34,
+      35
+    ]
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "mode": "V",
+      "background": "base",
+      "beat": "Flying toward Pearl Castle",
+      "sources": [
+        "flight",
+        "window"
+      ],
+      "composition": "Plane upper-left; Roshan and the whole oval window lower-right. Copy in their diagonal gap. Two irregular object/action islands, as in reference 4.",
+      "ownership": "No plane, window or luggage in border.",
+      "work": "Isolate existing plane and window group; merge old pages 1-2 into this setup."
+    },
+    {
+      "page": 2,
+      "mode": "S",
+      "background": "NONE",
+      "beat": "Arrival: Sky Lagoon",
+      "sources": [
+        "arrival"
+      ],
+      "composition": "LEFT of a single spread with page 3. Plane and lagoon left; short line in sky. Whole-scene scale chosen before division.",
+      "ownership": "No page surround or caption bar.",
+      "work": "Extend only peripheral sky/water if needed; no new landing. Gutter crosses open water."
+    },
+    {
+      "page": 3,
+      "mode": "S",
+      "background": "NONE",
+      "beat": "Arrival: Pearl Castle",
+      "sources": [
+        "arrival"
+      ],
+      "composition": "RIGHT of page 2's scene. Bridge leads to castle. One short question in quiet sky. Never zoom this half separately.",
+      "ownership": "No repeated castle badge or template.",
+      "work": "Same scale/crop as page 2; preserve plane-bridge-castle geography. Reference 19-20's continuous composition."
+    },
+    {
+      "page": 4,
+      "mode": "V",
+      "background": "dust",
+      "beat": "Inside the dusty hall",
+      "sources": [
+        "hall",
+        "together"
+      ],
+      "composition": "One tall doorway-and-family island fills upper two-thirds; brief copy below. Keep dark doorway context. Return from panorama to quiet blue.",
+      "ownership": "Only low inanimate dust marks; no miniature door or cast.",
+      "work": "Extract one connected group; do not combine near-identical reaction frames. Reference 7/28."
+    },
+    {
+      "page": 5,
+      "mode": "V",
+      "background": "base",
+      "beat": "Daddy gives the tools",
+      "sources": [
+        "daddy_brush",
+        "rumi_sponge",
+        "brush",
+        "sponge"
+      ],
+      "composition": "Large existing tool-giving action and smaller useful sponge detail; short copy beside each. Reference 16's asymmetrical process cutouts.",
+      "ownership": "Each tool appears once: either in the action or separately. None in footer.",
+      "work": "Check who gives/holds each tool. Do not invent a handoff from unrelated poses."
+    },
+    {
+      "page": 6,
+      "mode": "F",
+      "background": "NONE",
+      "beat": "Drain the murky bath first",
+      "sources": [
+        "bath_dirty",
+        "drained_room"
+      ],
+      "composition": "Full dirty-bath view; tub and water state clear. Short copy in quiet wall area. Immersive problem before two close actions.",
+      "ownership": "No ornamental background or second tub inset.",
+      "work": "Dirty frame depicts before-state; drained plate supplies continuity for subsequent scrubbing. Outpaint wall/floor only if needed."
+    },
+    {
+      "page": 7,
+      "mode": "V",
+      "background": "bath",
+      "beat": "Sponge the sink",
+      "sources": [
+        "bath_scrub"
+      ],
+      "composition": "Large irregular Roshan-sink action, copy opposite. Preserve sponge contact and sink silhouette. Reference 10's connected person/object island.",
+      "ownership": "Only low bubbles; no second sponge, tap or brush.",
+      "work": "Extract actual sink action if present in the handoff; never manufacture contact. Retain this source as provisional until contact checked."
+    },
+    {
+      "page": 8,
+      "mode": "V",
+      "background": "bath",
+      "beat": "Brush the drained tub",
+      "sources": [
+        "bath_drained_local"
+      ],
+      "composition": "Nearly page-wide Roshan-brush-tub cutout; caption above. Visibly empty basin; full tail and brush contact. Bigger than page 7.",
+      "ownership": "No duplicate brush/tub in footer; subdued low bubbles only.",
+      "work": "Use existing corrected cutout; inspect basin and all contours at reading size. Reference 26's large action scale."
+    },
+    {
+      "page": 9,
+      "mode": "F",
+      "background": "NONE",
+      "beat": "The bath sparkles again",
+      "sources": [
+        "bath_safe"
+      ],
+      "composition": "Full restored bath with Roshan and bunny together. Brief caption on quiet floor, away from tails. First room payoff.",
+      "ownership": "No frame, footer or extra bath-bunny portrait.",
+      "work": "Preserve entire interaction; extend peripheral room rather than crop a character to fill portrait."
+    },
+    {
+      "page": 10,
+      "mode": "V",
+      "background": "pool",
+      "beat": "The pool still needs help",
+      "sources": [
+        "pool_dirty"
+      ],
+      "composition": "Wide irregular basin vignette including far rim and stopped waterfall; Roshan anchors foreground. Brief narration above.",
+      "ownership": "Low ripples only; no miniature waterfall, net or seahorse.",
+      "work": "Cut around meaningful architecture and basin contour, not a rounded rectangle. New-problem pause after full bath."
+    },
+    {
+      "page": 11,
+      "mode": "V",
+      "background": "pool",
+      "beat": "Scoop floating rubbish",
+      "sources": [
+        "pool_net"
+      ],
+      "composition": "Roshan, net and contents form one large angled action island. Keep water contact. Copy opposite net sweep.",
+      "ownership": "No spare net, rubbish or basket in border.",
+      "work": "Preserve source geometry. No omitted basket-search action. Different silhouette from page 10."
+    },
+    {
+      "page": 12,
+      "mode": "F",
+      "background": "NONE",
+      "beat": "The waterfall is blocked",
+      "sources": [
+        "waterfall"
+      ],
+      "composition": "One full-art close view of the existing blocked waterfall, showing the obstruction before any clearing. Short setup text in quiet stone space. This is the sole use of this blocked-waterfall view in pages 12-13.",
+      "ownership": "No page surround or added shell motif.",
+      "work": "Preserve waterfall topology. A location detail can fill portrait without sacrificing a character."
+    },
+    {
+      "page": 13,
+      "mode": "V",
+      "background": "pool",
+      "beat": "Roshan clears the waterfall",
+      "sources": [],
+      "composition": "A distinct existing clearing-action frame, isolated around Roshan, the tool and actual contact with the waterfall lanes. One large action silhouette on blue, with short side-middle-other-side narration. Do not show the blocked establishing image again, even as a different crop.",
+      "ownership": "No duplicate tool or waterfall motif in the lower border. Keep exact background integrations on the mound slopes in the bottom 15%, <=12% width and height, with the central gap clear.",
+      "work": "ART GAP: the inspected source set supplies obstruction and rainbow endpoints, but no verified clearing-contact frame. Repeated page-12 thumbnail removed. No invented three-state sequence or full-scene redraw. Populate this slot only with a distinct existing Grok/handoff clearing action; no new handoff polling."
+    },
+    {
+      "page": 14,
+      "mode": "S",
+      "background": "NONE",
+      "beat": "The rainbow waterfall returns",
+      "sources": [
+        "rainbowfall"
+      ],
+      "composition": "LEFT of one full-art spread with page 15. Place actual rainbow streams left of gutter. WHOOSH in quiet upper space.",
+      "ownership": "No decorative background, border or extra rainbow.",
+      "work": "Use existing Grok waterfall frame. Pool remains dark before seahorse cleanup. Extend peripheral wall/water only."
+    },
+    {
+      "page": 15,
+      "mode": "S",
+      "background": "NONE",
+      "beat": "Rainbow water splashes into the pool",
+      "sources": [
+        "rainbowfall"
+      ],
+      "composition": "RIGHT continuation: flowing water and pool. One short line toward outer edge. No duplicate waterfall close-up.",
+      "ownership": "No background template or caption strip.",
+      "work": "Shared transform with page 14. Reference 19-20's spacious continuous reveal; no invented clear pool."
+    },
+    {
+      "page": 16,
+      "mode": "V",
+      "background": "pool",
+      "beat": "Free the seahorse fountain",
+      "sources": [
+        "seahorse_isolated",
+        "seahorse_free"
+      ],
+      "composition": "Large connected fountain-and-Roshan action. A small blockage detail only if it adds information absent from main group. Copy above/left.",
+      "ownership": "Ripples only; no seahorse figurine or spare blockage.",
+      "work": "Preserve shape and contact. Return from spectacle to the necessary next task; no clear endpoint before this action."
+    },
+    {
+      "page": 17,
+      "mode": "F",
+      "background": "NONE",
+      "beat": "The pool becomes clear",
+      "sources": [
+        "pool_clean"
+      ],
+      "composition": "Whole restored-pool view with fountain and water readable. Minimal copy in quiet water, away from effect focus.",
+      "ownership": "No decorative surround or recap stickers.",
+      "work": "Use actual clean endpoint. Preserve geography; peripheral expansion only if portrait fit requires it."
+    },
+    {
+      "page": 18,
+      "mode": "V",
+      "background": "base",
+      "beat": "Rumi says thank you",
+      "sources": [
+        "rumi_hug"
+      ],
+      "composition": "One large connected hug silhouette below short copy. Whole hands, faces and tails. Reference 31's emotional pause.",
+      "ownership": "Clean blue base; no tools or portraits in border.",
+      "work": "Isolate the existing interaction as a whole; no new contact or pose."
+    },
+    {
+      "page": 19,
+      "mode": "F",
+      "background": "NONE",
+      "beat": "A chirp from the stuffie room",
+      "sources": [
+        "stuffie_entry"
+      ],
+      "composition": "Existing tall doorway scene fills page naturally. Roshan and door intact. Short copy high in quiet darkness.",
+      "ownership": "No extra doorway badge or ornamental background.",
+      "work": "Use portrait source directly. A small soft local caption halo only if needed, never a solid bar."
+    },
+    {
+      "page": 20,
+      "mode": "V",
+      "background": "play",
+      "beat": "TWO dust bunnies hold Baby Eagle",
+      "sources": [
+        "rescue_isolated",
+        "pinned"
+      ],
+      "composition": "One large connected rescue silhouette shows Roshan, Eagle and BOTH pinning bunnies together. Brief copy above.",
+      "ownership": "Stitched/scalloped blue footing only; no toy birds, bunny faces or blankets.",
+      "work": "Use actual Grok two-pin source and existing isolation. Preserve contact geometry; reference 26's dominant interaction."
+    },
+    {
+      "page": 21,
+      "mode": "V",
+      "background": "play",
+      "beat": "Loosen one, then the other",
+      "sources": [
+        "loose",
+        "pinned"
+      ],
+      "composition": "Two asymmetrical action details only if states are genuinely different and supported. Otherwise one large release vignette with sequential narration.",
+      "ownership": "No decorative bunny or repeated rescue group in border.",
+      "work": "Verify both pins released; do not use the rejected owl/free-body frame. Purposeful paired process pages like reference 4-5."
+    },
+    {
+      "page": 22,
+      "mode": "V",
+      "background": "play",
+      "beat": "Baby Eagle is free",
+      "sources": [
+        "eagle"
+      ],
+      "composition": "One large original Eagle silhouette, full feet/beak/wings. Short relieved copy above; no second pose.",
+      "ownership": "Blue stitched banks only; no character miniatures.",
+      "work": "Use original identity cutout; do not claim an unsupported wing action. Warm simple portrait after complex rescue."
+    },
+    {
+      "page": 23,
+      "mode": "F",
+      "background": "NONE",
+      "beat": "Room to play together",
+      "sources": [
+        "playroom"
+      ],
+      "composition": "Full restored-room scene with Roshan and Eagle; caption in quiet floor away from toy row. Full-room reward after close rescue pages.",
+      "ownership": "No added toys or decorative template.",
+      "work": "Restoration follows completed rescue. Remove earlier invented wing-trail cleanup claim; no omitted swing/basket actions."
+    },
+    {
+      "page": 24,
+      "mode": "V",
+      "background": "craft_marks",
+      "beat": "Put the art supplies in their places",
+      "sources": [
+        "art_dirty",
+        "cups",
+        "brushes"
+      ],
+      "composition": "Table/room action island upper-right; one distinct supplies detail lower-left if useful. Copy in diagonal gap. Reference 21.",
+      "ownership": "Marks-only border because cups/brushes are foreground objects; never show same cup group twice.",
+      "work": "Extract actual objects; no invented arranging hands or new scene. Small background marks stay subordinate."
+    },
+    {
+      "page": 25,
+      "mode": "V",
+      "background": "craft_marks",
+      "beat": "Scrub the art room",
+      "sources": [
+        "art_scrub"
+      ],
+      "composition": "Single large cleaning island preserving work surface and tool contact. Short copy above; different scale from page 24.",
+      "ownership": "No brush or cup icons; use plain base if lower paint marks repeat main artwork.",
+      "work": "Cut around work surface/action, not screenshot edges. Preserve room and action identity."
+    },
+    {
+      "page": 26,
+      "mode": "F",
+      "background": "NONE",
+      "beat": "Make the picture her own",
+      "sources": [
+        "paint"
+      ],
+      "composition": "Full customization frame; hand, purple glitter and paper together. Text in quiet peripheral desk/wall space.",
+      "ownership": "No template or extra paint-cup illustration.",
+      "work": "She is sprinkling material, not painting with a brush. Preserve actual contact; outpaint only peripheral surfaces."
+    },
+    {
+      "page": 27,
+      "mode": "V",
+      "background": "craft",
+      "beat": "Her own creation",
+      "sources": [
+        "paint"
+      ],
+      "composition": "Actual paper/creation isolated large below short copy. Optional small action only if distinct. Model on reference 21's finished-craft scale.",
+      "ownership": "Cup-bearing border ONLY if cups/stick are excluded from foreground; otherwise marks-only/base.",
+      "work": "Do not invent a finished drawing. If source remains work-in-progress, write about choosing colors rather than completion."
+    },
+    {
+      "page": 28,
+      "mode": "V",
+      "background": "dust",
+      "beat": "One last door",
+      "sources": [
+        "royal_door_isolated"
+      ],
+      "composition": "Large tall gold-edged purple door/arch/steps cutout. Two short lines above. A quiet threshold before reveal.",
+      "ownership": "Low dust marks only; no keys, knobs or miniature doors.",
+      "work": "Use existing Royal Hall door; no old circular arena or new architecture."
+    },
+    {
+      "page": 29,
+      "mode": "F",
+      "background": "NONE",
+      "beat": "Meet Grand Puff",
+      "sources": [
+        "boss_identity",
+        "boss_cut"
+      ],
+      "composition": "Existing boss source with context if suitable for full page. Recognizable own lavender ears; short text away from face. Dominant scale.",
+      "ownership": "No border or premature rainbow motif.",
+      "work": "If source lacks enough scene context, explicitly fall back to huge boss_cut on blue. No fabricated attic; no four-helper image before their arrival."
+    },
+    {
+      "page": 30,
+      "mode": "V",
+      "background": "dust",
+      "beat": "Dodge, then respond",
+      "sources": [
+        "grand_puff_jump_sheet",
+        "roshan"
+      ],
+      "composition": "Existing boss-jump atlas cell as irregular action; response vignette only if a valid existing pose supports it. Short ordered narration.",
+      "ownership": "Sparse low dust only; no spare boss, brush or rainbow bunny.",
+      "work": "Do not imply the atlas proves a complete dodge. One jump cutout plus accurate narration is fallback. No fabricated shared scene."
+    },
+    {
+      "page": 31,
+      "mode": "F",
+      "background": "NONE",
+      "beat": "Four friends help",
+      "sources": [
+        "R09_open"
+      ],
+      "composition": "Current stone-attic source with all four helpers and wet-soap contacts visible. Full scene; text in quiet upper space.",
+      "ownership": "No template or duplicate helper portraits.",
+      "work": "R09 is PROVISIONAL candidate, not delivery-approved. Check two windows/chests, clean-shaven Daddy and correct Eagle. Preserve all contacts."
+    },
+    {
+      "page": 32,
+      "mode": "V",
+      "background": "bath",
+      "beat": "Scrub and swish together",
+      "sources": [
+        "R09_open"
+      ],
+      "composition": "Two useful irregular contact details from different parts of source, alternating with short copy. Do not repeat whole-scene thumbnails.",
+      "ownership": "No spare tools; omit border bubbles if exact foreground cluster repeats.",
+      "work": "Do not move helpers or manufacture contact. Small process pause between team view and concealment; reference 16."
+    },
+    {
+      "page": 33,
+      "mode": "V",
+      "background": "bath",
+      "beat": "Hidden beneath the soap",
+      "sources": [
+        "R09_suds"
+      ],
+      "composition": "Large complete mound silhouette; retain needed helper hand/tool edges. One short anticipation line above. Quiet page-turn setup.",
+      "ownership": "Plain blue footing, no rainbow, eyes or ears in border; no second soap mound.",
+      "work": "Boss fully obscured; no little-bunny preview. Use current existing endpoint; preserve canonical concealment before reveal."
+    },
+    {
+      "page": 34,
+      "mode": "S",
+      "background": "NONE",
+      "beat": "POP! The rainbow bunny jumps out",
+      "sources": [
+        "R10_jump"
+      ],
+      "composition": "LEFT of one continuous spread with page 35. Bunny clear of gutter; four helpers remain around collapse. POP in quiet upper space.",
+      "ownership": "No decorative rainbow, footer or template.",
+      "work": "Use existing R10 source. No rejected landing redraw. Peripheral wall/floor expansion only; no new action."
+    },
+    {
+      "page": 35,
+      "mode": "S",
+      "background": "NONE",
+      "beat": "The dusty casing falls away",
+      "sources": [
+        "R10_jump"
+      ],
+      "composition": "RIGHT of same moment, scene and scale. Show fluff and helpers; caption near outer edge. No duplicated little bunny.",
+      "ownership": "No page background or character icon.",
+      "work": "One shared crop with page 34; don't pretend halves are consecutive frames. Gutter misses faces/contact points."
+    },
+    {
+      "page": 36,
+      "mode": "F",
+      "background": "NONE",
+      "beat": "Landing and settling dust",
+      "sources": [
+        "R11_land"
+      ],
+      "composition": "Existing aftermath, full art. Preserve actual bunny landing position, four helpers and settled environment. Brief copy low in quiet floor.",
+      "ownership": "No ornamental footer or rearranged cast.",
+      "work": "Use R11 exactly as available; no new landing staging. Deliberate sustained full-art beat after the reveal."
+    },
+    {
+      "page": 37,
+      "mode": "V",
+      "background": "base",
+      "beat": "Welcome, little friend",
+      "sources": [
+        "rainbow_cut"
+      ],
+      "composition": "One large rainbow-bunny cutout with a short welcome. Existing identity; no new greeting pose. Return to intimacy after climax.",
+      "ownership": "No bunny ears, rainbow arc or duplicate character in border.",
+      "work": "Add another character only if a real connected source interaction exists; otherwise retain single honest portrait."
+    },
+    {
+      "page": 38,
+      "mode": "V",
+      "background": "base",
+      "beat": "Look what helping changed",
+      "sources": [
+        "bath_safe",
+        "pool_clean",
+        "playroom",
+        "art_ready"
+      ],
+      "composition": "Three or four small irregular location details, each showing a different result. Diagonal rhythm; one unifying sentence. No repeated hero crops.",
+      "ownership": "Base only; all story objects belong to recap islands.",
+      "work": "Use clean endpoints only. Reference 34's memory-object hierarchy, not its held-IP imagery."
+    },
+    {
+      "page": 39,
+      "mode": "F",
+      "background": "NONE",
+      "beat": "A hug for Roshan",
+      "sources": [
+        "hug"
+      ],
+      "composition": "Existing Daddy/Roshan embrace fills the page; faces, hands and tails whole. Brief copy beside/above in quiet source space.",
+      "ownership": "No hearts, border or repeated portrait.",
+      "work": "Expand only peripheral hall if wide source needs portrait room; never invent a different embrace. Last immersive emotional beat."
+    },
+    {
+      "page": 40,
+      "mode": "V",
+      "background": "base",
+      "beat": "Come and play with us",
+      "sources": [
+        "rainbow_cut"
+      ],
+      "composition": "Large single rainbow-bunny portrait and direct invitation. Existing connected friendship group only if actually available; no fabricated interaction.",
+      "ownership": "Quiet blue banks, no cast miniatures or recap props.",
+      "work": "Calm framed ending after hug; keep wording consistent with depicted pose. Back cover is separate from 40 story pages."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "bath_drained_local",
+    "refs": [
+      "C:/Users/Peter/.codex/visualizations/2026/09/20/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/book/v4/complete/art/bath_isolated.png",
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png"
+    ],
+    "prompt": "Targeted inpainting of IMAGE 1 only. Change ONLY the murky water surface inside the shell bathtub: the dirty water has drained away, revealing the empty pale shell basin interior with remaining grime marks. IMAGE 2 is the existing game reference for a drained tub interior, not a composition reference. Preserve IMAGE 1's exact Roshan pose, face, clothing, hair, one tail, brush, brush contact on the dirty rim, hands, tap, outer tub, shell contours, proportions, colours and transparent alpha exterior. Keep grime on the rim where she is scrubbing. Do not move or redraw any character or object. This is a small local water-state correction inside an existing illustration, not a full-scene redraw. No new background or characters. Output transparent RGBA.",
+    "output": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-dbc35138-7114-4ce9-90ff-c37333bdf2ff.png",
+    "method": "built-in ImageGen targeted edit",
+    "reference_hashes": [
+      {
+        "path": "C:/Users/Peter/.codex/visualizations/2026/09/20/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/book/v4/complete/art/bath_isolated.png",
+        "sha256": "423533bfc5416bffdfc24494b112a8b7fd682f5c5db5950e246f71e6c8af2669"
+      },
+      {
+        "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
+        "sha256": "1382a8adcb37f1b0788989676e5412220878395727ac081ce1b8d6fc1335fd47"
+      }
+    ],
+    "prompt_sha256": "b13784fe3c0d388fc2112c79182989e2cb9613aa2dc421bce49c1b99dd6cdfb3",
+    "review": "Visually compared with references: local tub interior change / isolated existing doorway. No full-scene generation. Owner visual acceptance remains open."
+  },
+  {
+    "id": "royal_door_isolated",
+    "refs": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/cinematics/d1_c11_grand_puff_reveal_visual_v1/storyboards/ENVIRONMENT_PERSPECTIVES.png"
+    ],
+    "prompt": "Extract ONLY the closed purple-and-gold arched Royal Hall door and its immediate stone arch, gold stair rails and red carpeted steps from the TOP LEFT panel of this existing storyboard. Output that exact doorway/stairs as a source-faithful irregular cutout on genuine transparent alpha. Remove the surrounding hall, columns, side doors, foreground floor and all other panels. Preserve the existing door design, proportions, gold shell details, hinges, purple double leaves, arched frame and carpet. Do not invent a door, redesign its architecture, change its state, or redraw a scene. No new environment, text, or characters. The purpose is to isolate the actual existing plot doorway for a picture-book vignette.",
+    "output": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-671e7ce0-57e1-4bc7-84bc-0d2f046cab96.png",
+    "method": "built-in ImageGen targeted edit",
+    "reference_hashes": [
+      {
+        "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/cinematics/d1_c11_grand_puff_reveal_visual_v1/storyboards/ENVIRONMENT_PERSPECTIVES.png",
+        "sha256": "ef2dd6c423c8ffcfa0c5033891ea5349171970608af53ba0cf4432cdceda2f0c"
+      }
+    ],
+    "prompt_sha256": "882778e3eb9f4b49f1ce8e5b631e8a37dcfe51eacac16deec083d519da2e891e",
+    "review": "Visually compared with references: local tub interior change / isolated existing doorway. No full-scene generation. Owner visual acceptance remains open."
+  }
+]
