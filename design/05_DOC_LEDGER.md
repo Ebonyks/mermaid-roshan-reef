@@ -45,7 +45,7 @@ unclassified until this ledger gains one new scoped row for it.
 | Doc | | Note |
 |---|---|---|
 | `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; dedicated static-book branch navigation; prior rough and current source gaps remain explicit. |
-| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; owner static-book stationery integration rules, blue panels, exact foreground cutouts, lower-15% anchoring, 12% bounds, rendered background contact and no duplicate props; latest integrated-grounding correction supersedes flat-mask claims. No game/cinematic authority. |
+| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; owner static-book stationery integration rules, blue panels, exact foreground cutouts, lower-15% anchoring, 12% bounds, rendered background contact and no duplicate props; latest integrated-grounding correction supersedes flat-mask claims; owner-authorized dust-bunny action cameos preserve identity and echo page activities. No game/cinematic authority. |
 | `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `SUPERSEDED`; preserved 40-page portrait proposal; current pagination and assignments are in landscape/PAGE_PLAN.md. No art acceptance inherited. |
 
 | `design/PAINTER_ENGINE_PROTOTYPE_2026-09-16.md` | 🟣 | `PROPOSED / CANDIDATE`; owner-commissioned single standalone Painter prototype with a pinned Pixelorama fill import, unchanged Roshan graphics and isolated artwork persistence. No career/chapter integration, device/child/owner acceptance or master-audit closure. |
@@ -820,3 +820,5 @@ Kept as-is; noted so a future edit updates every copy.
 | `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; rough build evidence and remaining print/source gaps. |
 
 | `books/chapter_one/landscape/STRESS_TEST.md` | 🔵 | `SUPPORTING_CURRENT`; owner-rejected v7 and page-by-page revised rough audit; mechanical checks explicitly do not grant visual/identity acceptance. |
+
+| `books/chapter_one/landscape/BORDER_ART_DIRECTION.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested varied border performance brief, per-page score and editorial comprehension audit; proposed art, not accepted implementation. |

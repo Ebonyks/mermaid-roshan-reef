@@ -19,3 +19,5 @@ These assets are non-runtime; `.gdignore` prevents import. Work stays on the ded
 Create a portable editable ZIP after rendering with `python books/chapter_one/landscape/package_book.py --proof output/pdf/landscape --output output/pdf/Mermaid_Roshan_EDITABLE_SOURCE.zip`. The archive includes only used image assets, the font/license and all required build inputs. `page_provenance.json` records actual image-layer use, including both covers and blue backgrounds.
 
 The owner rejected the earlier v7 visual quality. [Comprehensive stress review](landscape/STRESS_TEST.md) records the concrete issues, per-page changes and remaining source/identity gaps. Mechanical and portable-rebuild checks do not imply visual acceptance.
+
+The current **border design phase** is recorded in [Border art direction](landscape/BORDER_ART_DIRECTION.md), with an [illustrated study review](landscape/BORDER_DIRECTION.html). The seven new studies are preserved, not installed in the book. This reviewed proposal supersedes their repeated bilateral composition; the existing PDF remains v13.

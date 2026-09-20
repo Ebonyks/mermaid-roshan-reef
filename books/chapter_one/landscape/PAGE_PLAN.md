@@ -40,3 +40,5 @@ Status: `SUPPORTING_CURRENT`; integrated-border review rough. 32 story pages plu
 F pages fill the page trim. C pages retain genuine foreground alpha silhouettes over an integrated blue blank-stationery variant. Small contextual details are rendered into the blue banks rather than pasted beneath rectangular masks. The central gap remains clear. Full-art sources, foreground cuts, captions and finale ceiling alignment are unchanged.
 
 See `integrated_border_evidence.json` for inspected visible bounds, relevance, grounding notes and source/prompt hashes. Generated hidden occlusion and source pixel fidelity are not measured claims.
+
+The table above records the current rendered v13 assignments. Proposed replacements and comprehension risks are in [Border art direction](BORDER_ART_DIRECTION.md); they are not yet implemented artwork.

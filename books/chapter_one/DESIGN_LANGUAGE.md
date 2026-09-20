@@ -55,3 +55,16 @@ Owner direction, 2026-09-20: the improved blue bank base is retained, but repeat
 The owner rejected the event-border proof for pasted-on ground contact, loosely related repeated objects and the smudge. Remove the smudge entirely. Decorative variants may render the authorized new props into the existing blue banks with coherent perspective, narrow contact shadows and shaped sand contact. This is background integration, not permission to redraw narrative scenes or characters. Do not use a horizontal rectangular mask to claim natural grounding.
 
 For these flattened background variants, the earlier exact-alpha/occlusion record describes only the superseded cutout-compositing method. Record the actual generated background, bound source references, prompt/hash, inspected visible prop bounds, relevance and contact review instead. Do not claim pixel-exact supplied-asset preservation, a measured hidden 10% occlusion, or numeric shadow opacity for generated pixels. The target remains subtly nestled objects, unchanged story foregrounds, bottom-15% placement, maximum-12% size and an empty central gap. A mechanical bounds pass is not owner visual acceptance.
+
+## Owner refinement: dust-bunny action cameos
+
+The owner explicitly authorizes newly drawn dust bunnies performing page-related actions in the lower borders where imported story objects are weak, following the first book's recurring Baby Eagle activity. Preserve the established lavender puff, spiral-ear and pearl-nub identity. This narrow permission supersedes the prior prohibition on new decorative character poses; it does not authorize replacement narrative scenes, protagonist redesign or altered story facts. Do not reveal the rainbow transformation before its story beat.
+
+Use a readable action or reaction, not a repeated idle mascot. Retain meaningful bath/craft objects. Broaden lower-bank groups horizontally through pose and interaction rather than enlarging every individual decoration; each small figure/prop keeps the existing individual size and lower-zone limits. Connected groups may span farther across their own bank, leaving the central gap clear. These are marginal story echoes, not claims of additional literal game events. Character recurrence is intentional; identical pose repetition and arbitrary filler remain undesirable.
+
+
+## Owner refinement: varied border performances
+
+Use one to three marginal dust bunnies total on a page when their activity adds meaning; zero on object-led or full-art pages is intentional. Mix relevant story objects with the figures and vary count, silhouette, facing, grouping and bank emphasis. Do not default to one activity per bank, duplicate mascot poses, or use extra objects to fill space. Useful individual drawings do not establish a coherent or accepted border composition.
+
+Develop the artistic vision, audit its comprehension, revise it, and store that work on the dedicated book branch before the next whole-story review cycle. [Border art direction](landscape/BORDER_ART_DIRECTION.md) records the proposed page score and editorial audit. It does not claim that the current PDF implements the score or that a child/owner has accepted it. Existing individual size, lower zone, central gap, identity and source-only narrative rules remain in force.
