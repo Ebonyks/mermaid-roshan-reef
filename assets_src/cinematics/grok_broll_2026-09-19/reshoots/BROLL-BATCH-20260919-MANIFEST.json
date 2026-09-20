@@ -1,0 +1,920 @@
+{
+  "schema": "reef.grok.broll-batch.v1",
+  "created_at": "2026-09-20T02:00:00Z",
+  "owner_instruction": "Complete remaining B-roll stills; previous START_GROK stop-after-one was skipping the rest.",
+  "holds_skipped": [
+    "SHOT-BATH-SINK-B01",
+    "SHOT-BUNNY-LAND-B01",
+    "SHOT-C2-02-B01",
+    "SHOT-C2-06-B01",
+    "SHOT-C2-07-B01"
+  ],
+  "already_returned": [
+    "SHOT-BATH-TUB-B01"
+  ],
+  "opening_approved": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "stills": [
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-ARRIVAL-TOUCHDOWN-B01",
+      "parent_shot_id": "SHOT-ARRIVAL-TOUCHDOWN",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "b9b4dd7d-b204-47af-b7f5-5d43457eadd0",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-ARRIVAL-TOUCHDOWN-B01_A001.jpg",
+      "sha256": "f8bf1dd238304933c572c589d9c43f13f34866ffa826f042e3224e063409c05d",
+      "bytes": 798822,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-ARRIVAL-TOUCHDOWN-B01/A001/SHOT-ARRIVAL-TOUCHDOWN-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-ARRIVAL-TOUCHDOWN-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Low front-left landing quarter; plane lock + Daddy lock.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-BATH-DRAIN-B01",
+      "parent_shot_id": "SHOT-BATH-DRAIN",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "ec03b15c-ca1e-4baa-a9cc-0fcfd93b351c",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-BATH-DRAIN-B01_A001.jpg",
+      "sha256": "8812e36edcd90cdf518e385ff292863f666051055a87cf8d6d69ad470b65966d",
+      "bytes": 812229,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BATH-DRAIN-B01/A001/SHOT-BATH-DRAIN-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-BATH-DRAIN-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "High oblique into tub toward drain.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-BATH-TOILET-B01",
+      "parent_shot_id": "SHOT-BATH-TOILET",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "99f23b84-9e78-4d90-867d-48ace9bd9995",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-BATH-TOILET-B01_A001.jpg",
+      "sha256": "5fa5ad83a7870ef1d51ee74ffda27675c90fa51d5ed6086c80316976a1ff393b",
+      "bytes": 682483,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BATH-TOILET-B01/A001/SHOT-BATH-TOILET-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-BATH-TOILET-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Low sink-side three-quarter on pink toilet.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-CRAFT-PICK-1-B01",
+      "parent_shot_id": "SHOT-CRAFT-PICK-1",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "c25151f6-c5c5-4739-8e41-a3eaaca224aa",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-CRAFT-PICK-1-B01_A001.jpg",
+      "sha256": "09280b46843e834577e142fc8ef04b5be13a61bcc2462767a115fae54ca6b257",
+      "bytes": 556470,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-PICK-1-B01/A001/SHOT-CRAFT-PICK-1-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-CRAFT-PICK-1-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Low front-left along left curved counter.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-CRAFT-PICK-2-B01",
+      "parent_shot_id": "SHOT-CRAFT-PICK-2",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "e20208be-78b0-4588-9e59-605e199883ba",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-CRAFT-PICK-2-B01_A001.jpg",
+      "sha256": "ee404dcf04b7fe9f60f0d3a62e1aeabc5ad00d8d82387c3bdc442410ade57a93",
+      "bytes": 611221,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-PICK-2-B01/A001/SHOT-CRAFT-PICK-2-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-CRAFT-PICK-2-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Elevated diagonal into left counter.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-CRAFT-PICK-3-B01",
+      "parent_shot_id": "SHOT-CRAFT-PICK-3",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "06e0c857-facc-42a7-a291-cc498f312edc",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-CRAFT-PICK-3-B01_A001.jpg",
+      "sha256": "aecceaf83b6ce2d334d14ff0a57c960f11c9f752a971ed003c6540b665917499",
+      "bytes": 524068,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-PICK-3-B01/A001/SHOT-CRAFT-PICK-3-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-CRAFT-PICK-3-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Low front-right along right counter.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-CRAFT-PICK-4-B01",
+      "parent_shot_id": "SHOT-CRAFT-PICK-4",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "f626ba50-5c72-4f7b-bed9-3dca46fcbbdc",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-CRAFT-PICK-4-B01_A001.jpg",
+      "sha256": "bd9763e2e0d31de864f1e5ce61a77eb3329e39a8a82a7ef716f08bd0304f218d",
+      "bytes": 573791,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-PICK-4-B01/A001/SHOT-CRAFT-PICK-4-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-CRAFT-PICK-4-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Over-shoulder right aisle.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-CRAFT-SCRUB-1-B01",
+      "parent_shot_id": "SHOT-CRAFT-SCRUB-1",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "2b3d465a-33a9-4d0f-b024-a7c39172c090",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-CRAFT-SCRUB-1-B01_A001.jpg",
+      "sha256": "8760d31397eec5af503ca9ab87fdaeee2781383d836262ebf5ff7cfc6f3a9018",
+      "bytes": 577624,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-SCRUB-1-B01/A001/SHOT-CRAFT-SCRUB-1-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-CRAFT-SCRUB-1-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Left-front low diagonal scrub.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-CRAFT-SCRUB-2-B01",
+      "parent_shot_id": "SHOT-CRAFT-SCRUB-2",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "498fc574-77cd-4f1a-9d54-32de1f72f7f1",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-CRAFT-SCRUB-2-B01_A001.jpg",
+      "sha256": "953a0fcfcac0145509288b1e4dfed86f1f53342d46d1e907308ee14cfdc34aa9",
+      "bytes": 624283,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-SCRUB-2-B01/A001/SHOT-CRAFT-SCRUB-2-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-CRAFT-SCRUB-2-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Elevated into small rear worktable.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-CRAFT-SCRUB-3-B01",
+      "parent_shot_id": "SHOT-CRAFT-SCRUB-3",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "69897a97-8b6a-4a01-808d-52eba2141997",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-CRAFT-SCRUB-3-B01_A001.jpg",
+      "sha256": "f1971ced411e657a09bab8c6bbbebe01a3b37a9e896e413dcc10c804bbc1fdbe",
+      "bytes": 525657,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-SCRUB-3-B01/A001/SHOT-CRAFT-SCRUB-3-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-CRAFT-SCRUB-3-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Right-front counter-height scrub.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-CRAFT-CUSTOMIZE-B01",
+      "parent_shot_id": "SHOT-CRAFT-CUSTOMIZE",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "f74a4c35-185b-41f8-90a1-5d8218f69168",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-CRAFT-CUSTOMIZE-B01_A001.jpg",
+      "sha256": "95a44c87ce2bc92878ed6365b60e785e303a310c7009893e164463beedb10c93",
+      "bytes": 619230,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-CUSTOMIZE-B01/A001/SHOT-CRAFT-CUSTOMIZE-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-CRAFT-CUSTOMIZE-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Over-shoulder rear table customize.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-EAGLE-FREE-B01",
+      "parent_shot_id": "SHOT-EAGLE-FREE",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "3bc08198-ad90-4cb9-9f7c-e744a4b426db",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-EAGLE-FREE-B01_A001.jpg",
+      "sha256": "7efd5823a3a1daf25145cdf503dd679a13d808b411ded4e66b438a21c0a68e4e",
+      "bytes": 604338,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-EAGLE-FREE-B01/A001/SHOT-EAGLE-FREE-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-EAGLE-FREE-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Low front-left playroom oblique.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-EAGLE-WING-B01",
+      "parent_shot_id": "SHOT-EAGLE-WING",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "26633296-8285-41c3-80dd-209170256bae",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-EAGLE-WING-B01_A001.jpg",
+      "sha256": "af963358c6f70082269d70b591381ce2951f7f605dc6f0912ecb4faa5647b591",
+      "bytes": 574941,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-EAGLE-WING-B01/A001/SHOT-EAGLE-WING-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-EAGLE-WING-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Higher three-quarter free eagle.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-POOL-SKIM-B01",
+      "parent_shot_id": "SHOT-POOL-SKIM",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "d0cb5d9d-b4b1-4ffe-bf7d-907146e31b21",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-POOL-SKIM-B01_A001.jpg",
+      "sha256": "e6a81e5425d1f660ffce0ce59ab5433879bb88ee68845364acdb5ab320a5e9e7",
+      "bytes": 747224,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-POOL-SKIM-B01/A001/SHOT-POOL-SKIM-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-POOL-SKIM-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Low waterline diagonal.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-POOL-FALL-1-B01",
+      "parent_shot_id": "SHOT-POOL-FALL-1",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "bf83b198-4a78-44e7-982d-7d35b5caa793",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-POOL-FALL-1-B01_A001.jpg",
+      "sha256": "441338ed1f14f8771b03d67aeac46ff79847cc9d24a97ab9991135423071c48f",
+      "bytes": 767284,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-POOL-FALL-1-B01/A001/SHOT-POOL-FALL-1-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-POOL-FALL-1-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Front-left waterfall lane one.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-POOL-FALL-2-B01",
+      "parent_shot_id": "SHOT-POOL-FALL-2",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "ca0765c2-fe16-45e2-84df-d89743bd714b",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-POOL-FALL-2-B01_A001.jpg",
+      "sha256": "44fd0c97a0fc506a35000e41975183272200b4e3acdf2a92c71bb4d1c5ac1d01",
+      "bytes": 740665,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-POOL-FALL-2-B01/A001/SHOT-POOL-FALL-2-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-POOL-FALL-2-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Elevated toward lane two.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-POOL-FALL-3-B01",
+      "parent_shot_id": "SHOT-POOL-FALL-3",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "62fe4c1b-6d06-4511-b5aa-14bcef9a4606",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-POOL-FALL-3-B01_A001.jpg",
+      "sha256": "fc97d53264565970a3b07ff7c74464112896003f33d671935304212ca1ce2b55",
+      "bytes": 701944,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-POOL-FALL-3-B01/A001/SHOT-POOL-FALL-3-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-POOL-FALL-3-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Low centre-coping last lane.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-POOL-PULL-B01",
+      "parent_shot_id": "SHOT-POOL-PULL",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "8c2fe390-f78a-4619-ade5-1bc254b8d823",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-POOL-PULL-B01_A001.jpg",
+      "sha256": "0bb01d59a4a2f3bf82e7b13b21103189b85f55d3b0deeafabf822b6a12512e6d",
+      "bytes": 707363,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-POOL-PULL-B01/A001/SHOT-POOL-PULL-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-POOL-PULL-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Right-front seahorse mouth.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-BUNNY-SOAP-B01",
+      "parent_shot_id": "SHOT-BUNNY-SOAP",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "a5bdc08e-8235-45d2-8f07-62dba513ac50",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-BUNNY-SOAP-B01_A001.jpg",
+      "sha256": "501ac5d20c8af268bf4b716e51be904f69f9d66c87fbfc8074d16a26d480e609",
+      "bytes": 715673,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BUNNY-SOAP-B01/A001/SHOT-BUNNY-SOAP-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-BUNNY-SOAP-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Front-left attic rug oblique, four helpers + puff.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-BUNNY-JUMP-B01",
+      "parent_shot_id": "SHOT-BUNNY-JUMP",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "fd5d5053-f792-4a61-a231-0edf905ce41e",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-BUNNY-JUMP-B01_A001.jpg",
+      "sha256": "a028ad50fbf3f71a2fd996f27540dc4c61b093fc929fb1cabbc3cae59b6a89c8",
+      "bytes": 786811,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BUNNY-JUMP-B01/A001/SHOT-BUNNY-JUMP-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-BUNNY-JUMP-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Lower front-left foam mound, rainbow jump.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-TEAM-PAPER-B01",
+      "parent_shot_id": "SHOT-TEAM-PAPER",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "1bf1ecae-82ec-47c6-8e7b-7a944c321601",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-TEAM-PAPER-B01_A001.jpg",
+      "sha256": "d4bea56e8233a09bff4d58dbf8ed6bdc7d8471dd94aa09e3e8836af5cbb05115",
+      "bytes": 728773,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-TEAM-PAPER-B01/A001/SHOT-TEAM-PAPER-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-TEAM-PAPER-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Floor-height along red runner.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-TEAM-WEB-B01",
+      "parent_shot_id": "SHOT-TEAM-WEB",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "a9e7a9b9-37b3-4a85-ad1d-9b35b416aae9",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-TEAM-WEB-B01_A001.jpg",
+      "sha256": "a9072d5c5e116f26f856c61469d4452ebb25ec2cb0c521ce6d1a45877b3021ad",
+      "bytes": 764322,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-TEAM-WEB-B01/A001/SHOT-TEAM-WEB-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-TEAM-WEB-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Elevated toward gold pillar web.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-TEAM-WALL-B01",
+      "parent_shot_id": "SHOT-TEAM-WALL",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "08a9a076-3562-4ecc-be57-7f60fb0ceb00",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-TEAM-WALL-B01_A001.jpg",
+      "sha256": "1152475f794b810c5b4c4e68099b4d62c4893b2f73f53ca3fc4935b7f52bc214",
+      "bytes": 584802,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-TEAM-WALL-B01/A001/SHOT-TEAM-WALL-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-TEAM-WALL-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Eye-level lavender wall stain.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-TEAM-FINISH-B01",
+      "parent_shot_id": "SHOT-TEAM-FINISH",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "c5519209-3481-4756-a017-f94502993a97",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-TEAM-FINISH-B01_A001.jpg",
+      "sha256": "dcc039b3dc51fef26bbe083d6d9aabbef0c6452b0a3871dab43c47efb0e2d2be",
+      "bytes": 728538,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-TEAM-FINISH-B01/A001/SHOT-TEAM-FINISH-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-TEAM-FINISH-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "High three-quarter clean hall arches.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-C2-01-B01",
+      "parent_shot_id": "SHOT-C2-01",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "ff6a8464-5e71-4f2b-95d6-31abf14da23a",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-C2-01-B01_A001.jpg",
+      "sha256": "eac71f70149fe55ccdaf867e58fae8ea05a996625f7bc9792a52f743c87d06ef",
+      "bytes": 744127,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-01-B01/A001/SHOT-C2-01-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-C2-01-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Table front-left quarter, rocket+cake+friends.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-C2-03-B01",
+      "parent_shot_id": "SHOT-C2-03",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "a151b9b3-4963-4c42-bdd1-f8e6b771173f",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-C2-03-B01_A001.jpg",
+      "sha256": "3d264a6bdefb2b714bed6994e79e5015819fe889436ab720603529e5e4e59c3d",
+      "bytes": 832282,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-03-B01/A001/SHOT-C2-03-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-C2-03-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Low side-front King leads Prince.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-C2-04-B01",
+      "parent_shot_id": "SHOT-C2-04",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "271cb32e-5131-4459-8f03-4e52201e99f8",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-C2-04-B01_A001.jpg",
+      "sha256": "3fb60992e6416879d395b8f98b4e0ee68280419f527d185760a0cb0503ed6394",
+      "bytes": 843009,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-04-B01/A001/SHOT-C2-04-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-C2-04-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Encounter axis, King between Roshan and Prince.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-C2-05-B01",
+      "parent_shot_id": "SHOT-C2-05",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "e2b4f0b6-41de-4089-9e1d-ac70afc5fc34",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-C2-05-B01_A001.jpg",
+      "sha256": "bf85dc92812fb7d2c3f012ffc1193c6d924249104d04549b5a5c04821bee1ef8",
+      "bytes": 640915,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-05-B01/A001/SHOT-C2-05-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-C2-05-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Low King foot stomp.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-C2-08-B01",
+      "parent_shot_id": "SHOT-C2-08",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "91914345-dc4d-41fb-9452-5f99299148e5",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-C2-08-B01_A001.jpg",
+      "sha256": "075e47f9487fde7aeeb3bc9a49355983b9ec79b3ffb4c116ddde080afbff0815",
+      "bytes": 805469,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-08-B01/A001/SHOT-C2-08-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-C2-08-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Royal exit, King carries candle.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    },
+    {
+      "schema": "reef.grok.still-return.v2.1",
+      "kind": "RETURN",
+      "shot_id": "SHOT-C2-09-B01",
+      "parent_shot_id": "SHOT-C2-09",
+      "attempt": 1,
+      "attempt_label": "A001",
+      "status": "RETURNED_STILL_CANDIDATE",
+      "construction": "cold_start",
+      "generation_job_id": "70877c40-adcd-4f70-a043-83a64ffa616d",
+      "mode": "imagine_reference_to_image",
+      "filename": "SHOT-C2-09-B01_A001.jpg",
+      "sha256": "ea67e2f263b4ebdcd9015211782cefafdc820ae06dbfbf21217f0457102addf8",
+      "bytes": 795638,
+      "dimensions": [
+        1792,
+        1008
+      ],
+      "private_path": "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-09-B01/A001/SHOT-C2-09-B01_A001.jpg",
+      "browse_path": "first_frames/BROLL-20260919/SHOT-C2-09-B01_A001.jpg",
+      "opening_approved": false,
+      "GENERATION_READY": false,
+      "DELIVERY_ACCEPTED": false,
+      "board_bound": false,
+      "motion_authorized": false,
+      "producer_notes": [
+        "Shoulder-height empty holder.",
+        "Alternate-angle first-frame candidate. Not owner-approved. No I2V."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "2026-09-19-broll-still-batch",
+  "scope": "Remaining B-roll still metadata for 30 non-HOLD shots after TUB-B01. No motion, no HOLDs, no delivery acceptance.",
+  "baseline": "18c14ed0367bf1bdb651e66b0901133210b31638",
+  "rules": [
+    "DL-CIN-01",
+    "DL-CIN-04",
+    "DL-CIN-11",
+    "DL-CIN-12",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/BROLL-BATCH-20260919-MANIFEST.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-ARRIVAL-TOUCHDOWN-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BATH-DRAIN-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BATH-TOILET-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BATH-TUB-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BUNNY-JUMP-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BUNNY-SOAP-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-01-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-03-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-04-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-05-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-08-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-09-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-CUSTOMIZE-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-PICK-1-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-PICK-2-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-PICK-3-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-PICK-4-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-SCRUB-1-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-SCRUB-2-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-SCRUB-3-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-EAGLE-FREE-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-EAGLE-WING-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-POOL-FALL-1-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-POOL-FALL-2-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-POOL-FALL-3-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-POOL-PULL-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-POOL-SKIM-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-TEAM-FINISH-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-TEAM-PAPER-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-TEAM-WALL-B01/A001/RETURN.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-TEAM-WEB-B01/A001/RETURN.json",
+    "design/audit_impacts/2026-09-19-broll-still-batch.json"
+  ],
+  "validation": [
+    {
+      "command": "python3 -B tools/audit_development.py --base 18c14ed0367bf1bdb651e66b0901133210b31638",
+      "result": "PASS",
+      "evidence": "Metadata-only B-roll still returns. Pixels in private media. DELIVERY_ACCEPTED false."
+    }
+  ],
+  "acceptance_gaps": "Owner has not approved any B-roll filename/hash. HOLDs skipped. No I2V."
+}
