@@ -1,0 +1,61 @@
+{
+  "id": "2026-09-19-broll-motion-batch",
+  "scope": "B-roll I2V motion-reference metadata for 31 non-HOLD shots. Not delivery.",
+  "baseline": "7b09247f8237ec161b1ee00045ec153ba30d7b86",
+  "rules": [
+    "DL-CIN-01",
+    "DL-CIN-04",
+    "DL-CIN-11",
+    "DL-CIN-12",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/BROLL-MOTION-20260919-MANIFEST.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-ARRIVAL-TOUCHDOWN-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BATH-DRAIN-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BATH-TOILET-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BATH-TUB-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BUNNY-JUMP-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-BUNNY-SOAP-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-01-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-03-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-04-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-05-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-08-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-C2-09-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-CUSTOMIZE-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-PICK-1-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-PICK-2-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-PICK-3-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-PICK-4-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-SCRUB-1-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-SCRUB-2-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-CRAFT-SCRUB-3-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-EAGLE-FREE-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-EAGLE-WING-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-POOL-FALL-1-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-POOL-FALL-2-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-POOL-FALL-3-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-POOL-PULL-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-POOL-SKIM-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-TEAM-FINISH-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-TEAM-PAPER-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-TEAM-WALL-B01/A001/RETURN-MOTION.json",
+    "assets_src/cinematics/grok_broll_2026-09-19/reshoots/SHOT-TEAM-WEB-B01/A001/RETURN-MOTION.json",
+    "design/audit_impacts/2026-09-19-broll-motion-batch.json"
+  ],
+  "validation": [
+    {
+      "command": "python3 -B tools/audit_development.py --base 7b09247f8237ec161b1ee00045ec153ba30d7b86",
+      "result": "PASS",
+      "evidence": "Metadata-only motion returns. Pixels in private media. DELIVERY_ACCEPTED false."
+    }
+  ],
+  "acceptance_gaps": "I2V is editorial reference. Openings not owner-approved. HOLDs skipped."
+}
