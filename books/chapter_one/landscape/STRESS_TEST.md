@@ -65,3 +65,7 @@ Run `python books/chapter_one/landscape/audit_book.py --proof <current-proof-dir
 The v9 thin-bank background was still visually weak. The current border revision adds blue value bands and small native corner coral/pebbles, with larger existing activity props and asymmetric lower-bank groups. The blue center stays clear. Exact assignments and geometry are in `book.json` and `border_revision_evidence.json`. This is a revision for review, not an owner acceptance.
 
 The native page 17/18 source-frame comparison is recorded in `eagle_rescue_review.json`. The visible signature review is complete; exact fidelity of small or hidden anatomy remains unproven. Existing source pixels are retained.
+
+## Event-border correction
+
+The owner accepted the stronger base as an improvement but rejected repetitive brushes and suds. Current border assignments use page-event detail, recorded in `event_border_evidence.json`: sink accessories, fresh-bath objects, poolside collection, toys, sorting supplies, tidy craft storage, dusty attic hints and welcoming play. Existing story foreground and full-art pages are unchanged. New decorative assets are authorized; no new story scenes were generated.

@@ -74,7 +74,7 @@ def background(p):
   assert w<=W*.12 and h<=H*.12 and y+h<=H*.15
   assert (placement['mound']=='left' and x+w<=190) or (placement['mound']=='right' and x>=314)
   # Bottom-align exact alpha artwork rather than center it above its support.
-  im=Image.open(path(k));l,t,r,b=im.getchannel('A').getbbox();scale=min(w/(r-l),h/(b-t));aw=(r-l)*scale;ah=(b-t)*scale;ax=x+(w-aw)/2;ay=y
+  im=Image.open(path(k));l,t,r,b=B['sources'][k].get('alpha_box',im.getchannel('A').getbbox());scale=min(w/(r-l),h/(b-t));aw=(r-l)*scale;ah=(b-t)*scale;ax=x+(w-aw)/2;ay=y
   c.saveState();c.setFillColorRGB(.25,.4,.6);c.setFillAlpha(.12);c.ellipse(ax,ay-1,ax+aw,ay+4,fill=1,stroke=0);c.restoreState()
   region(k,(l,t,r,b),(ax,ay,aw,ah));LAYERS[-1]['mound']=placement['mound'];LAYERS[-1]['shadow_opacity']=.12
   ROLE='mound_occlusion';c.saveState();cliprect(ax,ay,aw,ah*.1);full(base);LAYERS[-1]['clip_points']=[ax,ay,aw,ah*.1];c.restoreState()

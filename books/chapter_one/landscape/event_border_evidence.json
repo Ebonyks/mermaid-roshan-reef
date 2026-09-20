@@ -1,0 +1,900 @@
+{
+  "status": "RENDERED_REVIEW_CANDIDATE",
+  "owner_authorization": "New isolated event-related decorative assets explicitly allowed; no full scenes or character redesign.",
+  "inventory": "Inspected handoff/game craft, playroom, bathroom, pool items. Reused sailboat, pool float and basket; tiny rectangular room crops are unsuitable as silhouettes.",
+  "atlases": [
+    {
+      "id": "bath",
+      "file": "art/event_borders/bath_atlas.png",
+      "sha256": "ad2e168c514760c22bd6640442c81b3cd80ee3fd2c217d9bed5f8e0f90b9f90f",
+      "size": [
+        1536,
+        1024
+      ],
+      "prompt": "Create one coherent production PROP ATLAS for the Mermaid Roshan picture-book lower borders. Six isolated small illustrated props in a precise 3-column by 2-row grid, one prop/group per cell, evenly sized cells with generous transparent gutters. TRUE transparent RGBA background, including holes between objects. No checkerboard pixels, paper rectangle, labels, captions, frame, ground, floor, environment, characters, faces or cast-shadow planes. Reference image is style only: delicate blue-purple/navy outlines, simple pastel watercolor forms, broad value bands, clear child-readable shapes; no photorealism, glossy 3D rendering or tiny noisy detail. Props will be used at 0.4–0.6 inch high, so clarity matters. Each entire group fits comfortably inside its own cell with 15% inset; nothing crosses grid boundaries. Landscape atlas. BATHROOM accessories. Top-left: pale pearl shell soap dish holding a rounded pink bar of soap, no bubbles. Top-middle: two neatly folded aqua washcloths with a lavender edge. Top-right: a simple gold shell-shaped comb with clearly separated rounded teeth. Bottom-left: cheerful plain yellow rubber duck, no face embellishments, no water patch. Bottom-middle: one rolled pale-lavender towel with its blue hem visible. Bottom-right: small pearlescent lidded bath-salts jar with a shell-shaped lid, no lettering. These suggest sink cleaning and a fresh tidy bath, not another brush/sponge.",
+      "prompt_sha256": "4cb7f16531b87abc9adc953961f679e36fc3300a00dba5f43d5bde66d1dca99c",
+      "cells": [
+        {
+          "key": "soap_dish",
+          "region": [
+            52,
+            100,
+            490,
+            476
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ]
+        },
+        {
+          "key": "folded_cloths",
+          "region": [
+            564,
+            140,
+            1014,
+            469
+          ],
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ]
+        },
+        {
+          "key": "shell_comb",
+          "region": [
+            1114,
+            97,
+            1478,
+            490
+          ],
+          "cell": [
+            1024,
+            0,
+            1536,
+            512
+          ]
+        },
+        {
+          "key": "rubber_duck",
+          "region": [
+            68,
+            585,
+            434,
+            930
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ]
+        },
+        {
+          "key": "rolled_towel",
+          "region": [
+            549,
+            603,
+            1017,
+            929
+          ],
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ]
+        },
+        {
+          "key": "bath_salts",
+          "region": [
+            1127,
+            538,
+            1485,
+            950
+          ],
+          "cell": [
+            1024,
+            512,
+            1536,
+            1024
+          ]
+        }
+      ],
+      "method": "Built-in imagegen, one transparent prop atlas. Original atlas unchanged; PDF clips each whole object at recorded bounds."
+    },
+    {
+      "id": "craft",
+      "file": "art/event_borders/craft_atlas.png",
+      "sha256": "295fcdd6bab2e7c7c73cda88ca210f4bc7daa81ef91619aecdc67cedf8157933",
+      "size": [
+        1536,
+        1024
+      ],
+      "prompt": "Create one coherent production PROP ATLAS for the Mermaid Roshan picture-book lower borders. Six isolated small illustrated props in a precise 3-column by 2-row grid, one prop/group per cell, evenly sized cells with generous transparent gutters. TRUE transparent RGBA background, including holes between objects. No checkerboard pixels, paper rectangle, labels, captions, frame, ground, floor, environment, characters, faces or cast-shadow planes. Reference image is style only: delicate blue-purple/navy outlines, simple pastel watercolor forms, broad value bands, clear child-readable shapes; no photorealism, glossy 3D rendering or tiny noisy detail. Props will be used at 0.4–0.6 inch high, so clarity matters. Each entire group fits comfortably inside its own cell with 15% inset; nothing crosses grid boundaries. Landscape atlas. CRAFT ROOM details. Top-left: two small wooden spools with pink and turquoise ribbons curling a short distance beside them. Top-middle: closed blunt-tip children's scissors, gold handles and pale steel blades. Top-right: a tidy small stack of pastel paper sheets with one folded corner. Bottom-left: three chunky wax crayons, pink yellow turquoise, no words. Bottom-middle: a tiny clear corked jar of lavender glitter with two or three crisp star glints, no label. Bottom-right: a clean pale-blue shallow sorting tray with three compartments holding a few colourful buttons. No paintbrushes, no paint cups, no paint bottles, no sponge. Objects communicate sorting and putting supplies away.",
+      "prompt_sha256": "4b757e5f0df1208b271620c31b49a807c59f6586375f2ac7e69a64ec2e913c01",
+      "cells": [
+        {
+          "key": "ribbon_spools",
+          "region": [
+            55,
+            135,
+            505,
+            492
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ]
+        },
+        {
+          "key": "scissors",
+          "region": [
+            572,
+            95,
+            992,
+            453
+          ],
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ]
+        },
+        {
+          "key": "paper_stack",
+          "region": [
+            1058,
+            93,
+            1488,
+            471
+          ],
+          "cell": [
+            1024,
+            0,
+            1536,
+            512
+          ]
+        },
+        {
+          "key": "crayons",
+          "region": [
+            55,
+            590,
+            493,
+            930
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ]
+        },
+        {
+          "key": "glitter_jar",
+          "region": [
+            648,
+            571,
+            892,
+            928
+          ],
+          "cell": [
+            512,
+            512,
+            995,
+            1024
+          ]
+        },
+        {
+          "key": "sorting_tray",
+          "region": [
+            1016,
+            611,
+            1496,
+            928
+          ],
+          "cell": [
+            995,
+            512,
+            1536,
+            1024
+          ]
+        }
+      ],
+      "method": "Built-in imagegen, one transparent prop atlas. Original atlas unchanged; PDF clips each whole object at recorded bounds."
+    },
+    {
+      "id": "attic",
+      "file": "art/event_borders/attic_atlas.png",
+      "sha256": "b5b1718202cbe7f971b0c491cfecf5d2e6a88c0866b3ae1b7cb364f124c3fd42",
+      "size": [
+        1536,
+        1024
+      ],
+      "prompt": "Create one coherent production PROP ATLAS for the Mermaid Roshan picture-book lower borders. Six isolated small illustrated props in a precise 3-column by 2-row grid, one prop/group per cell, evenly sized cells with generous transparent gutters. TRUE transparent RGBA background, including holes between objects. No checkerboard pixels, paper rectangle, labels, captions, frame, ground, floor, environment, characters, faces or cast-shadow planes. Reference image is style only: delicate blue-purple/navy outlines, simple pastel watercolor forms, broad value bands, clear child-readable shapes; no photorealism, glossy 3D rendering or tiny noisy detail. Props will be used at 0.4–0.6 inch high, so clarity matters. Each entire group fits comfortably inside its own cell with 15% inset; nothing crosses grid boundaries. Landscape atlas. DUSTY ATTIC and hidden-friend reveal details. Top-left: a small antique gold shell-shaped door knocker with a loose ring, no door slab. Top-middle: a short old cobweb stretched between two little dusty seashells as one low triangular group; no spider. Top-right: a tiny closed blue-lavender wooden keepsake chest with a pearl clasp, visibly dusty, no key. Bottom-left: one low soft lavender dust-fluff curl with two tiny loose fluff pieces, absolutely no eyes ears face limbs or creature silhouette. Bottom-middle: three smooth pearl pebbles and one tiny golden four-point glint, as an isolated low cluster. Bottom-right: a little translucent iridescent crystal with a warm rainbow stripe inside and two small pastel fragments, simple and friendly. No brushes, sponge, suds, characters or room background. These are decorative border hints, not new story mechanics.",
+      "prompt_sha256": "a9739b508a56ed775a5b9f092f1232cf61da4d012d3a8c6ae082f81fcb400725",
+      "cells": [
+        {
+          "key": "door_knocker",
+          "region": [
+            111,
+            85,
+            424,
+            507
+          ],
+          "cell": [
+            0,
+            0,
+            475,
+            512
+          ]
+        },
+        {
+          "key": "cobweb_shells",
+          "region": [
+            508,
+            246,
+            1031,
+            476
+          ],
+          "cell": [
+            475,
+            0,
+            1047,
+            512
+          ]
+        },
+        {
+          "key": "dusty_chest",
+          "region": [
+            1072,
+            158,
+            1484,
+            489
+          ],
+          "cell": [
+            1047,
+            0,
+            1536,
+            512
+          ]
+        },
+        {
+          "key": "dust_curl",
+          "region": [
+            77,
+            667,
+            455,
+            918
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ]
+        },
+        {
+          "key": "pearl_glint",
+          "region": [
+            595,
+            613,
+            960,
+            926
+          ],
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ]
+        },
+        {
+          "key": "rainbow_crystal",
+          "region": [
+            1095,
+            582,
+            1427,
+            939
+          ],
+          "cell": [
+            1024,
+            512,
+            1536,
+            1024
+          ]
+        }
+      ],
+      "method": "Built-in imagegen, one transparent prop atlas. Original atlas unchanged; PDF clips each whole object at recorded bounds."
+    },
+    {
+      "id": "play",
+      "file": "art/event_borders/play_atlas.png",
+      "sha256": "c7535dd6b7a10eb46068a0b6a7098189fa33c4bb9fb47c71237121f79d1b8614",
+      "size": [
+        1536,
+        1024
+      ],
+      "prompt": "Create one coherent production PROP ATLAS for the Mermaid Roshan picture-book lower borders. Six isolated small illustrated props in a precise 3-column by 2-row grid, one prop/group per cell, evenly sized cells with generous transparent gutters. TRUE transparent RGBA background, including holes between objects. No checkerboard pixels, paper rectangle, labels, captions, frame, ground, floor, environment, characters, faces or cast-shadow planes. Reference image is style only: delicate blue-purple/navy outlines, simple pastel watercolor forms, broad value bands, clear child-readable shapes; no photorealism, glossy 3D rendering or tiny noisy detail. Props will be used at 0.4–0.6 inch high, so clarity matters. Each entire group fits comfortably inside its own cell with 15% inset; nothing crosses grid boundaries. Landscape atlas. PLAYROOM and FRIENDSHIP details. Top-left: three wooden pastel toy blocks stacked loosely, decorated only with a shell, star, and heart, no letters. Top-middle: small lilac toy sailboat with pale pink sail and a turquoise hull, no water. Top-right: one soft fabric patchwork ball in aqua pink yellow with simple curved seams. Bottom-left: two small matching felt pennants on short wooden sticks tied together with a coral-pink bow, no words. Bottom-middle: two interlocking large pastel wooden puzzle pieces, one lavender and one aqua, heart silhouette on one. Bottom-right: a short arch of chunky rainbow-coloured wooden stacking pieces, no cloud, no sparkles. Friendly tactile toys, no branded designs, no characters or animals.",
+      "prompt_sha256": "3d51f2c8ddbb128246a86c584d2a494cf48501593c8d293a0029d5a1921d3824",
+      "cells": [
+        {
+          "key": "toy_blocks",
+          "region": [
+            65,
+            90,
+            481,
+            496
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ]
+        },
+        {
+          "key": "nesting_cups",
+          "region": [
+            615,
+            72,
+            930,
+            511
+          ],
+          "cell": [
+            512,
+            0,
+            1024,
+            512
+          ]
+        },
+        {
+          "key": "patchwork_ball",
+          "region": [
+            1080,
+            114,
+            1470,
+            497
+          ],
+          "cell": [
+            1024,
+            0,
+            1536,
+            512
+          ]
+        },
+        {
+          "key": "friend_pennants",
+          "region": [
+            57,
+            549,
+            485,
+            963
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            1024
+          ]
+        },
+        {
+          "key": "puzzle_pair",
+          "region": [
+            548,
+            630,
+            993,
+            949
+          ],
+          "cell": [
+            512,
+            512,
+            1024,
+            1024
+          ]
+        },
+        {
+          "key": "rainbow_arch",
+          "region": [
+            1056,
+            619,
+            1498,
+            943
+          ],
+          "cell": [
+            1024,
+            512,
+            1536,
+            1024
+          ]
+        }
+      ],
+      "method": "Built-in imagegen, one transparent prop atlas. Original atlas unchanged; PDF clips each whole object at recorded bounds."
+    }
+  ],
+  "pages": [
+    {
+      "page": 4,
+      "event": "Getting ready to help: folded cloths and supply basket",
+      "placements": [
+        {
+          "source": "folded_cloths",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "cleanup_basket",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "rolled_towel",
+          "box": [
+            126,
+            3,
+            36,
+            27
+          ],
+          "mound": "left"
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "event": "Sink accessories beside a freshly cleaned basin",
+      "placements": [
+        {
+          "source": "soap_dish",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "shell_comb",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "folded_cloths",
+          "box": [
+            126,
+            3,
+            36,
+            27
+          ],
+          "mound": "left"
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "event": "Bath ready to use again: duck, dry towel and bath salts",
+      "placements": [
+        {
+          "source": "rubber_duck",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "rolled_towel",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "bath_salts",
+          "box": [
+            342,
+            3,
+            36,
+            27
+          ],
+          "mound": "right"
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "event": "Poolside collection: float and rubbish basket; no duplicate net contents",
+      "placements": [
+        {
+          "source": "pool_float",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "cleanup_basket",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "event": "Rescue opens the way to play: blocks and soft ball",
+      "placements": [
+        {
+          "source": "toy_blocks",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "patchwork_ball",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "event": "Playing together: sailboat, stacking cups and interlocking pieces",
+      "placements": [
+        {
+          "source": "toy_sailboat",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "nesting_cups",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "puzzle_pair",
+          "box": [
+            126,
+            3,
+            36,
+            27
+          ],
+          "mound": "left"
+        }
+      ]
+    },
+    {
+      "page": 21,
+      "event": "Sorting creative supplies: ribbons, crayons and scissors",
+      "placements": [
+        {
+          "source": "ribbon_spools",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "crayons",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "scissors",
+          "box": [
+            342,
+            3,
+            36,
+            27
+          ],
+          "mound": "right"
+        }
+      ]
+    },
+    {
+      "page": 22,
+      "event": "Everything has a place: sorted buttons, stacked paper and glitter",
+      "placements": [
+        {
+          "source": "sorting_tray",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "paper_stack",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "glitter_jar",
+          "box": [
+            126,
+            3,
+            36,
+            27
+          ],
+          "mound": "left"
+        }
+      ]
+    },
+    {
+      "page": 24,
+      "event": "A long-closed doorway: tarnished knocker, cobweb and keepsake chest",
+      "placements": [
+        {
+          "source": "door_knocker",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "cobweb_shells",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "dusty_chest",
+          "box": [
+            126,
+            3,
+            36,
+            27
+          ],
+          "mound": "left"
+        }
+      ]
+    },
+    {
+      "page": 25,
+      "event": "Dusty attic discoveries: old chest, web and curled fluff",
+      "placements": [
+        {
+          "source": "dusty_chest",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "dust_curl",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "cobweb_shells",
+          "box": [
+            342,
+            3,
+            36,
+            27
+          ],
+          "mound": "right"
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "event": "Bounce and sparkle: disturbed fluff beside small iridescent glints",
+      "placements": [
+        {
+          "source": "dust_curl",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "rainbow_crystal",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "pearl_glint",
+          "box": [
+            126,
+            3,
+            36,
+            27
+          ],
+          "mound": "left"
+        }
+      ]
+    },
+    {
+      "page": 31,
+      "event": "Helping each other: pieces that fit and a tied pair of pennants",
+      "placements": [
+        {
+          "source": "puzzle_pair",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "friend_pennants",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "pearl_glint",
+          "box": [
+            342,
+            3,
+            36,
+            27
+          ],
+          "mound": "right"
+        }
+      ]
+    },
+    {
+      "page": 32,
+      "event": "An invitation to play: rainbow toy, shared ball and blocks",
+      "placements": [
+        {
+          "source": "rainbow_arch",
+          "box": [
+            52,
+            6,
+            60,
+            43
+          ],
+          "mound": "left"
+        },
+        {
+          "source": "patchwork_ball",
+          "box": [
+            392,
+            6,
+            60,
+            43
+          ],
+          "mound": "right"
+        },
+        {
+          "source": "toy_blocks",
+          "box": [
+            126,
+            3,
+            36,
+            27
+          ],
+          "mound": "left"
+        }
+      ]
+    }
+  ],
+  "limits": "Same accepted blue base; all story art/text unchanged. Decorations bottom15%, each max12% both axes, same mound texture occlusion and center gap.",
+  "duck_correction": {
+    "file": "art/event_borders/bath_duck_eye.png",
+    "sha256": "2ea728f2018d5b1d350572dbb3f4b8520ed11caf31393fce44014718c64e6910",
+    "method": "Built-in imagegen adds missing toy eye. Only duck cell used; other original atlas props retain initial source.",
+    "alpha_box": [
+      67,
+      585,
+      434,
+      931
+    ],
+    "prompt_record": "event_border_correction_prompts.json"
+  },
+  "sailboat_correction": {
+    "file": "art/event_borders/sailboat_detail.png",
+    "sha256": "e8e47eca417401dff455842a376e5ac5372bbc1e2ef291117dedaaa6dc0526ea",
+    "source_reference": "assets/flats/castle/interactions_v4/rest_cards/playroom_shelf_sailboat_rest.png",
+    "source_reference_sha256": "b2debf899c5cd6cbc5464e2b836b1075eacf92a403f8e071cb5495d7cc4fcd27",
+    "decision": "First render exposed weak native rest-card resolution. New isolated prop uses same simple toy idea and original-book border style; not a scene redraw. Old source kept only as inventory reference.",
+    "prompt_record": "event_border_correction_prompts.json"
+  },
+  "review": "All four atlases inspected: whole isolated props, actual alpha. Manual cell boundaries avoid cutting the sorting tray and cobweb shell group. Pages 6, 21, 24, 20, 26 and 32 inspected enlarged; no rectangular backplates or foreground duplicates. Final duck-eye/sailboat corrections are localized prop improvements. Owner acceptance open.",
+  "verification": {
+    "full_art_pages_byte_identical": 19,
+    "text_and_foreground_layers_unchanged": true,
+    "geometry_report": "stress_results.json"
+  }
+}

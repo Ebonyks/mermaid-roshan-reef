@@ -5069,3 +5069,17 @@ Non-runtime review/reference only; no new game or cinematic acceptance. Source p
 - `books/chapter_one/landscape/art/stress_revision/waterfall_lane_candidate.png` — Source: existing owner/project book frame `books/chapter_one/archive/rough_v5/art/waterfall.png`; inherited project provenance. URL: repository source path. Modification: imagegen bounded first-lane cleaning inpaint; only recorded polygon is used in the PDF, original pixels retained everywhere else. No new third-party license or cinematic acceptance asserted.
 
 - `books/chapter_one/landscape/art/landscape_base_v2.png` — Source: existing `landscape_base.png`, original book page 15 as border-style reference only; owner/project provenance inherited. URL: repository paths recorded in `border_revision_evidence.json`. Modification: built-in imagegen blank-stationery refinement, blue bank value bands and small native corner coral/pebbles. No story scene, character or supplied prop redraw.
+
+- `books/chapter_one/landscape/art/event_borders/bath_atlas.png` — Built-in imagegen decorative prop collection, explicitly owner-authorized, original book page 15 used only for style. No external asset URL; exact prompt/source role/hash in `event_border_evidence.json`. New isolated illustration, no narrative scene or protected original altered.
+
+- `books/chapter_one/landscape/art/event_borders/craft_atlas.png` — Built-in imagegen decorative prop collection, explicitly owner-authorized, original book page 15 used only for style. No external asset URL; exact prompt/source role/hash in `event_border_evidence.json`. New isolated illustration, no narrative scene or protected original altered.
+
+- `books/chapter_one/landscape/art/event_borders/attic_atlas.png` — Built-in imagegen decorative prop collection, explicitly owner-authorized, original book page 15 used only for style. No external asset URL; exact prompt/source role/hash in `event_border_evidence.json`. New isolated illustration, no narrative scene or protected original altered.
+
+- `books/chapter_one/landscape/art/event_borders/play_atlas.png` — Built-in imagegen decorative prop collection, explicitly owner-authorized, original book page 15 used only for style. No external asset URL; exact prompt/source role/hash in `event_border_evidence.json`. New isolated illustration, no narrative scene or protected original altered.
+
+- `books/chapter_one/landscape/art/event_borders/sailboat.png` — Exact copy of `assets/flats/castle/interactions_v4/rest_cards/playroom_shelf_sailboat_rest.png`; inherited project provenance/license, no modifications; source URL is repository path.
+
+- `books/chapter_one/landscape/art/event_borders/bath_duck_eye.png` — Local built-in imagegen correction of newly generated bath atlas: missing toy-duck eye added; only duck cell delivered. Original other prop cells remain used unchanged. Owner-authorized decorative illustration; provenance in `event_border_evidence.json`.
+
+- `books/chapter_one/landscape/art/event_borders/sailboat_detail.png` — New built-in imagegen isolated decorative toy; existing `playroom_shelf_sailboat_rest.png` supplies concept, original book page 15 supplies border style. Owner-authorized new prop; replaces unreadably small border copy, no story scene. Prompt/reference hashes in `event_border_evidence.json` and `event_border_correction_prompts.json`.

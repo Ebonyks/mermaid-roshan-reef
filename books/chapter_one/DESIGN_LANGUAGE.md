@@ -45,3 +45,7 @@ Record base/source paths and SHA-256, canvas size, exact asset source and alpha 
 - **BK-PG-11 — Source previews:** raw scene frames may appear only in clearly separated, collapsed source-reference sections of the production plan. They are not proposed reduced-page artwork. A missing cutout remains a production job, not a displayed screenshot substitute.
 
 The previous 40-page plan is preserved as superseded planning evidence. The current 32-page landscape manuscript and per-page assignments live in `landscape/book.json` and `landscape/PAGE_PLAN.md`.
+
+## Owner refinement: event-specific border details
+
+Owner direction, 2026-09-20: the improved blue bank base is retained, but repeated brushes, suds and generic cleanup symbols are insufficient. Each lower-border composition must reflect that page's event with contextual props and subtle detail. Inventory the richer repository catalog first; new isolated decorative assets related to these events are explicitly permitted where needed. This permission does not authorize new narrative scenes or character redesign. Existing supplied objects retain their exact style and texture. New props follow the original book's simple outlined watercolor border language. The bottom-15%, maximum-12%, central-gap and foreground-duplication rules still apply.

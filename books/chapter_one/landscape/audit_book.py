@@ -1,6 +1,7 @@
 """Geometry/source stress checks plus a human-readable before/after review."""
 from pathlib import Path
 import argparse,hashlib,html,json,shutil
+from collections import Counter
 from PIL import Image
 from pypdf import PdfReader
 ROOT=Path(__file__).resolve().parent
@@ -41,13 +42,25 @@ def main():
   if layer['role']=='mound_decoration':
    x,y,w,h=layer['target_box_points']
    if w>504*.12+.01 or h>360*.12+.01 or y+h>54+.01 or (x<314 and x+w>190):issues.append(f"Page {layer['page']}: mound restrictions failed.")
+ counts=Counter(key for page in b['pages'] for key in page.get('border_assets',[]))
+ if any(count>2 for count in counts.values()):issues.append('Event-border repetition: one decorative prop used more than twice.')
+ if {'brush','sponge','bubbles'} & set(counts):issues.append('Generic brush/sponge/suds border motif has returned.')
+ for page in b['pages']:
+  if page['mode']!='C':continue
+  if [q['source'] for q in page['border_placements']]!=page['border_assets']:issues.append(f"Page {page['page']}: border plan differs from actual placements.")
+  for key in page['border_assets']:
+   source=b['sources'][key]
+   if 'alpha_box' in source:
+    im=Image.open(ROOT/source['file']);x0,y0,x1,y1=source['alpha_box']
+    if not (0<=x0<x1<=im.width and 0<=y0<y1<=im.height):issues.append(f'Invalid atlas bounds: {key}.')
+    if im.getchannel('A').crop((x0,y0,x1,y1)).getextrema()[0]!=0:issues.append(f'Atlas prop lacks transparent silhouette: {key}.')
  forbidden={'hug','eagle','playroom','rescue_isolated','release_cut','window_wide'}
  if forbidden & {layer['source_key'] for layer in p['layers']}:issues.append('Rejected identity/isolation source still used.')
  if pages[3]['art']!=['dirty_hall_entry'] or 'clean it together' not in pages[3]['text']:issues.append('Dirty-castle/setup regression.')
  for n,key in [(17,'pinned'),(18,'loose'),(27,'R09_open'),(28,'R09_suds'),(29,'R10_jump'),(30,'R11_land')]:
   if pages[n]['art']!=[key]:issues.append(f'Canonical rescue/finale order mismatch: page {n}.')
  if pages[23].get('art_crop')!=[420,90,1280,704]:issues.append('Noncanonical paint crown has not been excluded.')
- results={'mechanical_status':'FAIL' if issues else 'PASS','issues':issues,'story_pages_checked':32,'pdf_pages_checked':34,'text_lines_checked':len(p['text_lines']),'image_operations_checked':len(p['layers']),'contextual_cutout_pages':sum(q['mode']=='C' for q in b['pages']),'unique_border_assignments':len({tuple(q['border_assets']) for q in b['pages'] if q['mode']=='C'}),'scope':'Geometry, source hashes, selected-source exclusions, contextual assignments, and manual focal-zone intersections. Not automatic character-identity, contrast or publication acceptance.','visual_verdict':review['revision_verdict'],'open_findings':review['open_findings']}
+ results={'mechanical_status':'FAIL' if issues else 'PASS','issues':issues,'story_pages_checked':32,'pdf_pages_checked':34,'text_lines_checked':len(p['text_lines']),'image_operations_checked':len(p['layers']),'contextual_cutout_pages':sum(q['mode']=='C' for q in b['pages']),'unique_border_assignments':len({tuple(q['border_assets']) for q in b['pages'] if q['mode']=='C'}),'unique_decorative_props':len(counts),'maximum_prop_repetition':max(counts.values(),default=0),'scope':'Geometry, source hashes, selected-source exclusions, contextual assignments, and manual focal-zone intersections. Not automatic character-identity, contrast or publication acceptance.','visual_verdict':review['revision_verdict'],'open_findings':review['open_findings']}
  (args.proof/'stress_results.json').write_text(json.dumps(results,indent=2,ensure_ascii=False),encoding='utf8')
  cards=[]
  for row in review['pages']:
