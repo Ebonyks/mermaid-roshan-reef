@@ -1720,6 +1720,11 @@
       "sha256": "166461427017b2624dcf1c342bde658c63a8247b522ad113c92f6ec1bb084bd9",
       "modifications": "Built-in imagegen isolation: backpack and shadow removed, obscured body/wing minimally healed. Original pink crest, pale beak base/black tip, pastel plumage, grey legs and feet retained. No scene generation.",
       "status": "candidate extraction visually checked; exact texture/owner acceptance pending"
+    },
+    "waterfall_lane_candidate": {
+      "file": "art/stress_revision/waterfall_lane_candidate.png",
+      "source": "Bounded inpaint of ../archive/rough_v5/art/waterfall.png; only lane polygon is delivery pixels.",
+      "modification": "Local first-lane grime removal; no complete generated scene delivered."
     }
   },
   "pages": [
@@ -2031,14 +2036,14 @@
       "art": [
         "waterfall"
       ],
-      "text": "Roshan cleared the blocked waterfall—\none side, the middle, then the other side.",
+      "text": "One lane clear!\nTwo more to go.",
       "layout": "top",
       "border_assets": [],
       "background_theme": "full scene",
       "caption": {
-        "x": 32,
-        "y": 67,
-        "width": 440,
+        "x": 157,
+        "y": 66,
+        "width": 316,
         "size": 18,
         "align": "center",
         "color": "white",
@@ -2052,7 +2057,84 @@
           420,
           210
         ]
-      ]
+      ],
+      "local_patch": {
+        "source": "waterfall_lane_candidate",
+        "reference_size": [
+          819,
+          300
+        ],
+        "polygon": [
+          [
+            207,
+            71
+          ],
+          [
+            220,
+            65
+          ],
+          [
+            237,
+            65
+          ],
+          [
+            250,
+            67
+          ],
+          [
+            270,
+            65
+          ],
+          [
+            289,
+            71
+          ],
+          [
+            299,
+            83
+          ],
+          [
+            297,
+            110
+          ],
+          [
+            299,
+            148
+          ],
+          [
+            294,
+            180
+          ],
+          [
+            298,
+            211
+          ],
+          [
+            295,
+            249
+          ],
+          [
+            299,
+            300
+          ],
+          [
+            207,
+            300
+          ],
+          [
+            209,
+            243
+          ],
+          [
+            207,
+            190
+          ],
+          [
+            210,
+            142
+          ]
+        ]
+      }
     },
     {
       "page": 12,

@@ -1,0 +1,55 @@
+{
+  "id": "picture-book-waterfall-progress-20260920",
+  "baseline": "75b6e70c87c87bff3ac5141243094e0992eef418",
+  "scope": "Test a bounded first-lane clearing inpaint inside the existing blocked-waterfall frame, preserving original scene pixels outside the lane. Verify game cleanup order and retain original 32-page book pacing. No full-scene redraw or game change.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book refinement; no game findings changed.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STRESS_TEST.md",
+    "books/chapter_one/landscape/art/stress_revision/waterfall_lane_candidate.png",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/stress_results.json",
+    "books/chapter_one/landscape/stress_review.json",
+    "books/chapter_one/landscape/waterfall_lane_prompt.txt",
+    "books/chapter_one/landscape/waterfall_progress_evidence.json"
+  ],
+  "validation": [
+    {
+      "command": "Render comparison of v8 and v9 at 2x PDF resolution",
+      "result": "PASS",
+      "evidence": "waterfall_progress_evidence.json: zero changed pixels outside conservative lane/caption envelopes; other 33 page JPEGs unchanged."
+    },
+    {
+      "command": "audit_book.py --proof v9_waterfall/complete --baseline v7_landscape/complete",
+      "result": "PASS",
+      "evidence": "34 pages; 84 text lines; 112 recorded image operations; 9 contextual border assignments."
+    },
+    {
+      "command": "Portable archive extraction, payload hash check and independent rebuild",
+      "result": "PASS",
+      "evidence": "delivery_verification.json: 66 hashes and 34 byte-identical page renders."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; git diff --check",
+      "result": "PASS",
+      "evidence": "DOCAUTH ALL OK; AUDITDEV ALL OK; diff whitespace clean."
+    }
+  ],
+  "acceptance_gaps": "Owner acceptance of bounded first-lane state and prior character extraction, small source detail, ceiling joins, print resolution remain open. No game or cinematic acceptance claimed."
+}

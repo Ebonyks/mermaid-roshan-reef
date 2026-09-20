@@ -25,7 +25,7 @@ Status: `SUPPORTING_CURRENT`. Baseline v7 fails the owner visual review. Current
 | 8 | Top caption crowded Roshan crown and mirror. | Caption moved below characters to floor. | Roshan and bath-bunny signatures retained. |
 | 9 | Caption competed with architecture instead of using quiet water. | Placed text in the lower murky water area. | No visible character close-up. |
 | 10 | Generic bubbles gave no pool-cleanup context. | Pool float and cleanup basket anchor the lower mounds. | Existing net isolation; no new character depiction. |
-| 11 | Text crossed busy ornament; clearing action art absent. | Caption moved below principal blockage; missing action remains explicitly open. | Source gap, not a verified clearing illustration. |
+| 11 | Text crossed busy ornament; clearing action art absent. | One lane locally cleared, two remain dirty; short caption at lower right. | Only the recorded irregular lane uses inpaint pixels; no scene redraw. Owner acceptance remains open. |
 | 12 | Text sat on the waterfall shell rather than quiet side space. | Short rainbow payoff at right, leaving waterfall unobstructed. | No character depiction. |
 | 13 | Caption crowded crown and seahorse face. | Caption moved to the lower edge, away from faces and hand contact. | Pink top, gold/blue crown and rainbow hair checked; source-style variation remains. |
 | 14 | Top text interfered with the flow-reveal area. | Caption in open pool water, away from both outlets. | No character depiction. |
@@ -50,7 +50,7 @@ Status: `SUPPORTING_CURRENT`. Baseline v7 fails the owner visual review. Current
 
 ## Still open
 
-- BK-ST-OPEN-01 (P1; pages [11]): No actual waterfall-clearing action illustration; narrated against obstruction.
+- BK-ST-OPEN-01 (P2; pages [11]): Partial clearing state now illustrated; bounded first-lane edit needs owner acceptance. No hand/tool action pose is shown.
 - BK-ST-OPEN-02 (P2; pages [17, 18]): Higher-resolution comparison of the small visible Eagle details in existing rescue frames remains open. Legitimate occlusion is not itself drift; no defect is inferred in hidden anatomy.
 - BK-ST-OPEN-03 (P2; pages [7, 19, 20, 32]): Alpha extraction/occlusion-healing fidelity and edges need owner visual acceptance.
 - BK-ST-OPEN-04 (P2; pages [27, 28, 29, 30]): Ceiling extension joins remain visible on close inspection.

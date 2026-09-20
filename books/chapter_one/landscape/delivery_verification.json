@@ -1,11 +1,10 @@
 {
   "status": "PASS",
-  "verified_payload_files": 63,
+  "verified_payload_files": 66,
   "matching_page_renders": 34,
-  "archive_sha256": "4c11a2a06bac2efe01e4d2b573d965eb3bb5fc6f962609e1be9a6f07c11e2c66",
-  "independent_rebuild": "All 34 rendered JPEGs are byte-identical from extracted relative-path package; review link resolves.",
-  "latest_archive_verification": "All 63 payload hashes checked. All 50 rendering inputs are byte-identical to the independently rebuilt package; only written review metadata changed afterward.",
-  "pdf_sha256": "8e32cbb336aeb043c0004997e7b3ba2e7f13cbfa83bbab78177a528f38aba82a",
+  "archive_sha256": "83055142edf2d49d1c202d8622c6b9f283c538dfeb5f661b557563c5ffdd2a17",
+  "independent_rebuild": "All 34 JPEGs byte-identical from extracted relative-path source package.",
+  "pdf_sha256": "db33798416d0589d4734fad7f63044bc51d75a1e77f0b1b366bf4597831c5edb",
   "pdf_pages": 34,
   "page_size_points": [
     504,
@@ -19,8 +18,8 @@
       "pages": [
         11
       ],
-      "severity": "P1",
-      "issue": "No actual waterfall-clearing action illustration; narrated against obstruction."
+      "severity": "P2",
+      "issue": "Page 11 now illustrates a partially cleared waterfall. Bounded first-lane edit needs owner acceptance; no hand/tool action pose is shown."
     },
     {
       "id": "BK-ST-OPEN-02",

@@ -14,7 +14,7 @@ Status: `SUPPORTING_CURRENT`; stress-revised 32 story pages plus covers. See [st
 | 8 | F | bath_safe | None | None | 18 pt; white; x=29, baseline=53, width=448 |
 | 9 | F | pool_dirty | None | None | 18 pt; white; x=54, baseline=98, width=396 |
 | 10 | C | net_cut | pool_float | cleanup_basket | 18 pt; navy; x=32, baseline=316, width=440 |
-| 11 | F | waterfall | None | None | 18 pt; white; x=32, baseline=67, width=440 |
+| 11 | F | waterfall + bounded first-lane inpaint | None | None | 18 pt; white; x=157, baseline=66, width=316 |
 | 12 | F | rainbowfall | None | None | 20 pt; white; x=283, baseline=300, width=188 |
 | 13 | F | seahorse | None | None | 18 pt; white; x=30, baseline=58, width=444 |
 | 14 | F | pool_clean | None | None | 19 pt; white; x=36, baseline=137, width=432 |

@@ -28,6 +28,19 @@ def region(k,box,target):
  record(k,box,target,'source_region');c.saveState();cliprect(x,y,w,h);c.drawImage(str(path(k)),x-l*w/(r-l),y-(ih-b)*h/(b-t),width=iw*w/(r-l),height=ih*h/(b-t),mask='auto');c.restoreState()
 def full(k,anchor=.5):
  iw,ih=Image.open(path(k)).size;s=max(W/iw,H/ih);record(k,(0,0,iw,ih),((W-iw*s)*anchor,(H-ih*s)/2,iw*s,ih*s),'page_trim');c.saveState();cliprect(0,0,W,H);c.drawImage(str(path(k)),(W-iw*s)*anchor,(H-ih*s)/2,width=iw*s,height=ih*s);c.restoreState()
+def local_patch(p):
+ # The original full-art frame remains the base. Only this irregular lane is exposed.
+ q=p['local_patch'];k=q['source'];rw,rh=q['reference_size'];s=max(W/rw,H/rh);ox=(W-rw*s)/2;oy=(H-rh*s)/2
+ im=Image.open(path(k));iw,ih=im.size
+ c.saveState();cliprect(0,0,W,H);shape=c.beginPath()
+ for i,(x,y) in enumerate(q['polygon']):
+  (shape.moveTo if i==0 else shape.lineTo)(ox+x*s,oy+(rh-y)*s)
+ shape.close();c.clipPath(shape,stroke=0,fill=0)
+ c.drawImage(str(path(k)),ox,oy,width=rw*s,height=rh*s)
+ record(k,(0,0,iw,ih),(ox,oy,rw*s,rh*s),'bounded_inpaint_polygon')
+ LAYERS[-1]['clip_reference_size']=q['reference_size'];LAYERS[-1]['clip_polygon_source_pixels']=q['polygon']
+ c.restoreState()
+
 def cut(k,x,y,w,h):
  im=Image.open(path(k));assert im.mode=='RGBA' and im.getextrema()[3][0]==0,k
  box=(512,0,1024,512) if k=='grand_puff_jump_sheet' else im.getchannel('A').getbbox()
@@ -87,6 +100,7 @@ for p in B['pages']:
   elif layout=='supplies':
    cut(a[0],40,76,190,148);cut(a[1],232,146,207,116);cut(a[2],339,57,91,117)
   else:cut(a[0],*p.get('foreground_zone',[30,53,444,211]))
+ if 'local_patch' in p:local_patch(p)
  q=p['caption'];text(p['text'],q['x'],q['y'],q['width'],q['size'],q['align']=='center',color=q['color'],shadow=q['shadow'])
  c.showPage()
 PAGE='back_cover'

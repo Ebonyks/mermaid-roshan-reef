@@ -1,0 +1,118 @@
+{
+  "canonical_order": [
+    "pool surface cleanup",
+    "three waterfall lanes",
+    "seahorse obstruction",
+    "pool purification"
+  ],
+  "authority": "Current game logic and owner story clarification control over older handoff prose.",
+  "mechanic_sources": [
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "sha256": "15a45595af9121d612127d57f2a63fb0d7c6ea0bad4ea8beaf291b8fb741ce8a"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "sha256": "a76330b8ffd869c003f1d2e39c19ecb76bb1ea054f2cfd8891214d0d75489ad7"
+    },
+    {
+      "path": "scripts/probe_day_one_pool_shots.gd",
+      "sha256": "62e44561687a00b87c5ac9d2a511e97c70c89ee32b4d237f0e8d21edc00120f5"
+    }
+  ],
+  "conflicting_historical_source": "assets_src/cinematics/d1_c06_pool_purification_rumi_hug_visual_v1/written_guide/SCENE_GUIDE.txt puts seahorse before rainbow waterfall; not adopted.",
+  "asset_inventory": "Existing dirty overlay and clean rest-card differ in size/geometry; they are not directly spliced for the book.",
+  "bounded_edit": "Left lane only, on the book existing blocked-waterfall frame; centre/right dirty lanes retained.",
+  "status": "RENDERED_REVIEW_CANDIDATE",
+  "candidate_sha256": "60f4a84adec6f8c6d71d164ce05bec35856ac28e7312b729d53dfe8527ae46e4",
+  "original_sha256": "10d2283bded5d3261999002fe9985f6cf38444c74536cf74c39a61aefd70f6da",
+  "delivery_patch": {
+    "source": "waterfall_lane_candidate",
+    "reference_size": [
+      819,
+      300
+    ],
+    "polygon": [
+      [
+        207,
+        71
+      ],
+      [
+        220,
+        65
+      ],
+      [
+        237,
+        65
+      ],
+      [
+        250,
+        67
+      ],
+      [
+        270,
+        65
+      ],
+      [
+        289,
+        71
+      ],
+      [
+        299,
+        83
+      ],
+      [
+        297,
+        110
+      ],
+      [
+        299,
+        148
+      ],
+      [
+        294,
+        180
+      ],
+      [
+        298,
+        211
+      ],
+      [
+        295,
+        249
+      ],
+      [
+        299,
+        300
+      ],
+      [
+        207,
+        300
+      ],
+      [
+        209,
+        243
+      ],
+      [
+        207,
+        190
+      ],
+      [
+        210,
+        142
+      ]
+    ]
+  },
+  "generation_method": "image_gen targeted inpaint; one attempt; generated whole canvas is not delivered",
+  "visual_review": "Candidate retains fixture composition; delivery constrained by PDF polygon to the first lane; no character generated.",
+  "prompt_file": "waterfall_lane_prompt.txt",
+  "prompt_sha256": "5f5fe9d95f9da359b0a01364bd434962c1ea553c0456c48746e68ddd1add9ce1",
+  "render_review": "Page 11 inspected: one warm rainbow lane, two dirty lanes, original central rubbish and shell architecture. Two-line white caption separated from blockage. Owner acceptance pending.",
+  "pixel_verification": {
+    "unchanged_other_page_renders": 33,
+    "changed_pixels_outside_patch_and_caption_envelopes": 0,
+    "render_scale": 2,
+    "status": "PASS",
+    "meaning": "Original rendered scene preserved outside bounded lane and revised caption; not a final visual acceptance."
+  }
+}

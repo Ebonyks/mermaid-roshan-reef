@@ -1,9 +1,13 @@
 {
+  "page_size_points": [
+    504,
+    360
+  ],
+  "coordinate_system": "source pixels: top-left x,y; PDF target points: bottom-left x,y,width,height; page-trim layers clipped to page",
   "font": {
     "file": "../archive/rough_v5/fonts/Sniglet-Regular.ttf",
     "sha256": "a20f3a50e8d92dfc143ee82e46df07f6e7f01e21b50f2d78081314a7c25bd9dd"
   },
-  "coordinate_system": "source pixels: top-left x,y; PDF target points: bottom-left x,y,width,height; page-trim layers clipped to page",
   "layers": [
     {
       "page": "front_cover",
@@ -877,6 +881,105 @@
       "operation": "page_trim",
       "role": "story_art",
       "alpha": false
+    },
+    {
+      "page": 11,
+      "source_key": "waterfall_lane_candidate",
+      "file": "art/stress_revision/waterfall_lane_candidate.png",
+      "sha256": "60f4a84adec6f8c6d71d164ce05bec35856ac28e7312b729d53dfe8527ae46e4",
+      "native_size": [
+        2071,
+        759
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        2071,
+        759
+      ],
+      "target_box_points": [
+        -239.39999999999998,
+        0.0,
+        982.8,
+        360.0
+      ],
+      "operation": "bounded_inpaint_polygon",
+      "role": "story_art",
+      "alpha": false,
+      "clip_reference_size": [
+        819,
+        300
+      ],
+      "clip_polygon_source_pixels": [
+        [
+          207,
+          71
+        ],
+        [
+          220,
+          65
+        ],
+        [
+          237,
+          65
+        ],
+        [
+          250,
+          67
+        ],
+        [
+          270,
+          65
+        ],
+        [
+          289,
+          71
+        ],
+        [
+          299,
+          83
+        ],
+        [
+          297,
+          110
+        ],
+        [
+          299,
+          148
+        ],
+        [
+          294,
+          180
+        ],
+        [
+          298,
+          211
+        ],
+        [
+          295,
+          249
+        ],
+        [
+          299,
+          300
+        ],
+        [
+          207,
+          300
+        ],
+        [
+          209,
+          243
+        ],
+        [
+          207,
+          190
+        ],
+        [
+          210,
+          142
+        ]
+      ]
     },
     {
       "page": 12,
@@ -2976,7 +3079,7 @@
     },
     {
       "page": 1,
-      "text": "“Look, Daddy!",
+      "text": "\u201cLook, Daddy!",
       "box": [
         278,
         70.798,
@@ -2988,7 +3091,7 @@
     },
     {
       "page": 1,
-      "text": "Pearl Castle!”",
+      "text": "Pearl Castle!\u201d",
       "box": [
         278,
         47.397999999999996,
@@ -3048,7 +3151,7 @@
     },
     {
       "page": 3,
-      "text": "“Let’s clean it together!”",
+      "text": "\u201cLet\u2019s clean it together!\u201d",
       "box": [
         205,
         265.99800000000005,
@@ -3060,7 +3163,7 @@
     },
     {
       "page": 4,
-      "text": "“One little job at a time,” said Daddy.",
+      "text": "\u201cOne little job at a time,\u201d said Daddy.",
       "box": [
         108.78299999999999,
         310.798,
@@ -3240,11 +3343,11 @@
     },
     {
       "page": 11,
-      "text": "Roshan cleared the blocked waterfall—",
+      "text": "One lane clear!",
       "box": [
-        99.71099999999998,
-        61.798,
-        304.57800000000003,
+        256.365,
+        60.798,
+        117.27000000000001,
         22.41
       ],
       "font_size": 18,
@@ -3252,11 +3355,11 @@
     },
     {
       "page": 11,
-      "text": "one side, the middle, then the other side.",
+      "text": "Two more to go.",
       "box": [
-        93.29399999999998,
-        38.397999999999996,
-        317.41200000000003,
+        251.60399999999998,
+        37.397999999999996,
+        126.79200000000002,
         22.41
       ],
       "font_size": 18,
@@ -3348,7 +3451,7 @@
     },
     {
       "page": 15,
-      "text": "“Thank you for helping!” said Rumi.",
+      "text": "\u201cThank you for helping!\u201d said Rumi.",
       "box": [
         116.49599999999998,
         31.798000000000002,
@@ -3360,7 +3463,7 @@
     },
     {
       "page": 16,
-      "text": "A tiny chirp! “Someone needs help!”",
+      "text": "A tiny chirp! \u201cSomeone needs help!\u201d",
       "box": [
         112.374,
         28.798000000000002,
@@ -3384,7 +3487,7 @@
     },
     {
       "page": 17,
-      "text": "“I’m here,” said Roshan. “I’ll help you.”",
+      "text": "\u201cI\u2019m here,\u201d said Roshan. \u201cI\u2019ll help you.\u201d",
       "box": [
         108.70199999999997,
         289.398,
@@ -3480,7 +3583,7 @@
     },
     {
       "page": 20,
-      "text": "“Come with me, Baby Eagle!”",
+      "text": "\u201cCome with me, Baby Eagle!\u201d",
       "box": [
         138.212,
         287.398,
@@ -3828,7 +3931,7 @@
     },
     {
       "page": 31,
-      "text": "“We helped each other,” said Roshan.",
+      "text": "\u201cWe helped each other,\u201d said Roshan.",
       "box": [
         107.26199999999997,
         310.798,
@@ -3840,7 +3943,7 @@
     },
     {
       "page": 31,
-      "text": "“And found a friend hiding under all that dust!”",
+      "text": "\u201cAnd found a friend hiding under all that dust!\u201d",
       "box": [
         70.72199999999998,
         287.398,
@@ -3852,7 +3955,7 @@
     },
     {
       "page": 32,
-      "text": "“Hello, little",
+      "text": "\u201cHello, little",
       "box": [
         38,
         239.798,
@@ -3888,7 +3991,7 @@
     },
     {
       "page": 32,
-      "text": "with us!”",
+      "text": "with us!\u201d",
       "box": [
         38,
         169.59799999999998,
@@ -3936,7 +4039,7 @@
     },
     {
       "page": "back_cover",
-      "text": "Landscape review edition • Chapter One",
+      "text": "Landscape review edition \u2022 Chapter One",
       "box": [
         164.805,
         22.11,
@@ -3947,5 +4050,5 @@
       "color": "navy"
     }
   ],
-  "scope": "v8 actual rendered operations; manual identity/contrast acceptance separate"
+  "note": "Actual draw operations, including covers and background occlusion redraws. This proves source use, not visual acceptance."
 }
