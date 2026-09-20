@@ -1,0 +1,48 @@
+{
+  "status": "UNACCEPTED_FULL_WATER_SOURCE_TRIAL",
+  "source_sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+  "method": "Twelve baked displacement cels from original painted water, not hand-redrawn action; editable Aseprite base/surface timeline",
+  "runtime_changed": false,
+  "regions": [
+    {
+      "id": "arrival",
+      "rect": [
+        0,
+        1180,
+        620,
+        400
+      ],
+      "frames": 12,
+      "cycle_seconds": 1.92,
+      "water_mask_pixels": 70950,
+      "moving_surface_pixels": 49302,
+      "fixed_guard_px": 10,
+      "shore_pixel_max_error": 0,
+      "aseprite_export_max_error": 0,
+      "limits": [
+        "Motion is baked texture displacement, not independently painted crest acting",
+        "Full-scene visibility, loop quality and device cost remain unaccepted"
+      ]
+    },
+    {
+      "id": "castle",
+      "rect": [
+        4520,
+        1000,
+        1624,
+        620
+      ],
+      "frames": 12,
+      "cycle_seconds": 1.92,
+      "water_mask_pixels": 516980,
+      "moving_surface_pixels": 446282,
+      "fixed_guard_px": 10,
+      "shore_pixel_max_error": 0,
+      "aseprite_export_max_error": 0,
+      "limits": [
+        "Motion is baked texture displacement, not independently painted crest acting",
+        "Full-scene visibility, loop quality and device cost remain unaccepted"
+      ]
+    }
+  ]
+}

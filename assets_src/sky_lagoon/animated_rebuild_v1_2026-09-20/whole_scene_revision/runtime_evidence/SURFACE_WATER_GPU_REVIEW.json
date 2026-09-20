@@ -1,0 +1,51 @@
+{
+  "status": "INTEGRATED_RUNTIME_CAPTURE_NOT_ACCEPTED_ART",
+  "views": [
+    {
+      "view": "canvas_screen_1_day",
+      "frames": 48,
+      "duration_seconds": 3.84,
+      "capture_size": [
+        1280,
+        720
+      ],
+      "file": "surface-water-canvas_screen_1_day.mp4",
+      "sha256": "b70394b8c9945dda45b979d33cd75b7f640ba02e14aa5c05439cc5f266ba9b9b"
+    },
+    {
+      "view": "canvas_screen_3_day",
+      "frames": 48,
+      "duration_seconds": 3.84,
+      "capture_size": [
+        1280,
+        720
+      ],
+      "file": "surface-water-canvas_screen_3_day.mp4",
+      "sha256": "5b15aa1e24018af918fb2516e67837593d7dca3ca845de1407dc3d5fac6512c6"
+    },
+    {
+      "view": "canvas_screen_3_night",
+      "frames": 48,
+      "duration_seconds": 3.84,
+      "capture_size": [
+        1280,
+        720
+      ],
+      "file": "surface-water-canvas_screen_3_night.mp4",
+      "sha256": "e5bda557bc1db0f14f4ace56dddda8d0d66cc541b025d604f4b7073158572985"
+    }
+  ],
+  "capture_exit": 0,
+  "stderr_bytes": 0,
+  "checks": [
+    "Both actual Sprite2D grids contain only active 0..11 cels",
+    "All twelve cels observed",
+    "Pause freezes clock and pose",
+    "Motion-off hides moving surface and freezes clock, exposing preserved static background"
+  ],
+  "limitations": [
+    "Fixed-step capture, not real-time device performance",
+    "Baked painted-texture movement still requires visual judgment",
+    "No claim of full-scene or 4.9/5 acceptance"
+  ]
+}

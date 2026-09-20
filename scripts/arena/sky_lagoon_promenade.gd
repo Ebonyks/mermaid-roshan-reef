@@ -8,6 +8,7 @@ extends RefCounted
 const Affordance := preload("res://scripts/interaction_affordance.gd")
 const FRAMES := preload("res://scripts/roshan_sprite_frames.gd")
 const CandidateManifest := preload("res://scripts/arena/sky_lagoon_candidate_manifest.gd")
+const WholeSceneCels := preload("res://scripts/arena/sky_lagoon_whole_scene_cels.gd")
 const BoughCels := preload("res://scripts/arena/sky_lagoon_bough_cels.gd")
 const EnvironmentCels := preload("res://scripts/arena/sky_lagoon_environment_cels.gd")
 const HuckleberryCels := preload("res://scripts/arena/sky_lagoon_huckleberry_cels.gd")
@@ -315,6 +316,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool, art_man
 
 func teardown() -> void:
 	CandidateManifest.clear(m.g)
+	WholeSceneCels.clear(m.g)
 	BoughCels.clear(m.g)
 	ShorelineCels.clear(m.g)
 	WaterHighlights.clear(m.g)
@@ -364,6 +366,7 @@ func tick(delta: float) -> void:
 			return
 	_tick_plane_arrival(delta)
 	_tick_ambient_life(delta)
+	WholeSceneCels.tick(m.g, delta, m.get_tree().paused)
 	BoughCels.tick(m.g, delta, m.get_tree().paused)
 	EnvironmentCels.tick(m.g, delta, m.get_tree().paused)
 	PlantCels.tick(m.g, delta, m.get_tree().paused)
@@ -475,13 +478,15 @@ func _build_ambient_life(art_manifest_path: String = CandidateManifest.PATH) -> 
 	m.g["lagoon_ambient_t"] = 0.0
 	m.g["lagoon_ambient_cards"] = []
 	var art_version: String = String(m.g.get("lagoon_art_version", "original"))
-	if OS.get_cmdline_user_args().has("--sky-lagoon-animated-preview"):
+	if OS.get_cmdline_user_args().has("--sky-lagoon-animated-preview") or OS.get_cmdline_user_args().has("--sky-lagoon-whole-scene-preview"):
 		art_version = "animated_v1"
 	if OS.get_cmdline_user_args().has("--sky-lagoon-animation-static"):
 		m.g["lagoon_environment_motion_enabled"] = false
 	art_version = CandidateManifest.select_version(art_version, m.g, art_manifest_path)
 	m.g["lagoon_art_version_active"] = art_version
-	BoughCels.build(m.g, m.g.get("lagoon_base_layer") as Node2D, art_version)
+	var whole_scene_ready: bool = WholeSceneCels.build(m.g, m.g.get("lagoon_base_layer") as Node2D, art_version == "animated_v1" and OS.get_cmdline_user_args().has("--sky-lagoon-whole-scene-preview"))
+	if not whole_scene_ready:
+		BoughCels.build(m.g, m.g.get("lagoon_base_layer") as Node2D, art_version)
 	EnvironmentCels.build(m.g, m.g.get("lagoon_foreground_geography_layer") as Node2D, art_version, m.is_night)
 	PlantCels.build(m.g, m.g.get("lagoon_foreground_geography_layer") as Node2D, art_version, m.is_night)
 	HuckleberryCels.build(m.g, m.g.get("lagoon_foreground_geography_layer") as Node2D, art_version, m.is_night)
@@ -534,7 +539,8 @@ func _build_ambient_life(art_manifest_path: String = CandidateManifest.PATH) -> 
 	if m.is_night:
 		for value: Variant in m.g["lagoon_ambient_cards"] as Array:
 			var ambient: Sprite2D = value as Sprite2D
-			ambient.modulate *= Color(0.72, 0.78, 0.96, 1.0)
+			# The opt-in whole scene shares the painted backdrop night grade.
+			ambient.modulate *= Color(0.48, 0.56, 0.82, 1.0) if whole_scene_ready else Color(0.72, 0.78, 0.96, 1.0)
 			ambient.set_meta("night_tinted", true)
 
 func _mark_living_card(card: Sprite2D, motion_class: String,
@@ -581,6 +587,7 @@ func _build_runway_screen() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
 		Vector2(600, 1420), 445.0, true, m.g.get("lagoon_landmark_layer") as Node2D)
 	plane.name = "SkyLagoonArrivalPlane"
+	_apply_preview_prop_night_grade(plane)
 	m.g["lagoon_plane_card"] = plane
 	m.g["lagoon_plane_t"] = 0.0
 	# Arrival plane is scenery; the retired reef is not a destination.
@@ -590,6 +597,7 @@ func _build_reef_route_marker() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
 		Vector2(310, 1040), 270.0, true, m.g.get("lagoon_landmark_layer") as Node2D)
 	plane.name = "SkyLagoonReefPlane"
+	_apply_preview_prop_night_grade(plane)
 	m.g["lagoon_reef_route_card"] = plane
 	# Preserve the approved plane art without advertising a retired route.
 
@@ -609,12 +617,22 @@ func _build_playground_screen() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
 		Vector2(3826, 1500), 265.0, true, holder)
 	seesaw.name = "SkyLagoonSeesaw"
+	for prop: Sprite2D in [slide, swing, seesaw]:
+		_apply_preview_prop_night_grade(prop)
 	_add_contact_shadow(slide, Vector2(500, 40))
 	_add_contact_shadow(swing, Vector2(580, 42))
 	_add_contact_shadow(seesaw, Vector2(430, 38))
 	_register_target("slide", slide, "playground", "slide", 118.0, 1.10)
 	_register_target("swing", swing, "playground", "swing", 110.0, 1.10)
 	_register_target("seesaw", seesaw, "playground", "seesaw", 110.0, 1.12)
+
+func _apply_preview_prop_night_grade(prop: Sprite2D) -> void:
+	if not m.is_night or (m.g.get("lagoon_whole_cards", []) as Array).is_empty():
+		return
+	# Preview-only ambient fill: retain readable interaction silhouettes while
+	# bringing opaque props into the same night as the painted landscape.
+	prop.modulate = Color(0.62, 0.68, 0.88)
+	prop.set_meta("lighting_profile", "whole_scene_night_prop_trial")
 
 func _build_promenade_swing(position_master: Vector2) -> Sprite2D:
 	var frame := _make_sprite(SWING_FRAME_TEX, position_master, 480.0, true,
@@ -639,6 +657,8 @@ func _build_castle_screen() -> void:
 		float(contract.get("height_master", 0.0)),
 		m.g.get("lagoon_landmark_layer") as Node2D)
 	castle.name = "SkyLagoonCastleFourTower"
+	# Deck inherits this tint; the separate near rail copies it once below.
+	_apply_preview_prop_night_grade(castle)
 	castle.set_meta("exterior_dressing_contract", "authored_sprite2d_only")
 	castle.set_meta("lighting_medium", "authored_rgba_canvas_sprite")
 	castle.set_meta("composition_anchor_id", String(contract.get("anchor_id", "")))

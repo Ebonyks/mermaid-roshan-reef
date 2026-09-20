@@ -1,0 +1,83 @@
+{
+  "status": "SOURCE_PATCH_DIAGNOSTIC_NOT_SCENE_ACCEPTANCE",
+  "samples": [
+    {
+      "material": "front_leaf",
+      "original_rect": [
+        162,
+        302,
+        215,
+        363
+      ],
+      "candidate_rect": [
+        423,
+        823,
+        567,
+        972
+      ],
+      "original": {
+        "sampled_pixels": 3233,
+        "saturation_median": 0.6745098039215687,
+        "linear_luminance_median": 0.14444790855113324
+      },
+      "candidate": {
+        "sampled_pixels": 21439,
+        "saturation_median": 0.6078431372549019,
+        "linear_luminance_median": 0.18874205142601655
+      }
+    },
+    {
+      "material": "right_leaf",
+      "original_rect": [
+        342,
+        193,
+        431,
+        222
+      ],
+      "candidate_rect": [
+        993,
+        449,
+        1171,
+        500
+      ],
+      "original": {
+        "sampled_pixels": 2083,
+        "saturation_median": 0.6509803921568628,
+        "linear_luminance_median": 0.15132918032455786
+      },
+      "candidate": {
+        "sampled_pixels": 8846,
+        "saturation_median": 0.6470588235294118,
+        "linear_luminance_median": 0.2958025383929479
+      }
+    },
+    {
+      "material": "berry",
+      "original_rect": [
+        246,
+        222,
+        276,
+        247
+      ],
+      "candidate_rect": [
+        648,
+        558,
+        702,
+        596
+      ],
+      "original": {
+        "sampled_pixels": 348,
+        "saturation_median": 0.3411764705882353,
+        "linear_luminance_median": 0.11962815332238529
+      },
+      "candidate": {
+        "sampled_pixels": 2033,
+        "saturation_median": 0.37254901960784315,
+        "linear_luminance_median": 0.24794892484344208
+      }
+    }
+  ],
+  "limitations": "Corresponding painted areas selected manually. Texture marks and local lighting differ; do not treat these patch medians as a scene-wide grade instruction.",
+  "mask": "Foliage hue .16-.53; berries .53-.93; saturation>.15; excludes green background from berry ROI. These are color masks, not semantic object segmentation.",
+  "initial_patch_board": "color-patches.jpg shows unmasked mixed ROIs; superseded numerically by this material-masked record"
+}

@@ -13,7 +13,16 @@ func _capture(name: String) -> void:
 	_check("capture_has_no_start_menu_%s" % name, not main.start_menu_active and main.start_menu_layer == null)
 	_check("capture_has_live_stage_%s" % name, promenade.root() != null and promenade.canvas_root().is_visible_in_tree())
 	await super._capture(name)
-	if name == "canvas_screen_1_day":
+	if name == "canvas_screen_3_night" and OS.get_cmdline_user_args().has("--sky-lagoon-whole-scene-preview"):
+		var prop_tint := Color(0.62, 0.68, 0.88)
+		for prop_name: String in ["SkyLagoonCastleFourTower", "SkyLagoonSlide", "SkyLagoonPromenadeSwingFrame", "SkyLagoonSeesaw"]:
+			var prop: Sprite2D = main.find_child(prop_name, true, false) as Sprite2D
+			_check("night_prop_grade_%s" % prop_name, prop != null and prop.modulate == prop_tint)
+		var night_deck: Sprite2D = main.g.get("lagoon_bridge_patch") as Sprite2D
+		var night_rail: Sprite2D = main.g.get("lagoon_bridge_rail") as Sprite2D
+		var night_chains: Sprite2D = main.g.get("lagoon_bridge_chains") as Sprite2D
+		_check("night_bridge_has_one_tint_per_surface", night_deck != null and night_rail != null and night_chains != null and night_deck.modulate == Color.WHITE and night_rail.modulate == prop_tint and night_chains.modulate == Color.WHITE)
+	if name == "canvas_screen_1_day" and not OS.get_cmdline_user_args().has("--sky-lagoon-whole-scene-preview"):
 		var bough: Sprite2D = main.g.get("lagoon_bough_card") as Sprite2D
 		_check("arrival_bough_imported_and_source_anchored", bough != null and bough.texture.resource_path == promenade.BoughCels.ATLAS and bough.position == Vector2(0, 448) and bough.get_rect().size == Vector2(512, 256))
 		if bough != null:
@@ -25,6 +34,14 @@ func _capture(name: String) -> void:
 				await super._capture("arrival_bough_%d" % sample)
 			bough.frame = saved_frame
 			main.set_process(was_processing)
+	if name == "canvas_screen_1_day" and OS.get_cmdline_user_args().has("--sky-lagoon-whole-scene-preview"):
+		_check("whole_scene_runtime_cards_present", (main.g.get("lagoon_whole_cards", []) as Array).size() == 28)
+		for value: Variant in main.g.get("lagoon_huckleberry_cels", []) as Array:
+			var berry: Sprite2D = value as Sprite2D
+			_check("whole_scene_berry_palette_%s" % berry.name, berry.texture.resource_path == promenade.HuckleberryCels.WHOLE_SCENE_ATLAS and berry.hframes == 4 and berry.vframes == 2)
+		for value: Variant in main.g.get("lagoon_plant_cels", []) as Array:
+			var plant: Sprite2D = value as Sprite2D
+			_check("whole_scene_leaf_palette_%s" % plant.name, plant.texture.resource_path == promenade.PlantCels.WHOLE_SCENE_ATLAS and plant.hframes == 4 and plant.vframes == 2)
 	if name == "canvas_screen_3_day":
 		for value: Variant in main.g.get("lagoon_ambient_cards", []) as Array:
 			var ambient: Sprite2D = value as Sprite2D

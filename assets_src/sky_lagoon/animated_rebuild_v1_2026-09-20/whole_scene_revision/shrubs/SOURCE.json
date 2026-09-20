@@ -1,0 +1,86 @@
+{
+  "status": "CANOPY_MOTION_STUDY_NOT_ACCEPTED",
+  "regions": [
+    {
+      "id": "arrival_bank_left",
+      "rect": [
+        280,
+        864,
+        269,
+        341
+      ],
+      "frames": 4,
+      "moving_pixels": 52071,
+      "rest_exact": true
+    },
+    {
+      "id": "arrival_bank_right",
+      "rect": [
+        1328,
+        1096,
+        665,
+        305
+      ],
+      "frames": 4,
+      "moving_pixels": 96327,
+      "rest_exact": true
+    },
+    {
+      "id": "meadow_hedge_left",
+      "rect": [
+        2052,
+        1048,
+        401,
+        185
+      ],
+      "frames": 4,
+      "moving_pixels": 46246,
+      "rest_exact": true
+    },
+    {
+      "id": "meadow_hedge_right",
+      "rect": [
+        2828,
+        1056,
+        877,
+        189
+      ],
+      "frames": 4,
+      "moving_pixels": 91146,
+      "rest_exact": true
+    },
+    {
+      "id": "castle_approach_bank",
+      "rect": [
+        4092,
+        1080,
+        413,
+        285
+      ],
+      "frames": 4,
+      "moving_pixels": 56702,
+      "rest_exact": true
+    },
+    {
+      "id": "castle_far_bank",
+      "rect": [
+        5560,
+        936,
+        584,
+        225
+      ],
+      "frames": 4,
+      "moving_pixels": 64092,
+      "rest_exact": true
+    }
+  ],
+  "method": "Four baked canopy bend poses, including green/berry silhouettes; concealed underpaint, fixed root and outer region boundaries. Broad connected hedge regions, not individually redrawn bushes.",
+  "limitations": [
+    "Inspect moving contour gaps and concealed fill; dense connected foliage requires seam review at region joins.",
+    "Not a substitute for larger isolated foreground plant animation.",
+    "No runtime or device validation yet."
+  ],
+  "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+  "source_sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+  "duration_seconds": 1.8
+}

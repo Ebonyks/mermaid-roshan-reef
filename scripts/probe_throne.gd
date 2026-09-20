@@ -225,7 +225,10 @@ func _run() -> void:
 
 	# ---- and walking right must bring the Royal Hall on screen ----
 	var taps := 1
-	while taps < MAX_WALK_TAPS and not _royal_hall_button().visible:
+	# The button becomes tappable before the rightmost mist cards enter the
+	# camera band. Reach the full gate through floor taps before testing all five.
+	while taps < MAX_WALK_TAPS and (not _royal_hall_button().visible \
+			or _visible_royal_hall_mist() < 5):
 		_tap_stage(FLOOR_TAP)
 		await _frames(WALK_SETTLE)
 		taps += 1
@@ -524,4 +527,4 @@ func _run() -> void:
 func _finish() -> void:
 	print("THRONE|done: ",
 		("ALL OK" if checks_failed == 0 else "FAILED (%d)" % checks_failed))
-	quit()
+	quit(0 if checks_failed == 0 else 1)

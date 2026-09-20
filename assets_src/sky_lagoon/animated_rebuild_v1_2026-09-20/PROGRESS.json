@@ -43,8 +43,9 @@
   ],
   "pending_media": "Grok return explicitly omitted MP4s and stills; user asked for retrieval location. Independent work continues.",
   "next": [
-    "Publish reversible candidate/source package after final gates.",
-    "Collect visual4.9 and device/child/owner acceptance separately; inspect Grok media if supplied."
+    "Replace partial-tree design with whole-tree coordinated foliage animation, preserving planted trunk and approved silhouette.",
+    "Separate cloud masses with healed backing and reconstruct broad grass and shrub motion across all three stages.",
+    "Review actual-size combined motion and reject insufficient coverage before runtime expansion."
   ],
   "runtime_modified": true,
   "quality_target_met": false,
@@ -102,5 +103,135 @@
     },
     "recheck_status": "COMPLETE: both native isolated reruns exit0 with empty stderr",
     "scope_note": "Historical checkpoint predates bough integration; new runtime requires a full green final run."
+  },
+  "owner_review": {
+    "score": 3.5,
+    "status": "REJECTED",
+    "defects": [
+      "Only a small patch of the arrival tree moves; whole-tree coordinated motion is required.",
+      "Painted grass and background vegetation remain static.",
+      "Most painted cloud masses remain static."
+    ],
+    "previous_technical_passes_do_not_establish_quality": true
+  },
+  "whole_scene_revision_progress": {
+    "tree": "Original-pixel full visible tree, twelve baked displacement poses in a five-layer Aseprite timeline plus Krita-readable ORA. Exact Aseprite export verified after correcting PNG sequence auto-loading. Motion trial, not accepted runtime animation.",
+    "clouds": "Twelve original cloud candidates separated across panorama; healed backing and thirteen-layer ORA. Rest composite pixel-exact; drift review corrected sky capture/clipped component defects. Mountain-overlap clouds and cloud sea still pending.",
+    "generated_tree": "Preserved as candidate but not used; original-pixel source chosen for exact visible identity.",
+    "runtime_integrated": true,
+    "pending": [
+      "Integrate whole-scene layers into opt-in runtime with transactional resource validation and original rollback",
+      "Review actual gameplay pacing; current source viewer advances families together and is not a runtime timing verdict",
+      "Improve sparse castle grass and larger foreground plant coverage",
+      "Review mountain-overlap clouds/cloud sea and underpaint edges",
+      "Full runtime regression and device/owner/child review"
+    ],
+    "grass": "Seven original-art regions, four poses each, editable two-layer Aseprite and ORA. 28 exports verified within one 8-bit channel level of Pillow reference. Arrival front-edge region has only two blade groups and is not meaningful coverage; castle verges are sparse. No runtime integration.",
+    "combined_review": "Three-stage source composite uses current castle/foreground layers; tree underpaint now restricted to tree alpha so it cannot reintroduce a removed cloud. Not Godot or device evidence.",
+    "shrubs": "Six original background hedge groups across all stages have four-cel canopy studies, concealed backing and editable Aseprite/ORA. 24 timeline exports match within one 8-bit level. Source-mask audit has 26 regions and zero shared pixels after removing tree/cloud overlap. Not runtime integrated.",
+    "runtime": "Opt-in --sky-lagoon-whole-scene-preview wired into actual promenade, 26 source cards and 12 replacement tiles, independent family timing, preserved original/default and prior candidate fallback. Focused stress and full-stage route probe pass; Godot Mobile GPU captures pass with empty stderr after atlas gutter repair. Full CI and target-device acceptance remain pending."
+  },
+  "color_audit": {
+    "required_by_owner": true,
+    "scope": "All colors, all three stages, foreground/background intensity, material hierarchy, day/night and animation frames",
+    "record": "whole_scene_revision/color_audit/COLOR_AUDIT.json",
+    "status": "PARTIAL_MEASUREMENTS_AND_SCOPED_CORRECTIONS_NOT_ACCEPTED",
+    "corrections_applied": {
+      "night_ambient_tint": "opt-in whole-scene only",
+      "cloud_edge_matte": "twelve opt-in cloud cards",
+      "day_foliage_grade": "not integrated; review candidate only"
+    }
+  },
+  "cloud_edges": {
+    "status": "INTEGRATED_OPT_IN_FOCUSED_CHECKS_PASS",
+    "clouds": 12,
+    "source": "whole_scene_revision/clouds/cleaned",
+    "originals_preserved": true,
+    "quality_accepted": false,
+    "evidence": [
+      "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/cloud-integration-whole_scene.txt",
+      "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/cloud-integration-l2.txt"
+    ]
+  },
+  "surface_water": {
+    "status": "INTEGRATED_OPT_IN_FOCUSED_CHECKS_PASS",
+    "cels_per_pool": 12,
+    "source": "whole_scene_revision/water_surface",
+    "method": "Baked source texture displacement, not hand-redrawn water acting",
+    "rollback": "Previous animated profile, or complete fallback when new atlases are missing",
+    "quality_accepted": false,
+    "evidence": [
+      "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/surface-water-whole_scene.txt",
+      "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/surface-water-water_legacy.txt",
+      "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/surface-water-l2.txt"
+    ]
+  },
+  "foreground_rosette": {
+    "status": "INTEGRATED_OPT_IN_FOCUSED_AND_GPU_CHECKS_PASS",
+    "rest_candidate": "faithful arrangement improved, brighter leaf samples than original",
+    "generated_six_pose_test": "REJECTED topology drift/opaque backdrop",
+    "editable_layers": 8,
+    "animation_cels": 6,
+    "method": "Aseprite-scripted cutout motion, not hand-redrawn",
+    "evidence": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/ROSETTE_INTEGRATION_REVIEW.json",
+    "runtime_changed": true,
+    "next": "Expand large-plant coverage to remaining foreground assets; visual mask/identity review and full-suite/device/owner acceptance remain open.",
+    "color_variant": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/foreground_rosette/palette_trial/CONTEXT_REVIEW.json"
+  },
+  "meadow_berry_fan": {
+    "status": "INTEGRATED_OPT_IN_FOCUSED_AND_GPU_CHECKS_PASS",
+    "frames": 8,
+    "layers": 8,
+    "evidence": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/MEADOW_BOUNDARY_INTEGRATION_REVIEW.json",
+    "runtime_changed": true,
+    "next": "Expand remaining arrival foreground and cloud/grass coverage; full regression and owner/device acceptance outstanding"
+  },
+  "night_prop_grade": {
+    "status": "OPT_IN_TRIAL_IMPLEMENTED_NOT_OWNER_ACCEPTED",
+    "evidence": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/color_audit/prop_night_grade/REVIEW.json",
+    "remaining": [
+      "Not target-device performance proof",
+      "Full current regression suite remains unverified",
+      "No owner quality acceptance",
+      "Per-window emission and foreground palette corrections remain open"
+    ]
+  },
+  "bellflower_palette": {
+    "status": "INTEGRATED_OPT_IN_CONTEXT_REVIEWED_NOT_OWNER_ACCEPTED",
+    "source_report": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/bellflower_palette/REVIEW.json",
+    "remaining": "Fixed base leaves still need motion improvement; no full-scene color acceptance."
+  },
+  "full_regression_after_color": {
+    "status": "FAIL",
+    "evidence": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/FULL_REGRESSION_AFTER_COLOR.json",
+    "runtime_processes": 78,
+    "nonzero_process_exits": 0,
+    "failure": "Three throne mist visibility assertions; diagnosis in progress. No full-suite pass."
+  },
+  "throne_fixture_correction": {
+    "status": "FOCUSED_FIXTURE_CORRECTION_PASS_FULL_SUITE_RERUN_PENDING",
+    "evidence": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/THRONE_FIXTURE_REVIEW.json"
+  },
+  "six_screen_color_audit": {
+    "status": "FINDINGS_OPEN",
+    "report": "whole_scene_revision/color_audit/six_screen/AUDIT.json",
+    "coverage": "Arrival, meadow, castle day/night;31 annotated material samples",
+    "next": "Bounded pale foreground clump grade, cross-screen species matching, then per-cel/interaction review",
+    "quality": "No revised score; owner acceptance remains outstanding."
+  },
+  "huckleberry_palette": {
+    "status": "OPT_IN_INTEGRATED_MACHINE_VERIFIED_VISUAL_ACCEPTANCE_OPEN",
+    "frames": 8,
+    "layers": 4,
+    "report": "whole_scene_revision/huckleberry_palette/REVIEW.json",
+    "preserved": "alpha, timing, source positions, purple berries, original default",
+    "remaining": "Complete foliage design/material consistency; all-stage/per-cel palette audit; full regression/device/owner acceptance"
+  },
+  "latest_full_regression": {
+    "status": "PASS",
+    "report": "whole_scene_revision/runtime_evidence/FULL_REGRESSION_HUCKLEBERRY.json",
+    "runtime_probes": 78,
+    "inputs_unchanged": true,
+    "scope": "Current opt-in runtime code and default full-suite paths; excludes unintegrated source trials. No device/owner acceptance claim."
   }
 }

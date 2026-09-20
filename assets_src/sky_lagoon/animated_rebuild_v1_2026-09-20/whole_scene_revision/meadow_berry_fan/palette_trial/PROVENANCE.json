@@ -1,0 +1,89 @@
+{
+  "status": "OPT_IN_INTEGRATED_SOURCE_UNACCEPTED",
+  "generation_method": "Built-in Codex image generation; no API key",
+  "prompt": "Local background repair of the supplied game crop. Remove only the central large spotted-leaf plant, including its purple berry stems and tall upright green sprig. Reconstruct the concealed shaded low ground cover behind it: small rounded teal-green leaves with a few subdued moss patches, coherent with the existing surrounding painting. No new large plant, no new flowers, no berries in the cleared central area. Preserve the light lavender stone path across the upper part exactly in place, with its original width, curvature and stone pattern. Preserve the peripheral plants on the far left and right, and the small ground-cover fringe at the bottom. Keep the same crop and perspective, original soft painted storybook material, muted teal shadows and gentle green highlights. No changes to scene design, no brighter colors, no text, no borders. This is a concealed backing plate for placing the same large plant back as a separately animated asset. Return the same aspect ratio as the reference.",
+  "reference": "../berry-fan-reference.png",
+  "reference_sha256": "65e730ee0c80e6bb4cc948736499679ab4a9bb3b0ebecc94bc96e14b8e6557a4",
+  "files": [
+    {
+      "path": "cel-00.png",
+      "sha256": "28a62f22bb821df29caae4e71ef35e858404ff3b88f022d5a4ae45d36dfb8ca0"
+    },
+    {
+      "path": "cel-01.png",
+      "sha256": "54085209b8700b5f705cee3a4c062fc6caca93b6646208d5a9e7aaa00e4d3b11"
+    },
+    {
+      "path": "cel-02.png",
+      "sha256": "1531dd965c1ff80528827bd286c0df440deeeedde56b04207180debfea46740c"
+    },
+    {
+      "path": "cel-03.png",
+      "sha256": "2abf86ed6ff01b30204b2407bfb03510c99535fb2585c15a52ba0c49495a4703"
+    },
+    {
+      "path": "cel-04.png",
+      "sha256": "b5c6874e65feeff060031f61790cc5f7059f1b42323dd6318fc42ebef159f304"
+    },
+    {
+      "path": "cel-05.png",
+      "sha256": "607d4e8f407ba0fcc81f884c8fdefb16cd2903f4409932d864567247529072d5"
+    },
+    {
+      "path": "cel-06.png",
+      "sha256": "627be0f35a145f91e275e98d7021d4dccc8201e9a5d8ebdf69d0dc4cfee8b6d6"
+    },
+    {
+      "path": "cel-07.png",
+      "sha256": "d27607f3fb01f7e722103cc2412e04f470ff171e4bbd772f28971386889f035d"
+    },
+    {
+      "path": "context-comparison.jpg",
+      "sha256": "f8a4150167d06b6a4aa77df6a9c05edb7b7a4da1c9b0b6be4e00bb8b54c89ed2"
+    },
+    {
+      "path": "context-motion.gif",
+      "sha256": "4b2bfb15769b263297622667655b3834866bfe56cf043fc62f42bee843701b74"
+    },
+    {
+      "path": "CONTEXT_REVIEW.json",
+      "sha256": "24f1d9794b30685856fa329361a8dce2b4a6b2972f415e38fe1bd5952c1a35a8"
+    },
+    {
+      "path": "generated-backing-native.png",
+      "sha256": "dd62cab3728428ad0375288e5245f2cab5ee67b7c1a23e46aabd0135175221df"
+    },
+    {
+      "path": "grade_cels.lua",
+      "sha256": "9abb4b3c8a4753b07a5085bfa0b3a097b817b8b8300503650dbbb8c48a5b0c28"
+    },
+    {
+      "path": "graded-rest-native.png",
+      "sha256": "016782aa1d6bd0ea963e4c1ea1e92fab7f198d08f395ab1275705074a4986bbd"
+    },
+    {
+      "path": "masked-backing.png",
+      "sha256": "ede7d22256d1762fcec710a97a88086dc250e4cf92b2152a084e4deaf4b8d5a2"
+    },
+    {
+      "path": "meadow-berry-fan-color-trial.aseprite",
+      "sha256": "04a9b6edbf2259f605fc723a4c8c802ad69a4bbab1422d25773618ee93816814"
+    },
+    {
+      "path": "meadow-berry-fan-color-trial.ora",
+      "sha256": "8956fe55e89407a1d3553d615c9106871c4ca25f88df0d94e9247ee04544555e"
+    },
+    {
+      "path": "patched-base-r1-c1.png",
+      "sha256": "02fad77cd50ac5c0f4402924da619d1d10d115879dc2cb8b741c4bac1a70c27a"
+    },
+    {
+      "path": "patched-base-r1-c2.png",
+      "sha256": "10497cf7052eb1ef4ac6b06d5e3e90a5c3fa3fd3813478d9aa209bc059df53ae"
+    },
+    {
+      "path": "removal-mask.png",
+      "sha256": "35595a9f965290f53342d7a977789cea241bbacd1cd4beadcaddc3c4710185b1"
+    }
+  ]
+}

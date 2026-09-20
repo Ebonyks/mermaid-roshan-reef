@@ -1,0 +1,54 @@
+{
+  "status": "LOCAL_CONTEXT_TRIAL_NOT_RUNTIME",
+  "original_crop_rect": [
+    4500,
+    1680,
+    4955,
+    2038
+  ],
+  "placement_in_crop": [
+    27,
+    9
+  ],
+  "plant_cel_size": [
+    396,
+    312
+  ],
+  "backing_method": "Generated concealed-ground repair, constrained to explicit feathered old-plant removal mask",
+  "unchanged_outside_removal_mask": true,
+  "alpha_preserved_all_six_frames": true,
+  "color_method": "Uniform linear-light gain .72 on mid/high values, .88 in dark shadows with smooth transition; same mapping on every cel/layer",
+  "remaining": [
+    "Review plant scale and silhouettes against original",
+    "Review removal mask edges for leftover original leaves or neighboring plant damage",
+    "Local source composite only; actual Godot integration and device review pending"
+  ],
+  "material_samples": [
+    {
+      "material": "main_leaf",
+      "original_luminance": 0.21398402841239475,
+      "ungraded_luminance": 0.30750181837302604,
+      "graded_luminance": 0.2206128310325193
+    },
+    {
+      "material": "upper_right_leaf",
+      "original_luminance": 0.1713241560901708,
+      "ungraded_luminance": 0.26354503683332625,
+      "graded_luminance": 0.1907159450424909
+    },
+    {
+      "material": "purple_bud",
+      "original_luminance": 0.09662027754491755,
+      "ungraded_luminance": 0.15743493661853325,
+      "graded_luminance": 0.1134621672096059
+    }
+  ],
+  "visual_review": "Adjusted version is closer in intensity in the local context board. Replacement silhouette and concealed backing remain review candidates; no 4.9 claim.",
+  "runtime_status": "Temporary offscreen Godot Mobile fixture passed: twelve 1280x720 captures, six day and six night; original texture restored after each state. No production resource binding.",
+  "graded_aseprite_reopen": {
+    "frames": 6,
+    "layers": 8,
+    "export_rgba_max_error": 0
+  },
+  "gpu_evidence": "gpu_review/checks.txt"
+}

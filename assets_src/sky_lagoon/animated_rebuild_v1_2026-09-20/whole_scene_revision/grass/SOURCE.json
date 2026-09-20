@@ -1,0 +1,112 @@
+{
+  "status": "SOURCE_MOTION_TRIAL_NOT_ACCEPTED",
+  "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+  "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+  "method": "Original bright painted blade components, independent anchored bend poses; soil stays fixed. Four baked raster poses, not generated hand-drawn frames.",
+  "regions": [
+    {
+      "id": "arrival_lawn",
+      "rect": [
+        572,
+        1648,
+        817,
+        349
+      ],
+      "blades": 401,
+      "frames": 4,
+      "rest_max_error": 0,
+      "moving_pixel_count": 17524,
+      "protected_outside_polygon": true
+    },
+    {
+      "id": "arrival_front_edge",
+      "rect": [
+        548,
+        1972,
+        817,
+        76
+      ],
+      "blades": 2,
+      "frames": 4,
+      "rest_max_error": 0,
+      "moving_pixel_count": 53,
+      "protected_outside_polygon": true
+    },
+    {
+      "id": "meadow_upper_left",
+      "rect": [
+        2068,
+        1212,
+        625,
+        293
+      ],
+      "blades": 415,
+      "frames": 4,
+      "rest_max_error": 0,
+      "moving_pixel_count": 23434,
+      "protected_outside_polygon": true
+    },
+    {
+      "id": "meadow_upper_right",
+      "rect": [
+        2588,
+        1212,
+        1149,
+        309
+      ],
+      "blades": 1393,
+      "frames": 4,
+      "rest_max_error": 0,
+      "moving_pixel_count": 75725,
+      "protected_outside_polygon": true
+    },
+    {
+      "id": "meadow_lower_lawn",
+      "rect": [
+        2544,
+        1676,
+        1133,
+        357
+      ],
+      "blades": 1156,
+      "frames": 4,
+      "rest_max_error": 0,
+      "moving_pixel_count": 56844,
+      "protected_outside_polygon": true
+    },
+    {
+      "id": "castle_left_verge",
+      "rect": [
+        4536,
+        1768,
+        461,
+        280
+      ],
+      "blades": 56,
+      "frames": 4,
+      "rest_max_error": 0,
+      "moving_pixel_count": 2693,
+      "protected_outside_polygon": true
+    },
+    {
+      "id": "castle_right_verge",
+      "rect": [
+        5644,
+        1840,
+        500,
+        208
+      ],
+      "blades": 9,
+      "frames": 4,
+      "rest_max_error": 0,
+      "moving_pixel_count": 395,
+      "protected_outside_polygon": true
+    }
+  ],
+  "pending": [
+    "Check whether individual painted marks read as grass bending rather than texture shimmer",
+    "Live castle overlay visibility",
+    "Aseprite export and runtime integration",
+    "Background shrub animation"
+  ]
+}

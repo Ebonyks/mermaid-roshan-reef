@@ -503,12 +503,29 @@ func _layer_contract() -> bool:
 
 
 func _animated_profile() -> bool:
-	return OS.get_cmdline_user_args().has("--sky-lagoon-animated-preview")
+	return OS.get_cmdline_user_args().has("--sky-lagoon-animated-preview") or _whole_profile()
+
+
+func _whole_profile() -> bool:
+	return OS.get_cmdline_user_args().has("--sky-lagoon-whole-scene-preview")
 
 
 func _validate_candidate_pixels_and_inventory() -> void:
 	var directory: String = "res://assets/sprites/sky_lagoon/animated_v1/"
 	var expected: Dictionary = {"arrival_bough_base.png": 1, "arrival_boughs.png": 1, "bellflower_breeze.png": 2, "bridge_chains.png": 1, "bridge_contact.png": 1, "bridge_front_rail_fixed.png": 1, "castle_fixed.png": 1, "cloud_painted.png": 1, "conifer_breeze.png": 1, "grass_breeze.png": 12, "huckleberry_breeze.png": 2, "water_arrival_highlights.png": 1, "water_arrival_shore.png": 1, "water_castle_highlights.png": 1, "water_castle_shore.png": 1}
+	if _whole_profile():
+		expected["arrival_bough_base.png"] = 0
+		expected["bellflower_breeze.png"] = 0
+		expected["huckleberry_breeze.png"] = 0
+		_check("whole_scene_two_graded_huckleberries", _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/huckleberry_leaf_grade.png") == 2)
+		_check("whole_scene_two_graded_bellflowers", _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/bellflower_leaf_grade.png") == 2)
+		expected["arrival_boughs.png"] = 0
+		expected["water_arrival_highlights.png"] = 0
+		expected["water_castle_highlights.png"] = 0
+		_check("whole_scene_two_surface_water_owners", bool(main.g.get("lagoon_water_surface_active", false)) and _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_arrival.png") == 1 and _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_castle.png") == 1)
+		_check("whole_scene_28_owned_motion_cards", (main.g.get("lagoon_whole_cards", []) as Array).size() == 28)
+		_check("whole_scene_rosette_once", _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_foreground_rosette.png") == 1)
+		_check("whole_scene_meadow_boundary_plant_once", _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_boundary_berry_fan.png") == 1)
 	var inventory_ok: bool = true
 	for filename: String in expected:
 		inventory_ok = inventory_ok and _sprite_resource_count(promenade.root(), directory + filename) == int(expected[filename])
@@ -589,6 +606,8 @@ func _validate_assets_and_mural() -> void:
 			var expected_path: String = "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r%d_c%d.png" % [row, column]
 			if _animated_profile() and row == 0 and column == 0:
 				expected_path = "res://assets/sprites/sky_lagoon/animated_v1/arrival_bough_base.png"
+			if _whole_profile():
+				expected_path = "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r%d_c%d.png" % [row, column]
 			var valid: bool = tile != null and tile.texture != null \
 				and tile.texture.get_size() == TILE_SIZE \
 				and tile.texture.resource_path == expected_path \

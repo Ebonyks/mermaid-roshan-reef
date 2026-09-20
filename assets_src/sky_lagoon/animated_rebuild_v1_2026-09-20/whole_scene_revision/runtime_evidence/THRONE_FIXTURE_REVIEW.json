@@ -1,0 +1,25 @@
+{
+  "status": "FOCUSED_FIXTURE_CORRECTION_PASS_FULL_SUITE_RERUN_PENDING",
+  "cause": "Probe stops at first visible doorway button, footx2215. Camera cull span1151.166..3015.166 excludes mist cards atx3065.96 and3124.64. Allfive cards exist and have nonzeroalpha; onlythree should be visible at that view.",
+  "correction": "One additional real floor tap reaches footx2615; existing five-mist, flutter, speech, passive reward and event assertions retained. Failed assertions now exit1.",
+  "runtime_gameplay_changed": false,
+  "corrected_probe_sha256": "dd9439333cdf6c226c8420e7dcae0e1c3636847c1245cf108bff843252416891",
+  "results": [
+    {
+      "case": "corrected",
+      "exit_code": 0
+    },
+    {
+      "case": "failure_control",
+      "exit_code": 1
+    }
+  ],
+  "evidence": [
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/throne-output.log",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/throne-walk-fixture.log",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/throne-corrected.log",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/throne-failure_control.log",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/throne-CORRECTION_RESULTS.json"
+  ],
+  "full_suite_after_correction": "PENDING; earlier full run remains FAIL, not retroactively reclassified."
+}

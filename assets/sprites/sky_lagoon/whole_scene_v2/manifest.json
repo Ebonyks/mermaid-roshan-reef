@@ -1,0 +1,678 @@
+{
+  "schema": 1,
+  "status": "OPT_IN_UNACCEPTED_TRIAL",
+  "tiles": [
+    {
+      "file": "base_r0_c0.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "node": "SkyLagoonBackdrop_r0_c0",
+      "sha256": "b086044d51216b082cd4bba8a059769f5220603ba0128d36063e0c0788c4a099"
+    },
+    {
+      "file": "base_r0_c1.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "node": "SkyLagoonBackdrop_r0_c1",
+      "sha256": "7e50cdec60bbe1cc607d9721f89810480ba8b991371758cbd714680fdb23c5e0"
+    },
+    {
+      "file": "base_r0_c2.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "node": "SkyLagoonBackdrop_r0_c2",
+      "sha256": "b74f89fc1204417973ec9c93428a3ba233443d9a26ffa9af0df936b4610adfe1"
+    },
+    {
+      "file": "base_r0_c3.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "node": "SkyLagoonBackdrop_r0_c3",
+      "sha256": "baa4e100f80737a0274462ec597e5c6fb3ab0f87ed890da2939d5676e1db14e6"
+    },
+    {
+      "file": "base_r0_c4.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "node": "SkyLagoonBackdrop_r0_c4",
+      "sha256": "a6d810c9b515370556f0df9bf0eff12709a49cca0a5a87cfbc75318c03f45e7b"
+    },
+    {
+      "file": "base_r0_c5.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "node": "SkyLagoonBackdrop_r0_c5",
+      "sha256": "13d8d3b835e8ec878b3f8a89f791482f41608a0c6e57c5a2e97e23ef99c1a6f6"
+    },
+    {
+      "file": "base_r1_c0.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "node": "SkyLagoonBackdrop_r1_c0",
+      "sha256": "5d8a37ff575a07fa9d2ad40e83f923335e90d2cf23540723bac72ca85f58ebe0"
+    },
+    {
+      "file": "base_r1_c1.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "node": "SkyLagoonBackdrop_r1_c1",
+      "sha256": "02fad77cd50ac5c0f4402924da619d1d10d115879dc2cb8b741c4bac1a70c27a"
+    },
+    {
+      "file": "base_r1_c2.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "node": "SkyLagoonBackdrop_r1_c2",
+      "sha256": "10497cf7052eb1ef4ac6b06d5e3e90a5c3fa3fd3813478d9aa209bc059df53ae"
+    },
+    {
+      "file": "base_r1_c3.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "node": "SkyLagoonBackdrop_r1_c3",
+      "sha256": "0070abb11fb65b7745b799a5a98ed9b5980c11c05503c8f68a47fbe4754b5759"
+    },
+    {
+      "file": "base_r1_c4.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "node": "SkyLagoonBackdrop_r1_c4",
+      "sha256": "57c6bfbb87c3bd90ecbb4c4117f09e8e4a6aae9a36a2ec9795f58f7cfed0807a"
+    },
+    {
+      "file": "base_r1_c5.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "node": "SkyLagoonBackdrop_r1_c5",
+      "sha256": "e1ea23ae123580ea1543c23dd2c8920a98cb367d63c14e90c793615bc66ceb34"
+    }
+  ],
+  "cards": [
+    {
+      "id": "arrival_whole_tree",
+      "file": "arrival_whole_tree.png",
+      "size": [
+        1024,
+        4096
+      ],
+      "position": [
+        -3.1746031746031744,
+        -3.1746031746031744
+      ],
+      "scale": 1.5873015873015872,
+      "columns": 4,
+      "rows": 4,
+      "frames": 12,
+      "cycle": 4.8,
+      "family": "tree",
+      "drift": 0,
+      "sha256": "d45b99dda7f01c64cf223b7668673b3425db1ea08faf936357ce0957ec8bbe7d"
+    },
+    {
+      "id": "arrival_lawn",
+      "file": "arrival_lawn.png",
+      "size": [
+        1024,
+        512
+      ],
+      "position": [
+        568.7834645669292,
+        1644.783464566929
+      ],
+      "scale": 1.6082677165354329,
+      "columns": 2,
+      "rows": 2,
+      "frames": 4,
+      "cycle": 2.8,
+      "family": "grass",
+      "drift": 0,
+      "sha256": "0369e55adf01838ed3d1cdc05603e628b6ed9a5f2ee6663f243bd8d37aede5dc"
+    },
+    {
+      "id": "arrival_front_edge",
+      "file": "arrival_front_edge.png",
+      "size": [
+        1024,
+        512
+      ],
+      "position": [
+        544.7834645669292,
+        1968.783464566929
+      ],
+      "scale": 1.6082677165354329,
+      "columns": 2,
+      "rows": 2,
+      "frames": 4,
+      "cycle": 2.8,
+      "family": "grass",
+      "drift": 0,
+      "sha256": "f13e71d9efc914653640e355d26b76b0794157bfc1e9007c438c909068b86eb4"
+    },
+    {
+      "id": "meadow_upper_left",
+      "file": "meadow_upper_left.png",
+      "size": [
+        1024,
+        512
+      ],
+      "position": [
+        2065.5393700787404,
+        1209.5393700787401
+      ],
+      "scale": 1.2303149606299213,
+      "columns": 2,
+      "rows": 2,
+      "frames": 4,
+      "cycle": 2.8,
+      "family": "grass",
+      "drift": 0,
+      "sha256": "eef9604a7b0ad7975ec5e2e9846ed863567a1ab48310c94d132ac4c0c4b69d99"
+    },
+    {
+      "id": "meadow_upper_right",
+      "file": "meadow_upper_right.png",
+      "size": [
+        1024,
+        512
+      ],
+      "position": [
+        2583.4763779527557,
+        1207.476377952756
+      ],
+      "scale": 2.2618110236220472,
+      "columns": 2,
+      "rows": 2,
+      "frames": 4,
+      "cycle": 2.8,
+      "family": "grass",
+      "drift": 0,
+      "sha256": "799daf1cbba2ff551b119018fed275be4af070f93b3f81b46a7b81011d00aeee"
+    },
+    {
+      "id": "meadow_lower_lawn",
+      "file": "meadow_lower_lawn.png",
+      "size": [
+        1024,
+        512
+      ],
+      "position": [
+        2539.5393700787404,
+        1671.5393700787401
+      ],
+      "scale": 2.2303149606299213,
+      "columns": 2,
+      "rows": 2,
+      "frames": 4,
+      "cycle": 2.8,
+      "family": "grass",
+      "drift": 0,
+      "sha256": "7b3ded42e84297732edf824952739f6848ef72d6ceb3ee2892e59cabe09fade1"
+    },
+    {
+      "id": "castle_left_verge",
+      "file": "castle_left_verge.png",
+      "size": [
+        1024,
+        512
+      ],
+      "position": [
+        4533.777777777777,
+        1765.7777777777778
+      ],
+      "scale": 1.1111111111111112,
+      "columns": 2,
+      "rows": 2,
+      "frames": 4,
+      "cycle": 2.8,
+      "family": "grass",
+      "drift": 0,
+      "sha256": "6b75da216fbc29b7923724803e556f0e45813d8dc1c49335b9aaf20738dc6da2"
+    },
+    {
+      "id": "castle_right_verge",
+      "file": "castle_right_verge.png",
+      "size": [
+        1024,
+        512
+      ],
+      "position": [
+        5642.0,
+        1838.0
+      ],
+      "scale": 1.0,
+      "columns": 2,
+      "rows": 2,
+      "frames": 4,
+      "cycle": 2.8,
+      "family": "grass",
+      "drift": 0,
+      "sha256": "06a62f124f0ae367178cef42979f49b6b80d37bc946b734a57f8c6b7d94a949a"
+    },
+    {
+      "id": "arrival_bank_left",
+      "file": "arrival_bank_left.png",
+      "size": [
+        1024,
+        512
+      ],
+      "position": [
+        277.2936507936508,
+        861.2936507936508
+      ],
+      "scale": 1.3531746031746033,
+      "columns": 2,
+      "rows": 2,
+      "frames": 4,
+      "cycle": 3.6,
+      "family": "shrubs",
+      "drift": 0,
+      "sha256": "daae575d06466b38ec0f8a1bf93a285685b347c83895251969a4262363034ec4"
+    },
+    {
+      "id": "arrival_bank_right",
+      "file": "arrival_bank_right.png",
+      "size": [
+        1024,
+        512
+      ],
+      "position": [
+        1325.3818897637796,
+        1093.3818897637796
+      ],
+      "scale": 1.3090551181102363,
+      "columns": 2,
+      "rows": 2,
+      "frames": 4,
+      "cycle": 3.6,
+      "family": "shrubs",
+      "drift": 0,
+      "sha256": "2e30ebf77b02c7feb84b255537ed3c3fcee63cdf59517b5c1aa3b416ca29476f"
+    },
+    {
+      "id": "meadow_hedge_left",
+      "file": "meadow_hedge_left.png",
+      "size": [
+        1024,
+        512
+      ],
+      "position": [
+        2050.0,
+        1046.0
+      ],
+      "scale": 1.0,
+      "columns": 2,
+      "rows": 2,
+      "frames": 4,
+      "cycle": 3.6,
+      "family": "shrubs",
+      "drift": 0,
+      "sha256": "69234f869a37302550bc9070b8ce2739fc3c0b0ebebb699ce7abc7b3d1d7dada"
+    },
+    {
+      "id": "meadow_hedge_right",
+      "file": "meadow_hedge_right.png",
+      "size": [
+        1024,
+        512
+      ],
+      "position": [
+        2824.547244094488,
+        1052.5472440944882
+      ],
+      "scale": 1.7263779527559056,
+      "columns": 2,
+      "rows": 2,
+      "frames": 4,
+      "cycle": 3.6,
+      "family": "shrubs",
+      "drift": 0,
+      "sha256": "6c65473cc300d449d9a17158f235def46ab77b2e732d063c8a639eb083d15b91"
+    },
+    {
+      "id": "castle_approach_bank",
+      "file": "castle_approach_bank.png",
+      "size": [
+        1024,
+        512
+      ],
+      "position": [
+        4089.7380952380954,
+        1077.7380952380952
+      ],
+      "scale": 1.130952380952381,
+      "columns": 2,
+      "rows": 2,
+      "frames": 4,
+      "cycle": 3.6,
+      "family": "shrubs",
+      "drift": 0,
+      "sha256": "138de81b7e443e0f85e097d7c27c6fa05788028113efaf8eb441b978f40a11b2"
+    },
+    {
+      "id": "castle_far_bank",
+      "file": "castle_far_bank.png",
+      "size": [
+        1024,
+        512
+      ],
+      "position": [
+        5557.700787401574,
+        933.7007874015748
+      ],
+      "scale": 1.1496062992125984,
+      "columns": 2,
+      "rows": 2,
+      "frames": 4,
+      "cycle": 3.6,
+      "family": "shrubs",
+      "drift": 0,
+      "sha256": "60898a4fc38684bd36b7776036a2eb5d15c71e6823b622b145d2c3ff544ed00c"
+    },
+    {
+      "id": "arrival_high_left",
+      "file": "arrival_high_left.png",
+      "size": [
+        368,
+        152
+      ],
+      "position": [
+        276,
+        244
+      ],
+      "scale": 1.0,
+      "columns": 1,
+      "rows": 1,
+      "frames": 1,
+      "cycle": 48,
+      "family": "cloud",
+      "drift": 24,
+      "sha256": "c4976a2c2b2858ca815bf5a9d4b664bff15da1e47fd0686f4148839a9da60c8e"
+    },
+    {
+      "id": "arrival_high_right",
+      "file": "arrival_high_right.png",
+      "size": [
+        488,
+        196
+      ],
+      "position": [
+        1304,
+        456
+      ],
+      "scale": 1.0,
+      "columns": 1,
+      "rows": 1,
+      "frames": 1,
+      "cycle": 48,
+      "family": "cloud",
+      "drift": 24,
+      "sha256": "57f65307be2d799019b9da819529c64da05d7ccca7589a7423994c6b7f1176fd"
+    },
+    {
+      "id": "arrival_small_center",
+      "file": "arrival_small_center.png",
+      "size": [
+        256,
+        104
+      ],
+      "position": [
+        696,
+        708
+      ],
+      "scale": 1.0,
+      "columns": 1,
+      "rows": 1,
+      "frames": 1,
+      "cycle": 48,
+      "family": "cloud",
+      "drift": 24,
+      "sha256": "93484063fe827c5efa71d75dff4b112786be00280ffdaf08060d64f954f33175"
+    },
+    {
+      "id": "arrival_small_right",
+      "file": "arrival_small_right.png",
+      "size": [
+        240,
+        92
+      ],
+      "position": [
+        1096,
+        776
+      ],
+      "scale": 1.0,
+      "columns": 1,
+      "rows": 1,
+      "frames": 1,
+      "cycle": 48,
+      "family": "cloud",
+      "drift": 24,
+      "sha256": "a9a6f82f278b166343498ed1268e8b622ed95e4c9053d2fb42d0fb493c9d9127"
+    },
+    {
+      "id": "arrival_mid_right",
+      "file": "arrival_mid_right.png",
+      "size": [
+        296,
+        116
+      ],
+      "position": [
+        1144,
+        672
+      ],
+      "scale": 1.0,
+      "columns": 1,
+      "rows": 1,
+      "frames": 1,
+      "cycle": 48,
+      "family": "cloud",
+      "drift": 24,
+      "sha256": "2c3d7518612c92a64bae3b1863bc0037ae66fd85ae294b0f44850a9830d2babd"
+    },
+    {
+      "id": "meadow_high_left",
+      "file": "meadow_high_left.png",
+      "size": [
+        536,
+        220
+      ],
+      "position": [
+        1992,
+        308
+      ],
+      "scale": 1.0,
+      "columns": 1,
+      "rows": 1,
+      "frames": 1,
+      "cycle": 48,
+      "family": "cloud",
+      "drift": 24,
+      "sha256": "91540245a58e94848d3cfaed165025f8f8316bbffec61b6051dedd6c7f9f016c"
+    },
+    {
+      "id": "meadow_high_right",
+      "file": "meadow_high_right.png",
+      "size": [
+        556,
+        200
+      ],
+      "position": [
+        3724,
+        304
+      ],
+      "scale": 1.0,
+      "columns": 1,
+      "rows": 1,
+      "frames": 1,
+      "cycle": 48,
+      "family": "cloud",
+      "drift": 24,
+      "sha256": "2405f07f777f1c17cc24e048c80d98626942b52f3d4e7b8689168c082729057c"
+    },
+    {
+      "id": "meadow_small_left",
+      "file": "meadow_small_left.png",
+      "size": [
+        352,
+        80
+      ],
+      "position": [
+        1796,
+        656
+      ],
+      "scale": 1.0,
+      "columns": 1,
+      "rows": 1,
+      "frames": 1,
+      "cycle": 48,
+      "family": "cloud",
+      "drift": 24,
+      "sha256": "e70b687fefd4fe518156d8774a3190e5cda3ada63aaca9bf626f9ca88dee8709"
+    },
+    {
+      "id": "meadow_mid_right",
+      "file": "meadow_mid_right.png",
+      "size": [
+        400,
+        168
+      ],
+      "position": [
+        3220,
+        580
+      ],
+      "scale": 1.0,
+      "columns": 1,
+      "rows": 1,
+      "frames": 1,
+      "cycle": 48,
+      "family": "cloud",
+      "drift": 24,
+      "sha256": "899c3718b9dec37493e49368dbcf603ef9425a5373eca29ee0d10e27664494e2"
+    },
+    {
+      "id": "meadow_small_center",
+      "file": "meadow_small_center.png",
+      "size": [
+        216,
+        112
+      ],
+      "position": [
+        2984,
+        720
+      ],
+      "scale": 1.0,
+      "columns": 1,
+      "rows": 1,
+      "frames": 1,
+      "cycle": 48,
+      "family": "cloud",
+      "drift": 24,
+      "sha256": "981725467517d98e6f46f42816b4cb279f87beadc5d969ba94bfb3657449806a"
+    },
+    {
+      "id": "meadow_small_far",
+      "file": "meadow_small_far.png",
+      "size": [
+        160,
+        72
+      ],
+      "position": [
+        3204,
+        752
+      ],
+      "scale": 1.0,
+      "columns": 1,
+      "rows": 1,
+      "frames": 1,
+      "cycle": 48,
+      "family": "cloud",
+      "drift": 24,
+      "sha256": "4efe48a76a3157476a637bb66dc7d9b7be25844c5a99f0b3ee1aac2fee83eae1"
+    },
+    {
+      "id": "castle_high",
+      "file": "castle_high.png",
+      "size": [
+        684,
+        268
+      ],
+      "position": [
+        5216,
+        108
+      ],
+      "scale": 1.0,
+      "columns": 1,
+      "rows": 1,
+      "frames": 1,
+      "cycle": 48,
+      "family": "cloud",
+      "drift": 24,
+      "sha256": "6926269cf1cc95fdbda4089fa79a67078324b0ba916d62839f4c11f0973af57e"
+    },
+    {
+      "id": "castle_foreground_rosette",
+      "file": "castle_foreground_rosette.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "position": [
+        4524.523809523809,
+        1686.5238095238096
+      ],
+      "scale": 1.2380952380952381,
+      "columns": 2,
+      "rows": 4,
+      "frames": 6,
+      "cycle": 2.28,
+      "family": "foreground",
+      "drift": 0,
+      "sha256": "fb5d509552e6ef372ec9307eb83a28d7e4434f650fcd46abd6a36e18616c7483"
+    },
+    {
+      "id": "meadow_boundary_berry_fan",
+      "file": "meadow_boundary_berry_fan.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "position": [
+        1781.8650793650793,
+        1586.8650793650793
+      ],
+      "scale": 1.5674603174603177,
+      "columns": 2,
+      "rows": 4,
+      "frames": 8,
+      "cycle": 2.4,
+      "family": "foreground",
+      "drift": 0,
+      "sha256": "2f6591da0250aea88274f146ca3f82865029442a1d95895d1b3069d416fc0635"
+    }
+  ],
+  "raw_rgba_mib": 100.96832275390625,
+  "limits": "Clouds currently use one extracted drawing with drift; four-pose cloud shaping and low cloud sea remain incomplete. Source studies require runtime visual review."
+}

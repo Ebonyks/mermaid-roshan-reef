@@ -1,0 +1,130 @@
+{
+  "status": "OPT_IN_INTEGRATED_REVIEW_NOT_ACCEPTED",
+  "source_rect": [
+    1750,
+    1560,
+    2350,
+    2020
+  ],
+  "plant_position_in_crop": [
+    35,
+    30
+  ],
+  "plant_native_world_position": [
+    1785,
+    1590
+  ],
+  "plant_native_world_size": [
+    516,
+    395
+  ],
+  "frames": 8,
+  "alpha_preserved_all_frames": true,
+  "outside_removal_mask_exact": true,
+  "cross_tile_reconstruction_exact": true,
+  "tiles": [
+    "base_r1_c1.png",
+    "base_r1_c2.png"
+  ],
+  "color_method": "Shared per-pixel linear-light map across cels: soft compression for bright leaves, separate softly classified purple-berry gain; shadows protected",
+  "remaining": [
+    "Review removal mask and neighboring plants",
+    "Actual Godot source placement across both screen views",
+    "Owner/device visual acceptance"
+  ],
+  "material_samples": [
+    {
+      "material": "front_leaf",
+      "original_rect": [
+        162,
+        302,
+        215,
+        363
+      ],
+      "candidate_rect": [
+        423,
+        823,
+        567,
+        972
+      ],
+      "original": {
+        "sampled_pixels": 3233,
+        "saturation_median": 0.6745098039215687,
+        "linear_luminance_median": 0.14444790855113324
+      },
+      "candidate": {
+        "sampled_pixels": 21439,
+        "saturation_median": 0.6078431372549019,
+        "linear_luminance_median": 0.18874205142601655
+      },
+      "graded": {
+        "sampled_pixels": 21439,
+        "linear_luminance_median": 0.14321713631631403
+      }
+    },
+    {
+      "material": "right_leaf",
+      "original_rect": [
+        342,
+        193,
+        431,
+        222
+      ],
+      "candidate_rect": [
+        993,
+        449,
+        1171,
+        500
+      ],
+      "original": {
+        "sampled_pixels": 2083,
+        "saturation_median": 0.6509803921568628,
+        "linear_luminance_median": 0.15132918032455786
+      },
+      "candidate": {
+        "sampled_pixels": 8846,
+        "saturation_median": 0.6470588235294118,
+        "linear_luminance_median": 0.2958025383929479
+      },
+      "graded": {
+        "sampled_pixels": 8855,
+        "linear_luminance_median": 0.1680661702695811
+      }
+    },
+    {
+      "material": "berry",
+      "original_rect": [
+        246,
+        222,
+        276,
+        247
+      ],
+      "candidate_rect": [
+        648,
+        558,
+        702,
+        596
+      ],
+      "original": {
+        "sampled_pixels": 348,
+        "saturation_median": 0.3411764705882353,
+        "linear_luminance_median": 0.11962815332238529
+      },
+      "candidate": {
+        "sampled_pixels": 2033,
+        "saturation_median": 0.37254901960784315,
+        "linear_luminance_median": 0.24794892484344208
+      },
+      "graded": {
+        "sampled_pixels": 2036,
+        "linear_luminance_median": 0.12941575873401173
+      }
+    }
+  ],
+  "gpu_status": "Temporary two-view trial and subsequent integrated 96-frame capture pass; see runtime_evidence/MEADOW_BOUNDARY_INTEGRATION_REVIEW.json",
+  "graded_native_reopen": {
+    "frames": 8,
+    "layers": 8,
+    "export_rgba_max_error": 0
+  }
+}
