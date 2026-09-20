@@ -1,0 +1,174 @@
+{
+  "schema": "imagine-shot-packet-v2",
+  "movie_id": "sky_lagoon_aseprite_motion_v3_2026-09-19",
+  "shot_id": "G02",
+  "title": "Bridge chain follow-through",
+  "priority": 2,
+  "status": "DRAFT",
+  "duration_seconds": 1,
+  "duration_policy": "minimum actually supported; API 1s checked 2026-09-19; website not assumed",
+  "aspect_ratio": "372:202",
+  "delivery_size": null,
+  "native_first_frame_size": [
+    372,
+    202
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "hud_present": false,
+      "human_decision": "pending",
+      "remote_url": null,
+      "authority_domain": "exact proposed opening layout",
+      "source_kind": "candidate_master"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": null,
+      "sha256": null,
+      "hud_present": false,
+      "human_decision": "pending",
+      "remote_url": null,
+      "authority_domain": "painted material identity only; not scene layout",
+      "source_kind": "candidate_master"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "one existing near-side gold chain span makes a tiny delayed swing and settles"
+  ],
+  "must_not_move": [
+    "both chain attachment points, posts, deck, landings, castle, water and camera"
+  ],
+  "end_state": "the chain rests in its original hanging curve",
+  "negative_constraints": [
+    "no new links, stretching links, detached ends or swaying posts",
+    "no people, HUD or text"
+  ],
+  "prompt_path": "shots/G02/PROMPT.txt",
+  "prompt_sha256": "c9ab29d67eb1c058a3ce859ebec90c91be81b4a45e35a0824de0abef9deda8c5",
+  "sound_intent": "silence",
+  "runtime_contract": "Grok reference -> individually reviewed and authored Aseprite RGBA cels -> Godot frame playback; no automatic video-to-runtime promotion.",
+  "first_frame_review": "MISSING_APPROVAL: candidate is archived but no approved IMAGE_1 binding exists.",
+  "requested_resolution": "480p motion study; record actual returned size",
+  "aspect_policy": "inherit IMAGE_1 without stretching",
+  "interface_contract": "Single-image I2V: IMAGE_1 only; IMAGE_2 operator reference unless supported first-frame-locked multi-reference mode selected.",
+  "sequence_position": 1,
+  "beat_ids": [
+    "G02-ACTION"
+  ],
+  "exact_cast": [],
+  "character_locks": [],
+  "cast_scope": "No characters; isolated material-motion study. A player crossing is not claimed.",
+  "proposed_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "shots/G02/IMAGE_1.png",
+      "sha256": "3c0cc568f4ff6b83a65441406cddb5ec61dfa7652eae2701eb51bc0267c3fb46",
+      "hud_present": false,
+      "human_decision": "current owner-supplied scene direction; exact crop acceptance pending",
+      "remote_url": null,
+      "authority_domain": "exact proposed opening layout",
+      "source_kind": "candidate_master"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "shots/G02/IMAGE_2.png",
+      "sha256": "4a9cdce8fa7b5f9f4cdb7e2fd2c97e07d098db65cc0442d3509b718e1ed27ba9",
+      "hud_present": false,
+      "human_decision": "current owner-supplied scene direction; exact crop acceptance pending",
+      "remote_url": null,
+      "authority_domain": "painted material identity only; not scene layout",
+      "source_kind": "candidate_master"
+    }
+  ],
+  "opening_candidate": {
+    "id": "IMAGE_1",
+    "role": "approved_clean_first_frame",
+    "path": "shots/G02/IMAGE_1.png",
+    "sha256": "3c0cc568f4ff6b83a65441406cddb5ec61dfa7652eae2701eb51bc0267c3fb46",
+    "hud_present": false,
+    "human_decision": "current owner-supplied scene direction; exact crop acceptance pending",
+    "remote_url": null,
+    "authority_domain": "exact proposed opening layout",
+    "source_kind": "candidate_master"
+  },
+  "location_lock": {
+    "reference_id": "IMAGE_1",
+    "location_id": "LOC-SKY-GAMEPLAY-CASTLE",
+    "immutable_features": [
+      "all posts and both landings stay fixed",
+      "the camera stays locked"
+    ],
+    "forbidden_geometry": [
+      "no added fixture or altered shoreline"
+    ],
+    "required_prompt_phrases": [
+      "all posts and both landings stay fixed",
+      "the camera stays locked"
+    ]
+  },
+  "causal_chain": {
+    "trigger": "one bounded mechanical load/release",
+    "visible_change": "one existing near-side gold chain span makes a tiny delayed swing and settles",
+    "end_confirmation": "the chain rests in its original hanging curve"
+  },
+  "continuity": {
+    "kind": "new_setup",
+    "previous_shot_id": null,
+    "inherited_state": [
+      "same v16 daylight, geometry, material identity"
+    ],
+    "allowed_changes": [
+      "one existing near-side gold chain span makes a tiny delayed swing and settles"
+    ],
+    "timing_reference_dependency": "G01 accepted motion reference"
+  },
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.jpg",
+      "appearance_authority": false,
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "opening_status": "MISSING_APPROVAL",
+  "blocking_findings": [
+    "exact crop review",
+    "chosen execution surface/minimum",
+    "scoped 1s native-aspect reference-card validation reconciliation",
+    "no approved first frame; null bound references are intentional"
+  ],
+  "source_landmarks": {
+    "coordinate_space": "full v16 scene normalized, visually selected review anchors; operator must refine before measurement",
+    "points": {
+      "bridge_near_left": [
+        0.427,
+        0.727
+      ],
+      "bridge_near_right": [
+        0.567,
+        0.748
+      ],
+      "bridge_far_landing": [
+        0.638,
+        0.65
+      ]
+    },
+    "observed_output_measurements": null,
+    "review_triggers": {
+      "locked_camera_drift": 0.015,
+      "scale_ratio_change": 0.05
+    }
+  }
+}

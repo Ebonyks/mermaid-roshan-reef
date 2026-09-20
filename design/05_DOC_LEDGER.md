@@ -807,3 +807,5 @@ Kept as-is; noted so a future edit updates every copy.
 | `design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md` | 🔵 | `SUPPORTING_CURRENT`; sequence continuity controls implementing existing cinematic rules; grants no opening, motion or delivery acceptance. |
 | `audit/GROK_HANDOFF_2_FOOTAGE_AUDIT_2026-09-09.md` | 🔵 | `SUPPORTING_CURRENT`; scoped 73-file inventory, selected-cut/native-sample review and 74-shot reconciliation; historical evidence is distinguished from fresh observations. |
 | `assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/README.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; versioned repair archive operator index; 47 draft jobs remain generation-blocked and delivery-unaccepted. |
+
+| `assets_src/cinematics/sky_lagoon_aseprite_motion_v3_2026-09-19/README.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; three-screen environmental motion review module for persistent Grok builder, five V2 draft jobs, Aseprite bridge workflow. No first-frame, generation, delivery, runtime or device acceptance. |

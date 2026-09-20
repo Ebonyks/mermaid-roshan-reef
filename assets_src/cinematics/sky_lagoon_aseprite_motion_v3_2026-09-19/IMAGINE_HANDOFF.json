@@ -1,0 +1,79 @@
+{
+  "schema": "imagine-handoff-v2",
+  "movie_id": "sky_lagoon_aseprite_motion_v3_2026-09-19",
+  "archive_status": "incomplete",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "draft_shot_packets": [
+    "shots/G01/SHOT_PACKET.json",
+    "shots/G02/SHOT_PACKET.json",
+    "shots/G03/SHOT_PACKET.json",
+    "shots/G04/SHOT_PACKET.json",
+    "shots/G05/SHOT_PACKET.json"
+  ],
+  "blocking_findings": [
+    "exact crop/interface review",
+    "1s native-aspect cards incompatible with inherited cinematic-ready validator; scoped reference policy needed",
+    "no approved first-frame binding; proposed crops live in proposed_references only"
+  ],
+  "archive_payload_manifest": "HANDOFF_PACKET.json",
+  "shot_board": "SHOT_BOARD.jpg",
+  "story_contract": {
+    "one_sentence_promise": "Study bounded reversible material responses for gameplay without changing narrative or scenery.",
+    "scope": "environment motion reference; irreversible narrative payoff is not applicable",
+    "ordered_beats": [
+      {
+        "beat_id": "G01-ACTION",
+        "trigger": "one bounded mechanical load/release",
+        "visible_result": "the deck is back at its original rest shape"
+      },
+      {
+        "beat_id": "G02-ACTION",
+        "trigger": "one bounded mechanical load/release",
+        "visible_result": "the chain rests in its original hanging curve"
+      },
+      {
+        "beat_id": "G03-ACTION",
+        "trigger": "one bounded water disturbance",
+        "visible_result": "the lake keeps its original colour and calm surface"
+      },
+      {
+        "beat_id": "G04-ACTION",
+        "trigger": "one bounded water disturbance",
+        "visible_result": "the waterline recedes to its original position"
+      },
+      {
+        "beat_id": "G05-ACTION",
+        "trigger": "one bounded water disturbance",
+        "visible_result": "the ripple has faded and the original calm water remains"
+      }
+    ],
+    "forbidden_events": [
+      "no gameplay win or narrative transition",
+      "no invented actor, fixture or world redesign"
+    ],
+    "final_state": "Each independent study ends in its declared calm/rest state; no assembled film is requested."
+  },
+  "character_authorities": [],
+  "location_authority": {
+    "path": "references/castle.png",
+    "sha256": "58606206137a7ae343c06b0c9a8a7c8ab2f3fcf99ec04e0b66333d0035d1b85e",
+    "status": "candidate_not_approved",
+    "immutable_features": [
+      "four castle towers",
+      "left connector meets bridge approach",
+      "descending foreground path stays clear"
+    ],
+    "forbidden_geometry": [
+      "no new bridge, tower, road or shifted landing"
+    ]
+  },
+  "additional_location_candidates": [
+    {
+      "path": "references/arrival.png",
+      "sha256": "870a51152a0a19c8f3f7d0f5561aa6fc3d2d2d66350049519ed231b118c92010",
+      "status": "candidate_not_approved"
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "schema": "imagine-shot-packet-v2",
+  "movie_id": "sky_lagoon_aseprite_motion_v3_2026-09-19",
+  "shot_id": "G03",
+  "title": "Painted water phrase",
+  "priority": 3,
+  "status": "DRAFT",
+  "duration_seconds": 1,
+  "duration_policy": "minimum actually supported; API 1s checked 2026-09-19; website not assumed",
+  "aspect_ratio": "398:140",
+  "delivery_size": null,
+  "native_first_frame_size": [
+    398,
+    140
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "hud_present": false,
+      "human_decision": "pending",
+      "remote_url": null,
+      "authority_domain": "exact proposed opening layout",
+      "source_kind": "candidate_master"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": null,
+      "sha256": null,
+      "hud_present": false,
+      "human_decision": "pending",
+      "remote_url": null,
+      "authority_domain": "painted material identity only; not scene layout",
+      "source_kind": "candidate_master"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "the broad painted lake highlights flow gently rightward and change shape coherently"
+  ],
+  "must_not_move": [
+    "shoreline, rocks, bridge, castle, water level and camera"
+  ],
+  "end_state": "the lake keeps its original colour and calm surface",
+  "negative_constraints": [
+    "no photoreal waves, boiling noise, global brightness pulse, new foam or camera drift",
+    "no people, HUD or text"
+  ],
+  "prompt_path": "shots/G03/PROMPT.txt",
+  "prompt_sha256": "97ec84bfff7821f412c6fb1b9e926398c9e3459e608516af909aaf09b78a1334",
+  "sound_intent": "silence",
+  "runtime_contract": "Grok reference -> individually reviewed and authored Aseprite RGBA cels -> Godot frame playback; no automatic video-to-runtime promotion.",
+  "first_frame_review": "MISSING_APPROVAL: candidate is archived but no approved IMAGE_1 binding exists.",
+  "requested_resolution": "480p motion study; record actual returned size",
+  "aspect_policy": "inherit IMAGE_1 without stretching",
+  "interface_contract": "Single-image I2V: IMAGE_1 only; IMAGE_2 operator reference unless supported first-frame-locked multi-reference mode selected.",
+  "sequence_position": 2,
+  "beat_ids": [
+    "G03-ACTION"
+  ],
+  "exact_cast": [],
+  "character_locks": [],
+  "cast_scope": "No characters; isolated material-motion study. A player crossing is not claimed.",
+  "proposed_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "shots/G03/IMAGE_1.png",
+      "sha256": "bf1a7e13df9aea9bd6d8ca98fd83b3d9950475a65f10f6cc2f53d5a205e03592",
+      "hud_present": false,
+      "human_decision": "current owner-supplied scene direction; exact crop acceptance pending",
+      "remote_url": null,
+      "authority_domain": "exact proposed opening layout",
+      "source_kind": "candidate_master"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "shots/G03/IMAGE_2.png",
+      "sha256": "3b9c64c32eb92c36a0290920267d96cbaea8e7eba3a2ed03d39e922631c8d8d2",
+      "hud_present": false,
+      "human_decision": "current owner-supplied scene direction; exact crop acceptance pending",
+      "remote_url": null,
+      "authority_domain": "painted material identity only; not scene layout",
+      "source_kind": "candidate_master"
+    }
+  ],
+  "opening_candidate": {
+    "id": "IMAGE_1",
+    "role": "approved_clean_first_frame",
+    "path": "shots/G03/IMAGE_1.png",
+    "sha256": "bf1a7e13df9aea9bd6d8ca98fd83b3d9950475a65f10f6cc2f53d5a205e03592",
+    "hud_present": false,
+    "human_decision": "current owner-supplied scene direction; exact crop acceptance pending",
+    "remote_url": null,
+    "authority_domain": "exact proposed opening layout",
+    "source_kind": "candidate_master"
+  },
+  "location_lock": {
+    "reference_id": "IMAGE_1",
+    "location_id": "LOC-SKY-GAMEPLAY-CASTLE",
+    "immutable_features": [
+      "the shoreline and rocks stay fixed",
+      "the camera stays locked"
+    ],
+    "forbidden_geometry": [
+      "no added fixture or altered shoreline"
+    ],
+    "required_prompt_phrases": [
+      "the shoreline and rocks stay fixed",
+      "the camera stays locked"
+    ]
+  },
+  "causal_chain": {
+    "trigger": "one bounded water disturbance",
+    "visible_change": "the broad painted lake highlights flow gently rightward and change shape coherently",
+    "end_confirmation": "the lake keeps its original colour and calm surface"
+  },
+  "continuity": {
+    "kind": "new_setup",
+    "previous_shot_id": null,
+    "inherited_state": [
+      "same v16 daylight, geometry, material identity"
+    ],
+    "allowed_changes": [
+      "the broad painted lake highlights flow gently rightward and change shape coherently"
+    ],
+    "timing_reference_dependency": null
+  },
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.jpg",
+      "appearance_authority": false,
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "opening_status": "MISSING_APPROVAL",
+  "blocking_findings": [
+    "exact crop review",
+    "chosen execution surface/minimum",
+    "scoped 1s native-aspect reference-card validation reconciliation",
+    "no approved first frame; null bound references are intentional"
+  ],
+  "source_landmarks": {
+    "coordinate_space": "full v16 scene normalized, visually selected review anchors; operator must refine before measurement",
+    "points": {
+      "right_tower_base": [
+        0.846,
+        0.67
+      ],
+      "shore_rock": [
+        0.974,
+        0.676
+      ],
+      "bridge_near_right": [
+        0.567,
+        0.748
+      ]
+    },
+    "observed_output_measurements": null,
+    "review_triggers": {
+      "locked_camera_drift": 0.015,
+      "scale_ratio_change": 0.05
+    }
+  }
+}

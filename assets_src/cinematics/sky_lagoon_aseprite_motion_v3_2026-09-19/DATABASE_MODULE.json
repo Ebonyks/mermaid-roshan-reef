@@ -1,0 +1,221 @@
+{
+  "schema": "grok-builder-module-v1",
+  "id": "MODULE-SKY-ENV-MOTION",
+  "revision": 1,
+  "base_database": {
+    "path": "assets_src/cinematics/grok_builder_2026-09-14/DATABASE.json",
+    "commit": "2b342e55067c498e35f1b4755f25d7086ef9aeb0",
+    "sha256": "7166034d51abf3d9060264bc5de067b050a6adaea7eeb6fea34db01bdbc9b42b",
+    "immutable_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/2b342e55067c498e35f1b4755f25d7086ef9aeb0/assets_src/cinematics/grok_builder_2026-09-14/DATABASE.json"
+  },
+  "import_policy": "Add/update by ID after preview; do not replace existing LOC-SKY or narrative events. New locations are scoped gameplay art candidates, not global cinematic authority. Mark dependent openings stale on a changed reference hash.",
+  "entities": [
+    {
+      "id": "LOC-SKY-GAMEPLAY-ARRIVAL",
+      "parent_id": "LOC-SKY",
+      "type": "location",
+      "name": "arrival gameplay v16 candidate",
+      "reference_ids": [
+        "REF-SKY-V16-ARRIVAL"
+      ],
+      "revision": 1,
+      "status": "CANDIDATE",
+      "invariants": [
+        "same fixed camera and scene geography",
+        "no path obstruction",
+        "no object-count or architecture changes"
+      ]
+    },
+    {
+      "id": "LOC-SKY-GAMEPLAY-MEADOW",
+      "parent_id": "LOC-SKY",
+      "type": "location",
+      "name": "meadow gameplay v16 candidate",
+      "reference_ids": [
+        "REF-SKY-V16-MEADOW"
+      ],
+      "revision": 1,
+      "status": "CANDIDATE",
+      "invariants": [
+        "same fixed camera and scene geography",
+        "no path obstruction",
+        "no object-count or architecture changes"
+      ]
+    },
+    {
+      "id": "LOC-SKY-GAMEPLAY-CASTLE",
+      "parent_id": "LOC-SKY",
+      "type": "location",
+      "name": "castle gameplay v16 candidate",
+      "reference_ids": [
+        "REF-SKY-V16-CASTLE"
+      ],
+      "revision": 1,
+      "status": "CANDIDATE",
+      "invariants": [
+        "same fixed camera and scene geography",
+        "no path obstruction",
+        "no object-count or architecture changes"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "EV-SKY-ENV-G01",
+      "name": "Bridge deck contact",
+      "location_id": "LOC-SKY-GAMEPLAY-CASTLE",
+      "character_ids": [],
+      "before_state": "static source material at rest",
+      "action": "the middle wooden deck boards flex once under a gentle footfall load",
+      "after_state": "the deck is back at its original rest shape",
+      "depends_on": [],
+      "revision": 1,
+      "status": "MOTION_REFERENCE_DRAFT"
+    },
+    {
+      "id": "EV-SKY-ENV-G02",
+      "name": "Bridge chain follow-through",
+      "location_id": "LOC-SKY-GAMEPLAY-CASTLE",
+      "character_ids": [],
+      "before_state": "static source material at rest",
+      "action": "one existing near-side gold chain span makes a tiny delayed swing and settles",
+      "after_state": "the chain rests in its original hanging curve",
+      "depends_on": [
+        "EV-SKY-ENV-G01"
+      ],
+      "revision": 1,
+      "status": "MOTION_REFERENCE_DRAFT"
+    },
+    {
+      "id": "EV-SKY-ENV-G03",
+      "name": "Painted water phrase",
+      "location_id": "LOC-SKY-GAMEPLAY-CASTLE",
+      "character_ids": [],
+      "before_state": "static source material at rest",
+      "action": "the broad painted lake highlights flow gently rightward and change shape coherently",
+      "after_state": "the lake keeps its original colour and calm surface",
+      "depends_on": [],
+      "revision": 1,
+      "status": "MOTION_REFERENCE_DRAFT"
+    },
+    {
+      "id": "EV-SKY-ENV-G04",
+      "name": "Pool shoreline lap",
+      "location_id": "LOC-SKY-GAMEPLAY-ARRIVAL",
+      "character_ids": [],
+      "before_state": "static source material at rest",
+      "action": "one thin painted water line laps once against the existing pool stones",
+      "after_state": "the waterline recedes to its original position",
+      "depends_on": [],
+      "revision": 1,
+      "status": "MOTION_REFERENCE_DRAFT"
+    },
+    {
+      "id": "EV-SKY-ENV-G05",
+      "name": "One touch ripple",
+      "location_id": "LOC-SKY-GAMEPLAY-CASTLE",
+      "character_ids": [],
+      "before_state": "static source material at rest",
+      "action": "one delicate elliptical ripple expands from the centre of the water crop",
+      "after_state": "the ripple has faded and the original calm water remains",
+      "depends_on": [],
+      "revision": 1,
+      "status": "MOTION_REFERENCE_DRAFT"
+    }
+  ],
+  "shots": [
+    {
+      "id": "SHOT-SKY-ENV-G01",
+      "event_id": "EV-SKY-ENV-G01",
+      "location_id": "LOC-SKY-GAMEPLAY-CASTLE",
+      "character_ids": [],
+      "execution_card": "shots/G01/SHOT_PACKET.json",
+      "opening_reference_id": null,
+      "proposed_reference_path": "shots/G01/IMAGE_1.png",
+      "generation_ready": false,
+      "delivery_accepted": false,
+      "revision": 1
+    },
+    {
+      "id": "SHOT-SKY-ENV-G02",
+      "event_id": "EV-SKY-ENV-G02",
+      "location_id": "LOC-SKY-GAMEPLAY-CASTLE",
+      "character_ids": [],
+      "execution_card": "shots/G02/SHOT_PACKET.json",
+      "opening_reference_id": null,
+      "proposed_reference_path": "shots/G02/IMAGE_1.png",
+      "generation_ready": false,
+      "delivery_accepted": false,
+      "revision": 1
+    },
+    {
+      "id": "SHOT-SKY-ENV-G03",
+      "event_id": "EV-SKY-ENV-G03",
+      "location_id": "LOC-SKY-GAMEPLAY-CASTLE",
+      "character_ids": [],
+      "execution_card": "shots/G03/SHOT_PACKET.json",
+      "opening_reference_id": null,
+      "proposed_reference_path": "shots/G03/IMAGE_1.png",
+      "generation_ready": false,
+      "delivery_accepted": false,
+      "revision": 1
+    },
+    {
+      "id": "SHOT-SKY-ENV-G04",
+      "event_id": "EV-SKY-ENV-G04",
+      "location_id": "LOC-SKY-GAMEPLAY-ARRIVAL",
+      "character_ids": [],
+      "execution_card": "shots/G04/SHOT_PACKET.json",
+      "opening_reference_id": null,
+      "proposed_reference_path": "shots/G04/IMAGE_1.png",
+      "generation_ready": false,
+      "delivery_accepted": false,
+      "revision": 1
+    },
+    {
+      "id": "SHOT-SKY-ENV-G05",
+      "event_id": "EV-SKY-ENV-G05",
+      "location_id": "LOC-SKY-GAMEPLAY-CASTLE",
+      "character_ids": [],
+      "execution_card": "shots/G05/SHOT_PACKET.json",
+      "opening_reference_id": null,
+      "proposed_reference_path": "shots/G05/IMAGE_1.png",
+      "generation_ready": false,
+      "delivery_accepted": false,
+      "revision": 1
+    }
+  ],
+  "references": [
+    {
+      "id": "REF-SKY-V16-ARRIVAL",
+      "path": "references/arrival.png",
+      "sha256": "870a51152a0a19c8f3f7d0f5561aa6fc3d2d2d66350049519ed231b118c92010",
+      "appearance_authority": false,
+      "status": "CANDIDATE_FOR_REVIEW",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "REF-SKY-V16-MEADOW",
+      "path": "references/meadow.png",
+      "sha256": "25628f5c917afe257a23d56967f2d5f516c6d43c59fb8752005ecda569f94e4c",
+      "appearance_authority": false,
+      "status": "CANDIDATE_FOR_REVIEW",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "id": "REF-SKY-V16-CASTLE",
+      "path": "references/castle.png",
+      "sha256": "58606206137a7ae343c06b0c9a8a7c8ab2f3fcf99ec04e0b66333d0035d1b85e",
+      "appearance_authority": false,
+      "status": "CANDIDATE_FOR_REVIEW",
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "external_ids": [
+    "LOC-SKY"
+  ],
+  "status": {
+    "GENERATION_READY": false,
+    "DELIVERY_ACCEPTED": false
+  }
+}

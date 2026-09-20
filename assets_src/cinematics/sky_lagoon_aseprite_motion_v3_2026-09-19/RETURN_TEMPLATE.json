@@ -1,0 +1,51 @@
+{
+  "shot_id": "",
+  "model": "",
+  "surface": "",
+  "duration_seconds": null,
+  "fps": null,
+  "native_dimensions": null,
+  "prompt_sha256": "",
+  "input_sha256": [],
+  "native_output_path": "",
+  "native_output_sha256": "",
+  "all_frames_review": "pending",
+  "decision": "pending",
+  "defects": [],
+  "runtime_pixels_accepted": false,
+  "continuity_analysis_template": "CONTINUITY_RETURN_TEMPLATE.json",
+  "submission_variant_id": "",
+  "seed_if_exposed": null,
+  "native_first_frame": {
+    "path": null,
+    "sha256": null
+  },
+  "native_last_frame": {
+    "path": null,
+    "sha256": null
+  },
+  "contact_sheet": {
+    "path": null,
+    "role": "review_only"
+  },
+  "native_frame_count": null,
+  "reviewed_frame_count": null,
+  "contact_review": {
+    "onset_frame": null,
+    "maximum_deflection_frame": null,
+    "settled_frame": null,
+    "fixed_anchor_drift_norm": null
+  },
+  "loop_review": {
+    "intended_loop": null,
+    "seam_decision": "pending",
+    "repair_method": null
+  },
+  "dependent_jobs_invalidated": [],
+  "aseprite_acceptance": {
+    "authored_source_path": null,
+    "layer_inventory": [],
+    "frame_tags": [],
+    "gameplay_contact_review": "pending"
+  }
+}

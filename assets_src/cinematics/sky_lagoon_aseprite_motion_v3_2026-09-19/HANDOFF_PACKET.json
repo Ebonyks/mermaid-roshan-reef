@@ -1,0 +1,642 @@
+{
+  "schema": "archive-payload-v1",
+  "payload_hash_method": "UTF-8 sorted path TAB sha256 LF; excludes HANDOFF_PACKET.json, ARCHIVE_MANIFEST.json and REMOTE_VERIFICATION.json",
+  "payload_sha256": "1978e5c5ba2d6a2a75299ae0479ef64a120a2cb8b690051ac84e618c87e27fd5",
+  "files": [
+    {
+      "path": ".gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "dimensions": null,
+      "source_path": "authored for this packet",
+      "role": "planning, shot contract or provenance",
+      "modification": "new",
+      "license_provenance": "Project-authored text/metadata"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "f06202a408fef9b9ea69bb6b1cb8160dbb0378c5bb67a444d510d231813824c8",
+      "bytes": 30,
+      "dimensions": null,
+      "source_path": "authored for this packet",
+      "role": "planning, shot contract or provenance",
+      "modification": "new",
+      "license_provenance": "Project-authored text/metadata"
+    },
+    {
+      "path": "ANIMATION_PLAN.txt",
+      "sha256": "4aeca3451a91445ee3376190faf8ca94db8286fc2cae89a2b47fa9656c68b451",
+      "bytes": 14392,
+      "dimensions": null,
+      "source_path": "tmp\\sky-lagoon-animation-v3-staging\\ANIMATION_PLAN.txt",
+      "role": "three-screen task and production plan",
+      "modification": "unchanged copy",
+      "license_provenance": "Project AI-generated / owner-provided source; inherited provenance; no third-party license asserted."
+    },
+    {
+      "path": "CONTINUITY_RETURN_TEMPLATE.json",
+      "source_path": "Project-authored guide reconciliation; see GUIDE_REVIEW.json for copied guide authorities",
+      "role": "review contract or authority evidence",
+      "modification": "new metadata or verbatim guide snapshot",
+      "license_provenance": "Project-authored documentation",
+      "dimensions": null,
+      "sha256": "03f50ffa37d0e3ee7f2a1e7901f6d26833f5869f55abedb3964e14b642546c07",
+      "bytes": 4566
+    },
+    {
+      "path": "DATABASE_MODULE.json",
+      "source_path": "Project-authored guide reconciliation; see GUIDE_REVIEW.json for copied guide authorities",
+      "role": "review contract or authority evidence",
+      "modification": "new metadata or verbatim guide snapshot",
+      "license_provenance": "Project-authored documentation",
+      "dimensions": null,
+      "sha256": "d84ac5c2d9b2eb007516b0c337d319f17a58a92646c79e3f0fac73134e97f20f",
+      "bytes": 7646
+    },
+    {
+      "path": "editable/arrival.ora",
+      "sha256": "e74c55fff7dae30856f2741165f63d5e258d900e91e84f6128b47dbf71172d9d",
+      "bytes": 5390619,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-three-screens-v16\\arrival-editable.ora",
+      "role": "four-layer foreground review master, not full rig",
+      "modification": "unchanged copy",
+      "license_provenance": "Project AI-generated / owner-provided source; inherited provenance; no third-party license asserted."
+    },
+    {
+      "path": "editable/castle.ora",
+      "sha256": "acdc0aa31aafbe218a9380f48e5b6bde214701f66ff693948b91e1e39d2c8724",
+      "bytes": 6129701,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-three-screens-v16\\castle-editable.ora",
+      "role": "four-layer foreground review master, not full rig",
+      "modification": "unchanged copy",
+      "license_provenance": "Project AI-generated / owner-provided source; inherited provenance; no third-party license asserted."
+    },
+    {
+      "path": "editable/meadow.ora",
+      "sha256": "627fbdf1740d2e87660befb644f94390607a4b9b08b23444d5d42032721c5379",
+      "bytes": 5357162,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-three-screens-v16\\meadow-editable.ora",
+      "role": "four-layer foreground review master, not full rig",
+      "modification": "unchanged copy",
+      "license_provenance": "Project AI-generated / owner-provided source; inherited provenance; no third-party license asserted."
+    },
+    {
+      "path": "evidence/companion-prompt.txt",
+      "sha256": "770c2d18aa4ec3159f46da461ef452972949942ff4f6a9771044485faa146398",
+      "bytes": 10,
+      "dimensions": null,
+      "source_path": "tmp\\sky-lagoon-three-screens-v16\\companion-prompt.txt",
+      "role": "source generation provenance",
+      "modification": "unchanged copy",
+      "license_provenance": "Project AI-generated / owner-provided source; inherited provenance; no third-party license asserted."
+    },
+    {
+      "path": "evidence/CONFLICT_RESOLUTIONS.txt",
+      "source_path": "Project-authored guide reconciliation; see GUIDE_REVIEW.json for copied guide authorities",
+      "role": "review contract or authority evidence",
+      "modification": "new metadata or verbatim guide snapshot",
+      "license_provenance": "Project-authored documentation",
+      "dimensions": null,
+      "sha256": "ad927fcbb01c0df7a222ef57665f6df75714663ddac27819400d6cdf5f010710",
+      "bytes": 3250
+    },
+    {
+      "path": "evidence/GROK_FOOTAGE_ANALYSIS_AND_ENDPOINT_HANDOFF_2026-09-02.txt",
+      "source_path": "Project-authored guide reconciliation; see GUIDE_REVIEW.json for copied guide authorities",
+      "role": "review contract or authority evidence",
+      "modification": "new metadata or verbatim guide snapshot",
+      "license_provenance": "Project-authored documentation",
+      "dimensions": null,
+      "sha256": "c84370871eb52ce731bdca2f2a3c20c6088c562c87e165fd0c5f5b60b3a388f9",
+      "bytes": 13202
+    },
+    {
+      "path": "evidence/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.txt",
+      "source_path": "Project-authored guide reconciliation; see GUIDE_REVIEW.json for copied guide authorities",
+      "role": "review contract or authority evidence",
+      "modification": "new metadata or verbatim guide snapshot",
+      "license_provenance": "Project-authored documentation",
+      "dimensions": null,
+      "sha256": "e35d087605d69728eca480a0b01b72d2f0a9f7405999afc12e64acb57e275362",
+      "bytes": 11889
+    },
+    {
+      "path": "evidence/GROK_LOCATION_GEOMETRY_AUTHORITY_AUDIT_2026-09-02.txt",
+      "source_path": "Project-authored guide reconciliation; see GUIDE_REVIEW.json for copied guide authorities",
+      "role": "review contract or authority evidence",
+      "modification": "new metadata or verbatim guide snapshot",
+      "license_provenance": "Project-authored documentation",
+      "dimensions": null,
+      "sha256": "e234fabee5373f14cec9c968067eee5994ad6702ecbd2fa9c55e3029a8543714",
+      "bytes": 4596
+    },
+    {
+      "path": "evidence/GROK_MASTER_HANDOFF_FORMULA_2026-08-30.txt",
+      "source_path": "Project-authored guide reconciliation; see GUIDE_REVIEW.json for copied guide authorities",
+      "role": "review contract or authority evidence",
+      "modification": "new metadata or verbatim guide snapshot",
+      "license_provenance": "Project-authored documentation",
+      "dimensions": null,
+      "sha256": "792ab6fd7c752323e9057e30e06798308a33ee9213e05e131b0297adb26b221e",
+      "bytes": 11733
+    },
+    {
+      "path": "evidence/huckleberry-prompts.txt",
+      "sha256": "e2991d1bcf8a1e8296e43d31c707769ba13de2b726c65136a34b377ad3972934",
+      "bytes": 1328,
+      "dimensions": null,
+      "source_path": "tmp\\sky-lagoon-krita-v15\\prompts.txt",
+      "role": "source generation provenance",
+      "modification": "unchanged copy",
+      "license_provenance": "Project AI-generated / owner-provided source; inherited provenance; no third-party license asserted."
+    },
+    {
+      "path": "evidence/IMAGINE_SHOT_CARD_V1.txt",
+      "source_path": "Project-authored guide reconciliation; see GUIDE_REVIEW.json for copied guide authorities",
+      "role": "review contract or authority evidence",
+      "modification": "new metadata or verbatim guide snapshot",
+      "license_provenance": "Project-authored documentation",
+      "dimensions": null,
+      "sha256": "83ee330bc13759b5df39207c484292c44c9f3bc439029291da40606d3e31e497",
+      "bytes": 3657
+    },
+    {
+      "path": "evidence/IMAGINE_SHOT_CARD_V2.txt",
+      "source_path": "Project-authored guide reconciliation; see GUIDE_REVIEW.json for copied guide authorities",
+      "role": "review contract or authority evidence",
+      "modification": "new metadata or verbatim guide snapshot",
+      "license_provenance": "Project-authored documentation",
+      "dimensions": null,
+      "sha256": "1cf1367ffa69816d407b66f2329c66f88b927b3e5cd9cb39e89f9db036a4c031",
+      "bytes": 6208
+    },
+    {
+      "path": "evidence/OWNER_MINIMUM_CLIP_PROFILE.txt",
+      "source_path": "Project-authored guide reconciliation; see GUIDE_REVIEW.json for copied guide authorities",
+      "role": "review contract or authority evidence",
+      "modification": "new metadata or verbatim guide snapshot",
+      "license_provenance": "Project-authored documentation",
+      "dimensions": null,
+      "sha256": "74f92acb92ace5e3739b42045a15c2636c1dfbabcf53b4b61a5d1f5bda3f83b3",
+      "bytes": 7063
+    },
+    {
+      "path": "evidence/START_GROK.txt",
+      "source_path": "Project-authored guide reconciliation; see GUIDE_REVIEW.json for copied guide authorities",
+      "role": "review contract or authority evidence",
+      "modification": "new metadata or verbatim guide snapshot",
+      "license_provenance": "Project-authored documentation",
+      "dimensions": null,
+      "sha256": "440e659b16c47feda742fad2a9a0dfc4b6ecb73861673fae3513708705e434e6",
+      "bytes": 3328
+    },
+    {
+      "path": "evidence/VALIDATION.json",
+      "source_path": "Project-authored guide reconciliation; see GUIDE_REVIEW.json for copied guide authorities",
+      "role": "review contract or authority evidence",
+      "modification": "new metadata or verbatim guide snapshot",
+      "license_provenance": "Project-authored documentation",
+      "dimensions": null,
+      "sha256": "adcff4953019aecf27a4c46d019cf3e5118fa6927747ffebfda6c93b92d17b2d",
+      "bytes": 2501
+    },
+    {
+      "path": "GUIDE_REVIEW.json",
+      "source_path": "Project-authored guide reconciliation; see GUIDE_REVIEW.json for copied guide authorities",
+      "role": "review contract or authority evidence",
+      "modification": "new metadata or verbatim guide snapshot",
+      "license_provenance": "Project-authored documentation",
+      "dimensions": null,
+      "sha256": "d7dd49d9bb9493edfcde87633ef4324180474ce7a83cf6ac1b33ba1167f83bae",
+      "bytes": 4065
+    },
+    {
+      "path": "IMAGINE_HANDOFF.json",
+      "sha256": "dafb3596b75cf93c736352d4f3486b32efdf5df36e6dc621ccea4f0935393e9d",
+      "bytes": 2975,
+      "dimensions": null,
+      "source_path": "authored for this packet",
+      "role": "planning, shot contract or provenance",
+      "modification": "new",
+      "license_provenance": "Project-authored text/metadata"
+    },
+    {
+      "path": "plants/bellflower.png",
+      "sha256": "dc51f9e05220fe2e20fa51820b332e0454f75895f2712ab917c0fc69aef468e4",
+      "bytes": 1012841,
+      "dimensions": [
+        1238,
+        1248
+      ],
+      "source_path": "tmp\\sky-lagoon-three-screens-v16\\bellflower.png",
+      "role": "local lane source art",
+      "modification": "unchanged copy",
+      "license_provenance": "Project AI-generated / owner-provided source; inherited provenance; no third-party license asserted."
+    },
+    {
+      "path": "plants/companion.png",
+      "sha256": "c99fe5618eb462e97a0e4dab74b1b3c556b5d5da5c4dc986368aef15e87d79fa",
+      "bytes": 1308341,
+      "dimensions": [
+        1774,
+        887
+      ],
+      "source_path": "tmp\\sky-lagoon-three-screens-v16\\companion.png",
+      "role": "local lane source art",
+      "modification": "unchanged copy",
+      "license_provenance": "Project AI-generated / owner-provided source; inherited provenance; no third-party license asserted."
+    },
+    {
+      "path": "plants/huckleberry.png",
+      "sha256": "9d12f0fa559b3818eed8f8ee459bc32829abdd6f88baa5be2705860021773d58",
+      "bytes": 1648809,
+      "dimensions": [
+        1681,
+        936
+      ],
+      "source_path": "tmp\\sky-lagoon-three-screens-v16\\huckleberry.png",
+      "role": "local lane source art",
+      "modification": "unchanged copy",
+      "license_provenance": "Project AI-generated / owner-provided source; inherited provenance; no third-party license asserted."
+    },
+    {
+      "path": "plants/hydrangea.png",
+      "sha256": "215a86b4a769a40518b679ee3c62124f9d58803b4ccd40ffe989a59dbf7810d7",
+      "bytes": 880933,
+      "dimensions": [
+        1157,
+        1193
+      ],
+      "source_path": "tmp\\sky-lagoon-three-screens-v16\\hydrangea.png",
+      "role": "local lane source art",
+      "modification": "unchanged copy",
+      "license_provenance": "Project AI-generated / owner-provided source; inherited provenance; no third-party license asserted."
+    },
+    {
+      "path": "README.md",
+      "source_path": "Project-authored guide reconciliation; see GUIDE_REVIEW.json for copied guide authorities",
+      "role": "review contract or authority evidence",
+      "modification": "new metadata or verbatim guide snapshot",
+      "license_provenance": "Project-authored documentation",
+      "dimensions": null,
+      "sha256": "0d89484da6c5e5917f9713c141b194500260fdf28f5f75f237f1f4b01718b809",
+      "bytes": 1163
+    },
+    {
+      "path": "references/arrival.png",
+      "sha256": "870a51152a0a19c8f3f7d0f5561aa6fc3d2d2d66350049519ed231b118c92010",
+      "bytes": 2579323,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-three-screens-v16\\arrival-review.png",
+      "role": "current scene candidate, not final visual acceptance",
+      "modification": "unchanged copy",
+      "license_provenance": "Project AI-generated / owner-provided source; inherited provenance; no third-party license asserted."
+    },
+    {
+      "path": "references/castle.png",
+      "sha256": "58606206137a7ae343c06b0c9a8a7c8ab2f3fcf99ec04e0b66333d0035d1b85e",
+      "bytes": 2979465,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-three-screens-v16\\castle-review.png",
+      "role": "current scene candidate, not final visual acceptance",
+      "modification": "unchanged copy",
+      "license_provenance": "Project AI-generated / owner-provided source; inherited provenance; no third-party license asserted."
+    },
+    {
+      "path": "references/meadow.png",
+      "sha256": "25628f5c917afe257a23d56967f2d5f516c6d43c59fb8752005ecda569f94e4c",
+      "bytes": 2627402,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_path": "tmp\\sky-lagoon-three-screens-v16\\meadow-review.png",
+      "role": "current scene candidate, not final visual acceptance",
+      "modification": "unchanged copy",
+      "license_provenance": "Project AI-generated / owner-provided source; inherited provenance; no third-party license asserted."
+    },
+    {
+      "path": "RETURN_TEMPLATE.json",
+      "sha256": "030ac90eba2f7d584e3c68530a351b9eded4e6a138aa81bf2345dd1b8cf67cc1",
+      "bytes": 1238,
+      "dimensions": null,
+      "source_path": "authored for this packet",
+      "role": "planning, shot contract or provenance",
+      "modification": "new",
+      "license_provenance": "Project-authored text/metadata"
+    },
+    {
+      "path": "SHOT_BOARD.jpg",
+      "sha256": "76164aad76f988c209cd97cf71374808857759af314cc0e52f65954cb25da5a9",
+      "bytes": 514055,
+      "dimensions": [
+        1320,
+        1515
+      ],
+      "source_path": "five IMAGE_1 crops",
+      "role": "all shots / three beats each; not action evidence",
+      "modification": "labelled repeated source stills",
+      "license_provenance": "Inherited project art plus authored labels."
+    },
+    {
+      "path": "shots/G01/IMAGE_1.png",
+      "sha256": "3c0cc568f4ff6b83a65441406cddb5ec61dfa7652eae2701eb51bc0267c3fb46",
+      "bytes": 160648,
+      "dimensions": [
+        372,
+        202
+      ],
+      "source_path": "references/castle.png",
+      "role": "clean layout crop, reference candidate",
+      "modification": "native crop (510, 755, 882, 957)",
+      "license_provenance": "Inherited project reference art."
+    },
+    {
+      "path": "shots/G01/IMAGE_2.png",
+      "sha256": "508b73ac3fdcf4961595d68b584867a7cd6b7f3fa03435880432a55b102c83f8",
+      "bytes": 42160,
+      "dimensions": [
+        208,
+        92
+      ],
+      "source_path": "references/castle.png",
+      "role": "object/material identity crop",
+      "modification": "native crop (574, 826, 782, 918)",
+      "license_provenance": "Inherited project reference art."
+    },
+    {
+      "path": "shots/G01/PROMPT.txt",
+      "sha256": "7a10895b9119238abbe1a9b2c8bd848776ca21bc9849c40d96e50777c609511f",
+      "bytes": 641,
+      "dimensions": null,
+      "source_path": "authored for this packet",
+      "role": "planning, shot contract or provenance",
+      "modification": "new",
+      "license_provenance": "Project-authored text/metadata"
+    },
+    {
+      "path": "shots/G01/SHOT_PACKET.json",
+      "sha256": "a38bbca3bf98d5b091b9030e80703d038c12beaa56b830fcedee3a039b65bdbf",
+      "bytes": 6066,
+      "dimensions": null,
+      "source_path": "authored for this packet",
+      "role": "planning, shot contract or provenance",
+      "modification": "new",
+      "license_provenance": "Project-authored text/metadata"
+    },
+    {
+      "path": "shots/G02/IMAGE_1.png",
+      "sha256": "3c0cc568f4ff6b83a65441406cddb5ec61dfa7652eae2701eb51bc0267c3fb46",
+      "bytes": 160648,
+      "dimensions": [
+        372,
+        202
+      ],
+      "source_path": "references/castle.png",
+      "role": "clean layout crop, reference candidate",
+      "modification": "native crop (510, 755, 882, 957)",
+      "license_provenance": "Inherited project reference art."
+    },
+    {
+      "path": "shots/G02/IMAGE_2.png",
+      "sha256": "4a9cdce8fa7b5f9f4cdb7e2fd2c97e07d098db65cc0442d3509b718e1ed27ba9",
+      "bytes": 38775,
+      "dimensions": [
+        156,
+        112
+      ],
+      "source_path": "references/castle.png",
+      "role": "object/material identity crop",
+      "modification": "native crop (692, 807, 848, 919)",
+      "license_provenance": "Inherited project reference art."
+    },
+    {
+      "path": "shots/G02/PROMPT.txt",
+      "sha256": "c9ab29d67eb1c058a3ce859ebec90c91be81b4a45e35a0824de0abef9deda8c5",
+      "bytes": 645,
+      "dimensions": null,
+      "source_path": "authored for this packet",
+      "role": "planning, shot contract or provenance",
+      "modification": "new",
+      "license_provenance": "Project-authored text/metadata"
+    },
+    {
+      "path": "shots/G02/SHOT_PACKET.json",
+      "sha256": "7a28839c8260498d05b1d1335d5dbb31a70eb7dc0c453c961783e4c86d2773ea",
+      "bytes": 6125,
+      "dimensions": null,
+      "source_path": "authored for this packet",
+      "role": "planning, shot contract or provenance",
+      "modification": "new",
+      "license_provenance": "Project-authored text/metadata"
+    },
+    {
+      "path": "shots/G03/IMAGE_1.png",
+      "sha256": "bf1a7e13df9aea9bd6d8ca98fd83b3d9950475a65f10f6cc2f53d5a205e03592",
+      "bytes": 79989,
+      "dimensions": [
+        398,
+        140
+      ],
+      "source_path": "references/castle.png",
+      "role": "clean layout crop, reference candidate",
+      "modification": "native crop (856, 860, 1254, 1000)",
+      "license_provenance": "Inherited project reference art."
+    },
+    {
+      "path": "shots/G03/IMAGE_2.png",
+      "sha256": "3b9c64c32eb92c36a0290920267d96cbaea8e7eba3a2ed03d39e922631c8d8d2",
+      "bytes": 24126,
+      "dimensions": [
+        303,
+        57
+      ],
+      "source_path": "references/castle.png",
+      "role": "object/material identity crop",
+      "modification": "native crop (922, 882, 1225, 939)",
+      "license_provenance": "Inherited project reference art."
+    },
+    {
+      "path": "shots/G03/PROMPT.txt",
+      "sha256": "97ec84bfff7821f412c6fb1b9e926398c9e3459e608516af909aaf09b78a1334",
+      "bytes": 687,
+      "dimensions": null,
+      "source_path": "authored for this packet",
+      "role": "planning, shot contract or provenance",
+      "modification": "new",
+      "license_provenance": "Project-authored text/metadata"
+    },
+    {
+      "path": "shots/G03/SHOT_PACKET.json",
+      "sha256": "7a9b62914b4bafc159c056d91e40169baff9e2eeae150b074838e4467a0b6a36",
+      "bytes": 6100,
+      "dimensions": null,
+      "source_path": "authored for this packet",
+      "role": "planning, shot contract or provenance",
+      "modification": "new",
+      "license_provenance": "Project-authored text/metadata"
+    },
+    {
+      "path": "shots/G04/IMAGE_1.png",
+      "sha256": "6c7a2f9439ad680badf237ef415785f4be91173c1efd3f8df52adcb23f6ed28d",
+      "bytes": 259102,
+      "dimensions": [
+        451,
+        294
+      ],
+      "source_path": "references/arrival.png",
+      "role": "clean layout crop, reference candidate",
+      "modification": "native crop (0, 702, 451, 996)",
+      "license_provenance": "Inherited project reference art."
+    },
+    {
+      "path": "shots/G04/IMAGE_2.png",
+      "sha256": "52a307dcc08e3e82085ddc3a3db278c0563b56f11e34f733c16491c52cf51007",
+      "bytes": 68152,
+      "dimensions": [
+        200,
+        181
+      ],
+      "source_path": "references/arrival.png",
+      "role": "object/material identity crop",
+      "modification": "native crop (0, 735, 200, 916)",
+      "license_provenance": "Inherited project reference art."
+    },
+    {
+      "path": "shots/G04/PROMPT.txt",
+      "sha256": "fc642c67055412a0f96a8a28ba70a239e7fb04bcea8447dc293008f78cf2470b",
+      "bytes": 637,
+      "dimensions": null,
+      "source_path": "authored for this packet",
+      "role": "planning, shot contract or provenance",
+      "modification": "new",
+      "license_provenance": "Project-authored text/metadata"
+    },
+    {
+      "path": "shots/G04/SHOT_PACKET.json",
+      "sha256": "738fe010b4c95c38df3f5259872d922e4af8bee7e184b4a3b8c9c22337b795dd",
+      "bytes": 6035,
+      "dimensions": null,
+      "source_path": "authored for this packet",
+      "role": "planning, shot contract or provenance",
+      "modification": "new",
+      "license_provenance": "Project-authored text/metadata"
+    },
+    {
+      "path": "shots/G05/IMAGE_1.png",
+      "sha256": "74e9c8899968d91a62d640df36cfbcec873749d8b5c355d295674538bc384635",
+      "bytes": 76228,
+      "dimensions": [
+        394,
+        136
+      ],
+      "source_path": "references/castle.png",
+      "role": "clean layout crop, reference candidate",
+      "modification": "native crop (860, 862, 1254, 998)",
+      "license_provenance": "Inherited project reference art."
+    },
+    {
+      "path": "shots/G05/IMAGE_2.png",
+      "sha256": "3c0609b141942eb52e2fcc81e9f90093fae0a820f020176d8351fcba7c73cb2c",
+      "bytes": 20262,
+      "dimensions": [
+        246,
+        61
+      ],
+      "source_path": "references/castle.png",
+      "role": "object/material identity crop",
+      "modification": "native crop (942, 891, 1188, 952)",
+      "license_provenance": "Inherited project reference art."
+    },
+    {
+      "path": "shots/G05/PROMPT.txt",
+      "sha256": "923cba19ad0c5cd5a32f117df2f4dcf263bf6b328d5f1d9527b5667be7f983fe",
+      "bytes": 645,
+      "dimensions": null,
+      "source_path": "authored for this packet",
+      "role": "planning, shot contract or provenance",
+      "modification": "new",
+      "license_provenance": "Project-authored text/metadata"
+    },
+    {
+      "path": "shots/G05/SHOT_PACKET.json",
+      "sha256": "f3fe63faab4838ddc7754b404226379d9dcd6117528900ffae5ff631e3e378a5",
+      "bytes": 6065,
+      "dimensions": null,
+      "source_path": "authored for this packet",
+      "role": "planning, shot contract or provenance",
+      "modification": "new",
+      "license_provenance": "Project-authored text/metadata"
+    },
+    {
+      "path": "SOURCE_V16_MANIFEST.json",
+      "sha256": "9232a262b6c576b387636cc41f2ac10728820fbba7c9482f37ae4e3109280b91",
+      "bytes": 3366,
+      "dimensions": null,
+      "source_path": "tmp\\sky-lagoon-three-screens-v16\\manifest.json",
+      "role": "inherited native source hashes and placements",
+      "modification": "unchanged copy",
+      "license_provenance": "Project AI-generated / owner-provided source; inherited provenance; no third-party license asserted."
+    },
+    {
+      "path": "START_GROK.txt",
+      "source_path": "Project-authored guide reconciliation; see GUIDE_REVIEW.json for copied guide authorities",
+      "role": "review contract or authority evidence",
+      "modification": "new metadata or verbatim guide snapshot",
+      "license_provenance": "Project-authored documentation",
+      "dimensions": null,
+      "sha256": "192481c3f44f637d7a4873a1f69a64da3880df342779aeda8d78dc69fa90b260",
+      "bytes": 1165
+    },
+    {
+      "path": "START_HERE.txt",
+      "sha256": "1b7c20e15398a029760ae2467dc21d68fe969c6728dfe9367d89c661a7f69ba4",
+      "bytes": 210,
+      "dimensions": null,
+      "source_path": "authored for this packet",
+      "role": "planning, shot contract or provenance",
+      "modification": "new",
+      "license_provenance": "Project-authored text/metadata"
+    },
+    {
+      "path": "THREE_SCREENS.jpg",
+      "sha256": "3cb698af166876dd9d4e5925466bcca761d3e421e32258d206faadc7565ab34c",
+      "bytes": 654095,
+      "dimensions": [
+        1800,
+        646
+      ],
+      "source_path": "tmp\\sky-lagoon-three-screens-v16\\three-screen-review.jpg",
+      "role": "three-screen comparison, not generator input",
+      "modification": "unchanged copy",
+      "license_provenance": "Project AI-generated / owner-provided source; inherited provenance; no third-party license asserted."
+    }
+  ],
+  "layout_roles": {
+    "references": "handoff_art equivalent; actual scene candidates",
+    "SHOT_BOARD.jpg": "storyboards equivalent; beat-order reference only"
+  },
+  "claims": {
+    "ARCHIVE_COMPLETE": false,
+    "GENERATION_READY": false,
+    "DELIVERY_ACCEPTED": false
+  }
+}

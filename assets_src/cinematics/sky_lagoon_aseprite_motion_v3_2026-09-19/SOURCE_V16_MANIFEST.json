@@ -1,0 +1,122 @@
+{
+  "status": "LOCAL_REVIEW_NOT_RUNTIME",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "method": "Built-in image_gen for new companion; reused v15 rounded shrub and existing flowers; local OpenRaster assembly. No desktop automation.",
+  "stages": {
+    "arrival": {
+      "background_source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\sky-lagoon-plant-family-v14\\arrival-clean-plate.png",
+      "background_sha256": "5730da45d3319035bf4cd848b09c294a81139a31c65b51cd66b24229e3ab8ca5",
+      "placements": [
+        {
+          "asset": "huckleberry",
+          "x": -180,
+          "y": 1050,
+          "width": 565
+        },
+        {
+          "asset": "companion",
+          "x": 1000,
+          "y": 1090,
+          "width": 465
+        },
+        {
+          "asset": "bellflower",
+          "x": 310,
+          "y": 1140,
+          "width": 100
+        }
+      ]
+    },
+    "meadow": {
+      "background_source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\sky-lagoon-plant-family-v14\\meadow-clean-plate.png",
+      "background_sha256": "17fbd0474c10547c17aa509a5123a75750397be428b814c9f1813c469ce193a9",
+      "placements": [
+        {
+          "asset": "companion",
+          "x": -190,
+          "y": 1080,
+          "width": 560
+        },
+        {
+          "asset": "huckleberry",
+          "x": 1030,
+          "y": 1060,
+          "width": 540
+        },
+        {
+          "asset": "hydrangea",
+          "x": 65,
+          "y": 1170,
+          "width": 95
+        }
+      ]
+    },
+    "castle": {
+      "background_source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\sky-lagoon-plant-family-v14\\castle-clean-plate.png",
+      "background_sha256": "5f4ada63454f270a6fb700df57d1f6fe3d2eb690fe69f509ed811efec1d68640",
+      "placements": [
+        {
+          "asset": "companion",
+          "x": -215,
+          "y": 1060,
+          "width": 635
+        },
+        {
+          "asset": "huckleberry",
+          "x": 994,
+          "y": 1000,
+          "width": 515
+        },
+        {
+          "asset": "bellflower",
+          "x": 345,
+          "y": 1148,
+          "width": 83
+        }
+      ]
+    }
+  },
+  "sources": {
+    "huckleberry": {
+      "path": "huckleberry.png",
+      "sha256": "9d12f0fa559b3818eed8f8ee459bc32829abdd6f88baa5be2705860021773d58",
+      "dimensions": [
+        1681,
+        936
+      ]
+    },
+    "companion": {
+      "path": "companion.png",
+      "sha256": "c99fe5618eb462e97a0e4dab74b1b3c556b5d5da5c4dc986368aef15e87d79fa",
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    "bellflower": {
+      "path": "bellflower.png",
+      "sha256": "dc51f9e05220fe2e20fa51820b332e0454f75895f2712ab917c0fc69aef468e4",
+      "dimensions": [
+        1238,
+        1248
+      ]
+    },
+    "hydrangea": {
+      "path": "hydrangea.png",
+      "sha256": "215a86b4a769a40518b679ee3c62124f9d58803b4ccd40ffe989a59dbf7810d7",
+      "dimensions": [
+        1157,
+        1193
+      ]
+    }
+  },
+  "limitations": [
+    "Foreground-only packages: not complete 15-25 layer worlds.",
+    "Plant branches not individually articulated.",
+    "1254px background masters remain below production coverage requirement.",
+    "Owner visual acceptance remains open."
+  ]
+}

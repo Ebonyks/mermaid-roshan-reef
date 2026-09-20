@@ -1,0 +1,84 @@
+{
+  "guides": [
+    {
+      "source": "design/GROK_MASTER_HANDOFF_FORMULA_2026-08-30.md",
+      "baseline": "2b342e55067c498e35f1b4755f25d7086ef9aeb0",
+      "sha256": "792ab6fd7c752323e9057e30e06798308a33ee9213e05e131b0297adb26b221e",
+      "snapshot": "evidence/GROK_MASTER_HANDOFF_FORMULA_2026-08-30.txt"
+    },
+    {
+      "source": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+      "baseline": "2b342e55067c498e35f1b4755f25d7086ef9aeb0",
+      "sha256": "83ee330bc13759b5df39207c484292c44c9f3bc439029291da40606d3e31e497",
+      "snapshot": "evidence/IMAGINE_SHOT_CARD_V1.txt"
+    },
+    {
+      "source": "design/templates/IMAGINE_SHOT_CARD_V2.md",
+      "baseline": "2b342e55067c498e35f1b4755f25d7086ef9aeb0",
+      "sha256": "1cf1367ffa69816d407b66f2329c66f88b927b3e5cd9cb39e89f9db036a4c031",
+      "snapshot": "evidence/IMAGINE_SHOT_CARD_V2.txt"
+    },
+    {
+      "source": "design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md",
+      "baseline": "2b342e55067c498e35f1b4755f25d7086ef9aeb0",
+      "sha256": "e35d087605d69728eca480a0b01b72d2f0a9f7405999afc12e64acb57e275362",
+      "snapshot": "evidence/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.txt"
+    },
+    {
+      "source": "design/GROK_FOOTAGE_ANALYSIS_AND_ENDPOINT_HANDOFF_2026-09-02.md",
+      "baseline": "2b342e55067c498e35f1b4755f25d7086ef9aeb0",
+      "sha256": "c84370871eb52ce731bdca2f2a3c20c6088c562c87e165fd0c5f5b60b3a388f9",
+      "snapshot": "evidence/GROK_FOOTAGE_ANALYSIS_AND_ENDPOINT_HANDOFF_2026-09-02.txt"
+    },
+    {
+      "source": "design/GROK_LOCATION_GEOMETRY_AUTHORITY_AUDIT_2026-09-02.md",
+      "baseline": "2b342e55067c498e35f1b4755f25d7086ef9aeb0",
+      "sha256": "e234fabee5373f14cec9c968067eee5994ad6702ecbd2fa9c55e3029a8543714",
+      "snapshot": "evidence/GROK_LOCATION_GEOMETRY_AUTHORITY_AUDIT_2026-09-02.txt"
+    },
+    {
+      "source": "assets_src/cinematics/grok_builder_2026-09-14/START_GROK.txt",
+      "baseline": "2b342e55067c498e35f1b4755f25d7086ef9aeb0",
+      "sha256": "440e659b16c47feda742fad2a9a0dfc4b6ecb73861673fae3513708705e434e6",
+      "snapshot": "evidence/START_GROK.txt"
+    },
+    {
+      "source": "assets_src/cinematics/grok_builder_2026-09-14/CONFLICT_RESOLUTIONS.json",
+      "baseline": "2b342e55067c498e35f1b4755f25d7086ef9aeb0",
+      "sha256": "ad927fcbb01c0df7a222ef57665f6df75714663ddac27819400d6cdf5f010710",
+      "snapshot": "evidence/CONFLICT_RESOLUTIONS.txt"
+    },
+    {
+      "source": "design/animation/GROK_MINIMUM_CLIP_HANDOFF_PROFILE.md",
+      "branch": "codex/sky-lagoon-grok-profile-20260915",
+      "snapshot": "evidence/OWNER_MINIMUM_CLIP_PROFILE.txt",
+      "sha256": "74f92acb92ace5e3739b42045a15c2636c1dfbabcf53b4b61a5d1f5bda3f83b3",
+      "scope": "prior owner-requested minimum-clip profile; priority overridden by current bridge-first request"
+    },
+    {
+      "source": "design/templates/GROK_CONTINUITY_ANALYSIS_V1.json",
+      "baseline": "2b342e55067c498e35f1b4755f25d7086ef9aeb0",
+      "sha256": "03f50ffa37d0e3ee7f2a1e7901f6d26833f5869f55abedb3964e14b642546c07",
+      "snapshot": "CONTINUITY_RETURN_TEMPLATE.json"
+    }
+  ],
+  "corrections": [
+    "V2 sidecars, not a new V1-only packet",
+    "Null unapproved IMAGE_1; actual candidate kept separately",
+    "Builder module with stable IDs and foreign-key references",
+    "Canonical HANDOFF_PACKET.json and README entry",
+    "Normalized source landmarks and independent-shot continuity",
+    "Two-commit public anonymous verification",
+    "Owner minimum1s/native-aspect remains explicit conflict with existing ready validator; no false ready result"
+  ],
+  "non_applicable": [
+    "No character cast or family voices in material-only studies",
+    "No cinematic irreversible plot event; reversible material study explicitly scoped",
+    "No endpoint inheritance between independent material setups; G02 has timing-review dependency only"
+  ],
+  "claims": {
+    "ARCHIVE_COMPLETE": false,
+    "GENERATION_READY": false,
+    "DELIVERY_ACCEPTED": false
+  }
+}
