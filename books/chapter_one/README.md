@@ -21,3 +21,5 @@ Create a portable editable ZIP after rendering with `python books/chapter_one/la
 The owner rejected the earlier v7 visual quality. [Comprehensive stress review](landscape/STRESS_TEST.md) records the concrete issues, per-page changes and remaining source/identity gaps. Mechanical and portable-rebuild checks do not imply visual acceptance.
 
 The current **border design phase** is recorded in [Border art direction](landscape/BORDER_ART_DIRECTION.md), with an [illustrated study review](landscape/BORDER_DIRECTION.html). The seven new studies are preserved, not installed in the book. This reviewed proposal supersedes their repeated bilateral composition; the existing PDF remains v13.
+
+After saving the direction to the branch, the [whole-story comprehension cycle](landscape/STORY_COMPREHENSION_AUDIT.md) reviewed all 32 pages. Its verdict is REVISE, with foreground/action gaps prioritized before further border polish.
