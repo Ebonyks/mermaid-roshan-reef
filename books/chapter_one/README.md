@@ -26,4 +26,6 @@ After saving the direction to the branch, the [whole-story comprehension cycle](
 
 Previous edition: **v17 repository story details**. Rubbish and messy-art states now match the cleanup beats; lower-right bunny reactions escalate across pages24–26; Roshan uses distinct existing poses; the cover is a new composition of existing cutouts. The portable source and PDF are rebuilt from the same current manifest. See landscape/repo_detail_evidence.json.
 
-Current edition: **v18 action clarity**. Page6 shows the existing sink with the sponge; page23 names the visible colour choice. Other32 rendered pages retain v17. See landscape/action_clarity_evidence.json.
+Previous edition: **v18 action clarity**. Page6 shows the existing sink with the sponge; page23 names the visible colour choice. Other32 rendered pages retain v17. See landscape/action_clarity_evidence.json.
+
+Current edition: **v19 rescue legibility**. Pages17/18 move shortened captions off ceiling fixtures to clear floor. The goal-requirements audit records rough delivery and remaining acceptance/source limits separately. See landscape/goal_requirements_audit.json.

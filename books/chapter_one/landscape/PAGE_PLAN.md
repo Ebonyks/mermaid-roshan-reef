@@ -1,6 +1,6 @@
 # Landscape page assignments
 
-Status: `SUPPORTING_CURRENT`; v18 action-clarity rough.32 story pages plus covers. Full-art frames are retained; reduced art uses complete alpha silhouettes.
+Status: `SUPPORTING_CURRENT`; v19 rescue-legibility rough.32 story pages plus covers. Full-art frames are retained; reduced art uses complete alpha silhouettes.
 
 | Page | Treatment | Main artwork | Border action / object state | Marginal bunnies |
 |---|---|---|---|---|
@@ -40,3 +40,5 @@ Status: `SUPPORTING_CURRENT`; v18 action-clarity rough.32 story pages plus cover
 Front cover: new composite of existing dynamic Roshan, Baby Eagle, Grand Puff and cleanup tools. Back cover remains the quiet tool refrain. Main reduced poses use measured atlas gutters; no rectangular scenic inserts.
 
 Page26 is an illustrative composition of existing poses, not an exact delivered gameplay action frame. Source gaps and final visual/child/print acceptance remain open. See `repo_detail_evidence.json`.
+
+Pages17/18: one-line navy captions in the clear lower floor band. Canonical full-art source, staging and rescue count unchanged.

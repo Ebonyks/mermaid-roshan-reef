@@ -1,0 +1,115 @@
+{
+  "edition": "v19_rescue_legibility",
+  "baseline_commit": "ff10c98d3d84cd817670a586e9b0f857fd52d962",
+  "previous_turn_classification": "PROGRESS: v18 source, PDF and editable package were changed, verified and pushed.",
+  "completion_verdict": "NOT_PROVEN; keep full goal active",
+  "requirements": [
+    {
+      "requirement": "32 or 40 story pages",
+      "status": "PROVEN_FOR_ROUGH",
+      "evidence": "book.json has32 numbered story pages; PDF has34 pages including covers."
+    },
+    {
+      "requirement": "Landscape format and Sniglet",
+      "status": "PROVEN_FOR_ROUGH",
+      "evidence": "7x5in /504x360pt renderer and embedded Sniglet font; owner-requested landscape."
+    },
+    {
+      "requirement": "Original-book visual language",
+      "status": "PARTIAL",
+      "evidence": "Blue dotted stationery, two low banks, full-art/cutout rhythm and contextual props implemented. Final stylistic equivalence and owner acceptance not proven."
+    },
+    {
+      "requirement": "Canonical Chapter One setup and tools",
+      "status": "PROVEN_FOR_ROUGH",
+      "evidence": "Pages1–4 establish Pearl Castle, dirty interior and shared cleanup; brush/sponge introduction."
+    },
+    {
+      "requirement": "Waterfall clears and turns rainbow",
+      "status": "PROVEN_WITH_LIMITS",
+      "evidence": "Pages9–14 show blockage, partial clearing, rainbow payoff and fountain cleanup. Hand/tool waterfall-clearing action absent."
+    },
+    {
+      "requirement": "Two dust bunnies trap Baby Eagle",
+      "status": "PROVEN_WITH_LIMITS",
+      "evidence": "Canonical pinned/loose sources on17/18; two bunnies, no blanket. Fine occluded anatomy remains open."
+    },
+    {
+      "requirement": "Art customization",
+      "status": "PROVEN_FOR_ROUGH",
+      "evidence": "Pages21–23 show messy supplies, cleaned table and personal colour choice; finished picture is not claimed."
+    },
+    {
+      "requirement": "Four helpers, concealment, jump, casing collapse, exact landing",
+      "status": "PROVEN_FOR_ROUGH",
+      "evidence": "Unchanged canonical R09_open/R09_suds/R10_jump/R11_land on27–30."
+    },
+    {
+      "requirement": "Friendship and positive ending",
+      "status": "EDITORIAL_REVIEW_PASS",
+      "evidence": "Pages19–20 show help and inclusion;31 names shared help and hidden friend;32 explicitly invites newcomer to play. No punishment/failure ending."
+    },
+    {
+      "requirement": "Pacing",
+      "status": "EDITORIAL_REVIEW_PASS",
+      "evidence": "Bath5–8/pool9–15/rescue16–20/art21–23/suspense24–26/teamwork27–30/reflection31–32. Personal creative pause precedes final encounter. Child comprehension not tested."
+    },
+    {
+      "requirement": "Images full art or contour cutouts",
+      "status": "PROVEN_WITH_LIMITS",
+      "evidence": "All reduced main art alpha silhouettes; full scenes reach trim. Alpha-edge fidelity still requires visual acceptance."
+    },
+    {
+      "requirement": "Contextual grounded lower-bank details",
+      "status": "PARTIAL",
+      "evidence": "Repository rubbish/messy paint and scared lower-right reactions are implemented; measured bounds pass. Exact ground-contact polish is visually reviewed, not pixel-certified."
+    },
+    {
+      "requirement": "No whole-scene redraw",
+      "status": "PROVEN_FOR_CURRENT_CHANGE",
+      "evidence": "V19 changes captions only. Current source provenance retains bounded extractions/props/background edits; canonical narrative scenes retained."
+    },
+    {
+      "requirement": "PDF and editable source with page-level provenance",
+      "status": "ROUGH_DELIVERY_VERIFICATION",
+      "evidence": "Current PDF read as34 pages with embedded Sniglet; all63 image operations preserved and hashed. Portable build outcome is recorded separately in delivery_verification.json after packaging."
+    },
+    {
+      "requirement": "Complete visual/owner acceptance",
+      "status": "MISSING",
+      "evidence": "Editorial visual checks do not substitute for owner or child acceptance; current edition is a rough."
+    },
+    {
+      "requirement": "Refinement with completed reviewed Resolve material",
+      "status": "MISSING",
+      "evidence": "No reviewed replacement delivery is established by current book evidence. Owner stopped handoff searching; this audit does not resume it or claim a live render process."
+    },
+    {
+      "requirement": "Hourly monitoring",
+      "status": "SUPERSEDED_BY_OWNER_STOP",
+      "evidence": "Earlier hourly request was followed by explicit instruction to stop handoff searching. No monitor is restarted by this audit."
+    }
+  ],
+  "current_change": "P17/18 single-line captions at31.5pt baseline in clear floor band, away from ceiling fixtures. Main source images and all other captions unchanged. Two-bunny count and reassurance retained.",
+  "remaining_limits": [
+    "Low-resolution storyboard and atlas cells are not print masters.",
+    "Exact wiping/dodge/sparkle contact is not depicted by every source.",
+    "Some extraction/ceiling joins and lower-bank performances retain visual acceptance gaps.",
+    "Reviewed replacement material and owner/child acceptance cannot be inferred from green technical checks."
+  ],
+  "current_proof": {
+    "pdf_pages": 34,
+    "pdf_sha256": "0832a10b21d1f7f4b29f3ada654abf30abe8b5a8f90e092bf6d256272be76fd0",
+    "font_names": [
+      "/AAAAAA+Sniglet-Regular",
+      "/Helvetica"
+    ],
+    "changed_pages": [
+      17,
+      18
+    ],
+    "unchanged_byte_identical_pages": 32,
+    "all_image_draw_operations_identical_to_v18": true,
+    "visual_review": "Inspected both new pages full-size: captions below characters on unobstructed floor, clear of fixtures, no image or staging change. 18pt story type and measured safety inset retained."
+  }
+}
