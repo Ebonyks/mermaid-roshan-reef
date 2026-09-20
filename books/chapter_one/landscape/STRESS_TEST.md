@@ -69,3 +69,5 @@ The native page 17/18 source-frame comparison is recorded in `eagle_rescue_revie
 ## Event-border correction
 
 The owner accepted the stronger base as an improvement but rejected repetitive brushes and suds. Current border assignments use page-event detail, recorded in `event_border_evidence.json`: sink accessories, fresh-bath objects, poolside collection, toys, sorting supplies, tidy craft storage, dusty attic hints and welcoming play. Existing story foreground and full-art pages are unchanged. New decorative assets are authorized; no new story scenes were generated.
+
+Finale ceiling follow-up: source-specific extension cutoffs replace the common 100-pixel crop. All four original complete scenes and captions are unchanged; pixel comparison confirms no scene changes below the join. Alignment is improved, while residual perspective/texture differences remain owner-review items. See `ceiling_alignment_evidence.json`.

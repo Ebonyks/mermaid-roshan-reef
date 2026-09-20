@@ -1,16 +1,16 @@
 {
   "status": "PASS",
-  "verified_payload_files": 72,
+  "verified_payload_files": 73,
   "matching_page_renders": 34,
-  "archive_sha256": "0b43a43512c48a526ef5c9e624f98b7d36f86dc20ada3f18c390a59dfddc01ce",
-  "pdf_sha256": "c35c0bd8b3f21df90db8de8da199d5fbe4314f344c6c983aa3622f95fcf32917",
+  "archive_sha256": "19c2a8c96348f256b24ccb2659b0a3cd8fcee8cf4b8f2f777b0f1740439a1872",
+  "pdf_sha256": "be8ee00197fe2490a515b658ae6fa219c32970338bde79b7e24de38e94a9928c",
   "pdf_pages": 34,
   "page_size_points": [
     504,
     360
   ],
   "mechanical_status": "PASS",
-  "visual_status": "EVENT_BORDER_REVISION_FOR_REVIEW; OWNER ACCEPTANCE NOT GRANTED",
+  "visual_status": "CEILING_ALIGNMENT_REVIEW; OWNER ACCEPTANCE NOT GRANTED",
   "open_findings": [
     {
       "id": "BK-ST-OPEN-01",
@@ -49,7 +49,7 @@
         30
       ],
       "severity": "P2",
-      "issue": "Ceiling extension joins remain visible on close inspection."
+      "issue": "Per-source ceiling cutoffs corrected and original scenes preserved. Minor extension perspective/texture differences remain subject to owner visual acceptance."
     },
     {
       "id": "BK-ST-OPEN-05",

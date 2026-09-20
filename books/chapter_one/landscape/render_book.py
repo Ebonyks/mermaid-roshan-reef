@@ -82,7 +82,7 @@ def background(p):
 def extension(k):
  global ROLE
  ext=k+'_wide';iw,ih=Image.open(path(k)).size;middle=ih/iw*W;top=H-middle;ew,eh=Image.open(path(ext)).size
- ROLE='empty_ceiling_extension';region(ext,(0,0,ew,100),(0,middle,W,top))
+ ROLE='empty_ceiling_extension';region(ext,(0,0,ew,B['sources'][ext].get('ceiling_end',100)),(0,middle,W,top))
  ROLE='original_complete_scene';region(k,(0,0,iw,ih),(0,0,W,middle));ROLE='story_art'
 # Covers remain part of the rough, outside the 32 numbered story pages.
 full('arrival');text('Mermaid Roshan',20,310,464,30,True,True);text('and the Hidden Rainbow',20,270,464,23,True,True);text('A Pearl Castle friendship story',20,28,464,13,True,True);c.showPage()

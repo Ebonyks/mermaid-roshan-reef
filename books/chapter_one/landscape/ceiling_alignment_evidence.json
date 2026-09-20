@@ -1,0 +1,67 @@
+{
+  "status": "RENDERED_REVIEW_CANDIDATE",
+  "method": "Per-source crop-boundary measurement. No image generation, blending or raster mutation. Original complete scene remains independently drawn at the same location.",
+  "records": [
+    {
+      "source": "R09_open",
+      "original_sha256": "aa190981537396ab1da059cf799c23f69410a29aa1a09e51da0041267cc942ab",
+      "extension_sha256": "6cb39919810fba4e164de9942966d607647a607a65b6f67827a86ccd1f03d5c4",
+      "previous_cutoff": 100,
+      "new_cutoff": 123,
+      "diagnostic_MAE_old": 12.412084456424079,
+      "diagnostic_MAE_new": 10.38355795148248
+    },
+    {
+      "source": "R09_suds",
+      "original_sha256": "ed7f13735a560ee5a187bf1cbc4d40b1a04e2fc9a6375b7fb74ae6a81c285e2b",
+      "extension_sha256": "1ca10da5acf66d43471434fcd49972d9ad8fb744278d532e649326d53807f658",
+      "previous_cutoff": 100,
+      "new_cutoff": 124,
+      "diagnostic_MAE_old": 13.306805929919138,
+      "diagnostic_MAE_new": 8.03099730458221
+    },
+    {
+      "source": "R10_jump",
+      "original_sha256": "13ff639019cccadd0675aea4ed9550505c57a84ae666d647df6097bb18793889",
+      "extension_sha256": "4769b994024158d0f0b8b7cd8d762bec56629197998e7b97718b6bcc3faa635d",
+      "previous_cutoff": 100,
+      "new_cutoff": 145,
+      "diagnostic_MAE_old": 11.536433063791554,
+      "diagnostic_MAE_new": 5.23829739442947
+    },
+    {
+      "source": "R11_land",
+      "original_sha256": "d166ae3aa034d26beeda8e92dbc0da8da5347646b8b707746237d819e81a4e5a",
+      "extension_sha256": "2bc7bb5c200eeaa020353c38589dc41d161d1777a8ac6ac871d5c887fe33df9f",
+      "previous_cutoff": 100,
+      "new_cutoff": 146,
+      "diagnostic_MAE_old": 9.562982929020665,
+      "diagnostic_MAE_new": 7.782412398921833
+    }
+  ],
+  "diagnostic_limits": "Boundary colour similarity aids registration but does not prove seamless perspective or visual acceptance.",
+  "visual_review": "All four rendered pages inspected. The row-specific boundaries reduce the abrupt cut and improve ceiling continuation. Original four helpers, full soap concealment, jump/collapse and landing remain unchanged. Minor ceiling perspective/texture differences still require owner review; no seamless-publication claim.",
+  "verification": {
+    "unchanged_other_pages": 30,
+    "original_complete_scene_operations_identical": true,
+    "caption_lines_identical": true,
+    "scene_pixel_checks": [
+      {
+        "page": 27,
+        "changed_pixels_below_join_with_2px_raster_guard": 0
+      },
+      {
+        "page": 28,
+        "changed_pixels_below_join_with_2px_raster_guard": 0
+      },
+      {
+        "page": 29,
+        "changed_pixels_below_join_with_2px_raster_guard": 0
+      },
+      {
+        "page": 30,
+        "changed_pixels_below_join_with_2px_raster_guard": 0
+      }
+    ]
+  }
+}
