@@ -1,7 +1,8 @@
 extends RefCounted
 # Sparse authored plant cels. Mutable state stays on ReefMain.g.
 const ATLAS := "res://assets/sprites/sky_lagoon/animated_v1/bellflower_breeze.png"
-const WHOLE_SCENE_ATLAS := "res://assets/sprites/sky_lagoon/whole_scene_v2/bellflower_leaf_grade.png"
+const WHOLE_SCENE_ATLAS := "res://assets/sprites/sky_lagoon/whole_scene_v2/bellflower_whole_breeze.png"
+const WHOLE_SCENE_GRADED_ATLAS := "res://assets/sprites/sky_lagoon/whole_scene_v2/bellflower_leaf_grade.png"
 const ROOT := Vector2(308, 468)
 const CELL := Vector2(512, 512)
 const DURATIONS := [0.26, 0.24, 0.30, 0.26, 0.22, 0.24, 0.30, 0.26]
@@ -23,6 +24,10 @@ static func build(state: Dictionary, parent: Node2D, version: String, night: boo
 	var texture: Texture2D = null
 	if not (state.get("lagoon_whole_cards", []) as Array).is_empty() and ResourceLoader.exists(WHOLE_SCENE_ATLAS):
 		texture = load(WHOLE_SCENE_ATLAS) as Texture2D
+		if texture != null and texture.get_size() != Vector2(2048, 1024):
+			texture = null
+	if texture == null and not (state.get("lagoon_whole_cards", []) as Array).is_empty() and ResourceLoader.exists(WHOLE_SCENE_GRADED_ATLAS):
+		texture = load(WHOLE_SCENE_GRADED_ATLAS) as Texture2D
 		if texture != null and texture.get_size() != Vector2(2048, 1024):
 			texture = null
 	if texture == null:

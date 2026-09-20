@@ -1,0 +1,45 @@
+{
+  "status": "GPU_SOURCE_TRIAL_PASS_NOT_RUNTIME_INTEGRATED",
+  "runtime_checkpoint": "5ac764729fe0f6fc2152afcc37aa83fd6df7a400",
+  "engine": "Godot4.7.2 official Mobile",
+  "capture_count": 144,
+  "views": "Arrival,meadow,castle day/night,24samples each at0.2s increments;1280x720",
+  "authored_frames": {
+    "clouds": "four identities,3cels each",
+    "bellflower": "8poses,rooted leaf fan now moves",
+    "grass": "4poses,7blade layers+fixedroot"
+  },
+  "limits": [
+    "Temporary ImageTexture substitution;not imported atlas integration",
+    "New grass is one foreground accent; broad lawn still unresolved",
+    "Other8clouds andlowcloudsea unresolved",
+    "No device/owner quality score"
+  ],
+  "restoration": "GPU fixture ALL OK exit0;original cloud texture/frame/scale/position restored;bellflower textures/frames restored;temporary grass freed",
+  "sources": [
+    {
+      "path": "canvas_screen_1_day_0_00.png",
+      "sha256": "facc20261cdfb974ca63a6c713f549083132624036662395917ed02e7bfd92ff"
+    },
+    {
+      "path": "canvas_screen_3_night_0_00.png",
+      "sha256": "601a15418df8dec27c4e288fdb341c8c4ac4cece865c83b77ddefe7009dce61c"
+    },
+    {
+      "path": "canvas_screen_2_day_0_00.png",
+      "sha256": "731fac2c23e043e01f026a5d4e2b567ed3d97eeff8e9f3833f69cca97a230c79"
+    },
+    {
+      "path": "canvas_screen_3_night_1_00.png",
+      "sha256": "3f4a1dbf2d25560d7a5dc078b238ab7f60195541864447a6042686cf65629644"
+    },
+    {
+      "path": "canvas_screen_3_day_0_00.png",
+      "sha256": "d50a0d62f394cb1993b72500d21e55f8b89fafeca6f305a553e2614f088226a3"
+    },
+    {
+      "path": "canvas_screen_3_night_2_00.png",
+      "sha256": "76aa94c93579c771b71cb610ea59342645553732f42b60889358e590264cc4f9"
+    }
+  ]
+}

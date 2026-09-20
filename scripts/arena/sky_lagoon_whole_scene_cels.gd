@@ -70,6 +70,9 @@ static func build(state: Dictionary, parent: Node2D, requested: bool, manifest_p
 		for key: String in ["frames", "columns", "rows", "scale", "cycle", "drift"]:
 			if typeof(row.get(key)) not in [TYPE_INT, TYPE_FLOAT] or not is_finite(float(row[key])):
 				return false
+		if row.has("pose_cycle"):
+			if typeof(row["pose_cycle"]) not in [TYPE_INT, TYPE_FLOAT] or not is_finite(float(row["pose_cycle"])) or float(row["pose_cycle"]) <= 0.0:
+				return false
 		var position: Variant = row.get("position")
 		if not position is Array or (position as Array).size() != 2:
 			return false
@@ -132,7 +135,8 @@ static func tick(state: Dictionary, delta: float, paused: bool) -> void:
 		var phase: float = float(card.get_meta("phase"))
 		var count: int = int(row["frames"])
 		var cycle: float = float(row["cycle"])
-		card.frame = mini(count - 1, int(fposmod(maxf(0.0, timer - phase), cycle) / cycle * count)) if moving else 0
+		var pose_cycle: float = float(row.get("pose_cycle", cycle))
+		card.frame = mini(count - 1, int(fposmod(maxf(0.0, timer - phase), pose_cycle) / pose_cycle * count)) if moving else 0
 		var home := Vector2(float(row["position"][0]), float(row["position"][1]))
 		card.position = home
 		if moving and cloud:

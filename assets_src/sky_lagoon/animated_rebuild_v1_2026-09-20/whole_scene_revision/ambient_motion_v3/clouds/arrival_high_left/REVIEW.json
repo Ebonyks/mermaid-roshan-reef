@@ -1,0 +1,110 @@
+{
+  "id": "arrival_high_left",
+  "status": "GENERATED_SOURCE_STUDY_NOT_RUNTIME_ACCEPTED",
+  "method": "Built-in imagegen/no API key; three distinct drawings; local alpha cleanup and same-scale baseline alignment; no interpolated frames.",
+  "native_sha256": "55b90868cf7d6adc64376067b270f69db977683fdb1e5e8ade085c2c60298c67",
+  "source": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/clouds/cleaned/arrival_high_left.png",
+  "source_sha256": "c4976a2c2b2858ca815bf5a9d4b664bff15da1e47fd0686f4148839a9da60c8e",
+  "frames": 3,
+  "pose_cycle_seconds": 3.3,
+  "native_reopen_exact": true,
+  "canvas": [
+    368,
+    176
+  ],
+  "runtime_position_offset": [
+    0,
+    -24
+  ],
+  "poses": [
+    {
+      "index": 0,
+      "native_bounds": [
+        16,
+        231,
+        711,
+        501
+      ],
+      "translation": [
+        -5,
+        -92
+      ],
+      "scale": 0.5179856115107914,
+      "alpha127_bounds": [
+        3,
+        28,
+        364,
+        168
+      ],
+      "centroid": [
+        184.55244996549345,
+        117.76527873629323
+      ],
+      "median_linear_luminance": 0.820621063368521
+    },
+    {
+      "index": 1,
+      "native_bounds": [
+        16,
+        212,
+        708,
+        502
+      ],
+      "translation": [
+        -5,
+        -92
+      ],
+      "scale": 0.5179856115107914,
+      "alpha127_bounds": [
+        3,
+        18,
+        362,
+        168
+      ],
+      "centroid": [
+        182.6061190935735,
+        114.02344699406677
+      ],
+      "median_linear_luminance": 0.8177808753925162
+    },
+    {
+      "index": 2,
+      "native_bounds": [
+        12,
+        231,
+        705,
+        502
+      ],
+      "translation": [
+        -3,
+        -92
+      ],
+      "scale": 0.5179856115107914,
+      "alpha127_bounds": [
+        3,
+        28,
+        363,
+        168
+      ],
+      "centroid": [
+        181.00754845806622,
+        117.59405227022721
+      ],
+      "median_linear_luminance": 0.8189079700106142
+    }
+  ],
+  "neighbor_silhouette_iou": [
+    0.9206992112555958,
+    0.9374286936679977,
+    0.9467334818114328
+  ],
+  "baseline_spread": 0,
+  "limitations": [
+    "Contextual and timing review pending",
+    "ORA pose alternatives, not native Krita timeline",
+    "No runtime files changed during regression suite"
+  ],
+  "next_step": "Actual Godot imported atlas contextual trial after running full regression terminates; keep pose timing independent from48second drift.",
+  "registration": "Each generated cel aligned by alpha silhouette horizontal midpoint and base; common uniform scale. Earlier fixed-x extraction drift retained as rejected evidence for meadow.",
+  "acceptance": "Not owner accepted, not runtime integrated; no quality score."
+}

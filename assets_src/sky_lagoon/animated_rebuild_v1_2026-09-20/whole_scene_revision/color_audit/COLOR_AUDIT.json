@@ -192,10 +192,10 @@
     },
     {
       "id": "arrival_front_edge",
-      "family": "grass",
+      "family": "foreground",
       "frames": 4,
-      "saturation_median_range": 0.0078,
-      "luminance_median_range": 0.0222
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0002
     },
     {
       "id": "meadow_upper_left",
@@ -277,16 +277,16 @@
     {
       "id": "arrival_high_left",
       "family": "cloud",
-      "frames": 1,
+      "frames": 3,
       "saturation_median_range": 0.0,
-      "luminance_median_range": 0.0
+      "luminance_median_range": 0.0018
     },
     {
       "id": "arrival_high_right",
       "family": "cloud",
-      "frames": 1,
-      "saturation_median_range": 0.0,
-      "luminance_median_range": 0.0
+      "frames": 3,
+      "saturation_median_range": 0.004,
+      "luminance_median_range": 0.0026
     },
     {
       "id": "arrival_small_center",
@@ -319,9 +319,9 @@
     {
       "id": "meadow_high_right",
       "family": "cloud",
-      "frames": 1,
+      "frames": 3,
       "saturation_median_range": 0.0,
-      "luminance_median_range": 0.0
+      "luminance_median_range": 0.0029
     },
     {
       "id": "meadow_small_left",
@@ -354,9 +354,9 @@
     {
       "id": "castle_high",
       "family": "cloud",
-      "frames": 1,
+      "frames": 3,
       "saturation_median_range": 0.0,
-      "luminance_median_range": 0.0
+      "luminance_median_range": 0.0006
     },
     {
       "id": "castle_foreground_rosette",
@@ -380,11 +380,11 @@
       "luminance_median_range": 0.0024
     },
     {
-      "id": "bellflower_leaf_grade",
+      "id": "bellflower_whole_breeze",
       "family": "plant",
       "frames": 8,
       "saturation_median_range": 0.0,
-      "luminance_median_range": 0.0011
+      "luminance_median_range": 0.0025
     },
     {
       "id": "water_surface_arrival",
@@ -425,7 +425,7 @@
     "Local correction variants per material with before/after gameplay review",
     "No protected character recoloring or blanket desaturation; preserve depth and warm interaction accents"
   ],
-  "machine_validation": "Nine source samples and 32 current source entries measured, including 24 water cels and sixteen graded bellflower/huckleberry cels; no visual acceptance claim.",
+  "machine_validation": "Nine source samples and 32 current source entries measured, including 24 water cels and sixteen graded plant cels including rooted bellflower leaf motion; no visual acceptance claim.",
   "night_correction": {
     "scope": "Opt-in whole-scene preview only; five older ambient cards share backdrop RGB tint; original and prior candidate retained",
     "implementation": "scripts/arena/sky_lagoon_promenade.gd",

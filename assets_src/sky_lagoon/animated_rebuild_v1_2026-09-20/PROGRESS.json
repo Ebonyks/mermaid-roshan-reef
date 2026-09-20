@@ -233,5 +233,15 @@
     "runtime_probes": 78,
     "inputs_unchanged": true,
     "scope": "Current opt-in runtime code and default full-suite paths; excludes unintegrated source trials. No device/owner acceptance claim."
+  },
+  "ambient_motion_v3": {
+    "status": "opt-in local revision, not yet committed",
+    "changes": "Twelve separated clouds have 3-4 cels: four generated pose sets, eight direct Aseprite fixed-base lobe animations; eight-cel rooted bellflower; four-cel foreground grass accent.",
+    "evidence": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/rendered_color_audit/AUDIT.json",
+    "focused_verification": "Twelve-cloud import, 2400-tick frame coverage, malformed-resource rejection, rollback stress, original and preview l2 passed. Native32cels reopen exact and source rest exact for eight direct clouds.",
+    "open": "Low cloud sea and broad lawn runtime coverage remain incomplete. New ignored source trials require contextual GPU checks. Remaining color/interaction review, target-device and owner acceptance remain open.",
+    "owner_score": 3.5,
+    "current_render_evidence": "whole_scene_revision/ambient_motion_v3/twelve_cloud_render/REVIEW.json",
+    "full_regression": "PASS:2075.13seconds,78 runtime probes,exit0,changed inputs empty; runtime_evidence/FULL_REGRESSION_TWELVE_CLOUDS.json"
   }
 }

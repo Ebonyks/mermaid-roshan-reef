@@ -1,0 +1,109 @@
+{
+  "id": "meadow_high_left",
+  "status": "VISUALLY_REJECTED_REMOVED_FROM_RUNTIME",
+  "method": "Built-in imagegen/no API key; three distinct drawings; local alpha cleanup and same-scale baseline alignment; no interpolated frames.",
+  "native_sha256": "7ec98ff2a68f0aa28863a81b7b8a2cb3238e8c30d8dfe803f95f8255a4f48fd7",
+  "source": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/clouds/cleaned/meadow_high_left.png",
+  "source_sha256": "91540245a58e94848d3cfaed165025f8f8316bbffec61b6051dedd6c7f9f016c",
+  "frames": 3,
+  "pose_cycle_seconds": 3.6,
+  "native_reopen_exact": true,
+  "canvas": [
+    536,
+    244
+  ],
+  "runtime_position_offset": [
+    0,
+    -24
+  ],
+  "poses": [
+    {
+      "index": 0,
+      "native_bounds": [
+        17,
+        209,
+        707,
+        469
+      ],
+      "translation": [
+        10,
+        -108
+      ],
+      "scale": 0.7043478260869566,
+      "alpha127_bounds": [
+        22,
+        39,
+        508,
+        222
+      ],
+      "centroid": [
+        261.0653132222937,
+        157.6991922224605
+      ],
+      "median_linear_luminance": 0.8574198323188205
+    },
+    {
+      "index": 1,
+      "native_bounds": [
+        15,
+        198,
+        709,
+        469
+      ],
+      "translation": [
+        10,
+        -108
+      ],
+      "scale": 0.7043478260869566,
+      "alpha127_bounds": [
+        21,
+        32,
+        510,
+        222
+      ],
+      "centroid": [
+        261.85926958214435,
+        153.89220695909924
+      ],
+      "median_linear_luminance": 0.859213640014543
+    },
+    {
+      "index": 2,
+      "native_bounds": [
+        17,
+        209,
+        708,
+        469
+      ],
+      "translation": [
+        10,
+        -108
+      ],
+      "scale": 0.7043478260869566,
+      "alpha127_bounds": [
+        22,
+        39,
+        509,
+        222
+      ],
+      "centroid": [
+        261.34558112094396,
+        157.35532743362833
+      ],
+      "median_linear_luminance": 0.8574198323188205
+    }
+  ],
+  "neighbor_silhouette_iou": [
+    0.9237763163702167,
+    0.9341033058763775,
+    0.9865743357829282
+  ],
+  "baseline_spread": 0,
+  "limitations": [
+    "Contextual and timing review pending",
+    "ORA pose alternatives, not native Krita timeline",
+    "No runtime files changed during regression suite"
+  ],
+  "visual_review": "Original lobes and low-saturation palette recognizable; middle crown expansion needs contextual playback review. Source board is insufficient for final acceptance.",
+  "rejection": "Gameplay-scale keyframe comparison shows excessive crown rise/size pulse in middle drawing; focused machine passes do not establish aesthetic acceptance."
+}

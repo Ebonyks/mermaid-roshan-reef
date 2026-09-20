@@ -13,7 +13,7 @@ board.save(out/'sample-map.jpg',quality=94)
 manifest=json.loads((W/'assets/sprites/sky_lagoon/whole_scene_v2/manifest.json').read_text());temporal=[]
 cards=list(manifest['cards'])
 cards.append({'id':'huckleberry_leaf_grade','family':'plant','file':'huckleberry_leaf_grade.png','columns':4,'rows':2,'frames':8})
-cards.append({'id':'bellflower_leaf_grade','family':'plant','file':'bellflower_leaf_grade.png','columns':4,'rows':2,'frames':8})
+cards.append({'id':'bellflower_whole_breeze','family':'plant','file':'bellflower_whole_breeze.png','columns':4,'rows':2,'frames':8})
 for water in json.loads((B/'whole_scene_revision/water_surface/PACKING.json').read_text(encoding='utf-8'))['cards']:
  cards.append({'id':'water_surface_'+water['id'],'family':'water','file':'water_surface_'+water['id']+'.png','columns':water['columns'],'rows':water['rows'],'frames':water['frames']})
 for row in cards:
@@ -25,9 +25,9 @@ for row in cards:
 report={'status':'ONGOING_COLOR_AUDIT_NOT_ACCEPTANCE','source':str(source.relative_to(W)).replace('\\','/'),'scope':'All three stages: source foliage comparisons and all 26 whole-scene cards. Additional runtime materials/actors, old animated overlays and night rendering require separate review. No global histogram used as quality verdict.','samples':rows,'whole_scene_temporal_cards':temporal,'findings':[{'id':'COLOR-01','finding':'Foreground large leaves and rear shrubbery have different hue/value structure; use material-matched sampling and in-context review before saturation adjustment. Larger darker leaf masses naturally differ from tiny sunlit leaves; do not flatten useful depth.'},{'id':'COLOR-02','finding':'Night backdrop/new bellflower/huckleberry use (0.48,0.56,0.82), while older ambient family multiplies by (0.72,0.78,0.96). These paths can yield inconsistent perceived intensity. Inspect compounded node tint before correction.'},{'id':'COLOR-03','finding':'Cyan extraction fringes falsely increase edge saturation; twelve cleaned cloud candidates address a separate matte issue, not a scene-wide grade.'}],'required_passes':['Day and night rendered comparisons of sky/cloud/mountain/hedge/lawn/foreground/water/castle/playground/actor hierarchy','All old animated overlay frame palettes plus whole-scene card frame palettes','Local correction variants per material with before/after gameplay review','No protected character recoloring or blanket desaturation; preserve depth and warm interaction accents'],'machine_validation':'Three source stages and 26 whole-scene cards measured; color acceptance not established'}
 # Preserve authored review/evidence fields while regenerating measured fields.
 previous=json.loads((out/'COLOR_AUDIT.json').read_text(encoding='utf-8')) if (out/'COLOR_AUDIT.json').exists() else {}
-for key in ('findings','night_correction','overlay_audit','coverage','limitations','foreground_rosette','meadow_berry_fan','bellflower_palette','prop_night_grade','huckleberry_palette'):
+for key in ('findings','night_correction','overlay_audit','coverage','limitations','foreground_rosette','meadow_berry_fan','bellflower_palette','prop_night_grade','huckleberry_palette','ambient_motion_v3'):
  if key in previous:report[key]=previous[key]
 report['scope']='All three stages: nine mapped source foliage regions, 28 whole-scene cards, two water-surface atlases and graded bellflower and huckleberry atlases shared by four plants. Source statistics are diagnostics; runtime material hierarchy and owner/device acceptance remain incomplete.'
-report['machine_validation']='Nine source samples and 32 current source entries measured, including 24 water cels and sixteen graded bellflower/huckleberry cels; no visual acceptance claim.'
+report['machine_validation']='Nine source samples and 32 current source entries measured, including 24 water cels and sixteen graded plant cels including rooted bellflower leaf motion; no visual acceptance claim.'
 (out/'COLOR_AUDIT.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
 print(json.dumps(rows,indent=2));print('TEMPORAL_MAX',max(temporal,key=lambda x:x['saturation_median_range']))

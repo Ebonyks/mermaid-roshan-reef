@@ -36,6 +36,14 @@ func _capture(name: String) -> void:
 			main.set_process(was_processing)
 	if name == "canvas_screen_1_day" and OS.get_cmdline_user_args().has("--sky-lagoon-whole-scene-preview"):
 		_check("whole_scene_runtime_cards_present", (main.g.get("lagoon_whole_cards", []) as Array).size() == 28)
+		var shaped_count: int = 0
+		for value: Variant in main.g.get("lagoon_whole_cards", []) as Array:
+			var card: Sprite2D = value as Sprite2D
+			var definition: Dictionary = card.get_meta("definition") as Dictionary
+			if definition["family"] == "cloud" and int(definition["frames"]) in [3, 4]:
+				shaped_count += 1
+				_check("cloud_imported_grid_%s" % card.name, card.hframes == 2 and card.vframes == 2 and float(definition["pose_cycle"]) < float(definition["cycle"]))
+		_check("twelve_imported_shaped_clouds", shaped_count == 12)
 		for value: Variant in main.g.get("lagoon_huckleberry_cels", []) as Array:
 			var berry: Sprite2D = value as Sprite2D
 			_check("whole_scene_berry_palette_%s" % berry.name, berry.texture.resource_path == promenade.HuckleberryCels.WHOLE_SCENE_ATLAS and berry.hframes == 4 and berry.vframes == 2)
