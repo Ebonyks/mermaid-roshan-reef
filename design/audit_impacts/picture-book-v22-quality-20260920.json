@@ -1,0 +1,103 @@
+{
+  "id": "picture-book-v22-quality-20260920",
+  "baseline": "eb7b4c6a8b8931364c99f74ad5ce10c3bb1e4f90",
+  "scope": "Owner-commissioned audit and regeneration of low-resolution book crops, dirty-castle repair, crisp stationery bubbles and canonical expressive dust bunnies, game couch/popcorn fight cameo and richer messy-art composition. Preserve story facts and protected originals.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static-book visual quality commission, no game finding closure.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/DESIGN_LANGUAGE.md",
+    "books/chapter_one/landscape/BORDER_ART_DIRECTION.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md",
+    "books/chapter_one/landscape/art/quality_v22/art_sorting.png",
+    "books/chapter_one/landscape/art/quality_v22/bg_04_final.png",
+    "books/chapter_one/landscape/art/quality_v22/bg_06_ground.png",
+    "books/chapter_one/landscape/art/quality_v22/bg_07_objects.png",
+    "books/chapter_one/landscape/art/quality_v22/bg_10_objects.png",
+    "books/chapter_one/landscape/art/quality_v22/bg_19_final.png",
+    "books/chapter_one/landscape/art/quality_v22/bg_20_final.png",
+    "books/chapter_one/landscape/art/quality_v22/bg_21_objects.png",
+    "books/chapter_one/landscape/art/quality_v22/bg_24_final.png",
+    "books/chapter_one/landscape/art/quality_v22/bg_25_final.png",
+    "books/chapter_one/landscape/art/quality_v22/bg_26_ground.png",
+    "books/chapter_one/landscape/art/quality_v22/bg_31_final.png",
+    "books/chapter_one/landscape/art/quality_v22/bg_base.png",
+    "books/chapter_one/landscape/art/quality_v22/boss_jump_large.png",
+    "books/chapter_one/landscape/art/quality_v22/scene_01.png",
+    "books/chapter_one/landscape/art/quality_v22/scene_02.png",
+    "books/chapter_one/landscape/art/quality_v22/scene_03.png",
+    "books/chapter_one/landscape/art/quality_v22/scene_05.png",
+    "books/chapter_one/landscape/art/quality_v22/scene_08.png",
+    "books/chapter_one/landscape/art/quality_v22/scene_09.png",
+    "books/chapter_one/landscape/art/quality_v22/scene_11.png",
+    "books/chapter_one/landscape/art/quality_v22/scene_12_fit.png",
+    "books/chapter_one/landscape/art/quality_v22/scene_13.png",
+    "books/chapter_one/landscape/art/quality_v22/scene_14_fit.png",
+    "books/chapter_one/landscape/art/quality_v22/scene_15.png",
+    "books/chapter_one/landscape/art/quality_v22/scene_16.png",
+    "books/chapter_one/landscape/art/quality_v22/scene_22_fit.png",
+    "books/chapter_one/landscape/art/quality_v22/scene_23.png",
+    "books/chapter_one/landscape/art/quality_v22/sink_large.png",
+    "books/chapter_one/landscape/audit_book.py",
+    "books/chapter_one/landscape/background_jobs_v22.json",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/detail_jobs_v22.json",
+    "books/chapter_one/landscape/goal_requirements_audit.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/quality_audit_v22.json",
+    "books/chapter_one/landscape/quality_evidence_v22.json",
+    "books/chapter_one/landscape/quality_jobs_v22.json",
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/stress_review.json",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/picture-book-v22-quality-20260920.json"
+  ],
+  "validation": [
+    {
+      "command": "audit_book.py --proof v22_quality_restore/complete --baseline v7_landscape/complete",
+      "result": "PASS",
+      "evidence": "32 story pages,34 PDF pages,74 caption lines,56 image operations; stress_results.json. Bounds include explicit2px ear-margin exception on20."
+    },
+    {
+      "command": "Native image inspection, all-page PDF contact review, density calculation and PDFium preservation comparison",
+      "result": "PASS",
+      "evidence": "books/chapter_one/landscape/quality_audit_v22.json; all non-ceiling story placements>=211.7ppi; ceiling116–138ppi exception. Cover,17,18,27–30,32 render unchanged. Visual owner acceptance not granted."
+    },
+    {
+      "command": "verify_v22_package.py and final metadata seal",
+      "result": "PASS",
+      "evidence": "books/chapter_one/landscape/delivery_verification.json:34 byte-identical lossless page PNGs;97 payload hashes; rendering inputs unchanged after metadata seal."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH|RESULT|ALL OK; inventory579 ledger579 active56 records58."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV|RESULT|ALL OK; base5920c673305989ee29d91876480ff445dba9fc8b."
+    },
+    {
+      "command": "Game probes/import",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Non-runtime static-book assets and documentation only; no Godot/game files modified."
+    }
+  ],
+  "acceptance_gaps": "Owner/child/print acceptance remains open. Four retained empty ceiling strips remain low-density. No game/runtime changes; no master finding closure."
+}

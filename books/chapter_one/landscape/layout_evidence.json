@@ -36,24 +36,24 @@
     },
     {
       "page": 1,
-      "source_key": "window",
-      "file": "../archive/rough_v5/art/window.png",
-      "sha256": "d288e075760d5652e648fdc3fb3802486b3ce1f42a55fab71008932a064e9e5e",
+      "source_key": "v22_scene_01",
+      "file": "art/quality_v22/scene_01.png",
+      "sha256": "e0a084746a0ef0bd935b7689df778c76d2f3489afd63279280ef19d180a3265b",
       "native_size": [
-        544,
-        454
+        1484,
+        1060
       ],
       "source_box_pixels": [
         0,
         0,
-        544,
-        454
+        1484,
+        1060
       ],
       "target_box_points": [
+        2.842170943040401e-14,
         0.0,
-        -30.308823529411768,
-        504.0,
-        420.61764705882354
+        503.99999999999994,
+        360.0
       ],
       "operation": "page_trim",
       "role": "story_art",
@@ -61,23 +61,23 @@
     },
     {
       "page": 2,
-      "source_key": "arrival",
-      "file": "../archive/rough_v5/art/arrival.png",
-      "sha256": "6fed99de13b61b068c528b101def01551b4fc61de6f4bd0a37ca66d9f58a5725",
+      "source_key": "v22_scene_02",
+      "file": "art/quality_v22/scene_02.png",
+      "sha256": "e4a2b560ff1cd8e0baf350521170ca38c389e688d836e3bb5d51aec597691da5",
       "native_size": [
-        830,
-        455
+        1484,
+        1060
       ],
       "source_box_pixels": [
         0,
         0,
-        830,
-        455
+        1484,
+        1060
       ],
       "target_box_points": [
-        -76.35164835164835,
+        2.842170943040401e-14,
         0.0,
-        656.7032967032967,
+        503.99999999999994,
         360.0
       ],
       "operation": "page_trim",
@@ -86,81 +86,34 @@
     },
     {
       "page": 3,
-      "source_key": "dirty_hall_entry",
-      "file": "art/stress_revision/dirty_hall_entry.png",
-      "sha256": "3d3aef9fcaf2133380af45c7b0e0374275e0537c88aa94462d433a1a11be9750",
+      "source_key": "v22_scene_03",
+      "file": "art/quality_v22/scene_03.png",
+      "sha256": "cd22b1f40455a0671bea6cb2761779b18b5f9d703e1f407a5130274478f0f003",
       "native_size": [
-        1672,
-        941
+        1484,
+        1060
       ],
       "source_box_pixels": [
         0,
         0,
-        1672,
-        941
+        1484,
+        1060
       ],
       "target_box_points": [
-        -0.0,
+        2.842170943040401e-14,
         0.0,
-        639.6599362380447,
+        503.99999999999994,
         360.0
       ],
       "operation": "page_trim",
       "role": "story_art",
       "alpha": false
-    },
-    {
-      "page": 3,
-      "source_key": "castle_wall_repair",
-      "file": "art/identity_v21/castle_wall_repair.png",
-      "sha256": "88c713f27bce067642a9ba9ca216339094e6707021d010bb12e2a03194b32fc8",
-      "native_size": [
-        1672,
-        941
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        1672,
-        941
-      ],
-      "target_box_points": [
-        -0.0,
-        0.0,
-        639.6599362380447,
-        360.0
-      ],
-      "operation": "bounded_inpaint_polygon",
-      "role": "story_art",
-      "alpha": false,
-      "clip_reference_size": [
-        1672,
-        941
-      ],
-      "clip_polygon_source_pixels": [
-        [
-          0,
-          105
-        ],
-        [
-          1672,
-          105
-        ],
-        [
-          1672,
-          240
-        ],
-        [
-          0,
-          240
-        ]
-      ]
     },
     {
       "page": 4,
-      "source_key": "rollout_border_4",
-      "file": "art/border_rollout/page_04.png",
-      "sha256": "0ddaf36407ad57776b29bc83e944675a68dcc355209fc5b9ce1c41651bad1217",
+      "source_key": "v22_bg_04_final",
+      "file": "art/quality_v22/bg_04_final.png",
+      "sha256": "f8937921cb9f66a7835b220ad4f454fd53293c9390ceb848a1c98049587e60ce",
       "native_size": [
         1484,
         1060
@@ -233,23 +186,23 @@
     },
     {
       "page": 5,
-      "source_key": "bath_dirty",
-      "file": "../archive/rough_v5/art/bath_dirty.png",
-      "sha256": "05426636cb92212eac76e44f2be7167916e6a4d3b63e9d8a5b67fe2e39f3c89a",
+      "source_key": "v22_scene_05",
+      "file": "art/quality_v22/scene_05.png",
+      "sha256": "0fe4964494794d1112d9829feadd96d418c712f5215b8201abe2270875ccfd96",
       "native_size": [
-        818,
-        452
+        1484,
+        1060
       ],
       "source_box_pixels": [
         0,
         0,
-        818,
-        452
+        1484,
+        1060
       ],
       "target_box_points": [
-        -73.75221238938053,
+        2.842170943040401e-14,
         0.0,
-        651.5044247787611,
+        503.99999999999994,
         360.0
       ],
       "operation": "page_trim",
@@ -258,9 +211,9 @@
     },
     {
       "page": 6,
-      "source_key": "border_06",
-      "file": "art/personality_v20/border_06.png",
-      "sha256": "e347f9491de48bfb631a13f45e5cdb58aadf6e437d93bbe091dbc7eb346cee36",
+      "source_key": "v22_bg_06_ground",
+      "file": "art/quality_v22/bg_06_ground.png",
+      "sha256": "d1f34eebf81910bd17825afaf7e07214dd9376efb0f5667e825a617f43e62b7f",
       "native_size": [
         1484,
         1060
@@ -283,23 +236,23 @@
     },
     {
       "page": 6,
-      "source_key": "sink_complete",
-      "file": "art/action_clarity_v18/sink_sheet.png",
-      "sha256": "843395316d3285e6f771f7ed0a4e1d818f1f2814854a8a883ff6e606688d2574",
+      "source_key": "v22_sink_large",
+      "file": "art/quality_v22/sink_large.png",
+      "sha256": "d7024f4357bdc494388b49cbd81d51313450f2aa41ae7a9efab82e27abf8f883",
       "native_size": [
-        1024,
-        512
+        1254,
+        1254
       ],
       "source_box_pixels": [
-        18,
-        45,
-        239,
-        250
+        0,
+        7,
+        1220,
+        1254
       ],
       "target_box_points": [
-        48.163414634146335,
+        57.53528468323978,
         73.0,
-        202.67317073170733,
+        183.92943063352044,
         188.0
       ],
       "operation": "source_region",
@@ -333,9 +286,9 @@
     },
     {
       "page": 7,
-      "source_key": "integrated_border_07",
-      "file": "art/integrated_borders/page_07.png",
-      "sha256": "d2b4e9a6e052c81439e33d882395bc9b47dedf12a25ab10a12cfa729f5c7d1e0",
+      "source_key": "v22_bg_07_objects",
+      "file": "art/quality_v22/bg_07_objects.png",
+      "sha256": "372c29b109b068c362c70844915efcd18da0464fc80acbe38e5d85167bcdddd4",
       "native_size": [
         1484,
         1060
@@ -383,23 +336,23 @@
     },
     {
       "page": 8,
-      "source_key": "bath_safe",
-      "file": "../archive/rough_v5/art/bath_safe.png",
-      "sha256": "80aa6ebf7afbde59635138c5d9763a0c347e9fe8b8ff8f6b93165c201e9c3813",
+      "source_key": "v22_scene_08",
+      "file": "art/quality_v22/scene_08.png",
+      "sha256": "ac7d2590df67923b3e2cc47dd05fe44d0cc2fcd74396b622a6f44e3bba03ecc1",
       "native_size": [
-        818,
-        452
+        1484,
+        1060
       ],
       "source_box_pixels": [
         0,
         0,
-        818,
-        452
+        1484,
+        1060
       ],
       "target_box_points": [
-        -73.75221238938053,
+        2.842170943040401e-14,
         0.0,
-        651.5044247787611,
+        503.99999999999994,
         360.0
       ],
       "operation": "page_trim",
@@ -408,23 +361,23 @@
     },
     {
       "page": 9,
-      "source_key": "pool_dirty",
-      "file": "../archive/rough_v5/art/pool_dirty.png",
-      "sha256": "2cecf47490beb7b69e5148e6be187f77861e3f226934710fd6f19f505ab0b198",
+      "source_key": "v22_scene_09",
+      "file": "art/quality_v22/scene_09.png",
+      "sha256": "83a8072b06a86e96277997cfa6cb40a08a7011c8003753893729d29ad8ee2b5e",
       "native_size": [
-        820,
-        296
+        1484,
+        1060
       ],
       "source_box_pixels": [
         0,
         0,
-        820,
-        296
+        1484,
+        1060
       ],
       "target_box_points": [
-        -246.64864864864865,
+        2.842170943040401e-14,
         0.0,
-        997.2972972972973,
+        503.99999999999994,
         360.0
       ],
       "operation": "page_trim",
@@ -433,9 +386,9 @@
     },
     {
       "page": 10,
-      "source_key": "repo_border_10",
-      "file": "art/repo_details_v17/page_10.png",
-      "sha256": "666331e9c37c2557272755b4d44845877e121dbc9640461f6f31366fe4d44133",
+      "source_key": "v22_bg_10_objects",
+      "file": "art/quality_v22/bg_10_objects.png",
+      "sha256": "f1b8b463ea413c024558b700ed5ea55832bcf14df839f0534f3ee20b091debff",
       "native_size": [
         1484,
         1060
@@ -483,23 +436,23 @@
     },
     {
       "page": 11,
-      "source_key": "waterfall",
-      "file": "../archive/rough_v5/art/waterfall.png",
-      "sha256": "10d2283bded5d3261999002fe9985f6cf38444c74536cf74c39a61aefd70f6da",
+      "source_key": "v22_scene_11",
+      "file": "art/quality_v22/scene_11.png",
+      "sha256": "17c6330b1faa8667ddb49769713589681f708ad65377f24f240d4c2f4441c5d3",
       "native_size": [
-        819,
-        300
+        1484,
+        1060
       ],
       "source_box_pixels": [
         0,
         0,
-        819,
-        300
+        1484,
+        1060
       ],
       "target_box_points": [
-        -239.39999999999998,
+        2.842170943040401e-14,
         0.0,
-        982.8,
+        503.99999999999994,
         360.0
       ],
       "operation": "page_trim",
@@ -507,123 +460,24 @@
       "alpha": false
     },
     {
-      "page": 11,
-      "source_key": "waterfall_lane_candidate",
-      "file": "art/stress_revision/waterfall_lane_candidate.png",
-      "sha256": "60f4a84adec6f8c6d71d164ce05bec35856ac28e7312b729d53dfe8527ae46e4",
-      "native_size": [
-        2071,
-        759
-      ],
-      "source_box_pixels": [
-        0,
-        0,
-        2071,
-        759
-      ],
-      "target_box_points": [
-        -239.39999999999998,
-        0.0,
-        982.8,
-        360.0
-      ],
-      "operation": "bounded_inpaint_polygon",
-      "role": "story_art",
-      "alpha": false,
-      "clip_reference_size": [
-        819,
-        300
-      ],
-      "clip_polygon_source_pixels": [
-        [
-          207,
-          71
-        ],
-        [
-          220,
-          65
-        ],
-        [
-          237,
-          65
-        ],
-        [
-          250,
-          67
-        ],
-        [
-          270,
-          65
-        ],
-        [
-          289,
-          71
-        ],
-        [
-          299,
-          83
-        ],
-        [
-          297,
-          110
-        ],
-        [
-          299,
-          148
-        ],
-        [
-          294,
-          180
-        ],
-        [
-          298,
-          211
-        ],
-        [
-          295,
-          249
-        ],
-        [
-          299,
-          300
-        ],
-        [
-          207,
-          300
-        ],
-        [
-          209,
-          243
-        ],
-        [
-          207,
-          190
-        ],
-        [
-          210,
-          142
-        ]
-      ]
-    },
-    {
       "page": 12,
-      "source_key": "rainbowfall",
-      "file": "../archive/rough_v5/art/rainbowfall.png",
-      "sha256": "0bb9383f849764bd8d65d532f562130153acdc033bcd2e989e3d33f6507e2c72",
+      "source_key": "v22_scene_12_fit",
+      "file": "art/quality_v22/scene_12_fit.png",
+      "sha256": "8b95e7b809aa38f0c939ab2f776321bfdeea7c638b5ed95ac624b84074c1e7b6",
       "native_size": [
-        1280,
-        720
+        1486,
+        1059
       ],
       "source_box_pixels": [
         0,
         0,
-        1280,
-        720
+        1486,
+        1059
       ],
       "target_box_points": [
-        -68.0,
+        -0.5779036827195512,
         0.0,
-        640.0,
+        505.1558073654391,
         360.0
       ],
       "operation": "page_trim",
@@ -632,23 +486,23 @@
     },
     {
       "page": 13,
-      "source_key": "seahorse",
-      "file": "../archive/rough_v5/art/seahorse.png",
-      "sha256": "77c74377a03e77c6b5f6dda6b25245df4983242d9dd10af234bda7aa3c6ed715",
+      "source_key": "v22_scene_13",
+      "file": "art/quality_v22/scene_13.png",
+      "sha256": "eb0f39180f63445ad5776c6e311f831f6d85cc20c8aa94cf244d5927956570be",
       "native_size": [
-        541,
-        299
+        1484,
+        1060
       ],
       "source_box_pixels": [
         0,
         0,
-        541,
-        299
+        1484,
+        1060
       ],
       "target_box_points": [
-        -73.68561872909703,
+        2.842170943040401e-14,
         0.0,
-        651.3712374581941,
+        503.99999999999994,
         360.0
       ],
       "operation": "page_trim",
@@ -657,24 +511,24 @@
     },
     {
       "page": 14,
-      "source_key": "pool_clean",
-      "file": "../archive/rough_v5/art/pool_clean.png",
-      "sha256": "420a26b831802720692437fe654a1e827d97be7b21ec6fc2a2a87f6634b16690",
+      "source_key": "v22_scene_14_fit",
+      "file": "art/quality_v22/scene_14_fit.png",
+      "sha256": "879709910268d85cf386e4e8e43345fd36f0c5dbaf4275c98dbb4a3fdaf14748",
       "native_size": [
-        546,
-        284
+        1482,
+        1062
       ],
       "source_box_pixels": [
         0,
         0,
-        546,
-        284
+        1482,
+        1062
       ],
       "target_box_points": [
-        -94.05633802816902,
         0.0,
-        692.112676056338,
-        360.0
+        -0.58299595141699,
+        504.0,
+        361.165991902834
       ],
       "operation": "page_trim",
       "role": "story_art",
@@ -682,23 +536,23 @@
     },
     {
       "page": 15,
-      "source_key": "rumi_hug",
-      "file": "../archive/rough_v5/art/rumi_hug.png",
-      "sha256": "7da50c706927cdc0fbadf666db6f397b9991dad4f4d9f9d2c815aa3e3434faab",
+      "source_key": "v22_scene_15",
+      "file": "art/quality_v22/scene_15.png",
+      "sha256": "ad5f1f5f8e01c950348d86f49ec1b8bd919a92bc055b1500f97cc32180746807",
       "native_size": [
-        546,
-        317
+        1484,
+        1060
       ],
       "source_box_pixels": [
         0,
         0,
-        546,
-        317
+        1484,
+        1060
       ],
       "target_box_points": [
-        -58.03154574132492,
+        2.842170943040401e-14,
         0.0,
-        620.0630914826498,
+        503.99999999999994,
         360.0
       ],
       "operation": "page_trim",
@@ -707,24 +561,24 @@
     },
     {
       "page": 16,
-      "source_key": "stuffie_entry",
-      "file": "../archive/rough_v5/art/stuffie_entry.png",
-      "sha256": "32c1e4013fdbdc95908144da412770e24dbdae072df2404c8c1a0915b9418826",
+      "source_key": "v22_scene_16",
+      "file": "art/quality_v22/scene_16.png",
+      "sha256": "de334d67ba6a345cc46b9e0cab3488fbc6dd8596a66d88b9dce01f2d1ae2c3fc",
       "native_size": [
-        383,
-        450
+        1484,
+        1060
       ],
       "source_box_pixels": [
         0,
         0,
-        383,
-        450
+        1484,
+        1060
       ],
       "target_box_points": [
         2.842170943040401e-14,
-        -116.08355091383811,
+        0.0,
         503.99999999999994,
-        592.1671018276762
+        360.0
       ],
       "operation": "page_trim",
       "role": "story_art",
@@ -782,9 +636,9 @@
     },
     {
       "page": 19,
-      "source_key": "rollout_border_19",
-      "file": "art/border_rollout/page_19.png",
-      "sha256": "e1247bc33087444d3a52e064f0d9ab5cb08b181318d0d9b067944d411a3c7db7",
+      "source_key": "v22_bg_19_final",
+      "file": "art/quality_v22/bg_19_final.png",
+      "sha256": "d2a80d60a08756e3e1c2d994679df72c1f45d52cc3835b9a4657c9f26b06213e",
       "native_size": [
         1484,
         1060
@@ -832,9 +686,9 @@
     },
     {
       "page": 20,
-      "source_key": "border_20",
-      "file": "art/personality_v20/border_20.png",
-      "sha256": "d1ec9475291d398c84a5f1f872b2127361639462b3318bd11844400457ccf166",
+      "source_key": "v22_bg_20_final",
+      "file": "art/quality_v22/bg_20_final.png",
+      "sha256": "a1bbf4ec53124c820874caaaaaccfab7441581068d1642876b3dc2dca987d1ad",
       "native_size": [
         1484,
         1060
@@ -907,9 +761,9 @@
     },
     {
       "page": 21,
-      "source_key": "repo_border_21",
-      "file": "art/repo_details_v17/page_21.png",
-      "sha256": "4cf9860e7e838c441d2a99b9a658d04ab75b54f953072caaaae30492b3dc0138",
+      "source_key": "v22_bg_21_objects",
+      "file": "art/quality_v22/bg_21_objects.png",
+      "sha256": "f0b59e414e5802021af20dcdd06a6c7170be9825c61965a60f395681e96e4787",
       "native_size": [
         1484,
         1060
@@ -932,24 +786,24 @@
     },
     {
       "page": 21,
-      "source_key": "messy_paints",
-      "file": "art/repo_details_v17/messy_paints.png",
-      "sha256": "718c67659a8cf56abe948eaeda42e1a51e46a40fd93884bfe1d200da0f4d6273",
+      "source_key": "v22_art_sorting",
+      "file": "art/quality_v22/art_sorting.png",
+      "sha256": "e37b46fb56aadf3c66c6f2b6584c8fd145001376a24e9c20420a6292e6eeec66",
       "native_size": [
-        1536,
-        1024
+        1484,
+        1060
       ],
       "source_box_pixels": [
-        55,
-        129,
-        1487,
-        1024
+        82,
+        0,
+        1388,
+        1060
       ],
       "target_box_points": [
-        87.19999999999999,
-        62.0,
-        329.6,
-        206.0
+        110.31132075471697,
+        56.0,
+        283.37735849056605,
+        230.0
       ],
       "operation": "source_region",
       "role": "story_art",
@@ -957,23 +811,23 @@
     },
     {
       "page": 22,
-      "source_key": "craft_table_action",
-      "file": "art/contrast_trials/craft_table_action.png",
-      "sha256": "e62e67088502bb4f43f848e7538e8e6a7f9db1fb4c938520f41a6f82c2a3163d",
+      "source_key": "v22_scene_22_fit",
+      "file": "art/quality_v22/scene_22_fit.png",
+      "sha256": "55b50d90819968aa887e5831152071a04cd5ba9cecc5b7b0402ee8a016f57e5a",
       "native_size": [
-        1672,
-        941
+        1484,
+        1060
       ],
       "source_box_pixels": [
         0,
         0,
-        1672,
-        941
+        1484,
+        1060
       ],
       "target_box_points": [
-        -67.82996811902234,
+        2.842170943040401e-14,
         0.0,
-        639.6599362380447,
+        503.99999999999994,
         360.0
       ],
       "operation": "page_trim",
@@ -982,34 +836,34 @@
     },
     {
       "page": 23,
-      "source_key": "paint",
-      "file": "../archive/rough_v5/art/paint.png",
-      "sha256": "a5305eba8f0c6fc7d5b99b1899d4abc4365d4617362c62b498a046918759089e",
+      "source_key": "v22_scene_23",
+      "file": "art/quality_v22/scene_23.png",
+      "sha256": "082c11e2acbb8849d4b8e8ec7d7a9eb0708f1d6f05a235ce84ad5a65624404c8",
       "native_size": [
-        1280,
-        720
+        1484,
+        1060
       ],
       "source_box_pixels": [
-        420,
-        90,
-        1280,
-        704
+        0,
+        0,
+        1484,
+        1060
       ],
       "target_box_points": [
-        0,
-        0,
-        504,
-        360
+        2.842170943040401e-14,
+        0.0,
+        503.99999999999994,
+        360.0
       ],
-      "operation": "source_region",
+      "operation": "page_trim",
       "role": "story_art",
       "alpha": false
     },
     {
       "page": 24,
-      "source_key": "border_24",
-      "file": "art/personality_v20/border_24.png",
-      "sha256": "b8022481645c22ab9f76d74611dd165cf23751b1c0fd6540d04749ca0e4e0147",
+      "source_key": "v22_bg_24_final",
+      "file": "art/quality_v22/bg_24_final.png",
+      "sha256": "cfeb3e9b789f1e8d5e6814fabd329fbb008cda5745058aad2cc2f67ce8d787e2",
       "native_size": [
         1484,
         1060
@@ -1057,9 +911,9 @@
     },
     {
       "page": 25,
-      "source_key": "border_25",
-      "file": "art/personality_v20/border_25.png",
-      "sha256": "a6ce70b6552230d823450c320f5f764ec7cbeacea9041a39ed119f946ae23f48",
+      "source_key": "v22_bg_25_final",
+      "file": "art/quality_v22/bg_25_final.png",
+      "sha256": "2d25a014b69dc46ac0fe9830e3912b1ee8b752bd81d4640174e681bbf92a40ed",
       "native_size": [
         1484,
         1060
@@ -1107,24 +961,24 @@
     },
     {
       "page": 26,
-      "source_key": "border_26",
-      "file": "art/personality_v20/border_26.png",
-      "sha256": "abb8fdbb3f937426bbf67c06c60d6168f986760eae3b7dd932b8039a1dd38e24",
+      "source_key": "v22_bg_26_ground",
+      "file": "art/quality_v22/bg_26_ground.png",
+      "sha256": "41e9553c3c4a1cf1766659f91c1ee37c31b83211559758f8d66bdf0abfcdbf9f",
       "native_size": [
-        1484,
-        1060
+        1482,
+        1061
       ],
       "source_box_pixels": [
         0,
         0,
-        1484,
-        1060
+        1482,
+        1061
       ],
       "target_box_points": [
-        2.842170943040401e-14,
         0.0,
-        503.99999999999994,
-        360.0
+        -0.4129554655870322,
+        504.0,
+        360.82591093117406
       ],
       "operation": "page_trim",
       "role": "integrated_stationery",
@@ -1132,24 +986,24 @@
     },
     {
       "page": 26,
-      "source_key": "grand_puff_jump_sheet",
-      "file": "../archive/rough_v5/art/grand_puff_jump_sheet.png",
-      "sha256": "7f117638631841c31eb58b9c81224158d29d64f325980c75c475e0376e36788c",
+      "source_key": "v22_boss_jump_large",
+      "file": "art/quality_v22/boss_jump_large.png",
+      "sha256": "1b6ecc5627730a18688385b85ce31c258d3bbb457b974dd39a2d2b3fa639a57c",
       "native_size": [
-        1024,
-        1024
+        1254,
+        1254
       ],
       "source_box_pixels": [
-        512,
         0,
-        1024,
-        512
+        16,
+        1214,
+        1238
       ],
       "target_box_points": [
         266.0,
-        71.0,
+        70.37726523887973,
         189.0,
-        189.0
+        190.24546952224054
       ],
       "operation": "source_region",
       "role": "story_art",
@@ -1382,9 +1236,9 @@
     },
     {
       "page": 31,
-      "source_key": "rollout_border_31",
-      "file": "art/border_rollout/page_31.png",
-      "sha256": "8e2dd04cc9ea08385648265763541da5dbde5030764eb45ed409cb6c6f4ca85c",
+      "source_key": "v22_bg_31_final",
+      "file": "art/quality_v22/bg_31_final.png",
+      "sha256": "6791a8e9f55136d129ef4a6794455724dfd26ab61d02479acabe1ed255af6c71",
       "native_size": [
         1484,
         1060
@@ -1483,8 +1337,8 @@
     {
       "page": "back_cover",
       "source_key": "landscape_base",
-      "file": "art/landscape_base_v2.png",
-      "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+      "file": "art/quality_v22/bg_base.png",
+      "sha256": "590d1f4165b846fe7c91135937432d86415a2e519a57a8cc1e74e2c585f8eca5",
       "native_size": [
         1484,
         1060
@@ -1503,7 +1357,7 @@
       ],
       "operation": "page_trim",
       "role": "stationery_base",
-      "alpha": true
+      "alpha": false
     },
     {
       "page": "back_cover",
@@ -1595,7 +1449,7 @@
     },
     {
       "page": 1,
-      "text": "“Look, Daddy!",
+      "text": "\u201cLook, Daddy!",
       "box": [
         278,
         70.798,
@@ -1607,7 +1461,7 @@
     },
     {
       "page": 1,
-      "text": "Pearl Castle!”",
+      "text": "Pearl Castle!\u201d",
       "box": [
         278,
         47.397999999999996,
@@ -1667,7 +1521,7 @@
     },
     {
       "page": 3,
-      "text": "“Let’s clean it together!”",
+      "text": "\u201cLet\u2019s clean it together!\u201d",
       "box": [
         205,
         265.99800000000005,
@@ -1679,7 +1533,7 @@
     },
     {
       "page": 4,
-      "text": "“One little job at a time,” said Daddy.",
+      "text": "\u201cOne little job at a time,\u201d said Daddy.",
       "box": [
         108.78299999999999,
         310.798,
@@ -1706,7 +1560,7 @@
       "text": "First, Roshan drained the murky bath.",
       "box": [
         103.392,
-        312.798,
+        28.798000000000002,
         297.216,
         22.41
       ],
@@ -1789,8 +1643,8 @@
       "page": 8,
       "text": "Clean water sparkled in the bath.",
       "box": [
-        122.34699999999998,
-        47.798,
+        121.34699999999998,
+        49.798,
         261.30600000000004,
         22.41
       ],
@@ -1801,8 +1655,8 @@
       "page": 8,
       "text": "The little bunny splashed happily.",
       "box": [
-        121.267,
-        24.397999999999996,
+        120.267,
+        26.397999999999996,
         263.466,
         22.41
       ],
@@ -1814,7 +1668,7 @@
       "text": "The great pool was still murky.",
       "box": [
         131.94,
-        92.798,
+        49.798,
         240.12000000000003,
         22.41
       ],
@@ -1826,7 +1680,7 @@
       "text": "Its rainbow waterfall had stopped.",
       "box": [
         117.16199999999998,
-        69.398,
+        26.397999999999996,
         269.67600000000004,
         22.41
       ],
@@ -1859,23 +1713,11 @@
     },
     {
       "page": 11,
-      "text": "One lane clear!",
+      "text": "One lane clear! Two more to go.",
       "box": [
-        256.365,
-        60.798,
-        117.27000000000001,
-        22.41
-      ],
-      "font_size": 18,
-      "color": "white"
-    },
-    {
-      "page": 11,
-      "text": "Two more to go.",
-      "box": [
-        251.60399999999998,
-        37.397999999999996,
-        126.79200000000002,
+        128.08799999999997,
+        28.798000000000002,
+        247.82400000000004,
         22.41
       ],
       "font_size": 18,
@@ -1883,38 +1725,14 @@
     },
     {
       "page": 12,
-      "text": "Whoooosh!",
+      "text": "Whoooosh! The waterfall turned rainbow!",
       "box": [
-        283,
-        294.22,
-        96.18,
-        24.9
+        90.28799999999998,
+        28.798000000000002,
+        323.42400000000004,
+        22.41
       ],
-      "font_size": 20,
-      "color": "white"
-    },
-    {
-      "page": 12,
-      "text": "The waterfall",
-      "box": [
-        283,
-        268.22,
-        114.9,
-        24.9
-      ],
-      "font_size": 20,
-      "color": "white"
-    },
-    {
-      "page": 12,
-      "text": "turned rainbow!",
-      "box": [
-        283,
-        242.22,
-        139.92000000000002,
-        24.9
-      ],
-      "font_size": 20,
+      "font_size": 18,
       "color": "white"
     },
     {
@@ -1922,7 +1740,7 @@
       "text": "The seahorse fountain was blocked, too.",
       "box": [
         94.06799999999998,
-        52.798,
+        49.798,
         315.86400000000003,
         22.41
       ],
@@ -1934,7 +1752,7 @@
       "text": "Roshan gently pulled the rubbish free.",
       "box": [
         103.19399999999999,
-        29.397999999999996,
+        26.397999999999996,
         297.612,
         22.41
       ],
@@ -1945,32 +1763,32 @@
       "page": 14,
       "text": "The fountain flowed again.",
       "box": [
-        142.6645,
-        131.50900000000001,
-        218.671,
-        23.655
+        148.41899999999998,
+        49.798,
+        207.16200000000003,
+        22.41
       ],
-      "font_size": 19,
+      "font_size": 18,
       "color": "white"
     },
     {
       "page": 14,
       "text": "Fresh water swirled. The pool was clear!",
       "box": [
-        87.65950000000001,
-        106.809,
-        328.681,
-        23.655
+        96.30899999999997,
+        26.397999999999996,
+        311.38200000000006,
+        22.41
       ],
-      "font_size": 19,
+      "font_size": 18,
       "color": "white"
     },
     {
       "page": 15,
-      "text": "“Thank you for helping!” said Rumi.",
+      "text": "\u201cThank you for helping!\u201d said Rumi.",
       "box": [
         116.49599999999998,
-        31.798000000000002,
+        28.798000000000002,
         271.00800000000004,
         22.41
       ],
@@ -1979,7 +1797,7 @@
     },
     {
       "page": 16,
-      "text": "A tiny chirp! “Someone needs help!”",
+      "text": "A tiny chirp! \u201cSomeone needs help!\u201d",
       "box": [
         112.374,
         28.798000000000002,
@@ -1991,7 +1809,7 @@
     },
     {
       "page": 17,
-      "text": "Two dust bunnies trapped Baby Eagle. “I’ll help!”",
+      "text": "Two dust bunnies trapped Baby Eagle. \u201cI\u2019ll help!\u201d",
       "box": [
         64.05299999999997,
         26.298000000000002,
@@ -2075,7 +1893,7 @@
     },
     {
       "page": 20,
-      "text": "“Come with me, Baby Eagle!”",
+      "text": "\u201cCome with me, Baby Eagle!\u201d",
       "box": [
         138.212,
         287.398,
@@ -2113,25 +1931,25 @@
       "page": 22,
       "text": "She put the supplies away.",
       "box": [
-        140,
-        48.798,
+        146.88,
+        49.798,
         210.24000000000004,
         22.41
       ],
       "font_size": 18,
-      "color": "navy"
+      "color": "white"
     },
     {
       "page": 22,
       "text": "Then she brushed the table clean.",
       "box": [
-        140,
-        25.397999999999996,
+        119.088,
+        26.397999999999996,
         265.824,
         22.41
       ],
       "font_size": 18,
-      "color": "navy"
+      "color": "white"
     },
     {
       "page": 23,
@@ -2387,7 +2205,7 @@
     },
     {
       "page": 31,
-      "text": "“We helped each other,” said Roshan.",
+      "text": "\u201cWe helped each other,\u201d said Roshan.",
       "box": [
         107.26199999999997,
         310.798,
@@ -2399,7 +2217,7 @@
     },
     {
       "page": 31,
-      "text": "“And found a friend hiding under all that dust!”",
+      "text": "\u201cAnd found a friend hiding under all that dust!\u201d",
       "box": [
         70.72199999999998,
         287.398,
@@ -2471,7 +2289,7 @@
     },
     {
       "page": "back_cover",
-      "text": "Landscape review edition • Chapter One",
+      "text": "Landscape review edition \u2022 Chapter One",
       "box": [
         164.805,
         22.11,

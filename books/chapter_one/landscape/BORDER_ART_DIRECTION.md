@@ -109,3 +109,12 @@ Production order: contrast a one-bunny listening page (24), the three-bunny shar
 Execution adjustment after source inspection: page22 changes to full art because an existing brush-contact frame better communicates its main action. Its planned quiet tray border is retained only as a study. The next proof therefore tests one-bunny page24, three-bunny page20, and full-art page22 together; object-only treatment remains elsewhere in the book.
 
 V16 execution: the reviewed border score is now implemented on the twelve remaining reduced pages (page22 remains full art). Bunny counts by page:4=1,6=0,7=0,10=0,19=2,20=3,21=1,24=1,25=0,26=1,31=2,32=0. Main illustrations and captions are unchanged from v15. See `border_rollout_evidence.json`; visual comprehension and owner acceptance remain review gates, and source/action gaps6/23/26 are not resolved by this border pass.
+
+
+## Current revision: V22 quality restoration
+
+The latest owner commission supersedes the earlier source-only limits for specifically defective low-resolution scenes and character repairs. Fourteen full-scene restorations replace tiny crops or defective framing, including dirty-castle3 and tiny-chirp16. Large sink and Grand Puff gesture assets replace small atlas cells. Page21 now shows Roshan sorting a messy craft table. All eleven blue stationery backgrounds have regenerated crisp bubble outlines and contextual lower-bank objects;26 uses the game cloud couch with two spectators, one cheering and one eating popcorn. Canonical lavender puff bodies, paired spiral ears and pearl hand knobs were compared with project references.
+
+The complete34-page proof was inspected through contact sheets and enlarged critical pages. Reader previews are lossless1512x1080 PNG; JPEGs are compatibility copies. `quality_audit_v22.json` records before/after placed density and preservation checks; `quality_evidence_v22.json` records exact prompts, references, native sizes and hashes. These are review candidates, not300ppi print masters or owner acceptance. Finale27–30 retains the entire V21 treatment. New high-density ceilings were rejected for worse perspective joins; the earlier low-density empty ceiling strips remain an explicit print-resolution exception. Page20 has a documented two-pixel ear-margin exception. Tiny cameo readability, source/action gaps and child/owner acceptance remain open.
+
+Earlier revision entries below are historical and superseded where this section differs.

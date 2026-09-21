@@ -114,13 +114,13 @@ font_path=ROOT/B['font']
 (O/'page_provenance.json').write_text(json.dumps({'page_size_points':[W,H],'coordinate_system':'source pixels: top-left x,y; PDF target points: bottom-left x,y,width,height; page-trim layers clipped to page','font':{'file':B['font'],'sha256':hashlib.sha256(font_path.read_bytes()).hexdigest()},'layers':LAYERS,'text_lines':TEXT_LINES,'note':'Actual draw operations, including covers and background occlusion redraws. This proves source use, not visual acceptance.'},indent=2),encoding='utf8')
 doc=pdfium.PdfDocument(str(PDF));thumbs=[]
 for i,page in enumerate(doc):
- im=page.render(scale=1.65).to_pil().convert('RGB');im.save(O/f'page_{i:02}.jpg',quality=91);im.thumbnail((336,240));thumbs.append(im.copy())
+ im=page.render(scale=3).to_pil().convert('RGB');im.save(O/f'page_{i:02}.png');im.save(O/f'page_{i:02}.jpg',quality=98,subsampling=0);im.thumbnail((336,240));thumbs.append(im.copy())
 for start in range(0,len(thumbs),8):
  sheet=Image.new('RGB',(1344,524),'#d8e3ed');d=ImageDraw.Draw(sheet)
  for j,im in enumerate(thumbs[start:start+8]):
   x=j%4*336;y=j//4*262;sheet.paste(im,(x,y));idx=start+j;d.text((x+5,y+243),'Cover' if idx==0 else 'Back cover' if idx==33 else f'Page {idx}',fill='black')
  sheet.save(O/f'contact_{start//8+1}.jpg',quality=94)
-body=''.join(f'<figure><figcaption>{"Cover" if i==0 else "Back cover" if i==33 else "Page "+str(i)}</figcaption><img loading="lazy" src="page_{i:02}.jpg" alt="{html.escape("Cover" if i==0 else "Back cover" if i==33 else B["pages"][i-1]["text"])}"></figure>' for i in range(34))
+body=''.join(f'<figure><figcaption>{"Cover" if i==0 else "Back cover" if i==33 else "Page "+str(i)}</figcaption><img loading="lazy" src="page_{i:02}.png" alt="{html.escape("Cover" if i==0 else "Back cover" if i==33 else B["pages"][i-1]["text"])}"></figure>' for i in range(34))
 (O/'READ_BOOK.html').write_text('<!doctype html><meta charset="utf-8"><title>Mermaid Roshan · Landscape rough</title><style>body{margin:0;background:#193449;color:#e3f5ff;font:18px system-ui}header{max-width:1100px;margin:30px auto;padding:20px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px}figure{margin:0}img{width:100%;display:block}figcaption{padding:8px}a{color:#9cddff}@media(max-width:800px){main{grid-template-columns:1fr}}</style><header><h1>Mermaid Roshan and the Hidden Rainbow</h1><p>7 × 5 inches · 32 story pages + covers · Stress-revised rough · owner acceptance pending</p><p><a href="Mermaid_Roshan_LANDSCAPE_ROUGH.pdf">Download PDF</a> · <a href="STRESS_TEST.html">Page-by-page stress review</a></p><p>Revised dirty-castle opening, contextual blue backgrounds and individual caption placement. Character and source limits remain explicit in the stress report.</p></header><main>'+body+'</main>',encoding='utf8')
 # A portable rebuild provides the written review even without the earlier v7 images.
 if not (O/'STRESS_TEST.html').exists() and (ROOT/'stress_review.json').exists():

@@ -106,3 +106,12 @@ V19 rescue-legibility audit: p17/18 captions no longer cross ceiling fixtures. O
 ## V21 rescue identity correction
 
 The owner rejected the former rescue identities, superseding the earlier assessment. New pages17/18 show two cloud puffs pinning Eagle wings followed by release and standing. The castle wall repair preserves entry/cleanup setup. Roshan gesture restorations on20/26/31 preserve the existing manuscript and pacing. Final owner/child acceptance remains open.
+
+
+## Current revision: V22 quality restoration
+
+The latest owner commission supersedes the earlier source-only limits for specifically defective low-resolution scenes and character repairs. Fourteen full-scene restorations replace tiny crops or defective framing, including dirty-castle3 and tiny-chirp16. Large sink and Grand Puff gesture assets replace small atlas cells. Page21 now shows Roshan sorting a messy craft table. All eleven blue stationery backgrounds have regenerated crisp bubble outlines and contextual lower-bank objects;26 uses the game cloud couch with two spectators, one cheering and one eating popcorn. Canonical lavender puff bodies, paired spiral ears and pearl hand knobs were compared with project references.
+
+The complete34-page proof was inspected through contact sheets and enlarged critical pages. Reader previews are lossless1512x1080 PNG; JPEGs are compatibility copies. `quality_audit_v22.json` records before/after placed density and preservation checks; `quality_evidence_v22.json` records exact prompts, references, native sizes and hashes. These are review candidates, not300ppi print masters or owner acceptance. Finale27–30 retains the entire V21 treatment. New high-density ceilings were rejected for worse perspective joins; the earlier low-density empty ceiling strips remain an explicit print-resolution exception. Page20 has a documented two-pixel ear-margin exception. Tiny cameo readability, source/action gaps and child/owner acceptance remain open.
+
+Earlier revision entries below are historical and superseded where this section differs.

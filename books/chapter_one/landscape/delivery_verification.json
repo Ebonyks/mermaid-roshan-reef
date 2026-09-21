@@ -1,9 +1,9 @@
 {
   "status": "PASS",
-  "verified_payload_files": 96,
+  "verified_payload_files": 97,
   "matching_page_renders": 34,
-  "archive_sha256": "56893ddfafc54833cbae35eed9cf17740809bb14d321ee81751cbd049064a5ad",
-  "pdf_sha256": "e160c077a480ca27a1f5c991d968ca9f79f790716ecc2af83d4b671b49a3bb35",
+  "archive_sha256": "3f20222821688ba2d461f1e10d5bc5cada11047c5e64b7efc56de437634315d1",
+  "pdf_sha256": "aacbf7f2497699de21ad37743caea68b55250527b94a5426aa4d191842e6581e",
   "pdf_pages": 34,
   "page_size_points": [
     504,
@@ -18,7 +18,7 @@
         11
       ],
       "severity": "P2",
-      "issue": "Page 11 now illustrates a partially cleared waterfall. Bounded first-lane edit needs owner acceptance; no hand/tool action pose is shown."
+      "issue": "Page11 now uses a full restored scene showing one warm rainbow lane and remaining blocked lanes. Hand/tool clearing action still absent."
     },
     {
       "id": "BK-ST-OPEN-02",
@@ -49,13 +49,13 @@
         30
       ],
       "severity": "P2",
-      "issue": "Per-source ceiling cutoffs corrected and original scenes preserved. Minor extension perspective/texture differences remain subject to owner visual acceptance."
+      "issue": "Earlier V21 ceiling treatment retained on27–30. Sharper new candidates rejected for worse perspective joins. Original complete action pages unchanged."
     },
     {
       "id": "BK-ST-OPEN-05",
       "pages": "multiple",
       "severity": "P2",
-      "issue": "Low-resolution storyboard panels prevent a print-ready claim."
+      "issue": "Four empty ceiling strips on27–30 retain116–138ppi. Every other story illustration/background placement is at least212ppi. Print-master/owner acceptance remains open."
     },
     {
       "id": "BK-ST-OPEN-06",
@@ -73,7 +73,7 @@
         31
       ],
       "severity": "P2",
-      "issue": "Individual quality audit preserved six strong backgrounds and selectively replaced five. Frightened shell shelter25 changes to cheering/popcorn26; ground contact, tiny cameo readability and owner acceptance remain open."
+      "issue": "All eleven stationery backgrounds regenerated and reviewed. Page26 uses two couch spectators, one eating popcorn;20 retains toy play with corrected bunny design. Tiny-pose expression and grounding remain owner-review items. Page20 ear antialias exceeds the ideal margin by2px, explicitly recorded."
     },
     {
       "id": "BK-ST-OPEN-07",
@@ -95,9 +95,9 @@
       "issue": "Owner-commissioned rendered cover and bubble-nap epilogue implemented and visually inspected; final character/style/print acceptance remains open."
     }
   ],
-  "metadata_seal_changes": [
-    "Mermaid_Roshan_Editable/asset_manifest.json",
-    "Mermaid_Roshan_Editable/goal_requirements_audit.json"
-  ],
-  "rendering_inputs_identical_to_independent_rebuild": true
+  "final_metadata_seal": {
+    "all_rendering_inputs_byte_identical_to_verified_rebuild": true,
+    "rendering_input_files": 57,
+    "final_payload_hashes_verified": 97
+  }
 }

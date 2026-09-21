@@ -44,3 +44,12 @@ Quality selection: `background_quality_audit.json` grades every page; page21 and
 ## V21 identity and source-quality corrections
 
 Pages 20, 26 and 31 use large transparent restorations of their original Roshan gestures. Page 3 exposes only a repaired upper-wall strip over the original dirty-castle entry. Pages 17 and 18 are owner-commissioned rescue replacements: exactly two canonical cloud bunnies pin Baby Eagle, then release the wings; grey legs and black-tipped pink wings remain visible. All other pages, including the finale, retain V20 artwork. Native source density caused the former soft poses, not PDF compression. These are review candidates; owner acceptance remains open.
+
+
+## Current revision: V22 quality restoration
+
+The latest owner commission supersedes the earlier source-only limits for specifically defective low-resolution scenes and character repairs. Fourteen full-scene restorations replace tiny crops or defective framing, including dirty-castle3 and tiny-chirp16. Large sink and Grand Puff gesture assets replace small atlas cells. Page21 now shows Roshan sorting a messy craft table. All eleven blue stationery backgrounds have regenerated crisp bubble outlines and contextual lower-bank objects;26 uses the game cloud couch with two spectators, one cheering and one eating popcorn. Canonical lavender puff bodies, paired spiral ears and pearl hand knobs were compared with project references.
+
+The complete34-page proof was inspected through contact sheets and enlarged critical pages. Reader previews are lossless1512x1080 PNG; JPEGs are compatibility copies. `quality_audit_v22.json` records before/after placed density and preservation checks; `quality_evidence_v22.json` records exact prompts, references, native sizes and hashes. These are review candidates, not300ppi print masters or owner acceptance. Finale27–30 retains the entire V21 treatment. New high-density ceilings were rejected for worse perspective joins; the earlier low-density empty ceiling strips remain an explicit print-resolution exception. Page20 has a documented two-pixel ear-margin exception. Tiny cameo readability, source/action gaps and child/owner acceptance remain open.
+
+Earlier revision entries below are historical and superseded where this section differs.
