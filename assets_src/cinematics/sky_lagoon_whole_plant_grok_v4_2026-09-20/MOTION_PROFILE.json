@@ -1,0 +1,21 @@
+{
+  "status": "DRAFT_NOT_PUBLISHED",
+  "owner_direction": "Use Grok liberally for basic grass and plants; stepped/jarring animation and path warping rejected.",
+  "local_deformation_status": "12 grass/shrub cards quarantined at rest; rest is temporary, not accepted completion.",
+  "motion_policy": "A four-cel count is not a quality target. Author sufficient distinct poses from accepted motion reference; start full-plant cycles at 24 distinct cels, expand if needed for smooth motion at intended duration. Do not repeat frames or slow visibly different poses to simulate smoothness.",
+  "scope": "G06-G13 expand existing G01-G05 water/bridge set. All three screens covered by grass and botanical families.",
+  "wind_direction": "shared gentle rightward wind with branch/leaf lag, not synchronized rigid whole-card motion",
+  "terrain_policy": "ground, paths, shoreline stones, hills and architecture remain pixel-stable; only named organic parts move",
+  "color_policy": "retain source color identities, shadows and highlights across frames; later color corrections must apply consistently across all cels. No generation-wide saturation/brightness pulse.",
+  "integration": "Grok footage is motion reference. Author clean full-object cels in Aseprite; Krita/ORA retains editable paint source. Preserve root registration, material masks and unchanged background; audit on actual Godot canvas. No implicit optical-flow or crossfade repair.",
+  "minimum_clip": "One-second micro-study when supported; six-second conditional UI fallback only after verifying its minimum. See DURATION_PROFILE.json and archived owner workflow. No API execution.",
+  "missing_return": "Previously linked return branch contains four documents, no output/native.mp4 media. Do not claim those clips inspected or used.",
+  "required_evidence": [
+    "whole-plant silhouettes at all extrema",
+    "background/path difference mask for entire clip",
+    "full-speed loop and adjacent-pose review",
+    "day/night material review",
+    "imported Godot runtime and rollback",
+    "target tablet frame time and owner acceptance"
+  ]
+}

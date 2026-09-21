@@ -79,6 +79,7 @@ static func tick(state: Dictionary, delta: float, paused: bool) -> void:
 		state["lagoon_grass_group_t"] = timer
 	var cards: Array = state["lagoon_grass_groups"] as Array
 	for index: int in range(cards.size()):
+		if not is_instance_valid(cards[index]):
+			continue
 		var card: Sprite2D = cards[index] as Sprite2D
-		if is_instance_valid(card):
-			card.frame = int(fposmod(timer - float(GROUPS[index]["phase"]), CYCLE) / 0.35) if enabled else 0
+		card.frame = int(fposmod(timer - float(GROUPS[index]["phase"]), CYCLE) / 0.35) if enabled else 0

@@ -76,6 +76,8 @@ static func build(state: Dictionary, parent: Node2D, requested: bool, manifest_p
 		for key: String in ["frames", "columns", "rows", "scale", "cycle", "drift"]:
 			if typeof(row.get(key)) not in [TYPE_INT, TYPE_FLOAT] or not is_finite(float(row[key])):
 				return false
+		if row.has("motion_enabled") and typeof(row["motion_enabled"]) != TYPE_BOOL:
+			return false
 		if row.has("pose_cycle"):
 			if typeof(row["pose_cycle"]) not in [TYPE_INT, TYPE_FLOAT] or not is_finite(float(row["pose_cycle"])) or float(row["pose_cycle"]) <= 0.0:
 				return false
@@ -141,7 +143,7 @@ static func tick(state: Dictionary, delta: float, paused: bool) -> void:
 		var card: Sprite2D = value as Sprite2D
 		var row: Dictionary = card.get_meta("definition") as Dictionary
 		var cloud: bool = str(row["family"]) == "cloud"
-		var moving: bool = enabled and (cloud or bool(state.get("lagoon_plants_motion_enabled", true)))
+		var moving: bool = enabled and bool(row.get("motion_enabled", true)) and (cloud or bool(state.get("lagoon_plants_motion_enabled", true)))
 		var phase: float = float(card.get_meta("phase"))
 		var count: int = int(row["frames"])
 		var cycle: float = float(row["cycle"])

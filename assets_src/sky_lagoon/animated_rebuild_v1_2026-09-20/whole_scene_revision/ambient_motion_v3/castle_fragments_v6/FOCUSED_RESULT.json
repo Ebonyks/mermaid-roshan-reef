@@ -1,0 +1,63 @@
+{
+  "jobs": [
+    {
+      "job": "whole-contract",
+      "exit_code": 0,
+      "failures": []
+    },
+    {
+      "job": "l2-original",
+      "exit_code": 0,
+      "failures": []
+    },
+    {
+      "job": "l2-preview",
+      "exit_code": 0,
+      "failures": []
+    },
+    {
+      "job": "visual",
+      "exit_code": 0,
+      "failures": []
+    }
+  ],
+  "rendered_checks": [
+    {
+      "mode": "day",
+      "forced_legacy_pose": 1,
+      "restoration_max_error": 0,
+      "removed_moving_pixels_over_2_codes": 169
+    },
+    {
+      "mode": "day",
+      "forced_legacy_pose": 2,
+      "restoration_max_error": 0,
+      "removed_moving_pixels_over_2_codes": 77
+    },
+    {
+      "mode": "day",
+      "forced_legacy_pose": 3,
+      "restoration_max_error": 0,
+      "removed_moving_pixels_over_2_codes": 174
+    },
+    {
+      "mode": "night",
+      "forced_legacy_pose": 1,
+      "restoration_max_error": 0,
+      "removed_moving_pixels_over_2_codes": 126
+    },
+    {
+      "mode": "night",
+      "forced_legacy_pose": 2,
+      "restoration_max_error": 0,
+      "removed_moving_pixels_over_2_codes": 40
+    },
+    {
+      "mode": "night",
+      "forced_legacy_pose": 3,
+      "restoration_max_error": 0,
+      "removed_moving_pixels_over_2_codes": 125
+    }
+  ],
+  "passed": true
+}

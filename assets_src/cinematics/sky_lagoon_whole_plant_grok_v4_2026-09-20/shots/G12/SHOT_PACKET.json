@@ -1,0 +1,87 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "sky_lagoon_whole_plant_grok_v4_2026-09-20",
+  "shot_id": "G12",
+  "title": "Whole arrival conifer",
+  "status": "DRAFT",
+  "duration_seconds": 1,
+  "duration_policy": "One-second micro-study when supported; shortest actually offered surface. Use six-second conditional prompt only if six seconds is the observed UI minimum. Record interface/model/minimum/date. No API execution or key requested by this handoff.",
+  "aspect_ratio": "650:1260",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "shots/G12/IMAGE_1.png",
+      "sha256": "25b73fca9737f3c7ebb56eece2f35699d33e8344bc1f1c168f5b46adca3770f6",
+      "hud_present": false,
+      "remote_url": null,
+      "human_decision": "approved source reused; exact crop and proposed action pending packet review"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "shots/G12/IMAGE_2.png",
+      "sha256": "e1968551b784056852bd7c8a4acf935ee5c9a4594be4898b8572044fe3d8723f",
+      "hud_present": false,
+      "remote_url": null,
+      "human_decision": "approved source reused; exact crop and proposed action pending packet review",
+      "source_crop_within_IMAGE_1": [
+        0,
+        0,
+        340,
+        800
+      ]
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "all tiers of the conifer branches flex gently; upper branches respond more than lower branches while the trunk base stays planted"
+  ],
+  "must_not_move": [
+    "root, trunk base, rocks, shore and background"
+  ],
+  "end_state": "original rooted silhouette, no abrupt loop snap",
+  "negative_constraints": [
+    "no terrain or path deformation",
+    "no identity, topology or palette drift",
+    "no camera motion, HUD or text"
+  ],
+  "prompt_path": "shots/G12/PROMPT.txt",
+  "prompt_sha256": "1a8e4374b5323968b38d5921ac8b692a483c89a6e7c570fa01909c18685e0339",
+  "sound_intent": "silence",
+  "runtime_owners": "arrival_whole_tree",
+  "interface_contract": "Upload IMAGE_1 as the initial image on single-image I2V. IMAGE_2 is a detail of that same painting for operator identity/material review, not an alternative layout or second timeline frame. Preserve native aspect.",
+  "acceptance": {
+    "ARCHIVE_COMPLETE": false,
+    "GENERATION_READY": false,
+    "DELIVERY_ACCEPTED": false
+  },
+  "return_requirements": [
+    "native video file committed in return branch, not merely a JSON path/hash",
+    "actual model/interface/duration/fps/dimensions and input/output hashes",
+    "full-speed review and frame-by-frame ground/path stability",
+    "reject stalled repeated poses, branch melting, sliding roots and global grade change"
+  ],
+  "conditional_prompt_variants": [
+    {
+      "path": "shots/G12/PROMPT_UI_6S_IF_MINIMUM.txt",
+      "sha256": "fe629752ce7ab6a537657f1e76e6877151b8c991321303a3c69dbc9b0dabd80f",
+      "duration_seconds": 6,
+      "condition": "operator verifies6s is shortest offered",
+      "action_span_seconds": [
+        0,
+        1
+      ],
+      "intentional_hold_seconds": [
+        1,
+        6
+      ],
+      "hold_purpose": "unavoidable interface tail after complete micro-study; not runtime animation or concealed missing action"
+    }
+  ]
+}

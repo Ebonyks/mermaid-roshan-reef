@@ -136,18 +136,18 @@
       "id": "arrival_lawn",
       "file": "arrival_lawn.png",
       "size": [
-        1008,
-        416
+        836,
+        390
       ],
       "position": [
-        576.8248031496064,
-        1649.6082677165355
+        594.5157480314961,
+        1664.0826771653542
       ],
       "scale": 1.6082677165354329,
       "columns": 2,
       "rows": 2,
       "frames": 4,
-      "cycle": 2.8,
+      "cycle": 1.4,
       "family": "grass",
       "drift": 0,
       "source_cell_size": [
@@ -155,12 +155,14 @@
         256
       ],
       "cell_crop": [
-        5,
-        3,
-        509,
-        211
+        16,
+        12,
+        434,
+        207
       ],
-      "sha256": "312a4b8f2d7bfad2fdf1bb62d6688ab0d305aea7157de3aba14aad7911b82cb3"
+      "sha256": "0a12692b68fe5efe9bb40db58b99d7ba7d955c90731c4ba6325b597211e53a83",
+      "motion_enabled": false,
+      "motion_review": "QUARANTINED: owner rejects stepped deformation and scenery warping. Rest pose pending whole-object Grok motion reference and authored replacement."
     },
     {
       "id": "arrival_front_edge",
@@ -196,18 +198,18 @@
       "id": "meadow_upper_left",
       "file": "meadow_upper_left.png",
       "size": [
-        1004,
-        456
+        788,
+        380
       ],
       "position": [
-        2074.1515748031497,
-        1215.6909448818897
+        2191.031496062992,
+        1251.3700787401574
       ],
       "scale": 1.2303149606299213,
       "columns": 2,
       "rows": 2,
       "frames": 4,
-      "cycle": 2.8,
+      "cycle": 1.4,
       "family": "grass",
       "drift": 0,
       "source_cell_size": [
@@ -215,29 +217,31 @@
         256
       ],
       "cell_crop": [
-        7,
-        5,
-        509,
-        233
+        102,
+        34,
+        496,
+        224
       ],
-      "sha256": "893857646b6f1db1bc0f71266f7e4aa1227a6b3a31127d71c54e966d5220cb2a"
+      "sha256": "142627684c6999cc39c438ee76458a3c9df7ba070efbf74d8e2d2731c8c3c2c5",
+      "motion_enabled": false,
+      "motion_review": "QUARANTINED: owner rejects stepped deformation and scenery warping. Rest pose pending whole-object Grok motion reference and authored replacement."
     },
     {
       "id": "meadow_upper_right",
       "file": "meadow_upper_right.png",
       "size": [
-        1018,
-        278
+        978,
+        236
       ],
       "position": [
-        2588.0,
-        1209.738188976378
+        2608.356299212598,
+        1234.6181102362204
       ],
       "scale": 2.2618110236220472,
       "columns": 2,
       "rows": 2,
       "frames": 4,
-      "cycle": 2.8,
+      "cycle": 1.4,
       "family": "grass",
       "drift": 0,
       "source_cell_size": [
@@ -245,29 +249,31 @@
         256
       ],
       "cell_crop": [
-        2,
-        1,
-        511,
-        140
+        11,
+        12,
+        500,
+        130
       ],
-      "sha256": "dd1e43fce31f1471363ebe64c39e61784f08894b802ccccd6ab98dc6dc6a878e"
+      "sha256": "fe879a2e83757dfa7dfc90723be93962646157f56b2c8bc767b847e6b69145a6",
+      "motion_enabled": false,
+      "motion_review": "QUARANTINED: owner rejects stepped deformation and scenery warping. Rest pose pending whole-object Grok motion reference and authored replacement."
     },
     {
       "id": "meadow_lower_lawn",
       "file": "meadow_lower_lawn.png",
       "size": [
-        998,
-        302
+        962,
+        248
       ],
       "position": [
-        2546.23031496063,
-        1698.3031496062993
+        2564.0728346456694,
+        1736.2185039370079
       ],
       "scale": 2.2303149606299213,
       "columns": 2,
       "rows": 2,
       "frames": 4,
-      "cycle": 2.8,
+      "cycle": 1.4,
       "family": "grass",
       "drift": 0,
       "source_cell_size": [
@@ -275,12 +281,14 @@
         256
       ],
       "cell_crop": [
-        3,
-        12,
-        502,
-        163
+        11,
+        29,
+        492,
+        153
       ],
-      "sha256": "570d9315a5d703e0383cb84489ae71bf01f75535b1d8736eb881917a77f47dea"
+      "sha256": "eb6b84e955e82b09e68203779021faac242460a30c3803e188cf6d372ade257f",
+      "motion_enabled": false,
+      "motion_review": "QUARANTINED: owner rejects stepped deformation and scenery warping. Rest pose pending whole-object Grok motion reference and authored replacement."
     },
     {
       "id": "castle_left_verge",
@@ -300,6 +308,8 @@
       "cycle": 2.8,
       "family": "grass",
       "drift": 0,
+      "motion_enabled": false,
+      "motion_review": "QUARANTINED: owner rejects stepped deformation and scenery warping. Rest pose pending whole-object Grok motion reference and authored replacement.",
       "source_cell_size": [
         512,
         256
@@ -330,6 +340,8 @@
       "cycle": 2.8,
       "family": "grass",
       "drift": 0,
+      "motion_enabled": false,
+      "motion_review": "QUARANTINED: owner rejects stepped deformation and scenery warping. Rest pose pending whole-object Grok motion reference and authored replacement.",
       "source_cell_size": [
         512,
         256
@@ -370,7 +382,9 @@
         194,
         247
       ],
-      "sha256": "66f34621954e4ee2576586a828627eb10c075c8780b2bcc43cd6812f3488e980"
+      "sha256": "66f34621954e4ee2576586a828627eb10c075c8780b2bcc43cd6812f3488e980",
+      "motion_enabled": false,
+      "motion_review": "QUARANTINED: owner rejects stepped deformation and scenery warping. Rest pose pending whole-object Grok motion reference and authored replacement."
     },
     {
       "id": "arrival_bank_right",
@@ -400,7 +414,9 @@
         502,
         227
       ],
-      "sha256": "96beb6f09b61f2472b818e65cf5fb5740ffe17917fd51f5f7d80f2f92d874b75"
+      "sha256": "96beb6f09b61f2472b818e65cf5fb5740ffe17917fd51f5f7d80f2f92d874b75",
+      "motion_enabled": false,
+      "motion_review": "QUARANTINED: owner rejects stepped deformation and scenery warping. Rest pose pending whole-object Grok motion reference and authored replacement."
     },
     {
       "id": "meadow_hedge_left",
@@ -430,7 +446,9 @@
         389,
         173
       ],
-      "sha256": "7f00a496d485495480835bfd9965a3e422cae063663ef4cf67fbb3b77f92be22"
+      "sha256": "7f00a496d485495480835bfd9965a3e422cae063663ef4cf67fbb3b77f92be22",
+      "motion_enabled": false,
+      "motion_review": "QUARANTINED: owner rejects stepped deformation and scenery warping. Rest pose pending whole-object Grok motion reference and authored replacement."
     },
     {
       "id": "meadow_hedge_right",
@@ -460,7 +478,9 @@
         505,
         106
       ],
-      "sha256": "7eb99ad92ea829dcfd48ac1b156fe1143f346fc6b569521c6daedaf37c67495f"
+      "sha256": "7eb99ad92ea829dcfd48ac1b156fe1143f346fc6b569521c6daedaf37c67495f",
+      "motion_enabled": false,
+      "motion_review": "QUARANTINED: owner rejects stepped deformation and scenery warping. Rest pose pending whole-object Grok motion reference and authored replacement."
     },
     {
       "id": "castle_approach_bank",
@@ -490,7 +510,9 @@
         357,
         244
       ],
-      "sha256": "51db61fe889c592101da78c25fe11a7a5eae60f432776c44351dcf739f5ef895"
+      "sha256": "51db61fe889c592101da78c25fe11a7a5eae60f432776c44351dcf739f5ef895",
+      "motion_enabled": false,
+      "motion_review": "QUARANTINED: owner rejects stepped deformation and scenery warping. Rest pose pending whole-object Grok motion reference and authored replacement."
     },
     {
       "id": "castle_far_bank",
@@ -520,7 +542,9 @@
         507,
         188
       ],
-      "sha256": "1d142afe16486fbc9cf308839db4b39fafafca5e335854d6548b461293dff522"
+      "sha256": "1d142afe16486fbc9cf308839db4b39fafafca5e335854d6548b461293dff522",
+      "motion_enabled": false,
+      "motion_review": "QUARANTINED: owner rejects stepped deformation and scenery warping. Rest pose pending whole-object Grok motion reference and authored replacement."
     },
     {
       "id": "arrival_high_left",
@@ -955,6 +979,6 @@
       "sha256": "62c296984d8daf9b4d3913438eb84740be27b23762b84c534f52195d75f9b8f6"
     }
   ],
-  "raw_rgba_mib": 91.32670593261719,
-  "limits": "Twelve separated clouds have three or four cels with independent pose/drift clocks; eight use direct Aseprite deformation of original paint. Low cloud sea is incomplete. One new foreground grass accent does not solve broad lawn coverage. Owner/device acceptance pending."
+  "raw_rgba_mib": 89.92790222167969,
+  "limits": "Owner rejects motion smoothness and reported uphill path warping. Twelve grass/shrub cards are temporarily static pending replacement, not accepted animation. Other motion remains under review; no owner/device acceptance."
 }

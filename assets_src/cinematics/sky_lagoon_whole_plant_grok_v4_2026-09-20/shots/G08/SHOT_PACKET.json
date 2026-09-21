@@ -1,0 +1,87 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "sky_lagoon_whole_plant_grok_v4_2026-09-20",
+  "shot_id": "G08",
+  "title": "Lower lawn wind",
+  "status": "DRAFT",
+  "duration_seconds": 1,
+  "duration_policy": "One-second micro-study when supported; shortest actually offered surface. Use six-second conditional prompt only if six seconds is the observed UI minimum. Record interface/model/minimum/date. No API execution or key requested by this handoff.",
+  "aspect_ratio": "1133:357",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "shots/G08/IMAGE_1.png",
+      "sha256": "769e6e8e5973b48aca9bb2f466fd7ca98bbb9706a2e8c8a8b8fe1b471cafe000",
+      "hud_present": false,
+      "remote_url": null,
+      "human_decision": "approved source reused; exact crop and proposed action pending packet review"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "shots/G08/IMAGE_2.png",
+      "sha256": "94a4453e744e98b27ab07362d5531d497dc1578948c05387c88fb684a350cd87",
+      "hud_present": false,
+      "remote_url": null,
+      "human_decision": "approved source reused; exact crop and proposed action pending packet review",
+      "source_crop_within_IMAGE_1": [
+        200,
+        70,
+        650,
+        250
+      ]
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "the low grass in the open foreground bends gently from fixed bases, with a slight trailing leaf-tip response"
+  ],
+  "must_not_move": [
+    "ground texture, roots, path and all surrounding plants"
+  ],
+  "end_state": "original rooted silhouette, no abrupt loop snap",
+  "negative_constraints": [
+    "no terrain or path deformation",
+    "no identity, topology or palette drift",
+    "no camera motion, HUD or text"
+  ],
+  "prompt_path": "shots/G08/PROMPT.txt",
+  "prompt_sha256": "0a89c4e364837693c2c6bffccfa96a37a1f489a51239c957aed082d6e9ebecee",
+  "sound_intent": "silence",
+  "runtime_owners": "meadow_lower_lawn",
+  "interface_contract": "Upload IMAGE_1 as the initial image on single-image I2V. IMAGE_2 is a detail of that same painting for operator identity/material review, not an alternative layout or second timeline frame. Preserve native aspect.",
+  "acceptance": {
+    "ARCHIVE_COMPLETE": false,
+    "GENERATION_READY": false,
+    "DELIVERY_ACCEPTED": false
+  },
+  "return_requirements": [
+    "native video file committed in return branch, not merely a JSON path/hash",
+    "actual model/interface/duration/fps/dimensions and input/output hashes",
+    "full-speed review and frame-by-frame ground/path stability",
+    "reject stalled repeated poses, branch melting, sliding roots and global grade change"
+  ],
+  "conditional_prompt_variants": [
+    {
+      "path": "shots/G08/PROMPT_UI_6S_IF_MINIMUM.txt",
+      "sha256": "5e72045749ed2379455845e3b8c05114796ebac73221a56e43503637185af271",
+      "duration_seconds": 6,
+      "condition": "operator verifies6s is shortest offered",
+      "action_span_seconds": [
+        0,
+        1
+      ],
+      "intentional_hold_seconds": [
+        1,
+        6
+      ],
+      "hold_purpose": "unavoidable interface tail after complete micro-study; not runtime animation or concealed missing action"
+    }
+  ]
+}

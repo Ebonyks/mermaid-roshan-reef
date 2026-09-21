@@ -1,0 +1,69 @@
+{
+  "status": "REVIEW_PROTOCOL_DRAFT",
+  "purpose": "Reject smooth-looking scenery deformation as well as stepped animation. No numeric quality score inferred from structural metrics.",
+  "first_batch": [
+    "G06",
+    "G10",
+    "G13"
+  ],
+  "minimum_duration": "One-second micro-study by default. Six-second UI fallback requires verified minimum and has a declared1-6s quiet tail. Review the moving interval separately from that tail.",
+  "required_return_files": [
+    "native.mp4",
+    "first.png",
+    "peak_right.png",
+    "peak_left.png",
+    "last.png",
+    "contact_sheet.jpg",
+    "RETURN.json"
+  ],
+  "return_json": {
+    "shot_id": "",
+    "take": 1,
+    "model": "",
+    "interface": "",
+    "requested_duration_seconds": null,
+    "actual_duration_seconds": null,
+    "actual_fps": null,
+    "native_dimensions": null,
+    "image_1_sha256": "",
+    "prompt_sha256": "",
+    "native_sha256": "",
+    "native_relative_path": "",
+    "review_decision": "PENDING",
+    "root_landmarks": [],
+    "static_path_or_terrain_masks": [],
+    "failure_notes": []
+  },
+  "review_order": [
+    {
+      "check": "Opening identity",
+      "reject": "Leaf/stem/berry count, branch topology, root, lighting or framing already differs materially from source."
+    },
+    {
+      "check": "Terrain and route",
+      "reject": "Any visible ground flow, hill breathing, changing path width, shifted paving or house/rock movement. Check interior as well as silhouette."
+    },
+    {
+      "check": "Whole plant",
+      "reject": "Only a highlight patch moves, the plant slides rigidly, or roots detach. Trace major branches and leaf attachments throughout."
+    },
+    {
+      "check": "Timing",
+      "reject": "Long repeated poses punctuated by jumps, stalled mid-bend, discontinuous reversals. Inspect full speed and adjacent frames; average fps alone proves nothing."
+    },
+    {
+      "check": "Color",
+      "reject": "Global exposure, saturation or hue pulse; branch undersides changing visibility must be distinguished from grade drift."
+    },
+    {
+      "check": "Loop",
+      "reject": "A visible first/last transition, mismatched velocity at seam, or crossfade ghosting. Similar endpoints alone are insufficient."
+    },
+    {
+      "check": "Runtime translation",
+      "reject": "Aseprite reconstruction fails to retain the reviewed motion or introduces root/path leakage. Validate at actual screen size with all ambient layers active."
+    }
+  ],
+  "integration_policy": "Keep Grok originals as motion reference. Author complete coherent sprites, never turn a video crop containing ground into a warped runtime tile. Use enough distinct cels for the chosen motion; do not duplicate frames to meet a count. Start at24 for broad plant cycles and increase only where visual cadence requires it. Preserve editable rest art and clean static ground.",
+  "known_counterexample": "castle_approach_bank retired cels change793 pixels in the ten-pixel source-space uphill-path corridor, max56codes; source diagnostic pending GPU confirmation."
+}

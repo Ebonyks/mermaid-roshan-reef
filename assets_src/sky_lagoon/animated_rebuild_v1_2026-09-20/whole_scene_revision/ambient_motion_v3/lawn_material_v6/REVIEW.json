@@ -1,0 +1,300 @@
+{
+  "status": "SOURCE_PILOT_NOT_INTEGRATED",
+  "method": "Direct Aseprite whole grass-paint cels. Individually reviewed grass-only polygons excluding neighboring shrubs and paths, 32px interior feather, fixed 20px source border and fixed 28px anchor rows. No added tuft scatter or generated-sheet pixels.",
+  "regions": [
+    {
+      "id": "arrival_lawn",
+      "source": "assets_src\\sky_lagoon\\animated_rebuild_v1_2026-09-20\\whole_scene_revision\\grass\\arrival_lawn\\frame-00.png",
+      "source_sha256": "58e7c4e6efda1e43d141496018bfa31bb28b5859482c00e78842fb86101f38f7",
+      "rect": [
+        572,
+        1648,
+        817,
+        349
+      ],
+      "polygon_local": [
+        [
+          25,
+          20
+        ],
+        [
+          690,
+          20
+        ],
+        [
+          675,
+          60
+        ],
+        [
+          590,
+          115
+        ],
+        [
+          560,
+          155
+        ],
+        [
+          485,
+          210
+        ],
+        [
+          400,
+          268
+        ],
+        [
+          410,
+          320
+        ],
+        [
+          185,
+          325
+        ],
+        [
+          180,
+          275
+        ],
+        [
+          115,
+          250
+        ],
+        [
+          92,
+          190
+        ],
+        [
+          40,
+          125
+        ]
+      ],
+      "frames": 4,
+      "unique_frames": 4,
+      "rest_exact": true,
+      "fixed_area_exact": true,
+      "anchor_rows_exact": true,
+      "native_reopen_exact": true,
+      "motion_mask_pixels": 135939,
+      "runtime_trial_overlay": "overlay-0.png through overlay-3.png; identical alpha mask in every pose; excludes source outside grass boundary",
+      "krita_source": "lawn-four-pose-groups.ora; four editable pose layers, not a native animation timeline"
+    },
+    {
+      "id": "meadow_upper_left",
+      "source": "assets_src\\sky_lagoon\\animated_rebuild_v1_2026-09-20\\whole_scene_revision\\grass\\meadow_upper_left\\frame-00.png",
+      "source_sha256": "335344b7fdd3d5fd293c43806d7d2fa6371d7e0f7a7935e7632e5cf3f5919c7e",
+      "rect": [
+        2068,
+        1212,
+        625,
+        293
+      ],
+      "polygon_local": [
+        [
+          125,
+          145
+        ],
+        [
+          280,
+          112
+        ],
+        [
+          440,
+          65
+        ],
+        [
+          600,
+          42
+        ],
+        [
+          606,
+          270
+        ],
+        [
+          220,
+          270
+        ],
+        [
+          185,
+          235
+        ],
+        [
+          160,
+          218
+        ],
+        [
+          146,
+          180
+        ]
+      ],
+      "frames": 4,
+      "unique_frames": 4,
+      "rest_exact": true,
+      "fixed_area_exact": true,
+      "anchor_rows_exact": true,
+      "native_reopen_exact": true,
+      "motion_mask_pixels": 81688,
+      "runtime_trial_overlay": "overlay-0.png through overlay-3.png; identical alpha mask in every pose; excludes source outside grass boundary",
+      "krita_source": "lawn-four-pose-groups.ora; four editable pose layers, not a native animation timeline"
+    },
+    {
+      "id": "meadow_upper_right",
+      "source": "assets_src\\sky_lagoon\\animated_rebuild_v1_2026-09-20\\whole_scene_revision\\grass\\meadow_upper_right\\frame-00.png",
+      "source_sha256": "14695c8649ecc6f9ff12a5e4a6a4abb289fefb68c929c1bbad7b0906acc543a4",
+      "rect": [
+        2588,
+        1212,
+        1149,
+        309
+      ],
+      "polygon_local": [
+        [
+          25,
+          45
+        ],
+        [
+          200,
+          25
+        ],
+        [
+          1100,
+          40
+        ],
+        [
+          1120,
+          280
+        ],
+        [
+          25,
+          285
+        ]
+      ],
+      "frames": 4,
+      "unique_frames": 4,
+      "rest_exact": true,
+      "fixed_area_exact": true,
+      "anchor_rows_exact": true,
+      "native_reopen_exact": true,
+      "motion_mask_pixels": 271011,
+      "runtime_trial_overlay": "overlay-0.png through overlay-3.png; identical alpha mask in every pose; excludes source outside grass boundary",
+      "krita_source": "lawn-four-pose-groups.ora; four editable pose layers, not a native animation timeline"
+    },
+    {
+      "id": "meadow_lower_lawn",
+      "source": "assets_src\\sky_lagoon\\animated_rebuild_v1_2026-09-20\\whole_scene_revision\\grass\\meadow_lower_lawn\\frame-00.png",
+      "source_sha256": "e24010773179fcf246290a63d778783f8c01391b2bf6f0da7df5b33d2731cea1",
+      "rect": [
+        2544,
+        1676,
+        1133,
+        357
+      ],
+      "polygon_local": [
+        [
+          25,
+          65
+        ],
+        [
+          1090,
+          65
+        ],
+        [
+          980,
+          122
+        ],
+        [
+          820,
+          179
+        ],
+        [
+          745,
+          236
+        ],
+        [
+          742,
+          332
+        ],
+        [
+          190,
+          330
+        ],
+        [
+          205,
+          285
+        ],
+        [
+          240,
+          245
+        ],
+        [
+          190,
+          200
+        ],
+        [
+          100,
+          150
+        ],
+        [
+          50,
+          125
+        ]
+      ],
+      "frames": 4,
+      "unique_frames": 4,
+      "rest_exact": true,
+      "fixed_area_exact": true,
+      "anchor_rows_exact": true,
+      "native_reopen_exact": true,
+      "motion_mask_pixels": 187298,
+      "runtime_trial_overlay": "overlay-0.png through overlay-3.png; identical alpha mask in every pose; excludes source outside grass boundary",
+      "krita_source": "lawn-four-pose-groups.ora; four editable pose layers, not a native animation timeline"
+    }
+  ],
+  "limits": [
+    "Material deformation is not individual blade redraw; natural movement remains open.",
+    "No new GPU or camera-pan evidence for these six variants.",
+    "Revised polygons visually exclude the identified source plants and path; actual scene verification remains required.",
+    "Not native Krita timelines."
+  ],
+  "visual_boundary_review": "Inspected original and revised overlay board. The four revised masks exclude visible neighboring shrub silhouettes, rocks and path surfaces. Castle verge regions remain excluded; they require whole-object animation ownership.",
+  "color_diagnostics": [
+    {
+      "id": "arrival_lawn",
+      "median_linear_luminance_per_cel": [
+        0.23341920263683147,
+        0.23347762848663686,
+        0.23364651862809852,
+        0.2336086781888608
+      ],
+      "range": 0.00022731599126704638
+    },
+    {
+      "id": "meadow_upper_left",
+      "median_linear_luminance_per_cel": [
+        0.25736185624321356,
+        0.25767423508076526,
+        0.25767423508076526,
+        0.2578750847159211
+      ],
+      "range": 0.0005132284727075165
+    },
+    {
+      "id": "meadow_upper_right",
+      "median_linear_luminance_per_cel": [
+        0.3828001080847497,
+        0.3828791404933218,
+        0.38293005828216026,
+        0.38293005828216026
+      ],
+      "range": 0.00012995019741057767
+    },
+    {
+      "id": "meadow_lower_lawn",
+      "median_linear_luminance_per_cel": [
+        0.24673864486753486,
+        0.24691001604662766,
+        0.24686691392296375,
+        0.24685881717364944
+      ],
+      "range": 0.00017137117909279964
+    }
+  ],
+  "color_limits": "No intentional recoloring. Pixel interpolation changes local samples; whole-patch medians do not prove perceived flicker or cross-layer coherence."
+}

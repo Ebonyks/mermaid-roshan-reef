@@ -21,7 +21,9 @@ func run() -> void:
 			parent.add_child(tile)
 	var state: Dictionary = {"saved_progress": 17}
 	check("opt_in_only", not Whole.build(state, parent, false) and parent.get_child_count() == 12)
-	check("complete_build", Whole.build(state, parent, true) and parent.get_child_count() == 40)
+	check("complete_build", Whole.build(state, parent, true) and parent.get_child_count() == 66
+		and (state.get("lagoon_cloud_bank_cards", []) as Array).size() == 8
+		and (state.get("lagoon_grass_groups", []) as Array).size() == 18)
 	var rosette: Sprite2D = parent.get_node_or_null("WholeScene_castle_foreground_rosette") as Sprite2D
 	check("rosette_six_cels_foreground", rosette != null and rosette.hframes == 2 and rosette.vframes == 4 and rosette.z_index == 4 and int((rosette.get_meta("definition") as Dictionary)["frames"]) == 6)
 	var meadow: Sprite2D = parent.get_node_or_null("WholeScene_meadow_boundary_berry_fan") as Sprite2D
@@ -63,8 +65,14 @@ func run() -> void:
 	for value: Variant in state.get("lagoon_whole_cards", []):
 		var card: Sprite2D = value as Sprite2D
 		var row: Dictionary = card.get_meta("definition") as Dictionary
-		all_frames = all_frames and (seen[card.name] as Dictionary).size() == int(row["frames"])
-	check("2400_ticks_all_declared_frames_no_padding_cells", bounds_ok and all_frames)
+		var declared_moving: bool = bool(row.get("motion_enabled", true))
+		var expected_frames: int = int(row["frames"]) if declared_moving else 1
+		all_frames = all_frames and (seen[card.name] as Dictionary).size() == expected_frames
+		if str(row["id"]) in ["arrival_lawn", "meadow_upper_left", "meadow_upper_right", "meadow_lower_lawn", "castle_left_verge", "castle_right_verge", "arrival_bank_left", "arrival_bank_right", "meadow_hedge_left", "meadow_hedge_right", "castle_approach_bank", "castle_far_bank"]:
+			check("rejected_deformations_rest_only_" + str(row["id"]), not declared_moving and card.frame == 0)
+		else:
+			check("complete_owner_remains_animated_" + str(row["id"]), declared_moving)
+	check("2400_ticks_enabled_frames_and_static_fragment_rests", bounds_ok and all_frames)
 	var time_before: float = float(state["lagoon_whole_t"])
 	for step: int in range(600):
 		Whole.tick(state, 0.016, true)
@@ -118,6 +126,10 @@ func run() -> void:
 			if entry["id"] == "arrival_high_left":
 				entry["pose_cycle"] = invalid
 		bad_cases.append(bad)
+	for invalid: Variant in [1, "false", null]:
+		bad = document.duplicate(true)
+		bad["cards"][0]["motion_enabled"] = invalid
+		bad_cases.append(bad)
 	var atomic: bool = true
 	for value: Variant in bad_cases:
 		var file := FileAccess.open("user://sky-whole-fault.json", FileAccess.WRITE)
@@ -127,7 +139,7 @@ func run() -> void:
 		for tile: Node in parent.get_children():
 			atomic = atomic and (tile as Sprite2D).texture == original
 	DirAccess.remove_absolute(ProjectSettings.globalize_path("user://sky-whole-fault.json"))
-	check("ten_fault_cases_including_bad_pose_clocks_no_partial_scene_mutation", atomic)
+	check("thirteen_fault_cases_including_bad_motion_flags_no_partial_scene_mutation", atomic)
 	var rebuilds: bool = true
 	for cycle: int in range(40):
 		rebuilds = rebuilds and Whole.build(state, parent, true)
@@ -136,6 +148,17 @@ func run() -> void:
 		rebuilds = rebuilds and parent.get_child_count() == 12
 	check("40_rebuilds_no_orphan_cards_or_save_mutation", rebuilds and state["saved_progress"] == 17)
 	Whole.build(state, parent, true)
+	state["lagoon_environment_motion_enabled"] = true
+	state["lagoon_plants_motion_enabled"] = true
+	var cloud_cards: Array = state["lagoon_cloud_bank_cards"] as Array
+	var grass_cards: Array = state["lagoon_grass_groups"] as Array
+	(cloud_cards[0] as Sprite2D).free()
+	(grass_cards[0] as Sprite2D).free()
+	for step: int in range(20):
+		Whole.tick(state, 0.1, false)
+	check("surviving_cloud_and_grass_update_after_sibling_free",
+		(cloud_cards[1] as Sprite2D).region_rect.position.x == 1026.0
+		and (grass_cards[1] as Sprite2D).frame == 1)
 	parent.free()
 	Whole.tick(state, 0.1, false)
 	Whole.clear(state)

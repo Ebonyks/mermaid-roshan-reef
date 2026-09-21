@@ -7115,3 +7115,223 @@ Sky Lagoon animated rebuild source checkpoint (2026-09-20; review only):
 - `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/animal_cells_v5/integrated_review/day_otter_fixed_pose3.png` — Local Godot4.7.2 Mobile review capture of existing project artwork; original asset provenance retained; no external URL. Unmodified runtime diagnostic capture; fixed-position poses inspect contour only.
 
 - `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/animal_cells_v5/integrated_review/day_squirrel_fixed_pose3.png` — Local Godot4.7.2 Mobile review capture of existing project artwork; original asset provenance retained; no external URL. Unmodified runtime diagnostic capture; fixed-position poses inspect contour only.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/castle_fragments_v6/ownership.jpg` — Local Sky Lagoon source-space diagnostic or Godot 4.7.2 Mobile review capture, using existing project artwork and provenance; no external URL. Annotated/cropped comparison; review only.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/castle_fragments_v6/runtime-contribution.jpg` — Local Sky Lagoon source-space diagnostic or Godot 4.7.2 Mobile review capture, using existing project artwork and provenance; no external URL. Annotated/cropped comparison; review only.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/castle_fragments_v6/canvas_screen_3_day_rest.png` — Local Sky Lagoon source-space diagnostic or Godot 4.7.2 Mobile review capture, using existing project artwork and provenance; no external URL. Unmodified diagnostic capture; historical poses forced for comparison, not production motion.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/castle_fragments_v6/canvas_screen_3_day_historical_fragment_pose3.png` — Local Sky Lagoon source-space diagnostic or Godot 4.7.2 Mobile review capture, using existing project artwork and provenance; no external URL. Unmodified diagnostic capture; historical poses forced for comparison, not production motion.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/castle_fragments_v6/canvas_screen_3_day_restored3.png` — Local Sky Lagoon source-space diagnostic or Godot 4.7.2 Mobile review capture, using existing project artwork and provenance; no external URL. Unmodified diagnostic capture; historical poses forced for comparison, not production motion.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/castle_fragments_v6/canvas_screen_3_night_rest.png` — Local Sky Lagoon source-space diagnostic or Godot 4.7.2 Mobile review capture, using existing project artwork and provenance; no external URL. Unmodified diagnostic capture; historical poses forced for comparison, not production motion.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/castle_fragments_v6/canvas_screen_3_night_historical_fragment_pose3.png` — Local Sky Lagoon source-space diagnostic or Godot 4.7.2 Mobile review capture, using existing project artwork and provenance; no external URL. Unmodified diagnostic capture; historical poses forced for comparison, not production motion.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/castle_fragments_v6/canvas_screen_3_night_restored3.png` — Local Sky Lagoon source-space diagnostic or Godot 4.7.2 Mobile review capture, using existing project artwork and provenance; no external URL. Unmodified diagnostic capture; historical poses forced for comparison, not production motion.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/ownership-board.jpg` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/arrival_lawn/rest.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/arrival_lawn/motion-mask.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/arrival_lawn/whole-lawn-four-cels.aseprite` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/arrival_lawn/lawn-four-pose-groups.ora` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/arrival_lawn/cel-0.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/arrival_lawn/cel-1.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/arrival_lawn/cel-2.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/arrival_lawn/cel-3.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/arrival_lawn/overlay-0.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/arrival_lawn/overlay-1.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/arrival_lawn/overlay-2.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/arrival_lawn/overlay-3.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_left/rest.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_left/motion-mask.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_left/whole-lawn-four-cels.aseprite` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_left/lawn-four-pose-groups.ora` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_left/cel-0.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_left/cel-1.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_left/cel-2.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_left/cel-3.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_left/overlay-0.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_left/overlay-1.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_left/overlay-2.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_left/overlay-3.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_right/rest.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_right/motion-mask.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_right/whole-lawn-four-cels.aseprite` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_right/lawn-four-pose-groups.ora` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_right/cel-0.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_right/cel-1.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_right/cel-2.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_right/cel-3.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_right/overlay-0.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_right/overlay-1.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_right/overlay-2.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_upper_right/overlay-3.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_lower_lawn/rest.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_lower_lawn/motion-mask.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_lower_lawn/whole-lawn-four-cels.aseprite` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_lower_lawn/lawn-four-pose-groups.ora` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_lower_lawn/cel-0.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_lower_lawn/cel-1.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_lower_lawn/cel-2.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_lower_lawn/cel-3.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_lower_lawn/overlay-0.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_lower_lawn/overlay-1.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_lower_lawn/overlay-2.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/meadow_lower_lawn/overlay-3.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/source_gpu_review/day-comparison.jpg` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/source_gpu_review/night-comparison.jpg` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/source_gpu_review/canvas_screen_1_day_p0_cel1.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/source_gpu_review/canvas_screen_3_night_p0_cel1.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/source_gpu_review/canvas_screen_2_day_p0_cel1.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/source_gpu_review/canvas_screen_3_night_p1_cel1.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/source_gpu_review/canvas_screen_3_day_p0_cel1.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/source_gpu_review/canvas_screen_3_night_p2_cel1.png` — Derived from approved Sky Lagoon project art; original provenance retained. Local Aseprite grass-material cels, authored masks, editable pose layers or Godot 4.7.2 review capture; no external URL. Non-destructive source variant; visual acceptance remains open.
+
+- `assets/sprites/sky_lagoon/whole_scene_v2/arrival_lawn.png` — v6 local Aseprite four-cel bounded whole-lawn material, derived from existing approved panorama through `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/`; source provenance retained, no external URL. Replaces isolated-highlight preview motion; original stage and prior Git checkpoint retained.
+
+- `assets/sprites/sky_lagoon/whole_scene_v2/meadow_lower_lawn.png` — v6 local Aseprite four-cel bounded whole-lawn material, derived from existing approved panorama through `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/`; source provenance retained, no external URL. Replaces isolated-highlight preview motion; original stage and prior Git checkpoint retained.
+
+- `assets/sprites/sky_lagoon/whole_scene_v2/meadow_upper_left.png` — v6 local Aseprite four-cel bounded whole-lawn material, derived from existing approved panorama through `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/`; source provenance retained, no external URL. Replaces isolated-highlight preview motion; original stage and prior Git checkpoint retained.
+
+- `assets/sprites/sky_lagoon/whole_scene_v2/meadow_upper_right.png` — v6 local Aseprite four-cel bounded whole-lawn material, derived from existing approved panorama through `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/`; source provenance retained, no external URL. Replaces isolated-highlight preview motion; original stage and prior Git checkpoint retained.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/imported_review/canvas_screen_1_day_p0_lawn1.png` — Local Godot 4.7.2 Mobile capture of existing project art and derived Aseprite grass; original provenance retained, no external URL. Unmodified imported-runtime diagnostic pose.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/imported_review/canvas_screen_2_day_p0_lawn1.png` — Local Godot 4.7.2 Mobile capture of existing project art and derived Aseprite grass; original provenance retained, no external URL. Unmodified imported-runtime diagnostic pose.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/imported_review/canvas_screen_3_day_p0_lawn1.png` — Local Godot 4.7.2 Mobile capture of existing project art and derived Aseprite grass; original provenance retained, no external URL. Unmodified imported-runtime diagnostic pose.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/imported_review/canvas_screen_3_night_p0_lawn1.png` — Local Godot 4.7.2 Mobile capture of existing project art and derived Aseprite grass; original provenance retained, no external URL. Unmodified imported-runtime diagnostic pose.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/imported_review/canvas_screen_3_night_p1_lawn1.png` — Local Godot 4.7.2 Mobile capture of existing project art and derived Aseprite grass; original provenance retained, no external URL. Unmodified imported-runtime diagnostic pose.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/imported_review/canvas_screen_3_night_p2_lawn1.png` — Local Godot 4.7.2 Mobile capture of existing project art and derived Aseprite grass; original provenance retained, no external URL. Unmodified imported-runtime diagnostic pose.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/imported_review/day-comparison.jpg` — Local Godot 4.7.2 Mobile capture of existing project art and derived Aseprite grass; original provenance retained, no external URL. Arranged before/after review board.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/imported_review/night-comparison.jpg` — Local Godot 4.7.2 Mobile capture of existing project art and derived Aseprite grass; original provenance retained, no external URL. Arranged before/after review board.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v6/material-samples.jpg` — Derived review-only contact sheet from six existing project Mobile captures in `lawn_material_v6/imported_review`; source hashes and sample rectangles in adjacent AUDIT.json. Same underlying project-art provenance; cropped/resized for inspection, no external source or new runtime art.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/approved_panorama.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G06/IMAGE_1.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G06/IMAGE_2.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G07/IMAGE_1.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G07/IMAGE_2.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G08/IMAGE_1.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G08/IMAGE_2.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G09/IMAGE_1.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G09/IMAGE_2.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G10/IMAGE_1.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G10/IMAGE_2.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G11/IMAGE_1.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G11/IMAGE_2.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G12/IMAGE_1.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G12/IMAGE_2.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G13/IMAGE_1.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/shots/G13/IMAGE_2.png` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/SHOT_BOARD.jpg` — Existing approved Sky Lagoon panorama source `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png`; same project source/license authority; lossless crop or review-board resize as recorded in ARCHIVE_MANIFEST.json. No new generated art; reference only.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/archive_runtime_stage_1.png` — Unchanged project runtime capture from `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/imported_review/canvas_screen_1_day_p0_lawn1.png`; contextual review only, HUD present, never generation pixels.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/archive_runtime_stage_2.png` — Unchanged project runtime capture from `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/imported_review/canvas_screen_2_day_p0_lawn1.png`; contextual review only, HUD present, never generation pixels.
+
+- `assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20/archive_runtime_stage_3.png` — Unchanged project runtime capture from `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/imported_review/canvas_screen_3_day_p0_lawn1.png`; contextual review only, HUD present, never generation pixels.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/motion_quarantine_v7/path-path-core-mask.png` â€” Project-authored path audit from approved panorama and retired castle_approach_bank cels; review-only markings/mask, never generator or runtime pixels. Source-space diagnostic, not GPU proof.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/motion_quarantine_v7/path-path-overlap.png` â€” Project-authored path audit from approved panorama and retired castle_approach_bank cels; review-only markings/mask, never generator or runtime pixels. Source-space diagnostic, not GPU proof.

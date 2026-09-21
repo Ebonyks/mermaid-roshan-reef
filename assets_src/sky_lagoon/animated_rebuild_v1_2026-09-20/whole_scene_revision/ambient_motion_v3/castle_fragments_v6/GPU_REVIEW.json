@@ -1,0 +1,58 @@
+{
+  "status": "RENDERED_VISIBILITY_MEASURED",
+  "checks": [
+    {
+      "mode": "day",
+      "id": "castle_left_verge",
+      "visible_contribution_pixels_over_2_codes": 175,
+      "moving_pixels_over_2_codes": 156,
+      "visible_bbox_xyxy": [
+        703,
+        610,
+        879,
+        720
+      ],
+      "interpretation": "Actual rendered contribution only; source-space audit establishes that this legacy grass owner includes leaf/rock fragments."
+    },
+    {
+      "mode": "day",
+      "id": "castle_right_verge",
+      "visible_contribution_pixels_over_2_codes": 75,
+      "moving_pixels_over_2_codes": 64,
+      "visible_bbox_xyxy": [
+        1174,
+        670,
+        1280,
+        720
+      ],
+      "interpretation": "Actual rendered contribution only; source-space audit establishes that this legacy grass owner includes leaf/rock fragments."
+    },
+    {
+      "mode": "night",
+      "id": "castle_left_verge",
+      "visible_contribution_pixels_over_2_codes": 155,
+      "moving_pixels_over_2_codes": 123,
+      "visible_bbox_xyxy": [
+        703,
+        610,
+        879,
+        720
+      ],
+      "interpretation": "Actual rendered contribution only; source-space audit establishes that this legacy grass owner includes leaf/rock fragments."
+    },
+    {
+      "mode": "night",
+      "id": "castle_right_verge",
+      "visible_contribution_pixels_over_2_codes": 66,
+      "moving_pixels_over_2_codes": 48,
+      "visible_bbox_xyxy": [
+        1174,
+        670,
+        1280,
+        720
+      ],
+      "interpretation": "Actual rendered contribution only; source-space audit establishes that this legacy grass owner includes leaf/rock fragments."
+    }
+  ],
+  "decision": "Review visual fragments before changing runtime ownership. Whole-plant animation remains separately owned."
+}

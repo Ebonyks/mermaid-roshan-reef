@@ -75,9 +75,9 @@ static func tick(state: Dictionary, delta: float, paused: bool) -> void:
 		state["lagoon_cloud_bank_t"] = timer
 	var cards: Array = state["lagoon_cloud_bank_cards"] as Array
 	for index: int in range(cards.size()):
-		var card: Sprite2D = cards[index] as Sprite2D
-		if not is_instance_valid(card):
+		if not is_instance_valid(cards[index]):
 			continue
+		var card: Sprite2D = cards[index] as Sprite2D
 		var definition: Dictionary = CARDS[index]
 		var cycle: float = float(definition["cycle"])
 		var frame: int = mini(3, int(fposmod(timer, cycle) / cycle * 4.0)) if enabled else 0

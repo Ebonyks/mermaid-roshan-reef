@@ -29,7 +29,12 @@ for family,cel,under,cycle in [('grass','blades','soil-fixed.png',2.8),('shrubs'
    definition=motion['grass'];factor=definition['world_scale'];w,h=definition['source_size'];px,py=definition['root'];wx,wy=definition['world_root']
    pack(row['id'],[Image.open(ambient/'grass'/f'cel-{k:02d}.png').convert('RGBA') for k in range(4)],[wx-px*factor,wy-py*factor,w*factor,h*factor],definition['cycle'],'foreground')
    continue
-  p=S/family/row['id'];frames=[Image.open(p/f'{cel}-{k:02d}.png').convert('RGBA') for k in range(4)];x,y,w,h=row['rect'];base.paste(Image.open(p/under).convert('RGBA'),(x,y),frames[0].getchannel('A'));pack(row['id'],frames,row['rect'],cycle,family)
+  p=S/family/row['id'];frames=[Image.open(p/f'{cel}-{k:02d}.png').convert('RGBA') for k in range(4)];x,y,w,h=row['rect']
+  # Preserve the existing underpaint removal mask; the new material owns only its reviewed lawn polygon.
+  base.paste(Image.open(p/under).convert('RGBA'),(x,y),frames[0].getchannel('A'))
+  whole_lawn=family=='grass' and row['id'] in ['arrival_lawn','meadow_upper_left','meadow_upper_right','meadow_lower_lawn']
+  if whole_lawn:frames=[Image.open(ambient/'lawn_material_v6'/row['id']/f'overlay-{k}.png').convert('RGBA') for k in range(4)]
+  pack(row['id'],frames,row['rect'],1.4 if whole_lawn else cycle,family)
 for row in json.loads((S/'clouds/SOURCE.json').read_text())['clouds']:
  if row['id'] in cloud_motion:
   definition=cloud_motion[row['id']];x,y,w,h=row['rect'];ox,oy=definition['position_offset'];folder=ambient/definition['source_dir']
@@ -51,6 +56,9 @@ backing=Image.open(meadow/'generated-backing-native.png').convert('RGBA').resize
 base.paste(backing,(1750,1560),mask)
 pack('meadow_boundary_berry_fan',[Image.open(meadow/f'cel-{k:02d}.png').convert('RGBA') for k in range(8)],[1785,1590,516,395],2.4,'foreground')
 for card in cards:
+ if card['family'] in ['grass','shrubs']:
+  card['motion_enabled']=False
+  card['motion_review']='QUARANTINED: owner rejects stepped deformation and scenery warping. Rest pose pending whole-object Grok motion reference and authored replacement.'
  image=Image.open(O/card['file']).convert('RGBA');cols,rows=card['columns'],card['rows'];cw,ch=image.width//cols,image.height//rows
  cells=[image.crop((k%cols*cw,k//cols*ch,(k%cols+1)*cw,(k//cols+1)*ch)) for k in range(card['frames'])]
  union=Image.new('L',(cw,ch))
@@ -69,5 +77,5 @@ for r in range(2):
  for c in range(6):
   name=f'base_r{r}_c{c}.png';base.crop((c*1024,r*1024,(c+1)*1024,(r+1)*1024)).save(O/name);tiles.append({'file':name,'size':[1024,1024],'node':f'SkyLagoonBackdrop_r{r}_c{c}'})
 for row in tiles+cards:row['sha256']=hashlib.sha256((O/row['file']).read_bytes()).hexdigest()
-manifest={'schema':1,'status':'OPT_IN_UNACCEPTED_TRIAL','tiles':tiles,'cards':cards,'raw_rgba_mib':sum(r['size'][0]*r['size'][1]*4 for r in tiles+cards)/1048576,'limits':'Twelve separated clouds have three or four cels with independent pose/drift clocks; eight use direct Aseprite deformation of original paint. Low cloud sea is incomplete. One new foreground grass accent does not solve broad lawn coverage. Owner/device acceptance pending.'}
+manifest={'schema':1,'status':'OPT_IN_UNACCEPTED_TRIAL','tiles':tiles,'cards':cards,'raw_rgba_mib':sum(r['size'][0]*r['size'][1]*4 for r in tiles+cards)/1048576,'limits':'Owner rejects motion smoothness and reported uphill path warping. Twelve grass/shrub cards are temporarily static pending replacement, not accepted animation. Other motion remains under review; no owner/device acceptance.'}
 (O/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8');print('WHOLE_PACK',len(tiles),'tiles',len(cards),'cards',manifest['raw_rgba_mib'],'MiB')
