@@ -1,0 +1,34 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+BOUGHCELS|original_unchanged|OK
+BOUGHCELS|build_replaces_painted_copy|OK
+BOUGHCELS|three_cels_never_unused_fourth|OK
+BOUGHCELS|2400_ticks_fixed_source_geometry|OK
+BOUGHCELS|pause_freezes_pose_and_clock|OK
+BOUGHCELS|static_rest_lagoon_environment_motion_enabled|OK
+BOUGHCELS|static_rest_lagoon_plants_motion_enabled|OK
+BOUGHCELS|40_rebuilds_preserve_rollback_and_night_tint|OK
+BOUGHCELS|rollback_restores_original_texture_and_removes_card|OK
+BOUGHCELS|freed_parent_idempotent_cleanup|OK
+BOUGHCELS|no_progress_mutation|OK
+BOUGHCELS|RESULT|ALL OK
+
+Flow regression: Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SKYFLOW|preview_option_survives_build|OK
+SKYFLOW|sloped_route_constant_speed_both_directions|OK
+SKYFLOW|far_tap_requests_travel|OK
+SKYFLOW|repeat_taps_cannot_enter_remotely|OK
+SKYFLOW|cancel_preserves_position_and_save|OK
+SKYFLOW|door_drag_same_request|OK
+SKYFLOW|door_arrival_after_bridge_contact|OK
+SKYFLOW|exact_castle_return|OK
+SKYFLOW|return_does_not_reenter|OK
+SKYFLOW|near_tap_reentry_and_return_three_cycles|OK
+SKYFLOW|water_tap_cancels_old_door_request|OK
+SKYFLOW|out_of_bounds_clamped|OK
+SKYFLOW|zero_input_does_not_enter|OK
+SKYFLOW|RESULT|ALL OK
+
+Mobile imported-asset fixture: ALL OK, exit0, empty stderr. Captures inspected: C:\Users\Peter\Documents\mermaid-roshan-reef\tmp\sky-lagoon-animated-rebuild-v1\bough-runtime-mobile-v1\captures
+Original broad patch seam not visible after fixed native guards and normal imported alpha-border handling. Earlier lossless-control comparison retains two clipped-edge pixel differences; no bit-identical GPU claim. Phone/owner acceptance pending.

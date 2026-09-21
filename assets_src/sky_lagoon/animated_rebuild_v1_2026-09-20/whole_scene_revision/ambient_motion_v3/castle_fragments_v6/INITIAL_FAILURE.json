@@ -1,0 +1,15 @@
+{
+  "jobs": [
+    {
+      "job": "whole-contract",
+      "exit_code": 1,
+      "failures": [
+        "WHOLESCENE|complete_build|FAIL",
+        "SCRIPT ERROR: Trying to cast a freed object.",
+        "SCRIPT ERROR: Trying to cast a freed object."
+      ]
+    }
+  ],
+  "rendered_checks": [],
+  "passed": false
+}

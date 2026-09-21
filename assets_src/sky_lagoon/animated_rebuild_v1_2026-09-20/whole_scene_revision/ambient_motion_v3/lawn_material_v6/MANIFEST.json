@@ -1,0 +1,582 @@
+{
+  "status": "OPT_IN_INTEGRATED_FOCUSED_PASS_FULL_REGRESSION_PENDING",
+  "prior_checkpoint": "4de77cd5cb223372a83d6a3af84aafe05e0355a0",
+  "method": "Direct Aseprite whole grass-paint cels. Individually reviewed grass-only polygons excluding neighboring shrubs and paths, 32px interior feather, fixed 20px source border and fixed 28px anchor rows. No added tuft scatter or generated-sheet pixels.",
+  "regions": [
+    {
+      "id": "arrival_lawn",
+      "source": "assets_src\\sky_lagoon\\animated_rebuild_v1_2026-09-20\\whole_scene_revision\\grass\\arrival_lawn\\frame-00.png",
+      "source_sha256": "58e7c4e6efda1e43d141496018bfa31bb28b5859482c00e78842fb86101f38f7",
+      "rect": [
+        572,
+        1648,
+        817,
+        349
+      ],
+      "polygon_local": [
+        [
+          25,
+          20
+        ],
+        [
+          690,
+          20
+        ],
+        [
+          675,
+          60
+        ],
+        [
+          590,
+          115
+        ],
+        [
+          560,
+          155
+        ],
+        [
+          485,
+          210
+        ],
+        [
+          400,
+          268
+        ],
+        [
+          410,
+          320
+        ],
+        [
+          185,
+          325
+        ],
+        [
+          180,
+          275
+        ],
+        [
+          115,
+          250
+        ],
+        [
+          92,
+          190
+        ],
+        [
+          40,
+          125
+        ]
+      ],
+      "frames": 4,
+      "unique_frames": 4,
+      "rest_exact": true,
+      "fixed_area_exact": true,
+      "anchor_rows_exact": true,
+      "native_reopen_exact": true,
+      "motion_mask_pixels": 135939,
+      "runtime_trial_overlay": "overlay-0.png through overlay-3.png; identical alpha mask in every pose; excludes source outside grass boundary",
+      "krita_source": "lawn-four-pose-groups.ora; four editable pose layers, not a native animation timeline"
+    },
+    {
+      "id": "meadow_upper_left",
+      "source": "assets_src\\sky_lagoon\\animated_rebuild_v1_2026-09-20\\whole_scene_revision\\grass\\meadow_upper_left\\frame-00.png",
+      "source_sha256": "335344b7fdd3d5fd293c43806d7d2fa6371d7e0f7a7935e7632e5cf3f5919c7e",
+      "rect": [
+        2068,
+        1212,
+        625,
+        293
+      ],
+      "polygon_local": [
+        [
+          125,
+          145
+        ],
+        [
+          280,
+          112
+        ],
+        [
+          440,
+          65
+        ],
+        [
+          600,
+          42
+        ],
+        [
+          606,
+          270
+        ],
+        [
+          220,
+          270
+        ],
+        [
+          185,
+          235
+        ],
+        [
+          160,
+          218
+        ],
+        [
+          146,
+          180
+        ]
+      ],
+      "frames": 4,
+      "unique_frames": 4,
+      "rest_exact": true,
+      "fixed_area_exact": true,
+      "anchor_rows_exact": true,
+      "native_reopen_exact": true,
+      "motion_mask_pixels": 81688,
+      "runtime_trial_overlay": "overlay-0.png through overlay-3.png; identical alpha mask in every pose; excludes source outside grass boundary",
+      "krita_source": "lawn-four-pose-groups.ora; four editable pose layers, not a native animation timeline"
+    },
+    {
+      "id": "meadow_upper_right",
+      "source": "assets_src\\sky_lagoon\\animated_rebuild_v1_2026-09-20\\whole_scene_revision\\grass\\meadow_upper_right\\frame-00.png",
+      "source_sha256": "14695c8649ecc6f9ff12a5e4a6a4abb289fefb68c929c1bbad7b0906acc543a4",
+      "rect": [
+        2588,
+        1212,
+        1149,
+        309
+      ],
+      "polygon_local": [
+        [
+          25,
+          45
+        ],
+        [
+          200,
+          25
+        ],
+        [
+          1100,
+          40
+        ],
+        [
+          1120,
+          280
+        ],
+        [
+          25,
+          285
+        ]
+      ],
+      "frames": 4,
+      "unique_frames": 4,
+      "rest_exact": true,
+      "fixed_area_exact": true,
+      "anchor_rows_exact": true,
+      "native_reopen_exact": true,
+      "motion_mask_pixels": 271011,
+      "runtime_trial_overlay": "overlay-0.png through overlay-3.png; identical alpha mask in every pose; excludes source outside grass boundary",
+      "krita_source": "lawn-four-pose-groups.ora; four editable pose layers, not a native animation timeline"
+    },
+    {
+      "id": "meadow_lower_lawn",
+      "source": "assets_src\\sky_lagoon\\animated_rebuild_v1_2026-09-20\\whole_scene_revision\\grass\\meadow_lower_lawn\\frame-00.png",
+      "source_sha256": "e24010773179fcf246290a63d778783f8c01391b2bf6f0da7df5b33d2731cea1",
+      "rect": [
+        2544,
+        1676,
+        1133,
+        357
+      ],
+      "polygon_local": [
+        [
+          25,
+          65
+        ],
+        [
+          1090,
+          65
+        ],
+        [
+          980,
+          122
+        ],
+        [
+          820,
+          179
+        ],
+        [
+          745,
+          236
+        ],
+        [
+          742,
+          332
+        ],
+        [
+          190,
+          330
+        ],
+        [
+          205,
+          285
+        ],
+        [
+          240,
+          245
+        ],
+        [
+          190,
+          200
+        ],
+        [
+          100,
+          150
+        ],
+        [
+          50,
+          125
+        ]
+      ],
+      "frames": 4,
+      "unique_frames": 4,
+      "rest_exact": true,
+      "fixed_area_exact": true,
+      "anchor_rows_exact": true,
+      "native_reopen_exact": true,
+      "motion_mask_pixels": 187298,
+      "runtime_trial_overlay": "overlay-0.png through overlay-3.png; identical alpha mask in every pose; excludes source outside grass boundary",
+      "krita_source": "lawn-four-pose-groups.ora; four editable pose layers, not a native animation timeline"
+    }
+  ],
+  "cycle_seconds": 1.4,
+  "source_formats": {
+    "aseprite": "Four actual timeline cels per region",
+    "ora": "Four editable masked pose layers; not native Krita timeline"
+  },
+  "files": [
+    {
+      "path": "author.lua",
+      "sha256": "cd282cadd1781de4a035eea343f593fddbe16e96b930bd31ae72c37f5d76ab3a",
+      "role": "motion_source"
+    },
+    {
+      "path": "REVIEW.json",
+      "sha256": "7491a7537318d64a19e12edbabbac7ca77d67d53d9a50a4799c4c61123aee61b",
+      "role": "motion_source"
+    },
+    {
+      "path": "BOUNDARY_DECISION.json",
+      "sha256": "46cb95269bc9e725b8c5ac909dff6a9480f5fae555090c531f37768889cdadc2",
+      "role": "motion_source"
+    },
+    {
+      "path": "ownership-board.jpg",
+      "sha256": "51d5cab60d9ed721b6cd4746a57e63b5845bdcb803abd1beb67dcd2e57bdd516",
+      "role": "review_only"
+    },
+    {
+      "path": "capture.gd",
+      "sha256": "097c2f898583a9544605e513e11e5258b37fb6a2503d7bdd50924ff0a5f53e6a",
+      "role": "motion_source"
+    },
+    {
+      "path": "arrival_lawn/rest.png",
+      "sha256": "58e7c4e6efda1e43d141496018bfa31bb28b5859482c00e78842fb86101f38f7",
+      "role": "motion_source"
+    },
+    {
+      "path": "arrival_lawn/motion-mask.png",
+      "sha256": "9b147f55defca4647933d4056a5a192381d2ef0fa572cad0e20822f9f5434bd8",
+      "role": "motion_source"
+    },
+    {
+      "path": "arrival_lawn/whole-lawn-four-cels.aseprite",
+      "sha256": "641228d48e00276b06f06a1e806a2de58098ca1056a0668da664fa9c8b3f2c1b",
+      "role": "motion_source"
+    },
+    {
+      "path": "arrival_lawn/lawn-four-pose-groups.ora",
+      "sha256": "c1b83249bbd28adea98f2b84309e92467aa09a7455aae6efa2a8c01ccc267416",
+      "role": "motion_source"
+    },
+    {
+      "path": "arrival_lawn/cel-0.png",
+      "sha256": "ad69c1f8e993aa13e114bb79ca3143b5d16bc1a7c8ae7c7219bb6423eb3dbf8c",
+      "role": "motion_source"
+    },
+    {
+      "path": "arrival_lawn/cel-1.png",
+      "sha256": "7e65735a5911de08b9b89e326793b6676e91a4596507801491555dc971ebf861",
+      "role": "motion_source"
+    },
+    {
+      "path": "arrival_lawn/cel-2.png",
+      "sha256": "b6a8d543d2ef389bc8e05ee8b231f404ec3393e0b5a2f274128c580c2d8f121d",
+      "role": "motion_source"
+    },
+    {
+      "path": "arrival_lawn/cel-3.png",
+      "sha256": "f85db84a339c70a7005ce47f2a908e366678eaa5afcaf049b9a40f334bcb6115",
+      "role": "motion_source"
+    },
+    {
+      "path": "arrival_lawn/overlay-0.png",
+      "sha256": "92d6aa3da35158ca16ec5a141adc01c29c1c87a2a0d56e144233e4487fc68f93",
+      "role": "motion_source"
+    },
+    {
+      "path": "arrival_lawn/overlay-1.png",
+      "sha256": "9b5ab05800f9329447ee903d61d25ea297c92efdb7210f1b2ea74c7b9d89d6d2",
+      "role": "motion_source"
+    },
+    {
+      "path": "arrival_lawn/overlay-2.png",
+      "sha256": "421fbc1d48392ba59ffedbd8f3c168ecf1e6b60c7b80f26f3640ace978054a6e",
+      "role": "motion_source"
+    },
+    {
+      "path": "arrival_lawn/overlay-3.png",
+      "sha256": "bd43307ff5af82a2f3841f1945a7bdbfb38556bb5d5faf4bfe3216fcd5150f4e",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_left/rest.png",
+      "sha256": "335344b7fdd3d5fd293c43806d7d2fa6371d7e0f7a7935e7632e5cf3f5919c7e",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_left/motion-mask.png",
+      "sha256": "1cb8ec6288d9a5940c9b6de215ebd466a7b1e528694c10d8e0c180ec0d17d0ae",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_left/whole-lawn-four-cels.aseprite",
+      "sha256": "308692e86bbfe2022a61f1587f399c7c324a5837d222c295bfcc2bdd0e6b422f",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_left/lawn-four-pose-groups.ora",
+      "sha256": "2aed83fa8c99a507861582aaa945294c23a1f96c2106dc33fa8eba673228782a",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_left/cel-0.png",
+      "sha256": "10c70e0fbc804c7b3040b892cdc57b7f2d35bd013fdb42b2785e7d674ca3ca46",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_left/cel-1.png",
+      "sha256": "6904d34a1ece47dcb0ba674dbbf931c9881cdd274bf85d81d8f3da1a5d502b51",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_left/cel-2.png",
+      "sha256": "b7d772b267ebfea7effde188c28909ae5928c1f760124957bada9af948a4b1a4",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_left/cel-3.png",
+      "sha256": "a451aa822383384cfd5c4fb3208d9db9974b60e99ae3871a243958aa368079d0",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_left/overlay-0.png",
+      "sha256": "1ad878f71ce26cc90d3e5f8c01a1f6d7a219e1389f99ca9aef66778ba04c81f3",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_left/overlay-1.png",
+      "sha256": "c01494710f8b360aa80bbeebabcac9bd2c09880b16d7cf636c4c95541a970cd5",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_left/overlay-2.png",
+      "sha256": "18175defe9a88e80115a7b59470d7d291327fa2556ac23cf7504b57b12c7a87b",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_left/overlay-3.png",
+      "sha256": "d1211b1fdd92f869a08ade761f59035cd24a417a04f3d84fa824e38619b8fda3",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_right/rest.png",
+      "sha256": "14695c8649ecc6f9ff12a5e4a6a4abb289fefb68c929c1bbad7b0906acc543a4",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_right/motion-mask.png",
+      "sha256": "a1c2967af480c5ef68b8f6b27507ec5f3698f5c1c4a680e16cd7d737123515f3",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_right/whole-lawn-four-cels.aseprite",
+      "sha256": "c1ed012b0b1ce9afc75edee040c9d61d9855e11359be1fa32e2930e5cc6dac5e",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_right/lawn-four-pose-groups.ora",
+      "sha256": "63cbcfb51d082076251807f9b7f1802cb2d2045542f438394ac935183fd70978",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_right/cel-0.png",
+      "sha256": "ca6e8dcdce6f0b6b5009493e15fbdb8840587f89008b8190c3dd6d44487d6eb0",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_right/cel-1.png",
+      "sha256": "effa47507c1ec8083a2ebcac589c9d54f14cb0e5f60964fc6d5ae3d50392beb7",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_right/cel-2.png",
+      "sha256": "cf61e4bdfbd571309c7ef8caf0e9f9058fdc60a02864c95ae0ed91f03fef1cd7",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_right/cel-3.png",
+      "sha256": "5aed6f9cae8791c76461e44ade3f5a5d56cb034d135cf75a7e304ca363b4408d",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_right/overlay-0.png",
+      "sha256": "ea6164ff47562bb2f63c65518b52eb1be8db2aa3feab3c4498475de37d67408f",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_right/overlay-1.png",
+      "sha256": "d9b789149e720a0135d241ed2abea8ddcfdcfd8d00376fda6e3cdfba61ddd12e",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_right/overlay-2.png",
+      "sha256": "e5d98433b8b78b5b5e9341cbcd131ef75bf70d0eb9e5ab367d5cf43b7063b996",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_upper_right/overlay-3.png",
+      "sha256": "f9d6f6a51a83c7049ecb3471f3c6aec502cd243f63ceec3f60d3d80fb3bd480a",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_lower_lawn/rest.png",
+      "sha256": "e24010773179fcf246290a63d778783f8c01391b2bf6f0da7df5b33d2731cea1",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_lower_lawn/motion-mask.png",
+      "sha256": "bc5ff42bf8dadd0e072924e79b58ed76deabd459f0764ae43de4b98bdb73d815",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_lower_lawn/whole-lawn-four-cels.aseprite",
+      "sha256": "1a21b2514ae9c827dd8f53df57d4dab026171b3c2485636b1fccc11dd59fc8bc",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_lower_lawn/lawn-four-pose-groups.ora",
+      "sha256": "fc1432600bf8989e4a665d05f53da39de19df82fab63f006cebadb6cb5abd0a8",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_lower_lawn/cel-0.png",
+      "sha256": "7b22e2e8d0dad9825ffc3c20736f94108f5569607832ec2538999cc143950524",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_lower_lawn/cel-1.png",
+      "sha256": "de7f09e057edb6421c9383f52bfc632203b4f8fa187c00d584ab037dad8b040b",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_lower_lawn/cel-2.png",
+      "sha256": "af2c3ff1ad187ec9c7459d590d74b94119f6eceda5c0e7a05f8a1ac4febdf592",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_lower_lawn/cel-3.png",
+      "sha256": "bfd0ced4b9fee07534aa7b120336e10bad0f522f385434007740cdf591334fe8",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_lower_lawn/overlay-0.png",
+      "sha256": "471ab78b899be0a488d316b6c6863a48ba4b9cdfe9351229159b9c9fd5b30fce",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_lower_lawn/overlay-1.png",
+      "sha256": "112f75a140a12dbdebba155815f5bcb2d41f2802051445ab324dba73957b6a77",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_lower_lawn/overlay-2.png",
+      "sha256": "c95c2a3157c84f567a75f9d42592f2979068ea04e7982f888d3b88c4c3a5d691",
+      "role": "motion_source"
+    },
+    {
+      "path": "meadow_lower_lawn/overlay-3.png",
+      "sha256": "d01ed21d9e7b1b4c4579c085f77318e71db546d7128372bc5fd2fa9137388c25",
+      "role": "motion_source"
+    },
+    {
+      "path": "source_gpu_review/REVIEW.json",
+      "sha256": "2e9fd01f808e6b6b2c1a9d479a67fbad9a990f98166e0c8718512d4302f1a361",
+      "role": "motion_source"
+    },
+    {
+      "path": "source_gpu_review/day-comparison.jpg",
+      "sha256": "bd57361bb6f6bf7ed687eb4b39d4e4f6ff230b27dce7ba327f606d929689d9d2",
+      "role": "review_only"
+    },
+    {
+      "path": "source_gpu_review/night-comparison.jpg",
+      "sha256": "336793fc706412c9f7956a44d1064e1f4dbe8c430721bc0a8a8fde41aa3a084f",
+      "role": "review_only"
+    },
+    {
+      "path": "source_gpu_review/stdout.txt",
+      "sha256": "29ecc4e5f73a6e619121f3d98f779391f00b9a28abb40dac2a8442650dcfe0e5",
+      "role": "motion_source"
+    },
+    {
+      "path": "source_gpu_review/canvas_screen_1_day_p0_cel1.png",
+      "sha256": "c99f831b4eaa04960e90adcdab061ce2a15c3640198350b152b4f3858377462f",
+      "role": "motion_source"
+    },
+    {
+      "path": "source_gpu_review/canvas_screen_3_night_p0_cel1.png",
+      "sha256": "af041b69066459947ae06bbab4aca01ebdae7304a1329ed1a4242f49894bf4b3",
+      "role": "motion_source"
+    },
+    {
+      "path": "source_gpu_review/canvas_screen_2_day_p0_cel1.png",
+      "sha256": "891585bc364e00bc8c7e7dd982359bada0b231af1582846bf937e01a5ff4a0ff",
+      "role": "motion_source"
+    },
+    {
+      "path": "source_gpu_review/canvas_screen_3_night_p1_cel1.png",
+      "sha256": "3a31129dd741e1adf5e86d06acb55628ab71c8d958d408cdfb208abcedcdbced",
+      "role": "motion_source"
+    },
+    {
+      "path": "source_gpu_review/canvas_screen_3_day_p0_cel1.png",
+      "sha256": "a05517d008999f1560133ae3b52c9fd453ff37e12ec517c60ee01ca3b770f9a4",
+      "role": "motion_source"
+    },
+    {
+      "path": "source_gpu_review/canvas_screen_3_night_p2_cel1.png",
+      "sha256": "83cd301b4d133faa0965e36c892f9eb07cfb7be70bd71c806324d75d7a9dc867",
+      "role": "motion_source"
+    }
+  ],
+  "limits": [
+    "Material deformation is not individual blade redraw; natural movement remains open.",
+    "No new GPU or camera-pan evidence for these six variants.",
+    "Revised polygons visually exclude the identified source plants and path; actual scene verification remains required.",
+    "Not native Krita timelines.",
+    "No 4.9 score or device/owner acceptance.",
+    "Full-scene static base art retained; masked material replaces only bounded lawn paint in the preview."
+  ],
+  "imported_evidence": "imported_review/RESULT.json"
+}

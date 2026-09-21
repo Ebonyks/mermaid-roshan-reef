@@ -1,0 +1,121 @@
+{
+  "generation": "Codex built-in image_gen; no API key",
+  "aseprite": "1.3.18.4-x64 batch Lua",
+  "editable_source": "OpenRaster .ora for Krita; native .aseprite with timeline cels",
+  "python_packages": {
+    "Pillow": "12.3.0",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0"
+  },
+  "segmentation_optional_build_dependency": "opencv-python-headless==4.11.0.86",
+  "segmentation_usage": "Install the pinned optional package in a disposable Python environment for build_bridge_front_rail.py and build_arrival_bough_source.py. No OpenCV dependency in the game; no ignored machine-local input files are required.",
+  "rebuild_order": [
+    {
+      "family": "grass",
+      "steps": [
+        "build_grass_cels.py",
+        "build_grass_source.lua",
+        "Copy grass/review-atlas.png to assets/sprites/sky_lagoon/animated_v1/grass_breeze.png (640x640, lossless import; no VRAM compression)."
+      ],
+      "frames": 4
+    },
+    {
+      "family": "bridge",
+      "steps": [
+        "build_bridge_layers_v2.py",
+        "build_bridge_planks.lua",
+        "Export bridge/bridge-planks-v3.aseprite as bridge/planks-full-atlas.png and .json, 4 columns",
+        "build_bridge_front_rail.py",
+        "build_bridge_runtime.py",
+        "build_bridge_chains_source.py",
+        "build_bridge_chains.lua",
+        "build_bridge_chains_runtime.py"
+      ],
+      "frames": 12
+    },
+    {
+      "family": "bellflower",
+      "steps": [
+        "build_bellflower_parts.py",
+        "build_bellflower_animation.lua",
+        "Export bellflower/bellflower-eight-cels.aseprite as bellflower/bellflower-atlas.png and .json, 4 columns",
+        "build_bellflower_runtime.py"
+      ],
+      "frames": 8
+    },
+    {
+      "family": "huckleberry",
+      "steps": [
+        "build_huckleberry_parts.py",
+        "build_huckleberry_animation.lua",
+        "build_huckleberry_runtime.py"
+      ],
+      "frames": 8
+    },
+    {
+      "family": "conifer",
+      "steps": [
+        "build_conifer_source.py",
+        "build_conifer_animation.lua",
+        "build_conifer_runtime.py"
+      ],
+      "frames": 6
+    },
+    {
+      "family": "arrival_bough",
+      "steps": [
+        "build_arrival_bough_source.py",
+        "build_arrival_bough_animation.lua (base ends in /arrival_boughs)",
+        "validate_arrival_boughs.py",
+        "build_arrival_bough_runtime.py"
+      ],
+      "frames": 3
+    },
+    {
+      "family": "water",
+      "steps": [
+        "build_water_mask.py",
+        "build_water_highlights.py",
+        "build_water_highlights.lua",
+        "build_water_highlight_runtime.py",
+        "build_shoreline_cels.py",
+        "build_shoreline_source.lua",
+        "build_shoreline_runtime.py"
+      ],
+      "highlight_frames": 12,
+      "shoreline_frames": 8
+    },
+    {
+      "family": "manifest",
+      "steps": [
+        "build_runtime_manifest.py (after all runtime packaging)"
+      ]
+    },
+    {
+      "family": "stage_masters",
+      "steps": [
+        "Set SKY_MASTER_EXPORT to a disposable absolute directory; run Godot 4.7.2 headless -s scripts/probe_sky_lagoon_export_layers.gd",
+        "build_stage_masters.py <SKY_MASTER_EXPORT>",
+        "validate_stage_masters.py <SKY_MASTER_EXPORT>"
+      ],
+      "layers": [
+        19,
+        17,
+        24
+      ]
+    }
+  ],
+  "invocation": {
+    "python": "Run python -B <package>/<builder>.py from the repository root. Use UTF-8 mode on Windows.",
+    "aseprite": "Aseprite.exe -b --script-param base=<absolute-package-path> --script <package>/<builder>.lua",
+    "arrival_bough_exception": "For build_arrival_bough_animation.lua, base must be <absolute-package-path>/arrival_boughs.",
+    "separate_atlas_export": "Aseprite.exe -b <aseprite-file> --sheet-type rows --sheet-columns 4 --sheet <atlas.png> --data <atlas.json> --format json-array",
+    "source_authority": "Packaged generated sources are immutable inputs. Rebuilding does not call an image-generation API. Re-generation is not deterministic and is not part of the rebuild."
+  },
+  "historical_trials": "build_bridge_contact.lua and build_bridge_source.lua preserve earlier trials; they are not the accepted runtime rebuild path.",
+  "rebuild_verification": "Isolated-copy rebuild on this pinned local toolchain passed: 16 derived runtime PNGs pixel-identical, including bridge, chains, grass, plants, boughs, both water accents and mask. See evidence/source-rebuild.json. Static cloud/shared ripple and fresh-machine dependency installation excluded. ORA/Aseprite container bytes need not match.",
+  "preserved_static_inputs": [
+    "cloud_painted.png: reproduce the source component/crop in CLOUD_REUSE.json; preserve its connected-component alpha, not the surrounding clouds.",
+    "Water tap ring: reuse the existing shared runtime atlas identified by scripts/arena/sky_lagoon_water_cels.gd; build_water_source.lua takes its absolute path as --script-param atlas=<path> and creates the editable eight-cel timeline."
+  ]
+}

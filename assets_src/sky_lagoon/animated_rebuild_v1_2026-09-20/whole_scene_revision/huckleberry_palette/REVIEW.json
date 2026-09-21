@@ -1,0 +1,175 @@
+{
+  "status": "OPT_IN_PREVIEW_COLOR_CORRECTION_NOT_OWNER_ACCEPTED",
+  "source": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/huckleberry/huckleberry-eight-cels.aseprite",
+  "source_sha256": "b6ad0b2c5402e1ce0f26721e6c8f9ede7c8dfd71133acce3e8b9eba6de412487",
+  "method": "Deterministic linear-RGB leaf highlight compression and hue alignment across all32native cels using smooth green/yellow hue weights. No new shapes or motion. Purple berry pixels unchanged.",
+  "native": "8 frames,4 editable layers; timing/positions unchanged; reopen flattened frames byte-exact. ORA contains4rest layers, not a Krita animation timeline.",
+  "checks": [
+    "All8 alpha planes byte-exact",
+    "All8 purple pixel selections byte-exact",
+    "Native8frame reopen byte-exact",
+    "Day32pose captures across3screens pluscastle night; arrival/meadow night rest comparisons",
+    "Both textures and frames restored after each GPU comparison; ALL OK exit0",
+    "OpenRaster ordered layer composite equals native rest RGBA byte-for-byte"
+  ],
+  "visual": "Yellow highlight mismatch reduced in all visible placements. Broad rounded silhouette and painting style still differ from detailed rear hedges; color correction alone is not full art acceptance.",
+  "runtime": "Integrated only in opt-in whole-scene profile; default original atlas retained. Missing/invalid candidate falls back to original. Import, whole-scene stress, original/preview gameplay and actual imported GPU captures all exit0; GPU asserts both graded owners. Same texture dimensions and sprite count.",
+  "files": [
+    {
+      "path": "aseprite.log",
+      "sha256": "c513e01595364020c698f101fdc0fd2de8a4aa1492f73ea064e1e8bdaa640265"
+    },
+    {
+      "path": "atlas.png",
+      "sha256": "32be39a606bbb2bf93aaf6cfd3c2b270320349c9b5d78bc057126b828f5a1f53"
+    },
+    {
+      "path": "branch_left.png",
+      "sha256": "480540ad02a93a58345e0281aabdaa28226763fe3ce6fb97471e2f2bb3f05509"
+    },
+    {
+      "path": "branch_middle.png",
+      "sha256": "481befea1a54bf984668aab22ddb9127727bc9c7f00b5044c42c97904466c65f"
+    },
+    {
+      "path": "branch_right.png",
+      "sha256": "a67aa80b8483ffaa378e93c5568e34fd3c220f258afdedd99efd2d49d626c834"
+    },
+    {
+      "path": "canvas_screen_1_day_original.png",
+      "sha256": "c217513d06567b22fe591499c87ab179774127cfa02ec19690a20163e9036b84"
+    },
+    {
+      "path": "canvas_screen_1_day_trial_0.png",
+      "sha256": "d8c337bf4223da45cc6fd1971c9dd4c3133386f74e7042f4d88b43b0883bef2f"
+    },
+    {
+      "path": "canvas_screen_2_day_original.png",
+      "sha256": "10174230bd99ebe52e268db54c3da7adfaaa922bcc702bab7e4061ec5dcf59f8"
+    },
+    {
+      "path": "canvas_screen_2_day_trial_0.png",
+      "sha256": "775f378ca496346a7bd8a70f2ee74e6c3a71aea5e66385c14211d71c34a09ce5"
+    },
+    {
+      "path": "canvas_screen_3_day_original.png",
+      "sha256": "b37cdb1e1b0c3328bd928f51b203ee143182b77e5398b5e10ac533bcc77850ce"
+    },
+    {
+      "path": "canvas_screen_3_day_trial_0.png",
+      "sha256": "d1f346be7a93eb968b41f00788038fb2770e01f63c13c3c94f5479521bb60b2e"
+    },
+    {
+      "path": "canvas_screen_3_night_original.png",
+      "sha256": "5cf6d11894c9d08994ec9ca6d9582c08583724aee964f234477532d2bf314f67"
+    },
+    {
+      "path": "canvas_screen_3_night_trial_0.png",
+      "sha256": "a42522cbf9ffb4aef4767921d9ba5f33faf7770966e0912c0b9e0ef4d8f37360"
+    },
+    {
+      "path": "capture.gd",
+      "sha256": "1f8af349180c21d7c11b2a3428da0dae7a7a5a9b9358163bac5fb7bd5f0a28e5"
+    },
+    {
+      "path": "cel-00.png",
+      "sha256": "b7b9103ad97f6b4c436840867af8c448abc2525ead457d9c5807de3d1318c94d"
+    },
+    {
+      "path": "cel-01.png",
+      "sha256": "b25c509ea389084f5ab66b19fa64517e03ddce12566d350f5374f31be0e9ab81"
+    },
+    {
+      "path": "cel-02.png",
+      "sha256": "4833661ff62a26efc59ae5e2c43bbe3c957e5c568f5d78c1416aa86a9b040f25"
+    },
+    {
+      "path": "cel-03.png",
+      "sha256": "c6a8f629deac2cdb5f014df6ddf1ef162862239ee4e52007bad92c8ef009ba70"
+    },
+    {
+      "path": "cel-04.png",
+      "sha256": "5802a929629fbfde8716bad1d2311f0f69b2ad972befbf172842ef9cbb4930fe"
+    },
+    {
+      "path": "cel-05.png",
+      "sha256": "8095618ac84bff7edc7a97a7eecd7701c05db9654f4ec969812b1c6346bebb11"
+    },
+    {
+      "path": "cel-06.png",
+      "sha256": "723ec9b73332e7b8c15cfde066d9c24cbdbe5f6a49f0a0988e49d0ebe428b6db"
+    },
+    {
+      "path": "cel-07.png",
+      "sha256": "c9a20fa513b8f4a7a6638955b7b88fbf1192e2fee34e44010249d98dae31597b"
+    },
+    {
+      "path": "comparison.jpg",
+      "sha256": "7588adb57123f687204e37e4e26b3947f834e17b0e3bf46953e332b5c6bb9243"
+    },
+    {
+      "path": "context.jpg",
+      "sha256": "1015e09025b98dc7a887fa71cce0c4faa25e90239d73d6be99a8451e00ea9ced"
+    },
+    {
+      "path": "grade.lua",
+      "sha256": "77a98b53b68ef9fd3ceb74c41a625222bc551bcee9764de8a28fed707fd6bdee"
+    },
+    {
+      "path": "huckleberry-leaf-grade.aseprite",
+      "sha256": "01f391fff64a1924e7de2009d78885684b7da72b6ecc0f15194eb6f70ce485cb"
+    },
+    {
+      "path": "huckleberry-leaf-grade.ora",
+      "sha256": "46c4fe576416e0f2c9eb7c5649e0720ab47c718cdec1c42029c1b2129b2fd299"
+    },
+    {
+      "path": "integrated_gpu.log",
+      "sha256": "1a2d4a39515245712f24950564ca10e3d109a9f092584f88b446aa8393ee4176"
+    },
+    {
+      "path": "integrated_gpu_capture.gd",
+      "sha256": "61e3f046816614cf4875c8bdc424b4e745f858a11b81ff34c8d071dfa1792dbb"
+    },
+    {
+      "path": "integrated_import.log",
+      "sha256": "008925086222667ee24760e55b2053fb234da574334b5aafc96ad42a3fa6c6c6"
+    },
+    {
+      "path": "integrated_original_l2.log",
+      "sha256": "9eae4237b97e6de757c8458ca2bde4e23a0caf04f721b31267b77f3deba4d45b"
+    },
+    {
+      "path": "integrated_preview_l2.log",
+      "sha256": "7d605b82cb7c4cbb625b32348773fd94673545e152562312632b7b938771f202"
+    },
+    {
+      "path": "integrated_whole_scene.log",
+      "sha256": "c7aae5d297bba4878c834f523633a1951c8bffa4876257015ba481f300203e41"
+    },
+    {
+      "path": "night_0_original.png",
+      "sha256": "aae6b847a5a376d4ddcee72c4ab2bce0f65d2c44d3dd73fc3d6538af6fe4dbec"
+    },
+    {
+      "path": "night_0_trial.png",
+      "sha256": "f1289d888b0d9ff28d47ddc9b13ed50ef60bd393e87de6ac176e21ffb2540a17"
+    },
+    {
+      "path": "night_1_original.png",
+      "sha256": "dc3ec2363961f34bb47cd83b1925dd82eee12d383011e878e1346e56e136ea45"
+    },
+    {
+      "path": "night_1_trial.png",
+      "sha256": "7c053a02390cdc636020de6e58fda6cb259210c9c2675857df62e3eeacdf0e1d"
+    },
+    {
+      "path": "root_fixed.png",
+      "sha256": "1ff8b75ca894f0a6e7669f385d4cdf00f0121b807fd8160767ef88f297f2dc2d"
+    },
+    {
+      "path": "stdout.txt",
+      "sha256": "ee4c01fa2cb165fbad4005f19c5effb121ddc390b7f88d9114b84f4ca701bac4"
+    }
+  ]
+}

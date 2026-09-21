@@ -1,0 +1,880 @@
+{
+  "status": "FULL_SCENE_TEMPORARY_GPU_PASS_SELECTED_FOR_INTEGRATION",
+  "raw_bank_atlas_mib": 18,
+  "captures": 198,
+  "frames_per_bank": 4,
+  "cycles_seconds": {
+    "near": 4.8,
+    "far": 8
+  },
+  "coverage": "Six actual Mobile views over24seconds; all bank frames observed, paired chunks share bank phase, base tile textures never changed, temporary cards removed.",
+  "source_ownership": "Original background retained. Signed authored-frame differences applied only inside fixed bank masks; no underpaint or duplicated readable cloud image. Positive/negative fields use empirically verified sRGB blending.",
+  "views": [
+    {
+      "stage": 1,
+      "mode": "day",
+      "rest_changed_pixels_over2": 0,
+      "rest_mean_channel_difference": 0.0,
+      "rest_max_channel_difference": 0,
+      "rest_change_bounds_over2": [],
+      "max_motion_channel_difference": 100,
+      "sample_hashes": [
+        {
+          "file": "canvas_screen_1_day_page0_motion_00.png",
+          "sha256": "62ebd740599b631387b23ddf01bea78d13bb3150a86e6b9b141e073643867cfe"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_01.png",
+          "sha256": "62ebd740599b631387b23ddf01bea78d13bb3150a86e6b9b141e073643867cfe"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_02.png",
+          "sha256": "d7d316b2a6ac111f178b3fac994caea1dad5d43b323b91904b882d11d015bf1c"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_03.png",
+          "sha256": "52db8d1b4b03e04150ab0665b13fc7497ec89f97969055f8525c03961c8aaa5e"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_04.png",
+          "sha256": "161a22f76177b066e1ce602ca1c1270161e00dea146aae0ddbabedd80bb2034c"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_05.png",
+          "sha256": "84613f4e767b0ab6ebeef1d3cd651651ebb55afb3ca7dd947ef3d31631e3eabc"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_06.png",
+          "sha256": "ecd8f91a44a5785f1b3c9bf14a3f08565bbf0438f9ccb7b7e03a6f8258fd4ef1"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_07.png",
+          "sha256": "8da52b2f85caa6bde0972b4242a6e000ea3568f7ddc6a1c2c580b8ef41268664"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_08.png",
+          "sha256": "455175fef1b6352fdbdf1846b995a4c74df3170e53b74cfb8d963175362e6f29"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_09.png",
+          "sha256": "455175fef1b6352fdbdf1846b995a4c74df3170e53b74cfb8d963175362e6f29"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_10.png",
+          "sha256": "3164cfc4d9cdd278df6a0b2c85f3bb3fb66ff1fe6376055e443564c5f469dac4"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_11.png",
+          "sha256": "f28ea28be8eb143596b42ca7a30a587e9af7df22b270a087693adcd4e9358edf"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_12.png",
+          "sha256": "b40dc4e464451d5d173aa3c212f237adba88d055338519051bb16648ebef7d72"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_13.png",
+          "sha256": "62ebd740599b631387b23ddf01bea78d13bb3150a86e6b9b141e073643867cfe"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_14.png",
+          "sha256": "4c05c562f5276d6ea7e3a2ff728019eddc6d0ee69a8f015c8d96ee0d33d70e9a"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_15.png",
+          "sha256": "52db8d1b4b03e04150ab0665b13fc7497ec89f97969055f8525c03961c8aaa5e"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_16.png",
+          "sha256": "7bc6bbf2d1f69863b8ea1eec6e762612b1a08917ff02beaf01e4b086252c7359"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_17.png",
+          "sha256": "7bc6bbf2d1f69863b8ea1eec6e762612b1a08917ff02beaf01e4b086252c7359"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_18.png",
+          "sha256": "ecd8f91a44a5785f1b3c9bf14a3f08565bbf0438f9ccb7b7e03a6f8258fd4ef1"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_19.png",
+          "sha256": "2f86114513271e33ae60c299ef5315b2807e9f1ddbba0ec87efa0c508c9ad59b"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_20.png",
+          "sha256": "8f696b739ecca47106f572157a4ea8f92226dec77ac2b1689797be3983f95d63"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_21.png",
+          "sha256": "455175fef1b6352fdbdf1846b995a4c74df3170e53b74cfb8d963175362e6f29"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_22.png",
+          "sha256": "d7d316b2a6ac111f178b3fac994caea1dad5d43b323b91904b882d11d015bf1c"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_23.png",
+          "sha256": "f28ea28be8eb143596b42ca7a30a587e9af7df22b270a087693adcd4e9358edf"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_24.png",
+          "sha256": "84613f4e767b0ab6ebeef1d3cd651651ebb55afb3ca7dd947ef3d31631e3eabc"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_25.png",
+          "sha256": "84613f4e767b0ab6ebeef1d3cd651651ebb55afb3ca7dd947ef3d31631e3eabc"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_26.png",
+          "sha256": "4c05c562f5276d6ea7e3a2ff728019eddc6d0ee69a8f015c8d96ee0d33d70e9a"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_27.png",
+          "sha256": "8da52b2f85caa6bde0972b4242a6e000ea3568f7ddc6a1c2c580b8ef41268664"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_28.png",
+          "sha256": "3462db45d232540e9582e2b5730060c935a966bcff04c92b701b12285c454580"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_29.png",
+          "sha256": "7bc6bbf2d1f69863b8ea1eec6e762612b1a08917ff02beaf01e4b086252c7359"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_30.png",
+          "sha256": "3164cfc4d9cdd278df6a0b2c85f3bb3fb66ff1fe6376055e443564c5f469dac4"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_31.png",
+          "sha256": "2f86114513271e33ae60c299ef5315b2807e9f1ddbba0ec87efa0c508c9ad59b"
+        },
+        {
+          "file": "canvas_screen_1_day_page0_motion_32.png",
+          "sha256": "62ebd740599b631387b23ddf01bea78d13bb3150a86e6b9b141e073643867cfe"
+        }
+      ]
+    },
+    {
+      "stage": 1,
+      "mode": "night",
+      "rest_changed_pixels_over2": 0,
+      "rest_mean_channel_difference": 0.0,
+      "rest_max_channel_difference": 0,
+      "rest_change_bounds_over2": [],
+      "max_motion_channel_difference": 48,
+      "sample_hashes": [
+        {
+          "file": "canvas_screen_3_night_page0_motion_00.png",
+          "sha256": "af9c1dae95708a77bb372bb7f5efc0c378f62a4260684e81f382b9a0cd443313"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_01.png",
+          "sha256": "af9c1dae95708a77bb372bb7f5efc0c378f62a4260684e81f382b9a0cd443313"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_02.png",
+          "sha256": "ab3420668fd826c62950214dbb5229fed041c7d5a10e93f8844a04f8be4ede89"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_03.png",
+          "sha256": "97e50b8331c0351765328f6f9f3161adf06a292cf5c8fb4fed2bde735d5846a5"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_04.png",
+          "sha256": "2e1d7f92d98c210ef6e0f39fb40d6faf1747291c4523818e0c9e23aee91031d6"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_05.png",
+          "sha256": "abc6993e0c5123ec3fa003970949fd47cfbe08fe0a60d8d07c48108ad2960f23"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_06.png",
+          "sha256": "3c62b0dd6ae9503fdc0f9aba757e5972bb5f61f67f36db5147bad8b818d86a2e"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_07.png",
+          "sha256": "377fb32b4e2969bcdeb4bdb7622f44bb60734f0131668450777d81f4c2e50e50"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_08.png",
+          "sha256": "a3145db23afaa90112d6710ec02b6fdce80e9197eb76d92129eae98a13e10e51"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_09.png",
+          "sha256": "a3145db23afaa90112d6710ec02b6fdce80e9197eb76d92129eae98a13e10e51"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_10.png",
+          "sha256": "241a84d9e6b4bca9179377e5ea1016278d60bf2a8dabd33db7abe6148a6c3c9a"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_11.png",
+          "sha256": "3fc9f3367d7c0b0ebebc0c68d088c0c463725bc73afcd1bfd05858dcbcec1004"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_12.png",
+          "sha256": "f3702b7447f51b2d65457c4652b946e2c7be0e392abd026d8994360edb51008c"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_13.png",
+          "sha256": "af9c1dae95708a77bb372bb7f5efc0c378f62a4260684e81f382b9a0cd443313"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_14.png",
+          "sha256": "85e516ae6e0eb619fbae466220fcf8e9d0c5ce01e961edc9b512cf114f6623b7"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_15.png",
+          "sha256": "97e50b8331c0351765328f6f9f3161adf06a292cf5c8fb4fed2bde735d5846a5"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_16.png",
+          "sha256": "921df7cfb90f389f4325942ddf308165e79c8104868af9fd2ebb6d3b224822c7"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_17.png",
+          "sha256": "921df7cfb90f389f4325942ddf308165e79c8104868af9fd2ebb6d3b224822c7"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_18.png",
+          "sha256": "3c62b0dd6ae9503fdc0f9aba757e5972bb5f61f67f36db5147bad8b818d86a2e"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_19.png",
+          "sha256": "1bcaa0424e218146d1d444918a247688ac4268989430e7926c0e8e626002a028"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_20.png",
+          "sha256": "b36b1f0abca8fce52630e78c2c2d7d43d26998d000b858ece6f48ed671658d69"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_21.png",
+          "sha256": "a3145db23afaa90112d6710ec02b6fdce80e9197eb76d92129eae98a13e10e51"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_22.png",
+          "sha256": "ab3420668fd826c62950214dbb5229fed041c7d5a10e93f8844a04f8be4ede89"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_23.png",
+          "sha256": "3fc9f3367d7c0b0ebebc0c68d088c0c463725bc73afcd1bfd05858dcbcec1004"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_24.png",
+          "sha256": "abc6993e0c5123ec3fa003970949fd47cfbe08fe0a60d8d07c48108ad2960f23"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_25.png",
+          "sha256": "abc6993e0c5123ec3fa003970949fd47cfbe08fe0a60d8d07c48108ad2960f23"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_26.png",
+          "sha256": "85e516ae6e0eb619fbae466220fcf8e9d0c5ce01e961edc9b512cf114f6623b7"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_27.png",
+          "sha256": "377fb32b4e2969bcdeb4bdb7622f44bb60734f0131668450777d81f4c2e50e50"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_28.png",
+          "sha256": "c562eb879c168d85a2b036cab794e1b794aa7320615e731cca66894e082e23b4"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_29.png",
+          "sha256": "921df7cfb90f389f4325942ddf308165e79c8104868af9fd2ebb6d3b224822c7"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_30.png",
+          "sha256": "241a84d9e6b4bca9179377e5ea1016278d60bf2a8dabd33db7abe6148a6c3c9a"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_31.png",
+          "sha256": "1bcaa0424e218146d1d444918a247688ac4268989430e7926c0e8e626002a028"
+        },
+        {
+          "file": "canvas_screen_3_night_page0_motion_32.png",
+          "sha256": "af9c1dae95708a77bb372bb7f5efc0c378f62a4260684e81f382b9a0cd443313"
+        }
+      ]
+    },
+    {
+      "stage": 2,
+      "mode": "day",
+      "rest_changed_pixels_over2": 0,
+      "rest_mean_channel_difference": 0.0,
+      "rest_max_channel_difference": 0,
+      "rest_change_bounds_over2": [],
+      "max_motion_channel_difference": 97,
+      "sample_hashes": [
+        {
+          "file": "canvas_screen_2_day_page0_motion_00.png",
+          "sha256": "300d5a3e9d450d45d91dd2003b5eab8bc675bce70ffcb18487c8a03ec1b7c53e"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_01.png",
+          "sha256": "300d5a3e9d450d45d91dd2003b5eab8bc675bce70ffcb18487c8a03ec1b7c53e"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_02.png",
+          "sha256": "820601b2714a8088d00e299ce3e5049a615b05cd95919e07bdd32dec8c6e2bd0"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_03.png",
+          "sha256": "b26cf17e1175b3fd18721e331c3a118a8e2ff06bd8b88b613c597d2e62f72a0f"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_04.png",
+          "sha256": "be9d9c22ab30543a4a49af0c733703cd63beaf41b4de3c761f7329389aa008ca"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_05.png",
+          "sha256": "b364941c342c0c9acb45c31e99c1eb8c04c04b74bcabb1fcf29d36398fc32d39"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_06.png",
+          "sha256": "8c3aedb6c9d6128bf96cd6eda422e06579d074f14282a54658a6b198f35ac97a"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_07.png",
+          "sha256": "b778999fdbceb00eb0eb407d0ff483d620525b9a3bcc530f48373a7a7ce19e77"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_08.png",
+          "sha256": "a6e64d63afea01924fe103098635b886e464ed8b32bef61b99fcc36c3a657e9f"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_09.png",
+          "sha256": "a6e64d63afea01924fe103098635b886e464ed8b32bef61b99fcc36c3a657e9f"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_10.png",
+          "sha256": "5b5c376e6f895ff077b922840385f770be3469eafb2eed9536d251911d546ae8"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_11.png",
+          "sha256": "243a2677e876762dc6594da7e2088604326e66c5687ababb960ad0b8486249f8"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_12.png",
+          "sha256": "29a3880c36ed5379a5cb90e3a4f3e48023ce46875a29ad354f4cae71f87228b3"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_13.png",
+          "sha256": "300d5a3e9d450d45d91dd2003b5eab8bc675bce70ffcb18487c8a03ec1b7c53e"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_14.png",
+          "sha256": "6f32b37b81636fe2684dc2c59e812af434ddd19bd8f9cae8ca6ea7877ccac84c"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_15.png",
+          "sha256": "b26cf17e1175b3fd18721e331c3a118a8e2ff06bd8b88b613c597d2e62f72a0f"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_16.png",
+          "sha256": "7d558510769bf6d917361f9a14601993edab2cc41dec24a0e8a00ccd616b0d2e"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_17.png",
+          "sha256": "7d558510769bf6d917361f9a14601993edab2cc41dec24a0e8a00ccd616b0d2e"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_18.png",
+          "sha256": "8c3aedb6c9d6128bf96cd6eda422e06579d074f14282a54658a6b198f35ac97a"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_19.png",
+          "sha256": "fcc0f3fc05a1fedc182b82dcb965b2e1dee8234bfd9332f398263aa44aa71343"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_20.png",
+          "sha256": "79cbebf0a4bb82178ddd00f49163af575b49a75ea002161f92e4bc6f33123751"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_21.png",
+          "sha256": "a6e64d63afea01924fe103098635b886e464ed8b32bef61b99fcc36c3a657e9f"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_22.png",
+          "sha256": "820601b2714a8088d00e299ce3e5049a615b05cd95919e07bdd32dec8c6e2bd0"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_23.png",
+          "sha256": "243a2677e876762dc6594da7e2088604326e66c5687ababb960ad0b8486249f8"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_24.png",
+          "sha256": "b364941c342c0c9acb45c31e99c1eb8c04c04b74bcabb1fcf29d36398fc32d39"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_25.png",
+          "sha256": "b364941c342c0c9acb45c31e99c1eb8c04c04b74bcabb1fcf29d36398fc32d39"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_26.png",
+          "sha256": "6f32b37b81636fe2684dc2c59e812af434ddd19bd8f9cae8ca6ea7877ccac84c"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_27.png",
+          "sha256": "b778999fdbceb00eb0eb407d0ff483d620525b9a3bcc530f48373a7a7ce19e77"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_28.png",
+          "sha256": "50adc2844aa5d72b39088f2538eec4f4550eaac1914bb0795ea044263a05a479"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_29.png",
+          "sha256": "7d558510769bf6d917361f9a14601993edab2cc41dec24a0e8a00ccd616b0d2e"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_30.png",
+          "sha256": "5b5c376e6f895ff077b922840385f770be3469eafb2eed9536d251911d546ae8"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_31.png",
+          "sha256": "fcc0f3fc05a1fedc182b82dcb965b2e1dee8234bfd9332f398263aa44aa71343"
+        },
+        {
+          "file": "canvas_screen_2_day_page0_motion_32.png",
+          "sha256": "300d5a3e9d450d45d91dd2003b5eab8bc675bce70ffcb18487c8a03ec1b7c53e"
+        }
+      ]
+    },
+    {
+      "stage": 2,
+      "mode": "night",
+      "rest_changed_pixels_over2": 0,
+      "rest_mean_channel_difference": 0.0,
+      "rest_max_channel_difference": 0,
+      "rest_change_bounds_over2": [],
+      "max_motion_channel_difference": 46,
+      "sample_hashes": [
+        {
+          "file": "canvas_screen_3_night_page1_motion_00.png",
+          "sha256": "fd0616dd532e684a0301a05372d18926bf765155c92f9779ba711133a748b03e"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_01.png",
+          "sha256": "fd0616dd532e684a0301a05372d18926bf765155c92f9779ba711133a748b03e"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_02.png",
+          "sha256": "c5b7b3c8541a9411be6856e4cb23413b78f6cec31f22ec8a9f2d83a67e0bad42"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_03.png",
+          "sha256": "f1a5912d81347608dbe73420f00a4efd22caa62e69a53b7dd6137cd714daeb8b"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_04.png",
+          "sha256": "2bb955c700c9a2257fff482cac6a6e5071bd9147c5c6cb33ebeac658961e9a13"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_05.png",
+          "sha256": "9a570718c0b4aec7477b48e34208bb3723cb18559a8494b630165679d51f3dab"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_06.png",
+          "sha256": "9b6f315b514b8c29dd6110a1be238d8a35fb8ef33097fa1a21648c0a176c00c1"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_07.png",
+          "sha256": "32fe832815401052461306dffc7ec446445599723e3eb6b5874dfd1b102c7425"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_08.png",
+          "sha256": "b2425a6a220e4384596b4b6d198621ecfbddef911765e4544d76d7a2c26fe307"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_09.png",
+          "sha256": "b2425a6a220e4384596b4b6d198621ecfbddef911765e4544d76d7a2c26fe307"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_10.png",
+          "sha256": "2c18dedecde09e9ba1a92710f2061138e8e834608be883d86a9dc51dfd58a7df"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_11.png",
+          "sha256": "97a84e66e37d3afa5f084896fb601e69dfeb90090961a20e26494b7b0c99723b"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_12.png",
+          "sha256": "c30024449850a4a1a30cb605a900b856589a1f5beb3de967064c63b2b116e719"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_13.png",
+          "sha256": "fd0616dd532e684a0301a05372d18926bf765155c92f9779ba711133a748b03e"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_14.png",
+          "sha256": "121d5f718ac560fd4834f40c80d25e952eb9105e652bea240b4989f5b14351a1"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_15.png",
+          "sha256": "f1a5912d81347608dbe73420f00a4efd22caa62e69a53b7dd6137cd714daeb8b"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_16.png",
+          "sha256": "c511130995275b1bebda4048bdc0c68b79d4f0d5ca942a82320bd88914393ca5"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_17.png",
+          "sha256": "c511130995275b1bebda4048bdc0c68b79d4f0d5ca942a82320bd88914393ca5"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_18.png",
+          "sha256": "9b6f315b514b8c29dd6110a1be238d8a35fb8ef33097fa1a21648c0a176c00c1"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_19.png",
+          "sha256": "fa9a24d109d46142f0ff6f70a39b40d46f48c557bc34dd79a8a5e39d7b6cf1ba"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_20.png",
+          "sha256": "efcd95c6e6433a4e3f3f7b79ddc1c43b1781f7f8f99bcc59474daa22f2aa9942"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_21.png",
+          "sha256": "b2425a6a220e4384596b4b6d198621ecfbddef911765e4544d76d7a2c26fe307"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_22.png",
+          "sha256": "c5b7b3c8541a9411be6856e4cb23413b78f6cec31f22ec8a9f2d83a67e0bad42"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_23.png",
+          "sha256": "97a84e66e37d3afa5f084896fb601e69dfeb90090961a20e26494b7b0c99723b"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_24.png",
+          "sha256": "9a570718c0b4aec7477b48e34208bb3723cb18559a8494b630165679d51f3dab"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_25.png",
+          "sha256": "9a570718c0b4aec7477b48e34208bb3723cb18559a8494b630165679d51f3dab"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_26.png",
+          "sha256": "121d5f718ac560fd4834f40c80d25e952eb9105e652bea240b4989f5b14351a1"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_27.png",
+          "sha256": "32fe832815401052461306dffc7ec446445599723e3eb6b5874dfd1b102c7425"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_28.png",
+          "sha256": "de45263dad84bffe797fa0950e59596d6ab7b1332acee557d66ddc2840ce92f1"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_29.png",
+          "sha256": "c511130995275b1bebda4048bdc0c68b79d4f0d5ca942a82320bd88914393ca5"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_30.png",
+          "sha256": "2c18dedecde09e9ba1a92710f2061138e8e834608be883d86a9dc51dfd58a7df"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_31.png",
+          "sha256": "fa9a24d109d46142f0ff6f70a39b40d46f48c557bc34dd79a8a5e39d7b6cf1ba"
+        },
+        {
+          "file": "canvas_screen_3_night_page1_motion_32.png",
+          "sha256": "fd0616dd532e684a0301a05372d18926bf765155c92f9779ba711133a748b03e"
+        }
+      ]
+    },
+    {
+      "stage": 3,
+      "mode": "day",
+      "rest_changed_pixels_over2": 0,
+      "rest_mean_channel_difference": 0.0,
+      "rest_max_channel_difference": 0,
+      "rest_change_bounds_over2": [],
+      "max_motion_channel_difference": 97,
+      "sample_hashes": [
+        {
+          "file": "canvas_screen_3_day_page0_motion_00.png",
+          "sha256": "35b5ff1ac9d0b83643c07d1dfb5850f976af35b12354910037dd91b0b703184e"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_01.png",
+          "sha256": "35b5ff1ac9d0b83643c07d1dfb5850f976af35b12354910037dd91b0b703184e"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_02.png",
+          "sha256": "16a2907a286efe8014730e17cb0cf11544ec52e94532c6e98c23f7347321ff4b"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_03.png",
+          "sha256": "60e2cee0ac5c85924449c06a2b86e9de293b2a762ad72b8a55fdd3b582859fa6"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_04.png",
+          "sha256": "bf67d7f774919d248d927c042f306c4bc70a6e65db2c82c8b67fbb797d76a4f4"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_05.png",
+          "sha256": "1419c9b2796d9b9bd24cc753857f4f9205bf17861609ee2607becb2684a1bafb"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_06.png",
+          "sha256": "1eb5e7fe8afc92ec681be0a331a3dcbbc5cf647fa74f16e39136f710b784f7b6"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_07.png",
+          "sha256": "6acc39c30a8c93cd845e21c37c062f3cd9de285668e3cdf1f39f3bbe4ccae5aa"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_08.png",
+          "sha256": "a2c56d5924c01553a3f7ff9cdb4cb7e10e698c055ef559d3dc6ccd63f48d251f"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_09.png",
+          "sha256": "a2c56d5924c01553a3f7ff9cdb4cb7e10e698c055ef559d3dc6ccd63f48d251f"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_10.png",
+          "sha256": "e629f090d1b2b94894aff2f196cb64f78502744122b32f919b38188495efb879"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_11.png",
+          "sha256": "2d231983da896f8eb0bb986ab0efe71b39efd3364381d7482086ba6e90500858"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_12.png",
+          "sha256": "055539bf16ad323d7fd99695a65d10addf21534ee9b5457f24fae77c1a1b7791"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_13.png",
+          "sha256": "35b5ff1ac9d0b83643c07d1dfb5850f976af35b12354910037dd91b0b703184e"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_14.png",
+          "sha256": "28b2183ccd8059abe979efe0a02c3c4545703e9994a1dfb1018c9d850a7cd27c"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_15.png",
+          "sha256": "60e2cee0ac5c85924449c06a2b86e9de293b2a762ad72b8a55fdd3b582859fa6"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_16.png",
+          "sha256": "0a30f757021e8df7246cf3aef1e45abea3975f01411424e8ce36f6d52692bd35"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_17.png",
+          "sha256": "0a30f757021e8df7246cf3aef1e45abea3975f01411424e8ce36f6d52692bd35"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_18.png",
+          "sha256": "1eb5e7fe8afc92ec681be0a331a3dcbbc5cf647fa74f16e39136f710b784f7b6"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_19.png",
+          "sha256": "d39135ba0f43acfd7493fafb80b0ed32b7beee3e31bfcb92bacabd1e85d5f17e"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_20.png",
+          "sha256": "6bd585ead79e6b64c8465d00bbd45e94f59c16baf106ed8ab036bdc5f16aa17c"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_21.png",
+          "sha256": "a2c56d5924c01553a3f7ff9cdb4cb7e10e698c055ef559d3dc6ccd63f48d251f"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_22.png",
+          "sha256": "16a2907a286efe8014730e17cb0cf11544ec52e94532c6e98c23f7347321ff4b"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_23.png",
+          "sha256": "2d231983da896f8eb0bb986ab0efe71b39efd3364381d7482086ba6e90500858"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_24.png",
+          "sha256": "1419c9b2796d9b9bd24cc753857f4f9205bf17861609ee2607becb2684a1bafb"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_25.png",
+          "sha256": "1419c9b2796d9b9bd24cc753857f4f9205bf17861609ee2607becb2684a1bafb"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_26.png",
+          "sha256": "28b2183ccd8059abe979efe0a02c3c4545703e9994a1dfb1018c9d850a7cd27c"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_27.png",
+          "sha256": "6acc39c30a8c93cd845e21c37c062f3cd9de285668e3cdf1f39f3bbe4ccae5aa"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_28.png",
+          "sha256": "cec59af86d5199d137273491eaa836bb7aa24e40d236b4d4daf556c89521451c"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_29.png",
+          "sha256": "0a30f757021e8df7246cf3aef1e45abea3975f01411424e8ce36f6d52692bd35"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_30.png",
+          "sha256": "e629f090d1b2b94894aff2f196cb64f78502744122b32f919b38188495efb879"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_31.png",
+          "sha256": "d39135ba0f43acfd7493fafb80b0ed32b7beee3e31bfcb92bacabd1e85d5f17e"
+        },
+        {
+          "file": "canvas_screen_3_day_page0_motion_32.png",
+          "sha256": "35b5ff1ac9d0b83643c07d1dfb5850f976af35b12354910037dd91b0b703184e"
+        }
+      ]
+    },
+    {
+      "stage": 3,
+      "mode": "night",
+      "rest_changed_pixels_over2": 0,
+      "rest_mean_channel_difference": 0.0,
+      "rest_max_channel_difference": 0,
+      "rest_change_bounds_over2": [],
+      "max_motion_channel_difference": 46,
+      "sample_hashes": [
+        {
+          "file": "canvas_screen_3_night_page2_motion_00.png",
+          "sha256": "f2f9dd21195317fd2b54ca13354adbfce52fda0310ee8bfea9c2eb9b5976b9c1"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_01.png",
+          "sha256": "f2f9dd21195317fd2b54ca13354adbfce52fda0310ee8bfea9c2eb9b5976b9c1"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_02.png",
+          "sha256": "3d4d1197dd80102aef85e47d5e13f59664bd160b1e34894d453f6f0c818b112d"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_03.png",
+          "sha256": "c49e2dfb644a8044caadff143cf31ab9a82aa5e61a55a52bf203ecc12c6bd9d5"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_04.png",
+          "sha256": "f99a35e12619ce72109c85544ce0f3443ae07a712ae414cb8145aa3154340803"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_05.png",
+          "sha256": "2c7f70220fa443e8cd14b430a4e93330c3d41b9f39502ec81e32e9457a9e78ed"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_06.png",
+          "sha256": "9b05daa21b11ad5f217dca05713d32d8714e744880809af26996d6f95628819a"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_07.png",
+          "sha256": "1bac0ca410e36198c769f3e6f88bfcb6b46c2c76727eb2dcd3a5694c9728c8a0"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_08.png",
+          "sha256": "bd08d05e70ebb17e50f2f81e3752ea0db336e720a7c1f4dfc85f9f3be29de775"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_09.png",
+          "sha256": "bd08d05e70ebb17e50f2f81e3752ea0db336e720a7c1f4dfc85f9f3be29de775"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_10.png",
+          "sha256": "fb8f77dc9dc7790f98cd60a4838af0241748e8a5669015eaaa3967c9ab06e708"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_11.png",
+          "sha256": "1bfc0400ed1a06c22ef538b60b9ffa529d542081c3035c328bf018b3fbca2a17"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_12.png",
+          "sha256": "b519531c96c3e51c8a17b59812e3024bb8dcf065733cde86fa6e0f36c4f6dd8c"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_13.png",
+          "sha256": "f2f9dd21195317fd2b54ca13354adbfce52fda0310ee8bfea9c2eb9b5976b9c1"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_14.png",
+          "sha256": "40e42ba830070e33ed13d1cf1aa723fcbaa684fd2a29d981829ecd9b0bef3d7e"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_15.png",
+          "sha256": "c49e2dfb644a8044caadff143cf31ab9a82aa5e61a55a52bf203ecc12c6bd9d5"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_16.png",
+          "sha256": "a00b17c88ba7600c1bd3df588e5d52013ae57f391b9817fa9f7a403bd0f1f5a6"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_17.png",
+          "sha256": "a00b17c88ba7600c1bd3df588e5d52013ae57f391b9817fa9f7a403bd0f1f5a6"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_18.png",
+          "sha256": "9b05daa21b11ad5f217dca05713d32d8714e744880809af26996d6f95628819a"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_19.png",
+          "sha256": "99ca9f98f079fe2da5ca0e7a04a3c19511821034b0899dfb3f20576555596510"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_20.png",
+          "sha256": "4b45a62cc294660fd16741d1be17bf36c5ae0bd94c4ee1940a4dac76caec164a"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_21.png",
+          "sha256": "bd08d05e70ebb17e50f2f81e3752ea0db336e720a7c1f4dfc85f9f3be29de775"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_22.png",
+          "sha256": "3d4d1197dd80102aef85e47d5e13f59664bd160b1e34894d453f6f0c818b112d"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_23.png",
+          "sha256": "1bfc0400ed1a06c22ef538b60b9ffa529d542081c3035c328bf018b3fbca2a17"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_24.png",
+          "sha256": "2c7f70220fa443e8cd14b430a4e93330c3d41b9f39502ec81e32e9457a9e78ed"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_25.png",
+          "sha256": "2c7f70220fa443e8cd14b430a4e93330c3d41b9f39502ec81e32e9457a9e78ed"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_26.png",
+          "sha256": "40e42ba830070e33ed13d1cf1aa723fcbaa684fd2a29d981829ecd9b0bef3d7e"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_27.png",
+          "sha256": "1bac0ca410e36198c769f3e6f88bfcb6b46c2c76727eb2dcd3a5694c9728c8a0"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_28.png",
+          "sha256": "ed3367e104b77266c9397547dfc9d628e716844d02baabea975369c501e2f866"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_29.png",
+          "sha256": "a00b17c88ba7600c1bd3df588e5d52013ae57f391b9817fa9f7a403bd0f1f5a6"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_30.png",
+          "sha256": "fb8f77dc9dc7790f98cd60a4838af0241748e8a5669015eaaa3967c9ab06e708"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_31.png",
+          "sha256": "99ca9f98f079fe2da5ca0e7a04a3c19511821034b0899dfb3f20576555596510"
+        },
+        {
+          "file": "canvas_screen_3_night_page2_motion_32.png",
+          "sha256": "f2f9dd21195317fd2b54ca13354adbfce52fda0310ee8bfea9c2eb9b5976b9c1"
+        }
+      ]
+    }
+  ],
+  "playback": "First32samples at750ms show one24-second shared loop; sample33checks the return.",
+  "limits": [
+    "Temporary ImageTexture composite, not integrated/imported runtime assets",
+    "Preserves fixed outer bank contours and animates interior cloud material; not independently redrawn rolling cloud silhouettes",
+    "Device memory/frame pacing, owner quality acceptance and final clean-plate inspection remain open"
+  ],
+  "agent_visual_review": "Inspected current/rest/changed cloud-boundary crops in complete scene. All six resting views are pixel-exact, previous broken bank-boundary line not apparent in inspected changed pose. Every bank frame and phase checks pass. Not owner/device acceptance.",
+  "memory_decision": "Retain18MiB/eight-card version.6MiB reduction rejected for motion attenuation; single-field negative fragment test also failed because negative additive output clamps on this Mobile pipeline."
+}

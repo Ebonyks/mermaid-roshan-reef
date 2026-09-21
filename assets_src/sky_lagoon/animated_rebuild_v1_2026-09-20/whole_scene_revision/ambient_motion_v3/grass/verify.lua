@@ -1,0 +1,1 @@
+local s=app.open(app.params.file);assert(#s.frames==4 and #s.layers==8);for k=1,4 do assert(math.abs(s.frames[k].duration-.65)<.001);local im=Image(s.width,s.height,ColorMode.RGB);im:drawSprite(s,k);im:saveAs(app.params.out..string.format('/reopened-%02d.png',k-1)) end;s:close();print('NATIVE_GRASS|4frames8layers|PASS')

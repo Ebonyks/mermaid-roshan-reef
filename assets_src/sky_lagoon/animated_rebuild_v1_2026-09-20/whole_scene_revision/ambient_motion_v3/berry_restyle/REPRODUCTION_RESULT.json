@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "method": "Run the committed-source candidate build_source.py in an isolated scratch directory using its authored Lua and normalized rest source. Compare all8cel PNGs and runtime atlas byte-for-byte. Native source reopen is asserted by the builder.",
+  "checks": [
+    {
+      "file": "eight-cel-atlas.png",
+      "sha256": "06a3f56a12e5888b5d7826d4826673afed3f715307e2d3cab9d17b3e329e9c59",
+      "byte_exact": true
+    },
+    {
+      "file": "cel-00.png",
+      "sha256": "7f31ecc6473d30abe6683bfca5f2cd5779a1f01a32ad946fd7c4b43d5e215dba",
+      "byte_exact": true
+    },
+    {
+      "file": "cel-01.png",
+      "sha256": "30b79b7ec50f575c60b36cfd994709b2c9b18d9c84d31dd4859eda06acf4a2bb",
+      "byte_exact": true
+    },
+    {
+      "file": "cel-02.png",
+      "sha256": "227f7c5e039e60b6bbadf1d6471595107f3af315ecd91feedb1f020a4409ef69",
+      "byte_exact": true
+    },
+    {
+      "file": "cel-03.png",
+      "sha256": "842b61ffd1c408b6d4c59fb1541d66062eec6374793dc4258e19b868a4b13c00",
+      "byte_exact": true
+    },
+    {
+      "file": "cel-04.png",
+      "sha256": "ebd7194f3e8a10c5c83ae2ad297690ea4af45f7034199c91bdb63859db3a46a9",
+      "byte_exact": true
+    },
+    {
+      "file": "cel-05.png",
+      "sha256": "49715b2437f88ed2726f13ad8fc2939e6f88dd7241a3e2540d1bbfce42901bc8",
+      "byte_exact": true
+    },
+    {
+      "file": "cel-06.png",
+      "sha256": "fa22c5592a6b3ec8c6c2bcd54ce80af908fb0e6471ac393fd2727cfb6a92948b",
+      "byte_exact": true
+    },
+    {
+      "file": "cel-07.png",
+      "sha256": "8128229e9cf9b14680e221ef30d341baf42ede7620b972bfd696e3131c1a9367",
+      "byte_exact": true
+    }
+  ]
+}

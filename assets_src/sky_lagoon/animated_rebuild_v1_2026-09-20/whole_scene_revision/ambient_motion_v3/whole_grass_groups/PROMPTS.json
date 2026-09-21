@@ -1,0 +1,21 @@
+[
+  {
+    "output": "native-v1.png",
+    "method": "Codex built-in image_gen",
+    "reference": "../grass-whole-tuft-study/approved-grass-inventory.jpg",
+    "prompt": "Create one transparent-background 2D storybook game asset: a LOW GROUP OF THREE SMALL GRASS TUFTS, conceived as short soft garden lawn growth, to animate later. The attached image is the approved PAINT AND COLOR reference only; ignore its labels and panel boundaries. Match its muted yellow-green light, moss midtone and teal-olive shaded roots, broad simple faceted brush marks, gentle handmade edges. The three tufts form one intentional low spreading cluster: small left tuft, slightly taller middle tuft, medium right tuft, with visible transparent notches separating their crowns. Each tuft has about five to seven short tapered ribbon blades, wider and more child-readable than fine fescue but MUCH narrower and less glossy than tropical leaves. No radial rosette; all blades emerge upward from small rooted bases at a common ground line. Width of the complete group approximately 2.8 times its height. Keep blades simple enough to read when the entire group is displayed 70 pixels wide. Quiet matte paint, restrained broad highlights, soft teal-green contour shading, no glossy veins, no realistic hairlike blades. One REST POSE ONLY; a single asset, not a sheet or multiple options. All tips and root bases fully inside the canvas, generous transparent margins. Actual transparent RGBA background, including gaps between blades; no ground patch, rocks, dirt, cast shadow, flowers, berries, glow, text, border, checkerboard or scenery. This fills a specific missing readable animated lawn-cover asset; do not redesign the world.",
+    "output_sha256": "1da5d48b1b7d229a7dda82bad51f02bc167d8326a4f4335c935faeb676a1fd09",
+    "prompt_sha256": "f6a5ffad7783fedb004e30203ddb3158d83eb8a35ed2bdb9dbfd65b9942aa80a"
+  },
+  {
+    "output": "native-v2.png",
+    "method": "Codex built-in image_gen",
+    "references": [
+      "native-v1.png",
+      "../grass-whole-tuft-study/approved-grass-inventory.jpg"
+    ],
+    "prompt": "Edit IMAGE_1, the transparent three-tuft grass asset. IMAGE_2 is only the approved lawn paint/color reference. Fix one defect: each tuft currently ends in a straight horizontal cut, looking like a clipped paper sticker. Redraw the lower quarter of each tuft so its blades visibly converge into a small natural rooted crown with an irregular soft silhouette, including two or three short outward-curving basal grass blades. No horizontal flat cut edge anywhere at the base. Keep each root crown at its existing height and each clump in its current position. Preserve the existing three different tuft heights, upper blade silhouettes, restrained yellow-green/moss/teal palette and broad matte brushwork. Keep a few transparent gaps down to the lower blades. The roots should be foliage, NOT exposed brown roots, soil, a ground patch, shadow, haze or glow. This is short playful storybook lawn grass, not ornamental tropical shrubs. One rest pose, one three-tuft asset, not a sheet. Actual transparent RGBA background and generous margins. Do not add flowers, berries, scenery, labels, checkerboard, shadows or outlines.",
+    "output_sha256": "8d3dc7d7ad739f2b26057940153da279579bac1b4692a703c442098e30e624cd",
+    "prompt_sha256": "a6e8a7ece460dab9b64de96d480fa66f7384df77bb31f21ab25a389c9625daff"
+  }
+]

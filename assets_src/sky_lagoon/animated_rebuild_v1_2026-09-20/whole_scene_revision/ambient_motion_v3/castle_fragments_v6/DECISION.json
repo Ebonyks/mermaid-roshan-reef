@@ -1,0 +1,17 @@
+{
+  "status": "FOCUSED_PASS_FULL_REGRESSION_PENDING",
+  "prior_checkpoint": "4de77cd5cb223372a83d6a3af84aafe05e0355a0",
+  "correction": "Two legacy grass-family overlays contain partial leaf/rock highlights. Retain original rest pixels but declare motion_enabled=false. Complete castle rosette and bellflower owners remain independent.",
+  "runtime_changes": [
+    "Validate optional motion_enabled as boolean before building",
+    "Respect per-card motion disable in shared whole-scene tick",
+    "Validate cloud/grass references before Sprite2D casts after nodes are freed"
+  ],
+  "evidence_scope": "Source-space ownership plus actual Mobile contribution, followed by original/preview flows and exact rendered rest restoration.",
+  "limits": [
+    "No newly animated object or quality-score increase",
+    "Broad lawn trial remains outside production assets",
+    "Native frame count does not mean all stored legacy poses are played",
+    "Whole-game full regression and target-device/owner acceptance still required"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "status": "SOURCE_TRIAL_NOT_RUNTIME_ACCEPTED",
+  "frames": 4,
+  "layers": 8,
+  "frame_duration_seconds": 0.65,
+  "unique_frames": 4,
+  "fixed_root_rows": [
+    375,
+    426
+  ],
+  "fixed_roots_exact": true,
+  "largest_alpha_component_fraction": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "native_reopen_pixel_exact": true,
+  "ora": "Four alternative pose groups,32layers; not a native Krita animation timeline",
+  "remaining": [
+    "Inspect internal blade boundaries for borrowed neighbor pixels and cracks",
+    "Evaluate at actual foreground display scale with soil and paths",
+    "Do not reuse as cloned broad lawn coverage"
+  ],
+  "source_hash": "a48e5b3196d7dc57a762c738dac13a535a31f915dda9193fd9d7932bf7c05677",
+  "gap_diagnostic": [
+    {
+      "frame": 0,
+      "enclosed_transparent_pixels": 0,
+      "vacated_rest_pixels": 0,
+      "vacated_rest_pixels_are_not_hole_test": true
+    },
+    {
+      "frame": 1,
+      "enclosed_transparent_pixels": 1,
+      "vacated_rest_pixels": 1270,
+      "vacated_rest_pixels_are_not_hole_test": true
+    },
+    {
+      "frame": 2,
+      "enclosed_transparent_pixels": 0,
+      "vacated_rest_pixels": 308,
+      "vacated_rest_pixels_are_not_hole_test": true
+    },
+    {
+      "frame": 3,
+      "enclosed_transparent_pixels": 0,
+      "vacated_rest_pixels": 0,
+      "vacated_rest_pixels_are_not_hole_test": true
+    }
+  ],
+  "diagnostic_correction": "The earlier rest-erosion difference marked moving outer leaf contours, not overlap cracks; inspected gap-locations.png. Increasing concealed extensions18to48did not alter that metric, so retained original18px. Enclosed transparency and visible internal seams reviewed separately.",
+  "visual_review": "All four native poses retain seven recognizable blades and planted base. No obvious exposed internal seam in inspected composite. Hidden ownership contains neighboring pixels; native/display/device acceptance still pending."
+}

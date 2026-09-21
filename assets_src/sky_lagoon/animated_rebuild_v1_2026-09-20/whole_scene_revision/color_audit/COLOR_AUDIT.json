@@ -1,0 +1,486 @@
+{
+  "status": "ONGOING_COLOR_AUDIT_NOT_ACCEPTANCE",
+  "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+  "scope": "All three stages: nine mapped source foliage regions, 28 whole-scene cards, two water-surface atlases and graded bellflower and huckleberry atlases shared by four plants. Source statistics are diagnostics; runtime material hierarchy and owner/device acceptance remain incomplete.",
+  "samples": [
+    {
+      "stage": "arrival",
+      "role": "rear_shrubs",
+      "rect": [
+        1400,
+        1160,
+        1700,
+        1320
+      ],
+      "mask": "green/cyan-green foliage range; excludes other hues, not semantic segmentation",
+      "pixels": 43272,
+      "median_HSV_saturation": 0.9255,
+      "median_linear_luminance": 0.1158,
+      "luminance_p10_p90": [
+        0.0321,
+        0.2633
+      ],
+      "median_hue_degrees": 162.4
+    },
+    {
+      "stage": "arrival",
+      "role": "foreground_leaves",
+      "rect": [
+        1300,
+        1750,
+        1700,
+        1960
+      ],
+      "mask": "green/cyan-green foliage range; excludes other hues, not semantic segmentation",
+      "pixels": 71509,
+      "median_HSV_saturation": 0.9333,
+      "median_linear_luminance": 0.0789,
+      "luminance_p10_p90": [
+        0.02,
+        0.1913
+      ],
+      "median_hue_degrees": 160.9
+    },
+    {
+      "stage": "arrival",
+      "role": "lawn",
+      "rect": [
+        760,
+        1730,
+        1060,
+        1900
+      ],
+      "mask": "green/cyan-green foliage range; excludes other hues, not semantic segmentation",
+      "pixels": 51000,
+      "median_HSV_saturation": 0.6863,
+      "median_linear_luminance": 0.289,
+      "luminance_p10_p90": [
+        0.2035,
+        0.3806
+      ],
+      "median_hue_degrees": 77.6
+    },
+    {
+      "stage": "meadow",
+      "role": "rear_shrubs",
+      "rect": [
+        2200,
+        1180,
+        2600,
+        1280
+      ],
+      "mask": "green/cyan-green foliage range; excludes other hues, not semantic segmentation",
+      "pixels": 39171,
+      "median_HSV_saturation": 0.6627,
+      "median_linear_luminance": 0.1225,
+      "luminance_p10_p90": [
+        0.038,
+        0.287
+      ],
+      "median_hue_degrees": 142.6
+    },
+    {
+      "stage": "meadow",
+      "role": "foreground_leaves",
+      "rect": [
+        2050,
+        1750,
+        2290,
+        1990
+      ],
+      "mask": "green/cyan-green foliage range; excludes other hues, not semantic segmentation",
+      "pixels": 52429,
+      "median_HSV_saturation": 0.6588,
+      "median_linear_luminance": 0.1119,
+      "luminance_p10_p90": [
+        0.033,
+        0.271
+      ],
+      "median_hue_degrees": 139.8
+    },
+    {
+      "stage": "meadow",
+      "role": "lawn",
+      "rect": [
+        2700,
+        1770,
+        3000,
+        1940
+      ],
+      "mask": "green/cyan-green foliage range; excludes other hues, not semantic segmentation",
+      "pixels": 50799,
+      "median_HSV_saturation": 0.698,
+      "median_linear_luminance": 0.2707,
+      "luminance_p10_p90": [
+        0.1867,
+        0.4014
+      ],
+      "median_hue_degrees": 79.1
+    },
+    {
+      "stage": "castle",
+      "role": "rear_shrubs",
+      "rect": [
+        4300,
+        1050,
+        4550,
+        1230
+      ],
+      "mask": "green/cyan-green foliage range; excludes other hues, not semantic segmentation",
+      "pixels": 33052,
+      "median_HSV_saturation": 0.6745,
+      "median_linear_luminance": 0.1104,
+      "luminance_p10_p90": [
+        0.0483,
+        0.2094
+      ],
+      "median_hue_degrees": 155.3
+    },
+    {
+      "stage": "castle",
+      "role": "foreground_leaves",
+      "rect": [
+        4540,
+        1730,
+        4830,
+        1940
+      ],
+      "mask": "green/cyan-green foliage range; excludes other hues, not semantic segmentation",
+      "pixels": 54301,
+      "median_HSV_saturation": 0.6784,
+      "median_linear_luminance": 0.103,
+      "luminance_p10_p90": [
+        0.0257,
+        0.2429
+      ],
+      "median_hue_degrees": 139.8
+    },
+    {
+      "stage": "meadow",
+      "role": "right_approach_foliage",
+      "rect": [
+        3930,
+        1480,
+        4050,
+        1560
+      ],
+      "mask": "green/cyan-green foliage range; excludes other hues, not semantic segmentation",
+      "pixels": 7749,
+      "median_HSV_saturation": 0.749,
+      "median_linear_luminance": 0.068,
+      "luminance_p10_p90": [
+        0.0308,
+        0.1447
+      ],
+      "median_hue_degrees": 155.3
+    }
+  ],
+  "whole_scene_temporal_cards": [
+    {
+      "id": "arrival_whole_tree",
+      "family": "tree",
+      "frames": 12,
+      "saturation_median_range": 0.0079,
+      "luminance_median_range": 0.0009
+    },
+    {
+      "id": "arrival_lawn",
+      "family": "grass",
+      "frames": 4,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0132
+    },
+    {
+      "id": "arrival_front_edge",
+      "family": "foreground",
+      "frames": 4,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0002
+    },
+    {
+      "id": "meadow_upper_left",
+      "family": "grass",
+      "frames": 4,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0123
+    },
+    {
+      "id": "meadow_upper_right",
+      "family": "grass",
+      "frames": 4,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0146
+    },
+    {
+      "id": "meadow_lower_lawn",
+      "family": "grass",
+      "frames": 4,
+      "saturation_median_range": 0.0039,
+      "luminance_median_range": 0.0104
+    },
+    {
+      "id": "castle_left_verge",
+      "family": "grass",
+      "frames": 4,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0121
+    },
+    {
+      "id": "castle_right_verge",
+      "family": "grass",
+      "frames": 4,
+      "saturation_median_range": 0.0078,
+      "luminance_median_range": 0.0023
+    },
+    {
+      "id": "arrival_bank_left",
+      "family": "shrubs",
+      "frames": 4,
+      "saturation_median_range": 0.0039,
+      "luminance_median_range": 0.0036
+    },
+    {
+      "id": "arrival_bank_right",
+      "family": "shrubs",
+      "frames": 4,
+      "saturation_median_range": 0.0039,
+      "luminance_median_range": 0.0005
+    },
+    {
+      "id": "meadow_hedge_left",
+      "family": "shrubs",
+      "frames": 4,
+      "saturation_median_range": 0.004,
+      "luminance_median_range": 0.0011
+    },
+    {
+      "id": "meadow_hedge_right",
+      "family": "shrubs",
+      "frames": 4,
+      "saturation_median_range": 0.0039,
+      "luminance_median_range": 0.0004
+    },
+    {
+      "id": "castle_approach_bank",
+      "family": "shrubs",
+      "frames": 4,
+      "saturation_median_range": 0.004,
+      "luminance_median_range": 0.0011
+    },
+    {
+      "id": "castle_far_bank",
+      "family": "shrubs",
+      "frames": 4,
+      "saturation_median_range": 0.0039,
+      "luminance_median_range": 0.0003
+    },
+    {
+      "id": "arrival_high_left",
+      "family": "cloud",
+      "frames": 3,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0018
+    },
+    {
+      "id": "arrival_high_right",
+      "family": "cloud",
+      "frames": 3,
+      "saturation_median_range": 0.004,
+      "luminance_median_range": 0.0026
+    },
+    {
+      "id": "arrival_small_center",
+      "family": "cloud",
+      "frames": 1,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0
+    },
+    {
+      "id": "arrival_small_right",
+      "family": "cloud",
+      "frames": 1,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0
+    },
+    {
+      "id": "arrival_mid_right",
+      "family": "cloud",
+      "frames": 1,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0
+    },
+    {
+      "id": "meadow_high_left",
+      "family": "cloud",
+      "frames": 1,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0
+    },
+    {
+      "id": "meadow_high_right",
+      "family": "cloud",
+      "frames": 3,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0029
+    },
+    {
+      "id": "meadow_small_left",
+      "family": "cloud",
+      "frames": 1,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0
+    },
+    {
+      "id": "meadow_mid_right",
+      "family": "cloud",
+      "frames": 1,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0
+    },
+    {
+      "id": "meadow_small_center",
+      "family": "cloud",
+      "frames": 1,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0
+    },
+    {
+      "id": "meadow_small_far",
+      "family": "cloud",
+      "frames": 1,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0
+    },
+    {
+      "id": "castle_high",
+      "family": "cloud",
+      "frames": 3,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0006
+    },
+    {
+      "id": "castle_foreground_rosette",
+      "family": "foreground",
+      "frames": 6,
+      "saturation_median_range": 0.0039,
+      "luminance_median_range": 0.0002
+    },
+    {
+      "id": "meadow_boundary_berry_fan",
+      "family": "foreground",
+      "frames": 8,
+      "saturation_median_range": 0.0039,
+      "luminance_median_range": 0.0002
+    },
+    {
+      "id": "huckleberry_leaf_grade",
+      "family": "plant",
+      "frames": 8,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0024
+    },
+    {
+      "id": "bellflower_whole_breeze",
+      "family": "plant",
+      "frames": 8,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0025
+    },
+    {
+      "id": "water_surface_arrival",
+      "family": "water",
+      "frames": 12,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0017
+    },
+    {
+      "id": "water_surface_castle",
+      "family": "water",
+      "frames": 12,
+      "saturation_median_range": 0.0,
+      "luminance_median_range": 0.0004
+    }
+  ],
+  "findings": [
+    {
+      "id": "COLOR-01",
+      "finding": "Foreground large leaves and rear shrubbery have different hue/value structure; use material-matched sampling and in-context review before saturation adjustment. Larger darker leaf masses naturally differ from tiny sunlit leaves; do not flatten useful depth."
+    },
+    {
+      "id": "COLOR-02",
+      "finding": "Older ambient overlays used a different night multiplier than the backdrop and new plants. The opt-in whole-scene profile now aligns five ambient cards to (0.48,0.56,0.82); runtime values and captures verified. Broad night color acceptance remains open."
+    },
+    {
+      "id": "COLOR-03",
+      "finding": "Cyan extraction fringes falsely increase edge saturation; twelve cleaned cloud candidates address a separate matte issue, not a scene-wide grade."
+    },
+    {
+      "id": "COLOR-04",
+      "finding": "Sampled arrival rear/foreground foliage median HSV saturation is 0.9255/0.9333 versus meadow 0.6627/0.6588 and castle 0.6745/0.6784. These are nine mapped sample regions, not whole-stage statistics. Arrival foreground median linear luminance 0.0789 versus rear 0.1158; stronger darkness adds perceived intensity."
+    }
+  ],
+  "required_passes": [
+    "Day and night rendered comparisons of sky/cloud/mountain/hedge/lawn/foreground/water/castle/playground/actor hierarchy",
+    "All old animated overlay frame palettes plus whole-scene card frame palettes",
+    "Local correction variants per material with before/after gameplay review",
+    "No protected character recoloring or blanket desaturation; preserve depth and warm interaction accents"
+  ],
+  "machine_validation": "Nine source samples and 32 current source entries measured, including 24 water cels and sixteen graded plant cels including rooted bellflower leaf motion; no visual acceptance claim.",
+  "night_correction": {
+    "scope": "Opt-in whole-scene preview only; five older ambient cards share backdrop RGB tint; original and prior candidate retained",
+    "implementation": "scripts/arena/sky_lagoon_promenade.gd",
+    "evidence": "night-tint-checks.txt",
+    "result": "Runtime values and fixed 1280x720 captures passed; broad color acceptance remains incomplete"
+  },
+  "overlay_audit": {
+    "record": "OVERLAY_COLORS.json",
+    "active_atlases": 11,
+    "active_cels": 98,
+    "finding": "Plant overlay frame-to-frame source palette shifts are small; foreground/background intensity mismatch is not explained by broad per-cel palette flicker. Touch ripple has the largest source-color range and needs in-context review with alpha/fade."
+  },
+  "coverage": {
+    "source_foliage": "MEASURED_NINE_REGIONS",
+    "whole_scene_cards": "MEASURED_28_CARDS",
+    "current_water_surface": "MEASURED_24_CELS",
+    "older_overlays": "MEASURED_98_CELS_IN_SEPARATE_REPORT",
+    "night_ambient_tint": "CORRECTED_OPT_IN_VALUES_AND_CAPTURE_VERIFIED",
+    "day_material_hierarchy": "PENDING_RENDERED_REVIEW",
+    "sky_mountain_cloud_sea": "PENDING_RENDERED_REVIEW",
+    "castle_bridge_paths_playground": "PENDING_RENDERED_REVIEW",
+    "actor_and_touch_target_contrast": "PENDING_RENDERED_REVIEW",
+    "target_device_and_owner_acceptance": "PENDING",
+    "graded_bellflower": "MEASURED_EIGHT_CELS_AND_CONTEXT_REVIEWED"
+  },
+  "limitations": [
+    "HSV saturation is not a perceptually uniform color difference or an acceptance threshold.",
+    "Source patch masks select hues, not individual plant species; compare in the rendered scene before recoloring.",
+    "The former castle lawn sample at x3930..4050 is actually meadow right-approach foliage. It is relabeled; castle lawn has no validated sample yet.",
+    "One-cel clouds have zero temporal source variation by definition; this does not establish animation quality."
+  ],
+  "foreground_rosette": {
+    "status": "COLOR_VARIANT_INTEGRATED_OPT_IN_NOT_ACCEPTED",
+    "record": "../foreground_rosette/palette_trial/CONTEXT_REVIEW.json",
+    "finding": "New rosette had similar saturation but excessive leaf luminance. Reversible linear-light adjustment brings sampled main leaf from .3075 to .2206 versus original .2140. Other sampled leaf/bud values remain somewhat brighter.",
+    "evidence": "../runtime_evidence/ROSETTE_INTEGRATION_REVIEW.json"
+  },
+  "meadow_berry_fan": {
+    "status": "COLOR_ADJUSTED_OPT_IN_INTEGRATION_NOT_ACCEPTED",
+    "record": "../meadow_berry_fan/palette_trial/CONTEXT_REVIEW.json",
+    "evidence": "../runtime_evidence/MEADOW_BOUNDARY_INTEGRATION_REVIEW.json",
+    "finding": "Reversible highlight compression brings front-leaf sample luminance .1887 to .1432 versus original .1444; right leaf and berry samples remain slightly brighter. Actual arrival/meadow previews captured; no global palette acceptance."
+  },
+  "bellflower_palette": {
+    "status": "INTEGRATED_OPT_IN_CONTEXT_REVIEWED_NOT_OWNER_ACCEPTED",
+    "evidence": "../bellflower_palette/REVIEW.json",
+    "scope": "Eight-cel leaf-only grade; unchanged flowers/stems/bud, timing and alpha; fixed leaves still a motion gap."
+  },
+  "prop_night_grade": {
+    "status": "OPT_IN_TRIAL_NOT_OWNER_ACCEPTED",
+    "evidence": "prop_night_grade/REVIEW.json"
+  },
+  "huckleberry_palette": {
+    "status": "OPT_IN_CORRECTION_VERIFIED",
+    "report": "../huckleberry_palette/REVIEW.json",
+    "limit": "Color correction does not resolve silhouette/style differences."
+  }
+}

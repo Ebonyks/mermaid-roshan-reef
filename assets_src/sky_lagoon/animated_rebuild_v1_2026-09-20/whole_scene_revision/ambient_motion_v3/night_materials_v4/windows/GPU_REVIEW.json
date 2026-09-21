@@ -1,0 +1,39 @@
+{
+  "status": "TEMPORARY_GPU_CAPTURE_PASS_SELECTED_FOR_OPT_IN_INTEGRATION",
+  "views": [
+    {
+      "page": 1,
+      "changed_pixels": 712,
+      "max_channel_change": 62,
+      "bounds": [
+        1225,
+        297,
+        1269,
+        399
+      ],
+      "restored_pixel_exact": true
+    },
+    {
+      "page": 2,
+      "changed_pixels": 2288,
+      "max_channel_change": 63,
+      "bounds": [
+        785,
+        221,
+        1159,
+        418
+      ],
+      "restored_pixel_exact": true
+    }
+  ],
+  "method": "Only window material temporarily overlaid; original castle texture, portrait and opaque tint unchanged. Same camera/processing/timing held within each pair.",
+  "acceptance": "No runtime integration or owner/device acceptance.",
+  "visual_review": {
+    "reviewer": "Codex, not owner acceptance",
+    "observations": [
+      "Existing blue glass reads more clearly while surrounding castle surfaces remain night-tinted",
+      "Both matched views restore pixel-exactly after removing the window trial",
+      "Select for opt-in material integration trial; no blinking or animation clip is claimed"
+    ]
+  }
+}

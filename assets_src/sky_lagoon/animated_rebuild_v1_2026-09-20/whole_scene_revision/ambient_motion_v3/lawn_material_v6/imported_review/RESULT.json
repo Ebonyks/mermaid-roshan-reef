@@ -1,0 +1,67 @@
+{
+  "jobs": [
+    {
+      "job": "import",
+      "exit_code": 0,
+      "seconds": 16.484656200002064,
+      "failures": []
+    },
+    {
+      "job": "whole-contract",
+      "exit_code": 0,
+      "seconds": 30.741816300011124,
+      "failures": []
+    },
+    {
+      "job": "l2-original",
+      "exit_code": 0,
+      "seconds": 10.8327583999926,
+      "failures": []
+    },
+    {
+      "job": "l2-preview",
+      "exit_code": 0,
+      "seconds": 15.792507199992542,
+      "failures": []
+    },
+    {
+      "job": "visual",
+      "exit_code": 0,
+      "seconds": 29.494345799990697,
+      "failures": []
+    }
+  ],
+  "views": [
+    {
+      "label": "canvas_screen_1_day_p0",
+      "rollback_max_error": 0,
+      "unique_rendered_poses": 4
+    },
+    {
+      "label": "canvas_screen_2_day_p0",
+      "rollback_max_error": 0,
+      "unique_rendered_poses": 4
+    },
+    {
+      "label": "canvas_screen_3_day_p0",
+      "rollback_max_error": 0,
+      "unique_rendered_poses": 4
+    },
+    {
+      "label": "canvas_screen_3_night_p0",
+      "rollback_max_error": 0,
+      "unique_rendered_poses": 4
+    },
+    {
+      "label": "canvas_screen_3_night_p1",
+      "rollback_max_error": 0,
+      "unique_rendered_poses": 4
+    },
+    {
+      "label": "canvas_screen_3_night_p2",
+      "rollback_max_error": 0,
+      "unique_rendered_poses": 4
+    }
+  ],
+  "passed": true
+}

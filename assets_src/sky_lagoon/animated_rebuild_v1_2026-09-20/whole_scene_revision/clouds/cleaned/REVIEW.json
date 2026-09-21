@@ -1,0 +1,218 @@
+{
+  "status": "SOURCE_EDGE_CLEANUP_CANDIDATE",
+  "method": "Boundary-only color unmixing against nearest exterior sky and protected interior cloud pixels; existing silhouette support retained, no new generation",
+  "runtime_changed": false,
+  "clouds": [
+    {
+      "id": "arrival_high_left",
+      "rect": [
+        276,
+        244,
+        368,
+        152
+      ],
+      "file": "arrival_high_left.png",
+      "protected_core_pixels": 21057,
+      "core_rgb_max_error": 0,
+      "old_opaque_cyan_pixels": 1576,
+      "new_majority_alpha_cyan_pixels": 7,
+      "source_sha256": "3d45f087304894ecd85ae733015b40beebd744e2878c51675a2196182930a29a",
+      "output_sha256": "c4976a2c2b2858ca815bf5a9d4b664bff15da1e47fd0686f4148839a9da60c8e"
+    },
+    {
+      "id": "arrival_high_right",
+      "rect": [
+        1304,
+        456,
+        488,
+        196
+      ],
+      "file": "arrival_high_right.png",
+      "protected_core_pixels": 28585,
+      "core_rgb_max_error": 0,
+      "old_opaque_cyan_pixels": 1609,
+      "new_majority_alpha_cyan_pixels": 0,
+      "source_sha256": "73039f546c76258810f1207ff9c1b023991e9edc10e522553313391cb3eb9dff",
+      "output_sha256": "57f65307be2d799019b9da819529c64da05d7ccca7589a7423994c6b7f1176fd"
+    },
+    {
+      "id": "arrival_small_center",
+      "rect": [
+        696,
+        708,
+        256,
+        104
+      ],
+      "file": "arrival_small_center.png",
+      "protected_core_pixels": 2891,
+      "core_rgb_max_error": 0,
+      "old_opaque_cyan_pixels": 0,
+      "new_majority_alpha_cyan_pixels": 0,
+      "source_sha256": "4604fe743aba314304c8e812c2ac88ab26cc8ee5225676c6f2942a1c254b7bb5",
+      "output_sha256": "93484063fe827c5efa71d75dff4b112786be00280ffdaf08060d64f954f33175"
+    },
+    {
+      "id": "arrival_small_right",
+      "rect": [
+        1096,
+        776,
+        240,
+        92
+      ],
+      "file": "arrival_small_right.png",
+      "protected_core_pixels": 3512,
+      "core_rgb_max_error": 0,
+      "old_opaque_cyan_pixels": 0,
+      "new_majority_alpha_cyan_pixels": 0,
+      "source_sha256": "ab78df1976efa26caf5ead6c8c7b5e0b46de0f8c5d81892986ee03e29f6984a8",
+      "output_sha256": "a9a6f82f278b166343498ed1268e8b622ed95e4c9053d2fb42d0fb493c9d9127"
+    },
+    {
+      "id": "arrival_mid_right",
+      "rect": [
+        1144,
+        672,
+        296,
+        116
+      ],
+      "file": "arrival_mid_right.png",
+      "protected_core_pixels": 6264,
+      "core_rgb_max_error": 0,
+      "old_opaque_cyan_pixels": 59,
+      "new_majority_alpha_cyan_pixels": 1,
+      "source_sha256": "ce9051ff585b16143e4ecd910294c268bcdce5a46329cc275d3b569487ab7d5a",
+      "output_sha256": "2c3d7518612c92a64bae3b1863bc0037ae66fd85ae294b0f44850a9830d2babd"
+    },
+    {
+      "id": "meadow_high_left",
+      "rect": [
+        1992,
+        308,
+        536,
+        220
+      ],
+      "file": "meadow_high_left.png",
+      "protected_core_pixels": 34814,
+      "core_rgb_max_error": 0,
+      "old_opaque_cyan_pixels": 2005,
+      "new_majority_alpha_cyan_pixels": 0,
+      "source_sha256": "ff891f766044ab636339fe69787b3c344ae937158eb995956bc8ae99bdeeadb8",
+      "output_sha256": "91540245a58e94848d3cfaed165025f8f8316bbffec61b6051dedd6c7f9f016c"
+    },
+    {
+      "id": "meadow_high_right",
+      "rect": [
+        3724,
+        304,
+        556,
+        200
+      ],
+      "file": "meadow_high_right.png",
+      "protected_core_pixels": 35429,
+      "core_rgb_max_error": 0,
+      "old_opaque_cyan_pixels": 1945,
+      "new_majority_alpha_cyan_pixels": 0,
+      "source_sha256": "ce1cd15e70f979c8f81ba5b350e2a76e2dacc2d4086d05458163f2b554c8e9f1",
+      "output_sha256": "2405f07f777f1c17cc24e048c80d98626942b52f3d4e7b8689168c082729057c"
+    },
+    {
+      "id": "meadow_small_left",
+      "rect": [
+        1796,
+        656,
+        352,
+        80
+      ],
+      "file": "meadow_small_left.png",
+      "protected_core_pixels": 3907,
+      "core_rgb_max_error": 0,
+      "old_opaque_cyan_pixels": 145,
+      "new_majority_alpha_cyan_pixels": 0,
+      "source_sha256": "c48c73d35a7eb33020985bddbda4d47d7fd976b056a34f4b8cb6d5239a2aacdc",
+      "output_sha256": "e70b687fefd4fe518156d8774a3190e5cda3ada63aaca9bf626f9ca88dee8709"
+    },
+    {
+      "id": "meadow_mid_right",
+      "rect": [
+        3220,
+        580,
+        400,
+        168
+      ],
+      "file": "meadow_mid_right.png",
+      "protected_core_pixels": 14632,
+      "core_rgb_max_error": 0,
+      "old_opaque_cyan_pixels": 504,
+      "new_majority_alpha_cyan_pixels": 0,
+      "source_sha256": "0a2d3506b74db7321fae4e33fd763fe0c427ab2de3d1dd08f7a9c1f799ccd39b",
+      "output_sha256": "899c3718b9dec37493e49368dbcf603ef9425a5373eca29ee0d10e27664494e2"
+    },
+    {
+      "id": "meadow_small_center",
+      "rect": [
+        2984,
+        720,
+        216,
+        112
+      ],
+      "file": "meadow_small_center.png",
+      "protected_core_pixels": 2832,
+      "core_rgb_max_error": 0,
+      "old_opaque_cyan_pixels": 0,
+      "new_majority_alpha_cyan_pixels": 0,
+      "source_sha256": "19beaa5f2e19ac2448a4523963672139a261a18ce00017de127045d45230c424",
+      "output_sha256": "981725467517d98e6f46f42816b4cb279f87beadc5d969ba94bfb3657449806a"
+    },
+    {
+      "id": "meadow_small_far",
+      "rect": [
+        3204,
+        752,
+        160,
+        72
+      ],
+      "file": "meadow_small_far.png",
+      "protected_core_pixels": 2023,
+      "core_rgb_max_error": 0,
+      "old_opaque_cyan_pixels": 0,
+      "new_majority_alpha_cyan_pixels": 0,
+      "source_sha256": "9fb6e8d67c82a292dc44789eae2b9109bc68ab34ec70ba0b4bae6cd6d93fa75f",
+      "output_sha256": "4efe48a76a3157476a637bb66dc7d9b7be25844c5a99f0b3ee1aac2fee83eae1"
+    },
+    {
+      "id": "castle_high",
+      "rect": [
+        5216,
+        108,
+        684,
+        268
+      ],
+      "file": "castle_high.png",
+      "protected_core_pixels": 56765,
+      "core_rgb_max_error": 0,
+      "old_opaque_cyan_pixels": 2712,
+      "new_majority_alpha_cyan_pixels": 0,
+      "source_sha256": "5673a3300b980200898007a1dcfbae2227e1107c3866b83496b88df14300d18b",
+      "output_sha256": "6926269cf1cc95fdbda4089fa79a67078324b0ba916d62839f4c11f0973af57e"
+    }
+  ],
+  "limits": [
+    "Low cloud sea and mountain-overlap clouds not included",
+    "Exterior sky estimate can be imperfect where silhouettes are very thin",
+    "Runtime drift and rest-recomposition review remains required; no acceptance claim"
+  ],
+  "runtime_fixture": {
+    "exit_code": 0,
+    "stderr_bytes": 0,
+    "final_all_ok": true,
+    "all_twelve_clouds_checked": 4,
+    "captures": [
+      "canvas_screen_1_day.jpg",
+      "canvas_screen_2_day.jpg",
+      "canvas_screen_3_day.jpg",
+      "canvas_screen_3_night.jpg"
+    ],
+    "folder": "tmp\\sky-lagoon-whole-scene-v2\\cloud-study\\edge-gameplay",
+    "acceptance": "Diagnostic fixture only; still not integrated or owner/device accepted"
+  }
+}

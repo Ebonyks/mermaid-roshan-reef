@@ -1,0 +1,65 @@
+{
+  "id": "arrival_small_center",
+  "source": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/clouds/cleaned/arrival_small_center.png",
+  "source_sha256": "93484063fe827c5efa71d75dff4b112786be00280ffdaf08060d64f954f33175",
+  "frames": 4,
+  "layers": 2,
+  "cycle": 3.6,
+  "source_rest_visible_exact": true,
+  "native_reopen_exact": true,
+  "neighbor_iou": [
+    0.9835111542192047,
+    0.9868804664723032,
+    0.9840464104423495,
+    0.9874122488501573
+  ],
+  "poses": [
+    {
+      "bounds": [
+        51,
+        35,
+        229,
+        85
+      ],
+      "median_linear_luminance": 0.8336906061890164,
+      "median_saturation": 0.03137254901960784
+    },
+    {
+      "bounds": [
+        51,
+        35,
+        229,
+        85
+      ],
+      "median_linear_luminance": 0.8331141525532979,
+      "median_saturation": 0.03137254901960784
+    },
+    {
+      "bounds": [
+        51,
+        35,
+        229,
+        85
+      ],
+      "median_linear_luminance": 0.8336906061890164,
+      "median_saturation": 0.03137254901960784
+    },
+    {
+      "bounds": [
+        51,
+        35,
+        229,
+        85
+      ],
+      "median_linear_luminance": 0.8342835459359503,
+      "median_saturation": 0.03137254901960784
+    }
+  ],
+  "method": "Direct Aseprite Lua-authored horizontal lobe deformation, fixed base, no vertical scaling; existing painted RGB sampled with premultiplied alpha. Not independently redrawn frames.",
+  "status": "SOURCE_TRIAL_PENDING_CONTEXTUAL_REVIEW",
+  "limitations": [
+    "ORA pose alternatives are not native Krita animation timeline",
+    "Small-cloud motion may be subpixel at gameplay scale",
+    "Full drift and seam review pending"
+  ]
+}

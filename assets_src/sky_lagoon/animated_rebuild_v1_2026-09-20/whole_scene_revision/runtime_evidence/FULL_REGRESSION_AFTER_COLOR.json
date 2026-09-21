@@ -1,0 +1,16 @@
+{
+  "exit_code": 1,
+  "seconds": 2237.2023515701294,
+  "command": "GODOT=pinned4.7.2 bash scripts/ci.sh",
+  "changed_inputs_during_run": [],
+  "input_hashes": "input-hashes.json",
+  "status": "FAIL",
+  "runtime_processes": 78,
+  "nonzero_process_exits": [],
+  "failed_assertions": [
+    "THRONE|locked_royal_hall_has_five_mist_cards|FAIL|",
+    "THRONE|locked_mist_visibly_flutters|FAIL|feedback=true flutter=0.64 moved=true mist=3",
+    "THRONE|locked_gate_does_not_award_or_open_picker|FAIL|crown=false picker=false mist=3 sfx=res://assets/audio/castle/curtain_swish.ogg"
+  ],
+  "scope": "Exact unchanged worktree input hashes; all78 processes exited0 but throne assertion failures keep the gate red. Source studies under ignored tmp were not runtime inputs."
+}

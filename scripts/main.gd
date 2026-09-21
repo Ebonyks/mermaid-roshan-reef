@@ -6011,7 +6011,12 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 		if is_instance_valid(n):
 			n.queue_free()
 	game_nodes.clear()
+	var lagoon_preview_options: Dictionary = {}
+	for key: String in ["lagoon_art_version", "lagoon_environment_motion_enabled", "lagoon_plants_motion_enabled", "lagoon_huckleberry_motion_enabled", "lagoon_water_motion_enabled", "lagoon_bridge_motion_enabled"]:
+		if g.has(key):
+			lagoon_preview_options[key] = g[key]
 	g = {"t": 0.0}
+	g.merge(lagoon_preview_options)
 	arena_solids.clear()
 	arena_zones.clear()
 	fade_walls.clear()
@@ -8903,6 +8908,7 @@ func _l2_start_slide() -> void:
 		game_nodes.append(arc)
 
 func _return_to_courtyard() -> void:
+	var animated_return: Dictionary = g.get("lagoon_animated_castle_return", {}) as Dictionary
 	# step OUT of the castle into its own courtyard (Sky Lagoon) — not all the way back to the ocean
 	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
 		_castle_rooms_25d.close()
@@ -8913,6 +8919,12 @@ func _return_to_courtyard() -> void:
 			n.queue_free()
 	game_nodes.clear()
 	_enter_level2(true)
+	if not animated_return.is_empty():
+		var promenade: SkyLagoonPromenade = _lagoon_promenade_ref()
+		promenade.set_master_route_x(float(animated_return["master_x"]))
+		g["lagoon_camera_x"] = float(animated_return["camera_x"])
+		g["lagoon_castle_armed"] = false
+		promenade._apply_view_transform(true)
 
 func _play_hug_cutscene() -> void:
 	if hug_layer != null:

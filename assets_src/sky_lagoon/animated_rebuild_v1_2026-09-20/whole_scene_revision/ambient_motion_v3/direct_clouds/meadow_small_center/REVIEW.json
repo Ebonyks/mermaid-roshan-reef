@@ -1,0 +1,65 @@
+{
+  "id": "meadow_small_center",
+  "source": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/clouds/cleaned/meadow_small_center.png",
+  "source_sha256": "981725467517d98e6f46f42816b4cb279f87beadc5d969ba94bfb3657449806a",
+  "frames": 4,
+  "layers": 2,
+  "cycle": 3.6,
+  "source_rest_visible_exact": true,
+  "native_reopen_exact": true,
+  "neighbor_iou": [
+    0.9834479246243952,
+    0.9862174578866769,
+    0.984002031488065,
+    0.9867886178861789
+  ],
+  "poses": [
+    {
+      "bounds": [
+        22,
+        34,
+        186,
+        84
+      ],
+      "median_linear_luminance": 0.8474780634230116,
+      "median_saturation": 0.03137254901960784
+    },
+    {
+      "bounds": [
+        23,
+        34,
+        186,
+        84
+      ],
+      "median_linear_luminance": 0.8463219062427418,
+      "median_saturation": 0.03137254901960784
+    },
+    {
+      "bounds": [
+        22,
+        34,
+        186,
+        84
+      ],
+      "median_linear_luminance": 0.8468983598784603,
+      "median_saturation": 0.03137254901960784
+    },
+    {
+      "bounds": [
+        22,
+        34,
+        186,
+        84
+      ],
+      "median_linear_luminance": 0.8474574060946021,
+      "median_saturation": 0.03137254901960784
+    }
+  ],
+  "method": "Direct Aseprite Lua-authored horizontal lobe deformation, fixed base, no vertical scaling; existing painted RGB sampled with premultiplied alpha. Not independently redrawn frames.",
+  "status": "SOURCE_TRIAL_PENDING_CONTEXTUAL_REVIEW",
+  "limitations": [
+    "ORA pose alternatives are not native Krita animation timeline",
+    "Small-cloud motion may be subpixel at gameplay scale",
+    "Full drift and seam review pending"
+  ]
+}

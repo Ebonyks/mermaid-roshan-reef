@@ -1,0 +1,76 @@
+{
+  "source": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+  "source_sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+  "rest_alpha_exact": true,
+  "rest_visible_RGBA_exact": true,
+  "invisible_RGB": "excluded from visual comparison",
+  "layer_ownership": "each visible source pixel belongs to one visible layer",
+  "motion_frames_authored": 0,
+  "component_boundary_review": "REJECTED_FOR_MOTION",
+  "world_underlay_healed": false,
+  "status": "preserved rest reconstruction checkpoint; do not animate or ship this partition",
+  "layers": [
+    {
+      "name": "supports_fixed",
+      "path": "bridge/supports_fixed.png",
+      "sha256": "4191c3a527ad83f327e9c1f0391ceb9b33c0890c519fcb26974d5f7ee4245032",
+      "bbox": [
+        6,
+        6,
+        1016,
+        1022
+      ]
+    },
+    {
+      "name": "deck_boards",
+      "path": "bridge/deck_boards.png",
+      "sha256": "74b1dcd5707dc038ddefc79d4d99750d44b5524c17c5a2a75d770c708010bbed",
+      "bbox": [
+        70,
+        772,
+        581,
+        982
+      ]
+    },
+    {
+      "name": "front_posts",
+      "path": "bridge/front_posts.png",
+      "sha256": "beddd7247d23b9d5b157fd2d4dd796f8b226a0a358712d02b315b551a45b9aa8",
+      "bbox": [
+        315,
+        703,
+        629,
+        1020
+      ]
+    },
+    {
+      "name": "front_chain",
+      "path": "bridge/front_chain.png",
+      "sha256": "fc97cd048169c5e8098776e8d47d103bca685ebc5c13aec9ffb0953a52365fe2",
+      "bbox": [
+        368,
+        740,
+        596,
+        902
+      ]
+    },
+    {
+      "name": "rear_chain",
+      "path": "bridge/rear_chain.png",
+      "sha256": "bd54d782d2d260bd0f9fad307079229922c57559cf1740cb3157f935c7ca06ba",
+      "bbox": [
+        88,
+        735,
+        363,
+        889
+      ]
+    }
+  ],
+  "aseprite_export_verified": true,
+  "aseprite_source_sha256": "fee7625c65491a1fb4e383ca02c88ff4550e5c84183c7e088ea7c94670c65f0f",
+  "export_sha256": "ee4d2c9c94ab012d9935f202f07bef51d431be2ed880ead3f5ac70c39e315b10",
+  "visual_findings": [
+    "Deck mask contains railing fragments and rectangular gaps from coarse post envelopes.",
+    "Exact rest reconstruction proves conservation only, not usable moving-object isolation."
+  ]
+}

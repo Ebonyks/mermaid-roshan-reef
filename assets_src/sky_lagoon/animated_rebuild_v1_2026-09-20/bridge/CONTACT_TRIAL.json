@@ -1,0 +1,155 @@
+{
+  "status": "REJECTED_FOR_RUNTIME",
+  "method": "Aseprite Lua baked per-pixel local deformation, bilinear source sampling; not manually painted, not generated frame sequence",
+  "scope": "exposed front planks only; chain and support motion not yet authored",
+  "frames": 12,
+  "crop": [
+    136,
+    872,
+    192,
+    112
+  ],
+  "offsets_px": [
+    0,
+    -0.5,
+    0,
+    2,
+    4,
+    5,
+    3,
+    1,
+    -1,
+    0.6,
+    0.2,
+    0
+  ],
+  "rest_first_exact": true,
+  "rest_last_exact": true,
+  "source": "assets_src\\sky_lagoon\\animated_rebuild_v1_2026-09-20\\bridge\\reference_locked.png",
+  "source_sha256": "3cd52d8524c699ed97aa2b593ca8483a82d7a9fed67fb68baea368dba8409530",
+  "poses": [
+    {
+      "frame": 0,
+      "duration_ms": 50,
+      "changed_pixels": 0,
+      "changed_bounds": null
+    },
+    {
+      "frame": 1,
+      "duration_ms": 50,
+      "changed_pixels": 4843,
+      "changed_bounds": [
+        158,
+        896,
+        307,
+        966
+      ]
+    },
+    {
+      "frame": 2,
+      "duration_ms": 40,
+      "changed_pixels": 0,
+      "changed_bounds": null
+    },
+    {
+      "frame": 3,
+      "duration_ms": 50,
+      "changed_pixels": 7447,
+      "changed_bounds": [
+        155,
+        894,
+        310,
+        967
+      ]
+    },
+    {
+      "frame": 4,
+      "duration_ms": 70,
+      "changed_pixels": 8246,
+      "changed_bounds": [
+        154,
+        893,
+        311,
+        967
+      ]
+    },
+    {
+      "frame": 5,
+      "duration_ms": 70,
+      "changed_pixels": 8429,
+      "changed_bounds": [
+        153,
+        893,
+        311,
+        968
+      ]
+    },
+    {
+      "frame": 6,
+      "duration_ms": 60,
+      "changed_pixels": 7932,
+      "changed_bounds": [
+        154,
+        894,
+        311,
+        967
+      ]
+    },
+    {
+      "frame": 7,
+      "duration_ms": 60,
+      "changed_pixels": 6346,
+      "changed_bounds": [
+        157,
+        896,
+        309,
+        966
+      ]
+    },
+    {
+      "frame": 8,
+      "duration_ms": 50,
+      "changed_pixels": 6391,
+      "changed_bounds": [
+        156,
+        896,
+        309,
+        966
+      ]
+    },
+    {
+      "frame": 9,
+      "duration_ms": 60,
+      "changed_pixels": 5252,
+      "changed_bounds": [
+        158,
+        897,
+        307,
+        966
+      ]
+    },
+    {
+      "frame": 10,
+      "duration_ms": 60,
+      "changed_pixels": 2864,
+      "changed_bounds": [
+        163,
+        898,
+        303,
+        959
+      ]
+    },
+    {
+      "frame": 11,
+      "duration_ms": 100,
+      "changed_pixels": 0,
+      "changed_bounds": null
+    }
+  ],
+  "runtime_integrated": false,
+  "visual_findings": [
+    "Source consistency passes, but the contact deformation bends floor texture as one soft patch instead of separate supported boards.",
+    "Only exposed near-floor response is present; chain secondary action and structural overlap remain missing.",
+    "Do not count 12 baked cels as accepted bridge animation."
+  ]
+}

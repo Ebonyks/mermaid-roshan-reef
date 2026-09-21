@@ -1,0 +1,191 @@
+{
+  "status": "SOURCE_STUDY_NATIVE_VERIFIED_RUNTIME_PENDING",
+  "method": "Three generated cloud drawings, common scale and baseline alignment, disconnected alpha noise cleanup; no interpolation or duplicated poses. Gameplay asset study, not cinematic delivery.",
+  "frames": 3,
+  "native_reopen_exact": true,
+  "poses": [
+    {
+      "index": 0,
+      "native_bounds": [
+        22,
+        235,
+        704,
+        482
+      ],
+      "translation": [
+        -2,
+        -136
+      ],
+      "scale": 0.6598240469208211,
+      "alpha127_bounds": [
+        13,
+        19,
+        463,
+        183
+      ],
+      "centroid": [
+        235.85657302894,
+        124.56109083708166
+      ],
+      "median_linear_luminance": 0.8631818251728328
+    },
+    {
+      "index": 1,
+      "native_bounds": [
+        21,
+        223,
+        702,
+        482
+      ],
+      "translation": [
+        -2,
+        -136
+      ],
+      "scale": 0.6598240469208211,
+      "alpha127_bounds": [
+        12,
+        11,
+        462,
+        182
+      ],
+      "centroid": [
+        234.95951842275372,
+        120.97651368239603
+      ],
+      "median_linear_luminance": 0.8659130273993312
+    },
+    {
+      "index": 2,
+      "native_bounds": [
+        18,
+        235,
+        700,
+        483
+      ],
+      "translation": [
+        -2,
+        -137
+      ],
+      "scale": 0.6598240469208211,
+      "alpha127_bounds": [
+        10,
+        18,
+        460,
+        182
+      ],
+      "centroid": [
+        232.66527208401192,
+        123.43221766720953
+      ],
+      "median_linear_luminance": 0.8625988665055024
+    }
+  ],
+  "neighbor_silhouette_iou": [
+    0.9479399037815465,
+    0.9392178294366985,
+    0.9477671341915297
+  ],
+  "limitations": [
+    "Original scene identity and grade require contextual runtime comparison",
+    "Slow pose sequence may still appear to pop; timing unaccepted",
+    "Only arrival_high_right addressed; other clouds and low cloud sea remain incomplete",
+    "ORA is editable pose alternatives, not a Krita native timeline"
+  ],
+  "runtime_changed": false,
+  "source_and_pose_median_luminance": [
+    0.871391471044502,
+    0.8631818251728328,
+    0.8659130273993312,
+    0.8625988665055024
+  ],
+  "visual_review": {
+    "source_comparison": "Reviewed source-comparison.jpg: recognizable original tall central lobe and broad thin base preserved; generated shading is slightly softer, not a radically redesigned cloud.",
+    "baseline_spread_pixels": 1,
+    "median_luminance_difference_from_original_percent": [
+      -0.942,
+      -0.629,
+      -1.009
+    ],
+    "decision": "Proceed to contextual trial after full regression terminates; no runtime acceptance."
+  },
+  "files": [
+    {
+      "path": "arrival-cloud-three-cels.aseprite",
+      "sha256": "3db543e9b18d21be7365530939a3d8b2d87ad092a006324af37b1761a318380a"
+    },
+    {
+      "path": "arrival-cloud-three-poses.ora",
+      "sha256": "d87dad7f55112bc76a3fe4591046f98f70a979a6e3c8a753565ef39acb3dbebb"
+    },
+    {
+      "path": "assemble.lua",
+      "sha256": "261e1a814563da11939a9f00d69600e8b7251129ba67a2d2f896a2adfd0b56cd"
+    },
+    {
+      "path": "build.py",
+      "sha256": "366ef3e8a4a3c1eb15d37f4d553c717c4192baf69ce3ffc294b3253a38077138"
+    },
+    {
+      "path": "cel-00.png",
+      "sha256": "261da2549199b7e19fef64785829d0a1a0fa9673206305fc47eb43965d652456"
+    },
+    {
+      "path": "cel-01.png",
+      "sha256": "ff71e0a4ee4e12ca9afc904079010963cad969bb08e884367c0204649e11d5a9"
+    },
+    {
+      "path": "cel-02.png",
+      "sha256": "124d851a971f47dd0f1df743865c26db39054a60a6ea1d72e179421c17d155bb"
+    },
+    {
+      "path": "GENERATION.json",
+      "sha256": "104b8585973b3293b43a4a13911309a8cae62439ab24cc1fbdf641c8b6d07f4c"
+    },
+    {
+      "path": "keyframes.jpg",
+      "sha256": "e5ff999a4b244375d3672c02bc4219461863de7f372ffcebdfe75b053e9a5b0c"
+    },
+    {
+      "path": "loop.webp",
+      "sha256": "4e535ebff043cb260a3a39e381cb9cf1cff94a73b50374097a6c84d837e0fc08"
+    },
+    {
+      "path": "native-0.png",
+      "sha256": "8ad4c7180564b1b309674984b2b0e51f72d8fad85e8143fb8e386b900208b5e5"
+    },
+    {
+      "path": "native-1.png",
+      "sha256": "9b128c4a9e71b8c169981c84c229771f154ba97fd46c9997f09e6ce7d926c5ab"
+    },
+    {
+      "path": "native-2.png",
+      "sha256": "60b5f539eee516e8ecd6921cac9eb011e1b954a834eb0cc4d8ff7dd77641865d"
+    },
+    {
+      "path": "native-on-sky.jpg",
+      "sha256": "96928b52358c184815005cc90efc08683f2bcff94c087617e6941a6373bde4a9"
+    },
+    {
+      "path": "native.png",
+      "sha256": "65eea9388eac6c1e0923d0035c579548206f45643d4a0c065821b7932b1f9053"
+    },
+    {
+      "path": "reopen-00.png",
+      "sha256": "13df7d5ad6965b046cbf397d0e64b3e0d45209697bbf1487e5ae7432d58fa71e"
+    },
+    {
+      "path": "reopen-01.png",
+      "sha256": "3077f4597a7ca091b538fb92e1ce7aee44d452ee7173734b4388fefecf623364"
+    },
+    {
+      "path": "reopen-02.png",
+      "sha256": "d0d67f667a836f761f29831207705cdab57447c99613fe1d1103cecaf905339d"
+    },
+    {
+      "path": "source-comparison.jpg",
+      "sha256": "0adb514a86d7d79d6a82d63d3bc72bc6d0707b249242119c29952dcab5eedfc7"
+    }
+  ],
+  "next_step": "Actual Godot imported atlas contextual trial after running full regression terminates; keep pose timing independent from48second drift.",
+  "acceptance": "Not owner accepted, not runtime integrated; no quality score."
+}

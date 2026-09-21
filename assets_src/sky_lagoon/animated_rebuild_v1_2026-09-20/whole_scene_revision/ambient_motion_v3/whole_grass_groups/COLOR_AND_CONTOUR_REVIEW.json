@@ -1,0 +1,230 @@
+{
+  "status": "SOURCE_DIAGNOSTIC_NOT_RUNTIME_ACCEPTANCE",
+  "method": "Per-tuft opaque pixels, linear-light Rec.709 luminance and HSV saturation. Resampling changes pixel populations; these are not same-pixel material correspondences or universal scene grading targets.",
+  "tufts": [
+    {
+      "tuft": 0,
+      "samples": [
+        {
+          "frame": 0,
+          "opaque_pixels": 9031,
+          "median_luminance": 0.20487542111451024,
+          "p90_luminance": 0.4990410419001113,
+          "median_HSV_saturation": 0.7333333333333333,
+          "largest_opaque_component_fraction": 1.0,
+          "opaque_bounds": [
+            38,
+            112,
+            193,
+            221
+          ],
+          "visible_edge_pixels": 0
+        },
+        {
+          "frame": 1,
+          "opaque_pixels": 8928,
+          "median_luminance": 0.20492539423782427,
+          "p90_luminance": 0.49718236798864424,
+          "median_HSV_saturation": 0.7333333333333333,
+          "largest_opaque_component_fraction": 1.0,
+          "opaque_bounds": [
+            41,
+            112,
+            196,
+            221
+          ],
+          "visible_edge_pixels": 0
+        },
+        {
+          "frame": 2,
+          "opaque_pixels": 9031,
+          "median_luminance": 0.20487542111451024,
+          "p90_luminance": 0.4990410419001113,
+          "median_HSV_saturation": 0.7333333333333333,
+          "largest_opaque_component_fraction": 1.0,
+          "opaque_bounds": [
+            38,
+            112,
+            193,
+            221
+          ],
+          "visible_edge_pixels": 0
+        },
+        {
+          "frame": 3,
+          "opaque_pixels": 8919,
+          "median_luminance": 0.20538257313080396,
+          "p90_luminance": 0.5002810644182981,
+          "median_HSV_saturation": 0.7333333333333333,
+          "largest_opaque_component_fraction": 1.0,
+          "opaque_bounds": [
+            34,
+            112,
+            190,
+            221
+          ],
+          "visible_edge_pixels": 0
+        }
+      ],
+      "median_luminance_range": 0.0005071520162937271,
+      "median_saturation_range": 0.0,
+      "neighbor_mask_iou": [
+        0.8730236668958067,
+        0.8730236668958067,
+        0.8729504172803142,
+        0.8729504172803142
+      ]
+    },
+    {
+      "tuft": 1,
+      "samples": [
+        {
+          "frame": 0,
+          "opaque_pixels": 18185,
+          "median_luminance": 0.2137715572536067,
+          "p90_luminance": 0.5045290763613544,
+          "median_HSV_saturation": 0.7176470588235294,
+          "largest_opaque_component_fraction": 1.0,
+          "opaque_bounds": [
+            32,
+            42,
+            228,
+            221
+          ],
+          "visible_edge_pixels": 0
+        },
+        {
+          "frame": 1,
+          "opaque_pixels": 17986,
+          "median_luminance": 0.2140711882496428,
+          "p90_luminance": 0.5049746966320241,
+          "median_HSV_saturation": 0.7176470588235294,
+          "largest_opaque_component_fraction": 1.0,
+          "opaque_bounds": [
+            36,
+            42,
+            232,
+            221
+          ],
+          "visible_edge_pixels": 0
+        },
+        {
+          "frame": 2,
+          "opaque_pixels": 17982,
+          "median_luminance": 0.21374111038608076,
+          "p90_luminance": 0.5050879766888935,
+          "median_HSV_saturation": 0.7176470588235294,
+          "largest_opaque_component_fraction": 1.0,
+          "opaque_bounds": [
+            29,
+            42,
+            225,
+            221
+          ],
+          "visible_edge_pixels": 0
+        },
+        {
+          "frame": 3,
+          "opaque_pixels": 17994,
+          "median_luminance": 0.21347897918468897,
+          "p90_luminance": 0.5049234977414334,
+          "median_HSV_saturation": 0.7176470588235294,
+          "largest_opaque_component_fraction": 1.0,
+          "opaque_bounds": [
+            25,
+            42,
+            221,
+            221
+          ],
+          "visible_edge_pixels": 0
+        }
+      ],
+      "median_luminance_range": 0.0005922090649538303,
+      "median_saturation_range": 0.0,
+      "neighbor_mask_iou": [
+        0.8947183452153831,
+        0.8196326117352104,
+        0.8951386098834874,
+        0.8198215577525922
+      ]
+    },
+    {
+      "tuft": 2,
+      "samples": [
+        {
+          "frame": 0,
+          "opaque_pixels": 12616,
+          "median_luminance": 0.21581101259033375,
+          "p90_luminance": 0.5461303560126123,
+          "median_HSV_saturation": 0.7176470588235294,
+          "largest_opaque_component_fraction": 1.0,
+          "opaque_bounds": [
+            27,
+            86,
+            205,
+            221
+          ],
+          "visible_edge_pixels": 0
+        },
+        {
+          "frame": 1,
+          "opaque_pixels": 12487,
+          "median_luminance": 0.2170871519026705,
+          "p90_luminance": 0.5453578751926283,
+          "median_HSV_saturation": 0.7137254901960784,
+          "largest_opaque_component_fraction": 1.0,
+          "opaque_bounds": [
+            27,
+            86,
+            206,
+            221
+          ],
+          "visible_edge_pixels": 0
+        },
+        {
+          "frame": 2,
+          "opaque_pixels": 12474,
+          "median_luminance": 0.2157549876684926,
+          "p90_luminance": 0.5401095744419551,
+          "median_HSV_saturation": 0.7137254901960784,
+          "largest_opaque_component_fraction": 1.0,
+          "opaque_bounds": [
+            24,
+            86,
+            199,
+            221
+          ],
+          "visible_edge_pixels": 0
+        },
+        {
+          "frame": 3,
+          "opaque_pixels": 12471,
+          "median_luminance": 0.21659405108151072,
+          "p90_luminance": 0.5417160636212806,
+          "median_HSV_saturation": 0.7137254901960784,
+          "largest_opaque_component_fraction": 1.0,
+          "opaque_bounds": [
+            22,
+            86,
+            198,
+            221
+          ],
+          "visible_edge_pixels": 0
+        }
+      ],
+      "median_luminance_range": 0.001332164234177896,
+      "median_saturation_range": 0.0039215686274509665,
+      "neighbor_mask_iou": [
+        0.9609275967489375,
+        0.8262167603971395,
+        0.9617364063548892,
+        0.8267453977075373
+      ]
+    }
+  ],
+  "remaining": [
+    "Actual Mobile compositing, night grade and gameplay-scale motion visibility",
+    "Planting-edge placement, route clearance and existing prop overlap",
+    "Device performance and owner visual acceptance"
+  ]
+}

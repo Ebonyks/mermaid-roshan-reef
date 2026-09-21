@@ -1,0 +1,39 @@
+{
+  "status": "THREE_POSE_SOURCE_TRIAL_NOT_RUNTIME_ACCEPTED",
+  "selected_original_indices": [
+    0,
+    2,
+    3
+  ],
+  "excluded_original_index": 1,
+  "exclusion_reason": "Index1 silhouette IoU ~.85 against neighbors and ~19px horizontal center-of-mass excursion after baseline alignment.",
+  "three_pose_neighbor_silhouette_iou": [
+    0.9725033846947327,
+    0.9467495113540657,
+    0.9358428442530828
+  ],
+  "native_reopen_rgba_exact": true,
+  "frames": 3,
+  "timing_seconds_per_frame": 1.2,
+  "sources": [
+    {
+      "path": "aligned/cloud-00.png",
+      "sha256": "ed64fb03731fece29982e0129f23f86d63fa308a091ce27ce1fe3e4698ec2dc9"
+    },
+    {
+      "path": "aligned/cloud-02.png",
+      "sha256": "ba75cdaf09fc74638ce308b53c37a3cf698034c6e6660bc93e43f590dbecc217"
+    },
+    {
+      "path": "aligned/cloud-03.png",
+      "sha256": "03e7b464c4057786686b210c0f8a0052a94ea8fbdddf232052156cf2c326aed2"
+    }
+  ],
+  "context_clip": "Cropped existing 1280x720 Godot study captures, not current full-scene evidence; no new runtime capture or integration.",
+  "remaining": [
+    "Loop pacing and color/edge review",
+    "Independent drift versus pose timing",
+    "Actual imported atlas check",
+    "Eleven other cloud cards and low cloud sea remain unresolved"
+  ]
+}

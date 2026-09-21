@@ -1,0 +1,58 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+THRONE|hall_open|OK|main_hall
+THRONE|royal_hall_hotspot_built|OK|
+THRONE|royal_hall_offscreen_at_spawn|OK|she starts two screens away from it
+THRONE|floor_tap_walks_her|OK|foot 380 -> 900
+THRONE|walking_brings_royal_hall_on_screen|OK|4 floor taps, foot=2215
+THRONE|royal_hall_hitbox_is_child_sized|OK|(112.0, 359.8086)
+MIST_DIAG|span=(1151.166, 3015.166)|foot=(2215.0, 765.0)
+MIST_DIAG|RoyalHallMist_0|visible=true|alpha=0.21999417245388|inside=true|rect=[P: (2903.26, 208.36), S: (63.48, 353.28)]
+MIST_DIAG|RoyalHallMist_1|visible=true|alpha=0.26142191886902|inside=true|rect=[P: (2954.35, 166.6), S: (71.3, 396.8)]
+MIST_DIAG|RoyalHallMist_2|visible=true|alpha=0.27684718370438|inside=true|rect=[P: (3007.74, 197.64), S: (74.52, 414.72)]
+MIST_DIAG|RoyalHallMist_3|visible=false|alpha=0.24417464435101|inside=false|rect=[P: (3065.96, 180.56), S: (68.08, 378.88)]
+MIST_DIAG|RoyalHallMist_4|visible=false|alpha=0.20791737735271|inside=false|rect=[P: (3124.64, 231.04), S: (60.72, 337.92)]
+THRONE|locked_royal_hall_has_five_mist_cards|FAIL|
+THRONE|locked_royal_hall_tap_reaches_real_button|OK|
+MIST_DIAG|span=(1151.166, 3015.166)|foot=(2215.0, 765.0)
+MIST_DIAG|RoyalHallMist_0|visible=true|alpha=0.21999983489513|inside=true|rect=[P: (2903.26, 208.36), S: (63.48, 353.28)]
+MIST_DIAG|RoyalHallMist_1|visible=true|alpha=0.26109963655472|inside=true|rect=[P: (2954.35, 166.6), S: (71.3, 396.8)]
+MIST_DIAG|RoyalHallMist_2|visible=true|alpha=0.27671772241592|inside=true|rect=[P: (3007.74, 197.64), S: (74.52, 414.72)]
+MIST_DIAG|RoyalHallMist_3|visible=false|alpha=0.24444684386253|inside=false|rect=[P: (3065.96, 180.56), S: (68.08, 378.88)]
+MIST_DIAG|RoyalHallMist_4|visible=false|alpha=0.20808273553848|inside=false|rect=[P: (3124.64, 231.04), S: (60.72, 337.92)]
+THRONE|locked_mist_visibly_flutters|FAIL|feedback=true flutter=0.64 moved=true mist=3
+THRONE|locked_gate_has_spoken_feedback|OK|voice_i=1->2 stream=res://assets/audio/voices/filler_v1/roshan_castle_mist_resting.ogg caption=The royal mist is resting. It will float away for a special royal adventure!
+THRONE|locked_gate_does_not_award_or_open_picker|FAIL|crown=false picker=false mist=3 sfx=res://assets/audio/castle/curtain_swish.ogg
+THRONE|generation_contract_incumbent_arms|OK|
+THRONE|invalid_arm_preserves_incumbent|OK|token=1 current=1 id=probe_same_id
+THRONE|same_id_event_rearms|OK|
+THRONE|stale_same_id_clear_fails|OK|stale=1 current=2
+THRONE|current_generation_clear_works|OK|
+THRONE|crown_event_clears_royal_hall_mist|OK|event=crown_welcome mist=0
+THRONE|touch_awards_crown_star|OK|
+THRONE|royal_hall_offers_a_stuffie_friend|OK|companion_id=
+THRONE|picker_closed|OK|
+THRONE|royal_hall_re_offers_after_a_closed_picker|OK|
+THRONE|combat_tutorial_follows_crown_and_companion|OK|
+THRONE|mist_returns_after_first_combat_class|OK|
+THRONE|no_re_offer_once_she_has_a_friend|OK|companion_id=eagle
+THRONE|crown_progress_remains_recorded|OK|
+THRONE|rapid_double_event_arms|OK|
+THRONE|rapid_double_tap_preserves_callback_rearm|OK|first=1 next=0 token=6 pending=false
+THRONE|rapid_double_rearm_can_be_cleared_by_owner|OK|
+THRONE|menu_cancel_event_arms|OK|
+THRONE|global_back_cancels_arrival_and_preserves_event|OK|open=false calls=0 pending=false token=8
+THRONE|menu_cancel_owner_clears_event|OK|
+THRONE|navigation_cancel_event_arms|OK|
+THRONE|navigating_away_cancels_arrival_and_preserves_event|OK|room=library approach=true calls=0 pending=false id=probe_navigation_cancel token=10 expected=10 callable=true
+THRONE|global_room_back_returns_to_hall|OK|
+THRONE|room_back_returns_to_main_hall|OK|main_hall
+THRONE|navigation_cancel_owner_clears_event|OK|
+THRONE|reopen_event_arms|OK|
+THRONE|real_back_closes_hall_but_preserves_event|OK|open=false token=12
+THRONE|reopen_preserves_armed_event|OK|room=main_hall token=12
+THRONE|reopened_event_can_be_cleared_by_same_owner|OK|
+THRONE|floor_tap_walks_her_in_a_room_too|OK|foot 640 -> 920
+THRONE|galaxy_running|OK|game=galaxy
+THRONE|moon_throne_crowns_the_star_princess|OK|
+THRONE|done: FAILED (3)

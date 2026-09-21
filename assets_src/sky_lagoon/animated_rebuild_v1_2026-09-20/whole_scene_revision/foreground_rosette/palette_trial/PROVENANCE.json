@@ -1,0 +1,136 @@
+{
+  "status": "UNACCEPTED_PALETTE_AND_CONTEXT_TRIAL",
+  "generation_method": "Built-in Codex image generation; no API key",
+  "prompt": "Edit this exact cropped game illustration to produce a clean backing plate. Remove ONLY the large central spotted-leaf rosette with the short purple bud cluster. Reconstruct what would naturally be concealed behind that plant: subdued small low ground-cover leaves, some shaded moss and soil, with restrained painted detail. Do not replace it with another large plant. Keep the exact viewpoint, crop, lighting, soft painterly storybook style and muted green/teal palette. Preserve the existing white and peach hanging flowers along the top left, their stems, peripheral vegetation, the small stones along the bottom edge, and the light pink stone path visible at the upper right. Those surrounding objects must stay in their original positions and shapes. No new flowers, no buds, no large broad leaves, no new rocks, no change to the path. The result is a LOCAL concealed background repair behind a separately animated plant, not a new scene design. Return the same composition and aspect ratio as the input, with no text or border.",
+  "reference": "../original-context.png",
+  "reference_sha256": "815ed8760656477004f91c732db71bfea53863547554b02898d909bec701d072",
+  "generated_backing_sha256": "17e547f646dd21a7788bddf0d24c2f93be6df181df483253e236dcfd8d172d99",
+  "protected_originals_changed": false,
+  "rollback": "Original native Aseprite and all original scene art remain unchanged. This variant has no production binding.",
+  "files": [
+    {
+      "path": "cel-00.png",
+      "sha256": "2471143085c44bb15db2792c8a36bc298cf6ba69966454651c6e2a8d681452f8"
+    },
+    {
+      "path": "cel-01.png",
+      "sha256": "d9206801861882d029c8f53dfeec0555e9a23df5b976fa409d5985a2463e18e2"
+    },
+    {
+      "path": "cel-02.png",
+      "sha256": "bf8450b3261b170e1a25e7489b4d22e6dbc6f513b7fdbdcc5191d6bfaafbdce2"
+    },
+    {
+      "path": "cel-03.png",
+      "sha256": "ea58c2469df33c3824dec762911b6fac5b4481213bbc5e6faf0edc502a523386"
+    },
+    {
+      "path": "cel-04.png",
+      "sha256": "96c0fac318dd11a31943ef7252f542767be6926eb8092a73b6cb0315d08dfedf"
+    },
+    {
+      "path": "cel-05.png",
+      "sha256": "b9c70f69472430c6028c82f470f8b6aa85f07fb6c0df9050e457e067f0399ab1"
+    },
+    {
+      "path": "context-comparison.jpg",
+      "sha256": "d997911639d479d3b43ff7d5e712b0ebf1795792310a62013707bd94a249f847"
+    },
+    {
+      "path": "context-motion.gif",
+      "sha256": "fb6e576488df52edb7464cf05a9d1e8be35148b246e1dce815a0575ceb5a0035"
+    },
+    {
+      "path": "CONTEXT_REVIEW.json",
+      "sha256": "2c16ac78401653f29dd61b1ef69ab447bfcfbb356fd4e09a51c5b69445b8f4b1"
+    },
+    {
+      "path": "generated-backing-native.png",
+      "sha256": "17e547f646dd21a7788bddf0d24c2f93be6df181df483253e236dcfd8d172d99"
+    },
+    {
+      "path": "gpu_review/canvas_screen_3_day/00.png",
+      "sha256": "b755ec6a8081e842ad92df6575ba1900eea7225e120abfd2519effd9c3998920"
+    },
+    {
+      "path": "gpu_review/canvas_screen_3_day/01.png",
+      "sha256": "d3bf619d5fa581ae7f280d7862a0200a9f8056955dd65046bf179c2ec55a74d0"
+    },
+    {
+      "path": "gpu_review/canvas_screen_3_day/02.png",
+      "sha256": "08b170e4a434fc2a81667c45a166bd9226175bec8ae14d4a129e3917375eca5e"
+    },
+    {
+      "path": "gpu_review/canvas_screen_3_day/03.png",
+      "sha256": "42d1ddb9b519a710f51795749ff9206772f348c45fdda233082c799a503f7d3c"
+    },
+    {
+      "path": "gpu_review/canvas_screen_3_day/04.png",
+      "sha256": "21b2720f2772777ca7f97905bca225786393917e1c6a13c2af79ab41cca14433"
+    },
+    {
+      "path": "gpu_review/canvas_screen_3_day/05.png",
+      "sha256": "8325bd064b18b8db8f615dc93ff766275cb882351eb2bfcab7973d647d74c4ae"
+    },
+    {
+      "path": "gpu_review/canvas_screen_3_day.gif",
+      "sha256": "606aa980467b9505f653b1e339510e7d523648ccd88523ca6a5b581bc3ba36a1"
+    },
+    {
+      "path": "gpu_review/canvas_screen_3_night/00.png",
+      "sha256": "64fc468b7b92d1799d82c45ab2237e2068c59899035988b489d4488cdf72c4ec"
+    },
+    {
+      "path": "gpu_review/canvas_screen_3_night/01.png",
+      "sha256": "3787a980c0438eead7cb3a6b3aa3c06f457467f4132e89b3fdaa5fb806faf04b"
+    },
+    {
+      "path": "gpu_review/canvas_screen_3_night/02.png",
+      "sha256": "62a32f224e76652492f9d2490643816b02b2c1154b4b9cf27271ce8bbe3d89e3"
+    },
+    {
+      "path": "gpu_review/canvas_screen_3_night/03.png",
+      "sha256": "a6c2a5bc9d2be3a0a3cd5236b8e8e64a9f405cc705494e11cf35f72a96e146f7"
+    },
+    {
+      "path": "gpu_review/canvas_screen_3_night/04.png",
+      "sha256": "cf52b012aef336c30a9ba64a87d5994d2ffd8f0f6a822a0029e3b0bbb3175b93"
+    },
+    {
+      "path": "gpu_review/canvas_screen_3_night/05.png",
+      "sha256": "351609476a95b6acc405f3c27f04617b7f0c2511799b6a816e644180758da598"
+    },
+    {
+      "path": "gpu_review/canvas_screen_3_night.gif",
+      "sha256": "7c372d9d0e691341cb24dfd331c71672c7557f8e4e7b3b28ca2f3e9ca707e956"
+    },
+    {
+      "path": "gpu_review/checks.txt",
+      "sha256": "a7d67be1f6b71be68a8da47413543ebb53da66a6f997a384524134cd74afd9dc"
+    },
+    {
+      "path": "grade_cels.lua",
+      "sha256": "94d91d79a72fac0bbf7fb31858c94d9808a5d026765d99fc88915215bf4891b3"
+    },
+    {
+      "path": "graded-rest-native.png",
+      "sha256": "bd514b687b38c54e3b376607426ede1860ac1f56f06cd9699f714380cb607530"
+    },
+    {
+      "path": "masked-backing.png",
+      "sha256": "a84420289d067303fd480635cd3debb35164f8769ad8d3d8910e93f91c030bdf"
+    },
+    {
+      "path": "removal-mask.png",
+      "sha256": "298f2ec8e57818c83a95aa4645580434c24127994976f19edf2186c86384bd90"
+    },
+    {
+      "path": "rosette-color-trial.ora",
+      "sha256": "b32fa16e228303150559e1c8855334804e9ef09d7e2ed086e9cb8473a88ffe67"
+    },
+    {
+      "path": "rosette-six-cels-color-trial.aseprite",
+      "sha256": "74acea279a345ff3475dd9d77d020487d6d44b8b9187576a0f7fdb396773a1e3"
+    }
+  ]
+}

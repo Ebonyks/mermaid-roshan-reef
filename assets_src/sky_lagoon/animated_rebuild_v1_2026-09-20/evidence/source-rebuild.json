@@ -1,0 +1,239 @@
+{
+  "status": "PASS",
+  "scope": "Same pinned local Python/Aseprite toolchain, isolated source copy; no writes to task runtime. Not a clean-machine dependency-install test.",
+  "steps_succeeded": 32,
+  "harness_correction": "Initial scratch harness copied a nonexistent short tile name; supplied the actual committed flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png and resumed. No product builder or runtime repair was required.",
+  "comparison": [
+    {
+      "file": "arrival_bough_base.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "ab620448699bf046c81093d780e6afabb38350dddd82c4efdd20ca13593286f7"
+    },
+    {
+      "file": "arrival_boughs.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "83440d3fe866ddcbdf28303f1809d869fd7083a23f02c369ec47baa2e0ba433d"
+    },
+    {
+      "file": "bellflower_breeze.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "a56cfcc419ebe2b2a3b080fede126924dc4100429a2a2822b9e230b0c35b0662"
+    },
+    {
+      "file": "bridge_chains.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "930379a22dcadafabb801e382a049ee36fcee4e2868da2eb7ebc3ff2480343a9"
+    },
+    {
+      "file": "bridge_contact.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "872467dd67e785468d883817eaa8c66bd192987ff851c67b6d6927d442bd014f"
+    },
+    {
+      "file": "bridge_front_rail.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "d034e0b7da1595685c841626066358c94691a40c619105eb0c6c990717d6a6ab"
+    },
+    {
+      "file": "bridge_front_rail_fixed.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "20c066f03e2f4bb8bc2fac2e7f9fad42b445683c07993cb96fa5c3673327d596"
+    },
+    {
+      "file": "castle_fixed.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "64c0a83bfb68bbd5da9d1ecc594e185af0555d30d4439dba40693f31ee860eae"
+    },
+    {
+      "file": "conifer_breeze.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "32e42006a25537cb5f08937aecc77adacf3676bbc9bbe1d60cf7340e743d43b5"
+    },
+    {
+      "file": "grass_breeze.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "921131b075d4be11e29b7f95ad807897979919bc4c66063b0dde04564a59bf95"
+    },
+    {
+      "file": "huckleberry_breeze.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "1012cf4b54e8815a622ad18838bf2a01aba66bb63834c5e54e39095c6f932af0"
+    },
+    {
+      "file": "water_arrival_highlights.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "3ac62c1bb9460bb6077f97a67303dca9eff61b13163078b342fcf800dbe4c9a6"
+    },
+    {
+      "file": "water_arrival_shore.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "72e9759a140eafe10d53ad17b0c2d1e2d03cb3402ccce0934ded1f9243791eda"
+    },
+    {
+      "file": "water_castle_highlights.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "7519768dbe595023f87d02ab32824afe82fe75e16b983b7a3860c04ea04ffe68"
+    },
+    {
+      "file": "water_castle_shore.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "96a798822d70b462f4ada2792f0a090ff3d4effd9e010c7f45f2424e002c7b84"
+    },
+    {
+      "file": "water_surface_mask.png",
+      "same_size": true,
+      "pixels_identical": true,
+      "runtime_sha256": "08464253e0d1703a07a73508e94f7579067bc35d7251a2c47b0566f1aef58880"
+    }
+  ],
+  "excluded": "Static reused cloud, unchanged shared ripple atlas, manifest metadata, and editable container byte identity. Stage masters have their separate independent flat-export comparison.",
+  "builders": [
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_arrival_bough_animation.lua",
+      "sha256": "5900ab92e350c62c7172a16d04325759d2e7be090c70d21ac4f261f25061aefd"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_arrival_bough_runtime.py",
+      "sha256": "5071d363c58f2bc6bfe543a6e31e14608a89b9fc572976bb4110b80ea5c5e155"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_arrival_bough_source.py",
+      "sha256": "6006c22bbb5003e41d74dd7995e49eb8c0a1dbfebf9cdc5c544f1f1b2893d5a9"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_bellflower_animation.lua",
+      "sha256": "7fdfa85efac12bc1eb19a7b9e5cbf08ff9c23ba448c8709b0a11607a771891cf"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_bellflower_parts.py",
+      "sha256": "d2ee75a9bd9811b424aa7acdc43b4fa84e58f5bf8cd74755732d2effe977f9e2"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_bellflower_runtime.py",
+      "sha256": "1e748f022fdf080a36020c9fffd3e9cf48a9a60b3d81b8e1a5dee21d32526117"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_bridge_chains.lua",
+      "sha256": "9cb55c330b5a733e65bde34a7d67238f53e0bb1eb7d339893e0a62d4703e61a9"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_bridge_chains_runtime.py",
+      "sha256": "dd2f8f9d7e57961632d5f4505722f76ff6c2c9e53e32690f1c7418f2ac7b4cf2"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_bridge_chains_source.py",
+      "sha256": "bad3efb5eb198340fe0ea6ec06df938d9e2da37b15aad9672465f72c226246c0"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_bridge_contact.lua",
+      "sha256": "9db65086fbbc7ec9995bde3d114cbfa8cc7ac96108c50f7c8326f4a771c8d75e"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_bridge_front_rail.py",
+      "sha256": "d19e8815e612d42a3337d9934d5b1dd8d1c867c258e1ac81fb0a383f69738f26"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_bridge_layers_v2.py",
+      "sha256": "e79ea19317ac383e3e345a3d41e0fc176c9cf9e67fddcd6da544edc9f93ea6da"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_bridge_planks.lua",
+      "sha256": "34f473239fb0c0ba458a5abb3c2f008c0eb78041f4bf392e0a4d3f35071335a4"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_bridge_runtime.py",
+      "sha256": "bc639cf3a71a26ba36954d3ae2ed688c744f71fbd4417cabd5c51e14aa803a5a"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_bridge_source.lua",
+      "sha256": "f6be91d64206dedc262b908701e97beaab20b6656e9fe58941670ea15adf6de1"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_conifer_animation.lua",
+      "sha256": "e63286c3e788b47bf8c2a47e19029ce610d67f7ac4f2551d68bb7fa4b0157b0e"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_conifer_runtime.py",
+      "sha256": "56b02ba40d0a014678bd0c3cea685d1fd338508ff7365e83a767738191645d2a"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_conifer_source.py",
+      "sha256": "399112a23d7b1aa1143954689d9d57025aa6121b5a55d36e4a7794c8463d1fd8"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_grass_cels.py",
+      "sha256": "e5da3a1bae87557977d8f05c99c2241c5df9794e5fa493202ee38f625b8e7e54"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_grass_source.lua",
+      "sha256": "b0312f4971d7ceaba1ba21ccc1c83b3538084a404b5929b15683f9cde5d1fb93"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_huckleberry_animation.lua",
+      "sha256": "6ff59dd9f29ac092164aa72e221992b26948987baa656338e0837e0943a3d650"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_huckleberry_parts.py",
+      "sha256": "3dc7fcd9662f201d2535ad8adeabe787e03f3068425cd2886afda41f7a28e28d"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_huckleberry_runtime.py",
+      "sha256": "f0e584cc78e03ef6417702495220092146a42886252bbb31ba4059af88d2daed"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_runtime_manifest.py",
+      "sha256": "e12d67136c5274a504268f9b040a1b22e5bff3a81c6956e6be3fd0b10ecefcfc"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_shoreline_cels.py",
+      "sha256": "38f1d60c20237c56cae86540c6187a0a0cf8952b69c03fb3a66d0735464ec9ff"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_shoreline_runtime.py",
+      "sha256": "af34f075da6195f1ac25dfbce106b065c0aa0886f85fca7b147449e29e2ecf81"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_shoreline_source.lua",
+      "sha256": "4b743f41d507e609298d869b518cef679f501fb18c61c64a5c3cce10ff5708a8"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_stage_masters.py",
+      "sha256": "ce45639caaf5c30bfa85b3ae68bfc1f41f10cfe116838844f00b5e2ecd2464bf"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_water_highlight_runtime.py",
+      "sha256": "3c35c181ce5575973d00369748d8451d34d90bbc43f78a1f90cadea5c0afa9ec"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_water_highlights.lua",
+      "sha256": "b64cc8465f609c35b1565f21a8a4e626027850cf6ced327a866595278b49e753"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_water_highlights.py",
+      "sha256": "37bb04be0db68793a7cc4ca462a5358d12498e8b2c38a967f356de78183a4486"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_water_mask.py",
+      "sha256": "298a90ab509e47ac58a6a74cecbb2a419f9efc9c8427c2ba33b27e1f49e78146"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/build_water_source.lua",
+      "sha256": "bda24ad219f86500dff72b3536cfdf0579dc322e79fa6064b48321ebcb506b2a"
+    }
+  ]
+}

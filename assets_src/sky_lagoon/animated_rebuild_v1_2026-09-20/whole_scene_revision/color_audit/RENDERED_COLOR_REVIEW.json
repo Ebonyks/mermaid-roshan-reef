@@ -1,0 +1,373 @@
+{
+  "status": "REVIEWED_CAPTURE_FINDINGS_NOT_VISUAL_ACCEPTANCE",
+  "scope": "Three day composites and one castle night composite; all visible material families reviewed. This does not complete all-stage night or interaction-state coverage.",
+  "sources": [
+    {
+      "path": "whole_scene_revision/runtime_evidence/meadow-boundary-canvas_screen_1_day.png",
+      "sha256": "20ce8c1d2fd626cdbc731ffad06093577a143a43d5c8e6c8ced877d0f06199e4"
+    },
+    {
+      "path": "whole_scene_revision/runtime_evidence/meadow-boundary-canvas_screen_2_day.png",
+      "sha256": "15e6b6997942d501fd5884a0654d4752b9dbf6049c634faff212fc761136bbaa"
+    },
+    {
+      "path": "whole_scene_revision/runtime_evidence/rosette-canvas_screen_3_day.png",
+      "sha256": "ad46044ae4c0cbeecde1e01b4e7dd3cadcb0e3f47fc45683fcb946069a67d762"
+    },
+    {
+      "path": "whole_scene_revision/runtime_evidence/rosette-canvas_screen_3_night.png",
+      "sha256": "28cf0448a3284cfdce674e7b509de3fad323f8f10af9fb0dad526986def311c5"
+    }
+  ],
+  "method": "Fixed rectangular castle-camera patches, unmasked pixels, sRGB decoded to linear luminance. HSV saturation is diagnostic, not perceptual quality. Regions may contain painted shading and mixed pixels; ratios are not target grade values.",
+  "castle_day_night_patches": [
+    {
+      "material": "sky",
+      "rect_xyxy": [
+        530,
+        25,
+        650,
+        75
+      ],
+      "day": {
+        "median_linear_luminance": 0.4949283211430829,
+        "median_HSV_saturation": 0.7137254901960784,
+        "luminance_p10_p90": [
+          0.4629864360960787,
+          0.518753178873091
+        ]
+      },
+      "night": {
+        "median_linear_luminance": 0.15913790011491544,
+        "median_HSV_saturation": 0.8313725490196079,
+        "luminance_p10_p90": [
+          0.14989373991607216,
+          0.16504986642970798
+        ]
+      },
+      "night_day_luminance_ratio": 0.32153726775499875
+    },
+    {
+      "material": "mountain",
+      "rect_xyxy": [
+        640,
+        140,
+        700,
+        190
+      ],
+      "day": {
+        "median_linear_luminance": 0.6094899054379994,
+        "median_HSV_saturation": 0.4666666666666667,
+        "luminance_p10_p90": [
+          0.43635687993131805,
+          0.6480022452480936
+        ]
+      },
+      "night": {
+        "median_linear_luminance": 0.18739581461298577,
+        "median_HSV_saturation": 0.6862745098039216,
+        "luminance_p10_p90": [
+          0.14097662733259997,
+          0.1980711434703694
+        ]
+      },
+      "night_day_luminance_ratio": 0.30746336065782254
+    },
+    {
+      "material": "rear_hedge",
+      "rect_xyxy": [
+        590,
+        300,
+        650,
+        350
+      ],
+      "day": {
+        "median_linear_luminance": 0.1296296630410908,
+        "median_HSV_saturation": 0.7058823529411765,
+        "luminance_p10_p90": [
+          0.07620842157165038,
+          0.22268914330708764
+        ]
+      },
+      "night": {
+        "median_linear_luminance": 0.04197132126617969,
+        "median_HSV_saturation": 0.7803921568627451,
+        "luminance_p10_p90": [
+          0.02652985666700448,
+          0.06737420101441462
+        ]
+      },
+      "night_day_luminance_ratio": 0.32377868060086956
+    },
+    {
+      "material": "lawn",
+      "rect_xyxy": [
+        370,
+        530,
+        450,
+        545
+      ],
+      "day": {
+        "median_linear_luminance": 0.26463968731654103,
+        "median_HSV_saturation": 0.7215686274509804,
+        "luminance_p10_p90": [
+          0.15628674862883693,
+          0.3146109374333527
+        ]
+      },
+      "night": {
+        "median_linear_luminance": 0.07492955949419004,
+        "median_HSV_saturation": 0.6039215686274509,
+        "luminance_p10_p90": [
+          0.04744728958982332,
+          0.08810184351426334
+        ]
+      },
+      "night_day_luminance_ratio": 0.2831380291217063
+    },
+    {
+      "material": "foreground_leaf_mass",
+      "rect_xyxy": [
+        640,
+        625,
+        680,
+        660
+      ],
+      "day": {
+        "median_linear_luminance": 0.08882757271165798,
+        "median_HSV_saturation": 0.8588235294117647,
+        "luminance_p10_p90": [
+          0.016744543157265136,
+          0.2098694978004163
+        ]
+      },
+      "night": {
+        "median_linear_luminance": 0.02968852483351818,
+        "median_HSV_saturation": 0.8941176470588236,
+        "luminance_p10_p90": [
+          0.006896348750322379,
+          0.06264130880970116
+        ]
+      },
+      "night_day_luminance_ratio": 0.33422645612404284
+    },
+    {
+      "material": "castle_wall",
+      "rect_xyxy": [
+        790,
+        390,
+        810,
+        435
+      ],
+      "day": {
+        "median_linear_luminance": 0.14703674002509376,
+        "median_HSV_saturation": 0.5882352941176471,
+        "luminance_p10_p90": [
+          0.07995000894761092,
+          0.3461328565271813
+        ]
+      },
+      "night": {
+        "median_linear_luminance": 0.14703674002509376,
+        "median_HSV_saturation": 0.5882352941176471,
+        "luminance_p10_p90": [
+          0.07995000894761092,
+          0.3461328565271813
+        ]
+      },
+      "night_day_luminance_ratio": 1.0
+    },
+    {
+      "material": "bridge_deck",
+      "rect_xyxy": [
+        825,
+        499,
+        850,
+        514
+      ],
+      "day": {
+        "median_linear_luminance": 0.6412289924464087,
+        "median_HSV_saturation": 0.3058823529411765,
+        "luminance_p10_p90": [
+          0.48761390281938166,
+          0.7221247358143483
+        ]
+      },
+      "night": {
+        "median_linear_luminance": 0.6466883792690171,
+        "median_HSV_saturation": 0.30196078431372547,
+        "luminance_p10_p90": [
+          0.5179992133741599,
+          0.7281652452344338
+        ]
+      },
+      "night_day_luminance_ratio": 1.0085139425804497
+    },
+    {
+      "material": "water",
+      "rect_xyxy": [
+        1035,
+        525,
+        1070,
+        545
+      ],
+      "day": {
+        "median_linear_luminance": 0.31034024376189995,
+        "median_HSV_saturation": 0.9882352941176471,
+        "luminance_p10_p90": [
+          0.266292750371088,
+          0.35392067147985024
+        ]
+      },
+      "night": {
+        "median_linear_luminance": 0.10260015365519635,
+        "median_HSV_saturation": 0.9921568627450981,
+        "luminance_p10_p90": [
+          0.08860723919351138,
+          0.11485865546557614
+        ]
+      },
+      "night_day_luminance_ratio": 0.33060537818586466
+    },
+    {
+      "material": "path",
+      "rect_xyxy": [
+        945,
+        635,
+        975,
+        655
+      ],
+      "day": {
+        "median_linear_luminance": 0.4874858515352688,
+        "median_HSV_saturation": 0.14901960784313725,
+        "luminance_p10_p90": [
+          0.35611477760917554,
+          0.5956758512488398
+        ]
+      },
+      "night": {
+        "median_linear_luminance": 0.13829518281087957,
+        "median_HSV_saturation": 0.30980392156862746,
+        "luminance_p10_p90": [
+          0.1036096845808006,
+          0.168125491659253
+        ]
+      },
+      "night_day_luminance_ratio": 0.2836906596885595
+    },
+    {
+      "material": "swing_top_beam",
+      "rect_xyxy": [
+        195,
+        332,
+        260,
+        339
+      ],
+      "day": {
+        "median_linear_luminance": 0.5147413199460845,
+        "median_HSV_saturation": 0.30196078431372547,
+        "luminance_p10_p90": [
+          0.25520698998422664,
+          0.8504937078668041
+        ]
+      },
+      "night": {
+        "median_linear_luminance": 0.48997528072587976,
+        "median_HSV_saturation": 0.3176470588235294,
+        "luminance_p10_p90": [
+          0.21651437478538435,
+          0.8504937078668041
+        ]
+      },
+      "night_day_luminance_ratio": 0.9518864364283037
+    }
+  ],
+  "visual_findings": [
+    {
+      "priority": "P1",
+      "material": "Bellflower leaves",
+      "observation": "Yellow-green highlights stand apart from adjacent teal/olive foliage in arrival and castle.",
+      "next_action": "Trial selective leaf highlight compression and hue alignment; preserve cream petals and leaf detail."
+    },
+    {
+      "priority": "P1",
+      "material": "Foreground shrub clumps",
+      "observation": "Pale rounded foreground leaves contrast strongly with dark fine-grained rear hedges; the repeated border reads as a separate asset family.",
+      "next_action": "Compare same-species foliage; grade individual clumps and reduce repetitive placement, preserving foreground depth."
+    },
+    {
+      "priority": "P1",
+      "material": "Castle and bridge at night",
+      "observation": "Large opaque surfaces remain nearly day-bright while landscape darkens; the discontinuity is broader than saturation.",
+      "next_action": "Separate ambient surfaces from windows, gold glints and doorway accents; test an opt-in night grade without painting over approved art."
+    },
+    {
+      "priority": "P1",
+      "material": "Playground at night",
+      "observation": "Swing and slide remain conspicuously bright against the dark lawn.",
+      "next_action": "Align ambient response with nearby props; retain readable interaction accents."
+    },
+    {
+      "priority": "P2",
+      "material": "Arrival versus meadow foliage",
+      "observation": "Mapped source patches show greater arrival saturation and cooler hue. This is regional evidence, not a whole-stage score.",
+      "next_action": "Compare matched foliage materials across the transition before applying a local grade."
+    },
+    {
+      "priority": "P2",
+      "material": "Clouds and mountains",
+      "observation": "Some overlay clouds are rounder and higher-contrast than the distant cloud field; pale mountains and clouds still provide useful depth.",
+      "next_action": "Review cloud edge, opacity and value at rest and maximum drift; do not globally desaturate sky or mountain art."
+    },
+    {
+      "priority": "P2",
+      "material": "Grass and ground cover",
+      "observation": "Broad yellow-green lawn and dark teal planting beds have strong material separation; sparse animated blades can look pasted on.",
+      "next_action": "Check blade base and highlight colors against their exact underlying lawn at every pose; retain path contrast."
+    },
+    {
+      "priority": "P2",
+      "material": "Water and ripples",
+      "observation": "Water shares the ambient night change, but white interaction ripples attract disproportionate attention in still captures.",
+      "next_action": "Review the complete alpha/fade cycle and contact feedback before adjusting highlight intensity."
+    },
+    {
+      "priority": "P2",
+      "material": "Paths and rocks",
+      "observation": "Paths remain legible and cooler pink stone separates from grass; no global recolor is justified by this review.",
+      "next_action": "Preserve clear left castle approach; inspect lighting continuity around healed plant masks and water banks."
+    },
+    {
+      "priority": "P2",
+      "material": "Flowers, berries and new large plants",
+      "observation": "Purple/pink/cream accents provide useful variety. New rosette and berry-fan highlights have already been compressed, but adjacent older assets remain inconsistent.",
+      "next_action": "Use approved nearby material references for each asset; never force all flower hues or species to match."
+    },
+    {
+      "priority": "OPEN",
+      "material": "Roshan and animals",
+      "observation": "Bright actor colors support visibility, but the actor moves between these day/night captures; fixed pixel differences cannot isolate actor lighting.",
+      "next_action": "Capture matched actor positions and interactions in all stages; preserve protected source colors."
+    },
+    {
+      "priority": "OPEN",
+      "material": "HUD and touch feedback",
+      "observation": "HUD is intentionally screen-space and bright; it must be evaluated for readability independently from landscape lighting.",
+      "next_action": "Review focus rings, pointers and feedback across day/night and touch states on the target device."
+    }
+  ],
+  "correction_order": [
+    "Bellflower and pale foreground foliage trials",
+    "Shared night ambient response with separate emissive accents",
+    "Cross-stage material matching",
+    "Per-cel and camera-boundary checks",
+    "Target-device and owner review"
+  ],
+  "rollback": "No runtime or artwork changed by this audit. Future corrections must be opt-in derived variants with original sources retained.",
+  "remaining": [
+    "Arrival and meadow matched night composites",
+    "Actor/animal and touch-state coverage",
+    "All material corrections and visual comparisons",
+    "Device and owner acceptance"
+  ]
+}

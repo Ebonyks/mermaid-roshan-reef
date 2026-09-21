@@ -1,0 +1,87 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "sky_lagoon_whole_plant_grok_v4_2026-09-20",
+  "shot_id": "G13",
+  "title": "Uphill path boundary hedge",
+  "status": "DRAFT",
+  "duration_seconds": 1,
+  "duration_policy": "One-second micro-study when supported; shortest actually offered surface. Use six-second conditional prompt only if six seconds is the observed UI minimum. Record interface/model/minimum/date. No API execution or key requested by this handoff.",
+  "aspect_ratio": "1080:930",
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "shots/G13/IMAGE_1.png",
+      "sha256": "6e7f62fde59aa7fed17de02a6a7096ae34a85420bd7a88dbab2b270ea6904304",
+      "hud_present": false,
+      "remote_url": null,
+      "human_decision": "approved source reused; exact crop and proposed action pending packet review"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "shots/G13/IMAGE_2.png",
+      "sha256": "0e134f096ddd8cb328ee956dfd4607ff9a50ad0bba97997b7deab589315fbb27",
+      "hud_present": false,
+      "remote_url": null,
+      "human_decision": "approved source reused; exact crop and proposed action pending packet review",
+      "source_crop_within_IMAGE_1": [
+        770,
+        350,
+        1050,
+        540
+      ]
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "the whole leaf sprays of the shrubs beside the uphill path flex gently from fixed stems; the connected hillside itself never bends"
+  ],
+  "must_not_move": [
+    "every path pixel, path width and edges, ground, houses, rocks and mountains"
+  ],
+  "end_state": "original rooted silhouette, no abrupt loop snap",
+  "negative_constraints": [
+    "no terrain or path deformation",
+    "no identity, topology or palette drift",
+    "no camera motion, HUD or text"
+  ],
+  "prompt_path": "shots/G13/PROMPT.txt",
+  "prompt_sha256": "b8974d1af7d10d120f3eedb852f5639c32b6517e00b81302b9ea01835fbcea02",
+  "sound_intent": "silence",
+  "runtime_owners": "castle_approach_bank and uphill seam audit",
+  "interface_contract": "Upload IMAGE_1 as the initial image on single-image I2V. IMAGE_2 is a detail of that same painting for operator identity/material review, not an alternative layout or second timeline frame. Preserve native aspect.",
+  "acceptance": {
+    "ARCHIVE_COMPLETE": false,
+    "GENERATION_READY": false,
+    "DELIVERY_ACCEPTED": false
+  },
+  "return_requirements": [
+    "native video file committed in return branch, not merely a JSON path/hash",
+    "actual model/interface/duration/fps/dimensions and input/output hashes",
+    "full-speed review and frame-by-frame ground/path stability",
+    "reject stalled repeated poses, branch melting, sliding roots and global grade change"
+  ],
+  "conditional_prompt_variants": [
+    {
+      "path": "shots/G13/PROMPT_UI_6S_IF_MINIMUM.txt",
+      "sha256": "6718af98d1f3703ca2019508180e65af599b7f3054fe848effe3175818cf5bfb",
+      "duration_seconds": 6,
+      "condition": "operator verifies6s is shortest offered",
+      "action_span_seconds": [
+        0,
+        1
+      ],
+      "intentional_hold_seconds": [
+        1,
+        6
+      ],
+      "hold_purpose": "unavoidable interface tail after complete micro-study; not runtime animation or concealed missing action"
+    }
+  ]
+}

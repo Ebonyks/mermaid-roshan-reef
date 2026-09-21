@@ -1,0 +1,158 @@
+{
+  "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+  "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+  "status": "SEPARATION_CANDIDATE_NOT_ANIMATION_DELIVERY",
+  "clouds": [
+    {
+      "id": "arrival_high_left",
+      "rect": [
+        276,
+        244,
+        368,
+        152
+      ],
+      "file": "arrival_high_left.png",
+      "masked_pixels": 25984,
+      "edge_guard_pixels": 2
+    },
+    {
+      "id": "arrival_high_right",
+      "rect": [
+        1304,
+        456,
+        488,
+        196
+      ],
+      "file": "arrival_high_right.png",
+      "masked_pixels": 34613,
+      "edge_guard_pixels": 2
+    },
+    {
+      "id": "arrival_small_center",
+      "rect": [
+        696,
+        708,
+        256,
+        104
+      ],
+      "file": "arrival_small_center.png",
+      "masked_pixels": 5107,
+      "edge_guard_pixels": 2
+    },
+    {
+      "id": "arrival_small_right",
+      "rect": [
+        1096,
+        776,
+        240,
+        92
+      ],
+      "file": "arrival_small_right.png",
+      "masked_pixels": 5879,
+      "edge_guard_pixels": 2
+    },
+    {
+      "id": "arrival_mid_right",
+      "rect": [
+        1144,
+        672,
+        296,
+        116
+      ],
+      "file": "arrival_mid_right.png",
+      "masked_pixels": 9267,
+      "edge_guard_pixels": 2
+    },
+    {
+      "id": "meadow_high_left",
+      "rect": [
+        1992,
+        308,
+        536,
+        220
+      ],
+      "file": "meadow_high_left.png",
+      "masked_pixels": 41477,
+      "edge_guard_pixels": 2
+    },
+    {
+      "id": "meadow_high_right",
+      "rect": [
+        3724,
+        304,
+        556,
+        200
+      ],
+      "file": "meadow_high_right.png",
+      "masked_pixels": 42698,
+      "edge_guard_pixels": 2
+    },
+    {
+      "id": "meadow_small_left",
+      "rect": [
+        1796,
+        656,
+        352,
+        80
+      ],
+      "file": "meadow_small_left.png",
+      "masked_pixels": 6504,
+      "edge_guard_pixels": 2
+    },
+    {
+      "id": "meadow_mid_right",
+      "rect": [
+        3220,
+        580,
+        400,
+        168
+      ],
+      "file": "meadow_mid_right.png",
+      "masked_pixels": 19139,
+      "edge_guard_pixels": 2
+    },
+    {
+      "id": "meadow_small_center",
+      "rect": [
+        2984,
+        720,
+        216,
+        112
+      ],
+      "file": "meadow_small_center.png",
+      "masked_pixels": 4878,
+      "edge_guard_pixels": 2
+    },
+    {
+      "id": "meadow_small_far",
+      "rect": [
+        3204,
+        752,
+        160,
+        72
+      ],
+      "file": "meadow_small_far.png",
+      "masked_pixels": 3844,
+      "edge_guard_pixels": 2
+    },
+    {
+      "id": "castle_high",
+      "rect": [
+        5216,
+        108,
+        684,
+        268
+      ],
+      "file": "castle_high.png",
+      "masked_pixels": 65507,
+      "edge_guard_pixels": 2
+    }
+  ],
+  "rest_max_channel_error": 0,
+  "review_limits": [
+    "Rest equality does not verify moving edges or concealed fill.",
+    "Mountain-overlapping clouds and low cloud sea are not yet separated.",
+    "No runtime integration or native animation timeline yet."
+  ],
+  "method": "Original pixel masks and concealed inpaint; local image processing authorized by owner."
+}

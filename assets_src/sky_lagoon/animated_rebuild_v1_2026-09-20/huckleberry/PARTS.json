@@ -1,0 +1,22 @@
+{
+  "canvas": [
+    512,
+    512
+  ],
+  "root_anchor": [
+    256,
+    380
+  ],
+  "fixed_rows": [
+    375,
+    512
+  ],
+  "groups": [
+    "branch_left",
+    "branch_middle",
+    "branch_right",
+    "root_fixed"
+  ],
+  "matte_cleanup": "one native pixel alpha erosion; RGB unchanged before uniform resampling",
+  "method_limit": "groups are regional editing ownership, not independently extracted complete branches; shared continuous branch field preserves seams"
+}

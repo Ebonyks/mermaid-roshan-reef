@@ -1,0 +1,19 @@
+{
+  "tool": "Codex built-in image_gen",
+  "model_pin": null,
+  "native_file": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/bridge/deck-underpaint-native.png",
+  "native_sha256": "690f91ccd4c74301609eda0b4c5d4bc1aad0d2a23c90bebdab95f3587c49b56e",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "reference": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+  "role": "hidden bridge deck underpaint only",
+  "status": "candidate; registration and masked-use audit pending",
+  "visual_review": [
+    "Bridge posts and chains removed; wooden deck continues underneath.",
+    "Generated castle and portrait must not replace approved source; retain only useful concealed deck pixels after registration.",
+    "Colored alpha fringes visible outside sprite; exclude from derived deck material."
+  ],
+  "runtime_integrated": false
+}

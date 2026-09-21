@@ -1,0 +1,37 @@
+{
+  "status": "SOURCE_SELECTION",
+  "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+  "reference_rect": [
+    1750,
+    1560,
+    2350,
+    2020
+  ],
+  "target": "large berry fan across arrival/meadow boundary",
+  "existing_assets_reviewed": [
+    "animated_rebuild_v1_2026-09-20/huckleberry/source-rest.png",
+    "animated_rebuild_v1_2026-09-20/whole_scene_revision/foreground_rosette"
+  ],
+  "reuse_gap": "Existing huckleberry has rounded leaves and woody branches; castle rosette lacks the tall green sprig and multi-stem berry arrangement. Reusing either would redesign the existing meadow plant.",
+  "constraints": [
+    "one whole sprite across native x2048 boundary",
+    "preserve path",
+    "preserve original dark teal foliage and purple berries",
+    "separate low ground cover",
+    "six to eight coordinated cels with fixed root",
+    "original source and runtime fallback retained"
+  ],
+  "rules": [
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-04",
+    "DL-LAY-01",
+    "DL-LAY-07",
+    "DL-MOT-01",
+    "DL-VIS-01",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-08"
+  ]
+}

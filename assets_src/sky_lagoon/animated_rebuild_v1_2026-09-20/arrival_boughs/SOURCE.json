@@ -1,0 +1,25 @@
+{
+  "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+  "source_sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+  "master_rect": [
+    0,
+    448,
+    512,
+    256
+  ],
+  "cv2_version": "4.11.0",
+  "rng_seed": 0,
+  "method": "original-pixel extraction; concealed contour-local inpaint only; broad hidden fill is not an accepted plate; direct Aseprite fallback",
+  "layers": [
+    "fixed_background_and_concealed_fill",
+    "central_stem_and_lower_tier_fixed",
+    "left_outer_tips",
+    "right_outer_tips"
+  ],
+  "frame_count": 3,
+  "scope": "one visible lower bough tier; central trunk, left8 columns and first/last32 rows fixed; this is not full-tree separation",
+  "edge_guard": "3 native scene-colour pixels around antialiased edge; bounded 2px motion only; static native edge guard retained below patch to prevent filtered seams",
+  "exact_rest_reconstruction": true,
+  "runtime_accepted": false,
+  "limits": "source candidate; remaining tree/background decomposition and runtime/device review open"
+}

@@ -1,0 +1,983 @@
+{
+  "status": "COLOR_AUDIT_FINDINGS_OPEN_NOT_ACCEPTED",
+  "scope": "All three environment screens in day and night; 31 mapped material patches. This is coverage of visible material families, not every pixel, every cel, every interaction or a quality score.",
+  "method": "Unmasked rectangular samples: sRGB decoded to linear luminance; HSV saturation is a diagnostic only. Painted shade and mixed pixels remain. Sampling locations are visible in sample-map.jpg. Night/day frames share static camera geometry, but dynamic poses are not synchronized; these ratios are not grading targets.",
+  "sources": [
+    {
+      "path": "whole_scene_revision/color_audit/six_screen/arrival_day.png",
+      "sha256": "26e83ef942e00fe8251bc51b77a8a6036581406035e0ad389aab2d009e6f66a4",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "whole_scene_revision/color_audit/six_screen/arrival_night.png",
+      "sha256": "8ec2f5350a9254b6c19f09b3b2097e960533a12d7b82f6f0cf17cdc8faa99e89",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "whole_scene_revision/color_audit/six_screen/meadow_day.png",
+      "sha256": "18a1b1b8b82513f3d7b0d88ee327085a9978befd8c689220bc8f517aab1c9f51",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "whole_scene_revision/color_audit/six_screen/meadow_night.png",
+      "sha256": "e5df1d5824d5c010eb0c6984727e8b9b3918a64ff675636a531aabfa9372d81f",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "whole_scene_revision/color_audit/six_screen/castle_day.png",
+      "sha256": "29e476549b09e16aa4417eb1393038281f3dc8ca720fe5eb31f65c776433e6b2",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "whole_scene_revision/color_audit/six_screen/castle_night.png",
+      "sha256": "edb66b19046ca46e662d32158b09035d3aa0cb57e02214bb7e085becdae6f257",
+      "dimensions": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "stage": "arrival",
+      "sample_id": 1,
+      "material": "sky",
+      "rect_xyxy": [
+        340,
+        40,
+        440,
+        90
+      ],
+      "day": {
+        "luminance_median": 0.48271,
+        "luminance_p10_p90": [
+          0.44869,
+          0.50937
+        ],
+        "HSV_saturation_median": 0.75294
+      },
+      "night": {
+        "luminance_median": 0.15532,
+        "luminance_p10_p90": [
+          0.14707,
+          0.16227
+        ],
+        "HSV_saturation_median": 0.8549
+      },
+      "night_day_luminance_ratio": 0.3218
+    },
+    {
+      "stage": "arrival",
+      "sample_id": 2,
+      "material": "cloud_sea",
+      "rect_xyxy": [
+        280,
+        355,
+        350,
+        400
+      ],
+      "day": {
+        "luminance_median": 0.76021,
+        "luminance_p10_p90": [
+          0.54989,
+          0.88555
+        ],
+        "HSV_saturation_median": 0.03529
+      },
+      "night": {
+        "luminance_median": 0.21828,
+        "luminance_p10_p90": [
+          0.16628,
+          0.2512
+        ],
+        "HSV_saturation_median": 0.43137
+      },
+      "night_day_luminance_ratio": 0.2871
+    },
+    {
+      "stage": "arrival",
+      "sample_id": 3,
+      "material": "mountain",
+      "rect_xyxy": [
+        560,
+        295,
+        585,
+        315
+      ],
+      "day": {
+        "luminance_median": 0.56718,
+        "luminance_p10_p90": [
+          0.50141,
+          0.70675
+        ],
+        "HSV_saturation_median": 0.32549
+      },
+      "night": {
+        "luminance_median": 0.1745,
+        "luminance_p10_p90": [
+          0.1587,
+          0.20818
+        ],
+        "HSV_saturation_median": 0.60392
+      },
+      "night_day_luminance_ratio": 0.3077
+    },
+    {
+      "stage": "arrival",
+      "sample_id": 4,
+      "material": "rear_hedge",
+      "rect_xyxy": [
+        510,
+        395,
+        560,
+        435
+      ],
+      "day": {
+        "luminance_median": 0.17514,
+        "luminance_p10_p90": [
+          0.06447,
+          0.67242
+        ],
+        "HSV_saturation_median": 0.74902
+      },
+      "night": {
+        "luminance_median": 0.05461,
+        "luminance_p10_p90": [
+          0.02262,
+          0.19847
+        ],
+        "HSV_saturation_median": 0.79608
+      },
+      "night_day_luminance_ratio": 0.3118
+    },
+    {
+      "stage": "arrival",
+      "sample_id": 5,
+      "material": "large_foreground_leaf",
+      "rect_xyxy": [
+        575,
+        615,
+        620,
+        655
+      ],
+      "day": {
+        "luminance_median": 0.05643,
+        "luminance_p10_p90": [
+          0.01579,
+          0.10727
+        ],
+        "HSV_saturation_median": 0.95294
+      },
+      "night": {
+        "luminance_median": 0.01932,
+        "luminance_p10_p90": [
+          0.00663,
+          0.03411
+        ],
+        "HSV_saturation_median": 0.96471
+      },
+      "night_day_luminance_ratio": 0.3424
+    },
+    {
+      "stage": "arrival",
+      "sample_id": 6,
+      "material": "pale_foreground_clump",
+      "rect_xyxy": [
+        50,
+        668,
+        90,
+        705
+      ],
+      "day": {
+        "luminance_median": 0.17094,
+        "luminance_p10_p90": [
+          0.03689,
+          0.42656
+        ],
+        "HSV_saturation_median": 0.49804
+      },
+      "night": {
+        "luminance_median": 0.05291,
+        "luminance_p10_p90": [
+          0.0137,
+          0.12039
+        ],
+        "HSV_saturation_median": 0.56078
+      },
+      "night_day_luminance_ratio": 0.3095
+    },
+    {
+      "stage": "arrival",
+      "sample_id": 7,
+      "material": "lawn",
+      "rect_xyxy": [
+        240,
+        585,
+        315,
+        620
+      ],
+      "day": {
+        "luminance_median": 0.34894,
+        "luminance_p10_p90": [
+          0.26146,
+          0.40981
+        ],
+        "HSV_saturation_median": 0.70196
+      },
+      "night": {
+        "luminance_median": 0.09601,
+        "luminance_p10_p90": [
+          0.07435,
+          0.1108
+        ],
+        "HSV_saturation_median": 0.56078
+      },
+      "night_day_luminance_ratio": 0.2751
+    },
+    {
+      "stage": "arrival",
+      "sample_id": 8,
+      "material": "path",
+      "rect_xyxy": [
+        225,
+        505,
+        275,
+        540
+      ],
+      "day": {
+        "luminance_median": 0.46517,
+        "luminance_p10_p90": [
+          0.37017,
+          0.52052
+        ],
+        "HSV_saturation_median": 0.17255
+      },
+      "night": {
+        "luminance_median": 0.13408,
+        "luminance_p10_p90": [
+          0.10935,
+          0.14949
+        ],
+        "HSV_saturation_median": 0.37255
+      },
+      "night_day_luminance_ratio": 0.2882
+    },
+    {
+      "stage": "arrival",
+      "sample_id": 9,
+      "material": "water",
+      "rect_xyxy": [
+        35,
+        450,
+        90,
+        475
+      ],
+      "day": {
+        "luminance_median": 0.20993,
+        "luminance_p10_p90": [
+          0.12121,
+          0.33154
+        ],
+        "HSV_saturation_median": 0.98039
+      },
+      "night": {
+        "luminance_median": 0.07057,
+        "luminance_p10_p90": [
+          0.04336,
+          0.1091
+        ],
+        "HSV_saturation_median": 0.98824
+      },
+      "night_day_luminance_ratio": 0.3362
+    },
+    {
+      "stage": "arrival",
+      "sample_id": 10,
+      "material": "slide",
+      "rect_xyxy": [
+        877,
+        380,
+        900,
+        410
+      ],
+      "day": {
+        "luminance_median": 0.42454,
+        "luminance_p10_p90": [
+          0.34959,
+          0.45751
+        ],
+        "HSV_saturation_median": 0.48235
+      },
+      "night": {
+        "luminance_median": 0.19177,
+        "luminance_p10_p90": [
+          0.15809,
+          0.20488
+        ],
+        "HSV_saturation_median": 0.62745
+      },
+      "night_day_luminance_ratio": 0.4517
+    },
+    {
+      "stage": "arrival",
+      "sample_id": 11,
+      "material": "bellflower_leaf",
+      "rect_xyxy": [
+        358,
+        650,
+        389,
+        675
+      ],
+      "day": {
+        "luminance_median": 0.12931,
+        "luminance_p10_p90": [
+          0.05818,
+          0.2797
+        ],
+        "HSV_saturation_median": 0.65882
+      },
+      "night": {
+        "luminance_median": 0.04072,
+        "luminance_p10_p90": [
+          0.02035,
+          0.07989
+        ],
+        "HSV_saturation_median": 0.65882
+      },
+      "night_day_luminance_ratio": 0.3149
+    },
+    {
+      "stage": "meadow",
+      "sample_id": 1,
+      "material": "sky",
+      "rect_xyxy": [
+        450,
+        40,
+        550,
+        90
+      ],
+      "day": {
+        "luminance_median": 0.48724,
+        "luminance_p10_p90": [
+          0.4562,
+          0.50642
+        ],
+        "HSV_saturation_median": 0.72941
+      },
+      "night": {
+        "luminance_median": 0.15631,
+        "luminance_p10_p90": [
+          0.14849,
+          0.16173
+        ],
+        "HSV_saturation_median": 0.84314
+      },
+      "night_day_luminance_ratio": 0.3208
+    },
+    {
+      "stage": "meadow",
+      "sample_id": 2,
+      "material": "cloud_sea",
+      "rect_xyxy": [
+        205,
+        350,
+        260,
+        375
+      ],
+      "day": {
+        "luminance_median": 0.57794,
+        "luminance_p10_p90": [
+          0.49341,
+          0.69142
+        ],
+        "HSV_saturation_median": 0.25882
+      },
+      "night": {
+        "luminance_median": 0.17555,
+        "luminance_p10_p90": [
+          0.15549,
+          0.203
+        ],
+        "HSV_saturation_median": 0.56471
+      },
+      "night_day_luminance_ratio": 0.3038
+    },
+    {
+      "stage": "meadow",
+      "sample_id": 3,
+      "material": "mountain",
+      "rect_xyxy": [
+        1000,
+        230,
+        1040,
+        255
+      ],
+      "day": {
+        "luminance_median": 0.48479,
+        "luminance_p10_p90": [
+          0.36928,
+          0.70802
+        ],
+        "HSV_saturation_median": 0.40784
+      },
+      "night": {
+        "luminance_median": 0.15421,
+        "luminance_p10_p90": [
+          0.12274,
+          0.21124
+        ],
+        "HSV_saturation_median": 0.65098
+      },
+      "night_day_luminance_ratio": 0.3181
+    },
+    {
+      "stage": "meadow",
+      "sample_id": 4,
+      "material": "rear_hedge",
+      "rect_xyxy": [
+        830,
+        352,
+        880,
+        390
+      ],
+      "day": {
+        "luminance_median": 0.12847,
+        "luminance_p10_p90": [
+          0.05976,
+          0.26896
+        ],
+        "HSV_saturation_median": 0.74118
+      },
+      "night": {
+        "luminance_median": 0.04176,
+        "luminance_p10_p90": [
+          0.02138,
+          0.07986
+        ],
+        "HSV_saturation_median": 0.79608
+      },
+      "night_day_luminance_ratio": 0.3251
+    },
+    {
+      "stage": "meadow",
+      "sample_id": 5,
+      "material": "large_foreground_leaf",
+      "rect_xyxy": [
+        1100,
+        610,
+        1140,
+        650
+      ],
+      "day": {
+        "luminance_median": 0.07422,
+        "luminance_p10_p90": [
+          0.01294,
+          0.17768
+        ],
+        "HSV_saturation_median": 0.78431
+      },
+      "night": {
+        "luminance_median": 0.02451,
+        "luminance_p10_p90": [
+          0.00561,
+          0.05274
+        ],
+        "HSV_saturation_median": 0.81569
+      },
+      "night_day_luminance_ratio": 0.3302
+    },
+    {
+      "stage": "meadow",
+      "sample_id": 6,
+      "material": "pale_foreground_clump",
+      "rect_xyxy": [
+        655,
+        672,
+        700,
+        704
+      ],
+      "day": {
+        "luminance_median": 0.1574,
+        "luminance_p10_p90": [
+          0.03665,
+          0.43439
+        ],
+        "HSV_saturation_median": 0.48824
+      },
+      "night": {
+        "luminance_median": 0.04927,
+        "luminance_p10_p90": [
+          0.01371,
+          0.12255
+        ],
+        "HSV_saturation_median": 0.56078
+      },
+      "night_day_luminance_ratio": 0.313
+    },
+    {
+      "stage": "meadow",
+      "sample_id": 7,
+      "material": "lawn",
+      "rect_xyxy": [
+        465,
+        507,
+        520,
+        540
+      ],
+      "day": {
+        "luminance_median": 0.33365,
+        "luminance_p10_p90": [
+          0.2301,
+          0.46379
+        ],
+        "HSV_saturation_median": 0.7098
+      },
+      "night": {
+        "luminance_median": 0.09247,
+        "luminance_p10_p90": [
+          0.06617,
+          0.12527
+        ],
+        "HSV_saturation_median": 0.57647
+      },
+      "night_day_luminance_ratio": 0.2771
+    },
+    {
+      "stage": "meadow",
+      "sample_id": 8,
+      "material": "path",
+      "rect_xyxy": [
+        770,
+        570,
+        830,
+        592
+      ],
+      "day": {
+        "luminance_median": 0.41006,
+        "luminance_p10_p90": [
+          0.31148,
+          0.46903
+        ],
+        "HSV_saturation_median": 0.16471
+      },
+      "night": {
+        "luminance_median": 0.11968,
+        "luminance_p10_p90": [
+          0.09264,
+          0.13501
+        ],
+        "HSV_saturation_median": 0.37647
+      },
+      "night_day_luminance_ratio": 0.2919
+    },
+    {
+      "stage": "meadow",
+      "sample_id": 9,
+      "material": "slide",
+      "rect_xyxy": [
+        441,
+        380,
+        465,
+        410
+      ],
+      "day": {
+        "luminance_median": 0.42881,
+        "luminance_p10_p90": [
+          0.3991,
+          0.46327
+        ],
+        "HSV_saturation_median": 0.47843
+      },
+      "night": {
+        "luminance_median": 0.19373,
+        "luminance_p10_p90": [
+          0.1805,
+          0.20724
+        ],
+        "HSV_saturation_median": 0.62745
+      },
+      "night_day_luminance_ratio": 0.4518
+    },
+    {
+      "stage": "meadow",
+      "sample_id": 10,
+      "material": "swing",
+      "rect_xyxy": [
+        640,
+        329,
+        695,
+        336
+      ],
+      "day": {
+        "luminance_median": 0.61622,
+        "luminance_p10_p90": [
+          0.24882,
+          0.92495
+        ],
+        "HSV_saturation_median": 0.2902
+      },
+      "night": {
+        "luminance_median": 0.27181,
+        "luminance_p10_p90": [
+          0.09555,
+          0.3982
+        ],
+        "HSV_saturation_median": 0.37255
+      },
+      "night_day_luminance_ratio": 0.4411
+    },
+    {
+      "stage": "castle",
+      "sample_id": 1,
+      "material": "sky",
+      "rect_xyxy": [
+        530,
+        25,
+        650,
+        75
+      ],
+      "day": {
+        "luminance_median": 0.49493,
+        "luminance_p10_p90": [
+          0.46299,
+          0.51875
+        ],
+        "HSV_saturation_median": 0.71373
+      },
+      "night": {
+        "luminance_median": 0.15914,
+        "luminance_p10_p90": [
+          0.14989,
+          0.16505
+        ],
+        "HSV_saturation_median": 0.83137
+      },
+      "night_day_luminance_ratio": 0.3215
+    },
+    {
+      "stage": "castle",
+      "sample_id": 2,
+      "material": "mountain",
+      "rect_xyxy": [
+        870,
+        160,
+        910,
+        190
+      ],
+      "day": {
+        "luminance_median": 0.24079,
+        "luminance_p10_p90": [
+          0.07172,
+          0.65189
+        ],
+        "HSV_saturation_median": 0.46667
+      },
+      "night": {
+        "luminance_median": 0.11341,
+        "luminance_p10_p90": [
+          0.04008,
+          0.20362
+        ],
+        "HSV_saturation_median": 0.61176
+      },
+      "night_day_luminance_ratio": 0.471
+    },
+    {
+      "stage": "castle",
+      "sample_id": 3,
+      "material": "rear_hedge",
+      "rect_xyxy": [
+        590,
+        300,
+        650,
+        350
+      ],
+      "day": {
+        "luminance_median": 0.12963,
+        "luminance_p10_p90": [
+          0.07621,
+          0.22269
+        ],
+        "HSV_saturation_median": 0.70588
+      },
+      "night": {
+        "luminance_median": 0.04197,
+        "luminance_p10_p90": [
+          0.02653,
+          0.06737
+        ],
+        "HSV_saturation_median": 0.78039
+      },
+      "night_day_luminance_ratio": 0.3238
+    },
+    {
+      "stage": "castle",
+      "sample_id": 4,
+      "material": "large_foreground_leaf",
+      "rect_xyxy": [
+        640,
+        625,
+        680,
+        660
+      ],
+      "day": {
+        "luminance_median": 0.08883,
+        "luminance_p10_p90": [
+          0.01674,
+          0.20987
+        ],
+        "HSV_saturation_median": 0.85882
+      },
+      "night": {
+        "luminance_median": 0.02969,
+        "luminance_p10_p90": [
+          0.0069,
+          0.06264
+        ],
+        "HSV_saturation_median": 0.89412
+      },
+      "night_day_luminance_ratio": 0.3342
+    },
+    {
+      "stage": "castle",
+      "sample_id": 5,
+      "material": "pale_foreground_clump",
+      "rect_xyxy": [
+        245,
+        677,
+        285,
+        705
+      ],
+      "day": {
+        "luminance_median": 0.16665,
+        "luminance_p10_p90": [
+          0.03728,
+          0.45844
+        ],
+        "HSV_saturation_median": 0.4902
+      },
+      "night": {
+        "luminance_median": 0.04768,
+        "luminance_p10_p90": [
+          0.01271,
+          0.12668
+        ],
+        "HSV_saturation_median": 0.56078
+      },
+      "night_day_luminance_ratio": 0.2861
+    },
+    {
+      "stage": "castle",
+      "sample_id": 6,
+      "material": "path",
+      "rect_xyxy": [
+        945,
+        635,
+        975,
+        655
+      ],
+      "day": {
+        "luminance_median": 0.48749,
+        "luminance_p10_p90": [
+          0.35611,
+          0.59568
+        ],
+        "HSV_saturation_median": 0.14902
+      },
+      "night": {
+        "luminance_median": 0.1383,
+        "luminance_p10_p90": [
+          0.10361,
+          0.16813
+        ],
+        "HSV_saturation_median": 0.3098
+      },
+      "night_day_luminance_ratio": 0.2837
+    },
+    {
+      "stage": "castle",
+      "sample_id": 7,
+      "material": "water",
+      "rect_xyxy": [
+        1035,
+        525,
+        1070,
+        545
+      ],
+      "day": {
+        "luminance_median": 0.31148,
+        "luminance_p10_p90": [
+          0.2666,
+          0.35489
+        ],
+        "HSV_saturation_median": 0.98824
+      },
+      "night": {
+        "luminance_median": 0.10196,
+        "luminance_p10_p90": [
+          0.08867,
+          0.11479
+        ],
+        "HSV_saturation_median": 0.99216
+      },
+      "night_day_luminance_ratio": 0.3273
+    },
+    {
+      "stage": "castle",
+      "sample_id": 8,
+      "material": "castle_wall",
+      "rect_xyxy": [
+        790,
+        390,
+        810,
+        435
+      ],
+      "day": {
+        "luminance_median": 0.14704,
+        "luminance_p10_p90": [
+          0.07995,
+          0.34613
+        ],
+        "HSV_saturation_median": 0.58824
+      },
+      "night": {
+        "luminance_median": 0.07273,
+        "luminance_p10_p90": [
+          0.04147,
+          0.15014
+        ],
+        "HSV_saturation_median": 0.63922
+      },
+      "night_day_luminance_ratio": 0.4946
+    },
+    {
+      "stage": "castle",
+      "sample_id": 9,
+      "material": "bridge_deck",
+      "rect_xyxy": [
+        825,
+        499,
+        850,
+        514
+      ],
+      "day": {
+        "luminance_median": 0.64123,
+        "luminance_p10_p90": [
+          0.48761,
+          0.72212
+        ],
+        "HSV_saturation_median": 0.30588
+      },
+      "night": {
+        "luminance_median": 0.26926,
+        "luminance_p10_p90": [
+          0.21471,
+          0.30487
+        ],
+        "HSV_saturation_median": 0.1098
+      },
+      "night_day_luminance_ratio": 0.4199
+    },
+    {
+      "stage": "castle",
+      "sample_id": 10,
+      "material": "swing",
+      "rect_xyxy": [
+        195,
+        332,
+        260,
+        339
+      ],
+      "day": {
+        "luminance_median": 0.51474,
+        "luminance_p10_p90": [
+          0.25521,
+          0.85049
+        ],
+        "HSV_saturation_median": 0.30196
+      },
+      "night": {
+        "luminance_median": 0.22072,
+        "luminance_p10_p90": [
+          0.11025,
+          0.36667
+        ],
+        "HSV_saturation_median": 0.48627
+      },
+      "night_day_luminance_ratio": 0.4288
+    }
+  ],
+  "findings": [
+    {
+      "priority": "P1",
+      "material": "Foreground rounded clumps versus hedge",
+      "finding": "Repeated pale, broad-leaf foreground clumps read as a different material family from dark detailed hedges across all three views. Brightness, hue and painted texture contribute; saturation alone cannot fix this.",
+      "action": "Trial one existing clump with selective highlight compression and hue alignment against neighboring approved foliage; preserve leaf boundaries and purple berries. Expand only after contextual review."
+    },
+    {
+      "priority": "P1",
+      "material": "Arrival foliage versus meadow/castle",
+      "finding": "Earlier nine-region source audit reports arrival foliage saturation around .93 versus .66-.68 elsewhere. These are selected regions, not whole-stage averages.",
+      "action": "Compare same-species foliage on both sides of screen boundaries, then derive bounded color adjustments. Preserve cooler distance colors and front/back value separation."
+    },
+    {
+      "priority": "P1",
+      "material": "Grass and new fan",
+      "finding": "New seven-blade fan retains connected whole leaves but appears softer than surrounding foreground paint. Four-pose GPU trial passes mechanically; appearance remains rejected for integration. Sparse existing animated grass remains insufficient.",
+      "action": "Match contour sharpness, highlight width and base shadow to adjacent grass before palette approval. Audit every cel and root transition."
+    },
+    {
+      "priority": "P2",
+      "material": "Castle/bridge/playground night",
+      "finding": "Opt-in ambient tint now darkens opaque props. Windows and metallic glints still lack independent emissive treatment.",
+      "action": "Separate glow accents from ambient surfaces; retain child-readable bridge and entry contrast. Do not restore day-bright opaque surfaces."
+    },
+    {
+      "priority": "P2",
+      "material": "Sky/clouds/mountains",
+      "finding": "Depth colors remain readable; cloud family differs in roundness and local contrast. Three-pose candidate passes temporary atlas restoration but has not replaced production cloud.",
+      "action": "Audit all clouds against mountain silhouettes and cloud sea through full drift and pose loops. Preserve distant low contrast."
+    },
+    {
+      "priority": "P2",
+      "material": "Flowers/berries/rosette/bellflower",
+      "finding": "Targeted leaf grades preserve accent colors. Repetitive pale clusters and stationary bellflower leaves remain unresolved.",
+      "action": "Compare like materials across every animation cel; keep cream, pink and purple accents varied rather than globally desaturating."
+    },
+    {
+      "priority": "P2",
+      "material": "Water/rocks/path",
+      "finding": "Path remains distinguishable in day/night views. Water and shore stones share landscape darkening; bright tap ripple needs temporal review.",
+      "action": "Check shore masks, ripple peak/fade, bridge contact and left castle approach. Keep these surfaces stable while foliage is corrected."
+    },
+    {
+      "priority": "OPEN",
+      "material": "Actor/animals/HUD/touch states",
+      "finding": "Actor remains visually bright at night, supporting visibility; acceptability has not been established. Dynamic actors and HUD are excluded from fixed environment patch metrics.",
+      "action": "Matched interaction captures and device readability review; preserve protected source colors."
+    }
+  ],
+  "rollback": "Audit only; original artwork untouched. Existing preview corrections remain opt-in.",
+  "acceptance_gaps": [
+    "Matched per-cel palette stability",
+    "All camera seams and drift extremes",
+    "Actor, animals and interaction-state color hierarchy",
+    "Target-device readability/performance",
+    "Owner acceptance; latest owner score remains 3.5/5."
+  ]
+}

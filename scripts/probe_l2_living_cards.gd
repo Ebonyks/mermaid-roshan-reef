@@ -177,6 +177,10 @@ func _validate_parallax() -> void:
 		"deltas=%s" % deltas)
 
 
+func _prime_idle_event(director: LivingWorldDirector) -> void:
+	director.force_idle_event_for_probe()
+
+
 func _validate_layer_six() -> void:
 	var director: LivingWorldDirector = main._living_world_ref()
 	var expected_stages: Array[String] = [
@@ -194,7 +198,7 @@ func _validate_layer_six() -> void:
 			and main.living_canvas.mouse_filter == Control.MOUSE_FILTER_IGNORE)
 	var generation: int = main.living_generation
 	var runtime_counts: Dictionary = director.runtime_counts()
-	director.force_idle_event_for_probe()
+	_prime_idle_event(director)
 	director.tick(0.1)
 	_check("idle_event_is_bounded_canvas_state",
 		main.living_event_time >= 0.0 and main.living_canvas.event_progress >= 0.0 \

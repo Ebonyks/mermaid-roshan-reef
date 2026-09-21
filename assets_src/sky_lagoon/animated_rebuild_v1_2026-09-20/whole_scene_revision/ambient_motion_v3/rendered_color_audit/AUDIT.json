@@ -1,0 +1,2249 @@
+{
+  "status": "OPEN_COLOR_REVIEW_NOT_VISUAL_ACCEPTANCE",
+  "coverage": "288 actual Mobile-rendered captures, three stages x day/night x 48 samples over 4.7 seconds; 31 fixed material patches. All declared whole-scene card cels observed. Not a full 48-second cloud drift loop or all interactive states.",
+  "method": "Linear-light Rec.709 luminance and HSV saturation in fixed unmasked rectangles. Temporal min/max includes movement and mixed materials, so is not a direct palette-flicker measurement. Original images remain unchanged; corrections stay opt-in.",
+  "rollback_commit": "5ac764729fe0f6fc2152afcc37aa83fd6df7a400",
+  "capture_hashes": [
+    {
+      "file": "canvas_screen_1_day_0_00.png",
+      "sha256": "8927c0341e88d9c3d0462eb2e2c385035d4ca057d1990b5c9407915c9f49a3f8"
+    },
+    {
+      "file": "canvas_screen_1_day_0_01.png",
+      "sha256": "cfb7f032d4c91dff042dc606879e1ea1f94daa113a60506aa8fa0624b72d4d47"
+    },
+    {
+      "file": "canvas_screen_1_day_0_02.png",
+      "sha256": "0e18fbdc984890fe93f58de3fede3c3315494400c237e3a3ebdc5247f97e0f4e"
+    },
+    {
+      "file": "canvas_screen_1_day_0_03.png",
+      "sha256": "9a1c6c70e20cafca027a1dcd8ac01a3843f87e7c8485ce04131adfc271f2a78d"
+    },
+    {
+      "file": "canvas_screen_1_day_0_04.png",
+      "sha256": "301d65d236b7f30913789862e04a65e93c35009856e32c14fd9817865a077821"
+    },
+    {
+      "file": "canvas_screen_1_day_0_05.png",
+      "sha256": "32f20b0d56fe515dd94b96151ea12b9f42fa358d5be2ed78a48efc82a2b976d0"
+    },
+    {
+      "file": "canvas_screen_1_day_0_06.png",
+      "sha256": "c11535fbfc324a1e22aeb80e7521805091cfac32c8808fb33ff94e208087da12"
+    },
+    {
+      "file": "canvas_screen_1_day_0_07.png",
+      "sha256": "4030d69ebe5fee9f582b59dbd78108a7ef34f18e5d85bfb6c7267c776e45dac2"
+    },
+    {
+      "file": "canvas_screen_1_day_0_08.png",
+      "sha256": "915a3cca54cb76e2a7cbb34fde8a3d6ad63cf82be5bc9cab1ee7e35f88656554"
+    },
+    {
+      "file": "canvas_screen_1_day_0_09.png",
+      "sha256": "45a14cf912bab294f0c3e946aeda569bdceeb8abb3603884d6e2d3e9264e407c"
+    },
+    {
+      "file": "canvas_screen_1_day_0_10.png",
+      "sha256": "cd5913521f92fddb7c1d2a0944a693626f4da1661056bdac41deb4b3dd6d76cd"
+    },
+    {
+      "file": "canvas_screen_1_day_0_11.png",
+      "sha256": "76c367d4896789bbf5cc19967dabe9ff4165560960d2700e887786b4939103de"
+    },
+    {
+      "file": "canvas_screen_1_day_0_12.png",
+      "sha256": "c68a6c3373a53e22996e51799116dd0401269d6a9bbc1577cacb92fae21191b2"
+    },
+    {
+      "file": "canvas_screen_1_day_0_13.png",
+      "sha256": "b512089c0bae77ec5b41162a387bbd86d155cf453f38dee56e5d51fd3836335f"
+    },
+    {
+      "file": "canvas_screen_1_day_0_14.png",
+      "sha256": "07dc7105dbc2daa825d7b6739f1112b2fc39ab7e2e3281979a28ee90109a44e0"
+    },
+    {
+      "file": "canvas_screen_1_day_0_15.png",
+      "sha256": "d361e2b5d8ffb30a486fe7169039d68c8b6773293fae175828fd42464fe865f5"
+    },
+    {
+      "file": "canvas_screen_1_day_0_16.png",
+      "sha256": "eea8145d5e54dc56a24fd4ed605fad56238372ad207707e53eba0b56ab4f7e23"
+    },
+    {
+      "file": "canvas_screen_1_day_0_17.png",
+      "sha256": "488104d05d1351cae1d2e1e841f513cee509eaef3b347419e9f1df7959e00317"
+    },
+    {
+      "file": "canvas_screen_1_day_0_18.png",
+      "sha256": "3b60bacc70ba5c68ebc0f574618329654440712beaab5461860dc8fa949155cf"
+    },
+    {
+      "file": "canvas_screen_1_day_0_19.png",
+      "sha256": "d190597f6547196809eadd92ede37f5c6d4adc0050dc4dd43f4518bc2c5a0ca4"
+    },
+    {
+      "file": "canvas_screen_1_day_0_20.png",
+      "sha256": "8d60022748f03abb518abfc7d8d068757db3267ac14c8153af83c2675823ad91"
+    },
+    {
+      "file": "canvas_screen_1_day_0_21.png",
+      "sha256": "9c28cd1ca63e89afafff1732c28bf844bc4f27869d550cf2a73c69b9b3676d34"
+    },
+    {
+      "file": "canvas_screen_1_day_0_22.png",
+      "sha256": "8a02211d3558173a47baf55e30f4a8d0f5ff7fe003f7962ac2356b4f70e1fb56"
+    },
+    {
+      "file": "canvas_screen_1_day_0_23.png",
+      "sha256": "db5d837cfe9d5ecff969dcb6c4c6b00e3be51a743ea012832eaf2dc8a3fbb7ec"
+    },
+    {
+      "file": "canvas_screen_1_day_0_24.png",
+      "sha256": "f227b126bb2b4dffddd8b6a076c09e0aab92714e25202df414cee295e1d126ca"
+    },
+    {
+      "file": "canvas_screen_1_day_0_25.png",
+      "sha256": "4ac2eec1b9e8e097202bd292662c957bbdd65cae18f558121592c1895e41c7ba"
+    },
+    {
+      "file": "canvas_screen_1_day_0_26.png",
+      "sha256": "573aeea759838b90575d14547e22ae4b17416219b7cb6b15b6f9bb1466548f50"
+    },
+    {
+      "file": "canvas_screen_1_day_0_27.png",
+      "sha256": "77128cafb34d46869825e50c7d02e84a3d69a885f857c77ad2937960af099a6c"
+    },
+    {
+      "file": "canvas_screen_1_day_0_28.png",
+      "sha256": "691c04738c475e1bed809c205ccee3eb1feaa39922efb8cdeea9c40284c8e2a5"
+    },
+    {
+      "file": "canvas_screen_1_day_0_29.png",
+      "sha256": "b0fb51a5b9eea1aa413bd5f36191d81dd1eed981e57ecd2393614e9d569bb29f"
+    },
+    {
+      "file": "canvas_screen_1_day_0_30.png",
+      "sha256": "8b5ac8b12f4404451511c96fdb4486abb6cf7ed74dff025f240ab99c9eaa9ceb"
+    },
+    {
+      "file": "canvas_screen_1_day_0_31.png",
+      "sha256": "b17c5cae732b8c8a593ec1be5a8668979d80b48b4b90187766ed82776993a7ad"
+    },
+    {
+      "file": "canvas_screen_1_day_0_32.png",
+      "sha256": "c3043bc6877f70ac6aa97b1cb45a560e1f04079303c6063e7d96277ba884ba2e"
+    },
+    {
+      "file": "canvas_screen_1_day_0_33.png",
+      "sha256": "bc3dcd0cf56464890cda22d4d2412ca941d8437bce5c58974c5b00237bc21843"
+    },
+    {
+      "file": "canvas_screen_1_day_0_34.png",
+      "sha256": "780e3b231fd3414d00a0545e2876c45b682b0b696f5a8d53b51109ec0c75c12e"
+    },
+    {
+      "file": "canvas_screen_1_day_0_35.png",
+      "sha256": "9e68311dd0444b824a439e1d029e4836265d62f1c816c644def03e5b58d6fc66"
+    },
+    {
+      "file": "canvas_screen_1_day_0_36.png",
+      "sha256": "096f0c4c833bb5a43bd65ba5d091e405d033ea9a9e49a0e1446e918d189f17c7"
+    },
+    {
+      "file": "canvas_screen_1_day_0_37.png",
+      "sha256": "41b8ad6dd250c74ce5a489ac741648f9f68e1776c84f8fd5fbe404c49d6bf994"
+    },
+    {
+      "file": "canvas_screen_1_day_0_38.png",
+      "sha256": "480569cfac9efbac0320ba7c2e3915802655f0ed519b5ca4af3e3e8dd631b5c7"
+    },
+    {
+      "file": "canvas_screen_1_day_0_39.png",
+      "sha256": "ee27c3eb42a2325825b8daac3eec6c5a9bd62fe59b3d78b12e509c97d3192dac"
+    },
+    {
+      "file": "canvas_screen_1_day_0_40.png",
+      "sha256": "e04683a564387fbf9655e15fbbe6c7e5f2555395f4b07e7a94e84ba1fc90f8c3"
+    },
+    {
+      "file": "canvas_screen_1_day_0_41.png",
+      "sha256": "13510ec0c68009387dbd0cd2071664243b6c99d4c8819b1e663d7a9d7d618a58"
+    },
+    {
+      "file": "canvas_screen_1_day_0_42.png",
+      "sha256": "a7d73f652ceae3bbf60ed627ae4b2e62d253a20ab63be729850666f747539013"
+    },
+    {
+      "file": "canvas_screen_1_day_0_43.png",
+      "sha256": "a0e669fb6efebb186f57d6c935fcdeb670f50f77aeb7c9e3aace2819ddc85a1e"
+    },
+    {
+      "file": "canvas_screen_1_day_0_44.png",
+      "sha256": "5ce2629e3120b2e29008ef9b5ccc5bcc36e10a0982ca4a607dbd14d54892d804"
+    },
+    {
+      "file": "canvas_screen_1_day_0_45.png",
+      "sha256": "cc192c9269c6d7cf722ae1587b546b4063f8b8dffa2bfb16adb5af377649f5b1"
+    },
+    {
+      "file": "canvas_screen_1_day_0_46.png",
+      "sha256": "ee0791ed528d89afbe0c8114c6ddb8bf806536de6e1d2bdf133935521dfe407c"
+    },
+    {
+      "file": "canvas_screen_1_day_0_47.png",
+      "sha256": "caf7c318e9e37b97c3d8492632e02376044be1f7852a6bd0f579fbe938ebc5a0"
+    },
+    {
+      "file": "canvas_screen_3_night_0_00.png",
+      "sha256": "70067f4feeceb6210318a0c880e0762d0d71411391406a19b019668a2b5eb776"
+    },
+    {
+      "file": "canvas_screen_3_night_0_01.png",
+      "sha256": "45fa67c855e6ffbff952b55c816a70a7a1b86abbc664c14d89239c98fcf2fcd6"
+    },
+    {
+      "file": "canvas_screen_3_night_0_02.png",
+      "sha256": "34cea129a6d89147ebc5a11be697c89ce651b5d26b180aac0c35f3bd820a5bf0"
+    },
+    {
+      "file": "canvas_screen_3_night_0_03.png",
+      "sha256": "d0b5746050ad76eaa6238ac51d397ba5ac7d62f05e10b8e841178032eba9f0aa"
+    },
+    {
+      "file": "canvas_screen_3_night_0_04.png",
+      "sha256": "2b2e8405a8f929f4bb819953f0008e3d934af1331f6148bea7d426f14544e220"
+    },
+    {
+      "file": "canvas_screen_3_night_0_05.png",
+      "sha256": "d781ef45878f3152e9453c3ac88c7b6ed70dc688733aba2b2d7a89f089682ec1"
+    },
+    {
+      "file": "canvas_screen_3_night_0_06.png",
+      "sha256": "26d87dc762fb58cf6c210dcef0d9814b4e0c92343f975bc2046214ac48214c34"
+    },
+    {
+      "file": "canvas_screen_3_night_0_07.png",
+      "sha256": "1a73e72868d320bf04be2857aefadb4ef1287ebf438e605cc976f2d9380dde85"
+    },
+    {
+      "file": "canvas_screen_3_night_0_08.png",
+      "sha256": "bcb5488c6dc9fa76dddc81e4f8abf89ee6cbba6d19a81e82894fde703897d539"
+    },
+    {
+      "file": "canvas_screen_3_night_0_09.png",
+      "sha256": "dfe3e648ddafebcdc2635294230bbccb3d869db90e82bbb3131dccc19520a0d3"
+    },
+    {
+      "file": "canvas_screen_3_night_0_10.png",
+      "sha256": "a057f54c4bc374277715e52c9ca2524c0f2ae44a4f0e6c06d683205c4e799cdb"
+    },
+    {
+      "file": "canvas_screen_3_night_0_11.png",
+      "sha256": "11b81cb269af14dde83e25894b2306799cf17c094b27040fb6c819fae2a4f46e"
+    },
+    {
+      "file": "canvas_screen_3_night_0_12.png",
+      "sha256": "e4cc197922377e2033e0630e2489841dde705f56790cd45acb4f33fc00a27abb"
+    },
+    {
+      "file": "canvas_screen_3_night_0_13.png",
+      "sha256": "e72bc5465f3f43479514687149bb13387f5f42da9e9c58960bdc8790ebcb077c"
+    },
+    {
+      "file": "canvas_screen_3_night_0_14.png",
+      "sha256": "01fd81997f7959384d3249e4f0d4169463adb6fbcbc050b499e5e9ae4b30ca1f"
+    },
+    {
+      "file": "canvas_screen_3_night_0_15.png",
+      "sha256": "9343244b5ba06e1de3048fa19559a6741532c614f67ec513220942dc907b9f84"
+    },
+    {
+      "file": "canvas_screen_3_night_0_16.png",
+      "sha256": "ae1261cea31fb62655ee80cd06cdf4343ed2644840041ec4010c132ec843dc21"
+    },
+    {
+      "file": "canvas_screen_3_night_0_17.png",
+      "sha256": "0b4b1c2e25ee0ae8f252ae962b57f594f59596076c99f29cd7c55368a384c647"
+    },
+    {
+      "file": "canvas_screen_3_night_0_18.png",
+      "sha256": "26c6a1a07a4bff99c3c169117cfd82b2fe6c7f23335fb83cc9813d591d9a156f"
+    },
+    {
+      "file": "canvas_screen_3_night_0_19.png",
+      "sha256": "f35b1698f65834a1db1c7d4c6874220b9dd018ae48981407d407032b85050274"
+    },
+    {
+      "file": "canvas_screen_3_night_0_20.png",
+      "sha256": "8f38ab8f4576afd2f467e0436beb930ee7d51563a98bff026b65638fa2db9631"
+    },
+    {
+      "file": "canvas_screen_3_night_0_21.png",
+      "sha256": "6eb7cbb8eeea6f2c36832708d1601e94be16074c9ec0d28d3688a50a588f59aa"
+    },
+    {
+      "file": "canvas_screen_3_night_0_22.png",
+      "sha256": "806cf51922ba80eb20d7317f91dd987a13923d4d384caaed81fbe302c0719425"
+    },
+    {
+      "file": "canvas_screen_3_night_0_23.png",
+      "sha256": "f3cdade786618fff07c928f41c53e4dad0e4a59b078f9e9b0c0202440f740a58"
+    },
+    {
+      "file": "canvas_screen_3_night_0_24.png",
+      "sha256": "505c0bf63602085e7efad4d512f208977ce2e2ed7351fdd5f31692b4656010e2"
+    },
+    {
+      "file": "canvas_screen_3_night_0_25.png",
+      "sha256": "73d7f29ca2f5fd8bac7c4448dc6a242f18029a928645f4d78159b133e424711e"
+    },
+    {
+      "file": "canvas_screen_3_night_0_26.png",
+      "sha256": "5feb4860626697696e2a9ec8ff5aa4f9e4ae1287490ffc5031deedb7585e3bb1"
+    },
+    {
+      "file": "canvas_screen_3_night_0_27.png",
+      "sha256": "04cc5a4123d6e8a19258bb6055ceb1190b38332fca54fa244bb18702a2f52823"
+    },
+    {
+      "file": "canvas_screen_3_night_0_28.png",
+      "sha256": "997a7b45e73378682354d026d56cbc463752bd663dee1dd30e1c926c24423259"
+    },
+    {
+      "file": "canvas_screen_3_night_0_29.png",
+      "sha256": "95bb2469297c1178a6a6747bec3f5a4d2a55a68d371d07492e0023d453e50f2e"
+    },
+    {
+      "file": "canvas_screen_3_night_0_30.png",
+      "sha256": "87e20498834dda2ff0225a74753d7fd07cacda05c047903c5b0333095a02f728"
+    },
+    {
+      "file": "canvas_screen_3_night_0_31.png",
+      "sha256": "a7269b2277afd31ed93499a3956a8115fa220c962279d7bd7cc45b3f14bfbc95"
+    },
+    {
+      "file": "canvas_screen_3_night_0_32.png",
+      "sha256": "86bcc3bdfe48d27e04beb7f41a55ffc79b08831eefb48409451a0905a9c91341"
+    },
+    {
+      "file": "canvas_screen_3_night_0_33.png",
+      "sha256": "13097053616dba2010ba094ef4d27f7dc065b3e7f33b5d59f0845a682e17168a"
+    },
+    {
+      "file": "canvas_screen_3_night_0_34.png",
+      "sha256": "716d0991615e7807ae2628c487230dea96b93aa21c97f1541874ac3f8171deb4"
+    },
+    {
+      "file": "canvas_screen_3_night_0_35.png",
+      "sha256": "27596bc5da470595f42a3517ed47cc7271778c1eacd7b0d8d4b32614295cd207"
+    },
+    {
+      "file": "canvas_screen_3_night_0_36.png",
+      "sha256": "d34e6b35037477f581fd419dc8cba0b341d225e4783faf1e1fb57c5a77196192"
+    },
+    {
+      "file": "canvas_screen_3_night_0_37.png",
+      "sha256": "4c51156add067de9bb3680bad384bafd676617f6530456a31b909c83ba145352"
+    },
+    {
+      "file": "canvas_screen_3_night_0_38.png",
+      "sha256": "8a508f71b47cdfb03a5b52f27cc4a35d8110b77ead451bef33ddad80ef812201"
+    },
+    {
+      "file": "canvas_screen_3_night_0_39.png",
+      "sha256": "ed348f2d21e9bfb30116051784a6dc99fa39cda976d6d3508b114e6c84df03ba"
+    },
+    {
+      "file": "canvas_screen_3_night_0_40.png",
+      "sha256": "551b79a95735ba18f120deb0f14f483178901c3cf744d1b12551676ddaf3ca35"
+    },
+    {
+      "file": "canvas_screen_3_night_0_41.png",
+      "sha256": "ebd200cac6f452bb754e71f6cc3393159c2dbc2ff0df395f885b1cd66b2dc00f"
+    },
+    {
+      "file": "canvas_screen_3_night_0_42.png",
+      "sha256": "88ac15d4d44f3a59d8722ee903e81c00ff3ef3917d9a042aedc2824e678a030d"
+    },
+    {
+      "file": "canvas_screen_3_night_0_43.png",
+      "sha256": "9e6adf9a8d3c4c824803af2bbf43031fab23467b51adfed9908fbd0077759307"
+    },
+    {
+      "file": "canvas_screen_3_night_0_44.png",
+      "sha256": "385988f4e8ff9428035aaf5f3bbb534c23dd6e766a3c1da4d5efbbd49ead8d39"
+    },
+    {
+      "file": "canvas_screen_3_night_0_45.png",
+      "sha256": "6f5efc5a87e4c76c6eb35d610e7c9a0c3a28819e4e8ebc9d6e5afc9f720f430e"
+    },
+    {
+      "file": "canvas_screen_3_night_0_46.png",
+      "sha256": "38d3a02c2bdac6853d3a499cee48ee558829897d181cb4539e9bc7ab455a1f92"
+    },
+    {
+      "file": "canvas_screen_3_night_0_47.png",
+      "sha256": "df8de6afab2bc80e751114dfc35a2ef0da71a9e7d4558f5028521d45038b68c0"
+    },
+    {
+      "file": "canvas_screen_2_day_0_00.png",
+      "sha256": "685a870300e617af2d53f4299537a8559678ba1ccdd634677c52a06d8e528961"
+    },
+    {
+      "file": "canvas_screen_2_day_0_01.png",
+      "sha256": "5c371448da54f316f99aafde69d789ef878a99f5f7b6c6c3a78e6f657a9393b5"
+    },
+    {
+      "file": "canvas_screen_2_day_0_02.png",
+      "sha256": "2b69e90a3fdd42d93e6710335c5b53f209ceefe732eafdb1b0e6b68e0da06bd1"
+    },
+    {
+      "file": "canvas_screen_2_day_0_03.png",
+      "sha256": "97dbc498cc82ca9a7499f71d979dbdfede8a327d3ba3c0d6a8bbb6e0e5f91a57"
+    },
+    {
+      "file": "canvas_screen_2_day_0_04.png",
+      "sha256": "d9061d4cc7991657156a3851a21a52593c97ab5198c206caa9790bb89635cf14"
+    },
+    {
+      "file": "canvas_screen_2_day_0_05.png",
+      "sha256": "fcff8674f43f6c01a57a88147fa708c3565d64db2ff59e6601bbb93336fa565a"
+    },
+    {
+      "file": "canvas_screen_2_day_0_06.png",
+      "sha256": "1cf160c15bc772d1990a1fe8fb062477c9c9c524e91f600933bd0ef3f72991df"
+    },
+    {
+      "file": "canvas_screen_2_day_0_07.png",
+      "sha256": "a0cbbf4b8ee074f0d73c5dfbdc6f06ff34389d9f30f4f1f039c3f9d7d6f2f8f4"
+    },
+    {
+      "file": "canvas_screen_2_day_0_08.png",
+      "sha256": "ab9ba837cca67b94d31819b61d84592962d53a483838537079d02dfc8f5a5149"
+    },
+    {
+      "file": "canvas_screen_2_day_0_09.png",
+      "sha256": "6d5064e833f69e1a2e6870b636836005bb6e8e12e365cbc8a66f99295010c31e"
+    },
+    {
+      "file": "canvas_screen_2_day_0_10.png",
+      "sha256": "f326d49ca8082010aab04f5f72237b37d6eb01c021b28614f77b1b0c99e6368d"
+    },
+    {
+      "file": "canvas_screen_2_day_0_11.png",
+      "sha256": "921d626a41978f62dea4024f29aa4fb7e4cd901706029c13368de7cbb2f53d25"
+    },
+    {
+      "file": "canvas_screen_2_day_0_12.png",
+      "sha256": "663062a9cedc46468c29e610d62c97c3ce3223e48ff0cfb3ab1228523ed47e01"
+    },
+    {
+      "file": "canvas_screen_2_day_0_13.png",
+      "sha256": "8b7f87e8495ee0a3857f40fc7d389c762ed105a76eebfb1788bb71918f697cd1"
+    },
+    {
+      "file": "canvas_screen_2_day_0_14.png",
+      "sha256": "64cbc25f993d155d3ad51b3adadd75c73cad41d71a286a4f35a663f2a1dda909"
+    },
+    {
+      "file": "canvas_screen_2_day_0_15.png",
+      "sha256": "3e8e23dad3619478d27d4e8c3862dfedba6aea58a29aab4b297bb50a74d7197c"
+    },
+    {
+      "file": "canvas_screen_2_day_0_16.png",
+      "sha256": "5e7243dbb33448a99f4f87b6df7023fb6caeb320ce94f6d0222b21f2ee441c70"
+    },
+    {
+      "file": "canvas_screen_2_day_0_17.png",
+      "sha256": "fdd01e4bbe7621ad4d750430bbe1b1fcac7e4a74d090f8f06806b47c3d117f60"
+    },
+    {
+      "file": "canvas_screen_2_day_0_18.png",
+      "sha256": "7efc0a5acd416da683eb6e5abfb3b7a09e4c556b59917f417ff93a6d0ad7f91f"
+    },
+    {
+      "file": "canvas_screen_2_day_0_19.png",
+      "sha256": "6c3cdf8a931aa3f7a25437871985edacf3e3616e4de70a8e3d4958edf49532af"
+    },
+    {
+      "file": "canvas_screen_2_day_0_20.png",
+      "sha256": "3e3bb161ab139e8021abea613ed1b549c7691b6e1092aed9adc654000e1b1dd7"
+    },
+    {
+      "file": "canvas_screen_2_day_0_21.png",
+      "sha256": "4d92862428a64ac2a86c038fa428fb2919962f8479b60615ac5e0d2ceedea4cf"
+    },
+    {
+      "file": "canvas_screen_2_day_0_22.png",
+      "sha256": "ae7bf8a8774aae5902a6fa47b482d9c9def48831e50bb3ca8e51793207c9cc2c"
+    },
+    {
+      "file": "canvas_screen_2_day_0_23.png",
+      "sha256": "f24d4a61f12adcdf6f3c7ce8f42feccbe35ca5d5ed300389e5190978046885f1"
+    },
+    {
+      "file": "canvas_screen_2_day_0_24.png",
+      "sha256": "454f0aeb7091be53fc5ba24722dad9dfbe483d829845c3eab3e88ec1b4e1a661"
+    },
+    {
+      "file": "canvas_screen_2_day_0_25.png",
+      "sha256": "8149a14e6d3912943b12b530beab3218bf066c4de140a498d2d6e312f8c5384d"
+    },
+    {
+      "file": "canvas_screen_2_day_0_26.png",
+      "sha256": "bbdd076e92501c48bb30b5f073b34e5c70ea15ff92d1579f4bd03e5ec88963f4"
+    },
+    {
+      "file": "canvas_screen_2_day_0_27.png",
+      "sha256": "5163995789fc069584d3fed001667423e1d0f0b32694b70cccd43ded00fbab25"
+    },
+    {
+      "file": "canvas_screen_2_day_0_28.png",
+      "sha256": "7f9eab44c893e14e11a0c160e3654118009970528d39582c2d3e7aade3098be4"
+    },
+    {
+      "file": "canvas_screen_2_day_0_29.png",
+      "sha256": "f20d0f4729d63cdcfb763c101357f72010ed25a1e2ee41c2159669be09d542ba"
+    },
+    {
+      "file": "canvas_screen_2_day_0_30.png",
+      "sha256": "e5c0cb39c0548a28a836322a5d0661dacf8f6c44b591f60f972f9a93dd0565f8"
+    },
+    {
+      "file": "canvas_screen_2_day_0_31.png",
+      "sha256": "a1ee95486989ba07acd931731a905e3e5e1e0e5445afe4e6c210a376ced72188"
+    },
+    {
+      "file": "canvas_screen_2_day_0_32.png",
+      "sha256": "6be19954346fa80299b882e87c47dad6b3f0aff639b182614bafb682fd3aaa76"
+    },
+    {
+      "file": "canvas_screen_2_day_0_33.png",
+      "sha256": "2953dfb74b241b705e6ce072c41ae30e33fb991720855c882923b0c9f01e9084"
+    },
+    {
+      "file": "canvas_screen_2_day_0_34.png",
+      "sha256": "112b85611f0c04f05b502d11b034ad9f084762aea4b76d877ca7eb5de09451d8"
+    },
+    {
+      "file": "canvas_screen_2_day_0_35.png",
+      "sha256": "08001904ff7f477bce064b9fc426459a0cd4d9f5dd1c45192ceb3ba5566a2f4d"
+    },
+    {
+      "file": "canvas_screen_2_day_0_36.png",
+      "sha256": "e7780ab200fc46451910a3f0f776b3626310925a1e574baa923a7cfc7f3c24a4"
+    },
+    {
+      "file": "canvas_screen_2_day_0_37.png",
+      "sha256": "1006f50e1e99c913454ebbf1238ee64a97a9592c66b3afbd3378376a4c309675"
+    },
+    {
+      "file": "canvas_screen_2_day_0_38.png",
+      "sha256": "0344decd361b96736059557492650b53448160a2ac47637ae1884d0e668c4dc7"
+    },
+    {
+      "file": "canvas_screen_2_day_0_39.png",
+      "sha256": "0f65b2be94676d493d0538b8fea03db785e64b48a5c75f7aedf727d39bc11513"
+    },
+    {
+      "file": "canvas_screen_2_day_0_40.png",
+      "sha256": "ed7e711a2e2012deb6138d03574a1876ce9088f7383cd73fa5e9f8207d56b0df"
+    },
+    {
+      "file": "canvas_screen_2_day_0_41.png",
+      "sha256": "b52677461aaa5c098616b4b2f4d0eae382e36f01ba4e75f23c6d798020e9f858"
+    },
+    {
+      "file": "canvas_screen_2_day_0_42.png",
+      "sha256": "6b7ddac33e62807f6ad74cb8adf9cf7ecf10e51878ddfcb772db1966a640b9ca"
+    },
+    {
+      "file": "canvas_screen_2_day_0_43.png",
+      "sha256": "a84b8270926d0aa7b719cb12e1f5f9b3b79a6373697078b54de45aabd858ee0f"
+    },
+    {
+      "file": "canvas_screen_2_day_0_44.png",
+      "sha256": "51103937e9fc361ca577fc37aef123d0861b628b1566b0ac2007c8f62c0641b4"
+    },
+    {
+      "file": "canvas_screen_2_day_0_45.png",
+      "sha256": "1c0afaf16a7977c89f7aef63b6793415b9df3141402ba4bcd162f3e5e34615c1"
+    },
+    {
+      "file": "canvas_screen_2_day_0_46.png",
+      "sha256": "0db7d82b0a246a7254683b0a787e5d4244a1e80f6680b5b3955d3fc6a3ca4475"
+    },
+    {
+      "file": "canvas_screen_2_day_0_47.png",
+      "sha256": "2f0a67c848f24c1436fd5fa4a2352a3f5db21400b2a47d543cd9673c861b2a0e"
+    },
+    {
+      "file": "canvas_screen_3_night_1_00.png",
+      "sha256": "e6c58641f3eabc4673ee17a8cd499c30dee7699cd91f5a02fbbe56de922e6cf3"
+    },
+    {
+      "file": "canvas_screen_3_night_1_01.png",
+      "sha256": "7734609625fbbe5eccda1ce0617ef25f3cad3732eaee9d2ea69e2607b95bb90e"
+    },
+    {
+      "file": "canvas_screen_3_night_1_02.png",
+      "sha256": "ee892f9e7fd018d17abcb78f90f1ec2e24fdd0d34b0192625add7680c442b1aa"
+    },
+    {
+      "file": "canvas_screen_3_night_1_03.png",
+      "sha256": "bac84db7dc24898cd9d6c4b870e3d957cc31293749d2e6d26b25b237739c9b4e"
+    },
+    {
+      "file": "canvas_screen_3_night_1_04.png",
+      "sha256": "1d07c4ca46998f410281b027128b754bf6411326de6afc008a3120d540e56b28"
+    },
+    {
+      "file": "canvas_screen_3_night_1_05.png",
+      "sha256": "7ff79712efe107013b8453d8f8578432afc05036b3efe4993607321f69f3af6f"
+    },
+    {
+      "file": "canvas_screen_3_night_1_06.png",
+      "sha256": "a92b53059af085f7b5c440c6978c748c3b65ea9e0d6b4666869550022939fdb4"
+    },
+    {
+      "file": "canvas_screen_3_night_1_07.png",
+      "sha256": "febdc5bd18d448acc4f481e0e01ab5b6447c3011a4948425f693c874eb036915"
+    },
+    {
+      "file": "canvas_screen_3_night_1_08.png",
+      "sha256": "77e1964b3da2c41d4c2d64156ba2679b07b160d74131fce3e7c3bd31258866c1"
+    },
+    {
+      "file": "canvas_screen_3_night_1_09.png",
+      "sha256": "c1c3c0efd487a1b0a13c0fbfc978b7fbaa97ffb9b49bbf6f9c7d953ad03d5ff4"
+    },
+    {
+      "file": "canvas_screen_3_night_1_10.png",
+      "sha256": "e0ebcfb58f8efb3364659872cf7bca4cabf09d02d78ded67f52c6c2f30d5d706"
+    },
+    {
+      "file": "canvas_screen_3_night_1_11.png",
+      "sha256": "04cb2ac14a2067f6160b98cac35c41a6be14358778616023b702a71f229f8bd9"
+    },
+    {
+      "file": "canvas_screen_3_night_1_12.png",
+      "sha256": "3a81b83a66d1d03d7338d86735bf49f98deb08b3bfcdba383d66b136a4830db8"
+    },
+    {
+      "file": "canvas_screen_3_night_1_13.png",
+      "sha256": "75254051314b229d357d191ef17e7ab81342f4afafe6bc700326a02fc1759756"
+    },
+    {
+      "file": "canvas_screen_3_night_1_14.png",
+      "sha256": "afc704fd974232ad79c040947746f67234b86a91cb2b28b3bd2aa79c406f1ffd"
+    },
+    {
+      "file": "canvas_screen_3_night_1_15.png",
+      "sha256": "ac0bf9a1462fb0fa7a9d3b61d7974296d0072ad1da458f2a07d09be802495270"
+    },
+    {
+      "file": "canvas_screen_3_night_1_16.png",
+      "sha256": "657dcf835d80109ec3d065a91e85948dc3aa4423a7ff5ff7b4f852ee73709841"
+    },
+    {
+      "file": "canvas_screen_3_night_1_17.png",
+      "sha256": "6a1f0abbb9b06ab2ff3e5eb537147501fbbcda07c5b8e9d3fdf1e62a383508e5"
+    },
+    {
+      "file": "canvas_screen_3_night_1_18.png",
+      "sha256": "ed6b16efac830dc02889e90efcd04d6d9b1ebe0b84852a08fdad69eab9caf667"
+    },
+    {
+      "file": "canvas_screen_3_night_1_19.png",
+      "sha256": "976c9f3352221bd5f9395e4c6f423e3cc54bdc2f30fb6a1be0e89d39855e4ce2"
+    },
+    {
+      "file": "canvas_screen_3_night_1_20.png",
+      "sha256": "117c637dc4c0afc5f9b3843aefb01dbfbbc9458e66a93e593b51b605b4d03e78"
+    },
+    {
+      "file": "canvas_screen_3_night_1_21.png",
+      "sha256": "3303bd97fea2d0f2d7945031bf52ddc10a430222a25a3b4cb1a961d044052e55"
+    },
+    {
+      "file": "canvas_screen_3_night_1_22.png",
+      "sha256": "81edec49a10903e595e4f4564e3fbef520a307eafa3779f7c501bf917acd71fe"
+    },
+    {
+      "file": "canvas_screen_3_night_1_23.png",
+      "sha256": "9bf8b5a4bc26c5c8f20db66f298aedcf4180dbdf410149e741cdff2172e24a88"
+    },
+    {
+      "file": "canvas_screen_3_night_1_24.png",
+      "sha256": "ff02f1cef79340417c5690388eeaebd63794a769ebe675f6350bdf696dc34bc6"
+    },
+    {
+      "file": "canvas_screen_3_night_1_25.png",
+      "sha256": "a17a3e9fe5f9c40fa7d20d748ed964d4d9f5fe1564995917c2fe31c2f25e2c4b"
+    },
+    {
+      "file": "canvas_screen_3_night_1_26.png",
+      "sha256": "3d4f397451c0d7271e9f9a9f902467e6ca54b0689436178e8a9719d929874cd6"
+    },
+    {
+      "file": "canvas_screen_3_night_1_27.png",
+      "sha256": "538abe62c64067be787c9bfab88c952e2d8759a84669b689e14d7d14ba8e0241"
+    },
+    {
+      "file": "canvas_screen_3_night_1_28.png",
+      "sha256": "dccfd5824e02cce1b0d29f2553301d09bac4c445b193b65d80945644ee6f34e2"
+    },
+    {
+      "file": "canvas_screen_3_night_1_29.png",
+      "sha256": "1b5468b1d55514aedcf561e658627c38aa82b012c5ba9731e9f5b0f9e994ef76"
+    },
+    {
+      "file": "canvas_screen_3_night_1_30.png",
+      "sha256": "6f6e263162abc8435e3151fe86fb4b0b99d542ef66ddb188c108f4a2e4ec7437"
+    },
+    {
+      "file": "canvas_screen_3_night_1_31.png",
+      "sha256": "915ee2051eb154a9bc9c45fa8109a9f7a8fcdc5a2312650906b3ed42a61e504f"
+    },
+    {
+      "file": "canvas_screen_3_night_1_32.png",
+      "sha256": "85aef91d2ec0d3e44abcf5a7909ecb6e3c5cfd19e69efca0fa0f81f0b82fbc33"
+    },
+    {
+      "file": "canvas_screen_3_night_1_33.png",
+      "sha256": "b30b4e698105d63a4c4e8ad96226cea39d6e7ee5f15bd4d58c6678f3b5b48f95"
+    },
+    {
+      "file": "canvas_screen_3_night_1_34.png",
+      "sha256": "0f44652eec89b9479710b895b509ce544811c432ad905793062f389e752c46b8"
+    },
+    {
+      "file": "canvas_screen_3_night_1_35.png",
+      "sha256": "904af49d2f5a481067c199e91efe6fee01efe506309cf23b46675d06a2ed77a8"
+    },
+    {
+      "file": "canvas_screen_3_night_1_36.png",
+      "sha256": "5fc0cc330317f5b267d4ec68d73c151ecd289ec107534e3d9f21a7a6204596dd"
+    },
+    {
+      "file": "canvas_screen_3_night_1_37.png",
+      "sha256": "c09164eea42596880b75b006a21a123f04d0214ffd8badae9d21997f5e3e339e"
+    },
+    {
+      "file": "canvas_screen_3_night_1_38.png",
+      "sha256": "b2ff9a997641c8467232e36a8fb6d1b7c764f106f7e9bd2ac936e8f4cd460513"
+    },
+    {
+      "file": "canvas_screen_3_night_1_39.png",
+      "sha256": "23325808a9e92b4b45f120a60cfdffb0f7c78febd3ba5587c5827a414ec6cf5a"
+    },
+    {
+      "file": "canvas_screen_3_night_1_40.png",
+      "sha256": "d25615b8c1fc7b5dac87b78d1bf5b79f7350acddc40c4cef268484f5d1eb3da7"
+    },
+    {
+      "file": "canvas_screen_3_night_1_41.png",
+      "sha256": "15c6875901fb2b6c31fc22995d68e3dffb79c07bee1f8fbff5464a41af08f7d4"
+    },
+    {
+      "file": "canvas_screen_3_night_1_42.png",
+      "sha256": "6df62b6a4d3d01e712976dfeac3575bbbd47eb29ad8252612fee21f1824f8ed9"
+    },
+    {
+      "file": "canvas_screen_3_night_1_43.png",
+      "sha256": "f2e37c26716a0ba5c4328ddb30819cb1a61ad6c2cf8da27a63e3d36f26762cbd"
+    },
+    {
+      "file": "canvas_screen_3_night_1_44.png",
+      "sha256": "86ef72c0d90da76dbbb0633b2d8b08e7d9bb463aac9ba1defa2bf46887393b0a"
+    },
+    {
+      "file": "canvas_screen_3_night_1_45.png",
+      "sha256": "5f983c810a47d033f36559c36ddf8f842cc232a4d780fcff15e9d660bc34417d"
+    },
+    {
+      "file": "canvas_screen_3_night_1_46.png",
+      "sha256": "a1a309ffe8796a01824e2d0a6117018fb68863f0187c5f8c2391cb04a553d7c8"
+    },
+    {
+      "file": "canvas_screen_3_night_1_47.png",
+      "sha256": "9e6b7c881b25157ae9db394a1c676b917c574c5ed969eed50574f356ac30241c"
+    },
+    {
+      "file": "canvas_screen_3_day_0_00.png",
+      "sha256": "498f3ab8d6e6d302aa04ece67d5c9f4bbbbb26947b9aaec99ba6e42f6ae6af58"
+    },
+    {
+      "file": "canvas_screen_3_day_0_01.png",
+      "sha256": "2e53e6c389b4732ff40ddd6fb2e6ac6f9e64f578c88123b65cc4dbb5d1ce2b73"
+    },
+    {
+      "file": "canvas_screen_3_day_0_02.png",
+      "sha256": "f2f3bff32fe58e97e5853e2fc7f8a69b6776dc7aa3806aa4c9566cf30c3a8f3a"
+    },
+    {
+      "file": "canvas_screen_3_day_0_03.png",
+      "sha256": "affcba1e25170332d4357666b1619312bf9b4032296ee693e923fe611d3a0338"
+    },
+    {
+      "file": "canvas_screen_3_day_0_04.png",
+      "sha256": "24ccd92b22f30a40758620a9db01dbe5e47c2309037a3ad9dcd913c8f0d9fec2"
+    },
+    {
+      "file": "canvas_screen_3_day_0_05.png",
+      "sha256": "82a5252cd0cb1ece15a3945191afac2b96773b6815fdba2792940fff660dc40c"
+    },
+    {
+      "file": "canvas_screen_3_day_0_06.png",
+      "sha256": "59c226c248fb8abca0e7ebe3fa08839a507fc03501762f5e9fa727c8bc159db4"
+    },
+    {
+      "file": "canvas_screen_3_day_0_07.png",
+      "sha256": "6cf7788388278d053ccf41f41cf305c942145c600e83f17825a1cdf8ce7eaacd"
+    },
+    {
+      "file": "canvas_screen_3_day_0_08.png",
+      "sha256": "e183bfbd09e6b6935c5cf6385264d4b2599b951ad4f955c7cebdb4a5fbca1e24"
+    },
+    {
+      "file": "canvas_screen_3_day_0_09.png",
+      "sha256": "2baea291f45e598aa7052a06cc892b21479b7fec5dd6bedc3df54102fb46a5b6"
+    },
+    {
+      "file": "canvas_screen_3_day_0_10.png",
+      "sha256": "7570c11e0b5223a1301862bd7778f3e02e02082142f4d31db60157111d33fbf9"
+    },
+    {
+      "file": "canvas_screen_3_day_0_11.png",
+      "sha256": "afad780bee779dde7e7090f9a553ee4cc548ab51c1dc45f5e874b3da89380dec"
+    },
+    {
+      "file": "canvas_screen_3_day_0_12.png",
+      "sha256": "f69daa2a2524400ffa148c29425325b284d1886ed60c9ffa479837c39bf7c0ea"
+    },
+    {
+      "file": "canvas_screen_3_day_0_13.png",
+      "sha256": "a47f97e9513254368dec30abbf6a0ecd93c7c13235623171e3608a1c44e22ad0"
+    },
+    {
+      "file": "canvas_screen_3_day_0_14.png",
+      "sha256": "dbcf46a363b6390ee9025dea600f1bc5eb26163094755e67137f3e755160a529"
+    },
+    {
+      "file": "canvas_screen_3_day_0_15.png",
+      "sha256": "3bc50e259fa402e3730f7c4b4a49d6b1b3c68c778be23cd84f0ba546dd4291db"
+    },
+    {
+      "file": "canvas_screen_3_day_0_16.png",
+      "sha256": "9ca8d513be9e8d6a72bdea2ddd80479a0044eb2cb9442494729eddda7c2f005c"
+    },
+    {
+      "file": "canvas_screen_3_day_0_17.png",
+      "sha256": "4379789960a7614225bd315a6da3e3724298b79090493e984187d0d6697a1773"
+    },
+    {
+      "file": "canvas_screen_3_day_0_18.png",
+      "sha256": "bfb2e22201cfe92773aca10f31fd10bc71c332de0d15dd1576e9c00cfc652406"
+    },
+    {
+      "file": "canvas_screen_3_day_0_19.png",
+      "sha256": "557ddaa6d90e1178fb34ae4048a011b3f89af6e0e489181496103a1f4a652f4c"
+    },
+    {
+      "file": "canvas_screen_3_day_0_20.png",
+      "sha256": "464504b94303b59bfc36a9451818b3b9b3d24e870c2bdfff680b62159ac826f5"
+    },
+    {
+      "file": "canvas_screen_3_day_0_21.png",
+      "sha256": "1671efe3ed7a147a076169273cd95be219535435e52aa12b7fc9b6a7dca7269b"
+    },
+    {
+      "file": "canvas_screen_3_day_0_22.png",
+      "sha256": "b305b7440f11d8aeabdd6c927b95cf7dd75d15f3dd945a442ef257c1a4867ab7"
+    },
+    {
+      "file": "canvas_screen_3_day_0_23.png",
+      "sha256": "602e9a9a61971e006db4ca84efb541fe331ddc79eaacbb0c0ca4686408a47e92"
+    },
+    {
+      "file": "canvas_screen_3_day_0_24.png",
+      "sha256": "fe24c442248f73f3b26e2381cb3172d8d4ebe031278807a744c0e8246e8774ed"
+    },
+    {
+      "file": "canvas_screen_3_day_0_25.png",
+      "sha256": "fa7dae739747e0ca1d9086aab7a97f27ca9598eaa7dd6c7f596aedde70aa1ebe"
+    },
+    {
+      "file": "canvas_screen_3_day_0_26.png",
+      "sha256": "fa391a85f615391950323e7241f461eeb6dacc0c92bfe795677c1d83450018b4"
+    },
+    {
+      "file": "canvas_screen_3_day_0_27.png",
+      "sha256": "8931abb74154cd4d1b7c0ff0dde2ea11e877dae7a95a70bdcd9b77916d0be9a4"
+    },
+    {
+      "file": "canvas_screen_3_day_0_28.png",
+      "sha256": "0a9580df4bf6b87c491dcb03e89f7f449b0cfd9131f4dda8962780c1aea7060c"
+    },
+    {
+      "file": "canvas_screen_3_day_0_29.png",
+      "sha256": "0d5fd5f62c645080a161cffc5fb4f694383c1ceee02c30360ab607f3395e24e5"
+    },
+    {
+      "file": "canvas_screen_3_day_0_30.png",
+      "sha256": "f71987ef04c893ce759d71e463c6fd7f24180dac43e40e24c39008665bb46617"
+    },
+    {
+      "file": "canvas_screen_3_day_0_31.png",
+      "sha256": "393223da0d040ab38100b6faf1684a3aff9f86d1bdfa5833d26f3af0b54e544e"
+    },
+    {
+      "file": "canvas_screen_3_day_0_32.png",
+      "sha256": "027fde923cd809fcf62b0072aead7d8ad32c3563e9851d6d2a3ea7e1f61856fe"
+    },
+    {
+      "file": "canvas_screen_3_day_0_33.png",
+      "sha256": "17dcc37da70f455e57b0006f6a7ba65574e716cb7ac8c4b0df37223bcf0d453d"
+    },
+    {
+      "file": "canvas_screen_3_day_0_34.png",
+      "sha256": "5ed9975ffd511c77b60211857b5db63bfb95d8662bd6db2b05ccde7b45446ba9"
+    },
+    {
+      "file": "canvas_screen_3_day_0_35.png",
+      "sha256": "5bb557616413f5259d2e81401b5adbbcc726107a87019d9d8549c5070eaebc6a"
+    },
+    {
+      "file": "canvas_screen_3_day_0_36.png",
+      "sha256": "6682df0f1669f7b615235e7c084a0b074a03bf5e22a2c49794d4b6d0821d9afc"
+    },
+    {
+      "file": "canvas_screen_3_day_0_37.png",
+      "sha256": "de4edbd0e5110d565611c6b22152b8ae30959b71765180f2e460e7e40f8b0e4a"
+    },
+    {
+      "file": "canvas_screen_3_day_0_38.png",
+      "sha256": "0350b6184e48df5f0e31b4210a6a5ec42bb7c605e0b306ec57c8514da9d7570e"
+    },
+    {
+      "file": "canvas_screen_3_day_0_39.png",
+      "sha256": "c5d5826eb6cad8c60f162a51331ecb410be494e90a8b68e561329ee760f3a574"
+    },
+    {
+      "file": "canvas_screen_3_day_0_40.png",
+      "sha256": "a8cea44ee9587893935e2c356c6ac93af6dfb2e436cc6e47e66abdb210907e67"
+    },
+    {
+      "file": "canvas_screen_3_day_0_41.png",
+      "sha256": "7ccf4a043419e369302c0d642bcde28fa0a4a197aa82b2659b488fe28afd0ad0"
+    },
+    {
+      "file": "canvas_screen_3_day_0_42.png",
+      "sha256": "427debf87030d211da1711f67252508920d83cbd58e1d93cc825fa7cdb9e7df8"
+    },
+    {
+      "file": "canvas_screen_3_day_0_43.png",
+      "sha256": "e104f408dfb2a5f3c7ab194ea3040d7283552074dd822b73ee4b56e31655d4a2"
+    },
+    {
+      "file": "canvas_screen_3_day_0_44.png",
+      "sha256": "53b5a86acab0a2b71025b753cb9e899858713449d130635c49e3dcab1020cd11"
+    },
+    {
+      "file": "canvas_screen_3_day_0_45.png",
+      "sha256": "98d5bb9840637f50ef33996bcad167fa713febbce785ef4fb15bdfb7febf4c0a"
+    },
+    {
+      "file": "canvas_screen_3_day_0_46.png",
+      "sha256": "17d59a1634fe17e53d3bbc10fe65578334f5e0e997f22247f55c5e8e3be18a2a"
+    },
+    {
+      "file": "canvas_screen_3_day_0_47.png",
+      "sha256": "a4ef7e39fdbd8a3336ca11dff08dbec2f42fcb3be2b9aadb63a4e6bffd55df91"
+    },
+    {
+      "file": "canvas_screen_3_night_2_00.png",
+      "sha256": "22cc1ebfc06941fd8803fe6babb20e24998b691f43b96bf286b5fb78e7e6a4c3"
+    },
+    {
+      "file": "canvas_screen_3_night_2_01.png",
+      "sha256": "986c5694d88fca594ca7ffd7944e0aab3813018fa8063d5fa1c5690f055404f8"
+    },
+    {
+      "file": "canvas_screen_3_night_2_02.png",
+      "sha256": "bf5dbada6d7b34f730ac0ad5dd4582146bebfdbf30667e61be48217bbaffc1e0"
+    },
+    {
+      "file": "canvas_screen_3_night_2_03.png",
+      "sha256": "0ea0f83a26f164f8383c39ad466c79c5d293ebff946ed27a1e7582b785d04021"
+    },
+    {
+      "file": "canvas_screen_3_night_2_04.png",
+      "sha256": "0e449848cef32a929443fb4859a39574794b2aca218ba5d53901ae8b34a6ab9a"
+    },
+    {
+      "file": "canvas_screen_3_night_2_05.png",
+      "sha256": "4b89a6d08f972289243e7e92bef1331fc78610f2955719ca19b5a92677954d09"
+    },
+    {
+      "file": "canvas_screen_3_night_2_06.png",
+      "sha256": "7742357eebbabcfbf95f59726b3421afe0416a7891e04817b084cc1a38c3f312"
+    },
+    {
+      "file": "canvas_screen_3_night_2_07.png",
+      "sha256": "aac274850c52840e98fe5a3c04f0a8846da3e1026963658ee7565f833c9424ba"
+    },
+    {
+      "file": "canvas_screen_3_night_2_08.png",
+      "sha256": "046c7c515a9a942114c796d16ad043eb5217a95c04f5c3940dfbb08532ff94a3"
+    },
+    {
+      "file": "canvas_screen_3_night_2_09.png",
+      "sha256": "72e13041b01025f9e9d8d610e1d06f6a16d5ea7370ab0fe06cce6d426c9dc999"
+    },
+    {
+      "file": "canvas_screen_3_night_2_10.png",
+      "sha256": "8b5a29ba0c0839c1c408c1c044fad8c05103aa36a5d4f8f7c004a5ff9999ab3f"
+    },
+    {
+      "file": "canvas_screen_3_night_2_11.png",
+      "sha256": "5ae22434b8f04aab5079e8d9d39021e887f8165f038861cf97275ac4d8da6759"
+    },
+    {
+      "file": "canvas_screen_3_night_2_12.png",
+      "sha256": "571fbb34e4be113376057755e61d54933024c8a97ced2dec0d74ff53eb4ba467"
+    },
+    {
+      "file": "canvas_screen_3_night_2_13.png",
+      "sha256": "41151e46183363024c7a1ea17d83d60faa642e3d7ec88dfeb19345f5a77bab64"
+    },
+    {
+      "file": "canvas_screen_3_night_2_14.png",
+      "sha256": "3e2490a9c13d15d088968bad33fef2c12cdb5170a0ef7277ffaf0374936b7713"
+    },
+    {
+      "file": "canvas_screen_3_night_2_15.png",
+      "sha256": "581833f134d482ba9dc5c772e18c89869cb047ff3637771a6bfbe19dee221112"
+    },
+    {
+      "file": "canvas_screen_3_night_2_16.png",
+      "sha256": "7e072c1f7812ebb4677c9896bce9555b21bc48cdd88ab5d54c3ec42ed48cf616"
+    },
+    {
+      "file": "canvas_screen_3_night_2_17.png",
+      "sha256": "f91e4e8936415b8d15c3de28649c21a0b6074273395feae34f3a99fbcd0e2aad"
+    },
+    {
+      "file": "canvas_screen_3_night_2_18.png",
+      "sha256": "7f5f1b3487b5449cc4b09d9ab4305b657ccc3ae344292e0c16f87cf18bca33c5"
+    },
+    {
+      "file": "canvas_screen_3_night_2_19.png",
+      "sha256": "d8b0de514dc6a942b847949fb2db2884369d8b3c3064a6fbe4612f61ebe6a5bf"
+    },
+    {
+      "file": "canvas_screen_3_night_2_20.png",
+      "sha256": "f68e02cff40eddfb6d5301480dc963955a7b21e05249c4229f9c3cd6c94e88b6"
+    },
+    {
+      "file": "canvas_screen_3_night_2_21.png",
+      "sha256": "d7b52f13776b8016c1ea4c50a0ecd855b0d0176e829ad3bf1b366ec479c4ce37"
+    },
+    {
+      "file": "canvas_screen_3_night_2_22.png",
+      "sha256": "169513d8a66372c508a6d3d4c2a6a2a3e14b4e459047bbb5e5f343ec1ad9d46c"
+    },
+    {
+      "file": "canvas_screen_3_night_2_23.png",
+      "sha256": "4e39aa58f5cc5fe5e584155eb478ea7742f699b3a6a4f27ca221b219156debdb"
+    },
+    {
+      "file": "canvas_screen_3_night_2_24.png",
+      "sha256": "0bafc1d818df0f36e2d35baa881ff91c31d186dec1d95b503c8495ee59101ea7"
+    },
+    {
+      "file": "canvas_screen_3_night_2_25.png",
+      "sha256": "f833af33fc867201b8ebfa0473ed89b466268b123512808bd29b8d3bcda4af72"
+    },
+    {
+      "file": "canvas_screen_3_night_2_26.png",
+      "sha256": "e2f516f21808717a345b9dec77f394ccd3512da679005156c8964e1f04ad06cd"
+    },
+    {
+      "file": "canvas_screen_3_night_2_27.png",
+      "sha256": "c81f25c1e09eb088b24e3c7637b4cd0f658e4618b793646a224f407183d0daf2"
+    },
+    {
+      "file": "canvas_screen_3_night_2_28.png",
+      "sha256": "5ee4915492999c4b67592339d3aa58e61429816d2cae9df07d9ab3e6d6127920"
+    },
+    {
+      "file": "canvas_screen_3_night_2_29.png",
+      "sha256": "24f77ee265ed5406fd3d03039a9d76c3190e259c8816ad68cb4427b7d5b6d0a9"
+    },
+    {
+      "file": "canvas_screen_3_night_2_30.png",
+      "sha256": "554719aa4fa8e983e5add93fae1013be3fb6232d56a5c384fe980cc4b130b136"
+    },
+    {
+      "file": "canvas_screen_3_night_2_31.png",
+      "sha256": "de2f1225a23e8e48021272a852b0b8a631bc2d8d666ab7a53531ece247b1fa82"
+    },
+    {
+      "file": "canvas_screen_3_night_2_32.png",
+      "sha256": "e8556646e2603d0208371dd952c58cbf94e5e6f443f6682ab09d2841e7987ab6"
+    },
+    {
+      "file": "canvas_screen_3_night_2_33.png",
+      "sha256": "61d41bb0e61f77f63d150de6ff5377f853d28bbc58a77cf8ea69011fedc54469"
+    },
+    {
+      "file": "canvas_screen_3_night_2_34.png",
+      "sha256": "1d3553f67ab6291ebb949faa1dfc743d7655544ffac0b9a80c34b2c618bbc951"
+    },
+    {
+      "file": "canvas_screen_3_night_2_35.png",
+      "sha256": "8ce3bd887429645dac6f5d32777ca68b69bd35c5b14e4b8c3d697f0b5beb8f80"
+    },
+    {
+      "file": "canvas_screen_3_night_2_36.png",
+      "sha256": "5d374343146b3882e2420ae29a82601250f95c593752379aa65adeaff5037cd3"
+    },
+    {
+      "file": "canvas_screen_3_night_2_37.png",
+      "sha256": "20375e74ca669e930249db5e9a060cb0da18479b0de30e0fe282fa6a532ef402"
+    },
+    {
+      "file": "canvas_screen_3_night_2_38.png",
+      "sha256": "e3069c1b1283ec4b4c995663b263aba916c838b4fe88035a823dc1ee6042f153"
+    },
+    {
+      "file": "canvas_screen_3_night_2_39.png",
+      "sha256": "99a9a0f24ce17cdb29daead6469e9b13fab78d37361e6724ded7b31ed420f59a"
+    },
+    {
+      "file": "canvas_screen_3_night_2_40.png",
+      "sha256": "d74c32ea8163f47eedb687a1df4f66f913ed600abb564f633cdae99e4adb186c"
+    },
+    {
+      "file": "canvas_screen_3_night_2_41.png",
+      "sha256": "0a84ae4098b7d53e7f3859a5697f397688d58018fffa8ea5be80c545ce79c08e"
+    },
+    {
+      "file": "canvas_screen_3_night_2_42.png",
+      "sha256": "845c5cc6345ddf6e64b650cfc8ff12dbdc3a6b42ca592c2800f5575149ae2f1b"
+    },
+    {
+      "file": "canvas_screen_3_night_2_43.png",
+      "sha256": "13589301160c0d3249e32ea68233a54ebef4fe95074ea7eb6665179927931fc9"
+    },
+    {
+      "file": "canvas_screen_3_night_2_44.png",
+      "sha256": "dc8e93f321463e9b944c9f2f6644ef6e8275659302d3a6a40729e461fdbb2c14"
+    },
+    {
+      "file": "canvas_screen_3_night_2_45.png",
+      "sha256": "29f8001bea89c3e28edd1ff0cb34331a21b750ce56973c2933ea0104bac5412c"
+    },
+    {
+      "file": "canvas_screen_3_night_2_46.png",
+      "sha256": "abc6c9e5f39df653899189fec527a35fe289f38ecf6da9f3e10e6ad9a0c6b972"
+    },
+    {
+      "file": "canvas_screen_3_night_2_47.png",
+      "sha256": "7b60d920c1c8f68a6739fdd649eff7088975b6b268f891940408fc3a64bfa066"
+    }
+  ],
+  "samples": [
+    {
+      "stage": "arrival",
+      "material": "sky",
+      "rect_xyxy": [
+        340,
+        40,
+        440,
+        90
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.48271,
+          "min": 0.48271,
+          "max": 0.48271
+        },
+        "HSV_saturation_median": {
+          "median": 0.75294,
+          "min": 0.75294,
+          "max": 0.75294
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.15532,
+          "min": 0.15532,
+          "max": 0.15532
+        },
+        "HSV_saturation_median": {
+          "median": 0.8549,
+          "min": 0.8549,
+          "max": 0.8549
+        }
+      }
+    },
+    {
+      "stage": "arrival",
+      "material": "cloud_sea",
+      "rect_xyxy": [
+        280,
+        355,
+        350,
+        400
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.76021,
+          "min": 0.76021,
+          "max": 0.76021
+        },
+        "HSV_saturation_median": {
+          "median": 0.03529,
+          "min": 0.03529,
+          "max": 0.03529
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.21828,
+          "min": 0.21828,
+          "max": 0.21828
+        },
+        "HSV_saturation_median": {
+          "median": 0.43529,
+          "min": 0.43529,
+          "max": 0.43529
+        }
+      }
+    },
+    {
+      "stage": "arrival",
+      "material": "mountain",
+      "rect_xyxy": [
+        560,
+        295,
+        585,
+        315
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.56718,
+          "min": 0.56718,
+          "max": 0.56718
+        },
+        "HSV_saturation_median": {
+          "median": 0.32549,
+          "min": 0.32549,
+          "max": 0.32549
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.1745,
+          "min": 0.1745,
+          "max": 0.1745
+        },
+        "HSV_saturation_median": {
+          "median": 0.60392,
+          "min": 0.60392,
+          "max": 0.60392
+        }
+      }
+    },
+    {
+      "stage": "arrival",
+      "material": "rear_hedge",
+      "rect_xyxy": [
+        510,
+        395,
+        560,
+        435
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.17514,
+          "min": 0.17017,
+          "max": 0.17767
+        },
+        "HSV_saturation_median": {
+          "median": 0.74902,
+          "min": 0.71569,
+          "max": 0.75686
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.05461,
+          "min": 0.0536,
+          "max": 0.05548
+        },
+        "HSV_saturation_median": {
+          "median": 0.79608,
+          "min": 0.77647,
+          "max": 0.80392
+        }
+      }
+    },
+    {
+      "stage": "arrival",
+      "material": "large_foreground_leaf",
+      "rect_xyxy": [
+        575,
+        615,
+        620,
+        655
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.05643,
+          "min": 0.05643,
+          "max": 0.05643
+        },
+        "HSV_saturation_median": {
+          "median": 0.95294,
+          "min": 0.95294,
+          "max": 0.95294
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.01932,
+          "min": 0.01932,
+          "max": 0.01932
+        },
+        "HSV_saturation_median": {
+          "median": 0.96471,
+          "min": 0.96471,
+          "max": 0.96471
+        }
+      }
+    },
+    {
+      "stage": "arrival",
+      "material": "pale_foreground_clump",
+      "rect_xyxy": [
+        50,
+        668,
+        90,
+        705
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.14502,
+          "min": 0.14502,
+          "max": 0.14502
+        },
+        "HSV_saturation_median": {
+          "median": 0.52157,
+          "min": 0.52157,
+          "max": 0.52157
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.04617,
+          "min": 0.04617,
+          "max": 0.04617
+        },
+        "HSV_saturation_median": {
+          "median": 0.61569,
+          "min": 0.61569,
+          "max": 0.61569
+        }
+      }
+    },
+    {
+      "stage": "arrival",
+      "material": "lawn",
+      "rect_xyxy": [
+        240,
+        585,
+        315,
+        620
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.34818,
+          "min": 0.34815,
+          "max": 0.34894
+        },
+        "HSV_saturation_median": {
+          "median": 0.70196,
+          "min": 0.70196,
+          "max": 0.70196
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.09568,
+          "min": 0.09568,
+          "max": 0.09601
+        },
+        "HSV_saturation_median": {
+          "median": 0.56078,
+          "min": 0.56078,
+          "max": 0.56471
+        }
+      }
+    },
+    {
+      "stage": "arrival",
+      "material": "path",
+      "rect_xyxy": [
+        225,
+        505,
+        275,
+        540
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.46517,
+          "min": 0.46517,
+          "max": 0.46517
+        },
+        "HSV_saturation_median": {
+          "median": 0.17255,
+          "min": 0.17255,
+          "max": 0.17255
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.13408,
+          "min": 0.13408,
+          "max": 0.13408
+        },
+        "HSV_saturation_median": {
+          "median": 0.37255,
+          "min": 0.37255,
+          "max": 0.37255
+        }
+      }
+    },
+    {
+      "stage": "arrival",
+      "material": "water",
+      "rect_xyxy": [
+        35,
+        450,
+        90,
+        475
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.20993,
+          "min": 0.20993,
+          "max": 0.20993
+        },
+        "HSV_saturation_median": {
+          "median": 0.98039,
+          "min": 0.98039,
+          "max": 0.98039
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.07057,
+          "min": 0.07057,
+          "max": 0.07057
+        },
+        "HSV_saturation_median": {
+          "median": 0.98824,
+          "min": 0.98824,
+          "max": 0.98824
+        }
+      }
+    },
+    {
+      "stage": "arrival",
+      "material": "slide",
+      "rect_xyxy": [
+        877,
+        380,
+        900,
+        410
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.42454,
+          "min": 0.42454,
+          "max": 0.42454
+        },
+        "HSV_saturation_median": {
+          "median": 0.48235,
+          "min": 0.48235,
+          "max": 0.48235
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.19177,
+          "min": 0.19177,
+          "max": 0.19177
+        },
+        "HSV_saturation_median": {
+          "median": 0.62745,
+          "min": 0.62745,
+          "max": 0.62745
+        }
+      }
+    },
+    {
+      "stage": "arrival",
+      "material": "bellflower_leaf",
+      "rect_xyxy": [
+        358,
+        650,
+        389,
+        675
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.12931,
+          "min": 0.12612,
+          "max": 0.13192
+        },
+        "HSV_saturation_median": {
+          "median": 0.6549,
+          "min": 0.6549,
+          "max": 0.65882
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.04072,
+          "min": 0.0401,
+          "max": 0.04134
+        },
+        "HSV_saturation_median": {
+          "median": 0.65882,
+          "min": 0.65098,
+          "max": 0.66667
+        }
+      }
+    },
+    {
+      "stage": "meadow",
+      "material": "sky",
+      "rect_xyxy": [
+        450,
+        40,
+        550,
+        90
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.48724,
+          "min": 0.48724,
+          "max": 0.48724
+        },
+        "HSV_saturation_median": {
+          "median": 0.72941,
+          "min": 0.72941,
+          "max": 0.72941
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.15631,
+          "min": 0.15631,
+          "max": 0.15631
+        },
+        "HSV_saturation_median": {
+          "median": 0.84314,
+          "min": 0.84314,
+          "max": 0.84314
+        }
+      }
+    },
+    {
+      "stage": "meadow",
+      "material": "cloud_sea",
+      "rect_xyxy": [
+        205,
+        350,
+        260,
+        375
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.57794,
+          "min": 0.57794,
+          "max": 0.57794
+        },
+        "HSV_saturation_median": {
+          "median": 0.25882,
+          "min": 0.25882,
+          "max": 0.25882
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.17555,
+          "min": 0.17555,
+          "max": 0.17555
+        },
+        "HSV_saturation_median": {
+          "median": 0.56471,
+          "min": 0.56471,
+          "max": 0.56471
+        }
+      }
+    },
+    {
+      "stage": "meadow",
+      "material": "mountain",
+      "rect_xyxy": [
+        1000,
+        230,
+        1040,
+        255
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.48479,
+          "min": 0.48479,
+          "max": 0.48479
+        },
+        "HSV_saturation_median": {
+          "median": 0.40784,
+          "min": 0.40784,
+          "max": 0.40784
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.15421,
+          "min": 0.15421,
+          "max": 0.15421
+        },
+        "HSV_saturation_median": {
+          "median": 0.65098,
+          "min": 0.65098,
+          "max": 0.65098
+        }
+      }
+    },
+    {
+      "stage": "meadow",
+      "material": "rear_hedge",
+      "rect_xyxy": [
+        830,
+        352,
+        880,
+        390
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.12847,
+          "min": 0.12847,
+          "max": 0.12847
+        },
+        "HSV_saturation_median": {
+          "median": 0.74118,
+          "min": 0.74118,
+          "max": 0.74118
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.04178,
+          "min": 0.04178,
+          "max": 0.04178
+        },
+        "HSV_saturation_median": {
+          "median": 0.79608,
+          "min": 0.79608,
+          "max": 0.79608
+        }
+      }
+    },
+    {
+      "stage": "meadow",
+      "material": "large_foreground_leaf",
+      "rect_xyxy": [
+        1100,
+        610,
+        1140,
+        650
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.07422,
+          "min": 0.07422,
+          "max": 0.07422
+        },
+        "HSV_saturation_median": {
+          "median": 0.78431,
+          "min": 0.78431,
+          "max": 0.78431
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.02451,
+          "min": 0.02451,
+          "max": 0.02451
+        },
+        "HSV_saturation_median": {
+          "median": 0.81569,
+          "min": 0.81569,
+          "max": 0.81569
+        }
+      }
+    },
+    {
+      "stage": "meadow",
+      "material": "pale_foreground_clump",
+      "rect_xyxy": [
+        655,
+        672,
+        700,
+        704
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.13682,
+          "min": 0.13668,
+          "max": 0.13682
+        },
+        "HSV_saturation_median": {
+          "median": 0.51176,
+          "min": 0.5098,
+          "max": 0.51176
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.04448,
+          "min": 0.04448,
+          "max": 0.04448
+        },
+        "HSV_saturation_median": {
+          "median": 0.60392,
+          "min": 0.60392,
+          "max": 0.60392
+        }
+      }
+    },
+    {
+      "stage": "meadow",
+      "material": "lawn",
+      "rect_xyxy": [
+        465,
+        507,
+        520,
+        540
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.33365,
+          "min": 0.33271,
+          "max": 0.33378
+        },
+        "HSV_saturation_median": {
+          "median": 0.7098,
+          "min": 0.7098,
+          "max": 0.7098
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.09247,
+          "min": 0.09229,
+          "max": 0.09263
+        },
+        "HSV_saturation_median": {
+          "median": 0.57647,
+          "min": 0.57647,
+          "max": 0.57647
+        }
+      }
+    },
+    {
+      "stage": "meadow",
+      "material": "path",
+      "rect_xyxy": [
+        770,
+        570,
+        830,
+        592
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.41006,
+          "min": 0.41006,
+          "max": 0.41006
+        },
+        "HSV_saturation_median": {
+          "median": 0.16471,
+          "min": 0.16471,
+          "max": 0.16471
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.11968,
+          "min": 0.11968,
+          "max": 0.11968
+        },
+        "HSV_saturation_median": {
+          "median": 0.37647,
+          "min": 0.37647,
+          "max": 0.37647
+        }
+      }
+    },
+    {
+      "stage": "meadow",
+      "material": "slide",
+      "rect_xyxy": [
+        441,
+        380,
+        465,
+        410
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.42881,
+          "min": 0.42881,
+          "max": 0.42881
+        },
+        "HSV_saturation_median": {
+          "median": 0.47843,
+          "min": 0.47843,
+          "max": 0.47843
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.19373,
+          "min": 0.19373,
+          "max": 0.19373
+        },
+        "HSV_saturation_median": {
+          "median": 0.62745,
+          "min": 0.62745,
+          "max": 0.62745
+        }
+      }
+    },
+    {
+      "stage": "meadow",
+      "material": "swing",
+      "rect_xyxy": [
+        640,
+        329,
+        695,
+        336
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.61622,
+          "min": 0.61622,
+          "max": 0.61622
+        },
+        "HSV_saturation_median": {
+          "median": 0.2902,
+          "min": 0.2902,
+          "max": 0.2902
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.27181,
+          "min": 0.27181,
+          "max": 0.27181
+        },
+        "HSV_saturation_median": {
+          "median": 0.37255,
+          "min": 0.37255,
+          "max": 0.37255
+        }
+      }
+    },
+    {
+      "stage": "castle",
+      "material": "sky",
+      "rect_xyxy": [
+        530,
+        25,
+        650,
+        75
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.49493,
+          "min": 0.49493,
+          "max": 0.49493
+        },
+        "HSV_saturation_median": {
+          "median": 0.71373,
+          "min": 0.71373,
+          "max": 0.71373
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.15914,
+          "min": 0.15914,
+          "max": 0.15914
+        },
+        "HSV_saturation_median": {
+          "median": 0.83137,
+          "min": 0.83137,
+          "max": 0.83137
+        }
+      }
+    },
+    {
+      "stage": "castle",
+      "material": "mountain",
+      "rect_xyxy": [
+        870,
+        160,
+        910,
+        190
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.24079,
+          "min": 0.24079,
+          "max": 0.24079
+        },
+        "HSV_saturation_median": {
+          "median": 0.46667,
+          "min": 0.46667,
+          "max": 0.46667
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.11341,
+          "min": 0.11341,
+          "max": 0.11341
+        },
+        "HSV_saturation_median": {
+          "median": 0.61176,
+          "min": 0.61176,
+          "max": 0.61176
+        }
+      }
+    },
+    {
+      "stage": "castle",
+      "material": "rear_hedge",
+      "rect_xyxy": [
+        590,
+        300,
+        650,
+        350
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.12963,
+          "min": 0.12963,
+          "max": 0.12963
+        },
+        "HSV_saturation_median": {
+          "median": 0.70588,
+          "min": 0.70588,
+          "max": 0.70588
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.04197,
+          "min": 0.04197,
+          "max": 0.04197
+        },
+        "HSV_saturation_median": {
+          "median": 0.78039,
+          "min": 0.78039,
+          "max": 0.78039
+        }
+      }
+    },
+    {
+      "stage": "castle",
+      "material": "large_foreground_leaf",
+      "rect_xyxy": [
+        640,
+        625,
+        680,
+        660
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.08883,
+          "min": 0.08883,
+          "max": 0.08883
+        },
+        "HSV_saturation_median": {
+          "median": 0.85882,
+          "min": 0.85882,
+          "max": 0.85882
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.02969,
+          "min": 0.02969,
+          "max": 0.02969
+        },
+        "HSV_saturation_median": {
+          "median": 0.89412,
+          "min": 0.89412,
+          "max": 0.89412
+        }
+      }
+    },
+    {
+      "stage": "castle",
+      "material": "pale_foreground_clump",
+      "rect_xyxy": [
+        245,
+        677,
+        285,
+        705
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.14258,
+          "min": 0.14258,
+          "max": 0.14258
+        },
+        "HSV_saturation_median": {
+          "median": 0.51765,
+          "min": 0.51765,
+          "max": 0.51765
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.04213,
+          "min": 0.04213,
+          "max": 0.04213
+        },
+        "HSV_saturation_median": {
+          "median": 0.61961,
+          "min": 0.61961,
+          "max": 0.61961
+        }
+      }
+    },
+    {
+      "stage": "castle",
+      "material": "path",
+      "rect_xyxy": [
+        945,
+        635,
+        975,
+        655
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.48749,
+          "min": 0.48749,
+          "max": 0.48749
+        },
+        "HSV_saturation_median": {
+          "median": 0.14902,
+          "min": 0.14902,
+          "max": 0.14902
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.1383,
+          "min": 0.1383,
+          "max": 0.1383
+        },
+        "HSV_saturation_median": {
+          "median": 0.3098,
+          "min": 0.3098,
+          "max": 0.3098
+        }
+      }
+    },
+    {
+      "stage": "castle",
+      "material": "water",
+      "rect_xyxy": [
+        1035,
+        525,
+        1070,
+        545
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.31145,
+          "min": 0.31145,
+          "max": 0.31145
+        },
+        "HSV_saturation_median": {
+          "median": 0.98824,
+          "min": 0.98824,
+          "max": 0.98824
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.1026,
+          "min": 0.1026,
+          "max": 0.1026
+        },
+        "HSV_saturation_median": {
+          "median": 0.99216,
+          "min": 0.99216,
+          "max": 0.99216
+        }
+      }
+    },
+    {
+      "stage": "castle",
+      "material": "castle_wall",
+      "rect_xyxy": [
+        790,
+        390,
+        810,
+        435
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.14704,
+          "min": 0.14704,
+          "max": 0.14704
+        },
+        "HSV_saturation_median": {
+          "median": 0.58824,
+          "min": 0.58824,
+          "max": 0.58824
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.07273,
+          "min": 0.07273,
+          "max": 0.07273
+        },
+        "HSV_saturation_median": {
+          "median": 0.63922,
+          "min": 0.63922,
+          "max": 0.63922
+        }
+      }
+    },
+    {
+      "stage": "castle",
+      "material": "bridge_deck",
+      "rect_xyxy": [
+        825,
+        499,
+        850,
+        514
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.64123,
+          "min": 0.64123,
+          "max": 0.64123
+        },
+        "HSV_saturation_median": {
+          "median": 0.30588,
+          "min": 0.30588,
+          "max": 0.30588
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.26926,
+          "min": 0.26926,
+          "max": 0.26926
+        },
+        "HSV_saturation_median": {
+          "median": 0.1098,
+          "min": 0.1098,
+          "max": 0.1098
+        }
+      }
+    },
+    {
+      "stage": "castle",
+      "material": "swing",
+      "rect_xyxy": [
+        195,
+        332,
+        260,
+        339
+      ],
+      "day": {
+        "luminance_median": {
+          "median": 0.51474,
+          "min": 0.51474,
+          "max": 0.51474
+        },
+        "HSV_saturation_median": {
+          "median": 0.30196,
+          "min": 0.30196,
+          "max": 0.30196
+        }
+      },
+      "night": {
+        "luminance_median": {
+          "median": 0.22072,
+          "min": 0.22072,
+          "max": 0.22072
+        },
+        "HSV_saturation_median": {
+          "median": 0.48627,
+          "min": 0.48627,
+          "max": 0.48627
+        }
+      }
+    }
+  ],
+  "findings": [
+    {
+      "priority": "P1",
+      "issue": "Foreground/background foliage coherence",
+      "action": "Compare matching plant families and painted highlight/shadow bands; selectively compress foreground highlights and align hue only where contextual review supports it. Do not globally equalize saturation or remove atmospheric depth."
+    },
+    {
+      "priority": "P1",
+      "issue": "Arrival foliage differs from meadow/castle",
+      "action": "Review matching species at camera seams; existing source samples show larger arrival saturation, but different species/shade prevent a universal numeric target."
+    },
+    {
+      "priority": "P1",
+      "issue": "Animation coverage remains incomplete",
+      "action": "Remaining eight cloud cards have one cel plus drift; low cloud sea and broad lawn remain insufficiently animated. New pointed tuft covers only one foreground accent."
+    },
+    {
+      "priority": "P2",
+      "issue": "Night emission and interaction colors",
+      "action": "Separate windows/glints from opaque prop ambient grade; capture water ripple peak/fade, bridge contact, actors, animals and touch cues before claiming complete color coverage."
+    }
+  ],
+  "acceptance": "No quality score assigned. Last owner score remains 3.5/5. Device performance, owner visual acceptance, all interactions and complete material isolation remain open.",
+  "visual_review": {
+    "reviewed": "day-night-board.jpg, six current Mobile captures",
+    "observations": [
+      "Castle right foreground cream/yellow flowers and broad leaves have stronger local highlights than adjacent hedge; prioritize leaf highlight width/value and local shadow matching while preserving flower accents.",
+      "Foreground broad smooth leaves and fine textured hedge still read as different paint treatments in places. Saturation correction alone is insufficient.",
+      "Night foliage loses internal detail; evaluate shadow compression without raising the entire night palette. Roshan and castle remain prominent; gameplay readability and emission require separate acceptance.",
+      "Paths, bridge and castle silhouette remain visibly distinguishable in these still captures. This does not establish full route, motion or device acceptance."
+    ],
+    "quality_score": null
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "status": "GPU_CONTAINMENT_PASS_REPLACEMENT_MOTION_PENDING",
+  "rows": [
+    {
+      "view": "canvas_screen_3_day",
+      "path_mask_pixels": 1354,
+      "retired_changed_union": 143,
+      "comparisons": [
+        {
+          "retired_pose": 1,
+          "path_changed_over_2_codes": 140,
+          "path_max_delta": 49,
+          "full_frame_restoration_max_error": 0
+        },
+        {
+          "retired_pose": 2,
+          "path_changed_over_2_codes": 79,
+          "path_max_delta": 16,
+          "full_frame_restoration_max_error": 0
+        },
+        {
+          "retired_pose": 3,
+          "path_changed_over_2_codes": 66,
+          "path_max_delta": 44,
+          "full_frame_restoration_max_error": 0
+        }
+      ]
+    },
+    {
+      "view": "canvas_screen_3_night",
+      "path_mask_pixels": 1354,
+      "retired_changed_union": 142,
+      "comparisons": [
+        {
+          "retired_pose": 1,
+          "path_changed_over_2_codes": 136,
+          "path_max_delta": 40,
+          "full_frame_restoration_max_error": 0
+        },
+        {
+          "retired_pose": 2,
+          "path_changed_over_2_codes": 60,
+          "path_max_delta": 10,
+          "full_frame_restoration_max_error": 0
+        },
+        {
+          "retired_pose": 3,
+          "path_changed_over_2_codes": 60,
+          "path_max_delta": 36,
+          "full_frame_restoration_max_error": 0
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "scope": "Actual imported Mobile1280x720 day/night renders. All unrelated clocks frozen; force retired approach-bank poses1..3, then let current controller reset its quarantined card to0. Path corridor projected with actual Canvas transform. This verifies disabled-card containment only, not full live-world or all path-edge acceptance.",
+  "captures": {
+    "canvas_screen_3_day_rest.png": "ccb2137e12bc64e8e6b00deb2a9b9f48d9d76c7b7587c51e1f927e8ee334bf22",
+    "canvas_screen_3_day_restored1.png": "ccb2137e12bc64e8e6b00deb2a9b9f48d9d76c7b7587c51e1f927e8ee334bf22",
+    "canvas_screen_3_day_restored2.png": "ccb2137e12bc64e8e6b00deb2a9b9f48d9d76c7b7587c51e1f927e8ee334bf22",
+    "canvas_screen_3_day_restored3.png": "ccb2137e12bc64e8e6b00deb2a9b9f48d9d76c7b7587c51e1f927e8ee334bf22",
+    "canvas_screen_3_day_retired1.png": "c108c45e813168ada37f72471f8cc94aa459c301f6f93e1b6d466502a200d852",
+    "canvas_screen_3_day_retired2.png": "2368d6675947f044fe2b80a36ca1d3a8220b2aab14b9d433e1f3a5b9dc0b059f",
+    "canvas_screen_3_day_retired3.png": "df8fe079d6d70d7a000a1390f19701521847cf3e5300011fff9209928a6f7599",
+    "canvas_screen_3_night_rest.png": "a66e2efb709f8d4c7aa8c73560cd3ff772d9925223158871c1a4d70f4f183e12",
+    "canvas_screen_3_night_restored1.png": "a66e2efb709f8d4c7aa8c73560cd3ff772d9925223158871c1a4d70f4f183e12",
+    "canvas_screen_3_night_restored2.png": "a66e2efb709f8d4c7aa8c73560cd3ff772d9925223158871c1a4d70f4f183e12",
+    "canvas_screen_3_night_restored3.png": "a66e2efb709f8d4c7aa8c73560cd3ff772d9925223158871c1a4d70f4f183e12",
+    "canvas_screen_3_night_retired1.png": "7c0280dd303ad0cd364e7513e10e1d24dc7a48e89c0bdc8f763cbb7d00f6f51c",
+    "canvas_screen_3_night_retired2.png": "d6d42df31931afb618b36a85f35d24d5a17820745323421aa110f44c79998da4",
+    "canvas_screen_3_night_retired3.png": "8b91aa78e1baf92da57d179df219e269bca01360dc6ab933fe2c73d13d4fa691"
+  }
+}

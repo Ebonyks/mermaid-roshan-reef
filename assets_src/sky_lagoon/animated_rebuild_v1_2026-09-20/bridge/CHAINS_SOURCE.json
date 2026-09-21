@@ -1,0 +1,31 @@
+{
+  "source": "assets/sprites/sky_lagoon/animated_v1/bridge_front_rail.png",
+  "patch_rect": [
+    48,
+    28,
+    272,
+    220
+  ],
+  "cell_size": [
+    224,
+    192
+  ],
+  "moving_x_intervals": [
+    [
+      6,
+      76
+    ],
+    [
+      121,
+      139
+    ],
+    [
+      173,
+      214
+    ]
+  ],
+  "method": "direct Aseprite column-wise chain sag; columns containing posts remain exact; fixed attachment boundaries",
+  "scope": "secondary contact motion, no idle loop",
+  "status": "candidate",
+  "source_sha256": "d034e0b7da1595685c841626066358c94691a40c619105eb0c6c990717d6a6ab"
+}

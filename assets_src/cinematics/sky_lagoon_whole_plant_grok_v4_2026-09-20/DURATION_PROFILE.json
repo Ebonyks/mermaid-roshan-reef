@@ -1,0 +1,25 @@
+{
+  "status": "STAGED_NOT_PUBLISHED",
+  "owner_profile_commit": "a8a472675cc117d19a44eafa4712f7f3bc5a91ef",
+  "owner_profile_path": "design/animation/GROK_MINIMUM_CLIP_HANDOFF_PROFILE.md",
+  "current_documentation_review": {
+    "url": "https://docs.x.ai/developers/model-capabilities/video/generation",
+    "checked_date": "2026-09-20",
+    "findings": [
+      "API duration range1-15s",
+      "I2V defaults to input aspect; overriding ratio stretches image"
+    ],
+    "scope": "Documentation read only; no API execution or key used. UI minimum is not established by API documentation."
+  },
+  "operator_fields_required": [
+    "interface",
+    "model",
+    "shortest_duration_offered",
+    "observation_date"
+  ],
+  "default_seconds": 1,
+  "conditional_ui_seconds": 6,
+  "use_six_seconds_only_if_verified_minimum": true,
+  "instruction": "Keep the action within one second. A conditional longer clip has an explicit quiet tail. Review the actual moving interval for smoothness; runtime playback duration/frame count is a separate authored decision, never derived from the quiet tail.",
+  "priority_override": "Latest owner direction expands Grok to grass and whole plants after rejection of stepped local deformation; supersedes the older four-job allocation, not minimum-duration or GitHub delivery rules."
+}

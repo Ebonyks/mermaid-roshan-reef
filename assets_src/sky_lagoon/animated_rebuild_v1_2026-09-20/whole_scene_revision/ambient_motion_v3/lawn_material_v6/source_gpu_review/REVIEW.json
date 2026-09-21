@@ -1,0 +1,46 @@
+{
+  "exit_code": 0,
+  "failures": [],
+  "views": [
+    {
+      "label": "canvas_screen_1_day_p0",
+      "rollback_max_error": 0,
+      "rest_patch_changed_pixels": 36932
+    },
+    {
+      "label": "canvas_screen_2_day_p0",
+      "rollback_max_error": 0,
+      "rest_patch_changed_pixels": 32973
+    },
+    {
+      "label": "canvas_screen_3_day_p0",
+      "rollback_max_error": 0,
+      "rest_patch_changed_pixels": 30039
+    },
+    {
+      "label": "canvas_screen_3_night_p0",
+      "rollback_max_error": 0,
+      "rest_patch_changed_pixels": 32482
+    },
+    {
+      "label": "canvas_screen_3_night_p1",
+      "rollback_max_error": 0,
+      "rest_patch_changed_pixels": 29010
+    },
+    {
+      "label": "canvas_screen_3_night_p2",
+      "rollback_max_error": 0,
+      "rest_patch_changed_pixels": 26516
+    }
+  ],
+  "passed": true,
+  "visual_review": {
+    "inspected": [
+      "day-comparison.jpg",
+      "night-comparison.jpg"
+    ],
+    "observation": "No obvious new path, shrub, or scene-boundary displacement in the inspected pose-2 day/night comparisons. Both baseline and trial retain current foreground/background intensity differences.",
+    "decision": "Eligible for opt-in whole-lawn integration trial, not visual acceptance. Preserve 4de77cd5 rollback and recheck imported packing, full pose cycle, camera overlap, and target-device performance.",
+    "motion_limit": "Local anchored deformation of existing painted grass is not individual blade redraw; naturalness and continuous motion still require review."
+  }
+}

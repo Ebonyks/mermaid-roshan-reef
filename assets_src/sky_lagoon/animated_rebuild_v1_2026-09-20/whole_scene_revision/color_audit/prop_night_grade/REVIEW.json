@@ -1,0 +1,163 @@
+{
+  "status": "OPT_IN_TRIAL_IMPLEMENTED_NOT_OWNER_ACCEPTED",
+  "scope": "Night-only whole-scene preview prop roots: castle, bridge via inheritance, slide, swing, seesaw, plane. Day and original profile unchanged by guard.",
+  "tint": [
+    0.62,
+    0.68,
+    0.88
+  ],
+  "method": "CanvasItem modulation of approved sprites; no texture edits, no new draw calls or textures. Foreground bridge rail copies the tint once, deck and chain children inherit once.",
+  "visual_review": "Reviewed all three 1280x720 night captures. Reduced day-bright opaque prop mismatch; path visibility retained. Individual windows/emissive accents remain unresolved.",
+  "measurements": [
+    {
+      "material": "sky",
+      "rect_xyxy": [
+        530,
+        25,
+        650,
+        75
+      ],
+      "before_night_day_ratio": 0.32153726775499875,
+      "after_night_day_ratio": 0.32153726775499875
+    },
+    {
+      "material": "mountain",
+      "rect_xyxy": [
+        640,
+        140,
+        700,
+        190
+      ],
+      "before_night_day_ratio": 0.30746336065782254,
+      "after_night_day_ratio": 0.30746336065782254
+    },
+    {
+      "material": "rear_hedge",
+      "rect_xyxy": [
+        590,
+        300,
+        650,
+        350
+      ],
+      "before_night_day_ratio": 0.32377868060086956,
+      "after_night_day_ratio": 0.32377868060086956
+    },
+    {
+      "material": "lawn",
+      "rect_xyxy": [
+        370,
+        530,
+        450,
+        545
+      ],
+      "before_night_day_ratio": 0.2831380291217063,
+      "after_night_day_ratio": 0.2831380291217063
+    },
+    {
+      "material": "foreground_leaf_mass",
+      "rect_xyxy": [
+        640,
+        625,
+        680,
+        660
+      ],
+      "before_night_day_ratio": 0.33422645612404284,
+      "after_night_day_ratio": 0.33422645612404284
+    },
+    {
+      "material": "castle_wall",
+      "rect_xyxy": [
+        790,
+        390,
+        810,
+        435
+      ],
+      "before_night_day_ratio": 1.0,
+      "after_night_day_ratio": 0.49467156427443526
+    },
+    {
+      "material": "bridge_deck",
+      "rect_xyxy": [
+        825,
+        499,
+        850,
+        514
+      ],
+      "before_night_day_ratio": 1.0085139425804497,
+      "after_night_day_ratio": 0.4199154061732984
+    },
+    {
+      "material": "water",
+      "rect_xyxy": [
+        1035,
+        525,
+        1070,
+        545
+      ],
+      "before_night_day_ratio": 0.33060537818586466,
+      "after_night_day_ratio": 0.32872669953592726
+    },
+    {
+      "material": "path",
+      "rect_xyxy": [
+        945,
+        635,
+        975,
+        655
+      ],
+      "before_night_day_ratio": 0.2836906596885595,
+      "after_night_day_ratio": 0.2836906596885595
+    },
+    {
+      "material": "swing_top_beam",
+      "rect_xyxy": [
+        195,
+        332,
+        260,
+        339
+      ],
+      "before_night_day_ratio": 0.9518864364283037,
+      "after_night_day_ratio": 0.42879214364802065
+    }
+  ],
+  "evidence": [
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/color_audit/prop_night_grade/screen_1_night.png",
+      "sha256": "0f7b1aa2e82503b64e0bc373a70737d69f2cf1e65e980abd97e536cf7a9112ac"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/color_audit/prop_night_grade/screen_2_night.png",
+      "sha256": "cf7e79367e48f87534dc4e19838b0aae22f3b750b14bb89f567de810eb541b9d"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/color_audit/prop_night_grade/screen_3_night.png",
+      "sha256": "532f3f4113fe2480d4a2a47d81304d7f62c88c0b37cad7b153ec8663dd85a6b4"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/color_audit/prop_night_grade/stdout.txt",
+      "sha256": "3d525ce94a120f17b542e39f60b153094d970c5cdc6f8b5203f8a1db8ef5f718"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/color_audit/prop_night_grade/capture.gd",
+      "sha256": "61e3f046816614cf4875c8bdc424b4e745f858a11b81ff34c8d071dfa1792dbb"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/color_audit/prop_night_grade/whole_scene-checks.txt",
+      "sha256": "c7aae5d297bba4878c834f523633a1951c8bffa4876257015ba481f300203e41"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/color_audit/prop_night_grade/original_l2-checks.txt",
+      "sha256": "c61e567f75a7ea7761ead578f2179ab0563d8fad782a2ff2ad572b3ab607caac"
+    },
+    {
+      "path": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/color_audit/prop_night_grade/l2-checks.txt",
+      "sha256": "7d687e228e52efc7ff740965150b6103617dccacc9e939f8e6078ff936da8cd2"
+    }
+  ],
+  "limitations": [
+    "Not target-device performance proof",
+    "Full current regression suite remains unverified",
+    "No owner quality acceptance",
+    "Per-window emission and foreground palette corrections remain open"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "status": "SOURCE_PATCH_DIAGNOSTIC_NOT_SCENE_ACCEPTANCE",
+  "samples": [
+    {
+      "material": "main_leaf",
+      "original_rect": [
+        151,
+        177,
+        222,
+        242
+      ],
+      "candidate_rect": [
+        490,
+        636,
+        698,
+        836
+      ],
+      "original": {
+        "median_saturation": 0.5529411764705883,
+        "median_linear_luminance": 0.21398402841239475,
+        "median_hue_degrees": 97.41176470588235
+      },
+      "candidate": {
+        "median_saturation": 0.5490196078431373,
+        "median_linear_luminance": 0.30750181837302604,
+        "median_hue_degrees": 90.35294117647058
+      }
+    },
+    {
+      "material": "upper_right_leaf",
+      "original_rect": [
+        266,
+        65,
+        307,
+        96
+      ],
+      "candidate_rect": [
+        940,
+        202,
+        1080,
+        296
+      ],
+      "original": {
+        "median_saturation": 0.596078431372549,
+        "median_linear_luminance": 0.1713241560901708,
+        "median_hue_degrees": 114.35294117647058
+      },
+      "candidate": {
+        "median_saturation": 0.6078431372549019,
+        "median_linear_luminance": 0.26354503683332625,
+        "median_hue_degrees": 91.76470588235293
+      }
+    },
+    {
+      "material": "purple_bud",
+      "original_rect": [
+        211,
+        64,
+        236,
+        92
+      ],
+      "candidate_rect": [
+        681,
+        215,
+        720,
+        272
+      ],
+      "original": {
+        "median_saturation": 0.4627450980392157,
+        "median_linear_luminance": 0.09662027754491755,
+        "median_hue_degrees": 201.88235294117646
+      },
+      "candidate": {
+        "median_saturation": 0.3803921568627451,
+        "median_linear_luminance": 0.15743493661853325,
+        "median_hue_degrees": 221.64705882352942
+      }
+    }
+  ],
+  "limitations": "Manually selected corresponding painted areas, not registered pixels. Different brush marks and light patches may influence medians. Use in-context review before recoloring."
+}

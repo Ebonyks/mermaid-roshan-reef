@@ -1,0 +1,28 @@
+{
+  "status": "INCOMPLETE_UNACCEPTED",
+  "opt_in_flag": "--sky-lagoon-whole-scene-preview",
+  "rollback": "Omit the flag for preserved default art; prior --sky-lagoon-animated-preview candidate remains separate. Missing/malformed whole pack falls back to prior candidate.",
+  "passed": [
+    "Focused 2400-tick/all-cel sampling, pause, static rest, five resource faults, 40 rebuilds and teardown",
+    "Real probe_l2 whole-scene profile including bridge/castle approach and return",
+    "Exact Godot 4.7.2 Mobile Vulkan captures, no stderr; atlas gutters repaired visible vertical seams",
+    "570 real-stage temporal frames and physical bridge contact checks; five encoded clips, no script errors. Motion quality still unaccepted."
+  ],
+  "pending": [
+    "Full scripts/ci.sh for changed code",
+    "Target-device memory/fps and child/owner acceptance",
+    "Cloud shaping frames, low cloud sea, more foreground coverage and water quality"
+  ],
+  "texture_rgba_mib": 92.96832275390625,
+  "quality_score": null,
+  "full_ci_latest": {
+    "result": "FAIL_EXIT_1",
+    "log": "tmp/sky-lagoon-whole-scene-v2/full-ci-v2.log",
+    "probe_exit_127": [
+      "probe_reef_districts",
+      "probe_grotto",
+      "probe_mic"
+    ],
+    "cause": "Not yet established; cannot claim passing full suite"
+  }
+}

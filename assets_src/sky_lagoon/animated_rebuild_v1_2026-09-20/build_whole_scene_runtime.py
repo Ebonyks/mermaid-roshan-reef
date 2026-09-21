@@ -1,0 +1,81 @@
+"""Pack source trials into versioned, opt-in runtime resources; original art stays intact."""
+from pathlib import Path
+from PIL import Image,ImageChops
+import json,math,hashlib,argparse
+args=argparse.ArgumentParser(description=__doc__);args.add_argument('--output',type=Path);args=args.parse_args()
+B=Path(__file__).resolve().parent;R=B.parents[2];S=B/'whole_scene_revision';O=args.output or R/'assets/sprites/sky_lagoon/whole_scene_v2';O.mkdir(parents=True,exist_ok=True)
+base=Image.open(S/'clouds/sky-clouds-removed-candidate.png').convert('RGBA');cards=[]
+ambient=S/'ambient_motion_v3';motion=json.loads((ambient/'SOURCE.json').read_text(encoding='utf-8'));cloud_motion={r['id']:r for r in motion['clouds']}
+def pack(name,frames,rect,cycle,family):
+ x,y,w,h=rect;n=len(frames)
+ if n==1:
+  image=frames[0];cw,ch=image.size;cols=rows=1;scale=1
+ else:
+  cw,ch=(256,1024) if family=='tree' else (512,256)
+  if family=='cloud': cw,ch=2**math.ceil(math.log2(min(w+4,512))),2**math.ceil(math.log2(min(h+4,256)))
+  scale=min((cw-4)/w,(ch-4)/h,1);size=(round(w*scale),round(h*scale));cols=4 if n>4 else 2;rows=4 if n>4 else 2
+  if family=='foreground': cols,rows=2,(4 if n>4 else 2)
+  image=Image.new('RGBA',(cw*cols,ch*rows))
+  for k,frame in enumerate(frames):image.alpha_composite(frame.resize(size,Image.Resampling.LANCZOS),(k%cols*cw+2,k//cols*ch+2))
+ if n>1: x-=2/scale;y-=2/scale
+ filename=name+'.png';image.save(O/filename)
+ cards.append({'id':name,'file':filename,'size':list(image.size),'position':[x,y],'scale':1/scale,'columns':cols,'rows':rows,'frames':n,'cycle':cycle,'family':family,'drift':24 if family=='cloud' else 0})
+# Replace only pixels owned by each extracted source, never overlapping rectangular plates.
+tree=Image.open(S/'tree/original-tree-rest.png').convert('RGBA');base.paste(Image.open(S/'tree/underpaint-candidate.png').convert('RGBA'),(0,0),tree.getchannel('A'))
+pack('arrival_whole_tree',[Image.open(S/'tree'/f'frame-{k:02d}.png').convert('RGBA') for k in range(12)],[0,0,400,1152],4.8,'tree')
+for family,cel,under,cycle in [('grass','blades','soil-fixed.png',2.8),('shrubs','canopy','fixed-surroundings.png',3.6)]:
+ for row in json.loads((S/family/'SOURCE.json').read_text())['regions']:
+  if row['id']=='arrival_front_edge':
+   definition=motion['grass'];factor=definition['world_scale'];w,h=definition['source_size'];px,py=definition['root'];wx,wy=definition['world_root']
+   pack(row['id'],[Image.open(ambient/'grass'/f'cel-{k:02d}.png').convert('RGBA') for k in range(4)],[wx-px*factor,wy-py*factor,w*factor,h*factor],definition['cycle'],'foreground')
+   continue
+  p=S/family/row['id'];frames=[Image.open(p/f'{cel}-{k:02d}.png').convert('RGBA') for k in range(4)];x,y,w,h=row['rect']
+  # Preserve the existing underpaint removal mask; the new material owns only its reviewed lawn polygon.
+  base.paste(Image.open(p/under).convert('RGBA'),(x,y),frames[0].getchannel('A'))
+  whole_lawn=family=='grass' and row['id'] in ['arrival_lawn','meadow_upper_left','meadow_upper_right','meadow_lower_lawn']
+  if whole_lawn:frames=[Image.open(ambient/'lawn_material_v6'/row['id']/f'overlay-{k}.png').convert('RGBA') for k in range(4)]
+  pack(row['id'],frames,row['rect'],1.4 if whole_lawn else cycle,family)
+for row in json.loads((S/'clouds/SOURCE.json').read_text())['clouds']:
+ if row['id'] in cloud_motion:
+  definition=cloud_motion[row['id']];x,y,w,h=row['rect'];ox,oy=definition['position_offset'];folder=ambient/definition['source_dir']
+  pack(row['id'],[Image.open(folder/f'cel-{k:02d}.png').convert('RGBA') for k in range(definition['frames'])],[x+ox,y+oy,w,h-oy],48,'cloud')
+  cards[-1]['pose_cycle']=definition['pose_cycle']
+ else:
+  pack(row['id'],[Image.open(S/'clouds/cleaned'/row['file']).convert('RGBA')],row['rect'],48,'cloud')
+# Remove the old painted rosette only within its reviewed ownership mask.
+# This repair and its six-cel card are one transaction at runtime.
+rosette=S/'foreground_rosette/palette_trial'
+mask=Image.open(rosette/'removal-mask.png').convert('L')
+backing=Image.open(rosette/'generated-backing-native.png').convert('RGBA').resize(mask.size,Image.Resampling.LANCZOS)
+base.paste(backing,(4500,1680),mask)
+pack('castle_foreground_rosette',[Image.open(rosette/f'cel-{k:02d}.png').convert('RGBA') for k in range(6)],[4527,1689,396,312],2.28,'foreground')
+# The meadow plant crosses x2048: heal the continuous master before tile slicing.
+meadow=S/'meadow_berry_fan/palette_trial'
+mask=Image.open(meadow/'removal-mask.png').convert('L')
+backing=Image.open(meadow/'generated-backing-native.png').convert('RGBA').resize(mask.size,Image.Resampling.LANCZOS)
+base.paste(backing,(1750,1560),mask)
+pack('meadow_boundary_berry_fan',[Image.open(meadow/f'cel-{k:02d}.png').convert('RGBA') for k in range(8)],[1785,1590,516,395],2.4,'foreground')
+for card in cards:
+ if card['family'] in ['grass','shrubs']:
+  card['motion_enabled']=False
+  card['motion_review']='QUARANTINED: owner rejects stepped deformation and scenery warping. Rest pose pending whole-object Grok motion reference and authored replacement.'
+ image=Image.open(O/card['file']).convert('RGBA');cols,rows=card['columns'],card['rows'];cw,ch=image.width//cols,image.height//rows
+ cells=[image.crop((k%cols*cw,k//cols*ch,(k%cols+1)*cw,(k//cols+1)*ch)) for k in range(card['frames'])]
+ union=Image.new('L',(cw,ch))
+ for cell in cells:union=ImageChops.lighter(union,cell.getchannel('A'))
+ box=union.getbbox()
+ if box is None:continue
+ box=(max(0,box[0]-2),max(0,box[1]-2),min(cw,box[2]+2),min(ch,box[3]+2));nw,nh=(box[2]-box[0])*cols,(box[3]-box[1])*rows
+ if max(nw,nh)>1024 and not (nw&(nw-1)==0 and nh&(nh-1)==0):continue
+ if (nw,nh)==image.size:continue
+ cropped=Image.new('RGBA',(nw,nh))
+ for k,cell in enumerate(cells):cropped.paste(cell.crop(box),(k%cols*(nw//cols),k//cols*(nh//rows)))
+ cropped.save(O/card['file']);card['source_cell_size']=[cw,ch];card['cell_crop']=list(box);card['size']=[nw,nh]
+ card['position']=[card['position'][0]+box[0]*card['scale'],card['position'][1]+box[1]*card['scale']]
+tiles=[]
+for r in range(2):
+ for c in range(6):
+  name=f'base_r{r}_c{c}.png';base.crop((c*1024,r*1024,(c+1)*1024,(r+1)*1024)).save(O/name);tiles.append({'file':name,'size':[1024,1024],'node':f'SkyLagoonBackdrop_r{r}_c{c}'})
+for row in tiles+cards:row['sha256']=hashlib.sha256((O/row['file']).read_bytes()).hexdigest()
+manifest={'schema':1,'status':'OPT_IN_UNACCEPTED_TRIAL','tiles':tiles,'cards':cards,'raw_rgba_mib':sum(r['size'][0]*r['size'][1]*4 for r in tiles+cards)/1048576,'limits':'Owner rejects motion smoothness and reported uphill path warping. Twelve grass/shrub cards are temporarily static pending replacement, not accepted animation. Other motion remains under review; no owner/device acceptance.'}
+(O/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8');print('WHOLE_PACK',len(tiles),'tiles',len(cards),'cards',manifest['raw_rgba_mib'],'MiB')

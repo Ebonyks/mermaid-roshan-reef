@@ -1,0 +1,54 @@
+{
+  "status": "SOURCE_SPACE_OWNERSHIP_DIAGNOSTIC",
+  "method": "Every played atlas alpha, mapped at declared master position and scale with rounded pixel placement. No Godot draw-order or occlusion inference.",
+  "regions": [
+    {
+      "side": "left",
+      "legacy_grass_id": "castle_left_verge",
+      "legacy_frames": 4,
+      "legacy_alpha_union_pixels": 5712,
+      "nearby_whole_plant": "castle_foreground_rosette",
+      "whole_plant_frames": 6,
+      "geometric_overlap_with_opaque_plant_min_max": [
+        3968,
+        3968
+      ],
+      "legacy_union_outside_all_plant_poses": 1744,
+      "source_box": [
+        4500,
+        1640,
+        5050,
+        2048
+      ],
+      "legacy_sha256": "7c98e64ba5bdb861f7da57423a9d2876cc29c2b982c0b131cad714e50407496f",
+      "plant_sha256": "769793a1324f72e329e711862a4ce3d879feab95a183cebab860f101f15dcab8"
+    },
+    {
+      "side": "right",
+      "legacy_grass_id": "castle_right_verge",
+      "legacy_frames": 4,
+      "legacy_alpha_union_pixels": 602,
+      "nearby_whole_plant": "bellflower",
+      "whole_plant_frames": 8,
+      "geometric_overlap_with_opaque_plant_min_max": [
+        45,
+        45
+      ],
+      "legacy_union_outside_all_plant_poses": 557,
+      "source_box": [
+        5520,
+        1520,
+        6144,
+        2048
+      ],
+      "legacy_sha256": "e20555d8e0a7792f8173140fa951c8f0ece7b468dfac41fc5e07cd3934cee48b",
+      "plant_sha256": "d58c9695501e15069b18d0bb4824a75e064f4239c210708a17c22f5ddceab305"
+    }
+  ],
+  "finding": "Both grass-labeled source regions include non-grass painted objects. Nearby complete plant owners do not by themselves prove those legacy strokes are hidden or belong to that same plant.",
+  "next": "Capture each legacy patch alone and with complete plant owners in the actual scene, then freeze/remove incorrect partial-object motion with source restoration if necessary.",
+  "limits": [
+    "Original master used only as a spatial reference; it is not the current runtime composite.",
+    "Alpha overlap is not identity, source ownership, visibility, or animation acceptance."
+  ]
+}

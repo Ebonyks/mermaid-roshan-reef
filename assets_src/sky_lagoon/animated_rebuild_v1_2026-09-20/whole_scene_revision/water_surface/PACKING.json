@@ -1,0 +1,100 @@
+{
+  "status": "UNACCEPTED_PACKING_TRIAL",
+  "runtime_changed": false,
+  "cards": [
+    {
+      "id": "arrival",
+      "file": "arrival.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "cell": [
+        256,
+        256
+      ],
+      "columns": 4,
+      "rows": 4,
+      "frames": 12,
+      "scale": 2.4603174603174605,
+      "source_rect": [
+        0,
+        1180,
+        620,
+        400
+      ],
+      "position": [
+        -4.920634920634921,
+        1175.079365079365
+      ],
+      "cycle": 1.92,
+      "rgba_mib": 4.0,
+      "gutter_px": 2,
+      "unique_visible_frames": 12,
+      "adjacent_mean_rgb_delta": [
+        0.9660631877884274,
+        0.9786297479588214,
+        0.9391196308129216,
+        0.8854455094071707,
+        0.9219027334043308,
+        0.9791267305644302,
+        0.8976925807596734,
+        0.8980830670926517,
+        1.0170749023784167,
+        1.0625843095491658,
+        0.9995740149094782,
+        0.9316648917287895
+      ],
+      "loop_boundary_ratio_to_mean": 0.9741235857051833,
+      "sha256": "b4e544dbdc9d0ca2fda13403a431cb8890b9ad996f71883e741bad736965f219"
+    },
+    {
+      "id": "castle",
+      "file": "castle.png",
+      "size": [
+        2048,
+        1024
+      ],
+      "cell": [
+        512,
+        256
+      ],
+      "columns": 4,
+      "rows": 4,
+      "frames": 12,
+      "scale": 3.1968503937007875,
+      "source_rect": [
+        4520,
+        1000,
+        1624,
+        620
+      ],
+      "position": [
+        4513.606299212598,
+        993.6062992125984
+      ],
+      "cycle": 1.92,
+      "rgba_mib": 8.0,
+      "gutter_px": 2,
+      "unique_visible_frames": 12,
+      "adjacent_mean_rgb_delta": [
+        1.891151457445197,
+        1.9329741115030332,
+        1.928162847229736,
+        1.9078574365410832,
+        1.931235708669653,
+        2.0008367416127473,
+        1.951238161188173,
+        1.8822141914262838,
+        1.8846667099464052,
+        1.9330895241392743,
+        1.9156766426464118,
+        1.871502456125165
+      ],
+      "loop_boundary_ratio_to_mean": 0.9751384520555926,
+      "sha256": "eeb55d578e0f8b999cc1ae942dab33ecc7ad4745b156d7bf81941b10b6fc7c91"
+    }
+  ],
+  "total_raw_rgba_mib": 12.0,
+  "limitations": "Texture allocation estimate excludes engine overhead and existing textures; no target-device performance claim. Loop difference is a discontinuity diagnostic, not a perceptual quality rating."
+}

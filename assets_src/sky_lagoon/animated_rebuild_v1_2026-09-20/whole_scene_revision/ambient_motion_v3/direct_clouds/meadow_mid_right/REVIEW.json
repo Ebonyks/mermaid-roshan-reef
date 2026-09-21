@@ -1,0 +1,65 @@
+{
+  "id": "meadow_mid_right",
+  "source": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/clouds/cleaned/meadow_mid_right.png",
+  "source_sha256": "899c3718b9dec37493e49368dbcf603ef9425a5373eca29ee0d10e27664494e2",
+  "frames": 4,
+  "layers": 2,
+  "cycle": 3.6,
+  "source_rest_visible_exact": true,
+  "native_reopen_exact": true,
+  "neighbor_iou": [
+    0.9869048302797082,
+    0.9895275907704701,
+    0.9871714105721322,
+    0.9896836313617606
+  ],
+  "poses": [
+    {
+      "bounds": [
+        34,
+        30,
+        374,
+        138
+      ],
+      "median_linear_luminance": 0.8631818251728328,
+      "median_saturation": 0.027450980392156862
+    },
+    {
+      "bounds": [
+        34,
+        30,
+        374,
+        138
+      ],
+      "median_linear_luminance": 0.8631818251728328,
+      "median_saturation": 0.027450980392156862
+    },
+    {
+      "bounds": [
+        34,
+        30,
+        374,
+        138
+      ],
+      "median_linear_luminance": 0.8631818251728328,
+      "median_saturation": 0.027450980392156862
+    },
+    {
+      "bounds": [
+        34,
+        30,
+        374,
+        138
+      ],
+      "median_linear_luminance": 0.8631818251728328,
+      "median_saturation": 0.027450980392156862
+    }
+  ],
+  "method": "Direct Aseprite Lua-authored horizontal lobe deformation, fixed base, no vertical scaling; existing painted RGB sampled with premultiplied alpha. Not independently redrawn frames.",
+  "status": "SOURCE_TRIAL_PENDING_CONTEXTUAL_REVIEW",
+  "limitations": [
+    "ORA pose alternatives are not native Krita animation timeline",
+    "Small-cloud motion may be subpixel at gameplay scale",
+    "Full drift and seam review pending"
+  ]
+}

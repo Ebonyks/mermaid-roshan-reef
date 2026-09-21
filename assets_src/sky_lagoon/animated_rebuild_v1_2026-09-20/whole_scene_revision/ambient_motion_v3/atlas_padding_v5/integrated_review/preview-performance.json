@@ -1,0 +1,2925 @@
+{
+	"adapter": "NVIDIA GeForce RTX 3060 Ti",
+	"limits": "Offscreen desktop window timing includes CPU, GPU synchronization and OS scheduling. Raw bound texture estimate excludes mipmaps, compression, cached rollback resources and non-Sprite2D consumers. Global texture memory is engine-wide, not attributable only to this stage.",
+	"preview": true,
+	"renderer": "mobile",
+	"status": "DESKTOP_DIAGNOSTIC_NOT_DEVICE_ACCEPTANCE",
+	"views": [
+		{
+			"bound_texture_uncompressed_rgba_bytes": 179937236,
+			"bound_unique_textures": 78,
+			"draw_calls_median": 104.0,
+			"global_texture_bytes": 439480320.0,
+			"samples": 120,
+			"textures": [
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c0.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c1.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c2.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c3.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c4.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c5.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c0.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c1.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c2.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c3.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c4.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c5.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 4096,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_whole_tree.png",
+					"uncompressed_rgba_bytes": 16777216,
+					"width": 1024
+				},
+				{
+					"height": 416,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_lawn.png",
+					"uncompressed_rgba_bytes": 1677312,
+					"width": 1008
+				},
+				{
+					"height": 286,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_front_edge.png",
+					"uncompressed_rgba_bytes": 706992,
+					"width": 618
+				},
+				{
+					"height": 456,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_upper_left.png",
+					"uncompressed_rgba_bytes": 1831296,
+					"width": 1004
+				},
+				{
+					"height": 278,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_upper_right.png",
+					"uncompressed_rgba_bytes": 1132016,
+					"width": 1018
+				},
+				{
+					"height": 302,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_lower_lawn.png",
+					"uncompressed_rgba_bytes": 1205584,
+					"width": 998
+				},
+				{
+					"height": 500,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_left_verge.png",
+					"uncompressed_rgba_bytes": 1536000,
+					"width": 768
+				},
+				{
+					"height": 294,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_right_verge.png",
+					"uncompressed_rgba_bytes": 834960,
+					"width": 710
+				},
+				{
+					"height": 476,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_bank_left.png",
+					"uncompressed_rgba_bytes": 704480,
+					"width": 370
+				},
+				{
+					"height": 414,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_bank_right.png",
+					"uncompressed_rgba_bytes": 1629504,
+					"width": 984
+				},
+				{
+					"height": 266,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_hedge_left.png",
+					"uncompressed_rgba_bytes": 793744,
+					"width": 746
+				},
+				{
+					"height": 198,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_hedge_right.png",
+					"uncompressed_rgba_bytes": 788832,
+					"width": 996
+				},
+				{
+					"height": 464,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_approach_bank.png",
+					"uncompressed_rgba_bytes": 1280640,
+					"width": 690
+				},
+				{
+					"height": 352,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_far_bank.png",
+					"uncompressed_rgba_bytes": 1396736,
+					"width": 992
+				},
+				{
+					"height": 320,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_high_left.png",
+					"uncompressed_rgba_bytes": 949760,
+					"width": 742
+				},
+				{
+					"height": 360,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_high_right.png",
+					"uncompressed_rgba_bytes": 1333440,
+					"width": 926
+				},
+				{
+					"height": 116,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_small_center.png",
+					"uncompressed_rgba_bytes": 173536,
+					"width": 374
+				},
+				{
+					"height": 120,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_small_right.png",
+					"uncompressed_rgba_bytes": 193920,
+					"width": 404
+				},
+				{
+					"height": 158,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_mid_right.png",
+					"uncompressed_rgba_bytes": 310944,
+					"width": 492
+				},
+				{
+					"height": 350,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_high_left.png",
+					"uncompressed_rgba_bytes": 1313200,
+					"width": 938
+				},
+				{
+					"height": 390,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_high_right.png",
+					"uncompressed_rgba_bytes": 1535040,
+					"width": 984
+				},
+				{
+					"height": 124,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_left.png",
+					"uncompressed_rgba_bytes": 220224,
+					"width": 444
+				},
+				{
+					"height": 232,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_mid_right.png",
+					"uncompressed_rgba_bytes": 647744,
+					"width": 698
+				},
+				{
+					"height": 118,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_center.png",
+					"uncompressed_rgba_bytes": 163312,
+					"width": 346
+				},
+				{
+					"height": 100,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_far.png",
+					"uncompressed_rgba_bytes": 125600,
+					"width": 314
+				},
+				{
+					"height": 330,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_high.png",
+					"uncompressed_rgba_bytes": 1283040,
+					"width": 972
+				},
+				{
+					"height": 968,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_foreground_rosette.png",
+					"uncompressed_rgba_bytes": 2354176,
+					"width": 608
+				},
+				{
+					"height": 1008,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_boundary_berry_fan.png",
+					"uncompressed_rgba_bytes": 2532096,
+					"width": 628
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_0_add.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_0_subtract.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_1_add.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_1_subtract.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_0_add.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 2048
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_0_subtract.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 2048
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_1_add.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 1024
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_1_subtract.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_0.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_1.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_2.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_arrival.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_castle.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/water_arrival_shore.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/water_castle_shore.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/fx_water/fx_water_ripple_ring_atlas.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 167,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/cloud_painted.png",
+					"uncompressed_rgba_bytes": 218436,
+					"width": 327
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+					"uncompressed_rgba_bytes": 47104,
+					"width": 46
+				},
+				{
+					"height": 360,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+					"uncompressed_rgba_bytes": 1116000,
+					"width": 775
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/castle_fixed.png",
+					"uncompressed_rgba_bytes": 4186112,
+					"width": 1022
+				},
+				{
+					"height": 576,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_contact.png",
+					"uncompressed_rgba_bytes": 2359296,
+					"width": 1024
+				},
+				{
+					"height": 412,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+					"uncompressed_rgba_bytes": 700400,
+					"width": 425
+				},
+				{
+					"height": 719,
+					"path": "res://assets/props/story/play_swing_frame.png",
+					"uncompressed_rgba_bytes": 2945024,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/props/story/play_swing_seat.png",
+					"uncompressed_rgba_bytes": 2269184,
+					"width": 554
+				},
+				{
+					"height": 168,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+					"uncompressed_rgba_bytes": 253344,
+					"width": 377
+				},
+				{
+					"height": 128,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+					"uncompressed_rgba_bytes": 131072,
+					"width": 256
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 228,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+					"uncompressed_rgba_bytes": 181488,
+					"width": 199
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animals/otter_idle_atlas.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/characters/roshan_25d/roshan_directional.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 640,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+					"uncompressed_rgba_bytes": 1638400,
+					"width": 640
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/bellflower_whole_breeze.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/huckleberry_restyled_breeze.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 768,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/conifer_breeze.png",
+					"uncompressed_rgba_bytes": 2359296,
+					"width": 768
+				},
+				{
+					"height": 286,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_front_rail_fixed.png",
+					"uncompressed_rgba_bytes": 347776,
+					"width": 304
+				},
+				{
+					"height": 576,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_chains.png",
+					"uncompressed_rgba_bytes": 2064384,
+					"width": 896
+				}
+			],
+			"view": "canvas_screen_1_day",
+			"wall_frame_ms_median": 6.96,
+			"wall_frame_ms_p95": 7.157
+		},
+		{
+			"bound_texture_uncompressed_rgba_bytes": 179937236,
+			"bound_unique_textures": 78,
+			"draw_calls_median": 90.0,
+			"global_texture_bytes": 439480320.0,
+			"samples": 120,
+			"textures": [
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c0.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c1.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c2.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c3.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c4.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c5.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c0.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c1.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c2.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c3.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c4.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c5.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 4096,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_whole_tree.png",
+					"uncompressed_rgba_bytes": 16777216,
+					"width": 1024
+				},
+				{
+					"height": 416,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_lawn.png",
+					"uncompressed_rgba_bytes": 1677312,
+					"width": 1008
+				},
+				{
+					"height": 286,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_front_edge.png",
+					"uncompressed_rgba_bytes": 706992,
+					"width": 618
+				},
+				{
+					"height": 456,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_upper_left.png",
+					"uncompressed_rgba_bytes": 1831296,
+					"width": 1004
+				},
+				{
+					"height": 278,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_upper_right.png",
+					"uncompressed_rgba_bytes": 1132016,
+					"width": 1018
+				},
+				{
+					"height": 302,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_lower_lawn.png",
+					"uncompressed_rgba_bytes": 1205584,
+					"width": 998
+				},
+				{
+					"height": 500,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_left_verge.png",
+					"uncompressed_rgba_bytes": 1536000,
+					"width": 768
+				},
+				{
+					"height": 294,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_right_verge.png",
+					"uncompressed_rgba_bytes": 834960,
+					"width": 710
+				},
+				{
+					"height": 476,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_bank_left.png",
+					"uncompressed_rgba_bytes": 704480,
+					"width": 370
+				},
+				{
+					"height": 414,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_bank_right.png",
+					"uncompressed_rgba_bytes": 1629504,
+					"width": 984
+				},
+				{
+					"height": 266,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_hedge_left.png",
+					"uncompressed_rgba_bytes": 793744,
+					"width": 746
+				},
+				{
+					"height": 198,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_hedge_right.png",
+					"uncompressed_rgba_bytes": 788832,
+					"width": 996
+				},
+				{
+					"height": 464,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_approach_bank.png",
+					"uncompressed_rgba_bytes": 1280640,
+					"width": 690
+				},
+				{
+					"height": 352,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_far_bank.png",
+					"uncompressed_rgba_bytes": 1396736,
+					"width": 992
+				},
+				{
+					"height": 320,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_high_left.png",
+					"uncompressed_rgba_bytes": 949760,
+					"width": 742
+				},
+				{
+					"height": 360,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_high_right.png",
+					"uncompressed_rgba_bytes": 1333440,
+					"width": 926
+				},
+				{
+					"height": 116,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_small_center.png",
+					"uncompressed_rgba_bytes": 173536,
+					"width": 374
+				},
+				{
+					"height": 120,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_small_right.png",
+					"uncompressed_rgba_bytes": 193920,
+					"width": 404
+				},
+				{
+					"height": 158,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_mid_right.png",
+					"uncompressed_rgba_bytes": 310944,
+					"width": 492
+				},
+				{
+					"height": 350,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_high_left.png",
+					"uncompressed_rgba_bytes": 1313200,
+					"width": 938
+				},
+				{
+					"height": 390,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_high_right.png",
+					"uncompressed_rgba_bytes": 1535040,
+					"width": 984
+				},
+				{
+					"height": 124,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_left.png",
+					"uncompressed_rgba_bytes": 220224,
+					"width": 444
+				},
+				{
+					"height": 232,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_mid_right.png",
+					"uncompressed_rgba_bytes": 647744,
+					"width": 698
+				},
+				{
+					"height": 118,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_center.png",
+					"uncompressed_rgba_bytes": 163312,
+					"width": 346
+				},
+				{
+					"height": 100,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_far.png",
+					"uncompressed_rgba_bytes": 125600,
+					"width": 314
+				},
+				{
+					"height": 330,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_high.png",
+					"uncompressed_rgba_bytes": 1283040,
+					"width": 972
+				},
+				{
+					"height": 968,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_foreground_rosette.png",
+					"uncompressed_rgba_bytes": 2354176,
+					"width": 608
+				},
+				{
+					"height": 1008,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_boundary_berry_fan.png",
+					"uncompressed_rgba_bytes": 2532096,
+					"width": 628
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_0_add.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_0_subtract.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_1_add.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_1_subtract.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_0_add.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 2048
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_0_subtract.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 2048
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_1_add.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 1024
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_1_subtract.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_0.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_1.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_2.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_arrival.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_castle.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/water_arrival_shore.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/water_castle_shore.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/fx_water/fx_water_ripple_ring_atlas.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 167,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/cloud_painted.png",
+					"uncompressed_rgba_bytes": 218436,
+					"width": 327
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+					"uncompressed_rgba_bytes": 47104,
+					"width": 46
+				},
+				{
+					"height": 360,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+					"uncompressed_rgba_bytes": 1116000,
+					"width": 775
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/castle_fixed.png",
+					"uncompressed_rgba_bytes": 4186112,
+					"width": 1022
+				},
+				{
+					"height": 576,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_contact.png",
+					"uncompressed_rgba_bytes": 2359296,
+					"width": 1024
+				},
+				{
+					"height": 412,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+					"uncompressed_rgba_bytes": 700400,
+					"width": 425
+				},
+				{
+					"height": 719,
+					"path": "res://assets/props/story/play_swing_frame.png",
+					"uncompressed_rgba_bytes": 2945024,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/props/story/play_swing_seat.png",
+					"uncompressed_rgba_bytes": 2269184,
+					"width": 554
+				},
+				{
+					"height": 168,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+					"uncompressed_rgba_bytes": 253344,
+					"width": 377
+				},
+				{
+					"height": 128,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+					"uncompressed_rgba_bytes": 131072,
+					"width": 256
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 228,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+					"uncompressed_rgba_bytes": 181488,
+					"width": 199
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/characters/roshan_25d/roshan_directional.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 640,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+					"uncompressed_rgba_bytes": 1638400,
+					"width": 640
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/bellflower_whole_breeze.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/huckleberry_restyled_breeze.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 768,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/conifer_breeze.png",
+					"uncompressed_rgba_bytes": 2359296,
+					"width": 768
+				},
+				{
+					"height": 286,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_front_rail_fixed.png",
+					"uncompressed_rgba_bytes": 347776,
+					"width": 304
+				},
+				{
+					"height": 576,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_chains.png",
+					"uncompressed_rgba_bytes": 2064384,
+					"width": 896
+				}
+			],
+			"view": "canvas_screen_2_day",
+			"wall_frame_ms_median": 6.94,
+			"wall_frame_ms_p95": 7.222
+		},
+		{
+			"bound_texture_uncompressed_rgba_bytes": 180199380,
+			"bound_unique_textures": 78,
+			"draw_calls_median": 101.0,
+			"global_texture_bytes": 440528896.0,
+			"samples": 120,
+			"textures": [
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c0.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c1.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c2.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c3.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c4.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c5.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c0.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c1.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c2.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c3.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c4.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c5.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 4096,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_whole_tree.png",
+					"uncompressed_rgba_bytes": 16777216,
+					"width": 1024
+				},
+				{
+					"height": 416,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_lawn.png",
+					"uncompressed_rgba_bytes": 1677312,
+					"width": 1008
+				},
+				{
+					"height": 286,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_front_edge.png",
+					"uncompressed_rgba_bytes": 706992,
+					"width": 618
+				},
+				{
+					"height": 456,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_upper_left.png",
+					"uncompressed_rgba_bytes": 1831296,
+					"width": 1004
+				},
+				{
+					"height": 278,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_upper_right.png",
+					"uncompressed_rgba_bytes": 1132016,
+					"width": 1018
+				},
+				{
+					"height": 302,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_lower_lawn.png",
+					"uncompressed_rgba_bytes": 1205584,
+					"width": 998
+				},
+				{
+					"height": 500,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_left_verge.png",
+					"uncompressed_rgba_bytes": 1536000,
+					"width": 768
+				},
+				{
+					"height": 294,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_right_verge.png",
+					"uncompressed_rgba_bytes": 834960,
+					"width": 710
+				},
+				{
+					"height": 476,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_bank_left.png",
+					"uncompressed_rgba_bytes": 704480,
+					"width": 370
+				},
+				{
+					"height": 414,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_bank_right.png",
+					"uncompressed_rgba_bytes": 1629504,
+					"width": 984
+				},
+				{
+					"height": 266,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_hedge_left.png",
+					"uncompressed_rgba_bytes": 793744,
+					"width": 746
+				},
+				{
+					"height": 198,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_hedge_right.png",
+					"uncompressed_rgba_bytes": 788832,
+					"width": 996
+				},
+				{
+					"height": 464,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_approach_bank.png",
+					"uncompressed_rgba_bytes": 1280640,
+					"width": 690
+				},
+				{
+					"height": 352,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_far_bank.png",
+					"uncompressed_rgba_bytes": 1396736,
+					"width": 992
+				},
+				{
+					"height": 320,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_high_left.png",
+					"uncompressed_rgba_bytes": 949760,
+					"width": 742
+				},
+				{
+					"height": 360,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_high_right.png",
+					"uncompressed_rgba_bytes": 1333440,
+					"width": 926
+				},
+				{
+					"height": 116,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_small_center.png",
+					"uncompressed_rgba_bytes": 173536,
+					"width": 374
+				},
+				{
+					"height": 120,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_small_right.png",
+					"uncompressed_rgba_bytes": 193920,
+					"width": 404
+				},
+				{
+					"height": 158,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_mid_right.png",
+					"uncompressed_rgba_bytes": 310944,
+					"width": 492
+				},
+				{
+					"height": 350,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_high_left.png",
+					"uncompressed_rgba_bytes": 1313200,
+					"width": 938
+				},
+				{
+					"height": 390,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_high_right.png",
+					"uncompressed_rgba_bytes": 1535040,
+					"width": 984
+				},
+				{
+					"height": 124,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_left.png",
+					"uncompressed_rgba_bytes": 220224,
+					"width": 444
+				},
+				{
+					"height": 232,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_mid_right.png",
+					"uncompressed_rgba_bytes": 647744,
+					"width": 698
+				},
+				{
+					"height": 118,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_center.png",
+					"uncompressed_rgba_bytes": 163312,
+					"width": 346
+				},
+				{
+					"height": 100,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_far.png",
+					"uncompressed_rgba_bytes": 125600,
+					"width": 314
+				},
+				{
+					"height": 330,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_high.png",
+					"uncompressed_rgba_bytes": 1283040,
+					"width": 972
+				},
+				{
+					"height": 968,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_foreground_rosette.png",
+					"uncompressed_rgba_bytes": 2354176,
+					"width": 608
+				},
+				{
+					"height": 1008,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_boundary_berry_fan.png",
+					"uncompressed_rgba_bytes": 2532096,
+					"width": 628
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_0_add.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_0_subtract.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_1_add.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_1_subtract.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_0_add.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 2048
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_0_subtract.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 2048
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_1_add.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 1024
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_1_subtract.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_0.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_1.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_2.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_arrival.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_castle.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/water_arrival_shore.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/water_castle_shore.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/fx_water/fx_water_ripple_ring_atlas.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 167,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/cloud_painted.png",
+					"uncompressed_rgba_bytes": 218436,
+					"width": 327
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+					"uncompressed_rgba_bytes": 47104,
+					"width": 46
+				},
+				{
+					"height": 360,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+					"uncompressed_rgba_bytes": 1116000,
+					"width": 775
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/castle_fixed.png",
+					"uncompressed_rgba_bytes": 4186112,
+					"width": 1022
+				},
+				{
+					"height": 576,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_contact.png",
+					"uncompressed_rgba_bytes": 2359296,
+					"width": 1024
+				},
+				{
+					"height": 412,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+					"uncompressed_rgba_bytes": 700400,
+					"width": 425
+				},
+				{
+					"height": 719,
+					"path": "res://assets/props/story/play_swing_frame.png",
+					"uncompressed_rgba_bytes": 2945024,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/props/story/play_swing_seat.png",
+					"uncompressed_rgba_bytes": 2269184,
+					"width": 554
+				},
+				{
+					"height": 168,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+					"uncompressed_rgba_bytes": 253344,
+					"width": 377
+				},
+				{
+					"height": 128,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+					"uncompressed_rgba_bytes": 131072,
+					"width": 256
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 228,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+					"uncompressed_rgba_bytes": 181488,
+					"width": 199
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/raccoon_idle_padded.png",
+					"uncompressed_rgba_bytes": 1310720,
+					"width": 640
+				},
+				{
+					"height": 512,
+					"path": "res://assets/characters/roshan_25d/roshan_directional.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 640,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+					"uncompressed_rgba_bytes": 1638400,
+					"width": 640
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/bellflower_whole_breeze.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/huckleberry_restyled_breeze.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 768,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/conifer_breeze.png",
+					"uncompressed_rgba_bytes": 2359296,
+					"width": 768
+				},
+				{
+					"height": 286,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_front_rail_fixed.png",
+					"uncompressed_rgba_bytes": 347776,
+					"width": 304
+				},
+				{
+					"height": 576,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_chains.png",
+					"uncompressed_rgba_bytes": 2064384,
+					"width": 896
+				}
+			],
+			"view": "canvas_screen_3_day",
+			"wall_frame_ms_median": 6.944,
+			"wall_frame_ms_p95": 7.276
+		},
+		{
+			"bound_texture_uncompressed_rgba_bytes": 185823372,
+			"bound_unique_textures": 80,
+			"draw_calls_median": 105.0,
+			"global_texture_bytes": 442396672.0,
+			"samples": 120,
+			"textures": [
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c0.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c1.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c2.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c3.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c4.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c5.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c0.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c1.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c2.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c3.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c4.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c5.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 4096,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_whole_tree.png",
+					"uncompressed_rgba_bytes": 16777216,
+					"width": 1024
+				},
+				{
+					"height": 416,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_lawn.png",
+					"uncompressed_rgba_bytes": 1677312,
+					"width": 1008
+				},
+				{
+					"height": 286,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_front_edge.png",
+					"uncompressed_rgba_bytes": 706992,
+					"width": 618
+				},
+				{
+					"height": 456,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_upper_left.png",
+					"uncompressed_rgba_bytes": 1831296,
+					"width": 1004
+				},
+				{
+					"height": 278,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_upper_right.png",
+					"uncompressed_rgba_bytes": 1132016,
+					"width": 1018
+				},
+				{
+					"height": 302,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_lower_lawn.png",
+					"uncompressed_rgba_bytes": 1205584,
+					"width": 998
+				},
+				{
+					"height": 500,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_left_verge.png",
+					"uncompressed_rgba_bytes": 1536000,
+					"width": 768
+				},
+				{
+					"height": 294,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_right_verge.png",
+					"uncompressed_rgba_bytes": 834960,
+					"width": 710
+				},
+				{
+					"height": 476,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_bank_left.png",
+					"uncompressed_rgba_bytes": 704480,
+					"width": 370
+				},
+				{
+					"height": 414,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_bank_right.png",
+					"uncompressed_rgba_bytes": 1629504,
+					"width": 984
+				},
+				{
+					"height": 266,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_hedge_left.png",
+					"uncompressed_rgba_bytes": 793744,
+					"width": 746
+				},
+				{
+					"height": 198,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_hedge_right.png",
+					"uncompressed_rgba_bytes": 788832,
+					"width": 996
+				},
+				{
+					"height": 464,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_approach_bank.png",
+					"uncompressed_rgba_bytes": 1280640,
+					"width": 690
+				},
+				{
+					"height": 352,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_far_bank.png",
+					"uncompressed_rgba_bytes": 1396736,
+					"width": 992
+				},
+				{
+					"height": 320,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_high_left.png",
+					"uncompressed_rgba_bytes": 949760,
+					"width": 742
+				},
+				{
+					"height": 360,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_high_right.png",
+					"uncompressed_rgba_bytes": 1333440,
+					"width": 926
+				},
+				{
+					"height": 116,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_small_center.png",
+					"uncompressed_rgba_bytes": 173536,
+					"width": 374
+				},
+				{
+					"height": 120,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_small_right.png",
+					"uncompressed_rgba_bytes": 193920,
+					"width": 404
+				},
+				{
+					"height": 158,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_mid_right.png",
+					"uncompressed_rgba_bytes": 310944,
+					"width": 492
+				},
+				{
+					"height": 350,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_high_left.png",
+					"uncompressed_rgba_bytes": 1313200,
+					"width": 938
+				},
+				{
+					"height": 390,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_high_right.png",
+					"uncompressed_rgba_bytes": 1535040,
+					"width": 984
+				},
+				{
+					"height": 124,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_left.png",
+					"uncompressed_rgba_bytes": 220224,
+					"width": 444
+				},
+				{
+					"height": 232,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_mid_right.png",
+					"uncompressed_rgba_bytes": 647744,
+					"width": 698
+				},
+				{
+					"height": 118,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_center.png",
+					"uncompressed_rgba_bytes": 163312,
+					"width": 346
+				},
+				{
+					"height": 100,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_far.png",
+					"uncompressed_rgba_bytes": 125600,
+					"width": 314
+				},
+				{
+					"height": 330,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_high.png",
+					"uncompressed_rgba_bytes": 1283040,
+					"width": 972
+				},
+				{
+					"height": 968,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_foreground_rosette.png",
+					"uncompressed_rgba_bytes": 2354176,
+					"width": 608
+				},
+				{
+					"height": 1008,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_boundary_berry_fan.png",
+					"uncompressed_rgba_bytes": 2532096,
+					"width": 628
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_0_add.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_0_subtract.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_1_add.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_1_subtract.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_0_add.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 2048
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_0_subtract.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 2048
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_1_add.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 1024
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_1_subtract.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_0.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_1.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_2.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_arrival.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_castle.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/water_arrival_shore.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/water_castle_shore.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/fx_water/fx_water_ripple_ring_atlas.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 167,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/cloud_painted.png",
+					"uncompressed_rgba_bytes": 218436,
+					"width": 327
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+					"uncompressed_rgba_bytes": 47104,
+					"width": 46
+				},
+				{
+					"height": 360,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+					"uncompressed_rgba_bytes": 1116000,
+					"width": 775
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/castle_fixed.png",
+					"uncompressed_rgba_bytes": 4186112,
+					"width": 1022
+				},
+				{
+					"height": 576,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_contact.png",
+					"uncompressed_rgba_bytes": 2359296,
+					"width": 1024
+				},
+				{
+					"height": 471,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_window_material.png",
+					"uncompressed_rgba_bytes": 1691832,
+					"width": 898
+				},
+				{
+					"height": 412,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+					"uncompressed_rgba_bytes": 700400,
+					"width": 425
+				},
+				{
+					"height": 719,
+					"path": "res://assets/props/story/play_swing_frame.png",
+					"uncompressed_rgba_bytes": 2945024,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/props/story/play_swing_seat.png",
+					"uncompressed_rgba_bytes": 2269184,
+					"width": 554
+				},
+				{
+					"height": 168,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+					"uncompressed_rgba_bytes": 253344,
+					"width": 377
+				},
+				{
+					"height": 128,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+					"uncompressed_rgba_bytes": 131072,
+					"width": 256
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 228,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+					"uncompressed_rgba_bytes": 181488,
+					"width": 199
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animals/otter_idle_atlas.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/characters/roshan_25d/roshan_directional.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 640,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+					"uncompressed_rgba_bytes": 1638400,
+					"width": 640
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/bellflower_whole_breeze.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/huckleberry_restyled_breeze.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 768,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/conifer_breeze.png",
+					"uncompressed_rgba_bytes": 2359296,
+					"width": 768
+				},
+				{
+					"height": 286,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_front_rail_fixed.png",
+					"uncompressed_rgba_bytes": 347776,
+					"width": 304
+				},
+				{
+					"height": 576,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_chains.png",
+					"uncompressed_rgba_bytes": 2064384,
+					"width": 896
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/fairy/sprites/bug_firefly.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				}
+			],
+			"view": "screen_1_night",
+			"wall_frame_ms_median": 6.955,
+			"wall_frame_ms_p95": 7.16
+		},
+		{
+			"bound_texture_uncompressed_rgba_bytes": 185823372,
+			"bound_unique_textures": 80,
+			"draw_calls_median": 92.0,
+			"global_texture_bytes": 442396672.0,
+			"samples": 120,
+			"textures": [
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c0.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c1.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c2.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c3.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c4.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c5.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c0.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c1.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c2.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c3.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c4.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c5.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 4096,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_whole_tree.png",
+					"uncompressed_rgba_bytes": 16777216,
+					"width": 1024
+				},
+				{
+					"height": 416,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_lawn.png",
+					"uncompressed_rgba_bytes": 1677312,
+					"width": 1008
+				},
+				{
+					"height": 286,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_front_edge.png",
+					"uncompressed_rgba_bytes": 706992,
+					"width": 618
+				},
+				{
+					"height": 456,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_upper_left.png",
+					"uncompressed_rgba_bytes": 1831296,
+					"width": 1004
+				},
+				{
+					"height": 278,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_upper_right.png",
+					"uncompressed_rgba_bytes": 1132016,
+					"width": 1018
+				},
+				{
+					"height": 302,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_lower_lawn.png",
+					"uncompressed_rgba_bytes": 1205584,
+					"width": 998
+				},
+				{
+					"height": 500,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_left_verge.png",
+					"uncompressed_rgba_bytes": 1536000,
+					"width": 768
+				},
+				{
+					"height": 294,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_right_verge.png",
+					"uncompressed_rgba_bytes": 834960,
+					"width": 710
+				},
+				{
+					"height": 476,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_bank_left.png",
+					"uncompressed_rgba_bytes": 704480,
+					"width": 370
+				},
+				{
+					"height": 414,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_bank_right.png",
+					"uncompressed_rgba_bytes": 1629504,
+					"width": 984
+				},
+				{
+					"height": 266,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_hedge_left.png",
+					"uncompressed_rgba_bytes": 793744,
+					"width": 746
+				},
+				{
+					"height": 198,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_hedge_right.png",
+					"uncompressed_rgba_bytes": 788832,
+					"width": 996
+				},
+				{
+					"height": 464,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_approach_bank.png",
+					"uncompressed_rgba_bytes": 1280640,
+					"width": 690
+				},
+				{
+					"height": 352,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_far_bank.png",
+					"uncompressed_rgba_bytes": 1396736,
+					"width": 992
+				},
+				{
+					"height": 320,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_high_left.png",
+					"uncompressed_rgba_bytes": 949760,
+					"width": 742
+				},
+				{
+					"height": 360,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_high_right.png",
+					"uncompressed_rgba_bytes": 1333440,
+					"width": 926
+				},
+				{
+					"height": 116,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_small_center.png",
+					"uncompressed_rgba_bytes": 173536,
+					"width": 374
+				},
+				{
+					"height": 120,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_small_right.png",
+					"uncompressed_rgba_bytes": 193920,
+					"width": 404
+				},
+				{
+					"height": 158,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_mid_right.png",
+					"uncompressed_rgba_bytes": 310944,
+					"width": 492
+				},
+				{
+					"height": 350,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_high_left.png",
+					"uncompressed_rgba_bytes": 1313200,
+					"width": 938
+				},
+				{
+					"height": 390,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_high_right.png",
+					"uncompressed_rgba_bytes": 1535040,
+					"width": 984
+				},
+				{
+					"height": 124,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_left.png",
+					"uncompressed_rgba_bytes": 220224,
+					"width": 444
+				},
+				{
+					"height": 232,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_mid_right.png",
+					"uncompressed_rgba_bytes": 647744,
+					"width": 698
+				},
+				{
+					"height": 118,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_center.png",
+					"uncompressed_rgba_bytes": 163312,
+					"width": 346
+				},
+				{
+					"height": 100,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_far.png",
+					"uncompressed_rgba_bytes": 125600,
+					"width": 314
+				},
+				{
+					"height": 330,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_high.png",
+					"uncompressed_rgba_bytes": 1283040,
+					"width": 972
+				},
+				{
+					"height": 968,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_foreground_rosette.png",
+					"uncompressed_rgba_bytes": 2354176,
+					"width": 608
+				},
+				{
+					"height": 1008,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_boundary_berry_fan.png",
+					"uncompressed_rgba_bytes": 2532096,
+					"width": 628
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_0_add.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_0_subtract.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_1_add.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_1_subtract.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_0_add.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 2048
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_0_subtract.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 2048
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_1_add.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 1024
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_1_subtract.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_0.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_1.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_2.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_arrival.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_castle.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/water_arrival_shore.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/water_castle_shore.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/fx_water/fx_water_ripple_ring_atlas.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 167,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/cloud_painted.png",
+					"uncompressed_rgba_bytes": 218436,
+					"width": 327
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+					"uncompressed_rgba_bytes": 47104,
+					"width": 46
+				},
+				{
+					"height": 360,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+					"uncompressed_rgba_bytes": 1116000,
+					"width": 775
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/castle_fixed.png",
+					"uncompressed_rgba_bytes": 4186112,
+					"width": 1022
+				},
+				{
+					"height": 576,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_contact.png",
+					"uncompressed_rgba_bytes": 2359296,
+					"width": 1024
+				},
+				{
+					"height": 471,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_window_material.png",
+					"uncompressed_rgba_bytes": 1691832,
+					"width": 898
+				},
+				{
+					"height": 412,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+					"uncompressed_rgba_bytes": 700400,
+					"width": 425
+				},
+				{
+					"height": 719,
+					"path": "res://assets/props/story/play_swing_frame.png",
+					"uncompressed_rgba_bytes": 2945024,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/props/story/play_swing_seat.png",
+					"uncompressed_rgba_bytes": 2269184,
+					"width": 554
+				},
+				{
+					"height": 168,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+					"uncompressed_rgba_bytes": 253344,
+					"width": 377
+				},
+				{
+					"height": 128,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+					"uncompressed_rgba_bytes": 131072,
+					"width": 256
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 228,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+					"uncompressed_rgba_bytes": 181488,
+					"width": 199
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/characters/roshan_25d/roshan_directional.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 640,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+					"uncompressed_rgba_bytes": 1638400,
+					"width": 640
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/bellflower_whole_breeze.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/huckleberry_restyled_breeze.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 768,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/conifer_breeze.png",
+					"uncompressed_rgba_bytes": 2359296,
+					"width": 768
+				},
+				{
+					"height": 286,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_front_rail_fixed.png",
+					"uncompressed_rgba_bytes": 347776,
+					"width": 304
+				},
+				{
+					"height": 576,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_chains.png",
+					"uncompressed_rgba_bytes": 2064384,
+					"width": 896
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/fairy/sprites/bug_firefly.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				}
+			],
+			"view": "screen_2_night",
+			"wall_frame_ms_median": 6.947,
+			"wall_frame_ms_p95": 7.284
+		},
+		{
+			"bound_texture_uncompressed_rgba_bytes": 186085516,
+			"bound_unique_textures": 80,
+			"draw_calls_median": 103.0,
+			"global_texture_bytes": 443445248.0,
+			"samples": 120,
+			"textures": [
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c0.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c1.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c2.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c3.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c4.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r0_c5.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c0.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c1.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c2.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c3.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c4.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r1_c5.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 4096,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_whole_tree.png",
+					"uncompressed_rgba_bytes": 16777216,
+					"width": 1024
+				},
+				{
+					"height": 416,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_lawn.png",
+					"uncompressed_rgba_bytes": 1677312,
+					"width": 1008
+				},
+				{
+					"height": 286,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_front_edge.png",
+					"uncompressed_rgba_bytes": 706992,
+					"width": 618
+				},
+				{
+					"height": 456,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_upper_left.png",
+					"uncompressed_rgba_bytes": 1831296,
+					"width": 1004
+				},
+				{
+					"height": 278,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_upper_right.png",
+					"uncompressed_rgba_bytes": 1132016,
+					"width": 1018
+				},
+				{
+					"height": 302,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_lower_lawn.png",
+					"uncompressed_rgba_bytes": 1205584,
+					"width": 998
+				},
+				{
+					"height": 500,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_left_verge.png",
+					"uncompressed_rgba_bytes": 1536000,
+					"width": 768
+				},
+				{
+					"height": 294,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_right_verge.png",
+					"uncompressed_rgba_bytes": 834960,
+					"width": 710
+				},
+				{
+					"height": 476,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_bank_left.png",
+					"uncompressed_rgba_bytes": 704480,
+					"width": 370
+				},
+				{
+					"height": 414,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_bank_right.png",
+					"uncompressed_rgba_bytes": 1629504,
+					"width": 984
+				},
+				{
+					"height": 266,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_hedge_left.png",
+					"uncompressed_rgba_bytes": 793744,
+					"width": 746
+				},
+				{
+					"height": 198,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_hedge_right.png",
+					"uncompressed_rgba_bytes": 788832,
+					"width": 996
+				},
+				{
+					"height": 464,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_approach_bank.png",
+					"uncompressed_rgba_bytes": 1280640,
+					"width": 690
+				},
+				{
+					"height": 352,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_far_bank.png",
+					"uncompressed_rgba_bytes": 1396736,
+					"width": 992
+				},
+				{
+					"height": 320,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_high_left.png",
+					"uncompressed_rgba_bytes": 949760,
+					"width": 742
+				},
+				{
+					"height": 360,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_high_right.png",
+					"uncompressed_rgba_bytes": 1333440,
+					"width": 926
+				},
+				{
+					"height": 116,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_small_center.png",
+					"uncompressed_rgba_bytes": 173536,
+					"width": 374
+				},
+				{
+					"height": 120,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_small_right.png",
+					"uncompressed_rgba_bytes": 193920,
+					"width": 404
+				},
+				{
+					"height": 158,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/arrival_mid_right.png",
+					"uncompressed_rgba_bytes": 310944,
+					"width": 492
+				},
+				{
+					"height": 350,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_high_left.png",
+					"uncompressed_rgba_bytes": 1313200,
+					"width": 938
+				},
+				{
+					"height": 390,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_high_right.png",
+					"uncompressed_rgba_bytes": 1535040,
+					"width": 984
+				},
+				{
+					"height": 124,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_left.png",
+					"uncompressed_rgba_bytes": 220224,
+					"width": 444
+				},
+				{
+					"height": 232,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_mid_right.png",
+					"uncompressed_rgba_bytes": 647744,
+					"width": 698
+				},
+				{
+					"height": 118,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_center.png",
+					"uncompressed_rgba_bytes": 163312,
+					"width": 346
+				},
+				{
+					"height": 100,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_small_far.png",
+					"uncompressed_rgba_bytes": 125600,
+					"width": 314
+				},
+				{
+					"height": 330,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_high.png",
+					"uncompressed_rgba_bytes": 1283040,
+					"width": 972
+				},
+				{
+					"height": 968,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_foreground_rosette.png",
+					"uncompressed_rgba_bytes": 2354176,
+					"width": 608
+				},
+				{
+					"height": 1008,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_boundary_berry_fan.png",
+					"uncompressed_rgba_bytes": 2532096,
+					"width": 628
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_0_add.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_0_subtract.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_1_add.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_near_1_subtract.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_0_add.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 2048
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_0_subtract.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 2048
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_1_add.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 1024
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/cloud_bank_far_1_subtract.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_0.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_1.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_2.png",
+					"uncompressed_rgba_bytes": 1048576,
+					"width": 512
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_arrival.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_castle.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/water_arrival_shore.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/water_castle_shore.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 2048
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/fx_water/fx_water_ripple_ring_atlas.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 167,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/cloud_painted.png",
+					"uncompressed_rgba_bytes": 218436,
+					"width": 327
+				},
+				{
+					"height": 256,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+					"uncompressed_rgba_bytes": 47104,
+					"width": 46
+				},
+				{
+					"height": 360,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+					"uncompressed_rgba_bytes": 1116000,
+					"width": 775
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/castle_fixed.png",
+					"uncompressed_rgba_bytes": 4186112,
+					"width": 1022
+				},
+				{
+					"height": 576,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_contact.png",
+					"uncompressed_rgba_bytes": 2359296,
+					"width": 1024
+				},
+				{
+					"height": 471,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_window_material.png",
+					"uncompressed_rgba_bytes": 1691832,
+					"width": 898
+				},
+				{
+					"height": 412,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+					"uncompressed_rgba_bytes": 700400,
+					"width": 425
+				},
+				{
+					"height": 719,
+					"path": "res://assets/props/story/play_swing_frame.png",
+					"uncompressed_rgba_bytes": 2945024,
+					"width": 1024
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/props/story/play_swing_seat.png",
+					"uncompressed_rgba_bytes": 2269184,
+					"width": 554
+				},
+				{
+					"height": 168,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+					"uncompressed_rgba_bytes": 253344,
+					"width": 377
+				},
+				{
+					"height": 128,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+					"uncompressed_rgba_bytes": 131072,
+					"width": 256
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 192,
+					"path": "",
+					"uncompressed_rgba_bytes": 147456,
+					"width": 192
+				},
+				{
+					"height": 228,
+					"path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+					"uncompressed_rgba_bytes": 181488,
+					"width": 199
+				},
+				{
+					"height": 512,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/raccoon_idle_padded.png",
+					"uncompressed_rgba_bytes": 1310720,
+					"width": 640
+				},
+				{
+					"height": 512,
+					"path": "res://assets/characters/roshan_25d/roshan_directional.png",
+					"uncompressed_rgba_bytes": 2097152,
+					"width": 1024
+				},
+				{
+					"height": 640,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/grass_breeze.png",
+					"uncompressed_rgba_bytes": 1638400,
+					"width": 640
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/bellflower_whole_breeze.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/sprites/sky_lagoon/whole_scene_v2/huckleberry_restyled_breeze.png",
+					"uncompressed_rgba_bytes": 8388608,
+					"width": 2048
+				},
+				{
+					"height": 768,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/conifer_breeze.png",
+					"uncompressed_rgba_bytes": 2359296,
+					"width": 768
+				},
+				{
+					"height": 286,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_front_rail_fixed.png",
+					"uncompressed_rgba_bytes": 347776,
+					"width": 304
+				},
+				{
+					"height": 576,
+					"path": "res://assets/sprites/sky_lagoon/animated_v1/bridge_chains.png",
+					"uncompressed_rgba_bytes": 2064384,
+					"width": 896
+				},
+				{
+					"height": 1024,
+					"path": "res://assets/fairy/sprites/bug_firefly.png",
+					"uncompressed_rgba_bytes": 4194304,
+					"width": 1024
+				}
+			],
+			"view": "screen_3_night",
+			"wall_frame_ms_median": 6.943,
+			"wall_frame_ms_p95": 7.214
+		}
+	]
+}

@@ -1,0 +1,175 @@
+{
+  "scope": "Current ten Sky Lagoon animal runtime atlases",
+  "method": "8-connected alpha>8 components larger than100pixels crossing regular2x2 cell boundaries; diagnostic topology check, not full anatomy acceptance",
+  "results": [
+    {
+      "file": "frog_idle_atlas.png",
+      "sha256": "d6fc8b3e949a0c6885580a0b03e6088dba2c9fa7567b793ea36e8073cdd46c1d",
+      "crossing_components": []
+    },
+    {
+      "file": "frog_startle_atlas.png",
+      "sha256": "fa8b1442b6c270b91f2c69b9c143361adaabfbd044624598dc292c1e3692e4d5",
+      "crossing_components": [
+        {
+          "area": 12765,
+          "bbox": [
+            240,
+            280,
+            502,
+            447
+          ],
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "file": "hare_idle_atlas.png",
+      "sha256": "723a3a473845c506aeb45fe1ff1b5da5ea4794495dbd4c7a4946918016fa63ff",
+      "crossing_components": []
+    },
+    {
+      "file": "hare_startle_atlas.png",
+      "sha256": "4a14b105659f7e771728d1f1d248cfa35fede871b73a59aca8a15c65d2ef9b57",
+      "crossing_components": [
+        {
+          "area": 15173,
+          "bbox": [
+            248,
+            310,
+            480,
+            434
+          ],
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "file": "otter_idle_atlas.png",
+      "sha256": "e6497ab0f6c7e4f98899c18451740cade7683abcaa97b7d342f9c783a8c599af",
+      "crossing_components": []
+    },
+    {
+      "file": "otter_startle_atlas.png",
+      "sha256": "8d3c8785dee831c71d22c11bd8c849b126a72d0bd1ac790822255a698b074560",
+      "crossing_components": [
+        {
+          "area": 9246,
+          "bbox": [
+            253,
+            135,
+            494,
+            207
+          ],
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "area": 11011,
+          "bbox": [
+            253,
+            322,
+            491,
+            410
+          ],
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "file": "raccoon_idle_atlas.png",
+      "sha256": "3ed12de88641330134844cdc37927aecf022ae74187f4b4deb2193a3c282d9dc",
+      "crossing_components": [
+        {
+          "area": 20184,
+          "bbox": [
+            18,
+            277,
+            257,
+            448
+          ],
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "file": "raccoon_startle_atlas.png",
+      "sha256": "f2b2686b506edee91e28b7bd32a1c053eda4ade46beb6263664adb5421838b48",
+      "crossing_components": []
+    },
+    {
+      "file": "squirrel_idle_atlas.png",
+      "sha256": "28538c107947733672f80988ce08335bb8d78db11192de95de7891d4fcda1d88",
+      "crossing_components": []
+    },
+    {
+      "file": "squirrel_startle_atlas.png",
+      "sha256": "aa0705335434512d06657286ef3dabc712b8790a251ab5eac3644fe2f886e044",
+      "crossing_components": [
+        {
+          "area": 14774,
+          "bbox": [
+            254,
+            317,
+            500,
+            436
+          ],
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

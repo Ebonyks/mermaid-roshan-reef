@@ -1,0 +1,115 @@
+{
+  "schema": "sky-lagoon-animated-rebuild-plan-v1",
+  "baseline": "5920c673305989ee29d91876480ff445dba9fc8b",
+  "return_commit": "0d8073b631d968f2c22a56726e4dc892d274f038",
+  "scope": "Three gameplay stages, not cinematic delivery",
+  "owner_frame_ranges": {
+    "simple": [
+      2,
+      4
+    ],
+    "complex": [
+      6,
+      24
+    ]
+  },
+  "method": "Codex built-in generation for drawings, Krita/ORA editable layers; direct Aseprite cels when identity drifts. No API key. Bridge uses Aseprite.",
+  "source_gaps": [
+    "Returned MP4s/stills omitted from Git; report observations unverified",
+    "v16 review plates are 1254 square and four-layer sources, not production-ready 2048 masters",
+    "Prior generated huckleberry poses drifted: use direct Aseprite branch-level authorship",
+    "Bellflower green fringe repaired in local candidate; inspect at runtime scale"
+  ],
+  "stages": [
+    "arrival",
+    "meadow",
+    "castle"
+  ],
+  "animation_inventory": [
+    {
+      "id": "grass",
+      "frames": 4,
+      "scope": "sparse ground cover; fixed root"
+    },
+    {
+      "id": "background_leaf_tips",
+      "frames": 3,
+      "scope": "subtle backdrop movement",
+      "implementation": "Original-pixel arrival lower bough tier, three direct-Aseprite poses; generated full-tree trial rejected for drift."
+    },
+    {
+      "id": "huckleberry",
+      "frames": 8,
+      "scope": "three branch groups, berry count fixed"
+    },
+    {
+      "id": "bellflower",
+      "frames": 8,
+      "scope": "three bells and one bud, stem attachment fixed"
+    },
+    {
+      "id": "conifer_bough",
+      "frames": 6,
+      "scope": "sparse branch tips; trunk fixed"
+    },
+    {
+      "id": "bridge_contact",
+      "frames": 12,
+      "scope": "local deck flex; supports fixed; chain secondary motion"
+    },
+    {
+      "id": "water_highlights",
+      "frames": 12,
+      "scope": "painted calm loop with no shoreline motion"
+    },
+    {
+      "id": "shoreline_lap",
+      "frames": 8,
+      "scope": "behind stones"
+    },
+    {
+      "id": "touch_ripple",
+      "frames": 8,
+      "scope": "one-shot, complete fade"
+    },
+    {
+      "id": "window_glint",
+      "frames": 4,
+      "scope": "tiny optional material accent",
+      "decision": "Omit optional accent: keep the castle door/portrait as warm focal cue; avoid implying window interactivity."
+    }
+  ],
+  "rollback": {
+    "baseline_commit": "5920c673305989ee29d91876480ff445dba9fc8b",
+    "original_assets": "preserve unchanged",
+    "runtime_switch": "one stage-art version selector plus separate plants/water/bridge toggles",
+    "static_mode": "rest frames, unchanged gameplay/save state",
+    "failure_policy": "fallback to preserved baseline stage on missing/malformed candidate manifest"
+  },
+  "audit": {
+    "visual_target": 4.9,
+    "no_self_certified_pass": true,
+    "checks": [
+      "native source coverage",
+      "unique source-pixel ownership",
+      "root/support anchors",
+      "silhouette and object-count consistency",
+      "alpha edges on dark/light/scene backgrounds",
+      "loop boundary",
+      "path and door approach clearance",
+      "pause/focus/exit/re-entry",
+      "no zero-input reward",
+      "repeated contact does not queue",
+      "static rollback image comparison",
+      "Mobile frame pacing/overdraw"
+    ],
+    "evidence_claims": [
+      "machine",
+      "visual review",
+      "device",
+      "child",
+      "owner"
+    ]
+  },
+  "status": "source inventory and direct-animation pilot"
+}

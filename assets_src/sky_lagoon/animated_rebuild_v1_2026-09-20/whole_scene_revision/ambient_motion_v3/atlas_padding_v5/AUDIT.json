@@ -1,0 +1,597 @@
+{
+  "status": "READ_ONLY_OPPORTUNITY_AUDIT_NOT_IMPLEMENTED",
+  "scope": "28 whole-scene cards only; excludes new cloud banks, grass groups, other overlay clips and rollback textures",
+  "method": "Exact nonzero alpha union across all played cells, retaining two transparent pixels for filtering. No threshold trimming, resampling or changed visible paint. Grid-cropping candidates must also obey texture dimension rule. Runtime placement/probes/edge sampling must be adjusted and verified before use.",
+  "total_raw_bytes_before": 69730304,
+  "possible_saving_bytes": 24298960,
+  "cards": [
+    {
+      "id": "arrival_whole_tree",
+      "original_dimensions": [
+        1024,
+        4096
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        0,
+        28,
+        237,
+        706
+      ],
+      "cropped_grid_dimensions": [
+        948,
+        2712
+      ],
+      "size_rule_satisfied": false,
+      "raw_bytes_before": 16777216,
+      "raw_bytes_after": 10283904,
+      "possible_saving_bytes": 0
+    },
+    {
+      "id": "arrival_lawn",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        5,
+        3,
+        509,
+        211
+      ],
+      "cropped_grid_dimensions": [
+        1008,
+        416
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 1677312,
+      "possible_saving_bytes": 419840
+    },
+    {
+      "id": "arrival_front_edge",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        8,
+        51,
+        317,
+        194
+      ],
+      "cropped_grid_dimensions": [
+        618,
+        286
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 706992,
+      "possible_saving_bytes": 1390160
+    },
+    {
+      "id": "meadow_upper_left",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        7,
+        5,
+        509,
+        233
+      ],
+      "cropped_grid_dimensions": [
+        1004,
+        456
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 1831296,
+      "possible_saving_bytes": 265856
+    },
+    {
+      "id": "meadow_upper_right",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        2,
+        1,
+        511,
+        140
+      ],
+      "cropped_grid_dimensions": [
+        1018,
+        278
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 1132016,
+      "possible_saving_bytes": 965136
+    },
+    {
+      "id": "meadow_lower_lawn",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        3,
+        12,
+        502,
+        163
+      ],
+      "cropped_grid_dimensions": [
+        998,
+        302
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 1205584,
+      "possible_saving_bytes": 891568
+    },
+    {
+      "id": "castle_left_verge",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        6,
+        6,
+        390,
+        256
+      ],
+      "cropped_grid_dimensions": [
+        768,
+        500
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 1536000,
+      "possible_saving_bytes": 561152
+    },
+    {
+      "id": "castle_right_verge",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        144,
+        62,
+        499,
+        209
+      ],
+      "cropped_grid_dimensions": [
+        710,
+        294
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 834960,
+      "possible_saving_bytes": 1262192
+    },
+    {
+      "id": "arrival_bank_left",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        9,
+        9,
+        194,
+        247
+      ],
+      "cropped_grid_dimensions": [
+        370,
+        476
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 704480,
+      "possible_saving_bytes": 1392672
+    },
+    {
+      "id": "arrival_bank_right",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        10,
+        20,
+        502,
+        227
+      ],
+      "cropped_grid_dimensions": [
+        984,
+        414
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 1629504,
+      "possible_saving_bytes": 467648
+    },
+    {
+      "id": "meadow_hedge_left",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        16,
+        40,
+        389,
+        173
+      ],
+      "cropped_grid_dimensions": [
+        746,
+        266
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 793744,
+      "possible_saving_bytes": 1303408
+    },
+    {
+      "id": "meadow_hedge_right",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        7,
+        7,
+        505,
+        106
+      ],
+      "cropped_grid_dimensions": [
+        996,
+        198
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 788832,
+      "possible_saving_bytes": 1308320
+    },
+    {
+      "id": "castle_approach_bank",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        12,
+        12,
+        357,
+        244
+      ],
+      "cropped_grid_dimensions": [
+        690,
+        464
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 1280640,
+      "possible_saving_bytes": 816512
+    },
+    {
+      "id": "castle_far_bank",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        11,
+        12,
+        507,
+        188
+      ],
+      "cropped_grid_dimensions": [
+        992,
+        352
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 1396736,
+      "possible_saving_bytes": 700416
+    },
+    {
+      "id": "arrival_high_left",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        0,
+        15,
+        371,
+        175
+      ],
+      "cropped_grid_dimensions": [
+        742,
+        320
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 949760,
+      "possible_saving_bytes": 1147392
+    },
+    {
+      "id": "arrival_high_right",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        7,
+        9,
+        470,
+        189
+      ],
+      "cropped_grid_dimensions": [
+        926,
+        360
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 1333440,
+      "possible_saving_bytes": 763712
+    },
+    {
+      "id": "arrival_small_center",
+      "original_dimensions": [
+        1024,
+        256
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        49,
+        33,
+        236,
+        91
+      ],
+      "cropped_grid_dimensions": [
+        374,
+        116
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 1048576,
+      "raw_bytes_after": 173536,
+      "possible_saving_bytes": 875040
+    },
+    {
+      "id": "arrival_small_right",
+      "original_dimensions": [
+        512,
+        256
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        21,
+        20,
+        223,
+        80
+      ],
+      "cropped_grid_dimensions": [
+        404,
+        120
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 524288,
+      "raw_bytes_after": 193920,
+      "possible_saving_bytes": 330368
+    },
+    {
+      "id": "arrival_mid_right",
+      "original_dimensions": [
+        1024,
+        256
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        28,
+        27,
+        274,
+        106
+      ],
+      "cropped_grid_dimensions": [
+        492,
+        158
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 1048576,
+      "raw_bytes_after": 310944,
+      "possible_saving_bytes": 737632
+    },
+    {
+      "id": "meadow_high_left",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        20,
+        19,
+        489,
+        194
+      ],
+      "cropped_grid_dimensions": [
+        938,
+        350
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 1313200,
+      "possible_saving_bytes": 783952
+    },
+    {
+      "id": "meadow_high_right",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        7,
+        10,
+        499,
+        205
+      ],
+      "cropped_grid_dimensions": [
+        984,
+        390
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 1535040,
+      "possible_saving_bytes": 562112
+    },
+    {
+      "id": "meadow_small_left",
+      "original_dimensions": [
+        1024,
+        256
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        126,
+        14,
+        348,
+        76
+      ],
+      "cropped_grid_dimensions": [
+        444,
+        124
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 1048576,
+      "raw_bytes_after": 220224,
+      "possible_saving_bytes": 828352
+    },
+    {
+      "id": "meadow_mid_right",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        32,
+        28,
+        381,
+        144
+      ],
+      "cropped_grid_dimensions": [
+        698,
+        232
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 647744,
+      "possible_saving_bytes": 1449408
+    },
+    {
+      "id": "meadow_small_center",
+      "original_dimensions": [
+        512,
+        256
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        20,
+        31,
+        193,
+        90
+      ],
+      "cropped_grid_dimensions": [
+        346,
+        118
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 524288,
+      "raw_bytes_after": 163312,
+      "possible_saving_bytes": 360976
+    },
+    {
+      "id": "meadow_small_far",
+      "original_dimensions": [
+        512,
+        256
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        2,
+        10,
+        159,
+        60
+      ],
+      "cropped_grid_dimensions": [
+        314,
+        100
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 524288,
+      "raw_bytes_after": 125600,
+      "possible_saving_bytes": 398688
+    },
+    {
+      "id": "castle_high",
+      "original_dimensions": [
+        1024,
+        512
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        10,
+        23,
+        496,
+        188
+      ],
+      "cropped_grid_dimensions": [
+        972,
+        330
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 2097152,
+      "raw_bytes_after": 1283040,
+      "possible_saving_bytes": 814112
+    },
+    {
+      "id": "castle_foreground_rosette",
+      "original_dimensions": [
+        1024,
+        1024
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        14,
+        10,
+        318,
+        252
+      ],
+      "cropped_grid_dimensions": [
+        608,
+        968
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 4194304,
+      "raw_bytes_after": 2354176,
+      "possible_saving_bytes": 1840128
+    },
+    {
+      "id": "meadow_boundary_berry_fan",
+      "original_dimensions": [
+        1024,
+        1024
+      ],
+      "exact_alpha_union_with_two_pixel_guard": [
+        12,
+        4,
+        326,
+        256
+      ],
+      "cropped_grid_dimensions": [
+        628,
+        1008
+      ],
+      "size_rule_satisfied": true,
+      "raw_bytes_before": 4194304,
+      "raw_bytes_after": 2532096,
+      "possible_saving_bytes": 1662208
+    }
+  ]
+}

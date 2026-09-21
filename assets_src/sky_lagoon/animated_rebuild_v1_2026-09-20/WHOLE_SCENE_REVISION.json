@@ -1,0 +1,63 @@
+{
+  "status": "IN_PROGRESS_NOT_ACCEPTED",
+  "replaces_visual_claims_for": "d90936bd71fe71c0f40a8732eaee47531f1b0966",
+  "owner_score": 3.5,
+  "target": 4.9,
+  "scope": "All three playable Sky Lagoon screens; source artwork identity and paths preserved. Gameplay animation, not cinematic delivery.",
+  "art_gap": "Existing isolated lower bough and scattered added tufts fail whole-scene motion coverage. Whole arrival tree and broad grass/cloud/shrub separation are needed.",
+  "direction": {
+    "arrival": "Whole foreground conifer with coordinated branch tiers and fixed planted trunk base; two shrub banks; broad foreground grass; multiple existing cloud masses.",
+    "meadow": "Broad grass patches on both sides of preserved path, planted huckleberry groups in foreground and middle distance, separate cloud masses.",
+    "castle": "Grass and shrubs on banks and right of descending path; whole conifer; cloud masses; retain contact-driven Aseprite bridge and improve water beyond opacity-only highlights."
+  },
+  "frame_contracts": {
+    "whole_tree": {
+      "frames": 12,
+      "method": "Layered rest source and direct Aseprite cels; authored tier flex, branch overlap and delayed tip settling; no isolated moving rectangle.",
+      "cycle_seconds": 4.8
+    },
+    "grass": {
+      "frames": 4,
+      "method": "Broad irregular authored patches, fixed soil and path edges; distinguish blade bend from moving the ground.",
+      "cycle_seconds": 2.8
+    },
+    "background_shrubs": {
+      "frames": 4,
+      "method": "Separate coherent foliage crowns with stable root and branch structure; smaller displacement in distant depth.",
+      "cycle_seconds": 3.6
+    },
+    "clouds": {
+      "frames": 4,
+      "method": "Separate existing complete cloud masses, heal sky behind, subtle contour evolution with slow bounded drift; no moving crop including mountains.",
+      "cycle_seconds": 12
+    },
+    "bridge": {
+      "frames": 12,
+      "method": "Keep Aseprite contact sequence and exact route; review deformation amplitude at gameplay size."
+    },
+    "water": {
+      "frames": 12,
+      "method": "Directional painted ripple evolution and local reflection displacement; fixed shoreline, contact ripple separate."
+    }
+  },
+  "rejection_checks": [
+    "Any single twitching patch attached to a frozen tree",
+    "Any duplicated source object remaining painted behind a moving card",
+    "Exposed holes, rectangular seams, texture boiling or floating roots",
+    "Only scattered new grass tufts while the main grassy region stays frozen",
+    "One moving cloud while the visible cloud field is otherwise untreated",
+    "Animation visible only with magnification or difference images",
+    "Path obstruction, castle silhouette drift, repetitive clone planting",
+    "Whole scene moving in synchrony or competing with Roshan"
+  ],
+  "evidence_required": [
+    "Rest vs original composite at native size",
+    "Full-object all-frame contact sheets with source bounds and pivots",
+    "Combined real-time clips for all three stages at gameplay size",
+    "Static/animated A-B with exact camera and lighting",
+    "Loop boundary and maximum-displacement edge review",
+    "Pause, teardown, rollback, bridge travel and save regression",
+    "Mobile renderer and target-device performance separately"
+  ],
+  "rollout": "New versioned sources first; original and rejected draft retained. Do not silently replace runtime textures until source and combined scene review establish improvement."
+}

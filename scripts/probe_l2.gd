@@ -502,6 +502,48 @@ func _layer_contract() -> bool:
 		and main.pause_layer.layer == 12
 
 
+func _animated_profile() -> bool:
+	return OS.get_cmdline_user_args().has("--sky-lagoon-animated-preview") or _whole_profile()
+
+
+func _whole_profile() -> bool:
+	return OS.get_cmdline_user_args().has("--sky-lagoon-whole-scene-preview")
+
+
+func _validate_candidate_pixels_and_inventory() -> void:
+	var directory: String = "res://assets/sprites/sky_lagoon/animated_v1/"
+	var expected: Dictionary = {"arrival_bough_base.png": 1, "arrival_boughs.png": 1, "bellflower_breeze.png": 2, "bridge_chains.png": 1, "bridge_contact.png": 1, "bridge_front_rail_fixed.png": 1, "castle_fixed.png": 1, "cloud_painted.png": 1, "conifer_breeze.png": 1, "grass_breeze.png": 12, "huckleberry_breeze.png": 2, "water_arrival_highlights.png": 1, "water_arrival_shore.png": 1, "water_castle_highlights.png": 1, "water_castle_shore.png": 1}
+	if _whole_profile():
+		expected["arrival_bough_base.png"] = 0
+		expected["bellflower_breeze.png"] = 0
+		expected["huckleberry_breeze.png"] = 0
+		_check("whole_scene_two_restyled_huckleberries", _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/huckleberry_restyled_breeze.png") == 2)
+		_check("whole_scene_two_rooted_bellflowers", _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/bellflower_whole_breeze.png") == 2)
+		expected["arrival_boughs.png"] = 0
+		expected["water_arrival_highlights.png"] = 0
+		expected["water_castle_highlights.png"] = 0
+		_check("whole_scene_two_surface_water_owners", bool(main.g.get("lagoon_water_surface_active", false)) and _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_arrival.png") == 1 and _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_castle.png") == 1)
+		_check("whole_scene_28_owned_motion_cards", (main.g.get("lagoon_whole_cards", []) as Array).size() == 28)
+		_check("whole_scene_18_rooted_grass_tufts", (main.g.get("lagoon_grass_groups", []) as Array).size() == 18)
+		_check("whole_scene_eight_cloud_difference_cards", (main.g.get("lagoon_cloud_bank_cards", []) as Array).size() == 8)
+		for tuft: int in range(3):
+			_check("whole_scene_grass_shared_atlas_%d" % tuft, _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_%d.png" % tuft) == 6)
+		_check("whole_scene_rosette_once", _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_foreground_rosette.png") == 1)
+		_check("whole_scene_meadow_boundary_plant_once", _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_boundary_berry_fan.png") == 1)
+	var inventory_ok: bool = true
+	for filename: String in expected:
+		inventory_ok = inventory_ok and _sprite_resource_count(promenade.root(), directory + filename) == int(expected[filename])
+	_check("animated_candidate_exact_sprite_ownership", inventory_ok)
+	var original: Image = Image.load_from_file(ProjectSettings.globalize_path("res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png"))
+	var repaired: Image = Image.load_from_file(ProjectSettings.globalize_path(directory + "arrival_bough_base.png"))
+	var atlas: Image = Image.load_from_file(ProjectSettings.globalize_path(directory + "arrival_boughs.png"))
+	original.convert(Image.FORMAT_RGBA8)
+	repaired.convert(Image.FORMAT_RGBA8)
+	atlas.convert(Image.FORMAT_RGBA8)
+	repaired.blend_rect(atlas, Rect2i(0, 0, 512, 256), Vector2i(0, 448))
+	_check("animated_bough_rest_reconstructs_original_tile", repaired.get_data() == original.get_data())
+
+
 func _validate_stage() -> void:
 	var stage_root: CanvasLayer = promenade.root()
 	var viewport_root: Control = promenade.canvas_root()
@@ -565,12 +607,14 @@ func _validate_assets_and_mural() -> void:
 			var expected := Vector2(
 				float(column) * TILE_SIZE.x + TILE_SIZE.x * 0.5,
 				float(row) * TILE_SIZE.y + TILE_SIZE.y * 0.5)
+			var expected_path: String = "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r%d_c%d.png" % [row, column]
+			if _animated_profile() and row == 0 and column == 0:
+				expected_path = "res://assets/sprites/sky_lagoon/animated_v1/arrival_bough_base.png"
+			if _whole_profile():
+				expected_path = "res://assets/sprites/sky_lagoon/whole_scene_v2/base_r%d_c%d.png" % [row, column]
 			var valid: bool = tile != null and tile.texture != null \
 				and tile.texture.get_size() == TILE_SIZE \
-				and tile.texture.resource_path == (
-					"res://assets/flats/sky_lagoon/main/"
-					+ "flat_sky_lagoon_main_panorama_v5_tile_r%d_c%d.png"
-					% [row, column]) \
+				and tile.texture.resource_path == expected_path \
 				and tile.centered and tile.position.is_equal_approx(expected) \
 				and tile.scale.is_equal_approx(Vector2.ONE)
 			tiles_ok = tiles_ok and valid
@@ -742,9 +786,7 @@ func _validate_parallax_and_coordinates() -> void:
 	_check("playground_actor_castle_share_locked_mural_socket",
 		factors_ok and locked_before == locked_after and locked_zero,
 		"before=%s after=%s" % [locked_before, locked_after])
-	var foreground_tree: Node = foreground_mural.get_child(0) \
-		if foreground_mural != null \
-		and foreground_mural.get_child_count() == 1 else null
+	var foreground_tree: Node = foreground_mural.get_node_or_null("SkyLagoonForegroundTree") if foreground_mural != null else null
 	var foreground_tree_texture := ""
 	var foreground_tree_base := Vector2.ZERO
 	if foreground_tree is Sprite2D:
@@ -754,9 +796,13 @@ func _validate_parallax_and_coordinates() -> void:
 			"ambient_base", Vector2.ZERO) as Vector2
 	var cards: Dictionary = layout.get("cards", {}) as Dictionary
 	var rejected_tree: Dictionary = cards.get("tall_tree", {}) as Dictionary
+	var expected_rear: int = 4 if _animated_profile() and not OS.get_cmdline_user_args().has("--sky-lagoon-animation-static") else 0
+	var expected_foreground: int = 19 if _animated_profile() else 1
+	var expected_tree_path: String = "res://assets/sprites/sky_lagoon/animated_v1/conifer_breeze.png" if _animated_profile() else "res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png"
+	var expected_tree_anchor: Vector2 = Vector2(6060, 1560) if _animated_profile() else Vector2(5750, 1335)
 	var geographic_ownership_ok: bool = \
-		int(rear_mural_content.get("count", 0)) == 0 \
-		and int(foreground_mural_content.get("count", 0)) == 1 \
+		int(rear_mural_content.get("count", 0)) == expected_rear \
+		and int(foreground_mural_content.get("count", 0)) == expected_foreground \
 		and not bool(rejected_tree.get("enabled", true)) \
 		and String(rejected_tree.get("role", "")) == "unsupported_new_dressing" \
 		and _sprite_resource_count(root_node,
@@ -766,10 +812,8 @@ func _validate_parallax_and_coordinates() -> void:
 		and not foreground_tree.has_meta("background_socket_healed") \
 		and String(foreground_tree.get_meta("placement_role", "")) == "new_dressing" \
 		and bool(foreground_tree.get_meta("geography_locked", false)) \
-		and foreground_tree_texture \
-			== "res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png" \
-		and foreground_tree_base.is_equal_approx(
-			Vector2(5750.0, 1510.0 - 350.0 * 0.5))
+		and foreground_tree_texture == expected_tree_path \
+		and foreground_tree_base.is_equal_approx(expected_tree_anchor)
 	_check("unsupported_path_tree_is_absent_and_dressing_is_truthful",
 		geographic_ownership_ok,
 		"rear=%s rejected=%s foreground=%s/%s/%s" % [rear_mural_content,
@@ -1181,14 +1225,26 @@ func _validate_door_and_reef_routes() -> void:
 	var gate: Dictionary = _target("castle_gate")
 	var gate_node: CanvasItem = gate.get("node") as CanvasItem
 	if gate_node != null:
-		promenade.set_master_route_x(5120.0)
+		promenade.set_master_route_x(4520.0 if _animated_profile() else 5120.0)
 		var gate_screen: Vector2 = _screen_center(gate_node)
 		promenade.handle_touch(gate_screen)
 		var focus_ok: bool = String(main.g.get(
 			"lagoon_promenade_focus", "")) == "castle_gate" \
 			and promenade.action_label() == "ENTER"
 		promenade.handle_touch(gate_screen)
-		await _frames(8)
+		if _animated_profile():
+			_check("animated_castle_repeat_tap_cannot_teleport", String(main.g.get("phase", "")) == "promenade" and promenade.master_route_x() == 4520.0)
+			var crossed: bool = false
+			for step: int in range(500):
+				promenade._tick_movement(0.016)
+				crossed = crossed or int(main.g.get("lagoon_bridge_play_count", 0)) > 0
+				promenade._tick_doorstep()
+				if String(main.g.get("phase", "")) == "hall":
+					break
+			if not OS.get_cmdline_user_args().has("--sky-lagoon-animation-static"):
+				_check("animated_castle_entry_crosses_contact_bridge", crossed)
+		else:
+			await _frames(8)
 		_check("castle_canvas_target_enters_existing_hall",
 			focus_ok and main.game == "level2" \
 			and String(main.g.get("phase", "")) == "hall")
@@ -1232,8 +1288,11 @@ func _init() -> void:
 	promenade = main._lagoon_promenade_ref()
 	_check("promenade_phase",
 		main.game == "level2" and String(main.g.get("phase", "")) == "promenade")
+	_check("requested_art_profile_active", String(main.g.get("lagoon_art_version_active", "")) == ("animated_v1" if _animated_profile() else "original"))
 	_validate_stage()
 	_validate_assets_and_mural()
+	if _animated_profile():
+		_validate_candidate_pixels_and_inventory()
 	_validate_parallax_and_coordinates()
 	_validate_targets_and_touch()
 	_validate_route_contact()

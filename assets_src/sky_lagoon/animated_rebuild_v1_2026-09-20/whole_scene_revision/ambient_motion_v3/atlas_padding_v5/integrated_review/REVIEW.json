@@ -1,0 +1,27 @@
+{
+  "status": "FOCUSED_AND_FULL_REGRESSION_PASS_VISUAL_ACCEPTANCE_OPEN",
+  "source_checkpoint": "d26f1af526892b4847edc6755f1ff011ce743ef9 plus scoped dirty changes",
+  "atlas_comparisons": 72,
+  "maximum_gpu_channel_error": 2,
+  "pixels_above_two_codes": 0,
+  "source_rgba_exact": true,
+  "raw_pack_mib_before": 114.5,
+  "raw_pack_mib_after": 91.32670593261719,
+  "measured_bound_sprite_raw_mib_preview": [
+    171.6,
+    177.46
+  ],
+  "device_acceptance": false,
+  "agent_visual_review": "Inspected runtime frog poses3/4, hare/otter/squirrel final pose contours and scene context. Frog feet complete, stray neighbor fragment removed. Some exit poses intentionally move beyond viewport; separate fixed-position captures distinguish viewport clipping from atlas clipping.",
+  "limits": [
+    "No new quality score or owner acceptance",
+    "Desktop wall-frame timing does not prove tablet performance",
+    "Animal action count and timing retained; no new drawn poses"
+  ],
+  "full_regression": {
+    "result": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/FULL_REGRESSION_PADDING_ANIMALS.json",
+    "runtime_probes": 78,
+    "all_exit_zero": true,
+    "inputs_changed": false
+  }
+}

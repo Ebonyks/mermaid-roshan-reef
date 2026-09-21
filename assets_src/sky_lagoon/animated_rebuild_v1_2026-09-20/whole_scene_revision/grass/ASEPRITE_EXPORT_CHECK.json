@@ -1,0 +1,76 @@
+{
+  "result": "PASS",
+  "regions": [
+    {
+      "id": "arrival_lawn",
+      "frames": 4,
+      "max_errors": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "arrival_front_edge",
+      "frames": 4,
+      "max_errors": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "meadow_upper_left",
+      "frames": 4,
+      "max_errors": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "meadow_upper_right",
+      "frames": 4,
+      "max_errors": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "meadow_lower_lawn",
+      "frames": 4,
+      "max_errors": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "castle_left_verge",
+      "frames": 4,
+      "max_errors": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "castle_right_verge",
+      "frames": 4,
+      "max_errors": [
+        0,
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "scope": "All 28 timeline exports differ by at most one 8-bit channel level due to Pillow/Aseprite alpha compositing rounding. Does not prove visual quality or broad coverage."
+}

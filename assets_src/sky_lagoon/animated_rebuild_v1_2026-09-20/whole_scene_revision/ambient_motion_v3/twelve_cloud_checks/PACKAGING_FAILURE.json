@@ -1,0 +1,7 @@
+{
+  "detected": "First twelve-cloud probe failed because source manifest still contained only four cloud definitions.",
+  "cause": "One-off packaging helper reused its manifest-path variable in a file-copy loop.",
+  "repair": "Write SOURCE.json using a separate manifest-path variable, inspect all twelve atlas rows, rebuild, rerun original checks. No game checks relaxed.",
+  "failed_evidence": "tmp/sky-lagoon-whole-scene-v2/twelve-cloud-integrated/whole_scene.log",
+  "corrected_evidence": "RESULTS.json"
+}

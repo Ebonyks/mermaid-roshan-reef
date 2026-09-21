@@ -1,0 +1,126 @@
+{
+  "status": "SOURCE_TRIAL_NOT_RUNTIME_ACCEPTED",
+  "method": "Direct Aseprite Lua rooted leaf-fan deformation, eight baked poses using original graded art; not newly hand-painted frames and not individual leaf isolation. Existing flower/stem action unchanged.",
+  "native_layers": 6,
+  "frames": 8,
+  "source_sha256": "bb2c06f7d028b82283324cc319251d1de7e8a05a5fdec5ac54baca244c82e5bd",
+  "checks": [
+    {
+      "frame": 0,
+      "connected_fraction": 1.0,
+      "changed_leaf_pixels": 0,
+      "root_rows452_512_exact": true,
+      "upper_stem_join_exact": true
+    },
+    {
+      "frame": 1,
+      "connected_fraction": 1.0,
+      "changed_leaf_pixels": 14543,
+      "root_rows452_512_exact": true,
+      "upper_stem_join_exact": true
+    },
+    {
+      "frame": 2,
+      "connected_fraction": 1.0,
+      "changed_leaf_pixels": 20539,
+      "root_rows452_512_exact": true,
+      "upper_stem_join_exact": true
+    },
+    {
+      "frame": 3,
+      "connected_fraction": 1.0,
+      "changed_leaf_pixels": 14543,
+      "root_rows452_512_exact": true,
+      "upper_stem_join_exact": true
+    },
+    {
+      "frame": 4,
+      "connected_fraction": 1.0,
+      "changed_leaf_pixels": 0,
+      "root_rows452_512_exact": true,
+      "upper_stem_join_exact": true
+    },
+    {
+      "frame": 5,
+      "connected_fraction": 1.0,
+      "changed_leaf_pixels": 14706,
+      "root_rows452_512_exact": true,
+      "upper_stem_join_exact": true
+    },
+    {
+      "frame": 6,
+      "connected_fraction": 1.0,
+      "changed_leaf_pixels": 20829,
+      "root_rows452_512_exact": true,
+      "upper_stem_join_exact": true
+    },
+    {
+      "frame": 7,
+      "connected_fraction": 1.0,
+      "changed_leaf_pixels": 14706,
+      "root_rows452_512_exact": true,
+      "upper_stem_join_exact": true
+    }
+  ],
+  "rest_equals_previous_graded_frame": true,
+  "forty_nonleaf_cels_exact": true,
+  "native_reopen_exact": true,
+  "timing": "Original eight durations preserved,2.08second loop",
+  "limits": [
+    "Whole leaf fan now moves, but individual leaves remain grouped",
+    "Amplitude/flower-phase/readability require actual size day/night GPU trial",
+    "Runtime unchanged while full regression runs"
+  ],
+  "ora": "Eight pose groups,six editable layers each;not a Krita animation timeline. Pillow recomposition alpha-exact;up to3/255visible RGB channel rounding difference from Aseprite across overlapping semitransparent pixels. Native Aseprite flattened reopen remains byte-exact.",
+  "ora_comparison": [
+    {
+      "frame": 0,
+      "alpha_exact": true,
+      "max_visible_channel_error": 1,
+      "mean_visible_channel_error": 0.0007779621836287119
+    },
+    {
+      "frame": 1,
+      "alpha_exact": true,
+      "max_visible_channel_error": 1,
+      "mean_visible_channel_error": 0.0010788026005572624
+    },
+    {
+      "frame": 2,
+      "alpha_exact": true,
+      "max_visible_channel_error": 2,
+      "mean_visible_channel_error": 0.0012233572060376067
+    },
+    {
+      "frame": 3,
+      "alpha_exact": true,
+      "max_visible_channel_error": 1,
+      "mean_visible_channel_error": 0.0012176831881159835
+    },
+    {
+      "frame": 4,
+      "alpha_exact": true,
+      "max_visible_channel_error": 2,
+      "mean_visible_channel_error": 0.0008420727492020533
+    },
+    {
+      "frame": 5,
+      "alpha_exact": true,
+      "max_visible_channel_error": 3,
+      "mean_visible_channel_error": 0.001379800853485064
+    },
+    {
+      "frame": 6,
+      "alpha_exact": true,
+      "max_visible_channel_error": 2,
+      "mean_visible_channel_error": 0.0014479586621997614
+    },
+    {
+      "frame": 7,
+      "alpha_exact": true,
+      "max_visible_channel_error": 2,
+      "mean_visible_channel_error": 0.001323184178701003
+    }
+  ],
+  "source_review": "Eight-pose contact sheet inspected: no detached flowers/leaves or visible root shifts. Movement remains subtle; actual display-scale review pending."
+}

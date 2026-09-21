@@ -1,0 +1,127 @@
+{
+  "status": "UNACCEPTED_EDITABLE_ANIMATION_STUDY",
+  "original_source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+  "original_context_rect": [
+    4500,
+    1680,
+    4955,
+    2038
+  ],
+  "generation": "Built-in Codex image generation; no API key",
+  "rejected_six_pose_reason": "Pose five changes leaf/bud topology; opaque backdrop",
+  "rebuild": "Aseprite --batch --script-param base=<this directory> --script author_cels.lua regenerates native Aseprite and 6 flattened plus 48 component cels from supplied working PNGs",
+  "files": [
+    {
+      "path": "author_cels.lua",
+      "sha256": "dae8f5d3b9d99f7e21ff8540702428688e22572cb2a3802d8919933d5be788f8"
+    },
+    {
+      "path": "back_leaf_fan-working.png",
+      "sha256": "dc90b9eaf741184cfda59d129f76600f561f6d20cad931b98da2770f7b469a72"
+    },
+    {
+      "path": "bud_cluster-working.png",
+      "sha256": "b60cbe7d06963ecb23dd92993ce081d06bbd83323586290dd84967b5cee4a755"
+    },
+    {
+      "path": "build_native_leaf_layers.py",
+      "sha256": "e16a74268151a90857186b4486630f647dcda32edd87e1db04cab6179239a58b"
+    },
+    {
+      "path": "cel-00.png",
+      "sha256": "994128bc5846384598a6e28935f3a418ff85999437eedef69fc0924ee30b11bb"
+    },
+    {
+      "path": "cel-01.png",
+      "sha256": "c0b195d67ced7b40fdff3e533a4183a36885fbc04cb3b8e855c16b9eda55f9de"
+    },
+    {
+      "path": "cel-02.png",
+      "sha256": "4143b0e932c08e6896ddf4ebe6e91a7f724289ab447bc189973b6da7269c5434"
+    },
+    {
+      "path": "cel-03.png",
+      "sha256": "5f10f839258d875f73837e57d6d60f24ca74c219ba581e65647a4ce91eb03235"
+    },
+    {
+      "path": "cel-04.png",
+      "sha256": "6ca13c1fbdbf877a7aba986361a158b3052d0f4254423e6f61ed2667ef2b6f3d"
+    },
+    {
+      "path": "cel-05.png",
+      "sha256": "f279009e79b93daacbc543edba3cdcf0dac5b310e3a1d21697cf389ec15320ee"
+    },
+    {
+      "path": "front_main-working.png",
+      "sha256": "08fa1e5c14a6026e97db45747bdf8255cbb1f5efca7419866744c204dfac2f32"
+    },
+    {
+      "path": "front_small_right-working.png",
+      "sha256": "0373b1b0cba68ff0d3a36122374d92629ab77900f2f002dde80a3ad0957c97db"
+    },
+    {
+      "path": "generated-rest-native.png",
+      "sha256": "f92ec0872580bd46fe1de20a195caa138b43a1a1667ba53b466b5f3ae9db5fa3"
+    },
+    {
+      "path": "LAYERS.json",
+      "sha256": "fc06d071ace0732e287f08f5dc7841a3c1a4ce6190c3ee8ec6585ff94a77d0d8"
+    },
+    {
+      "path": "leaf-ownership-review.jpg",
+      "sha256": "b35488342a46679aaec607164a1ca9064f7ee65d390c699696f3d02abfb07336"
+    },
+    {
+      "path": "left_broad-working.png",
+      "sha256": "620e7bf94b3ce193f2ab4a9771b60a44b5d03c3c2111de9f2d623130623cc6a1"
+    },
+    {
+      "path": "lower_hanging-working.png",
+      "sha256": "b55d2ef8263575b5d59bccf08a7b857661f2c8357e57c86d6b165a284eadf421"
+    },
+    {
+      "path": "material-color-patches.jpg",
+      "sha256": "b5cec260a2e93a73d69af182b57d5c9f80d5e6b0cb82dd3721af04d255fe12f9"
+    },
+    {
+      "path": "MATERIAL_COLOR.json",
+      "sha256": "731d2bc1596783e06b2cf8a875e96d30e19f6086d468b821bb0ecab90c1bd1f1"
+    },
+    {
+      "path": "MOTION_REVIEW.json",
+      "sha256": "35cf694c68d2861855386e37966980ca8011d875ea5cae933279217df968a60b"
+    },
+    {
+      "path": "original-context.png",
+      "sha256": "815ed8760656477004f91c732db71bfea53863547554b02898d909bec701d072"
+    },
+    {
+      "path": "rejected-generated-six-poses.png",
+      "sha256": "167b501df2dfcc7ea7402389530e1c70f98c70b3aac906b9b7015d40d0920c90"
+    },
+    {
+      "path": "right_broad-working.png",
+      "sha256": "cebffd33abefcdd53346fc9459a7116d8533ed564bffd2fa142e104c3f1c486d"
+    },
+    {
+      "path": "right_rear_tip-working.png",
+      "sha256": "b94ed8a58293a0a5f496486ad7d8047d903397eedfaa2224881ba383b66083d0"
+    },
+    {
+      "path": "rosette-six-cels.aseprite",
+      "sha256": "0d9049f11070d096c819ab97591b926574ba1f34b8316ada3aaed6f46af19456"
+    },
+    {
+      "path": "rosette-six-pose-layers.ora",
+      "sha256": "fae5e3f78d62d2fce6e86172977612053f762fd817bdad899c05c77a5b33c5e7"
+    },
+    {
+      "path": "six-keyframes.jpg",
+      "sha256": "6122e69d782162da2af08a61f599ecfa657d7852a9d7d92250ef416503a957a3"
+    },
+    {
+      "path": "whole-plant-breeze.gif",
+      "sha256": "4ff9ffd270453e4d97acfd92c050043849f4dac2de2fd331b990e11b4d11986f"
+    }
+  ]
+}
