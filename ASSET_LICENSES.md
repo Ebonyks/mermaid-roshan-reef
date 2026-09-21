@@ -7335,3 +7335,37 @@ Sky Lagoon animated rebuild source checkpoint (2026-09-20; review only):
 - `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/motion_quarantine_v7/path-path-core-mask.png` â€” Project-authored path audit from approved panorama and retired castle_approach_bank cels; review-only markings/mask, never generator or runtime pixels. Source-space diagnostic, not GPU proof.
 
 - `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/motion_quarantine_v7/path-path-overlap.png` â€” Project-authored path audit from approved panorama and retired castle_approach_bank cels; review-only markings/mask, never generator or runtime pixels. Source-space diagnostic, not GPU proof.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/path-gpu-board.jpg` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/canvas_screen_3_day_pathmask.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/canvas_screen_3_night_pathmask.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/visual/canvas_screen_3_day_rest.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/visual/canvas_screen_3_day_retired1.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/visual/canvas_screen_3_day_retired2.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/visual/canvas_screen_3_day_retired3.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/visual/canvas_screen_3_day_restored1.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/visual/canvas_screen_3_day_restored2.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/visual/canvas_screen_3_day_restored3.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/visual/canvas_screen_3_night_rest.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/visual/canvas_screen_3_night_retired1.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/visual/canvas_screen_3_night_retired2.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/visual/canvas_screen_3_night_retired3.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/visual/canvas_screen_3_night_restored1.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/visual/canvas_screen_3_night_restored2.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
+
+- `assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/path_gpu_v8/visual/canvas_screen_3_night_restored3.png` — Project Godot Mobile capture or derived path mask/review board, runtime82662c02. Existing project-art provenance retained; audit-only, never new runtime art or generator input.
