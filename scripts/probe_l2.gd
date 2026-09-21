@@ -517,7 +517,7 @@ func _validate_candidate_pixels_and_inventory() -> void:
 		expected["arrival_bough_base.png"] = 0
 		expected["bellflower_breeze.png"] = 0
 		expected["huckleberry_breeze.png"] = 0
-		_check("whole_scene_two_graded_huckleberries", _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/huckleberry_leaf_grade.png") == 2)
+		_check("whole_scene_two_restyled_huckleberries", _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/huckleberry_restyled_breeze.png") == 2)
 		_check("whole_scene_two_rooted_bellflowers", _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/bellflower_whole_breeze.png") == 2)
 		expected["arrival_boughs.png"] = 0
 		expected["water_arrival_highlights.png"] = 0
