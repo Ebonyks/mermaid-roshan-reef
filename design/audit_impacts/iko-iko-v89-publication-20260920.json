@@ -17,7 +17,8 @@
     "assets_src/audio/music/iko_iko_v89/manifest.json",
     "ASSET_LICENSES.md",
     "design/05_DOC_LEDGER.md",
-    ".gitattributes"
+    ".gitattributes",
+    "assets_src/audio/music/iko_iko_v89/remote-verification.json"
   ],
   "validation": [
     {
@@ -37,8 +38,8 @@
     },
     {
       "command": "Remote release-asset download and SHA-256 comparison",
-      "result": "PENDING",
-      "evidence": "Required before reporting uploaded."
+      "result": "PASS",
+      "evidence": "Unauthenticated full downloads of MP3, WAV and public manifest match selected source hashes. Four tracked files verified from immutable commit70655434. See assets_src/audio/music/iko_iko_v89/remote-verification.json. Source ZIP remains unpublished pending consent."
     }
   ],
   "acceptance_gaps": "v89 selected final for tonight. Song archive is not licensed/approved runtime game music. Proprietary instrument dependencies remain external; cross-machine plugin reactivation and relinking not tested. Raw/source recording publication awaiting explicit consent; only finished masters will be published now."
